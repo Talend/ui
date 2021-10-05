@@ -1,38 +1,40 @@
 name: Yarn talend auto upgrade
 on:
-  workflow_dispatch:
-  schedule:
-    # Every tuesday
-    - cron: "0 13 * * TUE"
+    workflow_dispatch:
+    schedule:
+        # Every tuesday
+        - cron: '0 13 * * TUE'
 
 jobs:
-  upgrade:
-    name: Upgrade yarn @talend dependencies
-    runs-on: ubuntu-latest
+    upgrade:
+        name: Upgrade yarn @talend dependencies
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@master
-      - name: Use Node.js 14
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: 'yarn'
+        steps:
+            - uses: actions/checkout@master
+            - name: Use Node.js 14
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 14
+                  registry-url: 'https://registry.npmjs.org/'
+                  scope: '@talend'
+                  cache: 'yarn'
 
-      # NODE_AUTH_TOKEN is not working with "npx" command..
-      - name: Upgrade talend dependencies
-        run: |
-          yarn
-          talend-scripts upgrade:deps
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            # NODE_AUTH_TOKEN is not working with "npx" command..
+            - name: Upgrade talend dependencies
+              run: |
+                  yarn
+                  yarn talend-scripts upgrade:deps
+                  yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.md
+                  git add dependencies-latest.md
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          assignees: tlnd-mhuchet
-          reviewers: tlnd-mhuchet
-          commit-message: "chore(scripts): Upgrade dependencies"
-          title: "chore(scripts): Upgrade talend dependencies"
-          branch: ci/chore/upgrade_webapp_talend_dependencies
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v3
+              with:
+                  assignees: tlnd-mhuchet
+                  reviewers: tlnd-mhuchet
+                  commit-message: 'chore(scripts): Upgrade dependencies'
+                  title: 'chore(scripts): Upgrade talend dependencies'
+                  branch: ci/chore/upgrade_webapp_talend_dependencies

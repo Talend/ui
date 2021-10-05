@@ -38,6 +38,7 @@ type Props = {
 	setZoom?: (transform: Transform) => void;
 	snapToGrid?: boolean;
 };
+
 type State = {
 	nodeTypeMap: Map<string, any>;
 	linkTypeMap: Map<string, any>;
@@ -182,4 +183,6 @@ const mapDispatchToProps = (dispatch: any) => ({
 	setZoom: (transform: Transform) => dispatch(setZoom(transform)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FlowDesigner);
+const connector: any = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(FlowDesigner);
