@@ -3,7 +3,7 @@ name: Upgrade dependencies
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 10 * * WED"
+    - cron: '0 10 * * WED'
 
 jobs:
   upgrade:
@@ -27,7 +27,7 @@ jobs:
           yarn
           yarn talend-scripts upgrade:deps
           node .github/workflows/dependencies-changeset.js
-          yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.md
+          node_modules/.bin/talend-scripts upgrade:deps --latest --dry > dependencies-latest.md
           git add dependencies-latest.md
 
       - name: Create Pull Request
@@ -35,8 +35,7 @@ jobs:
         with:
           assignees: jmfrancois
           reviewers: jmfrancois
-          commit-message: "chore: upgrade dependencies"
-          title: "chore: upgrade dependencies"
-          body: "Upgrade dependencies using `talend-scripts upgrade:deps`"
+          commit-message: 'chore: upgrade dependencies'
+          title: 'chore: upgrade dependencies'
+          body: 'Upgrade dependencies using `talend-scripts upgrade:deps`'
           branch: ci/chore/upgrade-dependencies
-          
