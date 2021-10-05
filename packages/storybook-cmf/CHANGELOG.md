@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 6.36.3
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 6.36.2
 
 ### Patch Changes

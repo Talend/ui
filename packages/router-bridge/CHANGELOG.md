@@ -1,5 +1,15 @@
 # @talend/router-bridge
 
+## 1.1.0
+
+### Minor Changes
+
+- b55f6de12: feat(router-bridge/SidePanel): support route basename
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 1.0.5
 
 ### Patch Changes

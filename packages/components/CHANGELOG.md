@@ -1,5 +1,19 @@
 # @talend/react-components
 
+## 6.40.0
+
+### Minor Changes
+
+- 7dde61e46: Add custom xpath props support for listView, MultiselectTag, Bage components
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [667cd0a50]
+  - @talend/icons@6.36.3
+  - @talend/bootstrap-theme@6.38.5
+  - @talend/utils@1.4.5
+
 ## 6.39.6
 
 ### Patch Changes
