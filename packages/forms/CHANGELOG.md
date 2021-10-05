@@ -1,5 +1,21 @@
 # @talend/react-forms
 
+## 6.41.0
+
+### Minor Changes
+
+- 7dde61e46: Add custom xpath props support for listView, MultiselectTag, Bage components
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+- 2d9e62a2a: fix import for password widget
+- Updated dependencies [667cd0a50]
+- Updated dependencies [7dde61e46]
+  - @talend/react-components@6.40.0
+  - @talend/json-schema-form-core@1.0.3
+  - @talend/utils@1.4.5
+
 ## 6.40.0
 
 ### Minor Changes
