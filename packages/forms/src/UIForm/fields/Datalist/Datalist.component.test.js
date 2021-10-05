@@ -416,6 +416,8 @@ describe('Datalist component', () => {
 	});
 
 	describe('checkValueInTitleMap', () => {
+		const errorMessage = 'an error message';
+
 		const props = {
 			id: 'my-datalist',
 			isValid: true,
@@ -424,16 +426,14 @@ describe('Datalist component', () => {
 			onTrigger: jest.fn(),
 			schema: schemaMultiSection,
 			value: 'a not existing value',
+			missingValueErrorMessage: errorMessage,
 		};
 
-		const customErrorMessage =
-			'This semantic type previously selected in the processor is no longer used for validation.';
-
 		it('should set a state, given multisection schema', () => {
-			const wrapper = shallow(<Datalist {...props} checkValueInTitleMap />);
+			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
 
 			expect(wrapper.state('isValid')).toBe(false);
-			expect(wrapper.state('errorMessage')).toBe(customErrorMessage);
+			expect(wrapper.state('errorMessage')).toBe(errorMessage);
 		});
 		it('should NOT set a state, given a multisection schema', () => {
 			const wrapper = shallow(<Datalist {...props} schema={schemaMultiSection} />);
@@ -441,9 +441,9 @@ describe('Datalist component', () => {
 			expect(wrapper.state('errorMessage')).toBe(undefined);
 		});
 		it('should set a state, given simple schema', () => {
-			const wrapper = shallow(<Datalist {...props} checkValueInTitleMap />);
+			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
 			expect(wrapper.state('isValid')).toBe(false);
-			expect(wrapper.state('errorMessage')).toBe(customErrorMessage);
+			expect(wrapper.state('errorMessage')).toBe(errorMessage);
 		});
 		it('should NOT set a state, given a simple schema', () => {
 			const wrapper = shallow(<Datalist {...props} schema={schema} />);
@@ -453,10 +453,10 @@ describe('Datalist component', () => {
 		it('should change value and the check should pass', () => {
 			const selectedValue = { label: 'Bar', value: 'bar' };
 			const event = { type: 'change' };
-			const wrapper = shallow(<Datalist {...props} checkValueInTitleMap />);
+			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
 
 			expect(wrapper.state('isValid')).toBe(false);
-			expect(wrapper.state('errorMessage')).toBe(customErrorMessage);
+			expect(wrapper.state('errorMessage')).toBe(errorMessage);
 			wrapper.instance().onChange(event, selectedValue);
 			expect(wrapper.state('isValid')).toBe(true);
 			expect(wrapper.state('errorMessage')).toBe(undefined);
