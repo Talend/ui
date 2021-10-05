@@ -7,6 +7,7 @@ const Area = styled.div`
 	flex-basis: 100%;
 	align-items: center;
 	justify-content: center;
+	margin: ${tokens.space.xs} ${tokens.space.m};
 	padding: ${tokens.space.xs};
 	min-height: 0;
 	font-weight: bold;
@@ -14,7 +15,7 @@ const Area = styled.div`
 	color: coral;
 	background: cornsilk;
 	border: 1px dashed coral;
-	border-radius: ${tokens.radii.roundedRadius};
+	border-radius: ${tokens.radii.rectRadius};
 `;
 
 export default Area;
