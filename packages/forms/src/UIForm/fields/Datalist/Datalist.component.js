@@ -157,10 +157,12 @@ class Datalist extends Component {
 				}
 			} else {
 				let found;
-				titleMap.forEach(tm => {
+				titleMap.some(tm => {
 					if (tm.suggestions && tm.suggestions.length) {
 						found = tm.suggestions.some(el => el.value === this.props.value);
+						return found;
 					}
+					return false;
 				});
 				if (!found) {
 					this.setState({
