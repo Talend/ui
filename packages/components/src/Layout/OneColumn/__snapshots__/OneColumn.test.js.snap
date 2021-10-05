@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OneColumn should render 1`] = `
+<div
+  className="tc-layout-one-column theme-main"
+  id="tc-layout-main"
+  role="main"
+  tabIndex="-1"
+>
+  <WithDrawer>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "height": "100%",
+          "overflow": "auto",
+        }
+      }
+    >
+      <span>
+        children
+      </span>
+    </div>
+  </WithDrawer>
+</div>
+`;

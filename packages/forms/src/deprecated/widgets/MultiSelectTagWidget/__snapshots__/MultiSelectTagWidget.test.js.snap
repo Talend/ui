@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
+<div
+  className="dropdown"
+>
+  <button
+    className="theme-dropdown-toggle dropdown-toggle"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="caret"
+    />
+  </button>
+  <div
+    className="theme-wrapper form-control"
+  >
+    <Badge
+      label="Foo"
+      onDelete={[Function]}
+      selected={false}
+      value="foo-1"
+    />
+    <Typeahead
+      autoFocus={false}
+      disabled={false}
+      docked={false}
+      id="42"
+      items={null}
+      multiSection={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      position="left"
+      readOnly={false}
+      searching={false}
+      theme={
+        Object {
+          "container": "theme-typeahead",
+          "itemsContainer": "theme-items-container items-container",
+        }
+      }
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = `
+<div
+  className="theme-items-container items-container theme-items-container"
+  id="react-autowhatever-42"
+  key="react-autowhatever-42-items-container"
+  role="listbox"
+  style={
+    Object {
+      "left": "0",
+      "position": "fixed",
+      "top": "0",
+    }
+  }
+>
+  <div
+    className="theme-items-body"
+    style={
+      Object {
+        "maxHeight": undefined,
+        "minHeight": undefined,
+      }
+    }
+  >
+    <ul
+      className="theme-items"
+      key="react-autowhatever-42-items-list"
+      role="listbox"
+    >
+      <li
+        aria-selected={true}
+        className="theme-item-highlighted tc-typeahead-item-highlighted"
+        id="react-autowhatever-42--item-0"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
+      >
+        <div
+          className="theme-item"
+          title="Bar"
+        >
+          <div
+            className="theme-item-text"
+          >
+            <span
+              className="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
+            >
+              <span>
+                Bar
+              </span>
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`MultiSelectTagWidget should render section title when items has category 1`] = `
+<div
+  className="theme-items-container items-container theme-items-container"
+  id="react-autowhatever-42"
+  key="react-autowhatever-42-items-container"
+  role="listbox"
+  style={
+    Object {
+      "left": "0",
+      "position": "fixed",
+      "top": "0",
+    }
+  }
+>
+  <div
+    className="theme-items-body"
+    style={
+      Object {
+        "maxHeight": undefined,
+        "minHeight": undefined,
+      }
+    }
+  >
+    <div
+      className="theme-section-container tc-typeahead-section-container"
+      key="react-autowhatever-42-section-0-container"
+    >
+      <div
+        key="react-autowhatever-42-section-0-title"
+        style={Object {}}
+      >
+        <div
+          className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
+        >
+          <span
+            className="section-header-title theme-section-header-title tc-typeahead-section-header-title theme-tc-typeahead-section-header-title"
+          >
+            pet
+          </span>
+        </div>
+      </div>
+      <ul
+        className="theme-items"
+        key="react-autowhatever-42-section-0-items-list"
+        role="listbox"
+      >
+        <li
+          aria-selected={true}
+          className="theme-item-highlighted tc-typeahead-item-highlighted"
+          id="react-autowhatever-42-section-0-item-0"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role="option"
+        >
+          <div
+            className="theme-item"
+            title="Puppy"
+          >
+            <div
+              className="theme-item-text"
+            >
+              <span
+                className="item-title theme-item-title tc-typeahead-item-title theme-tc-typeahead-item-title"
+              >
+                <span>
+                  Puppy
+                </span>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MultiSelectTagWidget should take default message when there isnt items 1`] = `
+<div
+  className="theme-items-container items-container theme-items-container theme-container-open"
+  id="react-autowhatever-42"
+  key="react-autowhatever-42-items-container"
+  role="listbox"
+  style={
+    Object {
+      "left": "0",
+      "position": "fixed",
+      "top": "0",
+    }
+  }
+>
+  <div
+    className="theme-items-body"
+    style={
+      Object {
+        "maxHeight": undefined,
+        "minHeight": undefined,
+      }
+    }
+  >
+    <div
+      className="theme-no-result no-result"
+      key="no-result"
+    >
+      <Coral.Icon
+        name="talend-fieldglass"
+        title="No result."
+      />
+      <span>
+        No result.
+      </span>
+    </div>
+  </div>
+</div>
+`;

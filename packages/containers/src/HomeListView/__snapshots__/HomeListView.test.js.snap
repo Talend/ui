@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component HomeListView should be able to render theme 1`] = `
+<Layout
+  drawers={
+    Array [
+      <h1>
+        Hello children
+      </h1>,
+    ]
+  }
+  hasTheme={true}
+  header={
+    <div>
+      hello app
+    </div>
+  }
+  mode="TwoColumns"
+  one={
+    <div>
+      hello sidepanel
+    </div>
+  }
+>
+  <div>
+    hello list
+  </div>
+</Layout>
+`;
+
+exports[`Component HomeListView should children transformed as array in props.drawers 1`] = `
+Array [
+  Object {
+    "props": Object {
+      "children": Object {
+        "props": Object {
+          "children": Object {
+            "props": Object {
+              "children": null,
+            },
+          },
+          "label": "foo",
+        },
+      },
+      "foo": "bar",
+    },
+  },
+  Object {
+    "props": Object {
+      "children": Object {
+        "props": Object {
+          "children": null,
+        },
+      },
+      "label": "foo",
+    },
+  },
+  Object {
+    "props": Object {
+      "children": null,
+    },
+  },
+]
+`;
+
+exports[`Component HomeListView should render with element props 1`] = `
+<Layout
+  drawers={
+    Array [
+      <h1>
+        Hello children
+      </h1>,
+    ]
+  }
+  header={
+    <div>
+      hello app
+    </div>
+  }
+  mode="TwoColumns"
+  one={
+    <div>
+      hello sidepanel
+    </div>
+  }
+>
+  <div>
+    hello list
+  </div>
+</Layout>
+`;
+
+exports[`Component HomeListView should render with object props 1`] = `
+<Layout
+  drawers={
+    Array [
+      <h1>
+        Hello children
+      </h1>,
+    ]
+  }
+  header={
+    <withI18nextTranslation(HeaderBar)
+      app="hello app"
+      t={[Function]}
+    />
+  }
+  mode="TwoColumns"
+  one={
+    <Connect(CMF(Container(SidePanel)))
+      actionIds={
+        Array [
+          "menu:demo",
+          "menu:article",
+        ]
+      }
+    />
+  }
+>
+  <Connect(CMF(Container(List)))
+    actions={Object {}}
+    items={
+      Immutable.List [
+        Immutable.Map {
+          "id": 1,
+          "label": "Title with actions",
+          "created": "2016-09-22",
+          "modified": "2016-09-22",
+          "author": "Jean-Pierre DUPONT",
+          "icon": "fa fa-file-excel-o",
+          "display": "text",
+          "className": "item-0-class",
+        },
+      ]
+    }
+    list={
+      Object {
+        "columns": Array [
+          Object {
+            "key": "id",
+            "label": "Id",
+          },
+          Object {
+            "key": "label",
+            "label": "Name",
+          },
+        ],
+        "titleProps": Object {
+          "key": "label",
+        },
+      }
+    }
+    toolbar={
+      Object {
+        "filter": Object {
+          "placeholder": "find an object",
+        },
+        "sort": Object {
+          "field": "id",
+          "options": Array [
+            Object {
+              "id": "id",
+              "name": "Id",
+            },
+            Object {
+              "id": "label",
+              "name": "Name",
+            },
+          ],
+        },
+      }
+    }
+  />
+</Layout>
+`;

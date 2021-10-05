@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeNodeList should return a list of 3 TreeNode with an inline paddingLeft value of 0 1`] = `
+<ul
+  className="treeClassName"
+>
+  <li
+    className="nodeClassName"
+  >
+    <TreeNode
+      branch={[MockFunction]}
+      dataKey="dataKey1"
+      getJSONPath={[Function]}
+      getValueType={[MockFunction]}
+      index={0}
+      jsonpath="$"
+      leaf={[MockFunction]}
+      value="toto"
+    />
+  </li>
+  <li
+    className="nodeClassName"
+  >
+    <TreeNode
+      branch={[MockFunction]}
+      dataKey="dataKey2"
+      getJSONPath={[Function]}
+      getValueType={[MockFunction]}
+      index={0}
+      jsonpath="$"
+      leaf={[MockFunction]}
+      value="tata"
+    />
+  </li>
+  <li
+    className="nodeClassName"
+  >
+    <TreeNode
+      branch={[MockFunction]}
+      dataKey="dataKey3"
+      getJSONPath={[Function]}
+      getValueType={[MockFunction]}
+      index={0}
+      jsonpath="$"
+      leaf={[MockFunction]}
+      value="titi"
+    />
+  </li>
+</ul>
+`;
+
+exports[`TreeNodeList should return a list of 3 TreeNode with an inline paddingLeft value of 30 1`] = `
+<ul
+  className="treeClassName"
+>
+  <li
+    className="nodeClassName"
+  >
+    <TreeNode
+      branch={[MockFunction]}
+      dataKey="dataKey1"
+      getJSONPath={[Function]}
+      getValueType={[MockFunction]}
+      index={0}
+      jsonpath="$"
+      leaf={[MockFunction]}
+      paddingOffset={30}
+      value="toto"
+    />
+  </li>
+  <li
+    className="nodeClassName"
+  >
+    <TreeNode
+      branch={[MockFunction]}
+      dataKey="dataKey2"
+      getJSONPath={[Function]}
+      getValueType={[MockFunction]}
+      index={0}
+      jsonpath="$"
+      leaf={[MockFunction]}
+      paddingOffset={30}
+      value="tata"
+    />
+  </li>
+  <li
+    className="nodeClassName"
+  >
+    <TreeNode
+      branch={[MockFunction]}
+      dataKey="dataKey3"
+      getJSONPath={[Function]}
+      getValueType={[MockFunction]}
+      index={0}
+      jsonpath="$"
+      leaf={[MockFunction]}
+      paddingOffset={30}
+      value="titi"
+    />
+  </li>
+</ul>
+`;

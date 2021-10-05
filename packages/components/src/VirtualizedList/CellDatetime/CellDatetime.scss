@@ -1,0 +1,12 @@
+.cell-icon-container {
+	display: flex;
+	align-items: center;
+
+	.icon-container {
+		display: flex;
+	}
+
+	:global(.btn-link) {
+		line-height: initial;
+	}
+}

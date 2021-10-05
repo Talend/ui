@@ -1,0 +1,58 @@
+.tc-simple-text {
+	display: flex;
+	min-width: 0;
+	margin-right: $padding-small;
+
+	&-key,
+	:global(.td-default-cell) {
+		font-weight: 400;
+	}
+
+	&-key {
+		margin-right: $padding-smaller;
+		white-space: nowrap;
+		flex-shrink: 1;
+		color: $dove-gray;
+		vertical-align: top;
+	}
+
+	&-key-with-value::after {
+		content: ':';
+	}
+
+	&-value {
+		text-transform: lowercase;
+		white-space: nowrap;
+
+		&::first-letter {
+			text-transform: uppercase;
+		}
+
+		&.shrink-value {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		&.wrap-value {
+			overflow: initial;
+			white-space: normal;
+			word-break: break-all;
+		}
+	}
+
+	:global(.td-default-cell) {
+		display: inline-block;
+		color: $brand-primary;
+		font-family: 'Inconsolata';
+	}
+
+	&-type {
+		color: $dark-silver;
+		opacity: 0.75;
+		margin-left: $padding-smaller;
+	}
+}
+
+.td-cell-int {
+	text-align: right;
+}

@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldTemplate should add animation on value with updating status 1`] = `
+<div
+  aria-busy={true}
+  className="form-group theme-template has-error theme-updating"
+>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={false}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should pass label props to the label 1`] = `
+<div
+  className="form-group theme-template"
+>
+  <Label
+    className="custom-label-class"
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should render invalid className 1`] = `
+<div
+  className="form-group theme-template has-error"
+>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={false}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should render with hint 1`] = `
+<OverlayTrigger
+  overlayComponent={
+    <span>
+      Tooltip content, which helps to understand what is the purpose of this field
+    </span>
+  }
+  overlayId="myAwesomeField-hint-overlay"
+  overlayPlacement="top"
+  preventScrolling={false}
+  trigger="click"
+>
+  <Button
+    active={false}
+    aria-haspopup={true}
+    aria-label="Display the input My awesome label hint"
+    block={false}
+    bsClass="btn"
+    bsStyle="link"
+    disabled={false}
+    id="myAwesomeField-hint"
+  >
+    <Icon
+      name="talend-info-circle"
+    />
+  </Button>
+</OverlayTrigger>
+`;
+
+exports[`FieldTemplate should render with label after 1`] = `
+<div
+  className="form-group theme-template"
+>
+  <input
+    id="myAwesomeField"
+  />
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;
+
+exports[`FieldTemplate should render with label before 1`] = `
+<div
+  className="form-group theme-template"
+>
+  <Label
+    id="myAwesomeField"
+    label="My awesome label"
+  />
+  <input
+    id="myAwesomeField"
+  />
+  <Message
+    description="My awesome description"
+    descriptionId="myAwesomeField-description"
+    errorId="myAwesomeField-error"
+    errorMessage="This is wrong o_o"
+    isValid={true}
+  />
+</div>
+`;

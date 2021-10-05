@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JSONSchemaRenderer should handle nested objects 1`] = `
+<JSONSchemaRenderer
+  schema={
+    Object {
+      "jsonSchema": Object {
+        "properties": Object {
+          "a": Object {
+            "properties": Object {
+              "b": Object {
+                "type": "string",
+              },
+              "c": Object {
+                "type": "string",
+              },
+            },
+            "type": "object",
+          },
+        },
+      },
+      "properties": Object {
+        "a": Object {
+          "b": "test",
+          "c": "test 2",
+        },
+      },
+      "uiSchema": Object {},
+    }
+  }
+>
+  <dl
+    className="theme-json-schema-renderer json-schema-renderer"
+  >
+    <dt
+      key="a_key"
+    >
+      <h2>
+        a
+      </h2>
+    </dt>
+    <dd
+      key="a_value"
+    >
+      <JSONSchemaRenderer
+        className="theme-nested"
+        schema={
+          Object {
+            "jsonSchema": Object {
+              "properties": Object {
+                "b": Object {
+                  "type": "string",
+                },
+                "c": Object {
+                  "type": "string",
+                },
+              },
+              "type": "object",
+            },
+            "properties": Object {
+              "b": "test",
+              "c": "test 2",
+            },
+            "uiSchema": undefined,
+          }
+        }
+      >
+        <dl
+          className="theme-json-schema-renderer json-schema-renderer theme-nested"
+        >
+          <dt
+            key="b_key"
+          >
+            b
+          </dt>
+          <dd
+            key="b_value"
+          >
+            test
+          </dd>
+          <dt
+            key="c_key"
+          >
+            c
+          </dt>
+          <dd
+            key="c_value"
+          >
+            test 2
+          </dd>
+        </dl>
+      </JSONSchemaRenderer>
+    </dd>
+  </dl>
+</JSONSchemaRenderer>
+`;
+
+exports[`JSONSchemaRenderer should render arrays 1`] = `
+<JSONSchemaRenderer
+  schema={
+    Object {
+      "jsonSchema": Object {
+        "properties": Object {
+          "a": Object {
+            "items": Object {
+              "enum": Array [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+              ],
+            },
+            "title": "test string",
+            "type": "array",
+          },
+        },
+      },
+      "properties": Object {
+        "a": Array [
+          "b",
+          "d",
+          "f",
+        ],
+      },
+    }
+  }
+>
+  <dl
+    className="theme-json-schema-renderer json-schema-renderer"
+  >
+    <dt
+      key="a_key"
+    >
+      test string
+    </dt>
+    <dd
+      className="theme-array-value"
+      key="a-value-0"
+    >
+      b
+    </dd>
+    <dd
+      className="theme-array-value"
+      key="a-value-1"
+    >
+      d
+    </dd>
+    <dd
+      className="theme-array-value"
+      key="a-value-2"
+    >
+      f
+    </dd>
+  </dl>
+</JSONSchemaRenderer>
+`;
+
+exports[`JSONSchemaRenderer should render strings and integers 1`] = `
+<JSONSchemaRenderer
+  schema={
+    Object {
+      "jsonSchema": Object {
+        "properties": Object {
+          "a": Object {
+            "title": "test string",
+            "type": "string",
+          },
+          "b": Object {
+            "title": "test integer",
+            "type": "integer",
+          },
+        },
+      },
+      "properties": Object {
+        "a": "A big a",
+        "b": 42,
+      },
+    }
+  }
+>
+  <dl
+    className="theme-json-schema-renderer json-schema-renderer"
+  >
+    <dt
+      key="a_key"
+    >
+      test string
+    </dt>
+    <dd
+      key="a_value"
+    >
+      A big a
+    </dd>
+    <dt
+      key="b_key"
+    >
+      test integer
+    </dt>
+    <dd
+      key="b_value"
+    >
+      42
+    </dd>
+  </dl>
+</JSONSchemaRenderer>
+`;
+
+exports[`JSONSchemaRenderer should render the empty properties list 1`] = `
+<JSONSchemaRenderer
+  schema={
+    Object {
+      "jsonSchema": Object {},
+      "properties": Object {},
+    }
+  }
+>
+  <dl
+    className="theme-json-schema-renderer json-schema-renderer"
+  />
+</JSONSchemaRenderer>
+`;

@@ -1,6 +1,5 @@
 {
 	"printWidth": 100,
-	"tabWidth": 4,
 	"singleQuote": true,
 	"trailingComma": "all",
 	"semi": true,
@@ -12,6 +11,12 @@
 			"options": {
 				"tabWidth": 2,
 				"useTabs": false
+			}
+		},
+		{
+			"files": "**/*.scss",
+			"options": {
+				"printWidth": 1000
 			}
 		}
 	]

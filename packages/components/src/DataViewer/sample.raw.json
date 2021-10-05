@@ -1,0 +1,1320 @@
+{
+  "paging": { "total": 7, "offset": 0, "limit": 200 },
+  "schema": {
+    "type": "record",
+    "name": "business",
+    "fields": [
+      {
+        "name": "business_id",
+        "type": [
+          {
+            "type": "int",
+            "dqType": "INTEGER",
+            "isForced": "false",
+            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+          },
+          { "type": "null", "dqType": "INTEGER", "isForced": "false" }
+        ],
+        "matchings": [],
+        "path": "business_id"
+      },
+      {
+        "name": "name",
+        "type": [
+          {
+            "type": "string",
+            "dqType": "STRING",
+            "isForced": "false",
+            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+          },
+          { "type": "null", "dqType": "STRING", "isForced": "false" }
+        ],
+        "matchings": [
+          { "id": "ORGANIZATION", "label": "Organization", "score": 1.7666667699813843 },
+          { "id": "COMPANY", "label": "Company", "score": 1.7285716533660889 }
+        ],
+        "path": "name"
+      },
+      {
+        "name": "category",
+        "type": [
+          {
+            "type": "string",
+            "dqType": "STRING",
+            "isForced": "false",
+            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+          },
+          { "type": "null", "dqType": "STRING", "isForced": "false" }
+        ],
+        "matchings": [
+          { "id": "MEASURE_UNIT", "label": "Measure Unit", "score": 25.625 },
+          { "id": "FR_COMMUNE", "label": "FR Commune", "score": 25.625 },
+          { "id": "BEVERAGE", "label": "Beverage", "score": 14.550000190734863 }
+        ],
+        "path": "category"
+      },
+      {
+        "name": "rating",
+        "type": [
+          {
+            "type": "float",
+            "dqType": "DOUBLE",
+            "isForced": "false",
+            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+          },
+          { "type": "null", "dqType": "DOUBLE", "isForced": "false" }
+        ],
+        "matchings": [],
+        "path": "rating"
+      },
+      {
+        "name": "num_of_reviews",
+        "type": [
+          {
+            "type": "int",
+            "dqType": "INTEGER",
+            "isForced": "false",
+            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+          },
+          { "type": "null", "dqType": "INTEGER", "isForced": "false" }
+        ],
+        "matchings": [
+          { "id": "FR_POSTAL_CODE", "label": "FR Postal Code", "score": 50.155555725097656 },
+          { "id": "FR_CODE_COMMUNE_INSEE", "label": "FR Insee Code", "score": 50.155555725097656 },
+          { "id": "US_POSTAL_CODE", "label": "US Postal Code", "score": 50.155555725097656 },
+          { "id": "DE_POSTAL_CODE", "label": "DE Postal Code", "score": 50.155555725097656 },
+          { "id": "COMPANY", "label": "Company", "score": 0.9333333969116211 }
+        ],
+        "path": "num_of_reviews"
+      },
+      {
+        "name": "attributes",
+        "type": [
+          {
+            "type": "record",
+            "name": "attributes",
+            "fields": [
+              {
+                "name": "good_for",
+                "type": [
+                  {
+                    "type": "record",
+                    "name": "good_for",
+                    "fields": [
+                      {
+                        "name": "dessert",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.good_for.good_for.dessert"
+                      },
+                      {
+                        "name": "kids",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.good_for.good_for.kids"
+                      },
+                      {
+                        "name": "drinks",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.good_for.good_for.drinks"
+                      },
+                      {
+                        "name": "breakfast",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.good_for.good_for.breakfast"
+                      },
+                      {
+                        "name": "lunch",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.good_for.good_for.lunch"
+                      },
+                      {
+                        "name": "dinner",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.good_for.good_for.dinner"
+                      }
+                    ],
+                    "dqType": "STRING",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "STRING", "isForced": "false" }
+                ]
+              },
+              {
+                "name": "parking",
+                "type": [
+                  {
+                    "type": "record",
+                    "name": "parking",
+                    "fields": [
+                      {
+                        "name": "lot",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.parking.parking.lot"
+                      },
+                      {
+                        "name": "valet",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.parking.parking.valet"
+                      },
+                      {
+                        "name": "garage",
+                        "type": [
+                          {
+                            "type": "boolean",
+                            "dqType": "BOOLEAN",
+                            "isForced": "false",
+                            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                          },
+                          { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                        ],
+                        "matchings": [],
+                        "path": "attributes.attributes.parking.parking.garage"
+                      }
+                    ],
+                    "dqType": "STRING",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "STRING", "isForced": "false" }
+                ]
+              },
+              {
+                "name": "take_reservations",
+                "type": [
+                  {
+                    "type": "boolean",
+                    "dqType": "BOOLEAN",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                ],
+                "matchings": [],
+                "path": "attributes.attributes.take_reservations"
+              },
+              {
+                "name": "noise_level",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "STRING",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "STRING", "isForced": "false" }
+                ],
+                "matchings": [],
+                "path": "attributes.attributes.noise_level"
+              }
+            ],
+            "dqType": "STRING",
+            "isForced": "false",
+            "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+          },
+          { "type": "null", "dqType": "STRING", "isForced": "false" }
+        ]
+      },
+      {
+        "name": "location",
+        "type": [
+          {
+            "type": "record",
+            "name": "location",
+            "fields": [
+              {
+                "name": "zipType",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "Company",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "Company", "isForced": "false" }
+                ],
+                "matchings": [
+                  { "id": "COMPANY", "label": "Company", "score": 71.80000305175781 },
+                  { "id": "FIRST_NAME", "label": "First Name", "score": 7.014286041259766 }
+                ],
+                "path": "location.location.zipType"
+              },
+              {
+                "name": "zip",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "FR Postal Code",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "FR Postal Code", "isForced": "false" }
+                ],
+                "matchings": [
+                  { "id": "FR_POSTAL_CODE", "label": "FR Postal Code", "score": 100 },
+                  { "id": "FR_CODE_COMMUNE_INSEE", "label": "FR Insee Code", "score": 100 },
+                  { "id": "US_POSTAL_CODE", "label": "US Postal Code", "score": 100 },
+                  { "id": "DE_POSTAL_CODE", "label": "DE Postal Code", "score": 100 }
+                ],
+                "path": "location.location.zip"
+              },
+              {
+                "name": "decomissionned",
+                "type": [
+                  {
+                    "type": "boolean",
+                    "dqType": "BOOLEAN",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "BOOLEAN", "isForced": "false" }
+                ],
+                "matchings": [],
+                "path": "location.location.decomissionned"
+              },
+              {
+                "name": "taxReturnsFiled",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "INTEGER",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 682, "0": 318, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "INTEGER", "isForced": "false" }
+                ],
+                "matchings": [
+                  {
+                    "id": "FR_CODE_COMMUNE_INSEE",
+                    "label": "FR Insee Code",
+                    "score": 13.066666603088379
+                  },
+                  {
+                    "id": "FR_POSTAL_CODE",
+                    "label": "FR Postal Code",
+                    "score": 12.844444274902344
+                  },
+                  {
+                    "id": "US_POSTAL_CODE",
+                    "label": "US Postal Code",
+                    "score": 12.844444274902344
+                  },
+                  { "id": "DE_POSTAL_CODE", "label": "DE Postal Code", "score": 12.844444274902344 }
+                ],
+                "path": "location.location.taxReturnsFiled"
+              },
+              {
+                "name": "location",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "STRING",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "STRING", "isForced": "false" }
+                ],
+                "matchings": [],
+                "path": "location.location.location"
+              },
+              {
+                "name": "estimatedPopulation",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "INTEGER",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 682, "0": 318, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "INTEGER", "isForced": "false" }
+                ],
+                "matchings": [
+                  { "id": "FR_POSTAL_CODE", "label": "FR Postal Code", "score": 21.82631492614746 },
+                  { "id": "US_POSTAL_CODE", "label": "US Postal Code", "score": 21.82631492614746 },
+                  { "id": "DE_POSTAL_CODE", "label": "DE Postal Code", "score": 21.82631492614746 },
+                  {
+                    "id": "FR_CODE_COMMUNE_INSEE",
+                    "label": "FR Insee Code",
+                    "score": 21.650876998901367
+                  }
+                ],
+                "path": "location.location.estimatedPopulation"
+              },
+              {
+                "name": "locationType",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "STRING",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "STRING", "isForced": "false" }
+                ],
+                "matchings": [],
+                "path": "location.location.locationType"
+              },
+              {
+                "name": "totalWages",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "INTEGER",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 681, "0": 319, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "INTEGER", "isForced": "false" }
+                ],
+                "matchings": [
+                  {
+                    "id": "BANK_ROUTING_TRANSIT_NUMBER",
+                    "label": "Bank Routing Transit Number",
+                    "score": 11.100000381469727
+                  },
+                  { "id": "US_PHONE", "label": "US Phone", "score": 6 },
+                  { "id": "PHONE", "label": "Phone number", "score": 6 },
+                  { "id": "SEDOL", "label": "SEDOL", "score": 1.4000000953674316 }
+                ],
+                "path": "location.location.totalWages"
+              },
+              {
+                "name": "state",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "US State Code",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 8, "1": 992, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "US State Code", "isForced": "false" }
+                ],
+                "matchings": [
+                  { "id": "US_STATE_CODE", "label": "US State Code", "score": 100 },
+                  { "id": "NA_STATE_CODE", "label": "North American state code", "score": 100 },
+                  {
+                    "id": "COUNTRY_CODE_ISO2",
+                    "label": "Country Code ISO2",
+                    "score": 55.366668701171875
+                  },
+                  {
+                    "id": "LANGUAGE_CODE_ISO2",
+                    "label": "Language Code ISO2",
+                    "score": 53.733333587646484
+                  },
+                  { "id": "LAST_NAME", "label": "Last Name", "score": 9.600000381469727 },
+                  { "id": "FIRST_NAME", "label": "First Name", "score": 5.90000057220459 },
+                  { "id": "COMPANY", "label": "Company", "score": 4.328571796417236 },
+                  { "id": "CIVILITY", "label": "Civility", "score": 1.9500000476837158 },
+                  { "id": "FR_COMMUNE", "label": "FR Commune", "score": 1.0142858028411865 }
+                ],
+                "path": "location.location.state"
+              },
+              {
+                "name": "longitude",
+                "type": [
+                  {
+                    "type": "float",
+                    "dqType": "DOUBLE",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "DOUBLE", "isForced": "false" }
+                ],
+                "matchings": [],
+                "path": "location.location.longitude"
+              },
+              {
+                "name": "latitude",
+                "type": [
+                  {
+                    "type": "float",
+                    "dqType": "DOUBLE",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "DOUBLE", "isForced": "false" }
+                ],
+                "matchings": [],
+                "path": "location.location.latitude"
+              },
+              {
+                "name": "city",
+                "type": [
+                  {
+                    "type": "string",
+                    "dqType": "STRING",
+                    "isForced": "false",
+                    "@talend-quality@": { "-1": 0, "1": 1000, "0": 0, "total": 1000 }
+                  },
+                  { "type": "null", "dqType": "STRING", "isForced": "false" }
+                ],
+                "matchings": [
+                  { "id": "LAST_NAME", "label": "Last Name", "score": 24.700000762939453 },
+                  { "id": "AIRPORT", "label": "Airport", "score": 23.22857093811035 },
+                  { "id": "US_COUNTY", "label": "US County", "score": 22.700000762939453 },
+                  { "id": "FIRST_NAME", "label": "First Name", "score": 15 },
+                  { "id": "COMPANY", "label": "Company", "score": 7.557143211364746 },
+                  { "id": "COUNTRY", "label": "Country", "score": 4.6857147216796875 },
+                  { "id": "FR_COMMUNE", "label": "FR Commune", "score": 2.414285898208618 },
+                  { "id": "JOB_TITLE", "label": "Job Title", "score": 2.1000001430511475 },
+                  { "id": "US_STATE", "label": "US State", "score": 2.1000001430511475 },
+                  {
+                    "id": "NA_STATE",
+                    "label": "North American state",
+                    "score": 1.7666667699813843
+                  },
+                  { "id": "AIRPORT_CODE", "label": "Airport Code", "score": 1.5499999523162842 },
+                  { "id": "MEASURE_UNIT", "label": "Measure Unit", "score": 1.4500000476837158 },
+                  { "id": "MX_ESTADO", "label": "MX Estado", "score": 0.9333333969116211 },
+                  { "id": "FR_DEPARTEMENT", "label": "FR Departement", "score": 0.554545521736145 },
+                  { "id": "LANGUAGE", "label": "Language", "score": 0.20000000298023224 },
+                  { "id": "STREET_TYPE", "label": "Street Type", "score": 0.10000000149011612 },
+                  { "id": "BEVERAGE", "label": "Beverage", "score": 0.10000000149011612 }
+                ],
+                "path": "location.location.city"
+              }
+            ],
+            "dqType": "STRING",
+            "isForced": "false",
+            "@talend-quality@": { "-1": 8, "1": 992, "0": 0, "total": 1000 }
+          },
+          { "type": "null", "dqType": "STRING", "isForced": "false" }
+        ]
+      },
+      {
+        "path": "tags",
+        "matchings": [],
+        "name": "tags",
+        "type": {
+          "type": "array",
+          "items": {
+            "dqType": "STRING",
+            "dqTypeId": "STRING",
+            "type": "string",
+            "dqTypeLabel": "STRING",
+            "isForced": "false",
+            "@talend-quality@": {
+              "0": 0,
+              "1": 307,
+              "total": 307,
+              "-1": 0
+            }
+          },
+          "@talend-quality@": {
+            "0": 0,
+            "1": 30,
+            "total": 30,
+            "-1": 0
+          }
+        }
+      }
+    ],
+    "primitives": [
+      { "id": "BOOLEAN", "label": "BOOLEAN" },
+      { "id": "INTEGER", "label": "INTEGER" },
+      { "id": "DOUBLE", "label": "DOUBLE" },
+      { "id": "STRING", "label": "STRING" },
+      { "id": "DATE", "label": "DATE" },
+      { "id": "TIME", "label": "TIME" },
+      { "id": "EMPTY", "label": "EMPTY" }
+    ],
+    "categories": [
+      { "id": "MONTH", "label": "Month" },
+      { "id": "WEEKDAY", "label": "Weekday" },
+      { "id": "UK_SSN", "label": "UK Social Security Number" },
+      { "id": "ISBN_13", "label": "ISBN-13" },
+      { "id": "EN_MONEY_AMOUNT", "label": "Money Amount (EN)" },
+      { "id": "SECTOR", "label": "Sector" },
+      { "id": "CA_PROVINCE_TERRITORY", "label": "CA Province Territory" },
+      { "id": "IBAN", "label": "IBAN" },
+      { "id": "FR_REGION", "label": "FR Region" },
+      { "id": "DATA_URL", "label": "Data URL" },
+      { "id": "LAST_NAME", "label": "Last Name" },
+      { "id": "GEO_COORDINATES_DEG", "label": "Geographic Coordinates (degree)" },
+      { "id": "COUNTRY", "label": "Country" },
+      { "id": "FR_MONEY_AMOUNT", "label": "Money Amount (FR)" },
+      { "id": "FR_COMMUNE", "label": "FR Commune" },
+      { "id": "COUNTRY_CODE_ISO3", "label": "Country Code ISO3" },
+      { "id": "MX_ESTADO_CODE", "label": "MX Estado Code" },
+      { "id": "IPv4_ADDRESS", "label": "IPv4 Address" },
+      { "id": "CIVILITY", "label": "Civility" },
+      { "id": "NA_STATE_CODE", "label": "North American state code" },
+      { "id": "US_PHONE", "label": "US Phone" },
+      { "id": "COUNTRY_CODE_ISO2", "label": "Country Code ISO2" },
+      { "id": "COMPANY", "label": "Company" },
+      { "id": "MAILTO_URL", "label": "MailTo URL" },
+      { "id": "HR_DEPARTMENT", "label": "HR Department" },
+      { "id": "MUSEUM", "label": "Museum" },
+      { "id": "CURRENCY_CODE", "label": "Currency Code" },
+      { "id": "FR_CODE_COMMUNE_INSEE", "label": "FR Insee Code" },
+      { "id": "MEASURE_UNIT", "label": "Measure Unit" },
+      { "id": "FILE_URL", "label": "File URL" },
+      { "id": "US_STATE", "label": "US State" },
+      { "id": "FR_DEPARTEMENT", "label": "FR Departement" },
+      { "id": "MX_ESTADO", "label": "MX Estado" },
+      { "id": "ANSWER", "label": "Answer" },
+      { "id": "BG_VAT_NUMBER", "label": "BG VAT Number" },
+      { "id": "COLOR_HEX_CODE", "label": "Color Hex Code" },
+      { "id": "US_COUNTY", "label": "US County" },
+      { "id": "AIRPORT_CODE", "label": "Airport Code" },
+      { "id": "EMAIL", "label": "Email" },
+      { "id": "US_STATE_CODE", "label": "US State Code" },
+      { "id": "LANGUAGE_CODE_ISO2", "label": "Language Code ISO2" },
+      { "id": "GEO_COORDINATE", "label": "Geographic coordinate" },
+      { "id": "URL", "label": "URL" },
+      { "id": "FR_VAT_NUMBER", "label": "FR VAT Number" },
+      { "id": "LANGUAGE_CODE_ISO3", "label": "Language Code ISO3" },
+      { "id": "MAC_ADDRESS", "label": "MAC Address" },
+      { "id": "EN_MONTH_ABBREV", "label": "EN Month Abbrev" },
+      { "id": "ORGANIZATION", "label": "Organization" },
+      { "id": "GEO_COORDINATES", "label": "Geographic Coordinates" },
+      { "id": "FR_PHONE", "label": "FR Phone" },
+      { "id": "US_SSN", "label": "US Social Security Number" },
+      { "id": "WEB_DOMAIN", "label": "Web Domain" },
+      { "id": "NA_STATE", "label": "North American state" },
+      { "id": "FIRST_NAME", "label": "First Name" },
+      { "id": "LANGUAGE", "label": "Language" },
+      { "id": "STREET_TYPE", "label": "Street Type" },
+      { "id": "AT_VAT_NUMBER", "label": "AT VAT Number" },
+      { "id": "CURRENCY_NAME", "label": "Currency Name" },
+      { "id": "BE_POSTAL_CODE", "label": "BE Postal Code" },
+      { "id": "MASTERCARD", "label": "MasterCard" },
+      { "id": "PASSPORT", "label": "Passport" },
+      { "id": "PHONE", "label": "Phone number" },
+      { "id": "CONTINENT_CODE", "label": "Continent Code" },
+      { "id": "VISA_CARD", "label": "Visa Card" },
+      { "id": "SEDOL", "label": "SEDOL" },
+      { "id": "FR_REGION_LEGACY", "label": "FR Region Legacy" },
+      { "id": "ISBN_10", "label": "ISBN-10" },
+      { "id": "FR_SSN", "label": "FR Social Security Number" },
+      { "id": "US_POSTAL_CODE", "label": "US Postal Code" },
+      { "id": "SE_SSN", "label": "SE Social Security Number" },
+      { "id": "INDUSTRY_GROUP", "label": "Industry Group" },
+      { "id": "HDFS_URL", "label": "HDFS URL" },
+      { "id": "CONTINENT", "label": "Continent" },
+      { "id": "CA_PROVINCE_TERRITORY_CODE", "label": "CA Province Territory Code" },
+      { "id": "EN_WEEKDAY", "label": "EN Weekday" },
+      { "id": "UK_PHONE", "label": "UK Phone" },
+      { "id": "AIRPORT", "label": "Airport" },
+      { "id": "DE_POSTAL_CODE", "label": "DE Postal Code" },
+      { "id": "DE_PHONE", "label": "DE Phone" },
+      { "id": "FR_POSTAL_CODE", "label": "FR Postal Code" },
+      { "id": "BANK_ROUTING_TRANSIT_NUMBER", "label": "Bank Routing Transit Number" },
+      { "id": "GENDER", "label": "Gender" },
+      { "id": "ADDRESS_LINE", "label": "Address Line" },
+      { "id": "UK_POSTAL_CODE", "label": "UK Postal Code" },
+      { "id": "BEVERAGE", "label": "Beverage" },
+      { "id": "AMEX_CARD", "label": "Amex Card" },
+      { "id": "IPv6_ADDRESS", "label": "IPv6 Address" },
+      { "id": "FULL_NAME", "label": "Full Name" },
+      { "id": "ANIMAL", "label": "Animal" },
+      { "id": "JOB_TITLE", "label": "Job Title" },
+      { "id": "EN_MONTH", "label": "EN Month" },
+      { "id": "INDUSTRY", "label": "Industry" }
+    ],
+    "lastUpdate": "2019-05-28T07:52:11.367",
+    "@talend-quality@": { "-1": 8, "1": 992, "0": 0, "total": 1000 },
+    "@talend-global-quality@": { "-1": 8, "1": 27037, "0": 955, "total": 28000 }
+  },
+  "encoding": "json",
+  "data": [
+    {
+      "value": {
+        "business_id": { "value": 0, "quality": 1, "unionKey": "int" },
+        "name": {
+          "value": "Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe Betty's Cafe",
+          "quality": 1,
+          "unionKey": "string"
+        },
+        "category": { "value": "Club", "quality": 1, "unionKey": "string" },
+        "rating": { "value": 4.0, "quality": 1, "unionKey": "float" },
+        "num_of_reviews": { "value": 2647, "quality": 1, "unionKey": "int" },
+        "attributes": {
+          "value": {
+            "good_for": {
+              "value": {
+                "dessert": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "kids": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "drinks": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "breakfast": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "lunch": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "dinner": { "value": true, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "good_for"
+            },
+            "parking": {
+              "value": {
+                "lot": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "valet": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "garage": { "value": false, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "parking"
+            },
+            "take_reservations": { "value": true, "quality": 1, "unionKey": "boolean" },
+            "noise_level": { "value": "quiet", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "attributes"
+        },
+        "location": {
+          "value": {
+            "zipType": { "value": "STANDARD", "quality": 1, "unionKey": "string" },
+            "zip": { "value": "72132", "quality": 1, "unionKey": "string" },
+            "decomissionned": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "taxReturnsFiled": { "value": "1400", "quality": 1, "unionKey": "string" },
+            "location": { "value": "NA-US-AR-REDFIELD", "quality": 1, "unionKey": "string" },
+            "estimatedPopulation": { "value": "2653", "quality": 1, "unionKey": "string" },
+            "locationType": { "value": "PRIMARY", "quality": 1, "unionKey": "string" },
+            "totalWages": { "value": "56190766", "quality": 1, "unionKey": "string" },
+            "state": { "value": "AR", "quality": 1, "unionKey": "string" },
+            "longitude": { "value": -92.18, "quality": 1, "unionKey": "float" },
+            "latitude": { "value": 34.44, "quality": 1, "unionKey": "float" },
+            "city": { "value": "REDFIELD", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "location"
+        },
+        "tags": {
+          "value": [
+            {
+              "value": "Tag 1",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 2",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 3",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 4",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 5",
+              "quality": 1,
+              "unionKey": "string"
+            }
+          ],
+          "quality": 1,
+          "unionKey": "array"
+        }
+      },
+      "quality": 1,
+      "unionKey": "business"
+    },
+    {
+      "value": {
+        "business_id": { "value": 1, "quality": 1, "unionKey": "int" },
+        "name": { "value": "Nancy's Club", "quality": 1, "unionKey": "string" },
+        "category": { "value": "Club", "quality": 1, "unionKey": "string" },
+        "rating": { "value": 2.0, "quality": 1, "unionKey": "float" },
+        "num_of_reviews": { "value": 3779, "quality": 1, "unionKey": "int" },
+        "attributes": {
+          "value": {
+            "good_for": {
+              "value": {
+                "dessert": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "kids": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "drinks": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "breakfast": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "lunch": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "dinner": { "value": true, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "good_for"
+            },
+            "parking": {
+              "value": {
+                "lot": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "valet": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "garage": { "value": false, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "parking"
+            },
+            "take_reservations": { "value": true, "quality": 1, "unionKey": "boolean" },
+            "noise_level": { "value": "average", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "attributes"
+        },
+        "location": {
+          "value": {
+            "zipType": { "value": "PO BOX", "quality": 1, "unionKey": "string" },
+            "zip": { "value": "88221", "quality": 1, "unionKey": "string" },
+            "decomissionned": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "taxReturnsFiled": { "value": "967", "quality": 1, "unionKey": "string" },
+            "location": { "value": "NA-US-NM-CARLSBAD", "quality": 1, "unionKey": "string" },
+            "estimatedPopulation": { "value": "1638", "quality": 1, "unionKey": "string" },
+            "locationType": { "value": "PRIMARY", "quality": 1, "unionKey": "string" },
+            "totalWages": { "value": "37060120", "quality": 1, "unionKey": "string" },
+            "state": { "value": "NM", "quality": 1, "unionKey": "string" },
+            "longitude": { "value": -104.23, "quality": 1, "unionKey": "float" },
+            "latitude": { "value": 32.4, "quality": 1, "unionKey": "float" },
+            "city": { "value": "CARLSBAD", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "location"
+        },
+        "tags": {
+          "value": [
+            {
+              "value": "Tag 1",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 2",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 3",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 4",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 5",
+              "quality": 1,
+              "unionKey": "string"
+            }
+          ],
+          "quality": 1,
+          "unionKey": "array"
+        }
+      },
+      "quality": 1,
+      "unionKey": "business"
+    },
+    {
+      "value": {
+        "business_id": { "value": 2, "quality": 1, "unionKey": "int" },
+        "name": { "value": "Cecelia's Club", "quality": 1, "unionKey": "string" },
+        "category": { "value": "Cafe", "quality": 1, "unionKey": "string" },
+        "rating": { "value": 4.0, "quality": 1, "unionKey": "float" },
+        "num_of_reviews": { "value": 16547, "quality": 1, "unionKey": "int" },
+        "attributes": {
+          "value": {
+            "good_for": {
+              "value": {
+                "dessert": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "kids": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "drinks": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "breakfast": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "lunch": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "dinner": { "value": false, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "good_for"
+            },
+            "parking": {
+              "value": {
+                "lot": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "valet": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "garage": { "value": false, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "parking"
+            },
+            "take_reservations": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "noise_level": { "value": "noisy", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "attributes"
+        },
+        "location": {
+          "value": {
+            "zipType": { "value": "PO BOX", "quality": 1, "unionKey": "string" },
+            "zip": { "value": "47445", "quality": 1, "unionKey": "string" },
+            "decomissionned": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "taxReturnsFiled": { "value": "", "quality": 0, "unionKey": "string" },
+            "location": { "value": "NA-US-IN-MIDLAND", "quality": 1, "unionKey": "string" },
+            "estimatedPopulation": { "value": "", "quality": 0, "unionKey": "string" },
+            "locationType": { "value": "PRIMARY", "quality": 1, "unionKey": "string" },
+            "totalWages": { "value": "", "quality": 0, "unionKey": "string" },
+            "state": { "value": "IN", "quality": 1, "unionKey": "string" },
+            "longitude": { "value": -87.16, "quality": 1, "unionKey": "float" },
+            "latitude": { "value": 39.09, "quality": 1, "unionKey": "float" },
+            "city": { "value": "MIDLAND", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "location"
+        },
+        "tags": {
+          "value": [
+            {
+              "value": "Tag 1",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 2",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 3",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 4",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 5",
+              "quality": 1,
+              "unionKey": "string"
+            }
+          ],
+          "quality": 1,
+          "unionKey": "array"
+        }
+      },
+      "quality": 1,
+      "unionKey": "business"
+    },
+    {
+      "value": {
+        "business_id": { "value": 3, "quality": 1, "unionKey": "int" },
+        "name": { "value": "Gordon's Bar", "quality": 1, "unionKey": "string" },
+        "category": { "value": "Cafe", "quality": 1, "unionKey": "string" },
+        "rating": { "value": 1.0, "quality": 1, "unionKey": "float" },
+        "num_of_reviews": { "value": 152, "quality": 1, "unionKey": "int" },
+        "attributes": {
+          "value": {
+            "good_for": {
+              "value": {
+                "dessert": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "kids": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "drinks": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "breakfast": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "lunch": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "dinner": { "value": true, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "good_for"
+            },
+            "parking": {
+              "value": {
+                "lot": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "valet": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "garage": { "value": true, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "parking"
+            },
+            "take_reservations": { "value": true, "quality": 1, "unionKey": "boolean" },
+            "noise_level": { "value": "noisy", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "attributes"
+        },
+        "location": {
+          "value": {
+            "zipType": { "value": "STANDARD", "quality": 1, "unionKey": "string" },
+            "zip": { "value": "65638", "quality": 1, "unionKey": "string" },
+            "decomissionned": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "taxReturnsFiled": { "value": "", "quality": 0, "unionKey": "string" },
+            "location": { "value": "NA-US-MO-DRURY", "quality": 1, "unionKey": "string" },
+            "estimatedPopulation": { "value": "", "quality": 0, "unionKey": "string" },
+            "locationType": { "value": "PRIMARY", "quality": 1, "unionKey": "string" },
+            "totalWages": { "value": "", "quality": 0, "unionKey": "string" },
+            "state": { "value": "MO", "quality": 1, "unionKey": "string" },
+            "longitude": { "value": -92.32, "quality": 1, "unionKey": "float" },
+            "latitude": { "value": 36.92, "quality": 1, "unionKey": "float" },
+            "city": { "value": "DRURY", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "location"
+        },
+        "tags": {
+          "value": [
+            {
+              "value": "Tag 1",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 2",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 3",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 4",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 5",
+              "quality": 1,
+              "unionKey": "string"
+            }
+          ],
+          "quality": 1,
+          "unionKey": "array"
+        }
+      },
+      "quality": 1,
+      "unionKey": "business"
+    },
+    {
+      "value": {
+        "business_id": { "value": 4, "quality": 1, "unionKey": "int" },
+        "name": { "value": "Adeline's Cafe", "quality": 1, "unionKey": "string" },
+        "category": { "value": "Bar", "quality": 1, "unionKey": "string" },
+        "rating": { "value": 2.0, "quality": 1, "unionKey": "float" },
+        "num_of_reviews": { "value": 5735, "quality": 1, "unionKey": "int" },
+        "attributes": {
+          "value": {
+            "good_for": {
+              "value": {
+                "dessert": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "kids": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "drinks": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "breakfast": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "lunch": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "dinner": { "value": true, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "good_for"
+            },
+            "parking": {
+              "value": {
+                "lot": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "valet": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "garage": { "value": false, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "parking"
+            },
+            "take_reservations": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "noise_level": { "value": "average", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "attributes"
+        },
+        "location": {
+          "value": {
+            "zipType": { "value": "STANDARD", "quality": 1, "unionKey": "string" },
+            "zip": { "value": "25444", "quality": 1, "unionKey": "string" },
+            "decomissionned": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "taxReturnsFiled": { "value": "384", "quality": 1, "unionKey": "string" },
+            "location": { "value": "NA-US-WV-SLANESVILLE", "quality": 1, "unionKey": "string" },
+            "estimatedPopulation": { "value": "712", "quality": 1, "unionKey": "string" },
+            "locationType": { "value": "PRIMARY", "quality": 1, "unionKey": "string" },
+            "totalWages": { "value": "10643646", "quality": 1, "unionKey": "string" },
+            "state": { "value": "WV", "quality": 1, "unionKey": "string" },
+            "longitude": { "value": -78.52, "quality": 1, "unionKey": "float" },
+            "latitude": { "value": 39.37, "quality": 1, "unionKey": "float" },
+            "city": { "value": "SLANESVILLE", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "location"
+        },
+        "tags": {
+          "value": [
+            {
+              "value": "Tag 1",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 2",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 3",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 4",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 5",
+              "quality": 1,
+              "unionKey": "string"
+            }
+          ],
+          "quality": 1,
+          "unionKey": "array"
+        }
+      },
+      "quality": 1,
+      "unionKey": "business"
+    },
+    {
+      "value": {
+        "business_id": { "value": 5, "quality": 1, "unionKey": "int" },
+        "name": { "value": "Doug's Restaurant", "quality": 1, "unionKey": "string" },
+        "category": { "value": "Coffee House", "quality": 1, "unionKey": "string" },
+        "rating": { "value": 1.0, "quality": 1, "unionKey": "float" },
+        "num_of_reviews": { "value": 4993, "quality": 1, "unionKey": "int" },
+        "attributes": {
+          "value": {
+            "good_for": {
+              "value": {
+                "dessert": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "kids": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "drinks": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "breakfast": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "lunch": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "dinner": { "value": true, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "good_for"
+            },
+            "parking": {
+              "value": {
+                "lot": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "valet": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "garage": { "value": false, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "parking"
+            },
+            "take_reservations": { "value": true, "quality": 1, "unionKey": "boolean" },
+            "noise_level": { "value": "average", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "attributes"
+        },
+        "location": {
+          "value": {
+            "zipType": { "value": "STANDARD", "quality": 1, "unionKey": "string" },
+            "zip": { "value": "17307", "quality": 1, "unionKey": "string" },
+            "decomissionned": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "taxReturnsFiled": { "value": "2663", "quality": 1, "unionKey": "string" },
+            "location": { "value": "NA-US-PA-BIGLERVILLE", "quality": 1, "unionKey": "string" },
+            "estimatedPopulation": { "value": "4661", "quality": 1, "unionKey": "string" },
+            "locationType": { "value": "PRIMARY", "quality": 1, "unionKey": "string" },
+            "totalWages": { "value": "88766685", "quality": 1, "unionKey": "string" },
+            "state": { "value": "PA", "quality": 1, "unionKey": "string" },
+            "longitude": { "value": -77.24, "quality": 1, "unionKey": "float" },
+            "latitude": { "value": 39.93, "quality": 1, "unionKey": "float" },
+            "city": { "value": "BIGLERVILLE", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "location"
+        },
+        "tags": {
+          "value": [
+            {
+              "value": "Tag 1",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 2",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 3",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 4",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 5",
+              "quality": 1,
+              "unionKey": "string"
+            }
+          ],
+          "quality": 1,
+          "unionKey": "array"
+        }
+      },
+      "quality": 1,
+      "unionKey": "business"
+    },
+    {
+      "value": {
+        "business_id": { "value": 6, "quality": 1, "unionKey": "int" },
+        "name": { "value": "Barbara's Diner", "quality": 1, "unionKey": "string" },
+        "category": { "value": "Restaurant", "quality": 1, "unionKey": "string" },
+        "rating": { "value": 2.0, "quality": 1, "unionKey": "float" },
+        "num_of_reviews": { "value": 15182, "quality": 1, "unionKey": "int" },
+        "attributes": {
+          "value": {
+            "good_for": {
+              "value": {
+                "dessert": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "kids": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "drinks": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "breakfast": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "lunch": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "dinner": { "value": false, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "good_for"
+            },
+            "parking": {
+              "value": {
+                "lot": { "value": true, "quality": 1, "unionKey": "boolean" },
+                "valet": { "value": false, "quality": 1, "unionKey": "boolean" },
+                "garage": { "value": true, "quality": 1, "unionKey": "boolean" }
+              },
+              "quality": 1,
+              "unionKey": "parking"
+            },
+            "take_reservations": { "value": true, "quality": 1, "unionKey": "boolean" },
+            "noise_level": { "value": "noisy", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "attributes"
+        },
+        "location": {
+          "value": {
+            "zipType": { "value": "STANDARD", "quality": 1, "unionKey": "string" },
+            "zip": { "value": "89014", "quality": 1, "unionKey": "string" },
+            "decomissionned": { "value": false, "quality": 1, "unionKey": "boolean" },
+            "taxReturnsFiled": { "value": "18409", "quality": 1, "unionKey": "string" },
+            "location": { "value": "NA-US-NV-HENDERSON", "quality": 1, "unionKey": "string" },
+            "estimatedPopulation": { "value": "30076", "quality": 1, "unionKey": "string" },
+            "locationType": { "value": "PRIMARY", "quality": 1, "unionKey": "string" },
+            "totalWages": { "value": "765546371", "quality": 1, "unionKey": "string" },
+            "state": { "value": "NV", "quality": 1, "unionKey": "string" },
+            "longitude": { "value": -115.05, "quality": 1, "unionKey": "float" },
+            "latitude": { "value": 36.05, "quality": 1, "unionKey": "float" },
+            "city": { "value": "HENDERSON", "quality": 1, "unionKey": "string" }
+          },
+          "quality": 1,
+          "unionKey": "location"
+        },
+        "tags": {
+          "value": [
+            {
+              "value": "Tag 1",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 2",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 3",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 4",
+              "quality": 1,
+              "unionKey": "string"
+            },
+            {
+              "value": "Tag 5",
+              "quality": 1,
+              "unionKey": "string"
+            }
+          ],
+          "quality": 1,
+          "unionKey": "array"
+        }
+      },
+      "quality": 1,
+      "unionKey": "business"
+    }
+  ]
+}

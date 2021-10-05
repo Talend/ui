@@ -1,0 +1,49 @@
+{
+    "opts": {
+      "recurse": true,
+      "destination": "jsdoc",
+      "readme": "README.md"
+    },
+    "source": {
+        "include": [
+          "src/actions/index.js",
+          "src/actions/collectionsActions.js",
+          "src/actions/componentsActions.js",
+          "src/actions/settingsActions.js",
+          "src/reducers/index.js",
+          "src/reducers/collectionsReducers.js",
+          "src/reducers/componentsReducers.js",
+          "src/reducers/settingsReducers.js",
+          "src/action.js",
+          "src/App.js",
+          "src/cmfConnect.js",
+          "src/componentState.js",
+          "src/deprecated.js",
+          "src/Dispatcher.js",
+          "src/expression.js",
+          "src/index.js",
+          "src/Inject.component.js",
+          "src/registry.js",
+          "src/RegistryProvider.js",
+          "src/store.js"
+        ],
+        "excludePattern": "(node_modules/*|docs/*|lib/*)"
+    },
+
+    "plugins": [],
+    "templates": {
+        "license": "Apache-2.0",
+        "outputSourceFiles"     : true,
+        "systemName"            : "React CMF",
+        "navType"               : "vertical",
+        "theme"                 : "cerulean",
+        "linenums"              : true,
+        "collapseSymbols"       : false,
+        "inverseNav"            : false,
+        "dateFormat"            : "YYYY-MM-DD",
+        "analytics": {
+            "ua": "UA-77701501-4",
+            "domain": "auto"
+        }
+    }
+}

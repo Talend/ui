@@ -1,0 +1,53 @@
+////
+/// Bootstrap navbars button customization
+/// @group Navbar
+////
+
+.navbar {
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		padding-top: 0;
+		padding-bottom: 0;
+		height: $navbar-height;
+		min-height: $navbar-height;
+
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+		}
+
+		&-default,
+		&-primary,
+		&-success,
+		&-info,
+		&-warning,
+		&-danger,
+		&-group {
+			margin-left: $padding-smaller;
+			margin-right: $padding-smaller;
+			min-height: inherit;
+			height: auto;
+		}
+
+		&-group > .btn {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		&-link {
+			line-height: $navbar-height;
+		}
+	}
+
+	&-inverse {
+		.btn-link {
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $navbar-inverse-link-hover-bg;
+			}
+		}
+	}
+}

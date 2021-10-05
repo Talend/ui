@@ -1,0 +1,16 @@
+name: Security scan
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # https://crontab.guru/every-week "At 00:00 on Sunday."
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Scan
+        uses: ./.github/actions/sourceclear
+        env:
+          SRCCLR_API_TOKEN: ${{ secrets.SRCCLR_API_TOKEN }}
+          SRCCLR_SCOPE: 'production'

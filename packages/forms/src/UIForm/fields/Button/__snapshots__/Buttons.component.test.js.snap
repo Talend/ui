@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons field should render buttons 1`] = `
+<div
+  className="theme-tf-buttons tf-buttons extra"
+>
+  <SingleButton
+    className="theme-undefined custom-class-name"
+    id="myForm-0"
+    onTrigger={[MockFunction]}
+    schema={
+      Object {
+        "className": "custom-class-name",
+        "title": "Reset",
+        "type": "reset",
+        "widget": "button",
+      }
+    }
+  />
+  <SingleButton
+    className="theme-right"
+    id="myForm-1"
+    onTrigger={[MockFunction]}
+    schema={
+      Object {
+        "position": "right",
+        "title": "Test",
+        "triggers": Array [
+          "test",
+        ],
+        "type": "button",
+        "widget": "button",
+      }
+    }
+  />
+  <SingleButton
+    className="theme-undefined"
+    id="myForm-2"
+    onTrigger={[MockFunction]}
+    schema={
+      Object {
+        "bsStyle": "primary",
+        "title": "Submit",
+        "type": "submit",
+        "widget": "button",
+      }
+    }
+  />
+</div>
+`;

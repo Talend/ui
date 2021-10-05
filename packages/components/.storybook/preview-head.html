@@ -1,0 +1,163 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<!-- Storybook should have visible overflow since we have Action Logger -->
+<style>
+	html.focus-outline-hidden *:focus {
+		outline: none !important;
+	}
+
+    body {
+        min-height: 70vh;
+
+        /* Layout set style on body that disable the scroll. This restore the default so we can scroll in the story */
+        overflow: visible !important;
+        width: auto !important;
+    }
+
+	.tc-drawer.drawer-custom {
+		background-color: #000;
+		color: White;
+	}
+
+	.tc-list-custom-style {
+		background: #ff69b4;
+	}
+
+	.tc-list-small-container {
+		height: 200px;
+	}
+
+	.tabFullHeight,
+	.tab-content,
+	.tab-content>.tab-pane.active {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+        min-height: 0;
+	}
+
+	.virtualized-list div.tc-list-cell-id {
+		flex: 0 0 50px;
+	}
+
+	.virtualized-list div.tc-list-cell-name {
+		flex: 0 0 350px;
+	}
+
+	.virtualized-list div.tc-list-cell-actions {
+		flex: 0 0 120px;
+	}
+
+	.virtualized-list div.tc-list-cell-tag {
+		flex: 0 0 120px;
+	}
+
+	.virtualized-list div.tc-list-cell-description {
+		flex: 1 0 120px;
+	}
+
+	.virtualized-list div.tc-list-cell-author {
+		flex: 1 0 90px;
+	}
+
+	.virtualized-list div.tc-list-cell-created,
+	.virtualized-list div.tc-list-cell-modified {
+		flex: 0 0 100px;
+	}
+
+	.virtualized-list-customized-row .item-0-class .tc-svg-icon {
+		fill: blue;
+	}
+
+	.virtualized-list-customized-row .item-1-class .tc-svg-icon {
+		fill: green;
+	}
+
+	.default-table .tc-table {
+		width: 300px;
+	}
+
+	.default-table .tc-table tbody {
+		height: 700px;
+	}
+
+	.filtered-table,.sorted-table .tc-table {
+		width: 700px;
+		height: 350px;
+	}
+
+	.story-table,.table-with-dnd .tc-table {
+		width: 700px;
+		height: 300px;
+	}
+
+	.story-table .tc-table thead {
+		background-color: #aadbff;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.story-table .tc-table tbody tr {
+		border-bottom: 1px solid #ddd;
+	}
+
+	.story-table .tc-table tbody tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+
+	.story-table .tc-table tbody tr:hover {
+		background-color: #ddd;
+	}
+
+	.tc-table-row-data-type {
+		font-family: Inconsolata, Monaco, Menlo, Consolas, Courier New, mono;
+		font-size: 0.9em;
+		text-align: left;
+		color: #66bdff;
+	}
+
+	.tc-table-row-data-description {
+		color: #aaa;
+		font-style: italic;
+		white-space: nowrap;
+	}
+
+	.tc-table-row-data-mandatory {
+		color: #f00;
+		font-weight: bold;
+	}
+
+	.th-mandatory,
+	.td-mandatory {
+		width: 10px;
+	}
+
+	.th-name,
+	.td-name {
+		width: 150px;
+	}
+
+	.th-type,
+	.td-type {
+		width: 100px;
+	}
+
+	.th-description,
+	.td-description {
+		width: 400px;
+	}
+
+	.tc-table-row.highlighted {
+		background-color: #f2f2f2;
+	}
+
+	.table-with-dnd .tc-table tr td:first-child {
+		position: relative;
+	}
+
+	[draggable='true'] .tc-table-clickable-cell {
+		position: absolute;
+		top: 2px;
+		left: 0;
+		bottom: 0;
+		width: 100vw;
+	}
+</style>

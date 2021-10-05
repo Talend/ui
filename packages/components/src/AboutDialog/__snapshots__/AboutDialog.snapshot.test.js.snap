@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutDialog should render 1`] = `
+<Dialog
+  actionbar={
+    Object {
+      "actions": Object {
+        "center": Array [
+          Object {
+            "className": "btn-default btn-inverse",
+            "label": "More",
+            "onClick": [MockFunction],
+          },
+        ],
+      },
+    }
+  }
+  autoFocus={true}
+  backdrop={true}
+  className="theme-about-dialog about-dialog"
+  closeButton={true}
+  enforceFocus={true}
+  header="About this product"
+  keyboard={true}
+  restoreFocus={true}
+  show={true}
+  type="informative"
+>
+  <div>
+    <Icon
+      className="theme-about-logo about-logo"
+      name="talend-tdp-colored"
+    />
+    <div
+      className="theme-about-excerpt about-excerpt"
+    >
+      <Text
+        loading={false}
+        size="xlarge"
+        text="Version: Summer 18"
+      />
+      <Text
+        loading={false}
+        size="large"
+        text="© 2018 Talend. All Rights Reserved"
+      />
+    </div>
+  </div>
+</Dialog>
+`;
+
+exports[`AboutDialog should render in loading mode 1`] = `
+<Dialog
+  actionbar={
+    Object {
+      "actions": Object {
+        "center": Array [
+          Object {
+            "className": "btn-default btn-inverse",
+            "label": "More",
+            "onClick": [MockFunction],
+          },
+        ],
+      },
+    }
+  }
+  autoFocus={true}
+  backdrop={true}
+  className="theme-about-dialog about-dialog"
+  closeButton={true}
+  enforceFocus={true}
+  header="About this product"
+  keyboard={true}
+  restoreFocus={true}
+  show={true}
+  type="informative"
+>
+  <div>
+    <Icon
+      className="theme-about-logo about-logo"
+      name="talend-tdp-colored"
+    />
+    <div
+      className="theme-about-excerpt about-excerpt"
+    >
+      <Text
+        loading={true}
+        size="xlarge"
+        text="Version: Summer 18"
+      />
+      <Text
+        loading={true}
+        size="large"
+        text="© 2018 Talend. All Rights Reserved"
+      />
+    </div>
+  </div>
+</Dialog>
+`;
+
+exports[`AboutDialog should render services 1`] = `
+<Dialog
+  actionbar={
+    Object {
+      "actions": Object {
+        "center": Array [
+          Object {
+            "className": "btn-default btn-inverse",
+            "label": "Less",
+            "onClick": [MockFunction],
+          },
+        ],
+      },
+    }
+  }
+  autoFocus={true}
+  backdrop={true}
+  className="theme-about-dialog about-dialog"
+  closeButton={true}
+  enforceFocus={true}
+  header="About this product"
+  keyboard={true}
+  restoreFocus={true}
+  show={true}
+  type="informative"
+>
+  <div>
+    <Icon
+      className="theme-about-logo about-logo"
+      name="talend-tdp-colored"
+    />
+    <div
+      className="theme-about-excerpt about-excerpt"
+    >
+      <Text
+        loading={false}
+        size="xlarge"
+        text="Version: Summer 18"
+      />
+      <Text
+        loading={false}
+        size="large"
+        text="© 2018 Talend. All Rights Reserved"
+      />
+    </div>
+    <AboutDialogTable
+      loading={false}
+      services={
+        Array [
+          Object {
+            "build": "87d0dcd-12e0d6f",
+            "name": "API",
+            "version": "2.8.0-SNAPSHOT",
+          },
+          Object {
+            "build": "87d0dcd-12e0d6f",
+            "name": "Dataset",
+            "version": "2.8.0-SNAPSHOT",
+          },
+          Object {
+            "build": "87d0dcd-12e0d6f",
+            "name": "Preparation",
+            "version": "2.8.0-SNAPSHOT",
+          },
+          Object {
+            "build": "87d0dcd-12e0d6f",
+            "name": "Transformation",
+            "version": "2.8.0-SNAPSHOT",
+          },
+        ]
+      }
+      t={[Function]}
+    />
+  </div>
+</Dialog>
+`;
+
+exports[`AboutDialog should render with custom copyright 1`] = `
+<Dialog
+  actionbar={
+    Object {
+      "actions": Object {
+        "center": Array [
+          Object {
+            "className": "btn-default btn-inverse",
+            "label": "More",
+            "onClick": [MockFunction],
+          },
+        ],
+      },
+    }
+  }
+  autoFocus={true}
+  backdrop={true}
+  className="theme-about-dialog about-dialog"
+  closeButton={true}
+  enforceFocus={true}
+  header="About this product"
+  keyboard={true}
+  restoreFocus={true}
+  show={true}
+  type="informative"
+>
+  <div>
+    <Icon
+      className="theme-about-logo about-logo"
+      name="talend-tdp-colored"
+    />
+    <div
+      className="theme-about-excerpt about-excerpt"
+    >
+      <Text
+        loading={false}
+        size="xlarge"
+        text="Version: Summer 18"
+      />
+      <Text
+        loading={false}
+        size="large"
+        text="custom copyrights"
+      />
+    </div>
+  </div>
+</Dialog>
+`;

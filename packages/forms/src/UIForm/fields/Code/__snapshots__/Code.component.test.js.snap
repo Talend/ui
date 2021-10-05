@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Code field should render ace-editor in FieldTemplate 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myCodeWidget-description"
+  errorId="myCodeWidget-error"
+  id="myCodeWidget"
+  isValid={true}
+  label="My input title"
+>
+  <div
+    id="myCodeWidget-editor-container"
+    onBlur={[Function]}
+    onKeyDown={[Function]}
+    tabIndex="-1"
+  >
+    <div
+      className="sr-only"
+      id="myCodeWidget-instructions"
+    >
+      To focus out of the editor, press ESC key twice.
+    </div>
+    <ReactAce
+      className="tf-widget-code form-control"
+      cursorStart={1}
+      editorProps={
+        Object {
+          "$blockScrolling": Infinity,
+        }
+      }
+      enableBasicAutocompletion={false}
+      enableLiveAutocompletion={false}
+      focus={true}
+      fontSize={12}
+      height="500px"
+      highlightActiveLine={true}
+      maxLines={null}
+      minLines={null}
+      mode=""
+      name="myCodeWidget_wrapper"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onLoad={[Function]}
+      onPaste={null}
+      onScroll={null}
+      readOnly={false}
+      scrollMargin={
+        Array [
+          0,
+          0,
+          0,
+          0,
+        ]
+      }
+      setOptions={
+        Object {
+          "enableBasicAutocompletion": true,
+          "enableLiveAutocompletion": true,
+          "enableSnippets": true,
+        }
+      }
+      showGutter={false}
+      showPrintMargin={false}
+      style={Object {}}
+      tabSize={4}
+      theme="chrome"
+      value="toto"
+      width="auto"
+      wrapEnabled={false}
+    />
+  </div>
+</FieldTemplate>
+`;

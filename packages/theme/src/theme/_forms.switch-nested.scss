@@ -1,0 +1,124 @@
+.switch-nested {
+	.checkbox-nested-expand {
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: flex;
+		justify-content: flex-end;
+
+		.btn.btn-link {
+			min-height: $padding-large;
+
+			svg {
+				width: 10px;
+				height: 10px;
+			}
+		}
+
+		&.expanded {
+			.tc-svg-icon {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&.checkbox > label {
+		input[type='checkbox'] {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+			padding: 0;
+			border: none;
+			height: 1px;
+			width: 1px;
+			overflow: hidden;
+
+			+ * {
+				padding-left: 2rem;
+				color: tint($black, 50);
+			}
+
+			+ *::before,
+			+ *::after,
+			&:checked + *::before,
+			&:checked + *::after {
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				transition: background 0.2s ease, transform 0.2s ease;
+				border-radius: 13rem;
+			}
+
+			+ *::before,
+			&:checked + *::before {
+				width: 2.7rem;
+				height: 0.6rem;
+				margin-top: 0.5rem;
+				background: $alto;
+				border: none;
+				box-shadow: $switch-track-shadow;
+				transform: rotate(0deg);
+			}
+
+			+ *::after,
+			&:checked + *::after {
+				width: 1.5rem;
+				height: 1.5rem;
+				background-color: $wild-sand;
+				border: 1px solid $silver;
+				box-shadow: $switch-thumb-shadow;
+				z-index: 1;
+			}
+
+			&:checked {
+				+ * {
+					color: $text-color;
+				}
+
+				+ *::before {
+					background-color: $scooter;
+				}
+
+				+ *::after {
+					transform: translate(1.2rem, 0);
+				}
+			}
+
+			&:hover,
+			&:focus {
+				+ *::after {
+					background-color: $white;
+					box-shadow: $switch-thumb-shadow-focused;
+				}
+			}
+
+			&:disabled {
+				+ *::before {
+					background-color: tint($gallery, 70);
+					box-shadow: $switch-track-shadow-disabled;
+				}
+
+				+ *::after {
+					background-color: $wild-sand;
+					border: $switch-thumb-border-disabled;
+					box-shadow: $switch-thumb-shadow;
+				}
+
+				&:checked {
+					+ *::before {
+						background-color: tint($scooter, 70);
+					}
+
+					+ *::after {
+						background-color: $wild-sand;
+						border: $switch-thumb-border-disabled;
+					}
+				}
+			}
+		}
+	}
+
+	.checkbox-nested {
+		margin-left: $padding-large;
+	}
+}

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button field should render button wrapped with field template 1`] = `
+<FieldTemplate
+  description="Click here to trigger a trigger"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="This is wrong"
+  isValid={true}
+>
+  <SingleButton
+    id="myForm"
+    onTrigger={[MockFunction]}
+    schema={
+      Object {
+        "description": "Click here to trigger a trigger",
+        "title": "Boom !",
+        "triggers": Array [
+          "after",
+        ],
+        "widget": "button",
+      }
+    }
+  />
+</FieldTemplate>
+`;

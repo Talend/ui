@@ -1,0 +1,21 @@
+.row {
+	padding-left: $padding-normal;
+	&:hover {
+		background-color: $concrete;
+	}
+
+	:global(.checkbox) {
+		margin: 0;
+	}
+	label {
+		height: 3rem;
+		width: 100%;
+	}
+}
+.item {
+	color: $dove-gray;
+	&[for='checkbox-create-new'],
+	&[for='checkbox-select-all'] {
+		font-style: italic;
+	}
+}

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooserHeader should render by default 1`] = `
+<header id="column-chooser-header"
+        class="theme-header tc-tooltip-header tc-column-chooser-header theme-tc-column-chooser-header"
+>
+  <div>
+    <div class="tc-column-chooser-header-title theme-tc-column-chooser-header-title">
+      Select columns to display
+    </div>
+    <div id="selected-columns-text">
+      5/6 selected
+    </div>
+  </div>
+</header>
+`;

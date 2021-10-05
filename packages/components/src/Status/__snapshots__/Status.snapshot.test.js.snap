@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status should render a label 1`] = `
+<div
+  className="theme-tc-status tc-status theme-action"
+  role="status"
+>
+  <span
+    className="theme-tc-status-icon tc-status-icon theme-success"
+  >
+    
+  </span>
+  <span
+    aria-describedby="42"
+    className="theme-tc-status-label tc-status-label theme-success"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    Successful
+  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  >
+    <button
+      aria-label="cancel"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <Coral.Icon
+        name="fa fa-cancel"
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <Coral.Icon
+        name="fa fa-delete"
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Status should render a label with Icon 1`] = `
+<div
+  className="theme-tc-status tc-status theme-action"
+  role="status"
+>
+  <span
+    className="theme-tc-status-icon tc-status-icon theme-success"
+  >
+    <Coral.Icon
+      name="fa fa-check"
+    />
+  </span>
+  <span
+    aria-describedby="42"
+    className="theme-tc-status-label tc-status-label theme-success"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    Successful
+  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  >
+    <button
+      aria-label="cancel"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <Coral.Icon
+        name="fa fa-cancel"
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <Coral.Icon
+        name="fa fa-delete"
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Status should render a label with Icon without actions 1`] = `
+<div
+  className="theme-tc-status tc-status"
+  role="status"
+>
+  <span
+    className="theme-tc-status-icon tc-status-icon theme-success"
+  >
+    <Coral.Icon
+      name="fa fa-check"
+    />
+  </span>
+  <span
+    aria-describedby="42"
+    className="theme-tc-status-label tc-status-label theme-success"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    Successful
+  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  />
+</div>
+`;
+
+exports[`Status should render a label with a continuous circular progress 1`] = `
+<div
+  className="theme-tc-status tc-status theme-action"
+  role="status"
+>
+  <span
+    className="theme-tc-status-icon tc-status-icon theme-info"
+  >
+    <svg
+      aria-busy="true"
+      aria-label="Loading "
+      className="tc-circular-progress theme-loader theme-animate theme-small"
+      focusable="false"
+      viewBox="0 0 50 50"
+    >
+      <circle
+        className="theme-path"
+        cx={25}
+        cy={25}
+        fill="none"
+        r={20}
+        style={
+          Object {
+            "strokeDasharray": 12.566370614359172,
+            "strokeDashoffset": 0,
+          }
+        }
+      />
+    </svg>
+  </span>
+  <span
+    aria-describedby="42"
+    className="theme-tc-status-label tc-status-label theme-info"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    In Progress
+  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  >
+    <button
+      aria-label="cancel"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <Coral.Icon
+        name="fa fa-cancel"
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <Coral.Icon
+        name="fa fa-delete"
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Status should render a label with a fixed circular progress 1`] = `
+<div
+  className="theme-tc-status tc-status theme-action"
+  role="status"
+>
+  <span
+    className="theme-tc-status-icon tc-status-icon theme-info"
+  >
+    <svg
+      aria-busy="true"
+      aria-label="Loading "
+      className="tc-circular-progress theme-loader theme-animate theme-small"
+      focusable="false"
+      viewBox="0 0 50 50"
+    >
+      <circle
+        className="theme-path"
+        cx={25}
+        cy={25}
+        fill="none"
+        r={20}
+        style={
+          Object {
+            "strokeDasharray": 12.566370614359172,
+            "strokeDashoffset": 0,
+          }
+        }
+      />
+    </svg>
+  </span>
+  <span
+    aria-describedby="42"
+    className="theme-tc-status-label tc-status-label theme-info"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    In Progress
+  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  >
+    <button
+      aria-label="cancel"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <Coral.Icon
+        name="fa fa-cancel"
+      />
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      aria-label="delete"
+      className="btn btn-sm btn-default"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role={null}
+      type="button"
+    >
+      <Coral.Icon
+        name="fa fa-delete"
+      />
+      <span>
+        delete
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Status should render a label with a skeleton 1`] = `
+<div
+  className="theme-tc-status tc-status"
+  role="status"
+>
+  <span
+    className="theme-tc-status-icon tc-status-icon theme-skeleton"
+  >
+    <span
+      aria-label="circle (loading)"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small theme-tc-status-skeleton-item tc-status-skeleton-item theme-theme-tc-status-skeleton-item tc-status-skeleton-item tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      style={
+        Object {
+          "height": undefined,
+          "width": undefined,
+        }
+      }
+    />
+  </span>
+  <span
+    aria-describedby="42"
+    className="theme-tc-status-label tc-status-label theme-skeleton"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <span
+      aria-label="text (loading)"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-large theme-tc-skeleton-text-large theme-tc-status-skeleton-item tc-status-skeleton-item theme-theme-tc-status-skeleton-item tc-status-skeleton-item tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+      style={
+        Object {
+          "height": undefined,
+          "width": undefined,
+        }
+      }
+    />
+  </span>
+  <div
+    className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+  />
+</div>
+`;

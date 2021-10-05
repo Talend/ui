@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewLayout should render a ViewLayout 1`] = `
+<div
+  className="theme-container"
+>
+  <div
+    className="theme-header"
+  >
+    <div
+      className="theme-element-container theme-left"
+    >
+      <span>
+        left item
+      </span>
+    </div>
+    <div
+      className="theme-element-container theme-middle"
+    >
+      <span>
+        middle item
+      </span>
+    </div>
+    <div
+      className="theme-element-container theme-right"
+    >
+      <span>
+        right item
+      </span>
+    </div>
+  </div>
+  <div
+    className="theme-element-container theme-body"
+  >
+    <whateverBodyElement />
+  </div>
+</div>
+`;

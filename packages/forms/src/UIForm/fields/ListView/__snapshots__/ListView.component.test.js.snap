@@ -1,0 +1,596 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListView field filter should switch back to default mode on ESC keydown 1`] = `
+Object {
+  "displayMode": "DISPLAY_MODE_SEARCH",
+  "displayedItems": Array [
+    Object {
+      "checked": true,
+      "index": 1,
+      "label": "Albania",
+      "onChange": [Function],
+      "value": "country2",
+    },
+    Object {
+      "checked": true,
+      "index": 2,
+      "label": "Algeria",
+      "onChange": [Function],
+      "value": "country3",
+    },
+  ],
+  "emptyLabel": undefined,
+  "getItemHeight": [Function],
+  "headerDefault": Array [
+    Object {
+      "icon": "talend-search",
+      "id": "my-list-view-search",
+      "label": "Search for specific values",
+      "onClick": [Function],
+    },
+  ],
+  "headerInput": Array [
+    Object {
+      "icon": "talend-cross",
+      "id": "abort",
+      "label": "Abort",
+      "onClick": [Function],
+    },
+  ],
+  "headerLabel": "Countries",
+  "items": Array [
+    Object {
+      "checked": false,
+      "index": 0,
+      "label": "Afghanistan",
+      "onChange": [Function],
+      "value": "country1",
+    },
+    Object {
+      "checked": true,
+      "index": 1,
+      "label": "Albania",
+      "onChange": [Function],
+      "value": "country2",
+    },
+    Object {
+      "checked": true,
+      "index": 2,
+      "label": "Algeria",
+      "onChange": [Function],
+      "value": "country3",
+    },
+    Object {
+      "checked": false,
+      "index": 3,
+      "label": "Andorra",
+      "onChange": [Function],
+      "value": "country4",
+    },
+  ],
+  "noResultLabel": undefined,
+  "onAddKeyDown": [Function],
+  "onInputChange": [Function],
+  "onToggleAll": [Function],
+  "required": true,
+  "searchCriteria": "ia",
+  "searchPlaceholder": undefined,
+  "toggleAllChecked": true,
+}
+`;
+
+exports[`ListView field filter should switch back to default mode on ESC keydown 2`] = `
+Object {
+  "displayMode": "DISPLAY_MODE_DEFAULT",
+  "displayedItems": Array [
+    Object {
+      "checked": false,
+      "index": 0,
+      "label": "Afghanistan",
+      "onChange": [Function],
+      "value": "country1",
+    },
+    Object {
+      "checked": true,
+      "index": 1,
+      "label": "Albania",
+      "onChange": [Function],
+      "value": "country2",
+    },
+    Object {
+      "checked": true,
+      "index": 2,
+      "label": "Algeria",
+      "onChange": [Function],
+      "value": "country3",
+    },
+    Object {
+      "checked": false,
+      "index": 3,
+      "label": "Andorra",
+      "onChange": [Function],
+      "value": "country4",
+    },
+  ],
+  "emptyLabel": undefined,
+  "getItemHeight": [Function],
+  "headerDefault": Array [
+    Object {
+      "icon": "talend-search",
+      "id": "my-list-view-search",
+      "label": "Search for specific values",
+      "onClick": [Function],
+    },
+  ],
+  "headerInput": Array [
+    Object {
+      "icon": "talend-search",
+      "id": "my-list-view-search",
+      "label": "Search for specific values",
+      "onClick": [Function],
+    },
+  ],
+  "headerLabel": "Countries",
+  "items": Array [
+    Object {
+      "checked": false,
+      "index": 0,
+      "label": "Afghanistan",
+      "onChange": [Function],
+      "value": "country1",
+    },
+    Object {
+      "checked": true,
+      "index": 1,
+      "label": "Albania",
+      "onChange": [Function],
+      "value": "country2",
+    },
+    Object {
+      "checked": true,
+      "index": 2,
+      "label": "Algeria",
+      "onChange": [Function],
+      "value": "country3",
+    },
+    Object {
+      "checked": false,
+      "index": 3,
+      "label": "Andorra",
+      "onChange": [Function],
+      "value": "country4",
+    },
+  ],
+  "noResultLabel": undefined,
+  "onAddKeyDown": [Function],
+  "onInputChange": [Function],
+  "onToggleAll": [Function],
+  "required": true,
+  "searchCriteria": undefined,
+  "searchPlaceholder": undefined,
+  "toggleAllChecked": false,
+}
+`;
+
+exports[`ListView field filter should switch back to default mode on abort button click 1`] = `
+Object {
+  "displayMode": "DISPLAY_MODE_SEARCH",
+  "displayedItems": Array [
+    Object {
+      "checked": true,
+      "index": 1,
+      "label": "Albania",
+      "onChange": [Function],
+      "value": "country2",
+    },
+    Object {
+      "checked": true,
+      "index": 2,
+      "label": "Algeria",
+      "onChange": [Function],
+      "value": "country3",
+    },
+  ],
+  "emptyLabel": undefined,
+  "getItemHeight": [Function],
+  "headerDefault": Array [
+    Object {
+      "icon": "talend-search",
+      "id": "my-list-view-search",
+      "label": "Search for specific values",
+      "onClick": [Function],
+    },
+  ],
+  "headerInput": Array [
+    Object {
+      "icon": "talend-cross",
+      "id": "abort",
+      "label": "Abort",
+      "onClick": [Function],
+    },
+  ],
+  "headerLabel": "Countries",
+  "items": Array [
+    Object {
+      "checked": false,
+      "index": 0,
+      "label": "Afghanistan",
+      "onChange": [Function],
+      "value": "country1",
+    },
+    Object {
+      "checked": true,
+      "index": 1,
+      "label": "Albania",
+      "onChange": [Function],
+      "value": "country2",
+    },
+    Object {
+      "checked": true,
+      "index": 2,
+      "label": "Algeria",
+      "onChange": [Function],
+      "value": "country3",
+    },
+    Object {
+      "checked": false,
+      "index": 3,
+      "label": "Andorra",
+      "onChange": [Function],
+      "value": "country4",
+    },
+  ],
+  "noResultLabel": undefined,
+  "onAddKeyDown": [Function],
+  "onInputChange": [Function],
+  "onToggleAll": [Function],
+  "required": true,
+  "searchCriteria": "ia",
+  "searchPlaceholder": undefined,
+  "toggleAllChecked": true,
+}
+`;
+
+exports[`ListView field filter should switch back to default mode on abort button click 2`] = `
+Object {
+  "displayMode": "DISPLAY_MODE_DEFAULT",
+  "displayedItems": Array [
+    Object {
+      "checked": false,
+      "index": 0,
+      "label": "Afghanistan",
+      "onChange": [Function],
+      "value": "country1",
+    },
+    Object {
+      "checked": true,
+      "index": 1,
+      "label": "Albania",
+      "onChange": [Function],
+      "value": "country2",
+    },
+    Object {
+      "checked": true,
+      "index": 2,
+      "label": "Algeria",
+      "onChange": [Function],
+      "value": "country3",
+    },
+    Object {
+      "checked": false,
+      "index": 3,
+      "label": "Andorra",
+      "onChange": [Function],
+      "value": "country4",
+    },
+  ],
+  "emptyLabel": undefined,
+  "getItemHeight": [Function],
+  "headerDefault": Array [
+    Object {
+      "icon": "talend-search",
+      "id": "my-list-view-search",
+      "label": "Search for specific values",
+      "onClick": [Function],
+    },
+  ],
+  "headerInput": Array [
+    Object {
+      "icon": "talend-search",
+      "id": "my-list-view-search",
+      "label": "Search for specific values",
+      "onClick": [Function],
+    },
+  ],
+  "headerLabel": "Countries",
+  "items": Array [
+    Object {
+      "checked": false,
+      "index": 0,
+      "label": "Afghanistan",
+      "onChange": [Function],
+      "value": "country1",
+    },
+    Object {
+      "checked": true,
+      "index": 1,
+      "label": "Albania",
+      "onChange": [Function],
+      "value": "country2",
+    },
+    Object {
+      "checked": true,
+      "index": 2,
+      "label": "Algeria",
+      "onChange": [Function],
+      "value": "country3",
+    },
+    Object {
+      "checked": false,
+      "index": 3,
+      "label": "Andorra",
+      "onChange": [Function],
+      "value": "country4",
+    },
+  ],
+  "noResultLabel": undefined,
+  "onAddKeyDown": [Function],
+  "onInputChange": [Function],
+  "onToggleAll": [Function],
+  "required": true,
+  "searchCriteria": undefined,
+  "searchPlaceholder": undefined,
+  "toggleAllChecked": false,
+}
+`;
+
+exports[`ListView field render should render ListView 1`] = `
+<FieldTemplate
+  description="This is the ListView field"
+  descriptionId="my-list-view-description"
+  errorId="my-list-view-error"
+  errorMessage="This is wrong"
+  id="my-list-view"
+  isValid={true}
+  required={true}
+>
+  <ListView
+    containerProps={
+      Object {
+        "aria-describedby": "my-list-view-description my-list-view-error",
+      }
+    }
+    displayedItems={
+      Array [
+        Object {
+          "checked": false,
+          "index": 0,
+          "label": "Afghanistan",
+          "onChange": [Function],
+          "value": "country1",
+        },
+        Object {
+          "checked": true,
+          "index": 1,
+          "label": "Albania",
+          "onChange": [Function],
+          "value": "country2",
+        },
+        Object {
+          "checked": true,
+          "index": 2,
+          "label": "Algeria",
+          "onChange": [Function],
+          "value": "country3",
+        },
+        Object {
+          "checked": false,
+          "index": 3,
+          "label": "Andorra",
+          "onChange": [Function],
+          "value": "country4",
+        },
+      ]
+    }
+    getItemHeight={[Function]}
+    headerDefault={
+      Array [
+        Object {
+          "icon": "talend-search",
+          "id": "my-list-view-search",
+          "label": "Search for specific values",
+          "onClick": [Function],
+        },
+      ]
+    }
+    headerLabel="Countries"
+    id="my-list-view"
+    items={
+      Array [
+        Object {
+          "checked": false,
+          "index": 0,
+          "label": "Afghanistan",
+          "onChange": [Function],
+          "value": "country1",
+        },
+        Object {
+          "checked": true,
+          "index": 1,
+          "label": "Albania",
+          "onChange": [Function],
+          "value": "country2",
+        },
+        Object {
+          "checked": true,
+          "index": 2,
+          "label": "Algeria",
+          "onChange": [Function],
+          "value": "country3",
+        },
+        Object {
+          "checked": false,
+          "index": 3,
+          "label": "Andorra",
+          "onChange": [Function],
+          "value": "country4",
+        },
+      ]
+    }
+    onAddKeyDown={[Function]}
+    onInputChange={[Function]}
+    onToggleAll={[Function]}
+    required={true}
+    searchCriteria={null}
+    t={[Function]}
+    toggleAllChecked={false}
+  />
+</FieldTemplate>
+`;
+
+exports[`ListView field render should render no items message 1`] = `
+<div
+  className="theme-tc-listview tc-listview"
+>
+  <HeaderListView
+    containerProps={
+      Object {
+        "aria-describedby": "my-list-view-description my-list-view-error",
+      }
+    }
+    displayMode="DISPLAY_MODE_DEFAULT"
+    displayedItems={Array []}
+    getItemHeight={[Function]}
+    headerDefault={
+      Array [
+        Object {
+          "icon": "talend-search",
+          "id": "my-list-view-search",
+          "label": "Search for specific values",
+          "onClick": [Function],
+        },
+      ]
+    }
+    headerLabel="Countries"
+    id="my-list-view"
+    items={Array []}
+    onAddKeyDown={[Function]}
+    onInputChange={[Function]}
+    onToggleAll={[Function]}
+    required={true}
+    searchCriteria={null}
+    t={[Function]}
+    toggleAllChecked={true}
+  >
+    <withI18nextTranslation(Header)
+      headerDefault={
+        Array [
+          Object {
+            "icon": "talend-search",
+            "id": "my-list-view-search",
+            "label": "Search for specific values",
+            "onClick": [Function],
+          },
+        ]
+      }
+      headerLabel="Countries"
+      nbItems={0}
+      nbItemsSelected={0}
+      required={true}
+      t={[Function]}
+    >
+      <header
+        className="theme-tc-listview-header tc-listview-header"
+      >
+        <strong>
+          Countries
+          *
+        </strong>
+        <div
+          className="actions"
+        >
+          <Action
+            hideLabel={true}
+            icon="talend-search"
+            key="0-listview-header-action"
+            label="Search for specific values"
+            link={true}
+            onClick={[Function]}
+            tooltipPlacement="bottom"
+          >
+            <withI18nextTranslation(ActionButton)
+              available={true}
+              bsStyle="default"
+              disabled={false}
+              hideLabel={true}
+              icon="talend-search"
+              inProgress={false}
+              label="Search for specific values"
+              link={true}
+              loading={false}
+              onClick={[Function]}
+              t={[Function]}
+              tooltipPlacement="bottom"
+            >
+              <TooltipTrigger
+                label="Search for specific values"
+                tooltipPlacement="bottom"
+              >
+                <Button
+                  active={false}
+                  aria-describedby="42"
+                  aria-label="Search for specific values"
+                  block={false}
+                  bsClass="btn"
+                  bsStyle="link"
+                  className="btn-icon-only"
+                  disabled={false}
+                  key=".0"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role="link"
+                >
+                  <button
+                    aria-describedby="42"
+                    aria-label="Search for specific values"
+                    className="btn-icon-only btn btn-link"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyPress={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}
+                    role="link"
+                    type="button"
+                  >
+                    <Icon
+                      key="icon"
+                      name="talend-search"
+                    >
+                      <Coral.Icon
+                        name="talend-search"
+                      />
+                    </Icon>
+                  </button>
+                </Button>
+              </TooltipTrigger>
+            </withI18nextTranslation(ActionButton)>
+          </Action>
+        </div>
+      </header>
+    </withI18nextTranslation(Header)>
+  </HeaderListView>
+  <span
+    className="theme-empty-message"
+  >
+    This list is empty.
+  </span>
+</div>
+`;

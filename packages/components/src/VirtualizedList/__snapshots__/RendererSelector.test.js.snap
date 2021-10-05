@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RendererSelector should render table list by default 1`] = `
+<VirtualizedList(ListTable)
+  collection={
+    Array [
+      Object {
+        "description": "Simple row with icon and actions",
+        "id": 0,
+        "name": "Title with icon and actions",
+      },
+      Object {
+        "description": "Simple row without actions",
+        "id": 1,
+        "name": "Title without actions",
+      },
+    ]
+  }
+  disableHeader={false}
+  height={600}
+  id="my-list-id"
+  isActive={[MockFunction]}
+  isSelected={[MockFunction]}
+  noRowsRenderer={[Function]}
+  onRowClick={[MockFunction]}
+  onRowDoubleClick={[MockFunction]}
+  onScroll={[MockFunction]}
+  rowHeight={50}
+  sort={[MockFunction]}
+  sortBy="name"
+  sortDirection="DESC"
+  width={1024}
+>
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerRenderer={[Function]}
+    label="Id"
+    style={Object {}}
+    width={50}
+  />
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="name"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerRenderer={[Function]}
+    label="Name"
+    style={Object {}}
+    width={350}
+  />
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="description"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerRenderer={[Function]}
+    label="Description"
+    style={Object {}}
+    width={350}
+  />
+</VirtualizedList(ListTable)>
+`;
+
+exports[`RendererSelector should render table list when requested 1`] = `
+<VirtualizedList(ListTable)
+  collection={
+    Array [
+      Object {
+        "description": "Simple row with icon and actions",
+        "id": 0,
+        "name": "Title with icon and actions",
+      },
+      Object {
+        "description": "Simple row without actions",
+        "id": 1,
+        "name": "Title without actions",
+      },
+    ]
+  }
+  disableHeader={false}
+  height={600}
+  id="my-list-id"
+  isActive={[MockFunction]}
+  isSelected={[MockFunction]}
+  noRowsRenderer={[Function]}
+  onRowClick={[MockFunction]}
+  onRowDoubleClick={[MockFunction]}
+  onScroll={[MockFunction]}
+  rowHeight={50}
+  sort={[MockFunction]}
+  sortBy="name"
+  sortDirection="DESC"
+  width={1024}
+>
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerRenderer={[Function]}
+    label="Id"
+    style={Object {}}
+    width={50}
+  />
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="name"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerRenderer={[Function]}
+    label="Name"
+    style={Object {}}
+    width={350}
+  />
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="description"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerRenderer={[Function]}
+    label="Description"
+    style={Object {}}
+    width={350}
+  />
+</VirtualizedList(ListTable)>
+`;

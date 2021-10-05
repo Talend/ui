@@ -1,0 +1,77 @@
+{
+	"doc": "NestedListView/README.md",
+	"jsonSchema": {
+		"title": "A nested ListView form",
+		"description": "A nested ListView form example.",
+		"type": "object",
+		"properties": {
+			"food": {
+				"type": "object",
+				"properties": {
+					"fruits": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": [
+								"orange",
+								"pear",
+								"passion_fruit"
+							]
+						}
+					},
+					"vegetables": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": [
+								"carot",
+								"lettuce",
+								"turnip"
+							]
+						}
+					}
+				}
+			}
+		}
+	},
+	"uiSchema": [
+		{
+			"key": "food",
+			"title": "Food",
+			"widget": "nestedListView",
+			"autosize": true,
+			"dataTest": "item",
+			"items": [
+				{
+					"key": "food.fruits",
+					"title": "Fruits",
+					"titleMap": {
+						"orange": "Orange",
+						"pear": "Pear",
+						"passion_fruit": "Passion fruit"
+					}
+				},
+				{
+					"key": "food.vegetables",
+					"title": "Vegetables",
+					"titleMap": {
+						"carot": "Carot",
+						"lettuce": "Lettuce",
+						"turnip": "Turnip"
+					}
+				}
+			]
+		}
+	],
+	"properties": {
+		"food": {
+			"fruits": [
+				"orange"
+			],
+			"vegetables": [
+				"lettuce",
+				"carot"
+			]
+		}
+	}
+}

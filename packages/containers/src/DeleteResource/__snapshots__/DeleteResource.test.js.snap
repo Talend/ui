@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container DeleteResource should render with proper resourceInfo params 1`] = `
+<ConfirmDialog
+  cancelAction={
+    Object {
+      "className": "btn-inverse",
+      "componentId": "dialog:delete:cancel",
+      "label": "CANCEL",
+      "model": Object {
+        "collectionId": undefined,
+        "found": true,
+        "id": undefined,
+        "label": "myLabel",
+        "onCancelRedirectUrl": undefined,
+        "redirectUrl": undefined,
+        "resource": Immutable.Map {
+          "label": "myLabel",
+        },
+        "resourceType": "myResourceType",
+        "resourceTypeLabel": "resourceLabel",
+        "uri": "/myEndpoint",
+      },
+      "onClickActionCreator": "DeleteResource#cancel",
+    }
+  }
+  header="My header title"
+  onHide={[Function]}
+  show={true}
+  validateAction={
+    Object {
+      "bsStyle": "danger",
+      "componentId": "dialog:delete:validate",
+      "label": "REMOVE",
+      "model": Object {
+        "collectionId": undefined,
+        "found": true,
+        "id": undefined,
+        "label": "myLabel",
+        "onCancelRedirectUrl": undefined,
+        "redirectUrl": undefined,
+        "resource": Immutable.Map {
+          "label": "myLabel",
+        },
+        "resourceType": "myResourceType",
+        "resourceTypeLabel": "resourceLabel",
+        "uri": "/myEndpoint",
+      },
+      "onClickActionCreator": "DeleteResource#validate",
+    }
+  }
+>
+  <Trans
+    i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE"
+    tOptions={
+      Object {
+        "context": "female",
+      }
+    }
+  >
+    Are you sure you want to remove the 
+    Object {
+      "resourceTypeLabel": "resourceLabel",
+    }
+     
+    <strong>
+      Object {
+        "label": "myLabel",
+      }
+    </strong>
+    ?
+  </Trans>
+</ConfirmDialog>
+`;
+
+exports[`Container DeleteResource should render with wrong resourceInfo params 1`] = `
+<ConfirmDialog
+  cancelAction={
+    Object {
+      "className": "btn-inverse",
+      "componentId": "dialog:delete:cancel",
+      "label": "CANCEL",
+      "model": Object {
+        "collectionId": undefined,
+        "found": false,
+        "id": undefined,
+        "label": "",
+        "onCancelRedirectUrl": undefined,
+        "redirectUrl": undefined,
+        "resource": undefined,
+        "resourceType": "unknownResourceType",
+        "resourceTypeLabel": "unknownResourceType",
+        "uri": "/myEndpoint",
+      },
+      "onClickActionCreator": "DeleteResource#cancel",
+    }
+  }
+  header="My header title"
+  onHide={[Function]}
+  show={true}
+  validateAction={
+    Object {
+      "bsStyle": "danger",
+      "componentId": "dialog:delete:validate",
+      "label": "REMOVE",
+      "model": Object {
+        "collectionId": undefined,
+        "found": false,
+        "id": undefined,
+        "label": "",
+        "onCancelRedirectUrl": undefined,
+        "redirectUrl": undefined,
+        "resource": undefined,
+        "resourceType": "unknownResourceType",
+        "resourceTypeLabel": "unknownResourceType",
+        "uri": "/myEndpoint",
+      },
+      "onClickActionCreator": "DeleteResource#validate",
+    }
+  }
+>
+  <Trans
+    i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE"
+  >
+    Are you sure you want to remove the 
+    Object {
+      "resourceTypeLabel": "unknownResourceType",
+    }
+     
+    <strong>
+      Object {
+        "label": "",
+      }
+    </strong>
+    ?
+  </Trans>
+</ConfirmDialog>
+`;

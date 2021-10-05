@@ -1,0 +1,19 @@
+////
+/// Bootstrap navbars dropdown component customization
+/// @group Navbar
+////
+
+.navbar {
+	.dropdown-toggle {
+		display: flex;
+		align-items: center;
+	}
+
+	.btn-group {
+		&.open {
+			> .dropdown-menu {
+				max-height: none;
+			}
+		}
+	}
+}

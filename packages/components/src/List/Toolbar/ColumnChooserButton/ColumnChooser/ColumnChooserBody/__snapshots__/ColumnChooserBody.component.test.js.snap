@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooserBody should render the columns rows and the column select all 1`] = `
+<div id="column-chooser-body"
+     class="theme-body tc-tooltip-body"
+>
+  <div id="column-chooser-body-content"
+       class="theme-content tc-tooltip-content"
+  >
+    <div class="tc-column-chooser-body theme-tc-column-chooser-body">
+      <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
+        <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+          <label for="body-context-id-body-checkbox-Select-All"
+                 data-feature="column-chooser.select.all.disable"
+          >
+            <input type="checkbox"
+                   id="body-context-id-body-checkbox-Select-All"
+                   data-checked="2"
+                   aria-describedby="body-context-id-body-hide all the columns"
+                   checked
+            >
+            <span>
+              Select All
+            </span>
+          </label>
+        </div>
+        <div id="body-context-id-body-hide all the columns"
+             class="sr-only"
+        >
+          hide all the columns
+        </div>
+      </div>
+      <div class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list">
+        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+          <coral.icon name="talend-locked"
+                      class="tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
+          >
+          </coral.icon>
+          <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
+            col1
+          </span>
+        </div>
+        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+          <coral.icon name="talend-locked"
+                      class="tc-column-chooser-row-locked-icon theme-tc-column-chooser-row-locked-icon"
+          >
+          </coral.icon>
+          <span class="tc-column-chooser-row-label theme-tc-column-chooser-row-label">
+            col2
+          </span>
+        </div>
+        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+            <label for="body-context-id-body-checkbox-col3"
+                   data-feature="column-chooser.select.disable"
+            >
+              <input type="checkbox"
+                     id="body-context-id-body-checkbox-col3"
+                     data-checked="2"
+                     aria-describedby="body-context-id-body-display the column col3"
+                     checked
+              >
+              <span>
+                col3
+              </span>
+            </label>
+          </div>
+          <div id="body-context-id-body-display the column col3"
+               class="sr-only"
+          >
+            display the column col3
+          </div>
+        </div>
+        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+            <label for="body-context-id-body-checkbox-col4"
+                   data-feature="column-chooser.select.enable"
+            >
+              <input type="checkbox"
+                     id="body-context-id-body-checkbox-col4"
+                     data-checked="0"
+                     aria-describedby="body-context-id-body-display the column col4"
+              >
+              <span>
+                col4
+              </span>
+            </label>
+          </div>
+          <div id="body-context-id-body-display the column col4"
+               class="sr-only"
+          >
+            display the column col4
+          </div>
+        </div>
+        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+            <label for="body-context-id-body-checkbox-col5"
+                   data-feature="column-chooser.select.disable"
+            >
+              <input type="checkbox"
+                     id="body-context-id-body-checkbox-col5"
+                     data-checked="2"
+                     aria-describedby="body-context-id-body-display the column col5"
+                     checked
+              >
+              <span>
+                col5
+              </span>
+            </label>
+          </div>
+          <div id="body-context-id-body-display the column col5"
+               class="sr-only"
+          >
+            display the column col5
+          </div>
+        </div>
+        <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+            <label for="body-context-id-body-checkbox-col6"
+                   data-feature="column-chooser.select.enable"
+            >
+              <input type="checkbox"
+                     id="body-context-id-body-checkbox-col6"
+                     data-checked="0"
+                     aria-describedby="body-context-id-body-display the column col6"
+              >
+              <span>
+                col6
+              </span>
+            </label>
+          </div>
+          <div id="body-context-id-body-display the column col6"
+               class="sr-only"
+          >
+            display the column col6
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,22 @@
+:global(.tc-model .tc-tree) {
+	overflow: auto;
+}
+
+.tc-tree {
+	list-style: none;
+	flex-grow: 1;
+	margin-bottom: 0;
+
+	&-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	&-node-border {
+		border-left: 1px solid $alto;
+		margin-left: -12px;
+		&:hover {
+			border-left-color: $silver-chalice;
+		}
+	}
+}

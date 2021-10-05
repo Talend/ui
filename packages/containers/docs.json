@@ -1,0 +1,33 @@
+{
+    "opts": {
+      "recurse": true,
+      "destination": "docs/jsdoc",
+      "readme": "README.md"
+    },
+    "source": {
+        "include": [
+          "src/index.js",
+          "src/Action/Action.component.js",
+          "src/Actions/Actions.component.js",
+          "src/AppHeaderBar/AppHeaderBar.component.js",
+          "src/List/List.connect.js"
+        ],
+        "excludePattern": "(node_modules/*|docs/*|lib/*)"
+    },
+    "plugins": [],
+    "templates": {
+        "license": "MIT",
+        "outputSourceFiles"     : true,
+        "systemName"            : "React Talend Containers",
+        "navType"               : "vertical",
+        "theme"                 : "cerulean",
+        "linenums"              : true,
+        "collapseSymbols"       : false,
+        "inverseNav"            : false,
+        "dateFormat"            : "YYYY-MM-DD",
+        "analytics": {
+            "ua": "UA-77701501-4",
+            "domain": "auto"
+        }
+    }
+}

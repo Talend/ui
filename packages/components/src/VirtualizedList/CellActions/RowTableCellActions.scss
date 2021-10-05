@@ -1,0 +1,15 @@
+// manage actions display on row hover
+.row {
+	.tc-list-actions button {
+		opacity: 0;
+
+		&:focus {
+			opacity: 1;
+		}
+	}
+
+	&:hover .tc-list-actions button {
+		opacity: 1;
+		transition: opacity 0.15s ease-in;
+	}
+}

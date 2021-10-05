@@ -1,0 +1,54 @@
+$tc-resource-picker-toolbar-favorite-color: $lightning-yellow !default;
+$tc-resource-picker-toolbar-certified-color: $brand-primary !default;
+
+.tc-resource-picker-state-filters {
+	margin-right: $padding-normal;
+	display: flex;
+	align-items: center;
+
+	.option-label {
+		margin-right: $padding-small;
+	}
+
+	// ActionIconToggle style reset :
+	:global(.tc-icon-toggle) {
+		background: none;
+		border: none;
+		box-shadow: none;
+		width: $svg-md-size;
+
+		> svg {
+			margin: 0;
+			width: $svg-md-size;
+			height: $svg-md-size;
+			color: $dove-gray;
+		}
+
+		&:hover:not([disabled]),
+		&:focus,
+		&:active {
+			background: none;
+			border: none;
+		}
+	}
+
+	:global(.tc-icon-toggle) {
+		margin-left: $padding-small;
+		display: inline-flex;
+
+		&:global(.active),
+		&:hover {
+			&.tc-resource-picker-selection-filter > svg {
+				color: $scooter;
+			}
+
+			&.tc-resource-picker-favorite-filter > svg {
+				color: $tc-resource-picker-toolbar-favorite-color;
+			}
+
+			&.tc-resource-picker-certified-filter > svg {
+				color: $tc-resource-picker-toolbar-certified-color;
+			}
+		}
+	}
+}

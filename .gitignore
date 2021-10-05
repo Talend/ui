@@ -1,8 +1,53 @@
+/.static
+# Log files #
+*.log
+
+# Mac OS index files #
+.DS_Store
+
+# Eclipse project files #
+.project
+.settings
+bin/
+# Intellij project files #
+.idea/
+*.ipr
+*.iml
+*.iws
+out/
+
+# JavaScript/NodeJS files #
+.npm/
 npm-debug.log
-yarn-error.log
-jsconfig.json
 node_modules/
+.node-gyp
 coverage/
+
+# Compilation output #
+target/
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# e2e driver #
+packages/components/e2e/component-objects/chromedriver
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+.classpath
+
+# Talend web apps build directory
+build/
+/packages/*/i18n/
+tmp/
 lib/
-docs/
+storybook-static/
 dist/
+eslint-report.json
+stylelint-report.json

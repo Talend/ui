@@ -1,0 +1,158 @@
+@mixin chevron($color) {
+	border: 1px solid $scooter;
+	padding: 3px;
+	border-radius: 10px;
+	color: $color;
+}
+
+.container {
+	display: block;
+	font-size: 1.4rem;
+
+	> ul {
+		padding: 0;
+	}
+
+	li {
+		list-style-type: none;
+	}
+
+	svg {
+		margin: 0 0 0 1px; // this is du to the left ul border that takes 1px
+	}
+
+	button {
+		background: transparent;
+		border: none;
+		padding: 0;
+		text-align: left;
+	}
+
+	.root-label-overflow {
+		white-space: nowrap;
+		overflow: hidden;
+		max-width: 25%;
+		text-overflow: ellipsis;
+	}
+
+	.list-item {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		max-width: 100%;
+
+		&:focus {
+			outline: none;
+
+			> .line {
+				background: rgba($black, 0.05);
+				color: $scooter;
+			}
+		}
+
+		&[aria-selected='true'] > .line {
+			background-color: rgba(93, 136, 170, 0.1);
+			color: $dove-gray;
+		}
+
+		.line {
+			display: flex;
+
+			&.full-width {
+				width: 100%;
+			}
+
+			.toggle {
+				min-height: auto;
+				line-height: unset;
+
+				> svg {
+					width: 0.9rem;
+					height: 0.9rem;
+					color: $scooter;
+				}
+			}
+
+			.line-main {
+				max-width: 100%;
+				display: flex;
+				align-items: center;
+
+				&:focus {
+					.value {
+						white-space: normal;
+						word-break: break-all;
+						overflow: visible;
+						vertical-align: top;
+					}
+				}
+
+				&.shrink-value {
+					overflow: hidden;
+				}
+			}
+		}
+
+		.complex-item {
+			flex: 1 1 auto;
+			border-left: solid 1px $alto;
+			margin-left: $padding-smaller;
+			max-width: 100%;
+		}
+
+		.key {
+			padding-left: $padding-smaller;
+			color: $dove-gray;
+		}
+
+		.value {
+			color: $brand-primary;
+			margin-left: $padding-smaller;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+
+			&.wrap-string {
+				white-space: normal;
+				word-break: break-all;
+			}
+
+			&.shrink-value {
+				overflow: hidden;
+			}
+		}
+
+		.type {
+			font-family: 'Inconsolata';
+			font-size: 1.2rem;
+			color: $dark-silver;
+			opacity: 0.75;
+			display: inline;
+			margin-right: $padding-normal;
+			margin-left: $padding-smaller;
+			vertical-align: text-bottom;
+		}
+
+		.badge {
+			top: -0.1rem;
+			margin-left: $padding-small;
+			background-color: rgba($brand-primary, 0.3);
+			color: $brand-primary;
+			font-size: 1rem;
+			padding: calc(#{$padding-smaller} / 2) $padding-smaller;
+			display: inline-table;
+		}
+	}
+}
+
+.chevron {
+	svg {
+		@include chevron($scooter);
+	}
+}
+
+.chevron-filled {
+	svg {
+		@include chevron($white);
+		background-color: $scooter;
+	}
+}

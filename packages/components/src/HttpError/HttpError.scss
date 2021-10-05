@@ -1,0 +1,48 @@
+$tc-http-error-status-color: $scooter !default;
+$tc-http-error-title-color: $brand-primary !default;
+$tc-http-error-message-color: #888 !default;
+
+.http-error {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		text-align: center;
+		content: attr(data-status);
+		font-size: 62rem;
+		font-weight: 700;
+		line-height: 0.7;
+		color: $tc-http-error-status-color;
+		opacity: 0.1;
+		z-index: -1;
+	}
+
+	&-content {
+		padding: 13rem 0 0 43rem;
+
+		h1 {
+			margin: 0;
+			color: $tc-http-error-title-color;
+			font-size: 10rem;
+			font-weight: 700;
+		}
+
+		p {
+			color: $tc-http-error-message-color;
+			font-size: 3rem;
+			font-weight: 600;
+		}
+
+		button {
+			padding: 0;
+			font-weight: 600;
+			text-transform: none;
+		}
+	}
+}

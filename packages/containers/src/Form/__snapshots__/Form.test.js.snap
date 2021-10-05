@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container(Form) should pass props to Form lib 1`] = `
+Object {
+  "ArrayFieldTemplate": [Function],
+  "actions": Array [],
+  "buttonBlockClass": undefined,
+  "children": undefined,
+  "className": "tc-form rjsf foo pristine",
+  "customFormats": undefined,
+  "customValidation": undefined,
+  "data": Object {
+    "errors": Object {},
+    "jsonSchema": Object {
+      "schema": true,
+    },
+    "properties": Object {},
+    "uiSchema": Object {
+      "uiSchema": true,
+    },
+  },
+  "fields": undefined,
+  "getComponent": undefined,
+  "language": undefined,
+  "loading": true,
+  "onChange": [Function],
+  "onErrors": [Function],
+  "onSubmit": [Function],
+  "onTrigger": [MockFunction],
+  "other": true,
+  "uiform": undefined,
+  "widgets": undefined,
+}
+`;
+
+exports[`Container(Form) should render a Form 1`] = `
+<FormSwitcher
+  ArrayFieldTemplate={[Function]}
+  actions={Array []}
+  className="tc-form rjsf pristine"
+  data={
+    Object {
+      "errors": Object {},
+      "jsonSchema": Object {
+        "schema": true,
+      },
+      "properties": Object {},
+      "uiSchema": Object {
+        "uiSchema": true,
+      },
+    }
+  }
+  onChange={[Function]}
+  onErrors={[Function]}
+  onSubmit={[Function]}
+  other={true}
+/>
+`;
+
+exports[`Container(Form) should use props.onChange 1`] = `
+Array [
+  Object {
+    "foo": "bar",
+  },
+]
+`;
+
+exports[`Container(Form) should use props.onChange 2`] = `
+Array [
+  Object {
+    "data": undefined,
+    "dirty": true,
+  },
+]
+`;

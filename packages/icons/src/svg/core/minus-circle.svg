@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <g fill="none">
+    <circle class="ti-background" stroke="currentColor" cx="8" cy="8" r="7"/>
+    <path class="ti-foreground" fill="currentColor"  d="M4,8.4004 L4,7.6004 C4,7.2694 4.269,7.0004 4.6,7.0004 L11.4,7.0004 C11.731,7.0004 12,7.2694 12,7.6004 L12,8.4004 C12,8.7324 11.731,9.0004 11.4,9.0004 L4.6,9.0004 C4.269,9.0004 4,8.7324 4,8.4004"/>
+  </g>
+</svg>

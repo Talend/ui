@@ -1,0 +1,65 @@
+{
+  "schema": {
+    "type": "record",
+    "name": "StringArrayRecord",
+    "fields": [
+      {
+        "name": "field0",
+        "doc": "Nom de la gare",
+        "type": {
+          "type": "string",
+          "dqType": "FR Commune",
+          "dqTypeKey": "FR_COMMUNE",
+          "@talend-quality@": {
+            "0": 0,
+            "1": 38,
+            "-1": 62
+          }
+        }
+      }
+    ]
+  },
+  "data": [
+    {
+      "value": {
+        "field0": {
+          "value": "Aéroport Charles de Gaulle 2 TGV",
+          "quality": 1
+        }
+      },
+      "quality": 1
+    },
+    {
+      "value": {
+        "field0": {
+          "value": "Aguilcourt-Variscourt",
+          "quality": 1
+        }
+      },
+      "quality": 1
+    },
+    {
+      "value": {
+        "field0": {
+          "value": "Aix en Provence",
+          "quality": 0
+        }
+      }
+    },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false },
+    { "value": {}, "loaded": false }
+  ],
+  "encoding": "JSON",
+  "@talend-quality@": {
+    "0": 30,
+    "1": 62,
+    "-1": 7
+  }
+}

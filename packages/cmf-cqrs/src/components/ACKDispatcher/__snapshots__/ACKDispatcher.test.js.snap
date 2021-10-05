@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connected ACKDispatcher should mapStateToProps 1`] = `
+Object {
+  "acks": Immutable.Map {
+    "123": Immutable.Map {
+      "actionCreator": "test",
+      "data": Object {
+        "foo": "bar",
+      },
+      "received": true,
+    },
+  },
+}
+`;

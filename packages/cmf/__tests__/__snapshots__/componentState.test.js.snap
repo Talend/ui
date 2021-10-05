@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`state should getStateAccessors return accessors 1`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "name",
+      "initialComponentState": Immutable.Map {
+        "foo": "bar",
+      },
+      "key": "id",
+      "type": "REACT_CMF.COMPONENT_ADD_STATE",
+    },
+  },
+  "id": "id",
+  "type": "name.initState",
+}
+`;
+
+exports[`state should getStateAccessors return accessors 2`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "name",
+      "componentState": Object {
+        "foo": "baz",
+      },
+      "key": "id",
+      "type": "REACT_CMF.COMPONENT_MERGE_STATE",
+    },
+  },
+  "id": "id",
+  "type": "name.setState",
+}
+`;
+
+exports[`state should getStateAccessors return accessors 3`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "name",
+      "key": "id",
+      "type": "REACT_CMF.COMPONENT_REMOVE_STATE",
+    },
+  },
+  "id": "id",
+  "type": "name.deleteState",
+}
+`;
+
+exports[`state should getStateAccessors should support no DEFAULT_STATE 1`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "name",
+      "componentState": undefined,
+      "key": "id",
+      "type": "REACT_CMF.COMPONENT_MERGE_STATE",
+    },
+  },
+  "id": "id",
+  "type": "name.setState",
+}
+`;

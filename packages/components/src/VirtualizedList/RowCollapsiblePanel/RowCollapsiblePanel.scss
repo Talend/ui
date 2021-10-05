@@ -1,0 +1,34 @@
+:global(.tc-collapsible-row) {
+	:global(.panel[class*='collapsible-panel']) {
+		margin-bottom: $padding-small;
+	}
+
+	:global(.panel-collapse) {
+		transition-duration: 0s;
+	}
+
+	:global(.tc-collapsible-panel) {
+		margin-bottom: $padding-small;
+		margin-top: $padding-small;
+	}
+
+	.loading-collapsible-panel {
+		height: 4rem;
+		background-color: $gallery;
+		border-radius: $border-radius-base;
+		margin-bottom: $padding-small;
+
+		display: flex;
+		align-items: center;
+
+		> * {
+			display: inline-block;
+			flex: 1;
+		}
+
+		:first-child {
+			flex: 2;
+			margin: 0 $padding-small;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+const NAMESPACE_INDEX = 'index.';
+const NAMESPACE_DATA = 'data.';
+const COLUMN_INDEX = 'index';
+const QUALITY_KEY = '@talend-quality@';
+const QUALITY_INVALID_KEY = -1;
+const QUALITY_EMPTY_KEY = 0;
+const QUALITY_VALID_KEY = 1;
+
+export {
+	NAMESPACE_INDEX,
+	NAMESPACE_DATA,
+	COLUMN_INDEX,
+	QUALITY_KEY,
+	QUALITY_INVALID_KEY,
+	QUALITY_EMPTY_KEY,
+	QUALITY_VALID_KEY,
+};

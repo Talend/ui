@@ -1,0 +1,55 @@
+{
+  "name": "@talend/react-sagas",
+  "version": "6.36.3",
+  "description": "App wide redux sagas",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
+    "test:demo": "echo nothing to demo in @talend/react-sagas",
+    "lint": "yarn lint:es",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
+  },
+  "keywords": [
+    "react",
+    "talend",
+    "sagas",
+    "pending"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/forms#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "@talend/react-cmf": "^6.38.3",
+    "immutable": "^3.8.2",
+    "redux-saga": "^0.15.6"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

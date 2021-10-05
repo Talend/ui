@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverlayTrigger should inject the overlay 1`] = `
+<Popover
+  bsClass="popover"
+  placement="right"
+>
+  <Inject
+    component="Overlay"
+    getComponent={[Function]}
+  />
+</Popover>
+`;
+
+exports[`OverlayTrigger should wrap the children with an overlay 1`] = `
+<span
+  className="theme-tc-action-button-positionned tc-action-button-positionned"
+>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    onEntering={[Function]}
+    onExited={[Function]}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="myId"
+        placement="right"
+      >
+        <div>
+          Overlay
+        </div>
+      </Popover>
+    }
+    placement="top"
+    rootClose={true}
+    trigger="click"
+  >
+    <div>
+      wrap me
+    </div>
+  </OverlayTrigger>
+</span>
+`;

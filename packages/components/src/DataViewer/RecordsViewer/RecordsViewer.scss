@@ -1,0 +1,169 @@
+$background-hover: rgba($dark-silver, 0.1) !default;
+$background-highlight: rgba($scooter, 0.1) !default;
+$hightlight-height: 2.2rem !default;
+$records-node-height: $hightlight-height !default;
+$border-size: 0.1rem;
+
+@mixin selection($backgroundColor) {
+	background: $backgroundColor;
+	bottom: 0;
+	content: ' ';
+	left: -100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: $records-node-height;
+	pointer-events: none;
+}
+
+.tc-records-viewer {
+	display: flex;
+	flex-direction: column;
+	background: $concrete;
+	height: 100%;
+
+	&-tree {
+		// We need to override an overflow hidden in the virtualized grid.
+		// Unfortunetely there is no way to change it by props, so we use the important...
+		// A issue will be open on react-virtualized soon.
+		:global(.ReactVirtualized__Grid__innerScrollContainer) {
+			overflow: initial !important;
+		}
+		:global(.tc-svg-icon) {
+			height: 1.2rem;
+			width: 1.2rem;
+			margin: 0;
+			vertical-align: baseline;
+		}
+		&-border {
+			border-bottom: $border-size solid $alto;
+		}
+	}
+
+	&-skeleton {
+		align-items: center;
+		display: flex;
+		height: $hightlight-height;
+		padding: $padding-smaller 0 $padding-smaller $padding-larger;
+	}
+
+	&-branch,
+	&-leaf {
+		display: flex;
+		margin-left: $padding-larger;
+		position: relative;
+	}
+
+	&-leaf {
+		justify-content: flex-start;
+		align-items: baseline;
+
+		&-highlighted {
+			&::before {
+				@include selection($background-highlight);
+			}
+		}
+		min-height: $records-node-height;
+		&-quality {
+			display: inline-flex;
+			margin-left: -$padding-larger;
+			height: $hightlight-height;
+			left: 0;
+			position: absolute;
+		}
+	}
+	&-branch {
+		flex-direction: column;
+		justify-content: center;
+
+		&-highlighted::before {
+			@include selection($background-highlight);
+		}
+		&-content {
+			position: relative;
+			align-items: center;
+			display: inline-flex;
+			height: $records-node-height;
+			:global(.tc-length-badge) {
+				margin-left: 10px;
+			}
+
+			&:hover {
+				&::before {
+					@include selection($background-hover);
+				}
+				:global(.tc-records-viewer-branch-icon) {
+					color: $scooter;
+				}
+				:global(.tc-tree-branch-icon-caret) {
+					color: $scooter;
+				}
+				:global(.tc-length-badge) {
+					color: $scooter;
+					background-color: $white;
+				}
+			}
+		}
+
+		&-icon {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(-150%, -50%);
+			color: $brand-primary;
+			height: $svg-sm-size;
+			width: $svg-sm-size;
+		}
+
+		&-quality {
+			display: inline-flex;
+			margin-left: $padding-small;
+			z-index: 1;
+			&:focus,
+			&:hover {
+				&::before {
+					@include selection($background-hover);
+					pointer-events: none;
+				}
+			}
+		}
+	}
+}
+
+@mixin chevron($color) {
+	border: 1px solid $scooter;
+	padding: 2px;
+	border-radius: 10px;
+	color: $color;
+}
+
+.tc-leaf-overflow-icon {
+	position: absolute;
+	left: -1.7rem;
+	margin-right: $padding-smaller;
+	&-chevron {
+		padding: 0;
+		line-height: initial;
+		min-height: initial;
+		svg {
+			@include chevron($scooter);
+		}
+		&-filled {
+			svg {
+				@include chevron($white);
+				background-color: $scooter;
+			}
+		}
+	}
+	:global(.tc-svg-anchor) {
+		background: transparent;
+		border: none;
+		padding: 0;
+		color: $brand-primary;
+		display: flex;
+		&:focus,
+		&:hover {
+			color: $scooter;
+		}
+	}
+}

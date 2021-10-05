@@ -1,0 +1,84 @@
+{
+  "doc": "CheckBox/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Booleans",
+    "properties": {
+      "standard": {
+        "type": "boolean"
+      },
+      "autofocused": {
+        "type": "boolean"
+      },
+      "disabled": {
+        "type": "boolean"
+      },
+      "multipleChoices": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "foo",
+            "bar",
+            "fuzz",
+            "qux"
+          ]
+        }
+      },
+      "customMultipleChoices": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "foo",
+            "bar",
+            "fuzz",
+            "qux"
+          ]
+        }
+      }
+    },
+    "required": [
+      "autofocused",
+      "multipleChoices"
+    ]
+  },
+  "uiSchema": [
+    {
+      "key": "standard",
+      "title": "Check if you are happy (standard)",
+      "data-feature": "my.custom.feature",
+      "data-test": "checkbox.standard"
+    },
+    {
+      "key": "disabled",
+      "title": "Check if you are neutral (you can't, it's disabled)",
+      "disabled": true
+    },
+    {
+      "key": "autofocused",
+      "title": "Check if you are sad (autofocused)",
+      "autoFocus": true
+    },
+    {
+      "key": "multipleChoices",
+      "title": "Select multiple values",
+      "errorMessage": "Please select at least an option",
+      "data-test": "checkbox.multiple"
+    },
+    {
+      "key": "customMultipleChoices",
+      "description": "This multi select checkbox has custom labels",
+      "title": "Select multiple values",
+      "titleMap": {
+        "foo": "My custom foo title",
+        "bar": "My custom bar title",
+        "fuzz": "My custom fuzz title",
+        "qux": "my custom qux title"
+      }
+    }
+  ],
+  "properties": {
+    "standard": true
+  }
+}

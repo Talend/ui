@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
+<div
+  className="theme-td-header-component td-header-component"
+>
+  <button
+    className="theme-td-header td-header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    type="button"
+  >
+    <span>
+      <div
+        className="theme-td-header-title td-header-title"
+      >
+        <span
+          className="theme-td-header-title-ellipse td-header-title-ellipse"
+          title="Title"
+        >
+          Title
+        </span>
+      </div>
+      <div
+        className="theme-td-header-type td-header-type"
+        title="string"
+      >
+        string
+      </div>
+    </span>
+  </button>
+  <QualityBar
+    empty={33}
+    invalid={33}
+    valid={34}
+  />
+</div>
+`;

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox field should render disabled input 1`] = `
+<FieldTemplate
+  description="my checkbox input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+>
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    disabled={true}
+    id="myForm"
+    isValid={true}
+    label="My checkbox title"
+    onChange={[MockFunction]}
+    onFinish={[MockFunction]}
+    schema={
+      Object {
+        "autoFocus": true,
+        "description": "my checkbox input hint",
+        "disabled": true,
+        "title": "My checkbox title",
+        "type": "checkbox",
+      }
+    }
+    value={true}
+  />
+</FieldTemplate>
+`;
+
+exports[`CheckBox field should render input 1`] = `
+<FieldTemplate
+  description="my checkbox input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+>
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    id="myForm"
+    isValid={true}
+    label="My checkbox title"
+    onChange={[MockFunction]}
+    onFinish={[MockFunction]}
+    schema={
+      Object {
+        "autoFocus": true,
+        "description": "my checkbox input hint",
+        "title": "My checkbox title",
+        "type": "checkbox",
+      }
+    }
+    value={true}
+  />
+</FieldTemplate>
+`;

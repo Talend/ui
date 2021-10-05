@@ -1,0 +1,186 @@
+{
+  "baseurl": "http://localhost:1337/components/iframe.html?dataId=1",
+  "viewport": {
+    "height": 768,
+    "width": 1366
+  },
+  "stories": {
+    "Action": {
+      "default": [
+        {
+          "name": "action-default",
+          "selector": ["#default", "#hidelabel", "#disabled"]
+        }
+      ]
+    },
+    "ActionBar": {
+      "default": [
+        {
+          "name": "actionbar-default",
+          "selector": ["#default", "#selected", "#right", "#btn-group"]
+        }
+      ]
+    },
+    "ActionDropdown": {
+      "default": [
+        {
+          "name": "actiondropdown-default",
+          "selector": ["#default", "#hidelabel"]
+        }
+      ]
+    },
+    "ActionSplitDropdown": {
+      "default": [
+        {
+          "name": "actionsplitdropdown-default",
+          "selector": ["#default", "#noicon", "#empty"]
+        }
+      ],
+      "style variatons": [
+        {
+          "name": "actionsplitdropdown-styles",
+          "selector": "#styles"
+        }
+      ]
+    },
+    "AppHeaderBar": {
+      "default": [
+        {
+          "name": "appheaderbar-default",
+          "selector": "nav"
+        }
+      ]
+    },
+    "Badge": {
+      "default": [
+        {
+          "name": "badge-default",
+          "selector": "#default"
+        }
+      ]
+    },
+    "Breadcrumbs": {
+      "default": [
+        {
+          "name": "breadcrumb-default",
+          "selector": ".tc-breadcrumb"
+        }
+      ],
+      "with max items reached": [
+        {
+          "name": "breadcrumb-max",
+          "selector": ".tc-breadcrumb"
+        }
+      ]
+    },
+    "CollapsiblePanel": {
+      "default": [
+        {
+          "name": "collapsiblepanel-default",
+          "selector": ["#default", "#two", "#three"]
+        }
+      ]
+    },
+    "Icon": {
+      "default use svg": [
+        {
+          "name": "icons",
+          "selector": "ul"
+        }
+      ]
+    },
+    "List": {
+      "Table (default)": [
+        {
+          "name": "list-table-default",
+          "selector": ".tc-list"
+        }
+      ],
+      "Large": [
+        {
+          "name": "list-large-default",
+          "selector": ".tc-list"
+        }
+      ]
+    },
+    "ObjectViewer": {
+      "tree default ": [
+        {
+          "name": "object-viewer-tree-default",
+          "selector": ".tc-object-viewer"
+        }
+      ],
+      "tree with handler ": [
+        {
+          "name": "object-viewer-tree-handler",
+          "selector": ".tc-object-viewer"
+        }
+      ],
+      "table default ": [
+        {
+          "name": "object-viewer-table-default",
+          "selector": ".tc-object-viewer"
+        }
+      ],
+      "flat default ": [
+        {
+          "name": "object-viewer-flat-default",
+          "selector": ".tc-object-viewer"
+        }
+      ],
+      "flat with handler ": [
+        {
+          "name": "object-viewer-flat-handler",
+          "selector": ".tc-object-viewer"
+        }
+      ],
+      "list default ": [
+        {
+          "name": "object-viewer-list-default",
+          "selector": ".tc-object-viewer"
+        }
+      ],
+      "list with handler": [
+        {
+          "name": "object-viewer-list-handler",
+          "selector": ".tc-object-viewer"
+        }
+      ]
+
+    },
+    "SidePanel": {
+      "default": [
+        {
+          "name": "sidepanel-default",
+          "selector": ".tc-side-panel"
+        }
+      ],
+      "docked": [
+        {
+          "name": "sidepanel-docked",
+          "selector": ".tc-side-panel"
+        }
+      ]
+    },
+    "Enumeration": {
+      "default": [
+        {
+          "name": "enumeration-default",
+          "selector":  [".tc-enumeration"]
+        }
+      ],
+      "add": [
+        {
+          "name": "enumeration-add",
+          "selector":  [".tc-enumeration"]
+        }
+      ],
+			"edit": [
+				{
+          "name": "enumeration-edit",
+          "selector":  [".tc-enumeration"]
+        }
+			]
+    }
+  }
+}

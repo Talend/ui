@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisplayModeToggle should render 1`] = `
+<div
+  className="theme-tc-display-mode-toggle tc-display-mode-toggle"
+>
+  <ActionIconToggle
+    active={false}
+    disabled={false}
+    icon="talend-table"
+    id="undefined-table"
+    key="table"
+    label="Set Table as current display mode."
+    onClick={[Function]}
+    tick={false}
+    tooltipPlacement="top"
+  />
+  <ActionIconToggle
+    active={false}
+    disabled={false}
+    icon="talend-expanded"
+    id="undefined-large"
+    key="large"
+    label="Set Expanded as current display mode."
+    onClick={[Function]}
+    tick={false}
+    tooltipPlacement="top"
+  />
+</div>
+`;

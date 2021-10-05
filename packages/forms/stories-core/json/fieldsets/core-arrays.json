@@ -1,0 +1,201 @@
+{
+  "doc": "Array/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "required": ["comments"],
+    "properties": {
+      "names": {
+        "type": "array",
+        "items": {
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "readOnlyArray": {
+        "type": "array",
+        "items": {
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "disabledArray": {
+        "type": "array",
+        "items": {
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "comments": {
+        "type": "array",
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "title": "comment",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "pattern": "^\\S+@\\S+$"
+            },
+            "comment": {
+              "type": "string",
+              "maxLength": 20
+            }
+          },
+          "required": ["name", "comment"]
+        }
+      },
+      "collapsibleComments": {
+        "type": "array",
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "pattern": "^\\S+@\\S+$"
+            },
+            "comment": {
+              "type": "string",
+              "maxLength": 20
+            }
+          },
+          "required": ["name", "comment"]
+        }
+      },
+      "columns": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "title": "Value",
+              "type": "string",
+              "default": ""
+            },
+            "key": {
+              "title": "Key",
+              "type": "string",
+              "default": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "uiSchema": [
+    { "key": "names", "title": "Names" },
+    { "key": "readOnlyArray", "title": "Read only array", "readOnly": true },
+    { "key": "disabledArray", "title": "Disabled array", "disabled": true },
+    {
+      "key": "comments",
+      "title": "Comments",
+      "triggers": ["validation"],
+      "itemTitle": "Comment",
+      "items": [
+        {
+          "key": "comments[].name",
+          "title": "Name"
+        },
+        {
+          "key": "comments[].email",
+          "title": "Email",
+          "description": "Email will be used for evil."
+        },
+        {
+          "key": "comments[].comment",
+          "title": "Comment",
+          "type": "textarea",
+          "rows": 3,
+          "validationMessage": "Don't be greedy!"
+        }
+      ]
+    },
+    {
+      "key": "collapsibleComments",
+      "title": "Collapsible comments",
+      "itemWidget": "collapsibleFieldset",
+      "itemTitle": "Comment",
+      "items": [
+        {
+          "key": "collapsibleComments[].name",
+          "title": "Name"
+        },
+        {
+          "key": "collapsibleComments[].email",
+          "title": "Email",
+          "description": "Email will be used for evil."
+        },
+        {
+          "key": "collapsibleComments[].comment",
+          "title": "Comment",
+          "type": "textarea",
+          "rows": 3,
+          "validationMessage": "Don't be greedy!"
+        }
+      ]
+    },
+    {
+      "key": "columns",
+      "title": "Columns",
+      "itemWidget": "collapsibleFieldset",
+      "itemTitle": "Column",
+      "items": [
+        {
+          "key": "columns[]",
+          "items": [
+            {
+              "widget": "columns",
+              "items": [
+                {
+                  "placeholder": "key",
+                  "widget": "text",
+                  "title": "Key",
+                  "key": "columns[].key",
+                  "required": true
+                },
+                {
+                  "placeholder": "value",
+                  "widget": "text",
+                  "title": "Value",
+                  "key": "columns[].value"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "properties": {
+    "names": ["foo", "bar"],
+    "readOnlyArray": ["foo", "bar"],
+    "disabledArray": ["foo", "bar"],
+    "comments": [
+      {
+        "name": "Jimmy",
+        "email": "jimmy@lol.com",
+        "comment": "Let's do this"
+      },
+      {
+        "name": "Jimmy",
+        "email": "jimmy@lol.com",
+        "comment": "Let's do this"
+      }
+    ],
+    "collapsibleComments": [
+      {
+        "name": "Jimmy",
+        "email": "jimmy@lol.com",
+        "comment": "Let's do this",
+        "isClosed": true
+      }
+    ]
+  }
+}

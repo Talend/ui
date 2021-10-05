@@ -1,0 +1,23 @@
+.container {
+	padding: $padding-smaller 0;
+	background-color: $white;
+
+	button {
+		width: 100%;
+		border: none;
+		color: $dove-gray;
+		font-size: 1.4rem;
+		font-weight: normal;
+		background-color: $white;
+
+		&:global(.highlight) {
+			background-color: tint($lochmara, 90%);
+		}
+
+		&:hover,
+		&:focus {
+			background-color: $wild-sand;
+			outline: none;
+		}
+	}
+}

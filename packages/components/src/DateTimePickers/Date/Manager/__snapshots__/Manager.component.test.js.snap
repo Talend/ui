@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date.Manager should render its children 1`] = `
+<Context.Provider
+  value={
+    Object {
+      "inputManagement": Object {
+        "onChange": [Function],
+        "placeholder": "YYYY-MM-DD",
+      },
+      "pickerManagement": Object {
+        "onSubmit": [Function],
+        "useUTC": false,
+      },
+      "value": Object {
+        "date": 2017-04-03T22:00:00.000Z,
+        "textInput": "2017-04-04",
+      },
+    }
+  }
+>
+  <DateConsumer />
+</Context.Provider>
+`;

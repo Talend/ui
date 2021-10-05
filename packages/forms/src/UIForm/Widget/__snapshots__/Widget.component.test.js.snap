@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Widget component should render custom widget 1`] = `
+<div>
+  my widget
+</div>
+`;
+
+exports[`Widget component should render custom widget in specific display mode 1`] = `
+<div>
+  my widget in text display mode
+</div>
+`;
+
+exports[`Widget component should render nothing if widget does not exist 1`] = `
+<p class="text-danger">
+  Widget not found unknown
+</p>
+`;
+
+exports[`Widget component should render widget 1`] = `
+<div class="form-group theme-template has-error"
+     aria-busy="false"
+>
+  <input id="myForm_user_firstname"
+         class="form-control"
+         type="text"
+         aria-invalid="true"
+         aria-describedby="myForm_user_firstname-description myForm_user_firstname-error"
+         value="my firstname"
+  >
+  <div>
+    <div class="tc-inline-message theme-tc-inline-message">
+      <coral.inlinemessage.destructive id="myForm_user_firstname-error"
+                                       description="This is not ok"
+                                       aria-live="assertive"
+      >
+      </coral.inlinemessage.destructive>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Widget component should render widget with the specific displayMode 1`] = `
+<div class="form-group">
+  <dt>
+    <label for="myForm_user_firstname"
+           class="control-label"
+    >
+    </label>
+  </dt>
+  <dd id="myForm_user_firstname">
+    my firstname
+  </dd>
+</div>
+`;

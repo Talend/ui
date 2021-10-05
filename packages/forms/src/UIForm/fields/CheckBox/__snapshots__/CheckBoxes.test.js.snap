@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBoxes field should render checkboxes 1`] = `
+<FieldTemplate
+  description="my checkbox input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My checkboxes title"
+>
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    id="myForm"
+    index={0}
+    isValid={true}
+    label="My foo title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    id="myForm"
+    index={1}
+    isValid={true}
+    label="My bar title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    id="myForm"
+    index={2}
+    isValid={true}
+    label="My lol title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+</FieldTemplate>
+`;
+
+exports[`CheckBoxes field should render checkboxes with no values 1`] = `
+<FieldTemplate
+  description="my checkbox input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My checkboxes title"
+>
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    id="myForm"
+    index={0}
+    isValid={true}
+    label="My foo title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    id="myForm"
+    index={1}
+    isValid={true}
+    label="My bar title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    id="myForm"
+    index={2}
+    isValid={true}
+    label="My lol title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+</FieldTemplate>
+`;
+
+exports[`CheckBoxes field should render disabled checkboxes 1`] = `
+<FieldTemplate
+  description="my checkbox input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My checkboxes title"
+>
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    disabled={true}
+    id="myForm"
+    index={0}
+    isValid={true}
+    label="My foo title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "disabled": true,
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    disabled={true}
+    id="myForm"
+    index={1}
+    isValid={true}
+    label="My bar title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "disabled": true,
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+  <SimpleCheckBox
+    describedby="myForm-description myForm-error"
+    disabled={true}
+    id="myForm"
+    index={2}
+    isValid={true}
+    label="My lol title"
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "description": "my checkbox input hint",
+        "disabled": true,
+        "title": "My checkboxes title",
+        "titleMap": Array [
+          Object {
+            "name": "My foo title",
+            "value": "foo",
+          },
+          Object {
+            "name": "My bar title",
+            "value": "bar",
+          },
+          Object {
+            "name": "My lol title",
+            "value": "lol",
+          },
+        ],
+        "type": "checkbox",
+      }
+    }
+    value={false}
+  />
+</FieldTemplate>
+`;

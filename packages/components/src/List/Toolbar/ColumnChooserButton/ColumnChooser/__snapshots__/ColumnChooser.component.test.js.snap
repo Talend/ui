@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooser should render with default props 1`] = `
+<header id="column-chooser-header"
+        class="theme-header tc-tooltip-header tc-column-chooser-header theme-tc-column-chooser-header"
+>
+  <div>
+    <div class="tc-column-chooser-header-title theme-tc-column-chooser-header-title">
+      Select columns to display
+    </div>
+    <div id="selected-columns-text">
+      5/6 selected
+    </div>
+  </div>
+</header>
+<form class="theme-filter tc-column-chooser-filter theme-tc-column-chooser-filter theme-navbar"
+      role="search"
+>
+  <div class="form-group">
+    <coral.icon name="talend-search"
+                class="theme-search-icon"
+    >
+    </coral.icon>
+    <input name="search"
+           placeholder="Find a column"
+           autocomplete="off"
+           aria-label="Find a column"
+           role="searchbox"
+           type="search"
+           id="my-id-filter-input"
+           class="theme-search form-control"
+           value
+    >
+  </div>
+</form>
+<form id="my-id-form"
+      class="tc-column-chooser theme-tc-column-chooser"
+>
+  <div id="column-chooser-body"
+       class="theme-body tc-tooltip-body"
+  >
+    <div id="column-chooser-body-content"
+         class="theme-content tc-tooltip-content"
+    >
+      <div class="tc-column-chooser-body theme-tc-column-chooser-body">
+        <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
+          <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+            <label for="my-id-body-checkbox-Select-All"
+                   data-feature="column-chooser.select.all.enable"
+            >
+              <input type="checkbox"
+                     id="my-id-body-checkbox-Select-All"
+                     data-checked="0"
+                     aria-describedby="my-id-body-display all the columns"
+              >
+              <span>
+                Select All
+              </span>
+            </label>
+          </div>
+          <div id="my-id-body-display all the columns"
+               class="sr-only"
+          >
+            display all the columns
+          </div>
+        </div>
+        <div class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list">
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Id"
+                     data-feature="column-chooser.select.disable"
+              >
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Id"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Id"
+                       checked
+                >
+                <span>
+                  Id
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Id"
+                 class="sr-only"
+            >
+              display the column Id
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Name"
+                     data-feature="column-chooser.select.disable"
+              >
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Name"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Name"
+                       checked
+                >
+                <span>
+                  Name
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Name"
+                 class="sr-only"
+            >
+              display the column Name
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Author"
+                     data-feature="column-chooser.select.disable"
+              >
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Author"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Author"
+                       checked
+                >
+                <span>
+                  Author
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Author"
+                 class="sr-only"
+            >
+              display the column Author
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
+                     data-feature="column-chooser.select.disable"
+              >
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
+                       checked
+                >
+                <span>
+                  Very long name long name long name long name long name
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Very long name long name long name long name long name"
+                 class="sr-only"
+            >
+              display the column Very long name long name long name long name long name
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Icon"
+                     data-feature="column-chooser.select.enable"
+              >
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Icon"
+                       data-checked="0"
+                       aria-describedby="my-id-body-display the column Icon"
+                >
+                <span>
+                  Icon
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Icon"
+                 class="sr-only"
+            >
+              display the column Icon
+            </div>
+          </div>
+          <div class="tc-column-chooser-row theme-tc-column-chooser-row">
+            <div class="checkbox tc-toggle theme-tc-toggle checkbox">
+              <label for="my-id-body-checkbox-Created"
+                     data-feature="column-chooser.select.disable"
+              >
+                <input type="checkbox"
+                       id="my-id-body-checkbox-Created"
+                       data-checked="2"
+                       aria-describedby="my-id-body-display the column Created"
+                       checked
+                >
+                <span>
+                  Created
+                </span>
+              </label>
+            </div>
+            <div id="my-id-body-display the column Created"
+                 class="sr-only"
+            >
+              display the column Created
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="column-chooser-footer"
+          class="theme-footer tc-tooltip-footer tc-column-chooser-footer theme-tc-column-chooser-footer"
+  >
+    <button aria-label="Apply"
+            id="my-id-submit-button"
+            type="submit"
+            class="btn btn-info"
+    >
+      <span>
+        Apply
+      </span>
+    </button>
+  </footer>
+</form>
+`;

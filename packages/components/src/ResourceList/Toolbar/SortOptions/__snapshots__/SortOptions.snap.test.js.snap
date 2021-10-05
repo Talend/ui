@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortOptions component snaps should not render SortOptions when no type is specified 1`] = `null`;
+
+exports[`SortOptions component snaps should render SortOptions in default mode 1`] = `
+<div
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
+>
+  <span
+    className="theme-option-label"
+  >
+    Sort:
+  </span>
+  <OrderChooser
+    asc={false}
+    icon="talend-sort-az"
+    label="Sort by name (current order: desc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+  <OrderChooser
+    asc={false}
+    icon="talend-sort-desc"
+    label="Sort by date (current order: desc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+</div>
+`;
+
+exports[`SortOptions component snaps should render SortOptions with date in ASC mode 1`] = `
+<div
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
+>
+  <span
+    className="theme-option-label"
+  >
+    Sort:
+  </span>
+  <OrderChooser
+    asc={false}
+    icon="talend-sort-az"
+    label="Sort by name (current order: desc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+  <OrderChooser
+    asc={true}
+    icon="talend-sort-desc"
+    label="Sort by date (current order: asc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+</div>
+`;
+
+exports[`SortOptions component snaps should render SortOptions with name in ASC mode 1`] = `
+<div
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
+>
+  <span
+    className="theme-option-label"
+  >
+    Sort:
+  </span>
+  <OrderChooser
+    asc={true}
+    icon="talend-sort-az"
+    label="Sort by name (current order: asc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+  <OrderChooser
+    asc={false}
+    icon="talend-sort-desc"
+    label="Sort by date (current order: desc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+</div>
+`;
+
+exports[`SortOptions component snaps should render SortOptions with only the date type 1`] = `
+<div
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
+>
+  <span
+    className="theme-option-label"
+  >
+    Sort:
+  </span>
+  <OrderChooser
+    asc={true}
+    icon="talend-sort-desc"
+    label="Sort by date (current order: asc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+</div>
+`;
+
+exports[`SortOptions component snaps should render SortOptions with only the name type 1`] = `
+<div
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
+>
+  <span
+    className="theme-option-label"
+  >
+    Sort:
+  </span>
+  <OrderChooser
+    asc={false}
+    icon="talend-sort-az"
+    label="Sort by name (current order: desc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+</div>
+`;

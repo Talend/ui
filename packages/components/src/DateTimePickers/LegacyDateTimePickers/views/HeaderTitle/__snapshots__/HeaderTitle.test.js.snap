@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderTitle should render a button 1`] = `
+<Action
+  className="theme-common theme-button btn-tertiary btn-info"
+  label="September 2012"
+  whateverButtonProp="whateverValue"
+/>
+`;
+
+exports[`HeaderTitle should render a span and ActionDropdown 1`] = `
+<div
+  className="theme-common"
+>
+  <div
+    className="theme-month"
+  >
+    <span
+      className="theme-common"
+    >
+      September
+    </span>
+  </div>
+  <withI18nextTranslation(ActionDropdown)
+    className="btn-tertiary btn-info"
+    label="2012"
+    t={[Function]}
+  >
+    <withI18nextTranslation(YearPicker)
+      data-feature="actiondropdown.items"
+      id="year-picker-in-datetime-header"
+      onSelect={[MockFunction]}
+      t={[Function]}
+    />
+  </withI18nextTranslation(ActionDropdown)>
+</div>
+`;

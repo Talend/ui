@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubHeaderBar should render without i18n 1`] = `
+<header
+  className="theme-tc-subheader tc-subheader myClassName"
+>
+  <ActionBar
+    className="theme-tc-subheader-navbar tc-subheader-navbar"
+    components={Object {}}
+  >
+    <SubHeaderBarActions
+      left={true}
+    >
+      <Action
+        bsStyle="link"
+        className="theme-tc-subheader-back-button tc-subheader-back-button"
+        hideLabel={true}
+        icon="talend-arrow-left"
+        id="backArrow"
+        label="Go Back"
+        onClick={[MockFunction]}
+      />
+      <TitleSubHeader
+        editable={false}
+        inProgress={false}
+        loading={false}
+        t={[Function]}
+        title="myTitle"
+      />
+    </SubHeaderBarActions>
+    <SubHeaderBarActions
+      left={true}
+    >
+      <Action
+        bsStyle="link"
+        hideLabel={true}
+        icon="talend-share-alt"
+        label="action1"
+        onClick={[MockFunction]}
+      />
+      <Action
+        bsStyle="link"
+        component="Action"
+        hideLabel={true}
+        icon="talend-activity"
+        label="action2"
+        onClick={[MockFunction]}
+      />
+    </SubHeaderBarActions>
+    <SubHeaderBarActions
+      center={true}
+      hasRight={true}
+    >
+      <Action
+        bsStyle="link"
+        component="Action"
+        hideLabel={true}
+        icon="talend-activity"
+        label="action3"
+        onClick={[MockFunction]}
+      />
+    </SubHeaderBarActions>
+    <SubHeaderBarActions
+      className="theme-tc-subheader-navbar-right tc-subheader-navbar-right"
+      right={true}
+    >
+      <Action
+        bsStyle="link"
+        component="Action"
+        hideLabel={true}
+        icon="talend-activity"
+        label="action3"
+        onClick={[MockFunction]}
+      />
+    </SubHeaderBarActions>
+  </ActionBar>
+</header>
+`;

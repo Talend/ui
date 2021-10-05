@@ -1,0 +1,52 @@
+$drag-element-width: $padding-smaller;
+
+.tc-header-cell-resizable {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	&-resizing {
+		/*
+			This is scooter rgb color.
+			We want to apply opacity only on the background,
+		 	so we are using rgba to be compatible with ie.
+		*/
+		background-color: rgba(102, 189, 255, 0.1);
+	}
+
+	&-truncated-text {
+		align-self: center;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: inline-flex;
+	}
+
+	&-drag-button {
+		&-handle {
+			&-icon {
+				min-width: $drag-element-width;
+				width: $drag-element-width;
+				height: 100%;
+				cursor: col-resize;
+				opacity: 0;
+
+				&:hover,
+				&:active {
+					background: $scooter;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+.tc-header-cell-resizable-drag-accessibility:focus ~ .tc-header-cell-resizable-drag-button-handle-icon {
+	opacity: 1;
+	background: $scooter;
+}

@@ -1,0 +1,239 @@
+////
+/// Bootstrap forms customization
+/// @group Forms
+////
+
+@mixin outline() {
+	outline: 2px solid $moody-purple500;
+	outline-offset: 1px;
+}
+
+:root {
+	--t-form-color: #{$gray900};
+	--t-form-background-color: #{$gray0};
+	--t-form-border-color: #{$gray500};
+	--t-form-border-color--hover: #{$gray900};
+	--t-form-border-color--focus: #{$lochmara500};
+	--t-form-border-color--checked: #{$lochmara600};
+	--t-form-border-color--disabled: #{$gray300};
+
+	--t-form-color--readonly: #{$gray600};
+	--t-form-background-color--readonly: #{$gray50};
+	--t-form-border-color--readonly: transparent;
+
+	--t-form-placeholder-color: #{$gray500};
+
+	--t-form-radio-background-color: #{$gray100};
+
+	--t-form-group-color: #{$gray700};
+	--t-form-group-background-color: #{$gray75};
+	--t-form-group-interactive-color: #{$lochmara600};
+	--t-form-group-interactive-background-color: #{$lochmara100};
+	--t-form-group-interactive-color--hover: #{$pale-cyan700};
+	--t-form-group-interactive-background-color--hover: #{$pale-cyan200};
+	--t-form-group-interactive-color--active: #{$lochmara800};
+	--t-form-group-interactive-background-color--active: #{$pale-cyan300};
+}
+
+.theme--dark {
+	--t-form-color: #{$gray0};
+	--t-form-background-color: #{$gray800};
+	--t-form-border-color: #{$gray75};
+	--t-form-border-color--hover: #{$pale-cyan500};
+	--t-form-border-color--focus: #{$pale-cyan500};
+	--t-form-border-color--checked: #{$pale-cyan400};
+	--t-form-border-color--disabled: #{$gray300};
+
+	--t-form-color--readonly: #{$gray75};
+	--t-form-background-color--readonly: #{$gray600};
+	--t-form-border-color--readonly: #{$gray600};
+
+	--t-form-placeholder-color: #{$gray100};
+
+	--t-form-radio-background-color: #{$gray600};
+
+	--t-form-group-color: #{$gray0};
+	--t-form-group-background-color: #{$gray600};
+	--t-form-group-interactive-color: #{$pale-cyan500};
+	--t-form-group-interactive-background-color: #{$pale-cyan900};
+	--t-form-group-interactive-color--hover: #{$pale-cyan400};
+	--t-form-group-interactive-background-color--hover: #{$pale-cyan800};
+	--t-form-group-interactive-color--active: #{$pale-cyan300};
+	--t-form-group-interactive-background-color--active: #{$pale-cyan700};
+}
+
+@import 'forms.input';
+@import 'forms.label';
+@import 'forms.legend';
+@import 'forms.select';
+@import 'forms.switch';
+@import 'forms.switch-nested';
+@import 'forms.checkbox';
+@import 'forms.radio';
+@import 'forms.textarea';
+
+.radio,
+.radio-inline,
+.checkbox,
+.checkbox-inline {
+	margin-top: 0;
+
+	&:focus-within > label {
+		@include outline();
+	}
+
+	label {
+		display: inline-block;
+		position: relative;
+		padding-left: calc(1.4rem + #{$padding-small});
+		margin-bottom: $padding-smaller;
+		font-size: 1.4rem;
+		font-weight: 400;
+
+		&,
+		> * {
+			line-height: 1.5rem;
+			min-height: 1.5rem;
+		}
+	}
+
+	&.disabled label {
+		opacity: 0.54;
+	}
+
+	input {
+		margin: 0;
+		appearance: none;
+
+		&,
+		+ * {
+			display: inline-block;
+		}
+
+		&,
+		&::before,
+		&::after,
+		+ *::before,
+		+ *::after {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&::before,
+		&::after,
+		+ *::before,
+		+ *::after {
+			content: '';
+		}
+	}
+
+	+ .radio-inline,
+	+ .checkbox-inline {
+		margin: 0;
+	}
+}
+
+.focus-outline-hidden {
+	.radio,
+	.radio-inline,
+	.checkbox,
+	.checkbox-inline {
+		&.ally-focus-within label {
+			outline: none;
+		}
+	}
+}
+
+.has-error {
+	.checkbox,
+	.checkbox-inline {
+		*::before {
+			border-color: $brand-danger;
+		}
+	}
+
+	.radio,
+	.radio-inline {
+		*::after {
+			border-color: $brand-danger;
+		}
+	}
+
+	.help-block {
+		font-size: $font-size-small;
+	}
+}
+
+.has-success,
+.has-warning,
+.has-error {
+	.form-control {
+		&,
+		&:focus {
+			box-shadow: none;
+		}
+	}
+}
+
+// Remove the Bootstrap feedback styles for input addons
+.input-group-addon {
+	.has-warning &,
+	.has-error &,
+	.has-success & {
+		color: $input-color;
+		border-color: $input-group-addon-border-color;
+		background-color: $input-group-addon-bg;
+	}
+
+	.btn {
+		line-height: $font-size-base * $line-height-base;
+	}
+}
+
+.input-group-btn .btn {
+	line-height: $input-height-base;
+	min-height: $input-height-base;
+}
+
+.form-control::placeholder {
+	font-style: normal;
+}
+
+.form {
+	&-group {
+		position: relative;
+		margin-bottom: $padding-normal;
+	}
+
+	&-control-container,
+	&-control {
+		&.input-sm + label {
+			font-size: $font-size-small;
+		}
+
+		&.input-lg + label {
+			font-size: $font-size-large;
+		}
+	}
+
+	&-horizontal {
+		.form-group {
+			flex-direction: row;
+		}
+
+		.radio-inline,
+		.checkbox-inline {
+			[type='checkbox'],
+			[type='radio'] {
+				&,
+				+ *::before,
+				+ *::after {
+					// Same as Bootstrap's padding-top
+					// @see ~bootstrap-sass/assets/stylesheets/bootstrap/forms
+					top: $padding-base-vertical + 1;
+				}
+			}
+		}
+	}
+}

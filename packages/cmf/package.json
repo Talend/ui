@@ -1,0 +1,83 @@
+{
+  "name": "@talend/react-cmf",
+  "description": "A framework built on top of best react libraries",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
+    "start": "echo nothing to start",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
+    "test:demo": "yarn jsdoc -c ./docs.json && cd website && yarn",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint": "talend-scripts lint:es --format json -o eslint-report.json"
+  },
+  "keywords": [
+    "react",
+    "talend",
+    "cmf",
+    "framework"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/cmf#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "bin": {
+    "cmf-settings": "./scripts/cmf-settings.js"
+  },
+  "dependencies": {
+    "deepmerge": "^1.5.2",
+    "hoist-non-react-statics": "^3.3.2",
+    "immutable": "^3.8.2",
+    "invariant": "^2.2.4",
+    "jsonpath": "^1.1.1",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4",
+    "nested-combine-reducers": "^1.2.2",
+    "path-to-regexp": "^2.4.0",
+    "prop-types": "^15.7.2",
+    "react-immutable-proptypes": "^2.2.0",
+    "react-redux": "^5.1.2",
+    "redux": "^3.7.2",
+    "redux-batched-actions": "^0.2.1",
+    "redux-batched-subscribe": "^0.1.6",
+    "redux-saga": "^0.15.6",
+    "redux-storage": "^4.1.2",
+    "redux-storage-decorator-filter": "^1.1.8",
+    "redux-storage-decorator-immutablejs": "^1.0.4",
+    "redux-storage-engine-localstorage": "^1.1.4",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "enzyme": "^3.11.0",
+    "jest-in-case": "^1.0.2",
+    "jsdoc": "^3.6.7",
+    "node-fetch": "^2.6.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-test-renderer": "^16.14.0",
+    "redux-mock-store": "^1.5.4",
+    "redux-saga-tester": "^1.0.874"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "6.38.3"
+}

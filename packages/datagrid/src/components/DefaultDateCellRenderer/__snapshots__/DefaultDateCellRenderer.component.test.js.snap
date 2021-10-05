@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer with DefaultValueRenderer 1`] = `
+<DefaultValueRenderer
+  className="td-cell-date"
+  value="2017-11-28T12:44:22.123Z"
+/>
+`;

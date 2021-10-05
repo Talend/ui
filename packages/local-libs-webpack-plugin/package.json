@@ -1,0 +1,33 @@
+{
+  "name": "@talend/local-libs-webpack-plugin",
+  "version": "0.1.5",
+  "description": "Easier development on local libraries",
+  "main": "lib/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "jest",
+    "test:demo": "echo nothing to do",
+    "lint": "eslint lib/**"
+  },
+  "keywords": [
+    "webpack",
+    "talend",
+    "libs",
+    "link"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/local-libs-webpack-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "jest-cli": "^26.6.3"
+  }
+}

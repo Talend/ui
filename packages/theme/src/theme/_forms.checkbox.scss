@@ -1,0 +1,88 @@
+$tt-checkbox-size: 1.4rem !default;
+
+input[type='checkbox'] {
+	&::before,
+	&::after,
+	+ *::before,
+	+ *::after {
+		width: $tt-checkbox-size;
+		height: $tt-checkbox-size;
+	}
+
+	&::before,
+	+ *::before {
+		background-color: var(--t-form-background-color);
+		border: 1px solid var(--t-form-border-color);
+		border-radius: 2px;
+	}
+
+	&::after,
+	+ *::after {
+		background-size: contain;
+	}
+
+	// Indeterminate Checkboxes style
+	&[data-checked='1'] {
+		&::before,
+		+ *::before {
+			background-color: var(--t-form-border-color--focus);
+			border-color: var(--t-form-border-color--checked);
+		}
+
+		&::after,
+		+ *::after {
+			margin: 0;
+			width: $tt-checkbox-size;
+			height: $tt-checkbox-size;
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgMTIgMTIiPgogIDxyZWN0IHg9IjMiIHk9IjUiIHdpZHRoPSI2IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K');
+		}
+	}
+
+	&:checked {
+		&::before,
+		+ *::before {
+			background-color: var(--t-form-border-color--focus);
+			border-color: var(--t-form-border-color--checked);
+		}
+
+		&::after,
+		+ *::after {
+			$check-mark-margin: 0.1rem;
+			$check-mark-size: $tt-checkbox-size - 2 * $check-mark-margin;
+			margin: $check-mark-margin;
+			width: $check-mark-size;
+			height: $check-mark-size;
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImZpbGw6IHdoaXRlIj4KCTxwYXRoIGQ9Ik02IDE0TDAgOGwxLjktMS45TDYgMTAuMiAxNC4xIDIgMTYgMy45eiI+PC9wYXRoPgo8L3N2Zz4=');
+		}
+	}
+
+	&:hover,
+	+ *:hover {
+		&,
+		&:checked {
+			&::before,
+			+ *::before {
+				border-color: var(--t-form-border-color--hover);
+			}
+		}
+	}
+
+	&:disabled {
+		&::before,
+		+ *::before {
+			border-color: var(--t-form-border-color--disabled);
+		}
+
+		&[data-checked='1']::before,
+		&[data-checked='1'] + *::before {
+			background-color: var(--t-form-border-color--disabled);
+			border-color: var(--t-form-border-color--disabled);
+		}
+
+		&:checked::before,
+		&:checked + *::before {
+			background-color: var(--t-form-border-color--disabled);
+			border-color: var(--t-form-border-color--disabled);
+		}
+	}
+}

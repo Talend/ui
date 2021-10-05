@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableText should render 1`] = `
+<div
+  className="theme-tc-editable-text tc-editable-text"
+>
+  <PlainTextTitle
+    componentClass="span"
+    feature="my.custom.feature"
+    inProgress={false}
+    onEdit={[MockFunction]}
+    onSubmit={[MockFunction]}
+    required={true}
+    t={[Function]}
+    text="my text"
+  />
+</div>
+`;
+
+exports[`EditableText should render InlineForm 1`] = `
+<div
+  className="theme-tc-editable-text tc-editable-text"
+>
+  <InlineForm
+    feature="my.custom.feature"
+    inProgress={false}
+    onEdit={[MockFunction]}
+    onSubmit={[MockFunction]}
+    required={true}
+    t={[Function]}
+    text="my text"
+  />
+</div>
+`;
+
+exports[`EditableText should render inProgress 1`] = `
+<div
+  aria-busy={true}
+  aria-label="Edit in progress"
+  className="theme-tc-editable-text tc-editable-text theme-tc-editable-text-blink tc-editable-text-blink"
+>
+  <PlainTextTitle
+    componentClass="span"
+    feature="my.custom.feature"
+    inProgress={true}
+    onEdit={[MockFunction]}
+    onSubmit={[MockFunction]}
+    required={true}
+    t={[Function]}
+    text="my text"
+  />
+</div>
+`;
+
+exports[`EditableText should render skeleton 1`] = `
+<Skeleton
+  size="large"
+  type="text"
+/>
+`;
+
+exports[`InlineForm should render 1`] = `
+<FocusManager
+  onFocusOut={[Function]}
+>
+  <form
+    className="theme-tc-editable-text-form tc-editable-text-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <input
+        className="theme-tc-editable-text-form-input tc-editable-text-form-input form-control"
+        id="inputTitle"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+        value="my text"
+      />
+    </div>
+    <div
+      className="theme-tc-editable-text-form-buttons tc-editable-text-form-buttons"
+    >
+      <Action
+        bsStyle="link"
+        className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel"
+        data-feature="my.custom.feature.cancel"
+        hideLabel={true}
+        icon="talend-cross"
+        label={[Function]}
+        name="action-cancel-title"
+        onClick={[Function]}
+      />
+      <Action
+        bsStyle="link"
+        className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-submit tc-editable-text-form-buttons-submit"
+        data-feature="my.custom.feature.submit"
+        disabled={false}
+        hideLabel={true}
+        icon="talend-check"
+        label={[Function]}
+        name="action-submit-title"
+        type="submit"
+      />
+    </div>
+  </form>
+</FocusManager>
+`;
+
+exports[`PlainTextTitle should render 1`] = `
+<div
+  className="theme-tc-editable-text-title"
+>
+  <TooltipTrigger
+    className="tc-editable-text-wording-wrapper"
+    label="text"
+    tooltipPlacement="bottom"
+  >
+    <span
+      className="theme-tc-editable-text-wording tc-editable-text-wording"
+      onDoubleClick={[MockFunction]}
+    >
+      text
+    </span>
+  </TooltipTrigger>
+  <Action
+    bsStyle="link"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    data-feature="my.custom.feature"
+    hideLabel={true}
+    icon="talend-pencil"
+    label="Rename"
+    name="action-edit"
+    onClick={[MockFunction]}
+  />
+</div>
+`;
+
+exports[`PlainTextTitle should render provided component class 1`] = `
+<div
+  className="theme-tc-editable-text-title"
+>
+  <TooltipTrigger
+    className="tc-editable-text-wording-wrapper"
+    label="text"
+    tooltipPlacement="bottom"
+  >
+    <h1
+      className="theme-tc-editable-text-wording tc-editable-text-wording"
+      onDoubleClick={[MockFunction]}
+    >
+      text
+    </h1>
+  </TooltipTrigger>
+  <Action
+    bsStyle="link"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    data-feature="my.custom.feature"
+    hideLabel={true}
+    icon="talend-pencil"
+    label="Rename"
+    name="action-edit"
+    onClick={[MockFunction]}
+  />
+</div>
+`;

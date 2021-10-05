@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourcePicker field should render simple select 1`] = `
+<ResourcePicker field
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  onTrigger={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          undefined,
+          Object {
+            "errors": undefined,
+            "filters": Object {
+              "certified": false,
+              "favorites": false,
+              "name": "",
+              "selected": Array [],
+              "selection": false,
+            },
+            "properties": undefined,
+            "schema": Object {
+              "description": "ResourcePicker me",
+              "placeholder": "Please select a value",
+              "required": true,
+              "schema": Object {
+                "type": "object",
+              },
+              "title": "My ResourcePicker title",
+              "triggers": Array [
+                Object {
+                  "action": "resourcePickerSelected",
+                  "onEvent": "change",
+                },
+                Object {
+                  "action": "resourcePickerFiltered",
+                  "onEvent": "filter",
+                },
+              ],
+            },
+            "trigger": Object {
+              "action": "resourcePickerFiltered",
+              "onEvent": "filter",
+            },
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+  schema={
+    Object {
+      "description": "ResourcePicker me",
+      "placeholder": "Please select a value",
+      "required": true,
+      "schema": Object {
+        "type": "object",
+      },
+      "title": "My ResourcePicker title",
+      "triggers": Array [
+        Object {
+          "action": "resourcePickerSelected",
+          "onEvent": "change",
+        },
+        Object {
+          "action": "resourcePickerFiltered",
+          "onEvent": "filter",
+        },
+      ],
+    }
+  }
+/>
+`;

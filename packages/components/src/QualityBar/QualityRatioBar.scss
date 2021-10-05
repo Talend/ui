@@ -1,0 +1,34 @@
+%tc-ratio-bar-lines {
+	width: 100%;
+	height: 100%;
+	border-radius: 1px;
+}
+
+.tc-ratio-bar-line-quality-empty {
+	@extend %tc-ratio-bar-lines;
+	background-color: $dove-gray;
+}
+
+.tc-ratio-bar-line-quality-valid {
+	@extend %tc-ratio-bar-lines;
+	background-color: $rio-grande;
+}
+
+.tc-ratio-bar-line-quality-invalid {
+	@extend %tc-ratio-bar-lines;
+	background-color: $chestnut-rose;
+}
+
+.tc-ratio-bar-line-quality-na {
+	@extend %tc-ratio-bar-lines;
+	background-color: $alto;
+}
+
+.tc-ratio-bar-line-quality-placeholder {
+	@extend %tc-ratio-bar-lines;
+	background-color: $alto;
+
+	:global(.tc-ratio-bar) &:hover {
+		height: 5px;
+	}
+}

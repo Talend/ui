@@ -1,0 +1,81 @@
+{
+  "name": "@talend/react-datagrid",
+  "description": "Provide a datagrid for at least talend applications based on ag-grid",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
+    "start": "start-storybook -p 6010",
+    "test": "talend-scripts test --silent",
+    "test:noisy": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
+    "test:demo": "build-storybook",
+    "lint": "yarn lint:es && yarn lint:style",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
+  },
+  "keywords": [
+    "react",
+    "talend",
+    "datagrid"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/datagrid#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "@talend/icons": "^6.36.2",
+    "@talend/react-cmf": "^6.38.3",
+    "@talend/react-components": "^6.39.4",
+    "ag-grid-community": "^25.3.0",
+    "ag-grid-react": "^25.3.0",
+    "classnames": "^2.3.1",
+    "keycode": "^2.2.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.3.8",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addons": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@talend/icons": "^6.36.2",
+    "@talend/locales-tui": "^6.36.0",
+    "@talend/react-cmf": "^6.38.3",
+    "@talend/react-components": "^6.39.4",
+    "@talend/react-storybook-cmf": "^6.36.2",
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^1.0.1",
+    "enzyme": "^3.11.0",
+    "i18next": "^20.6.1",
+    "immutable": "^3.8.2",
+    "jsdom": "^16.7.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-i18next": "^11.12.0",
+    "style-loader": "^0.23.1"
+  },
+  "peerDependencies": {
+    "i18next": "^20.1.0",
+    "prop-types": "^15.5.10",
+    "react": "^16.8.6",
+    "react-i18next": "^11.8.13"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "6.36.3"
+}

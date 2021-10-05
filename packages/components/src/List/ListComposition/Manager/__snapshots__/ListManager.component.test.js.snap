@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Manager should display children 1`] = `
+<withI18nextTranslation(Manager)
+  t={[Function]}
+>
+  <ContextTestConsumer />
+</withI18nextTranslation(Manager)>
+`;

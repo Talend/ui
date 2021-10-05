@@ -1,0 +1,57 @@
+{
+  "doc": "Text/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Text",
+    "properties": {
+      "text": {
+        "type": "string"
+      },
+      "number": {
+        "type": "number"
+      },
+      "numberMinMax": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 7
+      },
+      "numberMinMaxStep": {
+        "type": "number",
+        "minimum": 1.5,
+        "maximum": 3,
+        "step": 0.1
+      },
+      "password": {
+        "type": "string"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "text",
+      "title": "Simple text",
+      "data-test": "simple.text",
+      "labelProps": {
+        "data-test": "simple.text.label"
+      }
+    },
+    {
+      "key": "number",
+      "title": "Number"
+    },
+    {
+      "key": "numberMinMax",
+      "title": "Number (with min and max)"
+    },
+    {
+      "key": "numberMinMaxStep",
+      "title": "Number (with min, max and step)"
+    },
+    {
+      "key": "password",
+      "title": "Password",
+      "type": "password"
+    }
+  ],
+  "properties": {}
+}

@@ -1,0 +1,89 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+$tc-pie-chart-font-size: $font-size-large !default;
+$tc-pie-chart-loading-min-height-no-label: 20px !default;
+$tc-pie-chart-loading-min-height: 25px !default;
+$tc-pie-chart-skeleton-label-width: 40px !default;
+$tc-pie-chart-skeleton-label-height: 14px !default;
+$tc-pie-chart-loading-margin-left: 4px !default;
+$tc-pie-chart-hover-color: $scooter !default;
+
+$tc-pie-chart-colors: (rio-grande $rio-grande, jaffa $jaffa, chestnut-rose $chestnut-rose, lightning-yellow $lightning-yellow, dove-gray $dove-gray, silver-chalice $silver-chalice, alto $alto) !default;
+
+@mixin apply-color($color) {
+	color: $color;
+	stroke: $color;
+	fill: $color;
+}
+
+.tc-pie-chart-loading {
+	display: inline-flex;
+	align-items: center;
+	min-height: $tc-pie-chart-loading-min-height;
+
+	&.tc-pie-chart-loading-no-label {
+		min-height: $tc-pie-chart-loading-min-height-no-label;
+	}
+
+	&-circle {
+		// adjust to be like loaded component
+		margin-left: $tc-pie-chart-loading-margin-left;
+		margin-right: $padding-smaller;
+	}
+}
+
+// PieChart styles
+.tc-pie-chart-button {
+	&:hover {
+		@each $type in $tc-pie-chart-colors {
+			.tc-pie-chart-color-#{nth($type, 1)} {
+				@include apply-color($tc-pie-chart-hover-color);
+			}
+		}
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		color: $scooter;
+		text-decoration: none;
+	}
+
+	&.active {
+		background-color: $brand-primary;
+		border-color: $brand-primary;
+		color: $white;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: $scooter;
+			border-color: $scooter;
+			color: $white;
+		}
+	}
+}
+
+.tc-pie-chart-icon {
+	font-size: $tc-pie-chart-font-size;
+	display: inline-flex;
+	align-items: center;
+
+	background-color: transparent;
+	border: none;
+	color: $gray;
+
+	box-shadow: none;
+	line-height: unset;
+	padding: 0;
+
+	@each $type in $tc-pie-chart-colors {
+		.tc-pie-chart-color-#{nth($type, 1)} {
+			@include apply-color(#{nth($type, 2)});
+		}
+	}
+
+	& &-graph {
+		margin-right: $padding-smaller;
+		height: inherit;
+		width: inherit;
+	}
+}

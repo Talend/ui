@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
           cache: 'yarn'
 
       - name: Install Dependencies
@@ -36,5 +37,12 @@ jobs:
           title: "chore: prepare release"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  update-cdn-content:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -XPOST -u "frassinier:${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/talend/cdn-content/actions/workflows/download-talend-ui.yml/dispatches --data '{"ref": "main"}'

@@ -1,0 +1,447 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionDropdown should render "no option" item when items array is empty 1`] = `
+<ul role="menu"
+    class="dropdown-menu"
+    aria-labelledby="dropdown-id"
+>
+  <li role="presentation"
+      class="disabled"
+  >
+    <a role="menuitem"
+       tabindex="-1"
+       href="#"
+    >
+      No options
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
+<div class="dropdown btn-group btn-group-default">
+  <button aria-label="related items"
+          id="dropdown-id"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+  >
+    <span class="tc-dropdown-button-title-label">
+      related items
+    </span>
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
+    >
+    </coral.icon>
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="dropdown-id"
+  >
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a icon="talend-icon"
+         label="document 1"
+         title="document 1"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        <coral.icon name="talend-icon">
+        </coral.icon>
+        document 1
+      </a>
+    </li>
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a label="document 2"
+         title="document 2"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionDropdown should render a button with "link" theme 1`] = `
+<div class="dropdown btn-group btn-group-link">
+  <button aria-label="related items"
+          id="dropdown-id"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
+  >
+    <span class="tc-dropdown-button-title-label">
+      related items
+    </span>
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
+    >
+    </coral.icon>
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="dropdown-id"
+  >
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a icon="talend-icon"
+         label="document 1"
+         title="document 1"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        <coral.icon name="talend-icon">
+        </coral.icon>
+        document 1
+      </a>
+    </li>
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a label="document 2"
+         title="document 2"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionDropdown should render a button with icon and label 1`] = `
+<div class="dropdown btn-group btn-group-default">
+  <button aria-label="related items"
+          id="dropdown-id"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+  >
+    <coral.icon name="fa fa-file-excel-o">
+    </coral.icon>
+    <span class="tc-dropdown-button-title-label">
+      related items
+    </span>
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
+    >
+    </coral.icon>
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="dropdown-id"
+  >
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a icon="talend-icon"
+         label="document 1"
+         title="document 1"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        <coral.icon name="talend-icon">
+        </coral.icon>
+        document 1
+      </a>
+    </li>
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a label="document 2"
+         title="document 2"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionDropdown should render an ellipsis dropdown 1`] = `
+<div class="dropdown btn-group btn-group-link">
+  <button aria-label="related items"
+          aria-describedby="42"
+          id="dropdown-id"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button theme-ellipsis dropdown-toggle btn btn-link"
+  >
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="dropdown-id"
+  >
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a icon="talend-icon"
+         label="document 1"
+         title="document 1"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        <coral.icon name="talend-icon">
+        </coral.icon>
+        document 1
+      </a>
+    </li>
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a label="document 2"
+         title="document 2"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
+<div class="dropdown btn-group btn-group-default">
+  <button aria-label="related items"
+          aria-describedby="42"
+          id="dropdown-id"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+  >
+    <coral.icon name="fa fa-file-excel-o">
+    </coral.icon>
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
+    >
+    </coral.icon>
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="dropdown-id"
+  >
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a icon="talend-icon"
+         label="document 1"
+         title="document 1"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        <coral.icon name="talend-icon">
+        </coral.icon>
+        document 1
+      </a>
+    </li>
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a label="document 2"
+         title="document 2"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionDropdown should render icon-only items with item hideLabel props 1`] = `
+<ul role="menu"
+    class="dropdown-menu"
+    aria-labelledby="dropdown-id"
+>
+  <li role="presentation"
+      class="theme-tc-dropdown-item tc-dropdown-item"
+  >
+    <a icon="talend-icon"
+       label="document 1"
+       title="document 1"
+       role="menuitem"
+       tabindex="-1"
+       href="#"
+    >
+      <coral.icon name="talend-icon">
+      </coral.icon>
+    </a>
+  </li>
+  <li role="presentation"
+      class="theme-tc-dropdown-item tc-dropdown-item"
+  >
+    <a label="document 2"
+       title="document 2"
+       role="menuitem"
+       tabindex="-1"
+       href="#"
+    >
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`ActionDropdown should render immutable items 1`] = `
+<div class="dropdown btn-group btn-group-default">
+  <button aria-label="related items"
+          id="dropdown-id"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          type="button"
+          class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
+  >
+    <span class="tc-dropdown-button-title-label">
+      related items
+    </span>
+    <coral.icon name="talend-caret-down"
+                class="theme-tc-dropdown-caret"
+    >
+    </coral.icon>
+  </button>
+  <ul role="menu"
+      class="dropdown-menu"
+      aria-labelledby="dropdown-id"
+  >
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a icon="talend-icon"
+         label="document 1"
+         title="document 1"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        <coral.icon name="talend-icon">
+        </coral.icon>
+        document 1
+      </a>
+    </li>
+    <li role="presentation"
+        class="theme-tc-dropdown-item tc-dropdown-item"
+    >
+      <a label="document 2"
+         title="document 2"
+         role="menuitem"
+         tabindex="-1"
+         href="#"
+      >
+        document 2
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ActionDropdown should render loader item 1`] = `
+<ul role="menu"
+    class="dropdown-menu"
+    aria-labelledby="dropdown-id"
+>
+  <li role="heading"
+      class="theme-tc-dropdown-item tc-dropdown-item theme-tc-dropdown-loader tc-dropdown-loader dropdown-header"
+  >
+    <svg focusable="false"
+         class="tc-circular-progress theme-loader theme-animate theme-default"
+         viewbox="0 0 50 50"
+         aria-busy="true"
+         aria-label="Loading "
+    >
+      <circle class="theme-path"
+              r="20"
+              cx="25"
+              cy="25"
+              fill="none"
+              style="stroke-dasharray: 12.566370614359172; stroke-dashoffset: 0;"
+      >
+      </circle>
+    </svg>
+  </li>
+</ul>
+`;
+
+exports[`ActionDropdown should render loader item below existing items 1`] = `
+<ul role="menu"
+    class="dropdown-menu"
+    aria-labelledby="dropdown-id"
+>
+  <li role="presentation"
+      class="theme-tc-dropdown-item tc-dropdown-item"
+  >
+    <a icon="talend-icon"
+       label="document 1"
+       title="document 1"
+       role="menuitem"
+       tabindex="-1"
+       href="#"
+    >
+      <coral.icon name="talend-icon">
+      </coral.icon>
+      document 1
+    </a>
+  </li>
+  <li role="presentation"
+      class="theme-tc-dropdown-item tc-dropdown-item"
+  >
+    <a label="document 2"
+       title="document 2"
+       role="menuitem"
+       tabindex="-1"
+       href="#"
+    >
+      document 2
+    </a>
+  </li>
+  <li role="heading"
+      class="theme-tc-dropdown-item tc-dropdown-item theme-tc-dropdown-loader tc-dropdown-loader dropdown-header"
+  >
+    <svg focusable="false"
+         class="tc-circular-progress theme-loader theme-animate theme-default"
+         viewbox="0 0 50 50"
+         aria-busy="true"
+         aria-label="Loading "
+    >
+      <circle class="theme-path"
+              r="20"
+              cx="25"
+              cy="25"
+              fill="none"
+              style="stroke-dasharray: 12.566370614359172; stroke-dashoffset: 0;"
+      >
+      </circle>
+    </svg>
+  </li>
+</ul>
+`;

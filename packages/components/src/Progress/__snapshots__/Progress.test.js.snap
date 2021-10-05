@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={0}
+  className="theme-progress theme-hidden theme-fixed"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="42"
+    className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      Object {
+        "width": "0%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={100}
+  className="theme-progress theme-fixed"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="42"
+    className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Progress should render a contained progress 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={60}
+  className="theme-progress"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="42"
+    className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      Object {
+        "width": "60%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Progress should render an infinite progress 1`] = `
+<div
+  aria-busy={true}
+  aria-label="Hey dude !"
+  className="theme-progress theme-fixed theme-infinite"
+  id="my-progress"
+  role="status"
+>
+  <div
+    aria-describedby="42"
+    className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="theme-infinite-indicator"
+    />
+  </div>
+</div>
+`;
+
+exports[`Progress should render hidden progress at 0% 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={0}
+  className="theme-progress theme-hidden theme-fixed"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="42"
+    className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      Object {
+        "width": "0%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Progress should render progress with given percentage 1`] = `
+<div
+  aria-label="loading"
+  aria-valuemax={100}
+  aria-valuemin={0}
+  aria-valuenow={60}
+  className="theme-progress theme-fixed"
+  id="my-progress"
+  role="progressbar"
+>
+  <div
+    aria-describedby="42"
+    className="theme-progress-percent"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    style={
+      Object {
+        "width": "60%",
+      }
+    }
+  />
+</div>
+`;

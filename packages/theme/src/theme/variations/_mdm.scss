@@ -1,0 +1,5 @@
+.t7 {
+	$brand-primary-t7: #5599d8 !default;
+	$brand-secondary-t7: #2975bb !default;
+	@include layout-colors($brand-primary-t7, $brand-secondary-t7, 'mdm');
+}

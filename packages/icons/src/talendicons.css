@@ -1,0 +1,30 @@
+.ti-beam-light {
+	opacity: 0.5;
+}
+
+.ti-elastic-light {
+	opacity: 0.8;
+}
+
+.ti-elastic-lighter {
+	opacity: 0.6;
+}
+
+.ti-elastic-lightest {
+	opacity: 0.4;
+}
+
+.ti-googlecloudplatform {
+	fill: #4586f8;
+}
+
+.ti-sharing-owner-circle {
+	fill: #5da288;
+}
+
+/* MOST_TRUSTED */
+.ti-hand-like,
+.ti-oversleeve,
+.ti-check-valid-value {
+	fill: #fff;
+}

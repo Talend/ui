@@ -1,0 +1,13 @@
+extends: ./api/eslintrc.base.yaml
+env:
+  browser: true
+  jquery: true
+rules:
+  import/no-commonjs: error
+  import/no-nodejs-modules: error
+
+  # BEGIN: May be re-added later on, buggy in eslint-plugin-import v2.12.0
+  # See https://github.com/benmosher/eslint-plugin-import/issues/1089
+  import/no-named-as-default: off
+  import/no-named-as-default-member: off
+  # END

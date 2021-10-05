@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellBadge should render 1`] = `
+<Badge
+  id="25"
+  label="streaming"
+  selected={true}
+/>
+`;

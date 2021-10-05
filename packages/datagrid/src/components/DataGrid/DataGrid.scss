@@ -1,0 +1,100 @@
+$td-datagrid-skeleton-width: 9.6rem !default;
+$td-datagrid-skeleton-height: 9.6rem !default;
+
+.td-grid {
+	color: $black;
+	height: 100%;
+	width: 100%;
+
+	&-loading {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			width: $td-datagrid-skeleton-width;
+			height: $td-datagrid-skeleton-height;
+		}
+	}
+
+	&-focus-row {
+		:global(.ag-row-focus) {
+			background-color: $white;
+		}
+
+		:global(.ag-row-selected) {
+			background-color: $white;
+		}
+	}
+
+	/* ==== HEADER ==== */
+	:global(.ag-header-viewport) {
+		background-color: $white;
+		color: $dove-gray;
+	}
+
+	:global(.ag-react-container) {
+		height: 100%;
+		width: 100%;
+	}
+
+	:global(.ag-header-cell-resize) {
+		cursor: col-resize;
+	}
+	/* ==== PIN ==== */
+	:global(.ag-pinned-left-header) {
+		border: $gallery 0.1rem solid;
+	}
+
+	:global(.ag-pinned-left-header .ag-react-container) {
+		height: 100%;
+	}
+
+	:global(.ag-cell.ag-cell-last-left-pinned) {
+		padding: 1rem;
+		color: $dove-gray;
+		background-color: $white;
+	}
+
+	/* ==== COLUMN ====  */
+
+	:global(.column-focus) {
+		background-color: rgba($scooter, 0.2);
+	}
+
+	/* ==== BODY ==== */
+	:global(.ag-root-wrapper-body) {
+		height: 100%;
+	}
+
+	:global(.ag-pinned-left-cols-viewport) {
+		font-family: inherit;
+	}
+
+	:global(.ag-horizontal-left-spacer) {
+		overflow-x: hidden;
+	}
+
+	:global(.ag-body-viewport) {
+		user-select: text;
+	}
+
+	:global(.ag-center-cols-clipper) {
+		background-color: $td-body-background-color;
+		font-family: $td-body-font-family;
+	}
+
+	:global(.ag-cell) {
+		border-right: 0.1rem solid $alto;
+		border-bottom: 0.1rem solid $alto;
+	}
+
+	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
+		background-color: $white;
+		outline: solid 0.1rem $scooter;
+	}
+
+	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned):focus) {
+		box-shadow: none;
+	}
+}

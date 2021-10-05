@@ -1,0 +1,36 @@
+.table {
+	// Cells
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				vertical-align: middle;
+			}
+		}
+	}
+
+	&-hover {
+		> tbody > tr:hover {
+			font-weight: 700;
+		}
+	}
+}
+
+@-moz-document url-prefix() { /* fix Firefox only https://bugzilla.mozilla.org/show_bug.cgi?id=410959 */
+	.table {
+		border-collapse: separate !important;
+		border-spacing: 0;
+	}
+
+	tr:not(:last-child) th,
+	tr:not(:last-child) td {
+		border-bottom-width: 0 !important;
+	}
+
+	th:not(:last-child),
+	td:not(:last-child) {
+		border-right-width: 0 !important;
+	}
+}

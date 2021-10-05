@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioOrSelect field should render select when titleMap has less than 2 options 1`] = `
+<Radios
+  errorMessage="My Error Message"
+  id="myRadioOrSelect"
+  isValid={true}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  schema={
+    Object {
+      "description": "Select me",
+      "placeholder": "Please select a value",
+      "schema": Object {
+        "enum": Array [
+          "foo",
+          "bar",
+          "lol",
+        ],
+        "type": "string",
+      },
+      "title": "My Select title",
+      "titleMap": Array [
+        Object {
+          "name": "My foo title",
+          "value": "foo",
+        },
+        Object {
+          "name": "My bar title",
+          "value": "bar",
+        },
+      ],
+    }
+  }
+  value="foo"
+/>
+`;
+
+exports[`RadioOrSelect field should render select when titleMap has more than 2 options 1`] = `
+<Select
+  errorMessage="My Error Message"
+  id="myRadioOrSelect"
+  isValid={true}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  schema={
+    Object {
+      "description": "Select me",
+      "placeholder": "Please select a value",
+      "schema": Object {
+        "enum": Array [
+          "foo",
+          "bar",
+          "lol",
+        ],
+        "type": "string",
+      },
+      "title": "My Select title",
+      "titleMap": Array [
+        Object {
+          "name": "My foo title",
+          "value": "foo",
+        },
+        Object {
+          "name": "My bar title",
+          "value": "bar",
+        },
+        Object {
+          "name": "My lol title",
+          "value": "lol",
+        },
+      ],
+    }
+  }
+  value="lol"
+/>
+`;

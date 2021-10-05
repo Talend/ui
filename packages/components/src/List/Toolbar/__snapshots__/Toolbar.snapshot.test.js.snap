@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar should render actions toolbar 1`] = `
+<div
+  className="theme-tc-list-toolbar tc-list-toolbar"
+>
+  <div
+    className="theme-tc-actionbar-container tc-actionbar-container nav list-action-bar"
+  >
+    <div
+      className="theme-navbar-left navbar-left"
+    >
+      <button
+        aria-label="Add"
+        className="btn btn-primary"
+        disabled={false}
+        id="my-toolbar-actions-add"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <Coral.Icon
+          name="talend-plus"
+        />
+        <span>
+          Add
+        </span>
+      </button>
+    </div>
+    <div
+      className="theme-navbar-right navbar-right"
+    >
+      <ul />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Toolbar should render actions toolbar with selected items 1`] = `
+<div
+  className="theme-tc-list-toolbar tc-list-toolbar"
+>
+  <div
+    className="theme-tc-actionbar-container tc-actionbar-container nav list-action-bar"
+  >
+    <div
+      className="theme-navbar-left navbar-left"
+    >
+      <span
+        className="theme-tc-actionbar-selected-count tc-actionbar-selected-count"
+      >
+        1 selected
+      </span>
+      <button
+        aria-label="Delete selection"
+        className="btn btn-default"
+        disabled={false}
+        id="my-toolbar-actions-delete"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <Coral.Icon
+          name="talend-trash"
+        />
+        <span>
+          Delete selection
+        </span>
+      </button>
+    </div>
+    <div
+      className="theme-navbar-right navbar-right"
+    >
+      <ul />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Toolbar should render display mode selector 1`] = `
+<div
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
+`;
+
+exports[`Toolbar should render empty toolbar 1`] = `
+<div
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
+`;
+
+exports[`Toolbar should render filter form 1`] = `
+<div
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
+`;
+
+exports[`Toolbar should render pagination 1`] = `
+<div
+  className="theme-tc-list-toolbar tc-list-toolbar"
+>
+  <div
+    className="theme-tc-list-toolbar navbar navbar-default"
+    role="toolbar"
+  >
+    <div
+      className="container-fluid"
+    >
+      <p
+        className="navbar-text"
+      >
+        <label
+          htmlFor="my-toolbar-pagination-size"
+        >
+          Show:
+        </label>
+      </p>
+      <ul
+        className="theme-tc-pagination nav navbar-nav"
+        role={null}
+      >
+        <li
+          className="dropdown"
+        >
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href="#"
+            id="my-toolbar-pagination-size"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            5
+             
+            <span
+              className="caret"
+            />
+          </a>
+          <ul
+            aria-labelledby="my-toolbar-pagination-size"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                5
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                10
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                20
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                50
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="btn-link"
+          role="presentation"
+        >
+          <a
+            aria-label="Go to first page."
+            href="#"
+            id="my-toolbar-pagination-nav-to-first"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            <Coral.Icon
+              name="talend-chevron-end"
+            />
+          </a>
+        </li>
+        <li
+          className="btn-link"
+          role="presentation"
+        >
+          <a
+            aria-label="Go to previous page. Current page: 2."
+            href="#"
+            id="my-toolbar-pagination-nav-to-prev"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            <Coral.Icon
+              name="talend-chevron-left"
+            />
+          </a>
+        </li>
+        <li
+          className="theme-page-index"
+          onSelect={[Function]}
+        >
+          2
+          /
+          3
+        </li>
+        <li
+          className="btn-link"
+          role="presentation"
+        >
+          <a
+            aria-label="Go to next page. Current page: 2."
+            href="#"
+            id="my-toolbar-pagination-nav-to-next"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            <Coral.Icon
+              name="talend-chevron-left"
+              transform="rotate-180"
+            />
+          </a>
+        </li>
+        <li
+          className="btn-link"
+          role="presentation"
+        >
+          <a
+            aria-label="Go to last page."
+            href="#"
+            id="my-toolbar-pagination-nav-to-last"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            <Coral.Icon
+              name="talend-chevron-end"
+              transform="rotate-180"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Toolbar should render select all checkbox 1`] = `
+<div
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
+`;
+
+exports[`Toolbar should render sort selector 1`] = `
+<div
+  className="theme-tc-list-toolbar tc-list-toolbar"
+/>
+`;

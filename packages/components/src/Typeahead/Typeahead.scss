@@ -1,0 +1,238 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+$tc-typeahead-input-color: $black !default;
+$tc-typeahead-input-width: 26rem !default;
+
+$tc-typeahead-opened-items-container-color: $gray300 !default;
+$tc-typeahead-opened-items-container-background-color: $white !default;
+
+$tc-typeahead-section-border-color: $gray75 !default;
+
+$tc-typeahead-icon-color: $gray !default;
+$tc-typeahead-only-icon-color: $gray200 !default;
+$tc-typeahead-section-header-color: #63AEBD !default;
+
+$tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
+$tc-typeahead-items-border-radius: $border-radius-base !default;
+$tc-typeahead-items-font-size: 1.4rem !default;
+$tc-typeahead-items-zindex: 1035 !default;
+
+$tc-typeahead-item-height: 3.2rem !default;
+$tc-typeahead-item-description-height: 1.6rem !default;
+
+.tc-typeahead-container {
+	position: relative;
+	display: flex;
+	width: auto;
+
+	&.loading {
+		.typeahead-input-container,
+		.items-container {
+			> * {
+				@include heartbeat(object-blink);
+				color: inherit;
+			}
+		}
+	}
+
+	.items-container,
+	.items-body {
+		max-height: 32vh;
+	}
+
+	.items-container {
+		display: none;
+		margin-top: $padding-smaller;
+		min-width: $tc-typeahead-input-width;
+		font-size: $tc-typeahead-items-font-size;
+		background-color: $tc-typeahead-opened-items-container-background-color;
+		border-radius: $tc-typeahead-items-border-radius;
+		box-shadow: $tc-typeahead-items-box-shadow;
+		z-index: $tc-typeahead-items-zindex;
+	}
+
+	.items-body {
+		overflow-y: auto;
+	}
+
+	&.right {
+		align-items: flex-end;
+
+		.items-container {
+			left: auto;
+		}
+	}
+
+	.container-open,
+	&.container-open .items-container {
+		display: block;
+		padding-top: 1px;
+		padding-bottom: 1px;
+	}
+}
+
+.typeahead-input {
+	min-width: $tc-typeahead-input-width;
+	position: relative;
+
+	&-icon {
+		[type='text'].typeahead-input {
+			padding-left: 2.5em;
+		}
+
+		.icon-cls {
+			position: absolute;
+			color: $tc-typeahead-icon-color;
+			pointer-events: none;
+			display: flex;
+			align-items: center;
+			height: 100%;
+			width: 2.5em;
+			z-index: 1;
+
+			> * {
+				margin: auto;
+			}
+		}
+	}
+
+	&-caret {
+		[type='text'].typeahead-input {
+			padding-right: 1em;
+		}
+
+		.icon-cls {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: 0;
+			width: $padding-larger;
+
+			> svg {
+				height: 0.8rem;
+				width: 0.8rem;
+			}
+		}
+	}
+}
+
+.is-loading,
+.is-searching,
+.no-result {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: $tc-typeahead-item-height;
+
+	span {
+		margin-left: $padding-smaller;
+	}
+}
+
+.items {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	color: $black;
+}
+
+.section-container:not(:first-of-type) {
+	.section-header {
+		border-top: 1px solid $tc-typeahead-section-border-color;
+	}
+}
+
+.section-header {
+	color: $black;
+	display: flex;
+	align-items: center;
+	height: $tc-typeahead-item-height;
+	padding: {
+		left: $padding-small;
+		right: $padding-small;
+	}
+
+	&-title {
+		font-weight: $font-weight-semi-bold;
+
+		&.hint {
+			font-style: italic;
+			font-weight: normal;
+		}
+	}
+
+	i + &-title,
+	svg + &-title {
+		padding-left: $padding-smaller;
+	}
+
+	i,
+	svg {
+		width: $svg-md-size;
+		height: $svg-md-size;
+		color: $dove-gray;
+	}
+}
+
+.item {
+	height: $tc-typeahead-item-height;
+	cursor: pointer;
+	white-space: pre;
+	align-items: center;
+	display: flex;
+	padding: {
+		left: $padding-small;
+		right: $padding-small;
+	}
+
+	> div {
+		width: 100%;
+	}
+
+	&.multiline {
+		height: $tc-typeahead-item-height + $tc-typeahead-item-description-height;
+	}
+
+	&-icon {
+		margin-right: $padding-small;
+	}
+
+	&-title > span,
+	&-description {
+		display: block;
+		width: 100%;
+		text-overflow: ellipsis;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	&-description {
+		font-size: 1.2rem;
+	}
+
+	&-highlighted,
+	&:hover {
+		background-color: rgba($lochmara, 0.1);
+
+		&.selected {
+			background-color: rgba($lochmara, 0.2);
+		}
+	}
+
+	&.disabled {
+		color: $silver-chalice;
+		cursor: not-allowed;
+
+		&:hover {
+			background: none;
+		}
+	}
+
+	&.selected {
+		background-color: rgba($lochmara, 0.2);
+	}
+}

@@ -1,0 +1,9 @@
+.date-time-picker {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	:global(.date-picker) {
+		margin-right: $padding-small;
+	}
+}

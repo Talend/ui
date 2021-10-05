@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeView item should render 1`] = `
+<li
+  aria-expanded={false}
+  aria-level={2}
+  aria-posinset={1}
+  aria-selected={false}
+  aria-setsize={4}
+  className="tc-treeview-item-li theme-tc-treeview-li"
+  id="my-treeview"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="treeitem"
+  tabIndex={-1}
+>
+  <div
+    className="tc-treeview-item theme-tc-treeview-item"
+    style={
+      Object {
+        "paddingLeft": "62px",
+      }
+    }
+  >
+    <Action
+      aria-hidden={true}
+      className="theme-tc-treeview-toggle"
+      icon="talend-caret-down"
+      iconTransform="rotate-270"
+      id="my-treeview-toggle"
+      label=""
+      link={true}
+      onClick={[Function]}
+      tabIndex="-1"
+    />
+    <TreeViewIcon
+      isOpened={false}
+    />
+    <span
+      className="tc-treeview-item-name theme-tc-treeview-item-name"
+    >
+      grandpa
+    </span>
+    <div
+      className="theme-tc-treeview-item-ctrl"
+    >
+      <Badge
+        label="101"
+      />
+      <Action
+        hideLabel={true}
+        icon="talend-trash"
+        id="my-treeview-talend-trash"
+        label="remove element"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="right"
+      />
+    </div>
+  </div>
+</li>
+`;
+
+exports[`TreeView item should render items with icon 1`] = `
+<li
+  aria-level={2}
+  aria-posinset={1}
+  aria-selected={false}
+  aria-setsize={4}
+  className="tc-treeview-item-li theme-tc-treeview-li"
+  id="my-treeview"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="treeitem"
+  tabIndex={-1}
+>
+  <div
+    className="tc-treeview-item theme-tc-treeview-item"
+    style={
+      Object {
+        "paddingLeft": "62px",
+      }
+    }
+  >
+    <TreeViewIcon
+      icon={
+        Object {
+          "name": "src-http://static.pokemonpets.com/images/monsters-images-300-300/106-Hitmonlee.png",
+          "title": "A pokemon",
+        }
+      }
+      isOpened={false}
+    />
+    <span
+      className="tc-treeview-item-name theme-tc-treeview-item-name"
+    >
+      grandpa
+    </span>
+    <div
+      className="theme-tc-treeview-item-ctrl"
+    >
+      <Badge
+        label="101"
+      />
+      <Action
+        hideLabel={true}
+        icon="talend-trash"
+        id="my-treeview-talend-trash"
+        label="remove element"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="right"
+      />
+    </div>
+  </div>
+</li>
+`;
+
+exports[`TreeView item should render items with icon and tooltip 1`] = `
+<TooltipTrigger
+  label="New version of the Pokemon is available"
+  tooltipPlacement="top"
+>
+  <span>
+    <Icon
+      className="theme-tc-treeview-img"
+      name="talend-versioning"
+    />
+  </span>
+</TooltipTrigger>
+`;

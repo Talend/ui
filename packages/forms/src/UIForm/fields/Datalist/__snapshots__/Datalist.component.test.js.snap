@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Datalist component should render 1`] = `
+<FieldTemplate
+  description="This is my datalist"
+  descriptionId="my-datalist-description"
+  errorId="my-datalist-error"
+  errorMessage="This should be correct"
+  id="my-datalist"
+  isValid={true}
+  label="My List"
+  required={true}
+>
+  <Datalist component
+    autoFocus={true}
+    className="form-control-container"
+    id="my-datalist"
+    inputProps={
+      Object {
+        "aria-describedby": "my-datalist-description my-datalist-error",
+        "aria-invalid": false,
+        "aria-required": true,
+      }
+    }
+    multiSection={false}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Type here"
+    readOnly={false}
+    restricted={false}
+    t={[Function]}
+    titleMap={
+      Array [
+        Object {
+          "name": "Foo",
+          "value": "foo",
+        },
+        Object {
+          "name": "Bar",
+          "value": "bar",
+        },
+        Object {
+          "name": "Lol",
+          "value": "lol",
+        },
+      ]
+    }
+    value="foo"
+  />
+</FieldTemplate>
+`;
+
+exports[`Datalist component should render with multisection 1`] = `
+<FieldTemplate
+  description="This is my datalist"
+  descriptionId="my-datalist-description"
+  errorId="my-datalist-error"
+  errorMessage="This should be correct"
+  id="my-datalist"
+  isValid={true}
+  label="My List"
+  required={true}
+>
+  <Datalist component
+    autoFocus={true}
+    className="form-control-container"
+    id="my-datalist"
+    inputProps={
+      Object {
+        "aria-describedby": "my-datalist-description my-datalist-error",
+        "aria-invalid": false,
+        "aria-required": true,
+      }
+    }
+    multiSection={true}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Type here"
+    readOnly={false}
+    restricted={false}
+    t={[Function]}
+    titleMap={
+      Array [
+        Object {
+          "suggestions": Array [
+            Object {
+              "name": "Foo2",
+              "value": "foo2",
+            },
+            Object {
+              "name": "Lol",
+              "value": "lol",
+            },
+          ],
+          "title": "test1",
+        },
+        Object {
+          "suggestions": Array [
+            Object {
+              "name": "Foo",
+              "value": "foo",
+            },
+            Object {
+              "name": "Bar",
+              "value": "bar",
+            },
+          ],
+          "title": "test2",
+        },
+      ]
+    }
+    value="foo"
+  />
+</FieldTemplate>
+`;
