@@ -1,5 +1,3 @@
-yarn run v1.22.11
-$ /home/runner/work/ui/ui/node_modules/.bin/talend-scripts upgrade:deps --latest --dry
 
 CONFIGURATION -------------------------------------------------------------------------------------
 Running command: upgrade:deps With options: --latest,--dry
@@ -194,4 +192,3 @@ check versions of packages/utils/package.json using latest
 "date-fns": "^1.30.1" => "^2.24.0"
 
 check versions of fork/bootstrap-sass/package.json using latest
-Done in 103.57s.
