@@ -73,7 +73,10 @@ function getActionsWrapped(actions) {
 }
 
 function getSelectedAction(currentRoute, actions) {
-	return actions.find(action => action.href && isBasePathOf(action.href, currentRoute));
+	const getFullPath = href => `${window.basename || ''}${href}`.replaceAll('//', '/');
+	return actions.find(
+		action => action.href && isBasePathOf(getFullPath(action.href), currentRoute),
+	);
 }
 
 /**
