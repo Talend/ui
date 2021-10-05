@@ -42,7 +42,7 @@
     "date-fns": "^2.24.0",
     "geojson": "^0.5.0",
     "lodash": "^4.17.21",
-    "recharts": "^1.8.5",
+    "recharts": "^2.1.4",
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
@@ -63,7 +63,6 @@
     "@types/enzyme": "^3.10.9",
     "@types/geojson": "^7946.0.8",
     "@types/lodash": "^4.14.175",
-    "@types/recharts": "^1.8.20",
     "@types/topojson-client": "^3.1.0",
     "@types/topojson-specification": "^1.0.2",
     "cross-env": "^7.0.3",
