@@ -5,13 +5,10 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/acateland/react-flow-designer/badge.svg)](https://coveralls.io/github/acateland/react-flow-designer)
 
-# DEPRECATED
-This library is no longer under active development. It is barely supported, only some security updates will be done, and it will be no longer supported at all in the future. Do not use for new projects, please consider using https://reactflow.dev/.
-
 # Datastream Designer
 
 Use D3 for calculations.
-Redux as a state manager.
+Redux is used as default state manager, still underlying pure component has been exposed to be used in a non-opiniated maner.
 
 ## Designed inside dataflow webapp but meant to be used as a module.
 
