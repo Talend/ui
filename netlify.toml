@@ -1,0 +1,4 @@
+[[plugins]]
+  package = "@algolia/netlify-plugin-crawler"
+    [plugins.inputs]
+    renderJavaScript = true
