@@ -1,10 +1,13 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaImage, FigmaLink, Use } from '../../../docs';
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
 import Stepper from '../';
 
 <Meta title="Components/Stepper/Stepper" component={Stepper} />
 
-<FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A5" />
+<Links>
+	<FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A5" />
+	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Stepper" />
+</Links>
 
 # Stepper
 
@@ -37,8 +40,7 @@ Consider using a vertical stepper when there are workflows greater than 3 steps.
 			<Stepper.Step.Validated title="Lorem ipsum" />
 			<Stepper.Step.InProgress title="Lorem ipsum" />
 			<Stepper.Step.Enabled title="Enabled state" />
-			<Stepper.Step.Disabled title="Disabled state" />
-			<Stepper.Step.Error title="Error state" />
+			<Stepper.Step.Enabled title="Enabled state" />
 		</Stepper>
 	</Story>
 </Canvas>
@@ -115,7 +117,7 @@ Under the step section, use clear labels for all user input.
 	</Use.Dont>
 </Use>
 
-**Buttons**
+### Buttons
 
 In case of multi-step form, we should always have at least 2 buttons:
 
@@ -142,24 +144,40 @@ The back button can also be used in addition of the cancel button. In that case,
 
 In case of an error in the current step, please inform the user by using an inline message. Do not disable the next button.
 
-**Animation**
-
-_(coming later)_
-
 ## Usage
 
-_Add demo_
+<Canvas>
+	<Story
+		name="usage"
+		args={{
+			variant: 'Vertical',
+		}}
+		argTypes={{
+			variant: {
+				description: 'Stepper variation',
+				control: {
+					type: 'select',
+					options: ['Vertical', 'Horizontal'],
+				},
+			},
+		}}
+	>
+		{({ variant, index, title }) => {
+			const StepperComponent = Stepper[variant];
+			StepperComponent.displayName = `Stepper.${variant}`;
+			return (
+				<StepperComponent>
+					<Stepper.Step.Validated title="Validated" />
+					<Stepper.Step.InProgress title="In progress" />
+					<Stepper.Step.Enabled title="Enabled" />
+				</StepperComponent>
+			);
+		}}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />
 
 ## Accessibility
 
 Stepper should follow related [WAI guidelines](https://www.w3.org/WAI/tutorials/forms/multi-page/).
-
-- Press <kbd>Tabs</kbd> to focus is on each step (icon + label) meaning max focus will be 15rem
-- Press <kbd>Shift</kbd>+<kbd>Tabs</kbd> to come back to the previous step
-
-## Changelog
-
-| Date       | Author         | Description           |
-| ---------- | -------------- | --------------------- |
-| 02/25/2021 | Monia Huet     | Init page             |
-| 04/09/2021 | Nicolas Comont | Add Stepper component |

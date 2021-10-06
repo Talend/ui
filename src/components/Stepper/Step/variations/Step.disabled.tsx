@@ -12,11 +12,8 @@ const StepDisabled = styled(Step).attrs({ className: 'step--disabled' })`
 	}
 
 	.step__icon {
-		display: block;
-		height: ${tokens.space.l};
-		width: ${tokens.space.l};
 		background: radial-gradient(
-			${tokens.space.l} ${tokens.space.l} at ${tokens.space.s} ${tokens.space.s},
+			${tokens.sizes.m} ${tokens.sizes.m} at ${tokens.space.s} ${tokens.space.s},
 			${({ theme }) => theme.colors?.grayColor[100]} 50%,
 			transparent 50%
 		);

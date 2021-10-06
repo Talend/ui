@@ -28,9 +28,6 @@ const StepInProgress = styled(Step).attrs({
 	font-weight: ${tokens.fontWeights.semiBold};
 
 	.step__icon {
-		display: block;
-		height: ${tokens.space.l};
-		width: ${tokens.space.l};
 		background: radial-gradient(
 				1.2rem 1.2rem at ${tokens.space.s} ${tokens.space.s},
 				${({ theme }) => theme.colors?.activeColor[500]} 50%,

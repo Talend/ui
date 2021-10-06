@@ -20,12 +20,17 @@ export const Step = styled.div`
 
 	.step__icon {
 		flex-shrink: 0;
+		display: block;
 		height: ${tokens.space.l};
 		width: ${tokens.space.l};
 
 		.tc-svg-icon {
+			margin-left: ${tokens.space.xxs};
+			margin-top: ${tokens.space.xxs};
 			background: ${({ theme }) => theme.colors?.backgroundColor};
 			border-radius: ${tokens.radii.circleRadius};
+			height: ${tokens.sizes.m};
+			width: ${tokens.sizes.m};
 		}
 	}
 `;

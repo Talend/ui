@@ -4,13 +4,14 @@ import Step from '../Step';
 import tokens from '../../../../tokens';
 
 const StepValidated = styled(Step).attrs({
-	icon: 'talend-check-circle',
 	className: 'step--validated',
 })`
-	.tc-svg-icon {
-		fill: ${({ theme }) => theme.colors?.activeColor[500]};
-		height: ${tokens.space.l};
-		width: ${tokens.space.l};
+	.step__icon {
+		background: radial-gradient(
+			${tokens.sizes.s} ${tokens.sizes.s} at ${tokens.space.s} ${tokens.space.s},
+			${({ theme }) => theme.colors?.activeColor[500]} 50%,
+			transparent 50%
+		);
 	}
 `;
 

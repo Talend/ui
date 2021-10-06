@@ -7,10 +7,8 @@ const StepError = styled(Step).attrs({
 	icon: 'talend-cross-circle',
 	className: 'step--error',
 })`
-	.tc-svg-icon {
+	.step__icon > .tc-svg-icon {
 		fill: ${({ theme }) => theme.colors?.destructiveColor[500]};
-		height: ${tokens.space.l};
-		width: ${tokens.space.l};
 	}
 `;
 

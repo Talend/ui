@@ -1,14 +1,14 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { IconItem, IconGallery } from '@storybook/components';
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { IconsProvider } from '../../IconsProvider';
-import { FigmaImage, FigmaLink, Use } from '../../../docs';
-import { Icon } from '../../Icon';
-import Tooltip from '../../Tooltip';
+import { FigmaImage, FigmaLink, GitHubLink, Links } from '../../../docs';
 import Step from '../Step';
 
 <Meta title="Components/Stepper/Step" component={Step} />
 
-<FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A4" />
+<Links>
+	<FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A4" />
+	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Stepper/Step" />
+</Links>
 
 <IconsProvider
 	bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.7.0/dist/svg-bundle/all.svg']}
@@ -27,6 +27,7 @@ Steps are the main elements for the stepper.
 
 ## Style
 
+<!--
 ### Icons
 
 <IconGallery>
@@ -36,12 +37,21 @@ Steps are the main elements for the stepper.
 		</IconItem>
 	))}
 </IconGallery>
+-->
 
 ### Sizes
 
 The max-width for a step is 20rem, if the label is longer we display an ellipsis.
 
 ### Variations
+
+**Skeleton**
+
+<Canvas>
+	<Story name="Skeleton">
+		<Step.Skeleton />
+	</Story>
+</Canvas>
 
 **Validated**
 
@@ -51,43 +61,19 @@ The max-width for a step is 20rem, if the label is longer we display an ellipsis
 	</Story>
 </Canvas>
 
-**Enabled**
-
-<Canvas>
-	<Story name="Enabled">
-		<Step.Enabled data-index={2} title="Lorem Ipsum" />
-	</Story>
-</Canvas>
-
-**Error**
-
-<Canvas>
-	<Story name="Error">
-		<Step.Error data-index={3} title="Lorem ipsum" />
-	</Story>
-</Canvas>
-
 **In Progress**
 
 <Canvas>
 	<Story name="InProgress">
-		<Step.InProgress data-index={4} title="Lorem Ipsum" />
+		<Step.InProgress data-index={2} title="Lorem Ipsum" />
 	</Story>
 </Canvas>
 
-**Disabled**
+**Enabled**
 
 <Canvas>
-	<Story name="Disabled">
-		<Step.Disabled data-index={5} title="Lorem Ipsum" />
-	</Story>
-</Canvas>
-
-**Skeleton**
-
-<Canvas>
-	<Story name="Skeleton">
-		<Step.Skeleton />
+	<Story name="Enabled">
+		<Step.Enabled data-index={3} title="Lorem Ipsum" />
 	</Story>
 </Canvas>
 
@@ -105,12 +91,15 @@ Sub steps are optional. They should be used to avoid having too many steps, or t
 ## States
 
 <FigmaImage
-	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=104%3A0"
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=816%3A25605"
 	alt="states image for the steps"
 />
 
 ## Interactions
 
+N/C
+
+<!--
 Hovering the step will display a tooltip with the full label.
 
 <Canvas>
@@ -125,18 +114,50 @@ Hovering the step will display a tooltip with the full label.
 	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=1%3A462"
 	alt="hovering on"
 />
+-->
 
 ## Usage
 
-_To do_
+<Canvas>
+	<Story
+		name="usage"
+		args={{
+			variant: 'Skeleton',
+			index: 1,
+			title: 'Lorem ipsum',
+		}}
+		argTypes={{
+			variant: {
+				description: 'Step variation',
+				control: {
+					type: 'select',
+					options: ['Skeleton', 'Enabled', 'Validated', 'InProgress'],
+				},
+			},
+			index: {
+				description: 'Step number',
+				control: {
+					type: 'number',
+				},
+			},
+			title: {
+				description: 'Step title',
+				control: {
+					type: 'text',
+				},
+			},
+		}}
+	>
+		{({ variant, index, title }) => {
+			const StepComponent = Step[variant];
+			StepComponent.displayName = `Step.${variant}`;
+			return <StepComponent data-index={index} title={title} />;
+		}}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />
 
 ## Accessibility
 
-- Press <kbd>Tabs</kbd> to focus is on each step (icon + label) meaning max focus will be 15rem
-
-## Changelog
-
-| Date       | Author         | Description        |
-| ---------- | -------------- | ------------------ |
-| 02/25/2021 | Monia Huet     | Init page          |
-| 04/08/2021 | Nicolas Comont | Add Step component |
+N/C
