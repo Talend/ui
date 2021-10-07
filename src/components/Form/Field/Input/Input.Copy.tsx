@@ -5,9 +5,12 @@ import InputGroup from '../InputGroup';
 import Text from './Input.Text';
 import { InputProps } from './Input';
 
-const InputCopy = React.forwardRef<HTMLInputElement, InputProps>(
-	({ label, value = '', disabled, readOnly, ...rest }: InputProps, ref) => {
-		const [text, setText] = React.useState<string>(value.toString());
+const InputCopy = React.forwardRef(
+	(
+		{ label, value = '', disabled, readOnly, ...rest }: InputProps,
+		ref: React.Ref<HTMLInputElement>,
+	) => {
+		const [text, setText] = React.useState<string | number | readonly string[]>(value.toString());
 		const [state, copyToClipboard] = useCopyToClipboard();
 
 		React.useEffect(() => {
@@ -21,7 +24,7 @@ const InputCopy = React.forwardRef<HTMLInputElement, InputProps>(
 					!readOnly && (
 						<Button.Icon
 							icon="talend-files-o"
-							onClick={() => copyToClipboard(text)}
+							onClick={() => copyToClipboard(text.toString())}
 							disabled={disabled}
 						>
 							Copy to clipboard

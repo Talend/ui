@@ -1,13 +1,14 @@
 import React from 'react';
 import { shade, tint } from 'polished';
 import styled from 'styled-components';
-import { VisuallyHidden } from 'reakit';
+import { unstable_useId as useId } from 'reakit';
 import Button from '../../../Button';
 import Link from '../../../Link';
 import { Icon } from '../../../Icon';
-import Input from './Input';
+import VisuallyHidden from '../../../VisuallyHidden';
+import Input, { InputProps } from './Input';
 import tokens from '../../../../tokens';
-import Field, { FieldProps } from '../Field';
+import Field from '../Field';
 
 const FileField = styled.div`
 	width: 100%;
@@ -133,7 +134,11 @@ function getFileSize(size: number) {
 	return '';
 }
 
-const InputFile = React.forwardRef<HTMLInputElement, FieldProps>((props: FieldProps, ref) => {
+type FileProps = InputProps & {
+	files: FileList | null;
+};
+
+const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputElement>) => {
 	const [drag, setDrag] = React.useState(false);
 	const [files, setFiles] = React.useState<FileList | null>(props.files);
 
@@ -186,11 +191,11 @@ const InputFile = React.forwardRef<HTMLInputElement, FieldProps>((props: FieldPr
 			}
 		};
 	}, []);
-
-	const id = `info--${Math.floor(Math.random() * 100)}`;
+	const { id: reakitId } = useId();
+	const fileInfoId = `info--${reakitId}`;
 
 	return (
-		<FileField aria-describedby={id} ref={ref}>
+		<FileField aria-describedby={fileInfoId} ref={ref}>
 			{props.readOnly ? (
 				<Input
 					{...props}
@@ -205,7 +210,7 @@ const InputFile = React.forwardRef<HTMLInputElement, FieldProps>((props: FieldPr
 					}
 				/>
 			) : (
-				<div id={id} className={`input-file ${drag ? 'input-file--dragging' : ''}`}>
+				<div id={fileInfoId} className={`input-file ${drag ? 'input-file--dragging' : ''}`}>
 					<input
 						{...props}
 						type="file"
@@ -235,7 +240,11 @@ const InputFile = React.forwardRef<HTMLInputElement, FieldProps>((props: FieldPr
 										</li>
 									))}
 							</ol>
-							<Button.Icon icon="talend-cross-circle" className="preview__button" onClick={clear}>
+							<Button.Icon
+								icon="talend-cross-circle"
+								className="preview__button"
+								onClick={() => clear()}
+							>
 								Clear selection
 							</Button.Icon>
 						</div>
@@ -246,13 +255,8 @@ const InputFile = React.forwardRef<HTMLInputElement, FieldProps>((props: FieldPr
 	);
 });
 
-const FieldFile = React.forwardRef((props, ref) => (
-	<Field
-		as={InputFile}
-		{...props}
-		// @ts-ignore
-		ref={ref}
-	/>
+const FieldFile = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => (
+	<Field as={InputFile} {...props} ref={ref} />
 ));
 
 export default FieldFile;

@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { FocusEventHandler, useEffect, useRef } from 'react';
 import Input, { InputProps } from './Input';
 
 import useRevealPassword from './hooks/useRevealPassword';
 
-const Password = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const Password = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
 	const { currentType, onReset, RevealPasswordButton } = useRevealPassword();
 	const isInitialMount = useRef<boolean>(true);
-	// @ts-ignore
-	const inputRef = useRef<HTMLInputElement | null>(ref);
+	const inputRef = useRef<HTMLInputElement | null>(null);
 
 	useEffect(() => {
 		if (isInitialMount.current) {
@@ -21,8 +20,11 @@ const Password = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => 
 		<Input
 			{...props}
 			type={currentType}
-			ref={inputRef}
-			onBlur={() => {
+			ref={ref || inputRef}
+			onBlur={(event: React.FocusEvent<HTMLInputElement>) => {
+				if (props.onBlur) {
+					props.onBlur(event);
+				}
 				inputRef.current = null;
 				onReset();
 			}}

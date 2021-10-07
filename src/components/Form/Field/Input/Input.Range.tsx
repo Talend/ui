@@ -107,7 +107,7 @@ const SRange = styled.div`
 	}
 `;
 
-const Range = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const Range = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
 	return (
 		<SRange>
 			<Input {...props} type="range" ref={ref} />

@@ -3,7 +3,7 @@ import React from 'react';
 import Input, { InputProps } from './Input';
 import { Icon } from '../../../Icon';
 
-const Search = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const Search = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
 	return (
 		<Input
 			{...props}

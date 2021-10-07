@@ -1,4 +1,5 @@
 import React from 'react';
+import { unstable_useId as useId } from 'reakit';
 import { isElement } from 'react-is';
 import classnames from 'classnames';
 
@@ -36,7 +37,8 @@ const InputGroup = React.forwardRef<React.ReactNode, InputGroupProps>(
 		ref,
 	) => {
 		const fieldRef = React.useRef<HTMLInputElement>();
-		const labelId = `input-group--${Date.now()}`;
+		const { id: reakitId } = useId();
+		const labelId = `input-group--${reakitId}`;
 
 		const focusField = () => fieldRef.current?.focus();
 

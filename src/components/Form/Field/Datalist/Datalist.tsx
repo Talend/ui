@@ -1,23 +1,20 @@
 import React from 'react';
-import Field, { FieldProps } from '../Field';
+import { unstable_useId as useId } from 'reakit';
+import Field from '../Field';
+import { InputProps } from '../Input/Input';
 
-export type DatalistProps = FieldProps & {
+export type DatalistProps = InputProps & {
 	values: string[];
 };
 
-const Datalist = React.forwardRef<HTMLInputElement, DatalistProps>(
-	({ id = `datalist--${Date.now()}`, values = [], ...rest }: DatalistProps, ref) => {
-		const listId = `list-${id}`;
+const Datalist = React.forwardRef(
+	({ id, values = [], ...rest }: DatalistProps, ref: React.Ref<HTMLInputElement> | undefined) => {
+		const { id: reakitId } = useId();
+		const listId = `list--${id || reakitId}`;
 
 		return (
 			<>
-				<Field
-					{...rest}
-					id={id}
-					// @ts-ignore
-					list={listId}
-					ref={ref}
-				/>
+				<Field {...rest} id={id} list={listId} ref={ref} />
 				<datalist id={listId}>
 					{values.map((value: string, index: React.Key) => (
 						// eslint-disable-next-line jsx-a11y/control-has-associated-label

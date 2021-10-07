@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 import { useCheckboxState, Checkbox } from 'reakit';
 
-import { InputProps } from './Input';
+import { CheckboxProps } from './Input.Checkbox';
 import tokens from '../../../../tokens';
 import { InlineStyle } from '../Field.style';
 
@@ -67,8 +67,8 @@ const SSwitch = styled(InlineStyle)<{ readOnly: boolean; checked: boolean }>`
 	}
 `;
 
-const Switch = React.forwardRef<HTMLInputElement, InputProps>(
-	({ id = `switch--${Date.now()}`, label, checked, readOnly, ...rest }, ref) => {
+const Switch = React.forwardRef(
+	({ id, label, checked, readOnly, ...rest }: CheckboxProps, ref: React.Ref<HTMLInputElement>) => {
 		const checkbox = useCheckboxState({ state: checked });
 
 		React.useEffect(() => {
