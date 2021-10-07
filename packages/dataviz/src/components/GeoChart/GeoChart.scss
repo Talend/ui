@@ -1,6 +1,6 @@
 :export {
-	scaleMinColor: tint($regal-blue, 80%);
-	scaleMaxColor: shade($regal-blue, 30%);
+	scaleMinColor: tint($regal-blue, 80%); /* stylelint-disable-line property-no-unknown */
+	scaleMaxColor: shade($regal-blue, 30%); /* stylelint-disable-line property-no-unknown */
 }
 
 .geo-chart {
@@ -21,7 +21,7 @@
 		}
 
 		&:not(&--disabled):hover {
-			fill: $lochmara !important;
+			fill: $lochmara !important; /* stylelint-disable-line declaration-no-important */
 			cursor: pointer;
 		}
 	}
