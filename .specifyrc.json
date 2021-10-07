@@ -1,0 +1,30 @@
+{
+  "repository": "@talend/design-tokens",
+  "base": "brajalu/chore/extract-tokens-specify",
+  "head": "specify/chore/tokens",
+  "rules": [
+    {
+      "name": "Design Tokens / Colors",
+      "path": "src/themes/scss/colors.scss",
+      "filter": {
+        "types": ["color"]
+      },
+      "parsers": [
+        {
+          "name": "sortby",
+          "options": {
+            "keys": ["name"]
+          }
+        },
+        {
+          "name": "to-css-custom-properties",
+          "options": {
+            "formatTokens": {
+              "color": "hsl"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
