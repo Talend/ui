@@ -10,12 +10,6 @@
       },
       "parsers": [
         {
-          "name": "sortby",
-          "options": {
-            "keys": ["name"]
-          }
-        },
-        {
           "name": "to-css-custom-properties",
           "options": {
             "formatTokens": {
