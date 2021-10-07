@@ -93,6 +93,7 @@ HeaderListView.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.object),
 	headerInput: PropTypes.arrayOf(PropTypes.object),
 	headerLabel: PropTypes.string,
+	labelProps: PropTypes.object,
 	items: ListView.propTypes.items,
 	onInputChange: PropTypes.func,
 	onAddKeyDown: PropTypes.func,

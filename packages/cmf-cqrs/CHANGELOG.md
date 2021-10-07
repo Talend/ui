@@ -1,5 +1,13 @@
 # @talend/react-cmf-cqrs
 
+## 6.36.4
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [667cd0a50]
+  - @talend/react-cmf@6.38.4
+
 ## 6.36.3
 
 ### Patch Changes

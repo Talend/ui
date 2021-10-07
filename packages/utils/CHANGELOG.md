@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 1.4.5
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 1.4.4
 
 ### Patch Changes

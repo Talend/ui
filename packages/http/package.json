@@ -1,6 +1,6 @@
 {
   "name": "@talend/http",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "HTTP helper",
   "license": "Apache-2.0",
   "repository": {
@@ -28,12 +28,12 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.0.1",
-    "@talend/scripts-preset-react-lib": "^9.9.1",
-    "enzyme": "^3.9.0",
-    "fetch-mock": "^9.3.1",
-    "node-fetch": "^2.6.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "enzyme": "^3.11.0",
+    "fetch-mock": "^9.11.0",
+    "node-fetch": "^2.6.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "jest": {
     "collectCoverageFrom": [
