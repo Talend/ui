@@ -82,9 +82,9 @@ describe('Horizontal bar chart', () => {
 				chartStyle={ChartStyle.VALUE}
 				onBarClick={jest.fn()}
 				getTooltipContent={jest.fn()}
+				width={200}
 			/>,
 		);
-
-		expect(component.find('ResponsiveContainer').prop('height')).toEqual(65);
+		expect(component.find('ForwardRef').prop('height')).toEqual(65);
 	});
 });
