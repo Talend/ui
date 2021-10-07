@@ -1,7 +1,9 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 /* eslint-disable no-console */
-const { spawn } = require('child_process');
+/* eslint-disable-next-line import/no-extraneous-dependencies */
+const spawn = require('cross-spawn');
+const path = require('path');
 
 let exitCode = 0;
 
@@ -88,7 +90,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 				const { commands, packages } = accu;
 				const { location, workspaceDependencies } = packageInfo;
 
-				const packageJson = require(`./${location}/package.json`);
+				const packageJson = require(path.resolve(path.join(`./${location}`, 'package.json')));
 				if (packageJson.scripts[script]) {
 					const cmd = {
 						name: 'yarn',
