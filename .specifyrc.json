@@ -1,6 +1,5 @@
 {
   "repository": "@talend/design-tokens",
-  "base": "brajalu/chore/extract-tokens-specify",
   "head": "specify/chore/tokens",
   "rules": [
     {
