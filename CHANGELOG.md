@@ -1,5 +1,16 @@
 # @talend/design-system
 
+## 1.6.0
+
+### Minor Changes
+
+- 343abff: feat(components): Stepper style and updates
+
+### Patch Changes
+
+- 4f37aea: fix(Components/Form/Password): onBlur was not pass
+- 5984ad3: fix(components/button): remove icon button border
+
 ## 1.5.0
 
 ### Minor Changes
