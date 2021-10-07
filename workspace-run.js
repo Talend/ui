@@ -90,7 +90,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 				const { commands, packages } = accu;
 				const { location, workspaceDependencies } = packageInfo;
 
-				const packageJson = require(path.resolve(path.join(`./${location}`, 'package.json')));
+				const packageJson = require(path.resolve(path.join('.', location, 'package.json')));
 				if (packageJson.scripts[script]) {
 					const cmd = {
 						name: 'yarn',
