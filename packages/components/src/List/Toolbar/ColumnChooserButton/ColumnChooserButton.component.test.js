@@ -1,5 +1,6 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
+import getDefaultT from '../../../translate';
 import ColumnChooserButton from './ColumnChooserButton.component';
 
 const columns = [
@@ -18,6 +19,7 @@ describe('ColumnChooserButton', () => {
 			id: 'my-wrapper-id',
 			columns,
 			submit: jest.fn(),
+			t: getDefaultT(),
 		};
 		// when
 		const wrapper = mount(<ColumnChooserButton {...props} />);

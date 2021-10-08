@@ -1,5 +1,6 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
+import getDefaultT from '../../../../translate';
 import Component from './ColumnChooser.component';
 
 const columns = [
@@ -24,6 +25,7 @@ describe('ColumnChooser', () => {
 			id: 'my-id',
 			columnsFromList: columns,
 			onSubmit: jest.fn(),
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
@@ -36,6 +38,7 @@ describe('ColumnChooser', () => {
 			id: 'my-id',
 			columnsFromList: columns,
 			onSubmit: jest.fn(),
+			t: getDefaultT(),
 		};
 		const Children = <div id="my-child">Hello World</div>;
 		// When
@@ -50,6 +53,7 @@ describe('ColumnChooser', () => {
 			id: 'my-id',
 			columnsFromList: columns,
 			onSubmit,
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
@@ -77,6 +81,7 @@ describe('ColumnChooser', () => {
 			initialFilterValue: 'Name',
 			columnsFromList: columns,
 			onSubmit: jest.fn(),
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
@@ -95,6 +100,7 @@ describe('ColumnChooser', () => {
 			columnsFromList: columns,
 			onSubmit: jest.fn(),
 			nbLockedLeftItems: 2,
+			t: getDefaultT(),
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
