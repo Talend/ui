@@ -6,7 +6,7 @@
       "name": "Design Tokens / Colors",
       "path": "src/themes/scss/colors.scss",
       "filter": {
-        "types": ["color"]
+        "types": ["color", "gradient", "textStyle"]
       },
       "parsers": [
         {
