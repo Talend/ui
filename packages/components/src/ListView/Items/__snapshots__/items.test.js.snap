@@ -1,0 +1,1626 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Items should render 1`] = `
+<withI18nextTranslation(ItemsComponent)
+  dataTest="item"
+  getItemHeight={[Function]}
+  isSwitchBox={false}
+  items={
+    Array [
+      Object {
+        "label": "Lorem ipsum dolor sit amet 0",
+      },
+      Object {
+        "checked": true,
+        "label": "Lorem ipsum dolor sit amet 1",
+      },
+      Object {
+        "label": "Lorem ipsum dolor sit amet 2",
+      },
+    ]
+  }
+  showToggleAll={true}
+  t={[Function]}
+>
+  <div
+    className="theme-tc-listview-items tc-listview-items"
+  >
+    <Component>
+      <div
+        id="autoSizer"
+      >
+        <List
+          autoHeight={false}
+          className="theme-tc-list-items tc-list-items"
+          estimatedRowSize={30}
+          height={30}
+          items={
+            Array [
+              Object {
+                "label": "Lorem ipsum dolor sit amet 0",
+              },
+              Object {
+                "checked": true,
+                "label": "Lorem ipsum dolor sit amet 1",
+              },
+              Object {
+                "label": "Lorem ipsum dolor sit amet 2",
+              },
+            ]
+          }
+          noRowsRenderer={[Function]}
+          onRowsRendered={[Function]}
+          onScroll={[Function]}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={10}
+          role="listbox"
+          rowCount={4}
+          rowHeight={[Function]}
+          rowRenderer={[Function]}
+          scrollToAlignment="auto"
+          scrollToIndex={-1}
+          style={Object {}}
+          width={30}
+        >
+          <Grid
+            aria-label="grid"
+            aria-readonly={true}
+            autoContainerWidth={true}
+            autoHeight={false}
+            autoWidth={false}
+            cellRangeRenderer={[Function]}
+            cellRenderer={[Function]}
+            className="ReactVirtualized__List theme-tc-list-items tc-list-items"
+            columnCount={1}
+            columnWidth={30}
+            containerRole="rowgroup"
+            containerStyle={Object {}}
+            estimatedColumnSize={100}
+            estimatedRowSize={30}
+            getScrollbarSize={[Function]}
+            height={30}
+            isScrollingOptOut={false}
+            items={
+              Array [
+                Object {
+                  "label": "Lorem ipsum dolor sit amet 0",
+                },
+                Object {
+                  "checked": true,
+                  "label": "Lorem ipsum dolor sit amet 1",
+                },
+                Object {
+                  "label": "Lorem ipsum dolor sit amet 2",
+                },
+              ]
+            }
+            noContentRenderer={[Function]}
+            noRowsRenderer={[Function]}
+            onRowsRendered={[Function]}
+            onScroll={[Function]}
+            onScrollbarPresenceChange={[Function]}
+            onSectionRendered={[Function]}
+            overscanColumnCount={0}
+            overscanIndicesGetter={[Function]}
+            overscanRowCount={10}
+            role="listbox"
+            rowCount={4}
+            rowHeight={[Function]}
+            rowRenderer={[Function]}
+            scrollToAlignment="auto"
+            scrollToColumn={-1}
+            scrollToIndex={-1}
+            scrollToRow={-1}
+            scrollingResetTimeInterval={150}
+            style={Object {}}
+            tabIndex={0}
+            width={30}
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
+              onScroll={[Function]}
+              role="listbox"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 30,
+                  "overflowX": "hidden",
+                  "overflowY": "auto",
+                  "position": "relative",
+                  "width": 30,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 166,
+                    "maxHeight": 166,
+                    "maxWidth": 30,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": "auto",
+                  }
+                }
+              >
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="0-0"
+                  rowIndex={0}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
+                    key="0-0"
+                    style={
+                      Object {
+                        "height": 40,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <div
+                      className="checkbox"
+                    >
+                      <label
+                        htmlFor="tc-listview-toggle-all"
+                      >
+                        <input
+                          id="tc-listview-toggle-all"
+                          type="checkbox"
+                        />
+                        <strong>
+                          Select all
+                        </strong>
+                      </label>
+                    </div>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="1-0"
+                  rowIndex={1}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="1-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 40,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <withI18nextTranslation(Item)
+                      dataTest="item-0"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 0",
+                        }
+                      }
+                      measure={[Function]}
+                      t={[Function]}
+                    >
+                      <div
+                        className="checkbox"
+                        data-test="item-0"
+                        role="option"
+                      >
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor sit amet 0"
+                          data-test="item-0.checkbox"
+                          label={
+                            <React.Fragment>
+                              Lorem ipsum dolor sit amet 0
+                            </React.Fragment>
+                          }
+                          onChange={[Function]}
+                        >
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                data-checked={0}
+                                data-test="item-0.checkbox"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 0
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
+                    </withI18nextTranslation(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="2-0"
+                  rowIndex={2}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="2-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 82,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <withI18nextTranslation(Item)
+                      dataTest="item-1"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "label": "Lorem ipsum dolor sit amet 1",
+                        }
+                      }
+                      measure={[Function]}
+                      t={[Function]}
+                    >
+                      <div
+                        aria-selected={true}
+                        className="checkbox"
+                        data-test="item-1"
+                        role="option"
+                      >
+                        <Checkbox
+                          aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                          checked={true}
+                          data-test="item-1.checkbox"
+                          label={
+                            <React.Fragment>
+                              Lorem ipsum dolor sit amet 1
+                            </React.Fragment>
+                          }
+                          onChange={[Function]}
+                        >
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
+                          >
+                            <label>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                data-checked={2}
+                                data-test="item-1.checkbox"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 1
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
+                    </withI18nextTranslation(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="3-0"
+                  rowIndex={3}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="3-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 124,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <withI18nextTranslation(Item)
+                      dataTest="item-2"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 2",
+                        }
+                      }
+                      measure={[Function]}
+                      t={[Function]}
+                    >
+                      <div
+                        className="checkbox"
+                        data-test="item-2"
+                        role="option"
+                      >
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor sit amet 2"
+                          data-test="item-2.checkbox"
+                          label={
+                            <React.Fragment>
+                              Lorem ipsum dolor sit amet 2
+                            </React.Fragment>
+                          }
+                          onChange={[Function]}
+                        >
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                data-checked={0}
+                                data-test="item-2.checkbox"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 2
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
+                    </withI18nextTranslation(Item)>
+                  </div>
+                </CellMeasurer>
+              </div>
+            </div>
+          </Grid>
+        </List>
+      </div>
+    </Component>
+  </div>
+</withI18nextTranslation(ItemsComponent)>
+`;
+
+exports[`Items should render with nested items 1`] = `
+<withI18nextTranslation(ItemsComponent)
+  dataTest="item"
+  getItemHeight={[Function]}
+  isSwitchBox={false}
+  items={
+    Array [
+      Object {
+        "label": "Lorem ipsum dolor default",
+      },
+      Object {
+        "checked": true,
+        "children": Array [
+          Object {
+            "label": "Lorem ipsum dolor sit amet 0",
+          },
+          Object {
+            "checked": true,
+            "label": "Lorem ipsum dolor sit amet 1",
+          },
+          Object {
+            "label": "Lorem ipsum dolor sit amet 2",
+          },
+        ],
+        "label": "Lorem ipsum dolor Parent",
+      },
+    ]
+  }
+  showToggleAll={true}
+  t={[Function]}
+>
+  <div
+    className="theme-tc-listview-items tc-listview-items"
+  >
+    <Component>
+      <div
+        id="autoSizer"
+      >
+        <List
+          autoHeight={false}
+          className="theme-tc-list-items tc-list-items"
+          estimatedRowSize={30}
+          height={30}
+          items={
+            Array [
+              Object {
+                "label": "Lorem ipsum dolor default",
+              },
+              Object {
+                "checked": true,
+                "children": Array [
+                  Object {
+                    "label": "Lorem ipsum dolor sit amet 0",
+                  },
+                  Object {
+                    "checked": true,
+                    "label": "Lorem ipsum dolor sit amet 1",
+                  },
+                  Object {
+                    "label": "Lorem ipsum dolor sit amet 2",
+                  },
+                ],
+                "label": "Lorem ipsum dolor Parent",
+              },
+            ]
+          }
+          noRowsRenderer={[Function]}
+          onRowsRendered={[Function]}
+          onScroll={[Function]}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={10}
+          role="listbox"
+          rowCount={3}
+          rowHeight={[Function]}
+          rowRenderer={[Function]}
+          scrollToAlignment="auto"
+          scrollToIndex={-1}
+          style={Object {}}
+          width={30}
+        >
+          <Grid
+            aria-label="grid"
+            aria-readonly={true}
+            autoContainerWidth={true}
+            autoHeight={false}
+            autoWidth={false}
+            cellRangeRenderer={[Function]}
+            cellRenderer={[Function]}
+            className="ReactVirtualized__List theme-tc-list-items tc-list-items"
+            columnCount={1}
+            columnWidth={30}
+            containerRole="rowgroup"
+            containerStyle={Object {}}
+            estimatedColumnSize={100}
+            estimatedRowSize={30}
+            getScrollbarSize={[Function]}
+            height={30}
+            isScrollingOptOut={false}
+            items={
+              Array [
+                Object {
+                  "label": "Lorem ipsum dolor default",
+                },
+                Object {
+                  "checked": true,
+                  "children": Array [
+                    Object {
+                      "label": "Lorem ipsum dolor sit amet 0",
+                    },
+                    Object {
+                      "checked": true,
+                      "label": "Lorem ipsum dolor sit amet 1",
+                    },
+                    Object {
+                      "label": "Lorem ipsum dolor sit amet 2",
+                    },
+                  ],
+                  "label": "Lorem ipsum dolor Parent",
+                },
+              ]
+            }
+            noContentRenderer={[Function]}
+            noRowsRenderer={[Function]}
+            onRowsRendered={[Function]}
+            onScroll={[Function]}
+            onScrollbarPresenceChange={[Function]}
+            onSectionRendered={[Function]}
+            overscanColumnCount={0}
+            overscanIndicesGetter={[Function]}
+            overscanRowCount={10}
+            role="listbox"
+            rowCount={3}
+            rowHeight={[Function]}
+            rowRenderer={[Function]}
+            scrollToAlignment="auto"
+            scrollToColumn={-1}
+            scrollToIndex={-1}
+            scrollToRow={-1}
+            scrollingResetTimeInterval={150}
+            style={Object {}}
+            tabIndex={0}
+            width={30}
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
+              onScroll={[Function]}
+              role="listbox"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 30,
+                  "overflowX": "hidden",
+                  "overflowY": "auto",
+                  "position": "relative",
+                  "width": 30,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 124,
+                    "maxHeight": 124,
+                    "maxWidth": 30,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": "auto",
+                  }
+                }
+              >
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 3,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="0-0"
+                  rowIndex={0}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
+                    key="0-0"
+                    style={
+                      Object {
+                        "height": 40,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <div
+                      className="checkbox"
+                    >
+                      <label
+                        htmlFor="tc-listview-toggle-all"
+                      >
+                        <input
+                          id="tc-listview-toggle-all"
+                          type="checkbox"
+                        />
+                        <strong>
+                          Select all
+                        </strong>
+                      </label>
+                    </div>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 3,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="1-0"
+                  rowIndex={1}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="1-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 40,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <withI18nextTranslation(Item)
+                      dataTest="item-0"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor default",
+                        }
+                      }
+                      measure={[Function]}
+                      t={[Function]}
+                    >
+                      <div
+                        className="checkbox"
+                        data-test="item-0"
+                        role="option"
+                      >
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor default"
+                          data-test="item-0.checkbox"
+                          label={
+                            <React.Fragment>
+                              Lorem ipsum dolor default
+                            </React.Fragment>
+                          }
+                          onChange={[Function]}
+                        >
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor default"
+                                data-checked={0}
+                                data-test="item-0.checkbox"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor default
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
+                    </withI18nextTranslation(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 3,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="2-0"
+                  rowIndex={2}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="2-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 82,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <withI18nextTranslation(Item)
+                      dataTest="item-1"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "children": Array [
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 0",
+                            },
+                            Object {
+                              "checked": true,
+                              "label": "Lorem ipsum dolor sit amet 1",
+                            },
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 2",
+                            },
+                          ],
+                          "label": "Lorem ipsum dolor Parent",
+                        }
+                      }
+                      measure={[Function]}
+                      t={[Function]}
+                    >
+                      <div
+                        aria-selected={true}
+                        className="checkbox switch-nested"
+                        data-test="item-1"
+                        role="option"
+                      >
+                        <Checkbox
+                          aria-label="Deselect Lorem ipsum dolor Parent"
+                          checked={true}
+                          data-test="item-1.checkbox"
+                          label={
+                            <React.Fragment>
+                              Lorem ipsum dolor Parent
+                            </React.Fragment>
+                          }
+                          onChange={[Function]}
+                        >
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
+                          >
+                            <label>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor Parent"
+                                checked={true}
+                                data-checked={2}
+                                data-test="item-1.checkbox"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor Parent
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                        <div
+                          className="checkbox-nested-expand"
+                          data-test="item-1.checkbox-nested-expand"
+                        >
+                          <Action
+                            bsStyle="link"
+                            hideLabel={true}
+                            icon="talend-caret-down"
+                            label="Expand Lorem ipsum dolor Parent"
+                            onClick={[Function]}
+                          >
+                            <withI18nextTranslation(ActionButton)
+                              available={true}
+                              bsStyle="link"
+                              disabled={false}
+                              hideLabel={true}
+                              icon="talend-caret-down"
+                              inProgress={false}
+                              label="Expand Lorem ipsum dolor Parent"
+                              loading={false}
+                              onClick={[Function]}
+                              t={[Function]}
+                              tooltipPlacement="top"
+                            >
+                              <TooltipTrigger
+                                label="Expand Lorem ipsum dolor Parent"
+                                tooltipPlacement="top"
+                              >
+                                <Button
+                                  active={false}
+                                  aria-describedby="42"
+                                  aria-label="Expand Lorem ipsum dolor Parent"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="btn-icon-only"
+                                  disabled={false}
+                                  key=".0"
+                                  onBlur={[Function]}
+                                  onClick={[Function]}
+                                  onFocus={[Function]}
+                                  onKeyPress={[Function]}
+                                  onMouseDown={[Function]}
+                                  onMouseOut={[Function]}
+                                  onMouseOver={[Function]}
+                                  role={null}
+                                >
+                                  <button
+                                    aria-describedby="42"
+                                    aria-label="Expand Lorem ipsum dolor Parent"
+                                    className="btn-icon-only btn btn-link"
+                                    disabled={false}
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyPress={[Function]}
+                                    onMouseDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
+                                    role={null}
+                                    type="button"
+                                  >
+                                    <Icon
+                                      key="icon"
+                                      name="talend-caret-down"
+                                    >
+                                      <Coral.Icon
+                                        name="talend-caret-down"
+                                      />
+                                    </Icon>
+                                  </button>
+                                </Button>
+                              </TooltipTrigger>
+                            </withI18nextTranslation(ActionButton)>
+                          </Action>
+                        </div>
+                      </div>
+                    </withI18nextTranslation(Item)>
+                  </div>
+                </CellMeasurer>
+              </div>
+            </div>
+          </Grid>
+        </List>
+      </div>
+    </Component>
+  </div>
+</withI18nextTranslation(ItemsComponent)>
+`;
+
+exports[`Items should render with provided id 1`] = `
+<withI18nextTranslation(ItemsComponent)
+  dataTest="item"
+  getItemHeight={[Function]}
+  id="my-widget"
+  isSwitchBox={false}
+  items={
+    Array [
+      Object {
+        "label": "Lorem ipsum dolor sit amet 0",
+      },
+      Object {
+        "checked": true,
+        "label": "Lorem ipsum dolor sit amet 1",
+      },
+      Object {
+        "label": "Lorem ipsum dolor sit amet 2",
+      },
+    ]
+  }
+  showToggleAll={true}
+  t={[Function]}
+>
+  <div
+    className="theme-tc-listview-items tc-listview-items"
+  >
+    <Component>
+      <div
+        id="autoSizer"
+      >
+        <List
+          autoHeight={false}
+          className="theme-tc-list-items tc-list-items"
+          estimatedRowSize={30}
+          height={30}
+          items={
+            Array [
+              Object {
+                "label": "Lorem ipsum dolor sit amet 0",
+              },
+              Object {
+                "checked": true,
+                "label": "Lorem ipsum dolor sit amet 1",
+              },
+              Object {
+                "label": "Lorem ipsum dolor sit amet 2",
+              },
+            ]
+          }
+          noRowsRenderer={[Function]}
+          onRowsRendered={[Function]}
+          onScroll={[Function]}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={10}
+          role="listbox"
+          rowCount={4}
+          rowHeight={[Function]}
+          rowRenderer={[Function]}
+          scrollToAlignment="auto"
+          scrollToIndex={-1}
+          style={Object {}}
+          width={30}
+        >
+          <Grid
+            aria-label="grid"
+            aria-readonly={true}
+            autoContainerWidth={true}
+            autoHeight={false}
+            autoWidth={false}
+            cellRangeRenderer={[Function]}
+            cellRenderer={[Function]}
+            className="ReactVirtualized__List theme-tc-list-items tc-list-items"
+            columnCount={1}
+            columnWidth={30}
+            containerRole="rowgroup"
+            containerStyle={Object {}}
+            estimatedColumnSize={100}
+            estimatedRowSize={30}
+            getScrollbarSize={[Function]}
+            height={30}
+            isScrollingOptOut={false}
+            items={
+              Array [
+                Object {
+                  "label": "Lorem ipsum dolor sit amet 0",
+                },
+                Object {
+                  "checked": true,
+                  "label": "Lorem ipsum dolor sit amet 1",
+                },
+                Object {
+                  "label": "Lorem ipsum dolor sit amet 2",
+                },
+              ]
+            }
+            noContentRenderer={[Function]}
+            noRowsRenderer={[Function]}
+            onRowsRendered={[Function]}
+            onScroll={[Function]}
+            onScrollbarPresenceChange={[Function]}
+            onSectionRendered={[Function]}
+            overscanColumnCount={0}
+            overscanIndicesGetter={[Function]}
+            overscanRowCount={10}
+            role="listbox"
+            rowCount={4}
+            rowHeight={[Function]}
+            rowRenderer={[Function]}
+            scrollToAlignment="auto"
+            scrollToColumn={-1}
+            scrollToIndex={-1}
+            scrollToRow={-1}
+            scrollingResetTimeInterval={150}
+            style={Object {}}
+            tabIndex={0}
+            width={30}
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
+              onScroll={[Function]}
+              role="listbox"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 30,
+                  "overflowX": "hidden",
+                  "overflowY": "auto",
+                  "position": "relative",
+                  "width": 30,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 166,
+                    "maxHeight": 166,
+                    "maxWidth": 30,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": "auto",
+                  }
+                }
+              >
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="0-0"
+                  rowIndex={0}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
+                    key="0-0"
+                    style={
+                      Object {
+                        "height": 40,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <div
+                      className="checkbox"
+                    >
+                      <label
+                        htmlFor="my-widget-toggle-all"
+                      >
+                        <input
+                          id="my-widget-toggle-all"
+                          type="checkbox"
+                        />
+                        <strong>
+                          Select all
+                        </strong>
+                      </label>
+                    </div>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="1-0"
+                  rowIndex={1}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="1-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 40,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <withI18nextTranslation(Item)
+                      dataTest="item-0"
+                      id="my-widget-1-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 0",
+                        }
+                      }
+                      key="my-widget-1-item"
+                      measure={[Function]}
+                      t={[Function]}
+                    >
+                      <div
+                        className="checkbox"
+                        data-test="item-0"
+                        id="my-widget-1-item"
+                        role="option"
+                      >
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor sit amet 0"
+                          data-test="item-0.checkbox"
+                          id="checkbox-my-widget-1-item"
+                          label={
+                            <React.Fragment>
+                              Lorem ipsum dolor sit amet 0
+                            </React.Fragment>
+                          }
+                          onChange={[Function]}
+                        >
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
+                          >
+                            <label
+                              htmlFor="checkbox-my-widget-1-item"
+                            >
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                data-checked={0}
+                                data-test="item-0.checkbox"
+                                id="checkbox-my-widget-1-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 0
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
+                    </withI18nextTranslation(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="2-0"
+                  rowIndex={2}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="2-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 82,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <withI18nextTranslation(Item)
+                      dataTest="item-1"
+                      id="my-widget-2-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "label": "Lorem ipsum dolor sit amet 1",
+                        }
+                      }
+                      key="my-widget-2-item"
+                      measure={[Function]}
+                      t={[Function]}
+                    >
+                      <div
+                        aria-selected={true}
+                        className="checkbox"
+                        data-test="item-1"
+                        id="my-widget-2-item"
+                        role="option"
+                      >
+                        <Checkbox
+                          aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                          checked={true}
+                          data-test="item-1.checkbox"
+                          id="checkbox-my-widget-2-item"
+                          label={
+                            <React.Fragment>
+                              Lorem ipsum dolor sit amet 1
+                            </React.Fragment>
+                          }
+                          onChange={[Function]}
+                        >
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
+                          >
+                            <label
+                              htmlFor="checkbox-my-widget-2-item"
+                            >
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                data-checked={2}
+                                data-test="item-1.checkbox"
+                                id="checkbox-my-widget-2-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 1
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
+                    </withI18nextTranslation(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="3-0"
+                  rowIndex={3}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="3-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 124,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <withI18nextTranslation(Item)
+                      dataTest="item-2"
+                      id="my-widget-3-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 2",
+                        }
+                      }
+                      key="my-widget-3-item"
+                      measure={[Function]}
+                      t={[Function]}
+                    >
+                      <div
+                        className="checkbox"
+                        data-test="item-2"
+                        id="my-widget-3-item"
+                        role="option"
+                      >
+                        <Checkbox
+                          aria-label="Select Lorem ipsum dolor sit amet 2"
+                          data-test="item-2.checkbox"
+                          id="checkbox-my-widget-3-item"
+                          label={
+                            <React.Fragment>
+                              Lorem ipsum dolor sit amet 2
+                            </React.Fragment>
+                          }
+                          onChange={[Function]}
+                        >
+                          <div
+                            className="checkbox tc-toggle theme-tc-toggle checkbox"
+                          >
+                            <label
+                              htmlFor="checkbox-my-widget-3-item"
+                            >
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                data-checked={0}
+                                data-test="item-2.checkbox"
+                                id="checkbox-my-widget-3-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet 2
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
+                    </withI18nextTranslation(Item)>
+                  </div>
+                </CellMeasurer>
+              </div>
+            </div>
+          </Grid>
+        </List>
+      </div>
+    </Component>
+  </div>
+</withI18nextTranslation(ItemsComponent)>
+`;

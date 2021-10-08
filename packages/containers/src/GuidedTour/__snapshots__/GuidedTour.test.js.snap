@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Guided Tour Container should render 1`] = `
+<GuidedTour
+  disableAllInteractions={false}
+  disableKeyboardNavigation={false}
+  onRequestClose={[Function]}
+  showButtons={true}
+  showCloseButton={true}
+  steps={
+    Array [
+      Object {
+        "content": Object {
+          "body": "Text A",
+        },
+      },
+      Object {
+        "content": Object {
+          "body": "Text B",
+        },
+      },
+      Object {
+        "content": Object {
+          "body": "Text C",
+        },
+      },
+    ]
+  }
+/>
+`;

@@ -1,0 +1,14 @@
+.navbar {
+	.navbar-form {
+		margin-top: $navbar-form-margin;
+		margin-bottom: $navbar-form-margin;
+		padding-top: 0;
+		padding-bottom: 0;
+		border: 0;
+
+		.form-group {
+			padding: $padding-small $padding-small $padding-smaller;
+			min-height: $navbar-height;
+		}
+	}
+}

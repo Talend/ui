@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VirtualizedList should render CircularProgress 1`] = `
+<Context.Provider
+  value={
+    Object {
+      "resizeColumn": [Function],
+    }
+  }
+>
+  <AutoSizer
+    disableHeight={false}
+    disableWidth={false}
+    onResize={[Function]}
+    style={Object {}}
+  >
+    [Function]
+  </AutoSizer>
+</Context.Provider>
+`;
+
+exports[`VirtualizedList should use AutoSizer 1`] = `
+<Context.Provider
+  value={
+    Object {
+      "resizeColumn": [Function],
+    }
+  }
+>
+  <AutoSizer
+    disableHeight={false}
+    disableWidth={false}
+    onResize={[Function]}
+    style={Object {}}
+  >
+    [Function]
+  </AutoSizer>
+</Context.Provider>
+`;

@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JSONLike ComplexItem should render 1`] = `
+<LineItem
+  badge={
+    <TooltipTrigger
+      className="offset"
+      label=""
+      tooltipPlacement="right"
+    >
+      <sup
+        aria-label="Contains  child"
+        className="theme-badge badge"
+      >
+        (undefined)
+      </sup>
+    </TooltipTrigger>
+  }
+  edited={Array []}
+  hasChildren={true}
+  icon={
+    <Action
+      aria-hidden={true}
+      className="theme-toggle tc-object-viewer-toggle"
+      icon="talend-caret-down"
+      iconTransform="rotate-270"
+      label=""
+      link={true}
+      onClick={[Function]}
+      tabIndex="-1"
+    />
+  }
+  info={Object {}}
+  isOpened={false}
+  name="name"
+  onKeyDown={[MockFunction]}
+  onSelect={[MockFunction]}
+  onToggle={[MockFunction]}
+  onToggleAllSiblings={[MockFunction]}
+  opened={Array []}
+  t={[Function]}
+  type={null}
+/>
+`;
+
+exports[`JSONLike should render 1`] = `
+<div
+  className="tc-object-viewer theme-container"
+  id="my-object-container"
+>
+  <ul
+    className="theme-tc-object-viewer-list"
+    role="tree"
+  >
+    <Item
+      data={
+        Object {
+          "bar": Object {
+            "hello": "hello",
+          },
+          "foo": "foo",
+        }
+      }
+      edited={Array []}
+      id="my-object-root"
+      index={1}
+      jsonpath="$"
+      level={1}
+      onEdit={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[MockFunction]}
+      onToggle={[MockFunction]}
+      onToggleAllSiblings={[MockFunction]}
+      opened={Array []}
+      siblings={
+        Array [
+          Object {
+            "data": Object {
+              "bar": Object {
+                "hello": "hello",
+              },
+              "foo": "foo",
+            },
+            "jsonpath": "$",
+          },
+        ]
+      }
+    />
+  </ul>
+</div>
+`;

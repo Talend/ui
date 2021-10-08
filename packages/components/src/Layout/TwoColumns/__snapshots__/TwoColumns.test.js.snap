@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TwoColumns should render two columns 1`] = `
+<div
+  className="tc-layout-two-columns theme-container"
+  style={
+    Object {
+      "display": "flex",
+    }
+  }
+>
+  <div
+    className="tc-layout-two-columns-left theme-sidemenu"
+    id="tc-layout-side-menu"
+    tabIndex="-1"
+  >
+    <div>
+      Hello world
+    </div>
+  </div>
+  <div
+    className="tc-layout-two-columns-main theme-main"
+    id="tc-layout-main"
+    role="main"
+    tabIndex="-1"
+  >
+    <WithDrawer>
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "overflow": "auto",
+          }
+        }
+      >
+        <span>
+          children
+        </span>
+      </div>
+    </WithDrawer>
+  </div>
+</div>
+`;

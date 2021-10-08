@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourcePicker component should render ResourceList 1`] = `
+<div
+  className="tc-resource-picker theme-tc-resource-picker"
+>
+  <ResourceList
+    className="tc-resource-picker-list theme-tc-resource-picker-list"
+    collection={Array []}
+    rowHeight={60}
+    toolbar={
+      Object {
+        "nameFilerAsInput": true,
+      }
+    }
+  />
+</div>
+`;

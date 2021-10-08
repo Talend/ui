@@ -1,0 +1,50 @@
+{
+  "name": "@talend/react-storybook-cmf",
+  "description": "react-storybook-cmf library.",
+  "version": "6.36.3",
+  "license": "Apache-2.0",
+  "author": "Talend Frontend <frontend@talend.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmfrancois/react-storybook-cmf"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "storybook",
+    "addon"
+  ],
+  "scripts": {
+    "build:lib": "talend-scripts build:lib",
+    "test": "talend-scripts test",
+    "test:demo": "echo nothing to demo",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
+  },
+  "main": "lib/index.js",
+  "mainSrc": "src/index.js",
+  "devDependencies": {
+    "@storybook/react": "^6.3.8",
+    "@talend/react-cmf": "^6.38.4",
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "enzyme": "^3.11.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-redux": "^5.1.2",
+    "redux-saga": "^0.15.6"
+  },
+  "dependencies": {
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addons": "^6.3.8",
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "@storybook/react": "^6.3.7",
+    "@talend/react-cmf": "^6.0.0",
+    "react": "^16.8.6",
+    "react-redux": "^5.0.7",
+    "redux-saga": "^0.15.4"
+  }
+}

@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<!-- Storybook should have visible overflow since we have Action Logger -->
+<style>
+    body {
+        overflow-y: auto !important;
+    }
+
+    .tc-drawer.drawer-custom {
+        background-color: #000;
+        color: White;
+    }
+
+    .list-container {
+        height: 100vh;
+    }
+    .tc-select-object {
+        height: 300px;
+    }
+
+    html.focus-outline-hidden *:focus {
+        outline: none !important;
+    }
+
+    .tc-side-panel > form[role="search"] {
+        margin: 0;
+        height: 33px;
+    }
+    .tc-side-panel > form > .form-group {
+        display: flex;
+        align-items: center;
+    }
+    .tc-side-panel  > form > .form-group > input {
+        margin: 0;
+        color: white;
+    }
+    .tc-side-panel > button svg.tc-svg-icon,
+    .tc-side-panel > form svg.tc-svg-icon {
+        margin: 0 10px;
+        color: white;
+    }
+</style>

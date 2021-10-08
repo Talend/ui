@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Actions should render actions 1`] = `
+<ButtonGroup
+  block={false}
+  bsClass="btn-group"
+  className="tc-actions"
+  justified={false}
+  vertical={false}
+>
+  <Action
+    bsStyle="primary"
+    icon="fa fa-asterisk"
+    label="Preparations"
+    onClick={[MockFunction]}
+  />
+  <Action
+    icon="fa fa-file-excel-o"
+    label="Datasets"
+    onClick={[MockFunction]}
+  />
+  <Action
+    icon="fa fa-star"
+    label="Favorites"
+    onClick={[MockFunction]}
+  />
+  <Action
+    displayMode="dropdown"
+    icon="fa fa-file-excel-o"
+    id="dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "document 1",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "label": "document 2",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    label="related items"
+  />
+  <Action
+    displayMode="splitDropdown"
+    id="split-dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "file 1",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "label": "file 2",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    label="add file"
+    onClick={[MockFunction]}
+  />
+</ButtonGroup>
+`;
+
+exports[`Actions should render actions with "link" theme 1`] = `
+<ButtonGroup
+  block={false}
+  bsClass="btn-group"
+  className="tc-actions"
+  justified={false}
+  vertical={false}
+>
+  <Action
+    bsStyle="primary"
+    icon="fa fa-asterisk"
+    label="Preparations"
+    link={true}
+    onClick={[MockFunction]}
+  />
+  <Action
+    icon="fa fa-file-excel-o"
+    label="Datasets"
+    link={true}
+    onClick={[MockFunction]}
+  />
+  <Action
+    icon="fa fa-star"
+    label="Favorites"
+    link={true}
+    onClick={[MockFunction]}
+  />
+  <Action
+    displayMode="dropdown"
+    icon="fa fa-file-excel-o"
+    id="dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "document 1",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "label": "document 2",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    label="related items"
+    link={true}
+  />
+  <Action
+    displayMode="splitDropdown"
+    id="split-dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "file 1",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "label": "file 2",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    label="add file"
+    link={true}
+    onClick={[MockFunction]}
+  />
+</ButtonGroup>
+`;
+
+exports[`Actions should render actions with defined tooltip placement 1`] = `
+<ButtonGroup
+  block={false}
+  bsClass="btn-group"
+  className="tc-actions"
+  justified={false}
+  vertical={false}
+>
+  <Action
+    bsStyle="primary"
+    hideLabel={true}
+    icon="fa fa-asterisk"
+    label="Preparations"
+    link={true}
+    onClick={[MockFunction]}
+    tooltipPlacement="right"
+  />
+  <Action
+    hideLabel={true}
+    icon="fa fa-file-excel-o"
+    label="Datasets"
+    link={true}
+    onClick={[MockFunction]}
+    tooltipPlacement="right"
+  />
+  <Action
+    hideLabel={true}
+    icon="fa fa-star"
+    label="Favorites"
+    link={true}
+    onClick={[MockFunction]}
+    tooltipPlacement="right"
+  />
+  <Action
+    displayMode="dropdown"
+    hideLabel={true}
+    icon="fa fa-file-excel-o"
+    id="dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "document 1",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "label": "document 2",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    label="related items"
+    link={true}
+    tooltipPlacement="right"
+  />
+  <Action
+    displayMode="splitDropdown"
+    hideLabel={true}
+    id="split-dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "file 1",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "label": "file 2",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    label="add file"
+    link={true}
+    onClick={[MockFunction]}
+    tooltipPlacement="right"
+  />
+</ButtonGroup>
+`;
+
+exports[`Actions should render actions with hidden labels and tooltips 1`] = `
+<ButtonGroup
+  block={false}
+  bsClass="btn-group"
+  className="tc-actions"
+  justified={false}
+  vertical={false}
+>
+  <Action
+    bsStyle="primary"
+    hideLabel={true}
+    icon="fa fa-asterisk"
+    label="Preparations"
+    onClick={[MockFunction]}
+  />
+  <Action
+    hideLabel={true}
+    icon="fa fa-file-excel-o"
+    label="Datasets"
+    onClick={[MockFunction]}
+  />
+  <Action
+    hideLabel={true}
+    icon="fa fa-star"
+    label="Favorites"
+    onClick={[MockFunction]}
+  />
+  <Action
+    displayMode="dropdown"
+    hideLabel={true}
+    icon="fa fa-file-excel-o"
+    id="dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "document 1",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "label": "document 2",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    label="related items"
+  />
+  <Action
+    displayMode="splitDropdown"
+    hideLabel={true}
+    id="split-dropdown-id"
+    items={
+      Array [
+        Object {
+          "label": "file 1",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "label": "file 2",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    label="add file"
+    onClick={[MockFunction]}
+  />
+</ButtonGroup>
+`;

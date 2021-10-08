@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test component state management action creators addState dispatch well formed action object 1`] = `
+Object {
+  "componentName": "componentName",
+  "initialComponentState": Object {
+    "searchQuery": "",
+  },
+  "key": "key",
+  "type": "REACT_CMF.COMPONENT_ADD_STATE",
+}
+`;
+
+exports[`test component state management action creators mergeState dispatch well formed acton object 1`] = `
+Object {
+  "componentName": "componentName",
+  "componentState": Object {
+    "searchQuery": "JSON",
+  },
+  "key": "key",
+  "type": "REACT_CMF.COMPONENT_MERGE_STATE",
+}
+`;
+
+exports[`test component state management action creators removeState dispatch well formed acton object 1`] = `
+Object {
+  "componentName": "componentName",
+  "key": "key",
+  "type": "REACT_CMF.COMPONENT_REMOVE_STATE",
+}
+`;

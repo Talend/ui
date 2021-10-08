@@ -1,0 +1,26 @@
+// TreeView styles
+
+.tc-treeview {
+	.tc-treeview-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		color: $brand-primary;
+		line-height: 6rem;
+		font-weight: bold;
+
+		padding-left: $padding-large;
+		border-bottom: 1px rgba(0, 0, 0, 0.12) solid;
+
+		:global(.btn-link .tc-svg-icon) {
+			stroke: $brand-primary;
+		}
+	}
+
+	.tc-treeview-list {
+		padding: $padding-small 0;
+		overflow: auto;
+		list-style-type: none;
+	}
+}

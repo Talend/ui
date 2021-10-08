@@ -1,0 +1,41 @@
+$tc-enumeration-height: 50vh !default;
+$tc-enumeration-font-size: 1.4rem !default;
+
+.tc-enumeration {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	:global {
+		input[type='text'] {
+			font-size: $tc-enumeration-font-size;
+			line-height: $tc-enumeration-font-size;
+		}
+
+		.btn {
+			justify-content: flex-start;
+			min-height: 100%;
+			text-decoration: none;
+
+			&.btn-link {
+				padding: 0 $padding-normal;
+				outline-offset: 0.5rem;
+				svg {
+					height: $tc-enumeration-font-size;
+					width: $tc-enumeration-font-size;
+				}
+			}
+		}
+	}
+
+	header {
+		flex-shrink: 0;
+	}
+
+	.tc-enumeration-hint {
+		color: $silver;
+		font-style: oblique;
+		box-shadow: inset 0 21px 3px -20px $shadow;
+		padding: $padding-normal $padding-small;
+	}
+}

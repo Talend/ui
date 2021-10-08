@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldTemplate in text display mode should render dt/dd 1`] = `
+<div
+  className="form-group"
+>
+  <dt>
+    <label
+      className="control-label"
+      htmlFor="myAwesomeField"
+    >
+      My awesome label
+    </label>
+  </dt>
+  <dd
+    id="myAwesomeField"
+  >
+    My value as chrildren
+  </dd>
+</div>
+`;

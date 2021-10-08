@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle should pass extra props to input 1`] = `
+<div
+  className="checkbox tc-toggle theme-tc-toggle switch checkbox"
+>
+  <label
+    htmlFor="id"
+  >
+    <input
+      aria-describedby="my-error-id"
+      checked={false}
+      data-checked={0}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Toggle should render a Checkbox 1`] = `
+<div
+  className="checkbox tc-toggle theme-tc-toggle checkbox"
+>
+  <label
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      data-checked={0}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Toggle should render a Toggle 1`] = `
+<div
+  className="checkbox tc-toggle theme-tc-toggle switch checkbox"
+>
+  <label
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      data-checked={0}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Toggle should render a Toggle with label 1`] = `
+<div
+  className="checkbox tc-toggle theme-tc-toggle switch checkbox"
+>
+  <label
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      data-checked={0}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      some label
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Toggle should render a autoFocused Toggle 1`] = `
+<div
+  className="checkbox tc-toggle theme-tc-toggle switch checkbox"
+>
+  <label
+    htmlFor="id"
+  >
+    <input
+      autoFocus={true}
+      checked={false}
+      data-checked={0}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Toggle should render a checked Toggle 1`] = `
+<div
+  className="checkbox tc-toggle theme-tc-toggle switch checkbox"
+>
+  <label
+    data-feature="toggle.disable"
+    htmlFor="id"
+  >
+    <input
+      checked={true}
+      data-checked={2}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Toggle should render a disabled Toggle 1`] = `
+<div
+  className="checkbox tc-toggle theme-tc-toggle switch checkbox theme-tc-toggle-disabled tc-toggle-disabled"
+>
+  <label
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      data-checked={0}
+      disabled={true}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Toggle should render an intermediate Toggle 1`] = `
+<div
+  className="checkbox tc-toggle theme-tc-toggle switch checkbox"
+>
+  <label
+    data-feature="toggle.enable"
+    htmlFor="id"
+  >
+    <input
+      checked={false}
+      data-checked={1}
+      disabled={false}
+      id="id"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      
+    </span>
+  </label>
+</div>
+`;

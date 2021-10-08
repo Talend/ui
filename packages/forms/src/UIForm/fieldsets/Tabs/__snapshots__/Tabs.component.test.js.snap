@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs widget should render fieldset 1`] = `
+<TabBar
+  className="theme-tf-tabs tf-tabs"
+  id="undefined-tabs"
+  items={
+    Array [
+      Object {
+        "aria-label": undefined,
+        "children": <Widget
+          errors={Object {}}
+          schema={
+            Object {
+              "items": Array [
+                Object {
+                  "key": Array [
+                    "user",
+                    "firstname",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+                Object {
+                  "key": Array [
+                    "user",
+                    "lastname",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+              ],
+              "options": Object {
+                "hideTitle": true,
+              },
+              "title": "User",
+              "widget": "fieldset",
+            }
+          }
+          widgets={Object {}}
+        />,
+        "className": "",
+        "key": 0,
+        "label": "User",
+      },
+      Object {
+        "aria-label": undefined,
+        "children": <Widget
+          errors={Object {}}
+          schema={
+            Object {
+              "items": Array [
+                Object {
+                  "key": Array [
+                    "comment",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+              ],
+              "options": Object {
+                "hideTitle": true,
+              },
+              "title": "Other",
+              "widget": "fieldset",
+            }
+          }
+          widgets={Object {}}
+        />,
+        "className": "",
+        "key": 1,
+        "label": "Other",
+      },
+    ]
+  }
+  onSelect={[Function]}
+  selectedKey={0}
+  tooltipPlacement="top"
+/>
+`;

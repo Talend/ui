@@ -1,0 +1,49 @@
+.key-value {
+	display: flex;
+	margin-bottom: 0;
+
+	dt,
+	dd {
+		flex: 1;
+
+		> :global(.form-group) {
+			margin-bottom: 0;
+		}
+	}
+
+	dt {
+		font-weight: normal;
+		position: relative;
+
+		:global(.form-group) {
+			display: grid;
+			grid-template-columns: auto 3rem;
+			grid-template-areas:
+				'label .....'
+				'input equal'
+				'message ...';
+		}
+
+		:global(.form-group::after) {
+			grid-area: equal;
+			content: '=';
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: $input-height-base;
+			width: 3rem;
+		}
+
+		:global(.control-label) {
+			grid-area: label;
+		}
+
+		:global(.form-control) {
+			grid-area: input;
+		}
+
+		:global(.form-control) + div {
+			grid-area: message;
+		}
+	}
+}

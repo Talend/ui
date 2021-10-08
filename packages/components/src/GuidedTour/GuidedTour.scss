@@ -1,0 +1,93 @@
+$tc-guidedtour-accent-color: $scooter !default;
+$tc-guidedtour-tooltip-padding: $padding-large !default;
+$tc-guidedtour-mask-opactiy: 0.25 !default;
+$tc-guidedtour-close-button-size: $svg-sm-size !default;
+$tc-guidedtour-nav-button-size: $svg-md-size !default;
+$tc-guidedtour-controls-color: $dove-gray !default;
+$tc-guidedtour-width: 40rem !default;
+
+/* stylelint-disable-next-line selector-id-pattern*/
+:global(#___reactour) {
+	> div {
+		z-index: $zindex-guidedtour;
+	}
+
+	.tc-guided-tour {
+		--reactour-accent: #{$tc-guidedtour-accent-color};
+		padding: $tc-guidedtour-tooltip-padding (2 * $tc-guidedtour-tooltip-padding) $tc-guidedtour-tooltip-padding $tc-guidedtour-tooltip-padding;
+		border-color: rgb(226, 226, 226);
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+		width: $tc-guidedtour-width;
+		max-width: none;
+
+		[data-tour-elem='controls'] {
+			margin: 0 (-1 * $tc-guidedtour-tooltip-padding) 0 0;
+			justify-content: space-between;
+
+			> button:not([disabled]),
+			+ button:not([disabled]) {
+				color: $tc-guidedtour-controls-color;
+			}
+
+			> button {
+				min-height: $tc-guidedtour-nav-button-size;
+
+				svg {
+					height: $tc-guidedtour-nav-button-size;
+					width: $tc-guidedtour-nav-button-size;
+				}
+			}
+
+			+ button {
+				top: $tc-guidedtour-tooltip-padding;
+				right: $tc-guidedtour-tooltip-padding;
+				width: auto;
+				height: auto;
+
+				svg {
+					height: $tc-guidedtour-close-button-size;
+					width: $tc-guidedtour-close-button-size;
+				}
+			}
+
+			[data-tour-elem='dot'] {
+				padding: 0;
+				margin: 0 $padding-smaller;
+				width: $padding-small;
+				height: $padding-small;
+			}
+		}
+
+		&.no-interaction {
+			[data-tour-elem='controls'] {
+				justify-content: center;
+			}
+		}
+
+		.header,
+		.body {
+			margin: 0 0 $padding-larger 0;
+		}
+
+		.body {
+			margin-right: -1 * $tc-guidedtour-tooltip-padding;
+		}
+	}
+
+	:global {
+		// sass-lint:disable-next-line class-name-format
+		.reactour__mask {
+			opacity: 1;
+
+			> div {
+				opacity: $tc-guidedtour-mask-opactiy;
+			}
+		}
+
+		// sass-lint:disable-next-line class-name-format
+		.reactour__dot--is-active {
+			color: $tc-guidedtour-accent-color;
+			background-color: $tc-guidedtour-accent-color;
+		}
+	}
+}

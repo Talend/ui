@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea field should render disabled textarea 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <textarea
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    disabled={true}
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={false}
+    rows={5}
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`TextArea field should render provided rows 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <textarea
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={false}
+    rows={10}
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`TextArea field should render readonly textarea 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <textarea
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={true}
+    rows={5}
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`TextArea field should render textarea 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <textarea
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={false}
+    rows={5}
+    value="toto"
+  />
+</FieldTemplate>
+`;

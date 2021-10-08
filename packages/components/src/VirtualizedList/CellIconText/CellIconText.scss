@@ -1,0 +1,10 @@
+.tc-icon-text {
+	display: flex;
+	.label {
+		min-width: 0;
+		margin-left: $padding-small;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+}

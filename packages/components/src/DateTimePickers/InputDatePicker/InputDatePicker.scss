@@ -1,0 +1,9 @@
+@import '../shared/styles/mixins';
+
+.popper {
+	@include popper;
+}
+.date-picker {
+	@include date-picker;
+	align-items: center;
+}

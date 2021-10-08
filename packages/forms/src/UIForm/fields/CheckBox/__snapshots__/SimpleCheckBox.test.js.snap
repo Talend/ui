@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimpleCheckBox field should render disabled input 1`] = `
+<div
+  className="checkbox"
+>
+  <label>
+    <input
+      aria-describedby="myForm-description myForm-error"
+      aria-invalid={true}
+      autoFocus={true}
+      checked={true}
+      data-checked={2}
+      id="myForm"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="control-label"
+      htmlFor="myForm"
+    >
+      My checkbox custom label
+    </span>
+  </label>
+</div>
+`;
+
+exports[`SimpleCheckBox field should render input 1`] = `
+<div
+  className="checkbox"
+>
+  <label>
+    <input
+      aria-describedby="myForm-description myForm-error"
+      aria-invalid={true}
+      autoFocus={true}
+      checked={true}
+      data-checked={2}
+      id="myForm"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="control-label"
+      htmlFor="myForm"
+    >
+      My checkbox custom label
+    </span>
+  </label>
+</div>
+`;

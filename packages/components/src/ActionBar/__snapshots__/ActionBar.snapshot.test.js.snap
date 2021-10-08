@@ -1,0 +1,377 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionBar should render a btn-group 1`] = `
+<div
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "actions": Array [
+            Object {
+              "hideLabel": true,
+              "icon": "talend-cog",
+              "label": "hidden mean tooltips",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "hideLabel": true,
+              "icon": "talend-badge",
+              "label": "you are a super star",
+              "onClick": [MockFunction],
+            },
+          ],
+          "displayMode": "btnGroup",
+        },
+      ]
+    }
+    key="0"
+    left={true}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={Array []}
+    key="2"
+    right={true}
+  />
+</div>
+`;
+
+exports[`ActionBar should render no-selected actions, all on left  1`] = `
+<div
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "bsStyle": "primary",
+          "icon": "fa fa-asterisk",
+          "label": "Primary",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [MockFunction],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    key="0"
+    left={true}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={Array []}
+    key="2"
+    right={true}
+  />
+</div>
+`;
+
+exports[`ActionBar should render no-selected actions, all on right 1`] = `null`;
+
+exports[`ActionBar should render no-selected actions, some on left, the other on right 1`] = `
+<div
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "bsStyle": "primary",
+          "icon": "fa fa-asterisk",
+          "label": "Primary",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    key="0"
+    left={true}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [MockFunction],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    key="2"
+    right={true}
+  />
+</div>
+`;
+
+exports[`ActionBar should render selected count and multi-selected actions, all on left 1`] = `
+<div
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [MockFunction],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    components={
+      Object {
+        "before-actions": <Count
+          selected={1}
+        />,
+      }
+    }
+    key="0"
+    left={true}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={Array []}
+    key="2"
+    right={true}
+  />
+</div>
+`;
+
+exports[`ActionBar should render selected count and multi-selected actions, all on right 1`] = `
+<div
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={Array []}
+    components={
+      Object {
+        "before-actions": <Count
+          selected={1}
+        />,
+      }
+    }
+    key="0"
+    left={true}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [MockFunction],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    key="2"
+    right={true}
+  />
+</div>
+`;
+
+exports[`ActionBar should render selected count and multi-selected actions, count and some actions on left, the other on right 1`] = `
+<div
+  className="theme-tc-actionbar-container tc-actionbar-container nav"
+>
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    components={
+      Object {
+        "before-actions": <Count
+          selected={1}
+        />,
+      }
+    }
+    key="0"
+    left={true}
+  />
+  <SwitchActions
+    actions={Array []}
+    center={true}
+    key="1"
+  />
+  <SwitchActions
+    actions={
+      Array [
+        Object {
+          "icon": "fa fa-asterisk",
+          "label": "Secondary",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "emptyDropdownLabel": "No option",
+          "icon": "fa fa-plus",
+          "items": Array [
+            Object {
+              "label": "From Local",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "label": "From Remote",
+              "onClick": [MockFunction],
+            },
+          ],
+          "label": "Add File",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    key="2"
+    right={true}
+  />
+</div>
+`;
+
+exports[`ActionBar.Count should render if selected 1`] = `
+<span
+  className="theme-tc-actionbar-selected-count tc-actionbar-selected-count"
+>
+  1 selected
+</span>
+`;
+
+exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
+<Content
+  left={true}
+>
+  <Action
+    label="action"
+  />
+</Content>
+`;
+
+exports[`ActionBar.SwitchActions should render one Action on navbar-left with an injection 1`] = `
+<Content
+  left={true}
+>
+  <Count
+    selected={3}
+    t={[Function]}
+  />
+  <Action
+    key="0"
+    label="action"
+  />
+</Content>
+`;
+
+exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = `
+<Content
+  right={true}
+>
+  <Action
+    label="action"
+  />
+</Content>
+`;

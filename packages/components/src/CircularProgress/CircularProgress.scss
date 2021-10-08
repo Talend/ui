@@ -1,0 +1,68 @@
+// CircularProgress styles
+$tc-circular-progress-light-fill: #eee !default;
+$tc-circular-progress-small: 1.2rem;
+$tc-circular-progress-regular: 2rem;
+$tc-circular-progress-large: 4rem;
+$tc-circular-progress-stroke-width: 5;
+
+.fixed {
+	transform: rotate(270deg);
+}
+
+.path {
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-width: $tc-circular-progress-stroke-width;
+}
+
+.animate {
+	animation: rotate 2s linear infinite;
+
+	& .path {
+		animation: dash 1.3s ease-in-out infinite;
+	}
+}
+
+.loaderlight {
+	& .path {
+		stroke: $tc-circular-progress-light-fill;
+	}
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes dash {
+	0% {
+		stroke-dasharray: 1, 150;
+		stroke-dashoffset: 0;
+	}
+
+	50% {
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: -35;
+	}
+
+	100% {
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: -124;
+	}
+}
+
+.small {
+	width: $tc-circular-progress-small;
+	height: $tc-circular-progress-small;
+}
+
+.default {
+	width: $tc-circular-progress-regular;
+	height: $tc-circular-progress-regular;
+}
+
+.large {
+	width: $tc-circular-progress-large;
+	height: $tc-circular-progress-large;
+}

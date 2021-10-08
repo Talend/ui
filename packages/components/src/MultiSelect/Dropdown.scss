@@ -1,0 +1,17 @@
+.dropdown {
+	z-index: 100;
+	position: absolute;
+	width: 100%;
+	background-color: $white;
+	border: 1px solid $gallery;
+	border-top: none;
+	border-radius: 0 5px;
+	color: $dove-gray;
+
+	.loading {
+		padding: 50px;
+		text-align: center;
+		height: 80px;
+		background-color: $white;
+	}
+}

@@ -1,0 +1,106 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+$background-hover: rgba($dark-silver, 0.1) !default;
+$background-highlight: rgba($scooter, 0.1) !default;
+$model-node-height: 3rem !default;
+
+@mixin selection($background-color) {
+	background: $background-color;
+	bottom: 0;
+	content: ' ';
+	left: -100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.tc-model {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: auto;
+	width: 100%;
+	&-leaf,
+	&-branch {
+		:global(.tc-simple-text-value) {
+			color: $dark-silver;
+		}
+		&-padding-left {
+			padding-left: $padding-larger;
+		}
+		&-button {
+			background: transparent;
+			border: none;
+			bottom: 0;
+			height: inherit;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			&:hover {
+				&::before {
+					@include selection($background-hover);
+				}
+			}
+			&-highlighted {
+				&::before {
+					@include selection($background-highlight);
+				}
+			}
+		}
+	}
+
+	&-branch {
+		display: flex;
+		flex-direction: column;
+		&-content {
+			align-items: center;
+			display: inline-flex;
+			height: $model-node-height;
+			position: relative;
+			&:focus,
+			&:hover {
+				:global(.tc-tree-branch-icon-caret) {
+					color: $scooter;
+				}
+			}
+		}
+	}
+
+	&-leaf {
+		:global(.tc-pie-chart-loading-circle) {
+			margin: 0 5px 0 0;
+		}
+		align-items: center;
+		display: inline-flex;
+		height: $model-node-height;
+		position: relative;
+		width: 100%;
+		&-options {
+			display: inline-flex;
+			margin-left: auto;
+			padding-right: $padding-normal;
+			z-index: 1;
+			flex-shrink: 0;
+
+			&-burger {
+				padding: 0;
+				margin: 0 $padding-smaller;
+				:global(.tc-svg-icon) {
+					width: $btn-font-size;
+					height: $btn-font-size;
+					padding-bottom: 2px;
+				}
+			}
+			&-tooltip {
+				display: flex;
+			}
+			&-quality-circles {
+				display: inherit;
+				padding-top: 1.3rem;
+				&-blink {
+					@include heartbeat(object-blink);
+				}
+			}
+		}
+	}
+}

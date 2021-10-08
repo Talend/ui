@@ -1,0 +1,77 @@
+{
+  "name": "@talend/react-stepper",
+  "description": "Provide a stepper component",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
+    "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
+    "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
+    "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
+    "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
+    "test:demo": "build-storybook",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint": "npm run lint:es",
+    "start": "start-storybook -p 6009"
+  },
+  "keywords": [
+    "react",
+    "talend",
+    "stepper"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/stepper#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "@talend/react-components": "^6.40.0",
+    "classnames": "^2.3.1",
+    "invariant": "^2.2.4",
+    "keycode": "^2.2.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.3.8",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addons": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@talend/icons": "^6.36.3",
+    "@talend/react-components": "^6.40.0",
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^1.0.1",
+    "enzyme": "^3.11.0",
+    "i18next": "^20.6.1",
+    "immutable": "^3.8.2",
+    "jsdom": "^16.7.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-i18next": "^11.12.0",
+    "react-redux": "^5.1.2",
+    "react-transition-group": "^2.9.0",
+    "style-loader": "^0.23.1"
+  },
+  "peerDependencies": {
+    "i18next": "^20.1.0",
+    "prop-types": "^15.5.10",
+    "react": "^16.8.6",
+    "react-i18next": "^11.8.13",
+    "react-redux": "^5.0.7",
+    "react-transition-group": "^2.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "6.36.4"
+}

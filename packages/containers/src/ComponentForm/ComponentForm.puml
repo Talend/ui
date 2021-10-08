@@ -1,0 +1,46 @@
+@startuml
+'AutoInclude
+title Life cycle of ComponentForm
+User -> App: Open
+box "webapp" #LightBlue
+	participant App
+        participant ComponentForm
+	participant Form
+        participant FormSkeleton
+        participant UIForm
+        participant Saga
+end box
+App -> ComponentForm : definitionURL,\ntriggerUrl,\nsubmitURL
+== Initialization ==
+ComponentForm -> Form: render(loading)
+Form -> FormSkeleton: render
+activate FormSkeleton
+ComponentForm -> Saga: start
+activate Saga
+Saga -> Backend: fetch definition
+Backend -> Saga: uiSpec
+Saga -> ComponentForm: setState()
+== Form Loaded ==
+ComponentForm -> Form: render(uiSpec)
+deactivate FormSkeleton
+Form -> UIForm: render(uiSpec)
+activate UIForm
+
+== Trigger ==
+
+User -> UIForm: click on checkbox\n(with trigger)
+UIForm -> ComponentForm: onTrigger
+ComponentForm -> Backend: POST triggerURL
+Backend -> ComponentForm: response
+ComponentForm -> ComponentForm: then(setState)
+ComponentForm -> UIForm: props update
+
+== Submit ==
+User -> UIForm: click on submit button
+UIForm -> UIForm: validate payload against schema
+UIForm -> ComponentForm: onSubmit
+ComponentForm -> Saga: dispatch
+Saga -> Backend: POST submitURL + payload
+Backend -> Saga: response OK
+Saga -> App: Dispatch(Submit succeed)
+@enduml

@@ -1,0 +1,14 @@
+.tc-intercom {
+	position: relative;
+
+	&.open:after {
+		content: '\25b2';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		color: #015a8e;
+		font-size: 2rem;
+		line-height: initial;
+	}
+}

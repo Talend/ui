@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ObjectViewer.List should render List with props data as an array 1`] = `
+<ul
+  className="theme-container tc-object-viewer list-unstyled"
+  id="my-object-list"
+>
+  <li>
+    <TreeGesture(JSONLike)
+      data={
+        Object {
+          "field0": "header1",
+        }
+      }
+      flat={true}
+      id="my-object-list"
+      jsonpath="$[0]"
+    />
+  </li>
+  <li>
+    <TreeGesture(JSONLike)
+      data={
+        Object {
+          "field1": "header2",
+        }
+      }
+      flat={true}
+      id="my-object-list"
+      jsonpath="$[1]"
+    />
+  </li>
+</ul>
+`;
+
+exports[`ObjectViewer.List should render List with props data as an object 1`] = `
+<ul
+  className="theme-container tc-object-viewer list-unstyled"
+  id="my-object-list"
+>
+  <li>
+    <TreeGesture(JSONLike)
+      data={
+        Object {
+          "field0": "header1",
+        }
+      }
+      flat={true}
+      id="my-object-list"
+      jsonpath="$[0]"
+    />
+  </li>
+  <li>
+    <TreeGesture(JSONLike)
+      data={
+        Object {
+          "field1": "header2",
+        }
+      }
+      flat={true}
+      id="my-object-list"
+      jsonpath="$[1]"
+    />
+  </li>
+</ul>
+`;

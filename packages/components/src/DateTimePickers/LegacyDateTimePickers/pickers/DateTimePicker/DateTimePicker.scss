@@ -1,0 +1,21 @@
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/variables';
+.container {
+	color: $dove-gray;
+	min-width: 29rem;
+	min-height: 35.2rem;
+	padding: $padding-normal;
+}
+
+.footer {
+	&:before {
+		@include picker-underline;
+		display: block;
+		margin-bottom: $padding-normal;
+	}
+	padding-top: $padding-normal;
+
+	&.date-padding {
+		padding-top: $padding-smaller;
+	}
+}

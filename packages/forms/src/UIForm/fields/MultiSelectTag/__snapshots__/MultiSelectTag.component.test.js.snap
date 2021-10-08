@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
+<FieldTemplate
+  description="This is the MultiSelectTag field"
+  descriptionId="my-select-tag-description"
+  errorId="my-select-tag-error"
+  errorMessage="This is wrong"
+  id="my-select-tag"
+  isValid={true}
+  label="Tags"
+  required={true}
+>
+  <div
+    className="theme-wrapper form-control"
+  >
+    <Badge
+      dataTest="item.0"
+      label="aze"
+      onDelete={[Function]}
+    />
+    <Badge
+      dataTest="item.1"
+      label="tata"
+      onDelete={[Function]}
+    />
+    <FocusManager
+      className="theme-focus-manager"
+      onFocusOut={[Function]}
+    >
+      <Typeahead
+        autoFocus={true}
+        caret={true}
+        disabled={false}
+        docked={false}
+        id="my-select-tag"
+        inputProps={
+          Object {
+            "aria-describedby": "my-select-tag-description my-select-tag-error",
+            "aria-invalid": false,
+            "aria-required": true,
+          }
+        }
+        items={null}
+        multiSection={false}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onSelect={[Function]}
+        placeholder="Type here"
+        position="left"
+        readOnly={false}
+        searching={false}
+        theme={
+          Object {
+            "container": "theme-typeahead",
+            "itemsContainer": "theme-items-container",
+            "itemsList": "theme-items",
+          }
+        }
+        value=""
+      />
+    </FocusManager>
+  </div>
+</FieldTemplate>
+`;

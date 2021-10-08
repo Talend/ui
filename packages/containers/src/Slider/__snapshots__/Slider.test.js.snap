@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter container should render 1`] = `
+<Slider
+  captionsFormat={[Function]}
+  initialState={
+    Immutable.Map {
+      "value": 15,
+    }
+  }
+  max={100}
+  min={0}
+  onAfterChange={[Function]}
+  onChange={[Function]}
+  props={
+    Object {
+      "id": "filter",
+    }
+  }
+  step={1}
+/>
+`;

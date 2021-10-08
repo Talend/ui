@@ -1,0 +1,93 @@
+{
+  "actions": {
+    "menu:ComponentForm": {
+      "icon": "talend-burger",
+      "label": "ComponentForm",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/ComponentForm"
+        }
+      }
+    }
+  },
+  "props": {
+    "AppLoader#default": {
+      "components": {
+        "before-children": [
+          {
+            "component": "Notification"
+          },
+          {
+            "component": "IconsProvider"
+          }
+        ]
+      }
+    },
+    "Redirect#default": {
+      "path": "/ComponentForm"
+    },
+    "HeaderBar#default": {
+      "keepComponentState": true,
+      "logo": {
+        "id": "header-bar-demo-logo",
+        "icon": "talend-world",
+        "isFull": false
+      },
+      "brand": {
+        "id": "header-bar-demo-brand",
+        "label": "Choose a product"
+      },
+      "products": {
+        "id": "header-bar-demo-brands",
+        "items": [
+          {
+            "icon": "talend-star",
+            "label": "Static menu entry",
+            "dispatch": {
+              "type": "CUSTOM_ACTION_TYPE",
+              "payload": {
+                "foo": "bar"
+              }
+            }
+          }
+        ]
+      },
+      "productsUrl": "/api/mock/header-bar/products-list"
+    },
+    "SidePanel#default": {
+      "actionIds": [
+        "menu:ComponentForm"
+      ]
+    },
+    "Layout#default": {
+      "mode": "TwoColumns",
+      "header": { "component": "HeaderBar" },
+      "one": { "component": "SidePanel" },
+      "content": {}
+    },
+    "ComponentForm#default": {
+      "definitionURL": "/api/v1/forms/example",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action",
+      "className": "full-form"
+    }
+  },
+  "routes": {
+    "path": "/",
+    "component": "AppLoader",
+    "indexRoute": {
+      "component": "Redirect"
+    },
+    "childRoutes": [
+      {
+        "path": "ComponentForm",
+        "component": "ComponentFormSandbox"
+      },
+      {
+        "path": "*",
+        "component": "Redirect"
+      }
+    ]
+  }
+}

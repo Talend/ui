@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleButton field should render button 1`] = `
+<Action
+  bsStyle="primary"
+  className="btn"
+  id="myForm"
+  label="Boom !"
+  name="my-button"
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
+exports[`SingleButton field should render disabled button 1`] = `
+<Action
+  bsStyle="primary"
+  className="btn"
+  disabled={true}
+  id="myForm"
+  label="Boom !"
+  name="my-button"
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
+exports[`SingleButton field should render inProgress button 1`] = `
+<Action
+  bsStyle="primary"
+  className="btn"
+  disabled={true}
+  id="myForm"
+  label="Boom !"
+  name="my-button"
+  onClick={[Function]}
+  type="button"
+/>
+`;
+
+exports[`SingleButton field should render reset button 1`] = `
+<Action
+  bsStyle="primary"
+  className="btn"
+  id="myForm"
+  label="Boom !"
+  name="my-button"
+  onClick={[Function]}
+  type="reset"
+/>
+`;
+
+exports[`SingleButton field should render submit button 1`] = `
+<Action
+  bsStyle="primary"
+  className="btn"
+  id="myForm"
+  label="Boom !"
+  name="my-button"
+  onClick={[Function]}
+  type="submit"
+/>
+`;
+
+exports[`SingleButton field should render submit button with inProgress 1`] = `
+<Action
+  bsStyle="primary"
+  className="btn"
+  id="myForm"
+  inProgress={true}
+  label="Boom !"
+  name="my-button"
+  onClick={[Function]}
+  type="submit"
+/>
+`;

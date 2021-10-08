@@ -1,0 +1,41 @@
+$tc-listview-header-height: 28px !default;
+$tc-listview-svg-color: #666 !default;
+$tc-listview-font-size: 1.4rem !default;
+
+.tc-listview-header {
+	display: flex;
+	line-height: $padding-large;
+	align-items: center;
+	height: $tc-listview-header-height;
+	position: relative;
+
+	> strong + small {
+		padding: 0 $padding-smaller;
+	}
+
+	input {
+		box-shadow: none;
+		outline: none;
+		border: none;
+		flex-grow: 1;
+		height: 100%;
+		background-color: transparent;
+	}
+
+	:global(.actions) {
+		margin-left: auto;
+	}
+
+	:global(.btn-link) {
+		height: 30px;
+		margin-left: $padding-smaller;
+
+		:global(.tc-svg-icon) {
+			fill: $tc-listview-svg-color;
+			height: $tc-listview-font-size;
+			width: $tc-listview-font-size;
+			margin: 0;
+			vertical-align: text-top;
+		}
+	}
+}

@@ -1,0 +1,67 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "plugins": [
+    "react-hooks"
+  ],
+  "rules": {
+    "arrow-parens": [2, "as-needed"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "ignore",
+      "exports": "ignore",
+      "functions": "ignore"
+    }],
+    "function-paren-newline": "off",
+    "import/extensions": "off",
+    "import/no-dynamic-require": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
+    "indent": ["error", "tab", { "SwitchCase": 1 }],
+    "new-cap": [
+      2,
+      {
+        "capIsNewExceptions": ["List", "Map"]
+      }
+    ],
+    "no-mixed-operators": "off",
+    "no-restricted-syntax": "off",
+    "no-return-assign": "off",
+    "no-tabs": "off",
+    "object-curly-newline": "off",
+    "prefer-destructuring": "off",
+
+    "jsx-a11y/interactive-supports-focus": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/mouse-events-have-key-events": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "jsx-a11y/no-redundant-roles": "off",
+
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/default-props-match-prop-types": "off",
+    "react/forbid-prop-types": [0],
+    "react/jsx-curly-brace-presence": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/jsx-indent-props": ["error", "tab"],
+    "react/jsx-indent": ["error", "tab"],
+    "react/no-array-index-key": "off",
+    "react/no-children-prop": "off",
+    "react/no-unescaped-entities": "off",
+    "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
+    "react/prefer-es6-class": 0,
+    "react/require-default-props": "off",
+    "react/sort-comp": "off"
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jasmine": true,
+    "jest": true
+  },
+  "globals": {},
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  }
+}

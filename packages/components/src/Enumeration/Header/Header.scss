@@ -1,0 +1,57 @@
+$tc-enumeration-smaller-padding: $padding-smaller !default;
+$tc-enumeration-small-padding: $padding-small !default;
+$tc-enumeration-normal-padding: $padding-normal !default;
+$tc-enumeration-large-padding: $padding-large !default;
+$tc-enumeration-header-height: 28px !default;
+$tc-enumeration-font-size: 1.4rem !default;
+
+$tc-enumeration-header-error-background-color: white !default;
+$tc-enumeration-header-error-color: red !default;
+$tc-enumeration-header-error-padding: 2px !default;
+
+.tc-enumeration-header {
+	display: flex;
+	line-height: $tc-enumeration-large-padding;
+	align-items: center;
+	height: $tc-enumeration-header-height;
+	position: relative;
+
+	> span {
+		font-weight: 700;
+	}
+
+	:global(.actions) {
+		margin-left: auto;
+	}
+
+	input {
+		box-shadow: none;
+		border: none;
+		flex-grow: 1;
+		height: 100%;
+		background-color: transparent;
+	}
+
+	:global(.btn-link) {
+		margin-left: auto;
+		padding: 0 $tc-enumeration-smaller-padding;
+		height: 30px;
+
+		:global(.tc-svg-icon) {
+			height: $tc-enumeration-font-size;
+			width: $tc-enumeration-font-size;
+			margin-right: 0;
+			vertical-align: text-top;
+		}
+	}
+
+	.tc-enumeration-header-error {
+		position: absolute;
+		top: 100%;
+		background-color: $tc-enumeration-header-error-background-color;
+		width: 100%;
+		color: $tc-enumeration-header-error-color;
+		padding: $tc-enumeration-header-error-padding;
+		z-index: 1;
+	}
+}

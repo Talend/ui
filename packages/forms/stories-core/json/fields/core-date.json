@@ -1,0 +1,107 @@
+{
+  "doc": "Date/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Date",
+    "properties": {
+      "dateAsString": {
+        "type": "string"
+      },
+      "dateAsIsoString": {
+        "type": "string",
+        "format": "iso-datetime"
+      },
+      "dateAsTimestamp": {
+        "type": "number",
+        "format": "timestamp"
+      },
+      "dateTime": {
+        "type": "string"
+      },
+      "dateTimeWithSeconds": {
+        "type": "string"
+      },
+      "dateTimeUTC": {
+        "type": "string",
+        "format": "iso-datetime"
+      },
+      "dateTimeTimezone": {
+        "type": "string",
+        "format": "iso-datetime"
+      },
+      "time": {
+        "type": "string"
+      },
+      "timeWithSeconds": {
+        "type": "string"
+      }
+    },
+    "required": ["dateAsString"]
+  },
+  "uiSchema": [
+    {
+      "key": "dateAsString",
+      "title": "Date as string",
+      "widget": "date",
+      "options": {
+        "dateFormat": "DD/MM/YYYY"
+      },
+      "data-test": "simple.date"
+    },
+    {
+      "key": "dateAsIsoString",
+      "title": "Date as iso date string",
+      "widget": "date"
+    },
+    {
+      "key": "dateAsTimestamp",
+      "title": "Date as timestamp",
+      "widget": "date"
+    },
+    {
+      "key": "dateTime",
+      "title": "Datetime",
+      "widget": "datetime"
+    },
+    {
+      "key": "dateTimeWithSeconds",
+      "title": "Datetime with seconds",
+      "widget": "datetime",
+      "options": {
+        "useSeconds": true
+      }
+    },
+    {
+      "key": "dateTimeUTC",
+      "title": "Datetime in UTC",
+      "widget": "datetime",
+      "options": {
+        "useSeconds": true,
+        "useUTC": true
+      }
+    },
+    {
+      "key": "dateTimeTimezone",
+      "title": "Datetime in timezone",
+      "widget": "datetime",
+      "options": {
+        "useSeconds": true,
+        "timezone": "America/New_York"
+      }
+    },
+    {
+      "key": "time",
+      "title": "Time",
+      "widget": "time"
+    },
+    {
+      "key": "timeWithSeconds",
+      "title": "Time with seconds",
+      "widget": "time",
+      "options": {
+        "useSeconds": true
+      }
+    }
+  ],
+  "properties": {}
+}

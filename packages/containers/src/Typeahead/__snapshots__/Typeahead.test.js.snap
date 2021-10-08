@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typeahead container should render 1`] = `
+<Typeahead
+  autoFocus={false}
+  disabled={false}
+  docked={true}
+  focusedItemIndex={null}
+  focusedSectionIndex={null}
+  icon={Object {}}
+  id={42}
+  items={Array []}
+  multiSection={true}
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+  onSelect={[Function]}
+  onToggle={[Function]}
+  position="left"
+  readOnly={false}
+  searching={false}
+/>
+`;

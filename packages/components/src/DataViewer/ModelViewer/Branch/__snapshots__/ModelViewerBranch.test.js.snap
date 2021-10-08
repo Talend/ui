@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModelViewerBranch render ModelViewerBranch 1`] = `
+<div
+  className="theme-tc-model-branch tc-model-branch"
+>
+  <span
+    className="theme-tc-model-branch-content tc-model-branch-content"
+  >
+    <button
+      className="theme-tc-model-branch-button tc-model-branch-button"
+      onClick={[Function]}
+    />
+    <withI18nextTranslation(TreeBranchIcon)
+      className="theme-tc-model-branch-icon tc-model-branch-icon"
+      dataKey="myDataKey"
+      index={0}
+      jsonpath="$"
+      onToggle={[Function]}
+      opened={false}
+      t={[Function]}
+      useCustomIcon={false}
+      value={Object {}}
+    />
+    <SimpleTextKeyValue
+      displayTypes={false}
+      formattedKey="myValueValue"
+      formattedValue="myKeyValue"
+      separator=" "
+      typesRenderer={[Function]}
+    />
+  </span>
+</div>
+`;
+
+exports[`ModelViewerBranch render ModelViewerBranch as a union 1`] = `
+<div
+  className="theme-tc-model-branch tc-model-branch"
+>
+  <span
+    className="theme-tc-model-branch-content tc-model-branch-content"
+  >
+    <button
+      className="theme-tc-model-branch-button tc-model-branch-button"
+      onClick={[Function]}
+    />
+    <withI18nextTranslation(TreeBranchIcon)
+      className="theme-tc-model-branch-icon tc-model-branch-icon"
+      dataKey="myDataKey"
+      index={0}
+      jsonpath="$"
+      onToggle={[Function]}
+      opened={true}
+      t={[Function]}
+      useCustomIcon={false}
+      value={Object {}}
+    />
+    <SimpleTextKeyValue
+      displayTypes={false}
+      formattedKey="myValueValue"
+      formattedValue="({...})"
+      separator=" "
+      typesRenderer={[Function]}
+    />
+  </span>
+</div>
+`;

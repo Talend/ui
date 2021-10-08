@@ -1,0 +1,52 @@
+$module: range-filter;
+
+.#{$module} {
+	&__slider {
+		margin: 20px 0 30px;
+	}
+
+	&__slider-mark {
+		position: absolute;
+		width: 100%;
+		white-space: nowrap;
+
+		&--top {
+			transform: translateX(-50%);
+			top: -36px;
+		}
+		&--bottom-left {
+			text-align: left;
+		}
+		&--bottom-right {
+			right: 0;
+			text-align: right;
+		}
+	}
+
+	:global {
+		.rc-slider-mark-text:last-child {
+			left: initial !important;
+			right: 0;
+		}
+
+		.rc-slider-dot {
+			border: 0;
+			bottom: 0;
+		}
+	}
+	&__form {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	&__input-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	&__label {
+		font-weight: $font-weight-semi-bold;
+		margin-right: 10px;
+	}
+}

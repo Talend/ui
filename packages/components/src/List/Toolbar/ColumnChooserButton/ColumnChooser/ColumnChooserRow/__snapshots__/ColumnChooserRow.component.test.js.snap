@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooserRow should render 1`] = `
+<div class="tc-column-chooser-row theme-tc-column-chooser-row">
+  <div id="my-child">
+    Hello World
+  </div>
+</div>
+`;

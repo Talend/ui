@@ -1,0 +1,31 @@
+$tc-listview-svg-color: $dove-gray !default;
+$tc-listview-font-size: 1.4rem !default;
+
+.tc-listview {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	:global(.btn.btn-link) {
+		padding: 0 $padding-small;
+
+		svg {
+			fill: $tc-listview-svg-color;
+			height: $tc-listview-font-size;
+			width: $tc-listview-font-size;
+		}
+	}
+
+	header {
+		flex-shrink: 0;
+	}
+
+	.empty-message {
+		flex-grow: 1;
+		flex-shrink: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px 0;
+	}
+}

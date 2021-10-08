@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Default Array Template component should render default array template 1`] = `
+<fieldset
+  className="theme-tf-array-fieldset tf-array-fieldset"
+  data-content="comments"
+>
+  <legend
+    className="sr-only"
+  >
+    comments
+  </legend>
+  <Action
+    bsStyle="info"
+    className="theme-tf-array-add tf-array-add"
+    id="my-template-btn"
+    label="Add"
+    onClick={[MockFunction]}
+  />
+  <Message
+    description="Tnstructions to fill it"
+    descriptionId="my-template-description"
+    errorId="my-template-error"
+    errorMessage="This is an error"
+    isValid={true}
+  />
+  <ol
+    aria-describedby="my-template-description my-template-error"
+    aria-invalid={true}
+    className="theme-tf-array tf-array"
+    id="my-template"
+  >
+    <li
+      className="theme-item item item-0"
+    >
+      <ArrayItem
+        hasMoveDown={true}
+        hasMoveUp={false}
+        id="my-template-control-0"
+        index={0}
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+    </li>
+    <li
+      className="theme-item item item-1"
+    >
+      <ArrayItem
+        hasMoveDown={true}
+        hasMoveUp={true}
+        id="my-template-control-1"
+        index={1}
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+    </li>
+    <li
+      className="theme-item item item-2"
+    >
+      <ArrayItem
+        hasMoveDown={false}
+        hasMoveUp={true}
+        id="my-template-control-2"
+        index={2}
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+    </li>
+  </ol>
+</fieldset>
+`;

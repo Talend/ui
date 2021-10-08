@@ -1,0 +1,61 @@
+@import '../colors';
+
+$tc-list-title-actions-ellipsis: '\22ee';
+$tc-list-title-dropdown-menu-triangle: '\25b2';
+$tc-list-title-dropup-menu-triangle: '\25bc';
+
+.main-title-actions-group {
+	display: flex;
+	align-items: center;
+	flex-grow: 0;
+	position: relative;
+	right: 0;
+	top: 0;
+	height: $btn-line-height;
+
+	.cell-title-actions {
+		background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba($tc-list-row-hover-bg, 100%) $padding-large);
+		opacity: 0;
+		width: 0;
+		overflow: hidden;
+
+		&:not(:last-child):after {
+			content: '|';
+			color: $dark-silver;
+		}
+	}
+
+	:global {
+		.btn-link {
+			padding: 0 $padding-smaller;
+			.tc-svg-icon[name='talend-caret-down'] {
+				display: none;
+			}
+
+			.tc-svg-icon {
+				margin: 0;
+				height: 2rem;
+				width: 2rem;
+			}
+		}
+
+		.btn-group > .dropdown-menu,
+		.btn-group.dropup > .dropdown-menu {
+			margin-top: 5px;
+			overflow: auto;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+
+:global(.tc-list-large) .main-title-actions-group {
+	:global {
+		.dropup.btn-group > .dropdown-menu,
+		.btn-group > .dropdown-menu {
+			right: 0;
+			left: auto;
+			transform: none;
+		}
+	}
+}

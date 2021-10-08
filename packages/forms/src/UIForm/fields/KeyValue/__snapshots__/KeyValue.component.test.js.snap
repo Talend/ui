@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KeyValue field should render autoFocused KeyValue 1`] = `
+<FieldTemplate
+  description="This is the key/value field"
+  errorMessage="This is wrong"
+  id="my-key-value-field"
+  isValid={true}
+  label="Variable"
+>
+  <dl
+    className="theme-key-value"
+  >
+    <dt>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": true,
+            "disabled": undefined,
+            "key": Array [
+              "infos",
+              "variable",
+              "key",
+            ],
+            "readOnly": undefined,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="lol"
+        widgets={Object {}}
+      />
+    </dt>
+    <dd>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": true,
+            "disabled": undefined,
+            "key": Array [
+              "infos",
+              "variable",
+              "value",
+            ],
+            "readOnly": undefined,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="mdr"
+        widgets={Object {}}
+      />
+    </dd>
+  </dl>
+</FieldTemplate>
+`;
+
+exports[`KeyValue field should render customized KeyValue 1`] = `
+<FieldTemplate
+  description="This is the key/value field"
+  errorMessage="This is wrong"
+  id="my-key-value-field"
+  isValid={true}
+  label="Variable"
+>
+  <dl
+    className="theme-key-value"
+  >
+    <dt>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": true,
+            "disabled": undefined,
+            "key": Array [
+              "infos",
+              "variable",
+              "key",
+            ],
+            "readOnly": true,
+            "required": true,
+            "schema": Object {
+              "type": "number",
+            },
+            "type": "number",
+          }
+        }
+        value="lol"
+        widgets={Object {}}
+      />
+    </dt>
+    <dd>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": undefined,
+            "disabled": undefined,
+            "key": Array [
+              "infos",
+              "variable",
+              "value",
+            ],
+            "readOnly": undefined,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="mdr"
+        widgets={Object {}}
+      />
+    </dd>
+  </dl>
+</FieldTemplate>
+`;
+
+exports[`KeyValue field should render default KeyValue 1`] = `
+<FieldTemplate
+  description="This is the key/value field"
+  errorMessage="This is wrong"
+  id="my-key-value-field"
+  isValid={true}
+  label="Variable"
+>
+  <dl
+    className="theme-key-value"
+  >
+    <dt>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": undefined,
+            "disabled": undefined,
+            "key": Array [
+              "infos",
+              "variable",
+              "key",
+            ],
+            "readOnly": undefined,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="lol"
+        widgets={Object {}}
+      />
+    </dt>
+    <dd>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": undefined,
+            "disabled": undefined,
+            "key": Array [
+              "infos",
+              "variable",
+              "value",
+            ],
+            "readOnly": undefined,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="mdr"
+        widgets={Object {}}
+      />
+    </dd>
+  </dl>
+</FieldTemplate>
+`;
+
+exports[`KeyValue field should render disabled KeyValue 1`] = `
+<FieldTemplate
+  description="This is the key/value field"
+  errorMessage="This is wrong"
+  id="my-key-value-field"
+  isValid={true}
+  label="Variable"
+>
+  <dl
+    className="theme-key-value"
+  >
+    <dt>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": undefined,
+            "disabled": true,
+            "key": Array [
+              "infos",
+              "variable",
+              "key",
+            ],
+            "readOnly": undefined,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="lol"
+        widgets={Object {}}
+      />
+    </dt>
+    <dd>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": undefined,
+            "disabled": true,
+            "key": Array [
+              "infos",
+              "variable",
+              "value",
+            ],
+            "readOnly": undefined,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="mdr"
+        widgets={Object {}}
+      />
+    </dd>
+  </dl>
+</FieldTemplate>
+`;
+
+exports[`KeyValue field should render readOnly KeyValue 1`] = `
+<FieldTemplate
+  description="This is the key/value field"
+  errorMessage="This is wrong"
+  id="my-key-value-field"
+  isValid={true}
+  label="Variable"
+>
+  <dl
+    className="theme-key-value"
+  >
+    <dt>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": undefined,
+            "disabled": undefined,
+            "key": Array [
+              "infos",
+              "variable",
+              "key",
+            ],
+            "readOnly": true,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="lol"
+        widgets={Object {}}
+      />
+    </dt>
+    <dd>
+      <Widget
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
+        schema={
+          Object {
+            "autoFocus": undefined,
+            "disabled": undefined,
+            "key": Array [
+              "infos",
+              "variable",
+              "value",
+            ],
+            "readOnly": true,
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        value="mdr"
+        widgets={Object {}}
+      />
+    </dd>
+  </dl>
+</FieldTemplate>
+`;

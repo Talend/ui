@@ -1,0 +1,65 @@
+{
+  "name": "@talend/icons",
+  "description": "A scalable set of icons handcrafted with <3 by Talend.",
+  "main": "dist/TalendIcons.js",
+  "types": "dist/index.d.ts",
+  "style": "build/octicons.css",
+  "license": "Apache-2.0",
+  "scripts": {
+    "pre-release": "node ./scripts/typescript.js",
+    "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env.production",
+    "build-react": "node scripts/react.js",
+    "build-webfont": "webpack",
+    "docs": "node ./scripts/docs.js",
+    "build:lib": "rimraf ./dist && npm run build-react && npm run build-webfont && npm run build-umd",
+    "test": "echo no test",
+    "test:cov": "echo no test",
+    "test:demo": "node ./scripts/docs.js",
+    "start": "echo nothing to start",
+    "lint": "echo nothing to lint",
+    "svgo": "svgo -f src/svg --config=.svgo-icons.yml && svgo -f src/filters --config=.svgo-filters.yml"
+  },
+  "files": [
+    "index.js",
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "Talend",
+    "icons",
+    "svg"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/icons#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@svgr/webpack": "^5.5.0",
+    "autoprefixer": "^7.2.6",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^6.4.1",
+    "css-loader": "^1.0.1",
+    "mini-css-extract-plugin": "^1.6.2",
+    "mkdirp": "^0.5.5",
+    "react": "^16.14.0",
+    "rimraf": "^2.7.1",
+    "string-replace-loader": "^2.3.0",
+    "style-loader": "^0.23.1",
+    "svgo": "^1.3.2",
+    "webfonts-loader": "^7.3.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "6.36.3"
+}

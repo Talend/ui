@@ -1,0 +1,10 @@
+:global(.checkbox.switch).tc-toggle {
+	&.tc-toggle-disabled:hover {
+		label:hover {
+			span {
+				color: $dove-gray;
+				cursor: text;
+			}
+		}
+	}
+}

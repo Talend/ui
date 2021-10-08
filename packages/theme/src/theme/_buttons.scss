@@ -1,0 +1,204 @@
+////
+/// Bootstrap buttons customization
+/// @group Buttons
+////
+
+:root {
+	--t-button-color: currentColor;
+	--t-button-background-color: transparent;
+	--t-button-border-color: transparent;
+
+	--t-button-padding: 0 #{$padding-normal};
+	--t-button-height: #{$btn-line-height - 0.2rem};
+
+	--t-button-primary-color: #{$btn-primary-color};
+	--t-button-primary-background: #{$btn-primary-bg};
+	--t-button-primary-background--hover: #{$btn-primary-bg-hover};
+	--t-button-primary-background--active: #{$btn-primary-bg-active};
+
+	--t-button-secondary-background--hover: #{$lochmara100};
+
+	--t-button-destructive-background: #{$btn-danger-bg};
+	--t-button-destructive-background--hover: #{$btn-danger-bg-hover};
+	--t-button-destructive-background--active: #{$btn-danger-bg-active};
+}
+
+.btn {
+	font-size: $btn-font-size;
+	font-weight: $font-weight-semi-bold;
+	min-height: var(--t-button-height);
+	line-height: var(--t-button-height);
+	padding: var(--t-button-padding);
+	border: 1px solid;
+	box-shadow: none;
+	transition: all 0.1s ease-out;
+
+	&,
+	&:focus,
+	&:hover {
+		color: var(--t-button-color);
+		background-color: var(--t-button-background-color);
+		border-color: var(--t-button-border-color);
+	}
+
+	&:active,
+	.open > &.dropdown-toggle {
+		box-shadow: none;
+
+		&,
+		&:hover {
+			color: var(--t-button-color);
+			background-color: var(--t-button-background-color);
+			border-color: var(--t-button-border-color);
+		}
+	}
+
+	&,
+	&:active {
+		&:focus {
+			outline: 2px solid $moody-purple500;
+			outline-offset: 1px;
+		}
+	}
+
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&.focus {
+			color: var(--t-button-color);
+			background-color: var(--t-button-background-color);
+			border-color: var(--t-button-border-color);
+			opacity: 0.54;
+			cursor: not-allowed;
+		}
+	}
+
+	&,
+	& > span {
+		display: inline-flex;
+		gap: 0.5rem;
+		align-items: center;
+		justify-content: center;
+
+		> * {
+			flex-shrink: 0;
+		}
+	}
+
+	svg {
+		fill: currentColor;
+		height: $svg-md-size;
+		width: $svg-md-size;
+	}
+
+	&-primary,
+	&-success,
+	&-info,
+	&-warning,
+	&.btn-danger,
+	&--primary,
+	&.btn--destructive {
+		--t-button-color: var(--t-button-primary-color);
+	}
+
+	&-primary,
+	&-success,
+	&-info,
+	&-warning,
+	&--primary {
+		--t-button-background-color: var(--t-button-primary-background);
+
+		&:hover {
+			--t-button-background-color: var(--t-button-primary-background--hover);
+		}
+
+		&:active {
+			--t-button-background-color: var(--t-button-primary-background--active);
+		}
+	}
+
+	&-inverse,
+	&--secondary,
+	&-tertiary,
+	&--tertiary,
+	&-link {
+		--t-button-color: var(--t-button-primary-background);
+
+		&:hover {
+			--t-button-color: var(--t-button-primary-background--hover);
+		}
+
+		&:active {
+			--t-button-color: var(--t-button-primary-background--active);
+		}
+	}
+
+	&-inverse,
+	&--secondary,
+	&-tertiary,
+	&--tertiary {
+		--t-button-background-color: transparent;
+
+		&:hover,
+		&:active {
+			--t-button-background-color: var(--t-button-secondary-background--hover);
+		}
+
+		&[disabled] {
+			&:hover {
+				--t-button-background-color: transparent;
+			}
+		}
+	}
+
+	&-inverse,
+	&--secondary {
+		--t-button-border-color: var(--t-button-primary-background);
+	}
+
+	&.btn-danger,
+	&.btn--destructive {
+		--t-button-background-color: var(--t-button-destructive-background);
+		--t-button-border-color: var(--t-button-destructive-background);
+
+		&,
+		&:hover,
+		&:active {
+			--t-button-color: var(--t-button-primary-color);
+		}
+
+		&:hover {
+			--t-button-background-color: var(--t-button-destructive-background--hover);
+			--t-button-border-color: var(--t-button-destructive-background--hover);
+		}
+
+		&:active {
+			--t-button-background-color: var(--t-button-destructive-background--active);
+			--t-button-border-color: var(--t-button-destructive-background--active);
+		}
+	}
+
+	&-icon-text {
+		--t-button-padding: 0;
+		--t-button-background-color: transparent;
+		--t-button-border-color: transparent;
+	}
+
+	&-xs,
+	&-sm {
+		--t-button-padding: 0 #{$padding-small-horizontal};
+		--t-button-height: 2.8rem - 0.2rem;
+	}
+
+	.caret.caret {
+		margin-left: $padding-smaller;
+	}
+
+	svg + span,
+	span + svg {
+		margin-left: $padding-smaller;
+	}
+}

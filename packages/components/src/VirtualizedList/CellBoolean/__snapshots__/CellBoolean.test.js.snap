@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellBoolean should render an check icon for a truthy value in icon mode 1`] = `
+<div class="cell-boolean-container theme-cell-boolean-container">
+  <coral.icon name="talend-check-circle"
+              title="Required"
+  >
+  </coral.icon>
+</div>
+`;

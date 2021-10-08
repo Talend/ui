@@ -1,0 +1,29 @@
+.tc-resource-picker-name-filter {
+	flex: 1;
+	position: relative;
+
+	input + .remove {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	input:not(:invalid) + .remove {
+		display: inline-block;
+	}
+}
+
+.remove {
+	display: none;
+	color: opacify($gray, 0.2);
+	padding: $padding-smaller 0;
+	line-height: 2rem;
+	height: 100%;
+
+	:global(.tc-svg-icon) {
+		height: $svg-xs-size;
+		width: $svg-xs-size;
+		margin: 0;
+		vertical-align: baseline;
+	}
+}

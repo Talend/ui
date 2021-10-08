@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should render Table with props data as an array 1`] = `
+<table
+  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
+  id="my-viewer"
+>
+  <caption
+    className="sr-only"
+  >
+    my-viewer
+  </caption>
+  <thead>
+    <tr>
+      <th
+        id="my-viewer-field1"
+      >
+        field1
+      </th>
+      <th
+        id="my-viewer-field0"
+      >
+        field0
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <TreeGesture(JSONLike)
+          id="my-viewer"
+          jsonpath="$[0]['field1']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+      <td
+        headers="my-viewer-field0"
+      >
+        <TreeGesture(JSONLike)
+          data="header1"
+          id="my-viewer"
+          jsonpath="$[0]['field0']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <TreeGesture(JSONLike)
+          data="header2"
+          id="my-viewer"
+          jsonpath="$[1]['field1']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+      <td
+        headers="my-viewer-field0"
+      >
+        <TreeGesture(JSONLike)
+          id="my-viewer"
+          jsonpath="$[1]['field0']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Table should render Table with props data as an object 1`] = `
+<table
+  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
+  id="my-viewer"
+>
+  <caption
+    className="sr-only"
+  >
+    my-viewer
+  </caption>
+  <thead>
+    <tr>
+      <th
+        id="my-viewer-field1"
+      >
+        <div>
+          field1
+        </div>
+        <div
+          className="text-right"
+        >
+          type2
+        </div>
+      </th>
+      <th
+        id="my-viewer-field0"
+      >
+        <div>
+          field0
+        </div>
+        <div
+          className="text-right"
+        >
+          type1
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <TreeGesture(JSONLike)
+          id="my-viewer"
+          jsonpath="$[0]['field1']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+      <td
+        headers="my-viewer-field0"
+      >
+        <TreeGesture(JSONLike)
+          data="header1"
+          id="my-viewer"
+          jsonpath="$[0]['field0']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <TreeGesture(JSONLike)
+          data="header2"
+          id="my-viewer"
+          jsonpath="$[1]['field1']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+      <td
+        headers="my-viewer-field0"
+      >
+        <TreeGesture(JSONLike)
+          id="my-viewer"
+          jsonpath="$[1]['field0']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Table should render if data is empty 1`] = `
+<table
+  className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
+  id="my-viewer"
+>
+  <caption
+    className="sr-only"
+  >
+    my-viewer
+  </caption>
+  <thead>
+    <tr />
+  </thead>
+  <tbody />
+</table>
+`;
+
+exports[`Table should render null if data.datas is not an array 1`] = `null`;
+
+exports[`buildContentHeaders should return a jsx array with a type 1`] = `
+Array [
+  <th
+    id="myHeader1Id"
+  >
+    <div>
+      myHeader1
+    </div>
+    <div
+      className="text-right"
+    >
+      type1
+    </div>
+  </th>,
+  <th
+    id="myHeader2Id"
+  >
+    <div>
+      myHeader2
+    </div>
+    <div
+      className="text-right"
+    >
+      type2
+    </div>
+  </th>,
+]
+`;
+
+exports[`buildContentHeaders should return a jsx array with no type 1`] = `
+Array [
+  <th
+    id="myHeader1Id"
+  >
+    myHeader1
+  </th>,
+  <th
+    id="myHeader2Id"
+  >
+    myHeader2
+  </th>,
+]
+`;

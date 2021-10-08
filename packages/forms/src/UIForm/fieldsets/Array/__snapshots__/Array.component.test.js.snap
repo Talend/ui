@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Array component #renderItem should render item at given index 1`] = `
+<Widget
+  description="My array description"
+  errorMessage="This array is not correct"
+  id="talend-array-1"
+  isValid={true}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  schema={
+    Object {
+      "items": Array [
+        Object {
+          "key": Array [
+            "comments",
+            1,
+            "name",
+          ],
+          "required": true,
+          "schema": Object {
+            "title": "Name",
+            "type": "string",
+          },
+          "title": "Name",
+          "type": "text",
+        },
+        Object {
+          "description": "Email will be used for evil.",
+          "key": Array [
+            "comments",
+            1,
+            "email",
+          ],
+          "schema": Object {
+            "description": "Email will be used for evil.",
+            "pattern": "^\\\\S+@\\\\S+$",
+            "title": "Email",
+            "type": "string",
+          },
+          "title": "Email",
+          "type": "text",
+        },
+        Object {
+          "key": Array [
+            "comments",
+            1,
+            "comment",
+          ],
+          "maxlength": 20,
+          "rows": 3,
+          "schema": Object {
+            "maxLength": 20,
+            "title": "Comment",
+            "type": "string",
+            "validationMessage": "Don't be greedy!",
+          },
+          "title": "Comment",
+          "type": "textarea",
+          "validationMessage": "Don't be greedy!",
+        },
+      ],
+      "key": Array [
+        "comments",
+        1,
+      ],
+      "title": undefined,
+      "widget": "fieldset",
+    }
+  }
+  templates={Object {}}
+  value={
+    Object {
+      "comment": "Let's do that instead",
+      "email": "jm@lol.com",
+      "name": "JM",
+    }
+  }
+  widgets={Object {}}
+/>
+`;
+
+exports[`Array component should render array 1`] = `
+<DefaultArrayTemplate
+  canReorder={true}
+  description="My array description"
+  errorMessage="This array is not correct"
+  id="talend-array"
+  isCloseable={false}
+  isValid={true}
+  onAdd={[Function]}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  onRemove={[Function]}
+  onReorder={[Function]}
+  renderItem={[Function]}
+  schema={
+    Object {
+      "items": Array [
+        Object {
+          "key": Array [
+            "comments",
+            "",
+            "name",
+          ],
+          "required": true,
+          "schema": Object {
+            "title": "Name",
+            "type": "string",
+          },
+          "title": "Name",
+          "type": "text",
+        },
+        Object {
+          "description": "Email will be used for evil.",
+          "key": Array [
+            "comments",
+            "",
+            "email",
+          ],
+          "schema": Object {
+            "description": "Email will be used for evil.",
+            "pattern": "^\\\\S+@\\\\S+$",
+            "title": "Email",
+            "type": "string",
+          },
+          "title": "Email",
+          "type": "text",
+        },
+        Object {
+          "key": Array [
+            "comments",
+            "",
+            "comment",
+          ],
+          "maxlength": 20,
+          "rows": 3,
+          "schema": Object {
+            "maxLength": 20,
+            "title": "Comment",
+            "type": "string",
+            "validationMessage": "Don't be greedy!",
+          },
+          "title": "Comment",
+          "type": "textarea",
+          "validationMessage": "Don't be greedy!",
+        },
+      ],
+      "key": Array [
+        "comments",
+      ],
+      "required": true,
+      "schema": Object {
+        "items": Object {
+          "properties": Object {
+            "comment": Object {
+              "maxLength": 20,
+              "title": "Comment",
+              "type": "string",
+              "validationMessage": "Don't be greedy!",
+            },
+            "email": Object {
+              "description": "Email will be used for evil.",
+              "pattern": "^\\\\S+@\\\\S+$",
+              "title": "Email",
+              "type": "string",
+            },
+            "name": Object {
+              "title": "Name",
+              "type": "string",
+            },
+          },
+          "required": Array [
+            "name",
+            "comment",
+          ],
+          "type": "object",
+        },
+        "maxItems": 2,
+        "type": "array",
+      },
+      "title": "comments",
+      "type": "array",
+    }
+  }
+  templates={Object {}}
+  value={
+    Array [
+      Object {
+        "comment": "Let's do this",
+        "email": "jimmy@lol.com",
+        "name": "Jimmy",
+      },
+      Object {
+        "comment": "Let's do that instead",
+        "email": "jm@lol.com",
+        "name": "JM",
+      },
+      Object {
+        "comment": "Don't user ternary !",
+        "email": "geoffroy@lol.com",
+        "name": "Goeffroy",
+      },
+    ]
+  }
+  widgets={Object {}}
+/>
+`;
+
+exports[`Array component should render array that can't be reordered 1`] = `
+<DefaultArrayTemplate
+  canReorder={false}
+  description="My array description"
+  errorMessage="This array is not correct"
+  id="talend-array"
+  isCloseable={false}
+  isValid={true}
+  onAdd={[Function]}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  onRemove={[Function]}
+  onReorder={[Function]}
+  renderItem={[Function]}
+  schema={
+    Object {
+      "items": Array [
+        Object {
+          "key": Array [
+            "comments",
+            "",
+            "name",
+          ],
+          "required": true,
+          "schema": Object {
+            "title": "Name",
+            "type": "string",
+          },
+          "title": "Name",
+          "type": "text",
+        },
+        Object {
+          "description": "Email will be used for evil.",
+          "key": Array [
+            "comments",
+            "",
+            "email",
+          ],
+          "schema": Object {
+            "description": "Email will be used for evil.",
+            "pattern": "^\\\\S+@\\\\S+$",
+            "title": "Email",
+            "type": "string",
+          },
+          "title": "Email",
+          "type": "text",
+        },
+        Object {
+          "key": Array [
+            "comments",
+            "",
+            "comment",
+          ],
+          "maxlength": 20,
+          "rows": 3,
+          "schema": Object {
+            "maxLength": 20,
+            "title": "Comment",
+            "type": "string",
+            "validationMessage": "Don't be greedy!",
+          },
+          "title": "Comment",
+          "type": "textarea",
+          "validationMessage": "Don't be greedy!",
+        },
+      ],
+      "key": Array [
+        "comments",
+      ],
+      "reorder": false,
+      "required": true,
+      "schema": Object {
+        "items": Object {
+          "properties": Object {
+            "comment": Object {
+              "maxLength": 20,
+              "title": "Comment",
+              "type": "string",
+              "validationMessage": "Don't be greedy!",
+            },
+            "email": Object {
+              "description": "Email will be used for evil.",
+              "pattern": "^\\\\S+@\\\\S+$",
+              "title": "Email",
+              "type": "string",
+            },
+            "name": Object {
+              "title": "Name",
+              "type": "string",
+            },
+          },
+          "required": Array [
+            "name",
+            "comment",
+          ],
+          "type": "object",
+        },
+        "maxItems": 2,
+        "type": "array",
+      },
+      "title": "comments",
+      "type": "array",
+    }
+  }
+  templates={Object {}}
+  value={
+    Array [
+      Object {
+        "comment": "Let's do this",
+        "email": "jimmy@lol.com",
+        "name": "Jimmy",
+      },
+      Object {
+        "comment": "Let's do that instead",
+        "email": "jm@lol.com",
+        "name": "JM",
+      },
+      Object {
+        "comment": "Don't user ternary !",
+        "email": "geoffroy@lol.com",
+        "name": "Goeffroy",
+      },
+    ]
+  }
+  widgets={Object {}}
+/>
+`;

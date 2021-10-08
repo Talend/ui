@@ -1,0 +1,443 @@
+{
+  "doc": "Datalist/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Datalist",
+    "properties": {
+      "simpleDatalist": {
+        "type": "string",
+        "enum": ["Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit"]
+      },
+      "restrictedDatalist": {
+        "type": "string",
+        "enum": ["Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit"]
+      },
+      "titleMapDatalist": {
+        "type": "string",
+        "enum": ["Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit"]
+      },
+      "enumNamesDatalist": {
+        "type": "string",
+        "enum": ["a", "p", "b", "c", "l", "g"]
+      },
+      "asyncTitleMap": {
+        "type": "string"
+      },
+      "restrictedAsyncTitleMap": {
+        "type": "string"
+      },
+      "datalistWithCategoryRestricted": {
+        "type": "string",
+        "enum": [
+          "salesforce",
+          "marketo",
+          "box",
+          "googledrive",
+          "dropbox",
+          "awss3",
+          "ftp",
+          "sftp",
+          "smtp",
+          "mongodb",
+          "soapclient",
+          "restclient",
+          "hdfs",
+          "hive",
+          "impala",
+          "aurora",
+          "hbase",
+          "netsuite",
+          "cassandra",
+          "redshift",
+          "awsmysql",
+          "saprfc",
+          "sap"
+        ]
+      },
+      "datalistWithCategoryNotRestricted": {
+        "type": "string",
+        "enum": [
+          "salesforce",
+          "marketo",
+          "box",
+          "googledrive",
+          "dropbox",
+          "awss3",
+          "ftp",
+          "sftp",
+          "smtp",
+          "mongodb",
+          "soapclient",
+          "restclient",
+          "hdfs",
+          "hive",
+          "impala",
+          "aurora",
+          "hbase",
+          "netsuite",
+          "cassandra",
+          "redshift",
+          "awsmysql",
+          "saprfc",
+          "sap"
+        ]
+      }
+    },
+    "required": ["simpleDatalist"]
+  },
+  "uiSchema": [
+    {
+      "key": "simpleDatalist",
+      "title": "Simple Datalist",
+      "description": "This datalist accepts values that are not in the list of suggestions",
+      "widget": "datalist",
+      "data-test": "datalist.simple"
+    },
+    {
+      "key": "restrictedDatalist",
+      "restricted": true,
+      "title": "Datalist with restricted options",
+      "description": "This datalist does not allow other values than the possible choices",
+      "widget": "datalist"
+    },
+    {
+      "key": "titleMapDatalist",
+      "title": "Datalist with custom titles",
+      "description": "This datalist have custom displayed titles, different from values",
+      "widget": "datalist",
+      "titleMap": [
+        {
+          "name": "My Apple",
+          "value": "Apple"
+        },
+        {
+          "name": "My Pineapple",
+          "value": "Pine[apple]"
+        },
+        {
+          "name": "My Banana",
+          "value": "Banana"
+        },
+        {
+          "name": "My Cherry",
+          "value": "Cher[ry"
+        },
+        {
+          "name": "My Lemon",
+          "value": "Lemo}n"
+        },
+        {
+          "name": "My Grapefruit",
+          "value": "Grapefruit"
+        }
+      ]
+    },
+    {
+      "key": "asyncTitleMap",
+      "title": "Datalist with async options",
+      "widget": "datalist",
+      "triggers": [
+        {
+          "action": "SuggestionForDemo",
+          "family": "remote",
+          "type": "suggestions",
+          "onEvent": "focus",
+          "parameters": [
+            {
+              "key": "asyncTitleMap"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "restrictedAsyncTitleMap",
+      "restricted": true,
+      "title": "Datalist with async options ans restricted value",
+      "widget": "datalist",
+      "triggers": [
+        {
+          "action": "SuggestionForDemo",
+          "family": "remote",
+          "type": "suggestions",
+          "onEvent": "focus",
+          "parameters": [
+            {
+              "key": "asyncTitleMap"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "datalistWithCategoryRestricted",
+      "title": "Datalist With category and restricted value",
+      "restricted": true,
+      "widget": "datalist",
+      "options": {
+        "isMultiSection": true,
+        "titleMap": [
+          {
+            "title": "SaaS",
+            "suggestions": [
+              {
+                "value": "salesforce",
+                "name": "Salesforce"
+              },
+              {
+                "value": "marketo",
+                "name": "Marketo"
+              },
+              {
+                "value": "netsuite",
+                "name": "Netsuite"
+              }
+            ]
+          },
+          {
+            "title": "Collaboration",
+            "suggestions": [
+              {
+                "value": "box",
+                "name": "Box"
+              },
+              {
+                "value": "googledrive",
+                "name": "GoogleDrive"
+              },
+              {
+                "value": "dropbox",
+                "name": "Dropbox"
+              },
+              {
+                "value": "awss3",
+                "name": "AWS S3"
+              }
+            ]
+          },
+          {
+            "title": "Protocol",
+            "suggestions": [
+              {
+                "value": "ftp",
+                "name": "FTP"
+              },
+              {
+                "value": "sftp",
+                "name": "SFTP"
+              },
+              {
+                "value": "smtp",
+                "name": "Email"
+              },
+              {
+                "value": "soapclient",
+                "name": "SOAP Client"
+              },
+              {
+                "value": "restclient",
+                "name": "REST Client"
+              }
+            ]
+          },
+          {
+            "title": "Big Data",
+            "suggestions": [
+              {
+                "value": "mongodb",
+                "name": "MongoDB"
+              },
+              {
+                "value": "hdfs",
+                "name": "HDFS"
+              },
+              {
+                "value": "hive",
+                "name": "Hive"
+              },
+              {
+                "value": "impala",
+                "name": "Impala"
+              },
+              {
+                "value": "hbase",
+                "name": "HBase"
+              }
+            ]
+          },
+          {
+            "title": "Database",
+            "suggestions": [
+              {
+                "value": "aurora",
+                "name": "Aurora"
+              },
+              {
+                "value": "cassandra",
+                "name": "Cassandra"
+              },
+              {
+                "value": "redshift",
+                "name": "Redshift"
+              },
+              {
+                "value": "awsmysql",
+                "name": "AWS MySQL"
+              }
+            ]
+          },
+          {
+            "title": "Business",
+            "suggestions": [
+              {
+                "value": "saprfc",
+                "name": "SAP IDOC RFC Server"
+              },
+              {
+                "value": "sap",
+                "name": "SAP Standard"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "datalistWithCategoryNotRestricted",
+      "title": "Datalist With category and without restricted value",
+      "widget": "datalist",
+      "options": {
+        "isMultiSection": true,
+
+        "titleMap": [
+          {
+            "title": "SaaS",
+            "suggestions": [
+              {
+                "value": "salesforce",
+                "name": "Salesforce"
+              },
+              {
+                "value": "marketo",
+                "name": "Marketo"
+              },
+              {
+                "value": "netsuite",
+                "name": "Netsuite"
+              }
+            ]
+          },
+          {
+            "title": "Collaboration",
+            "suggestions": [
+              {
+                "value": "box",
+                "name": "Box"
+              },
+              {
+                "value": "googledrive",
+                "name": "GoogleDrive"
+              },
+              {
+                "value": "dropbox",
+                "name": "Dropbox"
+              },
+              {
+                "value": "awss3",
+                "name": "AWS S3"
+              }
+            ]
+          },
+          {
+            "title": "Protocol",
+            "suggestions": [
+              {
+                "value": "ftp",
+                "name": "FTP"
+              },
+              {
+                "value": "sftp",
+                "name": "SFTP"
+              },
+              {
+                "value": "smtp",
+                "name": "Email"
+              },
+              {
+                "value": "soapclient",
+                "name": "SOAP Client"
+              },
+              {
+                "value": "restclient",
+                "name": "REST Client"
+              }
+            ]
+          },
+          {
+            "title": "Big Data",
+            "suggestions": [
+              {
+                "value": "mongodb",
+                "name": "MongoDB"
+              },
+              {
+                "value": "hdfs",
+                "name": "HDFS"
+              },
+              {
+                "value": "hive",
+                "name": "Hive"
+              },
+              {
+                "value": "impala",
+                "name": "Impala"
+              },
+              {
+                "value": "hbase",
+                "name": "HBase"
+              }
+            ]
+          },
+          {
+            "title": "Database",
+            "suggestions": [
+              {
+                "value": "aurora",
+                "name": "Aurora"
+              },
+              {
+                "value": "cassandra",
+                "name": "Cassandra"
+              },
+              {
+                "value": "redshift",
+                "name": "Redshift"
+              },
+              {
+                "value": "awsmysql",
+                "name": "AWS MySQL"
+              }
+            ]
+          },
+          {
+            "title": "Business",
+            "suggestions": [
+              {
+                "value": "saprfc",
+                "name": "SAP IDOC RFC Server"
+              },
+              {
+                "value": "sap",
+                "name": "SAP Standard"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "simpleDatalist": "Pine[apple]",
+    "restrictedAsyncTitleMap": "clafoutis"
+  }
+}

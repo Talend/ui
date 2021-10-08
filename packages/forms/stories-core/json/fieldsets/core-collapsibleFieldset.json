@@ -1,0 +1,92 @@
+{
+  "doc": "CollapsibleFieldset/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "lastname": {
+        "type": "string"
+      },
+      "firstname": {
+        "type": "string"
+      },
+      "age": {
+        "type": "number"
+      },
+      "address": {
+        "type": "string"
+      },
+      "comment": {
+        "type": "string",
+        "maxLength": 20
+      }
+    },
+    "required": [
+      "firstname",
+      "email",
+      "comment"
+    ]
+  },
+  "uiSchema": [
+    {
+      "widget": "collapsibleFieldset",
+      "key": "technical.basic",
+      "title": "Basic",
+      "items": [
+        {
+          "key": "lastname",
+          "title": "Last Name (with description)",
+          "description": "Hint: this is the last name"
+        },
+        {
+          "key": "firstname",
+          "title": "First Name (with placeholder)",
+          "placeholder": "Enter your firstname here"
+        }
+      ]
+    },
+    {
+      "widget": "collapsibleFieldset",
+      "key": "technical.details",
+      "title": "Details",
+      "items": [
+        {
+          "key": "age",
+          "title": "Age"
+        },
+        {
+          "key": "address",
+          "title": "Adress"
+        },
+        {
+          "key": "comment",
+          "widget": "textarea",
+          "title": "Comment",
+          "placeholder": "Make a comment",
+          "validationMessage": "Don't be greedy!"
+        }
+      ]
+    },
+    {
+      "widget": "collapsibleFieldset",
+      "key": "technical.description",
+      "title": "Description",
+      "description": "Hint: this is the description",
+      "items": [
+        {
+          "key": "lastname",
+          "title": "Last Name (with description)",
+          "description": "Hint: this is the last name"
+        },
+        {
+          "key": "firstname",
+          "title": "First Name (with description)",
+          "description": "Hint: this is the first name"
+        }
+      ]
+    }
+  ],
+  "properties": {
+    "comment": "lol"
+  }
+}

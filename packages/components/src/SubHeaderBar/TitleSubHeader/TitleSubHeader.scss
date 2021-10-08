@@ -1,0 +1,95 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+@mixin ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+$tc-input-subheader-size-large: 2.4rem !default;
+$tc-input-subheader-size-medium: 1.4rem !default;
+
+:global(.tc-subheader-details-blink) {
+	@include heartbeat(object-blink);
+}
+
+.tc-subheader-details {
+	display: flex;
+	margin: 0;
+	height: 100%;
+
+	& &-icon {
+		align-self: center;
+		width: $tc-input-subheader-size-large;
+		height: $tc-input-subheader-size-large;
+		color: $brand-primary;
+		margin-right: $padding-large;
+	}
+
+	& &-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		overflow: hidden;
+		flex: 1 auto;
+		margin-right: 110px;
+		max-width: 90rem;
+		align-items: flex-start;
+
+		&-title {
+			display: inline-flex;
+			align-items: center;
+
+			&-wording,
+			&-wording-button {
+				@include ellipsis;
+				line-height: unset;
+				margin: 0;
+			}
+
+			:global {
+				.tc-editable-text-wording {
+					line-height: unset;
+					margin: 0;
+				}
+
+				.tc-editable-text-form-input {
+					width: 30rem;
+				}
+
+				.tc-editable-text-form-buttons-submit:hover {
+					background: $scooter;
+
+					& svg {
+						background: $scooter;
+					}
+				}
+
+				.tc-editable-text-pencil {
+					opacity: 0;
+
+					&:focus,
+					&:active {
+						opacity: 1;
+					}
+				}
+
+				:hover {
+					.tc-editable-text-pencil {
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		&-subtitle {
+			@include ellipsis;
+			color: $black;
+			font-size: $tc-input-subheader-size-medium;
+		}
+	}
+
+	& &-loading-subtitle {
+		margin-top: $padding-smaller;
+	}
+}

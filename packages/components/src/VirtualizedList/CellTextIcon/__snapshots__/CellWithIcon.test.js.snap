@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellWithIcon should render with icon 1`] = `
+<div
+  className="cell-icon-container theme-cell-icon-container"
+>
+  <div>
+    Test label
+  </div>
+  <div
+    className="icon-container theme-icon-container"
+  >
+    <Action
+      hideLabel={true}
+      icon="talend-star"
+      label="test"
+      link={true}
+      onClick={[MockFunction]}
+    />
+  </div>
+</div>
+`;
+
+exports[`CellWithIcon should render without icon 1`] = `
+<div
+  className="cell-icon-container theme-cell-icon-container"
+>
+  <div>
+    Test label 2
+  </div>
+  <div
+    className="icon-container theme-icon-container"
+  />
+</div>
+`;

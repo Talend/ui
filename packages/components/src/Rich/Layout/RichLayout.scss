@@ -1,0 +1,98 @@
+$tc-popover-border-width: 0.1rem !default;
+$tc-popover-border-color: rgb(226, 226, 226) !default;
+$tc-popover-box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2) !default;
+$tc-popover-body-min-height: 10rem !default;
+$tc-popover-body-max-height: 30rem !default;
+$tc-popover-max-width: 40rem !default;
+$tc-popover-header-border-color: #ededed !default;
+$tc-popover-header-footer-height: 7rem !default;
+
+:global(.popover) {
+	padding: 0;
+	border: $tc-popover-border-width solid $tc-popover-border-color;
+	border-radius: $border-radius-base;
+	background-color: $white;
+	box-shadow: $tc-popover-box-shadow;
+	max-width: $tc-popover-max-width;
+}
+
+:global(.popover-content) {
+	padding: 0;
+}
+
+.body,
+.footer:not(:empty),
+.header:not(:empty) {
+	display: flex;
+}
+
+.footer:not(:empty),
+.header:not(:empty) {
+	padding: 0 $padding-large;
+	height: $tc-popover-header-footer-height;
+	min-width: $tc-popover-max-width;
+}
+
+.footer:not(:empty) {
+	overflow: hidden;
+	border-top: $tc-popover-border-width solid $tc-popover-header-border-color;
+	justify-content: space-between;
+	align-items: center;
+
+	> :global(.tc-actionbar-container) {
+		background-color: $white;
+		padding: 0;
+	}
+}
+
+.header:not(:empty) {
+	border-bottom: $tc-popover-border-width solid $tc-popover-header-border-color;
+
+	:global(.btn) {
+		margin-top: $padding-normal;
+		margin-bottom: $padding-normal;
+	}
+}
+
+.header:not(:empty) + .body {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.body {
+	display: flex;
+	flex-direction: row;
+	margin: $padding-large;
+	color: $dove-gray;
+}
+
+.content:not(:empty) {
+	// wrapper used to fix the ie11 bug with flexbox when (align-items: center & min-height)
+	// https://stackoverflow.com/a/47180276
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	min-height: $tc-popover-body-min-height;
+	max-height: $tc-popover-body-max-height;
+
+	> p {
+		// specify max-height min-height to IE11
+		max-height: inherit;
+		min-height: inherit;
+		overflow: auto;
+		margin: 0;
+	}
+
+	> :global(.tc-circular-progress) {
+		align-self: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.rich-layout {
+	:global(.tc-resource-list) {
+		margin: 0 (-1 * $padding-large);
+		flex-grow: 1;
+	}
+}

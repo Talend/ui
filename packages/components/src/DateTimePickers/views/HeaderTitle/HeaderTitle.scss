@@ -1,0 +1,26 @@
+@import '../../shared/styles/mixins';
+
+.common {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: $font-weight-semi-bold;
+
+	:global(.dropdown-menu) {
+		min-width: 63px;
+	}
+}
+
+.month {
+	margin-right: $padding-smaller;
+}
+
+.button {
+	@include nav-action;
+	&:hover {
+		color: $scooter;
+	}
+	&:active {
+		color: darken($scooter, 12%);
+	}
+}

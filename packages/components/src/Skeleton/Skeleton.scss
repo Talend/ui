@@ -1,0 +1,74 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+$tc-skeleton-border-radius: 4px !default;
+$tc-skeleton-icon-size: 24px !default;
+$tc-skeleton-circle-small-size: 16px !default;
+$tc-skeleton-circle-medium-size: 20px !default;
+$tc-skeleton-circle-large-size: 24px !default;
+$tc-skeleton-circle-xlarge-size: 66px !default;
+$tc-skeleton-text-height: 14px !default;
+$tc-skeleton-text-width-small: 30px !default;
+$tc-skeleton-text-width-medium: 60px !default;
+$tc-skeleton-text-width-large: 130px !default;
+$tc-skeleton-text-width-extra-large: 160px !default;
+$tc-skeleton-button-height: 35px !default;
+$tc-skeleton-button-width: 80px !default;
+$tc-skeleton-color: $black !default;
+
+:global(.tc-skeleton-heartbeat) {
+	@include heartbeat(skeleton-blink);
+}
+
+.tc-skeleton {
+	background-color: $tc-skeleton-color;
+	display: inline-block;
+
+	&-icon {
+		background-color: transparent;
+		height: $tc-skeleton-icon-size;
+		width: $tc-skeleton-icon-size;
+	}
+
+	&-circle {
+		border-radius: 50%;
+		&-small {
+			width: $tc-skeleton-circle-small-size;
+			height: $tc-skeleton-circle-small-size;
+		}
+		&-medium {
+			width: $tc-skeleton-circle-medium-size;
+			height: $tc-skeleton-circle-medium-size;
+		}
+		&-large {
+			width: $tc-skeleton-circle-large-size;
+			height: $tc-skeleton-circle-large-size;
+		}
+		&-xlarge {
+			width: $tc-skeleton-circle-xlarge-size;
+			height: $tc-skeleton-circle-xlarge-size;
+		}
+	}
+
+	&-text {
+		border-radius: $tc-skeleton-border-radius;
+		height: $tc-skeleton-text-height;
+		&-small {
+			width: $tc-skeleton-text-width-small;
+		}
+		&-medium {
+			width: $tc-skeleton-text-width-medium;
+		}
+		&-large {
+			width: $tc-skeleton-text-width-large;
+		}
+		&-xlarge {
+			width: $tc-skeleton-text-width-extra-large;
+		}
+	}
+
+	&-button {
+		border-radius: $tc-skeleton-border-radius;
+		height: $tc-skeleton-button-height;
+		width: $tc-skeleton-button-width;
+	}
+}

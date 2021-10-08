@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HTTPError should create a new instance 1`] = `
+Object {
+  "message": "Internal Server Error",
+  "name": "HTTP 500",
+  "stack": Object {
+    "ok": false,
+    "response": Object {
+      "ok": false,
+      "status": 500,
+      "statusText": "Internal Server Error",
+    },
+    "status": 500,
+    "statusText": "Internal Server Error",
+  },
+}
+`;
+
+exports[`json function should reject if no json function on response 1`] = `
+Object {
+  "name": "HTTP 502",
+  "stack": Object {
+    "response": Object {
+      "status": 502,
+    },
+    "status": 502,
+  },
+}
+`;
+
+exports[`json function should resolve if attr json is on response 1`] = `
+Object {
+  "data": Object {
+    "foo": "bar",
+  },
+  "headers": Object {
+    "content-type": "application/json",
+  },
+}
+`;
+
+exports[`json function should resolve status HTTP_STATUS.NO_CONTENT but without json function 1`] = `Object {}`;
+
+exports[`status function should reject if status >= 300 1`] = `
+Object {
+  "name": "HTTP 500",
+  "stack": Object {
+    "response": Object {
+      "status": 500,
+    },
+    "status": 500,
+  },
+}
+`;

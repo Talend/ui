@@ -1,0 +1,252 @@
+////
+/// Side panel
+/// @group Custom widgets
+////
+
+$list-item-height: 3rem !default;
+$list-item-hover-color: rgba($white, 0.12) !default;
+$list-item-reverse-hover-color: rgba($black, 0.12) !default;
+$list-item-color: $white !default;
+$list-item-reverse-color: $brand-primary !default;
+$toggle-height: 70px;
+$toggle-button-opacity: 0.75;
+$tc-side-panel-large-padding: 25px !default;
+$tc-side-panel-icons-size: $svg-rg-size;
+$toggle-button-padding: $padding-small;
+
+$docked-width: 6rem;
+$large-docked-width: 7rem;
+
+.tc-side-panel,
+[role='navigation'] {
+	display: flex;
+	flex-direction: column;
+	font-weight: 500;
+	background: linear-gradient(133deg, #19426c 0%, #2c1f56 100%) !important; // sass-lint:disable-line no-important
+	overflow: hidden;
+
+	&:before {
+		left: 1rem;
+		bottom: -5rem;
+	}
+
+	&.animate {
+		transition: 0.2s width ease-out;
+	}
+
+	.action-list-container.action-list-container {
+		flex: 1;
+		height: calc(100vh - 12rem); // specific to Safari
+
+		:global .tc-side-panel-list {
+			background: none;
+		}
+
+		:global .tc-action-list-item {
+			width: calc(100% - 2rem);
+			background: none !important; // sass-lint:disable-line no-important
+			box-shadow: none !important; // sass-lint:disable-line no-important
+
+			.btn.btn-link {
+				display: flex;
+				align-items: center;
+				justify-content: start;
+				font-size: 1.6rem;
+				height: $list-item-height;
+				margin: $padding-smaller $padding-small;
+				padding: $padding-smaller;
+				border-radius: $border-radius-base;
+
+				> span {
+					margin-left: $padding-small;
+				}
+			}
+			.tc-svg-icon {
+				width: $tc-side-panel-icons-size;
+				height: $tc-side-panel-icons-size;
+				margin-left: $padding-smaller;
+			}
+
+			&:hover {
+				.btn.btn-link {
+					background: rgba(255, 255, 255, 0.12);
+				}
+			}
+
+			&.active {
+				.btn.btn-link {
+					color: $brand-primary;
+					background: $white;
+				}
+			}
+		}
+	}
+
+	.toggle-btn {
+		height: $toggle-height;
+		vertical-align: center;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: $toggle-button-padding;
+		text-align: left;
+		flex: 0 0 7rem;
+
+		:global {
+			.btn.btn-link {
+				color: $white;
+				line-height: 1;
+				height: $toggle-height;
+				padding: 0 $padding-small;
+				display: inline-block;
+				width: auto;
+				opacity: $toggle-button-opacity;
+				margin: 0 auto;
+
+				> span {
+					// .sr-only
+					position: absolute;
+					width: 1px;
+					height: 1px;
+					padding: 0;
+					margin: -1px;
+					overflow: hidden;
+					clip: rect(0, 0, 0, 0);
+					border: none;
+				}
+
+				&:hover {
+					opacity: 1;
+				}
+
+				.tc-svg-icon {
+					width: $svg-sm-size;
+					height: $svg-sm-size;
+					transition: 0.2s transform ease-out;
+				}
+			}
+		}
+	}
+
+	&.docked {
+		:global {
+			.btn.btn-link {
+				padding: $padding-normal;
+
+				> span {
+					opacity: 0;
+				}
+			}
+			.tc-action-list {
+				width: $docked-width;
+				min-width: auto;
+			}
+		}
+
+		.toggle-btn {
+			:global {
+				.btn.btn-link {
+					padding: $padding-small;
+
+					.tc-svg-icon {
+						transform: rotate(-180deg);
+					}
+				}
+			}
+		}
+	}
+
+	&.large {
+		.toggle-btn {
+			padding-left: 0;
+
+			:global(.btn.btn-link) {
+				padding: $padding-small $tc-side-panel-large-padding;
+			}
+		}
+
+		:global {
+			.tc-action-list {
+				padding: $padding-smaller 0;
+			}
+
+			.tc-action-list-item {
+				.btn.btn-link {
+					padding: $padding-normal $tc-side-panel-large-padding;
+
+					.tc-svg-icon {
+						margin-left: $padding-small;
+					}
+
+					.tc-svg-icon + span {
+						margin-left: $tc-side-panel-large-padding;
+					}
+				}
+			}
+		}
+
+		&.docked {
+			:global {
+				.tc-action-list {
+					width: $large-docked-width;
+					min-width: auto;
+				}
+			}
+			.toggle-btn {
+				height: $toggle-height;
+				vertical-align: center;
+				padding: 0;
+				.btn.btn-link {
+					height: $toggle-height;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	&.reverse[role='navigation'][aria-expanded] {
+		background: $wild-sand !important; // sass-lint:disable-line no-important
+
+		&:before {
+			content: none;
+		}
+
+		.toggle-btn {
+			background-color: transparent;
+
+			:global {
+				.btn.btn-link,
+				.tc-svg-icon {
+					color: $gray700;
+				}
+			}
+		}
+
+		:global {
+			.tc-action-list-item {
+				color: $gray700;
+
+				&:hover {
+					.btn.btn-link {
+						background: $list-item-reverse-hover-color;
+					}
+
+					.btn.btn-link,
+					.tc-svg-icon {
+						color: $black;
+					}
+				}
+
+				&.active {
+					.btn.btn-link {
+						background: $list-item-color;
+					}
+
+					.btn.btn-link,
+					.tc-svg-icon {
+						color: $brand-primary;
+					}
+				}
+			}
+		}
+	}
+}

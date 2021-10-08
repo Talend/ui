@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label should render 1`] = `
+<p
+  className="navbar-text"
+>
+  <label>
+    Text:
+  </label>
+</p>
+`;
+
+exports[`Label should render for if provided 1`] = `
+<p
+  className="navbar-text"
+>
+  <label
+    htmlFor="id"
+  >
+    Text:
+  </label>
+</p>
+`;

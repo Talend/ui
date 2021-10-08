@@ -1,0 +1,179 @@
+/* stylelint-disable selector-no-qualifying-type */
+
+$tc-tabbar-active-border-size: 0.2rem !default;
+$tc-tabbar-active-color: $lochmara;
+
+.nav {
+	.btn-link {
+		color: inherit;
+		display: inline-block;
+
+		&:focus,
+		&:active,
+		&:hover {
+			text-decoration: none;
+		}
+
+		> *,
+		> span > * {
+			vertical-align: middle;
+		}
+	}
+
+	&-inverse {
+		color: $navbar-inverse-color;
+		background-color: $brand-primary;
+	}
+
+	&-pills {
+		> li {
+			&,
+			+ li {
+				margin: 0;
+			}
+
+			&:hover,
+			&.active,
+			&.open {
+				color: $navbar-inverse-color;
+				background-color: $brand-primary-dark;
+			}
+
+			&.disabled .btn {
+				&:focus,
+				&:hover {
+					color: shade($navbar-inverse-color, 10);
+				}
+			}
+		}
+
+		.btn.btn-link {
+			padding: $padding-large;
+			width: 100%;
+			line-height: 1;
+			text-align: left;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+
+			&.dropdown-toggle {
+				position: relative;
+				padding-right: 2 * $padding-large;
+
+				.caret {
+					position: absolute;
+					right: $padding-large;
+					margin-top: calc(#{$dropdown-caret-size} / 2);
+				}
+			}
+		}
+
+		&.nav-stacked {
+			.btn.btn-link {
+				width: 100%;
+				text-align: left;
+				background-color: transparent;
+
+				&:focus,
+				&:hover,
+				&:active {
+					--t-button-color: var(--t-button-color-primary);
+				}
+			}
+		}
+	}
+
+	&-pills.nav-inverse {
+		> li {
+			&:focus,
+			&:hover {
+				background-color: rgba($white, 0.12);
+			}
+
+			&:active,
+			&.active,
+			&.open {
+				background-color: rgba($white, 0.25);
+			}
+		}
+	}
+
+	&-tabs {
+		border: none;
+
+		> li {
+			margin: 0;
+
+			> a,
+			> button {
+				background: transparent;
+				border: none;
+				border-radius: 0;
+				color: $black;
+				margin-bottom: 0.5rem;
+				outline: none;
+				padding: $padding-smaller $padding-small;
+				padding-bottom: calc(#{$padding-smaller} + #{$tc-tabbar-active-border-size});
+
+				max-width: 20rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+
+				&:hover,
+				&:focus {
+					color: $lochmara;
+				}
+			}
+
+			&.active {
+				> a,
+				> button {
+					color: $lochmara;
+					font-weight: $font-weight-semi-bold;
+
+					position: relative;
+
+					&::after {
+						position: absolute;
+						content: '';
+
+						left: $padding-small;
+						right: $padding-small;
+						bottom: 0;
+
+						border-bottom: solid $tc-tabbar-active-border-size $lochmara;
+					}
+
+					&:focus {
+						color: $scooter;
+					}
+
+					&:hover {
+						color: $lochmara;
+					}
+				}
+			}
+
+			&.disabled {
+				> a,
+				> button {
+					cursor: not-allowed;
+					color: $black;
+					opacity: 0.54;
+
+					&,
+					&:focus,
+					&:hover {
+						background: transparent;
+						border: none;
+					}
+				}
+			}
+		}
+
+		+ .tab-content {
+			padding-top: $padding-large;
+		}
+	}
+}

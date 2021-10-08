@@ -1,0 +1,55 @@
+@import '../colors';
+
+:global(.tc-list-table) {
+	.row-selection.selected {
+		background: $tc-list-row-selected-bg;
+
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
+			background: $tc-list-row-selected-hover-bg;
+		}
+	}
+	.row-selection.active {
+		background: $tc-list-row-active-bg;
+
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
+			background: $tc-list-row-active-hover-bg;
+		}
+	}
+
+	.row-selection.disabled {
+		> div > div {
+			opacity: 0.54;
+		}
+	}
+}
+
+:global(.tc-list-list) {
+	.row-selection.selected :global(.tc-list-large-inner-box) {
+		background: $tc-list-row-selected-bg;
+
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
+			background: $tc-list-row-selected-hover-bg;
+		}
+	}
+	.row-selection.active :global(.tc-list-large-inner-box) {
+		background: $tc-list-row-active-bg;
+
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
+			background: $tc-list-row-active-hover-bg;
+		}
+	}
+
+	.row-selection.disabled :global(.tc-list-large-inner-box) {
+		> div > div {
+			opacity: 0.54;
+		}
+	}
+}

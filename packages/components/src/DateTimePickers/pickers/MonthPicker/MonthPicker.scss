@@ -1,0 +1,40 @@
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/variables';
+
+.container {
+	width: 100%;
+	tbody {
+		border: $border-default;
+	}
+}
+
+.calendar-row {
+	border-bottom: $border-default;
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.calendar-col {
+	border-right: $border-default;
+	width: 33.33%;
+	&:last-child {
+		border-right: none;
+	}
+}
+
+.calendar-month {
+	@include picker-action;
+
+	flex: 1;
+	height: 5.7rem;
+	width: 100%;
+
+	background: transparent;
+	border: none;
+	padding: 0;
+
+	&:active {
+		background-color: shade($concrete, 10%);
+	}
+}

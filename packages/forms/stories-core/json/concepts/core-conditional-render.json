@@ -1,0 +1,127 @@
+{
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "entity": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": ["human", "animal", "thing"]
+          },
+          "civility": {
+            "type": "string",
+            "enum": ["Mr", "Mrs"]
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "firstname": {
+            "type": "string"
+          },
+          "objectName": {
+            "type": "string"
+          }
+        }
+      },
+      "address": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "postcode": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "widget": "fieldset",
+      "title": "Basic info",
+      "items": [
+        {
+          "key": "entity.kind",
+          "title": "Kind",
+          "description": "Select a value here, it changes the form locally"
+        },
+        {
+          "widget": "fieldset",
+          "condition": {
+            "in": [{ "var": "entity.kind"}, ["human", "animal"]]
+          },
+          "items": [
+            {
+              "key": "entity.civility",
+              "title": "Civility",
+              "description": "This should be visible only for humans",
+              "condition": {
+                "===": [{ "var": "entity.kind"}, "human"]
+              }
+            },
+            {
+              "key": "entity.lastname",
+              "title": "Last Name",
+              "description": "This should be visible only for humans and animals"
+            },
+            {
+              "key": "entity.firstname",
+              "title": "First Name",
+              "description": "This should be visible only for humans and animals"
+            }
+          ]
+        },
+        {
+          "key": "entity.objectName",
+          "title": "Object name",
+          "description": "This should be visible only for objects",
+          "condition": {
+            "===": [{ "var": "entity.kind"}, "thing"]
+          }
+        }
+      ]
+    },
+    {
+      "widget": "fieldset",
+      "title": "Address",
+      "items": [
+        {
+          "widget": "columns",
+          "items": [
+            {
+              "key": "address.number",
+              "title": "N°"
+            },
+            {
+              "key": "address.street",
+              "title": "Street"
+            }
+          ]
+        },
+        {
+          "widget": "columns",
+          "items": [
+            {
+              "key": "address.postcode",
+              "title": "Post Code"
+            },
+            {
+              "key": "address.city",
+              "title": "City"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "properties": {}
+}

@@ -1,0 +1,144 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+@mixin ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+$tc-icon-editable-text-size: 0.8rem !default;
+$tc-circle-editable-text-size: 16px !default;
+
+:global(.tc-editable-text-blink) {
+	@include heartbeat(object-blink);
+}
+
+.tc-editable-text {
+	width: 100%;
+
+	:global(.tc-editable-text-wording-wrapper) {
+		@include ellipsis;
+	}
+
+	&:hover {
+		.tc-editable-text-pencil {
+			position: static;
+		}
+	}
+
+	&-title {
+		display: flex;
+		align-items: center;
+		max-width: 90rem;
+	}
+
+	&-wording {
+		@include ellipsis;
+		flex: 0 1 auto;
+	}
+
+	&-pencil {
+		position: relative;
+		left: -2000px;
+		padding-left: $padding-smaller;
+		padding-right: $padding-smaller;
+		flex: 0 0 auto;
+		line-height: inherit;
+		min-height: inherit;
+		color: $white;
+
+		&:global(.btn-link) {
+			color: $gray;
+		}
+
+		&:focus,
+		&:hover {
+			position: static;
+		}
+	}
+
+	& &-form {
+		position: relative;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding-right: $padding-large;
+
+		:global(.form-group) {
+			width: 100%;
+			margin: 0;
+		}
+
+		.tc-editable-text-form-input {
+			width: 100%;
+			padding-right: 2 * $tc-circle-editable-text-size + $padding-large;
+
+			&::selection {
+				background: lighten($scooter, 25%);
+			}
+		}
+
+		&-buttons {
+			display: flex;
+			position: absolute;
+			align-items: center;
+			justify-content: center;
+			height: 32px;
+			top: 0;
+			right: $padding-larger;
+
+			&-icon {
+				border: 0.1rem solid $dark-silver;
+				color: $dark-silver;
+				width: $tc-circle-editable-text-size;
+				height: $tc-circle-editable-text-size;
+				min-height: auto;
+				display: flex;
+				border-radius: 50%;
+				padding: 0;
+				justify-content: center;
+				align-items: center;
+
+				> :global(.tc-svg-icon) {
+					width: $tc-icon-editable-text-size;
+					height: $tc-icon-editable-text-size;
+				}
+
+				&:last-child {
+					margin-left: $padding-small;
+				}
+			}
+
+			&-submit {
+				border-color: $rio-grande;
+				background: $rio-grande;
+				fill: white;
+
+				&:focus,
+				&:hover {
+					color: $scooter;
+					background: $scooter;
+					border-color: $scooter;
+
+					svg {
+						background: $scooter;
+					}
+				}
+
+				> svg {
+					color: white;
+				}
+			}
+
+			&-cancel:focus,
+			&-cancel:hover {
+				color: $scooter;
+				border-color: $scooter;
+			}
+		}
+
+		:global(.form-group) {
+			padding-top: 0;
+		}
+	}
+}

@@ -1,0 +1,66 @@
+{
+  "name": "@talend/json-schema-form-core",
+  "version": "1.0.3",
+  "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
+  "main": "dist/index.js",
+  "mainSrc": "src/index.js",
+  "scripts": {
+    "build:lib": "rimraf dist && talend-scripts build:lib:umd",
+    "watch": "webpack --watch",
+    "dist-untested": "webpack --config webpack.config.dist.js",
+    "test:cov": "npm run test",
+    "test": "echo need to fix all tests before",
+    "test:demo": "echo nothing to do"
+  },
+  "author": "json-schema-form",
+  "contributors": [
+    "David Jensen <david.lgj@gmail.com> (https://github.com/davidlgj)",
+    "Marcel J Bennett <iamanthropic@gmail.com> (https://github.com/Anthropic)"
+  ],
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/json-schema-form/json-schema-form-core/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/json-schema-form/json-schema-form-core#readme",
+  "bugs": {
+    "url": "https://github.com/json-schema-form/json-schema-form-core/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/json-schema-form/json-schema-form-core.git"
+  },
+  "keywords": [
+    "angular-schema-form",
+    "json-schema-form-core",
+    "json-schema-form",
+    "json-ui-schema",
+    "json-schema"
+  ],
+  "devDependencies": {
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^6.14.13",
+    "chai": "^4.3.4",
+    "karma": "^6.3.4",
+    "karma-chai-sinon": "^0.1.5",
+    "karma-coverage": "^2.0.3",
+    "karma-mocha": "^2.0.1",
+    "mocha": "^9.1.2",
+    "sinon": "^11.1.2",
+    "sinon-chai": "^3.7.0",
+    "json-refs": "^2.1.7",
+    "rimraf": "^2.7.1"
+  },
+  "dependencies": {
+    "objectpath": "^1.2.2",
+    "tv4": "^1.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

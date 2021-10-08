@@ -1,0 +1,21 @@
+.tf-array-fieldset {
+	margin-bottom: $padding-normal;
+
+	&::before {
+		content: attr(data-content);
+		display: inline-block;
+		margin: $padding-normal 0;
+	}
+
+	.tf-array-add {
+		float: right;
+	}
+
+	.tf-array {
+		padding: 0;
+
+		.item {
+			list-style: none;
+		}
+	}
+}

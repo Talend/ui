@@ -1,0 +1,330 @@
+$tc-collapsible-panel-padding-smaller: $padding-smaller !default;
+$tc-collapsible-panel-padding-normal: $padding-normal !default;
+$tc-collapsible-panel-padding-larger: $padding-larger !default;
+$tc-collapsible-panel-btn-color: #555964;
+$tc-collapsible-descriptive-panel-content-description-color: #808080 !default;
+$tc-toggle-color: #555964 !default;
+$tc-skeleton-background-color: #dfdfdf !default;
+
+@mixin type-col($width: 100%) {
+	flex-basis: $width;
+	display: flex;
+	overflow: hidden;
+
+	> span {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+@mixin col-style {
+	> :global(.btn) {
+		line-height: 1em;
+		color: $tc-collapsible-panel-btn-color;
+	}
+
+	&.col-4 {
+		@include type-col(25%);
+	}
+
+	&.col-5 {
+		@include type-col(20%);
+	}
+
+	&.col-6 {
+		@include type-col(calc(100% / 6));
+	}
+
+	&.col-7 {
+		@include type-col(calc(100% / 7));
+	}
+
+	&.col-8 {
+		@include type-col(calc(100% / 8));
+	}
+
+	&.col-9 {
+		@include type-col(calc(100% / 9));
+	}
+
+	&.col-10 {
+		@include type-col(calc(10%));
+	}
+}
+
+// due to react-bootstrap
+:global(.panel .panel) {
+	margin: 0;
+}
+
+.tc-collapsible-panel {
+	position: relative;
+
+	&.selected {
+		border-left: 5px solid $brand-primary;
+		padding-left: 1px;
+	}
+
+	&:not(.open) {
+		:global(.panel-heading) {
+			border-bottom: none;
+		}
+	}
+
+	&.info,
+	&.success,
+	&.danger,
+	&.muted,
+	&.warning,
+	&.skeleton {
+		:global(.panel-heading) {
+			padding-left: 1px;
+			border-left: 5px solid;
+		}
+	}
+
+	&.info {
+		:global(.panel-heading) {
+			border-left-color: $brand-info;
+		}
+		:global(.tc-status-label) {
+			color: $brand-info;
+		}
+	}
+
+	&.success {
+		:global(.panel-heading) {
+			border-left-color: $brand-success;
+		}
+		:global(.tc-status-label) {
+			color: $brand-success;
+		}
+	}
+
+	&.danger {
+		border-color: $brand-danger;
+		:global(.panel-heading) {
+			border-color: $brand-danger;
+		}
+		:global(.tc-status-label) {
+			color: $brand-danger;
+		}
+	}
+
+	&.muted {
+		:global(.panel-heading) {
+			border-left-color: $gray;
+		}
+		:global(.tc-status-label) {
+			color: $gray;
+		}
+	}
+
+	&.warning {
+		:global(.panel-heading) {
+			border-left-color: $brand-warning;
+		}
+		:global(.tc-status-label) {
+			color: $brand-warning;
+		}
+	}
+
+	&.skeleton {
+		:global(.panel-heading) {
+			border-color: $tc-skeleton-background-color;
+		}
+	}
+
+	.panel-header-content {
+		display: flex;
+		height: 4rem;
+		align-items: center;
+		padding: 0 $padding-normal;
+		& > a {
+			width: 100%;
+		}
+		.panel-title {
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-basis: 100%;
+			overflow: hidden;
+			font-size: 1.4rem;
+			width: 100%;
+			padding-right: $padding-smaller;
+			> * {
+				padding: 0;
+				text-decoration: none;
+				@include col-style;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+		}
+	}
+
+	:global(.tc-icon-toggle) {
+		height: 1.6rem;
+		width: 1.6rem;
+		transform-origin: center;
+		svg {
+			height: 1rem;
+			width: 1rem;
+		}
+	}
+
+	.group {
+		display: flex;
+	}
+
+	:global {
+		.panel-heading {
+			display: flex;
+			justify-content: space-between;
+			padding: 0;
+			.panel-title {
+				width: 100%;
+			}
+			&:hover {
+				background: $white;
+				cursor: pointer;
+
+				.tc-status-label {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.default-panel {
+	:global(.label) {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	.group {
+		justify-content: space-between;
+		padding-right: 15px;
+	}
+
+	:global(.panel-body) {
+		max-height: 50vh;
+		overflow: auto;
+		word-break: break-all;
+
+		.content {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+
+			.label {
+				flex-basis: 10%;
+				flex-shrink: 0;
+				flex-grow: 1;
+			}
+
+			.description {
+				flex-basis: 90%;
+				flex-shrink: 0;
+				flex-grow: 1;
+				font-weight: normal;
+			}
+		}
+	}
+}
+
+.descriptive-panel {
+	border-radius: 0;
+	margin-bottom: 0;
+	box-shadow: none;
+	border: none;
+	padding-left: 5px;
+
+	:global(.panel) {
+		box-shadow: none;
+	}
+
+	:global(.toggle) {
+		svg {
+			fill: $tc-toggle-color;
+			height: 10px;
+			width: 10px;
+		}
+	}
+
+	&.open {
+		:global(.toggle) {
+			svg {
+				fill: $white;
+			}
+		}
+	}
+
+	&.selected {
+		.title,
+		.detail {
+			color: $brand-primary;
+		}
+	}
+
+	:global(.panel-heading) {
+		padding: 0;
+		background-color: $white;
+		border-color: transparent;
+	}
+
+	.group {
+		justify-content: flex-start;
+		> * {
+			margin-right: $padding-smaller;
+		}
+	}
+
+	.title {
+		font-weight: bold;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.tag {
+		white-space: nowrap;
+		font-size: 1.2rem;
+	}
+
+	.detail {
+		white-space: nowrap;
+		justify-content: flex-end;
+	}
+
+	:global(.panel-body) {
+		padding: 10px;
+		padding-top: 0;
+
+		.content {
+			display: flex;
+			flex-direction: column;
+
+			.head {
+				display: flex;
+				justify-content: space-between;
+
+				> span {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			.content-description {
+				white-space: pre-wrap;
+				padding-top: 5px;
+				color: $tc-collapsible-descriptive-panel-content-description-color;
+			}
+		}
+	}
+}

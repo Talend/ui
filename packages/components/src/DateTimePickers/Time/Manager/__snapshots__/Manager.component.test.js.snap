@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Time.Manager should render its children 1`] = `
+<Context.Provider
+  value={
+    Object {
+      "inputManagement": Object {
+        "onChange": [Function],
+        "placeholder": "HH:mm",
+      },
+      "pickerManagement": Object {
+        "onChange": [Function],
+      },
+      "time": Object {
+        "textInput": "12:15",
+        "time": Object {
+          "hours": "12",
+          "minutes": "15",
+          "seconds": "00",
+        },
+        "timezone": undefined,
+      },
+    }
+  }
+>
+  <TimeConsumer />
+</Context.Provider>
+`;

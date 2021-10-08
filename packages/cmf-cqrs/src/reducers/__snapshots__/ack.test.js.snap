@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducers.ack.ackReducer should reduce addContext 1`] = `
+Immutable.Map {
+  "123": Immutable.Map {
+    "data": Object {
+      "foo": "bar",
+    },
+    "actionCreator": "my super action creator",
+  },
+}
+`;
+
+exports[`reducers.ack.ackReducer should reduce deleteACK 1`] = `
+Immutable.Map {
+  "456": Immutable.Map {
+    "foo": "bar",
+  },
+}
+`;
+
+exports[`reducers.ack.ackReducer should reduce receiveMessage 1`] = `
+Immutable.Map {
+  "123": Immutable.Map {
+    "foo": "bar",
+    "received": true,
+  },
+  "456": Immutable.Map {
+    "foo": "bar",
+  },
+}
+`;
+
+exports[`reducers.ackProcessed higher order reducer should reduce addContext 1`] = `
+Object {
+  "ack": Immutable.Map {
+    "123": Immutable.Map {
+      "data": Object {
+        "foo": "bar",
+      },
+      "actionCreator": "my super action creator",
+    },
+  },
+}
+`;
+
+exports[`reducers.ackProcessed higher order reducer should reduce deleteACK 1`] = `
+Object {
+  "ack": Immutable.Map {
+    "456": Immutable.Map {
+      "foo": "bar",
+    },
+  },
+}
+`;
+
+exports[`reducers.ackProcessed higher order reducer should reduce receiveMessage 1`] = `
+Object {
+  "ack": Immutable.Map {
+    "123": Immutable.Map {
+      "foo": "bar",
+      "received": true,
+    },
+    "456": Immutable.Map {
+      "foo": "bar",
+    },
+  },
+}
+`;

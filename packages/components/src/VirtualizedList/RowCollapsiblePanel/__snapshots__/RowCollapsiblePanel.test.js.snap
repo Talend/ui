@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
+<div
+  aria-posinset={2}
+  className="tc-collapsible-row"
+  id="my-list-1"
+  onKeyDown={[Function]}
+  role="listitem"
+  tabIndex="0"
+>
+  <Memo(LoadingCollapsiblePanel)>
+    <div
+      className="theme-loading-collapsible-panel"
+    >
+      <span>
+        <Skeleton
+          size="small"
+          type="circle"
+        >
+          <span
+            aria-label="circle (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
+              }
+            }
+          />
+        </Skeleton>
+        <Skeleton
+          size="xlarge"
+          type="text"
+        >
+          <span
+            aria-label="text (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
+              }
+            }
+          />
+        </Skeleton>
+      </span>
+      <span>
+        <Skeleton
+          size="small"
+          type="circle"
+        >
+          <span
+            aria-label="circle (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
+              }
+            }
+          />
+        </Skeleton>
+        <Skeleton
+          size="medium"
+          type="text"
+        >
+          <span
+            aria-label="text (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
+              }
+            }
+          />
+        </Skeleton>
+      </span>
+      <span>
+        <Skeleton
+          size="small"
+          type="text"
+        >
+          <span
+            aria-label="text (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
+              }
+            }
+          />
+        </Skeleton>
+      </span>
+      <span>
+        <Skeleton
+          size="medium"
+          type="text"
+        >
+          <span
+            aria-label="text (loading)"
+            className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
+              }
+            }
+          />
+        </Skeleton>
+      </span>
+    </div>
+  </Memo(LoadingCollapsiblePanel)>
+</div>
+`;
+
+exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
+<div
+  aria-label="Canceled"
+  aria-posinset={2}
+  className="tc-collapsible-row my-class-names"
+  id="my-list-1"
+  onKeyDown={[Function]}
+  role="listitem"
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+  tabIndex="0"
+>
+  <CollapsiblePanel
+    content={
+      Array [
+        Object {
+          "description": "Description1",
+          "label": "Content1",
+        },
+        Object {
+          "description": "Description2",
+          "label": "Content2",
+        },
+      ]
+    }
+    expanded={true}
+    header={
+      Array [
+        Object {
+          "actions": Array [],
+          "displayMode": "status",
+          "icon": "talend-cross",
+          "label": "Canceled",
+          "status": "canceled",
+        },
+      ]
+    }
+    onEntered={[MockFunction]}
+    onExited={[MockFunction]}
+    onToggle={[Function]}
+  />
+</div>
+`;

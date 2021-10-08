@@ -1,0 +1,34 @@
+.about-dialog {
+	:global(.modal-body) {
+		text-align: center;
+		padding: {
+			top: 1rem;
+			left: 3.2rem;
+			right: 3.2rem;
+		}
+
+		.about {
+			&-logo {
+				width: 6.6rem;
+				height: 6.6rem;
+			}
+
+			&-excerpt {
+				margin-top: 2rem;
+			}
+
+			&-versions {
+				margin: 0 auto;
+				margin-top: 3rem;
+				text-align: justify;
+				table-layout: fixed;
+
+				th,
+				td {
+					padding: $padding-smaller;
+					text-align: left;
+				}
+			}
+		}
+	}
+}

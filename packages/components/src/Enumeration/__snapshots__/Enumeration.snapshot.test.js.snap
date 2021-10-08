@@ -1,0 +1,859 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Enumeration should render Header in add mode 1`] = `
+<header
+  className="theme-tc-enumeration-header tc-enumeration-header"
+>
+  <input
+    aria-describedby="tc-enumeration_add_error"
+    aria-label="Enter new entry name"
+    autoFocus={true}
+    id="tc-enumeration_add"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="New entry"
+    type="text"
+  />
+  <Component
+    hideLabel={true}
+    icon="talend-check"
+    key="0-enum-header-action"
+    label="Validate"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement="bottom"
+  >
+    <div
+      hideLabel={true}
+      icon="talend-check"
+      id="ActionMock"
+      label="Validate"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    />
+  </Component>
+  <Component
+    hideLabel={true}
+    icon="talend-cross"
+    key="1-enum-header-action"
+    label="Abort"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement="bottom"
+  >
+    <div
+      hideLabel={true}
+      icon="talend-cross"
+      id="ActionMock"
+      label="Abort"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    />
+  </Component>
+</header>
+`;
+
+exports[`Enumeration should render Header in add mode with error 1`] = `
+<header
+  className="theme-tc-enumeration-header tc-enumeration-header has-error"
+>
+  <input
+    aria-describedby="tc-enumeration_add_error"
+    aria-label="Enter new entry name"
+    autoFocus={true}
+    id="tc-enumeration_add"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="New entry"
+    type="text"
+  />
+  <div
+    aria-live="assertive"
+    className="theme-tc-enumeration-header-error tc-enumeration-header-error"
+    id="tc-enumeration_add_error"
+  >
+    an error occurred
+  </div>
+  <Component
+    hideLabel={true}
+    icon="talend-check"
+    key="0-enum-header-action"
+    label="Validate"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement="bottom"
+  >
+    <div
+      hideLabel={true}
+      icon="talend-check"
+      id="ActionMock"
+      label="Validate"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    />
+  </Component>
+  <Component
+    hideLabel={true}
+    icon="talend-cross"
+    key="1-enum-header-action"
+    label="Abort"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement="bottom"
+  >
+    <div
+      hideLabel={true}
+      icon="talend-cross"
+      id="ActionMock"
+      label="Abort"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    />
+  </Component>
+</header>
+`;
+
+exports[`Enumeration should render Header in default mode 1`] = `
+<header
+  className="theme-tc-enumeration-header tc-enumeration-header"
+>
+  <span>
+    Values
+  </span>
+  <div
+    className="actions"
+  >
+    <Component
+      btooltipPlacement="bottom"
+      hideLabel={true}
+      icon="talend-plus"
+      id="add"
+      key="0-enum-header-action"
+      label="Add item"
+      link={true}
+      onClick={[Function]}
+    >
+      <div
+        btooltipPlacement="bottom"
+        hideLabel={true}
+        icon="talend-plus"
+        id="add"
+        label="Add item"
+        link={true}
+        onClick={[Function]}
+      />
+    </Component>
+  </div>
+</header>
+`;
+
+exports[`Enumeration should render Header in search mode 1`] = `
+<header
+  className="theme-tc-enumeration-header tc-enumeration-header"
+>
+  <input
+    aria-describedby="tc-enumeration_search_error"
+    aria-label="Enter search term"
+    autoFocus={true}
+    id="tc-enumeration_search"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Search"
+    type="text"
+  />
+</header>
+`;
+
+exports[`Enumeration should render Header in selection mode 1`] = `
+<header
+  className="theme-tc-enumeration-header tc-enumeration-header"
+>
+  <span>
+    2 selected values
+  </span>
+  <Component
+    hideLabel={true}
+    key="0-enum-header-action"
+    label="Selected value"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement="bottom"
+  >
+    <div
+      hideLabel={true}
+      id="ActionMock"
+      label="Selected value"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    />
+  </Component>
+</header>
+`;
+
+exports[`Enumeration should render Header with custom label 1`] = `
+<header
+  className="theme-tc-enumeration-header tc-enumeration-header"
+>
+  <span>
+    Users
+    *
+  </span>
+  <div
+    className="actions"
+  />
+</header>
+`;
+
+exports[`Enumeration should render item in edit mode 1`] = `
+<input
+  aria-describedby="tc-enumeration-0-item-error"
+  aria-label="Enter the new value"
+  autoFocus={true}
+  className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+  id="tc-enumeration-0-item-input"
+  onChange={[Function]}
+  onKeyDown={[Function]}
+  role="gridcell"
+  type="text"
+/>
+`;
+
+exports[`Enumeration should render item in edit mode 2`] = `
+<div
+  className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
+  role="gridcell"
+>
+  <Component
+    disabled={false}
+    hideLabel={true}
+    icon="talend-check"
+    key="0"
+    label="Validate"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement="bottom"
+  >
+    <div
+      disabled={false}
+      hideLabel={true}
+      icon="talend-check"
+      id="ActionMock"
+      label="Validate"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    />
+  </Component>
+  <Component
+    disabled={false}
+    hideLabel={true}
+    icon="talend-cross"
+    key="1"
+    label="Cancel"
+    link={true}
+    onClick={[Function]}
+    tooltipPlacement="bottom"
+  >
+    <div
+      disabled={false}
+      hideLabel={true}
+      icon="talend-cross"
+      id="ActionMock"
+      label="Cancel"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    />
+  </Component>
+</div>
+`;
+
+exports[`Enumeration should render item in edit mode with error 1`] = `
+<div
+  className="theme-tc-enumeration-item tc-enumeration-item theme-has-error has-error"
+  id="tc-enumeration-0-item"
+  role="row"
+  style={
+    Object {
+      "height": 42,
+      "left": 0,
+      "position": "absolute",
+      "top": 0,
+      "width": "100%",
+    }
+  }
+>
+  <input
+    aria-describedby="tc-enumeration-0-item-error"
+    aria-label="Enter the new value"
+    autoFocus={true}
+    className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+    id="tc-enumeration-0-item-input"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    role="gridcell"
+    type="text"
+  />
+  <div
+    className="theme-tc-enumeration-item-actions tc-enumeration-item-actions"
+    role="gridcell"
+  >
+    <Component
+      disabled={true}
+      hideLabel={true}
+      icon="talend-check"
+      key="0"
+      label="Validate"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    >
+      <div
+        disabled={true}
+        hideLabel={true}
+        icon="talend-check"
+        id="ActionMock"
+        label="Validate"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      />
+    </Component>
+    <Component
+      disabled={false}
+      hideLabel={true}
+      icon="talend-cross"
+      key="1"
+      label="Cancel"
+      link={true}
+      onClick={[Function]}
+      tooltipPlacement="bottom"
+    >
+      <div
+        disabled={false}
+        hideLabel={true}
+        icon="talend-cross"
+        id="ActionMock"
+        label="Cancel"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      />
+    </Component>
+  </div>
+  <div
+    aria-live="assertive"
+    className="theme-tc-enumeration-item-error tc-enumeration-item-error"
+    id="tc-enumeration-0-item-error"
+  >
+    an error occured
+  </div>
+</div>
+`;
+
+exports[`Enumeration should render list in default state and required component 1`] = `
+Array [
+  <div
+    className="theme-tc-enumeration-item tc-enumeration-item"
+    id="tc-enumeration-0-item"
+    role="row"
+    style={
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
+    }
+  >
+    <Button
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="0"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
+        aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="gridcell"
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
+    </Button>
+    <div
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
+    >
+      <Component
+        disabled={false}
+        hideLabel={true}
+        icon="talend-pencil"
+        id="edit"
+        key="0"
+        label="Edit"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          disabled={false}
+          hideLabel={true}
+          icon="talend-pencil"
+          id="edit"
+          label="Edit"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+      <Component
+        hideLabel={true}
+        icon="talend-trash"
+        id="delete"
+        key="1"
+        label="Delete"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          hideLabel={true}
+          icon="talend-trash"
+          id="delete"
+          label="Delete"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+    </div>
+  </div>,
+  <div
+    className="theme-tc-enumeration-item tc-enumeration-item"
+    id="tc-enumeration-1-item"
+    role="row"
+    style={
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 42,
+        "width": "100%",
+      }
+    }
+  >
+    <Button
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="1"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
+        aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="gridcell"
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
+    </Button>
+    <div
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
+    >
+      <Component
+        disabled={false}
+        hideLabel={true}
+        icon="talend-pencil"
+        id="edit"
+        key="0"
+        label="Edit"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          disabled={false}
+          hideLabel={true}
+          icon="talend-pencil"
+          id="edit"
+          label="Edit"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+      <Component
+        hideLabel={true}
+        icon="talend-trash"
+        id="delete"
+        key="1"
+        label="Delete"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          hideLabel={true}
+          icon="talend-trash"
+          id="delete"
+          label="Delete"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+    </div>
+  </div>,
+  <div
+    className="theme-tc-enumeration-item tc-enumeration-item"
+    id="tc-enumeration-2-item"
+    role="row"
+    style={
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 84,
+        "width": "100%",
+      }
+    }
+  >
+    <Button
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="2"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
+        aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="gridcell"
+        type="button"
+      >
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
+    </Button>
+    <div
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
+    >
+      <Component
+        disabled={false}
+        hideLabel={true}
+        icon="talend-pencil"
+        id="edit"
+        key="0"
+        label="Edit"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          disabled={false}
+          hideLabel={true}
+          icon="talend-pencil"
+          id="edit"
+          label="Edit"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+      <Component
+        hideLabel={true}
+        icon="talend-trash"
+        id="delete"
+        key="1"
+        label="Delete"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="bottom"
+      >
+        <div
+          hideLabel={true}
+          icon="talend-trash"
+          id="delete"
+          label="Delete"
+          link={true}
+          onClick={[Function]}
+          tooltipPlacement="bottom"
+        />
+      </Component>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Enumeration should render selected mode with checkboxes 1`] = `
+Array [
+  <div
+    className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
+    id="tc-enumeration-0-item"
+    role="row"
+    style={
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
+    }
+  >
+    <Button
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="0"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
+        aria-label="Select item \\"Lorem ipsum dolor sit amet 0\\""
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="gridcell"
+        type="button"
+      >
+        <Checkbox
+          aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
+          checked={true}
+          className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+        >
+          <div
+            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          >
+            <label>
+              <input
+                aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
+                checked={true}
+                data-checked={2}
+                type="checkbox"
+              />
+              <span />
+            </label>
+          </div>
+        </Checkbox>
+        <span>
+          Lorem ipsum dolor sit amet 0
+        </span>
+      </button>
+    </Button>
+    <div
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
+    />
+  </div>,
+  <div
+    className="theme-tc-enumeration-item theme-selected-item tc-enumeration-item selected-item"
+    id="tc-enumeration-1-item"
+    role="row"
+    style={
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 42,
+        "width": "100%",
+      }
+    }
+  >
+    <Button
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="1"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
+        aria-label="Select item \\"Lorem ipsum dolor sit amet 1\\""
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="gridcell"
+        type="button"
+      >
+        <Checkbox
+          aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
+          checked={true}
+          className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+        >
+          <div
+            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          >
+            <label>
+              <input
+                aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
+                checked={true}
+                data-checked={2}
+                type="checkbox"
+              />
+              <span />
+            </label>
+          </div>
+        </Checkbox>
+        <span>
+          Lorem ipsum dolor sit amet 1
+        </span>
+      </button>
+    </Button>
+    <div
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
+    />
+  </div>,
+  <div
+    className="theme-tc-enumeration-item tc-enumeration-item"
+    id="tc-enumeration-2-item"
+    role="row"
+    style={
+      Object {
+        "height": 42,
+        "left": 0,
+        "position": "absolute",
+        "top": 84,
+        "width": "100%",
+      }
+    }
+  >
+    <Button
+      active={false}
+      aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="theme-tc-enumeration-item-label tc-enumeration-item-label"
+      disabled={false}
+      key="2"
+      onClick={[Function]}
+      role="gridcell"
+    >
+      <button
+        aria-label="Select item \\"Lorem ipsum dolor sit amet 2\\""
+        className="theme-tc-enumeration-item-label tc-enumeration-item-label btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        role="gridcell"
+        type="button"
+      >
+        <Checkbox
+          aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+          className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+        >
+          <div
+            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          >
+            <label>
+              <input
+                aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+                data-checked={0}
+                type="checkbox"
+              />
+              <span />
+            </label>
+          </div>
+        </Checkbox>
+        <span>
+          Lorem ipsum dolor sit amet 2
+        </span>
+      </button>
+    </Button>
+    <div
+      className="theme-tc-enumeration-item-actions tc-enumeration-item-actions theme-editable"
+      role="gridcell"
+    />
+  </div>,
+]
+`;
+
+exports[`Enumeration should render with EmptyListPlaceholder in default mode when there's no items in list 1`] = `
+<ItemsEnumeration
+  displayMode="DISPLAY_MODE_DEFAULT"
+  headerDefault={Array []}
+  headerInput={Array []}
+  id="tc-enumeration"
+  items={Array []}
+  t={[Function]}
+>
+  <EmptyListPlaceholder
+    displayMode="DISPLAY_MODE_DEFAULT"
+    t={[Function]}
+  >
+    <p
+      className="theme-tc-enumeration-hint tc-enumeration-hint"
+    >
+      The list is empty
+    </p>
+  </EmptyListPlaceholder>
+</ItemsEnumeration>
+`;
+
+exports[`Enumeration should render with EmptyListPlaceholder in search mode when there's no items in list 1`] = `
+<ItemsEnumeration
+  displayMode="DISPLAY_MODE_SEARCH"
+  headerDefault={Array []}
+  headerInput={Array []}
+  id="tc-enumeration"
+  items={Array []}
+  t={[Function]}
+>
+  <EmptyListPlaceholder
+    displayMode="DISPLAY_MODE_SEARCH"
+    t={[Function]}
+  >
+    <p
+      className="theme-tc-enumeration-hint tc-enumeration-hint"
+    >
+      No results
+    </p>
+  </EmptyListPlaceholder>
+</ItemsEnumeration>
+`;

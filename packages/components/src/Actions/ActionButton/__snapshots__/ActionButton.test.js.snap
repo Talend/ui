@@ -1,0 +1,366 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Action should NOT render tooltip when tooltip property is set to false 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className=""
+  data-feature="action.feature"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should NOT render tooltip when tooltip property is set to false with hideLabel property 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="btn-icon-only"
+  data-feature="action.feature"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+  />
+</Button>
+`;
+
+exports[`Action should apply transformation on icon 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className=""
+  data-feature="action.feature"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+    transform="rotate-180"
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should display a Progress indicator if set 1`] = `
+<Button
+  active={false}
+  aria-label="Click me (in progress)"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="navbar-btn theme-btn-disabled"
+  data-feature="action.feature"
+  disabled={true}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <withI18nextTranslation(CircularProgress)
+    size="small"
+    t={[Function]}
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should display a disabled Icon 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="navbar-btn theme-btn-disabled"
+  data-feature="action.feature"
+  disabled={true}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should pass all props to the Button 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="navbar-btn"
+  data-feature="action.feature"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should render a button 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className=""
+  data-feature="action.feature"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should render a button with a overlay component 1`] = `
+<OverlayTrigger
+  onClick={[Function]}
+  overlayComponent={[Function]}
+  overlayId="myOverlayId"
+  overlayPlacement="bottom"
+  preventScrolling={false}
+  trigger="click"
+>
+  <Button
+    active={false}
+    aria-haspopup={true}
+    aria-label="Click me"
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className=""
+    data-feature="action.feature"
+    disabled={false}
+    onClick={null}
+    onMouseDown={null}
+    onMouseEnter={null}
+    onMouseLeave={null}
+    role={null}
+    title="Title to describe click me button"
+  >
+    <Icon
+      name="talend-caret-down"
+    />
+    <span>
+      Click me
+    </span>
+  </Button>
+</OverlayTrigger>
+`;
+
+exports[`Action should render a button with loading state 1`] = `
+<Skeleton
+  type="button"
+/>
+`;
+
+exports[`Action should render a button without an overlay component if inProgress is true 1`] = `
+<Button
+  active={false}
+  aria-label="Click me (in progress)"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className="theme-btn-disabled"
+  data-feature="action.feature"
+  disabled={true}
+  onClick={null}
+  onMouseDown={null}
+  onMouseEnter={null}
+  onMouseLeave={null}
+  role={null}
+  title="Title to describe click me button"
+>
+  <withI18nextTranslation(CircularProgress)
+    size="small"
+    t={[Function]}
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should render a link button with loading state 1`] = `
+<Button
+  active={false}
+  aria-label=" (loading)"
+  block={false}
+  bsClass="btn"
+  bsStyle="link"
+  className="btn-icon-only"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role="link"
+>
+  <Skeleton
+    className="theme-tc-action-button-skeleton-circle tc-action-button-skeleton-circle"
+    size="small"
+    type="circle"
+  />
+  <Skeleton
+    size="medium"
+    type="text"
+  />
+</Button>
+`;
+
+exports[`Action should render action with html property name = props.name if set 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className=""
+  data-feature="action.feature"
+  disabled={false}
+  name="custom_name"
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <Icon
+    name="talend-caret-down"
+  />
+  <span>
+    Click me
+  </span>
+</Button>
+`;
+
+exports[`Action should render tooltip when hideLabel property is set 1`] = `
+<TooltipTrigger
+  label="Click me"
+  tooltipPlacement="top"
+>
+  <Button
+    active={false}
+    aria-label="Click me"
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className="btn-icon-only"
+    data-feature="action.feature"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
+    title="Title to describe click me button"
+  >
+    <Icon
+      name="talend-caret-down"
+    />
+  </Button>
+</TooltipTrigger>
+`;
+
+exports[`Action should render tooltip when tooltip property is set 1`] = `
+<TooltipTrigger
+  label="Click me"
+  tooltipPlacement="top"
+>
+  <Button
+    active={false}
+    aria-label="Click me"
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    className=""
+    data-feature="action.feature"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    role={null}
+    title="Title to describe click me button"
+  >
+    <Icon
+      name="talend-caret-down"
+    />
+    <span>
+      Click me
+    </span>
+  </Button>
+</TooltipTrigger>
+`;
+
+exports[`Action should reverse icon/label 1`] = `
+<Button
+  active={false}
+  aria-label="Click me"
+  block={false}
+  bsClass="btn"
+  bsStyle="default"
+  className=""
+  data-feature="action.feature"
+  disabled={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+  role={null}
+  title="Title to describe click me button"
+>
+  <span>
+    Click me
+  </span>
+  <Icon
+    name="talend-caret-down"
+  />
+</Button>
+`;

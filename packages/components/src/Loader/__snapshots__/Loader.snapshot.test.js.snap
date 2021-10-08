@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader should render a default loader 1`] = `
+<div
+  className="tc-loader theme-tc-loader"
+>
+  <svg
+    aria-busy="true"
+    aria-label="Loading "
+    className="tc-circular-progress theme-loader theme-animate theme-default"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="theme-path"
+      cx={25}
+      cy={25}
+      fill="none"
+      r={20}
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      }
+    />
+  </svg>
+</div>
+`;
+
+exports[`Loader should render a default loader if size is not specified 1`] = `
+<div
+  className="tc-loader theme-tc-loader"
+>
+  <svg
+    aria-busy="true"
+    aria-label="Loading "
+    className="tc-circular-progress theme-loader theme-animate theme-default"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="theme-path"
+      cx={25}
+      cy={25}
+      fill="none"
+      r={20}
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      }
+    />
+  </svg>
+</div>
+`;
+
+exports[`Loader should render a large loader 1`] = `
+<div
+  className="tc-loader theme-tc-loader"
+>
+  <svg
+    aria-busy="true"
+    aria-label="Loading "
+    className="tc-circular-progress theme-loader theme-animate theme-large"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="theme-path"
+      cx={25}
+      cy={25}
+      fill="none"
+      r={20}
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      }
+    />
+  </svg>
+</div>
+`;
+
+exports[`Loader should render a small loader 1`] = `
+<div
+  className="tc-loader theme-tc-loader"
+>
+  <svg
+    aria-busy="true"
+    aria-label="Loading "
+    className="tc-circular-progress theme-loader theme-animate theme-small"
+    focusable="false"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="theme-path"
+      cx={25}
+      cy={25}
+      fill="none"
+      r={20}
+      style={
+        Object {
+          "strokeDasharray": 12.566370614359172,
+          "strokeDashoffset": 0,
+        }
+      }
+    />
+  </svg>
+</div>
+`;

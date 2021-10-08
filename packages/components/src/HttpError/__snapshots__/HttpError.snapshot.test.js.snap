@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HttpError should render a forbidden http error message 1`] = `
+<div
+  className="theme-http-error http-error"
+  data-status={403}
+>
+  <div
+    className="theme-http-error-content http-error-content http-error-403"
+  >
+    <h1>
+      Access denied
+    </h1>
+    <p>
+      You are not allowed to access this page
+    </p>
+  </div>
+</div>
+`;
+
+exports[`HttpError should render a notFound http error page with action 1`] = `
+<div
+  className="theme-http-error http-error"
+  data-status={404}
+>
+  <div
+    className="theme-http-error-content http-error-content http-error-404"
+  >
+    <h1>
+      Oops...
+    </h1>
+    <p>
+      The page you are looking for cannot be found
+    </p>
+    <button
+      aria-label="Start over"
+      className="btn btn-link"
+      disabled={false}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      role="link"
+      type="button"
+    >
+      <Coral.Icon
+        name="talend-arrow-left"
+      />
+      <span>
+        Start over
+      </span>
+    </button>
+  </div>
+</div>
+`;

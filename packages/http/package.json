@@ -1,0 +1,57 @@
+{
+  "name": "@talend/http",
+  "version": "1.1.5",
+  "description": "HTTP helper",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui"
+  },
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Talend <frontend@talend.com>",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.ts",
+  "scripts": {
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
+    "start": "echo nothing to start",
+    "test": "talend-scripts test",
+    "test:demo": "echo nothing to do",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "enzyme": "^3.11.0",
+    "fetch-mock": "^9.11.0",
+    "node-fetch": "^2.6.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/__snapshots__/**"
+    ],
+    "roots": [
+      "src",
+      "scripts",
+      "__tests__"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../test-setup.js"
+    ]
+  },
+  "files": [
+    "/lib",
+    "/src"
+  ]
+}

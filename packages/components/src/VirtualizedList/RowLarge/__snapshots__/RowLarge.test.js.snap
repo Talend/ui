@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowLarge should render large row 1`] = `
+<withI18nextTranslation(VirtualizedList(RowLarge))
+  className="my-class-names"
+  index={1}
+  onKeyDown={[Function]}
+  parent={
+    Object {
+      "props": Object {
+        "children": Array [
+          <Content
+            cellDataGetter={[Function]}
+            cellRenderer={[Function]}
+            dataKey="id"
+            defaultSortDirection="ASC"
+            flexGrow={0}
+            flexShrink={0}
+            headerRenderer={[Function]}
+            label="Id"
+            style={Object {}}
+            width={50}
+          />,
+          <Content
+            cellDataGetter={[Function]}
+            cellRenderer={[Function]}
+            cellType="title"
+            className="tc-list-title-cell"
+            columnData={
+              Object {
+                "actionsKey": "titleActions",
+                "displayModeKey": "display",
+                "iconKey": "icon",
+              }
+            }
+            dataKey="name"
+            defaultSortDirection="ASC"
+            flexGrow={0}
+            flexShrink={0}
+            headerRenderer={[Function]}
+            label="Name"
+            style={Object {}}
+            width={350}
+          />,
+          <Content
+            cellDataGetter={[Function]}
+            cellRenderer={[Function]}
+            dataKey="name"
+            defaultSortDirection="ASC"
+            flexGrow={0}
+            flexShrink={0}
+            headerRenderer={[Function]}
+            label="Description"
+            style={Object {}}
+            width={350}
+          />,
+        ],
+        "collection": Array [
+          Object {
+            "description": "This comes from first element in collection",
+            "id": 0,
+            "name": "Title from first item",
+            "titleActions": Array [
+              Object {
+                "icon": "talend-pencil",
+                "label": "edit",
+                "onClick": [MockFunction],
+              },
+              Object {
+                "icon": "talend-trash",
+                "label": "delete",
+                "onClick": [MockFunction],
+              },
+            ],
+          },
+          Object {
+            "description": "This comes from second element in collection",
+            "id": 1,
+            "name": "Title from second item",
+            "titleActions": Array [
+              Object {
+                "icon": "talend-pencil",
+                "label": "edit",
+                "onClick": [MockFunction],
+              },
+              Object {
+                "icon": "talend-trash",
+                "label": "delete",
+                "onClick": [MockFunction],
+              },
+            ],
+          },
+        ],
+        "id": "my-list",
+        "rowGetter": [Function],
+      },
+    }
+  }
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+  t={[Function]}
+/>
+`;

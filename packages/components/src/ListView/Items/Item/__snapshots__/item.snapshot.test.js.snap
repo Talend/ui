@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item should display a selected item 1`] = `
+<div
+  aria-selected={true}
+  className="checkbox"
+  data-test="item"
+  id="0-item"
+  role="option"
+>
+  <div
+    className="checkbox tc-toggle theme-tc-toggle checkbox"
+  >
+    <label
+      htmlFor="checkbox-0-item"
+    >
+      <input
+        aria-label="Deselect toto"
+        checked={true}
+        data-checked={2}
+        data-test="item.checkbox"
+        id="checkbox-0-item"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span>
+        toto
+      </span>
+    </label>
+  </div>
+</div>
+`;

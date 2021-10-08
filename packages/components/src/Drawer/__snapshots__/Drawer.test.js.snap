@@ -1,0 +1,465 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer render drawer content with extra className 1`] = `
+<div
+  className="tc-drawer-content theme-tc-drawer-content extraClass theme-extraClass"
+>
+  <div
+    className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+  >
+    <h1>
+      Hello world
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Drawer render drawer content without extra className 1`] = `
+<div
+  className="tc-drawer-content theme-tc-drawer-content"
+>
+  <div
+    className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+  >
+    <h1>
+      Hello world
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Drawer should not render if no children 1`] = `null`;
+
+exports[`Drawer should render 1`] = `
+<div
+  className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
+>
+  <div
+    className="tc-drawer-container theme-tc-drawer-container"
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer should render stacked 1`] = `
+<div
+  className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition theme-drawer-stacked theme-theme-drawer-stacked stacked theme-stacked"
+>
+  <div
+    className="tc-drawer-container theme-tc-drawer-container"
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer should render using custom className 1`] = `
+<div
+  className="my-custom-drawer theme-my-custom-drawer tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
+>
+  <div
+    className="tc-drawer-container theme-tc-drawer-container"
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer should render using custom styles 1`] = `
+<div
+  className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
+  style={
+    Object {
+      "top": 45,
+    }
+  }
+>
+  <div
+    className="tc-drawer-container theme-tc-drawer-container"
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer should render with tabs 1`] = `
+<div
+  className="tc-drawer theme-tc-drawer tc-drawer-transition theme-tc-drawer-transition"
+>
+  <div
+    className="tc-drawer-container theme-tc-drawer-container"
+  >
+    <div
+      className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
+    >
+      <div
+        className="tc-drawer-tabs theme-tc-drawer-tabs"
+        id="my-tabs"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="theme-tc-tab-bar-menu tc-tab-bar-menu"
+        >
+          <ul
+            className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
+            role="tablist"
+          >
+            <li
+              className="theme-tc-tab-bar-item tc-tab-bar-item"
+              role="presentation"
+            >
+              <button
+                aria-controls="my-tabs-pane-1"
+                aria-selected={false}
+                href="#"
+                id="my-tabs-tab-1"
+                label="Tab 1"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="tab"
+                tabIndex={-1}
+              >
+                <span
+                  aria-describedby="42"
+                  className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                >
+                  <span
+                    className="theme-tc-tab-bar-item-label"
+                  >
+                    Tab 1
+                  </span>
+                </span>
+              </button>
+            </li>
+            <li
+              className="theme-tc-tab-bar-item tc-tab-bar-item active"
+              role="presentation"
+            >
+              <button
+                aria-controls="my-tabs-pane-2"
+                aria-selected={true}
+                href="#"
+                id="my-tabs-tab-2"
+                label="Tab 2"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="tab"
+              >
+                <span
+                  aria-describedby="42"
+                  className="theme-tc-tab-bar-item-container tc-tab-bar-item-container"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                >
+                  <span
+                    className="theme-tc-tab-bar-item-label"
+                  >
+                    Tab 2
+                  </span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer should render with tabs specific actions by tab with selectedTabKey 1`] = `
+<ActionBar
+  actions={
+    Object {
+      "center": Array [
+        Object {
+          "id": "view-center-tab-2",
+          "key": "view-center-tab-2",
+          "label": "ActionCenter-tab-2",
+        },
+      ],
+      "left": Array [],
+      "right": Array [],
+    }
+  }
+  className="tc-drawer-actionbar theme-tc-drawer-actionbar"
+  components={Object {}}
+>
+  <div
+    className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+  >
+    <SwitchActions
+      actions={Array []}
+      key="0"
+      left={true}
+    />
+    <SwitchActions
+      actions={
+        Array [
+          Object {
+            "id": "view-center-tab-2",
+            "key": "view-center-tab-2",
+            "label": "ActionCenter-tab-2",
+          },
+        ]
+      }
+      center={true}
+      key="1"
+    >
+      <Content
+        center={true}
+      >
+        <div
+          className="theme-navbar-center"
+        >
+          <Action
+            id="view-center-tab-2"
+            key="view-center-tab-2"
+            label="ActionCenter-tab-2"
+          >
+            <withI18nextTranslation(ActionButton)
+              available={true}
+              bsStyle="default"
+              disabled={false}
+              id="view-center-tab-2"
+              inProgress={false}
+              label="ActionCenter-tab-2"
+              loading={false}
+              t={[Function]}
+              tooltipPlacement="top"
+            >
+              <Button
+                active={false}
+                aria-label="ActionCenter-tab-2"
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                className=""
+                disabled={false}
+                id="view-center-tab-2"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+              >
+                <button
+                  aria-label="ActionCenter-tab-2"
+                  className="btn btn-default"
+                  disabled={false}
+                  id="view-center-tab-2"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
+                  type="button"
+                >
+                  <span
+                    key="label"
+                  >
+                    ActionCenter-tab-2
+                  </span>
+                </button>
+              </Button>
+            </withI18nextTranslation(ActionButton)>
+          </Action>
+        </div>
+      </Content>
+    </SwitchActions>
+    <SwitchActions
+      actions={Array []}
+      key="2"
+      right={true}
+    />
+  </div>
+</ActionBar>
+`;
+
+exports[`Drawer should render without tc-drawer-transition class 1`] = `
+<div
+  className="tc-drawer theme-tc-drawer"
+>
+  <div
+    className="tc-drawer-container theme-tc-drawer-container"
+  >
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <div
+        className="tc-drawer-content theme-tc-drawer-content"
+      >
+        <div
+          className="tc-drawer-content-wrapper theme-tc-drawer-content-wrapper"
+        >
+          <h1>
+            Hello world
+          </h1>
+        </div>
+      </div>
+      <div
+        className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
+      >
+        <div
+          className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputDateTimePicker should render 1`] = `
+<InputDateTimePicker
+  dateFormat="YYYY-MM-DD"
+  formMode={false}
+  hybridMode={false}
+  id="my-picker"
+  required={true}
+  selectedDateTime={2017-04-04T13:27:00.000Z}
+  useSeconds={true}
+  useTime={true}
+  useUTC={false}
+>
+  <DateTime.Manager
+    dateFormat="YYYY-MM-DD"
+    formMode={false}
+    hybridMode={false}
+    id="my-picker"
+    onChange={[Function]}
+    required={true}
+    selectedDateTime={2017-04-04T13:27:00.000Z}
+    useSeconds={true}
+    useTime={true}
+    useUTC={false}
+  >
+    <FocusManager
+      divRef={
+        Object {
+          "current": <div
+            tabindex="-1"
+          >
+            <div
+              class="InputMock"
+            />
+          </div>,
+        }
+      }
+      onClick={[Function]}
+      onFocusIn={[Function]}
+      onFocusOut={[Function]}
+      onKeyDown={[Function]}
+    >
+      <div
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={-1}
+      >
+        <Component
+          id="my-picker-input"
+          inputRef={[Function]}
+          key="input"
+        >
+          <Mock
+            className="InputMock"
+            id="my-picker-input"
+            inputRef={[Function]}
+          >
+            <div
+              className="InputMock"
+            />
+          </Mock>
+        </Component>
+      </div>
+    </FocusManager>
+  </DateTime.Manager>
+</InputDateTimePicker>
+`;

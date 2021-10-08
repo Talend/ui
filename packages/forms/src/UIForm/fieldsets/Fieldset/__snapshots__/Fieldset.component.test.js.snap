@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fieldset widget should render fieldset 1`] = `
+<fieldset
+  className="form-group"
+>
+  <legend
+    className=""
+  >
+    My fieldset
+  </legend>
+  <Widget
+    schema={
+      Object {
+        "key": Array [
+          "user",
+          "firstname",
+        ],
+        "schema": Object {
+          "type": "string",
+        },
+        "type": "text",
+      }
+    }
+    widgets={Object {}}
+  />
+  <Widget
+    schema={
+      Object {
+        "key": Array [
+          "user",
+          "lastname",
+        ],
+        "schema": Object {
+          "type": "string",
+        },
+        "type": "text",
+      }
+    }
+    widgets={Object {}}
+  />
+</fieldset>
+`;

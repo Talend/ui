@@ -1,0 +1,53 @@
+// SelectSortBy styles
+
+$tc-list-toolbar-display-color: $dove-gray !default;
+$tc-order-chooser-icon-size: 0.6rem !default;
+
+.tc-sort-by {
+	display: flex;
+	align-items: center;
+	:global(.navbar-text) {
+		margin: 0;
+	}
+	&-label {
+		margin: 0;
+		font-weight: normal;
+		color: $dove-gray;
+	}
+
+	:global(.navbar-btn.btn) {
+		color: $tc-list-toolbar-display-color;
+		font-size: 1em;
+		margin: 0;
+	}
+
+	&-order-chooser[type='button'] {
+		display: flex;
+		align-items: center;
+		padding: 0;
+		&:hover,
+		&:focus,
+		&:active {
+			color: $black;
+			box-shadow: none;
+		}
+
+		:global(.tc-svg-icon.tc-sort-by-order-chooser-indicator) {
+			width: $tc-order-chooser-icon-size;
+			height: $tc-order-chooser-icon-size;
+		}
+	}
+
+	:global(.nav.navbar-nav) {
+		display: flex;
+		align-items: center;
+	}
+	&-items > a[role='button'] {
+		display: inline-block;
+		text-transform: lowercase;
+		white-space: nowrap;
+		&::first-letter {
+			text-transform: uppercase;
+		}
+	}
+}

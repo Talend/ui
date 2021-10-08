@@ -1,0 +1,9 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+.inProgress {
+	@include heartbeat(object-blink);
+}
+
+:global(.form-group.required .control-label):after {
+	content: '*';
+}

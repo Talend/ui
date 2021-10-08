@@ -1,0 +1,9 @@
+input[type='file'] {
+	&.action-file-input:focus + label {
+		@include tab-focus;
+	}
+}
+
+.btn-file-disabled {
+	cursor: not-allowed;
+}

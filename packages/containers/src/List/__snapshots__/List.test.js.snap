@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connected List should map items to props from collection List 1`] = `
+Object {
+  "items": Immutable.List [
+    Immutable.Map {
+      "id": 3,
+      "name": "Super long title to trigger overflow on some rendering",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT with super long name",
+    },
+    Immutable.Map {
+      "id": 2,
+      "name": "Title in input mode",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT",
+      "icon": "fa fa-file-pdf-o",
+      "display": "input",
+      "className": "item-1-class",
+    },
+    Immutable.Map {
+      "id": 1,
+      "name": "Title with actions",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT",
+      "icon": "fa fa-file-excel-o",
+      "display": "text",
+      "className": "item-0-class",
+    },
+  ],
+}
+`;
+
+exports[`Connected List should map items to props from collection Map 1`] = `
+Object {
+  "items": Immutable.List [
+    Immutable.Map {
+      "id": 3,
+      "name": "Super long title to trigger overflow on some rendering",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT with super long name",
+    },
+    Immutable.Map {
+      "id": 2,
+      "name": "Title in input mode",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT",
+      "icon": "fa fa-file-pdf-o",
+      "display": "input",
+      "className": "item-1-class",
+    },
+    Immutable.Map {
+      "id": 1,
+      "name": "Title with actions",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT",
+      "icon": "fa fa-file-excel-o",
+      "display": "text",
+      "className": "item-0-class",
+    },
+  ],
+}
+`;
+
+exports[`Connected List should map items to props from default collection List 1`] = `
+Object {
+  "items": Immutable.List [
+    Immutable.Map {
+      "id": 3,
+      "name": "Super long title to trigger overflow on some rendering",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT with super long name",
+    },
+    Immutable.Map {
+      "id": 2,
+      "name": "Title in input mode",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT",
+      "icon": "fa fa-file-pdf-o",
+      "display": "input",
+      "className": "item-1-class",
+    },
+    Immutable.Map {
+      "id": 1,
+      "name": "Title with actions",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT",
+      "icon": "fa fa-file-excel-o",
+      "display": "text",
+      "className": "item-0-class",
+    },
+  ],
+}
+`;
+
+exports[`Container List should put default props 1`] = `
+Object {
+  "actions": Object {
+    "editCancel": "object:edit:cancel",
+    "editSubmit": "object:edit:submit",
+    "title": "object:open",
+  },
+  "displayMode": "table",
+  "items": Immutable.List [
+    Immutable.Map {
+      "id": 1,
+      "name": "Title with actions",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT",
+      "icon": "fa fa-file-excel-o",
+      "display": "text",
+      "className": "item-0-class",
+    },
+    Immutable.Map {
+      "id": 2,
+      "name": "Title in input mode",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT",
+      "icon": "fa fa-file-pdf-o",
+      "display": "input",
+      "className": "item-1-class",
+    },
+    Immutable.Map {
+      "id": 3,
+      "name": "Super long title to trigger overflow on some rendering",
+      "created": "2016-09-22",
+      "modified": "2016-09-22",
+      "author": "Jean-Pierre DUPONT with super long name",
+    },
+  ],
+  "list": Object {
+    "cellDictionary": Object {
+      "title": Object {
+        "cellRenderer": [Function],
+        "cellType": "title",
+        "className": "tc-list-title-cell",
+      },
+    },
+    "columns": Array [
+      Object {
+        "key": "id",
+        "label": "Id",
+      },
+      Object {
+        "key": "name",
+        "label": "Name",
+      },
+      Object {
+        "key": "author",
+        "label": "Author",
+      },
+      Object {
+        "key": "created",
+        "label": "Created",
+      },
+      Object {
+        "key": "modified",
+        "label": "Modified",
+      },
+    ],
+    "id": "list",
+    "itemProps": Object {},
+    "items": Array [
+      Object {
+        "actions": Array [],
+        "author": "Jean-Pierre DUPONT",
+        "className": "item-0-class",
+        "created": "2016-09-22",
+        "display": "text",
+        "icon": "fa fa-file-excel-o",
+        "id": 1,
+        "modified": "2016-09-22",
+        "name": "Title with actions",
+        "persistentActions": Array [],
+      },
+      Object {
+        "actions": Array [],
+        "author": "Jean-Pierre DUPONT",
+        "className": "item-1-class",
+        "created": "2016-09-22",
+        "display": "input",
+        "icon": "fa fa-file-pdf-o",
+        "id": 2,
+        "modified": "2016-09-22",
+        "name": "Title in input mode",
+        "persistentActions": Array [],
+      },
+      Object {
+        "actions": Array [],
+        "author": "Jean-Pierre DUPONT with super long name",
+        "created": "2016-09-22",
+        "id": 3,
+        "modified": "2016-09-22",
+        "name": "Super long title to trigger overflow on some rendering",
+        "persistentActions": Array [],
+      },
+    ],
+    "sort": Object {
+      "field": "name",
+      "isDescending": false,
+      "onChange": [Function],
+    },
+    "titleProps": Object {
+      "key": "label",
+      "onClick": [Function],
+      "onEditCancel": [Function],
+      "onEditSubmit": [Function],
+    },
+  },
+  "toolbar": Object {
+    "actionBar": Object {
+      "actions": Object {},
+      "multiSelectActions": Object {},
+    },
+    "display": Object {
+      "displayModes": Array [
+        "large",
+        "table",
+      ],
+      "onChange": [Function],
+    },
+    "filter": Object {
+      "docked": true,
+      "onFilter": [Function],
+      "onToggle": [Function],
+      "placeholder": "find an object",
+      "value": "",
+    },
+    "pagination": Object {
+      "itemsPerPage": 10,
+      "onChange": [Function],
+      "startIndex": 1,
+      "totalResults": 0,
+    },
+    "sort": Object {
+      "field": "name",
+      "isDescending": false,
+      "onChange": [Function],
+      "options": Array [
+        Object {
+          "id": "id",
+          "name": "Id",
+        },
+        Object {
+          "id": "name",
+          "name": "Name",
+        },
+      ],
+    },
+  },
+}
+`;

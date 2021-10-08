@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Columns widget should render columns 1`] = `
+<div
+  className="tf-columns theme-tf-columns"
+>
+  <legend>
+    My awesome columns
+  </legend>
+  <div
+    className="tf-columns-items theme-items"
+  >
+    <Widget
+      schema={
+        Object {
+          "items": Array [
+            Object {
+              "description": "Hint: this is the last name",
+              "key": Array [
+                "lastname",
+              ],
+              "ngModelOptions": Object {},
+              "schema": Object {
+                "type": "string",
+              },
+              "title": "Last Name (with description)",
+              "type": "text",
+            },
+            Object {
+              "key": Array [
+                "firstname",
+              ],
+              "ngModelOptions": Object {},
+              "placeholder": "Enter your firstname here",
+              "required": true,
+              "schema": Object {
+                "type": "string",
+              },
+              "title": "First Name (with placeholder)",
+              "type": "text",
+            },
+            Object {
+              "key": Array [
+                "age",
+              ],
+              "ngModelOptions": Object {},
+              "schema": Object {
+                "type": "number",
+              },
+              "title": "Age",
+              "type": "number",
+            },
+          ],
+          "title": "User Fieldset",
+          "widget": "fieldset",
+        }
+      }
+      widgets={Object {}}
+    />
+    <Widget
+      schema={
+        Object {
+          "description": "This one is a column composed by a single input",
+          "key": Array [
+            "singleInput",
+          ],
+          "ngModelOptions": Object {},
+          "schema": Object {
+            "type": "string",
+          },
+          "title": "singleInput",
+          "type": "text",
+        }
+      }
+      widgets={Object {}}
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,863 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker should render a DatePicker 1`] = `
+<CalendarGesture(DatePicker)
+  calendar={
+    Object {
+      "monthIndex": 5,
+      "year": 2018,
+    }
+  }
+  goToNextMonth={[MockFunction]}
+  goToPreviousMonth={[MockFunction]}
+  isDisabledChecker={[Function]}
+  onSelect={[MockFunction]}
+  selectedDate={2018-06-11T22:00:00.000Z}
+>
+  <div>
+    <DatePicker
+      calendar={
+        Object {
+          "monthIndex": 5,
+          "year": 2018,
+        }
+      }
+      goToNextMonth={[MockFunction]}
+      goToPreviousMonth={[MockFunction]}
+      isDisabledChecker={[Function]}
+      onKeyDown={[Function]}
+      onSelect={[MockFunction]}
+      selectedDate={2018-06-11T22:00:00.000Z}
+      t={[Function]}
+    >
+      <table
+        className="theme-container"
+      >
+        <caption
+          className="sr-only"
+        >
+          June 2018
+        </caption>
+        <thead>
+          <tr
+            className="theme-calendar-header"
+          >
+            <th
+              key="0"
+              scope="col"
+            >
+              <abbr
+                key="0"
+                title="Monday"
+              >
+                M
+              </abbr>
+            </th>
+            <th
+              key="1"
+              scope="col"
+            >
+              <abbr
+                key="1"
+                title="Tuesday"
+              >
+                T
+              </abbr>
+            </th>
+            <th
+              key="2"
+              scope="col"
+            >
+              <abbr
+                key="2"
+                title="Wednesday"
+              >
+                W
+              </abbr>
+            </th>
+            <th
+              key="3"
+              scope="col"
+            >
+              <abbr
+                key="3"
+                title="Thursday"
+              >
+                T
+              </abbr>
+            </th>
+            <th
+              key="4"
+              scope="col"
+            >
+              <abbr
+                key="4"
+                title="Friday"
+              >
+                F
+              </abbr>
+            </th>
+            <th
+              key="5"
+              scope="col"
+            >
+              <abbr
+                key="5"
+                title="Saturday"
+              >
+                S
+              </abbr>
+            </th>
+            <th
+              key="6"
+              scope="col"
+            >
+              <abbr
+                key="6"
+                title="Sunday"
+              >
+                S
+              </abbr>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            className="theme-calendar-row tc-date-picker-calendar-row"
+            key="0"
+          >
+            <td
+              className="theme-calendar-col"
+              key="0"
+            >
+              <button
+                aria-label="Monday 28 May 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                28
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="1"
+            >
+              <button
+                aria-label="Tuesday 29 May 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                29
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="2"
+            >
+              <button
+                aria-label="Wednesday 30 May 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                30
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="3"
+            >
+              <button
+                aria-label="Thursday 31 May 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                31
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="4"
+            >
+              <button
+                aria-label="Friday 01 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={1}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                1
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="5"
+            >
+              <button
+                aria-label="Saturday 02 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={2}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                2
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="6"
+            >
+              <button
+                aria-label="Sunday 03 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={3}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                3
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row tc-date-picker-calendar-row"
+            key="1"
+          >
+            <td
+              className="theme-calendar-col"
+              key="0"
+            >
+              <button
+                aria-label="Monday 04 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={4}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                4
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="1"
+            >
+              <button
+                aria-label="Tuesday 05 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={5}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                5
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="2"
+            >
+              <button
+                aria-label="Wednesday 06 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={6}
+                disabled={true}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                6
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="3"
+            >
+              <button
+                aria-label="Thursday 07 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={7}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                7
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="4"
+            >
+              <button
+                aria-label="Friday 08 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={8}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                8
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="5"
+            >
+              <button
+                aria-label="Saturday 09 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={9}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                9
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="6"
+            >
+              <button
+                aria-label="Sunday 10 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={10}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                10
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row tc-date-picker-calendar-row"
+            key="2"
+          >
+            <td
+              className="theme-calendar-col"
+              key="0"
+            >
+              <button
+                aria-label="Monday 11 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={11}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                11
+              </button>
+            </td>
+            <td
+              aria-current="date"
+              className="theme-calendar-col"
+              key="1"
+            >
+              <button
+                aria-label="Tuesday 12 June 2018, selected"
+                className="theme-calendar-day theme-selected tc-date-picker-day btn-tertiary btn-default"
+                data-value={12}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                12
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="2"
+            >
+              <button
+                aria-label="Wednesday 13 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={13}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                13
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="3"
+            >
+              <button
+                aria-label="Thursday 14 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={14}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                14
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="4"
+            >
+              <button
+                aria-label="Friday 15 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={15}
+                disabled={true}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                15
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="5"
+            >
+              <button
+                aria-label="Saturday 16 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={16}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                16
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="6"
+            >
+              <button
+                aria-label="Sunday 17 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={17}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                17
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row tc-date-picker-calendar-row"
+            key="3"
+          >
+            <td
+              className="theme-calendar-col"
+              key="0"
+            >
+              <button
+                aria-label="Monday 18 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={18}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                18
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="1"
+            >
+              <button
+                aria-label="Tuesday 19 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={19}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                19
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="2"
+            >
+              <button
+                aria-label="Today, Wednesday 20 June 2018"
+                className="theme-calendar-day theme-today tc-date-picker-day btn-tertiary btn-default"
+                data-value={20}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                20
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="3"
+            >
+              <button
+                aria-label="Thursday 21 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={21}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                21
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="4"
+            >
+              <button
+                aria-label="Friday 22 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={22}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                22
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="5"
+            >
+              <button
+                aria-label="Saturday 23 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={23}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                23
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="6"
+            >
+              <button
+                aria-label="Sunday 24 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={24}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                24
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row tc-date-picker-calendar-row"
+            key="4"
+          >
+            <td
+              className="theme-calendar-col"
+              key="0"
+            >
+              <button
+                aria-label="Monday 25 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={25}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                25
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="1"
+            >
+              <button
+                aria-label="Tuesday 26 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={26}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                26
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="2"
+            >
+              <button
+                aria-label="Wednesday 27 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={27}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                27
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="3"
+            >
+              <button
+                aria-label="Thursday 28 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={28}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                28
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="4"
+            >
+              <button
+                aria-label="Friday 29 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={29}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                29
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="5"
+            >
+              <button
+                aria-label="Saturday 30 June 2018"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
+                data-value={30}
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                30
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="6"
+            >
+              <button
+                aria-label="Sunday 01 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                1
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row tc-date-picker-calendar-row"
+            key="5"
+          >
+            <td
+              className="theme-calendar-col"
+              key="0"
+            >
+              <button
+                aria-label="Monday 02 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                2
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="1"
+            >
+              <button
+                aria-label="Tuesday 03 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                3
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="2"
+            >
+              <button
+                aria-label="Wednesday 04 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                4
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="3"
+            >
+              <button
+                aria-label="Thursday 05 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                5
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="4"
+            >
+              <button
+                aria-label="Friday 06 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                6
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="5"
+            >
+              <button
+                aria-label="Saturday 07 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                7
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="6"
+            >
+              <button
+                aria-label="Sunday 08 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day btn-tertiary btn-default"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                8
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </DatePicker>
+  </div>
+</CalendarGesture(DatePicker)>
+`;

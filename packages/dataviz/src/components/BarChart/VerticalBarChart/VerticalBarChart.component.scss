@@ -1,0 +1,17 @@
+@import '../bar-chart';
+
+.vertical-bar-chart {
+	@include overrideRechartsStyles();
+
+	:global {
+		.recharts-yAxis {
+			// Move Y label inside the chart
+			.recharts-cartesian-axis-tick:first-child {
+				transform: translateY(-10px);
+			}
+			.recharts-cartesian-axis-tick:last-child {
+				transform: translateY(10px);
+			}
+		}
+	}
+}

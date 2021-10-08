@@ -1,0 +1,31 @@
+$default-height: 4rem !default;
+
+.tc-tree-header {
+	align-items: center;
+	border-bottom: 0.1rem solid $alto;
+	color: $dove-gray;
+	display: flex;
+	font-weight: 600;
+	height: $default-height;
+	justify-content: space-between;
+	padding: $padding-small 0 $padding-small $padding-larger;
+
+	&-actions {
+		display: flex;
+		justify-content: space-between;
+		&-icon {
+			:global(.tc-svg-icon) {
+				height: $svg-sm-size;
+				width: $svg-sm-size;
+			}
+			color: $dark-silver;
+			text-transform: none;
+		}
+		:global(.btn) {
+			&:focus,
+			&:hover {
+				color: $scooter;
+			}
+		}
+	}
+}

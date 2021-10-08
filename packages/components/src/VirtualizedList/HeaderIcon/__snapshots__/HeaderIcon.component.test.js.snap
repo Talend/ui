@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderIcon should render the header when there is no sort 1`] = `
+<div
+  className="theme-tc-header-icon tc-header-icon"
+>
+  <span
+    aria-label="test"
+    title="test"
+  >
+    <Icon
+      name="talend-test"
+    />
+  </span>
+</div>
+`;
+
+exports[`HeaderIcon should render unchecked checkbox 1`] = `
+<div
+  className="theme-tc-header-icon tc-header-icon"
+>
+  <span
+    aria-label="test"
+    title="test"
+  >
+    <Icon
+      name="talend-test"
+    />
+    <SortIndicator
+      sortDirection="DESC"
+    />
+  </span>
+</div>
+`;

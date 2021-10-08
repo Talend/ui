@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "children": [],
+    "id": "datastore",
+    "label": "datastore",
+    "name": "datastore",
+    "version": 0
+  },
+  "ui": {
+    "jsonSchema": {
+      "properties": {
+        "_datasetMetadata": {
+          "properties": {
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
+            "description": {
+              "title": "Description",
+              "type": "string"
+            },
+            "type": {
+              "title": "Types",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "type": "object"
+        }
+      },
+      "required": [],
+      "title": "datastore",
+      "type": "object"
+    },
+    "properties": {
+      "_datasetMetadata": {}
+    },
+    "uiSchema": [
+      {
+        "title": "Metadata",
+        "conditions": [],
+        "items": [
+          {
+            "conditions": [],
+            "key": "_datasetMetadata.name",
+            "title": "Name",
+            "widget": "text"
+          },
+          {
+            "conditions": [],
+            "key": "_datasetMetadata.type",
+            "schema": {
+              "enum": [
+                "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo"
+              ],
+              "type": "string"
+            },
+            "title": "Types",
+            "titleMap": [
+              {
+                "name": "Basic Auth",
+                "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo"
+              }
+            ],
+            "triggers": [
+              {
+                "action": "builtin::root::reloadFromId",
+                "family": "builtin::family",
+                "event": "focus",
+                "parameters": [
+                  {
+                    "key": "id",
+                    "path": "_datasetMetadata.type"
+                  }
+                ],
+                "type": "reloadForm"
+              }
+            ],
+            "widget": "datalist"
+          },
+          {
+            "conditions": [],
+            "key": "_datasetMetadata.description",
+            "title": "Description",
+            "widget": "textarea"
+          }
+        ],
+        "widget": "fieldset"
+      }
+    ]
+  }
+}

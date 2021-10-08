@@ -1,0 +1,46 @@
+$tc-layout-skeleton-width: 9.6rem !default;
+$tc-layout-skeleton-height: 9.6rem !default;
+
+.tc-twoviewers-layout {
+	display: flex;
+	width: 100%;
+	overflow: hidden;
+
+	&-loading {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		:global(.tc-svg-icon) {
+			width: $tc-layout-skeleton-width;
+			height: $tc-layout-skeleton-height;
+		}
+	}
+
+	&-left,
+	&-right {
+		background-color: $wild-sand;
+	}
+
+	&-left {
+		border-right: 0.5rem solid white;
+		width: 47rem;
+	}
+
+	&-right {
+		flex-grow: 1;
+	}
+}
+
+:global(.button-padding) {
+	margin-top: $padding-normal;
+	margin-right: $padding-small;
+}
+
+.custom-quality-bar-line {
+	background-color: blue;
+}
+
+.custom-quality-bar-line2 {
+	background-color: pink;
+}

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container ConfirmDialog should render 1`] = `
+<div
+  className="mock-provider"
+>
+  <div
+    cancelAction={
+      Object {
+        "icon": "fa-bars",
+        "id": "menu",
+        "model": Object {
+          "foo": "bar",
+        },
+        "name": "Menu",
+        "onClick": [Function],
+        "payload": Object {
+          "type": "TEST_MENU",
+        },
+      }
+    }
+    className="tc-confirm-dialog"
+    header="DO SOMETHING"
+    model={
+      Object {
+        "foo": "bar",
+      }
+    }
+    show={true}
+    size="small"
+    validateAction={
+      Object {
+        "icon": "fa-bars",
+        "id": "menu",
+        "model": Object {
+          "foo": "bar",
+        },
+        "name": "Menu",
+        "onClick": [Function],
+        "payload": Object {
+          "type": "TEST_MENU",
+        },
+      }
+    }
+  >
+    Confirm this !
+  </div>
+  ,
+</div>
+`;
