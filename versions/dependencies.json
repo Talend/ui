@@ -25,7 +25,7 @@
   "react-side-effect": "^1.2.0",
   "rxjs": "^5.5.12",
   "scroll-smooth": "^1.1.0",
-  "styled-components": "^4.4.1",
+  "styled-components": "^5.3.1",
 
   "focus-outline-manager": "^1.0.2",
   "normalize.css": "5.0.0",
