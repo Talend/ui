@@ -4,7 +4,7 @@
   "rules": [
     {
       "name": "Design Tokens / Colors",
-      "path": "src/themes/scss/colors.scss",
+      "path": "src/themes/scss/colors.css",
       "filter": {
         "types": ["color", "gradient", "textStyle", "font"]
       },
