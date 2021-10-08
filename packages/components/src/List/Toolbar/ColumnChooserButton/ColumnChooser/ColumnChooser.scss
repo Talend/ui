@@ -58,6 +58,7 @@ $tc-height: 4rem;
 
 		:global(.checkbox.tc-toggle) {
 			display: flex;
+			margin-bottom: 0;
 		}
 
 		&-label,
@@ -72,6 +73,7 @@ $tc-height: 4rem;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			max-width: 21rem;
+			margin-bottom: 0;
 		}
 
 		&-locked-icon {
