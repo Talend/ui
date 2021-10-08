@@ -1,10 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { useListContext } from '../context';
+import React from 'react';
 import ColumnChooserButton from '../../Toolbar/ColumnChooserButton';
+import { useListContext } from '../context';
 
 function ColumnChooser(props) {
-	const { columns, visibleColumns, setVisibleColumns } = useListContext();
+	const { columns, visibleColumns, setVisibleColumns, t } = useListContext();
 
 	return (
 		<ColumnChooserButton
@@ -21,6 +21,7 @@ function ColumnChooser(props) {
 					props.onSubmit(_, changes);
 				}
 			}}
+			t={t}
 		/>
 	);
 }

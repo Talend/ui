@@ -1,14 +1,13 @@
-import React, { useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import { ColumnChooserProvider } from './columnChooser.context';
-import { useColumnChooserManager } from '../hooks';
+import React, { useCallback, useEffect } from 'react';
 import FilterBar from '../../../../FilterBar';
+import { getTheme } from '../../../../theme';
+import { useColumnChooserManager } from '../hooks';
+import { ColumnChooserProvider } from './columnChooser.context';
+import cssModule from './ColumnChooser.scss';
 import ColumnChooserBody from './ColumnChooserBody';
 import ColumnChooserFooter from './ColumnChooserFooter';
 import ColumnChooserHeader from './ColumnChooserHeader';
-import cssModule from './ColumnChooser.scss';
-import { getTheme } from '../../../../theme';
 
 const theme = getTheme(cssModule);
 
@@ -27,8 +26,8 @@ export default function ColumnChooser({
 	initialFilterValue,
 	nbLockedLeftItems = 0,
 	onSubmit,
+	t,
 }) {
-	const { t } = useTranslation();
 	const {
 		columns,
 		filteredColumns,
@@ -106,4 +105,5 @@ ColumnChooser.propTypes = {
 	initialFilterValue: PropTypes.string,
 	nbLockedLeftItems: PropTypes.number,
 	onSubmit: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
