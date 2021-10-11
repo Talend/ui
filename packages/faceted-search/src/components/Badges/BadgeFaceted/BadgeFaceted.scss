@@ -1,3 +1,4 @@
+// stylelint-disable scss/selector-no-redundant-nesting-selector
 .tc-badge-faceted {
 	padding: $padding-smaller $padding-small $padding-smaller $padding-small;
 	max-width: 35em;
@@ -5,10 +6,12 @@
 	:global(.tc-badge-button) {
 		max-width: none;
 	}
+
 	:global(.tc-badge-button:first-child) {
 		flex-grow: 1;
 		padding-top: 0;
 		margin: 0;
+
 		> span {
 			align-self: center;
 		}
@@ -22,21 +25,25 @@
 	&-overlay {
 		align-items: center;
 		display: flex;
+
 		& > button {
 			font-style: italic;
 			padding: 0;
 			text-transform: none;
+
 			&:hover,
 			&:visited {
 				text-decoration: none;
 			}
+
 			> span {
 				display: block;
 				overflow: hidden;
 				max-width: 10rem;
 				text-overflow: ellipsis;
 			}
-			> span:not(:first-child):before {
+
+			> span:not(:first-child)::before {
 				content: '|';
 				position: relative;
 				top: -1px;

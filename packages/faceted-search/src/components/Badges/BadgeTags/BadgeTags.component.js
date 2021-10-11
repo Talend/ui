@@ -63,7 +63,7 @@ export const BadgeTags = ({
 			.finally(() => {
 				setIsLoading(false);
 			});
-	}, []);
+	}, [callbacks]);
 
 	const currentOperator = operator || (operators && operators[0]);
 	const badgeTagsId = `${id}-badge-tags`;

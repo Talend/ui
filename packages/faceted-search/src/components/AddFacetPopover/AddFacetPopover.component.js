@@ -204,9 +204,8 @@ const getScreens = (badgesDefinitions, filterValue, comparator = sortByLabel) =>
 					(definition, index, arr) =>
 						!definition.metadata.category ||
 						// remove category duplicates
-						arr.findIndex(
-							prev => prev.metadata.category === definition.metadata.category,
-						) === index,
+						arr.findIndex(prev => prev.metadata.category === definition.metadata.category) ===
+							index,
 				)
 				.map(badgeDefinition => badgeDefinition.metadata.category || badgeDefinition)
 				.filter(filterByNotEmpty)
@@ -253,7 +252,7 @@ const AddFacetPopover = ({
 		setScreensHeight(
 			times(screens.length, index => screensRef.current[index].current.clientHeight),
 		);
-	}, []);
+	}, [screens.length]);
 
 	const onFilter = (_, value) => {
 		setFilterValue(value);

@@ -1,7 +1,7 @@
 $icon-text-size: 0.8rem !default;
 $circle-text-size: 1.6rem !default;
 $faceted-advanced-search-height: 3.5rem;
-$error-color: #ba4d51;
+$error-color: #BA4D51;
 
 .adv-search {
 	position: relative;
@@ -20,7 +20,7 @@ $error-color: #ba4d51;
 		color: $error-color;
 	}
 
-	input.adv-search-input {
+	.adv-search-input {
 		border-radius: $border-radius-base;
 		border: 0.1rem solid $silver;
 		box-shadow: none;
@@ -90,6 +90,7 @@ $error-color: #ba4d51;
 			border-color: $rio-grande;
 			background: $rio-grande;
 			fill: white;
+
 			&:hover,
 			&:focus {
 				border: 0.1rem solid $scooter;

@@ -72,13 +72,8 @@ const BasicSearch = ({
 
 	useEffect(() => {
 		initialBadges.forEach(initial => {
-			const facet = badges.find(
-				({ properties }) => properties.attribute === initial.attribute,
-			);
-			const operators = getOperatorsFromDict(
-				operatorsDictionary,
-				get(facet, 'metadata.operators'),
-			);
+			const facet = badges.find(({ properties }) => properties.attribute === initial.attribute);
+			const operators = getOperatorsFromDict(operatorsDictionary, get(facet, 'metadata.operators'));
 			dispatch(
 				BADGES_ACTIONS.addWithValue(
 					generateBadge(operators)(facet),
@@ -87,7 +82,7 @@ const BasicSearch = ({
 				),
 			);
 		});
-	}, []);
+	}, [badges, initialBadges, dispatch, operatorsDictionary]);
 
 	const onClickOverlayRow = setOverlayOpened => (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(
@@ -117,8 +112,7 @@ const BasicSearch = ({
 					dispatch(
 						BADGES_ACTIONS.addWithValue(
 							generateBadge(operators)(facet),
-							operators.find(({ name }) => name === DEFAULT_QUICKSEARCH_OPERATOR) ||
-								operators[0],
+							operators.find(({ name }) => name === DEFAULT_QUICKSEARCH_OPERATOR) || operators[0],
 							value,
 						),
 					);

@@ -8,7 +8,7 @@
 	position: relative;
 	margin-right: 1.5rem;
 
-	&:after {
+	&::after {
 		content: '';
 		height: 2.5rem;
 		width: 0;

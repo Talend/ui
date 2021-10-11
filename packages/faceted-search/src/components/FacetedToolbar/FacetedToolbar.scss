@@ -1,3 +1,4 @@
+// stylelint-disable order/order
 $toolbar-height: 5.5rem;
 
 .tc-faceted-toolbar {
@@ -25,14 +26,17 @@ $toolbar-height: 5.5rem;
 				border-radius: $padding-large;
 				color: white;
 			}
+
 			background: $alto;
 			color: black;
 			min-height: 2.5rem;
 			height: 2.5rem;
 			font-size: 1rem;
+
 			> span {
 				height: inherit;
 			}
+
 			&:active,
 			&:focus,
 			&:hover {
@@ -44,6 +48,7 @@ $toolbar-height: 5.5rem;
 		&-advanced.tc-button-selected {
 			border-radius: 0 $padding-large $padding-large 0;
 		}
+
 		&-basic,
 		&-basic.tc-button-selected {
 			border-radius: $padding-large 0 0 $padding-large;
