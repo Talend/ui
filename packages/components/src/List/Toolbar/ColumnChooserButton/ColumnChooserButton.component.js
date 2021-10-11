@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { Overlay, Popover } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import ColumnChooser from './ColumnChooser';
 import ActionButton from '../../../Actions/ActionButton';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
+import ColumnChooser from './ColumnChooser';
 
 export default function ColumnChooserButton({
 	children,
@@ -15,7 +16,7 @@ export default function ColumnChooserButton({
 	nbLockedLeftItems,
 	onSubmit,
 }) {
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const [opened, setOpened] = useState(initialOpenedPopover || false);
 	const [buttonRef, setButtonRef] = useState(null);
 	const changeOpened = () => setOpened(!opened);
