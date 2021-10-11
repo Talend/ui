@@ -2,18 +2,18 @@ name: Visual regression testing
 
 on:
   pull_request:
-    branches: [ master ]
-    types: [labeled]
+    branches:
+      - master
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
   build:
-    # if: ${{ github.event.label.name == 'need visual approval' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Install dependencies
         run: yarn
       - name: Publish to Chromatic
