@@ -15,6 +15,6 @@ addDecorator(storyFn => (
 		<IconProvider
 			bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.4.0/dist/svg-bundle/all.svg']}
 		/>
-		{storyFn()}
+		<React.Suspense fallback={null}>{storyFn()}</React.Suspense>
 	</div>
 ));
