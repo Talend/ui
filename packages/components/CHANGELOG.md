@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 6.40.1
+
+### Patch Changes
+
+- 9b9faebe8: Fix: style issues caused by the recent form style changes
+- 715f615a8: Fix: align styled-components peerDeps with design system consumer
+- 5cb420c29: Make ColumnChooser search in the TUI i18n namespace for localization
+
 ## 6.40.0
 
 ### Minor Changes
