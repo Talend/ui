@@ -1,6 +1,6 @@
 ---
-'@talend/react-components': minor
-'@talend/react-faceted-search': minor
+'@talend/react-components': patch
+'@talend/react-faceted-search': patch
 ---
 
 Republish minor versions due to npm publish issue
