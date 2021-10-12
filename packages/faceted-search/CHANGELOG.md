@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.2
+
+### Patch Changes
+
+- 740645821: Republish patch versions due to npm publish issue
+
 ## 3.5.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.40.2
+
+### Patch Changes
+
+- 740645821: Republish patch versions due to npm publish issue
+
 ## 6.40.1
 
 ### Patch Changes

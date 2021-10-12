@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-faceted-search",
-  "version": "3.5.1",
+  "version": "3.5.2",
   "description": "Faceted search",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -53,7 +53,7 @@
     "@talend/icons": "^6.36.3",
     "@talend/locales-tui": "^6.17.0",
     "@talend/locales-tui-faceted-search": "^3.4.1",
-    "@talend/react-components": "^6.40.1",
+    "@talend/react-components": "^6.40.2",
     "@talend/scripts-core": "^11.1.0",
     "@talend/scripts-preset-react-lib": "^9.9.2",
     "babel-plugin-angularjs-annotate": "^0.10.0",
