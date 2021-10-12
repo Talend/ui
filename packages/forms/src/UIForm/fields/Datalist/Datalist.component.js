@@ -37,7 +37,7 @@ class Datalist extends Component {
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
-		this.isValueInTitleMap = this.checkValueInTitleMap.bind(this);
+		this.checkValueInTitleMap = this.checkValueInTitleMap.bind(this);
 	}
 
 	componentDidMount() {
@@ -54,7 +54,9 @@ class Datalist extends Component {
 	 * @param payload
 	 */
 	onChange(event, payload) {
-		this.setState({ isValid: true, errorMessage: undefined });
+		if (this.props.initialCheckValue) {
+			this.setState({ isValid: true, errorMessage: undefined });
+		}
 		let mergedSchema = this.props.schema;
 		// with the possibility to have async suggestions, on restricted values inputs
 		// the validation doesn't have the enum list as it is not in the jsonSchema
@@ -140,7 +142,7 @@ class Datalist extends Component {
 	}
 
 	/**
-	 * isValueInTitleMaps checks if the current value exists in the given titleMap.
+	 * checkValueInTitleMap checks if the current value exists in the given titleMap.
 	 *   If the value is not found it sets a new state for the 'isValid' and
 	 *   'errorMessage' values.
 	 */
