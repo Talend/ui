@@ -158,11 +158,9 @@ class Datalist extends Component {
 					});
 				}
 			} else {
-				let found;
-				titleMap.some(tm => {
+				const found = titleMap.some(tm => {
 					if (tm.suggestions && tm.suggestions.length) {
-						found = tm.suggestions.some(el => el.value === this.props.value);
-						return found;
+						return tm.suggestions.some(el => el.value === this.props.value);
 					}
 					return false;
 				});
