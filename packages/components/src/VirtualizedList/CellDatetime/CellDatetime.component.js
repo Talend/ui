@@ -3,7 +3,8 @@ import React from 'react';
 import classnames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
-import { distanceInWordsToNow, format } from 'date-fns';
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import format from 'date-fns/format';
 import isValid from 'date-fns/is_valid';
 import parse from 'date-fns/parse';
 import { withTranslation } from 'react-i18next';
@@ -40,15 +41,19 @@ export function computeValue(cellData, columnData, t) {
 }
 
 export function getTooltipLabel(cellData, columnData) {
-	if(typeof columnData.getTooltipLabel === 'function') {
+	if (typeof columnData.getTooltipLabel === 'function') {
 		return columnData.getTooltipLabel(cellData);
 	}
 	if (columnData.mode === 'ago') {
 		let tooltipLabel = '';
 		if (columnData.timeZone) {
-			tooltipLabel = talendUtils.date.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
-				timeZone: columnData.timeZone,
-			});
+			tooltipLabel = talendUtils.date.formatToTimeZone(
+				cellData,
+				columnData.pattern || DATE_TIME_FORMAT,
+				{
+					timeZone: columnData.timeZone,
+				},
+			);
 		} else {
 			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 		}

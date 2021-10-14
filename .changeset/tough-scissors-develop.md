@@ -2,4 +2,5 @@
 '@talend/react-components': patch
 ---
 
-Upgrade react-use to 17 to be aligned with other libs
+chore: Upgrade react-use to 17 to be aligned with other libs
+chore: fix date-fns imports to not embed every date-fns in it
