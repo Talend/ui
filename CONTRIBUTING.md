@@ -5,15 +5,16 @@ Please use this template in order to add a new Design System element documentati
 Each new element should have this hierarchy
 
 ```
-├── Component.style.ts
-├── Component.test.js
 ├── Component.tsx
-├── docs
-│   └── Component.stories.mdx
+├── Component.spec.tsx     # if you need e2e tests
+├── Component.stories.mdx
+├── Component.stories.tsx
+├── Component.style.tsx
+├── Component.test.tsx     # if you need unit tests
 ├── index.ts
 └── variations
-    ├── Component.a.tsx
-    └── Component.b.tsx
+    ├── Component.A.tsx
+    └── Component.B.tsx
 ```
 
 ## Documentation
@@ -36,8 +37,6 @@ Description
 />
 
 ## Style
-
-### Sizes 
 
 ### Variations
 
