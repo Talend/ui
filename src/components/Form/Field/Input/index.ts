@@ -10,7 +10,7 @@ import InputFile from './Input.File';
 import InputHidden from './Input.Hidden';
 import InputMonth from './Input.Month';
 import InputNumber from './Input.Number';
-import InputPassword from './Input.Password';
+import InputPassword from './Password';
 import InputRadio from './Input.Radio';
 import InputRange from './Input.Range';
 import InputSearch from './Input.Search';
