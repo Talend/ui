@@ -4,13 +4,18 @@ on:
   pull_request:
     branches:
       - master
+    types: 
+      - labeled
   push:
     branches:
       - master
   workflow_dispatch:
 
 jobs:
-  build:
+  build-pr:
+    if: |
+      (!startsWith(github.event.head_commit.message, 'chore(deps-dev)') && github.ref == 'refs/heads/design-system/history') ||
+      (github.event.label.name == 'need visual approval')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,4 +27,4 @@ jobs:
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_P
