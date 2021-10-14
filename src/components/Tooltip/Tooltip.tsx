@@ -3,7 +3,7 @@ import { useTooltipState } from 'reakit';
 
 import * as S from './Tooltip.style';
 
-type Placement =
+export type Placement =
 	| 'auto-start'
 	| 'auto'
 	| 'auto-end'
