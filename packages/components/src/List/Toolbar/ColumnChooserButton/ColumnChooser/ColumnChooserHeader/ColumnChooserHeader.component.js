@@ -12,9 +12,9 @@ const isVisible = column => column.visible;
 const Default = () => {
 	const { columns, t } = useColumnChooserContext();
 	const selectedColumns = t('SELECT_COLUMNS', {
-		count: columns.filter(isVisible).length,
+		checked: columns.filter(isVisible).length,
 		total: columns.length,
-		defaultValue: '{{count}}/{{total}} selected',
+		defaultValue: '{{checked}}/{{total}} selected',
 	});
 	return (
 		<div>
