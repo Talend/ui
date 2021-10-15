@@ -26,6 +26,7 @@ export function ModelViewerLeaf({
 	dataKey,
 	getDisplayKey,
 	getDisplayValue,
+	getDisplayClassName,
 	hasSemanticAwareness,
 	jsonpath,
 	jsonPathSelection,
@@ -44,6 +45,7 @@ export function ModelViewerLeaf({
 	const ariaLabelButton = t('MODEL_VIEWER_LEAF_BUTTON_ARIA_LABEL_SELECT', {
 		defaultValue: 'Select',
 	});
+	const modelClassName = getDisplayClassName(value);
 	const displayValue = getDisplayValue(value);
 	const formattedKey =
 		displayValue && hasSemanticAwareness ? `${displayValue}${isOptional(value)}` : displayValue;
@@ -52,7 +54,7 @@ export function ModelViewerLeaf({
 
 	return (
 		<span
-			className={classNames(className, theme['tc-model-leaf'], 'tc-model-leaf', {
+			className={classNames(className, modelClassName, theme['tc-model-leaf'], 'tc-model-leaf', {
 				[theme['tc-model-leaf-padding-left']]: level > 0,
 				'tc-model-leaf-padding-left': level > 0,
 			})}
@@ -94,6 +96,7 @@ ModelViewerLeaf.propTypes = {
 	jsonPathSelection: PropTypes.string,
 	level: PropTypes.number,
 	onSelect: PropTypes.func,
+	semanticDraft: PropTypes.object,
 	t: PropTypes.func,
 	value: PropTypes.object,
 	renderLeafOptions: PropTypes.func,
