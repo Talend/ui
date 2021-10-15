@@ -83,6 +83,12 @@ const theme: DefaultTheme = {
 		tagWarningColor: palette.warningColor[700],
 		tagWarningBackgroundColor: palette.warningColor[100],
 
+		statusInProgressColor: palette.activeColor[500],
+		statusSuccessColor: palette.successColor[400],
+		statusFailedColor: palette.destructiveColor[400],
+		statusWarningColor: palette.warningColor[400],
+		statusCanceledColor: palette.grayColor[300],
+
 		tooltipColor: palette.grayColor[900],
 		tooltipBackgroundColor: palette.grayColor[300],
 	},

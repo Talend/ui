@@ -99,6 +99,13 @@ declare module 'styled-components' {
 			tagWarningColor: string;
 			tagWarningBackgroundColor: string;
 
+			// Status
+			statusInProgressColor: string;
+			statusSuccessColor: string;
+			statusFailedColor: string;
+			statusWarningColor: string;
+			statusCanceledColor: string;
+
 			// Tooltips
 			tooltipColor: string;
 			tooltipBackgroundColor: string;
