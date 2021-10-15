@@ -54,6 +54,7 @@ function HeaderListView(props) {
 		headerInput,
 		headerDefault,
 		headerLabel,
+		labelProps,
 		items,
 		required,
 		searchPlaceholder,
@@ -73,6 +74,7 @@ function HeaderListView(props) {
 			const propsDefault = {
 				headerDefault,
 				headerLabel,
+				labelProps,
 				required,
 				nbItems: items.length,
 				nbItemsSelected: items.filter(item => !!item.checked).length,
@@ -91,6 +93,7 @@ HeaderListView.propTypes = {
 	headerDefault: PropTypes.arrayOf(PropTypes.object),
 	headerInput: PropTypes.arrayOf(PropTypes.object),
 	headerLabel: PropTypes.string,
+	labelProps: PropTypes.object,
 	items: ListView.propTypes.items,
 	onInputChange: PropTypes.func,
 	onAddKeyDown: PropTypes.func,

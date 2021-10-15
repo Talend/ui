@@ -157,7 +157,7 @@ export function renderItemsContainerFactory(
 				<div
 					ref={containerProps.ref}
 					className={theme['items-body']}
-					style={{ maxHeight: styles.popper.maxHeight }}
+					style={{ maxHeight: styles.popper.maxHeight, minHeight: styles.popper.minHeight }}
 				>
 					{render(
 						content,

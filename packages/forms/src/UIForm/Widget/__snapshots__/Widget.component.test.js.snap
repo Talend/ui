@@ -30,17 +30,13 @@ exports[`Widget component should render widget 1`] = `
          value="my firstname"
   >
   <div>
-    <p class="help-block"
-       id="myForm_user_firstname-description"
-    >
-    </p>
-    <p class="help-block"
-       role="status"
-       aria-live="assertive"
-       id="myForm_user_firstname-error"
-    >
-      This is not ok
-    </p>
+    <div class="tc-inline-message theme-tc-inline-message">
+      <coral.inlinemessage.destructive id="myForm_user_firstname-error"
+                                       description="This is not ok"
+                                       aria-live="assertive"
+      >
+      </coral.inlinemessage.destructive>
+    </div>
   </div>
 </div>
 `;

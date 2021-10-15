@@ -59,6 +59,7 @@ function DateWidget(props) {
 			id={id}
 			isValid={isValid}
 			label={schema.title}
+			labelProps={schema.labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
@@ -108,6 +109,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			schema: PropTypes.shape({
 				format: PropTypes.string,
 				type: PropTypes.string,

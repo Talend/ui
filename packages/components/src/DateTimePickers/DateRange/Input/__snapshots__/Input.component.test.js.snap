@@ -12,7 +12,9 @@ exports[`Date.Input should render 1`] = `
   onChange={[MockFunction]}
   onFocus={[MockFunction]}
 >
-  <div>
+  <div
+    className="range-input"
+  >
     <label
       className="control-label"
     >
@@ -61,8 +63,8 @@ exports[`Date.Input should render 1`] = `
       <span
         style={
           Object {
-            "fontSize": "1.6rem",
-            "fontWeight": 400,
+            "fontSize": "1.4rem",
+            "padding": "0 1rem",
             "position": "absolute",
             "visibility": "hidden",
           }

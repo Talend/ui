@@ -23,6 +23,7 @@ export default function TextArea({
 		readOnly = false,
 		rows = 5,
 		title,
+		labelProps,
 	} = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
@@ -38,7 +39,7 @@ export default function TextArea({
 			id={id}
 			isValid={isValid}
 			label={title}
-			labelAfter
+			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
@@ -79,6 +80,7 @@ if (process.env.NODE_ENV !== 'production') {
 			required: PropTypes.bool,
 			rows: PropTypes.number,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 			hint: PropTypes.shape({
 				icon: PropTypes.string,
 				className: PropTypes.string,

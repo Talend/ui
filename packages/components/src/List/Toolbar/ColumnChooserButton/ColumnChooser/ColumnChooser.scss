@@ -1,6 +1,6 @@
 $tc-popover-border-color: rgb(226, 226, 226) !default;
 $tc-popover-border-width: 0.1rem !default;
-$tc-border-color: #ededed !default;
+$tc-border-color: #EDEDED !default;
 $tc-icon-size: 1.2rem !default;
 $tc-height: 4rem;
 
@@ -16,6 +16,7 @@ $tc-height: 4rem;
 	&-header {
 		display: flex;
 		align-items: center;
+
 		&-title {
 			font-weight: bold;
 		}
@@ -58,20 +59,22 @@ $tc-height: 4rem;
 
 		:global(.checkbox.tc-toggle) {
 			display: flex;
+			margin-bottom: 0;
 		}
 
 		&-label,
 		:global(.checkbox.tc-toggle > label span) {
 			font-size: 1.4rem;
-			padding-left: $padding-large;
+			padding-left: $padding-normal;
 		}
 
 		:global(.checkbox.tc-toggle > label) {
-			padding-left: $padding-small;
+			padding-left: $padding-normal;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			max-width: 21rem;
+			margin-bottom: 0;
 		}
 
 		&-locked-icon {

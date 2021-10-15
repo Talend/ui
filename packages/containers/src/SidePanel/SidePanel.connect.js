@@ -1,7 +1,5 @@
 import get from 'lodash/get';
-import { withRouter } from 'react-router';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import { routerAPI } from '@talend/react-cmf-router';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 import { ACTION_TYPE_LINK } from './constants';
 
@@ -75,7 +73,10 @@ function getActionsWrapped(actions) {
 }
 
 function getSelectedAction(currentRoute, actions) {
-	return actions.find(action => action.href && isBasePathOf(action.href, currentRoute));
+	const getFullPath = href => `${window.basename || ''}${href}`.replaceAll('//', '/');
+	return actions.find(
+		action => action.href && isBasePathOf(getFullPath(action.href), currentRoute),
+	);
 }
 
 /**
@@ -139,7 +140,7 @@ function getActions(state, ownProps, currentRoute) {
 
 export function mapStateToProps(state, ownProps) {
 	const props = {};
-	const currentRoute = routerAPI.selectors.getPath(state, true /* with hash */);
+	const currentRoute = window.location.pathname;
 	props.actions = getActions(state, ownProps, currentRoute);
 	if (ownProps.actions) {
 		props.selected = getSelectedAction(currentRoute, props.actions);
@@ -155,16 +156,14 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 	return props;
 }
 
-export default withRouter(
-	cmfConnect({
-		defaultState: DEFAULT_STATE,
-		omitCMFProps: true,
-		withComponentRegistry: true,
-		withDispatch: true,
-		withDispatchActionCreator: true,
-		withComponentId: true,
-		keepComponentState: true,
-		mapStateToProps,
-		mergeProps,
-	})(Container),
-);
+export default cmfConnect({
+	defaultState: DEFAULT_STATE,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
+	keepComponentState: true,
+	mapStateToProps,
+	mergeProps,
+})(Container);

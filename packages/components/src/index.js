@@ -31,7 +31,6 @@ import {
 	InputDateTimeRangePicker,
 } from './DateTimePickers';
 import Dialog from './Dialog';
-import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
 import EditableText from './EditableText';
 import Emphasis from './Emphasis';
@@ -51,6 +50,7 @@ import Inject from './Inject';
 import { InlineMessage } from './InlineMessage';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
+import Link from './Link';
 import List from './List';
 import ListView from './ListView';
 import Loader from './Loader';
@@ -113,7 +113,6 @@ export {
 	InputDateTimeRangePicker,
 	InputTimePicker,
 	Dialog,
-	DraggableComponent,
 	Drawer,
 	EditableText,
 	Emphasis,
@@ -133,6 +132,7 @@ export {
 	InlineMessage,
 	JSONSchemaRenderer,
 	Layout,
+	Link,
 	List,
 	ListView,
 	Loader,

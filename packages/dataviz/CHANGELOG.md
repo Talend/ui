@@ -1,30 +1,48 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## 0.4.8
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Patch Changes
 
-Guiding Principles
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [667cd0a50]
+- Updated dependencies [7dde61e46]
+  - @talend/react-components@6.40.0
 
--   Changelogs are for humans, not machines.
--   There should be an entry for every single version.
--   The same types of changes should be grouped.
--   Versions and sections should be linkable.
--   The latest version comes first.
--   The release date of each version is displayed.
--   Mention whether you follow Semantic Versioning.
+## 0.4.7
 
-Types of changes
+### Patch Changes
 
--   `Added` for new features.
--   `Changed` for changes in existing functionality.
--   `Deprecated` for soon-to-be removed features.
--   `Removed` for now removed features.
--   `Fixed` for any bug fixes.
--   `Security` in case of vulnerabilities.
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-components@6.39.2
 
-## [unreleased]
+## 0.4.6
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+- Updated dependencies [80ca14323]
+  - @talend/react-components@6.39.1
+
+## 0.4.5
+
+### Fixed
+
+- [show special chars in tooltip](https://github.com/Talend/ui/pull/3327)
+
+## [0.4.4]
+
+### Fixed
+
+- [genereate dev UMD](https://github.com/Talend/ui/pull/3261)
+
+## [0.4.3]
+
+### Fixed
+
+- [upgrade talend-scripts to fix manifest](https://github.com/Talend/ui/pull/3259)
 
 ## [0.4.2]
 
@@ -87,7 +105,6 @@ Types of changes
 ### Fixed
 
 - [Reset tooltip line margin](https://github.com/Talend/ui/pull/3158):
-
 
 ## [0.1.3]
 

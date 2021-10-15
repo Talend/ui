@@ -69,10 +69,24 @@ export async function httpGet(url, config) {
 	return httpFetch(url, config, HTTP_METHODS.GET);
 }
 
+/**
+ * function - fetch a url with HEAD method
+ *
+ * @param  {string} url     url to request
+ * @param  {object} config  option that you want apply to the request
+ * @example
+ * import { http } from '@talend/http/async';
+ * await http.head('/foo'))
+ */
+export async function httpHead(url, config) {
+	return httpFetch(url, config, HTTP_METHODS.HEAD);
+}
+
 export const http = {
 	get: httpGet,
 	post: httpPost,
 	patch: httpPatch,
 	put: httpPut,
 	delete: httpDelete,
+	head: httpHead,
 };

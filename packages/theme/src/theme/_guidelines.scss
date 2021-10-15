@@ -7,7 +7,7 @@
 @import './colors';
 @import './paddings';
 @import './variables';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import './visual-helpers';
 @import './datagrid';
 
@@ -29,11 +29,11 @@ $dropdown-caret-size: $caret-width-large !default;
 
 /// Input group button padding
 /// @type Number (Unit)
-$input-group-btn-padding: 5px !default;
+$input-group-btn-padding: 0 !default;
 
 /// Input group add-on padding
 /// @type Number (Unit)
-$input-group-addon-padding: 8px !default;
+$input-group-addon-padding: 0 !default;
 
 /// Modal header background color
 ///
@@ -62,7 +62,7 @@ $navbar-form-margin: 0 !default;
 /// Navbar search text and border bottom color
 ///
 /// @type Color
-$navbar-search-btn-color: #000 !default;
+$navbar-search-btn-color: $black !default;
 
 /// Extra small button svg size
 /// @type Number (Unitless)

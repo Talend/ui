@@ -36,6 +36,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+dist/index.html
 example
 screenshots
 test
@@ -44,3 +45,9 @@ test
 .sass-lint.yml
 screenshots.config.json
 yarn.lock
+
+.babelrc.json
+eslint-report.json
+i18next-scanner.config.js
+stylelint-report.json
+talend-scripts.json

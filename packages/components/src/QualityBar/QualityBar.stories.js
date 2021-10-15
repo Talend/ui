@@ -15,6 +15,8 @@ stories
 					<QualityBar invalid={30} valid={30} empty={30} />
 					<div>Very invalid</div>
 					<QualityBar invalid={30} valid={0} empty={0} />
+					<div>Not applicable</div>
+					<QualityBar invalid={30} valid={0} empty={0} na={20} />
 					<div>Best quality ever</div>
 					<QualityBar invalid={0} valid={30} empty={0} />
 					<div>Nothing to see here</div>
@@ -27,6 +29,8 @@ stories
 					<QualityBar invalid={122} valid={1088} empty={293} />
 					<div>I really like the digits !</div>
 					<QualityBar invalid={30} valid={30} empty={30} digits={5} />
+					<div>With a placeholder</div>
+					<QualityBar invalid={30} valid={0} empty={0} placeholder={70} />
 					<div>Classic look with action button</div>
 					<QualityBar
 						invalid={2}

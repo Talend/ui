@@ -8,7 +8,12 @@ import theme from './TextMode.scss';
 
 export default function TextModeCheckBox({ id, schema, value }) {
 	return (
-		<FieldTemplate id={id} label={schema.title || value} className={theme.checkbox}>
+		<FieldTemplate
+			id={id}
+			label={schema.title || value}
+			labelProps={schema.labelProps}
+			className={theme.checkbox}
+		>
 			<Icon
 				aria-label={value}
 				aria-hidden={false}
@@ -24,6 +29,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
 		}).isRequired,
 		value: PropTypes.bool,
 	};

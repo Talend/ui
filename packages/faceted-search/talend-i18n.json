@@ -1,0 +1,18 @@
+{
+  "extract": {
+    "method": "yarn",
+    "script": "extract-i18n",
+    "target": "./i18n-extract",
+    "transform": "flatten"
+  },
+  "load": {
+    "project": "tui-faceted-search"
+  },
+  "module": {
+    "type": "npm",
+    "private": true
+  },
+  "github": {
+    "url": "https://github.com/Talend/i18n-product.git"
+  }
+}

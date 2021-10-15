@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Text from './Text.component';
 
 describe('Text field', () => {
-	const schema = {
+	const defaultSchema = {
 		autoFocus: true,
 		description: 'my text input hint',
 		placeholder: 'Type something here',
@@ -16,37 +16,33 @@ describe('Text field', () => {
 		},
 	};
 
+	const defaultProps = {
+		id: 'myForm',
+		isValid: true,
+		errorMessage: 'My error message',
+		onChange: jest.fn(),
+		onFinish: jest.fn(),
+		value: 'toto',
+		schema: defaultSchema,
+	};
+
 	it('should render input', () => {
 		// when
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={schema}
-				value="toto"
-			/>,
-		);
+		const wrapper = shallow(<Text {...defaultProps} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render password input', () => {
+		// given
+		const props = {
+			...defaultProps,
+			schema: { ...defaultSchema, type: 'password' },
+		};
+
 		// when
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={{ ...schema, type: 'password' }}
-				value="toto"
-			/>,
-		);
+		const wrapper = shallow(<Text {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -54,23 +50,16 @@ describe('Text field', () => {
 
 	it('should render disabled input', () => {
 		// given
-		const disabledSchema = {
-			...schema,
-			disabled: true,
+		const props = {
+			...defaultProps,
+			schema: {
+				...defaultSchema,
+				disabled: true,
+			},
 		};
 
 		// when
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={disabledSchema}
-				value="toto"
-			/>,
-		);
+		const wrapper = shallow(<Text {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -78,23 +67,16 @@ describe('Text field', () => {
 
 	it('should render readonly input', () => {
 		// given
-		const readOnlySchema = {
-			...schema,
-			readOnly: true,
+		const props = {
+			...defaultProps,
+			schema: {
+				...defaultSchema,
+				readOnly: true,
+			},
 		};
 
 		// when
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={readOnlySchema}
-				value="toto"
-			/>,
-		);
+		const wrapper = shallow(<Text {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -102,27 +84,20 @@ describe('Text field', () => {
 
 	it('should render input with min attribute', () => {
 		// given
-		const minSchema = {
-			...schema,
+		const props = {
+			...defaultProps,
 			schema: {
-				...schema.schema,
-				type: 'number',
-				minimum: 0,
+				...defaultSchema,
+				schema: {
+					...defaultSchema.schema,
+					type: 'number',
+					minimum: 0,
+				},
 			},
 		};
 
 		// when
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={minSchema}
-				value="toto"
-			/>,
-		);
+		const wrapper = shallow(<Text {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -130,27 +105,20 @@ describe('Text field', () => {
 
 	it('should render input with max attribute', () => {
 		// given
-		const maxSchema = {
-			...schema,
+		const props = {
+			...defaultProps,
 			schema: {
-				...schema.schema,
-				type: 'number',
-				maximum: 10,
+				...defaultSchema,
+				schema: {
+					...defaultSchema.schema,
+					type: 'number',
+					maximum: 10,
+				},
 			},
 		};
 
 		// when
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={maxSchema}
-				value="toto"
-			/>,
-		);
+		const wrapper = shallow(<Text {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -158,19 +126,20 @@ describe('Text field', () => {
 
 	it('should render input with step attribute', () => {
 		// given
-		const stepSchema = {
-			...schema,
-			type: 'number',
+		const props = {
+			...defaultProps,
 			schema: {
+				...defaultSchema,
 				type: 'number',
-				step: 0.01,
+				schema: {
+					type: 'number',
+					step: 0.01,
+				},
 			},
 		};
 
 		// when
-		const wrapper = shallow(
-			<Text id="myForm" isValid onChange={jest.fn()} onFinish={jest.fn()} schema={stepSchema} />,
-		);
+		const wrapper = shallow(<Text {...props} />);
 
 		// then
 		expect(wrapper.find('[type="number"]').at(0).props().step).toEqual(0.01);
@@ -179,114 +148,95 @@ describe('Text field', () => {
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={onChange}
-				onFinish={jest.fn()}
-				schema={schema}
-				value="toto"
-			/>,
-		);
+		const props = { ...defaultProps, onChange };
+		const wrapper = shallow(<Text {...props} />);
 		const event = { target: { value: 'totoa' } };
 
 		// when
 		wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema, value: 'totoa' });
+		expect(onChange).toBeCalledWith(event, { schema: defaultSchema, value: 'totoa' });
 	});
 
 	it('should trigger onChange with number value', () => {
 		// given
-		const numberSchema = {
-			...schema,
-			type: 'number',
-		};
+		const schema = { ...defaultSchema, type: 'number' };
 		const onChange = jest.fn();
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={onChange}
-				onFinish={jest.fn()}
-				schema={numberSchema}
-				value={2}
-			/>,
-		);
+		const props = { ...defaultProps, onChange, schema };
+		const wrapper = shallow(<Text {...props} />);
 		const event = { target: { value: '25' } };
 
 		// when
 		wrapper.find('input').simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { schema: numberSchema, value: 25 });
+		expect(onChange).toBeCalledWith(event, { schema, value: 25 });
 	});
 
 	it('should trigger onFinish on input blur', () => {
 		// given
 		const onFinish = jest.fn();
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				isValid
-				errorMessage="My error message"
-				onChange={jest.fn()}
-				onFinish={onFinish}
-				schema={schema}
-				value="toto"
-			/>,
-		);
+		const props = { ...defaultProps, onFinish };
+		const wrapper = shallow(<Text {...props} />);
 		const event = { target: { value: 'totoa' } };
 
 		// when
 		wrapper.find('input').simulate('blur', event);
 
 		// then
-		expect(onFinish).toBeCalledWith(event, { schema });
+		expect(onFinish).toBeCalledWith(event, { schema: defaultSchema });
 	});
 
 	it('should render hidden input', () => {
 		// given
-		const hiddenSchema = {
-			...schema,
-			type: 'hidden',
+		const props = {
+			...defaultProps,
+			schema: {
+				...defaultSchema,
+				type: 'hidden',
+			},
 		};
 
 		// when
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={hiddenSchema}
-				value="toto"
-			/>,
-		);
+		const wrapper = shallow(<Text {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
 	it('should pass autoComplete to input', () => {
 		// given
-		const autoCompleteSchema = {
-			...schema,
-			autoComplete: 'off',
+		const props = {
+			...defaultProps,
+			schema: {
+				...defaultSchema,
+				autoComplete: 'off',
+			},
 		};
 
 		// when
-		const wrapper = shallow(
-			<Text
-				id="myForm"
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={autoCompleteSchema}
-				value="toto"
-			/>,
-		);
+		const wrapper = shallow(<Text {...props} />);
+
+		// then
 		expect(wrapper.find('input').prop('autoComplete')).toBe('off');
+	});
+
+	it('should pass labelProps to FieldTemplate', () => {
+		// given
+		const labelProps = { className: 'hello' };
+		const props = {
+			...defaultProps,
+			schema: {
+				...defaultSchema,
+				labelProps,
+			},
+		};
+
+		// when
+		const wrapper = shallow(<Text {...props} />);
+
+		// then
+		expect(wrapper.find('FieldTemplate').prop('labelProps')).toBe(labelProps);
 	});
 });

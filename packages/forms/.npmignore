@@ -50,3 +50,9 @@ storybook-static
 .eslintrc
 .sass-lint.yml
 yarn.lock
+
+.babelrc.json
+eslint-report.json
+i18next-scanner.config.js
+stylelint-report.json
+talend-scripts.json

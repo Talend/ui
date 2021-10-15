@@ -20,6 +20,10 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 	width: 100%;
 	z-index: 1030;
 
+	:global(.btn) {
+		--t-button-color: var(--t-button-primary-color);
+	}
+
 	svg {
 		margin: 0;
 	}
@@ -116,18 +120,6 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 	.tc-header-bar-brand + :global(.dropdown-menu) {
 		min-width: 100%;
 		width: auto;
-	}
-
-	:global(.btn):global(.btn-link) {
-		color: $white;
-		font-size: $font-size-base;
-		text-transform: none;
-		text-decoration: none;
-
-		&:hover,
-		&:active {
-			background-color: $background-color-on-hover;
-		}
 	}
 
 	:global(.dropdown) {

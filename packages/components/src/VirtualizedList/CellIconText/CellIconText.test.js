@@ -17,6 +17,11 @@ describe('CellIconText', () => {
 					icon: 'talend-list',
 					label: 'list',
 				}}
+				rowData={{ iconType: 'iconType' }}
+				columnData={{
+					getIcon: ({ type }) => type,
+					getIconTooltip: rowData => rowData.icon,
+				}}
 			/>,
 		);
 

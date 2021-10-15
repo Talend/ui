@@ -14,9 +14,11 @@ exports[`InputDateTimeRangePicker should render 1`] = `
     startDateTime="2019-12-01 00:00:00"
   >
     <div
-      className="theme-range-picker range-picker"
+      className="range-picker theme-range-picker"
     >
-      <div>
+      <div
+        className="range-input"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -132,8 +134,8 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <span
                               style={
                                 Object {
-                                  "fontSize": "1.6rem",
-                                  "fontWeight": 400,
+                                  "fontSize": "1.4rem",
+                                  "padding": "0 1rem",
                                   "position": "absolute",
                                   "visibility": "hidden",
                                 }
@@ -177,7 +179,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               value="00:00:00"
                             />
                             <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                              style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
                             >
                               HH:mm:ss
                             </span>
@@ -247,8 +249,8 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <span
                               style={
                                 Object {
-                                  "fontSize": "1.6rem",
-                                  "fontWeight": 400,
+                                  "fontSize": "1.4rem",
+                                  "padding": "0 1rem",
                                   "position": "absolute",
                                   "visibility": "hidden",
                                 }
@@ -280,7 +282,9 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           />
         </Icon>
       </span>
-      <div>
+      <div
+        className="range-input"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -396,8 +400,8 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <span
                               style={
                                 Object {
-                                  "fontSize": "1.6rem",
-                                  "fontWeight": 400,
+                                  "fontSize": "1.4rem",
+                                  "padding": "0 1rem",
                                   "position": "absolute",
                                   "visibility": "hidden",
                                 }
@@ -441,7 +445,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                               value="23:59:59"
                             />
                             <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                              style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
                             >
                               HH:mm:ss
                             </span>
@@ -511,8 +515,8 @@ exports[`InputDateTimeRangePicker should render 1`] = `
                             <span
                               style={
                                 Object {
-                                  "fontSize": "1.6rem",
-                                  "fontWeight": 400,
+                                  "fontSize": "1.4rem",
+                                  "padding": "0 1rem",
                                   "position": "absolute",
                                   "visibility": "hidden",
                                 }
@@ -556,9 +560,11 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
 >
   <DateTimeRange.Manager>
     <div
-      className="theme-range-picker range-picker"
+      className="range-picker theme-range-picker"
     >
-      <div>
+      <div
+        className="range-input"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -707,8 +713,8 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             <span
                               style={
                                 Object {
-                                  "fontSize": "1.6rem",
-                                  "fontWeight": 400,
+                                  "fontSize": "1.4rem",
+                                  "padding": "0 1rem",
                                   "position": "absolute",
                                   "visibility": "hidden",
                                 }
@@ -750,7 +756,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               value=""
                             />
                             <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                              style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
                             >
                               HH:mm
                             </span>
@@ -820,8 +826,8 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             <span
                               style={
                                 Object {
-                                  "fontSize": "1.6rem",
-                                  "fontWeight": 400,
+                                  "fontSize": "1.4rem",
+                                  "padding": "0 1rem",
                                   "position": "absolute",
                                   "visibility": "hidden",
                                 }
@@ -853,7 +859,9 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
           />
         </Icon>
       </span>
-      <div>
+      <div
+        className="range-input"
+      >
         <label
           className="control-label"
           htmlFor="my-picker"
@@ -1002,8 +1010,8 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             <span
                               style={
                                 Object {
-                                  "fontSize": "1.6rem",
-                                  "fontWeight": 400,
+                                  "fontSize": "1.4rem",
+                                  "padding": "0 1rem",
                                   "position": "absolute",
                                   "visibility": "hidden",
                                 }
@@ -1045,7 +1053,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                               value=""
                             />
                             <span
-                              style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
+                              style="padding: 0px 1rem; font-size: 1.4rem; visibility: hidden; position: absolute;"
                             >
                               HH:mm
                             </span>
@@ -1115,8 +1123,8 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
                             <span
                               style={
                                 Object {
-                                  "fontSize": "1.6rem",
-                                  "fontWeight": 400,
+                                  "fontSize": "1.4rem",
+                                  "padding": "0 1rem",
                                   "position": "absolute",
                                   "visibility": "hidden",
                                 }

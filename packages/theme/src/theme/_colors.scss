@@ -3,139 +3,249 @@
 /// @group Colors
 ////
 
-/// Talend green color as reference
+/// Grayscale.
 ///
 /// @type Color
-$green-talend: #b6be00;
+$gray0: white;
+$gray50: #F3F3F3;
+$gray75: #E8E8E8;
+$gray100: #D2D2D2;
+$gray200: #BCBCBC;
+$gray300: #A5A5A5;
+$gray400: #8F8F8F;
+$gray500: #797979;
+$gray600: #626262;
+$gray700: #4C4C4C;
+$gray800: #363636;
+$gray900: #202020;
+$gray: $gray500;
 
-/// Talend coral color as reference
+/// Talend coral color
 ///
 /// @type Color
-$coral: #ff6d70;
+$coral100: #FFE1E2;
+$coral200: #FFC4C5;
+$coral300: #FFA7A9;
+$coral400: #FF8A8C;
+$coral500: #FF6D70;
+$coral600: #CC5759;
 $coral700: #994143;
+$coral800: #662B2C;
+$coral900: #321516;
+$coral: #FF6D70;
+
+/// Talend brand color
+///
+/// @type Color
+$russian-violet: #2C1F56;
 
 /// Primary color, mostly used for the selected elements
 /// and to draw attention to the important elements of interaction.
 ///
 /// @type Color
-$regal-blue: #19426c;
+$deep-blue100: #D1D9E1;
+$deep-blue200: #A3B3C4;
+$deep-blue300: #758DA6;
+$deep-blue400: #476789;
+$deep-blue500: #19426C;
+$deep-blue600: #143456;
+$deep-blue700: #0F2740;
+$deep-blue800: #0A1A2B;
+$deep-blue900: #040D15;
+$regal-blue: $deep-blue500;
+
+$pale-cyan100: #CDE3F2;
+$pale-cyan200: #9BC7E6;
+$pale-cyan300: #69ACD9;
+$pale-cyan400: #3790CD;
+$pale-cyan500: #0675C1;
+$pale-cyan600: #045D9A;
+$pale-cyan700: #034673;
+$pale-cyan800: #022E4D;
+$pale-cyan900: #011726;
 
 /// Primary color, mostly used for the selected elements
 /// and to draw attention to the important elements of interaction.
 ///
 /// @type Color
+/// @deprecated
 $st-tropaz: #236192;
 
 /// Primary color, mostly used for the selected elements
 /// and to draw attention to the important elements of interaction.
 ///
 /// @type Color
-$green-talend: #b6be00;
-
-/// Greyscale.
-///
-/// @type Color
-$black: #202020;
-
-/// Greyscale.
-///
-/// @type Color
-$dove-gray: #555;
-
-/// Greyscale.
-///
-/// @type color
-$dark-silver: #888;
-
-/// Greyscale.
-///
-/// @type color
-$indigo-gray: #323e48;
-
-/// Greyscale.
-///
-/// @type Color
-$gray: #969696;
-$gray500: #797979;
-$gray700: #4d4d4d;
-
-/// Greyscale.
-///
-/// @type Color
-$silver-chalice: #ababab;
-
-/// Greyscale.
-///
-/// @type Color
-$silver: #c6c6c6;
+/// @deprecated
+$green-talend: #B6BE00;
 
 /// Secondary color.
 /// Used to valid/validated/validation elements.
 ///
 /// @type Color
-$rio-grande: #82bd41;
-$rio-grande500: #6ec01e;
-$rio-grande700: #427312;
+$rio-grande100: #E6F1D9;
+$rio-grande200: #CDE4B3;
+$rio-grande300: #B4D78D;
+$rio-grande400: #9BCA67;
+$rio-grande500: #82BD41;
+$rio-grande600: #689734;
+$rio-grande700: #4E7127;
+$rio-grande800: #344B1A;
+$rio-grande900: #19250C;
+$rio-grande: $rio-grande500;
 
 /// Secondary color.
 /// Contextual color for informational alert messages.
 ///
 /// @type Color
-$scooter: #66bdff;
+/// @deprecated
+$scooter: #66BDFF;
 
 /// Secondary color.
 /// Errors and to notify non-valid elements or warning information.
 ///
 /// @type Color
-$chestnut-rose: #e96065;
+/// @deprecated
+$chestnut-rose: #E96065;
 
 /// Secondary color.
 /// Used to notify invalid elements or warning information.
 ///
 /// @type Color
-$lightning-yellow: #f3c446;
+$lightning-yellow100: #FCF3DA;
+$lightning-yellow200: #FAE7B5;
+$lightning-yellow300: #F7DB90;
+$lightning-yellow400: #F5CF6B;
+$lightning-yellow500: #F3C446;
+$lightning-yellow600: #C29C38;
+$lightning-yellow700: #91752A;
+$lightning-yellow800: #614E1C;
+$lightning-yellow900: #30270D;
+$lightning-yellow: $lightning-yellow500;
 
 /// Secondary color.
 ///
 /// @type Color
-$jaffa: #ea8330;
-$jaffa700: #8c4e1c;
+$jaffa100: #FAE6D5;
+$jaffa200: #F6CDAC;
+$jaffa300: #F2B482;
+$jaffa400: #EE9B59;
+$jaffa500: #EA8330;
+$jaffa600: #BB6826;
+$jaffa700: #8C4E1C;
+$jaffa800: #5D3413;
+$jaffa900: #2E1A09;
+$jaffa: $jaffa500;
 
 /// Secondary color.
 ///
 /// @type Color
-$lochmara: #0675c1;
+$moody-purple100: #E0E0F5;
+$moody-purple200: #C1C1EC;
+$moody-purple300: #A3A2E3;
+$moody-purple400: #8483DA;
+$moody-purple500: #6664D1;
+$moody-purple600: #5150A7;
+$moody-purple700: #3D3C7D;
+$moody-purple800: #282853;
+$moody-purple900: #141329;
+
+/// Secondary color.
+///
+/// @type Color
+$lochmara100: #CDE3F2;
+$lochmara200: #9BC7E6;
+$lochmara300: #69ACD9;
+$lochmara400: #3790CD;
+$lochmara500: #0675C1;
+$lochmara600: #045D9A;
 $lochmara700: #034673;
+$lochmara800: #022E4D;
+$lochmara900: #011726;
+$lochmara: $lochmara500;
+
+/// Secondary color.
+///
+/// @type Color
+$pale-cyan100: #E9F5FB;
+$pale-cyan200: #D3ECF7;
+$pale-cyan300: #BDE3F4;
+$pale-cyan400: #A7DAF0;
+$pale-cyan500: #91D1ED;
+$pale-cyan600: #74A7BD;
+$pale-cyan700: #577D8E;
+$pale-cyan800: #3A535E;
+$pale-cyan900: #1D292F;
+$pale-cyan: $pale-cyan500;
+
+/// Greyscale.
+///
+/// @type Color
+$black: $gray900;
+
+/// Greyscale.
+///
+/// @type color
+/// @deprecated
+$indigo-gray: $gray800;
+
+/// Greyscale.
+///
+/// @type Color
+/// @deprecated
+$dove-gray: $gray700;
+
+/// Greyscale.
+///
+/// @type color
+/// @deprecated
+$dark-silver: $gray500;
 
 /// Background color.
 ///
 /// @type Color
-$white: #fff;
+/// @deprecated
+$slate-gray: $gray500;
+
+/// Greyscale.
+///
+/// @type Color
+/// @deprecated
+$silver-chalice: $gray300;
+
+/// Greyscale.
+///
+/// @type Color
+/// @deprecated
+$silver: $gray200;
 
 /// Background color.
 ///
 /// @type Color
-$concrete: #f2f2f2;
+/// @deprecated
+$alto: $gray100;
 
 /// Background color.
 ///
 /// @type Color
-$alto: #d5d5d5;
+/// @deprecated
+$gallery: $gray75;
 
 /// Background color.
 ///
 /// @type Color
-$gallery: #eaeaea;
+/// @deprecated
+$concrete: $gray50;
 
 /// Background color.
 ///
 /// @type Color
-$slate-gray: #758495;
+/// @deprecated
+$wild-sand: $gray50;
 
 /// Background color.
 ///
 /// @type Color
-$wild-sand: #f6f6f6;
+$white: $gray0;
 
 /// Used for shadows
 ///

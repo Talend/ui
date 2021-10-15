@@ -7,17 +7,15 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "postinstall": "yarn build",
-    "examples": "docusaurus-examples",
     "start": "cross-env NODE_ENV=development docusaurus-start",
-    "build": "docusaurus-build",
+    "prepare": "docusaurus-build",
     "publish-gh-pages": "docusaurus-publish",
     "write-translations": "docusaurus-write-translations",
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version"
   },
   "devDependencies": {
-    "docusaurus": "^1.14.6",
-    "cross-env": "^7.0.2"
+    "cross-env": "^7.0.3",
+    "docusaurus": "^1.14.6"
   }
 }

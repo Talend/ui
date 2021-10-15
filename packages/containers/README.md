@@ -33,7 +33,6 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 in your app index.js file
 
 ```javascript
-import '@talend/bootstrap-theme/src/theme/theme.scss';
 import containersModule from '@talend/react-containers';
 import cmf from '@talend/react-cmf';
 import components from './components';
@@ -63,8 +62,6 @@ Every component do not change the API of the stateless componet which is behind.
 ## How to contribute
 
 First please take a look at our contributing guildelines.
-
-To create a new widget, you can use the [talend yeoman generator](https://github.com/Talend/generator-talend)
 
 # List of containers
 

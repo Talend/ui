@@ -186,6 +186,7 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				required={this.props.schema.required}
+				labelProps={this.props.schema.labelProps}
 				valueIsUpdating={this.props.valueIsUpdating}
 			>
 				<ListView
@@ -194,6 +195,7 @@ class ListViewWidget extends React.Component {
 					items={this.state.displayedItems}
 					t={this.props.t}
 					containerProps={{ 'aria-describedby': `${descriptionId} ${errorId}` }}
+					dataTest={this.props.schema.dataTest}
 				/>
 			</FieldTemplate>
 		);
@@ -217,6 +219,8 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			labelProps: PropTypes.object,
+			dataTest: PropTypes.string,
 			titleMap: PropTypes.arrayOf(
 				PropTypes.shape({
 					name: PropTypes.string.isRequired,

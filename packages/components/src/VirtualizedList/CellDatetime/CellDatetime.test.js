@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { distanceInWordsToNow, format } from 'date-fns';
-import { formatToTimeZone } from 'date-fns-timezone';
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import format from 'date-fns/format';
+import talendUtils from '@talend/utils';
 
 import { computeValue, CellDatetimeComponent } from './CellDatetime.component';
 import getDefaultT from '../../translate';
@@ -9,18 +10,37 @@ import getLocale from '../../i18n/DateFnsLocale/locale';
 
 jest.mock('../../i18n/DateFnsLocale/locale');
 
-jest.mock('date-fns', () => ({
-	format: jest.fn(() => '2016-09-22 09:00:00'),
-	distanceInWordsToNow: jest.fn(() => 'about 1 month ago'),
+jest.mock('date-fns/distance_in_words_to_now', () => ({
+	__esModule: true,
+	default: jest.fn(() => 'about 1 month ago'),
+}));
+jest.mock('date-fns/format', () => ({
+	__esModule: true,
+	default: jest.fn(() => '2016-09-22 09:00:00'),
 }));
 
-jest.mock('date-fns-timezone', () => ({
-	formatToTimeZone: jest.fn(() => '2016-09-22 09:00:00'),
-}));
+jest.mock('@talend/utils', () => {
+	const actualUtils = jest.requireActual('@talend/utils');
+
+	return {
+		...actualUtils,
+		date: {
+			...actualUtils.date,
+			formatToTimeZone: jest.fn(() => '2016-09-22 09:00:00'),
+		},
+	};
+});
 
 describe('CellDatetime', () => {
 	beforeAll(() => {
 		getLocale.mockImplementation(() => 'getLocale');
+	});
+
+	afterAll(() => {
+		jest.unmock('../../i18n/DateFnsLocale/locale');
+		jest.unmock('date-fns/distance_in_words_to_now');
+		jest.unmock('date-fns/format');
+		jest.unmock('../../utils/date');
 	});
 
 	it('should render CellDatetime', () => {
@@ -124,7 +144,7 @@ describe('CellDatetime', () => {
 		computeValue(cellData, columnData);
 
 		// then
-		expect(formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
+		expect(talendUtils.date.formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
 			timeZone: columnData.timeZone,
 		});
 	});

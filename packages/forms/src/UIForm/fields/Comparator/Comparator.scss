@@ -1,12 +1,9 @@
 $tf-comparator-operator-height: 3.2rem !default;
 $tf-comparator-operator-width: 5rem !default;
-$tf-comparator-operator-top: 3.4rem !default;
-$tf-comparator-operator-color: $dove-gray !default;
-$tf-comparator-operator-background: $gallery !default;
+$tf-comparator-operator-top: 2.4rem !default;
 
 .comparator {
 	position: relative;
-	padding-top: $padding-normal;
 	margin-bottom: $padding-normal;
 
 	:global {
@@ -16,10 +13,7 @@ $tf-comparator-operator-background: $gallery !default;
 
 			&-menu {
 				min-width: auto;
-				border-top: {
-					left-radius: 0;
-					right-radius: 0;
-				}
+
 			}
 
 			.tc-svg-icon {
@@ -27,30 +21,22 @@ $tf-comparator-operator-background: $gallery !default;
 			}
 
 			.btn {
-				padding: {
-					left: $padding-smaller;
-					right: $padding-smaller;
-				}
 				height: $tf-comparator-operator-height;
 				min-height: $tf-comparator-operator-height;
 				width: $tf-comparator-operator-width;
-				color: $tf-comparator-operator-color;
-				border: {
-					radius: 0;
-					top-left-radius: 0.4rem;
-				}
+				color: var(--t-form-group-interactive-color);
+				background: var(--t-form-group-interactive-background-color);
+				border: 1px solid var(--t-form-border-color);
+				border-radius: $input-border-radius 0 0 $input-border-radius;
 				z-index: 1;
-
-				&-default {
-					box-shadow: none;
-					background-color: $tf-comparator-operator-background;
+				padding: {
+					left: $padding-smaller;
+					right: $padding-smaller;
 				}
 			}
 		}
 
 		.form-group {
-			padding-top: $padding-large;
-
 			.control-label {
 				top: 0;
 			}

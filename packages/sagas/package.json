@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "6.15.0",
+  "version": "6.36.4",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -8,14 +8,14 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "prepublishOnly": "yarn build:dev && yarn build:prod",
-    "prepare": "talend-scripts build:lib",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo in @talend/react-sagas",
-    "lint:es": "talend-scripts lint:es",
-    "lint:style": "sass-lint -v -q"
+    "lint": "yarn lint:es",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "keywords": [
     "react",
@@ -33,9 +33,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^6.15.0",
-    "immutable": "^3.8.1",
-    "redux-saga": "^0.15.4"
+    "@talend/react-cmf": "^6.38.4",
+    "immutable": "^3.8.2",
+    "redux-saga": "^0.15.6"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
@@ -43,11 +43,11 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^9.4.1",
-    "@talend/scripts-preset-react-lib": "^9.4.1",
-    "prop-types": "^15.5.10",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@talend/scripts-core": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "publishConfig": {
     "access": "public"

@@ -18,3 +18,17 @@ _/!\ Month and year pickers are used to defined what month calendar is displayed
 Each view displays the picker units (month, year, date, time, etc.) needed, findable in the **_pickers_** folder.
 
 All code fragments used accross multiples folders are stored in the **_shared_** folder.
+
+## Hybrid mode
+By default (without the hybrid mode enabled), the picker required the date AND the time if you set the `useTime` prop to `true`.
+
+If you want to let the user choose between a date OR a time, you can set the `hybridMode` prop to `true`.
+
+Example:
+
+```javascript
+<InputDateTimePicker
+  useTime
+  hybridMode
+/>
+```

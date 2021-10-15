@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeNumber should mount a default badge 1`] = `
+<BadgeNumber
+  id="myId"
+  label="Price"
+  t={[Function]}
+/>
+`;
