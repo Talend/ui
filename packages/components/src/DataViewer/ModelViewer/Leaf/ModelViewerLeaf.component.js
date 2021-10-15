@@ -89,6 +89,7 @@ export function ModelViewerLeaf({
 ModelViewerLeaf.propTypes = {
 	className: PropTypes.string,
 	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	getDisplayClassName: PropTypes.func,
 	getDisplayKey: PropTypes.func,
 	getDisplayValue: PropTypes.func.isRequired,
 	hasSemanticAwareness: PropTypes.bool,
@@ -96,7 +97,6 @@ ModelViewerLeaf.propTypes = {
 	jsonPathSelection: PropTypes.string,
 	level: PropTypes.number,
 	onSelect: PropTypes.func,
-	semanticDraft: PropTypes.object,
 	t: PropTypes.func,
 	value: PropTypes.object,
 	renderLeafOptions: PropTypes.func,
