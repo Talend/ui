@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import noop from 'lodash/noop';
 import PropTypes from 'prop-types';
 import React from 'react';
 import getDefaultT from '../../../translate';
@@ -104,6 +105,7 @@ ModelViewerLeaf.propTypes = {
 
 ModelViewerLeaf.defaultProps = {
 	t: getDefaultT(),
+	getDisplayClassName: noop,
 };
 
 export default ModelViewerLeaf;
