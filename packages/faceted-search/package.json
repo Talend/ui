@@ -60,7 +60,6 @@
     "cross-env": "^7.0.3",
     "husky": "^4.3.0",
     "i18next": "^20.6.1",
-    "i18next-scanner": "^3.0.0",
     "lint-staged": "^10.4.2",
     "prop-types": "^15.5.10",
     "react": "^16.14.0",
