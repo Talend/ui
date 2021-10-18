@@ -130,6 +130,42 @@ describe('ComponentForm saga', () => {
 			// then
 			expect(fetchUiSpecStep.done).toBe(false);
 		});
+
+		it('should NOT fetch uiSpec when provided', () => {
+			// given
+			const jsonSchema = {
+				properties: {
+					_datasetMetadata: {
+						properties: {
+							name: {
+								title: 'Name',
+								type: 'string',
+							},
+							type: {
+								title: 'Types',
+								type: 'string',
+							},
+						},
+						type: 'object',
+					},
+				},
+			};
+			const props = {
+				componentId: 'MyComponentId',
+				definitionURL: 'http://lol',
+				definition: jsonSchema,
+			};
+			const gen = sagas.onDidMount(props);
+
+			// when
+			gen.next(); // select
+
+			// then
+			expect(gen.next().value.PUT.action.cmf.componentState.componentState).toEqual({
+				initialState: jsonSchema,
+				...jsonSchema,
+			});
+		});
 	});
 
 	describe('*fetchDefinition', () => {

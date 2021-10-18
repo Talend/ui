@@ -39,12 +39,16 @@ export function* fetchDefinition(action) {
 	}
 }
 
-export function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath }) {
+export function* onDidMount({ componentId = 'default', definition, definitionURL, uiSpecPath }) {
 	const jsonSchema = yield select(state =>
 		Component.getState(state, componentId).get('jsonSchema'),
 	);
 	if (!jsonSchema) {
-		yield fetchDefinition({ definitionURL, componentId, uiSpecPath });
+		if (definition) {
+			yield put(Component.setStateAction({ initialState: definition, ...definition }, componentId));
+		} else {
+			yield fetchDefinition({ definitionURL, componentId, uiSpecPath });
+		}
 	}
 }
 

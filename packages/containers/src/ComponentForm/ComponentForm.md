@@ -45,6 +45,7 @@ function* handleForm() {
 
 | name               | type    | desc                                                                                                                                             |
 | ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| initialData\*      | uiSpec  | prefilled state                                                                                                                        |
 | definitionURL\*    | string  | url to GET the `uiSpec`                                                                                                                          |
 | triggerURL\*       | string  | url to POST on event trigger                                                                                                                     |
 | submitURL          | string  | url to POST the content if action is of type "submit"                                                                                            |
