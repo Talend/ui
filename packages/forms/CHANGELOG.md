@@ -1,5 +1,15 @@
 # @talend/react-forms
 
+## 6.41.2
+
+### Patch Changes
+
+- b4e7352b0: Update Datalist component
+- Updated dependencies [324c07420]
+- Updated dependencies [7b9a15097]
+- Updated dependencies [bc3ff67f6]
+  - @talend/react-components@6.41.0
+
 ## 6.41.1
 
 ### Patch Changes

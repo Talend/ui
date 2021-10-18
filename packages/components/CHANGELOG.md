@@ -1,5 +1,17 @@
 # @talend/react-components
 
+## 6.41.0
+
+### Minor Changes
+
+- 7b9a15097: feat: add custom classname for model in the modelViewer
+
+### Patch Changes
+
+- 324c07420: fix Column chooser label for displaying total columns
+- bc3ff67f6: chore: Upgrade react-use to 17 to be aligned with other libs
+  chore: fix date-fns imports to not embed every date-fns in it
+
 ## 6.40.2
 
 ### Patch Changes
