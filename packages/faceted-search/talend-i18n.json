@@ -9,8 +9,7 @@
     "project": "tui-faceted-search"
   },
   "module": {
-    "type": "npm",
-    "private": true
+    "type": "npm"
   },
   "github": {
     "url": "https://github.com/Talend/i18n-product.git"
