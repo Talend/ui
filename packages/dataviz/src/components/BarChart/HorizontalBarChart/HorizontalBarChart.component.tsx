@@ -51,7 +51,7 @@ function HorizontalBarChart({
 				className={styles['horizontal-bar-chart']}
 				onMouseMove={onMouseMove}
 				onClick={onClick}
-				onMouseOut={onMouseOut}
+				onMouseLeave={onMouseOut}
 			>
 				<CartesianGrid strokeDasharray="3 3" horizontal={false} />
 
@@ -84,7 +84,7 @@ function HorizontalBarChart({
 				<Tooltip
 					isAnimationActive={false}
 					content={<TooltipContent />}
-					cursor={<TooltipCursor dataFeature={dataFeature} />}
+					cursor={<TooltipCursor dataFeature={dataFeature} height={200} />}
 				/>
 
 				<XAxis dataKey="value" type="number" orientation="top" />

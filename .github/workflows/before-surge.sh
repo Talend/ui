@@ -74,3 +74,7 @@ echo "✓ Copy stepper UMD to .static"
 mkdir -p .static/@talend/bootstrap-theme/dist
 cp -R packages/theme/dist/* .static/@talend/bootstrap-theme/dist
 echo "✓ Copy bootstrap-theme UMD to .static"
+
+mkdir -p .static/@talend/react-dataviz/dist
+cp -R packages/dataviz/dist/* .static/@talend/react-dataviz/dist
+echo "✓ Copy dataviz UMD to .static"
