@@ -312,6 +312,35 @@ describe('ComponentForm saga', () => {
 				type: 'ComponentForm.setState',
 			});
 		});
+		it('should init form with provided state', () => {
+			// given
+			const props = {
+				componentId,
+				definitionURL: 'http://lol',
+				data: {
+					jsonSchema: {},
+				},
+			};
+			const response = { ok: true };
+			const gen = sagas.fetchDefinition(props);
+
+			// when
+			gen.next(); // fetch step
+			const nextStep = gen.next({ response, data }).value;
+
+			// then
+			expect(nextStep.PUT.action).toEqual({
+				cmf: {
+					componentState: {
+						componentName: 'ComponentForm',
+						componentState: { ...data, initialState: data, ...props.data },
+						key: 'MyComponentId',
+						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+					},
+				},
+				type: 'ComponentForm.setState',
+			});
+		});
 	});
 
 	describe('onFormSubmit', () => {

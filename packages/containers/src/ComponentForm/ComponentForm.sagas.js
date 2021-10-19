@@ -30,24 +30,35 @@ export function* fetchDefinition(action) {
 					definition: data,
 					initialState: formSpec,
 					...formSpec,
+					...action.data,
 				},
 				action.componentId,
 			),
 		);
 	} else {
-		yield put(Component.setStateAction({ initialState: data, ...data }, action.componentId));
+		yield put(
+			Component.setStateAction({ initialState: data, ...data, ...action.data }, action.componentId),
+		);
 	}
 }
 
-export function* onDidMount({ componentId = 'default', definition, definitionURL, uiSpecPath }) {
+export function* onDidMount({
+	componentId = 'default',
+	definition,
+	definitionURL,
+	uiSpecPath,
+	data,
+}) {
 	const jsonSchema = yield select(state =>
 		Component.getState(state, componentId).get('jsonSchema'),
 	);
 	if (!jsonSchema) {
 		if (definition) {
-			yield put(Component.setStateAction({ initialState: definition, ...definition }, componentId));
+			yield put(
+				Component.setStateAction({ initialState: definition, ...definition, ...data }, componentId),
+			);
 		} else {
-			yield fetchDefinition({ definitionURL, componentId, uiSpecPath });
+			yield fetchDefinition({ definitionURL, componentId, uiSpecPath, data });
 		}
 	}
 }
