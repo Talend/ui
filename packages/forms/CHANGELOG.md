@@ -1,5 +1,25 @@
 # @talend/react-forms
 
+## 6.41.2
+
+### Patch Changes
+
+- b4e7352b0: Update Datalist component
+- Updated dependencies [324c07420]
+- Updated dependencies [7b9a15097]
+- Updated dependencies [bc3ff67f6]
+  - @talend/react-components@6.41.0
+
+## 6.41.1
+
+### Patch Changes
+
+- 0bd49abd2: Expose Textarea field like Input and Select fields
+- Updated dependencies [9b9faebe8]
+- Updated dependencies [715f615a8]
+- Updated dependencies [5cb420c29]
+  - @talend/react-components@6.40.1
+
 ## 6.41.0
 
 ### Minor Changes

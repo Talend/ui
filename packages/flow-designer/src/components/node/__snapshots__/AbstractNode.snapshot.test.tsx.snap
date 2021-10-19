@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AbstractNode /> renders correctly 1`] = `
+<g>
+  <g
+    onClick={[Function]}
+    transform="translate(100, 100)"
+  >
+    <rect />
+  </g>
+</g>
+`;

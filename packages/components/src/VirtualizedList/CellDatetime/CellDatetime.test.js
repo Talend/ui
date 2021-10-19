@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { distanceInWordsToNow, format } from 'date-fns';
-import talendUtils from '@talend/utils';
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import format from 'date-fns/format';
+import { date as dateUtils } from '@talend/utils';
 
 import { computeValue, CellDatetimeComponent } from './CellDatetime.component';
 import getDefaultT from '../../translate';
@@ -9,9 +10,13 @@ import getLocale from '../../i18n/DateFnsLocale/locale';
 
 jest.mock('../../i18n/DateFnsLocale/locale');
 
-jest.mock('date-fns', () => ({
-	format: jest.fn(() => '2016-09-22 09:00:00'),
-	distanceInWordsToNow: jest.fn(() => 'about 1 month ago'),
+jest.mock('date-fns/distance_in_words_to_now', () => ({
+	__esModule: true,
+	default: jest.fn(() => 'about 1 month ago'),
+}));
+jest.mock('date-fns/format', () => ({
+	__esModule: true,
+	default: jest.fn(() => '2016-09-22 09:00:00'),
 }));
 
 jest.mock('@talend/utils', () => {
@@ -33,7 +38,8 @@ describe('CellDatetime', () => {
 
 	afterAll(() => {
 		jest.unmock('../../i18n/DateFnsLocale/locale');
-		jest.unmock('date-fns');
+		jest.unmock('date-fns/distance_in_words_to_now');
+		jest.unmock('date-fns/format');
 		jest.unmock('../../utils/date');
 	});
 
@@ -103,7 +109,9 @@ describe('CellDatetime', () => {
 		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
 		const hours = 11 + timezoneOffset / 60;
 		const isOneDigitHours = hours.toString().length === 1;
-		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${11 + timezoneOffset / 60}:00:00`;
+		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${
+			11 + timezoneOffset / 60
+		}:00:00`;
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData);
 		// then
 		expect(computedStrOffset).toEqual(expectedStrDate);
@@ -136,7 +144,7 @@ describe('CellDatetime', () => {
 		computeValue(cellData, columnData);
 
 		// then
-		expect(talendUtils.date.formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
+		expect(dateUtils.formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
 			timeZone: columnData.timeZone,
 		});
 	});

@@ -1,0 +1,25 @@
+{
+  "permalink": "/cmf/blog/2018/12/18/cmf-2",
+  "editUrl": "https://github.com/Talend/ui/edit/master/packages/cmf/my-website/blog/blog/2018-12-18-cmf-2.md",
+  "source": "@site/blog/2018-12-18-cmf-2.md",
+  "title": "CMF 2.0",
+  "description": "@talend/react-cmf has is two years old and now is the time to merge the first breaking changes of his life!",
+  "date": "2018-12-18T00:00:00.000Z",
+  "formattedDate": "December 18, 2018",
+  "tags": [],
+  "readingTime": 1.305,
+  "truncated": false,
+  "authors": [
+    {
+      "name": "Jean-Michel FRANCOIS",
+      "title": "Talend Frontend Architect",
+      "url": "https://github.com/jmfrancois",
+      "imageURL": "https://github.com/jmfrancois.png",
+      "key": "jmfrancois"
+    }
+  ],
+  "prevItem": {
+    "title": "First Blog Post",
+    "permalink": "/cmf/blog/first-blog-post"
+  }
+}
