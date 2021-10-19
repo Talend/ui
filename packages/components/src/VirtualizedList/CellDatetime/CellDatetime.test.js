@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import format from 'date-fns/format';
-import talendUtils from '@talend/utils';
+import { date as dateUtils } from '@talend/utils';
 
 import { computeValue, CellDatetimeComponent } from './CellDatetime.component';
 import getDefaultT from '../../translate';
@@ -144,7 +144,7 @@ describe('CellDatetime', () => {
 		computeValue(cellData, columnData);
 
 		// then
-		expect(talendUtils.date.formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
+		expect(dateUtils.formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
 			timeZone: columnData.timeZone,
 		});
 	});
