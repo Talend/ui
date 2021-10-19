@@ -9,6 +9,7 @@ import Form from './components/Form';
 import HeaderBar from './components/HeaderBar';
 import { Icon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
+import InlineEditing from './components/InlineEditing';
 import InlineMessage from './components/InlineMessage';
 import Layout from './components/Layout';
 import Link from './components/Link';
@@ -42,6 +43,7 @@ export {
 	HeaderBar,
 	Icon,
 	IconsProvider,
+	InlineEditing,
 	InlineMessage,
 	Link,
 	Layout,

@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { unstable_useId as useId } from 'reakit';
 
 import Loading from '../../Loading';
+import VisuallyHidden from '../../VisuallyHidden';
 import InlineMessage from '../../InlineMessage';
 
 import * as S from './Field.style';
@@ -25,6 +26,7 @@ export type FieldProps = (
 	hasWarning?: boolean;
 	hasSuccess?: boolean;
 	hasInformation?: boolean;
+	hideLabel?: boolean;
 	description?: string;
 };
 
@@ -34,6 +36,7 @@ const Field = React.forwardRef(
 			as = 'input',
 			className = '',
 			label,
+			hideLabel,
 			before,
 			after,
 			id,
@@ -62,6 +65,8 @@ const Field = React.forwardRef(
 			</S.FieldLabel>
 		);
 
+		const WrappedLabel = () => hideLabel ? <VisuallyHidden><Label /></VisuallyHidden> : <Label />;
+
 		const Description = () => {
 			if (hasError) {
 				return <InlineMessage.Destructive small description={description} />;
@@ -80,7 +85,7 @@ const Field = React.forwardRef(
 
 		return (
 			<S.Field className={`field ${typeof as === 'string' ? `field--${as}` : ''}`}>
-				{!inline && label && <Label />}
+				{!inline && label && <WrappedLabel />}
 				<S.FieldGroup
 					className={classnames(
 						'field__group',
@@ -110,7 +115,7 @@ const Field = React.forwardRef(
 					{after}
 				</S.FieldGroup>
 				{link}
-				{inline && label && <Label />}
+				{inline && label && <WrappedLabel />}
 				{description && <Description />}
 			</S.Field>
 		);

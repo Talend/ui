@@ -1,6 +1,7 @@
 {
   "extends": "./node_modules/@talend/scripts-config-typescript/tsconfig.json",
   "include": [
+    "cypress/*",
     "src/*",
     "custom.d.ts"
   ],
