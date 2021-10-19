@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NodesRenderer /> renders correctly 1`] = `
+<g>
+  <span>
+    MockNodes
+  </span>
+</g>
+`;
+
+exports[`<NodesRenderer /> renders correctly if nested 1`] = `
+<g>
+  <span>
+    MockNodes
+  </span>
+</g>
+`;

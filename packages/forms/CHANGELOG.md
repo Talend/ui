@@ -1,5 +1,78 @@
 # @talend/react-forms
 
+## 6.41.3
+
+### Patch Changes
+
+- d5f261f49: utils: remove default export, use named exports instead
+  - WHAT the breaking change is
+    Remove default export of @talend/utils package, use named exports instead
+  - WHY the change was made
+    The utils package used a default export. so we can't do a destruction import as readme described:
+  ```
+  import { validation } from '@talend/utils';
+  ```
+  - HOW a consumer should update their code
+    Use destruction import like `import { validation, date } from '@talend/utils';` to replace default import.
+- Updated dependencies [d5f261f49]
+  - @talend/utils@2.0.0
+  - @talend/react-components@6.41.1
+
+## 6.41.2
+
+### Patch Changes
+
+- b4e7352b0: Update Datalist component
+- Updated dependencies [324c07420]
+- Updated dependencies [7b9a15097]
+- Updated dependencies [bc3ff67f6]
+  - @talend/react-components@6.41.0
+
+## 6.41.1
+
+### Patch Changes
+
+- 0bd49abd2: Expose Textarea field like Input and Select fields
+- Updated dependencies [9b9faebe8]
+- Updated dependencies [715f615a8]
+- Updated dependencies [5cb420c29]
+  - @talend/react-components@6.40.1
+
+## 6.41.0
+
+### Minor Changes
+
+- 7dde61e46: Add custom xpath props support for listView, MultiselectTag, Bage components
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+- 2d9e62a2a: fix import for password widget
+- Updated dependencies [667cd0a50]
+- Updated dependencies [7dde61e46]
+  - @talend/react-components@6.40.0
+  - @talend/json-schema-form-core@1.0.3
+  - @talend/utils@1.4.5
+
+## 6.40.0
+
+### Minor Changes
+
+- a048eaa78: add password widget from the design system
+
+### Patch Changes
+
+- Updated dependencies [cbb98bdc9]
+  - @talend/react-components@6.39.6
+
+## 6.39.3
+
+### Patch Changes
+
+- 603785022: chore(components+forms): Bump @talend/design-system
+- Updated dependencies [603785022]
+  - @talend/react-components@6.39.4
+
 ## 6.39.2
 
 ### Patch Changes

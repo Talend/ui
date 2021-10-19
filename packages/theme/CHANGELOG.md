@@ -1,5 +1,21 @@
 # @talend/bootstrap-theme
 
+## 6.38.5
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [667cd0a50]
+  - @talend/icons@6.36.3
+
+## 6.38.4
+
+### Patch Changes
+
+- 809c30848: fix(boostrap-sass): use calc instead of math.div
+- Updated dependencies [809c30848]
+  - @talend/bootstrap-sass@3.4.8
+
 ## 6.38.3
 
 ### Patch Changes

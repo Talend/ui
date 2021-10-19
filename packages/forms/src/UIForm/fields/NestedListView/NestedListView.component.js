@@ -230,6 +230,7 @@ class NestedListViewWidget extends React.Component {
 						labelProps={schema.labelProps}
 						required={schema.required}
 						searchPlaceholder={schema.placeholder}
+						dataTest={schema.dataTest}
 						showToggleAll={false}
 					/>
 				</FieldTemplate>
@@ -258,6 +259,7 @@ if (process.env.NODE_ENV !== 'production') {
 			required: PropTypes.bool,
 			title: PropTypes.string,
 			labelProps: PropTypes.object,
+			dataTest: PropTypes.string,
 			autosize: PropTypes.bool,
 		}),
 		value: PropTypes.object,

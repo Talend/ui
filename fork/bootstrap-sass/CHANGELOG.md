@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.8
+
+### Patch Changes
+
+- 809c30848: fix(boostrap-sass): use calc instead of math.div
+
 ## 3.4.7
 
 ### Patch Changes

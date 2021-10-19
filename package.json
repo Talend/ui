@@ -1,9 +1,10 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.16.0",
-    "commander": "^2.9.0",
+    "@changesets/cli": "^2.17.0",
+    "commander": "^2.20.3",
     "cross-env": "^7.0.3",
-    "i18next-scanner": "^3.0.0"
+    "cross-spawn": "^7.0.3",
+    "i18next-scanner": "^3.1.0"
   },
   "scripts": {
     "postinstall": "node workspace-run.js build:lib",
@@ -24,13 +25,7 @@
     "start-stepper": "yarn workspace  @talend/react-stepper run start",
     "start-forms": "yarn workspace  @talend/react-forms run start",
     "start-theme": "yarn workspace @talend/bootstrap-theme run start",
-    "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
-    "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers && npm run extract-i18n-datagrid",
-    "extract-i18n-components": "i18next-scanner --config packages/components/i18next-scanner.config.js 'packages/components/src/**/*.js' '!packages/components/src/**/*.stories.js'",
-    "extract-i18n-forms": "i18next-scanner --config packages/forms/i18next-scanner.config.js 'packages/forms/src/**/*.js' '!packages/forms/src/**/*.stories.js'",
-    "extract-i18n-containers": "i18next-scanner --config packages/containers/i18next-scanner.config.js 'packages/containers/src/**/*.js' '!packages/containers/src/**/*.stories.js'",
-    "extract-i18n-datagrid": "i18next-scanner --config packages/datagrid/i18next-scanner.config.js 'packages/datagrid/src/**/*.js' '!packages/datagrid/src/**/*.stories.js'",
-    "extract-i18n-stepper": "i18next-scanner --config packages/stepper/i18next-scanner.config.js 'packages/stepper/src/**/*.js' '!packages/stepper/src/**/*.stories.js'"
+    "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color"
   },
   "repository": {
     "type": "git",

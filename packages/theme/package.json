@@ -30,11 +30,11 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/bootstrap-sass": "^3.4.7",
-    "@talend/icons": "^6.36.2"
+    "@talend/bootstrap-sass": "^3.4.8",
+    "@talend/icons": "^6.36.3"
   },
   "devDependencies": {
-    "@talend/icons": "^6.36.2",
+    "@talend/icons": "^6.36.3",
     "@talend/scripts-core": "^11.0.1",
     "@talend/scripts-preset-react-lib": "^9.9.2",
     "copy-webpack-plugin": "^6.4.1",
@@ -47,5 +47,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.38.3"
+  "version": "6.38.5"
 }

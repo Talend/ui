@@ -20,7 +20,7 @@ $tc-slider-line-height: 24px;
 }
 
 .tc-slider {
-	padding: 0 calc($tc-slider-line-height / 2);
+	padding: 0 calc(#{$tc-slider-line-height} / 2);
 
 	:global(.rc-slider-disabled) {
 		background-color: transparent;

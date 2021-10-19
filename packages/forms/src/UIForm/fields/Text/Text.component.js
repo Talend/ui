@@ -5,6 +5,7 @@ import React from 'react';
 import get from 'lodash/get';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import PasswordWidget from './PasswordWidget';
 
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 
@@ -28,6 +29,23 @@ export default function Text(props) {
 	}
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
+	const fieldProps = {
+		id,
+		autoComplete,
+		autoFocus,
+		className: 'form-control',
+		disabled: disabled || valueIsUpdating,
+		onBlur: event => onFinish(event, { schema }),
+		onChange: event => onChange(event, { schema, value: convertValue(type, event.target.value) }),
+		placeholder,
+		readOnly,
+		type,
+		value,
+		min: get(schema, 'schema.minimum'),
+		max: get(schema, 'schema.maximum'),
+		step: get(schema, 'schema.step'),
+		...extractDataAttributes(rest),
+	};
 
 	return (
 		<FieldTemplate
@@ -44,29 +62,21 @@ export default function Text(props) {
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			<input
-				id={id}
-				autoComplete={autoComplete}
-				autoFocus={autoFocus}
-				className="form-control"
-				disabled={disabled || valueIsUpdating}
-				onBlur={event => onFinish(event, { schema })}
-				onChange={event =>
-					onChange(event, { schema, value: convertValue(type, event.target.value) })
-				}
-				placeholder={placeholder}
-				readOnly={readOnly}
-				type={type}
-				value={value}
-				min={get(schema, 'schema.minimum')}
-				max={get(schema, 'schema.maximum')}
-				step={get(schema, 'schema.step')}
-				// eslint-disable-next-line jsx-a11y/aria-proptypes
-				aria-invalid={!isValid}
-				aria-required={get(schema, 'required')}
-				aria-describedby={`${descriptionId} ${errorId}`}
-				{...extractDataAttributes(rest)}
-			/>
+			{type === 'password' ? (
+				<PasswordWidget
+					{...fieldProps}
+					aria-invalid={!isValid}
+					aria-required={get(schema, 'required')}
+					aria-describedby={`${descriptionId} ${errorId}`}
+				/>
+			) : (
+				<input
+					{...fieldProps}
+					aria-invalid={!isValid}
+					aria-required={get(schema, 'required')}
+					aria-describedby={`${descriptionId} ${errorId}`}
+				/>
+			)}
 		</FieldTemplate>
 	);
 }
