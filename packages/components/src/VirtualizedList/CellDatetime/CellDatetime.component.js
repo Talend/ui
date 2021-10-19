@@ -8,7 +8,7 @@ import format from 'date-fns/format';
 import isValid from 'date-fns/is_valid';
 import parse from 'date-fns/parse';
 import { withTranslation } from 'react-i18next';
-import talendUtils from '@talend/utils';
+import { date as dateUtils } from '@talend/utils';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -29,7 +29,7 @@ export function computeValue(cellData, columnData, t) {
 			});
 		} else if (columnData.mode === 'format') {
 			if (columnData.timeZone) {
-				return talendUtils.date.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+				return dateUtils.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
 					timeZone: columnData.timeZone,
 				});
 			}
@@ -47,7 +47,7 @@ export function getTooltipLabel(cellData, columnData) {
 	if (columnData.mode === 'ago') {
 		let tooltipLabel = '';
 		if (columnData.timeZone) {
-			tooltipLabel = talendUtils.date.formatToTimeZone(
+			tooltipLabel = dateUtils.formatToTimeZone(
 				cellData,
 				columnData.pattern || DATE_TIME_FORMAT,
 				{
