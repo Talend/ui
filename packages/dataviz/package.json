@@ -42,7 +42,7 @@
     "date-fns": "^2.24.0",
     "geojson": "^0.5.0",
     "lodash": "^4.17.21",
-    "recharts": "^2.1.4",
+    "recharts": "^2.1.5",
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
