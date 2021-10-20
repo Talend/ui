@@ -7,7 +7,7 @@ import UIForm from '@talend/react-forms';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
-import theme from './example.scss';
+import theme from '../example.scss';
 
 const { isComponentFormDirty } = ComponentForm.selectors;
 const { setComponentFormDirtyState } = ComponentForm.actions;
@@ -46,6 +46,7 @@ const uiSchema = [
 ];
 
 function ComponentFormSandBox({ dirty, dispatch }) {
+	const hasAPI = process.env.NODE_ENV === 'development';
 	const [displayConfig, setConfig] = React.useState(false);
 	const [properties, setProperties] = React.useState({
 		definitionURL: '/api/v1/forms/example',
@@ -79,7 +80,22 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 				}}
 			/>
 			<div id={theme.example}>
-				{displayConfig ? (
+				{!hasAPI && (
+					<>
+						<p>
+							You don t have backend API so we will use an ComponentForm as proxy to UIForm
+							component
+						</p>
+						<ComponentForm
+							{...properties}
+							data={uispec}
+							componentId={componentId}
+							className="full-form"
+							saga="ComponentForm#default"
+						/>
+					</>
+				)}
+				{displayConfig && hasAPI ? (
 					<UIForm
 						data={uispec}
 						onSubmit={(event, data) => {

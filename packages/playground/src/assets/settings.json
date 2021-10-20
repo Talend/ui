@@ -9,6 +9,16 @@
           "routerPush": "/ComponentForm"
         }
       }
+    },
+    "menu:List": {
+      "icon": "talend-burger",
+      "label": "List",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/List"
+        }
+      }
     }
   },
   "props": {
@@ -57,7 +67,8 @@
     },
     "SidePanel#default": {
       "actionIds": [
-        "menu:ComponentForm"
+        "menu:ComponentForm",
+        "menu:List"
       ]
     },
     "Layout#default": {
@@ -80,6 +91,10 @@
       "component": "Redirect"
     },
     "childRoutes": [
+      {
+        "path": "List",
+        "component": "LeaguesList"
+      },
       {
         "path": "ComponentForm",
         "component": "ComponentFormSandbox"

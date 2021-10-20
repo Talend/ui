@@ -37,8 +37,8 @@
     "redux-saga": "^0.15.6"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^11.0.1",
-    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "@talend/scripts-core": "^11.2.0",
+    "@talend/scripts-preset-react-lib": "^9.9.3",
     "enzyme": "^3.11.0",
     "mock-socket": "^7.1.0",
     "prop-types": "^15.7.2",
