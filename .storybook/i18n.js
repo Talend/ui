@@ -5,7 +5,7 @@ import { namespaces as designSystemNamespaces } from '@talend/locales-design-sys
 import { locales as designSystemLocales } from '@talend/locales-design-system/locales';
 
 i18n.use(initReactI18next).init({
-	debug: true,
+	debug: false,
 	defaultNS: designSystemNamespaces[0],
 	fallbackLng: 'en',
 	fallbackNS: designSystemNamespaces,
