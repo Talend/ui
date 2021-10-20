@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 1.8.0
+
+### Minor Changes
+
+- d723689: feat(components/InlineEditing): add component
+
+### Patch Changes
+
+- c5ae533: feat(components/Field): Keep provided id
+
 ## 1.7.0
 
 ### Minor Changes
