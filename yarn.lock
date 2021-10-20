@@ -2815,20 +2815,12 @@
     typeface-inconsolata "^1.1.13"
     typeface-source-sans-pro "^1.1.13"
 
-"@talend/dynamic-cdn-webpack-plugin@^9.7.12":
+"@talend/dynamic-cdn-webpack-plugin@^9.7.12", "@talend/dynamic-cdn-webpack-plugin@^9.7.7":
   version "9.7.12"
   resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.12.tgz#3f02a7b869f926a3e2add8ce16d195435acc3e38"
   integrity sha512-CmaIFGINYO7LblOmRH8fyzSeuT0BQwrq7sJUh+X8zwE6pxpG8yKZa6YV2kYpLkLEqZ7gbjajtLeUK8NiEr6GDw==
   dependencies:
     "@talend/module-to-cdn" "^9.7.3"
-    read-pkg-up "^7.0.1"
-
-"@talend/dynamic-cdn-webpack-plugin@^9.7.7":
-  version "9.7.11"
-  resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.11.tgz#18a55b5bd88076b9eac1009be7aea42c049e0fad"
-  integrity sha512-beSq/3TBW2ClGsvtelNKDXaAIINKlSn8bFhFtK5HZTac84y/M+H0Qp7xtO/ov3Pm1YGu3d2momdrNz/logMokA==
-  dependencies:
-    "@talend/module-to-cdn" "^9.7.1"
     read-pkg-up "^7.0.1"
 
 "@talend/eslint-plugin@^0.5.3":
@@ -2855,16 +2847,7 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-6.36.0.tgz#727311ca5f8fa220dba18a5069ae403256a384ca"
   integrity sha512-pW1kVv6atGEy5qIfp2VVpdFAtJrwpYpIIiE576W5IDw0q8U7yAafEb+vhk9jVHElyrAkYJSYjxjit8gYX/CJxw==
 
-"@talend/module-to-cdn@^9.7.1":
-  version "9.7.2"
-  resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.2.tgz#8874188083a1e0a5274e10db87fc7d80097d1b09"
-  integrity sha512-MoNkfBid3fFyzyS4Bdc7c3dXjf3zLmMGfvXzeguMb0eKd75viQF4eK9frPK3ANtxj1OtqCtiSJwWFGqiGF/3Ng==
-  dependencies:
-    execa "^4.1.0"
-    mkdirp "^1.0.4"
-    semver "^7.3.5"
-
-"@talend/module-to-cdn@^9.7.3":
+"@talend/module-to-cdn@^9.7.1", "@talend/module-to-cdn@^9.7.3":
   version "9.7.3"
   resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.3.tgz#6663ba95f25cf1e318f3d627efb83c8e79b0763d"
   integrity sha512-OREjZdX9aEVcBLZ5Z2ec+AO0sGSpi71VUdJ352zYiuuyS3I2Yt2tabtUSkYgHNmXh3BVEgX6vZAbyjIBO4aYiA==
@@ -2891,17 +2874,7 @@
     babel-core "^7.0.0-bridge.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@talend/scripts-config-cdn@^9.10.5":
-  version "9.10.5"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.10.5.tgz#8b66574a9436c254779dfa613f957af2677f67cb"
-  integrity sha512-lv+scw3PzRieHKVNUwrm/MqZe6KTMpRGtylxMw9CAaDvDH/PgYMv/jeMfvj8eoFcG+xZXF09Xg8KfaYvg10M4g==
-  dependencies:
-    "@talend/dynamic-cdn-webpack-plugin" "^9.7.7"
-    "@talend/module-to-cdn" "^9.7.1"
-    "@yarnpkg/lockfile" "^1.1.0"
-    read-pkg-up "^7.0.1"
-
-"@talend/scripts-config-cdn@^9.11.1":
+"@talend/scripts-config-cdn@^9.10.5", "@talend/scripts-config-cdn@^9.11.1":
   version "9.11.1"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.11.1.tgz#4ad04e3396a25643fd8a2cc26c81a57e2a69b226"
   integrity sha512-rq0TcwM0GPSShxHQQqpMLbnGmwsdILLRYzQb6Y4UriJjlbM/4WImlAO40s+8ocn4dxfXd2675hIHQz72DBxIeQ==
@@ -3006,27 +2979,7 @@
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-9.11.1.tgz#3311d212bb386ca1b4cf957756559a8262534279"
   integrity sha512-MJm2pLV9ZbFKnpT7wrs+rAqTedfhxjyB3EHzsDvVfoF1MnZgZuEWM0NBYfEBlAOYF5f9lDKsO3KyQ3VzPSQajA==
 
-"@talend/scripts-core@^11.1.0":
-  version "11.1.0"
-  resolved "https://registry.npmjs.org/@talend/scripts-core/-/scripts-core-11.1.0.tgz#17f782c3216047760ece4a46d391e238cbc4fbdd"
-  integrity sha512-eZuAehZV1OztSQ5Wn9qMR6wCBFhmDhmxGSTKL/QK2CIUlWtO+aDjsKb90SUGle5bPOmDFJo2ww8zw+i92TDqKw==
-  dependencies:
-    "@babel/cli" "^7.14.8"
-    "@babel/core" "^7.15.0"
-    "@talend/upgrade-deps" "^1.1.0"
-    cpx2 "^3.0.2"
-    cross-spawn "^7.0.3"
-    lodash.get "^4.4.2"
-    lodash.template "^4.5.0"
-    rimraf "^3.0.2"
-    typescript "^4.4.2"
-    webpack-cli "^4.8.0"
-    webpack-dev-server "^4.2.0"
-    webpack-merge "^4.2.2"
-    which "^2.0.2"
-    yargs "^15.4.1"
-
-"@talend/scripts-core@^11.2.0":
+"@talend/scripts-core@^11.1.0", "@talend/scripts-core@^11.2.0":
   version "11.2.0"
   resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-11.2.0.tgz#3a96f33e137a3dbe8b2d923e66f3a898db8822af"
   integrity sha512-CKMQ1EOM0m2YFrNyBBtlLtWzHAPOhs1LX2MKfcSqXaDcTwc9YobvqRZqfbyg70BBSbcb62jClH4+ho1fSKBm7A==
