@@ -147,7 +147,12 @@ export default async function bootstrap(appOptions = {}) {
 		saga.run();
 
 		render(
-			<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
+			<App
+				store={store}
+				loading={options.AppLoader}
+				withSettings={!!options.settingsURL}
+				registry={registry.getRegistry()}
+			>
 				<RootComponent />
 			</App>,
 			element,
