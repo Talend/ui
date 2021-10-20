@@ -2878,7 +2878,7 @@
   dependencies:
     semver "^7.3.5"
 
-"@talend/dynamic-cdn-webpack-plugin@^9.7.12", "@talend/dynamic-cdn-webpack-plugin@^9.7.7":
+"@talend/dynamic-cdn-webpack-plugin@^9.7.12":
   version "9.7.12"
   resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.12.tgz#3f02a7b869f926a3e2add8ce16d195435acc3e38"
   integrity sha512-CmaIFGINYO7LblOmRH8fyzSeuT0BQwrq7sJUh+X8zwE6pxpG8yKZa6YV2kYpLkLEqZ7gbjajtLeUK8NiEr6GDw==
@@ -2905,7 +2905,7 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-1.4.0.tgz#5bf8b4febe90cd1a0d5ce366a320bdf439a3cf11"
   integrity sha512-DeOkhJQAHH/jCPItdTwFXbRd0udDsiGzJwgju7bN5RayMGFcZPp+35Hv9JQANLb4XE24JisFWktpa0EQocc0Qg==
 
-"@talend/module-to-cdn@^9.7.1", "@talend/module-to-cdn@^9.7.3":
+"@talend/module-to-cdn@^9.7.3":
   version "9.7.3"
   resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.3.tgz#6663ba95f25cf1e318f3d627efb83c8e79b0763d"
   integrity sha512-OREjZdX9aEVcBLZ5Z2ec+AO0sGSpi71VUdJ352zYiuuyS3I2Yt2tabtUSkYgHNmXh3BVEgX6vZAbyjIBO4aYiA==
