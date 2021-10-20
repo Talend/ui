@@ -11,7 +11,7 @@ function prepareUrl(builtUrl) {
 		if (url.startsWith('/cdn/@talend')) {
 			let newUrl = url.split('/');
 			newUrl.splice(4, 1); // remove version
-			newUrl = newUrl.join('/').replace('/cdn', window.location.origin);
+			newUrl = newUrl.join('/').replace('/cdn', document.baseURI);
 			// newUrl = newUrl.replace(window.location.origin, 'http://3428.talend.surge.sh');
 			console.log(`playground inject debug: replace ${url} by  ${newUrl}`);
 			return newUrl;
