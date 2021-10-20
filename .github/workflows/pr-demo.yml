@@ -28,7 +28,7 @@ jobs:
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn pre-release
-          yarn test:demo --quiet
+          yarn test:demo
           ./.github/workflows/before-surge.sh
 
       - name: deploy if master
