@@ -2815,12 +2815,12 @@
     typeface-inconsolata "^1.1.13"
     typeface-source-sans-pro "^1.1.13"
 
-"@talend/dynamic-cdn-webpack-plugin@^9.7.7":
-  version "9.7.11"
-  resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.11.tgz#18a55b5bd88076b9eac1009be7aea42c049e0fad"
-  integrity sha512-beSq/3TBW2ClGsvtelNKDXaAIINKlSn8bFhFtK5HZTac84y/M+H0Qp7xtO/ov3Pm1YGu3d2momdrNz/logMokA==
+"@talend/dynamic-cdn-webpack-plugin@^9.7.12", "@talend/dynamic-cdn-webpack-plugin@^9.7.7":
+  version "9.7.12"
+  resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.12.tgz#3f02a7b869f926a3e2add8ce16d195435acc3e38"
+  integrity sha512-CmaIFGINYO7LblOmRH8fyzSeuT0BQwrq7sJUh+X8zwE6pxpG8yKZa6YV2kYpLkLEqZ7gbjajtLeUK8NiEr6GDw==
   dependencies:
-    "@talend/module-to-cdn" "^9.7.1"
+    "@talend/module-to-cdn" "^9.7.3"
     read-pkg-up "^7.0.1"
 
 "@talend/eslint-plugin@^0.5.3":
@@ -2847,10 +2847,10 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-6.36.0.tgz#727311ca5f8fa220dba18a5069ae403256a384ca"
   integrity sha512-pW1kVv6atGEy5qIfp2VVpdFAtJrwpYpIIiE576W5IDw0q8U7yAafEb+vhk9jVHElyrAkYJSYjxjit8gYX/CJxw==
 
-"@talend/module-to-cdn@^9.7.1":
-  version "9.7.2"
-  resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.2.tgz#8874188083a1e0a5274e10db87fc7d80097d1b09"
-  integrity sha512-MoNkfBid3fFyzyS4Bdc7c3dXjf3zLmMGfvXzeguMb0eKd75viQF4eK9frPK3ANtxj1OtqCtiSJwWFGqiGF/3Ng==
+"@talend/module-to-cdn@^9.7.1", "@talend/module-to-cdn@^9.7.3":
+  version "9.7.3"
+  resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.3.tgz#6663ba95f25cf1e318f3d627efb83c8e79b0763d"
+  integrity sha512-OREjZdX9aEVcBLZ5Z2ec+AO0sGSpi71VUdJ352zYiuuyS3I2Yt2tabtUSkYgHNmXh3BVEgX6vZAbyjIBO4aYiA==
   dependencies:
     execa "^4.1.0"
     mkdirp "^1.0.4"
@@ -2874,13 +2874,13 @@
     babel-core "^7.0.0-bridge.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@talend/scripts-config-cdn@^9.10.5":
-  version "9.10.5"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.10.5.tgz#8b66574a9436c254779dfa613f957af2677f67cb"
-  integrity sha512-lv+scw3PzRieHKVNUwrm/MqZe6KTMpRGtylxMw9CAaDvDH/PgYMv/jeMfvj8eoFcG+xZXF09Xg8KfaYvg10M4g==
+"@talend/scripts-config-cdn@^9.10.5", "@talend/scripts-config-cdn@^9.11.1":
+  version "9.11.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.11.1.tgz#4ad04e3396a25643fd8a2cc26c81a57e2a69b226"
+  integrity sha512-rq0TcwM0GPSShxHQQqpMLbnGmwsdILLRYzQb6Y4UriJjlbM/4WImlAO40s+8ocn4dxfXd2675hIHQz72DBxIeQ==
   dependencies:
-    "@talend/dynamic-cdn-webpack-plugin" "^9.7.7"
-    "@talend/module-to-cdn" "^9.7.1"
+    "@talend/dynamic-cdn-webpack-plugin" "^9.7.12"
+    "@talend/module-to-cdn" "^9.7.3"
     "@yarnpkg/lockfile" "^1.1.0"
     read-pkg-up "^7.0.1"
 
@@ -2924,14 +2924,14 @@
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-prettier/-/scripts-config-prettier-9.6.3.tgz#b5644c23e7f87f32853ae1db3faca1ef9740f089"
   integrity sha512-lqNU8kB4PDR4tTDIZ0OMF0PfSAnNk5guS11UHn3ktiac0hy6/ENeD5qEJ2POJeTh7IP4l0Vxs0WwOkj20UkRCA==
 
-"@talend/scripts-config-react-webpack@^11.0.3":
-  version "11.0.3"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.0.3.tgz#dbc73fd9bbce1f384fdca721d44f23acd78ce021"
-  integrity sha512-GKHNM/U5GXwFsIoPeZtQwzoWpmCADMFBbgKheqLx9cfsI4O0W6UJVzrka62WioDbBIeY+F7Oiwdg+5AnaeOccQ==
+"@talend/scripts-config-react-webpack@^11.1.1":
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.1.1.tgz#c7adf19eea5ced8d34e4d4979ea1e66c1db88e28"
+  integrity sha512-w/cG4ZEham1omiUc/96xLhaVr4JnjH1Bx9E72Y8sA4IIQhjIVrnEP3z+8SKqvuAfBbdA+B+4DYHAGMVxdqEOrA==
   dependencies:
     "@talend/react-cmf-webpack-plugin" "^6.36.0"
     "@talend/scripts-config-babel" "^9.7.1"
-    "@talend/scripts-config-cdn" "^9.10.5"
+    "@talend/scripts-config-cdn" "^9.11.1"
     "@welldone-software/why-did-you-render" "^6.2.1"
     "@yarnpkg/lockfile" "^1.1.0"
     autoprefixer "^9.8.6"
@@ -2979,10 +2979,10 @@
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-9.11.1.tgz#3311d212bb386ca1b4cf957756559a8262534279"
   integrity sha512-MJm2pLV9ZbFKnpT7wrs+rAqTedfhxjyB3EHzsDvVfoF1MnZgZuEWM0NBYfEBlAOYF5f9lDKsO3KyQ3VzPSQajA==
 
-"@talend/scripts-core@^11.0.1", "@talend/scripts-core@^11.1.0":
-  version "11.1.0"
-  resolved "https://registry.npmjs.org/@talend/scripts-core/-/scripts-core-11.1.0.tgz#17f782c3216047760ece4a46d391e238cbc4fbdd"
-  integrity sha512-eZuAehZV1OztSQ5Wn9qMR6wCBFhmDhmxGSTKL/QK2CIUlWtO+aDjsKb90SUGle5bPOmDFJo2ww8zw+i92TDqKw==
+"@talend/scripts-core@^11.1.0", "@talend/scripts-core@^11.2.0":
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-11.2.0.tgz#3a96f33e137a3dbe8b2d923e66f3a898db8822af"
+  integrity sha512-CKMQ1EOM0m2YFrNyBBtlLtWzHAPOhs1LX2MKfcSqXaDcTwc9YobvqRZqfbyg70BBSbcb62jClH4+ho1fSKBm7A==
   dependencies:
     "@babel/cli" "^7.14.8"
     "@babel/core" "^7.15.0"
@@ -2999,17 +2999,31 @@
     which "^2.0.2"
     yargs "^15.4.1"
 
-"@talend/scripts-preset-react-lib@^9.9.2":
-  version "9.9.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.9.2.tgz#1e8fdb10e6b72da2fbb98992098c6ca6ced52d0a"
-  integrity sha512-Yl0ie4mhJ94Za6WbFGgEDF4XiWwhz0qVvZf5gztHUqXyVbAVlOS07bB5GXyj8Fb6SMQTrplzeLtYdgcFYO6VJg==
+"@talend/scripts-preset-react-lib@^9.9.3":
+  version "9.9.3"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.9.3.tgz#15be5518c1790ede65ed19721cf6d74524025dc8"
+  integrity sha512-lZcVo44PPYNsCVpX56TuoUgZ9pzyMMpQb1vbTwNeCspMJl0MLZNdmMgaH9Z2kWFnrgF3VMxaPxl7klMOc8KspA==
   dependencies:
     "@talend/scripts-config-babel" "^9.7.0"
-    "@talend/scripts-config-cdn" "^9.10.5"
+    "@talend/scripts-config-cdn" "^9.11.1"
     "@talend/scripts-config-eslint" "^9.6.4"
     "@talend/scripts-config-jest" "^9.6.4"
     "@talend/scripts-config-prettier" "^9.6.3"
-    "@talend/scripts-config-react-webpack" "^11.0.3"
+    "@talend/scripts-config-react-webpack" "^11.1.1"
+    "@talend/scripts-config-stylelint" "^1.0.1"
+    "@talend/scripts-config-typescript" "^9.11.1"
+
+"@talend/scripts-preset-react@^11.1.1":
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react/-/scripts-preset-react-11.1.1.tgz#246f8b16627cf0f0b694fcf53a45349c70501556"
+  integrity sha512-INXlHMM6FRObTG8W/jvubepO8MxCTcLv8+kvahG4zXgwAzHFsutGDnhMto0SAnp4XYDjavLolPvkuYeUtaTPsg==
+  dependencies:
+    "@talend/scripts-config-babel" "^9.6.3"
+    "@talend/scripts-config-cdn" "^9.11.1"
+    "@talend/scripts-config-eslint" "^9.6.4"
+    "@talend/scripts-config-jest" "^9.6.4"
+    "@talend/scripts-config-prettier" "^9.6.3"
+    "@talend/scripts-config-react-webpack" "^11.1.1"
     "@talend/scripts-config-stylelint" "^1.0.1"
     "@talend/scripts-config-typescript" "^9.11.1"
 
@@ -6003,7 +6017,7 @@ compressible@~2.0.16:
   dependencies:
     mime-db ">= 1.43.0 < 2"
 
-compression@^1.7.4:
+compression@^1.7.3, compression@^1.7.4:
   version "1.7.4"
   resolved "https://registry.yarnpkg.com/compression/-/compression-1.7.4.tgz#95523eff170ca57c29a0ca41e6fe131f41e5bb8f"
   integrity sha512-jaSIDzP9pZVS4ZfQ+TzvtiWhdpFhE2RDHz8QJkpX9SIpLq88VueF5jJw6t+6CUQcAoA6t+x89MLrWAqpfDE8iQ==
@@ -7156,6 +7170,11 @@ dedent@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
   integrity sha1-JJXduvbrh0q7Dhvp3yLS5aVEMmw=
+
+deep-diff@^0.3.5:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-0.3.8.tgz#c01de63efb0eec9798801d40c7e0dae25b582c84"
+  integrity sha1-wB3mPvsO7JeYgB1Ax+Da4ltYLIQ=
 
 deep-eql@^3.0.1:
   version "3.0.1"
@@ -8544,7 +8563,7 @@ expect@^26.6.2:
     jest-message-util "^26.6.2"
     jest-regex-util "^26.0.0"
 
-express@^4.17.1:
+express@^4.16.4, express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
   integrity sha512-mHJ9O79RqluphRrcw2X/GTh3k9tVv8YcoyY4Kkh4WDMUYKRZUq0h1o0w2rrrxBqM7VoeUVqgb27xlEMXTnYt4g==
@@ -10191,7 +10210,7 @@ i18next@^19.9.2:
   dependencies:
     "@babel/runtime" "^7.12.0"
 
-i18next@^20.6.1:
+i18next@^20.1.0, i18next@^20.6.1:
   version "20.6.1"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.6.1.tgz#535e5f6e5baeb685c7d25df70db63bf3cc0aa345"
   integrity sha512-yCMYTMEJ9ihCwEQQ3phLo7I/Pwycf8uAx+sRHwwk5U9Aui/IZYgQRyMqXafQOw5QQ7DM1Z+WyEXWIqSuJHhG2A==
@@ -12445,7 +12464,7 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
-memfs@^3.1.2:
+memfs@^3.1.2, memfs@^3.2.2:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/memfs/-/memfs-3.3.0.tgz#4da2d1fc40a04b170a56622c7164c6be2c4cbef2"
   integrity sha512-BEE62uMfKOavX3iG7GYX43QJ+hAeeWnwIAuJ/R6q96jaMtiLzhsxHJC8B1L7fK7Pt/vXDRwb3SG/yBpNGDPqzg==
@@ -12598,7 +12617,7 @@ mime-db@1.49.0:
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.50.0.tgz#abd4ac94e98d3c0e185016c67ab45d5fde40c11f"
   integrity sha512-9tMZCDlYHqeERXEHO9f/hKfNXhre5dK2eE/krIvUjZbS2KPcqGDfNShIWS1uW9XOTKQKqK6qbeOci18rbfW77A==
 
-mime-types@^2.1.12, mime-types@^2.1.27, mime-types@~2.1.17, mime-types@~2.1.24:
+mime-types@^2.1.12, mime-types@^2.1.27, mime-types@^2.1.31, mime-types@~2.1.17, mime-types@~2.1.24:
   version "2.1.32"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.32.tgz#1d00e89e7de7fe02008db61001d9e02852670fd5"
   integrity sha512-hJGaVS4G4c9TSMYh2n6SQAGrC4RnfU+daP8G7cSCmaqNjiOoUY0VHCMS42pxnQmVF1GWwFhbHWn3RIxCqTmZ9A==
@@ -15302,7 +15321,7 @@ react-hook-form@^6.15.8:
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.15.8.tgz#725c139d308c431c4611e4b9d85a49f01cfc0e7a"
   integrity sha512-prq82ofMbnRyj5wqDe8hsTRcdR25jQ+B8KtCS7BLCzjFHAwNuCjRwzPuP4eYLsEBjEIeYd6try+pdLdw0kPkpg==
 
-react-i18next@^11.12.0:
+react-i18next@^11.12.0, react-i18next@^11.8.13:
   version "11.12.0"
   resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.12.0.tgz#2a053321b9b7a876d5baa7af55a12d986117bffc"
   integrity sha512-M9BT+hqVG03ywrl+L7CK74ugK+4jIo7AeKJ17+g9BoqJz2+/aVbs8SIVXT4KMQ1rjIdcw+GcSRDy1CXjcz6tLQ==
@@ -15890,6 +15909,13 @@ redux-batched-subscribe@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/redux-batched-subscribe/-/redux-batched-subscribe-0.1.6.tgz#de928602708df7198b4d0c98c7119df993780d59"
   integrity sha1-3pKGAnCN9xmLTQyYxxGd+ZN4DVk=
+
+redux-logger@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-3.0.6.tgz#f7555966f3098f3c88604c449cf0baf5778274bf"
+  integrity sha1-91VZZvMJjzyIYExEnPC69XeCdL8=
+  dependencies:
+    deep-diff "^0.3.5"
 
 redux-mock-store@^1.5.4:
   version "1.5.4"
@@ -19158,7 +19184,7 @@ webpack-cli@^4.8.0:
     v8-compile-cache "^2.2.0"
     webpack-merge "^5.7.3"
 
-webpack-dev-middleware@^3.7.2, webpack-dev-middleware@^3.7.3, webpack-dev-middleware@^5.2.1:
+webpack-dev-middleware@^3.7.3:
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.3.tgz#0639372b143262e2b84ab95d3b91a7597061c2c5"
   integrity sha512-djelc/zGiz9nZj/U7PTBi2ViorGJXEWo/3ltkPbDyxCXhhEXkW0ce99falaok4TPj+AsxLiXJR0EBOb0zh9fKQ==
@@ -19168,6 +19194,17 @@ webpack-dev-middleware@^3.7.2, webpack-dev-middleware@^3.7.3, webpack-dev-middle
     mkdirp "^0.5.1"
     range-parser "^1.2.1"
     webpack-log "^2.0.0"
+
+webpack-dev-middleware@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-5.2.1.tgz#97c948144349177856a3d2d9c612cc3fee180cf1"
+  integrity sha512-Kx1X+36Rn9JaZcQMrJ7qN3PMAuKmEDD9ZISjUj3Cgq4A6PtwYsC4mpaKotSRYH3iOF6HsUa8viHKS59FlyVifQ==
+  dependencies:
+    colorette "^2.0.10"
+    memfs "^3.2.2"
+    mime-types "^2.1.31"
+    range-parser "^1.2.1"
+    schema-utils "^3.1.0"
 
 webpack-dev-server@^4.2.0:
   version "4.3.0"
