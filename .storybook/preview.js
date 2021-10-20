@@ -93,6 +93,14 @@ export const parameters = {
 			}, [hasDarkMode]);
 
 			React.useEffect(() => {
+				const { theme } = props.context.globals;
+				const hasDarkModeFromToolbar = theme === 'dark';
+				if (hasDarkModeFromToolbar != hasDarkMode) {
+					setDarkMode(hasDarkModeFromToolbar);
+				}
+			}, [props.context.globals.theme]);
+
+			React.useEffect(() => {
 				document
 					.querySelectorAll('#bootstrap-theme')
 					.forEach(link => (link.disabled = !hasBootstrapStylesheet));
@@ -154,12 +162,12 @@ export const parameters = {
 			try {
 				// if wrapped into an arrow function
 				if (input?.trim().startsWith('(')) {
-					const body = input.replace(/\((.*)\) => {((.|\n)*)}/gm, '$2');
-					return format(body).trim();
+					const body = input.replace(/\((.*)\) => {?((.|\n)*)?}?/gm, '$2');
+					return format(body).trim().replace(/;$/, '');
 				}
 				// try to format JSX
 				// remove last semicolon added by Prettier
-				return format(input).trim().slice(0, -1);
+				return format(input).trim().replace(/;$/, '');
 			} catch (e) {
 				// otherwise, return the same string
 				return input;

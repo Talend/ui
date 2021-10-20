@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { WithSelector } from '../../../../../docs';
@@ -21,9 +21,8 @@ export const Placeholder = () => (
 );
 export const Filled = () => <Form.Password label="Password" defaultValue="Passw0rd" />;
 export const Revealed = () => <Form.Password label="Password" defaultValue="Passw0rd" />;
-Revealed.play = () => {
-	const button = screen.getByTestId('form.password.reveal');
-	userEvent.click(button);
+Revealed.play = async ({ canvasElement }) => {
+	await userEvent.click(within(canvasElement).getByTestId('form.password.reveal'));
 };
 Revealed.parameters = { docs: { disable: true } };
 export const Disabled = () => <Form.Password label="Password" defaultValue="Passw0rd" disabled />;

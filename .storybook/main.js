@@ -24,6 +24,7 @@ const designTokensPlugin = () => tree =>
 module.exports = {
 	features: {
 		previewCsfV3: true,
+		modernInlineRender: true,
 	},
 	stories: [
 		'../src/Welcome.stories.@(js|tsx|mdx)',
