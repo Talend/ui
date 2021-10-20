@@ -7,7 +7,7 @@
   "scripts": {
     "build": "talend-scripts build",
     "test": "echo nothing to test in playground",
-    "test:demo": "INTIATOR_URL=https://statics-dev.cloud.talend.com/inject.js talend-scripts build && rm -rf dist/cdn",
+    "test:demo": "INITIATOR_URL='/inject.js' talend-scripts build --prod",
     "start": "talend-scripts start --open",
     "start-dist": "talend-scripts build && node serve-dist"
   },

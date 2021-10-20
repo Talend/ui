@@ -32,7 +32,7 @@ const patterns = PKGS.map(pkg => ({
 	info: { minimized: true },
 }));
 const webpackConfig = {
-	plugins: [new CopyWebpackPlugin({ patterns })],
+	// plugins: [new CopyWebpackPlugin({ patterns })],
 };
 
 module.exports = webpackConfig;
