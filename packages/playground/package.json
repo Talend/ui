@@ -7,7 +7,7 @@
   "scripts": {
     "build": "talend-scripts build",
     "test": "echo nothing to test in playground",
-    "test:demo": "INITIATOR_URL='/inject.js' talend-scripts build --prod",
+    "test:demo": "cross-env BASENAME='/playground' INITIATOR_URL='/inject.js' talend-scripts build --prod",
     "start": "talend-scripts start --open",
     "start-dist": "talend-scripts build && node serve-dist"
   },
@@ -25,6 +25,7 @@
     "@talend/scripts-core": "^11.0.1",
     "@talend/scripts-preset-react": "^11.0.2",
     "compression": "^1.7.3",
+    "cross-env": "^7.0.3",
     "express": "^4.16.4"
   },
   "dependencies": {
