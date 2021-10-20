@@ -4,7 +4,7 @@
 	function prepareUrl(url) {
 		let newUrl;
 		if (url.startsWith('/cdn')) {
-			if (url.startsWith('/cdn/@talend') && !url.startsWith('@talend/design-system')) {
+			if (url.startsWith('/cdn/@talend') && !url.startsWith('/cdn/@talend/design-system')) {
 				// code specific target to surge
 				newUrl = url.split('/');
 				newUrl.splice(4, 1); // remove version
