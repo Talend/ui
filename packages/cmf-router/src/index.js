@@ -57,7 +57,6 @@ function getModule(...args) {
 	}
 	// router is renderer after the store is created so we refer to routerHistory
 	function Router(props) {
-		console.log('### Router render');
 		return <UIRouter history={routerHistory} {...props} />;
 	}
 	return {

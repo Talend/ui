@@ -27,7 +27,6 @@ import route from './route';
 function Router(props, context) {
 	const { routes, dispatch, history, ...rest } = props;
 	const realRoutes = route.getRoutesFromSettings(context, routes, dispatch);
-	console.log('####', realRoutes);
 	if (realRoutes.path === '/' && realRoutes.component) {
 		return <BaseRouter routes={realRoutes} history={history} {...rest} />;
 	}
