@@ -3,9 +3,11 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
+import { createHashHistory } from 'history';
 import getRouter from '@talend/react-cmf-router';
+import React from 'react';
 import cmf from '@talend/react-cmf';
-import { AppLoader } from '@talend/react-components';
+import { AppLoader, IconsProvider as BaseIconsProvider } from '@talend/react-components';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import i18n from 'i18next';
@@ -15,7 +17,19 @@ import { LeaguesList } from './components/List';
 
 import actions from './actions';
 
-const router = getRouter();
+// Run our app under the /base URL.
+const history = createHashHistory({
+	basename: '/playground',
+});
+
+// At the /base/hello/world URL:
+history.listen(location => {
+	// eslint-disable-next-line no-console
+	console.log(`history debug pathname = ${location.pathname} ${location.basename} `);
+});
+
+const router = getRouter({ history });
+const RootComponent = () => <router.RootComponent />;
 
 i18n.use(initReactI18next).init({
 	react: {
@@ -23,13 +37,22 @@ i18n.use(initReactI18next).init({
 	},
 });
 
+const allsvg =
+	process.env.NODE_ENV === 'development'
+		? `/playground/cdn/@talend/icons/${process.env.ICONS_VERSION}/dist/svg-bundle/all.svg`
+		: '/@talend/icons/dist/svg-bundle/all.svg';
+
+function IconsProvider() {
+	return <BaseIconsProvider bundles={[allsvg]} />;
+}
+
 const app = {
-	components: { ComponentForm, ComponentFormSandbox, LeaguesList },
-	settingsURL: '/settings.json',
+	components: { ComponentForm, ComponentFormSandbox, LeaguesList, IconsProvider },
+	settingsURL: '/playground/settings.json',
 	actionCreators: actions,
 	middlewares: [],
 	modules: [router.cmfModule, containersModule],
-	RootComponent: router.RootComponent,
+	RootComponent,
 	AppLoader,
 };
 

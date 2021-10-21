@@ -4,8 +4,7 @@
   "html": {},
   "webpack": {
     "config": {
-      "development": "./webpack.config.dev.js",
-      "production": "./webpack.config.js"
+      "development": "./webpack.config.dev.js"
     }
   }
 }

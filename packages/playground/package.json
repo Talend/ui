@@ -5,7 +5,7 @@
   "private": true,
   "main": "app/index.js",
   "scripts": {
-    "build": "talend-scripts build",
+    "build": "cross-env BASENAME='/playground' talend-scripts build",
     "test": "echo nothing to test in playground",
     "test:demo": "cross-env BASENAME='/playground' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
     "start": "talend-scripts start --open",
@@ -36,6 +36,7 @@
     "@talend/react-components": "^6.39.3",
     "@talend/react-containers": "^6.37.3",
     "@talend/react-forms": "^6.39.2",
+    "history": "^3.3.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": "^16.14.0",

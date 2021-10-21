@@ -66,10 +66,7 @@
       "productsUrl": "/api/mock/header-bar/products-list"
     },
     "SidePanel#default": {
-      "actionIds": [
-        "menu:ComponentForm",
-        "menu:List"
-      ]
+      "actionIds": ["menu:ComponentForm", "menu:List"]
     },
     "Layout#default": {
       "mode": "TwoColumns",

@@ -13,7 +13,7 @@
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
-    "test:demo": "build-storybook",
+    "test:demo": "build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "npm run lint:es",
     "start": "start-storybook -p 6009"
