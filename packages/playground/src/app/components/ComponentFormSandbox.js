@@ -50,18 +50,17 @@ const uiSchema = [
 function ComponentFormSandBox({ dirty, dispatch }) {
 	const hasAPI = process.env.NODE_ENV === 'development';
 	const [displayConfig, setConfig] = React.useState(false);
-	const uispec = {
-		jsonSchema,
-		uiSchema,
-		properties: {},
-	};
 	const defaultFormProps = {
 		definitionURL: '/api/v1/forms/example',
 		uiSpecPath: 'ui',
 		triggerURL: '/api/v1/application/action',
-		submitURL: '/api/v1/forms',
 		definition: hasAPI ? undefined : example.ui, // do not fetch
-		data: hasAPI ? uispec : undefined,
+		// data: hasAPI ? uispec : undefined,
+	};
+	const uispec = {
+		jsonSchema,
+		uiSchema,
+		properties: defaultFormProps,
 	};
 	const [formProps, setFormProps] = React.useState(defaultFormProps);
 	const right = [
@@ -90,7 +89,7 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 						You don t have backend API so we will use an ComponentForm as proxy to UIForm component
 					</Alert>
 				)}
-				{displayConfig && hasAPI ? (
+				{displayConfig ? (
 					<UIForm
 						data={uispec}
 						onSubmit={(event, data) => {
@@ -104,6 +103,7 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 					<ComponentForm
 						{...formProps}
 						componentId={componentId}
+						submitURL="/api/v1/forms"
 						className="full-form"
 						saga="ComponentForm#default"
 					/>
