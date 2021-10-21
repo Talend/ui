@@ -25,10 +25,9 @@ import route from './route';
  * @return {object} ReactElement
  */
 function Router(props, context) {
-	const { routes, dispatch, history, ...rest } = props;
-	const realRoutes = route.getRoutesFromSettings(context, routes, dispatch);
-	if (realRoutes.path === '/' && realRoutes.component) {
-		return <BaseRouter routes={realRoutes} history={history} {...rest} />;
+	const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
+	if (routes.path === '/' && routes.component) {
+		return <BaseRouter routes={routes} history={props.history} />;
 	}
 	if (props.loading) {
 		return <Inject component={props.loading} />;

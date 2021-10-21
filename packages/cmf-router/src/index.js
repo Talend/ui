@@ -56,8 +56,8 @@ function getModule(...args) {
 		routerHistory = syncHistoryWithStore(history, store);
 	}
 	// router is renderer after the store is created so we refer to routerHistory
-	function Router(props) {
-		return <UIRouter history={routerHistory} {...props} />;
+	function Router() {
+		return <UIRouter history={routerHistory} />;
 	}
 	return {
 		cmfModule: {
