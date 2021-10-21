@@ -17,9 +17,12 @@ import { LeaguesList } from './components/List';
 
 import actions from './actions';
 
+// thanks ui-scripts
+const basename = window.basename;
+
 // Run our app under the /base URL.
 const history = createHashHistory({
-	basename: '/playground',
+	basename,
 });
 
 // At the /base/hello/world URL:
@@ -39,7 +42,7 @@ i18n.use(initReactI18next).init({
 
 const allsvg =
 	process.env.NODE_ENV === 'development'
-		? `/playground/cdn/@talend/icons/${process.env.ICONS_VERSION}/dist/svg-bundle/all.svg`
+		? `${basename || ''}/cdn/@talend/icons/${process.env.ICONS_VERSION}/dist/svg-bundle/all.svg`
 		: '/@talend/icons/dist/svg-bundle/all.svg';
 
 function IconsProvider() {
@@ -48,7 +51,7 @@ function IconsProvider() {
 
 const app = {
 	components: { ComponentForm, ComponentFormSandbox, LeaguesList, IconsProvider },
-	settingsURL: '/playground/settings.json',
+	settingsURL: `${basename || ''}/settings.json`,
 	actionCreators: actions,
 	middlewares: [],
 	modules: [router.cmfModule, containersModule],

@@ -18,7 +18,8 @@
 			newUrl = url.replace('/', `${window.basename}/`);
 		}
 		if (newUrl) {
-			console.log(`playground inject debug: replace ${url} by  ${newUrl}`);
+			// eslint-disable-next-line no-console
+			console.log(`inject debug: replace ${url} by  ${newUrl}`);
 		}
 		return newUrl || url;
 	}

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import React from 'react';
 import { List, Layout, SubHeaderBar } from '@talend/react-components';
 import { SidePanel, HeaderBar } from '@talend/react-containers';
@@ -76,6 +78,9 @@ const props = {
 			key: 'name',
 			iconKey: 'icon',
 			displayModeKey: 'display',
+			onClick: () => console.log('onClick'),
+			onEditCancel: () => console.log('onEditCancel'),
+			onEditSubmit: () => console.log('onEditSubmit'),
 		},
 		itemProps: {
 			classNameKey: 'className',
@@ -88,20 +93,21 @@ const props = {
 			},
 		},
 		display: {
+			onChange: () => console.log('display.onChange'),
 		},
 		sort: {
 			field: 'name',
-			// onChange: action('sort.onChange'),
+			onChange: () => console.log('sort.onChange'),
 			options: [
 				{ id: 'id', name: 'Id' },
 				{ id: 'name', name: 'Name With Multiple Words' },
 			],
 		},
-	}
+	},
 };
 
 export function LeaguesList() {
-    return (
+	return (
 		<Layout mode="TwoColumns" one={<SidePanel />} header={<HeaderBar />}>
 			<SubHeaderBar
 				title="List"
@@ -109,10 +115,7 @@ export function LeaguesList() {
 					window.location = '/';
 				}}
 			/>
-			<List
-				displayMode="table"
-				{...props}
-			/>
+			<List displayMode="table" {...props} />
 		</Layout>
 	);
 }
