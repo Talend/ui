@@ -50,7 +50,12 @@
     {
       "key": "password",
       "title": "Password",
-      "type": "password"
+      "type": "password",
+      "link": {
+        "url": "talend.com",
+        "label": "Forget?",
+        "ariaLabel": "Need help to log in?"
+      }
     }
   ],
   "properties": {}
