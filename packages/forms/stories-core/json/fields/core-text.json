@@ -52,7 +52,7 @@
       "title": "Password",
       "type": "password",
       "link": {
-        "href": "talend.com",
+        "href": "https://talend.com",
         "label": "Forget?",
         "aria-label": "Need help to log in?"
       }
