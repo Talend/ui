@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import get from 'lodash/get';
+import { get, omit } from 'lodash';
 import { Link } from '@talend/design-system';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -70,13 +70,7 @@ export default function Text(props) {
 					aria-invalid={!isValid}
 					aria-required={get(schema, 'required')}
 					aria-describedby={`${descriptionId} ${errorId}`}
-					link={
-						link && (
-							<Link href={link.url} aria-label={link.ariaLabel}>
-								{link.label}
-							</Link>
-						)
-					}
+					link={link && <Link {...omit(link, ['label'])}> {link.label} </Link>}
 				/>
 			) : (
 				<input
@@ -115,9 +109,7 @@ if (process.env.NODE_ENV !== 'production') {
 				overlayPlacement: PropTypes.string,
 			}),
 			link: PropTypes.shape({
-				url: PropTypes.string,
 				label: PropTypes.string,
-				ariaLabel: PropTypes.string,
 			}),
 			type: PropTypes.string,
 			schema: PropTypes.object,
