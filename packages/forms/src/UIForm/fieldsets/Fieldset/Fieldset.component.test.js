@@ -78,7 +78,16 @@ describe('Fieldset widget', () => {
 		// given
 		const schema = {
 			title: 'My fieldset',
-			items: [],
+			items: [
+				{
+					key: ['user', 'firstname'],
+					type: 'text',
+					schema: { type: 'string' },
+					condition: {
+						'===': [{ var: 'entity.kind' }, 'human'],
+					},
+				},
+			],
 		};
 
 		// when
