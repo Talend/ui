@@ -8,13 +8,11 @@ export default function Fieldset(props) {
 	const { schema, ...restProps } = props;
 	const { title, items, options } = schema;
 
-	const widgets = items.map((itemSchema, index) =>
-		shouldRender(itemSchema.condition, itemSchema.properties, index) ? (
-			<Widget {...restProps} key={index} schema={itemSchema} />
-		) : null,
-	);
+	const widgets = items
+		.filter((itemSchema, index) => shouldRender(itemSchema.condition, itemSchema.properties, index))
+		.map((itemSchema, index) => <Widget {...restProps} key={index} schema={itemSchema} />);
 
-	return widgets.some(React.isValidElement) ? (
+	return widgets.length ? (
 		<fieldset className="form-group">
 			{title && (
 				<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
