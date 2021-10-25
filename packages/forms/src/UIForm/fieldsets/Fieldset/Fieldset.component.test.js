@@ -73,4 +73,18 @@ describe('Fieldset widget', () => {
 		// then
 		expect(wrapper.find('legend').prop('className')).toBe('sr-only');
 	});
+
+	it('should not render if empty', () => {
+		// given
+		const schema = {
+			title: 'My fieldset',
+			items: [],
+		};
+
+		// when
+		const wrapper = shallow(<Fieldset schema={schema} />);
+
+		// then
+		expect(wrapper.find('fieldset')).toHaveLength(0);
+	});
 });
