@@ -37,14 +37,10 @@ class Datalist extends Component {
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
-		this.checkValueInTitleMap = this.checkValueInTitleMap.bind(this);
 	}
 
 	componentDidMount() {
 		this.callTrigger({ type: DID_MOUNT });
-		if (this.props.initialCheckValue) {
-			this.checkValueInTitleMap();
-		}
 	}
 
 	/**
@@ -54,9 +50,6 @@ class Datalist extends Component {
 	 * @param payload
 	 */
 	onChange(event, payload) {
-		if (this.props.initialCheckValue) {
-			this.setState({ isValid: true, errorMessage: undefined });
-		}
 		let mergedSchema = this.props.schema;
 		// with the possibility to have async suggestions, on restricted values inputs
 		// the validation doesn't have the enum list as it is not in the jsonSchema
@@ -141,39 +134,6 @@ class Datalist extends Component {
 		);
 	}
 
-	/**
-	 * checkValueInTitleMap checks if the current value exists in the given titleMap.
-	 *   If the value is not found it sets a new state for the 'isValid' and
-	 *   'errorMessage' values.
-	 */
-	checkValueInTitleMap() {
-		if (this.hasTitleMap() && this.props.schema.restricted) {
-			const isMultiSection = get(this.props, 'schema.options.isMultiSection', false);
-			const titleMap = this.getTitleMap();
-			if (!isMultiSection) {
-				if (!titleMap.some(el => el.value === this.props.value)) {
-					this.setState({
-						isValid: false,
-						errorMessage: this.props.missingValueErrorMessage,
-					});
-				}
-			} else {
-				const found = titleMap.some(tm => {
-					if (tm.suggestions && tm.suggestions.length) {
-						return tm.suggestions.some(el => el.value === this.props.value);
-					}
-					return false;
-				});
-				if (!found) {
-					this.setState({
-						isValid: false,
-						errorMessage: this.props.missingValueErrorMessage,
-					});
-				}
-			}
-		}
-	}
-
 	addCustomValue(value, isMultiSection) {
 		if (isMultiSection) {
 			return {
@@ -205,9 +165,9 @@ class Datalist extends Component {
 				description={this.props.schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
-				errorMessage={this.state.errorMessage || this.props.errorMessage}
+				errorMessage={this.props.errorMessage}
 				id={this.props.id}
-				isValid={this.state.isValid && this.props.isValid}
+				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				labelProps={this.props.schema.labelProps}
 				required={this.props.schema.required}
@@ -307,8 +267,6 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.string,
 		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
-		initialCheckValue: PropTypes.bool,
-		missingValueErrorMessage: PropTypes.string,
 	};
 }
 
