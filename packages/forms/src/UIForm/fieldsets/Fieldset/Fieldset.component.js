@@ -7,7 +7,7 @@ export default function Fieldset(props) {
 	const { schema, ...restProps } = props;
 	const { title, items, options } = schema;
 
-	return (
+	return items.length ? (
 		<fieldset className="form-group">
 			{title && (
 				<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
@@ -16,7 +16,7 @@ export default function Fieldset(props) {
 				<Widget {...restProps} key={index} schema={itemSchema} />
 			))}
 		</fieldset>
-	);
+	) : null;
 }
 
 if (process.env.NODE_ENV !== 'production') {
