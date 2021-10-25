@@ -1,5 +1,20 @@
 # @talend/react-forms
 
+## 6.42.0
+
+### Minor Changes
+
+- 8c8d8e3eb: add link props for password field
+  add index for dataTest prop
+
+### Patch Changes
+
+- f66be0a9f: Revert "feat(TFD-13512/datalist): add initial check of values"
+- 86054f635: Don't render empty fieldsets
+- Updated dependencies [8c8d8e3eb]
+- Updated dependencies [8e71b59a4]
+  - @talend/react-components@6.41.2
+
 ## 6.41.3
 
 ### Patch Changes

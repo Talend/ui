@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 6.41.2
+
+### Patch Changes
+
+- 8c8d8e3eb: add link props for password field
+  add index for dataTest prop
+- 8e71b59a4: List checkbox should not be wrapped in a form
+
 ## 6.41.1
 
 ### Patch Changes
