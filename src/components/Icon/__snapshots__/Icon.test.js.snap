@@ -13,7 +13,7 @@ exports[`Icon should render from src 1`] = `
 exports[`Icon should render from svg 1`] = `
 <svg
   aria-hidden="true"
-  class="sc-bdfBQB kdhakw tc-svg-icon tc-icon tc-icon-name-svg-dd"
+  class="sc-bdvvtL clWFBN tc-svg-icon tc-icon tc-icon-name-svg-dd"
   focusable="false"
   name="svg-dd"
 />
@@ -22,7 +22,7 @@ exports[`Icon should render from svg 1`] = `
 exports[`Icon should render with provided className 1`] = `
 <svg
   aria-hidden="true"
-  class="sc-bdfBQB kdhakw tc-svg-icon tc-icon custom-class tc-icon-name-svg-dd"
+  class="sc-bdvvtL clWFBN tc-svg-icon tc-icon custom-class tc-icon-name-svg-dd"
   focusable="false"
   name="svg-dd"
 />
@@ -31,7 +31,7 @@ exports[`Icon should render with provided className 1`] = `
 exports[`Icon should support extra props 1`] = `
 <svg
   aria-hidden="true"
-  class="sc-bdfBQB kdhakw tc-svg-icon tc-icon custom-class tc-icon-name-svg-dd"
+  class="sc-bdvvtL clWFBN tc-svg-icon tc-icon custom-class tc-icon-name-svg-dd"
   data-custom="hello"
   focusable="false"
   name="svg-dd"
@@ -41,7 +41,7 @@ exports[`Icon should support extra props 1`] = `
 exports[`Icon should support remote svg 1`] = `
 <svg
   aria-hidden="true"
-  class="sc-bdfBQB kdhakw tc-svg-icon tc-icon"
+  class="sc-bdvvtL clWFBN tc-svg-icon tc-icon"
   focusable="false"
 />
 `;
@@ -49,7 +49,7 @@ exports[`Icon should support remote svg 1`] = `
 exports[`Icon should support remote svg 2`] = `
 <svg
   aria-hidden="true"
-  class="sc-bdfBQB kdhakw tc-svg-icon tc-icon"
+  class="sc-bdvvtL clWFBN tc-svg-icon tc-icon"
   focusable="false"
 >
   <svg>
