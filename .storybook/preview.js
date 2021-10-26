@@ -93,12 +93,12 @@ export const parameters = {
 			}, [hasDarkMode]);
 
 			React.useEffect(() => {
-				const { theme } = props.context.globals;
+				const theme = props.context.globals?.theme;
 				const hasDarkModeFromToolbar = theme === 'dark';
 				if (hasDarkModeFromToolbar != hasDarkMode) {
 					setDarkMode(hasDarkModeFromToolbar);
 				}
-			}, [props.context.globals.theme]);
+			}, [props.context.globals?.theme]);
 
 			React.useEffect(() => {
 				document
