@@ -7,6 +7,10 @@ updates:
     ignore:
       - dependency-name: "@storybook/*"
       - dependency-name: "@talend/*"
+      - dependency-name: "@types/react*"
+        versions: ^17
+      - dependency-name: "react*"
+        versions: ^17
       - dependency-name: "*"
         update-types: [ "version-update:semver-minor" ]
   - package-ecosystem: "github-actions"
