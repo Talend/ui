@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 6.42.1
+
+### Patch Changes
+
+- 9c5aa41cd: Missing fieldset widgets
+
 ## 6.42.0
 
 ### Minor Changes
