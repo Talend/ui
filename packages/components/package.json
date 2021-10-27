@@ -5,8 +5,8 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build:lib:umd --dev --env talendumds",
-    "build:prod": "talend-scripts build:lib:umd --prod --env talendumds",
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
