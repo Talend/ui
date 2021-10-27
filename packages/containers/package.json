@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "@talend/react-cmf": "^6.38.4",
-    "@talend/react-components": "^6.41.0",
-    "@talend/react-forms": "^6.41.2",
+    "@talend/react-components": "^6.41.1",
+    "@talend/react-forms": "^6.41.3",
     "classnames": "^2.3.1",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
@@ -81,5 +81,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.38.0"
+  "version": "6.39.0"
 }
