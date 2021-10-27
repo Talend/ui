@@ -32,7 +32,6 @@ history.listen(location => {
 });
 
 const router = getRouter({ history });
-const RootComponent = () => <router.RootComponent />;
 
 i18n.use(initReactI18next).init({
 	react: {
@@ -55,7 +54,7 @@ const app = {
 	actionCreators: actions,
 	middlewares: [],
 	modules: [router.cmfModule, containersModule],
-	RootComponent,
+	RootComponent: router.RootComponent,
 	AppLoader,
 };
 
