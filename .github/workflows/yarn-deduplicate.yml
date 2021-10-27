@@ -9,6 +9,7 @@ jobs:
   dedupe:
     runs-on: ubuntu-latest
     name: Deduplicate
+    environment: pull_request_unsafe
 
     steps:
       - name: Checkout sources

@@ -9,6 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build and deploy
+    environment: pullrequest
 
     steps:
       - name: Checkout sources
