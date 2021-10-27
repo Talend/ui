@@ -2,7 +2,8 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import get from 'lodash/get';
+import { get, omit } from 'lodash';
+import { Link } from '@talend/design-system';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import PasswordWidget from './PasswordWidget';
@@ -16,10 +17,11 @@ export default function Text(props) {
 		autoFocus,
 		description,
 		disabled = false,
+		labelProps,
+		link = null,
 		placeholder,
 		readOnly = false,
 		title,
-		labelProps,
 		type,
 		...rest
 	} = schema;
@@ -68,6 +70,7 @@ export default function Text(props) {
 					aria-invalid={!isValid}
 					aria-required={get(schema, 'required')}
 					aria-describedby={`${descriptionId} ${errorId}`}
+					link={link && <Link {...omit(link, ['label'])}> {link.label} </Link>}
 				/>
 			) : (
 				<input
@@ -104,6 +107,9 @@ if (process.env.NODE_ENV !== 'production') {
 				className: PropTypes.string,
 				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 				overlayPlacement: PropTypes.string,
+			}),
+			link: PropTypes.shape({
+				label: PropTypes.string,
 			}),
 			type: PropTypes.string,
 			schema: PropTypes.object,

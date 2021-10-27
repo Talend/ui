@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@talend/json-schema-form-core": "1.0.3",
-    "@talend/react-components": "^6.41.1",
+    "@talend/react-components": "^6.41.2",
     "@talend/utils": "^2.0.0",
     "@talend/design-system": "^1.5.0",
     "ajv": "^6.12.6",
@@ -62,7 +62,7 @@
     "@talend/bootstrap-theme": "^6.38.5",
     "@talend/icons": "^6.36.3",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-components": "^6.41.1",
+    "@talend/react-components": "^6.41.2",
     "@talend/scripts-core": "^11.2.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "autoprefixer": "^7.2.6",
@@ -95,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.41.3"
+  "version": "6.42.0"
 }
