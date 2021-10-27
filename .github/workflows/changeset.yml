@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     name: Release
-    environment: main # should only be used on protected
+    environment: main
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
