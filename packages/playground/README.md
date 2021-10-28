@@ -11,16 +11,7 @@ It is published to each PR on surge.
 
 Install is done at the root of the mono repository but because we use the UMD we need to do
 
-```
 cd Talend/ui
 yarn
 yarn pre-release
-cd packages/playground
 yarn start
-```
-
-So then you can start the app
-
-```
-yarn start
-```
