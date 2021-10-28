@@ -1,4 +1,4 @@
-# Sandbox
+# Playground
 
 This app is aiming to help demonstrate `ui/container` containers in an environement where we can run a `cmf` app and mock a backend.
 
