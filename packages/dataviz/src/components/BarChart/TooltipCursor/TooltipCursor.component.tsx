@@ -1,8 +1,8 @@
-import React from 'react';
-import { BrushProps, Customized } from 'recharts';
+import React, { SVGProps } from 'react';
+import { Customized } from 'recharts';
 import styles from './TooltipCursor.component.scss';
 
-export type TooltipCursorProps = BrushProps & {
+export type TooltipCursorProps = SVGProps<SVGElement> & {
 	dataFeature?: string;
 };
 

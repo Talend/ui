@@ -17,7 +17,7 @@ export interface HorizontalBarChartProps {
 	data: ChartEntry<string>[];
 	dataFeature?: string;
 	chartStyle: ChartStyle;
-	onBarClick: (event: MouseEvent, entry: ChartEntry<string>) => void;
+	onBarClick(event: MouseEvent, entry: ChartEntry<string>): void;
 	getTooltipContent: (entry: ChartEntry<string>) => JSX.Element;
 	width?: number;
 	height?: number;
@@ -84,7 +84,7 @@ function HorizontalBarChart({
 				<Tooltip
 					isAnimationActive={false}
 					content={<TooltipContent />}
-					cursor={<TooltipCursor dataFeature={dataFeature} height={200} />}
+					cursor={<TooltipCursor dataFeature={dataFeature} />}
 				/>
 
 				<XAxis dataKey="value" type="number" orientation="top" />

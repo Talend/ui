@@ -86,7 +86,7 @@ function VerticalBarChart({
 				<Tooltip
 					isAnimationActive={false}
 					content={TooltipContent}
-					cursor={<TooltipCursor dataFeature={dataFeature} height={200} />}
+					cursor={<TooltipCursor dataFeature={dataFeature} />}
 				/>
 
 				{showXAxis && (
