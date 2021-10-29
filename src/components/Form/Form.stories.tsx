@@ -87,18 +87,17 @@ export const Error = () => (
 Error.parameters = {};
 
 export const Disabled = () => (
-	<Form>
+	<Form disabled>
 		<Form.Fieldset legend="Complete your registration">
 			<Form.Row>
-				<Form.Text label="First Name" required disabled />
-				<Form.Text label="Last Name" required disabled />
+				<Form.Text label="First Name" required />
+				<Form.Text label="Last Name" required />
 			</Form.Row>
-			<Form.Text label="Company" value="Talend" required disabled />
+			<Form.Text label="Company" value="Talend" required />
 			<Form.InputGroup
 				label="Phone"
-				disabled
 				prefix={
-					<Form.Select label="Phone prefix" value="France (+33)" disabled>
+					<Form.Select label="Phone prefix" value="France (+33)">
 						{getCountryCodes().map((countryCode, key) => (
 							<option key={key}>{countryCode}</option>
 						))}
@@ -110,18 +109,16 @@ export const Disabled = () => (
 			>
 				<Form.Tel label="Phone number" value="6121314k" />
 			</Form.InputGroup>
-			<Form.Select label="Industry" disabled>
+			<Form.Select label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
-			<Form.Password label="Password" disabled />
-			<Form.Password label="Repeat password" disabled />
-			<Form.Checkbox checked required disabled>
+			<Form.Password label="Password" />
+			<Form.Password label="Repeat password" />
+			<Form.Checkbox checked required>
 				I have read and accept the <Link href="#">terms of use</Link>
 			</Form.Checkbox>
 			<Form.Buttons>
-				<Button.Primary onClick={action('submit')} disabled>
-					Complete Registration
-				</Button.Primary>
+				<Button.Primary onClick={action('submit')}>Complete Registration</Button.Primary>
 			</Form.Buttons>
 		</Form.Fieldset>
 	</Form>
@@ -129,18 +126,17 @@ export const Disabled = () => (
 Disabled.parameters = {};
 
 export const ReadOnly = () => (
-	<Form>
+	<Form readOnly>
 		<Form.Fieldset legend="Complete your registration">
 			<Form.Row>
-				<Form.Text label="First Name" required readOnly />
-				<Form.Text label="Last Name" required readOnly />
+				<Form.Text label="First Name" required />
+				<Form.Text label="Last Name" required />
 			</Form.Row>
-			<Form.Text label="Company" value="Talend" required readOnly />
+			<Form.Text label="Company" value="Talend" required />
 			<Form.InputGroup
 				label="Phone"
-				readOnly
 				prefix={
-					<Form.Select label="Phone prefix" value="France (+33)" readOnly>
+					<Form.Select label="Phone prefix" value="France (+33)">
 						{getCountryCodes().map((countryCode, key) => (
 							<option key={key}>{countryCode}</option>
 						))}
@@ -150,20 +146,18 @@ export const ReadOnly = () => (
 				description="Phone number is invalid"
 				required
 			>
-				<Form.Tel label="Phone number" value="6121314k" readOnly />
+				<Form.Tel label="Phone number" value="6121314k" />
 			</Form.InputGroup>
-			<Form.Select label="Industry" readOnly>
+			<Form.Select label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
-			<Form.Password label="Password" readOnly />
-			<Form.Password label="Repeat password" readOnly />
-			<Form.Checkbox checked required readOnly>
+			<Form.Password label="Password" />
+			<Form.Password label="Repeat password" />
+			<Form.Checkbox checked required>
 				I have read and accept the <Link href="#">terms of use</Link>
 			</Form.Checkbox>
 			<Form.Buttons>
-				<Button.Primary onClick={action('submit')} readOnly>
-					Complete Registration
-				</Button.Primary>
+				<Button.Primary onClick={action('submit')}>Complete Registration</Button.Primary>
 			</Form.Buttons>
 		</Form.Fieldset>
 	</Form>
@@ -192,14 +186,14 @@ InlineHelp.parameters = {};
 
 export const Loading = () => (
 	<div style={{ margin: '0 auto', width: '60rem' }}>
-		<Form>
+		<Form disabled>
 			<Form.Fieldset legend="Run job">
-				<Form.Text label="Name" required disabled placeholder="Job using JDBC connection" />
-				<Form.Textarea label="Description" disabled placeholder="Describe the job" />
+				<Form.Text label="Name" required placeholder="Job using JDBC connection" />
+				<Form.Textarea label="Description" placeholder="Describe the job" />
 			</Form.Fieldset>
 			<Form.Buttons>
-				<Button.Secondary disabled>Previous</Button.Secondary>
-				<Button.Secondary disabled>Save</Button.Secondary>
+				<Button.Secondary>Previous</Button.Secondary>
+				<Button.Secondary>Save</Button.Secondary>
 				<Button.Primary icon="talend-launch" loading>
 					Run
 				</Button.Primary>

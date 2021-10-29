@@ -1,6 +1,7 @@
 import Datalist from './Field/Datalist';
 import Fieldset from './Fieldset';
 import Form from './Form';
+import Row from './Row';
 import Buttons from './Buttons';
 import Input from './Field/Input';
 import InputGroup from './Field/InputGroup';
@@ -11,7 +12,7 @@ import Textarea from './Field/Textarea';
 import * as S from './Form.style';
 
 export const FormComponent = Form as typeof Form & {
-	Row: typeof S.Row;
+	Row: typeof Row;
 	Color: typeof Input.Color;
 	Checkbox: typeof Input.Checkbox;
 	Datalist: typeof Datalist;
@@ -41,7 +42,7 @@ export const FormComponent = Form as typeof Form & {
 	Buttons: typeof Buttons;
 };
 
-FormComponent.Row = S.Row;
+FormComponent.Row = Row;
 
 FormComponent.Color = Input.Color;
 FormComponent.Checkbox = Input.Checkbox;

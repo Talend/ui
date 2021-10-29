@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { shade } from 'polished';
-import { useCheckboxState, Checkbox } from 'reakit';
+import { unstable_useId as useId, Checkbox as ReakitCheckbox } from 'reakit';
 
+import useCheckboxState from './hooks/useCheckboxState';
 import { CheckboxProps } from './Input.Checkbox';
+
 import tokens from '../../../../tokens';
+
 import { InlineStyle } from '../Field.style';
 
-const SSwitch = styled(InlineStyle)<{ readOnly: boolean; checked: boolean }>`
+const SSwitch = styled(InlineStyle)<{ readOnly: boolean; checked: boolean; disabled: boolean }>`
 	&& {
 		span {
 			padding-left: calc(1rem + ${tokens.sizes.xxl});
@@ -68,21 +71,43 @@ const SSwitch = styled(InlineStyle)<{ readOnly: boolean; checked: boolean }>`
 `;
 
 const Switch = React.forwardRef(
-	({ id, label, checked, readOnly, ...rest }: CheckboxProps, ref: React.Ref<HTMLInputElement>) => {
-		const checkbox = useCheckboxState({ state: checked });
-
-		React.useEffect(() => {
-			checkbox.setState(checked);
-		}, [checked]);
+	(
+		{
+			id,
+			label,
+			defaultChecked,
+			checked,
+			readOnly,
+			disabled,
+			required,
+			children,
+			...rest
+		}: CheckboxProps,
+		ref: React.Ref<HTMLInputElement>,
+	) => {
+		const { id: reakitId } = useId();
+		const switchId = id || `switch--${reakitId}`;
+		const checkbox = useCheckboxState({ state: defaultChecked || checked, readOnly });
 
 		return (
-			<SSwitch readOnly={!!readOnly} checked={!!checkbox.state} ref={ref}>
-				<label htmlFor={id}>
-					{!readOnly && (
-						// @ts-ignore
-						<Checkbox id={id} {...rest} {...checkbox} />
-					)}
-					<span>{label}</span>
+			<SSwitch readOnly={!!readOnly} checked={!!checkbox.state} disabled={!!disabled}>
+				<label htmlFor={switchId} style={readOnly ? { pointerEvents: 'none' } : {}}>
+					{/*
+					// ReakitCheckbox is not based on HTMLInputElement despite working like one
+					// @ts-ignore */}
+					<ReakitCheckbox
+						id={switchId}
+						disabled={disabled}
+						readOnly={readOnly}
+						required={required}
+						{...rest}
+						{...checkbox}
+						ref={ref}
+					/>
+					<span>
+						{label || children}
+						{required && '*'}
+					</span>
 				</label>
 			</SSwitch>
 		);

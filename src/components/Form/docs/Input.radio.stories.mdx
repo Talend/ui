@@ -71,7 +71,7 @@ Otherwise, consider <a href="/docs/components-form-fields-checkbox--default-stor
 ### Multiple radios
 
 <Canvas>
-	<Story name="radios">
+	<Story name="react-hook-form">
 		{() => {
 			const { register, handleSubmit } = useForm();
 			const [formData, setFormData] = React.useState();
@@ -109,12 +109,17 @@ Otherwise, consider <a href="/docs/components-form-fields-checkbox--default-stor
 						/>
 					</Form.Fieldset>
 					<Form.Fieldset legend="Disabled are not sent" required disabled>
-						<Form.Radio label="Option E" value="option-e" {...register('disabled-inline-option')} />
+						{/* @see https://github.com/react-hook-form/react-hook-form/issues/6690 */}
+						<Form.Radio
+							label="Option E"
+							value="option-e"
+							{...register('disabled-inline-option', { disabled: true })}
+						/>
 						<Form.Radio
 							label="Option F"
 							value="option-f"
 							checked
-							{...register('disabled-inline-option')}
+							{...register('disabled-inline-option', { disabled: true })}
 						/>
 					</Form.Fieldset>
 					<Form.Buttons>

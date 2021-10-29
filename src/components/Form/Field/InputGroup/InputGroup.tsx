@@ -18,7 +18,7 @@ export type InputGroupProps = HTMLInputElement & {
 	description?: string;
 };
 
-const InputGroup = React.forwardRef<React.ReactNode, InputGroupProps>(
+const InputGroup = React.forwardRef(
 	(
 		{
 			label,
@@ -34,11 +34,15 @@ const InputGroup = React.forwardRef<React.ReactNode, InputGroupProps>(
 			description,
 			children,
 		}: InputGroupProps,
-		ref,
+		ref: React.Ref<HTMLDivElement>,
 	) => {
 		const fieldRef = React.useRef<HTMLInputElement>();
 		const { id: reakitId } = useId();
 		const labelId = `input-group--${reakitId}`;
+
+		const childrenProps: { disabled?: boolean; readOnly?: boolean } = {};
+		if (disabled) childrenProps.disabled = true;
+		if (readOnly) childrenProps.readOnly = true;
 
 		const focusField = () => fieldRef.current?.focus();
 
@@ -76,23 +80,27 @@ const InputGroup = React.forwardRef<React.ReactNode, InputGroupProps>(
 					{label}
 					{required && '*'}
 				</S.InputGroupLabel>
-				<S.InputGroupRow
-					aria-labelledby={labelId}
-					// @ts-ignore
-					ref={ref}
-				>
+				<S.InputGroupRow aria-labelledby={labelId} ref={ref}>
 					{prefix && (
 						<div className="input-group__item input-group__item--prefix">
-							{!isElement(prefix) ? <S.SpanPrefix>{prefix}</S.SpanPrefix> : prefix}
+							{!isElement(prefix) ? (
+								<S.SpanPrefix>{prefix}</S.SpanPrefix>
+							) : (
+								React.cloneElement(prefix, childrenProps)
+							)}
 						</div>
 					)}
 					<div className="input-group__item input-group__item--input">
 						{isElement(children) &&
-							React.cloneElement(children, { disabled, readOnly, ref: fieldRef })}
+							React.cloneElement(children, { ...childrenProps, ref: fieldRef })}
 					</div>
 					{suffix && (
 						<div className="input-group__item input-group__item--suffix">
-							{!isElement(suffix) ? <S.SpanSuffix>{suffix}</S.SpanSuffix> : suffix}
+							{!isElement(suffix) ? (
+								<S.SpanSuffix>{suffix}</S.SpanSuffix>
+							) : (
+								React.cloneElement(suffix, childrenProps)
+							)}
 						</div>
 					)}
 				</S.InputGroupRow>

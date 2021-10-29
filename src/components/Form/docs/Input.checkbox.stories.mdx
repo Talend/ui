@@ -80,7 +80,7 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 ### Multiple checkboxes
 
 <Canvas>
-	<Story name="checkboxes">
+	<Story name="react-hook-form">
 		{() => {
 			const { register, handleSubmit } = useForm();
 			const [formData, setFormData] = React.useState();
@@ -108,8 +108,9 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 						<Form.Checkbox label="Option D" checked {...register('option-d')} />
 					</Form.Fieldset>
 					<Form.Fieldset legend="Disabled are not sent" required disabled>
-						<Form.Checkbox label="Option E" {...register('inline-option-e')} />
-						<Form.Checkbox label="Option F" checked {...register('inline-option-f')} />
+						{/* @see https://github.com/react-hook-form/react-hook-form/issues/6690 */}
+						<Form.Checkbox label="Option E" {...register('option-e', { disabled: true })} />
+						<Form.Checkbox label="Option F" checked {...register('option-f', { disabled: true })} />
 					</Form.Fieldset>
 					<Form.Buttons>
 						<Button.Primary type="submit">Submit</Button.Primary>
