@@ -1,5 +1,18 @@
 # @talend/design-system
 
+## 1.9.0
+
+### Minor Changes
+
+- cd89a20: doc: Remove reakit as a dep to install in getting started guide
+- 320cc08: feat(dropdown): add component
+
+### Patch Changes
+
+- e9f8154: feat(components/form): adapt style to coexist with bootstrap
+- 96b0ea4: fix(InlineEditing): textarea is broken on safari
+- 0e980f0: fix(components/form): read-only and disabled modes not passing to the fields
+
 ## 1.8.0
 
 ### Minor Changes
