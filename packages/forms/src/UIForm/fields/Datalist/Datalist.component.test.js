@@ -414,4 +414,52 @@ describe('Datalist component', () => {
 			]);
 		});
 	});
+
+	describe('checkValueInTitleMap', () => {
+		const errorMessage = 'an error message';
+
+		const props = {
+			id: 'my-datalist',
+			isValid: true,
+			onChange: jest.fn(),
+			onFinish: jest.fn(),
+			onTrigger: jest.fn(),
+			schema: schemaMultiSection,
+			value: 'a not existing value',
+			missingValueErrorMessage: errorMessage,
+		};
+
+		it('should set a state, given multisection schema', () => {
+			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
+
+			expect(wrapper.state('isValid')).toBe(false);
+			expect(wrapper.state('errorMessage')).toBe(errorMessage);
+		});
+		it('should NOT set a state, given a multisection schema', () => {
+			const wrapper = shallow(<Datalist {...props} schema={schemaMultiSection} />);
+			expect(wrapper.state('isValid')).toBe(undefined);
+			expect(wrapper.state('errorMessage')).toBe(undefined);
+		});
+		it('should set a state, given simple schema', () => {
+			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
+			expect(wrapper.state('isValid')).toBe(false);
+			expect(wrapper.state('errorMessage')).toBe(errorMessage);
+		});
+		it('should NOT set a state, given a simple schema', () => {
+			const wrapper = shallow(<Datalist {...props} schema={schema} />);
+			expect(wrapper.state('isValid')).toBe(undefined);
+			expect(wrapper.state('errorMessage')).toBe(undefined);
+		});
+		it('should change value and the check should pass', () => {
+			const selectedValue = { label: 'Bar', value: 'bar' };
+			const event = { type: 'change' };
+			const wrapper = shallow(<Datalist {...props} initialCheckValue />);
+
+			expect(wrapper.state('isValid')).toBe(false);
+			expect(wrapper.state('errorMessage')).toBe(errorMessage);
+			wrapper.instance().onChange(event, selectedValue);
+			expect(wrapper.state('isValid')).toBe(true);
+			expect(wrapper.state('errorMessage')).toBe(undefined);
+		});
+	});
 });
