@@ -437,7 +437,7 @@ describe('Datalist component', () => {
 		});
 		it('should NOT set a state, given a multisection schema', () => {
 			const wrapper = shallow(<Datalist {...props} schema={schemaMultiSection} />);
-			expect(wrapper.state('isValid')).toBe(undefined);
+			expect(wrapper.state('isValid')).toBe(true);
 			expect(wrapper.state('errorMessage')).toBe(undefined);
 		});
 		it('should set a state, given simple schema', () => {
@@ -447,7 +447,7 @@ describe('Datalist component', () => {
 		});
 		it('should NOT set a state, given a simple schema', () => {
 			const wrapper = shallow(<Datalist {...props} schema={schema} />);
-			expect(wrapper.state('isValid')).toBe(undefined);
+			expect(wrapper.state('isValid')).toBe(true);
 			expect(wrapper.state('errorMessage')).toBe(undefined);
 		});
 		it('should change value and the check should pass', () => {

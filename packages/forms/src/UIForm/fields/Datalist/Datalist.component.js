@@ -32,7 +32,7 @@ const PROPS_TO_OMIT = [
 class Datalist extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = { isValid: true };
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
