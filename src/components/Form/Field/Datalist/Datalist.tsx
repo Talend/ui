@@ -10,18 +10,19 @@ export type DatalistProps = InputProps & {
 const Datalist = React.forwardRef(
 	({ id, values = [], ...rest }: DatalistProps, ref: React.Ref<HTMLInputElement> | undefined) => {
 		const { id: reakitId } = useId();
-		const listId = `list--${id || reakitId}`;
+		const datalistId = id || `datalist--${reakitId}`;
+		const datalistListId = `datalist__list--${reakitId}`;
 
 		return (
-			<>
-				<Field {...rest} id={id} list={listId} ref={ref} />
-				<datalist id={listId}>
+			<div className="c-field c-field--datalist">
+				<Field {...rest} id={datalistId} list={datalistListId} ref={ref} />
+				<datalist id={datalistListId}>
 					{values.map((value: string, index: React.Key) => (
 						// eslint-disable-next-line jsx-a11y/control-has-associated-label
 						<option key={index} value={value} />
 					))}
 				</datalist>
-			</>
+			</div>
 		);
 	},
 );

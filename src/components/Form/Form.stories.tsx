@@ -35,7 +35,7 @@ export const Default = () => (
 				<Form.Text label="Last Name" required />
 			</Form.Row>
 			<Form.Text label="Company" value="Talend" required />
-			<Form.InputGroup
+			<Form.FieldGroup
 				label="Phone"
 				prefix={
 					<Form.Select label="Phone prefix" value="France (+33)">
@@ -49,7 +49,7 @@ export const Default = () => (
 				required
 			>
 				<Form.Tel label="Phone number" value="6121314k" />
-			</Form.InputGroup>
+			</Form.FieldGroup>
 			<Form.Select label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
@@ -94,7 +94,7 @@ export const Disabled = () => (
 				<Form.Text label="Last Name" required />
 			</Form.Row>
 			<Form.Text label="Company" value="Talend" required />
-			<Form.InputGroup
+			<Form.FieldGroup
 				label="Phone"
 				prefix={
 					<Form.Select label="Phone prefix" value="France (+33)">
@@ -108,7 +108,7 @@ export const Disabled = () => (
 				required
 			>
 				<Form.Tel label="Phone number" value="6121314k" />
-			</Form.InputGroup>
+			</Form.FieldGroup>
 			<Form.Select label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
@@ -133,7 +133,7 @@ export const ReadOnly = () => (
 				<Form.Text label="Last Name" required />
 			</Form.Row>
 			<Form.Text label="Company" value="Talend" required />
-			<Form.InputGroup
+			<Form.FieldGroup
 				label="Phone"
 				prefix={
 					<Form.Select label="Phone prefix" value="France (+33)">
@@ -147,7 +147,7 @@ export const ReadOnly = () => (
 				required
 			>
 				<Form.Tel label="Phone number" value="6121314k" />
-			</Form.InputGroup>
+			</Form.FieldGroup>
 			<Form.Select label="Industry">
 				<option selected>IT</option>
 			</Form.Select>

@@ -15,9 +15,9 @@ const Fieldset = React.forwardRef(
 	) => {
 		const childrenProps = readOnly ? { readOnly: true } : {};
 		return (
-			<S.Fieldset disabled={disabled} {...rest} ref={ref}>
+			<S.Fieldset className="c-fieldset" disabled={disabled} {...rest} ref={ref}>
 				{legend && (
-					<S.Legend>
+					<S.Legend className="c-fieldset__legend">
 						{legend}
 						{required && '*'}
 					</S.Legend>

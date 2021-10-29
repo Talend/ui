@@ -31,9 +31,9 @@ Group logical blocks into fieldset. If the fields are related, display them on t
 			<Form.Fieldset legend="Frequency">
 				<Form.Select label="Repeat" />
 				<Form.Row>
-					<Form.InputGroup label="Minutes" suffix="minutes">
+					<Form.FieldGroup label="Minutes" suffix="minutes">
 						<Form.Number />
-					</Form.InputGroup>
+					</Form.FieldGroup>
 					<Form.Time label="Repeat from" required />
 					<Form.Time label="Repeat to" required />
 				</Form.Row>
@@ -63,9 +63,9 @@ Only individual fields could be errored, not the full fieldset.
 			<Form.Fieldset legend="Frequency">
 				<Form.Select label="Repeat" />
 				<Form.Row>
-					<Form.InputGroup label="Minutes" suffix="minutes">
+					<Form.FieldGroup label="Minutes" suffix="minutes">
 						<Form.Number />
-					</Form.InputGroup>
+					</Form.FieldGroup>
 					<Form.Time
 						label="Repeat from"
 						required
@@ -97,9 +97,9 @@ In case of more than one error or a horizontal fieldset, display the errors unde
 			<Form.Fieldset legend="Frequency">
 				<Form.Select label="Repeat" />
 				<Form.Row>
-					<Form.InputGroup label="Minutes" suffix="minutes">
+					<Form.FieldGroup label="Minutes" suffix="minutes">
 						<Form.Number />
-					</Form.InputGroup>
+					</Form.FieldGroup>
 					<Form.Time
 						label="Repeat from"
 						required
@@ -139,7 +139,6 @@ When a fieldset or a field is bigger than 15rem, the [inline message](/?path=/do
 	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=141%3A11352"
 	alt="inline message position for form fieldset"
 />
-
 
 ## Interactions
 

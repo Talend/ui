@@ -15,7 +15,7 @@ const Row = React.forwardRef(
 		if (readOnly) childrenProps.readOnly = true;
 
 		return (
-			<S.Row {...rest} ref={ref}>
+			<S.Row className="c-form__row" {...rest} ref={ref}>
 				{React.Children.toArray(children).map((child, key: number) =>
 					isElement(child)
 						? React.cloneElement(child, {

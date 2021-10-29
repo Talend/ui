@@ -65,14 +65,14 @@ declare module 'styled-components' {
 			inputReadOnlyBorderColor: string;
 			inputPlaceholderColor: string;
 			inputRadioBackgroundColor: string;
-			inputGroupColor: string;
-			inputGroupBackgroundColor: string;
-			inputGroupInteractiveColor: string;
-			inputGroupInteractiveBackgroundColor: string;
-			inputGroupInteractiveHoverColor: string;
-			inputGroupInteractiveHoverBackgroundColor: string;
-			inputGroupInteractiveActiveColor: string;
-			inputGroupInteractiveActiveBackgroundColor: string;
+			fieldGroupColor: string;
+			fieldGroupBackgroundColor: string;
+			fieldGroupInteractiveColor: string;
+			fieldGroupInteractiveBackgroundColor: string;
+			fieldGroupInteractiveHoverColor: string;
+			fieldGroupInteractiveHoverBackgroundColor: string;
+			fieldGroupInteractiveActiveColor: string;
+			fieldGroupInteractiveActiveBackgroundColor: string;
 
 			// Links
 			linkColor: string;

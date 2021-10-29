@@ -12,59 +12,77 @@ import { InlineStyle } from '../Field.style';
 
 const SSwitch = styled(InlineStyle)<{ readOnly: boolean; checked: boolean; disabled: boolean }>`
 	&& {
-		span {
-			padding-left: calc(1rem + ${tokens.sizes.xxl});
+		label {
+			padding: 0;
 		}
 
-		span:before,
-		span:after {
-			top: 0;
-			border-radius: ${tokens.radii.roundedRadius};
+		input {
+			position: absolute;
+			margin-left: -9999px;
+
+			+ * {
+				position: relative;
+				padding: 0 0 0 calc(1rem + 3.2rem);
+				cursor: pointer;
+			}
+
+			+ *::before,
+			+ *::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				border: none;
+				// stylelint-disable-next-line declaration-property-value-disallowed-list
+				transition: all 250ms ease-in-out;
+				border-radius: 9999px;
+			}
+
+			+ *::before {
+				width: 3.2rem;
+				height: 1.6rem;
+				background: ${tokens.colors.gray[75]};
+				box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
+			}
+
+			+ *::after {
+				margin: calc((1.2rem - 0.8rem) / 2);
+				width: 1.2rem;
+				height: 1.2rem;
+				background-color: ${tokens.colors.gray[0]};
+			}
+
+			&:not(:disabled):hover {
+				+ *::before {
+				}
+			}
 		}
 
-		span:before {
-			width: ${tokens.sizes.xxl};
-			height: 1.6rem;
-			background: ${({ theme }) => theme.colors.inputRadioBackgroundColor};
-			box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
+		&.c-input--checked input + *::before {
+			background: ${tokens.colors.lochmara[500]};
 		}
 
-		span:after {
-			height: 1.2rem;
-			width: 1.2rem;
-			transition: transform ${tokens.transitions.normal};
+		&.c-input--checked input + *::after {
+			transform: translate(1.5rem, 0);
 		}
 
-		input:not(:disabled) + span:hover:before,
-		input:not(:disabled):focus + span:before {
-			background: ${({ theme }) => shade(0.25, theme.colors.inputRadioBackgroundColor)};
-			box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
+		&:not(.c-input--disabled):not(.c-input--read-only) input:hover + *::before {
+			background: ${tokens.colors.gray[200]};
+		}
+		&.c-input--checked:not(.c-input--disabled):not(.c-input--read-only) input:hover + *::before {
+			background: ${tokens.colors.lochmara[600]};
 		}
 
-		input:not(:disabled):checked + span:hover:before,
-		input:not(:disabled):checked:focus + span:before {
-			background: ${({ theme }) => shade(0.25, theme.colors.activeColor[500])};
-		}
-
-		&.input--checked span:before {
-			background: ${({ theme }) => theme.colors.activeColor[500]};
-			box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
-		}
-
-		&.input--checked span:after {
-			transform: translateX(1.5rem);
-		}
-
-		&.input--read-only span:before {
+		&.c-input--read-only span:before {
 			background: ${({ theme }) => theme.colors.inputReadOnlyBackgroundColor};
 			box-shadow: none;
 		}
 
-		&.input--read-only span:after {
+		&.c-input--read-only span:after {
 			background: ${({ theme }) => theme.colors.inputBackgroundColor};
 		}
 
-		&.input--read-only.input--checked span:after {
+		&.c-input--read-only.c-input--checked span:after {
 			background: ${({ theme }) => theme.colors.inputColor};
 		}
 	}

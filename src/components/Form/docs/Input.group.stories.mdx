@@ -5,15 +5,15 @@ import Button from '../../Button';
 
 <Meta title="Components/Form/Form Field Group" />
 
-# Input group
+# Field group
 
-An input group allows to extend the form controls by adding simple text, select or buttons on either side of the default input.
+A field group allows to extend the form controls by adding simple text, select or buttons on either side of the default field.
 
 ## Zoning
 
 <FigmaImage
 	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=249%3A129"
-	alt="zoning image for input groups"
+	alt="zoning image for field groups"
 />
 
 ## Style
@@ -29,7 +29,7 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas>
 	<Story name="select">
-		<Form.InputGroup
+		<Form.FieldGroup
 			label="Input"
 			prefix={
 				<Form.Select label="Protocol">
@@ -43,7 +43,7 @@ An input group allows to extend the form controls by adding simple text, select 
 			}
 		>
 			<Form.Url label="Domain" placeholder="www.talend.com" />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -56,9 +56,9 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas>
 	<Story name="button">
-		<Form.InputGroup label="Input" suffix={<Button.Secondary>Button</Button.Secondary>}>
+		<Form.FieldGroup label="Input" suffix={<Button.Secondary>Button</Button.Secondary>}>
 			<Form.Text />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -71,12 +71,12 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas>
 	<Story name="button--icon">
-		<Form.InputGroup
+		<Form.FieldGroup
 			label="Expression builder"
 			suffix={<Button.Icon icon={'talend-wrench'}>Open expression builder</Button.Icon>}
 		>
 			<Form.Text placeholder="Write your expression or drag element" />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -89,7 +89,7 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas>
 	<Story name="select--select">
-		<Form.InputGroup
+		<Form.FieldGroup
 			label="Input"
 			prefix={
 				<Form.Select label="Type">
@@ -104,7 +104,7 @@ An input group allows to extend the form controls by adding simple text, select 
 				<option selected>Country</option>
 				<option>Age</option>
 			</Form.Select>
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -119,9 +119,9 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas>
 	<Story name="default">
-		<Form.InputGroup label="Input" prefix="$" suffix=".00">
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
 			<Form.Text />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -134,9 +134,9 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas withSource="none">
 	<Story name="hover" decorators={[WithSelector.decorator(':hover')]}>
-		<Form.InputGroup label="Input" prefix="$" suffix=".00">
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
 			<Form.Text />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -149,9 +149,9 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas withSource="none">
 	<Story name="focus" decorators={[WithSelector.decorator(':focus-within')]}>
-		<Form.InputGroup label="Input" prefix="$" suffix=".00">
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
 			<Form.Text />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -164,9 +164,9 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas>
 	<Story name="filled">
-		<Form.InputGroup label="Input" prefix="$" suffix=".00">
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
 			<Form.Number value="100" />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -179,9 +179,9 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas>
 	<Story name="disabled">
-		<Form.InputGroup label="Input" prefix="$" suffix=".00" disabled>
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00" disabled>
 			<Form.Number value="100" />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -194,9 +194,9 @@ An input group allows to extend the form controls by adding simple text, select 
 
 <Canvas>
 	<Story name="read-only">
-		<Form.InputGroup label="Input" prefix="$" suffix=".00" readOnly>
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00" readOnly>
 			<Form.Number value="100" />
-		</Form.InputGroup>
+		</Form.FieldGroup>
 	</Story>
 </Canvas>
 
@@ -282,9 +282,9 @@ Use lower case on prefix and suffix except if it's an interactive element.
 			};
 			const Component = Form[field];
 			return (
-				<Form.InputGroup prefix={getComponent(prefix)} suffix={getComponent(suffix)} {...rest}>
+				<Form.FieldGroup prefix={getComponent(prefix)} suffix={getComponent(suffix)} {...rest}>
 					<Component />
-				</Form.InputGroup>
+				</Form.FieldGroup>
 			);
 		}}
 	</Story>

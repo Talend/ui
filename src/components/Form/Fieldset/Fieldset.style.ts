@@ -8,6 +8,8 @@ export const Fieldset = styled.fieldset`
 
 export const Legend = styled.legend`
 	color: ${({ theme }) => theme.colors.textColor};
+	font-size: ${tokens.fontSizes.normal};
 	font-weight: ${tokens.fontWeights.bold};
 	padding: ${tokens.space.m} 0;
+	margin: 0;
 `;

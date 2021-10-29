@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCopyToClipboard } from 'react-use';
 import Button from '../../../Button';
-import InputGroup from '../InputGroup';
+import FieldGroup from '../../FieldGroup';
 import Text from './Input.Text';
 import { InputProps } from './Input';
 
@@ -18,7 +18,7 @@ const InputCopy = React.forwardRef(
 		}, [value]);
 
 		return (
-			<InputGroup
+			<FieldGroup
 				label={label}
 				suffix={
 					!readOnly && (
@@ -40,7 +40,7 @@ const InputCopy = React.forwardRef(
 				{/*
 				// @ts-ignore */}
 				<Text {...rest} label="Copy to clipboard" value={text} ref={ref} />
-			</InputGroup>
+			</FieldGroup>
 		);
 	},
 );

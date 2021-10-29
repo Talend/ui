@@ -7,8 +7,8 @@ export const Row = styled.div`
 	align-items: flex-start;
 	gap: ${tokens.space.l};
 
-	.input-group__item.input-group__item--prefix,
-	.input-group__item.input-group__item--suffix {
+	.c-field-group__item.c-field-group__item--prefix,
+	.c-field-group__item.c-field-group__item--suffix {
 		max-width: none;
 	}
 `;

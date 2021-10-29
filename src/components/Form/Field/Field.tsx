@@ -5,34 +5,43 @@ import { unstable_useId as useId } from 'reakit';
 import Loading from '../../Loading';
 import VisuallyHidden from '../../VisuallyHidden';
 import InlineMessage from '../../InlineMessage';
+import Link from '../../Link';
 
 import * as S from './Field.style';
 
-export type FieldProps = (
-	| React.InputHTMLAttributes<HTMLInputElement>
-	| React.TextareaHTMLAttributes<HTMLTextAreaElement>
-	| React.SelectHTMLAttributes<HTMLSelectElement>
-) & {
-	as?: React.ElementType;
-	label: string;
-	before?: React.ReactNode;
-	after?: React.ReactNode;
-	type?: string | undefined;
-	indeterminate?: boolean;
-	multiple?: boolean;
-	loading?: boolean;
-	link?: React.ReactNode;
+type WithInlineMessageProps = {
 	hasError?: boolean;
 	hasWarning?: boolean;
 	hasSuccess?: boolean;
 	hasInformation?: boolean;
-	hideLabel?: boolean;
 	description?: string;
 };
 
+type ControlProps = WithInlineMessageProps & {
+	as?: React.ElementType;
+	type?: string | undefined;
+	label: string;
+	hideLabel?: boolean;
+	before?: React.ReactNode;
+	after?: React.ReactNode;
+	loading?: boolean;
+	indeterminate?: boolean;
+	multiple?: boolean;
+	link?: typeof Link;
+};
+
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & ControlProps;
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & ControlProps;
+type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & ControlProps;
+
+export type FieldProps = InputProps | TextareaProps | SelectProps;
+
 const Field = React.forwardRef(
 	(
-		{
+		props: FieldProps,
+		ref: React.Ref<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+	) => {
+		const {
 			as = 'input',
 			className = '',
 			label,
@@ -50,52 +59,74 @@ const Field = React.forwardRef(
 			required,
 			disabled,
 			...rest
-		}: FieldProps,
-		ref: React.Ref<HTMLElement>,
-	) => {
+		} = props;
+
+		let checked;
+		let readOnly;
+
 		const { id: reakitId } = useId();
 		const fieldId = id || `field--${reakitId}`;
+		const fieldDescriptionId = `field__description--${reakitId}`;
+
 		const { multiple, type = '' } = rest;
 		const inline = ['checkbox', 'radio'].includes(type);
 
+		if ('checked' in props) {
+			checked = props.checked;
+		}
+		if ('readOnly' in props) {
+			readOnly = props.readOnly;
+		}
+
 		const Label = () => (
-			<S.FieldLabel className="field__label" htmlFor={fieldId} disabled={!!disabled}>
+			<S.FieldLabel className="c-field__label" htmlFor={fieldId} disabled={!!disabled}>
 				{label}
 				{required && '*'}
 			</S.FieldLabel>
 		);
 
-		const WrappedLabel = () => hideLabel ? <VisuallyHidden><Label /></VisuallyHidden> : <Label />;
+		const WrappedLabel = () =>
+			hideLabel ? (
+				<VisuallyHidden>
+					<Label />
+				</VisuallyHidden>
+			) : (
+				<Label />
+			);
 
 		const Description = () => {
+			const descProps = {
+				small: true,
+				description,
+			};
 			if (hasError) {
-				return <InlineMessage.Destructive small description={description} />;
+				return <InlineMessage.Destructive {...descProps} />;
 			}
 			if (hasWarning) {
-				return <InlineMessage.Warning small description={description} />;
+				return <InlineMessage.Warning {...descProps} />;
 			}
 			if (hasSuccess) {
-				return <InlineMessage.Success small description={description} />;
+				return <InlineMessage.Success {...descProps} />;
 			}
 			if (hasInformation) {
-				return <InlineMessage.Information small description={description} />;
+				return <InlineMessage.Information {...descProps} />;
 			}
-			return <InlineMessage small description={description} />;
+			return <InlineMessage {...descProps} />;
 		};
 
 		return (
-			<S.Field className={`field ${typeof as === 'string' ? `field--${as}` : ''}`}>
+			<S.Field className={`c-field ${typeof as === 'string' ? `c-field--${as}` : ''}`}>
 				{!inline && label && <WrappedLabel />}
 				<S.FieldGroup
 					className={classnames(
-						'field__group',
-						{ [`field__group--${as}`]: typeof as === 'string' },
+						'c-field__group',
+						{ [`c-field__group--${as}`]: typeof as === 'string' },
 						{
-							'field__group--multiple': multiple,
-							'field__group--loading': loading,
-							'field__group--has-error': hasError,
-							'field__group--has-warning': hasWarning,
-							'field__group--has-information': hasInformation,
+							'c-field__group--multiple': multiple,
+							'c-field__group--loading': loading,
+							'c-field__group--has-error': hasError,
+							'c-field__group--has-warning': hasWarning,
+							'c-field__group--has-information': hasInformation,
 						},
 					)}
 					after={after}
@@ -105,18 +136,28 @@ const Field = React.forwardRef(
 						{...rest}
 						as={as}
 						id={fieldId}
-						className={classnames(className, 'field__control', {
-							[`field__control--${as}`]: typeof as === 'string',
+						className={classnames(className, 'c-field__control', {
+							[`c-field__control--${as}`]: typeof as === 'string',
+							'c-input--read-only': readOnly,
+							'c-input--checked': checked,
+							'c-input--disabled': disabled,
 						})}
+						aria-describedby={description && fieldDescriptionId}
+						checked={checked}
+						readOnly={readOnly}
 						disabled={disabled}
 						ref={ref}
 					/>
-					{loading && <Loading className="field__loading" />}
+					{loading && <Loading className="c-field__loading" />}
 					{after}
 				</S.FieldGroup>
 				{link}
 				{inline && label && <WrappedLabel />}
-				{description && <Description />}
+				{description && (
+					<div id={fieldDescriptionId} className="c-field__description">
+						<Description />
+					</div>
+				)}
 			</S.Field>
 		);
 	},

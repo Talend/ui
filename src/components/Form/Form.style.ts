@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import tokens from '../../tokens';
 
 export const Form = styled.form`
@@ -17,5 +18,11 @@ export const Form = styled.form`
 
 	@media only screen and (min-width: ${tokens.breakpoints.xl}) {
 		max-width: 78rem;
+	}
+
+	.c-field,
+	.c-field-group,
+	.c-inline-message {
+		margin-bottom: ${tokens.space.s};
 	}
 `;

@@ -142,9 +142,9 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 		<Form>
 			<Form.Fieldset legend="Form fields">
 				<Form.Text label="Input" />
-				<Form.InputGroup label="Amount" prefix="$" suffix=".00">
+				<Form.FieldGroup label="Amount" prefix="$" suffix=".00">
 					<Form.Number label="Amount without decimal" min="1" step="1" />
-				</Form.InputGroup>
+				</Form.FieldGroup>
 				<Form.File label="File" />
 				<Form.Password label="Password" />
 				<Form.Datalist label="Datalist" values={['foo', 'bar']} />

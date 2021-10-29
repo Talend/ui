@@ -15,7 +15,7 @@ const Form = React.forwardRef(
 		if (readOnly) childrenProps.readOnly = true;
 
 		return (
-			<S.Form {...rest} ref={ref}>
+			<S.Form className="c-form" {...rest} ref={ref}>
 				{React.Children.toArray(children).map((child, key: number) =>
 					isElement(child)
 						? React.cloneElement(child, {

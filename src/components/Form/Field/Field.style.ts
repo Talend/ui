@@ -7,9 +7,7 @@ import tokens from '../../../tokens';
 
 export type FieldControlProps = { as: string; type: string; multiple: boolean };
 
-export const FieldControl = styled.input.attrs(({ readOnly, checked }) => ({
-	className: `${readOnly ? 'input--read-only' : ''} ${checked ? 'input--checked' : ''}`,
-}))`
+export const FieldControl = styled.input`
 	padding: ${tokens.space.none} ${tokens.space.s};
 	width: 100%;
 	color: ${({ theme }) => theme.colors.inputColor};
@@ -46,7 +44,7 @@ export const FieldControl = styled.input.attrs(({ readOnly, checked }) => ({
 		cursor: not-allowed;
 	}
 
-	&.input--read-only {
+	&.c-input--read-only {
 		border-color: ${({ theme }) => theme.colors.inputReadOnlyBorderColor};
 		background: ${({ theme }) => theme.colors.inputReadOnlyBackgroundColor};
 	}
@@ -59,17 +57,24 @@ export const Field = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	margin-bottom: ${tokens.space.s};
 	width: 100%;
 	min-width: 8rem;
 	color: ${({ theme }) => theme.colors.textColor};
 
-	.field__group--loading {
-		.field__control {
+	.c-field__label {
+		margin-bottom: ${tokens.space.xs};
+	}
+
+	.c-field__description {
+		margin: ${tokens.space.xs} ${tokens.space.none} ${tokens.space.m};
+	}
+
+	.c-field__group--loading {
+		.c-field__control {
 			padding-right: ${tokens.sizes.xxl};
 		}
 
-		.field__loading {
+		.c-field__loading {
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -79,14 +84,14 @@ export const Field = styled.div`
 		}
 	}
 
-	.field__group--has-warning {
+	.c-field__group--has-warning {
 		${FieldControl} {
 			border-width: 2px;
 			border-color: ${({ theme }) => theme.colors.warningColor[500]};
 		}
 	}
 
-	.field__group--has-error {
+	.c-field__group--has-error {
 		${FieldControl} {
 			border-width: 2px;
 			border-color: ${({ theme }) => theme.colors.destructiveColor[500]};
@@ -109,58 +114,107 @@ export const Field = styled.div`
 	}
 `;
 
-export const InlineStyle = styled.div.attrs<{ readOnly: boolean; checked: boolean }>(
-	({ readOnly, checked }) => ({
-		className: `${readOnly ? 'input--read-only' : ''} ${checked ? 'input--checked' : ''}`,
-	}),
-)`
-	margin-bottom: ${tokens.space.xs};
+export const InlineStyle = styled.div.attrs<{
+	readOnly: boolean;
+	checked: boolean;
+	disabled: boolean;
+}>(({ readOnly, checked, disabled }) => ({
+	className: `${readOnly ? 'c-input--read-only' : ''} ${checked ? 'c-input--checked' : ''} ${
+		disabled ? 'c-input--disabled' : ''
+	}`,
+}))`
+	--t-form-color: ${({ theme }) => theme.colors.inputColor};
+	--t-form-background-color: ${({ theme }) => theme.colors.inputBackgroundColor};
+	--t-form-border-color: ${({ theme }) => theme.colors.inputBorderColor};
+	--t-form-border-color--hover: ${({ theme }) => theme.colors.inputHoverBorderColor};
+	--t-form-border-color--focus: ${({ theme }) => theme.colors.inputFocusBorderColor};
+	--t-form-border-color--checked: ${({ theme }) => theme.colors.inputCheckedBorderColor};
+	--t-form-border-color--disabled: ${({ theme }) => theme.colors.inputDisabledBorderColor};
+
+	--t-form-color--readonly: ${({ theme }) => theme.colors.inputReadOnlyColor};
+	--t-form-background-color--readonly: ${({ theme }) => theme.colors.inputReadOnlyBackgroundColor};
+	--t-form-border-color--readonly: ${({ theme }) => theme.colors.inputReadOnlyBorderColor};
+
+	--t-form-placeholder-color: ${({ theme }) => theme.colors.inputPlaceholderColor};
+
+	--t-form-radio-background-color: ${({ theme }) => theme.colors.inputRadioBackgroundColor};
+
+	--t-form-checkbox-background-image--indeterminate: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgMTIgMTIiPgogIDxyZWN0IHg9IjMiIHk9IjUiIHdpZHRoPSI2IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K');
+	--t-form-checkbox-background-image--checked: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImZpbGw6IHdoaXRlIj4KCTxwYXRoIGQ9Ik02IDE0TDAgOGwxLjktMS45TDYgMTAuMiAxNC4xIDIgMTYgMy45eiI+PC9wYXRoPgo8L3N2Zz4=');
+
+	--t-form-group-color: ${({ theme }) => theme.colors.fieldGroupColor};
+	--t-form-group-background-color: ${({ theme }) => theme.colors.fieldGroupBackgroundColor};
+	--t-form-group-interactive-color: ${({ theme }) => theme.colors.fieldGroupInteractiveColor};
+	--t-form-group-interactive-background-color: ${({ theme }) =>
+		theme.colors.fieldGroupInteractiveBackgroundColor};
+	--t-form-group-interactive-color--hover: ${({ theme }) =>
+		theme.colors.fieldGroupInteractiveHoverColor};
+	--t-form-group-interactive-background-color--hover: ${({ theme }) =>
+		theme.colors.fieldGroupInteractiveHoverBackgroundColor};
+	--t-form-group-interactive-color--active: ${({ theme }) =>
+		theme.colors.fieldGroupInteractiveActiveColor};
+	--t-form-group-interactive-background-color--active: ${({ theme }) =>
+		theme.colors.fieldGroupInteractiveActiveBackgroundColor};
+
+	margin-top: 0;
+
+	label {
+		display: inline-block;
+		position: relative;
+		padding-left: calc(1.4rem + ${tokens.space.s});
+		margin-bottom: ${tokens.space.xs};
+		font-size: 1.4rem;
+		font-weight: 400;
+
+		&,
+		> * {
+			line-height: 1.5rem;
+			min-height: 1.5rem;
+		}
+	}
 
 	input {
-		position: absolute;
-		margin-left: -9999px;
+		margin: 0;
+		appearance: none;
+
+		&,
+		+ * {
+			display: inline-block;
+		}
+
+		&,
+		&::before,
+		&::after,
+		+ *::before,
+		+ *::after {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&::before,
+		&::after,
+		+ *::before,
+		+ *::after {
+			content: '';
+		}
 	}
 
-	label > span {
-		position: relative;
-		padding: 0 ${tokens.space.l};
-		font-size: ${tokens.fontSizes.normal};
-		color: ${({ theme }) => theme.colors.textColor};
-		cursor: pointer;
+	+ & {
+		margin: 0;
 	}
 
-	label > span:before,
-	label > span:after {
-		content: '';
-		position: absolute;
-		top: 0.3rem;
-		left: 0;
-		background: ${({ theme }) => theme.colors.inputBackgroundColor};
-		transition: ${tokens.transitions.fast};
-	}
-
-	label > span:before {
-		width: ${tokens.sizes.s};
-		height: ${tokens.sizes.s};
-		box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.inputBorderColor};
-	}
-
-	label > span:after {
-		margin: calc((${tokens.sizes.s} - ${tokens.sizes.xs}) / 2);
-		width: ${tokens.sizes.xs};
-		height: ${tokens.sizes.xs};
-	}
-
-	input:not(:disabled) + span:hover,
-	input:focus:not(:disabled) + span {
+	/*
+	input:not(:read-only):not(:disabled) + span:hover,
+	input:focus:not(:read-only):not(:disabled) + span {
 		&:before {
 			box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.inputFocusBorderColor};
 		}
 	}
-
+*/
 	input:focus:not(:disabled) + span {
 		// Safari
-		outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor[500]};
+		outline: 0.3rem solid ${({ theme }) => theme.colors.inputFocusBorderColor};
 	}
 	input:focus:not(:focus-visible):not(:disabled) + span {
 		// Reset for others than Safari
@@ -168,33 +222,24 @@ export const InlineStyle = styled.div.attrs<{ readOnly: boolean; checked: boolea
 	}
 	input:focus-visible:not(:disabled) + span {
 		// For others than Safari
-		outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor[500]};
+		outline: 0.3rem solid ${({ theme }) => theme.colors.inputFocusBorderColor};
 	}
 
-	[aria-checked='true'] + span:before,
-	[aria-checked='mixed'] + span:before {
-		background: ${({ theme }) => theme.colors.activeColor[500]};
-		box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.inputCheckedBorderColor};
-	}
-
-	input:disabled + span,
-	input:disabled + span:before,
-	input:disabled + span:after {
+	&.c-input--disabled,
+	&.c-input--disabled label {
 		opacity: ${tokens.opacity.disabled};
 		cursor: not-allowed;
 	}
 
-	&.input--read-only span:before,
-	&.input--read-only span:after {
-		color: ${({ theme }) => theme.colors.inputReadOnlyColor};
-		background: ${({ theme }) => theme.colors.inputReadOnlyBackgroundColor};
-		box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.inputReadOnlyBorderColor};
+	&.c-input--disabled,
+	&.c-input--disabled label {
+		opacity: ${tokens.opacity.disabled};
+		cursor: not-allowed;
 	}
 `;
 
 export const FieldGroup = styled.div<{ after: React.ReactNode }>`
 	position: relative;
-	margin-bottom: ${tokens.space.xs};
 	display: inline-flex;
 	align-items: center;
 	width: 100%;

@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import tokens from '../../../../tokens';
 
-export const FieldWrapper = styled.div`
+export const FieldWrapper = styled.div.attrs({
+	className: 'c-field c-field--select',
+})`
 	position: relative;
 
 	svg {
@@ -15,7 +17,7 @@ export const FieldWrapper = styled.div`
 		pointer-events: none;
 	}
 
-	.field__control {
+	.c-field__control {
 		overflow: auto;
 		cursor: pointer;
 		border-color: ${({ theme }) => theme.colors.inputBorderColor};
@@ -28,8 +30,8 @@ export const FieldWrapper = styled.div`
 		}
 	}
 
-	:not(.field__group--multiple) {
-		.field__control {
+	:not(.c-field__group--multiple) {
+		.c-field__control {
 			appearance: none;
 
 			&:disabled {

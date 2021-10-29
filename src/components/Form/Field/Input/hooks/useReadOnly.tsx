@@ -1,7 +1,7 @@
 type Checked = boolean | 'indeterminate' | Array<number | string>;
 
 type ReadOnlyState = {
-	'aria-checked'?: Checked;
+	'aria-checked'?: boolean | 'mixed';
 	checked?: Checked;
 	onClick?: (e: MouseEvent) => void;
 	onKeyDown?: (e: KeyboardEvent) => void;
@@ -17,7 +17,7 @@ export default function useReadOnly(checked?: Checked) {
 			e.preventDefault();
 		}
 	};
-	readOnlyState['aria-checked'] = !!checked;
+	readOnlyState['aria-checked'] = checked === 'indeterminate' ? 'mixed' : !!checked;
 	readOnlyState.checked = !!checked;
 	return readOnlyState;
 }
