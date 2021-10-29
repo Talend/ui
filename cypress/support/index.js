@@ -9,6 +9,18 @@ Cypress.Commands.add('mount', jsx => {
 	return mount(jsx);
 });
 
+Cypress.Commands.add('clickOutside', () => {
+	return cy.get('body').click(0, 0);
+});
+
 Cypress.Commands.add('getByTestId', (selector, ...args) => {
 	return cy.get(`[data-testid="${selector}"]`, ...args);
+});
+
+Cypress.Commands.add('getByTest', (selector, ...args) => {
+	return cy.get(`[data-test="${selector}"]`, ...args);
+});
+
+Cypress.Commands.add('getByRole', (selector, ...args) => {
+	return cy.get(`[role="${selector}"]`, ...args);
 });

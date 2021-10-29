@@ -6,7 +6,9 @@ import { Icon } from '../Icon/Icon';
 
 import * as S from './Link.style';
 
-type LinkProps = React.AnchorHTMLAttributes<any> & {
+export type LinkProps = React.AnchorHTMLAttributes<any> & {
+	/** The icon to display before */
+	icon?: IconName | React.ReactElement;
 	/** The icon to display before */
 	iconBefore?: IconName | React.ReactElement;
 	/** The icon to display after */
@@ -26,6 +28,7 @@ const Link = React.forwardRef(
 			children,
 			iconAfter,
 			iconBefore,
+			icon = iconBefore,
 			disabled,
 			href,
 			target,
@@ -38,7 +41,6 @@ const Link = React.forwardRef(
 	) => {
 		const { t } = useTranslation();
 		const isBlank: boolean = React.useMemo(() => target?.toLowerCase() === '_blank', [target]);
-
 		const isExternal = React.useMemo(() => {
 			if (!href) {
 				return false;
@@ -84,12 +86,12 @@ const Link = React.forwardRef(
 				ref={ref}
 				as={as}
 			>
-				{iconBefore &&
-					(typeof iconBefore === 'string' ? (
-						<Icon className="link__icon link__icon--before" name={iconBefore} />
+				{icon &&
+					(typeof icon === 'string' ? (
+						<Icon className="link__icon link__icon--before" name={icon} />
 					) : (
-						React.cloneElement(iconBefore, {
-							className: `${iconBefore.props?.className} link__icon link__icon--before`,
+						React.cloneElement(icon, {
+							className: `${icon.props?.className} link__icon link__icon--before`,
 						})
 					))}
 				<span className="link__text">{children}</span>

@@ -109,6 +109,13 @@ declare module 'styled-components' {
 			// Tooltips
 			tooltipColor: string;
 			tooltipBackgroundColor: string;
+
+			// Dropdowns
+			dropdownColor: string;
+			dropdownSeparatorColor: string;
+			dropdownBackgroundColor: string;
+			dropdownHoverBackgroundColor: string;
+			dropdownActiveBackgroundColor: string;
 		};
 		id: string;
 	}
