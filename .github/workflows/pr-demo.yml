@@ -28,7 +28,7 @@ jobs:
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn pre-release
-          yarn test:demo --quiet
+          yarn test:demo
           ./.github/workflows/before-surge.sh
 
       - name: deploy if master
@@ -41,8 +41,6 @@ jobs:
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: |
-          mkdir -p ".static/${{ github.event.number }}"
-          cp -Rf .static/@talend ".static/${{ github.event.number }}"
           surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}

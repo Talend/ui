@@ -9,6 +9,16 @@
           "routerPush": "/ComponentForm"
         }
       }
+    },
+    "menu:List": {
+      "icon": "talend-burger",
+      "label": "List",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/List"
+        }
+      }
     }
   },
   "props": {
@@ -56,9 +66,7 @@
       "productsUrl": "/api/mock/header-bar/products-list"
     },
     "SidePanel#default": {
-      "actionIds": [
-        "menu:ComponentForm"
-      ]
+      "actionIds": ["menu:ComponentForm", "menu:List"]
     },
     "Layout#default": {
       "mode": "TwoColumns",
@@ -80,6 +88,10 @@
       "component": "Redirect"
     },
     "childRoutes": [
+      {
+        "path": "List",
+        "component": "LeaguesList"
+      },
       {
         "path": "ComponentForm",
         "component": "ComponentFormSandbox"

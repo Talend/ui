@@ -7,8 +7,10 @@ import UIForm from '@talend/react-forms';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
-import theme from './example.scss';
+import theme from '../example.scss';
+import { Alert } from 'react-bootstrap';
 
+const example = require('../../../mockBackend/mock/kit/example.json');
 const { isComponentFormDirty } = ComponentForm.selectors;
 const { setComponentFormDirtyState } = ComponentForm.actions;
 
@@ -46,18 +48,21 @@ const uiSchema = [
 ];
 
 function ComponentFormSandBox({ dirty, dispatch }) {
+	const hasAPI = process.env.NODE_ENV === 'development';
 	const [displayConfig, setConfig] = React.useState(false);
-	const [properties, setProperties] = React.useState({
+	const defaultFormProps = {
 		definitionURL: '/api/v1/forms/example',
 		uiSpecPath: 'ui',
 		triggerURL: '/api/v1/application/action',
-		submitURL: '/api/v1/forms',
-	});
+		definition: hasAPI ? undefined : example.ui, // do not fetch
+		// data: hasAPI ? uispec : undefined,
+	};
 	const uispec = {
 		jsonSchema,
 		uiSchema,
-		properties,
+		properties: defaultFormProps,
 	};
+	const [formProps, setFormProps] = React.useState(defaultFormProps);
 	const right = [
 		{
 			label: `Reset (dirty=${dirty.toString()})`,
@@ -79,19 +84,26 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 				}}
 			/>
 			<div id={theme.example}>
+				{!hasAPI && (
+					<Alert>
+						You don t have backend API so we will use an ComponentForm as proxy to UIForm component
+					</Alert>
+				)}
 				{displayConfig ? (
 					<UIForm
 						data={uispec}
 						onSubmit={(event, data) => {
+							// eslint-disable-next-line no-console
 							console.log(event, data);
-							setProperties(data);
+							setFormProps(data);
 							setConfig(false);
 						}}
 					/>
 				) : (
 					<ComponentForm
-						{...properties}
+						{...formProps}
 						componentId={componentId}
+						submitURL="/api/v1/forms"
 						className="full-form"
 						saga="ComponentForm#default"
 					/>
