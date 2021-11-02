@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 6.43.0
+
+### Minor Changes
+
+- 4bbb2ec7f: feat(TFD-13512/datalist): add props initialCheckValue to make validation at mount
+
 ## 6.42.1
 
 ### Patch Changes

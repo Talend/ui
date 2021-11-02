@@ -1,5 +1,11 @@
 # @talend/eslint-config
 
+## 4.0.0
+
+### Major Changes
+
+- ce705fcd3: Update dependencies to be aligned with ui-scripts
+
 ## 3.0.3
 
 ### Patch Changes
