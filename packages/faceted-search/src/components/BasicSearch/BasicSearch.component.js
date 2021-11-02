@@ -82,7 +82,7 @@ const BasicSearch = ({
 				),
 			);
 		});
-	}, [badges, initialBadges, dispatch, operatorsDictionary]);
+	}, []);
 
 	const onClickOverlayRow = setOverlayOpened => (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(
