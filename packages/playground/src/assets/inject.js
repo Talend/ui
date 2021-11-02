@@ -9,7 +9,6 @@
 				newUrl = url.split('/');
 				newUrl.splice(4, 1); // remove version
 				newUrl = newUrl.join('/').replace('/cdn', '');
-				// newUrl = newUrl.replace(window.location.origin, 'http://3428.talend.surge.sh');
 			} else {
 				newUrl = url.replace('/cdn', 'https://statics.cloud.talend.com');
 			}
