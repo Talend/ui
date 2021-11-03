@@ -15,7 +15,6 @@ const Accordion = React.forwardRef<React.ReactElement, React.PropsWithChildren<a
 				{children.map((child: React.ReactElement, key: number) =>
 					React.cloneElement(child, {
 						id: `${composite.baseId}-${key + 1}`,
-						key: `accordion-item-${key}`,
 						...composite,
 						...child.props,
 					}),

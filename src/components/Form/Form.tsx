@@ -16,13 +16,8 @@ const Form = React.forwardRef(
 
 		return (
 			<S.Form className="c-form" {...rest} ref={ref}>
-				{React.Children.toArray(children).map((child, key: number) =>
-					isElement(child)
-						? React.cloneElement(child, {
-								...childrenProps,
-								key: `form-${key}`,
-						  })
-						: child,
+				{React.Children.toArray(children).map(child =>
+					isElement(child) ? React.cloneElement(child, childrenProps) : child,
 				)}
 			</S.Form>
 		);

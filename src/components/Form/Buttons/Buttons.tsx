@@ -16,13 +16,8 @@ const Buttons = React.forwardRef(
 
 		return (
 			<S.Buttons className="c-form__buttons" {...rest} ref={ref}>
-				{React.Children.toArray(children).map((child, key: number) =>
-					isElement(child)
-						? React.cloneElement(child, {
-								...childrenProps,
-								key: `buttons-${key}`,
-						  })
-						: child,
+				{React.Children.toArray(children).map(child =>
+					isElement(child) ? React.cloneElement(child, childrenProps) : child,
 				)}
 			</S.Buttons>
 		);
