@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.9.1
+
+### Patch Changes
+
+- 0b93f91: Removed usage of array index as key
+
 ## 1.9.0
 
 ### Minor Changes
