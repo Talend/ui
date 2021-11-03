@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.3
+
+### Patch Changes
+
+- 0718efb26: fix a bug where initialbadges update affect the current filter
+
 ## 3.5.2
 
 ### Patch Changes
