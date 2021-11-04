@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ConfirmDialog from './ConfirmDialog.component';
+import ActionButton from '../Actions/ActionButton/ActionButton.component';
 
 const defaultProps = {
 	header: 'Hello world',
@@ -153,4 +154,44 @@ storiesOf('Layout/Modals/ConfirmDialog', module)
 				<ConfirmDialog {...propsWithMoreActions}>{children}</ConfirmDialog>
 			</div>
 		);
-	});
+	}).add('Dialog with tooltip trigger with input field', () => {
+
+	const mouseDownAction = {
+		label: 'Click me',
+		icon: 'talend-dataprep',
+		'data-feature': 'action',
+		onMouseDown: action('You clicked me'),
+	};
+	const OverlayComponent = <div>
+		<label>
+			Now type: <input type="text"/>
+			Key events taken by background components
+		</label>
+	</div>;
+	return (
+		<div>
+			<h1>Double portal</h1>
+
+			<ConfirmDialog {...defaultProps}>
+				<label>
+					Can type: <input type="text"/>
+
+				</label>
+
+				<div>
+					Now click on the button:
+					<ActionButton
+						id="hidelabel"
+						overlayId="hidelabel"
+						overlayComponent={OverlayComponent}
+						overlayPlacement="top"
+						tooltipPlacement="right"
+						{...mouseDownAction}
+						hideLabel
+					/>
+
+				</div>
+			</ConfirmDialog>
+		</div>
+	)
+});
