@@ -7,8 +7,8 @@
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
-    "build": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build:ts:lib",
+    "build": "talend-scripts build:ts:lib",
     "test": "talend-scripts test",
     "test:demo": "echo nothing to do"
   },
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.176",
     "@types/react": "^16.14.20",
+    "@types/react-router-dom": "^5.3.2",
     "@talend/react-cmf": "^6.38.4",
     "@talend/scripts-core": "^11.2.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",

@@ -5,9 +5,9 @@ import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-reac
 import { fork, takeLatest } from 'redux-saga/effects';
 
 import cmf from '@talend/react-cmf';
-import { history } from '../router';
-
 import { sagaRouter, SAGA_ROUTER_HISTORY_CHANGE } from './sagaRouter';
+
+const { history }: { history: any } = require('../router');
 
 const mergeConfig = {
 	history: cmf.module.merge.getUnique,
