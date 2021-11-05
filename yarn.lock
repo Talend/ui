@@ -2992,6 +2992,26 @@
     which "^2.0.2"
     yargs "^15.4.1"
 
+"@talend/scripts-core@^11.3.0":
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-11.3.0.tgz#4098d9db20f69cfd668b41e7b94954b938eda185"
+  integrity sha512-JbluWijNvMk3uV7agD4Qkx0PouYt1rXELM4rgfWg2VMSbymcQAui770+E3ueDeIWD9sV/56P7oUwkU542hG4Ow==
+  dependencies:
+    "@babel/cli" "^7.14.8"
+    "@babel/core" "^7.15.0"
+    "@talend/upgrade-deps" "^1.2.0"
+    cpx2 "^3.0.2"
+    cross-spawn "^7.0.3"
+    lodash.get "^4.4.2"
+    lodash.template "^4.5.0"
+    rimraf "^3.0.2"
+    typescript "^4.4.2"
+    webpack-cli "^4.8.0"
+    webpack-dev-server "^4.2.0"
+    webpack-merge "^4.2.2"
+    which "^2.0.2"
+    yargs "^15.4.1"
+
 "@talend/scripts-preset-react-lib@^9.9.3":
   version "9.9.3"
   resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.9.3.tgz#15be5518c1790ede65ed19721cf6d74524025dc8"
@@ -3028,6 +3048,17 @@
     "@yarnpkg/lockfile" "^1.1.0"
     colors "^1.4.0"
     semver "^7.3.5"
+    yarn-deduplicate "^3.1.0"
+
+"@talend/upgrade-deps@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@talend/upgrade-deps/-/upgrade-deps-1.2.0.tgz#5adf7a8783fa3e52a668616ee17e2d20640ac8cb"
+  integrity sha512-mzubeFvgCJJ1YrAIVxBYfJkoSJV059fGVHJAS0Q7P38OgWhHJ/tjy/nmonEFn2lZBM06XWwd8pJjM8V8jnO3/g==
+  dependencies:
+    "@yarnpkg/lockfile" "^1.1.0"
+    colors "^1.4.0"
+    semver "^7.3.5"
+    strip-ansi "^6.0.0"
     yarn-deduplicate "^3.1.0"
 
 "@tootallnate/once@1":
