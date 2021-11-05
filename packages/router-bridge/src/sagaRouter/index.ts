@@ -1,0 +1,1 @@
+export { getSagaRouterModule } from './module';
