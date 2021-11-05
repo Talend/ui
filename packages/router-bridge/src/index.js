@@ -2,9 +2,6 @@ import { history, Switch, Route, Router, Link, Redirect, useParams, useRouteMatc
 import { push, replace } from './redux';
 import { getSagaRouterModule } from './sagaRouter';
 
-console.log('js');
-console.log(getSagaRouterModule);
-
 export {
 	// react router v5 only, otherwise those are empty functions or components
 	history,
