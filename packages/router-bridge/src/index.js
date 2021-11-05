@@ -1,5 +1,6 @@
 import { history, Switch, Route, Router, Link, Redirect, useParams, useRouteMatch } from './router';
 import { push, replace } from './redux';
+import { getSagaRouterModule } from './sagaRouter';
 
 export {
 	// react router v5 only, otherwise those are empty functions or components
@@ -14,4 +15,6 @@ export {
 	// bridge to connected-react-router or cmf-router
 	push,
 	replace,
+	// Saga router
+	getSagaRouterModule,
 };
