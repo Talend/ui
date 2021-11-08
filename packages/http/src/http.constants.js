@@ -7,6 +7,17 @@ export const PUT = 'PUT';
 export const DELETE = 'DELETE';
 export const TRACE = 'TRACE';
 export const CONNECT = 'CONNECT';
+export const NOT_REQUESTED = 'NOT_REQUESTED';
+export const PENDING = 'PENDING';
+export const SUCCEED = 'SUCCEED';
+export const FAILED = 'FAILED';
+
+export const REQUEST_STATUS = {
+	NOT_REQUESTED,
+	PENDING,
+	SUCCEED,
+	FAILED,
+};
 
 export const HTTP_METHODS = {
 	OPTIONS,
