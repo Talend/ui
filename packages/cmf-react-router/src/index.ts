@@ -1,0 +1,1 @@
+export { getCmfReactRouterModule } from './module';

@@ -2992,6 +2992,26 @@
     which "^2.0.2"
     yargs "^15.4.1"
 
+"@talend/scripts-core@^11.3.0":
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-11.3.0.tgz#4098d9db20f69cfd668b41e7b94954b938eda185"
+  integrity sha512-JbluWijNvMk3uV7agD4Qkx0PouYt1rXELM4rgfWg2VMSbymcQAui770+E3ueDeIWD9sV/56P7oUwkU542hG4Ow==
+  dependencies:
+    "@babel/cli" "^7.14.8"
+    "@babel/core" "^7.15.0"
+    "@talend/upgrade-deps" "^1.2.0"
+    cpx2 "^3.0.2"
+    cross-spawn "^7.0.3"
+    lodash.get "^4.4.2"
+    lodash.template "^4.5.0"
+    rimraf "^3.0.2"
+    typescript "^4.4.2"
+    webpack-cli "^4.8.0"
+    webpack-dev-server "^4.2.0"
+    webpack-merge "^4.2.2"
+    which "^2.0.2"
+    yargs "^15.4.1"
+
 "@talend/scripts-preset-react-lib@^9.9.3":
   version "9.9.3"
   resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.9.3.tgz#15be5518c1790ede65ed19721cf6d74524025dc8"
@@ -3028,6 +3048,17 @@
     "@yarnpkg/lockfile" "^1.1.0"
     colors "^1.4.0"
     semver "^7.3.5"
+    yarn-deduplicate "^3.1.0"
+
+"@talend/upgrade-deps@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@talend/upgrade-deps/-/upgrade-deps-1.2.0.tgz#5adf7a8783fa3e52a668616ee17e2d20640ac8cb"
+  integrity sha512-mzubeFvgCJJ1YrAIVxBYfJkoSJV059fGVHJAS0Q7P38OgWhHJ/tjy/nmonEFn2lZBM06XWwd8pJjM8V8jnO3/g==
+  dependencies:
+    "@yarnpkg/lockfile" "^1.1.0"
+    colors "^1.4.0"
+    semver "^7.3.5"
+    strip-ansi "^6.0.0"
     yarn-deduplicate "^3.1.0"
 
 "@tootallnate/once@1":
@@ -3386,6 +3417,11 @@
   dependencies:
     "@types/unist" "*"
 
+"@types/history@*":
+  version "4.7.9"
+  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.9.tgz#1cfb6d60ef3822c589f18e70f8b12f9a28ce8724"
+  integrity sha512-MUc6zSmU3tEVnkQ78q0peeEjKWPUADMlC/t++2bI8WnAG2tvYRPIgHG8lWkXwqc8MsUF6Z2MOf+Mh5sazOmhiQ==
+
 "@types/html-minifier-terser@^5.0.0":
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/@types/html-minifier-terser/-/html-minifier-terser-5.1.2.tgz#693b316ad323ea97eed6b38ed1a3cc02b1672b57"
@@ -3583,6 +3619,23 @@
   dependencies:
     "@types/react" "*"
     redux "^3.6.0"
+
+"@types/react-router-dom@^5.3.2":
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.2.tgz#ebd8e145cf056db5c66eb1dac63c72f52e8542ee"
+  integrity sha512-ELEYRUie2czuJzaZ5+ziIp9Hhw+juEw8b7C11YNA4QdLCVbQ3qLi2l4aq8XnlqM7V31LZX8dxUuFUCrzHm6sqQ==
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*":
+  version "5.1.17"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-5.1.17.tgz#087091006213b11042f39570e5cd414863693968"
+  integrity sha512-RNSXOyb3VyRs/EOGmjBhhGKTbnN6fHWvy5FNLzWfOWOGjgVUKqJZXfpKzLmgoU8h6Hj8mpALj/mbXQASOb92wQ==
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
 
 "@types/react-syntax-highlighter@11.0.5":
   version "11.0.5"

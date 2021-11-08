@@ -1,0 +1,44 @@
+{
+  "name": "@talend/cmf-react-router",
+  "version": "1.0.0",
+  "description": "Connected router for react-router v5",
+  "main": "lib/index.js",
+  "scripts": {
+    "pre-release": "yarn build",
+    "build": "talend-scripts build:ts:lib",
+    "test": "talend-scripts test",
+    "test:demo": "echo nothing to do"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ithub.com/Talend/ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/ui/tree/master/packages/cmf-react-router#readme",
+  "devDependencies": {
+    "@types/lodash": "^4.14.176",
+    "@types/react": "^16.14.20",
+    "@types/react-router-dom": "^5.3.2",
+    "@talend/react-cmf": "^6.38.4",
+    "@talend/router-bridge": "^1.1.0",
+    "@talend/scripts-core": "^11.3.0",
+    "@talend/scripts-preset-react-lib": "^9.9.3",
+    "connected-react-router": "^6.9.1",
+    "history": "^5.1.0",
+    "lodash": "^4.17.21",
+    "react": "^16.14.0",
+    "redux-saga": "^0.15.6",
+    "react-router-dom": "^5.3.0"
+  },
+  "peerDependencies": {
+    "@talend/react-cmf": ">= 6.38.4",
+    "@talend/router-bridge": ">= 1.1.0",
+    "connected-react-router": "^6.9.1",
+    "lodash": "^4.17.21",
+    "history": "^5.1.0",
+    "react": "^16.14.0",
+    "react-router-dom": "^5.2.0",
+    "redux-saga": "^0.15.6"
+  }
+}

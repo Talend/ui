@@ -1,6 +1,7 @@
 ---
 '@talend/react-cmf-router': patch
 '@talend/react-cmf': patch
+'@talend/cmf-react-router': patch
 '@talend/react-components': patch
 '@talend/react-containers': patch
 '@talend/react-datagrid': patch
