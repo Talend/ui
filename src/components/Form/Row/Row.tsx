@@ -16,13 +16,8 @@ const Row = React.forwardRef(
 
 		return (
 			<S.Row className="c-form__row" {...rest} ref={ref}>
-				{React.Children.toArray(children).map((child, key: number) =>
-					isElement(child)
-						? React.cloneElement(child, {
-								...childrenProps,
-								key: `row-${key}`,
-						  })
-						: child,
+				{React.Children.toArray(children).map(child =>
+					isElement(child) ? React.cloneElement(child, childrenProps) : child,
 				)}
 			</S.Row>
 		);
