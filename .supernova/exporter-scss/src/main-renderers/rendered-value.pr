@@ -1,0 +1,37 @@
+{*
+
+Injectable blueprint that represents token value as css.valid string
+Note that this only converts the value, name is converted somewhere else
+
+
+Source data: Any Token (https://developers.supernova.io/design-system-data/tokens)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "context": {
+    "id": string
+    "name": string
+    "description": string
+    "tokenType": Depends on the token type
+    "origin": ItemOrigin | null
+    "value": Depends on the token type
+  }
+}
+
+
+Rendered as:
+
+[group1][group2][...][name];
+
+*}
+{[ let token = context /]}
+{[ switch context.tokenType ]}
+{[ case "Color" ]}{[ inject "rendered-color" context token.value /]}
+{[ case "Typography" ]}{[ inject "rendered-typography" context token.value /]}
+{[ case "Shadow" ]}{[ inject "rendered-shadow" context token.value /]}
+{[ case "Border" ]}{[ inject "rendered-border" context token.value /]}
+{[ case "Measure" ]}{[ inject "rendered-measure" context token.value /]} 
+{[ case "Gradient" ]}{[ inject "rendered-gradient" context token.value /]} 
+{[ case "Radius" ]}{[ inject "rendered-radius" context token.value /]} 
+{[ case "Text" ]}{[ inject "rendered-text" context token.value /]} 
+{[/]}

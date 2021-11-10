@@ -1,0 +1,54 @@
+{[ const designSystem = ds.currentDesignSystem() /]}
+{[ const selector = getSelector(designSystem.name) /]}
+{{ selector }} {
+{[ for token in ds.tokensByType("Color") ]}
+    {[ inject "rendered-token-var" context token /]}
+
+
+{[/]}
+
+{[ for token in ds.tokensByType("Gradient") ]}
+    {[ inject "rendered-token-var" context token /]}
+    
+
+{[/]}
+
+{[ for token in ds.tokensByType("Border") ]}
+    {[ inject "rendered-token-var" context token /]}
+    
+
+{[/]}
+
+{[ for token in ds.tokensByType("Measure") ]}
+    {[ inject "rendered-token-var" context token /]}
+    
+
+{[/]}
+
+{[ for token in ds.tokensByType("Shadow") ]}
+    {[ inject "rendered-token-var" context token /]}
+    
+
+{[/]}
+
+{[ const allTokens = ds.tokensByType("Typography") /]}
+{[ for token in allTokens ]}
+{[ if !token.referencedToken ]}
+    {[ inject "rendered-token-var" context token /]}
+
+
+{[/]}
+{[/]}
+
+{[ for token in ds.tokensByType("Radius") ]}
+    {[ inject "rendered-token-var" context token /]}
+    
+
+{[/]}
+
+{[ for token in ds.tokensByType("Text") ]}
+    {[ inject "rendered-token-var" context token /]}
+    
+
+{[/]}
+}

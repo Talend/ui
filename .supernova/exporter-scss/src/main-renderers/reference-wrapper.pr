@@ -1,0 +1,24 @@
+{*
+Injectable blueprint which either uses token reference or rendered #body
+
+Source data: Token Metadata and Payload, all types (https://developers.supernova.io/design-system-data/tokens)
+Note: Token is passed as `context` property because it is injected
+
+{
+  "context": {
+    "id": string
+    "name": string
+    "description": string
+    "tokenType": Depends on the token type
+    "origin": ItemOrigin | null
+    "value": Depends on the token type
+  }
+}
+
+
+/* description */
+*}
+{[ if !context.referencedToken ]}
+{{ #body }}
+{[ else ]}
+${[ inject "rendered-name" context context.referencedToken /]}{[/]}

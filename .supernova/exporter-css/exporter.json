@@ -1,0 +1,24 @@
+{
+    "id": "io.supernova.css",
+    "name": "CSS for Talend",
+    "description": "CSS token and style exporter",
+    "author": "Talend and Ivan Terpugov & Jiri Trecak",
+    "organization": "Talend",
+    "homepage": "https://design.talend.com",
+    "source_dir": "src",
+    "version": "1.1",
+    "config": {
+        "sources": "sources.json",
+        "output": "output.json",
+        "js": "src/js/helpers.js"
+    },
+    "engines": {
+        "pulsar": "1.0.0",
+        "supernova": "1.0.0"
+    },
+    "tags": [
+        "CSS",
+        "Tokens",
+        "Styles"
+    ]
+}

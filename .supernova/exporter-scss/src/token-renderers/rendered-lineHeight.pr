@@ -1,0 +1,9 @@
+{*
+
+Supernova doesn't handle units on fonts values
+Therefore it thinks lineHeights are pixels. In our case, we expect lineHeights to be percentages
+This forces the correct unit.
+
+*}
+{[ inject "reference-wrapper" context context ]}
+{{ context.measure }}%{[/]}

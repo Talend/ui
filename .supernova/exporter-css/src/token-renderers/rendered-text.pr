@@ -1,0 +1,8 @@
+{*
+
+This only work for strings. They must be defined within Supernova.
+
+*}
+{[ inject "reference-wrapper" context context ]}
+{{ context.text }}
+{[/]}

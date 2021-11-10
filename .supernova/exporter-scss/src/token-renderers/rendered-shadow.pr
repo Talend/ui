@@ -1,0 +1,53 @@
+{*
+
+Injectable blueprint that represents Shadow token as CSS string. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Shadow Value (https://developers.supernova.io/design-system-data/tokens/shadows)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "value": {
+    "color": {
+      "hex": string
+      "r": int (0-255),
+      "g": int (0-255),
+      "b": int (0-255),
+      "a": int (0-255),
+      "referencedToken": Color | null
+    },
+    "x": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "y": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "spread": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "radius": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "opacity": double (0-1)
+    "referencedToken": Shadow | null
+  }
+}
+
+
+Rendered as:
+
+Xpx Xpx Xpx [Rendered Color];
+
+*}
+{[ inject "reference-wrapper" context context ]}
+{[ inject "rendered-measure" context context.x /]} {[ inject "rendered-measure" context context.y /]}{[ inject "rendered-measure" context context.radius /]}{[ inject "rendered-measure" context context.spread /]}{[ inject "rendered-color" context context.color /]}
+{[/]}

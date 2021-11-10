@@ -1,0 +1,55 @@
+{*
+
+Injectable blueprint that represents Typography token as CSS string. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Shadow Value (https://developers.supernova.io/design-system-data/tokens/typographies)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "id": string
+  "name": string
+  "description": string
+  "tokenType": "Typography"
+  "origin": ItemOrigin | null
+  "value": {
+    "font": {
+      "family": string,
+      "subfamily": string
+      "referencedToken": Font | null
+    },
+    "fontSize": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "letterSpacing": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "lineHeight": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "paragraphIndent": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "textDecoration": "None" | "Underline" | "Strikethrough"
+    "textCase": "Original" | "Upper" | "Lower" | "Camel"
+    "referencedToken": Typography | null
+  }
+}
+
+
+Rendered as:
+
+[text]
+
+*}
+{[ inject "reference-wrapper" context context ]}
+{[ if ds.isFontItalic(context.font) ]}italic {[/]}{{ ds.fontWeight(context.font)  }} {{ pixelsToRem(context.fontSize) }}/{[ if context.lineHeight ]}{[ inject "rendered-lineHeight" context context.lineHeight /]}{[ else ]}100%{[/]} '{{ context.font.family }}'{[/]}

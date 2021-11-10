@@ -1,0 +1,38 @@
+{*
+
+Injectable blueprint that represents Border token as CSS string. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Border Value (https://developers.supernova.io/design-system-data/tokens/borders)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "context": {
+    "color": {
+      "hex": string
+      "r": int (0-255),
+      "g": int (0-255),
+      "b": int (0-255),
+      "a": int (0-255),
+      "referencedToken": Color | null
+    },
+    "width": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "position": "Inside" | "Center" | "Outside"
+    "referencedToken": Border | null
+  }
+}
+
+
+Rendered as:
+
+Xpx solid (rendered-color.pr);
+
+*}
+{[ inject "reference-wrapper" context context ]}
+{[ inject "rendered-measure" context context.width /]} solid {[ inject "rendered-color" context context.color /]}
+{[/]}

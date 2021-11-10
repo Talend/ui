@@ -1,0 +1,34 @@
+{*
+
+Injectable blueprint that represents Measure token as CSS string. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Measure Value (https://developers.supernova.io/design-system-data/tokens/measures)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "context": {
+    "unit": "Pixels" | "Points" | "Percent" | "Ems",
+    "measure": double
+    "referencedToken": Measure | null
+  }
+}
+
+*}
+{[ inject "reference-wrapper" context context ]}
+{[ let unit = "px" /]}
+{[ switch context.unit ]}
+{[ case "Points"]}
+{[ set unit = "pt"/]}
+{[ case "Percent"]}
+{[ set unit = "%"/]}
+{[ case "Ems"]}
+{[ set unit = "em"/]}
+{[/]}
+{[ if unit === "px" ]}
+{{ pixelsToRem({ 'measure': context.measure }) }}
+{[ else ]}
+{{ context.measure }}{{ unit }}
+{[/]}
+{[/]}
