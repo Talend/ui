@@ -1,6 +1,0 @@
-@import "colors";
-@import "measures";
-@import "borders";
-@import "gradients";
-@import "shadows";
-@import "typography";
