@@ -100,8 +100,23 @@ const FieldGroup = React.forwardRef(
 						</div>
 					)}
 					<div className="c-field-group__item c-field-group__item--input">
-						{isElement(children) &&
-							React.cloneElement(children, { ...childrenProps, ref: fieldRef })}
+						{React.Children.map(
+							children,
+							child =>
+								isElement(child) &&
+								React.cloneElement(child, {
+									...childrenProps,
+									ref: (node: HTMLInputElement) => {
+										fieldRef.current = node;
+										const { ref: childRef } = child as React.PropsWithRef<any>;
+										if (typeof childRef === 'function') {
+											childRef(node);
+										} else if (childRef) {
+											childRef.current = node;
+										}
+									},
+								}),
+						)}
 					</div>
 					{suffix && (
 						<div className="c-field-group__item c-field-group__item--suffix">

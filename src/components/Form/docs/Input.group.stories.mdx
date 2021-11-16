@@ -1,7 +1,9 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { useForm } from 'react-hook-form';
 import { FigmaImage, FigmaIframe, WithSelector } from '../../../docs';
 import Form from '../';
 import Button from '../../Button';
+import InlineMessage from '../../InlineMessage';
 
 <Meta title="Components/Form/Form Field Group" />
 
@@ -207,6 +209,36 @@ Use lower case on prefix and suffix except if it's an interactive element.
 ## Interactions
 
 - The visible label will be linked to the principal field, click on it to access to the field (:focus)
+
+<Canvas>
+	<Story name="react-hook-form">
+		{() => {
+			const { register, handleSubmit } = useForm();
+			const [formData, setFormData] = React.useState();
+			return (
+				<Form onSubmit={handleSubmit(setFormData)}>
+					{formData && (
+						<InlineMessage.Information
+							title={'Form data'}
+							description={JSON.stringify(formData, null, 2)}
+							withBackground
+						/>
+					)}
+					<Form.FieldGroup
+						label="API Key"
+						suffix={<Button.Icon icon="talend-files-o">Copy</Button.Icon>}
+						description="The input seems readonly and the value is not displayed while submitting the form"
+					>
+						<Form.Text label="API Key" defaultValue={42} {...register('apiKey')} />
+					</Form.FieldGroup>
+					<Form.Buttons>
+						<Button.Primary type="submit">Submit</Button.Primary>
+					</Form.Buttons>
+				</Form>
+			);
+		}}
+	</Story>
+</Canvas>
 
 ## Usage
 
