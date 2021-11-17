@@ -1,5 +1,14 @@
 # @talend/design-system
 
+## 1.9.2
+
+### Patch Changes
+
+- 0a0acb3: distribute themes in package
+- 371aa80: fix(Form): preserve ref inside fieldgroup
+- de33900: fix(ThemeProvider): Handle nested providers
+- bd8dbc2: Removed usage of array index as key
+
 ## 1.9.1
 
 ### Patch Changes
