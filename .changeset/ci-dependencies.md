@@ -1,5 +1,7 @@
 ---
+'@talend/react-cmf-cqrs': patch
 '@talend/react-cmf-router': patch
+'@talend/react-cmf-webpack-plugin': patch
 '@talend/react-cmf': patch
 '@talend/react-components': patch
 '@talend/react-containers': patch
@@ -13,8 +15,10 @@
 '@talend/icons': patch
 '@talend/json-schema-form-core': patch
 '@talend/router-bridge': patch
+'@talend/react-sagas': patch
 '@talend/react-stepper': patch
 '@talend/react-storybook-cmf': patch
+'@talend/bootstrap-theme': patch
 '@talend/utils': patch
 ---
 
