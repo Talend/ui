@@ -7,9 +7,9 @@ import {
 
 import ThemeContext from './ThemeContext';
 
-import defaultTheme from '../../themes';
+import { light } from '../../themes';
 
-const ThemeProvider = ({ theme = defaultTheme, children }: ThemeProviderProps<any>) => {
+const ThemeProvider = ({ theme = light, children }: ThemeProviderProps<any>) => {
 	const [selectedTheme, setSelectedTheme] = useState(theme);
 	// Handle nested Providers: parent Provider doesn't have context, child does
 	const context = useContext(ThemeContext);
