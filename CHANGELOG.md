@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.9.4
+
+### Patch Changes
+
+- 5297f7b: fix(themes): export
+
 ## 1.9.3
 
 ### Patch Changes
