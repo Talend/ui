@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.9.3
+
+### Patch Changes
+
+- 35357e6: Expose design tokens dictionaries into the UMD
+
 ## 1.9.2
 
 ### Patch Changes
