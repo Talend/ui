@@ -18,7 +18,7 @@ import Form from '../src/components/Form';
 import ThemeProvider from '../src/components/ThemeProvider';
 import { IconsProvider } from '../src/components/IconsProvider';
 
-import light, { dark } from '../src/themes';
+import { light, dark } from '../src/themes';
 
 export const globalTypes = {
 	theme: {
