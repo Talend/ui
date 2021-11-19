@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.9.5
+
+### Patch Changes
+
+- 0a3d6ad: fix(Form): Copy field uncrontolled value
+
 ## 1.9.4
 
 ### Patch Changes
