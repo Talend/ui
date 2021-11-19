@@ -6,6 +6,7 @@ import * as S from './Switch.style';
 export type SwitchProps = React.PropsWithChildren<any> & {
 	label: string;
 	value?: string;
+	defaultValue?: string;
 	values?: any[];
 	checked: boolean;
 	disabled: boolean;
@@ -15,6 +16,7 @@ export type SwitchProps = React.PropsWithChildren<any> & {
 const Switch = ({
 	label,
 	value,
+	defaultValue,
 	values,
 	checked,
 	disabled,
@@ -23,7 +25,7 @@ const Switch = ({
 	...rest
 }: SwitchProps) => {
 	const radio = useRadioState({
-		state: value || (values && values[0]),
+		state: value || defaultValue || (values && values[0]),
 		loop: false,
 		unstable_virtual: true,
 	});
@@ -54,12 +56,13 @@ const Switch = ({
 		const checkedRadioSpanWidth = checkedElement.scrollWidth;
 		const switchIndicatorRef = switchIndicator?.current;
 		if (switchIndicatorRef) {
+			switchIndicatorRef.style.width = `${checkedRadioSpanWidth}px`;
 			switchIndicatorRef.style.transform = `translateX(${radioWidths
 				.slice(0, checkedRadioIndex)
 				.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}px)`;
-			switchIndicatorRef.style.width = `${checkedRadioSpanWidth}px`;
+			switchIndicatorRef.dataset.animated = true;
 		}
-	}, [radio]);
+	}, [radio, defaultValue]);
 
 	return (
 		<S.Switch readOnly={readOnly} disabled={disabled}>
@@ -81,7 +84,7 @@ const Switch = ({
 						</Radio>
 					);
 				})}
-				<S.SwitchIndicator ref={switchIndicator} aria-hidden="true">
+				<S.SwitchIndicator ref={switchIndicator} data-animated={false} aria-hidden="true">
 					<em />
 				</S.SwitchIndicator>
 			</RadioGroup>

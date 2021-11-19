@@ -9,8 +9,11 @@ export const SwitchIndicator = styled.span`
 	left: 0;
 	width: 0;
 	bottom: 0;
-	transition: ${tokens.transitions.fast};
 	z-index: ${tokens.zIndices.above};
+
+	&[data-animated='true'] {
+		transition: ${tokens.transitions.fast};
+	}
 `;
 
 export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`

@@ -55,6 +55,25 @@ Use switches to change the state of system functionalities and preferences on or
 
 ## Usage
 
+<Canvas>
+	<Story name="uncontrolled">
+		{() => {
+			const defaultValue = 'value f';
+			const [value, setValue] = React.useState(defaultValue);
+			return (
+				<>
+					<p>Selected value: {value}</p>
+					<Switch
+						values={['value a', 'value b', 'value c', 'value d', 'value e', 'value f']}
+						defaultValue={defaultValue}
+						onChange={(e, v) => setValue(v)}
+					/>
+				</>
+			);
+		}}
+	</Story>
+</Canvas>
+
 ## Changelog
 
 | Date       | Author           | Description |
