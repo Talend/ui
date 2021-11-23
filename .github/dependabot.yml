@@ -11,8 +11,12 @@ updates:
         versions: ^17
       - dependency-name: "react*"
         versions: ^17
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-minor" ]
+      - dependency-name: "css-loader"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "sass-loader"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "style-loader"
+        update-types: [ "version-update:semver-major" ]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
