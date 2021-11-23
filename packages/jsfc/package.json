@@ -40,13 +40,13 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@talend/scripts-core": "^11.2.0",
+    "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "@types/chai": "^3.5.2",
     "@types/mocha": "^2.2.48",
     "@types/node": "^6.14.13",
     "chai": "^4.3.4",
-    "karma": "^6.3.7",
+    "karma": "^6.3.9",
     "karma-chai-sinon": "^0.1.5",
     "karma-coverage": "^2.0.3",
     "karma-mocha": "^2.0.1",
