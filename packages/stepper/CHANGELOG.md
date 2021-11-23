@@ -1,5 +1,13 @@
 # @talend/react-stepper
 
+## 6.36.5
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+  - @talend/react-components@6.41.3
+
 ## 6.36.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 1.0.4
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 1.0.3
 
 ### Patch Changes

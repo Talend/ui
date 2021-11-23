@@ -1,6 +1,6 @@
 {
   "name": "@talend/http",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "HTTP helper",
   "license": "Apache-2.0",
   "repository": {
@@ -27,7 +27,7 @@
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^11.2.0",
+    "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "enzyme": "^3.11.0",
     "fetch-mock": "^9.11.0",
