@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Action should render from name props keeping extra props 1`] = `
-<ConnectFunction
+<Connect(CMF(Action))
   actionId="menu:article"
   extra="foo"
 />
