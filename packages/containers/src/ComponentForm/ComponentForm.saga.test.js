@@ -67,8 +67,9 @@ describe('ComponentForm saga', () => {
 
 			// when
 			const selectJsonSchema = gen.next().value;
-			expect(selectJsonSchema.SELECT).toBeDefined();
-			const selector = selectJsonSchema.SELECT.selector;
+			expect(selectJsonSchema.payload).toBeDefined();
+			expect(selectJsonSchema.type).toBe('SELECT');
+			const selector = selectJsonSchema.payload.selector;
 			const jsonSchemaSelection = selector({
 				cmf: {
 					components: fromJS({
@@ -228,8 +229,9 @@ describe('ComponentForm saga', () => {
 			// when
 			gen.next(); // fetch step
 			const errorStep = gen.next({ response }).value;
-			expect(errorStep.PUT).toBeDefined();
-			const setStateAction = errorStep.PUT.action(null, getReduxStore);
+			expect(errorStep.payload).toBeDefined();
+			expect(errorStep.type).toBe('PUT');
+			const setStateAction = errorStep.payload.action(null, getReduxStore);
 
 			// then
 			expect(setStateAction).toEqual({
@@ -265,7 +267,7 @@ describe('ComponentForm saga', () => {
 			const nextStep = gen.next({ response, data }).value;
 
 			// then
-			expect(nextStep.PUT.action).toEqual({
+			expect(nextStep.payload.action).toEqual({
 				cmf: {
 					componentState: {
 						componentName: 'ComponentForm',
@@ -300,7 +302,7 @@ describe('ComponentForm saga', () => {
 			const nextStep = gen.next({ response, data }).value;
 
 			// then
-			expect(nextStep.PUT.action).toEqual({
+			expect(nextStep.payload.action).toEqual({
 				cmf: {
 					componentState: {
 						componentName: 'ComponentForm',
