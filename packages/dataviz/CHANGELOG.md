@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.9
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+  - @talend/react-components@6.41.3
+
 ## 0.4.8
 
 ### Patch Changes
