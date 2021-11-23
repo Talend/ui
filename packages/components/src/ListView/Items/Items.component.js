@@ -193,7 +193,7 @@ export class ItemsComponent extends React.PureComponent {
 							item={nestedItem}
 							parentItem={item}
 							searchCriteria={this.props.searchCriteria}
-							dataTest={dataTest && `${dataTest}.nested-${nestedIndex}`}
+							dataTest={dataTest && `${dataTest}-${index}.nested-${nestedIndex}`}
 						/>
 					))}
 			</Item>

@@ -1,11 +1,14 @@
 #!/bin/sh
 
 echo "Prepare demo folder before execute surge"
+rm -rf .static
 mkdir .static
 mkdir .static/cmf
 mkdir .static/components
 mkdir .static/containers
+mkdir .static/playground
 mkdir .static/dataviz
+mkdir .static/faceted-search
 mkdir .static/forms
 mkdir .static/icons
 mkdir .static/theme
@@ -16,8 +19,10 @@ cp -R packages/cmf/jsdoc .static/cmf
 cp -R packages/cmf/website/build/cmf-doc/* .static/cmf
 cp -R packages/components/storybook-static/* .static/components
 cp -R packages/containers/storybook-static/* .static/containers
+cp -R packages/playground/dist/* .static/playground
 cp -R packages/datagrid/storybook-static/* .static/datagrid
 cp -R packages/stepper/storybook-static/* .static/stepper
+cp -R packages/faceted-search/storybook-static/* .static/faceted-search
 cp -R packages/forms/storybook-static/* .static/forms
 cp -R packages/dataviz/storybook-static/* .static/dataviz
 cp -R packages/icons/docs/index.html .static/icons
@@ -44,6 +49,10 @@ echo "✓ Copy containers UMD to .static"
 mkdir -p .static/@talend/react-datagrid/dist
 cp -R packages/datagrid/dist/* .static/@talend/react-datagrid/dist
 echo "✓ Copy datagrid UMD to .static"
+
+mkdir -p .static/@talend/react-faceted-search/dist
+cp -R packages/faceted-search/dist/* .static/@talend/react-faceted-search/dist
+echo "✓ Copy faceted-search UMD to .static"
 
 mkdir -p .static/@talend/react-forms/dist
 cp -R packages/forms/dist/* .static/@talend/react-forms/dist

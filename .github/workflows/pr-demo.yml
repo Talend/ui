@@ -9,13 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build and deploy
+    environment: pull_request_unsafe
 
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
 
       - name: Use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 14
           registry-url: 'https://registry.npmjs.org/'
@@ -28,7 +29,7 @@ jobs:
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn pre-release
-          yarn test:demo --quiet
+          yarn test:demo
           ./.github/workflows/before-surge.sh
 
       - name: deploy if master
@@ -41,8 +42,6 @@ jobs:
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: |
-          mkdir -p ".static/${{ github.event.number }}"
-          cp -Rf .static/@talend ".static/${{ github.event.number }}"
           surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
@@ -50,7 +49,7 @@ jobs:
 
       - name: Comment PR
         uses: daohoangson/comment-on-github@v2
-        if: ${{ github.event_name == 'pull_request' }}
+        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'dependabot') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

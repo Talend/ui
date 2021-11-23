@@ -12,7 +12,7 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "build-storybook",
+    "test:demo": "build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
     "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
     "lint": "yarn run lint:es && yarn run lint:style",
@@ -37,9 +37,9 @@
   },
   "dependencies": {
     "@talend/json-schema-form-core": "1.0.3",
-    "@talend/react-components": "^6.40.0",
-    "@talend/utils": "^1.4.5",
-    "@talend/design-system": "^1.5.0",
+    "@talend/react-components": "^6.41.2",
+    "@talend/utils": "^2.0.0",
+    "@talend/design-system": "^1.9.0",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
     "json-logic-js": "^2.0.1",
@@ -54,17 +54,17 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.3.8",
-    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-a11y": "^6.3.12",
+    "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-knobs": "^6.3.1",
-    "@storybook/addons": "^6.3.8",
-    "@storybook/react": "^6.3.8",
+    "@storybook/addons": "^6.3.12",
+    "@storybook/react": "^6.3.12",
     "@talend/bootstrap-theme": "^6.38.5",
     "@talend/icons": "^6.36.3",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-components": "^6.40.0",
-    "@talend/scripts-core": "^11.0.1",
-    "@talend/scripts-preset-react-lib": "^9.9.2",
+    "@talend/react-components": "^6.41.2",
+    "@talend/scripts-core": "^11.2.0",
+    "@talend/scripts-preset-react-lib": "^9.9.3",
     "autoprefixer": "^7.2.6",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
@@ -76,7 +76,7 @@
     "react": "^16.14.0",
     "react-ace": "6.2.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.12.0",
+    "react-i18next": "^11.13.0",
     "react-test-renderer": "^16.14.0"
   },
   "peerDependencies": {
@@ -95,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.41.0"
+  "version": "6.43.0"
 }

@@ -1,0 +1,47 @@
+{
+  "name": "@talend/ui-playground",
+  "version": "1.0.0",
+  "description": "Showcase Talend/UI",
+  "private": true,
+  "main": "app/index.js",
+  "scripts": {
+    "build": "cross-env BASENAME='/playground' talend-scripts build",
+    "test": "echo nothing to test in playground",
+    "test:demo": "cross-env BASENAME='/playground' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
+    "start": "cross-env BASENAME='/playground' talend-scripts start --open http://localhost:3000/playground/#/",
+    "start-dist": "talend-scripts build && node serve-dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "react",
+    "talend"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@talend/scripts-core": "^11.2.0",
+    "@talend/scripts-preset-react": "^11.1.1",
+    "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "@talend/bootstrap-theme": "^6.38.5",
+    "@talend/icons": "^6.36.3",
+    "@talend/react-cmf": "^6.38.4",
+    "@talend/react-cmf-router": "^3.5.6",
+    "@talend/react-components": "^6.41.2",
+    "@talend/react-containers": "^6.39.0",
+    "@talend/react-forms": "^6.43.0",
+    "history": "^3.3.0",
+    "i18next": "^20.6.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-i18next": "^11.13.0",
+    "redux-logger": "^3.0.6"
+  }
+}

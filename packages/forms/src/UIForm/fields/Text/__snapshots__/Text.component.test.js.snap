@@ -141,6 +141,7 @@ exports[`Text field should render password input 1`] = `
     autoFocus={true}
     className="form-control"
     id="myForm"
+    link={null}
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type something here"

@@ -1,5 +1,17 @@
 # @talend/react-containers
 
+## 6.39.0
+
+### Minor Changes
+
+- 41f8343e2: feat: add support for initial state
+
+### Patch Changes
+
+- Updated dependencies [d5f261f49]
+  - @talend/react-components@6.41.1
+  - @talend/react-forms@6.41.3
+
 ## 6.38.0
 
 ### Minor Changes

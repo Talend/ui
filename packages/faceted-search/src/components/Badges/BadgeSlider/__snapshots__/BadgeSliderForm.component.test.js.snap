@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeSliderForm should mount a badge with a greaterThan slider 1`] = `
+<BadgeSliderForm
+  feature="quality"
+  id="customId"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+          0,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onSubmit={[MockFunction]}
+  operator={
+    Object {
+      "name": "greaterThan",
+    }
+  }
+  t={[Function]}
+/>
+`;
+
+exports[`BadgeSliderForm should mount a default badge 1`] = `
+<BadgeSliderForm
+  feature="quality"
+  id="customId"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+          0,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onSubmit={[MockFunction]}
+  t={[Function]}
+/>
+`;
+
+exports[`BadgeSliderForm should mount a default badge in edit mode 1`] = `
+<BadgeSliderForm
+  feature="quality"
+  id="customId"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+          0,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onSubmit={[MockFunction]}
+  t={[Function]}
+/>
+`;
+
+exports[`BadgeSliderForm should mount an badge with an equals slider 1`] = `
+<BadgeSliderForm
+  feature="quality"
+  id="customId"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          null,
+          0,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onSubmit={[MockFunction]}
+  operator={
+    Object {
+      "name": "equals",
+    }
+  }
+  t={[Function]}
+/>
+`;
