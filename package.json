@@ -13,7 +13,7 @@
     "start": "npm run storybook",
     "test": "talend-scripts test",
     "storybook": "npm run build:lib && BROWSER=none start-storybook -p 6006",
-    "build-storybook": "npm run build:lib && build-storybook --docs",
+    "build-storybook": "npm run build:lib && build-storybook --docs && node ./scripts/sitemap.js",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint:es": "talend-scripts lint:es"
   },
@@ -41,6 +41,7 @@
     "typeface-source-sans-pro": "^1.1.13"
   },
   "devDependencies": {
+    "@algolia/autocomplete-js": "^1.5.0",
     "@babel/core": "^7.12.10",
     "@changesets/cli": "^2.14.1",
     "@cypress/react": "^5.4.0",
@@ -69,6 +70,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-is": "^16.7.2",
     "@types/styled-components": "^5.1.7",
+    "algoliasearch": "^4.11.0",
     "babel-plugin-styled-components": "^1.12.0",
     "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.3.0",
@@ -86,6 +88,7 @@
     "prettier": "2.3.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0",
     "react-hook-form": "^7.10.1",
     "react-i18next": "^11.8.13",
     "react-is": "^16.13.1",

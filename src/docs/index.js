@@ -8,6 +8,7 @@ import FigmaLink from './FigmaLink';
 import GitHubLink from './GitHubLink';
 import Grid from './Grid.component';
 import Links from './Links.component';
+import SearchBar from './SearchBar.component';
 import Table from './Table.component';
 import Themes from './Themes.component';
 import Row from './Row.component';
@@ -28,6 +29,7 @@ export {
 	Icons,
 	Links,
 	Row,
+	SearchBar,
 	Table,
 	Themes,
 	Use,

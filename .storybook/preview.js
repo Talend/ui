@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { I18nextProvider } from 'react-i18next';
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
@@ -106,8 +107,28 @@ export const parameters = {
 					.forEach(link => (link.disabled = !hasBootstrapStylesheet));
 			}, [hasBootstrapStylesheet]);
 
+			const title = props.context.title;
+			const titleArray = title?.split('/');
+
+			const docsTitle = title?.replaceAll(/\//gi, ' / ');
+			const docsCategory = titleArray[0];
+
 			return (
 				<>
+					<Helmet>
+						<title>{docsTitle}</title>
+						<meta property="og:title" content={titleArray[titleArray.length - 1]} />
+						<meta property="og:type" content="article" />
+						<meta
+							property="og:url"
+							content={`https://design.talend.com/?path=/docs/${props.context.id}`}
+						/>
+						<meta
+							property="og:image"
+							content={`https://via.placeholder.com/1000x500/F3F3F3/FF6D70?text=${docsTitle}`}
+						/>
+						{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
+					</Helmet>
 					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 					<ThemeProvider theme={hasDarkMode ? dark : light}>
 						<ThemeProvider.GlobalStyle />
@@ -115,7 +136,7 @@ export const parameters = {
 					</ThemeProvider>
 					<TableOfContents>
 						{['component', 'template', 'page'].find(term =>
-							props.context.title?.split('/')[0].toLocaleLowerCase().includes(term),
+							docsCategory.toLocaleLowerCase().includes(term),
 						) && (
 							<ThemeProvider>
 								<Divider />
