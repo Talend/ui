@@ -162,7 +162,7 @@ describe('ComponentForm saga', () => {
 			gen.next(); // select
 
 			// then
-			expect(gen.next().value.PUT.action.cmf.componentState.componentState).toEqual({
+			expect(gen.next().value.payload.action.cmf.componentState.componentState).toEqual({
 				initialState: jsonSchema,
 				...jsonSchema,
 			});
@@ -331,7 +331,7 @@ describe('ComponentForm saga', () => {
 			const nextStep = gen.next({ response, data }).value;
 
 			// then
-			expect(nextStep.PUT.action).toEqual({
+			expect(nextStep.payload.action).toEqual({
 				cmf: {
 					componentState: {
 						componentName: 'ComponentForm',
