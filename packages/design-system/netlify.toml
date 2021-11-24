@@ -4,6 +4,6 @@
 [[plugins]]
 package = "@algolia/netlify-plugin-crawler"
     [plugins.inputs]
-    branches = ['master', 'frassinier/chore/storybook/algolia']
+    branches = ['master']
     customDomain = "design.talend.com"
     renderJavaScript = true

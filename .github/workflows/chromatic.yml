@@ -6,25 +6,31 @@ on:
       - master
     types:
       - labeled
-  push:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
   build-pr:
-    if: |
-      (!startsWith(github.event.head_commit.message, 'chore(deps-dev)') && github.ref == 'refs/heads/design-system/history') ||
-      (github.event.label.name == 'need visual approval')
+    environment: pull_request_unsafe
+    if: (github.ref == 'refs/heads/master') || (github.event.label.name == 'need visual approval')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          check-latest: true
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
       - name: Install dependencies
         run: yarn
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_P
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

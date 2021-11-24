@@ -5,27 +5,28 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "release": "yarn changeset publish",
-    "build": "npm run build:lib && npm run build:lib:umd && npm run build:lib:umd:min",
     "build:lib": "talend-scripts build:ts:lib",
     "build:lib:umd": "talend-scripts build:lib:umd --dev",
     "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
+    "pre-release": "npm run build:lib:umd && npm run build:lib:umd:min",
     "start": "npm run storybook",
     "test": "talend-scripts test",
+    "test:demo": "build-storybook --quiet --docs && node ./scripts/sitemap.js",
     "storybook": "npm run build:lib && BROWSER=none start-storybook -p 6006",
     "build-storybook": "npm run build:lib && build-storybook --docs && node ./scripts/sitemap.js",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "lint:es": "talend-scripts lint:es"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Talend/design-system.git"
+    "url": "git+https://github.com/Talend/ui.git"
   },
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Talend/design-system/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "homepage": "https://design.talend.com/",
   "publishConfig": {
@@ -58,7 +59,7 @@
     "@storybook/theming": "6.4.0-rc.3",
     "@svgr/webpack": "^5.5.0",
     "@talend/bootstrap-theme": "^6.38.5",
-    "@talend/icons": "^6.36.3",
+    "@talend/icons": "^6.37.0",
     "@talend/locales-design-system": "^1.4.0",
     "@talend/scripts-config-jest": "^9.6.4",
     "@talend/scripts-core": "^11.3.0",
@@ -72,7 +73,7 @@
     "@types/styled-components": "^5.1.7",
     "algoliasearch": "^4.11.0",
     "babel-plugin-styled-components": "^1.12.0",
-    "browser-sync": "^2.26.14",
+    "browser-sync": "^2.27.7",
     "browser-sync-webpack-plugin": "^2.3.0",
     "chromatic": "^6.0.0",
     "core-js": "^3.11.0",
@@ -110,14 +111,5 @@
     "react-i18next": "^11.8.13",
     "react-is": "^16.13.1",
     "styled-components": "^5.2.1"
-  },
-  "resolutions": {
-    "axios": "^0.21.2",
-    "set-value": "^4.0.1",
-    "browserslist": "^4.16.5",
-    "glob-parent": "^5.1.2",
-    "immer": "^9.0.6",
-    "trim": "^0.0.3",
-    "underscore": "^1.12.1"
   }
 }
