@@ -15,8 +15,7 @@
     "storybook": "npm run build:lib && BROWSER=none start-storybook -p 6006",
     "build-storybook": "npm run build:lib && build-storybook --docs && node ./scripts/sitemap.js",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
-    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json"
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "repository": {
     "type": "git",
