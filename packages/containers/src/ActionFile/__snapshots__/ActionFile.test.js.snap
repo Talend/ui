@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connected ActionFile should render 1`] = `
+<span>
+  <input
+    className="theme-action-file-input sr-only"
+    disabled={false}
+    id="42"
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    className="btn btn-default theme-btn-file btn-icon-only"
+    htmlFor="42"
+  >
+    <span />
+  </label>
+</span>
+`;

@@ -1,0 +1,31 @@
+.container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $padding-small;
+
+		:global(.btn-icon-only) {
+			padding: 0 $padding-smaller;
+
+			svg {
+				width: $svg-sm-size;
+			}
+			span {
+				display: none;
+			}
+		}
+	}
+
+	.body {
+		flex: 1 1 auto;
+	}
+
+	.element-container > * {
+		width: 100%;
+		height: 100%;
+	}
+}

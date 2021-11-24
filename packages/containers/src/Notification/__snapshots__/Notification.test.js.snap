@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container Notification should render 1`] = `
+<div
+  className="mock-provider"
+>
+  <div
+    className="tc-notifications"
+    notifications={Array []}
+  />
+</div>
+`;

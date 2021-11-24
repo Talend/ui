@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubHeaderBar container should render 1`] = `
+<SubHeaderBar
+  onGoBack={[Function]}
+  t={[Function]}
+/>
+`;

@@ -1,0 +1,129 @@
+$tc-enumeration-normal-padding: $padding-normal !default;
+$tc-enumeration-smaller-padding: $padding-smaller !default;
+$tc-enumeration-small-padding: $padding-small !default;
+$tc-enumeration-item-height: 3.3rem !default;
+
+$tc-enumeration-item-error-color: red !default;
+$tc-item-padding-top-bottom: 7px !default;
+$tc-enumeration-input-margin: 10px;
+$tc-enumeration-item-font-size: 14px;
+$tc-enumeration-item-btn-height: 16px;
+$tc-enumeration-item-error-padding: 0 $padding-normal;
+$selected-item-color: #FAFAFA;
+$item-checkbox-margin: 5px;
+$item-checkbox-width: 20px;
+
+.tc-enumeration-item {
+	display: flex;
+	font-size: 14px;
+	font-weight: 400;
+	height: $tc-enumeration-item-height;
+	text-align: left;
+	border-bottom: 1px solid rgba(228, 228, 228, 1);
+	position: relative;
+
+	&.has-error {
+		border-bottom: none;
+	}
+
+	:global(button:disabled) {
+		padding: 0 $tc-enumeration-normal-padding;
+	}
+
+	:global(.btn-link) {
+		padding: 0 $padding-smaller;
+		height: $tc-enumeration-item-btn-height;
+
+		:global(.tc-svg-icon) {
+			height: $tc-enumeration-item-font-size;
+			width: $tc-enumeration-item-font-size;
+			margin-right: 0;
+			vertical-align: top;
+		}
+	}
+
+	.tc-enumeration-item-label {
+		flex-grow: 1;
+		background-color: Transparent;
+		background-repeat: no-repeat;
+		border: none;
+		overflow: hidden;
+		box-shadow: none;
+		text-align: left;
+		outline: none;
+		// In order to show ellipsis, need to override <span> to be inline
+		span:first-child {
+			display: inline;
+		}
+	}
+
+	.tc-enumeration-item-actions {
+		display: flex;
+		flex-grow: 0;
+		align-items: center;
+		margin: auto $tc-enumeration-smaller-padding;
+
+		:global(.persistent) {
+			visibility: visible;
+		}
+	}
+
+	.editable {
+		visibility: hidden;
+	}
+
+	button {
+		text-transform: none;
+		font-size: 14px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	button span {
+		// button {line-height: 3.3rem} button span { vertical-align: middle} set height to 34px instead 33px
+		vertical-align: top;
+	}
+
+	input {
+		padding: 0;
+		margin: 0 $padding-normal;
+		line-height: $tc-enumeration-item-height;
+	}
+
+	.tc-enumeration-item-error {
+		font-size: 12px;
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		color: $tc-enumeration-item-error-color;
+		padding: $tc-enumeration-item-error-padding;
+		z-index: 1;
+		background: inherit;
+	}
+}
+
+.tc-enumeration-checkbox {
+	display: inline-block;
+	margin: 0 $item-checkbox-margin 0 0;
+	width: $item-checkbox-width;
+	vertical-align: middle;
+	pointer-events: none;
+}
+
+.selected-item {
+	background-color: $selected-item-color;
+}
+
+.tc-enumeration-item:hover,
+.tc-enumeration-item:global(.ally-focus-within) {
+	.tc-enumeration-item-actions {
+		visibility: visible;
+	}
+}
+
+// disable hover if item is selected
+.tc-enumeration-item:hover:not(.selected-item),
+.tc-enumeration-item:not(.selected-item):global(.ally-focus-within) {
+	background-color: rgba(250, 250, 250, 1);
+}
+

@@ -1,0 +1,51 @@
+{
+  "name": "@talend/bootstrap-theme",
+  "description": "Bootstrap theme based on Talend styleguide",
+  "main": "dist/bootstrap.js",
+  "mainSrc": "src/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "pre-release": "rimraf ./dist && webpack",
+    "build:lib": "rimraf ./dist && webpack",
+    "start": "webpack serve --mode=development",
+    "test": "echo no test for @talend/bootstrap-theme",
+    "test:cov": "echo no test for @talend/bootstrap-theme",
+    "test:demo": "echo nothing to demo in @talend/bootstrap-theme",
+    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "lint": "yarn lint:style"
+  },
+  "keywords": [
+    "talend",
+    "theme",
+    "bootstrap",
+    "style"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/theme#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "@talend/bootstrap-sass": "^3.4.8",
+    "@talend/icons": "^6.36.3"
+  },
+  "devDependencies": {
+    "@talend/icons": "^6.36.3",
+    "@talend/scripts-core": "^11.3.0",
+    "@talend/scripts-preset-react-lib": "^9.9.3",
+    "copy-webpack-plugin": "^6.4.1",
+    "css-minimizer-webpack-plugin": "^1.3.0",
+    "html-webpack-plugin": "^4.5.2",
+    "postcss-preset-env": "^6.7.0",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "6.38.5"
+}

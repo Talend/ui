@@ -1,0 +1,31 @@
+.tc-with-drawer {
+	height: 100%;
+	position: initial;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.tc-with-drawer-container {
+	width: 100%;
+	top: 0;
+	right: 0;
+}
+
+.tc-with-drawer-container > div {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	pointer-events: none;
+}
+
+.tc-with-drawer-container > div {
+	@for $i from 1 through 10 {
+		&:nth-child(#{$i}) :global(.stacked) {
+			$width: 100% - (($i * 2) - 2);
+			width: $width;
+		}
+	}
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+	<g fill="none" fill-rule="evenodd">
+		<g class="ti-normalize-border" fill="#000" fill-rule="nonzero">
+			<path d="M9.917 15.999h3.331v-3.332H9.917zm-.005-3.732h3.331v-3.33H9.912zM9.91 7.078h3.331V3.747H9.91zm.003-3.736h3.331V.011H9.913zm-7.352 9.649H5.89V9.663H2.561z"/>
+			<path d="M2.561 10.004H5.89V6.675H2.561zm.002-3.662h3.329V3.013H2.563z"/>
+		</g>
+		<path d="M10.245 11.935h2.665V9.269h-2.665zm.001-8.926h2.665V.343h-2.665zm-7.35 2.999h2.663V3.346H2.896z" class="ti-normalize-blocks-a" fill="#515151" fill-rule="nonzero"/>
+		<path d="M10.244 6.745h2.665V4.08h-2.665zm-7.35 2.926h2.663V7.008H2.894z" class="ti-normalize-blocks-b" fill="#BCBCBC" fill-rule="nonzero"/>
+		<path d="M3.292 10.019h.37v-.36h-.37zm.741-.001h.37v-.359h-.37zm.74 0h.37v-.359h-.37zm.746 0h.37v-.359h-.37zm-2.959.002h.37v-.361h-.37z" class="ti-normalize-separator" fill="#FFF" fill-rule="nonzero"/>
+		<path d="M10.25 15.665h2.665v-2.664H10.25zm-7.356-3.007h2.663V9.996H2.894z" class="ti-normalize-blocks-c" fill="#8C8C8C" fill-rule="nonzero"/>
+		<path d="M7.487 9.631a.4.4 0 0 1-.293-.127.449.449 0 0 1 0-.615l.878-.924-.878-.922a.45.45 0 0 1 0-.616.4.4 0 0 1 .585 0l1.17 1.23a.45.45 0 0 1 0 .616l-1.17 1.23a.401.401 0 0 1-.292.128z" class="ti-normalize-arrow" fill="#000" fill-rule="nonzero"/>
+	</g>
+</svg>

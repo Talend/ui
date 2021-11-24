@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellTitleSelector should render the button 1`] = `
+<Action
+  bsStyle="link"
+  className="my-title-classname"
+  id="my-title-btn"
+  label="my value"
+  onClick={[Function]}
+  role="link"
+  tooltip="my value"
+  type="button"
+/>
+`;
+
+exports[`CellTitleSelector should render the input 1`] = `
+<CellTitleInput
+  cellData="my value"
+  id="my-title-input"
+  onEditCancel={[MockFunction]}
+  onEditSubmit={[MockFunction]}
+  rowData={
+    Object {
+      "id": 1,
+    }
+  }
+/>
+`;
+
+exports[`CellTitleSelector should render the simple text 1`] = `
+<TooltipTrigger
+  label="my value"
+  tooltipPlacement="top"
+>
+  <span
+    className="my-title-classname"
+    id="my-title"
+  >
+    my value
+  </span>
+</TooltipTrigger>
+`;

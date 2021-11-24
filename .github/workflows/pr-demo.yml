@@ -1,0 +1,58 @@
+name: PR demo CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and deploy
+    environment: pull_request_unsafe
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
+          cache: 'yarn'
+
+      - name: Install and build
+        run: |
+          yarn install --frozen-lockfile
+          yarn global add surge
+          echo "$(yarn global bin)" >> $GITHUB_PATH
+          yarn pre-release
+          yarn test:demo
+          ./.github/workflows/before-surge.sh
+
+      - name: deploy if master
+        if: github.ref == 'refs/heads/master'
+        run: surge --project .static --domain "talend.surge.sh"
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+      - name: deploy if PR
+        if: github.ref != 'refs/heads/master'
+        run: |
+          surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+      - name: Comment PR
+        uses: daohoangson/comment-on-github@v2
+        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'dependabot') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: ':octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)'
+          fingerprint: ${{ github.event.number }}
+          replace: please

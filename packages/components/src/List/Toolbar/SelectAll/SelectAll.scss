@@ -1,0 +1,18 @@
+$tc-list-toolbar-background-color: $wild-sand !default;
+
+.container {
+	padding-left: 0;
+	margin: 0;
+	width: 100%;
+	background: $tc-list-toolbar-background-color;
+}
+
+.tc-list-toolbar-select-all {
+	margin: $padding-small 0 $padding-small $padding-large;
+	padding-left: 0;
+	:global(label) {
+		margin-bottom: 0;
+		margin-left: 5px;
+		line-height: 1.3rem;
+	}
+}

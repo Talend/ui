@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextFilter should render text filter component 1`] = `
+<TextFilter
+  id="myTextFilter"
+  initialDocked={true}
+>
+  <withI18nextTranslation(FilterBar)
+    autoFocus={true}
+    className=""
+    debounceTimeout={300}
+    disabled={false}
+    dockable={true}
+    docked={true}
+    focus={false}
+    id="myTextFilter"
+    navbar={true}
+    onFilter={[Function]}
+    onToggle={[Function]}
+    t={[Function]}
+    value=""
+  >
+    <Action
+      bsStyle="link"
+      className=""
+      hideLabel={true}
+      icon="talend-search"
+      id="myTextFilter"
+      label="Toggle filter"
+      onClick={[Function]}
+      role="search"
+    >
+      <withI18nextTranslation(ActionButton)
+        available={true}
+        bsStyle="link"
+        className=""
+        disabled={false}
+        hideLabel={true}
+        icon="talend-search"
+        id="myTextFilter"
+        inProgress={false}
+        label="Toggle filter"
+        loading={false}
+        onClick={[Function]}
+        role="search"
+        t={[Function]}
+        tooltipPlacement="top"
+      >
+        <TooltipTrigger
+          label="Toggle filter"
+          tooltipPlacement="top"
+        >
+          <Button
+            active={false}
+            aria-describedby="42"
+            aria-label="Toggle filter"
+            block={false}
+            bsClass="btn"
+            bsStyle="link"
+            className="btn-icon-only"
+            disabled={false}
+            id="myTextFilter"
+            key=".0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="search"
+          >
+            <button
+              aria-describedby="42"
+              aria-label="Toggle filter"
+              className="btn-icon-only btn btn-link"
+              disabled={false}
+              id="myTextFilter"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role="search"
+              type="button"
+            >
+              <Icon
+                key="icon"
+                name="talend-search"
+              >
+                <Coral.Icon
+                  name="talend-search"
+                />
+              </Icon>
+            </button>
+          </Button>
+        </TooltipTrigger>
+      </withI18nextTranslation(ActionButton)>
+    </Action>
+  </withI18nextTranslation(FilterBar)>
+</TextFilter>
+`;
+
+exports[`TextFilter should render text filter component with defined docked state 1`] = `
+<TextFilter
+  docked={true}
+  id="myTextFilter"
+  initialDocked={true}
+>
+  <withI18nextTranslation(FilterBar)
+    autoFocus={true}
+    className=""
+    debounceTimeout={300}
+    disabled={false}
+    dockable={true}
+    docked={true}
+    focus={false}
+    id="myTextFilter"
+    navbar={true}
+    onFilter={[Function]}
+    onToggle={[Function]}
+    t={[Function]}
+    value=""
+  >
+    <Action
+      bsStyle="link"
+      className=""
+      hideLabel={true}
+      icon="talend-search"
+      id="myTextFilter"
+      label="Toggle filter"
+      onClick={[Function]}
+      role="search"
+    >
+      <withI18nextTranslation(ActionButton)
+        available={true}
+        bsStyle="link"
+        className=""
+        disabled={false}
+        hideLabel={true}
+        icon="talend-search"
+        id="myTextFilter"
+        inProgress={false}
+        label="Toggle filter"
+        loading={false}
+        onClick={[Function]}
+        role="search"
+        t={[Function]}
+        tooltipPlacement="top"
+      >
+        <TooltipTrigger
+          label="Toggle filter"
+          tooltipPlacement="top"
+        >
+          <Button
+            active={false}
+            aria-describedby="42"
+            aria-label="Toggle filter"
+            block={false}
+            bsClass="btn"
+            bsStyle="link"
+            className="btn-icon-only"
+            disabled={false}
+            id="myTextFilter"
+            key=".0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            role="search"
+          >
+            <button
+              aria-describedby="42"
+              aria-label="Toggle filter"
+              className="btn-icon-only btn btn-link"
+              disabled={false}
+              id="myTextFilter"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              role="search"
+              type="button"
+            >
+              <Icon
+                key="icon"
+                name="talend-search"
+              >
+                <Coral.Icon
+                  name="talend-search"
+                />
+              </Icon>
+            </button>
+          </Button>
+        </TooltipTrigger>
+      </withI18nextTranslation(ActionButton)>
+    </Action>
+  </withI18nextTranslation(FilterBar)>
+</TextFilter>
+`;

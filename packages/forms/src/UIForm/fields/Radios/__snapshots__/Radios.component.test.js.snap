@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radios field should render disabled input 1`] = `
+<FieldTemplate
+  description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My radios title"
+  required={true}
+>
+  <div
+    className="radio disabled"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={false}
+        disabled={true}
+        id="myForm-0"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="foo"
+      />
+      <span>
+        My foo custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio disabled"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={false}
+        disabled={true}
+        id="myForm-1"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="bar"
+      />
+      <span>
+        My bar custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio disabled"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={true}
+        disabled={true}
+        id="myForm-2"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="toto"
+      />
+      <span>
+        My toto custom name
+      </span>
+    </label>
+  </div>
+</FieldTemplate>
+`;
+
+exports[`Radios field should render inline radios 1`] = `
+<FieldTemplate
+  description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My radios title"
+  required={true}
+>
+  <div
+    className="radio-inline"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={false}
+        id="myForm-0"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="foo"
+      />
+      <span>
+        My foo custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio-inline"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={false}
+        id="myForm-1"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="bar"
+      />
+      <span>
+        My bar custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio-inline"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={true}
+        id="myForm-2"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="toto"
+      />
+      <span>
+        My toto custom name
+      </span>
+    </label>
+  </div>
+</FieldTemplate>
+`;
+
+exports[`Radios field should render radios 1`] = `
+<FieldTemplate
+  description="My radios input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My radios title"
+  required={true}
+>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={false}
+        id="myForm-0"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="foo"
+      />
+      <span>
+        My foo custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={false}
+        id="myForm-1"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="bar"
+      />
+      <span>
+        My bar custom name
+      </span>
+    </label>
+  </div>
+  <div
+    className="radio"
+  >
+    <label>
+      <input
+        aria-describedby="myForm-description myForm-error"
+        aria-invalid={false}
+        autoFocus={true}
+        checked={true}
+        id="myForm-2"
+        name="myForm"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="radio"
+        value="toto"
+      />
+      <span>
+        My toto custom name
+      </span>
+    </label>
+  </div>
+</FieldTemplate>
+`;

@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldTemplate should render the common widget markup 1`] = `
+<FieldTemplate
+  description="This is the description"
+  descriptionId="test-description"
+  error="This is the error"
+  errorId="test-error"
+  label="Test"
+>
+  <div
+    className="form-group has-error"
+  >
+    <label
+      className="control-label"
+    >
+      Test
+    </label>
+    <input
+      name="test"
+    />
+    <div>
+      <InlineMessage
+        className="sr-only"
+        description="This is the description"
+        id="test-description"
+        small={true}
+      >
+        <div
+          className="tc-inline-message theme-tc-inline-message"
+        >
+          <InlineMessage
+            className="sr-only"
+            description="This is the description"
+            id="test-description"
+            link={null}
+            small={true}
+          >
+            <Coral.InlineMessage
+              className="sr-only"
+              description="This is the description"
+              id="test-description"
+              link={null}
+              small={true}
+            />
+          </InlineMessage>
+        </div>
+      </InlineMessage>
+      <InlineMessage
+        aria-live="assertive"
+        description="This is the error"
+        id="test-error"
+        small={true}
+        type="error"
+      >
+        <div
+          className="tc-inline-message theme-tc-inline-message"
+        >
+          <InlineMessage.Destructive
+            aria-live="assertive"
+            description="This is the error"
+            id="test-error"
+            link={null}
+            small={true}
+          >
+            <Coral.InlineMessage.Destructive
+              aria-live="assertive"
+              description="This is the error"
+              id="test-error"
+              link={null}
+              small={true}
+            />
+          </InlineMessage.Destructive>
+        </div>
+      </InlineMessage>
+    </div>
+  </div>
+</FieldTemplate>
+`;

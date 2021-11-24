@@ -1,0 +1,40 @@
+.json-schema-renderer {
+	margin-top: $padding-large;
+	margin-left: $padding-large;
+
+	&.nested {
+		margin: 0;
+	}
+
+	dt {
+		font-weight: 400;
+		font-size: 1.4rem;
+		color: $dark-silver;
+	}
+
+	dd {
+		font-size: 1.6rem;
+		font-weight: 400;
+		color: $black;
+		padding-top: $padding-smaller;
+		margin-bottom: $padding-normal;
+
+		&.array-value {
+			display: inline;
+
+			&:after {
+				content: ', ';
+			}
+
+			&:last-child:after {
+				content: '';
+			}
+		}
+	}
+
+	h2 {
+		font-size: 1.7rem;
+		font-weight: 700;
+		color: $dove-gray;
+	}
+}

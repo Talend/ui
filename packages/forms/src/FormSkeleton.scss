@@ -1,0 +1,72 @@
+$tc-drawer-content-max-width: 65rem !default;
+$tc-drawer-padding: $padding-large !default;
+
+.container,
+.form-content,
+.form-content-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-content {
+	:global {
+		.tc-skeleton {
+			margin: $padding-normal 0;
+
+			&.skeleton-fit-content {
+				width: auto;
+			}
+		}
+	}
+}
+
+.submit-wrapper {
+	display: flex;
+	justify-content: space-between;
+	margin: $padding-normal auto;
+}
+
+:global(.tc-drawer-container) {
+	> .container {
+		flex-grow: 1;
+		min-height: 0;
+	}
+
+	.form-content {
+		flex-grow: 1;
+		min-height: 0;
+		overflow-y: auto;
+	}
+
+	.form-content-wrapper,
+	.submit-wrapper {
+		margin: 0;
+		padding: $tc-drawer-padding;
+	}
+
+	.submit-wrapper {
+		padding: $padding-small $tc-drawer-padding;
+	}
+
+	.submit {
+		background-color: $wild-sand;
+	}
+}
+
+@media screen and (min-width: $screen-xs-max) {
+	:global(.stacked) :global(.tc-drawer-container) {
+		.form-content-wrapper,
+		.submit-wrapper {
+			margin: 0 auto;
+			padding: $tc-drawer-padding;
+			width: $tc-drawer-content-max-width;
+		}
+		.submit-wrapper {
+			padding: $padding-small $tc-drawer-padding;
+		}
+		:global(.form-actions) {
+			margin: auto;
+			max-width: $tc-drawer-content-max-width;
+		}
+	}
+}

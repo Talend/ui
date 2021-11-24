@@ -1,0 +1,61 @@
+$tc-dropdown-loader-padding: $padding-small !default;
+$tc-dropdown-button-right-padding: 0.8rem;
+
+.tc-dropdown {
+	&-button:global(.btn-link) {
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+		}
+	}
+
+	&-button {
+		padding-right: $tc-dropdown-button-right-padding;
+
+		.tc-dropdown-caret {
+			width: 0.8rem;
+			height: 0.8rem;
+			transition: transform 0.1s ease-in;
+			will-change: transform;
+
+			&.tc-dropdown-caret-open {
+				transform: rotate(-180deg);
+			}
+		}
+
+		&.ellipsis {
+			&:after {
+				content: '\22ee';
+				font-size: 2em;
+				font-weight: bold;
+				vertical-align: inherit;
+			}
+
+			+ ul {
+				min-width: auto;
+			}
+		}
+	}
+
+	&-item {
+		a svg {
+			margin: 0 $padding-smaller;
+		}
+
+		&-badge {
+			margin-left: $padding-smaller;
+		}
+	}
+
+	&-loader {
+		margin: -$tc-dropdown-loader-padding 0;
+		padding: $tc-dropdown-loader-padding 0;
+		text-align: center;
+		background: $concrete;
+
+		:global(.divider) + & {
+			margin: -($tc-dropdown-loader-padding - 1px) 0;
+		}
+	}
+}

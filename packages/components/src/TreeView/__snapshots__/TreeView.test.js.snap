@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeView should render 1`] = `
+<div
+  className="tc-treeview theme-tc-treeview"
+>
+  <header
+    className="theme-tc-treeview-header"
+  >
+    <span
+      id="id-title"
+    >
+      some elements
+    </span>
+    <Action
+      hideLabel={true}
+      icon="talend-plus"
+      id="id-add"
+      label="add element"
+      link={true}
+      onClick={[MockFunction]}
+      tooltipPlacement="right"
+    />
+  </header>
+  <ul
+    aria-labelledby="id-title"
+    className="theme-tc-treeview-list"
+    role="tree"
+  >
+    <TreeViewItem
+      id="id-0"
+      index={1}
+      item={
+        Object {
+          "actions": Array [
+            Object {
+              "action": [Function],
+              "icon": "talend-trash",
+              "label": "remove element",
+            },
+          ],
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "name": "me",
+                  "selected": true,
+                },
+                Object {
+                  "name": "bro",
+                },
+              ],
+              "name": "mami",
+              "toggled": true,
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "name": "cousin",
+                },
+              ],
+              "name": "aunt",
+              "toggled": false,
+            },
+          ],
+          "counter": 101,
+          "name": "grandpa",
+          "showCounter": true,
+          "toggled": true,
+        }
+      }
+      level={1}
+      onKeyDown={[Function]}
+      onSelect={[MockFunction]}
+      onToggle={[MockFunction]}
+      siblings={
+        Array [
+          Object {
+            "actions": Array [
+              Object {
+                "action": [Function],
+                "icon": "talend-trash",
+                "label": "remove element",
+              },
+            ],
+            "children": Array [
+              Object {
+                "children": Array [
+                  Object {
+                    "name": "me",
+                    "selected": true,
+                  },
+                  Object {
+                    "name": "bro",
+                  },
+                ],
+                "name": "mami",
+                "toggled": true,
+              },
+              Object {
+                "children": Array [
+                  Object {
+                    "name": "cousin",
+                  },
+                ],
+                "name": "aunt",
+                "toggled": false,
+              },
+            ],
+            "counter": 101,
+            "name": "grandpa",
+            "showCounter": true,
+            "toggled": true,
+          },
+        ]
+      }
+    />
+  </ul>
+</div>
+`;

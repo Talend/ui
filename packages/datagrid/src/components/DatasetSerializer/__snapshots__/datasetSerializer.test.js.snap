@@ -1,0 +1,625 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#getColumnDefs should returns the columns definitions 1`] = `
+Array [
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 62,
+        "total": 62,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 38,
+        "total": 38,
+      },
+    },
+    "avro": Object {
+      "doc": "Nom de la gare",
+      "name": "field0",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 62,
+          "0": 0,
+          "1": 38,
+          "total": 100,
+        },
+        "dqType": "FR Commune",
+        "dqTypeKey": "FR_COMMUNE",
+        "type": "string",
+      },
+    },
+    "field": "data.field0",
+    "headerName": "Nom de la gare",
+    "type": "FR Commune",
+  },
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 100,
+        "total": 100,
+      },
+    },
+    "avro": Object {
+      "name": "field1",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 0,
+          "0": 0,
+          "1": 100,
+          "total": 100,
+        },
+        "dqType": "",
+        "dqTypeKey": "",
+        "type": "int",
+      },
+    },
+    "field": "data.field1",
+    "headerName": "field1",
+    "type": "int*",
+  },
+]
+`;
+
+exports[`#getColumnDefs should returns the columns definitions from immutable 1`] = `
+Array [
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 62,
+        "total": 62,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 38,
+        "total": 38,
+      },
+    },
+    "avro": Object {
+      "doc": "Nom de la gare",
+      "name": "field0",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 62,
+          "0": 0,
+          "1": 38,
+          "total": 100,
+        },
+        "dqType": "FR Commune",
+        "dqTypeKey": "FR_COMMUNE",
+        "type": "string",
+      },
+    },
+    "field": "data.field0",
+    "headerName": "Nom de la gare",
+    "type": "FR Commune",
+  },
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 100,
+        "total": 100,
+      },
+    },
+    "avro": Object {
+      "name": "field1",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 0,
+          "0": 0,
+          "1": 100,
+          "total": 100,
+        },
+        "dqType": "",
+        "dqTypeKey": "",
+        "type": "int",
+      },
+    },
+    "field": "data.field1",
+    "headerName": "field1",
+    "type": "int*",
+  },
+]
+`;
+
+exports[`#getColumnDefs should returns the columns definitions with optional 1`] = `
+Array [
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 62,
+        "total": 62,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 38,
+        "total": 38,
+      },
+    },
+    "avro": Object {
+      "doc": "Nom de la gare",
+      "name": "field0",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 62,
+          "0": 0,
+          "1": 38,
+          "total": 100,
+        },
+        "dqType": "FR Commune",
+        "dqTypeKey": "FR_COMMUNE",
+        "type": "string",
+      },
+    },
+    "field": "data.field0",
+    "headerName": "Nom de la gare",
+    "type": "FR Commune",
+  },
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 100,
+        "total": 100,
+      },
+    },
+    "avro": Object {
+      "name": "field1",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 0,
+          "0": 0,
+          "1": 100,
+          "total": 100,
+        },
+        "dqType": "",
+        "dqTypeKey": "",
+        "type": "int",
+      },
+    },
+    "field": "data.field1",
+    "headerName": "field1",
+    "type": "int*",
+  },
+]
+`;
+
+exports[`#getPinnedColumnDefs should returns the pinned columns defintions 1`] = `
+Array [
+  Object {
+    "field": "index.index",
+    "width": 100,
+  },
+]
+`;
+
+exports[`#getRowData should returns the row data 1`] = `
+Array [
+  Object {
+    "data.field0": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "Aéroport Charles de Gaulle 2 TGV",
+    },
+    "data.field1": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "271494",
+    },
+    "data.field2": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "95716",
+    },
+    "data.field3": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "",
+    },
+    "data.field4": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10748798",
+    },
+    "data.field5": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "33929307",
+    },
+    "data.field6": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10920487",
+    },
+    "data.field7": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "11030795",
+    },
+    "data.field8": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "10771660",
+    },
+    "data.field9": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10880464",
+    },
+    "index.index": 0,
+    "loaded": undefined,
+  },
+  Object {
+    "data.field0": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "Aguilcourt-Variscourt",
+    },
+    "data.field1": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "171702",
+    },
+    "data.field2": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "2190",
+    },
+    "data.field3": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "c",
+    },
+    "data.field4": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "9560",
+    },
+    "data.field5": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "",
+    },
+    "data.field6": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "9812",
+    },
+    "data.field7": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "",
+    },
+    "data.field8": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "8919",
+    },
+    "data.field9": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "",
+    },
+    "index.index": 1,
+    "loaded": undefined,
+  },
+]
+`;
+
+exports[`#getRowData should returns the row data 2`] = `
+Array [
+  Object {
+    "data.field0": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "Aéroport Charles de Gaulle 2 TGV",
+    },
+    "data.field1": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "271494",
+    },
+    "data.field2": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "95716",
+    },
+    "data.field3": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "",
+    },
+    "data.field4": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10748798",
+    },
+    "data.field5": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "33929307",
+    },
+    "data.field6": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10920487",
+    },
+    "data.field7": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "11030795",
+    },
+    "data.field8": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "10771660",
+    },
+    "data.field9": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10880464",
+    },
+    "index.index": 0,
+    "loaded": undefined,
+  },
+  Object {
+    "data.field0": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "Aguilcourt-Variscourt",
+    },
+    "data.field1": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "171702",
+    },
+    "data.field2": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "2190",
+    },
+    "data.field3": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "c",
+    },
+    "data.field4": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "9560",
+    },
+    "data.field5": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "",
+    },
+    "data.field6": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "9812",
+    },
+    "data.field7": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "",
+    },
+    "data.field8": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "8919",
+    },
+    "data.field9": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "",
+    },
+    "index.index": 1,
+    "loaded": undefined,
+  },
+]
+`;
+
+exports[`#getRowData should returns the row data with startIndex 1`] = `
+Array [
+  Object {
+    "data.field0": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "Aéroport Charles de Gaulle 2 TGV",
+    },
+    "data.field1": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "271494",
+    },
+    "data.field2": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "95716",
+    },
+    "data.field3": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "",
+    },
+    "data.field4": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10748798",
+    },
+    "data.field5": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "33929307",
+    },
+    "data.field6": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10920487",
+    },
+    "data.field7": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "11030795",
+    },
+    "data.field8": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "10771660",
+    },
+    "data.field9": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "10880464",
+    },
+    "index.index": 10,
+    "loaded": undefined,
+  },
+  Object {
+    "data.field0": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "Aguilcourt-Variscourt",
+    },
+    "data.field1": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "171702",
+    },
+    "data.field2": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "2190",
+    },
+    "data.field3": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "c",
+    },
+    "data.field4": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "9560",
+    },
+    "data.field5": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "",
+    },
+    "data.field6": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "9812",
+    },
+    "data.field7": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 0,
+      "value": "",
+    },
+    "data.field8": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": 1,
+      "value": "8919",
+    },
+    "data.field9": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": -1,
+      "value": "",
+    },
+    "index.index": 11,
+    "loaded": undefined,
+  },
+]
+`;

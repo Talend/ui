@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NameFilter component snaps should render NameFilter in default mode 1`] = `
+<form
+  className="tc-resource-picker-name-filter theme-tc-resource-picker-name-filter"
+>
+  <label
+    className="sr-only"
+    htmlFor="resource-picker-toolbar-name-filter-input"
+  >
+    Example label
+  </label>
+  <DebounceInput
+    autoComplete="off"
+    className="form-control"
+    debounceTimeout={100}
+    element="input"
+    forceNotifyByEnter={true}
+    forceNotifyOnBlur={true}
+    id="resource-picker-toolbar-name-filter-input"
+    minLength={0}
+    onChange={[Function]}
+    placeholder="Example label"
+    required={true}
+    type="text"
+  />
+  <Action
+    bsStyle="link"
+    className="theme-remove"
+    hideLabel={true}
+    icon="talend-cross"
+    label="Remove filter"
+    onClick={[Function]}
+  />
+</form>
+`;

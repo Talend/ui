@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+	<g fill="none" fill-rule="evenodd">
+		<path d="M2.209 15.998h4.766v-4.767H2.209zm8.957-2.829h4.767V8.403h-4.767zM0 10.409h4.766V5.643H0z" class="aggregate-blocks-light-color" fill="#BCBCBC" fill-rule="nonzero"/>
+		<path d="M9.981 4.766h4.766V0H9.981zm-8.793.012h4.766V.012H1.188z" class="aggregate-blocks-dark-color" fill="#515151" fill-rule="nonzero"/>
+		<g class="aggregate-borders" fill="#000">
+			<path d="M2.209 15.998h4.766v-4.767H2.209v4.767zm.477-.477h3.812V11.71H2.686v3.812zm8.48-2.352h4.767V8.403h-4.767v4.766zm.477-.476h3.813V8.881h-3.813v3.812z"/>
+			<path d="M12.194 12.15h2.729V9.42h-2.729v2.73zm.5-.5h1.729V9.92h-1.729v1.73zM1.027 9.387h2.729V6.66H1.027v2.73zm.5-.5h1.729V7.16H1.527v1.73zm8.454-4.122h4.766V0H9.981v4.766zm.477-.477h3.812V.477h-3.812V4.29zm-9.27.49h4.766V.011H1.188v4.766zm.477-.478h3.812V.49H1.665v3.812z"/>
+		</g>
+		<path d="M7.358 9.657a.403.403 0 0 1-.293-.127.451.451 0 0 1 0-.616l.879-.923-.88-.924a.451.451 0 0 1 0-.616.4.4 0 0 1 .587 0l1.17 1.231a.452.452 0 0 1 0 .617L7.652 9.53a.403.403 0 0 1-.293.127" class="aggregate-arrow" fill="#000"/>
+	</g>
+</svg>

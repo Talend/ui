@@ -1,0 +1,36 @@
+@import '../shared/styles/mixins';
+
+.range-picker {
+	@include range-picker;
+
+	.arrow {
+		@include arrow;
+		display: flex;
+		align-items: flex-end;
+
+		.icon {
+			@include icon;
+		}
+	}
+}
+.range-picker-vertical {
+	@include range-picker;
+	flex-direction: column;
+	align-items: flex-start;
+
+	:global(.arrow) {
+		@include arrow;
+		display: flex;
+		align-items: center;
+		padding-left: 0;
+
+		:global(.icon) {
+			@include icon;
+			transform: rotate(90deg);
+		}
+	}
+}
+
+.date-time-range-picker-inline {
+	@include range-picker-inline;
+}

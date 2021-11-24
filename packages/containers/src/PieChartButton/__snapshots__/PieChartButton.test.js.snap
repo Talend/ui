@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PieChartButton container should render 1`] = `
+<PieChartButton
+  available={true}
+  model={
+    Array [
+      Object {
+        "color": "rio-grande",
+        "percentage": 10,
+      },
+      Object {
+        "color": "chestnut-rose",
+        "percentage": 15,
+      },
+      Object {
+        "color": "lightning-yellow",
+        "percentage": 5,
+      },
+      Object {
+        "color": "dove-gray",
+        "percentage": 20,
+      },
+      Object {
+        "color": "silver-chalice",
+        "percentage": 15,
+      },
+    ]
+  }
+  onClick={[Function]}
+  overlayComponent={null}
+  overlayId="pie-chart-popover"
+  overlayPlacement="bottom"
+/>
+`;
+
+exports[`PieChartButton container should render 2`] = `
+<PieChartButton
+  available={true}
+  model={
+    Array [
+      Object {
+        "color": "rio-grande",
+        "percentage": 10,
+      },
+      Object {
+        "color": "chestnut-rose",
+        "percentage": 15,
+      },
+      Object {
+        "color": "lightning-yellow",
+        "percentage": 5,
+      },
+      Object {
+        "color": "dove-gray",
+        "percentage": 20,
+      },
+      Object {
+        "color": "silver-chalice",
+        "percentage": 15,
+      },
+    ]
+  }
+  onClick={[Function]}
+  overlayComponent={null}
+  overlayId="pie-chart-popover"
+  overlayPlacement="bottom"
+/>
+`;

@@ -1,0 +1,11 @@
+extends:
+  - ./api-test.yaml
+  - 'plugin:jasmine/recommended'
+env:
+  phantomjs: true
+  jasmine: true
+plugins:
+  - jasmine
+globals:
+  inject: false
+  since: false

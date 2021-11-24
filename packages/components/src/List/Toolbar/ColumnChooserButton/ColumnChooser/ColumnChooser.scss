@@ -1,0 +1,85 @@
+$tc-popover-border-color: rgb(226, 226, 226) !default;
+$tc-popover-border-width: 0.1rem !default;
+$tc-border-color: #EDEDED !default;
+$tc-icon-size: 1.2rem !default;
+$tc-height: 4rem;
+
+.tc-column-chooser {
+	:global(.tc-tooltip-body) {
+		margin: 0;
+	}
+
+	:global(.tc-tooltip-footer.tc-column-chooser-footer) {
+		justify-content: flex-end;
+	}
+
+	&-header {
+		display: flex;
+		align-items: center;
+
+		&-title {
+			font-weight: bold;
+		}
+	}
+
+	&-filter {
+		margin: 0 $padding-small;
+	}
+
+	&-body {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-columns-list {
+		overflow-y: auto;
+		max-height: 5 * $tc-height;
+	}
+
+	&-footer {
+		align-items: center;
+		display: flex;
+	}
+
+	&-row {
+		padding: 0 $padding-large;
+		display: flex;
+		align-items: center;
+		min-height: $tc-height;
+
+		&-select-all {
+			border-bottom: $tc-popover-border-width solid $tc-popover-border-color;
+		}
+
+		&:global(.ally-focus-within),
+		&:hover {
+			background: $wild-sand;
+		}
+
+		:global(.checkbox.tc-toggle) {
+			display: flex;
+			margin-bottom: 0;
+		}
+
+		&-label,
+		:global(.checkbox.tc-toggle > label span) {
+			font-size: 1.4rem;
+			padding-left: $padding-normal;
+		}
+
+		:global(.checkbox.tc-toggle > label) {
+			padding-left: $padding-normal;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			max-width: 21rem;
+			margin-bottom: 0;
+		}
+
+		&-locked-icon {
+			height: $tc-icon-size;
+			width: $tc-icon-size;
+		}
+	}
+}

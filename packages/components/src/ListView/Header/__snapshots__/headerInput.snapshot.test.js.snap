@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render filter header 1`] = `
+<header
+  className="theme-tc-listview-header tc-listview-header"
+>
+  <input
+    aria-label="Search"
+    autoFocus={true}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Search"
+    type="text"
+  />
+  <button
+    aria-describedby="42"
+    aria-label="Abort"
+    className="btn-icon-only btn btn-link"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseDown={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="link"
+    type="button"
+  >
+    <Coral.Icon
+      name="talend-cross"
+    />
+  </button>
+</header>
+`;

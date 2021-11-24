@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`skeleton tile should compute skeleton tile 1`] = `
+<Tile>
+  <Body>
+    <Skeleton
+      height="100%"
+      width="100%"
+    />
+  </Body>
+</Tile>
+`;

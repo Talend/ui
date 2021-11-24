@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useCollectionSort should use a natural sort order 1`] = `
+Array [
+  Object {
+    "label": "Demo 1",
+  },
+  Object {
+    "label": "Demo 2",
+  },
+  Object {
+    "label": "Demo 3",
+  },
+  Object {
+    "label": "Demo 10",
+  },
+  Object {
+    "label": "Demo 11",
+  },
+  Object {
+    "label": "Demo 20",
+  },
+  Object {
+    "label": "Demo 22",
+  },
+  Object {
+    "label": "Demo 102",
+  },
+]
+`;

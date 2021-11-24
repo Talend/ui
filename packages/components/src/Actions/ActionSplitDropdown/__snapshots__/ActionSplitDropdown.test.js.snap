@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionSplitDropdown should render "no option" item when items array is empty 1`] = `
+<SplitButton
+  aria-label="Add File"
+  className="theme-tc-split-dropdown"
+  data-feature="action.add"
+  id="42"
+  onClick={[MockFunction]}
+  title={
+    <span>
+      <Icon
+        name="fa fa-plus"
+      />
+      <span>
+        Add File
+      </span>
+    </span>
+  }
+  toggleLabel="Open \\"Add File\\" menu"
+>
+  <MenuItem
+    bsClass="dropdown"
+    disabled={true}
+    divider={false}
+    header={false}
+  >
+    No option
+  </MenuItem>
+</SplitButton>
+`;
+
+exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
+<SplitButton
+  aria-label="Add File"
+  className="theme-tc-split-dropdown"
+  data-feature="action.add"
+  id="42"
+  onClick={[MockFunction]}
+  title={
+    <span>
+      <Icon
+        name="fa fa-plus"
+      />
+      <span>
+        Add File
+      </span>
+    </span>
+  }
+  toggleLabel="Open \\"Add File\\" menu"
+>
+  <MenuItem
+    bsClass="dropdown"
+    data-feature="action.local"
+    disabled={false}
+    divider={false}
+    header={false}
+    label="From Local"
+    onClick={[Function]}
+  >
+    From Local
+  </MenuItem>
+  <MenuItem
+    bsClass="dropdown"
+    data-feature="action.remote"
+    disabled={false}
+    divider={false}
+    header={false}
+    label="From Remote"
+    onClick={[Function]}
+  >
+    From Remote
+  </MenuItem>
+</SplitButton>
+`;
+
+exports[`ActionSplitDropdown should render a button with label 1`] = `
+<SplitButton
+  aria-label="Add File"
+  className="theme-tc-split-dropdown"
+  data-feature="action.add"
+  id="42"
+  onClick={[MockFunction]}
+  title={
+    <span>
+      <span>
+        Add File
+      </span>
+    </span>
+  }
+  toggleLabel="Open \\"Add File\\" menu"
+>
+  <MenuItem
+    bsClass="dropdown"
+    data-feature="action.local"
+    disabled={false}
+    divider={false}
+    header={false}
+    label="From Local"
+    onClick={[Function]}
+  >
+    From Local
+  </MenuItem>
+  <MenuItem
+    bsClass="dropdown"
+    data-feature="action.remote"
+    disabled={false}
+    divider={false}
+    header={false}
+    label="From Remote"
+    onClick={[Function]}
+  >
+    From Remote
+  </MenuItem>
+</SplitButton>
+`;
+
+exports[`ActionSplitDropdown should render items with icons 1`] = `
+<SplitButton
+  aria-label="Add File"
+  className="theme-tc-split-dropdown"
+  data-feature="action.add"
+  id="42"
+  onClick={[MockFunction]}
+  title={
+    <span>
+      <Icon
+        name="fa fa-plus"
+      />
+      <span>
+        Add File
+      </span>
+    </span>
+  }
+  toggleLabel="Open \\"Add File\\" menu"
+>
+  <MenuItem
+    bsClass="dropdown"
+    disabled={false}
+    divider={false}
+    header={false}
+    icon="fa fa-plus"
+    label="From Local"
+    onClick={[Function]}
+  >
+    <Icon
+      name="fa fa-plus"
+    />
+    From Local
+  </MenuItem>
+  <MenuItem
+    bsClass="dropdown"
+    disabled={false}
+    divider={false}
+    header={false}
+    icon="fa fa-plus"
+    label="From Remote"
+    onClick={[Function]}
+  >
+    <Icon
+      name="fa fa-plus"
+    />
+    From Remote
+  </MenuItem>
+</SplitButton>
+`;

@@ -1,0 +1,60 @@
+.modal-dialog {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.modal {
+	&-content {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 100%;
+		flex-grow: 0;
+		flex-shrink: 0;
+		border: none; // it keeps the border-radius
+		border-radius: $border-radius-base;
+	}
+
+	&-header {
+		border-top-left-radius: $border-radius-base;
+		border-top-right-radius: $border-radius-base;
+		background-color: $modal-header-bg;
+		border-color: $concrete;
+		padding: {
+			top: $modal-title-padding-top;
+			bottom: $modal-title-padding-bottom;
+		}
+
+		&.informative {
+			text-align: center;
+		}
+
+		.modal {
+			&-subtitle {
+				font-size: 14px;
+				color: $dark-silver;
+				margin-top: 1px;
+
+				&.error {
+					color: $chestnut-rose;
+				}
+			}
+		}
+
+		.close {
+			color: $dove-gray;
+			opacity: 1;
+		}
+	}
+
+	&-body {
+		flex-grow: 1;
+		overflow-y: auto;
+		background-color: $wild-sand;
+	}
+
+	&-footer {
+		border: none;
+		flex-shrink: 0;
+	}
+}

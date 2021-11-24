@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellQualityBar should render a valid quality bar 1`] = `
+<div class="tc-ratio-bar theme-tc-ratio-bar">
+  <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow tc-ratio-bar-line-quality-invalid theme-tc-ratio-bar-line-quality-invalid theme-tc-ratio-bar-line-quality-invalid theme-tc-ratio-bar-line-quality-invalid"
+       tabindex="0"
+       style="flex-basis: 10%;"
+       role="button"
+       aria-describedby="42"
+  >
+  </div>
+  <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow tc-ratio-bar-line-quality-empty theme-tc-ratio-bar-line-quality-empty theme-tc-ratio-bar-line-quality-empty theme-tc-ratio-bar-line-quality-empty"
+       tabindex="0"
+       style="flex-basis: 20%;"
+       role="button"
+       aria-describedby="42"
+  >
+  </div>
+  <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow tc-ratio-bar-line-quality-na theme-tc-ratio-bar-line-quality-na theme-tc-ratio-bar-line-quality-na theme-tc-ratio-bar-line-quality-na"
+       tabindex="0"
+       style="flex-basis: 40%;"
+       role="button"
+       aria-describedby="42"
+  >
+  </div>
+  <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow tc-ratio-bar-line-quality-valid theme-tc-ratio-bar-line-quality-valid theme-tc-ratio-bar-line-quality-valid theme-tc-ratio-bar-line-quality-valid"
+       tabindex="0"
+       style="flex-basis: 30%;"
+       role="button"
+       aria-describedby="42"
+  >
+  </div>
+</div>
+`;

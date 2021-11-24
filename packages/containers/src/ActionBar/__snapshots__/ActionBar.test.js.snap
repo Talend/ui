@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container ActionBar should compute props using CMF with array of string 1`] = `
+Object {
+  "actions": Object {
+    "left": Array [
+      Object {
+        "actionId": "menu:demo",
+      },
+      Object {
+        "actionId": "menu:article",
+      },
+      Object {
+        "actions": Array [
+          "menu:demo",
+          "menu:article",
+        ],
+        "displayMode": "btnGroup",
+      },
+    ],
+    "right": Array [
+      Object {
+        "displayMode": "splitDropdown",
+        "items": Array [
+          "menu:article",
+        ],
+        "name": "menu:demo",
+      },
+    ],
+  },
+  "deleteState": [Function],
+  "dispatch": [Function],
+  "dispatchActionCreator": [Function],
+  "getComponent": [Function],
+  "initState": [Function],
+  "renderers": Object {
+    "Action": [Function],
+    "ActionDropdown": [Function],
+    "ActionSplitDropdown": [Function],
+    "Actions": [Function],
+  },
+  "setState": [Function],
+  "state": undefined,
+  "updateState": [Function],
+}
+`;
+
+exports[`Container ActionBar should pass the props 1`] = `
+Object {
+  "actions": Object {
+    "left": Array [
+      Object {
+        "bsStyle": "primary",
+        "icon": "fa fa-asterisk",
+        "label": "Preparations",
+        "onClick": [MockFunction],
+      },
+      Object {
+        "displayMode": "dropdown",
+        "icon": "fa fa-file-excel-o",
+        "items": Array [
+          Object {
+            "label": "document 1",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "label": "document 2",
+            "onClick": [MockFunction],
+          },
+        ],
+        "label": "related items",
+      },
+    ],
+    "right": Array [
+      Object {
+        "icon": "fa fa-file-excel-o",
+        "label": "Datasets",
+        "onClick": [MockFunction],
+      },
+      Object {
+        "icon": "fa fa-star",
+        "label": "Favorites",
+        "onClick": [MockFunction],
+      },
+      Object {
+        "actions": Array [
+          Object {
+            "label": "document 1",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "label": "document 2",
+            "onClick": [MockFunction],
+          },
+        ],
+        "displayMode": "btnGroup",
+      },
+    ],
+  },
+  "deleteState": [Function],
+  "dispatch": [Function],
+  "dispatchActionCreator": [Function],
+  "getComponent": [Function],
+  "initState": [Function],
+  "renderers": Object {
+    "Action": [Function],
+    "ActionDropdown": [Function],
+    "ActionSplitDropdown": [Function],
+    "Actions": [Function],
+  },
+  "setState": [Function],
+  "state": undefined,
+  "updateState": [Function],
+}
+`;

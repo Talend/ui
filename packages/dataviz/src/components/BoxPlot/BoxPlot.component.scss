@@ -1,0 +1,46 @@
+// Imported (almost) as-is from TDP
+
+.box-plot {
+	font: 11px 'Source Sans Pro', sans-serif;
+
+	line,
+	rect {
+		fill: #19426c;
+		stroke: #000;
+		stroke-width: 1px;
+	}
+
+	&__whiskerPolyg {
+		fill: none;
+		stroke: #000;
+		stroke-width: 2;
+	}
+
+	&__center {
+		stroke-dasharray: 3, 3;
+	}
+
+	&__mean {
+		fill: #fff;
+		opacity: 0.5;
+		stroke: #19426c;
+		shape-rendering: geometricPrecision;
+		stroke-width: 0.8;
+	}
+
+	&__max-min-labels {
+		fill: #0675c1;
+	}
+
+	&__low-quantile-labels {
+		fill: #689734;
+	}
+
+	&__up-quantile-labels {
+		fill: #ba4c50;
+	}
+
+	&__mean-labels {
+		fill: $white;
+	}
+}

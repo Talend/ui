@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeView should render the data 1`] = `
+<TreeGesture(TreeView)
+  childrenAttr="children"
+  data={
+    Immutable.List [
+      Immutable.Map {
+        "id": 1,
+        "name": "foo",
+        "children": Array [],
+      },
+      Immutable.Map {
+        "id": 2,
+        "name": "bar",
+        "children": Array [],
+      },
+    ]
+  }
+  id="my-treeview"
+  idAttr="id"
+  nameAttr="name"
+  onSelect={[Function]}
+  onToggle={[Function]}
+  onToggleAllSiblings={[Function]}
+  structure={
+    Array [
+      Object {
+        "children": Array [],
+        "id": 1,
+        "isOpened": false,
+        "name": "foo",
+        "parent": undefined,
+      },
+      Object {
+        "children": Array [],
+        "id": 2,
+        "isOpened": false,
+        "name": "bar",
+        "parent": undefined,
+      },
+    ]
+  }
+/>
+`;

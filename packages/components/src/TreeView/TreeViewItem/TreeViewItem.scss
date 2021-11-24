@@ -1,0 +1,155 @@
+// TreeView styles
+$item-height: 4rem;
+
+.tc-treeview-li {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+
+	&:focus {
+		outline: none;
+	}
+
+	:global(.btn-link) {
+		padding: 0;
+	}
+
+	.tc-treeview-item {
+		position: relative;
+		height: $item-height;
+		cursor: pointer;
+		padding-right: $padding-large;
+
+		display: flex;
+		align-items: center;
+		flex-grow: 1;
+
+		transition: 200ms ease-out;
+
+		&.disabled {
+			opacity: 0.54;
+			cursor: not-allowed;
+
+			.tc-treeview-item-name {
+				color: $black;
+			}
+
+			svg {
+				fill: rgba($black, 0.25);
+			}
+		}
+
+		.tc-treeview-toggle {
+			position: absolute;
+			padding: 1rem;
+			display: inline-flex;
+			min-height: auto;
+			height: 100%;
+			margin-left: -3rem;
+			top: 0;
+
+			svg {
+				width: $svg-sm-size;
+				fill: rgba($black, 0.6);
+				margin: 0;
+			}
+
+			&:hover svg {
+				fill: rgba($black, 0.7);
+			}
+		}
+
+		.tc-treeview-folder {
+			width: $svg-md-size;
+			height: $svg-md-size;
+			margin-right: $padding-large;
+			flex-shrink: 0;
+			flex-grow: 0;
+			fill: rgba($black, 0.25);
+		}
+
+		.tc-treeview-img {
+			max-height: 2rem;
+			margin-right: 1rem;
+			vertical-align: middle;
+		}
+
+		.tc-treeview-item-name {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 40rem;
+		}
+	}
+
+	&[aria-selected='true'] > .tc-treeview-item {
+		background: rgba($scooter, 0.2);
+		font-weight: 600;
+		color: $black;
+
+		.tc-treeview-folder {
+			fill: $brand-primary;
+		}
+	}
+
+	.tc-treeview-item:hover,
+	&:focus > .tc-treeview-item {
+		background: $wild-sand;
+		color: $scooter;
+
+		.tc-treeview-folder {
+			fill: $brand-primary;
+		}
+
+		.tc-treeview-toggle {
+			svg {
+				fill: $scooter;
+			}
+		}
+
+		:global(.btn-link) {
+			visibility: visible;
+		}
+
+		&.disabled {
+			background: none;
+		}
+	}
+
+	.tc-treeview-item-ctrl {
+		margin-left: auto;
+		display: flex;
+		align-items: center;
+
+		:global(.btn-link) {
+			visibility: hidden;
+			padding: 0 $padding-smaller;
+
+			:global(.tc-svg-icon) {
+				fill: rgba($black, 0.6);
+				margin: 0;
+
+				&:hover {
+					fill: rgba($black, 0.7);
+				}
+			}
+		}
+
+		:global(.tc-badge-button) {
+			height: 2rem;
+			margin: 0 $padding-normal 0 0;
+			padding: 0 $padding-smaller;
+			border-radius: $border-radius-small;
+		}
+	}
+
+	.tc-treeview-ul {
+		width: 100%;
+		padding: 0;
+	}
+
+	&[data-hidden='true'] {
+		height: 0;
+		display: none;
+	}
+}

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle field in text mode should render the Toggle 1`] = `
+<div
+  className="form-group"
+>
+  <dt>
+    <label
+      className="control-label sr-only"
+      htmlFor="myForm"
+    >
+      My Toggle
+    </label>
+    <div
+      aria-hidden={true}
+    >
+      <Toggle
+        checked={true}
+        className="switch checkbox"
+        disabled={true}
+        intermediate={false}
+        label="My Toggle"
+      />
+    </div>
+  </dt>
+  <dd
+    className="sr-only"
+    id="myForm"
+  >
+    true
+  </dd>
+</div>
+`;

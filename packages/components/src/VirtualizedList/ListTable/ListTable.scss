@@ -1,0 +1,67 @@
+@import '../colors';
+
+$tc-list-table-cell-padding: $padding-small !default;
+$tc-list-table-header-color: $dove-gray !default;
+$tc-list-table-border: 1px solid darken($concrete, 5%);
+
+.tc-list-table {
+	background-color: $wild-sand;
+
+	.row {
+		border-bottom: $tc-list-table-border;
+		background: $white;
+		display: flex;
+		align-items: center;
+
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
+			background-color: $wild-sand;
+			.cell {
+				border-right: 1px solid $white;
+			}
+		}
+	}
+
+	:global(.ReactVirtualized__Table__headerRow) {
+		box-shadow: $shadow-default;
+
+		.header {
+			color: $tc-list-table-header-color;
+			display: inline-flex;
+			font-size: 1.2rem;
+			font-weight: 600;
+			padding: $tc-list-table-cell-padding;
+		}
+	}
+
+	:global(.ReactVirtualized__Table__sortableHeaderColumn) {
+		cursor: pointer;
+	}
+
+	.grid {
+		box-shadow: $shadow-default;
+
+		.cell {
+			// selection's checkbox has no "name" attribute, so "tc-list-cell-" refer to this cell
+			&:global(.tc-list-cell-),
+			&:last-child {
+				border-right: none;
+			}
+
+			border-right: $tc-list-table-border;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			padding: 0 $tc-list-table-cell-padding;
+
+			height: 100%;
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	[class*='tc-list-cell-'] {
+		flex: 1 1 100%;
+	}
+}

@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
+<nav
+  aria-label="breadcrumb"
+>
+  <ul
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
+  />
+</nav>
+`;
+
+exports[`Breadcrumbs should render all items without a dropdown menu if default max items is not reached 1`] = `
+<nav
+  aria-label="breadcrumb"
+>
+  <ul
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
+  >
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-0"
+        title="Go to Page Text A"
+      >
+        Text A
+      </span>
+    </li>
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-1"
+        title="Go to Page Text B"
+      >
+        Text B
+      </span>
+    </li>
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-2"
+        title="Go to Page Text C"
+      >
+        Text C
+      </span>
+    </li>
+    <li
+      className="tc-breadcrumb-item active"
+    >
+      <span
+        aria-current="page"
+        id="42-item-3"
+        title="Go to Page Text D"
+      >
+        Text D
+      </span>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Breadcrumbs should render items with a dropdown menu if default max items is reached 1`] = `
+<nav
+  aria-label="breadcrumb"
+>
+  <ul
+    className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
+    id="42"
+  >
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-0"
+        title="Go to Page Text A"
+      >
+        Text A
+      </span>
+    </li>
+    <li
+      className="tc-breadcrumb-menu"
+    >
+      <withI18nextTranslation(ActionDropdown)
+        aria-label="Open first links menu"
+        id="42-ellipsis"
+        items={
+          Array [
+            Object {
+              "id": "42-item-1",
+              "label": "Text B",
+              "onClick": [Function],
+              "title": "Go to Page Text B",
+            },
+            Object {
+              "id": "42-item-2",
+              "label": "Text C",
+              "onClick": [Function],
+              "title": "Go to Page Text C",
+            },
+          ]
+        }
+        label="…"
+        link={true}
+        noCaret={true}
+        t={[Function]}
+      />
+    </li>
+    <li
+      className="tc-breadcrumb-item"
+    >
+      <span
+        id="42-item-3"
+        title="Go to Page Text D"
+      >
+        Text D
+      </span>
+    </li>
+    <li
+      className="tc-breadcrumb-item active"
+    >
+      <span
+        aria-current="page"
+        id="42-item-4"
+        title="Go to Page Text E"
+      >
+        Text E
+      </span>
+    </li>
+  </ul>
+</nav>
+`;

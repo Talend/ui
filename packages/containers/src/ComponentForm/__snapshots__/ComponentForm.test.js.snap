@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComponentForm #render should render a CircularProgress when we don't have the schema 1`] = `
+<FormSwitcher
+  loading={true}
+/>
+`;
+
+exports[`ComponentForm #render should render a UIForm 1`] = `
+<FormSwitcher
+  data={
+    Object {
+      "jsonSchema": Object {
+        "properties": Object {
+          "_datasetMetadata": Object {
+            "properties": Object {
+              "description": Object {
+                "title": "Description",
+                "type": "string",
+              },
+              "name": Object {
+                "title": "Name",
+                "type": "string",
+              },
+              "type": Object {
+                "title": "Types",
+                "type": "string",
+              },
+            },
+            "required": Array [],
+            "type": "object",
+          },
+        },
+        "required": Array [],
+        "title": "datastore",
+        "type": "object",
+      },
+      "properties": undefined,
+      "uiSchema": Array [
+        Object {
+          "conditions": Array [],
+          "items": Array [
+            Object {
+              "conditions": Array [],
+              "key": "_datasetMetadata.name",
+              "title": "Name",
+              "widget": "text",
+            },
+            Object {
+              "conditions": Array [],
+              "key": "_datasetMetadata.type",
+              "schema": Object {
+                "enum": Array [
+                  "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
+                ],
+                "type": "string",
+              },
+              "title": "Types",
+              "titleMap": Array [
+                Object {
+                  "name": "Basic Auth",
+                  "value": "U2VydmljZU5vdyNkYXRhc3RvcmUjYmFzaWNBdXRo",
+                },
+              ],
+              "triggers": Array [
+                Object {
+                  "action": "builtin::root::reloadFromId",
+                  "event": "focus",
+                  "family": "builtin::family",
+                  "parameters": Array [
+                    Object {
+                      "key": "id",
+                      "path": "_datasetMetadata.type",
+                    },
+                  ],
+                  "type": "reloadForm",
+                },
+              ],
+              "widget": "datalist",
+            },
+            Object {
+              "conditions": Array [],
+              "key": "_datasetMetadata.description",
+              "title": "Description",
+              "widget": "textarea",
+            },
+          ],
+          "title": "Metadata",
+          "widget": "fieldset",
+        },
+      ],
+    }
+  }
+  initialData={null}
+  onChange={[Function]}
+  onReset={[Function]}
+  onSubmit={[Function]}
+  onTrigger={[Function]}
+  widgets={
+    Object {
+      "datalist": [Function],
+      "multiSelect": [Function],
+      "multiSelectTag": [Function],
+      "multiSelect_text": [Function],
+    }
+  }
+/>
+`;
+
+exports[`ComponentForm #render should render a response status 1`] = `
+<p
+  className="danger"
+>
+  we had an error
+</p>
+`;

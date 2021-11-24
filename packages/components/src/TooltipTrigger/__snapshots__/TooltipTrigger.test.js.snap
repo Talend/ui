@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionTooltip should render custom tooltip when focus the children 1`] = `
+<React.Fragment>
+  <div
+    aria-describedby="42"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    Action
+  </div>
+</React.Fragment>
+`;
+
+exports[`ActionTooltip should render only the children 1`] = `
+<div
+  aria-describedby="42"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  Action
+</div>
+`;
+
+exports[`ActionTooltip should render tooltip when focus the children 1`] = `
+<React.Fragment>
+  <div
+    aria-describedby="42"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    Action
+  </div>
+</React.Fragment>
+`;
+
+exports[`ActionTooltip should render tooltip when hover the children 1`] = `
+<React.Fragment>
+  <div
+    aria-describedby="42"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    Action
+  </div>
+</React.Fragment>
+`;

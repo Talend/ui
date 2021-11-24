@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Code text display mode should render textarea 1`] = `
+<FieldTemplate
+  id="myForm"
+  label="My input title"
+>
+  <pre>
+    toto
+  </pre>
+</FieldTemplate>
+`;
+
+exports[`Code text display mode should render with provided style options 1`] = `
+<FieldTemplate
+  id="myForm"
+  label="My input title"
+>
+  <pre
+    style={
+      Object {
+        "height": "20px",
+      }
+    }
+  >
+    toto
+  </pre>
+</FieldTemplate>
+`;

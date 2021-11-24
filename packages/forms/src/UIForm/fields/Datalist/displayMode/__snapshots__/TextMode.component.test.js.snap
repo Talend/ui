@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Datalist component in text display mode should render 1`] = `
+<FieldTemplate
+  id="my-datalist"
+  label="My List"
+>
+  Foo
+</FieldTemplate>
+`;

@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification should render 1`] = `
+<div
+  className="theme-tc-notification-container tc-notification-container"
+>
+  <div>
+    <div
+      className="theme-tc-notification tc-notification theme-tc-notification-info tc-notification-info"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="status"
+      tabIndex={0}
+    >
+      <button
+        aria-label="Close notification"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-undefined"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <Coral.Icon
+          name="talend-cross"
+        />
+        <span>
+          
+        </span>
+      </button>
+      <article
+        className="theme-article"
+      >
+        <p
+          className="theme-tc-notification-message tc-notification-message"
+        >
+          This is a feedback of your operation1, This is a feedback of your operation1
+          <button
+            aria-label="Haha"
+            className="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action-default"
+            disabled={false}
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <Coral.Icon
+              name="talend-undo"
+            />
+            <span>
+              Haha
+            </span>
+          </button>
+        </p>
+      </article>
+      <div
+        className="theme-tc-notification-timer-bar tc-notification-timer-bar"
+      />
+    </div>
+    <div
+      className="theme-tc-notification tc-notification theme-tc-notification-error tc-notification-error"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="alert"
+      tabIndex={0}
+    >
+      <button
+        aria-label="Close notification"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-error"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <Coral.Icon
+          name="talend-cross"
+        />
+        <span>
+          
+        </span>
+      </button>
+      <article
+        className="theme-article"
+      >
+        <p
+          className="theme-tc-notification-message tc-notification-message"
+        >
+          This is a feedback of your operation2
+        </p>
+        <p
+          className="theme-tc-notification-message tc-notification-message"
+        >
+          This is a feedback of your operation1, This is a feedback of your operation1
+          <button
+            aria-label="undo"
+            className="theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action theme-tc-notification-action tc-notification-action theme-tc-notification-message-action tc-notification-message-action-default"
+            disabled={false}
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            role={null}
+            type="button"
+          >
+            <Coral.Icon
+              name="talend-undo"
+            />
+            <span>
+              undo
+            </span>
+          </button>
+        </p>
+      </article>
+    </div>
+    <div
+      className="theme-tc-notification tc-notification theme-tc-notification-warning tc-notification-warning"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="status"
+      tabIndex={0}
+    >
+      <button
+        aria-label="Close notification"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-warning"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <Coral.Icon
+          name="talend-cross"
+        />
+        <span>
+          
+        </span>
+      </button>
+      <article
+        className="theme-article"
+      >
+        <p
+          className="theme-tc-notification-message tc-notification-message"
+        >
+          This is a feedback of your operation3
+        </p>
+        <p
+          className="theme-tc-notification-message tc-notification-message"
+        >
+          details
+        </p>
+      </article>
+      <div
+        className="theme-tc-notification-timer-bar tc-notification-timer-bar"
+      />
+    </div>
+    <div
+      className="theme-tc-notification tc-notification theme-tc-notification-warning tc-notification-warning"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="status"
+      tabIndex={0}
+    >
+      <button
+        aria-label="Close notification"
+        className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-warning"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role={null}
+        type="button"
+      >
+        <Coral.Icon
+          name="talend-cross"
+        />
+        <span>
+          
+        </span>
+      </button>
+      <article
+        className="theme-article"
+      >
+        <p
+          className="theme-tc-notification-message tc-notification-message"
+        >
+          This is a feedback of your operation4
+        </p>
+      </article>
+      <div
+        className="theme-tc-notification-timer-bar tc-notification-timer-bar"
+      />
+    </div>
+  </div>
+</div>
+`;

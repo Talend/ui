@@ -1,0 +1,113 @@
+////
+/// Talend spec from the guidelines
+/// @group Guidelines
+////
+
+@import './helpers';
+@import './colors';
+@import './paddings';
+@import './variables';
+@import '~@talend/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import './visual-helpers';
+@import './datagrid';
+
+/// Button font size
+/// @type Number (Unit)
+$btn-font-size: 14px !default;
+
+/// Button box shadow width
+/// @type Number (Unit)
+$btn-box-shadow-width: 3px !default;
+
+/// Button background tinting percent
+/// @type Number (Unitless)
+$btn-background-tint-percent: 10 !default;
+
+/// Dropdown caret size
+/// @type Number (Unit)
+$dropdown-caret-size: $caret-width-large !default;
+
+/// Input group button padding
+/// @type Number (Unit)
+$input-group-btn-padding: 0 !default;
+
+/// Input group add-on padding
+/// @type Number (Unit)
+$input-group-addon-padding: 0 !default;
+
+/// Modal header background color
+///
+/// @type Color
+$modal-header-bg: $white !default;
+
+/// Modal header color
+///
+/// @type Color
+$modal-header-color: $black !default;
+
+/// Navbar brand logo width
+/// @type Number (Unit)
+$navbar-brand-logo-height: 20px !default;
+$navbar-brand-logo-width: 75px !default;
+
+/// Drawer z-index
+/// should always stay lower than dialog z-index which is set to 1040
+/// @type Number (Unitless)
+$drawer-z-index: 100 !default;
+
+/// Navbar form top and bottom width
+/// @type Number (Unit)
+$navbar-form-margin: 0 !default;
+
+/// Navbar search text and border bottom color
+///
+/// @type Color
+$navbar-search-btn-color: $black !default;
+
+/// Extra small button svg size
+/// @type Number (Unitless)
+$svg-xs-size: 0.8rem !default;
+
+/// Small button svg size
+/// @type Number (Unitless)
+$svg-sm-size: 1.2rem !default;
+
+/// Default button svg size
+/// @type Number (Unitless)
+$svg-md-size: 1.6rem !default;
+
+/// Default button svg size
+/// @type Number (Unitless)
+$svg-rg-size: 2rem !default;
+
+/// Large button svg size
+/// @type Number (Unitless)
+$svg-lg-size: 2.4rem !default;
+
+/// Extra large button svg size
+/// @type Number (Unitless)
+$svg-xlg-size: 3.2rem !default;
+
+/// Breadcrumb height
+/// @type Number (Unit)
+$breadcrumb-height: 5rem !default;
+
+/// Breadcrumb max width of each visible items
+/// @type Number (Unit)
+$breadcrumb-items-max-width: 30rem !default;
+
+/// Breadcrumb items color
+/// @type Number (Color)
+$breadcrumb-items-color: $black !default;
+
+/// Breadcrumb items color on hover
+/// @type Number (Color)
+$breadcrumb-items-color-hover: $scooter !default;
+
+/// Breadcrumb active item color
+/// @type Number (Color)
+$breadcrumb-items-active-color: $dove-gray !default;
+
+/// Breadcrumb separator color
+/// @type Number (Color)
+$breadcrumb-items-separator-color: $gray !default;

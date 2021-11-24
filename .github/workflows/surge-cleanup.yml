@@ -1,0 +1,21 @@
+name: Cleanup - Remove surge demo
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup:
+    name: Remove NR on surge
+    runs-on: ubuntu-latest
+    environment: pull_request_unsafe
+
+    steps:
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: 'npm'
+
+      - name: Push to surge
+        run: npx surge teardown ${{ github.event.pull_request.number }}.talend.surge.sh --token ${{ secrets.SURGE_TOKEN }}

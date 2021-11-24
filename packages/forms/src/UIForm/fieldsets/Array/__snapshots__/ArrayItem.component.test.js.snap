@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Array Item component should NOT render moveUp/moveDown with no reorder callback 1`] = `
+<div
+  className="theme-tf-array-item tf-array-item"
+>
+  <div
+    className="theme-control"
+  />
+  <div
+    className="theme-control"
+  >
+    <Action
+      className="theme-delete"
+      hideLabel={true}
+      icon="talend-trash"
+      id="talend-control-3-delete"
+      label="Delete"
+      link={true}
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+</div>
+`;
+
+exports[`Array Item component should NOT render reorder control panel when value.isClosed is true 1`] = `
+<div
+  className="theme-tf-array-item tf-array-item"
+>
+  <div
+    className="theme-control"
+  />
+  <div
+    className="theme-control"
+  >
+    <Action
+      className="theme-delete"
+      hideLabel={true}
+      icon="talend-trash"
+      id="talend-control-3-delete"
+      label="Delete"
+      link={true}
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+</div>
+`;
+
+exports[`Array Item component should disable moveDown 1`] = `
+<div
+  className="theme-tf-array-item tf-array-item"
+>
+  <div
+    className="theme-control"
+  >
+    <React.Fragment>
+      <ReorderButton
+        hasMoveDown={false}
+        hasMoveUp={true}
+        id="talend-control-3"
+        index={3}
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+      <ReorderButton
+        hasMoveDown={false}
+        hasMoveUp={true}
+        id="talend-control-3"
+        index={3}
+        isCloseable={false}
+        isMoveDown={true}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+    </React.Fragment>
+  </div>
+  <div
+    className="theme-control"
+  >
+    <Action
+      className="theme-delete"
+      hideLabel={true}
+      icon="talend-trash"
+      id="talend-control-3-delete"
+      label="Delete"
+      link={true}
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+</div>
+`;
+
+exports[`Array Item component should disable moveUp 1`] = `
+<div
+  className="theme-tf-array-item tf-array-item"
+>
+  <div
+    className="theme-control"
+  >
+    <React.Fragment>
+      <ReorderButton
+        hasMoveDown={true}
+        hasMoveUp={false}
+        id="talend-control-3"
+        index={3}
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+      <ReorderButton
+        hasMoveDown={true}
+        hasMoveUp={false}
+        id="talend-control-3"
+        index={3}
+        isCloseable={false}
+        isMoveDown={true}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+    </React.Fragment>
+  </div>
+  <div
+    className="theme-control"
+  >
+    <Action
+      className="theme-delete"
+      hideLabel={true}
+      icon="talend-trash"
+      id="talend-control-3-delete"
+      label="Delete"
+      link={true}
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+</div>
+`;
+
+exports[`Array Item component should render control panel with item content 1`] = `
+<div
+  className="theme-tf-array-item tf-array-item"
+>
+  <div
+    className="theme-control"
+  >
+    <React.Fragment>
+      <ReorderButton
+        hasMoveDown={true}
+        hasMoveUp={true}
+        id="talend-control-3"
+        index={3}
+        isCloseable={false}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+      <ReorderButton
+        hasMoveDown={true}
+        hasMoveUp={true}
+        id="talend-control-3"
+        index={3}
+        isCloseable={false}
+        isMoveDown={true}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
+        renderItem={[Function]}
+      />
+    </React.Fragment>
+  </div>
+  <div
+    className="theme-control"
+  >
+    <Action
+      className="theme-delete"
+      hideLabel={true}
+      icon="talend-trash"
+      id="talend-control-3-delete"
+      label="Delete"
+      link={true}
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+</div>
+`;

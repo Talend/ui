@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CMF(Container(ActionButton)) should render 1`] = `
+<withI18nextTranslation(ActionButton)
+  actionId="menu:article"
+  available={true}
+  bsStyle="default"
+  disabled={false}
+  extra="foo"
+  inProgress={false}
+  label="click"
+  loading={false}
+  onClick={[Function]}
+  t={[Function]}
+  tooltipPlacement="top"
+/>
+`;

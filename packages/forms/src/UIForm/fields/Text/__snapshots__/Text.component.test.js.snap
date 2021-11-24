@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text field should render disabled input 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <input
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    disabled={true}
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={false}
+    type="text"
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`Text field should render hidden input 1`] = `
+<input
+  id="myForm"
+  type="hidden"
+  value="toto"
+/>
+`;
+
+exports[`Text field should render input 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <input
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={false}
+    type="text"
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`Text field should render input with max attribute 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <input
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="myForm"
+    max={10}
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={false}
+    type="text"
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`Text field should render input with min attribute 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <input
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="myForm"
+    min={0}
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={false}
+    type="text"
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`Text field should render password input 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <Form.Password
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="myForm"
+    link={null}
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={false}
+    type="password"
+    value="toto"
+  />
+</FieldTemplate>
+`;
+
+exports[`Text field should render readonly input 1`] = `
+<FieldTemplate
+  description="my text input hint"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={true}
+  label="My input title"
+  required={true}
+>
+  <input
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={false}
+    aria-required={true}
+    autoFocus={true}
+    className="form-control"
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type something here"
+    readOnly={true}
+    type="text"
+    value="toto"
+  />
+</FieldTemplate>
+`;

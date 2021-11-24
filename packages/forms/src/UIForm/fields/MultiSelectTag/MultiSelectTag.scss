@@ -1,0 +1,56 @@
+$tf-datalist-items-background-color: $white !default;
+$tf-datalist-items-shadow-color: $shadow !default;
+$tf-typeahead-input-width: 135px !default;
+$tc-badge-margin: $padding-smaller !default;
+
+.wrapper {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+
+	border: 1px solid $input-border;
+	height: auto;
+	padding: 0;
+
+	input {
+		border: none;
+	}
+
+	.focus-manager {
+		flex-grow: 1;
+		outline: none;
+	}
+
+	.typeahead {
+		flex-grow: 1;
+
+		> div {
+			width: 100%;
+		}
+
+		.items-container {
+			position: absolute;
+			margin-top: $padding-smaller;
+			top: 100%;
+			right: 0;
+			left: 0;
+			max-height: 70vh;
+			min-width: $tf-typeahead-input-width;
+			font-size: 1.5rem;
+			background-color: $tf-datalist-items-background-color;
+			border-radius: $border-radius-base;
+			box-shadow: 0 1px 3px 0 $tf-datalist-items-shadow-color;
+		}
+
+		.items {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+
+			> li > div {
+				padding: $padding-smaller;
+			}
+		}
+	}
+}

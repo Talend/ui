@@ -1,0 +1,80 @@
+$tc-action-bar-background-color: $wild-sand !default;
+$tc-action-bar-margin: $padding-small $padding-large $padding-small 0 !default;
+
+.tc-actionbar-container {
+	padding: 0 $padding-small;
+	background: $tc-action-bar-background-color;
+	width: 100%;
+	display: flex;
+
+	.navbar-left,
+	.navbar-right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		> * {
+			margin: $tc-action-bar-margin;
+		}
+
+		> :last-child {
+			margin-right: 0;
+		}
+	}
+
+	.navbar-right {
+		margin-right: 0;
+		margin-left: auto;
+	}
+
+	.navbar-center {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
+	}
+
+	:global(.navbar-form),
+	:global(.navbar-btn) {
+		margin: $tc-action-bar-margin;
+	}
+
+	:global(.navbar-text),
+	:global(.navbar-link) {
+		margin: $padding-normal $padding-larger $padding-small 0;
+	}
+
+	:global(.navbar-form) {
+		:global(.form-group) {
+			padding-top: inherit;
+		}
+
+		button {
+			margin: 0;
+		}
+	}
+
+	:global(.btn-icon-text) {
+		margin: $padding-small $padding-normal $padding-small 0;
+
+		&:global(.separated):after {
+			content: '|';
+			color: $silver;
+			margin-left: $padding-large;
+		}
+	}
+
+	:global(.divider) {
+		color: $silver;
+		margin-right: $padding-normal;
+	}
+}
+
+:global(.modal-footer) .tc-actionbar-container {
+	background-color: $wild-sand;
+	.navbar-left > *,
+	.navbar-center > *,
+	.navbar-right > * {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}

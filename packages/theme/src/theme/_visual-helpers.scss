@@ -1,0 +1,211 @@
+/// Define button colors based on its background
+/// @access public
+/// @param {Color} $btn-bg [$btn-default-bg] - button background color to tint
+/// @deprecated
+@mixin btn-colors($btn-bg: $btn-default-bg) {
+	box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0.15) inset;
+
+	&:focus,
+	&.focus,
+	&:hover {
+		background-color: $btn-bg;
+		border-color: $btn-bg;
+	}
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:active,
+	&.active,
+	.open > &.dropdown-toggle {
+		&,
+		&.focus,
+		&:focus,
+		&:hover {
+			opacity: 1;
+			background-color: shade($btn-bg, 12%);
+			border-color: shade($btn-bg, 12%);
+			box-shadow: none;
+		}
+	}
+
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&.focus {
+			opacity: 0.4;
+		}
+	}
+}
+
+/// Define inverse button colors based on the button color
+/// @access public
+/// @param {Color} $btn-color [$btn-default-bg] - button background color to tint
+/// @deprecated
+@mixin btn-inverse-colors($btn-color: $btn-default-bg) {
+	// we have a border but we cannot use box-sizing: border-box because we don't have a height.
+	// so we change the line-height to match 3.5rem ($btn-line-height) - borders
+	$border-width: 0.15rem;
+
+	&.btn-inverse {
+		background-color: transparent;
+		color: $btn-color;
+		box-shadow: none;
+		border: $border-width solid $btn-color;
+		line-height: $btn-line-height - (2 * $border-width);
+		// this is to avoid background issue in case of an inverse button
+		// being in disabled and focused state
+		&:disabled,
+		&.disabled {
+			&:focus,
+			&:hover {
+				background-color: transparent;
+				border: $border-width solid $btn-color;
+			}
+		}
+
+		&:active,
+		&.active,
+		.open > &.dropdown-toggle {
+			&,
+			&.focus,
+			&:focus,
+			&:hover {
+				background-color: transparent;
+				color: shade($btn-color, 12%);
+				border-color: shade($btn-color, 12%);
+			}
+		}
+	}
+}
+
+/// Define gradient based webapp layouts
+/// @access public
+/// @param {Color} $brand-primary - primary color of product
+/// @param {Color} $brand-secondary [$brand-primary] - secondary color of product
+/// @param {String} $app-key - app key used by the icon as prefix in its name
+@mixin layout-colors($brand-primary, $brand-secondary: $brand-primary, $app-key: '') {
+	$logo-size: 31rem !default;
+
+	[role='banner'] {
+		nav {
+			$gradient-angle: 'to right';
+			background: linear-gradient(#{$gradient-angle}, $regal-blue 20%, $brand-primary 80%);
+		}
+
+		[role='heading'] {
+			span:first-child {
+				display: inline-flex;
+				align-items: center;
+
+				&:before {
+					display: block;
+					content: '';
+					margin-right: $padding-small;
+					height: $navbar-brand-logo-height;
+					width: $navbar-brand-logo-height;
+					background-repeat: no-repeat;
+					@if ($app-key != '') {
+						background-color: white;
+						mask-image: #{'url(~@talend/icons/src/svg/products/' + $app-key + '-negative.svg)'};
+					}
+				}
+			}
+
+			svg + span:first-child {
+				&:before {
+					display: none;
+				}
+			}
+		}
+
+		[role='presentation'] {
+			// Sorry, Bootstrap customization sucks
+			.btn,
+			.btn.open,
+			.dropdown.open .btn {
+				&,
+				&:hover {
+					background: none;
+				}
+			}
+
+			.btn {
+				&:hover,
+				&:focus {
+					box-shadow: 0 0 0 200px rgba(255, 255, 255, 0.12) inset;
+				}
+			}
+		}
+	}
+
+	[role='navigation'] {
+		$gradient-angle: 'to bottom';
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+		background: linear-gradient(#{$gradient-angle}, $st-tropaz, $brand-primary 95%);
+
+		.nav-inverse {
+			background-color: transparent;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: -50px;
+			height: $logo-size;
+			width: $logo-size;
+			background-repeat: no-repeat;
+			@if ($app-key != '') {
+				background-color: rgba(255, 255, 255, 0.1);
+				mask-image: #{'url(~@talend/icons/src/svg/products/' + $app-key + '-negative.svg)'};
+			}
+		}
+
+		&[aria-expanded='false']:before {
+			content: none;
+		}
+
+		[role='presentation'] {
+			&[aria-current] {
+				$gradient-angle: 'to right';
+				background: linear-gradient(#{$gradient-angle}, $green-talend -15%, $brand-secondary 45%);
+			}
+
+			&:hover {
+				&:not([aria-current]) {
+					background: none;
+					box-shadow: 0 0 0 200px rgba(255, 255, 255, 0.12) inset;
+				}
+			}
+		}
+	}
+}
+
+/// @deprecated
+@mixin btn-tertiary-colors($color: $btn-default-bg) {
+	&.btn-tertiary {
+		background-color: transparent;
+		box-shadow: none;
+		font-weight: $btn-tertiary-font-weight;
+		line-height: $btn-tertiary-line-height;
+		min-height: $btn-tertiary-line-height;
+		padding: 0 $padding-small;
+		transition: background 0.2s ease-in;
+		color: $color;
+		&:hover,
+		&:focus {
+			color: $color;
+			background: tint($color, 90%);
+		}
+		&:active {
+			background: tint($color, 80%);
+		}
+	}
+}

@@ -1,0 +1,68 @@
+$dropdown-items-max-height: 320px !default;
+$tf-typeahead-section-header-color: #63AEBD !default;
+$tf-typeahead-section-border-color: $gray75 !default;
+
+.dropdown-toggle {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	padding: $padding-normal;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 10;
+	background: transparent;
+	border: none;
+}
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+
+	height: auto;
+	width: 100%;
+
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+
+	.typeahead {
+		flex-grow: 1;
+
+		> div {
+			width: 100%;
+		}
+
+		&[class*='container-open'] .items-container {
+			display: block;
+		}
+	}
+
+	.items-container {
+		display: none;
+		position: absolute;
+		width: 100%;
+		top: 100%;
+		max-height: $dropdown-items-max-height;
+		min-width: 135px;
+		background-color: $white;
+		border-radius: $border-radius-base;
+		box-shadow: 0 1px 3px 0 $shadow;
+		overflow-y: hidden;
+		z-index: 999;
+
+		.section-title {
+			padding: $padding-large $padding-normal $padding-smaller $padding-normal;
+			color: $tf-typeahead-section-header-color;
+			border-top: 1px solid $tf-typeahead-section-border-color;
+		}
+	}
+}
+
+.readonly {
+	.wrapper {
+		border: none;
+		box-shadow: none;
+		pointer-events: none;
+	}
+}

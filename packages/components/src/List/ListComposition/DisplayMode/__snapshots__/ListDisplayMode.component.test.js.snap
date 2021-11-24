@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List DisplayMode should render 1`] = `
+<ListDisplayMode
+  displayModesOptions={
+    Array [
+      "table",
+      "large",
+    ]
+  }
+  id="myDisplayMode"
+>
+  <div
+    className="tc-display-mode-toggle theme-tc-display-mode-toggle"
+  >
+    <Memo()
+      displayMode="table"
+      displayModeOption="table"
+      icon="talend-table"
+      id="myDisplayMode"
+      key="table"
+      onSelect={[Function]}
+    >
+      <ActionIconToggle
+        active={true}
+        disabled={true}
+        icon="talend-table"
+        id="myDisplayMode-table"
+        key="table"
+        label="Set Table as current display mode."
+        onClick={[Function]}
+        tick={false}
+        tooltipPlacement="top"
+      >
+        <TooltipTrigger
+          label="Set Table as current display mode."
+          tooltipPlacement="top"
+        >
+          <Button
+            active={false}
+            aria-describedby="42"
+            aria-label="Set Table as current display mode."
+            aria-pressed={true}
+            block={false}
+            bsClass="btn"
+            bsStyle="link"
+            className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
+            disabled={true}
+            id="myDisplayMode-table"
+            key=".0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            <button
+              aria-describedby="42"
+              aria-label="Set Table as current display mode."
+              aria-pressed={true}
+              className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
+              disabled={true}
+              id="myDisplayMode-table"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
+            >
+              <Icon
+                name="talend-table"
+              >
+                <Coral.Icon
+                  name="talend-table"
+                />
+              </Icon>
+            </button>
+          </Button>
+        </TooltipTrigger>
+      </ActionIconToggle>
+    </Memo()>
+    <Memo()
+      displayMode="table"
+      displayModeOption="large"
+      icon="talend-expanded"
+      id="myDisplayMode"
+      key="large"
+      onSelect={[Function]}
+    >
+      <ActionIconToggle
+        active={false}
+        disabled={false}
+        icon="talend-expanded"
+        id="myDisplayMode-large"
+        key="large"
+        label="Set Expanded as current display mode."
+        onClick={[Function]}
+        tick={false}
+        tooltipPlacement="top"
+      >
+        <TooltipTrigger
+          label="Set Expanded as current display mode."
+          tooltipPlacement="top"
+        >
+          <Button
+            active={false}
+            aria-describedby="42"
+            aria-label="Set Expanded as current display mode."
+            aria-pressed={false}
+            block={false}
+            bsClass="btn"
+            bsStyle="link"
+            className="tc-icon-toggle theme-tc-icon-toggle"
+            disabled={false}
+            id="myDisplayMode-large"
+            key=".0"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            <button
+              aria-describedby="42"
+              aria-label="Set Expanded as current display mode."
+              aria-pressed={false}
+              className="tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+              disabled={false}
+              id="myDisplayMode-large"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
+            >
+              <Icon
+                name="talend-expanded"
+              >
+                <Coral.Icon
+                  name="talend-expanded"
+                />
+              </Icon>
+            </button>
+          </Button>
+        </TooltipTrigger>
+      </ActionIconToggle>
+    </Memo()>
+  </div>
+</ListDisplayMode>
+`;

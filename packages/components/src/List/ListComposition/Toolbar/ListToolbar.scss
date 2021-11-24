@@ -1,0 +1,56 @@
+$tc-list-toolbar-display-color: $silver !default;
+$tc-list-toolbar-background-color: $wild-sand !default;
+
+$tc-toolbar-height: 7rem;
+
+.tc-list-toolbar {
+	display: flex;
+	height: $tc-toolbar-height;
+	max-height: $tc-toolbar-height;
+
+	padding-left: $padding-larger;
+	padding-right: $padding-larger;
+
+	background: $tc-list-toolbar-background-color;
+	border-top: 1px solid $alto;
+	border-bottom: 1px solid $alto;
+	margin-bottom: 0;
+	flex-shrink: 0;
+	flex-grow: 0;
+
+	:global(.tc-actionbar-container) {
+		padding: 0;
+		flex: 1 0 0%;
+	}
+
+	&-right {
+		align-items: center;
+		display: flex;
+		margin: {
+			left: auto;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	&-separated {
+		display: flex;
+	}
+	&-separated:not(:first-child):before {
+		align-self: center;
+		content: '|';
+		color: $silver;
+		padding: 0 $padding-normal;
+	}
+
+	> :global(.container-fluid) {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		padding: 0;
+	}
+
+	:global(button[role='search'][type='button']) {
+		padding: 0;
+	}
+}

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#QualityIndicator should not render when quality index is different of QUALITY_INVALID_KEY 1`] = `null`;
+
+exports[`#QualityIndicator should render when quality index is QUALITY_INVALID_KEY 1`] = `
+<div
+  className="theme-td-cell-quality-indicator td-cell-quality-indicator theme-td-cell-quality-indicator-invalid"
+  title="Invalid value"
+/>
+`;

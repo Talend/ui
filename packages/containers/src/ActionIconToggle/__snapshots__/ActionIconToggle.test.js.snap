@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Action Icon Toggle should render 1`] = `
+<ActionIconToggle
+  active={true}
+  className="my-awesome-classname"
+  icon="talend-awesome-icon"
+  id="my-awesome-action-id"
+  label="My awesome label"
+  onClick={[Function]}
+  payload={
+    Object {
+      "type": "TOGGLE-MY-AWESOME-ACTION",
+    }
+  }
+  tick={false}
+  tooltipPlacement="top"
+/>
+`;

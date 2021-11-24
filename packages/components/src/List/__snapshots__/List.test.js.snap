@@ -1,0 +1,2453 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List should not render the toolbar without toolbar props 1`] = `
+<div
+  className="tc-list theme-list"
+>
+  <ListToolbar
+    components={Object {}}
+    displayMode="table"
+    list={
+      Object {
+        "columns": Array [
+          Object {
+            "key": "id",
+            "label": "Id",
+          },
+          Object {
+            "key": "name",
+            "label": "Name",
+          },
+        ],
+        "itemProps": Object {
+          "isSelected": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
+        },
+        "items": Array [
+          Object {
+            "id": 1,
+            "name": "Hello world",
+          },
+          Object {
+            "id": 2,
+            "name": "Foo",
+          },
+          Object {
+            "id": 3,
+            "name": "Bar",
+          },
+        ],
+        "titleProps": Object {
+          "actionsKey": "actions",
+          "onClick": [MockFunction],
+          "persistentActionsKey": "persistentActions",
+        },
+      }
+    }
+  />
+  <div
+    className="tc-list-display-virtualized"
+  >
+    <ListToVirtualizedList
+      columns={
+        Array [
+          Object {
+            "key": "id",
+            "label": "Id",
+          },
+          Object {
+            "key": "name",
+            "label": "Name",
+          },
+        ]
+      }
+      displayMode="table"
+      itemProps={
+        Object {
+          "isSelected": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
+        }
+      }
+      items={
+        Array [
+          Object {
+            "id": 1,
+            "name": "Hello world",
+          },
+          Object {
+            "id": 2,
+            "name": "Foo",
+          },
+          Object {
+            "id": 3,
+            "name": "Bar",
+          },
+        ]
+      }
+      titleProps={
+        Object {
+          "actionsKey": "actions",
+          "onClick": [MockFunction],
+          "persistentActionsKey": "persistentActions",
+        }
+      }
+    >
+      <VirtualizedList
+        collection={
+          Array [
+            Object {
+              "id": 1,
+              "name": "Hello world",
+            },
+            Object {
+              "id": 2,
+              "name": "Foo",
+            },
+            Object {
+              "id": 3,
+              "name": "Bar",
+            },
+          ]
+        }
+        defaultHeight={250}
+        isSelected={[Function]}
+        onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
+        selectionMode="MULTI"
+        selectionToggle={[MockFunction]}
+        sort={null}
+        sortDirection="ASC"
+        type="TABLE"
+      >
+        <AutoSizer
+          disableHeight={false}
+          disableWidth={false}
+          onResize={[Function]}
+          style={Object {}}
+        >
+          <div
+            style={
+              Object {
+                "height": 0,
+                "overflow": "visible",
+                "width": 0,
+              }
+            }
+          >
+            <VirtualizedList(RendererSelector)
+              collection={
+                Array [
+                  Object {
+                    "id": 1,
+                    "name": "Hello world",
+                  },
+                  Object {
+                    "id": 2,
+                    "name": "Foo",
+                  },
+                  Object {
+                    "id": 3,
+                    "name": "Bar",
+                  },
+                ]
+              }
+              height={250}
+              isSelected={[Function]}
+              noRowsRenderer={[Function]}
+              onRowDoubleClick={[MockFunction]}
+              sort={null}
+              sortDirection="ASC"
+              type="TABLE"
+              width={0}
+            >
+              <VirtualizedList(ListTable)
+                collection={
+                  Array [
+                    Object {
+                      "id": 1,
+                      "name": "Hello world",
+                    },
+                    Object {
+                      "id": 2,
+                      "name": "Foo",
+                    },
+                    Object {
+                      "id": 3,
+                      "name": "Bar",
+                    },
+                  ]
+                }
+                disableHeader={false}
+                height={250}
+                isSelected={[Function]}
+                noRowsRenderer={[Function]}
+                onRowDoubleClick={[MockFunction]}
+                rowHeight={50}
+                sort={null}
+                sortDirection="ASC"
+                width={0}
+              >
+                <Table
+                  className="tc-list-table theme-tc-list-table"
+                  disableHeader={false}
+                  estimatedRowSize={30}
+                  gridClassName="theme-grid tc-dropdown-container"
+                  headerHeight={40}
+                  headerRowRenderer={[Function]}
+                  headerStyle={Object {}}
+                  height={250}
+                  noRowsRenderer={[Function]}
+                  onRowDoubleClick={[Function]}
+                  onRowsRendered={[Function]}
+                  onScroll={[Function]}
+                  overscanIndicesGetter={[Function]}
+                  overscanRowCount={10}
+                  rowClassName={[Function]}
+                  rowCount={3}
+                  rowGetter={[Function]}
+                  rowHeight={50}
+                  rowRenderer={[Function]}
+                  rowStyle={Object {}}
+                  scrollToAlignment="auto"
+                  scrollToIndex={-1}
+                  sort={null}
+                  sortDirection="ASC"
+                  style={Object {}}
+                  width={0}
+                >
+                  <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
+                    className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
+                    role="grid"
+                    style={Object {}}
+                  >
+                    <div
+                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
+                      role="row"
+                      style={
+                        Object {
+                          "height": 40,
+                          "overflow": "hidden",
+                          "paddingRight": 0,
+                          "width": 0,
+                        }
+                      }
+                    >
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-"
+                        id="tc-list-internal-row-selector"
+                        key="Header-Col0"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 35px",
+                            "flex": "0 0 35px",
+                            "msFlex": "0 0 35px",
+                          }
+                        }
+                      >
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "getRowState": undefined,
+                              "id": undefined,
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                              "selectionMode": "MULTI",
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                          t={[Function]}
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                              title="Select All"
+                            >
+                              <label>
+                                <Checkbox
+                                  checked={false}
+                                  data-feature="list.select_all"
+                                  disabled={false}
+                                  intermediate={0}
+                                  onChange={[MockFunction]}
+                                  type="checkbox"
+                                >
+                                  <div
+                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                  >
+                                    <label
+                                      data-feature="list.select_all.enable"
+                                    >
+                                      <input
+                                        checked={false}
+                                        data-checked={0}
+                                        disabled={false}
+                                        onChange={[MockFunction]}
+                                        type="checkbox"
+                                      />
+                                      <span />
+                                    </label>
+                                  </div>
+                                </Checkbox>
+                                <span
+                                  className="sr-only"
+                                >
+                                  Select All
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
+                      </div>
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"
+                        key="Header-Col1"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
+                          }
+                        }
+                      >
+                        <span
+                          className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
+                          title="Id"
+                        >
+                          Id
+                        </span>
+                      </div>
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-name"
+                        key="Header-Col2"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
+                          }
+                        }
+                      >
+                        <span
+                          className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
+                          title="Name"
+                        >
+                          Name
+                        </span>
+                      </div>
+                    </div>
+                    <Grid
+                      aria-label="grid"
+                      aria-readonly={true}
+                      autoContainerWidth={true}
+                      autoHeight={false}
+                      autoWidth={false}
+                      cellRangeRenderer={[Function]}
+                      cellRenderer={[Function]}
+                      className="ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+                      columnCount={1}
+                      columnWidth={0}
+                      containerRole="rowgroup"
+                      containerStyle={Object {}}
+                      disableHeader={false}
+                      estimatedColumnSize={100}
+                      estimatedRowSize={30}
+                      getScrollbarSize={[Function]}
+                      gridClassName="theme-grid tc-dropdown-container"
+                      headerHeight={40}
+                      headerRowRenderer={[Function]}
+                      headerStyle={Object {}}
+                      height={210}
+                      isScrollingOptOut={false}
+                      noContentRenderer={[Function]}
+                      noRowsRenderer={[Function]}
+                      onRowDoubleClick={[Function]}
+                      onRowsRendered={[Function]}
+                      onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
+                      onSectionRendered={[Function]}
+                      overscanColumnCount={0}
+                      overscanIndicesGetter={[Function]}
+                      overscanRowCount={10}
+                      role="rowgroup"
+                      rowClassName={[Function]}
+                      rowCount={3}
+                      rowGetter={[Function]}
+                      rowHeight={50}
+                      rowRenderer={[Function]}
+                      rowStyle={Object {}}
+                      scrollToAlignment="auto"
+                      scrollToColumn={-1}
+                      scrollToIndex={-1}
+                      scrollToRow={-1}
+                      scrollbarWidth={0}
+                      scrollingResetTimeInterval={150}
+                      sort={null}
+                      sortDirection="ASC"
+                      style={
+                        Object {
+                          "overflowX": "hidden",
+                        }
+                      }
+                      tabIndex={0}
+                      width={0}
+                    >
+                      <div
+                        aria-label="grid"
+                        aria-readonly={true}
+                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+                        onScroll={[Function]}
+                        role="rowgroup"
+                        style={
+                          Object {
+                            "WebkitOverflowScrolling": "touch",
+                            "boxSizing": "border-box",
+                            "direction": "ltr",
+                            "height": 210,
+                            "overflowX": "hidden",
+                            "overflowY": "hidden",
+                            "position": "relative",
+                            "width": 0,
+                            "willChange": "transform",
+                          }
+                        }
+                        tabIndex={0}
+                      />
+                    </Grid>
+                  </div>
+                </Table>
+              </VirtualizedList(ListTable)>
+            </VirtualizedList(RendererSelector)>
+          </div>
+        </AutoSizer>
+      </VirtualizedList>
+    </ListToVirtualizedList>
+  </div>
+</div>
+`;
+
+exports[`List should render 1`] = `
+<div
+  className="tc-list theme-list"
+>
+  <ListToolbar
+    components={Object {}}
+    displayMode="table"
+    list={
+      Object {
+        "columns": Array [
+          Object {
+            "key": "id",
+            "label": "Id",
+          },
+          Object {
+            "key": "name",
+            "label": "Name",
+          },
+        ],
+        "itemProps": Object {
+          "isSelected": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
+        },
+        "items": Array [
+          Object {
+            "id": 1,
+            "name": "Hello world",
+          },
+          Object {
+            "id": 2,
+            "name": "Foo",
+          },
+          Object {
+            "id": 3,
+            "name": "Bar",
+          },
+        ],
+        "titleProps": Object {
+          "actionsKey": "actions",
+          "onClick": [MockFunction],
+          "persistentActionsKey": "persistentActions",
+        },
+      }
+    }
+    toolbar={
+      Object {
+        "display": Object {
+          "mode": "table",
+          "onChange": [MockFunction],
+        },
+        "filter": Object {
+          "onFilter": [MockFunction],
+          "onToggle": [MockFunction],
+        },
+        "pagination": Object {
+          "itemsPerPage": 5,
+          "onChange": [MockFunction],
+          "startIndex": 6,
+          "totalResults": 13,
+        },
+        "sort": Object {
+          "field": "name",
+          "onChange": [MockFunction],
+          "options": Array [
+            Object {
+              "id": "id",
+              "name": "Id",
+            },
+            Object {
+              "id": "name",
+              "name": "Name",
+            },
+          ],
+        },
+      }
+    }
+  >
+    <withI18nextTranslation(Toolbar)
+      components={Object {}}
+      display={
+        Object {
+          "mode": "table",
+          "onChange": [MockFunction],
+        }
+      }
+      filter={
+        Object {
+          "onFilter": [MockFunction],
+          "onToggle": [MockFunction],
+        }
+      }
+      pagination={
+        Object {
+          "itemsPerPage": 5,
+          "onChange": [MockFunction],
+          "startIndex": 6,
+          "totalResults": 13,
+        }
+      }
+      sort={false}
+      t={[Function]}
+    >
+      <div
+        className="theme-tc-list-toolbar tc-list-toolbar"
+      >
+        <Uncontrolled(Navbar)
+          bsStyle="default"
+          className="theme-tc-list-toolbar"
+          componentClass="div"
+          fluid={true}
+          role="toolbar"
+        >
+          <Navbar
+            bsClass="navbar"
+            bsStyle="default"
+            className="theme-tc-list-toolbar"
+            collapseOnSelect={false}
+            componentClass="div"
+            fixedBottom={false}
+            fixedTop={false}
+            fluid={true}
+            inverse={false}
+            onToggle={[Function]}
+            role="toolbar"
+            staticTop={false}
+          >
+            <div
+              className="theme-tc-list-toolbar navbar navbar-default"
+              role="toolbar"
+            >
+              <Grid
+                bsClass="container"
+                componentClass="div"
+                fluid={true}
+              >
+                <div
+                  className="container-fluid"
+                >
+                  <Label
+                    text="Show:"
+                  >
+                    <NavbarText
+                      componentClass="p"
+                      pullLeft={false}
+                      pullRight={false}
+                    >
+                      <p
+                        className="navbar-text"
+                      >
+                        <label>
+                          Show:
+                        </label>
+                      </p>
+                    </NavbarText>
+                  </Label>
+                  <Pagination
+                    itemsPerPage={5}
+                    itemsPerPageOptions={
+                      Array [
+                        5,
+                        10,
+                        20,
+                        50,
+                      ]
+                    }
+                    onChange={[MockFunction]}
+                    startIndex={6}
+                    t={[Function]}
+                    totalResults={13}
+                  >
+                    <Nav
+                      bsClass="nav"
+                      className="theme-tc-pagination"
+                      justified={false}
+                      onSelect={[Function]}
+                      pullLeft={false}
+                      pullRight={false}
+                      stacked={false}
+                    >
+                      <ul
+                        className="theme-tc-pagination nav navbar-nav"
+                        role={null}
+                      >
+                        <NavDropdown
+                          id="42"
+                          key=".0"
+                          onSelect={[Function]}
+                          title={5}
+                        >
+                          <Uncontrolled(Dropdown)
+                            className=""
+                            componentClass="li"
+                            id="42"
+                            onSelect={[Function]}
+                          >
+                            <Dropdown
+                              bsClass="dropdown"
+                              className=""
+                              componentClass="li"
+                              id="42"
+                              onSelect={[Function]}
+                              onToggle={[Function]}
+                            >
+                              <li
+                                className="dropdown"
+                              >
+                                <DropdownToggle
+                                  bsClass="dropdown-toggle"
+                                  bsRole="toggle"
+                                  id="42"
+                                  key=".0"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  open={false}
+                                  useAnchor={true}
+                                >
+                                  <SafeAnchor
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    className="dropdown-toggle"
+                                    componentClass="a"
+                                    id="42"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="button"
+                                  >
+                                    <a
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      className="dropdown-toggle"
+                                      href="#"
+                                      id="42"
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="button"
+                                    >
+                                      5
+                                       
+                                      <span
+                                        className="caret"
+                                      />
+                                    </a>
+                                  </SafeAnchor>
+                                </DropdownToggle>
+                                <DropdownMenu
+                                  bsClass="dropdown-menu"
+                                  bsRole="menu"
+                                  key=".1"
+                                  labelledBy="42"
+                                  onClose={[Function]}
+                                  onSelect={[Function]}
+                                  pullRight={false}
+                                >
+                                  <RootCloseWrapper
+                                    disabled={true}
+                                    event="click"
+                                    onRootClose={[Function]}
+                                  >
+                                    <ul
+                                      aria-labelledby="42"
+                                      className="dropdown-menu"
+                                      role="menu"
+                                    >
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={5}
+                                        header={false}
+                                        key=".$.$0"
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}
+                                      >
+                                        <li
+                                          className=""
+                                          role="presentation"
+                                        >
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1"
+                                          >
+                                            <a
+                                              href="#"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              5
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={10}
+                                        header={false}
+                                        key=".$.$1"
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}
+                                      >
+                                        <li
+                                          className=""
+                                          role="presentation"
+                                        >
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1"
+                                          >
+                                            <a
+                                              href="#"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              10
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={20}
+                                        header={false}
+                                        key=".$.$2"
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}
+                                      >
+                                        <li
+                                          className=""
+                                          role="presentation"
+                                        >
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1"
+                                          >
+                                            <a
+                                              href="#"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              20
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={50}
+                                        header={false}
+                                        key=".$.$3"
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}
+                                      >
+                                        <li
+                                          className=""
+                                          role="presentation"
+                                        >
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1"
+                                          >
+                                            <a
+                                              href="#"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              50
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                    </ul>
+                                  </RootCloseWrapper>
+                                </DropdownMenu>
+                              </li>
+                            </Dropdown>
+                          </Uncontrolled(Dropdown)>
+                        </NavDropdown>
+                        <NavItem
+                          active={false}
+                          aria-label="Go to first page."
+                          className="btn-link"
+                          disabled={false}
+                          eventKey="first"
+                          key=".1:$first"
+                          onSelect={[Function]}
+                        >
+                          <li
+                            className="btn-link"
+                            role="presentation"
+                          >
+                            <SafeAnchor
+                              aria-label="Go to first page."
+                              componentClass="a"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              <a
+                                aria-label="Go to first page."
+                                href="#"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="button"
+                              >
+                                <Icon
+                                  name="talend-chevron-end"
+                                >
+                                  <Coral.Icon
+                                    name="talend-chevron-end"
+                                  />
+                                </Icon>
+                              </a>
+                            </SafeAnchor>
+                          </li>
+                        </NavItem>
+                        <NavItem
+                          active={false}
+                          aria-label="Go to previous page. Current page: 2."
+                          className="btn-link"
+                          disabled={false}
+                          eventKey="prev"
+                          key=".1:$prev"
+                          onSelect={[Function]}
+                        >
+                          <li
+                            className="btn-link"
+                            role="presentation"
+                          >
+                            <SafeAnchor
+                              aria-label="Go to previous page. Current page: 2."
+                              componentClass="a"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              <a
+                                aria-label="Go to previous page. Current page: 2."
+                                href="#"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="button"
+                              >
+                                <Icon
+                                  name="talend-chevron-left"
+                                >
+                                  <Coral.Icon
+                                    name="talend-chevron-left"
+                                  />
+                                </Icon>
+                              </a>
+                            </SafeAnchor>
+                          </li>
+                        </NavItem>
+                        <li
+                          className="theme-page-index"
+                          key=".1:2"
+                          onSelect={[Function]}
+                        >
+                          2
+                          /
+                          3
+                        </li>
+                        <NavItem
+                          active={false}
+                          aria-label="Go to next page. Current page: 2."
+                          className="btn-link"
+                          disabled={false}
+                          eventKey="next"
+                          key=".1:$next"
+                          onSelect={[Function]}
+                        >
+                          <li
+                            className="btn-link"
+                            role="presentation"
+                          >
+                            <SafeAnchor
+                              aria-label="Go to next page. Current page: 2."
+                              componentClass="a"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              <a
+                                aria-label="Go to next page. Current page: 2."
+                                href="#"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="button"
+                              >
+                                <Icon
+                                  name="talend-chevron-left"
+                                  transform="rotate-180"
+                                >
+                                  <Coral.Icon
+                                    name="talend-chevron-left"
+                                    transform="rotate-180"
+                                  />
+                                </Icon>
+                              </a>
+                            </SafeAnchor>
+                          </li>
+                        </NavItem>
+                        <NavItem
+                          active={false}
+                          aria-label="Go to last page."
+                          className="btn-link"
+                          disabled={false}
+                          eventKey="last"
+                          key=".1:$last"
+                          onSelect={[Function]}
+                        >
+                          <li
+                            className="btn-link"
+                            role="presentation"
+                          >
+                            <SafeAnchor
+                              aria-label="Go to last page."
+                              componentClass="a"
+                              disabled={false}
+                              onClick={[Function]}
+                            >
+                              <a
+                                aria-label="Go to last page."
+                                href="#"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="button"
+                              >
+                                <Icon
+                                  name="talend-chevron-end"
+                                  transform="rotate-180"
+                                >
+                                  <Coral.Icon
+                                    name="talend-chevron-end"
+                                    transform="rotate-180"
+                                  />
+                                </Icon>
+                              </a>
+                            </SafeAnchor>
+                          </li>
+                        </NavItem>
+                      </ul>
+                    </Nav>
+                  </Pagination>
+                </div>
+              </Grid>
+            </div>
+          </Navbar>
+        </Uncontrolled(Navbar)>
+      </div>
+    </withI18nextTranslation(Toolbar)>
+  </ListToolbar>
+  <div
+    className="tc-list-display-virtualized"
+  >
+    <ListToVirtualizedList
+      columns={
+        Array [
+          Object {
+            "key": "id",
+            "label": "Id",
+          },
+          Object {
+            "key": "name",
+            "label": "Name",
+          },
+        ]
+      }
+      displayMode="table"
+      itemProps={
+        Object {
+          "isSelected": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
+        }
+      }
+      items={
+        Array [
+          Object {
+            "id": 1,
+            "name": "Hello world",
+          },
+          Object {
+            "id": 2,
+            "name": "Foo",
+          },
+          Object {
+            "id": 3,
+            "name": "Bar",
+          },
+        ]
+      }
+      titleProps={
+        Object {
+          "actionsKey": "actions",
+          "onClick": [MockFunction],
+          "persistentActionsKey": "persistentActions",
+        }
+      }
+    >
+      <VirtualizedList
+        collection={
+          Array [
+            Object {
+              "id": 1,
+              "name": "Hello world",
+            },
+            Object {
+              "id": 2,
+              "name": "Foo",
+            },
+            Object {
+              "id": 3,
+              "name": "Bar",
+            },
+          ]
+        }
+        defaultHeight={250}
+        isSelected={[Function]}
+        onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
+        selectionMode="MULTI"
+        selectionToggle={[MockFunction]}
+        sort={null}
+        sortDirection="ASC"
+        type="TABLE"
+      >
+        <AutoSizer
+          disableHeight={false}
+          disableWidth={false}
+          onResize={[Function]}
+          style={Object {}}
+        >
+          <div
+            style={
+              Object {
+                "height": 0,
+                "overflow": "visible",
+                "width": 0,
+              }
+            }
+          >
+            <VirtualizedList(RendererSelector)
+              collection={
+                Array [
+                  Object {
+                    "id": 1,
+                    "name": "Hello world",
+                  },
+                  Object {
+                    "id": 2,
+                    "name": "Foo",
+                  },
+                  Object {
+                    "id": 3,
+                    "name": "Bar",
+                  },
+                ]
+              }
+              height={250}
+              isSelected={[Function]}
+              noRowsRenderer={[Function]}
+              onRowDoubleClick={[MockFunction]}
+              sort={null}
+              sortDirection="ASC"
+              type="TABLE"
+              width={0}
+            >
+              <VirtualizedList(ListTable)
+                collection={
+                  Array [
+                    Object {
+                      "id": 1,
+                      "name": "Hello world",
+                    },
+                    Object {
+                      "id": 2,
+                      "name": "Foo",
+                    },
+                    Object {
+                      "id": 3,
+                      "name": "Bar",
+                    },
+                  ]
+                }
+                disableHeader={false}
+                height={250}
+                isSelected={[Function]}
+                noRowsRenderer={[Function]}
+                onRowDoubleClick={[MockFunction]}
+                rowHeight={50}
+                sort={null}
+                sortDirection="ASC"
+                width={0}
+              >
+                <Table
+                  className="tc-list-table theme-tc-list-table"
+                  disableHeader={false}
+                  estimatedRowSize={30}
+                  gridClassName="theme-grid tc-dropdown-container"
+                  headerHeight={40}
+                  headerRowRenderer={[Function]}
+                  headerStyle={Object {}}
+                  height={250}
+                  noRowsRenderer={[Function]}
+                  onRowDoubleClick={[Function]}
+                  onRowsRendered={[Function]}
+                  onScroll={[Function]}
+                  overscanIndicesGetter={[Function]}
+                  overscanRowCount={10}
+                  rowClassName={[Function]}
+                  rowCount={3}
+                  rowGetter={[Function]}
+                  rowHeight={50}
+                  rowRenderer={[Function]}
+                  rowStyle={Object {}}
+                  scrollToAlignment="auto"
+                  scrollToIndex={-1}
+                  sort={null}
+                  sortDirection="ASC"
+                  style={Object {}}
+                  width={0}
+                >
+                  <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
+                    className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
+                    role="grid"
+                    style={Object {}}
+                  >
+                    <div
+                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
+                      role="row"
+                      style={
+                        Object {
+                          "height": 40,
+                          "overflow": "hidden",
+                          "paddingRight": 0,
+                          "width": 0,
+                        }
+                      }
+                    >
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-"
+                        id="tc-list-internal-row-selector"
+                        key="Header-Col0"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 35px",
+                            "flex": "0 0 35px",
+                            "msFlex": "0 0 35px",
+                          }
+                        }
+                      >
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "getRowState": undefined,
+                              "id": undefined,
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                              "selectionMode": "MULTI",
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                          t={[Function]}
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                              title="Select All"
+                            >
+                              <label>
+                                <Checkbox
+                                  checked={false}
+                                  data-feature="list.select_all"
+                                  disabled={false}
+                                  intermediate={0}
+                                  onChange={[MockFunction]}
+                                  type="checkbox"
+                                >
+                                  <div
+                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                  >
+                                    <label
+                                      data-feature="list.select_all.enable"
+                                    >
+                                      <input
+                                        checked={false}
+                                        data-checked={0}
+                                        disabled={false}
+                                        onChange={[MockFunction]}
+                                        type="checkbox"
+                                      />
+                                      <span />
+                                    </label>
+                                  </div>
+                                </Checkbox>
+                                <span
+                                  className="sr-only"
+                                >
+                                  Select All
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
+                      </div>
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"
+                        key="Header-Col1"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
+                          }
+                        }
+                      >
+                        <span
+                          className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
+                          title="Id"
+                        >
+                          Id
+                        </span>
+                      </div>
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-name"
+                        key="Header-Col2"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
+                          }
+                        }
+                      >
+                        <span
+                          className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
+                          title="Name"
+                        >
+                          Name
+                        </span>
+                      </div>
+                    </div>
+                    <Grid
+                      aria-label="grid"
+                      aria-readonly={true}
+                      autoContainerWidth={true}
+                      autoHeight={false}
+                      autoWidth={false}
+                      cellRangeRenderer={[Function]}
+                      cellRenderer={[Function]}
+                      className="ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+                      columnCount={1}
+                      columnWidth={0}
+                      containerRole="rowgroup"
+                      containerStyle={Object {}}
+                      disableHeader={false}
+                      estimatedColumnSize={100}
+                      estimatedRowSize={30}
+                      getScrollbarSize={[Function]}
+                      gridClassName="theme-grid tc-dropdown-container"
+                      headerHeight={40}
+                      headerRowRenderer={[Function]}
+                      headerStyle={Object {}}
+                      height={210}
+                      isScrollingOptOut={false}
+                      noContentRenderer={[Function]}
+                      noRowsRenderer={[Function]}
+                      onRowDoubleClick={[Function]}
+                      onRowsRendered={[Function]}
+                      onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
+                      onSectionRendered={[Function]}
+                      overscanColumnCount={0}
+                      overscanIndicesGetter={[Function]}
+                      overscanRowCount={10}
+                      role="rowgroup"
+                      rowClassName={[Function]}
+                      rowCount={3}
+                      rowGetter={[Function]}
+                      rowHeight={50}
+                      rowRenderer={[Function]}
+                      rowStyle={Object {}}
+                      scrollToAlignment="auto"
+                      scrollToColumn={-1}
+                      scrollToIndex={-1}
+                      scrollToRow={-1}
+                      scrollbarWidth={0}
+                      scrollingResetTimeInterval={150}
+                      sort={null}
+                      sortDirection="ASC"
+                      style={
+                        Object {
+                          "overflowX": "hidden",
+                        }
+                      }
+                      tabIndex={0}
+                      width={0}
+                    >
+                      <div
+                        aria-label="grid"
+                        aria-readonly={true}
+                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+                        onScroll={[Function]}
+                        role="rowgroup"
+                        style={
+                          Object {
+                            "WebkitOverflowScrolling": "touch",
+                            "boxSizing": "border-box",
+                            "direction": "ltr",
+                            "height": 210,
+                            "overflowX": "hidden",
+                            "overflowY": "hidden",
+                            "position": "relative",
+                            "width": 0,
+                            "willChange": "transform",
+                          }
+                        }
+                        tabIndex={0}
+                      />
+                    </Grid>
+                  </div>
+                </Table>
+              </VirtualizedList(ListTable)>
+            </VirtualizedList(RendererSelector)>
+          </div>
+        </AutoSizer>
+      </VirtualizedList>
+    </ListToVirtualizedList>
+  </div>
+</div>
+`;
+
+exports[`List should render id if provided 1`] = `
+<div
+  className="tc-list theme-list"
+>
+  <ListToolbar
+    components={Object {}}
+    displayMode="table"
+    id="context"
+    list={
+      Object {
+        "columns": Array [
+          Object {
+            "key": "id",
+            "label": "Id",
+          },
+          Object {
+            "key": "name",
+            "label": "Name",
+          },
+        ],
+        "itemProps": Object {
+          "isSelected": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
+        },
+        "items": Array [
+          Object {
+            "id": 1,
+            "name": "Hello world",
+          },
+          Object {
+            "id": 2,
+            "name": "Foo",
+          },
+          Object {
+            "id": 3,
+            "name": "Bar",
+          },
+        ],
+        "titleProps": Object {
+          "actionsKey": "actions",
+          "onClick": [MockFunction],
+          "persistentActionsKey": "persistentActions",
+        },
+      }
+    }
+    toolbar={
+      Object {
+        "display": Object {
+          "mode": "table",
+          "onChange": [MockFunction],
+        },
+        "filter": Object {
+          "onFilter": [MockFunction],
+          "onToggle": [MockFunction],
+        },
+        "pagination": Object {
+          "itemsPerPage": 5,
+          "onChange": [MockFunction],
+          "startIndex": 6,
+          "totalResults": 13,
+        },
+        "sort": Object {
+          "field": "name",
+          "onChange": [MockFunction],
+          "options": Array [
+            Object {
+              "id": "id",
+              "name": "Id",
+            },
+            Object {
+              "id": "name",
+              "name": "Name",
+            },
+          ],
+        },
+      }
+    }
+  >
+    <withI18nextTranslation(Toolbar)
+      components={Object {}}
+      display={
+        Object {
+          "mode": "table",
+          "onChange": [MockFunction],
+        }
+      }
+      filter={
+        Object {
+          "onFilter": [MockFunction],
+          "onToggle": [MockFunction],
+        }
+      }
+      id="context"
+      pagination={
+        Object {
+          "itemsPerPage": 5,
+          "onChange": [MockFunction],
+          "startIndex": 6,
+          "totalResults": 13,
+        }
+      }
+      sort={false}
+      t={[Function]}
+    >
+      <div
+        className="theme-tc-list-toolbar tc-list-toolbar"
+      >
+        <Uncontrolled(Navbar)
+          bsStyle="default"
+          className="theme-tc-list-toolbar"
+          componentClass="div"
+          fluid={true}
+          role="toolbar"
+        >
+          <Navbar
+            bsClass="navbar"
+            bsStyle="default"
+            className="theme-tc-list-toolbar"
+            collapseOnSelect={false}
+            componentClass="div"
+            fixedBottom={false}
+            fixedTop={false}
+            fluid={true}
+            inverse={false}
+            onToggle={[Function]}
+            role="toolbar"
+            staticTop={false}
+          >
+            <div
+              className="theme-tc-list-toolbar navbar navbar-default"
+              role="toolbar"
+            >
+              <Grid
+                bsClass="container"
+                componentClass="div"
+                fluid={true}
+              >
+                <div
+                  className="container-fluid"
+                >
+                  <Label
+                    htmlFor="context-pagination-size"
+                    text="Show:"
+                  >
+                    <NavbarText
+                      componentClass="p"
+                      pullLeft={false}
+                      pullRight={false}
+                    >
+                      <p
+                        className="navbar-text"
+                      >
+                        <label
+                          htmlFor="context-pagination-size"
+                        >
+                          Show:
+                        </label>
+                      </p>
+                    </NavbarText>
+                  </Label>
+                  <Pagination
+                    id="context-pagination"
+                    itemsPerPage={5}
+                    itemsPerPageOptions={
+                      Array [
+                        5,
+                        10,
+                        20,
+                        50,
+                      ]
+                    }
+                    onChange={[MockFunction]}
+                    startIndex={6}
+                    t={[Function]}
+                    totalResults={13}
+                  >
+                    <Nav
+                      bsClass="nav"
+                      className="theme-tc-pagination"
+                      justified={false}
+                      onSelect={[Function]}
+                      pullLeft={false}
+                      pullRight={false}
+                      stacked={false}
+                    >
+                      <ul
+                        className="theme-tc-pagination nav navbar-nav"
+                        role={null}
+                      >
+                        <NavDropdown
+                          id="context-pagination-size"
+                          key=".0"
+                          onSelect={[Function]}
+                          title={5}
+                        >
+                          <Uncontrolled(Dropdown)
+                            className=""
+                            componentClass="li"
+                            id="context-pagination-size"
+                            onSelect={[Function]}
+                          >
+                            <Dropdown
+                              bsClass="dropdown"
+                              className=""
+                              componentClass="li"
+                              id="context-pagination-size"
+                              onSelect={[Function]}
+                              onToggle={[Function]}
+                            >
+                              <li
+                                className="dropdown"
+                              >
+                                <DropdownToggle
+                                  bsClass="dropdown-toggle"
+                                  bsRole="toggle"
+                                  id="context-pagination-size"
+                                  key=".0"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  open={false}
+                                  useAnchor={true}
+                                >
+                                  <SafeAnchor
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    className="dropdown-toggle"
+                                    componentClass="a"
+                                    id="context-pagination-size"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="button"
+                                  >
+                                    <a
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      className="dropdown-toggle"
+                                      href="#"
+                                      id="context-pagination-size"
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="button"
+                                    >
+                                      5
+                                       
+                                      <span
+                                        className="caret"
+                                      />
+                                    </a>
+                                  </SafeAnchor>
+                                </DropdownToggle>
+                                <DropdownMenu
+                                  bsClass="dropdown-menu"
+                                  bsRole="menu"
+                                  key=".1"
+                                  labelledBy="context-pagination-size"
+                                  onClose={[Function]}
+                                  onSelect={[Function]}
+                                  pullRight={false}
+                                >
+                                  <RootCloseWrapper
+                                    disabled={true}
+                                    event="click"
+                                    onRootClose={[Function]}
+                                  >
+                                    <ul
+                                      aria-labelledby="context-pagination-size"
+                                      className="dropdown-menu"
+                                      role="menu"
+                                    >
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={5}
+                                        header={false}
+                                        key=".$.$0"
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}
+                                      >
+                                        <li
+                                          className=""
+                                          role="presentation"
+                                        >
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1"
+                                          >
+                                            <a
+                                              href="#"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              5
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={10}
+                                        header={false}
+                                        key=".$.$1"
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}
+                                      >
+                                        <li
+                                          className=""
+                                          role="presentation"
+                                        >
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1"
+                                          >
+                                            <a
+                                              href="#"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              10
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={20}
+                                        header={false}
+                                        key=".$.$2"
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}
+                                      >
+                                        <li
+                                          className=""
+                                          role="presentation"
+                                        >
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1"
+                                          >
+                                            <a
+                                              href="#"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              20
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                      <MenuItem
+                                        bsClass="dropdown"
+                                        disabled={false}
+                                        divider={false}
+                                        eventKey={50}
+                                        header={false}
+                                        key=".$.$3"
+                                        onKeyDown={[Function]}
+                                        onSelect={[Function]}
+                                      >
+                                        <li
+                                          className=""
+                                          role="presentation"
+                                        >
+                                          <SafeAnchor
+                                            componentClass="a"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                            role="menuitem"
+                                            tabIndex="-1"
+                                          >
+                                            <a
+                                              href="#"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              50
+                                            </a>
+                                          </SafeAnchor>
+                                        </li>
+                                      </MenuItem>
+                                    </ul>
+                                  </RootCloseWrapper>
+                                </DropdownMenu>
+                              </li>
+                            </Dropdown>
+                          </Uncontrolled(Dropdown)>
+                        </NavDropdown>
+                        <NavItem
+                          active={false}
+                          aria-label="Go to first page."
+                          className="btn-link"
+                          disabled={false}
+                          eventKey="first"
+                          id="context-pagination-nav-to-first"
+                          key=".1:$first"
+                          onSelect={[Function]}
+                        >
+                          <li
+                            className="btn-link"
+                            role="presentation"
+                          >
+                            <SafeAnchor
+                              aria-label="Go to first page."
+                              componentClass="a"
+                              disabled={false}
+                              id="context-pagination-nav-to-first"
+                              onClick={[Function]}
+                            >
+                              <a
+                                aria-label="Go to first page."
+                                href="#"
+                                id="context-pagination-nav-to-first"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="button"
+                              >
+                                <Icon
+                                  name="talend-chevron-end"
+                                >
+                                  <Coral.Icon
+                                    name="talend-chevron-end"
+                                  />
+                                </Icon>
+                              </a>
+                            </SafeAnchor>
+                          </li>
+                        </NavItem>
+                        <NavItem
+                          active={false}
+                          aria-label="Go to previous page. Current page: 2."
+                          className="btn-link"
+                          disabled={false}
+                          eventKey="prev"
+                          id="context-pagination-nav-to-prev"
+                          key=".1:$prev"
+                          onSelect={[Function]}
+                        >
+                          <li
+                            className="btn-link"
+                            role="presentation"
+                          >
+                            <SafeAnchor
+                              aria-label="Go to previous page. Current page: 2."
+                              componentClass="a"
+                              disabled={false}
+                              id="context-pagination-nav-to-prev"
+                              onClick={[Function]}
+                            >
+                              <a
+                                aria-label="Go to previous page. Current page: 2."
+                                href="#"
+                                id="context-pagination-nav-to-prev"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="button"
+                              >
+                                <Icon
+                                  name="talend-chevron-left"
+                                >
+                                  <Coral.Icon
+                                    name="talend-chevron-left"
+                                  />
+                                </Icon>
+                              </a>
+                            </SafeAnchor>
+                          </li>
+                        </NavItem>
+                        <li
+                          className="theme-page-index"
+                          key=".1:2"
+                          onSelect={[Function]}
+                        >
+                          2
+                          /
+                          3
+                        </li>
+                        <NavItem
+                          active={false}
+                          aria-label="Go to next page. Current page: 2."
+                          className="btn-link"
+                          disabled={false}
+                          eventKey="next"
+                          id="context-pagination-nav-to-next"
+                          key=".1:$next"
+                          onSelect={[Function]}
+                        >
+                          <li
+                            className="btn-link"
+                            role="presentation"
+                          >
+                            <SafeAnchor
+                              aria-label="Go to next page. Current page: 2."
+                              componentClass="a"
+                              disabled={false}
+                              id="context-pagination-nav-to-next"
+                              onClick={[Function]}
+                            >
+                              <a
+                                aria-label="Go to next page. Current page: 2."
+                                href="#"
+                                id="context-pagination-nav-to-next"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="button"
+                              >
+                                <Icon
+                                  name="talend-chevron-left"
+                                  transform="rotate-180"
+                                >
+                                  <Coral.Icon
+                                    name="talend-chevron-left"
+                                    transform="rotate-180"
+                                  />
+                                </Icon>
+                              </a>
+                            </SafeAnchor>
+                          </li>
+                        </NavItem>
+                        <NavItem
+                          active={false}
+                          aria-label="Go to last page."
+                          className="btn-link"
+                          disabled={false}
+                          eventKey="last"
+                          id="context-pagination-nav-to-last"
+                          key=".1:$last"
+                          onSelect={[Function]}
+                        >
+                          <li
+                            className="btn-link"
+                            role="presentation"
+                          >
+                            <SafeAnchor
+                              aria-label="Go to last page."
+                              componentClass="a"
+                              disabled={false}
+                              id="context-pagination-nav-to-last"
+                              onClick={[Function]}
+                            >
+                              <a
+                                aria-label="Go to last page."
+                                href="#"
+                                id="context-pagination-nav-to-last"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="button"
+                              >
+                                <Icon
+                                  name="talend-chevron-end"
+                                  transform="rotate-180"
+                                >
+                                  <Coral.Icon
+                                    name="talend-chevron-end"
+                                    transform="rotate-180"
+                                  />
+                                </Icon>
+                              </a>
+                            </SafeAnchor>
+                          </li>
+                        </NavItem>
+                      </ul>
+                    </Nav>
+                  </Pagination>
+                </div>
+              </Grid>
+            </div>
+          </Navbar>
+        </Uncontrolled(Navbar)>
+      </div>
+    </withI18nextTranslation(Toolbar)>
+  </ListToolbar>
+  <div
+    className="tc-list-display-virtualized"
+  >
+    <ListToVirtualizedList
+      columns={
+        Array [
+          Object {
+            "key": "id",
+            "label": "Id",
+          },
+          Object {
+            "key": "name",
+            "label": "Name",
+          },
+        ]
+      }
+      displayMode="table"
+      id="context"
+      itemProps={
+        Object {
+          "isSelected": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
+        }
+      }
+      items={
+        Array [
+          Object {
+            "id": 1,
+            "name": "Hello world",
+          },
+          Object {
+            "id": 2,
+            "name": "Foo",
+          },
+          Object {
+            "id": 3,
+            "name": "Bar",
+          },
+        ]
+      }
+      titleProps={
+        Object {
+          "actionsKey": "actions",
+          "onClick": [MockFunction],
+          "persistentActionsKey": "persistentActions",
+        }
+      }
+    >
+      <VirtualizedList
+        collection={
+          Array [
+            Object {
+              "id": 1,
+              "name": "Hello world",
+            },
+            Object {
+              "id": 2,
+              "name": "Foo",
+            },
+            Object {
+              "id": 3,
+              "name": "Bar",
+            },
+          ]
+        }
+        defaultHeight={250}
+        id="context"
+        isSelected={[Function]}
+        onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
+        selectionMode="MULTI"
+        selectionToggle={[MockFunction]}
+        sort={null}
+        sortDirection="ASC"
+        type="TABLE"
+      >
+        <AutoSizer
+          disableHeight={false}
+          disableWidth={false}
+          onResize={[Function]}
+          style={Object {}}
+        >
+          <div
+            style={
+              Object {
+                "height": 0,
+                "overflow": "visible",
+                "width": 0,
+              }
+            }
+          >
+            <VirtualizedList(RendererSelector)
+              collection={
+                Array [
+                  Object {
+                    "id": 1,
+                    "name": "Hello world",
+                  },
+                  Object {
+                    "id": 2,
+                    "name": "Foo",
+                  },
+                  Object {
+                    "id": 3,
+                    "name": "Bar",
+                  },
+                ]
+              }
+              height={250}
+              id="context"
+              isSelected={[Function]}
+              noRowsRenderer={[Function]}
+              onRowDoubleClick={[MockFunction]}
+              sort={null}
+              sortDirection="ASC"
+              type="TABLE"
+              width={0}
+            >
+              <VirtualizedList(ListTable)
+                collection={
+                  Array [
+                    Object {
+                      "id": 1,
+                      "name": "Hello world",
+                    },
+                    Object {
+                      "id": 2,
+                      "name": "Foo",
+                    },
+                    Object {
+                      "id": 3,
+                      "name": "Bar",
+                    },
+                  ]
+                }
+                disableHeader={false}
+                height={250}
+                id="context"
+                isSelected={[Function]}
+                noRowsRenderer={[Function]}
+                onRowDoubleClick={[MockFunction]}
+                rowHeight={50}
+                sort={null}
+                sortDirection="ASC"
+                width={0}
+              >
+                <Table
+                  className="tc-list-table theme-tc-list-table"
+                  disableHeader={false}
+                  estimatedRowSize={30}
+                  gridClassName="theme-grid tc-dropdown-container"
+                  headerHeight={40}
+                  headerRowRenderer={[Function]}
+                  headerStyle={Object {}}
+                  height={250}
+                  id="context"
+                  noRowsRenderer={[Function]}
+                  onRowDoubleClick={[Function]}
+                  onRowsRendered={[Function]}
+                  onScroll={[Function]}
+                  overscanIndicesGetter={[Function]}
+                  overscanRowCount={10}
+                  rowClassName={[Function]}
+                  rowCount={3}
+                  rowGetter={[Function]}
+                  rowHeight={50}
+                  rowRenderer={[Function]}
+                  rowStyle={Object {}}
+                  scrollToAlignment="auto"
+                  scrollToIndex={-1}
+                  sort={null}
+                  sortDirection="ASC"
+                  style={Object {}}
+                  width={0}
+                >
+                  <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
+                    className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
+                    id="context"
+                    role="grid"
+                    style={Object {}}
+                  >
+                    <div
+                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
+                      role="row"
+                      style={
+                        Object {
+                          "height": 40,
+                          "overflow": "hidden",
+                          "paddingRight": 0,
+                          "width": 0,
+                        }
+                      }
+                    >
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-"
+                        id="tc-list-internal-row-selector"
+                        key="Header-Col0"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 35px",
+                            "flex": "0 0 35px",
+                            "msFlex": "0 0 35px",
+                          }
+                        }
+                      >
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "getRowState": undefined,
+                              "id": "context",
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                              "selectionMode": "MULTI",
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                          t={[Function]}
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                              title="Select All"
+                            >
+                              <label
+                                htmlFor="context-header-check"
+                              >
+                                <Checkbox
+                                  checked={false}
+                                  data-feature="list.select_all"
+                                  disabled={false}
+                                  id="context-header-check"
+                                  intermediate={0}
+                                  onChange={[MockFunction]}
+                                  type="checkbox"
+                                >
+                                  <div
+                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                  >
+                                    <label
+                                      data-feature="list.select_all.enable"
+                                      htmlFor="context-header-check"
+                                    >
+                                      <input
+                                        checked={false}
+                                        data-checked={0}
+                                        disabled={false}
+                                        id="context-header-check"
+                                        onChange={[MockFunction]}
+                                        type="checkbox"
+                                      />
+                                      <span />
+                                    </label>
+                                  </div>
+                                </Checkbox>
+                                <span
+                                  className="sr-only"
+                                >
+                                  Select All
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
+                      </div>
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"
+                        key="Header-Col1"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
+                          }
+                        }
+                      >
+                        <span
+                          className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
+                          title="Id"
+                        >
+                          Id
+                        </span>
+                      </div>
+                      <div
+                        className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-name"
+                        key="Header-Col2"
+                        role="columnheader"
+                        style={
+                          Object {
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
+                          }
+                        }
+                      >
+                        <span
+                          className="ReactVirtualized__Table__headerTruncatedText"
+                          key="label"
+                          title="Name"
+                        >
+                          Name
+                        </span>
+                      </div>
+                    </div>
+                    <Grid
+                      aria-label="grid"
+                      aria-readonly={true}
+                      autoContainerWidth={true}
+                      autoHeight={false}
+                      autoWidth={false}
+                      cellRangeRenderer={[Function]}
+                      cellRenderer={[Function]}
+                      className="ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+                      columnCount={1}
+                      columnWidth={0}
+                      containerRole="rowgroup"
+                      containerStyle={Object {}}
+                      disableHeader={false}
+                      estimatedColumnSize={100}
+                      estimatedRowSize={30}
+                      getScrollbarSize={[Function]}
+                      gridClassName="theme-grid tc-dropdown-container"
+                      headerHeight={40}
+                      headerRowRenderer={[Function]}
+                      headerStyle={Object {}}
+                      height={210}
+                      isScrollingOptOut={false}
+                      noContentRenderer={[Function]}
+                      noRowsRenderer={[Function]}
+                      onRowDoubleClick={[Function]}
+                      onRowsRendered={[Function]}
+                      onScroll={[Function]}
+                      onScrollbarPresenceChange={[Function]}
+                      onSectionRendered={[Function]}
+                      overscanColumnCount={0}
+                      overscanIndicesGetter={[Function]}
+                      overscanRowCount={10}
+                      role="rowgroup"
+                      rowClassName={[Function]}
+                      rowCount={3}
+                      rowGetter={[Function]}
+                      rowHeight={50}
+                      rowRenderer={[Function]}
+                      rowStyle={Object {}}
+                      scrollToAlignment="auto"
+                      scrollToColumn={-1}
+                      scrollToIndex={-1}
+                      scrollToRow={-1}
+                      scrollbarWidth={0}
+                      scrollingResetTimeInterval={150}
+                      sort={null}
+                      sortDirection="ASC"
+                      style={
+                        Object {
+                          "overflowX": "hidden",
+                        }
+                      }
+                      tabIndex={0}
+                      width={0}
+                    >
+                      <div
+                        aria-label="grid"
+                        aria-readonly={true}
+                        className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+                        onScroll={[Function]}
+                        role="rowgroup"
+                        style={
+                          Object {
+                            "WebkitOverflowScrolling": "touch",
+                            "boxSizing": "border-box",
+                            "direction": "ltr",
+                            "height": 210,
+                            "overflowX": "hidden",
+                            "overflowY": "hidden",
+                            "position": "relative",
+                            "width": 0,
+                            "willChange": "transform",
+                          }
+                        }
+                        tabIndex={0}
+                      />
+                    </Grid>
+                  </div>
+                </Table>
+              </VirtualizedList(ListTable)>
+            </VirtualizedList(RendererSelector)>
+          </div>
+        </AutoSizer>
+      </VirtualizedList>
+    </ListToVirtualizedList>
+  </div>
+</div>
+`;

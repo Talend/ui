@@ -1,0 +1,60 @@
+////
+/// Bootstrap button groups customization
+/// @group Button Groups
+////
+
+.btn-group-vertical {
+	.btn-group {
+		display: flex;
+
+		.dropdown-toggle {
+			flex: 1;
+		}
+	}
+}
+
+.btn-group {
+	display: inline-flex;
+
+	.btn {
+		+ .btn {
+			.caret.caret {
+				margin-left: 0;
+			}
+		}
+	}
+
+	.dropdown-toggle {
+		border-left-width: 1px;
+	}
+
+	&-justified {
+		> .btn,
+		> .btn-group {
+			width: auto;
+		}
+	}
+
+	> .dropdown-menu {
+		display: none;
+		opacity: 0;
+		transform: translateY(-15px);
+		transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1), visibility 0s;
+		overflow-y: auto;
+	}
+
+	&.open {
+		overflow: visible;
+
+		.dropdown-toggle {
+			box-shadow: none;
+		}
+
+		> .dropdown-menu {
+			display: block;
+			opacity: 1;
+			max-height: 320px;
+			transform: translateY(0);
+		}
+	}
+}

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowSelection should enhance classname with active class on active row 1`] = `
+<RowRenderer
+  className="my-class-names theme-row-selection theme-active active"
+  index={1}
+  parent={Object {}}
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+/>
+`;
+
+exports[`RowSelection should enhance classname with selection class on selected row 1`] = `
+<RowRenderer
+  className="my-class-names theme-row-selection theme-selected selected"
+  index={1}
+  parent={Object {}}
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+/>
+`;
+
+exports[`RowSelection should enhance classname without selection class on non selected row 1`] = `
+<RowRenderer
+  className="my-class-names theme-row-selection"
+  index={1}
+  parent={Object {}}
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+/>
+`;

@@ -1,0 +1,20 @@
+title CMF Action Sequence
+
+User -> Browser: click on action 'Add'
+
+Browser -> React: click event on <Action name="Add" />
+
+note right of React: call event handler of Action
+
+React -> CMF: dispatch action 'Add'
+
+note right of CMF
+    -get action creator from the registry
+end note
+
+CMF -> Redux: dispatch Add's action creator
+
+Redux->Redux: Update state async
+
+Redux -> React: state updated
+React -> Browser: open URL /add

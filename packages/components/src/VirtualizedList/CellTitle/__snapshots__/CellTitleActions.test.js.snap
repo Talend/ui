@@ -1,0 +1,484 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellTitleActions should display 2 actions and the rest in an ellipsis dropdown (>= 4) 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <div
+    className="cell-title-actions theme-cell-title-actions"
+  >
+    <Action
+      data-feature="list.item.edit"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-pencil"
+      id="edit"
+      label="edit"
+      link={true}
+      onClick={[MockFunction]}
+    />
+    <Action
+      data-feature="list.item.delete"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-trash"
+      id="delete"
+      label="delete"
+      link={true}
+      onClick={[MockFunction]}
+    />
+    <Action
+      data-feature="list.item.copy"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-files-o"
+      id="copy"
+      label="copy"
+      link={true}
+      onClick={[MockFunction]}
+    />
+    <withI18nextTranslation(ActionDropdown)
+      className="cell-title-actions-menu theme-cell-title-actions-menu"
+      ellipsis={true}
+      id="my-actions-ellispsis-actions"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.params",
+            "icon": "talend-cog",
+            "id": "params",
+            "label": "edit params",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.download",
+            "icon": "talend-download",
+            "id": "download",
+            "label": "download",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      label="Open menu"
+      t={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`CellTitleActions should display all actions on LARGE display mode 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <Actions
+    actions={
+      Array [
+        Object {
+          "data-feature": "list.item.edit",
+          "icon": "talend-pencil",
+          "id": "edit",
+          "label": "edit",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "data-feature": "list.item.delete",
+          "icon": "talend-trash",
+          "id": "delete",
+          "label": "delete",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "data-feature": "list.item.copy",
+          "icon": "talend-files-o",
+          "id": "copy",
+          "label": "copy",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "data-feature": "list.item.params",
+          "icon": "talend-cog",
+          "id": "params",
+          "label": "edit params",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "data-feature": "list.item.download",
+          "icon": "talend-download",
+          "id": "download",
+          "label": "download",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    className="cell-title-actions theme-cell-title-actions"
+    getComponent={[MockFunction]}
+    hideLabel={true}
+    link={true}
+  />
+</div>
+`;
+
+exports[`CellTitleActions should display all actions when there are only few (< 4) 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <div
+    className="cell-title-actions theme-cell-title-actions"
+  >
+    <Actions
+      actions={
+        Array [
+          Object {
+            "data-feature": "list.item.edit",
+            "icon": "talend-pencil",
+            "id": "edit",
+            "label": "edit",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.delete",
+            "icon": "talend-trash",
+            "id": "delete",
+            "label": "delete",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.copy",
+            "icon": "talend-files-o",
+            "id": "copy",
+            "label": "copy",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      link={true}
+    />
+  </div>
+</div>
+`;
+
+exports[`CellTitleActions should extract dropdown actions, completed with simple actions, to display out of ellipsis dropdown 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <div
+    className="cell-title-actions theme-cell-title-actions"
+  >
+    <Action
+      data-feature="list.item.edit"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-pencil"
+      id="edit"
+      label="edit"
+      link={true}
+      onClick={[MockFunction]}
+    />
+    <Action
+      data-feature="list.item.delete"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-trash"
+      id="delete"
+      label="delete"
+      link={true}
+      onClick={[MockFunction]}
+    />
+    <Action
+      displayMode="dropdown"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-folder"
+      id="related"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.related",
+            "label": "document 1",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.related",
+            "label": "document 2",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      label="related items"
+      link={true}
+      pullRight={true}
+    />
+    <withI18nextTranslation(ActionDropdown)
+      className="cell-title-actions-menu theme-cell-title-actions-menu"
+      ellipsis={true}
+      id="my-actions-ellispsis-actions"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.copy",
+            "icon": "talend-files-o",
+            "id": "copy",
+            "label": "copy",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.params",
+            "icon": "talend-cog",
+            "id": "params",
+            "label": "edit params",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.download",
+            "icon": "talend-download",
+            "id": "download",
+            "label": "download",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      label="Open menu"
+      t={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`CellTitleActions should extract only dropdown actions, when there are lot of them 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <div
+    className="cell-title-actions theme-cell-title-actions"
+  >
+    <Action
+      displayMode="dropdown"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-folder"
+      id="related"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.related",
+            "label": "document 1",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.related",
+            "label": "document 2",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      label="related items"
+      link={true}
+      pullRight={true}
+    />
+    <Action
+      displayMode="dropdown"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-datastreams-colored"
+      id="open-with-tfd"
+      items={
+        Array [
+          Object {
+            "label": "Stream 1",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "label": "Stream 2",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      label="Open with Streams"
+      link={true}
+    />
+    <Action
+      displayMode="dropdown"
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      icon="talend-tdp-colored"
+      id="open-with-tdp"
+      items={
+        Array [
+          Object {
+            "label": "Prep 1",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      label="Open with Data Preparation"
+      link={true}
+    />
+    <withI18nextTranslation(ActionDropdown)
+      className="cell-title-actions-menu theme-cell-title-actions-menu"
+      ellipsis={true}
+      id="my-actions-ellispsis-actions"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.edit",
+            "icon": "talend-pencil",
+            "id": "edit",
+            "label": "edit",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.delete",
+            "icon": "talend-trash",
+            "id": "delete",
+            "label": "delete",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.copy",
+            "icon": "talend-files-o",
+            "id": "copy",
+            "label": "copy",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.params",
+            "icon": "talend-cog",
+            "id": "params",
+            "label": "edit params",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.download",
+            "icon": "talend-download",
+            "id": "download",
+            "label": "download",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      label="Open menu"
+      t={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`CellTitleActions should render all type of actions 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <div
+    className="cell-title-actions theme-cell-title-actions"
+  >
+    <Actions
+      actions={
+        Array [
+          Object {
+            "data-feature": "list.item.monitor",
+            "hideLabel": true,
+            "icon": "talend-line-charts",
+            "id": "monitoring",
+            "label": "monitor something",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.edit",
+            "icon": "talend-pencil",
+            "id": "edit",
+            "label": "edit",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.delete",
+            "icon": "talend-trash",
+            "id": "delete",
+            "label": "delete",
+            "onClick": [MockFunction],
+          },
+          Object {
+            "data-feature": "list.item.copy",
+            "icon": "talend-files-o",
+            "id": "copy",
+            "label": "copy",
+            "onClick": [MockFunction],
+          },
+        ]
+      }
+      getComponent={[MockFunction]}
+      hideLabel={true}
+      link={true}
+    />
+  </div>
+  <Actions
+    actions={
+      Array [
+        Object {
+          "className": "favorite",
+          "data-feature": "list.item.favorite",
+          "icon": "talend-star",
+          "label": "favorite",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "className": "certify",
+          "data-feature": "list.item.certify",
+          "icon": "talend-badge",
+          "label": "certify",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    className="persistent-actions theme-persistent-actions"
+    getComponent={[MockFunction]}
+    hideLabel={true}
+    link={true}
+  />
+</div>
+`;
+
+exports[`CellTitleActions should render persistent actions 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <Actions
+    actions={
+      Array [
+        Object {
+          "className": "favorite",
+          "data-feature": "list.item.favorite",
+          "icon": "talend-star",
+          "label": "favorite",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "className": "certify",
+          "data-feature": "list.item.certify",
+          "icon": "talend-badge",
+          "label": "certify",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    className="persistent-actions theme-persistent-actions"
+    getComponent={[MockFunction]}
+    hideLabel={true}
+    link={true}
+  />
+</div>
+`;

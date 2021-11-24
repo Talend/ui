@@ -1,0 +1,497 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmDialog should render with a large container 1`] = `
+<div
+  aria-labelledby="tc-dialog-header"
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  bsSize="large"
+  className="Modal mocked-component"
+  enforceFocus={true}
+  keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <div
+    className="Header mocked-component"
+    closeButton={false}
+  >
+    <div
+      className="Title mocked-component"
+      componentClass="h1"
+      id="tc-dialog-header"
+    >
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body mocked-component"
+  >
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer mocked-component"
+  >
+    <div
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
+    >
+      <div
+        className="theme-navbar-left navbar-left"
+      >
+        <button
+          aria-label="CANCEL"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          aria-label="OK"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render with a progress bar 1`] = `
+<div
+  aria-labelledby="tc-dialog-header"
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  bsSize="large"
+  className="Modal mocked-component"
+  enforceFocus={true}
+  keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <div
+    className="Header mocked-component"
+    closeButton={false}
+  >
+    <div
+      className="Title mocked-component"
+      componentClass="h1"
+      id="tc-dialog-header"
+    >
+      Hello world
+    </div>
+  </div>
+  <div
+    aria-label="This is loading"
+    aria-valuemax={100}
+    aria-valuemin={0}
+    aria-valuenow={25}
+    className="theme-progress"
+    role="progressbar"
+  >
+    <div
+      aria-describedby="42"
+      className="theme-progress-percent"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      style={
+        Object {
+          "width": "25%",
+        }
+      }
+    />
+  </div>
+  <div
+    className="Body mocked-component"
+  >
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer mocked-component"
+  >
+    <div
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
+    >
+      <div
+        className="theme-navbar-left navbar-left"
+      >
+        <button
+          aria-label="CANCEL"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          aria-label="OK"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render with a small container 1`] = `
+<div
+  aria-labelledby="tc-dialog-header"
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  bsSize="small"
+  className="Modal mocked-component"
+  enforceFocus={true}
+  keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <div
+    className="Header mocked-component"
+    closeButton={false}
+  >
+    <div
+      className="Title mocked-component"
+      componentClass="h1"
+      id="tc-dialog-header"
+    >
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body mocked-component"
+  >
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer mocked-component"
+  >
+    <div
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
+    >
+      <div
+        className="theme-navbar-left navbar-left"
+      >
+        <button
+          aria-label="CANCEL"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          aria-label="OK"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render with additional actions 1`] = `
+<div
+  aria-labelledby="tc-dialog-header"
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  className="Modal mocked-component"
+  enforceFocus={true}
+  keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <div
+    className="Header mocked-component"
+    closeButton={false}
+  >
+    <div
+      className="Title mocked-component"
+      componentClass="h1"
+      id="tc-dialog-header"
+    >
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body mocked-component"
+  >
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer mocked-component"
+  >
+    <div
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
+    >
+      <div
+        className="theme-navbar-left navbar-left"
+      >
+        <button
+          aria-label="CANCEL"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          aria-label="Keep on Github"
+          className="btn btn-info"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            Keep on Github
+          </span>
+        </button>
+        <button
+          aria-label="OK"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render with defaults values 1`] = `
+<div
+  aria-labelledby="tc-dialog-header"
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  className="Modal mocked-component"
+  enforceFocus={true}
+  keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <div
+    className="Header mocked-component"
+    closeButton={false}
+  >
+    <div
+      className="Title mocked-component"
+      componentClass="h1"
+      id="tc-dialog-header"
+    >
+      Hello world
+    </div>
+  </div>
+  <div
+    className="Body mocked-component"
+  >
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer mocked-component"
+  >
+    <div
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
+    >
+      <div
+        className="theme-navbar-left navbar-left"
+      >
+        <button
+          aria-label="CANCEL"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          aria-label="OK"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfirmDialog should render without header 1`] = `
+<div
+  aria-labelledby={null}
+  aria-modal="true"
+  autoFocus={true}
+  backdrop={true}
+  className="Modal mocked-component"
+  enforceFocus={true}
+  keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
+  role="dialog"
+  show={true}
+>
+  <div
+    className="Body mocked-component"
+  >
+    <div>
+      BODY
+    </div>
+  </div>
+  <div
+    className="Footer mocked-component"
+  >
+    <div
+      className="theme-tc-actionbar-container tc-actionbar-container nav"
+    >
+      <div
+        className="theme-navbar-left navbar-left"
+      >
+        <button
+          aria-label="CANCEL"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            CANCEL
+          </span>
+        </button>
+      </div>
+      <div
+        className="theme-navbar-right navbar-right"
+      >
+        <button
+          aria-label="OK"
+          className="btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          role={null}
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

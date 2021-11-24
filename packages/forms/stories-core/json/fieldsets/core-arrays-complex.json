@@ -1,0 +1,89 @@
+{
+  "doc": "Array/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "required": ["comments"],
+    "properties": {
+      "groupBy": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 5,
+        "items": {
+          "type": "object",
+          "properties": {
+            "fieldName": {
+              "type": "string",
+              "enum": ["First Field", "Second Field", "Third Field"]
+            }
+          }
+        }
+      },
+      "operations": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 5,
+        "items": {
+          "type": "object",
+          "properties": {
+            "fieldName": {
+              "type": "string",
+              "enum": ["First Field", "Second Field", "Third Field"]
+            },
+            "operation": {
+              "type": "string",
+              "enum": ["First Operation", "Second Operation", "Third Operation"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "groupBy",
+      "title": "Group by",
+      "items": [
+        {
+          "key": "groupBy[].fieldName",
+          "title": "Field"
+        }
+      ]
+    },
+    {
+      "key": "operations",
+      "title": "Operations",
+      "itemWidget": "columns",
+      "items": [
+        {
+          "key": "operations[].fieldName",
+          "title": "Field"
+        },
+        {
+          "key": "operations[].operation",
+          "title": "Operation"
+        }
+      ]
+    }
+  ],
+  "properties": {
+    "groupBy": [
+      {
+        "fieldName": "First Field"
+      },
+      {
+        "fieldName": "Second Field"
+      }
+    ],
+    "operations": [
+      {
+        "fieldName": "First Field",
+        "operation": "First Operation"
+      },
+      {
+        "fieldName": "Second Field",
+        "operation": "First Operation"
+      }
+    ]
+  }
+}

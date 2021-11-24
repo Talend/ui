@@ -1,0 +1,392 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellTitle actions should NOT render the actions when cell is disabled 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={
+        Object {
+          "disabledKey": "nop",
+          "nop": true,
+        }
+      }
+      displayMode="text"
+      id="my-title-1-title-cell"
+      rowData={
+        Object {
+          "actions": Array [
+            Object {
+              "icon": "talend-pencil",
+              "label": "edit",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "icon": "talend-trash",
+              "label": "delete",
+              "onClick": [MockFunction],
+            },
+          ],
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "actions": Array [
+            Object {
+              "icon": "talend-pencil",
+              "label": "edit",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "icon": "talend-trash",
+              "label": "delete",
+              "onClick": [MockFunction],
+            },
+          ],
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;
+
+exports[`CellTitle actions should NOT render the actions when no actions key is provided 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={Object {}}
+      displayMode="text"
+      id="my-title-1-title-cell"
+      rowData={
+        Object {
+          "actions": Array [
+            Object {
+              "icon": "talend-pencil",
+              "label": "edit",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "icon": "talend-trash",
+              "label": "delete",
+              "onClick": [MockFunction],
+            },
+          ],
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "actions": Array [
+            Object {
+              "icon": "talend-pencil",
+              "label": "edit",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "icon": "talend-trash",
+              "label": "delete",
+              "onClick": [MockFunction],
+            },
+          ],
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;
+
+exports[`CellTitle actions should NOT render the actions when rowData has no actions 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={Object {}}
+      displayMode="text"
+      id="my-title-1-title-cell"
+      rowData={
+        Object {
+          "actions": undefined,
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      actionsKey="actions"
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "actions": undefined,
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;
+
+exports[`CellTitle actions should render the actions 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={Object {}}
+      displayMode="text"
+      id="my-title-1-title-cell"
+      rowData={
+        Object {
+          "actions": Array [
+            Object {
+              "icon": "talend-pencil",
+              "label": "edit",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "icon": "talend-trash",
+              "label": "delete",
+              "onClick": [MockFunction],
+            },
+          ],
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      actionsKey="actions"
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "actions": Array [
+            Object {
+              "icon": "talend-pencil",
+              "label": "edit",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "icon": "talend-trash",
+              "label": "delete",
+              "onClick": [MockFunction],
+            },
+          ],
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;
+
+exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={Object {}}
+      displayMode="text"
+      id="my-title-1-title-cell"
+      rowData={
+        Object {
+          "icon": "talend-file-o",
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "icon": "talend-file-o",
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;
+
+exports[`CellTitle icon should NOT render the icon when the rowData has no icon value 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={Object {}}
+      displayMode="text"
+      id="my-title-1-title-cell"
+      rowData={
+        Object {
+          "icon": undefined,
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "icon": undefined,
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;
+
+exports[`CellTitle icon should render icon with tooltip when iconLabelKey is provided and the rowData has tooltip label value 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title"
+  id="my-title-1-title-cell"
+>
+  <TooltipTrigger
+    label="My tooltip label"
+    tooltipPlacement="top"
+  >
+    <span>
+      <Icon
+        className="theme-icon"
+        name="talend-file-o"
+      />
+    </span>
+  </TooltipTrigger>
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={Object {}}
+      displayMode="text"
+      id="my-title-1-title-cell"
+      rowData={
+        Object {
+          "icon": "talend-file-o",
+          "iconTooltipLabel": "My tooltip label",
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "icon": "talend-file-o",
+          "iconTooltipLabel": "My tooltip label",
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;
+
+exports[`CellTitle should render title selector component 1`] = `
+<div
+  className="theme-tc-list-title tc-list-title theme-tc-list-title-filter tc-list-title-filter"
+  id="my-title-1-title-cell"
+>
+  <Icon
+    className="theme-icon"
+    name="talend-file-o"
+  />
+  <React.Fragment>
+    <CellTitleSelector
+      cellData="my awesome title"
+      className="theme-main-title"
+      columnData={Object {}}
+      displayMode="text"
+      id="my-title-1-title-cell"
+      onClick={[MockFunction]}
+      onEditCancel={[MockFunction]}
+      onEditSubmit={[MockFunction]}
+      rowData={
+        Object {
+          "displayMode": "text",
+          "icon": "talend-file-o",
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+    />
+    <withI18nextTranslation(VirtualizedList(CellTitleActions))
+      displayMode="text"
+      getComponent={[MockFunction]}
+      id="my-title-1-title-actions"
+      rowData={
+        Object {
+          "displayMode": "text",
+          "icon": "talend-file-o",
+          "id": 1,
+          "title": "my awesome title",
+        }
+      }
+      t={[Function]}
+    />
+  </React.Fragment>
+</div>
+`;

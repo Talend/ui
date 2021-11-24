@@ -1,0 +1,94 @@
+@mixin input-icon($margin-left) {
+	margin-top: 1rem;
+	margin-left: $margin-left;
+}
+
+$tc-subheader-active-color: darken($scooter, 12%) !default;
+$tc-subheader-hover-focus-color: $scooter !default;
+$tc-subheader-color: $gray !default;
+$tc-subheader-bar-height: 7rem !default;
+$tc-svg-icon-size: $padding-large !default;
+
+.tc-subheader {
+	border-bottom: 0.1rem solid $gallery;
+	width: 100%;
+
+	:global(.btn-link),
+	:global(.btn-icon-only) {
+		color: $tc-subheader-color;
+
+		&:focus,
+		&:hover {
+			color: $scooter;
+		}
+
+		&:active {
+			color: darken($scooter, 12%);
+		}
+	}
+
+	&-navbar {
+		height: $tc-subheader-bar-height;
+		background-color: $wild-sand;
+		display: flex;
+		padding: {
+			left: 0;
+			right: $padding-large;
+		}
+
+		&-left,
+		&-center,
+		&-right {
+			display: flex;
+		}
+
+		&-left {
+			flex: 1;
+		}
+
+		&-right {
+			margin-left: $padding-normal;
+			justify-content: flex-end;
+
+			:global(.btn-icon-only) {
+				padding: {
+					left: 0;
+					right: 0;
+				}
+			}
+		}
+
+		&-center {
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: $padding-smaller;
+			padding-right: $padding-smaller;
+
+			&-no-margin-right {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&-back-button {
+		color: $gray;
+		background-color: $gallery;
+		width: $tc-subheader-bar-height;
+		height: $tc-subheader-bar-height;
+
+		&:focus,
+		&:hover,
+		&:active {
+			color: $tc-subheader-hover-focus-color;
+			background-color: $wild-sand;
+		}
+		&:active {
+			color: $tc-subheader-active-color;
+		}
+
+		.tc-svg-icon {
+			width: $tc-svg-icon-size;
+			height: $tc-svg-icon-size;
+		}
+	}
+}

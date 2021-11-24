@@ -1,0 +1,95 @@
+{
+  "doc": "Radios/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Choice",
+    "properties": {
+      "radios": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "autofocus": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "disabled": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "withTitleMap": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      },
+      "inline": {
+        "type": "string",
+        "enum": [
+          "foo",
+          "bar",
+          "fuzz",
+          "qux"
+        ]
+      }
+    },
+    "required": ["radios"]
+  },
+  "uiSchema": [
+    {
+      "key": "radios",
+      "title": "Type of things",
+      "widget": "radios",
+      "data-test": "simple.radio"
+    },
+    {
+      "key": "autofocus",
+      "title": "Type of things (autofocus)",
+      "autoFocus": true,
+      "widget": "radios"
+    },
+    {
+      "key": "disabled",
+      "title": "Type of things (disabled)",
+      "disabled": true,
+      "widget": "radios"
+    },
+    {
+      "key": "withTitleMap",
+      "title": "Type of things (custom title map)",
+      "titleMap": {
+        "foo": "My custom foo title",
+        "bar": "My custom bar title",
+        "fuzz": "My custom fuzz title",
+        "qux": "my custom qux title"
+      },
+      "widget": "radios"
+    },
+    {
+      "key": "inline",
+      "title": "Type of things (inline)",
+      "inline": true,
+      "widget": "radios"
+    }
+  ],
+  "properties": {
+    "disabled": "foo"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@talend/utils",
+  "version": "2.0.1",
+  "description": "Various utilities",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talend/ui.git"
+  },
+  "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build:lib": "talend-scripts build:ts:lib",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "pre-release": "npm run test",
+    "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
+    "test:demo": "echo nothing to do",
+    "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage --silent",
+    "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
+    "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
+    "extends": "talend-scripts extends"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^11.3.0",
+    "@talend/scripts-preset-react-lib": "^9.9.3",
+    "@typescript-eslint/parser": "^4.33.0",
+    "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "date-fns": "^1.30.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

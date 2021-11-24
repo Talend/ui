@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthYearView should render 1`] = `
+<ViewLayout
+  bodyElement={
+    <withI18nextTranslation(MonthCalendarGesture(MonthPicker))
+      allowFocus={true}
+      onSelect={[MockFunction]}
+      selectedMonthIndex={8}
+      selectedYear={2012}
+      t={[Function]}
+    />
+  }
+  header={
+    Object {
+      "leftElement": <Action
+        aria-label="Switch back to date and time pickers view"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
+        label=""
+        onClick={[MockFunction]}
+        tabIndex={0}
+      />,
+      "middleElement": <HeaderTitle
+        monthIndex={8}
+        onSelectYear={[MockFunction]}
+        year={2012}
+      />,
+    }
+  }
+/>
+`;

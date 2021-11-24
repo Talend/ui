@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom renderer) with the tooltip when the label overflow in width 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  <FormatValueComponent
+    value=" loreum "
+  />
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer (custom renderer) with the tooltip when the label overflow in width 2`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  <FormatValueComponent
+    value=" loreum "
+  />
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in height 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  loreum
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in height 2`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  loreum
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in width 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  loreum
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in width 2`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  loreum
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render a boolean 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  false
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render a bytes 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  ejfiejifje
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render empty when the value is null 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render the leading/trailing special character 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  <FormatValueComponent
+    value=" loreum "
+  />
+</div>
+`;
+
+exports[`#DefaultValueRenderer should render without the tooltip 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  loreum
+</div>
+`;

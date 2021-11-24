@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cmfConnect Higher Order Component should create a connected component 1`] = `
+Object {
+  "deleteState": [Function],
+  "dispatch": [Function],
+  "dispatchActionCreator": [Function],
+  "getComponent": [Function],
+  "initState": [Function],
+  "setState": [Function],
+  "state": undefined,
+  "updateState": [Function],
+}
+`;
+
+exports[`cmfConnect Higher Order Component should not remove the component state when unmount and cmfConnect keepComponentState is true 1`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "TestComponent",
+      "initialComponentState": Immutable.Map {},
+      "key": "default",
+      "type": "REACT_CMF.COMPONENT_ADD_STATE",
+    },
+  },
+  "id": "default",
+  "type": "TestComponent.initState",
+}
+`;
+
+exports[`cmfConnect Higher Order Component should not remove the component state when unmount and props keepComponentState is true 1`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "TestComponent",
+      "initialComponentState": Immutable.Map {},
+      "key": "default",
+      "type": "REACT_CMF.COMPONENT_ADD_STATE",
+    },
+  },
+  "id": "default",
+  "type": "TestComponent.initState",
+}
+`;
+
+exports[`cmfConnect Higher Order Component should remove the component state when unmount 1`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "TestComponent",
+      "initialComponentState": Immutable.Map {},
+      "key": "default",
+      "type": "REACT_CMF.COMPONENT_ADD_STATE",
+    },
+  },
+  "id": "default",
+  "type": "TestComponent.initState",
+}
+`;
+
+exports[`cmfConnect Higher Order Component should remove the component state when unmount 2`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "TestComponent",
+      "key": "default",
+      "type": "REACT_CMF.COMPONENT_REMOVE_STATE",
+    },
+  },
+  "id": "default",
+  "type": "TestComponent.deleteState",
+}
+`;
+
+exports[`cmfConnect Higher Order Component should remove the component state when unmount and props keepComponentState is false 1`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "TestComponent",
+      "initialComponentState": Immutable.Map {},
+      "key": "default",
+      "type": "REACT_CMF.COMPONENT_ADD_STATE",
+    },
+  },
+  "id": "default",
+  "type": "TestComponent.initState",
+}
+`;
+
+exports[`cmfConnect Higher Order Component should remove the component state when unmount and props keepComponentState is false 2`] = `
+Object {
+  "cmf": Object {
+    "componentState": Object {
+      "componentName": "TestComponent",
+      "key": "default",
+      "type": "REACT_CMF.COMPONENT_REMOVE_STATE",
+    },
+  },
+  "id": "default",
+  "type": "TestComponent.deleteState",
+}
+`;

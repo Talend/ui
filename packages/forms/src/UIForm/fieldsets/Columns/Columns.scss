@@ -1,0 +1,13 @@
+.tf-columns {
+	.items {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -$padding-normal;
+
+		> * {
+			flex: 1;
+			min-width: 30rem;
+			margin-left: $padding-normal;
+		}
+	}
+}

@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListGrid should render noRows 1`] = `
+<VirtualizedList(ListGrid)
+  collection={Array []}
+  height={600}
+  id="my-list"
+  isSelected={[MockFunction]}
+  noRowsRenderer={[Function]}
+  rowHeight={130}
+  rowRenderer={[Function]}
+  width={1024}
+>
+  <List
+    aria-label="list"
+    autoHeight={false}
+    className="tc-list-list theme-tc-list-list"
+    collection={Array []}
+    containerRole="list"
+    estimatedRowSize={30}
+    height={600}
+    id="my-list"
+    noRowsRenderer={[Function]}
+    onRowsRendered={[Function]}
+    onScroll={[Function]}
+    overscanIndicesGetter={[Function]}
+    overscanRowCount={10}
+    role="group"
+    rowCount={0}
+    rowGetter={[Function]}
+    rowHeight={130}
+    rowRenderer={[Function]}
+    scrollToAlignment="auto"
+    scrollToIndex={-1}
+    style={Object {}}
+    width={1024}
+  >
+    <Grid
+      aria-label="list"
+      aria-readonly={true}
+      autoContainerWidth={true}
+      autoHeight={false}
+      autoWidth={false}
+      cellRangeRenderer={[Function]}
+      cellRenderer={[Function]}
+      className="ReactVirtualized__List tc-list-list theme-tc-list-list"
+      collection={Array []}
+      columnCount={1}
+      columnWidth={1024}
+      containerRole="list"
+      containerStyle={Object {}}
+      estimatedColumnSize={100}
+      estimatedRowSize={30}
+      getScrollbarSize={[Function]}
+      height={600}
+      id="my-list"
+      isScrollingOptOut={false}
+      noContentRenderer={[Function]}
+      noRowsRenderer={[Function]}
+      onRowsRendered={[Function]}
+      onScroll={[Function]}
+      onScrollbarPresenceChange={[Function]}
+      onSectionRendered={[Function]}
+      overscanColumnCount={0}
+      overscanIndicesGetter={[Function]}
+      overscanRowCount={10}
+      role="group"
+      rowCount={0}
+      rowGetter={[Function]}
+      rowHeight={130}
+      rowRenderer={[Function]}
+      scrollToAlignment="auto"
+      scrollToColumn={-1}
+      scrollToIndex={-1}
+      scrollToRow={-1}
+      scrollingResetTimeInterval={150}
+      style={Object {}}
+      tabIndex={0}
+      width={1024}
+    >
+      <div
+        aria-label="list"
+        aria-readonly={true}
+        className="ReactVirtualized__Grid ReactVirtualized__List tc-list-list theme-tc-list-list"
+        id="my-list"
+        onScroll={[Function]}
+        role="group"
+        style={
+          Object {
+            "WebkitOverflowScrolling": "touch",
+            "boxSizing": "border-box",
+            "direction": "ltr",
+            "height": 600,
+            "overflowX": "hidden",
+            "overflowY": "hidden",
+            "position": "relative",
+            "width": 1024,
+            "willChange": "transform",
+          }
+        }
+        tabIndex={0}
+      >
+        <div>
+          No rows
+        </div>
+      </div>
+    </Grid>
+  </List>
+</VirtualizedList(ListGrid)>
+`;
+
+exports[`ListGrid should render react-virtualized list 1`] = `
+<List
+  aria-label="list"
+  autoHeight={false}
+  className="tc-list-list theme-tc-list-list"
+  collection={
+    Array [
+      Object {
+        "description": "Simple row with icon and actions",
+        "id": 0,
+        "name": "Title with icon and actions",
+      },
+      Object {
+        "description": "Simple row without actions",
+        "id": 1,
+        "name": "Title without actions",
+      },
+    ]
+  }
+  containerRole="list"
+  estimatedRowSize={30}
+  height={600}
+  id="my-list"
+  noRowsRenderer={[Function]}
+  onRowClick={[Function]}
+  onRowDoubleClick={[Function]}
+  onRowsRendered={[Function]}
+  onScroll={[Function]}
+  overscanIndicesGetter={[Function]}
+  overscanRowCount={10}
+  role="group"
+  rowCount={2}
+  rowGetter={[Function]}
+  rowHeight={130}
+  rowRenderer={[Function]}
+  scrollToAlignment="auto"
+  scrollToIndex={-1}
+  style={Object {}}
+  width={1024}
+>
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerRenderer={[Function]}
+    label="Id"
+    style={Object {}}
+    width={0}
+  />
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="name"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerRenderer={[Function]}
+    label="Name"
+    style={Object {}}
+    width={0}
+  />
+  <Content
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    dataKey="description"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerRenderer={[Function]}
+    label=""
+    style={Object {}}
+    width={0}
+  />
+</List>
+`;

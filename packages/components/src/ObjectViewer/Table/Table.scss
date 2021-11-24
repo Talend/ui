@@ -1,0 +1,47 @@
+.table {
+	font-size: 12px;
+
+	td {
+		line-height: 25px;
+	}
+
+	.nativevalue {
+		font-family: $font-family-monospace;
+		font-size: $font-size-small;
+		color: $dove-gray;
+		padding: 0;
+	}
+
+	&:global(.table-hover) > tbody > tr:hover {
+		font-weight: initial;
+	}
+
+	&:global(.table) > thead > tr {
+		background-color: $brand-primary-dark;
+		color: $white;
+		font-family: 'Source Sans Pro';
+
+		& > th {
+			font-weight: $font-weight-bold;
+		}
+
+		& > td {
+			padding: $padding-smaller;
+		}
+	}
+
+	&:global(.table) > tbody > tr > td {
+		padding: $padding-smaller;
+
+		:global(.btn) {
+			text-transform: none;
+		}
+	}
+
+	:global(.btn-link) {
+		font-family: 'Inconsolata';
+		font-size: 12px;
+		color: $dove-gray;
+		padding: 0;
+	}
+}

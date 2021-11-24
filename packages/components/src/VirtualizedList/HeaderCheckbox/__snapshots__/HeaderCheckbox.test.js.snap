@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header "Select All" checkbox should render a "Select All" checkbox on header when onToggleAll callback provided 1`] = `
+<form
+  className="tc-list-checkbox theme-tc-list-checkbox"
+>
+  <div
+    className="checkbox"
+    title="Select All"
+  >
+    <label
+      htmlFor="myList-header-check"
+    >
+      <Checkbox
+        checked={false}
+        data-feature="list.select_all"
+        disabled={false}
+        id="myList-header-check"
+        intermediate={0}
+        onChange={[MockFunction]}
+        type="checkbox"
+      />
+      <span
+        className="sr-only"
+      >
+        Select All
+      </span>
+    </label>
+  </div>
+</form>
+`;
+
+exports[`Header "Select All" checkbox should render a checked checkbox on header 1`] = `
+<form
+  className="tc-list-checkbox theme-tc-list-checkbox"
+>
+  <div
+    className="checkbox"
+    title="Select All"
+  >
+    <label
+      htmlFor="myList-header-check"
+    >
+      <Checkbox
+        checked={true}
+        data-feature="list.select_all"
+        disabled={false}
+        id="myList-header-check"
+        intermediate={false}
+        onChange={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        type="checkbox"
+      />
+      <span
+        className="sr-only"
+      >
+        Select All
+      </span>
+    </label>
+  </div>
+</form>
+`;
+
+exports[`Header "Select All" checkbox should render a partial checkbox on header 1`] = `
+<form
+  className="tc-list-checkbox theme-tc-list-checkbox"
+>
+  <div
+    className="checkbox"
+    title="Select All"
+  >
+    <label
+      htmlFor="myList-header-check"
+    >
+      <Checkbox
+        checked={false}
+        data-feature="list.select_all"
+        disabled={false}
+        id="myList-header-check"
+        intermediate={true}
+        onChange={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        type="checkbox"
+      />
+      <span
+        className="sr-only"
+      >
+        Select All
+      </span>
+    </label>
+  </div>
+</form>
+`;

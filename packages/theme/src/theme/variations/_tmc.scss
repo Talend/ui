@@ -1,0 +1,5 @@
+.t7 {
+	$brand-primary-t7: #009597 !default;
+	$brand-secondary-t7: #168396 !default;
+	@include layout-colors($brand-primary-t7, $brand-secondary-t7, 'tmc');
+}

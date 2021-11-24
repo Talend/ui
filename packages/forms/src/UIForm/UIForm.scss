@@ -1,0 +1,58 @@
+$tc-drawer-content-max-width: 65rem !default;
+$tc-drawer-padding: $padding-large !default;
+
+.uiform {
+	:global(.tf-title-text-mode) {
+		font-size: 1.7rem;
+		font-weight: 700;
+		color: #555;
+	}
+}
+
+:global(.tc-drawer-container),
+:global(.modal-body) {
+	.uiform {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		min-height: 0;
+		overflow: hidden; /* IE11 fix to show scrollbars properly */
+	}
+
+	.form-content {
+		flex-grow: 1;
+		min-height: 0;
+		overflow-y: auto;
+	}
+}
+
+:global(.tc-drawer-container) {
+	.form-content {
+		padding: $tc-drawer-padding;
+	}
+
+	.form-actions {
+		padding: $padding-small $tc-drawer-padding;
+		background-color: $wild-sand;
+	}
+}
+
+@media screen and (min-width: $screen-xs-max) {
+	:global(.stacked) :global(.tc-drawer-container) {
+		.form-content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			> * {
+				width: calc(#{$tc-drawer-content-max-width} - 2 * #{$tc-drawer-padding});
+			}
+		}
+
+		:global(.form-actions) {
+			margin: auto;
+			padding: 0 $tc-drawer-padding;
+			max-width: $tc-drawer-content-max-width;
+		}
+	}
+}

@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
+<Button
+  active={false}
+  block={false}
+  bsClass="btn"
+  bsStyle="link"
+  className="tc-pie-chart-button theme-tc-pie-chart-button"
+  disabled={false}
+  onClick={null}
+  onMouseDown={null}
+  role="button"
+>
+  <withI18nextTranslation(PieChartIcon)
+    display="small"
+    labelIndex={0}
+    minimumPercentage={5}
+    model={
+      Array [
+        Object {
+          "color": "rio-grande",
+          "percentage": 50,
+        },
+        Object {
+          "color": "chestnut-rose",
+          "percentage": 12,
+        },
+        Object {
+          "color": "lightning-yellow",
+          "percentage": 1,
+        },
+        Object {
+          "color": "dove-gray",
+          "percentage": 4,
+        },
+        Object {
+          "color": "silver-chalice",
+          "percentage": 3,
+        },
+      ]
+    }
+    t={[Function]}
+  />
+</Button>
+`;
+
+exports[`PieChartButton snapshots render should render a PieChartButton with an overlay 1`] = `
+<span>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="id-popover"
+        placement="right"
+      >
+        <div>
+          I am an overlay
+        </div>
+      </Popover>
+    }
+    placement="bottom"
+    rootClose={true}
+    trigger="click"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="link"
+      className="tc-pie-chart-button theme-tc-pie-chart-button"
+      disabled={false}
+      onClick={null}
+      onMouseDown={null}
+      role="button"
+    >
+      <withI18nextTranslation(PieChartIcon)
+        display="medium"
+        labelIndex={2}
+        minimumPercentage={5}
+        model={
+          Array [
+            Object {
+              "color": "rio-grande",
+              "percentage": 50,
+            },
+            Object {
+              "color": "chestnut-rose",
+              "percentage": 12,
+            },
+            Object {
+              "color": "lightning-yellow",
+              "percentage": 1,
+            },
+            Object {
+              "color": "dove-gray",
+              "percentage": 4,
+            },
+            Object {
+              "color": "silver-chalice",
+              "percentage": 3,
+            },
+          ]
+        }
+        t={[Function]}
+      />
+    </Button>
+  </OverlayTrigger>
+</span>
+`;
+
+exports[`decorateWithOverlay should return the component wrapped 1`] = `
+<span>
+  <OverlayTrigger
+    defaultOverlayShown={false}
+    overlay={
+      <Popover
+        bsClass="popover"
+        id="id-test"
+        placement="right"
+      >
+        <div
+          className="fake-overlay"
+        />
+      </Popover>
+    }
+    placement="top"
+    rootClose={true}
+    trigger="click"
+  >
+    <div
+      className="fake-button-element"
+    />
+  </OverlayTrigger>
+</span>
+`;

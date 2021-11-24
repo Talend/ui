@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CellActions should render actions 1`] = `
+<div
+  className="tc-list-actions theme-tc-list-actions theme-tc-list-actions"
+>
+  <Actions
+    actions={
+      Array [
+        Object {
+          "icon": "talend-pencil",
+          "id": "action-1",
+          "label": "Simple action",
+          "onClick": [MockFunction],
+        },
+        Object {
+          "displayMode": "dropdown",
+          "icon": "talend-file-o",
+          "id": "action-2",
+          "items": Array [
+            Object {
+              "label": "Document 1",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "label": "Document 2",
+              "onClick": [MockFunction],
+            },
+          ],
+          "label": "Dropdown action",
+        },
+        Object {
+          "displayMode": "splitDropdown",
+          "id": "action-3",
+          "items": Array [
+            Object {
+              "label": "File 1",
+              "onClick": [MockFunction],
+            },
+            Object {
+              "label": "File 2",
+              "onClick": [MockFunction],
+            },
+          ],
+          "label": "Split dropdown action",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+    hideLabel={true}
+    link={true}
+  />
+</div>
+`;

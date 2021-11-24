@@ -1,0 +1,346 @@
+{
+  "metadata": {
+    "children": [],
+    "id": "example",
+    "label": "Form example",
+    "name": "example",
+    "version": 0
+  },
+  "ui": {
+    "jsonSchema": {
+      "properties": {
+        "array": {
+          "type": "object",
+          "properties": {
+            "strings": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["red", "green", "blue"]
+              }
+            },
+            "keyvalue": {
+              "default": [
+                {
+                  "value": "value",
+                  "key": "key"
+                }
+              ],
+              "title": "key value",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "title": "Value",
+                    "type": "string",
+                    "default": ""
+                  },
+                  "key": {
+                    "title": "Key",
+                    "type": "string",
+                    "default": ""
+                  }
+                }
+              }
+            }
+          }
+        },
+        "triggers": {
+          "login": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "url": {
+            "pattern": "^(http://|https://).*",
+            "title": "URL",
+            "type": "string"
+          }
+        },
+        "example": {
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "string": {
+              "type": "string"
+            },
+            "datalist": {
+              "type": "string"
+            },
+            "datalistRestricted": {
+              "type": "string"
+            },
+            "multiSelect": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "type": "object",
+          "required": ["url", "login", "password"]
+        }
+      },
+      "title": "example",
+      "type": "object"
+    },
+    "properties": {
+      "example": {
+        "datalist": "clafoutis",
+        "$datalist_name": "Clafoutis aux poires et aux fruits",
+        "tags": ["clafoutis"],
+        "$tags_name": ["Clafoutis aux poires et aux fruits"],
+        "multiSelect": ["1"],
+        "$multiSelect_name": ["accusamus beatae ad facilis cum similique qui sunt"]
+      },
+      "triggers": {
+        "login": "login",
+        "password": "login",
+        "url": "http://www.example.com"
+      },
+      "array": {
+        "strings": ["red"],
+        "keyvalue": [
+          { "value": "value", "key": "key" }
+        ]
+      }
+    },
+    "uiSchema": [
+      {
+        "title": "Example",
+        "widget": "tabs",
+        "items": [
+          {
+            "title": "Advanced Widget",
+            "widget": "fieldset",
+            "items": [
+              {
+                "key": "example.code",
+                "title": "Code",
+                "widget": "code",
+                "options": {
+                  "language": "python",
+                  "height": "300px"
+                }
+              },
+              {
+                "key": "example.datalist",
+                "title": "Datalist",
+                "titleMap": [],
+                "triggers": [
+                  {
+                    "action": "suggestionForDemo",
+                    "family": "remote",
+                    "type": "suggestions",
+                    "onEvent": "focus",
+                    "parameters": [
+                      {
+                        "path": "example.datalist",
+                        "key": "id"
+                      }
+                    ]
+                  }
+                ],
+                "widget": "datalist"
+              },
+              {
+                "key": "example.datalistRestricted",
+                "restricted": true,
+                "title": "Datalist (restricted)",
+                "titleMap": [],
+                "triggers": [
+                  {
+                    "action": "suggestionForDemo",
+                    "family": "remote",
+                    "type": "suggestions",
+                    "onEvent": "focus",
+                    "parameters": [
+                      {
+                        "path": "example.datalistRestricted",
+                        "key": "id"
+                      }
+                    ]
+                  }
+                ],
+                "widget": "datalist"
+              },
+              {
+                "key": "example.tags",
+                "title": "multiSelectTag",
+                "titleMap": [],
+                "triggers": [
+                  {
+                    "action": "suggestionForDemo",
+                    "family": "remote",
+                    "type": "suggestions",
+                    "onEvent": "focus",
+                    "parameters": [
+                      {
+                        "path": "example.tags",
+                        "key": "id"
+                      }
+                    ]
+                  }
+                ],
+                "widget": "multiSelectTag"
+              },
+              {
+                "key": "example.multiSelect",
+                "title": "multiSelect",
+                "titleMap": [],
+                "triggers": [
+                  {
+                    "action": "suggestionBig",
+                    "family": "remote",
+                    "type": "suggestions",
+                    "onEvent": "focus",
+                    "parameters": [
+                      {
+                        "path": "example.multiSelect",
+                        "key": "id"
+                      }
+                    ]
+                  }
+                ],
+                "widget": "multiSelect"
+              }
+            ]
+          },
+          {
+            "title": "Triggers",
+            "widget": "fieldset",
+            "items": [
+              {
+                "widget": "button",
+                "key": "example.neededToDisplayTheError",
+                "type": "button",
+                "title": "Give me HTTP five",
+                "triggers": [
+                  {
+                    "action": "giveMeFive",
+                    "family": "test",
+                    "options": [],
+                    "parameters": [
+                      {
+                        "key": "type",
+                        "path": "example.type"
+                      }
+                    ],
+                    "type": "error"
+                  }
+                ]
+              },
+              {
+                "key": "triggers.url",
+                "placeholder": "url",
+                "widget": "text"
+              },
+              {
+                "key": "triggers.login",
+                "placeholder": "login",
+                "widget": "text"
+              },
+              {
+                "key": "triggers.password",
+                "placeholder": "password",
+                "type": "password",
+                "widget": "text"
+              },
+              {
+                "key": "my.bad.i.need.a.key",
+                "title": "Validate auth",
+                "triggers": [
+                  {
+                    "action": "basicAuth",
+                    "family": "Example",
+                    "parameters": [
+                      {
+                        "key": "basicAuth.username",
+                        "path": "example.login"
+                      },
+                      {
+                        "key": "basicAuth.password",
+                        "path": "example.password"
+                      },
+                      {
+                        "key": "basicAuth.url",
+                        "path": "example.url"
+                      }
+                    ],
+                    "options": [
+                      "triggers.url",
+                      "triggers.password",
+                      "triggers.login"
+                    ],
+                    "type": "healthcheck"
+                  }
+                ],
+                "widget": "button"
+              }
+            ]
+          },
+          {
+            "title": "Arrays",
+            "widget": "fieldset",
+            "items": [
+              {
+                "key": "array.strings",
+                "title": "Strings",
+                "widget": "array",
+                "items": [{
+                  "key": "array.strings[]",
+                  "widget": "select",
+                  "titleMap": [
+                    { "name": "red", "value": "red" },
+                    { "name": "green", "value": "green" },
+                    { "name": "blue", "value": "blue" }
+                  ]
+                }]
+              },
+              {
+                "placeholder": "key value",
+                "key": "array.keyvalue",
+                "itemWidget": "collapsibleFieldset",
+                "itemTitle": "Column",
+                "items": [
+                  {
+                    "key": "array.keyvalue[]",
+                    "items": [
+                      {
+                        "widget": "columns",
+                        "items": [
+                          {
+                            "placeholder": "key",
+                            "widget": "text",
+                            "title": "Key",
+                            "key": "array.keyvalue[].key",
+                            "required": true
+                          },
+                          {
+                            "placeholder": "value",
+                            "widget": "text",
+                            "title": "Value",
+                            "key": "array.keyvalue[].value"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

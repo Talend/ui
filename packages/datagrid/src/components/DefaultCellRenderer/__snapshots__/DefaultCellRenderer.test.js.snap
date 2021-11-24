@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#DefaultCellRenderer should render DefaultCellRenderer 1`] = `
+<div
+  className="theme-td-cell td-cell"
+>
+  <QualityIndicator
+    qualityIndex={0}
+  />
+  <AvroRenderer
+    avroRenderer={
+      Object {
+        "stringCellRenderer": "StringRenderer",
+      }
+    }
+    colDef={
+      Object {
+        "avro": Object {
+          "type": "string",
+        },
+      }
+    }
+    data={
+      Object {
+        "quality": 0,
+      }
+    }
+    getComponent={[Function]}
+  />
+</div>
+`;
+
+exports[`#DefaultCellRenderer should render the default cell on loading state 1`] = `
+<div
+  className="theme-td-cell td-cell"
+>
+  <Skeleton />
+</div>
+`;

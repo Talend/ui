@@ -1,0 +1,59 @@
+:global {
+	.modal-flex .modal-body {
+		display: flex;
+		flex-direction: column;
+		padding-top: $padding-larger;
+	}
+
+	.modal-body {
+		padding-top: $padding-larger;
+	}
+
+	.modal-footer {
+		padding-bottom: $padding-larger;
+		.tc-actionbar-container {
+			padding: 0;
+		}
+	}
+
+	.modal-content,
+	.modal-title,
+	.modal-subtitle {
+		width: 100%;
+	}
+
+	.modal-header {
+		position: relative;
+		max-height: 7rem;
+
+		.modal-title,
+		.modal-subtitle {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		.modal-title {
+			line-height: normal;
+		}
+
+		.modal-subtitle {
+			margin-bottom: 0;
+		}
+
+		.close {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			font-weight: normal;
+			color: $gray;
+
+			&:hover,
+			&:focus,
+			&:active {
+				font-weight: bold;
+				color: $black;
+			}
+		}
+	}
+}

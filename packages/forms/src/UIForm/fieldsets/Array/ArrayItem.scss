@@ -1,0 +1,68 @@
+.tf-array-item {
+	display: flex;
+	background: $wild-sand;
+	border: 1px solid transparent;
+
+	.delete,
+	.tf-array-item-reorder {
+		opacity: 0;
+	}
+
+	&:hover {
+		background: $white;
+
+		.control {
+			.delete,
+			.tf-array-item-reorder {
+				opacity: 1;
+
+				&:disabled {
+					color: $silver;
+				}
+			}
+		}
+	}
+
+	> * {
+		flex-grow: 1;
+		margin: 0;
+		padding: $padding-small;
+	}
+
+	.control {
+		flex-grow: 0;
+		flex-shrink: 0;
+
+		border-right: 1px solid $gray-lighter;
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		justify-content: space-between;
+
+		.tf-array-item-reorder {
+			padding: 0;
+		}
+
+		button {
+			background: transparent;
+			border: 0;
+
+			&:disabled {
+				cursor: not-allowed;
+				pointer-events: all;
+			}
+		}
+	}
+
+	:global(.collapsible-panel) {
+		margin: 0;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+
+		&,
+		&:hover {
+			box-shadow: none;
+			border: 0;
+		}
+	}
+}
