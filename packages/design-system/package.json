@@ -10,7 +10,7 @@
     "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
     "pre-release": "npm run build:lib:umd && npm run build:lib:umd:min",
     "start": "npm run storybook",
-    "test": "talend-scripts test",
+    "test": "tsc && talend-scripts test",
     "test:demo": "build-storybook --quiet --docs && node ./scripts/sitemap.js",
     "storybook": "npm run build:lib && BROWSER=none start-storybook -p 6006",
     "build-storybook": "npm run build:lib && build-storybook --docs && node ./scripts/sitemap.js",
@@ -98,7 +98,7 @@
     "storybook-docs-toc": "^1.6.0",
     "style-loader": "^2.0.0",
     "styled-components": "^5.2.1",
-    "typescript": "^4.4.2"
+    "typescript": "^4.5.2"
   },
   "peerDependencies": {
     "@talend/icons": "^6.36.3",
