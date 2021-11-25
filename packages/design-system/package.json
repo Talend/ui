@@ -81,7 +81,7 @@
     "enzyme": "^3.11.0",
     "figma-js": "^1.13.0",
     "focus-outline-manager": "^1.0.2",
-    "i18next": "^21.2.0",
+    "i18next": "^20.6.1",
     "i18next-scanner": "^3.0.0",
     "i18next-scanner-typescript": "^1.0.6",
     "mdx-embed": "^0.0.22",
