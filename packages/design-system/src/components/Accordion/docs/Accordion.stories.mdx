@@ -1,0 +1,177 @@
+import { action } from '@storybook/addon-actions';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+
+import { FigmaImage, FigmaLink, Use } from '../../../docs';
+
+import Accordion from '../';
+import Button from '../../Button';
+
+<Meta title="Components/Accordion" />
+
+<FigmaLink href="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion" />
+
+# Accordion
+
+The accordion component displays sections of content. Each section can be collapsed or expanded.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=70%3A93"
+	alt="zoning image for accordion"
+/>
+
+## Style
+
+### Variations
+
+**Accordion by default**
+
+<FigmaImage
+	src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=3%3A63"
+	alt="accordion by default"
+/>
+
+**Accordion with status**
+
+<FigmaImage
+	src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=2%3A93"
+	alt="accordion with status"
+/>
+
+**Reversed accordion**
+
+<FigmaImage
+	src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=3%3A97"
+	alt="reversed accordion"
+/>
+
+### Sizes
+
+| Attribute  | Variable |
+| ---------- | -------- |
+| max-height | 37rem    |
+| min-width  | 25rem    |
+
+The max-height of an accordion item is `37rem`.
+A scrollbar is added in the content after exceeding `37rem`.
+
+<Canvas>
+	<Story name="default">
+		<Accordion>
+			<Accordion.Item disclosure={<header>Accordion title 1</header>} visible>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue augue, fringilla non
+				est at, eleifend sollicitudin turpis. Ut a pretium velit, quis imperdiet lacus. Cras sed
+				imperdiet lacus, non convallis felis. Proin nulla nunc, pharetra id hendrerit eget,
+				condimentum eget orci. Mauris eleifend augue sit amet elit feugiat, venenatis aliquet ante
+				pretium. Sed mi diam, scelerisque id diam quis, aliquam bibendum lacus. Sed tempor neque
+				massa, venenatis posuere risus feugiat nec. Praesent et egestas tortor, in laoreet tellus.
+				Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
+				dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
+				libero sagittis sit amet.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue augue, fringilla non
+				est at, eleifend sollicitudin turpis. Ut a pretium velit, quis imperdiet lacus. Cras sed
+				imperdiet lacus, non convallis felis. Proin nulla nunc, pharetra id hendrerit eget,
+				condimentum eget orci. Mauris eleifend augue sit amet elit feugiat, venenatis aliquet ante
+				pretium. Sed mi diam, scelerisque id diam quis, aliquam bibendum lacus. Sed tempor neque
+				massa, venenatis posuere risus feugiat nec. Praesent et egestas tortor, in laoreet tellus.
+				Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
+				dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
+				libero sagittis sit amet.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue augue, fringilla non
+                est at, eleifend sollicitudin turpis. Ut a pretium velit, quis imperdiet lacus. Cras sed
+                imperdiet lacus, non convallis felis. Proin nulla nunc, pharetra id hendrerit eget,
+                condimentum eget orci. Mauris eleifend augue sit amet elit feugiat, venenatis aliquet ante
+                pretium. Sed mi diam, scelerisque id diam quis, aliquam bibendum lacus. Sed tempor neque
+                massa, venenatis posuere risus feugiat nec. Praesent et egestas tortor, in laoreet tellus.
+                Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
+                dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
+                libero sagittis sit amet.
+			</Accordion.Item>
+			<Accordion.Item
+				disclosure={
+					<header>
+						Accordion title 2{' '}
+						<Button.Secondary onClick={action('call to action')}>CTA</Button.Secondary>
+					</header>
+				}
+			>
+				Maecenas tempus sagittis sollicitudin. Nullam condimentum vitae erat consequat bibendum.
+				Nunc eget lacus tortor. Pellentesque fermentum pellentesque urna et lacinia. Aliquam iaculis
+				aliquet volutpat. Praesent tempus sed risus vitae elementum. Fusce tempus elit quis dui
+				fringilla, vulputate pharetra enim condimentum. Nam in lacus sit amet ipsum sodales mattis.
+			</Accordion.Item>
+			<Accordion.Item disclosure={<header>Accordion title 3</header>}>
+				Etiam at diam sed urna consectetur laoreet et in nunc. Curabitur at orci vitae felis
+				malesuada dictum. Curabitur molestie orci in lorem ultrices, non euismod turpis bibendum.
+				Aenean fringilla, metus sed tincidunt tristique, ipsum tortor porttitor ante, eu dignissim
+				enim turpis non nibh. Pellentesque ac facilisis enim, at faucibus leo. Quisque dictum felis
+				ac volutpat condimentum. Nunc pretium mattis mauris et porta. Suspendisse id elit justo. Sed
+				pulvinar ipsum eget ultricies bibendum. Sed hendrerit dolor ut mattis lobortis. Integer
+				hendrerit, lectus quis ultricies tincidunt, est augue imperdiet ipsum, eu congue tortor
+				massa quis ligula. Curabitur at risus efficitur, mattis leo in, tincidunt augue.
+			</Accordion.Item>
+			<Accordion.Item disclosure={<header>Accordion title 4</header>}>
+				Fusce at libero sed dolor egestas facilisis. Donec interdum erat sit amet nunc bibendum,
+				vitae euismod turpis iaculis. Praesent viverra nulla nisl, at dapibus lacus vulputate eu.
+				Maecenas congue mauris eget sem varius, ut lacinia elit pellentesque. Vivamus nisl erat,
+				congue et nunc convallis, molestie fringilla metus. Ut porta, orci a tempus molestie, lacus
+				nisi dignissim leo, eget mattis arcu massa quis enim. Nam lobortis ipsum tempor augue
+				aliquet sodales. Fusce cursus fermentum finibus.
+			</Accordion.Item>
+			<Accordion.Item disclosure={<header>Accordion title 5</header>}>
+				Integer accumsan pulvinar libero, non dictum sem congue nec. Nulla at erat egestas, sagittis
+				odio vel, eleifend lectus. Aliquam id placerat nisi. Nam dictum vel ante non tempus. Sed nec
+				libero nisl. In tortor sem, finibus ac lorem vitae, faucibus gravida turpis. Duis cursus
+				auctor ligula, a condimentum ipsum accumsan at. Fusce tincidunt est nisi, a auctor magna
+				semper id. Sed hendrerit sapien id tristique pharetra. Sed placerat sagittis ultrices. Sed
+				et nisi a neque semper tempus sit amet sit amet sapien. Sed maximus aliquet quam, eget
+				bibendum metus placerat vel. Phasellus aliquam tellus a fringilla facilisis.
+			</Accordion.Item>
+		</Accordion>
+	</Story>
+</Canvas>
+
+## States
+
+By default, only the first panel of the accordion component is opened.
+Only one panel can be opened at a time.
+
+<FigmaImage
+	src="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion?node-id=2%3A88"
+	alt="accordion states"
+/>
+
+## Content
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in section headings.</li>
+			<li>
+				Try to make your headings as short as possible while keeping them clear and descriptive.
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don't use title case or all caps in accordion headings (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+## Accessibility
+
+- Press <kbd>ARROW UP</kbd> or <kbd>ARROW DOWN</kbd> to expand or collapse the previous or next accordion sections.
+
+## Usage
+
+The accordion component can be used as main page content or placed inside a container such as a drawer or an overview tile.
+
+## Changelog
+
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 11/11/2020 | Fabien Rassinier | Init page   |

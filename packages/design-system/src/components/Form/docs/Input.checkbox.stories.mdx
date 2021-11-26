@@ -1,0 +1,216 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
+import InlineMessage from '../../InlineMessage';
+import Button from '../../Button';
+import Form from '../';
+import { useForm } from 'react-hook-form';
+
+<Meta title="Components/Form/Fields/Checkbox" />
+
+<Links>
+	<FigmaLink href="https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=0%3A1" />
+	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Form/Field/Input" />
+</Links>
+
+# Checkbox
+
+Checkbox should be used for item/option selection and only when more than one item can be selected at the same time.
+If there is only two options (on/off), consider using a <a href="/docs/components-form-fields-switch--default-story">switch</a>.
+
+If the user should select only one option, use <a href="/docs/components-form-fields-radio--default-story">radio buttons</a>.
+
+Use a checkbox when you want to give your recipients the opportunity to select more than one option.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=44%3A59"
+	alt="zoning image for checkbox"
+/>
+
+## States
+
+<FigmaIframe
+	light="https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=1%3A78"
+	dark="https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=5%3A230"
+/>
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Checkbox label="Checkbox" />
+	</Story>
+	<Story name="indeterminate">
+		<Form.Checkbox label="Indeterminate Checkbox" indeterminate />
+	</Story>
+	<Story name="checked">
+		<Form.Checkbox label="Checked Checkbox" checked />
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Checkbox label="Disabled Checkbox" disabled />
+	</Story>
+	<Story name="disabled indeterminate">
+		<Form.Checkbox label="Disabled Indeterminate Checkbox" disabled indeterminate />
+	</Story>
+	<Story name="disabled checked">
+		<Form.Checkbox label="Disabled Checked Checkbox" disabled checked />
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Checkbox label="Read-Only Checkbox" readOnly />
+	</Story>
+	<Story name="read-only indeterminate">
+		<Form.Checkbox label="Read-Only Indeterminate Checkbox" readOnly indeterminate />
+	</Story>
+	<Story name="read-only checked">
+		<Form.Checkbox label="Read-Only Checked Checkbox" readOnly checked />
+	</Story>
+</Canvas>
+
+### Multiple checkboxes
+
+<Canvas>
+	<Story name="react-hook-form">
+		{() => {
+			const { register, handleSubmit } = useForm();
+			const [formData, setFormData] = React.useState();
+			return (
+				<Form onSubmit={handleSubmit(setFormData)}>
+					{formData && (
+						<InlineMessage.Information
+							title={'Form data'}
+							description={JSON.stringify(formData, null, 2)}
+							withBackground
+						/>
+					)}
+					<Form.Fieldset legend="Pick one or multiple options" required>
+						<Form.Checkbox label="Option A" {...register('option-a')} />
+						<Form.Checkbox label="Option B" checked {...register('option-b')} />
+					</Form.Fieldset>
+					<Form.Fieldset legend="Pick one or multiple inline options" required>
+						<Form.Row>
+							<Form.Checkbox label="Inline option A" {...register('inline-option-a')} />
+							<Form.Checkbox label="Inline option B" checked {...register('inline-option-b')} />
+						</Form.Row>
+					</Form.Fieldset>
+					<Form.Fieldset legend="Read only are sent" required readOnly>
+						<Form.Checkbox label="Option C" {...register('option-c')} />
+						<Form.Checkbox label="Option D" checked {...register('option-d')} />
+					</Form.Fieldset>
+					<Form.Fieldset legend="Disabled are not sent" required disabled>
+						{/* @see https://github.com/react-hook-form/react-hook-form/issues/6690 */}
+						<Form.Checkbox label="Option E" {...register('option-e', { disabled: true })} />
+						<Form.Checkbox label="Option F" checked {...register('option-f', { disabled: true })} />
+					</Form.Fieldset>
+					<Form.Buttons>
+						<Button.Primary type="submit">Submit</Button.Primary>
+					</Form.Buttons>
+				</Form>
+			);
+		}}
+	</Story>
+</Canvas>
+
+## Content
+
+Checkboxes appear as a list on UI so it's important to make their labels as parallel as possible without twisting the language too much. It’s important to have parallelism, but not at the expense of comprehension.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use positive and active wording for checkbox labels.</li>
+			<li>
+				Aim for parallel checkbox labels to ease reading flow and help users make the right choices.
+				For example, use "Search profile, Delete profile, Create profile, Edit profile" and don't
+				use "Search in profile, Delete profiles, Create a new profile, Edit existing profile".
+			</li>
+			<li>Start each label with capital letter.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Don’t use vague or misleading labels that are difficult to understand by average users.
+			</li>
+			<li>Don’t use punctuations at the end of labels.</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interactions
+
+- The label must always be clickable to check or uncheck.
+
+## Usage
+
+export const Template = args => {
+	const Component = Form.Checkbox;
+	Component.displayName = 'Form.Checkbox';
+	return <Component {...args} />;
+};
+
+<Canvas>
+	<Story
+		name="basic"
+		args={{
+			label: 'Checkbox',
+			indeterminate: false,
+			readOnly: false,
+			disabled: false,
+		}}
+		argTypes={{
+			label: {
+				description: 'Checkbox label',
+				control: {
+					type: 'text',
+				},
+			},
+			indeterminate: {
+				description: 'Checkbox is indeterminate or  not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			checked: {
+				description: 'Checkbox is checked or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			readOnly: {
+				description: 'Checkbox is read only or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			disabled: {
+				description: 'Checkbox is disabled or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+		}}
+	>
+		{Template.bind({})}
+	</Story>
+</Canvas>
+
+<ArgsTable story="basic" />
+
+## Accessibility
+
+Press <kbd>Tab</kbd> to focus on a checkbox.
+
+Press <kbd>Tab</kbd> or <kbd>Shift</kbd> + <kbd>Tab</kbd> to navigate between checkboxes.
+
+Press <kbd>Space</kbd> to toggle the checkbox between selected and not selected.

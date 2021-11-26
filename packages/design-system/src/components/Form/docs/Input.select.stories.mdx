@@ -1,0 +1,248 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaIframe, FigmaImage, Use } from '../../../docs';
+
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Select" />
+
+# Select
+
+Select lets the user choose one option or multiple options from an options menu.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A211"
+	alt="zoning image for input select"
+/>
+
+## Style
+
+<FigmaIframe
+	light="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A229"
+	dark="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A188"
+/>
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Select label="Default select" placeholder="Placeholder">
+			<option>Foo</option>
+			<option>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.Select label="Filled select" placeholder="Placeholder">
+			<option>Foo</option>
+			<option selected>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Select label="Disabled Select" disabled>
+			<option>Foo</option>
+			<option selected>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Select label="Read-Only Select" readOnly>
+			<option>Foo</option>
+			<option selected>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Multiple Default
+
+<Canvas>
+	<Story name="default multiple">
+		<Form.Select label="Multiple Select" multiple>
+			<option selected>Foo</option>
+			<option selected>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Multiple Disabled
+
+<Canvas>
+	<Story name="disabled multiple">
+		<Form.Select label="Disabled Multiple Select" multiple disabled>
+			<option selected>Foo</option>
+			<option selected>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Multiple Read only
+
+<Canvas>
+	<Story name="read-only multiple">
+		<Form.Select label="Read-Only Multiple Select" multiple readOnly>
+			<option selected>Foo</option>
+			<option selected>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### With option group Default
+
+<Canvas>
+	<Story name="default object">
+		<Form.Select label="Select">
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option>Bar-Bar</option>
+			</optgroup>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### With option group Disabled
+
+<Canvas>
+	<Story name="disabled object">
+		<Form.Select label="Disabled Select" disabled>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option>Bar-Bar</option>
+			</optgroup>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### With option group Read only
+
+<Canvas>
+	<Story name="read-only object">
+		<Form.Select label="Read-Only Select" readOnly>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option>Bar-Bar</option>
+			</optgroup>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Multiple with option group Default
+
+<Canvas>
+	<Story name="default multiple object">
+		<Form.Select label="Select" multiple>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option selected>Bar-Bar</option>
+			</optgroup>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Multiple with option group Disabled
+
+<Canvas>
+	<Story name="disabled multiple object">
+		<Form.Select label="Disabled Select" multiple disabled>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option selected>Bar-Bar</option>
+			</optgroup>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Multiple with option group Read only
+
+<Canvas>
+	<Story name="read-only multiple object">
+		<Form.Select label="Read-Only Select" multiple readOnly>
+			<optgroup label="Foo">
+				<option>Foo-Foo</option>
+				<option selected>Foo-Bar</option>
+			</optgroup>
+			<optgroup label="Bar">
+				<option>Bar-Foo</option>
+				<option selected>Bar-Bar</option>
+			</optgroup>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+## Content
+
+When you use clear terms and order them logically in the list, you enable users to scan quickly and select what they need.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Aim for terms and words which are very familiar to users.</li>
+			<li>
+				Write items/option in order (alphabetical order or any other order which makes sense).
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Don’t use vague or misleading options that are difficult to understand by average users.
+			</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interactions
+
+- When a user clicks into the text input field, they trigger the selection menu which is the browser default one (for compatibility reason).
+
+## Usage
+
+To do
+
+## Accessibility
+
+The keyboard gestures are the default ones, such as:
+
+- Press arrows keys to display and navigate into the menu.
+- Press <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to select the option.
+
+## Changelog
+
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 12/06/2020 | Monia Huet | Init page   |

@@ -1,0 +1,131 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Use } from '../../../docs';
+import Menu from '../';
+
+<Meta title="Components/Menu" component={Menu} />
+
+# Menu
+
+## Style
+
+### Variations
+
+#### Default
+
+<Canvas>
+	<Story name="default">
+		<Menu>
+			<Menu.Item iconBefore="talend-stop" href="#" active>
+				Item A
+			</Menu.Item>
+			<Menu.Item iconBefore="talend-stop" href="#">
+				Item B
+			</Menu.Item>
+			<Menu.Item iconBefore="talend-stop" href="#">
+				Item C
+			</Menu.Item>
+		</Menu>
+	</Story>
+</Canvas>
+
+#### Reversed
+
+<Canvas>
+	<Story name="reversed">
+		<Menu.Reversed>
+			<Menu.Item iconBefore="talend-stop" href="#" active>
+				Item A
+			</Menu.Item>
+			<Menu.Item iconBefore="talend-stop" href="#">
+				Item B
+			</Menu.Item>
+			<Menu.Item iconBefore="talend-stop" href="#">
+				Item C
+			</Menu.Item>
+		</Menu.Reversed>
+	</Story>
+</Canvas>
+
+## Content
+
+Menus help users find content and use features. Labels on menus should give users a strong indication of what they can find behind them.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in menu labels.</li>
+			<li>Use meaningful labels that clearly describe what contained within menus.</li>
+			<li>
+				Choose descriptive words and phrases that your users relate to, even if the words sound
+				boring. It’s essential that your navigational labels can be easily understood.
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Avoid made-up terms. For example, according to Nielsen Norman Group (
+				<a href="https://www.nngroup.com/">NN/g</a>), the leader in research-based user experience,
+				"About Us" proved to be better than "Company Experience" because it is a more-common phrase.
+			</li>
+			<li>Don't use title case or all caps in menu labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Usage
+
+<Canvas>
+	<Story
+		name="usage"
+		height="20rem"
+		args={{
+			style: '',
+			variant: 'TPD',
+		}}
+		argTypes={{
+			style: {
+				description: 'Menu style',
+				control: {
+					type: 'select',
+					options: ['', 'Reversed'],
+				},
+			},
+			variant: {
+				description: 'Menu variant',
+				control: {
+					type: 'select',
+					options: ['', 'TAPID', 'TAPIT', 'MDM', 'TDI', 'TDP', 'TDS', 'TMC', 'TPD'],
+				},
+			},
+		}}
+	>
+		{props => {
+			const Component = props.style ? Menu[props.style] : Menu;
+			return (
+				<Component {...props} style={{ minHeight: '50rem' }}>
+					<Menu.Item iconBefore="talend-stop" href="#">
+						Item A
+					</Menu.Item>
+					<Menu.Item iconBefore="talend-stop" href="#" active>
+						Item B
+					</Menu.Item>
+					<Menu.Item iconBefore="talend-stop" href="#">
+						Item C
+					</Menu.Item>
+					<Menu.Item iconBefore="talend-stop" href="#">
+						Item D
+					</Menu.Item>
+				</Component>
+			);
+		}}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />
+
+## Changelog
+
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 10/26/2020 | Fabien Rassinier | Init page   |

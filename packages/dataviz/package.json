@@ -46,11 +46,11 @@
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
+    "@storybook/addon-actions": "6.4.0-rc.3",
+    "@storybook/addon-essentials": "6.4.0-rc.3",
+    "@storybook/addon-links": "6.4.0-rc.3",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.3.12",
+    "@storybook/react": "6.4.0-rc.3",
     "@talend/bootstrap-theme": "^6.38.5",
     "@talend/icons": "^6.37.0",
     "@talend/locales-tui": "^6.36.0",

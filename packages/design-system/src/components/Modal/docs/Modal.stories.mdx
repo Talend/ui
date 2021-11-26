@@ -1,0 +1,93 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Use } from '../../../docs';
+import * as stories from '../Modal.stories';
+
+<Meta title="Components/Modal" />
+
+<FigmaLink href="https://www.figma.com/file/0Jolh2prAAdfO5224n3OU3/Modal" />
+
+# Modal
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=10%3A29"
+	alt="zoning image for modal"
+/>
+
+## Style
+
+<Canvas>
+	<Story story={stories.Confirm} />
+</Canvas>
+
+### Sizes
+
+| Attribute  | Variable |
+| ---------- | -------- |
+| max-height | 80%      |
+| min-width  | 40rem    |
+| max-width  | 90rem    |
+
+### Placement
+
+| Attribute  | Variable |
+| ---------- | -------- |
+| horizontal | centered |
+| vertical   | centered |
+
+## States
+
+## Content
+
+Use modals for short direct dialog with users. They provide information or help users complete tasks.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in modal headers and prioritize keywords.</li>
+			<li>
+				Use a verb-noun combination in modal headers that clearly describes the purpose (e.g., "Add
+				a dataset").
+			</li>
+			<li>Use clear action-oriented words on call-to-action buttons (CTAs).</li>
+			<li>
+				When appropriate, match the header and primary button text, e.g. header is “Delete dataset”
+				and primary button is “Delete”.
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Avoid long content in order to not have a scrollbar.</li>
+			<li>Don't include any content irrelevant to complete the current task.</li>
+			<li>Don't use title case or all caps in modal headers (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+## Accessibility
+
+- Press <kbd>ESC</kbd> to dismiss the modal. This is equivalent to choosing “Cancel” or an “OK” confirmation.
+
+## Usage
+
+<Canvas>
+	<Story story={stories.Invite} />
+</Canvas>
+
+### Where to place buttons?
+
+Buttons are always at the bottom of the dialog box. In case of scroll bar into the body, they should be fixed at the bottom.
+Dismiss actions should be on the left / Confirmation actions on the right
+
+### Prioritize actions
+
+One main action should be expected from the user emphasized by the use of a primary button. Secondary buttons can be used for second level actions. 2 primary validation/action buttons cannot be used
+
+### Cancel or close?
+
+In Confirmation dialog box, close icon cannot be displayed.
+A Cancel button shall be displayed on the left side. Closing icon can be used only for informative dialog box.

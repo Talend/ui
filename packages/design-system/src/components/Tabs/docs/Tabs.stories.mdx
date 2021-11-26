@@ -1,0 +1,156 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaIframe, FigmaImage, FigmaLink, Use } from '../../../docs';
+
+import Tabs from '../';
+import { Icon } from '../../Icon';
+import Tag from '../../Tag';
+import Tooltip from '../../Tooltip';
+
+<Meta title="Components/Tabs" />
+
+<FigmaLink href="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs" />
+
+# Tabs
+
+Tabs are used for switching between different views, functional aspects or categorized data sets.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=46%3A63"
+	alt="zoning for tabs"
+/>
+
+## Style
+
+<FigmaIframe
+	light="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A201"
+	dark="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=311%3A179"
+/>
+
+<Canvas>
+	<Story name="default">
+		<Tabs selectedId="tab3">
+			<Tabs.TabList aria-label="My tabs">
+				<Tabs.Tab>Tab 1</Tabs.Tab>
+				<Tabs.Tab>Tab 2</Tabs.Tab>
+				<Tabs.Tab id="tab3">Tab 3</Tabs.Tab>
+			</Tabs.TabList>
+			<Tabs.TabPanel>Tab 1</Tabs.TabPanel>
+			<Tabs.TabPanel>Tab 2</Tabs.TabPanel>
+			<Tabs.TabPanel>Tab 3</Tabs.TabPanel>
+		</Tabs>
+	</Story>
+</Canvas>
+
+### Variations
+
+**Tabs with icons**
+
+Icons can be used with tabs to help users differentiate among them. Tabs with icons has the same behaviours.
+
+<Canvas>
+	<Story name="tabs-with-icons">
+		<Tabs selectedId="tab2">
+			<Tabs.TabList aria-label="My tabs">
+				<Tabs.Tab>
+					<Icon name="talend-user-circle" /> User
+				</Tabs.Tab>
+				<Tabs.Tab id="tab2">
+					<Icon name="talend-empty-calendar" /> Calendar
+				</Tabs.Tab>
+				<Tabs.Tab>
+					<Icon name="talend-star" /> Favorite
+				</Tabs.Tab>
+			</Tabs.TabList>
+		</Tabs>
+	</Story>
+</Canvas>
+
+**Tabs with tags**
+
+Labels can be used with tabs to indicate the number of items inside a category. Please refer to the labels guideline for more information.
+The default max value of an item is 999. When the value to display is greater than 999, display a + after.
+Mouse over the label will display the exact number item.
+
+<Canvas>
+	<Story name="tabs-with-tags">
+		<Tabs selectedId="tab2">
+			<Tabs.TabList aria-label="My tabs">
+				<Tabs.Tab>
+					User <Tag title="13">13</Tag>
+				</Tabs.Tab>
+				<Tabs.Tab id="tab2">
+					Calendar <Tag.Information>54</Tag.Information>
+				</Tabs.Tab>
+				<Tooltip title="1534" placement="top">
+					<Tabs.Tab>
+						Favorite <Tag>999+</Tag>
+					</Tabs.Tab>
+				</Tooltip>
+				<Tabs.TabPanel>Tab 1</Tabs.TabPanel>
+				<Tabs.TabPanel>Tab 2</Tabs.TabPanel>
+				<Tabs.TabPanel>Tab</Tabs.TabPanel>
+			</Tabs.TabList>
+		</Tabs>
+	</Story>
+</Canvas>
+
+## States
+
+**Super long item names are truncated.**
+
+Please display a tooltip on hover that contains the full name.
+Max width item: 20rem
+
+<Canvas>
+	<Story name="tabs-with-truncated-label">
+		<Tabs selectedId="tab3">
+			<Tabs.TabList aria-label="My tabs">
+				<Tooltip title="Tab with a very mega supra long label" placement="top">
+					<Tabs.Tab>Tab with a very mega supra long label</Tabs.Tab>
+				</Tooltip>
+				<Tabs.Tab>Tab 2</Tabs.Tab>
+				<Tabs.Tab id="tab3">Tab 3</Tabs.Tab>
+			</Tabs.TabList>
+		</Tabs>
+	</Story>
+</Canvas>
+
+## Content
+
+The word/words on tabs should be accurate, specific, and explicit to help users smoothly switching to the right view or functional aspect. A good tab label should clearly describe the content contained within it.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in tab labels.</li>
+			<li>Use labels which clearly describe the content behind the tab.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don’t use more than 3 words on a tab: keep it short and simple.</li>
+			<li>Don't use title case or all caps in tab labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+If there isn't enough space to display every tabs, only the active one should be displayed, and the rest should be accessible through a dropdown (that appears on click on the active one).
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A167"
+	alt="tabs with dropdowns"
+/>
+
+## Accessibility
+
+## Usage
+
+## Changelog
+
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 11/11/2020 | Fabien Rassinier | Init page   |

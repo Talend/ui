@@ -19,9 +19,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
-          cache: 'yarn'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
 
       - name: Install and build
         run: |
@@ -53,6 +53,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          body: ':octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)'
+          body: ":octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)"
           fingerprint: ${{ github.event.number }}
           replace: please

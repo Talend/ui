@@ -1,0 +1,96 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaIframe, FigmaImage, FigmaLink } from '../../../docs';
+import * as FormButtonsStories from '../Buttons/Buttons.stories';
+
+<Meta title="Components/Form/Form Buttons" />
+
+<FigmaLink href="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/?node-id=34%3A4932" />
+
+# Form buttons
+
+A Form has always buttons in order to be cancelled or validated.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=545%3A0"
+	alt="zoning image for form buttons"
+/>
+
+## Style
+
+_to do_
+
+## States
+
+### Skeleton
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A0"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A330"
+/>
+
+<Canvas>
+	<Story story={FormButtonsStories.FormButtonsSkeleton} />
+</Canvas>
+
+### Default
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A27"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A333"
+/>
+
+<Canvas>
+	<Story story={FormButtonsStories.FormButtonsDefault} />
+</Canvas>
+
+### Loading
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A1191"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A360"
+/>
+
+<Canvas>
+	<Story story={FormButtonsStories.FormButtonsLoading} />
+</Canvas>
+
+## Content
+
+### Buttons order
+
+Sort the buttons from the less to the more important.
+
+- The main action button is placed on the right
+- Avoid to use more than one primary button per form
+- Other form buttons should be secondary buttons
+- Depending on the context, consider using a back or cancel button. This button should always be placed at the very left.
+- The other action buttons are placed on the right side.
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=57%3A81"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A215"
+/>
+
+<Canvas>
+	<Story story={FormButtonsStories.FormButtonsOrder} />
+</Canvas>
+
+### Buttons with icons
+
+Consider using Buttons with icons only for the main action when the label isn't enough understable.
+
+## Interactions
+
+The buttons related to the form are part of a **sticky footer**
+
+The footer containing the buttons will be stick to the screen bottom once the user starts scrolling down.
+
+## Usage
+
+_to do_
+
+## Accessibility
+
+_Non applicable_
