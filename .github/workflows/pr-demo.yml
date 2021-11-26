@@ -56,12 +56,3 @@ jobs:
           body: ":octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)"
           fingerprint: ${{ github.event.number }}
           replace: please
-
-      - name: test design-system on Chromatic
-        if: (github.ref == 'refs/heads/master') || (github.event.label.name == 'need visual approval')
-        uses: chromaui/action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: "packages/design-system"
-          storybookBuildDir: "packages/storybook-static/"
