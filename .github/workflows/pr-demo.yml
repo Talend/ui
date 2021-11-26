@@ -58,7 +58,7 @@ jobs:
           replace: please
 
       - name: test design-system on Chromatic
-        if: github.ref != 'refs/heads/master'
+        if: (github.ref == 'refs/heads/master') || (github.event.label.name == 'need visual approval')
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
