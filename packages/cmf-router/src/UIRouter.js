@@ -7,7 +7,7 @@
  */
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Router as BaseRouter } from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
 
@@ -16,6 +16,22 @@ import route from './route';
 /**
  * @typedef {Object} Router
  */
+
+function renderRoutes({ path, childRoutes, ...props }) {
+	const newProps = { ...props };
+	if (childRoutes) {
+		newProps.children = childRoutes.map(child => (
+			<Route path={child.path}>
+				<Inject {...getInjectProps(child)} />
+			</Route>
+		));
+	}
+	return (
+		<Route path={path}>
+			<Inject {...newProps} />
+		</Route>
+	);
+}
 
 /**
  * pure arrow function that render the router component.
@@ -27,7 +43,7 @@ import route from './route';
 function Router(props, context) {
 	const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
 	if (routes.path === '/' && routes.component) {
-		return <BaseRouter routes={routes} history={props.history} />;
+		return <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>;
 	}
 	if (props.loading) {
 		return <Inject component={props.loading} />;
@@ -37,7 +53,6 @@ function Router(props, context) {
 
 Router.propTypes = {
 	dispatch: PropTypes.func,
-	history: PropTypes.object,
 	routes: PropTypes.object,
 	loading: PropTypes.node,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
-import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
+import { createBrowserHistory } from 'history';
+import { routerMiddleware, connectRouter } from 'connected-react-router';
 import cmf from '@talend/react-cmf';
 import { fork, takeLatest } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
@@ -24,14 +24,16 @@ function mergeRouterConfig(...configs) {
 
 function getModule(...args) {
 	const options = mergeRouterConfig(...args);
-	const history = options.history || hashHistory;
+	const history = createBrowserHistory();
 	const registry = {};
 	if (options.routerFunctions) {
-		Object.keys(options.routerFunctions).reduce((acc, key) => {
-			// eslint-disable-next-line no-param-reassign
-			acc[`${REGISTRY_HOOK_PREFIX}:${key}`] = options.routerFunctions[key];
-			return acc;
-		}, registry);
+		console.warn('options.routerFunctions is deprecated and not supported at  the moment. TODO');
+		// TODO: find usage and a way to migrate
+		// Object.keys(options.routerFunctions).reduce((acc, key) => {
+		// 	// eslint-disable-next-line no-param-reassign
+		// 	acc[`${REGISTRY_HOOK_PREFIX}:${key}`] = options.routerFunctions[key];
+		// 	return acc;
+		// }, registry);
 	}
 
 	function* saga() {
@@ -51,24 +53,24 @@ function getModule(...args) {
 		}
 	}
 	const middlewares = [routerMiddleware(history), cmfRouterMiddleware];
-	let routerHistory;
-	function storeCallback(store) {
-		routerHistory = syncHistoryWithStore(history, store);
-	}
+	// let routerHistory;
+	// function storeCallback(store) {
+	// 	routerHistory = syncHistoryWithStore(history, store);
+	// }
 	// router is renderer after the store is created so we refer to routerHistory
 	function Router() {
-		return <UIRouter history={routerHistory} />;
+		return <UIRouter />;
 	}
 	return {
 		cmfModule: {
 			id: 'react-cmf-router',
 			expressions,
 			reducer: {
-				routing: routerReducer,
+				router: connectRouter(history),
 			},
 			middlewares,
 			saga,
-			storeCallback,
+			// storeCallback,
 			registry,
 		},
 		RootComponent: Router,
