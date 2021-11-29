@@ -201,6 +201,7 @@ LineItem.propTypes = {
 	type: PropTypes.string,
 	value: PropTypes.node,
 	isValueOverflown: PropTypes.bool,
+	t: PropTypes.func,
 };
 
 /**
