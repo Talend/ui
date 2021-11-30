@@ -220,7 +220,9 @@ describe('JSONLike', () => {
 						edited={[]}
 						info={{}}
 					/>
-					<button type="submit" onClick={mockOnSubmitClick} />
+					<button type="submit" onClick={mockOnSubmitClick}>
+						Submit
+					</button>
 				</form>,
 			);
 

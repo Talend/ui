@@ -492,6 +492,7 @@ export function Item(props) {
 }
 
 Item.propTypes = {
+	opened: PropTypes.arrayOf(PropTypes.string),
 	data: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.number,
