@@ -7,6 +7,7 @@ import Component, {
 	getDataAbstract,
 	getDataInfo,
 	ComplexItem,
+	getName,
 } from './JSONLike.component';
 
 const callbacksProps = {
@@ -259,6 +260,19 @@ describe('JSONLike', () => {
 			// expect
 			expect(event.stopPropagation).toBeCalled();
 			expect(mockOnSelect).toBeCalled();
+		});
+	});
+
+	describe('getName', () => {
+		const t = jest.fn((_, { defaultValue }) => ` ${defaultValue}`);
+		it('should return null when name is empty', () => {
+			const name = getName(null, t);
+			expect(name).toBe(null);
+		});
+		it('should use colon translation in name label', () => {
+			const name = shallow(getName('spiderman', t));
+			expect(t).toHaveBeenCalledWith('COLON', { defaultValue: ':' });
+			expect(name.text()).toBe('spiderman :');
 		});
 	});
 });

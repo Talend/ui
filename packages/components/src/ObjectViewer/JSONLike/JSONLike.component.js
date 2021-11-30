@@ -81,7 +81,7 @@ export function getJSONPath(key, prefix, type) {
 	return `${prefix}['${key}']`;
 }
 
-function getName(name, t) {
+export function getName(name, t) {
 	if (!name) {
 		return null;
 	}
