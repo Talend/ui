@@ -12,7 +12,9 @@ export default function useCheckboxState({ readOnly, ...initialState }: InitialC
 	const readOnlyState = useReadOnly(initialState.state);
 
 	useEffect(() => {
-		checkboxState.setState(initialState.state);
+		if (initialState.state) {
+			checkboxState.setState(initialState.state);
+		}
 	}, [initialState.state]);
 
 	if (readOnly) {

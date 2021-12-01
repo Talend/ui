@@ -99,7 +99,7 @@ export const SCheckbox = styled(InlineStyle)<{
 `;
 
 export type CheckboxProps = InputProps & {
-	checked: boolean | 'indeterminate' | (string | number)[];
+	checked?: boolean | 'indeterminate' | (string | number)[];
 };
 
 const Checkbox = React.forwardRef(
