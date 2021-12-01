@@ -132,7 +132,7 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 			return (
 				<Form onSubmit={handleSubmit(setFormData)}>
 					<Form.Fieldset legend="Control checkbox state" required>
-						<Form.Checkbox label="Controller checkbox" {...register('option-a')} />
+						<Form.Checkbox label="Toggle all" {...register('option-a')} />
 						<Form.Checkbox label="Controlled checkbox" checked={optionA} />
 					</Form.Fieldset>
 					<Form.Buttons>

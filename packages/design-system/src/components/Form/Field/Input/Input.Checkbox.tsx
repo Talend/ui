@@ -126,10 +126,6 @@ const Checkbox = React.forwardRef(
 			readOnly,
 		});
 
-		useEffect(() => {
-			checkbox.setState(state);
-		}, [state]);
-
 		return (
 			<SCheckbox readOnly={!!readOnly} checked={!!checkbox.state} disabled={!!disabled}>
 				<label htmlFor={checkboxId} style={readOnly ? { pointerEvents: 'none' } : {}}>

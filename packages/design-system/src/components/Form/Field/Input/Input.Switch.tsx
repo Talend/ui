@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { shade } from 'polished';
 import { unstable_useId as useId, Checkbox as ReakitCheckbox } from 'reakit';
 
 import useCheckboxState from './hooks/useCheckboxState';
