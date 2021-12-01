@@ -3,19 +3,19 @@ import Reakit, { useCheckboxState as useReakitCheckboxState } from 'reakit';
 
 import useReadOnly from './useReadOnly';
 
-type InitialChoiceState = Reakit.CheckboxInitialState & {
+type ChoiceState = Reakit.CheckboxInitialState & {
 	readOnly?: boolean;
 };
 
-export default function useCheckboxState({ readOnly, ...initialState }: InitialChoiceState) {
-	const checkboxState = useReakitCheckboxState(initialState);
-	const readOnlyState = useReadOnly(initialState.state);
+export default function useCheckboxState({ readOnly, ...choiceState }: ChoiceState) {
+	const checkboxState = useReakitCheckboxState(choiceState);
+	const readOnlyState = useReadOnly(choiceState.state);
 
 	useEffect(() => {
-		if (initialState.state) {
-			checkboxState.setState(initialState.state);
+		if (choiceState.state) {
+			checkboxState.setState(choiceState.state);
 		}
-	}, [initialState.state]);
+	}, [checkboxState.setState, choiceState.state]);
 
 	if (readOnly) {
 		return { ...checkboxState, ...readOnlyState, setState: () => {} };
