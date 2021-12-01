@@ -63,18 +63,20 @@ function withProps(Component, item) {
  */
 function loadComponents(context, item, dispatch) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
-	if (item.component) {
+	if (item.component && typeof item.component === 'string') {
 		// we create an HOC to pass item.componentId
-		item.component = withProps(cmf.component.get(item.component, context), item);
+		// item.component = withProps(cmf.component.get(item.component, context), item);
 	}
 	if (item.components) {
 		// TODO: iterate over all keys to call loadComponents
 	}
 	if (item.getComponent) {
-		item.getComponent = getFunction(item.getComponent, context);
+		console.error('CMFRouterError: getComponent is not supported', item.getComponent);
+		// item.getComponent = getFunction(item.getComponent, context);
 	}
 	if (item.getComponents) {
-		item.getComponents = getFunction(item.getComponents, context);
+		console.error('CMFRouterError: getComponents is not supported', item.getComponents);
+		// item.getComponents = getFunction(item.getComponents, context);
 	}
 	if (item.onEnter) {
 		const onEnterFn = getFunction(item.onEnter, context);

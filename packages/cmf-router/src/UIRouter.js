@@ -11,8 +11,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
 
-import route from './route';
-
 /**
  * @typedef {Object} Router
  */
@@ -20,14 +18,11 @@ import route from './route';
 function renderRoutes({ path, childRoutes, ...props }) {
 	const newProps = { ...props };
 	if (childRoutes) {
-		newProps.children = childRoutes.map(child => (
-			<Route path={child.path}>
-				<Inject {...getInjectProps(child)} />
-			</Route>
-		));
+		newProps.children = childRoutes.map(child => renderRoutes(child));
 	}
+	console.log('####', path, props.component, newProps);
 	return (
-		<Route path={path}>
+		<Route path={path} key={path}>
 			<Inject {...newProps} />
 		</Route>
 	);
@@ -41,9 +36,9 @@ function renderRoutes({ path, childRoutes, ...props }) {
  * @return {object} ReactElement
  */
 function Router(props, context) {
-	const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
-	if (routes.path === '/' && routes.component) {
-		return <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>;
+	// const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
+	if (props.routes.path === '/' && props.routes.component) {
+		return <BrowserRouter>{renderRoutes(props.routes)}</BrowserRouter>;
 	}
 	if (props.loading) {
 		return <Inject component={props.loading} />;

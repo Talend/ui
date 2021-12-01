@@ -1,3 +1,6 @@
 {
-  "preset": "@talend/scripts-preset-react-lib"
+  "preset": "@talend/scripts-preset-react-lib",
+  "dynamic-cdn-webpack-plugin": {
+    "exclude": ["react-router"]
+  }
 }
