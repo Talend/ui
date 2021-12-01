@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Checkbox as ReakitCheckbox, unstable_useId as useId } from 'reakit';
 import styled from 'styled-components';
 
@@ -120,10 +120,15 @@ const Checkbox = React.forwardRef(
 	) => {
 		const { id: reakitId } = useId();
 		const checkboxId = id || `checkbox--${reakitId}`;
+		const state = (indeterminate && 'indeterminate') || defaultChecked || checked;
 		const checkbox = useCheckboxState({
-			state: (indeterminate && 'indeterminate') || defaultChecked || checked,
+			state,
 			readOnly,
 		});
+
+		useEffect(() => {
+			checkbox.setState(state);
+		}, [state]);
 
 		return (
 			<SCheckbox readOnly={!!readOnly} checked={!!checkbox.state} disabled={!!disabled}>

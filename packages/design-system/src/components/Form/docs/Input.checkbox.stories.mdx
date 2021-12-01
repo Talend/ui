@@ -121,6 +121,30 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 	</Story>
 </Canvas>
 
+### Controlled checkbox
+
+<Canvas>
+	<Story name="controlled">
+		{() => {
+			const { register, handleSubmit, watch } = useForm();
+			const [formData, setFormData] = React.useState();
+			const optionA = watch('option-a');
+			return (
+				<Form onSubmit={handleSubmit(setFormData)}>
+					<Form.Fieldset legend="Control checkbox state" required>
+						<Form.Checkbox label="Controller checkbox" {...register('option-a')} />
+						<Form.Checkbox label="Controlled checkbox" checked={optionA} />
+					</Form.Fieldset>
+					<Form.Buttons>
+						<Button.Primary type="submit">Submit</Button.Primary>
+					</Form.Buttons>
+				</Form>
+			);
+		}}
+	</Story>
+</Canvas>
+
+
 ## Content
 
 Checkboxes appear as a list on UI so it's important to make their labels as parallel as possible without twisting the language too much. It’s important to have parallelism, but not at the expense of comprehension.
