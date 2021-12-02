@@ -12,7 +12,7 @@ export default function useCheckboxState({ readOnly, ...choiceState }: ChoiceSta
 	const readOnlyState = useReadOnly(choiceState.state);
 
 	useEffect(() => {
-		if (choiceState.state) {
+		if (choiceState.state !== undefined) {
 			checkboxState.setState(choiceState.state);
 		}
 	}, [checkboxState.setState, choiceState.state]);
