@@ -82,6 +82,29 @@ Use switches to change the state of system functionalities and preferences on or
 
 - The label must always be clickable to enable or disable.
 
+### Controlled switch
+
+<Canvas>
+    <Story name="controlled">
+        {() => {
+            const { register, handleSubmit, watch } = useForm();
+            const [formData, setFormData] = React.useState();
+            const optionA = watch('option-a');
+            return (
+                <Form onSubmit={handleSubmit(setFormData)}>
+                    <Form.Fieldset legend="Control switch state" required>
+                        <Form.Switch label="Toggle all" {...register('option-a')} />
+                        <Form.Switch label="Controlled switch" checked={optionA} />
+                    </Form.Fieldset>
+                    <Form.Buttons>
+                        <Button.Primary type="submit">Submit</Button.Primary>
+                    </Form.Buttons>
+                </Form>
+            );
+        }}
+    </Story>
+</Canvas>
+
 ## Usage
 
 <Canvas>
