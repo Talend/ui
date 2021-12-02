@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.10.0
+
+### Minor Changes
+
+- f2a835163: Checkbox: Support controlled checked state
+
 ## 1.9.6
 
 ### Patch Changes
