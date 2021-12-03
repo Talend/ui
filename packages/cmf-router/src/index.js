@@ -24,7 +24,7 @@ function mergeRouterConfig(...configs) {
 
 function getModule(...args) {
 	const options = mergeRouterConfig(...args);
-	const history = createBrowserHistory();
+	const history = options.history || createBrowserHistory();
 	const registry = {};
 	if (options.routerFunctions) {
 		console.warn('options.routerFunctions is deprecated and not supported at  the moment. TODO');
