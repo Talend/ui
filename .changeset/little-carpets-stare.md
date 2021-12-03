@@ -1,5 +1,5 @@
 ---
-'@talend/react-components': major
+'@talend/react-components': minor
 '@talend/react-dataviz': major
 ---
 
