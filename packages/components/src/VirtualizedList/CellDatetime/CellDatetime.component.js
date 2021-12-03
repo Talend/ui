@@ -31,9 +31,10 @@ export function computeValue(cellData, columnData, t) {
 			if (columnData.timeZone) {
 				return dateUtils.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
 					timeZone: columnData.timeZone,
+					locale: getLocale(t),
 				});
 			}
-			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			return format(cellData, columnData.pattern || DATE_TIME_FORMAT, { locale: getLocale(t) });
 		}
 	}
 
@@ -47,13 +48,9 @@ export function getTooltipLabel(cellData, columnData) {
 	if (columnData.mode === 'ago') {
 		let tooltipLabel = '';
 		if (columnData.timeZone) {
-			tooltipLabel = dateUtils.formatToTimeZone(
-				cellData,
-				columnData.pattern || DATE_TIME_FORMAT,
-				{
-					timeZone: columnData.timeZone,
-				},
-			);
+			tooltipLabel = dateUtils.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+				timeZone: columnData.timeZone,
+			});
 		} else {
 			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
 		}
