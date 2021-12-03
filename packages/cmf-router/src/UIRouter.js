@@ -15,14 +15,15 @@ import { Inject } from '@talend/react-cmf';
  * @typedef {Object} Router
  */
 
-function renderRoutes({ path, childRoutes, ...props }) {
+function renderRoutes({ path, childRoutes, ...props }, currentpath) {
 	const newProps = { ...props };
+	const absPath = path.startsWith('/') ? path : `${currentpath}/${path}`;
 	if (childRoutes) {
-		newProps.children = childRoutes.map(child => renderRoutes(child));
+		newProps.children = childRoutes.map(child => renderRoutes(child, absPath));
 	}
-	console.log('####', path, props.component, newProps);
+	console.log('####', absPath, props.component, newProps);
 	return (
-		<Route path={path} key={path}>
+		<Route path={absPath} key={absPath}>
 			<Inject {...newProps} />
 		</Route>
 	);
@@ -35,10 +36,10 @@ function renderRoutes({ path, childRoutes, ...props }) {
  * @param  {object} context The react context with the registry
  * @return {object} ReactElement
  */
-function Router(props, context) {
+function Router(props) {
 	// const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
-	if (props.routes.path === '/' && props.routes.component) {
-		return <BrowserRouter>{renderRoutes(props.routes)}</BrowserRouter>;
+	if (props.routes.path && props.routes.component) {
+		return <BrowserRouter>{renderRoutes(props.routes, props.routes.path)}</BrowserRouter>;
 	}
 	if (props.loading) {
 		return <Inject component={props.loading} />;
