@@ -1,5 +1,16 @@
 # @talend/react-components
 
+## 6.42.0
+
+### Minor Changes
+
+- 2e5511f79: feat: make possible to project to upgrade virtualized list
+- 42efdca45: Upgrade to recharts 2 and ensure everything is working well
+
+### Patch Changes
+
+- cfa90496c: Translate date string displayed in CellDatetime.
+
 ## 6.41.4
 
 ### Patch Changes
