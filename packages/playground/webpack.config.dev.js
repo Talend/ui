@@ -51,7 +51,7 @@ const webpackConfig = {
 		}),
 	],
 	output: {
-		publicPath: '/playground',
+		// publicPath: '/playground',
 	},
 	devServer: {
 		onBeforeSetupMiddleware: mockBackend,

@@ -7,7 +7,7 @@
  */
 import PropTypes from 'prop-types';
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
 
@@ -17,9 +17,16 @@ import { Inject } from '@talend/react-cmf';
 
 function renderRoutes({ path, childRoutes, ...props }, currentpath) {
 	const newProps = { ...props };
-	const absPath = path.startsWith('/') ? path : `${currentpath}/${path}`;
+	let absPath;
+	if (path.startsWith('/')) {
+		absPath = path;
+	} else if (path === '*') {
+		absPath = path;
+	} else {
+		absPath = `${currentpath === '/' ? '' : currentpath}/${path}`;
+	}
 	if (childRoutes) {
-		newProps.children = childRoutes.map(child => renderRoutes(child, absPath));
+		newProps.children = [<Switch>{childRoutes.map(child => renderRoutes(child, absPath))}</Switch>];
 	}
 	console.log('####', absPath, props.component, newProps);
 	return (

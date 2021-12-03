@@ -18,8 +18,11 @@ import { LeaguesList } from './components/List';
 import actions from './actions';
 
 // thanks ui-scripts
-const basename = window.basename;
-console.log('@@@@ basename', basename);
+let basename = window.basename;
+if (basename === '/') {
+	basename = undefined;
+}
+
 // Run our app under the /base URL.
 const history = createBrowserHistory({
 	basename,
@@ -50,7 +53,7 @@ function IconsProvider() {
 
 const app = {
 	components: { ComponentForm, ComponentFormSandbox, LeaguesList, IconsProvider },
-	settingsURL: `${basename || ''}/settings.json`,
+	settingsURL: `${basename || ''}settings.json`,
 	actionCreators: actions,
 	middlewares: [],
 	modules: [router.cmfModule, containersModule],
