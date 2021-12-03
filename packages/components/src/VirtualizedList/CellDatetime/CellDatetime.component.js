@@ -41,7 +41,7 @@ export function computeValue(cellData, columnData, t) {
 	return cellData;
 }
 
-export function getTooltipLabel(cellData, columnData) {
+export function getTooltipLabel(cellData, columnData, t) {
 	if (typeof columnData.getTooltipLabel === 'function') {
 		return columnData.getTooltipLabel(cellData);
 	}
@@ -50,9 +50,10 @@ export function getTooltipLabel(cellData, columnData) {
 		if (columnData.timeZone) {
 			tooltipLabel = dateUtils.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
 				timeZone: columnData.timeZone,
+				locale: getLocale(t),
 			});
 		} else {
-			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT, { locale: getLocale(t) });
 		}
 		return tooltipLabel;
 	}
@@ -74,7 +75,7 @@ export class CellDatetimeComponent extends React.Component {
 	render() {
 		const { cellData, columnData, t } = this.props;
 		const computedValue = computeValue(cellData, columnData, t);
-		const tooltipLabel = getTooltipLabel(cellData, columnData);
+		const tooltipLabel = getTooltipLabel(cellData, columnData, t);
 
 		const cell = (
 			<div className={classnames('cell-datetime-container', styles['cell-datetime-container'])}>
