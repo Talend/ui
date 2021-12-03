@@ -1,5 +1,15 @@
 # @talend/react-containers
 
+## 6.39.1
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+  - @talend/react-cmf@6.38.5
+  - @talend/react-components@6.41.3
+  - @talend/react-forms@6.43.1
+
 ## 6.39.0
 
 ### Minor Changes

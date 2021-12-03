@@ -1,0 +1,9 @@
+[build]
+  ignore = "git log -1 --pretty=%B | grep dependabot"
+
+[[plugins]]
+package = "@algolia/netlify-plugin-crawler"
+    [plugins.inputs]
+    branches = ['master']
+    customDomain = "design.talend.com"
+    renderJavaScript = true

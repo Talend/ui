@@ -9,7 +9,7 @@ export default function Fieldset(props) {
 	const { title, items, options } = schema;
 
 	const widgets = items
-		.filter((itemSchema, index) => shouldRender(itemSchema.condition, itemSchema.properties, index))
+		.filter((itemSchema, index) => shouldRender(itemSchema.condition, props.properties, index))
 		.map((itemSchema, index) => <Widget {...restProps} key={index} schema={itemSchema} />);
 
 	return widgets.length ? (
@@ -31,5 +31,6 @@ if (process.env.NODE_ENV !== 'production') {
 				hideTitle: PropTypes.bool,
 			}),
 		}).isRequired,
+		properties: PropTypes.object,
 	};
 }

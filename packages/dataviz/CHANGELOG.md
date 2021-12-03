@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.4.10
+
+### Patch Changes
+
+- b33eb8655: fix(GeoChart): ?? operator is breaking angular tests
+- Updated dependencies [d353a0a3c]
+  - @talend/react-components@6.41.4
+
+## 0.4.9
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+  - @talend/react-components@6.41.3
+
 ## 0.4.8
 
 ### Patch Changes

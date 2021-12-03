@@ -1,0 +1,183 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
+import Stepper from '../';
+
+<Meta title="Components/Stepper/Stepper" component={Stepper} />
+
+<Links>
+	<FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A5" />
+	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Stepper" />
+</Links>
+
+# Stepper
+
+Stepper is used to display the different steps to take to complete an action.
+
+It helps users avoid frustration and successfully complete a primary task.
+
+The stepper displays progress through a sequence split into multiple logical and numbered steps.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=345%3A135"
+	alt="zoning image for the stepper"
+/>
+
+## Style
+
+### Variations
+
+A Stepper is **vertical by default** but can be horizontal.
+
+**Vertical**
+
+Consider using a vertical stepper when there are workflows greater than 3 steps.
+
+<Canvas>
+	<Story name="Vertical">
+		<Stepper>
+			<Stepper.Step.Validated title="Lorem ipsum" />
+			<Stepper.Step.InProgress title="Lorem ipsum" />
+			<Stepper.Step.Enabled title="Enabled state" />
+			<Stepper.Step.Enabled title="Enabled state" />
+		</Stepper>
+	</Story>
+</Canvas>
+
+**Horizontal**
+
+Consider using a horizontal stepper when full page components are used (such as Data grid or List)
+
+A horizontal stepper cannot have more than 3 steps.
+
+The sub-steps option is not available with the horizontal stepper.
+
+<Canvas>
+	<Story name="Horizontal">
+		<Stepper.Horizontal>
+			<Stepper.Step.Validated>Lorem ipsum</Stepper.Step.Validated>
+			<Stepper.Step.InProgress>Lorem ipsum</Stepper.Step.InProgress>
+			<Stepper.Step.Enabled>Enabled state</Stepper.Step.Enabled>
+		</Stepper.Horizontal>
+	</Story>
+</Canvas>
+
+## States
+
+### Loading
+
+**Vertical**
+
+<Canvas>
+	<Story name="Loading vertical">
+		<Stepper.Vertical>
+			<Stepper.Step.Skeleton />
+			<Stepper.Step.Skeleton />
+			<Stepper.Step.Skeleton />
+		</Stepper.Vertical>
+	</Story>
+</Canvas>
+
+**Horizontal**
+
+<Canvas>
+	<Story name="Loading horizontal">
+		<Stepper.Horizontal>
+			<Stepper.Step.Skeleton />
+			<Stepper.Step.Skeleton />
+			<Stepper.Step.Skeleton />
+		</Stepper.Horizontal>
+	</Story>
+</Canvas>
+
+## Content
+
+Use action phrases, two-word labels, for steps.
+Start with a verb and follow it with a noun.
+Step labels should describe the purpose of the step to keep users informed about what does each step do.
+Use a longer version of the step label in the title of the step section to provide some more info and make the step clearer.
+For example, the step label could be "Add engine", while the section title could be "Add the engine on which to process data"
+Step sections could also have subtitles if necessary to provide users with extra important information—mostly used for complicated steps.
+Under the step section, use clear labels for all user input.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Keep step labels concise; use only two words if possible (verb + noun)</li>
+			<li>Use action phrases consistently through steps</li>
+			<li>Use step labels which logically sync with the title of the page they link to</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Use complex long words</li>
+			<li>Mix action and noun phrases in steps labels</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+### Buttons
+
+In case of multi-step form, we should always have at least 2 buttons:
+
+1. Cancel or Back button
+2. Continue or Next button
+
+Use a **cancel button** for the first step as the user can't step back. Use a **back button** from the second step to allow the user to step back.
+
+<FigmaImage
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=115%3A0"
+	alt="buttons mutli step form example"
+/>
+
+The back button can also be used in addition of the cancel button. In that case, the button order is the following one:
+
+<FigmaImage
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=408%3A5876"
+	alt="cancel and back buttons for multi step form"
+/>
+
+## Interactions
+
+**Error**
+
+In case of an error in the current step, please inform the user by using an inline message. Do not disable the next button.
+
+## Usage
+
+<Canvas>
+	<Story
+		name="usage"
+		args={{
+			variant: 'Vertical',
+		}}
+		argTypes={{
+			variant: {
+				description: 'Stepper variation',
+				control: {
+					type: 'select',
+					options: ['Vertical', 'Horizontal'],
+				},
+			},
+		}}
+	>
+		{({ variant, index, title }) => {
+			const StepperComponent = Stepper[variant];
+			StepperComponent.displayName = `Stepper.${variant}`;
+			return (
+				<StepperComponent>
+					<Stepper.Step.Validated title="Validated" />
+					<Stepper.Step.InProgress title="In progress" />
+					<Stepper.Step.Enabled title="Enabled" />
+				</StepperComponent>
+			);
+		}}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />
+
+## Accessibility
+
+Stepper should follow related [WAI guidelines](https://www.w3.org/WAI/tutorials/forms/multi-page/).

@@ -281,7 +281,7 @@ describe('Date extraction', () => {
 			// when
 			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
-			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 16, 30)));
+			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 17, 30)));
 			expect(parts.date).toEqual(new Date(2019, 9, 11));
 			expect(parts.textInput).toEqual('2019-10-11 12:30');
 			expect(parts.errors).toEqual([]);
@@ -354,7 +354,7 @@ describe('Date extraction', () => {
 			// when
 			const parts = updatePartsOnTimeChange(payload, date, options);
 			// then
-			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 13, 32)));
+			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 14, 32)));
 			expect(parts.time).toEqual({ hours: '09', minutes: '32', seconds: '00' });
 			expect(parts.textInput).toEqual('2019-10-11 09:32');
 			expect(parts.errors).toEqual([]);

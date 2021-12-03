@@ -1,5 +1,23 @@
 # @talend/react-components
 
+## 6.41.4
+
+### Patch Changes
+
+- d353a0a3c: i18n - add translation for colon
+- Updated dependencies [959a0e21b]
+  - @talend/icons@6.38.0
+
+## 6.41.3
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+- Updated dependencies [c0d9c2c30]
+  - @talend/icons@6.37.0
+  - @talend/utils@2.0.1
+
 ## 6.41.2
 
 ### Patch Changes

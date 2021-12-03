@@ -1,5 +1,27 @@
 # @talend/react-forms
 
+## 6.43.1
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+  - @talend/react-components@6.41.3
+  - @talend/json-schema-form-core@1.0.4
+  - @talend/utils@2.0.1
+
+## 6.43.0
+
+### Minor Changes
+
+- 4bbb2ec7f: feat(TFD-13512/datalist): add props initialCheckValue to make validation at mount
+
+## 6.42.1
+
+### Patch Changes
+
+- 9c5aa41cd: Missing fieldset widgets
+
 ## 6.42.0
 
 ### Minor Changes

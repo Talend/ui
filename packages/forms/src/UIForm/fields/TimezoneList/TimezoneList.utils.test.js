@@ -52,8 +52,8 @@ describe('getTimezones', () => {
 		expect(timezones).toEqual([
 			{ name: '(UTC +00:00) [FR] Abidjan', timezoneName: '[FR] Abidjan', offset: 0, value: 'Africa/Abidjan' },
 			{ name: '(UTC +00:00) [FR] Freetown', timezoneName: '[FR] Freetown', offset: 0, value: 'Africa/Freetown' },
-			{ name: '(UTC +02:00) [FR] Paris', timezoneName: '[FR] Paris', offset: 120, value: 'Europe/Paris' },
-			{ name: '(UTC +03:00) [FR] Kiev', timezoneName: '[FR] Kiev', offset: 180, value: 'Europe/Kiev' },
+			{ name: '(UTC +01:00) [FR] Paris', timezoneName: '[FR] Paris', offset: 60, value: 'Europe/Paris' },
+			{ name: '(UTC +02:00) [FR] Kiev', timezoneName: '[FR] Kiev', offset: 120, value: 'Europe/Kiev' },
 		]);
 	});
 
@@ -65,8 +65,8 @@ describe('getTimezones', () => {
 		expect(timezones).toEqual([
 			{ name: '(UTC +00:00) [EN] Abidjan', timezoneName: '[EN] Abidjan', offset: 0, value: 'Africa/Abidjan' },
 			{ name: '(UTC +00:00) [EN] Freetown', timezoneName: '[EN] Freetown', offset: 0, value: 'Africa/Freetown' },
-			{ name: '(UTC +02:00) [EN] Paris', timezoneName: '[EN] Paris', offset: 120, value: 'Europe/Paris' },
-			{ name: '(UTC +03:00) [EN] Kiev', timezoneName: '[EN] Kiev', offset: 180, value: 'Europe/Kiev' },
+			{ name: '(UTC +01:00) [EN] Paris', timezoneName: '[EN] Paris', offset: 60, value: 'Europe/Paris' },
+			{ name: '(UTC +02:00) [EN] Kiev', timezoneName: '[EN] Kiev', offset: 120, value: 'Europe/Kiev' },
 		]);
 	});
 

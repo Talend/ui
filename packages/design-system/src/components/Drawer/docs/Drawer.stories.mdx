@@ -1,0 +1,121 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaIframe, FigmaLink, Use } from '../../../docs';
+
+import Drawer from '../';
+
+import * as Stories from '../Drawer.stories';
+
+import tokens from '../../../tokens';
+
+<Meta
+	title="Components/Drawer"
+	component={Drawer}
+	decorators={[
+		storyFn => (
+			<div
+				style={{
+					position: 'relative',
+					height: '500px',
+					border: `1px solid ${tokens.colors.gray[400]}`,
+					overflow: 'hidden',
+				}}
+			>
+				{storyFn()}
+			</div>
+		),
+	]}
+/>
+
+# Drawer
+
+Drawer slides into the screen from the right side and is placed visually over the content of the page.
+
+It aims to display extra information while keeping the navigation enabled on the main content.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=744%3A263"
+	alt="zoning image for drawers"
+/>
+
+## Style
+
+<FigmaIframe
+	light="https://www.figma.com/file/x0RxG7E0CzVWDycXtNgq7H/Drawer?node-id=1%3A83"
+	dark="https://www.figma.com/file/x0RxG7E0CzVWDycXtNgq7H/Drawer?node-id=1%3A105"
+/>
+
+### Variations
+
+<Canvas withSource="none">
+	<Story story={Stories.Simple} height="500px" />
+</Canvas>
+
+<Canvas withSource="none">
+	<Story story={Stories.WithToggleButton} height="500px" />
+</Canvas>
+
+## States
+
+Drawers are either visible or hidden.
+
+## Content
+
+Drawers are “optional” content living on top of primary content. Since they fill only 1/3 of the page's width, prefer extra or additional information. Avoid dense copy and complex forms. Drawer contents should be efficient, short and tailored for the limited layout space available.
+
+If you need more space, use [full-page layout]().
+
+Footer can contain only calls to action.
+
+## Interaction
+
+Drawer Heading and Footer zones are fixed; the Content zone can display a scrollbar when its content overflows.
+
+## Accessibility
+
+Drawers disclosures have a value specified for `aria-controls` that refers to Drawer.
+
+When Drawer is visible, disclosure has `aria-expanded` set to `true`. When Drawer is hidden, it is set to `false`.
+
+## Usage
+
+<Canvas>
+	<Story
+		name="usage"
+		height="500px"
+		args={{
+			visible: true,
+			heading: 'Heading',
+			children: 'Body',
+		}}
+		argTypes={{
+			visible: {
+				name: 'Drawer visibility',
+				control: {
+					type: 'boolean',
+				},
+			},
+			heading: {
+				name: 'Drawer heading',
+			},
+			children: {
+				name: 'Drawer body',
+			},
+		}}
+		parameters={{
+			docs: {
+				source: {
+					type: 'dynamic',
+					excludeDecorators: true,
+				},
+			},
+		}}
+	>
+		{args => <Drawer {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />
+
+`toggleButton` should always be one of the buttons provided by the Design System.
