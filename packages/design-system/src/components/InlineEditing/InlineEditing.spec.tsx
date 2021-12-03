@@ -47,4 +47,15 @@ context('<InlineEditing />', () => {
 			.type('{enter}');
 		cy.getByTestId('inlineediting').contains('blah');
 	});
+
+	it('should not validate on Enter when multiline', () => {
+		cy.mount(<Textarea />);
+		cy.getByTestId('inlineediting.button.edit').click();
+		cy.getByTestId('ìnlineediting.textarea')
+			.focus()
+			.type('{selectall}{del}blah')
+			.should('have.value', 'blah')
+			.type('{enter}');
+		cy.getByTestId('ìnlineediting.textarea').should('exist');
+	});
 });

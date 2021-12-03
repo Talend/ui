@@ -80,7 +80,7 @@ const InlineEditing = React.forwardRef(
 		useKey(
 			'Enter',
 			(event: KeyboardEvent): void => {
-				if (mode !== 'multi') {
+				if (mode !== Mode.Multi) {
 					handleSubmit(event);
 				}
 			},
