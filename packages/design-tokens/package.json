@@ -1,0 +1,19 @@
+{
+  "name": "@talend/design-tokens",
+  "version": "1.0.0",
+  "description": "Talend Design tokens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talend/ui.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}
