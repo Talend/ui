@@ -51,7 +51,7 @@ context('<InlineEditing />', () => {
 	it('should not validate on Enter when multiline', () => {
 		cy.mount(<Textarea />);
 		cy.getByTestId('inlineediting.button.edit').click();
-		cy.getByTestId('ìnlineediting.textarea')
+		cy.getByTestId('inlineediting.textarea')
 			.focus()
 			.type('{selectall}{del}blah')
 			.should('have.value', 'blah')
