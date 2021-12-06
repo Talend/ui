@@ -80,7 +80,7 @@ const InlineEditing = React.forwardRef(
 		useKey(
 			'Enter',
 			(event: KeyboardEvent): void => {
-				if (mode !== 'multi') {
+				if (mode !== Mode.Multi) {
 					handleSubmit(event);
 				}
 			},
@@ -89,10 +89,10 @@ const InlineEditing = React.forwardRef(
 		);
 
 		const Input = mode === Mode.Multi ? Form.Textarea : Form.Text;
-		const testId = `ìnlineediting.${mode === Mode.Multi ? 'textarea' : 'input'}`;
+		const testId = `inlineediting.${mode === Mode.Multi ? 'textarea' : 'input'}`;
 
 		return (
-			<S.InlineEditing data-testid="inlineediting" {...rest} ref={ref}>
+			<S.InlineEditing data-test="inlineediting" {...rest} ref={ref}>
 				{isEditing ? (
 					<div className="c-inline-editing--editing">
 						<form>
@@ -107,20 +107,20 @@ const InlineEditing = React.forwardRef(
 										| React.ChangeEvent<HTMLInputElement>
 										| React.ChangeEvent<HTMLTextAreaElement>,
 								): void => setValue(event.target.value)}
-								data-testid={testId}
+								data-test={testId}
 							/>
 							<div className="c-inline-editing__actions">
 								<Button.Icon
 									onClick={handleCancel}
 									icon="talend-cross-circle"
-									data-testid="inlineediting.button.cancel"
+									data-test="inlineediting.button.cancel"
 								>
 									{t('INLINE_EDITING_CANCEL', 'Cancel')}
 								</Button.Icon>
 								<Button.Icon
 									onClick={handleSubmit}
 									icon="talend-check-circle"
-									data-testid="inlineediting.button.submit"
+									data-test="inlineediting.button.submit"
 								>
 									{t('INLINE_EDITING_SUBMIT', 'Submit')}
 								</Button.Icon>
@@ -143,7 +143,7 @@ const InlineEditing = React.forwardRef(
 							icon="talend-pencil"
 							onClick={() => setEditMode(true)}
 							disabled={loading}
-							data-testid="inlineediting.button.edit"
+							data-test="inlineediting.button.edit"
 						>
 							{t('INLINE_EDITING_EDIT', 'Edit')}
 						</Button.Icon>
