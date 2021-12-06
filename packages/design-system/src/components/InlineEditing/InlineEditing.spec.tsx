@@ -56,6 +56,6 @@ context('<InlineEditing />', () => {
 			.type('{selectall}{del}blah')
 			.should('have.value', 'blah')
 			.type('{enter}');
-		cy.getByTestId('ìnlineediting.textarea').should('exist');
+		cy.getByTestId('inlineediting.textarea').should('exist');
 	});
 });
