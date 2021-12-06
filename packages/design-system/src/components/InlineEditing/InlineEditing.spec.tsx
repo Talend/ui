@@ -10,52 +10,52 @@ const { Default, Textarea } = composeStories(Stories);
 context('<InlineEditing />', () => {
 	it('should go to edit mode when clicking on the button', () => {
 		cy.mount(<Default />);
-		cy.getByTestId('inlineediting.button.edit').click();
-		cy.getByTestId('ìnlineediting.input').should('exist').should('have.attr', 'type', 'text');
+		cy.getByTest('inlineediting.button.edit').click();
+		cy.getByTest('inlineediting.input').should('exist').should('have.attr', 'type', 'text');
 	});
 
 	it('should go to edit mode when double clicking on the span', () => {
 		cy.mount(<Default />);
-		cy.getByTestId('inlineediting').dblclick();
-		cy.getByTestId('ìnlineediting.input').should('exist').should('have.attr', 'type', 'text');
+		cy.getByTest('inlineediting').dblclick();
+		cy.getByTest('inlineediting.input').should('exist').should('have.attr', 'type', 'text');
 	});
 
 	it('should render Textarea', () => {
 		cy.mount(<Textarea />);
-		cy.getByTestId('inlineediting.button.edit').click();
-		cy.getByTestId('ìnlineediting.textarea').should('exist');
+		cy.getByTest('inlineediting.button.edit').click();
+		cy.getByTest('inlineediting.textarea').should('exist');
 	});
 
 	it('should restore value on Esc', () => {
 		cy.mount(<Default />);
-		cy.getByTestId('inlineediting.button.edit').click();
-		cy.getByTestId('ìnlineediting.input')
+		cy.getByTest('inlineediting.button.edit').click();
+		cy.getByTest('inlineediting.input')
 			.focus()
 			.type('{selectall}{del}blah')
 			.should('have.value', 'blah')
 			.type('{esc}');
-		cy.getByTestId('inlineediting').contains('Lorem ipsum dolor sit amet');
+		cy.getByTest('inlineediting').contains('Lorem ipsum dolor sit amet');
 	});
 
 	it('should validate on Enter', () => {
 		cy.mount(<Default />);
-		cy.getByTestId('inlineediting.button.edit').click();
-		cy.getByTestId('ìnlineediting.input')
+		cy.getByTest('inlineediting.button.edit').click();
+		cy.getByTest('inlineediting.input')
 			.focus()
 			.type('{selectall}{del}blah')
 			.should('have.value', 'blah')
 			.type('{enter}');
-		cy.getByTestId('inlineediting').contains('blah');
+		cy.getByTest('inlineediting').contains('blah');
 	});
 
 	it('should not validate on Enter when multiline', () => {
 		cy.mount(<Textarea />);
-		cy.getByTestId('inlineediting.button.edit').click();
-		cy.getByTestId('inlineediting.textarea')
+		cy.getByTest('inlineediting.button.edit').click();
+		cy.getByTest('inlineediting.textarea')
 			.focus()
 			.type('{selectall}{del}blah')
 			.should('have.value', 'blah')
 			.type('{enter}');
-		cy.getByTestId('inlineediting.textarea').should('exist');
+		cy.getByTest('inlineediting.textarea').should('exist');
 	});
 });
