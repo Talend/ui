@@ -155,7 +155,7 @@ $coral-color-charts-danger-hover: #{var(--coral-color-charts-danger-hover, hsla(
 $coral-color-charts-warning: #{var(--coral-color-charts-warning, hsla(32,100%,56%,1))};
 $coral-color-charts-warning-weak: #{var(--coral-color-charts-warning-weak, hsla(22,88%,84%,1))};
 $coral-color-charts-warning-strong: #{var(--coral-color-charts-warning-strong, hsla(22,75%,42%,1))};
-$coral-color-charts-warning-strong: #{var(--coral-color-charts-warning-strong, hsla(22,75%,42%,1))};
+$coral-color-charts-warning-hover: #{var(--coral-color-charts-warning-hover, hsla(22,75%,42%,1))};
 $coral-color-charts-default: #{var(--coral-color-charts-default, hsla(216,82%,48%,1))};
 $coral-color-charts-default-weak: #{var(--coral-color-charts-default-weak, hsla(204,59%,73%,1))};
 $coral-color-charts-default-strong: #{var(--coral-color-charts-default-strong, hsla(205,88%,33%,1))};
@@ -200,6 +200,7 @@ $coral-color-charts-color-09: #{var(--coral-color-charts-color-09, hsla(34,34%,4
 $coral-color-charts-color-09-weak: #{var(--coral-color-charts-color-09-weak, hsla(35,28%,82%,1))};
 $coral-color-charts-color-09-strong: #{var(--coral-color-charts-color-09-strong, hsla(35,34%,27%,1))};
 $coral-color-charts-color-09-hover: #{var(--coral-color-charts-color-09-hover, hsla(35,34%,27%,1))};
+$coral-color-accent-border: #{var(--coral-color-accent-border, hsla(204,95%,31%,1))};
 $coral-color-branding-background: #{var(--coral-color-branding-background, linear-gradient(90deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%))};
 $coral-color-branding-navigation: #{var(--coral-color-branding-navigation, linear-gradient(90deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%))};
 $coral-size-xxs: #{var(--coral-size-xxs, 0.4rem)};
