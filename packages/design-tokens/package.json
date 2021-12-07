@@ -4,6 +4,7 @@
   "description": "Talend Design tokens",
   "main": "index.js",
   "scripts": {
+    "test": "echo no test for @talend/design-tokens"
   },
   "keywords": [],
   "repository": {
