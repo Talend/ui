@@ -13,9 +13,9 @@ const dictionary = [
         name: 'coralColorNeutralTextWeak',
         type: 'color',
         description: ``,
-        hsla: 'hsla(0,0%,42%,1)',
-        hex: '#6b6b6b',
-        value: 'hsla(0,0%,42%,1)',
+        hsla: 'hsla(0,0%,38%,1)',
+        hex: '#616161',
+        value: 'hsla(0,0%,38%,1)',
         
     },
     {
@@ -76,27 +76,27 @@ const dictionary = [
         name: 'coralColorNeutralBorder',
         type: 'color',
         description: ``,
-        hsla: 'hsla(0,0%,42%,1)',
-        hex: '#6b6b6b',
-        value: 'hsla(0,0%,42%,1)',
+        hsla: 'hsla(0,0%,55%,1)',
+        hex: '#8c8c8c',
+        value: 'hsla(0,0%,55%,1)',
         
     },
     {
         name: 'coralColorNeutralBorderWeak',
         type: 'color',
         description: ``,
-        hsla: 'hsla(0,0%,91%,1)',
-        hex: '#e8e8e8',
-        value: 'hsla(0,0%,91%,1)',
+        hsla: 'hsla(0,0%,82%,1)',
+        hex: '#d2d2d2',
+        value: 'hsla(0,0%,82%,1)',
         
     },
     {
         name: 'coralColorNeutralBorderHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(0,0%,13%,1)',
-        hex: '#202020',
-        value: 'hsla(0,0%,13%,1)',
+        hsla: 'hsla(0,0%,40%,1)',
+        hex: '#666666',
+        value: 'hsla(0,0%,40%,1)',
         
     },
     {
@@ -283,36 +283,36 @@ const dictionary = [
         name: 'coralColorDangerText',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,52%,1)',
-        hex: '#c34648',
-        value: 'hsla(359,51%,52%,1)',
+        hsla: 'hsla(359,51%,53%,1)',
+        hex: '#c4484a',
+        value: 'hsla(359,51%,53%,1)',
         
     },
     {
         name: 'coralColorDangerTextHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,47%,1)',
-        hex: '#b53b3d',
-        value: 'hsla(359,51%,47%,1)',
+        hsla: 'hsla(359,52%,43%,1)',
+        hex: '#a63537',
+        value: 'hsla(359,52%,43%,1)',
         
     },
     {
         name: 'coralColorDangerTextActive',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,42%,1)',
-        hex: '#a23436',
-        value: 'hsla(359,51%,42%,1)',
+        hsla: 'hsla(359,51%,33%,1)',
+        hex: '#7f292a',
+        value: 'hsla(359,51%,33%,1)',
         
     },
     {
         name: 'coralColorDangerBackground',
         type: 'color',
         description: ``,
-        hsla: 'hsla(358,100%,94%,1)',
-        hex: '#ffe1e2',
-        value: 'hsla(358,100%,94%,1)',
+        hsla: 'hsla(0,100%,96%,1)',
+        hex: '#ffebeb',
+        value: 'hsla(0,100%,96%,1)',
         
     },
     {
@@ -427,36 +427,36 @@ const dictionary = [
         name: 'coralColorDangerBackgroundStrong',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,52%,1)',
-        hex: '#c34648',
-        value: 'hsla(359,51%,52%,1)',
+        hsla: 'hsla(359,51%,53%,1)',
+        hex: '#c4484a',
+        value: 'hsla(359,51%,53%,1)',
         
     },
     {
         name: 'coralColorDangerBackgroundStrongHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,47%,1)',
-        hex: '#b53b3d',
-        value: 'hsla(359,51%,47%,1)',
+        hsla: 'hsla(359,54%,38%,1)',
+        hex: '#952d2f',
+        value: 'hsla(359,54%,38%,1)',
         
     },
     {
         name: 'coralColorDangerBackgroundStrongActive',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,42%,1)',
-        hex: '#a23436',
-        value: 'hsla(359,51%,42%,1)',
+        hsla: 'hsla(359,54%,33%,1)',
+        hex: '#812729',
+        value: 'hsla(359,54%,33%,1)',
         
     },
     {
         name: 'coralColorDangerBorder',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,52%,1)',
-        hex: '#c34648',
-        value: 'hsla(359,51%,52%,1)',
+        hsla: 'hsla(359,51%,53%,1)',
+        hex: '#c4484a',
+        value: 'hsla(359,51%,53%,1)',
         
     },
     {
@@ -472,9 +472,9 @@ const dictionary = [
         name: 'coralColorDangerBorderHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,47%,1)',
-        hex: '#b53b3d',
-        value: 'hsla(359,51%,47%,1)',
+        hsla: 'hsla(359,54%,38%,1)',
+        hex: '#952d2f',
+        value: 'hsla(359,54%,38%,1)',
         
     },
     {
@@ -490,9 +490,9 @@ const dictionary = [
         name: 'coralColorDangerBorderActive',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,42%,1)',
-        hex: '#a23436',
-        value: 'hsla(359,51%,42%,1)',
+        hsla: 'hsla(359,54%,33%,1)',
+        hex: '#812729',
+        value: 'hsla(359,54%,33%,1)',
         
     },
     {
@@ -589,27 +589,27 @@ const dictionary = [
         name: 'coralColorWarningText',
         type: 'color',
         description: ``,
-        hsla: 'hsla(22,85%,37%,1)',
-        hex: '#af4a0e',
-        value: 'hsla(22,85%,37%,1)',
+        hsla: 'hsla(22,93%,41%,1)',
+        hex: '#ca4d07',
+        value: 'hsla(22,93%,41%,1)',
         
     },
     {
         name: 'coralColorWarningTextHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(22,86%,27%,1)',
-        hex: '#80360a',
-        value: 'hsla(22,86%,27%,1)',
+        hsla: 'hsla(21,94%,31%,1)',
+        hex: '#993a05',
+        value: 'hsla(21,94%,31%,1)',
         
     },
     {
         name: 'coralColorWarningTextActive',
         type: 'color',
         description: ``,
-        hsla: 'hsla(23,86%,22%,1)',
-        hex: '#682c08',
-        value: 'hsla(23,86%,22%,1)',
+        hsla: 'hsla(21,93%,21%,1)',
+        hex: '#682704',
+        value: 'hsla(21,93%,21%,1)',
         
     },
     {
@@ -706,36 +706,36 @@ const dictionary = [
         name: 'coralColorWarningBackgroundStrong',
         type: 'color',
         description: ``,
-        hsla: 'hsla(22,85%,37%,1)',
-        hex: '#af4a0e',
-        value: 'hsla(22,85%,37%,1)',
+        hsla: 'hsla(22,93%,41%,1)',
+        hex: '#ca4d07',
+        value: 'hsla(22,93%,41%,1)',
         
     },
     {
         name: 'coralColorWarningBackgroundStrongHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(22,85%,32%,1)',
-        hex: '#97400c',
-        value: 'hsla(22,85%,32%,1)',
+        hsla: 'hsla(21,94%,31%,1)',
+        hex: '#993a05',
+        value: 'hsla(21,94%,31%,1)',
         
     },
     {
         name: 'coralColorWarningBackgroundStrongActive',
         type: 'color',
         description: ``,
-        hsla: 'hsla(23,86%,17%,1)',
-        hex: '#502206',
-        value: 'hsla(23,86%,17%,1)',
+        hsla: 'hsla(21,93%,21%,1)',
+        hex: '#672704',
+        value: 'hsla(21,93%,21%,1)',
         
     },
     {
         name: 'coralColorWarningBorder',
         type: 'color',
         description: ``,
-        hsla: 'hsla(22,85%,37%,1)',
-        hex: '#af4a0e',
-        value: 'hsla(22,85%,37%,1)',
+        hsla: 'hsla(22,93%,41%,1)',
+        hex: '#ca4d07',
+        value: 'hsla(22,93%,41%,1)',
         
     },
     {
@@ -751,22 +751,22 @@ const dictionary = [
         name: 'coralColorWarningBorderHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(22,85%,32%,1)',
-        hex: '#97400c',
-        value: 'hsla(22,85%,32%,1)',
+        hsla: 'hsla(21,94%,31%,1)',
+        hex: '#993a05',
+        value: 'hsla(21,94%,31%,1)',
         
     },
     {
         name: 'coralColorWarningBorderActive',
         type: 'color',
         description: ``,
-        hsla: 'hsla(23,86%,17%,1)',
-        hex: '#502206',
-        value: 'hsla(23,86%,17%,1)',
+        hsla: 'hsla(21,93%,21%,1)',
+        hex: '#672704',
+        value: 'hsla(21,93%,21%,1)',
         
     },
     {
-        name: 'coralColorBrandingCoral',
+        name: 'coralColorBrandingBrand',
         type: 'color',
         description: ``,
         hsla: 'hsla(359,100%,71%,1)',
@@ -787,9 +787,9 @@ const dictionary = [
         name: 'coralColorNeutralBorderWeakHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(0,0%,42%,1)',
-        hex: '#6b6b6b',
-        value: 'hsla(0,0%,42%,1)',
+        hsla: 'hsla(0,0%,72%,1)',
+        hex: '#b8b8b8',
+        value: 'hsla(0,0%,72%,1)',
         
     },
     {
@@ -832,9 +832,9 @@ const dictionary = [
         name: 'coralColorDangerTextStrong',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,53%,43%,1)',
-        hex: '#a83335',
-        value: 'hsla(359,53%,43%,1)',
+        hsla: 'hsla(359,47%,44%,1)',
+        hex: '#a43b3d',
+        value: 'hsla(359,47%,44%,1)',
         
     },
     {
@@ -910,34 +910,556 @@ const dictionary = [
         
     },
     {
+        name: 'coralColorBetaText',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,57%,49%,1)',
+        hex: '#9435c3',
+        value: 'hsla(280,57%,49%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaTextHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(281,58%,39%,1)',
+        hex: '#772a9c',
+        value: 'hsla(281,58%,39%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaTextActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(281,58%,29%,1)',
+        hex: '#591f74',
+        value: 'hsla(281,58%,29%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,80%,54%,1)',
+        hex: '#aa2de8',
+        value: 'hsla(280,80%,54%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaIconHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,80%,44%,1)',
+        hex: '#8e16ca',
+        value: 'hsla(280,80%,44%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaIconActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,80%,34%,1)',
+        hex: '#6e119c',
+        value: 'hsla(280,80%,34%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaTextWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,100%,1)',
+        hex: '#ffffff',
+        value: 'hsla(0,0%,100%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaTextWeakHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,56%,83%,1)',
+        hex: '#dcbbec',
+        value: 'hsla(280,56%,83%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaTextWeakActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,57%,73%,1)',
+        hex: '#c793e1',
+        value: 'hsla(280,57%,73%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaTextStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(281,58%,29%,1)',
+        hex: '#591f74',
+        value: 'hsla(281,58%,29%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaTextStrongHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(282,58%,19%,1)',
+        hex: '#3b144c',
+        value: 'hsla(282,58%,19%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaTextStrongActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(282,57%,9%,1)',
+        hex: '#1c0a24',
+        value: 'hsla(282,57%,9%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackground',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(279,57%,90%,1)',
+        hex: '#ead7f4',
+        value: 'hsla(279,57%,90%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackgroundHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(279,57%,81%,1)',
+        hex: '#d7b3ea',
+        value: 'hsla(279,57%,81%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackgroundActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(279,57%,71%,1)',
+        hex: '#c28bdf',
+        value: 'hsla(279,57%,71%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackgroundWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,100%,1)',
+        hex: '#ffffff',
+        value: 'hsla(0,0%,100%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackgroundWeakHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(279,57%,90%,1)',
+        hex: '#ead7f4',
+        value: 'hsla(279,57%,90%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackgroundWeakActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(279,57%,80%,1)',
+        hex: '#d5afe9',
+        value: 'hsla(279,57%,80%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackgroundStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(281,58%,29%,1)',
+        hex: '#591f74',
+        value: 'hsla(281,58%,29%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackgroundStrongHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(282,58%,19%,1)',
+        hex: '#3b144c',
+        value: 'hsla(282,58%,19%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBackgroundStrongActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(282,57%,9%,1)',
+        hex: '#1c0a24',
+        value: 'hsla(282,57%,9%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBorder',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(281,58%,29%,1)',
+        hex: '#591f74',
+        value: 'hsla(281,58%,29%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBorderHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(282,58%,19%,1)',
+        hex: '#3b144c',
+        value: 'hsla(282,58%,19%,1)',
+        
+    },
+    {
+        name: 'coralColorBetaBorderActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(282,57%,9%,1)',
+        hex: '#1c0a24',
+        value: 'hsla(282,57%,9%,1)',
+        
+    },
+    {
+        name: 'coralColorNeutralBorderStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,25%,1)',
+        hex: '#404040',
+        value: 'hsla(0,0%,25%,1)',
+        
+    },
+    {
+        name: 'coralColorNeutralBorderStrongHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,15%,1)',
+        hex: '#262626',
+        value: 'hsla(0,0%,15%,1)',
+        
+    },
+    {
+        name: 'coralColorNeutralIconInverted',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,100%,1)',
+        hex: '#ffffff',
+        value: 'hsla(0,0%,100%,1)',
+        
+    },
+    {
+        name: 'coralColorNeutralIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,13%,1)',
+        hex: '#202020',
+        value: 'hsla(0,0%,13%,1)',
+        
+    },
+    {
+        name: 'coralColorNeutralIconWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,38%,1)',
+        hex: '#616161',
+        value: 'hsla(0,0%,38%,1)',
+        
+    },
+    {
+        name: 'coralColorAccentIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(204,88%,40%,1)',
+        hex: '#0c78c2',
+        value: 'hsla(204,88%,40%,1)',
+        
+    },
+    {
+        name: 'coralColorAccentIconHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(204,88%,30%,1)',
+        hex: '#095990',
+        value: 'hsla(204,88%,30%,1)',
+        
+    },
+    {
+        name: 'coralColorAccentIconActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(205,88%,20%,1)',
+        hex: '#063b60',
+        value: 'hsla(205,88%,20%,1)',
+        
+    },
+    {
+        name: 'coralColorDangerIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,69%,53%,1)',
+        hex: '#d93335',
+        value: 'hsla(359,69%,53%,1)',
+        
+    },
+    {
+        name: 'coralColorDangerIconHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,69%,43%,1)',
+        hex: '#b92224',
+        value: 'hsla(359,69%,43%,1)',
+        
+    },
+    {
+        name: 'coralColorDangerIconActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,69%,33%,1)',
+        hex: '#8e1a1c',
+        value: 'hsla(359,69%,33%,1)',
+        
+    },
+    {
+        name: 'coralColorSuccessIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(111,53%,40%,1)',
+        hex: '#409c30',
+        value: 'hsla(111,53%,40%,1)',
+        
+    },
+    {
+        name: 'coralColorSuccessIconHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(111,53%,30%,1)',
+        hex: '#307524',
+        value: 'hsla(111,53%,30%,1)',
+        
+    },
+    {
+        name: 'coralColorSuccessIconActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(111,53%,20%,1)',
+        hex: '#204e18',
+        value: 'hsla(111,53%,20%,1)',
+        
+    },
+    {
+        name: 'coralColorWarningIcon',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,87%,47%,1)',
+        hex: '#e25c10',
+        value: 'hsla(22,87%,47%,1)',
+        
+    },
+    {
+        name: 'coralColorWarningIconHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,87%,37%,1)',
+        hex: '#b0480c',
+        value: 'hsla(22,87%,37%,1)',
+        
+    },
+    {
+        name: 'coralColorWarningIconActive',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,87%,27%,1)',
+        hex: '#813409',
+        value: 'hsla(22,87%,27%,1)',
+        
+    },
+    {
         name: 'coralColorChartsNeutral',
         type: 'color',
         description: ``,
-        hsla: 'hsla(0,0%,21%,1)',
-        hex: '#363636',
-        value: 'hsla(0,0%,21%,1)',
+        hsla: 'hsla(0,0%,22%,1)',
+        hex: '#383838',
+        value: 'hsla(0,0%,22%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsNeutralWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,83%,1)',
+        hex: '#d4d4d4',
+        value: 'hsla(0,0%,83%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsNeutralStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,12%,1)',
+        hex: '#1f1f1f',
+        value: 'hsla(0,0%,12%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsNeutralHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(0,0%,12%,1)',
+        hex: '#1f1f1f',
+        value: 'hsla(0,0%,12%,1)',
         
     },
     {
         name: 'coralColorChartsPositive',
         type: 'color',
         description: ``,
-        hsla: 'hsla(111,49%,34%,1)',
-        hex: '#39812c',
-        value: 'hsla(111,49%,34%,1)',
+        hsla: 'hsla(148,87%,40%,1)',
+        hex: '#0dbd5e',
+        value: 'hsla(148,87%,40%,1)',
         
     },
     {
-        name: 'coralColorChartsNegative',
+        name: 'coralColorChartsPositiveWeak',
         type: 'color',
         description: ``,
-        hsla: 'hsla(359,51%,52%,1)',
-        hex: '#c34648',
-        value: 'hsla(359,51%,52%,1)',
+        hsla: 'hsla(130,52%,91%,1)',
+        hex: '#dcf4e0',
+        value: 'hsla(130,52%,91%,1)',
         
     },
     {
-        name: 'coralColorBrandingStitch',
+        name: 'coralColorChartsPositiveStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(139,50%,22%,1)',
+        hex: '#1c552e',
+        value: 'hsla(139,50%,22%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsPositiveHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(139,50%,22%,1)',
+        hex: '#1c552e',
+        value: 'hsla(139,50%,22%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsDanger',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(4,89%,49%,1)',
+        hex: '#ea1b0e',
+        value: 'hsla(4,89%,49%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsDangerWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,69%,73%,1)',
+        hex: '#e9898a',
+        value: 'hsla(359,69%,73%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsDangerStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,62%,43%,1)',
+        hex: '#b32a2c',
+        value: 'hsla(359,62%,43%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsDangerHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,62%,43%,1)',
+        hex: '#b32a2c',
+        value: 'hsla(359,62%,43%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsWarning',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(32,100%,56%,1)',
+        hex: '#ff9820',
+        value: 'hsla(32,100%,56%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsWarningWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,88%,84%,1)',
+        hex: '#facbb0',
+        value: 'hsla(22,88%,84%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsWarningStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,75%,42%,1)',
+        hex: '#b9541b',
+        value: 'hsla(22,75%,42%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsWarningStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,75%,42%,1)',
+        hex: '#b9541b',
+        value: 'hsla(22,75%,42%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsDefault',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(216,82%,48%,1)',
+        hex: '#1667df',
+        value: 'hsla(216,82%,48%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsDefaultWeak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(204,59%,73%,1)',
+        hex: '#91c2e3',
+        value: 'hsla(204,59%,73%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsDefaultStrong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(205,88%,33%,1)',
+        hex: '#0a629f',
+        value: 'hsla(205,88%,33%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsDefaultHover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(205,88%,33%,1)',
+        hex: '#0a629f',
+        value: 'hsla(205,88%,33%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor00',
         type: 'color',
         description: ``,
         hsla: 'hsla(48,100%,50%,1)',
@@ -946,7 +1468,358 @@ const dictionary = [
         
     },
     {
-        name: 'coralColorBrandingTwilight',
+        name: 'coralColorChartsColor00Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(51,91%,82%,1)',
+        hex: '#fbefa9',
+        value: 'hsla(51,91%,82%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor00Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(48,82%,45%,1)',
+        hex: '#d2ad15',
+        value: 'hsla(48,82%,45%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor00Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(48,82%,45%,1)',
+        hex: '#d2ad15',
+        value: 'hsla(48,82%,45%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor01',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(216,82%,48%,1)',
+        hex: '#1667df',
+        value: 'hsla(216,82%,48%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor01Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(204,59%,73%,1)',
+        hex: '#91c2e3',
+        value: 'hsla(204,59%,73%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor01Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(205,88%,33%,1)',
+        hex: '#0a629f',
+        value: 'hsla(205,88%,33%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor01Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(205,88%,33%,1)',
+        hex: '#0a629f',
+        value: 'hsla(205,88%,33%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor02',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(194,92%,50%,1)',
+        hex: '#0abef5',
+        value: 'hsla(194,92%,50%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor02Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(194,91%,91%,1)',
+        hex: '#d2f3fd',
+        value: 'hsla(194,91%,91%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor02Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(194,93%,32%,1)',
+        hex: '#067b9f',
+        value: 'hsla(194,93%,32%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor02Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(194,93%,32%,1)',
+        hex: '#067b9f',
+        value: 'hsla(194,93%,32%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor03',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(140,39%,79%,1)',
+        hex: '#b3dec1',
+        value: 'hsla(140,39%,79%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor03Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(138,40%,92%,1)',
+        hex: '#e1f2e6',
+        value: 'hsla(138,40%,92%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor03Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(139,11%,35%,1)',
+        hex: '#506356',
+        value: 'hsla(139,11%,35%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor03Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(139,11%,35%,1)',
+        hex: '#506356',
+        value: 'hsla(139,11%,35%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor04',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(148,87%,40%,1)',
+        hex: '#0dbd5e',
+        value: 'hsla(148,87%,40%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor04Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(130,52%,91%,1)',
+        hex: '#dcf4e0',
+        value: 'hsla(130,52%,91%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor04Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(139,50%,22%,1)',
+        hex: '#1c552e',
+        value: 'hsla(139,50%,22%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor04Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(139,50%,22%,1)',
+        hex: '#1c552e',
+        value: 'hsla(139,50%,22%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor05',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(324,68%,71%,1)',
+        hex: '#e884c0',
+        value: 'hsla(324,68%,71%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor05Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(323,69%,95%,1)',
+        hex: '#fbe9f4',
+        value: 'hsla(323,69%,95%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor05Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(324,28%,49%,1)',
+        hex: '#a15b85',
+        value: 'hsla(324,28%,49%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor05Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(324,28%,49%,1)',
+        hex: '#a15b85',
+        value: 'hsla(324,28%,49%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor06',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,75%,58%,1)',
+        hex: '#b045e5',
+        value: 'hsla(280,75%,58%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor06Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(279,77%,88%,1)',
+        hex: '#e8caf8',
+        value: 'hsla(279,77%,88%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor06Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,54%,36%,1)',
+        hex: '#6e2b8f',
+        value: 'hsla(280,54%,36%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor06Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(280,54%,36%,1)',
+        hex: '#6e2b8f',
+        value: 'hsla(280,54%,36%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor07',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(4,89%,49%,1)',
+        hex: '#ea1b0e',
+        value: 'hsla(4,89%,49%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor07Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,69%,73%,1)',
+        hex: '#e9898a',
+        value: 'hsla(359,69%,73%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor07Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,62%,43%,1)',
+        hex: '#b32a2c',
+        value: 'hsla(359,62%,43%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor07Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(359,62%,43%,1)',
+        hex: '#b32a2c',
+        value: 'hsla(359,62%,43%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor08',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,88%,54%,1)',
+        hex: '#f16e23',
+        value: 'hsla(22,88%,54%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor08Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,88%,84%,1)',
+        hex: '#facbb0',
+        value: 'hsla(22,88%,84%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor08Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,75%,42%,1)',
+        hex: '#b9541b',
+        value: 'hsla(22,75%,42%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor08Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(22,75%,42%,1)',
+        hex: '#b9541b',
+        value: 'hsla(22,75%,42%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor09',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(34,34%,45%,1)',
+        hex: '#99784c',
+        value: 'hsla(34,34%,45%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor09Weak',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(35,28%,82%,1)',
+        hex: '#ded3c4',
+        value: 'hsla(35,28%,82%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor09Strong',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(35,34%,27%,1)',
+        hex: '#5b482d',
+        value: 'hsla(35,34%,27%,1)',
+        
+    },
+    {
+        name: 'coralColorChartsColor09Hover',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(35,34%,27%,1)',
+        hex: '#5b482d',
+        value: 'hsla(35,34%,27%,1)',
+        
+    },
+    {
+        name: 'coralColorBrandingBackground',
         type: 'gradient',
         description: ``,
         value: 'linear-gradient(90deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%)',
@@ -1020,6 +1893,41 @@ const dictionary = [
         type: 'shadow',
         description: ``,
         value: '0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3)',
+        
+    },
+    {
+        name: 'coralElevationShadowAccent',
+        type: 'shadow',
+        description: ``,
+        value: '0rem 0.1rem 0.1rem 0rem hsla(204,95%,31%,0.3)',
+        
+    },
+    {
+        name: 'coralElevationShadowSuccess',
+        type: 'shadow',
+        description: ``,
+        value: '0rem 0.1rem 0.1rem 0rem hsla(111,49%,34%,0.3)',
+        
+    },
+    {
+        name: 'coralElevationShadowDanger',
+        type: 'shadow',
+        description: ``,
+        value: '0rem 0.1rem 0.1rem 0rem hsla(359,51%,53%,0.3)',
+        
+    },
+    {
+        name: 'coralElevationShadowWarning',
+        type: 'shadow',
+        description: ``,
+        value: '0rem 0.1rem 0.1rem 0rem hsla(22,93%,41%,0.3)',
+        
+    },
+    {
+        name: 'coralElevationShadowBeta',
+        type: 'shadow',
+        description: ``,
+        value: '0rem 0.1rem 0.1rem 0rem hsla(281,58%,29%,0.3)',
         
     },
     {
