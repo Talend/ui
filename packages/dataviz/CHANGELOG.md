@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- 42efdca45: Upgrade to recharts 2 and ensure everything is working well
+
+### Patch Changes
+
+- Updated dependencies [2e5511f79]
+- Updated dependencies [cfa90496c]
+- Updated dependencies [42efdca45]
+  - @talend/react-components@6.42.0
+
+## 0.4.10
+
+### Patch Changes
+
+- b33eb8655: fix(GeoChart): ?? operator is breaking angular tests
+- Updated dependencies [d353a0a3c]
+  - @talend/react-components@6.41.4
+
 ## 0.4.9
 
 ### Patch Changes

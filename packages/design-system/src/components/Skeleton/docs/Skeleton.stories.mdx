@@ -1,0 +1,77 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import Skeleton from '../';
+
+<Meta title="Components/Skeleton" />
+
+# Skeleton
+
+Skeleton is used as decoration to fill the space while the real content is loading.
+
+## Zoning
+
+## Style
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Skeleton />
+	</Story>
+</Canvas>
+
+### Button
+
+<Canvas>
+	<Story name="button">
+		<Skeleton.Button />
+	</Story>
+</Canvas>
+
+### Small Button
+
+<Canvas>
+	<Story name="button--small">
+		<Skeleton.Button small />
+	</Story>
+</Canvas>
+
+### Heading
+
+It corresponds to any heading element.
+
+<Canvas>
+	<Story name="heading">
+		<Skeleton.Heading />
+	</Story>
+</Canvas>
+
+### Icon
+
+It corresponds to Icon Button and Toggle cases.
+
+<Canvas>
+	<Story name="icon">
+		<Skeleton.Icon />
+	</Story>
+</Canvas>
+
+## States
+
+Not Applicable
+
+## Content
+
+Not Applicable
+
+## Interaction
+
+Skeletons use the heartbeat animation.
+The cursor is set to `progress`.
+
+## Accessibility
+
+They are unitary hidden for screen readers by default.
+The goal is to set the current loading content to `aria-busy="true"` instead.
+Here is an article about [more accessible skeletons](https://adrianroselli.com/2020/11/more-accessible-skeletons.html) written by Adrian Roselli.
+
+## Usage

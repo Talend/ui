@@ -36,3 +36,4 @@ jobs:
           build-script: 'pre-release'
           pattern: './packages/*/dist/*.{js,css,json}'
           exclude: '{**/*.html,**/*.map,**/node_modules/**}'
+          compression: 'none'

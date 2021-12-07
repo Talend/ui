@@ -1,0 +1,88 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Use } from '../../docs';
+
+import Dropdown from './';
+
+import * as Stories from './Dropdown.stories';
+
+<Meta title="Components/Dropdown" component={Dropdown} />
+
+<FigmaLink href="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown" />
+
+# Dropdown
+
+A dropdown menu displays a list of actions to take.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=1%3A22"
+	alt="zoning image for dropdown"
+/>
+
+## Style
+
+### Variations
+
+**With icons**
+
+<Canvas>
+	<Story height="25rem" story={Stories.WithIcons} />
+</Canvas>
+
+**With dividers**
+
+<Canvas>
+	<Story height="25rem" story={Stories.WithDividers} />
+</Canvas>
+
+**Max height**
+
+The max-height of a dropdown is 32rem. A scroll-bar has to be added after exceeding 32rem longer items.
+This rule is not applicable for the header-bar dropdowns.
+
+<Canvas>
+	<Story height="36rem" story={Stories.WithManyItems} />
+</Canvas>
+
+## States
+
+<FigmaImage
+	src="https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/Dropdown?node-id=3%3A250"
+	alt="dropdown behaviors"
+/>
+
+## Content
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>
+				Keep menu items to a single line of text as much as possible. If not, when the label is too
+				long for the available horizontal space, it wraps to form another line.
+			</li>
+		</ul>
+	</Use.Do>
+</Use>
+
+<Canvas>
+	<Story height="25rem" story={Stories.WithLongText} />
+</Canvas>
+
+## Interactions
+
+N/A
+
+## Accessibility
+
+- Press <kbd>Tabs</kbd> to focus on the dropdown
+
+- Press <kbd>Up Arrow</kbd> or <kbd>Down Arrow</kbd> to navigate in the dropdown menu
+
+- Press <kbd>Space</kbd> or <kbd>Enter</kbd> to activate the dropdown menu item
+
+- Press <kbd>Escape</kbd> to close the dropdown menu
+
+## Usage
+
+<ArgsTable story="usage" />

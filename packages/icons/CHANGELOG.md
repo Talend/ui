@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.38.0
+
+### Minor Changes
+
+- 959a0e21b: Add box.svg
+
 ## 6.37.0
 
 ### Minor Changes

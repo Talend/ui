@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs';
+import { IconItem } from '@storybook/components';
+import { Icons } from '../../../docs';
+import { Icon } from './..';
+
+<Meta title="Components/Icon" />
+
+# Icons
+
+All icons can be found below and you can apply transformations on them.
+
+<Icons />
+
+## Remote icon
+
+Icon can accept an URL as `name` but it must be prefixed by "remote-"
+
+<IconItem name="remote-url as svg">
+	<Icon name="remote-https://unpkg.com/@talend/icons@6.1.5/src/svg/core/abc.svg" />
+</IconItem>
+
+## Icon as image
+
+Icon can accept any type of image but their `name` must be prefixed by "src-".
+
+<IconItem name="src-url as img">
+	<Icon name="src-https://statics-dev.cloud.talend.com/@talend/common/images/favicon-logo-square.ico" />
+</IconItem>

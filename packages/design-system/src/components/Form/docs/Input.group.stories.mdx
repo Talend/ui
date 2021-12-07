@@ -1,0 +1,330 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { useForm } from 'react-hook-form';
+import { FigmaImage, FigmaIframe, WithSelector } from '../../../docs';
+import Form from '../';
+import Button from '../../Button';
+import InlineMessage from '../../InlineMessage';
+
+<Meta title="Components/Form/Form Field Group" />
+
+# Field group
+
+A field group allows to extend the form controls by adding simple text, select or buttons on either side of the default field.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=249%3A129"
+	alt="zoning image for field groups"
+/>
+
+## Style
+
+### Variations
+
+#### Prefix
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A18"
+/>
+
+<Canvas>
+	<Story name="select">
+		<Form.FieldGroup
+			label="Input"
+			prefix={
+				<Form.Select label="Protocol">
+					<option selected>http://</option>
+					<option>https://</option>
+					<option>ftp://</option>
+					<option>pop3://</option>
+					<option>imap://</option>
+					<option>smtp://</option>
+				</Form.Select>
+			}
+		>
+			<Form.Url label="Domain" placeholder="www.talend.com" />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+#### Suffix
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A50"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A84"
+/>
+
+<Canvas>
+	<Story name="button">
+		<Form.FieldGroup label="Input" suffix={<Button.Secondary>Button</Button.Secondary>}>
+			<Form.Text />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+#### Icon
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A112"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A354"
+/>
+
+<Canvas>
+	<Story name="button--icon">
+		<Form.FieldGroup
+			label="Expression builder"
+			suffix={<Button.Icon icon={'talend-wrench'}>Open expression builder</Button.Icon>}
+		>
+			<Form.Text placeholder="Write your expression or drag element" />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+#### Select
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1010"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1040"
+/>
+
+<Canvas>
+	<Story name="select--select">
+		<Form.FieldGroup
+			label="Input"
+			prefix={
+				<Form.Select label="Type">
+					<option>Value</option>
+					<option selected>Column</option>
+				</Form.Select>
+			}
+		>
+			<Form.Select label="Column">
+				<option>Id</option>
+				<option>Name</option>
+				<option selected>Country</option>
+				<option>Age</option>
+			</Form.Select>
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+## States
+
+### Default
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A406"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A699"
+/>
+
+<Canvas>
+	<Story name="default">
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
+			<Form.Text />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+### Hover
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A449"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A701"
+/>
+
+<Canvas withSource="none">
+	<Story name="hover" decorators={[WithSelector.decorator(':hover')]}>
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
+			<Form.Text />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+### Focus
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A501"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A703"
+/>
+
+<Canvas withSource="none">
+	<Story name="focus" decorators={[WithSelector.decorator(':focus-within')]}>
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
+			<Form.Text />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+### Filled
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A553"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A705"
+/>
+
+<Canvas>
+	<Story name="filled">
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
+			<Form.Number value="100" />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+### Disabled
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A605"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A707"
+/>
+
+<Canvas>
+	<Story name="disabled">
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00" disabled>
+			<Form.Number value="100" />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+### Read only
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A657"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A709"
+/>
+
+<Canvas>
+	<Story name="read-only">
+		<Form.FieldGroup label="Input" prefix="$" suffix=".00" readOnly>
+			<Form.Number value="100" />
+		</Form.FieldGroup>
+	</Story>
+</Canvas>
+
+## Content
+
+Use lower case on prefix and suffix except if it's an interactive element.
+
+## Interactions
+
+- The visible label will be linked to the principal field, click on it to access to the field (:focus)
+
+<Canvas>
+	<Story name="react-hook-form">
+		{() => {
+			const { register, handleSubmit } = useForm();
+			const [formData, setFormData] = React.useState();
+			return (
+				<Form onSubmit={handleSubmit(setFormData)}>
+					{formData && (
+						<InlineMessage.Information
+							title={'Form data'}
+							description={JSON.stringify(formData, null, 2)}
+							withBackground
+						/>
+					)}
+					<Form.FieldGroup
+						label="API Key"
+						suffix={<Button.Icon icon="talend-files-o">Copy</Button.Icon>}
+						description="The input seems readonly and the value is not displayed while submitting the form"
+					>
+						<Form.Text label="API Key" defaultValue={42} {...register('apiKey')} />
+					</Form.FieldGroup>
+					<Form.Buttons>
+						<Button.Primary type="submit">Submit</Button.Primary>
+					</Form.Buttons>
+				</Form>
+			);
+		}}
+	</Story>
+</Canvas>
+
+## Usage
+
+<Canvas>
+	<Story
+		name="usage"
+		args={{
+			label: 'Repeat',
+			prefix: 'until',
+			field: 'Date',
+			suffix: 'Button',
+			required: false,
+			disabled: false,
+			readOnly: false,
+		}}
+		argTypes={{
+			prefix: {
+				description: 'Prefix',
+				control: {
+					type: 'select',
+					options: ['', 'until', 'Select'],
+				},
+			},
+			field: {
+				description: 'Field',
+				control: {
+					type: 'select',
+					options: ['Text', 'Number', 'Date', 'Select', 'Datalist', 'Textarea'],
+				},
+			},
+			suffix: {
+				description: 'Suffix',
+				control: {
+					type: 'select',
+					options: ['', 'each day at 8:00', 'Button'],
+				},
+			},
+			required: {
+				description: 'Field is required or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			disabled: {
+				description: 'Field is disabled or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			readOnly: {
+				description: 'Field is read only or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+		}}
+	>
+		{({ prefix, field, suffix, ...rest }) => {
+			const getComponent = name => {
+				switch (name) {
+					case 'Select':
+						return (
+							<Form.Select>
+								<option>Before</option>
+								<option>After</option>
+							</Form.Select>
+						);
+					case 'Button':
+						return <Button>Next week</Button>;
+					default:
+						return name;
+				}
+			};
+			const Component = Form[field];
+			return (
+				<Form.FieldGroup prefix={getComponent(prefix)} suffix={getComponent(suffix)} {...rest}>
+					<Component />
+				</Form.FieldGroup>
+			);
+		}}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />
+
+## Accessibility
+
+- The visible label describes the whole group.
+- The invisible labels describe the direct input they are linked to.

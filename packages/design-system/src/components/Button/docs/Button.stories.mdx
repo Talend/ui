@@ -1,0 +1,233 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../../docs';
+import Button from '../';
+import * as Stories from '../Button.stories';
+import { IconsProvider } from '../../IconsProvider';
+
+<Meta title="Components/Button" component={Button} />
+
+<Links>
+	<FigmaLink href="https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons" />
+	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Button" />
+</Links>
+
+# Button
+
+Buttons are clickable items used for actions. They can have different styles depending on the needs.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=12%3A64"
+	alt="zoning image for buttons"
+/>
+
+## Style
+
+### Sizes
+
+Coral supports two button sizes: `default` and `small`.
+
+The small size is available for primary, secondary and tertiary buttons — but shouldn't be used for buttons with icon or dropdown buttons.
+
+Icon buttons can be used as dropdown but without the caret icon.
+
+<FigmaImage
+	src="https://www.figma.com/file/nLfALGpsfnvwlmm3Kix2TU/%F0%9F%A7%A9-Schema?node-id=4%3A57"
+	alt="buttons sizes illustration"
+/>
+
+### Variations
+
+<FigmaIframe
+	light="https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons?node-id=332%3A0"
+	dark="https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons?node-id=1%3A424"
+/>
+
+#### Primary
+
+<Canvas withSource="open">
+	<Story story={Stories.Primary} />
+	<Story story={Stories.PrimaryIcon} />
+	<Story story={Stories.PrimarySmall} />
+	<Story story={Stories.PrimaryDisabled} />
+	<Story story={Stories.PrimaryDisabledFocusable} />
+	<Story story={Stories.PrimaryAsLink} />
+</Canvas>
+
+#### Destructive
+
+<Canvas>
+	<Story story={Stories.Destructive} />
+	<Story story={Stories.DestructiveIcon} />
+	<Story story={Stories.DestructiveSmall} />
+	<Story story={Stories.DestructiveDisabled} />
+	<Story story={Stories.DestructiveDisabledFocusable} />
+	<Story story={Stories.DestructiveAsLink} />
+</Canvas>
+
+#### Secondary
+
+<Canvas>
+	<Story story={Stories.Secondary} />
+	<Story story={Stories.SecondaryIcon} />
+	<Story story={Stories.SecondarySmall} />
+	<Story story={Stories.SecondaryDisabled} />
+	<Story story={Stories.SecondaryDisabledFocusable} />
+	<Story story={Stories.SecondaryAsLink} />
+</Canvas>
+
+#### Tertiary
+
+<Canvas>
+	<Story story={Stories.Tertiary} />
+	<Story story={Stories.TertiaryIcon} />
+	<Story story={Stories.TertiarySmall} />
+	<Story story={Stories.TertiaryDisabled} />
+	<Story story={Stories.TertiaryDisabledFocusable} />
+	<Story story={Stories.TertiaryAsLink} />
+</Canvas>
+
+#### Icon button
+
+<Canvas>
+	<Story story={Stories.Icon} />
+	<Story story={Stories.IconDisabled} />
+	<Story story={Stories.IconDisabledFocusable} />
+	<Story story={Stories.IconAsLink} />
+</Canvas>
+
+## Interactions
+
+### Button skeletons
+
+<Canvas>
+	<Story story={Stories.SkeletonButton} />
+	<Story story={Stories.SkeletonButtonSmall} />
+	<Story story={Stories.SkeletonButtonIcon} />
+</Canvas>
+
+### Button tooltips
+
+Buttons should all have a tooltip on hover displaying the description.
+
+<Canvas>
+	<Story story={Stories.TooltipButton} />
+</Canvas>
+
+### Async buttons
+
+When the user clicks on the button, and the action is asynchronous, a spinner will appear on the left of the label.
+If the button has an icon, the spinner will temporarily replace this icon as long as it's loading.
+No action will be possible until it's done.
+
+<Canvas>
+	<Story story={Stories.Loading} />
+</Canvas>
+
+## Content
+
+The word(s) on buttons should be accurate, specific, and explicit—not vague.
+A good button label invites users to take action.
+Best to use verbs and label the button with what it actually does.
+Use OK sparingly—replace it with the specific action whenever possible.
+Users usually click OK to confirm the action they want to do.
+Name that action instead.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in button labels.</li>
+			<li>
+				Always start with an action verb: something happens when you click a button. Say what
+				happens with a verb. Navigation buttons are an example of an exception to using an action
+				verb. These often use -Next- and -Back-.
+			</li>
+			<li>
+				Choose specific words over vague words: “Try it now” for example is a common call to action
+				(CTA), but it doesn't really tell the user what will happen next. It might be too vague. Use
+				your judgment according to what the user should be doing when they click the button.
+			</li>
+			<li>
+				Choose words that logically align with the preceding content: if your headline says "Sign up
+				for a free trial" then your button text should also say "Sign up".
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don’t use more than 3 words on a button: keep it short and simple.</li>
+			<li>
+				Don't use Yes and No for buttons. Say what action really happens when the user clicks.
+			</li>
+			<li>Don't use title case or all caps in button labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Demo
+
+<Canvas>
+	<Story
+		name="usage"
+		args={{
+			variant: 'Primary',
+			icon: 'talend-upload',
+			children: 'Upload',
+		}}
+		argTypes={{
+			variant: {
+				description: 'Button variation',
+				control: {
+					type: 'select',
+					options: ['', 'Primary', 'Secondary', 'Tertiary', 'Destructive', 'Icon'],
+				},
+			},
+			small: {
+				description: 'Button is small',
+				control: {
+					type: 'boolean',
+				},
+			},
+			icon: {
+				description: 'Button icon as illustration',
+				control: {
+					type: 'select',
+					options: [''].concat(IconsProvider.getCurrentIconIds()),
+				},
+			},
+			loading: {
+				description: 'Button is loading',
+				control: {
+					type: 'boolean',
+				},
+			},
+			disabled: {
+				description: 'Button is disabled',
+				control: {
+					type: 'boolean',
+				},
+			},
+		}}
+	>
+		{props => {
+			const Component = Button[props.variant] || Button;
+			return <Component {...props} />;
+		}}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />
+
+## Accessibility
+
+- Press <kbd>Tab</kbd> to focus on the button
+
+- Press <kbd>Spacebar</kbd> or <kbd>Enter</kbd> to activate the button
+
+The clickable area around buttons is $space.xs increased
+
+<FigmaImage
+	src="https://www.figma.com/file/nLfALGpsfnvwlmm3Kix2TU/Schema?node-id=217%3A136"
+	alt="click area for buttons"
+/>
