@@ -3,7 +3,7 @@ name: Components testing
 on:
   push:
     paths:
-      - 'package/design-system/**'
+      - 'packages/design-system/**'
 
 jobs:
   cypress-run:
