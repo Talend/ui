@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 6.42.1
+
+### Patch Changes
+
+- 3bbf55610: fix(components/dataviz): recharts path in dependencies.json
+- Updated dependencies [7a8e6e193]
+  - @talend/design-system@1.10.1
+
 ## 6.42.0
 
 ### Minor Changes
