@@ -47,6 +47,7 @@ const InlineEditing = React.forwardRef(
 			hasError,
 			required,
 			renderAs,
+			placeholder,
 			defaultValue,
 			renderValueAs,
 			onEdit = () => {},
@@ -102,6 +103,7 @@ const InlineEditing = React.forwardRef(
 								value={value}
 								required={required}
 								hasError={hasError}
+								placeholder={placeholder}
 								onChange={(
 									event:
 										| React.ChangeEvent<HTMLInputElement>
@@ -133,10 +135,11 @@ const InlineEditing = React.forwardRef(
 						onDoubleClick={loading ? undefined : () => setEditMode(true)}
 					>
 						<S.InlineEditingValue
-							className="c-inline-editing__value"
+							// className="c-inline-editing__value"
+							className={classNames('c-inline-editing__value', { placeholder: !value })}
 							as={renderValueAs || renderAs}
 						>
-							{value}
+							{value || placeholder}
 						</S.InlineEditingValue>
 						<Button.Icon
 							className="c-inline-editing__action"
