@@ -135,7 +135,6 @@ const InlineEditing = React.forwardRef(
 						onDoubleClick={loading ? undefined : () => setEditMode(true)}
 					>
 						<S.InlineEditingValue
-							// className="c-inline-editing__value"
 							className={classNames('c-inline-editing__value', { placeholder: !value })}
 							as={renderValueAs || renderAs}
 						>
