@@ -54,20 +54,20 @@ const diffAfromB = [...new Set(bufferBKeys.diff(bufferAKeys))];
 let exitCode = 0;
 
 if (duplicatesA.length) {
-	console.warn('Duplicate tokens in file #1');
+	console.warn('Duplicate tokens in file #1', pathA);
 	console.table(duplicatesA);
 	exitCode = 1;
 }
 
 if (duplicatesB.length) {
-	console.warn('Duplicate tokens in file #2');
+	console.warn('Duplicate tokens in file #2', pathB);
 	console.table(duplicatesB);
 	exitCode = 1;
 }
 
 if (diffBfromA.length || diffAfromB.length) {
 	console.error('Missing tokens in files #1 and #2');
-	console.table([{ 'File #1': diffAfromB }, { 'File #2': diffBfromA }]);
+	console.table([{ pathA: diffAfromB }, { pathB: diffBfromA }]);
 	exitCode = 1;
 }
 
