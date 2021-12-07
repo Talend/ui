@@ -6,7 +6,7 @@ const path = require('path');
 const [, , ...args] = process.argv;
 
 if (args.length !== 2) {
-	console.error('You must pass two files to compare! ./compare.js fileA.scss fileB.scss');
+	console.error('You must pass two files to compare!');
 	process.exit(1);
 }
 
@@ -67,7 +67,7 @@ if (duplicatesB.length) {
 
 if (diffBfromA.length || diffAfromB.length) {
 	console.error('Missing tokens in files #1 and #2');
-	console.table([{ pathA: diffAfromB }, { pathB: diffBfromA }]);
+	console.table([{ [`${pathA}`]: diffAfromB }, { [`${pathB}`]: diffBfromA }]);
 	exitCode = 1;
 }
 
