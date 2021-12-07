@@ -32,7 +32,7 @@ You must precise the `displayName` for each component and their variations
 
 ## Solutions
 
-By introducing expertly crafted web design tokens, represented by CSS custom properties, we are now able to align the Design System with rest of the Talend/UI packages.  
+By introducing [expertly crafted web design tokens](#3528), represented by CSS custom properties, we are now able to align the Design System with the rest of the Talend/UI packages.  
 By alignment, we are talking about [CSS Modules](https://github.com/css-modules/css-modules).  
 We will replace all current Styled Components usages, tracked by JIRA.  
 But, starting now[^1], any style update in the Design System package will use CSS modules.  
