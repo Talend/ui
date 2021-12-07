@@ -108,8 +108,8 @@
     --coral-color-beta-icon-hover: hsla(280,68%,51%,1);
     --coral-color-beta-icon-active: hsla(280,67%,41%,1);
     --coral-color-beta-text-weak: hsla(207,18%,24%,1);
-    --coral-color-beta-text-weak-hover: hsla(280,56%,83%,1);
-    --coral-color-beta-text-weak-active: hsla(280,57%,73%,1);
+    --coral-color-beta-text-weak-hover: hsla(281,65%,24%,1);
+    --coral-color-beta-text-weak-active: hsla(280,64%,14%,1);
     --coral-color-beta-text-strong: hsla(279,34%,78%,1);
     --coral-color-beta-text-strong-hover: hsla(279,34%,68%,1);
     --coral-color-beta-text-strong-active: hsla(280,34%,48%,1);
@@ -199,6 +199,9 @@
     --coral-color-charts-color-09-hover: hsla(35,34%,27%,1);
     --coral-color-neutral-border-strong: hsla(0,0%,92%,1);
     --coral-color-neutral-border-strong-hover: hsla(216,30%,82%,1);
+    --coral-color-neutral-icon: hsla(210,17%,93%,1);
+    --coral-color-neutral-icon-inverted: hsla(210,7%,79%,1);
+    --coral-color-neutral-icon-weak: hsla(206,24%,83%,1);
     --coral-color-branding-background: linear-gradient(90deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%);    
     --coral-color-branding-navigation: linear-gradient(90deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%);    
     --coral-size-xxs: 0.4rem;    
@@ -214,6 +217,7 @@
     --coral-elevation-shadow-danger: 0rem 0.1rem 0.1rem 0rem hsla(359,100%,78%,0.3);    
     --coral-elevation-shadow-warning: 0rem 0.1rem 0.1rem 0rem hsla(27,98%,67%,0.3);    
     --coral-elevation-shadow-beta: 0rem 0.1rem 0.1rem 0rem hsla(279,34%,78%,0.3);    
+    --coral-elevation-shadow-accent: 0rem 0.1rem 0.1rem 0rem hsla(198,72%,75%,0.3);    
     --coral-heading-l: 400 1.8rem/140% 'Source Sans Pro';
     --coral-heading-m: 400 1.6rem/140% 'Source Sans Pro';
     --coral-heading-s: 400 1.4rem/140% 'Source Sans Pro';
