@@ -1,0 +1,32 @@
+name: Components testing
+
+on:
+  push:
+    paths:
+      - 'packages/design-system/**'
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - name: Cypress Component Testing
+        run: |
+          yarn
+          npx cypress run-ct
+
+      - name: Cypress artifacts upload
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: cypress-component-testing-videos
+          path: cypress/videos/components/**/*
