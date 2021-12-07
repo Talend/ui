@@ -22,11 +22,14 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - name: Install and build
+      - name: Restrict to design-tokens package
+        run: |
+          cd packages/design-tokens
+
+      - name: Install
         run: |
           yarn install --frozen-lockfile
 
       - name: Check CSS custom properties
         run: |
-          cd packages/design-tokens
-          node ./scripts/compare.js src/light/_index.css src/dark/_index.css
+          node ./scripts/compare.js src/light/_index.scss src/dark/_index.scss
