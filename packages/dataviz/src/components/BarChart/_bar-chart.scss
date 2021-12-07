@@ -6,18 +6,20 @@ $value-bar-secondary-color: shade($lochmara, 30%);
 
 $grey-bar-color: $alto;
 
-@mixin overrideRechartsStyles() {
+@mixin override-recharts-styles() {
 	// We can't use custom classname on axis
 	:global {
 		.recharts-responsive-container {
 			overflow: visible;
 		}
+
 		.recharts-xAxis,
 		.recharts-yAxis {
 			text {
 				font-size: 1.2rem;
 				fill: $gray;
 			}
+
 			line {
 				stroke: $gray;
 			}

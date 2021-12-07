@@ -1,0 +1,84 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { WithSelector, FigmaImage } from '../../../docs';
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Email" />
+
+# Email
+
+It's used to let the user enter and edit a EMAIL.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A219"
+	alt="zoning image for inputs"
+/>
+
+## Style
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Email label="Email" placeholder="user@domain.com" />
+	</Story>
+</Canvas>
+
+### Hover
+
+<Canvas withSource="none">
+	<Story
+		name="hover"
+		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
+	>
+		<Form.Email label="Email" />
+	</Story>
+</Canvas>
+
+### Focus
+
+<Canvas withSource="none">
+	<Story
+		name="focus"
+		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
+	>
+		<Form.Email label="Email" />
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.Email label="Email" value="user@talend.com" />
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Email label="Email" value="user@talend.com" disabled />
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Email label="Email" value="user@talend.com" readOnly />
+	</Story>
+</Canvas>
+
+## Interactions
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C

@@ -45,10 +45,10 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.3.12",
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addons": "^6.3.12",
-    "@storybook/react": "^6.3.12",
+    "@storybook/addon-a11y": "^6.4.4",
+    "@storybook/addon-actions": "^6.4.4",
+    "@storybook/addons": "^6.4.4",
+    "@storybook/react": "^6.4.4",
     "@talend/icons": "^6.37.0",
     "@talend/locales-tui": "^6.36.0",
     "@talend/react-cmf": "^6.38.5",

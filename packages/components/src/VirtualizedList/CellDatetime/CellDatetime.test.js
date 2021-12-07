@@ -100,6 +100,7 @@ describe('CellDatetime', () => {
 
 	it('should format according to the pattern', () => {
 		// when
+		const t = jest.fn();
 		const columnData = {
 			mode: 'format',
 			pattern: 'YYYY-MM-DD HH:mm:ss',
@@ -112,10 +113,12 @@ describe('CellDatetime', () => {
 		const expectedStrDate = `2016-09-22 ${isOneDigitHours ? 0 : ''}${
 			11 + timezoneOffset / 60
 		}:00:00`;
-		const computedStrOffset = computeValue(cellDataWithOffset, columnData);
+		const computedStrOffset = computeValue(cellDataWithOffset, columnData, t);
 		// then
 		expect(computedStrOffset).toEqual(expectedStrDate);
-		expect(format).toHaveBeenCalledWith(cellDataWithOffset, columnData.pattern);
+		expect(format).toHaveBeenCalledWith(cellDataWithOffset, columnData.pattern, {
+			locale: getLocale(t),
+		});
 	});
 
 	it('should render CellDatetime with tooltip in ago mode', () => {
@@ -139,13 +142,15 @@ describe('CellDatetime', () => {
 			pattern: 'YYYY-MM-DD HH:mm:ss',
 			timeZone: 'Pacific/Niue',
 		};
+		const t = jest.fn();
 
 		const cellData = 1474495200000;
-		computeValue(cellData, columnData);
+		computeValue(cellData, columnData, t);
 
 		// then
 		expect(dateUtils.formatToTimeZone).toHaveBeenCalledWith(cellData, columnData.pattern, {
 			timeZone: columnData.timeZone,
+			locale: getLocale(t),
 		});
 	});
 });
