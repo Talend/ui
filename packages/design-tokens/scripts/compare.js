@@ -6,7 +6,7 @@ const path = require('path');
 const [, , ...args] = process.argv;
 
 if (args.length !== 2) {
-	console.error('You must pass two files to be able to compare them!');
+	console.error('You must pass two files to compare!');
 	process.exit(1);
 }
 
@@ -35,7 +35,7 @@ Array.prototype.duplicates = function() {
 
 function getKeys(buffer) {
 	const keys = [];
-	const re = /(\$coral-(.*)):/gi;
+	const re = /(--coral-(.*)):/gi;
 	while ((result = re.exec(buffer.toString()))) {
 		keys.push(result[1]);
 	}
@@ -54,20 +54,20 @@ const diffAfromB = [...new Set(bufferBKeys.diff(bufferAKeys))];
 let exitCode = 0;
 
 if (duplicatesA.length) {
-	console.warn('Duplicate tokens in file #1');
+	console.warn('Duplicate tokens in file #1', pathA);
 	console.table(duplicatesA);
 	exitCode = 1;
 }
 
 if (duplicatesB.length) {
-	console.warn('Duplicate tokens in file #2');
+	console.warn('Duplicate tokens in file #2', pathB);
 	console.table(duplicatesB);
 	exitCode = 1;
 }
 
 if (diffBfromA.length || diffAfromB.length) {
 	console.error('Missing tokens in files #1 and #2');
-	console.table([{ 'File #1': diffAfromB }, { 'File #2': diffBfromA }]);
+	console.table([{ [`${pathA}`]: diffAfromB }, { [`${pathB}`]: diffBfromA }]);
 	exitCode = 1;
 }
 
