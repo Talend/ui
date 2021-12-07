@@ -3163,9 +3163,9 @@
   integrity sha512-pW1kVv6atGEy5qIfp2VVpdFAtJrwpYpIIiE576W5IDw0q8U7yAafEb+vhk9jVHElyrAkYJSYjxjit8gYX/CJxw==
 
 "@talend/module-to-cdn@^9.7.3":
-  version "9.7.3"
-  resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.3.tgz#6663ba95f25cf1e318f3d627efb83c8e79b0763d"
-  integrity sha512-OREjZdX9aEVcBLZ5Z2ec+AO0sGSpi71VUdJ352zYiuuyS3I2Yt2tabtUSkYgHNmXh3BVEgX6vZAbyjIBO4aYiA==
+  version "9.7.4"
+  resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.4.tgz#4b12ae2caee3574f826143fdd25e4641531d970f"
+  integrity sha512-c3JOB27qJJGO/Wefyrs7MhagrPJzDwrURB467bBSSaz687HRY16UlpSltx9TTZzTmQffBDtzrduKU+FNQ+QhmA==
   dependencies:
     execa "^4.1.0"
     mkdirp "^1.0.4"
