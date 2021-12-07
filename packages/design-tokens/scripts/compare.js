@@ -6,7 +6,7 @@ const path = require('path');
 const [, , ...args] = process.argv;
 
 if (args.length !== 2) {
-	console.error('You must pass two files to be able to compare them!');
+	console.error('You must pass two files to compare! ./compare.js fileA.scss fileB.scss');
 	process.exit(1);
 }
 
