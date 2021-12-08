@@ -3,7 +3,7 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-import { createBrowserHistory } from 'history';
+import { createHistory } from 'history';
 import getRouter from '@talend/react-cmf-router';
 import React from 'react';
 import cmf from '@talend/react-cmf';
@@ -21,7 +21,7 @@ import actions from './actions';
 const basename = window.basename;
 
 // Run our app under the /base URL.
-const history = createBrowserHistory({
+const history = createHistory({
 	basename,
 });
 
