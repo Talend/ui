@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 6.36.5
+
+### Patch Changes
+
+- 4c0cbc41f: chore: upgrade deps
+
 ## 6.36.4
 
 ### Patch Changes
