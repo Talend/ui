@@ -6,7 +6,7 @@ on:
 #      - 'packages/design-system/**'
 
 jobs:
-  cypress-run:
+  deploy:
     runs-on: ubuntu-latest
     defaults:
       run:
