@@ -1,9 +1,9 @@
 import React from 'react';
-import { ReactReduxContext } from 'react-redux';
+import { useStore } from 'react-redux';
 import { RegistryContext } from './RegistryProvider';
 
 export function useCMFContext() {
-	const store = React.useContext(ReactReduxContext).store;
+	const store = useStore();
 	const registry = React.useContext(RegistryContext);
 	return {
 		store,

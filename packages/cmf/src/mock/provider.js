@@ -40,6 +40,7 @@ function MockProvider(props) {
 		store: st,
 		registry: props.registry || {},
 	};
+
 	return (
 		<div className="mock-provider">
 			<Provider store={context.store}>
