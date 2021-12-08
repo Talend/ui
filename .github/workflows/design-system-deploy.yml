@@ -2,8 +2,8 @@ name: Deploy design.talend.com
 
 on:
   push:
-    paths:
-      - 'packages/design-system/**'
+#    paths:
+#      - 'packages/design-system/**'
 
 jobs:
   cypress-run:
@@ -31,7 +31,7 @@ jobs:
 #        if: github.ref == 'refs/heads/master'
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dry --dir=packages/design-system/storybook-static
+          args: deploy --dir=packages/design-system/storybook-static
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
