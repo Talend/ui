@@ -139,7 +139,7 @@ const InlineEditing = React.forwardRef(
 							className="c-inline-editing__value"
 							data-placeholder={placeholder}
 							as={renderValueAs || renderAs}
-							aria-hidden
+							aria-hidden={value !== undefined}
 						>
 							{value}
 						</S.InlineEditingValue>
