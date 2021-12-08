@@ -136,7 +136,7 @@ const InlineEditing = React.forwardRef(
 						onDoubleClick={loading ? undefined : () => setEditMode(true)}
 					>
 						<S.InlineEditingValue
-							className={classNames('c-inline-editing__value', { placeholder: !value })}
+							className="c-inline-editing__value"
 							data-placeholder={placeholder}
 							as={renderValueAs || renderAs}
 							aria-hidden
