@@ -21,6 +21,8 @@ export type InlineEditingProps = PropsWithChildren<any> &
 		label: string;
 		/** the inline editing default value */
 		value: string;
+		/** the inline editing edit button aria-label */
+		ariaLabel: string;
 		/** if the inline editing has an error */
 		hasError?: boolean;
 		/** if the inline editing in in progress */
@@ -47,6 +49,8 @@ const InlineEditing = React.forwardRef(
 			hasError,
 			required,
 			renderAs,
+			ariaLabel,
+			placeholder,
 			defaultValue,
 			renderValueAs,
 			onEdit = () => {},
@@ -102,6 +106,7 @@ const InlineEditing = React.forwardRef(
 								value={value}
 								required={required}
 								hasError={hasError}
+								placeholder={placeholder}
 								onChange={(
 									event:
 										| React.ChangeEvent<HTMLInputElement>
@@ -134,18 +139,21 @@ const InlineEditing = React.forwardRef(
 					>
 						<S.InlineEditingValue
 							className="c-inline-editing__value"
+							data-placeholder={placeholder}
 							as={renderValueAs || renderAs}
+							aria-hidden={value !== undefined}
 						>
 							{value}
 						</S.InlineEditingValue>
 						<Button.Icon
 							className="c-inline-editing__action"
-							icon="talend-pencil"
-							onClick={() => setEditMode(true)}
-							disabled={loading}
 							data-test="inlineediting.button.edit"
+							onClick={() => setEditMode(true)}
+							aria-label={ariaLabel}
+							icon="talend-pencil"
+							disabled={loading}
 						>
-							{t('INLINE_EDITING_EDIT', 'Edit')}
+							<span aria-hidden>{t('INLINE_EDITING_EDIT', 'Edit')}</span>
 						</Button.Icon>
 					</div>
 				)}
@@ -155,3 +163,4 @@ const InlineEditing = React.forwardRef(
 );
 
 export default InlineEditing;
+
