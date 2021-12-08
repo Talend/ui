@@ -47,6 +47,7 @@ const InlineEditing = React.forwardRef(
 			hasError,
 			required,
 			renderAs,
+			ariaLabel,
 			placeholder,
 			defaultValue,
 			renderValueAs,
@@ -136,18 +137,21 @@ const InlineEditing = React.forwardRef(
 					>
 						<S.InlineEditingValue
 							className={classNames('c-inline-editing__value', { placeholder: !value })}
+							data-text={placeholder}
 							as={renderValueAs || renderAs}
+							aria-hidden
 						>
-							{value || placeholder}
+							{value}
 						</S.InlineEditingValue>
 						<Button.Icon
 							className="c-inline-editing__action"
-							icon="talend-pencil"
-							onClick={() => setEditMode(true)}
-							disabled={loading}
 							data-test="inlineediting.button.edit"
+							onClick={() => setEditMode(true)}
+							aria-label={ariaLabel}
+							icon="talend-pencil"
+							disabled={loading}
 						>
-							{t('INLINE_EDITING_EDIT', 'Edit')}
+							<span aria-hidden>{t('INLINE_EDITING_EDIT', 'Edit')}</span>
 						</Button.Icon>
 					</div>
 				)}
@@ -157,3 +161,4 @@ const InlineEditing = React.forwardRef(
 );
 
 export default InlineEditing;
+
