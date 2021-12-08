@@ -5,9 +5,9 @@
 <hr />
 
 <div style="text-align:center">
-  <img src="https://api.netlify.com/api/v1/badges/d6d66424-7754-4257-bb5e-cc6de2f9d9aa/deploy-status" alt="Netlify" />
-  <img src="https://github.com/Talend/design-system/workflows/Chromatic/badge.svg" alt="Chromatic"/> 
-  <img src="https://github.com/Talend/design-system/workflows/Upload%20to%20CDN/badge.svg" alt="S3 deploy" />
+  <a href="https://app.netlify.com/sites/gifted-tesla-96fe2e/deploys">
+    <img src="https://api.netlify.com/api/v1/badges/d6d66424-7754-4257-bb5e-cc6de2f9d9aa/deploy-status" alt="Netlify Status" />
+  </a>
 </div>
 
 <hr />
@@ -50,7 +50,7 @@ Use styled-components format.
 
 ### Variations
 
-Variations should extend of the basic components in separated files. 
+Variations should extend of the basic components in separated files.
 Limit changes to styled-components scope.
 
 ### End-to-End tests
