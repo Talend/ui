@@ -21,6 +21,8 @@ export type InlineEditingProps = PropsWithChildren<any> &
 		label: string;
 		/** the inline editing default value */
 		value: string;
+		/** the inline editing edit button aria-label */
+		ariaLabel: string;
 		/** if the inline editing has an error */
 		hasError?: boolean;
 		/** if the inline editing in in progress */
