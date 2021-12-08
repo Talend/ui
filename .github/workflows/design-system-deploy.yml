@@ -24,6 +24,7 @@ jobs:
 
       - name: Build Storybook
         run: |
+          yarn
           yarn build-storybook
 
       - name: Deploy to Netlify production
