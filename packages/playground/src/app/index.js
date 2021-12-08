@@ -53,7 +53,7 @@ function IconsProvider() {
 
 const app = {
 	components: { ComponentForm, ComponentFormSandbox, LeaguesList, IconsProvider },
-	settingsURL: `${basename || ''}settings.json`,
+	settingsURL: `${basename || ''}/settings.json`,
 	actionCreators: actions,
 	middlewares: [],
 	modules: [router.cmfModule, containersModule],

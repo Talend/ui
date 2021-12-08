@@ -52,11 +52,11 @@ const webpackConfig = {
 		}),
 	],
 	output: {
-		// publicPath: '/playground',
+		publicPath: '/playground',
 	},
-	devServer: {
-		onBeforeSetupMiddleware: mockBackend,
-	},
+	// devServer: {
+	// 	onBeforeSetupMiddleware: mockBackend,
+	// },
 };
 
 module.exports = webpackConfig;

@@ -7,15 +7,11 @@
  */
 import PropTypes from 'prop-types';
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
 
-/**
- * @typedef {Object} Router
- */
-
-function renderRoutes({ path, childRoutes, ...props }, currentpath) {
+function getRouteProps({ path, childRoutes, ...props }, currentpath) {
 	const newProps = { ...props };
 	let absPath;
 	if (path.startsWith('/')) {
@@ -25,15 +21,16 @@ function renderRoutes({ path, childRoutes, ...props }, currentpath) {
 	} else {
 		absPath = `${currentpath === '/' ? '' : currentpath}/${path}`;
 	}
-	if (childRoutes) {
-		newProps.children = [<Switch>{childRoutes.map(child => renderRoutes(child, absPath))}</Switch>];
-	}
-	console.log('####', absPath, props.component, newProps);
-	return (
-		<Route path={absPath} key={absPath}>
-			<Inject {...newProps} />
-		</Route>
-	);
+	// if (childRoutes) {
+	// 	newProps.children = [childRoutes.map(child => <Route {...getRouteProps(child, absPath)} />)];
+	// }
+	console.log('@@@', absPath, newProps);
+	return {
+		path: absPath,
+		key: absPath,
+		element: <Inject {...newProps} />,
+		children: [(childRoutes || []).map(child => <Route {...getRouteProps(child, absPath)} />)],
+	};
 }
 
 /**
@@ -45,8 +42,16 @@ function renderRoutes({ path, childRoutes, ...props }, currentpath) {
  */
 function Router(props) {
 	// const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
+	console.log('###', props);
+	const basename = '/playground';
 	if (props.routes.path && props.routes.component) {
-		return <BrowserRouter>{renderRoutes(props.routes, props.routes.path)}</BrowserRouter>;
+		return (
+			<BrowserRouter basename={basename}>
+				<Routes>
+					<Route {...getRouteProps(props.routes, props.routes.path)} />
+				</Routes>
+			</BrowserRouter>
+		);
 	}
 	if (props.loading) {
 		return <Inject component={props.loading} />;
@@ -62,7 +67,7 @@ Router.propTypes = {
 Router.contextTypes = {
 	registry: PropTypes.object,
 };
-Router.displayName = 'Router';
+Router.displayName = 'UIRouter';
 
 const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
 export default connect(mapStateToProps)(Router);

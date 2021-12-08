@@ -84,9 +84,6 @@
   "routes": {
     "path": "/",
     "component": "AppLoader",
-    "indexRoute": {
-      "component": "Redirect"
-    },
     "childRoutes": [
       {
         "path": "List",
@@ -95,10 +92,6 @@
       {
         "path": "ComponentForm",
         "component": "ComponentFormSandbox"
-      },
-      {
-        "path": "*",
-        "component": "Redirect"
       }
     ]
   }
