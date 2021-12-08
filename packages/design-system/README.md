@@ -4,11 +4,7 @@
 
 <hr />
 
-<div style="text-align:center">
-  <a href="https://app.netlify.com/sites/gifted-tesla-96fe2e/deploys">
-    <img src="https://api.netlify.com/api/v1/badges/d6d66424-7754-4257-bb5e-cc6de2f9d9aa/deploy-status" alt="Netlify Status" />
-  </a>
-</div>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d6d66424-7754-4257-bb5e-cc6de2f9d9aa/deploy-status)](https://app.netlify.com/sites/gifted-tesla-96fe2e/deploys)
 
 <hr />
 
