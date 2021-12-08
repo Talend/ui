@@ -39,7 +39,7 @@ export const InlineEditing = styled.div`
 			white-space: nowrap;
 			flex: 0 1 auto;
 
-			&.placeholder[data-text]::before {
+			&[data-placeholder]::before {
 				content: attr(data-text);
 				color: ${({ theme }) => theme.colors.inputPlaceholderColor};
 			}
