@@ -17,7 +17,7 @@ Coral is the design system used to build accessible, consistent, customizable an
 Clone the repository
 
 ```sh
-$> git clone git@github.com:Talend/design-system.git
+$> git clone git@github.com:Talend/ui.git
 ```
 
 Install the dependencies
@@ -34,6 +34,13 @@ $> yarn start
 
 ## Contributions
 
+Check our exhaustive [contribution guidelines here](./CONTRIBUTING.md).
+
+Please get to know our [Architecture Decision Records](https://github.com/joelparkerhenderson/architecture-decision-record#what-is-an-architecture-decision-record):
+
+- [Using CSS modules to style our components](./adr/css-modules.md).
+- [Use [data-test] attributes for generic automated tests](./adr/css-modules.md).
+
 ### Named exports
 
 Please use named exports and link them at the root index to be embedded into the UMD.
@@ -44,7 +51,7 @@ Style should be designed for mobile and adapted for tablet and desktop.
 
 ### Style as separated files
 
-Use styled-components format.
+Use CSS modules (`ComponentName.module.scss`) and [BEM](http://getbem.com/introduction/) in your style files.
 
 ### Variations
 
