@@ -3,16 +3,17 @@ import { createBrowserHistory } from 'history';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import cmf from '@talend/react-cmf';
 import { fork, takeLatest } from 'redux-saga/effects';
-import UIRouter from './UIRouter';
+import { getRouter } from './UIRouter';
 import expressions from './expressions';
 import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 import documentTitle from './sagas/documentTitle';
 import cmfRouterMiddleware from './middleware';
-import route, { REGISTRY_HOOK_PREFIX } from './route';
+import route from './route';
 
 const mergeConfig = {
 	history: cmf.module.merge.getUnique,
+	basename: cmf.module.merge.getUnique,
 	sagaRouterConfig: cmf.module.merge.mergeObjects,
 	routerFunctions: cmf.module.merge.mergeObjects,
 	startOnAction: cmf.module.merge.getUnique,
@@ -58,9 +59,12 @@ function getModule(...args) {
 	// 	routerHistory = syncHistoryWithStore(history, store);
 	// }
 	// router is renderer after the store is created so we refer to routerHistory
-	function Router() {
+	const UIRouter = getRouter(history, options.basename);
+	function CMFRouter() {
 		return <UIRouter />;
 	}
+	CMFRouter.displayName = 'CMFRouter';
+
 	return {
 		cmfModule: {
 			id: 'react-cmf-router',
@@ -73,7 +77,7 @@ function getModule(...args) {
 			// storeCallback,
 			registry,
 		},
-		RootComponent: Router,
+		RootComponent: CMFRouter,
 	};
 }
 

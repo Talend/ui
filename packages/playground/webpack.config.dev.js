@@ -54,9 +54,12 @@ const webpackConfig = {
 	output: {
 		publicPath: '/playground',
 	},
-	// devServer: {
-	// 	onBeforeSetupMiddleware: mockBackend,
-	// },
+	devServer: {
+		onBeforeSetupMiddleware: mockBackend,
+		historyApiFallback: {
+			index: `${process.env.BASENAME || ''}/index.html`,
+		},
+	},
 };
 
 module.exports = webpackConfig;

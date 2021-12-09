@@ -7,11 +7,12 @@
  */
 import PropTypes from 'prop-types';
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
 
 function getRouteProps({ path, childRoutes, ...props }, currentpath) {
+	// we need Outlet to make it work :(
 	const newProps = { ...props };
 	let absPath;
 	if (path.startsWith('/')) {
@@ -21,53 +22,52 @@ function getRouteProps({ path, childRoutes, ...props }, currentpath) {
 	} else {
 		absPath = `${currentpath === '/' ? '' : currentpath}/${path}`;
 	}
-	// if (childRoutes) {
-	// 	newProps.children = [childRoutes.map(child => <Route {...getRouteProps(child, absPath)} />)];
-	// }
-	console.log('@@@', absPath, newProps);
+	if (childRoutes) {
+		newProps.children = [<Outlet />];
+	}
+	// TODO: add index support
 	return {
-		path: absPath,
+		path,
 		key: absPath,
 		element: <Inject {...newProps} />,
-		children: [(childRoutes || []).map(child => <Route {...getRouteProps(child, absPath)} />)],
+		children: [(childRoutes || []).map(child => <Route {...getRouteProps(child, path)} />)],
 	};
 }
 
-/**
- * pure arrow function that render the router component.
- * You should never need to use this, it's an internal component
- * @param  {object} props   The waited props (history and routes)
- * @param  {object} context The react context with the registry
- * @return {object} ReactElement
- */
-function Router(props) {
-	// const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
-	console.log('###', props);
-	const basename = '/playground';
-	if (props.routes.path && props.routes.component) {
-		return (
-			<BrowserRouter basename={basename}>
-				<Routes>
-					<Route {...getRouteProps(props.routes, props.routes.path)} />
-				</Routes>
-			</BrowserRouter>
-		);
+export function getRouter(history, basename) {
+	/**
+	 * pure arrow function that render the router component.
+	 * You should never need to use this, it's an internal component
+	 * @param  {object} props   The waited props (history and routes)
+	 * @return {object} ReactElement
+	 */
+	function Router(props) {
+		// const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
+		if (props.routes.path && props.routes.component) {
+			return (
+				<BrowserRouter basename={basename} history={history}>
+					<Routes>
+						<Route {...getRouteProps(props.routes, props.routes.path)} />
+					</Routes>
+				</BrowserRouter>
+			);
+		}
+		if (props.loading) {
+			return <Inject component={props.loading} />;
+		}
+		return <div className="is-loading">loading</div>;
 	}
-	if (props.loading) {
-		return <Inject component={props.loading} />;
-	}
-	return <div className="is-loading">loading</div>;
+
+	Router.propTypes = {
+		dispatch: PropTypes.func,
+		routes: PropTypes.object,
+		loading: PropTypes.node,
+	};
+	Router.contextTypes = {
+		registry: PropTypes.object,
+	};
+	Router.displayName = 'CMFReactRouterIntegration';
+
+	const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
+	return connect(mapStateToProps)(Router);
 }
-
-Router.propTypes = {
-	dispatch: PropTypes.func,
-	routes: PropTypes.object,
-	loading: PropTypes.node,
-};
-Router.contextTypes = {
-	registry: PropTypes.object,
-};
-Router.displayName = 'UIRouter';
-
-const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
-export default connect(mapStateToProps)(Router);
