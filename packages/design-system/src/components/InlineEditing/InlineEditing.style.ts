@@ -38,6 +38,11 @@ export const InlineEditing = styled.div`
 			overflow: hidden;
 			white-space: nowrap;
 			flex: 0 1 auto;
+
+			&[data-placeholder]:empty::before {
+				content: attr(data-placeholder);
+				color: ${({ theme }) => theme.colors.inputPlaceholderColor};
+			}
 		}
 
 		.c-inline-editing__action {

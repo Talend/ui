@@ -4,11 +4,9 @@
 
 <hr />
 
-<div style="text-align:center">
-  <img src="https://api.netlify.com/api/v1/badges/d6d66424-7754-4257-bb5e-cc6de2f9d9aa/deploy-status" alt="Netlify" />
-  <img src="https://github.com/Talend/design-system/workflows/Chromatic/badge.svg" alt="Chromatic"/> 
-  <img src="https://github.com/Talend/design-system/workflows/Upload%20to%20CDN/badge.svg" alt="S3 deploy" />
-</div>
+[![cypress](https://github.com/Talend/ui/actions/workflows/design-system-component-testing.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-component-testing.yml)
+[![chromatic](https://github.com/Talend/ui/actions/workflows/design-system-visual-testing.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-visual-testing.yml)
+[![netlify](https://github.com/Talend/ui/actions/workflows/design-system-deploy.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-deploy.yml)
 
 <hr />
 
@@ -50,7 +48,7 @@ Use styled-components format.
 
 ### Variations
 
-Variations should extend of the basic components in separated files. 
+Variations should extend of the basic components in separated files.
 Limit changes to styled-components scope.
 
 ### End-to-End tests

@@ -1,0 +1,39 @@
+name: Deploy design.talend.com
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/design-system/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: main
+    defaults:
+      run:
+        working-directory: ./packages/design-system
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - name: Build Storybook
+        run: |
+          yarn install --frozen-lockfile
+          yarn build-storybook
+
+      - name: Deploy to Netlify production
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --prod --dir=packages/design-system/storybook-static
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

@@ -1,4 +1,4 @@
-name: Chromatic on packages/design-system
+name: Design System visual testing
 
 on:
   pull_request:
@@ -9,30 +9,33 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch:
+    paths:
+      - 'packages/design-system/**'
 
 jobs:
   build:
-    environment: pull_request_unsafe
+    runs-on: ubuntu-latest
     if: |
       (github.ref == 'refs/heads/master') ||
       (github.event.label.name == 'need visual approval')
-    runs-on: ubuntu-latest
+    environment: pull_request_unsafe
+    defaults:
+      run:
+        working-directory: ./packages/design-system
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: Use Node.js 14
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: '14'
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn
+        run: yarn --frozen-lock
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1

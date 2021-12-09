@@ -1,4 +1,4 @@
-name: Components testing
+name: Design System component testing
 
 on:
   push:
@@ -8,6 +8,9 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/design-system
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -21,7 +24,7 @@ jobs:
 
       - name: Cypress Component Testing
         run: |
-          yarn
+          yarn --frozen-lock
           npx cypress run-ct
 
       - name: Cypress artifacts upload
