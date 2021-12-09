@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: pull_request_unsafe
     defaults:
       run:
         working-directory: ./packages/design-system
