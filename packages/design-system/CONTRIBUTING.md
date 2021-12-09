@@ -14,8 +14,8 @@ You can also simply ask on Slack, channel #ask-designsystem.
 
 ## TL;WR
 - Contribute to the design phase by offering browser-based know-how.
-- You may need to write the initial Storybook PR for contributing designers.
-- Get peer reviews on the API of your component before moving on to the implementation.
+- You may need to create the initial Storybook PR and help contributing designers write down specs (use the [provided template for the ComponentName.stories.mdx pages](DOCTEMPLATE.md)).
+- Get peer reviews on the [API of your component](#Designing-the-component's-API) before moving on to the implementation.
 - Follow the basic structure of a component/layout folder in the repository and use the [provided template for doc pages](DOCTEMPLATE.md).
 ```
 ├── Component.tsx          # Component
@@ -31,7 +31,7 @@ You can also simply ask on Slack, channel #ask-designsystem.
 - Use design tokens with a burning passion.
 - Explicitness > Implicitness, always and in all things.
 - Don't let consumers easily override the styles or behaviours of the component.
-- Let designers review your work (don't merge and release without a designer's OK).
+- Let designers review your work (don't merge and release without a designer's OK). Use the Slack channels `#ask-ux` or `ask-designsystem`.
 - Let developers outside your team review your work.
 
 ## Contributing in the design phase
@@ -48,7 +48,7 @@ It's probably the most important part of the collaboration process. Ensure the s
 
 **Things you need to contribute during design:**
 
-- Feasibility feedback (browser vs Figma)
+- Feasibility feedback (browser vs Figma. ie: "The library we use for charts cannot support the target design's behavior" or a11y concerns.)
 - State requirements ("how does it look when hovered?" etc...)
 - Behaviour requirements ("how should I display in error in this case?" etc...)
 - Human linting ("This text is not using a design token, I can't code it!" etc...)
@@ -130,7 +130,11 @@ Your API has been approved? It's time to build.
 
 - Let consumers rely on `className` or `style` or `css` props. The library is there for homogeneity purposes across products. Overrides should be discouraged.
 
-Your component needs at least one positive Codeowner review and one positive review from somebody outside your team (shared library = shared responsibilities). It also need to be approved by the lead designer working on that component (maybe not on Github since all designers don't have access). Once it does, it's up to you to merge and release.
+Your component needs at least one positive Codeowner review and one positive review from somebody outside your team (shared library = shared responsibilities). It also needs to be approved by the lead designer working on that component (maybe not on Github since all designers don't have access). Once it does, it's up to you to merge and release.
+
+If the designer working with you on that component has a Github account, request their review.
+
+If not, reach out on Slack through a public channel (`#ak-ux` or `#ask-designsystem`) and get their approval there.
 
 ## Contributing for maintenance or upgrades
 
