@@ -4,6 +4,8 @@
 
 <hr />
 
+[![cypress](https://github.com/Talend/ui/actions/workflows/design-system-component-testing.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-component-testing.yml)
+[![chromatic](https://github.com/Talend/ui/actions/workflows/design-system-visual-testing.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-visual-testing.yml)
 [![netlify](https://github.com/Talend/ui/actions/workflows/design-system-deploy.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-deploy.yml)
 
 <hr />
