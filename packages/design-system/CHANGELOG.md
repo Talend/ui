@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.10.1
+
+### Patch Changes
+
+- 7a8e6e193: fix(InlineEditing): enter key should not submit in multiline mode
+
 ## 1.10.0
 
 ### Minor Changes

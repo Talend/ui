@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- 3bbf55610: fix(components/dataviz): recharts path in dependencies.json
+- Updated dependencies [3bbf55610]
+  - @talend/react-components@6.42.1
+
 ## 1.0.0
 
 ### Major Changes
