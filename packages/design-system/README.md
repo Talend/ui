@@ -4,6 +4,10 @@
 
 <hr />
 
+[![netlify](https://github.com/Talend/ui/actions/workflows/design-system-deploy.yml/badge.svg)](https://github.com/Talend/ui/actions/workflows/design-system-deploy.yml)
+
+<hr />
+
 Coral is the design system used to build accessible, consistent, customizable and high quality customer experiences at Talend.
 
 ## Getting Started
