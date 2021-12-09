@@ -3,6 +3,23 @@
 	scaleMaxColor: shade($regal-blue, 30%); /* stylelint-disable-line property-no-unknown */
 }
 
+:root {
+	--blue: #91C2E3;
+	--otherBlue: #06568D;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--blue: #DED3C4;
+		--otherBlue: #5B482D;
+	}
+}
+
+.container {
+	--geoMinColor: var(--blue);
+	--geoMaxColor: var(--otherBlue);
+}
+
 .geo-chart {
 	position: relative;
 

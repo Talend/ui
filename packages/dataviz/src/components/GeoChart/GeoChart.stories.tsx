@@ -96,6 +96,8 @@ FR_REGION.args = {
 	data: [
 		{ key: 'Occitanie', value: 10 },
 		{ key: 'Martinique', value: 20 },
+		{ key: 'Bretagne', value: 15 },
+		{ key: 'Normandie', value: 22 },
 	],
 };
 

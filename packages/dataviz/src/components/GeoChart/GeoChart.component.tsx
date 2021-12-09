@@ -131,11 +131,11 @@ function clearChart(container: HTMLDivElement): void {
 		.remove();
 }
 
-function getScale(data: Entry[]): ColorScale {
+function getScale(data: Entry[], colorMin: string, colorMax: string): ColorScale {
 	const values = data.map(entry => entry.value);
 	return scaleLinear<RGBColor>()
 		.domain([Math.min(...values), Math.max(...values)])
-		.range([rgb(styles.scaleMinColor), rgb(styles.scaleMaxColor)]);
+		.range([rgb(colorMin), rgb(colorMax)]);
 }
 
 function getGeoPath(featureCollection: FeatureCollection): GeoPath {
@@ -195,7 +195,10 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 		) {
 			clearChart(containerRef.current);
 
-			const colorScale = getScale(data);
+			const colorMin = getComputedStyle(containerRef.current).getPropertyValue('--geoMinColor');
+			const colorMax = getComputedStyle(containerRef.current).getPropertyValue('--geoMaxColor');
+
+			const colorScale = getScale(data, colorMin, colorMax);
 			const featureCollection = getFeatureCollection(chartConfig);
 			const svg = createSvg(containerRef.current);
 			const container = svg.append('g').attr('data-test', 'preparation.chart.geochart');
@@ -255,7 +258,7 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 					<Icon name="talend-minus-circle" className={styles['geo-chart__zoom-icon']} />
 				</button>
 			</div>
-			<div ref={containerRef} />
+			<div ref={containerRef} className={styles.container} />
 			{tooltip && (
 				<div
 					ref={tooltipRef}
