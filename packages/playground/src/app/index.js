@@ -39,10 +39,9 @@ i18n.use(initReactI18next).init({
 	},
 });
 
-const allsvg =
-	process.env.NODE_ENV === 'development'
-		? `${basename || ''}/cdn/@talend/icons/${process.env.ICONS_VERSION}/dist/svg-bundle/all.svg`
-		: '/@talend/icons/dist/svg-bundle/all.svg';
+const allsvg = `${basename || ''}/cdn/@talend/icons/${
+	process.env.ICONS_VERSION
+}/dist/svg-bundle/all.svg`;
 
 function IconsProvider() {
 	return <BaseIconsProvider bundles={[allsvg]} />;
