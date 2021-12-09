@@ -2,6 +2,8 @@ name: Deploy design.talend.com
 
 on:
   push:
+    branches:
+      - master
     paths:
       - 'packages/design-system/**'
 
@@ -29,7 +31,6 @@ jobs:
           yarn build-storybook
 
       - name: Deploy to Netlify production
-        if: github.ref == 'refs/heads/master'
         uses: netlify/actions/cli@master
         with:
           args: deploy --prod --dir=packages/design-system/storybook-static
