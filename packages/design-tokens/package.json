@@ -2,18 +2,41 @@
   "name": "@talend/design-tokens",
   "version": "1.0.0",
   "description": "Talend Design tokens",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo no test for @talend/design-tokens"
+    "pre-release": "rimraf ./dist && webpack",
+    "build:lib": "rimraf ./dist && webpack",
+    "test": "echo no test for @talend/design-tokens",
+    "test:cov": "echo no test for @talend/design-tokens",
+    "test:demo": "echo nothing to demo in @talend/design-tokens"
   },
-  "keywords": [],
+  "keywords": [
+    "talend",
+    "design tokens",
+    "theme"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/design-tokens#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Talend/ui.git"
+    "url": "https://github.com/Talend/ui.git"
   },
-  "author": "",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@talend/scripts-config-typescript": "^9.11.1",
+    "css-loader": "^5.0.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.43.4",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.3.0",
+    "typescript": "^4.5.3",
+    "webpack": "4.40.2"
   }
 }
