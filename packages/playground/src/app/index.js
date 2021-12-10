@@ -3,7 +3,6 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-import { createBrowserHistory } from 'history';
 import getRouter from '@talend/react-cmf-router';
 import React from 'react';
 import cmf from '@talend/react-cmf';
@@ -23,18 +22,7 @@ if (basename === '/') {
 	basename = undefined;
 }
 
-// Run our app under the /base URL.
-const history = createBrowserHistory({
-	basename,
-});
-
-// At the /base/hello/world URL:
-history.listen(location => {
-	// eslint-disable-next-line no-console
-	console.log(`history debug pathname = ${location.pathname} ${location.basename} `);
-});
-
-const router = getRouter({ history, basename });
+const router = getRouter({ basename });
 
 i18n.use(initReactI18next).init({
 	react: {

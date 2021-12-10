@@ -1,8 +1,8 @@
 import React from 'react';
-import { createBrowserHistory } from 'history';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import cmf from '@talend/react-cmf';
 import { fork, takeLatest } from 'redux-saga/effects';
+import { create as createBrowserHistory } from './history';
 import { getRouter } from './UIRouter';
 import expressions from './expressions';
 import sagaRouter from './sagaRouter';
@@ -25,7 +25,10 @@ function mergeRouterConfig(...configs) {
 
 function getModule(...args) {
 	const options = mergeRouterConfig(...args);
-	const history = options.history || createBrowserHistory();
+	const history = options.history || createBrowserHistory(options);
+
+	const basename = options.basename;
+
 	const registry = {};
 	if (options.routerFunctions) {
 		console.warn('options.routerFunctions is deprecated and not supported at  the moment. TODO');
@@ -59,7 +62,7 @@ function getModule(...args) {
 	// 	routerHistory = syncHistoryWithStore(history, store);
 	// }
 	// router is renderer after the store is created so we refer to routerHistory
-	const UIRouter = getRouter(history, options.basename);
+	const UIRouter = getRouter(history, basename);
 	function CMFRouter() {
 		return <UIRouter />;
 	}
@@ -88,4 +91,4 @@ const routerAPI = {
 	matchPath: cmf.router.matchPath,
 };
 
-export { routerAPI, route, sagaRouter };
+export { routerAPI, route, sagaRouter, createBrowserHistory };

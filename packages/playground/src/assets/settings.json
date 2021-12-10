@@ -84,6 +84,9 @@
   "routes": {
     "path": "/",
     "component": "AppLoader",
+    "indexRoute": {
+      "component": "Redirect"
+    },
     "childRoutes": [
       {
         "path": "List",

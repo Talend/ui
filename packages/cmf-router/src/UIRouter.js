@@ -7,31 +7,66 @@
  */
 import PropTypes from 'prop-types';
 import React from 'react';
-import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
+// BrowserRouter from react-router-dom do not support custom history
+import { Router } from 'react-router';
+import { Route, Routes, Outlet } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
 
-function getRouteProps({ path, childRoutes, ...props }, currentpath) {
-	// we need Outlet to make it work :(
-	const newProps = { ...props };
+let printRouterConfig;
+if (process.env.NODE_ENV === 'development') {
+	const toJSX = item => {
+		if (!item) {
+			return '';
+		}
+		const { children, element, ...props } = item.props;
+		return `<${item.type.name} ${Object.keys(props)
+			.filter(key => props[key])
+			.map(key => `${key}='${props[key]}'`)
+			.join(' ')} ${element ? `element={${toJSX(element)}}` : ''}>${(children || [])
+			.map(toJSX)
+			.join('')}</${item.type.name}>`;
+	};
+	printRouterConfig = props => {
+		return `<Route ${props.path ? `path='${props.path}'` : ''} key='${props.key}' element={${toJSX(
+			props.element,
+		)}}>
+	${(props.children || []).map(toJSX).join(`
+`)}
+</Route>`;
+	};
+}
+
+function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath, isIndex) {
+	const injectProps = { ...props };
 	let absPath;
-	if (path.startsWith('/')) {
-		absPath = path;
-	} else if (path === '*') {
-		absPath = path;
-	} else {
-		absPath = `${currentpath === '/' ? '' : currentpath}/${path}`;
+	// some route has no path (indexRoute for example)
+	if (path) {
+		if (path.startsWith('/')) {
+			absPath = path;
+		} else if (path === '*') {
+			absPath = path;
+		} else {
+			absPath = `${currentpath === '/' ? '' : currentpath}/${path}`;
+		}
 	}
 	if (childRoutes) {
-		newProps.children = [<Outlet />];
+		// Outlet is the children renderer of react-router v6
+		injectProps.children = [<Outlet />];
 	}
-	// TODO: add index support
-	return {
+
+	const routeProps = {
 		path,
-		key: absPath,
-		element: <Inject {...newProps} />,
-		children: [(childRoutes || []).map(child => <Route {...getRouteProps(child, path)} />)],
+		key: absPath || `${currentpath}index`,
+		element: <Inject {...injectProps} />,
+		children: [indexRoute && <Route {...getRouteProps(indexRoute, currentpath, true)} />]
+			.filter(Boolean)
+			.concat((childRoutes || []).map(child => <Route {...getRouteProps(child, path)} />)),
 	};
+	if (isIndex) {
+		routeProps.index = true;
+	}
+	return routeProps;
 }
 
 export function getRouter(history, basename) {
@@ -41,15 +76,32 @@ export function getRouter(history, basename) {
 	 * @param  {object} props   The waited props (history and routes)
 	 * @return {object} ReactElement
 	 */
-	function Router(props) {
+	function CMFRouter(props) {
+		const [state, setState] = React.useState({
+			action: history.action,
+			location: history.location,
+		});
+		React.useLayoutEffect(() => history.listen(setState), [setState]);
+
 		// const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
 		if (props.routes.path && props.routes.component) {
+			const routeProps = getRouteProps(props.routes, props.routes.path);
+			if (process.env.NODE_ENV === 'development') {
+				window.talendPrintRouterCfg = () => printRouterConfig(routeProps);
+				window.talendPrintRouterCfg(routeProps);
+			}
+			// eslint-disable-next-line no-console
 			return (
-				<BrowserRouter basename={basename} history={history}>
+				<Router
+					basename={basename}
+					location={state.location}
+					navigationType={state.action}
+					navigator={history}
+				>
 					<Routes>
-						<Route {...getRouteProps(props.routes, props.routes.path)} />
+						<Route {...routeProps} />
 					</Routes>
-				</BrowserRouter>
+				</Router>
 			);
 		}
 		if (props.loading) {
@@ -58,16 +110,16 @@ export function getRouter(history, basename) {
 		return <div className="is-loading">loading</div>;
 	}
 
-	Router.propTypes = {
+	CMFRouter.propTypes = {
 		dispatch: PropTypes.func,
 		routes: PropTypes.object,
 		loading: PropTypes.node,
 	};
-	Router.contextTypes = {
+	CMFRouter.contextTypes = {
 		registry: PropTypes.object,
 	};
-	Router.displayName = 'CMFReactRouterIntegration';
+	CMFRouter.displayName = 'CMFReactRouterIntegration';
 
 	const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
-	return connect(mapStateToProps)(Router);
+	return connect(mapStateToProps)(CMFRouter);
 }
