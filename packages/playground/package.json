@@ -8,7 +8,7 @@
     "build": "cross-env BASENAME='/playground' talend-scripts build",
     "test": "echo nothing to test in playground",
     "test:demo": "cross-env BASENAME='/playground' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
-    "start": "cross-env BASENAME='/playground' talend-scripts start --open http://localhost:3000/playground/#/",
+    "start": "cross-env BASENAME='/playground' talend-scripts start --open http://localhost:3000/playground",
     "start-dist": "talend-scripts build && node serve-dist"
   },
   "repository": {
@@ -36,7 +36,7 @@
     "@talend/react-components": "^6.41.2",
     "@talend/react-containers": "^6.39.0",
     "@talend/react-forms": "^6.43.0",
-    "history": "^3.3.0",
+    "history": "^5.0.0",
     "i18next": "^20.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",

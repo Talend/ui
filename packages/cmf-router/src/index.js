@@ -1,18 +1,19 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
-import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
+import { routerMiddleware, connectRouter } from 'connected-react-router';
 import cmf from '@talend/react-cmf';
 import { fork, takeLatest } from 'redux-saga/effects';
-import UIRouter from './UIRouter';
+import { create as createBrowserHistory } from './history';
+import { getRouter } from './UIRouter';
 import expressions from './expressions';
 import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 import documentTitle from './sagas/documentTitle';
 import cmfRouterMiddleware from './middleware';
-import route, { REGISTRY_HOOK_PREFIX } from './route';
+import route from './route';
 
 const mergeConfig = {
 	history: cmf.module.merge.getUnique,
+	basename: cmf.module.merge.getUnique,
 	sagaRouterConfig: cmf.module.merge.mergeObjects,
 	routerFunctions: cmf.module.merge.mergeObjects,
 	startOnAction: cmf.module.merge.getUnique,
@@ -24,14 +25,19 @@ function mergeRouterConfig(...configs) {
 
 function getModule(...args) {
 	const options = mergeRouterConfig(...args);
-	const history = options.history || hashHistory;
+	const history = options.history || createBrowserHistory(options);
+
+	const basename = options.basename;
+
 	const registry = {};
 	if (options.routerFunctions) {
-		Object.keys(options.routerFunctions).reduce((acc, key) => {
-			// eslint-disable-next-line no-param-reassign
-			acc[`${REGISTRY_HOOK_PREFIX}:${key}`] = options.routerFunctions[key];
-			return acc;
-		}, registry);
+		console.warn('options.routerFunctions is deprecated and not supported at  the moment. TODO');
+		// TODO: find usage and a way to migrate
+		// Object.keys(options.routerFunctions).reduce((acc, key) => {
+		// 	// eslint-disable-next-line no-param-reassign
+		// 	acc[`${REGISTRY_HOOK_PREFIX}:${key}`] = options.routerFunctions[key];
+		// 	return acc;
+		// }, registry);
 	}
 
 	function* saga() {
@@ -51,27 +57,30 @@ function getModule(...args) {
 		}
 	}
 	const middlewares = [routerMiddleware(history), cmfRouterMiddleware];
-	let routerHistory;
-	function storeCallback(store) {
-		routerHistory = syncHistoryWithStore(history, store);
-	}
+	// let routerHistory;
+	// function storeCallback(store) {
+	// 	routerHistory = syncHistoryWithStore(history, store);
+	// }
 	// router is renderer after the store is created so we refer to routerHistory
-	function Router() {
-		return <UIRouter history={routerHistory} />;
+	const UIRouter = getRouter(history, basename);
+	function CMFRouter() {
+		return <UIRouter />;
 	}
+	CMFRouter.displayName = 'CMFRouter';
+
 	return {
 		cmfModule: {
 			id: 'react-cmf-router',
 			expressions,
 			reducer: {
-				routing: routerReducer,
+				router: connectRouter(history),
 			},
 			middlewares,
 			saga,
-			storeCallback,
+			// storeCallback,
 			registry,
 		},
-		RootComponent: Router,
+		RootComponent: CMFRouter,
 	};
 }
 
@@ -82,4 +91,4 @@ const routerAPI = {
 	matchPath: cmf.router.matchPath,
 };
 
-export { routerAPI, route, sagaRouter };
+export { routerAPI, route, sagaRouter, createBrowserHistory };

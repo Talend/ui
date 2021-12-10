@@ -27,6 +27,7 @@ function getVersion(pkg) {
 }
 
 const PKGS = [
+	'@talend/design-system',
 	'@talend/react-components',
 	'@talend/react-containers',
 	'@talend/react-cmf',
@@ -55,6 +56,9 @@ const webpackConfig = {
 	},
 	devServer: {
 		onBeforeSetupMiddleware: mockBackend,
+		historyApiFallback: {
+			index: `${process.env.BASENAME || ''}/index.html`,
+		},
 	},
 };
 

@@ -2,9 +2,13 @@
   "preset": "@talend/scripts-preset-react",
   "cmf": false,
   "html": {},
+  "dynamic-cdn-webpack-plugin": {
+    "exclude": []
+  },
   "webpack": {
     "config": {
-      "development": "./webpack.config.dev.js"
+      "development": "./webpack.config.dev.js",
+      "production": "./webpack.config.dev.js"
     }
   }
 }

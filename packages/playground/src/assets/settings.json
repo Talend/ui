@@ -95,10 +95,6 @@
       {
         "path": "ComponentForm",
         "component": "ComponentFormSandbox"
-      },
-      {
-        "path": "*",
-        "component": "Redirect"
       }
     ]
   }
