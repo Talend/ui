@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.11.0
+
+### Minor Changes
+
+- c521bc367: feat(InlineEditing): add placeholder support
+
 ## 1.10.1
 
 ### Patch Changes
