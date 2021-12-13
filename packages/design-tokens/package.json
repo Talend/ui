@@ -9,7 +9,7 @@
     "pre-release": "rimraf ./dist && yarn build:lib && yarn build:umd:dev && yarn build:umd:prod",
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
-    "build:lib": "rimraf ./dist && talend-scripts build:ts:lib",
+    "build:lib": "rimraf ./lib && talend-scripts build:ts:lib",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
     "test:demo": "echo nothing to demo in @talend/design-tokens"
