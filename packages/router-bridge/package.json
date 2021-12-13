@@ -25,7 +25,7 @@
     "connected-react-router": "^6.9.1",
     "history": "^5.1.0",
     "react": "^16.14.0",
-    "react-router-dom": "^5.3.0"
+    "react-router-dom": "^6.1.1"
   },
   "peerDependencies": {
     "connected-react-router": "^6.9.1",
