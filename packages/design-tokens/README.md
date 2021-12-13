@@ -34,7 +34,7 @@ or, with dark mode enabled,
 ### Using SASS
 
 ```scss
-@use '~@talend/design-tokens/_tokens.scss' as tokens;
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
 
 .element {
   font: tokens.$coral-paragraph-m-bold;

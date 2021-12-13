@@ -25,6 +25,7 @@ cp -R packages/playground/dist/* .static/playground
 cp -R packages/datagrid/storybook-static/* .static/datagrid
 cp -R packages/dataviz/storybook-static/* .static/dataviz
 cp -R packages/design-system/storybook-static/* .static/design-system
+cp -R packages/design-tokens/storybook-static/* .static/design-tokens
 cp -R packages/stepper/storybook-static/* .static/stepper
 cp -R packages/faceted-search/storybook-static/* .static/faceted-search
 cp -R packages/forms/storybook-static/* .static/forms

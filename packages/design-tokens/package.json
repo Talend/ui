@@ -12,7 +12,9 @@
     "build:lib": "rimraf ./lib && talend-scripts build:ts:lib",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
-    "test:demo": "echo nothing to demo in @talend/design-tokens"
+    "test:demo": "yarn storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "talend",
@@ -33,8 +35,14 @@
     "access": "public"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/html": "^6.4.9",
     "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "rimraf": "^3.0.2"
-  }
+  },
+  "dependencies": {}
 }
