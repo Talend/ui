@@ -9,6 +9,7 @@ mkdir .static/containers
 mkdir .static/playground
 mkdir .static/dataviz
 mkdir .static/design-system
+mkdir .static/design-tokens
 mkdir .static/faceted-search
 mkdir .static/forms
 mkdir .static/icons
@@ -31,6 +32,10 @@ cp -R packages/icons/docs/index.html .static/icons
 cp -R packages/icons/dist .static/icons
 cp -R packages/theme/dist/* .static/theme
 cp -R packages/theme/dist .static/theme
+
+mkdir -p .static/@talend/design-tokens/dist
+cp -R packages/design-tokens/dist/* .static/@talend/design-tokens/dist
+echo "✓ Copy design-tokens UMD to .static"
 
 mkdir -p .static/@talend/design-system/dist
 cp -R packages/design-system/dist/* .static/@talend/design-system/dist
