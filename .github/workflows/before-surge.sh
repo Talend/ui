@@ -9,6 +9,7 @@ mkdir .static/containers
 mkdir .static/playground
 mkdir .static/dataviz
 mkdir .static/design-system
+mkdir .static/design-tokens
 mkdir .static/faceted-search
 mkdir .static/forms
 mkdir .static/icons
@@ -24,6 +25,7 @@ cp -R packages/playground/dist/* .static/playground
 cp -R packages/datagrid/storybook-static/* .static/datagrid
 cp -R packages/dataviz/storybook-static/* .static/dataviz
 cp -R packages/design-system/storybook-static/* .static/design-system
+cp -R packages/design-tokens/storybook-static/* .static/design-tokens
 cp -R packages/stepper/storybook-static/* .static/stepper
 cp -R packages/faceted-search/storybook-static/* .static/faceted-search
 cp -R packages/forms/storybook-static/* .static/forms
@@ -31,6 +33,10 @@ cp -R packages/icons/docs/index.html .static/icons
 cp -R packages/icons/dist .static/icons
 cp -R packages/theme/dist/* .static/theme
 cp -R packages/theme/dist .static/theme
+
+mkdir -p .static/@talend/design-tokens/dist
+cp -R packages/design-tokens/dist/* .static/@talend/design-tokens/dist
+echo "✓ Copy design-tokens UMD to .static"
 
 mkdir -p .static/@talend/design-system/dist
 cp -R packages/design-system/dist/* .static/@talend/design-system/dist
