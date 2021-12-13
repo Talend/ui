@@ -1,7 +1,6 @@
 {
   "preset": "@talend/scripts-preset-react-lib",
   "webpack": {
-    "debug": true,
     "config": {
       "development": "./webpack.config.js",
       "production": "./webpack.config.js"
