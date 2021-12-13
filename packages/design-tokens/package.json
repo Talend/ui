@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "mainSrc": "src/index.ts",
   "scripts": {
-    "pre-release": "rimraf ./dist && yarb build:lib && yarn build:umd:dev && yarn build:umd:prod",
+    "pre-release": "rimraf ./dist && yarn build:lib && yarn build:umd:dev && yarn build:umd:prod",
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
     "build:lib": "rimraf ./dist && talend-scripts build:ts:lib",
