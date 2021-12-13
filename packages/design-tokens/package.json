@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Talend Design tokens",
   "main": "lib/index.js",
-  "types": "lib/inddex.d.ts",
+  "types": "lib/index.d.ts",
   "mainSrc": "src/index.ts",
   "scripts": {
     "pre-release": "rimraf ./dist && yarn build:umd:dev && yarn build:umd:prod",
