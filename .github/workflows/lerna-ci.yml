@@ -37,3 +37,5 @@ jobs:
           pattern: './packages/*/dist/*.{js,css,json}'
           exclude: '{**/*.html,**/*.map,**/node_modules/**}'
           compression: 'none'
+          minimum-change-threshold: 100
+
