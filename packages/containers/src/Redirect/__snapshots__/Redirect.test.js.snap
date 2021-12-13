@@ -1,7 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Redirect should dispatch a redirect action 1`] = `
-<withI18nextTranslation(AppLoaderComponent)
-  t={[Function]}
+<Redirect
+  dispatch={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "cmf": Object {
+              "routerReplace": "/hello-world",
+            },
+            "componentId": undefined,
+            "type": "REDIRECT",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  path="/hello-world"
 />
 `;
