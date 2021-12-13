@@ -3,11 +3,12 @@ import React from 'react';
 import classnames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
-import { distanceInWordsToNow, format } from 'date-fns';
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import format from 'date-fns/format';
 import isValid from 'date-fns/is_valid';
 import parse from 'date-fns/parse';
 import { withTranslation } from 'react-i18next';
-import talendUtils from '@talend/utils';
+import { date as dateUtils } from '@talend/utils';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -28,29 +29,31 @@ export function computeValue(cellData, columnData, t) {
 			});
 		} else if (columnData.mode === 'format') {
 			if (columnData.timeZone) {
-				return talendUtils.date.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+				return dateUtils.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
 					timeZone: columnData.timeZone,
+					locale: getLocale(t),
 				});
 			}
-			return format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			return format(cellData, columnData.pattern || DATE_TIME_FORMAT, { locale: getLocale(t) });
 		}
 	}
 
 	return cellData;
 }
 
-export function getTooltipLabel(cellData, columnData) {
-	if(typeof columnData.getTooltipLabel === 'function') {
+export function getTooltipLabel(cellData, columnData, t) {
+	if (typeof columnData.getTooltipLabel === 'function') {
 		return columnData.getTooltipLabel(cellData);
 	}
 	if (columnData.mode === 'ago') {
 		let tooltipLabel = '';
 		if (columnData.timeZone) {
-			tooltipLabel = talendUtils.date.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+			tooltipLabel = dateUtils.formatToTimeZone(cellData, columnData.pattern || DATE_TIME_FORMAT, {
 				timeZone: columnData.timeZone,
+				locale: getLocale(t),
 			});
 		} else {
-			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT);
+			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT, { locale: getLocale(t) });
 		}
 		return tooltipLabel;
 	}
@@ -72,7 +75,7 @@ export class CellDatetimeComponent extends React.Component {
 	render() {
 		const { cellData, columnData, t } = this.props;
 		const computedValue = computeValue(cellData, columnData, t);
-		const tooltipLabel = getTooltipLabel(cellData, columnData);
+		const tooltipLabel = getTooltipLabel(cellData, columnData, t);
 
 		const cell = (
 			<div className={classnames('cell-datetime-container', styles['cell-datetime-container'])}>

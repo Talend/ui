@@ -31,7 +31,6 @@ import {
 	InputDateTimeRangePicker,
 } from './DateTimePickers';
 import Dialog from './Dialog';
-import DraggableComponent from './Draggable';
 import Drawer from './Drawer';
 import EditableText from './EditableText';
 import Emphasis from './Emphasis';
@@ -114,7 +113,6 @@ export {
 	InputDateTimeRangePicker,
 	InputTimePicker,
 	Dialog,
-	DraggableComponent,
 	Drawer,
 	EditableText,
 	Emphasis,

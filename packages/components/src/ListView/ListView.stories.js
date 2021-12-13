@@ -24,6 +24,7 @@ const props = {
 	headerLabel: 'Choose wisely',
 	toggleAllChecked: false,
 	onToggleAll: action('onToggleAll'),
+	dataTest: 'item',
 };
 
 const searchProps = {
@@ -110,6 +111,7 @@ const withNestedItems = {
 	toggleAllChecked: false,
 	onToggleAll: action('onToggleAll'),
 	showToggleAll: false,
+	dataTest: 'item',
 };
 
 const withIconProps = {

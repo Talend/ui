@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import tv4 from 'tv4';
+import { tv4 } from '@talend/json-schema-form-core';
 import { withTranslation } from 'react-i18next';
 
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
@@ -336,8 +336,10 @@ export class UIFormComponent extends React.Component {
 			);
 		};
 
+		const Element = this.props.as;
+
 		return (
-			<form
+			<Element
 				acceptCharset={this.props.acceptCharset}
 				action={this.props.action}
 				autoComplete={this.props.autoComplete}
@@ -346,7 +348,7 @@ export class UIFormComponent extends React.Component {
 				id={this.props.id}
 				method={this.props.method}
 				name={this.props.name}
-				noValidate={this.props.noHtml5Validate}
+				noValidate={this.props.as === 'form' ? this.props.noHtml5Validate : undefined}
 				onReset={this.props.onReset}
 				onSubmit={this.onSubmit}
 				target={this.props.target}
@@ -355,10 +357,11 @@ export class UIFormComponent extends React.Component {
 				<WidgetContext.Provider value={{ ...widgets, ...this.state.widgets }}>
 					{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
 				</WidgetContext.Provider>
-			</form>
+			</Element>
 		);
 	}
 }
+
 const I18NUIForm = withTranslation(I18N_DOMAIN_FORMS)(UIFormComponent);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -382,6 +385,10 @@ if (process.env.NODE_ENV !== 'production') {
 		 * If not provided, a single submit button is displayed.
 		 */
 		actions: PropTypes.arrayOf(Buttons.propTypes.schema),
+		/**
+		 * Tag used to render the form (defaults to "form")
+		 */
+		as: PropTypes.string,
 		/**
 		 * User callback: Custom validation function.
 		 * Prototype: function customValidation(schema, value, properties)
@@ -420,6 +427,7 @@ I18NUIForm.defaultProps = {
 	noHtml5Validate: true,
 	buttonBlockClass: 'form-actions',
 	properties: {},
+	as: 'form',
 };
 UIFormComponent.defaultProps = I18NUIForm.defaultProps;
 

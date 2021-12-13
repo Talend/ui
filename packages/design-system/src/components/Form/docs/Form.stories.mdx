@@ -1,0 +1,136 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaIframe, FigmaImage, FigmaLink } from '../../../docs';
+import * as stories from '../Form.stories';
+import { Confirm } from '../../Modal/Modal.stories';
+
+<Meta title="Components/Form/Form" />
+
+<FigmaLink href="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=58%3A0" />
+
+# Form
+
+A form allows a user to configure multiple options and set data across different form fields.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=349%3A135"
+	alt="zoning image for form"
+/>
+
+## Style
+
+The form width depends on the form container size. The form is horizontally **centered** in its container.
+
+| Container            | Width            |
+| -------------------- | ---------------- |
+| By default           | 100%             |
+| From $breakpoints.m  | 55%              |
+| From $breakpoints.xl | max-width: 78rem |
+
+## Variations
+
+Forms can be horizontal or vertical. They are vertical by default. For horizontal one, please refer to the [Inline form page](/?path=/docs/components-form-inline-form--page).
+
+## States
+
+### Skeleton
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A25"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A206"
+/>
+
+<Canvas>
+	<Story story={stories.FormSkeleton} />
+</Canvas>
+
+### Default
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A699"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A717"
+/>
+
+<Canvas>
+	<Story story={stories.Default} />
+</Canvas>
+
+### Error
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A704"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=340%3A1"
+/>
+
+<Canvas>
+	<Story story={stories.Error} />
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story story={stories.Disabled} />
+</Canvas>
+
+### Read-only
+
+<Canvas>
+	<Story story={stories.ReadOnly} />
+</Canvas>
+
+## Content
+
+### Form inline help
+
+Consider using an [Inline message](/?path=/docs/components-inlinemessage--information) when help is needed to fill the form.
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A1028"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A683"
+/>
+
+<Canvas>
+	<Story story={stories.InlineHelp} />
+</Canvas>
+
+## Interactions
+
+### Synchronous action
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A9"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A46"
+/>
+
+<Canvas>
+	<Story story={stories.Loading} />
+</Canvas>
+
+### Data loss message
+
+When the user clicks on the cancel button or go back to the previous page, provide a confirm dialog.
+
+<FigmaIframe
+	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
+	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
+/>
+
+<Canvas>
+	<Story story={Confirm} />
+</Canvas>
+
+### Error focus
+
+In case of error after submission, the focus on the screen should be on the first field errored. If more than one field in error, the focus should be placed on the first one.
+
+## Usage
+
+Choosing between `readonly` and `disabled` states is not really easy!
+A readonly element is just not editable, but gets sent when the according form submits.
+A disabled element isn't editable and isn't sent on submit.
+Another difference is that readonly elements can be focused (and getting focused when "tabbing" through a form) while disabled elements can't.
+
+## Accessibility
+
+Non applicable

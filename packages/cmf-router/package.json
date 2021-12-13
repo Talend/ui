@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "3.5.2",
+  "version": "3.5.7",
   "description": "",
   "main": "lib/index.js",
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
@@ -8,39 +8,38 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "prepublishOnly": "yarn build:dev && yarn build:prod",
-    "prepare": "talend-scripts build:lib",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "jsdoc -c docs.json",
+    "test:demo": "echo no test-demo for cmf-router",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
-    "path-to-regexp": "^2.0.0",
-    "prop-types": "^15.5.10",
-    "react-redux": "^5.0.7",
-    "react-router": "^3.2.0",
+    "@talend/react-cmf": "^6.38.5",
+    "lodash": "^4.17.21",
+    "path-to-regexp": "^2.4.0",
+    "prop-types": "^15.7.2",
+    "react-redux": "^5.1.2",
+    "react-router": "^3.2.6",
     "react-router-redux": "^4.0.8",
-    "redux-saga": "^0.15.4"
+    "redux-saga": "^0.15.6"
   },
   "peerDependencies": {
-    "@talend/react-cmf": ">=5.27.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/react-cmf": "^6.10.0",
-    "@talend/scripts-core": "^9.4.1",
-    "@talend/scripts-preset-react-lib": "^9.4.1",
+    "@talend/scripts-core": "^11.3.0",
+    "@talend/scripts-preset-react-lib": "^9.9.3",
     "enzyme": "^3.11.0",
-    "node-fetch": "^2.6.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "redux-saga-tester": "^1.0.345"
+    "node-fetch": "^2.6.6",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "redux-saga-tester": "^1.0.874"
   },
   "publishConfig": {
     "access": "public"

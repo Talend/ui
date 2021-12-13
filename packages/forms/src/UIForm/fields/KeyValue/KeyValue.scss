@@ -13,20 +13,37 @@
 
 	dt {
 		font-weight: normal;
-		padding-right: 1.5rem;
 		position: relative;
 
-		&:after {
+		:global(.form-group) {
+			display: grid;
+			grid-template-columns: auto 3rem;
+			grid-template-areas:
+				'label .....'
+				'input equal'
+				'message ...';
+		}
+
+		:global(.form-group::after) {
+			grid-area: equal;
 			content: '=';
-			padding: 0 1rem;
-			position: absolute;
-			right: -1.25rem;
-			top: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: $input-height-base;
+			width: 3rem;
+		}
+
+		:global(.control-label) {
+			grid-area: label;
+		}
+
+		:global(.form-control) {
+			grid-area: input;
+		}
+
+		:global(.form-control) + div {
+			grid-area: message;
 		}
 	}
-
-	dd {
-		padding-left: 1.5rem;
-	}
 }
-

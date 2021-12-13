@@ -91,7 +91,7 @@ describe('date', () => {
 		test.each(
 			[
 				[0, '+00:00'],
-				[600, '+10:00'],
+				[540, '+09:00'],
 				[-360, '-06:00'],
 			]
 		)(
@@ -146,7 +146,7 @@ describe('date', () => {
 		test.each(
 			[
 				['Africa/Bamako', 0],
-				['Australia/Melbourne', 600],
+				['Asia/Seoul', 540],
 				['America/Swift_Current', -360],
 			]
 		)(

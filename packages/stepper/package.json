@@ -7,13 +7,13 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "prepublishOnly": "yarn build:dev && yarn build:prod",
-    "prepare": "talend-scripts build:lib",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
     "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
-    "test:demo": "build-storybook",
+    "test:demo": "build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "npm run lint:es",
     "start": "start-storybook -p 6009"
@@ -33,39 +33,36 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "invariant": "^2.2.2",
-    "keycode": "^2.2.0",
-    "lodash": "^4.17.15"
+    "@talend/react-components": "^6.41.3",
+    "classnames": "^2.3.1",
+    "invariant": "^2.2.4",
+    "keycode": "^2.2.1",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.3.1",
-    "@storybook/addon-actions": "^5.3.1",
-    "@storybook/addon-info": "^5.3.1",
-    "@storybook/addons": "^5.3.1",
-    "@storybook/react": "^5.3.1",
-    "@talend/icons": "^6.35.0",
-    "@talend/react-components": "^6.35.0",
-    "@talend/scripts-core": "^9.4.1",
-    "@talend/scripts-preset-react-lib": "^9.4.1",
-    "babel-loader": "^8.1.0",
+    "@storybook/addon-a11y": "^6.4.4",
+    "@storybook/addon-actions": "^6.4.4",
+    "@storybook/addons": "^6.4.4",
+    "@storybook/react": "^6.4.4",
+    "@talend/icons": "^6.37.0",
+    "@talend/react-components": "^6.41.3",
+    "@talend/scripts-core": "^11.3.0",
+    "@talend/scripts-preset-react-lib": "^9.9.3",
+    "babel-loader": "^8.2.3",
     "css-loader": "^1.0.1",
     "enzyme": "^3.11.0",
-    "i18next": "^20.1.0",
-    "immutable": "^3.8.1",
-    "jsdom": "^16.2.2",
-    "node-sass": "^4.13.1",
-    "prop-types": "^15.5.10",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-i18next": "^11.8.13",
-    "react-redux": "^5.0.7",
-    "react-transition-group": "^2.3.1",
-    "style-loader": "^0.23.0"
+    "i18next": "^20.6.1",
+    "immutable": "^3.8.2",
+    "jsdom": "^16.7.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-i18next": "^11.14.2",
+    "react-redux": "^5.1.2",
+    "react-transition-group": "^2.9.0",
+    "style-loader": "^0.23.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^6.0.0",
-    "@talend/react-components": "^6.0.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
@@ -76,5 +73,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.35.0"
+  "version": "6.36.5"
 }

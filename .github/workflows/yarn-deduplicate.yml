@@ -9,35 +9,28 @@ jobs:
   dedupe:
     runs-on: ubuntu-latest
     name: Deduplicate
+    environment: pull_request_unsafe
 
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 14
           registry-url: 'https://registry.npmjs.org/'
           scope: '@talend'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
 
       - name: yarn-deduplicate
         id: deduplicate
         run: |
-          npx yarn-deduplicate
           yarn
+          yarn yarn-deduplicate
           echo "::set-output name=diff::$(git status --short yarn.lock)"
 
       - name: Commit dedupe
@@ -46,3 +39,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: 'chore: yarn-deduplicate'
+          branch: ${{ github.head_ref }}

@@ -25,7 +25,7 @@ class CellCheckbox extends React.Component {
 		const type = selectionMode === SELECTION_MODE.SINGLE ? 'radio' : 'checkbox';
 
 		return (
-			<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
+			<div className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 				<div className="checkbox">
 					<label htmlFor={id && `${id}-${rowIndex}-check`}>
 						<input
@@ -42,7 +42,7 @@ class CellCheckbox extends React.Component {
 						</span>
 					</label>
 				</div>
-			</form>
+			</div>
 		);
 	}
 }

@@ -1,0 +1,15 @@
+.DS_Store
+.idea
+.next
+
+coverage
+cypress/screenshots
+cypress/videos
+dist
+i18n-extract
+lib
+node_modules
+storybook-static
+yarn-error.log
+package-lock.json
+.build

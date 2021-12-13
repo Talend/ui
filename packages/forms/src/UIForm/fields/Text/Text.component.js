@@ -2,9 +2,11 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import get from 'lodash/get';
+import { get, omit } from 'lodash';
+import { Link } from '@talend/design-system';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import PasswordWidget from './PasswordWidget';
 
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 
@@ -15,10 +17,11 @@ export default function Text(props) {
 		autoFocus,
 		description,
 		disabled = false,
+		labelProps,
+		link = null,
 		placeholder,
 		readOnly = false,
 		title,
-		labelProps,
 		type,
 		...rest
 	} = schema;
@@ -28,6 +31,23 @@ export default function Text(props) {
 	}
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
+	const fieldProps = {
+		id,
+		autoComplete,
+		autoFocus,
+		className: 'form-control',
+		disabled: disabled || valueIsUpdating,
+		onBlur: event => onFinish(event, { schema }),
+		onChange: event => onChange(event, { schema, value: convertValue(type, event.target.value) }),
+		placeholder,
+		readOnly,
+		type,
+		value,
+		min: get(schema, 'schema.minimum'),
+		max: get(schema, 'schema.maximum'),
+		step: get(schema, 'schema.step'),
+		...extractDataAttributes(rest),
+	};
 
 	return (
 		<FieldTemplate
@@ -40,34 +60,26 @@ export default function Text(props) {
 			id={id}
 			isValid={isValid}
 			label={title}
-			labelAfter
 			labelProps={labelProps}
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			<input
-				id={id}
-				autoComplete={autoComplete}
-				autoFocus={autoFocus}
-				className="form-control"
-				disabled={disabled || valueIsUpdating}
-				onBlur={event => onFinish(event, { schema })}
-				onChange={event =>
-					onChange(event, { schema, value: convertValue(type, event.target.value) })
-				}
-				placeholder={placeholder}
-				readOnly={readOnly}
-				type={type}
-				value={value}
-				min={get(schema, 'schema.minimum')}
-				max={get(schema, 'schema.maximum')}
-				step={get(schema, 'schema.step')}
-				// eslint-disable-next-line jsx-a11y/aria-proptypes
-				aria-invalid={!isValid}
-				aria-required={get(schema, 'required')}
-				aria-describedby={`${descriptionId} ${errorId}`}
-				{...extractDataAttributes(rest)}
-			/>
+			{type === 'password' ? (
+				<PasswordWidget
+					{...fieldProps}
+					aria-invalid={!isValid}
+					aria-required={get(schema, 'required')}
+					aria-describedby={`${descriptionId} ${errorId}`}
+					link={link && <Link {...omit(link, ['label'])}> {link.label} </Link>}
+				/>
+			) : (
+				<input
+					{...fieldProps}
+					aria-invalid={!isValid}
+					aria-required={get(schema, 'required')}
+					aria-describedby={`${descriptionId} ${errorId}`}
+				/>
+			)}
 		</FieldTemplate>
 	);
 }
@@ -95,6 +107,9 @@ if (process.env.NODE_ENV !== 'production') {
 				className: PropTypes.string,
 				overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 				overlayPlacement: PropTypes.string,
+			}),
+			link: PropTypes.shape({
+				label: PropTypes.string,
 			}),
 			type: PropTypes.string,
 			schema: PropTypes.object,

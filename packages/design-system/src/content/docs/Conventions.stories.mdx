@@ -1,0 +1,466 @@
+import { Meta } from '@storybook/addon-docs';
+import { Use } from '../../docs';
+
+<Meta title="Content/Style conventions" />
+
+# Style conventions
+
+Style is made up of the rules that dictate how our content appear to customers.
+
+Even the best writing has little value if users don’t read it, so style should promote engagement and readability.
+
+- Write simply and directly: be concise. Avoid wordy and over-polite language.
+- Aim for a friendly and conversational style.
+- Use second person (you) to address customers, and use first-person plural (we, our) when you need to refer to Talend.
+- Use common, everyday language when possible.
+- Write in the present tense. Use present to describe app behavior. When you need to use past or future, use simple verb forms.
+
+## Conversational writing
+
+Today's apps don't write, they speak.
+
+This doesn't mean dumbing down the language or using slang or bad grammar. It does mean speaking simply, keeping it to the point, and using words we all use on a daily basis.
+
+Conversational writing is a lot of things including write as you talk and use short sentences and simple words users can understand. It also means using "you" to always "talk" to users and using "we" in some cases.
+
+### Speak directly to your customers (use "you")
+
+The idea of “person”—first person, second person, and third person—greatly affects tone and how the audience reacts to it.
+When aiming for a friendly, conversational style, use second person (you) to address users, so it feels like the product is speaking directly to them.
+
+### Use "we" very sparingly
+
+In some rare cases, first person "we" may offer a more natural tone, such as:
+
+- Welcome or setup text the user sees only once or rarely. (Avoid using first person in messages the customer might see repeatedly.)
+- When the user needs to put some effort or the company/tool has inconvenienced them in some way.
+
+Check this NN/G group article about the impact of tone of voice on the brand's perception https://www.nngroup.com/articles/tone-voice-users/
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Hold tight while we get everything ready for you!</li>
+			<li> For security reasons, we generated a backup file. Please make sure you download it.</li>
+			<li>
+				Something went wrong during the migration. Get in touch with our support team for help.
+			</li>
+			<li>
+				Sorry, we can't send your requests to the engine. You may want to try again. Contact the
+				support team if the problem persists.
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Wait while everything is set up!</li>
+			<li>As a security measure, a backup file is generated. Please make sure you download it.</li>
+			<li>Error during the migration. Please contact the support team.</li>
+			<li>Internal error! Cannot deliver the requests to services running inside the engine.</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Spelling: American vs. British
+
+Follow spelling rules for American English. Check this site to get some help about your word choice: https://www.lexico.com/grammar/spelling/spelling-differences-and-changes
+
+## Capitalization & Punctuation
+
+There are two common forms of capitalization — "Title Case" and "Sentence case". But in Talend the default is sentence case.
+
+### Sentence case
+
+Capitalize only the first letter of the first word in a phrase.
+
+In the user interface, use sentence case for everything except for buttons and tabs. This text is forced by CSS into all caps. There's one CSS for common elements in the portal, then every team has its own CSS to force all caps in elements in their specific apps.
+
+See [Capitalization](/docs/content-capitalization--page).
+
+### Capitalization in titles
+
+According to most style guides, prepositions, articles, and conjunctions aren't capitalized — unless they are the first word in the title.
+
+### Punctuation
+
+Avoid using punctuation marks or special characters in menu names and items.
+
+#### Periods
+
+When strings are complete sentences, use proper punctuation and capitalization.
+
+- Use periods at the end of complete sentences in error message and notifications.
+- Don't use periods at the end of labels, subtitles, subheads, hint text, and tooltips.
+- Don't end text for radio buttons, check boxes, toggles with periods.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>To focus out of the editor, press the ESC key twice. (complete sentence)</li>
+			<li>Search for specific values. (\*imperative)</li>
+			<li>Must be a valid URL. (implied subject)</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>To focus out of the editor, press the ESC key twice</li>
+			<li>Search for specific values</li>
+			<li>Must be a valid URL.</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+#### Colon
+
+Use a colon to introduce an item or a list.
+
+Use no space before a colon and 1 space after.
+
+Start the first word after the colon with lower case.
+
+#### Quotes
+
+Don’t use quotes to emphasize or highlight a term.
+Use quotation marks only for quoted speech. Quotes should not be used to emphasize a word.
+
+<Use>
+	<Use.Do>
+		<p>
+			The <b>host</b> field is required.
+		</p>
+		<p>(the UX team are putting in place a rule to use semi-bold for terms like this!)</p>
+	</Use.Do>
+	<Use.Dont>The "host" field is required.</Use.Dont>
+</Use>
+
+#### Exclamation marks
+
+Use them sparingly and when appropriate to enhance the conversational style!
+
+#### Commas with e.g. and i.e.
+
+Use commas before and after e.g. and i.e.
+
+<Use>
+	<Use.Do>Enter a valid phone number, e.g., +15342945863</Use.Do>
+	<Use.Dont>Enter a valid phone number e.g. +15342945863</Use.Dont>
+</Use>
+
+## Present tense vs. past and future tenses
+
+Make present tense your first choice. It's more direct and uses fewer words. Avoid past, progressive, and future tenses whenever you can.
+
+At times, you may need to refer to the past. In those cases, use simple past tense and avoid other tenses that include variations of have or had.
+
+<Use>
+	<Use.Do>When you press Enter, a warning message appears.</Use.Do>
+	<Use.Dont>When you press Enter, a warning message will appear.</Use.Dont>
+</Use>
+
+## Active voice vs. passive voice
+
+Use active voice rather than passive voice. Sentences using active voice sound stronger and are usually shorter, more direct, and flow more naturally.
+
+<Use>
+	<Use.Do>You have no notifications.</Use.Do>
+	<Use.Dont>No notifications were found.</Use.Dont>
+</Use>
+
+Even though we stated that active voice is the ideal, passive voice has its place. Use passive voice when the action is more important than what caused (subject) the action. Using it carefully will allow you to control the focus of your readers’ attention.
+
+‘Results not found’ is better than ‘The search did not return any results’.
+
+Good examples:
+
+- Cannot submit pipeline {1}. Too many Livy sessions are used.
+- The connection is created successfully.
+
+## Questions
+
+Use short forms for questions in UI. They are easier to read and less formal. When you shorten questions, auxiliary verbs and subjects are omitted.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Start the Cloud Engine for Pipeline Designer now?</li>
+			<li>Delete the default worksheet?</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Do you want to start the Cloud Engine for Pipeline Designer now?</li>
+			<li>Are you sure you want to delete the default worksheet?</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Contractions
+
+Contractions convey a friendly tone because they sound more personal and less formal. Use contractions when they are natural fit for the text. They help keep sentences shorter and easier to read. So for example use "you'll" instead of "you will".
+
+## Parenthetical plural
+
+If you need to use a parenthetical '(s)' in the subject of a sentence as a shorthand, a plural verb should follow even if a term ending in ‘(s)’ can be both plural and singular.
+
+<Use>
+	<Use.Do>The selected semantic type(s) have been deleted.</Use.Do>
+	<Use.Dont>The selected semantic type(s) has been deleted.</Use.Dont>
+</Use>
+
+## Slashes (forward"/" or backward"\")
+
+Don't use spaces before and after slashes when used between individual words. Add one space before and after only when using them with longer groups which have internal spacing.
+
+## Wordiness
+
+Avoid wordy and over-polite language.
+
+Don't use common introductory text. Cut out the wordiness.
+
+Lead the sentence with the core idea. Give key points the most visibility.
+
+Begin with the goal to achieve and follow it with the needed action.
+
+<Use>
+	<Use.Do>
+		Add data models...
+		<br />
+		View and manage the access tokens created by all the users of this account.
+	</Use.Do>
+	<Use.Dont>
+		Here you can add data models...
+		<br />
+		Having the "Users - Manage" permission, you are able to view and manage all the access tokens
+		created by the users of this account.
+	</Use.Dont>
+</Use>
+
+## Please and Sorry
+
+### Please
+
+Limit please to situations that inconvenience the user in some way.
+
+<Use>
+	<Use.Do>A remote service is unavailable. Please try again later or contact us.</Use.Do>
+	<Use.Dont>
+		The input definition is invalid. Please check it is valid and it uses UTF-8 encoding.
+	</Use.Dont>
+</Use>
+
+### Sorry
+
+Apologize only for serious problems or system limitations and if you find it necessary. It is more important to tell users what went wrong – and why if possible – and how to fix the problem.
+
+Say sorry when it’s the system fault. But if it’s not, be careful not to overcompensate. Apologizing where it’s not due can sound insincere. It can also imply the user isn’t at fault, which might be confusing.
+
+<Use>
+	<Use.Do>
+		Sorry, an unexpected error occurred. We could not complete your last operation, but you can keep
+		using Data Preparation.
+	</Use.Do>
+	<Use.Dont>
+		An unexpected error occurred. We could not complete your last operation, but you can keep using
+		Data Preparation.
+	</Use.Dont>
+</Use>
+
+## Warnings, tips, and notifications
+
+- Be clear and conversational
+- Use direct language
+- Get right to the point
+
+Well-written, helpful messages are crucial to a quality user experience.
+
+## Error messages
+
+There are two general types of error messages:
+
+- Field-validation errors appear when a user enters info in a form field, but it isn’t formatted correctly (or it’s blank).
+- System errors appear when the entire application is having trouble, like when a website is down or a user’s data is missing through no fault of their own.
+
+Good error messages must always do 2 things: say what happened + say how to fix it or what to do next. Be brief but also super literal. Say exactly what the user needs to do to fix the error.
+
+`[What happened and why] + [What to do to fix it or move forward]`
+
+For edge cases where you can't propose a fix, it’s perfectly OK to list a generic error that might look something like:
+
+“Sorry, we can't complete your request. Please try again. Contact the support team if the problem persists.”
+
+<Use>
+	<Use.Do>
+		Can't activate the user because of the lack of seats. Check the roles of existing users to see
+		if you can free up any seats.
+	</Use.Do>
+	<Use.Dont>
+		Not enough seats are available to activate the user. Try checking the roles of existing users to
+		see if you can free up any seats.
+	</Use.Dont>
+</Use>
+
+### Titles in error messages
+
+Don't use titles for error messages by default (just to use a title). Titles can be helpful when the text in the error body is long or complex and you want to give the user a hint of what happens at a glance.
+
+When you need to use a title, make it short and try not to repeat the same words in the message body.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>The rule name NAME already exists. Rename your rule.</li>
+			<li>[Conversational: The rule name NAME already exits. Try another name.]</li>
+			<li>
+				Expression undefined (title)
+				<br />
+				At least one required expression is undefined. Check the rule definition and try again.
+				(body)
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				The rule name NAME already exists (title)
+				<br />
+				Rename your rule. (body)
+			</li>
+			<li>
+				At least one required expression is not defined (title)
+				<br />
+				Verify the rule definition and try again. (body)
+			</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+### Complete or incomplete sentences
+
+Error messages can be complete sentences or sentence fragments. Both are accepted as long as the sentence or the fragment is clear enough.
+
+Examples of sentence fragments: Unreadable Swagger structure, unsupported field type
+
+### Cannot vs couldn't
+
+Both are accepted forms in error messages.
+
+Use "couldn't" if an attempt to do something failed, but could perhaps succeed next time (perhaps after fixing some problem).
+
+Use "can't" if the failure is permanent and the condition will persist at least for now.
+
+the average user may not be able to draw great conclusions merely from the tense of the message, but since the language provides us with a grammar we should use it correctly.
+
+Examples:
+
+Configuration couldn't be saved. Check the Single Sign-On configuration and your SSO provider settings.
+
+Sorry, an unexpected error occurred and we cannot complete your last operation. You can continue to use Data Preparation.
+
+## Lists
+
+Aim for parallel lists to help users connect ideas and to ease reading flow.
+
+Not all lists can be completely parallel. Start the list with the same part of speech, a verb in the present tense for example.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Search profile</li>
+			<li>Delete profile</li>
+			<li>Create profile</li>
+			<li>Edit profile</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Search in profile</li>
+			<li>Delete profiles</li>
+			<li>Create a new profile</li>
+			<li>Edit existing profile</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Button text
+
+The word or words on buttons should be accurate, specific, and explicit—not vague.
+
+Try to avoid Yes and No for buttons. Say what action really happens when the user clicks. Use OK sparingly—replace it with the specific action whenever possible. Users usually click OK to confirm the action they want to do. Name that action instead.
+
+A few best practices for writing button text or CTA text:
+
+- Always start with an action verb: something happens when you click a button. Say what happens with a verb.
+- Navigation buttons are an example of an exception to using an action verb. These often use Next and Back.
+- Choose specific words over vague words: “Try it now” for example is a common CTA, but doesn’t really tell the user what will happen next. It might be too vague. Use your judgement according to what the user should be doing when they click the button.
+- Choose words that logically align with the preceding content: if your headline says "Sign up for awesome app!" then your button text should also say "Sign up".
+- For UI writing, don’t use more than 3 words in a button: keep it short and simple. For mobile screens, very few characters will fit.
+
+## Placeholders in form fields
+
+Labels outside the form fields make the essential information visible at all times while placeholder text inside form fields is reserved for
+
+supplementary information.
+
+However, user testing according to [NN/G](https://www.nngroup.com/) (Nielsen Norman Group) continually shows that placeholders in form fields often hurt usability more than help it.
+
+According to NN/G when some of the fields require an extra description that is essential to completing the form correctly, it’s best to place that text outside the field so that it is always visible.
+
+### Best practices
+
+Use clear labels
+
+Have persistent hints and instructions by placing them outside of the field
+
+Interesting links:
+
+- [Placeholders in form fields are harmful](https://www.nngroup.com/articles/form-design-placeholders/)
+- [Video](https://youtu.be/jrigp2L-P-0)
+
+## Placeholder in the search field
+
+Use `Find a <name>...` as hint text inside the search field in the top right corner of an app page.
+
+Currently, this text isn't in sync—mixture of `Find a <name>` and `Search <name>`. We'll need to use `Find a <name>` everywhere.
+
+Finding is locating something in a limited list; it is confident and positive. Searching is
+
+## Abbreviations and acronyms
+
+Avoid using them unless they are widely known, i.e. stick to familiar acronyms and keep them to a minimum.
+
+Below is the list of the acronyms allowed in Talend content. The list isn't exhaustive, ask when in doubt:
+
+- CSV
+- CRM
+- EU
+- GUI
+- HDFS
+- HIPAA
+- IT
+- JAR
+- JDBC
+- JMS
+- JVM
+- KB
+- MB
+- OSGI
+- PaaS
+- POM
+- RDBMS
+- REST
+- SaaS
+- SOAP
+- SQL
+- TXT
+- URI
+- URL
+- UK
+- US
+- UI
+- WAR
+- XML
+- YARN
+
+## Hyperlinks
+
+in progress

@@ -1,0 +1,123 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { useForm } from 'react-hook-form';
+import { WithSelector, FigmaImage } from '../../../docs';
+import Button from '../../Button';
+import Form from '../';
+import InlineMessage from '../../InlineMessage';
+
+<Meta title="Components/Form/Fields/Copy" />
+
+# Copy
+
+It's used to let the user copy a generated text to clipboard.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=548%3A11"
+	alt="zoning image for copy input"
+/>
+
+## Style
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+	</Story>
+</Canvas>
+
+### Hover
+
+<Canvas withSource="none">
+	<Story
+		name="hover"
+		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
+	>
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+	</Story>
+</Canvas>
+
+### Focus
+
+<Canvas withSource="none">
+	<Story
+		name="focus"
+		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
+	>
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+	</Story>
+</Canvas>
+
+### Empty
+
+<Canvas>
+	<Story name="empty">
+		<Form.Copy label="Copy" />
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" disabled />
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" readOnly />
+	</Story>
+</Canvas>
+
+## Interactions
+
+## Usage
+
+<Canvas>
+	<Story name="react-hook-form">
+		{() => {
+			const getUUID = () =>
+				([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+					(c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
+				);
+			const { register, handleSubmit, setValue } = useForm();
+			const [formData, setFormData] = React.useState();
+			return (
+				<Form onSubmit={handleSubmit(setFormData)}>
+					{formData && (
+						<InlineMessage.Information
+							title={'Form data'}
+							description={JSON.stringify(formData, null, 2)}
+							withBackground
+						/>
+					)}
+					<Form.Row>
+						<Form.Copy
+							label={'Key'}
+							defaultValue={getUUID()}
+							description={'This information is displayed only once.'}
+							{...register('apiKey')}
+						/>
+						<Button.Tertiary icon="talend-refresh" onClick={() => setValue('apiKey', getUUID())}>
+							Regenerate
+						</Button.Tertiary>
+					</Form.Row>
+					<Form.Buttons>
+						<Button.Primary type="submit">Submit</Button.Primary>
+					</Form.Buttons>
+				</Form>
+			);
+		}}
+	</Story>
+</Canvas>
+
+## Accessibility
+
+N/C

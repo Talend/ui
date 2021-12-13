@@ -1,0 +1,81 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '../../../docs';
+
+import Switch from '../';
+
+<Meta title="Components/Switch" />
+
+# Switch
+
+Switches are a quick way to make a selection between two states (or three sometimes) or on-off state instantly. There is always a default selection for switches.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=36%3A0"
+	alt="zoning image for switch"
+/>
+
+## Style
+
+<Canvas>
+	<Story name="default">
+		<Switch values={['input', 'both', 'output']} />
+	</Story>
+</Canvas>
+
+## States
+
+## Content
+
+Use switches to change the state of system functionalities and preferences on or off, or to select among more than two states/options. Labels for switches should give users a strong indication of what they are selecting.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in switch labels.</li>
+			<li>Keep labels for switches short and direct.</li>
+			<li>
+				For on/off switches, use the label to describe what the control will do when the switch is
+				on.
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don't use neutral or ambiguous labels.</li>
+			<li>Don't use title case or all caps in switch labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+## Accessibility
+
+## Usage
+
+<Canvas>
+	<Story name="uncontrolled">
+		{() => {
+			const defaultValue = 'value f';
+			const [value, setValue] = React.useState(defaultValue);
+			return (
+				<>
+					<p>Selected value: {value}</p>
+					<Switch
+						values={['value a', 'value b', 'value c', 'value d', 'value e', 'value f']}
+						defaultValue={defaultValue}
+						onChange={(e, v) => setValue(v)}
+					/>
+				</>
+			);
+		}}
+	</Story>
+</Canvas>
+
+## Changelog
+
+| Date       | Author           | Description |
+| ---------- | ---------------- | ----------- |
+| 08/04/2020 | Fabien Rassinier | Init page   |

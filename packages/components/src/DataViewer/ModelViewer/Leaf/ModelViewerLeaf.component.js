@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import noop from 'lodash/noop';
 import PropTypes from 'prop-types';
 import React from 'react';
 import getDefaultT from '../../../translate';
@@ -26,6 +27,7 @@ export function ModelViewerLeaf({
 	dataKey,
 	getDisplayKey,
 	getDisplayValue,
+	getDisplayClassName,
 	hasSemanticAwareness,
 	jsonpath,
 	jsonPathSelection,
@@ -44,13 +46,16 @@ export function ModelViewerLeaf({
 	const ariaLabelButton = t('MODEL_VIEWER_LEAF_BUTTON_ARIA_LABEL_SELECT', {
 		defaultValue: 'Select',
 	});
-	const formattedKey = getDisplayValue(value);
-	const formattedValue = hasSemanticAwareness ? `${getDisplayKey(value)}${isOptional(value)}` : '';
+	const modelClassName = getDisplayClassName(value);
+	const displayValue = getDisplayValue(value);
+	const formattedKey =
+		displayValue && hasSemanticAwareness ? `${displayValue}${isOptional(value)}` : displayValue;
+	const formattedValue = hasSemanticAwareness ? `${getDisplayKey(value)}` : '';
 	const separator = ' ';
 
 	return (
 		<span
-			className={classNames(className, theme['tc-model-leaf'], 'tc-model-leaf', {
+			className={classNames(className, modelClassName, theme['tc-model-leaf'], 'tc-model-leaf', {
 				[theme['tc-model-leaf-padding-left']]: level > 0,
 				'tc-model-leaf-padding-left': level > 0,
 			})}
@@ -85,6 +90,7 @@ export function ModelViewerLeaf({
 ModelViewerLeaf.propTypes = {
 	className: PropTypes.string,
 	dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	getDisplayClassName: PropTypes.func,
 	getDisplayKey: PropTypes.func,
 	getDisplayValue: PropTypes.func.isRequired,
 	hasSemanticAwareness: PropTypes.bool,
@@ -99,6 +105,7 @@ ModelViewerLeaf.propTypes = {
 
 ModelViewerLeaf.defaultProps = {
 	t: getDefaultT(),
+	getDisplayClassName: noop,
 };
 
 export default ModelViewerLeaf;

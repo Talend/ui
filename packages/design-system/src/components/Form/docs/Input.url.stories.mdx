@@ -1,0 +1,84 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { WithSelector, FigmaImage } from '../../../docs';
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Url" />
+
+# Url
+
+It's used to let the user enter and edit a URL.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A219"
+	alt="zoning image for inputs"
+/>
+
+## Style
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Url label="Url" placeholder="https://example.com" pattern="https://.*" />
+	</Story>
+</Canvas>
+
+### Hover
+
+<Canvas withSource="none">
+	<Story
+		name="hover"
+		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
+	>
+		<Form.Url label="Url" placeholder="https://example.com" />
+	</Story>
+</Canvas>
+
+### Focus
+
+<Canvas withSource="none">
+	<Story
+		name="focus"
+		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
+	>
+		<Form.Url label="Url" placeholder="https://example.com" />
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.Url label="Url" value="https://talend.com" />
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Url label="Url" value="https://talend.com" disabled />
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Url label="Url" value="https://talend.com" readOnly />
+	</Story>
+</Canvas>
+
+## Interactions
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C

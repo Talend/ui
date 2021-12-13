@@ -4,6 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = (env, argv) => {
 	const isDev = argv.mode === 'development';
@@ -16,13 +17,21 @@ module.exports = (env, argv) => {
 			library: 'TalendBootstrapTheme',
 			libraryTarget: 'umd',
 			globalObject: 'this',
-			assetModuleFilename: 'fonts/[name][ext]'
 		},
 		module: {
 			rules: [
 				{
 					test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-					type: 'asset/resource'
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+								outputPath: 'fonts',
+								name: '[name].[ext]',
+								esModule: false,
+							},
+						},
+					],
 				},
 				{
 					test: /bootstrap\.scss$/,
@@ -40,10 +49,8 @@ module.exports = (env, argv) => {
 						{
 							loader: 'postcss-loader',
 							options: {
-								postcssOptions: {
-									ident: 'postcss',
-									plugins: [['postcss-preset-env', { browsers: 'last 2 versions' }]],
-								},
+								ident: 'postcss',
+								plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
 							},
 						},
 						{
@@ -58,8 +65,7 @@ module.exports = (env, argv) => {
 		},
 		devtool: 'source-map',
 		optimization: {
-			minimize: true,
-			minimizer: ['...', new CssMinimizerPlugin()], // '...' used to access the defaults.
+			minimizer: [new CssMinimizerPlugin()],
 		},
 		plugins: [
 			new CopyPlugin({
@@ -81,11 +87,11 @@ module.exports = (env, argv) => {
 		],
 		devServer: {
 			port: 1234,
-			stats: 'errors-only',
 			historyApiFallback: true,
-			contentBase: path.join(process.cwd(), 'dist'),
+			static: {
+				directory: path.join(process.cwd(), 'dist'),
+			},
 			compress: true,
-			inline: true,
 			hot: true,
 		},
 	};

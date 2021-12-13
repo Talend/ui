@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeNumberForm should mount a default badge 1`] = `
+<BadgeNumberForm
+  feature="price"
+  id="customId"
+  onSubmit={[MockFunction]}
+  t={[Function]}
+/>
+`;

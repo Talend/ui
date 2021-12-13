@@ -15,10 +15,12 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
     className="theme-wrapper form-control"
   >
     <Badge
+      dataTest="item.0"
       label="aze"
       onDelete={[Function]}
     />
     <Badge
+      dataTest="item.1"
       label="tata"
       onDelete={[Function]}
     />

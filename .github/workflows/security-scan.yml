@@ -3,10 +3,10 @@ name: Security scan
 on:
   schedule:
     - cron: '0 0 * * 0' # https://crontab.guru/every-week "At 00:00 on Sunday."
-  # push # to test on push, uncomment that
 
 jobs:
   build:
+    environment: main
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -14,3 +14,4 @@ jobs:
         uses: ./.github/actions/sourceclear
         env:
           SRCCLR_API_TOKEN: ${{ secrets.SRCCLR_API_TOKEN }}
+          SRCCLR_SCOPE: 'production'

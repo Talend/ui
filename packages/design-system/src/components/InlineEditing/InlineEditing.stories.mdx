@@ -1,0 +1,106 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink } from '../../docs';
+import InlineEditing from '.';
+import * as Stories from './InlineEditing.stories';
+
+<Meta
+	title="Components/Inline Editing"
+	component={InlineEditing}
+	decorators={[
+		Story => (
+			<div style={{ width: '30rem' }}>
+				<Story />
+			</div>
+		),
+	]}
+/>
+
+<FigmaLink href="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/?node-id=58%3A0" />
+
+# Inline Editing
+
+User can perform inline editing by using inline form.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=351%3A0"
+	alt="zoning image for inline editing"
+/>
+
+## Style
+
+### Variations
+
+**Single line**
+
+<Canvas>
+	<Story story={Stories.Text} />
+</Canvas>
+
+**Empty single line with a placeholder**
+
+<Canvas>
+	<Story story={Stories.EmptyTextWithPlaceholder} />
+</Canvas>
+
+**Multi lines**
+
+<Canvas>
+	<Story story={Stories.Textarea} />
+</Canvas>
+
+## States
+
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=163%3A622"
+	alt="states image for inline editing"
+/>
+
+### Loading
+
+<Canvas>
+	<Story story={Stories.LoadingMode} />
+</Canvas>
+
+### Error
+
+In this example, async submit will always end up with an error.
+
+<Canvas>
+	<Story story={Stories.InUse} />
+</Canvas>
+
+## Interactions
+
+The edit mode can be triggered by clicking on the pencil icon, or by double-clicking on the text.
+
+### Quality Assurance
+
+Non-regression testing can be performed using:
+
+| data-test                                         | description                                                                   |
+| ------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `inlineediting`                                   | Container containing value and actions                                        |
+| `inlineediting.button.edit`                       | Edit button to pass into "editing" mode                                       |
+| `inlineediting.input` or `inlineediting.textarea` | Control to change its value in "editing" mode depending on the variant in use |
+| `inlineediting.button.cancel`                     | Cancel button to quit "editing" mode                                          |
+| `inlineediting.button.submit`                     | Submit button to validate edition in "editing" mode                           |
+
+## Usage
+
+<Canvas>
+	<Story story={Stories.Default} />
+	<Story story={Stories.WithEllipsis} />
+	<Story story={Stories.WithTextarea} />
+	<Story story={Stories.LongTextInTextarea} />
+	<Story story={Stories.AsHeading} />
+</Canvas>
+
+## Accessibility
+
+- In single line mode, press <kbd>Enter</kbd> to validate the edition
+- Buttons can be focused by using <kbd>Tab</kbd>
+- Press <kbd>Esc</kbd> to cancel the edition
+
+Clicking outside the form will cancel the edition as well

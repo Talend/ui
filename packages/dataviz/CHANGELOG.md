@@ -1,32 +1,69 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## 1.0.1
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Patch Changes
 
-Guiding Principles
+- 3bbf55610: fix(components/dataviz): recharts path in dependencies.json
+- Updated dependencies [3bbf55610]
+  - @talend/react-components@6.42.1
 
--   Changelogs are for humans, not machines.
--   There should be an entry for every single version.
--   The same types of changes should be grouped.
--   Versions and sections should be linkable.
--   The latest version comes first.
--   The release date of each version is displayed.
--   Mention whether you follow Semantic Versioning.
+## 1.0.0
 
-Types of changes
+### Major Changes
 
--   `Added` for new features.
--   `Changed` for changes in existing functionality.
--   `Deprecated` for soon-to-be removed features.
--   `Removed` for now removed features.
--   `Fixed` for any bug fixes.
--   `Security` in case of vulnerabilities.
+- 42efdca45: Upgrade to recharts 2 and ensure everything is working well
 
-## [unreleased]
+### Patch Changes
 
-## [0.4.5]
+- Updated dependencies [2e5511f79]
+- Updated dependencies [cfa90496c]
+- Updated dependencies [42efdca45]
+  - @talend/react-components@6.42.0
+
+## 0.4.10
+
+### Patch Changes
+
+- b33eb8655: fix(GeoChart): ?? operator is breaking angular tests
+- Updated dependencies [d353a0a3c]
+  - @talend/react-components@6.41.4
+
+## 0.4.9
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+  - @talend/react-components@6.41.3
+
+## 0.4.8
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [667cd0a50]
+- Updated dependencies [7dde61e46]
+  - @talend/react-components@6.40.0
+
+## 0.4.7
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-components@6.39.2
+
+## 0.4.6
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+- Updated dependencies [80ca14323]
+  - @talend/react-components@6.39.1
+
+## 0.4.5
 
 ### Fixed
 
@@ -105,7 +142,6 @@ Types of changes
 ### Fixed
 
 - [Reset tooltip line margin](https://github.com/Talend/ui/pull/3158):
-
 
 ## [0.1.3]
 

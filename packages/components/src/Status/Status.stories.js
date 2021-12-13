@@ -76,6 +76,10 @@ storiesOf('Messaging & Communication/Status', module).add('default', () => (
 			icon=""
 			progress="50"
 		/>
+		<h3>
+			Status with <code>tooltip</code>
+		</h3>
+		<Status {...myStatus} actions={[]} tooltip='tooltip test' />
 		<br />
 	</div>
 ));

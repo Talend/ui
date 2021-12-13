@@ -1,5 +1,3 @@
-import merge from 'lodash/merge';
-import get from 'lodash/get';
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
 import { HTTP } from './config';
@@ -43,7 +41,7 @@ export function encodePayload(headers, payload) {
 export async function handleBody(response) {
 	let methodBody = 'text';
 
-	const headers = get(response, 'headers', new Headers());
+	const headers = response?.headers || new Headers();
 	const contentType = headers.get('Content-Type');
 	if (contentType && contentType.includes('application/json')) {
 		methodBody = 'json';
@@ -104,15 +102,17 @@ export async function httpFetch(url, config, method, payload) {
 		delete defaultHeaders['Content-Type'];
 	}
 
-	const params = merge(
-		{
-			credentials: 'same-origin',
-			headers: defaultHeaders,
-			method,
+	const params = {
+		credentials: 'same-origin',
+		method,
+		...HTTP.defaultConfig,
+		...config,
+		headers: {
+			...defaultHeaders,
+			...HTTP.defaultConfig?.headers,
+			...config?.headers,
 		},
-		HTTP.defaultConfig,
-		config,
-	);
+	};
 
 	const response = await fetch(
 		url,

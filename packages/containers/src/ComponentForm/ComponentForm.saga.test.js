@@ -130,6 +130,42 @@ describe('ComponentForm saga', () => {
 			// then
 			expect(fetchUiSpecStep.done).toBe(false);
 		});
+
+		it('should NOT fetch uiSpec when provided', () => {
+			// given
+			const jsonSchema = {
+				properties: {
+					_datasetMetadata: {
+						properties: {
+							name: {
+								title: 'Name',
+								type: 'string',
+							},
+							type: {
+								title: 'Types',
+								type: 'string',
+							},
+						},
+						type: 'object',
+					},
+				},
+			};
+			const props = {
+				componentId: 'MyComponentId',
+				definitionURL: 'http://lol',
+				definition: jsonSchema,
+			};
+			const gen = sagas.onDidMount(props);
+
+			// when
+			gen.next(); // select
+
+			// then
+			expect(gen.next().value.PUT.action.cmf.componentState.componentState).toEqual({
+				initialState: jsonSchema,
+				...jsonSchema,
+			});
+		});
 	});
 
 	describe('*fetchDefinition', () => {
@@ -269,6 +305,35 @@ describe('ComponentForm saga', () => {
 					componentState: {
 						componentName: 'ComponentForm',
 						componentState: { ...data, initialState: data },
+						key: 'MyComponentId',
+						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+					},
+				},
+				type: 'ComponentForm.setState',
+			});
+		});
+		it('should init form with provided state', () => {
+			// given
+			const props = {
+				componentId,
+				definitionURL: 'http://lol',
+				data: {
+					jsonSchema: {},
+				},
+			};
+			const response = { ok: true };
+			const gen = sagas.fetchDefinition(props);
+
+			// when
+			gen.next(); // fetch step
+			const nextStep = gen.next({ response, data }).value;
+
+			// then
+			expect(nextStep.PUT.action).toEqual({
+				cmf: {
+					componentState: {
+						componentName: 'ComponentForm',
+						componentState: { ...data, initialState: data, ...props.data },
 						key: 'MyComponentId',
 						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 					},

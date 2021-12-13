@@ -1,8 +1,7 @@
 import React from 'react';
-import { storiesOf, configure, addDecorator } from '@storybook/react';
+import { storiesOf, configure, addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
-import { withI18next } from 'storybook-addon-i18next';
 import { locales as tuiLocales } from '@talend/locales-tui/locales';
 import createSagaMiddleware from 'redux-saga';
 import withCMF from '@talend/react-storybook-cmf';
@@ -11,7 +10,7 @@ import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
 import { IconsProvider } from '@talend/react-components';
-import '@talend/bootstrap-theme/src/theme/theme.scss';
+import '@talend/bootstrap-theme/dist/bootstrap.css';
 import i18n from './../../../.storybook/i18n';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
@@ -25,12 +24,6 @@ import { registerAllContainers } from '../src/register';
 const languages = {};
 Object.keys(tuiLocales).forEach(key => (languages[key] = key));
 
-addDecorator(
-	withI18next({
-		i18n,
-		languages,
-	}),
-);
 addDecorator(withCMF);
 addDecorator(withA11y);
 addDecorator(storyFn => (
@@ -38,9 +31,13 @@ addDecorator(storyFn => (
 		<IconsProvider
 			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
 		/>
-		{storyFn()}
+		<React.Suspense fallback={null}>
+			{storyFn()}
+		</React.Suspense>
 	</>
 ));
+
+addParameters({ layout: 'fullscreen' });
 
 registerAllContainers();
 const actionLogger = action('dispatch');

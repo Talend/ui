@@ -31,13 +31,13 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf highlighted 1`] = `
     aria-label="Select myDataKey ($)"
     className="theme-tc-model-leaf-button-highlighted tc-model-leaf-button-highlighted theme-tc-model-leaf-button tc-model-leaf-button"
     onClick={[Function]}
-    title=" (typeSem)*"
+    title=" (typeSem)"
   />
   <SimpleTextKeyValue
     displayTypes={false}
     separator=" "
     typesRenderer={[Function]}
-    value="(typeSem)*"
+    value="(typeSem)"
   />
   <span
     className="theme-tc-model-leaf-options tc-model-leaf-options"
@@ -53,13 +53,13 @@ exports[`ModelViewerLeaf should render ModelViewerLeaf with additional data 1`] 
     aria-label="Select myDataKey ($)"
     className="theme-tc-model-leaf-button-highlighted tc-model-leaf-button-highlighted theme-tc-model-leaf-button tc-model-leaf-button"
     onClick={[Function]}
-    title=" (typeSem)*"
+    title=" (typeSem)"
   />
   <SimpleTextKeyValue
     displayTypes={false}
     separator=" "
     typesRenderer={[Function]}
-    value="(typeSem)*"
+    value="(typeSem)"
   />
   <span
     className="theme-tc-model-leaf-options tc-model-leaf-options"

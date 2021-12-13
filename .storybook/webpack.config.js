@@ -1,12 +1,7 @@
-const SASS_DATA = "@import '~@talend/bootstrap-theme/src/theme/guidelines';";
+const SASS_DATA = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;";
+const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 const autoprefixer = require.main.require('autoprefixer');
-const path = require('path');
-const webpack = require.main.require('webpack');
 const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] });
-const CopyPlugin = require('copy-webpack-plugin');
-const icons = require.resolve('@talend/icons/dist/info');
-const iconsDist = path.dirname(icons);
-const iconsSrc = path.join(iconsDist, '../src');
 
 module.exports = ({ config }) => {
 	// Override css part to apply custom postcss config
@@ -27,61 +22,41 @@ module.exports = ({ config }) => {
 		],
 	};
 
-	config.module.rules.push(
-		{
-			test: /theme.scss$/,
-			use: [
-				'style-loader',
-				'css-loader',
-				{
-					loader: 'postcss-loader',
-					options: {
-						plugins: [autoPrefixerPlugin],
+	config.module.rules.push({
+		test: /\.scss$/,
+		use: [
+			'style-loader',
+			{
+				loader: 'css-loader',
+				options: {
+					sourceMap: true,
+					modules: {
+						localIdentName: '[name]__[local]___[hash:base64:5]',
 					},
+					importLoaders: 1,
 				},
-				{
-					loader: 'sass-loader',
-					options: {
-						prependData: SASS_DATA,
-					},
+			},
+			{
+				loader: 'postcss-loader',
+				options: {
+					plugins: [autoPrefixerPlugin],
 				},
-			],
-		},
-		{
-			test: /\.scss$/,
-			exclude: /theme.scss/,
-			use: [
-				'style-loader',
-				'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-				{
-					loader: 'postcss-loader',
-					options: {
-						plugins: [autoPrefixerPlugin],
-					},
+			},
+			{
+				loader: 'sass-loader',
+				options: {
+					prependData: SASS_DATA,
+					sourceMap: true,
 				},
-				{
-					loader: 'sass-loader',
-					options: {
-						prependData: SASS_DATA,
-					},
-				},
-			],
-		},
-	);
-	config.plugins = config.plugins.concat(
-		new CopyPlugin({
-			patterns: [{ from: path.join(iconsDist, 'svg-bundle') }, { from: iconsSrc, to: 'svg' }],
-		}),
-		new webpack.DefinePlugin({
-			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
-		}),
-	);
+			},
+		],
+	});
 
 	const progressPluginIndex = config.plugins.findIndex(
 		plugin => plugin.constructor.name === 'ProgressPlugin',
 	);
 	config.plugins.splice(progressPluginIndex, 1);
-
+	config.plugins.push(new CDNPlugin());
 	config.stats = 'errors-only';
 
 	return config;
