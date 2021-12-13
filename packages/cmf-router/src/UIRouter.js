@@ -91,7 +91,6 @@ export function getRouter(history, basename) {
 		);
 		React.useLayoutEffect(() => unlisten, [unlisten]);
 
-		// const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
 		if (props.routes.path && props.routes.component) {
 			const routeProps = getRouteProps(props.routes, props.routes.path);
 			if (process.env.NODE_ENV === 'development') {

@@ -9,7 +9,6 @@ import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 import documentTitle from './sagas/documentTitle';
 import cmfRouterMiddleware from './middleware';
-import route from './route';
 
 const mergeConfig = {
 	history: cmf.module.merge.getUnique,
@@ -78,4 +77,4 @@ const routerAPI = {
 	matchPath: cmf.router.matchPath,
 };
 
-export { routerAPI, route, sagaRouter, createBrowserHistory };
+export { routerAPI, sagaRouter, createBrowserHistory };
