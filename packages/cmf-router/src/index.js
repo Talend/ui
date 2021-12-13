@@ -25,20 +25,12 @@ function mergeRouterConfig(...configs) {
 
 function getModule(...args) {
 	const options = mergeRouterConfig(...args);
+	if (options.routerFunctions) {
+		throw new Error('@talend/react-cmf-router routerFunctions is not supported');
+	}
 	const history = options.history || createBrowserHistory(options);
 
 	const basename = options.basename;
-
-	const registry = {};
-	if (options.routerFunctions) {
-		console.warn('options.routerFunctions is deprecated and not supported at  the moment. TODO');
-		// TODO: find usage and a way to migrate
-		// Object.keys(options.routerFunctions).reduce((acc, key) => {
-		// 	// eslint-disable-next-line no-param-reassign
-		// 	acc[`${REGISTRY_HOOK_PREFIX}:${key}`] = options.routerFunctions[key];
-		// 	return acc;
-		// }, registry);
-	}
 
 	function* saga() {
 		let routerStarted = false;
@@ -57,10 +49,7 @@ function getModule(...args) {
 		}
 	}
 	const middlewares = [routerMiddleware(history), cmfRouterMiddleware];
-	// let routerHistory;
-	// function storeCallback(store) {
-	// 	routerHistory = syncHistoryWithStore(history, store);
-	// }
+
 	// router is renderer after the store is created so we refer to routerHistory
 	const UIRouter = getRouter(history, basename);
 	function CMFRouter() {
@@ -77,8 +66,6 @@ function getModule(...args) {
 			},
 			middlewares,
 			saga,
-			// storeCallback,
-			registry,
 		},
 		RootComponent: CMFRouter,
 	};

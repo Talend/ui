@@ -10,6 +10,7 @@ import React from 'react';
 // BrowserRouter from react-router-dom do not support custom history
 import { Router } from 'react-router';
 import { Route, Routes, Outlet } from 'react-router-dom';
+import { onLocationChanged } from 'connected-react-router';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
 
@@ -81,7 +82,14 @@ export function getRouter(history, basename) {
 			action: history.action,
 			location: history.location,
 		});
-		React.useLayoutEffect(() => history.listen(setState), [setState]);
+
+		const [unlisten] = React.useState(
+			history.listen((...args) => {
+				setState(...args);
+				props.dispatch(onLocationChanged(...args));
+			}),
+		);
+		React.useLayoutEffect(() => unlisten, [unlisten]);
 
 		// const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
 		if (props.routes.path && props.routes.component) {
@@ -121,5 +129,6 @@ export function getRouter(history, basename) {
 	CMFRouter.displayName = 'CMFReactRouterIntegration';
 
 	const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
-	return connect(mapStateToProps)(CMFRouter);
+	const mapDispatchToProps = dispatch => ({ dispatch });
+	return connect(mapStateToProps, mapDispatchToProps)(CMFRouter);
 }
