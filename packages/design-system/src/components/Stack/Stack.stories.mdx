@@ -1,0 +1,85 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Use } from '../../docs';
+
+<Meta title="Components/Stack"/>
+
+# Stack (aka "Autolayout")
+
+`Stack` is an opinionated layout component. It serves has a wrapper for most layout needs that would otherwise require manual CSS.
+
+On Figma, this pattern is found in the Autolayout tool.
+
+However, where Figma lets you pick random margin and padding values, `Stack` limits those options to design tokens.
+
+
+## Zoning
+
+## Style
+
+### Variations
+
+## States
+
+## Interactions
+
+## Content
+
+## Usage
+
+```tsx
+import { Stack, Button } from '@talend/design-system';
+import * as tokens from '@talend/design-tokens';
+
+function myComponent() {
+    return (
+        <>
+            <Stack.Horizontal
+                padding="S"
+                gap="S"
+                align="start"
+                justify="start"
+            >
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <Button.Primary onClick={clickHandler}>Click here</Button.Primary>
+            </Stack.Horizontal>
+
+            <Stack.Vertical
+                padding="S"
+                gap="XS"
+                align="start"
+                justify="start"
+                as="ul"
+                height={tokens.coralSizeLimit}
+                width={tokens.coralSizeLimit}
+            >
+                <li>List entry</li>
+                <li>Second list entry</li>
+            </Stack.Vertical>
+
+            <Stack.Vertical
+                padding="S"
+                gap="XS"
+                align="start"
+                justify="start"
+                as="ul"
+                height={tokens.coralSizeLimit}
+                width={tokens.coralSizeLimit}
+            >
+                <li>
+                    <Stack.Horizontal
+                        gap="M"
+                        align="start"
+                        justify="start"
+                    >
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <Button.Primary onClick={clickHandler}>Click here</Button.Primary>
+                    </Stack.Horizontal>
+                </li>
+                <li>Second list entry</li>
+            </Stack.Vertical>
+        </>
+    )
+}
+```
+
+## Accessibility
