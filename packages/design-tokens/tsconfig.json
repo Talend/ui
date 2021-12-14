@@ -1,0 +1,11 @@
+{
+  "extends": "@talend/scripts-config-typescript/tsconfig.json",
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "jsx": "react",
+    "target": "ES5",
+    "module": "CommonJs"
+  }
+}

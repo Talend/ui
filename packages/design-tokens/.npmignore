@@ -1,0 +1,7 @@
+scripts/
+dependencies.json
+talend-scripts.json
+tsconfig.json
+webpack.config.js
+.storybook
+**/*.stories.mdx
