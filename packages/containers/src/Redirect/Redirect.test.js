@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Redirect from './Redirect.container';
+import AppLoader from '@talend/react-components/lib/AppLoader';
 
 describe('Redirect', () => {
 	it('should dispatch a redirect action', () => {
@@ -11,7 +12,7 @@ describe('Redirect', () => {
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');
 		expect(action.cmf.routerReplace).toBe('/hello-world');
-		expect(wrapper.childAt(0).getElement()).toMatchSnapshot();
+		expect(wrapper.find(AppLoader).length).toBe(1);
 	});
 
 	it('should dispatch a redirect action if to props given', () => {
