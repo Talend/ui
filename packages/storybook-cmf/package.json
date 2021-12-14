@@ -35,7 +35,7 @@
     "redux-saga": "^0.15.6"
   },
   "dependencies": {
-    "@storybook/addons": "^6.4.4",
+    "@storybook/addons": "^6.4.9",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
