@@ -28,8 +28,7 @@ jobs:
           yarn install --frozen-lockfile
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
-          yarn pre-release
-          yarn test:demo
+          yarn pre-release & yarn test:demo
           ./.github/workflows/before-surge.sh
 
       - name: deploy if master
