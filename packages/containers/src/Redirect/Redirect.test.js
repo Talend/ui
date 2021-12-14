@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import AppLoader from '@talend/react-components/lib/AppLoader';
 import Redirect from './Redirect.container';
 
 describe('Redirect', () => {
