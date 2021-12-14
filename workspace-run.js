@@ -66,7 +66,7 @@ const script = process.argv[2];
 const scriptArgs = process.argv.slice(3);
 
 function consume(cmds) {
-	if (cmds.length > 0) {
+	if (cmds.length > 0 && !process.env.EXECUTE_PARALLEL) {
 		const cmd = cmds.shift();
 		run(cmd, { verbose: true })
 			.then(() => consume(cmds))
@@ -77,6 +77,10 @@ function consume(cmds) {
 					process.exit(exitCode);
 				}
 			});
+	} else if (process.env.EXECUTE_PARALLEL) {
+		Promise.all(cmds.map(cmd => run(cmd, { verbose: false }))).finally(() =>
+			process.exit(exitCode),
+		);
 	} else {
 		process.exit(exitCode);
 	}
