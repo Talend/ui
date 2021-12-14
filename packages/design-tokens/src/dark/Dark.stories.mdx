@@ -1,0 +1,207 @@
+import { Meta, ColorPalette, ColorItem, Typeset } from '@storybook/addon-docs';
+
+import dict from './dictionary';
+
+<Meta title="Dark theme" />
+
+export const groupBy = (collection, property) => {
+	return collection.reduce((acc, cur) => {
+		(acc[cur[property]] = acc[cur[property]] || []).push(cur);
+		return acc;
+	}, {});
+};
+
+<div className="categories">
+	{Object.entries(groupBy(dict, 'type')).map(([type, tokens], index) => (
+		<div className="category">
+			<h2 className="category__heading">{type}</h2>
+			<div className="category__body">
+				{type === 'border' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<hr
+									style={{
+										height: '5rem',
+										width: '5rem',
+										border: token.value,
+									}}
+								></hr>
+							</dd>,
+						])}
+					</dl>
+				)}
+				{type === 'breakpoint' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<hr
+									style={{
+										width: token.value,
+										borderColor: 'hsla(359,100%,71%,1)',
+									}}
+								></hr>
+							</dd>,
+						])}
+					</dl>
+				)}
+				{type === 'color' &&
+					Object.entries(
+						tokens.reduce((acc, curr) => {
+							const path = curr.name;
+							if (['Active', 'Hover'].some(state => path.endsWith(state))) {
+								const arrayKey = path.replace('Active', '').replace('Hover', '');
+								acc[arrayKey] = (acc[arrayKey] || []).concat([curr]);
+							} else {
+								acc[path] = [curr];
+							}
+							console.log(acc, path, curr.value);
+							return acc;
+						}, {}),
+					).map(([name, values], key) => {
+						return (
+							<ColorPalette>
+								<ColorItem
+									title={name}
+									colors={values.reduce((acc, curr) => {
+										acc[curr.name] = curr.value;
+										return acc;
+									}, {})}
+								/>
+							</ColorPalette>
+						);
+					})}
+				{type === 'typography' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<div
+									style={{
+										font: token.value,
+									}}
+								>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								</div>
+							</dd>,
+						])}
+					</dl>
+				)}
+				{type === 'gradient' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<div
+									style={{
+										height: '5rem',
+										width: '100%',
+										background: token.value,
+										backgroundSize: 'contain',
+										backgroundRepeat: 'no-repeat',
+									}}
+								></div>
+							</dd>,
+						])}
+					</dl>
+				)}
+				{type === 'branding' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<div
+									style={{
+										height: '5rem',
+										width: '5rem',
+										background: token.value,
+										backgroundSize: 'contain',
+										backgroundRepeat: 'no-repeat',
+									}}
+								></div>
+							</dd>,
+						])}
+					</dl>
+				)}
+				{type === 'measure' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<div
+									style={{
+										height: '1rem',
+										width: token.value,
+										background: '#EFEFEF',
+									}}
+								></div>
+							</dd>,
+						])}
+					</dl>
+				)}
+				{type === 'opacity' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<div
+									style={{
+										height: '1rem',
+										background: '#EFEFEF',
+									}}
+								>
+									<div
+										style={{
+											height: '1rem',
+											opacity: token.value,
+											background: 'hsla(359,100%,71%,1)',
+										}}
+									>
+										LOL
+									</div>
+								</div>
+							</dd>,
+						])}
+					</dl>
+				)}
+				{type === 'radius' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<div
+									style={{
+										height: '5rem',
+										width: '5rem',
+										background: '#EFEFEF',
+										borderRadius: token.value,
+									}}
+								></div>
+							</dd>,
+						])}
+					</dl>
+				)}
+				{type === 'shadow' && (
+					<dl>
+						{tokens.map((token, key) => [
+							<dt>{token.name}</dt>,
+							<dd>
+								<div
+									style={{
+										height: '5rem',
+										width: '5rem',
+										background: '#EFEFEF',
+										borderRadius: '4px',
+										boxShadow: token.value,
+									}}
+								></div>
+							</dd>,
+						])}
+					</dl>
+				)}
+			</div>
+		</div>
+	))}
+</div>
