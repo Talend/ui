@@ -29,7 +29,7 @@ module.exports = ({ config }) => {
 			{
 				loader: 'css-loader',
 				options: {
-					sourceMap: true,
+					sourceMap: false,
 					modules: {
 						localIdentName: '[name]__[local]___[hash:base64:5]',
 					},
@@ -46,7 +46,7 @@ module.exports = ({ config }) => {
 				loader: 'sass-loader',
 				options: {
 					prependData: SASS_DATA,
-					sourceMap: true,
+					sourceMap: false,
 				},
 			},
 		],

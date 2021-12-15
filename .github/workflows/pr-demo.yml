@@ -23,6 +23,12 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
+      - name: cache for storybook
+        uses: actions/cache@v2
+        with:
+          path: packages/*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
       - name: Install and build
         run: |
           yarn install --frozen-lockfile
