@@ -24,3 +24,7 @@ Cypress.Commands.add('getByTest', (selector, ...args) => {
 Cypress.Commands.add('getByRole', (selector, ...args) => {
 	return cy.get(`[role="${selector}"]`, ...args);
 });
+
+Cypress.Commands.add('getByFeature', (selector, ...args) => {
+	return cy.get(`[data-feature="${selector}"]`, ...args);
+});

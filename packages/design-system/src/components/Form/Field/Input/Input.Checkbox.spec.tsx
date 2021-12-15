@@ -6,7 +6,7 @@ import * as Stories from './Input.Checkbox.stories';
 const { DataFeature } = composeStories(Stories);
 
 describe('Checkbox', () => {
-	it('Should set data-feature label', () => {
+	it('Should set data-feature on label', () => {
 		cy.mount(<DataFeature />);
 
 		cy.getByFeature('my.prefix.enable').click();
