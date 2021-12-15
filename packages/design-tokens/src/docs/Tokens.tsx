@@ -134,7 +134,7 @@ const BreakpointTokens = ({ tokens, filter }: TokensProps) => (
 	</DefinitionListTokens>
 );
 
-const Color = ({ color }) => (
+const Color = ({ color }: { color: ColorToken }) => (
 	<div>
 		<small>{getDisplayName(color?.name)}</small>
 		<br />
@@ -142,7 +142,7 @@ const Color = ({ color }) => (
 	</div>
 );
 
-const ColorCard = ({ icon, color, background, border }) => (
+const ColorCard = ({ icon, color }: { icon: ColorToken, color: ColorToken}) => (
 	<div className={S.colorContent} style={{ color: color?.value}}>
 		<div>
 			<span
@@ -228,12 +228,12 @@ const ColorTokens = ({ tokens, filter }: TokensProps) => {
 									>
 											<Color color={backgroundColor} />
 
-											<ColorCard icon={iconColor} color={textColor} background={backgroundColor} border={borderColor} />
+											<ColorCard icon={iconColor} color={textColor} />
 
 											{(hasSemanticColor && ! hasSemanticBackground) && (
 												<>
-													<ColorCard icon={iconHover} color={colorHover} background={backgroundHover} border={borderHover} />
-													<ColorCard icon={iconActive} color={colorActive} background={backgroundActive} border={borderActive} />
+													<ColorCard icon={iconHover} color={colorHover}  />
+													<ColorCard icon={iconActive} color={colorActive} />
 												</>
 											)}
 
