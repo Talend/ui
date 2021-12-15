@@ -33,10 +33,6 @@ figure {
 	width: 100%;
 }
 
-.image {
-	min-width: 25%;
-}
-
 figcaption {
 	text-align: end;
 	width: inherit;
@@ -48,4 +44,78 @@ figcaption dd {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+}
+
+.border {
+	width: 100%;
+}
+
+.branding {
+	height: 100%;
+	min-width: 25%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.breakpoint {
+	border-color: hsla(359, 100%, 71%, 1);
+}
+.colorGrid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+	font-size: xx-small;
+}
+.colorBackground {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	width: 100%;
+	color: inherit;
+	background: transparent;
+	border: 2px solid transparent;
+	border-radius: 4px;
+}
+.colorContent {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+.colorIcon {
+	display: inline-block;
+	height: 2rem;
+	width: 2rem;
+	background: currentColor;
+	border-radius: 50%;
+}
+.colorText {
+	display: inline-block;
+	height: 0.5rem;
+	width: 5rem;
+	background: currentColor;
+	border-radius: 4px;
+}
+.gradient {
+	height: 5rem;
+	width: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.measure {
+	height: 100%;
+	background: #efefef;
+}
+.radius {
+	height: 100%;
+	width: 5rem;
+	background: #efefef;
+}
+.shadow {
+	height: 5rem;
+	width: 5rem;
+	background: #efefef;
+	border-radius: 4px;
+}
+.opacity {
+	height: 1rem;
+	background: #efefef;
 }

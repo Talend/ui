@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react';
 
-import {ColorToken, Dictionary, Token, TokenType } from '../types';
+import {  Dictionary, Token, TokenType } from '../types';
 
 import S from './Tokens.scss';
 
@@ -15,6 +15,8 @@ type PropsWithToken = {
 	token: Token;
 };
 
+const tShirtSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
+
 const groupByType = (collection: Dictionary) => {
 	return collection.reduce(
 		(acc, cur) => {
@@ -26,11 +28,12 @@ const groupByType = (collection: Dictionary) => {
 };
 
 const getDisplayName = (name: string) => {
-	const nameArray = name.replace('coral', '').split(/(?=[A-Z])/);
+	if (!name) return '';
+	const nameArray = name.replace(/^coral/i, '').replace(/^color/i, '').split(/(?=[A-Z])/);
 	return nameArray
 		.map((word: string, index: number, words: string[]) => {
-			let adapted = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'limit'].some(
-				size => word.toLocaleLowerCase() === size,
+			let adapted = tShirtSizes.some(
+				tShirtSize => word.toLocaleLowerCase() === tShirtSize,
 			)
 				? word.toLocaleUpperCase()
 				: word.toLocaleLowerCase();
@@ -44,7 +47,8 @@ const getDisplayName = (name: string) => {
 		.join('');
 };
 
-const getCssName = (name: string) => {
+const getCssName = (name?: string) => {
+	if (!name) return '';
 	const nameArray = name.split(/(?=[A-Z])/);
 	return `--${  nameArray
 		.map((word: string, index: number, words: string[]) => {
@@ -81,8 +85,8 @@ const BorderTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
 			<hr
+				className={S.border}
 				style={{
-					width: '100%',
 					border: token.value,
 				}}
 			/>
@@ -94,13 +98,9 @@ const BrandingTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
 			<div
-				className={S.image}
+				className={S.branding}
 				style={{
-					height: '100%',
-					width: '5rem',
-					background: token.value,
-					backgroundSize: 'contain',
-					backgroundRepeat: 'no-repeat',
+					backgroundImage: token.value,
 				}}
 			/>
 		)}
@@ -111,9 +111,9 @@ const BreakpointTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
 			<hr
+				className={S.breakpoint}
 				style={{
 					width: token.value,
-					borderColor: 'hsla(359,100%,71%,1)',
 				}}
 			/>
 		)}
@@ -121,91 +121,578 @@ const BreakpointTokens = ({ tokens, filter }: TokensProps) => (
 );
 
 const ColorTokens = ({ tokens, filter }: TokensProps) => {
+	// @ts-ignore
 	return (
-		<>
-			{['neutral', 'accent', 'danger', 'warning', 'success', 'assistive', 'beta', 'charts'].map(
-				category => {
-					return Object.entries(
-						tokens
-							.filter((token: Token) =>
-								token.name.toLocaleLowerCase().startsWith(`coralcolor${category}`),
-							)
-							.reduce(
-								(acc:Record<string, Token[]>, curr: Token) => {
-									const nameArr = curr.name.split(/(?=[A-Z])/);
-									const path = nameArr.splice(4, nameArr.length).join('');
-									acc[`${category}${path}`] = (acc[`${category}${path}`] || []).concat([curr]);
-									return acc;
-								},
-								{},
-							),
-					)
-						.sort((a,b) => a[0].localeCompare(b[0]))
-						.map(([name, values], key) => {
-						// console.log(name, values);
+		<div className={S.colorGrid}>
+			{
+				[
+					{
+						icon: 'NeutralIcon',
+						color:  'NeutralText',
+						background: 'NeutralBackground',
+						border: 'NeutralBorder',
+					},
+					{
+						icon: 'NeutralIcon',
+						color:  'NeutralText',
+						background: 'NeutralBackgroundMedium',
+						border: 'NeutralBorder',
+					},
+					{
+						icon: 'NeutralIcon',
+						color:  'NeutralText',
+						background: 'NeutralBackgroundStrong',
+						border: 'NeutralBorder',
+					},
+					{},
+					{
+						icon: 'NeutralIconWeak',
+						color:  'NeutralTextWeak',
+						background: 'NeutralBackground',
+						border: 'NeutralBorderWeak',
+					},
+					{
+						icon: 'NeutralIconWeak',
+						color:  'NeutralTextWeak',
+						background: 'NeutralBackgroundMedium',
+						border: 'NeutralBorderWeak',
+					},
+					{
+						icon: 'NeutralIconWeak',
+						color:  'NeutralTextWeak',
+						background: 'NeutralBackgroundStrong',
+						border: 'NeutralBorderWeak',
+					},
+					{},
+					{
+						icon: 'NeutralIcon',
+						color:  'NeutralText',
+						background: 'NeutralBackground',
+						border: 'NeutralBorderStrong',
+					},
+					{
+						icon: 'NeutralIcon',
+						color:  'NeutralText',
+						background: 'NeutralBackgroundMedium',
+						border: 'NeutralBorderStrong',
+					},
+					{
+						icon: 'NeutralIcon',
+						color:  'NeutralText',
+						background: 'NeutralBackgroundStrong',
+						border: 'NeutralBorderStrong',
+					},
+					{},
+					{
+						icon: 'NeutralIconDisabled',
+						color:  'NeutralTextDisabled',
+						background: 'NeutralBackground',
+						border: 'NeutralBorderDisabled',
+					},
+					{
+						icon: 'NeutralIconDisabled',
+						color:  'NeutralTextDisabled',
+						background: 'NeutralBackgroundMedium',
+						border: 'NeutralBorderDisabled',
+					},
+					{
+						icon: 'NeutralIconDisabled',
+						color:  'NeutralTextDisabled',
+						background: 'NeutralBackgroundStrong',
+						border: 'NeutralBorderDisabled',
+					},
+					{
+						icon: 'NeutralIconDisabled',
+						color:  'NeutralTextDisabled',
+						background: 'NeutralBackgroundDisabled',
+						border: 'NeutralBorderDisabled',
+					},
+					{
+						icon: 'AccentIcon',
+						color:  'AccentText',
+						background: 'NeutralBackground',
+						border: 'AccentBorder',
+						withStates: true,
+					},
+					{
+						icon: 'AccentIcon',
+						color:  'AccentText',
+						background: 'NeutralBackgroundMedium',
+						border: 'AccentBorder',
+						withStates: true,
+					},
+					{
+						icon: 'AccentIcon',
+						color:  'AccentText',
+						background: 'NeutralBackgroundStrong',
+						border: 'AccentBorder',
+						withStates: true,
+					},
+					{},
+					{
+						icon: 'DangerIcon',
+						color:  'DangerText',
+						background: 'NeutralBackground',
+						border: 'DangerBorder',
+						withStates: true,
+					},
+					{
+						icon: 'DangerIcon',
+						color:  'DangerText',
+						background: 'NeutralBackgroundMedium',
+						border: 'DangerBorder',
+						withStates: true,
+					},
+					{
+						icon: 'DangerIcon',
+						color:  'DangerText',
+						background: 'NeutralBackgroundStrong',
+						border: 'DangerBorder',
+						withStates: true,
+					},
+					{},
+					{
+						icon: 'WarningIcon',
+						color:  'WarningText',
+						background: 'NeutralBackground',
+						border: 'WarningBorder',
+						withStates: true,
+					},
+					{
+						icon: 'WarningIcon',
+						color:  'WarningText',
+						background: 'NeutralBackgroundMedium',
+						border: 'WarningBorder',
+						withStates: true,
+					},
+					{
+						icon: 'WarningIcon',
+						color:  'WarningText',
+						background: 'NeutralBackgroundStrong',
+						border: 'WarningBorder',
+						withStates: true,
+					},
+					{},
+					{
+						icon: 'SuccessIcon',
+						color:  'SuccessText',
+						background: 'NeutralBackground',
+						border: 'SuccessBorder',
+						withStates: true,
+					},
+					{
+						icon: 'SuccessIcon',
+						color:  'SuccessText',
+						background: 'NeutralBackgroundMedium',
+						border: 'SuccessBorder',
+						withStates: true,
+					},
+					{
+						icon: 'SuccessIcon',
+						color:  'SuccessText',
+						background: 'NeutralBackgroundStrong',
+						border: 'SuccessBorder',
+						withStates: true,
+					},
+					{},
+					{
+						icon: 'BetaIcon',
+						color:  'BetaText',
+						background: 'NeutralBackground',
+						border: 'BetaBorder',
+						withStates: true,
+					},
+					{
+						icon: 'BetaIcon',
+						color:  'BetaText',
+						background: 'NeutralBackgroundMedium',
+						border: 'BetaBorder',
+						withStates: true,
+					},
+					{
+						icon: 'BetaIcon',
+						color:  'BetaText',
+						background: 'NeutralBackgroundStrong',
+						border: 'BetaBorder',
+						withStates: true,
+					},
+					{},
+					{
+						icon: 'AccentIconStrong',
+						color:  'AccentTextStrong',
+						background: 'AccentBackground',
+						border: 'AccentBorder',
+					},
+					{
+						icon: 'AccentIconWeak',
+						color:  'AccentTextWeak',
+						background: 'AccentBackgroundStrong',
+						border: 'AccentBorder',
+					},
+					{
+						icon: 'AccentIcon',
+						color:  'AccentText',
+						background: 'AccentBackgroundWeak',
+						border: 'AccentBorder',
+					},
+					{},
+					{
+							icon: 'AccentIconStrong',
+						color:  'AccentTextStrong',
+						background: 'AccentBackgroundHover',
+						border: 'AccentBorder',
+					},
+					{
+						icon: 'AccentIconWeakHover',
+						color:  'AccentTextWeakHover',
+						background: 'AccentBackgroundStrongHover',
+						border: 'AccentBorderHover',
+					},
+					{
+						icon: 'AccentIconHover',
+						color:  'AccentTextHover',
+						background: 'AccentBackgroundWeakHover',
+						border: 'AccentBorderHover',
+					},
+					{},
+					{
+						icon: 'AccentIconStrong',
+						color:  'AccentTextStrong',
+						background: 'AccentBackgroundActive',
+						border: 'AccentBorderActive',
+					},
+					{
+						icon: 'AccentIconWeakActive',
+						color:  'AccentTextWeakActive',
+						background: 'AccentBackgroundStrongActive',
+						border: 'AccentBorderActive',
+					},
+					{
+						icon: 'AccentIconActive',
+						color:  'AccentTextActive',
+						background: 'AccentBackgroundWeakActive',
+						border: 'AccentBorderActive',
+					},
+					{},
+					{
+						icon: 'DangerIconStrong',
+						color:  'DangerTextStrong',
+						background: 'DangerBackground',
+						border: 'DangerBorder',
+					},
+					{
+						icon: 'DangerIconWeak',
+						color:  'DangerTextWeak',
+						background: 'DangerBackgroundStrong',
+						border: 'DangerBorder',
+					},
+					{
+						icon: 'DangerIcon',
+						color:  'DangerText',
+						background: 'DangerBackgroundWeak',
+						border: 'DangerBorder',
+					},
+					{},
+					{
+						icon: 'DangerIconStrong',
+						color:  'DangerTextStrong',
+						background: 'DangerBackgroundHover',
+						border: 'DangerBorder',
+					},
+					{
+						icon: 'DangerIconWeakHover',
+						color:  'DangerTextWeakHover',
+						background: 'DangerBackgroundStrongHover',
+						border: 'DangerBorderHover',
+					},
+					{
+						icon: 'DangerIconHover',
+						color:  'DangerTextHover',
+						background: 'DangerBackgroundWeakHover',
+						border: 'DangerBorderHover',
+					},
+					{},
+					{
+						icon: 'DangerIconStrong',
+						color:  'DangerTextStrong',
+						background: 'DangerBackgroundActive',
+						border: 'DangerBorderActive',
+					},
+					{
+						icon: 'DangerIconWeakActive',
+						color:  'DangerTextWeakActive',
+						background: 'DangerBackgroundStrongActive',
+						border: 'DangerBorderActive',
+					},
+					{
+						icon: 'DangerIconActive',
+						color:  'DangerTextActive',
+						background: 'DangerBackgroundWeakActive',
+						border: 'DangerBorderActive',
+					},
+					{},
+					{
+						icon: 'SuccessIconStrong',
+						color:  'SuccessTextStrong',
+						background: 'SuccessBackground',
+						border: 'SuccessBorder',
+					},
+					{
+						icon: 'SuccessIconWeak',
+						color:  'SuccessTextWeak',
+						background: 'SuccessBackgroundStrong',
+						border: 'SuccessBorder',
+					},
+					{
+						icon: 'SuccessIcon',
+						color:  'SuccessText',
+						background: 'SuccessBackgroundWeak',
+						border: 'SuccessBorder',
+					},
+					{},
+					{
+						icon: 'SuccessIconStrong',
+						color:  'SuccessTextStrong',
+						background: 'SuccessBackgroundHover',
+						border: 'SuccessBorder',
+					},
+					{
+						icon: 'SuccessIconWeakHover',
+						color:  'SuccessTextWeakHover',
+						background: 'SuccessBackgroundStrongHover',
+						border: 'SuccessBorderHover',
+					},
+					{
+						icon: 'SuccessIconHover',
+						color:  'SuccessTextHover',
+						background: 'SuccessBackgroundWeakHover',
+						border: 'SuccessBorderHover',
+					},
+					{},
+					{
+						icon: 'SuccessIconStrong',
+						color:  'SuccessTextStrong',
+						background: 'SuccessBackgroundActive',
+						border: 'SuccessBorderActive',
+					},
+					{
+						icon: 'SuccessIconWeakActive',
+						color:  'SuccessTextWeakActive',
+						background: 'SuccessBackgroundStrongActive',
+						border: 'SuccessBorderActive',
+					},
+					{
+						icon: 'SuccessIconActive',
+						color:  'SuccessTextActive',
+						background: 'SuccessBackgroundWeakActive',
+						border: 'SuccessBorderActive',
+					},
+					{},
 
-						const icon = (values as ColorToken[]).find(token => token.name.includes('Icon'));
-						const color = (values as ColorToken[]).find(token => token.name.includes('Text'));
-						const background = (values as ColorToken[]).find(token => token.name.includes('Background'));
-						const border = (values as ColorToken[]).find(token => token.name.includes('Border'));
+					{
+						icon: 'WarningIconStrong',
+						color:  'WarningTextStrong',
+						background: 'WarningBackground',
+						border: 'WarningBorder',
+					},
+					{
+						icon: 'WarningIconWeak',
+						color:  'WarningTextWeak',
+						background: 'WarningBackgroundStrong',
+						border: 'WarningBorder',
+					},
+					{
+						icon: 'WarningIcon',
+						color:  'WarningText',
+						background: 'WarningBackgroundWeak',
+						border: 'WarningBorder',
+					},
+					{},
 
-						return (
-							<dl key={key}>
-								{(!filter.length || name.toLocaleLowerCase().includes(filter.toLocaleString())) && [
-								<dt>{getDisplayName(name)}</dt>,
-								<dd>
-									<figure>
-										<div style={{
-											display: 'flex',
-											alignItems: 'center',
-											gap: '1rem',
-											padding: '1rem',
-											width: '100%',
-											color: color?.value || 'transparent',
-											background: background?.value || 'transparent',
-											border: `solid ${border?.value || 'transparent'}`,
-											borderRadius: '4px'
-										}}
-										>
-											<span style={{
-												display: 'inline-block',
-												height: '2rem',
-												width: '2rem',
-												background: icon?.value || 'currentColor',
-												borderRadius: '50%',
-											}}
-											/>
-											<span>text</span>
-										</div>
-										<figcaption>
-											<dl>
-												{icon && <div>
-													<dt>{getCssName(icon.name)}</dt>
-													<dd>{icon.hex}</dd>
-                     </div>}
-												{color && <div>
-													<dt>{getCssName(color.name)}</dt>
-													<dd>{color.hex}</dd>
-                      </div>}
-												{background && <div>
-													<dt>{getCssName(background.name)}</dt>
-													<dd>{background.hex}</dd>
-                           </div>}
-												{border && <div>
-													<dt>{getCssName(border.name)}</dt>
-													<dd>{border.hex}</dd>
-                       </div>}
-											</dl>
-										</figcaption>
-									</figure>
-								</dd>
-                                                                                           ]}
-							</dl>
-						);
-					});
-				},
-			)}
-		</>
+					{
+						icon: 'WarningIconStrong',
+						color:  'WarningTextStrong',
+						background: 'WarningBackgroundHover',
+						border: 'WarningBorder',
+					},
+					{
+						icon: 'WarningIconWeakHover',
+						color:  'WarningTextWeakHover',
+						background: 'WarningBackgroundStrongHover',
+						border: 'WarningBorderHover',
+					},
+					{
+						icon: 'WarningIconHover',
+						color:  'WarningTextHover',
+						background: 'WarningBackgroundWeakHover',
+						border: 'WarningBorderHover',
+					},
+					{},
+					{
+						icon: 'WarningIconStrong',
+						color:  'WarningTextStrong',
+						background: 'WarningBackgroundActive',
+						border: 'WarningBorderActive',
+					},
+					{
+						icon: 'WarningIconWeakActive',
+						color:  'WarningTextWeakActive',
+						background: 'WarningBackgroundStrongActive',
+						border: 'WarningBorderActive',
+					},
+					{
+						icon: 'WarningIconActive',
+						color:  'WarningTextActive',
+						background: 'WarningBackgroundWeakActive',
+						border: 'WarningBorderActive',
+					},
+					{},
+					{
+						icon: 'BetaIconStrong',
+						color:  'BetaTextStrong',
+						background: 'BetaBackground',
+						border: 'BetaBorder',
+					},
+					{
+						icon: 'BetaIconWeak',
+						color:  'BetaTextWeak',
+						background: 'BetaBackgroundStrong',
+						border: 'BetaBorder',
+					},
+					{
+						icon: 'BetaIcon',
+						color:  'BetaText',
+						background: 'BetaBackgroundWeak',
+						border: 'BetaBorder',
+					},
+					{},
+					{
+						icon: 'BetaIconStrong',
+						color:  'BetaTextStrong',
+						background: 'BetaBackgroundHover',
+						border: 'BetaBorder',
+					},
+					{
+						icon: 'BetaIconWeakHover',
+						color:  'BetaTextWeakHover',
+						background: 'BetaBackgroundStrongHover',
+						border: 'BetaBorderHover',
+					},
+					{
+						icon: 'BetaIconHover',
+						color:  'BetaTextHover',
+						background: 'BetaBackgroundWeakHover',
+						border: 'BetaBorderHover',
+					},
+					{},
+					{
+						icon: 'BetaIconStrong',
+						color:  'BetaTextStrong',
+						background: 'BetaBackgroundActive',
+						border: 'BetaBorderActive',
+					},
+					{
+						icon: 'BetaIconWeakActive',
+						color:  'BetaTextWeakActive',
+						background: 'BetaBackgroundStrongActive',
+						border: 'BetaBorderActive',
+					},
+					{
+						icon: 'BetaIconActive',
+						color:  'BetaTextActive',
+						background: 'BetaBackgroundWeakActive',
+						border: 'BetaBorderActive',
+					},
+					{},
+					{
+						icon: 'AssistiveIcon',
+						color:  'AssistiveText',
+						background: 'AssistiveBackground',
+						border: 'AssistiveBorder',
+					},
+					{},
+					{},
+					{},
+					{
+						background: 'NeutralBackground',
+						border: 'AssistiveBorderFocus',
+					},
+					{
+						background: 'NeutralBackgroundMedium',
+						border: 'AssistiveBorderFocus',
+					},
+					{
+						background: 'NeutralBackgroundStrong',
+						border: 'AssistiveBorderFocus',
+					},
+					{},
+				].map(({icon: iconK, color: colorK, background: backgroundK, border:borderK, withStates}, key) => {
+					if (!backgroundK) {
+						return <div />;
+					}
+					const icon = tokens.find(token => token.name.endsWith(iconK));
+					const iconHover = tokens.find(token => token.name.endsWith(`${iconK}Hover`));
+					const iconActive = tokens.find(token => token.name.endsWith(`${iconK}Active`));
+					const color = tokens.find(token => token.name.endsWith(colorK));
+					const colorHover = tokens.find(token => token.name.endsWith(`${colorK}Hover`));
+					const colorActive = tokens.find(token => token.name.endsWith(`${colorK}Active`));
+					const background = tokens.find(token => token.name.endsWith(backgroundK));
+					const border = tokens.find(token => token.name.endsWith(borderK));
+					return (
+						<div
+							key={key}
+							className={S.colorBackground}
+							style={{
+								color: `${color?.value}`,
+								background: `${background?.value}`,
+								borderColor: `${border?.value}`
+							}}
+						>
+							<small>{getDisplayName(background?.name)}</small>
+							<div className={S.colorContent}>
+													<span
+														className={S.colorIcon}
+														style={{
+															background: `${icon?.value}`
+														}}
+													/><small>{getDisplayName(icon?.name)}</small>
+								<span
+									className={S.colorText}
+								><small>{getDisplayName(color?.name)}</small>
+        </span>
+							</div>
+							{withStates && <>
+							<div className={S.colorContent} style={{ color: colorHover?.value}}>
+													<span
+														className={S.colorIcon}
+														style={{
+															background: `${iconHover?.value}`
+														}}
+													/><small>{getDisplayName(iconHover?.name)}</small>
+								<span
+									className={S.colorText}
+								><small>{getDisplayName(colorHover?.name)}</small>
+        </span>
+							</div>
+							<div className={S.colorContent} style={{ color: colorActive?.value}}>
+													<span
+														className={S.colorIcon}
+														style={{
+															background: `${iconActive?.value}`
+														}}
+													/><small>{getDisplayName(iconActive?.name)}</small>
+								<span
+									className={S.colorText}
+								><small>{getDisplayName(colorActive?.name)}</small>
+        </span>
+							</div>
+                      </>}
+							<small>{getDisplayName(border?.name)}</small>
+						</div>
+					);
+				})
+			}
+		</div>
 	);
 };
 
@@ -213,14 +700,42 @@ const GradientTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
 			<div
+				className={S.gradient}
 				style={{
-					height: '5rem',
-					width: '100%',
 					background: token.value,
-					backgroundSize: 'contain',
-					backgroundRepeat: 'no-repeat',
 				}}
 			/>
+		)}
+	</DefinitionListTokens>
+);
+
+const MeasureTokens = ({ tokens, filter }: TokensProps) => (
+	<DefinitionListTokens filter={filter} tokens={tokens}>
+		{({ token }: PropsWithToken) => (
+			<div
+				className={S.measure}
+				style={{
+					width: token.value,
+				}}
+			/>
+		)}
+	</DefinitionListTokens>
+);
+
+const OpacityTokens = ({ tokens, filter }: TokensProps) => (
+	<DefinitionListTokens filter={filter} tokens={tokens}>
+		{({ token }: PropsWithToken) => (
+			<div
+				className={S.opacity}
+			>
+				<div
+					style={{
+						opacity: token.value,
+					}}
+				>
+					Lorem ipsum
+				</div>
+			</div>
 		)}
 	</DefinitionListTokens>
 );
@@ -229,10 +744,8 @@ const RadiusTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
 			<div
+				className={S.radius}
 				style={{
-					height: '100%',
-					width: '5rem',
-					background: '#EFEFEF',
 					borderRadius: token.value,
 				}}
 			/>
@@ -244,53 +757,16 @@ const ShadowTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
 			<div
+				className={S.shadow}
 				style={{
-					height: '5rem',
-					width: '5rem',
-					background: '#EFEFEF',
-					borderRadius: '4px',
 					boxShadow: token.value,
 				}}
 			/>
 		)}
 	</DefinitionListTokens>
 );
-export const MeasureTokens = ({ tokens, filter }: TokensProps) => (
-	<DefinitionListTokens filter={filter} tokens={tokens}>
-		{({ token }: PropsWithToken) => (
-			<div
-				style={{
-					height: '100%',
-					width: token.value,
-					background: '#EFEFEF',
-				}}
-			/>
-		)}
-	</DefinitionListTokens>
-);
-export const OpacityTokens = ({ tokens, filter }: TokensProps) => (
-	<DefinitionListTokens filter={filter} tokens={tokens}>
-		{({ token }: PropsWithToken) => (
-			<div
-				style={{
-					height: '1rem',
-					background: '#EFEFEF',
-				}}
-			>
-				<div
-					style={{
-						height: '1rem',
-						opacity: token.value,
-						background: 'hsla(359,100%,71%,1)',
-					}}
-				>
-					Lorem ipsum
-				</div>
-			</div>
-		)}
-	</DefinitionListTokens>
-);
-export const TypographyTokens = ({ tokens, filter }: TokensProps) => (
+
+const TypographyTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
 			<div
