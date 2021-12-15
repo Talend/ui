@@ -18,7 +18,7 @@
     "test": "EXECUTE_PARALLEL=true cross-env TZ=Europe/Paris node workspace-run.js test --silent",
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris yarn workspaces run test:cov",
-    "test:demo": "EXECUTE_PARALLEL=true node workspace-run.js test:demo",
+    "test:demo": "node workspace-run.js test:demo",
     "test:size": "node size.js",
     "start-components": "yarn workspace @talend/react-components run start",
     "start-containers": "yarn workspace  @talend/react-containers run start",

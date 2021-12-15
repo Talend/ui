@@ -23,6 +23,7 @@ function run(cmd, opts = {}) {
 	if (opts.verbose) {
 		console.log(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')}`);
 	}
+	const start = Date.now();
 	return new Promise((resolve, reject) => {
 		const out = spawn(cmd.name, cmd.args);
 		let stdout = '';
@@ -47,7 +48,12 @@ function run(cmd, opts = {}) {
 				reject(stderr);
 				return;
 			}
-			console.log(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
+			const end = Date.now();
+			console.log(
+				`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code} in ${
+					(end - start) / 1000
+				} seconds`,
+			);
 			resolve(stdout);
 		});
 		out.stdout.on('data', data => {
