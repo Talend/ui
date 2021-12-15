@@ -15,7 +15,7 @@ export interface Token {
 	name: string;
 	type: TokenType;
 	description: string;
-	value: 'hsla(110,50%,70%,1)';
+	value: string;
 }
 
 export interface ColorToken extends Token {
