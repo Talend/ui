@@ -8,10 +8,14 @@ const run = require('./run');
 const script = process.argv[2];
 const scriptArgs = process.argv.slice(3);
 
+const options = {
+	verbose: process.env.VERBOSE,
+};
+
 function consume(cmds) {
 	if (cmds.length > 0 && !process.env.EXECUTE_PARALLEL) {
 		const cmd = cmds.shift();
-		run(cmd, { verbose: true })
+		run(cmd, options)
 			.then(() => consume(cmds))
 			.catch(() => {
 				if (process.env.WORKSPACE_RUN_FAIL === 'no-bail') {
@@ -21,9 +25,7 @@ function consume(cmds) {
 				}
 			});
 	} else if (process.env.EXECUTE_PARALLEL) {
-		Promise.all(cmds.map(cmd => run(cmd, { verbose: false }))).finally(() =>
-			process.exit(run.exitCode),
-		);
+		Promise.all(cmds.map(cmd => run(cmd, options))).finally(() => process.exit(run.exitCode));
 	} else {
 		process.exit(run.exitCode);
 	}

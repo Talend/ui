@@ -1,8 +1,14 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 /* eslint-disable no-console */
-/* eslint-disable-next-line import/no-extraneous-dependencies */
-const spawn = require('cross-spawn');
+
+const os = require('os');
+let spawn = require('child_process').spawn;
+
+if (os.platform() === 'win32') {
+	/* eslint-disable-next-line import/no-extraneous-dependencies */
+	spawn = require('cross-spawn');
+}
 
 /**
  * "yarn workspaces run lint:es" command has an issue with eslint which exit in error.
