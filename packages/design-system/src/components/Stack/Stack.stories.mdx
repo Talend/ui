@@ -1,5 +1,5 @@
-import { Meta, Story } from '@storybook/addon-docs';
-import { FigmaImage, FigmaLink, Use } from '../../docs';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import * as Stories from './Stack.stories';
 
 <Meta title="Components/Stack"/>
 
@@ -81,5 +81,9 @@ function myComponent() {
     )
 }
 ```
+
+<Canvas>
+    <Story story={Stories.Test} />
+</Canvas>
 
 ## Accessibility
