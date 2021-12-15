@@ -6,6 +6,9 @@
     "declaration": true,
     "jsx": "react",
     "target": "ES5",
-    "module": "CommonJs"
+    "module": "CommonJs",
+    "types": [
+      "cypress"
+    ]
   }
 }

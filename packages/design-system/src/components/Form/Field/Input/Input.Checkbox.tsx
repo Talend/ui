@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Checkbox as ReakitCheckbox, unstable_useId as useId } from 'reakit';
 import styled from 'styled-components';
 
@@ -100,6 +100,7 @@ export const SCheckbox = styled(InlineStyle)<{
 
 export type CheckboxProps = InputProps & {
 	checked?: boolean | 'indeterminate' | (string | number)[];
+	'data-feature'?: string;
 };
 
 const Checkbox = React.forwardRef(
@@ -114,6 +115,7 @@ const Checkbox = React.forwardRef(
 			disabled,
 			required,
 			children,
+			'data-feature': dataFeature,
 			...rest
 		}: CheckboxProps,
 		ref: React.Ref<HTMLInputElement>,
@@ -128,7 +130,13 @@ const Checkbox = React.forwardRef(
 
 		return (
 			<SCheckbox readOnly={!!readOnly} checked={!!checkbox.state} disabled={!!disabled}>
-				<label htmlFor={checkboxId} style={readOnly ? { pointerEvents: 'none' } : {}}>
+				<label
+					htmlFor={checkboxId}
+					style={readOnly ? { pointerEvents: 'none' } : {}}
+					data-feature={
+						dataFeature ? `${dataFeature}.${checkbox.state ? 'disable' : 'enable'}` : null
+					}
+				>
 					{/*
 					// ReakitCheckbox is not based on HTMLInputElement despite working like one
 					// @ts-ignore */}
