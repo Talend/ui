@@ -1,7 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react';
 
-import {  Dictionary, Token, TokenType } from '../types';
+import {ColorToken, Dictionary, Token, TokenType} from '../types';
+
+import CompositeColors from './CompositeColors.json';
 
 import S from './Tokens.scss';
 
@@ -14,6 +16,8 @@ type PropsWithToken = {
 	// eslint-disable-next-line react/no-unused-prop-types
 	token: Token;
 };
+
+const SemanticColors = ['Accent', 'Danger', 'Warning', 'Success', 'Beta'];
 
 const tShirtSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
 
@@ -61,10 +65,20 @@ const getCssName = (name?: string) => {
 		.join('')}`;
 };
 
+const TokenSkeleton = () => (
+	<div style={{
+			height: '5rem',
+			width: '5rem',
+			background: '#EFEFEF',
+			borderRadius: '4px',
+		}}
+	/>
+);
+
 const DefinitionListTokens = ({ tokens, filter, children }: TokensProps) => (
 	<dl>
 		{(tokens as Token[]).map(token => (
-			(!filter.length || token.name.toLocaleLowerCase().includes(filter.toLocaleString())) && [
+			(!filter.length || token.name.toLocaleLowerCase().includes(filter.toLocaleString())) ? [
 					<dt>{getDisplayName(token.name)}</dt>,
 					<dd>
 						<figure>
@@ -77,7 +91,7 @@ const DefinitionListTokens = ({ tokens, filter, children }: TokensProps) => (
 							</figcaption>
 						</figure>
 					</dd>
-			]))}
+			] : <TokenSkeleton />))}
 	</dl>
 );
 
@@ -120,574 +134,114 @@ const BreakpointTokens = ({ tokens, filter }: TokensProps) => (
 	</DefinitionListTokens>
 );
 
+const Color = ({ color }) => (
+	<div>
+		<small>{getDisplayName(color?.name)}</small>
+		<br />
+		<small>{color?.hex}</small>
+	</div>
+);
+
+const ColorCard = ({ icon, color, background, border }) => (
+	<div className={S.colorContent} style={{ color: color?.value}}>
+		<div>
+			<span
+				className={S.colorIcon}
+				style={{
+					background: `${icon?.value}`
+				}}
+			/>
+			<Color color={icon} />
+		</div>
+		<div>
+			<span
+				className={S.colorText}
+			/>
+			<Color color={color} />
+		</div>
+	</div>
+);
+
 const ColorTokens = ({ tokens, filter }: TokensProps) => {
-	// @ts-ignore
 	return (
 		<div className={S.colorGrid}>
 			{
-				[
-					{
-						icon: 'NeutralIcon',
-						color:  'NeutralText',
-						background: 'NeutralBackground',
-						border: 'NeutralBorder',
-					},
-					{
-						icon: 'NeutralIcon',
-						color:  'NeutralText',
-						background: 'NeutralBackgroundMedium',
-						border: 'NeutralBorder',
-					},
-					{
-						icon: 'NeutralIcon',
-						color:  'NeutralText',
-						background: 'NeutralBackgroundStrong',
-						border: 'NeutralBorder',
-					},
-					{},
-					{
-						icon: 'NeutralIconWeak',
-						color:  'NeutralTextWeak',
-						background: 'NeutralBackground',
-						border: 'NeutralBorderWeak',
-					},
-					{
-						icon: 'NeutralIconWeak',
-						color:  'NeutralTextWeak',
-						background: 'NeutralBackgroundMedium',
-						border: 'NeutralBorderWeak',
-					},
-					{
-						icon: 'NeutralIconWeak',
-						color:  'NeutralTextWeak',
-						background: 'NeutralBackgroundStrong',
-						border: 'NeutralBorderWeak',
-					},
-					{},
-					{
-						icon: 'NeutralIcon',
-						color:  'NeutralText',
-						background: 'NeutralBackground',
-						border: 'NeutralBorderStrong',
-					},
-					{
-						icon: 'NeutralIcon',
-						color:  'NeutralText',
-						background: 'NeutralBackgroundMedium',
-						border: 'NeutralBorderStrong',
-					},
-					{
-						icon: 'NeutralIcon',
-						color:  'NeutralText',
-						background: 'NeutralBackgroundStrong',
-						border: 'NeutralBorderStrong',
-					},
-					{},
-					{
-						icon: 'NeutralIconDisabled',
-						color:  'NeutralTextDisabled',
-						background: 'NeutralBackground',
-						border: 'NeutralBorderDisabled',
-					},
-					{
-						icon: 'NeutralIconDisabled',
-						color:  'NeutralTextDisabled',
-						background: 'NeutralBackgroundMedium',
-						border: 'NeutralBorderDisabled',
-					},
-					{
-						icon: 'NeutralIconDisabled',
-						color:  'NeutralTextDisabled',
-						background: 'NeutralBackgroundStrong',
-						border: 'NeutralBorderDisabled',
-					},
-					{
-						icon: 'NeutralIconDisabled',
-						color:  'NeutralTextDisabled',
-						background: 'NeutralBackgroundDisabled',
-						border: 'NeutralBorderDisabled',
-					},
-					{
-						icon: 'AccentIcon',
-						color:  'AccentText',
-						background: 'NeutralBackground',
-						border: 'AccentBorder',
-						withStates: true,
-					},
-					{
-						icon: 'AccentIcon',
-						color:  'AccentText',
-						background: 'NeutralBackgroundMedium',
-						border: 'AccentBorder',
-						withStates: true,
-					},
-					{
-						icon: 'AccentIcon',
-						color:  'AccentText',
-						background: 'NeutralBackgroundStrong',
-						border: 'AccentBorder',
-						withStates: true,
-					},
-					{},
-					{
-						icon: 'DangerIcon',
-						color:  'DangerText',
-						background: 'NeutralBackground',
-						border: 'DangerBorder',
-						withStates: true,
-					},
-					{
-						icon: 'DangerIcon',
-						color:  'DangerText',
-						background: 'NeutralBackgroundMedium',
-						border: 'DangerBorder',
-						withStates: true,
-					},
-					{
-						icon: 'DangerIcon',
-						color:  'DangerText',
-						background: 'NeutralBackgroundStrong',
-						border: 'DangerBorder',
-						withStates: true,
-					},
-					{},
-					{
-						icon: 'WarningIcon',
-						color:  'WarningText',
-						background: 'NeutralBackground',
-						border: 'WarningBorder',
-						withStates: true,
-					},
-					{
-						icon: 'WarningIcon',
-						color:  'WarningText',
-						background: 'NeutralBackgroundMedium',
-						border: 'WarningBorder',
-						withStates: true,
-					},
-					{
-						icon: 'WarningIcon',
-						color:  'WarningText',
-						background: 'NeutralBackgroundStrong',
-						border: 'WarningBorder',
-						withStates: true,
-					},
-					{},
-					{
-						icon: 'SuccessIcon',
-						color:  'SuccessText',
-						background: 'NeutralBackground',
-						border: 'SuccessBorder',
-						withStates: true,
-					},
-					{
-						icon: 'SuccessIcon',
-						color:  'SuccessText',
-						background: 'NeutralBackgroundMedium',
-						border: 'SuccessBorder',
-						withStates: true,
-					},
-					{
-						icon: 'SuccessIcon',
-						color:  'SuccessText',
-						background: 'NeutralBackgroundStrong',
-						border: 'SuccessBorder',
-						withStates: true,
-					},
-					{},
-					{
-						icon: 'BetaIcon',
-						color:  'BetaText',
-						background: 'NeutralBackground',
-						border: 'BetaBorder',
-						withStates: true,
-					},
-					{
-						icon: 'BetaIcon',
-						color:  'BetaText',
-						background: 'NeutralBackgroundMedium',
-						border: 'BetaBorder',
-						withStates: true,
-					},
-					{
-						icon: 'BetaIcon',
-						color:  'BetaText',
-						background: 'NeutralBackgroundStrong',
-						border: 'BetaBorder',
-						withStates: true,
-					},
-					{},
-					{
-						icon: 'AccentIconStrong',
-						color:  'AccentTextStrong',
-						background: 'AccentBackground',
-						border: 'AccentBorder',
-					},
-					{
-						icon: 'AccentIconWeak',
-						color:  'AccentTextWeak',
-						background: 'AccentBackgroundStrong',
-						border: 'AccentBorder',
-					},
-					{
-						icon: 'AccentIcon',
-						color:  'AccentText',
-						background: 'AccentBackgroundWeak',
-						border: 'AccentBorder',
-					},
-					{},
-					{
-							icon: 'AccentIconStrong',
-						color:  'AccentTextStrong',
-						background: 'AccentBackgroundHover',
-						border: 'AccentBorder',
-					},
-					{
-						icon: 'AccentIconWeakHover',
-						color:  'AccentTextWeakHover',
-						background: 'AccentBackgroundStrongHover',
-						border: 'AccentBorderHover',
-					},
-					{
-						icon: 'AccentIconHover',
-						color:  'AccentTextHover',
-						background: 'AccentBackgroundWeakHover',
-						border: 'AccentBorderHover',
-					},
-					{},
-					{
-						icon: 'AccentIconStrong',
-						color:  'AccentTextStrong',
-						background: 'AccentBackgroundActive',
-						border: 'AccentBorderActive',
-					},
-					{
-						icon: 'AccentIconWeakActive',
-						color:  'AccentTextWeakActive',
-						background: 'AccentBackgroundStrongActive',
-						border: 'AccentBorderActive',
-					},
-					{
-						icon: 'AccentIconActive',
-						color:  'AccentTextActive',
-						background: 'AccentBackgroundWeakActive',
-						border: 'AccentBorderActive',
-					},
-					{},
-					{
-						icon: 'DangerIconStrong',
-						color:  'DangerTextStrong',
-						background: 'DangerBackground',
-						border: 'DangerBorder',
-					},
-					{
-						icon: 'DangerIconWeak',
-						color:  'DangerTextWeak',
-						background: 'DangerBackgroundStrong',
-						border: 'DangerBorder',
-					},
-					{
-						icon: 'DangerIcon',
-						color:  'DangerText',
-						background: 'DangerBackgroundWeak',
-						border: 'DangerBorder',
-					},
-					{},
-					{
-						icon: 'DangerIconStrong',
-						color:  'DangerTextStrong',
-						background: 'DangerBackgroundHover',
-						border: 'DangerBorder',
-					},
-					{
-						icon: 'DangerIconWeakHover',
-						color:  'DangerTextWeakHover',
-						background: 'DangerBackgroundStrongHover',
-						border: 'DangerBorderHover',
-					},
-					{
-						icon: 'DangerIconHover',
-						color:  'DangerTextHover',
-						background: 'DangerBackgroundWeakHover',
-						border: 'DangerBorderHover',
-					},
-					{},
-					{
-						icon: 'DangerIconStrong',
-						color:  'DangerTextStrong',
-						background: 'DangerBackgroundActive',
-						border: 'DangerBorderActive',
-					},
-					{
-						icon: 'DangerIconWeakActive',
-						color:  'DangerTextWeakActive',
-						background: 'DangerBackgroundStrongActive',
-						border: 'DangerBorderActive',
-					},
-					{
-						icon: 'DangerIconActive',
-						color:  'DangerTextActive',
-						background: 'DangerBackgroundWeakActive',
-						border: 'DangerBorderActive',
-					},
-					{},
-					{
-						icon: 'SuccessIconStrong',
-						color:  'SuccessTextStrong',
-						background: 'SuccessBackground',
-						border: 'SuccessBorder',
-					},
-					{
-						icon: 'SuccessIconWeak',
-						color:  'SuccessTextWeak',
-						background: 'SuccessBackgroundStrong',
-						border: 'SuccessBorder',
-					},
-					{
-						icon: 'SuccessIcon',
-						color:  'SuccessText',
-						background: 'SuccessBackgroundWeak',
-						border: 'SuccessBorder',
-					},
-					{},
-					{
-						icon: 'SuccessIconStrong',
-						color:  'SuccessTextStrong',
-						background: 'SuccessBackgroundHover',
-						border: 'SuccessBorder',
-					},
-					{
-						icon: 'SuccessIconWeakHover',
-						color:  'SuccessTextWeakHover',
-						background: 'SuccessBackgroundStrongHover',
-						border: 'SuccessBorderHover',
-					},
-					{
-						icon: 'SuccessIconHover',
-						color:  'SuccessTextHover',
-						background: 'SuccessBackgroundWeakHover',
-						border: 'SuccessBorderHover',
-					},
-					{},
-					{
-						icon: 'SuccessIconStrong',
-						color:  'SuccessTextStrong',
-						background: 'SuccessBackgroundActive',
-						border: 'SuccessBorderActive',
-					},
-					{
-						icon: 'SuccessIconWeakActive',
-						color:  'SuccessTextWeakActive',
-						background: 'SuccessBackgroundStrongActive',
-						border: 'SuccessBorderActive',
-					},
-					{
-						icon: 'SuccessIconActive',
-						color:  'SuccessTextActive',
-						background: 'SuccessBackgroundWeakActive',
-						border: 'SuccessBorderActive',
-					},
-					{},
-
-					{
-						icon: 'WarningIconStrong',
-						color:  'WarningTextStrong',
-						background: 'WarningBackground',
-						border: 'WarningBorder',
-					},
-					{
-						icon: 'WarningIconWeak',
-						color:  'WarningTextWeak',
-						background: 'WarningBackgroundStrong',
-						border: 'WarningBorder',
-					},
-					{
-						icon: 'WarningIcon',
-						color:  'WarningText',
-						background: 'WarningBackgroundWeak',
-						border: 'WarningBorder',
-					},
-					{},
-
-					{
-						icon: 'WarningIconStrong',
-						color:  'WarningTextStrong',
-						background: 'WarningBackgroundHover',
-						border: 'WarningBorder',
-					},
-					{
-						icon: 'WarningIconWeakHover',
-						color:  'WarningTextWeakHover',
-						background: 'WarningBackgroundStrongHover',
-						border: 'WarningBorderHover',
-					},
-					{
-						icon: 'WarningIconHover',
-						color:  'WarningTextHover',
-						background: 'WarningBackgroundWeakHover',
-						border: 'WarningBorderHover',
-					},
-					{},
-					{
-						icon: 'WarningIconStrong',
-						color:  'WarningTextStrong',
-						background: 'WarningBackgroundActive',
-						border: 'WarningBorderActive',
-					},
-					{
-						icon: 'WarningIconWeakActive',
-						color:  'WarningTextWeakActive',
-						background: 'WarningBackgroundStrongActive',
-						border: 'WarningBorderActive',
-					},
-					{
-						icon: 'WarningIconActive',
-						color:  'WarningTextActive',
-						background: 'WarningBackgroundWeakActive',
-						border: 'WarningBorderActive',
-					},
-					{},
-					{
-						icon: 'BetaIconStrong',
-						color:  'BetaTextStrong',
-						background: 'BetaBackground',
-						border: 'BetaBorder',
-					},
-					{
-						icon: 'BetaIconWeak',
-						color:  'BetaTextWeak',
-						background: 'BetaBackgroundStrong',
-						border: 'BetaBorder',
-					},
-					{
-						icon: 'BetaIcon',
-						color:  'BetaText',
-						background: 'BetaBackgroundWeak',
-						border: 'BetaBorder',
-					},
-					{},
-					{
-						icon: 'BetaIconStrong',
-						color:  'BetaTextStrong',
-						background: 'BetaBackgroundHover',
-						border: 'BetaBorder',
-					},
-					{
-						icon: 'BetaIconWeakHover',
-						color:  'BetaTextWeakHover',
-						background: 'BetaBackgroundStrongHover',
-						border: 'BetaBorderHover',
-					},
-					{
-						icon: 'BetaIconHover',
-						color:  'BetaTextHover',
-						background: 'BetaBackgroundWeakHover',
-						border: 'BetaBorderHover',
-					},
-					{},
-					{
-						icon: 'BetaIconStrong',
-						color:  'BetaTextStrong',
-						background: 'BetaBackgroundActive',
-						border: 'BetaBorderActive',
-					},
-					{
-						icon: 'BetaIconWeakActive',
-						color:  'BetaTextWeakActive',
-						background: 'BetaBackgroundStrongActive',
-						border: 'BetaBorderActive',
-					},
-					{
-						icon: 'BetaIconActive',
-						color:  'BetaTextActive',
-						background: 'BetaBackgroundWeakActive',
-						border: 'BetaBorderActive',
-					},
-					{},
-					{
-						icon: 'AssistiveIcon',
-						color:  'AssistiveText',
-						background: 'AssistiveBackground',
-						border: 'AssistiveBorder',
-					},
-					{},
-					{},
-					{},
-					{
-						background: 'NeutralBackground',
-						border: 'AssistiveBorderFocus',
-					},
-					{
-						background: 'NeutralBackgroundMedium',
-						border: 'AssistiveBorderFocus',
-					},
-					{
-						background: 'NeutralBackgroundStrong',
-						border: 'AssistiveBorderFocus',
-					},
-					{},
-				].map(({icon: iconK, color: colorK, background: backgroundK, border:borderK, withStates}, key) => {
+				CompositeColors.map(({icon: iconK, color: colorK, background: backgroundK, border:borderK}, key) => {
 					if (!backgroundK) {
 						return <div />;
 					}
-					const icon = tokens.find(token => token.name.endsWith(iconK));
-					const iconHover = tokens.find(token => token.name.endsWith(`${iconK}Hover`));
-					const iconActive = tokens.find(token => token.name.endsWith(`${iconK}Active`));
-					const color = tokens.find(token => token.name.endsWith(colorK));
-					const colorHover = tokens.find(token => token.name.endsWith(`${colorK}Hover`));
-					const colorActive = tokens.find(token => token.name.endsWith(`${colorK}Active`));
-					const background = tokens.find(token => token.name.endsWith(backgroundK));
-					const border = tokens.find(token => token.name.endsWith(borderK));
+					const icon = tokens.find((token: ColorToken) => token.name.endsWith(iconK || ''));
+					const iconHover = tokens.find((token: ColorToken) => token.name.endsWith(`${iconK}Hover`));
+					const iconActive = tokens.find((token: ColorToken) => token.name.endsWith(`${iconK}Active`));
+
+					const color = tokens.find((token: ColorToken) => token.name.endsWith(colorK || ''));
+					const colorHover = tokens.find((token: ColorToken) => token.name.endsWith(`${colorK}Hover`));
+					const colorActive = tokens.find((token: ColorToken) => token.name.endsWith(`${colorK}Active`));
+
+					const background = tokens.find((token: ColorToken) => token.name.endsWith(backgroundK));
+					const backgroundHover = tokens.find((token: ColorToken) => token.name.endsWith(`${backgroundK}Hover`));
+					const backgroundActive = tokens.find((token: ColorToken) => token.name.endsWith(`${backgroundK}Active`));
+
+					const border = tokens.find((token: ColorToken) => token.name.endsWith(borderK || ''));
+					const borderHover = tokens.find((token: ColorToken) => token.name.endsWith(`${borderK}Hover`));
+					const borderActive = tokens.find((token: ColorToken) => token.name.endsWith(`${borderK}Active`));
+
+					const hasSemanticColor = SemanticColors.some(semanticColor => colorK?.includes(semanticColor));
+					const hasSemanticBackground = SemanticColors.some(semanticColor => backgroundK?.includes(semanticColor));
+
 					return (
-						<div
-							key={key}
-							className={S.colorBackground}
-							style={{
-								color: `${color?.value}`,
-								background: `${background?.value}`,
-								borderColor: `${border?.value}`
-							}}
-						>
-							<small>{getDisplayName(background?.name)}</small>
-							<div className={S.colorContent}>
-													<span
-														className={S.colorIcon}
-														style={{
-															background: `${icon?.value}`
-														}}
-													/><small>{getDisplayName(icon?.name)}</small>
-								<span
-									className={S.colorText}
-								><small>{getDisplayName(color?.name)}</small>
-        </span>
-							</div>
-							{withStates && <>
-							<div className={S.colorContent} style={{ color: colorHover?.value}}>
-													<span
-														className={S.colorIcon}
-														style={{
-															background: `${iconHover?.value}`
-														}}
-													/><small>{getDisplayName(iconHover?.name)}</small>
-								<span
-									className={S.colorText}
-								><small>{getDisplayName(colorHover?.name)}</small>
-        </span>
-							</div>
-							<div className={S.colorContent} style={{ color: colorActive?.value}}>
-													<span
-														className={S.colorIcon}
-														style={{
-															background: `${iconActive?.value}`
-														}}
-													/><small>{getDisplayName(iconActive?.name)}</small>
-								<span
-									className={S.colorText}
-								><small>{getDisplayName(colorActive?.name)}</small>
-        </span>
-							</div>
-                      </>}
-							<small>{getDisplayName(border?.name)}</small>
+						<div className={S.colorSwatch}>
+							{(hasSemanticBackground ? ['DEFAULT', 'HOVER', 'ACTIVE'] : ['DEFAULT']).map(
+							(state, appendix) => {
+								let iconColor = icon;
+								let textColor = color;
+								let backgroundColor = background;
+								let borderColor = border;
+
+								switch (state) {
+									case 'HOVER':
+										iconColor = iconHover;
+										textColor = colorHover;
+										backgroundColor = backgroundHover;
+										borderColor = borderHover;
+										break;
+									case 'ACTIVE':
+										iconColor = iconActive;
+										textColor = colorActive;
+										backgroundColor = backgroundActive;
+										borderColor = borderActive;
+										break;
+									default:
+										break;
+								}
+
+								return !filter.length || [iconColor, textColor, backgroundColor, borderColor].some(c => c?.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+									||c?.hex.toLocaleLowerCase().includes(filter.toLocaleLowerCase())) ? (
+									<div
+										key={`${key}${appendix}`}
+										className={S.colorBackground}
+											style={{
+												color: `${textColor?.value}`,
+												background: `${backgroundColor?.value}`,
+												borderColor: `${borderColor?.value}`
+											}}
+									>
+											<Color color={backgroundColor} />
+
+											<ColorCard icon={iconColor} color={textColor} background={backgroundColor} border={borderColor} />
+
+											{(hasSemanticColor && ! hasSemanticBackground) && (
+												<>
+													<ColorCard icon={iconHover} color={colorHover} background={backgroundHover} border={borderHover} />
+													<ColorCard icon={iconActive} color={colorActive} background={backgroundActive} border={borderActive} />
+												</>
+											)}
+
+											<Color color={borderColor} />
+									</div>
+								) : <TokenSkeleton />;
+							}
+						)}
 						</div>
 					);
 				})
@@ -802,7 +356,7 @@ const Tokens = ({ dictionary }: { dictionary: Dictionary }) => {
 					</div>
 				</section>
 			))}
-  </div>
+  		</div>
 	);
 };
 
