@@ -1,12 +1,12 @@
 [data-theme="light"] {
     --coral-color-neutral-text: hsla(0,0%,13%,1);
     --coral-color-neutral-text-weak: hsla(0,0%,38%,1);
-    --coral-color-neutral-text-disabled: hsla(0,0%,55%,1);
+    --coral-color-neutral-text-disabled: hsla(0,0%,44%,1);
     --coral-color-neutral-text-inverted: hsla(0,0%,100%,1);
     --coral-color-neutral-background: hsla(0,0%,100%,1);
     --coral-color-neutral-background-medium: hsla(0,0%,97%,1);
-    --coral-color-neutral-background-strong: hsla(0,0%,91%,1);
-    --coral-color-neutral-background-disabled: hsla(0,0%,97%,1);
+    --coral-color-neutral-background-strong: hsla(0,0%,88%,1);
+    --coral-color-neutral-background-disabled: hsla(0,0%,88%,1);
     --coral-color-neutral-border: hsla(0,0%,55%,1);
     --coral-color-neutral-border-weak: hsla(0,0%,82%,1);
     --coral-color-neutral-border-hover: hsla(0,0%,40%,1);
@@ -208,8 +208,9 @@
     --coral-color-charts-color-09-text: hsla(36,36%,5%,1);
     --coral-color-charts-color-09-text-strong: hsla(36,36%,5%,1);
     --coral-color-charts-color-09-text-weak: hsla(35,28%,82%,1);
-    --coral-color-branding-background: linear-gradient(133deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%);    
-    --coral-color-branding-navigation: linear-gradient(133deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%);    
+    --coral-color-neutral-background-heavy: hsla(0,0%,78%,1);
+    --coral-color-branding-background: linear-gradient(145.74deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%);    
+    --coral-color-branding-navigation: linear-gradient(144.29deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%);    
     --coral-size-xxs: 0.4rem;    
     --coral-size-xs: 0.8rem;    
     --coral-size-s: 1.2rem;    
@@ -224,13 +225,13 @@
     --coral-elevation-shadow-danger: 0rem 0.1rem 0.1rem 0rem hsla(359,51%,53%,0.3);    
     --coral-elevation-shadow-warning: 0rem 0.1rem 0.1rem 0rem hsla(22,93%,41%,0.3);    
     --coral-elevation-shadow-beta: 0rem 0.1rem 0.1rem 0rem hsla(281,58%,29%,0.3);    
-    --coral-heading-l: 600 1.8rem/140% 'Source Sans Pro';
+    --coral-heading-l: 400 1.8rem/140% 'Source Sans Pro';
     --coral-paragraph-m: 400 1.4rem/140% 'Source Sans Pro';
-    --coral-paragraph-m-bold: 600 1.4rem/140% 'Source Sans Pro';
+    --coral-paragraph-m-bold: 400 1.4rem/140% 'Source Sans Pro';
     --coral-paragraph-s: 400 1.2rem/140% 'Source Sans Pro';
-    --coral-paragraph-s-bold: 600 1.2rem/140% 'Source Sans Pro';
-    --coral-heading-m: 600 1.6rem/140% 'Source Sans Pro';
-    --coral-heading-s: 600 1.4rem/140% 'Source Sans Pro';
+    --coral-paragraph-s-bold: 400 1.2rem/140% 'Source Sans Pro';
+    --coral-heading-m: 400 1.6rem/140% 'Source Sans Pro';
+    --coral-heading-s: 400 1.4rem/140% 'Source Sans Pro';
     --coral-radius-m: 0.8rem;    
     --coral-radius-l: 1.6rem;    
     --coral-radius-round: 9999.9rem;    
