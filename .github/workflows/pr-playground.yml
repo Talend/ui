@@ -41,7 +41,7 @@ jobs:
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: |
-          surge --project .static --domain "${{ github.event.number }}.talend-playground.surge.sh"
+          surge --project packages/playground/dist --domain "${{ github.event.number }}.talend-playground.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
