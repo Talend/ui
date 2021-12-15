@@ -1,0 +1,51 @@
+section {
+	font-family: 'Source Sans Pro';
+}
+
+section > div > dl {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+section > div > dl > dt {
+	flex: 0 0 30%;
+	line-height: 20px;
+	margin-top: 5px;
+}
+
+section > div > dl > dd {
+	flex: 0 1 60%;
+	display: flex;
+	flex-direction: row;
+
+	border-radius: 4px;
+	box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 5px;
+	overflow: hidden;
+	background-color: white;
+}
+
+figure {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.image {
+	min-width: 25%;
+}
+
+figcaption {
+	text-align: end;
+	width: inherit;
+}
+
+figcaption dt,
+figcaption dd {
+	font-size: x-small;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

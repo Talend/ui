@@ -1,3 +1,5 @@
+import 'typeface-source-sans-pro';
+
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 	controls: {

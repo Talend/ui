@@ -36,12 +36,15 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-docs": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.4.9",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/html": "^6.4.9",
+    "@storybook/react": "^6.4.9",
     "@talend/scripts-core": "^11.3.0",
-    "@talend/scripts-preset-react-lib": "^9.9.3"
+    "@talend/scripts-preset-react-lib": "^9.9.3",
+    "react": "^16.14.0",
+    "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}
 }
