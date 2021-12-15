@@ -76,22 +76,20 @@ const TokenSkeleton = () => (
 );
 
 const DefinitionListTokens = ({ tokens, filter, children }: TokensProps) => (
-	<dl>
+	<dl className={S.tokens}>
 		{(tokens as Token[]).map(token => (
-			(!filter.length || token.name.toLocaleLowerCase().includes(filter.toLocaleString())) ? [
-					<dt>{getDisplayName(token.name)}</dt>,
-					<dd>
-						<figure>
+			(!filter.length || token.name.toLocaleLowerCase().includes(filter.toLocaleString())) ? (
+				<div className={S.token}>
+					<dt className={S.tokenKey}>{getDisplayName(token.name)}</dt>
+					<div className={S.tokenValue}>
+						<dd className={S.tokenValueDemo}>
 							{children({ token })}
-							<figcaption>
-								<dl>
-									<dt>{getCssName(token.name)}</dt>
-									<dd>{token.value}</dd>
-								</dl>
-							</figcaption>
-						</figure>
-					</dd>
-			] : <TokenSkeleton />))}
+						</dd>
+						<dd className={S.tokenValueCustomProperty}><code>{getCssName(token.name)}</code></dd>
+						<dd className={S.tokenValueCss}><code>{token.value}</code></dd>
+					</div>
+				</div>
+			) : <TokenSkeleton />))}
 	</dl>
 );
 
@@ -101,7 +99,7 @@ const BorderTokens = ({ tokens, filter }: TokensProps) => (
 			<hr
 				className={S.border}
 				style={{
-					border: token.value,
+					borderBottom: token.value,
 				}}
 			/>
 		)}
@@ -134,8 +132,8 @@ const BreakpointTokens = ({ tokens, filter }: TokensProps) => (
 	</DefinitionListTokens>
 );
 
-const Color = ({ color }: { color: ColorToken }) => (
-	<div>
+const Color = ({ color, ...rest }: { color: ColorToken }) => (
+	<div {...rest}>
 		<small>{getDisplayName(color?.name)}</small>
 		<br />
 		<small>{color?.hex}</small>
@@ -147,6 +145,7 @@ const ColorCard = ({ icon, color }: { icon: ColorToken, color: ColorToken}) => (
 		<div>
 			<span
 				className={S.colorIcon}
+				aria-hidden
 				style={{
 					background: `${icon?.value}`
 				}}
@@ -156,6 +155,7 @@ const ColorCard = ({ icon, color }: { icon: ColorToken, color: ColorToken}) => (
 		<div>
 			<span
 				className={S.colorText}
+				aria-hidden
 			/>
 			<Color color={color} />
 		</div>
@@ -163,28 +163,33 @@ const ColorCard = ({ icon, color }: { icon: ColorToken, color: ColorToken}) => (
 );
 
 const ColorTokens = ({ tokens, filter }: TokensProps) => {
+	const colorTokens = tokens.reduce((acc:Record<string, ColorToken>, curr:ColorToken) => {
+			acc[curr.name.replace('coralColor', '')] = curr;
+			return acc;
+		}, {});
 	return (
 		<div className={S.colorGrid}>
 			{
-				CompositeColors.map(({icon: iconK, color: colorK, background: backgroundK, border:borderK}, key) => {
+				CompositeColors.map(({icon: iconK = '', color: colorK = '', background: backgroundK = '', border:borderK = ''}, key) => {
 					if (!backgroundK) {
 						return <div />;
 					}
-					const icon = tokens.find((token: ColorToken) => token.name.endsWith(iconK || ''));
-					const iconHover = tokens.find((token: ColorToken) => token.name.endsWith(`${iconK}Hover`));
-					const iconActive = tokens.find((token: ColorToken) => token.name.endsWith(`${iconK}Active`));
 
-					const color = tokens.find((token: ColorToken) => token.name.endsWith(colorK || ''));
-					const colorHover = tokens.find((token: ColorToken) => token.name.endsWith(`${colorK}Hover`));
-					const colorActive = tokens.find((token: ColorToken) => token.name.endsWith(`${colorK}Active`));
+					const icon = colorTokens[iconK];
+					const iconHover = colorTokens[`${iconK}Hover`];
+					const iconActive = colorTokens[`${iconK}Active`];
 
-					const background = tokens.find((token: ColorToken) => token.name.endsWith(backgroundK));
-					const backgroundHover = tokens.find((token: ColorToken) => token.name.endsWith(`${backgroundK}Hover`));
-					const backgroundActive = tokens.find((token: ColorToken) => token.name.endsWith(`${backgroundK}Active`));
+					const color = colorTokens[colorK];
+					const colorHover = colorTokens[`${colorK}Hover`];
+					const colorActive = colorTokens[`${colorK}Active`];
 
-					const border = tokens.find((token: ColorToken) => token.name.endsWith(borderK || ''));
-					const borderHover = tokens.find((token: ColorToken) => token.name.endsWith(`${borderK}Hover`));
-					const borderActive = tokens.find((token: ColorToken) => token.name.endsWith(`${borderK}Active`));
+					const background = colorTokens[backgroundK];
+					const backgroundHover = colorTokens[`${backgroundK}Hover`];
+					const backgroundActive = colorTokens[`${backgroundK}Active`];
+
+					const border = colorTokens[borderK];
+					const borderHover = colorTokens[`${borderK}Hover`];
+					const borderActive = colorTokens[`${borderK}Active`];
 
 					const hasSemanticColor = SemanticColors.some(semanticColor => colorK?.includes(semanticColor));
 					const hasSemanticBackground = SemanticColors.some(semanticColor => backgroundK?.includes(semanticColor));
@@ -215,8 +220,10 @@ const ColorTokens = ({ tokens, filter }: TokensProps) => {
 										break;
 								}
 
-								return !filter.length || [iconColor, textColor, backgroundColor, borderColor].some(c => c?.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
-									||c?.hex.toLocaleLowerCase().includes(filter.toLocaleLowerCase())) ? (
+								const shouldDisplay = !filter.length || [iconColor, textColor, backgroundColor, borderColor].some(c => c?.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+									||c?.hex.toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
+
+								return shouldDisplay ? (
 									<div
 										key={`${key}${appendix}`}
 										className={S.colorBackground}
@@ -237,7 +244,7 @@ const ColorTokens = ({ tokens, filter }: TokensProps) => {
 												</>
 											)}
 
-											<Color color={borderColor} />
+											<Color className={S.colorBorder} color={borderColor} />
 									</div>
 								) : <TokenSkeleton />;
 							}
@@ -246,6 +253,42 @@ const ColorTokens = ({ tokens, filter }: TokensProps) => {
 					);
 				})
 			}
+			{Object.keys(colorTokens)
+				.filter(token => token.startsWith('Charts'))
+				.filter(token => token.split(/(?=[A-Z])/).length === 2)
+				.map(name => {
+				const chartColorWeak = colorTokens[`${name}Weak`];
+				const chartColorStrong = colorTokens[`${name}Strong`];
+				const chartColor = colorTokens[name];
+				const chartColorHover = colorTokens[`${name}Hover`];
+				return(
+					<div
+						className={S.colorBackground}
+						style={{
+						}}
+					>
+						{name}
+						<svg width='100%' height='65px'>
+							<g>
+								<rect fill={chartColorWeak?.value} width='100%' height='25' />
+								<rect fill={chartColorStrong?.value} width='60%' height='25' />
+								<rect fill={chartColor?.value} width='35%' height='25' />
+								<rect fill={chartColorHover?.value} width='25%' height='25' />
+							</g>
+						</svg>
+						<dl>
+							<dt className={S.tokenValueCustomProperty}><code>{getCssName(chartColorHover?.name)}</code></dt>
+							<dd className={S.tokenValueCss}><code>{chartColorHover?.hex}</code></dd>
+							<dt className={S.tokenValueCustomProperty}><code>{getCssName(chartColor?.name)}</code></dt>
+							<dd className={S.tokenValueCss}><code>{chartColor?.hex}</code></dd>
+							<dt className={S.tokenValueCustomProperty}><code>{getCssName(chartColorStrong?.name)}</code></dt>
+							<dd className={S.tokenValueCss}><code>{chartColorStrong?.hex}</code></dd>
+							<dt className={S.tokenValueCustomProperty}><code>{getCssName(chartColorWeak?.name)}</code></dt>
+							<dd className={S.tokenValueCss}><code>{chartColorWeak?.hex}</code></dd>
+						</dl>
+					</div>
+				);
+			})}
 		</div>
 	);
 };
@@ -283,12 +326,11 @@ const OpacityTokens = ({ tokens, filter }: TokensProps) => (
 				className={S.opacity}
 			>
 				<div
+					className={S.opacityLayer}
 					style={{
 						opacity: token.value,
 					}}
-				>
-					Lorem ipsum
-				</div>
+				/>
 			</div>
 		)}
 	</DefinitionListTokens>
@@ -339,24 +381,50 @@ const Tokens = ({ dictionary }: { dictionary: Dictionary }) => {
 	return (
 		<div>
 			<input aria-label="Search for a token" type="search" onChange={e => setFilter(e.currentTarget.value)} />
-			{Object.entries(groupByType(dictionary)).map(([type, tokens], index) => (
-				<section key={index}>
-					<h2 className="sbdocs sbdocs-h2">{type}</h2>
-					<div>
-						{type === TokenType.BORDER && <BorderTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.BREAKPOINT && <BreakpointTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.COLOR && <ColorTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.TYPOGRAPHY && <TypographyTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.GRADIENT && <GradientTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.BRANDING && <BrandingTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.MEASURE && <MeasureTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.OPACITY && <OpacityTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.RADIUS && <RadiusTokens filter={filter} tokens={tokens} />}
-						{type === TokenType.SHADOW && <ShadowTokens filter={filter} tokens={tokens} />}
-					</div>
-				</section>
-			))}
-  		</div>
+			{Object.entries(groupByType(dictionary)).map(([type, tokens], index) => {
+				let TokensComponent = DefinitionListTokens;
+				switch (type) {
+					case TokenType.BORDER:
+						TokensComponent = BorderTokens;
+						break;
+					case TokenType.BRANDING:
+						TokensComponent = BrandingTokens;
+						break;
+					case TokenType.BREAKPOINT:
+						TokensComponent = BreakpointTokens;
+						break;
+					case TokenType.COLOR:
+						TokensComponent = ColorTokens;
+						break;
+					case TokenType.GRADIENT:
+						TokensComponent = GradientTokens;
+						break;
+					case TokenType.MEASURE:
+						TokensComponent = MeasureTokens;
+						break;
+					case TokenType.OPACITY:
+						TokensComponent = OpacityTokens;
+						break;
+					case TokenType.RADIUS:
+						TokensComponent = RadiusTokens;
+						break;
+					case TokenType.SHADOW:
+						TokensComponent = ShadowTokens;
+						break;
+					case TokenType.TYPOGRAPHY:
+						TokensComponent = TypographyTokens;
+						break;
+					default:
+						break;
+				}
+				return (
+					<section key={index}>
+						<h2 className="sbdocs sbdocs-h2">{type}</h2>
+						<TokensComponent filter={filter} tokens={tokens} />
+					</section>
+				);
+			})}
+  </div>
 	);
 };
 

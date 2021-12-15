@@ -1,7 +1,9 @@
-section {
+:root {
+	--shadow-color: 0deg 0% 50%;
 	font-family: 'Source Sans Pro';
 }
 
+/*
 section > div > dl {
 	display: flex;
 	flex-wrap: wrap;
@@ -45,29 +47,76 @@ figcaption dd {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
+*/
+
+dt,
+dd {
+	margin: 0;
+}
+
+.token {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+.tokenKey,
+.tokenValue {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.tokenKey {
+	flex: 0 0 30%;
+}
+.tokenValue {
+	flex: 0 1 66%;
+}
+.tokenValueDemo {
+	padding: 1rem;
+	overflow: hidden;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	box-shadow: 0.5px 1px 1px hsl(var(--shadow-color) / 0.7);
+}
+.tokenValueCustomProperty,
+.tokenValueCss {
+	font-size: smaller;
+	text-align: end;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 
 .border {
 	width: 100%;
+	border: none;
 }
+
 .branding {
-	height: 100%;
-	min-width: 25%;
+	height: 5rem;
+	width: 5rem;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
+
 .breakpoint {
+	margin: 0;
+	zoom: 0.5;
 	border-color: hsla(359, 100%, 71%, 1);
 }
+
 .colorGrid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
 }
+
 .colorSwatch {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
+
 .colorBackground {
 	display: flex;
 	flex-direction: column;
@@ -78,11 +127,13 @@ figcaption dd {
 	border: 2px solid transparent;
 	border-radius: 4px;
 }
+
 .colorContent {
 	display: flex;
 	align-items: center;
 	gap: 2rem;
 }
+
 .colorIcon {
 	display: inline-block;
 	height: 1.6rem;
@@ -90,6 +141,7 @@ figcaption dd {
 	background: currentColor;
 	border-radius: 4px;
 }
+
 .colorText {
 	display: inline-block;
 	height: 0.5rem;
@@ -97,28 +149,45 @@ figcaption dd {
 	background: currentColor;
 	border-radius: 4px;
 }
+
+.colorBorder {
+	text-align: end;
+}
+
 .gradient {
 	height: 5rem;
 	width: 100%;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
+
 .measure {
-	height: 100%;
-	background: #efefef;
-}
-.radius {
-	height: 100%;
 	width: 5rem;
+	height: 5rem;
 	background: #efefef;
 }
-.shadow {
+
+.radius {
 	height: 5rem;
 	width: 5rem;
 	background: #efefef;
+}
+
+.shadow {
+	height: 5rem;
+	width: 5rem;
+	// background: #efefef;
 	border-radius: 4px;
 }
+
 .opacity {
-	height: 1rem;
-	background: #efefef;
+	height: 5rem;
+	background-image: /* tint image */ linear-gradient(to right, rgba(192, 192, 192, 0.75), rgba(192, 192, 192, 0.75)), /* checkered effect */ linear-gradient(to right, black 50%, white 50%), linear-gradient(to bottom, black 50%, white 50%);
+	background-blend-mode: normal, difference, normal;
+	background-size: 2em 2em;
+}
+.opacityLayer {
+	height: 100%;
+	width: 100%;
+	background: deeppink;
 }
