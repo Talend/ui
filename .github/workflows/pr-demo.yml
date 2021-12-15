@@ -29,6 +29,7 @@ jobs:
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn pre-release & yarn test:demo
+          yarn workspace @talend/ui-playground run test:demo:umd
           ./.github/workflows/before-surge.sh
 
       - name: deploy if master

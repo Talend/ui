@@ -9,8 +9,7 @@
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "build": "talend-scripts build:lib",
-    "test": "talend-scripts test",
-    "test:demo": "echo nothing to do"
+    "test": "talend-scripts test"
   },
   "repository": {
     "type": "git",
