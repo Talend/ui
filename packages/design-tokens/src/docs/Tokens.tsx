@@ -1,11 +1,14 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react';
+import ColorContrastChecker from 'color-contrast-checker';
 
 import {ColorToken, Dictionary, Token, TokenType} from '../types';
 
 import CompositeColors from './CompositeColors.json';
 
 import S from './Tokens.scss';
+
+const ccc = new ColorContrastChecker();
 
 type TokensProps = React.PropsWithChildren<any> & {
 	filter: string;
@@ -18,6 +21,8 @@ type PropsWithToken = {
 };
 
 const SemanticColors = ['Accent', 'Danger', 'Warning', 'Success', 'Beta'];
+
+const SemanticCharts = ['Neutral', 'Danger', 'Warning', 'Success'];
 
 const tShirtSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
 
@@ -55,6 +60,7 @@ const getScssName = (name?: string) => {
 	if (!name) return '';
 	return `$${name}`;
 };
+
 const getCssName = (name?: string) => {
 	if (!name) return '';
 	const nameArray = name.split(/(?=[A-Z])/);
@@ -70,13 +76,7 @@ const getCssName = (name?: string) => {
 };
 
 const TokenSkeleton = () => (
-	<div style={{
-			height: '5rem',
-			width: '5rem',
-			background: '#EFEFEF',
-			borderRadius: '4px',
-		}}
-	/>
+	<div className={S.skeleton}	/>
 );
 
 const DefinitionListTokens = ({ tokens, filter, children }: TokensProps) => (
@@ -144,6 +144,15 @@ const Color = ({ color, ...rest }: { color: ColorToken }) => (
 		<small>{color?.hex}</small>
 	</div>
 );
+
+const ColorChecker  = ({ text, background }: { text:ColorToken, background:ColorToken }) => {
+	const isLevelAA = ccc.isLevelAA(text?.hex, background?.hex, 14);
+	return (
+		<span className={`${S.colorRatio} ${isLevelAA ? S.colorRatioOK : S.colorRatioKO}`}>
+			AA
+		</span>
+	);
+};
 
 const ColorCard = ({ icon, color }: { icon: ColorToken, color: ColorToken}) => (
 	<div className={S.colorContent} style={{ color: color?.value}}>
@@ -250,6 +259,8 @@ const ColorTokens = ({ tokens, filter }: TokensProps) => {
 											)}
 
 											<Color className={S.colorBorder} color={borderColor} />
+
+											<ColorChecker text={textColor} background={backgroundColor} />
 									</div>
 								) : <TokenSkeleton />;
 							}

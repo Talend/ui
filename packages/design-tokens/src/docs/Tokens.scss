@@ -54,11 +54,19 @@ dd {
 	margin: 0;
 }
 
+.skeleton {
+	height: 5rem;
+	width: 5rem;
+	background: #efefef;
+	border-radius: 4px;
+}
+
 .token {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 2rem;
 }
+
 .tokenKey,
 .tokenValue {
 	overflow: hidden;
@@ -154,7 +162,25 @@ dd {
 	text-align: end;
 }
 
+.colorRatio {
+	display: inline-block;
+	margin-bottom: -1.5rem;
+	padding-inline: .5rem;
+	width: fit-content;
+	color: white;
+	border-radius: 9999px;
+}
+
+.colorRatioOK {
+	background: forestgreen;
+}
+
+.colorRatioKO {
+	background: darkred;
+}
+
 .elevation {
+	margin: 1rem;
 	width: 5rem;
 	height: 2.5rem;
 	background: #efefef;
