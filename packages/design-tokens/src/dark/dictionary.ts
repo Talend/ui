@@ -49,9 +49,9 @@ const dictionary = [
         name: 'coralColorNeutralBackgroundDisabled',
         type: 'color',
         description: '',
-        hsla: 'hsla(208,18%,21%,1)',
-        hex: '#2c363f',
-        value: 'hsla(208,18%,21%,1)',
+        hsla: 'hsla(210,17%,16%,1)',
+        hex: '#222930',
+        value: 'hsla(210,17%,16%,1)',
 
     },
     {
@@ -1279,7 +1279,7 @@ const dictionary = [
 
     },
     {
-        name: 'coralColorChartsPositive',
+        name: 'coralColorChartsSuccess',
         type: 'color',
         description: '',
         hsla: 'hsla(148,87%,40%,1)',
@@ -1288,7 +1288,7 @@ const dictionary = [
 
     },
     {
-        name: 'coralColorChartsPositiveWeak',
+        name: 'coralColorChartsSuccessWeak',
         type: 'color',
         description: '',
         hsla: 'hsla(130,52%,91%,1)',
@@ -1297,7 +1297,7 @@ const dictionary = [
 
     },
     {
-        name: 'coralColorChartsPositiveStrong',
+        name: 'coralColorChartsSuccessStrong',
         type: 'color',
         description: '',
         hsla: 'hsla(139,50%,22%,1)',
@@ -1306,7 +1306,7 @@ const dictionary = [
 
     },
     {
-        name: 'coralColorChartsPositiveHover',
+        name: 'coralColorChartsSuccessHover',
         type: 'color',
         description: '',
         hsla: 'hsla(139,50%,22%,1)',
@@ -1408,18 +1408,18 @@ const dictionary = [
         name: 'coralColorChartsDefaultStrong',
         type: 'color',
         description: '',
-        hsla: 'hsla(205,88%,33%,1)',
-        hex: '#0a629f',
-        value: 'hsla(205,88%,33%,1)',
+        hsla: 'hsla(204,92%,29%,1)',
+        hex: '#06568d',
+        value: 'hsla(204,92%,29%,1)',
 
     },
     {
         name: 'coralColorChartsDefaultHover',
         type: 'color',
         description: '',
-        hsla: 'hsla(205,88%,33%,1)',
-        hex: '#0a629f',
-        value: 'hsla(205,88%,33%,1)',
+        hsla: 'hsla(204,92%,29%,1)',
+        hex: '#06568d',
+        value: 'hsla(204,92%,29%,1)',
 
     },
     {
@@ -1480,18 +1480,18 @@ const dictionary = [
         name: 'coralColorChartsColor01Strong',
         type: 'color',
         description: '',
-        hsla: 'hsla(205,88%,33%,1)',
-        hex: '#0a629f',
-        value: 'hsla(205,88%,33%,1)',
+        hsla: 'hsla(204,92%,29%,1)',
+        hex: '#06568d',
+        value: 'hsla(204,92%,29%,1)',
 
     },
     {
         name: 'coralColorChartsColor01Hover',
         type: 'color',
         description: '',
-        hsla: 'hsla(205,88%,33%,1)',
-        hex: '#0a629f',
-        value: 'hsla(205,88%,33%,1)',
+        hsla: 'hsla(204,92%,29%,1)',
+        hex: '#06568d',
+        value: 'hsla(204,92%,29%,1)',
 
     },
     {
@@ -1828,17 +1828,80 @@ const dictionary = [
 
     },
     {
+        name: 'coralColorChartsDefaultText',
+        type: 'color',
+        description: '',
+        hsla: 'hsla(205,87%,94%,1)',
+        hex: '#e3f2fd',
+        value: 'hsla(205,87%,94%,1)',
+
+    },
+    {
+        name: 'coralColorChartsDefaultTextStrong',
+        type: 'color',
+        description: '',
+        hsla: 'hsla(205,93%,22%,1)',
+        hex: '#04426d',
+        value: 'hsla(205,93%,22%,1)',
+
+    },
+    {
+        name: 'coralColorChartsDefaultTextWeak',
+        type: 'color',
+        description: '',
+        hsla: 'hsla(207,93%,94%,1)',
+        hex: '#e3f2fe',
+        value: 'hsla(207,93%,94%,1)',
+
+    },
+    {
+        name: 'coralColorChartsColor09Text',
+        type: 'color',
+        description: '',
+        hsla: 'hsla(36,36%,5%,1)',
+        hex: '#130f09',
+        value: 'hsla(36,36%,5%,1)',
+
+    },
+    {
+        name: 'coralColorChartsColor09TextStrong',
+        type: 'color',
+        description: '',
+        hsla: 'hsla(36,36%,5%,1)',
+        hex: '#130f09',
+        value: 'hsla(36,36%,5%,1)',
+
+    },
+    {
+        name: 'coralColorChartsColor09TextWeak',
+        type: 'color',
+        description: '',
+        hsla: 'hsla(35,28%,82%,1)',
+        hex: '#ded3c4',
+        value: 'hsla(35,28%,82%,1)',
+
+    },
+    {
+        name: 'coralColorNeutralBackgroundHeavy',
+        type: 'color',
+        description: '',
+        hsla: 'hsla(204,18%,11%,1)',
+        hex: '#171d21',
+        value: 'hsla(204,18%,11%,1)',
+
+    },
+    {
         name: 'coralColorBrandingBackground',
         type: 'gradient',
         description: '',
-        value: 'linear-gradient(90deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
+        value: 'linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
 
     },
     {
         name: 'coralColorBrandingNavigation',
         type: 'gradient',
         description: '',
-        value: 'linear-gradient(90deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
+        value: 'linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
 
     },
     {
@@ -1891,14 +1954,14 @@ const dictionary = [
 
     },
     {
-        name: 'coralElevationShadowM',
+        name: 'coralElevationShadowNeutralM',
         type: 'shadow',
         description: '',
         value: '0rem 0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3)',
 
     },
     {
-        name: 'coralElevationShadowL',
+        name: 'coralElevationShadowNeutralL',
         type: 'shadow',
         description: '',
         value: '0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3)',
@@ -2052,28 +2115,28 @@ const dictionary = [
 
     },
     {
-        name: 'coralBorderSolidS',
+        name: 'coralBorderSSolid',
         type: 'border',
         description: '',
         value: '1px solid',
 
     },
     {
-        name: 'coralBorderSolidM',
+        name: 'coralBorderMSolid',
         type: 'border',
         description: '',
         value: '2px solid',
 
     },
     {
-        name: 'coralBorderDashedS',
+        name: 'coralBorderSDashed',
         type: 'border',
         description: '',
         value: '1px dashed',
 
     },
     {
-        name: 'coralBorderDashedM',
+        name: 'coralBorderMDashed',
         type: 'border',
         description: '',
         value: '2px dashed',
@@ -2133,6 +2196,62 @@ const dictionary = [
         type: 'branding',
         description: '',
         value: 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==")',
+
+    },
+    {
+        name: 'coralTransitionInstant',
+        type: 'transition',
+        description: '',
+        value: '100ms ease-out',
+
+    },
+    {
+        name: 'coralTransitionFast',
+        type: 'transition',
+        description: '',
+        value: '250ms ease-in-out',
+
+    },
+    {
+        name: 'coralTransitionNormal',
+        type: 'transition',
+        description: '',
+        value: '300ms ease-in-out',
+
+    },
+    {
+        name: 'coralTransitionSlow',
+        type: 'transition',
+        description: '',
+        value: '400ms ease-in',
+
+    },
+    {
+        name: 'coralElevationLayerFlat',
+        type: 'elevation',
+        description: '',
+        value: '0',
+
+    },
+    {
+        name: 'coralElevationLayerStandardFront',
+        type: 'elevation',
+        description: '',
+        value: '4',
+
+    },
+    {
+        name: 'coralElevationLayerInteractiveFront',
+        type: 'elevation',
+        description: '',
+        value: '8',
+
+    },
+    {
+        name: 'coralElevationLayerOverlay',
+        type: 'elevation',
+        description: '',
+        value: '16',
 
     },
 ];
