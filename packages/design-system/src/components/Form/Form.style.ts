@@ -12,14 +12,6 @@ export const Form = styled.form`
 		border: none;
 	}
 
-	@media only screen and (min-width: ${tokens.breakpoints.m}) {
-		max-width: 55%;
-	}
-
-	@media only screen and (min-width: ${tokens.breakpoints.xl}) {
-		max-width: 78rem;
-	}
-
 	.c-field,
 	.c-field-group,
 	.c-inline-message {
