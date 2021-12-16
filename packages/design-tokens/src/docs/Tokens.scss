@@ -154,6 +154,13 @@ dd {
 	text-align: end;
 }
 
+.elevation {
+	width: 5rem;
+	height: 2.5rem;
+	background: #efefef;
+	transform: skew(-45deg);
+}
+
 .gradient {
 	height: 5rem;
 	width: 100%;
@@ -190,4 +197,17 @@ dd {
 	height: 100%;
 	width: 100%;
 	background: deeppink;
+}
+
+.transition {
+	height: 5rem;
+	width: 5rem;
+	background: #efefef;
+	border-radius: 4px;
+}
+
+.transition:hover {
+	width: 7rem;
+	height: 7rem;
+	background: #ffcccc;
 }

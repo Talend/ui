@@ -51,6 +51,10 @@ const getDisplayName = (name: string) => {
 		.join('');
 };
 
+const getScssName = (name?: string) => {
+	if (!name) return '';
+	return `$${name}`;
+};
 const getCssName = (name?: string) => {
 	if (!name) return '';
 	const nameArray = name.split(/(?=[A-Z])/);
@@ -83,8 +87,9 @@ const DefinitionListTokens = ({ tokens, filter, children }: TokensProps) => (
 					<dt className={S.tokenKey}>{getDisplayName(token.name)}</dt>
 					<div className={S.tokenValue}>
 						<dd className={S.tokenValueDemo}>
-							{children({ token })}
+							{typeof children === 'function' ? children({ token }) : children}
 						</dd>
+						<dd className={S.tokenValueCustomProperty}><code>{getScssName(token.name)}</code></dd>
 						<dd className={S.tokenValueCustomProperty}><code>{getCssName(token.name)}</code></dd>
 						<dd className={S.tokenValueCss}><code>{token.value}</code></dd>
 					</div>
@@ -293,6 +298,20 @@ const ColorTokens = ({ tokens, filter }: TokensProps) => {
 	);
 };
 
+const ElevationTokens = ({ tokens, filter }: TokensProps) => (
+	<DefinitionListTokens filter={filter} tokens={tokens}>
+		{({ token }: PropsWithToken) => (
+			<div
+				className={S.elevation}
+				style={{
+					boxShadow: `${token.value}px ${token.value}px 0 0`,
+					zIndex: token.value,
+				}}
+			/>
+		)}
+	</DefinitionListTokens>
+);
+
 const GradientTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
@@ -362,6 +381,20 @@ const ShadowTokens = ({ tokens, filter }: TokensProps) => (
 	</DefinitionListTokens>
 );
 
+const TransitionTokens = ({ tokens, filter }: TokensProps) => (
+	<DefinitionListTokens filter={filter} tokens={tokens}>
+		{({ token }: PropsWithToken) => (
+			<div
+				className={S.transition}
+				style={{
+					transition: token.value,
+				}}
+			/>
+		)}
+	</DefinitionListTokens>
+);
+
+
 const TypographyTokens = ({ tokens, filter }: TokensProps) => (
 	<DefinitionListTokens filter={filter} tokens={tokens}>
 		{({ token }: PropsWithToken) => (
@@ -396,6 +429,9 @@ const Tokens = ({ dictionary }: { dictionary: Dictionary }) => {
 					case TokenType.COLOR:
 						TokensComponent = ColorTokens;
 						break;
+					case TokenType.ELEVATION:
+						TokensComponent = ElevationTokens;
+						break;
 					case TokenType.GRADIENT:
 						TokensComponent = GradientTokens;
 						break;
@@ -410,6 +446,9 @@ const Tokens = ({ dictionary }: { dictionary: Dictionary }) => {
 						break;
 					case TokenType.SHADOW:
 						TokensComponent = ShadowTokens;
+						break;
+					case TokenType.TRANSITION:
+						TokensComponent = TransitionTokens;
 						break;
 					case TokenType.TYPOGRAPHY:
 						TokensComponent = TypographyTokens;

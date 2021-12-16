@@ -3,11 +3,13 @@ export enum TokenType {
 	BRANDING = 'branding',
 	BREAKPOINT = 'breakpoint',
 	COLOR = 'color',
+	ELEVATION = 'elevation',
 	GRADIENT = 'gradient',
 	MEASURE = 'measure',
 	OPACITY = 'opacity',
 	RADIUS = 'radius',
 	SHADOW = 'shadow',
+	TRANSITION = 'transition',
 	TYPOGRAPHY = 'typography',
 }
 
