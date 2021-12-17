@@ -56,6 +56,9 @@ const webpackConfig = {
 	},
 	devServer: {
 		onBeforeSetupMiddleware: mockBackend,
+		historyApiFallback: {
+			index: `${process.env.BASENAME || ''}/index.html`,
+		},
 	},
 };
 

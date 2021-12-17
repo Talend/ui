@@ -13,10 +13,6 @@
 				newUrl = url.replace(m[1], 'https://statics.cloud.talend.com');
 			}
 		}
-		if (newUrl) {
-			// eslint-disable-next-line no-console
-			console.log(`inject debug: replace ${url} by  ${newUrl}`);
-		}
 		return newUrl || url;
 	}
 

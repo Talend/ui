@@ -1,0 +1,28 @@
+name: Design tokens checks
+
+on:
+  push:
+    paths:
+      - 'packages/design-tokens/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    name: CSS tokens checks
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - name: Check CSS custom properties
+        run: |
+          cd packages/design-tokens
+          node ./scripts/compare.js src/light/_index.scss src/dark/_index.scss
