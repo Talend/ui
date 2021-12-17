@@ -47,5 +47,8 @@
     "react": "^16.14.0",
     "typeface-source-sans-pro": "^1.1.13"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.14.0"
+  }
 }

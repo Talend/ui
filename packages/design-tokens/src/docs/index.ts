@@ -1,5 +1,3 @@
 import Tokens from './Tokens';
 
-export {
-    Tokens,
-};
+export { Tokens };
