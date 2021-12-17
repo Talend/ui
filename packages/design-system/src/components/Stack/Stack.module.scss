@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens' as tokens;
+
 .stack {
   display: flex;
   flex-flow: row;
@@ -29,6 +31,333 @@
 
     &-space-evenly {
       justify-content: space-evenly;
+    }
+  }
+
+  &.align {
+    &-start {
+      align-items: flex-start;
+    }
+
+    &-end {
+      align-items: flex-end;
+    }
+
+    &-center {
+      align-items: center;
+    }
+
+    &-baseline {
+      align-items: baseline;
+    }
+
+    &-stretch {
+      align-items: stretch;
+    }
+  }
+
+  &.align-content {
+    &-start {
+      align-content: flex-start;
+    }
+
+    &-end {
+      align-content: flex-end;
+    }
+
+    &-center {
+      align-content: center;
+    }
+
+    &-baseline {
+      align-content: baseline;
+    }
+
+    &-stretch {
+      align-content: stretch;
+    }
+  }
+
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.wrapReverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  &.gap {
+    &-x {
+      &-NONE {
+        column-gap: 0;
+      }
+
+      &-XXS {
+        column-gap: tokens.$coral-size-xxs;
+      }
+
+      &-XS {
+        column-gap: tokens.$coral-size-xs;
+      }
+
+      &-S {
+        column-gap: tokens.$coral-size-s;
+      }
+
+      &-M {
+        column-gap: tokens.$coral-size-m;
+      }
+
+      &-L {
+        column-gap: tokens.$coral-size-l;
+      }
+
+      &-XL {
+        column-gap: tokens.$coral-size-xl;
+      }
+    }
+
+    &-y {
+      &-NONE {
+        row-gap: 0;
+      }
+
+      &-XXS {
+        row-gap: tokens.$coral-size-xxs;
+      }
+      &-XS {
+        row-gap: tokens.$coral-size-xs;
+      }
+      &-S {
+        row-gap: tokens.$coral-size-s;
+      }
+      &-M {
+        row-gap: tokens.$coral-size-m;
+      }
+      &-L {
+        row-gap: tokens.$coral-size-l;
+      }
+      &-XL {
+        row-gap: tokens.$coral-size-xl;
+      }
+    }
+  }
+
+  &.padding {
+    &-top {
+      &-NONE {
+        padding-top: 0;
+      }
+
+      &-XXS {
+        padding-top: tokens.$coral-size-xxs;
+      }
+
+      &-XS {
+        padding-top: tokens.$coral-size-xs;
+      }
+
+      &-S {
+        padding-top: tokens.$coral-size-s;
+      }
+
+      &-M {
+        padding-top: tokens.$coral-size-m;
+      }
+
+      &-L {
+        padding-top: tokens.$coral-size-l;
+      }
+
+      &-XL {
+        padding-top: tokens.$coral-size-xl;
+      }
+    }
+
+    &-right {
+      &-NONE {
+        padding-right: 0;
+      }
+
+      &-XXS {
+        padding-right: tokens.$coral-size-xxs;
+      }
+      &-XS {
+        padding-right: tokens.$coral-size-xs;
+      }
+      &-S {
+        padding-right: tokens.$coral-size-s;
+      }
+      &-M {
+        padding-right: tokens.$coral-size-m;
+      }
+      &-L {
+        padding-right: tokens.$coral-size-l;
+      }
+      &-XL {
+        padding-right: tokens.$coral-size-xl;
+      }
+    }
+
+    &-bottom {
+      &-NONE {
+        padding-bottom: 0;
+      }
+
+      &-XXS {
+        padding-bottom: tokens.$coral-size-xxs;
+      }
+      &-XS {
+        padding-bottom: tokens.$coral-size-xs;
+      }
+      &-S {
+        padding-bottom: tokens.$coral-size-s;
+      }
+      &-M {
+        padding-bottom: tokens.$coral-size-m;
+      }
+      &-L {
+        padding-bottom: tokens.$coral-size-l;
+      }
+      &-XL {
+        padding-bottom: tokens.$coral-size-xl;
+      }
+    }
+
+    &-left {
+      &-NONE {
+        padding-left: 0;
+      }
+
+      &-XXS {
+        padding-left: tokens.$coral-size-xxs;
+      }
+      &-XS {
+        padding-left: tokens.$coral-size-xs;
+      }
+      &-S {
+        padding-left: tokens.$coral-size-s;
+      }
+      &-M {
+        padding-left: tokens.$coral-size-m;
+      }
+      &-L {
+        padding-left: tokens.$coral-size-l;
+      }
+      &-XL {
+        padding-left: tokens.$coral-size-xl;
+      }
+    }
+  }
+
+  &.margin {
+    &-top {
+      &-NONE {
+        margin-top: 0;
+      }
+
+      &-XXS {
+        margin-top: tokens.$coral-size-xxs;
+      }
+
+      &-XS {
+        margin-top: tokens.$coral-size-xs;
+      }
+
+      &-S {
+        margin-top: tokens.$coral-size-s;
+      }
+
+      &-M {
+        margin-top: tokens.$coral-size-m;
+      }
+
+      &-L {
+        margin-top: tokens.$coral-size-l;
+      }
+
+      &-XL {
+        margin-top: tokens.$coral-size-xl;
+      }
+    }
+
+    &-right {
+      &-NONE {
+        margin-right: 0;
+      }
+
+      &-XXS {
+        margin-right: tokens.$coral-size-xxs;
+      }
+      &-XS {
+        margin-right: tokens.$coral-size-xs;
+      }
+      &-S {
+        margin-right: tokens.$coral-size-s;
+      }
+      &-M {
+        margin-right: tokens.$coral-size-m;
+      }
+      &-L {
+        margin-right: tokens.$coral-size-l;
+      }
+      &-XL {
+        margin-right: tokens.$coral-size-xl;
+      }
+    }
+
+    &-bottom {
+      &-NONE {
+        margin-bottom: 0;
+      }
+
+      &-XXS {
+        margin-bottom: tokens.$coral-size-xxs;
+      }
+      &-XS {
+        margin-bottom: tokens.$coral-size-xs;
+      }
+      &-S {
+        margin-bottom: tokens.$coral-size-s;
+      }
+      &-M {
+        margin-bottom: tokens.$coral-size-m;
+      }
+      &-L {
+        margin-bottom: tokens.$coral-size-l;
+      }
+      &-XL {
+        margin-bottom: tokens.$coral-size-xl;
+      }
+    }
+
+    &-left {
+      &-NONE {
+        margin-left: 0;
+      }
+
+      &-XXS {
+        margin-left: tokens.$coral-size-xxs;
+      }
+      &-XS {
+        margin-left: tokens.$coral-size-xs;
+      }
+      &-S {
+        margin-left: tokens.$coral-size-s;
+      }
+      &-M {
+        margin-left: tokens.$coral-size-m;
+      }
+      &-L {
+        margin-left: tokens.$coral-size-l;
+      }
+      &-XL {
+        margin-left: tokens.$coral-size-xl;
+      }
     }
   }
 }

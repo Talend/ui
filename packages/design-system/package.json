@@ -32,6 +32,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@talend/design-tokens": "^1.1.0",
     "classnames": "^2.2.6",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.1.2",

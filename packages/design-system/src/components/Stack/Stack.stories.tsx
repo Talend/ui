@@ -11,6 +11,8 @@ const Template = args => {
     return (
         <Stack
             {...args}
+            gap="XL"
+            padding="M"
         >
             <>Plick</>
             <>Pluck</>
