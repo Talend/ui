@@ -40,10 +40,10 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.4.4",
-    "@storybook/addon-actions": "^6.4.4",
-    "@storybook/addons": "^6.4.4",
-    "@storybook/react": "^6.4.4",
+    "@storybook/addon-a11y": "^6.4.9",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addons": "^6.4.9",
+    "@storybook/react": "^6.4.9",
     "@talend/icons": "^6.37.0",
     "@talend/react-components": "^6.41.3",
     "@talend/scripts-core": "^11.3.0",

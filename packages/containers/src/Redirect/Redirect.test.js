@@ -12,7 +12,7 @@ describe('Redirect', () => {
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');
 		expect(action.cmf.routerReplace).toBe('/hello-world');
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find(AppLoader).length).toBe(1);
 	});
 
 	it('should dispatch a redirect action if to props given', () => {
