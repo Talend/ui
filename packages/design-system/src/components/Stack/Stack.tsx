@@ -27,7 +27,7 @@ const alignContentOptions = {
 	baseline: 'align-content-baseline',
 };
 
-const sizes = {
+const sizeOptions = {
 	0: 'NONE',
 	XXS: 'XXS',
 	XS: 'XS',
@@ -47,24 +47,26 @@ type WrapType = {
 };
 
 type gapType =
-	| keyof typeof sizes
+	| keyof typeof sizeOptions
 	| {
-			x: keyof typeof sizes;
-			y: keyof typeof sizes;
+			x: keyof typeof sizeOptions;
+			y: keyof typeof sizeOptions;
 	  };
 
 type spacingType =
-	| keyof typeof sizes
+	| keyof typeof sizeOptions
 	| {
-			x: keyof typeof sizes;
-			y: keyof typeof sizes;
+			x: keyof typeof sizeOptions;
+			y: keyof typeof sizeOptions;
 	  }
 	| {
-			top: keyof typeof sizes;
-			left: keyof typeof sizes;
-			right: keyof typeof sizes;
-			bottom: keyof typeof sizes;
+			top: keyof typeof sizeOptions;
+			left: keyof typeof sizeOptions;
+			right: keyof typeof sizeOptions;
+			bottom: keyof typeof sizeOptions;
 	  };
+
+type directionType = 'row' | 'column';
 
 export type StackProps = {
 	as?: 'div' | 'ul' | 'ol';
@@ -74,6 +76,7 @@ export type StackProps = {
 	padding?: spacingType;
 	margin?: spacingType;
 	children: ReactNode | ReactNode[];
+	direction?: directionType;
 } & (WrapType | NoWrapType);
 
 function Stack({
@@ -82,6 +85,7 @@ function Stack({
 	justify = 'start',
 	align = 'start',
 	wrap = 'nowrap',
+	direction = 'row',
 	gap,
 	padding,
 	margin,
@@ -177,6 +181,7 @@ function Stack({
 				styles[justifyOptions[justify]],
 				styles[alignOptions[align]],
 				styles[wrap],
+				styles[direction],
 				getAlignContent(),
 				...getGap(),
 				...getPadding(),
