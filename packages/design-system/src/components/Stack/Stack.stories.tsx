@@ -18,3 +18,6 @@ const Template = (args: StackProps) => {
 };
 
 export const Test: Story<StackProps> = Template.bind({});
+Test.args = {
+	gap: 'M',
+};
