@@ -1,11 +1,17 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 
-import Stack from './Stack';
+import Stack, { StackProps} from './Stack';
 
-export const Test = (props: Story) => {
+export default {
+    component: Stack,
+};
+
+const Template = args => {
     return (
-        <Stack {...props}>
+        <Stack
+            {...args}
+        >
             <>Plick</>
             <>Pluck</>
             <div>Plock</div>
@@ -13,3 +19,4 @@ export const Test = (props: Story) => {
     );
 };
 
+export const Test: Story<StackProps> = Template.bind({});
