@@ -28,19 +28,3 @@ jobs:
 
       - name: Test
         run: yarn test
-
-      - name: size check
-        id: sizecheck
-        run: |
-          node size.js
-          echo "::set-output name=diff::$(git status --short size.json)"
-        env:
-          THRESHOLD: 100;
-
-      - name: Commit size change
-        if: steps.sizecheck.outputs.diff
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: update size"
-          branch: ${{ github.head_ref }}

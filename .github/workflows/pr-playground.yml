@@ -38,6 +38,14 @@ jobs:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
+      - name: size check
+        id: sizecheck
+        run: |
+          node size.js
+          echo "::set-output name=diff::$(git status --short size.json)"
+        env:
+          THRESHOLD: 100;
+
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: |
@@ -45,6 +53,14 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+      - name: Commit size change
+        if: steps.sizecheck.outputs.diff
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "chore: update size"
+          branch: ${{ github.head_ref }}
 
       - name: Comment PR
         uses: daohoangson/comment-on-github@v2
