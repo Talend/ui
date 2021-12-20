@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './StackPrimitive.module.scss';
+import { StackItem } from '../StackItem';
 
 const justifyOptions = {
 	start: 'justify-start',
@@ -110,7 +111,6 @@ const StackPrimitive = React.forwardRef(function StackPrimitive(
 	ref: React.Ref<any>,
 ) {
 	const TagType = as;
-	const childrenArray = React.Children.toArray(children);
 	let spreadableProps = props;
 
 	function getGap() {
@@ -210,9 +210,7 @@ const StackPrimitive = React.forwardRef(function StackPrimitive(
 			role={role}
 			{...spreadableProps}
 		>
-			{childrenArray.map(child => (
-				<div key={(child as JSX.Element).key as string}>{child}</div>
-			))}
+			{children}
 		</TagType>
 	);
 });
