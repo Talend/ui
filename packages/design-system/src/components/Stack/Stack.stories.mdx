@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
 import { StackHorizontal } from './index';
 import * as Stories from './Stack.stories';
 
@@ -87,5 +87,7 @@ function myComponent() {
     <Story story={Stories.TestHorizontal} />
     <Story story={Stories.TestVertical} />
 </Canvas>
+
+<ArgsTable story="^" />
 
 ## Accessibility
