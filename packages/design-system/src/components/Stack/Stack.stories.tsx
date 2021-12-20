@@ -1,23 +1,33 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 
-import Stack, { StackProps } from './Stack';
+import { StackPrimitiveProps } from './Primitive/StackPrimitive';
+import { StackHorizontal, StackVertical } from './index';
 
 export default {
-	component: Stack,
+	component: StackHorizontal,
 };
 
-const Template = (args: StackProps) => {
+const TemplateHorizontal = (args: StackPrimitiveProps) => {
 	return (
-		<Stack {...args}>
+		<StackHorizontal {...args}>
 			<>Plick</>
 			<>Pluck</>
 			<div>Plock</div>
-		</Stack>
+		</StackHorizontal>
 	);
 };
 
-export const Test: Story<StackProps> = Template.bind({});
-Test.args = {
-	gap: 'M',
+const TemplateVertical = (args: StackPrimitiveProps) => {
+	return (
+		<StackVertical {...args} margin={{ x: 'auto', y: 'XL' }}>
+			<>Plick</>
+			<>Pluck</>
+			<div>Plock</div>
+		</StackVertical>
+	);
 };
+
+export const TestHorizontal: Story<StackPrimitiveProps> = TemplateHorizontal.bind({});
+
+export const TestVertical: Story<StackPrimitiveProps> = TemplateVertical.bind({});

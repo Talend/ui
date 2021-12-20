@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classnames from 'classnames';
-import styles from './Stack.module.scss';
+import styles from './StackPrimitive.module.scss';
 
 const justifyOptions = {
 	start: 'justify-start',
@@ -37,13 +37,9 @@ const sizeOptions = {
 	XL: 'XL',
 };
 
-type NoWrapType = {
-	wrap?: 'nowrap';
-};
-
-type WrapType = {
-	wrap?: 'wrap' | 'wrapReverse';
-	alignContent: keyof typeof alignContentOptions;
+const sizeOptionsWithAuto = {
+	...sizeOptions,
+	auto: 'auto',
 };
 
 type gapType =
@@ -66,31 +62,53 @@ type spacingType =
 			bottom: keyof typeof sizeOptions;
 	  };
 
+type spacingTypeWithAuto =
+	| keyof typeof sizeOptionsWithAuto
+	| {
+			x: keyof typeof sizeOptionsWithAuto;
+			y: keyof typeof sizeOptionsWithAuto;
+	  }
+	| {
+			top: keyof typeof sizeOptionsWithAuto;
+			left: keyof typeof sizeOptionsWithAuto;
+			right: keyof typeof sizeOptionsWithAuto;
+			bottom: keyof typeof sizeOptionsWithAuto;
+	  };
+
 type directionType = 'row' | 'column';
 
-export type StackProps = {
-	as?: 'div' | 'ul' | 'ol';
+export type StackPrimitiveProps = {
+	as?: 'div' | 'ul' | 'ol' | 'article' | 'span';
 	justify?: keyof typeof justifyOptions;
 	align?: keyof typeof alignOptions;
 	gap: gapType;
 	padding?: spacingType;
-	margin?: spacingType;
+	margin?: spacingTypeWithAuto;
 	children: ReactNode | ReactNode[];
 	direction?: directionType;
-} & (WrapType | NoWrapType);
+	wrap?: 'nowrap' | 'wrap' | 'wrapReverse';
+	alignContent?: keyof typeof alignContentOptions;
+	display?: 'block' | 'inline';
+	width?: string;
+};
 
-function Stack({
-	as = 'div',
-	children,
-	justify = 'start',
-	align = 'start',
-	wrap = 'nowrap',
-	direction = 'row',
-	gap,
-	padding,
-	margin,
-	...props
-}: StackProps) {
+const StackPrimitive = React.forwardRef(function StackPrimitive(
+	{
+		as = 'div',
+		children,
+		justify = 'start',
+		align = 'start',
+		wrap = 'nowrap',
+		direction = 'row',
+		display = 'block',
+		gap,
+		padding,
+		margin,
+		width,
+		...props
+	}: StackPrimitiveProps,
+	ref: React.Ref<any>,
+) {
 	const TagType = as;
 	const childrenArray = React.Children.toArray(children);
 	let spreadableProps = props;
@@ -169,7 +187,7 @@ function Stack({
 		if ('alignContent' in props) {
 			const { alignContent, ...rest } = props;
 			spreadableProps = rest;
-			return styles[alignContentOptions[alignContent]];
+			return alignContent ? styles[alignContentOptions[alignContent]] : '';
 		}
 		return '';
 	}
@@ -182,18 +200,21 @@ function Stack({
 				styles[alignOptions[align]],
 				styles[wrap],
 				styles[direction],
+				styles[display],
 				getAlignContent(),
 				...getGap(),
 				...getPadding(),
 				...getMargin(),
 			)}
 			{...spreadableProps}
+			ref={ref}
+			style={{ width: width || 'auto' }}
 		>
 			{childrenArray.map(child => (
 				<div key={(child as JSX.Element).key as string}>{child}</div>
 			))}
 		</TagType>
 	);
-}
+});
 
-export default Stack;
+export default StackPrimitive;

@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/tokens' as tokens;
+@use '../../../../../../node_modules/@talend/design-tokens/lib/tokens' as tokens;
 
 .stack {
 	display: flex;
@@ -6,6 +6,10 @@
 
 	&.column {
 		flex-flow: column;
+	}
+
+	&.inline {
+		display: inline-flex;
 	}
 
 	&.justify {
@@ -260,6 +264,10 @@
 				margin-top: 0;
 			}
 
+			&-auto {
+				margin-top: auto;
+			}
+
 			&-XXS {
 				margin-top: tokens.$coral-size-xxs;
 			}
@@ -290,6 +298,10 @@
 				margin-right: 0;
 			}
 
+			&-auto {
+				margin-right: auto;
+			}
+
 			&-XXS {
 				margin-right: tokens.$coral-size-xxs;
 			}
@@ -315,6 +327,10 @@
 				margin-bottom: 0;
 			}
 
+			&-auto {
+				margin-bottom: auto;
+			}
+
 			&-XXS {
 				margin-bottom: tokens.$coral-size-xxs;
 			}
@@ -338,6 +354,10 @@
 		&-left {
 			&-NONE {
 				margin-left: 0;
+			}
+
+			&-auto {
+				margin-left: auto;
 			}
 
 			&-XXS {

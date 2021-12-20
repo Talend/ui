@@ -1,16 +1,16 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Stack from './Stack.tsx';
+import { StackHorizontal } from './index';
 import * as Stories from './Stack.stories';
 
-<Meta title="Components/Stack" component={Stack} />
+<Meta title="Components/Stack" component={StackHorizontal} />
 
 # Stack (aka "Autolayout")
 
-`Stack` is an opinionated layout component. It serves has a wrapper for most layout needs that would otherwise require manual CSS.
+`StackPrimitive` is an opinionated layout component. It serves has a wrapper for most layout needs that would otherwise require manual CSS.
 
 On Figma, this pattern is found in the Autolayout tool.
 
-However, where Figma lets you pick random margin and padding values, `Stack` limits those options to design tokens.
+However, where Figma lets you pick random margin and padding values, `StackPrimitive` limits those options to design tokens.
 
 
 ## Zoning
@@ -28,13 +28,13 @@ However, where Figma lets you pick random margin and padding values, `Stack` lim
 ## Usage
 
 ```tsx
-import { Stack, Button } from '@talend/design-system';
+import { StackPrimitive, Button } from '@talend/design-system';
 import * as tokens from '@talend/design-tokens';
 
 function myComponent() {
     return (
         <>
-            <Stack.Horizontal
+            <StackHorizontal
                 padding="S"
                 gap="S"
                 align="start"
@@ -42,9 +42,9 @@ function myComponent() {
             >
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <Button.Primary onClick={clickHandler}>Click here</Button.Primary>
-            </Stack.Horizontal>
+            </StackHorizontal>
 
-            <Stack.Vertical
+            <StackVertical
                 padding="S"
                 gap="XS"
                 align="start"
@@ -55,9 +55,9 @@ function myComponent() {
             >
                 <li>List entry</li>
                 <li>Second list entry</li>
-            </Stack.Vertical>
+            </StackVertical>
 
-            <Stack.Vertical
+            <StackVertical
                 padding="S"
                 gap="XS"
                 align="start"
@@ -67,24 +67,25 @@ function myComponent() {
                 width={tokens.coralSizeLimit}
             >
                 <li>
-                    <Stack.Horizontal
+                    <StackHorizontal
                         gap="M"
                         align="start"
                         justify="start"
                     >
                         <p>Lorem ipsum dolor sit amet</p>
                         <Button.Primary onClick={clickHandler}>Click here</Button.Primary>
-                    </Stack.Horizontal>
+                    </StackHorizontal>
                 </li>
                 <li>Second list entry</li>
-            </Stack.Vertical>
+            </StackVertical>
         </>
     )
 }
 ```
 
 <Canvas>
-    <Story story={Stories.Test} />
+    <Story story={Stories.TestHorizontal} />
+    <Story story={Stories.TestVertical} />
 </Canvas>
 
 ## Accessibility
