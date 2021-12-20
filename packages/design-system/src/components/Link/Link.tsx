@@ -1,9 +1,7 @@
+import { IconName } from '@talend/icons';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { IconName } from '@talend/icons';
-
 import { Icon } from '../Icon/Icon';
-
 import * as S from './Link.style';
 
 export type LinkProps = React.AnchorHTMLAttributes<any> & {
@@ -60,13 +58,13 @@ const Link = React.forwardRef(
 					defaultValue: 'This link is disabled',
 				});
 			}
-			if (isExternal && isBlank && title) {
+			if (isBlank && title) {
 				return t('LINK_EXTERNAL_TITLE', {
 					title,
 					defaultValue: '{{title}} (open in a new tab)',
 				});
 			}
-			if (isExternal && isBlank) {
+			if (isBlank) {
 				return t('LINK_EXTERNAL', {
 					defaultValue: 'Open in a new tab',
 				});
