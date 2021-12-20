@@ -54,7 +54,7 @@ jobs:
 
       - name: Comment PR
         uses: daohoangson/comment-on-github@v2
-        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'dependabot') }}
+        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'refs/heads/dependabot') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
