@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Redirect should dispatch a redirect action 1`] = `
-<withI18nextTranslation(AppLoaderComponent)
-  t={[Function]}
-/>
-`;
