@@ -23,7 +23,6 @@
     "build:lib": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
-    "test:demo": "echo nothing to do",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "devDependencies": {

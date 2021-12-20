@@ -5,8 +5,7 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "main": "index.js",
   "scripts": {
-    "test": "echo nothing to test",
-    "test:demo": "echo nothing to do"
+    "test": "echo nothing to test"
   },
   "repository": {
     "type": "git",

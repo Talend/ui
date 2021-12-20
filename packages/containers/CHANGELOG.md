@@ -1,5 +1,11 @@
 # @talend/react-containers
 
+## 6.39.2
+
+### Patch Changes
+
+- 9b3fe8520: Redirect: move the dispatch into a useLayoutEffect
+
 ## 6.39.1
 
 ### Patch Changes
