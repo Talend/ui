@@ -6,7 +6,6 @@
     <groupId>org.talend</groupId>
     <artifactId>component-objects</artifactId>
     <version>4.6.0</version>
-
     <properties>
         <!-- project -->
         <java.version>1.8</java.version>
