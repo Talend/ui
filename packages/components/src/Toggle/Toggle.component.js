@@ -32,13 +32,18 @@ function Toggle({ id, label, className, intermediate, ...props }) {
 		dataChecked = 2;
 	}
 
+	const classes = classNames(
+		theme['tc-toggle'],
+		'checkbox tc-toggle switch checkbox',
+		className,
+		{
+			'tc-toggle-disabled': props.disabled,
+			[theme['tc-toggle-disabled']]: props.disabled,
+		}
+	);
+
 	return (
-		<div
-			className={classNames('checkbox tc-toggle', theme['tc-toggle'], className, {
-				[theme['tc-toggle-disabled']]: props.disabled,
-				'tc-toggle-disabled': props.disabled,
-			})}
-		>
+		<div className={classes}>
 			<label htmlFor={id} data-feature={dataFeature}>
 				<input
 					type="checkbox"
@@ -59,7 +64,7 @@ Toggle.defaultProps = {
 	checked: false,
 	intermediate: false,
 	label: '',
-	className: 'switch checkbox',
+	className: '',
 };
 
 Toggle.propTypes = {
