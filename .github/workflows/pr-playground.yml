@@ -46,14 +46,6 @@ jobs:
         env:
           THRESHOLD: 100;
 
-      - name: deploy if PR
-        if: github.ref != 'refs/heads/master'
-        run: |
-          surge --project packages/playground/dist --domain "${{ github.event.number }}.talend-playground.surge.sh"
-        env:
-          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-
       - name: Commit size change
         if: steps.sizecheck.outputs.diff
         uses: actions-js/push@master
@@ -62,12 +54,14 @@ jobs:
           message: "chore: update size"
           branch: ${{ github.head_ref }}
 
-      - name: Comment PR
-        uses: daohoangson/comment-on-github@v2
-        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'dependabot') }}
+      - name: deploy if PR
+        if: github.ref != 'refs/heads/master'
+        run: |
+          rm -rf .static
+          mkdir .static
+          mkdir .static/playground
+          cp -R packages/playground/dist/* .static/playground
+          surge --project .static --domain "${{ github.event.number }}.talend-playground.surge.sh"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          body: ":octocat: [Playground is available here](http://${{ github.event.number }}.talend-playground.surge.sh)"
-          fingerprint: ${{ github.event.number }}
-          replace: please
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
