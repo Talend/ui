@@ -9,17 +9,17 @@ import './index.scss';
 # Talend Design tokens
 
 <Canvas
-    withSource="none"
+	withSource="none"
 	additionalActions={[
 		{
 			title: 'Switch mode',
 			onClick: () => {
-                const playground = document.getElementById('playground');
+				const playground = document.getElementById('playground');
 				const currentTheme = playground.dataset.theme;
 				if (currentTheme === 'dark') {
-                    playground.dataset.theme = 'light';
+					playground.dataset.theme = 'light';
 				} else {
-                    playground.dataset.theme = 'dark';
+					playground.dataset.theme = 'dark';
 				}
 			},
 		},

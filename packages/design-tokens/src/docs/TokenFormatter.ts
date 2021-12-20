@@ -3,13 +3,10 @@ import { Dictionary, Token, TokenType } from '../types';
 const tShirtSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
 
 export const groupByType = (collection: Dictionary) => {
-	return collection.reduce(
-		(acc, cur) => {
-			(acc[cur.type] = acc[cur.type] || []).push(cur);
-			return acc;
-		},
-		{} as Record<TokenType, Token[]>,
-	);
+	return collection.reduce((acc, cur) => {
+		(acc[cur.type] = acc[cur.type] || []).push(cur);
+		return acc;
+	}, {} as Record<TokenType, Token[]>);
 };
 
 export const getDisplayName = (name: string) => {
