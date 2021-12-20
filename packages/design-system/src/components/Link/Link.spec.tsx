@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
 
-import { composeStories } from '@storybook/testing-react';
 import React from 'react';
+import { composeStories } from '@storybook/testing-react';
+
 import * as Stories from './Link.stories';
 
 const { Default, WithIcon, External, TargetBlank } = composeStories(Stories);
