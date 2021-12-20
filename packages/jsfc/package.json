@@ -9,8 +9,7 @@
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "test:cov": "npm run test",
-    "test": "echo need to fix all tests before",
-    "test:demo": "echo nothing to do"
+    "test": "echo need to fix all tests before"
   },
   "author": "json-schema-form",
   "contributors": [

@@ -6,7 +6,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "test": "jest",
-    "test:demo": "echo nothing to do",
     "lint": "eslint lib/**"
   },
   "keywords": [
