@@ -1,8 +1,10 @@
 import React from 'react';
-import { Story } from '@storybook/react';
 
 import { StackPrimitiveProps } from './Primitive/StackPrimitive';
 import { StackHorizontal, StackVertical } from './index';
+
+import ButtonPrimary from '../Button/variations/Button.primary';
+import Divider from '../Divider/index';
 
 export default {
 	component: StackHorizontal,
@@ -28,6 +30,55 @@ const TemplateVertical = (args: StackPrimitiveProps) => {
 	);
 };
 
-export const TestHorizontal: Story<StackPrimitiveProps> = TemplateHorizontal.bind({});
+export const TestHorizontal = TemplateHorizontal.bind({});
 
-export const TestVertical: Story<StackPrimitiveProps> = TemplateVertical.bind({});
+export const TestVertical = TemplateVertical.bind({});
+
+export const StackNesting = () => {
+	return (
+		<StackVertical gap="M" as="article" align="stretch">
+			<StackHorizontal gap="S" padding="S" justify="center" align="center">
+				<StackVertical gap="XS" as="ul">
+					<li>List entry</li>
+					<li>List entry 2</li>
+					<li>List entry 3</li>
+				</StackVertical>
+				<StackVertical gap="XS" as="ul">
+					<li>List entry</li>
+					<li>List entry 2</li>
+					<li>List entry 3</li>
+				</StackVertical>
+				<StackVertical gap="XS" as="ul">
+					<li>List entry</li>
+					<li>List entry 2</li>
+					<li>List entry 3</li>
+					<li>List entry 4</li>
+				</StackVertical>
+			</StackHorizontal>
+			<Divider />
+			<StackHorizontal gap="S" padding="S" justify="center" align="center">
+				<StackVertical gap="XS" as="ul">
+					<li>List entry</li>
+					<li>List entry 2</li>
+					<li>List entry 3</li>
+				</StackVertical>
+				<StackVertical gap="XS" as="ul">
+					<li>List entry</li>
+					<li>List entry 2</li>
+					<li>List entry 3</li>
+				</StackVertical>
+				<StackVertical gap="XS" as="ul">
+					<li>List entry</li>
+					<li>List entry 2</li>
+					<li>List entry 3</li>
+					<li>List entry 4</li>
+				</StackVertical>
+			</StackHorizontal>
+			<Divider />
+			<StackHorizontal gap="XS" justify="center" align="center">
+				<p>Lorem ipsum dolor sit amet.</p>
+				<ButtonPrimary onClick={() => {}}>Click here</ButtonPrimary>
+			</StackHorizontal>
+		</StackVertical>
+	);
+};
