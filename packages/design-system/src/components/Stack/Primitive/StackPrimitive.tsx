@@ -89,7 +89,7 @@ export type StackPrimitiveProps = {
 	wrap?: 'nowrap' | 'wrap' | 'wrapReverse';
 	alignContent?: keyof typeof alignContentOptions;
 	display?: 'block' | 'inline';
-	width?: string;
+	role?: string;
 };
 
 const StackPrimitive = React.forwardRef(function StackPrimitive(
@@ -104,7 +104,7 @@ const StackPrimitive = React.forwardRef(function StackPrimitive(
 		gap,
 		padding,
 		margin,
-		width,
+		role,
 		...props
 	}: StackPrimitiveProps,
 	ref: React.Ref<any>,
@@ -206,9 +206,9 @@ const StackPrimitive = React.forwardRef(function StackPrimitive(
 				...getPadding(),
 				...getMargin(),
 			)}
-			{...spreadableProps}
 			ref={ref}
-			style={{ width: width || 'auto' }}
+			role={role}
+			{...spreadableProps}
 		>
 			{childrenArray.map(child => (
 				<div key={(child as JSX.Element).key as string}>{child}</div>
