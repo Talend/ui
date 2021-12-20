@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StackPrimitiveProps } from './Primitive/StackPrimitive';
-import { StackHorizontal, StackVertical } from './index';
+import { StackHorizontal, StackVertical, StackItem } from './index';
 
 import ButtonPrimary from '../Button/variations/Button.primary';
 import Divider from '../Divider/index';
@@ -57,14 +57,18 @@ export const StackNesting = () => {
 			</StackHorizontal>
 			<Divider />
 			<StackHorizontal gap="S" padding="S" justify="center" align="center">
+				<StackItem align="end" grow>
+					<StackVertical gap="XS" as="ul">
+						<li>List entry</li>
+						<li>List entry 2</li>
+						<li>List entry 3</li>
+					</StackVertical>
+				</StackItem>
 				<StackVertical gap="XS" as="ul">
 					<li>List entry</li>
-					<li>List entry 2</li>
-					<li>List entry 3</li>
-				</StackVertical>
-				<StackVertical gap="XS" as="ul">
-					<li>List entry</li>
-					<li>List entry 2</li>
+					<StackItem align="center" grow as="li">
+						List entry 2
+					</StackItem>
 					<li>List entry 3</li>
 				</StackVertical>
 				<StackVertical gap="XS" as="ul">
