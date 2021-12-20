@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.11.1
+
+### Patch Changes
+
+- 8caf37ea7: fix(Form): remove media-query-based max-width
+
 ## 1.11.0
 
 ### Minor Changes
