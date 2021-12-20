@@ -664,7 +664,7 @@ Array [
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
         >
           <div
-            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+            className="checkbox tc-toggle switch checkbox theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
             <label>
               <input
@@ -727,7 +727,7 @@ Array [
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
         >
           <div
-            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+            className="checkbox tc-toggle switch checkbox theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
             <label>
               <input
@@ -789,7 +789,7 @@ Array [
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
         >
           <div
-            className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+            className="checkbox tc-toggle switch checkbox theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
             <label>
               <input
