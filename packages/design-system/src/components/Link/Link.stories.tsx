@@ -1,7 +1,7 @@
-import React from 'react';
 import { Story } from '@storybook/react';
-import { WithSelector } from '../../docs';
+import React from 'react';
 import Link from '.';
+import { WithSelector } from '../../docs';
 
 export default {
 	component: Link,
@@ -57,8 +57,14 @@ export const External = {
 	args: {
 		...defaultProps,
 		href: 'https://www.talend.com',
-		target: '_blank',
 		children: 'talend.com',
+	},
+};
+
+export const TargetBlank = {
+	args: {
+		...defaultProps,
+		target: '_blank',
 	},
 };
 

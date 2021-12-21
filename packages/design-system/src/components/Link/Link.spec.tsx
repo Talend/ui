@@ -5,7 +5,7 @@ import { composeStories } from '@storybook/testing-react';
 
 import * as Stories from './Link.stories';
 
-const { Default, WithIcon, External } = composeStories(Stories);
+const { Default, WithIcon, External, TargetBlank } = composeStories(Stories);
 
 context('<Link />', () => {
 	it('should render', () => {
@@ -20,8 +20,14 @@ context('<Link />', () => {
 
 	it('should render external', () => {
 		cy.mount(<External />);
+		cy.get('.link .link__icon').should('have.attr', 'name', 'talend-link');
+	});
+
+	it('should render target blank', () => {
+		cy.mount(<TargetBlank />);
 		cy.get('.link')
 			.should('have.attr', 'title', 'Open in a new tab')
-			.should('have.attr', 'target', '_blank');
+			.should('have.attr', 'target', '_blank')
+			.should('have.attr', 'rel', 'noopener noreferrer');
 	});
 });
