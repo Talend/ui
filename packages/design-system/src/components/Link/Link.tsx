@@ -38,7 +38,10 @@ const Link = React.forwardRef(
 		ref: React.Ref<any>,
 	) => {
 		const { t } = useTranslation();
-		const isBlank: boolean = React.useMemo(() => target?.toLowerCase() === '_blank', [target]);
+		const isBlank: boolean = React.useMemo(
+			() => !!target && !['_self', '_parent', '_top'].includes(target.toLowerCase()),
+			[target],
+		);
 		const isExternal = React.useMemo(() => {
 			if (!href) {
 				return false;

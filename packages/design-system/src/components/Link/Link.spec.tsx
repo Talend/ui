@@ -27,6 +27,7 @@ context('<Link />', () => {
 		cy.mount(<TargetBlank />);
 		cy.get('.link')
 			.should('have.attr', 'title', 'Open in a new tab')
-			.should('have.attr', 'target', '_blank');
+			.should('have.attr', 'target', '_blank')
+			.should('have.attr', 'rel', 'noopener noreferrer');
 	});
 });

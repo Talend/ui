@@ -59,6 +59,29 @@ describe('Link', () => {
 		);
 		const link = getByTestId('my.link');
 		expect(link.getAttribute('title')).toBe('Open in a new tab');
+		expect(link.getAttribute('rel')).toBe('noopener noreferrer');
+	});
+
+	test('target unknown', () => {
+		const { getByTestId } = render(
+			<Link data-testid="my.link" target="unknown">
+				Link
+			</Link>,
+		);
+		const link = getByTestId('my.link');
+		expect(link.getAttribute('title')).toBe('Open in a new tab');
+		expect(link.getAttribute('rel')).toBe('noopener noreferrer');
+	});
+
+	test('target self', () => {
+		const { getByTestId } = render(
+			<Link data-testid="my.link" target="_self">
+				Link
+			</Link>,
+		);
+		const link = getByTestId('my.link');
+		expect(link.getAttribute('title')).toBeNull();
+		expect(link.getAttribute('rel')).toBeNull();
 	});
 
 	test('data-feature', () => {
