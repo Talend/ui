@@ -2,4 +2,4 @@
 '@talend/utils': minor
 ---
 
-format date in specified locale
+feat(utils/date): format date in specified locale
