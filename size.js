@@ -27,6 +27,6 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 			return acc;
 		}, {});
 		if (changed) {
-			fs.writeFileSync('./size.json', JSON.stringify(sizes));
+			fs.writeFileSync('./size.json', JSON.stringify(sizes, null, 2));
 		}
 	});

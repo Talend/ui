@@ -43,6 +43,7 @@ jobs:
         run: |
           node size.js
           echo "::set-output name=diff::$(git status --short size.json)"
+          echo "::set-output name=masterdiff::$(git diff master size.json)"
         env:
           THRESHOLD: 100;
 
@@ -65,3 +66,13 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+      - name: Comment Sizes PR
+        uses: daohoangson/comment-on-github@v2
+        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'refs/heads/dependabot') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: ":octocat: ```diff\n${{ steps.sizecheck.outputs.masterdiff }}```"
+          fingerprint: ${{ github.event.number }}-sizes
+          replace: please
