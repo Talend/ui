@@ -1,12 +1,4 @@
-:root {
-	--size: 5rem;
-	--background: #efefef;
-	--background-highlight: #ffeeee;
-	--shadow-color: 0deg 0% 50%;
-	--border-radius: 4px;
-
-	font-family: 'Source Sans Pro';
-}
+@use '../tokens';
 
 dl,
 dt,
@@ -15,209 +7,154 @@ dd {
 }
 
 .skeleton {
-	height: var(--size);
-	width: var(--size);
-	background: var(--background);
-	border-radius: var(--border-radius);
 }
 
 .token {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 2rem;
-	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas:
+		'name demo demo'
+		'description value value';
+	margin: tokens.$coral-size-s 0 tokens.$coral-size-xl;
 }
 
-.tokenKey,
-.tokenValue {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+.tokenName {
+	grid-area: name;
+	align-self: end;
+	font: tokens.$coral-paragraph-s-bold;
 }
-.tokenKey {
-	flex: 0 0 30%;
-	font-weight: 600;
+
+.tokenDescription {
+	grid-area: description;
 }
-.tokenValue {
-	flex: 0 1 66%;
-}
+
 .tokenValueDemo {
-	flex: 0 1 66%;
-	padding: 1rem;
-	margin-bottom: 1rem;
-	overflow: hidden;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: var(--border-radius);
-	box-shadow: 0.5px 1px 1px hsl(var(--shadow-color) / 0.7);
+	grid-area: demo;
+	align-self: end;
+	justify-self: end;
 }
-.tokenValueCustomProperty,
-.tokenValueCss {
-	flex: 0 1 66%;
+
+.tokenValue {
+	grid-area: value;
+	position: relative;
+	margin-top: tokens.$coral-size-s;
+	padding: tokens.$coral-size-xs;
 	margin-left: auto;
+	max-width: 90%;
 	text-align: end;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	color: tokens.$coral-color-neutral-text-weak;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-radius: tokens.$coral-radius-s;
+
+	&:after {
+		position: absolute;
+		bottom: 100%;
+		right: tokens.$coral-size-xs;
+		content: '';
+		height: 0;
+		width: 0;
+		border: solid transparent;
+	}
+
+	&:after {
+		border-bottom-color: tokens.$coral-color-neutral-background-medium;
+		border-width: tokens.$coral-size-xs;
+		margin-left: -#{tokens.$coral-size-xs};
+	}
+
+	code {
+		display: block;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
 }
 
 .border {
-	width: 100%;
+	width: tokens.$coral-size-xl;
+	height: tokens.$coral-size-xl;
+	border-radius: tokens.$coral-radius-s;
 	border: none;
 }
 
 .branding {
-	height: var(--size);
-	width: var(--size);
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
 
 .breakpoint {
 	margin: 0;
-	zoom: 0.5;
-	border-color: var(--background-hover);
+	border: 1px solid tokens.$coral-color-accent-background-hover;
 }
 
-.colorGrid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem;
-}
-
-.colorSwatch {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-}
-
-.colorBackground {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	padding: 1rem;
-	color: inherit;
-	background: transparent;
-	border: 2px solid transparent;
-	border-radius: var(--border-radius);
-
-	.token {
-		margin-bottom: 0;
-		flex-direction: column;
-		align-items: start;
-
-		dt,
-		dd {
-			text-align: start;
-			margin-left: 0;
-		}
-
-		dd {
-			font-size: xx-small;
-		}
-	}
-}
-
-.colorContent {
-	display: flex;
-	align-items: start;
-	justify-content: start;
-	gap: 2rem;
-}
-
-.colorIcon {
-	display: inline-block;
-	height: 1.6rem;
-	width: 1.6rem;
-	background: currentColor;
-	border-radius: var(--border-radius);
-}
-
-.colorText {
-	display: inline-block;
-	height: 1.6rem;
-	width: var(--size);
-	background: currentColor;
-	border-radius: var(--border-radius);
-}
-
-.colorBorder {
-	text-align: end;
-}
-
-.colorRatio {
-	display: inline-block;
-	margin-bottom: -1.5rem;
-	padding-inline: 0.5rem;
-	width: fit-content;
-	color: white;
-	border-radius: 9999px;
-}
-
-.colorRatioOK {
-	background: forestgreen;
-}
-
-.colorRatioKO {
-	background: darkred;
+.color {
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	border-radius: tokens.$coral-radius-s;
+	border: 1px solid tokens.$coral-color-neutral-border-weak;
 }
 
 .elevation {
-	margin: 1rem;
-	width: var(--size);
-	height: calc(var(--size) / 2);
-	background: var(--background);
+	margin: tokens.$coral-size-xs;
+	width: tokens.$coral-size-xl;
+	height: calc(#{tokens.$coral-size-xl} / 2);
+	background: tokens.$coral-color-accent-background;
+	border-radius: tokens.$coral-radius-s;
 	transform: skew(-45deg);
 }
 
 .gradient {
-	height: var(--size);
-	width: 100%;
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-limit;
 	background-size: contain;
 	background-repeat: no-repeat;
+	border-radius: tokens.$coral-radius-s;
 }
 
 .measure {
-	width: var(--size);
-	height: var(--size);
-	background: var(--background);
+	width: tokens.$coral-size-xl;
+	height: tokens.$coral-size-xl;
+	background: tokens.$coral-color-accent-background;
+	border-radius: tokens.$coral-radius-s;
 }
 
 .radius {
-	height: var(--size);
-	width: var(--size);
-	background: var(--background);
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	background: tokens.$coral-color-accent-background;
 }
 
 .shadow {
-	height: var(--size);
-	width: var(--size);
-	border-radius: var(--border-radius);
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	border-radius: tokens.$coral-radius-s;
 }
 
 .opacity {
-	height: var(--size);
-	background-image: /* tint image */ linear-gradient(to right, rgba(192, 192, 192, 0.75), rgba(192, 192, 192, 0.75)), /* checkered effect */ linear-gradient(to right, black 50%, white 50%), linear-gradient(to bottom, black 50%, white 50%);
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-limit;
+	background-image: linear-gradient(to right, rgba(192, 192, 192, 0.75), rgba(192, 192, 192, 0.75)), linear-gradient(to right, black 50%, white 50%), linear-gradient(to bottom, black 50%, white 50%);
 	background-blend-mode: normal, difference, normal;
-	background-size: 2em 2em;
+	background-size: tokens.$coral-size-xs tokens.$coral-size-xs;
+	border-radius: tokens.$coral-radius-s;
 
 	&Layer {
 		height: 100%;
 		width: 100%;
-		background: var(--background-highlight);
+		background: tokens.$coral-color-accent-background-hover;
 	}
 }
 
 .transition {
-	height: var(--size);
-	width: var(--size);
-	background: var(--background);
-	border-radius: var(--border-radius);
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	background: tokens.$coral-color-accent-background;
+	border-radius: tokens.$coral-radius-s;
 
 	&:hover {
-		width: 7rem;
-		height: 7rem;
-		background: var(--background-hover);
+		transform: scale(2);
+		background: tokens.$coral-color-accent-background-hover;
 	}
 }

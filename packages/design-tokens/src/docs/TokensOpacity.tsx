@@ -1,10 +1,14 @@
 import React from 'react';
+
+import { Token, TokenType } from '../types';
 import { PropsWithToken, TokensProps } from './TokensTypes';
+
 import TokensDefinitionList from './TokensDefinitionList';
+
 import S from './Tokens.scss';
 
-const TokensOpacity = ({ tokens, filter }: TokensProps) => (
-	<TokensDefinitionList filter={filter} tokens={tokens}>
+const TokensOpacity = ({ tokens }: TokensProps) => (
+	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.OPACITY)}>
 		{({ token }: PropsWithToken) => (
 			<div className={S.opacity}>
 				<div

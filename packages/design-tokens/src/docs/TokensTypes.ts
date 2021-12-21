@@ -1,9 +1,8 @@
 import React from 'react';
-import { Dictionary, Token } from '../types';
+import { Tokens, Token } from '../types';
 
 export type TokensProps = React.PropsWithChildren<any> & {
-	filter: string;
-	tokens: Dictionary;
+	tokens: Tokens;
 };
 
 export type PropsWithToken = {

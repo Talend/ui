@@ -1,9 +1,12 @@
 import React from 'react';
+
+import { Token, TokenType } from '../types';
 import { PropsWithToken, TokensProps } from './TokensTypes';
+
 import TokensDefinitionList from './TokensDefinitionList';
 
-const TokensTypography = ({ tokens, filter }: TokensProps) => (
-	<TokensDefinitionList filter={filter} tokens={tokens}>
+const TokensTypography = ({ tokens }: TokensProps) => (
+	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.TYPOGRAPHY)}>
 		{({ token }: PropsWithToken) => (
 			<div
 				style={{

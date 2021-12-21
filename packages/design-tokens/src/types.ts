@@ -21,11 +21,13 @@ export interface Token {
 }
 
 export interface ColorToken extends Token {
+	type: TokenType.COLOR;
 	hsla: string;
 	hex: string;
 }
 
 export interface TypographyToken extends Token {
+	type: TokenType.TYPOGRAPHY;
 	fontStyle: string;
 	fontWeight: string;
 	fontSize: string;
@@ -33,4 +35,4 @@ export interface TypographyToken extends Token {
 	fontFamily: string;
 }
 
-export type Dictionary = Token[];
+export type Tokens = Token[];

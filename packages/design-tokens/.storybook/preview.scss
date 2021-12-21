@@ -1,0 +1,17 @@
+@use '../src/tokens';
+
+:global {
+  .sbdocs {
+    font-size: 14px;
+  }
+
+  .sbdocs.sbdocs-wrapper {
+    font: tokens.$coral-paragraph-s;
+    color: tokens.$coral-color-neutral-text;
+    background: tokens.$coral-color-neutral-background;
+  }
+
+  .sbdocs.sbdocs-h1 {
+    color: inherit;
+  }
+}

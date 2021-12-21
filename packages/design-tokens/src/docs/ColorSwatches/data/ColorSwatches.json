@@ -18,6 +18,12 @@
     "border": "NeutralBorder"
   },
   {
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "background": "NeutralBackgroundHeavy",
+    "border": "NeutralBorder"
+  },
+  {
     "icon": "NeutralIconWeak",
     "color": "NeutralTextWeak",
     "background": "NeutralBackground",
@@ -36,6 +42,12 @@
     "border": "NeutralBorderWeak"
   },
   {
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
+    "background": "NeutralBackgroundHeavy",
+    "border": "NeutralBorderWeak"
+  },
+  {
     "icon": "NeutralIcon",
     "color": "NeutralText",
     "background": "NeutralBackground",
@@ -51,6 +63,12 @@
     "icon": "NeutralIcon",
     "color": "NeutralText",
     "background": "NeutralBackgroundStrong",
+    "border": "NeutralBorderStrong"
+  },
+  {
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "background": "NeutralBackgroundHeavy",
     "border": "NeutralBorderStrong"
   },
   {
@@ -69,6 +87,12 @@
     "icon": "NeutralIconDisabled",
     "color": "NeutralTextDisabled",
     "background": "NeutralBackgroundStrong",
+    "border": "NeutralBorderDisabled"
+  },
+  {
+    "icon": "NeutralIconDisabled",
+    "color": "NeutralTextDisabled",
+    "background": "NeutralBackgroundHeavy",
     "border": "NeutralBorderDisabled"
   },
   {
@@ -77,8 +101,6 @@
     "background": "NeutralBackgroundDisabled",
     "border": "NeutralBorderDisabled"
   },
-  {},
-  {},
   {
     "icon": "AccentIcon",
     "color": "AccentText",
@@ -265,8 +287,6 @@
     "background": "AssistiveBackground",
     "border": "AssistiveBorder"
   },
-  {},
-  {},
   {
     "background": "NeutralBackground",
     "border": "AssistiveBorderFocus"

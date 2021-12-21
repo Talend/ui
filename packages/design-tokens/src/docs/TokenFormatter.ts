@@ -1,13 +1,22 @@
-import { Dictionary, Token, TokenType } from '../types';
+import { Tokens } from '../types';
 
 const tShirtSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
 
-export const groupByType = (collection: Dictionary) => {
-	return collection.reduce((acc, cur) => {
-		(acc[cur.type] = acc[cur.type] || []).push(cur);
-		return acc;
-	}, {} as Record<TokenType, Token[]>);
+type GroupedArray<T extends Record<K, PropertyKey>, K extends keyof T> = {
+	[P in T[K]]: T[];
 };
+
+export const groupBy = <T extends Record<K, PropertyKey>, K extends keyof T>(
+	collection: T[],
+	property: K,
+) => {
+	return collection.reduce((acc, cur) => {
+		(acc[cur[property]] = acc[cur[property]] || []).push(cur);
+		return acc;
+	}, {} as GroupedArray<T, K>);
+};
+
+export const groupByType = (collection: Tokens) => groupBy(collection, 'type');
 
 export const getDisplayName = (name: string) => {
 	if (!name) return '';

@@ -1,12 +1,16 @@
 import React from 'react';
+
+import { Token, TokenType } from '../types';
 import { PropsWithToken, TokensProps } from './TokensTypes';
+
 import TokensDefinitionList from './TokensDefinitionList';
+
 import S from './Tokens.scss';
 
-const TokensBreakpoint = ({ tokens, filter }: TokensProps) => (
-	<TokensDefinitionList filter={filter} tokens={tokens}>
+const TokensBreakpoint = ({ tokens }: TokensProps) => (
+	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.BREAKPOINT)}>
 		{({ token }: PropsWithToken) => (
-			<hr
+			<div
 				className={S.breakpoint}
 				style={{
 					width: token.value,

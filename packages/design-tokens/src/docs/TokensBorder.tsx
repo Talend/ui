@@ -1,15 +1,19 @@
 import React from 'react';
+
+import { Token, TokenType } from '../types';
 import { PropsWithToken, TokensProps } from './TokensTypes';
+
 import TokensDefinitionList from './TokensDefinitionList';
+
 import S from './Tokens.scss';
 
-const BorderTokens = ({ tokens, filter }: TokensProps) => (
-	<TokensDefinitionList filter={filter} tokens={tokens}>
+const BorderTokens = ({ tokens }: TokensProps) => (
+	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.BORDER)}>
 		{({ token }: PropsWithToken) => (
-			<hr
+			<div
 				className={S.border}
 				style={{
-					borderBottom: token.value,
+					border: token.value,
 				}}
 			/>
 		)}
