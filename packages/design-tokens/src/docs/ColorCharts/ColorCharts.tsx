@@ -54,9 +54,21 @@ const ColorCharts = ({ tokens }: TokensProps) => {
 						chartColorStrong={chartColorStrong}
 					/>
 					<dl>
-						<Token token={chartColor} />
-						<Token token={chartColorStrong} />
-						<Token token={chartColorWeak} />
+						<Token token={chartColorWeak}>
+							{({ token }: { token: ColorToken }) => (
+								<div className={S.colorText} style={{ background: token?.value }} />
+							)}
+						</Token>
+						<Token token={chartColorStrong}>
+							{({ token }: { token: ColorToken }) => (
+								<div className={S.colorText} style={{ background: token?.value }} />
+							)}
+						</Token>
+						<Token token={chartColor}>
+							{({ token }: { token: ColorToken }) => (
+								<div className={S.colorText} style={{ background: token?.value }} />
+							)}
+						</Token>
 					</dl>
 				</div>
 			) : (

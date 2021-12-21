@@ -1,12 +1,9 @@
-import 'typeface-source-sans-pro';
-
 import React from 'react';
 import { DocsContainer } from '@storybook/addon-docs';
 
-import tokens from '../src';
-
-import '../src/index.scss';
+import 'typeface-source-sans-pro';
 import './preview.scss';
+import '../src/index.scss';
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },

@@ -12,10 +12,10 @@ const AnimatedRect = ({
 	begin: string;
 }) => {
 	return (
-		<rect fill={chartColor?.value} height={height} width="30">
+		<rect fill={chartColor?.value} y="50%" width={0} height="30">
 			<animate
 				attributeType="CSS"
-				attributeName="height"
+				attributeName="width"
 				from="0"
 				to={height}
 				dur="1s"
@@ -38,7 +38,7 @@ const ColorChart = ({
 	chartColorStrong: ColorToken;
 }) => {
 	return (
-		<svg height="100%" width="30px" style={{ transform: 'rotate(180deg)' }}>
+		<svg height="100%" width="100%">
 			<g>
 				<AnimatedRect chartColor={chartColorWeak} height="100%" begin="0s" />
 				<AnimatedRect chartColor={chartColorStrong} height="80%" begin="0.1s" />

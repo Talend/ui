@@ -26,7 +26,7 @@ const ColorSwatch = ({
 				<TokenName token={icon} />
 			</div>
 			<div>
-				<div style={{ display: 'flex' }}>
+				<div className={S.colorContentRow}>
 					<div className={S.colorText} />
 					{color && background && <ColorChecker text={color} background={background} />}
 				</div>
