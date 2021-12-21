@@ -9,7 +9,7 @@ exports[`Item should display a selected item 1`] = `
   role="option"
 >
   <div
-    className="checkbox tc-toggle theme-tc-toggle checkbox"
+    className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
   >
     <label
       htmlFor="checkbox-0-item"

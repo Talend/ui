@@ -9,8 +9,7 @@
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "build": "talend-scripts build:lib",
-    "test": "talend-scripts test",
-    "test:demo": "echo nothing to do"
+    "test": "talend-scripts test"
   },
   "repository": {
     "type": "git",
@@ -22,13 +21,13 @@
   "devDependencies": {
     "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
-    "connected-react-router": "^6.9.1",
+    "connected-react-router": "^6.9.2",
     "history": "^5.1.0",
     "react": "^16.14.0",
     "react-router-dom": "^6.0.2"
   },
   "peerDependencies": {
-    "connected-react-router": "^6.9.1",
+    "connected-react-router": "^6.9.2",
     "react-router-dom": "^6.0.2"
   },
   "peerDependenciesMeta": {

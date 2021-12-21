@@ -13,7 +13,6 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "echo nothing to demo in @talend/react-sagas",
     "lint": "yarn lint:es",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },

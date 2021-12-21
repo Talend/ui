@@ -1,4 +1,4 @@
-name: PR demo CI
+name: PR playground CI
 
 on:
   pull_request:
@@ -23,41 +23,45 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - name: cache for storybook
-        uses: actions/cache@v2
-        with:
-          path: packages/*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-
-      - name: Install and build
+      - name: Install and build playground
         run: |
           yarn install --frozen-lockfile
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
-          yarn test:demo
-          ./.github/workflows/before-surge.sh
+          yarn pre-release
+          yarn workspace @talend/ui-playground run test:demo:umd
 
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
-        run: surge --project .static --domain "talend.surge.sh"
+        run: surge --project packages/playground/dist --domain "talend-playground.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+      - name: size check
+        id: sizecheck
+        run: |
+          node size.js
+          echo "::set-output name=diff::$(git status --short size.json)"
+        env:
+          THRESHOLD: 100;
+
+      - name: Commit size change
+        if: steps.sizecheck.outputs.diff
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "chore: update size"
+          branch: ${{ github.head_ref }}
 
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
         run: |
-          surge --project .static --domain "${{ github.event.number }}.talend.surge.sh"
+          rm -rf .static
+          mkdir .static
+          mkdir .static/playground
+          cp -R packages/playground/dist/* .static/playground
+          surge --project .static --domain "${{ github.event.number }}.talend-playground.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-
-      - name: Comment PR
-        uses: daohoangson/comment-on-github@v2
-        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'refs/heads/dependabot') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          body: ":octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)"
-          fingerprint: ${{ github.event.number }}
-          replace: please

@@ -7,7 +7,7 @@
     "i18next-scanner": "^3.1.0"
   },
   "scripts": {
-    "postinstall": "node workspace-run.js build:lib",
+    "postinstall": "EXECUTE_PARALLEL=true node workspace-run.js build:lib",
     "pre-release": "node workspace-run.js pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
     "info": "yarn workspaces --silent info > info.json",
@@ -15,10 +15,11 @@
     "lint:es": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:es",
     "lint:style": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:style",
     "build": "yarn workspaces run build",
-    "test": "cross-env TZ=Europe/Paris yarn workspaces run test --silent",
+    "test": "EXECUTE_PARALLEL=true cross-env TZ=Europe/Paris node workspace-run.js test --silent",
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris yarn workspaces run test:cov",
     "test:demo": "node workspace-run.js test:demo",
+    "test:size": "node size.js",
     "start-components": "yarn workspace @talend/react-components run start",
     "start-containers": "yarn workspace  @talend/react-containers run start",
     "start-datagrid": "yarn workspace  @talend/react-datagrid run start",
