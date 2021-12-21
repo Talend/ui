@@ -20,8 +20,8 @@ jest.mock('date-fns/format', () => {
 });
 
 describe('date', () => {
-	afterAll(() => {
-		jest.unmock('date-fns/format');
+	afterEach(() => {
+		jest.clearAllMocks();
 	});
 	// "Locale date" here means Europe/Paris, according to the test command described in package.json
 
@@ -137,7 +137,7 @@ describe('date', () => {
 		});
 		it('should pass locale to datefns format method', () => {
 			// given
-			const mockLocal = jest.fn();
+			const mockLocal = { format: () => {}};
 			const dateObj = new Date('2020-12-20, 20:00');
 			const formatString = 'ddd YYYY-MM-DD HH:mm:ss';
 			const options = {
