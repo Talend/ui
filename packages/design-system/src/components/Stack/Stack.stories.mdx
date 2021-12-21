@@ -1,98 +1,88 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
 import { StackHorizontal } from './index';
-import * as Stories from './Stack.stories';
+import * as Stories from './Stack.stories'; import {FigmaImage} from "../../docs";
 
 <Meta title="Components/Stack" component={StackHorizontal} />
 
 # Stack (aka "Autolayout")
 
-`StackPrimitive` is an opinionated layout component. It serves has a wrapper for most layout needs that would otherwise require manual CSS.
+`StackVertical` and `StackHorizontal` are opinionated layout components. They serve has wrappers for most layout needs that would otherwise require manual CSS.
 
 On Figma, this pattern is found in the Autolayout tool.
 
-However, where Figma lets you pick random margin and padding values, `StackPrimitive` limits those options to design tokens.
+However, where Figma lets you pick random margin and padding values, `Stacks` limit those options to design tokens.
+
+It is built around a `StrackPrimitive` private component for composition.
 
 
 ## Zoning
 
-## Style
+<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=1044%3A237" />
 
-### Variations
+## Style
+NA
 
 ## States
+NA
 
 ## Interactions
+NA
 
 ## Content
+`StackVertical` and `StackHorizontal` accept any children as long as they are valid React children types.
+
+If you need to override the positional behavior of a child element, use the `StackItem` component:
+
+```tsx
+<StackVertical gap="XS" as="ul">
+    <li>List entry</li>
+    <StackItem as="li" align="center" grow>
+        List entry 2
+    </StackItem>
+    <li>List entry 3</li>
+</StackVertical>
+```
 
 ## Usage
 
+Simply import the appropriate Stack and start composing your layout.
+
 ```tsx
-import { StackPrimitive, Button } from '@talend/design-system';
-import * as tokens from '@talend/design-tokens';
+import { StackHorizontal, Button } from '@talend/design-system';
 
 function myComponent() {
     return (
-        <>
-            <StackHorizontal
-                padding="S"
-                gap="S"
-                align="start"
-                justify="start"
-            >
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <Button.Primary onClick={clickHandler}>Click here</Button.Primary>
-            </StackHorizontal>
-
-            <StackVertical
-                padding="S"
-                gap="XS"
-                align="start"
-                justify="start"
-                as="ul"
-                height={tokens.coralSizeLimit}
-                width={tokens.coralSizeLimit}
-            >
-                <li>List entry</li>
-                <li>Second list entry</li>
-            </StackVertical>
-
-            <StackVertical
-                padding="S"
-                gap="XS"
-                align="start"
-                justify="start"
-                as="ul"
-                height={tokens.coralSizeLimit}
-                width={tokens.coralSizeLimit}
-            >
-                <li>
-                    <StackHorizontal
-                        gap="M"
-                        align="start"
-                        justify="start"
-                    >
-                        <p>Lorem ipsum dolor sit amet</p>
-                        <Button.Primary onClick={clickHandler}>Click here</Button.Primary>
-                    </StackHorizontal>
-                </li>
-                <li>Second list entry</li>
-            </StackVertical>
-        </>
+        <StackHorizontal
+            padding="S"
+            gap="S"
+            align="start"
+            justify="start"
+        >
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <Button.Primary onClick={clickHandler}>Click here</Button.Primary>
+        </StackHorizontal>
     )
 }
 ```
 
+### Simple StackHorizontal
 <Canvas>
     <Story story={Stories.TestHorizontal} />
 </Canvas>
 
+### Simple StackVertical
 <Canvas>
     <Story story={Stories.TestVertical} />
 </Canvas>
 
+### Nesting Stacks to compose a layout
 <Canvas>
     <Story story={Stories.StackNesting} />
+</Canvas>
+
+### Using StackItem
+<Canvas>
+    <Story story={Stories.StackWithStackItem} />
 </Canvas>
 
 <ArgsTable story="^" />
