@@ -1,3 +1,4 @@
+import dateFnsFormat from 'date-fns/format';
 import {
 	convertToLocalTime,
 	convertToTimeZone,
@@ -10,7 +11,18 @@ import {
 	timeZoneExists,
 } from './index';
 
+jest.mock('date-fns/format', () => {
+	const actualFormat = jest.requireActual('date-fns/format');
+	return {
+		__esModule: true,
+		default: jest.fn().mockImplementation(actualFormat),
+	};
+});
+
 describe('date', () => {
+	afterAll(() => {
+		jest.unmock('date-fns/format');
+	});
 	// "Locale date" here means Europe/Paris, according to the test command described in package.json
 
 	const timeZones = {
@@ -88,18 +100,13 @@ describe('date', () => {
 	});
 
 	describe('formatReadableUTCOffset', () => {
-		test.each(
-			[
-				[0, '+00:00'],
-				[540, '+09:00'],
-				[-360, '-06:00'],
-			]
-		)(
-			'it should format a %s minutes offset',
-			(offset: number, expectedOffset: string) => {
-				expect(formatReadableUTCOffset(offset)).toEqual(expectedOffset);
-			}
-		);
+		test.each([
+			[0, '+00:00'],
+			[540, '+09:00'],
+			[-360, '-06:00'],
+		])('it should format a %s minutes offset', (offset: number, expectedOffset: string) => {
+			expect(formatReadableUTCOffset(offset)).toEqual(expectedOffset);
+		});
 	});
 
 	describe('formatToTimeZone', () => {
@@ -128,6 +135,28 @@ describe('date', () => {
 			// then
 			expect(localDate).toEqual('2020-05-13T23:00:00Z');
 		});
+		it('should pass locale to datefns format method', () => {
+			// given
+			const mockLocal = jest.fn();
+			const dateObj = new Date('2020-12-20, 20:00');
+			const formatString = 'ddd YYYY-MM-DD HH:mm:ss';
+			const options = {
+				timeZone: timeZones['UTC+5'],
+				locale: mockLocal,
+			};
+
+			// when
+			formatToTimeZone(dateObj, formatString, options);
+
+			// then
+			expect(dateFnsFormat).toHaveBeenCalledWith(
+				expect.anything(),
+				expect.anything(),
+				expect.objectContaining({
+					locale: mockLocal,
+				}),
+			);
+		});
 	});
 
 	describe('convertToUTC', () => {
@@ -143,18 +172,13 @@ describe('date', () => {
 	});
 
 	describe('getUTCOffset', () => {
-		test.each(
-			[
-				['Africa/Bamako', 0],
-				['Asia/Seoul', 540],
-				['America/Swift_Current', -360],
-			]
-		)(
-			'it should get %s timezone offset',
-			(timezone: string, expectedOffset: number) => {
-				expect(getUTCOffset(timezone)).toEqual(expectedOffset);
-			}
-		);
+		test.each([
+			['Africa/Bamako', 0],
+			['Asia/Seoul', 540],
+			['America/Swift_Current', -360],
+		])('it should get %s timezone offset', (timezone: string, expectedOffset: number) => {
+			expect(getUTCOffset(timezone)).toEqual(expectedOffset);
+		});
 	});
 
 	describe('timeZoneExists', () => {
