@@ -77,10 +77,13 @@ Inject.all = function injectAll(getComponent, components, CustomInject = Inject)
 /**
  * used to inject a component with componentID & fallback on a component given if not available
  * @param {function} getComponent the method used to resolve the component
- * @param {string} componentId the id to fetch with getComponent method
+ * @param {string|function} componentId the id to fetch with getComponent method or the component to render
  * @param {object} DefaultComponent The component to fallback to
  */
 Inject.get = function injectGet(getComponent, componentId, DefaultComponent) {
+	if (!getComponent && typeof componentId === 'function') {
+		return componentId;
+	}
 	if (!getComponent || componentId == null) {
 		return DefaultComponent;
 	}
