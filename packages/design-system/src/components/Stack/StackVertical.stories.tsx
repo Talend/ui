@@ -1,16 +1,16 @@
 import React from 'react';
-import { Story } from '@storybook/react';
 import tokens from '@talend/design-tokens';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StackPrimitiveProps } from './Primitive/StackPrimitive';
 import { StackHorizontal, StackVertical, StackItem } from './index';
 
 import ButtonPrimary from '../Button/variations/Button.primary';
 import Divider from '../Divider/index';
 
 export default {
-	component: StackHorizontal,
-};
+	component: StackVertical,
+	subcomponents: { StackHorizontal, StackItem },
+} as ComponentMeta<typeof StackVertical>;
 
 function Block({ width }: { width: string }) {
 	return (
@@ -26,28 +26,15 @@ function Block({ width }: { width: string }) {
 	);
 }
 
-export const TestHorizontal = (args: Omit<StackPrimitiveProps, 'direction'>) => {
-	return (
-		<StackHorizontal {...args}>
-			<Block width="60%" />
-			<Block width="40%" />
-			<Block width="100%" />
-		</StackHorizontal>
-	);
-};
-TestHorizontal.args = {
-	gap: 'S',
-};
+const Template: ComponentStory<typeof StackVertical> = args => (
+	<StackVertical {...args}>
+		<Block width="60%" />
+		<Block width="40%" />
+		<Block width="100%" />
+	</StackVertical>
+);
 
-export const TestVertical = (args: Omit<StackPrimitiveProps, 'direction'>) => {
-	return (
-		<StackVertical {...args}>
-			<Block width="60%" />
-			<Block width="40%" />
-			<Block width="100%" />
-		</StackVertical>
-	);
-};
+export const TestVertical = Template.bind({});
 TestVertical.args = {
 	gap: 'S',
 };
@@ -88,7 +75,7 @@ export const StackNesting = () => {
 
 export const StackWithStackItem = () => {
 	return (
-		<StackVertical gap="XS" as="ul" align={'stretch'}>
+		<StackVertical gap="XS" as="ul" align="stretch">
 			<li>
 				<Block width="6rem" />
 			</li>

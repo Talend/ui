@@ -1,8 +1,9 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
-import { StackHorizontal } from './index';
-import * as Stories from './Stack.stories'; import {FigmaImage} from "../../docs";
+import * as StoriesHorizontal from './StackHorizontal.stories';
+import * as StoriesVertical from './StackVertical.stories';
+import { FigmaImage } from "../../docs";
 
-<Meta title="Components/Stack" component={StackHorizontal} />
+<Meta title="Components/Stack" />
 
 # Stack (aka "Autolayout")
 
@@ -67,24 +68,28 @@ function myComponent() {
 
 ### Simple StackHorizontal
 <Canvas>
-    <Story story={Stories.TestHorizontal} />
+    <Story story={StoriesHorizontal.TestHorizontal} name="Story Horizontal" />
 </Canvas>
+
+<ArgsTable story="Story Horizontal" />
 
 ### Simple StackVertical
 <Canvas>
-    <Story story={Stories.TestVertical} />
+    <Story story={StoriesVertical.TestVertical} name="Story Vertical" />
 </Canvas>
+
+<ArgsTable story="Story Vertical" />
 
 ### Nesting Stacks to compose a layout
 <Canvas>
-    <Story story={Stories.StackNesting} />
+    <Story story={StoriesVertical.StackNesting} />
 </Canvas>
 
 ### Using StackItem
 <Canvas>
-    <Story story={Stories.StackWithStackItem} />
+    <Story story={StoriesVertical.StackWithStackItem} name="Story StackItem" />
 </Canvas>
 
-<ArgsTable story="^" />
+<ArgsTable story="Story StackItem" />
 
 ## Accessibility

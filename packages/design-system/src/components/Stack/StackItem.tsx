@@ -18,7 +18,7 @@ const overflowOptions = {
 	auto: 'overflow-auto',
 };
 
-type ItemProps = {
+export type ItemProps = {
 	children: ReactNode;
 	grow?: boolean;
 	shrink?: boolean;
