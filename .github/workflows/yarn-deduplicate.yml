@@ -3,7 +3,7 @@ name: yarn-deduplicate
 on:
   pull_request:
     paths:
-      - 'yarn.lock'
+      - "yarn.lock"
 
 jobs:
   dedupe:
@@ -22,9 +22,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
-          cache: 'yarn'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
 
       - name: yarn-deduplicate
         id: deduplicate
@@ -38,5 +38,5 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'chore: yarn-deduplicate'
+          message: "chore: yarn-deduplicate"
           branch: ${{ github.head_ref }}
