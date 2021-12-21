@@ -29,10 +29,6 @@ const ButtonBase: React.FC<ButtonProps> = button`
 		opacity: ${tokens.opacity.disabled};
 	}
 
-	&[aria-busy='true'] {
-		cursor: progress;
-	}
-
 	&[aria-disabled='true'] {
 		cursor: not-allowed;
 	}
