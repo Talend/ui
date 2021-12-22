@@ -2,7 +2,7 @@ import React from 'react';
 import i18n from 'i18next';
 import StatusPrimitive, { StatusProps } from '../Primitive/StatusPrimitive';
 
-type StatusWarningProps = Omit<StatusProps, 'icon' | 'variant'>;
+export type StatusWarningProps = Omit<StatusProps, 'icon' | 'variant' | 'inProgress'>;
 
 const StatusWarning = React.forwardRef((props: StatusWarningProps, ref: React.Ref<any>) => {
 	return (

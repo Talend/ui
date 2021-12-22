@@ -2,7 +2,7 @@ import React from 'react';
 import i18n from 'i18next';
 import StatusPrimitive, { StatusProps } from '../Primitive/StatusPrimitive';
 
-type StatusSuccessfulProps = Omit<StatusProps, 'icon' | 'variant'>;
+export type StatusSuccessfulProps = Omit<StatusProps, 'icon' | 'variant' | 'inProgress'>;
 
 const StatusSuccessful = React.forwardRef((props: StatusSuccessfulProps, ref: React.Ref<any>) => {
 	return (

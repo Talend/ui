@@ -1,13 +1,7 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../docs';
 import StatusPrimitive, { possibleVariants } from './Primitive/StatusPrimitive';
-import {
-	StatusCanceled,
-	StatusFailed,
-	StatusInProgress,
-	StatusSuccessful,
-	StatusWarning,
-} from './index';
+import Status from './index';
 import * as Stories from './Status.stories';
 
 <Meta title="Components/Status" component={StatusPrimitive} />
@@ -90,6 +84,10 @@ Depending on the use case, it is possible to have another label instead but keep
 
 ## Usage
 
+You can directly use the presets `StatusInProgress` etc... but in some cases you may want to handle the variant through a prop.
+
+You can.
+
 <Canvas>
 	<Story
 		name="usage"
@@ -121,33 +119,9 @@ Depending on the use case, it is possible to have another label instead but keep
 		}}
 	>
 		{({ variant, ...rest }) => {
-			const Component = StatusPrimitive;
-			if (variant === 'warning') {
-				const Component = StatusWarning;
-				Component.displayName = 'StatusWarning';
-				return <Component {...rest} />;
-			}
-			if (variant === 'successful') {
-				const Component = StatusSuccessful;
-				Component.displayName = 'StatusSuccessful';
-				return <Component {...rest} />;
-			}
-			if (variant === 'failed') {
-				const Component = StatusFailed;
-				Component.displayName = 'StatusFailed';
-				return <Component {...rest} />;
-			}
-			if (variant === 'inProgress') {
-				const Component = StatusInProgress;
-				Component.displayName = 'StatusInProgress';
-				return <Component {...rest} />;
-			}
-			if (variant === 'canceled') {
-				const Component = StatusCanceled;
-				Component.displayName = 'StatusCanceled';
-				return <Component {...rest} />;
-			}
-			return <Component {...rest} />;
+			const Component = Status;
+			Component.displayName = 'Status';
+			return <Component variant={variant} {...rest} />;
 		}}
 	</Story>
 </Canvas>
