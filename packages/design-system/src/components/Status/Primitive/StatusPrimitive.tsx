@@ -8,12 +8,20 @@ import { StackHorizontal } from '../../Stack';
 
 import styles from './Status.module.scss';
 
+export const possibleVariants = [
+	'successful',
+	'failed',
+	'inProgress',
+	'warning',
+	'canceled',
+] as const;
+
 export type StatusProps = {
 	icon?: IconName;
 	inProgress?: boolean;
 	hideText?: boolean;
-	children: string;
-	variant: 'successful' | 'failed' | 'inProgress' | 'warning' | 'canceled';
+	children?: string;
+	variant: typeof possibleVariants[number];
 };
 
 const Status = React.forwardRef(
@@ -30,7 +38,7 @@ const Status = React.forwardRef(
 		);
 
 		return (
-			<span className={classnames(styles.status, styles[variant])} ref={ref} {...rest}>
+			<span {...rest} className={classnames(styles.status, styles[variant])} ref={ref}>
 				<StackHorizontal as="span" display="inline" gap="XXS" align="center" justify="start">
 					{hideText ? <Tooltip title={children}>{picto}</Tooltip> : [picto, text]}
 				</StackHorizontal>

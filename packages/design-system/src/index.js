@@ -18,7 +18,13 @@ import Menu from './components/Menu';
 import Modal from './components/Modal';
 import Popover from './components/Popover';
 import Skeleton from './components/Skeleton';
-import Status from './components/Status';
+import {
+	StatusCanceled,
+	StatusInProgress,
+	StatusWarning,
+	StatusSuccessful,
+	StatusFailed,
+} from './components/Status';
 import Switch from './components/Switch';
 import Stepper from './components/Stepper';
 import Tabs from './components/Tabs';
@@ -52,7 +58,11 @@ export {
 	Modal,
 	Popover,
 	Skeleton,
-	Status,
+	StatusCanceled,
+	StatusInProgress,
+	StatusWarning,
+	StatusSuccessful,
+	StatusFailed,
 	Switch,
 	Stepper,
 	Tabs,

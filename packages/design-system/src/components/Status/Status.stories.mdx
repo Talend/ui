@@ -1,9 +1,16 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../docs';
-import Status from '.';
+import StatusPrimitive, { possibleVariants } from './Primitive/StatusPrimitive';
+import {
+	StatusCanceled,
+	StatusFailed,
+	StatusInProgress,
+	StatusSuccessful,
+	StatusWarning,
+} from './index';
 import * as Stories from './Status.stories';
 
-<Meta title="Components/Status" component={Status} />
+<Meta title="Components/Status" component={StatusPrimitive} />
 
 <Links>
 	<FigmaLink href="https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A72" />
@@ -68,11 +75,11 @@ N/C
 
 By default, each Status variants has a label:
 
-- In progress for `Status.InProgress`
-- Successful for `Status.Successful`
-- Failed for `Status.Failed`
-- Warning for `Status.Warning`
-- Canceled for `Status.Canceled`
+- In progress for `StatusInProgress`
+- Successful for `StatusSuccessful`
+- Failed for `StatusFailed`
+- Warning for `StatusWarning`
+- Canceled for `StatusCanceled`
 
 Depending on the use case, it is possible to have another label instead but keeping the same meaning.
 
@@ -87,7 +94,7 @@ Depending on the use case, it is possible to have another label instead but keep
 	<Story
 		name="usage"
 		args={{
-			variant: 'Successful',
+			variant: 'warning',
 			hideText: false,
 			children: 'Done',
 		}}
@@ -96,7 +103,7 @@ Depending on the use case, it is possible to have another label instead but keep
 				description: 'Status variation',
 				control: {
 					type: 'select',
-					options: [''].concat(Object.keys(Status).filter(key => /^[A-Z]/.test(key))),
+					options: [...possibleVariants],
 				},
 			},
 			hideText: {
@@ -114,8 +121,32 @@ Depending on the use case, it is possible to have another label instead but keep
 		}}
 	>
 		{({ variant, ...rest }) => {
-			const Component = Status[variant] || Status;
-			Component.displayName = `Status${variant && `.${variant}`}`;
+			const Component = StatusPrimitive;
+			if (variant === 'warning') {
+				const Component = StatusWarning;
+				Component.displayName = 'StatusWarning';
+				return <Component {...rest} />;
+			}
+			if (variant === 'successful') {
+				const Component = StatusSuccessful;
+				Component.displayName = 'StatusSuccessful';
+				return <Component {...rest} />;
+			}
+			if (variant === 'failed') {
+				const Component = StatusFailed;
+				Component.displayName = 'StatusFailed';
+				return <Component {...rest} />;
+			}
+			if (variant === 'inProgress') {
+				const Component = StatusInProgress;
+				Component.displayName = 'StatusInProgress';
+				return <Component {...rest} />;
+			}
+			if (variant === 'canceled') {
+				const Component = StatusCanceled;
+				Component.displayName = 'StatusCanceled';
+				return <Component {...rest} />;
+			}
 			return <Component {...rest} />;
 		}}
 	</Story>
