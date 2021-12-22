@@ -13,6 +13,7 @@ const ThemeProvider = ({ theme = light, children }: ThemeProviderProps<any>) => 
 	const [selectedTheme, setSelectedTheme] = useState(theme);
 	// Handle nested Providers: parent Provider doesn't have context, child does
 	const context = useContext(ThemeContext);
+	document.body.dataset.theme = 'light';
 
 	React.useEffect(() => {
 		document.body.dataset.theme = 'light';
