@@ -192,9 +192,10 @@ describe('Inject.get', () => {
 	it('should return null', () => {
 		expect(Inject.get(null, null, null)).toEqual(null);
 	});
-	it('should return given component', () => {
+	it('should return provided component', () => {
+		const getComponent = jest.fn();
 		const comp = () => null;
-		expect(Inject.get(null, comp, null)).toEqual(comp);
+		expect(Inject.get(getComponent, comp, null)).toEqual(comp);
 	});
 });
 

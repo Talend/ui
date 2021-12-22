@@ -81,7 +81,7 @@ Inject.all = function injectAll(getComponent, components, CustomInject = Inject)
  * @param {object} DefaultComponent The component to fallback to
  */
 Inject.get = function injectGet(getComponent, componentId, DefaultComponent) {
-	if (!getComponent && typeof componentId === 'function') {
+	if (typeof componentId === 'function') {
 		return componentId;
 	}
 	if (!getComponent || componentId == null) {
