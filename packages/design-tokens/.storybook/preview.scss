@@ -5,13 +5,16 @@
     font-size: 14px;
   }
 
-  .sbdocs.sbdocs-wrapper {
+  .sbdocs.sbdocs-wrapper,
+  .sbdocs.sbdocs-preview {
     font: tokens.$coral-paragraph-s;
     color: tokens.$coral-color-neutral-text;
     background: tokens.$coral-color-neutral-background;
+    transition: tokens.$coral-transition-normal ;
   }
 
-  .sbdocs.sbdocs-h1 {
+  .sbdocs.sbdocs-h1,
+  .sbdocs.sbdocs-p {
     color: inherit;
   }
 }

@@ -8,6 +8,21 @@ dd {
 
 .skeleton {
 }
+.tokenFilter {
+	margin: tokens.$coral-size-xl 0;
+	padding: tokens.$coral-size-s;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-radius: tokens.$coral-radius-s;
+
+	label {
+		color: tokens.$coral-color-neutral-text-weak;
+		font: tokens.$coral-paragraph-s-bold;
+	}
+
+	input {
+		margin: tokens.$coral-size-xxs;
+	}
+}
 
 .token {
 	display: grid;

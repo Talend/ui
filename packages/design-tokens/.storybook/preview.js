@@ -5,6 +5,23 @@ import 'typeface-source-sans-pro';
 import './preview.scss';
 import '../src/index.scss';
 
+const TokenOrder = [
+	'Colors',
+	'Color Swatches',
+	'Color Charts',
+	'Branding',
+	'Gradients',
+	'Typography',
+	'Measures',
+	'Opacity',
+	'Radius',
+	'Borders',
+	'Shadows',
+	'Transitions',
+	'Elevations',
+	'Breakpoints',
+];
+
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 	controls: {
@@ -18,10 +35,15 @@ export const parameters = {
 			const title = props.context.title;
 			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
 			return (
-				<div data-theme={hasDarkTheme ? 'dark' : 'light'}>
+				<div id="playground" data-theme={hasDarkTheme ? 'dark' : 'light'}>
 					<DocsContainer {...props} />;
 				</div>
 			);
 		},
+	},
+	options: {
+		storySort: {
+			order: ['Welcome', 'Themes', ['Light', TokenOrder, 'Dark', TokenOrder]],
+		} /**/,
 	},
 };

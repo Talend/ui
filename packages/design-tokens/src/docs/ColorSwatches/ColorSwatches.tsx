@@ -6,10 +6,9 @@ import { TokensProps } from '../TokensTypes';
 
 import ColorCompositions from './data/ColorSwatches.json';
 
-import TokenSkeleton from '../TokenSkeleton';
 import ColorSwatch from './ColorSwatch';
 
-import { getDisplayName, groupBy } from '../TokenFormatter';
+import { groupBy } from '../TokenFormatter';
 
 import TokenName from '../TokenName';
 
@@ -25,8 +24,6 @@ type ColorComposition = {
 const SemanticColors = ['Accent', 'Danger', 'Warning', 'Success', 'Beta'];
 
 const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> & TokensProps) => {
-	const [filter, setFilter] = React.useState('');
-
 	const colorTokens = tokens
 		.filter((t: ColorToken) => t.type === TokenType.COLOR)
 		.reduce((acc: Record<string, ColorToken>, curr: ColorToken) => {
@@ -45,28 +42,8 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 		(t: ColorComposition) => !t.border?.toLocaleLowerCase().startsWith('neutral'),
 	);
 
-	const shouldDisplay = React.useCallback(
-		tks => {
-			return (
-				!filter.length ||
-				tks.some(
-					(c: ColorToken) =>
-						getDisplayName(c?.name).toLocaleLowerCase().includes(filter.toLocaleLowerCase()) ||
-						c?.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) ||
-						c?.hex.toLocaleLowerCase().includes(filter.toLocaleLowerCase()),
-				)
-			);
-		},
-		[filter, colorTokens],
-	);
-
 	return (
 		<div {...rest}>
-			<input
-				aria-label="Search for a color composition"
-				type="search"
-				onChange={e => setFilter(e.currentTarget.value)}
-			/>
 			<div className={S.colorGrid}>
 				{Object.entries(neutralColorsGroupedByBackground).map(([background, tks], key) => {
 					return (
@@ -83,7 +60,7 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 									const color = colorTokens[t.color || ''];
 									const bg = colorTokens[background];
 									const border = colorTokens[t.border];
-									return shouldDisplay([icon, color, bg, border]) ? (
+									return (
 										<ColorSwatch
 											key={i}
 											icon={icon}
@@ -91,8 +68,6 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 											background={bg}
 											border={border}
 										/>
-									) : (
-										<TokenSkeleton />
 									);
 								})}
 							</dl>
@@ -134,14 +109,14 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 
 										switch (state) {
 											case 'HOVER':
-												iconColor = colorTokens[`${iconK}Hover`];
-												textColor = colorTokens[`${colorK}Hover`];
+												iconColor = colorTokens[`${iconK}Hover`] || colorTokens[iconK];
+												textColor = colorTokens[`${colorK}Hover`] || colorTokens[colorK];
 												backgroundColor = colorTokens[`${backgroundK}Hover`];
 												borderColor = colorTokens[`${borderK}Hover`];
 												break;
 											case 'ACTIVE':
-												iconColor = colorTokens[`${iconK}Active`];
-												textColor = colorTokens[`${colorK}Active`];
+												iconColor = colorTokens[`${iconK}Active`] || colorTokens[iconK];
+												textColor = colorTokens[`${colorK}Active`] || colorTokens[colorK];
 												backgroundColor = colorTokens[`${backgroundK}Active`];
 												borderColor = colorTokens[`${borderK}Active`];
 												break;
@@ -149,7 +124,7 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 												break;
 										}
 
-										return shouldDisplay([iconColor, textColor, backgroundColor, borderColor]) ? (
+										return (
 											<dl
 												key={`${key}${appendix}`}
 												className={S.colorBackground}
@@ -181,8 +156,6 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 												)}{' '}
 												<TokenName token={borderColor} />
 											</dl>
-										) : (
-											<TokenSkeleton />
 										);
 									},
 								)}

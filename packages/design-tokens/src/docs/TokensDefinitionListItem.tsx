@@ -1,7 +1,9 @@
 import React from 'react';
 import { ColorToken, Token } from '../types';
+import { getCssName, getScssName } from './TokenFormatter';
+import TokenName from './TokenName';
+
 import S from './Tokens.scss';
-import { getCssName, getScssName, getDisplayName } from './TokenFormatter';
 
 type ColorDescriptionProps = React.HTMLAttributes<HTMLDivElement> & {
 	token: Token;
@@ -10,7 +12,9 @@ type ColorDescriptionProps = React.HTMLAttributes<HTMLDivElement> & {
 const TokensDefinitionListItem = ({ token, children, ...rest }: ColorDescriptionProps) =>
 	token ? (
 		<div className={S.token} {...rest}>
-			<dt className={S.tokenName}>{getDisplayName(token?.name)}</dt>
+			<dt className={S.tokenName}>
+				<TokenName token={token} />
+			</dt>
 			<dd className={S.tokenDescription}>
 				<p>{token?.description}</p>
 			</dd>

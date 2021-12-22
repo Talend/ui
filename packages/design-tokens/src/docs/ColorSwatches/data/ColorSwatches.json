@@ -114,8 +114,8 @@
     "border": "AccentBorder"
   },
   {
-    "icon": "AccentIcon",
-    "color": "AccentText",
+    "icon": "AccentIconStrong",
+    "color": "AccentTextStrong",
     "background": "NeutralBackgroundStrong",
     "border": "AccentBorder"
   },
@@ -132,8 +132,8 @@
     "border": "DangerBorder"
   },
   {
-    "icon": "DangerIcon",
-    "color": "DangerText",
+    "icon": "DangerIconStrong",
+    "color": "DangerTextStrong",
     "background": "NeutralBackgroundStrong",
     "border": "DangerBorder"
   },
@@ -150,8 +150,8 @@
     "border": "WarningBorder"
   },
   {
-    "icon": "WarningIcon",
-    "color": "WarningText",
+    "icon": "WarningIconStrong",
+    "color": "WarningTextStrong",
     "background": "NeutralBackgroundStrong",
     "border": "WarningBorder"
   },
@@ -168,8 +168,8 @@
     "border": "SuccessBorder"
   },
   {
-    "icon": "SuccessIcon",
-    "color": "SuccessText",
+    "icon": "SuccessIconStrong",
+    "color": "SuccessTextStrong",
     "background": "NeutralBackgroundStrong",
     "border": "SuccessBorder"
   },
@@ -186,8 +186,8 @@
     "border": "BetaBorder"
   },
   {
-    "icon": "BetaIcon",
-    "color": "BetaText",
+    "icon": "BetaIconStrong",
+    "color": "BetaTextStrong",
     "background": "NeutralBackgroundStrong",
     "border": "BetaBorder"
   },
@@ -210,6 +210,24 @@
     "border": "AccentBorder"
   },
   {
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "background": "AccentBackground",
+    "border": "AccentBorder"
+  },
+  {
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "background": "AccentBackground",
+    "border": "AccentBorder"
+  },
+  {
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
+    "background": "AccentBackground",
+    "border": "AccentBorder"
+  },
+  {
     "icon": "DangerIconStrong",
     "color": "DangerTextStrong",
     "background": "DangerBackground",
@@ -225,6 +243,18 @@
     "icon": "DangerIcon",
     "color": "DangerText",
     "background": "DangerBackgroundWeak",
+    "border": "DangerBorder"
+  },
+  {
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "background": "DangerBackground",
+    "border": "DangerBorder"
+  },
+  {
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
+    "background": "DangerBackground",
     "border": "DangerBorder"
   },
   {
@@ -246,6 +276,18 @@
     "border": "SuccessBorder"
   },
   {
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "background": "SuccessBackground",
+    "border": "SuccessBorder"
+  },
+  {
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
+    "background": "SuccessBackground",
+    "border": "SuccessBorder"
+  },
+  {
     "icon": "WarningIconStrong",
     "color": "WarningTextStrong",
     "background": "WarningBackground",
@@ -264,6 +306,18 @@
     "border": "WarningBorder"
   },
   {
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "background": "WarningBackground",
+    "border": "WarningBorder"
+  },
+  {
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
+    "background": "WarningBackground",
+    "border": "WarningBorder"
+  },
+  {
     "icon": "BetaIconStrong",
     "color": "BetaTextStrong",
     "background": "BetaBackground",
@@ -279,6 +333,18 @@
     "icon": "BetaIcon",
     "color": "BetaText",
     "background": "BetaBackgroundWeak",
+    "border": "BetaBorder"
+  },
+  {
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "background": "BetaBackground",
+    "border": "BetaBorder"
+  },
+  {
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
+    "background": "BetaBackground",
     "border": "BetaBorder"
   },
   {
