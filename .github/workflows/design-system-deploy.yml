@@ -3,20 +3,15 @@ name: Deploy design.talend.com
 on:
   push:
     branches:
-      - frassinier/chore/design-tokens/netlify_deploy
-#
-#  /!\ commented for test purpose
-#
-#    branches:
-#      - master
-#    paths:
-#      - 'packages/design-system/**'
-#      - 'packages/design-tokens/**'
+      - master
+    paths:
+      - 'packages/design-system/**'
+      - 'packages/design-tokens/**'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: pull_request_unsafe
+    environment: main
     defaults:
       run:
         working-directory: ./packages/design-system
@@ -52,7 +47,7 @@ jobs:
       - name: Deploy to Netlify production
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=storybook-static
+          args: deploy --prod --dir=packages/design-system/storybook-static
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
