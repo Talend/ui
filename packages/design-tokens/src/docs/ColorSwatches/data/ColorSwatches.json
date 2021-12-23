@@ -17,6 +17,11 @@
     "background": "NeutralBackgroundStrong",
     "border": "NeutralBorder"
   },
+    {
+    "color": "NeutralTextInverted",
+    "background": "BrandingNavigation",
+    "border": "NeutralBorderWeak"
+  },
   {
     "icon": "NeutralIcon",
     "color": "NeutralText",
