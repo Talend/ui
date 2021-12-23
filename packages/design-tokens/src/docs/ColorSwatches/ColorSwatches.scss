@@ -1,0 +1,53 @@
+@use '../../tokens';
+
+.colorGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: tokens.$coral-size-s;
+}
+
+.colorSwatch {
+	display: flex;
+	flex-direction: column;
+	gap: tokens.$coral-size-s;
+}
+
+.colorBackground {
+	display: flex;
+	flex-direction: column;
+	gap: tokens.$coral-size-s;
+	padding: tokens.$coral-size-s;
+	color: inherit;
+	background: transparent;
+	border: tokens.$coral-border-m-solid transparent;
+	border-radius: tokens.$coral-radius-s;
+}
+
+.colorContent {
+	padding: tokens.$coral-size-s;
+	border: tokens.$coral-border-m-solid transparent;
+	border-radius: tokens.$coral-radius-s;
+}
+
+.colorContentRow {
+	display: flex;
+	gap: tokens.$coral-size-s;
+}
+
+.colorIcon {
+	height: tokens.$coral-size-m;
+	width: tokens.$coral-size-m;
+	background: currentColor;
+	border-radius: tokens.$coral-radius-round;
+}
+
+.colorText {
+	height: tokens.$coral-size-m;
+	width: tokens.$coral-size-xl;
+	background: currentColor;
+	border-radius: tokens.$coral-radius-s;
+}
+
+.colorBorder {
+	text-align: end;
+}
