@@ -43,7 +43,7 @@ const Menu = React.forwardRef<React.ReactElement, MenuProps>(
 						onClick={() => collapse(!isCollapsed)}
 						aria-expanded={!isCollapsed}
 					>
-						{t('MENu_TOGGLE', 'Toggle menu')}
+						{t('MENU_TOGGLE', 'Toggle menu')}
 					</S.NavButton>
 				)}
 				<S.Menu>
