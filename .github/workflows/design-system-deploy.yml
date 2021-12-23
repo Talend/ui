@@ -48,7 +48,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
       - name: Copy design tokens Storybook into design system output
-        run: cp -Rf ../design-tokens/storybook-static ./storybook-static/design-tokens/
+        run: cp -Rf ../design-tokens/storybook-static ./storybook-static/design-tokens
 
       - name: Deploy to Netlify production
         uses: netlify/actions/cli@master
