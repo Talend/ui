@@ -2,37 +2,31 @@ import { Canvas, Meta } from '@storybook/addon-docs';
 
 import tokens from './';
 
-import './index.scss';
-
 <Meta title="Welcome" />
 
 # Talend Design tokens
 
+Design tokens are the single source of truth to name and store a design decision, distributed so teams can use it across design tools and coding languages.
+They are exported from Figma using [Supernova](https://www.supernova.io/).
+
 <Canvas
-    withSource="none"
+	withSource="none"
 	additionalActions={[
 		{
 			title: 'Switch mode',
 			onClick: () => {
-                const playground = document.getElementById('playground');
+				const playground = document.getElementById('playground');
 				const currentTheme = playground.dataset.theme;
 				if (currentTheme === 'dark') {
-                    playground.dataset.theme = 'light';
+					playground.dataset.theme = 'light';
 				} else {
-                    playground.dataset.theme = 'dark';
+					playground.dataset.theme = 'dark';
 				}
 			},
 		},
 	]}
 >
-	<div
-		id="playground"
-		style={{
-			width: '100%',
-			color: tokens.coralColorNeutralText,
-			background: tokens.coralColorNeutralBackground,
-		}}
-	>
+	<div>
 		<div
 			style={{
 				display: 'flex',
