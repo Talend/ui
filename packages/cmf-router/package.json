@@ -14,7 +14,6 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "echo no test-demo for cmf-router",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },

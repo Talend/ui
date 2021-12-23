@@ -1,4 +1,4 @@
-name: Lint CI
+name: PR lint
 
 on:
   pull_request:
@@ -17,9 +17,9 @@ jobs:
         with:
           node-version: 14
           check-latest: true
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
-          cache: 'yarn'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
 
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.4
@@ -43,10 +43,8 @@ jobs:
         continue-on-error: true
         uses: ataylorme/eslint-annotate-action@1.2.0
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json
-          # do not work, the option in the doc is not in the code
-          only-pr-files: true
 
       - name: Prettier
         continue-on-error: true
@@ -61,5 +59,4 @@ jobs:
         if: steps.prettier.outputs.STATUS
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'chore: apply prettier on modified files'
-
+          message: "chore: apply prettier on modified files"

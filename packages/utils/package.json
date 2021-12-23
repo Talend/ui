@@ -1,6 +1,6 @@
 {
   "name": "@talend/utils",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Various utilities",
   "main": "lib/index.js",
   "repository": {
@@ -12,9 +12,7 @@
   "scripts": {
     "build:lib": "talend-scripts build:ts:lib",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
-    "pre-release": "npm run test",
     "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
-    "test:demo": "echo nothing to do",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",

@@ -6,6 +6,7 @@ type DateFnsFormatInput = Date | number | string;
 interface ConversionOptions {
 	timeZone: string,
 	sourceTimeZone?: string,
+	locale?: Object,
 }
 
 export interface DateFormatOptions {
@@ -142,7 +143,9 @@ export function formatToTimeZone(date: DateFnsFormatInput, formatString: string,
 	// Replace timezone token(s) in the string format with timezone values, since format() will use local timezone
 	const dateFnsFormatWithTimeZoneValue = formatTimeZoneTokens(formatString, options.timeZone);
 
-	return dateFnsFormat(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue);
+	return dateFnsFormat(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue, {
+		locale: options.locale,
+	});
 }
 
 /**

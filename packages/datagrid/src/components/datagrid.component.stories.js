@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '@talend/react-components';
@@ -209,4 +209,21 @@ storiesOf('Data/Datagrid/Datagrid', module)
 			<FasterDatagrid />
 		</div>
 	))
-	.add('datagrid with immutable data', () => <ImmutableDataGrid />);
+	.add('datagrid with immutable data', () => <ImmutableDataGrid />)
+	.add('datagrid with controlled focused column', () => {
+		const [focusedColumnId, setFocusedColumnId] = useState('data.field2');
+		return (
+			<div style={{ height: '200px' }}>
+				<input type="button" value="Set Column" onClick={() => setFocusedColumnId('data.field3')} />
+				<DataGrid
+					data={sample}
+					getComponent={getComponent}
+					focusedColumnId={focusedColumnId}
+					onFocusedCell={cell => setFocusedColumnId(cell.column.colId)}
+					onFocusedColumn={col => setFocusedColumnId(col.colId)}
+					onVerticalScroll={event => console.log(event)}
+					rowSelection="multiple"
+				/>
+			</div>
+		);
+	});
