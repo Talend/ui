@@ -28,7 +28,7 @@ const OrderedCharts = [
 
 const ColorCharts = ({ tokens }: TokensProps) => {
 	const colorTokens = tokens
-		.filter((t: ColorToken) => t.type === TokenType.COLOR)
+		.filter((t: Token) => t.type === TokenType.COLOR)
 		.reduce((acc: Record<string, ColorToken>, curr: ColorToken) => {
 			acc[curr.name.replace('coralColor', '')] = curr;
 			return acc;
