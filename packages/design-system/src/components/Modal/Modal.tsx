@@ -56,7 +56,7 @@ const Modal = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>
 						{children}
 						<S.DialogButtons>
 							<Button.Secondary onClick={onCloseHandler}>{t('MODAL_CANCEL', 'Cancel')}</Button.Secondary>
-							<Button.Primary onClick={onValidateHandler}>{t('MODAL_VALIDATE	', 'Validate')}</Button.Primary>
+							<Button.Primary onClick={onValidateHandler}>{t('MODAL_VALIDATE', 'Validate')}</Button.Primary>
 						</S.DialogButtons>
 					</ReakitDialog>
 				</S.DialogBackdrop>
