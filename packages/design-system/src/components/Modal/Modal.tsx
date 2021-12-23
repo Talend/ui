@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDialogState, DialogProps, Dialog as ReakitDialog } from 'reakit';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
 import { Icon } from '../Icon';
@@ -20,6 +21,7 @@ const Modal = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>
 		ref,
 	) => {
 		const dialog = useDialogState({ animated: true });
+		const { t } = useTranslation();
 
 		function onCloseHandler() {
 			dialog.hide();
@@ -53,8 +55,8 @@ const Modal = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>
 						</S.DialogHeading>
 						{children}
 						<S.DialogButtons>
-							<Button.Secondary onClick={onCloseHandler}>Cancel</Button.Secondary>
-							<Button.Primary onClick={onValidateHandler}>Validate</Button.Primary>
+							<Button.Secondary onClick={onCloseHandler}>{t('MODAL_CANCEL', 'Cancel')}</Button.Secondary>
+							<Button.Primary onClick={onValidateHandler}>{t('MODAL_VALIDATE	', 'Validate')}</Button.Primary>
 						</S.DialogButtons>
 					</ReakitDialog>
 				</S.DialogBackdrop>

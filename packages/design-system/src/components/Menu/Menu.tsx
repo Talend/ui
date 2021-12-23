@@ -1,5 +1,6 @@
 import React from 'react';
 import useMedia from 'react-use/lib/useMedia';
+import { useTranslation } from 'react-i18next';
 
 import * as S from './Menu.style';
 
@@ -15,6 +16,7 @@ export type MenuProps = React.PropsWithChildren<any> & {
 const Menu = React.forwardRef<React.ReactElement, MenuProps>(
 	({ children, hasToggle = true, ...rest }, ref) => {
 		const [isCollapsed, collapse] = React.useState(false);
+		const { t } = useTranslation();
 
 		const isWide = useMedia(`(min-width: ${tokens.breakpoints.l})`);
 
@@ -30,17 +32,18 @@ const Menu = React.forwardRef<React.ReactElement, MenuProps>(
 			<S.Nav
 				isCollapsed={isCollapsed}
 				role="navigation"
-				aria-label="main navigation"
+				aria-label={t('MENU_MAIN_NAVIGATION', 'main')}
 				ref={ref}
 				{...rest}
 			>
 				{hasToggle && (
 					<S.NavButton
-					icon="talend-opener"
+						icon="talend-opener"
 						className={`nav__button ${isCollapsed ? 'nav__button--collapsed' : ''}`}
 						onClick={() => collapse(!isCollapsed)}
+						aria-expanded={!isCollapsed}
 					>
-						{isCollapsed ? 'Uncollapse menu' : 'Collapse menu'}
+						{t('MENu_TOGGLE', 'Toggle menu')}
 					</S.NavButton>
 				)}
 				<S.Menu>

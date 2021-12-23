@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 export type FooterProps = {
 	children?: ReactElement[];
@@ -11,6 +12,7 @@ const SFooter = styled.div`
 `;
 
 const Header: React.FC<FooterProps> = ({ children, ...rest }) => {
+	const { t } = useTranslation();
 	return (
 		<SFooter {...rest}>
 			<ul className="footer__links">
@@ -21,7 +23,10 @@ const Header: React.FC<FooterProps> = ({ children, ...rest }) => {
 				))}
 			</ul>
 			<span className="footer__copyright">
-				© {new Date().getFullYear()} Talend. All rights reserved.
+				{t('FOOTER_COPYRIGHT', {
+					defaultValue: '© {{year}} Talend. All rights reserved.',
+					year: new Date().getFullYear()
+				})}
 			</span>
 		</SFooter>
 	);
