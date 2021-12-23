@@ -5,9 +5,9 @@ import { ColorToken } from '../../types';
 import ColorChecker from '../ColorChecker';
 import TokenName from '../TokenName';
 
-import S from './ColorSwatches.scss';
+import S from './ColorCompositions.scss';
 
-const ColorSwatch = ({
+const ColorComposition = ({
 	icon,
 	color,
 	background,
@@ -37,4 +37,4 @@ const ColorSwatch = ({
 	</div>
 );
 
-export default ColorSwatch;
+export default ColorComposition;

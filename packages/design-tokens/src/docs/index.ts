@@ -1,4 +1,4 @@
-import ColorSwatches from './ColorSwatches';
+import ColorCompositions from './ColorCompositions';
 import ColorCharts from './ColorCharts';
 
 import TokensBorder from './TokensBorder';
@@ -16,7 +16,7 @@ import TokensTypography from './TokensTypography';
 
 export {
 	ColorCharts,
-	ColorSwatches,
+	ColorCompositions,
 	TokensBorder,
 	TokensBranding,
 	TokensBreakpoint,

@@ -7,7 +7,7 @@ import '../src/index.scss';
 
 const TokenOrder = [
 	'Colors',
-	'Color Swatches',
+	'Color Compositions',
 	'Color Charts',
 	'Branding',
 	'Gradients',

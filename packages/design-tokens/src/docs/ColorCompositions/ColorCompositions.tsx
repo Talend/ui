@@ -1,18 +1,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react';
 
-import { ColorToken, TokenType } from '../../types';
+import { ColorToken, Token, TokenType } from '../../types';
 import { TokensProps } from '../TokensTypes';
 
-import ColorCompositions from './data/ColorSwatches.json';
+import ColorCompositions from './data/ColorCompositions.json';
 
-import ColorSwatch from './ColorSwatch';
+import ColorComposition from './ColorComposition';
 
 import { groupBy } from '../TokenFormatter';
 
 import TokenName from '../TokenName';
 
-import S from './ColorSwatches.scss';
+import S from './ColorCompositions.scss';
 
 type ColorComposition = {
 	icon?: string;
@@ -25,9 +25,9 @@ const SemanticColors = ['Accent', 'Danger', 'Warning', 'Success', 'Beta'];
 
 const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> & TokensProps) => {
 	const colorTokens = tokens
-		.filter((t: ColorToken) => t.type === TokenType.COLOR)
+		.filter((t: Token) => [TokenType.COLOR, TokenType.GRADIENT].includes(t.type))
 		.reduce((acc: Record<string, ColorToken>, curr: ColorToken) => {
-			acc[curr.name.replace('coralColor', '')] = curr;
+			acc[curr.name.replace('coral', '').replace('Color', '').replace('Gradient', '')] = curr;
 			return acc;
 		}, {});
 
@@ -47,7 +47,7 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 			<div className={S.colorGrid}>
 				{Object.entries(neutralColorsGroupedByBackground).map(([background, tks], key) => {
 					return (
-						<div className={S.colorSwatch} key={key}>
+						<div className={S.colorComposition} key={key}>
 							<dl
 								className={S.colorBackground}
 								style={{
@@ -61,7 +61,7 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 									const bg = colorTokens[background];
 									const border = colorTokens[t.border];
 									return (
-										<ColorSwatch
+										<ColorComposition
 											key={i}
 											icon={icon}
 											color={color}
@@ -97,7 +97,7 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 						return (
 							<div
 								key={key}
-								className={S.colorSwatch}
+								className={S.colorComposition}
 								style={isNewBackgroundColor ? { gridColumnStart: 1 } : {}}
 							>
 								{(hasSemanticBackground ? ['DEFAULT', 'HOVER', 'ACTIVE'] : ['DEFAULT']).map(
@@ -135,19 +135,19 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 												}}
 											>
 												<TokenName token={backgroundColor} />
-												<ColorSwatch
+												<ColorComposition
 													icon={iconColor}
 													color={textColor}
 													background={backgroundColor}
 												/>
 												{hasSemanticColor && !hasSemanticBackground && (
 													<>
-														<ColorSwatch
+														<ColorComposition
 															icon={colorTokens[`${iconK}Hover`]}
 															color={colorTokens[`${colorK}Hover`]}
 															background={backgroundColor}
 														/>
-														<ColorSwatch
+														<ColorComposition
 															icon={colorTokens[`${iconK}Active`]}
 															color={colorTokens[`${colorK}Active`]}
 															background={backgroundColor}

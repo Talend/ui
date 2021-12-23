@@ -17,11 +17,6 @@
     "background": "NeutralBackgroundStrong",
     "border": "NeutralBorder"
   },
-    {
-    "color": "NeutralTextInverted",
-    "background": "BrandingNavigation",
-    "border": "NeutralBorderWeak"
-  },
   {
     "icon": "NeutralIcon",
     "color": "NeutralText",
@@ -351,6 +346,11 @@
     "color": "NeutralTextWeak",
     "background": "BetaBackground",
     "border": "BetaBorder"
+  },
+  {
+    "color": "NeutralTextInverted",
+    "background": "BrandingNavigation",
+    "border": "NeutralBorderWeak"
   },
   {
     "icon": "AssistiveIcon",

@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { ColorToken, TokenType } from '../../types';
+import { ColorToken, Token, TokenType } from '../../types';
 import { TokensProps } from '../TokensTypes';
 
+import TokensDefinitionListItem from '../TokensDefinitionListItem';
 import ColorChart from './ColorChart';
-import TokenSkeleton from '../TokenSkeleton';
-import Token from '../TokensDefinitionListItem';
 
-import S from '../ColorSwatches/ColorSwatches.scss';
+import S from '../ColorCompositions/ColorCompositions.scss';
 
 const DefaultCharts = ['Neutral', 'Default'];
 
@@ -33,8 +32,6 @@ const ColorCharts = ({ tokens }: TokensProps) => {
 			acc[curr.name.replace('coralColor', '')] = curr;
 			return acc;
 		}, {});
-	// FIXME
-	const shouldDisplay = (tokens: ColorToken[]) => true;
 	return [DefaultCharts, SemanticCharts, OrderedCharts].map(charts =>
 		charts.map((name, key) => {
 			if (name.length === 0) return <div />;
@@ -42,7 +39,7 @@ const ColorCharts = ({ tokens }: TokensProps) => {
 			const chartColorStrong = colorTokens[`Charts${name}Strong`];
 			const chartColor = colorTokens[`Charts${name}`];
 			const isNewArray = key === 0;
-			return shouldDisplay([chartColorWeak, chartColorStrong, chartColor]) ? (
+			return (
 				<div
 					className={S.colorBackground}
 					key={key}
@@ -54,25 +51,23 @@ const ColorCharts = ({ tokens }: TokensProps) => {
 						chartColorStrong={chartColorStrong}
 					/>
 					<dl>
-						<Token token={chartColorWeak}>
+						<TokensDefinitionListItem token={chartColorWeak}>
 							{({ token }: { token: ColorToken }) => (
 								<div className={S.colorText} style={{ background: token?.value }} />
 							)}
-						</Token>
-						<Token token={chartColorStrong}>
+						</TokensDefinitionListItem>
+						<TokensDefinitionListItem token={chartColorStrong}>
 							{({ token }: { token: ColorToken }) => (
 								<div className={S.colorText} style={{ background: token?.value }} />
 							)}
-						</Token>
-						<Token token={chartColor}>
+						</TokensDefinitionListItem>
+						<TokensDefinitionListItem token={chartColor}>
 							{({ token }: { token: ColorToken }) => (
 								<div className={S.colorText} style={{ background: token?.value }} />
 							)}
-						</Token>
+						</TokensDefinitionListItem>
 					</dl>
 				</div>
-			) : (
-				<TokenSkeleton />
 			);
 		}),
 	);
