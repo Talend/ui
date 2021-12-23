@@ -39,22 +39,12 @@ jobs:
         run: |
           cd ../design-tokens
           yarn build-storybook
+          cd -
 
-      - name: Link repository to Netlify
-        uses: netlify/actions/cli@master
-        with:
-          args: link
+      - name: Build Storybook of the design system
+        run: yarn build-storybook
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
-      - name: Build using Netlify
-        uses: netlify/actions/cli@master
-        with:
-          args: build
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          STORYBOOK_FIGMA_ACCESS_TOKEN: ${{ STORYBOOK_FIGMA_ACCESS_TOKEN }}
 
       - name: Copy design tokens Storybook into design system output
         run: cp -Rf ../design-tokens/storybook-static ./storybook-static/design-tokens
