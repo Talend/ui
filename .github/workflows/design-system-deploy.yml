@@ -2,6 +2,8 @@ name: Deploy design.talend.com
 
 on:
   push:
+    branches:
+      - frassinier/chore/design-tokens/netlify_deploy
 #
 #  /!\ commented for test purpose
 #
