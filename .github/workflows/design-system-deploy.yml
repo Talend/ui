@@ -11,11 +11,12 @@ on:
 #      - master
 #    paths:
 #      - 'packages/design-system/**'
+#      - 'packages/design-tokens/**'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: main
+    environment: pull_request_unsafe
     defaults:
       run:
         working-directory: ./packages/design-system
@@ -37,12 +38,11 @@ jobs:
         run: |
           cd ../design-tokens
           yarn build-storybook
-          cd -
 
       - name: Build using Netlify
         uses: netlify/actions/cli@master
         with:
-          args: build 
+          args: build
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
