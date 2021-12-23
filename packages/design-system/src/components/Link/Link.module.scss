@@ -1,0 +1,69 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.link {
+	font: tokens.$coral-paragraph-m;
+	color: tokens.$coral-color-accent-text;
+	background: none;
+	border: none;
+	border-bottom-color: currentColor;
+	cursor: pointer;
+
+	&,
+	&:hover,
+	&:active,
+	&:focus,
+	&:visited {
+		text-decoration: none;
+	}
+
+	.link__text {
+		border-bottom: tokens.$coral-border-solid-s transparent;
+		transition: 250ms ease-in-out;
+	}
+
+	.link__icon {
+		margin-bottom: -0.2rem;
+		height: tokens.$coral-size-m;
+		width: tokens.$coral-size-m;
+
+		&External {
+			margin-bottom: -0.1rem;
+			height: tokens.$coral-size-s;
+			width: tokens.$coral-size-s;
+		}
+
+		&Before {
+			margin-right: tokens.$coral-size-xs;
+		}
+
+		&External,
+		&After {
+			margin-left: tokens.$coral-size-xs;
+		}
+	}
+
+	&:hover {
+		color: tokens.$coral-color-accent-text-hover;
+
+		.link__text {
+			border-bottom-color: tokens.$coral-color-accent-border-hover;
+		}
+	}
+
+	&:active {
+		color: tokens.$coral-color-accent-text-active;
+
+		.link__text {
+			border-bottom-color: tokens.$coral-color-accent-border-active;
+		}
+	}
+
+	&.linkDisabled {
+		opacity: tokens.$coral-opacity-s;
+		cursor: not-allowed;
+
+		.link__text {
+			border-bottom-color: transparent;
+		}
+	}
+}
