@@ -6,6 +6,8 @@ import { StackHorizontal, StackVertical, StackItem } from './index';
 
 import ButtonPrimary from '../Button/variations/Button.primary';
 import Divider from '../Divider/index';
+import { manualStackArgs } from './StackHorizontal.stories';
+import { alignOptions, overflowOptions, possibleAsTypes } from './StackItem';
 
 export default {
 	component: StackVertical,
@@ -35,9 +37,8 @@ const Template: ComponentStory<typeof StackVertical> = args => (
 );
 
 export const TestVertical = Template.bind({});
-TestVertical.args = {
-	gap: 'S',
-};
+TestVertical.argTypes = manualStackArgs;
+TestVertical.args = { gap: 'S' };
 
 export const StackNesting = () => {
 	return (
@@ -73,13 +74,13 @@ export const StackNesting = () => {
 	);
 };
 
-export const StackWithStackItem = () => {
+export const StackWithStackItem: ComponentStory<typeof StackItem> = args => {
 	return (
 		<StackVertical gap="XS" as="ul" align="stretch">
 			<li>
 				<Block width="6rem" />
 			</li>
-			<StackItem align="center" grow shrink={false} as="li">
+			<StackItem {...args}>
 				<Block width="4rem" />
 			</StackItem>
 			<li>
@@ -87,4 +88,23 @@ export const StackWithStackItem = () => {
 			</li>
 		</StackVertical>
 	);
+};
+StackWithStackItem.argTypes = {
+	grow: { control: { type: 'boolean' }, defaultValue: true },
+	shrink: { control: { type: 'boolean' }, defaultValue: false },
+	align: {
+		options: Object.keys(alignOptions),
+		control: { type: 'select' },
+		defaultValue: 'center',
+	},
+	overflow: {
+		options: Object.keys(overflowOptions),
+		control: { type: 'select' },
+		defaultValue: 'auto',
+	},
+	as: {
+		options: [...possibleAsTypes],
+		control: { type: 'select' },
+		defaultValue: 'li',
+	},
 };

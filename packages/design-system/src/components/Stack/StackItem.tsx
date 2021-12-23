@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './StackItem.module.scss';
 
-const alignOptions = {
+export const alignOptions = {
 	auto: 'align-auto',
 	start: 'align-start',
 	end: 'align-end',
@@ -11,12 +11,14 @@ const alignOptions = {
 	baseline: 'align-baseline',
 };
 
-const overflowOptions = {
+export const overflowOptions = {
 	scroll: 'overflow-scroll',
 	hidden: 'overflow-hidden',
 	visible: 'overflow-visible',
 	auto: 'overflow-auto',
 };
+
+export const possibleAsTypes = ['div', 'li', 'span', 'section', 'dd', 'dt'] as const;
 
 export type ItemProps = {
 	children: ReactNode;
@@ -24,10 +26,10 @@ export type ItemProps = {
 	shrink?: boolean;
 	align?: keyof typeof alignOptions;
 	overflow?: keyof typeof overflowOptions;
-	as?: 'div' | 'li' | 'span' | 'section';
+	as?: typeof possibleAsTypes[number];
 };
 
-export const StackItem = React.forwardRef(function StackItem(
+export const StackItem = forwardRef(function StackItem(
 	{
 		as = 'div',
 		children,

@@ -321,7 +321,7 @@ declare module '@talend/icons' {
 		| string;
 }
 
-declare module '*.module.scss' {
-    const contents: Record<string, string>;
-    export default contents;
+declare module '*.scss' {
+	const contents: Record<string, string>;
+	export default contents;
 }

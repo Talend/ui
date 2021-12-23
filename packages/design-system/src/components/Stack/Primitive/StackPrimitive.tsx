@@ -1,9 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './StackPrimitive.module.scss';
-import { StackItem } from '../StackItem';
 
-const justifyOptions = {
+export const justifyOptions = {
 	start: 'justify-start',
 	end: 'justify-end',
 	center: 'justify-center',
@@ -12,7 +11,7 @@ const justifyOptions = {
 	spaceEvenly: 'justify-space-evenly',
 };
 
-const alignOptions = {
+export const alignOptions = {
 	start: 'align-start',
 	end: 'align-end',
 	center: 'align-center',
@@ -20,7 +19,7 @@ const alignOptions = {
 	baseline: 'align-baseline',
 };
 
-const alignContentOptions = {
+export const alignContentOptions = {
 	start: 'align-content-start',
 	end: 'align-content-end',
 	center: 'align-content-center',
@@ -28,7 +27,7 @@ const alignContentOptions = {
 	baseline: 'align-content-baseline',
 };
 
-const sizeOptions = {
+export const sizeOptions = {
 	0: 'NONE',
 	XXS: 'XXS',
 	XS: 'XS',
@@ -38,7 +37,7 @@ const sizeOptions = {
 	XL: 'XL',
 };
 
-const sizeOptionsWithAuto = {
+export const sizeOptionsWithAuto = {
 	...sizeOptions,
 	auto: 'auto',
 };
@@ -76,10 +75,12 @@ type spacingTypeWithAuto =
 			bottom: keyof typeof sizeOptionsWithAuto;
 	  };
 
+export const possibleAsTypes = ['div', 'ul', 'ol', 'article', 'span', 'dl'] as const;
+
 type directionType = 'row' | 'column';
 
 export type StackPrimitiveProps = {
-	as?: 'div' | 'ul' | 'ol' | 'article' | 'span';
+	as?: typeof possibleAsTypes[number];
 	justify?: keyof typeof justifyOptions;
 	align?: keyof typeof alignOptions;
 	gap: gapType;
@@ -93,7 +94,7 @@ export type StackPrimitiveProps = {
 	role?: string;
 };
 
-const StackPrimitive = React.forwardRef(function StackPrimitive(
+const StackPrimitive = forwardRef(function StackPrimitive(
 	{
 		as = 'div',
 		children,
