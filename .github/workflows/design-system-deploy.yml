@@ -2,10 +2,13 @@ name: Deploy design.talend.com
 
 on:
   push:
-    branches:
-      - master
-    paths:
-      - 'packages/design-system/**'
+#
+#  /!\ commented for test purpose
+#
+#    branches:
+#      - master
+#    paths:
+#      - 'packages/design-system/**'
 
 jobs:
   deploy:
@@ -25,15 +28,30 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - name: Build Storybook
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build Storybook of the design tokens
         run: |
-          yarn install --frozen-lockfile
+          cd ../design-tokens
           yarn build-storybook
+          cd -
+
+      - name: Build using Netlify
+        uses: netlify/actions/cli@master
+        with:
+          args: build 
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+      - name: Copy design tokens Storybook into design system output
+        run: cp -Rf ../design-tokens/storybook-static ./storybook-static/design-tokens/
 
       - name: Deploy to Netlify production
         uses: netlify/actions/cli@master
         with:
-          args: deploy --prod --dir=packages/design-system/storybook-static
+          args: deploy --dry --dir=storybook-static
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
