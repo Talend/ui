@@ -43,12 +43,18 @@ jobs:
       - name: Link repository to Netlify
         uses: netlify/actions/cli@master
         with:
-          args: link --id=${{ secrets.NETLIFY_SITE_ID }}
+          args: link
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
       - name: Build using Netlify
         uses: netlify/actions/cli@master
         with:
           args: build
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
       - name: Copy design tokens Storybook into design system output
         run: cp -Rf ../design-tokens/storybook-static ./storybook-static/design-tokens
@@ -56,7 +62,7 @@ jobs:
       - name: Deploy to Netlify production
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dry --dir=storybook-static
+          args: deploy --dir=storybook-static
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
