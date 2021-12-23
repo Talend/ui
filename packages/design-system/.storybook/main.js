@@ -29,9 +29,9 @@ module.exports = {
 	},
 	refs: {
 		'design-tokens': {
-			title: "Design Tokens",
-			url: "https://3565.talend.surge.sh/design-tokens",
-		}
+			title: 'Design Tokens',
+			url: '/design-tokens',
+		},
 	},
 	stories: [
 		'../src/Welcome.stories.@(js|tsx|mdx)',

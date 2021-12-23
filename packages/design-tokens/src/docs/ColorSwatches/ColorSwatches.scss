@@ -1,4 +1,4 @@
-	@use '../../tokens';
+@use '../../tokens';
 
 .colorGrid {
 	display: grid;
@@ -19,13 +19,13 @@
 	padding: tokens.$coral-size-s;
 	color: inherit;
 	background: transparent;
-	border: 2px solid transparent;
+	border: tokens.$coral-border-m-solid transparent;
 	border-radius: tokens.$coral-radius-s;
 }
 
 .colorContent {
 	padding: tokens.$coral-size-s;
-	border: 2px solid transparent;
+	border: tokens.$coral-border-m-solid transparent;
 	border-radius: tokens.$coral-radius-s;
 }
 

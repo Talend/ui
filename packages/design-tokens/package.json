@@ -13,8 +13,9 @@
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
     "test:demo": "yarn build-storybook",
+    "start": "yarn storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook --docs"
   },
   "keywords": [
     "talend",
@@ -47,8 +48,5 @@
     "react": "^16.14.0",
     "typeface-source-sans-pro": "^1.1.13"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "react": "^16.14.0"
-  }
+  "dependencies": {}
 }
