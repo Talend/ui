@@ -24,7 +24,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 						console.log('size diff', diff, size, process.env.THRESHOLD);
 						if (diff > THRESHOLD) {
 							changed = true;
-							console.log('changed');
+							console.log('changed !');
 							acc[filePath] = size;
 						} else {
 							acc[filePath] = originalSize[filePath];
