@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js 14
         uses: actions/setup-node@v2
@@ -24,12 +27,23 @@ jobs:
           cache: "yarn"
 
       - name: Install and build playground
+        id: build
         run: |
           yarn install --frozen-lockfile
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn pre-release
           yarn workspace @talend/ui-playground run test:demo:umd
+          node size.js
+        env:
+          THRESHOLD: 100;
+
+      - name: Commit size change
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "chore: update size"
+          branch: ${{ github.head_ref }}
 
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
@@ -37,22 +51,6 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-
-      - name: size check
-        id: sizecheck
-        run: |
-          node size.js
-          echo "::set-output name=diff::$(git status --short size.json)"
-        env:
-          THRESHOLD: 100;
-
-      - name: Commit size change
-        if: steps.sizecheck.outputs.diff
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: update size"
-          branch: ${{ github.head_ref }}
 
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
