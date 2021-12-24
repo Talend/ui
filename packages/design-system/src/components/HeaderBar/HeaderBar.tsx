@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import useMedia from 'react-use/lib/useMedia';
 import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit';
+import { useTranslation } from 'react-i18next';
 
 import * as S from './HeaderBar.style';
 
@@ -15,12 +16,13 @@ const Content: React.FC<ContentProps> = ({ children }: ContentProps) => {
 	const disclosure = useDisclosureState({
 		animated: 250,
 	});
+	const { t } = useTranslation();
 	return isWide ? (
 		children
 	) : (
 		<>
 			<Disclosure as={S.MenuDisclosure} {...disclosure} icon="talend-burger">
-				Toggle menu
+				{t('HEADER_TOGGLE_MENU', 'Toggle menu')}
 			</Disclosure>
 			<DisclosureContent as={S.Menu} {...disclosure}>
 				{children}

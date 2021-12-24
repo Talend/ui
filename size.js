@@ -8,11 +8,16 @@ if (process.env.THRESHOLD) {
 	THRESHOLD = parseInt(process.env.THRESHOLD, 10);
 }
 
+const IGNORE_LIST = ['packages/playground'];
+
 run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 	.then(info => JSON.parse(info))
 	.then(workspaceInfo => {
 		let changed = false;
 		const sizes = Object.values(workspaceInfo).reduce((acc, value) => {
+			if (IGNORE_LIST.includes(value.location)) {
+				return acc;
+			}
 			const dist = path.join(value.location, 'dist');
 			if (fs.existsSync(dist)) {
 				fs.readdirSync(dist)
