@@ -39,6 +39,7 @@ jobs:
           THRESHOLD: 100;
 
       - name: Commit size change
+        if: github.ref != 'refs/heads/master'
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
