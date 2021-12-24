@@ -2,6 +2,7 @@ import React from 'react';
 import { shade, tint } from 'polished';
 import styled from 'styled-components';
 import { unstable_useId as useId } from 'reakit';
+import { Trans, useTranslation } from 'react-i18next';
 import Button from '../../../Button';
 import Link from '../../../Link';
 import { Icon } from '../../../Icon';
@@ -143,6 +144,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 	const [files, setFiles] = React.useState<FileList | null>(props.files);
 
 	const inputRef = React.useRef<HTMLInputElement>();
+	const { t } = useTranslation();
 
 	function handleChange() {
 		const input = inputRef.current;
@@ -222,10 +224,12 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 						<div className="input-file__text text">
 							<Icon className="text__icon" name="talend-upload" />{' '}
 							<span className="text__span">
-								Drop your files or {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-								<Link className="text__link" href="#">
-									browse
-								</Link>
+								<Trans i18nKey="INPUT_FILE_DROP_OR_BROWSE_FILE">
+									Drop your files or {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+									<Link className="text__link" href="#">
+										browse
+									</Link>
+								</Trans>
 							</span>
 						</div>
 					) : (
@@ -245,7 +249,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 								className="preview__button"
 								onClick={() => clear()}
 							>
-								Clear selection
+								{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
 							</Button.Icon>
 						</div>
 					)}
