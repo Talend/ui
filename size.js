@@ -21,10 +21,8 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 						const filePath = path.join(dist, f);
 						const size = fs.statSync(filePath).size;
 						const diff = Math.abs((originalSize[filePath] || 0) - size);
-						console.log('size diff', diff, size, process.env.THRESHOLD);
 						if (diff > THRESHOLD) {
 							changed = true;
-							console.log('changed !');
 							acc[filePath] = size;
 						} else {
 							acc[filePath] = originalSize[filePath];
@@ -34,7 +32,6 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 			return acc;
 		}, {});
 		if (changed) {
-			console.log('save');
 			fs.writeFileSync('./size.json', JSON.stringify(sizes, null, 2));
 		}
 	});
