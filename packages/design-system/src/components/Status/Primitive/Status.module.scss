@@ -1,4 +1,4 @@
-@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+@use '~@talend/design-tokens/lib/_tokens.scss';
 
 .status {
 	font: tokens.$coral-paragraph-m-bold;

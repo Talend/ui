@@ -8,20 +8,14 @@ import { StackHorizontal } from '../../Stack';
 
 import styles from './Status.module.scss';
 
-export const possibleVariants = [
-	'successful',
-	'failed',
-	'inProgress',
-	'warning',
-	'canceled',
-] as const;
+export const variants = ['successful', 'failed', 'inProgress', 'warning', 'canceled'] as const;
 
 export type StatusProps = {
 	icon?: IconName;
 	inProgress?: boolean;
 	hideText?: boolean;
 	children?: string;
-	variant: typeof possibleVariants[number];
+	variant: typeof variants[number];
 };
 
 const Status = React.forwardRef(

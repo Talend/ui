@@ -4,10 +4,10 @@ import StatusWarning, { StatusWarningProps } from './variations/StatusWarning';
 import StatusSuccessful, { StatusSuccessfulProps } from './variations/StatusSuccessful';
 import StatusInProgress, { StatusInProgressProps } from './variations/StatusInProgress';
 import StatusCanceled, { StatusCanceledProps } from './variations/StatusCanceled';
-import { possibleVariants } from './Primitive/StatusPrimitive';
+import { variants } from './Primitive/StatusPrimitive';
 
 type StatusProps = {
-	variant: typeof possibleVariants[number];
+	variant: typeof variants[number];
 } & (
 	| StatusFailedProps
 	| StatusWarningProps

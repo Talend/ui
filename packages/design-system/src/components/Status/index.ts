@@ -5,5 +5,4 @@ import StatusWarning from './variations/StatusWarning';
 import StatusCanceled from './variations/StatusCanceled';
 import Status from './Status';
 
-export default Status;
-export { StatusSuccessful, StatusFailed, StatusInProgress, StatusWarning, StatusCanceled };
+export { Status, StatusSuccessful, StatusFailed, StatusInProgress, StatusWarning, StatusCanceled };

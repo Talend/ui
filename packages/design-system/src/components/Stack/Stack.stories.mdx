@@ -1,10 +1,9 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
-import Stack from './Stack.tsx';
 import * as StoriesHorizontal from './StackHorizontal.stories';
 import * as StoriesVertical from './StackVertical.stories';
 import { FigmaImage } from '../../docs';
 
-<Meta title="Components/Stack" component={Stack} />
+<Meta title="Components/Stack" />
 
 # Stack (aka "Autolayout")
 
@@ -113,9 +112,5 @@ You do need to set all the values for each of these objects when using them.
 </Canvas>
 
 <ArgsTable story="Story StackItem" />
-
-<Canvas>
-    <Story story={Stories.Test} />
-</Canvas>
 
 ## Accessibility

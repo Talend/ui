@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../docs';
-import StatusPrimitive, { possibleVariants } from './Primitive/StatusPrimitive';
-import Status from './index';
+import StatusPrimitive, { variants } from './Primitive/StatusPrimitive';
+import { Status } from '.';
 import * as Stories from './Status.stories';
 
 <Meta title="Components/Status" component={StatusPrimitive} />
@@ -101,7 +101,7 @@ You can.
 				description: 'Status variation',
 				control: {
 					type: 'select',
-					options: [...possibleVariants],
+					options: [...variants],
 				},
 			},
 			hideText: {
