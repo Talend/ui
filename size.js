@@ -3,6 +3,11 @@ const path = require('path');
 const run = require('./run');
 const originalSize = require('./size.json');
 
+let THRESHOLD = 100;
+if (process.env.THRESHOLD) {
+	THRESHOLD = parseInt(process.env.THRESHOLD, 10);
+}
+
 run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 	.then(info => JSON.parse(info))
 	.then(workspaceInfo => {
@@ -15,9 +20,9 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 					.forEach(f => {
 						const filePath = path.join(dist, f);
 						const size = fs.statSync(filePath).size;
-						const diff = Math.abs(originalSize[filePath] - size);
-						console.log('size diff', diff, size);
-						if (diff > (process.env.THRESHOLD || 100)) {
+						const diff = Math.abs((originalSize[filePath] || 0) - size);
+						console.log('size diff', diff, size, process.env.THRESHOLD);
+						if (diff > THRESHOLD) {
 							changed = true;
 							console.log('changed');
 							acc[filePath] = size;
