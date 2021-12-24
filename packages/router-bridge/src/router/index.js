@@ -19,7 +19,7 @@ try {
 	isV5 = true;
 	const { createBrowserHistory } = require('history');
 
-	Switch = reactRouterV5.Switch;
+	Switch = reactRouterV5.Routes;
 	Route = reactRouterV5.Route;
 	Link = reactRouterV5.Link;
 	Redirect = reactRouterV5.Redirect;
@@ -36,5 +36,5 @@ try {
 	}
 }
 
-//TODO: export all V5 content before the overrides
+// TODO: export all V5 content before the overrides
 export { history, Switch, Route, Router, Link, Redirect, useParams, useRouteMatch, isV5 };

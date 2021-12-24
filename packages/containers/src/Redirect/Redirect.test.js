@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Redirect from './Redirect.container';
 import AppLoader from '@talend/react-components/lib/AppLoader';
+import Redirect from './Redirect.container';
 
 describe('Redirect', () => {
 	it('should dispatch a redirect action', () => {

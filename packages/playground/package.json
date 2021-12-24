@@ -36,7 +36,7 @@
     "@talend/react-components": "^6.41.2",
     "@talend/react-containers": "^6.39.0",
     "@talend/react-forms": "^6.43.0",
-    "history": "^3.3.0",
+    "history": "^5.0.0",
     "i18next": "^20.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
