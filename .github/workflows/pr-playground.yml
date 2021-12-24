@@ -35,8 +35,6 @@ jobs:
           yarn pre-release
           yarn workspace @talend/ui-playground run test:demo:umd
           node size.js
-          echo "::set-output name=diff::$(git status --short size.json)"
-          echo "::set-output name=masterdiff::$(git diff origin/master HEAD size.json)"
         env:
           THRESHOLD: 100;
 
@@ -48,7 +46,6 @@ jobs:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
 
       - name: Commit size change
-        if: steps.build.outputs.diff
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
