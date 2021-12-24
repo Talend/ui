@@ -175,7 +175,7 @@ describe('#DataGrid', () => {
 			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
 		);
 
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
@@ -185,7 +185,7 @@ describe('#DataGrid', () => {
 			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
 		);
 
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
@@ -201,7 +201,7 @@ describe('#DataGrid', () => {
 				redrawRows,
 			},
 		});
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 
 		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).toHaveBeenCalled();
@@ -219,7 +219,7 @@ describe('#DataGrid', () => {
 				redrawRows,
 			},
 		});
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 
 		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).not.toHaveBeenCalled();
@@ -265,7 +265,10 @@ describe('#AgGrid API', () => {
 		const api = {};
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 
-		wrapper.find('AgGridReact').props().onGridReady({ api });
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({ api });
 
 		expect(wrapper.instance().gridAPI).toBe(api);
 	});
@@ -381,7 +384,10 @@ describe('#Datagrid method', () => {
 			rowIndex: 2,
 		};
 
-		wrapper.find('AgGridReact').props().onGridReady({ api });
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
 			nextCellPosition,
@@ -408,7 +414,10 @@ describe('#Datagrid method', () => {
 			rowIndex: 2,
 		};
 
-		wrapper.find('AgGridReact').props().onGridReady({ api });
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
 			nextCellPosition,
@@ -431,7 +440,10 @@ describe('#Datagrid method', () => {
 			rowIndex: 2,
 		};
 
-		wrapper.find('AgGridReact').props().onGridReady({ api });
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
 			nextCellPosition,
@@ -440,6 +452,26 @@ describe('#Datagrid method', () => {
 
 		expect(nextFocusedCell).toBe(nextCellPosition);
 		expect(setSelected).not.toHaveBeenCalled();
+	});
+
+	it('should set the current selected column from props', () => {
+		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId="field3" />);
+		wrapper.instance().onFocusedColumn = jest.fn();
+		wrapper.instance().onGridReady({ api: {} });
+
+		expect(wrapper.instance().onFocusedColumn).toHaveBeenCalledWith('field3');
+	});
+
+	it('should update current selected column from props', () => {
+		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		wrapper.instance().onFocusedColumn = jest.fn();
+		wrapper.instance().onGridReady({ api: {} });
+
+		wrapper.setProps({
+			focusedColumnId: 'field2',
+		});
+
+		expect(wrapper.instance().onFocusedColumn).toHaveBeenCalledWith('field2');
 	});
 
 	it('should focus a column', () => {
@@ -460,7 +492,10 @@ describe('#Datagrid method', () => {
 		instance.removeFocusColumn = jest.fn();
 		instance.updateStyleFocusColumn = jest.fn();
 
-		wrapper.find('AgGridReact').props().onGridReady({ api });
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({ api });
 
 		instance.onFocusedColumn(currentColId);
 
@@ -605,7 +640,10 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
 
-		wrapper.find('AgGridReact').props().onGridReady({ api });
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({ api });
 
 		instance.onKeyDownHeaderColumn(
 			{
@@ -627,10 +665,13 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
 
-		wrapper.find('AgGridReact').props().onGridReady({
-			setFocusedCell,
-			ensureIndexVisible,
-		});
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({
+				setFocusedCell,
+				ensureIndexVisible,
+			});
 
 		instance.onKeyDownHeaderColumn(
 			{
@@ -660,9 +701,12 @@ describe('#Datagrid method', () => {
 		);
 		const instance = wrapper.instance();
 
-		wrapper.find('AgGridReact').props().onGridReady({
-			api,
-		});
+		wrapper
+			.find('AgGridReact')
+			.props()
+			.onGridReady({
+				api,
+			});
 
 		instance.onBodyScroll(event);
 
@@ -729,7 +773,7 @@ describe('#forceRedraw', () => {
 			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
 		);
 
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
@@ -739,7 +783,7 @@ describe('#forceRedraw', () => {
 			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
 		);
 
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
@@ -755,7 +799,7 @@ describe('#forceRedraw', () => {
 				redrawRows,
 			},
 		});
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 
 		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).toHaveBeenCalled();
@@ -773,7 +817,7 @@ describe('#forceRedraw', () => {
 				redrawRows,
 			},
 		});
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 
 		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).not.toHaveBeenCalled();

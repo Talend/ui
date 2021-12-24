@@ -1,9 +1,7 @@
+import { IconName } from '@talend/icons';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { IconName } from '@talend/icons';
-
 import { Icon } from '../Icon/Icon';
-
 import * as S from './Link.style';
 
 export type LinkProps = React.AnchorHTMLAttributes<any> & {
@@ -40,7 +38,10 @@ const Link = React.forwardRef(
 		ref: React.Ref<any>,
 	) => {
 		const { t } = useTranslation();
-		const isBlank: boolean = React.useMemo(() => target?.toLowerCase() === '_blank', [target]);
+		const isBlank: boolean = React.useMemo(
+			() => !!target && !['_self', '_parent', '_top'].includes(target.toLowerCase()),
+			[target],
+		);
 		const isExternal = React.useMemo(() => {
 			if (!href) {
 				return false;
@@ -60,13 +61,13 @@ const Link = React.forwardRef(
 					defaultValue: 'This link is disabled',
 				});
 			}
-			if (isExternal && isBlank && title) {
+			if (isBlank && title) {
 				return t('LINK_EXTERNAL_TITLE', {
 					title,
 					defaultValue: '{{title}} (open in a new tab)',
 				});
 			}
-			if (isExternal && isBlank) {
+			if (isBlank) {
 				return t('LINK_EXTERNAL', {
 					defaultValue: 'Open in a new tab',
 				});
