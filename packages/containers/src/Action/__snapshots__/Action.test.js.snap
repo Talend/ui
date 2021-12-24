@@ -1,26 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Action should render from name props keeping extra props 1`] = `
-<CMF(Action)
-  deleteState={[Function]}
-  dispatch={[Function]}
-  dispatchActionCreator={[Function]}
+<Connect(CMF(Action))
+  actionId="menu:article"
   extra="foo"
-  getComponent={[Function]}
-  icon="icon-article"
-  id="menu:article"
-  initState={[Function]}
-  name="My article"
-  payload={
-    Object {
-      "args": Array [
-        "/myarticle",
-      ],
-      "method": "push",
-      "type": "@@router/CALL_HISTORY_METHOD",
-    }
-  }
-  setState={[Function]}
-  updateState={[Function]}
 />
 `;

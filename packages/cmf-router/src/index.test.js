@@ -33,7 +33,7 @@ describe('getModule', () => {
 		const generator = mod.cmfModule.saga();
 		generator.next();
 		const result = generator.next();
-		expect(result.value.FORK.args[1]).toEqual({
+		expect(result.value.payload.args[1]).toEqual({
 			'/foo': config.sagaRouterConfig['/foo'],
 			'/foo/bar': configBis.sagaRouterConfig['/foo/bar'],
 		});
