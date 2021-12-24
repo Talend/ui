@@ -50,6 +50,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: "chore: update size"
+          branch: ${{ github.head_ref }}
 
       - name: deploy if PR
         if: github.ref != 'refs/heads/master'
