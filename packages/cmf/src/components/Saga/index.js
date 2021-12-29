@@ -1,3 +1,5 @@
-import Saga from './Saga.connect';
+import { CmfRegisteredSaga } from './CmfRegisteredSaga';
+import { Saga } from './Saga';
+import { handleSagaComponent } from './Saga.saga';
 
-export { Saga };
+export { Saga, CmfRegisteredSaga, handleSagaComponent };
