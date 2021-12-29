@@ -1,0 +1,78 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaIframe, FigmaImage, Use } from '../../../docs';
+import Form from '../';
+
+<Meta title="Components/Form/Fields/Textarea" />
+
+# Text Area
+
+The textarea is a control that allows the user to enter multiple lines of text.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A268"
+	alt="zoning image for text area"
+/>
+
+## Style
+
+<FigmaIframe light="https://www.figma.com/file/610Qgbz9dEHyTTkGeYHZh4/Inputs?node-id=0%3A164" />
+
+## States
+
+### Default
+
+<Canvas>
+	<Story name="default">
+		<Form.Textarea label="Textarea" placeholder="Placeholder" />
+	</Story>
+</Canvas>
+
+### Filled
+
+<Canvas>
+	<Story name="filled">
+		<Form.Textarea label="Textarea">Lorem ipsum</Form.Textarea>
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story name="disabled">
+		<Form.Textarea label="Disabled Textarea" disabled>
+			Lorem ipsum
+		</Form.Textarea>
+	</Story>
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story name="read-only">
+		<Form.Textarea label="Read-only Textarea" readOnly>
+			Lorem ipsum
+		</Form.Textarea>
+	</Story>
+</Canvas>
+
+## Interactions
+
+A vertical scrollbar appears when the content exceeds the available space, or the user can expand the height to accommodate the amount of text.
+
+// TO DO = Add demo
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C
+
+## Changelog
+
+| Date       | Author     | Description |
+| ---------- | ---------- | ----------- |
+| 06/09/2020 | Monia Huet | Init page   |

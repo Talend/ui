@@ -1,0 +1,246 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle } from './';
+
+<Meta title="Component catalog" />
+
+## Buttons
+
+<Canvas>
+	<Story name="Buttons">
+		<Button.Primary icon="talend-datagrid">Primary button</Button.Primary>
+		<Button.Destructive icon="talend-datagrid">Destructive button</Button.Destructive>
+		<Button.Secondary icon="talend-datagrid">Secondary button</Button.Secondary>
+		<Button.Tertiary icon="talend-datagrid">Tertiary button</Button.Tertiary>
+		<Button.Icon icon="talend-datagrid">Datagrid</Button.Icon>
+	</Story>
+</Canvas>
+
+## Toggles
+
+<Canvas>
+	<Story name="Toggles">
+		<Toggle icon="talend-datagrid">Toggle button</Toggle>
+		<Toggle icon="talend-datagrid" disabled>
+			Toggle button
+		</Toggle>
+	</Story>
+</Canvas>
+
+## Dropdowns
+
+<Canvas>
+	<Story name="Dropdowns" height="20rem">
+		<Dropdown
+			as={Button.Primary}
+			aria-label="Custom menu"
+			icon="talend-datagrid"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Primary Dropdown
+		</Dropdown>
+		<Dropdown
+			as={Button.Destructive}
+			aria-label="Custom menu"
+			icon="talend-datagrid"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Destructive Dropdown
+		</Dropdown>
+		<Dropdown
+			as={Button.Secondary}
+			aria-label="Custom menu"
+			icon="talend-datagrid"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Secondary Dropdown
+		</Dropdown>
+		<Dropdown
+			as={Button.Tertiary}
+			aria-label="Custom menu"
+			icon="talend-datagrid"
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Tertiary Dropdown
+		</Dropdown>
+		<Dropdown
+			as={Button.Icon}
+			aria-label="Custom menu"
+			icon={<Icon name="talend-ellipsis" transform="rotate-90" />}
+			items={[
+				<button>Custom item 1</button>,
+				<button>Custom item 2</button>,
+				<button>Custom item 3</button>,
+			]}
+		>
+			Icon Dropdown
+		</Dropdown>
+	</Story>
+</Canvas>
+
+## Links
+
+<Canvas>
+	<Story name="Links">
+		<Link href="#">Link</Link>
+		<Link href="#" iconBefore="talend-info-circle">
+			Inline help
+		</Link>
+		<Link href="https://www.talend.com">Talend</Link>
+		<Button
+			as={Link}
+			iconBefore={<Icon name="talend-arrow-left" transform="rotate-90" />}
+			onClick={() => {
+				document.body.scrollTop = 0; // For Safari
+				document.documentElement.scrollTop = 0; // For others
+			}}
+		>
+			Scroll to top
+		</Button>
+	</Story>
+</Canvas>
+
+## As button, As link
+
+<Canvas>
+	<Story name="As">
+		<Link as="button">Button as link</Link>
+		<Button.Primary as="a" href="#">
+			Link as primary button
+		</Button.Primary>
+		<Button.Destructive as="a" href="#">
+			Link as destructive button
+		</Button.Destructive>
+		<Button.Secondary as="a" href="#">
+			Link as secondary button
+		</Button.Secondary>
+		<Button.Tertiary as="a" href="#">
+			Link as tertiary button
+		</Button.Tertiary>
+	</Story>
+</Canvas>
+
+## Forms
+
+<Canvas>
+	<Story name="Forms">
+		<Form>
+			<Form.Fieldset legend="Form fields">
+				<Form.Text label="Input" />
+				<Form.FieldGroup label="Amount" prefix="$" suffix=".00">
+					<Form.Number label="Amount without decimal" min="1" step="1" />
+				</Form.FieldGroup>
+				<Form.File label="File" />
+				<Form.Password label="Password" />
+				<Form.Datalist label="Datalist" values={['foo', 'bar']} />
+				<Form.Search label="Search" />
+				<Form.Textarea label="Textarea" />
+				<Form.Select label="Select">
+					<option selected>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Select label="Select multiple" multiple>
+					<option selected>Foo</option>
+					<option selected>Bar</option>
+				</Form.Select>
+				<Form.Checkbox label="Checkbox" checked />
+				<Form.Radio label="Radio" checked />
+				<Form.Switch label="Switch" checked />
+			</Form.Fieldset>
+			<Form.Buttons>
+				<Button.Secondary type="reset">Reset</Button.Secondary>
+				<Button.Primary type="submit">Submit</Button.Primary>
+			</Form.Buttons>
+		</Form>
+	</Story>
+</Canvas>
+
+## Tags
+
+<Canvas>
+	<Story name="Tags">
+		<Tag>Example</Tag>
+		<Tag.Information>Example</Tag.Information>
+		<Tag.Success>Example</Tag.Success>
+		<Tag.Warning>Example</Tag.Warning>
+		<Tag.Destructive>Example</Tag.Destructive>
+	</Story>
+</Canvas>
+
+## Inline Messages
+
+<Canvas>
+	<Story name="InlineMessages">
+		<InlineMessage.Information
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+		<InlineMessage.Success
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+		<InlineMessage.Warning
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+		<InlineMessage.Destructive
+			title={'Lorem ipsum'}
+			description={
+				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
+			}
+			link={<Link href={'#'}>See more</Link>}
+			withBackground
+		/>
+	</Story>
+</Canvas>
+
+### Popovers
+
+<Canvas>
+	<Story name="Popovers" height="10rem">
+		<Popover
+			aria-label="Custom popover"
+			disclosure={
+				<Button.Icon
+					icon={
+						<Icon
+							name="talend-question-circle
+"
+						/>
+					}
+				>
+					Open popover
+				</Button.Icon>
+			}
+		>
+			Custom popover
+		</Popover>
+	</Story>
+</Canvas>

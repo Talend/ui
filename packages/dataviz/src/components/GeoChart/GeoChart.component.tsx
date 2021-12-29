@@ -261,8 +261,8 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 					ref={tooltipRef}
 					style={{
 						position: 'fixed',
-						top: `${tooltip.position.y - (tooltipRef.current?.offsetHeight ?? 0)}px`,
-						left: `${tooltip.position.x - ((tooltipRef.current?.offsetWidth ?? 0) / 2)}px`,
+						top: `${tooltip.position.y - (tooltipRef.current?.offsetHeight || 0)}px`,
+						left: `${tooltip.position.x - ((tooltipRef.current?.offsetWidth || 0) / 2)}px`,
 						pointerEvents: 'none',
 					}}
 				>

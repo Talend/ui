@@ -1,0 +1,131 @@
+import { Meta } from '@storybook/addon-docs';
+import { ColorPalette, ColorItem, Typeset } from '@storybook/components';
+import { Table, ColorSwatches } from '../../docs';
+import tokens from './../index';
+import colors, { brand, palette, gradients, swatches } from './../colors.tokens';
+
+<Meta title="Design Tokens/Design Tokens" />
+
+# Design Tokens
+
+We are using <a href="https://system-ui.com/theme/" target="_blank">the System UI theme specification</a>
+
+## Space
+
+<Table data={tokens.space} />
+
+## Colors
+
+### Grayscale
+
+<ColorSwatches title="tokens.colors.gray" subtitle="All grays" color="gray" colors={colors} />
+
+### Brand
+
+<ColorPalette>
+	<ColorItem title="tokens.colors" subtitle="Brand colors" colors={brand} />
+</ColorPalette>
+
+### Interactive colors
+
+<ColorPalette>
+	<ColorItem
+		title="tokens.colors.lochmara"
+		subtitle="Clickable color"
+		colors={{ lochmara: colors.lochmara[500] }}
+	/>
+</ColorPalette>
+
+<ColorPalette>
+	<ColorItem
+		title="tokens.colors.moodyPurple"
+		subtitle="Focus color"
+		colors={{ moodyPurple: colors.moodyPurple[500] }}
+	/>
+</ColorPalette>
+
+### Color swatches
+
+<div>
+	{Object.keys(palette).map(color => (
+		<ColorSwatches key={color} title={`tokens.colors.${color}`} color={color} colors={swatches} />
+	))}
+</div>
+
+### Color gradients
+
+<ColorPalette>
+	{Object.keys(gradients).map(gradient => (
+		<ColorItem
+			key={gradient}
+			title={`tokens.colors.${gradient}`}
+			colors={{ [gradient]: gradients[gradient].backgroundImage }}
+		/>
+	))}
+</ColorPalette>
+
+## fontSizes
+
+<Typeset fontSizes={Object.values(tokens.fontSizes)} />
+
+## fonts
+
+Default content uses sans-serif font.
+
+<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} fontFamily={tokens.fonts.sansSerif} />
+
+Data related content uses monospace font.
+
+<Typeset fontSizes={[12, 14, 16, 20, 24, 32, 40, 48]} fontFamily={tokens.fonts.monospace} />
+
+## fontWeights
+
+<Table data={tokens.fontWeights} />
+
+## lineHeights
+
+<Table data={tokens.lineHeights} />
+
+## letterSpacings
+
+<Table data={tokens.letterSpacings} />
+
+## sizes
+
+<Table data={tokens.sizes} />
+
+## borders
+
+<Table data={tokens.borders} />
+
+## borderWidths
+
+<Table data={tokens.borderWidths} />
+
+## borderStyles
+
+<Table data={tokens.borderStyles} />
+
+## opacity
+
+<Table data={tokens.opacity} />
+
+## radii
+
+<Table data={tokens.radii} />
+
+## shadows
+
+<Table data={tokens.shadows} />
+
+## zIndices
+
+<Table data={tokens.zIndices} />
+
+## transitions
+
+<Table data={tokens.transitions} />
+
+## breakpoints
+
+<Table data={tokens.breakpoints} />

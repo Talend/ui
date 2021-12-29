@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.5.7
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+  - @talend/react-cmf@6.38.5
+
 ## 3.5.6
 
 ### Patch Changes

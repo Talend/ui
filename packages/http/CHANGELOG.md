@@ -1,5 +1,11 @@
 # @talend/http
 
+## 1.1.6
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 1.1.5
 
 ### Patch Changes

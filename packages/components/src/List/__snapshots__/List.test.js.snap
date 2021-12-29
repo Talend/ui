@@ -298,7 +298,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                    className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -367,7 +367,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     </div>
                     <Grid
                       aria-label="grid"
-                      aria-readonly={true}
+                      aria-readonly={null}
                       autoContainerWidth={true}
                       autoHeight={false}
                       autoWidth={false}
@@ -423,7 +423,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     >
                       <div
                         aria-label="grid"
-                        aria-readonly={true}
+                        aria-readonly={null}
                         className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"
@@ -1282,7 +1282,7 @@ exports[`List should render 1`] = `
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                    className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -1351,7 +1351,7 @@ exports[`List should render 1`] = `
                     </div>
                     <Grid
                       aria-label="grid"
-                      aria-readonly={true}
+                      aria-readonly={null}
                       autoContainerWidth={true}
                       autoHeight={false}
                       autoWidth={false}
@@ -1407,7 +1407,7 @@ exports[`List should render 1`] = `
                     >
                       <div
                         aria-label="grid"
-                        aria-readonly={true}
+                        aria-readonly={null}
                         className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"
@@ -2293,7 +2293,7 @@ exports[`List should render id if provided 1`] = `
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                    className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -2364,7 +2364,7 @@ exports[`List should render id if provided 1`] = `
                     </div>
                     <Grid
                       aria-label="grid"
-                      aria-readonly={true}
+                      aria-readonly={null}
                       autoContainerWidth={true}
                       autoHeight={false}
                       autoWidth={false}
@@ -2420,7 +2420,7 @@ exports[`List should render id if provided 1`] = `
                     >
                       <div
                         aria-label="grid"
-                        aria-readonly={true}
+                        aria-readonly={null}
                         className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"

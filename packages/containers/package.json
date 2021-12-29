@@ -33,13 +33,13 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^6.38.4",
-    "@talend/react-components": "^6.41.2",
-    "@talend/react-forms": "^6.43.0",
+    "@talend/react-cmf": "^6.38.5",
+    "@talend/react-components": "^6.41.3",
+    "@talend/react-forms": "^6.43.1",
     "classnames": "^2.3.1",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
-    "keycode": "^2.2.0",
+    "keycode": "^2.2.1",
     "lodash": "^4.17.21",
     "memoize-one": "^5.2.1",
     "react-bootstrap": "0.32.4",
@@ -49,15 +49,15 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.3.12",
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addons": "^6.3.12",
-    "@storybook/react": "^6.3.12",
+    "@storybook/addon-a11y": "^6.4.9",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addons": "^6.4.9",
+    "@storybook/react": "^6.4.9",
     "@talend/bootstrap-theme": "^6.38.5",
-    "@talend/icons": "^6.36.3",
+    "@talend/icons": "^6.37.0",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-storybook-cmf": "^6.36.3",
-    "@talend/scripts-core": "^11.2.0",
+    "@talend/react-storybook-cmf": "^6.36.4",
+    "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "babel-loader": "^8.2.3",
     "css-loader": "^1.0.1",
@@ -67,7 +67,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.13.0",
+    "react-i18next": "^11.14.2",
     "react-test-renderer": "^16.14.0",
     "redux-saga-tester": "^1.0.874",
     "style-loader": "^0.23.1"
@@ -81,5 +81,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.39.0"
+  "version": "6.39.2"
 }

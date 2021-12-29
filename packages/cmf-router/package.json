@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "3.5.6",
+  "version": "3.5.7",
   "description": "",
   "main": "lib/index.js",
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
@@ -14,12 +14,11 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "echo no test-demo for cmf-router",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "dependencies": {
-    "@talend/react-cmf": "^6.38.4",
+    "@talend/react-cmf": "^6.38.5",
     "lodash": "^4.17.21",
     "path-to-regexp": "^2.4.0",
     "prop-types": "^15.7.2",
@@ -33,7 +32,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^11.2.0",
+    "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "enzyme": "^3.11.0",
     "node-fetch": "^2.6.6",

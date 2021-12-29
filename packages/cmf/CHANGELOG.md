@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 6.38.5
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 6.38.4
 
 ### Patch Changes

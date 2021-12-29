@@ -36,14 +36,14 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/json-schema-form-core": "1.0.3",
-    "@talend/react-components": "^6.41.2",
-    "@talend/utils": "^2.0.0",
-    "@talend/design-system": "^1.9.0",
+    "@talend/json-schema-form-core": "1.0.4",
+    "@talend/react-components": "^6.41.3",
+    "@talend/utils": "^2.0.1",
+    "@talend/design-system": "^1.9.6",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
     "json-logic-js": "^2.0.1",
-    "keycode": "^2.2.0",
+    "keycode": "^2.2.1",
     "lodash": "^4.17.21",
     "memoize-one": "^5.2.1",
     "react-autowhatever": "10.2.0",
@@ -54,16 +54,16 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.3.12",
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-knobs": "^6.3.1",
-    "@storybook/addons": "^6.3.12",
-    "@storybook/react": "^6.3.12",
+    "@storybook/addon-a11y": "^6.4.9",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-knobs": "^6.4.0",
+    "@storybook/addons": "^6.4.9",
+    "@storybook/react": "^6.4.9",
     "@talend/bootstrap-theme": "^6.38.5",
-    "@talend/icons": "^6.36.3",
+    "@talend/icons": "^6.37.0",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-components": "^6.41.2",
-    "@talend/scripts-core": "^11.2.0",
+    "@talend/react-components": "^6.41.3",
+    "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "autoprefixer": "^7.2.6",
     "enzyme": "^3.11.0",
@@ -76,7 +76,7 @@
     "react": "^16.14.0",
     "react-ace": "6.2.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.13.0",
+    "react-i18next": "^11.14.2",
     "react-test-renderer": "^16.14.0"
   },
   "peerDependencies": {
@@ -95,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.43.0"
+  "version": "6.43.1"
 }

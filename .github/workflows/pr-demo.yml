@@ -19,16 +19,21 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
-          cache: 'yarn'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - name: cache for storybook
+        uses: actions/cache@v2
+        with:
+          path: packages/*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install and build
         run: |
           yarn install --frozen-lockfile
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
-          yarn pre-release
           yarn test:demo
           ./.github/workflows/before-surge.sh
 
@@ -49,10 +54,10 @@ jobs:
 
       - name: Comment PR
         uses: daohoangson/comment-on-github@v2
-        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'dependabot') }}
+        if: ${{github.event_name == 'pull_request' && !startsWith(github.ref, 'refs/heads/dependabot') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          body: ':octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)'
+          body: ":octocat: [Demo is available here](http://${{ github.event.number }}.talend.surge.sh)"
           fingerprint: ${{ github.event.number }}
           replace: please

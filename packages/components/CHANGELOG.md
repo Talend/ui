@@ -1,5 +1,57 @@
 # @talend/react-components
 
+## 6.43.0
+
+### Minor Changes
+
+- 085d0d3a4: feat(Inject): Support components as props when not cmfConnected
+
+### Patch Changes
+
+- de74c0e04: fix(components/Toggle): Default class
+- Updated dependencies [583ac0059]
+- Updated dependencies [c73332a32]
+- Updated dependencies [0b8fd0d5c]
+  - @talend/design-system@1.11.2
+  - @talend/utils@2.1.0
+
+## 6.42.1
+
+### Patch Changes
+
+- 3bbf55610: fix(components/dataviz): recharts path in dependencies.json
+- Updated dependencies [7a8e6e193]
+  - @talend/design-system@1.10.1
+
+## 6.42.0
+
+### Minor Changes
+
+- 2e5511f79: feat: make possible to project to upgrade virtualized list
+- 42efdca45: Upgrade to recharts 2 and ensure everything is working well
+
+### Patch Changes
+
+- cfa90496c: Translate date string displayed in CellDatetime.
+
+## 6.41.4
+
+### Patch Changes
+
+- d353a0a3c: i18n - add translation for colon
+- Updated dependencies [959a0e21b]
+  - @talend/icons@6.38.0
+
+## 6.41.3
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+- Updated dependencies [c0d9c2c30]
+  - @talend/icons@6.37.0
+  - @talend/utils@2.0.1
+
 ## 6.41.2
 
 ### Patch Changes

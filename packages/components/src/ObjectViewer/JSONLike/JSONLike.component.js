@@ -81,13 +81,14 @@ export function getJSONPath(key, prefix, type) {
 	return `${prefix}['${key}']`;
 }
 
-function getName(name) {
+export function getName(name, t) {
 	if (!name) {
 		return null;
 	}
 	return (
 		<span key="name" className={theme.key}>
-			{name}:
+			{name}
+			{t('COLON', { defaultValue: ':' })}
 		</span>
 	);
 }
@@ -129,6 +130,7 @@ export class LineItem extends React.Component {
 			type,
 			value,
 			isValueOverflown,
+			t,
 		} = this.props;
 		const isSelectedLine = this.isSelected();
 
@@ -162,7 +164,7 @@ export class LineItem extends React.Component {
 							[theme['shrink-value']]: isValueOverflown,
 						})}
 					>
-						{getName(name)}
+						{getName(name, t)}
 						{value}
 						{type && (
 							<div key="type" className={`tc-object-viewer-line-type ${theme.type}`}>
@@ -199,6 +201,7 @@ LineItem.propTypes = {
 	type: PropTypes.string,
 	value: PropTypes.node,
 	isValueOverflown: PropTypes.bool,
+	t: PropTypes.func,
 };
 
 /**
@@ -489,6 +492,7 @@ export function Item(props) {
 }
 
 Item.propTypes = {
+	opened: PropTypes.arrayOf(PropTypes.string),
 	data: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.number,

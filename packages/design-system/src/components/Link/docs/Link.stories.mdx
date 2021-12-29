@@ -1,0 +1,177 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Use, WithSelector } from '../../../docs';
+import { IconsProvider } from '../../IconsProvider';
+import * as Stories from '../Link.stories';
+
+import Link from '../';
+
+<Meta title="Components/Link" component={Link} />
+
+<FigmaLink href="https://www.figma.com/file/l3FmBFqbeqqSlz9TBZKgWS/Links" />
+
+# Link
+
+Link is used for navigation.
+
+If you use a link for triggering an action on the page, you must consider using a [Button](/?path=/docs/components-button--primary) instead.
+
+Still need to be convinced? Please, take the time to read [this article written by Marcy Sutton](https://marcysutton.com/links-vs-buttons-in-modern-web-applications).
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=12%3A142"
+	alt="zoning image for links"
+/>
+
+## States
+
+### Default
+
+<Canvas>
+	<Story story={Stories.Default} />
+	<Story story={Stories.Hover} />
+	<Story story={Stories.Active} />
+</Canvas>
+
+### With icon
+
+<Canvas>
+	<Story story={Stories.WithIcon} />
+</Canvas>
+
+### Multi lines
+
+<Canvas>
+	<Story story={Stories.MultiLines} />
+</Canvas>
+
+### Disabled
+
+When the link is disabled the whole component is displayed with $opacity.disabled.
+
+<Canvas>
+	<Story story={Stories.Disabled} />
+</Canvas>
+
+### External
+
+When the link targets a new domain, we add an external-link icon right after.
+
+<Canvas>
+	<Story story={Stories.External} />
+</Canvas>
+
+
+Even if it's the same domain, when the link opens in a new window or tab, the title `open in a new tab` is added or appended to an existing title.
+
+<Canvas>
+	<Story story={Stories.TargetBlank} />
+</Canvas>
+
+The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
+
+### As a button
+
+You may need the style of a link but the behavior of a button.
+
+For this, use the provided `as` props.
+
+<Canvas>
+	<Story story={Stories.AsButton} />
+</Canvas>
+
+## Content
+
+Link labels should be specific and clear enough to increase the likelihood that users will quickly understand the link as they scan and process the page. There's no maximum word count for links, but the best practice is to be as succinct as possible.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>
+				Use a meaningful link text which communicates to users what they'll exactly find on the
+				other side of the click.
+			</li>
+			<li>
+				Make link text stand alone—it should make sense without any of the surrounding text as users
+				tend to scan UI.
+			</li>
+			<li>
+				Frontload link text with keywords and use the rest of the label text to increase user
+				understanding.
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Avoid vague or repetative text for links. For example, don't use the text "Click here" or
+				"See this document" for links.
+			</li>
+			<li>Don't use a URL as link text.</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+Text underline appears while hovering the link and disappears as soon as the mouse is out of its clickable area with a smooth animation.
+
+## Accessibility
+
+Press <kbd>TABS</kbd> to focus on a link
+
+Press <kbd>ENTER</kbd> to open a link
+
+## Usage
+
+<Canvas>
+	<Story
+		name="usage"
+		args={{
+			iconBefore: 'talend-info-circle',
+			children: 'Help',
+			iconAfter: '',
+			href: 'https://help.talend.com',
+			disabled: false,
+			hideExternalIcon: false,
+		}}
+		argTypes={{
+			iconBefore: {
+				description: 'Link icon before text as illustration',
+				control: {
+					type: 'select',
+					options: [''].concat(IconsProvider.getCurrentIconIds()),
+				},
+			},
+			iconAfter: {
+				description: 'Link icon after text as illustration',
+				control: {
+					type: 'select',
+					options: [''].concat(IconsProvider.getCurrentIconIds()),
+				},
+			},
+			href: {
+				description: 'Link reference',
+				control: {
+					type: 'text',
+				},
+			},
+			hideExternalIcon: {
+				description: 'Button has hidden text',
+				control: {
+					type: 'boolean',
+				},
+			},
+			as: {
+				description:
+					'Polymorphic prop to give this style to a button. `string` `ReactComponentType`.',
+				control: false,
+			},
+		}}
+	>
+		{args => <Link {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="usage" />

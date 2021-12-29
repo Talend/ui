@@ -13,7 +13,6 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "echo nothing to demo in @talend/react-sagas",
     "lint": "yarn lint:es",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
   },
@@ -43,7 +42,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^11.2.0",
+    "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
