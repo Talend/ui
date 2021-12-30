@@ -2,6 +2,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { CmfRegisteredSagaComponent } from './CmfRegisteredSaga.component';
 
+const defaultMockUuid = '42';
+jest.mock('uuid', () => ({ v4: () => defaultMockUuid }));
+
 describe('CmfRegisteredSagaComponent', () => {
 	it('should dispatch actions', () => {
 		// given
@@ -19,7 +22,7 @@ describe('CmfRegisteredSagaComponent', () => {
 		// then
 		expect(dispatch).toHaveBeenCalledWith({
 			componentId: 'default',
-			event: null,
+			event: { type: 'DID_MOUNT', componentId: defaultMockUuid },
 			props: {
 				attr: 'ibute',
 			},
@@ -30,7 +33,7 @@ describe('CmfRegisteredSagaComponent', () => {
 		wrapper.unmount();
 
 		expect(dispatch).toHaveBeenCalledWith({
-			event: null,
+			event: { type: 'WILL_UNMOUNT', componentId: defaultMockUuid },
 			type: 'WILL_UNMOUNT_SAGA_STOP_sagaId',
 		});
 	});
