@@ -1,4 +1,4 @@
-import { HTTP_METHODS } from './http.constants';
+import { HTTP_METHODS, REQUEST_STATUS } from './http.constants';
 import { httpFetch } from './http.common';
 
 /**
@@ -89,4 +89,5 @@ export const http = {
 	put: httpPut,
 	delete: httpDelete,
 	head: httpHead,
+	REQUEST_STATUS,
 };
