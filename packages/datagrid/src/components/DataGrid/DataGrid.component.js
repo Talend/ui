@@ -148,6 +148,10 @@ export default class DataGrid extends React.Component {
 	}
 
 	onFocusedColumn(colId) {
+		// Scroll to focused column in controlled mode
+		if (this.props.focusedColumnId != null) {
+			this.gridAPI.ensureColumnVisible(colId);
+		}
 		this.gridAPI.deselectAll();
 		this.gridAPI.clearFocusedCell();
 
