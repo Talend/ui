@@ -213,8 +213,17 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	.add('datagrid with controlled focused column', () => {
 		const [focusedColumnId, setFocusedColumnId] = useState('data.field2');
 		return (
-			<div style={{ height: '200px' }}>
-				<input type="button" value="Set Column" onClick={() => setFocusedColumnId('data.field3')} />
+			<div style={{ height: 200, width: 800 }}>
+				<input
+					type="button"
+					value="Select 3rd column"
+					onClick={() => setFocusedColumnId('data.field2')}
+				/>
+				<input
+					type="button"
+					value="Select last column"
+					onClick={() => setFocusedColumnId('data.field9')}
+				/>
 				<DataGrid
 					data={sample}
 					getComponent={getComponent}

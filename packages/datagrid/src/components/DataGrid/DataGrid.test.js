@@ -474,6 +474,28 @@ describe('#Datagrid method', () => {
 		expect(wrapper.instance().onFocusedColumn).toHaveBeenCalledWith('field2');
 	});
 
+	it('should scroll to focused column', () => {
+		const deselectAll = jest.fn();
+		const clearFocusedCell = jest.fn();
+		const ensureColumnVisible = jest.fn();
+		const api = {
+			deselectAll,
+			clearFocusedCell,
+			ensureColumnVisible,
+		};
+		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId="field2" />);
+		const instance = wrapper.instance();
+		instance.setCurrentFocusedColumn = jest.fn();
+		instance.setCurrentFocusedColumn = jest.fn();
+		instance.removeFocusColumn = jest.fn();
+		instance.updateStyleFocusColumn = jest.fn();
+		instance.onGridReady({
+			api,
+		});
+
+		expect(api.ensureColumnVisible).toHaveBeenCalled();
+	});
+
 	it('should focus a column', () => {
 		const deselectAll = jest.fn();
 		const clearFocusedCell = jest.fn();
