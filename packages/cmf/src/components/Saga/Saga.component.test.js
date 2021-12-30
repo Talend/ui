@@ -16,7 +16,7 @@ describe('Saga Component', () => {
 			<SagaComponent
 				dispatch={dispatch}
 				// eslint-disable-next-line react/jsx-no-bind
-				saga={saga}
+				sagaFunction={saga}
 				sagaAttributes={sagaAttributes}
 			/>,
 		);

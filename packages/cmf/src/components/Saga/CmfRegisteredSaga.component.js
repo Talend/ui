@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 import cmfConnect from '../../cmfConnect';
 import { start, stop } from '../../actions/saga';
 
@@ -10,17 +11,24 @@ export function CmfRegisteredSagaComponent({
 	componentId = 'default',
 	children = null,
 }) {
+	// useState is used to keep the v4 value
+	const [id] = useState(v4());
 	// If we pass the sagaId, we use the cmf registry
 	useEffect(() => {
 		if (sagaId) {
-			dispatch(start(null, { saga: sagaId, componentId, ...sagaAttributes }));
+			dispatch(
+				start(
+					{ type: 'DID_MOUNT', componentId: id },
+					{ saga: sagaId, componentId, ...sagaAttributes },
+				),
+			);
 		}
 		return () => {
 			if (sagaId) {
-				dispatch(stop(null, { saga: sagaId, componentId }));
+				dispatch(stop({ type: 'WILL_UNMOUNT', componentId: id }, { saga: sagaId, componentId }));
 			}
 		};
-	}, [sagaId, sagaAttributes, dispatch, componentId]);
+	}, [sagaId, componentId]);
 
 	return children;
 }

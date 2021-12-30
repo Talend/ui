@@ -23,14 +23,15 @@ export const actions = {
 	stopSaga,
 };
 
-function* handleNewSaga({ sagaId, sagaProps }) {
+function* handleNewSaga({ sagaId, sagaProps = {} }) {
 	const saga = sagaList[sagaId];
+	console.log(sagaList);
 
 	if (!saga) {
 		throw new Error(`saga not found: ${sagaId}`);
 	}
 
-	const task = yield spawn(saga, ...sagaProps);
+	const task = yield spawn(saga, sagaProps);
 	yield take(`${SAGA_COMPONENT_ACTIONS.SAGA_COMPONENT_STOP}-${sagaId}`);
 	yield cancel(task);
 }
