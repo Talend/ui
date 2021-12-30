@@ -1,37 +1,38 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { CmfRegisteredSagaComponent } from './CmfRegisteredSaga';
+import { SagaComponent } from './Saga.component';
 
-describe('CmfRegisteredSagaComponent', () => {
+const defaultMockUuid = '42';
+jest.mock('uuid', () => ({ v4: () => defaultMockUuid }));
+
+describe('Saga Component', () => {
 	it('should dispatch actions', () => {
 		// given
 		const dispatch = jest.fn();
-		const sagaId = 'sagaId';
+		const saga = function sagaToBePassed() {};
 		const sagaAttributes = { attr: 'ibute' };
 		// when
 		const wrapper = mount(
-			<CmfRegisteredSagaComponent
+			<SagaComponent
 				dispatch={dispatch}
-				sagaId={sagaId}
+				// eslint-disable-next-line react/jsx-no-bind
+				saga={saga}
 				sagaAttributes={sagaAttributes}
 			/>,
 		);
 		// then
 		expect(dispatch).toHaveBeenCalledWith({
-			componentId: 'default',
-			event: null,
-			props: {
+			type: 'SAGA_COMPONENT_START',
+			sagaId: defaultMockUuid,
+			sagaProps: {
 				attr: 'ibute',
 			},
-			saga: 'sagaId',
-			type: 'DID_MOUNT_SAGA_START',
 		});
 
 		wrapper.unmount();
 
 		expect(dispatch).toHaveBeenCalledWith({
-			event: null,
-			type: 'WILL_UNMOUNT_SAGA_STOP_sagaId',
+			type: `SAGA_COMPONENT_STOP-${defaultMockUuid}`,
 		});
 	});
 });

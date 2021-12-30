@@ -29,6 +29,7 @@ SagaComponent.propTypes = {
 	sagaAttributes: PropTypes.any,
 	children: PropTypes.node,
 };
+SagaComponent.displayName = 'SagaComponent';
 
 export const Saga = cmfConnect({
 	withDispatch: true,

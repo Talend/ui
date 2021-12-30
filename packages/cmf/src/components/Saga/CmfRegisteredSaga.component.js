@@ -32,6 +32,7 @@ CmfRegisteredSagaComponent.propTypes = {
 	componentId: PropTypes.string,
 	children: PropTypes.node,
 };
+CmfRegisteredSagaComponent.displayName = 'CmfRegisteredSagaComponent';
 
 export const CmfRegisteredSaga = cmfConnect({
 	withDispatch: true,

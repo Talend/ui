@@ -15,7 +15,7 @@ const startSaga = (sagaId, saga, sagaProps) => {
 };
 const stopSaga = sagaId => {
 	delete sagaList[sagaId];
-	return { type: `${SAGA_COMPONENT_ACTIONS.SAGA_COMPONENT_STOP}-${sagaId}`, sagaId };
+	return { type: `${SAGA_COMPONENT_ACTIONS.SAGA_COMPONENT_STOP}-${sagaId}` };
 };
 
 export const actions = {

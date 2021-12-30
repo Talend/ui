@@ -1,38 +1,37 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { SagaComponent } from './Saga';
+import { CmfRegisteredSagaComponent } from './CmfRegisteredSaga.component';
 
-describe('Saga Component', () => {
+describe('CmfRegisteredSagaComponent', () => {
 	it('should dispatch actions', () => {
 		// given
 		const dispatch = jest.fn();
-		const saga = function sagaToBePassed() {};
-		const sagaAttributes = { attr: 'ibute' };
 		const sagaId = 'sagaId';
+		const sagaAttributes = { attr: 'ibute' };
 		// when
 		const wrapper = mount(
-			<SagaComponent
-				sagaId={sagaId}
+			<CmfRegisteredSagaComponent
 				dispatch={dispatch}
-				// eslint-disable-next-line react/jsx-no-bind
-				saga={saga}
+				sagaId={sagaId}
 				sagaAttributes={sagaAttributes}
 			/>,
 		);
 		// then
 		expect(dispatch).toHaveBeenCalledWith({
-			type: 'SAGA_COMPONENT_START',
-			sagaId,
-			sagaProps: {
+			componentId: 'default',
+			event: null,
+			props: {
 				attr: 'ibute',
 			},
+			saga: 'sagaId',
+			type: 'DID_MOUNT_SAGA_START',
 		});
 
 		wrapper.unmount();
 
 		expect(dispatch).toHaveBeenCalledWith({
 			event: null,
-			type: 'SAGA_COMPONENT_STOP-sagaId',
+			type: 'WILL_UNMOUNT_SAGA_STOP_sagaId',
 		});
 	});
 });
