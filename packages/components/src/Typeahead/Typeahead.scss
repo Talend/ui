@@ -10,7 +10,7 @@ $tc-typeahead-section-border-color: $gray75 !default;
 
 $tc-typeahead-icon-color: $gray !default;
 $tc-typeahead-only-icon-color: $gray200 !default;
-$tc-typeahead-section-header-color: #63AEBD !default;
+$tc-typeahead-section-header-color: #63aebd !default;
 
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
@@ -78,6 +78,7 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 	&-icon {
 		[type='text'].typeahead-input {
 			padding-left: 2.5em;
+			margin-bottom: 0;
 		}
 
 		.icon-cls {
