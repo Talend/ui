@@ -1,12 +1,17 @@
 import React from 'react';
 
-import Tag from './Tag';
+import Tag, { TagProps } from './Tag';
 
 export default {
 	component: Tag,
 };
 
-export const Template = ({ variant, ...rest }) => {
+type TemplateType = {
+	(props: TagProps): JSX.Element;
+	args?: TagProps;
+};
+
+export const Template: TemplateType = ({ variant, ...rest }) => {
 	const Component = Tag[variant] || Tag;
 	Component.displayName = variant ? `Tag.${variant}` : 'Tag';
 	return <Component {...rest} />;
