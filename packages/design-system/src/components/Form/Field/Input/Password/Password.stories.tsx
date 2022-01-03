@@ -1,4 +1,5 @@
 import React from 'react';
+import { Story } from '@storybook/react';
 import { within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -10,20 +11,38 @@ export default {
 	component: Form.Password,
 };
 
-export const Default = () => <Form.Password label="Password" />;
-export const Hover = () => <Form.Password label="Password :hover" />;
-Hover.decorators = [WithSelector.decorator(':hover')];
-export const Focus = () => <Form.Password label="Password :focus" />;
-Focus.decorators = [WithSelector.decorator(':focus')];
-
-export const Placeholder = () => (
-	<Form.Password label="Password" placeholder="Type your password" />
-);
-export const Filled = () => <Form.Password label="Password" defaultValue="Passw0rd" />;
-export const Revealed = () => <Form.Password label="Password" defaultValue="Passw0rd" />;
-Revealed.play = async ({ canvasElement }) => {
-	await userEvent.click(within(canvasElement).getByTestId('form.password.reveal'));
+export const Default = { render: (props: Story) => <Form.Password label="Password" {...props} /> };
+export const Hover = {
+	decorators: [WithSelector.decorator(':hover')],
+	render: (props: Story) => <Form.Password label="Password :hover" {...props} />,
 };
-Revealed.parameters = { docs: { disable: true } };
-export const Disabled = () => <Form.Password label="Password" defaultValue="Passw0rd" disabled />;
-export const ReadOnly = () => <Form.Password label="Password" defaultValue="Passw0rd" readOnly />;
+export const Focus = {
+	decorators: [WithSelector.decorator(':focus')],
+	render: (props: Story) => <Form.Password label="Password :focus" {...props} />,
+};
+
+export const Placeholder = {
+	render: (props: Story) => (
+		<Form.Password label="Password" placeholder="Type your password" {...props} />
+	),
+};
+export const Filled = {
+	render: (props: Story) => <Form.Password label="Password" defaultValue="Passw0rd" {...props} />,
+};
+export const Revealed = {
+	parameters: { docs: { disable: true } },
+	play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+		await userEvent.click(within(canvasElement).getByTestId('form.password.reveal'));
+	},
+	render: (props: Story) => <Form.Password label="Password" defaultValue="Passw0rd" {...props} />,
+};
+export const Disabled = {
+	render: (props: Story) => (
+		<Form.Password label="Password" defaultValue="Passw0rd" disabled {...props} />
+	),
+};
+export const ReadOnly = {
+	render: (props: Story) => (
+		<Form.Password label="Password" defaultValue="Passw0rd" readOnly {...props} />
+	),
+};
