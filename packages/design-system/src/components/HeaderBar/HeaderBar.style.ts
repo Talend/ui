@@ -29,7 +29,7 @@ export const HeaderBar = styled.div.attrs({
 `;
 export const Item = styled.span.attrs({
 	className: 'header-bar__item',
-})<{ freeze: boolean }>`
+})<{ freeze?: boolean }>`
 	padding: 0 1.5rem;
 	transition: ${tokens.transitions.fast};
 
