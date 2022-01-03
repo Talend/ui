@@ -212,6 +212,7 @@ storiesOf('Data/Datagrid/Datagrid', module)
 	.add('datagrid with immutable data', () => <ImmutableDataGrid />)
 	.add('datagrid with controlled focused column', () => {
 		const [focusedColumnId, setFocusedColumnId] = useState('data.field2');
+		const [locked, setLocked] = useState(false);
 		return (
 			<div style={{ height: 200, width: 800 }}>
 				<input
@@ -224,12 +225,29 @@ storiesOf('Data/Datagrid/Datagrid', module)
 					value="Select last column"
 					onClick={() => setFocusedColumnId('data.field9')}
 				/>
+				<input type="button" value="Unselect" onClick={() => setFocusedColumnId(null)} />
+				<input
+					type="button"
+					value={locked ? 'Unlock' : 'Lock'}
+					onClick={() => setLocked(!locked)}
+				/>
 				<DataGrid
 					data={sample}
 					getComponent={getComponent}
 					focusedColumnId={focusedColumnId}
-					onFocusedCell={cell => setFocusedColumnId(cell.column.colId)}
-					onFocusedColumn={col => setFocusedColumnId(col.colId)}
+					onFocusedCell={cell => {
+						if (!locked) {
+							setFocusedColumnId(cell.column.colId);
+						}
+
+						action('onFocusedCell')(cell);
+					}}
+					onFocusedColumn={col => {
+						if (!locked) {
+							setFocusedColumnId(col.colId);
+						}
+						action('onFocusedColumn')(col);
+					}}
 					onVerticalScroll={event => console.log(event)}
 					rowSelection="multiple"
 				/>
