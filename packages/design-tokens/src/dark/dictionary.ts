@@ -1683,13 +1683,13 @@ const dictionary = [
 		name: 'coralColorBrandingBackground',
 		type: 'gradient',
 		description: '',
-		value: 'linear-gradient(144.29deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
+		value: 'linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
 	},
 	{
 		name: 'coralColorBrandingNavigation',
 		type: 'gradient',
 		description: '',
-		value: 'linear-gradient(144.53deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
+		value: 'linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
 	},
 	{
 		name: 'coralSizeXxs',

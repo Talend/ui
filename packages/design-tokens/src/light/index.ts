@@ -262,9 +262,9 @@ const tokens = {
 		'var(--coral-color-charts-color-09-text-weak, hsla(35,28%,82%,1))',
 	coralColorNeutralBackgroundHeavy: 'var(--coral-color-neutral-background-heavy, hsla(0,0%,78%,1))',
 	coralColorBrandingBackground:
-		'var(--coral-color-branding-background, linear-gradient(145.74deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%))',
+		'var(--coral-color-branding-background, linear-gradient(133deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%))',
 	coralColorBrandingNavigation:
-		'var(--coral-color-branding-navigation, linear-gradient(144.29deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%))',
+		'var(--coral-color-branding-navigation, linear-gradient(133deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%))',
 	coralSizeXxs: 'var(--coral-size-xxs, 0.4rem)',
 	coralSizeXs: 'var(--coral-size-xs, 0.8rem)',
 	coralSizeS: 'var(--coral-size-s, 1.2rem)',
