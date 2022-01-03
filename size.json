@@ -43,7 +43,7 @@
   "packages/design-tokens/dist/TalendDesignTokens.min.js.dependencies.json": 2,
   "packages/faceted-search/dist/TalendReactFacetedSearch.css": 10508,
   "packages/faceted-search/dist/TalendReactFacetedSearch.js": 367004,
-  "packages/faceted-search/dist/TalendReactFacetedSearch.js.dependencies.json": 995,
+  "packages/faceted-search/dist/TalendReactFacetedSearch.js.dependencies.json": 1251,
   "packages/faceted-search/dist/TalendReactFacetedSearch.min.js": 92300,
   "packages/faceted-search/dist/TalendReactFacetedSearch.min.js.dependencies.json": 1025,
   "packages/flow-designer/dist/ReactFlowDesigner.min.js": 91151,
