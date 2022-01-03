@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.11.3
+
+### Patch Changes
+
+- 8a540fc3f: fix(i18n): avoid hardcoded string in DS components
+
 ## 1.11.2
 
 ### Patch Changes
