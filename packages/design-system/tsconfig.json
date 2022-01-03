@@ -1,7 +1,7 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
   "include": ["cypress/**/*", "src/**/*", "custom.d.ts"],
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "node_modules", "src/templates/**/*"],
   "compilerOptions": {
     "declaration": true,
     "jsx": "react",
