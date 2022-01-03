@@ -7,7 +7,7 @@ import StatusCanceled, { StatusCanceledProps } from './variations/StatusCanceled
 import { variants } from './Primitive/StatusPrimitive';
 
 type StatusProps = {
-	variant: typeof variants[number];
+	variant: keyof typeof variants;
 } & (
 	| StatusFailedProps
 	| StatusWarningProps
@@ -19,19 +19,19 @@ type StatusProps = {
 const Status = React.forwardRef((props: StatusProps, ref: React.Ref<any>) => {
 	const { variant, ...rest } = props;
 	switch (variant) {
-		case 'failed':
+		case variants.failed:
 			return <StatusFailed {...rest} ref={ref} />;
 
-		case 'warning':
+		case variants.warning:
 			return <StatusWarning {...rest} ref={ref} />;
 
-		case 'successful':
+		case variants.successful:
 			return <StatusSuccessful {...rest} ref={ref} />;
 
-		case 'inProgress':
+		case variants.inProgress:
 			return <StatusInProgress {...rest} ref={ref} />;
 
-		case 'canceled':
+		case variants.canceled:
 			return <StatusCanceled {...rest} ref={ref} />;
 
 		default:

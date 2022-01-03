@@ -24,6 +24,7 @@ import {
 	StatusWarning,
 	StatusSuccessful,
 	StatusFailed,
+	Status,
 } from './components/Status';
 import Switch from './components/Switch';
 import Stepper from './components/Stepper';
@@ -63,6 +64,7 @@ export {
 	StatusWarning,
 	StatusSuccessful,
 	StatusFailed,
+	Status,
 	Switch,
 	Stepper,
 	Tabs,
