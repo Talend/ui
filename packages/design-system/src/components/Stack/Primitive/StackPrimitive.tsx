@@ -112,7 +112,7 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 	ref: React.Ref<any>,
 ) {
 	const TagType = as;
-	let spreadableProps = props;
+	const { alignContent, ...spreadableProps } = props;
 
 	function getGap() {
 		if (typeof gap === 'object') {
@@ -186,8 +186,6 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 
 	function getAlignContent() {
 		if ('alignContent' in props) {
-			const { alignContent, ...rest } = props;
-			spreadableProps = rest;
 			return alignContent ? styles[alignContentOptions[alignContent]] : '';
 		}
 		return '';

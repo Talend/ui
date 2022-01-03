@@ -76,3 +76,9 @@ const Template: ComponentStory<typeof StackHorizontal> = args => (
 export const TestHorizontal = Template.bind({});
 TestHorizontal.argTypes = manualStackArgs;
 TestHorizontal.args = { gap: 'S' };
+
+export const TestHorizontalWithExplicitSpacing = Template.bind({});
+TestHorizontalWithExplicitSpacing.args = {
+	gap: { x: 'S', y: 'XS' },
+	padding: { top: 0, right: 'M', bottom: 'S', left: 'S' },
+};
