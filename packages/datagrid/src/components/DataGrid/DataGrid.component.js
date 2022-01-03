@@ -83,6 +83,7 @@ export default class DataGrid extends React.Component {
 
 		this.handleKeyboard = this.handleKeyboard.bind(this);
 		this.onFocusedColumn = this.onFocusedColumn.bind(this);
+		this.shouldUpdateCurrentColumn = this.shouldUpdateCurrentColumn.bind(this);
 		this.onFocusedCell = this.onFocusedCell.bind(this);
 		this.onGridReady = this.onGridReady.bind(this);
 		this.onBodyScroll = this.onBodyScroll.bind(this);
@@ -124,23 +125,32 @@ export default class DataGrid extends React.Component {
 		}
 	}
 
+	shouldUpdateCurrentColumn() {
+		// Update local state if component is not controlled or if props changed
+		return (
+			this.props.focusedColumnId === undefined || this.props.focusedColumnId !== this.currentColId
+		);
+	}
+
 	onFocusedCell(props) {
 		const column = props.column;
 		if (!column) {
 			return;
 		}
 
-		if (column.colId !== this.currentColId || column.pinned) {
-			this.removeFocusColumn();
+		if (this.shouldUpdateCurrentColumn()) {
+			if (column.colId !== this.currentColId || column.pinned) {
+				this.removeFocusColumn();
+			}
+
+			this.setCurrentFocusedColumn(column.colId);
+
+			if (column.pinned) {
+				return;
+			}
+
+			this.updateStyleFocusColumn();
 		}
-
-		this.setCurrentFocusedColumn(column.colId);
-
-		if (column.pinned) {
-			return;
-		}
-
-		this.updateStyleFocusColumn();
 
 		if (this.props.onFocusedCell) {
 			this.props.onFocusedCell(props);
@@ -148,18 +158,21 @@ export default class DataGrid extends React.Component {
 	}
 
 	onFocusedColumn(colId) {
-		// Scroll to focused column in controlled mode
-		if (this.props.focusedColumnId != null) {
-			this.gridAPI.ensureColumnVisible(colId);
+		if (this.shouldUpdateCurrentColumn()) {
+			// Scroll to focused column in controlled mode
+			if (this.props.focusedColumnId != null) {
+				this.gridAPI.ensureColumnVisible(colId);
+			}
+
+			this.gridAPI.deselectAll();
+			this.gridAPI.clearFocusedCell();
+
+			this.removeFocusColumn();
+			this.setCurrentFocusedColumn(colId);
+			this.updateStyleFocusColumn();
 		}
-		this.gridAPI.deselectAll();
-		this.gridAPI.clearFocusedCell();
 
-		this.removeFocusColumn();
-		this.setCurrentFocusedColumn(colId);
-		this.updateStyleFocusColumn();
-
-		if (this.props.onFocusedColumn) {
+		if (this.props.onFocusedColumn && this.props.focusedColumnId !== colId) {
 			this.props.onFocusedColumn({ colId });
 		}
 	}
