@@ -16,7 +16,7 @@ type StatusProps = {
 	| StatusCanceledProps
 );
 
-const Status = React.forwardRef((props: StatusProps, ref: React.Ref<any>) => {
+const Status = React.forwardRef((props: StatusProps, ref: React.Ref<HTMLSpanElement>) => {
 	const { variant, ...rest } = props;
 	switch (variant) {
 		case variants.failed:
