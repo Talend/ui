@@ -37,7 +37,7 @@ function* saga(params: any) {
 function myComponent() {
 	return (
 		<>
-			<Saga sagaFunction={saga} sagaAttributes={{ attr: 'ibutes' }} />
+			<Saga saga={saga} sagaAttributes={{ attr: 'ibutes' }} />
 			<MyComponentStuff />
 		</>
 	);

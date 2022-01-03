@@ -25,7 +25,6 @@ export const actions = {
 
 function* handleNewSaga({ sagaId, sagaProps = {} }) {
 	const saga = sagaList[sagaId];
-	console.log(sagaList);
 
 	if (!saga) {
 		throw new Error(`saga not found: ${sagaId}`);
