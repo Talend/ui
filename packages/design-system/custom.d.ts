@@ -320,3 +320,8 @@ declare module '@talend/icons' {
 		| 'talend-tmc-positive'
 		| string;
 }
+
+declare module '*.scss' {
+	const contents: Record<string, string>;
+	export default contents;
+}

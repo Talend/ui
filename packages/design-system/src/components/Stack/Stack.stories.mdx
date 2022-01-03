@@ -1,0 +1,116 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
+import * as StoriesHorizontal from './StackHorizontal.stories';
+import * as StoriesVertical from './StackVertical.stories';
+import { FigmaImage } from '../../docs';
+
+<Meta title="Components/Stack" />
+
+# Stack (aka "Autolayout")
+
+`StackVertical` and `StackHorizontal` are opinionated layout components. They serve has wrappers for most layout needs that would otherwise require manual CSS.
+
+On Figma, this pattern is found in the Autolayout tool.
+
+However, where Figma lets you pick random margin and padding values, `Stacks` limit those options to design tokens.
+
+It is built around a `StrackPrimitive` private component for composition.
+
+## Zoning
+
+<FigmaImage src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=1044%3A237" />
+
+## Style
+
+NA
+
+## States
+
+NA
+
+## Interactions
+
+NA
+
+## Content
+
+`StackVertical` and `StackHorizontal` accept any children as long as they are valid React children types.
+
+If you need to override the positional behavior of a child element, use the `StackItem` component:
+
+```tsx
+<StackVertical gap="XS" as="ul">
+	<li>List entry</li>
+	<StackItem as="li" align="center" grow>
+		List entry 2
+	</StackItem>
+	<li>List entry 3</li>
+</StackVertical>
+```
+
+## Usage
+
+Simply import the appropriate Stack and start composing your layout.
+
+```tsx
+import { StackHorizontal, Button } from '@talend/design-system';
+
+function myComponent() {
+	return (
+		<StackHorizontal padding="S" gap="S" align="start" justify="start">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+				laboris nisi ut aliquip ex ea commodo consequat.
+			</p>
+			<Button.Primary onClick={clickHandler}>Click here</Button.Primary>
+		</StackHorizontal>
+	);
+}
+```
+
+### Simple StackHorizontal
+
+<Canvas>
+	<Story story={StoriesHorizontal.TestHorizontal} name="Story Horizontal" />
+</Canvas>
+
+<ArgsTable story="Story Horizontal" />
+
+### Simple StackHorizontal with complex spacing
+
+Spacing can also be set as an object `{ x: SizeToken, y: SizeToken }` or `{top: SizeToken, left: SizeToken, right: SizeToken, bottom: SizeToken}` like this:
+
+<Canvas>
+	<Story
+		story={StoriesHorizontal.TestHorizontalWithExplicitSpacing}
+		name="Story Horizontal Spacing"
+	/>
+</Canvas>
+
+<ArgsTable story="Story Horizontal Spacing" />
+
+You do need to set all the values for each of these objects when using them.
+
+### Simple StackVertical
+
+<Canvas>
+	<Story story={StoriesVertical.TestVertical} name="Story Vertical" />
+</Canvas>
+
+<ArgsTable story="Story Vertical" />
+
+### Nesting Stacks to compose a layout
+
+<Canvas>
+	<Story story={StoriesVertical.StackNesting} />
+</Canvas>
+
+### Using StackItem
+
+<Canvas>
+	<Story story={StoriesVertical.StackWithStackItem} name="Story StackItem" />
+</Canvas>
+
+<ArgsTable story="Story StackItem" />
+
+## Accessibility
