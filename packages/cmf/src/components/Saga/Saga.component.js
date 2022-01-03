@@ -14,13 +14,12 @@ export function SagaComponent({ startSaga, stopSaga, saga, sagaAttributes, child
 		};
 		// We don't want to trigger new start and stop, this component is not mean to change props
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [id]);
+	}, []);
 
 	return children;
 }
 
 SagaComponent.propTypes = {
-	dispatch: PropTypes.func.isRequired,
 	startSaga: PropTypes.func.isRequired,
 	stopSaga: PropTypes.func.isRequired,
 	saga: PropTypes.func.isRequired,

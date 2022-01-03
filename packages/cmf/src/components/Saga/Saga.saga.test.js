@@ -1,14 +1,18 @@
 import { sagaList, actions } from './Saga.saga';
 
 describe('Saga component actions', () => {
+	const sagaId = 'sagaId';
 	function saga(attribute) {
 		return attribute;
 	}
 
+	afterEach(() => {
+		delete sagaList[sagaId];
+	});
+
 	it('should add the saga to the list', () => {
 		// given
 		const attribute = 10;
-		const sagaId = 'sagaId';
 		// when
 		actions.startSaga(sagaId, saga, attribute);
 		// then
@@ -17,11 +21,10 @@ describe('Saga component actions', () => {
 
 	it('should remove the saga from the list', () => {
 		// given
-		const sagaId = 'sagaId';
-		expect(sagaList[sagaId]).toBe(saga);
+		sagaList[sagaId] = saga;
 		// when
 		actions.stopSaga(sagaId);
 		// then
-		expect(sagaList[sagaId]).toBe(undefined);
+		expect(sagaList[sagaId]).toBeUndefined();
 	});
 });

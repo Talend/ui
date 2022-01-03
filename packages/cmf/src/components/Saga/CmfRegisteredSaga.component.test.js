@@ -8,33 +8,33 @@ jest.mock('uuid', () => ({ v4: () => defaultMockUuid }));
 describe('CmfRegisteredSagaComponent', () => {
 	it('should dispatch actions', () => {
 		// given
-		const dispatch = jest.fn();
+		const startSaga = jest.fn();
+		const stopSaga = jest.fn();
 		const sagaId = 'sagaId';
 		const sagaAttributes = { attr: 'ibute' };
 		// when
 		const wrapper = mount(
 			<CmfRegisteredSagaComponent
-				dispatch={dispatch}
+				startSaga={startSaga}
+				stopSaga={stopSaga}
 				sagaId={sagaId}
 				sagaAttributes={sagaAttributes}
 			/>,
 		);
 		// then
-		expect(dispatch).toHaveBeenCalledWith({
-			componentId: 'default',
-			event: { type: 'DID_MOUNT', componentId: defaultMockUuid },
-			props: {
-				attr: 'ibute',
+		expect(startSaga).toHaveBeenCalledWith(
+			{
+				componentId: '42',
+				type: 'DID_MOUNT',
 			},
-			saga: 'sagaId',
-			type: 'DID_MOUNT_SAGA_START',
-		});
+			{ attr: 'ibute', componentId: 'default', saga: 'sagaId' },
+		);
 
 		wrapper.unmount();
 
-		expect(dispatch).toHaveBeenCalledWith({
-			event: { type: 'WILL_UNMOUNT', componentId: defaultMockUuid },
-			type: 'WILL_UNMOUNT_SAGA_STOP_sagaId',
-		});
+		expect(stopSaga).toHaveBeenCalledWith(
+			{ type: 'WILL_UNMOUNT', componentId: defaultMockUuid },
+			{ componentId: 'default', saga: 'sagaId' },
+		);
 	});
 });

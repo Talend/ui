@@ -33,7 +33,6 @@ export function CmfRegisteredSagaComponent({
 }
 
 CmfRegisteredSagaComponent.propTypes = {
-	dispatch: PropTypes.func.isRequired,
 	sagaId: PropTypes.string.isRequired,
 	startSaga: PropTypes.func.isRequired,
 	stopSaga: PropTypes.func.isRequired,
