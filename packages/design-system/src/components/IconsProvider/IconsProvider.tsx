@@ -106,7 +106,15 @@ function isRootProvider(ref: RefObject<any>) {
  * @example
 <IconsProvider />
  */
-export function IconsProvider({ bundles = DEFAULT_BUNDLES, defaultIcons = {}, icons = {} }) {
+export function IconsProvider({
+	bundles = DEFAULT_BUNDLES,
+	defaultIcons = {},
+	icons = {},
+}: {
+	bundles: string[];
+	defaultIcons: {};
+	icons: {};
+}) {
 	const iconset: IconSet = { ...defaultIcons, ...icons };
 	const ref = useRef<SVGSVGElement>(null);
 	const [shouldRender, setShouldRender] = useState(true);

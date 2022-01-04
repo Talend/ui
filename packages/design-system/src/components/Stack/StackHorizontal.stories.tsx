@@ -2,7 +2,7 @@ import React from 'react';
 import tokens from '@talend/design-tokens';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StackHorizontal } from './index';
+import { StackHorizontal } from '.';
 import {
 	alignContentOptions,
 	alignOptions,

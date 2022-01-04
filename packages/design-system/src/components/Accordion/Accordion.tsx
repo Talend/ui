@@ -1,13 +1,14 @@
 import React from 'react';
-import { useCompositeState } from 'reakit';
+import { useCompositeState, CompositeProps as ReakitCompositeProps } from 'reakit';
+
 import * as S from './Accordion.style';
 
 export type AccordionProps = React.PropsWithChildren<any> & {
 	selectedId?: string;
 };
 
-const Accordion = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>(
-	({ selectedId, children, ...rest }: AccordionProps, ref) => {
+const Accordion = React.forwardRef(
+	({ selectedId, children, ...rest }: AccordionProps, ref: React.Ref<ReakitCompositeProps>) => {
 		const composite = useCompositeState({});
 
 		return (

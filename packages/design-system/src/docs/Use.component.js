@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Icon } from './../index';
+import { Icon } from '../index';
 import Grid from './Grid.component';
 
 import tokens from '../tokens';
