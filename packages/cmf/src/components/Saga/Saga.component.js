@@ -12,7 +12,7 @@ export function SagaComponent({ startSaga, stopSaga, saga, sagaAttributes, child
 		return () => {
 			stopSaga(id);
 		};
-		// We don't want to trigger new start and stop, this component is not mean to change prop
+		// We don't want to trigger new start and stop, this component is not meant to handle dynamic props
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
