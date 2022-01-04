@@ -98,7 +98,8 @@ export const SCheckbox = styled(InlineStyle)<{
 	}
 `;
 
-export type CheckboxProps = InputProps & {
+export type CheckboxProps = Omit<InputProps, 'label'> & {
+	label?: string;
 	checked?: boolean | 'indeterminate' | (string | number)[];
 };
 
