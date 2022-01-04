@@ -95,7 +95,7 @@ export const Item = styled.span.attrs({
 `;
 export const Logo = styled(Item).attrs({
 	className: 'header-bar__logo',
-})<{ full: boolean }>`
+})<{ full?: boolean }>`
 	svg {
 		height: ${tokens.sizes.xl};
 		width: ${({ full }) => (full ? '6rem' : tokens.sizes.xl)};
