@@ -1,10 +1,15 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Tooltip from './Tooltip';
+import Tooltip, { TooltipProps } from './Tooltip';
 import Button from '../Button';
 
-export const Template = props => (
+type TemplateType = {
+	(props: TooltipProps): JSX.Element;
+	args?: TooltipProps;
+};
+
+export const Template: TemplateType = props => (
 	<Tooltip {...props}>
 		<Button onClick={action('clicked')}>Lorem ipsum</Button>
 	</Tooltip>

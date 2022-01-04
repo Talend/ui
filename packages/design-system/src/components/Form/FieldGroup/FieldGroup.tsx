@@ -3,19 +3,16 @@ import { unstable_useId as useId } from 'reakit';
 import { isElement } from 'react-is';
 import classnames from 'classnames';
 
+import { FieldProps } from '../Field/Field';
 import InlineMessage from '../../InlineMessage';
 
 import * as S from './FieldGroup.style';
 
-export type FieldGroupProps = HTMLInputElement & {
+export type FieldGroupProps = Omit<FieldProps, 'prefix'> & {
 	label: string;
+	readOnly?: boolean;
 	prefix?: React.ReactNode;
 	suffix?: React.ReactNode;
-	hasError?: boolean;
-	hasWarning?: boolean;
-	hasSuccess?: boolean;
-	hasInformation?: boolean;
-	description?: string;
 };
 
 const FieldGroup = React.forwardRef(
