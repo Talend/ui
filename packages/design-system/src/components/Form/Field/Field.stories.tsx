@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from '../';
+import Form from '..';
 import Link from '../../Link';
 
 export const FormFieldError = () => (

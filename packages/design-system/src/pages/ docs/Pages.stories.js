@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Page from '..';
+import * as Page from '..';
 
 import Button from '../../components/Button';
 import Form from '../../components/Form';
