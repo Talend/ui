@@ -12,15 +12,6 @@ export default {
 	},
 };
 
-export const defaultProps = {
-	onClick: () => {},
-	children: 'Button contents',
-	disabled: false,
-	focusable: true,
-	small: false,
-	icon: '',
-};
-
 export const Primary = (props: Story) => {
 	return <Button.Primary {...props}>Basic Button</Button.Primary>;
 };

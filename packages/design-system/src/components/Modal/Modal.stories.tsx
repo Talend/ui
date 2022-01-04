@@ -4,6 +4,10 @@ import Button from '../Button';
 
 import Modal from '.';
 
+export default {
+	component: Modal,
+};
+
 export const Confirm = () => (
 	<Modal.Body data-enter>
 		<Modal.Heading>

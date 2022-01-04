@@ -1,3 +1,14 @@
 {
-	"extends": "../../node_modules/@talend/scripts-config-eslint/.eslintrc"
+	"extends": [
+		"../../node_modules/@talend/scripts-config-eslint/.eslintrc",
+		"plugin:storybook/recommended"
+	],
+	"overrides": [
+		{
+			"files": ["*.@(ts|tsx|js|jsx)"],
+			"rules": {
+				"jsx-a11y/anchor-is-valid": "off"
+			}
+		}
+	]
 }
