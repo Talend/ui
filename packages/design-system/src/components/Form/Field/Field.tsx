@@ -5,7 +5,7 @@ import { unstable_useId as useId } from 'reakit';
 import Loading from '../../Loading';
 import VisuallyHidden from '../../VisuallyHidden';
 import InlineMessage from '../../InlineMessage';
-import Link from '../../Link';
+import { LinkProps } from '../../Link/Link';
 
 import * as S from './Field.style';
 
@@ -27,7 +27,7 @@ type ControlProps = WithInlineMessageProps & {
 	loading?: boolean;
 	indeterminate?: boolean;
 	multiple?: boolean;
-	link?: typeof Link;
+	link?: LinkProps;
 };
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & ControlProps;
