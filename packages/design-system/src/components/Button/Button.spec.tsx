@@ -11,7 +11,7 @@ const { Loading } = composeStories(Stories);
 context('<Button />', () => {
 	describe('default state', () => {
 		it('should be focusable', () => {
-			cy.mount(<Button />);
+			cy.mount(<Button>button</Button>);
 			cy.get('.btn').focus();
 		});
 	});

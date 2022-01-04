@@ -11,8 +11,6 @@ import { Icon } from '../../components/Icon';
 import Toggle from '../../components/Toggle';
 import Tooltip from '../../components/Tooltip';
 
-import dark from '../../themes/dark.theme';
-
 export default function HeaderBarBlock() {
 	const aboutModal = Modal.useDialogState();
 	return (

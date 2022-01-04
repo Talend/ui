@@ -18,7 +18,7 @@ const InputCopy = React.forwardRef(
 			<FieldGroup
 				label={label}
 				suffix={
-					!readOnly && (
+					!readOnly ? (
 						<Button.Icon
 							icon="talend-files-o"
 							onClick={() => copyToClipboard(inputRef.current?.value || '')}
@@ -26,17 +26,25 @@ const InputCopy = React.forwardRef(
 						>
 							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
 						</Button.Icon>
-					)
+					) : undefined
 				}
 				readOnly={!disabled}
 				disabled={!!disabled}
 				hasError={!!state.error}
 				hasSuccess={!!state.value}
-				description={state.error ? state.error.message : state.value && t('FORM_COPY_COPIED_TO_CLIPBOARD', 'Copied to clipboard')}
+				description={
+					state.error
+						? state.error.message
+						: state.value && t('FORM_COPY_COPIED_TO_CLIPBOARD', 'Copied to clipboard')
+				}
 			>
 				{/*
 				// @ts-ignore */}
-				<Text {...rest} label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')} ref={inputRef} />
+				<Text
+					{...rest}
+					label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
+					ref={inputRef}
+				/>
 			</FieldGroup>
 		);
 	},
