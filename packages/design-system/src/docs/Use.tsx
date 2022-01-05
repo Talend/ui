@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Icon } from './../index';
-import Grid from './Grid.component';
+import { Icon } from '../index';
+import Grid from './Grid';
 
 import tokens from '../tokens';
 
@@ -45,7 +45,9 @@ const Dont = styled(props => <Block title="Don't" icon="talend-block" {...props}
 	}
 `;
 
-export const Use = ({ children }) => <Grid columns={2}>{children}</Grid>;
+export const Use = ({ children }: React.PropsWithChildren<HTMLDivElement>) => (
+	<Grid columns={2}>{children}</Grid>
+);
 
 Use.Do = Do;
 Use.Dont = Dont;

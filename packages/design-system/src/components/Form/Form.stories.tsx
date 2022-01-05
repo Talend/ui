@@ -9,6 +9,10 @@ import Link from '../Link';
 
 import CountryCodes from './docs/data/CountryCodes.json';
 
+export default {
+	component: Form,
+};
+
 function getCountryCodes() {
 	// eslint-disable-next-line @typescript-eslint/camelcase
 	return CountryCodes.map(({ name, dial_code }) => `${name} (${dial_code})`);

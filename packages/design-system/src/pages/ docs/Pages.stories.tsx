@@ -16,8 +16,8 @@ export default {
 	},
 };
 
-const LoginPageWith = ({ children }) => (
-	<Page.Login title="Welcome to Talend Cloud">{children}</Page.Login>
+const LoginPageWith = (props: React.PropsWithChildren<any>) => (
+	<Page.Login title="Welcome to Talend Cloud" {...props} />
 );
 
 export const Disclaimer = () => (
@@ -54,7 +54,7 @@ export const Login = () => (
 			<Form.Email label="Email" />
 			<Form.Password label="Password" />
 			<Form.Buttons className="form__buttons">
-				<Button.Primary type="submit">Login</Button.Primary>
+				<Button.Primary>Login</Button.Primary>
 			</Form.Buttons>
 		</Form>
 	</LoginPageWith>
@@ -68,25 +68,35 @@ export const PasswordRecovery = () => (
 			<Form>
 				<Form.Email label="Email" />
 				<Form.Buttons className="form__buttons">
-					<Button.Primary type="submit">Submit</Button.Primary>
+					<Button.Primary>Submit</Button.Primary>
 				</Form.Buttons>
 			</Form>
 		</div>
 	</LoginPageWith>
 );
 
-const ItemWithDetails = ({ itemId, isActive, onClick }) => {
+const ItemWithDetails = ({
+	itemId,
+	isActive,
+	onClick,
+}: {
+	itemId: number;
+	isActive?: boolean;
+	onClick: (event: React.MouseEvent, id: number) => void;
+}) => {
 	const [visible, setVisible] = React.useState(false);
 
 	React.useEffect(() => {
-		setVisible(isActive);
+		setVisible(!!isActive);
 	}, [isActive]);
 
 	return (
 		<>
 			<Drawer
 				toggleButton={
-					<Button.Primary onClick={() => onClick(itemId)}>Item {itemId + 1}</Button.Primary>
+					<Button.Primary onClick={event => onClick(event, itemId)}>
+						Item {itemId + 1}
+					</Button.Primary>
 				}
 				heading={<h3>Item {itemId + 1}</h3>}
 				footer={<Button.Secondary onClick={() => setVisible(false)}>Close</Button.Secondary>}
@@ -99,24 +109,24 @@ const ItemWithDetails = ({ itemId, isActive, onClick }) => {
 };
 
 export const Home = () => {
-	const [selected, setSelected] = React.useState();
+	const [selected, setSelected] = React.useState<number>();
 
 	return (
 		<Page.Home>
 			<table>
 				{Array(10)
-					.fill()
+					.fill('')
 					.map((_, rowIndex) => (
 						<tr key={rowIndex}>
 							{Array(10)
-								.fill()
-								.map((_, cellIndex) =>
+								.fill('')
+								.map((__, cellIndex) =>
 									cellIndex === 0 ? (
 										<td key={`title-${rowIndex}`}>
 											<ItemWithDetails
 												itemId={rowIndex}
 												isActive={selected === rowIndex}
-												onClick={setSelected}
+												onClick={(___, id) => setSelected(id)}
 											/>
 										</td>
 									) : (

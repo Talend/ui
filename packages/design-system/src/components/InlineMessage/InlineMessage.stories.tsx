@@ -4,7 +4,7 @@ import Link from '../Link';
 
 export default { component: InlineMessage };
 
-export const render = ({ variant, ...rest }: { variant: keyof typeof InlineMessage }) => {
+const render = ({ variant, ...rest }: { variant: keyof typeof InlineMessage }) => {
 	switch (variant) {
 		case 'Information':
 			return <InlineMessage.Information {...rest} />;
@@ -19,7 +19,7 @@ export const render = ({ variant, ...rest }: { variant: keyof typeof InlineMessa
 	}
 };
 
-export const defaultProps = {
+const defaultProps = {
 	title: 'Lorem ipsum',
 	description:
 		'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
