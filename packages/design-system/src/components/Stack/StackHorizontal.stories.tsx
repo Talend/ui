@@ -16,6 +16,7 @@ export default {
 	component: StackHorizontal,
 } as ComponentMeta<typeof StackHorizontal>;
 
+// eslint-disable-next-line storybook/prefer-pascal-case
 export const manualStackArgs = {
 	as: { options: [...possibleAsTypes], control: { type: 'select' }, defaultValue: 'div' },
 	justify: {

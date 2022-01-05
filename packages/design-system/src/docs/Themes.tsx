@@ -1,22 +1,24 @@
 ﻿import React from 'react';
 import styled from 'styled-components';
 
-import Grid from './Grid.component';
+import Grid from './Grid';
 
 import tokens from '../tokens';
 
-function isNumeric(str) {
+function isNumeric(str: number) {
 	// eslint-disable-next-line eqeqeq
 	if (typeof str != 'string') return false;
 	return !isNaN(str) && !isNaN(parseFloat(str));
 }
 
-function getColorTokenNameByValue(value) {
+function getColorTokenNameByValue(value: any) {
 	let designToken = null;
 	// eslint-disable-next-line array-callback-return
 	Object.entries(tokens.colors).some(([k, v]) => {
 		if (typeof v === 'object' && v !== null) {
-			const match = Object.entries(v).find(([kn, vn]) => isNumeric(kn) && vn === value);
+			const match = Object.entries(v).find(
+				([kn, vn]: [kn: number, vn: string]) => isNumeric(kn) && vn === value,
+			);
 			if (match) {
 				designToken = `${k}[${match[0]}]`;
 			}
@@ -25,7 +27,7 @@ function getColorTokenNameByValue(value) {
 	return designToken || 'there is no design token used here!';
 }
 
-const normalizeColorToken = v => (typeof v === 'string' ? v : v[500]);
+const normalizeColorToken = (v: string | number) => (typeof v === 'string' ? v : v[500]);
 
 const SToken = styled.div``;
 const STokenName = styled.div``;
@@ -139,7 +141,7 @@ const ColorToken = ({ name, theme }) => {
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox={`0 0 ${previewWidth} ${previewWidth}`}
 				height={previewWidth}
-				widht={previewWidth}
+				width={previewWidth}
 			>
 				<circle
 					cx={previewWidth / 2}
