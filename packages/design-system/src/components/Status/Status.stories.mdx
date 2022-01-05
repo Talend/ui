@@ -1,9 +1,10 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '../../docs';
-import Status from '.';
+import StatusPrimitive, { variants } from './Primitive/StatusPrimitive';
+import { Status } from '.';
 import * as Stories from './Status.stories';
 
-<Meta title="Components/Status" component={Status} />
+<Meta title="Components/Status" component={StatusPrimitive} />
 
 <Links>
 	<FigmaLink href="https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A72" />
@@ -68,11 +69,11 @@ N/C
 
 By default, each Status variants has a label:
 
-- In progress for `Status.InProgress`
-- Successful for `Status.Successful`
-- Failed for `Status.Failed`
-- Warning for `Status.Warning`
-- Canceled for `Status.Canceled`
+- In progress for `StatusInProgress`
+- Successful for `StatusSuccessful`
+- Failed for `StatusFailed`
+- Warning for `StatusWarning`
+- Canceled for `StatusCanceled`
 
 Depending on the use case, it is possible to have another label instead but keeping the same meaning.
 
@@ -83,11 +84,15 @@ Depending on the use case, it is possible to have another label instead but keep
 
 ## Usage
 
+You can directly use the presets `StatusInProgress` etc... but in some cases you may want to handle the variant through a prop.
+
+You can.
+
 <Canvas>
 	<Story
 		name="usage"
 		args={{
-			variant: 'Successful',
+			variant: 'warning',
 			hideText: false,
 			children: 'Done',
 		}}
@@ -96,7 +101,7 @@ Depending on the use case, it is possible to have another label instead but keep
 				description: 'Status variation',
 				control: {
 					type: 'select',
-					options: [''].concat(Object.keys(Status).filter(key => /^[A-Z]/.test(key))),
+					options: Object.values(variants),
 				},
 			},
 			hideText: {
@@ -114,9 +119,9 @@ Depending on the use case, it is possible to have another label instead but keep
 		}}
 	>
 		{({ variant, ...rest }) => {
-			const Component = Status[variant] || Status;
-			Component.displayName = `Status${variant && `.${variant}`}`;
-			return <Component {...rest} />;
+			const Component = Status;
+			Component.displayName = 'Status';
+			return <Component variant={variant} {...rest} />;
 		}}
 	</Story>
 </Canvas>
