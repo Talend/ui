@@ -91,6 +91,7 @@ export const WithManyItems = {
 				.map(word => ({
 					label: word,
 					onClick() {
+						// eslint-disable-next-line no-console
 						console.log(`${word} click`);
 					},
 				}))}

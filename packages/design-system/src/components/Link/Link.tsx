@@ -73,7 +73,7 @@ const Link = React.forwardRef(
 				});
 			}
 			return title;
-		}, [disabled, title, isExternal, isBlank]);
+		}, [disabled, title, isBlank, t]);
 
 		return (
 			<S.Link
