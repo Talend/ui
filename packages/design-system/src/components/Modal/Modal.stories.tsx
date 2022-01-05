@@ -24,6 +24,7 @@ Confirm.parameters = {};
 
 export const Invite = () => (
 	<Modal
+		baseId=""
 		disclosure={<Button.Primary>Send invitation email</Button.Primary>}
 		title="Send invitation email"
 	>
