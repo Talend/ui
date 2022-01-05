@@ -137,7 +137,7 @@ exports[`Toggle should render a checked Toggle 1`] = `
 
 exports[`Toggle should render a disabled Toggle 1`] = `
 <div
-  className="checkbox tc-checkbox switch tc-toggle tc-toggle-disabled tc-checkbox-disabled"
+  className="checkbox tc-checkbox tc-checkbox-disabled switch tc-toggle tc-toggle-disabled"
 >
   <label
     htmlFor="id"
