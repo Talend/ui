@@ -34,7 +34,7 @@ function Toggle({ id, label, className, intermediate, ...props }) {
 
 	return (
 		<div
-			className={classNames('checkbox tc-toggle switch checkbox', theme['tc-toggle'], className, {
+			className={classNames('checkbox tc-toggle', theme['tc-toggle'], className || 'switch', {
 				[theme['tc-toggle-disabled']]: props.disabled,
 				'tc-toggle-disabled': props.disabled,
 			})}
@@ -59,7 +59,6 @@ Toggle.defaultProps = {
 	checked: false,
 	intermediate: false,
 	label: '',
-	className: '',
 };
 
 Toggle.propTypes = {
