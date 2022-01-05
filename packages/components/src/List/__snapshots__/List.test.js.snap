@@ -299,7 +299,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle"
+                                    className="checkbox tc-toggle"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -1284,7 +1284,7 @@ exports[`List should render 1`] = `
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle"
+                                    className="checkbox tc-toggle"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -2296,7 +2296,7 @@ exports[`List should render id if provided 1`] = `
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle"
+                                    className="checkbox tc-toggle"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"

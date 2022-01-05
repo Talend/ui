@@ -303,7 +303,7 @@ exports[`Items should render 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle theme-tc-toggle"
+                            className="checkbox tc-toggle"
                           >
                             <label>
                               <input
@@ -409,7 +409,7 @@ exports[`Items should render 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle theme-tc-toggle"
+                            className="checkbox tc-toggle"
                           >
                             <label>
                               <input
@@ -513,7 +513,7 @@ exports[`Items should render 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle theme-tc-toggle"
+                            className="checkbox tc-toggle"
                           >
                             <label>
                               <input
@@ -869,7 +869,7 @@ exports[`Items should render with nested items 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle theme-tc-toggle"
+                            className="checkbox tc-toggle"
                           >
                             <label>
                               <input
@@ -984,7 +984,7 @@ exports[`Items should render with nested items 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle theme-tc-toggle"
+                            className="checkbox tc-toggle"
                           >
                             <label>
                               <input
@@ -1400,7 +1400,7 @@ exports[`Items should render with provided id 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle theme-tc-toggle"
+                            className="checkbox tc-toggle"
                           >
                             <label
                               htmlFor="checkbox-my-widget-1-item"
@@ -1513,7 +1513,7 @@ exports[`Items should render with provided id 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle theme-tc-toggle"
+                            className="checkbox tc-toggle"
                           >
                             <label
                               htmlFor="checkbox-my-widget-2-item"
@@ -1624,7 +1624,7 @@ exports[`Items should render with provided id 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle theme-tc-toggle"
+                            className="checkbox tc-toggle"
                           >
                             <label
                               htmlFor="checkbox-my-widget-3-item"

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
 
-import theme from '../Toggle/Toggle.scss';
-
 export default function Checkbox({ id, className, label, intermediate, ...props }) {
 	let dataFeature;
 	let dataChecked = 0;
@@ -22,8 +20,7 @@ export default function Checkbox({ id, className, label, intermediate, ...props 
 
 	return (
 		<div
-			className={classNames('checkbox tc-toggle', theme['tc-toggle'], className, {
-				[theme['tc-toggle-disabled']]: props.disabled,
+			className={classNames('checkbox tc-toggle', className, {
 				'tc-toggle-disabled': props.disabled,
 			})}
 		>
