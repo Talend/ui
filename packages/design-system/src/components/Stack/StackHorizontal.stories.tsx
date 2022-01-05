@@ -60,7 +60,7 @@ function Block({ width }: { width: string }) {
 				height: tokens.coralSizeL,
 				borderRadius: tokens.coralRadiusM,
 				background: tokens.coralColorAccentBackground,
-				border: `${tokens.coralBorderDashedS} ${tokens.coralColorAccentBorder}`,
+				border: `${tokens.coralBorderSDashed} ${tokens.coralColorAccentBorder}`,
 			}}
 		/>
 	);
