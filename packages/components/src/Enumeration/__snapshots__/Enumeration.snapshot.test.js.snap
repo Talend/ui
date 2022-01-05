@@ -662,15 +662,19 @@ Array [
           aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
           checked={true}
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          disabled={false}
+          intermediate={false}
+          label=""
         >
           <div
-            className="checkbox tc-toggle switch checkbox theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+            className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
             <label>
               <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
                 checked={true}
                 data-checked={2}
+                disabled={false}
                 type="checkbox"
               />
               <span />
@@ -725,15 +729,19 @@ Array [
           aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
           checked={true}
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          disabled={false}
+          intermediate={false}
+          label=""
         >
           <div
-            className="checkbox tc-toggle switch checkbox theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+            className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
             <label>
               <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
                 checked={true}
                 data-checked={2}
+                disabled={false}
                 type="checkbox"
               />
               <span />
@@ -786,15 +794,21 @@ Array [
       >
         <Checkbox
           aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+          checked={false}
           className="theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+          disabled={false}
+          intermediate={false}
+          label=""
         >
           <div
-            className="checkbox tc-toggle switch checkbox theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
+            className="checkbox tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
             <label>
               <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+                checked={false}
                 data-checked={0}
+                disabled={false}
                 type="checkbox"
               />
               <span />

@@ -2,7 +2,7 @@
 
 exports[`Toggle should pass extra props to input 1`] = `
 <div
-  className="checkbox tc-toggle switch checkbox theme-tc-toggle"
+  className="checkbox tc-toggle switch"
 >
   <label
     htmlFor="id"
@@ -25,7 +25,7 @@ exports[`Toggle should pass extra props to input 1`] = `
 
 exports[`Toggle should render a Checkbox 1`] = `
 <div
-  className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+  className="checkbox tc-toggle checkbox switch"
 >
   <label
     htmlFor="id"
@@ -47,7 +47,7 @@ exports[`Toggle should render a Checkbox 1`] = `
 
 exports[`Toggle should render a Toggle 1`] = `
 <div
-  className="checkbox tc-toggle switch checkbox theme-tc-toggle"
+  className="checkbox tc-toggle switch"
 >
   <label
     htmlFor="id"
@@ -69,7 +69,7 @@ exports[`Toggle should render a Toggle 1`] = `
 
 exports[`Toggle should render a Toggle with label 1`] = `
 <div
-  className="checkbox tc-toggle switch checkbox theme-tc-toggle"
+  className="checkbox tc-toggle switch"
 >
   <label
     htmlFor="id"
@@ -91,7 +91,7 @@ exports[`Toggle should render a Toggle with label 1`] = `
 
 exports[`Toggle should render a autoFocused Toggle 1`] = `
 <div
-  className="checkbox tc-toggle switch checkbox theme-tc-toggle"
+  className="checkbox tc-toggle switch"
 >
   <label
     htmlFor="id"
@@ -114,7 +114,7 @@ exports[`Toggle should render a autoFocused Toggle 1`] = `
 
 exports[`Toggle should render a checked Toggle 1`] = `
 <div
-  className="checkbox tc-toggle switch checkbox theme-tc-toggle"
+  className="checkbox tc-toggle switch"
 >
   <label
     data-feature="toggle.disable"
@@ -137,7 +137,7 @@ exports[`Toggle should render a checked Toggle 1`] = `
 
 exports[`Toggle should render a disabled Toggle 1`] = `
 <div
-  className="checkbox tc-toggle switch checkbox theme-tc-toggle theme-tc-toggle-disabled tc-toggle-disabled"
+  className="checkbox tc-toggle switch tc-toggle-disabled"
 >
   <label
     htmlFor="id"
@@ -159,7 +159,7 @@ exports[`Toggle should render a disabled Toggle 1`] = `
 
 exports[`Toggle should render an intermediate Toggle 1`] = `
 <div
-  className="checkbox tc-toggle switch checkbox theme-tc-toggle"
+  className="checkbox tc-toggle switch"
 >
   <label
     data-feature="toggle.enable"

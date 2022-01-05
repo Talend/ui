@@ -2,7 +2,7 @@
 
 exports[`SelectAllColumnsCheckbox should render by default 1`] = `
 <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
-  <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+  <div class="checkbox tc-toggle">
     <label for="select-all-id-checkbox-Select-All"
            data-feature="column-chooser.select.all.enable"
     >
