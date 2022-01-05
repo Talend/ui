@@ -1,14 +1,13 @@
 ﻿import React from 'react';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 import Grid from './Grid';
 
 import tokens from '../tokens';
 
-function isNumeric(str: number) {
-	// eslint-disable-next-line eqeqeq
-	if (typeof str != 'string') return false;
-	return !isNaN(str) && !isNaN(parseFloat(str));
+function isNumeric(str: string) {
+	if (typeof str !== 'string') return false;
+	return !isNaN(parseFloat(str));
 }
 
 function getColorTokenNameByValue(value: any) {
@@ -16,9 +15,7 @@ function getColorTokenNameByValue(value: any) {
 	// eslint-disable-next-line array-callback-return
 	Object.entries(tokens.colors).some(([k, v]) => {
 		if (typeof v === 'object' && v !== null) {
-			const match = Object.entries(v).find(
-				([kn, vn]: [kn: number, vn: string]) => isNumeric(kn) && vn === value,
-			);
+			const match = Object.entries(v).find(([kn, vn]) => isNumeric(kn) && vn === value);
 			if (match) {
 				designToken = `${k}[${match[0]}]`;
 			}
@@ -27,7 +24,7 @@ function getColorTokenNameByValue(value: any) {
 	return designToken || 'there is no design token used here!';
 }
 
-const normalizeColorToken = (v: string | number) => (typeof v === 'string' ? v : v[500]);
+const normalizeColorToken = (v: any) => (typeof v === 'string' ? v : v[500]);
 
 const SToken = styled.div``;
 const STokenName = styled.div``;
@@ -132,7 +129,8 @@ const SAliasCategory = styled.article``;
 
 const previewWidth = 40;
 
-const ColorToken = ({ name, theme }) => {
+const ColorToken = ({ name, theme }: { name: string; theme: DefaultTheme }) => {
+	// @ts-ignore
 	const colorName = theme.colors[name];
 	const normalizedColorName = normalizeColorToken(colorName);
 	return (
@@ -158,11 +156,11 @@ const ColorToken = ({ name, theme }) => {
 	);
 };
 
-const Themes = ({ themes }) => {
+const Themes = ({ themes }: { themes: DefaultTheme[] }) => {
 	const categories = React.useMemo(() => {
 		const keys = Object.keys(themes[0].colors);
-		const newCategories = [{ name: 'Semantic', keys: [] }];
-		keys.forEach(key => {
+		const newCategories: { name: string; keys: string[] }[] = [{ name: 'Semantic', keys: [] }];
+		(keys as string[]).forEach((key: string) => {
 			const categoryNameArr = key.split(/(?=[A-Z])/);
 			const categoryName = categoryNameArr[0];
 			if (
