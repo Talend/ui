@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 6.39.0
+
+### Minor Changes
+
+- b252ea199: feat: Add Saga component
+
 ## 6.38.5
 
 ### Patch Changes
