@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Table({ data }) {
+function Table({ data }: { data: { [key: string]: string } }) {
 	const entries = Object.entries(data);
 
 	if (!entries.length) {

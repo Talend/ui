@@ -1,8 +1,14 @@
 import React from 'react';
 
-export default function Row({ children, centered, ...props }) {
+export default function Row({
+	children,
+	centered,
+	...props
+}: React.PropsWithChildren<HTMLDivElement> & { centered: 'all' | 'vertical' | 'horizontal' }) {
 	return (
 		<div
+			/*
+			// @ts-ignore */
 			style={{
 				display: 'flex',
 				alignItems: centered === 'all' || centered === 'vertical' ? 'center' : 'normal',
