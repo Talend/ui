@@ -12,12 +12,21 @@ import Checkbox from '../Checkbox';
  * @param props {object}: all props passed down to the input
  *
  * Required: [ id, onChange ]
- * Defaults: { checked: false, disabled: false, label: '', className: 'switch checkbox' }
+ * Defaults: { checked: false, disabled: false, label: '', className: '' }
  *
  * @return XML(JSX) React pure component
  */
 function Toggle({ className, ...props }) {
-	return new Checkbox({ className: classNames(className, 'switch'), ...props });
+	return new Checkbox({
+		className: classNames(
+			'switch tc-toggle',
+			{
+				'tc-toggle-disabled': props.disabled,
+			},
+			className,
+		),
+		...props,
+	});
 }
 
 Toggle.displayName = 'Toggle';

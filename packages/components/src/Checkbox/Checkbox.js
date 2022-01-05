@@ -20,8 +20,8 @@ export default function Checkbox({ id, className, label, intermediate, ...props 
 
 	return (
 		<div
-			className={classNames('checkbox tc-toggle', className, {
-				'tc-toggle-disabled': props.disabled,
+			className={classNames('checkbox tc-checkbox', className, {
+				'tc-checkbox-disabled': props.disabled,
 			})}
 		>
 			<label htmlFor={id} data-feature={dataFeature}>
