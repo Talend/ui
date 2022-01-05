@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Reakit, { useCheckboxState as useReakitCheckboxState } from 'reakit';
 
 import useReadOnly from './useReadOnly';
@@ -15,7 +15,7 @@ export default function useCheckboxState({ readOnly, ...choiceState }: ChoiceSta
 		if (choiceState.state !== undefined) {
 			checkboxState.setState(choiceState.state);
 		}
-	}, [checkboxState.setState, choiceState.state]);
+	}, [checkboxState, choiceState.state]);
 
 	if (readOnly) {
 		return { ...checkboxState, ...readOnlyState, setState: () => {} };

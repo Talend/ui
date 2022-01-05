@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as Page from '..';
 
@@ -16,9 +17,7 @@ export default {
 	},
 };
 
-const LoginPageWith = ({ children }) => (
-	<Page.Login title="Welcome to Talend Cloud">{children}</Page.Login>
-);
+const LoginPageWith = props => <Page.Login title="Welcome to Talend Cloud" {...props} />;
 
 export const Disclaimer = () => (
 	<LoginPageWith>
@@ -97,6 +96,11 @@ const ItemWithDetails = ({ itemId, isActive, onClick }) => {
 		</>
 	);
 };
+ItemWithDetails.propTypes = {
+	itemId: PropTypes.number,
+	isActive: PropTypes.bool,
+	onClick: PropTypes.func,
+};
 
 export const Home = () => {
 	const [selected, setSelected] = React.useState();
@@ -110,7 +114,7 @@ export const Home = () => {
 						<tr key={rowIndex}>
 							{Array(10)
 								.fill()
-								.map((_, cellIndex) =>
+								.map((__, cellIndex) =>
 									cellIndex === 0 ? (
 										<td key={`title-${rowIndex}`}>
 											<ItemWithDetails

@@ -19,7 +19,7 @@ export const Drawer = React.forwardRef(
 
 		React.useEffect(() => {
 			state.setVisible(visible);
-		}, [visible]);
+		}, [state, visible]);
 
 		return (
 			<>

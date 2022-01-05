@@ -2,7 +2,7 @@ import React from 'react';
 import tokens from '@talend/design-tokens';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StackHorizontal } from './index';
+import { StackHorizontal } from '.';
 import {
 	alignContentOptions,
 	alignOptions,
@@ -16,6 +16,7 @@ export default {
 	component: StackHorizontal,
 } as ComponentMeta<typeof StackHorizontal>;
 
+// eslint-disable-next-line storybook/prefer-pascal-case
 export const manualStackArgs = {
 	as: { options: [...possibleAsTypes], control: { type: 'select' }, defaultValue: 'div' },
 	justify: {

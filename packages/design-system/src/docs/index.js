@@ -6,15 +6,15 @@ import FigmaIframe from './FigmaIframe.component';
 import FigmaImage from './FigmaImage';
 import FigmaLink from './FigmaLink';
 import GitHubLink from './GitHubLink';
-import Grid from './Grid.component';
+import Grid from './Grid';
 import Links from './Links.component';
 import SearchBar from './SearchBar.component';
 import Table from './Table.component';
-import Themes from './Themes.component';
+import Themes from './Themes';
 import Row from './Row.component';
-import { Use } from './Use.component';
+import { Use } from './Use';
 import { Icons } from './Icons.component';
-import WithSelector from './WithSelector.component';
+import WithSelector from './WithSelector';
 
 export {
 	Area,
