@@ -294,11 +294,12 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                                   data-feature="list.select_all"
                                   disabled={false}
                                   intermediate={0}
+                                  label=""
                                   onChange={[MockFunction]}
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                                    className="checkbox tc-toggle theme-tc-toggle"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -1278,11 +1279,12 @@ exports[`List should render 1`] = `
                                   data-feature="list.select_all"
                                   disabled={false}
                                   intermediate={0}
+                                  label=""
                                   onChange={[MockFunction]}
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                                    className="checkbox tc-toggle theme-tc-toggle"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -2289,11 +2291,12 @@ exports[`List should render id if provided 1`] = `
                                   disabled={false}
                                   id="context-header-check"
                                   intermediate={0}
+                                  label=""
                                   onChange={[MockFunction]}
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                                    className="checkbox tc-toggle theme-tc-toggle"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
