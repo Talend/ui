@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Area } from '../../../docs';
 
 import Layout from '../Layout';
@@ -44,15 +43,12 @@ export const WithoutFooter = () => (
 	/>
 );
 
-export const FullColumn = ({ footer = true }) => (
+export const FullColumn = ({ footer = true }: { footer?: boolean }) => (
 	<Column
 		heading={<Area>Heading</Area>}
 		body={<Area style={{ height: '200rem' }}>Body</Area>}
 		footer={footer ? <Area>Footer</Area> : null}
 	/>
 );
-FullColumn.propTypes = {
-	footer: PropTypes.bool,
-};
 
 export const Card = () => <Area style={{ flex: '0 0 25rem', height: '25rem' }}>Card</Area>;
