@@ -10,6 +10,8 @@ import { UPDATE_GLOBALS } from '@storybook/core-events';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 import { useLocalStorage } from 'react-use';
 
+import '@talend/design-tokens/lib/index.scss';
+
 import 'focus-outline-manager';
 
 import i18n from './i18n';
@@ -57,17 +59,17 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 	.sb-show-main.sb-main-padded {
 		padding: 0;
 	}
-	
+
 	.sbdocs.sbdocs-preview {
 		color: ${theme?.colors.textColor};
 		background: ${theme?.colors.backgroundColor};
 	}
-	
+
 	.sbdocs .figma-iframe--light {
 		position: ${theme?.id === 'light' && hasFigmaIframe ? 'relative' : 'absolute'};
 		left:  ${theme?.id === 'light' && hasFigmaIframe ? 'auto' : '-9999rem'};
 	}
-	
+
 	.sbdocs .figma-iframe--dark {
 		position: ${theme?.id === 'dark' && hasFigmaIframe ? 'relative' : 'absolute'};
 		left:  ${theme?.id === 'dark' && hasFigmaIframe ? 'auto' : '-9999rem'};
