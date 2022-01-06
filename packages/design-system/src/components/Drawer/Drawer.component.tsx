@@ -16,10 +16,11 @@ export type DrawerProps = {
 export const Drawer = React.forwardRef(
 	({ toggleButton, heading, children, footer, visible, ...props }: DrawerProps, ref) => {
 		const state = useDisclosureState({ animated: true, visible });
+		const { setVisible } = state;
 
 		React.useEffect(() => {
-			state.setVisible(visible);
-		}, [state, visible]);
+			setVisible(visible);
+		}, [setVisible, visible]);
 
 		return (
 			<>
