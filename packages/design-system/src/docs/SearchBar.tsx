@@ -22,58 +22,50 @@ function SearchBar() {
 	return (
 		<div style={{ maxWidth: '50%', margin: '0 auto' }}>
 			<Autocomplete
-				/*
-                // @ts-ignore */
 				placeholder="Search for anything on Coral"
-				getSources={
-					/*
-                    // @ts-ignore */
-					({ query }) => [
-						{
-							sourceId: 'pages',
-							getItems() {
-								return getAlgoliaResults({
-									searchClient,
-									queries: [
-										{
-											indexName: process.env.STORYBOOK_ALGOLIA_SEARCH_INDEX || '',
-											query,
-										},
-									],
-								});
-							},
-							templates: {
-								/*
-							// @ts-ignore */
-								item({ item, components }) {
-									return (
-										<a
-											className={`aa-ItemLink ${theme.link}`}
-											href={item.url?.replace(/\/iframe.html\?id=(.*)&/, '/?path=/docs/$1&')}
-											target="_parent"
-										>
-											<div className="aa-ItemWrapper">
-												<div className="aa-ItemContent">
-													<div className="aa-ItemContentBody">
-														<div className={`aa-ItemContentTitle ${theme.title}`}>
-															<components.Snippet hit={item} attribute="title" />
-														</div>
-														<small className={`aa-ItemContentCategory ${theme.category}`}>
-															<components.Snippet hit={item} attribute="category" />
-														</small>
-														<div className={`aa-ItemContentDescription ${theme.description}`}>
-															<components.Snippet hit={item} attribute="content" />
-														</div>
+				getSources={({ query }: any) => [
+					{
+						sourceId: 'pages',
+						getItems() {
+							return getAlgoliaResults({
+								searchClient,
+								queries: [
+									{
+										indexName: process.env.STORYBOOK_ALGOLIA_SEARCH_INDEX || '',
+										query,
+									},
+								],
+							});
+						},
+						templates: {
+							item({ item, components }: any) {
+								return (
+									<a
+										className={`aa-ItemLink ${theme.link}`}
+										href={item.url?.replace(/\/iframe.html\?id=(.*)&/, '/?path=/docs/$1&')}
+										target="_parent"
+									>
+										<div className="aa-ItemWrapper">
+											<div className="aa-ItemContent">
+												<div className="aa-ItemContentBody">
+													<div className={`aa-ItemContentTitle ${theme.title}`}>
+														<components.Snippet hit={item} attribute="title" />
+													</div>
+													<small className={`aa-ItemContentCategory ${theme.category}`}>
+														<components.Snippet hit={item} attribute="category" />
+													</small>
+													<div className={`aa-ItemContentDescription ${theme.description}`}>
+														<components.Snippet hit={item} attribute="content" />
 													</div>
 												</div>
 											</div>
-										</a>
-									);
-								},
+										</div>
+									</a>
+								);
 							},
 						},
-					]
-				}
+					},
+				]}
 			/>
 		</div>
 	);

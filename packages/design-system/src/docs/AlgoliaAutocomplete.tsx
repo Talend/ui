@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { autocomplete } from '@algolia/autocomplete-js';
 
 // @see https://www.algolia.com/doc/ui-libraries/autocomplete/guides/using-react/#creating-the-component
-export function Autocomplete(props: React.FunctionComponent) {
+export function Autocomplete(props: any) {
 	const containerRef = useRef(null);
 
 	useEffect(() => {
