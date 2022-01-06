@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { Radio, RadioGroup, useRadioState } from 'reakit';
 
 import * as S from './Switch.style';
@@ -32,8 +32,13 @@ const Switch = ({
 
 	const containerRef = useRef<React.PropsWithChildren<any>>();
 	const switchIndicator = useRef<React.PropsWithChildren<any>>();
+	const radioWidths = useRef<number[]>();
 
-	React.useLayoutEffect(() => {
+	if (!radioWidths.current) {
+		radioWidths.current = radio.items.map(item => item.ref.current?.scrollWidth || 0);
+	}
+
+	useLayoutEffect(() => {
 		const radioGroup = containerRef?.current;
 		if (!radioGroup) {
 			return;
@@ -47,13 +52,9 @@ const Switch = ({
 		const checkedRadioSpanWidth = checkedElement.scrollWidth;
 		const switchIndicatorRef = switchIndicator?.current;
 		if (switchIndicatorRef) {
-			const radioWidths = radio.items.map(item => {
-				if (item.ref.current) return item.ref.current.scrollWidth;
-				return 0;
-			});
 			switchIndicatorRef.style.width = `${checkedRadioSpanWidth}px`;
-			switchIndicatorRef.style.transform = `translateX(${radioWidths
-				.slice(0, checkedRadioIndex)
+			switchIndicatorRef.style.transform = `translateX(${radioWidths.current
+				?.slice(0, checkedRadioIndex)
 				.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}px)`;
 			switchIndicatorRef.dataset.animated = true;
 		}
