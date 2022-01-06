@@ -5,7 +5,6 @@ import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 import { action } from '@storybook/addon-actions';
 import { useTranslation } from 'react-i18next';
-import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import Badge from '@talend/react-components/lib/Badge';
 import FacetedSearch from '../src';
 import { FacetedSearchIcon } from '../src/components';
@@ -160,7 +159,7 @@ export default {
 		},
 	},
 	decorators: [
-		story => (
+		(Story, context) => (
 			<div>
 				<style>
 					{`
@@ -181,8 +180,7 @@ export default {
 				}
 				`}
 				</style>
-				<IconsProvider />
-				{story()}
+				<Story {...context} />
 			</div>
 		),
 	],
