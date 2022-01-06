@@ -130,8 +130,7 @@ const SAliasCategory = styled.article``;
 const previewWidth = 40;
 
 const ColorToken = ({ name, theme }: { name: string; theme: DefaultTheme }) => {
-	// @ts-ignore
-	const colorName = theme.colors[name];
+	const colorName = theme.colors[name as keyof DefaultTheme['colors']];
 	const normalizedColorName = normalizeColorToken(colorName);
 	return (
 		<SColorToken>
