@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import Tooltip, { TooltipProps } from './Tooltip';
 import Button from '../Button';
 
+export default { component: Tooltip };
 type TemplateType = {
 	(props: TooltipProps): JSX.Element;
 	args?: TooltipProps;

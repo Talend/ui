@@ -29,7 +29,17 @@ const SCard = styled.article`
 	}
 `;
 
-const Card = ({ icon, title, text, link }) => (
+const Card = ({
+	icon,
+	title,
+	text,
+	link,
+}: {
+	icon: React.ReactElement;
+	title: string;
+	text: string;
+	link: React.ReactElement;
+}) => (
 	<SCard>
 		{icon}
 		<strong>{title}</strong>

@@ -6,7 +6,7 @@ export default {
 	component: Tag,
 };
 
-export const render = ({ variant, ...rest }: { variant?: keyof typeof Tag }) => {
+const render = ({ variant, ...rest }: { variant?: keyof typeof Tag }) => {
 	switch (variant) {
 		case 'Information':
 			return <Tag.Information {...rest} />;

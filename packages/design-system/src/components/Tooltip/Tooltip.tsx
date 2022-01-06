@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useTooltipState } from 'reakit';
 
 import * as S from './Tooltip.style';
@@ -26,8 +26,11 @@ export type TooltipProps = React.PropsWithChildren<any> & {
 	visible?: boolean;
 };
 
-const Tooltip = React.forwardRef<React.ReactElement, TooltipProps>(
-	({ children, title, placement = 'auto', visible = false, ...rest }: TooltipProps, ref) => {
+const Tooltip = React.forwardRef(
+	(
+		{ children, title, placement = 'auto', visible = false, ...rest }: TooltipProps,
+		ref: React.Ref<ReactElement>,
+	) => {
 		const tooltipState = useTooltipState({
 			placement,
 			visible,

@@ -43,7 +43,7 @@ export const WithoutFooter = () => (
 	/>
 );
 
-const FullColumn = ({ footer = true }) => (
+export const FullColumn = ({ footer = true }: { footer?: boolean }) => (
 	<Column
 		heading={<Area>Heading</Area>}
 		body={<Area style={{ height: '200rem' }}>Body</Area>}
@@ -51,4 +51,4 @@ const FullColumn = ({ footer = true }) => (
 	/>
 );
 
-const Card = () => <Area style={{ flex: '0 0 25rem', height: '25rem' }}>Card</Area>;
+export const Card = () => <Area style={{ flex: '0 0 25rem', height: '25rem' }}>Card</Area>;

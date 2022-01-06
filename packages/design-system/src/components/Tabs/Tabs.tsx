@@ -11,6 +11,7 @@ const TabsContext = React.createContext({});
 
 const Tabs = ({ children, ...initialState }: TabsProps) => {
 	const tab = useTabState(initialState);
+	// eslint-disable-next-line
 	const value = React.useMemo(() => tab, Object.values(tab));
 	return <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 };
