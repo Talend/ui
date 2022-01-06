@@ -19,14 +19,6 @@ const ThemeProvider = ({ theme = light, children }: ThemeProviderProps<any>) => 
 	}, []);
 
 	React.useEffect(() => {
-		document.body.dataset.theme = 'light';
-	}, []);
-
-	React.useEffect(() => {
-		document.body.dataset.theme = 'light';
-	}, []);
-
-	React.useEffect(() => {
 		setSelectedTheme(theme);
 	}, [theme]);
 
