@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.43.2
+
+### Patch Changes
+
+- b2e5903e4: fix(components): Toggle should reuse Checkbox
+
 ## 6.43.1
 
 ### Patch Changes
