@@ -17,6 +17,7 @@ exports[`Header "Select All" checkbox should render a "Select All" checkbox on h
         disabled={false}
         id="myList-header-check"
         intermediate={0}
+        label=""
         onChange={[MockFunction]}
         type="checkbox"
       />
@@ -47,6 +48,7 @@ exports[`Header "Select All" checkbox should render a checked checkbox on header
         disabled={false}
         id="myList-header-check"
         intermediate={false}
+        label=""
         onChange={
           [MockFunction] {
             "calls": Array [
@@ -89,6 +91,7 @@ exports[`Header "Select All" checkbox should render a partial checkbox on header
         disabled={false}
         id="myList-header-check"
         intermediate={true}
+        label=""
         onChange={
           [MockFunction] {
             "calls": Array [

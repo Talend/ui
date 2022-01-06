@@ -291,7 +291,10 @@ exports[`Items should render 1`] = `
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor sit amet 0"
+                          checked={false}
                           data-test="item-0.checkbox"
+                          disabled={false}
+                          intermediate={false}
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 0
@@ -300,13 +303,15 @@ exports[`Items should render 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                            className="checkbox tc-checkbox"
                           >
                             <label>
                               <input
                                 aria-label="Select Lorem ipsum dolor sit amet 0"
+                                checked={false}
                                 data-checked={0}
                                 data-test="item-0.checkbox"
+                                disabled={false}
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -394,6 +399,8 @@ exports[`Items should render 1`] = `
                           aria-label="Deselect Lorem ipsum dolor sit amet 1"
                           checked={true}
                           data-test="item-1.checkbox"
+                          disabled={false}
+                          intermediate={false}
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 1
@@ -402,7 +409,7 @@ exports[`Items should render 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                            className="checkbox tc-checkbox"
                           >
                             <label>
                               <input
@@ -410,6 +417,7 @@ exports[`Items should render 1`] = `
                                 checked={true}
                                 data-checked={2}
                                 data-test="item-1.checkbox"
+                                disabled={false}
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -493,7 +501,10 @@ exports[`Items should render 1`] = `
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor sit amet 2"
+                          checked={false}
                           data-test="item-2.checkbox"
+                          disabled={false}
+                          intermediate={false}
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 2
@@ -502,13 +513,15 @@ exports[`Items should render 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                            className="checkbox tc-checkbox"
                           >
                             <label>
                               <input
                                 aria-label="Select Lorem ipsum dolor sit amet 2"
+                                checked={false}
                                 data-checked={0}
                                 data-test="item-2.checkbox"
+                                disabled={false}
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -844,7 +857,10 @@ exports[`Items should render with nested items 1`] = `
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor default"
+                          checked={false}
                           data-test="item-0.checkbox"
+                          disabled={false}
+                          intermediate={false}
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor default
@@ -853,13 +869,15 @@ exports[`Items should render with nested items 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                            className="checkbox tc-checkbox"
                           >
                             <label>
                               <input
                                 aria-label="Select Lorem ipsum dolor default"
+                                checked={false}
                                 data-checked={0}
                                 data-test="item-0.checkbox"
+                                disabled={false}
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -956,6 +974,8 @@ exports[`Items should render with nested items 1`] = `
                           aria-label="Deselect Lorem ipsum dolor Parent"
                           checked={true}
                           data-test="item-1.checkbox"
+                          disabled={false}
+                          intermediate={false}
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor Parent
@@ -964,7 +984,7 @@ exports[`Items should render with nested items 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                            className="checkbox tc-checkbox"
                           >
                             <label>
                               <input
@@ -972,6 +992,7 @@ exports[`Items should render with nested items 1`] = `
                                 checked={true}
                                 data-checked={2}
                                 data-test="item-1.checkbox"
+                                disabled={false}
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -1366,8 +1387,11 @@ exports[`Items should render with provided id 1`] = `
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor sit amet 0"
+                          checked={false}
                           data-test="item-0.checkbox"
+                          disabled={false}
                           id="checkbox-my-widget-1-item"
+                          intermediate={false}
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 0
@@ -1376,15 +1400,17 @@ exports[`Items should render with provided id 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                            className="checkbox tc-checkbox"
                           >
                             <label
                               htmlFor="checkbox-my-widget-1-item"
                             >
                               <input
                                 aria-label="Select Lorem ipsum dolor sit amet 0"
+                                checked={false}
                                 data-checked={0}
                                 data-test="item-0.checkbox"
+                                disabled={false}
                                 id="checkbox-my-widget-1-item"
                                 onChange={[Function]}
                                 type="checkbox"
@@ -1476,7 +1502,9 @@ exports[`Items should render with provided id 1`] = `
                           aria-label="Deselect Lorem ipsum dolor sit amet 1"
                           checked={true}
                           data-test="item-1.checkbox"
+                          disabled={false}
                           id="checkbox-my-widget-2-item"
+                          intermediate={false}
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 1
@@ -1485,7 +1513,7 @@ exports[`Items should render with provided id 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                            className="checkbox tc-checkbox"
                           >
                             <label
                               htmlFor="checkbox-my-widget-2-item"
@@ -1495,6 +1523,7 @@ exports[`Items should render with provided id 1`] = `
                                 checked={true}
                                 data-checked={2}
                                 data-test="item-1.checkbox"
+                                disabled={false}
                                 id="checkbox-my-widget-2-item"
                                 onChange={[Function]}
                                 type="checkbox"
@@ -1582,8 +1611,11 @@ exports[`Items should render with provided id 1`] = `
                       >
                         <Checkbox
                           aria-label="Select Lorem ipsum dolor sit amet 2"
+                          checked={false}
                           data-test="item-2.checkbox"
+                          disabled={false}
                           id="checkbox-my-widget-3-item"
+                          intermediate={false}
                           label={
                             <React.Fragment>
                               Lorem ipsum dolor sit amet 2
@@ -1592,15 +1624,17 @@ exports[`Items should render with provided id 1`] = `
                           onChange={[Function]}
                         >
                           <div
-                            className="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox"
+                            className="checkbox tc-checkbox"
                           >
                             <label
                               htmlFor="checkbox-my-widget-3-item"
                             >
                               <input
                                 aria-label="Select Lorem ipsum dolor sit amet 2"
+                                checked={false}
                                 data-checked={0}
                                 data-test="item-2.checkbox"
+                                disabled={false}
                                 id="checkbox-my-widget-3-item"
                                 onChange={[Function]}
                                 type="checkbox"
