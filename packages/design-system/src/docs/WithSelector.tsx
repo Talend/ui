@@ -42,12 +42,12 @@ const WithSelector = ({
 			setClassName(newClassName);
 			setStyles(newStyles);
 		}
-	}, [ref.current, selector]);
+	}, [selector]);
 
 	React.useEffect(() => {
 		if (!ref.current) return;
 		ref.current.className = `${ref.current.className} ${className}`;
-	}, [ref, className]);
+	}, [className]);
 
 	return (
 		<>
