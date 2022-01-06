@@ -66,7 +66,7 @@ const Link = styled.a.attrs({
 	}
 `;
 
-const FigmaLink = props => {
+const FigmaLink = (props: React.FunctionComponent) => {
 	return (
 		<Link {...props}>
 			<FigmaIcon aria-hidden />

@@ -1,17 +1,16 @@
 ﻿import React from 'react';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
-import Grid from './Grid.component';
+import Grid from './Grid';
 
 import tokens from '../tokens';
 
-function isNumeric(str) {
-	// eslint-disable-next-line eqeqeq
-	if (typeof str != 'string') return false;
-	return !isNaN(str) && !isNaN(parseFloat(str));
+function isNumeric(str: string) {
+	if (typeof str !== 'string') return false;
+	return !isNaN(parseFloat(str));
 }
 
-function getColorTokenNameByValue(value) {
+function getColorTokenNameByValue(value: any) {
 	let designToken = null;
 	// eslint-disable-next-line array-callback-return
 	Object.entries(tokens.colors).some(([k, v]) => {
@@ -25,7 +24,7 @@ function getColorTokenNameByValue(value) {
 	return designToken || 'there is no design token used here!';
 }
 
-const normalizeColorToken = v => (typeof v === 'string' ? v : v[500]);
+const normalizeColorToken = (v: any) => (typeof v === 'string' ? v : v[500]);
 
 const SToken = styled.div``;
 const STokenName = styled.div``;
@@ -130,8 +129,8 @@ const SAliasCategory = styled.article``;
 
 const previewWidth = 40;
 
-const ColorToken = ({ name, theme }) => {
-	const colorName = theme.colors[name];
+const ColorToken = ({ name, theme }: { name: string; theme: DefaultTheme }) => {
+	const colorName = theme.colors[name as keyof DefaultTheme['colors']];
 	const normalizedColorName = normalizeColorToken(colorName);
 	return (
 		<SColorToken>
@@ -139,7 +138,7 @@ const ColorToken = ({ name, theme }) => {
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox={`0 0 ${previewWidth} ${previewWidth}`}
 				height={previewWidth}
-				widht={previewWidth}
+				width={previewWidth}
 			>
 				<circle
 					cx={previewWidth / 2}
@@ -156,11 +155,11 @@ const ColorToken = ({ name, theme }) => {
 	);
 };
 
-const Themes = ({ themes }) => {
+const Themes = ({ themes }: { themes: DefaultTheme[] }) => {
 	const categories = React.useMemo(() => {
 		const keys = Object.keys(themes[0].colors);
-		const newCategories = [{ name: 'Semantic', keys: [] }];
-		keys.forEach(key => {
+		const newCategories: { name: string; keys: string[] }[] = [{ name: 'Semantic', keys: [] }];
+		(keys as string[]).forEach((key: string) => {
 			const categoryNameArr = key.split(/(?=[A-Z])/);
 			const categoryName = categoryNameArr[0];
 			if (

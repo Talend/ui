@@ -2,13 +2,13 @@ import React from 'react';
 import algoliasearch from 'algoliasearch';
 import { getAlgoliaResults } from '@algolia/autocomplete-js';
 
-import { Autocomplete } from './AlgoliaAutocomplete.component';
+import { Autocomplete } from './AlgoliaAutocomplete';
 
 import theme from './SearchBar.scss';
 
 const searchClient = algoliasearch(
-	process.env.STORYBOOK_ALGOLIA_SEARCH_APP_ID,
-	process.env.STORYBOOK_ALGOLIA_SEARCH_API_KEY,
+	process.env.STORYBOOK_ALGOLIA_SEARCH_APP_ID || '',
+	process.env.STORYBOOK_ALGOLIA_SEARCH_API_KEY || '',
 );
 
 function SearchBar() {
@@ -23,7 +23,7 @@ function SearchBar() {
 		<div style={{ maxWidth: '50%', margin: '0 auto' }}>
 			<Autocomplete
 				placeholder="Search for anything on Coral"
-				getSources={({ query }) => [
+				getSources={({ query }: any) => [
 					{
 						sourceId: 'pages',
 						getItems() {
@@ -31,14 +31,14 @@ function SearchBar() {
 								searchClient,
 								queries: [
 									{
-										indexName: process.env.STORYBOOK_ALGOLIA_SEARCH_INDEX,
+										indexName: process.env.STORYBOOK_ALGOLIA_SEARCH_INDEX || '',
 										query,
 									},
 								],
 							});
 						},
 						templates: {
-							item({ item, components }) {
+							item({ item, components }: any) {
 								return (
 									<a
 										className={`aa-ItemLink ${theme.link}`}

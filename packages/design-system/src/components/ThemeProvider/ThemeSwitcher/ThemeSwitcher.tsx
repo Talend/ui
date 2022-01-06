@@ -15,11 +15,11 @@ const ThemeSwitcher = () => {
 		setDarkMode(theme === dark);
 	}, [theme]);
 
-	function toggle() {
+	const toggle = () => {
 		if (switchTheme) {
 			switchTheme(hasDarkMode ? light : dark);
 		}
-	}
+	};
 
 	return (
 		<Toggle icon={hasDarkMode ? 'talend-eye-slash' : 'talend-eye'} onChange={toggle}>

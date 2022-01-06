@@ -4,6 +4,10 @@ import Form from '..';
 import Button from '../../Button';
 import Skeleton from '../../Skeleton';
 
+export default {
+	component: Form.Buttons,
+};
+
 export const FormButtonsSkeleton = () => (
 	<Form>
 		<Form.Buttons>

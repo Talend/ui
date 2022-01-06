@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Area } from '../../docs';
 
 import Template from '..';
@@ -8,22 +7,6 @@ import { Stepper } from '../../index';
 export default {
 	title: 'Templates/Templates',
 };
-
-const Box = styled.div`
-	display: flex;
-	flex-basis: 100%;
-	align-items: center;
-	justify-content: center;
-	margin: 1rem;
-	padding: 0.5rem;
-	min-height: 0;
-	font-weight: bold;
-	font-size: 2rem;
-	color: coral;
-	background: cornsilk;
-	border: 1px dashed coral;
-	border-radius: 1rem;
-`;
 
 const args = {
 	header: <Area>Header</Area>,
