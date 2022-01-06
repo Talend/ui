@@ -2,4 +2,4 @@
 '@talend/design-system': patch
 ---
 
-fix(design-system): ts errors
+fix(design-system): eslint errors

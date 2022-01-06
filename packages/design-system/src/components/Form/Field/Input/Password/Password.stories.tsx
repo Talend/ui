@@ -1,7 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { within , userEvent } from '@storybook/testing-library';
 
 import { WithSelector } from '../../../../../docs';
 

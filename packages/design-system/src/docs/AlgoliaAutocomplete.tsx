@@ -2,7 +2,8 @@ import React, { createElement, Fragment, useEffect, useRef } from 'react';
 import { render } from 'react-dom';
 import { autocomplete } from '@algolia/autocomplete-js';
 
-export function Autocomplete(props) {
+// @see https://www.algolia.com/doc/ui-libraries/autocomplete/guides/using-react/#creating-the-component
+export function Autocomplete(props: any) {
 	const containerRef = useRef(null);
 
 	useEffect(() => {
@@ -11,10 +12,10 @@ export function Autocomplete(props) {
 		}
 
 		const search = autocomplete({
-			container: containerRef.current,
+			container: containerRef.current || '',
 			renderer: { createElement, Fragment },
 			render({ children }, root) {
-				render(children, root);
+				render(children as React.ReactElement, root);
 			},
 			...props,
 		});

@@ -43,7 +43,7 @@ const Link = styled.a.attrs({
 	}
 `;
 
-const GitHubLink = props => {
+const GitHubLink = (props: React.FunctionComponent) => {
 	return (
 		<Link {...props}>
 			<GitHubIcon aria-hidden />

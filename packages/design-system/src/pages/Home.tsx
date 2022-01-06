@@ -5,10 +5,8 @@ import Menu from './blocks/Menu';
 
 import Template from '../templates';
 
-interface Props {
-	aside?: React.ReactElement;
-}
-
-const Home = (props: Props) => <Template.List header={<Header />} nav={<Menu />} {...props} />;
+const Home = (props: React.PropsWithChildren<any>) => (
+	<Template.List header={<Header />} nav={<Menu />} {...props} />
+);
 
 export default Home;

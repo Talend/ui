@@ -9,7 +9,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
   >
     <div class="tc-column-chooser-body theme-tc-column-chooser-body">
       <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
-        <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+        <div class="checkbox tc-checkbox">
           <label for="body-context-id-body-checkbox-Select-All"
                  data-feature="column-chooser.select.all.disable"
           >
@@ -50,7 +50,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           </span>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+          <div class="checkbox tc-checkbox">
             <label for="body-context-id-body-checkbox-col3"
                    data-feature="column-chooser.select.disable"
             >
@@ -72,7 +72,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           </div>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+          <div class="checkbox tc-checkbox">
             <label for="body-context-id-body-checkbox-col4"
                    data-feature="column-chooser.select.enable"
             >
@@ -93,7 +93,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           </div>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+          <div class="checkbox tc-checkbox">
             <label for="body-context-id-body-checkbox-col5"
                    data-feature="column-chooser.select.disable"
             >
@@ -115,7 +115,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           </div>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-          <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+          <div class="checkbox tc-checkbox">
             <label for="body-context-id-body-checkbox-col6"
                    data-feature="column-chooser.select.enable"
             >
