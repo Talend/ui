@@ -4,6 +4,10 @@ import Button from '../Button';
 
 import Modal from '.';
 
+export default {
+	component: Modal,
+};
+
 export const Confirm = () => (
 	<Modal.Body data-enter>
 		<Modal.Heading>
@@ -20,6 +24,7 @@ Confirm.parameters = {};
 
 export const Invite = () => (
 	<Modal
+		baseId=""
 		disclosure={<Button.Primary>Send invitation email</Button.Primary>}
 		title="Send invitation email"
 	>

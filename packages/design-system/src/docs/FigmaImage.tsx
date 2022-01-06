@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FileImageResponse } from 'figma-js';
 
 import FigmaContext from './FigmaContext';
 
@@ -10,11 +11,11 @@ const Figure = styled.figure`
 	margin: 0;
 `;
 
-const Img = styled.img`
+const Img = styled.img<{ full?: boolean }>`
 	width: ${props => (props.full ? '100%' : 'auto')};
 `;
 
-function getMetadata(url) {
+function getMetadata(url: string) {
 	const parsedUrl = new URL(url);
 	return {
 		projectId: parsedUrl.pathname.split('/')[2],
@@ -43,10 +44,14 @@ const FigmaImagePlaceholder = React.memo(() => {
 	);
 });
 
-const FigmaImage = ({ src, alt = '', ...rest }) => {
+const FigmaImage = ({
+	src,
+	alt = '',
+	...rest
+}: React.ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string }) => {
 	const figma = React.useContext(FigmaContext);
 
-	const [data, setData] = React.useState();
+	const [fileImageResponse, setFileImageResponse] = React.useState<FileImageResponse>();
 
 	React.useEffect(() => {
 		if ('serviceWorker' in navigator) {
@@ -54,43 +59,48 @@ const FigmaImage = ({ src, alt = '', ...rest }) => {
 				navigator.serviceWorker.register('/sw.js').then(
 					registration => {
 						// Registration was successful
+						// eslint-disable-next-line no-console
 						console.log('ServiceWorker registration successful with scope: ', registration.scope);
 					},
 					err => {
 						// registration failed :(
+						// eslint-disable-next-line no-console
 						console.log('ServiceWorker registration failed: ', err);
 					},
 				);
 			});
 		} else {
+			// eslint-disable-next-line no-console
 			console.log('Service workers are not supported.');
 		}
 	}, []);
 
 	React.useEffect(() => {
-		const { projectId, nodeId } = getMetadata(src);
-		figma
-			.fileImages(projectId, {
-				ids: [nodeId],
-			})
-			.then(({ data }) => setData(data))
-			.catch(reason => {
-				console.error(
-					'[FigmaImage] Verify that you use STORYBOOK_FIGMA_ACCESS_TOKEN correctly!',
-					reason,
-				);
-			});
-	}, [src]);
+		if (src) {
+			const { projectId, nodeId } = getMetadata(src);
+			figma
+				.fileImages(projectId, {
+					ids: [nodeId || ''],
+				})
+				.then(({ data }) => setFileImageResponse(data))
+				.catch(reason => {
+					console.error(
+						'[FigmaImage] Verify that you use STORYBOOK_FIGMA_ACCESS_TOKEN correctly!',
+						reason,
+					);
+				});
+		}
+	}, [src, figma]);
 
 	if (!figma.isConfigured) {
 		return <FigmaImagePlaceholder />;
 	}
 
-	if (!data) {
+	if (!fileImageResponse) {
 		return <span>Fetching data from Figma server...</span>;
 	}
 
-	return Object.values(data.images).map((image, index) => (
+	return Object.values(fileImageResponse.images).map((image: string, index: number) => (
 		<Figure key={index}>
 			<Img src={image} alt={alt} {...rest} />
 		</Figure>

@@ -52,7 +52,7 @@ const LinkGroup = styled.div`
 	}
 `;
 
-const Links = ({ children }) => {
+const Links = ({ children }: React.PropsWithChildren<any>) => {
 	return (
 		<LinkBlock>
 			See in <LinkGroup>{children}</LinkGroup>

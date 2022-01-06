@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import VisuallyHidden from '../../VisuallyHidden';
 
-import { StepperOrientation } from '../Stepper';
-
 import * as S from './Progress.style';
+
+type StepperOrientation = 'vertical' | 'horizontal';
 
 export type ProgressProps = React.PropsWithChildren<any> & {
 	orientation: StepperOrientation;

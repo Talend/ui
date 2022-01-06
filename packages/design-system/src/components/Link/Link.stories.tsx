@@ -7,7 +7,7 @@ export default {
 	component: Link,
 };
 
-export const defaultProps = {
+const defaultProps = {
 	href: '#',
 	children: 'Link example',
 };

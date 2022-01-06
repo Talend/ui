@@ -1,36 +1,37 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import React, { ChangeEvent } from 'react';
 import { IconGallery, IconItem } from '@storybook/components';
 import { Form, Icon, IconsProvider, ThemeProvider, tokens } from '../index';
 
 export const Icons = () => {
-	const [icons, setIds] = React.useState([]);
-	const [query, setQuery] = React.useState('');
-	const [size, setSize] = React.useState(2);
-	const [filter, setFilter] = React.useState();
-	const [transform, setTransform] = React.useState('');
-	const [useCurrentColor, setUseCurrentColor] = React.useState();
+	const [icons, setIds] = React.useState<(string | null)[]>([]);
+	const [query, setQuery] = React.useState<string>('');
+	const [size, setSize] = React.useState<number>(2);
+	const [filter, setFilter] = React.useState<boolean>();
+	const [transform, setTransform] = React.useState<string>('');
+	const [useCurrentColor, setUseCurrentColor] = React.useState<boolean>();
 	const [currentColor, setCurrentColor] = React.useState(tokens.colors.gray[800]);
-	const [border, setBorder] = React.useState();
+	const [border, setBorder] = React.useState<boolean>();
 
 	React.useEffect(() => {
-		IconsProvider.getAllIconIds().then(setIds);
+		IconsProvider.getAllIconIds().then((ids: (string | null)[]) => setIds(ids));
 	}, []);
 
-	function onChangeQuery(event) {
-		setQuery(event.target.value);
-	}
+	const onChangeQuery = (event: ChangeEvent<HTMLInputElement>) => {
+		setQuery(event.currentTarget.value);
+	};
 
-	function onChangeSize(event) {
-		setSize(event.target.value);
-	}
+	const onChangeSize = (event: ChangeEvent<HTMLSelectElement>) => {
+		setSize(parseFloat(event.currentTarget.value));
+	};
 
-	function onChangeTransform(event) {
-		setTransform(event.target.value);
-	}
+	const onChangeTransform = (event: ChangeEvent<HTMLSelectElement>) => {
+		setTransform(event.currentTarget.value);
+	};
 
 	return (
 		<>
+			{/*
+			// @ts-ignore */}
 			<ThemeProvider>
 				<ThemeProvider.GlobalStyle />
 				<Form>
@@ -62,7 +63,9 @@ export const Icons = () => {
 							/>
 							<Form.Color
 								label="Color"
-								onChange={event => setCurrentColor(event.target.value)}
+								onChange={(event: React.FormEvent<HTMLInputElement>) =>
+									setCurrentColor(event.currentTarget.value)
+								}
 								value={currentColor}
 								disabled={!useCurrentColor}
 							/>
@@ -80,25 +83,30 @@ export const Icons = () => {
 					</div>
 				</Form>
 			</ThemeProvider>
-			<IconGallery style={{ marginTop: '3rem', color: currentColor }}>
-				{icons
-					.filter(iconName => iconName.includes(query))
-					.map((iconName, index) => (
-						<IconItem key={index} name={iconName}>
-							<Icon
-								name={iconName}
-								style={{
-									width: `${size}rem`,
-									height: `${size}rem`,
-									filter: filter ? "url('#talend-grayscale')" : 'none',
-								}}
-								transform={transform}
-								preserveColor={!useCurrentColor}
-								border={border}
-							/>
-						</IconItem>
-					))}
-			</IconGallery>
+			<div style={{ marginTop: '3rem', color: currentColor }}>
+				<IconGallery>
+					{icons
+						.filter(iconName => iconName && iconName.includes(query))
+						.map(
+							(iconName, index) =>
+								iconName && (
+									<IconItem key={index} name={iconName}>
+										<Icon
+											name={iconName}
+											style={{
+												width: `${size}rem`,
+												height: `${size}rem`,
+												filter: filter ? "url('#talend-grayscale')" : 'none',
+											}}
+											transform={transform}
+											preserveColor={!useCurrentColor}
+											border={border}
+										/>
+									</IconItem>
+								),
+						)}
+				</IconGallery>
+			</div>
 		</>
 	);
 };

@@ -36,13 +36,8 @@ const SVG = styled.svg<IconProps>`
 	path,
 	polygon,
 	polyline {
-		// 	${({ preserveColor }) => (preserveColor ? '' : 'fill: currentColor;')};
 		${({ border }) => border && 'transform: translate(25%, 25%);'};
 	}
-
-	// .ti-background {
-	// 	${({ border, preserveColor }) => !border && !preserveColor && 'display: none;'};
-	// }
 
 	.ti-border {
 		${({ border }) => border && 'stroke: currentColor; fill: none; transform: none'};
@@ -88,8 +83,11 @@ const accessibility = {
 	'aria-hidden': 'true',
 };
 
-export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
-	({ className, name = 'talend-empty-space', transform, border, ...rest }, ref) => {
+export const Icon = React.forwardRef(
+	(
+		{ className, name = 'talend-empty-space', transform, border, ...rest }: IconProps,
+		ref: React.Ref<SVGSVGElement>,
+	) => {
 		// @ts-ignore
 		const safeRef = React.createRef<SVGSVGElement>(ref);
 		const [content, setContent] = React.useState<string>();

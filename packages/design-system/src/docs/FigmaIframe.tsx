@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 const Iframe = styled.iframe`
 	border-radius: 0.4rem;
@@ -13,7 +13,7 @@ const iframeProps = {
 	allowFullScreen: true,
 };
 
-const FigmaIframe = ({ light, dark, ...rest }) => (
+const FigmaIframe = ({ light, dark, ...rest }: { light?: DefaultTheme; dark?: DefaultTheme }) => (
 	<>
 		{light && (
 			<Iframe

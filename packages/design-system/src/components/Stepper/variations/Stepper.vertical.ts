@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Stepper from '../Stepper';
 
-import tokens from '../../../tokens';
-
 const StepperVertical = styled(Stepper).attrs({
 	className: 'stepper--vertical',
 	orientation: 'vertical',
