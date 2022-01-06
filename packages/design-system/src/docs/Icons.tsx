@@ -31,6 +31,7 @@ export const Icons = () => {
 	return (
 		<>
 			{/*
+			// Temporary fix, will be removed with CSS Modules conversion
 			// @ts-ignore */}
 			<ThemeProvider>
 				<ThemeProvider.GlobalStyle />
