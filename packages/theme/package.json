@@ -29,10 +29,10 @@
   },
   "dependencies": {
     "@talend/bootstrap-sass": "^3.4.8",
-    "@talend/icons": "^6.36.3"
+    "@talend/icons": "^6.38.0"
   },
   "devDependencies": {
-    "@talend/icons": "^6.36.3",
+    "@talend/icons": "^6.38.0",
     "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "copy-webpack-plugin": "^6.4.1",
