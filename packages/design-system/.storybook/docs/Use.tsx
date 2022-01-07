@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Icon } from '../index';
-import Grid from './Grid';
+import tokens from '@talend/design-tokens';
+import { Icon } from '../../src';
 
-import tokens from '../tokens';
+import Grid from './Grid';
 
 const Block = styled(({ title, icon, children, ...rest }) => (
 	<div {...rest}>
@@ -20,28 +20,28 @@ const Block = styled(({ title, icon, children, ...rest }) => (
 	}
 
 	svg {
-		margin: 0 ${tokens.space.xs};
+		margin: 0 ${tokens.coralSizeXs};
 	}
 
 	padding: 1rem;
-	border-radius: ${tokens.radii.rectRadius};
+	border-radius: ${tokens.coralRadiusS};
 `;
 
 const Do = styled(props => <Block title="Do" icon="talend-check" {...props} />)`
-	background: ${tokens.colors.rioGrande[100]};
-	box-shadow: 0 0 0.1rem 0.1rem ${tokens.colors.rioGrande[500]};
+	background: ${tokens.coralColorSuccessBackgroundWeak};
+	box-shadow: 0 0 0.1rem 0.1rem ${tokens.coralColorSuccessBorder};
 
 	svg {
-		fill: ${tokens.colors.rioGrande[500]};
+		fill: ${tokens.coralColorSuccessIcon};
 	}
 `;
 
 const Dont = styled(props => <Block title="Don't" icon="talend-block" {...props} />)`
-	background: ${tokens.colors.coral[100]};
-	box-shadow: 0 0 0.1rem 0.1rem ${tokens.colors.coral[500]};
+	background: ${tokens.coralColorDangerBackgroundWeak};
+	box-shadow: 0 0 0.1rem 0.1rem ${tokens.coralColorDangerBorder};
 
 	svg {
-		fill: ${tokens.colors.coral[500]};
+		fill: ${tokens.coralColorDangerIcon};
 	}
 `;
 
