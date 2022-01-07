@@ -55,7 +55,7 @@
     "react-autowhatever": "10.2.0",
     "react-bootstrap": "0.32.4",
     "react-debounce-input": "3.2.0",
-    "react-draggable": "^3.3.2",
+    "react-draggable": "^4.4.4",
     "react-grid-layout": "0.16.6",
     "react-immutable-proptypes": "^2.2.0",
     "react-popper": "^2.2.5",
