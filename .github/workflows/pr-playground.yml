@@ -35,16 +35,6 @@ jobs:
           yarn pre-release
           yarn workspace @talend/ui-playground run test:demo:umd
 
-      - uses: preactjs/compressed-size-action@v2
-        if: github.ref != 'refs/heads/master'
-        with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          build-script: 'echo UMD files are already built'
-          pattern: './packages/*/dist/*.{js,css,json}'
-          exclude: '{**/*.html,**/*.map,**/node_modules/**}'
-          compression: 'none'
-          minimum-change-threshold: 100
-
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
         run: surge --project packages/playground/dist --domain "talend-playground.surge.sh"
@@ -63,3 +53,23 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+  check:
+    runs-on: ubuntu-latest
+    name: Build and deploy
+    environment: pull_request_unsafe
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Check UMD files size diff
+        uses: preactjs/compressed-size-action@v2
+        if: github.ref != 'refs/heads/master'
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          build-script: 'pre-release'
+          pattern: './packages/*/dist/*.{js,css,json}'
+          exclude: '{**/*.html,**/*.map,**/node_modules/**}'
+          compression: 'none'
+          minimum-change-threshold: 100
