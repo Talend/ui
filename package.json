@@ -19,7 +19,6 @@
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris yarn workspaces run test:cov",
     "test:demo": "node workspace-run.js test:demo",
-    "test:size": "node size.js",
     "start-components": "yarn workspace @talend/react-components run start",
     "start-containers": "yarn workspace  @talend/react-containers run start",
     "start-datagrid": "yarn workspace  @talend/react-datagrid run start",
