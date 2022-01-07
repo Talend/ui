@@ -56,7 +56,7 @@ jobs:
 
   check:
     runs-on: ubuntu-latest
-    name: Build and deploy
+    name: Check size
     environment: pull_request_unsafe
 
     steps:
