@@ -1,3 +1,4 @@
+const path = require('path');
 const visit = require('unist-util-visit');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
@@ -96,6 +97,7 @@ module.exports = {
 			}
 			return rule;
 		});
+
 		config.plugins.push(
 			new BrowserSyncPlugin({
 				host: 'localhost',
@@ -105,6 +107,11 @@ module.exports = {
 				codeSync: false,
 			}),
 		);
+		const existingAlias = config.resolve.alias || {};
+		config.resolve.alias = {
+			...existingAlias,
+			'~docs': path.resolve(__dirname, './docs'),
+		};
 		return config;
 	},
 };

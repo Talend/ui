@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from '../../docs';
+import { Area } from '~docs';
 
 import Drawer from '.';
 import Button from '../Button';

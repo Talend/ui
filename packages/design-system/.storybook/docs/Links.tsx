@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import tokens from '../tokens';
+import tokens from '@talend/design-tokens';
 
 const LinkBlock = styled.div.attrs({})`
 	position: relative;
@@ -24,24 +24,24 @@ const LinkGroup = styled.div`
 		justify-content: center;
 		cursor: pointer;
 		padding: 0.8rem;
-		color: ${tokens.colors.lochmara[500]};
-		border: 1px solid ${tokens.colors.lochmara[500]};
-		border-radius: ${tokens.radii.rectRadius} 0 0 ${tokens.radii.rectRadius};
+		color: ${tokens.coralColorAccentText};
+		border: 1px solid ${tokens.coralColorAccentBorder};
+		border-radius: ${tokens.coralRadiusS} 0 0 ${tokens.coralRadiusS};
 
 		&:hover,
-		&:focus,
-		&:active {
-			background: ${tokens.colors.paleCyan[100]};
+		&:focus {
+			background: ${tokens.coralColorAccentTextHover};
+			background: ${tokens.coralColorAccentBackgroundHover};
 		}
 
 		&:active {
-			color: ${tokens.colors.lochmara[600]};
-			cursor: grabbing;
+			color: ${tokens.coralColorAccentTextActive};
+			background: ${tokens.coralColorAccentBackgroundActive};
 		}
 
 		+ a {
 			border-left: 0;
-			border-radius: 0 ${tokens.radii.rectRadius} ${tokens.radii.rectRadius} 0;
+			border-radius: 0 ${tokens.coralRadiusS} ${tokens.coralRadiusS} 0;
 		}
 
 		svg {

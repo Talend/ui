@@ -57,17 +57,17 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 	.sb-show-main.sb-main-padded {
 		padding: 0;
 	}
-	
+
 	.sbdocs.sbdocs-preview {
 		color: ${theme?.colors.textColor};
 		background: ${theme?.colors.backgroundColor};
 	}
-	
+
 	.sbdocs .figma-iframe--light {
 		position: ${theme?.id === 'light' && hasFigmaIframe ? 'relative' : 'absolute'};
 		left:  ${theme?.id === 'light' && hasFigmaIframe ? 'auto' : '-9999rem'};
 	}
-	
+
 	.sbdocs .figma-iframe--dark {
 		position: ${theme?.id === 'dark' && hasFigmaIframe ? 'relative' : 'absolute'};
 		left:  ${theme?.id === 'dark' && hasFigmaIframe ? 'auto' : '-9999rem'};
@@ -113,8 +113,48 @@ export const parameters = {
 			const docsTitle = title?.replaceAll(/\//gi, ' / ');
 			const docsCategory = titleArray[0];
 
+			const {
+				id,
+				name,
+				storyById,
+				componentStories,
+				loadStory,
+				renderStoryToElement,
+				getStoryContext,
+				componentId,
+				kind,
+				story,
+				component,
+				subcomponents,
+				parameters,
+				initialArgs,
+				argTypes,
+				originalStoryFn,
+				undecoratedStoryFn,
+				unboundStoryFn,
+				applyLoaders,
+				playFunction,
+				args,
+				globals,
+				hooks,
+			} = props.context;
 			return (
 				<>
+					<a
+						href={
+							'https://github.com/Talend/ui/tree/master/packages/design-system/' +
+							parameters.fileName
+								.split('/')
+								.slice(1, parameters.fileName.split('/').length - 1)
+								.join('/')
+						}
+					>
+						{'https://github.com/Talend/ui/tree/master/packages/design-system/' +
+							parameters.fileName
+								.split('/')
+								.slice(1, parameters.fileName.split('/').length - 1)
+								.join('/')}
+					</a>
 					<Helmet>
 						<title>{docsTitle}</title>
 						<meta property="og:title" content={titleArray[titleArray.length - 1]} />
