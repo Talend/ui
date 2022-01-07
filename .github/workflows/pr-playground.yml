@@ -34,17 +34,16 @@ jobs:
           echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn pre-release
           yarn workspace @talend/ui-playground run test:demo:umd
-          node size.js
-        env:
-          THRESHOLD: 100;
 
-      - name: Commit size change
+      - uses: preactjs/compressed-size-action@v2
         if: github.ref != 'refs/heads/master'
-        uses: actions-js/push@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: update size"
-          branch: ${{ github.head_ref }}
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          build-script: 'echo UMD files are already built'
+          pattern: './packages/*/dist/*.{js,css,json}'
+          exclude: '{**/*.html,**/*.map,**/node_modules/**}'
+          compression: 'none'
+          minimum-change-threshold: 100
 
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
