@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import tokens from '../tokens';
+import tokens from '@talend/design-tokens';
 
 const FigmaIcon = React.memo(() => (
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -44,19 +43,19 @@ const Link = styled.a.attrs({
 	float: right;
 	cursor: pointer;
 	padding: 0.8rem;
-	color: ${tokens.colors.lochmara[500]};
-	border: 1px solid ${tokens.colors.lochmara[500]};
-	border-radius: ${tokens.radii.rectRadius} 0 0 ${tokens.radii.rectRadius};
+	color: ${tokens.coralColorAccentText};
+	border: 1px solid ${tokens.coralColorAccentBorder};
+	border-radius: ${tokens.coralRadiusS} 0 0 ${tokens.coralRadiusS};
 
 	&:hover,
-	&:focus,
-	&:active {
-		background: ${tokens.colors.paleCyan[100]};
+	&:focus {
+		background: ${tokens.coralColorAccentTextHover};
+		background: ${tokens.coralColorAccentBackgroundHover};
 	}
 
 	&:active {
-		color: ${tokens.colors.lochmara[600]};
-		cursor: grabbing;
+		color: ${tokens.coralColorAccentTextActive};
+		background: ${tokens.coralColorAccentBackgroundActive};
 	}
 
 	svg {
