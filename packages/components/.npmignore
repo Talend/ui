@@ -42,7 +42,6 @@ build
 
 __mocks__
 .storybook
-e2e
 output
 screenshots
 src

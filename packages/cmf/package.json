@@ -45,7 +45,7 @@
     "mkdirp": "^1.0.4",
     "nested-combine-reducers": "^1.2.2",
     "path-to-regexp": "^2.4.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "react-immutable-proptypes": "^2.2.0",
     "react-redux": "^5.1.2",
     "redux": "^3.7.2",

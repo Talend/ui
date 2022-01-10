@@ -34,17 +34,6 @@ jobs:
           echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn pre-release
           yarn workspace @talend/ui-playground run test:demo:umd
-          node size.js
-        env:
-          THRESHOLD: 100;
-
-      - name: Commit size change
-        if: github.ref != 'refs/heads/master'
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: update size"
-          branch: ${{ github.head_ref }}
 
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
@@ -64,3 +53,23 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+  check:
+    runs-on: ubuntu-latest
+    name: Check size
+    environment: pull_request_unsafe
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Check UMD files size diff
+        uses: preactjs/compressed-size-action@v2
+        if: github.ref != 'refs/heads/master'
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          build-script: 'pre-release'
+          pattern: './packages/*/dist/*.{js,css,json}'
+          exclude: '{**/*.html,**/*.map,**/node_modules/**}'
+          compression: 'none'
+          minimum-change-threshold: 100
