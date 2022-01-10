@@ -13,8 +13,10 @@ export type MenuProps = React.PropsWithChildren<any> & {
 	hasToggle: boolean;
 };
 
-const Menu = React.forwardRef<React.ReactElement, MenuProps>(
-	({ children, hasToggle = true, ...rest }, ref) => {
+// HTMLElement because there is no HTMLNavElement
+// https://stackoverflow.com/questions/57449548/why-is-there-no-htmlnavelement-type
+const Menu = React.forwardRef(
+	({ children, hasToggle = true, ...rest }: MenuProps, ref: React.Ref<HTMLElement>) => {
 		const [isCollapsed, collapse] = React.useState(false);
 		const { t } = useTranslation();
 

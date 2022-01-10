@@ -1,0 +1,53 @@
+.item {
+	flex-grow: 0;
+	flex-shrink: 0;
+
+	&.grow {
+		flex-grow: 1;
+	}
+
+	&.shrink {
+		flex-shrink: 1;
+	}
+
+	&.align {
+		&-auto {
+			align-self: auto;
+		}
+
+		&-start {
+			align-self: flex-end;
+		}
+
+		&-end {
+			align-self: flex-end;
+		}
+
+		&-center {
+			align-self: center;
+		}
+
+		&-stretch {
+			align-self: stretch;
+		}
+
+		&-baseline {
+			align-self: baseline;
+		}
+	}
+
+	&.overflow {
+		&-scroll {
+			overflow: scroll;
+		}
+		&-hidden {
+			overflow: hidden;
+		}
+		&-visible {
+			overflow: visible;
+		}
+		&-auto {
+			overflow: auto;
+		}
+	}
+}

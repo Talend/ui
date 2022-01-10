@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import useMedia from 'react-use/lib/useMedia';
 import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit';
 import { useTranslation } from 'react-i18next';

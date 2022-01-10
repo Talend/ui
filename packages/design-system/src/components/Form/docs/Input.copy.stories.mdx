@@ -78,7 +78,9 @@ It's used to let the user copy a generated text to clipboard.
 
 ## Interactions
 
-## Usage
+## Usage with react-hook-form
+
+When using Rhf, if you want the confirmation message to disappear in case of input change, you must use `watch` on the value or defaultValue.
 
 <Canvas>
 	<Story name="react-hook-form">
@@ -87,7 +89,7 @@ It's used to let the user copy a generated text to clipboard.
 				([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
 					(c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
 				);
-			const { register, handleSubmit, setValue } = useForm();
+			const { register, handleSubmit, setValue, watch } = useForm();
 			const [formData, setFormData] = React.useState();
 			return (
 				<Form onSubmit={handleSubmit(setFormData)}>
@@ -101,7 +103,7 @@ It's used to let the user copy a generated text to clipboard.
 					<Form.Row>
 						<Form.Copy
 							label={'Key'}
-							defaultValue={getUUID()}
+							defaultValue={watch('apiKey', getUUID())}
 							description={'This information is displayed only once.'}
 							{...register('apiKey')}
 						/>

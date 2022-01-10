@@ -45,7 +45,7 @@
     "mkdirp": "^1.0.4",
     "nested-combine-reducers": "^1.2.2",
     "path-to-regexp": "^2.4.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "react-immutable-proptypes": "^2.2.0",
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
@@ -56,7 +56,7 @@
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
-    "redux-thunk": "^2.4.0",
+    "redux-thunk": "^2.4.1",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
@@ -80,5 +80,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.38.5"
+  "version": "6.39.0"
 }

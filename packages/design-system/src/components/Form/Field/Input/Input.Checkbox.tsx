@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Checkbox as ReakitCheckbox, unstable_useId as useId } from 'reakit';
 import styled from 'styled-components';
 
@@ -98,7 +98,8 @@ export const SCheckbox = styled(InlineStyle)<{
 	}
 `;
 
-export type CheckboxProps = InputProps & {
+export type CheckboxProps = Omit<InputProps, 'label'> & {
+	label?: string;
 	checked?: boolean | 'indeterminate' | (string | number)[];
 };
 

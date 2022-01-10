@@ -29,7 +29,7 @@ export const HeaderBar = styled.div.attrs({
 `;
 export const Item = styled.span.attrs({
 	className: 'header-bar__item',
-})<{ freeze: boolean }>`
+})<{ freeze?: boolean }>`
 	padding: 0 1.5rem;
 	transition: ${tokens.transitions.fast};
 
@@ -95,7 +95,7 @@ export const Item = styled.span.attrs({
 `;
 export const Logo = styled(Item).attrs({
 	className: 'header-bar__logo',
-})<{ full: boolean }>`
+})<{ full?: boolean }>`
 	svg {
 		height: ${tokens.sizes.xl};
 		width: ${({ full }) => (full ? '6rem' : tokens.sizes.xl)};

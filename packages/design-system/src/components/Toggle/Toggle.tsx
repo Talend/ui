@@ -12,12 +12,12 @@ export type ToggleProps = ButtonIconProps & {
 const Toggle: React.FC<ToggleProps> = React.forwardRef((props: ToggleProps, ref) => {
 	const [isActive, toggle] = React.useState(props.isActive);
 
-	function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
+	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
 		toggle(!isActive);
 		if (props.onChange) {
 			props.onChange(event);
 		}
-	}
+	};
 
 	return (
 		<S.Toggle

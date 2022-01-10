@@ -1,5 +1,15 @@
 # @talend/react-datagrid
 
+## 6.37.1
+
+### Patch Changes
+
+- ac1ecd682: fix(DataGrid): Local state is updated on click in controlled mode
+- 4739b74a0: fix(DataGrid): Scroll to controlled focused column
+- Updated dependencies [4b5392adf]
+- Updated dependencies [26ca9781d]
+  - @talend/react-components@6.43.1
+
 ## 6.37.0
 
 ### Minor Changes

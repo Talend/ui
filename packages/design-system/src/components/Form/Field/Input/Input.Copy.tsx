@@ -7,18 +7,29 @@ import Text from './Input.Text';
 import { InputProps } from './Input';
 
 const InputCopy = React.forwardRef(
-	({ label, disabled, readOnly, ...rest }: InputProps, ref: React.Ref<HTMLInputElement | null>) => {
-		const [state, copyToClipboard] = useCopyToClipboard();
+	({ label, disabled, readOnly, value, defaultValue,...rest }: InputProps, ref: React.Ref<HTMLInputElement | null>) => {
+		const [{value: copiedValue, error: copyError}, copyToClipboard] = useCopyToClipboard();
 		const inputRef = React.useRef<HTMLInputElement | null>(null);
 		const { t } = useTranslation();
+		const inputValue = value || defaultValue;
 
 		React.useImperativeHandle(ref, () => inputRef.current);
+
+		const getDescriptionMessage = () => {
+			if(copyError) {
+				return copyError.message;
+			} else if (copiedValue && copiedValue === inputValue) {
+				return t('FORM_COPY_COPIED_TO_CLIPBOARD', 'Copied to clipboard')
+			} else {
+				return '';
+			}
+		};
 
 		return (
 			<FieldGroup
 				label={label}
 				suffix={
-					!readOnly && (
+					!readOnly ? (
 						<Button.Icon
 							icon="talend-files-o"
 							onClick={() => copyToClipboard(inputRef.current?.value || '')}
@@ -26,17 +37,23 @@ const InputCopy = React.forwardRef(
 						>
 							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
 						</Button.Icon>
-					)
+					) : undefined
 				}
 				readOnly={!disabled}
 				disabled={!!disabled}
-				hasError={!!state.error}
-				hasSuccess={!!state.value}
-				description={state.error ? state.error.message : state.value && t('FORM_COPY_COPIED_TO_CLIPBOARD', 'Copied to clipboard')}
+				hasError={!!copyError}
+				hasSuccess={!!copiedValue}
+				description={getDescriptionMessage()}
 			>
 				{/*
 				// @ts-ignore */}
-				<Text {...rest} label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')} ref={inputRef} />
+				<Text
+					{...rest}
+					value={value}
+					defaultValue={defaultValue}
+					label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
+					ref={inputRef}
+				/>
 			</FieldGroup>
 		);
 	},

@@ -1,5 +1,23 @@
 # @talend/design-system
 
+## 1.12.0
+
+### Minor Changes
+
+- 245549f9a: Added Stack components
+
+### Patch Changes
+
+- 2f14d3d67: fix(design-system): ts errors
+- ceb169f1a: fix(design-system): build using design tokens
+- e0721c1fe: Removing unused tokens
+
+## 1.11.3
+
+### Patch Changes
+
+- 8a540fc3f: fix(i18n): avoid hardcoded string in DS components
+
 ## 1.11.2
 
 ### Patch Changes

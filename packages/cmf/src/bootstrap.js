@@ -18,6 +18,7 @@ import sagas from './sagas';
 import { registerInternals } from './register';
 import cmfModule from './cmfModule';
 import interceptors from './httpInterceptors';
+import { handleSagaComponent } from './components/Saga';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);
@@ -50,6 +51,7 @@ export function bootstrapRegistry(options) {
 export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
+		yield spawn(handleSagaComponent);
 		yield spawn(sagas.component.handle);
 		if (typeof options.saga === 'function') {
 			yield spawn(options.saga);

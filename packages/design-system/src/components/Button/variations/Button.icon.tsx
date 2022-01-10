@@ -9,7 +9,9 @@ export type ButtonIconProps = Omit<ButtonProps, 'small'> & {
 	icon: IconName | React.ReactElement;
 };
 
-const button: StyledFunction<React.FC<ButtonIconProps>> = styled(ButtonSecondary);
+const button: StyledFunction<React.FC<ButtonIconProps>> = styled(
+	ButtonSecondary as React.FC<ButtonIconProps>,
+);
 
 const ButtonIcon: React.FC<ButtonIconProps> = button.attrs({
 	className: 'btn--icon',
