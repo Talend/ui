@@ -27,6 +27,12 @@ module.exports = {
 		modernInlineRender: true,
 		previewCsfV3: true,
 	},
+	refs: {
+		'design-tokens': {
+			title: 'Design Tokens',
+			url: '/design-tokens',
+		},
+	},
 	stories: [
 		'../src/Welcome.stories.@(js|tsx|mdx)',
 		'../src/GettingStarted.stories.@(js|tsx|mdx)',

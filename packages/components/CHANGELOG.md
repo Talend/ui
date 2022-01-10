@@ -1,5 +1,20 @@
 # @talend/react-components
 
+## 6.43.0
+
+### Minor Changes
+
+- 085d0d3a4: feat(Inject): Support components as props when not cmfConnected
+
+### Patch Changes
+
+- de74c0e04: fix(components/Toggle): Default class
+- Updated dependencies [583ac0059]
+- Updated dependencies [c73332a32]
+- Updated dependencies [0b8fd0d5c]
+  - @talend/design-system@1.11.2
+  - @talend/utils@2.1.0
+
 ## 6.42.1
 
 ### Patch Changes

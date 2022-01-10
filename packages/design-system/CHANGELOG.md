@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 1.11.2
+
+### Patch Changes
+
+- 583ac0059: fix(buttons): busy buttons should have a regular cursor
+- 0b8fd0d5c: fix(design-system/Link): The title "open in a new tab" should be related to the target attribute and not the detection of external link
+
 ## 1.11.1
 
 ### Patch Changes

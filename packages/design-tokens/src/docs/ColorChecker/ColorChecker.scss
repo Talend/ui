@@ -1,0 +1,15 @@
+.colorChecker {
+	display: inline-block;
+	padding-inline: 0.5rem;
+	width: fit-content;
+	color: white;
+	border-radius: 9999px;
+
+	&OK {
+		background: forestgreen;
+	}
+
+	&KO {
+		background: darkred;
+	}
+}

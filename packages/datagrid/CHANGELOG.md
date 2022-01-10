@@ -1,5 +1,17 @@
 # @talend/react-datagrid
 
+## 6.37.0
+
+### Minor Changes
+
+- e60cea8e1: feat(DataGrid): Set focused column from props
+
+### Patch Changes
+
+- Updated dependencies [085d0d3a4]
+- Updated dependencies [de74c0e04]
+  - @talend/react-components@6.43.0
+
 ## 6.36.5
 
 ### Patch Changes

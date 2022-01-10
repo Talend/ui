@@ -108,10 +108,20 @@ export default class DataGrid extends React.Component {
 			console.warn('DEPRECATED: forceRedrawRows is deprecated');
 			this.gridAPI.redrawRows();
 		}
+
+		if (
+			this.props.focusedColumnId !== prevProps.focusedColumnId &&
+			this.props.focusedColumnId !== this.currentColId
+		) {
+			this.onFocusedColumn(this.props.focusedColumnId);
+		}
 	}
 
 	onGridReady({ api }) {
 		this.gridAPI = api;
+		if (this.props.focusedColumnId && this.props.focusedColumnId !== this.currentColId) {
+			this.onFocusedColumn(this.props.focusedColumnId);
+		}
 	}
 
 	onFocusedCell(props) {
