@@ -1,5 +1,5 @@
 {
-  "name": "react-flow-designer",
+  "name": "@talend/react-flow-designer",
   "description": "Flow designer for react and redux",
   "version": "4.2.3",
   "main": "lib/index.js",
