@@ -6,6 +6,12 @@ import { mount } from 'enzyme';
 import mergeModules from '../src/cmfModule.merge';
 
 describe('mergeModule', () => {
+	beforeEach(() => {
+		global.console = {
+			log: jest.fn(),
+			warn: jest.fn(),
+		};
+	});
 	it('should merge components config', () => {
 		const a = {
 			components: {

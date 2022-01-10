@@ -1,5 +1,5 @@
 import { spawn, takeEvery, cancel } from 'redux-saga/effects';
-import { createMockTask } from 'redux-saga/utils';
+import { createMockTask } from '@redux-saga/testing-utils';
 import registry from '../../src/registry';
 import { onSagaStart, handle } from '../../src/sagas/component';
 import CONST from '../../src/constant';
@@ -23,9 +23,9 @@ describe('sagas.component', () => {
 		// then
 		expect(gen.next().value).toEqual(spawn(saga, { componentId: 'myComponent' }));
 		const next = gen.next(task).value;
-		expect(next.TAKE).toBeDefined();
+		expect(next.payload).toBeDefined();
 		expect(
-			next.TAKE.pattern({
+			next.payload.pattern({
 				type: `${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`,
 				event: {
 					componentId: 41,
@@ -33,7 +33,7 @@ describe('sagas.component', () => {
 			}),
 		).toBeFalsy();
 		expect(
-			next.TAKE.pattern({
+			next.payload.pattern({
 				type: `${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga2`,
 				event: {
 					componentId: 42,
@@ -41,7 +41,7 @@ describe('sagas.component', () => {
 			}),
 		).toBeFalsy();
 		expect(
-			next.TAKE.pattern({
+			next.payload.pattern({
 				type: `${CONST.WILL_UNMOUNT_SAGA_STOP}_my-saga`,
 				event: {
 					componentId: 42,
@@ -70,7 +70,7 @@ describe('sagas.component', () => {
 		// then
 		expect(gen.next().value).toEqual(spawn(saga, { componentId: 'myComponent' }));
 		const next = gen.next(task).value;
-		expect(next.TAKE).toBeDefined();
+		expect(next.payload).toBeDefined();
 		expect(gen.next({ event: { componentId: 42 } }).value).toEqual(cancel(task));
 	});
 

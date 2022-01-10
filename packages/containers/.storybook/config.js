@@ -1,3 +1,4 @@
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 import React from 'react';
 import { storiesOf, configure, addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
