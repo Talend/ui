@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import expressions from '../../src/expressions';
-import {mock} from '../../src';
+import { mock } from '../../src';
 
 describe('expressions', () => {
 	it('should export some expressions', () => {

@@ -12,6 +12,9 @@ describe('mergeModule', () => {
 			warn: jest.fn(),
 		};
 	});
+	afterAll(() => {
+		console.log('test ####');
+	});
 	it('should merge components config', () => {
 		const a = {
 			components: {

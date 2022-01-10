@@ -2,8 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { generateDefaultViewId, mapStateToViewProps, WaitForSettings } from '../src/settings';
-import {mock} from '../src';
-
+import { mock } from '../src';
 
 describe('settings', () => {
 	describe('mapStateToViewProps', () => {
@@ -18,14 +17,24 @@ describe('settings', () => {
 			const state = mock.store.state();
 			state.cmf.settings.props.MyComponent = { foo: 'bar' };
 			state.cmf.settings.props['MyComponent#my-component-id'] = { foo: 'baz' };
-			const props = mapStateToViewProps(state, { view: undefined }, 'MyComponent', 'my-component-id');
+			const props = mapStateToViewProps(
+				state,
+				{ view: undefined },
+				'MyComponent',
+				'my-component-id',
+			);
 			expect(props.foo).toBe('baz');
 		});
 		it('should apply default props from displayName and componentId without HOC', () => {
 			const state = mock.store.state();
 			state.cmf.settings.props.MyComponent = { foo: 'bar' };
 			state.cmf.settings.props['MyComponent#my-component-id'] = { foo: 'baz' };
-			const props = mapStateToViewProps(state, { view: undefined }, 'Translate(Container(MyComponent))', 'my-component-id');
+			const props = mapStateToViewProps(
+				state,
+				{ view: undefined },
+				'Translate(Container(MyComponent))',
+				'my-component-id',
+			);
 			expect(props.foo).toBe('baz');
 		});
 	});
@@ -43,9 +52,7 @@ describe('settings', () => {
 		});
 
 		it('return componentName if the only given parameter', () => {
-			expect(generateDefaultViewId(undefined, 'componentName')).toBe(
-				'componentName',
-			);
+			expect(generateDefaultViewId(undefined, 'componentName')).toBe('componentName');
 		});
 
 		it('return undefined if all parameter are undefined', () => {
@@ -61,7 +68,7 @@ describe('settings', () => {
 			const state = mock.store.state();
 			const wrapper = mount(<WaitForSettings>Hello</WaitForSettings>, {
 				wrappingComponent: Provider,
-				wrappingComponentProps: { store: mock.store.store(state), },
+				wrappingComponentProps: { store: mock.store.store(state) },
 			});
 			expect(wrapper.text()).toBe('loading');
 		});
@@ -70,7 +77,7 @@ describe('settings', () => {
 			const state = mock.store.state();
 			const wrapper = mount(<WaitForSettings loading={AppLoader}>Hello</WaitForSettings>, {
 				wrappingComponent: Provider,
-				wrappingComponentProps: { store: mock.store.store(state), },
+				wrappingComponentProps: { store: mock.store.store(state) },
 			});
 			expect(wrapper.text()).not.toBe('loading');
 			expect(wrapper.text()).toBe('custom loader');
@@ -80,7 +87,7 @@ describe('settings', () => {
 			state.cmf.settings.initialized = true;
 			const wrapper = mount(<WaitForSettings>Hello</WaitForSettings>, {
 				wrappingComponent: Provider,
-				wrappingComponentProps: { store: mock.store.store(state), },
+				wrappingComponentProps: { store: mock.store.store(state) },
 			});
 			expect(wrapper.text()).not.toBe('loading');
 			expect(wrapper.text()).toBe('Hello');

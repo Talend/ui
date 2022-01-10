@@ -4,6 +4,27 @@ import { Provider } from 'react-redux';
 import { RegistryProvider } from '../RegistryProvider';
 import mock from './store';
 
+class ErrorBoundary extends React.Component {
+	static propTypes = {
+		children: PropTypes.any,
+		onError: PropTypes.func,
+	};
+
+	componentDidCatch(error, errorInfo) {
+		if (this.props.onError) {
+			this.props.onError(error, errorInfo);
+		}
+		this.setState({ hasError: true });
+	}
+
+	render() {
+		if (this.state && this.state.hasError) {
+			return <div className="error">Error</div>;
+		}
+		return this.props.children;
+	}
+}
+
 const store = mock.store();
 /**
  * This component help you to mock the provider.
@@ -40,7 +61,6 @@ function MockProvider(props) {
 		store: st,
 		registry: props.registry || {},
 	};
-
 	return (
 		<div className="mock-provider">
 			<Provider store={context.store}>
@@ -61,5 +81,6 @@ MockProvider.getEnzymeOption = context => ({
 	wrappingComponent: MockProvider,
 	wrappingComponentProps: context,
 });
+MockProvider.ErrorBoundary = ErrorBoundary;
 
 export default MockProvider;

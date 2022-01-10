@@ -1,5 +1,5 @@
 import actionAPI from '../src/action';
-import {mock} from '../src';
+import { mock } from '../src';
 
 describe('CMF action', () => {
 	let state;
