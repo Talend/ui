@@ -1,7 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { fromJS, Map } from 'immutable';
 import { mock } from '@talend/react-cmf';
+import { mount } from 'enzyme';
 
 import Container from './ConfirmDialog.container';
 import Connected, { mapStateToProps } from './ConfirmDialog.connect';
@@ -20,8 +20,11 @@ describe('Container ConfirmDialog', () => {
 			show: true,
 			children: 'Confirm this !',
 		});
-		const instance = new Container({ state });
-		expect(instance.render()).toBe(null);
+		const wrapper = mount(
+			<Container state={state} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
+		expect(wrapper.instance()).toBe(null);
 	});
 	it('should render', () => {
 		const state = new Map({
@@ -33,15 +36,11 @@ describe('Container ConfirmDialog', () => {
 			cancelAction: 'menu:demo',
 			model: { foo: 'bar' },
 		});
-		const { Provider } = mock;
-		const wrapper = renderer
-			.create(
-				<Provider>
-					<Container state={state} />,
-				</Provider>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+		const wrapper = mount(
+			<Container state={state} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 });
 
