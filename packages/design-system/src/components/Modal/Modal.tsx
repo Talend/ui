@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDialogState, DialogProps, Dialog as ReakitDialog } from 'reakit';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
 import { Icon } from '../Icon';
@@ -14,26 +15,27 @@ export type ModalProps = DialogProps & {
 	onValidate?: () => void;
 };
 
-const Modal = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>(
+const Modal = React.forwardRef(
 	(
 		{ disclosure, children, icon, title, subtitle, onClose, onValidate, ...props }: ModalProps,
-		ref,
+		ref: React.Ref<HTMLDivElement>,
 	) => {
 		const dialog = useDialogState({ animated: true });
+		const { t } = useTranslation();
 
-		function onCloseHandler() {
+		const onCloseHandler = () => {
 			dialog.hide();
 			if (onClose) {
 				onClose();
 			}
-		}
+		};
 
-		function onValidateHandler() {
+		const onValidateHandler = () => {
 			if (onValidate) {
 				onValidate();
 			}
 			dialog.hide();
-		}
+		};
 
 		return (
 			<>
@@ -53,8 +55,12 @@ const Modal = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>
 						</S.DialogHeading>
 						{children}
 						<S.DialogButtons>
-							<Button.Secondary onClick={onCloseHandler}>Cancel</Button.Secondary>
-							<Button.Primary onClick={onValidateHandler}>Validate</Button.Primary>
+							<Button.Secondary onClick={onCloseHandler}>
+								{t('MODAL_CANCEL', 'Cancel')}
+							</Button.Secondary>
+							<Button.Primary onClick={onValidateHandler}>
+								{t('MODAL_VALIDATE', 'Validate')}
+							</Button.Primary>
 						</S.DialogButtons>
 					</ReakitDialog>
 				</S.DialogBackdrop>

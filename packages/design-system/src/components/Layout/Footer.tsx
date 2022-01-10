@@ -1,18 +1,18 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
-export type FooterProps = {
-	children?: ReactElement[];
-};
+export type FooterProps = React.PropsWithChildren<any>;
 
 const SFooter = styled.div`
 	display: flex;
 	margin: 0 auto;
 `;
 
-const Header: React.FC<FooterProps> = ({ children, ...rest }) => {
+const Footer = React.forwardRef(({ children, ...rest }: FooterProps, ref: React.Ref<any>) => {
+	const { t } = useTranslation();
 	return (
-		<SFooter {...rest}>
+		<SFooter {...rest} ref={ref}>
 			<ul className="footer__links">
 				{children?.map((link: ReactElement, index: number) => (
 					<li className="footer__links-item" key={index}>
@@ -21,10 +21,13 @@ const Header: React.FC<FooterProps> = ({ children, ...rest }) => {
 				))}
 			</ul>
 			<span className="footer__copyright">
-				© {new Date().getFullYear()} Talend. All rights reserved.
+				{t('FOOTER_COPYRIGHT', {
+					defaultValue: '© {{year}} Talend. All rights reserved.',
+					year: new Date().getFullYear(),
+				})}
 			</span>
 		</SFooter>
 	);
-};
+});
 
-export default Header;
+export default Footer;

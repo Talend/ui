@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@storybook/addons": "^6.4.9",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.8.1"
   },
   "peerDependencies": {
     "@talend/react-cmf": "^6.0.0",

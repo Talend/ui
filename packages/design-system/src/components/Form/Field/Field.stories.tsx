@@ -1,7 +1,11 @@
 import React from 'react';
 
-import Form from '../';
+import Form from '..';
 import Link from '../../Link';
+
+export default {
+	component: Form.Text,
+};
 
 export const FormFieldError = () => (
 	<Form.Text

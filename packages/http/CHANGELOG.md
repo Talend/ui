@@ -1,5 +1,11 @@
 # @talend/http
 
+## 1.2.0
+
+### Minor Changes
+
+- 22d4687f3: Expose request statuses
+
 ## 1.1.6
 
 ### Patch Changes

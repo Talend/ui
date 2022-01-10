@@ -5,7 +5,12 @@ import Template from '../templates';
 import Footer from './blocks/Footer';
 import SignupCTA from './blocks/SignupCTA';
 
-const Login = ({ title, children }) => (
+interface Props {
+	title: string;
+	children: React.ReactChild;
+}
+
+const Login = ({ title, children }: Props) => (
 	<Template.Card title={title} footer={<Footer />}>
 		<>
 			{children}

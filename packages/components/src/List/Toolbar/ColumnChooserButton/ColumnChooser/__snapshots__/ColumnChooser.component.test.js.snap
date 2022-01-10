@@ -44,7 +44,7 @@ exports[`ColumnChooser should render with default props 1`] = `
     >
       <div class="tc-column-chooser-body theme-tc-column-chooser-body">
         <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
-          <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+          <div class="checkbox tc-checkbox">
             <label for="my-id-body-checkbox-Select-All"
                    data-feature="column-chooser.select.all.enable"
             >
@@ -66,7 +66,7 @@ exports[`ColumnChooser should render with default props 1`] = `
         </div>
         <div class="tc-column-chooser-columns-list theme-tc-column-chooser-columns-list">
           <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-            <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+            <div class="checkbox tc-checkbox">
               <label for="my-id-body-checkbox-Id"
                      data-feature="column-chooser.select.disable"
               >
@@ -88,7 +88,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             </div>
           </div>
           <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-            <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+            <div class="checkbox tc-checkbox">
               <label for="my-id-body-checkbox-Name"
                      data-feature="column-chooser.select.disable"
               >
@@ -110,7 +110,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             </div>
           </div>
           <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-            <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+            <div class="checkbox tc-checkbox">
               <label for="my-id-body-checkbox-Author"
                      data-feature="column-chooser.select.disable"
               >
@@ -132,7 +132,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             </div>
           </div>
           <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-            <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+            <div class="checkbox tc-checkbox">
               <label for="my-id-body-checkbox-Very-long-name-long-name-long-name-long-name-long-name"
                      data-feature="column-chooser.select.disable"
               >
@@ -154,7 +154,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             </div>
           </div>
           <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-            <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+            <div class="checkbox tc-checkbox">
               <label for="my-id-body-checkbox-Icon"
                      data-feature="column-chooser.select.enable"
               >
@@ -175,7 +175,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             </div>
           </div>
           <div class="tc-column-chooser-row theme-tc-column-chooser-row">
-            <div class="checkbox tc-toggle switch checkbox theme-tc-toggle checkbox">
+            <div class="checkbox tc-checkbox">
               <label for="my-id-body-checkbox-Created"
                      data-feature="column-chooser.select.disable"
               >

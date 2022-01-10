@@ -30,10 +30,10 @@ export class HeaderResizable extends React.Component {
 	};
 
 	setResizing = resizing => () => {
-		this.setState({
-			...this.state,
+		this.setState(state => ({
+			...state,
 			resizing,
-		});
+		}));
 	};
 
 	getDeltaFromKeyCode = event => {

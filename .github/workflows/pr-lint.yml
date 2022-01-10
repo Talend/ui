@@ -63,3 +63,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: "chore: apply prettier on modified files"
+          branch: ${{ github.head_ref }}

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 import { StepperProps } from '../components/Stepper/Stepper';
-import { tokens } from '../../lib';
 
 export type StepByStepProps = PropsWithChildren<any> & {
 	header?: React.ReactElement;

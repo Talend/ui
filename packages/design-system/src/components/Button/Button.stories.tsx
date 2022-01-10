@@ -12,15 +12,6 @@ export default {
 	},
 };
 
-export const defaultProps = {
-	onClick: () => {},
-	children: 'Button contents',
-	disabled: false,
-	focusable: true,
-	small: false,
-	icon: '',
-};
-
 export const Primary = (props: Story) => {
 	return <Button.Primary {...props}>Basic Button</Button.Primary>;
 };
@@ -207,14 +198,14 @@ export const IconAsLink = (props: Story) => {
 	);
 };
 
-export const SkeletonButton = (props: Story) => {
-	return <Skeleton.Button {...props} />;
+export const SkeletonButton = () => {
+	return <Skeleton.Button />;
 };
-export const SkeletonButtonSmall = (props: Story) => {
-	return <Skeleton.Button small {...props} />;
+export const SkeletonButtonSmall = () => {
+	return <Skeleton.Button />;
 };
-export const SkeletonButtonIcon = (props: Story) => {
-	return <Skeleton.Icon {...props} />;
+export const SkeletonButtonIcon = () => {
+	return <Skeleton.Icon />;
 };
 
 export const TooltipButton = (props: Story) => (

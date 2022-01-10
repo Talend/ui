@@ -1,5 +1,20 @@
 # @talend/react-components
 
+## 6.43.2
+
+### Patch Changes
+
+- b2e5903e4: fix(components): Toggle should reuse Checkbox
+
+## 6.43.1
+
+### Patch Changes
+
+- 4b5392adf: fix: remove margin on typehead
+- 26ca9781d: fix(components): style for multiselect component
+- Updated dependencies [8a540fc3f]
+  - @talend/design-system@1.11.3
+
 ## 6.43.0
 
 ### Minor Changes

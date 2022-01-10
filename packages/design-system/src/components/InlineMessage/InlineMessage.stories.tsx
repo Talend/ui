@@ -1,14 +1,25 @@
 import React from 'react';
-import InlineMessage from './InlineMessage';
+import InlineMessage from '.';
 import Link from '../Link';
 
-export const render = ({ variant, ...rest }) => {
-	const Component = InlineMessage[variant] || InlineMessage;
-	Component.displayName = variant ? `InlineMessage.${variant}` : 'InlineMessage';
-	return <Component {...rest} />;
+export default { component: InlineMessage };
+
+const render = ({ variant, ...rest }: { variant: keyof typeof InlineMessage }) => {
+	switch (variant) {
+		case 'Information':
+			return <InlineMessage.Information {...rest} />;
+		case 'Success':
+			return <InlineMessage.Success {...rest} />;
+		case 'Warning':
+			return <InlineMessage.Warning {...rest} />;
+		case 'Destructive':
+			return <InlineMessage.Destructive {...rest} />;
+		default:
+			return null;
+	}
 };
 
-export const defaultProps = {
+const defaultProps = {
 	title: 'Lorem ipsum',
 	description:
 		'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
