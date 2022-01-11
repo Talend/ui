@@ -6,11 +6,18 @@ import { mount } from 'enzyme';
 import mergeModules from '../src/cmfModule.merge';
 
 describe('mergeModule', () => {
+	// eslint-disable-next-line no-console
+	const originalLog = console;
 	beforeEach(() => {
+		// eslint-disable-next-line no-console
 		global.console = {
-			log: jest.fn(),
 			warn: jest.fn(),
+			log: jest.fn(),
 		};
+	});
+	afterEach( () => {
+		// eslint-disable-next-line no-console
+		global.console = originalLog;
 	});
 	afterAll(() => {
 		console.log('test ####');
