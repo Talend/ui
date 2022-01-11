@@ -238,7 +238,7 @@ export default function cmfConnect({
 			const [instanceId] = React.useState(uuidv4());
 			const registry = React.useContext(RegistryContext);
 			const store = useStore();
-			// const store = React.useContext(ReactReduxContext).store;
+
 			function dispatchActionCreator(actionCreatorId, event, data, extraContext) {
 				const extendedContext = { registry, store, ...extraContext };
 				props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
