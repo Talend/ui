@@ -25,7 +25,7 @@ import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { connect, ReactReduxContext } from 'react-redux';
+import { connect, ReactReduxContext, useStore } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import actions from './actions';
 import actionCreator from './actionCreator';
@@ -237,7 +237,8 @@ export default function cmfConnect({
 		function CMFContainer(props) {
 			const [instanceId] = React.useState(uuidv4());
 			const registry = React.useContext(RegistryContext);
-			const store = React.useContext(ReactReduxContext);
+			const store = useStore();
+			// const store = React.useContext(ReactReduxContext).store;
 			function dispatchActionCreator(actionCreatorId, event, data, extraContext) {
 				const extendedContext = { registry, store, ...extraContext };
 				props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
