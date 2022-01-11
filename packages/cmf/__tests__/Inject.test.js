@@ -30,7 +30,6 @@ describe('Inject', () => {
 		// given
 		const MyComponent = jest.fn();
 		MyComponent.displayName = 'MyComponent';
-		// const context = { registry: {} };
 		const Provider = mock.Provider;
 
 		// when
