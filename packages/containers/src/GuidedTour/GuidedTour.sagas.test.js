@@ -6,7 +6,6 @@ describe('Guided Tour sagas', () => {
 		const gen = show();
 
 		const effect = gen.next().value;
-		console.log(effect);
 		const expected = Connected.setStateAction({ show: true });
 		expect(effect.payload.action).toEqual(expected);
 		expect(gen.next().done).toBe(true);
