@@ -8,7 +8,7 @@
 '@talend/react-sagas': major
 '@talend/react-stepper': major
 '@talend/react-storybook-cmf': major
-'react-flow-designer': major
+'@talend/react-flow-designer': major
 ---
 
 Redux major upgrade with saga
