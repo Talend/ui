@@ -25,7 +25,7 @@ import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { connect, ReactReduxContext, useStore } from 'react-redux';
+import { connect, useStore } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import actions from './actions';
 import actionCreator from './actionCreator';
