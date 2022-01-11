@@ -1,14 +1,13 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { IconsProvider } from '../../IconsProvider';
-import { FigmaImage, FigmaLink, GitHubLink, Links } from '~docs';
+import { FigmaImage } from '~docs';
 import Step from '../Step';
 
-<Meta title="Components/Stepper/Step" component={Step} />
-
-<Links>
-	<FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A4" />
-	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Stepper/Step" />
-</Links>
+<Meta
+	title="Components/Stepper/Step"
+	component={Step}
+	parameters={{ figmaLink: 'https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A4' }}
+/>
 
 <IconsProvider
 	bundles={['https://statics-dev.cloud.talend.com/@talend/icons/6.7.0/dist/svg-bundle/all.svg']}

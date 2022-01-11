@@ -1,14 +1,16 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
-import { FigmaImage, FigmaLink, Use } from '~docs';
+import { FigmaImage, Use } from '~docs';
 
 import Accordion from '../';
 import Button from '../../Button';
 
-<Meta title="Components/Accordion" />
-
-<FigmaLink href="https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion" />
+<Meta
+	title="Components/Accordion"
+    component={Accordion}
+    parameters={{ figmaLink: 'https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion' }}
+/>
 
 # Accordion
 
@@ -68,25 +70,23 @@ A scrollbar is added in the content after exceeding `37rem`.
 				massa, venenatis posuere risus feugiat nec. Praesent et egestas tortor, in laoreet tellus.
 				Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
 				dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
-				libero sagittis sit amet.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue augue, fringilla non
-				est at, eleifend sollicitudin turpis. Ut a pretium velit, quis imperdiet lacus. Cras sed
-				imperdiet lacus, non convallis felis. Proin nulla nunc, pharetra id hendrerit eget,
-				condimentum eget orci. Mauris eleifend augue sit amet elit feugiat, venenatis aliquet ante
-				pretium. Sed mi diam, scelerisque id diam quis, aliquam bibendum lacus. Sed tempor neque
-				massa, venenatis posuere risus feugiat nec. Praesent et egestas tortor, in laoreet tellus.
-				Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
-				dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
-				libero sagittis sit amet.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue augue, fringilla non
-                est at, eleifend sollicitudin turpis. Ut a pretium velit, quis imperdiet lacus. Cras sed
-                imperdiet lacus, non convallis felis. Proin nulla nunc, pharetra id hendrerit eget,
-                condimentum eget orci. Mauris eleifend augue sit amet elit feugiat, venenatis aliquet ante
-                pretium. Sed mi diam, scelerisque id diam quis, aliquam bibendum lacus. Sed tempor neque
-                massa, venenatis posuere risus feugiat nec. Praesent et egestas tortor, in laoreet tellus.
-                Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae porta justo. Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit. Donec placerat felis felis, vitae volutpat
-                libero sagittis sit amet.
+				libero sagittis sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+				augue augue, fringilla non est at, eleifend sollicitudin turpis. Ut a pretium velit, quis
+				imperdiet lacus. Cras sed imperdiet lacus, non convallis felis. Proin nulla nunc, pharetra
+				id hendrerit eget, condimentum eget orci. Mauris eleifend augue sit amet elit feugiat,
+				venenatis aliquet ante pretium. Sed mi diam, scelerisque id diam quis, aliquam bibendum
+				lacus. Sed tempor neque massa, venenatis posuere risus feugiat nec. Praesent et egestas
+				tortor, in laoreet tellus. Nullam dignissim faucibus euismod. Duis ac accumsan dolor, vitae
+				porta justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat felis
+				felis, vitae volutpat libero sagittis sit amet. Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Fusce augue augue, fringilla non est at, eleifend sollicitudin turpis. Ut a
+				pretium velit, quis imperdiet lacus. Cras sed imperdiet lacus, non convallis felis. Proin
+				nulla nunc, pharetra id hendrerit eget, condimentum eget orci. Mauris eleifend augue sit
+				amet elit feugiat, venenatis aliquet ante pretium. Sed mi diam, scelerisque id diam quis,
+				aliquam bibendum lacus. Sed tempor neque massa, venenatis posuere risus feugiat nec.
+				Praesent et egestas tortor, in laoreet tellus. Nullam dignissim faucibus euismod. Duis ac
+				accumsan dolor, vitae porta justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Donec placerat felis felis, vitae volutpat libero sagittis sit amet.
 			</Accordion.Item>
 			<Accordion.Item
 				disclosure={

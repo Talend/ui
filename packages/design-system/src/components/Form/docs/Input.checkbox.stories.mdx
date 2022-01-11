@@ -1,16 +1,17 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
-import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '~docs';
+import { FigmaIframe, FigmaImage, Use } from '~docs';
 import InlineMessage from '../../InlineMessage';
 import Button from '../../Button';
 import Form from '../';
 import { useForm } from 'react-hook-form';
 
-<Meta title="Components/Form/Fields/Checkbox" />
-
-<Links>
-	<FigmaLink href="https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=0%3A1" />
-	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Form/Field/Input" />
-</Links>
+<Meta
+	title="Components/Form/Fields/Checkbox"
+	component={Form.Checkbox}
+	parameters={{
+		figmaLink: 'https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=0%3A1',
+	}}
+/>
 
 # Checkbox
 
@@ -143,7 +144,6 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 		}}
 	</Story>
 </Canvas>
-
 
 ## Content
 

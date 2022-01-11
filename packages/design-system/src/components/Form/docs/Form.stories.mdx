@@ -1,11 +1,16 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaIframe, FigmaImage, FigmaLink } from '~docs';
+import { FigmaIframe, FigmaImage } from '~docs';
+import Form from '../Form';
 import * as stories from '../Form.stories';
 import { Confirm } from '../../Modal/Modal.stories';
 
-<Meta title="Components/Form/Form" />
-
-<FigmaLink href="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=58%3A0" />
+<Meta
+	title="Components/Form/Form"
+	component={Form}
+	parameters={{
+		figmaLink: 'https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=58%3A0',
+	}}
+/>
 
 # Form
 

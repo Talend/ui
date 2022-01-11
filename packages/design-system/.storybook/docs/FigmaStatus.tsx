@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import tokens from '@talend/design-tokens';
+
+import Link from './Link';
+import { Status, toEmoji } from './Statuses';
 
 const FigmaIcon = React.memo(() => (
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -33,45 +34,14 @@ const FigmaIcon = React.memo(() => (
 	</svg>
 ));
 
-const Link = styled.a.attrs({
-	target: '_blank',
-	rel: 'noopener noreferrer',
-})`
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	float: right;
-	cursor: pointer;
-	padding: 0.8rem;
-	color: ${tokens.coralColorAccentText};
-	border: 1px solid ${tokens.coralColorAccentBorder};
-	border-radius: ${tokens.coralRadiusS} 0 0 ${tokens.coralRadiusS};
-
-	&:hover,
-	&:focus {
-		background: ${tokens.coralColorAccentTextHover};
-		background: ${tokens.coralColorAccentBackgroundHover};
-	}
-
-	&:active {
-		color: ${tokens.coralColorAccentTextActive};
-		background: ${tokens.coralColorAccentBackgroundActive};
-	}
-
-	svg {
-		margin-right: 0.5rem;
-		height: 1.6rem;
-		width: 1.6rem;
-	}
-`;
-
-const FigmaLink = (props: React.FunctionComponent) => {
+const FigmaStatus = ({ status, ...props }: React.FunctionComponent & { status?: Status }) => {
 	return (
 		<Link {...props}>
 			<FigmaIcon aria-hidden />
 			<span>Figma</span>
+			{status && <sub>{toEmoji(status)}</sub>}
 		</Link>
 	);
 };
 
-export default React.memo(FigmaLink);
+export default React.memo(FigmaStatus);

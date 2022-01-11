@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { I18nextProvider } from 'react-i18next';
+import { useLocalStorage } from 'react-use';
+
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 
@@ -9,12 +11,12 @@ import { addons } from '@storybook/addons';
 import { DocsContainer } from '@storybook/addon-docs';
 import { UPDATE_GLOBALS, SET_STORIES } from '@storybook/core-events';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
-import { useLocalStorage } from 'react-use';
 
 import 'focus-outline-manager';
 
 import i18n from './i18n';
 
+import { StatusToolbar, FigmaStatus, GitHubStatus, I18nStatus, StorybookStatus } from './docs';
 import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
 
 import { light, dark } from '../src/themes';
@@ -80,9 +82,9 @@ channel.once(SET_STORIES, eventData => {
 	statusByPage = Object.entries(eventData.stories).reduce((acc, [name, { title, parameters }]) => {
 		['components'].forEach(prefix => {
 			if (name.startsWith(prefix)) {
-				const componentName = name.replace(`${prefix}-`, '').split('--')[0];
-				if (!acc[componentName] && parameters.status) {
-					acc[title] = parameters.status;
+				const pageName = name.replace(`${prefix}-`, '').split('--')[0];
+				if (!acc[pageName] && parameters.status) {
+					acc[pageName] = parameters.status;
 				}
 			}
 		});
@@ -100,49 +102,25 @@ export const parameters = {
 				true,
 			);
 
+			const { id, parameters, globals, title } = props.context;
+
 			React.useEffect(() => {
 				channel.emit(UPDATE_GLOBALS, {
 					globals: { theme: hasDarkMode ? 'dark' : 'light' },
 				});
 			}, [hasDarkMode]);
 
-			const {
-				id,
-				name,
-				storyById,
-				componentStories,
-				loadStory,
-				renderStoryToElement,
-				getStoryContext,
-				componentId,
-				kind,
-				story,
-				component,
-				subcomponents,
-				parameters,
-				initialArgs,
-				argTypes,
-				originalStoryFn,
-				undecoratedStoryFn,
-				unboundStoryFn,
-				applyLoaders,
-				playFunction,
-				args,
-				globals,
-				hooks,
-			} = props.context;
-
 			React.useEffect(() => {
-				channel.emit('STATUS_BY_PAGE', statusByPage);
+				channel.emit('SET_STATUSES_BY_PAGE', statusByPage);
 			}, [statusByPage]);
 
+			const { theme } = globals;
 			React.useEffect(() => {
-				const theme = props.context.globals?.theme;
 				const hasDarkModeFromToolbar = theme === 'dark';
 				if (hasDarkModeFromToolbar != hasDarkMode) {
 					setDarkMode(hasDarkModeFromToolbar);
 				}
-			}, [props.context.globals?.theme]);
+			}, [theme]);
 
 			React.useEffect(() => {
 				document
@@ -150,59 +128,41 @@ export const parameters = {
 					.forEach(link => (link.disabled = !hasBootstrapStylesheet));
 			}, [hasBootstrapStylesheet]);
 
-			const title = props.context.title;
 			const titleArray = title?.split('/');
 
 			const docsTitle = title?.replaceAll(/\//gi, ' / ');
 			const docsCategory = titleArray[0];
 
-			const { status = {} } = parameters;
+			const { status = {}, figmaLink } = parameters;
+
+			const githubLink =
+				'https://github.com/Talend/ui/tree/master/packages/design-system/' +
+				parameters.fileName
+					.split('/')
+					.slice(1, parameters.fileName.split('/').length - 1)
+					.join('/')
+					.replace('/docs', '');
 
 			return (
 				<>
-					{status.figma && <span>Figma: {status.figma}</span>}
-					{status.react && <span>React: {status.react}</span>}
-					{status.storybook && <span>Storybook: {status.storybook}</span>}
-					{status.i18n && <span>i18n: {status.i18n}</span>}
-					<a
-						href={
-							'https://github.com/Talend/ui/tree/master/packages/design-system/' +
-							parameters.fileName
-								.split('/')
-								.slice(1, parameters.fileName.split('/').length - 1)
-								.join('/')
-						}
-					>
-						{'https://github.com/Talend/ui/tree/master/packages/design-system/' +
-							parameters.fileName
-								.split('/')
-								.slice(1, parameters.fileName.split('/').length - 1)
-								.join('/')}
-					</a>
 					<Helmet>
 						<title>{docsTitle}</title>
 						<meta property="og:title" content={titleArray[titleArray.length - 1]} />
 						<meta property="og:type" content="article" />
-						<meta
-							property="og:url"
-							content={`https://design.talend.com/?path=/docs/${props.context.id}`}
-						/>
+						<meta property="og:url" content={`https://design.talend.com/?path=/docs/${id}`} />
 						<meta
 							property="og:image"
 							content={`https://via.placeholder.com/1000x500/F3F3F3/FF6D70?text=${docsTitle}`}
 						/>
 						{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
 					</Helmet>
+
 					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-					<ThemeProvider theme={hasDarkMode ? dark : light}>
-						<ThemeProvider.GlobalStyle />
-						<StorybookGlobalStyle hasFigmaIframe={hasFigmaIframe} />
-					</ThemeProvider>
 					<TableOfContents>
 						{['component', 'template', 'page'].find(term =>
 							docsCategory.toLocaleLowerCase().includes(term),
 						) && (
-							<ThemeProvider>
+							<ThemeProvider theme={light}>
 								<Divider />
 								<Form.Switch
 									label={'Dark mode'}
@@ -226,7 +186,24 @@ export const parameters = {
 							</ThemeProvider>
 						)}
 					</TableOfContents>
-					<DocsContainer {...props} />
+
+					{status && (
+						<StatusToolbar>
+							<FigmaStatus status={status.figma} href={figmaLink} />
+							<StorybookStatus status={status.storybook} />
+							<GitHubStatus status={status.react} href={githubLink} />
+							<I18nStatus status={status.i18n} />
+						</StatusToolbar>
+					)}
+
+					<I18nextProvider i18n={i18n}>
+						<ThemeProvider theme={hasDarkMode ? dark : light}>
+							<ThemeProvider.GlobalStyle />
+							<StorybookGlobalStyle hasFigmaIframe={hasFigmaIframe} />
+							<DocsContainer {...props} />
+						</ThemeProvider>
+					</I18nextProvider>
+
 					<BackToTop />
 				</>
 			);
@@ -299,18 +276,25 @@ export const parameters = {
 
 export const decorators = [
 	(Story, context) => {
-		i18n.changeLanguage(context.globals?.locale);
-		const theme = getTheme(context.globals?.theme);
-		return (
+		const { globals = {}, viewMode } = context;
+
+		const { locale: localeKey, theme: themeKey } = globals;
+		if (localeKey) i18n.changeLanguage(localeKey);
+		const theme = getTheme(themeKey);
+
+		const themedStory = (
+			<ThemeProvider theme={theme}>
+				<ThemeProvider.GlobalStyle />
+				<Story {...context} />
+			</ThemeProvider>
+		);
+
+		return viewMode === 'docs' ? (
+			themedStory
+		) : (
 			<I18nextProvider i18n={i18n}>
 				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-				<ThemeProvider theme={theme}>
-					<ThemeProvider.GlobalStyle />
-					<StorybookGlobalStyle />
-					<React.Suspense fallback={null}>
-						<Story {...context} />
-					</React.Suspense>
-				</ThemeProvider>
+				{themedStory}
 			</I18nextProvider>
 		);
 	},

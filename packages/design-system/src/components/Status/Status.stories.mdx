@@ -1,17 +1,16 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '~docs';
+import { FigmaImage } from '~docs';
 import Status from '.';
 import * as Stories from './Status.stories';
 
 <Meta
 	title="Components/Status"
 	component={Status}
-	parameters={{ status: { storybook: 'ok', figma: 'ok', react: 'ok' } }}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'wip' },
+		figmaLink: 'https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A72',
+	}}
 />
-
-<Links>
-	<FigmaLink href="https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A72" />
-</Links>
 
 # Status
 

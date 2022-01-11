@@ -1,11 +1,12 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { FigmaImage, FigmaLink } from '~docs';
+import { FigmaImage } from '~docs';
 import InlineEditing from '.';
 import * as Stories from './InlineEditing.stories';
 
 <Meta
 	title="Components/Inline Editing"
 	component={InlineEditing}
+    parameters={{figmaLink:"https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/?node-id=58%3A0"}}
 	decorators={[
 		Story => (
 			<div style={{ width: '30rem' }}>
@@ -14,8 +15,6 @@ import * as Stories from './InlineEditing.stories';
 		),
 	]}
 />
-
-<FigmaLink href="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/?node-id=58%3A0" />
 
 # Inline Editing
 

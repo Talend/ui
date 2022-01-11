@@ -2725,6 +2725,13 @@
   dependencies:
     core-js "^3.8.2"
 
+"@storybook/core-events@^6.4.9":
+  version "6.4.10"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.10.tgz#b32b74d095f942912330e9b95d39054e1588e0e6"
+  integrity sha512-EPKO4fJJNbQUf6h6ZkiKSRiUr0QL7+0rEBTbwGnrWEXXZhU34unSY9q/ZD8HY9pdrx0ELwGKaRTixMlEqDZ/iA==
+  dependencies:
+    core-js "^3.8.2"
+
 "@storybook/core-server@6.4.9":
   version "6.4.9"
   resolved "https://registry.yarnpkg.com/@storybook/core-server/-/core-server-6.4.9.tgz#593fd4cc21a05c908e0eed20767eb6c9cddad428"
@@ -3283,10 +3290,10 @@
     "@talend/scripts-config-cdn" "^9.10.5"
     requireindex "^1.2.0"
 
-"@talend/locales-design-system@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-1.4.0.tgz#5bf8b4febe90cd1a0d5ce366a320bdf439a3cf11"
-  integrity sha512-DeOkhJQAHH/jCPItdTwFXbRd0udDsiGzJwgju7bN5RayMGFcZPp+35Hv9JQANLb4XE24JisFWktpa0EQocc0Qg==
+"@talend/locales-design-system@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-1.11.3.tgz#208c010402dc93c16d4312137f2f2eb80800d714"
+  integrity sha512-SHCbybJtOE/t1ZBrF6IsDSxBqXc/fUjTCmJ47guEuZnRGgZGbylJgGmRAtVJuuyaNJrdB7d6rNLVewJAfNPG5g==
 
 "@talend/locales-tui-dataviz@^0.4.6":
   version "0.4.6"

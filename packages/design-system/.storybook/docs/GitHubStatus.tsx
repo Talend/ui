@@ -1,6 +1,7 @@
 import React from 'react';
-import tokens from '@talend/design-tokens';
-import styled from 'styled-components';
+
+import Link from './Link';
+import { Status, toEmoji } from './Statuses';
 
 const GitHubIcon = React.memo(() => (
 	<svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 120 120">
@@ -10,45 +11,14 @@ const GitHubIcon = React.memo(() => (
 	</svg>
 ));
 
-const Link = styled.a.attrs({
-	target: '_blank',
-	rel: 'noopener noreferrer',
-})`
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	float: right;
-	cursor: pointer;
-	padding: 0.8rem;
-	color: ${tokens.coralColorAccentText};
-	border: 1px solid ${tokens.coralColorAccentBorder};
-	border-radius: ${tokens.coralRadiusS} 0 0 ${tokens.coralRadiusS};
-
-	&:hover,
-	&:focus {
-		background: ${tokens.coralColorAccentTextHover};
-		background: ${tokens.coralColorAccentBackgroundHover};
-	}
-
-	&:active {
-		color: ${tokens.coralColorAccentTextActive};
-		background: ${tokens.coralColorAccentBackgroundActive};
-	}
-
-	svg {
-		margin-right: 0.5rem;
-		height: 1.6rem;
-		width: 1.6rem;
-	}
-`;
-
-const GitHubLink = (props: React.FunctionComponent) => {
+const GitHubStatus = ({ status, ...props }: React.FunctionComponent & { status?: Status }) => {
 	return (
 		<Link {...props}>
 			<GitHubIcon aria-hidden />
 			<span>GitHub</span>
+			{status && <sub>{toEmoji(status)}</sub>}
 		</Link>
 	);
 };
 
-export default React.memo(GitHubLink);
+export default React.memo(GitHubStatus);

@@ -1,16 +1,17 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
-import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '~docs';
+import { FigmaIframe, FigmaImage, Use } from '~docs';
 import InlineMessage from '../../InlineMessage';
 import Button from '../../Button';
 import Form from '../';
 import { useForm } from 'react-hook-form';
 
-<Meta title="Components/Form/Fields/Radio" />
-
-<Links>
-	<FigmaLink href="https://www.figma.com/file/Ux9flIa7RJXED6xnsajju8/Radio?node-id=1%3A66" />
-	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Form/Field/Input" />
-</Links>
+<Meta
+	title="Components/Form/Fields/Radio"
+	component={Form.Radio}
+	parameters={{
+		figmaLink: 'https://www.figma.com/file/Ux9flIa7RJXED6xnsajju8/Radio?node-id=1%3A66',
+	}}
+/>
 
 # Radio
 

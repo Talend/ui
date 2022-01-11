@@ -1,13 +1,12 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaImage, FigmaLink, GitHubLink, Links, Use } from '~docs';
+import { FigmaImage, Use } from '~docs';
 import Stepper from '../';
 
-<Meta title="Components/Stepper/Stepper" component={Stepper} />
-
-<Links>
-	<FigmaLink href="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A5" />
-	<GitHubLink href="https://github.com/Talend/design-system/tree/master/src/components/Stepper" />
-</Links>
+<Meta
+	title="Components/Stepper/Stepper"
+	component={Stepper}
+	parameters={{ figmaLink: 'https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A5' }}
+/>
 
 # Stepper
 
