@@ -37,6 +37,9 @@ module.exports = (on, config) => {
 			},
 			resolve: {
 				extensions: ['.tsx', '.ts', '.js', '.jsx'],
+				alias: {
+					'~docs': path.resolve(__dirname, '../../.storybook/docs'),
+				},
 			},
 			output: {
 				filename: 'bundle.js',

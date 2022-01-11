@@ -25,7 +25,7 @@ const defaultProps = {
 	children: 'Example',
 };
 
-export const Default = { args: defaultProps, render };
+export const Default = { args: { ...defaultProps } };
 
 export const Information = {
 	args: {

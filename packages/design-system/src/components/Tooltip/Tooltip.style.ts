@@ -14,14 +14,14 @@ export const Tooltip = styled(ReakitTooltip)`
 	font-size: ${tokens.fontSizes.small};
 	border-radius: ${tokens.radii.rectRadius};
 	z-index: ${tokens.zIndices.tooltip};
-	color: ${({ theme }) => theme.colors.tooltipColor};
-	background: ${({ theme }) => theme.colors.tooltipBackgroundColor};
+	color: ${({ theme }) => theme.colors?.tooltipColor};
+	background: ${({ theme }) => theme.colors?.tooltipBackgroundColor};
 `;
 
 export const TooltipReference = styled(ReakitTooltipReference)``;
 
 export const TooltipArrow = styled(ReakitTooltipArrow)`
-	color: ${({ theme }) => theme.colors.tooltipBackgroundColor};
+	color: ${({ theme }) => theme.colors?.tooltipBackgroundColor};
 
 	svg {
 		display: block;
