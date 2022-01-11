@@ -10,7 +10,7 @@
 '@talend/design-system': patch
 '@talend/eslint-config': patch
 '@talend/react-faceted-search': patch
-'react-flow-designer': patch
+'@talend/react-flow-designer': patch
 '@talend/react-forms': patch
 '@talend/json-schema-form-core': patch
 '@talend/react-sagas': patch
