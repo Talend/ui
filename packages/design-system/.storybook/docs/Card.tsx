@@ -10,7 +10,7 @@ const SCard = styled.article`
 	border-radius: 0.4rem;
 	box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.15);
 
-	img {
+	svg {
 		height: 3.2rem;
 		margin-bottom: 1rem;
 	}

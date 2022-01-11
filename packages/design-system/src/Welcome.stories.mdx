@@ -2,7 +2,7 @@ import { Meta } from '@storybook/addon-docs';
 
 import { SearchBar, Card, Grid } from '~docs';
 
-import { DesignTokens, Documentation, Themes } from './WelcomeImages';
+import { DesignTokens, Documentation, Themes } from './Welcome.images';
 
 import Welcome from './Welcome';
 
@@ -25,19 +25,19 @@ import Welcome from './Welcome';
 
 <Grid style={{ margin: '5rem 0' }}>
 	<Card
-		icon={<img src={DesignTokens} alt="" />}
+		icon={<DesignTokens />}
 		title="Design tokens"
 		text="Using variables to ensure better consistency across different platforms."
 		link={<a href="/docs/design-tokens-design-tokens--page">Discover</a>}
 	/>
 	<Card
-		icon={<img src={Documentation} alt="" />}
+		icon={<Documentation />}
 		title="Documentation"
 		text="The guidelines for each components from design specs to their usage."
 		link={<a href="/docs/components-button--primary">Learn more</a>}
 	/>
 	<Card
-		icon={<img src={Themes} alt="" />}
+		icon={<Themes />}
 		title="Themes"
 		text="With Coral it's possible to easily switch themes starting by the dark mode."
 		link={<a href="/docs/themes-themes--page">See more</a>}
