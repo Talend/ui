@@ -9,7 +9,6 @@ import GitHubLink from './GitHubLink';
 import Grid from './Grid';
 import Links from './Links';
 import SearchBar from './SearchBar';
-import Statuses from './Statuses';
 import Table from './Table';
 import Themes from './Themes';
 import Row from './Row';
@@ -31,7 +30,6 @@ export {
 	Links,
 	Row,
 	SearchBar,
-	Statuses,
 	Table,
 	Themes,
 	Use,

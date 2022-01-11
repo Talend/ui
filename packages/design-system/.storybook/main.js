@@ -27,7 +27,6 @@ module.exports = {
 		buildStoriesJson: true,
 		modernInlineRender: true,
 		previewCsfV3: true,
-		// storyStoreV7: true, // will break all work related to aggregated status in the next major version of Storybook
 	},
 	framework: '@storybook/react',
 	refs: {

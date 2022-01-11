@@ -5,9 +5,8 @@ import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 
 import { addons } from '@storybook/addons';
-
 import { DocsContainer } from '@storybook/addon-docs';
-import { UPDATE_GLOBALS, SET_STORIES } from '@storybook/core-events';
+import { UPDATE_GLOBALS } from '@storybook/core-events';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 import { useLocalStorage } from 'react-use';
 
@@ -15,7 +14,10 @@ import 'focus-outline-manager';
 
 import i18n from './i18n';
 
-import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
+import Divider from '../src/components/Divider';
+import Form from '../src/components/Form';
+import ThemeProvider from '../src/components/ThemeProvider';
+import { IconsProvider } from '../src/components/IconsProvider';
 
 import { light, dark } from '../src/themes';
 
@@ -75,21 +77,6 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 
 const channel = addons.getChannel();
 
-let statusByPage = {};
-channel.once(SET_STORIES, eventData => {
-	statusByPage = Object.entries(eventData.stories).reduce((acc, [name, { title, parameters }]) => {
-		['components'].forEach(prefix => {
-			if (name.startsWith(prefix)) {
-				const componentName = name.replace(`${prefix}-`, '').split('--')[0];
-				if (!acc[componentName] && parameters.status) {
-					acc[title] = parameters.status;
-				}
-			}
-		});
-		return acc;
-	}, {});
-});
-
 export const parameters = {
 	docs: {
 		container: props => {
@@ -105,36 +92,6 @@ export const parameters = {
 					globals: { theme: hasDarkMode ? 'dark' : 'light' },
 				});
 			}, [hasDarkMode]);
-
-			const {
-				id,
-				name,
-				storyById,
-				componentStories,
-				loadStory,
-				renderStoryToElement,
-				getStoryContext,
-				componentId,
-				kind,
-				story,
-				component,
-				subcomponents,
-				parameters,
-				initialArgs,
-				argTypes,
-				originalStoryFn,
-				undecoratedStoryFn,
-				unboundStoryFn,
-				applyLoaders,
-				playFunction,
-				args,
-				globals,
-				hooks,
-			} = props.context;
-
-			React.useEffect(() => {
-				channel.emit('STATUS_BY_PAGE', statusByPage);
-			}, [statusByPage]);
 
 			React.useEffect(() => {
 				const theme = props.context.globals?.theme;
@@ -156,29 +113,8 @@ export const parameters = {
 			const docsTitle = title?.replaceAll(/\//gi, ' / ');
 			const docsCategory = titleArray[0];
 
-			const { status = {} } = parameters;
-
 			return (
 				<>
-					{status.figma && <span>Figma: {status.figma}</span>}
-					{status.react && <span>React: {status.react}</span>}
-					{status.storybook && <span>Storybook: {status.storybook}</span>}
-					{status.i18n && <span>i18n: {status.i18n}</span>}
-					<a
-						href={
-							'https://github.com/Talend/ui/tree/master/packages/design-system/' +
-							parameters.fileName
-								.split('/')
-								.slice(1, parameters.fileName.split('/').length - 1)
-								.join('/')
-						}
-					>
-						{'https://github.com/Talend/ui/tree/master/packages/design-system/' +
-							parameters.fileName
-								.split('/')
-								.slice(1, parameters.fileName.split('/').length - 1)
-								.join('/')}
-					</a>
 					<Helmet>
 						<title>{docsTitle}</title>
 						<meta property="og:title" content={titleArray[titleArray.length - 1]} />
