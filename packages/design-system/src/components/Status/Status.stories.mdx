@@ -3,7 +3,11 @@ import { FigmaIframe, FigmaImage, FigmaLink, GitHubLink, Links, Use } from '~doc
 import Status from '.';
 import * as Stories from './Status.stories';
 
-<Meta title="Components/Status" component={Status} />
+<Meta
+	title="Components/Status"
+	component={Status}
+	parameters={{ status: { storybook: 'ok', figma: 'ok', react: 'ok' } }}
+/>
 
 <Links>
 	<FigmaLink href="https://www.figma.com/file/joEoPYw910CgGO0DiKWRoD/Status?node-id=2%3A72" />

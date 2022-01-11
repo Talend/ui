@@ -5,8 +5,9 @@ import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 
 import { addons } from '@storybook/addons';
+
 import { DocsContainer } from '@storybook/addon-docs';
-import { UPDATE_GLOBALS } from '@storybook/core-events';
+import { UPDATE_GLOBALS, SET_STORIES } from '@storybook/core-events';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 import { useLocalStorage } from 'react-use';
 
@@ -14,10 +15,7 @@ import 'focus-outline-manager';
 
 import i18n from './i18n';
 
-import Divider from '../src/components/Divider';
-import Form from '../src/components/Form';
-import ThemeProvider from '../src/components/ThemeProvider';
-import { IconsProvider } from '../src/components/IconsProvider';
+import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
 
 import { light, dark } from '../src/themes';
 
@@ -77,6 +75,21 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 
 const channel = addons.getChannel();
 
+let statusByPage = {};
+channel.once(SET_STORIES, eventData => {
+	statusByPage = Object.entries(eventData.stories).reduce((acc, [name, { title, parameters }]) => {
+		['components'].forEach(prefix => {
+			if (name.startsWith(prefix)) {
+				const componentName = name.replace(`${prefix}-`, '').split('--')[0];
+				if (!acc[componentName] && parameters.status) {
+					acc[title] = parameters.status;
+				}
+			}
+		});
+		return acc;
+	}, {});
+});
+
 export const parameters = {
 	docs: {
 		container: props => {
@@ -92,26 +105,6 @@ export const parameters = {
 					globals: { theme: hasDarkMode ? 'dark' : 'light' },
 				});
 			}, [hasDarkMode]);
-
-			React.useEffect(() => {
-				const theme = props.context.globals?.theme;
-				const hasDarkModeFromToolbar = theme === 'dark';
-				if (hasDarkModeFromToolbar != hasDarkMode) {
-					setDarkMode(hasDarkModeFromToolbar);
-				}
-			}, [props.context.globals?.theme]);
-
-			React.useEffect(() => {
-				document
-					.querySelectorAll('#bootstrap-theme')
-					.forEach(link => (link.disabled = !hasBootstrapStylesheet));
-			}, [hasBootstrapStylesheet]);
-
-			const title = props.context.title;
-			const titleArray = title?.split('/');
-
-			const docsTitle = title?.replaceAll(/\//gi, ' / ');
-			const docsCategory = titleArray[0];
 
 			const {
 				id,
@@ -138,8 +131,39 @@ export const parameters = {
 				globals,
 				hooks,
 			} = props.context;
+
+			React.useEffect(() => {
+				channel.emit('STATUS_BY_PAGE', statusByPage);
+			}, [statusByPage]);
+
+			React.useEffect(() => {
+				const theme = props.context.globals?.theme;
+				const hasDarkModeFromToolbar = theme === 'dark';
+				if (hasDarkModeFromToolbar != hasDarkMode) {
+					setDarkMode(hasDarkModeFromToolbar);
+				}
+			}, [props.context.globals?.theme]);
+
+			React.useEffect(() => {
+				document
+					.querySelectorAll('#bootstrap-theme')
+					.forEach(link => (link.disabled = !hasBootstrapStylesheet));
+			}, [hasBootstrapStylesheet]);
+
+			const title = props.context.title;
+			const titleArray = title?.split('/');
+
+			const docsTitle = title?.replaceAll(/\//gi, ' / ');
+			const docsCategory = titleArray[0];
+
+			const { status = {} } = parameters;
+
 			return (
 				<>
+					{status.figma && <span>Figma: {status.figma}</span>}
+					{status.react && <span>React: {status.react}</span>}
+					{status.storybook && <span>Storybook: {status.storybook}</span>}
+					{status.i18n && <span>i18n: {status.i18n}</span>}
 					<a
 						href={
 							'https://github.com/Talend/ui/tree/master/packages/design-system/' +
