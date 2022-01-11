@@ -26,7 +26,7 @@ const Link = styled.a.attrs({
 
 	&:hover,
 	&:focus {
-		background: ${tokens.coralColorAccentTextHover};
+		color: ${tokens.coralColorAccentTextHover};
 		background: ${tokens.coralColorAccentBackgroundHover};
 	}
 
