@@ -1,22 +1,22 @@
 import React from 'react';
-import Status from '.';
+import { StatusFailed, StatusCanceled, StatusInProgress, StatusSuccessful, StatusWarning } from '.';
 
 export default {
-	component: Status,
+	component: StatusInProgress,
 };
 
-export const InProgress = () => <Status.InProgress />;
-export const Successful = () => <Status.Successful />;
-export const Failed = () => <Status.Failed />;
-export const Warning = () => <Status.Warning />;
-export const Canceled = () => <Status.Canceled />;
-export const CustomSuccessful = () => <Status.Successful>Done</Status.Successful>;
+export const InProgress = () => <StatusInProgress />;
+export const Successful = () => <StatusSuccessful />;
+export const Failed = () => <StatusFailed />;
+export const Warning = () => <StatusWarning />;
+export const Canceled = () => <StatusCanceled />;
+export const CustomSuccessful = () => <StatusSuccessful>Done</StatusSuccessful>;
 
-export const InProgressIcon = () => <Status.InProgress hideText />;
-export const SuccessfulIcon = () => <Status.Successful hideText />;
-export const FailedIcon = () => <Status.Failed hideText />;
-export const WarningIcon = () => <Status.Warning hideText />;
-export const CanceledIcon = () => <Status.Canceled hideText />;
+export const InProgressIcon = () => <StatusInProgress hideText />;
+export const SuccessfulIcon = () => <StatusSuccessful hideText />;
+export const FailedIcon = () => <StatusFailed hideText />;
+export const WarningIcon = () => <StatusWarning hideText />;
+export const CanceledIcon = () => <StatusCanceled hideText />;
 export const CustomInProgressIcon = () => (
-	<Status.InProgress hideText>Wait until it's loading</Status.InProgress>
+	<StatusInProgress hideText>Wait until it's done loading</StatusInProgress>
 );
