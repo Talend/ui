@@ -12,6 +12,8 @@ import { DocsContainer } from '@storybook/addon-docs';
 import { UPDATE_GLOBALS, SET_STORIES } from '@storybook/core-events';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 
+import '@talend/design-tokens/lib/index.scss';
+
 import 'focus-outline-manager';
 
 import i18n from './i18n';
