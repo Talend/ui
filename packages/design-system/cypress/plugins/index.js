@@ -46,7 +46,7 @@ module.exports = (on, config) => {
 				path: path.resolve(__dirname, 'dist'),
 			},
 		};
-		console.log(webpackConfig);
+
 		on('dev-server:start', options => startDevServer({ options, webpackConfig }));
 	}
 
