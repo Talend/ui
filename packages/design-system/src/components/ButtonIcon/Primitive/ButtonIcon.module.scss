@@ -1,0 +1,13 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.buttonIcon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	&__icon {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

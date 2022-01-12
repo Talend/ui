@@ -1,0 +1,82 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Links } from '../../docs';
+import StatusPrimitive, { variants } from './Primitive/ButtonIconPrimitive';
+import { Status } from '.';
+import * as Stories from './ButtonIcon.stories';
+
+<Meta title="Components/ButtonIcon" component={StatusPrimitive} />
+
+<Links>
+	<FigmaLink href="https://www.figma.com/file/KuJ1PlP77uyXlfOhdniqsZ/ButtonIcon?node-id=1%3A75" />
+</Links>
+
+# ButtonIcon
+
+This component should be used when icons are meant to be clicked on.
+
+It handles the two largest usecases we have for clickable icons: actions and toggles.
+
+- Always try use when an icon is meant to be clicked on.
+- Always provide developers with copy for the tooltip.
+- If the button holds the ON / OFF state of something, then use the Toggle variants.
+- If the button is floating on top of something else, use the Floating variant.
+- Only use size XS sporadically.
+- Spacing between buttons should be at least 4px (XXS), 8px is best (XS).
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=1049%3A415"
+	alt="zoning image for ButtonIcons"
+/>
+
+## Style
+
+### Variations
+
+<FigmaImage
+	src="https://www.figma.com/file/KuJ1PlP77uyXlfOhdniqsZ/ButtonIcon?node-id=3232%3A34023"
+	alt="variations image for ButtonIcon"
+/>
+
+#### Default
+
+This is the go-to ButtonIcon for most generic actions.
+
+#### Toggle
+
+If the button needs to hold an active / inactive state, then it is a Toggle.
+
+Don’t use Toggles in series, opt for badge dropdowns instead.
+
+#### Floating
+
+This variant is only used when the button floats on top of content.
+
+## States
+
+Like all buttons, ButtonIcon can be hovered, active, disabled or focused. See "Interaction" for details.
+
+It also can display a "loading" state for asynchronous actions.
+
+### Loading
+
+Only use when necessary to avoid multiple clicks when the action is not instant.
+
+### Skeleton
+
+Skeleton needs are handled by the Skeleton component.
+
+// TODO
+
+## Interaction
+
+## Content
+
+All ButtonIcons carry a tooltip on hover. The content of that tooltip should be a short ("do something") and effective.
+
+## Usage
+
+## Accessibility
+
+N/C
