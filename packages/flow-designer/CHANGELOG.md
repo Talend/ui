@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.4
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 4.2.3
 
 ### Patch Changes
