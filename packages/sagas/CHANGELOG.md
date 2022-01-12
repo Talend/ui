@@ -1,5 +1,13 @@
 # @talend/react-sagas
 
+## 6.36.5
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [86f208189]
+  - @talend/react-cmf@6.39.1
+
 ## 6.36.4
 
 ### Patch Changes

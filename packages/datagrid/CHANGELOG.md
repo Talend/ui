@@ -1,5 +1,14 @@
 # @talend/react-datagrid
 
+## 6.37.2
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [86f208189]
+  - @talend/react-cmf@6.39.1
+  - @talend/react-components@6.43.3
+
 ## 6.37.1
 
 ### Patch Changes

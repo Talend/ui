@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.5
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 3.5.4
 
 ### Patch Changes
