@@ -25,7 +25,7 @@ jobs:
           yarn --frozen-lock
           cd ../..
           ls -larth node_modules/@talend/design-tokens
-#          npx cypress run-ct
+          npx cypress run-ct
 
 #      - name: Cypress artifacts upload
 #        uses: actions/upload-artifact@v2
