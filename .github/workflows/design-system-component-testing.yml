@@ -21,13 +21,15 @@ jobs:
 
       - name: Cypress Component Testing
         run: |
-          cd packages/design-system
+          cd ./packages/design-system
           yarn --frozen-lock
-          npx cypress run-ct
+          cd ../..
+          ls -larth node_modules/@talend
+#          npx cypress run-ct
 
-      - name: Cypress artifacts upload
-        uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: cypress-component-testing-videos
-          path: cypress/videos/components/**/*
+#      - name: Cypress artifacts upload
+#        uses: actions/upload-artifact@v2
+#        if: ${{ always() }}
+#        with:
+#          name: cypress-component-testing-videos
+#          path: cypress/videos/components/**/*
