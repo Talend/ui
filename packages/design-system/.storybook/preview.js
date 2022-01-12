@@ -10,6 +10,8 @@ import { UPDATE_GLOBALS } from '@storybook/core-events';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 import { useLocalStorage } from 'react-use';
 
+import '@talend/design-tokens/lib/index.scss';
+
 import 'focus-outline-manager';
 
 import i18n from './i18n';
