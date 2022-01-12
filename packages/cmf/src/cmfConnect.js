@@ -234,7 +234,7 @@ export default function cmfConnect({
 			};
 		}
 
-		function CMFContainer(props) {
+		function CMFContainer(props, ref) {
 			const [instanceId] = React.useState(uuidv4());
 			const registry = React.useContext(RegistryContext);
 			const store = useStore();
@@ -321,8 +321,12 @@ export default function cmfConnect({
 			if (!newProps.state && defaultState && toOmit.indexOf('state') === -1) {
 				newProps.state = defaultState;
 			}
-			return createElement(WrappedComponent, newProps);
+			if (rest.forwardRef) {
+				return <WrappedComponent {...newProps} ref={ref} />;
+			}
+			return <WrappedComponent {...newProps} />;
 		}
+		let CMFWithRef = hoistStatics(CMFContainer, WrappedComponent);
 		CMFContainer.displayName = `CMF(${getComponentName(WrappedComponent)})`;
 
 		CMFContainer.propTypes = {
@@ -338,6 +342,13 @@ export default function cmfConnect({
 			return (_, getReduxState) =>
 				getSetStateAction(state(getState(getReduxState(), id)), id, type);
 		};
+		if (rest.forwardRef) {
+			CMFWithRef = React.forwardRef(CMFWithRef);
+			CMFWithRef.displayName = `ForwardRef(${CMFContainer.displayName})`;
+			CMFWithRef.WrappedComponent = CMFContainer.WrappedComponent;
+			CMFWithRef.getState = CMFContainer.getState;
+			CMFWithRef.setStateAction = CMFContainer.setStateAction;
+		}
 
 		const Connected = connect(
 			(state, ownProps) =>
@@ -367,7 +378,7 @@ export default function cmfConnect({
 					ownProps,
 				}),
 			{ ...rest },
-		)(hoistStatics(CMFContainer, WrappedComponent));
+		)(CMFWithRef);
 		Connected.CMFContainer = CMFContainer;
 		return Connected;
 	};
