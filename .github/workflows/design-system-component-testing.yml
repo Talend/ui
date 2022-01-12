@@ -24,7 +24,7 @@ jobs:
           cd ./packages/design-system
           yarn --frozen-lock
           cd ../..
-          ls -larth node_modules/@talend
+          ls -larth node_modules/@talend/design-tokens
 #          npx cypress run-ct
 
 #      - name: Cypress artifacts upload
