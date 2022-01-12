@@ -8,7 +8,7 @@
 '@talend/react-datagrid': patch
 '@talend/react-dataviz': patch
 '@talend/design-system': patch
-'@talend/eslint-config': patch
+'@talend/design-tokens': patch
 '@talend/react-faceted-search': patch
 '@talend/react-flow-designer': patch
 '@talend/react-forms': patch
@@ -17,6 +17,7 @@
 '@talend/react-stepper': patch
 '@talend/react-storybook-cmf': patch
 '@talend/bootstrap-theme': patch
+'@talend/utils': patch
 ---
 
 chore: upgrade dependencies and align @talend scoped packages to latest

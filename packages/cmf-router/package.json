@@ -18,7 +18,7 @@
     "lint": "talend-scripts lint:es --format json -o eslint-report.json"
   },
   "dependencies": {
-    "@talend/react-cmf": "^6.38.5",
+    "@talend/react-cmf": "^6.39.0",
     "lodash": "^4.17.21",
     "path-to-regexp": "^2.4.0",
     "prop-types": "^15.8.1",
@@ -32,7 +32,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^11.3.0",
+    "@talend/scripts-core": "^11.3.1",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "enzyme": "^3.11.0",
     "node-fetch": "^2.6.6",

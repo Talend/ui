@@ -22,7 +22,7 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-core": "^11.3.0",
+    "@talend/scripts-core": "^11.3.1",
     "@talend/scripts-preset-react": "^11.1.1",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
@@ -31,9 +31,9 @@
   "dependencies": {
     "@talend/bootstrap-theme": "^6.38.5",
     "@talend/icons": "^6.38.0",
-    "@talend/react-cmf": "^6.38.5",
+    "@talend/react-cmf": "^6.39.0",
     "@talend/react-cmf-router": "^3.5.7",
-    "@talend/react-components": "^6.43.1",
+    "@talend/react-components": "^6.43.2",
     "@talend/react-containers": "^6.39.2",
     "@talend/react-forms": "^6.43.1",
     "history": "^3.3.0",

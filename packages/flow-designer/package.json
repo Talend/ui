@@ -19,7 +19,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@talend/scripts-config-jest": "^9.6.4",
-    "@talend/scripts-core": "^11.3.0",
+    "@talend/scripts-core": "^11.3.1",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "@types/d3": "^6.7.5",
     "@types/enzyme": "^3.10.11",
