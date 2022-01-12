@@ -8,9 +8,6 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./packages/design-system
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -24,6 +21,7 @@ jobs:
 
       - name: Cypress Component Testing
         run: |
+          cd packages/design-system
           yarn --frozen-lock
           npx cypress run-ct
 
