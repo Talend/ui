@@ -1,6 +1,6 @@
 {
   "name": "@talend/eslint-config",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Tools configurations",
   "author": "Talend Frontend <frontend@talend.com>",
   "main": "index.js",

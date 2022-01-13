@@ -1,5 +1,16 @@
 # @talend/react-components
 
+## 6.43.3
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [86f208189]
+- Updated dependencies [8b6fc43c8]
+- Updated dependencies [4a9c460c7]
+  - @talend/design-system@1.12.1
+  - @talend/bootstrap-theme@6.38.6
+
 ## 6.43.2
 
 ### Patch Changes

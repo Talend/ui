@@ -36,10 +36,10 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/json-schema-form-core": "1.0.4",
-    "@talend/react-components": "^6.43.1",
+    "@talend/json-schema-form-core": "1.0.5",
+    "@talend/react-components": "^6.43.3",
     "@talend/utils": "^2.1.0",
-    "@talend/design-system": "^1.11.3",
+    "@talend/design-system": "^1.12.1",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
     "json-logic-js": "^2.0.1",
@@ -59,10 +59,10 @@
     "@storybook/addon-knobs": "^6.4.0",
     "@storybook/addons": "^6.4.9",
     "@storybook/react": "^6.4.9",
-    "@talend/bootstrap-theme": "^6.38.5",
+    "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.38.0",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-components": "^6.43.1",
+    "@talend/react-components": "^6.43.3",
     "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "autoprefixer": "^7.2.6",
@@ -95,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.43.1"
+  "version": "6.43.2"
 }
