@@ -25,7 +25,13 @@ jobs:
       - name: Install dependencies
         run: |
           yarn --frozen-lock
+
+      - name: TSC DS folder
+        run: |
           tsc
+
+      - name: TSC Cy folder
+        run: |
           cd cypress
           tsc
 
