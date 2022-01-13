@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.12.2
+
+### Patch Changes
+
+- 597c0d31a: adjust ts config to generate index.d.ts
+
 ## 1.12.1
 
 ### Patch Changes
