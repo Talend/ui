@@ -8,6 +8,9 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/design-system
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -21,15 +24,12 @@ jobs:
 
       - name: Cypress Component Testing
         run: |
-          cd ./packages/design-system
           yarn --frozen-lock
-          cd ../..
-          ls -larth node_modules/@talend/design-tokens
           npx cypress run-ct
 
-#      - name: Cypress artifacts upload
-#        uses: actions/upload-artifact@v2
-#        if: ${{ always() }}
-#        with:
-#          name: cypress-component-testing-videos
-#          path: cypress/videos/components/**/*
+      - name: Cypress artifacts upload
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: cypress-component-testing-videos
+          path: cypress/videos/components/**/*

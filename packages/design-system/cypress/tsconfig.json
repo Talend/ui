@@ -3,7 +3,8 @@
   "compilerOptions": {
     // be explicit about types included
     // to avoid clashing with Jest types
-    "types": ["cypress"]
+    "types": ["cypress"],
+    "baseUrl": ".."
   },
-  "include": ["**/*", "../src/**/*.spec.tsx", "../**/*.d.ts"]
+  "include": ["**/*.spec.tsx", "**/*.d.ts"]
 }
