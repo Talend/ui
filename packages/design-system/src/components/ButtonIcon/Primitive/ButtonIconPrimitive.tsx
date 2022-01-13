@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
+import { Button } from 'reakit';
 import classnames from 'classnames';
 import { IconName } from '@talend/icons';
 import Tooltip from '../../Tooltip';
@@ -7,52 +8,46 @@ import Loading from '../../Loading';
 
 import styles from './ButtonIcon.module.scss';
 
-export const variants = {
-	default: 'default',
-	floating: 'floating',
-	toggle: 'toggle',
-};
+type AvailableSizes = 'M' | 'S' | 'XS';
 
-type ToggleTypes = {
-	type: 'toggle';
-	isActive: boolean;
-	size: 'M' | 'S';
-};
-
-type FloatingTypes = {
-	type: 'floating';
-	size: 'M' | 'S';
-};
-
-type DefaultTypes = {
-	type: 'default';
-	size: 'M' | 'S' | 'XS';
-};
-
-export type ButtonIconProps = {
+type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> & {
 	icon: IconName;
 	children: string;
-	isLoading: boolean;
-	disabled: boolean;
+	isLoading?: boolean;
 	onClick: () => void;
-} & (ToggleTypes | FloatingTypes | DefaultTypes);
+};
+
+export type ToggleTypes = CommonTypes & {
+	variant: 'toggle';
+	isActive: boolean;
+	size?: Omit<AvailableSizes, 'XS'>;
+};
+
+export type FloatingTypes = CommonTypes & {
+	variant: 'floating';
+	size?: Omit<AvailableSizes, 'XS'>;
+};
+
+export type DefaultTypes = CommonTypes & {
+	variant: 'default';
+	size?: AvailableSizes;
+};
+
+export type ButtonIconProps = ToggleTypes | FloatingTypes | DefaultTypes;
 
 const Status = React.forwardRef(
 	(
-		{ children, icon, size, isLoading, disabled, type, onClick, ...rest }: ButtonIconProps,
+		{ children, icon, size = 'M', isLoading = false, variant, onClick, ...rest }: ButtonIconProps,
 		ref: React.Ref<HTMLButtonElement>,
 	) => {
-		const picto = (
-			<span className={styles.buttonIcon__icon} aria-hidden>
-				{!isLoading && icon && <Icon name={icon} />}
-				{isLoading && <Loading />}
-			</span>
-		);
 		return (
 			<Tooltip title={children}>
-				<button {...rest} className={classnames(styles.buttonIcon)} ref={ref}>
-					{picto}
-				</button>
+				<Button {...rest} className={classnames(styles.buttonIcon)} ref={ref}>
+					<span className={styles.buttonIcon__icon} aria-hidden>
+						{!isLoading && icon && <Icon name={icon} />}
+						{isLoading && <Loading />}
+					</span>
+				</Button>
 			</Tooltip>
 		);
 	},

@@ -1,10 +1,10 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Links } from '../../docs';
-import StatusPrimitive, { variants } from './Primitive/ButtonIconPrimitive';
-import { Status } from '.';
+import ButtonIconPrimitive from './Primitive/ButtonIconPrimitive';
 import * as Stories from './ButtonIcon.stories';
+import InlineMessage from '../InlineMessage/index';
 
-<Meta title="Components/ButtonIcon" component={StatusPrimitive} />
+<Meta title="Components/ButtonIcon" component={ButtonIconPrimitive} />
 
 <Links>
 	<FigmaLink href="https://www.figma.com/file/KuJ1PlP77uyXlfOhdniqsZ/ButtonIcon?node-id=1%3A75" />
@@ -43,15 +43,92 @@ It handles the two largest usecases we have for clickable icons: actions and tog
 
 This is the go-to ButtonIcon for most generic actions.
 
+```tsx
+import { ButtonIcon } from '@talend/design-system';
+
+function MyComponent() {
+	return (
+		<>
+			<ButtonIcon onClick={onAddDataset()}>Add a dataset</ButtonIcon>
+			<ButtonIcon onClick={onAddDataset()} size="S" disabled>
+				Add a dataset
+			</ButtonIcon>
+			<ButtonIcon onClick={onAddDataset()} size="XS">
+				Add a dataset
+			</ButtonIcon>
+			<ButtonIcon onClick={onAddDataset()} isLoading>
+				Add a dataset
+			</ButtonIcon>
+		</>
+	);
+}
+```
+
+Component not yet built
+
+<Canvas>
+	<Story story={Stories.Default} />
+</Canvas>
+
 #### Toggle
 
 If the button needs to hold an active / inactive state, then it is a Toggle.
 
 Don’t use Toggles in series, opt for badge dropdowns instead.
 
+```tsx
+import { ButtonToggle } from '@talend/design-system';
+
+function MyComponent() {
+	return (
+		<>
+			<ButtonToggle isActive={false} onClick={onToggleEditMode()}>
+				Edit this dataset
+			</ButtonToggle>
+			<ButtonToggle isActive={false} onClick={onToggleEditMode()} size="S" disabled>
+				Edit a dataset
+			</ButtonToggle>
+			<ButtonToggle isActive={false} onClick={onToggleEditMode()} size="S" isLoading>
+				Edit a dataset
+			</ButtonToggle>
+		</>
+	);
+}
+```
+
+Component not yet built
+
+<Canvas>
+	<Story story={Stories.Toggle} />
+</Canvas>
+
 #### Floating
 
 This variant is only used when the button floats on top of content.
+
+```tsx
+import { ButtonIconFloating } from '@talend/design-system';
+
+function MyComponent() {
+	return (
+		<>
+			<ButtonIconFloating onClick={onAddDataset()}>Add a dataset</ButtonIconFloating>
+			<ButtonIconFloating onClick={onAddDataset()} size="S" disabled>
+				Add a dataset
+			</ButtonIconFloating>
+			<ButtonIconFloating onClick={onAddDataset()} isLoading>
+				Add a dataset
+			</ButtonIconFloating>
+		</>
+	);
+}
+```
+
+Component not yet built
+
+<Canvas>
+	<Story story={Stories.Floating} />
+</Canvas>
 
 ## States
 
@@ -76,6 +153,30 @@ Skeleton needs are handled by the Skeleton component.
 All ButtonIcons carry a tooltip on hover. The content of that tooltip should be a short ("do something") and effective.
 
 ## Usage
+
+You have access to three aliases for variants with curated props for each, but you may want to use a single component and switch between variants.
+
+You can:
+
+```tsx
+import { ButtonIconVariant } from '@talend/design-system';
+
+function MyComponent() {
+	return (
+		<>
+			<ButtonIconVariant variant="default" size="XS" onClick={onAddDataset()}>
+				Add a dataset
+			</ButtonIconVariant>
+			<ButtonIconVariant variant="toggle" isActive size="S" onClick={toggleAdvancedMode()}>
+				Turn Advanced Mode off
+			</ButtonIconVariant>
+			<ButtonIconVariant variant="floating" onClick={onZoomIn()} disabled>
+				Zoom in
+			</ButtonIconVariant>
+		</>
+	);
+}
+```
 
 ## Accessibility
 
