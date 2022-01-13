@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- 593026b37: Redux major upgrade with saga
+
 ## 4.2.4
 
 ### Patch Changes

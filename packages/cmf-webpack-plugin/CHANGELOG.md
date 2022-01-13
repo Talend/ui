@@ -1,5 +1,12 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.36.5
+
+### Patch Changes
+
+- Updated dependencies [593026b37]
+  - @talend/react-cmf@7.0.0
+
 ## 6.36.4
 
 ### Patch Changes

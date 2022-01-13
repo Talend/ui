@@ -1,5 +1,11 @@
 # @talend/react-stepper
 
+## 7.0.0
+
+### Major Changes
+
+- 593026b37: Redux major upgrade with saga
+
 ## 6.36.6
 
 ### Patch Changes
