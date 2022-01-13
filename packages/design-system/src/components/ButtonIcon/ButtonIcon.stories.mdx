@@ -2,7 +2,6 @@ import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Links } from '../../docs';
 import ButtonIconPrimitive from './Primitive/ButtonIconPrimitive';
 import * as Stories from './ButtonIcon.stories';
-import InlineMessage from '../InlineMessage/index';
 
 <Meta title="Components/ButtonIcon" component={ButtonIconPrimitive} />
 
@@ -49,14 +48,16 @@ import { ButtonIcon } from '@talend/design-system';
 function MyComponent() {
 	return (
 		<>
-			<ButtonIcon onClick={onAddDataset()}>Add a dataset</ButtonIcon>
-			<ButtonIcon onClick={onAddDataset()} size="S" disabled>
+			<ButtonIcon icon="talend-plus" onClick={onAddDataset()}>
 				Add a dataset
 			</ButtonIcon>
-			<ButtonIcon onClick={onAddDataset()} size="XS">
+			<ButtonIcon icon="talend-plus" onClick={onAddDataset()} size="S" disabled>
 				Add a dataset
 			</ButtonIcon>
-			<ButtonIcon onClick={onAddDataset()} isLoading>
+			<ButtonIcon icon="talend-plus" onClick={onAddDataset()} size="XS">
+				Add a dataset
+			</ButtonIcon>
+			<ButtonIcon icon="talend-plus" onClick={onAddDataset()} isLoading>
 				Add a dataset
 			</ButtonIcon>
 		</>
@@ -67,7 +68,7 @@ function MyComponent() {
 Component not yet built
 
 <Canvas>
-	<Story story={Stories.Default} />
+	<Story story={Stories.Default} name="Story ButtonIcon" />
 </Canvas>
 
 #### Toggle
@@ -82,13 +83,25 @@ import { ButtonToggle } from '@talend/design-system';
 function MyComponent() {
 	return (
 		<>
-			<ButtonToggle isActive={false} onClick={onToggleEditMode()}>
+			<ButtonToggle icon="talend-edit" isActive={false} onClick={onToggleEditMode()}>
 				Edit this dataset
 			</ButtonToggle>
-			<ButtonToggle isActive={false} onClick={onToggleEditMode()} size="S" disabled>
+			<ButtonToggle
+				icon="talend-edit"
+				isActive={false}
+				onClick={onToggleEditMode()}
+				size="S"
+				disabled
+			>
 				Edit a dataset
 			</ButtonToggle>
-			<ButtonToggle isActive={false} onClick={onToggleEditMode()} size="S" isLoading>
+			<ButtonToggle
+				icon="talend-edit"
+				isActive={false}
+				onClick={onToggleEditMode()}
+				size="S"
+				isLoading
+			>
 				Edit a dataset
 			</ButtonToggle>
 		</>
@@ -112,11 +125,13 @@ import { ButtonIconFloating } from '@talend/design-system';
 function MyComponent() {
 	return (
 		<>
-			<ButtonIconFloating onClick={onAddDataset()}>Add a dataset</ButtonIconFloating>
-			<ButtonIconFloating onClick={onAddDataset()} size="S" disabled>
+			<ButtonIconFloating icon="talend-dataset" onClick={onAddDataset()}>
 				Add a dataset
 			</ButtonIconFloating>
-			<ButtonIconFloating onClick={onAddDataset()} isLoading>
+			<ButtonIconFloating icon="talend-dataset" onClick={onAddDataset()} size="S" disabled>
+				Add a dataset
+			</ButtonIconFloating>
+			<ButtonIconFloating icon="talend-dataset" onClick={onAddDataset()} isLoading>
 				Add a dataset
 			</ButtonIconFloating>
 		</>

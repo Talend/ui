@@ -8,7 +8,7 @@ import Loading from '../../Loading';
 
 import styles from './ButtonIcon.module.scss';
 
-type AvailableSizes = 'M' | 'S' | 'XS';
+export type AvailableButtonIconVariants = 'toggle' | 'default' | 'floating';
 
 type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> & {
 	icon: IconName;
@@ -20,37 +20,45 @@ type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> & 
 export type ToggleTypes = CommonTypes & {
 	variant: 'toggle';
 	isActive: boolean;
-	size?: Omit<AvailableSizes, 'XS'>;
+	size?: 'M' | 'S';
 };
 
 export type FloatingTypes = CommonTypes & {
 	variant: 'floating';
-	size?: Omit<AvailableSizes, 'XS'>;
+	size?: 'M' | 'S';
 };
 
 export type DefaultTypes = CommonTypes & {
 	variant: 'default';
-	size?: AvailableSizes;
+	size?: 'M' | 'S' | 'XS';
 };
 
 export type ButtonIconProps = ToggleTypes | FloatingTypes | DefaultTypes;
 
-const Status = React.forwardRef(
-	(
-		{ children, icon, size = 'M', isLoading = false, variant, onClick, ...rest }: ButtonIconProps,
-		ref: React.Ref<HTMLButtonElement>,
-	) => {
-		return (
-			<Tooltip title={children}>
-				<Button {...rest} className={classnames(styles.buttonIcon)} ref={ref}>
-					<span className={styles.buttonIcon__icon} aria-hidden>
-						{!isLoading && icon && <Icon name={icon} />}
-						{isLoading && <Loading />}
-					</span>
-				</Button>
-			</Tooltip>
-		);
-	},
-);
+const Status = React.forwardRef((props: ButtonIconProps, ref: React.Ref<HTMLButtonElement>) => {
+	const activeStatus = props.variant === 'toggle' ? props.isActive : false;
+	const { children, variant, size, isLoading, icon, ...rest } = props;
+
+	return (
+		<Tooltip title={children}>
+			<Button
+				{...rest}
+				className={classnames(styles.buttonIcon, {
+					[styles.floating]: variant === 'floating',
+					[styles.toggle]: variant === 'toggle',
+					[styles.size_S]: size === 'S',
+					[styles.size_XS]: size === 'XS',
+				})}
+				ref={ref}
+				{...(variant === 'toggle' && { 'aria-pressed': activeStatus })}
+			>
+				<span className={styles.buttonIcon__icon} aria-hidden>
+					{!isLoading && icon && <Icon name={icon} />}
+					{isLoading && <Loading />}
+				</span>
+			</Button>
+		</Tooltip>
+	);
+});
 
 export default Status;
