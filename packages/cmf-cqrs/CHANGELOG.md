@@ -1,5 +1,16 @@
 # @talend/react-cmf-cqrs
 
+## 7.0.0
+
+### Major Changes
+
+- 593026b37: Redux major upgrade with saga
+
+### Patch Changes
+
+- Updated dependencies [593026b37]
+  - @talend/react-cmf@7.0.0
+
 ## 6.36.5
 
 ### Patch Changes
