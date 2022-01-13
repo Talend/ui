@@ -22,9 +22,15 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - name: Cypress Component Testing
+      - name: Install dependencies
         run: |
           yarn --frozen-lock
+          tsc
+          cd cypress
+          tsc
+
+      - name: Cypress Component Testing
+        run: |
           npx cypress run-ct
 
       - name: Cypress artifacts upload
