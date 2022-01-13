@@ -1,5 +1,5 @@
 import actionAPI from '../src/action';
-import mock from '../src/mock';
+import { mock } from '../src';
 
 describe('CMF action', () => {
 	let state;
@@ -8,11 +8,11 @@ describe('CMF action', () => {
 	let settings;
 
 	beforeEach(() => {
-		settings = mock.settings();
-		state = mock.state();
+		settings = mock.store.settings();
+		state = mock.store.state();
 		state.cmf.settings = settings;
-		context = mock.context(state);
-		emptyContext = mock.emptyContext();
+		context = mock.store.context(state);
+		emptyContext = mock.store.emptyContext();
 	});
 	it('getActionsById should return action from settings', () => {
 		const actions = actionAPI.getActionsById(context);

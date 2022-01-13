@@ -1,12 +1,11 @@
-import mock from '../src/mock';
+import { mock } from '../src';
 import actionCreatorAPI from '../src/actionCreator';
-import { create } from 'domain';
 
 describe('CMF action', () => {
 	let context;
 
 	beforeEach(() => {
-		context = mock.context();
+		context = mock.store.context();
 	});
 
 	it('get should return a function', () => {

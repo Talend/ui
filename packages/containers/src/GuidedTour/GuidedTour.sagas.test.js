@@ -7,8 +7,7 @@ describe('Guided Tour sagas', () => {
 
 		const effect = gen.next().value;
 		const expected = Connected.setStateAction({ show: true });
-		expect(effect.PUT.action).toEqual(expected);
-
+		expect(effect.payload.action).toEqual(expected);
 		expect(gen.next().done).toBe(true);
 	});
 
@@ -17,7 +16,7 @@ describe('Guided Tour sagas', () => {
 
 		const effect = gen.next().value;
 		const expected = Connected.setStateAction({ show: false });
-		expect(effect.PUT.action).toEqual(expected);
+		expect(effect.payload.action).toEqual(expected);
 
 		expect(gen.next().done).toBe(true);
 	});

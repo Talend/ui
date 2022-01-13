@@ -9,14 +9,14 @@ function serializeEvent(event) {
 	return event;
 }
 
-function getOnEventActionCreatorHandler(instance, config, currentHandler) {
+function getOnEventActionCreatorHandler(instance, props, config, currentHandler) {
 	let actionCreator = config;
 	if (typeof config === 'object') {
 		actionCreator = config.id;
 	}
 	return function onEventActionCreator(...args) {
-		instance.dispatchActionCreator(actionCreator, serializeEvent(args[0]), {
-			props: instance.props,
+		props.dispatchActionCreator(actionCreator, serializeEvent(args[0]), {
+			props,
 			...args[1],
 			...(config.data || {}),
 		});
@@ -26,7 +26,7 @@ function getOnEventActionCreatorHandler(instance, config, currentHandler) {
 	};
 }
 
-function getOnEventDispatchHandler(instance, config, currentHandler) {
+function getOnEventDispatchHandler(instance, props, config, currentHandler) {
 	return function onEventDispatch(...args) {
 		const payload = {
 			event: serializeEvent(args[0]),
@@ -40,7 +40,7 @@ function getOnEventDispatchHandler(instance, config, currentHandler) {
 	};
 }
 
-function getOnEventSetStateHandler(instance, config, currentHandler) {
+function getOnEventSetStateHandler(instance, props, config, currentHandler) {
 	return function onEventSetState(...args) {
 		if (typeof currentHandler === 'function') {
 			currentHandler(...args);
@@ -59,7 +59,9 @@ function getOnEventSetStateHandler(instance, config, currentHandler) {
 				}
 			} else if (value === 'toggle') {
 				// because toggle need to read the state we dispatch it with a function
-				instance.props.setState(props => instance.props.setState({ [key]: !props.state.get(key) }));
+				instance.props.setState(_props =>
+					instance.props.setState({ [key]: !_props.state.get(key) }),
+				);
 			} else {
 				// eslint-disable-next-line no-param-reassign
 				acc[key] = value;
@@ -102,6 +104,7 @@ function addOnEventSupport(handlerType, instance, props, key) {
 		// eslint-disable-next-line no-param-reassign
 		props[handlerKey] = GET_HANDLER[handlerType](
 			instance,
+			props,
 			instance.props[key],
 			originalEventHandler,
 		);

@@ -4,18 +4,11 @@
  * @example
 import { cmfConnect } from '@talend/react-cmf';
 
-class MyComponent extends React.Component {
-	static displayName = 'MyComponent';
-	constructor(props) {
-		super(props);
-		this.onClick = this.onClick.bind(this);
-	}
-	onClick(event) {
-		return this.props.dispatchActionCreator('myaction', event, { props: this.props });
-	}
-	render() {
-		return <button onClick={this.onClick}>Edit {this.props.foo.name}</button>;
-	}
+function MyComponent(props) {
+	const onClick = (event) => {
+		props.dispatchActionCreator('myaction', event, { props: props });
+	};
+	return <button onClick={onClick}>Edit {props.foo.name}</button>;
 }
 
 function mapStateToProps(state) {
@@ -32,7 +25,7 @@ import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { connect } from 'react-redux';
+import { connect, useStore } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import actions from './actions';
 import actionCreator from './actionCreator';
@@ -43,6 +36,7 @@ import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
 import omit from './omit';
+import { RegistryContext } from './RegistryProvider';
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -215,6 +209,7 @@ export default function cmfConnect({
 		}
 	}
 	let displayNameWarning = true;
+
 	return function wrapWithCMF(WrappedComponent) {
 		if (!WrappedComponent.displayName && displayNameWarning) {
 			displayNameWarning = false;
@@ -238,125 +233,123 @@ export default function cmfConnect({
 				},
 			};
 		}
-		class CMFContainer extends React.Component {
-			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 
-			static propTypes = {
-				...cmfConnect.propTypes,
-			};
+		function CMFContainer(props, ref) {
+			const [instanceId] = React.useState(uuidv4());
+			const registry = React.useContext(RegistryContext);
+			const store = useStore();
 
-			static contextTypes = {
-				store: PropTypes.object,
-				registry: PropTypes.object,
-				router: PropTypes.object,
-			};
-
-			static WrappedComponent = WrappedComponent;
-
-			static getState = getState;
-
-			static setStateAction = function setStateAction(state, id = 'default', type) {
-				if (typeof state !== 'function') {
-					return getSetStateAction(state, id, type);
-				}
-				return (_, getReduxState) =>
-					getSetStateAction(state(getState(getReduxState(), id)), id, type);
-			};
-
-			constructor(props, context) {
-				super(props, context);
-				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
-				this.getOnEventProps = this.getOnEventProps.bind(this);
-				this.id = uuidv4();
+			function dispatchActionCreator(actionCreatorId, event, data, extraContext) {
+				const extendedContext = { registry, store, ...extraContext };
+				props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 
-			componentDidMount() {
-				initState(this.props);
-				if (this.props.saga) {
-					this.dispatchActionCreator(
+			React.useEffect(() => {
+				initState(props);
+				if (props.saga) {
+					dispatchActionCreator(
 						'cmf.saga.start',
-						{ type: 'DID_MOUNT', componentId: this.id },
+						{ type: 'DID_MOUNT', componentId: instanceId },
 						{
-							...this.props, // DEPRECATED
-							componentId: getComponentId(componentId, this.props),
+							...props, // DEPRECATED
+							componentId: getComponentId(componentId, props),
 						},
 					);
 				}
-				if (this.props.didMountActionCreator) {
-					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
+				if (props.didMountActionCreator) {
+					dispatchActionCreator(props.didMountActionCreator, null, props);
 				}
-			}
-
-			componentWillUnmount() {
-				if (this.props.willUnmountActionCreator) {
-					this.dispatchActionCreator(this.props.willUnmountActionCreator, null, this.props);
-				}
-				// if the props.keepComponentState is present we have to stick to it
-				if (
-					this.props.keepComponentState === false ||
-					(this.props.keepComponentState === undefined && !keepComponentState)
-				) {
-					this.props.deleteState(this.props.initialState);
-				}
-				if (this.props.saga) {
-					this.dispatchActionCreator(
-						'cmf.saga.stop',
-						{ type: 'WILL_UNMOUNT', componentId: this.id },
-						this.props,
-					);
-				}
-			}
-
-			getOnEventProps() {
-				return Object.keys(this.props).reduce(
-					(props, key) => {
-						onEvent.addOnEventSupport(onEvent.DISPATCH, this, props, key);
-						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, this, props, key);
-						onEvent.addOnEventSupport(onEvent.SETSTATE, this, props, key);
-						return props;
+				return () => {
+					if (props.willUnmountActionCreator) {
+						dispatchActionCreator(props.willUnmountActionCreator, null, props);
+					}
+					// if the props.keepComponentState is present we have to stick to it
+					if (
+						props.keepComponentState === false ||
+						(props.keepComponentState === undefined && !keepComponentState)
+					) {
+						props.deleteState(props.initialState);
+					}
+					if (props.saga) {
+						dispatchActionCreator(
+							'cmf.saga.stop',
+							{ type: 'WILL_UNMOUNT', componentId: instanceId },
+							props,
+						);
+					}
+				};
+				// eslint-disable-next-line react-hooks/exhaustive-deps
+			}, []);
+			function getOnEventProps() {
+				return Object.keys(props).reduce(
+					(acc, key) => {
+						// TODO check how to replace the this
+						onEvent.addOnEventSupport(onEvent.DISPATCH, { props }, acc, key);
+						onEvent.addOnEventSupport(onEvent.ACTION_CREATOR, { props }, acc, key);
+						onEvent.addOnEventSupport(onEvent.SETSTATE, { props }, acc, key);
+						return acc;
 					},
-					{ toOmit: [] },
+					{ toOmit: [], dispatchActionCreator },
 				);
 			}
 
-			dispatchActionCreator(actionCreatorId, event, data, context) {
-				const extendedContext = { ...this.context, ...context };
-				this.props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
+			if (props.renderIf === false) {
+				return null;
+			}
+			const { toOmit, spreadCMFState, ...handlers } = getOnEventProps();
+
+			// remove all internal props already used by the container
+			delete handlers.dispatchActionCreator;
+			toOmit.push(...CONST.CMF_PROPS, ...propsToOmit);
+			if (props.omitRouterProps) {
+				toOmit.push('omitRouterProps', ...CONST.INJECTED_ROUTER_PROPS);
+			}
+			let spreadedState = {};
+			if ((spreadCMFState || props.spreadCMFState) && props.state) {
+				spreadedState = props.state.toJS();
 			}
 
-			render() {
-				if (this.props.renderIf === false) {
-					return null;
-				}
-				const { toOmit, spreadCMFState, ...handlers } = this.getOnEventProps();
-				// remove all internal props already used by the container
-				toOmit.push(...CONST.CMF_PROPS, ...propsToOmit);
-				if (this.props.omitRouterProps) {
-					toOmit.push('omitRouterProps', ...CONST.INJECTED_ROUTER_PROPS);
-				}
-				let spreadedState = {};
-				if ((spreadCMFState || this.props.spreadCMFState) && this.props.state) {
-					spreadedState = this.props.state.toJS();
-				}
-				const props = {
-					...omit(this.props, toOmit),
-					...handlers,
-					...spreadedState,
-				};
-				if (
-					props.dispatchActionCreator &&
-					props.dispatchActionCreator &&
-					toOmit.indexOf('dispatchActionCreator') === -1
-				) {
-					// override to inject CMFContainer context
-					props.dispatchActionCreator = this.dispatchActionCreator;
-				}
-				if (!props.state && defaultState && toOmit.indexOf('state') === -1) {
-					props.state = defaultState;
-				}
-				return createElement(WrappedComponent, props);
+			const newProps = {
+				...omit(props, toOmit),
+				...handlers,
+				...spreadedState,
+			};
+			if (newProps.dispatchActionCreator && toOmit.indexOf('dispatchActionCreator') === -1) {
+				// override to inject CMFContainer context
+				newProps.dispatchActionCreator = dispatchActionCreator;
 			}
+			if (!newProps.state && defaultState && toOmit.indexOf('state') === -1) {
+				newProps.state = defaultState;
+			}
+			if (rest.forwardRef) {
+				return <WrappedComponent {...newProps} ref={ref} />;
+			}
+			return <WrappedComponent {...newProps} />;
 		}
+		let CMFWithRef = hoistStatics(CMFContainer, WrappedComponent);
+		CMFContainer.displayName = `CMF(${getComponentName(WrappedComponent)})`;
+
+		CMFContainer.propTypes = {
+			...cmfConnect.propTypes,
+		};
+		CMFContainer.WrappedComponent = WrappedComponent;
+		CMFContainer.getState = getState;
+
+		CMFContainer.setStateAction = function setStateAction(state, id = 'default', type) {
+			if (typeof state !== 'function') {
+				return getSetStateAction(state, id, type);
+			}
+			return (_, getReduxState) =>
+				getSetStateAction(state(getState(getReduxState(), id)), id, type);
+		};
+		if (rest.forwardRef) {
+			CMFWithRef = React.forwardRef(CMFWithRef);
+			CMFWithRef.displayName = `ForwardRef(${CMFContainer.displayName})`;
+			CMFWithRef.WrappedComponent = CMFContainer.WrappedComponent;
+			CMFWithRef.getState = CMFContainer.getState;
+			CMFWithRef.setStateAction = CMFContainer.setStateAction;
+		}
+
 		const Connected = connect(
 			(state, ownProps) =>
 				getStateToProps({
@@ -385,7 +378,7 @@ export default function cmfConnect({
 					ownProps,
 				}),
 			{ ...rest },
-		)(hoistStatics(CMFContainer, WrappedComponent));
+		)(CMFWithRef);
 		Connected.CMFContainer = CMFContainer;
 		return Connected;
 	};
