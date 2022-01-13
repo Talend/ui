@@ -3,7 +3,7 @@ name: Changeset (Release)
 on:
   push:
     branches:
-      - master
+      - maintenance/redux3
 
 jobs:
   release:
@@ -21,9 +21,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
-          cache: 'yarn'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
 
       - name: Install Dependencies
         run: yarn && yarn pre-release
@@ -34,13 +34,13 @@ jobs:
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release
-          commit: 'chore: prepare release'
-          title: 'chore: prepare release'
+          commit: "chore: prepare maintenance release"
+          title: "chore: prepare maintenance release"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
+
   update-cdn-content:
     needs: release
     environment: main
