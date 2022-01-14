@@ -38,6 +38,11 @@ describe('Button', () => {
 			const button = getByTestId('my.button');
 			expect(button.classList.contains('btn--tertiary')).toBeTruthy();
 		});
+		test('icon', () => {
+			const { getByTestId } = render(<Button.Icon data-testid="my.button">Button</Button.Icon>);
+			const button = getByTestId('my.button');
+			expect(button.classList.contains('btn--icon')).toBeTruthy();
+		});
 	});
 
 	test('loading', () => {

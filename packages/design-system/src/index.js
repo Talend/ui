@@ -1,11 +1,5 @@
 import Accordion from './components/Accordion';
 import Button from './components/Button';
-import {
-	ButtonToggle,
-	ButtonIcon,
-	ButtonIconFloating,
-	ButtonIconVariant,
-} from './components/ButtonIcon';
 import Card from './components/Card';
 import Combobox from './components/Combobox';
 import Divider from './components/Divider';
@@ -37,6 +31,7 @@ import Stepper from './components/Stepper';
 import Tabs from './components/Tabs';
 import Tag from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
+import Toggle from './components/Toggle';
 import Tooltip from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 
@@ -46,11 +41,6 @@ import tokens from './tokens';
 export {
 	Accordion,
 	Button,
-	ButtonToggle,
-	ButtonToggle as Toggle,
-	ButtonIcon,
-	ButtonIconFloating,
-	ButtonIconVariant,
 	Card,
 	Combobox,
 	Divider,
@@ -80,6 +70,7 @@ export {
 	Tabs,
 	Tag,
 	ThemeProvider,
+	Toggle,
 	Tooltip,
 	VisuallyHidden,
 	themes,
