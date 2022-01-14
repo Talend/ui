@@ -100,6 +100,7 @@
     "react-is": "^16.13.1",
     "sass": "^1.45.2",
     "sass-loader": "^8.0.2",
+    "simple-icons": "^6.6.0",
     "storybook-addon-mdx-embed": "^0.0.22",
     "storybook-docs-toc": "^1.6.0",
     "style-loader": "^2.0.0",

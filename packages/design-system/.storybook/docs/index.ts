@@ -5,12 +5,12 @@ import ColorSwatches from './ColorSwatches';
 import FigmaIframe from './FigmaIframe';
 import FigmaImage from './FigmaImage';
 import FigmaStatus from './FigmaStatus';
-import GitHubStatus from './GitHubStatus';
+import ReactStatus from './ReactStatus';
 import Grid from './Grid';
 import I18nStatus from './I18nStatus';
-import StatusToolbar from './StatusToolbar';
+import StatusBadges from './StatusBadges';
 import SearchBar from './SearchBar';
-import Statuses from './Statuses';
+import StatusTable from './StatusTable';
 import StorybookStatus from './StorybookStatus';
 import Table from './Table';
 import Themes from './Themes';
@@ -27,14 +27,14 @@ export {
 	FigmaIframe,
 	FigmaImage,
 	FigmaStatus,
-	GitHubStatus,
+	ReactStatus,
 	Grid,
 	I18nStatus,
 	Icons,
-	StatusToolbar,
+	StatusBadges,
 	Row,
 	SearchBar,
-	Statuses,
+	StatusTable,
 	StorybookStatus,
 	Table,
 	Themes,

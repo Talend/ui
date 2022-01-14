@@ -16,7 +16,7 @@ import 'focus-outline-manager';
 
 import i18n from './i18n';
 
-import { StatusToolbar, FigmaStatus, GitHubStatus, I18nStatus, StorybookStatus } from './docs';
+import { StatusBadges, FigmaStatus, ReactStatus, I18nStatus, StorybookStatus } from './docs';
 import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
 
 import { light, dark } from '../src/themes';
@@ -188,12 +188,12 @@ export const parameters = {
 					</TableOfContents>
 
 					{status && (
-						<StatusToolbar>
+						<StatusBadges>
 							<FigmaStatus status={status.figma} href={figmaLink} />
 							<StorybookStatus status={status.storybook} />
-							<GitHubStatus status={status.react} href={githubLink} />
+							<ReactStatus status={status.react} href={githubLink} />
 							<I18nStatus status={status.i18n} />
-						</StatusToolbar>
+						</StatusBadges>
 					)}
 
 					<I18nextProvider i18n={i18n}>

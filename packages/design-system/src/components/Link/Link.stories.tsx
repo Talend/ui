@@ -3,7 +3,6 @@ import { Story } from '@storybook/react';
 import { WithSelector } from '~docs';
 
 import Link from '.';
-import { WithSelector } from '~docs';
 
 export default {
 	component: Link,

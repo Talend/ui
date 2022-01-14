@@ -34,7 +34,7 @@ export const toEmoji = (status?: Status) => {
 	}
 };
 
-const Statuses = (props: FunctionComponent) => {
+const StatusTable = (props: FunctionComponent) => {
 	const [statuses, setStatuses] = useState<StoriesWithStatus>();
 
 	useEffect(() => {
@@ -76,4 +76,4 @@ const Statuses = (props: FunctionComponent) => {
 	);
 };
 
-export default Statuses;
+export default StatusTable;
