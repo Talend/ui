@@ -8,9 +8,7 @@ import Loading from '../../Loading';
 
 import styles from './ButtonIcon.module.scss';
 
-export type AvailableButtonIconVariants = 'toggle' | 'default' | 'floating';
-
-type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> & {
+type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'style'> & {
 	icon: IconName;
 	children: string;
 	isLoading?: boolean;
@@ -37,10 +35,10 @@ export type ButtonIconProps = ToggleTypes | FloatingTypes | DefaultTypes;
 
 const Status = React.forwardRef((props: ButtonIconProps, ref: React.Ref<HTMLButtonElement>) => {
 	const activeStatus = props.variant === 'toggle' ? props.isActive : false;
-	const { children, variant, size, isLoading, icon, ...rest } = props;
+	const { children, variant, size, isLoading, icon, disabled, ...rest } = props;
 
 	return (
-		<Tooltip title={children}>
+		<Tooltip title={children} placement="top">
 			<Button
 				{...rest}
 				className={classnames(styles.buttonIcon, {
@@ -50,6 +48,7 @@ const Status = React.forwardRef((props: ButtonIconProps, ref: React.Ref<HTMLButt
 					[styles.size_XS]: size === 'XS',
 				})}
 				ref={ref}
+				disabled={disabled || isLoading}
 				{...(variant === 'toggle' && { 'aria-pressed': activeStatus })}
 			>
 				<span className={styles.buttonIcon__icon} aria-hidden>

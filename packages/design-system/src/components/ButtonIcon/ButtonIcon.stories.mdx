@@ -1,6 +1,7 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Links } from '../../docs';
 import ButtonIconPrimitive from './Primitive/ButtonIconPrimitive';
+import ButtonIconVariant from './ButtonIconVariant';
 import * as Stories from './ButtonIcon.stories';
 
 <Meta title="Components/ButtonIcon" component={ButtonIconPrimitive} />
@@ -19,7 +20,7 @@ It handles the two largest usecases we have for clickable icons: actions and tog
 - Always provide developers with copy for the tooltip.
 - If the button holds the ON / OFF state of something, then use the Toggle variants.
 - If the button is floating on top of something else, use the Floating variant.
-- Only use size XS sporadically.
+- Only use size XS when absolutely unavoidable.
 - Spacing between buttons should be at least 4px (XXS), 8px is best (XS).
 
 ## Zoning
@@ -42,34 +43,11 @@ It handles the two largest usecases we have for clickable icons: actions and tog
 
 This is the go-to ButtonIcon for most generic actions.
 
-```tsx
-import { ButtonIcon } from '@talend/design-system';
-
-function MyComponent() {
-	return (
-		<>
-			<ButtonIcon icon="talend-plus" onClick={onAddDataset()}>
-				Add a dataset
-			</ButtonIcon>
-			<ButtonIcon icon="talend-plus" onClick={onAddDataset()} size="S" disabled>
-				Add a dataset
-			</ButtonIcon>
-			<ButtonIcon icon="talend-plus" onClick={onAddDataset()} size="XS">
-				Add a dataset
-			</ButtonIcon>
-			<ButtonIcon icon="talend-plus" onClick={onAddDataset()} isLoading>
-				Add a dataset
-			</ButtonIcon>
-		</>
-	);
-}
-```
-
-Component not yet built
-
 <Canvas>
-	<Story story={Stories.Default} name="Story ButtonIcon" />
+	<Story story={Stories.Default} name="ButtonIcon" />
 </Canvas>
+
+<ArgsTable story="ButtonIcon" />
 
 #### Toggle
 
@@ -77,83 +55,35 @@ If the button needs to hold an active / inactive state, then it is a Toggle.
 
 Don’t use Toggles in series, opt for badge dropdowns instead.
 
-```tsx
-import { ButtonToggle } from '@talend/design-system';
-
-function MyComponent() {
-	return (
-		<>
-			<ButtonToggle icon="talend-edit" isActive={false} onClick={onToggleEditMode()}>
-				Edit this dataset
-			</ButtonToggle>
-			<ButtonToggle
-				icon="talend-edit"
-				isActive={false}
-				onClick={onToggleEditMode()}
-				size="S"
-				disabled
-			>
-				Edit a dataset
-			</ButtonToggle>
-			<ButtonToggle
-				icon="talend-edit"
-				isActive={false}
-				onClick={onToggleEditMode()}
-				size="S"
-				isLoading
-			>
-				Edit a dataset
-			</ButtonToggle>
-		</>
-	);
-}
-```
-
-Component not yet built
-
 <Canvas>
-	<Story story={Stories.Toggle} />
+	<Story story={Stories.Toggle} name="ButtonToggle" />
 </Canvas>
+
+<ArgsTable story="ButtonToggle" />
 
 #### Floating
 
 This variant is only used when the button floats on top of content.
 
-```tsx
-import { ButtonIconFloating } from '@talend/design-system';
-
-function MyComponent() {
-	return (
-		<>
-			<ButtonIconFloating icon="talend-dataset" onClick={onAddDataset()}>
-				Add a dataset
-			</ButtonIconFloating>
-			<ButtonIconFloating icon="talend-dataset" onClick={onAddDataset()} size="S" disabled>
-				Add a dataset
-			</ButtonIconFloating>
-			<ButtonIconFloating icon="talend-dataset" onClick={onAddDataset()} isLoading>
-				Add a dataset
-			</ButtonIconFloating>
-		</>
-	);
-}
-```
-
-Component not yet built
+It could be it's sitting on top of a line connecting two nodes, or sticky on top of a draggable scene for instance.
 
 <Canvas>
-	<Story story={Stories.Floating} />
+	<Story story={Stories.Floating} name="ButtonIconFloating" />
 </Canvas>
+
+<ArgsTable story="ButtonIconFloating" />
 
 ## States
 
-Like all buttons, ButtonIcon can be hovered, active, disabled or focused. See "Interaction" for details.
-
-It also can display a "loading" state for asynchronous actions.
+ButtonIcons can display a "loading" state for asynchronous actions.
 
 ### Loading
 
 Only use when necessary to avoid multiple clicks when the action is not instant.
+
+<Canvas>
+	<Story story={Stories.Loading} />
+</Canvas>
 
 ### Skeleton
 
@@ -163,9 +93,11 @@ Skeleton needs are handled by the Skeleton component.
 
 ## Interaction
 
+All buttons have interactive states for "hover", "active" and "disabled". A focus ring should also be displayed on keyboard navigation.
+
 ## Content
 
-All ButtonIcons carry a tooltip on hover. The content of that tooltip should be a short ("do something") and effective.
+All ButtonIcons carry a tooltip on hover. The content of that tooltip should be short ("do something") and effective.
 
 ## Usage
 
@@ -192,6 +124,53 @@ function MyComponent() {
 	);
 }
 ```
+
+<Canvas>
+	<Story
+		name="Standalone with variant prop"
+		args={{
+			variant: 'default',
+			icon: 'talend-datagrid',
+			children: 'Action label',
+			onClick: () => {},
+		}}
+		argTypes={{
+			variant: {
+				description: 'ButtonIcon variation',
+				control: {
+					type: 'select',
+					options: ['default', 'toggle', 'floating'],
+				},
+			},
+			icon: {
+				description: 'Try it out with another talend icon you know',
+				control: {
+					type: 'text',
+				},
+			},
+			children: {
+				description: 'Contents of the tooltip',
+				control: {
+					type: 'text',
+				},
+			},
+		}}
+	>
+		{({ variant, ...rest }) => {
+			const Component = ButtonIconVariant;
+			Component.displayName = 'ButtonIconVariant';
+			return <Component variant={variant} {...rest} />;
+		}}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Standalone with variant prop" />
+
+Of course all buttons can also use natural `<button>` attributes (but not `classNames` nor `style`).
+
+<Canvas>
+	<Story story={Stories.NaturalButtonProps} />
+</Canvas>
 
 ## Accessibility
 
