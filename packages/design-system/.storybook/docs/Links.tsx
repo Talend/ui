@@ -30,7 +30,7 @@ const LinkGroup = styled.div`
 
 		&:hover,
 		&:focus {
-			background: ${tokens.coralColorAccentTextHover};
+			color: ${tokens.coralColorAccentTextHover};
 			background: ${tokens.coralColorAccentBackgroundHover};
 		}
 
