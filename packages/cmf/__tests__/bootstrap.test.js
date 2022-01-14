@@ -34,6 +34,7 @@ jest.mock('../src/onError', () => ({
 }));
 jest.mock('../src/registry', () => ({
 	registerMany: jest.fn(),
+	getRegistry: jest.fn(),
 }));
 jest.mock('../src/actionCreator', () => ({
 	registerMany: jest.fn(),

@@ -1,5 +1,5 @@
 import { spawn, take, cancel } from 'redux-saga/effects';
-import { createMockTask } from 'redux-saga/utils';
+import { createMockTask } from '@redux-saga/testing-utils';
 import sagaRouter from './sagaRouter';
 
 describe('sagaRouter import', () => {

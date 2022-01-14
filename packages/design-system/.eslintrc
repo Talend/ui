@@ -3,6 +3,11 @@
 		"../../node_modules/@talend/scripts-config-eslint/.eslintrc",
 		"plugin:storybook/recommended"
 	],
+	"settings": {
+		"import/resolver": {
+			"typescript": {}
+		}
+	},
 	"overrides": [
 		{
 			"files": ["*.@(ts|tsx|js|jsx)"],

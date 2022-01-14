@@ -9,6 +9,7 @@ import React from 'react';
 import cmfConnect from './cmfConnect';
 import action from './action';
 import actionCreator from './actionCreator';
+import { RegistryContext } from './RegistryProvider';
 
 /**
  * This component purpose is to decorate any component and map an user event
@@ -20,27 +21,9 @@ function myfunc(event, props, context) {
 	<ChildrenElement />
 </Dispatcher>
  */
-export class Dispatcher extends React.Component {
-	static displayName = 'Dispatcher';
-
-	static propTypes = {
-		children: PropTypes.node.isRequired,
-		stopPropagation: PropTypes.bool,
-		preventDefault: PropTypes.bool,
-		dispatchActionCreator: PropTypes.func,
-	};
-
-	static contextTypes = {
-		registry: PropTypes.object.isRequired,
-	};
-
-	/**
-	 * @param  {object} props only one child under children
-	 */
-	constructor(props) {
-		super(props);
-		this.onEvent = this.onEvent.bind(this);
-	}
+export function Dispatcher(props) {
+	const registry = React.useContext(RegistryContext);
+	// console.log('@@@ registry', registry);
 
 	/**
 	 * on any even just try to find a onTHEEVENT props.
@@ -49,43 +32,45 @@ export class Dispatcher extends React.Component {
 	 * @param  {object} event     the react event dispatched event
 	 * @param  {string} eventName the name of the event
 	 */
-	onEvent(event, eventName) {
-		if (this.props.stopPropagation) {
+	function onEvent(event, eventName) {
+		if (props.stopPropagation) {
 			event.stopPropagation();
 		}
-		if (this.props.preventDefault) {
+		if (props.preventDefault) {
 			event.preventDefault();
 		}
-		if (this.props[eventName]) {
-			this.props.dispatchActionCreator(this.props[eventName], event, this.props);
+		if (props[eventName]) {
+			props.dispatchActionCreator(props[eventName], event, props);
 		}
 	}
 
-	checkIfActionInfoExist() {
-		action.getOnProps(this.props).forEach(name => {
-			if (typeof this.props[name] === 'string') {
-				actionCreator.get(this.context, this.props[name]);
+	function checkIfActionInfoExist() {
+		action.getOnProps(props).forEach(name => {
+			if (typeof props[name] === 'string') {
+				actionCreator.get({ registry }, props[name]);
 			}
 		});
 	}
 
-	/**
-	 * @return {object} ReactElement
-	 */
-	render() {
-		this.checkIfActionInfoExist();
-		const onProps = action.getOnProps(this.props);
-		const childrenWithProps = React.Children.map(this.props.children, child => {
-			const props = {};
-			onProps.forEach(name => {
-				props[name] = event => this.onEvent(event, name);
-			});
-			return React.cloneElement(child, props);
+	checkIfActionInfoExist();
+	const onProps = action.getOnProps(props);
+	const childrenWithProps = React.Children.map(props.children, child => {
+		const newProps = {};
+		onProps.forEach(name => {
+			newProps[name] = event => onEvent(event, name);
 		});
-		return React.Children.only(childrenWithProps[0]);
-	}
+		return React.cloneElement(child, newProps);
+	});
+	return React.Children.only(childrenWithProps[0]);
 }
 
+Dispatcher.propTypes = {
+	children: PropTypes.node.isRequired,
+	stopPropagation: PropTypes.bool,
+	preventDefault: PropTypes.bool,
+	dispatchActionCreator: PropTypes.func,
+};
+Dispatcher.displayName = 'Dispatcher';
 Dispatcher.defaultProps = {
 	stopPropagation: false,
 	preventDefault: false,

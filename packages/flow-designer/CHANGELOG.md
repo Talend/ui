@@ -1,4 +1,16 @@
-# react-flow-designer
+# Changelog
+
+## 5.0.0
+
+### Major Changes
+
+- 593026b37: Redux major upgrade with saga
+
+## 4.2.4
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
 
 ## 4.2.3
 

@@ -1,5 +1,7 @@
-import { Story } from '@storybook/react';
 import React from 'react';
+import { Story } from '@storybook/react';
+import { WithSelector } from '~docs';
+
 import Link from '.';
 import { WithSelector } from '~docs';
 

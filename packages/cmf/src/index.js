@@ -23,6 +23,7 @@ import localStorage from './localStorage';
 import onError from './onError';
 import reduxStorage from './reduxstorage';
 import * as mock from './mock';
+import { useCMFContext } from './useContext';
 
 // DEPRECATED APIs
 import action from './action';
@@ -66,6 +67,7 @@ export {
 	Saga,
 	CmfRegisteredSaga,
 	store,
+	useCMFContext,
 };
 
 /**

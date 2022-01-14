@@ -1,5 +1,22 @@
 # @talend/react-storybook-cmf
 
+## 7.0.0
+
+### Major Changes
+
+- 593026b37: Redux major upgrade with saga
+
+### Patch Changes
+
+- Updated dependencies [593026b37]
+  - @talend/react-cmf@7.0.0
+
+## 6.36.6
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 6.36.5
 
 ### Patch Changes

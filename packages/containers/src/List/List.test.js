@@ -1,8 +1,8 @@
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import { Map, fromJS, List as ImmutableList } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
-
+import { mock } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './List.container';
 import Connected, { mapStateToProps } from './List.connect';
 
@@ -24,7 +24,10 @@ const toolbar = {
 		placeholder: 'find an object',
 	},
 	sort: {
-		options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+		options: [
+			{ id: 'id', name: 'Id' },
+			{ id: 'name', name: 'Name' },
+		],
 		field: 'id',
 		isDescending: false,
 	},
@@ -85,8 +88,11 @@ const items = fromJS([
 
 describe('Container List', () => {
 	it('should put default props', () => {
-		const wrapper = shallow(<Container {...cloneDeep(settings)} items={items} />);
-		const props = wrapper.props();
+		const wrapper = mount(
+			<Container {...cloneDeep(settings)} items={items} />,
+			mock.Provider.getEnzymeOption(mock.store.context),
+		);
+		const props = wrapper.find('List').props();
 		expect(props.displayMode).toBe('table');
 		expect(props.list.items.length).toBe(3);
 		expect(props.list.items[0].id).toBe(1);
@@ -107,14 +113,15 @@ describe('Container List', () => {
 
 	it('should define the cellDictionary props', () => {
 		const getComponent = jest.fn(() => 'my custom component');
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
 				cellDictionary={{ custom: { component: 'componentId' } }}
 				getComponent={getComponent}
 				items={fromJS([])}
 			/>,
+			mock.Provider.getEnzymeOption(mock.store.context),
 		);
-		const props = wrapper.props();
+		const props = wrapper.find('List').props();
 
 		expect(props.list.cellDictionary).toEqual({
 			custom: { cellRenderer: 'my custom component' },
@@ -129,14 +136,15 @@ describe('Container List', () => {
 
 	it('should define the headerDictionary props', () => {
 		const getComponent = jest.fn(() => 'my custom component');
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
 				getComponent={getComponent}
 				items={fromJS([])}
 				headerDictionary={{ custom: { component: 'componentId' } }}
 			/>,
+			mock.Provider.getEnzymeOption(mock.store.context),
 		);
-		const props = wrapper.props();
+		const props = wrapper.find('List').props();
 
 		expect(props.list.headerDictionary).toEqual({
 			custom: { headerRenderer: 'my custom component' },
@@ -150,7 +158,10 @@ describe('Container List', () => {
 		multiSelectionSetting.multiSelectActions = {
 			left: ['object:remove'],
 		};
-		const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />);
+		const wrapper = mount(
+			<Container {...multiSelectionSetting} items={items} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
 		const props = wrapper.props();
 		expect(typeof props.list.itemProps.onToggle).toBe('function');
 		expect(typeof props.list.itemProps.onToggleAll).toBe('function');
@@ -158,13 +169,20 @@ describe('Container List', () => {
 	});
 
 	it('should render without toolbar', () => {
-		const wrapper = shallow(<Container items={items} />, { lifecycleExperimental: true });
+		const wrapper = mount(
+			<Container items={items} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
 		const props = wrapper.props();
 		expect(props.toolbar).toBe(undefined);
 	});
 
 	it('should support displayMode as props', () => {
-		const wrapper = shallow(<Container displayMode="large" items={items} />);
+		const wrapper = mount(
+			<Container displayMode="large" items={items} />,
+			mock.Provider.getEnzymeOption(mock.store.context()),
+		);
 		const props = wrapper.props();
 		expect(props.displayMode).toBe('large');
 	});
@@ -177,16 +195,13 @@ describe('Container List', () => {
 				'actionCreator:object:open': actionCreator,
 			},
 		};
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
 				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
-			{
-				lifecycleExperimental: true,
-				context,
-			},
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		const onClick = props.list.titleProps.onClick;
@@ -210,16 +225,13 @@ describe('Container List', () => {
 				'actionCreator:object:edit:submit': actionCreator,
 			},
 		};
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
 				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
-			{
-				lifecycleExperimental: true,
-				context,
-			},
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		const onEditSubmit = props.list.titleProps.onEditSubmit;
@@ -243,16 +255,13 @@ describe('Container List', () => {
 				'actionCreator:object:edit:cancel': actionCreator,
 			},
 		};
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
 				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
-			{
-				lifecycleExperimental: true,
-				context,
-			},
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		const onEditCancel = props.list.titleProps.onEditCancel;
@@ -280,16 +289,13 @@ describe('Container List', () => {
 			...cloneDeep(settings),
 			actions: {},
 		};
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
 				{...settingsWithoutActions}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 			/>,
-			{
-				lifecycleExperimental: true,
-				context,
-			},
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		expect(props.list.titleProps.onClick).toBeUndefined();
@@ -305,17 +311,14 @@ describe('Container List', () => {
 				'actionCreator:pagination:change': actionCreator,
 			},
 		};
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container
 				{...cloneDeep(settings)}
 				items={items}
 				dispatchActionCreator={dispatchActionCreator}
 				setState={setState}
 			/>,
-			{
-				lifecycleExperimental: true,
-				context,
-			},
+			mock.Provider.getEnzymeOption(context),
 		);
 		const props = wrapper.props();
 		const event = null;
@@ -327,7 +330,12 @@ describe('Container List', () => {
 		props.toolbar.pagination.onChange(data.startIndex, data.itemsPerPage);
 
 		// then
-		expect(dispatchActionCreator).toBeCalledWith('pagination:change', event, data, context);
+		expect(dispatchActionCreator).toBeCalledWith(
+			'pagination:change',
+			event,
+			data,
+			expect.objectContaining(context),
+		);
 	});
 
 	it('should set the proper rowHeight', () => {
@@ -335,11 +343,11 @@ describe('Container List', () => {
 			table: 3,
 			large: 2,
 		};
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container {...cloneDeep(settings)} items={items} rowHeight={rowHeight} />,
-			{ lifecycleExperimental: true },
+			mock.Provider.getEnzymeOption(mock.store.context()),
 		);
-		const props = wrapper.props();
+		const props = wrapper.find('List').props();
 		expect(props.displayMode).toBe('table');
 		expect(props.rowHeight).toBe(3);
 	});
@@ -348,11 +356,9 @@ describe('Container List', () => {
 		// given
 		const dispatch = jest.fn();
 		const setState = jest.fn();
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
-			{
-				lifecycleExperimental: true,
-			},
+			mock.Provider.getEnzymeOption(mock.store.context()),
 		);
 		const props = wrapper.props();
 		const event = { type: 'click' };
@@ -369,11 +375,9 @@ describe('Container List', () => {
 		// given
 		const dispatch = jest.fn();
 		const setState = jest.fn();
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
-			{
-				lifecycleExperimental: true,
-			},
+			mock.Provider.getEnzymeOption(mock.store.context()),
 		);
 		const props = wrapper.props();
 		const event = { type: 'click' };
@@ -390,11 +394,9 @@ describe('Container List', () => {
 		// given
 		const dispatch = jest.fn();
 		const setState = jest.fn();
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Container {...cloneDeep(settings)} items={items} dispatch={dispatch} setState={setState} />,
-			{
-				lifecycleExperimental: true,
-			},
+			mock.Provider.getEnzymeOption(mock.store.context()),
 		);
 		const props = wrapper.props();
 		const event = { type: 'click' };
@@ -418,11 +420,12 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [] });
 			multiSelectionSetting.state = state;
-			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
-				lifecycleExperimental: true,
-			});
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// when
-			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
+			wrapper.find('List').props().list.itemProps.onToggle({}, { id: 1 });
 			// then
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
 				selectedItems: new ImmutableList([1]),
@@ -439,11 +442,12 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [1] });
 			multiSelectionSetting.state = state;
-			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
-				lifecycleExperimental: true,
-			});
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// when
-			wrapper.instance().onToggleMultiSelection({}, { id: 1 });
+			wrapper.find('List').props().list.itemProps.onToggle({}, { id: 1 });
 			// then
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
 				selectedItems: new ImmutableList([]),
@@ -459,11 +463,12 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [] });
 			multiSelectionSetting.state = state;
-			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
-				lifecycleExperimental: true,
-			});
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// when
-			wrapper.instance().onToggleAllMultiSelection();
+			wrapper.find('List').props().list.itemProps.onToggleAll();
 			// then
 
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
@@ -481,11 +486,12 @@ describe('Container List', () => {
 			multiSelectionSetting.setState = jest.fn();
 			const state = fromJS({ selectedItems: [1, 2, 3] });
 			multiSelectionSetting.state = state;
-			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
-				lifecycleExperimental: true,
-			});
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// when
-			wrapper.instance().onToggleAllMultiSelection();
+			wrapper.find('List').props().list.itemProps.onToggleAll();
 			// then
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
 				selectedItems: new ImmutableList([]),
@@ -504,9 +510,10 @@ describe('Container List', () => {
 			multiSelectionSetting.state = state;
 
 			// when
-			const wrapper = shallow(<Container {...multiSelectionSetting} items={items} />, {
-				lifecycleExperimental: true,
-			});
+			const wrapper = mount(
+				<Container {...multiSelectionSetting} items={items} />,
+				mock.Provider.getEnzymeOption(mock.store.context()),
+			);
 			// then
 			expect(wrapper.props().toolbar.actionBar.selected).toBe(3);
 		});

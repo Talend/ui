@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-playground",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Showcase Talend/UI",
   "private": true,
   "main": "app/index.js",
@@ -31,11 +31,11 @@
   "dependencies": {
     "@talend/bootstrap-theme": "^6.38.5",
     "@talend/icons": "^6.38.0",
-    "@talend/react-cmf": "^6.38.5",
-    "@talend/react-cmf-router": "^3.5.7",
+    "@talend/react-cmf": "^7.0.0",
+    "@talend/react-cmf-router": "^4.0.0",
     "@talend/react-components": "^6.43.1",
-    "@talend/react-containers": "^6.39.2",
-    "@talend/react-forms": "^6.43.1",
+    "@talend/react-containers": "^7.0.0",
+    "@talend/react-forms": "^7.0.0",
     "history": "^3.3.0",
     "i18next": "^20.6.1",
     "prop-types": "^15.8.1",

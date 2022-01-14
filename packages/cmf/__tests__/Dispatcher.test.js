@@ -1,43 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { shallow, mount } from 'enzyme';
-import { Dispatcher } from '../src/Dispatcher';
+import { mount } from 'enzyme';
+import { mock } from '../src';
+import ConnectedDispatcher, { Dispatcher } from '../src/Dispatcher';
 import CONST from '../src/constant';
 
-const mockContext = {
-	registry: {
-		[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:actionCreator:id`]: jest.fn(),
-		[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:another:actionCreator:id`]: jest.fn(),
-	},
-};
-
-jest.mock('../src/action', () => ({
-	getOnProps() {
-		return ['onClick', 'onDoubleClick'];
-	},
-}));
-jest.mock('../src/actionCreator', () => ({
-	get(context, id) {
-		if (
-			id !== 'existingActionCreator:id' &&
-			id !== 'actionCreator:id' &&
-			id !== 'noOp' &&
-			id !== 'another:actionCreator:id'
-		) {
-			throw new Error(`action not found id: ${id}`);
-		}
-	},
-}));
+const noopRId = `${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:noOp`;
 
 describe('Testing <Dispatcher />', () => {
-	function replacer(k, v) {
-		let val = v;
-		if (typeof v === 'function') {
-			val = '[Function]';
-		}
-		return val;
-	}
-	const noOp = () => {};
+	let registry;
+	const onError = jest.fn();
+	beforeEach(() => {
+		registry = {
+			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:existingActionCreator:id`]: jest.fn(),
+			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:actionCreator:id`]: jest.fn(),
+			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:noOp`]: jest.fn(),
+			[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:another:actionCreator:id`]: jest.fn(),
+		};
+
+		jest.resetAllMocks();
+	});
 
 	it('should inject dispatchable on(event) props into its children', () => {
 		const dispatchActionCreator = jest.fn();
@@ -47,85 +28,63 @@ describe('Testing <Dispatcher />', () => {
 				onDoubleClick="another:actionCreator:id"
 				dispatchActionCreator={dispatchActionCreator}
 			>
-				<button />
+				<button type="button">Hello</button>
 			</Dispatcher>,
-			{
-				context: mockContext,
-			},
+			mock.Provider.getEnzymeOption({ registry, onError }),
 		);
-		expect(
-			JSON.stringify(wrapper.find('button').props(), replacer).replace(/(\\t|\\n)/g, ''),
-		).toEqual(
-			JSON.stringify({ onClick: noOp, onDoubleClick: noOp }, replacer).replace(/(\\t|\\n)/g, ''),
-		);
+		expect(typeof wrapper.find('button').props().onClick).toEqual('function');
+		expect(typeof wrapper.find('button').props().onDoubleClick).toEqual('function');
 	});
 
 	it('should throw with unknown action', () => {
-		expect(() => {
-			shallow(
+		const opts = mock.Provider.getEnzymeOption({ registry });
+		mount(
+			<mock.Provider.ErrorBoundary onError={onError}>
 				<Dispatcher
 					onClick="actionCreator:id"
 					onDoubleClick="unknnown:actionCreator:id"
 					dispatchActionCreator={jest.fn()}
 				>
-					<button />
-				</Dispatcher>,
-				{
-					context: mockContext,
-				},
-			);
-		}).toThrow('action not found id: unknnown:actionCreator:id');
+					<button type="button">Hello</button>
+				</Dispatcher>
+			</mock.Provider.ErrorBoundary>,
+			opts,
+		);
+
+		expect(onError).toHaveBeenCalled();
+		expect(onError.mock.calls[0][0].message).toBe(
+			'actionCreator not found in the registry: unknnown:actionCreator:id',
+		);
 	});
 
 	it('should have its method onEvent called when children handle an event', () => {
-		const wrapper = shallow(
-			<Dispatcher onClick="noOp" onDoubleClick="noOp">
-				<button />
-			</Dispatcher>,
-			{
-				context: mockContext,
-			},
+		const wrapper = mount(
+			<ConnectedDispatcher onClick="noOp" onDoubleClick="noOp">
+				<button type="button">Hello</button>
+			</ConnectedDispatcher>,
+			mock.Provider.getEnzymeOption({ registry, onError }),
 		);
-		const buttonWrapper = wrapper.find('button').at(0);
-		const instance = wrapper.instance();
-		spyOn(instance, 'onEvent');
+		const buttonWrapper = wrapper.find('button');
 		buttonWrapper.simulate('click');
-		expect(instance.onEvent).toHaveBeenCalled();
-		expect(instance.onEvent).toHaveBeenCalledWith(undefined, 'onClick');
+		expect(registry[noopRId]).toHaveBeenCalled();
 	});
 
 	it(
 		'should call cmf.actionCreator.get and reThrow at mount time' +
 			"if action info bind onto on[eventName] can't be found in settings",
 		() => {
-			expect(() => {
-				mount(
+			mount(
+				<mock.Provider.ErrorBoundary onError={onError}>
 					<Dispatcher onClick="error:actionCreator:id" onDoubleClick="another:actionCreator:id">
-						<button />
-					</Dispatcher>,
-					{
-						context: mockContext,
-					},
-				);
-			}).toThrowError('action not found id: error:actionCreator:id');
-		},
-	);
-
-	it(
-		'should call cmf.actionCreator.get and reThrow at willreceivePropsTime' +
-			"if action info bind onto on[eventName] can't be found in settings",
-		() => {
-			const wrapper = mount(
-				<Dispatcher onClick="existingActionCreator:id" onDoubleClick="existingActionCreator:id">
-					<button />
-				</Dispatcher>,
-				{
-					context: mockContext,
-				},
+						<button type="button">Hello</button>
+					</Dispatcher>
+				</mock.Provider.ErrorBoundary>,
+				mock.Provider.getEnzymeOption({ registry }),
 			);
-			expect(() => {
-				wrapper.setProps({ onClick: 'error:another:actionCreator:id' });
-			}).toThrowError('action not found id: error:another:actionCreator:id');
+			expect(onError).toHaveBeenCalled();
+			expect(onError.mock.calls[0][0].message).toBe(
+				'actionCreator not found in the registry: error:actionCreator:id',
+			);
 		},
 	);
 
@@ -142,12 +101,7 @@ describe('Testing <Dispatcher />', () => {
 					<a />
 				</Dispatcher>
 			</div>,
-			{
-				context: mockContext,
-				childContextTypes: {
-					registry: PropTypes.object.isRequired,
-				},
-			},
+			mock.Provider.getEnzymeOption({ registry, onError }),
 		);
 		wrapper.find('a').simulate('click');
 		expect(onClick).toHaveBeenCalled();
@@ -167,12 +121,7 @@ describe('Testing <Dispatcher />', () => {
 					<a />
 				</Dispatcher>
 			</div>,
-			{
-				context: mockContext,
-				childContextTypes: {
-					registry: PropTypes.object.isRequired,
-				},
-			},
+			mock.Provider.getEnzymeOption({ registry, onError }),
 		);
 		wrapper.find('a').simulate('click');
 		expect(onClick).not.toHaveBeenCalled();
@@ -184,13 +133,11 @@ describe('Testing <Dispatcher />', () => {
 			type: 'click',
 			preventDefault: jest.fn(),
 		};
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Dispatcher dispatchActionCreator={dispatchActionCreator} preventDefault onClick="noOp">
 				<a />
 			</Dispatcher>,
-			{
-				context: mockContext,
-			},
+			mock.Provider.getEnzymeOption({ registry, onError }),
 		);
 		wrapper.find('a').simulate('click', event);
 		expect(event.preventDefault).toHaveBeenCalled();
@@ -210,10 +157,15 @@ describe('Testing <Dispatcher />', () => {
 			extra: 'foo',
 			children: <a />,
 		};
-		const wrapper = shallow(<Dispatcher {...props} />, {
-			context: mockContext,
-		});
+		const wrapper = mount(
+			<Dispatcher {...props} />,
+			mock.Provider.getEnzymeOption({ registry, onError }),
+		);
 		wrapper.find('a').simulate('click', event);
-		expect(dispatchActionCreator).toHaveBeenCalledWith('noOp', event, props);
+		expect(dispatchActionCreator).toHaveBeenCalledWith(
+			'noOp',
+			expect.objectContaining(event),
+			expect.objectContaining(props),
+		);
 	});
 });
