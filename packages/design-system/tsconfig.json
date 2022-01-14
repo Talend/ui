@@ -7,10 +7,10 @@
     "declaration": true,
     "baseUrl": ".",
     "paths": {
-      "~docs": ["./.storybook/docs"]
+      "~docs": [".storybook/docs"]
     },
     "jsx": "react",
-    "target": "ES5",
-    "module": "CommonJs"
+    "module": "CommonJs",
+    "types": ["jest"]
   }
 }
