@@ -26,9 +26,10 @@ jobs:
         run: |
           yarn --frozen-lock
 
-      - name: TSC DS folder
+      - name: Build @talend/design-tokens
         run: |
-          tsc
+          cd ../design-tokens
+          yarn build:lib
 
       - name: TSC Cy folder
         run: |
