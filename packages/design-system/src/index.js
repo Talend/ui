@@ -1,5 +1,11 @@
 import Accordion from './components/Accordion';
 import Button from './components/Button';
+import {
+	ButtonIcon,
+	ButtonIconFloating,
+	ButtonToggle,
+	ButtonIconVariant,
+} from './components/ButtonIcon';
 import Card from './components/Card';
 import Combobox from './components/Combobox';
 import Divider from './components/Divider';
@@ -41,6 +47,10 @@ import tokens from './tokens';
 export {
 	Accordion,
 	Button,
+	ButtonIcon,
+	ButtonIconFloating,
+	ButtonToggle,
+	ButtonIconVariant,
 	Card,
 	Combobox,
 	Divider,

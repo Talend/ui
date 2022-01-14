@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ButtonFloating, ButtonIcon, ButtonToggle } from './index';
+import { ButtonIconFloating, ButtonIcon, ButtonToggle } from './index';
 import { StackHorizontal } from '../Stack';
 
 export default {
@@ -44,9 +44,9 @@ const TemplateToggle: ComponentStory<typeof ButtonToggle> = args => {
 	return <ButtonToggle {...rest}>{children}</ButtonToggle>;
 };
 
-const TemplateFloating: ComponentStory<typeof ButtonFloating> = args => {
+const TemplateFloating: ComponentStory<typeof ButtonIconFloating> = args => {
 	const { children, ...rest } = args;
-	return <ButtonFloating {...rest}>{children}</ButtonFloating>;
+	return <ButtonIconFloating {...rest}>{children}</ButtonIconFloating>;
 };
 
 export const Default = TemplateIcon.bind({});
@@ -100,9 +100,9 @@ export const NaturalButtonProps = () => {
 			<ButtonIcon icon="talend-send" onClick={action('Submitted')} type="submit">
 				Send message
 			</ButtonIcon>
-			<ButtonFloating icon="talend-zoomin" onClick={action('Zoomed in')} disabled>
+			<ButtonIconFloating icon="talend-zoomin" onClick={action('Zoomed in')} disabled>
 				Zoom in
-			</ButtonFloating>
+			</ButtonIconFloating>
 			<ButtonToggle
 				icon="talend-collapse"
 				onClick={() => setActive(!isActive)}
@@ -122,9 +122,9 @@ export const Loading = () => {
 			<ButtonIcon icon="talend-send" onClick={action('Submitted')} type="submit" isLoading>
 				Send message
 			</ButtonIcon>
-			<ButtonFloating icon="talend-zoomin" onClick={action('Zoomed in')} isLoading>
+			<ButtonIconFloating icon="talend-zoomin" onClick={action('Zoomed in')} isLoading>
 				Zoom in
-			</ButtonFloating>
+			</ButtonIconFloating>
 			<ButtonToggle
 				icon="talend-collapse"
 				onClick={() => setActive(!isActive)}

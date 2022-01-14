@@ -3,7 +3,7 @@ import ButtonIconPrimitive, { FloatingTypes } from '../Primitive/ButtonIconPrimi
 
 export type ButtonFloatingType = Omit<FloatingTypes, 'variant'>;
 
-const ButtonFloating = forwardRef((props: ButtonFloatingType, ref: Ref<HTMLButtonElement>) => {
+const ButtonIconFloating = forwardRef((props: ButtonFloatingType, ref: Ref<HTMLButtonElement>) => {
 	const { children, ...rest } = props;
 	return (
 		<ButtonIconPrimitive {...rest} variant="floating" ref={ref}>
@@ -12,4 +12,4 @@ const ButtonFloating = forwardRef((props: ButtonFloatingType, ref: Ref<HTMLButto
 	);
 });
 
-export default ButtonFloating;
+export default ButtonIconFloating;
