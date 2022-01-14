@@ -46,7 +46,7 @@ export const PrimaryDisabledFocusable = (props: Story) => {
 };
 export const PrimaryAsLink = (props: Story) => {
 	return (
-		<Button.Primary as="a" href="pouet" {...props}>
+		<Button.Primary as="a" href="https://talend.com" {...props}>
 			This is an anchor
 		</Button.Primary>
 	);
@@ -85,7 +85,7 @@ export const DestructiveDisabledFocusable = (props: Story) => {
 };
 export const DestructiveAsLink = (props: Story) => {
 	return (
-		<Button.Destructive as="a" href="pouet" {...props}>
+		<Button.Destructive as="a" href="https://talend.com" {...props}>
 			This is an anchor
 		</Button.Destructive>
 	);
@@ -124,7 +124,7 @@ export const SecondaryDisabledFocusable = (props: Story) => {
 };
 export const SecondaryAsLink = (props: Story) => {
 	return (
-		<Button.Secondary as="a" href="pouet" {...props}>
+		<Button.Secondary as="a" href="https://talend.com" {...props}>
 			This is an anchor
 		</Button.Secondary>
 	);
@@ -163,38 +163,9 @@ export const TertiaryDisabledFocusable = (props: Story) => {
 };
 export const TertiaryAsLink = (props: Story) => {
 	return (
-		<Button.Tertiary as="a" href="pouet" {...props}>
+		<Button.Tertiary as="a" href="https://talend.com" {...props}>
 			This is an anchor
 		</Button.Tertiary>
-	);
-};
-
-export const Icon = (props: Story) => {
-	return (
-		<Button.Icon icon="talend-plus" {...props}>
-			Button with icon
-		</Button.Icon>
-	);
-};
-export const IconDisabled = (props: Story) => {
-	return (
-		<Button.Icon disabled icon="talend-plus" {...props}>
-			Disabled Button
-		</Button.Icon>
-	);
-};
-export const IconDisabledFocusable = (props: Story) => {
-	return (
-		<Button.Icon disabled focusable icon="talend-plus" {...props}>
-			Disabled Focusable Button
-		</Button.Icon>
-	);
-};
-export const IconAsLink = (props: Story) => {
-	return (
-		<Button.Icon as="a" href="pouet" icon="talend-plus" {...props}>
-			This is an anchor
-		</Button.Icon>
 	);
 };
 
