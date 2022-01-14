@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import { IconGallery, IconItem } from '@storybook/components';
-import { Form, Icon, IconsProvider, ThemeProvider, tokens } from '../index';
+
+import { Form, Icon, IconsProvider, ThemeProvider } from '../../src';
 
 export const Icons = () => {
 	const [icons, setIds] = React.useState<(string | null)[]>([]);
@@ -9,7 +10,7 @@ export const Icons = () => {
 	const [filter, setFilter] = React.useState<boolean>();
 	const [transform, setTransform] = React.useState<string>('');
 	const [useCurrentColor, setUseCurrentColor] = React.useState<boolean>();
-	const [currentColor, setCurrentColor] = React.useState(tokens.colors.gray[800]);
+	const [currentColor, setCurrentColor] = React.useState<string>();
 	const [border, setBorder] = React.useState<boolean>();
 
 	React.useEffect(() => {
