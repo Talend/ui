@@ -57,7 +57,7 @@ context('<Dropdown />', () => {
 			.first()
 			.should('be.visible')
 			.within(() => {
-				cy.get('.link__icon--external').should('be.visible');
+				cy.getByTest('link.icon.external').should('be.visible');
 			});
 	});
 });

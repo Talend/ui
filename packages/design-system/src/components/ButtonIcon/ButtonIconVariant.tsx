@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonIcon from './variations/ButtonIcon';
 import ButtonToggle from './variations/ButtonToggle';
-import ButtonFloating from './variations/ButtonFloating';
+import ButtonIconFloating from './variations/ButtonIconFloating';
 import { ButtonIconProps } from './Primitive/ButtonIconPrimitive';
 
 const ButtonIconVariant = React.forwardRef(
@@ -19,9 +19,9 @@ const ButtonIconVariant = React.forwardRef(
 			case 'floating': {
 				const { children, variant, ...rest } = props;
 				return (
-					<ButtonFloating {...rest} ref={ref}>
+					<ButtonIconFloating {...rest} ref={ref}>
 						{children}
-					</ButtonFloating>
+					</ButtonIconFloating>
 				);
 			}
 
