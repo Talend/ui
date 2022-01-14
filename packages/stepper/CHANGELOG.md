@@ -1,5 +1,19 @@
 # @talend/react-stepper
 
+## 7.0.0
+
+### Major Changes
+
+- 593026b37: Redux major upgrade with saga
+
+## 6.36.6
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [86f208189]
+  - @talend/react-components@6.43.3
+
 ## 6.36.5
 
 ### Patch Changes

@@ -1,5 +1,27 @@
 # @talend/react-containers
 
+## 7.0.0
+
+### Major Changes
+
+- 593026b37: Redux major upgrade with saga
+
+### Patch Changes
+
+- Updated dependencies [593026b37]
+  - @talend/react-cmf@7.0.0
+  - @talend/react-forms@7.0.0
+
+## 6.39.3
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [86f208189]
+  - @talend/react-cmf@6.39.1
+  - @talend/react-components@6.43.3
+  - @talend/react-forms@6.43.2
+
 ## 6.39.2
 
 ### Patch Changes

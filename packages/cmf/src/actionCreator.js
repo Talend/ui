@@ -10,6 +10,7 @@ import CONST from './constant';
 function get(context, id) {
 	const creator = context.registry[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:${id}`];
 	if (!creator) {
+		// console.log('@@ registry', id, Object.keys(context.registry));
 		throw new Error(`actionCreator not found in the registry: ${id}`);
 	}
 	return creator;

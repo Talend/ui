@@ -1,5 +1,19 @@
 # @talend/design-system
 
+## 1.12.2
+
+### Patch Changes
+
+- 597c0d31a: adjust ts config to generate index.d.ts
+
+## 1.12.1
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+- 8b6fc43c8: fix(TUX-1125): hide input.copy success message if value props is updated
+- 4a9c460c7: fix(design-system): eslint errors
+
 ## 1.12.0
 
 ### Minor Changes

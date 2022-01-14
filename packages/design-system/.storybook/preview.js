@@ -57,17 +57,17 @@ const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
 	.sb-show-main.sb-main-padded {
 		padding: 0;
 	}
-	
+
 	.sbdocs.sbdocs-preview {
 		color: ${theme?.colors.textColor};
 		background: ${theme?.colors.backgroundColor};
 	}
-	
+
 	.sbdocs .figma-iframe--light {
 		position: ${theme?.id === 'light' && hasFigmaIframe ? 'relative' : 'absolute'};
 		left:  ${theme?.id === 'light' && hasFigmaIframe ? 'auto' : '-9999rem'};
 	}
-	
+
 	.sbdocs .figma-iframe--dark {
 		position: ${theme?.id === 'dark' && hasFigmaIframe ? 'relative' : 'absolute'};
 		left:  ${theme?.id === 'dark' && hasFigmaIframe ? 'auto' : '-9999rem'};

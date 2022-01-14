@@ -1,4 +1,4 @@
-import {mock} from '../src';
+import { mock } from '../src';
 import actionCreatorAPI from '../src/actionCreator';
 
 describe('CMF action', () => {

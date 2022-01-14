@@ -1,5 +1,11 @@
 # @talend/eslint-config
 
+## 4.0.2
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+
 ## 4.0.1
 
 ### Patch Changes

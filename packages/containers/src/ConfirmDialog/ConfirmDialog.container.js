@@ -10,7 +10,6 @@ export const DEFAULT_STATE = new Map({
 	show: false,
 });
 
-// This uses old react context, so no way to switch to stateless function instead of class
 // eslint-disable-next-line react/prefer-stateless-function
 function ConfirmDialog(props) {
 	const context = useCMFContext();
