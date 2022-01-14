@@ -3,7 +3,7 @@ import styled, { DefaultTheme } from 'styled-components';
 
 import Grid from './Grid';
 
-import tokens from '../tokens';
+import tokens from '../../src/tokens';
 
 function isNumeric(str: string) {
 	if (typeof str !== 'string') return false;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { within , userEvent } from '@storybook/testing-library';
+import { within, userEvent } from '@storybook/testing-library';
 
-import { WithSelector } from '../../../../../docs';
+import { WithSelector } from '~docs';
 
 import Form from '../../..';
 

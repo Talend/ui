@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area } from '../../../docs';
+import { Area } from '~docs';
 
 import Layout from '../Layout';
 import Column from '../Column';
