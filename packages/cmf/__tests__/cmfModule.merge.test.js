@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-function */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import mergeModules from '../src/cmfModule.merge';
 
@@ -15,12 +15,9 @@ describe('mergeModule', () => {
 			log: jest.fn(),
 		};
 	});
-	afterEach( () => {
+	afterEach(() => {
 		// eslint-disable-next-line no-console
 		global.console = originalLog;
-	});
-	afterAll(() => {
-		console.log('test ####');
 	});
 	it('should merge components config', () => {
 		const a = {
@@ -241,14 +238,14 @@ describe('mergeModule', () => {
 
 		// when
 		const { RootComponent } = mergeModules(module1, module2, module3);
-		const wrapper = mount(<RootComponent />);
+		const { container } = render(<RootComponent />);
 
 		// then
-		const mod1 = wrapper.find('#mod1');
+		const mod1 = container.querySelectorAll('#mod1');
 		expect(mod1.length).toBe(1);
-		const mod2 = mod1.find('#mod2');
+		const mod2 = container.querySelectorAll('#mod2');
 		expect(mod2.length).toBe(1);
-		const mod3 = mod1.find('#mod3');
+		const mod3 = container.querySelectorAll('#mod3');
 		expect(mod3.length).toBe(1);
 	});
 	it('should merge render', () => {
