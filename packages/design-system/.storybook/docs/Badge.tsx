@@ -13,6 +13,23 @@ const A = styled.a.attrs(({ href }) => ({
 	justify-content: space-between;
 	font: ${tokens.coralParagraphSBold};
 
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+	}
+
+	&:not([href]) {
+		span:first-child {
+			background-color: ${tokens.coralColorNeutralBackgroundDisabled};
+		}
+	}
+
+	&[href] {
+		cursor: pointer;
+	}
+
 	span {
 		padding: 0 ${tokens.coralSizeXxs};
 		border: ${tokens.coralBorderSSolid} ${tokens.coralColorAssistiveBorder};
@@ -31,25 +48,13 @@ const A = styled.a.attrs(({ href }) => ({
 		&:last-child {
 			border-left: none;
 			border-radius: 0 ${tokens.coralRadiusS} ${tokens.coralRadiusS} 0;
+			text-transform: uppercase;
 		}
-	}
-
-	&:not([href]) {
-		text-decoration: none;
-
-		span:first-child {
-			color: ${tokens.coralColorNeutralTextDisabled};
-		}
-	}
-
-	&[href] {
-		cursor: pointer;
 	}
 
 	img {
 		height: ${tokens.coralSizeS};
 		width: ${tokens.coralSizeS};
-		fill: ${tokens.coralColorAssistiveText};
 	}
 `;
 
@@ -96,29 +101,27 @@ export const renderStatus = (status?: Status) => {
 						background: tokens.coralColorNeutralBackgroundStrong,
 					}}
 				>
-					{status}
+					N/A
 				</span>
 			);
 	}
 };
 
-const Link = ({
+const Badge = ({
 	icon,
 	children,
 	status,
 	...props
-}: React.HTMLAttributes<HTMLAnchorElement> & { icon: any; status?: Status }) => {
+}: React.HTMLAttributes<HTMLAnchorElement> & { icon: string; status?: Status }) => {
 	return (
-		console.log(icon) || (
-			<A {...props}>
-				<span>
-					<img src={icon.source} alt="" />
-					{children}
-				</span>
-				{renderStatus(status)}
-			</A>
-		)
+		<A {...props}>
+			<span>
+				<img src={`https://unpkg.com/simple-icons/icons/${icon}.svg`} alt="" />
+				{children}
+			</span>
+			{renderStatus(status)}
+		</A>
 	);
 };
 
-export default Link;
+export default Badge;

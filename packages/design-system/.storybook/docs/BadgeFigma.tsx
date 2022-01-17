@@ -1,13 +1,12 @@
 import React from 'react';
-import { siFigma } from 'simple-icons/icons';
 
-import Link from './Link';
+import Badge from './Badge';
 
 const FigmaStatus = (props: React.FunctionComponent) => {
 	return (
-		<Link {...props} icon={siFigma}>
+		<Badge {...props} icon="figma">
 			Figma
-		</Link>
+		</Badge>
 	);
 };
 

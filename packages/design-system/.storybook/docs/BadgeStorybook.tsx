@@ -1,13 +1,12 @@
 import React from 'react';
-import { siStorybook } from 'simple-icons/icons';
 
-import Link from './Link';
+import Badge from './Badge';
 
 const StorybookStatus = (props: React.FunctionComponent) => {
 	return (
-		<Link {...props} icon={siStorybook}>
+		<Badge {...props} icon="storybook">
 			Documentation
-		</Link>
+		</Badge>
 	);
 };
 

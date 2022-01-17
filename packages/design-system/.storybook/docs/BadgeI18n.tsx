@@ -1,13 +1,12 @@
 import React from 'react';
-import { siI18next } from 'simple-icons/icons';
 
-import Link from './Link';
+import Badge from './Badge';
 
 const I18nStatus = (props: React.FunctionComponent) => {
 	return (
-		<Link {...props} icon={siI18next}>
+		<Badge {...props} icon="i18next">
 			i18n
-		</Link>
+		</Badge>
 	);
 };
 

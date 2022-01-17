@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import tokens from '@talend/design-tokens';
 
-import Link from './Link';
+import Badge from './Badge';
 
 const UL = styled.ul.attrs({
 	role: 'list',
@@ -23,7 +23,7 @@ const UL = styled.ul.attrs({
 const StatusList = ({ children }: React.PropsWithChildren<any>) => {
 	return (
 		<UL>
-			{children.map((child: ReactElement<typeof Link>, key: number) => (
+			{children.map((child: ReactElement<typeof Badge>, key: number) => (
 				<li key={key}>{child}</li>
 			))}
 		</UL>

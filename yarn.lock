@@ -2778,9 +2778,9 @@
     core-js "^3.8.2"
 
 "@storybook/core-events@^6.4.9":
-  version "6.4.10"
-  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.10.tgz#b32b74d095f942912330e9b95d39054e1588e0e6"
-  integrity sha512-EPKO4fJJNbQUf6h6ZkiKSRiUr0QL7+0rEBTbwGnrWEXXZhU34unSY9q/ZD8HY9pdrx0ELwGKaRTixMlEqDZ/iA==
+  version "6.4.13"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.13.tgz#caf1adafd743f8d53a151bc402449f841896cb9c"
+  integrity sha512-zNlzNv7qVXjLf7yfvY9KfLvDY8nVskxrjmz0+21rIqUefS9+7SWBrtJJURpCaoPf/BmACqh/6c1RnuOY7TESnw==
   dependencies:
     core-js "^3.8.2"
 
@@ -18225,9 +18225,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   integrity sha512-sDl4qMFpijcGw22U5w63KmD3cZJfBuFlVNbVMKje2keoKML7X2UzWbc4XrmEbDwg0NXJc3yv4/ox7b+JWb57kQ==
 
 simple-icons@^6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-6.6.0.tgz#dad446a7b52386284ce44b6af0a8c73ef60d62e0"
-  integrity sha512-smx2OY5BFHV+oJ6Ia5fXfxO2Ci0A0bsPLiuoJkent5O59O2sysXmR0H2ILTNBitv89VrJ0BApOOILa/m7uLIzA==
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-6.7.0.tgz#45263b5cd624f26f8f11c8ce1cf814be07de41dc"
+  integrity sha512-bEqOxIkVGTX/Dlq84bXM3ohzRkwE/kpUloSTNvKb7QDTR35ufxMthK3u6kZy2SbmbhFKSpM3Jc8tgAzgfzwV5w==
 
 simple-is@~0.2.0:
   version "0.2.0"

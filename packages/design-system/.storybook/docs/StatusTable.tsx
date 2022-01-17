@@ -1,5 +1,7 @@
 import React, { FunctionComponent, Suspense, useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { addons } from '@storybook/addons';
+import tokens from '@talend/design-tokens';
 
 const channel = addons.getChannel();
 
@@ -17,18 +19,65 @@ export type ComponentStatus = {
 	i18n?: Status;
 };
 
-type StoriesWithStatus = { [componentName: string]: ComponentStatus };
+type StoriesWithStatus = {
+	[componentName: string]: { title: string; componentId: string; status?: ComponentStatus };
+};
+
+const Table = styled.table.attrs({
+	className: 'sbdocs sbdocs-table',
+})`
+	position: relative;
+
+	&.sbdocs.sbdocs-table th {
+		position: sticky;
+		top: 0;
+	}
+
+	&.sbdocs.sbdocs-table th + th,
+	&.sbdocs.sbdocs-table td + td {
+		width: 10rem;
+	}
+`;
 
 export const toEmoji = (status?: Status) => {
 	switch (status) {
 		case Status.OK:
-			return '✅';
+			return (
+				<span
+					style={{
+						color: tokens.coralColorSuccessText,
+						background: tokens.coralColorSuccessBackground,
+					}}
+				>
+					OK
+				</span>
+			);
 		case Status.KO:
-			return '❌';
+			return (
+				<span
+					style={{
+						color: tokens.coralColorDangerText,
+						background: tokens.coralColorDangerBackground,
+					}}
+				>
+					KO
+				</span>
+			);
 		case Status.WIP:
-			return '⏱';
+			return (
+				<span
+					style={{
+						color: tokens.coralColorBetaText,
+						background: tokens.coralColorDangerBackground,
+					}}
+				>
+					WIP
+				</span>
+			);
+
 		case Status.NA:
-			return '❎';
+			return <span style={{}}>N/A</span>;
+
 		default:
 			return '❔';
 	}
@@ -44,34 +93,42 @@ const StatusTable = (props: FunctionComponent) => {
 
 	return (
 		<Suspense fallback={<span>Loading status...</span>}>
-			<table className="sbdocs sbdocs-table" {...props}>
+			<Table {...props}>
 				<thead>
 					<tr>
 						<th>Component</th>
-						<th align={'center'}>Figma</th>
-						<th align={'center'}>Storybook</th>
-						<th align={'center'}>React</th>
-						<th align={'center'}>i18n</th>
+						<th>Figma</th>
+						<th>Storybook</th>
+						<th>React</th>
+						<th>i18n</th>
 					</tr>
 				</thead>
 				<tbody>
 					{statuses &&
 						Object.entries(statuses).map(
-							([name, status = {}]: [name: string, status: ComponentStatus], key) => {
-								const { figma, react, storybook, i18n } = status;
+							(
+								[name, parameters]: [
+									name: string,
+									parameters: { title: string; componentId: string; status?: ComponentStatus },
+								],
+								key: number,
+							) => {
+								const { figma, react, storybook, i18n } = parameters.status || {};
 								return (
 									<tr key={key}>
-										<td>{name}</td>
-										<td align={'center'}>{toEmoji(figma)}</td>
-										<td align={'center'}>{toEmoji(storybook)}</td>
-										<td align={'center'}>{toEmoji(react)}</td>
-										<td align={'center'}>{toEmoji(i18n)}</td>
+										<td>
+											<a href={`/?path=/docs/${parameters.componentId}`}>{parameters.title}</a>
+										</td>
+										<td>{toEmoji(figma)}</td>
+										<td>{toEmoji(storybook)}</td>
+										<td>{toEmoji(react)}</td>
+										<td>{toEmoji(i18n)}</td>
 									</tr>
 								);
 							},
 						)}
 				</tbody>
-			</table>
+			</Table>
 		</Suspense>
 	);
 };

@@ -16,7 +16,7 @@ import 'focus-outline-manager';
 
 import i18n from './i18n';
 
-import { StatusBadges, FigmaStatus, ReactStatus, I18nStatus, StorybookStatus } from './docs';
+import { BadgeFigma, BadgeStorybook, BadgeReact, BadgeI18n, Badges } from './docs';
 import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
 
 import { light, dark } from '../src/themes';
@@ -79,17 +79,24 @@ const channel = addons.getChannel();
 
 let statusByPage = {};
 channel.once(SET_STORIES, eventData => {
-	statusByPage = Object.entries(eventData.stories).reduce((acc, [name, { title, parameters }]) => {
-		['components'].forEach(prefix => {
-			if (name.startsWith(prefix)) {
-				const pageName = name.replace(`${prefix}-`, '').split('--')[0];
-				if (!acc[pageName] && parameters.status) {
-					acc[pageName] = parameters.status;
+	statusByPage = Object.entries(eventData.stories).reduce(
+		(acc, [name, { title, componentId, parameters }]) => {
+			['components', 'templates', 'pages'].forEach(prefix => {
+				if (name.startsWith(prefix)) {
+					const pageName = name.replace(`${prefix}-`, '').split('--')[0].replace(/-/g, '/');
+					if (!acc[pageName]) {
+						acc[pageName] = {
+							title,
+							componentId,
+							status: parameters.status,
+						};
+					}
 				}
-			}
-		});
-		return acc;
-	}, {});
+			});
+			return acc;
+		},
+		{},
+	);
 });
 
 export const parameters = {
@@ -143,6 +150,10 @@ export const parameters = {
 					.join('/')
 					.replace('/docs', '');
 
+			const isDesignSystemElementPage = ['components/', 'templates/', 'pages/'].find(term =>
+				title?.toLocaleLowerCase().startsWith(term),
+			);
+
 			return (
 				<>
 					<Helmet>
@@ -159,9 +170,7 @@ export const parameters = {
 
 					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 					<TableOfContents>
-						{['component', 'template', 'page'].find(term =>
-							docsCategory.toLocaleLowerCase().includes(term),
-						) && (
+						{isDesignSystemElementPage && (
 							<ThemeProvider theme={light}>
 								<Divider />
 								<Form.Switch
@@ -187,13 +196,13 @@ export const parameters = {
 						)}
 					</TableOfContents>
 
-					{status && (
-						<StatusBadges>
-							<FigmaStatus status={status.figma} href={figmaLink} />
-							<StorybookStatus status={status.storybook} />
-							<ReactStatus status={status.react} href={githubLink} />
-							<I18nStatus status={status.i18n} />
-						</StatusBadges>
+					{isDesignSystemElementPage && status && (
+						<Badges>
+							<BadgeFigma status={status.figma} href={figmaLink} />
+							<BadgeStorybook status={status.storybook} />
+							<BadgeReact status={status.react} href={githubLink} />
+							<BadgeI18n status={status.i18n} />
+						</Badges>
 					)}
 
 					<I18nextProvider i18n={i18n}>
