@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import cmf from '../src';
+import { render } from '@testing-library/react';
+import cmf, { mock } from '../src';
 import expression from '../src/expression';
 
 describe('expression', () => {
@@ -89,9 +89,13 @@ describe('expression', () => {
 				'expression:test': isTrue,
 			},
 		};
-		const wrapper = shallow(<WithExpr disabledExpression="test" />, { context });
-		expect(wrapper.props().disabled).toBe(true);
-		expect(wrapper.props().disabled).not.toBe('test');
+		const wrapper = render(
+			<mock.Provider registry={context.registry}>
+				<WithExpr disabledExpression="test" />
+			</mock.Provider>,
+		);
+		const btn = wrapper.container.querySelector('button');
+		expect(btn.getAttribute('disabled')).toBe('');
 	});
 });
 

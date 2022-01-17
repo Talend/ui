@@ -1,6 +1,5 @@
 import React from 'react';
-import { createEvent, render } from '@testing-library/react';
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, createEvent, render } from '@testing-library/react';
 import { mock } from '../src';
 import ConnectedDispatcher, { Dispatcher } from '../src/Dispatcher';
 import CONST from '../src/constant';
