@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { generateDefaultViewId, mapStateToViewProps, WaitForSettings } from '../src/settings';
 import { mock } from '../src';
@@ -66,31 +66,34 @@ describe('settings', () => {
 	describe('WaitForSettings', () => {
 		it('should display using loader if state settings is not initialized', () => {
 			const state = mock.store.state();
-			const wrapper = mount(<WaitForSettings>Hello</WaitForSettings>, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: mock.store.store(state) },
-			});
-			expect(wrapper.text()).toBe('loading');
+			const wrapper = render(
+				<Provider store={mock.store.store(state)}>
+					<WaitForSettings>Hello</WaitForSettings>
+				</Provider>,
+			);
+			expect(wrapper.container.textContent).toBe('loading');
 		});
 		it('should display loading using AppLoader', () => {
 			const AppLoader = () => <p>custom loader</p>;
 			const state = mock.store.state();
-			const wrapper = mount(<WaitForSettings loading={AppLoader}>Hello</WaitForSettings>, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: mock.store.store(state) },
-			});
-			expect(wrapper.text()).not.toBe('loading');
-			expect(wrapper.text()).toBe('custom loader');
+			const wrapper = render(
+				<Provider store={mock.store.store(state)}>
+					<WaitForSettings loading={AppLoader}>Hello</WaitForSettings>
+				</Provider>,
+			);
+			expect(wrapper.container.textContent).not.toBe('loading');
+			expect(wrapper.container.textContent).toBe('custom loader');
 		});
 		it('should display children when settings are initialized', () => {
 			const state = mock.store.state();
 			state.cmf.settings.initialized = true;
-			const wrapper = mount(<WaitForSettings>Hello</WaitForSettings>, {
-				wrappingComponent: Provider,
-				wrappingComponentProps: { store: mock.store.store(state) },
-			});
-			expect(wrapper.text()).not.toBe('loading');
-			expect(wrapper.text()).toBe('Hello');
+			const wrapper = render(
+				<Provider store={mock.store.store(state)}>
+					<WaitForSettings>Hello</WaitForSettings>
+				</Provider>,
+			);
+			expect(wrapper.container.textContent).not.toBe('loading');
+			expect(wrapper.container.textContent).toBe('Hello');
 		});
 	});
 });

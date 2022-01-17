@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { SagaComponent } from './Saga.component';
 
 const defaultMockUuid = '42';
@@ -13,7 +13,7 @@ describe('Saga Component', () => {
 		const saga = function sagaToBePassed() {};
 		const sagaAttributes = { attr: 'ibute' };
 		// when
-		const wrapper = mount(
+		const wrapper = render(
 			<SagaComponent
 				stopSaga={stopSaga}
 				startSaga={startSaga}

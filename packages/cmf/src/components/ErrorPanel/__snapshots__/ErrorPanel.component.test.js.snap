@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component ErrorPanel should render the error 1`] = `
-<div>
+<div
+  class="error-panel"
+>
   <p
-    className="error-title"
+    class="error-title"
   >
     Error
     : 
@@ -12,19 +14,14 @@ exports[`Component ErrorPanel should render the error 1`] = `
     From here you can either refresh or contact the support.
   </p>
   <button
-    className="btn btn-danger btn-inverse"
+    class="btn btn-danger btn-inverse"
     data-feature="refresh-on-error"
-    onClick={[Function]}
-    style={
-      Object {
-        "margin": 20,
-      }
-    }
+    style="margin: 20px;"
   >
     Refresh
   </button>
   <a
-    className="btn btn-primary btn-inverse"
+    class="btn btn-primary btn-inverse"
     data-feature="download-on-error-details"
     download="report.json"
   >

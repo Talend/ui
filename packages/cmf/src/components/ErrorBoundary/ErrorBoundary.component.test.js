@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+
 import ErrorBoundary from './ErrorBoundary.component';
 
 // missing in jsdom: https://github.com/jsdom/jsdom/issues/1721
@@ -24,22 +25,21 @@ describe('Component ErrorBoundary', () => {
 		};
 	});
 	it('should render children', () => {
-		const wrapper = mount(
+		const wrapper = render(
 			<ErrorBoundary>
 				<TestChildren />
 			</ErrorBoundary>,
 		);
-		expect(wrapper.text()).toEqual('hello world');
-		expect(wrapper.find('ErrorPanel').length).toBe(0);
+		expect(wrapper.container.querySelector('div').textContent).toEqual('hello world');
 	});
 	it('should render error panel when children break', () => {
-		const wrapper = mount(
+		const wrapper = render(
 			<ErrorBoundary>
 				<TestChildren breaking />
 			</ErrorBoundary>,
 		);
-		expect(wrapper.text()).not.toEqual('hello world');
-		expect(wrapper.find('ErrorPanel').length).toBe(1);
+		expect(wrapper.container.querySelector('div').textContent).not.toEqual('hello world');
+		expect(wrapper.container.querySelector('.error-title').textContent).toBe('Error: Bad');
 		expect(global.console.error).toHaveBeenCalled();
 	});
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { CmfRegisteredSagaComponent } from './CmfRegisteredSaga.component';
 
 const defaultMockUuid = '42';
@@ -13,7 +13,7 @@ describe('CmfRegisteredSagaComponent', () => {
 		const sagaId = 'sagaId';
 		const sagaAttributes = { attr: 'ibute' };
 		// when
-		const wrapper = mount(
+		const wrapper = render(
 			<CmfRegisteredSagaComponent
 				startSaga={startSaga}
 				stopSaga={stopSaga}

@@ -20,7 +20,7 @@ function ErrorPanel({ error = {} }) {
 	}, [error]);
 	const HAS_REPORT = onError.hasReportFeature();
 	return (
-		<div>
+		<div className="error-panel">
 			<p className="error-title">
 				{error.name}: {error.message}
 			</p>
