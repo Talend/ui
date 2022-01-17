@@ -1,7 +1,8 @@
 import React, { FunctionComponent, Suspense, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { addons } from '@storybook/addons';
 import tokens from '@talend/design-tokens';
+
+import theme from './StatusTable.scss';
 
 const channel = addons.getChannel();
 
@@ -22,22 +23,6 @@ export type ComponentStatus = {
 type StoriesWithStatus = {
 	[componentName: string]: { title: string; componentId: string; status?: ComponentStatus };
 };
-
-const Table = styled.table.attrs({
-	className: 'sbdocs sbdocs-table',
-})`
-	position: relative;
-
-	&.sbdocs.sbdocs-table th {
-		position: sticky;
-		top: 0;
-	}
-
-	&.sbdocs.sbdocs-table th + th,
-	&.sbdocs.sbdocs-table td + td {
-		width: 10rem;
-	}
-`;
 
 export const toEmoji = (status?: Status) => {
 	switch (status) {
@@ -93,7 +78,7 @@ const StatusTable = (props: FunctionComponent) => {
 
 	return (
 		<Suspense fallback={<span>Loading status...</span>}>
-			<Table {...props}>
+			<table className={`sbdocs sbdocs-table ${theme.table}`} {...props}>
 				<thead>
 					<tr>
 						<th>Component</th>
@@ -120,7 +105,7 @@ const StatusTable = (props: FunctionComponent) => {
 							);
 						})}
 				</tbody>
-			</Table>
+			</table>
 		</Suspense>
 	);
 };

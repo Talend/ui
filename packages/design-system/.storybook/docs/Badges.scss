@@ -1,0 +1,14 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.badges {
+	position: fixed;
+	top: 40px;
+	left: calc(50% - 500px - 170px);
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	gap: tokens.$coral-size-xxs;
+	padding: 10px;
+	width: 150px;
+	z-index: 9999;
+}
