@@ -33,6 +33,7 @@ jobs:
       - name: Build Storybook of the design tokens
         run: |
           cd ../design-tokens
+          yarn build:lib
           yarn build-storybook
           cd -
 
