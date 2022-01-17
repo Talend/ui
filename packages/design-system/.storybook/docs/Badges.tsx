@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import Badge from './Badge';
 
-import theme from './Badge.scss';
+import theme from './Badges.scss';
 
 const StatusList = ({ children }: React.PropsWithChildren<any>) => {
 	return (

@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 .table.table {
 	overflow: auto;
 
@@ -8,6 +10,11 @@
 
 	th + th,
 	td + td {
-		width: 10rem;
+		width: 20rem;
 	}
+}
+
+.tag {
+	padding: 0 tokens.$coral-size-xxs;
+	border-radius: tokens.$coral-radius-s;
 }

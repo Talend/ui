@@ -1,7 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .badges {
-	position: fixed;
+	position: absolute;
 	top: 40px;
 	left: calc(50% - 500px - 170px);
 	display: flex;

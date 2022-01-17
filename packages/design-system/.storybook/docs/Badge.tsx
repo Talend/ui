@@ -69,7 +69,7 @@ const Badge = ({
 		};
 	}
 	return (
-		<a className={theme.a} {...attrs} {...props}>
+		<a className={theme.badge} {...attrs} {...props}>
 			<span>
 				<img src={`https://unpkg.com/simple-icons/icons/${icon}.svg`} alt="" />
 				{children}

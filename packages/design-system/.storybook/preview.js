@@ -82,13 +82,12 @@ channel.once(SET_STORIES, eventData => {
 	statusByPage = Object.entries(eventData.stories).reduce(
 		(acc, [name, { title, componentId, parameters }]) => {
 			['components', 'templates', 'pages'].forEach(prefix => {
-				if (name.startsWith(prefix)) {
-					const pageName = name.replace(`${prefix}-`, '').split('--')[0].replace(/-/g, '/');
-					if (!acc[pageName]) {
-						acc[pageName] = {
+				if (name.toLocaleLowerCase().startsWith(prefix)) {
+					if (!acc[componentId]) {
+						acc[componentId] = {
 							title,
 							componentId,
-							status: parameters.status,
+							parameters,
 						};
 					}
 				}

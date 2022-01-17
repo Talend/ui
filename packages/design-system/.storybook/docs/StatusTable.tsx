@@ -11,6 +11,7 @@ export enum Status {
 	KO = 'ko',
 	WIP = 'wip',
 	NA = 'na',
+	UNKNOWN = '❔', // This one is the default value, not designed to be used
 }
 
 export type ComponentStatus = {
@@ -20,56 +21,92 @@ export type ComponentStatus = {
 	i18n?: Status;
 };
 
-type StoriesWithStatus = {
-	[componentName: string]: { title: string; componentId: string; status?: ComponentStatus };
+type PageWithStatus = {
+	[pageIdentifier: string]: {
+		title: string;
+		componentId: string;
+		parameters: { status?: ComponentStatus };
+	};
 };
-
-export const toEmoji = (status?: Status) => {
+const getHTMLStatus = (status?: Status) => {
+	const attrs = {
+		className: theme.tag,
+	};
 	switch (status) {
 		case Status.OK:
 			return (
 				<span
+					{...attrs}
 					style={{
 						color: tokens.coralColorSuccessText,
 						background: tokens.coralColorSuccessBackground,
 					}}
 				>
-					OK
+					Ready
 				</span>
 			);
 		case Status.KO:
 			return (
 				<span
+					{...attrs}
 					style={{
 						color: tokens.coralColorDangerText,
 						background: tokens.coralColorDangerBackground,
 					}}
 				>
-					KO
+					To be defined
 				</span>
 			);
 		case Status.WIP:
 			return (
 				<span
+					{...attrs}
 					style={{
 						color: tokens.coralColorBetaText,
 						background: tokens.coralColorDangerBackground,
 					}}
 				>
-					WIP
+					In progress
 				</span>
 			);
-
 		case Status.NA:
-			return <span style={{}}>N/A</span>;
-
+			return (
+				<span
+					{...attrs}
+					style={{
+						color: tokens.coralColorNeutralTextDisabled,
+						background: tokens.coralColorNeutralBackgroundDisabled,
+					}}
+				>
+					N/A
+				</span>
+			);
 		default:
-			return '❔';
+			return <span {...attrs}>{Status.UNKNOWN}</span>;
 	}
 };
 
+const getComputedHTMLStatus = (status?: ComponentStatus) => {
+	if (!status) {
+		return getHTMLStatus(Status.UNKNOWN);
+	}
+	if (Object.values(status).find(s => s === Status.WIP)) {
+		return getHTMLStatus(Status.WIP);
+	}
+	if (Object.values(status).every(s => s === Status.OK || s === Status.NA)) {
+		return getHTMLStatus(Status.OK);
+	}
+	if (Object.values(status).every(s => s === Status.KO || s === Status.NA)) {
+		return getHTMLStatus(Status.KO);
+	}
+	if (Object.values(status).every(s => s === Status.NA)) {
+		return getHTMLStatus(Status.NA);
+	}
+	return '';
+};
+
 const StatusTable = (props: FunctionComponent) => {
-	const [statuses, setStatuses] = useState<StoriesWithStatus>();
+	const [statuses, setStatuses] = useState<PageWithStatus>();
 
 	useEffect(() => {
 		channel.on('SET_STATUSES_BY_PAGE', setStatuses);
@@ -90,17 +127,21 @@ const StatusTable = (props: FunctionComponent) => {
 				</thead>
 				<tbody>
 					{statuses &&
-						Object.entries(statuses).map(([name, parameters], key) => {
-							const { figma, react, storybook, i18n } = parameters.status || {};
+						Object.entries(statuses).map(([name, pageDetails], key) => {
+							const { componentId, title, parameters } = pageDetails || {};
+							const { status } = parameters || {};
+							const { figma, react, storybook, i18n } = status || {};
 							return (
 								<tr key={key}>
 									<td>
-										<a href={`/?path=/docs/${parameters.componentId}`}>{parameters.title}</a>
+										<a href={`/?path=/docs/${componentId}`}>
+											{getComputedHTMLStatus(status)} {title}
+										</a>
 									</td>
-									<td>{toEmoji(figma)}</td>
-									<td>{toEmoji(storybook)}</td>
-									<td>{toEmoji(react)}</td>
-									<td>{toEmoji(i18n)}</td>
+									<td>{getHTMLStatus(figma)}</td>
+									<td>{getHTMLStatus(storybook)}</td>
+									<td>{getHTMLStatus(react)}</td>
+									<td>{getHTMLStatus(i18n)}</td>
 								</tr>
 							);
 						})}
