@@ -105,28 +105,20 @@ const StatusTable = (props: FunctionComponent) => {
 				</thead>
 				<tbody>
 					{statuses &&
-						Object.entries(statuses).map(
-							(
-								[name, parameters]: [
-									name: string,
-									parameters: { title: string; componentId: string; status?: ComponentStatus },
-								],
-								key: number,
-							) => {
-								const { figma, react, storybook, i18n } = parameters.status || {};
-								return (
-									<tr key={key}>
-										<td>
-											<a href={`/?path=/docs/${parameters.componentId}`}>{parameters.title}</a>
-										</td>
-										<td>{toEmoji(figma)}</td>
-										<td>{toEmoji(storybook)}</td>
-										<td>{toEmoji(react)}</td>
-										<td>{toEmoji(i18n)}</td>
-									</tr>
-								);
-							},
-						)}
+						Object.entries(statuses).map(([name, parameters], key) => {
+							const { figma, react, storybook, i18n } = parameters.status || {};
+							return (
+								<tr key={key}>
+									<td>
+										<a href={`/?path=/docs/${parameters.componentId}`}>{parameters.title}</a>
+									</td>
+									<td>{toEmoji(figma)}</td>
+									<td>{toEmoji(storybook)}</td>
+									<td>{toEmoji(react)}</td>
+									<td>{toEmoji(i18n)}</td>
+								</tr>
+							);
+						})}
 				</tbody>
 			</Table>
 		</Suspense>
