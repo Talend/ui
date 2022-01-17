@@ -64,8 +64,9 @@ const Badge = ({
 	let attrs;
 	if (href) {
 		attrs = {
-			target: href ? '_blank' : undefined,
-			rel: href ? 'noopener noreferrer' : undefined,
+			href,
+			target: '_blank',
+			rel: 'noopener noreferrer',
 		};
 	}
 	return (
