@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Links } from '~docs';
 import ButtonIconPrimitive from './Primitive/ButtonIconPrimitive';
-import ButtonIconVariant from './ButtonIconVariant';
+import ButtonIcon from './ButtonIcon';
 import * as Stories from './ButtonIcon.stories';
 
 <Meta title="Components/ButtonIcon" component={ButtonIconPrimitive} />
@@ -157,7 +157,7 @@ function MyComponent() {
 		}}
 	>
 		{({ variant, ...rest }) => {
-			const Component = ButtonIconVariant;
+			const Component = ButtonIcon;
 			Component.displayName = 'ButtonIconVariant';
 			return <Component variant={variant} {...rest} />;
 		}}
@@ -174,4 +174,6 @@ Of course all buttons can also use natural `<button>` attributes (but not `class
 
 ## Accessibility
 
-N/C
+In order to be semantically correct, `ButtonToggle`'s active state is dependent on the `aria-pressed` attribute being set to `true`.
+
+This attribute is transparent to consumers of the component and providing the mandatory `isActive` prop will actually assign the correct `aria-pressed` value.

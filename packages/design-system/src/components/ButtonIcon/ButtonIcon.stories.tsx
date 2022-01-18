@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ButtonIconFloating, ButtonIcon, ButtonToggle } from './index';
+import { ButtonIconFloating, ButtonIcon, ButtonIconToggle } from '.';
 import { StackHorizontal } from '../Stack';
 
 export default {
@@ -39,9 +39,9 @@ const TemplateIcon: ComponentStory<typeof ButtonIcon> = args => {
 	return <ButtonIcon {...rest}>{children}</ButtonIcon>;
 };
 
-const TemplateToggle: ComponentStory<typeof ButtonToggle> = args => {
+const TemplateToggle: ComponentStory<typeof ButtonIconToggle> = args => {
 	const { children, ...rest } = args;
-	return <ButtonToggle {...rest}>{children}</ButtonToggle>;
+	return <ButtonIconToggle {...rest}>{children}</ButtonIconToggle>;
 };
 
 const TemplateFloating: ComponentStory<typeof ButtonIconFloating> = args => {
@@ -103,14 +103,14 @@ export const NaturalButtonProps = () => {
 			<ButtonIconFloating icon="talend-zoomin" onClick={action('Zoomed in')} disabled>
 				Zoom in
 			</ButtonIconFloating>
-			<ButtonToggle
+			<ButtonIconToggle
 				icon="talend-collapse"
 				onClick={() => setActive(!isActive)}
 				isActive={isActive}
 				data-test={`test-feat-${isActive ? 'on' : 'off'}`}
 			>
 				Toggle drawer
-			</ButtonToggle>
+			</ButtonIconToggle>
 		</StackHorizontal>
 	);
 };
@@ -125,17 +125,22 @@ export const Loading = () => {
 			<ButtonIconFloating icon="talend-zoomin" onClick={action('Zoomed in')} isLoading>
 				Zoom in
 			</ButtonIconFloating>
-			<ButtonToggle
+			<ButtonIconToggle
 				icon="talend-collapse"
 				onClick={() => setActive(!isActive)}
 				isActive={isActive}
 				isLoading
 			>
 				Toggle drawer
-			</ButtonToggle>
-			<ButtonToggle icon="talend-collapse" onClick={() => setActive(!isActive)} isActive isLoading>
+			</ButtonIconToggle>
+			<ButtonIconToggle
+				icon="talend-collapse"
+				onClick={() => setActive(!isActive)}
+				isActive
+				isLoading
+			>
 				Toggle drawer
-			</ButtonToggle>
+			</ButtonIconToggle>
 		</StackHorizontal>
 	);
 };

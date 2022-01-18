@@ -1,6 +1,6 @@
 # Migrating from 1.x to 2.x
 
-We've overhauled a lot of component APIs and removed our dependancy to Styled Components. Here's what's new:
+We've overhauled a lot of component APIs and removed our dependency on Styled Components. Here's what's new:
 
 
 ## Link

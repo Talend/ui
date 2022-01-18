@@ -10,7 +10,7 @@
 	padding: 0;
 	width: tokens.$coral-size-xl;
 	height: tokens.$coral-size-xl;
-	color: tokens.$coral-color-accent-text-strong;
+	color: tokens.$coral-color-accent-icon;
 	border-radius: tokens.$coral-radius-round;
 	transition: all tokens.$coral-transition-fast;
 
@@ -80,12 +80,12 @@
 	}
 
 	&:hover {
-		color: tokens.$coral-color-accent-text-strong-hover;
+		color: tokens.$coral-color-accent-icon-hover;
 		background: tokens.$coral-color-accent-background-weak-hover;
 	}
 
 	&:active {
-		color: tokens.$coral-color-accent-text-strong-active;
+		color: tokens.$coral-color-accent-icon-active;
 		background: tokens.$coral-color-accent-background-weak-active;
 	}
 

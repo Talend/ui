@@ -8,6 +8,8 @@ import Loading from '../../Loading';
 
 import styles from './ButtonIcon.module.scss';
 
+export type PossibleVariants = 'toggle' | 'floating' | 'default';
+
 type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'style'> & {
 	icon: IconName;
 	children: string;

@@ -3,8 +3,8 @@ import Button from './components/Button';
 import {
 	ButtonIcon,
 	ButtonIconFloating,
-	ButtonToggle,
-	ButtonIconVariant,
+	ButtonIconToggle,
+	ButtonIconDefault,
 } from './components/ButtonIcon';
 import Card from './components/Card';
 import Combobox from './components/Combobox';
@@ -49,8 +49,8 @@ export {
 	Button,
 	ButtonIcon,
 	ButtonIconFloating,
-	ButtonToggle,
-	ButtonIconVariant,
+	ButtonIconToggle,
+	ButtonIconDefault,
 	Card,
 	Combobox,
 	Divider,
