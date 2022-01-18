@@ -134,9 +134,8 @@ const StatusTable = (props: FunctionComponent) => {
 							return (
 								<tr key={key}>
 									<td>
-										<a href={`/?path=/docs/${componentId}`}>
-											{getComputedHTMLStatus(status)} {title}
-										</a>
+										{getComputedHTMLStatus(status)}{' '}
+										<a href={`/?path=/docs/${componentId}`}>{title}</a>
 									</td>
 									<td>{getHTMLStatus(figma)}</td>
 									<td>{getHTMLStatus(storybook)}</td>
