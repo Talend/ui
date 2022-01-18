@@ -114,39 +114,57 @@ const StatusTable = (props: FunctionComponent) => {
 	}, [channel]);
 
 	return (
-		<Suspense fallback={<span>Loading status...</span>}>
-			<table className={`sbdocs sbdocs-table ${theme.table}`} {...props}>
-				<thead>
-					<tr>
-						<th>Component</th>
-						<th>Figma</th>
-						<th>Storybook</th>
-						<th>React</th>
-						<th>i18n</th>
-					</tr>
-				</thead>
-				<tbody>
-					{statuses &&
-						Object.entries(statuses).map(([name, pageDetails], key) => {
-							const { componentId, title, parameters } = pageDetails || {};
-							const { status } = parameters || {};
-							const { figma, react, storybook, i18n } = status || {};
-							return (
-								<tr key={key}>
-									<td>
-										{getComputedHTMLStatus(status)}{' '}
-										<a href={`/?path=/docs/${componentId}`}>{title}</a>
-									</td>
-									<td>{getHTMLStatus(figma)}</td>
-									<td>{getHTMLStatus(storybook)}</td>
-									<td>{getHTMLStatus(react)}</td>
-									<td>{getHTMLStatus(i18n)}</td>
-								</tr>
-							);
-						})}
-				</tbody>
-			</table>
-		</Suspense>
+		<>
+			<div className={theme.legend}>
+				<dl className={theme.dl}>
+					<dt>Figma</dt>
+					<dd>
+						All use cases have been designed, Figma library is ready to be consumed by designers.
+					</dd>
+					<dt>Storybook</dt>
+					<dd>The guidelines are exhaustive and all sections have been completed.</dd>
+					<dt>React</dt>
+					<dd>The component is ready to be used by developers in their project.</dd>
+					<dt>i18n</dt>
+					<dd>
+						Wording have been checked and translated on each supported languages by translators.
+					</dd>
+				</dl>
+			</div>
+			<Suspense fallback={<span>Loading status...</span>}>
+				<table className={`sbdocs sbdocs-table ${theme.table}`} {...props}>
+					<thead>
+						<tr>
+							<th>Component</th>
+							<th>Figma</th>
+							<th>Storybook</th>
+							<th>React</th>
+							<th>i18n</th>
+						</tr>
+					</thead>
+					<tbody>
+						{statuses &&
+							Object.entries(statuses).map(([name, pageDetails], key) => {
+								const { componentId, title, parameters } = pageDetails || {};
+								const { status } = parameters || {};
+								const { figma, react, storybook, i18n } = status || {};
+								return (
+									<tr key={key}>
+										<td>
+											{getComputedHTMLStatus(status)}{' '}
+											<a href={`?path=/docs/${componentId}`}>{title}</a>
+										</td>
+										<td>{getHTMLStatus(figma)}</td>
+										<td>{getHTMLStatus(storybook)}</td>
+										<td>{getHTMLStatus(react)}</td>
+										<td>{getHTMLStatus(i18n)}</td>
+									</tr>
+								);
+							})}
+					</tbody>
+				</table>
+			</Suspense>
+		</>
 	);
 };
 

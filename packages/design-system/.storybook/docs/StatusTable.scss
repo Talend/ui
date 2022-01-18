@@ -1,5 +1,19 @@
 @use '~@talend/design-tokens/lib/tokens';
 
+.legend {
+	margin: tokens.$coral-size-m 0;
+	padding: tokens.$coral-size-xs tokens.$coral-size-m;
+	color: tokens.$coral-color-neutral-text-weak;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-radius: tokens.$coral-radius-s;
+}
+
+.dl {
+	display: grid;
+	gap: 1ch;
+	grid-template: auto / auto 1fr;
+}
+
 .table.table {
 	overflow: auto;
 
