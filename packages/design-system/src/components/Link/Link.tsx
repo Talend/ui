@@ -120,6 +120,7 @@ const Link = forwardRef(
 						className="link__icon link__icon--external"
 						data-test="link.icon.external"
 						name="talend-link"
+						data-test="link.icon.external"
 					/>
 				)}
 				{iconAfter &&
