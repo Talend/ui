@@ -35,7 +35,6 @@ function Inject({ component, ...props }) {
 		const Component = componentAPI.get(component, context);
 		return <Component {...props} />;
 	} catch (error) {
-		console.error(error);
 		return <NotFoundComponent error={error} />;
 	}
 }

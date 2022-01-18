@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component ErrorPanel should render the error 1`] = `
-<div
-  class="error-panel"
->
+<div>
   <p
     class="error-title"
   >
