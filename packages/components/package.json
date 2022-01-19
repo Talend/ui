@@ -16,7 +16,7 @@
     "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "yarn lint:es && yarn lint:style",
-    "start": "start-storybook -p 6006",
+    "start": "talend-scripts start-storybook -p 6006",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
@@ -70,15 +70,11 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.4.9",
-    "@storybook/addon-actions": "^6.4.9",
-    "@storybook/addons": "^6.4.9",
-    "@storybook/react": "^6.4.9",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.38.0",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/scripts-core": "^11.3.0",
-    "@talend/scripts-preset-react-lib": "^9.9.3",
+    "@talend/scripts-core": "^11.4.0",
+    "@talend/scripts-preset-react-lib": "^9.10.1",
     "autoprefixer": "^7.2.6",
     "cross-env": "^7.0.3",
     "css-loader": "^1.0.1",

@@ -19,8 +19,8 @@
   "license": "ISC",
   "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
   "devDependencies": {
-    "@talend/scripts-core": "^11.3.0",
-    "@talend/scripts-preset-react-lib": "^9.9.3",
+    "@talend/scripts-core": "^11.4.0",
+    "@talend/scripts-preset-react-lib": "^9.10.1",
     "connected-react-router": "^6.9.2",
     "history": "^5.1.0",
     "react": "^16.14.0",
