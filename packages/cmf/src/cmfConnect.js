@@ -22,7 +22,7 @@ export default cmfConnect({
 });
  */
 import PropTypes from 'prop-types';
-import React, { createElement } from 'react';
+import React from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect, useStore } from 'react-redux';

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-// eslint-disable-next-line
-import omit from 'lodash/omit';
 import expression from '../src/expression';
 import { mock } from '../src';
 import { mapStateToViewProps } from '../src/settings';
