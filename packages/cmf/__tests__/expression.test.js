@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import cmf, { mock } from '../src';
 import expression from '../src/expression';
 
@@ -81,7 +81,7 @@ describe('expression', () => {
 	});
 
 	it('should withExpression create a wrapper', () => {
-		const MyComponent = props => <button {...props} />;
+		const MyComponent = props => <button {...props}>Click me</button>;
 		const WithExpr = expression.withExpression(MyComponent, ['disabled']);
 		const isTrue = () => true;
 		const context = {
@@ -89,13 +89,17 @@ describe('expression', () => {
 				'expression:test': isTrue,
 			},
 		};
-		const wrapper = render(
+		render(
 			<mock.Provider registry={context.registry}>
 				<WithExpr disabledExpression="test" />
 			</mock.Provider>,
 		);
-		const btn = wrapper.container.querySelector('button');
-		expect(getByText(/Click me/i).closest('button')).toHaveAttribute();
+		expect(
+			screen
+				.getByText(/Click me/i)
+				.closest('button')
+				.getAttribute('disabled'),
+		).toBe('');
 	});
 });
 

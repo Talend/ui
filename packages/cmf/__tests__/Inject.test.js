@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Inject from '../src/Inject.component';
 import { mock } from '../src';
@@ -14,7 +14,7 @@ describe('Inject', () => {
 		};
 
 		// when
-		const wrapper = render(
+		render(
 			<mock.Provider registry={registry}>
 				<Inject component="MyComponent" data-testid="foo" />
 			</mock.Provider>,
@@ -32,15 +32,13 @@ describe('Inject', () => {
 		MyComponent.displayName = 'MyComponent';
 
 		// when
-		const wrapper = render(
+		render(
 			<mock.Provider>
 				<Inject component="MyComponent" />
 			</mock.Provider>,
 		);
 
 		// then
-		expect(screen.getByText(
-			'component not found in the registry: MyComponent',
-		)).toBeTruthy();
+		expect(screen.getByText('component not found in the registry: MyComponent')).toBeTruthy();
 	});
 });
