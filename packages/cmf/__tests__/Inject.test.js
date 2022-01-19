@@ -16,7 +16,7 @@ describe('Inject', () => {
 		// when
 		const wrapper = render(
 			<mock.Provider registry={registry}>
-				<Inject component="MyComponent" data-test="foo" />
+				<Inject component="MyComponent" data-testid="foo" />
 			</mock.Provider>,
 		);
 
