@@ -39,8 +39,8 @@ describe('Inject', () => {
 		);
 
 		// then
-		expect(wrapper.container.querySelector('.alert-danger').textContent).toBe(
+		expect(screen.getByText(
 			'component not found in the registry: MyComponent',
-		);
+		)).toBeTruthy();
 	});
 });
