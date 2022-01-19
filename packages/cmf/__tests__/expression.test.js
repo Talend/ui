@@ -95,7 +95,7 @@ describe('expression', () => {
 			</mock.Provider>,
 		);
 		const btn = wrapper.container.querySelector('button');
-		expect(btn.getAttribute('disabled')).toBe('');
+		expect(getByText(/Click me/i).closest('button')).toHaveAttribute();
 	});
 });
 
