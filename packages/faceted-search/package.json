@@ -50,7 +50,7 @@
     "@storybook/addon-links": "^6.4.9",
     "@storybook/addons": "^6.4.9",
     "@storybook/react": "^6.4.9",
-    "@storybook/testing-library": "^0.0.7",
+    "@storybook/testing-library": "^0.0.8",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.38.0",
     "@talend/locales-tui": "^6.36.0",
