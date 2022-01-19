@@ -32,19 +32,19 @@ const store = mock.store();
  * is connected on CMF, you will need to provide a CMF store.
  * @example
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-cmf/lib/mock';
 
 import AppMenu from './AppMenu.component';
 
 describe('AppMenu', () => {
 	it('should render', () => {
-		const wrapper = renderer.create(
-			<Provider registry={customRegistry}>
+		render(
+			<Provider>
 				<AppMenu />
 			</Provider>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		);
+		expect(screen.getByRole('button')).toBeDefined();
 	});
 });
  */

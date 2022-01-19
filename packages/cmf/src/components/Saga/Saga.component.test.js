@@ -13,7 +13,7 @@ describe('Saga Component', () => {
 		const saga = function sagaToBePassed() {};
 		const sagaAttributes = { attr: 'ibute' };
 		// when
-		const wrapper = render(
+		const { unmount } = render(
 			<SagaComponent
 				stopSaga={stopSaga}
 				startSaga={startSaga}
@@ -25,7 +25,7 @@ describe('Saga Component', () => {
 		// then
 		expect(startSaga).toHaveBeenCalledWith('42', saga, { attr: 'ibute' });
 
-		wrapper.unmount();
+		unmount();
 
 		expect(stopSaga).toHaveBeenCalledWith('42');
 	});

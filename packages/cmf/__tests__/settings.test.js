@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { generateDefaultViewId, mapStateToViewProps, WaitForSettings } from '../src/settings';
 import { mock } from '../src';
@@ -66,34 +66,38 @@ describe('settings', () => {
 	describe('WaitForSettings', () => {
 		it('should display using loader if state settings is not initialized', () => {
 			const state = mock.store.state();
-			const wrapper = render(
+			render(
 				<Provider store={mock.store.store(state)}>
-					<WaitForSettings>Hello</WaitForSettings>
+					<WaitForSettings>
+						<button>Hello</button>
+					</WaitForSettings>
 				</Provider>,
 			);
-			expect(wrapper.container.textContent).toBe('loading');
+			expect(screen.getByText('loading')).toBeDefined();
 		});
 		it('should display loading using AppLoader', () => {
 			const AppLoader = () => <p>custom loader</p>;
 			const state = mock.store.state();
-			const wrapper = render(
+			render(
 				<Provider store={mock.store.store(state)}>
-					<WaitForSettings loading={AppLoader}>Hello</WaitForSettings>
+					<WaitForSettings loading={AppLoader}>
+						<button>Hello</button>
+					</WaitForSettings>
 				</Provider>,
 			);
-			expect(wrapper.container.textContent).not.toBe('loading');
-			expect(wrapper.container.textContent).toBe('custom loader');
+			expect(() => screen.getByRole('button')).toThrow();
+			expect(screen.getByText('custom loader')).toBeDefined();
 		});
 		it('should display children when settings are initialized', () => {
 			const state = mock.store.state();
 			state.cmf.settings.initialized = true;
-			const wrapper = render(
+			render(
 				<Provider store={mock.store.store(state)}>
 					<WaitForSettings>Hello</WaitForSettings>
 				</Provider>,
 			);
-			expect(wrapper.container.textContent).not.toBe('loading');
-			expect(wrapper.container.textContent).toBe('Hello');
+			expect(screen.getByText('Hello')).toBeDefined();
+			expect(() => screen.getByText('loading')).toThrow();
 		});
 	});
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, createEvent, render } from '@testing-library/react';
+import { fireEvent, createEvent, render, screen } from '@testing-library/react';
 import { mock } from '../src';
 import ConnectedDispatcher, { Dispatcher } from '../src/Dispatcher';
 import CONST from '../src/constant';
@@ -23,14 +23,14 @@ describe('Testing <Dispatcher />', () => {
 	it('should add onclick event handler to its children', () => {
 		const dispatchActionCreator = jest.fn();
 
-		const { container } = render(
+		render(
 			<mock.Provider registry={registry} onError={onError}>
 				<Dispatcher onClick="actionCreator:id" dispatchActionCreator={dispatchActionCreator}>
 					<button type="button">Hello</button>
 				</Dispatcher>
 			</mock.Provider>,
 		);
-		expect(typeof container.querySelector('button').onclick).toEqual('function');
+		expect(typeof screen.getByRole('button').onclick).toEqual('function');
 	});
 
 	it('should throw with unknown action', () => {
@@ -51,14 +51,14 @@ describe('Testing <Dispatcher />', () => {
 	});
 
 	it('should have its method onEvent called when children handle an event', () => {
-		const { container } = render(
+		render(
 			<mock.Provider registry={registry}>
 				<ConnectedDispatcher onClick="noOp">
 					<button type="button">Hello</button>
 				</ConnectedDispatcher>
 			</mock.Provider>,
 		);
-		const buttonWrapper = container.querySelector('button');
+		const buttonWrapper = screen.getByRole('button');
 		fireEvent.click(buttonWrapper);
 		expect(registry[noopRId]).toHaveBeenCalled();
 	});
@@ -86,7 +86,7 @@ describe('Testing <Dispatcher />', () => {
 	it('should not prevent event propagation by default', () => {
 		const dispatchActionCreator = jest.fn();
 		const onClick = jest.fn();
-		const wrapper = render(
+		render(
 			<mock.Provider registry={registry}>
 				<div onClick={onClick}>
 					<Dispatcher
@@ -94,19 +94,19 @@ describe('Testing <Dispatcher />', () => {
 						onClick="noOp"
 						onDoubleClick="existingActionCreator:id"
 					>
-						<a />
+						<a href="#foo">foo</a>
 					</Dispatcher>
 				</div>
 			</mock.Provider>,
 		);
-		fireEvent.click(wrapper.container.querySelector('a'));
+		fireEvent.click(screen.getByText('foo'));
 		expect(onClick).toHaveBeenCalled();
 	});
 
 	it('should prevent event propagation if stopPropagation is set', () => {
 		const dispatchActionCreator = jest.fn();
 		const onClick = jest.fn();
-		const wrapper = render(
+		render(
 			<mock.Provider registry={registry}>
 				<div onClick={onClick}>
 					<Dispatcher
@@ -115,25 +115,25 @@ describe('Testing <Dispatcher />', () => {
 						onClick="noOp"
 						onDoubleClick="existingActionCreator:id"
 					>
-						<a />
+						<a href="#foo">foo</a>
 					</Dispatcher>
 				</div>
 			</mock.Provider>,
 		);
-		fireEvent.click(wrapper.container.querySelector('a'));
+		fireEvent.click(screen.getByText('foo'));
 		expect(onClick).not.toHaveBeenCalled();
 	});
 
 	it('should preventDefault if props is set', () => {
 		const dispatchActionCreator = jest.fn();
-		const wrapper = render(
+		render(
 			<mock.Provider registry={registry}>
 				<Dispatcher dispatchActionCreator={dispatchActionCreator} preventDefault onClick="noOp">
-					<a />
+					<a href="#foo">foo</a>
 				</Dispatcher>
 			</mock.Provider>,
 		);
-		const el = wrapper.container.querySelector('a');
+		const el = screen.getByText('foo');
 		const event = createEvent.click(el, {});
 		event.preventDefault = jest.fn();
 		fireEvent(el, event);
@@ -149,14 +149,14 @@ describe('Testing <Dispatcher />', () => {
 			onClick: 'noOp',
 			extra: 'foo',
 		};
-		const wrapper = render(
+		render(
 			<mock.Provider registry={registry}>
 				<Dispatcher {...props}>
-					<a />
+					<a href="#foo">foo</a>
 				</Dispatcher>
 			</mock.Provider>,
 		);
-		const el = wrapper.container.querySelector('a');
+		const el = screen.getByText('foo');
 
 		const event = createEvent.click(el, {});
 		event.preventDefault = jest.fn();

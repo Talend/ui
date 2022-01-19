@@ -13,7 +13,7 @@ describe('CmfRegisteredSagaComponent', () => {
 		const sagaId = 'sagaId';
 		const sagaAttributes = { attr: 'ibute' };
 		// when
-		const wrapper = render(
+		const { unmount } = render(
 			<CmfRegisteredSagaComponent
 				startSaga={startSaga}
 				stopSaga={stopSaga}
@@ -30,7 +30,7 @@ describe('CmfRegisteredSagaComponent', () => {
 			{ attr: 'ibute', componentId: 'default', saga: 'sagaId' },
 		);
 
-		wrapper.unmount();
+		unmount();
 
 		expect(stopSaga).toHaveBeenCalledWith(
 			{ type: 'WILL_UNMOUNT', componentId: defaultMockUuid },

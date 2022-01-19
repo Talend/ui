@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Component from './ErrorFeedBack.component';
 
 global.window.URL.createObjectURL = jest.fn();
@@ -15,8 +15,8 @@ describe('Component ErrorFeedBack', () => {
 				message: 'foo',
 			},
 		];
-		const wrapper = render(<Component errors={errors} />);
-		const panels = wrapper.container.querySelectorAll('.error-title');
+		render(<Component errors={errors} />);
+		const panels = screen.getAllByText('Error: foo');
 		expect(panels.length).toBe(1);
 		expect(panels[0].textContent).toEqual(`${errors[0].name}: ${errors[0].message}`);
 	});

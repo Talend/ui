@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 // eslint-disable-next-line
 import omit from 'lodash/omit';
@@ -331,12 +331,12 @@ describe('cmfConnect', () => {
 				deleteState: jest.fn(),
 			};
 			const context = mock.store.context();
-			const wrapper = render(
+			render(
 				<mock.Provider {...context}>
 					<CMFConnected.CMFContainer {...props} />
 				</mock.Provider>,
 			);
-			fireEvent.click(wrapper.container.querySelector('button'));
+			fireEvent.click(screen.getByRole('button'));
 			expect(props.dispatchActionCreator).toHaveBeenCalled();
 			const call = props.dispatchActionCreator.mock.calls[0];
 			expect(call[0]).toBe('myactionCreator');
@@ -347,9 +347,7 @@ describe('cmfConnect', () => {
 		});
 
 		it('should pass defaultState when there is no component state in store', () => {
-			const TestComponent = props => (
-				<div data-test="mock-component" className={props.state.get('toto')} />
-			);
+			const TestComponent = props => <button className={props.state.get('toto')}>Click me</button>;
 			TestComponent.displayName = 'MyComponentWithoutStateInStore';
 			TestComponent.propTypes = {
 				state: PropTypes.any,
@@ -357,14 +355,12 @@ describe('cmfConnect', () => {
 			const defaultState = new Map({ toto: 'lol' });
 			const CMFConnected = cmfConnect({ defaultState })(TestComponent);
 
-			const wrapper = render(
+			render(
 				<mock.Provider>
 					<CMFConnected />
 				</mock.Provider>,
 			);
-			expect(
-				wrapper.container.querySelector('[data-test="mock-component"]').getAttribute('class'),
-			).toBe('lol');
+			expect(screen.getByRole('button').getAttribute('class')).toBe('lol');
 		});
 
 		it('should componentDidMount initState and dispatchActionCreator after the saga', () => {
@@ -444,12 +440,12 @@ describe('cmfConnect', () => {
 				deleteState: jest.fn(),
 			};
 			const context = mock.store.context();
-			const instance = render(
+			const { unmount } = render(
 				<mock.Provider {...context}>
 					<CMFConnected.CMFContainer {...props} />
 				</mock.Provider>,
 			);
-			instance.unmount();
+			unmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalledWith(
 				'cmf.saga.stop',
 				{ type: 'WILL_UNMOUNT', componentId: '42' },
@@ -475,12 +471,12 @@ describe('cmfConnect', () => {
 			context.registry = {
 				'actionCreator:bye': jest.fn(),
 			};
-			const instance = render(
+			const { unmount } = render(
 				<mock.Provider {...context}>
 					<CMFConnected.CMFContainer {...props} />
 				</mock.Provider>,
 			);
-			instance.unmount();
+			unmount();
 			expect(props.dispatchActionCreator).toHaveBeenCalled();
 			const call = props.dispatchActionCreator.mock.calls[0];
 			expect(call[0]).toBe('bye');
@@ -505,14 +501,14 @@ describe('cmfConnect', () => {
 			const context = mock.store.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = render(
+			const { unmount } = render(
 				<mock.Provider {...context}>
 					<CMFConnected />
 				</mock.Provider>,
 			);
 
 			// when
-			wrapper.unmount();
+			unmount();
 
 			// then
 			expect(context.store.dispatch.mock.calls[0][0]).toMatchSnapshot();
@@ -532,14 +528,14 @@ describe('cmfConnect', () => {
 			const context = mock.store.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = render(
+			const { unmount } = render(
 				<mock.Provider {...context}>
 					<CMFConnected />
 				</mock.Provider>,
 			);
 
 			// when
-			wrapper.unmount();
+			unmount();
 
 			// then
 			expect(context.store.dispatch.mock.calls.length).toBe(1);
@@ -558,14 +554,14 @@ describe('cmfConnect', () => {
 			const context = mock.store.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = render(
+			const { unmount } = render(
 				<mock.Provider {...context}>
 					<CMFConnected keepComponentState />
 				</mock.Provider>,
 			);
 
 			// when
-			wrapper.unmount();
+			unmount();
 
 			// then
 			expect(context.store.dispatch.mock.calls.length).toBe(1);
@@ -584,14 +580,14 @@ describe('cmfConnect', () => {
 			const context = mock.store.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = render(
+			const { unmount } = render(
 				<mock.Provider {...context}>
 					<CMFConnected keepComponentState={false} />
 				</mock.Provider>,
 			);
 
 			// when
-			wrapper.unmount();
+			unmount();
 
 			// then
 			expect(context.store.dispatch.mock.calls[0][0]).toMatchSnapshot();
@@ -607,24 +603,18 @@ describe('cmfConnect', () => {
 				nonInternalProp: 'lol',
 			};
 			// given
-			const TestComponent = props => (
-				<div data-test="mock-component" data-props={JSON.stringify(props)}>
-					Hello
-				</div>
-			);
+			const TestComponent = props => <button data-props={JSON.stringify(props)}>Hello</button>;
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const context = mock.store.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = render(
+			render(
 				<mock.Provider {...context}>
 					<CMFConnected {...iProps} />
 				</mock.Provider>,
 			);
-			const props = JSON.parse(
-				wrapper.container.querySelector('[data-test="mock-component"]').dataset.props,
-			);
+			const props = JSON.parse(screen.getByRole('button').dataset.props);
 
 			// then
 			expect(props.didMountActionCreator).not.toBeDefined();
@@ -661,12 +651,12 @@ describe('cmfConnect', () => {
 			const context = mock.store.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = render(
+			render(
 				<mock.Provider {...context}>
 					<CMFConnectedButton onClickDispatch={onClickDispatch} />
 				</mock.Provider>,
 			);
-			const btn = wrapper.container.querySelector('button');
+			const btn = screen.getByRole('button');
 			fireEvent.click(btn);
 
 			expect(context.store.dispatch).toHaveBeenCalledWith({
@@ -682,12 +672,12 @@ describe('cmfConnect', () => {
 				'actionCreator:myactionCreator': event => ({ type: 'FETCH_STUFF', event }),
 			};
 
-			const wrapper = render(
+			render(
 				<mock.Provider {...context}>
 					<CMFConnectedButton onClickActionCreator={onClickActionCreator} />
 				</mock.Provider>,
 			);
-			const btn = wrapper.container.querySelector('button');
+			const btn = screen.getByRole('button');
 			expect(context.store.dispatch).not.toHaveBeenCalled();
 			fireEvent.click(btn);
 			expect(context.store.dispatch).toHaveBeenCalledWith({
@@ -713,12 +703,12 @@ describe('cmfConnect', () => {
 				}),
 			};
 
-			const wrapper = render(
+			render(
 				<mock.Provider {...context}>
 					<CMFConnectedButton onClickActionCreator={onClickActionCreator} />
 				</mock.Provider>,
 			);
-			const btn = wrapper.container.querySelector('button');
+			const btn = screen.getByRole('button');
 			expect(context.store.dispatch).not.toHaveBeenCalled();
 			fireEvent.click(btn);
 			expect(context.store.dispatch.mock.calls[0][0]).toMatchObject({
@@ -734,12 +724,12 @@ describe('cmfConnect', () => {
 			const context = mock.store.context();
 			context.store.dispatch = jest.fn();
 
-			const wrapper = render(
+			render(
 				<mock.Provider {...context}>
 					<CMFConnectedButton onClickSetState={config} initialState={new Map()} spreadCMFState />
 				</mock.Provider>,
 			);
-			const btn = wrapper.container.querySelector('button');
+			const btn = screen.getByRole('button');
 			fireEvent.click(btn, { type: 'click' });
 			expect(context.store.dispatch).toHaveBeenCalled();
 			expect(context.store.dispatch.mock.calls[0][0]).toMatchObject({
@@ -775,12 +765,12 @@ describe('cmfConnect', () => {
 			};
 			context.store.dispatch = jest.fn();
 
-			const wrapper = render(
+			render(
 				<mock.Provider {...context}>
 					<CMFConnectedButton onClickSetState={{ inProgress: true }} initialState={new Map()} />
 				</mock.Provider>,
 			);
-			const btn = wrapper.container.querySelector('button');
+			const btn = screen.getByRole('button');
 			expect(btn.dataset.progress).toBe('false');
 			expect(context.store.dispatch).not.toBeCalled();
 			fireEvent.click(btn, { type: 'click' });
@@ -842,17 +832,18 @@ describe('cmfConnect', () => {
 		it('should cmfConnect({ omitCMFProps: false }) keep compatibility', () => {
 			const store = mock.store.store();
 			const TestComponent = props => (
-				<div data-test="mock-component" data-props={JSON.stringify(Object.keys(props))} />
+				<button data-props={JSON.stringify(Object.keys(props))}>click me</button>
 			);
 			TestComponent.displayName = 'TestComponent';
 			const WithCMFProps = cmfConnect({ omitCMFProps: false })(TestComponent);
-			const element = render(
+			render(
 				<mock.Provider>
 					<WithCMFProps store={store} className="foo" id="bar" />
 				</mock.Provider>,
-			).container.querySelector('[data-test="mock-component"]');
+			);
+			const btn = screen.getByRole('button');
 
-			expect(JSON.parse(element.dataset.props)).toEqual([
+			expect(JSON.parse(btn.dataset.props)).toEqual([
 				'store',
 				'className',
 				'id',
@@ -870,7 +861,7 @@ describe('cmfConnect', () => {
 			const lastRender = {};
 			const TestComponent = props => {
 				lastRender.props = props;
-				return <div {...props} />;
+				return <div />;
 			};
 			TestComponent.displayName = 'TestComponent';
 			const WithoutCMFProps = cmfConnect({ omitCMFProps: true, withComponentRegistry: true })(

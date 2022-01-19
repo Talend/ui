@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import ErrorBoundary from './ErrorBoundary.component';
 
@@ -25,21 +25,21 @@ describe('Component ErrorBoundary', () => {
 		};
 	});
 	it('should render children', () => {
-		const wrapper = render(
+		render(
 			<ErrorBoundary>
 				<TestChildren />
 			</ErrorBoundary>,
 		);
-		expect(wrapper.container.querySelector('div').textContent).toEqual('hello world');
+		expect(screen.getByText('hello world')).toBeDefined();
 	});
 	it('should render error panel when children break', () => {
-		const wrapper = render(
+		render(
 			<ErrorBoundary>
 				<TestChildren breaking />
 			</ErrorBoundary>,
 		);
-		expect(wrapper.container.querySelector('div').textContent).not.toEqual('hello world');
-		expect(wrapper.container.querySelector('.error-title').textContent).toBe('Error: Bad');
+		expect(screen.getByText('Error: Bad')).toBeDefined();
+		expect(() => screen.getByText('hello world')).toThrow();
 		expect(global.console.error).toHaveBeenCalled();
 	});
 });
