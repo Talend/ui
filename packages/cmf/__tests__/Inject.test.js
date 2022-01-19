@@ -21,7 +21,7 @@ describe('Inject', () => {
 		);
 
 		// then
-		const out = wrapper.container.querySelector('[data-test="foo"]');
+		const out = screen.getByTestId('foo');
 		expect(out).toBeDefined();
 		expect(out.nodeName).toBe('SPAN');
 	});
