@@ -31,11 +31,11 @@ const AffixReadOnly = forwardRef(
 		ref: Ref<HTMLSpanElement>,
 	) => {
 		return (
-			<span ref={ref} {...rest}>
-				<StackHorizontal gap="XXS" as="span">
+			<span ref={ref} {...rest} className={styles.affix}>
+				<StackHorizontal gap="XXS" as="span" display="inline" justify="center" align="center">
 					{icon && (
 						<span className={styles.affix__icon}>
-							<Icon icon={icon} />
+							<Icon name={icon} />
 						</span>
 					)}
 					{!hideText ? label : <VisuallyHidden>{label}</VisuallyHidden>}

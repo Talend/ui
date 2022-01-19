@@ -88,38 +88,29 @@ const FileField = styled.div`
 
 	.preview {
 		display: flex;
-		align-items: baseline;
-		padding: 0 1rem;
+		align-items: flex-start;
+		justify-content: space-between;
+		padding: 0.4rem 1rem;
+
+		&__button {
+			button {
+				position: static;
+
+				svg {
+					margin: 0;
+					fill: currentColor;
+				}
+			}
+		}
 
 		&__list {
 			margin: 0;
 			padding: 0;
 			list-style: none;
+			flex-grow: 1;
 
 			&-item {
 				color: ${({ theme }) => theme.colors.inputColor};
-			}
-		}
-
-		&__button {
-			position: static;
-			margin-left: auto;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-height: ${tokens.sizes.xxl};
-			border: none;
-
-			svg {
-				position: static;
-				width: ${tokens.sizes.l};
-				color: ${({ theme }) => theme.colors.textColor};
-			}
-
-			&:hover {
-				svg path {
-					fill: ${({ theme }) => shade(0.25, theme.colors.activeColor[500])};
-				}
 			}
 		}
 	}
@@ -247,9 +238,11 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 										</li>
 									))}
 							</ol>
-							<ButtonIconDefault icon="talend-cross-circle" onClick={() => clear()} size="S">
-								{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
-							</ButtonIconDefault>
+							<div className="preview__button">
+								<ButtonIconDefault icon="talend-cross-circle" onClick={() => clear()} size="S">
+									{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
+								</ButtonIconDefault>
+							</div>
 						</div>
 					)}
 				</div>

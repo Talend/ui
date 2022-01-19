@@ -47,13 +47,13 @@ const AffixButton = forwardRef(
 				<StackHorizontal gap="XXS" as="span">
 					{icon && (
 						<span className={styles.affix__icon}>
-							<Icon icon={icon} />
+							<Icon name={icon} />
 						</span>
 					)}
 					{!hideText && label}
 					{isDropdown && (
 						<span className={styles.affix__caret}>
-							<Icon icon="talend-caret-down" />
+							<Icon name="talend-caret-down" />
 						</span>
 					)}
 				</StackHorizontal>
@@ -61,7 +61,11 @@ const AffixButton = forwardRef(
 		);
 
 		if (hideText) {
-			return <Tooltip title={label}>{element}</Tooltip>;
+			return (
+				<Tooltip title={label} placement="top">
+					{element}
+				</Tooltip>
+			);
 		}
 
 		return element;

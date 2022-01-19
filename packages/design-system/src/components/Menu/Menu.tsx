@@ -49,7 +49,7 @@ const Menu = React.forwardRef(
 								aria-expanded={!isCollapsed}
 							>
 								<span className="nav__button__icon">
-									<Icon icon="talend-opener" />
+									<Icon name="talend-opener" />
 								</span>
 							</button>
 						</Tooltip>
