@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
-import Button from '../../../Button';
+import { ButtonIconDefault } from '../../../ButtonIcon';
 import Link from '../../../Link';
 import { Icon } from '../../../Icon';
 import VisuallyHidden from '../../../VisuallyHidden';
@@ -247,13 +247,9 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 										</li>
 									))}
 							</ol>
-							<Button.Icon
-								icon="talend-cross-circle"
-								className="preview__button"
-								onClick={() => clear()}
-							>
+							<ButtonIconDefault icon="talend-cross-circle" onClick={() => clear()} size="S">
 								{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
-							</Button.Icon>
+							</ButtonIconDefault>
 						</div>
 					)}
 				</div>

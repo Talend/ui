@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import * as S from './Menu.style';
 
 import tokens from '../../tokens';
+import Tooltip from '../Tooltip';
+import { Icon } from '../Icon/Icon';
 
 export type MenuProps = React.PropsWithChildren<any> & {
 	/**
@@ -39,13 +41,18 @@ const Menu = React.forwardRef(
 				{...rest}
 			>
 				{hasToggle && (
-					<S.NavButton
-						icon="talend-opener"
-						className={`nav__button ${isCollapsed ? 'nav__button--collapsed' : ''}`}
-						onClick={() => collapse(!isCollapsed)}
-						aria-expanded={!isCollapsed}
-					>
-						{t('MENU_TOGGLE', 'Toggle menu')}
+					<S.NavButton>
+						<Tooltip title={t('MENU_TOGGLE', 'Toggle menu')}>
+							<button
+								className={`nav__button ${isCollapsed ? 'nav__button--collapsed' : ''}`}
+								onClick={() => collapse(!isCollapsed)}
+								aria-expanded={!isCollapsed}
+							>
+								<span className="nav__button__icon">
+									<Icon icon="talend-opener" />
+								</span>
+							</button>
+						</Tooltip>
 					</S.NavButton>
 				)}
 				<S.Menu>

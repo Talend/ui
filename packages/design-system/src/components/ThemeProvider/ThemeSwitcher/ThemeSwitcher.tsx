@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Toggle from '../../Toggle';
+import { ButtonIconToggle } from '../../ButtonIcon';
 import ThemeContext from '../ThemeContext';
 
 import { dark, light } from '../../../themes';
@@ -22,9 +22,13 @@ const ThemeSwitcher = () => {
 	};
 
 	return (
-		<Toggle icon={hasDarkMode ? 'talend-eye-slash' : 'talend-eye'} onChange={toggle}>
+		<ButtonIconToggle
+			isActive={hasDarkMode}
+			icon={hasDarkMode ? 'talend-eye-slash' : 'talend-eye'}
+			onClick={toggle}
+		>
 			{t('THEME_TOGGLE_DARK_MODE', 'Toggle dark mode')}
-		</Toggle>
+		</ButtonIconToggle>
 	);
 };
 

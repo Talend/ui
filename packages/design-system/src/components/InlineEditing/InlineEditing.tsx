@@ -3,7 +3,7 @@ import { StyledProps } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import useKey from 'react-use/lib/useKey';
 import classNames from 'classnames';
-import Button from '../Button';
+import { ButtonIconDefault, ButtonIconFloating } from '../ButtonIcon';
 import Form from '../Form';
 
 import * as S from './InlineEditing.style';
@@ -115,20 +115,22 @@ const InlineEditing = React.forwardRef(
 								data-test={testId}
 							/>
 							<div className="c-inline-editing__actions">
-								<Button.Icon
+								<ButtonIconDefault
 									onClick={handleCancel}
 									icon="talend-cross-circle"
 									data-test="inlineediting.button.cancel"
+									size="XS"
 								>
 									{t('INLINE_EDITING_CANCEL', 'Cancel')}
-								</Button.Icon>
-								<Button.Icon
+								</ButtonIconDefault>
+								<ButtonIconDefault
 									onClick={handleSubmit}
 									icon="talend-check-circle"
 									data-test="inlineediting.button.submit"
+									size="XS"
 								>
 									{t('INLINE_EDITING_SUBMIT', 'Submit')}
-								</Button.Icon>
+								</ButtonIconDefault>
 							</div>
 						</form>
 					</div>
@@ -145,16 +147,18 @@ const InlineEditing = React.forwardRef(
 						>
 							{value}
 						</S.InlineEditingValue>
-						<Button.Icon
-							className="c-inline-editing__action"
-							data-test="inlineediting.button.edit"
-							onClick={() => setEditMode(true)}
-							aria-label={ariaLabel}
-							icon="talend-pencil"
-							disabled={loading}
-						>
-							<span aria-hidden>{t('INLINE_EDITING_EDIT', 'Edit')}</span>
-						</Button.Icon>
+						<span className="inlineediting.button.edit">
+							<ButtonIconFloating
+								data-test="inlineediting.button.edit"
+								onClick={() => setEditMode(true)}
+								aria-label={ariaLabel}
+								icon="talend-pencil"
+								disabled={loading}
+								size="S"
+							>
+								{t('INLINE_EDITING_EDIT', 'Edit')}
+							</ButtonIconFloating>
+						</span>
 					</div>
 				)}
 			</S.InlineEditing>
@@ -163,4 +167,3 @@ const InlineEditing = React.forwardRef(
 );
 
 export default InlineEditing;
-

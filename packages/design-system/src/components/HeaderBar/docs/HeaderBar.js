@@ -6,7 +6,7 @@ import Button from '../../Button';
 import Dropdown from '../../Dropdown';
 import Link from '../../Link';
 import { Icon } from '../../Icon';
-import Toggle from '../../Toggle';
+import { ButtonIconToggle } from '../../ButtonIcon';
 import Tooltip from '../../Tooltip';
 import HeaderBar from '..';
 
@@ -65,7 +65,9 @@ export const Portal = () => {
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Tooltip title="Chat with Talend support" placement="bottom">
-							<Toggle icon="talend-bubbles">Intercom</Toggle>
+							<ButtonIconToggle size="S" isActive={false} onClick={() => {}} icon="talend-bubbles">
+								Intercom
+							</ButtonIconToggle>
 						</Tooltip>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
@@ -170,12 +172,21 @@ export const Apps = () => {
 				<HeaderBar.ContentRight>
 					<HeaderBar.Item>
 						<Tooltip title="Notifications (you have no unread notifications)" placement="bottom">
-							<Toggle icon="talend-bell-notification">Notifications</Toggle>
+							<ButtonIconToggle
+								size="S"
+								isActive={false}
+								onClick={() => {}}
+								icon="talend-bell-notification"
+							>
+								Notifications
+							</ButtonIconToggle>
 						</Tooltip>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Tooltip title="Chat with Talend support" placement="bottom">
-							<Toggle icon="talend-bubbles">Intercom</Toggle>
+							<ButtonIconToggle size="S" isActive={false} onClick={() => {}} icon="talend-bubbles">
+								Intercom
+							</ButtonIconToggle>
 						</Tooltip>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
