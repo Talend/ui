@@ -2698,7 +2698,7 @@
     util-deprecate "^1.0.2"
     webpack "4"
 
-"@storybook/core-events@6.4.13":
+"@storybook/core-events@6.4.13", "@storybook/core-events@^6.4.13":
   version "6.4.13"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.4.13.tgz#caf1adafd743f8d53a151bc402449f841896cb9c"
   integrity sha512-zNlzNv7qVXjLf7yfvY9KfLvDY8nVskxrjmz0+21rIqUefS9+7SWBrtJJURpCaoPf/BmACqh/6c1RnuOY7TESnw==
@@ -3217,10 +3217,10 @@
     "@talend/scripts-config-cdn" "^9.10.5"
     requireindex "^1.2.0"
 
-"@talend/locales-design-system@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-1.4.0.tgz#5bf8b4febe90cd1a0d5ce366a320bdf439a3cf11"
-  integrity sha512-DeOkhJQAHH/jCPItdTwFXbRd0udDsiGzJwgju7bN5RayMGFcZPp+35Hv9JQANLb4XE24JisFWktpa0EQocc0Qg==
+"@talend/locales-design-system@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-1.11.3.tgz#208c010402dc93c16d4312137f2f2eb80800d714"
+  integrity sha512-SHCbybJtOE/t1ZBrF6IsDSxBqXc/fUjTCmJ47guEuZnRGgZGbylJgGmRAtVJuuyaNJrdB7d6rNLVewJAfNPG5g==
 
 "@talend/locales-tui-dataviz@^0.4.6":
   version "0.4.6"
