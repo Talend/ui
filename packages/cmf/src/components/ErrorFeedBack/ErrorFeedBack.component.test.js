@@ -20,15 +20,4 @@ describe('Component ErrorFeedBack', () => {
 		expect(panels.length).toBe(1);
 		expect(panels[0].textContent).toEqual(`${errors[0].name}: ${errors[0].message}`);
 	});
-	it('should add marginTop in fullPage mode', () => {
-		const errors = [
-			{
-				message: 'Error message',
-				name: 'Error name',
-				stack: 'Error stack',
-			},
-		];
-		const wrapper = render(<Component errors={errors} fullPage />);
-		expect(wrapper.container.querySelector('.col-md-6').style.marginTop).toBe('200px');
-	});
 });

@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-function */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import mergeModules from '../src/cmfModule.merge';
 
@@ -232,21 +232,42 @@ describe('mergeModule', () => {
 
 	it('should compose RootComponent', () => {
 		// given
-		const module1 = { RootComponent: ({ children }) => <div id="mod1">{children}</div> };
-		const module2 = { RootComponent: ({ children }) => <div id="mod2">{children}</div> };
-		const module3 = { RootComponent: ({ children }) => <div id="mod3">{children}</div> };
+		const module1 = {
+			RootComponent: ({ children }) => (
+				<div>
+					<h1>first</h1>
+					{children}
+				</div>
+			),
+		};
+		const module2 = {
+			RootComponent: ({ children }) => (
+				<div>
+					<h2>second</h2>
+					{children}
+				</div>
+			),
+		};
+		const module3 = {
+			RootComponent: ({ children }) => (
+				<div>
+					<h3>third</h3>
+					{children}
+				</div>
+			),
+		};
 
 		// when
 		const { RootComponent } = mergeModules(module1, module2, module3);
-		const { container } = render(<RootComponent />);
+		render(<RootComponent />);
 
 		// then
-		const mod1 = container.querySelectorAll('#mod1');
-		expect(mod1.length).toBe(1);
-		const mod2 = container.querySelectorAll('#mod2');
-		expect(mod2.length).toBe(1);
-		const mod3 = container.querySelectorAll('#mod3');
-		expect(mod3.length).toBe(1);
+		const mod1 = screen.getByText('first');
+		expect(mod1).toBeDefined();
+		const mod2 = screen.getByText('second');
+		expect(mod2).toBeDefined();
+		const mod3 = screen.getByText('third');
+		expect(mod3).toBeDefined();
 	});
 	it('should merge render', () => {
 		const module1 = {};
