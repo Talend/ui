@@ -29,7 +29,7 @@ describe('CMF App', () => {
 		};
 		render(
 			<App store={store}>
-				<div className="children">I am a children</div>
+				<div className="children">I am a child</div>
 			</App>,
 		);
 		expect(screen.getByText('I am a children')).toBeDefined();
