@@ -127,11 +127,11 @@ const FileField = styled.div`
 
 function getFileSize(size: number, t: TFunction) {
 	if (size < 1024) {
-		return t('INPUT_FILE_BYTES', '{{size}}bytes', size.toString());
+		return t('INPUT_FILE_BYTES', '{{size}}bytes', { size });
 	} else if (size > 1024 && size < 1048576) {
-		return t('INPUT_FILE_KB', '{{size}}KB', (size / 1024).toFixed(1));
+		return t('INPUT_FILE_KB', '{{size}}KB', { size: (size / 1024).toFixed(1) });
 	} else if (size > 1048576) {
-		return t('INPUT_FILE_MB', '{{size}}MB', (size / 1048576).toFixed(1));
+		return t('INPUT_FILE_MB', '{{size}}MB', { size: (size / 1048576).toFixed(1) });
 	}
 	return '';
 }
@@ -241,7 +241,9 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 								{files &&
 									Array.from(files).map((file: File | string, index: React.Key) => (
 										<li key={index} className="preview__list-item">
-											{typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size, t)})`}
+											{typeof file === 'string'
+												? file
+												: `${file.name} (${getFileSize(file.size, t)})`}
 										</li>
 									))}
 							</ol>
