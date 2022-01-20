@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
-import Button from '../Button';
 import Link from '../Link';
 
 import tokens from '../../tokens';
@@ -44,10 +43,10 @@ export const NavButton = styled('span')`
 		align-self: start;
 		margin: 1.5rem;
 		border: none;
-		transform: translateZ(0);
 		background: transparent;
 		border: 0;
 		cursor: pointer;
+		border-radius: 100%;
 	}
 
 	.nav__button,
@@ -58,12 +57,19 @@ export const NavButton = styled('span')`
 	}
 
 	.nav__button__icon {
+		display: inline-block;
+		transform: translateZ(0) rotate(0deg);
 		transition: transform ${tokens.transitions.fast};
+
+		> svg {
+			width: 1.2rem;
+			height: 1.2rem;
+		}
 	}
 
 	.nav__button--collapsed {
 		.nav__button__icon {
-			transform: rotate(-180deg);
+			transform: translateZ(0) rotate(-180deg);
 		}
 	}
 `;
