@@ -42,8 +42,8 @@
     "@storybook/addon-links": "^6.4.13",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.4.13",
-    "@talend/scripts-core": "^11.3.0",
-    "@talend/scripts-preset-react-lib": "^9.9.3",
+    "@talend/scripts-core": "^11.4.0",
+    "@talend/scripts-preset-react-lib": "^9.10.1",
     "color-contrast-checker": "^2.1.0",
     "react": "^16.14.0",
     "typeface-source-sans-pro": "^1.1.13"

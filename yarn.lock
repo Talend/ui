@@ -3200,7 +3200,7 @@
   resolved "https://registry.yarnpkg.com/@talend/daikon-tql-client/-/daikon-tql-client-1.3.1.tgz#75a764ec14b06355af3924f3b2d65ff8e61db4f0"
   integrity sha512-trwueNzgISaN2jSNBxuiHw76jWX2G/vtSrCtlTaoeS3NzsCIVUlGryqKZnuBLfZWJyVWeImx9xm34mBOHITMIQ==
 
-"@talend/dynamic-cdn-webpack-plugin@^9.7.12":
+"@talend/dynamic-cdn-webpack-plugin@*", "@talend/dynamic-cdn-webpack-plugin@^9.7.12":
   version "9.7.14"
   resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.14.tgz#97a9a575040f03b6cea8d619b0d26a147fd8f8e1"
   integrity sha512-vM0L+EYeNG2Uk0suc3tcdrGDb0M9kBL1wejn8KTF07f9zMPMJJ2o8RaTQct/Fg/40WYx1zKC/eu0fCuJK/z/wA==
@@ -3358,6 +3358,19 @@
     webpack-bundle-analyzer "^4.4.2"
     webpack-cli "^4.8.0"
 
+"@talend/scripts-config-storybook-lib@^0.1.1":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.1.2.tgz#cf095e75f05cb69e85495f3c115674372543a042"
+  integrity sha512-i2lqL2LLsXo0JkfmqLmcKHDKId6UPLTcnLKNrD1oNN00rAk+6IEnQynbDV2Pv4QaUQJZP2NM8vJYzMJgAO3TOg==
+  dependencies:
+    "@storybook/addon-essentials" "^6.4.13"
+    "@storybook/addon-links" "^6.4.13"
+    "@storybook/preset-scss" "^1.0.3"
+    "@storybook/react" "^6.4.13"
+    "@storybook/testing-library" "^0.0.8"
+    "@talend/dynamic-cdn-webpack-plugin" "*"
+    lodash "^4.17.21"
+
 "@talend/scripts-config-stylelint@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-stylelint/-/scripts-config-stylelint-1.0.1.tgz#33eed0cac5df178bf915bb69f95b9fdaad5d01b6"
@@ -3372,10 +3385,10 @@
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-typescript/-/scripts-config-typescript-9.11.1.tgz#3311d212bb386ca1b4cf957756559a8262534279"
   integrity sha512-MJm2pLV9ZbFKnpT7wrs+rAqTedfhxjyB3EHzsDvVfoF1MnZgZuEWM0NBYfEBlAOYF5f9lDKsO3KyQ3VzPSQajA==
 
-"@talend/scripts-core@^11.3.0":
-  version "11.3.2"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-11.3.2.tgz#e8e5b6d4c1cc3fe1b97202b3cff7a4b69d57c422"
-  integrity sha512-W+je+Jl4D6Of0XoGypm7mfk62C5/TJVmFO1z6c5TySnRB5HyfW1yHZp/fLIv0syIt6C686+/b9CjoZ9OUUEGxQ==
+"@talend/scripts-core@^11.3.0", "@talend/scripts-core@^11.4.0":
+  version "11.4.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-core/-/scripts-core-11.4.0.tgz#787d1e08a7bfe8bc8b1a78b9296abcdccaf491a6"
+  integrity sha512-YlPq9pyyLhYAwGNzplKl3/b612NsfUSYogpE93bZuCFqFME0HurcoVVJmB4bN2/4yPoTyKQqpen0bY/hODiDSQ==
   dependencies:
     "@babel/cli" "^7.14.8"
     "@babel/core" "^7.15.0"
@@ -3392,10 +3405,10 @@
     which "^2.0.2"
     yargs "^15.4.1"
 
-"@talend/scripts-preset-react-lib@^9.9.3":
-  version "9.9.3"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.9.3.tgz#15be5518c1790ede65ed19721cf6d74524025dc8"
-  integrity sha512-lZcVo44PPYNsCVpX56TuoUgZ9pzyMMpQb1vbTwNeCspMJl0MLZNdmMgaH9Z2kWFnrgF3VMxaPxl7klMOc8KspA==
+"@talend/scripts-preset-react-lib@^9.10.1", "@talend/scripts-preset-react-lib@^9.9.3":
+  version "9.10.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.10.1.tgz#630381cd35ead373cd59e4207706d445053bca6e"
+  integrity sha512-uuSVvKArK4My/DRnkBUJrxul6TO6ZkjVZrHAU4r7sNxVpf1mnN54EP9LUJ40Kc7ChvKHNYYiJjzSOfg5B9IVJg==
   dependencies:
     "@talend/scripts-config-babel" "^9.7.0"
     "@talend/scripts-config-cdn" "^9.11.1"
@@ -3403,6 +3416,7 @@
     "@talend/scripts-config-jest" "^9.6.4"
     "@talend/scripts-config-prettier" "^9.6.3"
     "@talend/scripts-config-react-webpack" "^11.1.1"
+    "@talend/scripts-config-storybook-lib" "^0.1.1"
     "@talend/scripts-config-stylelint" "^1.0.1"
     "@talend/scripts-config-typescript" "^9.11.1"
 
@@ -4367,14 +4381,6 @@
     "@typescript-eslint/types" "5.10.0"
     "@typescript-eslint/visitor-keys" "5.10.0"
 
-"@typescript-eslint/scope-manager@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-5.9.0.tgz#02dfef920290c1dcd7b1999455a3eaae7a1a3117"
-  integrity sha512-DKtdIL49Qxk2a8icF6whRk7uThuVz4A6TCXfjdJSwOsf+9ree7vgQWcx0KOyCdk0i9ETX666p4aMhrRhxhUkyg==
-  dependencies:
-    "@typescript-eslint/types" "5.9.0"
-    "@typescript-eslint/visitor-keys" "5.9.0"
-
 "@typescript-eslint/types@4.33.0":
   version "4.33.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-4.33.0.tgz#a1e59036a3b53ae8430ceebf2a919dc7f9af6d72"
@@ -4384,11 +4390,6 @@
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-5.10.0.tgz#beb3cb345076f5b088afe996d57bcd1dfddaa75c"
   integrity sha512-wUljCgkqHsMZbw60IbOqT/puLfyqqD5PquGiBo1u1IS3PLxdi3RDGlyf032IJyh+eQoGhz9kzhtZa+VC4eWTlQ==
-
-"@typescript-eslint/types@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-5.9.0.tgz#e5619803e39d24a03b3369506df196355736e1a3"
-  integrity sha512-mWp6/b56Umo1rwyGCk8fPIzb9Migo8YOniBGPAQDNC6C52SeyNGN4gsVwQTAR+RS2L5xyajON4hOLwAGwPtUwg==
 
 "@typescript-eslint/typescript-estree@2.34.0":
   version "2.34.0"
@@ -4429,19 +4430,6 @@
     semver "^7.3.5"
     tsutils "^3.21.0"
 
-"@typescript-eslint/typescript-estree@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-5.9.0.tgz#0e5c6f03f982931abbfbc3c1b9df5fbf92a3490f"
-  integrity sha512-kxo3xL2mB7XmiVZcECbaDwYCt3qFXz99tBSuVJR4L/sR7CJ+UNAPrYILILktGj1ppfZ/jNt/cWYbziJUlHl1Pw==
-  dependencies:
-    "@typescript-eslint/types" "5.9.0"
-    "@typescript-eslint/visitor-keys" "5.9.0"
-    debug "^4.3.2"
-    globby "^11.0.4"
-    is-glob "^4.0.3"
-    semver "^7.3.5"
-    tsutils "^3.21.0"
-
 "@typescript-eslint/utils@5.10.0":
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-5.10.0.tgz#c3d152a85da77c400e37281355561c72fb1b5a65"
@@ -4468,14 +4456,6 @@
   integrity sha512-GMxj0K1uyrFLPKASLmZzCuSddmjZVbVj3Ouy5QVuIGKZopxvOr24JsS7gruz6C3GExE01mublZ3mIBOaon9zuQ==
   dependencies:
     "@typescript-eslint/types" "5.10.0"
-    eslint-visitor-keys "^3.0.0"
-
-"@typescript-eslint/visitor-keys@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-5.9.0.tgz#7585677732365e9d27f1878150fab3922784a1a6"
-  integrity sha512-6zq0mb7LV0ThExKlecvpfepiB+XEtFv/bzx7/jKSgyXTFD7qjmSu1FoiS0x3OZaiS+UIXpH2vd9O89f02RCtgw==
-  dependencies:
-    "@typescript-eslint/types" "5.9.0"
     eslint-visitor-keys "^3.0.0"
 
 "@ungap/promise-all-settled@1.1.2":
