@@ -22,7 +22,7 @@ describe('Inject', () => {
 
 		// then
 		const out = screen.getByTestId('foo');
-		expect(out).toBeDefined();
+		expect(out).toBeInTheDocument();
 		expect(out.nodeName).toBe('SPAN');
 	});
 
@@ -39,6 +39,8 @@ describe('Inject', () => {
 		);
 
 		// then
-		expect(screen.getByText('component not found in the registry: MyComponent')).toBeTruthy();
+		expect(
+			screen.getByText('component not found in the registry: MyComponent'),
+		).toBeInTheDocument();
 	});
 });

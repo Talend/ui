@@ -73,7 +73,7 @@ describe('settings', () => {
 					</WaitForSettings>
 				</Provider>,
 			);
-			expect(screen.getByText('loading')).toBeDefined();
+			expect(screen.getByText('loading')).toBeInTheDocument();
 		});
 		it('should display loading using AppLoader', () => {
 			const AppLoader = () => <p>custom loader</p>;
@@ -86,7 +86,7 @@ describe('settings', () => {
 				</Provider>,
 			);
 			expect(() => screen.getByRole('button')).toThrow();
-			expect(screen.getByText('custom loader')).toBeDefined();
+			expect(screen.getByText('custom loader')).toBeInTheDocument();
 		});
 		it('should display children when settings are initialized', () => {
 			const state = mock.store.state();
@@ -96,7 +96,7 @@ describe('settings', () => {
 					<WaitForSettings>Hello</WaitForSettings>
 				</Provider>,
 			);
-			expect(screen.getByText('Hello')).toBeDefined();
+			expect(screen.getByText('Hello')).toBeInTheDocument();
 			expect(() => screen.getByText('loading')).toThrow();
 		});
 	});

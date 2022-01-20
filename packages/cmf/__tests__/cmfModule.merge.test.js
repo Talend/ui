@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-empty-function */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -263,11 +264,11 @@ describe('mergeModule', () => {
 
 		// then
 		const mod1 = screen.getByText('first');
-		expect(mod1).toBeDefined();
+		expect(mod1).toBeInTheDocument();
 		const mod2 = screen.getByText('second');
-		expect(mod2).toBeDefined();
+		expect(mod2).toBeInTheDocument();
 		const mod3 = screen.getByText('third');
-		expect(mod3).toBeDefined();
+		expect(mod3).toBeInTheDocument();
 	});
 	it('should merge render', () => {
 		const module1 = {};

@@ -32,7 +32,7 @@ describe('CMF App', () => {
 				<div className="children">I am a child</div>
 			</App>,
 		);
-		expect(screen.getByText('I am a child')). toBeTruthy();
+		expect(screen.getByText('I am a child')).toBeInTheDocument();
 		expect(Provider).toBeCalledWith(expect.objectContaining({ store }), {});
 		expect(RegistryProvider).toBeCalled();
 		expect(ErrorBoundary).toBeCalled();

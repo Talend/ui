@@ -64,7 +64,7 @@
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.38.0",
     "@talend/locales-design-system": "^1.11.3",
-    "@talend/scripts-config-jest": "^9.6.4",
+    "@talend/scripts-config-jest": "^9.7.0",
     "@talend/scripts-core": "^11.3.0",
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "@testing-library/react": "^12.1.2",

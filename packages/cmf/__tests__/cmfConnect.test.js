@@ -358,7 +358,7 @@ describe('cmfConnect', () => {
 					<CMFConnected />
 				</mock.Provider>,
 			);
-			expect(screen.getByRole('button').getAttribute('class')).toBe('lol');
+			expect(screen.getByRole('button')).toHaveClass('lol');
 		});
 
 		it('should componentDidMount initState and dispatchActionCreator after the saga', () => {
@@ -795,12 +795,12 @@ describe('cmfConnect', () => {
 		it('should check that component will not be rendered if renderIf equals false', () => {
 			const context = mock.store.context();
 			const CMFConnected = cmfConnect({})(Button);
-			const mounted = render(
+			render(
 				<mock.Provider>
 					<CMFConnected store={context.store} label="text" renderIf={false} />
 				</mock.Provider>,
 			);
-			expect(mounted.container.querySelector('button')).toBeNull();
+			expect(() => screen.getByRole('button')).toThrow();
 		});
 
 		it('should not spread propTypes and defaultProps of wrappedComponent to the CMFContainer', () => {

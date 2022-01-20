@@ -18,6 +18,6 @@ describe('Component ErrorFeedBack', () => {
 		render(<Component errors={errors} />);
 		const panels = screen.getAllByText('Error: foo');
 		expect(panels.length).toBe(1);
-		expect(panels[0].textContent).toEqual(`${errors[0].name}: ${errors[0].message}`);
+		expect(panels[0]).toHaveTextContent(`${errors[0].name}: ${errors[0].message}`);
 	});
 });

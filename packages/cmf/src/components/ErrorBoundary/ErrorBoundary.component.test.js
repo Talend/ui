@@ -30,7 +30,7 @@ describe('Component ErrorBoundary', () => {
 				<TestChildren />
 			</ErrorBoundary>,
 		);
-		expect(screen.getByText('hello world')).toBeDefined();
+		expect(screen.getByText('hello world')).toBeInTheDocument();
 	});
 	it('should render error panel when children break', () => {
 		render(
@@ -38,7 +38,7 @@ describe('Component ErrorBoundary', () => {
 				<TestChildren breaking />
 			</ErrorBoundary>,
 		);
-		expect(screen.getByText('Error: Bad')).toBeDefined();
+		expect(screen.getByText('Error: Bad')).toBeInTheDocument();
 		expect(() => screen.getByText('hello world')).toThrow();
 		expect(global.console.error).toHaveBeenCalled();
 	});

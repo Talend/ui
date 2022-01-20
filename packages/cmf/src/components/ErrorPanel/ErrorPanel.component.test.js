@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
 
 import Component from './ErrorPanel.component';
 
@@ -16,7 +15,7 @@ describe('Component ErrorPanel', () => {
 			stack: 'here it is',
 		};
 		render(<Component error={error} reported response={{ id: 42 }} />);
-		expect(screen.getByText('Error: cannot call blabla of undefined')).toBeDefined();
+		expect(screen.getByText('Error: cannot call blabla of undefined')).toBeInTheDocument();
 	});
 	it('should call revoke on unmount', () => {
 		window.URL.revokeObjectURL = jest.fn();
@@ -25,10 +24,8 @@ describe('Component ErrorPanel', () => {
 			description: 'cannot call blabla of undefined',
 			stack: 'here it is',
 		};
-		act(() => {
-			const { unmount } = render(<Component error={error} reported response={{ id: 42 }} />);
-			unmount();
-		});
+		const { unmount } = render(<Component error={error} reported response={{ id: 42 }} />);
+		unmount();
 		expect(window.URL.revokeObjectURL).toHaveBeenCalled();
 	});
 });
