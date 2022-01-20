@@ -6,7 +6,6 @@ import get from 'lodash/get';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
-import { OverlayTrigger } from 'react-bootstrap';
 import keycode from 'keycode';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
@@ -14,6 +13,7 @@ import classnames from 'classnames';
 import Tag from '../Tag';
 import Icon from '../Icon';
 import TooltipTrigger from '../TooltipTrigger';
+import OverlayTrigger from '../OverlayTrigger';
 import { ActionDropdown } from '../Actions';
 import getTabBarBadgeLabel from '../utils/getTabBarBadgeLabel';
 
@@ -110,16 +110,8 @@ function TabBar(props) {
 		}
 	}
 
-	const {
-		className,
-		id,
-		items,
-		selectedKey,
-		children,
-		generateChildId,
-		tooltipPlacement,
-		right,
-	} = props;
+	const { className, id, items, selectedKey, children, generateChildId, tooltipPlacement, right } =
+		props;
 	const hasChildren = children || items.some(item => item.children);
 	const tabContent = hasChildren && (
 		<Tab.Content>

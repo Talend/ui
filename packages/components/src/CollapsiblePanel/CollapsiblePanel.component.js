@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { OverlayTrigger, Panel, Button } from 'react-bootstrap';
+import { Panel, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
+import OverlayTrigger from '../OverlayTrigger';
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import Status from '../Status';

@@ -9,6 +9,7 @@ import { getOverlayElement, getContainerElement, getAdaptedPlacement } from './o
 import theme from './OverlayTrigger.scss';
 
 export const overlayPropTypes = {
+	...BaseOverlayTrigger.propTypes,
 	overlayComponent: Inject.getReactElement.propTypes,
 	overlayId: PropTypes.string,
 	overlayPlacement: BaseOverlayTrigger.propTypes.placement,
