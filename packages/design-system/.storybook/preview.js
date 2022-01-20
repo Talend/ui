@@ -257,6 +257,7 @@ export const parameters = {
 				[
 					'Accordion',
 					'Button',
+					'ButtonIcon',
 					'Combobox',
 					'Divider',
 					'Drawer',
