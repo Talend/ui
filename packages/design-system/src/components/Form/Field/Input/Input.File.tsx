@@ -3,6 +3,7 @@ import { shade, tint } from 'polished';
 import styled from 'styled-components';
 import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
 import Button from '../../../Button';
 import Link from '../../../Link';
 import { Icon } from '../../../Icon';
@@ -124,13 +125,13 @@ const FileField = styled.div`
 	}
 `;
 
-function getFileSize(size: number) {
+function getFileSize(size: number, t: TFunction) {
 	if (size < 1024) {
-		return `${size}bytes`;
+		return t('INPUT_FILE_BYTES', '{{size}}bytes', size.toString());
 	} else if (size > 1024 && size < 1048576) {
-		return `${(size / 1024).toFixed(1)}KB`;
+		return t('INPUT_FILE_KB', '{{size}}KB', (size / 1024).toFixed(1));
 	} else if (size > 1048576) {
-		return `${(size / 1048576).toFixed(1)}MB`;
+		return t('INPUT_FILE_MB', '{{size}}MB', (size / 1048576).toFixed(1));
 	}
 	return '';
 }
@@ -205,7 +206,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 						files
 							? Array.from(files)
 									.map((file: File | string) =>
-										typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`,
+										typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size, t)})`,
 									)
 									.join(';')
 							: ''
@@ -240,7 +241,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 								{files &&
 									Array.from(files).map((file: File | string, index: React.Key) => (
 										<li key={index} className="preview__list-item">
-											{typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size)})`}
+											{typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size, t)})`}
 										</li>
 									))}
 							</ol>
