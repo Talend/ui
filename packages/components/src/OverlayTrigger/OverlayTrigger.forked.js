@@ -1,3 +1,4 @@
+/* eslint-disable react/no-find-dom-node */
 /* eslint-disable no-underscore-dangle */
 import contains from 'dom-helpers/query/contains';
 import React, { cloneElement } from 'react';
@@ -7,7 +8,7 @@ import warning from 'warning';
 
 import Overlay from 'react-bootstrap/lib/Overlay';
 
-import createChainedFunction from 'react-bootstrap/lib/utils/createChainedFunction';
+import utils from 'react-bootstrap/lib/utils';
 
 /**
  * Check if value one is inside or equal to the of value
@@ -119,19 +120,14 @@ class OverlayTrigger extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log('Forked.did mount');
 		this.renderOverlay();
 	}
 
 	componentDidUpdate() {
-		console.log('Forked.did update');
 		this.renderOverlay();
 	}
 
 	componentWillUnmount() {
-		console.log('Forked.will unmount');
-		// ReactDOM.unmountComponentAtNode(this._mountNode);
-		// this._mountNode = null;
 		document.body.removeChild(this._mountNode);
 		clearTimeout(this._hoverShowDelay);
 		clearTimeout(this._hoverHideDelay);
@@ -211,12 +207,10 @@ class OverlayTrigger extends React.Component {
 	}
 
 	hide() {
-		console.log('Forked.hide');
 		this.setState({ show: false });
 	}
 
 	makeOverlay(overlay, props) {
-		console.log('Forked.makeOverlay');
 		return (
 			<Overlay {...props} show={this.state.show} onHide={this.handleHide} target={this}>
 				{overlay}
@@ -225,18 +219,15 @@ class OverlayTrigger extends React.Component {
 	}
 
 	show() {
-		console.log('Forked.show');
 		this.setState({ show: true });
 	}
 
 	renderOverlay() {
-		console.log('Forked.renderOverlay');
 		// ReactDOM.unstable_renderSubtreeIntoContainer(this, this._overlay, this._mountNode);
 		return ReactDOM.createPortal(this._overlay, this._mountNode);
 	}
 
 	render() {
-		console.log('Forked.render');
 		const {
 			trigger,
 			overlay,
@@ -265,10 +256,10 @@ class OverlayTrigger extends React.Component {
 		// FIXME: The logic here for passing through handlers on this component is
 		// inconsistent. We shouldn't be passing any of these props through.
 
-		triggerProps.onClick = createChainedFunction(childProps.onClick, onClick);
+		triggerProps.onClick = utils.createChainedFunction(childProps.onClick, onClick);
 
 		if (isOneOf('click', trigger)) {
-			triggerProps.onClick = createChainedFunction(triggerProps.onClick, this.handleToggle);
+			triggerProps.onClick = utils.createChainedFunction(triggerProps.onClick, this.handleToggle);
 		}
 
 		if (isOneOf('hover', trigger)) {
@@ -280,12 +271,12 @@ class OverlayTrigger extends React.Component {
 					'users can see the overlay as well.',
 			);
 
-			triggerProps.onMouseOver = createChainedFunction(
+			triggerProps.onMouseOver = utils.createChainedFunction(
 				childProps.onMouseOver,
 				onMouseOver,
 				this.handleMouseOver,
 			);
-			triggerProps.onMouseOut = createChainedFunction(
+			triggerProps.onMouseOut = utils.createChainedFunction(
 				childProps.onMouseOut,
 				onMouseOut,
 				this.handleMouseOut,
@@ -293,26 +284,26 @@ class OverlayTrigger extends React.Component {
 		}
 
 		if (isOneOf('focus', trigger)) {
-			triggerProps.onFocus = createChainedFunction(
+			triggerProps.onFocus = utils.createChainedFunction(
 				childProps.onFocus,
 				onFocus,
 				this.handleDelayedShow,
 			);
-			triggerProps.onBlur = createChainedFunction(
+			triggerProps.onBlur = utils.createChainedFunction(
 				childProps.onBlur,
 				onBlur,
 				this.handleDelayedHide,
 			);
 		}
 
+		this._content = cloneElement(child, triggerProps);
 		this._overlay = this.makeOverlay(overlay, props);
 
-		const foo = cloneElement(child, triggerProps);
 		return (
-			<div>
+			<>
+				{this._content}
 				{this._overlay}
-				{foo}
-			</div>
+			</>
 		);
 	}
 }
