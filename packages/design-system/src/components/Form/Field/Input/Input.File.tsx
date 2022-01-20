@@ -1,5 +1,5 @@
 import React from 'react';
-import { shade, tint } from 'polished';
+import { tint } from 'polished';
 import styled from 'styled-components';
 import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';

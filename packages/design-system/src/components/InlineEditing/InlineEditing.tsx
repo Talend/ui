@@ -3,10 +3,11 @@ import { StyledProps } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import useKey from 'react-use/lib/useKey';
 import classNames from 'classnames';
-import { ButtonIconDefault, ButtonIconFloating } from '../ButtonIcon';
+import { ButtonIconDefault } from '../ButtonIcon';
 import Form from '../Form';
 
 import * as S from './InlineEditing.style';
+import { StackHorizontal } from '../Stack';
 
 export enum Mode {
 	Single,
@@ -115,22 +116,30 @@ const InlineEditing = React.forwardRef(
 								data-test={testId}
 							/>
 							<div className="c-inline-editing__actions">
-								<ButtonIconDefault
-									onClick={handleCancel}
-									icon="talend-cross-circle"
-									data-test="inlineediting.button.cancel"
-									size="XS"
+								<StackHorizontal
+									gap="XXS"
+									padding={{ x: 'XXS', y: 0 }}
+									display="inline"
+									align="center"
+									justify="spaceBetween"
 								>
-									{t('INLINE_EDITING_CANCEL', 'Cancel')}
-								</ButtonIconDefault>
-								<ButtonIconDefault
-									onClick={handleSubmit}
-									icon="talend-check-circle"
-									data-test="inlineediting.button.submit"
-									size="XS"
-								>
-									{t('INLINE_EDITING_SUBMIT', 'Submit')}
-								</ButtonIconDefault>
+									<ButtonIconDefault
+										onClick={handleCancel}
+										icon="talend-cross-circle"
+										data-test="inlineediting.button.cancel"
+										size="XS"
+									>
+										{t('INLINE_EDITING_CANCEL', 'Cancel')}
+									</ButtonIconDefault>
+									<ButtonIconDefault
+										onClick={handleSubmit}
+										icon="talend-check-circle"
+										data-test="inlineediting.button.submit"
+										size="XS"
+									>
+										{t('INLINE_EDITING_SUBMIT', 'Submit')}
+									</ButtonIconDefault>
+								</StackHorizontal>
 							</div>
 						</form>
 					</div>
@@ -147,8 +156,8 @@ const InlineEditing = React.forwardRef(
 						>
 							{value}
 						</S.InlineEditingValue>
-						<span className="inlineediting.button.edit">
-							<ButtonIconFloating
+						<span className="c-inline-editing__action">
+							<ButtonIconDefault
 								data-test="inlineediting.button.edit"
 								onClick={() => setEditMode(true)}
 								aria-label={ariaLabel}
@@ -157,7 +166,7 @@ const InlineEditing = React.forwardRef(
 								size="S"
 							>
 								{t('INLINE_EDITING_EDIT', 'Edit')}
-							</ButtonIconFloating>
+							</ButtonIconDefault>
 						</span>
 					</div>
 				)}

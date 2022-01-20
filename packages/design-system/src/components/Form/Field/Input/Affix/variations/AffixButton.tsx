@@ -11,7 +11,7 @@ import styles from '../Affix.module.scss';
 type CommonAffixButtonPropTypes = {
 	label: string;
 	isDropdown?: boolean;
-	onClick: () => void;
+	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 };
 
 type AffixButtonHideTextProps = {

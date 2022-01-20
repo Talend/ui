@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import DStokens from '@talend/design-tokens';
 import tokens from '../../tokens';
 
 export const InlineEditing = styled.div`
@@ -47,8 +48,19 @@ export const InlineEditing = styled.div`
 
 		.c-inline-editing__action {
 			flex: 0 0 auto;
-			height: 2.2rem;
+			height: ${DStokens.coralSizeM};
+			width: ${DStokens.coralSizeM};
 			opacity: 0;
+			position: relative;
+			margin-left: ${DStokens.coralSizeXxs};
+			transition: opacity ${DStokens.coralTransitionFast};
+
+			> * {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
 
 			&:hover,
 			&:active,

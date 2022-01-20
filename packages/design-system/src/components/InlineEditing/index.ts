@@ -9,5 +9,4 @@ const InlineEditingComponent = InlineEditingText as typeof InlineEditingText & {
 InlineEditingComponent.Text = InlineEditingText;
 InlineEditingComponent.Textarea = InlineEditingTextarea;
 
-
 export default InlineEditingComponent;

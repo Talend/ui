@@ -1,7 +1,6 @@
 import React from 'react';
 import { useCopyToClipboard } from 'react-use';
 import { useTranslation } from 'react-i18next';
-import Button from '../../../Button';
 import FieldGroup from '../../FieldGroup';
 import Text from './Input.Text';
 import { InputProps } from './Input';
