@@ -120,14 +120,6 @@ class OverlayTrigger extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		this.renderOverlay();
-	}
-
-	componentDidUpdate() {
-		this.renderOverlay();
-	}
-
 	componentWillUnmount() {
 		document.body.removeChild(this._mountNode);
 		clearTimeout(this._hoverShowDelay);
@@ -224,9 +216,12 @@ class OverlayTrigger extends React.Component {
 		this.setState({ show: true });
 	}
 
-	renderOverlay() {
-		// ReactDOM.unstable_renderSubtreeIntoContainer(this, this._overlay, this._mountNode);
-		return ReactDOM.createPortal(this._overlay, this._mountNode);
+	renderOverlay(overlay, props) {
+		// possible performance patch
+		// if (!this.state.show) {
+		// 	return null;
+		// }
+		return ReactDOM.createPortal(this.makeOverlay(overlay, props), this._mountNode);
 	}
 
 	render() {
@@ -298,13 +293,10 @@ class OverlayTrigger extends React.Component {
 			);
 		}
 
-		this._content = cloneElement(child, triggerProps);
-		this._overlay = this.makeOverlay(overlay, props);
-
 		return (
 			<>
-				{this._content}
-				{this._overlay}
+				{cloneElement(child, triggerProps)}
+				{this.renderOverlay(overlay, props)}
 			</>
 		);
 	}
