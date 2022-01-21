@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
-import { ButtonIconDefault } from '../../../ButtonIcon';
+import classnames from 'classnames';
+import { ButtonIcon } from '../../../ButtonIcon';
 import Link from '../../../Link';
 import { Icon } from '../../../Icon';
 import VisuallyHidden from '../../../VisuallyHidden';
@@ -91,6 +92,10 @@ const FileField = styled.div`
 		align-items: flex-start;
 		justify-content: space-between;
 		padding: 0.4rem 1rem;
+
+		&.singleFile {
+			align-items: center;
+		}
 
 		&__button {
 			button {
@@ -225,7 +230,11 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 							</span>
 						</div>
 					) : (
-						<div className="input-file__preview preview">
+						<div
+							className={classnames('input-file__preview preview', {
+								singleFile: Array.from(files).length === 1,
+							})}
+						>
 							<VisuallyHidden>You have selected:</VisuallyHidden>
 							{/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
 							<ol role="list" className="preview__list">
@@ -239,9 +248,9 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 									))}
 							</ol>
 							<div className="preview__button">
-								<ButtonIconDefault icon="talend-cross-circle" onClick={() => clear()} size="S">
+								<ButtonIcon icon="talend-cross-circle" onClick={() => clear()} size="S">
 									{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
-								</ButtonIconDefault>
+								</ButtonIcon>
 							</div>
 						</div>
 					)}

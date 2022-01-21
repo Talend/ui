@@ -3,7 +3,7 @@ import { StyledProps } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import useKey from 'react-use/lib/useKey';
 import classNames from 'classnames';
-import { ButtonIconDefault } from '../ButtonIcon';
+import { ButtonIcon } from '../ButtonIcon';
 import Form from '../Form';
 
 import * as S from './InlineEditing.style';
@@ -114,6 +114,7 @@ const InlineEditing = React.forwardRef(
 										| React.ChangeEvent<HTMLTextAreaElement>,
 								): void => setValue(event.target.value)}
 								data-test={testId}
+								data-padding-override={mode !== Mode.Multi}
 							/>
 							<div className="c-inline-editing__actions">
 								<StackHorizontal
@@ -123,22 +124,22 @@ const InlineEditing = React.forwardRef(
 									align="center"
 									justify="spaceBetween"
 								>
-									<ButtonIconDefault
+									<ButtonIcon
 										onClick={handleCancel}
 										icon="talend-cross-circle"
 										data-test="inlineediting.button.cancel"
 										size="XS"
 									>
 										{t('INLINE_EDITING_CANCEL', 'Cancel')}
-									</ButtonIconDefault>
-									<ButtonIconDefault
+									</ButtonIcon>
+									<ButtonIcon
 										onClick={handleSubmit}
 										icon="talend-check-circle"
 										data-test="inlineediting.button.submit"
 										size="XS"
 									>
 										{t('INLINE_EDITING_SUBMIT', 'Submit')}
-									</ButtonIconDefault>
+									</ButtonIcon>
 								</StackHorizontal>
 							</div>
 						</form>
@@ -157,16 +158,16 @@ const InlineEditing = React.forwardRef(
 							{value}
 						</S.InlineEditingValue>
 						<span className="c-inline-editing__action">
-							<ButtonIconDefault
+							<ButtonIcon
 								data-test="inlineediting.button.edit"
 								onClick={() => setEditMode(true)}
 								aria-label={ariaLabel}
 								icon="talend-pencil"
 								disabled={loading}
-								size="S"
+								size="XS"
 							>
 								{t('INLINE_EDITING_EDIT', 'Edit')}
-							</ButtonIconDefault>
+							</ButtonIcon>
 						</span>
 					</div>
 				)}

@@ -8,7 +8,7 @@ import HeaderBar from '../../components/HeaderBar';
 import Modal from '../../components/Modal';
 import Link from '../../components/Link';
 import { Icon } from '../../components/Icon';
-import ButtonIconToggle from '../../components/ButtonIcon';
+import { ButtonIconToggle } from '../../components/ButtonIcon';
 import Tooltip from '../../components/Tooltip';
 
 export default function HeaderBarBlock() {

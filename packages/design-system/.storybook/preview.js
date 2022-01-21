@@ -14,8 +14,6 @@ import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 
 import '@talend/design-tokens/lib/index.scss';
 
-import '@talend/design-tokens/lib/index.scss';
-
 import 'focus-outline-manager';
 
 import i18n from './i18n';

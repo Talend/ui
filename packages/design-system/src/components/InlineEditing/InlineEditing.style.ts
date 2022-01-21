@@ -6,6 +6,10 @@ export const InlineEditing = styled.div`
 	.c-inline-editing--editing {
 		position: relative;
 
+		& [data-padding-override='true'] {
+			padding-right: 4rem;
+		}
+
 		.field__group--input {
 			margin: 0;
 
@@ -48,18 +52,13 @@ export const InlineEditing = styled.div`
 
 		.c-inline-editing__action {
 			flex: 0 0 auto;
-			height: ${DStokens.coralSizeM};
-			width: ${DStokens.coralSizeM};
 			opacity: 0;
-			position: relative;
 			margin-left: ${DStokens.coralSizeXxs};
 			transition: opacity ${DStokens.coralTransitionFast};
 
 			> * {
-				position: absolute;
-				top: 50%;
-				left: 0;
-				transform: translateY(-50%);
+				position: relative;
+				top: 0.1rem;
 			}
 
 			&:hover,
