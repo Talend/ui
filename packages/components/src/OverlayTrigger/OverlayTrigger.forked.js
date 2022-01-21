@@ -217,10 +217,6 @@ class OverlayTrigger extends React.Component {
 	}
 
 	renderOverlay(overlay, props) {
-		// possible performance patch
-		// if (!this.state.show) {
-		// 	return null;
-		// }
 		return ReactDOM.createPortal(this.makeOverlay(overlay, props), this._mountNode);
 	}
 
