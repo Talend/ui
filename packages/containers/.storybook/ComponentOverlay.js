@@ -14,16 +14,3 @@ function mapStateToProps(state) {
 }
 
 export default cmfConnect({ mapStateToProps })(ComponentOverlay);
-
-/**
- * Forked.hide
-Forked.render
-Forked.makeOverlay this._overlay = VIRTUALDOM JSX
-Forked.did update
-Forked.renderOverlay
-Forked.show
-Forked.render
-Forked.makeOverlay
-Forked.did update
-Forked.renderOverlay
- */
