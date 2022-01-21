@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.13.0
+
+### Minor Changes
+
+- 99f880903: fix(design-system): remove hardcoded string in the input file component
+
 ## 1.12.2
 
 ### Patch Changes
