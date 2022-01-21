@@ -48,7 +48,6 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
 exports[`PieChartButton snapshots render should render a PieChartButton with an overlay 1`] = `
 <span>
   <OverlayTrigger
-    defaultOverlayShown={false}
     overlay={
       <Popover
         bsClass="popover"
@@ -61,6 +60,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
       </Popover>
     }
     placement="bottom"
+    preventScrolling={false}
     rootClose={true}
     trigger="click"
   >
@@ -113,7 +113,6 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
 exports[`decorateWithOverlay should return the component wrapped 1`] = `
 <span>
   <OverlayTrigger
-    defaultOverlayShown={false}
     overlay={
       <Popover
         bsClass="popover"
@@ -126,6 +125,7 @@ exports[`decorateWithOverlay should return the component wrapped 1`] = `
       </Popover>
     }
     placement="top"
+    preventScrolling={false}
     rootClose={true}
     trigger="click"
   >

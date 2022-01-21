@@ -16,7 +16,7 @@ exports[`OverlayTrigger should wrap the children with an overlay 1`] = `
 <span
   className="theme-tc-action-button-positionned tc-action-button-positionned"
 >
-  <OverlayTrigger
+  <OverlayTriggerForked
     defaultOverlayShown={false}
     onEntering={[Function]}
     onExited={[Function]}
@@ -38,6 +38,6 @@ exports[`OverlayTrigger should wrap the children with an overlay 1`] = `
     <div>
       wrap me
     </div>
-  </OverlayTrigger>
+  </OverlayTriggerForked>
 </span>
 `;

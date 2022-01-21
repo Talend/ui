@@ -1,14 +1,15 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import BaseOverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import Popover from 'react-bootstrap/lib/Popover';
 import classNames from 'classnames';
+import BaseOverlayTrigger from './OverlayTrigger.forked';
 import Inject from '../Inject';
 import { getOverlayElement, getContainerElement, getAdaptedPlacement } from './overlay';
 
 import theme from './OverlayTrigger.scss';
 
 export const overlayPropTypes = {
+	...BaseOverlayTrigger.propTypes,
 	overlayComponent: Inject.getReactElement.propTypes,
 	overlayId: PropTypes.string,
 	overlayPlacement: BaseOverlayTrigger.propTypes.placement,
@@ -28,19 +29,6 @@ function getPlacement(initialOverlayElement, triggerElement, currentPlacement) {
 }
 
 export default class OverlayTrigger extends React.Component {
-	static propTypes = {
-		children: PropTypes.element,
-		getComponent: PropTypes.func,
-		onClick: PropTypes.func,
-		trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-		...overlayPropTypes,
-	};
-
-	static defaultProps = {
-		preventScrolling: false,
-		trigger: 'click',
-	};
-
 	constructor(props) {
 		super(props);
 
@@ -120,3 +108,16 @@ export default class OverlayTrigger extends React.Component {
 		);
 	}
 }
+OverlayTrigger.propTypes = {
+	children: PropTypes.element,
+	getComponent: PropTypes.func,
+	onClick: PropTypes.func,
+	trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+	...overlayPropTypes,
+};
+
+OverlayTrigger.defaultProps = {
+	// eslint-disable-next-line react/default-props-match-prop-types
+	preventScrolling: false,
+	trigger: 'click',
+};

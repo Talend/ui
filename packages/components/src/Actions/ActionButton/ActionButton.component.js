@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
@@ -225,6 +225,8 @@ function ActionButton(props) {
 
 ActionButton.propTypes = {
 	...getIcon.propTypes,
+	available: PropTypes.bool,
+	inProgress: PropTypes.bool,
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,
@@ -238,7 +240,7 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
-	tooltipPlacement: BaseOverlayTrigger.propTypes.placement,
+	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
