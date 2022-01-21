@@ -225,6 +225,8 @@ function ActionButton(props) {
 
 ActionButton.propTypes = {
 	...getIcon.propTypes,
+	available: PropTypes.bool,
+	inProgress: PropTypes.bool,
 	id: PropTypes.string,
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,

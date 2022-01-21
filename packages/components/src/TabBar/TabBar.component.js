@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-find-dom-node */
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';

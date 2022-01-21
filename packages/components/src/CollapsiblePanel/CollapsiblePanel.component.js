@@ -145,6 +145,7 @@ function CollapsiblePanelHeader(props) {
 			</Button>
 		) : (
 			/* eslint-disable jsx-a11y/no-static-element-interactions */
+			// eslint-disable-next-line jsx-a11y/click-events-have-key-events
 			<div className={classNames(css['panel-title'])} key="panel-toggle" onClick={onToggle}>
 				{headerItems}
 			</div>

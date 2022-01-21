@@ -58,9 +58,7 @@ export default function ExampleAction() {
 				model={{ id: 'bar' }}
 			/>
 			<p>Using actions with overlay</p>
-			<React.StrictMode>
-				<Action actionId="action:overlay:component" />
-			</React.StrictMode>
+			<Action actionId="action:overlay:component" />
 		</div>
 	);
 }

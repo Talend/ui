@@ -29,19 +29,6 @@ function getPlacement(initialOverlayElement, triggerElement, currentPlacement) {
 }
 
 export default class OverlayTrigger extends React.Component {
-	static propTypes = {
-		children: PropTypes.element,
-		getComponent: PropTypes.func,
-		onClick: PropTypes.func,
-		trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-		...overlayPropTypes,
-	};
-
-	static defaultProps = {
-		preventScrolling: false,
-		trigger: 'click',
-	};
-
 	constructor(props) {
 		super(props);
 
@@ -121,3 +108,16 @@ export default class OverlayTrigger extends React.Component {
 		);
 	}
 }
+OverlayTrigger.propTypes = {
+	children: PropTypes.element,
+	getComponent: PropTypes.func,
+	onClick: PropTypes.func,
+	trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+	...overlayPropTypes,
+};
+
+OverlayTrigger.defaultProps = {
+	// eslint-disable-next-line react/default-props-match-prop-types
+	preventScrolling: false,
+	trigger: 'click',
+};

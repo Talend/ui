@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/no-find-dom-node */
 /* eslint-disable no-underscore-dangle */
 import contains from 'dom-helpers/query/contains';
@@ -189,6 +190,7 @@ class OverlayTrigger extends React.Component {
 	// React's built version is broken: https://github.com/facebook/react/issues/4251
 	// for cases when the trigger is disabled and mouseOut/Over can cause flicker
 	// moving from one child element to another.
+	// eslint-disable-next-line class-methods-use-this
 	handleMouseOverOut(handler, e, relatedNative) {
 		const target = e.currentTarget;
 		const related = e.relatedTarget || e.nativeEvent[relatedNative];
