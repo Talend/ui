@@ -1,6 +1,5 @@
-import ButtonIconDefault from './variations/ButtonIconDefault';
+import ButtonIcon from './variations/ButtonIcon';
 import ButtonIconToggle from './variations/ButtonIconToggle';
 import ButtonIconFloating from './variations/ButtonIconFloating';
-import ButtonIcon from './ButtonIcon';
 
-export { ButtonIconDefault, ButtonIconFloating, ButtonIconToggle, ButtonIcon };
+export { ButtonIcon, ButtonIconFloating, ButtonIconToggle };

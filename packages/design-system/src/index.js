@@ -1,11 +1,6 @@
 import Accordion from './components/Accordion';
 import Button from './components/Button';
-import {
-	ButtonIcon,
-	ButtonIconFloating,
-	ButtonIconToggle,
-	ButtonIconDefault,
-} from './components/ButtonIcon';
+import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
 import Card from './components/Card';
 import Combobox from './components/Combobox';
 import Divider from './components/Divider';
@@ -43,7 +38,6 @@ export {
 	ButtonIcon,
 	ButtonIconFloating,
 	ButtonIconToggle,
-	ButtonIconDefault,
 	Card,
 	Combobox,
 	Divider,

@@ -1,14 +1,16 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Links } from '~docs';
 import ButtonIconPrimitive from './Primitive/ButtonIconPrimitive';
-import ButtonIcon from './ButtonIcon';
 import * as Stories from './ButtonIcon.stories';
 
-<Meta title="Components/ButtonIcon" component={ButtonIconPrimitive} />
-
-<Links>
-	<FigmaLink href="https://www.figma.com/file/KuJ1PlP77uyXlfOhdniqsZ/ButtonIcon?node-id=1%3A75" />
-</Links>
+<Meta
+	title="Components/ButtonIcon"
+	component={ButtonIconPrimitive}
+	parameters={{
+		figmaLink: 'https://www.figma.com/file/KuJ1PlP77uyXlfOhdniqsZ/ButtonIcon?node-id=1%3A75',
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
 
 # ButtonIcon
 
@@ -39,15 +41,17 @@ It handles the two largest usecases we have for clickable icons: actions and tog
 	alt="variations image for ButtonIcon"
 />
 
+<Canvas withSource="closed">
+	<Story story={Stories.Variations} name="Variations" />
+</Canvas>
+
 #### Default
 
 This is the go-to ButtonIcon for most generic actions.
 
 <Canvas>
-	<Story story={Stories.Default} name="ButtonIcon" />
+	<Story story={Stories.DefaultButtonIcon} name="ButtonIcon" />
 </Canvas>
-
-<ArgsTable story="ButtonIcon" />
 
 #### Toggle
 
@@ -56,10 +60,8 @@ If the button needs to hold an active / inactive state, then it is a Toggle.
 Don’t use Toggles in series, opt for badge dropdowns instead.
 
 <Canvas>
-	<Story story={Stories.Toggle} name="ButtonToggle" />
+	<Story story={Stories.DefaultButtonIconToggle} name="ButtonIconToggle" />
 </Canvas>
-
-<ArgsTable story="ButtonToggle" />
 
 #### Floating
 
@@ -68,10 +70,8 @@ This variant is only used when the button floats on top of content.
 It could be it's sitting on top of a line connecting two nodes, or sticky on top of a draggable scene for instance.
 
 <Canvas>
-	<Story story={Stories.Floating} name="ButtonIconFloating" />
+	<Story story={Stories.DefaultButtonIconFloating} name="ButtonIconFloating" />
 </Canvas>
-
-<ArgsTable story="ButtonIconFloating" />
 
 ## States
 
@@ -101,70 +101,33 @@ All ButtonIcons carry a tooltip on hover. The content of that tooltip should be 
 
 ## Usage
 
-You have access to three aliases for variants with curated props for each, but you may want to use a single component and switch between variants.
+You have access to three components with curated props for each.
 
-You can:
-
-```tsx
-import { ButtonIconVariant } from '@talend/design-system';
-
-function MyComponent() {
-	return (
-		<>
-			<ButtonIconVariant variant="default" size="XS" onClick={onAddDataset()}>
-				Add a dataset
-			</ButtonIconVariant>
-			<ButtonIconVariant variant="toggle" isActive size="S" onClick={toggleAdvancedMode()}>
-				Turn Advanced Mode off
-			</ButtonIconVariant>
-			<ButtonIconVariant variant="floating" onClick={onZoomIn()} disabled>
-				Zoom in
-			</ButtonIconVariant>
-		</>
-	);
-}
-```
+### ButtonIcon
 
 <Canvas>
-	<Story
-		name="Standalone with variant prop"
-		args={{
-			variant: 'default',
-			icon: 'talend-datagrid',
-			children: 'Action label',
-			onClick: () => {},
-		}}
-		argTypes={{
-			variant: {
-				description: 'ButtonIcon variation',
-				control: {
-					type: 'select',
-					options: ['default', 'toggle', 'floating'],
-				},
-			},
-			icon: {
-				description: 'Try it out with another talend icon you know',
-				control: {
-					type: 'text',
-				},
-			},
-			children: {
-				description: 'Contents of the tooltip',
-				control: {
-					type: 'text',
-				},
-			},
-		}}
-	>
-		{({ variant, ...rest }) => {
-			const Component = ButtonIcon;
-			Component.displayName = 'ButtonIconVariant';
-			return <Component variant={variant} {...rest} />;
-		}}
-	</Story>
+	<Story story={Stories.Default} name="ButtonIcon usage" />
 </Canvas>
 
-<ArgsTable story="Standalone with variant prop" />
+<ArgsTable story="ButtonIcon usage" />
+
+### ButtonIconToggle
+
+<Canvas>
+	<Story story={Stories.Toggle} name="ButtonIconToggle usage" />
+</Canvas>
+
+<ArgsTable story="ButtonIconToggle usage" />
+
+### ButtonIconFloating
+
+<Canvas>
+	<Story story={Stories.Floating} name="ButtonIconFloating usage" />
+</Canvas>
+
+<ArgsTable story="ButtonIconFloating usage" />
+
+### Button props
 
 Of course all buttons can also use natural `<button>` attributes (but not `classNames` nor `style`).
 
@@ -174,6 +137,6 @@ Of course all buttons can also use natural `<button>` attributes (but not `class
 
 ## Accessibility
 
-In order to be semantically correct, `ButtonToggle`'s active state is dependent on the `aria-pressed` attribute being set to `true`.
+In order to be semantically correct, `ButtonIconToggle`'s active state is dependent on the `aria-pressed` attribute being set to `true`.
 
 This attribute is transparent to consumers of the component and providing the mandatory `isActive` prop will actually assign the correct `aria-pressed` value.

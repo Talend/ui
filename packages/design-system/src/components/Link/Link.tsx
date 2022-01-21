@@ -97,7 +97,11 @@ const Link = React.forwardRef(
 					))}
 				<span className="link__text">{children}</span>
 				{isExternal && !hideExternalIcon && (
-					<Icon className="link__icon link__icon--external" name="talend-link" />
+					<Icon
+						className="link__icon link__icon--external"
+						data-test="link.icon.external"
+						name="talend-link"
+					/>
 				)}
 				{iconAfter &&
 					(typeof iconAfter === 'string' ? (

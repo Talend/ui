@@ -3,8 +3,8 @@ import ButtonIconPrimitive, { DefaultTypes } from '../Primitive/ButtonIconPrimit
 
 export type ButtonIconType = Omit<DefaultTypes, 'variant'>;
 
-const ButtonIconDefault = forwardRef((props: ButtonIconType, ref: Ref<HTMLButtonElement>) => {
+const ButtonIcon = forwardRef((props: ButtonIconType, ref: Ref<HTMLButtonElement>) => {
 	return <ButtonIconPrimitive {...props} variant="default" ref={ref} />;
 });
 
-export default ButtonIconDefault;
+export default ButtonIcon;

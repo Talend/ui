@@ -35,31 +35,33 @@ export type DefaultTypes = CommonTypes & {
 
 export type ButtonIconProps = ToggleTypes | FloatingTypes | DefaultTypes;
 
-const Status = React.forwardRef((props: ButtonIconProps, ref: React.Ref<HTMLButtonElement>) => {
-	const activeStatus = props.variant === 'toggle' ? props.isActive : false;
-	const { children, variant, size, isLoading, icon, disabled, ...rest } = props;
+const ButtonIconPrimitive = React.forwardRef(
+	(props: ButtonIconProps, ref: React.Ref<HTMLButtonElement>) => {
+		const activeButtonIconPrimitive = props.variant === 'toggle' ? props.isActive : false;
+		const { children, variant, size, isLoading, icon, disabled, ...rest } = props;
 
-	return (
-		<Tooltip title={children} placement="top">
-			<Button
-				{...rest}
-				className={classnames(styles.buttonIcon, {
-					[styles.floating]: variant === 'floating',
-					[styles.toggle]: variant === 'toggle',
-					[styles.size_S]: size === 'S',
-					[styles.size_XS]: size === 'XS',
-				})}
-				ref={ref}
-				disabled={disabled || isLoading}
-				{...(variant === 'toggle' && { 'aria-pressed': activeStatus })}
-			>
-				<span className={styles.buttonIcon__icon} aria-hidden>
-					{!isLoading && icon && <Icon name={icon} />}
-					{isLoading && <Loading />}
-				</span>
-			</Button>
-		</Tooltip>
-	);
-});
+		return (
+			<Tooltip title={children} placement="top">
+				<Button
+					{...rest}
+					className={classnames(styles.buttonIcon, {
+						[styles.floating]: variant === 'floating',
+						[styles.toggle]: variant === 'toggle',
+						[styles.size_S]: size === 'S',
+						[styles.size_XS]: size === 'XS',
+					})}
+					ref={ref}
+					disabled={disabled || isLoading}
+					{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
+				>
+					<span className={styles.buttonIcon__icon} aria-hidden>
+						{!isLoading && icon && <Icon name={icon} />}
+						{isLoading && <Loading />}
+					</span>
+				</Button>
+			</Tooltip>
+		);
+	},
+);
 
-export default Status;
+export default ButtonIconPrimitive;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ButtonIconFloating, ButtonIcon, ButtonIconToggle } from '.';
-import { StackHorizontal } from '../Stack';
+import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from '.';
+import { StackHorizontal, StackVertical } from '../Stack';
 
 export default {
 	component: ButtonIcon,
@@ -144,3 +144,96 @@ export const Loading = () => {
 		</StackHorizontal>
 	);
 };
+
+export const Variations = () => (
+	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
+		<StackVertical gap="S" justify="spaceAround" align="center">
+			<p>&nbsp;</p>
+			<h3>M</h3>
+			<h3>S</h3>
+			<h3>XS</h3>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Default</h3>
+			<ButtonIcon icon="talend-plus" onClick={action('Clicked')}>
+				Size M
+			</ButtonIcon>
+			<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="S">
+				Size S
+			</ButtonIcon>
+			<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="XS">
+				Size XS
+			</ButtonIcon>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Floating</h3>
+			<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')}>
+				Size M
+			</ButtonIconFloating>
+			<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')} size="S">
+				Size S
+			</ButtonIconFloating>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Toggle-ON</h3>
+			<ButtonIconToggle isActive icon="talend-plus" onClick={action('Clicked')}>
+				Size M + Active
+			</ButtonIconToggle>
+			<ButtonIconToggle isActive icon="talend-plus" onClick={action('Clicked')} size="S">
+				Size S + Active
+			</ButtonIconToggle>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Toggle-OFF</h3>
+			<ButtonIconToggle isActive={false} icon="talend-plus" onClick={action('Clicked')}>
+				Size M + Inactive
+			</ButtonIconToggle>
+			<ButtonIconToggle isActive={false} icon="talend-plus" onClick={action('Clicked')} size="S">
+				Size S + Inactive
+			</ButtonIconToggle>
+		</StackVertical>
+	</StackHorizontal>
+);
+
+export const DefaultButtonIcon = () => (
+	<StackHorizontal gap="XS" justify="center" align="center">
+		<ButtonIcon icon="talend-plus" onClick={action('Clicked')}>
+			Size M
+		</ButtonIcon>
+		<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="S">
+			Size S
+		</ButtonIcon>
+		<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="XS">
+			Size XS
+		</ButtonIcon>
+	</StackHorizontal>
+);
+
+export const DefaultButtonIconToggle = () => (
+	<StackHorizontal gap="XS" justify="center" align="center">
+		<ButtonIconToggle isActive={false} icon="talend-plus" onClick={action('Clicked')}>
+			Size M + Inactive
+		</ButtonIconToggle>
+		<ButtonIconToggle isActive={false} icon="talend-plus" onClick={action('Clicked')} size="S">
+			Size S + Inactive
+		</ButtonIconToggle>
+
+		<ButtonIconToggle isActive icon="talend-plus" onClick={action('Clicked')}>
+			Size M + Active
+		</ButtonIconToggle>
+		<ButtonIconToggle isActive icon="talend-plus" onClick={action('Clicked')} size="S">
+			Size S + Active
+		</ButtonIconToggle>
+	</StackHorizontal>
+);
+
+export const DefaultButtonIconFloating = () => (
+	<StackHorizontal gap="XS" justify="center" align="center">
+		<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')}>
+			Size M
+		</ButtonIconFloating>
+		<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')} size="S">
+			Size S
+		</ButtonIconFloating>
+	</StackHorizontal>
+);
