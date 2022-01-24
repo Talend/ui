@@ -4,11 +4,11 @@
 
 Some of the key features:
 
-* tools (props) to write maintainable code
-* configuration (every component try to get props from settings)
-* mapStateToProps outside of the component (more reuse)
-* build onEvent handler using registered actionCreator or simple dispatch
-* component registry available for composition
+- tools (props) to write maintainable code
+- configuration (every component try to get props from settings)
+- mapStateToProps outside of the component (more reuse)
+- build onEvent handler using registered actionCreator or simple dispatch
+- component registry available for composition
 
 Note that CMFConnect itself uses [react-redux](https://github.com/reactjs/react-redux), [connect](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md), [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
@@ -41,17 +41,14 @@ class Clock extends React.Component {
 	static displayName = 'Clock'; // required
 	static propTypes = {
 		...cmfConnect.propTypes,
-	}
+	};
 
 	constructor(props) {
 		super(props);
 	}
 
 	componentDidMount() {
-		this.timerID = setInterval(
-			() => this.tick(),
-			1000
-		);
+		this.timerID = setInterval(() => this.tick(), 1000);
 	}
 
 	componentWillUnmount() {
@@ -60,7 +57,7 @@ class Clock extends React.Component {
 
 	tick() {
 		this.props.setState({
-			date: new Date()
+			date: new Date(),
 		});
 	}
 
@@ -88,19 +85,15 @@ The main idea behind is to remove the need to write reducer.
 Like with React, it's recommended to use a function into `setState` if your change is based on another value.
 
 ```javascript
-this.props.setState(
-	prevState => prevState.state.set(
-		'counter',
-		prevState.state.get('counter') + this.props.increment
-	)
+this.props.setState(prevState =>
+	prevState.state.set('counter', prevState.state.get('counter') + this.props.increment),
 );
 ```
 
 If you want the component to be instantiated and rendered directly with a custum state and overwrite the `defaultState`, it can be done with the `initialState` prop.
 This saves one render if you know the first state.
 
-How to use expression
---
+## How to use expression
 
 CMF add a notion of expression.
 It's easy to use once your component is cmfConnected.
@@ -119,8 +112,7 @@ The titleExpression will be evaluated and injected as title props.
 
 Expressions are a way to read the state, they are a mapStateToProps available in JSON.
 
-How to dispatch action creator
----
+## How to dispatch action creator
 
 You can dispatch registered action creator in your component using `props.dispatchActionCreator`
 
@@ -231,8 +223,9 @@ CMF json configuration files
 ## How to read and update component state from the outside
 
 Every cmfConnected component expose two static functions:
-* getState
-* setStateAction
+
+- getState
+- setStateAction
 
 So if we take back the `Clock` example from below and we try to write a saga:
 
@@ -267,17 +260,12 @@ If your setState rely on the previous state value and you have some async operat
 
 ```javascript
 Clock.setStateAction(
-	prevState => prevState.set(
-		'minutes',
-		prevState.get('date').getMinutes()
-	),
-	'a-component-id'
+	prevState => prevState.set('minutes', prevState.get('date').getMinutes()),
+	'a-component-id',
 );
 ```
 
-
 ## How to test
-
 
 When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, ...).
 
@@ -285,32 +273,30 @@ We want testing experience to be easy so CMF provides some mocks for you.
 
 ```javascript
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { mock } from '@talend/react-cmf';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-cmf/lib/mock';
 
-import MyComponent from './My.component';
+import AppMenu from './AppMenu.component';
 
-const { Provider, store } = mock;
-
-describe('App', () => {
-	it('should render the app container', () => {
-		const wrapper = renderer.create(
+describe('AppMenu', () => {
+	it('should render', () => {
+		render(
 			<Provider>
-				<MyComponent />
-			</Provider>
-		).toJSON();
-		expect(wrapper).toMatchSnapshot();
+				<AppMenu />
+			</Provider>,
+		);
+		expect(screen.getByRole('button')).toBeDefined();
 	});
 });
 ```
 
 This way MyComponent may request for the following context:
 
-* registry
-* store
+- registry
+- store
 
 you may change the following using simple props:
 
-* store
-* state
-* registry
+- store
+- state
+- registry

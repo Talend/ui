@@ -1,10 +1,22 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-
-import App from '../src/App';
 import RegistryProvider from '../src/RegistryProvider';
 import ErrorBoundary from '../src/components/ErrorBoundary/ErrorBoundary.component';
+import App from '../src/App';
+
+jest.mock('react-redux', () => ({
+	esModule: true,
+	Provider: jest.fn(props => <div className="ReactReduxProvider">{props.children}</div>),
+	connect: jest.requireActual('react-redux').connect,
+}));
+
+jest.mock('../src/RegistryProvider', () =>
+	jest.fn(props => <div className="RegistryProvider">{props.children}</div>),
+);
+jest.mock('../src/components/ErrorBoundary/ErrorBoundary.component', () =>
+	jest.fn(props => <div className="ErrorBoundary">{props.children}</div>),
+);
 
 describe('CMF App', () => {
 	it('App should init stuff', () => {
@@ -15,22 +27,14 @@ describe('CMF App', () => {
 				return {};
 			},
 		};
-		const history = {};
-		const wrapper = shallow(
-			<App store={store} history={history}>
-				<div className="children" />
+		render(
+			<App store={store}>
+				<div className="children">I am a child</div>
 			</App>,
 		);
-		expect(
-			wrapper.contains(
-				<Provider store={store}>
-					<RegistryProvider>
-						<ErrorBoundary fullPage>
-							<div className="children" />
-						</ErrorBoundary>
-					</RegistryProvider>
-				</Provider>,
-			),
-		).toEqual(true);
+		expect(screen.getByText('I am a child')).toBeInTheDocument();
+		expect(Provider).toBeCalledWith(expect.objectContaining({ store }), {});
+		expect(RegistryProvider).toBeCalled();
+		expect(ErrorBoundary).toBeCalled();
 	});
 });
