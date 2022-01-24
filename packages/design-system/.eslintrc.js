@@ -9,13 +9,6 @@ module.exports = {
 
 		tsconfigRootDir: __dirname,
 	},
-	rules: {
-		'testing-library/utils-module': 2,
-		'testing-library/custom-renders': ['render'],
-	},
-	settings: {
-		'testing-library/utils-module': 'test-utils',
-	},
 	overrides: [
 		{
 			files: ['*.@(ts|tsx|js|jsx)'],

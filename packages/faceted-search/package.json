@@ -57,7 +57,7 @@
     "@talend/locales-tui-faceted-search": "^3.5.4",
     "@talend/react-components": "^6.43.3",
     "@talend/scripts-core": "^11.4.0",
-    "@talend/scripts-preset-react-lib": "^9.10.1",
+    "@talend/scripts-preset-react-lib": "^9.11.0",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "cross-env": "^7.0.3",
     "husky": "^4.3.8",
