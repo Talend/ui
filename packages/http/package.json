@@ -30,7 +30,7 @@
     "@talend/scripts-preset-react-lib": "^9.9.3",
     "enzyme": "^3.11.0",
     "fetch-mock": "^9.11.0",
-    "node-fetch": "^2.6.6",
+    "node-fetch": "^2.6.7",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
