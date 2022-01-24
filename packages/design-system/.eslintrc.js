@@ -9,6 +9,14 @@ module.exports = {
 
 		tsconfigRootDir: __dirname,
 	},
+	settings: {
+		'import/resolver': {
+			alias: {
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				map: [['~docs', '.storybook/docs']],
+			},
+		},
+	},
 	overrides: [
 		{
 			files: ['*.@(ts|tsx|js|jsx)'],
