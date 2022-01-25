@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
+import DSTokens from '@talend/design-tokens';
 
 import Link from '../Link';
 
@@ -56,19 +57,19 @@ export const NavButton = styled('span')`
 		background: none;
 	}
 
-	.nav__button__icon {
+	.nav__button-icon {
 		display: inline-block;
 		transform: translateZ(0) rotate(0deg);
 		transition: transform ${tokens.transitions.fast};
 
 		> svg {
-			width: 1.2rem;
-			height: 1.2rem;
+			width: ${DSTokens.coralSizeS};
+			height: ${DSTokens.coralSizeS};
 		}
 	}
 
 	.nav__button--collapsed {
-		.nav__button__icon {
+		.nav__button-icon {
 			transform: translateZ(0) rotate(-180deg);
 		}
 	}

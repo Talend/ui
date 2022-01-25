@@ -6,8 +6,6 @@ import Button from '../../Button';
 import Dropdown from '../../Dropdown';
 import Link from '../../Link';
 import { Icon } from '../../Icon';
-import { ButtonIconToggle } from '../../ButtonIcon';
-import Tooltip from '../../Tooltip';
 import HeaderBar from '..';
 
 import dark from '../../../themes/dark.theme';
@@ -62,18 +60,6 @@ export const Portal = () => {
 						<Button.Primary small theme={dark}>
 							Subscribe now
 						</Button.Primary>
-					</HeaderBar.Item>
-					<HeaderBar.Item>
-						<Tooltip title="Chat with Talend support" placement="bottom">
-							<ButtonIconToggle size="S" isActive={false} onClick={() => {}} icon="talend-bubbles">
-								Intercom
-							</ButtonIconToggle>
-						</Tooltip>
-					</HeaderBar.Item>
-					<HeaderBar.Item>
-						<Link iconBefore="talend-info-circle" href="#">
-							Help
-						</Link>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Dropdown
@@ -170,30 +156,6 @@ export const Apps = () => {
 					</HeaderBar.Item>
 				</HeaderBar.ContentLeft>
 				<HeaderBar.ContentRight>
-					<HeaderBar.Item>
-						<Tooltip title="Notifications (you have no unread notifications)" placement="bottom">
-							<ButtonIconToggle
-								size="S"
-								isActive={false}
-								onClick={() => {}}
-								icon="talend-bell-notification"
-							>
-								Notifications
-							</ButtonIconToggle>
-						</Tooltip>
-					</HeaderBar.Item>
-					<HeaderBar.Item>
-						<Tooltip title="Chat with Talend support" placement="bottom">
-							<ButtonIconToggle size="S" isActive={false} onClick={() => {}} icon="talend-bubbles">
-								Intercom
-							</ButtonIconToggle>
-						</Tooltip>
-					</HeaderBar.Item>
-					<HeaderBar.Item>
-						<Link iconBefore="talend-info-circle" href="#">
-							Help
-						</Link>
-					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Dropdown
 							icon="talend-user-circle"

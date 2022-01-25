@@ -48,7 +48,7 @@ const Menu = React.forwardRef(
 								onClick={() => collapse(!isCollapsed)}
 								aria-expanded={!isCollapsed}
 							>
-								<span className="nav__button__icon">
+								<span className="nav__button-icon">
 									<Icon name="talend-opener" />
 								</span>
 							</button>

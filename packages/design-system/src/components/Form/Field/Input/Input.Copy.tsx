@@ -37,6 +37,7 @@ const InputCopy = React.forwardRef(
 							label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
 							onClick={() => copyToClipboard(inputRef.current?.value || '')}
 							hideText
+							disabled={disabled}
 						/>
 					) : (
 						<AffixReadOnly

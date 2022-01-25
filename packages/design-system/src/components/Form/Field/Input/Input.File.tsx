@@ -5,6 +5,7 @@ import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 import classnames from 'classnames';
+import DSTokens from '@talend/design-tokens';
 import { ButtonIcon } from '../../../ButtonIcon';
 import Link from '../../../Link';
 import { Icon } from '../../../Icon';
@@ -91,9 +92,9 @@ const FileField = styled.div`
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		padding: 0.4rem 1rem;
+		padding: ${DSTokens.coralSizeXxs} ${DSTokens.coralSizeXs};
 
-		&.singleFile {
+		&.single-file {
 			align-items: center;
 		}
 
@@ -232,7 +233,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 					) : (
 						<div
 							className={classnames('input-file__preview preview', {
-								singleFile: Array.from(files).length === 1,
+								'single-file': Array.from(files).length === 1,
 							})}
 						>
 							<VisuallyHidden>You have selected:</VisuallyHidden>
