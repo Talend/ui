@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 1.2.0
+
+### Minor Changes
+
+- f5ee0b8f4: Added new tokens for transition, corrected sizes
+
 ## 1.1.0
 
 ### Minor Changes
