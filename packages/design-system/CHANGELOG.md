@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.14.1
+
+### Patch Changes
+
+- 8bc59db7c: fix: tsconfig to have index.d.ts at root
+
 ## 1.14.0
 
 ### Minor Changes
