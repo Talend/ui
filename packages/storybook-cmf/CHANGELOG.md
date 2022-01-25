@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 7.0.1
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+
 ## 7.0.0
 
 ### Major Changes

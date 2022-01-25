@@ -1,5 +1,15 @@
 # @talend/react-datagrid
 
+## 7.0.1
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+- Updated dependencies [618951c8b]
+- Updated dependencies [f5e3a7ead]
+  - @talend/react-cmf@7.0.1
+  - @talend/react-components@6.43.5
+
 ## 7.0.0
 
 ### Major Changes

@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 1.14.0
+
+### Minor Changes
+
+- b268c0c43: New ButtonIcon component released
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+
 ## 1.13.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @talend/react-components
 
+## 6.43.5
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+- Updated dependencies [618951c8b]
+- Updated dependencies [b268c0c43]
+  - @talend/design-system@1.14.0
+
 ## 6.43.4
 
 ### Patch Changes

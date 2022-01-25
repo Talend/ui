@@ -1,5 +1,12 @@
 # @talend/react-cmf
 
+## 7.0.1
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+- f5e3a7ead: Inject display error in case the component is not found
+
 ## 7.0.0
 
 ### Major Changes
@@ -91,7 +98,7 @@ const components = Object.keys(bootstrap).reduce((acc, key) => {
                 }
 ```
 
-The change is cmfConnected components are now pure function and from the [doc](https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs): 
+The change is cmfConnected components are now pure function and from the [doc](https://reactjs.org/docs/refs-and-the-dom.html#accessing-refs):
 **You may not use the `ref` attribute on function components** because they don’t have instances.
 
 ## 6.39.1
