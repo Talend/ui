@@ -1,10 +1,12 @@
 import React from 'react';
-import { shade, tint } from 'polished';
+import { tint } from 'polished';
 import styled from 'styled-components';
 import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
-import Button from '../../../Button';
+import classnames from 'classnames';
+import DSTokens from '@talend/design-tokens';
+import { ButtonIcon } from '../../../ButtonIcon';
 import Link from '../../../Link';
 import { Icon } from '../../../Icon';
 import VisuallyHidden from '../../../VisuallyHidden';
@@ -88,38 +90,33 @@ const FileField = styled.div`
 
 	.preview {
 		display: flex;
-		align-items: baseline;
-		padding: 0 1rem;
+		align-items: flex-start;
+		justify-content: space-between;
+		padding: ${DSTokens.coralSizeXxs} ${DSTokens.coralSizeXs};
+
+		&.single-file {
+			align-items: center;
+		}
+
+		&__button {
+			button {
+				position: static;
+
+				svg {
+					margin: 0;
+					fill: currentColor;
+				}
+			}
+		}
 
 		&__list {
 			margin: 0;
 			padding: 0;
 			list-style: none;
+			flex-grow: 1;
 
 			&-item {
 				color: ${({ theme }) => theme.colors.inputColor};
-			}
-		}
-
-		&__button {
-			position: static;
-			margin-left: auto;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-height: ${tokens.sizes.xxl};
-			border: none;
-
-			svg {
-				position: static;
-				width: ${tokens.sizes.l};
-				color: ${({ theme }) => theme.colors.textColor};
-			}
-
-			&:hover {
-				svg path {
-					fill: ${({ theme }) => shade(0.25, theme.colors.activeColor[500])};
-				}
 			}
 		}
 	}
@@ -234,7 +231,11 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 							</span>
 						</div>
 					) : (
-						<div className="input-file__preview preview">
+						<div
+							className={classnames('input-file__preview preview', {
+								'single-file': Array.from(files).length === 1,
+							})}
+						>
 							<VisuallyHidden>You have selected:</VisuallyHidden>
 							{/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
 							<ol role="list" className="preview__list">
@@ -247,13 +248,11 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 										</li>
 									))}
 							</ol>
-							<Button.Icon
-								icon="talend-cross-circle"
-								className="preview__button"
-								onClick={() => clear()}
-							>
-								{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
-							</Button.Icon>
+							<div className="preview__button">
+								<ButtonIcon icon="talend-cross-circle" onClick={() => clear()} size="S">
+									{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
+								</ButtonIcon>
+							</div>
 						</div>
 					)}
 				</div>

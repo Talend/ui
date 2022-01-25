@@ -1,5 +1,8 @@
 @use '~@talend/design-tokens/lib/tokens';
 
+$iconAlignmentOffsetM: -0.3rem;
+$iconAlignmentOffsetS: -0.1rem;
+
 .link {
 	font: tokens.$coral-paragraph-m;
 	color: tokens.$coral-color-accent-text;
@@ -23,23 +26,25 @@
 	}
 
 	.link__icon {
-		margin-bottom: -0.2rem;
-		height: tokens.$coral-size-m;
-		width: tokens.$coral-size-m;
+		& {
+			margin-bottom: $iconAlignmentOffsetM;
+			height: tokens.$coral-size-m;
+			width: tokens.$coral-size-m;
+		}
 
 		&External {
-			margin-bottom: -0.1rem;
+			margin-bottom: $iconAlignmentOffsetS;
 			height: tokens.$coral-size-s;
 			width: tokens.$coral-size-s;
 		}
 
 		&Before {
-			margin-right: tokens.$coral-size-xs;
+			margin-right: tokens.$coral-size-xxs;
 		}
 
 		&External,
 		&After {
-			margin-left: tokens.$coral-size-xs;
+			margin-left: tokens.$coral-size-xxs;
 		}
 	}
 
