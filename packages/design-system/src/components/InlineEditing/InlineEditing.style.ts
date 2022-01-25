@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import DStokens from '@talend/design-tokens';
 import tokens from '../../tokens';
 
 export const InlineEditing = styled.div`
 	.c-inline-editing--editing {
 		position: relative;
+
+		& [data-padding-override='true'] {
+			padding-right: 4rem;
+		}
 
 		.field__group--input {
 			margin: 0;
@@ -47,8 +52,14 @@ export const InlineEditing = styled.div`
 
 		.c-inline-editing__action {
 			flex: 0 0 auto;
-			height: 2.2rem;
 			opacity: 0;
+			margin-left: ${DStokens.coralSizeXxs};
+			transition: opacity ${DStokens.coralTransitionFast};
+
+			> * {
+				position: relative;
+				top: 0.1rem;
+			}
 
 			&:hover,
 			&:active,

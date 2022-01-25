@@ -172,35 +172,6 @@ export const TertiaryAsLink = (props: Story<ButtonProps>) => {
 	);
 };
 
-export const Icon = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Icon icon="talend-plus" {...props}>
-			Button with icon
-		</Button.Icon>
-	);
-};
-export const IconDisabled = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Icon disabled icon="talend-plus" {...props}>
-			Disabled Button
-		</Button.Icon>
-	);
-};
-export const IconDisabledFocusable = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Icon disabled focusable icon="talend-plus" {...props}>
-			Disabled Focusable Button
-		</Button.Icon>
-	);
-};
-export const IconAsLink = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Icon as="a" href="pouet" icon="talend-plus" {...props}>
-			This is an anchor
-		</Button.Icon>
-	);
-};
-
 export const SkeletonButton = () => {
 	return <Skeleton.Button />;
 };
