@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
+import DSTokens from '@talend/design-tokens';
 
-import Button from '../Button';
 import Link from '../Link';
 
 import tokens from '../../tokens';
@@ -36,27 +36,41 @@ export const Nav = styled.nav.attrs({
 		}`}
 `;
 
-export const NavButton = styled(Button.Icon)`
+// With CSS module, replace this with two buttons that build on ButtonIconPrimitive
+export const NavButton = styled('span')`
 	flex: 0;
-	align-self: start;
-	margin: 1.5rem;
-	border: none;
-	transform: translateZ(0);
 
-	&.nav__button,
-	&.nav__button:hover,
-	&.nav__button:active {
+	.nav__button {
+		align-self: start;
+		margin: 1.5rem;
+		border: none;
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+		border-radius: 100%;
+	}
+
+	.nav__button,
+	.nav__button:hover,
+	.nav__button:active {
 		color: inherit;
 		background: none;
 	}
 
-	.btn__icon {
+	.nav__button-icon {
+		display: inline-block;
+		transform: translateZ(0) rotate(0deg);
 		transition: transform ${tokens.transitions.fast};
+
+		> svg {
+			width: ${DSTokens.coralSizeS};
+			height: ${DSTokens.coralSizeS};
+		}
 	}
 
-	&.nav__button--collapsed {
-		.btn__icon {
-			transform: rotate(-180deg);
+	.nav__button--collapsed {
+		.nav__button-icon {
+			transform: translateZ(0) rotate(-180deg);
 		}
 	}
 `;

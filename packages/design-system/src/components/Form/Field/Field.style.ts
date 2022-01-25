@@ -251,7 +251,7 @@ export const FieldGroup = styled.div<{ after: React.ReactNode }>`
   }`
 			: ''}
 
-	svg, 
+	svg,
   button {
 		position: absolute;
 		padding: 0;

@@ -1,5 +1,18 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle } from './';
+import {
+	Button,
+	Dropdown,
+	Form,
+	Icon,
+	InlineMessage,
+	Link,
+	Popover,
+	Tag,
+	ButtonIconToggle,
+	ButtonIcon,
+	ButtonIconFloating,
+	Toggle,
+} from './';
 
 <Meta title="Component catalog" />
 
@@ -11,7 +24,20 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 		<Button.Destructive icon="talend-datagrid">Destructive button</Button.Destructive>
 		<Button.Secondary icon="talend-datagrid">Secondary button</Button.Secondary>
 		<Button.Tertiary icon="talend-datagrid">Tertiary button</Button.Tertiary>
-		<Button.Icon icon="talend-datagrid">Datagrid</Button.Icon>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="ButtonIcon">
+		<ButtonIcon icon="talend-datagrid" onClick={() => {}}>
+			ButtonIcon
+		</ButtonIcon>
+		<ButtonIconFloating icon="talend-datagrid" onClick={() => {}}>
+			ButtonIconFloating
+		</ButtonIconFloating>
+		<ButtonIconToggle icon="talend-datagrid" onClick={() => {}} isActive={false}>
+			ButtonIconToggle
+		</ButtonIconToggle>
 	</Story>
 </Canvas>
 
@@ -19,9 +45,17 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 
 <Canvas>
 	<Story name="Toggles">
-		<Toggle icon="talend-datagrid">Toggle button</Toggle>
-		<Toggle icon="talend-datagrid" disabled>
+		<Toggle icon="talend-datagrid" isActive={false} onClick={() => {}}>
 			Toggle button
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={true} onClick={() => {}}>
+			Toggle button active
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={false} onClick={() => {}} disabled>
+			Toggle button disabled
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive disabled onClick={() => {}}>
+			Toggle button active disabled
 		</Toggle>
 	</Story>
 </Canvas>

@@ -104,7 +104,7 @@ const Link = forwardRef(
 			<>
 				{icon &&
 					(typeof icon === 'string' ? (
-						<Icon className={classNames(style.link__Icon, style.link__iconBefore)} name={icon} />
+						<Icon className={classNames(style.link__icon, style.link__iconBefore)} name={icon} />
 					) : (
 						cloneElement(icon, {
 							className: classNames(
@@ -117,7 +117,7 @@ const Link = forwardRef(
 				<span className={style.link__text}>{children}</span>
 				{isExternal && !hideExternalIcon && (
 					<Icon
-						className="link__icon link__icon--external"
+						className={classNames(style.link__icon, style.link__iconExternal)}
 						data-test="link.icon.external"
 						name="talend-link"
 					/>
@@ -125,7 +125,7 @@ const Link = forwardRef(
 				{iconAfter &&
 					(typeof iconAfter === 'string' ? (
 						<Icon
-							className={classNames(style.link__Icon, style.link__iconAfter)}
+							className={classNames(style.link__icon, style.link__iconAfter)}
 							name={iconAfter}
 						/>
 					) : (
