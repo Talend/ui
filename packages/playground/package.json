@@ -29,11 +29,11 @@
     "express": "^4.17.2"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "^6.38.5",
+    "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.38.0",
     "@talend/react-cmf": "^7.0.0",
     "@talend/react-cmf-router": "^4.0.0",
-    "@talend/react-components": "^6.43.1",
+    "@talend/react-components": "^6.43.4",
     "@talend/react-containers": "^7.0.0",
     "@talend/react-forms": "^7.0.0",
     "history": "^3.3.0",
