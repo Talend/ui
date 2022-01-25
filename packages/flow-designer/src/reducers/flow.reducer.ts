@@ -173,15 +173,16 @@ export function calculatePortsPosition(state: State, action: any) {
 		return nodes.reduce((cumulativeState: State, node: NodeRecord) => {
 			const nodeType = node.getNodeType();
 			const ports = state.get('ports').filter((port: PortRecord) => port.nodeId === node.id);
-			const component = state.getIn(['nodeTypes', nodeType, 'component']);
-			if (component) {
-				const calculatePortPosition = component.calculatePortPosition;
-				if (calculatePortPosition) {
-					return cumulativeState.mergeIn(
-						['ports'],
-						calculatePortPosition(ports, node.getPosition(), node.getSize()),
-					);
-				}
+
+			const calculatePortPosition = state.getIn(
+				['nodeTypes', nodeType, 'component', 'calculatePortPosition'],
+				state.getIn(['nodeTypes', nodeType, 'component'])?.calculatePortPosition,
+			);
+			if (calculatePortPosition) {
+				return cumulativeState.mergeIn(
+					['ports'],
+					calculatePortPosition(ports, node.getPosition(), node.getSize()),
+				);
 			}
 			return state;
 		}, state);
