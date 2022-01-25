@@ -2,7 +2,7 @@ import React from 'react';
 import { Area } from '~docs';
 
 import Drawer from '.';
-import Button from '../Button';
+import { ButtonIcon } from '../ButtonIcon';
 
 export default {
 	component: Drawer,
@@ -22,6 +22,10 @@ export const Simple = {
 export const WithToggleButton = {
 	args: {
 		...defaultProps,
-		toggleButton: <Button.Icon icon="talend-panel-opener-right">Toggle drawer</Button.Icon>,
+		toggleButton: (
+			<ButtonIcon icon="talend-panel-opener-right" onClick={() => {}}>
+				Toggle drawer
+			</ButtonIcon>
+		),
 	},
 };

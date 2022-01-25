@@ -1,10 +1,10 @@
 import React from 'react';
 import { useCopyToClipboard } from 'react-use';
 import { useTranslation } from 'react-i18next';
-import Button from '../../../Button';
 import FieldGroup from '../../FieldGroup';
 import Text from './Input.Text';
 import { InputProps } from './Input';
+import { AffixButton, AffixReadOnly } from './Affix';
 
 const InputCopy = React.forwardRef(
 	(
@@ -31,15 +31,21 @@ const InputCopy = React.forwardRef(
 			<FieldGroup
 				label={label}
 				suffix={
-					!readOnly ? (
-						<Button.Icon
+					!readOnly || disabled ? (
+						<AffixButton
 							icon="talend-files-o"
+							label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
 							onClick={() => copyToClipboard(inputRef.current?.value || '')}
+							hideText
 							disabled={disabled}
-						>
-							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
-						</Button.Icon>
-					) : undefined
+						/>
+					) : (
+						<AffixReadOnly
+							icon="talend-files-o"
+							label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
+							hideText
+						/>
+					)
 				}
 				readOnly={!disabled}
 				disabled={!!disabled}
