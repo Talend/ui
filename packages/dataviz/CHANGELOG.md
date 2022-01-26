@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.3
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+- Updated dependencies [618951c8b]
+  - @talend/react-components@6.43.5
+
 ## 1.0.2
 
 ### Patch Changes

@@ -3,7 +3,7 @@ name: Upgrade dependencies
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 * * WED'
+    - cron: "0 10 * * WED"
 
 jobs:
   upgrade:
@@ -18,24 +18,24 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
-          cache: 'yarn'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
 
       - name: Upgrade dependencies
         run: |
           yarn
           yarn talend-scripts upgrade:deps
-          node .github/workflows/dependencies-changeset.js
           node_modules/.bin/talend-scripts upgrade:deps --latest --dry > dependencies-latest.md
           git add dependencies-latest.md
+          git add .changeset/ci-dependencies.md
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
           assignees: jmfrancois
           reviewers: jmfrancois
-          commit-message: 'chore: upgrade dependencies'
-          title: 'chore: upgrade dependencies'
-          body: 'Upgrade dependencies using `talend-scripts upgrade:deps`'
+          commit-message: "chore: upgrade dependencies"
+          title: "chore: upgrade dependencies"
+          body: "Upgrade dependencies using `talend-scripts upgrade:deps`"
           branch: ci/chore/upgrade-dependencies

@@ -46,6 +46,7 @@ context('<Dropdown />', () => {
 		cy.getByTest('dropdown.menu')
 			.should('be.visible')
 			.within(() => {
+				// eslint-disable-next-line testing-library/prefer-screen-queries
 				cy.getByRole('separator').should('have.length', 2);
 			});
 	});
@@ -57,7 +58,7 @@ context('<Dropdown />', () => {
 			.first()
 			.should('be.visible')
 			.within(() => {
-				cy.get('.link__icon--external').should('be.visible');
+				cy.getByTest('link.icon.external').should('be.visible');
 			});
 	});
 });

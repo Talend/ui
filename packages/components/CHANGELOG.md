@@ -1,5 +1,22 @@
 # @talend/react-components
 
+## 6.43.5
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+- Updated dependencies [618951c8b]
+- Updated dependencies [b268c0c43]
+  - @talend/design-system@1.14.0
+
+## 6.43.4
+
+### Patch Changes
+
+- 9aada93d4: fix: OverlayTrigger fork to use portal so the overlay is attached in current VirtualDOM to have access to new style React Providers.
+- Updated dependencies [99f880903]
+  - @talend/design-system@1.13.0
+
 ## 6.43.3
 
 ### Patch Changes

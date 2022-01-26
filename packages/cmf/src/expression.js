@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import invariant from 'invariant';
 import forIn from 'lodash/forIn';
 
 import CONST from './constant';
 import registry from './registry';
+import { useCMFContext } from './useContext';
 
 const regexExpression = new RegExp('(.*)Expression');
 
@@ -152,14 +152,10 @@ function mergeProps(props) {
  * @param {*} attrs
  */
 function withExpression(Component, attrs) {
-	function WithExpression(props, context) {
+	function WithExpression(props) {
+		const context = useCMFContext();
 		return <Component {...getProps(props, attrs, context)} />;
 	}
-	WithExpression.contextTypes = {
-		registry: PropTypes.object,
-		store: PropTypes.object,
-		router: PropTypes.object,
-	};
 	WithExpression.displayName = `WithExpression(${Component.displayName || Component.name})`;
 	return WithExpression;
 }

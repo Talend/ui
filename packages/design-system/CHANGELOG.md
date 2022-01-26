@@ -1,5 +1,33 @@
 # @talend/design-system
 
+## 1.14.2
+
+### Patch Changes
+
+- 5c8e454b2: Switch: Animation is broken
+
+## 1.14.1
+
+### Patch Changes
+
+- 8bc59db7c: fix: tsconfig to have index.d.ts at root
+
+## 1.14.0
+
+### Minor Changes
+
+- b268c0c43: New ButtonIcon component released
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+
+## 1.13.0
+
+### Minor Changes
+
+- 99f880903: fix(design-system): remove hardcoded string in the input file component
+
 ## 1.12.2
 
 ### Patch Changes

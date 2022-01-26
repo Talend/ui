@@ -1,14 +1,17 @@
 import Area from './Area';
+import Badges from './Badges';
+import BadgeFigma from './BadgeFigma';
+import BadgeI18n from './BadgeI18n';
+import BadgeReact from './BadgeReact';
+import BadgeStorybook from './BadgeStorybook';
 import Card from './Card';
 import Col from './Col';
 import ColorSwatches from './ColorSwatches';
 import FigmaIframe from './FigmaIframe';
 import FigmaImage from './FigmaImage';
-import FigmaLink from './FigmaLink';
-import GitHubLink from './GitHubLink';
 import Grid from './Grid';
-import Links from './Links';
 import SearchBar from './SearchBar';
+import StatusTable from './StatusTable';
 import Table from './Table';
 import Themes from './Themes';
 import Row from './Row';
@@ -18,18 +21,21 @@ import WithSelector from './WithSelector';
 
 export {
 	Area,
+	Badges,
+	BadgeFigma,
+	BadgeI18n,
+	BadgeReact,
+	BadgeStorybook,
 	Card,
 	Col,
 	ColorSwatches,
 	FigmaIframe,
 	FigmaImage,
-	FigmaLink,
-	GitHubLink,
 	Grid,
 	Icons,
-	Links,
 	Row,
 	SearchBar,
+	StatusTable,
 	Table,
 	Themes,
 	Use,

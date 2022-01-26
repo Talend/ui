@@ -22,11 +22,11 @@ It provides a set of base APIs and patterns.
 
 Before trying CMF you must know:
 
-* [React](https://reactjs.org/)
-* [Redux](https://redux.js.org/)
-* [react-redux](https://redux.js.org/basics/usage-with-react)
-* [redux-saga](https://redux-saga.js.org)
-* [Immutable](https://facebook.github.io/immutable-js/)
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [react-redux](https://redux.js.org/basics/usage-with-react)
+- [redux-saga](https://redux-saga.js.org)
+- [Immutable](https://facebook.github.io/immutable-js/)
 
 You must understand all the following words: pure component, action creator, reducer, put, takeEvery, fromJS, ...
 
@@ -47,17 +47,17 @@ To start a project using react-cmf you can use [bootstrap API](https://github.co
 
 Working with react-cmf means:
 
-* you write a set of configurable pure component connected using `cmfConnect`
-* you configure them using the settings
-* events are handled in a saga (effects are the way to write business code)
+- you write a set of configurable pure component connected using `cmfConnect`
+- you configure them using the settings
+- events are handled in a saga (effects are the way to write business code)
 
-![diagram rendering cycle](./assets/diagram-rendering-cycle.svg "Diagram rendering cycle")
+![diagram rendering cycle](./assets/diagram-rendering-cycle.svg 'Diagram rendering cycle')
 
 Side by side with angular 1:
 
-* components are React *cmfConnected* (pure) component
-* services are sagas
-* controllers are containers
+- components are React _cmfConnected_ (pure) component
+- services are sagas
+- controllers are containers
 
 UI sends actions into redux which are handled by sagas.
 
@@ -67,10 +67,11 @@ UI sends actions into redux which are handled by sagas.
 Under the hood it uses the connect function and create a container.
 
 Once your component is connected:
-* you can read data from the store using [expression](https://github.com/Talend/ui/tree/master/packages/cmf/src/expression.md)
-* you can dispatch actions using [onEvent handler](https://github.com/Talend/ui/tree/master/packages/cmf/src/onEvent.md)
 
-![diagram cmfConnect](./assets/diagram-cmfConnect.svg "Diagram on cmfConnect")
+- you can read data from the store using [expression](https://github.com/Talend/ui/tree/master/packages/cmf/src/expression.md)
+- you can dispatch actions using [onEvent handler](https://github.com/Talend/ui/tree/master/packages/cmf/src/onEvent.md)
+
+![diagram cmfConnect](./assets/diagram-cmfConnect.svg 'Diagram on cmfConnect')
 
 Read more about [cmfConnect](https://github.com/Talend/ui/tree/master/packages/cmf/src/cmfConnect.md)
 
@@ -78,11 +79,11 @@ Read more about [cmfConnect](https://github.com/Talend/ui/tree/master/packages/c
 
 CMF uses react-redux store with the following structure
 
-* root
-  * cmf
-    * collections
-    * components
-    * settings
+- root
+  - cmf
+    - collections
+    - components
+    - settings
 
 Collections and components use Immutable data structure.
 
@@ -93,8 +94,8 @@ so component state can be stored and reused later.
 
 We give you the choice to use either:
 
-* CMF redux state (this.props.state && this.props.setState)
-* React component state (this.state && this.setState)
+- CMF redux state (this.props.state && this.props.setState)
+- React component state (this.state && this.setState)
 
 Warning: you should use the redux state except for part that require lots of mutation without sharing.
 For example for Forms you should prefer to use the internal React component state.
@@ -155,53 +156,49 @@ We want testing experience to be easy so CMF provides some mocks for you.
 
 ```javascript
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { mock } from '@talend/react-cmf';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-cmf/lib/mock';
 
-import MyComponent from './My.component';
+import AppMenu from './AppMenu.component';
 
-const { Provider, store } = mock;
-
-describe('App', () => {
-	it('should render the app container', () => {
-		const wrapper = renderer
-			.create(
-				<Provider>
-					<MyComponent />
-				</Provider>,
-			)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+describe('AppMenu', () => {
+	it('should render', () => {
+		render(
+			<Provider>
+				<AppMenu />
+			</Provider>,
+		);
+		expect(screen.getByRole('button')).toBeDefined();
 	});
 });
 ```
 
 This way MyComponent may request for the following context:
 
-* registry
-* store
+- registry
+- store
 
 you may change the following using simple props:
 
-* store
-* state
-* registry
+- store
+- state
+- registry
 
 ## More
 
-* [App](https://github.com/Talend/ui/tree/master/packages/cmf/src/App.md)
-* [cmfConnect](https://github.com/Talend/ui/tree/master/packages/cmf/src/cmfConnect.md)
-* [settings](https://github.com/Talend/ui/tree/master/packages/cmf/src/settings.md)
-* [api](https://github.com/Talend/ui/tree/master/packages/cmf/src/api.md)
-* [store](https://github.com/Talend/ui/tree/master/packages/cmf/src/store.md)
-* [Dispatcher](https://github.com/Talend/ui/tree/master/packages/cmf/src/Dispatcher.md)
-* [how to](howto/index.md)
-* [sagas](https://github.com/Talend/ui/tree/master/packages/cmf/src/sagas/index.md)
-* [sagaRouter](https://github.com/Talend/ui/tree/master/packages/router/src/sagaRouter.md)
-* [scripts](scripts/index.md)
+- [App](https://github.com/Talend/ui/tree/master/packages/cmf/src/App.md)
+- [cmfConnect](https://github.com/Talend/ui/tree/master/packages/cmf/src/cmfConnect.md)
+- [settings](https://github.com/Talend/ui/tree/master/packages/cmf/src/settings.md)
+- [api](https://github.com/Talend/ui/tree/master/packages/cmf/src/api.md)
+- [store](https://github.com/Talend/ui/tree/master/packages/cmf/src/store.md)
+- [Dispatcher](https://github.com/Talend/ui/tree/master/packages/cmf/src/Dispatcher.md)
+- [how to](howto/index.md)
+- [sagas](https://github.com/Talend/ui/tree/master/packages/cmf/src/sagas/index.md)
+- [sagaRouter](https://github.com/Talend/ui/tree/master/packages/router/src/sagaRouter.md)
+- [scripts](scripts/index.md)
 
 ## Internals
 
-* [registry](https://github.com/Talend/ui/tree/master/packages/cmf/src/registry.md).
-* [middleware/cmf](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/cmf/index.md)
-* [middleware/http](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/http/index.md)
+- [registry](https://github.com/Talend/ui/tree/master/packages/cmf/src/registry.md).
+- [middleware/cmf](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/cmf/index.md)
+- [middleware/http](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/http/index.md)
