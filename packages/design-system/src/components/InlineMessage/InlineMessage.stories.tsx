@@ -4,7 +4,7 @@ import Link from '../Link';
 
 export default { component: InlineMessage };
 
-const render = ({ variant, ...rest }: { variant: keyof typeof InlineMessage }) => {
+const render = ({ variant, ...rest }: { variant?: keyof typeof InlineMessage }) => {
 	switch (variant) {
 		case 'Information':
 			return <InlineMessage.Information {...rest} />;
@@ -15,7 +15,7 @@ const render = ({ variant, ...rest }: { variant: keyof typeof InlineMessage }) =
 		case 'Destructive':
 			return <InlineMessage.Destructive {...rest} />;
 		default:
-			return null;
+			return <InlineMessage {...rest} />;
 	}
 };
 
@@ -26,6 +26,7 @@ const defaultProps = {
 	link: <Link href="#">See more</Link>,
 };
 
+export const Default = { args: { ...defaultProps }, render };
 export const Information = {
 	args: {
 		...defaultProps,
