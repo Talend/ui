@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.14.2
+
+### Patch Changes
+
+- 5c8e454b2: Switch: Animation is broken
+
 ## 1.14.1
 
 ### Patch Changes
