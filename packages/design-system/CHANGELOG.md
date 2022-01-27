@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.14.3
+
+### Patch Changes
+
+- 1c85f8588: Bump @talend/design-token to get missing tokens
+
 ## 1.14.2
 
 ### Patch Changes
