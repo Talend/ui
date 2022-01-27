@@ -33,7 +33,7 @@ module.exports = {
 	refs: {
 		'design-tokens': {
 			title: 'Design Tokens',
-			url: '/design-tokens',
+			url: 'https://design.talend.com/design-tokens',
 		},
 	},
 	stories: [
