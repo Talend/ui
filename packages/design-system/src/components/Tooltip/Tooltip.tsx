@@ -1,7 +1,12 @@
-import React, { ReactElement } from 'react';
-import { useTooltipState } from 'reakit';
+import React from 'react';
+import {
+	useTooltipState as useReakitTooltipState,
+	Tooltip as ReakitTooltip,
+	TooltipArrow as ReakitTooltipArrow,
+	TooltipReference as ReakitTooltipReference,
+} from 'reakit';
 
-import * as S from './Tooltip.style';
+import theme from './Tooltip.module.scss';
 
 export type Placement =
 	| 'auto-start'
@@ -26,30 +31,34 @@ export type TooltipProps = React.PropsWithChildren<any> & {
 	visible?: boolean;
 };
 
-const Tooltip = React.forwardRef(
-	(
-		{ children, title, placement = 'auto', visible = false, ...rest }: TooltipProps,
-		ref: React.Ref<ReactElement>,
-	) => {
-		const tooltipState = useTooltipState({
-			placement,
-			visible,
-			gutter: 15,
-		});
-		return (
-			<>
-				<S.TooltipReference {...tooltipState} {...children.props} ref={ref}>
-					{referenceProps => React.cloneElement(children, referenceProps)}
-				</S.TooltipReference>
-				{title && (
-					<S.Tooltip {...tooltipState} {...rest}>
-						<S.TooltipArrow {...tooltipState} />
+const Tooltip = ({
+	children,
+	title,
+	placement = 'auto',
+	visible = false,
+	...rest
+}: TooltipProps) => {
+	const tooltipState = useReakitTooltipState({
+		animated: 250,
+		gutter: 15,
+		placement,
+		visible,
+	});
+	return (
+		<>
+			<ReakitTooltipReference {...tooltipState} ref={children.ref} {...children.props}>
+				{referenceProps => React.cloneElement(children, referenceProps)}
+			</ReakitTooltipReference>
+			{title && (
+				<ReakitTooltip className={theme.tooltip} {...tooltipState} {...rest}>
+					<div className={theme.container}>
+						<ReakitTooltipArrow className={theme.arrow} {...tooltipState} />
 						{title}
-					</S.Tooltip>
-				)}
-			</>
-		);
-	},
-);
+					</div>
+				</ReakitTooltip>
+			)}
+		</>
+	);
+};
 
 export default Tooltip;
