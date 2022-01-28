@@ -16,8 +16,6 @@ const defaultProps = {
 	title: 'Relevant information about this basic button',
 };
 
-export const Default = { render };
-
 export const Top = { args: { ...defaultProps, placement: 'top' }, render };
 
 export const Right = { args: { ...defaultProps, placement: 'right' }, render };

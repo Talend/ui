@@ -2,11 +2,12 @@ import React from 'react';
 import {
 	useTooltipState as useReakitTooltipState,
 	Tooltip as ReakitTooltip,
+	TooltipProps as ReakitTooltipProps,
 	TooltipArrow as ReakitTooltipArrow,
 	TooltipReference as ReakitTooltipReference,
 } from 'reakit';
 
-import theme from './Tooltip.module.scss';
+import styles from './Tooltip.module.scss';
 
 export type Placement =
 	| 'auto-start'
@@ -25,24 +26,18 @@ export type Placement =
 	| 'left'
 	| 'left-start';
 
-export type TooltipProps = React.PropsWithChildren<any> & {
-	title?: string;
-	placement?: Placement;
-	visible?: boolean;
-};
+export type TooltipProps = React.PropsWithChildren<any> &
+	ReakitTooltipProps & {
+		title?: string;
+	};
 
-const Tooltip = ({
-	children,
-	title,
-	placement = 'auto',
-	visible = false,
-	...rest
-}: TooltipProps) => {
+const Tooltip: React.FC<TooltipProps> = ({ children, title, ...rest }: TooltipProps) => {
 	const tooltipState = useReakitTooltipState({
+		...rest,
 		animated: 250,
 		gutter: 15,
-		placement,
-		visible,
+		unstable_flip: true,
+		unstable_preventOverflow: true,
 	});
 	return (
 		<>
@@ -50,9 +45,9 @@ const Tooltip = ({
 				{referenceProps => React.cloneElement(children, referenceProps)}
 			</ReakitTooltipReference>
 			{title && (
-				<ReakitTooltip className={theme.tooltip} {...tooltipState} {...rest}>
-					<div className={theme.container}>
-						<ReakitTooltipArrow className={theme.arrow} {...tooltipState} />
+				<ReakitTooltip className={styles.tooltip} {...tooltipState} {...rest}>
+					<div className={styles.container}>
+						<ReakitTooltipArrow className={styles.arrow} {...tooltipState} />
 						{title}
 					</div>
 				</ReakitTooltip>

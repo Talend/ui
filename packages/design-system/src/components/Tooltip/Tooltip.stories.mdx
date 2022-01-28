@@ -76,39 +76,20 @@ Otherwise, you’ll just add information pollution to your UI and waste the time
 		name="usage"
 		args={{
 			title: 'Meaningful description',
-			placement: 'left',
-			visible: true,
 		}}
 		argTypes={{
-			placement: {
-				control: {
-					type: 'select',
-					options: [
-						'auto-start',
-						'auto',
-						'auto-end',
-						'top-start',
-						'top',
-						'top-end',
-						'right-start',
-						'right',
-						'right-end',
-						'bottom-end',
-						'bottom',
-						'bottom-start',
-						'left-end',
-						'left',
-						'left-start',
-					],
-				},
+			title: {
+				description: 'Tooltip content giving context to the disclosure',
 			},
 		}}
 	>
-		{Stories.Default.render.bind({})}
+		{Stories.render.bind({})}
 	</Story>
 </Canvas>
 
 <ArgsTable story="usage" />
+
+For more info about Tooltip props, refer to [documentation](https://reakit.io/docs/tooltip/) of Reakit.
 
 ## Accessibility
 
