@@ -59,9 +59,9 @@ export function WithDrawer({ drawers, children }) {
 				{drawers &&
 					drawers.map((drawer, key) => (
 						<Animation key={key}>
-							{({ style }) => (
+							{({ style, ...props }) => (
 								<div className="tc-with-drawer-wrapper" style={style}>
-									{drawer}
+									{React.cloneElement(drawer, props)}
 								</div>
 							)}
 						</Animation>
