@@ -1,7 +1,13 @@
-import React, { ReactElement } from 'react';
-import { useTooltipState } from 'reakit';
+import React from 'react';
+import {
+	useTooltipState as useReakitTooltipState,
+	Tooltip as ReakitTooltip,
+	TooltipProps as ReakitTooltipProps,
+	TooltipArrow as ReakitTooltipArrow,
+	TooltipReference as ReakitTooltipReference,
+} from 'reakit';
 
-import * as S from './Tooltip.style';
+import styles from './Tooltip.module.scss';
 
 export type Placement =
 	| 'auto-start'
@@ -20,36 +26,34 @@ export type Placement =
 	| 'left'
 	| 'left-start';
 
-export type TooltipProps = React.PropsWithChildren<any> & {
-	title?: string;
-	placement?: Placement;
-	visible?: boolean;
-};
+export type TooltipProps = React.PropsWithChildren<any> &
+	ReakitTooltipProps & {
+		title?: string;
+	};
 
-const Tooltip = React.forwardRef(
-	(
-		{ children, title, placement = 'auto', visible = false, ...rest }: TooltipProps,
-		ref: React.Ref<ReactElement>,
-	) => {
-		const tooltipState = useTooltipState({
-			placement,
-			visible,
-			gutter: 15,
-		});
-		return (
-			<>
-				<S.TooltipReference {...tooltipState} {...children.props} ref={ref}>
-					{referenceProps => React.cloneElement(children, referenceProps)}
-				</S.TooltipReference>
-				{title && (
-					<S.Tooltip {...tooltipState} {...rest}>
-						<S.TooltipArrow {...tooltipState} />
+const Tooltip: React.FC<TooltipProps> = ({ children, title, ...rest }: TooltipProps) => {
+	const tooltipState = useReakitTooltipState({
+		...rest,
+		animated: 250,
+		gutter: 15,
+		unstable_flip: true,
+		unstable_preventOverflow: true,
+	});
+	return (
+		<>
+			<ReakitTooltipReference {...tooltipState} ref={children.ref} {...children.props}>
+				{referenceProps => React.cloneElement(children, referenceProps)}
+			</ReakitTooltipReference>
+			{title && (
+				<ReakitTooltip className={styles.tooltip} {...tooltipState} {...rest}>
+					<div className={styles.container}>
+						<ReakitTooltipArrow className={styles.arrow} {...tooltipState} />
 						{title}
-					</S.Tooltip>
-				)}
-			</>
-		);
-	},
-);
+					</div>
+				</ReakitTooltip>
+			)}
+		</>
+	);
+};
 
 export default Tooltip;
