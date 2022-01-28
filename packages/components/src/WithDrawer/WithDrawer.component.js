@@ -23,11 +23,11 @@ body > div {
  * @example
  <Layout mode="TwoColumns" one={one} two={two}></Layout>
  */
-function WithDrawer({ drawers, children }) {
+function WithDrawer({ drawers, children, ...rest }) {
 	return (
 		<div className={theme['tc-with-drawer']}>
 			{children}
-			<TransitionGroup className={theme['tc-with-drawer-container']}>
+			<TransitionGroup className={theme['tc-with-drawer-container']} {...rest}>
 				{drawers &&
 					drawers.map((drawer, key) => (
 						<Drawer.Animation
@@ -54,6 +54,7 @@ WithDrawer.displayName = 'WithDrawer';
 WithDrawer.propTypes = {
 	drawers: PropTypes.arrayOf(PropTypes.element),
 	children: PropTypes.node,
+	...TransitionGroup.propTypes,
 };
 
 export default WithDrawer;
