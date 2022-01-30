@@ -1,12 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
-import Tag from '../Tag';
+import Tag from '../primitive/Tag';
 
-const StyledTag = styled(Tag).attrs({
-	className: 'tag--information',
-})`
-	--t-tag-color: ${({ theme }) => theme.colors?.tagInformationColor};
-	--t-tag-background-color: ${({ theme }) => theme.colors?.tagInformationBackgroundColor};
-`;
+import style from './Tag.information.module.scss';
 
-export default React.memo(StyledTag);
+type TagProps = Omit<React.HTMLAttributes<HTMLSpanElement>, 'className'>;
+
+const TagVariant = React.forwardRef((props: TagProps, ref: React.Ref<HTMLSpanElement>) => (
+	<Tag {...props} ref={ref} className={style.tag} />
+));
+
+TagVariant.displayName = 'TagInformation';
+
+export default TagVariant;

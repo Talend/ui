@@ -1,47 +1,29 @@
 import React from 'react';
 
-import Tag from '.';
+import Tag, { TagDefault, TagInformation, TagSuccess, TagWarning, TagDestructive } from '.';
 
 export default {
 	component: Tag,
 };
 
-const render = ({ variant, ...rest }: { variant?: keyof typeof Tag }) => {
-	switch (variant) {
-		case 'Information':
-			return <Tag.Information {...rest} />;
-		case 'Success':
-			return <Tag.Success {...rest} />;
-		case 'Warning':
-			return <Tag.Warning {...rest} />;
-		case 'Destructive':
-			return <Tag.Destructive {...rest} />;
-		default:
-			return <Tag {...rest} />;
-	}
-};
-
 const defaultProps = {
-	children: 'Example',
+	label: 'Example',
 };
 
-export const Default = { args: { ...defaultProps }, render };
+export const Default = props => <TagDefault {...defaultProps} {...props} />;
 
-export const Information = {
-	args: {
-		...defaultProps,
-		variant: 'Information',
-	},
-	render,
-};
+export const Information = props => <TagInformation {...defaultProps} {...props} />;
 
-export const Success = { args: { ...defaultProps, variant: 'Success' }, render };
+export const Success = props => <TagSuccess {...defaultProps} {...props} />;
 
-export const Warning = { args: { ...defaultProps, variant: 'Warning' }, render };
+export const Warning = props => <TagWarning {...defaultProps} {...props} />;
 
-export const Destructive = { args: { ...defaultProps, variant: 'Destructive' }, render };
+export const Destructive = props => <TagDestructive {...defaultProps} {...props} />;
 
-export const Ellipsis = {
-	args: { ...defaultProps, children: 'Lorem ipsum dolor sit amet' },
-	render,
-};
+export const Ellipsis = props => (
+	<TagDefault
+		{...defaultProps}
+		{...props}
+		label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum nunc non diam vehicula gravida. Pellentesque nisi velit, porttitor nec facilisis at, egestas quis magna. Sed tempus convallis orci, quis aliquet risus porta eu. In hac habitasse platea dictumst. Vestibulum porta, magna quis porta commodo, lacus elit venenatis eros, varius fringilla enim justo sed lectus. Donec at tortor imperdiet, tincidunt lacus ac, viverra nisi. Vivamus feugiat, ligula in venenatis faucibus, quam justo molestie libero, bibendum feugiat sapien turpis in neque."
+	/>
+);

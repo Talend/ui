@@ -1,7 +1,9 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, Use } from '~docs';
-import Tag from '../';
-import * as Stories from '../Tag.stories';
+
+import Tag from '.';
+
+import * as Stories from './Tag.stories';
 
 <Meta
 	title="Components/Tag"
@@ -70,11 +72,11 @@ Tags label UI items with keywords that help organize and categorize the items or
 
 ## Interaction
 
-N/C
+N/A
 
 ## Accessibility
 
-N/C
+N/A
 
 ## Usage
 
@@ -82,22 +84,19 @@ N/C
 	<Story
 		name="usage"
 		args={{
-			children: 'Lorem ipsum',
+			label: 'Lorem ipsum',
+			variant: 'Default',
 		}}
 		argTypes={{
 			variant: {
-				name: 'Tag variation',
 				control: {
 					type: 'select',
-					options: ['', 'Information', 'Success', 'Warning', 'Destructive'],
+					options: ['', 'Default', 'Information', 'Success', 'Warning', 'Destructive'],
 				},
-			},
-			children: {
-				name: 'Tag content',
 			},
 		}}
 	>
-		{Stories.Default.render.bind({})}
+		{props => <Tag {...props} />}
 	</Story>
 </Canvas>
 

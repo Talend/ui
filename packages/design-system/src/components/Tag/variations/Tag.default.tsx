@@ -1,7 +1,7 @@
 import React from 'react';
 import Tag from '../primitive/Tag';
 
-import style from './Tag.warning.module.scss';
+import style from './Tag.default.module.scss';
 
 type TagProps = Omit<React.HTMLAttributes<HTMLSpanElement>, 'className'>;
 
@@ -9,6 +9,6 @@ const TagVariant = React.forwardRef((props: TagProps, ref: React.Ref<HTMLSpanEle
 	<Tag {...props} ref={ref} className={style.tag} />
 ));
 
-TagVariant.displayName = 'TagWarning';
+TagVariant.displayName = 'TagDefault';
 
 export default TagVariant;
