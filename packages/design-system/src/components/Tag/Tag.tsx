@@ -3,7 +3,7 @@ import React from 'react';
 import Primitive from './primitive';
 import { TagDefault, TagInformation, TagSuccess, TagWarning, TagDestructive } from './variations';
 
-enum TagVariant {
+export enum TagVariant {
 	Default = 'Default',
 	Information = 'Information',
 	Success = 'Success',
