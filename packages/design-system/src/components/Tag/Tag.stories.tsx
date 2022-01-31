@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Tag, { TagDefault, TagDestructive, TagInformation, TagSuccess, TagWarning } from '.';
+import { Tag, TagDefault, TagDestructive, TagInformation, TagSuccess, TagWarning } from '.';
 
 export default {
 	component: Tag,

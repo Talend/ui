@@ -30,7 +30,8 @@ import {
 import Switch from './components/Switch';
 import Stepper from './components/Stepper';
 import Tabs from './components/Tabs';
-import Tag, {
+import {
+	Tag,
 	TagDefault,
 	TagInformation,
 	TagSuccess,
