@@ -3,7 +3,7 @@ import { FigmaIframe, FigmaImage, Use } from '~docs';
 
 import Tabs from '../';
 import { Icon } from '../../Icon';
-import Tag from '../../Tag';
+import Tag, { TagInformation } from '../../Tag';
 import Tooltip from '../../Tooltip';
 
 <Meta
@@ -86,9 +86,9 @@ Mouse over the label will display the exact number item.
 					User <Tag title="13">13</Tag>
 				</Tabs.Tab>
 				<Tabs.Tab id="tab2">
-					Calendar <Tag.Information>54</Tag.Information>
+					Calendar <TagInformation>54</TagInformation>
 				</Tabs.Tab>
-				<Tooltip title="1534" placement="top">
+				<Tooltip title="Display 1534 favorites" placement="top">
 					<Tabs.Tab>
 						Favorite <Tag>999+</Tag>
 					</Tabs.Tab>

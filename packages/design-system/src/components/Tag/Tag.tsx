@@ -1,35 +1,35 @@
-import React from 'react';
+import React, { forwardRef, HTMLAttributes, Ref } from 'react';
 
-import Primitive from './primitive';
 import { TagDefault, TagInformation, TagSuccess, TagWarning, TagDestructive } from './variations';
 
-export enum TagVariant {
-	Default = 'Default',
-	Information = 'Information',
-	Success = 'Success',
-	Warning = 'Warning',
-	Destructive = 'Destructive',
+enum TagVariant {
+	default = 'default',
+	information = 'information',
+	success = 'success',
+	warning = 'warning',
+	destructive = 'destructive',
 }
 
-type TagProps = typeof Primitive & {
-	variant?: TagVariant;
+type TagProps = HTMLAttributes<HTMLSpanElement> & {
+	/**
+	 * Tag variation depending on its semantic
+	 */
+	variant?: keyof typeof TagVariant;
 };
 
-const Tag = React.forwardRef(({ variant, ...rest }: TagProps, ref: React.Ref<HTMLSpanElement>) => {
+const Tag = forwardRef(({ variant, ...rest }: TagProps, ref: Ref<HTMLSpanElement>) => {
 	switch (variant) {
-		case TagVariant.Information:
+		case TagVariant.information:
 			return <TagInformation {...rest} ref={ref} />;
-		case TagVariant.Success:
+		case TagVariant.success:
 			return <TagSuccess {...rest} ref={ref} />;
-		case TagVariant.Warning:
+		case TagVariant.warning:
 			return <TagWarning {...rest} ref={ref} />;
-		case TagVariant.Destructive:
+		case TagVariant.destructive:
 			return <TagDestructive {...rest} ref={ref} />;
 		default:
 			return <TagDefault {...rest} ref={ref} />;
 	}
 });
-
-Tag.displayName = 'Tag';
 
 export default Tag;

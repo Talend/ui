@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
 
-import Tag, { TagVariant as variants } from './Tag';
+import Tag from '.';
 
 import * as Stories from './Tag.stories';
 
@@ -37,6 +37,16 @@ The Tag component is useful to emphasize information to the user, works best wit
 	<Story story={Stories.Success} />
 	<Story story={Stories.Warning} />
 	<Story story={Stories.Destructive} />
+</Canvas>
+
+Or you can use variant props as well
+
+<Canvas>
+	<Story story={Stories.VariantDefault} />
+	<Story story={Stories.VariantInformation} />
+	<Story story={Stories.VariantSuccess} />
+	<Story story={Stories.VariantWarning} />
+	<Story story={Stories.VariantDestructive} />
 </Canvas>
 
 ## States
@@ -83,17 +93,11 @@ N/A
 		name="usage"
 		args={{
 			variant: 'Default',
-			label: 'Lorem ipsum',
+			children: 'Lorem ipsum',
 		}}
 		argTypes={{
-			variant: {
-				description: 'Tag variantation depending of its semantic',
-				control: {
-					type: 'select',
-					options: [''].concat(Object.values(variants)),
-				},
-			},
-			label: {
+			variant: {},
+			children: {
 				description: 'Tag content',
 			},
 		}}

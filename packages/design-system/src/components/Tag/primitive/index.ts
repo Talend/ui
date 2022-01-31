@@ -1,3 +1,3 @@
-import Tag from './Tag';
+import TagPrimitive from './TagPrimitive';
 
-export default Tag;
+export default TagPrimitive;
