@@ -1,5 +1,6 @@
 import { httpFetch } from './http.common';
 import { HTTP_METHODS } from './http.constants';
+import { TalendRequestInit } from './http.types';
 
 /**
  * function - fetch a url with POST method
@@ -7,14 +8,14 @@ import { HTTP_METHODS } from './http.constants';
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
- * @param  {object} options options to deal with cmf automatically
  * @example
  * import { http } from '@talend/http/generators';
  * import { call } from 'redux-saga/effects'
  * yield call(http.post, '/foo', {foo: 42});
  */
-export function* httpPost(url, payload, config, options) {
-	return yield* httpFetch(url, config, HTTP_METHODS.POST, payload, options);
+export function* httpPost(url: string, payload: any, config?: TalendRequestInit) {
+	// @ts-ignore
+	return yield* httpFetch(url, config, HTTP_METHODS.POST, payload);
 }
 
 /**
@@ -23,14 +24,14 @@ export function* httpPost(url, payload, config, options) {
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
- * @param  {object} options options to deal with cmf automatically
  * @example
  * import { http } from '@talend/http/generators';
  * import { call } from 'redux-saga/effects'
  * yield call(http.patch, '/foo', {foo: 42});
  */
-export function* httpPatch(url, payload, config, options) {
-	return yield* httpFetch(url, config, HTTP_METHODS.PATCH, payload, options);
+export function* httpPatch(url: string, payload: any, config?: TalendRequestInit) {
+	// @ts-ignore
+	return yield* httpFetch(url, config, HTTP_METHODS.PATCH, payload);
 }
 
 /**
@@ -39,13 +40,13 @@ export function* httpPatch(url, payload, config, options) {
  * @param  {string} url     url to request
  * @param  {object} payload payload to send with the request
  * @param  {object} config  option that you want apply to the request
- * @param  {object} options options to deal with cmf automatically
  * @example
  * import { http } from '@talend/http/generators';
  * import { call } from 'redux-saga/effects'
  * yield call(http.put, '/foo', {foo: 42});
  */
-export function* httpPut(url, payload, config, options) {
+export function* httpPut(url: string, payload: any, config?: TalendRequestInit) {
+	// @ts-ignore
 	return yield* httpFetch(url, config, HTTP_METHODS.PUT, payload, options);
 }
 
@@ -54,14 +55,14 @@ export function* httpPut(url, payload, config, options) {
  *
  * @param  {string} url     url to request
  * @param  {object} config  option that you want apply to the request
- * @param  {object} options options to deal with cmf automatically
  * @example
  * import { http } from '@talend/http/generators';
  * import { call } from 'redux-saga/effects'
  * yield call(http.delete, '/foo');
  */
-export function* httpDelete(url, config, options) {
-	return yield* httpFetch(url, config, HTTP_METHODS.DELETE, undefined, options);
+export function* httpDelete(url: string, config?: TalendRequestInit) {
+	// @ts-ignore
+	return yield* httpFetch(url, config, HTTP_METHODS.DELETE, undefined);
 }
 
 /**
@@ -75,8 +76,9 @@ export function* httpDelete(url, config, options) {
  * import { call } from 'redux-saga/effects'
  * yield call(http.get, '/foo');
  */
-export function* httpGet(url, config, options) {
-	return yield* httpFetch(url, config, HTTP_METHODS.GET, undefined, options);
+export function* httpGet(url: string, config?: TalendRequestInit) {
+	// @ts-ignore
+	return yield* httpFetch(url, config, HTTP_METHODS.GET, undefined);
 }
 
 export const http = {

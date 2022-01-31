@@ -1,5 +1,6 @@
 import { HTTP_METHODS, REQUEST_STATUS } from './http.constants';
 import { httpFetch } from './http.common';
+import { TalendHttpResponse, TalendRequestInit } from './http.types';
 
 /**
  * function - fetch a url with POST method
@@ -11,7 +12,11 @@ import { httpFetch } from './http.common';
  * import { http } from '@talend/http/async';
  * await http.post('/foo', {foo: 42}))
  */
-export async function httpPost(url, payload, config) {
+export async function httpPost<T>(
+	url: string,
+	payload: any,
+	config?: TalendRequestInit,
+): Promise<TalendHttpResponse<T>> {
 	return httpFetch(url, config, HTTP_METHODS.POST, payload);
 }
 
@@ -25,7 +30,11 @@ export async function httpPost(url, payload, config) {
  * import { http } from '@talend/http/async';
  * await http.patch('/foo', {foo: 42}))
  */
-export async function httpPatch(url, payload, config) {
+export async function httpPatch<T>(
+	url: string,
+	payload: any,
+	config?: TalendRequestInit,
+): Promise<TalendHttpResponse<T>> {
 	return httpFetch(url, config, HTTP_METHODS.PATCH, payload);
 }
 
@@ -39,7 +48,11 @@ export async function httpPatch(url, payload, config) {
  * import { http } from '@talend/http/async';
  * await http.put('/foo', {foo: 42}))
  */
-export async function httpPut(url, payload, config) {
+export async function httpPut<T>(
+	url: string,
+	payload: any,
+	config?: TalendRequestInit,
+): Promise<TalendHttpResponse<T>> {
 	return httpFetch(url, config, HTTP_METHODS.PUT, payload);
 }
 
@@ -52,8 +65,11 @@ export async function httpPut(url, payload, config) {
  * import { http } from '@talend/http/async';
  * await http.delete('/foo'))
  */
-export async function httpDelete(url, config) {
-	return httpFetch(url, config, HTTP_METHODS.DELETE);
+export async function httpDelete<T>(
+	url: string,
+	config?: TalendRequestInit,
+): Promise<TalendHttpResponse<T>> {
+	return httpFetch(url, config, HTTP_METHODS.DELETE, undefined);
 }
 
 /**
@@ -65,8 +81,11 @@ export async function httpDelete(url, config) {
  * import { http } from '@talend/http/async';
  * await http.get('/foo'))
  */
-export async function httpGet(url, config) {
-	return httpFetch(url, config, HTTP_METHODS.GET);
+export async function httpGet<T>(
+	url: string,
+	config?: TalendRequestInit,
+): Promise<TalendHttpResponse<T>> {
+	return httpFetch(url, config, HTTP_METHODS.GET, undefined);
 }
 
 /**
@@ -78,8 +97,11 @@ export async function httpGet(url, config) {
  * import { http } from '@talend/http/async';
  * await http.head('/foo'))
  */
-export async function httpHead(url, config) {
-	return httpFetch(url, config, HTTP_METHODS.HEAD);
+export async function httpHead<T>(
+	url: string,
+	config?: TalendRequestInit,
+): Promise<TalendHttpResponse<T>> {
+	return httpFetch(url, config, HTTP_METHODS.HEAD, undefined);
 }
 
 export const http = {

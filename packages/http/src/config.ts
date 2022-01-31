@@ -1,7 +1,9 @@
+import { TalendRequestInit } from './http.types';
+
 /**
  * Storage point for the doc setup using `setDefaultConfig`
  */
-export const HTTP = {
+export const HTTP: { defaultConfig?: TalendRequestInit | null } = {
 	defaultConfig: null,
 };
 
@@ -16,7 +18,7 @@ export const HTTP = {
  *  'Accept-Language': preferredLanguage,
  * }});
  */
-export function setDefaultConfig(config) {
+export function setDefaultConfig(config: TalendRequestInit) {
 	if (HTTP.defaultConfig) {
 		throw new Error(
 			'ERROR: setDefaultConfig should not be called twice, if you wish to change the language use setDefaultLanguage api.',
@@ -31,7 +33,8 @@ export function setDefaultConfig(config) {
  *
  * @return {object}  the defaultConfig used by cmf
  */
-export function getDefaultConfig() {
+export function getDefaultConfig(): TalendRequestInit | null {
+	// @ts-ignore should not be undefined
 	return HTTP.defaultConfig;
 }
 
@@ -40,8 +43,9 @@ export function getDefaultConfig() {
  * on the global http defaultConfig
  * @param {String} language
  */
-export function setDefaultLanguage(language) {
+export function setDefaultLanguage(language: string): void {
 	if (HTTP.defaultConfig?.headers) {
+		// @ts-ignore
 		HTTP.defaultConfig.headers['Accept-Language'] = language;
 	} else {
 		// eslint-disable-next-line no-console
