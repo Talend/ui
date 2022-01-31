@@ -49,4 +49,4 @@ Use size `S` if you need to stick closer to previous design.
 
 Tag is no longer a Styled Component.
 
-To avoid customization, now `Tag` won't accept `children` anymore and will be replaced by a `label` prop, to be sure to pass text only.
+To avoid customization, now `Tag` won't accept `className` anymore and each variation will be replaced by its shorthand version (no more `<Tag.[Variant] />` but `<Tag[Variant]`. ie `<Tag.Information />`is now `<TagInformation />`)
