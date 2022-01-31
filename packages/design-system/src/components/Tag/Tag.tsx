@@ -1,5 +1,6 @@
-import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import React, { forwardRef, Ref } from 'react';
 
+import { TagProps as PrimitiveTagProps } from './primitive';
 import { TagDefault, TagInformation, TagSuccess, TagWarning, TagDestructive } from './variations';
 
 enum TagVariant {
@@ -10,7 +11,7 @@ enum TagVariant {
 	destructive = 'destructive',
 }
 
-type TagProps = HTMLAttributes<HTMLSpanElement> & {
+type TagProps = Omit<PrimitiveTagProps, 'className'> & {
 	/**
 	 * Tag variation depending on its semantic
 	 */

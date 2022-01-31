@@ -1,3 +1,5 @@
-import TagPrimitive from './TagPrimitive';
+import TagPrimitive, { TagProps } from './TagPrimitive';
+
+export type { TagProps };
 
 export default TagPrimitive;
