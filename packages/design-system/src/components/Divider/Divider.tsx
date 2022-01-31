@@ -3,7 +3,7 @@ import { Separator as ReakitSeparator, SeparatorProps as ReakitSeparatorProps } 
 
 import style from './Divider.module.scss';
 
-type DividerProps = Omit<Omit<ReakitSeparatorProps, 'style'>, 'className'>;
+type DividerProps = Omit<ReakitSeparatorProps, 'style' | 'className'>;
 
 const Divider = forwardRef((props: DividerProps, ref: Ref<HTMLHRElement>) => {
 	return <ReakitSeparator {...props} ref={ref} className={style.divider} />;
