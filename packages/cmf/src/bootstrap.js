@@ -143,6 +143,7 @@ export default async function bootstrap(appOptions = {}) {
 		saga,
 		App,
 		cmfModule: options,
+		registry
 	};
 
 	if (options.render !== false) {
