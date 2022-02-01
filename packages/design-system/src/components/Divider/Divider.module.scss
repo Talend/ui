@@ -1,0 +1,17 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.divider {
+
+	&[aria-orientation='horizontal'] {
+		width: 100%;
+		border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	}
+
+	&[aria-orientation='vertical'] {
+		margin: 0;
+		display: inline-block;
+		min-height: 2ch;
+		height: 100%;
+		border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	}
+}
