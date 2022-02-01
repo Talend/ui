@@ -1,296 +1,261 @@
-import { Headers, Response } from 'node-fetch';
-import fetchMock, { mock } from 'fetch-mock';
+import fetchMock from 'fetch-mock';
+import { Response, Headers } from 'node-fetch';
 import { HTTP_METHODS, HTTP_STATUS } from './http.constants';
 
 import { HTTP, getDefaultConfig, setDefaultConfig } from './config';
-import { httpFetch, handleBody, handleHttpResponse, encodePayload } from './http.common';
-import { TalendRequestInit } from '.';
+import { httpFetch, handleBody, encodePayload, handleHttpResponse } from './http.common';
 
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
+const defaultBody = { is: 'ok' };
+const defaultPayload = {
+	bar: 42,
+};
 
 beforeEach(() => {
 	jest.clearAllMocks();
 });
 
-// describe('handleBody', () => {
-// 	it('should manage the body of the response like text if no header', done => {
-// 		handleBody(new Response('{"foo": 42}', {})).then(({ data, response }) => {
-// 			expect(data).toBe('{"foo": 42}');
-// 			expect(response instanceof Response).toBeTruthy();
-// 			done();
-// 		});
-// 	});
+describe('handleBody', () => {
+	it('should manage the body of the response like text if no header', async () => {
+		const response = new Response('{"foo": 42}', {});
+		const result = await handleBody(response as any);
 
-// 	it('should manage the body of the response like a json', done => {
-// 		const headers = new Headers();
-// 		headers.append('Content-Type', 'application/json');
+		expect(result.data).toBe('{"foo": 42}');
+	});
 
-// 		handleBody(
-// 			new Response('{"foo": 42}', {
-// 				headers,
-// 			}),
-// 		).then(({ data, response }) => {
-// 			expect(data).toEqual({
-// 				foo: 42,
-// 			});
-// 			expect(response instanceof Response).toBe(true);
-// 			done();
-// 		});
-// 	});
+	it('should manage the body of the response like a json', async () => {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
 
-// 	it('should manage the body of the response like a blob', done => {
-// 		const headers = new Headers();
-// 		headers.append('Content-Type', 'application/zip');
+		const result = await handleBody(
+			new Response('{"foo": 42}', {
+				headers,
+			}) as any,
+		);
 
-// 		const blob = jest.fn(() => Promise.resolve());
+		expect(result.data).toEqual({
+			foo: 42,
+		});
+	});
 
-// 		handleBody({ blob, headers }).then(() => {
-// 			expect(blob).toHaveBeenCalled();
-// 			done();
-// 		});
-// 	});
+	it('should manage the body of the response like a blob', async () => {
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/zip');
 
-// 	it('should manage the body of the response like a text', done => {
-// 		const headers = new Headers();
-// 		headers.append('Content-Type', 'text/plain');
+		const blob = jest.fn(() => Promise.resolve());
 
-// 		handleBody(
-// 			new Response('foo', {
-// 				headers,
-// 			}),
-// 		).then(({ data, response }) => {
-// 			expect(data).toBe('foo');
-// 			expect(response instanceof Response).toBe(true);
-// 			done();
-// 		});
-// 	});
+		await handleBody({ blob, headers } as any);
 
-// 	it('should manage the body of the response like a text by default', done => {
-// 		handleBody(new Response('')).then(({ data, response }) => {
-// 			expect(data).toBe('');
-// 			expect(response instanceof Response).toBe(true);
-// 			done();
-// 		});
-// 	});
-// });
+		expect(blob).toHaveBeenCalled();
+	});
 
-// describe('#handleHttpResponse', () => {
-// 	it('should handle the response with 2xx code', done => {
-// 		const headers = new Headers();
-// 		headers.append('Content-Type', 'application/json');
+	it('should manage the body of the response like a text', async () => {
+		const headers = new Headers();
+		headers.append('Content-Type', 'text/plain');
 
-// 		handleHttpResponse(
-// 			new Response('{"foo": 42}', {
-// 				status: HTTP_STATUS.OK,
-// 				headers,
-// 			}),
-// 		).then(({ data, response }) => {
-// 			expect(data).toEqual({
-// 				foo: 42,
-// 			});
-// 			expect(response instanceof Response).toBe(true);
-// 			done();
-// 		});
-// 	});
+		const result = await handleBody(
+			new Response('foo', {
+				headers,
+			}) as any,
+		);
 
-// 	it('should throw with a code different of 2xx', done => {
-// 		const headers = new Headers();
-// 		headers.append('Content-Type', 'application/json');
+		expect(result.data).toBe('foo');
+	});
 
-// 		handleHttpResponse(
-// 			new Response('{"foo": 42}', {
-// 				status: HTTP_STATUS.FORBIDDEN,
-// 				headers,
-// 			}),
-// 		).catch(response => {
-// 			expect(response instanceof Error).toBe(true);
-// 			expect(response.data).toEqual({
-// 				foo: 42,
-// 			});
-// 			done();
-// 		});
-// 	});
+	it('should manage the body of the response like a text by default', async () => {
+		const result = await handleBody(new Response('') as any);
+		expect(result.data).toBe('');
+	});
 
-// 	it('should handle the response with NO_CONTENT code', done => {
-// 		handleHttpResponse(
-// 			new Response('', {
-// 				status: HTTP_STATUS.NO_CONTENT,
-// 			}),
-// 		).then(({ data, response }) => {
-// 			expect(data).toBe('');
-// 			expect(response instanceof Response).toBe(true);
-// 			done();
-// 		});
-// 	});
+	describe('#handleHttpResponse', () => {
+		it('should handle the response with 2xx code', async () => {
+			const headers = new Headers();
+			headers.append('Content-Type', 'application/json');
 
-// 	it('should handle the response with an error http code', async () => {
-// 		await expect(
-// 			handleHttpResponse(
-// 				new Response('', {
-// 					status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
-// 				}),
-// 			),
-// 		).rejects.toThrow(`${HTTP_STATUS.INTERNAL_SERVER_ERROR}`);
-// 	});
+			const result = await handleHttpResponse(
+				new Response('{"foo": 42}', {
+					status: HTTP_STATUS.OK,
+					headers,
+				}) as any,
+			);
 
-// 	it('should return response in error from handle request', async () => {
-// 		expect.assertions(2);
+			expect(result.data).toEqual({
+				foo: 42,
+			});
+		});
 
-// 		try {
-// 			await handleHttpResponse(
-// 				new Response('', {
-// 					status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
-// 				}),
-// 			);
-// 		} catch (e) {
-// 			expect(e.response instanceof Response).toBe(true);
-// 			expect(e.response.status).toEqual(500);
-// 		}
-// 	});
-// });
+		it('should throw with a code different of 2xx', async () => {
+			const headers = new Headers();
+			headers.append('Content-Type', 'application/json');
 
-// describe('#encodePayload', () => {
-// 	it('should json stringify the payload if content-type is application/json', () => {
-// 		const headers = {
-// 			'Content-Type': 'application/json',
-// 		};
-// 		const test = { abc: 'def' };
+			try {
+				await handleHttpResponse(
+					new Response('{"foo": 42}', {
+						status: HTTP_STATUS.FORBIDDEN,
+						headers,
+					}) as any,
+				);
+			} catch (e) {
+				// @ts-ignore
+				expect(e.message).toEqual('403');
+			}
+		});
 
-// 		// eslint-disable-next-line quotes
-// 		expect(encodePayload(headers, test)).toEqual('{"abc":"def"}');
-// 	});
-// 	it('should return the payload as it is if it is a string', () => {
-// 		const test = 'FooBar';
+		it('should handle the response with NO_CONTENT code', async () => {
+			const result = await handleHttpResponse(
+				new Response('', {
+					status: HTTP_STATUS.NO_CONTENT,
+				}) as any,
+			);
 
-// 		// eslint-disable-next-line quotes
-// 		expect(encodePayload({}, test)).toEqual('FooBar');
-// 	});
+			expect(result.data).toBe('');
+		});
 
-// 	it('should not json stringify the payload if content-type is not application/json', () => {
-// 		const headers = {
-// 			'Content-Type': 'plain/text',
-// 		};
-// 		const test = { abc: 'def' };
+		it('should handle the response with an error http code', async () => {
+			await expect(
+				handleHttpResponse(
+					new Response('', {
+						status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
+					}) as any,
+				),
+			).rejects.toThrow(`${HTTP_STATUS.INTERNAL_SERVER_ERROR}`);
+		});
 
-// 		// eslint-disable-next-line quotes
-// 		expect(encodePayload(headers, test)).toEqual({ abc: 'def' });
-// 	});
+		it('should return response in error from handle request', async () => {
+			expect.assertions(2);
 
-// 	it('should not json stringify the payload if it is a FormData instance', () => {
-// 		const headers = {
-// 			'Content-Type': 'application/json',
-// 		};
+			try {
+				await handleHttpResponse(
+					new Response('', {
+						status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
+					}) as any,
+				);
+			} catch (e) {
+				// @ts-ignore
+				expect(e.response instanceof Response).toBe(true);
+				// @ts-ignore
+				expect(e.response.status).toEqual(500);
+			}
+		});
+	});
+});
 
-// 		// eslint-disable-next-line quotes
-// 		expect(encodePayload(headers, new FormData()) instanceof FormData).toBe(true);
-// 	});
-// });
+describe('#encodePayload', () => {
+	it('should json stringify the payload if content-type is application/json', () => {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+		const test = { abc: 'def' };
 
-// describe('#httpFetch with CRSF token', () => {
-// 	beforeAll(() => {
-// 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
-// 	});
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, test)).toEqual('{"abc":"def"}');
+	});
+	it('should return the payload as it is if it is a string', () => {
+		const test = 'FooBar';
 
-// 	afterAll(() => {
-// 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
-// 	});
-// 	it('should get the CRFS token', done => {
-// 		const url = '/foo';
-// 		const headers = new Headers();
-// 		headers.append('Content-Type', 'application/json');
+		// eslint-disable-next-line quotes
+		expect(encodePayload({}, test)).toEqual('FooBar');
+	});
 
-// 		const config = {
-// 			response: new Response('{"foo": 42}', {
-// 				status: HTTP_STATUS.OK,
-// 				headers,
-// 			}),
-// 		};
-// 		const payload = {
-// 			bar: 42,
-// 		};
+	it('should not json stringify the payload if content-type is not application/json', () => {
+		const headers = {
+			'Content-Type': 'plain/text',
+		};
+		const test = { abc: 'def' };
 
-// 		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-// 			expect(body.data).toEqual({
-// 				foo: 42,
-// 			});
-// 			expect(body.response instanceof Response).toBe(true);
-// 			done();
-// 		});
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, test)).toEqual({ abc: 'def' });
+	});
 
-// 		expect(fetch).toHaveBeenCalledWith(url, {
-// 			body: '{"bar":42}',
-// 			credentials: 'same-origin',
-// 			headers: {
-// 				Accept: 'application/json',
-// 				'Content-Type': 'application/json',
-// 				'X-CSRF-Token': CSRFToken,
-// 			},
-// 			method: HTTP_METHODS.GET,
-// 			response: config.response,
-// 		});
-// 	});
-// });
+	it('should not json stringify the payload if it is a FormData instance', () => {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
 
-// describe('#httpFetch with CSRF handling configuration', () => {
-// 	const defaultHttpConfiguration = {
-// 		security: {
-// 			CSRFTokenCookieKey: 'customCookieKey',
-// 			CSRFTokenHeaderKey: 'customHeaderKey',
-// 		},
-// 	};
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, new FormData()) instanceof FormData).toBe(true);
+	});
+});
 
-// 	beforeAll(() => {
-// 		HTTP.defaultConfig = null;
+describe('#httpFetch with `CSRF` token', () => {
+	beforeAll(() => {
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
+	});
 
-// 		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True;`;
-// 	});
+	afterAll(() => {
+		fetchMock.restore();
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+	});
+	it('should get the CRFS token', async () => {
+		const url = '/foo';
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
 
-// 	afterAll(() => {
-// 		HTTP.defaultConfig = null;
+		fetchMock.mock(url, { body: defaultBody, status: 200 });
+		const result = await httpFetch(url, {}, HTTP_METHODS.GET, defaultPayload);
 
-// 		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
-// 	});
+		expect(result.data).toEqual(defaultBody);
+		expect(fetchMock.calls()[0][1]).toEqual({
+			body: JSON.stringify(defaultPayload),
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				'X-CSRF-Token': CSRFToken,
+			},
+			method: 'GET',
+		});
+	});
+});
 
-// 	it('check if httpFetch is called with the security configuration', done => {
-// 		setDefaultConfig(defaultHttpConfiguration);
+describe('#httpFetch with CSRF handling configuration', () => {
+	const defaultHttpConfiguration = {
+		security: {
+			CSRFTokenCookieKey: 'customCookieKey',
+			CSRFTokenHeaderKey: 'customHeaderKey',
+		},
+	};
 
-// 		expect(getDefaultConfig()).toEqual(defaultHttpConfiguration);
-// 		const url = '/foo';
-// 		const headers = new Headers();
-// 		headers.append('Content-Type', 'application/json');
+	beforeAll(() => {
+		HTTP.defaultConfig = null;
+		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True;`;
+	});
 
-// 		const config = {
-// 			response: new Response('{"foo": 42}', {
-// 				status: HTTP_STATUS.OK,
-// 				headers,
-// 			}),
-// 		};
-// 		const payload = {
-// 			bar: 42,
-// 		};
+	afterAll(() => {
+		HTTP.defaultConfig = null;
+		fetchMock.restore();
+		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+	});
 
-// 		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-// 			expect(body.data).toEqual({
-// 				foo: 42,
-// 			});
-// 			expect(body.response instanceof Response).toBe(true);
-// 			done();
-// 		});
+	it('check if httpFetch is called with the security configuration', async () => {
+		setDefaultConfig(defaultHttpConfiguration);
 
-// 		expect(fetch).toHaveBeenCalledWith(url, {
-// 			...defaultHttpConfiguration,
-// 			body: '{"bar":42}',
-// 			credentials: 'same-origin',
-// 			headers: {
-// 				Accept: 'application/json',
-// 				'Content-Type': 'application/json',
-// 				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
-// 			},
-// 			method: HTTP_METHODS.GET,
-// 			response: config.response,
-// 		});
-// 	});
-// });
+		expect(getDefaultConfig()).toEqual(defaultHttpConfiguration);
+		const url = '/foo';
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+
+		fetchMock.mock(url, { body: defaultBody, status: 200 });
+
+		const result = await httpFetch(url, {}, HTTP_METHODS.GET, defaultPayload);
+
+		expect(result.data).toEqual(defaultBody);
+		expect(fetchMock.calls()[0][1]).toEqual({
+			body: JSON.stringify(defaultPayload),
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				[defaultHttpConfiguration.security.CSRFTokenHeaderKey]: CSRFToken,
+			},
+			security: {
+				CSRFTokenCookieKey: 'customCookieKey',
+				CSRFTokenHeaderKey: 'customHeaderKey',
+			},
+			method: 'GET',
+		});
+	});
+});
 
 describe('#httpFetch', () => {
 	afterEach(() => {
@@ -298,49 +263,30 @@ describe('#httpFetch', () => {
 		fetchMock.restore();
 	});
 
-	// it('should fetch the request', done => {
-	// 	const url = '/foo';
-	// 	const headers = new Headers();
-	// 	headers.append('Content-Type', 'application/json');
+	it('should fetch the request', async () => {
+		const url = '/foo';
+		const headers = new Headers();
+		headers.append('Content-Type', 'application/json');
+		fetchMock.mock(url, { body: defaultBody, status: 200 });
 
-	// 	const config = {
-	// 		response: new Response('{"foo": 42}', {
-	// 			status: HTTP_STATUS.OK,
-	// 			headers,
-	// 		}),
-	// 	};
-	// 	const payload = {
-	// 		bar: 42,
-	// 	};
+		const result = await httpFetch(url, {}, HTTP_METHODS.GET, defaultPayload);
 
-	// 	httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-	// 		expect(body.data).toEqual({
-	// 			foo: 42,
-	// 		});
-	// 		expect(body.response instanceof Response).toBe(true);
-	// 		done();
-	// 	});
-
-	// 	expect(fetch).toHaveBeenCalledWith(url, {
-	// 		body: '{"bar":42}',
-	// 		credentials: 'same-origin',
-	// 		headers: {
-	// 			Accept: 'application/json',
-	// 			'Content-Type': 'application/json',
-	// 		},
-	// 		method: HTTP_METHODS.GET,
-	// 		response: config.response,
-	// 	});
-	// });
+		expect(result.data).toEqual(defaultBody);
+		expect(fetchMock.calls()[0][1]).toEqual({
+			body: JSON.stringify(defaultPayload),
+			credentials: 'same-origin',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			method: 'GET',
+		});
+	});
 
 	it('should fetch the request with the default settings', async () => {
 		const url = '/foo';
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
-
-		const payload = {
-			bar: 42,
-		};
 
 		setDefaultConfig({
 			headers: {
@@ -348,14 +294,13 @@ describe('#httpFetch', () => {
 			},
 		});
 
-		fetchMock.mock(url, { body: { is: 'ok' }, status: 200 });
+		fetchMock.mock(url, { body: defaultBody, status: 200 });
 
-		const result = await httpFetch(url, {}, HTTP_METHODS.GET, payload);
+		const result = await httpFetch(url, {}, HTTP_METHODS.GET, defaultPayload);
 
-		expect(result.data).toEqual({ is: 'ok' });
-		const mockCalls = fetchMock.calls();
-		expect(mockCalls[0][1]).toEqual({
-			body: '{"bar":42}',
+		expect(result.data).toEqual(defaultBody);
+		expect(fetchMock.calls()[0][1]).toEqual({
+			body: JSON.stringify(defaultPayload),
 			credentials: 'same-origin',
 			headers: {
 				Accept: 'application/json',
