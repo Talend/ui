@@ -1,6 +1,6 @@
-/// <reference types="cypress" />
+/// <reference path="../../../../cypress/support/index.d.ts" />
 
-import React, { useState } from 'react';
+import React from 'react';
 import Fieldset from './Fieldset';
 import Button from '../../Button';
 import ThemeProvider from '../../ThemeProvider';
@@ -8,12 +8,12 @@ import ThemeProvider from '../../ThemeProvider';
 context('<Fieldset />', () => {
 	it('should preserve children component state between renders', () => {
 		const TestComponentWithState = () => {
-			const [value] = useState(Math.random());
+			const [value] = React.useState(Math.random());
 			return <div data-test="random-value-on-mount">{value}</div>;
 		};
 
 		const Wrapper = () => {
-			const [hasError, setHasError] = useState(false);
+			const [hasError, setHasError] = React.useState(false);
 			return (
 				<ThemeProvider theme={undefined}>
 					<Fieldset>

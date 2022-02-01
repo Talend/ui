@@ -2,6 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import Button from '.';
+import { ButtonProps } from './Button';
 import Skeleton from '../Skeleton';
 import Tooltip from '../Tooltip';
 
@@ -12,39 +13,41 @@ export default {
 	},
 };
 
-export const Primary = (props: Story) => {
-	return <Button.Primary {...props}>Basic Button</Button.Primary>;
+export const Primary = {
+	render: (props: Story<ButtonProps>) => {
+		return <Button.Primary {...props}>Basic Button</Button.Primary>;
+	},
 };
 
-export const PrimaryIcon = (props: Story) => {
+export const PrimaryIcon = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Primary icon="talend-plus" {...props}>
 			Button with icon
 		</Button.Primary>
 	);
 };
-export const PrimarySmall = (props: Story) => {
+export const PrimarySmall = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Primary small {...props}>
 			Small Button
 		</Button.Primary>
 	);
 };
-export const PrimaryDisabled = (props: Story) => {
+export const PrimaryDisabled = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Primary disabled {...props}>
 			Disabled Button
 		</Button.Primary>
 	);
 };
-export const PrimaryDisabledFocusable = (props: Story) => {
+export const PrimaryDisabledFocusable = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Primary disabled focusable {...props}>
 			Disabled Focusable Button
 		</Button.Primary>
 	);
 };
-export const PrimaryAsLink = (props: Story) => {
+export const PrimaryAsLink = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Primary as="a" href="pouet" {...props}>
 			This is an anchor
@@ -52,38 +55,38 @@ export const PrimaryAsLink = (props: Story) => {
 	);
 };
 
-export const Destructive = (props: Story) => {
+export const Destructive = (props: Story<Story<ButtonProps>>) => {
 	return <Button.Destructive {...props}>Basic Button</Button.Destructive>;
 };
-export const DestructiveIcon = (props: Story) => {
+export const DestructiveIcon = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Destructive icon="talend-plus" {...props}>
 			Button with icon
 		</Button.Destructive>
 	);
 };
-export const DestructiveSmall = (props: Story) => {
+export const DestructiveSmall = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Destructive small {...props}>
 			Small Button
 		</Button.Destructive>
 	);
 };
-export const DestructiveDisabled = (props: Story) => {
+export const DestructiveDisabled = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Destructive disabled {...props}>
 			Disabled Button
 		</Button.Destructive>
 	);
 };
-export const DestructiveDisabledFocusable = (props: Story) => {
+export const DestructiveDisabledFocusable = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Destructive disabled focusable {...props}>
 			Disabled Focusable Button
 		</Button.Destructive>
 	);
 };
-export const DestructiveAsLink = (props: Story) => {
+export const DestructiveAsLink = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Destructive as="a" href="pouet" {...props}>
 			This is an anchor
@@ -91,38 +94,38 @@ export const DestructiveAsLink = (props: Story) => {
 	);
 };
 
-export const Secondary = (props: Story) => {
+export const Secondary = (props: Story<Story<ButtonProps>>) => {
 	return <Button.Secondary {...props}>Basic Button</Button.Secondary>;
 };
-export const SecondaryIcon = (props: Story) => {
+export const SecondaryIcon = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Secondary icon="talend-plus" {...props}>
 			Button with icon
 		</Button.Secondary>
 	);
 };
-export const SecondarySmall = (props: Story) => {
+export const SecondarySmall = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Secondary small {...props}>
 			Small Button
 		</Button.Secondary>
 	);
 };
-export const SecondaryDisabled = (props: Story) => {
+export const SecondaryDisabled = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Secondary disabled {...props}>
 			Disabled Button
 		</Button.Secondary>
 	);
 };
-export const SecondaryDisabledFocusable = (props: Story) => {
+export const SecondaryDisabledFocusable = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Secondary disabled focusable {...props}>
 			Disabled Focusable Button
 		</Button.Secondary>
 	);
 };
-export const SecondaryAsLink = (props: Story) => {
+export const SecondaryAsLink = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Secondary as="a" href="pouet" {...props}>
 			This is an anchor
@@ -130,38 +133,38 @@ export const SecondaryAsLink = (props: Story) => {
 	);
 };
 
-export const Tertiary = (props: Story) => {
+export const Tertiary = (props: Story<Story<ButtonProps>>) => {
 	return <Button.Tertiary {...props}>Basic Button</Button.Tertiary>;
 };
-export const TertiaryIcon = (props: Story) => {
+export const TertiaryIcon = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Tertiary icon="talend-plus" {...props}>
 			Button with icon
 		</Button.Tertiary>
 	);
 };
-export const TertiarySmall = (props: Story) => {
+export const TertiarySmall = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Tertiary small {...props}>
 			Small Button
 		</Button.Tertiary>
 	);
 };
-export const TertiaryDisabled = (props: Story) => {
+export const TertiaryDisabled = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Tertiary disabled {...props}>
 			Disabled Button
 		</Button.Tertiary>
 	);
 };
-export const TertiaryDisabledFocusable = (props: Story) => {
+export const TertiaryDisabledFocusable = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Tertiary disabled focusable {...props}>
 			Disabled Focusable Button
 		</Button.Tertiary>
 	);
 };
-export const TertiaryAsLink = (props: Story) => {
+export const TertiaryAsLink = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Tertiary as="a" href="pouet" {...props}>
 			This is an anchor
@@ -169,28 +172,28 @@ export const TertiaryAsLink = (props: Story) => {
 	);
 };
 
-export const Icon = (props: Story) => {
+export const Icon = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Icon icon="talend-plus" {...props}>
 			Button with icon
 		</Button.Icon>
 	);
 };
-export const IconDisabled = (props: Story) => {
+export const IconDisabled = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Icon disabled icon="talend-plus" {...props}>
 			Disabled Button
 		</Button.Icon>
 	);
 };
-export const IconDisabledFocusable = (props: Story) => {
+export const IconDisabledFocusable = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Icon disabled focusable icon="talend-plus" {...props}>
 			Disabled Focusable Button
 		</Button.Icon>
 	);
 };
-export const IconAsLink = (props: Story) => {
+export const IconAsLink = (props: Story<Story<ButtonProps>>) => {
 	return (
 		<Button.Icon as="a" href="pouet" icon="talend-plus" {...props}>
 			This is an anchor
@@ -208,7 +211,7 @@ export const SkeletonButtonIcon = () => {
 	return <Skeleton.Icon />;
 };
 
-export const TooltipButton = (props: Story) => (
+export const TooltipButton = (props: Story<ButtonProps>) => (
 	<Tooltip title="Relevant information about contacting the support">
 		<Button.Primary icon="talend-bubbles" {...props}>
 			Contact support
@@ -217,8 +220,7 @@ export const TooltipButton = (props: Story) => (
 );
 
 export const Loading = {
-	render: (props: Story) => {
-		// eslint-disable-next-line react-hooks/rules-of-hooks
+	render: (props: Story<ButtonProps>) => {
 		const [loading, isLoading] = React.useState(false);
 		return (
 			<Tooltip title="Relevant description of the basic button">

@@ -92,7 +92,7 @@ const Link = React.forwardRef(
 						<Icon
 							className="link__icon link__icon--before"
 							name={icon}
-							data-testid="link.icon.before"
+							data-test="link.icon.before"
 						/>
 					) : (
 						React.cloneElement(icon, {
@@ -112,7 +112,7 @@ const Link = React.forwardRef(
 						<Icon
 							className="link__icon link__icon--after"
 							name={iconAfter}
-							data-testid="link.icon.after"
+							data-test="link.icon.after"
 						/>
 					) : (
 						React.cloneElement(iconAfter, {

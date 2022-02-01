@@ -1,4 +1,5 @@
-/// <reference types="cypress" />
+/// <reference path="../../../cypress/support/index.d.ts" />
+
 import React from 'react';
 
 import { ButtonIconToggle } from '.';

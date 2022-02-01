@@ -1,4 +1,5 @@
 import React from 'react';
+import { Story } from '@storybook/react';
 
 import Tooltip from './Tooltip';
 
@@ -6,7 +7,7 @@ import Button from '../Button';
 
 export default { component: Tooltip };
 
-export const render = props => (
+export const render = (props: Story<typeof Tooltip>) => (
 	<Tooltip {...props}>
 		<Button>Lorem ipsum</Button>
 	</Tooltip>
