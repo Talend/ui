@@ -17,7 +17,7 @@ export async function httpPost<T>(
 	payload: any,
 	config?: TalendRequestInit,
 ): Promise<TalendHttpResponse<T>> {
-	return httpFetch(url, config, HTTP_METHODS.POST, payload);
+	return httpFetch<T>(url, config, HTTP_METHODS.POST, payload);
 }
 
 /**
@@ -35,7 +35,7 @@ export async function httpPatch<T>(
 	payload: any,
 	config?: TalendRequestInit,
 ): Promise<TalendHttpResponse<T>> {
-	return httpFetch(url, config, HTTP_METHODS.PATCH, payload);
+	return httpFetch<T>(url, config, HTTP_METHODS.PATCH, payload);
 }
 
 /**
@@ -53,7 +53,7 @@ export async function httpPut<T>(
 	payload: any,
 	config?: TalendRequestInit,
 ): Promise<TalendHttpResponse<T>> {
-	return httpFetch(url, config, HTTP_METHODS.PUT, payload);
+	return httpFetch<T>(url, config, HTTP_METHODS.PUT, payload);
 }
 
 /**
@@ -69,7 +69,7 @@ export async function httpDelete<T>(
 	url: string,
 	config?: TalendRequestInit,
 ): Promise<TalendHttpResponse<T>> {
-	return httpFetch(url, config, HTTP_METHODS.DELETE, undefined);
+	return httpFetch<T>(url, config, HTTP_METHODS.DELETE, undefined);
 }
 
 /**
@@ -85,7 +85,7 @@ export async function httpGet<T>(
 	url: string,
 	config?: TalendRequestInit,
 ): Promise<TalendHttpResponse<T>> {
-	return httpFetch(url, config, HTTP_METHODS.GET, undefined);
+	return httpFetch<T>(url, config, HTTP_METHODS.GET, undefined);
 }
 
 /**
@@ -101,7 +101,7 @@ export async function httpHead<T>(
 	url: string,
 	config?: TalendRequestInit,
 ): Promise<TalendHttpResponse<T>> {
-	return httpFetch(url, config, HTTP_METHODS.HEAD, undefined);
+	return httpFetch<T>(url, config, HTTP_METHODS.HEAD, undefined);
 }
 
 export const http = {

@@ -147,13 +147,11 @@ describe('#encodePayload', () => {
 		};
 		const test = { abc: 'def' };
 
-		// eslint-disable-next-line quotes
 		expect(encodePayload(headers, test)).toEqual('{"abc":"def"}');
 	});
 	it('should return the payload as it is if it is a string', () => {
 		const test = 'FooBar';
 
-		// eslint-disable-next-line quotes
 		expect(encodePayload({}, test)).toEqual('FooBar');
 	});
 
@@ -163,7 +161,6 @@ describe('#encodePayload', () => {
 		};
 		const test = { abc: 'def' };
 
-		// eslint-disable-next-line quotes
 		expect(encodePayload(headers, test)).toEqual({ abc: 'def' });
 	});
 
@@ -172,7 +169,6 @@ describe('#encodePayload', () => {
 			'Content-Type': 'application/json',
 		};
 
-		// eslint-disable-next-line quotes
 		expect(encodePayload(headers, new FormData()) instanceof FormData).toBe(true);
 	});
 });

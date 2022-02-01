@@ -1,7 +1,7 @@
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
 import { HTTP } from './config';
-import { TalendRequestInit } from './http.types';
+import { TalendHttpResponse, TalendRequestInit } from './http.types';
 
 /**
  * merge the CSRFToken handling rule from the module defaultConfig
@@ -90,12 +90,12 @@ export async function handleHttpResponse(response: Response) {
  * @param  {object} payload                   payload to send with the request
  * @return {Promise}                          A Promise that resolves to a Response object.
  */
-export async function httpFetch(
+export async function httpFetch<T>(
 	url: string,
 	config: TalendRequestInit | undefined,
 	method: string,
 	payload: any,
-) {
+): Promise<TalendHttpResponse<T>> {
 	const defaultHeaders: HeadersInit = {
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
