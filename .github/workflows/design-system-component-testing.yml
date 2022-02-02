@@ -34,7 +34,7 @@ jobs:
 
       - name: Cypress Component Testing
         run: |
-          npx cypress run-ct
+          yarn test:cy
 
       - name: Cypress artifacts upload
         uses: actions/upload-artifact@v2

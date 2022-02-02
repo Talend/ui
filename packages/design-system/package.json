@@ -10,7 +10,7 @@
     "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
     "pre-release": "npm run build:lib:umd && npm run build:lib:umd:min",
     "start": "npm run storybook",
-    "test": "npm run test:cy",
+    "test": "echo Tests are managed by Cypress using yarn test:cy",
     "test:cy": "cypress run-ct",
     "test:demo": "npm run build-storybook",
     "storybook": "npm run build:lib && BROWSER=none start-storybook -p 6006",
