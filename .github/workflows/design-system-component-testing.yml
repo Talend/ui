@@ -37,7 +37,7 @@ jobs:
           yarn build:lib
 
       - name: Cypress Component Testing
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v3
         with:
           browser: ${{ matrix.browser }}
           working-directory: packages/design-system
