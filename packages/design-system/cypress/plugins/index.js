@@ -20,10 +20,7 @@ module.exports = (on, config) => {
 					{
 						test: /\.js|\.jsx|\.ts|\.tsx$/,
 						use: {
-							loader: 'ts-loader',
-							options: {
-								transpileOnly: true,
-							},
+							loader: 'babel-loader',
 						},
 						exclude: /node_modules/,
 					},
