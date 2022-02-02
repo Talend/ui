@@ -40,23 +40,10 @@ setDefaultLanguage('fr');
 - put(url, payload, config)
 - patch(url, payload, config)
 
-### Promise version
-
 ```javascript
 import { http } from '@talend/http';
 
 async function test() {
 	const response = await http.get('/api/v1/my-resource');
-}
-```
-
-### Generator version
-
-```javascript
-import { call } from 'redux-saga/effects';
-import { http } from '@talend/http/lib/generators';
-
-export function* test() {
-	return yield call(http.get, '/api/v1/my-resource');
 }
 ```

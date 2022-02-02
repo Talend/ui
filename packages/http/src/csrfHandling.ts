@@ -4,6 +4,8 @@
  * and then merge it if available into a http config.
  */
 
+import { TalendRequestInit, TalendRequestInitSecurity } from './http.types';
+
 /**
  * @typedef {Object} HTTPConfig
  * @property {string} body
@@ -25,7 +27,7 @@ const cookieElementRegexp = new RegExp(/(.*)=(.*)/);
 /**
  * retrieve the cookie from the document
  */
-export function getCookie() {
+export function getCookie(): string {
 	if (document.cookie) {
 		return document.cookie;
 	}
@@ -37,7 +39,7 @@ export function getCookie() {
  * @param {string} cookie
  * @returns {Map.<string, string>}
  */
-function parseCookie(cookie) {
+function parseCookie(cookie: string): Map<string, string> {
 	const cookieValue = cookie.split(';').reduce((map, line) => {
 		const match = cookieElementRegexp.exec(line.trim());
 		if (match && match[1] && match[2]) {
@@ -53,12 +55,14 @@ function parseCookie(cookie) {
  * @param {Object.CSRFTokenCookieKey} CSRFTokenCookieKey - default `csrfToken`
  * @param {Map.<string, string>} cookieValues
  */
-const findCSRFToken = ({ CSRFTokenCookieKey = 'csrfToken' }) => cookieValues => {
-	if (cookieValues instanceof Map) {
-		return cookieValues.get(CSRFTokenCookieKey);
-	}
-	return undefined;
-};
+function findCSRFToken({ CSRFTokenCookieKey = 'csrfToken' }: TalendRequestInitSecurity) {
+	return (cookieValues: Map<string, string>): string | undefined => {
+		if (cookieValues instanceof Map) {
+			return cookieValues.get(CSRFTokenCookieKey);
+		}
+		return undefined;
+	};
+}
 
 /**
  * effectively merge the csrf token into the http configuration
@@ -67,18 +71,23 @@ const findCSRFToken = ({ CSRFTokenCookieKey = 'csrfToken' }) => cookieValues => 
  * @param {string} csrfToken
  * @return {function}
  */
-const mergeCSRFTokenConfig = ({ CSRFTokenHeaderKey = 'X-CSRF-Token' }, httpConfig) => csrfToken => {
-	if (csrfToken) {
-		return {
-			...httpConfig,
-			headers: {
-				...httpConfig.headers,
-				[CSRFTokenHeaderKey]: csrfToken,
-			},
-		};
-	}
-	return httpConfig;
-};
+function mergeCSRFTokenConfig(
+	{ CSRFTokenHeaderKey = 'X-CSRF-Token' }: TalendRequestInitSecurity,
+	httpConfig: TalendRequestInit,
+) {
+	return (csrfToken: string | undefined): TalendRequestInit => {
+		if (csrfToken) {
+			return {
+				...httpConfig,
+				headers: {
+					...httpConfig.headers,
+					[CSRFTokenHeaderKey]: csrfToken,
+				},
+			};
+		}
+		return httpConfig;
+	};
+}
 
 /**
  * if a CSRF token is found in csrfToken cookie, merge it in the headers
@@ -87,12 +96,11 @@ const mergeCSRFTokenConfig = ({ CSRFTokenHeaderKey = 'X-CSRF-Token' }, httpConfi
  * @param {HTTPConfig} config
  * @return {HTTPConfig}
  */
-export function mergeCSRFToken({ security = {} }) {
-	return httpConfig =>
-		[
-			getCookie,
-			parseCookie,
-			findCSRFToken(security),
-			mergeCSRFTokenConfig(security, httpConfig),
-		].reduce((prev, fct) => fct(prev), null);
+export function mergeCSRFToken({ security = {} }: TalendRequestInit) {
+	return (httpConfig: TalendRequestInit): TalendRequestInit => {
+		const cookie = getCookie();
+		const cookieValues = parseCookie(cookie);
+		const csrfToken = findCSRFToken(security)(cookieValues);
+		return mergeCSRFTokenConfig(security, httpConfig)(csrfToken);
+	};
 }
