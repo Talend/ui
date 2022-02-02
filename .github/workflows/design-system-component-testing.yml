@@ -2,16 +2,17 @@ name: Design System component testing
 
 on:
   push:
-    paths:
-      - 'packages/design-tokens/**'
-      - 'packages/design-system/**'
+#    paths:
+#      - 'packages/design-tokens/**'
+#      - 'packages/design-system/**'
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        browser: [ 'chrome', 'firefox', 'edge' ]
+        browser: ['chrome', 'firefox', 'edge']
     defaults:
       run:
         working-directory: ./packages/design-system
@@ -22,9 +23,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: "yarn"
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
+          cache: 'yarn'
 
       - name: Install dependencies
         run: |
@@ -38,12 +39,19 @@ jobs:
       - name: Cypress Component Testing
         uses: cypress-io/github-action@v2
         with:
-          working-directory: packages/design-system
           browser: ${{ matrix.browser }}
+          working-directory: packages/design-system
 
-      - name: Cypress artifacts upload
+      - name: Cypress screenshots upload
         uses: actions/upload-artifact@v2
-        if: ${{ always() }}
+        if: failure()
+        with:
+          name: cypress-component-testing-screenshots
+          path: cypress/screenshots/components/**/*
+
+      - name: Cypress videos upload
+        uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: cypress-component-testing-videos
           path: cypress/videos/components/**/*
