@@ -1,6 +1,7 @@
 import { mergeCSRFToken } from './csrfHandling';
 import { HTTP_STATUS, testHTTPCode } from './http.constants';
 import { HTTP } from './config';
+import { TalendHttpResponse, TalendRequestInit } from './http.types';
 
 /**
  * merge the CSRFToken handling rule from the module defaultConfig
@@ -8,7 +9,7 @@ import { HTTP } from './config';
  * @param {Object} config
  * @returns {Function}
  */
-export function handleCSRFToken(config) {
+export function handleCSRFToken(config: TalendRequestInit) {
 	return mergeCSRFToken({
 		security: config.security,
 	})(config);
@@ -21,8 +22,9 @@ export function handleCSRFToken(config) {
  * @param  {object} payload payload to send with the request
  * @return {string|FormData} The encoded payload.
  */
-export function encodePayload(headers, payload) {
-	const type = headers['Content-Type'];
+export function encodePayload(headers: HeadersInit, payload: any) {
+	// @ts-ignore
+	const type: string = headers['Content-Type'];
 
 	if (payload instanceof FormData || typeof payload === 'string') {
 		return payload;
@@ -38,7 +40,7 @@ export function encodePayload(headers, payload) {
  * @param  {Response} response A response object
  * @return {Promise}           A promise that resolves with the result of parsing the body
  */
-export async function handleBody(response) {
+export async function handleBody(response: Response) {
 	let methodBody = 'text';
 
 	const headers = response?.headers || new Headers();
@@ -51,6 +53,7 @@ export async function handleBody(response) {
 		methodBody = 'blob';
 	}
 
+	// @ts-ignore
 	return response[methodBody]().then(data => ({ data, response }));
 }
 
@@ -62,9 +65,9 @@ export async function handleBody(response) {
  * - resolves with the result of parsing the body
  * - reject the response
  */
-export async function handleHttpResponse(response) {
+export async function handleHttpResponse(response: Response) {
 	if (!testHTTPCode.isSuccess(response.status)) {
-		const error = new Error(response.status);
+		const error = new Error(`${response.status}`);
 		Object.assign(error, await handleBody(response));
 		throw error;
 	}
@@ -87,8 +90,13 @@ export async function handleHttpResponse(response) {
  * @param  {object} payload                   payload to send with the request
  * @return {Promise}                          A Promise that resolves to a Response object.
  */
-export async function httpFetch(url, config, method, payload) {
-	const defaultHeaders = {
+export async function httpFetch<T>(
+	url: string,
+	config: TalendRequestInit | undefined,
+	method: string,
+	payload: any,
+): Promise<TalendHttpResponse<T>> {
+	const defaultHeaders: HeadersInit = {
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
 	};
@@ -102,7 +110,7 @@ export async function httpFetch(url, config, method, payload) {
 		delete defaultHeaders['Content-Type'];
 	}
 
-	const params = {
+	const params: TalendRequestInit = {
 		credentials: 'same-origin',
 		method,
 		...HTTP.defaultConfig,
@@ -118,6 +126,7 @@ export async function httpFetch(url, config, method, payload) {
 		url,
 		handleCSRFToken({
 			...params,
+			// @ts-ignore
 			body: encodePayload(params.headers, payload),
 		}),
 	);

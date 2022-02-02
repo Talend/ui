@@ -94,9 +94,10 @@ export const HTTP_STATUS = {
  * match the status code with the HTTP_STATUS collection
  * @param {number} code
  */
-export const isHTTPStatus = code => Object.values(HTTP_STATUS).find(value => value === code);
+export const isHTTPStatus = (code: number): number =>
+	Object.values(HTTP_STATUS).find(value => value === code) || 0;
 
-function inRange(number, start, end) {
+function inRange(number: number, start: number, end: number) {
 	return +number >= start && +number < end;
 }
 
@@ -109,19 +110,19 @@ function inRange(number, start, end) {
  * server error
  */
 export const testHTTPCode = {
-	isInformational(code) {
+	isInformational(code: number) {
 		return !!inRange(isHTTPStatus(code), 99, 200);
 	},
-	isSuccess(code) {
+	isSuccess(code: number) {
 		return !!inRange(isHTTPStatus(code), 199, 300);
 	},
-	isRedirection(code) {
+	isRedirection(code: number) {
 		return !!inRange(isHTTPStatus(code), 299, 400);
 	},
-	isClientError(code) {
+	isClientError(code: number) {
 		return !!inRange(isHTTPStatus(code), 399, 500);
 	},
-	isServerError(code) {
+	isServerError(code: number) {
 		return !!inRange(isHTTPStatus(code), 499, 600);
 	},
 };
