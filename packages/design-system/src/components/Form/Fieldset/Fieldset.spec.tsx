@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Fieldset from './Fieldset';
 import Button from '../../Button';
 import ThemeProvider from '../../ThemeProvider';
@@ -6,12 +6,12 @@ import ThemeProvider from '../../ThemeProvider';
 context('<Fieldset />', () => {
 	it('should preserve children component state between renders', () => {
 		const TestComponentWithState = () => {
-			const [value] = React.useState(Math.random());
+			const [value] = useState(Math.random());
 			return <div data-test="random-value-on-mount">{value}</div>;
 		};
 
 		const Wrapper = () => {
-			const [hasError, setHasError] = React.useState(false);
+			const [hasError, setHasError] = useState(false);
 			return (
 				<ThemeProvider theme={undefined}>
 					<Fieldset>
