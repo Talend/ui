@@ -8,11 +8,11 @@ Talend scripts mode : production
 RUN -----------------------------------------------------------------------------------------------
 
 check versions of /home/runner/work/ui/ui/package.json using latest
-"commander": "^2.20.3" => "^8.3.0"
+"commander": "^2.20.3" => "^9.0.0"
 
 check versions of packages/cmf-cqrs/package.json using latest
 "immutable": "^3.8.2" => "^4.0.0"
-"mock-socket": "^7.1.0" => "^9.1.0"
+"mock-socket": "^7.1.0" => "^9.1.2"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
@@ -43,7 +43,7 @@ check versions of packages/components/package.json using latest
 "rc-slider": "8.6.3" => "^9.7.5"
 "rc-tooltip": "3.7.3" => "^5.1.1"
 "react-autowhatever": "10.2.0" => "^10.2.1"
-"react-bootstrap": "0.32.4" => "^2.1.1"
+"react-bootstrap": "0.32.4" => "^2.1.2"
 "react-debounce-input": "3.2.0" => "^3.2.5"
 "react-grid-layout": "0.16.6" => "^1.3.3"
 "react-transition-group": "^2.9.0" => "^4.4.2"
@@ -52,7 +52,7 @@ check versions of packages/components/package.json using latest
 "uuid": "^3.4.0" => "^8.3.2"
 "autoprefixer": "^7.2.6" => "^10.4.2"
 "css-loader": "^1.0.1" => "^6.5.1"
-"i18next": "^20.6.1" => "^21.6.7"
+"i18next": "^20.6.1" => "^21.6.10"
 "jsdom": "^16.7.0" => "^19.0.0"
 "postcss-loader": "^3.0.0" => "^6.2.1"
 "react": "^16.14.0" => "^17.0.2"
@@ -64,11 +64,11 @@ check versions of packages/components/package.json using latest
 check versions of packages/containers/package.json using latest
 "immutable": "^3.8.2" => "^4.0.0"
 "memoize-one": "^5.2.1" => "^6.0.0"
-"react-bootstrap": "0.32.4" => "^2.1.1"
+"react-bootstrap": "0.32.4" => "^2.1.2"
 "reselect": "^2.5.4" => "^4.1.5"
 "uuid": "^3.4.0" => "^8.3.2"
 "css-loader": "^1.0.1" => "^6.5.1"
-"i18next": "^20.6.1" => "^21.6.7"
+"i18next": "^20.6.1" => "^21.6.10"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 "react-test-renderer": "^16.14.0" => "^17.0.2"
@@ -78,7 +78,7 @@ check versions of packages/datagrid/package.json using latest
 "ag-grid-community": "^25.3.0" => "^26.2.1"
 "ag-grid-react": "^25.3.0" => "^26.2.0"
 "css-loader": "^1.0.1" => "^6.5.1"
-"i18next": "^20.6.1" => "^21.6.7"
+"i18next": "^20.6.1" => "^21.6.10"
 "immutable": "^3.8.2" => "^4.0.0"
 "jsdom": "^16.7.0" => "^19.0.0"
 "react": "^16.14.0" => "^17.0.2"
@@ -88,51 +88,53 @@ check versions of packages/datagrid/package.json using latest
 check versions of packages/dataviz/package.json using latest
 "d3": "^6.7.0" => "^7.3.0"
 "@types/d3": "^6.7.5" => "^7.1.0"
-"@types/react": "^16.14.21" => "^17.0.38"
-"i18next": "^20.6.1" => "^21.6.7"
+"@types/react": "^16.14.22" => "^17.0.38"
+"i18next": "^20.6.1" => "^21.6.10"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
 check versions of packages/design-system/package.json using latest
-"@svgr/webpack": "^5.5.0" => "^6.2.0"
-"@types/react": "^16.14.21" => "^17.0.38"
+"@svgr/webpack": "^5.5.0" => "^6.2.1"
+"@types/react": "^16.14.22" => "^17.0.38"
 "@types/react-dom": "^16.9.14" => "^17.0.11"
 "@types/react-is": "^16.7.2" => "^17.0.3"
 "babel-plugin-styled-components": "^1.13.3" => "^2.0.2"
 "css-loader": "^5.2.7" => "^6.5.1"
-"i18next": "^20.6.1" => "^21.6.7"
+"i18next": "^20.6.1" => "^21.6.10"
+"mdx-embed": "^0.0.22" => "^0.0.23"
 "prettier": "2.3.0" => "^2.5.1"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 "react-is": "^16.13.1" => "^17.0.2"
 "sass-loader": "^8.0.2" => "^12.4.0"
+"storybook-addon-mdx-embed": "^0.0.22" => "^0.0.23"
 "style-loader": "^2.0.0" => "^3.3.1"
 
 check versions of packages/design-tokens/package.json using latest
 "react": "^16.14.0" => "^17.0.2"
 
 check versions of packages/eslint-config/package.json using latest
-"eslint": "^7.32.0" => "^8.7.0"
+"eslint": "^7.32.0" => "^8.8.0"
 "eslint-config-airbnb": "18.2.0" => "^19.0.4"
 "eslint-plugin-react-hooks": "^2.5.1" => "^4.3.0"
 
 check versions of packages/faceted-search/package.json using latest
 "date-fns": "^1.30.1" => "^2.28.0"
-"react-bootstrap": "0.32.4" => "^2.1.1"
+"react-bootstrap": "0.32.4" => "^2.1.2"
 "uuid": "^3.4.0" => "^8.3.2"
 "husky": "^4.3.8" => "^7.0.4"
-"i18next": "^20.6.1" => "^21.6.7"
-"lint-staged": "^10.5.4" => "^12.3.1"
+"i18next": "^20.6.1" => "^21.6.10"
+"lint-staged": "^10.5.4" => "^12.3.3"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
 check versions of packages/flow-designer/package.json using latest
 "d3": "^6.7.0" => "^7.3.0"
 "@types/d3": "^6.7.5" => "^7.1.0"
-"@types/react": "^16.14.21" => "^17.0.38"
+"@types/react": "^16.14.22" => "^17.0.38"
 "@types/react-test-renderer": "^16.9.5" => "^17.0.1"
-"@typescript-eslint/parser": "^4.33.0" => "^5.10.1"
-"i18next": "^20.6.1" => "^21.6.7"
+"@typescript-eslint/parser": "^4.33.0" => "^5.10.2"
+"i18next": "^20.6.1" => "^21.6.10"
 "immutable": "^3.8.2" => "^4.0.0"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
@@ -141,12 +143,12 @@ check versions of packages/forms/package.json using latest
 "ajv": "^6.12.6" => "^8.9.0"
 "memoize-one": "^5.2.1" => "^6.0.0"
 "react-autowhatever": "10.2.0" => "^10.2.1"
-"react-bootstrap": "0.32.4" => "^2.1.1"
-"react-hook-form": "^6.15.8" => "^7.25.0"
+"react-bootstrap": "0.32.4" => "^2.1.2"
+"react-hook-form": "^6.15.8" => "^7.25.3"
 "react-jsonschema-form": "0.51.0" => "^1.8.1"
 "uuid": "^3.4.0" => "^8.3.2"
 "autoprefixer": "^7.2.6" => "^10.4.2"
-"i18next": "^20.6.1" => "^21.6.7"
+"i18next": "^20.6.1" => "^21.6.10"
 "react": "^16.14.0" => "^17.0.2"
 "react-ace": "6.2.0" => "^9.5.0"
 "react-dom": "^16.14.0" => "^17.0.2"
@@ -158,25 +160,25 @@ check versions of packages/http/package.json using latest
 "react-dom": "^16.14.0" => "^17.0.2"
 
 check versions of packages/icons/package.json using latest
-"@svgr/webpack": "^5.5.0" => "^6.2.0"
+"@svgr/webpack": "^5.5.0" => "^6.2.1"
 "autoprefixer": "^7.2.6" => "^10.4.2"
-"copy-webpack-plugin": "^6.4.1" => "^10.2.1"
+"copy-webpack-plugin": "^6.4.1" => "^10.2.4"
 "css-loader": "^1.0.1" => "^6.5.1"
-"mini-css-extract-plugin": "^1.6.2" => "^2.5.2"
+"mini-css-extract-plugin": "^1.6.2" => "^2.5.3"
 "react": "^16.14.0" => "^17.0.2"
 "rimraf": "^2.7.1" => "^3.0.2"
 "string-replace-loader": "^2.3.0" => "^3.1.0"
 "style-loader": "^0.23.1" => "^3.3.1"
 "svgo": "^1.3.2" => "^2.8.0"
-"webpack": "^4.46.0" => "^5.67.0"
+"webpack": "^4.46.0" => "^5.68.0"
 "webpack-cli": "^3.3.12" => "^4.9.2"
 
 check versions of packages/jsfc/package.json using latest
 "objectpath": "^1.2.2" => "^2.0.0"
 "@types/chai": "^3.5.2" => "^4.3.0"
 "@types/mocha": "^2.2.48" => "^9.1.0"
-"@types/node": "^6.14.13" => "^17.0.12"
-"sinon": "^11.1.2" => "^12.0.1"
+"@types/node": "^6.14.13" => "^17.0.14"
+"sinon": "^11.1.2" => "^13.0.1"
 "json-refs": "^2.1.7" => "^3.0.15"
 "rimraf": "^2.7.1" => "^3.0.2"
 
@@ -185,7 +187,7 @@ check versions of packages/local-libs-webpack-plugin/package.json using latest
 
 check versions of packages/playground/package.json using latest
 "history": "^3.3.0" => "^5.2.0"
-"i18next": "^20.6.1" => "^21.6.7"
+"i18next": "^20.6.1" => "^21.6.10"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
@@ -200,7 +202,7 @@ check versions of packages/sagas/package.json using latest
 
 check versions of packages/stepper/package.json using latest
 "css-loader": "^1.0.1" => "^6.5.1"
-"i18next": "^20.6.1" => "^21.6.7"
+"i18next": "^20.6.1" => "^21.6.10"
 "immutable": "^3.8.2" => "^4.0.0"
 "jsdom": "^16.7.0" => "^19.0.0"
 "react": "^16.14.0" => "^17.0.2"
@@ -213,13 +215,13 @@ check versions of packages/storybook-cmf/package.json using latest
 "react-dom": "^16.14.0" => "^17.0.2"
 
 check versions of packages/theme/package.json using latest
-"copy-webpack-plugin": "^6.4.1" => "^10.2.1"
+"copy-webpack-plugin": "^6.4.1" => "^10.2.4"
 "css-minimizer-webpack-plugin": "^1.3.0" => "^3.4.1"
 "html-webpack-plugin": "^4.5.2" => "^5.5.0"
-"postcss-preset-env": "^6.7.0" => "^7.2.3"
+"postcss-preset-env": "^6.7.0" => "^7.3.0"
 
 check versions of packages/utils/package.json using latest
 "date-fns": "^1.30.1" => "^2.28.0"
-"@typescript-eslint/parser": "^4.33.0" => "^5.10.1"
+"@typescript-eslint/parser": "^4.33.0" => "^5.10.2"
 
 check versions of fork/bootstrap-sass/package.json using latest
