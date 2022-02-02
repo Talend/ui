@@ -32,11 +32,6 @@ const Switch = ({
 
 	const containerRef = useRef<React.PropsWithChildren<any>>();
 	const switchIndicator = useRef<React.PropsWithChildren<any>>();
-	const radioWidths = useRef<number[]>();
-
-	if (!radioWidths.current) {
-		radioWidths.current = radio.items.map(item => item.ref.current?.scrollWidth || 0);
-	}
 
 	useLayoutEffect(() => {
 		const radioGroup = containerRef?.current;
@@ -53,12 +48,13 @@ const Switch = ({
 		const switchIndicatorRef = switchIndicator?.current;
 		if (switchIndicatorRef) {
 			switchIndicatorRef.style.width = `${checkedRadioSpanWidth}px`;
-			switchIndicatorRef.style.transform = `translateX(${radioWidths.current
+			const radioWidths = radio.items.map(item => item.ref.current?.scrollWidth || 0);
+			switchIndicatorRef.style.transform = `translateX(${radioWidths
 				?.slice(0, checkedRadioIndex)
 				.reduce((accumulator, currentValue) => accumulator + currentValue, 0)}px)`;
 			switchIndicatorRef.dataset.animated = true;
 		}
-	}, [radio, defaultValue]);
+	}, [radio, defaultValue, radio.items]);
 
 	return (
 		<S.Switch readOnly={readOnly} disabled={disabled}>

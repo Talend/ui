@@ -1,11 +1,16 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { useForm } from 'react-hook-form';
-import { FigmaIframe, FigmaImage, Use } from '../../../docs';
+import { FigmaIframe, FigmaImage, Use } from '~docs';
 import Form from '../';
 import Button from '../../Button';
 import InlineMessage from '../../InlineMessage';
 
-<Meta title="Components/Form/Fields/Switch" />
+<Meta
+	title="Components/Form/Fields/Switch"
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
 
 # Switch
 
@@ -85,24 +90,24 @@ Use switches to change the state of system functionalities and preferences on or
 ### Controlled switch
 
 <Canvas>
-    <Story name="controlled">
-        {() => {
-            const { register, handleSubmit, watch } = useForm();
-            const [formData, setFormData] = React.useState();
-            const optionA = watch('option-a');
-            return (
-                <Form onSubmit={handleSubmit(setFormData)}>
-                    <Form.Fieldset legend="Control switch state" required>
-                        <Form.Switch label="Toggle all" {...register('option-a')} />
-                        <Form.Switch label="Controlled switch" checked={optionA} />
-                    </Form.Fieldset>
-                    <Form.Buttons>
-                        <Button.Primary type="submit">Submit</Button.Primary>
-                    </Form.Buttons>
-                </Form>
-            );
-        }}
-    </Story>
+	<Story name="controlled">
+		{() => {
+			const { register, handleSubmit, watch } = useForm();
+			const [formData, setFormData] = React.useState();
+			const optionA = watch('option-a');
+			return (
+				<Form onSubmit={handleSubmit(setFormData)}>
+					<Form.Fieldset legend="Control switch state" required>
+						<Form.Switch label="Toggle all" {...register('option-a')} />
+						<Form.Switch label="Controlled switch" checked={optionA} />
+					</Form.Fieldset>
+					<Form.Buttons>
+						<Button.Primary type="submit">Submit</Button.Primary>
+					</Form.Buttons>
+				</Form>
+			);
+		}}
+	</Story>
 </Canvas>
 
 ## Usage

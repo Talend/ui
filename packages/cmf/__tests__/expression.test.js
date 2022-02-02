@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import cmf from '../src';
+import { render, screen } from '@testing-library/react';
+import cmf, { mock } from '../src';
 import expression from '../src/expression';
 
 describe('expression', () => {
@@ -81,7 +81,7 @@ describe('expression', () => {
 	});
 
 	it('should withExpression create a wrapper', () => {
-		const MyComponent = props => <button {...props} />;
+		const MyComponent = props => <button {...props}>Click me</button>;
 		const WithExpr = expression.withExpression(MyComponent, ['disabled']);
 		const isTrue = () => true;
 		const context = {
@@ -89,9 +89,12 @@ describe('expression', () => {
 				'expression:test': isTrue,
 			},
 		};
-		const wrapper = shallow(<WithExpr disabledExpression="test" />, { context });
-		expect(wrapper.props().disabled).toBe(true);
-		expect(wrapper.props().disabled).not.toBe('test');
+		render(
+			<mock.Provider registry={context.registry}>
+				<WithExpr disabledExpression="test" />
+			</mock.Provider>,
+		);
+		expect(screen.getByText(/Click me/i).closest('button')).toHaveAttribute('disabled');
 	});
 });
 
@@ -129,6 +132,7 @@ describe('getProps', () => {
 describe('mapStateToProps', () => {
 	it('should check first level props keys and call expression on it', () => {
 		const isCalled = jest.fn(() => true);
+		// eslint-disable-next-line import/no-named-as-default-member
 		const registry = cmf.registry.getRegistry();
 		registry['expression:isCalled'] = isCalled;
 		const props = {

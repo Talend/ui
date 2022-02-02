@@ -1,5 +1,52 @@
 # @talend/design-system
 
+## 1.15.0
+
+### Minor Changes
+
+- 4ca31151f: Export Stack components
+
+## 1.14.4
+
+### Patch Changes
+
+- 277ad2977: fix(design-system): Divider uses CSS modules
+- 07b5d6fc5: fix(design-system): tooltip with css modules
+
+## 1.14.3
+
+### Patch Changes
+
+- 1c85f8588: Bump @talend/design-token to get missing tokens
+
+## 1.14.2
+
+### Patch Changes
+
+- 5c8e454b2: Switch: Animation is broken
+
+## 1.14.1
+
+### Patch Changes
+
+- 8bc59db7c: fix: tsconfig to have index.d.ts at root
+
+## 1.14.0
+
+### Minor Changes
+
+- b268c0c43: New ButtonIcon component released
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+
+## 1.13.0
+
+### Minor Changes
+
+- 99f880903: fix(design-system): remove hardcoded string in the input file component
+
 ## 1.12.2
 
 ### Patch Changes

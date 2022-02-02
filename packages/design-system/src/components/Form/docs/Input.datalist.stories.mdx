@@ -1,9 +1,15 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaImage, Use } from '../../../docs';
+import { FigmaImage, Use } from '~docs';
 
 import Form from '../';
 
-<Meta title="Components/Form/Fields/Datalist" component={Form.Datalist} />
+<Meta
+	title="Components/Form/Fields/Datalist"
+	component={Form.Datalist}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
 
 # Datalist
 

@@ -1,11 +1,17 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/*", "custom.d.ts"],
+  "include": ["../.storybook/docs/*", "src/*", "custom.d.ts"],
   "exclude": ["**/*.spec.tsx"],
+  "files": [],
   "compilerOptions": {
+    "rootDir": "src",
     "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "~docs": [".storybook/docs"]
+    },
     "jsx": "react",
-    "target": "ES5",
-    "module": "CommonJs"
+    "module": "CommonJs",
+    "types": ["jest"]
   }
 }

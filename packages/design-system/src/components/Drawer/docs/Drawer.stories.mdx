@@ -1,5 +1,5 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaImage, FigmaIframe } from '../../../docs';
+import { FigmaImage, FigmaIframe } from '~docs';
 
 import Drawer from '../';
 
@@ -10,6 +10,9 @@ import tokens from '../../../tokens';
 <Meta
 	title="Components/Drawer"
 	component={Drawer}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
 	decorators={[
 		storyFn => (
 			<div

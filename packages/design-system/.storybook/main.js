@@ -1,3 +1,4 @@
+const path = require('path');
 const visit = require('unist-util-visit');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
@@ -26,7 +27,9 @@ module.exports = {
 		buildStoriesJson: true,
 		modernInlineRender: true,
 		previewCsfV3: true,
+		// storyStoreV7: true, // will break all work related to aggregated status in the next major version of Storybook
 	},
+	framework: '@storybook/react',
 	refs: {
 		'design-tokens': {
 			title: 'Design Tokens',
@@ -51,7 +54,7 @@ module.exports = {
 		'../src/templates/**/*.stories.@(js|tsx|mdx)',
 		'../src/pages/**/*.stories.@(js|tsx|mdx)',
 	],
-	staticDirs: ['../public', '../static'],
+	staticDirs: ['../static'],
 	addons: [
 		'@storybook/addon-a11y',
 		'@storybook/addon-essentials',
@@ -96,6 +99,7 @@ module.exports = {
 			}
 			return rule;
 		});
+
 		config.plugins.push(
 			new BrowserSyncPlugin({
 				host: 'localhost',
@@ -105,6 +109,11 @@ module.exports = {
 				codeSync: false,
 			}),
 		);
+		const existingAlias = config.resolve.alias || {};
+		config.resolve.alias = {
+			...existingAlias,
+			'~docs': path.resolve(__dirname, './docs'),
+		};
 		return config;
 	},
 };

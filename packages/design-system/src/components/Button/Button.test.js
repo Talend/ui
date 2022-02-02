@@ -1,87 +1,79 @@
 import React from 'react';
-import { render } from '../../../test-utils';
+import { render, screen } from '../../../test-utils';
 import Button from '.';
 
 describe('Button', () => {
 	test('default', () => {
-		const { getByTestId } = render(<Button data-testid="my.button">Button</Button>);
-		const button = getByTestId('my.button');
-		expect(button.classList.contains('btn')).toBeTruthy();
+		render(<Button data-testid="my.button">Button</Button>);
+		const button = screen.getByTestId('my.button');
+		expect(button).toHaveClass('btn');
 	});
 
 	describe('variations', () => {
 		test('primary', () => {
-			const { getByTestId } = render(
-				<Button.Primary data-testid="my.button">Button</Button.Primary>,
-			);
-			const button = getByTestId('my.button');
-			expect(button.classList.contains('btn--primary')).toBeTruthy();
+			render(<Button.Primary data-testid="my.button">Button</Button.Primary>);
+			const button = screen.getByTestId('my.button');
+			expect(button).toHaveClass('btn--primary');
 		});
 		test('destructive', () => {
-			const { getByTestId } = render(
-				<Button.Destructive data-testid="my.button">Button</Button.Destructive>,
-			);
-			const button = getByTestId('my.button');
-			expect(button.classList.contains('btn--destructive')).toBeTruthy();
+			render(<Button.Destructive data-testid="my.button">Button</Button.Destructive>);
+			const button = screen.getByTestId('my.button');
+			expect(button).toHaveClass('btn--destructive');
 		});
 		test('secondary', () => {
-			const { getByTestId } = render(
-				<Button.Secondary data-testid="my.button">Button</Button.Secondary>,
-			);
-			const button = getByTestId('my.button');
-			expect(button.classList.contains('btn--secondary')).toBeTruthy();
+			render(<Button.Secondary data-testid="my.button">Button</Button.Secondary>);
+			const button = screen.getByTestId('my.button');
+			expect(button).toHaveClass('btn--secondary');
 		});
 		test('tertiary', () => {
-			const { getByTestId } = render(
-				<Button.Tertiary data-testid="my.button">Button</Button.Tertiary>,
-			);
-			const button = getByTestId('my.button');
-			expect(button.classList.contains('btn--tertiary')).toBeTruthy();
+			render(<Button.Tertiary data-testid="my.button">Button</Button.Tertiary>);
+			const button = screen.getByTestId('my.button');
+			expect(button).toHaveClass('btn--tertiary');
 		});
 		test('icon', () => {
-			const { getByTestId } = render(<Button.Icon data-testid="my.button">Button</Button.Icon>);
-			const button = getByTestId('my.button');
-			expect(button.classList.contains('btn--icon')).toBeTruthy();
+			render(<Button.Icon data-testid="my.button">Button</Button.Icon>);
+			const button = screen.getByTestId('my.button');
+			expect(button).toHaveClass('btn--icon');
 		});
 	});
 
 	test('loading', () => {
-		const { getByTestId } = render(
+		render(
 			<Button data-testid="my.button" loading>
 				Button
 			</Button>,
 		);
-		const button = getByTestId('my.button');
-		expect(button.classList.contains('btn--loading')).toBeTruthy();
+		const button = screen.getByTestId('my.button');
+		expect(button).toHaveClass('btn--loading');
 	});
 
 	test('small', () => {
-		const { getByTestId } = render(
+		render(
 			<Button data-testid="my.button" small>
 				Button
 			</Button>,
 		);
-		const button = getByTestId('my.button');
-		expect(button.classList.contains('btn--small')).toBeTruthy();
+		const button = screen.getByTestId('my.button');
+		expect(button).toHaveClass('btn--small');
 	});
 
 	test('icon', () => {
-		const { getByTestId } = render(
+		render(
 			<Button data-testid="my.button" icon="talend-logo">
 				Button
 			</Button>,
 		);
-		const button = getByTestId('my.button');
-		expect(button.classList.contains('btn--has-icon')).toBeTruthy();
+		const button = screen.getByTestId('my.button');
+		expect(button).toHaveClass('btn--has-icon');
 	});
 
 	test('data-feature', () => {
-		const { getByTestId } = render(
+		render(
 			<Button data-testid="my.button" data-feature="my.feature">
 				Feature
 			</Button>,
 		);
-		const button = getByTestId('my.button');
-		expect(button.getAttribute('data-feature')).toBe('my.feature');
+		const button = screen.getByTestId('my.button');
+		expect(button).toHaveAttribute('data-feature', 'my.feature');
 	});
 });

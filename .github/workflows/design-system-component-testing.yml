@@ -3,6 +3,7 @@ name: Design System component testing
 on:
   push:
     paths:
+      - 'packages/design-tokens/**'
       - 'packages/design-system/**'
 
 jobs:
@@ -22,9 +23,17 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - name: Cypress Component Testing
+      - name: Install dependencies
         run: |
           yarn --frozen-lock
+
+      - name: Build @talend/design-tokens
+        run: |
+          cd ../design-tokens
+          yarn build:lib
+
+      - name: Cypress Component Testing
+        run: |
           npx cypress run-ct
 
       - name: Cypress artifacts upload

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '../../../test-utils';
+import { render, screen } from '../../../test-utils';
 import { IconsProvider } from './index';
 
 describe('IconsProvider', () => {
@@ -22,8 +22,13 @@ describe('IconsProvider', () => {
 		const customIcons = {
 			custom: <svg />,
 		};
-		const { container } = render(<IconsProvider bundles={[]} icons={customIcons} />);
-		const symbols = container.querySelectorAll('symbol');
+		render(
+			<div data-testid="wrapper">
+				<IconsProvider bundles={[]} icons={customIcons} />
+			</div>,
+		);
+		const wrapper = screen.getByTestId('wrapper');
+		const symbols = wrapper.querySelectorAll('symbol');
 		expect(symbols.length).toBe(1);
 		expect(symbols[0].id).toBe('custom');
 	});
@@ -32,8 +37,13 @@ describe('IconsProvider', () => {
 		const defaultIcons = {
 			default: <svg id="OverrideDefaultIcon" />,
 		};
-		const { container } = render(<IconsProvider bundles={[]} defaultIcons={defaultIcons} />);
-		const symbols = container.querySelectorAll('symbol');
+		render(
+			<div data-testid="wrapper">
+				<IconsProvider bundles={[]} defaultIcons={defaultIcons} />
+			</div>,
+		);
+		const wrapper = screen.getByTestId('wrapper');
+		const symbols = wrapper.querySelectorAll('symbol');
 		expect(symbols.length).toBe(1);
 		expect(symbols[0].id).toBe('default');
 	});
@@ -45,10 +55,13 @@ describe('IconsProvider', () => {
 		const customIcons = {
 			custom: <svg id="customIcon" />,
 		};
-		const { container } = render(
-			<IconsProvider bundles={[]} defaultIcons={defaultIcons} icons={customIcons} />,
+		render(
+			<div data-testid="wrapper">
+				<IconsProvider bundles={[]} defaultIcons={defaultIcons} icons={customIcons} />
+			</div>,
 		);
-		const symbols = container.querySelectorAll('symbol');
+		const wrapper = screen.getByTestId('wrapper');
+		const symbols = wrapper.querySelectorAll('symbol');
 		expect(symbols.length).toBe(2);
 	});
 });

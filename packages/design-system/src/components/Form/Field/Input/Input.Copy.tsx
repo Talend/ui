@@ -7,8 +7,11 @@ import Text from './Input.Text';
 import { InputProps } from './Input';
 
 const InputCopy = React.forwardRef(
-	({ label, disabled, readOnly, value, defaultValue,...rest }: InputProps, ref: React.Ref<HTMLInputElement | null>) => {
-		const [{value: copiedValue, error: copyError}, copyToClipboard] = useCopyToClipboard();
+	(
+		{ label, disabled, readOnly, value, defaultValue, ...rest }: InputProps,
+		ref: React.Ref<HTMLInputElement | null>,
+	) => {
+		const [{ value: copiedValue, error: copyError }, copyToClipboard] = useCopyToClipboard();
 		const inputRef = React.useRef<HTMLInputElement | null>(null);
 		const { t } = useTranslation();
 		const inputValue = value || defaultValue;
@@ -16,13 +19,12 @@ const InputCopy = React.forwardRef(
 		React.useImperativeHandle(ref, () => inputRef.current);
 
 		const getDescriptionMessage = () => {
-			if(copyError) {
+			if (copyError) {
 				return copyError.message;
 			} else if (copiedValue && copiedValue === inputValue) {
-				return t('FORM_COPY_COPIED_TO_CLIPBOARD', 'Copied to clipboard')
-			} else {
-				return '';
+				return t('FORM_COPY_COPIED_TO_CLIPBOARD', 'Copied to clipboard');
 			}
+			return '';
 		};
 
 		return (

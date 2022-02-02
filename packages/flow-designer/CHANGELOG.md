@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.1
+
+### Patch Changes
+
+- d9fd378ff: fix: handle component position
+
 ## 5.0.0
 
 ### Major Changes

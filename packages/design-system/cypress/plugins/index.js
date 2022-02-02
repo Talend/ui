@@ -19,10 +19,7 @@ module.exports = (on, config) => {
 					{
 						test: /\.js|\.jsx|\.ts|\.tsx$/,
 						use: {
-							loader: 'ts-loader',
-							options: {
-								transpileOnly: true,
-							},
+							loader: 'babel-loader',
 						},
 						exclude: /node_modules/,
 					},
@@ -37,6 +34,9 @@ module.exports = (on, config) => {
 			},
 			resolve: {
 				extensions: ['.tsx', '.ts', '.js', '.jsx'],
+				alias: {
+					'~docs': path.resolve(__dirname, '../../.storybook/docs'),
+				},
 			},
 			output: {
 				filename: 'bundle.js',

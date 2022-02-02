@@ -54,7 +54,7 @@ describe('OverlayTrigger', () => {
 			</OverlayTrigger>,
 		);
 
-		expect(wrapper.find('OverlayTrigger').props().container).toBe(wrapper.instance());
+		expect(wrapper.find('OverlayTriggerForked').props().container).toBe(wrapper.instance());
 	});
 
 	it('should inject the overlay', () => {
@@ -64,7 +64,7 @@ describe('OverlayTrigger', () => {
 			</OverlayTrigger>,
 		);
 
-		expect(wrapper.find('OverlayTrigger').props().overlay).toMatchSnapshot();
+		expect(wrapper.find('OverlayTriggerForked').props().overlay).toMatchSnapshot();
 	});
 
 	it('should restore the initial placement when the overlay is close', () => {
@@ -80,12 +80,7 @@ describe('OverlayTrigger', () => {
 		);
 		wrapper.setState({ placement: 'bottom' });
 
-		expect(
-			wrapper
-				.find('OverlayTrigger')
-				.props()
-				.onExited(),
-		);
+		expect(wrapper.find('OverlayTriggerForked').props().onExited());
 		expect(wrapper.state('placement')).toBe('top');
 	});
 
@@ -102,10 +97,7 @@ describe('OverlayTrigger', () => {
 		);
 		wrapper.instance().setTriggerElement({ getBoundingClientRect: () => getDOMRect(100, 150, 50) });
 
-		wrapper
-			.find('OverlayTrigger')
-			.props()
-			.onEntering();
+		wrapper.find('OverlayTriggerForked').props().onEntering();
 
 		expect(wrapper.state('placement')).toBe('top');
 	});

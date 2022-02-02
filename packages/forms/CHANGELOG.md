@@ -1,5 +1,15 @@
 # @talend/react-forms
 
+## 7.0.1
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+- Updated dependencies [618951c8b]
+- Updated dependencies [b268c0c43]
+  - @talend/react-components@6.43.5
+  - @talend/design-system@1.14.0
+
 ## 7.0.0
 
 ### Major Changes

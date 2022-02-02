@@ -37,7 +37,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/design-system": "^1.12.1",
+    "@talend/design-system": "^1.15.0",
     "@talend/icons": "^6.38.0",
     "@talend/utils": "^2.1.0",
     "ally.js": "^1.4.1",
@@ -62,7 +62,7 @@
     "react-transition-group": "^2.9.0",
     "react-use": "^17.3.2",
     "react-virtualized": "^9.22.3",
-    "reactour": "^1.18.6",
+    "reactour": "^1.18.7",
     "recharts": "^2.1.8",
     "simplebar": "^4.2.3",
     "simplebar-react": "^1.2.3",
@@ -70,11 +70,15 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.4.17",
+    "@storybook/addon-actions": "^6.4.17",
+    "@storybook/addons": "^6.4.17",
+    "@storybook/react": "^6.4.17",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.38.0",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/scripts-core": "^11.4.0",
-    "@talend/scripts-preset-react-lib": "^9.11.0",
+    "@talend/scripts-core": "^11.5.1",
+    "@talend/scripts-preset-react-lib": "^9.11.2",
     "autoprefixer": "^7.2.6",
     "cross-env": "^7.0.3",
     "css-loader": "^1.0.1",
@@ -106,5 +110,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.43.3"
+  "version": "6.44.0"
 }

@@ -1,9 +1,15 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaImage, Use } from '../../../docs';
+import { FigmaImage, Use } from '~docs';
 
 import Switch from '../';
 
-<Meta title="Components/Switch" />
+<Meta
+	title="Components/Switch"
+	component={Switch}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
 
 # Switch
 

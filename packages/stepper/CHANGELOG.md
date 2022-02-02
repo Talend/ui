@@ -1,5 +1,13 @@
 # @talend/react-stepper
 
+## 7.0.1
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+- Updated dependencies [618951c8b]
+  - @talend/react-components@6.43.5
+
 ## 7.0.0
 
 ### Major Changes

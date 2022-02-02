@@ -1,13 +1,13 @@
 import React from 'react';
-import { Area } from '../../../docs';
+import { Area } from '~docs';
 
 import Layout from '../Layout';
 import Column from '../Column';
 
 export default {
 	title: 'Components/Layout',
-
 	parameters: {
+		status: { figma: 'wip', storybook: 'ok', react: 'ok', i18n: 'ok' },
 		component: Layout,
 	},
 };
