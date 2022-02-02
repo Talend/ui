@@ -1,5 +1,15 @@
 # @talend/http
 
+## 2.0.0
+
+### Major Changes
+
+- 48c0d55a4: chore(http): remove generators as async functions are enough (and they are not used)
+
+### Minor Changes
+
+- 48c0d55a4: chore(http): migrate to typescript
+
 ## 1.2.0
 
 ### Minor Changes
