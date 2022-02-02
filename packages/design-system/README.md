@@ -60,7 +60,7 @@ Limit changes to styled-components scope.
 
 ### End-to-End tests
 
-Prior to end-to-end tests if you want to test interactions in real browsers.
+Prior to end-to-end tests using Cypress if you want to test interactions in real browsers.
 
 ## License
 
