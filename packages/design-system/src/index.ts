@@ -32,6 +32,8 @@ import VisuallyHidden from './components/VisuallyHidden';
 import * as themes from './themes';
 import tokens from './tokens';
 
+export * from './components/Stack';
+
 export {
 	Accordion,
 	Button,
@@ -68,3 +70,4 @@ export {
 	themes,
 	tokens,
 };
+
