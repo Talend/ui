@@ -26,9 +26,11 @@ jobs:
         run: |
           yarn
           yarn talend-scripts upgrade:deps
-          node_modules/.bin/talend-scripts upgrade:deps --latest --dry > dependencies-latest.md
-          git add dependencies-latest.md
-          git add .changeset/ci-dependencies.md
+          yarn talend-scripts upgrade:deps --scope=@talend --latest
+          yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.txt
+          yarn talend-scripts upgrade:deps --changeset
+          git add dependencies-latest.txt
+          git add .changeset
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
