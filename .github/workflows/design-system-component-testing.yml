@@ -38,6 +38,7 @@ jobs:
       - name: Cypress Component Testing
         uses: cypress-io/github-action@v2
         with:
+          working-directory: packages/design-system
           browser: ${{ matrix.browser }}
 
       - name: Cypress artifacts upload
