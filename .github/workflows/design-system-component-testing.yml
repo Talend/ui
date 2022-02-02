@@ -2,9 +2,9 @@ name: Design System component testing
 
 on:
   push:
-#    paths:
-#      - 'packages/design-tokens/**'
-#      - 'packages/design-system/**'
+    paths:
+      - 'packages/design-tokens/**'
+      - 'packages/design-system/**'
 
 jobs:
   cypress-run:
@@ -47,12 +47,12 @@ jobs:
         uses: actions/upload-artifact@v2
         if: failure()
         with:
-          name: cypress-component-testing-screenshots
+          name: cypress-component-testing-${{ matrix.browser }}-screenshots
           path: cypress/screenshots/components/**/*
 
       - name: Cypress videos upload
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: cypress-component-testing-videos
+          name: cypress-component-testing-${{ matrix.browser }}-videos
           path: cypress/videos/components/**/*
