@@ -9,6 +9,9 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [ 'chrome', 'firefox', 'edge' ]
     defaults:
       run:
         working-directory: ./packages/design-system
@@ -33,8 +36,9 @@ jobs:
           yarn build:lib
 
       - name: Cypress Component Testing
-        run: |
-          npx cypress run-ct
+        uses: cypress-io/github-action@v2
+        with:
+          browser: ${{ matrix.browser }}
 
       - name: Cypress artifacts upload
         uses: actions/upload-artifact@v2
