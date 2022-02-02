@@ -17,26 +17,17 @@ declare global {
 			/**
 			 * Get one or more DOM elements by data-testid attribute
 			 */
-			getByTestId(
-				dataTestId: string,
-				options?: Partial<Loggable & Timeoutable & Withinable>,
-			): Chainable<Element>;
+			getByTestId(selector: string, options?: Partial<TypeOptions>): Chainable<Element>;
 
 			/**
 			 * Get one or more DOM elements by data-test attribute
 			 */
-			getByTest(
-				dataTest: string,
-				options?: Partial<Loggable & Timeoutable & Withinable>,
-			): Chainable<Element>;
+			getByTest(selector: string, options?: Partial<TypeOptions>): Chainable<Element>;
 
 			/**
 			 * Get one or more DOM elements by aria-role attribute
 			 */
-			getByRole(
-				role: string,
-				options?: Partial<Loggable & Timeoutable & Withinable>,
-			): Chainable<Element>;
+			getByRole(selector: string, options?: Partial<TypeOptions>): Chainable<Element>;
 		}
 	}
 }
