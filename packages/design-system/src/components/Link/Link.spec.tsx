@@ -1,5 +1,3 @@
-/// <reference path="../../../cypress/support/index.d.ts" />
-
 import React from 'react';
 import { composeStories } from '@storybook/testing-react';
 
