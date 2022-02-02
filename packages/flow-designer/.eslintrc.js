@@ -1,8 +1,7 @@
-const talendEslintRcPath = require.resolve('@talend/scripts-config-eslint/.eslintrc');
+const talendEslintRcPath = require.resolve('@talend/scripts-config-eslint/.eslintrc.js');
 
 module.exports = {
 	extends: talendEslintRcPath,
-	parser: '@typescript-eslint/parser',
 	rules: {
 		'react/prop-types': 'off',
 		'import/no-unresolved': 'off',
