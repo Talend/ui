@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.15.0
+
+### Minor Changes
+
+- 4ca31151f: Export Stack components
+
 ## 1.14.4
 
 ### Patch Changes
