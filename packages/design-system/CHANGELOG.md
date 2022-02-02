@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 1.14.4
+
+### Patch Changes
+
+- 277ad2977: fix(design-system): Divider uses CSS modules
+- 07b5d6fc5: fix(design-system): tooltip with css modules
+
 ## 1.14.3
 
 ### Patch Changes

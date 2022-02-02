@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 6.44.0
+
+### Minor Changes
+
+- aff6d1de5: WithDrawer: Support appear/exit animations
+
+### Patch Changes
+
+- 6d48f0ba0: fix: update withDrawer z-index
+- Updated dependencies [277ad2977]
+- Updated dependencies [07b5d6fc5]
+  - @talend/design-system@1.14.4
+
 ## 6.43.5
 
 ### Patch Changes
