@@ -5,7 +5,7 @@ module.exports = {
 		'plugin:storybook/recommended',
 	],
 	parserOptions: {
-		project: ['./tsconfig.json'],
+		project: ['./tsconfig.build.json'],
 		tsconfigRootDir: __dirname,
 	},
 	settings: {

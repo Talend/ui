@@ -7,6 +7,7 @@ import Button from '../Button';
 
 export default { component: Tooltip };
 
+// eslint-disable-next-line storybook/prefer-pascal-case
 export const render = (props: Story<typeof Tooltip>) => (
 	<Tooltip {...props}>
 		<Button>Lorem ipsum</Button>
