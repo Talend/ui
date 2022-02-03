@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { tint } from 'polished';
+import tint from 'polished/lib/color/tint';
 import InlineMessage from '../InlineMessage';
 
 const InlineMessageInformation = styled(InlineMessage).attrs({

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { tint } from 'polished';
+import tint from 'polished/lib/color/tint';
 
 import Menu from '../Menu';
 

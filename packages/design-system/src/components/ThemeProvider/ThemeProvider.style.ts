@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
-import { hideVisually } from 'polished';
+import hideVisually from 'polished/lib/mixins/hideVisually';
 
 import 'typeface-source-sans-pro/index.css';
 import 'typeface-inconsolata/index.css';
@@ -7,12 +7,12 @@ import 'modern-css-reset/dist/reset.min.css';
 
 import tokens from '../../tokens';
 
-export const GlobalStyle = createGlobalStyle`  
+export const GlobalStyle = createGlobalStyle`
 	html {
 		/* 1rem = 10px */
 		font-size: 62.5%;
 	}
-	
+
 	body {
 		margin: 0;
 		padding: 0;
@@ -25,12 +25,12 @@ export const GlobalStyle = createGlobalStyle`
 	a {
 		text-decoration: none;
 	}
-	
+
 	[role="list"]  {
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	.focus-outline-hidden *:focus {
 		outline: none;
 	}
@@ -39,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
 		color: ${tokens.colors.gray[900]};
 		background-color: ${tokens.colors.coral[100]};
 	}
-	
+
 	.sr-only {
 		${hideVisually()}
 	}
