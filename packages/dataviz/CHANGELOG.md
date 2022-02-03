@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.4
+
+### Patch Changes
+
+- 275c25ee0: chore(dependencies): auto update for maintenance purpose
+
+  ```diff
+  -    "@talend/react-components": "^6.43.5"
+  +    "@talend/react-components": "^6.44.0"
+  ```
+
+- Updated dependencies [275c25ee0]
+  - @talend/react-components@6.44.1
+
 ## 1.0.3
 
 ### Patch Changes

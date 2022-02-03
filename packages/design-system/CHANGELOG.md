@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.15.1
+
+### Patch Changes
+
+- 3bf0f1f18: add applications icon
+
 ## 1.15.0
 
 ### Minor Changes

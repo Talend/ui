@@ -1,5 +1,21 @@
 # @talend/react-datagrid
 
+## 7.0.2
+
+### Patch Changes
+
+- 275c25ee0: chore(dependencies): auto update for maintenance purpose
+
+  ```diff
+  -    "@talend/react-components": "^6.43.5"
+  +    "@talend/react-components": "^6.44.0"
+  ```
+
+- Updated dependencies [275c25ee0]
+- Updated dependencies [3bf0f1f18]
+  - @talend/react-components@6.44.1
+  - @talend/icons@6.39.0
+
 ## 7.0.1
 
 ### Patch Changes

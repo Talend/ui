@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 2.1.1
+
+### Patch Changes
+
+- 275c25ee0: fix: add types in package.json for ts project
+
 ## 2.1.0
 
 ### Minor Changes
