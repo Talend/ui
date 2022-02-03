@@ -1,4 +1,5 @@
 import React from 'react';
+import { Story } from '@storybook/react';
 
 import Tag from '.';
 
@@ -6,7 +7,7 @@ export default {
 	component: Tag,
 };
 
-const render = ({ variant, ...rest }: { variant?: keyof typeof Tag }) => {
+const render = ({ variant, ...rest }: Story & { variant?: keyof typeof Tag }) => {
 	switch (variant) {
 		case 'Information':
 			return <Tag.Information {...rest} />;

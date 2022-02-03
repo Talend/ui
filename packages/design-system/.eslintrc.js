@@ -2,17 +2,17 @@ module.exports = {
 	root: true,
 	extends: [
 		'../../node_modules/@talend/scripts-config-eslint/.eslintrc',
+		'plugin:cypress/recommended',
 		'plugin:storybook/recommended',
 	],
 	parserOptions: {
-		project: ['./tsconfig.json'],
-
+		project: ['./tsconfig.build.json'],
 		tsconfigRootDir: __dirname,
 	},
 	settings: {
 		'import/resolver': {
 			alias: {
-				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				extensions: ['.js', '.jsx', '.ts', '.tsx', '.mdx'],
 				map: [['~docs', '.storybook/docs']],
 			},
 		},
@@ -34,7 +34,8 @@ module.exports = {
 		{
 			files: ['*.spec.@(ts|tsx|js|jsx)'],
 			rules: {
-				'import/no-unresolved': 'off',
+				'testing-library/await-async-utils': 'off',
+				'testing-library/prefer-screen-queries': 'off',
 			},
 		},
 	],
