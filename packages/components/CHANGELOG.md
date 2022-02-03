@@ -1,5 +1,23 @@
 # @talend/react-components
 
+## 6.44.1
+
+### Patch Changes
+
+- 275c25ee0: chore(dependencies): auto update for maintenance purpose
+
+  ```diff
+  -    "@talend/design-system": "^1.14.4"
+  +    "@talend/design-system": "^1.15.0"
+  ```
+
+- Updated dependencies [3bf0f1f18]
+- Updated dependencies [275c25ee0]
+- Updated dependencies [3bf0f1f18]
+  - @talend/icons@6.39.0
+  - @talend/utils@2.1.1
+  - @talend/design-system@1.15.1
+
 ## 6.44.0
 
 ### Minor Changes
