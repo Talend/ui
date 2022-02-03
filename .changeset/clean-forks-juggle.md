@@ -2,4 +2,4 @@
 '@talend/http': patch
 ---
 
-types: allow empty PUT payload
+typings: allow empty PUT payload
