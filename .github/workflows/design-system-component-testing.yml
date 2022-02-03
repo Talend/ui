@@ -48,11 +48,11 @@ jobs:
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-screenshots
-          path: cypress/screenshots/components/**/*
+          path: packages/design-system/cypress/screenshots/**/*
 
       - name: Cypress videos upload
         uses: actions/upload-artifact@v2
         if: always()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos
-          path: cypress/videos/components/**/*
+          path: packages/design-system/cypress/videos/**/*
