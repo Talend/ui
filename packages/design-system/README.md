@@ -60,8 +60,8 @@ Limit changes to styled-components scope.
 
 ### End-to-End tests
 
-Simple renders will be covered by Chromatic.
-Prior to end-to-end tests, using Cypress, if you have to test interactions in real browsers.
+Snapshot testing will be covered by Chromatic.
+Use Cypress if you have to perform interaction tests, in real browsers.
 
 ## License
 
