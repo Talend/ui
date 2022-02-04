@@ -9,6 +9,7 @@ jobs:
   upgrade:
     name: Upgrade dependencies
     runs-on: ubuntu-latest
+    continue-on-error: true  # we want the PR to popup even if sth goes wrong
 
     steps:
       - name: Checkout
