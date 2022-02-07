@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 7.0.3
+
+### Patch Changes
+
+- 3ddca68d1: Support empty selection in controlled mode
+
 ## 7.0.2
 
 ### Patch Changes
