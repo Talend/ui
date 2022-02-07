@@ -7,7 +7,7 @@ We've overhauled a lot of component APIs and removed our dependency on Styled Co
 
 Link component is no longer a Styled Component. Its types are fixed.
 
-We expect no real breaking changes.
+- Can't be used as buttons, use `LinkAsButton` instead.
 
 ## Status
 
@@ -50,3 +50,14 @@ Use size `S` if you need to stick closer to previous design.
 Tag is no longer a Styled Component.
 
 To avoid customization, now `Tag` won't accept `className` anymore and each variation will be replaced by its shorthand version (no more `<Tag.[Variant] />` but `<Tag[Variant]`. ie `<Tag.Information />`is now `<TagInformation />`)
+
+## Buttons
+
+Buttons are no longer Styled Components. Their types are fixed.
+
+- Style changes (slightly larger by default, new tokens for colors)
+- No more `Button.Icon`, use `ButtonIcon` components instead.
+- No more `Button.Variant` syntax. Use `ButtonPrimary`, `ButtonDestructive` etc... instead.
+- Props `small` is replaced with props `size="S"` to align with size props across the DS.
+- Can't be used as links, use `ButtonAsLink` components instead.
+- Can't be used as `prefix` or `sufix` for `Form.InputGroup`. Use `AffixButton` instead.
