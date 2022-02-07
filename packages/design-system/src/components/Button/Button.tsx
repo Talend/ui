@@ -1,74 +1,45 @@
-import React from 'react';
-import { IconName } from '@talend/icons';
-import { ClickableProps } from 'reakit';
+import React, { forwardRef, Ref } from 'react';
 
-import { Icon } from '../Icon/Icon';
-import Loading from '../Loading';
-import Tooltip, { TooltipPlacement } from '../Tooltip';
+import ButtonPrimary, { ButtonPrimaryPropsType } from './variations/ButtonPrimary';
+import ButtonSecondary, { ButtonSecondaryPropsType } from './variations/ButtonSecondary';
+import ButtonTertiary, { ButtonTertiaryPropsType } from './variations/ButtonTertiary';
+import ButtonDestructive, { ButtonDestructivePropsType } from './variations/ButtonDestructive';
+import { availableVariants } from './Primitive/ButtonPrimitive';
+import Clickable from '../Clickable';
 
-import * as S from './Button.style';
+type Primary = { variant: typeof availableVariants.primary } & ButtonPrimaryPropsType;
+type Secondary = { variant: typeof availableVariants.secondary } & ButtonSecondaryPropsType;
+type Tertiary = { variant: typeof availableVariants.tertiary } & ButtonTertiaryPropsType;
+type Destructive = { variant: typeof availableVariants.destructive } & ButtonDestructivePropsType;
 
-type BaseProps = {
-	/** The icon of the button */
-	icon?: IconName | React.ReactElement;
-	/** If the button is small or not */
-	small?: boolean;
-	/** If the button is loading or not */
-	loading?: boolean;
-	/** If the button should not display text */
-	hideText?: boolean;
-	/** All buttons must have contents */
-	children: React.ReactNode | React.ReactNodeArray;
-	/** Use these if the button should be an anchor or router link */
-	as?: React.ElementType;
-	/** When hideText is set, a tooltip appears. Use this if you want to customize its position */
-	tooltipPlacement?: TooltipPlacement;
-	href?: string;
-	target?: string;
-};
+type ButtonType = Primary | Secondary | Tertiary | Destructive;
 
-export type ButtonProps = ClickableProps & BaseProps;
+const Button = forwardRef((props: ButtonType, ref: Ref<HTMLButtonElement>) => {
+	switch (props.variant) {
+		case availableVariants.primary: {
+			const { variant, ...rest } = props;
+			return <ButtonPrimary {...rest} ref={ref} />;
+		}
 
-const Button = React.forwardRef(
-	(
-		{ className, icon, small, hideText, loading, children, tooltipPlacement, ...rest }: ButtonProps,
-		ref: React.Ref<any>,
-	) => {
-		const button = (
-			<S.Button
-				ref={ref}
-				{...rest}
-				className={`
-				btn ${className || ''} ${icon ? 'btn--has-icon' : ''} ${hideText ? '' : 'btn--has-text'} ${
-					small ? 'btn--small' : ''
-				} ${loading ? 'btn--loading' : ''}
-			`}
-				aria-busy={!!loading}
-			>
-				{loading && <Loading className="btn__loading btn__icon" name={icon} aria-hidden />}
-				{!loading &&
-					icon &&
-					(typeof icon === 'string' ? (
-						<Icon className="btn__icon" name={icon} />
-					) : (
-						React.cloneElement(icon, {
-							className: `${icon.props?.className} btn__icon`,
-						})
-					))}
-				<span className={`btn__text ${hideText ? 'btn__text--hidden' : ''}`}>{children}</span>
-			</S.Button>
-		);
+		case availableVariants.destructive: {
+			const { variant, ...rest } = props;
+			return <ButtonDestructive {...rest} ref={ref} />;
+		}
 
-		return hideText ? (
-			<Tooltip title={children} placement={tooltipPlacement}>
-				{button}
-			</Tooltip>
-		) : (
-			button
-		);
-	},
-);
+		case availableVariants.secondary: {
+			const { variant, ...rest } = props;
+			return <ButtonSecondary {...rest} ref={ref} />;
+		}
 
-Button.displayName = 'Button';
+		case availableVariants.tertiary: {
+			const { variant, ...rest } = props;
+			return <ButtonTertiary {...rest} ref={ref} />;
+		}
+
+		default: {
+			return <Clickable {...props} ref={ref} />;
+		}
+	}
+});
 
 export default Button;

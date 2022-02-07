@@ -95,6 +95,7 @@
     "react-hook-form": "^7.25.3",
     "react-i18next": "^11.15.3",
     "react-is": "^16.13.1",
+    "react-router-dom": "6",
     "sass": "^1.49.7",
     "sass-loader": "^8.0.2",
     "storybook-addon-mdx-embed": "^0.0.22",

@@ -1,6 +1,9 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import {
-	Button,
+	ButtonPrimary,
+	ButtonSecondary,
+	ButtonTertiary,
+	ButtonDestructive,
 	Dropdown,
 	Form,
 	Icon,
@@ -24,10 +27,18 @@ import {
 
 <Canvas>
 	<Story name="Buttons">
-		<Button.Primary icon="talend-datagrid">Primary button</Button.Primary>
-		<Button.Destructive icon="talend-datagrid">Destructive button</Button.Destructive>
-		<Button.Secondary icon="talend-datagrid">Secondary button</Button.Secondary>
-		<Button.Tertiary icon="talend-datagrid">Tertiary button</Button.Tertiary>
+		<ButtonPrimary onClick={() => {}} icon="talend-datagrid">
+			Primary button
+		</ButtonPrimary>
+		<ButtonDestructive onClick={() => {}} icon="talend-datagrid">
+			Destructive button
+		</ButtonDestructive>
+		<ButtonSecondary onClick={() => {}} icon="talend-datagrid">
+			Secondary button
+		</ButtonSecondary>
+		<ButtonTertiary onClick={() => {}} icon="talend-datagrid">
+			Tertiary button
+		</ButtonTertiary>
 	</Story>
 </Canvas>
 
@@ -78,7 +89,7 @@ import {
 <Canvas>
 	<Story name="Dropdowns" height="20rem">
 		<Dropdown
-			as={Button.Primary}
+			as={ButtonPrimary}
 			aria-label="Custom menu"
 			icon="talend-datagrid"
 			items={[
@@ -90,7 +101,7 @@ import {
 			Primary Dropdown
 		</Dropdown>
 		<Dropdown
-			as={Button.Destructive}
+			as={ButtonDestructive}
 			aria-label="Custom menu"
 			icon="talend-datagrid"
 			items={[
@@ -102,7 +113,7 @@ import {
 			Destructive Dropdown
 		</Dropdown>
 		<Dropdown
-			as={Button.Secondary}
+			as={ButtonSecondary}
 			aria-label="Custom menu"
 			icon="talend-datagrid"
 			items={[
@@ -114,7 +125,7 @@ import {
 			Secondary Dropdown
 		</Dropdown>
 		<Dropdown
-			as={Button.Tertiary}
+			as={ButtonTertiary}
 			aria-label="Custom menu"
 			icon="talend-datagrid"
 			items={[
@@ -126,7 +137,7 @@ import {
 			Tertiary Dropdown
 		</Dropdown>
 		<Dropdown
-			as={Button.Icon}
+			as={ButtonIcon}
 			aria-label="Custom menu"
 			icon={<Icon name="talend-ellipsis" transform="rotate-90" />}
 			items={[
@@ -149,36 +160,6 @@ import {
 			Inline help
 		</Link>
 		<Link href="https://www.talend.com">Talend</Link>
-		<Button
-			as={Link}
-			iconBefore={<Icon name="talend-arrow-left" transform="rotate-90" />}
-			onClick={() => {
-				document.body.scrollTop = 0; // For Safari
-				document.documentElement.scrollTop = 0; // For others
-			}}
-		>
-			Scroll to top
-		</Button>
-	</Story>
-</Canvas>
-
-## As button, As link
-
-<Canvas>
-	<Story name="As">
-		<Link as="button">Button as link</Link>
-		<Button.Primary as="a" href="#">
-			Link as primary button
-		</Button.Primary>
-		<Button.Destructive as="a" href="#">
-			Link as destructive button
-		</Button.Destructive>
-		<Button.Secondary as="a" href="#">
-			Link as secondary button
-		</Button.Secondary>
-		<Button.Tertiary as="a" href="#">
-			Link as tertiary button
-		</Button.Tertiary>
 	</Story>
 </Canvas>
 
@@ -210,8 +191,12 @@ import {
 				<Form.Switch label="Switch" checked />
 			</Form.Fieldset>
 			<Form.Buttons>
-				<Button.Secondary type="reset">Reset</Button.Secondary>
-				<Button.Primary type="submit">Submit</Button.Primary>
+				<ButtonSecondary onClick={() => {}} type="reset">
+					Reset
+				</ButtonSecondary>
+				<ButtonPrimary onClick={() => {}} type="submit">
+					Submit
+				</ButtonPrimary>
 			</Form.Buttons>
 		</Form>
 	</Story>
@@ -275,16 +260,9 @@ import {
 		<Popover
 			aria-label="Custom popover"
 			disclosure={
-				<Button.Icon
-					icon={
-						<Icon
-							name="talend-question-circle
-"
-						/>
-					}
-				>
+				<ButtonIcon icon="talend-question-circle" onClick={() => {}}>
 					Open popover
-				</Button.Icon>
+				</ButtonIcon>
 			}
 		>
 			Custom popover

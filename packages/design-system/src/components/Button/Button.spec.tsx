@@ -1,18 +1,19 @@
 import React from 'react';
 import { composeStories } from '@storybook/testing-react';
 
+import ButtonPrimitive from './Primitive/ButtonPrimitive';
 import * as Stories from './Button.stories';
 
-const { Primary, Loading } = composeStories(Stories);
+const { Loading } = composeStories(Stories);
 
 context('<Button />', () => {
 	describe('default', () => {
 		it('should be focusable', () => {
-			cy.mount(<Primary data-testid="my.button" />);
-			cy.getByTestId('my.button').focus();
+			cy.mount(<ButtonPrimitive onClick={() => {}}>button</ButtonPrimitive>);
+			cy.get('button').focus();
 		});
 		it('should accept data-feature', () => {
-			cy.mount(<Primary data-testid="my.button" data-feature="my.feature" />);
+			cy.mount(<ButtonPrimitive data-testid="my.button" data-feature="my.feature" onClick={() => {}}>button</ButtonPrimitive>);
 			cy.getByTestId('my.button').should('have.attr', 'data-feature', 'my.feature');
 		});
 	});
@@ -24,7 +25,7 @@ context('<Button />', () => {
 				.should('have.attr', 'aria-busy', 'false')
 				.click()
 				.should('have.attr', 'aria-busy', 'true');
-			cy.get('.btn').should('have.attr', 'aria-busy', 'false');
+			cy.get('button').should('have.attr', 'aria-busy', 'false');
 		});
 
 		it('should have a tooltip', () => {
