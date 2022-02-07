@@ -1,7 +1,7 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, Use } from '~docs';
 import InlineMessage from '../../InlineMessage';
-import Button from '../../Button';
+import { ButtonPrimary } from '../../Button';
 import Form from '../';
 import { useForm } from 'react-hook-form';
 
@@ -115,7 +115,9 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 						<Form.Checkbox label="Option F" checked {...register('option-f', { disabled: true })} />
 					</Form.Fieldset>
 					<Form.Buttons>
-						<Button.Primary type="submit">Submit</Button.Primary>
+						<ButtonPrimary type="submit" onClick={() => {}}>
+							Submit
+						</ButtonPrimary>
 					</Form.Buttons>
 				</Form>
 			);
@@ -138,7 +140,9 @@ Use a checkbox when you want to give your recipients the opportunity to select m
 						<Form.Checkbox label="Controlled checkbox" checked={optionA} />
 					</Form.Fieldset>
 					<Form.Buttons>
-						<Button.Primary type="submit">Submit</Button.Primary>
+						<ButtonPrimary type="submit" onClick={() => {}}>
+							Submit
+						</ButtonPrimary>
 					</Form.Buttons>
 				</Form>
 			);

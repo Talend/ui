@@ -1,5 +1,18 @@
 import Accordion from './components/Accordion';
-import Button from './components/Button';
+import {
+	ButtonPrimary,
+	ButtonSecondary,
+	ButtonDestructive,
+	ButtonTertiary,
+	Button,
+} from './components/Button';
+import {
+	ButtonAsLink,
+	ButtonPrimaryAsLink,
+	ButtonSecondaryAsLink,
+	ButtonDestructiveAsLink,
+	ButtonTertiaryAsLink,
+} from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
 import Card from './components/Card';
 import Combobox from './components/Combobox';
@@ -48,7 +61,16 @@ import tokens from './tokens';
 export * from './components/Stack';
 export {
 	Accordion,
+	ButtonPrimary,
+	ButtonSecondary,
+	ButtonDestructive,
+	ButtonTertiary,
 	Button,
+	ButtonAsLink,
+	ButtonPrimaryAsLink,
+	ButtonSecondaryAsLink,
+	ButtonDestructiveAsLink,
+	ButtonTertiaryAsLink,
 	ButtonIcon,
 	ButtonIconFloating,
 	ButtonIconToggle,

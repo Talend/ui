@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { hideVisually, transparentize } from 'polished';
-import Button from '../Button';
+import Clickable from '../Clickable';
 import tokens from '../../tokens';
 
 const borderLeft = () => `
@@ -116,7 +116,7 @@ export const Brand = styled(Item).attrs({
 		flex-grow: 0;
 	}
 `;
-export const MenuDisclosure = styled(Button).attrs({
+export const MenuDisclosure = styled(Clickable).attrs({
 	className: 'header-bar__menu-disclosure',
 })`
 	margin-left: auto;
