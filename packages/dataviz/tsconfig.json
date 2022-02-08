@@ -1,3 +1,8 @@
 {
-  "extends": "@talend/scripts-config-typescript/tsconfig.json"
+  "extends": "@talend/scripts-config-typescript/tsconfig.json",
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "declaration": true,
+    "jsx": "react"
+  }
 }

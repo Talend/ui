@@ -11,7 +11,7 @@
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
     "build:lib": "talend-scripts build:ts:lib",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
+    "extract-i18n": "tsc --jsx preserve --outDir tmp/i18n && i18next-scanner && rm -rf tmp",
     "lint": "yarn lint:es && yarn lint:style",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
@@ -69,7 +69,6 @@
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
-    "i18next-scanner-typescript": "^1.0.6",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-i18next": "^11.15.3"
