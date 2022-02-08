@@ -8,7 +8,7 @@ const button: StyledFunction<typeof ButtonPrimary> = styled(ButtonPrimary);
 const ButtonDestructive: React.FC<ButtonProps> = button.attrs({
 	className: 'btn--destructive',
 })`
-	--t-button-background-color: orange;
+	--t-button-background-color: ${({ theme }) => theme.colors?.buttonDestructiveBackgroundColor};
 	--t-button-border-color: ${({ theme }) => theme.colors?.buttonDestructiveBackgroundColor};
 
 	&:hover {
