@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+	GeoChart,
+	getGeoChartConfig,
 	getHorizontalBarChartTooltip,
 	HorizontalBarChart,
 	TooltipContent,
@@ -27,12 +29,40 @@ const data = [
 	},
 ];
 
+const geo = [
+	{ key: 'Asia', value: 10 },
+	{ key: 'Amérique du Nord', value: 20 },
+];
+
 export function Dataviz() {
+	const [chartsConfig, setConfig] = React.useState();
+	React.useEffect(() => {
+		async function load() {
+			try {
+				const config = await getGeoChartConfig('CONTINENT');
+				setConfig(config);
+			} catch (error) {
+				console.error(error);
+			}
+		}
+		load();
+	}, []);
+
 	return (
 		<Layout mode="TwoColumns" one={<SidePanel />} header={<HeaderBar />}>
 			<div style={{ height: 300, width: 300 }}>
 				<HorizontalBarChart
 					data={data}
+					getTooltipContent={entry => (
+						<TooltipContent entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
+					)}
+				/>
+			</div>
+			<div style={{ height: 500, width: 500 }}>
+				<GeoChart
+					data={geo}
+					columnName="Geo key"
+					chartConfig={chartsConfig}
 					getTooltipContent={entry => (
 						<TooltipContent entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
 					)}
