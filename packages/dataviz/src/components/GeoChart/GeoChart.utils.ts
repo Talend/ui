@@ -1,7 +1,24 @@
 import { GeoChartConfig } from './GeoChart.component';
+import CA from './maps/CA.topo.json';
+import continents from './maps/continents.topo.json';
+import FR from './maps/FR.topo.json';
+import MX from './maps/MX.topo.json';
+import US_CA from './maps/US_CA.topo.json';
+import US from './maps/US.topo.json';
+import world from './maps/world.topo.json';
 
 const DEFAULT_LABEL_PROPERTY = 'name';
 const STATE_CODE_VALUE_PROPERTIES = ['iso_3166_2'];
+
+const MAPS: { [key: string]: any } = {
+	CA,
+	continents,
+	FR,
+	MX,
+	US,
+	US_CA,
+	world,
+};
 
 // Define file name only, will be used in a dynamic import()
 type SupportedGeoChart = Omit<GeoChartConfig, 'topology'> & { file: string };
@@ -85,9 +102,6 @@ export async function getGeoChartConfig(domain: string): Promise<GeoChartConfig>
 	return {
 		...chartConfig,
 		labelProperty: chartConfig.labelProperty || DEFAULT_LABEL_PROPERTY,
-		topology: await import(
-			/* webpackChunkName: "[request]" */
-			`./maps/${file}.topo.json`
-		),
+		topology: MAPS[file],
 	};
 }
