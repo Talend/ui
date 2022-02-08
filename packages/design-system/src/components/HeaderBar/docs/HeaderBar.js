@@ -12,10 +12,10 @@ import HeaderBar from '..';
 export const PortalOnBoarding = () => (
 	<HeaderBar>
 		<HeaderBar.Logo full>
-			<Link href="#">
+			<a href="#">
 				<Icon name="talend-logo" />
 				<VisuallyHidden>Talend</VisuallyHidden>
-			</Link>
+			</a>
 		</HeaderBar.Logo>
 	</HeaderBar>
 );
@@ -24,10 +24,10 @@ export const Portal = () => {
 	return (
 		<HeaderBar>
 			<HeaderBar.Logo full>
-				<Link href="#">
+				<a href="#">
 					<Icon name="talend-logo" />
 					<VisuallyHidden>Talend</VisuallyHidden>
-				</Link>
+				</a>
 			</HeaderBar.Logo>
 			<HeaderBar.Brand>
 				<Dropdown
@@ -86,10 +86,10 @@ export const Apps = () => {
 	return (
 		<HeaderBar>
 			<HeaderBar.Logo>
-				<Link href="#">
+				<a href="#">
 					<Icon name="talend-logo-square" />
 					<VisuallyHidden>Talend</VisuallyHidden>
-				</Link>
+				</a>
 			</HeaderBar.Logo>
 			<HeaderBar.Brand>
 				<Dropdown

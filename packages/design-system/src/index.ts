@@ -27,6 +27,7 @@ import InlineEditing from './components/InlineEditing';
 import InlineMessage from './components/InlineMessage';
 import Layout from './components/Layout';
 import Link from './components/Link';
+import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
 import Menu from './components/Menu';
 import Modal from './components/Modal';
@@ -87,6 +88,7 @@ export {
 	InlineEditing,
 	InlineMessage,
 	Link,
+	LinkAsButton,
 	Layout,
 	Loading,
 	Menu,

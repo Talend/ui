@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import DSTokens from '@talend/design-tokens';
 import { hideVisually, transparentize } from 'polished';
 import Clickable from '../Clickable';
 import tokens from '../../tokens';
@@ -96,6 +97,11 @@ export const Item = styled.span.attrs({
 export const Logo = styled(Item).attrs({
 	className: 'header-bar__logo',
 })<{ full?: boolean }>`
+	a {
+		// Bootstrap override
+		color: ${DSTokens.coralColorNeutralTextInverted};
+	}
+
 	svg {
 		height: ${tokens.sizes.xl};
 		width: ${({ full }) => (full ? '6rem' : tokens.sizes.xl)};

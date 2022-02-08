@@ -15,9 +15,9 @@ const Clickable = forwardRef(
 	({ type = 'button', className, ...props }: ClickableProps, ref: Ref<any>) => {
 		return (
 			<ReakitClickable
+				{...props}
 				className={classnames(styles.clickable, className)}
 				type={type}
-				{...props}
 				ref={ref}
 			/>
 		);

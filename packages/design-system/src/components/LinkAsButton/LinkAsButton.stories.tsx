@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import LinkAsButton from './LinkAsButton';
+import { LinkAsButton } from '.';
 
 export default {
 	component: LinkAsButton,

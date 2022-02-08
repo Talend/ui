@@ -19,7 +19,7 @@ export const availableVariants = {
 export const availableSizes = {
 	M: 'M',
 	S: 'S',
-};
+} as const;
 
 export type SharedButtonTypes = {
 	size?: keyof typeof availableSizes;
@@ -36,7 +36,7 @@ const ButtonPrimitive = forwardRef(
 			className,
 			children,
 			onClick,
-			size = 'M',
+			size = availableSizes.M,
 			icon,
 			isLoading = false,
 			isDropdown = false,
@@ -60,7 +60,7 @@ const ButtonPrimitive = forwardRef(
 							<Loading data-test="button.loading" name={icon} aria-hidden />
 						</span>
 					)}
-					{!isLoading && icon && size === 'M' && (
+					{!isLoading && icon && size === availableSizes.M && (
 						<span className={styles.button__icon}>
 							{typeof icon === 'string' ? <Icon name={icon} /> : React.cloneElement(icon, {})}
 						</span>

@@ -26,9 +26,7 @@ const LinkAsButton = forwardRef(
 				});
 			}
 			if (disabled) {
-				return t('LINK_DISABLED', {
-					defaultValue: 'This link is disabled',
-				});
+				return t('LINK_DISABLED', 'This link is disabled');
 			}
 			return title;
 		}, [disabled, title, t]);

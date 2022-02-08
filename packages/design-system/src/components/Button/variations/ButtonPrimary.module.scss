@@ -9,10 +9,6 @@
 		background: tokens.$coral-color-accent-background-strong-hover;
 	}
 
-	&:focus:not(:hover) {
-		color: tokens.$coral-color-accent-text-weak;
-	}
-
 	&:active {
 		color: tokens.$coral-color-accent-text-weak-active;
 		background: tokens.$coral-color-accent-background-strong-active;
@@ -21,7 +17,7 @@
 	&:disabled,
 	&[aria-disabled='true'],
 	&[aria-busy='true'] {
-		background: tokens.$coral-color-neutral-background-disabled;
 		color: tokens.$coral-color-neutral-text-disabled;
+		background: tokens.$coral-color-neutral-background-disabled;
 	}
 }
