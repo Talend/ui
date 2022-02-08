@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 1.16.0
+
+### Minor Changes
+
+- 0ba5f75f9: doc(design-tokens): Button.Icon and Toggle usage is now discouraged
+- ee100fbde: fix(APIC-751): add a prefix parameter to the copy component
+
 ## 1.15.1
 
 ### Patch Changes
