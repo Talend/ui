@@ -85,7 +85,7 @@ export async function getGeoChartConfig(domain: string): Promise<GeoChartConfig>
 	const { file, ...chartConfig } = SUPPORTED_CHARTS[domain];
 	const url = assetsAPI.getAssetUrl({
 		name: '@talend/react-dataviz',
-		version: '1.0.4',
+		version: process.env.PACKAGE_VERSION,
 		path: `/dist/assets/maps/${file}.topo.json`,
 	});
 	let response = await fetch(url);

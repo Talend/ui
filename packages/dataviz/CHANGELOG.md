@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.5
+
+### Patch Changes
+
+- 22d74ae79: fix: replace dynamic import syntax by static
+
+  It was not supported by typescript which replace it with static import.
+  Wait for CDN API which is incoming to load assets on demand.
+
+- Updated dependencies [2e22151be]
+  - @talend/react-components@6.44.2
+
 ## 1.0.4
 
 ### Patch Changes

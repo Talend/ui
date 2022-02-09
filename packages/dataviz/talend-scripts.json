@@ -1,4 +1,10 @@
 {
   "preset": "@talend/scripts-preset-react-lib",
-  "copy": [{ "from": "assets/**" }]
+  "copy": [{ "from": "assets/**" }],
+  "webpack": {
+    "config": {
+      "development": "./webpack.config.js",
+      "production": "./webpack.config.js"
+    }
+  }
 }
