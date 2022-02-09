@@ -28,8 +28,14 @@ interface TypedResponse<T = any> extends Response {
 	json<P = T>(): Promise<P>;
 }
 
+function getPackageVersion(name: string, version: string): string {
+	const sessionVersion = sessionStorage.getItem(name);
+	const builtVersion: string = window.Talend.assets?.name;
+	return sessionVersion || builtVersion || version;
+}
+
 function getAssetUrl({ name, version, path }: Asset) {
-	const upgradedVersion = sessionStorage.getItem(name);
+	const overridedVersion = getPackageVersion(name, version);
 	let root = '';
 	if (window.Talend.CDN_URL.startsWith('/')) {
 		const baseTag = document.querySelector('base');
@@ -37,7 +43,7 @@ function getAssetUrl({ name, version, path }: Asset) {
 			root = baseTag.getAttribute('href') || '';
 		}
 	}
-	return `${root}${window.Talend.CDN_URL}/${name}/${upgradedVersion || version}${path}`;
+	return `${root}${window.Talend.CDN_URL}/${name}/${overridedVersion}${path}`;
 }
 
 async function getJSONAsset<T>(info: Asset) {
