@@ -30,7 +30,14 @@ import {
 import Switch from './components/Switch';
 import Stepper from './components/Stepper';
 import Tabs from './components/Tabs';
-import Tag from './components/Tag';
+import {
+	Tag,
+	TagDefault,
+	TagInformation,
+	TagSuccess,
+	TagWarning,
+	TagDestructive,
+} from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
@@ -74,6 +81,11 @@ export {
 	Stepper,
 	Tabs,
 	Tag,
+	TagDefault,
+	TagInformation,
+	TagSuccess,
+	TagWarning,
+	TagDestructive,
 	ThemeProvider,
 	Tooltip,
 	VisuallyHidden,
