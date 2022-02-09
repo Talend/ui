@@ -1,5 +1,5 @@
 module.exports = {
-	input: ['lib/**/*.{js,jsx}'],
+	input: ['tmp/**/*.{js,jsx}'],
 	options: {
 		debug: true,
 		func: {
