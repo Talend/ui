@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.44.2
+
+### Patch Changes
+
+- 2e22151be: WithDrawer: Drawer is rendering below Switcher buttons
+
 ## 6.44.1
 
 ### Patch Changes
