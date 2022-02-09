@@ -1,14 +1,13 @@
 {
   "name": "@talend/assets-api",
   "description": "A set of API designed to access assets using CDN",
+  "types": "lib/index.d.ts",
   "main": "lib/index.js",
-  "mainSrc": "src/index.js",
+  "mainSrc": "src/index.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build:lib:umd --dev",
-    "build:prod": "talend-scripts build:lib:umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
+    "pre-release": "echo no pre-release for assets-api",
+    "build:lib": "talend-scripts build:ts:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
