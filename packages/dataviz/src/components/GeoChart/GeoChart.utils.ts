@@ -83,18 +83,17 @@ export function getGeoChartSupportedDomains(): string[] {
 
 export async function getGeoChartConfig(domain: string): Promise<GeoChartConfig> {
 	const { file, ...chartConfig } = SUPPORTED_CHARTS[domain];
-	const url = assetsAPI.getAssetUrl({
-		name: '@talend/react-dataviz',
-		version: process.env.PACKAGE_VERSION,
-		path: `/dist/assets/maps/${file}.topo.json`,
-	});
-	let response = await fetch(url);
 	let topology: GeoChartConfig['topology'] | any = {};
-	if (response.ok) {
-		topology = await response.json();
-	} else {
-		console.error('response not ok');
+	try {
+		topology = await assetsAPI.getJSONAsset({
+			name: '@talend/react-dataviz',
+			version: process.env.PACKAGE_VERSION,
+			path: `/dist/assets/maps/${file}.topo.json`,
+		});
+	} catch (e) {
+		console.error(`can't get requested topology ${file}`);
 	}
+
 	return {
 		...chartConfig,
 		labelProperty: chartConfig.labelProperty || DEFAULT_LABEL_PROPERTY,
