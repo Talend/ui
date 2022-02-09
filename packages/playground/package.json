@@ -35,6 +35,7 @@
     "@talend/react-cmf-router": "^4.0.1",
     "@talend/react-components": "^6.44.0",
     "@talend/react-containers": "^7.0.1",
+    "@talend/react-dataviz": "^1.0.4",
     "@talend/react-forms": "^7.0.1",
     "history": "^3.3.0",
     "i18next": "^20.6.1",
