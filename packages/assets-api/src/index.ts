@@ -36,14 +36,15 @@ function getPackageVersion(name: string, version: string): string {
 
 function getAssetUrl({ name, version, path }: Asset) {
 	const overridedVersion = getPackageVersion(name, version);
+	const CDN_URL = window.Talend.getCDNUrl({ name, version });
 	let root = '';
-	if (window.Talend.CDN_URL.startsWith('/')) {
+	if (CDN_URL.startsWith('/')) {
 		const baseTag = document.querySelector('base');
 		if (baseTag) {
 			root = baseTag.getAttribute('href') || '';
 		}
 	}
-	return `${root}${window.Talend.CDN_URL}/${name}/${overridedVersion}${path}`;
+	return `${root}${CDN_URL}/${name}/${overridedVersion}${path}`;
 }
 
 async function getJSONAsset<T>(info: Asset) {
@@ -58,6 +59,12 @@ async function getJSONAsset<T>(info: Asset) {
 }
 
 function addScript({ src, integrity, ...attr }: Script) {
+	const found = Array.from(document.querySelectorAll('script').values()).find(
+		s => s.getAttribute('src') === src,
+	);
+	if (found) {
+		return;
+	}
 	const script = document.createElement('script');
 	script.setAttribute('src', src);
 	script.setAttribute('type', 'text/javascript');
@@ -71,6 +78,12 @@ function addScript({ src, integrity, ...attr }: Script) {
 }
 
 function addStyle({ href, integrity, ...attr }: StyleAsset) {
+	const found = Array.from(document.querySelectorAll('link').values()).find(
+		item => item.getAttribute('href') === href,
+	);
+	if (found) {
+		return;
+	}
 	const style = document.createElement('link');
 	style.setAttribute('rel', 'stylesheet');
 	style.setAttribute('media', 'print');
@@ -92,8 +105,11 @@ if (!window.Talend.assetsApi) {
 	window.Talend.assetsApi = {};
 }
 
-if (!window.Talend.CDN_URL) {
-	window.Talend.CDN_URL = '/cdn';
+if (!window.Talend.getCDNUrl) {
+	window.Talend.getCDNUrl = () => {
+		console.log('...');
+		return '/cdn';
+	};
 }
 
 if (!window.Talend.assetsApi.getAssetUrl) {

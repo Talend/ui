@@ -3257,15 +3257,16 @@
     mkdirp "^1.0.4"
     semver "^7.3.5"
 
-"@talend/scripts-config-babel@^9.7.3":
-  version "9.7.3"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-9.7.3.tgz#9cc538ef277946e2079f063887f5b91aa12380ee"
-  integrity sha512-/DA5TjvwX7wwko36bpgSorjR4afhwOnnis3pxHhE3tJGbBlNZBNJ6TMdfFpwdvr+k5yY3OEZ/59ycKJimX8tlg==
+"@talend/scripts-config-babel@^9.7.3", "@talend/scripts-config-babel@^9.8.0":
+  version "9.8.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-9.8.0.tgz#0e302953ebb668276494fc2b9e23f69346757d37"
+  integrity sha512-OsIwPcD6WLsrQJyVgJ2crO1SjPko6iFtCBh0/VyuwljZj/8q9TVjh6jA8JuydKMOfuepfsEID+CE3sjv7Q314g==
   dependencies:
     "@babel/core" "^7.16.12"
     "@babel/plugin-proposal-class-properties" "^7.16.7"
     "@babel/plugin-proposal-export-default-from" "^7.16.7"
     "@babel/plugin-proposal-export-namespace-from" "^7.16.7"
+    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.16.7"
     "@babel/plugin-proposal-optional-chaining" "^7.16.7"
     "@babel/plugin-transform-object-assign" "^7.16.7"
     "@babel/preset-env" "^7.16.11"
@@ -3329,12 +3330,12 @@
   integrity sha512-lqNU8kB4PDR4tTDIZ0OMF0PfSAnNk5guS11UHn3ktiac0hy6/ENeD5qEJ2POJeTh7IP4l0Vxs0WwOkj20UkRCA==
 
 "@talend/scripts-config-react-webpack@^11.2.1", "@talend/scripts-config-react-webpack@^11.2.2":
-  version "11.2.3"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.2.3.tgz#783c9ccd930568d4ba244e4eb485156406da55a7"
-  integrity sha512-AUTWM2/HlUEEGS73MSl49pZa7OkNWonLATc6bgj/lp/C7+xgz6Y1wTlPX+Yk6l04JA8K9occshprt0DDhFnC+g==
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.3.0.tgz#fcbb362140c292ee9ac373f1d6e824590840f401"
+  integrity sha512-n1THPGGLxUuqxvgR/L6AMsle2ovGL1iacnQJETyzzJdQlTcObIm19gJ3ALK+kDkmM0k+/F2PUn4hYnyXiOr4HQ==
   dependencies:
-    "@talend/react-cmf-webpack-plugin" "^6.36.5"
-    "@talend/scripts-config-babel" "^9.7.3"
+    "@talend/react-cmf-webpack-plugin" "^6.36.6"
+    "@talend/scripts-config-babel" "^9.8.0"
     "@talend/scripts-config-cdn" "^9.11.3"
     "@welldone-software/why-did-you-render" "^6.2.3"
     "@yarnpkg/lockfile" "^1.1.0"
@@ -3343,7 +3344,7 @@
     cache-loader "^4.1.0"
     clean-webpack-plugin "^3.0.0"
     copy-webpack-plugin "^6.4.1"
-    core-js-bundle "^3.20.3"
+    core-js-bundle "^3.21.0"
     css-loader "^3.6.0"
     file-loader "^5.1.0"
     fork-ts-checker-webpack-plugin "^4.1.6"
@@ -3355,7 +3356,7 @@
     postcss-safe-parser "^4.0.2"
     regenerator-runtime "^0.13.9"
     resolve-url-loader "^3.1.4"
-    sass "^1.49.0"
+    sass "^1.49.7"
     sass-loader "^8.0.2"
     source-map-loader "^0.2.4"
     style-loader "^1.3.0"
@@ -7076,7 +7077,7 @@ copy-webpack-plugin@^6.4.1:
     serialize-javascript "^5.0.1"
     webpack-sources "^1.4.3"
 
-core-js-bundle@^3.20.3:
+core-js-bundle@^3.21.0:
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/core-js-bundle/-/core-js-bundle-3.21.0.tgz#e8f39795d2d568e844ddc6e6267be8cd7b456eaa"
   integrity sha512-PZFY1YYb69qSWETyJuoN0L3hhWQKjxXARS8rE6hqSGHutARf/CcAMV9Z/1ebNXN9daAio+csSSjNeC8qo95DcQ==
@@ -17688,7 +17689,7 @@ sass-loader@^8.0.2:
     schema-utils "^2.6.1"
     semver "^6.3.0"
 
-sass@^1.49.0, sass@^1.49.7:
+sass@^1.49.7:
   version "1.49.7"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.7.tgz#22a86a50552b9b11f71404dfad1b9ff44c6b0c49"
   integrity sha512-13dml55EMIR2rS4d/RDHHP0sXMY3+30e1TKsyXaSz3iLWVoDWEoboY8WzJd5JMnxrRHffKO3wq2mpJ0jxRJiEQ==
