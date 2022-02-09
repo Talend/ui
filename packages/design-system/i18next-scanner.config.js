@@ -1,12 +1,10 @@
-const typescriptTransform = require('i18next-scanner-typescript');
-
 module.exports = {
-	input: ['src/**/*.{ts,tsx}'],
+	input: ['tmp/**/*.{js,jsx}'],
 	options: {
 		debug: true,
 		func: {
 			list: ['t'],
-			extensions: ['.js'],
+			extensions: ['.js', '.jsx'],
 		},
 		lngs: ['en'],
 		defaultNs: 'design-system',
@@ -15,5 +13,4 @@ module.exports = {
 			savePath: 'i18n-extract/{{ns}}.json',
 		},
 	},
-	transform: typescriptTransform({ extensions: ['.ts', '.tsx'] }),
 };

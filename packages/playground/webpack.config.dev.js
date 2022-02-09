@@ -32,6 +32,7 @@ const PKGS = [
 	'@talend/react-containers',
 	'@talend/react-cmf',
 	'@talend/react-cmf-router',
+	'@talend/react-dataviz',
 	'@talend/react-forms',
 	'@talend/bootstrap-theme',
 	'@talend/icons',
