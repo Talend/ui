@@ -18,6 +18,16 @@ interface StyleAsset {
 	integrity: string;
 }
 
+interface TypedResponse<T = any> extends Response {
+	/**
+	 * this will override `json` method from `Body` that is extended by `Response`
+	 * interface Body {
+	 *     json(): Promise<any>;
+	 * }
+	 */
+	json<P = T>(): Promise<P>;
+}
+
 function getAssetUrl({ name, version, path }: Asset) {
 	const upgradedVersion = sessionStorage.getItem(name);
 	let root = '';
@@ -30,14 +40,15 @@ function getAssetUrl({ name, version, path }: Asset) {
 	return `${root}${window.Talend.CDN_URL}/${name}/${upgradedVersion || version}${path}`;
 }
 
-async function getJSONAsset(info: Asset) {
+async function getJSONAsset<T>(info: Asset) {
 	const url = getAssetUrl(info);
-	let response = await fetch(url);
+	let response: TypedResponse<T> = await fetch(url);
 	if (response.ok) {
 		return await response.json();
 	} else {
 		console.error(`Response not ok: ${response.status} ${response.statusText} from ${url}`);
 	}
+	return;
 }
 
 function addScript({ src, integrity, ...attr }: Script) {
@@ -69,23 +80,30 @@ function addStyle({ href, integrity, ...attr }: StyleAsset) {
 }
 
 if (!window.Talend) {
-	window.Talend = {};
+	window.Talend = { assetsApi: {} };
+}
+if (!window.Talend.assetsApi) {
+	window.Talend.assetsApi = {};
 }
 
 if (!window.Talend.CDN_URL) {
 	window.Talend.CDN_URL = '/cdn';
 }
-if (!window.Talend.getAssetUrl) {
-	window.Talend.getAssetUrl = getAssetUrl;
-}
-if (!window.Talend.getJSONAsset) {
-	window.Talend.getJSONAsset = getJSONAsset;
-}
-if (!window.Talend.addScript) {
-	window.Talend.addScript = addScript;
-}
-if (!window.Talend.addStyle) {
-	window.Talend.addStyle = addStyle;
+
+if (!window.Talend.assetsApi.getAssetUrl) {
+	window.Talend.assetsApi.getUrl = getAssetUrl;
 }
 
-export default window.Talend;
+if (!window.Talend.assetsApi.getJSON) {
+	window.Talend.assetsApi.getJSON = getJSONAsset;
+}
+
+if (!window.Talend.assetsApi.addScript) {
+	window.Talend.assetsApi.addScript = addScript;
+}
+
+if (!window.Talend.assetsApi.addStyle) {
+	window.Talend.assetsApi.addStyle = addStyle;
+}
+
+export default window.Talend.assetsApi;
