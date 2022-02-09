@@ -44,3 +44,9 @@ Use size `S` if you need to stick closer to previous design.
 - Cannot be an HTML anchor
 
 **How to fix**: The change should be mostly straightforward.
+
+## Tag
+
+Tag is no longer a Styled Component.
+
+To avoid customization, now `Tag` won't accept `className` anymore and each variation will be replaced by its shorthand version (no more `<Tag.[Variant] />` but `<Tag[Variant]`. ie `<Tag.Information />`is now `<TagInformation />`)
