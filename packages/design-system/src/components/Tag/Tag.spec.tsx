@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Tag from '.';
+import { Tag } from '.';
 
 context('<Tag />', () => {
 	it('should render', () => {

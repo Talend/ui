@@ -1,0 +1,6 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.tag {
+	color: tokens.$coral-color-accent-text-strong;
+	background: tokens.$coral-color-accent-background;
+}
