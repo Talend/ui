@@ -9,9 +9,9 @@ export const Accordion = styled(ReakitComposite)`
 `;
 
 export const AccordionItem = styled.div`
-	margin: ${tokens.space.m} 0;
+	margin: ${tokens.space.s} 0;
 	min-width: 25rem;
-	border: 1px solid ${({ theme }) => theme.colors.accordionBorderColor};
+	border: 1px solid black;
 	border-radius: ${tokens.radii.rectRadius};
 
 	&:hover {
