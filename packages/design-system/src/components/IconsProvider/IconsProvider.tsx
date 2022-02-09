@@ -1,6 +1,12 @@
 import React, { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
 import assetsAPI from '@talend/assets-api';
 
+declare var process: {
+	env: {
+		TalendIconsVersion: string;
+	};
+};
+
 const DEFAULT_BUNDLES = [
 	assetsAPI.getUrl({
 		name: '@talend/icons',
