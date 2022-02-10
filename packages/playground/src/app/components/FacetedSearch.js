@@ -9,20 +9,6 @@ function action(msg) {
 }
 
 const badgesDefinitions = Object.values(badges);
-console.log(badgesDefinitions);
-// [
-// 	badgeAll,
-// 	badgeName,
-// 	badgeConnectionName,
-// 	badgeAuthor,
-// 	badgeConnectionType,
-// 	badgeTags,
-// 	badgePrice,
-// 	badgeValid,
-// 	badgeEmpty,
-// 	badgeInvalid,
-// 	badgeCreationDate,
-// ];
 
 const callbacks = {
 	getTags: () =>
