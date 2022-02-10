@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.6
+
+### Patch Changes
+
+- e2bcac8e6: GeoChart: Useless zoom buttons z-index
+
 ## 1.0.5
 
 ### Patch Changes
