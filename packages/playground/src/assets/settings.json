@@ -30,6 +30,16 @@
         }
       }
     },
+    "menu:FacetedSearch": {
+      "icon": "talend-search",
+      "label": "Faceted Search",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/FacetedSearch"
+        }
+      }
+    },
     "menu:DataGrid": {
       "icon": "talend-datagrid",
       "label": "DataGrid",
@@ -86,7 +96,13 @@
       "productsUrl": "/api/mock/header-bar/products-list"
     },
     "SidePanel#default": {
-      "actionIds": ["menu:ComponentForm", "menu:List", "menu:Dataviz", "menu:DataGrid"]
+      "actionIds": [
+        "menu:ComponentForm",
+        "menu:List",
+        "menu:Dataviz",
+        "menu:DataGrid",
+        "menu:FacetedSearch"
+      ]
     },
     "Layout#default": {
       "mode": "TwoColumns",
@@ -119,6 +135,10 @@
       {
         "path": "Dataviz",
         "component": "Dataviz"
+      },
+      {
+        "path": "FacetedSearch",
+        "component": "FacetedSearch"
       },
       {
         "path": "DataGrid",
