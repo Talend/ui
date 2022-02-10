@@ -1,7 +1,7 @@
 {
   "actions": {
     "menu:ComponentForm": {
-      "icon": "talend-burger",
+      "icon": "talend-text",
       "label": "ComponentForm",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
@@ -11,7 +11,7 @@
       }
     },
     "menu:List": {
-      "icon": "talend-burger",
+      "icon": "talend-table",
       "label": "List",
       "onClickDispatch": {
         "type": "MENU_LIST_CLICKED",
@@ -21,12 +21,22 @@
       }
     },
     "menu:Dataviz": {
-      "icon": "talend-burger",
+      "icon": "talend-charts",
       "label": "Dataviz",
       "onClickDispatch": {
         "type": "MENU_LIST_CLICKED",
         "cmf": {
           "routerPush": "/Dataviz"
+        }
+      }
+    },
+    "menu:DataGrid": {
+      "icon": "talend-datagrid",
+      "label": "DataGrid",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/DataGrid"
         }
       }
     }
@@ -76,7 +86,7 @@
       "productsUrl": "/api/mock/header-bar/products-list"
     },
     "SidePanel#default": {
-      "actionIds": ["menu:ComponentForm", "menu:List", "menu:Dataviz"]
+      "actionIds": ["menu:ComponentForm", "menu:List", "menu:Dataviz", "menu:DataGrid"]
     },
     "Layout#default": {
       "mode": "TwoColumns",
@@ -109,6 +119,10 @@
       {
         "path": "Dataviz",
         "component": "Dataviz"
+      },
+      {
+        "path": "DataGrid",
+        "component": "DataGrid"
       },
       {
         "path": "*",

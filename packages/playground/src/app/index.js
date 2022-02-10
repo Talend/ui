@@ -13,6 +13,7 @@ import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import ComponentFormSandbox from './components/ComponentFormSandbox';
+import { DataGridPlayground } from './components/DataGrid';
 
 import { LeaguesList } from './components/List';
 import { Dataviz } from './components/Dataviz';
@@ -45,7 +46,14 @@ function IconsProvider() {
 }
 
 const app = {
-	components: { ComponentForm, ComponentFormSandbox, LeaguesList, IconsProvider, Dataviz },
+	components: {
+		ComponentForm,
+		ComponentFormSandbox,
+		DataGrid: DataGridPlayground,
+		LeaguesList,
+		IconsProvider,
+		Dataviz,
+	},
 	settingsURL: `${basename || ''}/settings.json`,
 	actionCreators: actions,
 	middlewares: [],
