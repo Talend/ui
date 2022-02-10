@@ -9,20 +9,14 @@ import { Icon } from '../../Icon/Icon';
 
 import styles from './ButtonStyles.module.scss';
 
-export const availableVariants = {
-	primary: 'primary',
-	destructive: 'destructive',
-	secondary: 'secondary',
-	tertiary: 'tertiary',
-} as const;
-
-export const availableSizes = {
-	M: 'M',
-	S: 'S',
-} as const;
+export type availableVariantsTypes = 'primary' | 'destructive' | 'secondary' | 'tertiary';
+export type availableSizes = 'M' | 'S';
+export type ButtonVariantType<T extends availableVariantsTypes, P extends object> = {
+	variant: T;
+} & P;
 
 export type SharedButtonTypes = {
-	size?: keyof typeof availableSizes;
+	size?: availableSizes;
 	icon?: IconName | React.ReactElement;
 	isLoading?: boolean;
 	isDropdown?: boolean;
@@ -36,7 +30,7 @@ const ButtonPrimitive = forwardRef(
 			className,
 			children,
 			onClick,
-			size = availableSizes.M,
+			size = 'M',
 			icon,
 			isLoading = false,
 			isDropdown = false,
@@ -47,7 +41,7 @@ const ButtonPrimitive = forwardRef(
 		return (
 			<Clickable
 				className={classnames(styles.button, className, {
-					[styles['size-S']]: size === availableSizes.S,
+					[styles['size-S']]: size === 'S',
 				})}
 				{...props}
 				aria-busy={isLoading}
@@ -60,7 +54,7 @@ const ButtonPrimitive = forwardRef(
 							<Loading data-test="button.loading" name={icon} aria-hidden />
 						</span>
 					)}
-					{!isLoading && icon && size === availableSizes.M && (
+					{!isLoading && icon && size === 'M' && (
 						<span className={styles.button__icon}>
 							{typeof icon === 'string' ? <Icon name={icon} /> : React.cloneElement(icon, {})}
 						</span>

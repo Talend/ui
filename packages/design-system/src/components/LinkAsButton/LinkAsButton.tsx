@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, Ref, useCallback } from 'react';
+import React, { cloneElement, forwardRef, Ref } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import Clickable, { ClickableProps } from '../Clickable';
@@ -18,7 +18,7 @@ const LinkAsButton = forwardRef(
 	) => {
 		const { t } = useTranslation();
 
-		const getTitle = useCallback(() => {
+		const getTitle = () => {
 			if (disabled && title) {
 				return t('LINK_DISABLED_TITLE', {
 					title,
@@ -29,7 +29,7 @@ const LinkAsButton = forwardRef(
 				return t('LINK_DISABLED', 'This link is disabled');
 			}
 			return title;
-		}, [disabled, title, t]);
+		};
 
 		return (
 			<Clickable

@@ -5,7 +5,7 @@ import Linkable, { LinkableType } from '../../Linkable';
 import { StackHorizontal } from '../../Stack';
 import { Icon } from '../../Icon/Icon';
 
-import { availableSizes, SharedButtonTypes } from '../../Button/Primitive/ButtonPrimitive';
+import { SharedButtonTypes } from '../../Button/Primitive/ButtonPrimitive';
 
 import sharedStyles from '../../Button/Primitive/ButtonStyles.module.scss';
 import linkStyles from './ButtonPrimitiveAsLink.module.scss';
@@ -21,7 +21,7 @@ const ButtonPrimitiveAsLink = forwardRef(
 		return (
 			<Linkable
 				className={classnames(sharedStyles.button, linkStyles.button, className, {
-					[sharedStyles['size-S']]: size === availableSizes.S,
+					[sharedStyles['size-S']]: size === 'S',
 				})}
 				{...props}
 				ref={ref}

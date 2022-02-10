@@ -12,36 +12,34 @@ import ButtonTertiaryAsLink, {
 import ButtonDestructiveAsLink, {
 	ButtonDestructiveAsLinkPropsType,
 } from './variations/ButtonDestructiveAsLink';
-import { availableVariants } from '../Button/Primitive/ButtonPrimitive';
+import { ButtonVariantType } from '../Button/Primitive/ButtonPrimitive';
 import Linkable from '../Linkable';
 
-type Primary = { variant: typeof availableVariants.primary } & ButtonPrimaryAsLinkPropsType;
-type Secondary = { variant: typeof availableVariants.secondary } & ButtonSecondaryAsLinkPropsType;
-type Tertiary = { variant: typeof availableVariants.tertiary } & ButtonTertiaryAsLinkPropsType;
-type Destructive = {
-	variant: typeof availableVariants.destructive;
-} & ButtonDestructiveAsLinkPropsType;
+type Primary = ButtonVariantType<'primary', ButtonPrimaryAsLinkPropsType>;
+type Secondary = ButtonVariantType<'secondary', ButtonSecondaryAsLinkPropsType>;
+type Tertiary = ButtonVariantType<'tertiary', ButtonTertiaryAsLinkPropsType>;
+type Destructive = ButtonVariantType<'destructive', ButtonDestructiveAsLinkPropsType>;
 
 type ButtonType = Primary | Secondary | Tertiary | Destructive;
 
 const ButtonAsLink = forwardRef((props: ButtonType, ref: Ref<any>) => {
 	switch (props.variant) {
-		case availableVariants.primary: {
+		case 'primary': {
 			const { variant, ...rest } = props;
 			return <ButtonPrimaryAsLink {...rest} ref={ref} />;
 		}
 
-		case availableVariants.destructive: {
+		case 'destructive': {
 			const { variant, ...rest } = props;
 			return <ButtonDestructiveAsLink {...rest} ref={ref} />;
 		}
 
-		case availableVariants.secondary: {
+		case 'secondary': {
 			const { variant, ...rest } = props;
 			return <ButtonSecondaryAsLink {...rest} ref={ref} />;
 		}
 
-		case availableVariants.tertiary: {
+		case 'tertiary': {
 			const { variant, ...rest } = props;
 			return <ButtonTertiaryAsLink {...rest} ref={ref} />;
 		}
