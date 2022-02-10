@@ -18,16 +18,18 @@ const SkipLinks = ({ nav, main }: SkipLinksProps) => {
 			<ul role="list">
 				{nav && (
 					<li key="nav">
-						<Link className="skip-links__link" href="#nav">
-							{t('SKIP_LINK_NAVIGATION', 'Go to navigation')}
-						</Link>
+						{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+						<span className="skip-links__link" tabIndex={0}>
+							<Link href="#nav">{t('SKIP_LINK_NAVIGATION', 'Go to navigation')}</Link>
+						</span>
 					</li>
 				)}
 				{main && (
 					<li key="main">
-						<Link className="skip-links__link" href="#main">
-							{t('SKIP_LINK_MAIN', 'Go to main content')}
-						</Link>
+						{/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+						<span className="skip-links__link" tabIndex={0}>
+							<Link href="#main">{t('SKIP_LINK_MAIN', 'Go to main content')}</Link>
+						</span>
 					</li>
 				)}
 			</ul>

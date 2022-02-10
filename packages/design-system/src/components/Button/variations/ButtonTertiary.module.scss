@@ -1,0 +1,22 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.tertiary {
+	color: tokens.$coral-color-accent-text-strong;
+
+	&:hover {
+		color: tokens.$coral-color-accent-text-strong-hover;
+		background: tokens.$coral-color-accent-background-weak-hover;
+	}
+
+	&:active {
+		color: tokens.$coral-color-accent-text-strong-active;
+		background: tokens.$coral-color-accent-background-weak-active;
+	}
+
+	&:disabled,
+	&[aria-disabled='true'],
+	&[aria-busy='true'] {
+		color: tokens.$coral-color-neutral-text-disabled;
+		background: transparent;
+	}
+}

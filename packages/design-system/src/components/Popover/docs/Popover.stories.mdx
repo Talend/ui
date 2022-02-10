@@ -1,6 +1,7 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import Button from '../../Button';
+import { ButtonPrimary } from '../../Button';
 import Popover from '../';
+import { action } from '@storybook/addon-actions';
 
 <Meta
 	title="Components/Popover"
@@ -19,7 +20,12 @@ Popover displays floating informative and actionable content in relation to its 
 
 <Canvas>
 	<Story name="default" height="10rem">
-		<Popover aria-label="Custom popover" disclosure={<Button.Primary>Open popover</Button.Primary>}>
+		<Popover
+			aria-label="Custom popover"
+			disclosure={
+				<ButtonPrimary onClick={action('Clicked disclosure')}>Open popover</ButtonPrimary>
+			}
+		>
 			Custom popover
 		</Popover>
 	</Story>

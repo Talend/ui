@@ -35,17 +35,16 @@ const InputCopy = React.forwardRef(
 					!readOnly || disabled ? (
 						<AffixButton
 							icon="talend-files-o"
-							label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
 							onClick={() => copyToClipboard(inputRef.current?.value || '')}
 							hideText
 							disabled={disabled}
-						/>
+						>
+							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
+						</AffixButton>
 					) : (
-						<AffixReadOnly
-							icon="talend-files-o"
-							label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
-							hideText
-						/>
+						<AffixReadOnly icon="talend-files-o" hideText>
+							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
+						</AffixReadOnly>
 					)
 				}
 				readOnly={!disabled}

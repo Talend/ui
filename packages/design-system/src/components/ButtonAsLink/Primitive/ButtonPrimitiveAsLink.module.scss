@@ -1,0 +1,15 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.button {
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+
+	// External icon offset override in flex context
+	[data-test='link.icon.external'] {
+		margin-bottom: 0;
+	}
+}

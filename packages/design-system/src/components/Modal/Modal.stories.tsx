@@ -1,6 +1,7 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 
-import Button from '../Button';
+import { ButtonPrimary, ButtonSecondary, ButtonDestructive } from '../Button';
 
 import Modal from '.';
 
@@ -15,8 +16,8 @@ export const Confirm = () => (
 		</Modal.Heading>
 		<p>Your change will be lost. Do you want to leave the page without saving?</p>
 		<Modal.Buttons>
-			<Button.Secondary>Continue editing</Button.Secondary>
-			<Button.Destructive>Discard changes</Button.Destructive>
+			<ButtonSecondary onClick={action('Clicked continue')}>Continue editing</ButtonSecondary>
+			<ButtonDestructive onClick={action('Clicked discard')}>Discard changes</ButtonDestructive>
 		</Modal.Buttons>
 	</Modal.Body>
 );
@@ -25,7 +26,9 @@ Confirm.parameters = {};
 export const Invite = () => (
 	<Modal
 		baseId=""
-		disclosure={<Button.Primary>Send invitation email</Button.Primary>}
+		disclosure={
+			<ButtonPrimary onClick={action('Clicked disclosure')}>Send invitation email</ButtonPrimary>
+		}
 		title="Send invitation email"
 	>
 		Invitation email will be send to this address: <strong>test@email.com</strong>

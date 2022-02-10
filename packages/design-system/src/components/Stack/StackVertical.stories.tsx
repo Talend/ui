@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StackHorizontal, StackVertical, StackItem } from './index';
 
-import ButtonPrimary from '../Button/variations/Button.primary';
+import { ButtonPrimary } from '../Button';
 import Divider from '../Divider/index';
 import { manualStackArgs } from './StackHorizontal.stories';
 import { alignOptions, overflowOptions, possibleAsTypes } from './StackItem';

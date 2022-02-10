@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import Dropdown from '.';
-import Button from '../Button';
+import { ButtonPrimary, ButtonTertiary } from '../Button';
 
 export default {
 	component: Dropdown,
@@ -11,7 +11,7 @@ export const WithIcons = {
 	render: (props: Story) => (
 		<Dropdown
 			{...props}
-			as={Button.Tertiary}
+			as={ButtonTertiary}
 			aria-label="Switch between Talend applications"
 			items={[
 				{
@@ -40,7 +40,7 @@ export const WithDividers = {
 	render: (props: Story) => (
 		<Dropdown
 			{...props}
-			as={Button.Primary}
+			as={ButtonPrimary}
 			aria-label="Custom menu"
 			items={[
 				{
@@ -84,7 +84,7 @@ export const WithManyItems = {
 	render: (props: Story) => (
 		<Dropdown
 			{...props}
-			as={Button.Primary}
+			as={ButtonPrimary}
 			aria-label="Custom menu"
 			items={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae eleifend justo. Donec ultrices justo sit amet lectus pellentesque ornare. Integer nec ultrices augue. Curabitur vel mi euismod ipsum fermentum vestibulum id non elit. Donec rhoncus est eu tristique lacinia. Maecenas a mi ut lectus commodo molestie nec sed ipsum. Morbi pellentesque nisi at libero scelerisque vestibulum. Fusce elementum volutpat lobortis. Vestibulum sed blandit est. Duis pulvinar, erat eget consectetur ornare, risus odio mattis velit, quis tempor turpis nulla viverra dolor. Suspendisse sapien tellus, iaculis a urna vel, dignissim dapibus ex.'
 				.split(' ')
@@ -105,7 +105,7 @@ export const WithLongText = {
 	render: (props: Story) => (
 		<Dropdown
 			{...props}
-			as={Button.Primary}
+			as={ButtonPrimary}
 			aria-label="Custom menu"
 			items={[
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
