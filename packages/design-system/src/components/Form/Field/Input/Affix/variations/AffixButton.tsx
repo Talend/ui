@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef, Ref } from 'react';
+import React, { forwardRef, Ref } from 'react';
 import { IconName } from '@talend/icons';
 import classnames from 'classnames';
 
@@ -6,38 +6,43 @@ import { Icon } from '../../../../../Icon/Icon';
 import Tooltip from '../../../../../Tooltip';
 import { StackHorizontal } from '../../../../../Stack';
 
-import styles from '../Affix.module.scss';
+import styles from '../AffixStyles.module.scss';
+import Clickable, { ClickableProps } from '../../../../../Clickable';
 
 type CommonAffixButtonPropTypes = {
-	label: string;
+	children: string;
 	isDropdown?: boolean;
 	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 };
 
 type AffixButtonHideTextProps = {
-	hideText: true;
+	hideText?: true;
 	icon: IconName;
 };
 
 type AffixButtonShowTextProps = {
-	hideText: false;
+	hideText?: false;
 	icon?: IconName;
 };
 
-export type AffixButtonPropTypes = Omit<
-	ButtonHTMLAttributes<HTMLButtonElement>,
-	'className' | 'style'
-> &
+export type AffixButtonPropTypes = Omit<ClickableProps, 'className' | 'children'> &
 	CommonAffixButtonPropTypes &
 	(AffixButtonHideTextProps | AffixButtonShowTextProps);
 
 const AffixButton = forwardRef(
 	(
-		{ label, isDropdown = false, icon, onClick, hideText = false, ...rest }: AffixButtonPropTypes,
+		{
+			children,
+			isDropdown = false,
+			icon,
+			onClick,
+			hideText = false,
+			...rest
+		}: AffixButtonPropTypes,
 		ref: Ref<HTMLButtonElement>,
 	) => {
 		const element = (
-			<button
+			<Clickable
 				type="button"
 				onClick={onClick}
 				ref={ref}
@@ -50,19 +55,19 @@ const AffixButton = forwardRef(
 							<Icon name={icon} />
 						</span>
 					)}
-					{!hideText && label}
+					{!hideText && children}
 					{isDropdown && (
 						<span className={styles.affix__caret}>
 							<Icon name="talend-caret-down" />
 						</span>
 					)}
 				</StackHorizontal>
-			</button>
+			</Clickable>
 		);
 
 		if (hideText) {
 			return (
-				<Tooltip title={label} placement="top">
+				<Tooltip title={children} placement="top">
 					{element}
 				</Tooltip>
 			);

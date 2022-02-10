@@ -5,19 +5,19 @@ import { Icon } from '../../../../../Icon/Icon';
 import { StackHorizontal } from '../../../../../Stack';
 import VisuallyHidden from '../../../../../VisuallyHidden';
 
-import styles from '../Affix.module.scss';
+import styles from '../AffixStyles.module.scss';
 
 type CommonAffixReadOnlyPropTypes = {
-	label: string;
+	children: string;
 };
 
 type AffixReadOnlyHideTextProps = {
-	hideText: true;
+	hideText?: true;
 	icon: IconName;
 };
 
 type AffixReadOnlyShowTextProps = {
-	hideText: false;
+	hideText?: false;
 	icon?: IconName;
 };
 
@@ -27,7 +27,7 @@ export type AffixReadOnlyPropTypes = Omit<HTMLAttributes<HTMLSpanElement>, 'clas
 
 const AffixReadOnly = forwardRef(
 	(
-		{ label, icon, hideText = false, ...rest }: AffixReadOnlyPropTypes,
+		{ children, icon, hideText = false, ...rest }: AffixReadOnlyPropTypes,
 		ref: Ref<HTMLSpanElement>,
 	) => {
 		return (
@@ -38,7 +38,7 @@ const AffixReadOnly = forwardRef(
 							<Icon name={icon} />
 						</span>
 					)}
-					{!hideText ? label : <VisuallyHidden>{label}</VisuallyHidden>}
+					{!hideText ? children : <VisuallyHidden>{children}</VisuallyHidden>}
 				</StackHorizontal>
 			</span>
 		);

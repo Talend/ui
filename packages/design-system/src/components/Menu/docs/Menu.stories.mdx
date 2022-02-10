@@ -21,13 +21,13 @@ import Menu from '../';
 <Canvas>
 	<Story name="default">
 		<Menu>
-			<Menu.Item iconBefore="talend-stop" href="#" active>
+			<Menu.Item icon="talend-stop" href="#" active>
 				Item A
 			</Menu.Item>
-			<Menu.Item iconBefore="talend-stop" href="#">
+			<Menu.Item icon="talend-stop" href="#">
 				Item B
 			</Menu.Item>
-			<Menu.Item iconBefore="talend-stop" href="#">
+			<Menu.Item icon="talend-stop" href="#">
 				Item C
 			</Menu.Item>
 		</Menu>
@@ -39,13 +39,13 @@ import Menu from '../';
 <Canvas>
 	<Story name="reversed">
 		<Menu.Reversed>
-			<Menu.Item iconBefore="talend-stop" href="#" active>
+			<Menu.Item icon="talend-stop" href="#" active>
 				Item A
 			</Menu.Item>
-			<Menu.Item iconBefore="talend-stop" href="#">
+			<Menu.Item icon="talend-stop" href="#">
 				Item B
 			</Menu.Item>
-			<Menu.Item iconBefore="talend-stop" href="#">
+			<Menu.Item icon="talend-stop" href="#">
 				Item C
 			</Menu.Item>
 		</Menu.Reversed>
@@ -110,16 +110,16 @@ Menus help users find content and use features. Labels on menus should give user
 			const Component = props.style ? Menu[props.style] : Menu;
 			return (
 				<Component {...props} style={{ minHeight: '50rem' }}>
-					<Menu.Item iconBefore="talend-stop" href="#">
+					<Menu.Item icon="talend-stop" href="#">
 						Item A
 					</Menu.Item>
-					<Menu.Item iconBefore="talend-stop" href="#" active>
+					<Menu.Item icon="talend-stop" href="#" active>
 						Item B
 					</Menu.Item>
-					<Menu.Item iconBefore="talend-stop" href="#">
+					<Menu.Item icon="talend-stop" href="#">
 						Item C
 					</Menu.Item>
-					<Menu.Item iconBefore="talend-stop" href="#">
+					<Menu.Item icon="talend-stop" href="#">
 						Item D
 					</Menu.Item>
 				</Component>

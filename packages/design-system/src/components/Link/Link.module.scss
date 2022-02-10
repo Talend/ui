@@ -25,29 +25,6 @@ $iconAlignmentOffsetS: -0.1rem;
 		transition: tokens.$coral-transition-fast;
 	}
 
-	.link__icon {
-		& {
-			margin-bottom: $iconAlignmentOffsetM;
-			height: tokens.$coral-size-m;
-			width: tokens.$coral-size-m;
-		}
-
-		&External {
-			margin-bottom: $iconAlignmentOffsetS;
-			height: tokens.$coral-size-s;
-			width: tokens.$coral-size-s;
-		}
-
-		&Before {
-			margin-right: tokens.$coral-size-xxs;
-		}
-
-		&External,
-		&After {
-			margin-left: tokens.$coral-size-xxs;
-		}
-	}
-
 	&:hover {
 		color: tokens.$coral-color-accent-text-hover;
 

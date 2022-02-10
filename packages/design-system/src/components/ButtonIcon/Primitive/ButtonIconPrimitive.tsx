@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref, ButtonHTMLAttributes } from 'react';
-import { Button } from 'reakit';
 import classnames from 'classnames';
 import { IconName } from '@talend/icons';
+import Button from '../../Clickable';
 import Tooltip from '../../Tooltip';
 import { Icon } from '../../Icon/Icon';
 import Loading from '../../Loading';

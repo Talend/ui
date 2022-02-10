@@ -2,10 +2,8 @@ import styled from 'styled-components';
 import { transparentize } from 'polished';
 import DSTokens from '@talend/design-tokens';
 
-import Link from '../Link';
-
 import tokens from '../../tokens';
-import { StyledLink } from '../Link/Link';
+import Linkable, { LinkableType } from '../Linkable';
 
 export const Nav = styled.nav.attrs({
 	className: 'c-menu',
@@ -95,9 +93,11 @@ export const Menu = styled.div`
 	}
 `;
 
-export const MenuItem = styled(Link).attrs(({ active }: StyledLink & { active: boolean }) => ({
-	'aria-current': active ? 'page' : null,
-}))`
+export const MenuItem = styled(Linkable).attrs(
+	({ active }: LinkableType & { active: boolean }) => ({
+		'aria-current': active ? 'page' : null,
+	}),
+)`
 	display: flex;
 	padding: 0.5rem 1rem;
 	color: ${({ active }) => (active ? tokens.colors.deepBlue[500] : 'inherit')};
@@ -109,20 +109,21 @@ export const MenuItem = styled(Link).attrs(({ active }: StyledLink & { active: b
 	overflow: hidden;
 	cursor: pointer;
 
-	.link__icon {
+	> svg {
 		height: 2rem;
 		width: 2rem;
 		margin-right: 1rem;
 		overflow: visible;
 	}
 
-	.link__text {
+	.item__text {
 		font-weight: ${tokens.fontWeights.semiBold};
 		min-width: 0;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
 		border: none !important;
+		flex-shrink: 1;
 	}
 
 	&:hover {
@@ -130,6 +131,7 @@ export const MenuItem = styled(Link).attrs(({ active }: StyledLink & { active: b
 			// @ts-ignore
 			({ active, theme }) => (active ? theme.colors.primaryColor : 'inherit')
 		};
+		text-decoration: none;
 		background: ${({ active }) => transparentize(active ? 0.12 : 0.88, tokens.colors.gray[0])};
 	}
 `;
