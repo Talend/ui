@@ -2,7 +2,7 @@ import React from 'react';
 
 import { VisuallyHidden } from 'reakit';
 
-import Button from '../../components/Button';
+import Clickable from '../../components/Clickable';
 import Dropdown from '../../components/Dropdown';
 import HeaderBar from '../../components/HeaderBar';
 import Modal from '../../components/Modal';
@@ -79,7 +79,7 @@ export default function HeaderBarBlock() {
 						<Dropdown
 							icon="talend-user-circle"
 							items={[
-								<Button onClick={() => aboutModal.show()}>About</Button>,
+								<Clickable onClick={() => aboutModal.show()}>About</Clickable>,
 								<></>,
 								<Link href="#">Support</Link>,
 								<Link href="#">Community</Link>,

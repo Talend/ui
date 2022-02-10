@@ -1,25 +1,17 @@
+import ButtonPrimary from './variations/ButtonPrimary';
+import ButtonSecondary from './variations/ButtonSecondary';
+import ButtonTertiary from './variations/ButtonTertiary';
+import ButtonDestructive from './variations/ButtonDestructive';
 import Button from './Button';
-import ButtonPrimary from './variations/Button.primary';
-import ButtonSecondary from './variations/Button.secondary';
-import ButtonDestructive from './variations/Button.destructive';
-import ButtonTertiary from './variations/Button.tertiary';
 
-const ButtonComponent = Button as typeof Button & {
-	Primary: typeof ButtonPrimary;
-	Destructive: typeof ButtonDestructive;
-	Secondary: typeof ButtonSecondary;
-	Tertiary: typeof ButtonTertiary;
-};
+import { BaseButtonProps } from './Primitive/ButtonPrimitive';
 
-ButtonComponent.Primary = ButtonPrimary;
-ButtonComponent.Destructive = ButtonDestructive;
-ButtonComponent.Secondary = ButtonSecondary;
-ButtonComponent.Tertiary = ButtonTertiary;
-
-export type ButtonComponentType =
+export type ButtonComponentTypes =
 	| typeof ButtonPrimary
-	| typeof ButtonDestructive
 	| typeof ButtonSecondary
-	| typeof ButtonTertiary;
+	| typeof ButtonTertiary
+	| typeof ButtonDestructive;
 
-export default ButtonComponent;
+export type SharedButtonComponentProps = Omit<BaseButtonProps, 'className'>;
+
+export { Button, ButtonPrimary, ButtonSecondary, ButtonTertiary, ButtonDestructive };

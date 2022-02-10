@@ -224,9 +224,9 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 							<span className="text__span">
 								<Trans i18nKey="INPUT_FILE_DROP_OR_BROWSE_FILE">
 									Drop your files or {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-									<Link className="text__link" href="#">
-										browse
-									</Link>
+									<span className="link">
+										<Link href="#">browse</Link>
+									</span>
 								</Trans>
 							</span>
 						</div>
