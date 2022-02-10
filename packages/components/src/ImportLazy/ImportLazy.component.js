@@ -32,7 +32,7 @@ function DefaultSkeleton() {
 export function ImportLazy({ skeleton, name, version, path, varName, children }) {
 	const [loaded, setLoaded] = React.useState(false);
 	React.useEffect(() => {
-		const src = assetsApi.getUrl({ name, version, path });
+		const src = assetsApi.getUrl(path, name, version);
 		const onload = () => {
 			if (!varName) {
 				setLoaded(true);

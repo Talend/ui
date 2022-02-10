@@ -7,13 +7,7 @@ declare var process: {
 	};
 };
 
-const DEFAULT_BUNDLES = [
-	assetsAPI.getUrl({
-		name: '@talend/icons',
-		version: process.env.TalendIconsVersion,
-		path: '/dist/svg-bundle/all.svg',
-	}),
-];
+const DEFAULT_BUNDLES = [assetsAPI.getUrl('/dist/svg-bundle/all.svg', '@talend/icons')];
 const FETCHING_BUNDLES: { [url: string]: Promise<Response> } = {};
 const ICONS_PROVIDER_CLASS = '.tc-iconsprovider';
 

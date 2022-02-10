@@ -62,6 +62,7 @@
     "@storybook/testing-react": "^1.2.3",
     "@storybook/theming": "^6.4.17",
     "@svgr/webpack": "^5.5.0",
+    "@talend/babel-plugin-assets-api": "^1.0.0",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.39.0",
     "@talend/locales-design-system": "^1.12.2",
