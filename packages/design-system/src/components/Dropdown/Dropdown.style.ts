@@ -75,6 +75,7 @@ export const MenuItem = styled(ReakitMenuItem)`
 	min-height: ${tokens.sizes.xxl};
 	padding: ${tokens.space.none} ${tokens.space.s};
 	color: ${({ theme }) => theme.colors.dropdownColor};
+	cursor: pointer;
 
 	// Bootstrap
 	& {
@@ -86,6 +87,7 @@ export const MenuItem = styled(ReakitMenuItem)`
 	&:focus {
 		color: ${({ theme }) => theme.colors.dropdownColor};
 		background-color: ${({ theme }) => theme.colors.dropdownHoverBackgroundColor};
+		text-decoration: none;
 	}
 
 	&:active {
@@ -99,9 +101,9 @@ export const MenuItem = styled(ReakitMenuItem)`
 		border: none;
 	}
 
-	> svg:first-child {
+	> svg:last-child {
 		margin-bottom: 0;
-		width: ${tokens.sizes.l};
-		height: ${tokens.sizes.l};
+		width: ${tokens.sizes.s};
+		height: ${tokens.sizes.s};
 	}
 `;

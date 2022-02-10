@@ -2,7 +2,7 @@ import React from 'react';
 import { useDialogState, DialogProps, Dialog as ReakitDialog } from 'reakit';
 import { useTranslation } from 'react-i18next';
 
-import Button from '../Button';
+import { ButtonSecondary, ButtonPrimary } from '../Button';
 import { Icon } from '../Icon';
 
 import * as S from './Modal.style';
@@ -55,12 +55,12 @@ const Modal = React.forwardRef(
 						</S.DialogHeading>
 						{children}
 						<S.DialogButtons>
-							<Button.Secondary onClick={onCloseHandler}>
+							<ButtonSecondary onClick={onCloseHandler}>
 								{t('MODAL_CANCEL', 'Cancel')}
-							</Button.Secondary>
-							<Button.Primary onClick={onValidateHandler}>
+							</ButtonSecondary>
+							<ButtonPrimary onClick={onValidateHandler}>
 								{t('MODAL_VALIDATE', 'Validate')}
-							</Button.Primary>
+							</ButtonPrimary>
 						</S.DialogButtons>
 					</ReakitDialog>
 				</S.DialogBackdrop>

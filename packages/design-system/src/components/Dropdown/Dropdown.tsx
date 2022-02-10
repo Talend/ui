@@ -2,16 +2,16 @@ import React from 'react';
 import { StyledProps } from 'styled-components';
 import { BoxProps, useMenuState } from 'reakit';
 
-import Link, { LinkProps } from '../Link/Link';
-import Button from '../Button';
+import Linkable, { LinkableType } from '../Linkable';
+import Clickable, { ClickableProps } from '../Clickable';
 
 import * as S from './Dropdown.style';
 
 type DividerType = { divider: boolean };
-type LinkType = Omit<LinkProps, 'children'> & {
+type LinkType = Omit<LinkableType, 'children'> & {
 	label: string;
 };
-type ButtonType = Omit<LinkType, 'href'>;
+type ButtonType = Omit<LinkType, 'href'> & Omit<ClickableProps, 'children'>;
 type MenuItemProps = DividerType | LinkType | ButtonType;
 
 export type DropdownProps = BoxProps &
@@ -22,11 +22,11 @@ export type DropdownProps = BoxProps &
 
 function convertItem(item: ButtonType | LinkType) {
 	return 'href' in item ? (
-		<Link iconBefore={item.icon} {...item}>
+		<Linkable icon={item.icon} {...item}>
 			{item.label}
-		</Link>
+		</Linkable>
 	) : (
-		<Button {...item}>{item.label}</Button>
+		<Clickable {...(item as ButtonType)}>{item.label}</Clickable>
 	);
 }
 
@@ -41,7 +41,7 @@ const Dropdown: React.FC<DropdownProps> = React.forwardRef(
 
 		return (
 			<>
-				<S.Button as={Button} data-test="dropdown.button" {...menu} {...rest} ref={ref}>
+				<S.Button as={Clickable} data-test="dropdown.button" {...menu} {...rest} ref={ref}>
 					{children}
 					{items.length ? <S.ButtonIcon name="talend-caret-down" /> : null}
 				</S.Button>

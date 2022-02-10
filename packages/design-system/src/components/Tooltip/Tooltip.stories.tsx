@@ -1,16 +1,17 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import Tooltip from './Tooltip';
 
-import Button from '../Button';
+import { ButtonPrimary } from '../Button';
 
 export default { component: Tooltip };
 
 // eslint-disable-next-line storybook/prefer-pascal-case
 export const render = (props: Story<typeof Tooltip>) => (
 	<Tooltip {...props}>
-		<Button>Lorem ipsum</Button>
+		<ButtonPrimary onClick={action('clicked')}>Lorem ipsum</ButtonPrimary>
 	</Tooltip>
 );
 

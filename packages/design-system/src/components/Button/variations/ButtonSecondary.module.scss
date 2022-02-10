@@ -1,0 +1,26 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.secondary {
+	color: tokens.$coral-color-accent-text-strong;
+	border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+
+	&:hover {
+		color: tokens.$coral-color-accent-text-strong-hover;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
+		background: tokens.$coral-color-accent-background-weak-hover;
+	}
+
+	&:active {
+		color: tokens.$coral-color-accent-text-strong-active;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-active;
+		background: tokens.$coral-color-accent-background-weak-active;
+	}
+
+	&:disabled,
+	&[aria-disabled='true'],
+	&[aria-busy='true'] {
+		background: transparent;
+		color: tokens.$coral-color-neutral-text-disabled;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+	}
+}

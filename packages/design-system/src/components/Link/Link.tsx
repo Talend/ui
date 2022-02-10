@@ -1,67 +1,27 @@
+import React, { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
 import { IconName } from '@talend/icons';
-import React, {
-	AnchorHTMLAttributes,
-	cloneElement,
-	ComponentType,
-	createElement,
-	forwardRef,
-	PropsWithRef,
-	ReactElement,
-	Ref,
-	useCallback,
-	useMemo,
-} from 'react';
-
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { Icon } from '../Icon/Icon';
+import Linkable, { LinkableType, isBlank as targetCheck } from '../Linkable';
 
 import style from './Link.module.scss';
 
-export type LinkProps = AnchorHTMLAttributes<any> & {
+export type LinkComponentProps = {
 	/** The icon to display before */
 	icon?: IconName | ReactElement;
-	/** The icon to display before */
-	iconBefore?: IconName | ReactElement;
-	/** The icon to display after */
-	iconAfter?: IconName | ReactElement;
 	/** if the link is disabled */
 	disabled?: boolean;
-	/** if the link is external but the icon must not be shown */
-	hideExternalIcon?: boolean;
 };
 
-export type StyledLink = { as?: ComponentType<any> | string } & PropsWithRef<LinkProps>;
+export type LinkProps = Omit<LinkableType, 'className'> & LinkComponentProps;
 
 const Link = forwardRef(
 	(
-		{
-			className,
-			children,
-			iconAfter,
-			iconBefore,
-			icon = iconBefore,
-			disabled,
-			href,
-			target,
-			title,
-			hideExternalIcon,
-			as = 'a',
-			...rest
-		}: StyledLink,
-		ref: Ref<any>,
+		{ children, disabled, href, target, title, hideExternalIcon, ...rest }: LinkProps,
+		ref: Ref<HTMLAnchorElement>,
 	) => {
 		const { t } = useTranslation();
-		const isBlank: boolean = useMemo(
-			() => !!target && !['_self', '_parent', '_top'].includes(target.toLowerCase()),
-			[target],
-		);
-		const isExternal = useMemo(() => {
-			if (!href) {
-				return false;
-			}
-			return /^https?:\/\//i.test(href) && new URL(href).host !== location.host;
-		}, [href]);
+		const isBlank: boolean = useMemo(() => targetCheck(target), [target]);
 
 		const getTitle = useCallback(() => {
 			if (disabled && title) {
@@ -89,60 +49,18 @@ const Link = forwardRef(
 			return title;
 		}, [disabled, title, isBlank, t]);
 
-		return createElement(
-			as,
-			{
-				rel: isBlank ? 'noopener noreferrer' : undefined,
-				target,
-				...rest,
-				href: !disabled ? href : undefined,
-				className: classNames(style.link, { [style.linkDisabled]: disabled }),
-				title: getTitle(),
-				'aria-disabled': disabled,
-				ref,
-			},
-			<>
-				{icon &&
-					(typeof icon === 'string' ? (
-						<Icon
-							className={classNames(style.link__icon, style.link__iconBefore)}
-							name={icon}
-							data-test="link.icon.before"
-						/>
-					) : (
-						cloneElement(icon, {
-							className: classNames(
-								icon.props?.className,
-								style.link__icon,
-								style.link__iconBefore,
-							),
-						})
-					))}
+		return (
+			<Linkable
+				target={target}
+				{...rest}
+				href={!disabled ? href : undefined}
+				className={classNames(style.link, { [style.linkDisabled]: disabled })}
+				title={getTitle()}
+				aria-disabled={disabled}
+				ref={ref}
+			>
 				<span className={style.link__text}>{children}</span>
-				{isExternal && !hideExternalIcon && (
-					<Icon
-						className={classNames(style.link__icon, style.link__iconExternal)}
-						data-test="link.icon.external"
-						name="talend-link"
-					/>
-				)}
-				{iconAfter &&
-					(typeof iconAfter === 'string' ? (
-						<Icon
-							className={classNames(style.link__icon, style.link__iconAfter)}
-							name={iconAfter}
-						    data-test="link.icon.after"
-						/>
-					) : (
-						cloneElement(iconAfter, {
-							className: classNames(
-								iconAfter.props?.className,
-								style.link__icon,
-								style.link__iconAfter,
-							),
-						})
-					))}
-			</>,
+			</Linkable>
 		);
 	},
 );

@@ -2,21 +2,20 @@ import React from 'react';
 
 import { VisuallyHidden } from 'reakit';
 
-import Button from '../../Button';
+import Clickable from '../../Clickable';
+import { ButtonPrimary, ButtonSecondary } from '../../Button';
 import Dropdown from '../../Dropdown';
 import Link from '../../Link';
 import { Icon } from '../../Icon';
 import HeaderBar from '..';
 
-import dark from '../../../themes/dark.theme';
-
 export const PortalOnBoarding = () => (
 	<HeaderBar>
 		<HeaderBar.Logo full>
-			<Link href="#">
+			<a href="#">
 				<Icon name="talend-logo" />
 				<VisuallyHidden>Talend</VisuallyHidden>
-			</Link>
+			</a>
 		</HeaderBar.Logo>
 	</HeaderBar>
 );
@@ -25,10 +24,10 @@ export const Portal = () => {
 	return (
 		<HeaderBar>
 			<HeaderBar.Logo full>
-				<Link href="#">
+				<a href="#">
 					<Icon name="talend-logo" />
 					<VisuallyHidden>Talend</VisuallyHidden>
-				</Link>
+				</a>
 			</HeaderBar.Logo>
 			<HeaderBar.Brand>
 				<Dropdown
@@ -57,15 +56,15 @@ export const Portal = () => {
 			<HeaderBar.Content>
 				<HeaderBar.ContentRight>
 					<HeaderBar.Item freeze>
-						<Button.Primary small theme={dark}>
+						<ButtonPrimary onClick={() => {}} size="S">
 							Subscribe now
-						</Button.Primary>
+						</ButtonPrimary>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Dropdown
 							icon="talend-user-circle"
 							items={[
-								<Button>About</Button>,
+								<Clickable>About</Clickable>,
 								<></>,
 								<Link href="#">Support</Link>,
 								<Link href="#">Community</Link>,
@@ -87,10 +86,10 @@ export const Apps = () => {
 	return (
 		<HeaderBar>
 			<HeaderBar.Logo>
-				<Link href="#">
+				<a href="#">
 					<Icon name="talend-logo-square" />
 					<VisuallyHidden>Talend</VisuallyHidden>
-				</Link>
+				</a>
 			</HeaderBar.Logo>
 			<HeaderBar.Brand>
 				<Dropdown
@@ -119,37 +118,37 @@ export const Apps = () => {
 					<HeaderBar.Item>
 						<Dropdown
 							items={[
-								<Button.Secondary>Open</Button.Secondary>,
+								<ButtonSecondary onClick={() => {}}>Open</ButtonSecondary>,
 								<></>,
-								<Button>New API</Button>,
-								<Button>Make a copy</Button>,
+								<Clickable>New API</Clickable>,
+								<Clickable>Make a copy</Clickable>,
 								<></>,
 								<Dropdown
 									items={[
-										<strong disabled>OpenAPI Specification / Swagger</strong>,
-										<Button>OAS 3.0</Button>,
-										<Button>OAS / Swagger 2.0</Button>,
-										<Button>Swagger 1.2</Button>,
+										<strong>OpenAPI Specification / Swagger</strong>,
+										<Clickable>OAS 3.0</Clickable>,
+										<Clickable>OAS / Swagger 2.0</Clickable>,
+										<Clickable>Swagger 1.2</Clickable>,
 										<></>,
-										<strong disabled>RAML</strong>,
-										<Button>RAML 1.0</Button>,
-										<Button>RAML 0.8</Button>,
+										<strong>RAML</strong>,
+										<Clickable>RAML 1.0</Clickable>,
+										<Clickable>RAML 0.8</Clickable>,
 									]}
 								>
 									Import
 								</Dropdown>,
-								<Button>Settings</Button>,
-								<Button>Erase all API content</Button>,
+								<Clickable>Settings</Clickable>,
+								<Clickable>Erase all API content</Clickable>,
 							]}
 						>
 							API
 						</Dropdown>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
-						<Button>Export</Button>
+						<Clickable>Export</Clickable>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
-						<Button>Documentation (preview)</Button>
+						<Clickable>Documentation (preview)</Clickable>
 					</HeaderBar.Item>
 					<HeaderBar.Item freeze>
 						<span className="text">API Saved</span>
@@ -160,7 +159,7 @@ export const Apps = () => {
 						<Dropdown
 							icon="talend-user-circle"
 							items={[
-								<Button>About</Button>,
+								<Clickable>About</Clickable>,
 								<></>,
 								<Link href="#">Support</Link>,
 								<Link href="#">Community</Link>,
