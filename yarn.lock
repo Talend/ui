@@ -3248,7 +3248,7 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-6.36.0.tgz#727311ca5f8fa220dba18a5069ae403256a384ca"
   integrity sha512-pW1kVv6atGEy5qIfp2VVpdFAtJrwpYpIIiE576W5IDw0q8U7yAafEb+vhk9jVHElyrAkYJSYjxjit8gYX/CJxw==
 
-"@talend/module-to-cdn@^9.7.6":
+"@talend/module-to-cdn@^9.7.6", "@talend/module-to-cdn@^9.7.7":
   version "9.7.7"
   resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.7.tgz#4f9ecafd1796fb156aaf1a385a94cbb7128454f9"
   integrity sha512-nwtPDnmOBlLlAfAZEbxVMwynWdcj/5dyPHdcbP/bEX9LT4GZyETh8EmfgFh0rmCH+soJ1d7dSTkWIMoWrFEcJQ==
@@ -3276,12 +3276,12 @@
     babel-plugin-angularjs-annotate "^0.10.0"
 
 "@talend/scripts-config-cdn@^9.11.3":
-  version "9.11.3"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.11.3.tgz#2df2118b6e4b32e6dd859105c6915f789b0a05bb"
-  integrity sha512-f00A/Z4YzCXpaFrr6Qy3N/Rods4hxSedRwyEjM0rmNaj8z5ckx0ZUWJJZ83x0jOiT1kqEeQHPz5z3HE7H2evSA==
+  version "9.11.4"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.11.4.tgz#aa7bdf8723629fe8198ee28ee29f8038b01cc69e"
+  integrity sha512-T1OA0yeYPc9z6OIIBfNiK7t07G8GaADznzUzY18GvIk/9GQP8Z4zNX3JR1T27S1uiLEZpGsZf0xadLN8+YrEIg==
   dependencies:
     "@talend/dynamic-cdn-webpack-plugin" "^9.7.15"
-    "@talend/module-to-cdn" "^9.7.6"
+    "@talend/module-to-cdn" "^9.7.7"
     "@yarnpkg/lockfile" "^1.1.0"
     read-pkg-up "^7.0.1"
 
