@@ -1,5 +1,6 @@
 ---
 '@talend/react-components': patch
+'@talend/react-forms': patch
 ---
 
-upgrade dependencies to expose stylePath
+upgrade build to expose stylePath from design-system
