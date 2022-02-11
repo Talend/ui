@@ -10,19 +10,19 @@ function findAssetsImport(importDeclarationPath) {
 	return path === '@talend/assets-api';
 }
 
+const FUNCTIONS = ['getUrl', 'getJSON'];
+
 module.exports = function transform({ types }) {
 	return {
 		visitor: {
 			Program(path) {
 				const getUrlCalls = [];
-				let realLastImport;
 				const cache = {};
 
 				path.traverse({
 					CallExpression: {
 						exit(callExpression) {
-							if (callExpression.node.callee.property?.name === 'getUrl') {
-								console.error('lenght', callExpression.node.arguments.length);
+							if (FUNCTIONS.includes(callExpression.node.callee.property?.name)) {
 								if (callExpression.node.arguments.length < 3) {
 									getUrlCalls.push(callExpression);
 								}
@@ -31,20 +31,17 @@ module.exports = function transform({ types }) {
 					},
 					ImportDeclaration: {
 						exit(importDeclarationPath) {
-							realLastImport = importDeclarationPath;
 							cache.found = findAssetsImport(importDeclarationPath);
 						},
 					},
 				});
 
 				if (cache.found) {
-					console.error('found !!!', getUrlCalls.length);
 					if (getUrlCalls.length > 0) {
 						getUrlCalls.forEach(c => {
-							let [p, pkg, ver] = c.node.arguments.map(a => a.value);
+							let [_, pkg, ver] = c.node.arguments.map(a => a.value);
 							const filename = path.container.loc.filename;
 							let pkgDef;
-							console.log('@@@@ filename', path.container.loc);
 							if (!pkg && filename) {
 								// TODO: find current package.json
 								pkgDef = readPkgUpSync(filename);
