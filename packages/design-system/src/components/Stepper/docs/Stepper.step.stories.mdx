@@ -99,16 +99,11 @@ Sub steps are optional. They should be used to avoid having too many steps, or t
 
 ## Interactions
 
-N/C
-
-<!--
-Hovering the step will display a tooltip with the full label.
+Hovering the step can display a tooltip with more information if needed.
 
 <Canvas>
-	<Story name="Max width">
-		<Tooltip title="lorem ipsum dolor sit amet">
-			<Step.InProgress data-index={1} title="lorem ipsum dolor sit amet" />
-		</Tooltip>
+	<Story name="With tooltip">
+		<Step.Enabled data-index={1} title="My first step" tooltip="This is the first step in the process" tooltipPlacement="auto"/>
 	</Story>
 </Canvas>
 
@@ -116,7 +111,6 @@ Hovering the step will display a tooltip with the full label.
 	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=1%3A462"
 	alt="hovering on"
 />
--->
 
 ## Usage
 
@@ -127,6 +121,8 @@ Hovering the step will display a tooltip with the full label.
 			variant: 'Skeleton',
 			index: 1,
 			title: 'Lorem ipsum',
+			tooltip: 'Extra information about this step',
+			tooltipPlacement: 'auto'
 		}}
 		argTypes={{
 			variant: {
@@ -148,12 +144,41 @@ Hovering the step will display a tooltip with the full label.
 					type: 'text',
 				},
 			},
+			tooltip: {
+				description: 'Tooltip content',
+				control: {
+					type: 'text',
+				},
+			},
+			tooltipPlacement: {
+				description: 'Tooltip location relative to the step',
+				control: {
+					type: 'select',
+					options: [
+						'auto-start',
+						'auto',
+						'auto-end',
+						'top-start',
+						'top',
+						'top-end',
+						'right-start',
+						'right',
+						'right-end',
+						'bottom-end',
+						'bottom',
+						'bottom-start',
+						'left-end',
+						'left',
+						'left-start',
+					],
+				},
+			},
 		}}
 	>
-		{({ variant, index, title }) => {
+		{({ variant, index, title, tooltip, tooltipPlacement }) => {
 			const StepComponent = Step[variant];
 			StepComponent.displayName = `Step.${variant}`;
-			return <StepComponent data-index={index} title={title} />;
+			return <StepComponent data-index={index} title={title} tooltip={tooltip} tooltipPlacement={tooltipPlacement} />;
 		}}
 	</Story>
 </Canvas>
