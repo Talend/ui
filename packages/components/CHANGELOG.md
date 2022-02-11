@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.44.3
+
+### Patch Changes
+
+- 832d82673: upgrade build to expose stylePath from design-system
+
 ## 6.44.2
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 7.0.3
+
+### Patch Changes
+
+- 832d82673: upgrade build to expose stylePath from design-system
+- Updated dependencies [832d82673]
+  - @talend/react-components@6.44.3
+
 ## 7.0.2
 
 ### Patch Changes
