@@ -8,7 +8,8 @@ import * as Stories from './InlineEditing.stories';
 	component={InlineEditing}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'ok' },
-		figmaLink: 'https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/?node-id=58%3A0',
+		figmaLink:
+			'https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=422%3A3426',
 	}}
 	decorators={[
 		Story => (
@@ -26,7 +27,7 @@ User can perform inline editing by using inline form.
 ## Zoning
 
 <FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=351%3A0"
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=467%3A7850"
 	alt="zoning image for inline editing"
 />
 
@@ -36,11 +37,21 @@ User can perform inline editing by using inline form.
 
 **Single line**
 
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=467%3A7866"
+	alt="Single line InlineEditing with content"
+/>
+
 <Canvas>
 	<Story story={Stories.Text} />
 </Canvas>
 
 **Empty single line with a placeholder**
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=472%3A3999"
+	alt="Single line InlineEditing without initial content"
+/>
 
 <Canvas>
 	<Story story={Stories.EmptyTextWithPlaceholder} />
@@ -48,24 +59,34 @@ User can perform inline editing by using inline form.
 
 **Multi lines**
 
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=474%3A4085"
+	alt="Multi lines InlineEditing with initial content"
+/>
+
 <Canvas>
 	<Story story={Stories.Textarea} />
 </Canvas>
 
 ## States
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=163%3A622"
-	alt="states image for inline editing"
-/>
-
 ### Loading
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=477%3A4388"
+	alt="Pending state for InlineEditing"
+/>
 
 <Canvas>
 	<Story story={Stories.LoadingMode} />
 </Canvas>
 
 ### Error
+
+<FigmaImage
+	src="https://www.figma.com/file/Ve55mrVTPmg8yDo8VKRp83/Inline-editing?node-id=478%3A4481"
+	alt="Error state for InlineEditing"
+/>
 
 In this example, async submit will always end up with an error.
 
