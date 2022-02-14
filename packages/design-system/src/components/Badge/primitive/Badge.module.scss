@@ -1,0 +1,58 @@
+@use "~@talend/design-tokens/lib/tokens";
+
+.badge {
+	display: inline-flex;
+	align-items: stretch;
+	max-width: tokens.$coral-size-limit;
+	padding: 0 tokens.$coral-size-m;
+	height: tokens.$coral-size-l;
+	font: tokens.$coral-paragraph-m-bold;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-radius: tokens.$coral-radius-round;
+
+	&Fixed {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	}
+
+	&__label,
+	&__value,
+	&__remove {
+		display: flex;
+		align-items: center;
+		gap: tokens.$coral-size-xxs;
+	}
+
+	&__label,
+	&__value {
+		min-width: 0;
+	}
+
+	&__label {
+		span {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+	}
+
+	&__value {
+		> div > button:first-child {
+			flex-shrink: 0;
+		}
+
+		> div > button,
+		> div > button span {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		> div > button span {
+			display: inline;
+		}
+	}
+
+	&__remove {
+		flex: 0;
+	}
+}

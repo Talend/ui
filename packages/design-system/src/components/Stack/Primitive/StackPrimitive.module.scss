@@ -3,10 +3,12 @@
 .stack {
 	display: flex;
 	flex-flow: row;
+	max-width: 100%;
 	flex-grow: 1;
 
 	&.column {
 		flex-flow: column;
+		max-height: 100%;
 	}
 
 	&.inline {

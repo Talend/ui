@@ -1,0 +1,48 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+
+import * as Stories from "./Badge.stories";
+
+<Meta
+    title='Components/Badge'
+/>
+
+# Badge
+
+Badges are simple components to quickly identify which values are currently selected.
+
+<Canvas>
+    <Story story={Stories.SimpleBadge} />
+</Canvas>
+
+<Canvas withSource="closed">
+    <Story story={Stories.SimpleBadges} />
+</Canvas>
+
+## Not removable
+
+They can be used to be able to pick a single value too. They will trigger an immediate action over the interface.
+
+<Canvas>
+    <Story story={Stories.NotRemovableBadge} />
+</Canvas>
+
+<Canvas withSource="closed">
+    <Story story={Stories.NotRemovableBadges} />
+</Canvas>
+
+<!--
+<Canvas withSource="closed">
+    <Story story={Stories.ContainsBadge} />
+</Canvas>
+
+<Canvas withSource="closed">
+    <Story story={Stories.ValidBadge} />
+    <Story story={Stories.EmptyBadge} />
+    <Story story={Stories.InvalidBadge} />
+</Canvas>
+
+<Canvas withSource="closed">
+    <Story story={Stories.ValueBadge} />
+    <Story story={Stories.PatternBadge} />
+</Canvas>
+-->
