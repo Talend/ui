@@ -4,23 +4,24 @@ import parse from 'date-fns/parse';
 type DateFnsFormatInput = Date | number | string;
 
 interface ConversionOptions {
-	timeZone: string,
-	sourceTimeZone?: string,
-	locale?: Object,
+	timeZone: string;
+	sourceTimeZone?: string;
+	locale?: Object;
 }
 
 export interface DateFormatOptions {
-	[key: string]: Intl.DateTimeFormatOptions,
+	[key: string]: Intl.DateTimeFormatOptions;
 }
 
 /**
  * Get the offset between a timezone and the UTC time (in minutes)
  * @param {string} timeZone Timezone IANA name
+ * @param {Date} date (optional) When specified, will be stead of default current time
  * @returns {Number}
  *
  * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
  */
-export function getUTCOffset(timeZone: string): number {
+export function getUTCOffset(timeZone: string, date?: Date): number {
 	// Build localized formats for UTC and the target timezone
 	const formatOptions: Intl.DateTimeFormatOptions = {
 		year: 'numeric',
@@ -35,9 +36,9 @@ export function getUTCOffset(timeZone: string): number {
 	const timezoneFormat = new Intl.DateTimeFormat(locale, { ...formatOptions, timeZone });
 
 	// Create the same date in UTC timezone and the target timezone
-	const date = new Date();
-	const utcDate = new Date(utcFormat.format(date));
-	const timezoneDate = new Date(timezoneFormat.format(date));
+	const dateObj = date ? date : new Date();
+	const utcDate = new Date(utcFormat.format(dateObj));
+	const timezoneDate = new Date(timezoneFormat.format(dateObj));
 
 	// Compute delta between dates
 	return (timezoneDate.getTime() - utcDate.getTime()) / (1000 * 60);
@@ -118,11 +119,11 @@ export function convertToTimeZone(date: DateFnsFormatInput, options: ConversionO
 
 	const parsedDate = parse(date);
 
-	let offset = getUTCOffset(timeZone) + parsedDate.getTimezoneOffset();
+	let offset = getUTCOffset(timeZone, parsedDate) + parsedDate.getTimezoneOffset();
 
 	if (sourceTimeZone) {
-		offset -= new Date().getTimezoneOffset();
-		offset -= getUTCOffset(sourceTimeZone);
+		offset -= parsedDate.getTimezoneOffset();
+		offset -= getUTCOffset(sourceTimeZone, parsedDate);
 	}
 
 	return new Date(parsedDate.getTime() + offset * 60 * 1000);
@@ -137,15 +138,17 @@ export function convertToTimeZone(date: DateFnsFormatInput, options: ConversionO
  *
  * @see https://github.com/prantlf/date-fns-timezone/blob/master/src/formatToTimeZone.js
  */
-export function formatToTimeZone(date: DateFnsFormatInput, formatString: string, options: ConversionOptions): string {
+export function formatToTimeZone(
+	date: DateFnsFormatInput,
+	formatString: string,
+	options: ConversionOptions,
+): string {
 	const dateConvertedToTimezone = convertToTimeZone(date, options);
 
 	// Replace timezone token(s) in the string format with timezone values, since format() will use local timezone
 	const dateFnsFormatWithTimeZoneValue = formatTimeZoneTokens(formatString, options.timeZone);
 
-	return dateFnsFormat(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue, {
-		locale: options.locale,
-	});
+	return dateFnsFormat(dateConvertedToTimezone, dateFnsFormatWithTimeZoneValue, options);
 }
 
 /**
@@ -213,7 +216,7 @@ const options = {
  */
 export function format(date: DateFnsFormatInput, dateOption: string, lang: string): string {
 	return new Intl.DateTimeFormat(lang, options[dateOption]).format(parse(date));
-};
+}
 
 export default {
 	convertToLocalTime,
