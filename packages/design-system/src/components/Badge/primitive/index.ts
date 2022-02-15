@@ -1,5 +1,7 @@
-import Badge, { BadgeProps as BaseProps } from './Badge';
+import { BadgeProps as BadgeBaseProps } from './BadgePrimitive';
+import Badge from './Badge';
+import BadgeFixed from './BadgeFixed';
 
-export type BadgeProps = Omit<BaseProps, 'className'>;
+export type BadgeProps = BadgeBaseProps;
 
-export { Badge };
+export { Badge, BadgeFixed };

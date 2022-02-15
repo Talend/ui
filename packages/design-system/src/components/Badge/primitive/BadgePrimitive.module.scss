@@ -1,0 +1,23 @@
+@use "~@talend/design-tokens/lib/tokens";
+
+.badge {
+	display: inline-flex;
+	align-items: stretch;
+	max-width: tokens.$coral-size-limit;
+	padding: 0 tokens.$coral-size-m;
+	height: tokens.$coral-size-l;
+	font: tokens.$coral-paragraph-m-bold;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-radius: tokens.$coral-radius-round;
+
+	&Fixed {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	}
+
+	[data-ellipsis] span {
+		display: inline;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}

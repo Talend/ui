@@ -3,17 +3,26 @@ import { faker } from '@faker-js/faker';
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 
-import { Badge } from '.';
+import BadgePrimitive from './primitive/Badge';
+import { Badge, BadgeFixed } from '.';
 import { StackHorizontal, StackVertical } from '../Stack';
 import { ButtonSecondary } from '../Button';
 
+const lorem2lines = faker.lorem.lines(2);
+
 export default {
-	component: Badge,
+	component: BadgePrimitive,
 };
 
 export const SimpleBadge = {
 	render: (props: Story<typeof Badge>) => (
 		<Badge label="Lorem ipsum" onRemove={action('remove')} {...props} />
+	),
+};
+
+export const SimpleBadgeWithEllipsis = {
+	render: (props: Story<typeof Badge>) => (
+		<Badge label={lorem2lines} onRemove={action('remove')} {...props} />
 	),
 };
 
@@ -55,12 +64,54 @@ export const SimpleBadges = {
 };
 
 export const NotRemovableBadge = {
-	render: (props: Story<typeof Badge>) => (
-		<Badge
+	render: (props: Story<typeof BadgePrimitive>) => (
+		<BadgeFixed
 			label="Environment"
 			aria-label="Switch between environments"
 			values={['Development', 'Staging', 'Production']}
 			defaultValue="Production"
+			onChange={action('onChange')}
+			{...props}
+		/>
+	),
+};
+
+export const NotRemovableBadgeWithEllipsisOnLabel = {
+	render: (props: Story<typeof BadgePrimitive>) => (
+		<BadgeFixed
+			label={lorem2lines}
+			values={['Development', 'Staging', 'Production']}
+			defaultValue="Production"
+			onChange={action('onChange')}
+			{...props}
+		/>
+	),
+};
+export const NotRemovableBadgeWithEllipsisOnValue = {
+	render: (props: Story<typeof BadgePrimitive>) => (
+		<BadgeFixed
+			label="Lorem ipsum"
+			values={[
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+				'Maecenas diam nisl, mollis quis tortor in, molestie ultricies sem.',
+				'Ut laoreet orci vel dui placerat sodales.',
+			]}
+			defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+			onChange={action('onChange')}
+			{...props}
+		/>
+	),
+};
+export const NotRemovableBadgeWithEllipsisOnBoth = {
+	render: (props: Story<typeof BadgePrimitive>) => (
+		<BadgeFixed
+			label={lorem2lines}
+			values={[
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+				'Maecenas diam nisl, mollis quis tortor in, molestie ultricies sem.',
+				'Ut laoreet orci vel dui placerat sodales.',
+			]}
+			defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 			onChange={action('onChange')}
 			{...props}
 		/>
@@ -86,14 +137,14 @@ export const NotRemovableBadges = {
 		return (
 			<StackVertical gap="S">
 				<StackHorizontal gap="S" align="center">
-					<Badge
+					<BadgeFixed
 						label="Environment"
 						aria-label="Switch between environments"
 						values={['Production', 'Staging', 'Development']}
 						defaultValue={currentEnvironmentValue}
 						onChange={onEnvironmentValueChange}
 					/>
-					<Badge
+					<BadgeFixed
 						label="Period"
 						aria-label="Switch between time ranges"
 						values={['Last 24 hours', 'Last 3 days', 'Last 7 days', 'Last 30 days']}
