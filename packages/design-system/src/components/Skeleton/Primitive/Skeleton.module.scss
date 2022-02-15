@@ -1,0 +1,46 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.skeleton {
+	display: inline-block;
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	background: tokens.$coral-color-neutral-background-strong;
+	animation: blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite;
+	border-radius: tokens.$coral-radius-s;
+	cursor: wait;
+
+	&.isBlock {
+		display: block;
+		width: 100%;
+	}
+}
+
+.size-XL {
+	height: tokens.$coral-size-xl;
+}
+
+.size-L {
+	height: tokens.$coral-size-l;
+}
+
+.size-M {
+	height: tokens.$coral-size-m;
+}
+
+.size-S {
+	height: tokens.$coral-size-s;
+}
+
+.size-XS {
+	height: tokens.$coral-size-xs;
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
