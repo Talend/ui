@@ -36,7 +36,7 @@ export function getUTCOffset(timeZone: string, date?: Date): number {
 	const timezoneFormat = new Intl.DateTimeFormat(locale, { ...formatOptions, timeZone });
 
 	// Create the same date in UTC timezone and the target timezone
-	const dateObj = date ? date : new Date();
+	const dateObj = date || new Date();
 	const utcDate = new Date(utcFormat.format(dateObj));
 	const timezoneDate = new Date(timezoneFormat.format(dateObj));
 
