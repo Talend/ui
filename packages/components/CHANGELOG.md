@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 6.44.4
+
+### Patch Changes
+
+- a0cbbb968: convertToTimeZone function with specific timezone and summertime
+- Updated dependencies [9f87b591a]
+- Updated dependencies [a98bf3ede]
+  - @talend/utils@2.2.0
+  - @talend/design-system@1.17.0
+
 ## 6.44.3
 
 ### Patch Changes

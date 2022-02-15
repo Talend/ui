@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 1.17.0
+
+### Minor Changes
+
+- a98bf3ede: Fix: Firefox default outline is displayed when taking focus in an input with tab.
+
 ## 1.16.0
 
 ### Minor Changes
