@@ -204,7 +204,7 @@ describe('date', () => {
 			['Africa/Bamako', new Date('2022-01-25 08:32:12'), 0],
 			['Asia/Seoul', new Date('2022-06-14 08:32:12'), 540],
 			['Europe/Berlin', new Date('2022-01-25 08:32:12'), 60], // winter time
-			['Europe/Berlin', new Date('2022-06-1 08:32:12'), 120], //summer time
+			['Europe/Berlin', new Date('2022-06-1 08:32:12'), 120], // summer time
 		])(
 			'it should get %s timezone offset with specific date',
 			(timezone: string, date: Date, expectedOffset: number) => {
