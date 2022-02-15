@@ -10,7 +10,7 @@ on:
     - cron: '0 0 * * 0'
 jobs:
   semgrep:
-    environment: main
+    environment: pull_request_unsafe
     name: Scan
     runs-on: ubuntu-latest
     if: (github.actor != 'dependabot[bot]')
