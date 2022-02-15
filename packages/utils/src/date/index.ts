@@ -16,7 +16,7 @@ export interface DateFormatOptions {
 /**
  * Get the offset between a timezone and the UTC time (in minutes)
  * @param {string} timeZone Timezone IANA name
- * @param {Date} date (optional) When specified, will be stead of default current time
+ * @param {Date} date (optional) When specified, will be instead of default current time
  * @returns {Number}
  *
  * @see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
