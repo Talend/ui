@@ -1,3 +1,1 @@
-import Badge from './primitive/Badge';
-
-export { Badge };
+export * from './primitive';
