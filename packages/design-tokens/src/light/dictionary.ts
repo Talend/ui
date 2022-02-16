@@ -65,6 +65,8 @@ Default: #FFFFFF`,
         type: 'color',
         description: `Medium contrasting background color. 
 
+Ex: used in SubHeader
+
 Default: #F7F7F7`,
         hsla: 'hsla(0,0%,97%,1)',
         hex: '#f7f7f7',
@@ -74,7 +76,12 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBackgroundStrong',
         type: 'color',
-        description: ``,
+        description: `Strongly contrasting background color. 
+Use sparingly.
+
+Ex: used in SubHeader back button.
+
+Default: #F7F7F7`,
         hsla: 'hsla(0,0%,88%,1)',
         hex: '#e0e0e0',
         value: 'hsla(0,0%,88%,1)',
@@ -83,7 +90,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBackgroundDisabled',
         type: 'color',
-        description: ``,
+        description: `Background color for disabled interactive elements only. 
+
+Ex: used in Buttons
+
+Default: #E0E0E0`,
         hsla: 'hsla(0,0%,88%,1)',
         hex: '#e0e0e0',
         value: 'hsla(0,0%,88%,1)',
@@ -92,7 +103,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBorder',
         type: 'color',
-        description: ``,
+        description: `Default border color. 
+
+Ex: used in Inputs
+
+Default: #8C8C8C`,
         hsla: 'hsla(0,0%,55%,1)',
         hex: '#8c8c8c',
         value: 'hsla(0,0%,55%,1)',
@@ -101,7 +116,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBorderWeak',
         type: 'color',
-        description: ``,
+        description: `Weaker border color, for discreet separators
+
+Ex: used in Dividers
+
+Default: #D2D2D2`,
         hsla: 'hsla(0,0%,82%,1)',
         hex: '#d2d2d2',
         value: 'hsla(0,0%,82%,1)',
@@ -110,7 +129,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBorderHover',
         type: 'color',
-        description: ``,
+        description: `Default border color, on mouseover. 
+
+Ex: used in Inputs
+
+Default: #666666`,
         hsla: 'hsla(0,0%,40%,1)',
         hex: '#666666',
         value: 'hsla(0,0%,40%,1)',
@@ -119,7 +142,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentTextWeak',
         type: 'color',
-        description: ``,
+        description: `Accent text color on accent-background-strong. 
+
+Ex: ButtonPrimary
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -128,7 +155,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentTextWeakHover',
         type: 'color',
-        description: ``,
+        description: `Accent text color on accent-background-strong, on mouseover. 
+
+Ex: ButtonPrimary
+
+Default: #CDE3F2`,
         hsla: 'hsla(204,59%,88%,1)',
         hex: '#cde3f2',
         value: 'hsla(204,59%,88%,1)',
@@ -137,7 +168,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentTextWeakActive',
         type: 'color',
-        description: ``,
+        description: `Accent text color on accent-background-strong, while pressing. 
+
+Ex: ButtonPrimary
+
+Default: #9BC7E6`,
         hsla: 'hsla(205,60%,75%,1)',
         hex: '#9bc7e6',
         value: 'hsla(205,60%,75%,1)',
@@ -146,7 +181,12 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentText',
         type: 'color',
-        description: ``,
+        description: `Accent text color. 
+Use for interactive text content without background. 
+
+Ex: Links
+
+Default: #045D9A`,
         hsla: 'hsla(204,95%,31%,1)',
         hex: '#045d9a',
         value: 'hsla(204,95%,31%,1)',
@@ -155,7 +195,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentTextHover',
         type: 'color',
-        description: ``,
+        description: `Accent text color on mouseover. 
+
+Ex: Links
+
+Default: #023659`,
         hsla: 'hsla(204,96%,18%,1)',
         hex: '#023659',
         value: 'hsla(204,96%,18%,1)',
@@ -164,7 +208,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentTextActive',
         type: 'color',
-        description: ``,
+        description: `Accent text color while pressed. 
+
+Ex: Links
+
+Default: #022741`,
         hsla: 'hsla(205,94%,13%,1)',
         hex: '#022741',
         value: 'hsla(205,94%,13%,1)',
@@ -173,7 +221,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackground',
         type: 'color',
-        description: ``,
+        description: `Accent background color by default. 
+
+Ex: InlineMessage
+
+Default: #CDE3F2`,
         hsla: 'hsla(204,59%,88%,1)',
         hex: '#cde3f2',
         value: 'hsla(204,59%,88%,1)',
@@ -182,7 +234,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackgroundHover',
         type: 'color',
-        description: ``,
+        description: `Accent background color by default, on mouseover. 
+
+Default: #9BC7E6`,
         hsla: 'hsla(205,60%,75%,1)',
         hex: '#9bc7e6',
         value: 'hsla(205,60%,75%,1)',
@@ -191,7 +245,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackgroundActive',
         type: 'color',
-        description: ``,
+        description: `Accent background color by default, while pressing. 
+
+Default: #69ACD9`,
         hsla: 'hsla(204,60%,63%,1)',
         hex: '#69acd9',
         value: 'hsla(204,60%,63%,1)',
@@ -200,7 +256,13 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackgroundWeak',
         type: 'color',
-        description: ``,
+        description: `Weakest accent background color. Same color as neutral-background but with accent-tinted hover and active.
+
+Use as placeholder to indicate that you want accent-tinted interactive states.
+
+Ex: ButtonTertiary
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -209,7 +271,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackgroundWeakHover',
         type: 'color',
-        description: ``,
+        description: `Weakest accent background color on mouseover.
+
+Ex: ButtonTertiary
+
+Default: #CDE3F2`,
         hsla: 'hsla(204,59%,88%,1)',
         hex: '#cde3f2',
         value: 'hsla(204,59%,88%,1)',
@@ -218,7 +284,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackgroundWeakActive',
         type: 'color',
-        description: ``,
+        description: `Weakest accent background color on press.
+
+Ex: ButtonTertiary
+
+Default: #9BC7E6`,
         hsla: 'hsla(205,60%,75%,1)',
         hex: '#9bc7e6',
         value: 'hsla(205,60%,75%,1)',
@@ -227,7 +297,12 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackgroundStrong',
         type: 'color',
-        description: ``,
+        description: `Strongest accent background color.
+Use for primary interactive items.
+
+Ex: ButtonPrimary
+
+Default: #045D9A`,
         hsla: 'hsla(204,95%,31%,1)',
         hex: '#045d9a',
         value: 'hsla(204,95%,31%,1)',
@@ -236,7 +311,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackgroundStrongHover',
         type: 'color',
-        description: ``,
+        description: `Strongest accent background color on mouseover
+
+Ex: ButtonPrimary
+
+Default: #034673`,
         hsla: 'hsla(204,95%,23%,1)',
         hex: '#034673',
         value: 'hsla(204,95%,23%,1)',
@@ -245,7 +324,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBackgroundStrongActive',
         type: 'color',
-        description: ``,
+        description: `Strongest accent background color on press.
+
+Ex: ButtonPrimary
+
+Default: #022E4D`,
         hsla: 'hsla(205,95%,15%,1)',
         hex: '#022e4d',
         value: 'hsla(205,95%,15%,1)',
@@ -254,7 +337,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBorderHover',
         type: 'color',
-        description: ``,
+        description: `Border with accent color on mouseover.
+
+Ex: ButtonSecondary
+
+Default: #034673`,
         hsla: 'hsla(204,95%,23%,1)',
         hex: '#034673',
         value: 'hsla(204,95%,23%,1)',
@@ -263,7 +350,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBorderActive',
         type: 'color',
-        description: ``,
+        description: `Border with accent color while pressing.
+
+Ex: ButtonSecondary
+
+Default: #022E4D`,
         hsla: 'hsla(205,95%,15%,1)',
         hex: '#022e4d',
         value: 'hsla(205,95%,15%,1)',
@@ -272,7 +363,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerTextWeak',
         type: 'color',
-        description: ``,
+        description: `Danger text color on danger-background-strong. 
+
+Ex: ButtonDestructive
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -281,7 +376,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerTextWeakHover',
         type: 'color',
-        description: ``,
+        description: `Danger text color on mouseover. 
+
+Ex: ButtonDestructive
+
+Default: #FFE1E2`,
         hsla: 'hsla(358,100%,94%,1)',
         hex: '#ffe1e2',
         value: 'hsla(358,100%,94%,1)',
@@ -290,7 +389,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerTextWeakActive',
         type: 'color',
-        description: ``,
+        description: `Danger text color while pressing. 
+
+Ex: ButtonDestructive
+
+Default: #FFE1E2`,
         hsla: 'hsla(359,100%,88%,1)',
         hex: '#ffc4c5',
         value: 'hsla(359,100%,88%,1)',
@@ -299,7 +402,10 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerText',
         type: 'color',
-        description: ``,
+        description: `Danger text color. 
+Use for text content without background that must carry a negative semantic value on its own. 
+
+Default: #C4484A`,
         hsla: 'hsla(359,51%,53%,1)',
         hex: '#c4484a',
         value: 'hsla(359,51%,53%,1)',
@@ -308,7 +414,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerTextHover',
         type: 'color',
-        description: ``,
+        description: `Danger text color on mouseover, if interactive. 
+
+Default: #A63537`,
         hsla: 'hsla(359,52%,43%,1)',
         hex: '#a63537',
         value: 'hsla(359,52%,43%,1)',
@@ -317,7 +425,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerTextActive',
         type: 'color',
-        description: ``,
+        description: `Danger text color while pressing, if interactive. 
+
+Default: #7F292A`,
         hsla: 'hsla(359,51%,33%,1)',
         hex: '#7f292a',
         value: 'hsla(359,51%,33%,1)',
@@ -326,7 +436,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackground',
         type: 'color',
-        description: ``,
+        description: `Danger background color by default. 
+
+Ex: InlineMessage
+
+Default: #FFEBEB`,
         hsla: 'hsla(0,100%,96%,1)',
         hex: '#ffebeb',
         value: 'hsla(0,100%,96%,1)',
@@ -335,7 +449,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackgroundHover',
         type: 'color',
-        description: ``,
+        description: `Danger background on mouseover. 
+
+Default: #FFC4C5`,
         hsla: 'hsla(359,100%,88%,1)',
         hex: '#ffc4c5',
         value: 'hsla(359,100%,88%,1)',
@@ -344,7 +460,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackgroundActive',
         type: 'color',
-        description: ``,
+        description: `Danger background while pressing. 
+
+Default: #FFA7A9`,
         hsla: 'hsla(359,100%,83%,1)',
         hex: '#ffa7a9',
         value: 'hsla(359,100%,83%,1)',
@@ -353,7 +471,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackgroundWeak',
         type: 'color',
-        description: ``,
+        description: `Weakest danger background color. Same color as neutral-background but with danger-tinted hover and active.
+
+Use as placeholder to indicate that you want danger-tinted interactive states.
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -362,7 +484,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackgroundWeakHover',
         type: 'color',
-        description: ``,
+        description: `Weakest danger background color on mouseover. 
+
+Default: #FFE1E2`,
         hsla: 'hsla(358,100%,94%,1)',
         hex: '#ffe1e2',
         value: 'hsla(358,100%,94%,1)',
@@ -371,7 +495,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackgroundWeakActive',
         type: 'color',
-        description: ``,
+        description: `Weakest danger background color while pressed. 
+
+Default: #FFC4C5`,
         hsla: 'hsla(359,100%,88%,1)',
         hex: '#ffc4c5',
         value: 'hsla(359,100%,88%,1)',
@@ -443,7 +569,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackgroundStrong',
         type: 'color',
-        description: ``,
+        description: `Strongest danger background color. Use on strong interactive elements with a negative semantic attached.
+
+Ex: ButtonDestructive 
+
+Default: #C4484A`,
         hsla: 'hsla(359,51%,53%,1)',
         hex: '#c4484a',
         value: 'hsla(359,51%,53%,1)',
@@ -452,7 +582,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackgroundStrongHover',
         type: 'color',
-        description: ``,
+        description: `Strongest danger background color on mouseover.
+
+Ex: ButtonDestructive 
+
+Default: #952D2F`,
         hsla: 'hsla(359,54%,38%,1)',
         hex: '#952d2f',
         value: 'hsla(359,54%,38%,1)',
@@ -461,7 +595,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBackgroundStrongActive',
         type: 'color',
-        description: ``,
+        description: `Strongest danger background color while pressed.
+
+Ex: ButtonDestructive 
+
+Default: #952D2F`,
         hsla: 'hsla(359,54%,33%,1)',
         hex: '#812729',
         value: 'hsla(359,54%,33%,1)',
@@ -470,7 +608,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBorder',
         type: 'color',
-        description: ``,
+        description: `Border color with danger semantic.
+
+Ex: Input in error state
+
+Default: #C4484A`,
         hsla: 'hsla(359,51%,53%,1)',
         hex: '#c4484a',
         value: 'hsla(359,51%,53%,1)',
@@ -488,7 +630,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBorderHover',
         type: 'color',
-        description: ``,
+        description: `Border color with danger semantic on mouseover.
+
+Ex: Input in error state
+
+Default: #952D2F`,
         hsla: 'hsla(359,54%,38%,1)',
         hex: '#952d2f',
         value: 'hsla(359,54%,38%,1)',
@@ -506,7 +652,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerBorderActive',
         type: 'color',
-        description: ``,
+        description: `Border color with danger semantic while pressing.
+
+Ex: Input in error state
+
+Default: #812729`,
         hsla: 'hsla(359,54%,33%,1)',
         hex: '#812729',
         value: 'hsla(359,54%,33%,1)',
@@ -794,7 +944,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBorderDisabled',
         type: 'color',
-        description: ``,
+        description: `Disabled border color for interactive elements 
+
+Ex: used in Inputs
+
+Default: #A6A6A6`,
         hsla: 'hsla(0,0%,65%,1)',
         hex: '#a6a6a6',
         value: 'hsla(0,0%,65%,1)',
@@ -803,7 +957,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBorderWeakHover',
         type: 'color',
-        description: ``,
+        description: `Weaker border color on mouseover.
+
+Default: #B8B8B8`,
         hsla: 'hsla(0,0%,72%,1)',
         hex: '#b8b8b8',
         value: 'hsla(0,0%,72%,1)',
@@ -848,7 +1004,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerTextStrong',
         type: 'color',
-        description: ``,
+        description: `Danger text color on danger-background. 
+
+Default: #A43B3D`,
         hsla: 'hsla(359,47%,44%,1)',
         hex: '#a43b3d',
         value: 'hsla(359,47%,44%,1)',
@@ -857,7 +1015,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerTextStrongHover',
         type: 'color',
-        description: ``,
+        description: `Danger text color on mouseover. 
+
+Default: #952D2F`,
         hsla: 'hsla(359,54%,38%,1)',
         hex: '#952d2f',
         value: 'hsla(359,54%,38%,1)',
@@ -866,7 +1026,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerTextStrongActive',
         type: 'color',
-        description: ``,
+        description: `Danger text color while pressing. 
+
+Default: #812729`,
         hsla: 'hsla(359,54%,33%,1)',
         hex: '#812729',
         value: 'hsla(359,54%,33%,1)',
@@ -1145,7 +1307,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBorderStrong',
         type: 'color',
-        description: ``,
+        description: `Strongest border color.
+
+Use on strong backgrounds (neutral-background-medium, -strong or -heavy).
+
+Default: #404040`,
         hsla: 'hsla(0,0%,25%,1)',
         hex: '#404040',
         value: 'hsla(0,0%,25%,1)',
@@ -1154,7 +1320,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralBorderStrongHover',
         type: 'color',
-        description: ``,
+        description: `Strongest border color on mouseover.
+
+Default: #262626`,
         hsla: 'hsla(0,0%,15%,1)',
         hex: '#262626',
         value: 'hsla(0,0%,15%,1)',
@@ -1163,7 +1331,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralIconInverted',
         type: 'color',
-        description: ``,
+        description: `Neutral icon color on dark backgrounds.
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -1172,7 +1342,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralIcon',
         type: 'color',
-        description: ``,
+        description: `Default icon color.
+
+Best use when the icon doesn't expect interactivity. 
+
+Default: #202020`,
         hsla: 'hsla(0,0%,13%,1)',
         hex: '#202020',
         value: 'hsla(0,0%,13%,1)',
@@ -1181,7 +1355,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorNeutralIconWeak',
         type: 'color',
-        description: ``,
+        description: `Weakly contrasting icon color.
+
+Best used when there is regular neutral-text or neutral-icon colors nearby for efficient hierarchy.
+
+Default: #616161`,
         hsla: 'hsla(0,0%,38%,1)',
         hex: '#616161',
         value: 'hsla(0,0%,38%,1)',
@@ -1190,7 +1368,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentIcon',
         type: 'color',
-        description: ``,
+        description: `Icon with accent color.
+
+Ex: ButtonIcon
+
+Default: #0C78C2`,
         hsla: 'hsla(204,88%,40%,1)',
         hex: '#0c78c2',
         value: 'hsla(204,88%,40%,1)',
@@ -1199,7 +1381,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentIconHover',
         type: 'color',
-        description: ``,
+        description: `Icon with accent color on mouseover.
+
+Ex: ButtonIcon
+
+Default: #095990`,
         hsla: 'hsla(204,88%,30%,1)',
         hex: '#095990',
         value: 'hsla(204,88%,30%,1)',
@@ -1208,7 +1394,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentIconActive',
         type: 'color',
-        description: ``,
+        description: `Icon with accent color while pressing.
+
+Ex: ButtonIcon
+
+Default: #063B60`,
         hsla: 'hsla(205,88%,20%,1)',
         hex: '#063b60',
         value: 'hsla(205,88%,20%,1)',
@@ -1217,7 +1407,11 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerIcon',
         type: 'color',
-        description: ``,
+        description: `Icon with danger color.
+
+Ex: Status
+
+Default: #D93335`,
         hsla: 'hsla(359,69%,53%,1)',
         hex: '#d93335',
         value: 'hsla(359,69%,53%,1)',
@@ -1226,7 +1420,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerIconHover',
         type: 'color',
-        description: ``,
+        description: `Icon with danger color on mouseover.
+
+Default: #B92224`,
         hsla: 'hsla(359,69%,43%,1)',
         hex: '#b92224',
         value: 'hsla(359,69%,43%,1)',
@@ -1235,7 +1431,9 @@ Default: #F7F7F7`,
     {
         name: 'coralColorDangerIconActive',
         type: 'color',
-        description: ``,
+        description: `Icon with danger color while pressed.
+
+Default: #8E1A1C`,
         hsla: 'hsla(359,69%,33%,1)',
         hex: '#8e1a1c',
         value: 'hsla(359,69%,33%,1)',
@@ -1838,7 +2036,12 @@ Default: #F7F7F7`,
     {
         name: 'coralColorAccentBorder',
         type: 'color',
-        description: ``,
+        description: `Border with accent color.
+Use for interactive items.
+
+Ex: ButtonSecondary
+
+Default: #045D9A`,
         hsla: 'hsla(204,95%,31%,1)',
         hex: '#045d9a',
         value: 'hsla(204,95%,31%,1)',
@@ -2219,7 +2422,7 @@ Default: 0.6`,
         type: 'breakpoint',
         description: `Small screen (Portrait)
 
-Defult: 400px`,
+Default: 400px`,
         value: `40em`,
         
     },
@@ -2228,7 +2431,7 @@ Defult: 400px`,
         type: 'breakpoint',
         description: `Small screen (Landscape)
 
-Defult: 480px`,
+Default: 480px`,
         value: `48em`,
         
     },
@@ -2237,7 +2440,7 @@ Defult: 480px`,
         type: 'breakpoint',
         description: `Wide screen (Portrait)
 
-Defult: 640px`,
+Default: 640px`,
         value: `64em`,
         
     },
@@ -2246,7 +2449,7 @@ Defult: 640px`,
         type: 'breakpoint',
         description: `Wide screen (Landscape)
 
-Defult: 800px`,
+Default: 800px`,
         value: `80em`,
         
     },
@@ -2271,7 +2474,7 @@ Default: 100ms ease-out`,
     {
         name: 'coralTransitionFast',
         type: 'transition',
-        description: `Fast transition for out effects (closing menu, hide modal, ...)
+        description: `Fast transition for "out" effects (closing menu, hide modal, ...)
 
 Default: 250ms ease-in-out`,
         value: `250ms ease-in-out`,
@@ -2280,7 +2483,7 @@ Default: 250ms ease-in-out`,
     {
         name: 'coralTransitionNormal',
         type: 'transition',
-        description: `Normal transition for "in" effect (opening menu, show modal, ...)
+        description: `Normal transition for "in" effects (opening menu, show modal, ...)
 
 Default: 300ms ease-in-out`,
         value: `300ms ease-in-out`,
@@ -2300,7 +2503,7 @@ Default: 400ms ease-in`,
         type: 'elevation',
         description: `Default content elevation
 
-Defult: 0`,
+Default: 0`,
         value: `0`,
         
     },
@@ -2316,7 +2519,7 @@ Default: 4`,
     {
         name: 'coralElevationLayerInteractiveFront',
         type: 'elevation',
-        description: `Behind any layout (dropdown, popover, tooltip)
+        description: `Behind any layout (Dropdown, Popover)
 
 Default: 8`,
         value: `8`,
@@ -2325,7 +2528,7 @@ Default: 8`,
     {
         name: 'coralElevationLayerOverlay',
         type: 'elevation',
-        description: `Behind anything else (Alert, Confirm, etc.)
+        description: `Behind anything else (Alert, Confirm, Tooltip, etc.)
 
 Default: 16`,
         value: `16`,
