@@ -1,0 +1,80 @@
+name: PR playground CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and deploy
+    environment: pull_request_unsafe
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - name: Install and build playground
+        id: build
+        run: |
+          yarn install --frozen-lockfile
+          yarn global add surge
+          echo "$(yarn global bin)" >> $GITHUB_PATH
+          yarn pre-release
+          yarn workspace @talend/ui-playground run test:demo:umd
+
+      - name: deploy if master
+        if: github.ref == 'refs/heads/master'
+        run: |
+          rm -rf .static
+          mkdir .static
+          mkdir .static/playground
+          cp -R packages/playground/dist/* .static/playground
+          surge --project .static --domain "talend-playground.surge.sh"
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+      - name: deploy if PR
+        if: github.ref != 'refs/heads/master'
+        run: |
+          rm -rf .static
+          mkdir .static
+          mkdir .static/playground
+          cp -R packages/playground/dist/* .static/playground
+          surge --project .static --domain "${{ github.event.number }}.talend-playground.surge.sh"
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
+  check:
+    runs-on: ubuntu-latest
+    name: Check size
+    environment: pull_request_unsafe
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Check UMD files size diff
+        uses: preactjs/compressed-size-action@v2
+        if: github.ref != 'refs/heads/master'
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          build-script: "pre-release"
+          pattern: "./packages/*/dist/*.{js,css,json}"
+          exclude: "{**/*.html,**/*.map,**/node_modules/**}"
+          compression: "none"
+          minimum-change-threshold: 100
