@@ -5,7 +5,7 @@ import SkeletonPrimitive, { SkeletonPrimitiveProps } from '../Primitive/Skeleton
 import PrimitiveStyles from '../Primitive/Skeleton.module.scss';
 import styles from './SkeletonButtonIcon.module.scss';
 
-type SkeletonButtonIconProps = Omit<SkeletonPrimitiveProps, 'className'> & {
+export type SkeletonButtonIconProps = Omit<SkeletonPrimitiveProps, 'className'> & {
 	size?: 'M' | 'S' | 'XS';
 };
 

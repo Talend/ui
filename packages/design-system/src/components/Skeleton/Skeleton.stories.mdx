@@ -1,15 +1,13 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import Skeleton from './index';
-import SkeletonButton from './variations/SkeletonButton';
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import Skeleton, { SkeletonButton, SkeletonParagraph, SkeletonHeading } from '.';
 import { StackHorizontal, StackVertical } from '../Stack';
-import SkeletonButtonIcon from './variations/SkeletonButtonIcon';
-import SkeletonHeading from './variations/SkeletonHeading';
-import SkeletonParagraph from './variations/SkeletonParagraph';
+
+import * as Stories from './Skeleton.stories';
 
 <Meta
 	title="Components/Skeleton"
 	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		status: { figma: 'wip', storybook: 'wip', react: 'ok', i18n: 'na' },
 	}}
 />
 
@@ -23,67 +21,49 @@ Skeleton is used as decoration to fill the space while the real content is loadi
 
 ### Default
 
-<Canvas>
-	<Story name="default">
-		<Skeleton />
-	</Story>
-</Canvas>
+// Todo
 
 ### Button
 
 <Canvas>
-	<Story name="Button">
-		<StackHorizontal gap="XS" align="center">
-			<SkeletonButton />
-			<SkeletonButton size="S" />
-		</StackHorizontal>
-	</Story>
+	<Story story={Stories.SkeletonButtonStory} name="Button" />
 </Canvas>
+
+<ArgsTable story="Button" />
 
 ### ButtonIcon
 
 <Canvas>
-	<Story name="ButtonIcon">
-		<StackHorizontal gap="XS" align="center">
-			<SkeletonButtonIcon />
-			<SkeletonButtonIcon size="S" />
-			<SkeletonButtonIcon size="XS" />
-		</StackHorizontal>
-	</Story>
+	<Story story={Stories.SkeletonButtonIconStory} name="ButtonIcon" />
 </Canvas>
+
+<ArgsTable story="ButtonIcon" />
 
 ### Text
 
 #### Heading
 
-It corresponds to any heading element.
+It illustrates any heading element.
 
 <Canvas>
-	<Story name="heading">
-		<StackVertical gap="XS" align="stretch">
-			<SkeletonHeading />
-			<SkeletonHeading size="M" />
-			<SkeletonHeading size="S" />
-		</StackVertical>
-	</Story>
+	<Story story={Stories.SkeletonHeadingStory} name="Headings" />
 </Canvas>
+
+<ArgsTable story="Headings" />
 
 #### Paragraph
 
-It corresponds to any heading element.
+It illustrates any paragraph or small copy element.
 
 <Canvas>
-	<Story name="paragraph">
-		<StackVertical gap="XS" align="stretch">
-			<SkeletonParagraph />
-			<SkeletonParagraph size="S" />
-		</StackVertical>
-	</Story>
+	<Story story={Stories.SkeletonParagraphStory} name="Paragraphs" />
 </Canvas>
+
+<ArgsTable story="Paragraphs" />
 
 #### Composition example
 
-Combine both to mock content!
+Combine all of them to mock content!
 
 <Canvas>
 	<Story name="Composition">
@@ -125,3 +105,11 @@ The goal is to set the current loading content to `aria-busy="true"` instead.
 Here is an article about [more accessible skeletons](https://adrianroselli.com/2020/11/more-accessible-skeletons.html) written by Adrian Roselli.
 
 ## Usage
+
+As you've seen above, `Skeleton` can be used by importing the single variant you need (ie: `SkeletonButton` or `SkeletonHeading`).
+
+You can also use the `Skeleton` and specify the variant you mean to use: its props will then match the variant's own.
+
+<Canvas>
+	<Story story={Stories.ButtonVariants} />
+</Canvas>

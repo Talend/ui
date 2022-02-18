@@ -4,7 +4,7 @@ import SkeletonPrimitive, { SkeletonPrimitiveProps } from '../Primitive/Skeleton
 
 import styles from './SkeletonParagraph.module.scss';
 
-type SkeletonParagraphProps = Omit<SkeletonPrimitiveProps, 'className'> & {
+export type SkeletonParagraphProps = Omit<SkeletonPrimitiveProps, 'className'> & {
 	size?: 'M' | 'S';
 };
 

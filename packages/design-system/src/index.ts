@@ -32,7 +32,12 @@ import Loading from './components/Loading';
 import Menu from './components/Menu';
 import Modal from './components/Modal';
 import Popover from './components/Popover';
-import Skeleton from './components/Skeleton';
+import Skeleton, {
+	SkeletonParagraph,
+	SkeletonHeading,
+	SkeletonButton,
+	SkeletonButtonIcon,
+} from './components/Skeleton';
 import {
 	StatusCanceled,
 	StatusInProgress,
@@ -100,6 +105,10 @@ export {
 	StatusWarning,
 	StatusSuccessful,
 	StatusFailed,
+	SkeletonParagraph,
+	SkeletonHeading,
+	SkeletonButton,
+	SkeletonButtonIcon,
 	Status,
 	Switch,
 	Stepper,
