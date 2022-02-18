@@ -221,7 +221,7 @@ Default: #022741`,
     {
         name: 'coralColorAccentBackground',
         type: 'color',
-        description: `Accent background color by default. 
+        description: `Accent background color by default. Use with text-strong.
 
 Ex: InlineMessage
 
@@ -298,7 +298,7 @@ Default: #9BC7E6`,
         name: 'coralColorAccentBackgroundStrong',
         type: 'color',
         description: `Strongest accent background color.
-Use for primary interactive items.
+Use for primary interactive items. Use with text-weak.
 
 Ex: ButtonPrimary
 
@@ -436,7 +436,7 @@ Default: #7F292A`,
     {
         name: 'coralColorDangerBackground',
         type: 'color',
-        description: `Danger background color by default. 
+        description: `Danger background color by default. Use with text-strong.
 
 Ex: InlineMessage
 
@@ -506,7 +506,9 @@ Default: #FFC4C5`,
     {
         name: 'coralColorSuccessTextWeak',
         type: 'color',
-        description: ``,
+        description: `Success text color on success-background-strong. 
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -515,7 +517,9 @@ Default: #FFC4C5`,
     {
         name: 'coralColorSuccessTextWeakHover',
         type: 'color',
-        description: ``,
+        description: `Success text color on mouseover. 
+
+Default: #DDF2D9`,
         hsla: 'hsla(110,49%,90%,1)',
         hex: '#ddf2d9',
         value: 'hsla(110,49%,90%,1)',
@@ -524,7 +528,9 @@ Default: #FFC4C5`,
     {
         name: 'coralColorSuccessTextWeakActive',
         type: 'color',
-        description: ``,
+        description: `Success text color while pressed. 
+
+Default: #CCEBC6`,
         hsla: 'hsla(110,48%,85%,1)',
         hex: '#ccebc6',
         value: 'hsla(110,48%,85%,1)',
@@ -533,7 +539,12 @@ Default: #FFC4C5`,
     {
         name: 'coralColorSuccessText',
         type: 'color',
-        description: ``,
+        description: `Success text color. 
+Use for text content without background that must carry a positive semantic value on its own. 
+
+Ex: StatusSuccessful
+
+Default: #39812C`,
         hsla: 'hsla(111,49%,34%,1)',
         hex: '#39812c',
         value: 'hsla(111,49%,34%,1)',
@@ -542,7 +553,9 @@ Default: #FFC4C5`,
     {
         name: 'coralColorSuccessTextHover',
         type: 'color',
-        description: ``,
+        description: `Success text color on mouseover.
+
+Default: #316E26`,
         hsla: 'hsla(111,49%,29%,1)',
         hex: '#316e26',
         value: 'hsla(111,49%,29%,1)',
@@ -551,7 +564,9 @@ Default: #FFC4C5`,
     {
         name: 'coralColorSuccessTextActive',
         type: 'color',
-        description: ``,
+        description: `Success text color while pressed.
+
+Default: #316E26`,
         hsla: 'hsla(111,49%,24%,1)',
         hex: '#285b1f',
         value: 'hsla(111,49%,24%,1)',
@@ -560,7 +575,11 @@ Default: #FFC4C5`,
     {
         name: 'coralColorSuccessBackground',
         type: 'color',
-        description: ``,
+        description: `Success background color by default. Use with text-strong. 
+
+Ex: InlineMessage 
+
+Default: #DDF2D9`,
         hsla: 'hsla(110,49%,90%,1)',
         hex: '#ddf2d9',
         value: 'hsla(110,49%,90%,1)',
@@ -569,7 +588,7 @@ Default: #FFC4C5`,
     {
         name: 'coralColorDangerBackgroundStrong',
         type: 'color',
-        description: `Strongest danger background color. Use on strong interactive elements with a negative semantic attached.
+        description: `Strongest danger background color. Use on strong interactive elements with a negative semantic attached. Use with text-weak.
 
 Ex: ButtonDestructive 
 
@@ -621,7 +640,9 @@ Default: #C4484A`,
     {
         name: 'coralColorSuccessBackgroundHover',
         type: 'color',
-        description: ``,
+        description: `Success background color on mouseover. 
+
+Default: #CCEBC6`,
         hsla: 'hsla(110,48%,85%,1)',
         hex: '#ccebc6',
         value: 'hsla(110,48%,85%,1)',
@@ -643,7 +664,9 @@ Default: #952D2F`,
     {
         name: 'coralColorSuccessBackgroundActive',
         type: 'color',
-        description: ``,
+        description: `Success background color while pressed. 
+
+Default: #CCEBC6`,
         hsla: 'hsla(110,49%,80%,1)',
         hex: '#bbe5b3',
         value: 'hsla(110,49%,80%,1)',
@@ -665,7 +688,11 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBackgroundWeak',
         type: 'color',
-        description: ``,
+        description: `Weakest success background color. Same color as neutral-background but with success-tinted hover and active.
+
+Use as placeholder to indicate that you want success-tinted interactive states.
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -674,7 +701,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBackgroundWeakHover',
         type: 'color',
-        description: ``,
+        description: `Weakest success background color on mouseover.
+
+Default: #DDF2D9`,
         hsla: 'hsla(110,49%,90%,1)',
         hex: '#ddf2d9',
         value: 'hsla(110,49%,90%,1)',
@@ -683,7 +712,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBackgroundWeakActive',
         type: 'color',
-        description: ``,
+        description: `Weakest success background color while pressed.
+
+Default: #CCEBC6`,
         hsla: 'hsla(110,48%,85%,1)',
         hex: '#ccebc6',
         value: 'hsla(110,48%,85%,1)',
@@ -692,7 +723,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBackgroundStrong',
         type: 'color',
-        description: ``,
+        description: `Strongest success background color. Use on strong interactive elements with a positive semantic attached. Use with text-weak.
+
+Default: #39812C`,
         hsla: 'hsla(111,49%,34%,1)',
         hex: '#39812c',
         value: 'hsla(111,49%,34%,1)',
@@ -701,7 +734,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBackgroundStrongHover',
         type: 'color',
-        description: ``,
+        description: `Strongest success background color on mouseover.
+
+Default: #316E26`,
         hsla: 'hsla(111,49%,29%,1)',
         hex: '#316e26',
         value: 'hsla(111,49%,29%,1)',
@@ -710,7 +745,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBackgroundStrongActive',
         type: 'color',
-        description: ``,
+        description: `Strongest success background color while pressed.
+
+Default: #285B1F`,
         hsla: 'hsla(111,49%,24%,1)',
         hex: '#285b1f',
         value: 'hsla(111,49%,24%,1)',
@@ -719,7 +756,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningTextWeak',
         type: 'color',
-        description: ``,
+        description: `Warning text color on warning-background-strong. 
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -728,7 +767,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningTextWeakHover',
         type: 'color',
-        description: ``,
+        description: `Warning weak text color, on mouseover. 
+
+Default: #FCE6D9`,
         hsla: 'hsla(22,85%,92%,1)',
         hex: '#fce6d9',
         value: 'hsla(22,85%,92%,1)',
@@ -737,7 +778,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningTextWeakActive',
         type: 'color',
-        description: ``,
+        description: `Warning weak text color, while pressed. 
+
+Default: #F8C7AA`,
         hsla: 'hsla(22,85%,82%,1)',
         hex: '#f8c7aa',
         value: 'hsla(22,85%,82%,1)',
@@ -746,7 +789,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBorder',
         type: 'color',
-        description: ``,
+        description: `Border color with success semantic.
+
+Default: #39812C`,
         hsla: 'hsla(111,49%,34%,1)',
         hex: '#39812c',
         value: 'hsla(111,49%,34%,1)',
@@ -755,7 +800,12 @@ Default: #812729`,
     {
         name: 'coralColorWarningText',
         type: 'color',
-        description: ``,
+        description: `Waring text color. 
+Use for text content without background that must carry a warning semantic value on its own. 
+
+Ex: StatusWarning
+
+Default: #CA4D07`,
         hsla: 'hsla(22,93%,41%,1)',
         hex: '#ca4d07',
         value: 'hsla(22,93%,41%,1)',
@@ -764,7 +814,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningTextHover',
         type: 'color',
-        description: ``,
+        description: `Waring text color, on mouseover.
+
+Default: #993A05`,
         hsla: 'hsla(21,94%,31%,1)',
         hex: '#993a05',
         value: 'hsla(21,94%,31%,1)',
@@ -773,7 +825,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningTextActive',
         type: 'color',
-        description: ``,
+        description: `Warning text color, while pressed.
+
+Default: #682704`,
         hsla: 'hsla(21,93%,21%,1)',
         hex: '#682704',
         value: 'hsla(21,93%,21%,1)',
@@ -782,7 +836,11 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackground',
         type: 'color',
-        description: ``,
+        description: `Warning background color by default. Use with text-strong.
+
+Ex: InlineMessage 
+
+Default: #FCE6D9`,
         hsla: 'hsla(22,85%,92%,1)',
         hex: '#fce6d9',
         value: 'hsla(22,85%,92%,1)',
@@ -791,7 +849,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBorderHover',
         type: 'color',
-        description: ``,
+        description: `Border color with success semantic, on mouseover.
+
+Default: #316E26`,
         hsla: 'hsla(111,49%,29%,1)',
         hex: '#316e26',
         value: 'hsla(111,49%,29%,1)',
@@ -800,7 +860,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackgroundHover',
         type: 'color',
-        description: ``,
+        description: `Warning background color, on mouseover.
+
+Default: #F8C7AA`,
         hsla: 'hsla(22,85%,82%,1)',
         hex: '#f8c7aa',
         value: 'hsla(22,85%,82%,1)',
@@ -809,7 +871,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessBorderActive',
         type: 'color',
-        description: ``,
+        description: `Border color with success semantic, while pressed.
+
+Default: #285B1F`,
         hsla: 'hsla(111,49%,24%,1)',
         hex: '#285b1f',
         value: 'hsla(111,49%,24%,1)',
@@ -818,7 +882,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackgroundActive',
         type: 'color',
-        description: ``,
+        description: `Warning background color, while pressed.
+
+Default: #F4A87B`,
         hsla: 'hsla(22,85%,72%,1)',
         hex: '#f4a87b',
         value: 'hsla(22,85%,72%,1)',
@@ -827,7 +893,11 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackgroundWeak',
         type: 'color',
-        description: ``,
+        description: `Weakest warning background color. Same color as neutral-background but with warning-tinted hover and active.
+
+Use as placeholder to indicate that you want warning-tinted interactive states.
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -836,7 +906,11 @@ Default: #812729`,
     {
         name: 'coralColorAssistiveText',
         type: 'color',
-        description: ``,
+        description: `Text for assistive elements. Use with assistive-background.
+
+Ex: Tooltip
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -845,7 +919,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackgroundWeakHover',
         type: 'color',
-        description: ``,
+        description: `Weakest warning background color, on mouseover.
+
+Default: #FCE6D9`,
         hsla: 'hsla(22,85%,92%,1)',
         hex: '#fce6d9',
         value: 'hsla(22,85%,92%,1)',
@@ -854,7 +930,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackgroundWeakActive',
         type: 'color',
-        description: ``,
+        description: `Weakest warning background color, while pressed.
+
+Default: #F8C7AA`,
         hsla: 'hsla(22,85%,82%,1)',
         hex: '#f8c7aa',
         value: 'hsla(22,85%,82%,1)',
@@ -863,7 +941,11 @@ Default: #812729`,
     {
         name: 'coralColorAssistiveBackground',
         type: 'color',
-        description: ``,
+        description: `Background for assistive elements. Use with assistive-text.
+
+Ex: Tooltip
+
+Default: #050D15`,
         hsla: 'hsla(210,62%,5%,1)',
         hex: '#050d15',
         value: 'hsla(210,62%,5%,1)',
@@ -872,7 +954,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackgroundStrong',
         type: 'color',
-        description: ``,
+        description: `Strongest warning background color. Use on strong interactive elements with a warning semantic attached. Use with text-weak.
+
+Default: #CA4D07`,
         hsla: 'hsla(22,93%,41%,1)',
         hex: '#ca4d07',
         value: 'hsla(22,93%,41%,1)',
@@ -881,7 +965,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackgroundStrongHover',
         type: 'color',
-        description: ``,
+        description: `Strongest warning background color, on mouseover.
+
+Default: #993A05`,
         hsla: 'hsla(21,94%,31%,1)',
         hex: '#993a05',
         value: 'hsla(21,94%,31%,1)',
@@ -890,7 +976,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBackgroundStrongActive',
         type: 'color',
-        description: ``,
+        description: `Strongest warning background color, while pressed.
+
+Default: #672704`,
         hsla: 'hsla(21,93%,21%,1)',
         hex: '#672704',
         value: 'hsla(21,93%,21%,1)',
@@ -899,7 +987,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBorder',
         type: 'color',
-        description: ``,
+        description: `Border color with warning semantic.
+
+Default: #CA4D07`,
         hsla: 'hsla(22,93%,41%,1)',
         hex: '#ca4d07',
         value: 'hsla(22,93%,41%,1)',
@@ -908,7 +998,9 @@ Default: #812729`,
     {
         name: 'coralColorAssistiveBorder',
         type: 'color',
-        description: ``,
+        description: `Border for assistive elements. 
+
+Default: #797979`,
         hsla: 'hsla(0,0%,47%,1)',
         hex: '#797979',
         value: 'hsla(0,0%,47%,1)',
@@ -917,7 +1009,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBorderHover',
         type: 'color',
-        description: ``,
+        description: `Border color with warning semantic, on mouseover.
+
+Default: #993A05`,
         hsla: 'hsla(21,94%,31%,1)',
         hex: '#993a05',
         value: 'hsla(21,94%,31%,1)',
@@ -926,7 +1020,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningBorderActive',
         type: 'color',
-        description: ``,
+        description: `Border color with warning semantic, while pressed.
+
+Default: #672704`,
         hsla: 'hsla(21,93%,21%,1)',
         hex: '#672704',
         value: 'hsla(21,93%,21%,1)',
@@ -935,7 +1031,9 @@ Default: #812729`,
     {
         name: 'coralColorBrandingBrand',
         type: 'color',
-        description: ``,
+        description: `Main brand color. Used for logo.
+
+Default: #FF6D70`,
         hsla: 'hsla(359,100%,71%,1)',
         hex: '#ff6d70',
         value: 'hsla(359,100%,71%,1)',
@@ -968,7 +1066,11 @@ Default: #B8B8B8`,
     {
         name: 'coralColorAssistiveBorderFocus',
         type: 'color',
-        description: ``,
+        description: `Focus color for focus rings across the products.
+
+Ex: Buttons on focus
+
+Default: #6664D1`,
         hsla: 'hsla(241,54%,61%,1)',
         hex: '#6664d1',
         value: 'hsla(241,54%,61%,1)',
@@ -1037,7 +1139,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessTextStrong',
         type: 'color',
-        description: ``,
+        description: `Success text color on success-background. 
+
+Default: #316E26`,
         hsla: 'hsla(111,49%,29%,1)',
         hex: '#316e26',
         value: 'hsla(111,49%,29%,1)',
@@ -1046,7 +1150,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessTextStrongHover',
         type: 'color',
-        description: ``,
+        description: `Success text color on mouseover. 
+
+Default: #295B1F`,
         hsla: 'hsla(110,49%,24%,1)',
         hex: '#295b1f',
         value: 'hsla(110,49%,24%,1)',
@@ -1055,7 +1161,9 @@ Default: #812729`,
     {
         name: 'coralColorSuccessTextStrongActive',
         type: 'color',
-        description: ``,
+        description: `Success text color while pressed. 
+
+Default: #204819`,
         hsla: 'hsla(111,48%,19%,1)',
         hex: '#204819',
         value: 'hsla(111,48%,19%,1)',
@@ -1064,7 +1172,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningTextStrong',
         type: 'color',
-        description: ``,
+        description: `Warning text color on warning-background. 
+
+Default: #80360A`,
         hsla: 'hsla(22,86%,27%,1)',
         hex: '#80360a',
         value: 'hsla(22,86%,27%,1)',
@@ -1073,7 +1183,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningTextStrongHover',
         type: 'color',
-        description: ``,
+        description: `Warning strong text color, on mouseover. 
+
+Default: #682C08`,
         hsla: 'hsla(23,86%,22%,1)',
         hex: '#682c08',
         value: 'hsla(23,86%,22%,1)',
@@ -1082,7 +1194,9 @@ Default: #812729`,
     {
         name: 'coralColorWarningTextStrongActive',
         type: 'color',
-        description: ``,
+        description: `Warning strong text color, while pressed. 
+
+Default: #502206`,
         hsla: 'hsla(23,86%,17%,1)',
         hex: '#502206',
         value: 'hsla(23,86%,17%,1)',
@@ -1091,7 +1205,11 @@ Default: #812729`,
     {
         name: 'coralColorBetaText',
         type: 'color',
-        description: ``,
+        description: `Beta text color, for things that are new or temporary.
+Use for text content without background that must carry a beta semantic value on its own. 
+
+
+Default: #9435C3`,
         hsla: 'hsla(280,57%,49%,1)',
         hex: '#9435c3',
         value: 'hsla(280,57%,49%,1)',
@@ -1100,7 +1218,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaTextHover',
         type: 'color',
-        description: ``,
+        description: `Beta text color, on mouseover.
+
+Default: #772A9C`,
         hsla: 'hsla(281,58%,39%,1)',
         hex: '#772a9c',
         value: 'hsla(281,58%,39%,1)',
@@ -1109,7 +1229,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaTextActive',
         type: 'color',
-        description: ``,
+        description: `Beta text color, while pressed.
+
+Default: #591F74`,
         hsla: 'hsla(281,58%,29%,1)',
         hex: '#591f74',
         value: 'hsla(281,58%,29%,1)',
@@ -1118,7 +1240,11 @@ Default: #812729`,
     {
         name: 'coralColorBetaIcon',
         type: 'color',
-        description: ``,
+        description: `Icon with beta color.
+
+Ex: InlineMessage
+
+Default: #AA2DE8`,
         hsla: 'hsla(280,80%,54%,1)',
         hex: '#aa2de8',
         value: 'hsla(280,80%,54%,1)',
@@ -1127,7 +1253,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaIconHover',
         type: 'color',
-        description: ``,
+        description: `Icon with beta color, on mouseover.
+
+Default: #8E16CA`,
         hsla: 'hsla(280,80%,44%,1)',
         hex: '#8e16ca',
         value: 'hsla(280,80%,44%,1)',
@@ -1136,7 +1264,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaIconActive',
         type: 'color',
-        description: ``,
+        description: `Icon with beta color, while pressed.
+
+Default: #6E119C`,
         hsla: 'hsla(280,80%,34%,1)',
         hex: '#6e119c',
         value: 'hsla(280,80%,34%,1)',
@@ -1145,7 +1275,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaTextWeak',
         type: 'color',
-        description: ``,
+        description: `Beta text color on beta-background-strong. 
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -1154,7 +1286,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaTextWeakHover',
         type: 'color',
-        description: ``,
+        description: `Beta weak text color, on mouseover. 
+
+Default: #DCBBEC`,
         hsla: 'hsla(280,56%,83%,1)',
         hex: '#dcbbec',
         value: 'hsla(280,56%,83%,1)',
@@ -1163,7 +1297,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaTextWeakActive',
         type: 'color',
-        description: ``,
+        description: `Beta weak text color, while pressed. 
+
+Default: #C793E1`,
         hsla: 'hsla(280,57%,73%,1)',
         hex: '#c793e1',
         value: 'hsla(280,57%,73%,1)',
@@ -1172,7 +1308,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaTextStrong',
         type: 'color',
-        description: ``,
+        description: `Beta text color on beta-background. 
+
+Default: #591F74`,
         hsla: 'hsla(281,58%,29%,1)',
         hex: '#591f74',
         value: 'hsla(281,58%,29%,1)',
@@ -1181,7 +1319,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaTextStrongHover',
         type: 'color',
-        description: ``,
+        description: `Beta strong text color, on mouseover. 
+
+Default: #3B144C`,
         hsla: 'hsla(282,58%,19%,1)',
         hex: '#3b144c',
         value: 'hsla(282,58%,19%,1)',
@@ -1190,7 +1330,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaTextStrongActive',
         type: 'color',
-        description: ``,
+        description: `Beta strong text color, while pressed. 
+
+Default: #1C0A24`,
         hsla: 'hsla(282,57%,9%,1)',
         hex: '#1c0a24',
         value: 'hsla(282,57%,9%,1)',
@@ -1199,7 +1341,11 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackground',
         type: 'color',
-        description: ``,
+        description: `Beta background color by default. Use with text-strong.
+
+Ex: InlineMessage 
+
+Default: #EAD7F4`,
         hsla: 'hsla(279,57%,90%,1)',
         hex: '#ead7f4',
         value: 'hsla(279,57%,90%,1)',
@@ -1208,7 +1354,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackgroundHover',
         type: 'color',
-        description: ``,
+        description: `Beta background color, on mouseover.
+
+Default: #D7B3EA`,
         hsla: 'hsla(279,57%,81%,1)',
         hex: '#d7b3ea',
         value: 'hsla(279,57%,81%,1)',
@@ -1217,7 +1365,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackgroundActive',
         type: 'color',
-        description: ``,
+        description: `Beta background color, while pressed.
+
+Default: #C28BDF`,
         hsla: 'hsla(279,57%,71%,1)',
         hex: '#c28bdf',
         value: 'hsla(279,57%,71%,1)',
@@ -1226,7 +1376,11 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackgroundWeak',
         type: 'color',
-        description: ``,
+        description: `Weakest beta background color. Same color as neutral-background but with beta-tinted hover and active.
+
+Use as placeholder to indicate that you want beta-tinted interactive states.
+
+Default: #FFFFFF`,
         hsla: 'hsla(0,0%,100%,1)',
         hex: '#ffffff',
         value: 'hsla(0,0%,100%,1)',
@@ -1235,7 +1389,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackgroundWeakHover',
         type: 'color',
-        description: ``,
+        description: `Weakest beta background color, on mouseover.
+
+Default: #EAD7F4`,
         hsla: 'hsla(279,57%,90%,1)',
         hex: '#ead7f4',
         value: 'hsla(279,57%,90%,1)',
@@ -1244,7 +1400,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackgroundWeakActive',
         type: 'color',
-        description: ``,
+        description: `Weakest beta background color, while pressed.
+
+Default: #D5AFE9`,
         hsla: 'hsla(279,57%,80%,1)',
         hex: '#d5afe9',
         value: 'hsla(279,57%,80%,1)',
@@ -1253,7 +1411,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackgroundStrong',
         type: 'color',
-        description: ``,
+        description: `Strongest beta background color. Use on strong interactive elements with a beta semantic attached. Use with text-weak.
+
+Default: #591F74`,
         hsla: 'hsla(281,58%,29%,1)',
         hex: '#591f74',
         value: 'hsla(281,58%,29%,1)',
@@ -1262,7 +1422,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackgroundStrongHover',
         type: 'color',
-        description: ``,
+        description: `Strongest beta background color, on mouseover.
+
+Default: #3B144C`,
         hsla: 'hsla(282,58%,19%,1)',
         hex: '#3b144c',
         value: 'hsla(282,58%,19%,1)',
@@ -1271,7 +1433,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBackgroundStrongActive',
         type: 'color',
-        description: ``,
+        description: `Strongest beta background color, while pressed.
+
+Default: #1C0A24`,
         hsla: 'hsla(282,57%,9%,1)',
         hex: '#1c0a24',
         value: 'hsla(282,57%,9%,1)',
@@ -1280,7 +1444,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBorder',
         type: 'color',
-        description: ``,
+        description: `Border color with beta semantic.
+
+Default: #591F74`,
         hsla: 'hsla(281,58%,29%,1)',
         hex: '#591f74',
         value: 'hsla(281,58%,29%,1)',
@@ -1289,7 +1455,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBorderHover',
         type: 'color',
-        description: ``,
+        description: `Border color with beta semantic, on mouseover.
+
+Default: #3B144C`,
         hsla: 'hsla(282,58%,19%,1)',
         hex: '#3b144c',
         value: 'hsla(282,58%,19%,1)',
@@ -1298,7 +1466,9 @@ Default: #812729`,
     {
         name: 'coralColorBetaBorderActive',
         type: 'color',
-        description: ``,
+        description: `Border color with beta semantic, while pressed.
+
+Default: #1C0A24`,
         hsla: 'hsla(282,57%,9%,1)',
         hex: '#1c0a24',
         value: 'hsla(282,57%,9%,1)',
@@ -1442,7 +1612,11 @@ Default: #8E1A1C`,
     {
         name: 'coralColorSuccessIcon',
         type: 'color',
-        description: ``,
+        description: `Icon with success color.
+
+Ex: StatusSuccessful
+
+Default: #409C30`,
         hsla: 'hsla(111,53%,40%,1)',
         hex: '#409c30',
         value: 'hsla(111,53%,40%,1)',
@@ -1451,7 +1625,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorSuccessIconHover',
         type: 'color',
-        description: ``,
+        description: `Icon with success color, on mouseover.
+
+Default: #307524`,
         hsla: 'hsla(111,53%,30%,1)',
         hex: '#307524',
         value: 'hsla(111,53%,30%,1)',
@@ -1460,7 +1636,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorSuccessIconActive',
         type: 'color',
-        description: ``,
+        description: `Icon with success color, while pressed.
+
+Default: #204E18`,
         hsla: 'hsla(111,53%,20%,1)',
         hex: '#204e18',
         value: 'hsla(111,53%,20%,1)',
@@ -1469,7 +1647,11 @@ Default: #8E1A1C`,
     {
         name: 'coralColorWarningIcon',
         type: 'color',
-        description: ``,
+        description: `Icon with warning color.
+
+Ex: StatusWarning
+
+Default: #E25C10`,
         hsla: 'hsla(22,87%,47%,1)',
         hex: '#e25c10',
         value: 'hsla(22,87%,47%,1)',
@@ -1478,7 +1660,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorWarningIconHover',
         type: 'color',
-        description: ``,
+        description: `Icon with warning color, on mouseover.
+
+Default: #B0480C`,
         hsla: 'hsla(22,87%,37%,1)',
         hex: '#b0480c',
         value: 'hsla(22,87%,37%,1)',
@@ -1487,7 +1671,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorWarningIconActive',
         type: 'color',
-        description: ``,
+        description: `Icon with warning color, while pressed.
+
+Default: #813409`,
         hsla: 'hsla(22,87%,27%,1)',
         hex: '#813409',
         value: 'hsla(22,87%,27%,1)',
@@ -1496,7 +1682,12 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsNeutral',
         type: 'color',
-        description: ``,
+        description: `Chart color: Neutral. 
+Use for neutral / empty semantic values. 
+
+Ex: QualityBar
+
+Default: #383838`,
         hsla: 'hsla(0,0%,22%,1)',
         hex: '#383838',
         value: 'hsla(0,0%,22%,1)',
@@ -1505,7 +1696,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsNeutralWeak',
         type: 'color',
-        description: ``,
+        description: `Chart color: Neutral-weak. 
+Weak contrast for neutral / empty semantic values. 
+
+Default: #D4D4D4`,
         hsla: 'hsla(0,0%,83%,1)',
         hex: '#d4d4d4',
         value: 'hsla(0,0%,83%,1)',
@@ -1514,7 +1708,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsNeutralStrong',
         type: 'color',
-        description: ``,
+        description: `Chart color: Neutral-strong. 
+Strong contrast for neutral / empty semantic values.
+
+Default: #1F1F1F`,
         hsla: 'hsla(0,0%,12%,1)',
         hex: '#1f1f1f',
         value: 'hsla(0,0%,12%,1)',
@@ -1523,7 +1720,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsNeutralHover',
         type: 'color',
-        description: ``,
+        description: `Chart color: Neutral on mouseover for interactive charts.
+ 
+Default: #1F1F1F`,
         hsla: 'hsla(0,0%,12%,1)',
         hex: '#1f1f1f',
         value: 'hsla(0,0%,12%,1)',
@@ -1532,7 +1731,12 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsSuccess',
         type: 'color',
-        description: ``,
+        description: `Chart color: Success. 
+Use for success / positive semantic values. 
+
+Ex: QualityBar
+
+Default: #0DBD5E`,
         hsla: 'hsla(148,87%,40%,1)',
         hex: '#0dbd5e',
         value: 'hsla(148,87%,40%,1)',
@@ -1541,7 +1745,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsSuccessWeak',
         type: 'color',
-        description: ``,
+        description: `Chart color: Success-weak. 
+Weak contrast for positive / success semantic values. 
+
+Default: #DCF4E0`,
         hsla: 'hsla(130,52%,91%,1)',
         hex: '#dcf4e0',
         value: 'hsla(130,52%,91%,1)',
@@ -1550,7 +1757,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsSuccessStrong',
         type: 'color',
-        description: ``,
+        description: `Chart color: Success-strong. 
+Strong contrast for positive / success semantic values. 
+
+Default: #1C552E`,
         hsla: 'hsla(139,50%,22%,1)',
         hex: '#1c552e',
         value: 'hsla(139,50%,22%,1)',
@@ -1559,7 +1769,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsSuccessHover',
         type: 'color',
-        description: ``,
+        description: `Chart color: Success on mouseover for interactive charts.
+ 
+Default: #1C552E`,
         hsla: 'hsla(139,50%,22%,1)',
         hex: '#1c552e',
         value: 'hsla(139,50%,22%,1)',
@@ -1568,7 +1780,12 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsDanger',
         type: 'color',
-        description: ``,
+        description: `Chart color: Danger. 
+Use for danger / negative semantic values. 
+
+Ex: QualityBar
+
+Default: #EA1B0E`,
         hsla: 'hsla(4,89%,49%,1)',
         hex: '#ea1b0e',
         value: 'hsla(4,89%,49%,1)',
@@ -1577,7 +1794,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsDangerWeak',
         type: 'color',
-        description: ``,
+        description: `Chart color: Danger-weak. 
+Weak contrast for negative / danger semantic values. 
+
+Default: #E9898A`,
         hsla: 'hsla(359,69%,73%,1)',
         hex: '#e9898a',
         value: 'hsla(359,69%,73%,1)',
@@ -1586,7 +1806,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsDangerStrong',
         type: 'color',
-        description: ``,
+        description: `Chart color: Danger-strong. 
+Strong contrast for negative / danger semantic values. 
+
+Default: #B32A2C`,
         hsla: 'hsla(359,62%,43%,1)',
         hex: '#b32a2c',
         value: 'hsla(359,62%,43%,1)',
@@ -1595,7 +1818,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsDangerHover',
         type: 'color',
-        description: ``,
+        description: `Chart color: Danger on mouseover for interactive charts.
+ 
+Default: #B32A2C`,
         hsla: 'hsla(359,62%,43%,1)',
         hex: '#b32a2c',
         value: 'hsla(359,62%,43%,1)',
@@ -1604,7 +1829,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsWarning',
         type: 'color',
-        description: ``,
+        description: `Chart color: Warning. 
+Use for warning semantic values. 
+
+Default: #FF9820`,
         hsla: 'hsla(32,100%,56%,1)',
         hex: '#ff9820',
         value: 'hsla(32,100%,56%,1)',
@@ -1613,7 +1841,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsWarningWeak',
         type: 'color',
-        description: ``,
+        description: `Chart color: Warning-weak. 
+Weak contrast for warning semantic values. 
+
+Default: #FACBB0`,
         hsla: 'hsla(22,88%,84%,1)',
         hex: '#facbb0',
         value: 'hsla(22,88%,84%,1)',
@@ -1622,7 +1853,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsWarningStrong',
         type: 'color',
-        description: ``,
+        description: `Chart color: Warning-strong. 
+Strong contrast for warning semantic values. 
+
+Default: #B9541B`,
         hsla: 'hsla(22,75%,42%,1)',
         hex: '#b9541b',
         value: 'hsla(22,75%,42%,1)',
@@ -1631,7 +1865,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsWarningHover',
         type: 'color',
-        description: ``,
+        description: `Chart color: Warning on mouseover for interactive charts.
+ 
+Default: #B9541B`,
         hsla: 'hsla(22,75%,42%,1)',
         hex: '#b9541b',
         value: 'hsla(22,75%,42%,1)',
@@ -1640,7 +1876,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsDefault',
         type: 'color',
-        description: ``,
+        description: `Chart color by default. 
+If the chart only has one set of value, and not a semantic (danger / warning / success) then use this colorset.
+
+Default: #1667DF`,
         hsla: 'hsla(216,82%,48%,1)',
         hex: '#1667df',
         value: 'hsla(216,82%,48%,1)',
@@ -1649,7 +1888,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsDefaultWeak',
         type: 'color',
-        description: ``,
+        description: `Chart color: default-weak. 
+Weak contrast for basic chart values. 
+
+Default: #91C2E3`,
         hsla: 'hsla(204,59%,73%,1)',
         hex: '#91c2e3',
         value: 'hsla(204,59%,73%,1)',
@@ -1658,7 +1900,10 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsDefaultStrong',
         type: 'color',
-        description: ``,
+        description: `Chart color: default-strong. 
+Strong contrast for basic chart values. 
+
+Default: #91C2E3`,
         hsla: 'hsla(204,92%,29%,1)',
         hex: '#06568d',
         value: 'hsla(204,92%,29%,1)',
@@ -1667,7 +1912,11 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsDefaultHover',
         type: 'color',
-        description: ``,
+        description: `Chart color: default on mouseover for interactive charts.
+
+if there is text on top if this, use default-text-weak.
+ 
+Default: #06568D`,
         hsla: 'hsla(204,92%,29%,1)',
         hex: '#06568d',
         value: 'hsla(204,92%,29%,1)',
@@ -1676,7 +1925,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor00',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(48,100%,50%,1)',
         hex: '#ffcc00',
         value: 'hsla(48,100%,50%,1)',
@@ -1712,7 +1963,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor01',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(216,82%,48%,1)',
         hex: '#1667df',
         value: 'hsla(216,82%,48%,1)',
@@ -1748,7 +2001,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor02',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(194,92%,50%,1)',
         hex: '#0abef5',
         value: 'hsla(194,92%,50%,1)',
@@ -1784,7 +2039,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor03',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(140,39%,79%,1)',
         hex: '#b3dec1',
         value: 'hsla(140,39%,79%,1)',
@@ -1820,7 +2077,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor04',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(148,87%,40%,1)',
         hex: '#0dbd5e',
         value: 'hsla(148,87%,40%,1)',
@@ -1856,7 +2115,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor05',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(324,68%,71%,1)',
         hex: '#e884c0',
         value: 'hsla(324,68%,71%,1)',
@@ -1892,7 +2153,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor06',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(280,75%,58%,1)',
         hex: '#b045e5',
         value: 'hsla(280,75%,58%,1)',
@@ -1928,7 +2191,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor07',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(4,89%,49%,1)',
         hex: '#ea1b0e',
         value: 'hsla(4,89%,49%,1)',
@@ -1964,7 +2229,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor08',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(22,88%,54%,1)',
         hex: '#f16e23',
         value: 'hsla(22,88%,54%,1)',
@@ -2000,7 +2267,9 @@ Default: #8E1A1C`,
     {
         name: 'coralColorChartsColor09',
         type: 'color',
-        description: ``,
+        description: `Chart color used in combinations with the other numerical chart colors. 
+
+Ex: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03.`,
         hsla: 'hsla(34,34%,45%,1)',
         hex: '#99784c',
         value: 'hsla(34,34%,45%,1)',
@@ -2050,7 +2319,11 @@ Default: #045D9A`,
     {
         name: 'coralColorChartsDefaultText',
         type: 'color',
-        description: ``,
+        description: `Text color for chart-default. 
+
+Text on a chart is discouraged, but if you must, then use this with chart-default.
+
+Default: #E3F2FD`,
         hsla: 'hsla(205,87%,94%,1)',
         hex: '#e3f2fd',
         value: 'hsla(205,87%,94%,1)',
@@ -2059,7 +2332,11 @@ Default: #045D9A`,
     {
         name: 'coralColorChartsDefaultTextStrong',
         type: 'color',
-        description: ``,
+        description: `Strong text color for chart-default-weak. 
+
+Text on a chart is discouraged, but if you must, then use this with chart-default-weak.
+
+Default: #04426D`,
         hsla: 'hsla(205,93%,22%,1)',
         hex: '#04426d',
         value: 'hsla(205,93%,22%,1)',
@@ -2068,7 +2345,11 @@ Default: #045D9A`,
     {
         name: 'coralColorChartsDefaultTextWeak',
         type: 'color',
-        description: ``,
+        description: `Weak text color for chart-default-strong. 
+
+Text on a chart is discouraged, but if you must, then use this with chart-default-strong.
+
+Default: #E3F2FE`,
         hsla: 'hsla(207,93%,94%,1)',
         hex: '#e3f2fe',
         value: 'hsla(207,93%,94%,1)',
@@ -2113,14 +2394,14 @@ Default: #045D9A`,
     {
         name: 'coralColorBrandingBackground',
         type: 'gradient',
-        description: ``,
+        description: `Main brand background. Used for heroes.`,
         value: 'linear-gradient(145.74deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%)',
         
     },
     {
         name: 'coralColorBrandingNavigation',
         type: 'gradient',
-        description: ``,
+        description: `Main navigation background. Used for TopBar and branded Sidebar.`,
         value: 'linear-gradient(144.29deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%)',
         
     },
@@ -2176,49 +2457,73 @@ Default: #045D9A`,
     {
         name: 'coralElevationShadowNeutralM',
         type: 'shadow',
-        description: ``,
+        description: `Default shadow. 
+
+Use on "first layer" of elevation. `,
         value: '0rem 0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3)',
         
     },
     {
         name: 'coralElevationShadowNeutralL',
         type: 'shadow',
-        description: ``,
+        description: `Large shadow. 
+
+Use on "second layer" of elevation - something that need to be "above" anything else.`,
         value: '0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3)',
         
     },
     {
         name: 'coralElevationShadowAccent',
         type: 'shadow',
-        description: ``,
+        description: `Shadow with an accent tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
         value: '0rem 0.1rem 0.1rem 0rem hsla(204,95%,31%,0.3)',
         
     },
     {
         name: 'coralElevationShadowSuccess',
         type: 'shadow',
-        description: ``,
+        description: `Shadow with a success tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
         value: '0rem 0.1rem 0.1rem 0rem hsla(111,49%,34%,0.3)',
         
     },
     {
         name: 'coralElevationShadowDanger',
         type: 'shadow',
-        description: ``,
+        description: `Shadow with a danger tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
         value: '0rem 0.1rem 0.1rem 0rem hsla(359,51%,53%,0.3)',
         
     },
     {
         name: 'coralElevationShadowWarning',
         type: 'shadow',
-        description: ``,
+        description: `Shadow with a warning tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
         value: '0rem 0.1rem 0.1rem 0rem hsla(22,93%,41%,0.3)',
         
     },
     {
         name: 'coralElevationShadowBeta',
         type: 'shadow',
-        description: ``,
+        description: `Shadow with a beta tint. 
+
+Use for subtle highlights. 
+
+Ex: InlineMessage`,
         value: '0rem 0.1rem 0.1rem 0rem hsla(281,58%,29%,0.3)',
         
     },
@@ -2357,7 +2662,7 @@ Default: 4px `,
     {
         name: 'coralBorderSSolid',
         type: 'border',
-        description: `Solid border to visually separate the infomation 
+        description: `Solid border to visually separate elements
 
 Default: 1px solid`,
         value: `1px solid`,
@@ -2366,7 +2671,7 @@ Default: 1px solid`,
     {
         name: 'coralBorderMSolid',
         type: 'border',
-        description: `Solid border to visually identify the current selection
+        description: `Solid border to visually identify a selection
 
 Default: 2px solid`,
         value: `2px solid`,
@@ -2375,7 +2680,9 @@ Default: 2px solid`,
     {
         name: 'coralBorderSDashed',
         type: 'border',
-        description: `Dashed border to visually identify possible interactive components 
+        description: `Dashed border to visually identify potentielly interactive components.
+
+Ex: Droppable zone
 
 Default: 1px solid`,
         value: `1px dashed`,
@@ -2384,7 +2691,9 @@ Default: 1px solid`,
     {
         name: 'coralBorderMDashed',
         type: 'border',
-        description: `Dashed border to visually identify possible current selection
+        description: `Dashed border to visually identify a possible selection.
+
+Ex: Ongoing mapper link
 
 Default: 2px dashed`,
         value: `2px dashed`,
@@ -2393,7 +2702,9 @@ Default: 2px dashed`,
     {
         name: 'coralOpacityL',
         type: 'opacity',
-        description: `Opacity for not available components
+        description: `Very transparent.
+
+Opacity for components that are not currently enabled.
 
 Default: 0.2`,
         value: `0.2`,
@@ -2402,7 +2713,9 @@ Default: 0.2`,
     {
         name: 'coralOpacityM',
         type: 'opacity',
-        description: `Opacity for temporarly not available components
+        description: `Transparent.
+
+Opacity for components that are only temporarly disabled.
 
 Default: 0.4`,
         value: `0.4`,
@@ -2411,7 +2724,7 @@ Default: 0.4`,
     {
         name: 'coralOpacityS',
         type: 'opacity',
-        description: `Opacity for disabled components
+        description: `Barely transparent.
 
 Default: 0.6`,
         value: `0.6`,
@@ -2465,7 +2778,7 @@ Default: Talend logo`,
     {
         name: 'coralTransitionInstant',
         type: 'transition',
-        description: `Instant transition for hovering effects (opacity, color, ...)
+        description: `Instant transition for hovering effects (opacity, color...)
 
 Default: 100ms ease-out`,
         value: `100ms ease-out`,
@@ -2474,7 +2787,7 @@ Default: 100ms ease-out`,
     {
         name: 'coralTransitionFast',
         type: 'transition',
-        description: `Fast transition for "out" effects (closing menu, hide modal, ...)
+        description: `Fast transition for "out" effects (closing menu, hide modal...)
 
 Default: 250ms ease-in-out`,
         value: `250ms ease-in-out`,
@@ -2483,7 +2796,7 @@ Default: 250ms ease-in-out`,
     {
         name: 'coralTransitionNormal',
         type: 'transition',
-        description: `Normal transition for "in" effects (opening menu, show modal, ...)
+        description: `Normal transition for "in" effects (opening menu, show modal...)
 
 Default: 300ms ease-in-out`,
         value: `300ms ease-in-out`,
@@ -2492,7 +2805,7 @@ Default: 300ms ease-in-out`,
     {
         name: 'coralTransitionSlow',
         type: 'transition',
-        description: `Slow transition for moving illustrations in background
+        description: `Slow transition for background illustrations with movement.
 
 Default: 400ms ease-in`,
         value: `400ms ease-in`,
@@ -2510,7 +2823,9 @@ Default: 0`,
     {
         name: 'coralElevationLayerStandardFront',
         type: 'elevation',
-        description: `Behind the default content (Drawer, Modal, Fixed layout, etc.)
+        description: `First elevation layer.
+
+Just above the default content (Drawer, Modal, Fixed layout...)
 
 Default: 4`,
         value: `4`,
@@ -2519,7 +2834,9 @@ Default: 4`,
     {
         name: 'coralElevationLayerInteractiveFront',
         type: 'elevation',
-        description: `Behind any layout (Dropdown, Popover)
+        description: `Second elevation layer. 
+
+For elements above any layout (Dropdown, Popover).
 
 Default: 8`,
         value: `8`,
@@ -2528,7 +2845,9 @@ Default: 8`,
     {
         name: 'coralElevationLayerOverlay',
         type: 'elevation',
-        description: `Behind anything else (Alert, Confirm, Tooltip, etc.)
+        description: `Topmost layer.
+
+For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)
 
 Default: 16`,
         value: `16`,
