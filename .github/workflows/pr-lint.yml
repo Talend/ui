@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        with:          
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js 14
         uses: actions/setup-node@v2
@@ -23,8 +23,19 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - id: file_changes
-        uses: trilom/file-changes-action@v1.2.4
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v16
+        with:
+          files: |
+            *.js
+            *.jsx
+            *.ts
+            *.tsx
+            *.mdx
+            *.scss
+            *.json
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install
         run: yarn install --frozen-lockfile
@@ -52,12 +63,9 @@ jobs:
         continue-on-error: true
         id: prettier
         run: |
-          modified_files=($(git diff --name-only HEAD $(git merge-base HEAD master)))
-          for i in ${modified_files[@]}; do
-            if [[ $i == *.js || $i == *.ts || $i == *.jsx || $i == *.tsx || $i == *.mdx|| $i == *.scss || $i == *.json ]]; then
-              echo "Run Prettier on ${i}"
-              prettier --config .prettierrc ${i} --write
-            fi
+          for file in ${steps.changed-files.outputs.all_changed_files}; do
+            echo "Run Prettier on ${file}"
+            prettier --config .prettierrc ${file} --write
           done
           STATUS=$(git status --short output)
           echo "::set-output name=STATUS::$STATUS"
@@ -67,5 +75,5 @@ jobs:
         if: steps.prettier.outputs.STATUS
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: apply prettier on modified files"
+          message: "chore: Prettier"
           branch: ${{ github.head_ref }}
