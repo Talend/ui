@@ -11,7 +11,8 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
-        with:          
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js 14
@@ -27,14 +28,7 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v16
         with:
-          files: |
-            **/*.js
-            **/*.jsx
-            **/*.ts
-            **/*.tsx
-            **/*.mdx
-            **/*.scss
-            **/*.json
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install
         run: yarn install --frozen-lockfile
