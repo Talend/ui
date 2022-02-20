@@ -53,7 +53,13 @@ jobs:
         continue-on-error: true
         id: prettier
         run: |
-          ./prettier.sh
+          modified_files=($(git diff --name-only HEAD $(git merge-base HEAD master)))
+          for i in ${modified_files[@]}; do
+            if [[ $i == *.js || $i == *.ts || $i == *.jsx || $i == *.tsx || $i == *.mdx|| $i == *.scss || $i == *.json ]]; then
+              echo "Run Prettier on ${i}"
+              prettier --config .prettierrc ${i} --write
+            fi
+          done
           STATUS=$(git status --short output)
           echo "::set-output name=STATUS::$STATUS"
 
