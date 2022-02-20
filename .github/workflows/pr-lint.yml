@@ -57,7 +57,7 @@ jobs:
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "Run Prettier on $file"
-            prettier --config .prettierrc $file --write
+            npx prettier --config .prettierrc $file --write
           done
           STATUS=$(git status --short output)
           echo "::set-output name=STATUS::$STATUS"
