@@ -1,4 +1,4 @@
-name: Flattten Figma SVG icons
+name: Flattten Figma SVG
 
 on:
   pull_request:
@@ -7,14 +7,13 @@ on:
   workflow_dispatch:
     inputs:
       svg:
-        description: The raw version of the svg
+        description: The raw version of the SVG
 #        required: true
 
 jobs:
-  check:
+  optimize:
     runs-on: ubuntu-latest
     name: Flatten SVG
-
     steps:
       - name: Install
         run: |
@@ -30,7 +29,7 @@ jobs:
         run: |
           mkdir output
           cd output
-          inkscape -v
+          inkscape -V
           curl https://s3-us-west-2.amazonaws.com/figma-alpha-api/img/2eae/740c/69d5aef1671d11b5eae15a03813c45ac -o out_from_figma_1.png
           convert out_from_figma_1.png out_from_figma_2.svg
 #          inkscape --help
