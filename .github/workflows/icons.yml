@@ -17,7 +17,10 @@ jobs:
     steps:
       - name: Install
         run: |
-          sudo apt-get install -y inkscape potrace imagemagick
+          sudo add-apt-repository ppa:inkscape.dev/stable
+          sudo apt update
+          sudo apt install -y inkscape
+          sudo apt-get install -y potrace imagemagick
 
 #      - name: Use Node.js 16
 #        uses: actions/setup-node@v2
