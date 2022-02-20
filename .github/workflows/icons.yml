@@ -21,6 +21,7 @@ jobs:
           sudo apt update
           sudo apt install -y inkscape
           sudo apt install -y potrace imagemagick
+          sudo apt install -y librsvg2-bin
 
 #      - name: Use Node.js 16
 #        uses: actions/setup-node@v2
