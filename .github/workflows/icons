@@ -1,0 +1,33 @@
+name: Icons
+
+on:
+  workflow_dispatch:
+    inputs:
+      svg:
+        description: The raw version of the svg
+#        required: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    name: Flatten svg
+
+    steps:
+      - name: Install
+        run: |
+          sudo apt-get install -y inkscape
+
+#      - name: Use Node.js 16
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: 16
+#          registry-url: "https://registry.npmjs.org/"
+
+      - name: Optimize
+        run: |
+          curl -o- https://api.figma.com/v1/images/L1QUr28Y79ydAv05nQVmaA?ids=901%3A264&format=svg
+          inkscape -b white -w 512 -h 512 out_from_figma.svg -o out_from_figma_1.png
+#          convert out_from_figma_1.png out_from_figma_2.svg
+#          rsvg-convert -w 24 -h 24 --keep-aspect-ratio --dpi-x 90 --dpi-y 90 -f svg out_from_figma_2.svg -o out_from_figma_3.svg
+#          npx svgo out_from_figma_3.svg -o out_from_figma_4.svg
+#          svgcleaner out_from_figma_4.svg out_from_figma_5.svg
