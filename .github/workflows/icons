@@ -28,7 +28,7 @@ jobs:
 
       - name: Optimize
         run: |
-          curl -o- https://api.figma.com/v1/images/L1QUr28Y79ydAv05nQVmaA?ids=901%3A264&format=svg
+          curl -o- https://s3-us-west-2.amazonaws.com/figma-alpha-api/img/08f3/0d9f/d003e913f09baf858f3f9f63374c3413
           inkscape -b white -w 512 -h 512 out_from_figma.svg -o out_from_figma_1.png
 #          convert out_from_figma_1.png out_from_figma_2.svg
 #          rsvg-convert -w 24 -h 24 --keep-aspect-ratio --dpi-x 90 --dpi-y 90 -f svg out_from_figma_2.svg -o out_from_figma_3.svg
