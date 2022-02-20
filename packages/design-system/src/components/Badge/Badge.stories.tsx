@@ -3,8 +3,8 @@ import { faker } from '@faker-js/faker';
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 
-import BadgePrimitive from './primitive/Badge';
 import { Badge, BadgeFixed } from '.';
+import { BadgePrimitive } from './primitive';
 import { StackHorizontal, StackVertical } from '../Stack';
 import { ButtonSecondary } from '../Button';
 

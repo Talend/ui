@@ -1,0 +1,5 @@
+@use "~@talend/design-tokens/lib/tokens";
+
+.badgeFixed {
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+}

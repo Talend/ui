@@ -10,14 +10,15 @@
 	background: tokens.$coral-color-neutral-background-medium;
 	border-radius: tokens.$coral-radius-round;
 
-	&Fixed {
-		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-	}
-
-	[data-ellipsis] span {
+	&__label {
 		display: inline;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		overflow: hidden;
+	}
+
+	&__label,
+	&__value {
+		min-width: 33%;
 	}
 }
