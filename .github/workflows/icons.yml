@@ -30,10 +30,10 @@ jobs:
         run: |
           mkdir output
           cd output
-          curl https://s3-us-west-2.amazonaws.com/figma-alpha-api/img/08f3/0d9f/d003e913f09baf858f3f9f63374c3413 -o out_from_figma.svg
-          inkscape --help
-          inkscape -z -b white -w 512 -h 512 -f out_from_figma.svg -p out_from_figma_1.png
+          curl https://s3-us-west-2.amazonaws.com/figma-alpha-api/img/2eae/740c/69d5aef1671d11b5eae15a03813c45ac -o out_from_figma_1.png
           convert out_from_figma_1.png out_from_figma_2.svg
+#          inkscape --help
+#          inkscape -z -b white -w 512 -h 512 -f out_from_figma.svg -p out_from_figma_1.png
 #          rsvg-convert -w 24 -h 24 --keep-aspect-ratio --dpi-x 90 --dpi-y 90 -f svg out_from_figma_2.svg -o out_from_figma_3.svg
 #          npx svgo out_from_figma_3.svg -o out_from_figma_4.svg
 #          svgcleaner out_from_figma_4.svg out_from_figma_5.svg
