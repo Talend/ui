@@ -1,6 +1,10 @@
 name: Icons
 
 on:
+on:
+  push:
+    paths:
+      - '.github/workflows'
   workflow_dispatch:
     inputs:
       svg:
