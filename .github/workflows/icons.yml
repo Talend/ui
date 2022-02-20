@@ -33,7 +33,7 @@ jobs:
           mkdir output
           cd output
           inkscape -V
-          curl https://s3-us-west-2.amazonaws.com/figma-alpha-api/img/cade/4ad6/94e2726787237cba336e13fbbae92db1 -o out_from_figma.png
+          curl https://s3-us-west-2.amazonaws.com/figma-alpha-api/img/cade/4ad6/94e2726787237cba336e13fbbae92db1 -o out_from_figma.svg
           inkscape -b white -w 512 -h 512 out_from_figma.svg -o out_from_figma_1.png 
           convert out_from_figma_1.png out_from_figma_2.svg
 #          rsvg-convert -w 24 -h 24 --keep-aspect-ratio --dpi-x 90 --dpi-y 90 -f svg out_from_figma_2.svg -o out_from_figma_3.svg
