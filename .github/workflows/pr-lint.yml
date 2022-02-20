@@ -35,7 +35,6 @@ jobs:
             **/*.mdx
             **/*.scss
             **/*.json
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install
         run: yarn install --frozen-lockfile
