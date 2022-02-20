@@ -24,8 +24,13 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - id: file_changes
-        uses: trilom/file-changes-action@v1.2.4
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v16
+        with:
+          files: |            
+            !*.yml
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install
         run: yarn install --frozen-lockfile
@@ -48,19 +53,29 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json
+    
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
 
       - name: Prettier
         continue-on-error: true
         id: prettier
+        shell: bash
         run: |
-          ./prettier.sh
-          STATUS=$(git status --short output)
-          echo "::set-output name=STATUS::$STATUS"
-
-      - name: Commit prettier
-        uses: actions-js/push@master
-        if: steps.prettier.outputs.STATUS
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx || $file == *.mdx || $file == *.scss || $file == *.json ]]; then
+              echo "Run Prettier on $file"
+              npx prettier --config .prettierrc $file --write
+            fi
+          done
+          git commit -m "chore: prettier [skip-ci]" ${{ steps.changed-files.outputs.all_changed_files }}
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: apply prettier on modified files"
           branch: ${{ github.head_ref }}
+          
+          
