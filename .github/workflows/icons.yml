@@ -1,4 +1,4 @@
-name: Icons
+name: Flattten Figma SVG icons
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    name: Flatten svg
+    name: Flatten SVG
 
     steps:
       - name: Install
@@ -30,6 +30,7 @@ jobs:
         run: |
           mkdir output
           cd output
+          inkscape -v
           curl https://s3-us-west-2.amazonaws.com/figma-alpha-api/img/2eae/740c/69d5aef1671d11b5eae15a03813c45ac -o out_from_figma_1.png
           convert out_from_figma_1.png out_from_figma_2.svg
 #          inkscape --help
@@ -38,7 +39,7 @@ jobs:
 #          npx svgo out_from_figma_3.svg -o out_from_figma_4.svg
 #          svgcleaner out_from_figma_4.svg out_from_figma_5.svg
 
-      - name: upload
+      - name: Upload
         uses: actions/upload-artifact@v2
         with:
           name: output
