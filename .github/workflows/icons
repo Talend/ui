@@ -1,7 +1,6 @@
 name: Icons
 
 on:
-on:
   push:
     paths:
       - '.github/workflows'
