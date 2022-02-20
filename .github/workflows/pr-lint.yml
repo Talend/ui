@@ -51,13 +51,11 @@ jobs:
  #       with:
  #         repo-token: "${{ secrets.GITHUB_TOKEN }}"
  #         report-json: ./eslint-report.json
-
       - name: Prettier
         continue-on-error: true
         id: prettier
         run: |
-          echo "FILES: ${steps.changed-files.outputs.deleted_files}" 
-          for file in ${{ steps.changed-files.outputs.deleted_files }}; do
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "Run Prettier on $file"
             prettier --config .prettierrc $file --write
           done
