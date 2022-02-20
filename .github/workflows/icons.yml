@@ -1,4 +1,4 @@
-name: Flattten Figma SVG
+name: Figma SVG icons
 
 on:
   pull_request:
@@ -13,16 +13,16 @@ on:
 jobs:
   optimize:
     runs-on: ubuntu-latest
-    name: Flatten SVG
+    name: Optimize SVG icon
     steps:
       - name: Install
         run: |
           sudo add-apt-repository ppa:inkscape.dev/stable
           sudo apt update
           sudo apt install -y inkscape
-          sudo apt install -y potrace imagemagick
-          sudo apt install -y librsvg2-bin 
-#          sudo apt install -y librsvg2-bin svgcleaner
+          sudo apt install -y imagemagick
+          sudo apt install -y potrace 
+          sudo apt install -y librsvg2-bin
 
       - name: Use Node.js 16
         uses: actions/setup-node@v2
@@ -41,7 +41,6 @@ jobs:
           potrace out_from_figma_1.pnm -s -o out_from_figma_2.svg
           rsvg-convert -w 24 -h 24 --keep-aspect-ratio --dpi-x 90 --dpi-y 90 -f svg out_from_figma_2.svg -o out_from_figma_3.svg
           npx svgo out_from_figma_3.svg -o out_from_figma_4.svg
-#          svgcleaner out_from_figma_4.svg out_from_figma_5.svg
 
       - name: Upload
         uses: actions/upload-artifact@v2
