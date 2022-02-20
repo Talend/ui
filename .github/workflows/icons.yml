@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Install
         run: |
-          sudo apt-get install -y inkscape potrace imagemagick rsvg-convert
+          sudo apt-get install -y inkscape potrace imagemagick
 
 #      - name: Use Node.js 16
 #        uses: actions/setup-node@v2
