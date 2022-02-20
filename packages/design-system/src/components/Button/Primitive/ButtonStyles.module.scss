@@ -17,6 +17,13 @@
 		align-items: center;
 	}
 
+	&__text {
+		display: inline;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
 	&__caret {
 		display: inline-flex;
 		width: tokens.$coral-sizing-minimal;

@@ -59,7 +59,7 @@ const ButtonPrimitive = forwardRef(
 							{typeof icon === 'string' ? <Icon name={icon} /> : React.cloneElement(icon, {})}
 						</span>
 					)}
-					{children}
+					<span className={styles.button__text}>{children}</span>
 					{isDropdown && (
 						<span className={styles.button__caret}>
 							<Icon name="talend-caret-down" />
