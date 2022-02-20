@@ -28,13 +28,13 @@ jobs:
         uses: tj-actions/changed-files@v16
         with:
           files: |
-            *.js
-            *.jsx
-            *.ts
-            *.tsx
-            *.mdx
-            *.scss
-            *.json
+            **/*.js
+            **/*.jsx
+            **/*.ts
+            **/*.tsx
+            **/*.mdx
+            **/*.scss
+            **/*.json
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install
