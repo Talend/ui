@@ -13,6 +13,7 @@
     "start": "yarn workspace @talend/ui-playground run start",
     "info": "yarn workspaces --silent info > info.json",
     "release": "yarn changeset publish",
+    "lint-staged": "lint-staged",
     "lint:es": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:es",
     "lint:style": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:style",
     "build": "yarn workspaces run build",
