@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
+import shade from 'polished/lib/color/shade';
 
 import tokens from '../../tokens';
 
@@ -26,7 +26,7 @@ export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 		overflow: hidden;
     	${({ disabled }) => (disabled ? `opacity: ${tokens.opacity.disabled};` : '')}
 	}
-	
+
 	button {
 		position: relative;
 		display: flex;
@@ -37,13 +37,13 @@ export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 		color: ${({ theme }) => theme.colors.textColor}
 		font-size: ${tokens.fontSizes.small};
     	opacity: ${tokens.opacity.disabled};
-		user-select: none; 		
+		user-select: none;
 		cursor: pointer;
 		background: none;
 		border: none;
 		z-index: ${tokens.zIndices.onTop};
 	}
-	
+
 	${SwitchIndicator} em {
   		position: absolute;
   		top: .2rem;
@@ -51,7 +51,7 @@ export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
   		bottom: .2rem;
   		left: .2rem;
 		transition: background .3s;
-		background: ${({ theme }) => theme.colors.activeColor[500]};    
+		background: ${({ theme }) => theme.colors.activeColor[500]};
     	border-radius: 100px;
   	}
 
@@ -59,20 +59,20 @@ export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 		background: ${({ readOnly, theme }) =>
 			!readOnly ? shade(0.25, theme.colors.activeColor[500]) : 'none'};
 	}
-  
+
 	[aria-selected] {
 		transition: color ${tokens.transitions.normal};
 	}
-	
+
 	[aria-selected="true"] {
 		color: ${({ theme }) => theme.colors.inputBackgroundColor};
 		opacity: ${tokens.opacity.opaque};
 	}
-		
+
 	[aria-selected] ~ ${SwitchIndicator} {
 		visibility: hidden;
 	}
-	
+
 	[aria-selected="true"] ~ ${SwitchIndicator} {
 		visibility: visible;
 	}

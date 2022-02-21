@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { hideVisually, transparentize } from 'polished';
+import hideVisually from 'polished/lib/mixins/hideVisually';
+import transparentize from 'polished/lib/color/transparentize';
+
 import Button from '../Button';
 import tokens from '../../tokens';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { shade } from 'polished';
+import shade from 'polished/lib/color/shade';
+
 import Input, { InputProps } from './Input';
 import tokens from '../../../../tokens';
 
@@ -54,7 +55,7 @@ const SRange = styled.div`
 			border-radius: 1.3px;
 			border: 0.2px solid #010101;
 		}
-		
+
 		&::-moz-range-thumb {
 			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 			border: 1px solid #000000;
@@ -64,7 +65,7 @@ const SRange = styled.div`
 			background: #ffffff;
 			cursor: pointer;
 		}
-		
+
 		&::-ms-track {
 			width: 100%;
 			height: 8.4px;
@@ -74,21 +75,21 @@ const SRange = styled.div`
 			border-width: 16px 0;
 			color: transparent;
 		}
-		
+
 		&::-ms-fill-lower {
 			background: #2a6495;
 			border: 0.2px solid #010101;
 			border-radius: 2.6px;
 			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 		}
-		
+
 		&::-ms-fill-upper {
 			background: #3071a9;
 			border: 0.2px solid #010101;
 			border-radius: 2.6px;
 			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 		}
-		
+
 		&::-ms-thumb {
 			box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 			border: 1px solid #000000;
@@ -98,7 +99,7 @@ const SRange = styled.div`
 			background: #ffffff;
 			cursor: pointer;
 		}
-		
+
 		&:focus::-ms-fill-lower,
 		&:focus::-ms-fill-upper {
 			background: #367ebd;

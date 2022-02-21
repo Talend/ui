@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { transparentize } from 'polished';
+import transparentize from 'polished/lib/color/transparentize';
 
 import Button from '../Button';
 import Link from '../Link';

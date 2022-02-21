@@ -1,5 +1,7 @@
 import { ColorSwatch } from 'styled-components';
-import { linearGradient, shade, tint } from 'polished';
+import linearGradient from 'polished/lib/mixins/linearGradient';
+import shade from 'polished/lib/color/shade';
+import tint from 'polished/lib/color/tint';
 
 const black = '#202020';
 const russianViolet = '#2C1F56';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCopyToClipboard } from 'react-use';
+import useCopyToClipboard from 'react-use/lib/useCopyToClipboard';
 import { useTranslation } from 'react-i18next';
 import Button from '../../../Button';
 import FieldGroup from '../../FieldGroup';
