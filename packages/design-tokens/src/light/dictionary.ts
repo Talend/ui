@@ -2288,65 +2288,51 @@ Ex: InlineMessage`,
     {
         name: 'coralRadiusM',
         type: 'radius',
-        description: `Radius for molecules (Accordion, Fieldset, Popover, etc.)
-
-Default: 8px`,
+        description: `Radius for molecules (Accordion, Fieldset, Popover, etc.)`,
         value: '0.8rem',
         
     },
     {
         name: 'coralRadiusL',
         type: 'radius',
-        description: `Radius for layout components (Card, Modal, etc.)
-
-Default: 16px `,
+        description: `Radius for layout components (Card, Modal, etc.)`,
         value: '1.6rem',
         
     },
     {
         name: 'coralRadiusRound',
         type: 'radius',
-        description: `Radius for immediate actions (badges, switch, etc.)
-
-Default: rounded `,
+        description: `Radius for immediate actions (badges, switch, etc.)`,
         value: '9999.9rem',
         
     },
     {
         name: 'coralRadiusS',
         type: 'radius',
-        description: `Radius for atomic components (button, tag, tooltip, etc.) 
-
-Default: 4px `,
+        description: `Radius for atomic components (button, tag, tooltip, etc.) `,
         value: '0.4rem',
         
     },
     {
         name: 'coralBorderSSolid',
         type: 'border',
-        description: `Solid border to visually separate elements
-
-Default: 1px solid`,
+        description: `Solid border to visually separate elements`,
         value: `1px solid`,
         
     },
     {
         name: 'coralBorderMSolid',
         type: 'border',
-        description: `Solid border to visually identify a selection
-
-Default: 2px solid`,
+        description: `Solid border to visually identify a selection`,
         value: `2px solid`,
         
     },
     {
         name: 'coralBorderSDashed',
         type: 'border',
-        description: `Dashed border to visually identify potentielly interactive components.
+        description: `Dashed border to visually identify potentially interactive components.
 
-Ex: Droppable zone
-
-Default: 1px solid`,
+Ex: Droppable zone`,
         value: `1px dashed`,
         
     },
@@ -2355,9 +2341,7 @@ Default: 1px solid`,
         type: 'border',
         description: `Dashed border to visually identify a possible selection.
 
-Ex: Ongoing mapper link
-
-Default: 2px dashed`,
+Ex: Ongoing mapper link`,
         value: `2px dashed`,
         
     },
@@ -2366,9 +2350,7 @@ Default: 2px dashed`,
         type: 'opacity',
         description: `Very transparent.
 
-Opacity for components that are not currently enabled.
-
-Default: 0.2`,
+Opacity for components that are not currently enabled.`,
         value: `0.2`,
         
     },
@@ -2377,108 +2359,84 @@ Default: 0.2`,
         type: 'opacity',
         description: `Transparent.
 
-Opacity for components that are only temporarly disabled.
-
-Default: 0.4`,
+Opacity for components that are only temporarily disabled.`,
         value: `0.4`,
         
     },
     {
         name: 'coralOpacityS',
         type: 'opacity',
-        description: `Barely transparent.
-
-Default: 0.6`,
+        description: `Barely transparent.`,
         value: `0.6`,
         
     },
     {
         name: 'coralBreakpointS',
         type: 'breakpoint',
-        description: `Small screen (Portrait)
-
-Default: 400px`,
+        description: `Small screen (Portrait)`,
         value: `40em`,
         
     },
     {
         name: 'coralBreakpointM',
         type: 'breakpoint',
-        description: `Small screen (Landscape)
-
-Default: 480px`,
+        description: `Small screen (Landscape)`,
         value: `48em`,
         
     },
     {
         name: 'coralBreakpointL',
         type: 'breakpoint',
-        description: `Wide screen (Portrait)
-
-Default: 640px`,
+        description: `Wide screen (Portrait)`,
         value: `64em`,
         
     },
     {
         name: 'coralBreakpointXl',
         type: 'breakpoint',
-        description: `Wide screen (Landscape)
-
-Default: 800px`,
+        description: `Wide screen (Landscape)`,
         value: `80em`,
         
     },
     {
         name: 'coralBrandingLogo',
         type: 'branding',
-        description: `Brand logo in App heading
-
-Default: Talend logo`,
+        description: `Brand logo in App heading`,
         value: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==")`,
         
     },
     {
         name: 'coralTransitionInstant',
         type: 'transition',
-        description: `Instant transition for hovering effects (opacity, color...)
-
-Default: 100ms ease-out`,
+        description: `Instant transition for hovering effects (opacity, color...)`,
         value: `100ms ease-out`,
         
     },
     {
         name: 'coralTransitionFast',
         type: 'transition',
-        description: `Fast transition for "out" effects (closing menu, hide modal...)
-
-Default: 250ms ease-in-out`,
+        description: `Fast transition for "out" effects (closing menu, hide modal...)`,
         value: `250ms ease-in-out`,
         
     },
     {
         name: 'coralTransitionNormal',
         type: 'transition',
-        description: `Normal transition for "in" effects (opening menu, show modal...)
-
-Default: 300ms ease-in-out`,
+        description: `Normal transition for "in" effects (opening menu, show modal...)`,
         value: `300ms ease-in-out`,
         
     },
     {
         name: 'coralTransitionSlow',
         type: 'transition',
-        description: `Slow transition for background illustrations with movement.
-
-Default: 400ms ease-in`,
+        description: `Slow transition for background illustrations with movement.`,
         value: `400ms ease-in`,
         
     },
     {
         name: 'coralElevationLayerFlat',
         type: 'elevation',
-        description: `Default content elevation
-
-Default: 0`,
+        description: `Default content elevation`,
         value: `0`,
         
     },
@@ -2487,9 +2445,7 @@ Default: 0`,
         type: 'elevation',
         description: `First elevation layer.
 
-Just above the default content (Drawer, Modal, Fixed layout...)
-
-Default: 4`,
+Just above the default content (Drawer, Modal, Fixed layout...)`,
         value: `4`,
         
     },
@@ -2498,9 +2454,7 @@ Default: 4`,
         type: 'elevation',
         description: `Second elevation layer. 
 
-For elements above any layout (Dropdown, Popover).
-
-Default: 8`,
+For elements above any layout (Dropdown, Popover).`,
         value: `8`,
         
     },
@@ -2509,9 +2463,7 @@ Default: 8`,
         type: 'elevation',
         description: `Topmost layer.
 
-For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)
-
-Default: 16`,
+For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)`,
         value: `16`,
         
     },
