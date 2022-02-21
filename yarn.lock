@@ -3273,7 +3273,7 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-6.36.0.tgz#727311ca5f8fa220dba18a5069ae403256a384ca"
   integrity sha512-pW1kVv6atGEy5qIfp2VVpdFAtJrwpYpIIiE576W5IDw0q8U7yAafEb+vhk9jVHElyrAkYJSYjxjit8gYX/CJxw==
 
-"@talend/module-to-cdn@^9.7.6":
+"@talend/module-to-cdn@^9.7.6", "@talend/module-to-cdn@^9.7.7":
   version "9.7.7"
   resolved "https://registry.yarnpkg.com/@talend/module-to-cdn/-/module-to-cdn-9.7.7.tgz#4f9ecafd1796fb156aaf1a385a94cbb7128454f9"
   integrity sha512-nwtPDnmOBlLlAfAZEbxVMwynWdcj/5dyPHdcbP/bEX9LT4GZyETh8EmfgFh0rmCH+soJ1d7dSTkWIMoWrFEcJQ==
@@ -3302,12 +3302,12 @@
     babel-plugin-angularjs-annotate "^0.10.0"
 
 "@talend/scripts-config-cdn@^9.11.3":
-  version "9.11.3"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.11.3.tgz#2df2118b6e4b32e6dd859105c6915f789b0a05bb"
-  integrity sha512-f00A/Z4YzCXpaFrr6Qy3N/Rods4hxSedRwyEjM0rmNaj8z5ckx0ZUWJJZ83x0jOiT1kqEeQHPz5z3HE7H2evSA==
+  version "9.11.4"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.11.4.tgz#aa7bdf8723629fe8198ee28ee29f8038b01cc69e"
+  integrity sha512-T1OA0yeYPc9z6OIIBfNiK7t07G8GaADznzUzY18GvIk/9GQP8Z4zNX3JR1T27S1uiLEZpGsZf0xadLN8+YrEIg==
   dependencies:
     "@talend/dynamic-cdn-webpack-plugin" "^9.7.15"
-    "@talend/module-to-cdn" "^9.7.6"
+    "@talend/module-to-cdn" "^9.7.7"
     "@yarnpkg/lockfile" "^1.1.0"
     read-pkg-up "^7.0.1"
 
@@ -10005,9 +10005,9 @@ focus-outline-manager@^1.0.2:
   integrity sha1-e/NliGU0H7awjQQqA3udKGixGbU=
 
 follow-redirects@^1.0.0, follow-redirects@^1.14.0:
-  version "1.14.7"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
-  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
+  version "1.14.8"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.8.tgz#016996fb9a11a100566398b1c6839337d7bfa8fc"
+  integrity sha512-1x0S9UVJHsQprFcEC/qnNzBLcIxsjAV905f/UkQxbclCsoTWlacCNOpQa/anodLl2uaEKFhfWOvM2Qg77+15zA==
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -12824,10 +12824,10 @@ karma-mocha@^2.0.1:
   dependencies:
     minimist "^1.2.3"
 
-karma@^6.3.13:
-  version "6.3.13"
-  resolved "https://registry.yarnpkg.com/karma/-/karma-6.3.13.tgz#ff58622c4f913508dbf86506a5fc614be0e98137"
-  integrity sha512-64lbtHBnM/sG7XKvitSQVlImKYNugyjw4K2e8cZYrlZm0GwoWrfsrkzgS/KWY/r3+fVM/2xvT/JN6MyfdttxLw==
+karma@^6.3.14:
+  version "6.3.14"
+  resolved "https://registry.yarnpkg.com/karma/-/karma-6.3.14.tgz#1ed57a489249b9260bc604325ae333766d4cddc9"
+  integrity sha512-SDFoU5F4LdosEiUVWUDRPCV/C1zQRNtIakx7rWkigf7R4sxGADlSEeOma4S1f/js7YAzvqLW92ByoiQptg+8oQ==
   dependencies:
     body-parser "^1.19.0"
     braces "^3.0.2"

@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 2.2.0
+
+### Minor Changes
+
+- 9f87b591a: return wrong date when calling “convertToTimeZone” function with specific timezone and summer time
+
 ## 2.1.1
 
 ### Patch Changes

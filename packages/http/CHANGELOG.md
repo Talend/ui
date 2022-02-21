@@ -1,5 +1,11 @@
 # @talend/http
 
+## 2.0.2
+
+### Patch Changes
+
+- d4bdd2ec2: chore(http): Add typing for error cases
+
 ## 2.0.1
 
 ### Patch Changes
