@@ -4,7 +4,8 @@
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-	z-index: 2;
+	// Need to go above the Switcher buttons https://github.com/Talend/ui/blob/master/packages/design-system/src/components/Switch/Switch.style.ts#L12
+	z-index: 3;
 }
 
 .tc-with-drawer-container {

@@ -5,7 +5,7 @@ import Badge from './Badge';
 const StorybookStatus = (props: React.FunctionComponent) => {
 	return (
 		<Badge {...props} icon="storybook">
-			Documentation
+			Storybook
 		</Badge>
 	);
 };

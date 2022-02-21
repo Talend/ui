@@ -50,7 +50,7 @@ export async function httpPatch<T>(
  */
 export async function httpPut<T>(
 	url: string,
-	payload: any,
+	payload?: any,
 	config?: TalendRequestInit,
 ): Promise<TalendHttpResponse<T>> {
 	return httpFetch<T>(url, config, HTTP_METHODS.PUT, payload);

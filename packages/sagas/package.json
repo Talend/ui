@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",

@@ -30,12 +30,14 @@ module.exports = {
 		// storyStoreV7: true, // will break all work related to aggregated status in the next major version of Storybook
 	},
 	framework: '@storybook/react',
+	/*
 	refs: {
 		'design-tokens': {
 			title: 'Design Tokens',
-			url: '/design-tokens',
+			url: 'https://design.talend.com/design-tokens',
 		},
 	},
+	*/
 	stories: [
 		'../src/Welcome.stories.@(js|tsx|mdx)',
 		'../src/GettingStarted.stories.@(js|tsx|mdx)',

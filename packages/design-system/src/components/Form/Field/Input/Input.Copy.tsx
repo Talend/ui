@@ -8,7 +8,7 @@ import { InputProps } from './Input';
 
 const InputCopy = React.forwardRef(
 	(
-		{ label, disabled, readOnly, value, defaultValue, ...rest }: InputProps,
+		{ label, disabled, readOnly, value, defaultValue, prefix, ...rest }: InputProps,
 		ref: React.Ref<HTMLInputElement | null>,
 	) => {
 		const [{ value: copiedValue, error: copyError }, copyToClipboard] = useCopyToClipboard();
@@ -30,6 +30,7 @@ const InputCopy = React.forwardRef(
 		return (
 			<FieldGroup
 				label={label}
+				prefix={prefix}
 				suffix={
 					!readOnly ? (
 						<Button.Icon
