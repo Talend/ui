@@ -51,7 +51,7 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json
-    
+
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -65,15 +65,15 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx || $file == *.mdx || $file == *.scss || $file == *.json ]]; then
               echo "Run Prettier on $file"
-              npx prettier --config .prettierrc $file --write
+              prettier --config .prettierrc $file --write
             fi
           done
           git commit -m "chore: prettier" ${{ steps.changed-files.outputs.all_changed_files }}
-          
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.head_ref }}
-          
-          
+
+
