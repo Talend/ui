@@ -13,15 +13,11 @@ import * as Stories from './Skeleton.stories';
 
 # Skeleton
 
-Skeleton is used as decoration to fill the space while the real content is loading.
+Skeleton is used as placeholder to fill the space while the real content is loading.
 
 ## Zoning
 
 ## Style
-
-### Default
-
-// Todo
 
 ### Button
 
@@ -100,7 +96,7 @@ The cursor is set to `progress`.
 
 ## Accessibility
 
-They are unitary hidden for screen readers by default.
+Each Skeleton component is hidden to screen readers by default.
 The goal is to set the current loading content to `aria-busy="true"` instead.
 Here is an article about [more accessible skeletons](https://adrianroselli.com/2020/11/more-accessible-skeletons.html) written by Adrian Roselli.
 
@@ -108,7 +104,7 @@ Here is an article about [more accessible skeletons](https://adrianroselli.com/2
 
 As you've seen above, `Skeleton` can be used by importing the single variant you need (ie: `SkeletonButton` or `SkeletonHeading`).
 
-You can also use the `Skeleton` and specify the variant you mean to use: its props will then match the variant's own.
+You can also use `Skeleton` and specify the variant you need to use: its props will then match the variant's own.
 
 <Canvas>
 	<Story story={Stories.ButtonVariants} />

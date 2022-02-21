@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from '.';
 import { StackHorizontal, StackVertical } from '../Stack';
+import Skeleton from '../Skeleton';
 
 export default {
 	component: ButtonIcon,
@@ -235,5 +236,13 @@ export const DefaultButtonIconFloating = () => (
 		<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')} size="S">
 			Size S
 		</ButtonIconFloating>
+	</StackHorizontal>
+);
+
+export const ButtonIconSkeletons = () => (
+	<StackHorizontal gap="XS" align="center">
+		<Skeleton variant="buttonIcon" />
+		<Skeleton variant="buttonIcon" size="S" />
+		<Skeleton variant="buttonIcon" size="XS" />
 	</StackHorizontal>
 );

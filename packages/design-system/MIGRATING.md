@@ -61,3 +61,10 @@ Buttons are no longer Styled Components. Their types are fixed.
 - Props `small` is replaced with props `size="S"` to align with size props across the DS.
 - Can't be used as links, use `ButtonAsLink` components instead.
 - Can't be used as `prefix` or `sufix` for `Form.InputGroup`. Use `AffixButton` instead.
+
+## Skeletons
+
+Skeletons are no longer Styled Components.
+
+- No more `Skeleton.Variant` syntax. Use the dedicated component for the variant (ie: `SkeletonButton`).
+- Skeletons do not accept classnames anymore.

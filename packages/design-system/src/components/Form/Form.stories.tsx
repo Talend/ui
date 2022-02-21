@@ -20,12 +20,12 @@ function getCountryCodes() {
 
 export const FormSkeleton = () => (
 	<Form>
-		<Skeleton.Heading />
-		<Skeleton />
-		<Skeleton />
+		<Skeleton variant="heading" />
+		<Skeleton variant="paragraph" />
+		<Skeleton variant="paragraph" />
 		<Form.Buttons>
-			<Skeleton.Button />
-			<Skeleton.Button />
+			<Skeleton variant="button" />
+			<Skeleton variant="button" />
 		</Form.Buttons>
 	</Form>
 );
