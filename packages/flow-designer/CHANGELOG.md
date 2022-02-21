@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.2
+
+### Patch Changes
+
+- 275c25ee0: fix: add types in package.json for ts project
+
 ## 5.0.1
 
 ### Patch Changes

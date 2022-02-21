@@ -9,6 +9,7 @@ jobs:
   upgrade:
     name: Upgrade dependencies
     runs-on: ubuntu-latest
+    continue-on-error: true  # we want the PR to popup even if sth goes wrong
 
     steps:
       - name: Checkout
@@ -26,9 +27,9 @@ jobs:
         run: |
           yarn
           yarn talend-scripts upgrade:deps
-          node_modules/.bin/talend-scripts upgrade:deps --latest --dry > dependencies-latest.md
-          git add dependencies-latest.md
-          git add .changeset/ci-dependencies.md
+          yarn talend-scripts upgrade:deps --scope=@talend --latest
+          yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.txt
+          git add dependencies-latest.txt
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

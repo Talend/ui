@@ -2,12 +2,13 @@ module.exports = {
 	root: true,
 	extends: [
 		'../../node_modules/@talend/scripts-config-eslint/.eslintrc.js',
+		'plugin:cypress/recommended',
 		'plugin:storybook/recommended',
 	],
 	settings: {
 		'import/resolver': {
 			alias: {
-				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				extensions: ['.js', '.jsx', '.ts', '.tsx', '.mdx'],
 				map: [['~docs', '.storybook/docs']],
 			},
 		},
@@ -29,7 +30,8 @@ module.exports = {
 		{
 			files: ['*.spec.@(ts|tsx|js|jsx)'],
 			rules: {
-				'import/no-unresolved': 'off',
+				'testing-library/await-async-utils': 'off',
+				'testing-library/prefer-screen-queries': 'off',
 			},
 		},
 	],

@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/index.ts", "src/styled.d.ts", "custom.d.ts"],
+  "compilerOptions": {
+    "declaration": true
+  }
+}

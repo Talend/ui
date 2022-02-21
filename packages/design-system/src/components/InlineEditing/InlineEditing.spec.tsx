@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import React from 'react';
 import { composeStories } from '@storybook/testing-react';
 

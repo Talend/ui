@@ -10,6 +10,7 @@ export enum Status {
 	OK = 'ok',
 	KO = 'ko',
 	WIP = 'wip',
+	DEPRECATED = 'deprecated',
 	NA = 'na',
 	UNKNOWN = '❔', // This one is the default value, not designed to be used
 }

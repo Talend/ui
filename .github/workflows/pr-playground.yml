@@ -37,7 +37,12 @@ jobs:
 
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
-        run: surge --project packages/playground/dist --domain "talend-playground.surge.sh"
+        run: |
+          rm -rf .static
+          mkdir .static
+          mkdir .static/playground
+          cp -R packages/playground/dist/* .static/playground
+          surge --project .static --domain "talend-playground.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -67,9 +72,9 @@ jobs:
         uses: preactjs/compressed-size-action@v2
         if: github.ref != 'refs/heads/master'
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          build-script: 'pre-release'
-          pattern: './packages/*/dist/*.{js,css,json}'
-          exclude: '{**/*.html,**/*.map,**/node_modules/**}'
-          compression: 'none'
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          build-script: "pre-release"
+          pattern: "./packages/*/dist/*.{js,css,json}"
+          exclude: "{**/*.html,**/*.map,**/node_modules/**}"
+          compression: "none"
           minimum-change-threshold: 100
