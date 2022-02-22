@@ -92,3 +92,21 @@ export const ButtonVariants = () => (
 		</StackVertical>
 	</StackVertical>
 );
+
+export const CompositionExample = () => (
+	<StackVertical gap="XS" align="stretch">
+		<SkeletonHeading />
+		<StackVertical gap="XXS">
+			<SkeletonParagraph />
+			<SkeletonParagraph />
+			<SkeletonParagraph />
+		</StackVertical>
+		<StackHorizontal gap="XS" justify="end">
+			<div style={{ width: '50%' }} />
+			<StackHorizontal gap="XS" align="center">
+				<SkeletonParagraph size="S" />
+				<SkeletonButton />
+			</StackHorizontal>
+		</StackHorizontal>
+	</StackVertical>
+);

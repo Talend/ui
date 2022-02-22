@@ -1,4 +1,5 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
 import Skeleton, { SkeletonButton, SkeletonParagraph, SkeletonHeading } from '.';
 import { StackHorizontal, StackVertical } from '../Stack';
 
@@ -7,7 +8,8 @@ import * as Stories from './Skeleton.stories';
 <Meta
 	title="Components/Skeleton"
 	parameters={{
-		status: { figma: 'wip', storybook: 'wip', react: 'ok', i18n: 'na' },
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons',
 	}}
 />
 
@@ -17,9 +19,13 @@ Skeleton is used as placeholder to fill the space while the real content is load
 
 ## Zoning
 
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=2919%3A7340" />
+
 ## Style
 
 ### Button
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3530%3A188" />
 
 <Canvas>
 	<Story story={Stories.SkeletonButtonStory} name="Button" />
@@ -28,6 +34,8 @@ Skeleton is used as placeholder to fill the space while the real content is load
 <ArgsTable story="Button" />
 
 ### ButtonIcon
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3530%3A189" />
 
 <Canvas>
 	<Story story={Stories.SkeletonButtonIconStory} name="ButtonIcon" />
@@ -41,6 +49,8 @@ Skeleton is used as placeholder to fill the space while the real content is load
 
 It illustrates any heading element.
 
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3530%3A187" />
+
 <Canvas>
 	<Story story={Stories.SkeletonHeadingStory} name="Headings" />
 </Canvas>
@@ -50,6 +60,8 @@ It illustrates any heading element.
 #### Paragraph
 
 It illustrates any paragraph or small copy element.
+
+<FigmaImage src="https://www.figma.com/file/RMs7GdNC3mnAwHgG4Firw9/Skeletons?node-id=3530%3A182" />
 
 <Canvas>
 	<Story story={Stories.SkeletonParagraphStory} name="Paragraphs" />
@@ -62,23 +74,7 @@ It illustrates any paragraph or small copy element.
 Combine all of them to mock content!
 
 <Canvas>
-	<Story name="Composition">
-		<StackVertical gap="XS" align="stretch">
-			<SkeletonHeading />
-			<StackVertical gap="XXS">
-				<SkeletonParagraph />
-				<SkeletonParagraph />
-				<SkeletonParagraph />
-			</StackVertical>
-			<StackHorizontal gap="XS" justify="end">
-				<div style={{ width: '50%' }} />
-				<StackHorizontal gap="XS" align="center">
-					<SkeletonParagraph size="S" />
-					<SkeletonButton />
-				</StackHorizontal>
-			</StackHorizontal>
-		</StackVertical>
-	</Story>
+	<Story story={Stories.CompositionExample} />
 </Canvas>
 
 ## States
