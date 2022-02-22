@@ -37,9 +37,9 @@
   },
   "dependencies": {
     "@talend/json-schema-form-core": "1.0.5",
-    "@talend/react-components": "^6.44.0",
-    "@talend/utils": "^2.1.0",
-    "@talend/design-system": "^1.15.0",
+    "@talend/react-components": "^6.44.4",
+    "@talend/utils": "^2.2.0",
+    "@talend/design-system": "^1.17.0",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
     "json-logic-js": "^2.0.2",
@@ -55,9 +55,9 @@
   },
   "devDependencies": {
     "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/icons": "^6.38.0",
+    "@talend/icons": "^6.39.0",
     "@talend/locales-tui": "^6.36.0",
-    "@talend/react-components": "^6.44.0",
+    "@talend/react-components": "^6.44.4",
     "@talend/scripts-core": "^11.5.1",
     "@talend/scripts-preset-react-lib": "^9.11.2",
     "autoprefixer": "^7.2.6",
@@ -71,7 +71,7 @@
     "react": "^16.14.0",
     "react-ace": "6.2.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.15.3",
+    "react-i18next": "^11.15.4",
     "react-test-renderer": "^16.14.0"
   },
   "peerDependencies": {
@@ -90,5 +90,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.1"
+  "version": "7.0.3"
 }

@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = (on, config) => {
 	if (config.testingType === 'component') {
+		// eslint-disable-next-line global-require
 		const { startDevServer } = require('@cypress/webpack-dev-server');
 
 		const webpackConfig = {

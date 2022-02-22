@@ -1,5 +1,37 @@
 # Changelog
 
+## 1.0.6
+
+### Patch Changes
+
+- e2bcac8e6: GeoChart: Useless zoom buttons z-index
+
+## 1.0.5
+
+### Patch Changes
+
+- 22d74ae79: fix: replace dynamic import syntax by static
+
+  It was not supported by typescript which replace it with static import.
+  Wait for CDN API which is incoming to load assets on demand.
+
+- Updated dependencies [2e22151be]
+  - @talend/react-components@6.44.2
+
+## 1.0.4
+
+### Patch Changes
+
+- 275c25ee0: chore(dependencies): auto update for maintenance purpose
+
+  ```diff
+  -    "@talend/react-components": "^6.43.5"
+  +    "@talend/react-components": "^6.44.0"
+  ```
+
+- Updated dependencies [275c25ee0]
+  - @talend/react-components@6.44.1
+
 ## 1.0.3
 
 ### Patch Changes

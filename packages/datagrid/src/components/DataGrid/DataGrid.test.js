@@ -483,7 +483,7 @@ describe('#Datagrid method', () => {
 	});
 
 	it('should not update local state on click when in controlled mode', () => {
-		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId="field3" />);
+		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId={null} />);
 		const deselectAll = jest.fn();
 		const clearFocusedCell = jest.fn();
 		const api = {

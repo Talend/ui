@@ -11,3 +11,8 @@ export type TalendRequestInitSecurity = {
 export interface TalendRequestInit extends RequestInit {
 	security?: TalendRequestInitSecurity;
 }
+
+export interface TalendHttpError<T> extends Error {
+	response: Response;
+	data: T;
+}

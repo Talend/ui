@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import React, { useState } from 'react';
 import Fieldset from './Fieldset';
 import Button from '../../Button';

@@ -3,6 +3,7 @@ import { FigmaIframe, FigmaImage, Use } from '~docs';
 import Button from '../';
 import * as Stories from '../Button.stories';
 import { IconsProvider } from '../../IconsProvider';
+import InlineMessage from '../../InlineMessage';
 
 <Meta
 	title="Components/Button"
@@ -91,6 +92,11 @@ Icon buttons can be used as dropdown but without the caret icon.
 </Canvas>
 
 #### Icon button
+
+<InlineMessage.Warning
+	withBackground
+	description="This component's API will be reworked in the next major version."
+/>
 
 <Canvas>
 	<Story story={Stories.Icon} />

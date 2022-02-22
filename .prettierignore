@@ -1,0 +1,8 @@
+.changeset
+.github
+.husky
+.idea
+.surge
+build
+dist
+node_modules
