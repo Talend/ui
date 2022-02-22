@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import { AgGridReact } from 'ag-grid-react';
-import Inject from '@talend/react-components/lib/Inject';
-import Skeleton from '@talend/react-components/lib/Skeleton';
-import 'ag-grid-community/dist/styles/ag-grid.css';
+import assetsApi from '@talend/assets-api';
+// import { AgGridReact } from 'ag-grid-react';
+import { Inject, ImportLazy, Skeleton } from '@talend/react-components';
+// import 'ag-grid-community/dist/styles/ag-grid.css';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -94,6 +94,10 @@ export default class DataGrid extends React.Component {
 		this.currentColId = null;
 	}
 
+	componentDidMount() {
+		const href = assetsApi.getUrl('/dist/styles/ag-grid.css', 'ag-grid-community', '25.3.0');
+		assetsApi.addStyle({ href });
+	}
 	/**
 	 * componentDidUpdate - call forceRedrawRows after props changes to redraw or
 	 * not the grid
@@ -331,7 +335,27 @@ export default class DataGrid extends React.Component {
 		if (this.props.loading) {
 			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
 		} else {
-			content = <AgGridReact {...this.getAgGridConfig()} />;
+			content = (
+				<ImportLazy
+					skeleton={<Skeleton name="talend-table" type={Skeleton.TYPES.icon} />}
+					name="ag-grid-community"
+					varName="agGrid"
+					version="25.3.0"
+					path="/dist/ag-grid-community.min.js"
+				>
+					{() => (
+						<ImportLazy
+							skeleton={<Skeleton name="talend-table" type={Skeleton.TYPES.icon} />}
+							name="ag-grid-react"
+							varName="AgGridReact"
+							version="25.3.0"
+							path="/bundles/ag-grid-react.min.js"
+						>
+							{mod => <mod.AgGridReact {...this.getAgGridConfig()} />}
+						</ImportLazy>
+					)}
+				</ImportLazy>
+			);
 		}
 
 		return (

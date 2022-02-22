@@ -17,6 +17,7 @@ const mockBackend = require('./mockBackend/server');
 function getPath(pkg) {
 	const pkgPath = resolve(pkg, { cwd: process.cwd() });
 	return pkgPath
+		.replace('main.js', '')
 		.replace('lib/index.js', '')
 		.replace('dist/bootstrap.js', '')
 		.replace('dist/TalendIcons.js', '');
@@ -46,7 +47,13 @@ const patterns = PKGS.map(pkg => ({
 	from: path.resolve(getPath(pkg), 'dist'),
 	to: `${to(pkg)}/`,
 	info: { minimized: true },
-}));
+})).concat([
+	{
+		from: '../../node_modules/ag-grid-react/bundles',
+		to: 'cdn/ag-grid-react/25.3.0/bundles',
+		info: { minimized: true },
+	},
+]);
 
 const webpackConfig = {
 	plugins: [
