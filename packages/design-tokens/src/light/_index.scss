@@ -256,5 +256,15 @@
 	--coral-elevation-layer-standard-front: 4;
 	--coral-elevation-layer-interactive-front: 8;
 	--coral-elevation-layer-overlay: 16;
+	--coral-animation-heartbeat: coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite;
 	color-scheme: light;
 }
+@keyframes coral-light-keyframes-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+} ;
