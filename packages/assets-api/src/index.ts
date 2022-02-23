@@ -12,6 +12,8 @@ interface Asset {
 interface Script {
 	src: string;
 	integrity?: string;
+	onload?: () => void;
+	onerror?: (e: Error) => void;
 }
 interface StyleAsset {
 	href: string;
@@ -50,17 +52,6 @@ function getAssetUrl(path: string, name?: string, version?: string) {
 	return `${root}${CDN_URL}/${name}/${overridedVersion}${path}`;
 }
 
-async function getJSONAsset<T>(info: Asset) {
-	const url = getAssetUrl(info.path, info.name, info.version);
-	let response: TypedResponse<T> = await fetch(url);
-	if (response.ok) {
-		return await response.json();
-	} else {
-		console.error(`Response not ok: ${response.status} ${response.statusText} from ${url}`);
-	}
-	return;
-}
-
 function addScript({ src, integrity, ...attr }: Script) {
 	const found = Array.from(document.querySelectorAll('script').values()).find(
 		s => s.getAttribute('src') === src,
@@ -78,6 +69,48 @@ function addScript({ src, integrity, ...attr }: Script) {
 	script.async = false;
 	Object.assign(script, attr);
 	document.body.appendChild(script);
+}
+
+function getUMD(path: string, name?: string, version?: string, varName?: string) {
+	const src = getAssetUrl(path, name, version);
+	return new Promise((resolve, reject) => {
+		function onload() {
+			if (!varName) {
+				resolve(undefined);
+			}
+		}
+		function onerror(e: Error) {
+			reject(e);
+		}
+		addScript({ src, onload, onerror });
+		if (varName) {
+			const intervalId = setInterval(() => {
+				const mod = (window as any)[varName];
+				if (mod) {
+					clearInterval(intervalId);
+					resolve(mod);
+				}
+			}, 200);
+		}
+	});
+}
+
+function getLazyUMD(path: string, name?: string, version?: string, varName?: string) {
+	return getUMD(path, name, version, varName).then((mod: any) => ({
+		default: mod.default,
+		__esModule: true,
+	}));
+}
+
+async function getJSONAsset<T>(info: Asset) {
+	const url = getAssetUrl(info.path, info.name, info.version);
+	const response: TypedResponse<T> = await fetch(url);
+	if (response.ok) {
+		return response.json();
+	} 
+		console.error(`Response not ok: ${response.status} ${response.statusText} from ${url}`);
+	
+	return undefined;
 }
 
 function addStyle({ href, integrity, ...attr }: StyleAsset) {
@@ -101,34 +134,18 @@ function addStyle({ href, integrity, ...attr }: StyleAsset) {
 	document.head.insertBefore(style, title);
 }
 
-if (!window.Talend) {
-	window.Talend = { assetsApi: {} };
-}
-if (!window.Talend.assetsApi) {
-	window.Talend.assetsApi = {};
-}
-
+// implicit dependency, patch if not available
 if (!window.Talend.getCDNUrl) {
 	window.Talend.getCDNUrl = () => {
-		console.log('...');
 		return '/cdn';
 	};
 }
 
-if (!window.Talend.assetsApi.getAssetUrl) {
-	window.Talend.assetsApi.getUrl = getAssetUrl;
-}
-
-if (!window.Talend.assetsApi.getJSON) {
-	window.Talend.assetsApi.getJSON = getJSONAsset;
-}
-
-if (!window.Talend.assetsApi.addScript) {
-	window.Talend.assetsApi.addScript = addScript;
-}
-
-if (!window.Talend.assetsApi.addStyle) {
-	window.Talend.assetsApi.addStyle = addStyle;
-}
-
-export default window.Talend.assetsApi;
+export default {
+	getUrl: getAssetUrl,
+	getUMD,
+	getLazyUMD,
+	getJSON: getJSONAsset,
+	addScript,
+	addStyle,
+};

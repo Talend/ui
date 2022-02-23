@@ -1,14 +1,19 @@
 /* eslint-disable react/jsx-no-bind */
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
-import { ImportLazy, Skeleton } from '@talend/react-components';
+import assetsApi from '@talend/assets-api';
+import { Skeleton } from '@talend/react-components';
 import FieldTemplate from '../FieldTemplate';
 
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
+
+const ReactAce = React.lazy(() =>
+	assetsApi.getLazyUMD('/dist/react-ace.min.js', 'react-ace', '6.2.0', 'ReactAce'),
+);
 
 function CodeSkeleton() {
 	return (
@@ -102,38 +107,29 @@ function Code(props) {
 						defaultValue: 'To focus out of the editor, press ESC key twice.',
 					})}
 				</div>
-				<ImportLazy
-					skeleton={<CodeSkeleton />}
-					name="react-ace"
-					version="6.2.0"
-					varName="ReactAce"
-					path="/dist/react-ace.min.js"
-				>
-					{mod => (
-						// eslint-disable-next-line react/jsx-no-undef
-						<mod.default
-							key="ace"
-							className="tf-widget-code form-control"
-							editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
-							focus={autoFocus}
-							name={`${id}_wrapper`}
-							mode={options && options.language}
-							onBlur={onFinish}
-							onLoad={onLoad}
-							onChange={onChange}
-							// disabled is not supported by ace use readonly
-							// https://github.com/ajaxorg/ace/issues/406
-							readOnly={readOnly || schema.disabled || valueIsUpdating}
-							setOptions={DEFAULT_SET_OPTIONS}
-							showGutter={false}
-							showPrintMargin={false}
-							theme="chrome"
-							value={value}
-							width="auto"
-							{...options}
-						/>
-					)}
-				</ImportLazy>
+				<Suspense fallback={<CodeSkeleton />}>
+					<ReactAce
+						key="ace"
+						className="tf-widget-code form-control"
+						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
+						focus={autoFocus}
+						name={`${id}_wrapper`}
+						mode={options && options.language}
+						onBlur={onFinish}
+						onLoad={onLoad}
+						onChange={onChange}
+						// disabled is not supported by ace use readonly
+						// https://github.com/ajaxorg/ace/issues/406
+						readOnly={readOnly || schema.disabled || valueIsUpdating}
+						setOptions={DEFAULT_SET_OPTIONS}
+						showGutter={false}
+						showPrintMargin={false}
+						theme="chrome"
+						value={value}
+						width="auto"
+						{...options}
+					/>
+				</Suspense>
 			</div>
 		</FieldTemplate>
 	);

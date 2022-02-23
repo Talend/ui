@@ -20,6 +20,6 @@
 		}
 		return 'https://statics.cloud.talend.com';
 	};
-	window.talendAddStyles(window.cssFiles, prepareUrl);
-	window.talendAddScripts(window.jsFiles, prepareUrl);
+	window.talendAddStyles(window.Talend.cssBuild, prepareUrl);
+	window.talendAddScripts(window.Talend.build, prepareUrl);
 })();
