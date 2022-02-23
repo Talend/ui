@@ -46,6 +46,7 @@ import HttpError from './HttpError';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import i18n from './i18n';
+import { ImportLazy } from './ImportLazy/ImportLazy.component';
 import Inject from './Inject';
 import { InlineMessage } from './InlineMessage';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
@@ -107,6 +108,7 @@ export {
 	DatePicker,
 	ModelViewer,
 	RecordsViewer,
+	ImportLazy,
 	InputDatePicker,
 	InputDateRangePicker,
 	InputDateTimePicker,
