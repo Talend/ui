@@ -258,3 +258,4 @@ $coral-elevation-layer-flat: #{var(--coral-elevation-layer-flat, 0)};
 $coral-elevation-layer-standard-front: #{var(--coral-elevation-layer-standard-front, 4)};
 $coral-elevation-layer-interactive-front: #{var(--coral-elevation-layer-interactive-front, 8)};
 $coral-elevation-layer-overlay: #{var(--coral-elevation-layer-overlay, 16)};
+$coral-animation-heartbeat: #{var(--coral-animation-heartbeat, coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite)};
