@@ -1,9 +1,10 @@
+/* eslint-disable react/sort-comp */
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import assetsApi from '@talend/assets-api';
 // import { AgGridReact } from 'ag-grid-react';
-import { Inject, ImportLazy, Skeleton } from '@talend/react-components';
+import { Inject, Skeleton } from '@talend/react-components';
 // import 'ag-grid-community/dist/styles/ag-grid.css';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
@@ -16,6 +17,16 @@ import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
+
+const AgGridReact = React.lazy(() =>
+	assetsApi
+		.getUMD('/dist/ag-grid-community.min.js', 'ag-grid-community', '25.3.0', 'agGrid')
+		.then(() =>
+			assetsApi
+				.getUMD('/bundles/ag-grid-react.min.js', 'ag-grid-react', '25.3.0', 'AgGridReact')
+				.then(mod => ({ default: mod.AgGridReact, __esModule: true })),
+		),
+);
 
 export const AG_GRID = {
 	CUSTOM_HEADER_KEY: 'headerComponent',
@@ -98,6 +109,7 @@ export default class DataGrid extends React.Component {
 		const href = assetsApi.getUrl('/dist/styles/ag-grid.css', 'ag-grid-community', '25.3.0');
 		assetsApi.addStyle({ href });
 	}
+
 	/**
 	 * componentDidUpdate - call forceRedrawRows after props changes to redraw or
 	 * not the grid
@@ -336,25 +348,9 @@ export default class DataGrid extends React.Component {
 			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
 		} else {
 			content = (
-				<ImportLazy
-					skeleton={<Skeleton name="talend-table" type={Skeleton.TYPES.icon} />}
-					name="ag-grid-community"
-					varName="agGrid"
-					version="25.3.0"
-					path="/dist/ag-grid-community.min.js"
-				>
-					{() => (
-						<ImportLazy
-							skeleton={<Skeleton name="talend-table" type={Skeleton.TYPES.icon} />}
-							name="ag-grid-react"
-							varName="AgGridReact"
-							version="25.3.0"
-							path="/bundles/ag-grid-react.min.js"
-						>
-							{mod => <mod.AgGridReact {...this.getAgGridConfig()} />}
-						</ImportLazy>
-					)}
-				</ImportLazy>
+				<React.Suspense fallback={<Skeleton name="talend-table" type={Skeleton.TYPES.icon} />}>
+					<AgGridReact {...this.getAgGridConfig()} />
+				</React.Suspense>
 			);
 		}
 
