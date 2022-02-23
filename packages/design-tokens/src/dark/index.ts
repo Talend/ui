@@ -265,7 +265,7 @@ const tokens = {
 	coralColorNeutralBackgroundHeavy:
 		'var(--coral-color-neutral-background-heavy, hsla(204,18%,11%,1))',
 	coralColorBrandingBackground:
-		'var(--coral-color-branding-background, linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%))',
+		'var(--coral-color-branding-background, linear-gradient(133deg,hsla(226,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%))',
 	coralColorBrandingNavigation:
 		'var(--coral-color-branding-navigation, linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%))',
 	coralSizeXxs: 'var(--coral-size-xxs, 0.4rem)',
@@ -279,6 +279,8 @@ const tokens = {
 		'var(--coral-elevation-shadow-neutral-m, 0rem 0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3))',
 	coralElevationShadowNeutralL:
 		'var(--coral-elevation-shadow-neutral-l, 0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3))',
+	coralElevationShadowAccent:
+		'var(--coral-elevation-shadow-accent, 0rem 0.1rem 0.1rem 0rem hsla(198,72%,75%,0.3))',
 	coralElevationShadowSuccess:
 		'var(--coral-elevation-shadow-success, 0rem 0.1rem 0.1rem 0rem hsla(110,50%,70%,0.3))',
 	coralElevationShadowDanger:
@@ -287,8 +289,6 @@ const tokens = {
 		'var(--coral-elevation-shadow-warning, 0rem 0.1rem 0.1rem 0rem hsla(27,98%,67%,0.3))',
 	coralElevationShadowBeta:
 		'var(--coral-elevation-shadow-beta, 0rem 0.1rem 0.1rem 0rem hsla(279,34%,78%,0.3))',
-	coralElevationShadowAccent:
-		'var(--coral-elevation-shadow-accent, 0rem 0.1rem 0.1rem 0rem hsla(198,72%,75%,0.3))',
 	coralHeadingL: "var(--coral-heading-l, 600 1.8rem/140% 'Source Sans Pro')",
 	coralHeadingM: "var(--coral-heading-m, 600 1.6rem/140% 'Source Sans Pro')",
 	coralHeadingS: "var(--coral-heading-s, 600 1.4rem/140% 'Source Sans Pro')",
@@ -321,6 +321,8 @@ const tokens = {
 	coralElevationLayerStandardFront: 'var(--coral-elevation-layer-standard-front, 4)',
 	coralElevationLayerInteractiveFront: 'var(--coral-elevation-layer-interactive-front, 8)',
 	coralElevationLayerOverlay: 'var(--coral-elevation-layer-overlay, 16)',
+	coralAnimationHeartbeat:
+		'var(--coral-animation-heartbeat, coral-dark-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite)',
 };
 
 export default tokens;

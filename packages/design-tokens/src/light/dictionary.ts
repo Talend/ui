@@ -2216,6 +2216,18 @@ For elements above any layout (Dropdown, Popover).`,
 For items that stand on top of anything (Alert, Confirm, Tooltip, etc.)`,
 		value: '16',
 	},
+	{
+		name: 'coralAnimationHeartbeat',
+		type: 'animation',
+		description: `Heartbeat animation.
+
+Ex: Skeletons
+
+Usage:
+
+animate: tokens.$animation-heartbeat;`,
+		value: 'coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite',
+	},
 ];
 
 export default dictionary;
