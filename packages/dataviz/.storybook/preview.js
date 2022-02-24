@@ -1,37 +1,24 @@
 import React from 'react';
-import { I18nextProvider } from 'react-i18next';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
-
-import i18n from './i18n';
+import { ThemeProvider } from '@talend/design-system';
+import init, { withI18Next } from '../../../.storybook/i18n';
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 };
 
+init({});
+
 export const decorators = [
-	(Story, context) => {
-		i18n.changeLanguage(context.globals.locale);
+	withI18Next,
+	storyFn => {
 		return (
-			<I18nextProvider i18n={i18n}>
+			<ThemeProvider>
 				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-				<Story />
-			</I18nextProvider>
+				{storyFn()}
+			</ThemeProvider>
 		);
 	},
 ];
 
-export const globalTypes = {
-	locale: {
-		name: 'Locale',
-		defaultValue: 'en',
-		toolbar: {
-			icon: 'globe',
-			items: [
-				{ value: 'en', title: 'en' },
-				{ value: 'fr', title: 'fr' },
-				{ value: 'ja', title: 'ja' },
-				{ value: 'zh', title: 'zh' },
-			],
-		},
-	},
-};
+export { globalTypes } from '../../../.storybook/i18n';
