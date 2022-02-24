@@ -3,29 +3,33 @@ import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { ThemeProvider } from '@talend/design-system';
 import { withA11y } from '@storybook/addon-a11y';
+import { namespaces } from '@talend/locales-tui-components/namespaces';
+import { I18nextProvider } from 'react-i18next';
+import { init } from '../../../.storybook/i18n';
 
 import '@talend/bootstrap-theme/dist/bootstrap.css';
 
+const i18n = init({
+	defaultNS: namespaces[0],
+	fallbackNS: namespaces,
+});
 
-function withIconsProvider(storyFn) {
+function withProviders(storyFn) {
 	return (
-		<>
-			<IconsProvider bundles={['https://statics.cloud.talend.com/@talend/icons/6.30.0/dist/svg-bundle/all.svg']} />
-			<React.Suspense fallback={null}>
-				{storyFn()}
-			</React.Suspense>
-		</>
+		<React.Suspense fallback={null}>
+			<I18nextProvider i18n={i18n}>
+				<ThemeProvider>
+					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+					{storyFn()}
+				</ThemeProvider>
+			</I18nextProvider>
+		</React.Suspense>
 	);
 }
 
-addDecorator(withIconsProvider);
+addDecorator(withProviders);
 addDecorator(withA11y);
-addDecorator(storyFn => <ThemeProvider>{storyFn()}</ThemeProvider>);
 
 addParameters({ layout: 'fullscreen' });
 
-configure(
-	[
-		require.context('../stories', false, /index\.js$/),
-	]
-	, module);
+configure([require.context('../stories', false, /index\.js$/)], module);
