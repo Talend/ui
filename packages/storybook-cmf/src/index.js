@@ -15,6 +15,7 @@ export default makeDecorator({
 			enhancer={parameters.enhancer}
 			middleware={parameters.middleware}
 			sagaMiddleware={parameters.sagaMiddleware}
+			cmfModule={parameters.cmfModule}
 		>
 			{getStory(context)}
 		</CMFStory>

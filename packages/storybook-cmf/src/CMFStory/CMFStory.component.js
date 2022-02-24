@@ -17,27 +17,34 @@ function* initSagaMiddleWare() {
 class CMFStory extends React.Component {
 	constructor(props) {
 		super(props);
-		let state;
-		if (props) {
-			state = props.state;
-		}
-		if (!state) {
-			state = mock.store.state();
-		}
-
-		let middlewares = this.props.middleware;
-		if (props.sagaMiddleware) {
-			middlewares = middlewares.concat([props.sagaMiddleware]);
-		}
-		this.store = store.initialize(props.reducer, state, props.enhancer, middlewares);
-		if (props.sagaMiddleware) {
-			api.registerInternals();
-			props.sagaMiddleware.run(initSagaMiddleWare);
-		}
-		if (props.registry) {
-			this.registry = { ...registry.getRegistry, ...props.registry };
+		if (props.cmfModule) {
+			this.config = api.bootrap({
+				...props.cmfModule,
+				render: false,
+			});
 		} else {
-			this.registry = registry.getRegistry() || {};
+			let state;
+			if (props) {
+				state = props.state;
+			}
+			if (!state) {
+				state = mock.store.state();
+			}
+
+			let middlewares = this.props.middleware;
+			if (props.sagaMiddleware) {
+				middlewares = middlewares.concat([props.sagaMiddleware]);
+			}
+			this.store = store.initialize(props.reducer, state, props.enhancer, middlewares);
+			if (props.sagaMiddleware) {
+				api.registerInternals();
+				props.sagaMiddleware.run(initSagaMiddleWare);
+			}
+			if (props.registry) {
+				this.registry = { ...registry.getRegistry, ...props.registry };
+			} else {
+				this.registry = registry.getRegistry() || {};
+			}
 		}
 	}
 
@@ -56,7 +63,16 @@ class CMFStory extends React.Component {
 		};
 	}
 
+	componentDidMount() {
+		if (this.config) {
+			this.config.saga.run();
+		}
+	}
+
 	render() {
+		if (this.config) {
+			return <this.config.App store={this.config.store} withSettings={!!this.config.settingsURL} />;
+		}
 		return (
 			<Provider store={this.store}>
 				<RegistryProvider value={this.registry}>{this.props.children}</RegistryProvider>
@@ -66,6 +82,7 @@ class CMFStory extends React.Component {
 }
 
 CMFStory.propTypes = {
+	cmfModule: PropTypes.object,
 	state: PropTypes.object,
 	registry: PropTypes.object,
 	children: PropTypes.node,
