@@ -1,7 +1,8 @@
-import i18n from 'i18next';
+/* eslint-disable @talend/import-depth */
+/* eslint-disable import/no-extraneous-dependencies */
+import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpApi from 'i18next-http-backend';
-
 import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
 import { namespaces as tuiDatagridNamespaces } from '@talend/locales-tui-datagrid/namespaces';
@@ -20,30 +21,28 @@ function loadPath(languages, namespaces) {
 	return LOCALES_MAP[namespaces[0]] || '/assets/locales/{{lng}}/{{ns}}.json';
 }
 
-export function init(opts) {
-	i18n
+export function initI18n() {
+	i18next
 		.use(initReactI18next)
 		.use(HttpApi)
 		.init({
-			...opts,
+			fallbackLng: 'en',
+			lng: 'fr',
 			ns: [
 				...tuiComponentsNamespaces,
 				...tuiContainersNamespaces,
 				...tuiDatagridNamespaces,
 				...tuiFormsNamespaces,
-				...(opts.ns || []),
 			],
-			fallbackLng: 'en',
-			interpolation: {
-				escapeValue: false,
-			},
 			react: {
 				useSuspense: false,
+			},
+			interpolation: {
+				escapeValue: false,
 			},
 			backend: {
 				loadPath,
 			},
+			defaultNS: 'talend-ui-playground',
 		});
 }
-
-export default init;

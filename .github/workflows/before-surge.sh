@@ -31,3 +31,5 @@ cp -R packages/icons/docs/index.html .static/icons
 cp -R packages/icons/dist .static/icons
 cp -R packages/theme/dist/* .static/theme
 cp -R packages/theme/dist .static/theme
+echo Size of demo:
+du -d 1 -h .static

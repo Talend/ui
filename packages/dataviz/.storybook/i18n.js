@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { namespaces as tuiNamespaces } from '@talend/locales-tui/namespaces';
-import { locales as tuiLocales } from '@talend/locales-tui/locales';
+import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
+import { locales as tuiLocales } from '@talend/locales-tui-components/locales';
 
 import { namespaces as dataVizNamespaces } from '@talend/locales-tui-dataviz/namespaces';
 import { locales as dataVizLocales } from '@talend/locales-tui-dataviz/locales';
