@@ -19,8 +19,6 @@ const i18n = init({
 	fallbackNS: namespaces,
 });
 
-window.i18n = i18n;
-
 addDecorator(withA11y);
 addDecorator(storyFn => (
 	<React.Suspense fallback={null}>
