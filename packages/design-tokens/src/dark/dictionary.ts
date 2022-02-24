@@ -1683,7 +1683,7 @@ const dictionary = [
 		name: 'coralColorBrandingBackground',
 		type: 'gradient',
 		description: '',
-		value: 'linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
+		value: 'linear-gradient(133deg,hsla(226,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%)',
 	},
 	{
 		name: 'coralColorBrandingNavigation',
@@ -1746,6 +1746,12 @@ const dictionary = [
 		value: '0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3)',
 	},
 	{
+		name: 'coralElevationShadowAccent',
+		type: 'shadow',
+		description: '',
+		value: '0rem 0.1rem 0.1rem 0rem hsla(198,72%,75%,0.3)',
+	},
+	{
 		name: 'coralElevationShadowSuccess',
 		type: 'shadow',
 		description: '',
@@ -1768,12 +1774,6 @@ const dictionary = [
 		type: 'shadow',
 		description: '',
 		value: '0rem 0.1rem 0.1rem 0rem hsla(279,34%,78%,0.3)',
-	},
-	{
-		name: 'coralElevationShadowAccent',
-		type: 'shadow',
-		description: '',
-		value: '0rem 0.1rem 0.1rem 0rem hsla(198,72%,75%,0.3)',
 	},
 	{
 		name: 'coralHeadingL',
@@ -1996,6 +1996,12 @@ const dictionary = [
 		type: 'elevation',
 		description: '',
 		value: '16',
+	},
+	{
+		name: 'coralAnimationHeartbeat',
+		type: 'animation',
+		description: '',
+		value: 'coral-dark-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite',
 	},
 ];
 
