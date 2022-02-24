@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextareaWidget from 'react-jsonschema-form/lib/components/widgets/TextareaWidget';
+import { ImportLazy } from '@talend/react-components/src';
 
 let CodeWidget; // eslint-disable-line import/no-mutable-exports
 
 try {
 	// eslint-disable-next-line import/no-extraneous-dependencies, global-require
-	const AceEditor = require('react-ace').default;
 
 	const SET_OPTIONS = {
 		enableBasicAutocompletion: true,
@@ -45,25 +45,34 @@ try {
 				delete contextProps.setOptions;
 			}
 			return (
-				<AceEditor
-					className="tf-widget-code form-control"
-					focus={autofocus || false}
-					name={id}
-					width="auto"
-					mode={options && options.language}
-					onLoad={this.onLoad}
-					onChange={this.onChange}
-					readOnly={readonly}
-					disabled={disabled}
-					setOptions={setOptions}
-					enableSnippets
-					value={value}
-					theme="chrome"
-					showGutter={false}
-					showPrintMargin={false}
-					{...contextProps}
-					{...options}
-				/>
+				<ImportLazy
+					name="react-ace"
+					version="6.2.0"
+					varName="ReactAce"
+					path="/dist/react-ace.min.js"
+				>
+					{AceEditor => (
+						<AceEditor
+							className="tf-widget-code form-control"
+							focus={autofocus || false}
+							name={id}
+							width="auto"
+							mode={options && options.language}
+							onLoad={this.onLoad}
+							onChange={this.onChange}
+							readOnly={readonly}
+							disabled={disabled}
+							setOptions={setOptions}
+							enableSnippets
+							value={value}
+							theme="chrome"
+							showGutter={false}
+							showPrintMargin={false}
+							{...contextProps}
+							{...options}
+						/>
+					)}
+				</ImportLazy>
 			);
 		}
 	}
