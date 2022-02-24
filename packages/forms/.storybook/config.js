@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from '@talend/design-system';
-import { locales as tuiLocales } from '@talend/locales-tui/locales';
+import { locales as tuiLocales } from '@talend/locales-tui-forms/locales';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 
 import '@talend/bootstrap-theme/dist/bootstrap.css';

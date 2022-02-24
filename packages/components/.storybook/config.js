@@ -5,7 +5,7 @@ import { ThemeProvider } from '@talend/design-system';
 
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
-import { locales as tuiLocales } from '@talend/locales-tui/locales';
+import { locales as tuiLocales } from '@talend/locales-tui-components/locales';
 
 import 'focus-outline-manager';
 import '../../../.storybook/sortStories';
