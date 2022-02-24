@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf, configure, addDecorator, addParameters } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
-import { locales as tuiLocales } from '@talend/locales-tui/locales';
+import { locales as tuiLocales } from '@talend/locales-tui-containers/locales';
 import createSagaMiddleware from 'redux-saga';
 import withCMF from '@talend/react-storybook-cmf';
 import { mock } from '@talend/react-cmf';
@@ -29,12 +29,8 @@ addDecorator(withCMF);
 addDecorator(withA11y);
 addDecorator(storyFn => (
 	<>
-		<IconsProvider
-			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
-		/>
-		<React.Suspense fallback={null}>
-			{storyFn()}
-		</React.Suspense>
+		<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+		<React.Suspense fallback={null}>{storyFn()}</React.Suspense>
 	</>
 ));
 
