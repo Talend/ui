@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const { sync: readPkgUpSync } = require('read-pkg-up');
 
 function getPKG(pkg) {
@@ -10,21 +11,28 @@ function findAssetsImport(importDeclarationPath) {
 	return path === '@talend/assets-api';
 }
 
-const FUNCTIONS = ['getUrl', 'getJSON'];
+const INJECT_VERSIONS_LAST = ['getURL', 'getJSON'];
+const INJECT_PATH_LAST = ['getUMD'];
 
 module.exports = function transform({ types }) {
 	return {
 		visitor: {
 			Program(path) {
-				const getUrlCalls = [];
+				const getURLCalls = [];
+				const getUMDCalls = [];
 				const cache = {};
 
 				path.traverse({
 					CallExpression: {
 						exit(callExpression) {
-							if (FUNCTIONS.includes(callExpression.node.callee.property?.name)) {
+							if (INJECT_VERSIONS_LAST.includes(callExpression.node.callee.property?.name)) {
 								if (callExpression.node.arguments.length < 3) {
-									getUrlCalls.push(callExpression);
+									getURLCalls.push(callExpression);
+								}
+							}
+							if (INJECT_PATH_LAST.includes(callExpression.node.callee.property?.name)) {
+								if (callExpression.node.arguments.length < 3) {
+									getUMDCalls.push(callExpression);
 								}
 							}
 						},
@@ -37,9 +45,11 @@ module.exports = function transform({ types }) {
 				});
 
 				if (cache.found) {
-					if (getUrlCalls.length > 0) {
-						getUrlCalls.forEach(c => {
-							let [_, pkg, ver] = c.node.arguments.map(a => a.value);
+					if (getURLCalls.length > 0) {
+						getURLCalls.forEach(c => {
+							const values = c.node.arguments.map(a => a.value);
+							let pkg = values[1];
+							const ver = values[2];
 							const filename = path.container.loc.filename;
 							let pkgDef;
 							if (!pkg && filename) {
@@ -55,8 +65,6 @@ module.exports = function transform({ types }) {
 								c.node.arguments.push(version);
 							} else {
 								c.node.arguments[2] = version;
-							}
-							if (filename) {
 							}
 						});
 					}
