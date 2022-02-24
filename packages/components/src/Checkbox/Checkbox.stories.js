@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Checkbox from '.';
@@ -31,7 +30,11 @@ const withLabel = {
 	label: 'Some label',
 };
 
-storiesOf('Form/Controls/Checkbox', module).add('default', () => (
+export default {
+	title: 'Form/Controls/Checkbox',
+};
+
+export const Default = () => (
 	<div style={{ padding: 30 }}>
 		<h1>Checkbox</h1>
 		<h2>Definition</h2>
@@ -62,4 +65,8 @@ storiesOf('Form/Controls/Checkbox', module).add('default', () => (
 			<Checkbox {...withLabel} />
 		</form>
 	</div>
-));
+);
+
+Default.story = {
+	name: 'default',
+};

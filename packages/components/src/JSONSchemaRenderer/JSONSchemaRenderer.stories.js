@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import JSONSchemaRenderer from './JSONSchemaRenderer.component';
 
@@ -106,9 +105,17 @@ const schema = {
 	},
 };
 
-storiesOf('Deprecated/JSONSchemaRenderer', module).add('default', () => (
+export default {
+	title: 'Deprecated/JSONSchemaRenderer',
+};
+
+export const Default = () => (
 	<div>
 		<h1>Basic</h1>
 		<JSONSchemaRenderer schema={schema} />
 	</div>
-));
+);
+
+Default.story = {
+	name: 'default',
+};

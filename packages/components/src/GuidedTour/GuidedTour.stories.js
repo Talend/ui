@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { withTranslation } from 'react-i18next';
@@ -273,11 +272,21 @@ const getLayoutWithLoremIpsum = () => (
 	</div>
 );
 
-storiesOf('Messaging & Communication/GuidedTour', module)
-	.addDecorator(story => (
-		<React.Fragment>
-			{story()}
-			{getLayoutWithLoremIpsum()}
-		</React.Fragment>
-	))
-	.add('default', () => <TranslatedGuidedTourContainer getSteps={getSteps} />);
+export default {
+	title: 'Messaging & Communication/GuidedTour',
+
+	decorators: [
+		story => (
+			<React.Fragment>
+				{story()}
+				{getLayoutWithLoremIpsum()}
+			</React.Fragment>
+		),
+	],
+};
+
+export const Default = () => <TranslatedGuidedTourContainer getSteps={getSteps} />;
+
+Default.story = {
+	name: 'default',
+};

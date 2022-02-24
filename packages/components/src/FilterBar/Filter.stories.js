@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionBar from '../ActionBar';
@@ -41,34 +40,56 @@ const divStyle = {
 	width: '30rem',
 };
 
-storiesOf('Form/Inline form/FilterBar', module)
-	.add('default-dock and dockable', () => (
-		<div style={divStyle}>
-			<p>When not docked but dockable in an ActionBar</p>
-			<ActionBar>
-				<FilterBar {...propsDockToggle} />
-			</ActionBar>
-		</div>
-	))
-	.add('no docked, no dockable and icon visible', () => (
-		<div style={divStyle}>
-			<p>When icon always visible and not docked, no dockable in an ActionBar</p>
-			<ActionBar>
-				<FilterBar {...propsIconAlwaysVisble} />
-			</ActionBar>
-		</div>
-	))
-	.add('custom-undock no dockable', () => (
-		<div>
-			<p>When not docked and no dockable take full width</p>
-			<FilterBar {...propsNoDockToggle} />
-		</div>
-	))
-	.add('disabled input', () => (
-		<div style={divStyle}>
-			<p>With the input filter disable</p>
-			<ActionBar>
-				<FilterBar {...propsDisabled} />
-			</ActionBar>
-		</div>
-	));
+export default {
+	title: 'Form/Inline form/FilterBar',
+};
+
+export const DefaultDockAndDockable = () => (
+	<div style={divStyle}>
+		<p>When not docked but dockable in an ActionBar</p>
+		<ActionBar>
+			<FilterBar {...propsDockToggle} />
+		</ActionBar>
+	</div>
+);
+
+DefaultDockAndDockable.story = {
+	name: 'default-dock and dockable',
+};
+
+export const NoDockedNoDockableAndIconVisible = () => (
+	<div style={divStyle}>
+		<p>When icon always visible and not docked, no dockable in an ActionBar</p>
+		<ActionBar>
+			<FilterBar {...propsIconAlwaysVisble} />
+		</ActionBar>
+	</div>
+);
+
+NoDockedNoDockableAndIconVisible.story = {
+	name: 'no docked, no dockable and icon visible',
+};
+
+export const CustomUndockNoDockable = () => (
+	<div>
+		<p>When not docked and no dockable take full width</p>
+		<FilterBar {...propsNoDockToggle} />
+	</div>
+);
+
+CustomUndockNoDockable.story = {
+	name: 'custom-undock no dockable',
+};
+
+export const DisabledInput = () => (
+	<div style={divStyle}>
+		<p>With the input filter disable</p>
+		<ActionBar>
+			<FilterBar {...propsDisabled} />
+		</ActionBar>
+	</div>
+);
+
+DisabledInput.story = {
+	name: 'disabled input',
+};

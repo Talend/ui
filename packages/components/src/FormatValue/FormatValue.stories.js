@@ -1,12 +1,19 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import FormatValue from './FormatValue.component';
 
-storiesOf('Data/Formatter/FormatValue', module).add('default', () => {
+export default {
+	title: 'Data/Formatter/FormatValue',
+};
+
+export const Default = () => {
 	return (
 		<FormatValue
 			value={`   Show special     chars and newline
-	  `}
+      `}
 		/>
 	);
-});
+};
+
+Default.story = {
+	name: 'default',
+};

@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Action } from '../Actions';
 import ActionBar from './ActionBar.component';
@@ -251,65 +250,77 @@ const appMassActions = {
 	left: [multiFavorite, multiCertify],
 };
 
-storiesOf('Form/Controls/ActionBar', module)
-	.add('default', () => (
-		<nav>
-			<p>No Selected, Layout: Left Space Right</p>
-			<div id="default">
-				<ActionBar {...basicProps} selected={0} />
-			</div>
-			<p>1 Selected, Layout: Left Center Right</p>
-			<div id="selected">
-				<ActionBar {...basicProps} selected={1} />
-			</div>
+export default {
+	title: 'Form/Controls/ActionBar',
+};
 
-			<p>1 Selected, Layout: Right</p>
-			<div id="right">
-				<ActionBar
-					selected={1}
-					actions={{ left: [primary] }}
-					multiSelectActions={{ right: [multi3] }}
-				/>
-			</div>
-			<p>Toolbar with btn-group and only icons/ Layout: left, center, right</p>
-			<div id="btn-group">
-				<ActionBar actions={btnGroupActions} />
-			</div>
-			<p>3 items selected, with mass/bulk Actions</p>
-			<div id="mass-actions">
-				<ActionBar
-					selected={3}
-					multiSelectActions={massActions}
-					appMultiSelectActions={appMassActions}
-				/>
-			</div>
-		</nav>
-	))
-	.add('custom', () => (
-		<nav>
-			<div id="default">
-				<ActionBar>
-					<ActionBar.Content tag="a" left href="#/foo/bar">
-						Hello anchor
-					</ActionBar.Content>
-					<ActionBar.Content tag="button" className="btn btn-default" left>
-						Hello button
-					</ActionBar.Content>
-					<ActionBar.Content left>
-						<Action label="hello Action" icon="talend-trash" onClick={action('onClick')} />
-					</ActionBar.Content>
-					<ActionBar.Content tag="form" role="search" center>
-						<div className="form-group">
-							<input type="text" className="form-control" placeholder="Search" />
-						</div>
-						<button type="submit" className="btn btn-default">
-							Submit
-						</button>
-					</ActionBar.Content>
-					<ActionBar.Content tag="p" right>
-						Hello paragraph
-					</ActionBar.Content>
-				</ActionBar>
-			</div>
-		</nav>
-	));
+export const Default = () => (
+	<nav>
+		<p>No Selected, Layout: Left Space Right</p>
+		<div id="default">
+			<ActionBar {...basicProps} selected={0} />
+		</div>
+		<p>1 Selected, Layout: Left Center Right</p>
+		<div id="selected">
+			<ActionBar {...basicProps} selected={1} />
+		</div>
+
+		<p>1 Selected, Layout: Right</p>
+		<div id="right">
+			<ActionBar
+				selected={1}
+				actions={{ left: [primary] }}
+				multiSelectActions={{ right: [multi3] }}
+			/>
+		</div>
+		<p>Toolbar with btn-group and only icons/ Layout: left, center, right</p>
+		<div id="btn-group">
+			<ActionBar actions={btnGroupActions} />
+		</div>
+		<p>3 items selected, with mass/bulk Actions</p>
+		<div id="mass-actions">
+			<ActionBar
+				selected={3}
+				multiSelectActions={massActions}
+				appMultiSelectActions={appMassActions}
+			/>
+		</div>
+	</nav>
+);
+
+Default.story = {
+	name: 'default',
+};
+
+export const Custom = () => (
+	<nav>
+		<div id="default">
+			<ActionBar>
+				<ActionBar.Content tag="a" left href="#/foo/bar">
+					Hello anchor
+				</ActionBar.Content>
+				<ActionBar.Content tag="button" className="btn btn-default" left>
+					Hello button
+				</ActionBar.Content>
+				<ActionBar.Content left>
+					<Action label="hello Action" icon="talend-trash" onClick={action('onClick')} />
+				</ActionBar.Content>
+				<ActionBar.Content tag="form" role="search" center>
+					<div className="form-group">
+						<input type="text" className="form-control" placeholder="Search" />
+					</div>
+					<button type="submit" className="btn btn-default">
+						Submit
+					</button>
+				</ActionBar.Content>
+				<ActionBar.Content tag="p" right>
+					Hello paragraph
+				</ActionBar.Content>
+			</ActionBar>
+		</div>
+	</nav>
+);
+
+Custom.story = {
+	name: 'custom',
+};

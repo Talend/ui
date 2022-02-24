@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import NotificationContainer from './Notification.component';
@@ -87,7 +86,11 @@ class NotificationWrapper extends React.Component {
 	}
 }
 
-storiesOf('Messaging & Communication/Notification', module).add('default', () => (
+export default {
+	title: 'Messaging & Communication/Notification',
+};
+
+export const Default = () => (
 	<nav>
 		<h1>Notification</h1>
 
@@ -102,4 +105,8 @@ storiesOf('Messaging & Communication/Notification', module).add('default', () =>
 		<h2>Examples</h2>
 		<NotificationWrapper />
 	</nav>
-));
+);
+
+Default.story = {
+	name: 'default',
+};

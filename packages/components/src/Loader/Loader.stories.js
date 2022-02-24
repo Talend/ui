@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Loader from '.';
 
@@ -11,12 +10,25 @@ const containerStyle = {
 	width: '100vw',
 };
 
-const decoratedStories = storiesOf(
-	'Design Principles/Loading Feedback/Loader',
-	module,
-).addDecorator(story => <div style={containerStyle}>{story()}</div>);
+export default {
+	title: 'Design Principles/Loading Feedback/Loader',
+	decorators: [story => <div style={containerStyle}>{story()}</div>],
+};
 
-decoratedStories
-	.add('small', () => <Loader size={Loader.SIZE.small} />)
-	.add('default', () => <Loader />)
-	.add('large', () => <Loader size={Loader.SIZE.large} />);
+export const Small = () => <Loader size={Loader.SIZE.small} />;
+
+Small.story = {
+	name: 'small',
+};
+
+export const Default = () => <Loader />;
+
+Default.story = {
+	name: 'default',
+};
+
+export const Large = () => <Loader size={Loader.SIZE.large} />;
+
+Large.story = {
+	name: 'large',
+};

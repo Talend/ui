@@ -1,11 +1,18 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import ActionIntercom from './Intercom.component';
 
 const config = { app_id: 'fyq3wodw', email: 'toto@gmail.com' };
 
-storiesOf('Messaging & Communication/Intercom', module).add('default', () => (
+export default {
+	title: 'Messaging & Communication/Intercom',
+};
+
+export const Default = () => (
 	<React.Fragment>
 		<ActionIntercom id="intercom" config={config} />
 	</React.Fragment>
-));
+);
+
+Default.story = {
+	name: 'default',
+};

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Enumeration from './Enumeration.component';
@@ -332,151 +331,238 @@ const withCustomActions = {
 				];
 			}
 			return [];
-		}
+		},
 	},
 };
 
-storiesOf('Form/Controls/Enumeration', module)
-	.add('default', () => (
-		<div>
-			<p>By default :</p>
+export default {
+	title: 'Form/Controls/Enumeration',
+};
 
-			<Enumeration {...props} />
-		</div>
-	))
-	.add('default header action disabled', () => (
-		<div>
-			<p>By default :</p>
+export const Default = () => (
+	<div>
+		<p>By default :</p>
 
-			<Enumeration {...headerDisabled} />
-		</div>
-	))
-	.add('default - empty list', () => (
-		<div>
-			<p>Empty list by default:</p>
+		<Enumeration {...props} />
+	</div>
+);
 
-			<Enumeration {...defaultEmptyListProps} />
-		</div>
-	))
-	.add('default with dropdown', () => (
-		<div>
-			<p>By default :</p>
+Default.story = {
+	name: 'default',
+};
 
-			<Enumeration {...dropDownActionsProps} />
-		</div>
-	))
-	.add('add', () => (
-		<div>
-			<p>By default :</p>
+export const DefaultHeaderActionDisabled = () => (
+	<div>
+		<p>By default :</p>
 
-			<Enumeration {...addProps} />
-		</div>
-	))
-	.add('edit mode', () => (
-		<div>
-			<p>By default :</p>
+		<Enumeration {...headerDisabled} />
+	</div>
+);
 
-			<Enumeration {...editItemProps} />
-		</div>
-	))
-	.add('search mode', () => (
-		<div>
-			<p>By default :</p>
+DefaultHeaderActionDisabled.story = {
+	name: 'default header action disabled',
+};
 
-			<Enumeration {...searchProps} />
-		</div>
-	))
-	.add('search mode - empty list', () => (
-		<div>
-			<p>empty list in search mode :</p>
+export const DefaultEmptyList = () => (
+	<div>
+		<p>Empty list by default:</p>
 
-			<Enumeration {...searchModeEmptyListProps} />
-		</div>
-	))
-	.add('selected values', () => (
-		<div>
-			<p>By default :</p>
+		<Enumeration {...defaultEmptyListProps} />
+	</div>
+);
 
-			<Enumeration {...selectedValuesProps} />
-		</div>
-	))
-	.add('selected values with checkboxes', () => (
-		<div>
-			<p>By default :</p>
+DefaultEmptyList.story = {
+	name: 'default - empty list',
+};
 
-			<form>
-				<Enumeration {...selectedValuesCheckboxesProps} />
-			</form>
-		</div>
-	))
-	.add('with header error', () => (
-		<div>
-			<p>By default :</p>
+export const DefaultWithDropdown = () => (
+	<div>
+		<p>By default :</p>
 
-			<Enumeration {...headerErrorProps} />
-		</div>
-	))
-	.add('with item in error', () => (
-		<div>
-			<p>By default :</p>
+		<Enumeration {...dropDownActionsProps} />
+	</div>
+);
 
-			<Enumeration {...editItemPropsWithError} />
-		</div>
-	))
-	.add('with custom label', () => (
-		<div>
-			<p>Should be 'Users' instead of 'Values'</p>
+DefaultWithDropdown.story = {
+	name: 'default with dropdown',
+};
 
-			<Enumeration {...customLabelProps} />
-		</div>
-	))
-	.add('with icon', () => (
-		<div>
-			<p>By default: </p>
+export const Add = () => (
+	<div>
+		<p>By default :</p>
 
-			<Enumeration {...withIconProps} />
-		</div>
-	))
-	.add('with custom class for row', () => (
-		<div>
-			<p>With custom class on second row: </p>
+		<Enumeration {...addProps} />
+	</div>
+);
 
-			<Enumeration {...withClassProps} />
-		</div>
-	))
-	.add('with dynamic height', () => (
-		<div>
-			<p>With dynamic height: </p>
+Add.story = {
+	name: 'add',
+};
 
-			<EnumerationDynamicHeight />
-		</div>
-	))
-	.add('with custom actions', () => (
-		<div>
-			<p>
-				With custom actions: <br />
-				You can pass a function to{' '}
-				<i>
-					<b>itemsProp.actionsDefaultPersistent</b>
-				</i>{' '}
-				or{' '}
-				<i>
-					<b>itemsProp.actionsDefault</b>
-				</i>{' '}
-				or{' '}
-				<i>
-					<b>itemsProp.actionsEdit</b>
-				</i>
-				<br />
-				The function takes a single argument, item data(including index). returns an array of
-				actions. 
-				<br />
-				actionsDefaultPersistent will always be visiable in default mode whereas actionsDefault will appear on hover.
-			</p>
+export const EditMode = () => (
+	<div>
+		<p>By default :</p>
 
-			<Enumeration {...withCustomActions} />
-		</div>
-	));
+		<Enumeration {...editItemProps} />
+	</div>
+);
+
+EditMode.story = {
+	name: 'edit mode',
+};
+
+export const SearchMode = () => (
+	<div>
+		<p>By default :</p>
+
+		<Enumeration {...searchProps} />
+	</div>
+);
+
+SearchMode.story = {
+	name: 'search mode',
+};
+
+export const SearchModeEmptyList = () => (
+	<div>
+		<p>empty list in search mode :</p>
+
+		<Enumeration {...searchModeEmptyListProps} />
+	</div>
+);
+
+SearchModeEmptyList.story = {
+	name: 'search mode - empty list',
+};
+
+export const SelectedValues = () => (
+	<div>
+		<p>By default :</p>
+
+		<Enumeration {...selectedValuesProps} />
+	</div>
+);
+
+SelectedValues.story = {
+	name: 'selected values',
+};
+
+export const SelectedValuesWithCheckboxes = () => (
+	<div>
+		<p>By default :</p>
+
+		<form>
+			<Enumeration {...selectedValuesCheckboxesProps} />
+		</form>
+	</div>
+);
+
+SelectedValuesWithCheckboxes.story = {
+	name: 'selected values with checkboxes',
+};
+
+export const WithHeaderError = () => (
+	<div>
+		<p>By default :</p>
+
+		<Enumeration {...headerErrorProps} />
+	</div>
+);
+
+WithHeaderError.story = {
+	name: 'with header error',
+};
+
+export const WithItemInError = () => (
+	<div>
+		<p>By default :</p>
+
+		<Enumeration {...editItemPropsWithError} />
+	</div>
+);
+
+WithItemInError.story = {
+	name: 'with item in error',
+};
+
+export const WithCustomLabel = () => (
+	<div>
+		<p>Should be 'Users' instead of 'Values'</p>
+
+		<Enumeration {...customLabelProps} />
+	</div>
+);
+
+WithCustomLabel.story = {
+	name: 'with custom label',
+};
+
+export const WithIcon = () => (
+	<div>
+		<p>By default: </p>
+
+		<Enumeration {...withIconProps} />
+	</div>
+);
+
+WithIcon.story = {
+	name: 'with icon',
+};
+
+export const WithCustomClassForRow = () => (
+	<div>
+		<p>With custom class on second row: </p>
+
+		<Enumeration {...withClassProps} />
+	</div>
+);
+
+WithCustomClassForRow.story = {
+	name: 'with custom class for row',
+};
+
+export const WithDynamicHeight = () => (
+	<div>
+		<p>With dynamic height: </p>
+
+		<EnumerationDynamicHeight />
+	</div>
+);
+
+WithDynamicHeight.story = {
+	name: 'with dynamic height',
+};
+
+export const WithCustomActions = () => (
+	<div>
+		<p>
+			With custom actions: <br />
+			You can pass a function to{' '}
+			<i>
+				<b>itemsProp.actionsDefaultPersistent</b>
+			</i>{' '}
+			or{' '}
+			<i>
+				<b>itemsProp.actionsDefault</b>
+			</i>{' '}
+			or{' '}
+			<i>
+				<b>itemsProp.actionsEdit</b>
+			</i>
+			<br />
+			The function takes a single argument, item data(including index). returns an array of actions.
+			<br />
+			actionsDefaultPersistent will always be visiable in default mode whereas actionsDefault will
+			appear on hover.
+		</p>
+
+		<Enumeration {...withCustomActions} />
+	</div>
+);
+
+WithCustomActions.story = {
+	name: 'with custom actions',
+};
 
 const EnumerationDynamicHeight = () => {
 	const [list, setList] = useState([]);

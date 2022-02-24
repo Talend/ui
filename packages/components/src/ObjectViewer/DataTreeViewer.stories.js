@@ -1,7 +1,6 @@
 import React from 'react';
 import repeat from 'lodash/repeat';
 import cloneDeep from 'lodash/cloneDeep';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ObjectViewer from './ObjectViewer.component';
@@ -9,7 +8,10 @@ import Icon from '../Icon';
 import TooltipTrigger from '../TooltipTrigger';
 
 const schema = new Map();
-schema.set('business_id', 'integer').set('name', 'CAFE_NAME').set('rating', 'integer');
+schema
+	.set('business_id', 'integer')
+	.set('name', 'CAFE_NAME')
+	.set('rating', 'integer');
 const veryLongDatasetLabel =
 	"Dataset of something that I cant't imagine; Dataset of something that I cant't imagine; Dataset of something that I cant't imagine";
 const clubName = "Betty's Cafe";
@@ -461,164 +463,258 @@ const handlerTags = {
 	...callbacks,
 };
 
-const stories = storiesOf('Data/Tree/DataTreeViewer', module);
+export default {
+	title: 'Data/Tree/DataTreeViewer',
+};
 
-stories
-	.add('tree default', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} {...handlerHighlight} />
-		</div>
-	))
-	.add('array tree with datetime', () => (
+export const TreeDefault = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} {...handlerHighlight} />
+	</div>
+);
+
+TreeDefault.story = {
+	name: 'tree default',
+};
+
+export const ArrayTreeWithDatetime = () => (
+	<div>
+		<ObjectViewer
+			id="my-viewer"
+			data={dateTimeData}
+			{...rootOpenedTypeHandler}
+			showType={showType}
+		/>
+	</div>
+);
+
+ArrayTreeWithDatetime.story = {
+	name: 'array tree with datetime',
+};
+
+export const PrimitiveArrayTree = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={primitiveArray} {...rootOpenedTypeHandler} />
+	</div>
+);
+
+PrimitiveArrayTree.story = {
+	name: 'primitive array tree',
+};
+
+export const TreeWithHightlighting = () => (
+	<div>
+		<ObjectViewer
+			id="my-viewer"
+			data={data}
+			{...handlerHighlight}
+			selectedJsonpath={selectedJsonpath}
+		/>
+	</div>
+);
+
+TreeWithHightlighting.story = {
+	name: 'tree with hightlighting',
+};
+
+export const TreeWithHightlightingAndType = () => (
+	<div>
+		<ObjectViewer
+			id="my-viewer"
+			data={data}
+			{...handlerHighlight}
+			selectedJsonpath={selectedJsonpath}
+			showType={showType}
+		/>
+	</div>
+);
+
+TreeWithHightlightingAndType.story = {
+	name: 'tree with hightlighting and type',
+};
+
+export const TreeWithLabels = () => (
+	<div>
+		<ObjectViewer
+			id="my-viewer"
+			data={data}
+			rootLabel="cafesDataset"
+			tupleLabel="Record"
+			showType={showType}
+			{...openedNativeTypeHandler}
+		/>
+	</div>
+);
+
+TreeWithLabels.story = {
+	name: 'tree with labels',
+};
+
+export const TreeWithoutRootLabel = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} tupleLabel="Record" />
+	</div>
+);
+
+TreeWithoutRootLabel.story = {
+	name: 'tree without rootLabel',
+};
+
+export const TreeWithVeryLargeRootLabel = () => (
+	<div>
+		<ObjectViewer
+			id="my-viewer"
+			data={data}
+			rootLabel={veryLongDatasetLabel}
+			tupleLabel="Record"
+			{...openedNativeTypeHandler}
+		/>
+	</div>
+);
+
+TreeWithVeryLargeRootLabel.story = {
+	name: 'tree with very large root label',
+};
+
+export const TreeWithInjectedElements = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} {...handlerTags} />
+	</div>
+);
+
+TreeWithInjectedElements.story = {
+	name: 'tree with injected elements',
+};
+
+export const TreeWithHandler = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} {...handler} />
+	</div>
+);
+
+TreeWithHandler.story = {
+	name: 'tree with handler',
+};
+
+export const ListDefault = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} displayMode="list" />
+	</div>
+);
+
+ListDefault.story = {
+	name: 'list default',
+};
+
+export const ListWithHandler = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} displayMode="list" {...handler} />
+	</div>
+);
+
+ListWithHandler.story = {
+	name: 'list with handler',
+};
+
+export const TableDefault = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} displayMode="table" title="Table data" />
+	</div>
+);
+
+TableDefault.story = {
+	name: 'table default',
+};
+
+export const TableWithHandler = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} {...handler} displayMode="table" title="Table data" />
+	</div>
+);
+
+TableWithHandler.story = {
+	name: 'table with handler',
+};
+
+export const TableWithLongText = () => {
+	const enhancedData = cloneDeep(data);
+	enhancedData[0].name = repeat(clubName, 10);
+	enhancedData[1].name = repeat(clubName, 5);
+	enhancedData[0].category = repeat(clubCategory, 10);
+	return (
 		<div>
 			<ObjectViewer
 				id="my-viewer"
-				data={dateTimeData}
-				{...rootOpenedTypeHandler}
-				showType={showType}
-			/>
-		</div>
-	))
-	.add('primitive array tree', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={primitiveArray} {...rootOpenedTypeHandler} />
-		</div>
-	))
-	.add('tree with hightlighting', () => (
-		<div>
-			<ObjectViewer
-				id="my-viewer"
-				data={data}
-				{...handlerHighlight}
-				selectedJsonpath={selectedJsonpath}
-			/>
-		</div>
-	))
-	.add('tree with hightlighting and type', () => (
-		<div>
-			<ObjectViewer
-				id="my-viewer"
-				data={data}
-				{...handlerHighlight}
-				selectedJsonpath={selectedJsonpath}
-				showType={showType}
-			/>
-		</div>
-	))
-	.add('tree with labels', () => (
-		<div>
-			<ObjectViewer
-				id="my-viewer"
-				data={data}
-				rootLabel="cafesDataset"
-				tupleLabel="Record"
-				showType={showType}
-				{...openedNativeTypeHandler}
-			/>
-		</div>
-	))
-	.add('tree without rootLabel', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} tupleLabel="Record" />
-		</div>
-	))
-	.add('tree with very large root label', () => (
-		<div>
-			<ObjectViewer
-				id="my-viewer"
-				data={data}
-				rootLabel={veryLongDatasetLabel}
-				tupleLabel="Record"
-				{...openedNativeTypeHandler}
-			/>
-		</div>
-	))
-	.add('tree with injected elements', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} {...handlerTags} />
-		</div>
-	))
-	.add('tree with handler', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} {...handler} />
-		</div>
-	))
-	.add('list default', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} displayMode="list" />
-		</div>
-	))
-	.add('list with handler', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} displayMode="list" {...handler} />
-		</div>
-	))
-	.add('table default', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} displayMode="table" title="Table data" />
-		</div>
-	))
-	.add('table with handler', () => (
-		<div>
-			<ObjectViewer
-				id="my-viewer"
-				data={data}
+				data={enhancedData}
 				{...handler}
 				displayMode="table"
 				title="Table data"
 			/>
 		</div>
-	))
-	.add('table with long text', () => {
-		const enhancedData = cloneDeep(data);
-		enhancedData[0].name = repeat(clubName, 10);
-		enhancedData[1].name = repeat(clubName, 5);
-		enhancedData[0].category = repeat(clubCategory, 10);
-		return (
-			<div>
-				<ObjectViewer
-					id="my-viewer"
-					data={enhancedData}
-					{...handler}
-					displayMode="table"
-					title="Table data"
-				/>
-			</div>
-		);
-	})
-	.add('flat default', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} displayMode="flat" title="Table data" />
-		</div>
-	))
-	.add('flat default with schema', () => (
-		<div>
-			<ObjectViewer
-				id="my-viewer"
-				data={{ dataset: data, schema }}
-				displayMode="flat"
-				title="Table data"
-			/>
-		</div>
-	))
-	.add('flat with handler', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={data} {...handler} displayMode="flat" title="Table data" />
-		</div>
-	))
-	.add('flat with complex nested data', () => (
-		<div>
-			<ObjectViewer
-				id="my-viewer"
-				data={moreComplexDataShape}
-				{...handler}
-				displayMode="flat"
-				title="Table data"
-			/>
-		</div>
-	))
-	.add('tree with a long field', () => (
-		<div>
-			<ObjectViewer id="my-viewer" data={longFieldData} {...handlerHighlight} />
-		</div>
-	));
+	);
+};
+
+TableWithLongText.story = {
+	name: 'table with long text',
+};
+
+export const FlatDefault = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} displayMode="flat" title="Table data" />
+	</div>
+);
+
+FlatDefault.story = {
+	name: 'flat default',
+};
+
+export const FlatDefaultWithSchema = () => (
+	<div>
+		<ObjectViewer
+			id="my-viewer"
+			data={{ dataset: data, schema }}
+			displayMode="flat"
+			title="Table data"
+		/>
+	</div>
+);
+
+FlatDefaultWithSchema.story = {
+	name: 'flat default with schema',
+};
+
+export const FlatWithHandler = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={data} {...handler} displayMode="flat" title="Table data" />
+	</div>
+);
+
+FlatWithHandler.story = {
+	name: 'flat with handler',
+};
+
+export const FlatWithComplexNestedData = () => (
+	<div>
+		<ObjectViewer
+			id="my-viewer"
+			data={moreComplexDataShape}
+			{...handler}
+			displayMode="flat"
+			title="Table data"
+		/>
+	</div>
+);
+
+FlatWithComplexNestedData.story = {
+	name: 'flat with complex nested data',
+};
+
+export const TreeWithALongField = () => (
+	<div>
+		<ObjectViewer id="my-viewer" data={longFieldData} {...handlerHighlight} />
+	</div>
+);
+
+TreeWithALongField.story = {
+	name: 'tree with a long field',
+};

@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Nav, NavItem, Tab } from 'react-bootstrap';
 
@@ -252,306 +251,357 @@ const twentyRows = [];
 for (let index = 0; index < 20; index++) {
 	twentyRows.push(<p key={index}>The content dictate the width</p>);
 }
-storiesOf('Layout/Drawer', module)
-	.add('Layout 1 column', () => (
-		<Layout header={header} mode="OneColumn" drawers={drawers}>
+
+export default {
+	title: 'Layout/Drawer',
+};
+
+export const Layout1Column = () => (
+	<Layout header={header} mode="OneColumn" drawers={drawers}>
+		<span>zone with drawer</span>
+		{twentyRows}
+	</Layout>
+);
+
+Layout1Column.story = {
+	name: 'Layout 1 column',
+};
+
+export const Layout2Columns = () => (
+	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
+		<span>zone with drawer</span>
+		{twentyRows}
+	</Layout>
+);
+
+Layout2Columns.story = {
+	name: 'Layout 2 columns',
+};
+
+export const WithEditableHeader = () => (
+	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
+		<span>zone with drawer</span>
+		{twentyRows}
+	</Layout>
+);
+
+WithEditableHeader.story = {
+	name: 'with editable header',
+};
+
+export const WithLongEditableHeader = () => (
+	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={longEditableDrawers}>
+		<span>zone with drawer</span>
+		{twentyRows}
+	</Layout>
+);
+
+WithLongEditableHeader.story = {
+	name: 'with long editable header',
+};
+
+export const DefaultWithNoTransition = () => (
+	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
+		<span>zone with drawer</span>
+		{twentyRows}
+	</Layout>
+);
+
+DefaultWithNoTransition.story = {
+	name: 'Default with no transition',
+};
+
+export const StackedDrawers = () => {
+	const stackedDrawers = [
+		<Drawer stacked title="I'm stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
+			<h1>Hello drawer 1</h1>
+			<p>You should not being able to read this because I'm first</p>
+		</Drawer>,
+		<Drawer stacked title="I'm drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
+			<h1>Hello drawer 2</h1>
+			<p>The scroll is defined by the content</p>
+			{scrollableContent()}
+		</Drawer>,
+		<Drawer stacked title="I'm drawer 3" footerActions={{ ...basicProps, selected: 0 }}>
+			<h1>Hello drawer 3</h1>
+			<p>The scroll is defined by the content</p>
+			{scrollableContent()}
+		</Drawer>,
+	];
+	const fiftyRows = [];
+	for (let index = 0; index < 50; index++) {
+		fiftyRows.push(<p key={index}>The content dictate the width</p>);
+	}
+	return (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={stackedDrawers}>
 			<span>zone with drawer</span>
-			{twentyRows}
+			{fiftyRows}
 		</Layout>
-	))
-	.add('Layout 2 columns', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
+	);
+};
+
+StackedDrawers.story = {
+	name: 'stacked drawers',
+};
+
+export const WithTabs = () => {
+	const drawersWithTabs = [
+		<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
+			<p>The content</p>
+		</Drawer>,
+		<Drawer title="I'm a drawer with tabs" footerActions={basicProps} tabs={tabs}>
+			<p>The content</p>
+		</Drawer>,
+	];
+	return (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 			<span>zone with drawer</span>
-			{twentyRows}
 		</Layout>
-	))
-	.add('with editable header', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
+	);
+};
+
+WithTabs.story = {
+	name: 'With tabs',
+};
+
+export const WithTabsWithSpecificFooters = () => {
+	const drawersWithTabs = [
+		<Drawer
+			stacked
+			title="I'm a stacked drawer with tabs"
+			selectedTabKey="info"
+			tabs={tabsActionFooter}
+		>
+			<p>This tab contain specific actions in left, center and right parts of the footer.</p>
+			<p>
+				An other specific action with the label "Action not visible in the tab 'info'" is define in
+				the tab "navigator" but not visible in the tab "info".
+			</p>
+		</Drawer>,
+		<Drawer title="I'm a drawer with tabs" selectedTabKey="info" tabs={tabsActionFooter}>
+			<p>This tab contain specific actions in left, center and right parts of the footer.</p>
+			<p>
+				An other specific action with the label "Action not visible in the tab 'info'" is define in
+				the tab "navigator" but not visible in the tab "info".
+			</p>
+		</Drawer>,
+	];
+	return (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 			<span>zone with drawer</span>
-			{twentyRows}
 		</Layout>
-	))
-	.add('with long editable header', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={longEditableDrawers}>
+	);
+};
+
+WithTabsWithSpecificFooters.story = {
+	name: 'With tabs with specific footers',
+};
+
+export const Custom = () => {
+	function CustomDrawer() {
+		return (
+			<Drawer.Container>
+				<Tab.Container defaultActiveKey="info" id="custom">
+					<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+						<Drawer.Title
+							title="Custom drawer with tabs and a super long name that breaks the drawer title"
+							onCancelAction={onCancelAction}
+						>
+							<Nav bsClass="nav nav-tabs">
+								<NavItem componentClass="button" eventKey="info">
+									Info
+								</NavItem>
+								<NavItem componentClass="button" eventKey="navigator">
+									Navigator
+								</NavItem>
+								<NavItem componentClass="button" eventKey="profile">
+									Profile
+								</NavItem>
+								<NavItem componentClass="button" eventKey="metrics">
+									Metrics
+								</NavItem>
+							</Nav>
+						</Drawer.Title>
+						<Tab.Content animation>
+							<Tab.Pane eventKey="info">
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
+								<Drawer.Footer>Test</Drawer.Footer>
+							</Tab.Pane>
+							<Tab.Pane eventKey="navigator">
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
+								<Drawer.Footer />
+							</Tab.Pane>
+							<Tab.Pane eventKey="profile">
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
+								<Drawer.Footer />
+							</Tab.Pane>
+							<Tab.Pane eventKey="metrics">
+								<Drawer.Content>{scrollableContent()}</Drawer.Content>
+								<Drawer.Footer />
+							</Tab.Pane>
+						</Tab.Content>
+					</div>
+				</Tab.Container>
+			</Drawer.Container>
+		);
+	}
+	return (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 			<span>zone with drawer</span>
-			{twentyRows}
 		</Layout>
-	))
-	.add('Default with no transition', () => (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
+	);
+};
+
+export const CustomStacked = () => {
+	// Use same cancel action props with className for Title and Footer
+	const sameCancelAction = panelActions.left[0];
+	function CustomDrawer() {
+		return (
+			<Drawer.Container stacked>
+				<Tab.Container defaultActiveKey="info" id="info">
+					<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+						<Drawer.Title
+							title="Custom drawer with tabs and a super long name that breaks the drawer title"
+							onCancelAction={sameCancelAction}
+						/>
+						<Tab.Content>
+							<Drawer.Content>{scrollableContent()}</Drawer.Content>
+							<Drawer.Footer>
+								<ActionBar actions={panelActions} />
+							</Drawer.Footer>
+						</Tab.Content>
+					</div>
+				</Tab.Container>
+			</Drawer.Container>
+		);
+	}
+	return (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
 			<span>zone with drawer</span>
-			{twentyRows}
 		</Layout>
-	))
-	.add('stacked drawers', () => {
-		const stackedDrawers = [
-			<Drawer stacked title="I'm stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
+	);
+};
+
+CustomStacked.story = {
+	name: 'Custom stacked',
+};
+
+export const Interactive = () => {
+	const allDrawers = {
+		first: (
+			<Drawer
+				withTransition
+				stacked
+				title="Im stacked drawer 1"
+				onCancelAction={{ label: 'Close', onClick: () => remove('first') }}
+			>
 				<h1>Hello drawer 1</h1>
 				<p>You should not being able to read this because I'm first</p>
-			</Drawer>,
-			<Drawer stacked title="I'm drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
+			</Drawer>
+		),
+		second: (
+			<Drawer
+				withTransition
+				stacked
+				title="Im drawer 2"
+				onCancelAction={{ label: 'Close', onClick: () => remove('second') }}
+			>
 				<h1>Hello drawer 2</h1>
 				<p>The scroll is defined by the content</p>
 				{scrollableContent()}
-			</Drawer>,
-			<Drawer stacked title="I'm drawer 3" footerActions={{ ...basicProps, selected: 0 }}>
-				<h1>Hello drawer 3</h1>
+			</Drawer>
+		),
+		third: (
+			<Drawer
+				withTransition={false}
+				title="Im drawer 3"
+				onCancelAction={{ label: 'Close', onClick: () => remove('third') }}
+			>
+				<h1>No transition on this one</h1>
+				Coucou
+			</Drawer>
+		),
+	};
+	const [displayedDrawers, setDisplayedDrawers] = React.useState(allDrawers);
+
+	function remove(id) {
+		setDisplayedDrawers(oldDrawers =>
+			Object.entries(oldDrawers)
+				.filter(([key]) => key !== id)
+				.reduce((accu, [key, value]) => {
+					accu[key] = value;
+					return accu;
+				}, {}),
+		);
+	}
+
+	return (
+		<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
+			<div style={{ padding: '1.5rem' }}>
+				<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
+					Set back the drawers
+				</button>
+			</div>
+		</Layout>
+	);
+};
+
+export const _Interactive = () => {
+	const allDrawers = {
+		first: (
+			<Drawer
+				withTransition
+				stacked
+				title="Im stacked drawer 1"
+				onCancelAction={{ label: 'Close', onClick: () => remove('first') }}
+			>
+				<h1>Hello drawer 1</h1>
+				<p>You should not being able to read this because I'm first</p>
+			</Drawer>
+		),
+		second: (
+			<Drawer
+				withTransition
+				stacked
+				title="Im drawer 2"
+				onCancelAction={{ label: 'Close', onClick: () => remove('second') }}
+			>
+				<h1>Hello drawer 2</h1>
 				<p>The scroll is defined by the content</p>
 				{scrollableContent()}
-			</Drawer>,
-		];
-		const fiftyRows = [];
-		for (let index = 0; index < 50; index++) {
-			fiftyRows.push(<p key={index}>The content dictate the width</p>);
-		}
-		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={stackedDrawers}>
-				<span>zone with drawer</span>
-				{fiftyRows}
-			</Layout>
-		);
-	})
-	.add('With tabs', () => {
-		const drawersWithTabs = [
-			<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
-				<p>The content</p>
-			</Drawer>,
-			<Drawer title="I'm a drawer with tabs" footerActions={basicProps} tabs={tabs}>
-				<p>The content</p>
-			</Drawer>,
-		];
-		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
-				<span>zone with drawer</span>
-			</Layout>
-		);
-	})
-	.add('With tabs with specific footers', () => {
-		const drawersWithTabs = [
+			</Drawer>
+		),
+		third: (
 			<Drawer
-				stacked
-				title="I'm a stacked drawer with tabs"
-				selectedTabKey="info"
-				tabs={tabsActionFooter}
+				withTransition={false}
+				title="Im drawer 3"
+				onCancelAction={{ label: 'Close', onClick: () => remove('third') }}
 			>
-				<p>This tab contain specific actions in left, center and right parts of the footer.</p>
-				<p>
-					An other specific action with the label "Action not visible in the tab 'info'" is define
-					in the tab "navigator" but not visible in the tab "info".
-				</p>
-			</Drawer>,
-			<Drawer title="I'm a drawer with tabs" selectedTabKey="info" tabs={tabsActionFooter}>
-				<p>This tab contain specific actions in left, center and right parts of the footer.</p>
-				<p>
-					An other specific action with the label "Action not visible in the tab 'info'" is define
-					in the tab "navigator" but not visible in the tab "info".
-				</p>
-			</Drawer>,
-		];
-		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
-				<span>zone with drawer</span>
-			</Layout>
-		);
-	})
-	.add('Custom', () => {
-		function CustomDrawer() {
-			return (
-				<Drawer.Container>
-					<Tab.Container defaultActiveKey="info" id="custom">
-						<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-							<Drawer.Title
-								title="Custom drawer with tabs and a super long name that breaks the drawer title"
-								onCancelAction={onCancelAction}
-							>
-								<Nav bsClass="nav nav-tabs">
-									<NavItem componentClass="button" eventKey="info">
-										Info
-									</NavItem>
-									<NavItem componentClass="button" eventKey="navigator">
-										Navigator
-									</NavItem>
-									<NavItem componentClass="button" eventKey="profile">
-										Profile
-									</NavItem>
-									<NavItem componentClass="button" eventKey="metrics">
-										Metrics
-									</NavItem>
-								</Nav>
-							</Drawer.Title>
-							<Tab.Content animation>
-								<Tab.Pane eventKey="info">
-									<Drawer.Content>{scrollableContent()}</Drawer.Content>
-									<Drawer.Footer>Test</Drawer.Footer>
-								</Tab.Pane>
-								<Tab.Pane eventKey="navigator">
-									<Drawer.Content>{scrollableContent()}</Drawer.Content>
-									<Drawer.Footer />
-								</Tab.Pane>
-								<Tab.Pane eventKey="profile">
-									<Drawer.Content>{scrollableContent()}</Drawer.Content>
-									<Drawer.Footer />
-								</Tab.Pane>
-								<Tab.Pane eventKey="metrics">
-									<Drawer.Content>{scrollableContent()}</Drawer.Content>
-									<Drawer.Footer />
-								</Tab.Pane>
-							</Tab.Content>
-						</div>
-					</Tab.Container>
-				</Drawer.Container>
-			);
-		}
-		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
-				<span>zone with drawer</span>
-			</Layout>
-		);
-	})
-	.add('Custom stacked', () => {
-		// Use same cancel action props with className for Title and Footer
-		const sameCancelAction = panelActions.left[0];
-		function CustomDrawer() {
-			return (
-				<Drawer.Container stacked>
-					<Tab.Container defaultActiveKey="info" id="info">
-						<div style={{ flexGrow: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-							<Drawer.Title
-								title="Custom drawer with tabs and a super long name that breaks the drawer title"
-								onCancelAction={sameCancelAction}
-							/>
-							<Tab.Content>
-								<Drawer.Content>{scrollableContent()}</Drawer.Content>
-								<Drawer.Footer>
-									<ActionBar actions={panelActions} />
-								</Drawer.Footer>
-							</Tab.Content>
-						</div>
-					</Tab.Container>
-				</Drawer.Container>
-			);
-		}
-		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
-				<span>zone with drawer</span>
-			</Layout>
-		);
-	})
-	.add('Interactive', () => {
-		const allDrawers = {
-			first: (
-				<Drawer
-					withTransition
-					stacked
-					title="Im stacked drawer 1"
-					onCancelAction={{ label: 'Close', onClick: () => remove('first') }}
-				>
-					<h1>Hello drawer 1</h1>
-					<p>You should not being able to read this because I'm first</p>
-				</Drawer>
-			),
-			second: (
-				<Drawer
-					withTransition
-					stacked
-					title="Im drawer 2"
-					onCancelAction={{ label: 'Close', onClick: () => remove('second') }}
-				>
-					<h1>Hello drawer 2</h1>
-					<p>The scroll is defined by the content</p>
-					{scrollableContent()}
-				</Drawer>
-			),
-			third: (
-				<Drawer
-					withTransition={false}
-					title="Im drawer 3"
-					onCancelAction={{ label: 'Close', onClick: () => remove('third') }}
-				>
-					<h1>No transition on this one</h1>
-					Coucou
-				</Drawer>
-			),
-		};
-		const [displayedDrawers, setDisplayedDrawers] = React.useState(allDrawers);
+				<h1>No transition on this one</h1>
+				Coucou
+			</Drawer>
+		),
+	};
+	const [displayedDrawers, setDisplayedDrawers] = React.useState(allDrawers);
 
-		function remove(id) {
-			setDisplayedDrawers(oldDrawers =>
-				Object.entries(oldDrawers)
-					.filter(([key]) => key !== id)
-					.reduce((accu, [key, value]) => {
-						accu[key] = value;
-						return accu;
-					}, {}),
-			);
-		}
-
-		return (
-			<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
-				<div style={{ padding: '1.5rem' }}>
-					<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
-						Set back the drawers
-					</button>
-				</div>
-			</Layout>
+	function remove(id) {
+		setDisplayedDrawers(oldDrawers =>
+			Object.entries(oldDrawers)
+				.filter(([key]) => key !== id)
+				.reduce((accu, [key, value]) => {
+					accu[key] = value;
+					return accu;
+				}, {}),
 		);
-	})
-	.add('Interactive', () => {
-		const allDrawers = {
-			first: (
-				<Drawer
-					withTransition
-					stacked
-					title="Im stacked drawer 1"
-					onCancelAction={{ label: 'Close', onClick: () => remove('first') }}
-				>
-					<h1>Hello drawer 1</h1>
-					<p>You should not being able to read this because I'm first</p>
-				</Drawer>
-			),
-			second: (
-				<Drawer
-					withTransition
-					stacked
-					title="Im drawer 2"
-					onCancelAction={{ label: 'Close', onClick: () => remove('second') }}
-				>
-					<h1>Hello drawer 2</h1>
-					<p>The scroll is defined by the content</p>
-					{scrollableContent()}
-				</Drawer>
-			),
-			third: (
-				<Drawer
-					withTransition={false}
-					title="Im drawer 3"
-					onCancelAction={{ label: 'Close', onClick: () => remove('third') }}
-				>
-					<h1>No transition on this one</h1>
-					Coucou
-				</Drawer>
-			),
-		};
-		const [displayedDrawers, setDisplayedDrawers] = React.useState(allDrawers);
+	}
 
-		function remove(id) {
-			setDisplayedDrawers(oldDrawers =>
-				Object.entries(oldDrawers)
-					.filter(([key]) => key !== id)
-					.reduce((accu, [key, value]) => {
-						accu[key] = value;
-						return accu;
-					}, {}),
-			);
-		}
-
-		return (
-			<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
-				<div style={{ padding: '1.5rem' }}>
-					<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
-						Set back the drawers
-					</button>
-				</div>
-			</Layout>
-		);
-	});
+	return (
+		<Layout header={header} mode="OneColumn" drawers={Object.values(displayedDrawers)}>
+			<div style={{ padding: '1.5rem' }}>
+				<button className="btn btn-primary" onClick={() => setDisplayedDrawers(allDrawers)}>
+					Set back the drawers
+				</button>
+			</div>
+		</Layout>
+	);
+};

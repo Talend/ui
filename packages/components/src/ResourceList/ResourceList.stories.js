@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ResourceList from './ResourceList.component';
@@ -273,20 +272,49 @@ export function FilteredResourceList(props) {
 	);
 }
 
-storiesOf('Data/List/ResourceList', module)
-	.add('default', () => <ResourceList {...commonProps} collection={collection} />)
-	.add('simple', () => <ResourceList {...commonProps} collection={simpleCollection} />)
-	.add('preparations', () => (
-		<ResourceList {...commonProps} collection={preparations} renderAs={Preparation} />
-	))
-	.add('with rowProps', () => (
-		<ResourceList
-			{...commonProps}
-			collection={preparations}
-			renderAs={Preparation}
-			rowProps={{ style: { color: 'red' }, 'data-feature': 'my.data.feature' }}
-		/>
-	))
-	.add('filtered pipelines', () => (
-		<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
-	));
+export default {
+	title: 'Data/List/ResourceList',
+
+	excludeStories: ['preparations', 'pipelines', 'Preparation', 'Pipeline', 'FilteredResourceList'],
+};
+
+export const Default = () => <ResourceList {...commonProps} collection={collection} />;
+
+Default.story = {
+	name: 'default',
+};
+
+export const Simple = () => <ResourceList {...commonProps} collection={simpleCollection} />;
+
+Simple.story = {
+	name: 'simple',
+};
+
+export const Preparations = () => (
+	<ResourceList {...commonProps} collection={preparations} renderAs={Preparation} />
+);
+
+Preparations.story = {
+	name: 'preparations',
+};
+
+export const WithRowProps = () => (
+	<ResourceList
+		{...commonProps}
+		collection={preparations}
+		renderAs={Preparation}
+		rowProps={{ style: { color: 'red' }, 'data-feature': 'my.data.feature' }}
+	/>
+);
+
+WithRowProps.story = {
+	name: 'with rowProps',
+};
+
+export const FilteredPipelines = () => (
+	<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
+);
+
+FilteredPipelines.story = {
+	name: 'filtered pipelines',
+};
