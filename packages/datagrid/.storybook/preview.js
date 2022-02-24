@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, IconsProvider } from '@talend/design-system';
+import { IconsProvider, ThemeProvider } from '@talend/design-system';
 import init, { withI18Next } from '../../../.storybook/i18n';
 
 export const parameters = {

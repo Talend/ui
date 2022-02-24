@@ -4,16 +4,14 @@ import { storiesOf, configure, addDecorator, addParameters } from '@storybook/re
 import { action } from '@storybook/addon-actions';
 import { withA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
-import { ThemeProvider } from '@talend/design-system';
 import withCMF from '@talend/react-storybook-cmf';
 import { mock } from '@talend/react-cmf';
 import api, { actions, sagas } from '@talend/react-cmf';
-import { I18nextProvider } from 'react-i18next';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
 import { IconsProvider } from '@talend/react-components';
-import { namespaces } from '@talend/locales-tui-containers/namespaces';
 import '@talend/bootstrap-theme/dist/bootstrap.css';
+import i18n, { withI18Next } from './../../../.storybook/i18n';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
 import {
@@ -22,23 +20,18 @@ import {
 } from './subheaderbar.storybook';
 import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
-import { init } from '../../../.storybook/i18n';
 
-const i18n = init({
-	defaultNS: namespaces[0],
-	fallbackNS: namespaces,
-});
+i18n.init({});
 
 addDecorator(withCMF);
 addDecorator(withA11y);
+addDecorator(withI18Next);
 addDecorator(storyFn => (
 	<React.Suspense fallback={null}>
-		<I18nextProvider i18n={i18n}>
-			<ThemeProvider>
-				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-				{storyFn()}
-			</ThemeProvider>
-		</I18nextProvider>
+		<ThemeProvider>
+			<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+			{storyFn()}
+		</ThemeProvider>
 	</React.Suspense>
 ));
 
