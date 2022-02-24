@@ -27,7 +27,6 @@ import { init } from '../../../.storybook/i18n';
 const i18n = init({
 	defaultNS: namespaces[0],
 	fallbackNS: namespaces,
-	lng: 'fr',
 });
 
 addDecorator(withCMF);
