@@ -1,9 +1,12 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import CircularProgress from './CircularProgress.component';
 
-storiesOf('Design Principles/Loading Feedback/Spinner', module).add('default', () => (
+export default {
+	title: 'Design Principles/Loading Feedback/Spinner',
+};
+
+export const Default = () => (
 	<div>
 		<h3>Default</h3>
 		<CircularProgress />
@@ -28,4 +31,8 @@ storiesOf('Design Principles/Loading Feedback/Spinner', module).add('default', (
 		<h3>Large with percent</h3>
 		<CircularProgress size="large" percent={70} />
 	</div>
-));
+);
+
+Default.story = {
+	name: 'default',
+};

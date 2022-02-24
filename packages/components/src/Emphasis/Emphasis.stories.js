@@ -1,9 +1,12 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Emphasis from './Emphasis.component';
 
-storiesOf('Design Principles/Typography/Emphasis', module).add('with value', () => (
+export default {
+	title: 'Design Principles/Typography/Emphasis',
+};
+
+export const WithValue = () => (
 	<div>
 		<h1>With value</h1>
 		<p>The emphasised text is returned (value = BroWn) :</p>
@@ -17,4 +20,8 @@ storiesOf('Design Principles/Typography/Emphasis', module).add('with value', () 
 		<p>The emphasised text is returned (value = lazy) :</p>
 		<Emphasis value="lazy" text="The lazy quick brown fox jumps over the lazy dog" />
 	</div>
-));
+);
+
+WithValue.story = {
+	name: 'with value',
+};

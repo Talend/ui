@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '@talend/react-components';
 

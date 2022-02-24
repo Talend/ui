@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import ActionList from './ActionList.component';
 
@@ -43,10 +42,58 @@ const actions = [
 	},
 ];
 
-const stories = storiesOf('Navigation/ActionList', module);
+export default {
+	title: 'Navigation/ActionList',
+};
 
-stories
-	.add('default', () => (
+export const Default = () => (
+	<div style={{ display: 'inline-table' }}>
+		<ActionList
+			id="context"
+			actions={actions}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			tooltipPlacement="top"
+		/>
+	</div>
+);
+
+Default.story = {
+	name: 'default',
+};
+
+export const WithCustomClassNames = () => (
+	<div>
+		<p>You can add your custom classnames to the container and items</p>
+		<pre>
+			{`
+.custom-container-classname {
+    border: 5px solid turquoise;
+}
+
+.custom-item-classname {
+    background-color: pink;
+}
+                    `}
+		</pre>
+		<pre>
+			{`
+<ActionList
+    className={'custom-container-classname'}
+    itemClassName={'custom-item-classname'}
+    {...otherProps}
+/>
+            `}
+		</pre>
+		<style>
+			{`.custom-container-classname {
+                        border: 5px solid turquoise;
+                    }
+
+                    .custom-item-classname {
+                        background-color: pink;
+                    }`}
+		</style>
 		<div style={{ display: 'inline-table' }}>
 			<ActionList
 				id="context"
@@ -54,62 +101,29 @@ stories
 				onSelect={action('onItemSelect')}
 				onToggleDock={action('onToggleDock')}
 				tooltipPlacement="top"
+				className="custom-container-classname"
+				itemClassName="custom-item-classname"
 			/>
 		</div>
-	))
-	.add('with custom class names', () => (
-		<div>
-			<p>You can add your custom classnames to the container and items</p>
-			<pre>
-				{`
-.custom-container-classname {
-	border: 5px solid turquoise;
-}
+	</div>
+);
 
-.custom-item-classname {
-	background-color: pink;
-}
-					`}
-			</pre>
-			<pre>
-				{`
-<ActionList
-	className={'custom-container-classname'}
-	itemClassName={'custom-item-classname'}
-	{...otherProps}
-/>
-			`}
-			</pre>
-			<style>
-				{`.custom-container-classname {
-						border: 5px solid turquoise;
-					}
+WithCustomClassNames.story = {
+	name: 'with custom class names',
+};
 
-					.custom-item-classname {
-						background-color: pink;
-					}`}
-			</style>
-			<div style={{ display: 'inline-table' }}>
-				<ActionList
-					id="context"
-					actions={actions}
-					onSelect={action('onItemSelect')}
-					onToggleDock={action('onToggleDock')}
-					tooltipPlacement="top"
-					className="custom-container-classname"
-					itemClassName="custom-item-classname"
-				/>
-			</div>
-		</div>
-	))
-	.add('single', () => (
-		<div style={{ display: 'inline-table' }}>
-			<ActionList
-				id="context"
-				actions={[actions[1]]}
-				onSelect={action('onItemSelect')}
-				onToggleDock={action('onToggleDock')}
-				tooltipPlacement="top"
-			/>
-		</div>
-	));
+export const Single = () => (
+	<div style={{ display: 'inline-table' }}>
+		<ActionList
+			id="context"
+			actions={[actions[1]]}
+			onSelect={action('onItemSelect')}
+			onToggleDock={action('onToggleDock')}
+			tooltipPlacement="top"
+		/>
+	</div>
+);
+
+Single.story = {
+	name: 'single',
+};

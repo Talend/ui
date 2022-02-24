@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
@@ -63,110 +62,131 @@ class DisableActionButton extends React.Component {
 	}
 }
 
-storiesOf('Buttons/Button', module)
-	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.add('Disable the buttons', () => <DisableActionButton />)
-	.add('default', () => (
-		<div>
-			<h3>By default :</h3>
-			<ActionButton id="default" {...myAction} />
-			<h3>Bootstrap style :</h3>
-			<ActionButton id="bsStyle" {...myAction} bsStyle="primary" />
-			<ActionButton id="bsStyle" {...myAction} className="btn-primary btn-inverse" />
-			<h3>With hideLabel option</h3>
-			<ActionButton id="hidelabel" {...myAction} hideLabel />
-			<h3>In progress</h3>
-			<ActionButton id="inprogress" {...myAction} inProgress />
-			<h3>Loading</h3>
-			<ActionButton id="loading" loading label="loading" />
-			<h3>Icon button with label</h3>
-			<ActionButton id="icon" {...myAction} link />
-			<h3>Icon button without label</h3>
-			<ActionButton id="icon-without-label" {...myAction} link label="" />
-			<h3>Loading Icon button</h3>
-			<ActionButton id="icon" link label="Click me" loading />
-			<h3>Disabled</h3>
-			<ActionButton id="disabled" {...myAction} disabled tooltip />
-			<h3>Reverse display</h3>
-			<ActionButton id="reverseDisplay" {...myAction} iconPosition="right" />
-			<h3>With hover handlers</h3>
-			<ActionButton
-				id="withHoverHandlers"
-				{...myAction}
-				onMouseEnter={action('mouse enter')}
-				onMouseLeave={action('mouse leave')}
-			/>
-			<h3>Transform icon</h3>
-			<ActionButton id="reverseDisplay" {...myAction} iconTransform="rotate-180" />
-			<h3>Custom tooltip</h3>
-			<ActionButton id="default" {...myAction} tooltipLabel="Custom label here" />
-			<h3>OnMouse down handler</h3>
-			<ActionButton id="hidelabel" {...mouseDownAction} hideLabel />
-			<h3>Action with popover</h3>
-			<ActionButton
-				id="hidelabel"
-				overlayId="hidelabel"
-				overlayComponent={OverlayComponent}
-				overlayPlacement="top"
-				tooltipPlacement="right"
-				{...mouseDownAction}
-				hideLabel
-			/>
-			<h3>Action in progress</h3>
-			<ActionButton
-				id="hidelabel"
-				inProgress
-				overlayId="in-progress"
-				overlayComponent={OverlayComponent}
-				overlayPlacement="top"
-				tooltipPlacement="right"
-				{...mouseDownAction}
-				hideLabel
-			/>
-			<h3>
-				Automatic Dropup : this is contained in a restricted ".tc-dropdown-container" element.
-			</h3>
-			<div
-				id="auto-dropup"
-				className="tc-dropdown-container"
-				style={{
-					border: '1px solid black',
-					overflow: 'scroll',
-					height: '300px',
-					resize: 'vertical',
-				}}
-			>
-				<p>Scroll me to set overflow on top or down of the container, then open the dropdown.</p>
-				<div className={theme['storybook-wrapped-action']}>
-					<ActionButton
-						preventScrolling
-						overlayId="scroll"
-						overlayComponent={OverlayComponent}
-						overlayPlacement="bottom"
-						tooltipPlacement="right"
-						{...mouseDownAction}
-						hideLabel
-						style={{
-							marginTop: '200px',
-							marginBottom: '200px',
-						}}
-					/>
-				</div>
+export default {
+	title: 'Buttons/Button',
+	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
+};
+
+export const DisableTheButtons = () => <DisableActionButton />;
+
+DisableTheButtons.story = {
+	name: 'Disable the buttons',
+};
+
+export const Default = () => (
+	<div>
+		<h3>By default :</h3>
+		<ActionButton id="default" {...myAction} />
+		<h3>Bootstrap style :</h3>
+		<ActionButton id="bsStyle" {...myAction} bsStyle="primary" />
+		<ActionButton id="bsStyle" {...myAction} className="btn-primary btn-inverse" />
+		<h3>With hideLabel option</h3>
+		<ActionButton id="hidelabel" {...myAction} hideLabel />
+		<h3>In progress</h3>
+		<ActionButton id="inprogress" {...myAction} inProgress />
+		<h3>Loading</h3>
+		<ActionButton id="loading" loading label="loading" />
+		<h3>Icon button with label</h3>
+		<ActionButton id="icon" {...myAction} link />
+		<h3>Icon button without label</h3>
+		<ActionButton id="icon-without-label" {...myAction} link label="" />
+		<h3>Loading Icon button</h3>
+		<ActionButton id="icon" link label="Click me" loading />
+		<h3>Disabled</h3>
+		<ActionButton id="disabled" {...myAction} disabled tooltip />
+		<h3>Reverse display</h3>
+		<ActionButton id="reverseDisplay" {...myAction} iconPosition="right" />
+		<h3>With hover handlers</h3>
+		<ActionButton
+			id="withHoverHandlers"
+			{...myAction}
+			onMouseEnter={action('mouse enter')}
+			onMouseLeave={action('mouse leave')}
+		/>
+		<h3>Transform icon</h3>
+		<ActionButton id="reverseDisplay" {...myAction} iconTransform="rotate-180" />
+		<h3>Custom tooltip</h3>
+		<ActionButton id="default" {...myAction} tooltipLabel="Custom label here" />
+		<h3>OnMouse down handler</h3>
+		<ActionButton id="hidelabel" {...mouseDownAction} hideLabel />
+		<h3>Action with popover</h3>
+		<ActionButton
+			id="hidelabel"
+			overlayId="hidelabel"
+			overlayComponent={OverlayComponent}
+			overlayPlacement="top"
+			tooltipPlacement="right"
+			{...mouseDownAction}
+			hideLabel
+		/>
+		<h3>Action in progress</h3>
+		<ActionButton
+			id="hidelabel"
+			inProgress
+			overlayId="in-progress"
+			overlayComponent={OverlayComponent}
+			overlayPlacement="top"
+			tooltipPlacement="right"
+			{...mouseDownAction}
+			hideLabel
+		/>
+		<h3>Automatic Dropup : this is contained in a restricted ".tc-dropdown-container" element.</h3>
+		<div
+			id="auto-dropup"
+			className="tc-dropdown-container"
+			style={{
+				border: '1px solid black',
+				overflow: 'scroll',
+				height: '300px',
+				resize: 'vertical',
+			}}
+		>
+			<p>Scroll me to set overflow on top or down of the container, then open the dropdown.</p>
+			<div className={theme['storybook-wrapped-action']}>
+				<ActionButton
+					preventScrolling
+					overlayId="scroll"
+					overlayComponent={OverlayComponent}
+					overlayPlacement="bottom"
+					tooltipPlacement="right"
+					{...mouseDownAction}
+					hideLabel
+					style={{
+						marginTop: '200px',
+						marginBottom: '200px',
+					}}
+				/>
 			</div>
 		</div>
-	))
-	.add(
-		'combinations',
-		withPropsCombinations(ActionButton, {
-			label: ['Click me'],
-			bsStyle: ['default', 'primary', 'success', 'info', 'warning', 'danger', 'link', 'info btn-inverse'],
-			icon: ['talend-dataprep'],
-			'data-feature': ['my.feature'],
-			onClick: [action('You clicked me')],
-			hideLabel: [false, true],
-			inProgress: [true, false],
-			disabled: [false, true],
-			tooltip: [true],
-			tooltipLabel: ['Tooltip custom label'],
-		}),
-	);
+	</div>
+);
+
+Default.story = {
+	name: 'default',
+};
+
+export const Combinations = withPropsCombinations(ActionButton, {
+	label: ['Click me'],
+	bsStyle: [
+		'default',
+		'primary',
+		'success',
+		'info',
+		'warning',
+		'danger',
+		'link',
+		'info btn-inverse',
+	],
+	icon: ['talend-dataprep'],
+	'data-feature': ['my.feature'],
+	onClick: [action('You clicked me')],
+	hideLabel: [false, true],
+	inProgress: [true, false],
+	disabled: [false, true],
+	tooltip: [true],
+	tooltipLabel: ['Tooltip custom label'],
+});
+
+Combinations.story = {
+	name: 'combinations',
+};

@@ -1,9 +1,9 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
+import appStyle from '../../stories/config/themes.scss';
 
 const actions = [
 	{
@@ -94,142 +94,173 @@ const other = [
 	},
 ];
 
-const stories = storiesOf('Navigation/SidePanel', module);
+export default {
+	title: 'Navigation/SidePanel',
+};
 
-stories
-	.add('uncontrolled', () => (
-		<SidePanel
-			id="context"
-			actions={actions}
-			onSelect={action('onItemSelect')}
-			tooltipPlacement="top"
-		/>
-	))
-	.add('controlled', () => (
-		<SidePanel
-			id="context"
-			actions={actions}
-			onSelect={action('onItemSelect')}
-			onToggleDock={action('onToggleDock')}
-			tooltipPlacement="top"
-		/>
-	))
-	.add('links', () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />)
-	.add('docked', () => <SidePanel actions={actions} docked tooltipPlacement="top" />)
-	.add('minimised', () => (
-		<SidePanel
-			actions={actions}
-			onToggleDock={action('Toggle dock clicked')}
-			minimised
-			tooltipPlacement="top"
-		/>
-	))
-	.add('with a large amount of items', () => (
-		<SidePanel
-			actions={[...items, ...other, ...other, ...other]}
-			onSelect={action('onItemSelect')}
-			selected={items[1]}
-			tooltipPlacement="top"
-		/>
-	))
-	.add('reverse', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			selected={items[1]}
-			reverse
-			tooltipPlacement="top"
-		/>
-	))
-	.add('reverse large docked', () => (
-		<SidePanel
-			actions={items}
-			onSelect={action('onItemSelect')}
-			selected={items[1]}
-			reverse
-			large
-			minimised
-			dockable={false}
-			tooltipPlacement="top"
-		/>
-	))
-	.add('with layout', () => {
-		class WithLayout extends React.Component {
-			constructor() {
-				super();
-				this.state = { docked: false };
-			}
+export const Uncontrolled = () => (
+	<SidePanel
+		id="context"
+		actions={actions}
+		onSelect={action('onItemSelect')}
+		tooltipPlacement="top"
+	/>
+);
 
-			render() {
-				const panel = (
-					<SidePanel
-						actions={[...items, ...other, ...other, ...other]}
-						onSelect={action('onItemSelect')}
-						docked={this.state.docked}
-						tooltipPlacement="top"
-					/>
-				);
-				return (
-					<Layout mode="TwoColumns" one={panel}>
-						<ol>
-							{new Array(100).fill('This is some random content').map((item, num) => (
-								<li key={num}>{item}</li>
-							))}
-						</ol>
-					</Layout>
-				);
-			}
+Uncontrolled.story = {
+	name: 'uncontrolled',
+};
+
+export const Controlled = () => (
+	<SidePanel
+		id="context"
+		actions={actions}
+		onSelect={action('onItemSelect')}
+		onToggleDock={action('onToggleDock')}
+		tooltipPlacement="top"
+	/>
+);
+
+Controlled.story = {
+	name: 'controlled',
+};
+
+export const Links = () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />;
+
+Links.story = {
+	name: 'links',
+};
+
+export const Docked = () => <SidePanel actions={actions} docked tooltipPlacement="top" />;
+
+Docked.story = {
+	name: 'docked',
+};
+
+export const Minimised = () => (
+	<SidePanel
+		actions={actions}
+		onToggleDock={action('Toggle dock clicked')}
+		minimised
+		tooltipPlacement="top"
+	/>
+);
+
+Minimised.story = {
+	name: 'minimised',
+};
+
+export const WithALargeAmountOfItems = () => (
+	<SidePanel
+		actions={[...items, ...other, ...other, ...other]}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		tooltipPlacement="top"
+	/>
+);
+
+WithALargeAmountOfItems.story = {
+	name: 'with a large amount of items',
+};
+
+export const Reverse = () => (
+	<SidePanel
+		actions={items}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		reverse
+		tooltipPlacement="top"
+	/>
+);
+
+Reverse.story = {
+	name: 'reverse',
+};
+
+export const ReverseLargeDocked = () => (
+	<SidePanel
+		actions={items}
+		onSelect={action('onItemSelect')}
+		selected={items[1]}
+		reverse
+		large
+		minimised
+		dockable={false}
+		tooltipPlacement="top"
+	/>
+);
+
+ReverseLargeDocked.story = {
+	name: 'reverse large docked',
+};
+
+export const _WithLayout = () => {
+	class WithLayout extends React.Component {
+		constructor() {
+			super();
+			this.state = { docked: false };
 		}
 
-		return <WithLayout />;
-	})
-	.add('reverse with layout', () => {
-		const panelItems = items.concat([
-			{
-				key: 'longname',
-				label: 'Some super super super long name',
-				icon: 'talend-world',
-			},
-		]);
-		const panel = (
-			<SidePanel
-				actions={panelItems}
-				onSelect={action('onItemSelect')}
-				reverse
-				tooltipPlacement="top"
-			/>
-		);
-		return (
-			<Layout mode="TwoColumns" one={panel}>
-				<ol>
-					{new Array(100).fill('This is some random content').map((item, num) => (
-						<li key={num}>{item}</li>
-					))}
-				</ol>
-			</Layout>
-		);
-	});
+		render() {
+			const panel = (
+				<SidePanel
+					actions={[...items, ...other, ...other, ...other]}
+					onSelect={action('onItemSelect')}
+					docked={this.state.docked}
+					tooltipPlacement="top"
+				/>
+			);
+			return (
+				<Layout mode="TwoColumns" one={panel}>
+					<ol>
+						{new Array(100).fill('This is some random content').map((item, num) => (
+							<li key={num}>{item}</li>
+						))}
+					</ol>
+				</Layout>
+			);
+		}
+	}
 
-const appStyle = require('../../stories/config/themes.scss');
+	return <WithLayout />;
+};
 
-[
-	{ key: 'mdm', value: 'Master Data Management' },
-	{ key: 'tdc', value: 'Data Inventory' },
-	{ key: 'tdp', value: 'Data Preparation' },
-	{ key: 'tds', value: 'Data Stewardship' },
-	{ key: 'tmc', value: 'Management Console' },
-	{ key: 'tfd', value: 'Pipeline Designer' },
-].forEach(({ key, value }) => {
-	stories.add(`[${value}] SidePanel`, () => (
-		<div className={appStyle[key]}>
-			<div className={Layout.TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
-				<SidePanel id="context" actions={actions} tooltipPlacement="top" />
-			</div>
-		</div>
-	));
-});
+_WithLayout.story = {
+	name: 'with layout',
+};
 
-stories.add('[Portal] reverse', () => (
+export const ReverseWithLayout = () => {
+	const panelItems = items.concat([
+		{
+			key: 'longname',
+			label: 'Some super super super long name',
+			icon: 'talend-world',
+		},
+	]);
+	const panel = (
+		<SidePanel
+			actions={panelItems}
+			onSelect={action('onItemSelect')}
+			reverse
+			tooltipPlacement="top"
+		/>
+	);
+	return (
+		<Layout mode="TwoColumns" one={panel}>
+			<ol>
+				{new Array(100).fill('This is some random content').map((item, num) => (
+					<li key={num}>{item}</li>
+				))}
+			</ol>
+		</Layout>
+	);
+};
+
+ReverseWithLayout.story = {
+	name: 'reverse with layout',
+};
+
+export const PortalReverse = () => (
 	<div className={appStyle.portal}>
 		<h1>SidePanel</h1>
 		<p>
@@ -239,4 +270,8 @@ stories.add('[Portal] reverse', () => (
 			<SidePanel id="context" actions={actions} tooltipPlacement="top" reverse />
 		</div>
 	</div>
-));
+);
+
+PortalReverse.story = {
+	name: '[Portal] reverse',
+};

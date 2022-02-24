@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { Actions, Action } from '../../Actions';
@@ -85,148 +84,186 @@ const footer = (
 
 const customBody = <div>my custom body rich tolltip</div>;
 
-storiesOf('Layout/RichLayout', module)
-	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.add('default', () => (
-		<div>
-			<Action
-				id="default"
-				overlayId="default-overlay"
-				overlayComponent={
-					<RichLayout id="richlayout" Header={header} text={shortLoreum} Footer={footer} />
-				}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	))
-	.add('default with actions', () => (
-		<div>
-			<Action
-				id="default"
-				overlayId="default-overlay"
-				overlayComponent={
-					<RichLayout
-						id="richlayout"
-						Header={headerWithActions}
-						text={shortLoreum}
-						Footer={footer}
-					/>
-				}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	))
-	.add('only with header', () => (
-		<div>
-			<Action
-				id="default"
-				overlayId="default-overlay"
-				overlayComponent={<RichLayout id="richlayout" Header={header} />}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	))
-	.add('in loading state', () => (
-		<div>
-			<Action
-				id="loading"
-				overlayId="loading-overlay"
-				overlayComponent={<RichLayout id="richlayout" Content={<CircularProgress />} />}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	))
-	.add('with error message', () => (
-		<div>
-			<Action
-				id="error"
-				overlayId="error-overlay"
-				overlayComponent={
-					<RichLayout id="richlayout" Content={<RichError title="Whoops!" error="One error." />} />
-				}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	))
-	.add('body', () => (
-		<div>
-			<p>with a short text</p>
-			<Action
-				id="short-text"
-				overlayId="short-text-overlay"
-				overlayComponent={<RichLayout id="richlayout" text={shortLoreum} />}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-			<p>with a long text</p>
-			<Action
-				id="body-long-text"
-				overlayId="body-long-text-overlay"
-				overlayComponent={<RichLayout id="richlayout" text={LongLoreum} />}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	))
-	.add('custom body', () => (
-		<div>
-			<Action
-				id="custom-body"
-				overlayId="custom-body-overlay"
-				overlayComponent={
-					<RichLayout id="richlayout" Header={header} Content={customBody} Footer={footer} />
-				}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	))
-	.add('loading resource list', () => (
-		<div>
-			<Action
-				id="custom-body"
-				overlayId="custom-body-overlay"
-				overlayComponent={
-					<RichLayout
-						id="richlayout"
-						Header={header}
-						Content={<FilteredResourceList isLoading />}
-					/>
-				}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	))
-	.add('resource list', () => (
-		<div>
-			<Action
-				id="custom-body"
-				overlayId="custom-body-overlay"
-				overlayComponent={
-					<RichLayout
-						id="richlayout"
-						Header={header}
-						Content={<FilteredResourceList collection={pipelines} renderAs={Pipeline} />}
-					/>
-				}
-				overlayPlacement="bottom"
-				tooltipPlacement="right"
-				{...myAction}
-			/>
-		</div>
-	));
+export default {
+	title: 'Layout/RichLayout',
+	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
+};
+
+export const Default = () => (
+	<div>
+		<Action
+			id="default"
+			overlayId="default-overlay"
+			overlayComponent={
+				<RichLayout id="richlayout" Header={header} text={shortLoreum} Footer={footer} />
+			}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+Default.story = {
+	name: 'default',
+};
+
+export const DefaultWithActions = () => (
+	<div>
+		<Action
+			id="default"
+			overlayId="default-overlay"
+			overlayComponent={
+				<RichLayout id="richlayout" Header={headerWithActions} text={shortLoreum} Footer={footer} />
+			}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+DefaultWithActions.story = {
+	name: 'default with actions',
+};
+
+export const OnlyWithHeader = () => (
+	<div>
+		<Action
+			id="default"
+			overlayId="default-overlay"
+			overlayComponent={<RichLayout id="richlayout" Header={header} />}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+OnlyWithHeader.story = {
+	name: 'only with header',
+};
+
+export const InLoadingState = () => (
+	<div>
+		<Action
+			id="loading"
+			overlayId="loading-overlay"
+			overlayComponent={<RichLayout id="richlayout" Content={<CircularProgress />} />}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+InLoadingState.story = {
+	name: 'in loading state',
+};
+
+export const WithErrorMessage = () => (
+	<div>
+		<Action
+			id="error"
+			overlayId="error-overlay"
+			overlayComponent={
+				<RichLayout id="richlayout" Content={<RichError title="Whoops!" error="One error." />} />
+			}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+WithErrorMessage.story = {
+	name: 'with error message',
+};
+
+export const Body = () => (
+	<div>
+		<p>with a short text</p>
+		<Action
+			id="short-text"
+			overlayId="short-text-overlay"
+			overlayComponent={<RichLayout id="richlayout" text={shortLoreum} />}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+		<p>with a long text</p>
+		<Action
+			id="body-long-text"
+			overlayId="body-long-text-overlay"
+			overlayComponent={<RichLayout id="richlayout" text={LongLoreum} />}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+Body.story = {
+	name: 'body',
+};
+
+export const CustomBody = () => (
+	<div>
+		<Action
+			id="custom-body"
+			overlayId="custom-body-overlay"
+			overlayComponent={
+				<RichLayout id="richlayout" Header={header} Content={customBody} Footer={footer} />
+			}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+CustomBody.story = {
+	name: 'custom body',
+};
+
+export const LoadingResourceList = () => (
+	<div>
+		<Action
+			id="custom-body"
+			overlayId="custom-body-overlay"
+			overlayComponent={
+				<RichLayout id="richlayout" Header={header} Content={<FilteredResourceList isLoading />} />
+			}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+LoadingResourceList.story = {
+	name: 'loading resource list',
+};
+
+export const ResourceList = () => (
+	<div>
+		<Action
+			id="custom-body"
+			overlayId="custom-body-overlay"
+			overlayComponent={
+				<RichLayout
+					id="richlayout"
+					Header={header}
+					Content={<FilteredResourceList collection={pipelines} renderAs={Pipeline} />}
+				/>
+			}
+			overlayPlacement="bottom"
+			tooltipPlacement="right"
+			{...myAction}
+		/>
+	</div>
+);
+
+ResourceList.story = {
+	name: 'resource list',
+};

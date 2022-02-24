@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import MultiSelect from './MultiSelect.container';
 
@@ -52,4 +51,12 @@ class Photos extends React.Component {
 	}
 }
 
-storiesOf('Deprecated/MultiSelect', module).add('default', () => <Photos />);
+export default {
+	title: 'Deprecated/MultiSelect',
+};
+
+export const Default = () => <Photos />;
+
+Default.story = {
+	name: 'default',
+};

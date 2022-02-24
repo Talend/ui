@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import HttpError from './HttpError.component';
@@ -62,13 +61,24 @@ const notFoundWithRedirectProps = {
 	},
 };
 
-// Style here is for demonstration purpose, you should use generated className with its status code.
+export default {
+	title: 'Messaging & Communication/HttpError',
+	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
+};
 
-storiesOf('Messaging & Communication/HttpError', module)
-	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.add('Forbidden', () => <HttpError style={forbiddenStyle} {...forbiddenProps} />)
-	.add('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />)
-	.add('NotFound with redirect action', () => (
-		<HttpError style={notFoundStyle} {...notFoundWithRedirectProps} />
-	))
-	.add('Maintenance', () => <HttpError style={maintenanceStyle} {...maintenanceProps} />);
+export const Forbidden = () => <HttpError style={forbiddenStyle} {...forbiddenProps} />;
+export const NotFound = () => <HttpError style={notFoundStyle} {...notFoundProps} />;
+
+NotFound.story = {
+	name: 'NotFound',
+};
+
+export const NotFoundWithRedirectAction = () => (
+	<HttpError style={notFoundStyle} {...notFoundWithRedirectProps} />
+);
+
+NotFoundWithRedirectAction.story = {
+	name: 'NotFound with redirect action',
+};
+
+export const Maintenance = () => <HttpError style={maintenanceStyle} {...maintenanceProps} />;
