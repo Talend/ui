@@ -13,7 +13,7 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 const ReactAce = React.lazy(() =>
 	assetsApi
-		.getUMD('/dist/react-ace.min.js', 'react-ace', '6.2.0', 'ReactAce')
+		.getUMD('react-ace', '6.2.0', 'ReactAce', '/dist/react-ace.min.js')
 		.then(mod => ({ default: mod.default, __esModule: true })),
 );
 

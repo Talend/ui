@@ -20,10 +20,10 @@ import theme from './DataGrid.scss';
 
 const AgGridReact = React.lazy(() =>
 	assetsApi
-		.getUMD('/dist/ag-grid-community.min.js', 'ag-grid-community', '25.3.0', 'agGrid')
+		.getUMD('ag-grid-community', '25.3.0', 'agGrid', '/dist/ag-grid-community.min.js')
 		.then(() =>
 			assetsApi
-				.getUMD('/bundles/ag-grid-react.min.js', 'ag-grid-react', '25.3.0', 'AgGridReact')
+				.getUMD('ag-grid-react', '25.3.0', 'AgGridReact', '/bundles/ag-grid-react.min.js')
 				.then(mod => ({ default: mod.AgGridReact, __esModule: true })),
 		),
 );
@@ -106,7 +106,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	componentDidMount() {
-		const href = assetsApi.getUrl('/dist/styles/ag-grid.css', 'ag-grid-community', '25.3.0');
+		const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community', '25.3.0');
 		assetsApi.addStyle({ href });
 	}
 

@@ -30,6 +30,12 @@ interface TypedResponse<T = any> extends Response {
 	json<P = T>(): Promise<P>;
 }
 
+/**
+ *
+ * Most of the parameters are optional but in fact they are not optional.
+ * They are optional for dev experience because injected by a babel plugin
+ */
+
 function getPackageVersion(name?: string, version?: string): string | undefined {
 	if (name) {
 		const sessionVersion = sessionStorage.getItem(name);
@@ -39,7 +45,7 @@ function getPackageVersion(name?: string, version?: string): string | undefined 
 	return version;
 }
 
-function getAssetUrl(path: string, name?: string, version?: string) {
+function getURL(path: string, name?: string, version?: string) {
 	const overridedVersion = getPackageVersion(name, version);
 	const CDN_URL = window.Talend.getCDNUrl({ name, version });
 	let root = '';
@@ -71,8 +77,8 @@ function addScript({ src, integrity, ...attr }: Script) {
 	document.body.appendChild(script);
 }
 
-function getUMD(path: string, name?: string, version?: string, varName?: string) {
-	const src = getAssetUrl(path, name, version);
+function getUMD(name: string, version?: string, varName?: string, path?: string) {
+	const src = getURL(path || '/undefined', name, version);
 	return new Promise((resolve, reject) => {
 		function onload() {
 			if (!varName) {
@@ -95,21 +101,14 @@ function getUMD(path: string, name?: string, version?: string, varName?: string)
 	});
 }
 
-function getLazyUMD(path: string, name?: string, version?: string, varName?: string) {
-	return getUMD(path, name, version, varName).then((mod: any) => ({
-		default: mod.default,
-		__esModule: true,
-	}));
-}
-
-async function getJSONAsset<T>(info: Asset) {
-	const url = getAssetUrl(info.path, info.name, info.version);
+async function getJSON<T>(info: Asset) {
+	const url = getURL(info.path, info.name, info.version);
 	const response: TypedResponse<T> = await fetch(url);
 	if (response.ok) {
 		return response.json();
-	} 
-		console.error(`Response not ok: ${response.status} ${response.statusText} from ${url}`);
-	
+	}
+	console.error(`Response not ok: ${response.status} ${response.statusText} from ${url}`);
+
 	return undefined;
 }
 
@@ -134,6 +133,7 @@ function addStyle({ href, integrity, ...attr }: StyleAsset) {
 	document.head.insertBefore(style, title);
 }
 
+// TODO: move this to ui-scripts.
 // implicit dependency, patch if not available
 if (!window.Talend.getCDNUrl) {
 	window.Talend.getCDNUrl = () => {
@@ -142,10 +142,9 @@ if (!window.Talend.getCDNUrl) {
 }
 
 export default {
-	getUrl: getAssetUrl,
+	getURL,
 	getUMD,
-	getLazyUMD,
-	getJSON: getJSONAsset,
+	getJSON,
 	addScript,
 	addStyle,
 };
