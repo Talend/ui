@@ -1,23 +1,49 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import HttpApi from 'i18next-http-backend';
 
-import { namespaces as tuiNamespaces } from '@talend/locales-tui/namespaces';
-import { locales as tuiLocales } from '@talend/locales-tui/locales';
+import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
+import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
+import { namespaces as tuiDatagridNamespaces } from '@talend/locales-tui-datagrid/namespaces';
+import { namespaces as tuiFormsNamespaces } from '@talend/locales-tui-forms/namespaces';
 
-i18n.use(initReactI18next).init({
-	debug: false,
-	interpolation: {
-		format: function(value, format) {
-			if (value && format === 'lowercase') return value.toLocaleLowerCase();
-			if (value && format === 'uppercase') return value.toLocaleUpperCase();
-			return value;
-		},
-	},
-	ns: tuiNamespaces,
-	fallbackLng: 'en',
-	lng: 'en',
-	resources: tuiLocales,
-	wait: true, // globally set to wait for loaded translations in translate hoc
-});
+const LOCALES_MAP = {
+	'tui-components': 'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
+	'tui-containers': 'https://unpkg.com/@talend/locales-tui-containers/locales/{{lng}}/{{ns}}.json',
+	'tui-forms': 'https://unpkg.com/@talend/locales-tui-forms/locales/{{lng}}/{{ns}}.json',
+	'tui-datagrid': 'https://unpkg.com/@talend/locales-tui-datagrid/locales/{{lng}}/{{ns}}.json',
+	'tui-faceted-search':
+		'https://unpkg.com/@talend/locales-tui-faceted-search/locales/{{lng}}/{{ns}}.json',
+};
 
-export default i18n;
+function loadPath(languages, namespaces) {
+	return LOCALES_MAP[namespaces[0]] || '/assets/locales/{{lng}}/{{ns}}.json';
+}
+
+export function init(opts) {
+	i18n
+		.use(initReactI18next)
+		.use(HttpApi)
+		.init({
+			...opts,
+			ns: [
+				...tuiComponentsNamespaces,
+				...tuiContainersNamespaces,
+				...tuiDatagridNamespaces,
+				...tuiFormsNamespaces,
+				...(opts.ns || []),
+			],
+			fallbackLng: 'en',
+			interpolation: {
+				escapeValue: false,
+			},
+			react: {
+				useSuspense: false,
+			},
+			backend: {
+				loadPath,
+			},
+		});
+}
+
+export default init;

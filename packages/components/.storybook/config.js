@@ -5,16 +5,22 @@ import { ThemeProvider } from '@talend/design-system';
 
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
-import { locales as tuiLocales } from '@talend/locales-tui-components/locales';
+import { namespaces } from '@talend/locales-tui-components/namespaces';
 import { I18nextProvider } from 'react-i18next';
 
 import 'focus-outline-manager';
 import '../../../.storybook/sortStories';
-import { IconsProvider } from '../src';
-import i18n from './i18n';
+import { init } from '../../../.storybook/i18n';
 
-const languages = {};
-Object.keys(tuiLocales).forEach(key => (languages[key] = key));
+import { IconsProvider } from '../src';
+
+const i18n = init({
+	defaultNS: namespaces[0],
+	fallbackNS: namespaces,
+});
+
+window.i18n = i18n;
+
 addDecorator(withA11y);
 addDecorator(storyFn => (
 	<React.Suspense fallback={null}>
