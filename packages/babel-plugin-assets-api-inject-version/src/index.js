@@ -39,7 +39,7 @@ module.exports = function transform({ types }) {
 					},
 					ImportDeclaration: {
 						exit(importDeclarationPath) {
-							cache.found = findAssetsImport(importDeclarationPath);
+							cache.found = findAssetsImport(importDeclarationPath) || cache.found;
 						},
 					},
 				});

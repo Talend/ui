@@ -1,5 +1,9 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable import/no-extraneous-dependencies */
+import React from 'react';
 import assetsAPI from '@talend/assets-api';
+import foo from 'lodash';
 
 assetsAPI.getURL('/', 'react', '16.14.0');
 assetsAPI.getJSON('/foo.json', 'react', '16.14.0');
