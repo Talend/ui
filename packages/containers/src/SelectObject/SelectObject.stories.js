@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SelectObject } from '../src';
+import SelectObject from '.';
 
 const props = {
 	id: 'example',
@@ -37,21 +37,12 @@ const schema = {
 	},
 };
 
-const ExampleSelectObject = {
-	'default tree': () => (
-		<div>
-			<SelectObject {...props} />
-		</div>
-	),
-	'tree with preview': () => (
-		<div>
-			<SelectObject {...props} schema={schema} />
-		</div>
-	),
-	'tree with filter mode set to ALL': () => (
-		<div>
-			<SelectObject {...props} filterMode={SelectObject.FILTER_MODE.ALL} />
-		</div>
-	),
+export default {
+	title: 'SelectObject',
 };
-export default ExampleSelectObject;
+
+export const Default = () => <SelectObject {...props} />;
+export const WithPreview = () => <SelectObject {...props} schema={schema} />;
+export const WithFilterModeSetToALL = () => (
+	<SelectObject {...props} filterMode={SelectObject.FILTER_MODE.ALL} />
+);

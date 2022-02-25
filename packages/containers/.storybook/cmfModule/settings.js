@@ -144,4 +144,27 @@ export default {
 			},
 		},
 	},
+	props: {
+		'ActionButton#first': {
+			label: 'First',
+			icon: 'talend-streams',
+			payload: {
+				type: 'MENU_',
+			},
+		},
+		'ActionButton#second': {
+			label: 'Second',
+			icon: 'talend-dataprep',
+			payload: {
+				type: 'MENU_',
+			},
+		},
+		'ActionButton#configuration': {
+			label: 'Configuration',
+			icon: 'talend-cog',
+			payload: {
+				type: 'MENU_',
+			},
+		},
+	},
 };
