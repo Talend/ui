@@ -10,8 +10,7 @@ import cmf from '@talend/react-cmf';
 import { AppLoader, IconsProvider as BaseIconsProvider } from '@talend/react-components';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import { initI18n } from './i18n';
 import ComponentFormSandbox from './components/ComponentFormSandbox';
 import { FacetedSearchPlayground } from './components/FacetedSearch';
 import { DataGridPlayground } from './components/DataGrid';
@@ -32,12 +31,7 @@ const history = useBasename(createHistory)({
 
 const router = getRouter({ history });
 
-i18n.use(initReactI18next).init({
-	react: {
-		useSuspense: false,
-	},
-});
-
+initI18n();
 const allsvg = `${basename || ''}/cdn/@talend/icons/${
 	process.env.ICONS_VERSION
 }/dist/svg-bundle/all.svg`;

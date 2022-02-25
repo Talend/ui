@@ -3261,6 +3261,21 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-1.12.2.tgz#ed4f5412f052479c920f6baf6995cd4d84db7eb4"
   integrity sha512-R4EfGCHWrRmCz62tgXD8i+hHdOiRYLOmstS5OHuXxuO3ZTR7Al5BoWWA27JSTikCjgie4HqS+JJc8W37ucOZEA==
 
+"@talend/locales-tui-components@^6.42.3":
+  version "6.42.3"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-components/-/locales-tui-components-6.42.3.tgz#845056ff41ec4802f63ef9266c445a18c15efd53"
+  integrity sha512-rxbmgwZqQZyelaUNMc2JW1tE2KYJb9SXlgMB4WjXvnYOH+SxOUD3a+S5SWVz2W1L5wxMkC2qkRArhcbC3/L53g==
+
+"@talend/locales-tui-containers@^6.38.1":
+  version "6.38.1"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-containers/-/locales-tui-containers-6.38.1.tgz#c7069f2916b36a319801eac105d21df6e945455e"
+  integrity sha512-m4Pryp5TZjqW7n4nxV2+sa3ACt58uyFxOx0kRU7tLlmQrqvnSxZaRiByHatrUqUdrjHan4zwVzQVpMyhqRpDKw==
+
+"@talend/locales-tui-datagrid@^6.36.5":
+  version "6.36.5"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-datagrid/-/locales-tui-datagrid-6.36.5.tgz#97c14864f7513ae6616425f7f3d3f44b9203ffb1"
+  integrity sha512-YJOuZjMkVlbodoqR/O2xk0YrqXKhC+zai17Egu+JBVZu+Y+qlkC6bc7VtU+ZV/5NxLr5IA2RclSzPiGZn3MHnw==
+
 "@talend/locales-tui-dataviz@^0.4.6":
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-dataviz/-/locales-tui-dataviz-0.4.6.tgz#fe51013b25b9c2eaae362d50729449d641627de2"
@@ -3271,10 +3286,10 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-faceted-search/-/locales-tui-faceted-search-3.5.4.tgz#fc3fd0bf477b42af89414e2c54069a9dd71806a1"
   integrity sha512-lg32VtNBrTQJqEosemYiFR3JrgSeC5HLgtvNO0cXHqMl2va9rwtJ0awY2ZfCebYxVVQviFfAyDBvc6Krf/5jcA==
 
-"@talend/locales-tui@^6.36.0":
-  version "6.36.0"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui/-/locales-tui-6.36.0.tgz#727311ca5f8fa220dba18a5069ae403256a384ca"
-  integrity sha512-pW1kVv6atGEy5qIfp2VVpdFAtJrwpYpIIiE576W5IDw0q8U7yAafEb+vhk9jVHElyrAkYJSYjxjit8gYX/CJxw==
+"@talend/locales-tui-forms@^6.41.3":
+  version "6.41.3"
+  resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-6.41.3.tgz#aaeed361d553f95b072b490d984a20773babd913"
+  integrity sha512-GXPzOwp8eOtJIcp5bymGNCtLhGlGAveQzNiuhnrq0sawWzjh3d+e19h7vu4EQZBlsMXMpGC0KDDW+ezGZsHKUA==
 
 "@talend/module-to-cdn@^9.7.6", "@talend/module-to-cdn@^9.7.7":
   version "9.7.7"
@@ -7307,6 +7322,13 @@ cross-env@^7.0.3:
   dependencies:
     cross-spawn "^7.0.1"
 
+cross-fetch@3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
+  integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
+  dependencies:
+    node-fetch "2.6.7"
+
 cross-spawn@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -11229,6 +11251,13 @@ hyphenate-style-name@^1.0.2:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
+i18next-http-backend@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/i18next-http-backend/-/i18next-http-backend-1.3.2.tgz#ce6aff7aa60b6170e006d62b8f9cc1b3de55413e"
+  integrity sha512-SfcoUmsSWnc2LYsDsCq5TCg18cxJXvXymX9N37V+qqMKQY8Gf0rWkjOnRd20sMK633Dq4NF9tvqPbOiFJ49Kbw==
+  dependencies:
+    cross-fetch "3.1.5"
+
 i18next-scanner@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/i18next-scanner/-/i18next-scanner-3.1.0.tgz#35d00d945637c1a2b90124b0fd327040ac197598"
@@ -14183,7 +14212,7 @@ node-dir@^0.1.10:
   dependencies:
     minimatch "^3.0.2"
 
-node-fetch@^2.6.1, node-fetch@^2.6.7:
+node-fetch@2.6.7, node-fetch@^2.6.1, node-fetch@^2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
