@@ -2,10 +2,13 @@
 
 ## Context
 
-We have more and more libraries written and used by projects. Dependencies management is an hard task. We use different distribution format for our libraries:
+Dependencies are specified using the package.json of libraries.
+We have more and more libraries written and used by projects.
+
+We use different distribution format for our libraries:
 
 - UMD for some (react-components, react-cmf, etc ...)
-- mix of transpiled js and sass files which need shared config to make it work
+- mix of transpiled js and sass files which need shared config to make it work for others
 
 ## Problems
 
@@ -23,7 +26,7 @@ With npm it depends the version, the behavior change:
 
 The documentation of npm only cover the behavior of npm note the definition and usage of theses.
 
-We know our project can't use npm > 7.0 because we have some issues in our peerDependencies definitions !
+We know our project can't use npm > 7.0 because we have some issues in our peerDependencies definitions ! That need to be fixed.
 
 ## Solutions
 
@@ -39,7 +42,9 @@ examples:
 
 - @talend/scripts-core
 - @talend/scripts-preset-react-lib
-- react (often a peerDependencies)
+- i18next-scanner
+- cross-env
+- react (if in peerDependencies)
 
 **`"dependencies"`**
 
@@ -47,9 +52,21 @@ Add **a-dependency** under dependencies only if it is used by the code and do no
 
 examples:
 
+- @talend/design-token
+- @talend/router-bridge
+- @talend/react-components
+- @talend/react-containers
+- @talend/react-datagrid
+- @talend/react-dataviz
+- @types/invariant
+- classnames
+- keycode
 - lodash
 - prop-types
-- any-fancy-library
+- date-fns
+- react-bootstrap
+
+The case of @types is for project which use typescript. For types to be shared they have to be available.
 
 **`"peerDependencies"`**
 
@@ -60,4 +77,9 @@ So **a-dependency** can be added even if your library do not use it.
 
 examples:
 
+- @talend/design-system
+- @talend/react-cmf
 - react
+- react-dom
+- i18next
+- react-i18next
