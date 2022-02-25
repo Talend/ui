@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { List, Map } from 'immutable';
-import { Notification } from '../src';
+import Notification from '.';
 
 const initialState = new Map({
 	notifications: new List([
@@ -25,10 +25,8 @@ const initialState = new Map({
 	]),
 });
 
-export default function ExampleNotification() {
-	return (
-		<div>
-			<Notification initialState={initialState} />
-		</div>
-	);
-}
+export default {
+	title: 'Notification',
+};
+
+export const Default = () => <Notification initialState={initialState} />;

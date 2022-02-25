@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ObjectViewer } from '../src';
+import ObjectViewer from '.';
 
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";
 const data = [
@@ -176,48 +176,20 @@ const data = [
 	},
 ];
 
-const selectedJsonpath = "$[0]['name']";
-
-const ExampleObjectViewer = {
-	default: () => (
-		<div>
-			<ObjectViewer data={data} />
-		</div>
-	),
-	'JsonLike with rootLabel': () => (
-		<div>
-			<ObjectViewer data={data} rootLabel="Dataset des cafés" />
-		</div>
-	),
-	'JsonLike with hightlight': () => (
-		<div>
-			<ObjectViewer data={data} selectedJsonpath={selectedJsonpath} />
-		</div>
-	),
-	'JsonLike with types': () => (
-		<div>
-			<ObjectViewer data={data} showType />
-		</div>
-	),
-	'JsonLike with types and tuple name': () => (
-		<div>
-			<ObjectViewer data={data} showType tupleLabel="Record" />
-		</div>
-	),
-	'list default': () => (
-		<div>
-			<ObjectViewer data={data} displayMode="list" openFirst />
-		</div>
-	),
-	'table default': () => (
-		<div>
-			<ObjectViewer data={data} displayMode="table" />
-		</div>
-	),
-	'flat default': () => (
-		<div>
-			<ObjectViewer data={data} displayMode="flat" />
-		</div>
-	),
+export default {
+	title: 'ObjectViewer',
 };
-export default ExampleObjectViewer;
+export const Default = () => <ObjectViewer data={data} />;
+export const JsonLikeWithRootLabel = () => (
+	<ObjectViewer data={data} rootLabel="Dataset des cafés" />
+);
+export const JsonLikeWithHightlight = () => (
+	<ObjectViewer data={data} selectedJsonpath="$[0]['name']" />
+);
+export const JsonLikeWithTypes = () => <ObjectViewer data={data} showType />;
+export const JsonLikeWithTypesAndTupleName = () => (
+	<ObjectViewer data={data} showType tupleLabel="Record" />
+);
+export const List = () => <ObjectViewer data={data} showType displayMode="list" openFirst />;
+export const Table = () => <ObjectViewer data={data} showType displayMode="table" />;
+export const Flat = () => <ObjectViewer data={data} showType displayMode="flat" />;

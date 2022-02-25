@@ -112,8 +112,8 @@ export default {
 			},
 		},
 
-		// HomeListView story -----------------------------------------------------------
-		'home-list-view:object:add': {
+		// HomeListView / List story -----------------------------------------------------------
+		'list:add': {
 			label: 'Add',
 			icon: 'talend-plus-circle',
 			bsStyle: 'primary',
@@ -121,7 +121,7 @@ export default {
 				type: 'APP_OBJECT_ADD',
 			},
 		},
-		'home-list-view:object:upload': {
+		'list:upload': {
 			label: 'Upload',
 			icon: 'talend-upload',
 			displayMode: 'file',
@@ -129,11 +129,18 @@ export default {
 				type: 'UPLOAD',
 			},
 		},
-		'home-list-view:object:delete': {
+		'list:delete': {
 			label: 'Delete',
 			icon: 'talend-trash',
 			payload: {
 				type: 'APP_OBJECT_DELETE',
+			},
+		},
+		'list:multi:remove': {
+			label: 'Delete',
+			icon: 'talend-trash',
+			payload: {
+				type: 'APP_OBJECT_MULTI_DELETE',
 			},
 		},
 	},

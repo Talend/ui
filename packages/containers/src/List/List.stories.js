@@ -5,7 +5,7 @@ import api from '@talend/react-cmf';
 import Immutable from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
-import { List } from '../src';
+import List from '.';
 
 /**
  * Cell renderer that displays hello + text
@@ -74,19 +74,19 @@ const listWithTimestamp = {
 };
 
 const actions = {
-	title: 'object:view',
-	left: ['object:add', 'object:upload', 'menu:items'],
-	items: ['object:delete'],
+	title: 'list:view',
+	left: ['list:add', 'list:upload', 'menu:items'],
+	items: ['list:delete'],
 };
 
 const actionsWithPersistent = {
 	...actions,
-	persistentItemsActions: ['object:add'],
+	persistentItemsActions: ['list:add'],
 };
 
 const actionsWithSeparator = {
-	items: [['object:add'], actions.items],
-	persistentItemsActions: ['object:add'],
+	items: [['list:add'], actions.items],
+	persistentItemsActions: ['list:add'],
 };
 
 const toolbar = {
@@ -116,10 +116,11 @@ const customHeight = {
 	table: 100,
 };
 
-export const defaultListState = new Immutable.Map({
+const defaultListState = new Immutable.Map({
 	displayMode: 'large',
 });
-export const defaultSortedListState = new Immutable.Map({
+
+const defaultSortedListState = new Immutable.Map({
 	sortOn: 'modified',
 	sortAsc: false,
 });
@@ -237,190 +238,169 @@ const propsTimestampSorted = cloneDeep(props);
 propsTimestampSorted.list = listWithTimestamp;
 propsTimestampSorted.list.sort = sortUpdatedAsc;
 
-const ExampleList = {
-	default: () => (
-		<div>
-			<div className="list-container">
-				<List {...props} items={items} />
-			</div>
-		</div>
-	),
-	'with persistent actions': () => (
-		<div>
-			<div className="list-container">
-				<List {...props} actions={actionsWithPersistent} items={items} />
-			</div>
-		</div>
-	),
-	'with separator actions': () => (
-		<div>
-			<div className="list-container">
-				<List {...props} actions={actionsWithSeparator} items={items} />
-			</div>
-		</div>
-	),
-	pagination: () => {
-		const propsPg = cloneDeep(props);
-		const itemsPg = items.concat(
-			Immutable.fromJS([
-				{
-					id: 'id4',
-					label: 'Title with actions',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT',
-				},
-				{
-					id: 'ID5',
-					label: 'Title in input mode',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT',
-				},
-				{
-					id: 'iD6',
-					label: 'Super long title to trigger overflow on some rendering',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT with super long name',
-				},
-				{
-					id: 'id7',
-					label: 'Title with actions',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT',
-				},
-				{
-					id: 'ID8',
-					label: 'Title in input mode',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT',
-				},
-				{
-					id: 'iD9',
-					label: 'Super long title to trigger overflow on some rendering',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT with super long name',
-				},
-				{
-					id: 'id10',
-					label: 'Title with actions',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT',
-				},
-				{
-					id: 'ID11',
-					label: 'Title in input mode',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT',
-				},
-				{
-					id: 'iD12',
-					label: 'Super long title to trigger overflow on some rendering',
-					created: '2016-09-22',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT with super long name',
-				},
-			]),
-		);
-		propsPg.toolbar.pagination = {};
-		return (
-			<div>
-				<div className="list-container">
-					<List {...propsPg} items={itemsPg} />
-				</div>
-			</div>
-		);
-	},
-	'in progress': () => {
-		const props2 = cloneDeep(props);
-		props2.list.inProgress = true;
-		return (
-			<div>
-				<div className="list-container">
-					<List {...props2} items={items} />
-				</div>
-			</div>
-		);
-	},
-	'multi selection': () => {
-		const multiSelectionProps = cloneDeep(props);
-		multiSelectionProps.multiSelectActions = {
-			left: ['object:remove'],
-		};
-		multiSelectionProps.idKey = 'id';
-		return (
-			<div>
-				<div className="list-container">
-					<List {...multiSelectionProps} items={items} />
-				</div>
-			</div>
-		);
-	},
-	'no toolbar': () => (
-		<div>
-			<div className="list-container">
-				<List list={list} actions={actions} items={items} />
-			</div>
-		</div>
-	),
-	CustomHeight: () => (
-		<div>
-			<div className="list-container">
-				<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} />
-			</div>
-		</div>
-	),
-	'sort on timestamps': () => (
-		<div>
-			<div className="list-container">
-				<List
-					{...propsTimestampSorted}
-					items={itemsWithTimestamp}
-					initialState={defaultSortedListState}
-				/>
-			</div>
-		</div>
-	),
-	'custom cell renderer': () => {
-		const cellDictionary = {
-			hello: { component: 'helloComp' },
-		};
-
-		return (
-			<div>
-				<div className="list-container">
-					<List
-						virtualized
-						{...propsTimestampSorted}
-						items={itemsWithTimestamp}
-						cellDictionary={cellDictionary}
-					/>
-				</div>
-			</div>
-		);
-	},
-	'custom header renderer': () => {
-		const headerDictionary = {
-			helloHeader: { component: 'helloHeader' },
-		};
-		return (
-			<div>
-				<div className="list-container">
-					<List
-						virtualized
-						{...propsTimestampSorted}
-						items={itemsWithTimestamp}
-						headerDictionary={headerDictionary}
-					/>
-				</div>
-			</div>
-		);
-	},
+export default {
+	title: 'List',
 };
-export default ExampleList;
+
+export const Default = () => (
+	<div className="list-container">
+		<List {...props} items={items} />
+	</div>
+);
+export const WithPersistentActions = () => (
+	<div className="list-container">
+		<List {...props} actions={actionsWithPersistent} items={items} />
+	</div>
+);
+export const WithSeparatorActions = () => (
+	<div className="list-container">
+		<List {...props} actions={actionsWithSeparator} items={items} />
+	</div>
+);
+export const Pagination = () => {
+	const propsPg = cloneDeep(props);
+	const itemsPg = items.concat(
+		Immutable.fromJS([
+			{
+				id: 'id4',
+				label: 'Title with actions',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+			},
+			{
+				id: 'ID5',
+				label: 'Title in input mode',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+			},
+			{
+				id: 'iD6',
+				label: 'Super long title to trigger overflow on some rendering',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT with super long name',
+			},
+			{
+				id: 'id7',
+				label: 'Title with actions',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+			},
+			{
+				id: 'ID8',
+				label: 'Title in input mode',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+			},
+			{
+				id: 'iD9',
+				label: 'Super long title to trigger overflow on some rendering',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT with super long name',
+			},
+			{
+				id: 'id10',
+				label: 'Title with actions',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+			},
+			{
+				id: 'ID11',
+				label: 'Title in input mode',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+			},
+			{
+				id: 'iD12',
+				label: 'Super long title to trigger overflow on some rendering',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT with super long name',
+			},
+		]),
+	);
+	propsPg.toolbar.pagination = {};
+	return (
+		<div className="list-container">
+			<List {...propsPg} items={itemsPg} />
+		</div>
+	);
+};
+export const InProgress = () => {
+	const props2 = cloneDeep(props);
+	props2.list.inProgress = true;
+	return (
+		<div className="list-container">
+			<List {...props2} items={items} />
+		</div>
+	);
+};
+export const MultiSelection = () => {
+	const multiSelectionProps = cloneDeep(props);
+	multiSelectionProps.multiSelectActions = {
+		left: ['list:multi:remove'],
+	};
+	multiSelectionProps.idKey = 'id';
+	return (
+		<div className="list-container">
+			<List {...multiSelectionProps} items={items} />
+		</div>
+	);
+};
+export const NoToolbar = () => (
+	<div className="list-container">
+		<List list={list} actions={actions} items={items} />
+	</div>
+);
+export const CustomHeight = () => (
+	<div className="list-container">
+		<List {...props} items={items} rowHeight={customHeight} initialState={defaultListState} />
+	</div>
+);
+export const SortOnTimestamps = () => (
+	<div className="list-container">
+		<List
+			{...propsTimestampSorted}
+			items={itemsWithTimestamp}
+			initialState={defaultSortedListState}
+		/>
+	</div>
+);
+export const CustomCellRenderer = () => {
+	const cellDictionary = {
+		hello: { component: 'helloComp' },
+	};
+
+	return (
+		<div className="list-container">
+			<List
+				virtualized
+				{...propsTimestampSorted}
+				items={itemsWithTimestamp}
+				cellDictionary={cellDictionary}
+			/>
+		</div>
+	);
+};
+export const CustomHeaderRenderer = () => {
+	const headerDictionary = {
+		helloHeader: { component: 'helloHeader' },
+	};
+	return (
+		<div className="list-container">
+			<List
+				virtualized
+				{...propsTimestampSorted}
+				items={itemsWithTimestamp}
+				headerDictionary={headerDictionary}
+			/>
+		</div>
+	);
+};

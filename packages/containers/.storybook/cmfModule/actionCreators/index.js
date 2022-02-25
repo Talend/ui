@@ -15,7 +15,7 @@ export default {
 		}),
 	'item1:action': (_, data) => ({ type: 'CHOOSE_ITEM1', ...data }),
 	'item2:action': () => ({ type: 'CHOOSE_ITEM2' }),
-	'home-list-view:object:view': (_, data) => ({ type: 'OBJECT_VIEW', ...data }),
+	'list:view': (_, data) => ({ type: 'OBJECT_VIEW', ...data }),
 	'breadcrumb:folder:openA': action('click on A'),
 	'breadcrumb:folder:openB': action('click on B'),
 	'breadcrumb:folder:openC': action('click on C'),
