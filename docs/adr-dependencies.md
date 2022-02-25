@@ -12,7 +12,7 @@ We use different distribution formats for our libraries:
 
 ## Problems
 
-We see commits with mix of peerDependencies and dependencies without real guidelines.
+We see commits with a mix of libraries being added to `peerDependencies` and `dependencies` without real guidelines.
 Each change in peerDependencies lead to a major release.
 
 We do not know when to put a dependency in the `"peerDependencies"` or just in the `"dependencies"` attribute of the package.json file.
