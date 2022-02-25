@@ -1,5 +1,5 @@
 import React from 'react';
-import { DeleteResource } from '../src';
+import DeleteResource from '.';
 
 /*
 Actions example
@@ -50,14 +50,9 @@ const props = {
 };
 
 export default {
-	default: () => (
-		<div>
-			<DeleteResource {...props} />;
-		</div>
-	),
-	translated: () => (
-		<div>
-			<DeleteResource {...props} />
-		</div>
-	),
+	title: 'DeleteResource',
 };
+
+export function Default() {
+	return <DeleteResource {...props} />;
+}

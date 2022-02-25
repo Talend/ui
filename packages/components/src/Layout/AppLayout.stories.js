@@ -170,7 +170,6 @@ export const TwoColumnsWithDrawers = () => (
 export const OnlySubheader = () => <Layout subHeader={subHeader} children={content} />;
 
 function AppSpecificLayoutStory({ app }) {
-	console.log(app, appStyle[app]);
 	return (
 		<div className={appStyle[app]}>
 			<div className={Layout.TALEND_T7_THEME_CLASSNAME}>

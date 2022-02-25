@@ -3,10 +3,9 @@ import { Drawer } from '@talend/react-components';
 import Layout from '@talend/react-components/lib/Layout';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable';
+import appStyle from '../../stories/config/themes.scss';
 
-import { HomeListView } from '../src';
-
-const { TALEND_T7_THEME_APPS: apps, TALEND_T7_THEME_CLASSNAME } = Layout;
+import HomeListView from '.';
 
 const primary = {
 	label: 'Primary',
@@ -114,9 +113,9 @@ const list = {
 };
 
 const actions = {
-	title: 'object:view',
-	left: ['object:add', 'object:upload'],
-	items: ['object:delete'],
+	title: 'home-list-view:object:view',
+	left: ['home-list-view:object:add', 'home-list-view:object:upload'],
+	items: ['home-list-view:object:delete'],
 };
 
 const toolbar = {
@@ -169,20 +168,35 @@ const listProps = {
 	items,
 };
 
-const ExampleHomeListView = {
-	default: () => (
+export default {
+	title: 'HomeListView',
+};
+
+export function Default() {
+	return (
 		<div>
 			<HomeListView sidepanel={sidepanel} list={listProps} />
 		</div>
-	),
-};
+	);
+}
 
-const appStyle = require('./config/themes.scss');
+export const WithDrawer = () => (
+	<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
+		<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
+			<h1>Hello drawer 1</h1>
+			<p>You should not being able to read this because I&#39;m first</p>
+		</Drawer>
+		<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
+			<h1>Hello drawer 2</h1>
+			<p>The content dictate the width</p>
+		</Drawer>
+	</HomeListView>
+);
 
-apps.forEach(app => {
-	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => (
+function AppSpecificLayoutStory({ app }) {
+	return (
 		<div className={appStyle[app]}>
-			<div className={TALEND_T7_THEME_CLASSNAME}>
+			<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
 				<HomeListView
 					// hasTheme - option must be set if you import one and only one theme
 					sidepanel={sidepanel}
@@ -191,43 +205,10 @@ apps.forEach(app => {
 			</div>
 		</div>
 	);
-});
+}
 
-ExampleHomeListView.drawer = () => (
-	<div>
-		<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
-			<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
-				<h1>Hello drawer 1</h1>
-				<p>You should not being able to read this because I&#39;m first</p>
-			</Drawer>
-			<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
-				<h1>Hello drawer 2</h1>
-				<p>The content dictate the width</p>
-			</Drawer>
-		</HomeListView>
-	</div>
-);
-
-apps.forEach(app => {
-	ExampleHomeListView[`🎨 ${app.toUpperCase()} drawer`] = () => (
-		<div className={appStyle[app]}>
-			<div className={TALEND_T7_THEME_CLASSNAME}>
-				<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
-					<Drawer
-						stacked
-						title="Im stacked drawer 1"
-						footerActions={{ ...basicProps, selected: 0 }}
-					>
-						<h1>Hello drawer 1</h1>
-						<p>You should not being able to read this because I&#39;m first</p>
-					</Drawer>
-					<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
-						<h1>Hello drawer 2</h1>
-						<p>The content dictate the width</p>
-					</Drawer>
-				</HomeListView>
-			</div>
-		</div>
-	);
-});
-export default ExampleHomeListView;
+export const DataInventory = () => <AppSpecificLayoutStory app="tdc" />;
+export const DataPreparation = () => <AppSpecificLayoutStory app="tdp" />;
+export const DataStewardship = () => <AppSpecificLayoutStory app="tds" />;
+export const ManagementConsole = () => <AppSpecificLayoutStory app="tmc" />;
+export const PipelineDesigner = () => <AppSpecificLayoutStory app="tfd" />;

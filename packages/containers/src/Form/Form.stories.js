@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from '../src/Form';
+import Form from '.';
 
 const SCHEMA = `{
 	"jsonSchema": {
@@ -12,53 +12,20 @@ const SCHEMA = `{
 		"lastName"
 	  ],
 	  "properties": {
-		"firstName": {
-		  "type": "string",
-		  "title": "First name"
-		},
-		"lastName": {
-		  "type": "string",
-		  "title": "Last name"
-		},
-		"age": {
-		  "type": "integer",
-		  "title": "Age"
-		},
-		"bio": {
-		  "type": "string",
-		  "title": "Bio"
-		},
-		"password": {
-		  "type": "string",
-		  "title": "Password",
-		  "minLength": 3
-		},
-		"enum": {
-		  "type": "string",
-		  "title": "Enum",
-		  "enum": [
-			"1",
-			"two",
-			"three"
-		  ]
-		}
+		"firstName": { "type": "string" },
+		"lastName": { "type": "string" },
+		"age": { "type": "integer" },
+		"bio": { "type": "string" },
+		"password": { "type": "string",  "minLength": 3 },
+		"enum": {  "type": "string", "enum": ["1", "two", "three"] }
 	  }
 	},
-	"uiSchema": {
-	  "firstName": {
-		"ui:autofocus": true
-	  },
-	  "age": {
-		"ui:widget": "updown"
-	  },
-	  "bio": {
-		"ui:widget": "textarea"
-	  },
-	  "password": {
-		"ui:widget": "password",
-		"ui:help": "Hint: Make it strong!"
-	  }
-	},
+	"uiSchema": [
+	  { "key": "firstName", "title": "First name", "autofocus": true },
+	  { "key": "age", "title": "Age" },
+	  { "key": "bio", "title": "Bio", "widget": "textarea" },
+	  { "key": "password", "title": "Password", "type": "password", "description": "Hint: Make it strong!" }
+	],
 	"properties": {
 	  "firstName": "Chuck",
 	  "lastName": "Norris",
@@ -100,6 +67,10 @@ class SchemaInState extends React.Component {
 	}
 }
 
-export default function HeaderBarExample() {
+export default {
+	title: 'Form',
+};
+
+export function Default() {
 	return <SchemaInState />;
 }

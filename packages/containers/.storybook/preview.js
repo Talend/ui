@@ -1,6 +1,6 @@
 import React from 'react';
 import cmf from '@talend/react-cmf';
-// import { ThemeProvider } from '@talend/design-system';
+import { ThemeProvider } from '@talend/design-system';
 import cmfModule, { settings } from './cmfModule';
 
 export const loaders = [
@@ -18,9 +18,11 @@ export const loaders = [
 export const decorators = [
 	(Story, { loaded: { store, App } }) => (
 		<App store={store} registry={cmf.registry.getRegistry()}>
-			<React.Suspense fallback={null}>
-				<Story />
-			</React.Suspense>
+			<ThemeProvider>
+				<React.Suspense fallback={null}>
+					<Story />
+				</React.Suspense>
+			</ThemeProvider>
 		</App>
 	),
 ];

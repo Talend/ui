@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { EditableText } from '../src';
+import EditableText from '.';
 
 const props = {
 	text: 'Example text',
@@ -10,11 +10,10 @@ const props = {
 	actionCreatorEdit: 'editabletext:edit',
 };
 
-const ExampleEditableText = {
-	'with-default': () => (
-		<div>
-			<EditableText {...props} />
-		</div>
-	),
+export default {
+	title: 'EditableText',
 };
-export default ExampleEditableText;
+
+export function WithDefault() {
+	return <EditableText {...props} />;
+}

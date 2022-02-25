@@ -90,5 +90,51 @@ export default {
 			activeExpression: { id: 'isFlagExpression', args: ['action:icon:creator:flag'] },
 			payload: { type: 'TOGGLE_FLAG_TYPE', flagId: 'action:icon:creator:flag' },
 		},
+
+		// ConfirmDialog story -----------------------------------------------------------
+		'confirm-dialog:validate': {
+			label: 'Remove',
+			bsStyle: 'primary',
+			id: 'confirm-dialog:validate',
+			actionCreator: 'confirm-dialog:validate',
+		},
+		'confirm-dialog:cancel': {
+			label: 'Cancel',
+			id: 'confirm-dialog:cancel',
+			actionCreator: 'confirm-dialog:cancel',
+		},
+
+		// GuidedTour story -----------------------------------------------------------
+		'guided-tour:show': {
+			label: 'Start guided tour',
+			payload: {
+				type: 'GUIDED_TOUR_SHOW',
+			},
+		},
+
+		// HomeListView story -----------------------------------------------------------
+		'home-list-view:object:add': {
+			label: 'Add',
+			icon: 'talend-plus-circle',
+			bsStyle: 'primary',
+			payload: {
+				type: 'APP_OBJECT_ADD',
+			},
+		},
+		'home-list-view:object:upload': {
+			label: 'Upload',
+			icon: 'talend-upload',
+			displayMode: 'file',
+			payload: {
+				type: 'UPLOAD',
+			},
+		},
+		'home-list-view:object:delete': {
+			label: 'Delete',
+			icon: 'talend-trash',
+			payload: {
+				type: 'APP_OBJECT_DELETE',
+			},
+		},
 	},
 };

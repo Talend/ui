@@ -1,6 +1,7 @@
 import React from 'react';
 import { fromJS } from 'immutable';
-import { GuidedTour, Action } from '../src';
+import Action from '../Action';
+import GuidedTour from '.';
 
 const initialState = fromJS({
 	show: true,
@@ -29,13 +30,15 @@ const steps = [
 	},
 ];
 
-const ExampleGuidedTour = {
-	default: () => (
-		<div>
-			<Action actionId="show:guidedTour" />
-			<GuidedTour initialState={initialState} steps={steps} />
-		</div>
-	),
+export default {
+	title: 'GuidedTour',
 };
 
-export default ExampleGuidedTour;
+export function Default() {
+	return (
+		<div>
+			<Action actionId="guided-tour:show" />
+			<GuidedTour initialState={initialState} steps={steps} />
+		</div>
+	);
+}
