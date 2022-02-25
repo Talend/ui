@@ -5,7 +5,7 @@
 Dependencies are specified using the package.json file in library repositories.
 We have more and more libraries written and used by projects.
 
-We use different distribution format for our libraries:
+We use different distribution formats for our libraries:
 
 - UMD for some (react-components, react-cmf, etc ...)
 - mix of transpiled js and sass files which need shared config to make it work for others
