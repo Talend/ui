@@ -1,0 +1,4 @@
+{
+	"extends": "@talend/scripts-config-babel/.babelrc.json",
+	"plugins": ["@talend/babel-plugin-assets-api"]
+}

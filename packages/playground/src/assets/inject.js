@@ -36,7 +36,7 @@
 		return newUrl || url;
 	}
 	window.Talend.getCDNUrl = function getCDNUrl(pkg = {}) {
-		if (pkg.name.startsWith('@talend') || pkg.name.startsWith('ag-grid-react')) {
+		if (PKGS.includes(pkg.name) || pkg.name.startsWith('ag-grid-react')) {
 			return '/cdn';
 		}
 		return 'https://statics.cloud.talend.com';
