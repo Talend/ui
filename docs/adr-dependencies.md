@@ -15,7 +15,7 @@ We use different distribution formats for our libraries:
 We see commits with mix of peerDependencies and dependencies without real guidelines.
 Each change in peerDependencies lead to a major release.
 
-We do not know when to put a dependencies in `"peerDependencies"` or just in `"dependencies"` attribute of the package.json
+We do not know when to put a dependency in the `"peerDependencies"` or just in the `"dependencies"` attribute of the package.json file.
 
 With yarn peerDependencies are hard to manage. It just does a warning the first time , when it needs to really install it in your node_modules. So it is easy to forget it. We have also seen some false positive warnings.
 
