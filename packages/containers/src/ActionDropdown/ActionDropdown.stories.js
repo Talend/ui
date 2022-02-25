@@ -2,9 +2,13 @@ import React from 'react';
 import Immutable from 'immutable';
 import { action } from '@storybook/addon-actions';
 
-import { ActionDropdown } from '../src';
+import ActionDropdown from '.';
 
-export default function ExampleAction() {
+export default {
+	title: 'AboutDropdown',
+};
+
+export function Default() {
 	const propsInjectedItems = {
 		id: 'injected-items',
 		displayMode: 'dropdown',
@@ -59,7 +63,7 @@ export default function ExampleAction() {
 			<p>ActionDropdown from setting and items from props</p>
 			<ActionDropdown actionId="menu:first" actionIds={['menu:first', 'menu:second']} />
 			<p>ActionDropdown from setting and a link into the items</p>
-			<ActionDropdown actionId="menu:dropdown-href" />
+			<ActionDropdown actionId="action-dropdown:href" />
 			<p>ActionDropdown with components</p>
 			<ActionDropdown {...propsInjectedItems} />
 			<p>ActionDropdown with immutable items</p>

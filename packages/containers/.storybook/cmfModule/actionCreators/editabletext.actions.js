@@ -1,4 +1,3 @@
-
 function submitEditableText() {
 	return {
 		type: 'SUBMIT_EDITABLE_TEXT',
@@ -22,7 +21,6 @@ function changeEditableText() {
 		type: 'CHANGE_EDITABLE_TEXT',
 	};
 }
-
 
 const actionsCreators = {
 	submitEditableText,

@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import { Drawer } from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';
 
-import { ActionIconToggle } from '../src';
+import ActionIconToggle from '.';
 
-export function mapStateToProps(state) {
+export default {
+	title: 'ActionIconToggle',
+};
+
+function mapStateToProps(state) {
 	return {
 		opened: state.app.flags['action:icon:creator:flag'],
 	};
@@ -37,14 +41,12 @@ MyDrawer.propTypes = { opened: PropTypes.bool };
 MyDrawer.displayName = 'MyDrawer';
 const MyconnectedDrawer = cmfConnect({ mapStateToProps })(MyDrawer);
 
-export default function ExampleActionIconToggle() {
-	return (
-		<div>
-			<div style={{ padding: '3rem' }}>
-				<p>Click on the icon toggle below</p>
-				<ActionIconToggle actionId="action:icon:toggle" />
-			</div>
-			<MyconnectedDrawer />
+export const Default = () => (
+	<div>
+		<div style={{ padding: '3rem' }}>
+			<p>Click on the icon toggle below</p>
+			<ActionIconToggle actionId="action-icon-toggle:toggle" />
 		</div>
-	);
-}
+		<MyconnectedDrawer />
+	</div>
+);

@@ -29,12 +29,8 @@ addDecorator(withCMF);
 addDecorator(withA11y);
 addDecorator(storyFn => (
 	<>
-		<IconsProvider
-			bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']}
-		/>
-		<React.Suspense fallback={null}>
-			{storyFn()}
-		</React.Suspense>
+		<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+		<React.Suspense fallback={null}>{storyFn()}</React.Suspense>
 	</>
 ));
 
@@ -43,36 +39,6 @@ addParameters({ layout: 'fullscreen' });
 registerAllContainers();
 const actionLogger = action('dispatch');
 const sagaMiddleware = createSagaMiddleware();
-
-const TOGGLE_FLAG_TYPE = 'TOGGLE_FLAG_TYPE';
-function flagToggleReducer(state = {}, { type, flagId }) {
-	if (type === TOGGLE_FLAG_TYPE) {
-		return {
-			...state,
-			[flagId]: !state[flagId],
-		};
-	}
-	return state;
-}
-function appReducer(state = {}, action) {
-	actionLogger(action);
-	return {
-		flags: flagToggleReducer(state.flags, action),
-	};
-}
-
-function routerReducer(state = {}, action) {
-	actionLogger(action);
-	return {
-		locationBeforeTransitions: {
-			pathname: '/storybook',
-		},
-	};
-}
-const reducer = {
-	app: appReducer,
-	routing: routerReducer,
-};
 
 function objectView(event, data) {
 	return {
