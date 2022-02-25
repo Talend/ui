@@ -46,6 +46,8 @@ examples:
 - cross-env
 - react (if in peerDependencies)
 
+The case of **@types/some-js-library**: only if your exported types do not depends on it.
+
 **`"dependencies"`**
 
 Add **a-dependency** under dependencies only if it is used by the code and do not fall under peerDependencies.
@@ -58,7 +60,6 @@ examples:
 - @talend/react-containers
 - @talend/react-datagrid
 - @talend/react-dataviz
-- @types/invariant
 - classnames
 - keycode
 - lodash
@@ -66,7 +67,7 @@ examples:
 - date-fns
 - react-bootstrap
 
-The case of @types is for project which use typescript. For types to be shared they have to be available.
+The case of **@types/some-js-library**: only if your exported types depends on it.
 
 **`"peerDependencies"`**
 
