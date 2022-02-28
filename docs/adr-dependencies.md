@@ -81,7 +81,7 @@ As we've discussed, add type files to dependencies if your exported types depend
 
 **`"peerDependencies"`**
 
-Add **a-dependency** under peerDependencies only if it is has to be installed and configured (so imported) into the project code to make your library working.
+Add **a-dependency** under peerDependencies only if it is has to be installed and configured (so imported) into the project's code to make your library work.
 
 At the [begining in 2013](https://nodejs.org/en/blog/npm/peer-dependencies/) the peerDependencies as heen created to cover the Plugin needs.
 So **a-dependency** can be added even if your library do not use it.
