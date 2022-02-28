@@ -1,4 +1,4 @@
-import { GeoChartConfig } from './GeoChart.component';
+import { value GeoChartConfig } from './GeoChart.component';
 import assetsAPI from '@talend/assets-api';
 
 const DEFAULT_LABEL_PROPERTY = 'name';
@@ -84,10 +84,13 @@ export function getGeoChartSupportedDomains(): string[] {
 export async function getGeoChartConfig(domain: string): Promise<GeoChartConfig | undefined> {
 	const { file, ...chartConfig } = SUPPORTED_CHARTS[domain];
 	try {
-		const topology: GeoChartConfig['topology'] = await assetsAPI.getJSON(
+		const topology: GeoChartConfig['topology'] | undefined = await assetsAPI.getJSON(
 			`/dist/assets/maps/${file}.topo.json`,
 			'@talend/react-dataviz',
 		);
+		if (!topology) {
+			throw new Error('GeoChart topology undefined');
+		}
 		return {
 			...chartConfig,
 			labelProperty: chartConfig.labelProperty || DEFAULT_LABEL_PROPERTY,
