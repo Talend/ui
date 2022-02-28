@@ -104,8 +104,8 @@ function getUMD(name: string, version?: string, varName?: string, path?: string)
 	});
 }
 
-async function getJSON<T>(info: Asset) {
-	const url = getURL(info.path, info.name, info.version);
+async function getJSON<T>(path: string, name?: string, version?: string) {
+	const url = getURL(path, name, version);
 	const response: TypedResponse<T> = await fetch(url);
 	if (response.ok) {
 		return response.json();
