@@ -51,12 +51,12 @@ examples:
 
 Type dependencies (usually in the format `@types/some-js-library`) can be added to `devDependencies` only if the exported types for the library you're working on do not depend on it.
 
-(code)
+```javascript
 import { LibType } from 'some-js-library';
 
 // If this export is available in the bundle, then your bundle has an actual dependency to LibType
 export myLibType = LibType & { isActive: boolean };
-(code)
+```
 
 
 **`"dependencies"`**
