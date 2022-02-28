@@ -19,12 +19,13 @@ const LOCALES_MAP = {
 		'/locales/{{lng}}/{{ns}}.json',
 		'@talend/locales-tui-containers',
 	),
-	'tui-forms': assetsApi.getURL('/locales/{{lng}}/{{ns}}.json', '@talend/locales-tui-forms'),
 	'tui-datagrid': assetsApi.getURL('/locales/{{lng}}/{{ns}}.json', '@talend/locales-tui-datagrid'),
+	'tui-dataviz': assetsApi.getURL('/locales/{{lng}}/{{ns}}.json', '@talend/locales-tui-dataviz'),
 	'tui-faceted-search': assetsApi.getURL(
 		'/locales/{{lng}}/{{ns}}.json',
 		'@talend/locales-tui-faceted-search',
 	),
+	'tui-forms': assetsApi.getURL('/locales/{{lng}}/{{ns}}.json', '@talend/locales-tui-forms'),
 };
 
 function loadPath(languages, namespaces) {
@@ -32,11 +33,6 @@ function loadPath(languages, namespaces) {
 }
 
 export function init(opts) {
-	if (!window.Talend) {
-		window.Talend = {
-			getCDNUrl: () => 'https://statics.talend.com',
-		};
-	}
 	return i18n
 		.use(initReactI18next)
 		.use(HttpApi)
@@ -83,6 +79,7 @@ export const globalTypes = {
 
 export const withI18Next = (storyFn, context) => {
 	i18n.changeLanguage(context.globals.locale);
+
 	return (
 		<React.Suspense fallback={null}>
 			<I18nextProvider i18n={i18n}>{storyFn()}</I18nextProvider>

@@ -50,15 +50,7 @@ function getURL(path: string, name?: string, version?: string) {
 	if (!overridedVersion) {
 		throw new Error(`Version not found for ${name}`);
 	}
-	const CDN_URL = window.Talend.getCDNUrl({ name, version });
-	let root = '';
-	if (CDN_URL.startsWith('/')) {
-		const baseTag = document.querySelector('base');
-		if (baseTag) {
-			root = baseTag.getAttribute('href') || '';
-		}
-	}
-	return `${root}${CDN_URL}/${name}/${overridedVersion}${path}`;
+	return window.Talend.getCDNUrl({ name, version, path });
 }
 
 function addScript({ src, integrity, ...attr }: Script) {
@@ -142,8 +134,21 @@ if (!window.Talend) {
 	window.Talend = {};
 }
 if (!window.Talend.getCDNUrl) {
-	window.Talend.getCDNUrl = () => {
-		return '/cdn';
+	// eslint-disable-next-line no-console
+	console.log('assets.api add window.Talend.getCDNUrl');
+	window.Talend.getCDNUrl = (info: Asset) => {
+		const CDN_URL = window.Talend.CDN_URL;
+		if (CDN_URL) {
+			if (CDN_URL.startsWith('/')) {
+				const baseTag = document.querySelector('base');
+				if (baseTag) {
+					const root = baseTag.getAttribute('href') || '';
+					return `${root}${CDN_URL}/${info.name}/${info.version}${info.path}`;
+				}
+			}
+			return `${CDN_URL}/${info.name}/${info.version}${info.path}`;
+		}
+		return `https://unpkg.com/${info.name}@${info.version}${info.path}`;
 	};
 }
 
