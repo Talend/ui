@@ -47,6 +47,9 @@ function getPackageVersion(name?: string, version?: string): string | undefined 
 
 function getURL(path: string, name?: string, version?: string) {
 	const overridedVersion = getPackageVersion(name, version);
+	if (!overridedVersion) {
+		throw new Error(`Version not found for ${name}`);
+	}
 	const CDN_URL = window.Talend.getCDNUrl({ name, version });
 	let root = '';
 	if (CDN_URL.startsWith('/')) {
@@ -135,6 +138,9 @@ function addStyle({ href, integrity, ...attr }: StyleAsset) {
 
 // TODO: move this to ui-scripts.
 // implicit dependency, patch if not available
+if (!window.Talend) {
+	window.Talend = {};
+}
 if (!window.Talend.getCDNUrl) {
 	window.Talend.getCDNUrl = () => {
 		return '/cdn';
