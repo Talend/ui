@@ -19,14 +19,15 @@ We do not know when to put a dependency in the `"peerDependencies"` or just in t
 
 With yarn, `peerDependencies` are hard to manage. Yarn only outputs a warning the first time it encounters the dependency, when it needs to really install it in your node_modules. It's easy to miss and to forget. We have also seen some false positive warnings.
 
-With npm it depends the version, the behavior change:
+With npm, peerDependency management depends on the version used:
 
 - npm 1,2,7,8 install peerDependencies
 - npm 3,4,5,6 do not install peerDependencies
 
-The documentation of npm only cover the behavior of npm note the definition and usage of theses.
+The documentation of npm only covers the behavior of npm, not the definition and actual usage of these peer dependencies.
 
-We know our project can't use npm > 7.0 because we have some issues in our peerDependencies definitions ! That need to be fixed.
+We know our project can't use npm > 7.0 because we have some issues in our peerDependencies definitions! 
+npm > 7 requires all peer dependencies to be at the same level, the same version. That needs to be fixed on our end.
 
 ## Solutions
 
