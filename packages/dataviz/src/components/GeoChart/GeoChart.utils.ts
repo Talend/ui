@@ -1,4 +1,4 @@
-import { value GeoChartConfig } from './GeoChart.component';
+import { GeoChartConfig } from './GeoChart.component';
 import assetsAPI from '@talend/assets-api';
 
 const DEFAULT_LABEL_PROPERTY = 'name';
