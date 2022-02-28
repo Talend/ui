@@ -75,7 +75,7 @@
     "babel-plugin-styled-components": "^1.13.3",
     "browser-sync": "^2.27.7",
     "browser-sync-webpack-plugin": "^2.3.0",
-    "chromatic": "^6.4.3",
+    "chromatic": "^6.5.1",
     "core-js": "^3.21.0",
     "css-loader": "^5.2.7",
     "cypress": "^9.5.0",
