@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Map } from 'immutable';
-import Slider from '../src/Slider';
+import Slider from '.';
 
 const icons = [
 	'talend-smiley-angry',
@@ -71,32 +71,32 @@ const initialState = new Map({
 	value: 50,
 });
 
-const ExampleSlider = {
-	Slider: () => (
-		<div style={{ padding: '0 12px' }}>
-			<div style={delimiterStyle}>
-				<p style={paragraphStyle}>default</p>
-				<Slider id="slider1" initialState={initialState} />
-			</div>
-			<div style={delimiterStyle}>
-				<p style={paragraphStyle}>with some icons</p>
-				<Slider id="slider2" captionIcons={icons} initialState={nullState} />
-			</div>
-			<div style={delimiterStyle}>
-				<p style={paragraphStyle}>with some actions icons</p>
-				<Slider id="slider3" captionActions={actions} initialState={initialState} />
-			</div>
-			<div style={delimiterStyle}>
-				<p style={paragraphStyle}>with step number</p>
-				<Slider
-					id="slider4"
-					initialState={initialState}
-					captionsFormat={functionToFormat}
-					captionTextStepNumber={5}
-				/>
-			</div>
-		</div>
-	),
+export default {
+	title: 'Slider',
 };
 
-export default ExampleSlider;
+export const Default = () => (
+	<div style={{ padding: '0 1.2rem' }}>
+		<div style={delimiterStyle}>
+			<p style={paragraphStyle}>default</p>
+			<Slider id="slider1" initialState={initialState} />
+		</div>
+		<div style={delimiterStyle}>
+			<p style={paragraphStyle}>with some icons</p>
+			<Slider id="slider2" captionIcons={icons} initialState={nullState} />
+		</div>
+		<div style={delimiterStyle}>
+			<p style={paragraphStyle}>with some actions icons</p>
+			<Slider id="slider3" captionActions={actions} initialState={initialState} />
+		</div>
+		<div style={delimiterStyle}>
+			<p style={paragraphStyle}>with step number</p>
+			<Slider
+				id="slider4"
+				initialState={initialState}
+				captionsFormat={functionToFormat}
+				captionTextStepNumber={5}
+			/>
+		</div>
+	</div>
+);

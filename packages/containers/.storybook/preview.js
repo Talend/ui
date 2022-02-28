@@ -1,6 +1,7 @@
 import React from 'react';
 import cmf from '@talend/react-cmf';
 import { ThemeProvider } from '@talend/design-system';
+
 import cmfModule, { settings } from './cmfModule';
 
 export const loaders = [

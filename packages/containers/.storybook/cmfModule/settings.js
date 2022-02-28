@@ -143,6 +143,28 @@ export default {
 				type: 'APP_OBJECT_MULTI_DELETE',
 			},
 		},
+
+		// SubHeaderBar story -----------------------------------------------------------
+		'subheaderbar:sharing': {
+			id: 'subheaderbar:sharing',
+			label: 'sharing',
+			renderType: 'action',
+			actionCreator: 'subheaderbar:display-sharing',
+			icon: 'talend-share-alt',
+			bsStyle: 'link',
+			hideLabel: true,
+			overlay: false,
+		},
+		'subheaderbar:bubbles': {
+			id: 'subheaderbar:bubbles',
+			label: 'bubbles',
+			renderType: 'action',
+			actionCreator: 'subheaderbar:display-bubbles',
+			icon: 'talend-bubbles',
+			bsStyle: 'link',
+			hideLabel: true,
+			overlay: false,
+		},
 	},
 	props: {
 		'ActionButton#first': {

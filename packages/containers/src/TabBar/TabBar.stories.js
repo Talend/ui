@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabBar } from '../src';
+import TabBar from '.';
 
 const view = {
 	items: [
@@ -22,12 +22,8 @@ const view = {
 	selectedKey: 'office',
 };
 
-const ExampleTabBar = {
-	default: () => (
-		<div>
-			<TabBar {...view} />
-		</div>
-	),
+export default {
+	title: 'TabBar',
 };
 
-export default ExampleTabBar;
+export const Default = () => <TabBar {...view} />;

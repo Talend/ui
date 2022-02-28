@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Typeahead } from '../src';
+import Typeahead from '.';
 
 const view = {
 	icon: {
@@ -76,8 +76,8 @@ const view = {
 	],
 };
 
-const ExampleTypeahead = {
-	default: () => <Typeahead {...view} />,
+export default {
+	title: 'Typeahead',
 };
 
-export default ExampleTypeahead;
+export const Default = () => <Typeahead {...view} />;
