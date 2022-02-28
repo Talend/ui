@@ -46,7 +46,15 @@ examples:
 - cross-env
 - react (if in peerDependencies)
 
-The case of **@types/some-js-library**: only if your exported types do not depends on it.
+Type dependencies (usually in the format `@types/some-js-library`) can be added to `devDependencies` only if the exported types for the library you're working on do not depend on it.
+
+(code)
+import { LibType } from 'some-js-library';
+
+// If this export is available in the bundle, then your bundle has an actual dependency to LibType
+export myLibType = LibType & { isActive: boolean };
+(code)
+
 
 **`"dependencies"`**
 
