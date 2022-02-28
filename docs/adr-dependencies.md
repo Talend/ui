@@ -36,7 +36,9 @@ Define a clear guideline and usage of when and how to write the requirements in 
 
 **`"devDependencies"`**
 
-Add **a-dependency** under devDependencies if **a-dependency** is used only to build, debug, or because A is also a peerDependencies.
+Add **a-dependency** under `devDependencies` if **a-dependency** is used only to build, debug, or because A is also a peerDependencies.
+
+Basically use `devDependencies` if this dependency has no impact on runtime.
 
 examples:
 
