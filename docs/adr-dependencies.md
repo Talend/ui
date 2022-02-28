@@ -17,7 +17,7 @@ Each change in peerDependencies lead to a major release.
 
 We do not know when to put a dependency in the `"peerDependencies"` or just in the `"dependencies"` attribute of the package.json file.
 
-With yarn peerDependencies are hard to manage. It just does a warning the first time , when it needs to really install it in your node_modules. So it is easy to forget it. We have also seen some false positive warnings.
+With yarn, `peerDependencies` are hard to manage. Yarn only outputs a warning the first time it encounters the dependency, when it needs to really install it in your node_modules. It's easy to miss and to forget. We have also seen some false positive warnings.
 
 With npm it depends the version, the behavior change:
 
