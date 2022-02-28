@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Slider from './Slider.component';
@@ -68,7 +67,11 @@ const actions = [
 const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => `${Math.floor(value)}`;
 
-storiesOf('Form/Controls/Slider', module).add('default', () => (
+export default {
+	title: 'Form/Controls/Slider',
+};
+
+export const Default = () => (
 	<section>
 		<div style={style}>
 			<div style={delimiterStyle}>
@@ -152,4 +155,4 @@ storiesOf('Form/Controls/Slider', module).add('default', () => (
 			</div>
 		</div>
 	</section>
-));
+);
