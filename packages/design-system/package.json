@@ -85,7 +85,7 @@
     "eslint-plugin-storybook": "^0.5.6",
     "figma-js": "^1.14.0",
     "focus-outline-manager": "^1.0.2",
-    "i18next": "^20.6.1",
+    "i18next": "^21.6.12",
     "i18next-scanner": "^3.1.0",
     "mdx-embed": "^0.0.22",
     "react": "^16.14.0",

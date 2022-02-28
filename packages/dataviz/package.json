@@ -68,7 +68,7 @@
     "@types/topojson-specification": "^1.0.2",
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
-    "i18next": "^20.6.1",
+    "i18next": "^21.6.12",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-i18next": "^11.15.4"

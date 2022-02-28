@@ -41,7 +41,7 @@
     "@talend/react-faceted-search": "^3.5.5",
     "@talend/react-forms": "^7.0.3",
     "history": "^3.3.0",
-    "i18next": "^20.6.1",
+    "i18next": "^21.6.12",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
