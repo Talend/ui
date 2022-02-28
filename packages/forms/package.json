@@ -56,7 +56,7 @@
   "devDependencies": {
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.39.0",
-    "@talend/locales-tui": "^6.36.0",
+    "@talend/locales-tui-forms": "^6.41.3",
     "@talend/react-components": "^6.44.4",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^9.11.3",

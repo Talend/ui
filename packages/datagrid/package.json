@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@talend/icons": "^6.39.0",
-    "@talend/locales-tui": "^6.36.0",
+    "@talend/locales-tui-datagrid": "^6.36.5",
     "@talend/react-cmf": "^7.0.1",
     "@talend/react-components": "^6.44.4",
     "@talend/react-storybook-cmf": "^7.0.2",
