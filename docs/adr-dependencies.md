@@ -58,7 +58,7 @@ export myLibType = LibType & { isActive: boolean };
 
 **`"dependencies"`**
 
-Add **a-dependency** under dependencies only if it is used by the code and do not fall under peerDependencies.
+Add **a-dependency** under `dependencies` only if it is used by the code and does not fall under peerDependencies.
 
 examples:
 
