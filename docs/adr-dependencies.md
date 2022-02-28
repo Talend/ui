@@ -13,7 +13,7 @@ We use different distribution formats for our libraries:
 ## Problems
 
 We see commits with a mix of libraries being added to `peerDependencies` and `dependencies` without real guidelines.
-Each change in peerDependencies lead to a major release.
+Each change in peerDependencies leads to [a major release](https://github.com/semver/semver/issues/502).
 
 We do not know when to put a dependency in the `"peerDependencies"` or just in the `"dependencies"` attribute of the package.json file.
 
