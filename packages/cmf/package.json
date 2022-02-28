@@ -57,7 +57,7 @@
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "^2.4.1",
-    "uuid": "^3.4.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.1.3",
