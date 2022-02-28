@@ -75,7 +75,7 @@ examples:
 - date-fns
 - react-bootstrap
 
-The case of **@types/some-js-library**: only if your exported types depends on it.
+As we've discussed, add type files to dependencies if your exported types depends on it.
 
 **`"peerDependencies"`**
 
