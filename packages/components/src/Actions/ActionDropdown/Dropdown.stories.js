@@ -294,7 +294,3 @@ export const Default = () => (
 		</div>
 	</div>
 );
-
-Default.story = {
-	name: 'default',
-};

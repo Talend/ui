@@ -43,10 +43,6 @@ export const Disabled = () => (
 	/>
 );
 
-Disabled.story = {
-	name: 'disabled',
-};
-
 export const InputWithMinWidth = () => (
 	<InputDateRangePicker
 		id="my-date-picker"
@@ -56,10 +52,6 @@ export const InputWithMinWidth = () => (
 		minWidth={250}
 	/>
 );
-
-InputWithMinWidth.story = {
-	name: 'Input with minWidth',
-};
 
 export const Picker = () => (
 	<div style={{ border: '1px solid black', width: 320 }}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import get from 'lodash/get';
+import { storiesOf } from '@storybook/react';
 
 import withCMF from '@talend/react-storybook-cmf';
 import { IconsProvider } from '@talend/react-components';

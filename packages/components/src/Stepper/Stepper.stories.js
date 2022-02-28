@@ -37,10 +37,6 @@ export const StepperDefault = () => {
 	return <Stepper steps={steps} title={title} />;
 };
 
-StepperDefault.story = {
-	name: 'Stepper default',
-};
-
 export const StepperWithError = () => {
 	const steps = [
 		{
@@ -62,19 +58,11 @@ export const StepperWithError = () => {
 	return <Stepper steps={steps} title={title} renderActions={renderActions} />;
 };
 
-StepperWithError.story = {
-	name: 'Stepper with error',
-};
-
 export const StepperWithoutSteps = () => (
 	<Stepper title={title} renderActions={renderActions}>
 		<p>No step to display here, it means content is already loaded.</p>
 	</Stepper>
 );
-
-StepperWithoutSteps.story = {
-	name: 'Stepper without steps',
-};
 
 export const StepperSuccessfulWithoutTransition = () => (
 	<Stepper
@@ -82,10 +70,6 @@ export const StepperSuccessfulWithoutTransition = () => (
 		steps={[{ label: 'Fetch Sample', status: Stepper.LOADING_STEP_STATUSES.SUCCESS }]}
 	/>
 );
-
-StepperSuccessfulWithoutTransition.story = {
-	name: 'Stepper successful without transition',
-};
 
 export const FormStepper = () => (
 	<Stepper.Form>
@@ -106,10 +90,6 @@ export const HorizontalFormStepper = () => (
 		<Stepper.Form.Step.Enabled title="I'm enabled" />
 	</Stepper.Form.Horizontal>
 );
-
-HorizontalFormStepper.story = {
-	name: 'Horizontal form Stepper',
-};
 
 export const StepperSuccessfulWithTransition = () => {
 	const defaultSteps = [
@@ -200,8 +180,4 @@ export const StepperSuccessfulWithTransition = () => {
 			)}
 		</GetSteps>
 	);
-};
-
-StepperSuccessfulWithTransition.story = {
-	name: 'Stepper successful with transition',
 };

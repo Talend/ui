@@ -95,20 +95,12 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const WithoutHeader = () => (
 	<div>
 		<h1>Dialog</h1>
 		<ConfirmDialog {...propsWithoutHeader}>{children}</ConfirmDialog>
 	</div>
 );
-
-WithoutHeader.story = {
-	name: 'without header',
-};
 
 export const Small = () => (
 	<div>
@@ -117,10 +109,6 @@ export const Small = () => (
 	</div>
 );
 
-Small.story = {
-	name: 'small',
-};
-
 export const Large = () => (
 	<div>
 		<h1>Dialog</h1>
@@ -128,20 +116,12 @@ export const Large = () => (
 	</div>
 );
 
-Large.story = {
-	name: 'large',
-};
-
 export const WithProgressBar = () => (
 	<div>
 		<h1>Dialog</h1>
 		<ConfirmDialog {...withProgressBarProps}>{children}</ConfirmDialog>
 	</div>
 );
-
-WithProgressBar.story = {
-	name: 'with progress bar',
-};
 
 export const WithLotsOfContent = () => {
 	const rows = [];
@@ -156,10 +136,6 @@ export const WithLotsOfContent = () => {
 			</ConfirmDialog>
 		</div>
 	);
-};
-
-WithLotsOfContent.story = {
-	name: 'with lots of content',
 };
 
 export const WithSecondaryActions = () => {
@@ -185,8 +161,4 @@ export const WithSecondaryActions = () => {
 			<ConfirmDialog {...propsWithMoreActions}>{children}</ConfirmDialog>
 		</div>
 	);
-};
-
-WithSecondaryActions.story = {
-	name: 'with secondary actions',
 };

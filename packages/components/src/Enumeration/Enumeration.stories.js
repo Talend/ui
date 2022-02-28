@@ -347,10 +347,6 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const DefaultHeaderActionDisabled = () => (
 	<div>
 		<p>By default :</p>
@@ -358,10 +354,6 @@ export const DefaultHeaderActionDisabled = () => (
 		<Enumeration {...headerDisabled} />
 	</div>
 );
-
-DefaultHeaderActionDisabled.story = {
-	name: 'default header action disabled',
-};
 
 export const DefaultEmptyList = () => (
 	<div>
@@ -371,10 +363,6 @@ export const DefaultEmptyList = () => (
 	</div>
 );
 
-DefaultEmptyList.story = {
-	name: 'default - empty list',
-};
-
 export const DefaultWithDropdown = () => (
 	<div>
 		<p>By default :</p>
@@ -382,10 +370,6 @@ export const DefaultWithDropdown = () => (
 		<Enumeration {...dropDownActionsProps} />
 	</div>
 );
-
-DefaultWithDropdown.story = {
-	name: 'default with dropdown',
-};
 
 export const Add = () => (
 	<div>
@@ -395,10 +379,6 @@ export const Add = () => (
 	</div>
 );
 
-Add.story = {
-	name: 'add',
-};
-
 export const EditMode = () => (
 	<div>
 		<p>By default :</p>
@@ -406,10 +386,6 @@ export const EditMode = () => (
 		<Enumeration {...editItemProps} />
 	</div>
 );
-
-EditMode.story = {
-	name: 'edit mode',
-};
 
 export const SearchMode = () => (
 	<div>
@@ -419,10 +395,6 @@ export const SearchMode = () => (
 	</div>
 );
 
-SearchMode.story = {
-	name: 'search mode',
-};
-
 export const SearchModeEmptyList = () => (
 	<div>
 		<p>empty list in search mode :</p>
@@ -431,10 +403,6 @@ export const SearchModeEmptyList = () => (
 	</div>
 );
 
-SearchModeEmptyList.story = {
-	name: 'search mode - empty list',
-};
-
 export const SelectedValues = () => (
 	<div>
 		<p>By default :</p>
@@ -442,10 +410,6 @@ export const SelectedValues = () => (
 		<Enumeration {...selectedValuesProps} />
 	</div>
 );
-
-SelectedValues.story = {
-	name: 'selected values',
-};
 
 export const SelectedValuesWithCheckboxes = () => (
 	<div>
@@ -457,10 +421,6 @@ export const SelectedValuesWithCheckboxes = () => (
 	</div>
 );
 
-SelectedValuesWithCheckboxes.story = {
-	name: 'selected values with checkboxes',
-};
-
 export const WithHeaderError = () => (
 	<div>
 		<p>By default :</p>
@@ -468,10 +428,6 @@ export const WithHeaderError = () => (
 		<Enumeration {...headerErrorProps} />
 	</div>
 );
-
-WithHeaderError.story = {
-	name: 'with header error',
-};
 
 export const WithItemInError = () => (
 	<div>
@@ -481,10 +437,6 @@ export const WithItemInError = () => (
 	</div>
 );
 
-WithItemInError.story = {
-	name: 'with item in error',
-};
-
 export const WithCustomLabel = () => (
 	<div>
 		<p>Should be 'Users' instead of 'Values'</p>
@@ -492,10 +444,6 @@ export const WithCustomLabel = () => (
 		<Enumeration {...customLabelProps} />
 	</div>
 );
-
-WithCustomLabel.story = {
-	name: 'with custom label',
-};
 
 export const WithIcon = () => (
 	<div>
@@ -505,10 +453,6 @@ export const WithIcon = () => (
 	</div>
 );
 
-WithIcon.story = {
-	name: 'with icon',
-};
-
 export const WithCustomClassForRow = () => (
 	<div>
 		<p>With custom class on second row: </p>
@@ -517,10 +461,6 @@ export const WithCustomClassForRow = () => (
 	</div>
 );
 
-WithCustomClassForRow.story = {
-	name: 'with custom class for row',
-};
-
 export const WithDynamicHeight = () => (
 	<div>
 		<p>With dynamic height: </p>
@@ -528,10 +468,6 @@ export const WithDynamicHeight = () => (
 		<EnumerationDynamicHeight />
 	</div>
 );
-
-WithDynamicHeight.story = {
-	name: 'with dynamic height',
-};
 
 export const WithCustomActions = () => (
 	<div>
@@ -559,10 +495,6 @@ export const WithCustomActions = () => (
 		<Enumeration {...withCustomActions} />
 	</div>
 );
-
-WithCustomActions.story = {
-	name: 'with custom actions',
-};
 
 const EnumerationDynamicHeight = () => {
 	const [list, setList] = useState([]);

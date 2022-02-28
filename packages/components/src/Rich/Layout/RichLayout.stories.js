@@ -104,10 +104,6 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const DefaultWithActions = () => (
 	<div>
 		<Action
@@ -123,10 +119,6 @@ export const DefaultWithActions = () => (
 	</div>
 );
 
-DefaultWithActions.story = {
-	name: 'default with actions',
-};
-
 export const OnlyWithHeader = () => (
 	<div>
 		<Action
@@ -140,10 +132,6 @@ export const OnlyWithHeader = () => (
 	</div>
 );
 
-OnlyWithHeader.story = {
-	name: 'only with header',
-};
-
 export const InLoadingState = () => (
 	<div>
 		<Action
@@ -156,10 +144,6 @@ export const InLoadingState = () => (
 		/>
 	</div>
 );
-
-InLoadingState.story = {
-	name: 'in loading state',
-};
 
 export const WithErrorMessage = () => (
 	<div>
@@ -175,10 +159,6 @@ export const WithErrorMessage = () => (
 		/>
 	</div>
 );
-
-WithErrorMessage.story = {
-	name: 'with error message',
-};
 
 export const Body = () => (
 	<div>
@@ -203,10 +183,6 @@ export const Body = () => (
 	</div>
 );
 
-Body.story = {
-	name: 'body',
-};
-
 export const CustomBody = () => (
 	<div>
 		<Action
@@ -222,10 +198,6 @@ export const CustomBody = () => (
 	</div>
 );
 
-CustomBody.story = {
-	name: 'custom body',
-};
-
 export const LoadingResourceList = () => (
 	<div>
 		<Action
@@ -240,10 +212,6 @@ export const LoadingResourceList = () => (
 		/>
 	</div>
 );
-
-LoadingResourceList.story = {
-	name: 'loading resource list',
-};
 
 export const ResourceList = () => (
 	<div>
@@ -263,7 +231,3 @@ export const ResourceList = () => (
 		/>
 	</div>
 );
-
-ResourceList.story = {
-	name: 'resource list',
-};

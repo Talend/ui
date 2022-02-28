@@ -852,10 +852,6 @@ export const Default = () => (
 	</React.Fragment>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const Colored = () => (
 	<>
 		{Object.entries(Badge.TYPES).map(([name, value]) => (
@@ -873,7 +869,3 @@ export const Colored = () => (
 		))}
 	</>
 );
-
-Colored.story = {
-	name: 'colored',
-};

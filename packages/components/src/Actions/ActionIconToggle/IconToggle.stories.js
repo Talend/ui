@@ -72,10 +72,6 @@ export const DisableTheButtons = () => (
 	</div>
 );
 
-DisableTheButtons.story = {
-	name: 'disable the buttons',
-};
-
 export const Default = () => (
 	<div>
 		<p>Inactive (By default)</p>
@@ -91,10 +87,6 @@ export const Default = () => (
 		<ActionIconToggle {...activeIconToggle} tick />
 	</div>
 );
-
-Default.story = {
-	name: 'default',
-};
 
 export const CustomizeSizes = () => (
 	<div>
@@ -138,7 +130,3 @@ $my-btn-icon-size: 2.5rem;
 		<ActionIconToggle {...activeIconToggle} />
 	</div>
 );
-
-CustomizeSizes.story = {
-	name: 'customize sizes',
-};

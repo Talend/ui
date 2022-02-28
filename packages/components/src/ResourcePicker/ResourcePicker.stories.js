@@ -142,10 +142,6 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const GenericSubtitle = () => (
 	<div>
 		<p>By default :</p>
@@ -171,20 +167,12 @@ export const GenericSubtitle = () => (
 	</div>
 );
 
-GenericSubtitle.story = {
-	name: 'generic subtitle',
-};
-
 export const WithSelectedResources = () => (
 	<div>
 		<p>By default :</p>
 		<ResourcePicker id="default" {...props} isSelected={() => true} />
 	</div>
 );
-
-WithSelectedResources.story = {
-	name: 'with selected resources',
-};
 
 export const WithoutToolbar = () => (
 	<div>
@@ -193,20 +181,12 @@ export const WithoutToolbar = () => (
 	</div>
 );
 
-WithoutToolbar.story = {
-	name: 'without toolbar',
-};
-
 export const WithoutSortOptions = () => (
 	<div>
 		<p>By default :</p>
 		<ResourcePicker id="default" collection={collection} toolbar={{ name, state }} />
 	</div>
 );
-
-WithoutSortOptions.story = {
-	name: 'without sort options',
-};
 
 export const WithPartialSortOptions = () => (
 	<div>
@@ -226,20 +206,12 @@ export const WithPartialSortOptions = () => (
 	</div>
 );
 
-WithPartialSortOptions.story = {
-	name: 'with partial sort options',
-};
-
 export const WithoutStateFilter = () => (
 	<div>
 		<p>By default :</p>
 		<ResourcePicker id="default" collection={collection} toolbar={{ name, sort }} />
 	</div>
 );
-
-WithoutStateFilter.story = {
-	name: 'without state filter',
-};
 
 export const WithPartialStateOptions = () => (
 	<div>
@@ -258,7 +230,3 @@ export const WithPartialStateOptions = () => (
 		/>
 	</div>
 );
-
-WithPartialStateOptions.story = {
-	name: 'with partial state options',
-};

@@ -32,7 +32,3 @@ export const Default = () => (
 		<CircularProgress size="large" percent={70} />
 	</div>
 );
-
-Default.story = {
-	name: 'default',
-};

@@ -286,7 +286,3 @@ export default {
 };
 
 export const Default = () => <TranslatedGuidedTourContainer getSteps={getSteps} />;
-
-Default.story = {
-	name: 'default',
-};

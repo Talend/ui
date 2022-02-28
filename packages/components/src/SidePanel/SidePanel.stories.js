@@ -107,10 +107,6 @@ export const Uncontrolled = () => (
 	/>
 );
 
-Uncontrolled.story = {
-	name: 'uncontrolled',
-};
-
 export const Controlled = () => (
 	<SidePanel
 		id="context"
@@ -121,21 +117,9 @@ export const Controlled = () => (
 	/>
 );
 
-Controlled.story = {
-	name: 'controlled',
-};
-
 export const Links = () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />;
 
-Links.story = {
-	name: 'links',
-};
-
 export const Docked = () => <SidePanel actions={actions} docked tooltipPlacement="top" />;
-
-Docked.story = {
-	name: 'docked',
-};
 
 export const Minimised = () => (
 	<SidePanel
@@ -146,10 +130,6 @@ export const Minimised = () => (
 	/>
 );
 
-Minimised.story = {
-	name: 'minimised',
-};
-
 export const WithALargeAmountOfItems = () => (
 	<SidePanel
 		actions={[...items, ...other, ...other, ...other]}
@@ -158,10 +138,6 @@ export const WithALargeAmountOfItems = () => (
 		tooltipPlacement="top"
 	/>
 );
-
-WithALargeAmountOfItems.story = {
-	name: 'with a large amount of items',
-};
 
 export const Reverse = () => (
 	<SidePanel
@@ -172,10 +148,6 @@ export const Reverse = () => (
 		tooltipPlacement="top"
 	/>
 );
-
-Reverse.story = {
-	name: 'reverse',
-};
 
 export const ReverseLargeDocked = () => (
 	<SidePanel
@@ -189,10 +161,6 @@ export const ReverseLargeDocked = () => (
 		tooltipPlacement="top"
 	/>
 );
-
-ReverseLargeDocked.story = {
-	name: 'reverse large docked',
-};
 
 export const _WithLayout = () => {
 	class WithLayout extends React.Component {
@@ -225,10 +193,6 @@ export const _WithLayout = () => {
 	return <WithLayout />;
 };
 
-_WithLayout.story = {
-	name: 'with layout',
-};
-
 export const ReverseWithLayout = () => {
 	const panelItems = items.concat([
 		{
@@ -256,10 +220,6 @@ export const ReverseWithLayout = () => {
 	);
 };
 
-ReverseWithLayout.story = {
-	name: 'reverse with layout',
-};
-
 export const PortalReverse = () => (
 	<div className={appStyle.portal}>
 		<h1>SidePanel</h1>
@@ -271,7 +231,3 @@ export const PortalReverse = () => (
 		</div>
 	</div>
 );
-
-PortalReverse.story = {
-	name: '[Portal] reverse',
-};

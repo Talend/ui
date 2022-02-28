@@ -156,10 +156,6 @@ export const Empty = () => {
 	);
 };
 
-Empty.story = {
-	name: 'empty',
-};
-
 export const SingleEntry = () => {
 	const singleEntryProps = { ...props };
 	singleEntryProps.items = [props.items[0]];
@@ -170,19 +166,11 @@ export const SingleEntry = () => {
 	);
 };
 
-SingleEntry.story = {
-	name: 'single entry',
-};
-
 export const SeveralValues = () => (
 	<div id="listview-several">
 		<ListView {...props} />
 	</div>
 );
-
-SeveralValues.story = {
-	name: 'several values',
-};
 
 export const SearchMode = () => (
 	<div id="listview-search">
@@ -190,19 +178,11 @@ export const SearchMode = () => (
 	</div>
 );
 
-SearchMode.story = {
-	name: 'search mode',
-};
-
 export const SearchModeWithoutResults = () => (
 	<div id="listview-search-no-result">
 		<ListView {...noResultsSearch} />
 	</div>
 );
-
-SearchModeWithoutResults.story = {
-	name: 'search mode without results',
-};
 
 export const SelectedValues = () => {
 	const selectedValuesProps = { ...props };
@@ -216,20 +196,12 @@ export const SelectedValues = () => {
 	);
 };
 
-SelectedValues.story = {
-	name: 'selected values',
-};
-
 export const WithSwitchBox = () => {
 	return (
 		<div id="listview-switch">
 			<ListView {...withSwitchBox} />
 		</div>
 	);
-};
-
-WithSwitchBox.story = {
-	name: 'with switch box',
 };
 
 export const WithNestedItems = () => {
@@ -240,19 +212,11 @@ export const WithNestedItems = () => {
 	);
 };
 
-WithNestedItems.story = {
-	name: 'with nested items',
-};
-
 export const WithIcons = () => (
 	<div id="listview-with-icon">
 		<ListView {...withIconProps} />
 	</div>
 );
-
-WithIcons.story = {
-	name: 'with icons',
-};
 
 export const WithoutToggleAll = () => {
 	const withoutToggleALLProps = { ...props };
@@ -263,8 +227,4 @@ export const WithoutToggleAll = () => {
 			<ListView {...withoutToggleALLProps} />
 		</div>
 	);
-};
-
-WithoutToggleAll.story = {
-	name: 'without toggleAll',
 };

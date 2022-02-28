@@ -51,10 +51,6 @@ export const MinWidth = () => (
 	/>
 );
 
-MinWidth.story = {
-	name: 'minWidth',
-};
-
 export const DefaultTime = () => (
 	<div>
 		<InputDateTimeRangePicker
@@ -74,10 +70,6 @@ export const DefaultTime = () => (
 		/>
 	</div>
 );
-
-DefaultTime.story = {
-	name: 'Default time',
-};
 
 export const Inline = () => (
 	<div>

@@ -13,7 +13,3 @@ export const Default = () => {
 		/>
 	);
 };
-
-Default.story = {
-	name: 'default',
-};

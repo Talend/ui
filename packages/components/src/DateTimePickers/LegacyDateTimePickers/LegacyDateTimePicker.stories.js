@@ -27,10 +27,6 @@ export const FormModeDateTime = () => {
 	);
 };
 
-FormModeDateTime.story = {
-	name: 'Form mode - DateTime',
-};
-
 export const FormModeHybridDateTime = () => {
 	return (
 		<React.Fragment>
@@ -78,8 +74,4 @@ export const FormModeHybridDateTime = () => {
 			</div>
 		</React.Fragment>
 	);
-};
-
-FormModeHybridDateTime.story = {
-	name: 'Form mode - Hybrid DateTime',
 };

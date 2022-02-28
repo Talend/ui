@@ -25,10 +25,6 @@ export default {
 
 export const Default = () => <EditableText {...props} />;
 
-Default.story = {
-	name: 'default',
-};
-
 export const WithoutValue = () => {
 	const propWithoutText = { ...props, text: '' };
 	return (
@@ -38,62 +34,26 @@ export const WithoutValue = () => {
 	);
 };
 
-WithoutValue.story = {
-	name: 'without value',
-};
-
 export const WithEllipsis = () => (
 	<div style={{ width: '150px' }}>
 		<EditableText {...props} />
 	</div>
 );
 
-WithEllipsis.story = {
-	name: 'with ellipsis',
-};
-
 export const Loading = () => <EditableText loading {...props} />;
-
-Loading.story = {
-	name: 'loading',
-};
 
 export const Disabled = () => <EditableText disabled {...props} />;
 
-Disabled.story = {
-	name: 'disabled',
-};
-
 export const InProgress = () => <EditableText inProgress {...props} />;
-
-InProgress.story = {
-	name: 'in progress',
-};
 
 export const EditMode = () => <EditableText editMode {...props} />;
 
-EditMode.story = {
-	name: 'edit mode',
-};
-
 export const NotRequired = () => <EditableText required={false} editMode {...props} />;
-
-NotRequired.story = {
-	name: 'not required',
-};
 
 export const Placeholder = () => (
 	<EditableText editMode placeholder="Enter your text here.." {...props} text="" />
 );
 
-Placeholder.story = {
-	name: 'placeholder',
-};
-
 export const WithError = () => (
 	<EditableText editMode {...props} text="" errorMessage="custom error message" />
 );
-
-WithError.story = {
-	name: 'with error',
-};

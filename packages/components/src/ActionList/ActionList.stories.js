@@ -58,10 +58,6 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const WithCustomClassNames = () => (
 	<div>
 		<p>You can add your custom classnames to the container and items</p>
@@ -108,10 +104,6 @@ export const WithCustomClassNames = () => (
 	</div>
 );
 
-WithCustomClassNames.story = {
-	name: 'with custom class names',
-};
-
 export const Single = () => (
 	<div style={{ display: 'inline-table' }}>
 		<ActionList
@@ -123,7 +115,3 @@ export const Single = () => (
 		/>
 	</div>
 );
-
-Single.story = {
-	name: 'single',
-};

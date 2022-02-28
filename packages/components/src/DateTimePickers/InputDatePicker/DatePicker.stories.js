@@ -43,13 +43,9 @@ export const Picker = () => (
 	</div>
 );
 
-export const Utc = () => (
+export const UTC = () => (
 	<InputDatePicker id="my-date-picker" name="date" onChange={action('onChange')} useUTC />
 );
-
-Utc.story = {
-	name: 'UTC',
-};
 
 export const Timezone = () => (
 	<InputDatePicker
@@ -80,10 +76,6 @@ export const CustomFormat = () => (
 	</div>
 );
 
-CustomFormat.story = {
-	name: 'Custom format',
-};
-
 export const MinWidth = () => (
 	<div>
 		<p>Date picker a minimal width for the input</p>
@@ -96,10 +88,6 @@ export const MinWidth = () => (
 		/>
 	</div>
 );
-
-MinWidth.story = {
-	name: 'min width',
-};
 
 export const ContainerOverflow = () => (
 	<div style={{ height: 300, overflow: 'auto', border: 'solid', marginTop: 100 }}>
@@ -130,10 +118,6 @@ export const ContainerOverflow = () => (
 	</div>
 );
 
-ContainerOverflow.story = {
-	name: 'Container overflow',
-};
-
 export const DisabledDates = () => (
 	<div>
 		<p>
@@ -162,7 +146,3 @@ export const DisabledDates = () => (
 		/>
 	</div>
 );
-
-DisabledDates.story = {
-	name: 'Disabled dates',
-};

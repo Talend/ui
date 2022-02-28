@@ -58,46 +58,18 @@ export default {
 
 export const Default = () => <AboutDialog {...props} />;
 
-Default.story = {
-	name: 'default',
-};
-
 export const WithoutTheVersion = () => <AboutDialog {...props} version={null} />;
-
-WithoutTheVersion.story = {
-	name: 'without the version',
-};
 
 export const Loading = () => <AboutDialog loading {...props} />;
 
-Loading.story = {
-	name: 'loading',
-};
-
 export const Expanded = () => <AboutDialog expanded {...props} />;
-
-Expanded.story = {
-	name: 'expanded',
-};
 
 export const ExpandedWithLotOfServices = () => (
 	<AboutDialog expanded {...props} services={services} />
 );
 
-ExpandedWithLotOfServices.story = {
-	name: 'expanded with lot of services',
-};
-
 export const WithCustomDefinition = () => (
 	<AboutDialog expanded {...props} services={services} definition={[name, version]} />
 );
 
-WithCustomDefinition.story = {
-	name: 'with custom definition',
-};
-
 export const ExpandedLoading = () => <AboutDialog expanded loading {...props} />;
-
-ExpandedLoading.story = {
-	name: 'expanded & loading',
-};

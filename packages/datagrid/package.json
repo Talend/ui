@@ -51,7 +51,7 @@
     "@talend/react-components": "^6.44.4",
     "@talend/react-storybook-cmf": "^7.0.2",
     "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^9.11.3",
+    "@talend/scripts-preset-react-lib": "^9.12.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^1.0.1",
     "enzyme": "^3.11.0",

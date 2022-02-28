@@ -405,10 +405,6 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const WithCustomIcons = () => (
 	<div>
 		<h1>TreeView</h1>
@@ -419,10 +415,6 @@ export const WithCustomIcons = () => (
 		</div>
 	</div>
 );
-
-WithCustomIcons.story = {
-	name: 'with custom icons',
-};
 
 export const WithCustomHeaderText = () => (
 	<div>
@@ -436,10 +428,6 @@ export const WithCustomHeaderText = () => (
 	</div>
 );
 
-WithCustomHeaderText.story = {
-	name: 'with custom header text',
-};
-
 export const WithoutAction = () => (
 	<div>
 		<h1>TreeView</h1>
@@ -451,10 +439,6 @@ export const WithoutAction = () => (
 		</div>
 	</div>
 );
-
-WithoutAction.story = {
-	name: 'without action',
-};
 
 export const WithoutHeader = () => (
 	<div>
@@ -468,10 +452,6 @@ export const WithoutHeader = () => (
 	</div>
 );
 
-WithoutHeader.story = {
-	name: 'without header',
-};
-
 export const WithRemoveActionAndCounter = () => (
 	<div>
 		<h1>TreeView</h1>
@@ -484,10 +464,6 @@ export const WithRemoveActionAndCounter = () => (
 	</div>
 );
 
-WithRemoveActionAndCounter.story = {
-	name: 'with remove action and counter',
-};
-
 export const WithManyActions = () => (
 	<div>
 		<h1>TreeView</h1>
@@ -499,10 +475,6 @@ export const WithManyActions = () => (
 		</div>
 	</div>
 );
-
-WithManyActions.story = {
-	name: 'with many actions',
-};
 
 export const WithDisabledItems = () => (
 	<div>
@@ -518,10 +490,6 @@ export const WithDisabledItems = () => (
 	</div>
 );
 
-WithDisabledItems.story = {
-	name: 'with disabled items',
-};
-
 export const WithDeepStructure = () => (
 	<div>
 		<h1>TreeView</h1>
@@ -533,10 +501,6 @@ export const WithDeepStructure = () => (
 		</div>
 	</div>
 );
-
-WithDeepStructure.story = {
-	name: 'with deep structure',
-};
 
 export const WithLongName = () => (
 	<div>
@@ -550,10 +514,6 @@ export const WithLongName = () => (
 	</div>
 );
 
-WithLongName.story = {
-	name: 'with long name',
-};
-
 export const WithoutIcons = () => (
 	<div>
 		<h1>TreeView</h1>
@@ -565,10 +525,6 @@ export const WithoutIcons = () => (
 		</div>
 	</div>
 );
-
-WithoutIcons.story = {
-	name: 'without icons',
-};
 
 export const ItemsClassNames = () => (
 	<div>
@@ -597,7 +553,3 @@ export const ItemsClassNames = () => (
 		</div>
 	</div>
 );
-
-ItemsClassNames.story = {
-	name: 'Items classNames',
-};

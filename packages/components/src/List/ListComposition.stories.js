@@ -156,10 +156,6 @@ export const DisplayModeUncontrolled = () => (
 	</div>
 );
 
-DisplayModeUncontrolled.story = {
-	name: 'Display mode: uncontrolled',
-};
-
 export const DisplayModeControlled = () => (
 	<div className="virtualized-list">
 		<h1>List with display mode change</h1>
@@ -206,10 +202,6 @@ export const DisplayModeControlled = () => (
 		</section>
 	</div>
 );
-
-DisplayModeControlled.story = {
-	name: 'Display mode: controlled',
-};
 
 export const TotalItems = () => (
 	<div className="virtualized-list">
@@ -291,10 +283,6 @@ export const TextFilterUncontrolled = () => (
 	</div>
 );
 
-TextFilterUncontrolled.story = {
-	name: 'Text Filter: uncontrolled',
-};
-
 export const TextFilterControlled = () => (
 	<div className="virtualized-list">
 		<h1>Text Filter</h1>
@@ -337,10 +325,6 @@ export const TextFilterControlled = () => (
 		</section>
 	</div>
 );
-
-TextFilterControlled.story = {
-	name: 'Text Filter: controlled',
-};
 
 export const SortByUncontrolled = () => (
 	<div className="virtualized-list">
@@ -387,10 +371,6 @@ export const SortByUncontrolled = () => (
 	</div>
 );
 
-SortByUncontrolled.story = {
-	name: 'Sort by: uncontrolled',
-};
-
 export const SortByUncontrolledInLargeMode = () => (
 	<div className="virtualized-list">
 		<h1>List with sorting feature</h1>
@@ -436,10 +416,6 @@ export const SortByUncontrolledInLargeMode = () => (
 	</div>
 );
 
-SortByUncontrolledInLargeMode.story = {
-	name: 'Sort by: uncontrolled in large mode',
-};
-
 export const SortByControlled = () => (
 	<div className="virtualized-list">
 		<h1>List with sorting feature</h1>
@@ -484,10 +460,6 @@ export const SortByControlled = () => (
 		</section>
 	</div>
 );
-
-SortByControlled.story = {
-	name: 'Sort by: controlled',
-};
 
 export const SortByAndResizableColumnUncontrolled = () => (
 	<div className="virtualized-list">
@@ -560,10 +532,6 @@ export const SortByAndResizableColumnUncontrolled = () => (
 	</div>
 );
 
-SortByAndResizableColumnUncontrolled.story = {
-	name: 'Sort by and resizable column: uncontrolled',
-};
-
 export const LotsOfActionsLayoutRenderUncontrolled = () => (
 	<div className="virtualized-list">
 		<h1>List with multiple right actions</h1>
@@ -619,10 +587,6 @@ export const LotsOfActionsLayoutRenderUncontrolled = () => (
 		</section>
 	</div>
 );
-
-LotsOfActionsLayoutRenderUncontrolled.story = {
-	name: 'lots of actions, layout render: uncontrolled',
-};
 
 export const LazyLoading = () => (
 	<div className="virtualized-list">
@@ -734,10 +698,6 @@ export const SelectableItems = () => {
 	);
 };
 
-SelectableItems.story = {
-	name: 'Selectable items',
-};
-
 export const SelectableItemsActionBar = () => {
 	const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 		simpleCollection,
@@ -790,10 +750,6 @@ export const SelectableItemsActionBar = () => {
 			</section>
 		</div>
 	);
-};
-
-SelectableItemsActionBar.story = {
-	name: 'Selectable items + ActionBar',
 };
 
 export const SelectableItemsTotalItems = () => {
@@ -862,8 +818,4 @@ export const SelectableItemsTotalItems = () => {
 			</section>
 		</div>
 	);
-};
-
-SelectableItemsTotalItems.story = {
-	name: 'Selectable items + total items',
 };

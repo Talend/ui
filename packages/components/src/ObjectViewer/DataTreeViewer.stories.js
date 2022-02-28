@@ -473,10 +473,6 @@ export const TreeDefault = () => (
 	</div>
 );
 
-TreeDefault.story = {
-	name: 'tree default',
-};
-
 export const ArrayTreeWithDatetime = () => (
 	<div>
 		<ObjectViewer
@@ -488,19 +484,11 @@ export const ArrayTreeWithDatetime = () => (
 	</div>
 );
 
-ArrayTreeWithDatetime.story = {
-	name: 'array tree with datetime',
-};
-
 export const PrimitiveArrayTree = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={primitiveArray} {...rootOpenedTypeHandler} />
 	</div>
 );
-
-PrimitiveArrayTree.story = {
-	name: 'primitive array tree',
-};
 
 export const TreeWithHightlighting = () => (
 	<div>
@@ -513,10 +501,6 @@ export const TreeWithHightlighting = () => (
 	</div>
 );
 
-TreeWithHightlighting.story = {
-	name: 'tree with hightlighting',
-};
-
 export const TreeWithHightlightingAndType = () => (
 	<div>
 		<ObjectViewer
@@ -528,10 +512,6 @@ export const TreeWithHightlightingAndType = () => (
 		/>
 	</div>
 );
-
-TreeWithHightlightingAndType.story = {
-	name: 'tree with hightlighting and type',
-};
 
 export const TreeWithLabels = () => (
 	<div>
@@ -546,19 +526,11 @@ export const TreeWithLabels = () => (
 	</div>
 );
 
-TreeWithLabels.story = {
-	name: 'tree with labels',
-};
-
 export const TreeWithoutRootLabel = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={data} tupleLabel="Record" />
 	</div>
 );
-
-TreeWithoutRootLabel.story = {
-	name: 'tree without rootLabel',
-};
 
 export const TreeWithVeryLargeRootLabel = () => (
 	<div>
@@ -572,19 +544,11 @@ export const TreeWithVeryLargeRootLabel = () => (
 	</div>
 );
 
-TreeWithVeryLargeRootLabel.story = {
-	name: 'tree with very large root label',
-};
-
 export const TreeWithInjectedElements = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={data} {...handlerTags} />
 	</div>
 );
-
-TreeWithInjectedElements.story = {
-	name: 'tree with injected elements',
-};
 
 export const TreeWithHandler = () => (
 	<div>
@@ -592,19 +556,11 @@ export const TreeWithHandler = () => (
 	</div>
 );
 
-TreeWithHandler.story = {
-	name: 'tree with handler',
-};
-
 export const ListDefault = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={data} displayMode="list" />
 	</div>
 );
-
-ListDefault.story = {
-	name: 'list default',
-};
 
 export const ListWithHandler = () => (
 	<div>
@@ -612,29 +568,17 @@ export const ListWithHandler = () => (
 	</div>
 );
 
-ListWithHandler.story = {
-	name: 'list with handler',
-};
-
 export const TableDefault = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={data} displayMode="table" title="Table data" />
 	</div>
 );
 
-TableDefault.story = {
-	name: 'table default',
-};
-
 export const TableWithHandler = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={data} {...handler} displayMode="table" title="Table data" />
 	</div>
 );
-
-TableWithHandler.story = {
-	name: 'table with handler',
-};
 
 export const TableWithLongText = () => {
 	const enhancedData = cloneDeep(data);
@@ -654,19 +598,11 @@ export const TableWithLongText = () => {
 	);
 };
 
-TableWithLongText.story = {
-	name: 'table with long text',
-};
-
 export const FlatDefault = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={data} displayMode="flat" title="Table data" />
 	</div>
 );
-
-FlatDefault.story = {
-	name: 'flat default',
-};
 
 export const FlatDefaultWithSchema = () => (
 	<div>
@@ -679,19 +615,11 @@ export const FlatDefaultWithSchema = () => (
 	</div>
 );
 
-FlatDefaultWithSchema.story = {
-	name: 'flat default with schema',
-};
-
 export const FlatWithHandler = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={data} {...handler} displayMode="flat" title="Table data" />
 	</div>
 );
-
-FlatWithHandler.story = {
-	name: 'flat with handler',
-};
 
 export const FlatWithComplexNestedData = () => (
 	<div>
@@ -705,16 +633,8 @@ export const FlatWithComplexNestedData = () => (
 	</div>
 );
 
-FlatWithComplexNestedData.story = {
-	name: 'flat with complex nested data',
-};
-
 export const TreeWithALongField = () => (
 	<div>
 		<ObjectViewer id="my-viewer" data={longFieldData} {...handlerHighlight} />
 	</div>
 );
-
-TreeWithALongField.story = {
-	name: 'tree with a long field',
-};

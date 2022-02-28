@@ -46,12 +46,4 @@ export default {
 
 export const Default = () => <AppGuidedTourContainer withDemoContent />;
 
-Default.story = {
-	name: 'default',
-};
-
 export const WithoutDemoContent = () => <AppGuidedTourContainer />;
-
-WithoutDemoContent.story = {
-	name: 'without demo content',
-};

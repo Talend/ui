@@ -15,15 +15,7 @@ export const Default = () => {
 	return <Breadcrumbs items={items} />;
 };
 
-Default.story = {
-	name: 'default',
-};
-
 export const Loading = () => <Breadcrumbs loading />;
-
-Loading.story = {
-	name: 'loading',
-};
 
 export const WithMaxItemsReached = () => {
 	const items = [
@@ -37,10 +29,6 @@ export const WithMaxItemsReached = () => {
 		{ text: 'Text D', title: 'Text title D', onClick: action('Text D clicked') },
 	];
 	return <Breadcrumbs items={items} />;
-};
-
-WithMaxItemsReached.story = {
-	name: 'with max items reached',
 };
 
 export const WithMoreThanDefaultMaxItemsValue = () => {
@@ -58,10 +46,6 @@ export const WithMoreThanDefaultMaxItemsValue = () => {
 	return <Breadcrumbs items={items} />;
 };
 
-WithMoreThanDefaultMaxItemsValue.story = {
-	name: 'with more than default max items value',
-};
-
 export const WithMoreThanASpecifiedMaxItemsValue = () => {
 	const items = [
 		{
@@ -76,8 +60,4 @@ export const WithMoreThanASpecifiedMaxItemsValue = () => {
 		{ text: 'Text F', title: 'Text title F', onClick: action('Text F clicked') },
 	];
 	return <Breadcrumbs items={items} maxItems={5} />;
-};
-
-WithMoreThanASpecifiedMaxItemsValue.story = {
-	name: 'with more than a specified max items value',
 };

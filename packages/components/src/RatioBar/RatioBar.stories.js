@@ -29,7 +29,3 @@ export const _RatioBar = () => (
 		</section>
 	</div>
 );
-
-_RatioBar.story = {
-	name: 'RatioBar',
-};

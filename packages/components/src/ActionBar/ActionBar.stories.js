@@ -288,10 +288,6 @@ export const Default = () => (
 	</nav>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const Custom = () => (
 	<nav>
 		<div id="default">
@@ -320,7 +316,3 @@ export const Custom = () => (
 		</div>
 	</nav>
 );
-
-Custom.story = {
-	name: 'custom',
-};

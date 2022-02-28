@@ -115,7 +115,3 @@ export const Default = () => (
 		<JSONSchemaRenderer schema={schema} />
 	</div>
 );
-
-Default.story = {
-	name: 'default',
-};

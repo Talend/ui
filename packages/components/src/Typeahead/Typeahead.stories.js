@@ -114,10 +114,6 @@ export const DefaultWithDebounceInput = () => {
 	return <Typeahead {...props} />;
 };
 
-DefaultWithDebounceInput.story = {
-	name: 'default with debounce input',
-};
-
 export const Searching = () => {
 	const props = {
 		value: 'Lorem ipsum',
@@ -128,10 +124,6 @@ export const Searching = () => {
 		role: 'searchbox',
 	};
 	return <Typeahead {...props} />;
-};
-
-Searching.story = {
-	name: 'searching',
 };
 
 export const WithResults = () => {
@@ -149,10 +141,6 @@ export const WithResults = () => {
 		},
 	};
 	return <Typeahead {...props} />;
-};
-
-WithResults.story = {
-	name: 'with results',
 };
 
 export const WithUnmanagedNavigation = () => {
@@ -174,10 +162,6 @@ export const WithUnmanagedNavigation = () => {
 	return <Typeahead {...props} />;
 };
 
-WithUnmanagedNavigation.story = {
-	name: 'with unmanaged navigation',
-};
-
 export const WithResultsButLoading = () => {
 	const props = {
 		value: 'le',
@@ -190,10 +174,6 @@ export const WithResultsButLoading = () => {
 		isLoading: true,
 	};
 	return <Typeahead {...props} />;
-};
-
-WithResultsButLoading.story = {
-	name: 'with results but loading',
 };
 
 export const WithResultsAndIcon = () => {
@@ -213,10 +193,6 @@ export const WithResultsAndIcon = () => {
 	return <Typeahead {...props} />;
 };
 
-WithResultsAndIcon.story = {
-	name: 'with results and icon',
-};
-
 export const WithDebounceInputAndResults = () => {
 	const props = {
 		value: 'le',
@@ -231,10 +207,6 @@ export const WithDebounceInputAndResults = () => {
 	return <Typeahead {...props} />;
 };
 
-WithDebounceInputAndResults.story = {
-	name: 'with debounce input and results',
-};
-
 export const WithoutResults = () => {
 	const props = {
 		value: 'Text without results',
@@ -244,10 +216,6 @@ export const WithoutResults = () => {
 		role: 'searchbox',
 	};
 	return <Typeahead {...props} />;
-};
-
-WithoutResults.story = {
-	name: 'without results',
 };
 
 export const OnTheRight = () => {
@@ -263,10 +231,6 @@ export const OnTheRight = () => {
 	return <Typeahead {...props} />;
 };
 
-OnTheRight.story = {
-	name: 'on the right',
-};
-
 export const WithToggleButton = () => {
 	const props = {
 		icon: {
@@ -279,10 +243,6 @@ export const WithToggleButton = () => {
 		docked: true,
 	};
 	return <Typeahead {...props} />;
-};
-
-WithToggleButton.story = {
-	name: 'with toggle button',
 };
 
 export const WithFocusedItem = () => {
@@ -300,10 +260,6 @@ export const WithFocusedItem = () => {
 	return <Typeahead {...props} />;
 };
 
-WithFocusedItem.story = {
-	name: 'with focused item',
-};
-
 export const WithoutSectionHeader = () => {
 	const props = {
 		value: 'le',
@@ -314,8 +270,4 @@ export const WithoutSectionHeader = () => {
 		role: 'searchbox',
 	};
 	return <Typeahead {...props} />;
-};
-
-WithoutSectionHeader.story = {
-	name: 'without section header',
 };

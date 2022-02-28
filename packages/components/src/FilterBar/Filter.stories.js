@@ -53,10 +53,6 @@ export const DefaultDockAndDockable = () => (
 	</div>
 );
 
-DefaultDockAndDockable.story = {
-	name: 'default-dock and dockable',
-};
-
 export const NoDockedNoDockableAndIconVisible = () => (
 	<div style={divStyle}>
 		<p>When icon always visible and not docked, no dockable in an ActionBar</p>
@@ -66,20 +62,12 @@ export const NoDockedNoDockableAndIconVisible = () => (
 	</div>
 );
 
-NoDockedNoDockableAndIconVisible.story = {
-	name: 'no docked, no dockable and icon visible',
-};
-
 export const CustomUndockNoDockable = () => (
 	<div>
 		<p>When not docked and no dockable take full width</p>
 		<FilterBar {...propsNoDockToggle} />
 	</div>
 );
-
-CustomUndockNoDockable.story = {
-	name: 'custom-undock no dockable',
-};
 
 export const DisabledInput = () => (
 	<div style={divStyle}>
@@ -89,7 +77,3 @@ export const DisabledInput = () => (
 		</ActionBar>
 	</div>
 );
-
-DisabledInput.story = {
-	name: 'disabled input',
-};

@@ -74,11 +74,7 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
-export const StyleVariatons = () => {
+export const StyleVariations = () => {
 	const btnStyles = {
 		margin: '0 5px',
 	};
@@ -104,8 +100,4 @@ export const StyleVariatons = () => {
 			</span>
 		</div>
 	);
-};
-
-StyleVariatons.story = {
-	name: 'style variatons',
 };

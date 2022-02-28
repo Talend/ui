@@ -21,7 +21,3 @@ export const WithValue = () => (
 		<Emphasis value="lazy" text="The lazy quick brown fox jumps over the lazy dog" />
 	</div>
 );
-
-WithValue.story = {
-	name: 'with value',
-};

@@ -69,10 +69,6 @@ export default {
 
 export const DisableTheButtons = () => <DisableActionButton />;
 
-DisableTheButtons.story = {
-	name: 'Disable the buttons',
-};
-
 export const Default = () => (
 	<div>
 		<h3>By default :</h3>
@@ -161,10 +157,6 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const Combinations = withPropsCombinations(ActionButton, {
 	label: ['Click me'],
 	bsStyle: [
@@ -186,7 +178,3 @@ export const Combinations = withPropsCombinations(ActionButton, {
 	tooltip: [true],
 	tooltipLabel: ['Tooltip custom label'],
 });
-
-Combinations.story = {
-	name: 'combinations',
-};

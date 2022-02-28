@@ -113,6 +113,11 @@ export default {
 		},
 
 		// HomeListView / List story -----------------------------------------------------------
+		'list:view': {
+			label: 'Open',
+			bsStyle: 'primary',
+			actionCreator: 'object:view',
+		},
 		'list:add': {
 			label: 'Add',
 			icon: 'talend-plus-circle',

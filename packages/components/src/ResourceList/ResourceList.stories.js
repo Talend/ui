@@ -280,23 +280,11 @@ export default {
 
 export const Default = () => <ResourceList {...commonProps} collection={collection} />;
 
-Default.story = {
-	name: 'default',
-};
-
 export const Simple = () => <ResourceList {...commonProps} collection={simpleCollection} />;
-
-Simple.story = {
-	name: 'simple',
-};
 
 export const Preparations = () => (
 	<ResourceList {...commonProps} collection={preparations} renderAs={Preparation} />
 );
-
-Preparations.story = {
-	name: 'preparations',
-};
 
 export const WithRowProps = () => (
 	<ResourceList
@@ -307,14 +295,6 @@ export const WithRowProps = () => (
 	/>
 );
 
-WithRowProps.story = {
-	name: 'with rowProps',
-};
-
 export const FilteredPipelines = () => (
 	<FilteredResourceList collection={pipelines} renderAs={Pipeline} />
 );
-
-FilteredPipelines.story = {
-	name: 'filtered pipelines',
-};

@@ -45,7 +45,3 @@ export const _QualityBar = () => (
 		</section>
 	</div>
 );
-
-_QualityBar.story = {
-	name: 'Quality bar',
-};

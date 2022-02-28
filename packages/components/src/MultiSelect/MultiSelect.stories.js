@@ -56,7 +56,3 @@ export default {
 };
 
 export const Default = () => <Photos />;
-
-Default.story = {
-	name: 'default',
-};

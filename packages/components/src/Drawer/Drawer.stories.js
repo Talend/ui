@@ -263,20 +263,12 @@ export const Layout1Column = () => (
 	</Layout>
 );
 
-Layout1Column.story = {
-	name: 'Layout 1 column',
-};
-
 export const Layout2Columns = () => (
 	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 		<span>zone with drawer</span>
 		{twentyRows}
 	</Layout>
 );
-
-Layout2Columns.story = {
-	name: 'Layout 2 columns',
-};
 
 export const WithEditableHeader = () => (
 	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
@@ -285,10 +277,6 @@ export const WithEditableHeader = () => (
 	</Layout>
 );
 
-WithEditableHeader.story = {
-	name: 'with editable header',
-};
-
 export const WithLongEditableHeader = () => (
 	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={longEditableDrawers}>
 		<span>zone with drawer</span>
@@ -296,20 +284,12 @@ export const WithLongEditableHeader = () => (
 	</Layout>
 );
 
-WithLongEditableHeader.story = {
-	name: 'with long editable header',
-};
-
 export const DefaultWithNoTransition = () => (
 	<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
 		<span>zone with drawer</span>
 		{twentyRows}
 	</Layout>
 );
-
-DefaultWithNoTransition.story = {
-	name: 'Default with no transition',
-};
 
 export const StackedDrawers = () => {
 	const stackedDrawers = [
@@ -340,10 +320,6 @@ export const StackedDrawers = () => {
 	);
 };
 
-StackedDrawers.story = {
-	name: 'stacked drawers',
-};
-
 export const WithTabs = () => {
 	const drawersWithTabs = [
 		<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
@@ -358,10 +334,6 @@ export const WithTabs = () => {
 			<span>zone with drawer</span>
 		</Layout>
 	);
-};
-
-WithTabs.story = {
-	name: 'With tabs',
 };
 
 export const WithTabsWithSpecificFooters = () => {
@@ -391,10 +363,6 @@ export const WithTabsWithSpecificFooters = () => {
 			<span>zone with drawer</span>
 		</Layout>
 	);
-};
-
-WithTabsWithSpecificFooters.story = {
-	name: 'With tabs with specific footers',
 };
 
 export const Custom = () => {
@@ -480,10 +448,6 @@ export const CustomStacked = () => {
 			<span>zone with drawer</span>
 		</Layout>
 	);
-};
-
-CustomStacked.story = {
-	name: 'Custom stacked',
 };
 
 export const Interactive = () => {

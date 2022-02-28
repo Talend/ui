@@ -54,11 +54,7 @@ export const DefaultTime = () => (
 	/>
 );
 
-DefaultTime.story = {
-	name: 'Default time ',
-};
-
-export const Utc = () => (
+export const UTC = () => (
 	<InputDateTimePicker
 		id="my-datetime-picker"
 		name="Datetime"
@@ -66,10 +62,6 @@ export const Utc = () => (
 		useUTC
 	/>
 );
-
-Utc.story = {
-	name: 'UTC',
-};
 
 export const Timezone = () => (
 	<InputDateTimePicker

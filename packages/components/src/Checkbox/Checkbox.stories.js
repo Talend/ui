@@ -66,7 +66,3 @@ export const Default = () => (
 		</form>
 	</div>
 );
-
-Default.story = {
-	name: 'default',
-};

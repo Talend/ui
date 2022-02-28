@@ -69,16 +69,8 @@ export default {
 export const Forbidden = () => <HttpError style={forbiddenStyle} {...forbiddenProps} />;
 export const NotFound = () => <HttpError style={notFoundStyle} {...notFoundProps} />;
 
-NotFound.story = {
-	name: 'NotFound',
-};
-
 export const NotFoundWithRedirectAction = () => (
 	<HttpError style={notFoundStyle} {...notFoundWithRedirectProps} />
 );
-
-NotFoundWithRedirectAction.story = {
-	name: 'NotFound with redirect action',
-};
 
 export const Maintenance = () => <HttpError style={maintenanceStyle} {...maintenanceProps} />;

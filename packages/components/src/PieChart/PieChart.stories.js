@@ -94,10 +94,6 @@ export const PieChartIconDefault = () => (
 	</div>
 );
 
-PieChartIconDefault.story = {
-	name: 'PieChartIcon default',
-};
-
 export const PieChartsWithEdgeValues = () => {
 	const pieChartDataEdge1 = [
 		{
@@ -120,10 +116,6 @@ export const PieChartsWithEdgeValues = () => {
 	);
 };
 
-PieChartsWithEdgeValues.story = {
-	name: 'PieCharts with edge values',
-};
-
 export const PieChartLotOfSizes = () => (
 	<div>
 		{sizes.map(size => (
@@ -134,10 +126,6 @@ export const PieChartLotOfSizes = () => (
 		))}
 	</div>
 );
-
-PieChartLotOfSizes.story = {
-	name: 'PieChart lot of sizes',
-};
 
 export const PieChartLotOfLoading = () => (
 	<div>
@@ -151,10 +139,6 @@ export const PieChartLotOfLoading = () => (
 		</div>
 	</div>
 );
-
-PieChartLotOfLoading.story = {
-	name: 'PieChart\t lot of loading',
-};
 
 export const PieChartButtonDefault = () => (
 	<div>
@@ -193,10 +177,6 @@ export const PieChartButtonDefault = () => (
 	</div>
 );
 
-PieChartButtonDefault.story = {
-	name: 'PieChartButton default',
-};
-
 export const LoadingState = () => {
 	class WithLayout extends React.Component {
 		constructor() {
@@ -233,8 +213,4 @@ export const LoadingState = () => {
 		}
 	}
 	return <WithLayout />;
-};
-
-LoadingState.story = {
-	name: 'Loading state',
 };

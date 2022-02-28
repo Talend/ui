@@ -203,40 +203,16 @@ export default {
 
 export const Default = () => <GridContainer />;
 
-Default.story = {
-	name: 'default',
-};
-
 export const NotDraggable = () => <GridContainer isDraggable={false} />;
 
-NotDraggable.story = {
-	name: 'not draggable',
-};
-
 export const NotResizable = () => <GridContainer isResizable={false} />;
-
-NotResizable.story = {
-	name: 'not resizable',
-};
 
 export const NeitherDraggableNorResizable = () => (
 	<GridContainer isDraggable={false} isResizable={false} />
 );
 
-NeitherDraggableNorResizable.story = {
-	name: 'neither draggable nor resizable',
-};
-
 export const IsLoading = () => <GridContainer isLoading />;
-
-IsLoading.story = {
-	name: 'isLoading',
-};
 
 export const IsLoadingWithCustomGrid = () => (
 	<GridContainer isLoading skeletonConfiguration={customSkeletonConf} />
 );
-
-IsLoadingWithCustomGrid.story = {
-	name: 'isLoading with custom grid',
-};

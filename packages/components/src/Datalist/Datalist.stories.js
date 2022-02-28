@@ -82,10 +82,6 @@ export const DefaultMultiSection = () => {
 	);
 };
 
-DefaultMultiSection.story = {
-	name: 'default multiSection',
-};
-
 export const DefaultSingleSection = () => {
 	const restrictedValues = { ...singleSectionProps, restricted: true };
 	const defaultValue = { ...singleSectionProps, value: 'lol' };
@@ -146,11 +142,7 @@ export const DefaultSingleSection = () => {
 	);
 };
 
-DefaultSingleSection.story = {
-	name: 'default single section',
-};
-
-export const DisabledReadonly = () => {
+export const DisabledAndReadonly = () => {
 	const disabledSectionProps = {
 		...defaultProps,
 		disabled: true,
@@ -176,8 +168,4 @@ export const DisabledReadonly = () => {
 			<Datalist {...combinationSectionProps} />
 		</form>
 	);
-};
-
-DisabledReadonly.story = {
-	name: 'disabled / readonly',
 };

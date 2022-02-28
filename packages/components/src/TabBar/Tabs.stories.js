@@ -170,10 +170,6 @@ export const Default = () => (
 	</nav>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const CustomIdGenerator = () => (
 	<nav>
 		<h3>TabBar with custom ids</h3>
@@ -210,10 +206,6 @@ function generateChildId(key, kind) {
 	</nav>
 );
 
-CustomIdGenerator.story = {
-	name: 'custom id generator',
-};
-
 export const WithExistingContent = () => (
 	<nav>
 		<h3>TabBar with custom content</h3>
@@ -236,10 +228,6 @@ export const WithExistingContent = () => (
 	</nav>
 );
 
-WithExistingContent.story = {
-	name: 'With existing content',
-};
-
 export const FullyInteractive = () => (
 	<nav>
 		<h3>Interactive TabBar demo</h3>
@@ -251,7 +239,3 @@ export const FullyInteractive = () => (
 		</div>
 	</nav>
 );
-
-FullyInteractive.story = {
-	name: 'Fully interactive',
-};

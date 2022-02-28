@@ -477,10 +477,6 @@ export const ListTable = () => (
 	</div>
 );
 
-ListTable.story = {
-	name: 'List > Table',
-};
-
 export const ListTableWithRadioButtonTitle = () => (
 	<div className="virtualized-list">
 		<h1>Virtualized List with radio button title</h1>
@@ -506,10 +502,6 @@ export const ListTableWithRadioButtonTitle = () => (
 	</div>
 );
 
-ListTableWithRadioButtonTitle.story = {
-	name: 'List > Table with radio button title',
-};
-
 export const ListTableWithLabelAuthor = () => (
 	<div className="virtualized-list">
 		<h1>Virtualized List with radio button title</h1>
@@ -527,10 +519,6 @@ export const ListTableWithLabelAuthor = () => (
 		</section>
 	</div>
 );
-
-ListTableWithLabelAuthor.story = {
-	name: 'List > Table with label author',
-};
 
 export const ListTableSort = () => (
 	<div className="virtualized-list">
@@ -571,10 +559,6 @@ export const ListTableSort = () => (
 	</div>
 );
 
-ListTableSort.story = {
-	name: 'List > Table : sort',
-};
-
 export const ListTableSelection = () => (
 	<div className="virtualized-list">
 		<h1>Virtualized List</h1>
@@ -612,10 +596,6 @@ export const ListTableSelection = () => (
 	</div>
 );
 
-ListTableSelection.story = {
-	name: 'List > Table : selection',
-};
-
 export const ListTableActivation = () => (
 	<div className="virtualized-list">
 		<h1>Virtualized List</h1>
@@ -650,10 +630,6 @@ export const ListTableActivation = () => (
 		</section>
 	</div>
 );
-
-ListTableActivation.story = {
-	name: 'List > Table : activation',
-};
 
 export const ListTableDesactivation = () => (
 	<div className="virtualized-list">
@@ -691,10 +667,6 @@ export const ListTableDesactivation = () => (
 		</section>
 	</div>
 );
-
-ListTableDesactivation.story = {
-	name: 'List > Table : desactivation',
-};
 
 export const ListTableResizable = () => (
 	<div className="virtualized-list">
@@ -753,10 +725,6 @@ export const ListTableResizable = () => (
 	</div>
 );
 
-ListTableResizable.story = {
-	name: 'List > Table : resizable',
-};
-
 export const ListLarge = () => (
 	<div>
 		<h1>Virtualized List</h1>
@@ -794,10 +762,6 @@ export const ListLarge = () => (
 		</section>
 	</div>
 );
-
-ListLarge.story = {
-	name: 'List > Large',
-};
 
 export const ListLargeSelection = () => (
 	<div>
@@ -837,10 +801,6 @@ export const ListLargeSelection = () => (
 	</div>
 );
 
-ListLargeSelection.story = {
-	name: 'List > Large : selection',
-};
-
 export const ListLargeActivation = () => (
 	<div>
 		<h1>Virtualized List</h1>
@@ -878,15 +838,7 @@ export const ListLargeActivation = () => (
 	</div>
 );
 
-ListLargeActivation.story = {
-	name: 'List > Large : activation',
-};
-
 export const ListCollapsiblePanels = () => <CollapsiblePanels sourceItems={sourceItems} />;
-
-ListCollapsiblePanels.story = {
-	name: 'List > CollapsiblePanels',
-};
 
 export const ListTableWithoutHeader = () => (
 	<div className="virtualized-list">
@@ -926,10 +878,6 @@ export const ListTableWithoutHeader = () => (
 	</div>
 );
 
-ListTableWithoutHeader.story = {
-	name: 'List > Table without header',
-};
-
 export const ListWithTooltipsInListItemIcons = () => (
 	<div>
 		<h1>Virtualized List</h1>
@@ -967,10 +915,6 @@ export const ListWithTooltipsInListItemIcons = () => (
 	</div>
 );
 
-ListWithTooltipsInListItemIcons.story = {
-	name: 'List > with tooltips in list item icons',
-};
-
 export const ListCustomNoRowsRenderer = () => (
 	<div className="virtualized-list">
 		<h1>Virtualized List</h1>
@@ -994,10 +938,6 @@ export const ListCustomNoRowsRenderer = () => (
 		</section>
 	</div>
 );
-
-ListCustomNoRowsRenderer.story = {
-	name: 'List > custom noRowsRenderer',
-};
 
 export const ListCustomRowRenderers = () => (
 	<div className="virtualized-list">
@@ -1028,7 +968,3 @@ export const ListCustomRowRenderers = () => (
 		</section>
 	</div>
 );
-
-ListCustomRowRenderers.story = {
-	name: 'List > custom rowRenderers',
-};

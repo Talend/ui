@@ -113,9 +113,9 @@ const list = {
 };
 
 const actions = {
-	title: 'home-list-view:object:view',
-	left: ['home-list-view:object:add', 'home-list-view:object:upload'],
-	items: ['home-list-view:object:delete'],
+	title: 'list:view',
+	left: ['list:add', 'list:upload'],
+	items: ['list:delete'],
 };
 
 const toolbar = {

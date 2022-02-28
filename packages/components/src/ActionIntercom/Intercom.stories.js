@@ -12,7 +12,3 @@ export const Default = () => (
 		<ActionIntercom id="intercom" config={config} />
 	</React.Fragment>
 );
-
-Default.story = {
-	name: 'default',
-};

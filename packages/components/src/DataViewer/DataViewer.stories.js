@@ -71,10 +71,6 @@ export const DataTreeWithHighlight = () => {
 	);
 };
 
-DataTreeWithHighlight.story = {
-	name: 'DataTree with highlight',
-};
-
 export const DataTreeWithoutSemanticAwareness = () => {
 	const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
 	const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
@@ -115,10 +111,6 @@ export const DataTreeWithoutSemanticAwareness = () => {
 	);
 };
 
-DataTreeWithoutSemanticAwareness.story = {
-	name: 'DataTree without semantic awareness',
-};
-
 export const DataTreeWithTypeDisplayOnRecords = () => {
 	return (
 		<div style={{ height: '100%' }}>
@@ -130,8 +122,4 @@ export const DataTreeWithTypeDisplayOnRecords = () => {
 			/>
 		</div>
 	);
-};
-
-DataTreeWithTypeDisplayOnRecords.story = {
-	name: 'DataTree with type display on records',
 };

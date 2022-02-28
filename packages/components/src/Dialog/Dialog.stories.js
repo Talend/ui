@@ -108,20 +108,12 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const WithHeader = () => (
 	<div>
 		<h1>Dialog</h1>
 		<Dialog {...headerProps}>{children}</Dialog>
 	</div>
 );
-
-WithHeader.story = {
-	name: 'with header',
-};
 
 export const HeaderAction = () => (
 	<div>
@@ -130,20 +122,12 @@ export const HeaderAction = () => (
 	</div>
 );
 
-HeaderAction.story = {
-	name: 'header + action',
-};
-
 export const WithSubtitle = () => (
 	<div>
 		<h1>Dialog</h1>
 		<Dialog {...subtitle}>{children}</Dialog>
 	</div>
 );
-
-WithSubtitle.story = {
-	name: 'with subtitle',
-};
 
 export const WithLongTitleAndSubtitle = () => (
 	<div>
@@ -152,20 +136,12 @@ export const WithLongTitleAndSubtitle = () => (
 	</div>
 );
 
-WithLongTitleAndSubtitle.story = {
-	name: 'with long title and subtitle',
-};
-
 export const WithError = () => (
 	<div>
 		<h1>Dialog</h1>
 		<Dialog {...errored}>{children}</Dialog>
 	</div>
 );
-
-WithError.story = {
-	name: 'with error',
-};
 
 export const Informative = () => (
 	<div>
@@ -174,20 +150,12 @@ export const Informative = () => (
 	</div>
 );
 
-Informative.story = {
-	name: 'informative',
-};
-
 export const Small = () => (
 	<div>
 		<h1>Dialog</h1>
 		<Dialog {...smallProps}>{children}</Dialog>
 	</div>
 );
-
-Small.story = {
-	name: 'small',
-};
 
 export const Large = () => (
 	<div>
@@ -196,17 +164,9 @@ export const Large = () => (
 	</div>
 );
 
-Large.story = {
-	name: 'large',
-};
-
 export const PassingBootstrapModalOptions = () => (
 	<div>
 		<h1>Dialog</h1>
 		<Dialog {...bsProps}>{children}</Dialog>
 	</div>
 );
-
-PassingBootstrapModalOptions.story = {
-	name: 'passing bootstrap modal options',
-};

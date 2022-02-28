@@ -261,10 +261,6 @@ export const ThemeDescriptivePanel = () => (
 	</div>
 );
 
-ThemeDescriptivePanel.story = {
-	name: 'Theme: descriptive-panel',
-};
-
 export const Selection = () => (
 	<div className="col-lg-offset-1 col-lg-10">
 		<h1>Selection</h1>

@@ -76,19 +76,11 @@ export const WithDefault = () => (
 	</div>
 );
 
-WithDefault.story = {
-	name: 'with default',
-};
-
 export const WithEditable = () => (
 	<div>
 		<SubHeaderBar {...viewProps} onGoBack={backAction} editable />
 	</div>
 );
-
-WithEditable.story = {
-	name: 'with editable',
-};
 
 export const WithIcon = () => (
 	<div>
@@ -96,29 +88,17 @@ export const WithIcon = () => (
 	</div>
 );
 
-WithIcon.story = {
-	name: 'with icon',
-};
-
 export const WithSubtitle = () => (
 	<div>
 		<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
 	</div>
 );
 
-WithSubtitle.story = {
-	name: 'with subtitle',
-};
-
 export const WithLoadingSubtitle = () => (
 	<div>
 		<SubHeaderBar {...viewProps} subTitleLoading onGoBack={backAction} />
 	</div>
 );
-
-WithLoadingSubtitle.story = {
-	name: 'with loading subtitle',
-};
 
 export const WithCustomSubtitle = () => (
 	<div>
@@ -131,19 +111,11 @@ export const WithCustomSubtitle = () => (
 	</div>
 );
 
-WithCustomSubtitle.story = {
-	name: 'with custom subtitle',
-};
-
 export const WithRightComponents = () => (
 	<div>
 		<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight} />
 	</div>
 );
-
-WithRightComponents.story = {
-	name: 'with right components',
-};
 
 export const WithCenterComponents = () => (
 	<div>
@@ -152,10 +124,6 @@ export const WithCenterComponents = () => (
 		</SubHeaderBar>
 	</div>
 );
-
-WithCenterComponents.story = {
-	name: 'with center components',
-};
 
 export const WithCenterComponentsWithTagProps = () => (
 	<div>
@@ -167,10 +135,6 @@ export const WithCenterComponentsWithTagProps = () => (
 	</div>
 );
 
-WithCenterComponentsWithTagProps.story = {
-	name: 'with center components with tag props',
-};
-
 export const WithCenterRightComponents = () => (
 	<div>
 		<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight}>
@@ -178,10 +142,6 @@ export const WithCenterRightComponents = () => (
 		</SubHeaderBar>
 	</div>
 );
-
-WithCenterRightComponents.story = {
-	name: 'with center && right components',
-};
 
 export const WithAll = () => (
 	<div>
@@ -197,10 +157,6 @@ export const WithAll = () => (
 	</div>
 );
 
-WithAll.story = {
-	name: 'with all',
-};
-
 export const WithSkeleton = () => (
 	<div>
 		<SubHeaderBar
@@ -214,10 +170,6 @@ export const WithSkeleton = () => (
 		</SubHeaderBar>
 	</div>
 );
-
-WithSkeleton.story = {
-	name: 'with skeleton',
-};
 
 export const WithInProgress = () => (
 	<div>
@@ -234,16 +186,8 @@ export const WithInProgress = () => (
 	</div>
 );
 
-WithInProgress.story = {
-	name: 'with inProgress',
-};
-
 export const WithRightActionsLoading = () => (
 	<div>
 		<SubHeaderBar {...viewProps} onGoBack={backAction} rightActionsLoading />
 	</div>
 );
-
-WithRightActionsLoading.story = {
-	name: 'with right actions loading',
-};

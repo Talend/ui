@@ -80,10 +80,6 @@ export const Picker = () => {
 
 export const InitialTime = () => <InputTimePicker onChange={action('onChange')} value="12:00" />;
 
-InitialTime.story = {
-	name: 'Initial time',
-};
-
 export const Timezone = () => (
 	<InputTimePicker onChange={action('onChange')} value="12:00" timezone="Europe/Berlin" />
 );

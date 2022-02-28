@@ -90,10 +90,6 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const LabelToggle = () => (
 	<div>
 		<h1>Label Toggle</h1>
@@ -125,7 +121,3 @@ export const LabelToggle = () => (
 		</form>
 	</div>
 );
-
-LabelToggle.story = {
-	name: 'Label toggle',
-};

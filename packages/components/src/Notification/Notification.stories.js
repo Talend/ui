@@ -106,7 +106,3 @@ export const Default = () => (
 		<NotificationWrapper />
 	</nav>
 );
-
-Default.story = {
-	name: 'default',
-};

@@ -77,10 +77,6 @@ export const Default = () => (
 	</div>
 );
 
-Default.story = {
-	name: 'default',
-};
-
 export const WithBackground = () => (
 	<div>
 		<h1>InlineMessage</h1>
@@ -142,7 +138,3 @@ export const WithBackground = () => (
 		<br />
 	</div>
 );
-
-WithBackground.story = {
-	name: 'withBackground',
-};
