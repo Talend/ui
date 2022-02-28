@@ -31,7 +31,7 @@ npm > 7 requires all peer dependencies to be at the same level, the same version
 
 ## Solutions
 
-Define a clear guideline and usage of when and how to write the requirements in package.json of libraries.
+Define a clear guideline for dependency requirements in the package.json files of libraries.
 
 ### Guideline
 
