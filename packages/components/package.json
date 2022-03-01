@@ -70,6 +70,7 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.19",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.39.0",
     "@talend/locales-design-system": "^1.12.2",

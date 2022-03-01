@@ -1,3 +1,3 @@
 module.exports = {
-	staticDirs: ['./public'],
+	staticDirs: ['./public'], // for msw, it contains the service worker
 };
