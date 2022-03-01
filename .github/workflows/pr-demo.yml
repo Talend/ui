@@ -32,6 +32,7 @@ jobs:
       - name: Install and build
         run: |
           yarn install --frozen-lockfile
+          yarn pre-release
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
           yarn test:demo
