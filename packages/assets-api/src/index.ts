@@ -53,6 +53,8 @@ function getURL(path: string, name?: string, version?: string) {
 	return window.Talend.getCDNUrl({ name, version, path });
 }
 
+const TIMEOUT = 10000;
+
 function addScript({ src, integrity, ...attr }: Script) {
 	const found = Array.from(document.querySelectorAll('script').values()).find(
 		s => s.getAttribute('src') === src,
@@ -74,9 +76,11 @@ function addScript({ src, integrity, ...attr }: Script) {
 
 function getUMD(name: string, version?: string, varName?: string, path?: string) {
 	const src = getURL(path || '/undefined', name, version);
+	const cache = { resolved: false };
 	return new Promise((resolve, reject) => {
 		function onload() {
 			if (!varName) {
+				cache.resolved = true;
 				resolve(undefined);
 			}
 		}
@@ -88,10 +92,17 @@ function getUMD(name: string, version?: string, varName?: string, path?: string)
 			const intervalId = setInterval(() => {
 				const mod = (window as any)[varName];
 				if (mod) {
+					cache.resolved = true;
 					clearInterval(intervalId);
 					resolve(mod);
 				}
 			}, 200);
+			setTimeout(() => {
+				if (!cache.resolved) {
+					clearInterval(intervalId);
+					reject(new Error(`UMD from ${src} not loaded in ${TIMEOUT}`));
+				}
+			}, TIMEOUT);
 		}
 	});
 }
