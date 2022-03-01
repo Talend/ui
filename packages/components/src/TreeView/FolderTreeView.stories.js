@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import TreeView from './TreeView.component';
@@ -260,7 +259,12 @@ const withDisabledItems = {
 const withClassNames = {
 	...withAddAction,
 	structure: [
-		{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], isOpened: false, className: 'test-class' },
+		{
+			name: 'hitmonlee',
+			children: [{ name: 'Hitmonchan' }],
+			isOpened: false,
+			className: 'test-class',
+		},
 		{ name: 'pikachu', children: [{ name: 'raichu' }], isOpened: true, className: 'test-class' },
 		{
 			id: 'selected',
@@ -278,7 +282,7 @@ const withClassNames = {
 				},
 			],
 		},
-	]
+	],
 };
 
 withDisabledItems.structure = structureWithDisabledActions;
@@ -385,154 +389,167 @@ cornerCaseLongName.structure = [
 
 const style = { width: '300px', border: '1px solid #eee', marginLeft: '10px' };
 
-storiesOf('Data/Tree/FolderTreeView', module)
-	.add('default', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Default property-set with action example: </h3>
-			<div style={style}>
-				<TreeView {...withAddAction} />
-			</div>
-		</div>
-	))
-	.add('with custom icons', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>The icons can be customized, passign the Icon components props</p>
-			<div style={style}>
-				<TreeView {...withAddAction} structure={structureWithIcons} />
-			</div>
-		</div>
-	))
-	.add('with custom header text', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Custom header and action tooltip property-set example: </h3>
-			<div style={style}>
-				<TreeView {...withHeader} />
-			</div>
-		</div>
-	))
-	.add('without action', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Default property-set without action example: </h3>
-			<div style={style}>
-				<TreeView {...defaultProps} />
-			</div>
-		</div>
-	))
-	.add('without header', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Default property-set without header example: </h3>
-			<div style={style}>
-				<TreeView {...defaultProps} noHeader />
-			</div>
-		</div>
-	))
-	.add('with remove action and counter', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Default property-set with remove action example: </h3>
-			<div style={style}>
-				<TreeView {...withRemoval} />
-			</div>
-		</div>
-	))
-	.add('with many actions', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Default property-set with remove action example: </h3>
-			<div style={style}>
-				<TreeView {...withActions} />
-			</div>
-		</div>
-	))
-	.add('with disabled items', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>
-				When an element cannot be selected the whole line is 0.54 opacity, with a not-allowed
-				cursor.
-			</p>
-			<h3>An example with disabled items: </h3>
-			<div style={style}>
-				<TreeView {...withDisabledItems} />
-			</div>
-		</div>
-	))
-	.add('with deep structure', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Default property-set with deep structure: </h3>
-			<div style={style}>
-				<TreeView {...withDeepStructure} />
-			</div>
-		</div>
-	))
-	.add('with long name', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Default property-set with cornercase: longname </h3>
-			<div style={style}>
-				<TreeView {...cornerCaseLongName} />
-			</div>
-		</div>
-	))
-	.add('without icons', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>Default property-set without icons: </h3>
-			<div style={style}>
-				<TreeView {...withAddAction} structure={structureWithoutIcons} />
-			</div>
-		</div>
-	))
-	.add('Items classNames', () => (
-		<div>
-			<h1>TreeView</h1>
-			<h3>Definition</h3>
-			<p>A view component to display any tree structure, like folders or categories.</p>
-			<h3>You can pass custom class names to a tree view items </h3>
-			<style>
-				{`
-					.test-class {
-						background: rgba(0,0,0,0.1);
-						animation: mymove 2s infinite;
-					}
-					.test-class .tc-treeview-item {
-						cursor: copy;
-					}
+export default {
+	title: 'Data/Tree/FolderTreeView',
+};
 
-					@keyframes mymove {
-						0% {opacity: 1;}
-						50% {opacity: 0.4;}
-						100% {opacity: 1;}
-					}`}
-			</style>
-			<div style={style}>
-				<TreeView {...withClassNames} />
-			</div>
+export const Default = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Default property-set with action example: </h3>
+		<div style={style}>
+			<TreeView {...withAddAction} />
 		</div>
-	));
+	</div>
+);
+
+export const WithCustomIcons = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>The icons can be customized, passign the Icon components props</p>
+		<div style={style}>
+			<TreeView {...withAddAction} structure={structureWithIcons} />
+		</div>
+	</div>
+);
+
+export const WithCustomHeaderText = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Custom header and action tooltip property-set example: </h3>
+		<div style={style}>
+			<TreeView {...withHeader} />
+		</div>
+	</div>
+);
+
+export const WithoutAction = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Default property-set without action example: </h3>
+		<div style={style}>
+			<TreeView {...defaultProps} />
+		</div>
+	</div>
+);
+
+export const WithoutHeader = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Default property-set without header example: </h3>
+		<div style={style}>
+			<TreeView {...defaultProps} noHeader />
+		</div>
+	</div>
+);
+
+export const WithRemoveActionAndCounter = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Default property-set with remove action example: </h3>
+		<div style={style}>
+			<TreeView {...withRemoval} />
+		</div>
+	</div>
+);
+
+export const WithManyActions = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Default property-set with remove action example: </h3>
+		<div style={style}>
+			<TreeView {...withActions} />
+		</div>
+	</div>
+);
+
+export const WithDisabledItems = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>
+			When an element cannot be selected the whole line is 0.54 opacity, with a not-allowed cursor.
+		</p>
+		<h3>An example with disabled items: </h3>
+		<div style={style}>
+			<TreeView {...withDisabledItems} />
+		</div>
+	</div>
+);
+
+export const WithDeepStructure = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Default property-set with deep structure: </h3>
+		<div style={style}>
+			<TreeView {...withDeepStructure} />
+		</div>
+	</div>
+);
+
+export const WithLongName = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Default property-set with cornercase: longname </h3>
+		<div style={style}>
+			<TreeView {...cornerCaseLongName} />
+		</div>
+	</div>
+);
+
+export const WithoutIcons = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>Default property-set without icons: </h3>
+		<div style={style}>
+			<TreeView {...withAddAction} structure={structureWithoutIcons} />
+		</div>
+	</div>
+);
+
+export const ItemsClassNames = () => (
+	<div>
+		<h1>TreeView</h1>
+		<h3>Definition</h3>
+		<p>A view component to display any tree structure, like folders or categories.</p>
+		<h3>You can pass custom class names to a tree view items </h3>
+		<style>
+			{`
+                    .test-class {
+                        background: rgba(0,0,0,0.1);
+                        animation: mymove 2s infinite;
+                    }
+                    .test-class .tc-treeview-item {
+                        cursor: copy;
+                    }
+
+                    @keyframes mymove {
+                        0% {opacity: 1;}
+                        50% {opacity: 0.4;}
+                        100% {opacity: 1;}
+                    }`}
+		</style>
+		<div style={style}>
+			<TreeView {...withClassNames} />
+		</div>
+	</div>
+);
