@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { Status } from './Status.component';
@@ -25,7 +24,11 @@ const myStatus = {
 	actions: [deleteAction],
 };
 
-storiesOf('Messaging & Communication/Status', module).add('default', () => (
+export default {
+	title: 'Messaging & Communication/Status',
+};
+
+export const Default = () => (
 	<div>
 		<h1>Status</h1>
 		<h2>Definition</h2>
@@ -79,7 +82,7 @@ storiesOf('Messaging & Communication/Status', module).add('default', () => (
 		<h3>
 			Status with <code>tooltip</code>
 		</h3>
-		<Status {...myStatus} actions={[]} tooltip='tooltip test' />
+		<Status {...myStatus} actions={[]} tooltip="tooltip test" />
 		<br />
 	</div>
-));
+);

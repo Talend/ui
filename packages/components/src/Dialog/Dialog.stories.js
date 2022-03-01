@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Dialog from './Dialog.component';
@@ -98,64 +97,76 @@ const bsProps = {
 
 const children = <div>BODY content. You can put what ever you want here</div>;
 
-storiesOf('Layout/Modals/Modal', module)
-	.add('default', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...defaultProps}>{children}</Dialog>
-		</div>
-	))
-	.add('with header', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...headerProps}>{children}</Dialog>
-		</div>
-	))
-	.add('header + action', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...actionProps}>{children}</Dialog>
-		</div>
-	))
-	.add('with subtitle', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...subtitle}>{children}</Dialog>
-		</div>
-	))
-	.add('with long title and subtitle', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...bigTitle}>{children}</Dialog>
-		</div>
-	))
-	.add('with error', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...errored}>{children}</Dialog>
-		</div>
-	))
-	.add('informative', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...informative}>{children}</Dialog>
-		</div>
-	))
-	.add('small', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...smallProps}>{children}</Dialog>
-		</div>
-	))
-	.add('large', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...largeProps}>{children}</Dialog>
-		</div>
-	))
-	.add('passing bootstrap modal options', () => (
-		<div>
-			<h1>Dialog</h1>
-			<Dialog {...bsProps}>{children}</Dialog>
-		</div>
-	));
+export default {
+	title: 'Layout/Modals/Modal',
+};
+
+export const Default = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...defaultProps}>{children}</Dialog>
+	</div>
+);
+
+export const WithHeader = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...headerProps}>{children}</Dialog>
+	</div>
+);
+
+export const HeaderAction = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...actionProps}>{children}</Dialog>
+	</div>
+);
+
+export const WithSubtitle = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...subtitle}>{children}</Dialog>
+	</div>
+);
+
+export const WithLongTitleAndSubtitle = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...bigTitle}>{children}</Dialog>
+	</div>
+);
+
+export const WithError = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...errored}>{children}</Dialog>
+	</div>
+);
+
+export const Informative = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...informative}>{children}</Dialog>
+	</div>
+);
+
+export const Small = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...smallProps}>{children}</Dialog>
+	</div>
+);
+
+export const Large = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...largeProps}>{children}</Dialog>
+	</div>
+);
+
+export const PassingBootstrapModalOptions = () => (
+	<div>
+		<h1>Dialog</h1>
+		<Dialog {...bsProps}>{children}</Dialog>
+	</div>
+);

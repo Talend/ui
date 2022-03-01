@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 
 import { SortIndicator } from 'react-virtualized';
@@ -429,16 +428,19 @@ const CustomRenderResizableWidthRenderProps = props => (
 	</HeaderResizable>
 );
 
-storiesOf('Data/List/VirtualizedList', module)
-	.add('List > Table', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-				By default each columns have the same size. The cells are placed using flexbox. You can
-				customize the flex properties of the cells using the generated classnames.
-			</p>
-			<pre>
-				{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
+export default {
+	title: 'Data/List/VirtualizedList',
+};
+
+export const ListTable = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+		<p>
+			By default each columns have the same size. The cells are placed using flexbox. You can
+			customize the flex properties of the cells using the generated classnames.
+		</p>
+		<pre>
+			{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
 .virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
 .virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
 .virtualized-list div.tc-list-cell-tag { flex: 0 0 120px; }
@@ -446,510 +448,523 @@ storiesOf('Data/List/VirtualizedList', module)
 .virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
 .virtualized-list div.tc-list-cell-created,
 .virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
-			</pre>
+		</pre>
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collection} id="my-list">
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
-					<VirtualizedList.Text label="Description" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.MappedData
-						label="Language"
-						dataKey="language"
-						columnData={{ valuesMap: { en: 'English', fr: 'French', de: 'German' } }}
-					/>
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList collection={collection} id="my-list">
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
+				<VirtualizedList.Text label="Description" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.MappedData
+					label="Language"
+					dataKey="language"
+					columnData={{ valuesMap: { en: 'English', fr: 'French', de: 'German' } }}
+				/>
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
 
-	.add('List > Table with radio button title', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List with radio button title</h1>
+export const ListTableWithRadioButtonTitle = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List with radio button title</h1>
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id="my-list"
-					isSelected={item => item.id === 2}
-					selectionToggle={action('selectionToggle')}
-					selectionMode="SINGLE"
-					onToggleAll={action('onToggleAll')}
-				>
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Table with label author', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List with radio button title</h1>
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collection}
+				id="my-list"
+				isSelected={item => item.id === 2}
+				selectionToggle={action('selectionToggle')}
+				selectionMode="SINGLE"
+				onToggleAll={action('onToggleAll')}
+			>
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collection} id="my-list">
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Label label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Table : sort', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-				You can enable sort by passing <b>sort</b>, <b>sortBy</b> and <b>sortDirection</b>.<br />
-				To disable sort on a column, add the <b>disableSort</b> props (see Description column).
-			</p>
+export const ListTableWithLabelAuthor = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List with radio button title</h1>
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id="my-list"
-					sort={action('sort')}
-					sortBy="name"
-					sortDirection="ASC"
-				>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text
-						label="Description (non sortable)"
-						dataKey="description"
-						disableSort
-					/>
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Table : selection', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-				Selection can be enabled by passing <b>selectionToggle</b> callback and <b>isSelected</b>{' '}
-				function that returns if a row is selected.
-			</p>
-			<pre>{'isSelected={item => item.id === 6}'}</pre>
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList collection={collection} id="my-list">
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Label label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id="my-list"
-					isSelected={item => item.id === 6}
-					selectionToggle={action('selectionToggle')}
-					onRowDoubleClick={action('doubleClick')}
-					onToggleAll={action('toggleAll')}
-				>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Table : activation', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-				Row click can be enabled by passing <b>onRowClick</b> callback and <b>isActive</b> function
-				that returns if a row is active.
-			</p>
-			<pre>{'isActive={item => item.id === 6}'}</pre>
+export const ListTableSort = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+		<p>
+			You can enable sort by passing <b>sort</b>, <b>sortBy</b> and <b>sortDirection</b>.<br />
+			To disable sort on a column, add the <b>disableSort</b> props (see Description column).
+		</p>
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id="my-list"
-					onRowClick={action('onRowClick')}
-					isActive={item => item.id === 6}
-				>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Table : desactivation', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-				Row can be disabled by passing <b>getRowState</b> function that returns a disabled flag and
-				a message to show into the tooltip.
-			</p>
-			<pre>
-				{'getRowState={row => (row.id === 2 ? { disabled: true, tooltip: "Houlala" } : null)'}
-			</pre>
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collection}
+				id="my-list"
+				sort={action('sort')}
+				sortBy="name"
+				sortDirection="ASC"
+			>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text
+					label="Description (non sortable)"
+					dataKey="description"
+					disableSort
+				/>
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id="my-list"
-					onRowClick={action('onRowClick')}
-					getRowState={row => (row.id === 2 ? { disabled: true, tooltip: 'Houlala' } : null)}
-				>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Table : resizable', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-				You can enable resizing by passing <b>resizable</b> and a <b>width</b> to the content.
-				<br />
-				Also you have to give the proper header renderer, <b>HeaderResizable</b>.<br />
-			</p>
+export const ListTableSelection = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+		<p>
+			Selection can be enabled by passing <b>selectionToggle</b> callback and <b>isSelected</b>{' '}
+			function that returns if a row is selected.
+		</p>
+		<pre>{'isSelected={item => item.id === 6}'}</pre>
 
-			<section>
-				<VirtualizedList collection={collection} id="my-list">
-					<VirtualizedList.Text label="Id" dataKey="id" width={40} />
-					<VirtualizedList.Title
-						columnData={titleProps}
-						dataKey="name"
-						headerRenderer={CustomRenderResizableWidthRenderProps}
-						label="Name"
-						resizable
-						width={250}
-					/>
-					<VirtualizedList.Text
-						dataKey="description"
-						disableSort
-						headerRenderer={VirtualizedList.headerDictionary['resizable']}
-						label="Description"
-						resizable
-						width={650}
-					/>
-					<VirtualizedList.Text
-						columnData={{
-							iconName: 'talend-badge',
-						}}
-						label="Author"
-						{...VirtualizedList.headerDictionary['icon']}
-						dataKey="author"
-						width={80}
-					/>
-					<VirtualizedList.Datetime
-						dataKey="created"
-						headerRenderer={VirtualizedList.headerDictionary['resizable']}
-						label="Created"
-						resizable
-						width={100}
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						dataKey="modified"
-						label="Modified"
-						resizable
-						width={100}
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collection}
+				id="my-list"
+				isSelected={item => item.id === 6}
+				selectionToggle={action('selectionToggle')}
+				onRowDoubleClick={action('doubleClick')}
+				onToggleAll={action('toggleAll')}
+			>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
 
-	.add('List > Large', () => (
-		<div>
-			<h1>Virtualized List</h1>
-			<p>
-				On Large rendering, the title is automatically placed at the top.
-				<br />
-				The rest of the fields are displayed on the <b>VirtualizedList.Content</b> order.
-				<br />
-				The row height is by default <b>135px</b> but can be customized by passing a<b>rowHeight</b>{' '}
-				props.
-			</p>
+export const ListTableActivation = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+		<p>
+			Row click can be enabled by passing <b>onRowClick</b> callback and <b>isActive</b> function
+			that returns if a row is active.
+		</p>
+		<pre>{'isActive={item => item.id === 6}'}</pre>
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id="my-list"
-					rowHeight={135}
-					type={VirtualizedList.LIST_TYPES.LARGE}
-				>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text label="Description" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Large : selection', () => (
-		<div>
-			<h1>Virtualized List</h1>
-			<p>
-				Selection can be enabled by passing <b>selectionToggle</b> callback and <b>isSelected</b>{' '}
-				function that returns if a row is selected.
-			</p>
-			<pre>{'isSelected={item => item.id === 6}'}</pre>
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collection}
+				id="my-list"
+				onRowClick={action('onRowClick')}
+				isActive={item => item.id === 6}
+			>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id="my-list"
-					isSelected={item => item.id === 6}
-					onRowDoubleClick={action('doubleClick')}
-					rowHeight={135}
-					selectionToggle={action('selectionToggle')}
-					type={VirtualizedList.LIST_TYPES.LARGE}
-				>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text label="Description" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Large : activation', () => (
-		<div>
-			<h1>Virtualized List</h1>
-			<p>
-				Row click can be enabled by passing <b>onRowClick</b> callback and <b>isActive</b> function
-				that returns if a row is active.
-			</p>
-			<pre>{'isActive={item => item.id === 6}'}</pre>
+export const ListTableDesactivation = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+		<p>
+			Row can be disabled by passing <b>getRowState</b> function that returns a disabled flag and a
+			message to show into the tooltip.
+		</p>
+		<pre>
+			{'getRowState={row => (row.id === 2 ? { disabled: true, tooltip: "Houlala" } : null)'}
+		</pre>
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id="my-list"
-					isActive={item => item.id === 6}
-					onRowClick={action('onRowClick')}
-					rowHeight={135}
-					type={VirtualizedList.LIST_TYPES.LARGE}
-				>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text label="Description" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > CollapsiblePanels', () => <CollapsiblePanels sourceItems={sourceItems} />)
-	.add('List > Table without header', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-				By default each columns have the same size. The cells are placed using flexbox. You can
-				customize the flex properties of the cells using the generated classnames.
-			</p>
-			<pre>
-				{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collection}
+				id="my-list"
+				onRowClick={action('onRowClick')}
+				getRowState={row => (row.id === 2 ? { disabled: true, tooltip: 'Houlala' } : null)}
+			>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
+
+export const ListTableResizable = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+		<p>
+			You can enable resizing by passing <b>resizable</b> and a <b>width</b> to the content.
+			<br />
+			Also you have to give the proper header renderer, <b>HeaderResizable</b>.<br />
+		</p>
+
+		<section>
+			<VirtualizedList collection={collection} id="my-list">
+				<VirtualizedList.Text label="Id" dataKey="id" width={40} />
+				<VirtualizedList.Title
+					columnData={titleProps}
+					dataKey="name"
+					headerRenderer={CustomRenderResizableWidthRenderProps}
+					label="Name"
+					resizable
+					width={250}
+				/>
+				<VirtualizedList.Text
+					dataKey="description"
+					disableSort
+					headerRenderer={VirtualizedList.headerDictionary['resizable']}
+					label="Description"
+					resizable
+					width={650}
+				/>
+				<VirtualizedList.Text
+					columnData={{
+						iconName: 'talend-badge',
+					}}
+					label="Author"
+					{...VirtualizedList.headerDictionary['icon']}
+					dataKey="author"
+					width={80}
+				/>
+				<VirtualizedList.Datetime
+					dataKey="created"
+					headerRenderer={VirtualizedList.headerDictionary['resizable']}
+					label="Created"
+					resizable
+					width={100}
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					dataKey="modified"
+					label="Modified"
+					resizable
+					width={100}
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
+
+export const ListLarge = () => (
+	<div>
+		<h1>Virtualized List</h1>
+		<p>
+			On Large rendering, the title is automatically placed at the top.
+			<br />
+			The rest of the fields are displayed on the <b>VirtualizedList.Content</b> order.
+			<br />
+			The row height is by default <b>135px</b> but can be customized by passing a<b>rowHeight</b>{' '}
+			props.
+		</p>
+
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collection}
+				id="my-list"
+				rowHeight={135}
+				type={VirtualizedList.LIST_TYPES.LARGE}
+			>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text label="Description" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
+
+export const ListLargeSelection = () => (
+	<div>
+		<h1>Virtualized List</h1>
+		<p>
+			Selection can be enabled by passing <b>selectionToggle</b> callback and <b>isSelected</b>{' '}
+			function that returns if a row is selected.
+		</p>
+		<pre>{'isSelected={item => item.id === 6}'}</pre>
+
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collection}
+				id="my-list"
+				isSelected={item => item.id === 6}
+				onRowDoubleClick={action('doubleClick')}
+				rowHeight={135}
+				selectionToggle={action('selectionToggle')}
+				type={VirtualizedList.LIST_TYPES.LARGE}
+			>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text label="Description" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
+
+export const ListLargeActivation = () => (
+	<div>
+		<h1>Virtualized List</h1>
+		<p>
+			Row click can be enabled by passing <b>onRowClick</b> callback and <b>isActive</b> function
+			that returns if a row is active.
+		</p>
+		<pre>{'isActive={item => item.id === 6}'}</pre>
+
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collection}
+				id="my-list"
+				isActive={item => item.id === 6}
+				onRowClick={action('onRowClick')}
+				rowHeight={135}
+				type={VirtualizedList.LIST_TYPES.LARGE}
+			>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text label="Description" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
+
+export const ListCollapsiblePanels = () => <CollapsiblePanels sourceItems={sourceItems} />;
+
+export const ListTableWithoutHeader = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+		<p>
+			By default each columns have the same size. The cells are placed using flexbox. You can
+			customize the flex properties of the cells using the generated classnames.
+		</p>
+		<pre>
+			{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
 .virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
 .virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
 .virtualized-list div.tc-list-cell-description { flex: 1 0 120px; }
 .virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
 .virtualized-list div.tc-list-cell-created,
 .virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
-			</pre>
+		</pre>
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collection} id="my-list" disableHeader>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
-					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > with tooltips in list item icons', () => (
-		<div>
-			<h1>Virtualized List</h1>
-			<p>
-				Tooltip label on list item icon can be enabled by passing
-				<b>iconKey, iconLabelKey</b> in titleProps,
-				<br />
-				also the icon name and tooltip label should be provided in list item rowData (in{' '}
-				<b>collection</b> items)
-			</p>
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList collection={collection} id="my-list" disableHeader>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
+				<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collectionWithTooltupLabel} id="my-list">
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title
-						label="Name"
-						dataKey="name"
-						columnData={titlePropsWithTooltipLabel}
-					/>
-					<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
-					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > custom noRowsRenderer', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
+export const ListWithTooltipsInListItemIcons = () => (
+	<div>
+		<h1>Virtualized List</h1>
+		<p>
+			Tooltip label on list item icon can be enabled by passing
+			<b>iconKey, iconLabelKey</b> in titleProps,
+			<br />
+			also the icon name and tooltip label should be provided in list item rowData (in{' '}
+			<b>collection</b> items)
+		</p>
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={[]} id="my-list" noRowsRenderer={NoRowsRenderer}>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > custom rowRenderers', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList collection={collectionWithTooltupLabel} id="my-list">
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Title
+					label="Name"
+					dataKey="name"
+					columnData={titlePropsWithTooltipLabel}
+				/>
+				<VirtualizedList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} />
+				<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
 
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collectionWithTooltupLabel}
-					id="my-list"
-					type="custom"
-					rowHeight={116}
-					rowRenderers={{ custom: MyCustomRow }}
-				>
-					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
-					<VirtualizedList.Text label="Author" dataKey="author" />
-					<VirtualizedList.Datetime
-						label="Created"
-						dataKey="created"
-						columnData={{ mode: 'format' }}
-					/>
-					<VirtualizedList.Datetime
-						label="Modified"
-						dataKey="modified"
-						columnData={{ mode: 'format' }}
-					/>
-				</VirtualizedList>
-			</section>
-		</div>
-	));
+export const ListCustomNoRowsRenderer = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList collection={[]} id="my-list" noRowsRenderer={NoRowsRenderer}>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
+
+export const ListCustomRowRenderers = () => (
+	<div className="virtualized-list">
+		<h1>Virtualized List</h1>
+
+		<section style={{ height: '50vh' }}>
+			<VirtualizedList
+				collection={collectionWithTooltupLabel}
+				id="my-list"
+				type="custom"
+				rowHeight={116}
+				rowRenderers={{ custom: MyCustomRow }}
+			>
+				<VirtualizedList.Text label="Id" dataKey="id" />
+				<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
+				<VirtualizedList.Text label="Author" dataKey="author" />
+				<VirtualizedList.Datetime
+					label="Created"
+					dataKey="created"
+					columnData={{ mode: 'format' }}
+				/>
+				<VirtualizedList.Datetime
+					label="Modified"
+					dataKey="modified"
+					columnData={{ mode: 'format' }}
+				/>
+			</VirtualizedList>
+		</section>
+	</div>
+);
