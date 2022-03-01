@@ -1,10 +1,11 @@
+/* eslint-disable react/sort-comp */
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import { AgGridReact } from 'ag-grid-react';
-import Inject from '@talend/react-components/lib/Inject';
-import Skeleton from '@talend/react-components/lib/Skeleton';
-import 'ag-grid-community/dist/styles/ag-grid.css';
+import assetsApi from '@talend/assets-api';
+// import { AgGridReact } from 'ag-grid-react';
+import { Inject, Skeleton } from '@talend/react-components';
+// import 'ag-grid-community/dist/styles/ag-grid.css';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -16,6 +17,16 @@ import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
+
+const AgGridReact = React.lazy(() =>
+	assetsApi
+		.getUMD('ag-grid-community', '25.3.0', 'agGrid', '/dist/ag-grid-community.min.js')
+		.then(() =>
+			assetsApi
+				.getUMD('ag-grid-react', '25.3.0', 'AgGridReact', '/bundles/ag-grid-react.min.js')
+				.then(mod => ({ default: mod.AgGridReact, __esModule: true })),
+		),
+);
 
 export const AG_GRID = {
 	CUSTOM_HEADER_KEY: 'headerComponent',
@@ -92,6 +103,11 @@ export default class DataGrid extends React.Component {
 		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 		this.currentColId = null;
+	}
+
+	componentDidMount() {
+		const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community', '25.3.0');
+		assetsApi.addStyle({ href });
 	}
 
 	/**
@@ -331,7 +347,11 @@ export default class DataGrid extends React.Component {
 		if (this.props.loading) {
 			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
 		} else {
-			content = <AgGridReact {...this.getAgGridConfig()} />;
+			content = (
+				<React.Suspense fallback={<Skeleton name="talend-table" type={Skeleton.TYPES.icon} />}>
+					<AgGridReact {...this.getAgGridConfig()} />
+				</React.Suspense>
+			);
 		}
 
 		return (
