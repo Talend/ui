@@ -43,7 +43,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 				if (packageJson.scripts[script]) {
 					const cmd = {
 						name: 'yarn',
-						args: ['workspace', '--silent', packageName, 'run', script].concat(scriptArgs),
+						args: ['workspace', packageName, 'run', script].concat(scriptArgs),
 					};
 
 					// package must be built after its workspace dependencies
