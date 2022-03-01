@@ -4,6 +4,7 @@ import components from './components';
 import expressions from './expressions';
 import reducer from './reducers';
 import settings from './settings';
+import containersModule from '../../';
 
 const cmfModule = {
 	id: 'sb-module',
@@ -11,6 +12,7 @@ const cmfModule = {
 	components,
 	expressions,
 	reducer,
+	modules: [containersModule],
 	preloadedState: {
 		cmf: {
 			collections: fromJS({
