@@ -77,5 +77,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.2"
+  "version": "7.0.2",
+  "msw": {
+    "workerDirectory": ".storybook/public"
+  }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { rest } from 'msw';
 
 import Action from '../Action';
 import AboutDialog from '.';
