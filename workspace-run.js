@@ -16,12 +16,8 @@ function consume(cmds) {
 	if (cmds.length > 0 && !process.env.EXECUTE_PARALLEL) {
 		const cmd = cmds.shift();
 		run(cmd, options)
-			.then(stdout => {
-				console.log(stdout);
-			})
 			.then(() => consume(cmds))
-			.catch(stderr => {
-				console.error(stderr);
+			.catch(() => {
 				if (process.env.WORKSPACE_RUN_FAIL === 'no-bail') {
 					consume(cmds);
 				} else {
@@ -47,7 +43,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 				if (packageJson.scripts[script]) {
 					const cmd = {
 						name: 'yarn',
-						args: ['workspace', packageName, 'run', script].concat(scriptArgs),
+						args: ['workspace', '--silent', packageName, 'run', script].concat(scriptArgs),
 					};
 
 					// package must be built after its workspace dependencies
