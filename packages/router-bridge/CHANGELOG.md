@@ -1,5 +1,11 @@
 # @talend/router-bridge
 
+## 1.1.2
+
+### Patch Changes
+
+- 7946db15e: fix: set package visility to public
+
 ## 1.1.1
 
 ### Patch Changes
