@@ -3,18 +3,27 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpApi from 'i18next-http-backend';
+import assetsApi from '@talend/assets-api';
 import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
 import { namespaces as tuiDatagridNamespaces } from '@talend/locales-tui-datagrid/namespaces';
 import { namespaces as tuiFormsNamespaces } from '@talend/locales-tui-forms/namespaces';
 
 const LOCALES_MAP = {
-	'tui-components': 'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
-	'tui-containers': 'https://unpkg.com/@talend/locales-tui-containers/locales/{{lng}}/{{ns}}.json',
-	'tui-forms': 'https://unpkg.com/@talend/locales-tui-forms/locales/{{lng}}/{{ns}}.json',
-	'tui-datagrid': 'https://unpkg.com/@talend/locales-tui-datagrid/locales/{{lng}}/{{ns}}.json',
-	'tui-faceted-search':
-		'https://unpkg.com/@talend/locales-tui-faceted-search/locales/{{lng}}/{{ns}}.json',
+	'tui-components': assetsApi.getURL(
+		'/locales/{{lng}}/{{ns}}.json',
+		'@talend/locales-tui-components',
+	),
+	'tui-containers': assetsApi.getURL(
+		'/locales/{{lng}}/{{ns}}.json',
+		'@talend/locales-tui-containers',
+	),
+	'tui-forms': assetsApi.getURL('/locales/{{lng}}/{{ns}}.json', '@talend/locales-tui-forms'),
+	'tui-datagrid': assetsApi.getURL('/locales/{{lng}}/{{ns}}.json', '@talend/locales-tui-datagrid'),
+	'tui-faceted-search': assetsApi.getURL(
+		'/locales/{{lng}}/{{ns}}.json',
+		'@talend/locales-tui-faceted-search',
+	),
 };
 
 function loadPath(languages, namespaces) {
