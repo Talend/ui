@@ -2,8 +2,16 @@
 const { sync: readPkgUpSync } = require('read-pkg-up');
 
 function getPKG(pkg) {
-	const cwd = require.resolve(pkg);
-	return readPkgUpSync({ cwd });
+	if (!pkg) {
+		return readPkgUpSync();
+	}
+	try {
+		const cwd = require.resolve(pkg);
+		return readPkgUpSync({ cwd });
+	} catch {
+		// it fails when we are in the middle to build our own package.
+		return readPkgUpSync();
+	}
 }
 
 function findAssetsImport(importDeclarationPath) {
@@ -50,17 +58,13 @@ module.exports = function transform({ types }) {
 							const values = c.node.arguments.map(a => a.value);
 							let pkg = values[1];
 							const ver = values[2];
-							const filename = path.container.loc.filename;
-							let pkgDef;
-							if (!pkg && filename) {
+							const pkgDef = getPKG(pkg);
+							if (!pkg) {
 								// TODO: find current package.json
-								pkgDef = readPkgUpSync(filename);
-								pkg = pkgDef.name;
+								pkg = pkgDef.packageJson.name;
 								c.node.arguments.push(types.stringLiteral(pkg));
 							}
-							const version = types.stringLiteral(
-								pkgDef?.version || getPKG(pkg).packageJson.version,
-							);
+							const version = types.stringLiteral(pkgDef.packageJson.version);
 							if (!ver) {
 								c.node.arguments.push(version);
 							} else {
