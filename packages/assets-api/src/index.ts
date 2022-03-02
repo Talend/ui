@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 declare global {
 	interface Window {
 		Talend: any;
@@ -57,7 +58,7 @@ function getURL(path: string, name?: string, version?: string) {
 	if (!overridedVersion) {
 		throw new Error(`Version not found for ${name}`);
 	}
-	return window.Talend.getCDNUrl({ name, version, path });
+	return window.Talend.getCDNUrl({ name, version: overridedVersion, path });
 }
 
 const TIMEOUT = 10000;
@@ -83,6 +84,7 @@ function addScript({ src, integrity, ...attr }: Script) {
 
 function getUMD(name: string, version?: string, varName?: string, path?: string) {
 	const src = getURL(path || '/undefined', name, version);
+	console.log('getUMD', src);
 	const cache = { resolved: false };
 	return new Promise((resolve, reject) => {
 		function onload() {

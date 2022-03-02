@@ -36,10 +36,10 @@
 		return newUrl || url;
 	}
 	window.Talend.getCDNUrl = function getCDNUrl(pkg = {}) {
-		if (PKGS.includes(pkg.name) || pkg.name.startsWith('ag-grid-react')) {
-			return '/cdn';
+		if (PKGS.includes(pkg.name)) {
+			return `/cdn/${pkg.name}/${pkg.version}${pkg.path}`;
 		}
-		return 'https://statics.cloud.talend.com';
+		return `https://unpkg.com/${pkg.name}@${pkg.version}${pkg.path}`;
 	};
 	window.talendAddStyles(window.Talend.cssBuild.map(removeIntegrityOnDev), prepareUrl);
 	window.talendAddScripts(window.Talend.build.map(removeIntegrityOnDev), prepareUrl);

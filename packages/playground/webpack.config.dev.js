@@ -47,13 +47,7 @@ const patterns = PKGS.map(pkg => ({
 	from: path.resolve(getPath(pkg), 'dist'),
 	to: `${to(pkg)}/`,
 	info: { minimized: true },
-})).concat([
-	{
-		from: '../../node_modules/ag-grid-react/bundles',
-		to: 'cdn/ag-grid-react/25.3.0/bundles',
-		info: { minimized: true },
-	},
-]);
+}));
 
 const webpackConfig = {
 	plugins: [
