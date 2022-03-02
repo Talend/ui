@@ -39,7 +39,14 @@ interface TypedResponse<T = any> extends Response {
 function getPackageVersion(name?: string, version?: string): string | undefined {
 	if (name) {
 		const sessionVersion = sessionStorage.getItem(name);
-		const builtVersion: string = window.Talend.assets?.name;
+		const metas = document.querySelectorAll(`meta[name="${name}"]`);
+		let builtVersion;
+		if (metas.length > 0) {
+			builtVersion = metas[0].getAttribute('value');
+			if (metas.length > 1) {
+				console.warn(`Package ${name} is installed multiple times`);
+			}
+		}
 		return sessionVersion || builtVersion || version;
 	}
 	return version;

@@ -43,7 +43,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.4.19",
     "@talend/scripts-core": "^11.5.1",
-    "@talend/scripts-preset-react-lib": "^9.11.2",
+    "@talend/scripts-preset-react-lib": "^9.12.3",
     "color-contrast-checker": "^2.1.0",
     "react": "^16.14.0",
     "typeface-source-sans-pro": "^1.1.13"
