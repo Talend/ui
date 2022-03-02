@@ -7,7 +7,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "read-pkg-up": "^7.0.1"
+    "read-pkg-up": "^7.0.1",
+    "@talend/module-to-cdn": "^9.7.7"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",

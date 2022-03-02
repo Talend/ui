@@ -21,8 +21,10 @@ function findAssetsImport(importDeclarationPath) {
 
 const INJECT_VERSIONS_LAST = ['getURL', 'getJSON'];
 const INJECT_PATH_LAST = ['getUMD'];
+const DEFAULT_RESOLVER = require('@talend/module-to-cdn');
 
 module.exports = function transform({ types }) {
+	const resolver = DEFAULT_RESOLVER;
 	return {
 		visitor: {
 			Program(path) {
@@ -69,6 +71,35 @@ module.exports = function transform({ types }) {
 								c.node.arguments.push(version);
 							} else {
 								c.node.arguments[2] = version;
+							}
+						});
+					}
+					if (getUMDCalls.length > 0) {
+						getUMDCalls.forEach(c => {
+							const values = c.node.arguments.map(a => a.value);
+							const pkg = values[0]; // required
+							const ver = values[1];
+							const pkgDef = getPKG(pkg);
+							const version = types.stringLiteral(pkgDef.packageJson.version);
+							if (!ver) {
+								c.node.arguments.push(version);
+							} else {
+								c.node.arguments[1] = version;
+							}
+							const varName = values[2];
+							const info = resolver(pkg, pkgDef.packageJson.version, { env: 'production' });
+							if (info) {
+								if (!varName) {
+									c.node.arguments.push(types.stringLiteral(info.var));
+								} else {
+									c.node.arguments[2] = types.stringLiteral(info.var);
+								}
+								const umdPath = values[3];
+								if (!umdPath) {
+									c.node.arguments.push(types.stringLiteral(info.path));
+								} else {
+									c.node.arguments[3] = types.stringLiteral(info.path);
+								}
 							}
 						});
 					}
