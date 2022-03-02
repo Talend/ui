@@ -5,7 +5,7 @@ import Comparator from './Comparator';
 import Datalist from './Datalist';
 import * as Date from './Date';
 import Enumeration from './Enumeration';
-import FieldTemplate from './FieldTemplate';
+import FieldTemplate, { TextModeTemplate } from './FieldTemplate';
 import File from './File';
 import KeyValue from './KeyValue';
 import ListView from './ListView';
@@ -40,6 +40,7 @@ export default {
 	Select,
 	Text,
 	TextArea,
+	TextModeTemplate,
 	TimezoneList,
 	Toggle,
 };

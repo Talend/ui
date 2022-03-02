@@ -21,10 +21,10 @@ export default function MultiSelectTextMode(props) {
 		name: names[index],
 		value: nextVal,
 	}));
-	const FieldTemplate = Form.UIForm.FieldTemplate.TextModeTemplate;
+	const TextModeTemplate = Form.UIForm.TextModeTemplate;
 
 	return (
-		<FieldTemplate id={props.id} label={props.schema.title}>
+		<TextModeTemplate id={props.id} label={props.schema.title}>
 			<div style={{ height: 300 }}>
 				<VirtualizedList
 					type="tc-multiselect"
@@ -33,7 +33,7 @@ export default function MultiSelectTextMode(props) {
 					collection={titleMap}
 				/>
 			</div>
-		</FieldTemplate>
+		</TextModeTemplate>
 	);
 }
 
