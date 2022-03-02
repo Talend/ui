@@ -1,5 +1,12 @@
 # @talend/design-tokens
 
+## 1.3.0
+
+### Minor Changes
+
+- 63079b40d: Added Heartbeat animaiton token
+- 36748e5c8: Added Figma keys to style dictionnary
+
 ## 1.2.0
 
 ### Minor Changes
