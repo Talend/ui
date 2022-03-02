@@ -37,6 +37,11 @@
 	}
 	window.Talend.getCDNUrl = function getCDNUrl(pkg = {}) {
 		if (PKGS.includes(pkg.name)) {
+			const baseTag = document.querySelector('base');
+			if (baseTag) {
+				const root = baseTag.getAttribute('href') || '';
+				return `${root}/cdn/${pkg.name}/${pkg.version}${pkg.path}`;
+			}
 			return `/cdn/${pkg.name}/${pkg.version}${pkg.path}`;
 		}
 		return `https://unpkg.com/${pkg.name}@${pkg.version}${pkg.path}`;
