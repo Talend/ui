@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 7.0.4
+
+### Patch Changes
+
+- d839ab8ed: fix: MultiSelect in text mode
+
 ## 7.0.3
 
 ### Patch Changes
