@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Action from '../Actions/Action';
@@ -197,14 +196,23 @@ function GridContainer({ isLoading = false, skeletonConfiguration, isResizable =
 	);
 }
 
-storiesOf('Layout/Dashboard', module)
-	.add('default', () => <GridContainer />)
-	.add('not draggable', () => <GridContainer isDraggable={false} />)
-	.add('not resizable', () => <GridContainer isResizable={false} />)
-	.add('neither draggable nor resizable', () => (
-		<GridContainer isDraggable={false} isResizable={false} />
-	))
-	.add('isLoading', () => <GridContainer isLoading />)
-	.add('isLoading with custom grid', () => (
-		<GridContainer isLoading skeletonConfiguration={customSkeletonConf} />
-	));
+export default {
+	title: 'Layout/Dashboard',
+	excludeStories: ['customSkeletonConf'],
+};
+
+export const Default = () => <GridContainer />;
+
+export const NotDraggable = () => <GridContainer isDraggable={false} />;
+
+export const NotResizable = () => <GridContainer isResizable={false} />;
+
+export const NeitherDraggableNorResizable = () => (
+	<GridContainer isDraggable={false} isResizable={false} />
+);
+
+export const IsLoading = () => <GridContainer isLoading />;
+
+export const IsLoadingWithCustomGrid = () => (
+	<GridContainer isLoading skeletonConfiguration={customSkeletonConf} />
+);
