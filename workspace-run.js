@@ -13,7 +13,7 @@ const options = {
 };
 
 function consume(cmds) {
-  if (cmds.length > 0 && !process.env.EXECUTE_PARALLEL) {
+   if (cmds.length > 0 && !process.env.EXECUTE_PARALLEL) {
 		const cmd = cmds.shift();
 		run(cmd, options)
 			.then(() => consume(cmds))

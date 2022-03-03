@@ -69,7 +69,7 @@ jobs:
               git add $file
             fi
           done
-          STATUS=$(git status --short -u no)
+          STATUS=$(git diff --name-only --cached)
           echo "::set-output name=STATUS::$STATUS"
           git commit -m "chore: prettier" ${{ steps.changed-files.outputs.all_changed_files }}
 
