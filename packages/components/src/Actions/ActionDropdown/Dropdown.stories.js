@@ -1,7 +1,5 @@
 import React from 'react';
 import Immutable from 'immutable';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionDropdown from './ActionDropdown.component';
@@ -197,7 +195,11 @@ const oneEventAction = {
 	onSelect: action('onItemSelect'),
 };
 
-storiesOf('Buttons/Dropdown', module).add('default', () => (
+export default {
+	title: 'Buttons/Dropdown',
+};
+
+export const Default = () => (
 	<div>
 		<h3>By default :</h3>
 		<div id="default">
@@ -291,4 +293,4 @@ storiesOf('Buttons/Dropdown', module).add('default', () => (
 			<ActionDropdown {...openWithImmutable} />
 		</div>
 	</div>
-));
+);
