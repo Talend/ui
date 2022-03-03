@@ -22,12 +22,17 @@ function consume(cmds) {
 					consume(cmds);
 				} else {
 					console.error(error);
+					console.log('###', run.getExitCode());
 					process.exit(run.getExitCode());
 				}
 			});
 	} else if (process.env.EXECUTE_PARALLEL) {
-		Promise.all(cmds.map(cmd => run(cmd, options))).finally(() => process.exit(run.getExitCode()));
+		Promise.all(cmds.map(cmd => run(cmd, options))).finally(() => {
+			console.log('@@@', run.getExitCode());
+			process.exit(run.getExitCode());
+		});
 	} else {
+		console.log('!!! ', run.getExitCode());
 		process.exit(run.getExitCode());
 	}
 }
