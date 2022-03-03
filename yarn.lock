@@ -3332,7 +3332,7 @@
     babel-core "^7.0.0-bridge.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@talend/scripts-config-cdn@^9.11.3", "@talend/scripts-config-cdn@^9.11.5", "@talend/scripts-config-cdn@^9.12.0":
+"@talend/scripts-config-cdn@^9.11.3", "@talend/scripts-config-cdn@^9.12.0":
   version "9.12.0"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-cdn/-/scripts-config-cdn-9.12.0.tgz#c7f5d43a4b05b131b511102fa6591e2f0125ed4c"
   integrity sha512-5etmfK+03XoZN49vdIDgQjz7cT9Qf/Eiq4WfSnDTCreIivGXfZAMRud/U/ja7gUwOqGQjr2jlj0ngZPyauViAA==
@@ -3386,7 +3386,7 @@
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-prettier/-/scripts-config-prettier-9.6.3.tgz#b5644c23e7f87f32853ae1db3faca1ef9740f089"
   integrity sha512-lqNU8kB4PDR4tTDIZ0OMF0PfSAnNk5guS11UHn3ktiac0hy6/ENeD5qEJ2POJeTh7IP4l0Vxs0WwOkj20UkRCA==
 
-"@talend/scripts-config-react-webpack@^11.2.1", "@talend/scripts-config-react-webpack@^11.4.1", "@talend/scripts-config-react-webpack@^11.5.0":
+"@talend/scripts-config-react-webpack@^11.2.1", "@talend/scripts-config-react-webpack@^11.5.0":
   version "11.5.0"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.5.0.tgz#a0a9ccfb6bc6a051aaeecca76b5ba97615c46a5d"
   integrity sha512-UtjilzUDpkqAoAUGSt2/NC4P5B0fYkFEnjAZFLvfhSEL0SdltOUxtQ2owdB9tlX1dkKb8lgrZJbyj5/wnbd6DQ==
@@ -3425,23 +3425,6 @@
     webpack "^4.46.0"
     webpack-bundle-analyzer "^4.5.0"
     webpack-cli "^4.9.2"
-
-"@talend/scripts-config-storybook-lib@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.7.0.tgz#970a97ada5e93a0da79708b130349a917b3131f8"
-  integrity sha512-C/0DV+eMxJ0pB/swAf/wYyp4bklmdK2wQZwbm7L0DJ0+Cu1qjhKLPA6KNOnStj4O1F19fVWOH3Wzps/aVD+YYw==
-  dependencies:
-    "@storybook/addon-essentials" "^6.4.19"
-    "@storybook/addon-interactions" "^6.4.19"
-    "@storybook/addon-links" "^6.4.19"
-    "@storybook/react" "^6.4.19"
-    "@storybook/testing-library" "^0.0.8"
-    "@talend/dynamic-cdn-webpack-plugin" "^9.7.15"
-    fs-extra "^10.0.1"
-    i18next-http-backend "^1.3.2"
-    lodash "^4.17.21"
-    msw "^0.38.1"
-    msw-storybook-addon "^1.6.0"
 
 "@talend/scripts-config-storybook-lib@^0.8.0":
   version "0.8.0"
@@ -10021,14 +10004,6 @@ file-entry-cache@^6.0.1:
   integrity sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==
   dependencies:
     flat-cache "^3.0.4"
-
-file-loader@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-5.1.0.tgz#cb56c070efc0e40666424309bd0d9e45ac6f2bb8"
-  integrity sha512-u/VkLGskw3Ue59nyOwUwXI/6nuBCo7KBkniB/l7ICwr/7cPNGsL1WCXUp3GB0qgOOKU1TiP49bv4DZF/LJqprg==
-  dependencies:
-    loader-utils "^1.4.0"
-    schema-utils "^2.5.0"
 
 file-loader@^6.2.0:
   version "6.2.0"
