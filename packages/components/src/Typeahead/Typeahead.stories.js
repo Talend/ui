@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Typeahead from './Typeahead.component';
 
@@ -100,161 +99,175 @@ const noHeaderItems = [
 	},
 ];
 
-storiesOf('Form/Inline form/Typeahead', module)
-	.add('default with debounce input', () => {
-		const props = {
-			placeholder: 'Search...',
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			debounceTimeout: 300,
-			role: 'searchbox',
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('searching', () => {
-		const props = {
-			value: 'Lorem ipsum',
-			items: [],
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			searching: true,
-			role: 'searchbox',
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('with results', () => {
-		const props = {
-			value: 'le',
-			items,
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			onSelect: action('onSelect'),
-			role: 'searchbox',
-			'data-feature': 'data-feature-typeahead',
-			icon: {
-				name: 'talend-search',
-				title: 'Toggle search input',
-			},
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('with unmanaged navigation', () => {
-		const props = {
-			value: 'le',
-			items,
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			onSelect: action('onSelect'),
-			role: 'searchbox',
-			'data-feature': 'data-feature-typeahead',
-			icon: {
-				name: 'talend-search',
-				title: 'Toggle search input',
-			},
-			onKeyDown: action('onKeyDown -> internal nav is bypassed'),
-			manageNavigation: true,
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('with results but loading', () => {
-		const props = {
-			value: 'le',
-			items,
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			onSelect: action('onSelect'),
-			role: 'searchbox',
-			'data-feature': 'data-feature-typeahead',
-			isLoading: true,
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('with results and icon', () => {
-		const props = {
-			value: 'le',
-			items,
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			onSelect: action('onSelect'),
-			role: 'searchbox',
-			'data-feature': 'data-feature-typeahead',
-			icon: {
-				name: 'talend-search',
-				title: 'Toggle search input',
-			},
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('with debounce input and results', () => {
-		const props = {
-			value: 'le',
-			items,
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			debounceTimeout: 300,
-			onSelect: action('onSelect'),
-			role: 'searchbox',
-			'data-feature': 'data-feature-typeahead',
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('without results', () => {
-		const props = {
-			value: 'Text without results',
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			items: [],
-			role: 'searchbox',
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('on the right', () => {
-		const props = {
-			value: 'le',
-			items,
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			onSelect: action('onSelect'),
-			position: 'right',
-			role: 'searchbox',
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('with toggle button', () => {
-		const props = {
-			icon: {
-				name: 'talend-search',
-				title: 'Toggle search input',
-				role: 'search',
-				bsStyle: 'link',
-			},
-			onToggle: action('onToggle'),
-			docked: true,
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('with focused item', () => {
-		const props = {
-			icon: {
-				name: 'talend-search',
-				title: 'Toggle search input',
-			},
-			onKeyDown: action('onKeyDown'),
-			items,
-			focusedSectionIndex: 1,
-			focusedItemIndex: 0,
-			role: 'searchbox',
-		};
-		return <Typeahead {...props} />;
-	})
-	.add('without section header', () => {
-		const props = {
-			value: 'le',
-			items: noHeaderItems,
-			onBlur: action('onBlur'),
-			onChange: action('onChange'),
-			onSelect: action('onSelect'),
-			role: 'searchbox',
-		};
-		return <Typeahead {...props} />;
-	});
+export default {
+	title: 'Form/Inline form/Typeahead',
+};
+
+export const DefaultWithDebounceInput = () => {
+	const props = {
+		placeholder: 'Search...',
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		debounceTimeout: 300,
+		role: 'searchbox',
+	};
+	return <Typeahead {...props} />;
+};
+
+export const Searching = () => {
+	const props = {
+		value: 'Lorem ipsum',
+		items: [],
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		searching: true,
+		role: 'searchbox',
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithResults = () => {
+	const props = {
+		value: 'le',
+		items,
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		onSelect: action('onSelect'),
+		role: 'searchbox',
+		'data-feature': 'data-feature-typeahead',
+		icon: {
+			name: 'talend-search',
+			title: 'Toggle search input',
+		},
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithUnmanagedNavigation = () => {
+	const props = {
+		value: 'le',
+		items,
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		onSelect: action('onSelect'),
+		role: 'searchbox',
+		'data-feature': 'data-feature-typeahead',
+		icon: {
+			name: 'talend-search',
+			title: 'Toggle search input',
+		},
+		onKeyDown: action('onKeyDown -> internal nav is bypassed'),
+		manageNavigation: true,
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithResultsButLoading = () => {
+	const props = {
+		value: 'le',
+		items,
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		onSelect: action('onSelect'),
+		role: 'searchbox',
+		'data-feature': 'data-feature-typeahead',
+		isLoading: true,
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithResultsAndIcon = () => {
+	const props = {
+		value: 'le',
+		items,
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		onSelect: action('onSelect'),
+		role: 'searchbox',
+		'data-feature': 'data-feature-typeahead',
+		icon: {
+			name: 'talend-search',
+			title: 'Toggle search input',
+		},
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithDebounceInputAndResults = () => {
+	const props = {
+		value: 'le',
+		items,
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		debounceTimeout: 300,
+		onSelect: action('onSelect'),
+		role: 'searchbox',
+		'data-feature': 'data-feature-typeahead',
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithoutResults = () => {
+	const props = {
+		value: 'Text without results',
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		items: [],
+		role: 'searchbox',
+	};
+	return <Typeahead {...props} />;
+};
+
+export const OnTheRight = () => {
+	const props = {
+		value: 'le',
+		items,
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		onSelect: action('onSelect'),
+		position: 'right',
+		role: 'searchbox',
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithToggleButton = () => {
+	const props = {
+		icon: {
+			name: 'talend-search',
+			title: 'Toggle search input',
+			role: 'search',
+			bsStyle: 'link',
+		},
+		onToggle: action('onToggle'),
+		docked: true,
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithFocusedItem = () => {
+	const props = {
+		icon: {
+			name: 'talend-search',
+			title: 'Toggle search input',
+		},
+		onKeyDown: action('onKeyDown'),
+		items,
+		focusedSectionIndex: 1,
+		focusedItemIndex: 0,
+		role: 'searchbox',
+	};
+	return <Typeahead {...props} />;
+};
+
+export const WithoutSectionHeader = () => {
+	const props = {
+		value: 'le',
+		items: noHeaderItems,
+		onBlur: action('onBlur'),
+		onChange: action('onChange'),
+		onSelect: action('onSelect'),
+		role: 'searchbox',
+	};
+	return <Typeahead {...props} />;
+};
