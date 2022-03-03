@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-param-reassign */
 const { sync: readPkgUpSync } = require('read-pkg-up');
 
@@ -21,13 +23,28 @@ function findAssetsImport(importDeclarationPath) {
 
 const INJECT_VERSIONS_LAST = ['getURL', 'getJSON'];
 const INJECT_PATH_LAST = ['getUMD'];
-const DEFAULT_RESOLVER = require('@talend/module-to-cdn');
+
+function getResolver(resolverOrString) {
+	let resolverStr = '@talend/module-to-cdn';
+	let resolver;
+	if (resolverOrString) {
+		if (typeof resolverOrString === 'string') {
+			resolverStr = resolverOrString;
+		} else {
+			resolver = resolverOrString;
+		}
+	}
+	if (!resolver) {
+		resolver = require(resolverStr);
+	}
+	return resolver;
+}
 
 module.exports = function transform({ types }) {
-	const resolver = DEFAULT_RESOLVER;
 	return {
 		visitor: {
-			Program(path) {
+			Program(path, state) {
+				const resolver = getResolver(state.opts.resolver);
 				const getURLCalls = [];
 				const getUMDCalls = [];
 				const cache = {};
