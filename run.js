@@ -73,5 +73,8 @@ function run(cmd, opts = {}) {
 }
 
 run.exitCode = 0;
+run.getExitCode = () => {
+	return run.exitCode;
+};
 
 module.exports = run;
