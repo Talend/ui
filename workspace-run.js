@@ -17,10 +17,11 @@ function consume(cmds) {
 		const cmd = cmds.shift();
 		run(cmd, options)
 			.then(() => consume(cmds))
-			.catch(() => {
+			.catch(error => {
 				if (process.env.WORKSPACE_RUN_FAIL === 'no-bail') {
 					consume(cmds);
 				} else {
+					console.error(error);
 					process.exit(run.exitCode);
 				}
 			});
