@@ -1,6 +1,5 @@
 /* eslint-disable no-plusplus */
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ConfirmDialog from './ConfirmDialog.component';
@@ -85,72 +84,81 @@ const withProgressBarProps = {
 
 const children = <div>BODY content. You can put what ever you want here</div>;
 
-storiesOf('Layout/Modals/ConfirmDialog', module)
-	.add('default', () => (
+export default {
+	title: 'Layout/Modals/ConfirmDialog',
+};
+
+export const Default = () => (
+	<div>
+		<h1>Dialog</h1>
+		<ConfirmDialog {...defaultProps}>{children}</ConfirmDialog>
+	</div>
+);
+
+export const WithoutHeader = () => (
+	<div>
+		<h1>Dialog</h1>
+		<ConfirmDialog {...propsWithoutHeader}>{children}</ConfirmDialog>
+	</div>
+);
+
+export const Small = () => (
+	<div>
+		<h1>Dialog</h1>
+		<ConfirmDialog {...smallProps}>{children}</ConfirmDialog>
+	</div>
+);
+
+export const Large = () => (
+	<div>
+		<h1>Dialog</h1>
+		<ConfirmDialog {...largeProps}>{children}</ConfirmDialog>
+	</div>
+);
+
+export const WithProgressBar = () => (
+	<div>
+		<h1>Dialog</h1>
+		<ConfirmDialog {...withProgressBarProps}>{children}</ConfirmDialog>
+	</div>
+);
+
+export const WithLotsOfContent = () => {
+	const rows = [];
+	for (let index = 0; index < 50; index++) {
+		rows.push(<p key={index}>The content dictate the height</p>);
+	}
+	return (
 		<div>
 			<h1>Dialog</h1>
-			<ConfirmDialog {...defaultProps}>{children}</ConfirmDialog>
+			<ConfirmDialog {...withProgressBarProps}>
+				<div>{rows}</div>
+			</ConfirmDialog>
 		</div>
-	))
-	.add('without header', () => (
-		<div>
-			<h1>Dialog</h1>
-			<ConfirmDialog {...propsWithoutHeader}>{children}</ConfirmDialog>
-		</div>
-	))
-	.add('small', () => (
-		<div>
-			<h1>Dialog</h1>
-			<ConfirmDialog {...smallProps}>{children}</ConfirmDialog>
-		</div>
-	))
-	.add('large', () => (
-		<div>
-			<h1>Dialog</h1>
-			<ConfirmDialog {...largeProps}>{children}</ConfirmDialog>
-		</div>
-	))
-	.add('with progress bar', () => (
-		<div>
-			<h1>Dialog</h1>
-			<ConfirmDialog {...withProgressBarProps}>{children}</ConfirmDialog>
-		</div>
-	))
-	.add('with lots of content', () => {
-		const rows = [];
-		for (let index = 0; index < 50; index++) {
-			rows.push(<p key={index}>The content dictate the height</p>);
-		}
-		return (
-			<div>
-				<h1>Dialog</h1>
-				<ConfirmDialog {...withProgressBarProps}>
-					<div>{rows}</div>
-				</ConfirmDialog>
-			</div>
-		);
-	})
-	.add('with secondary actions', () => {
-		const propsWithMoreActions = {
-			...defaultProps,
-			header: 'Delete elements',
-			validateAction: {
-				label: 'Delete',
-				onClick: action('ok'),
-				bsStyle: 'danger',
+	);
+};
+
+export const WithSecondaryActions = () => {
+	const propsWithMoreActions = {
+		...defaultProps,
+		header: 'Delete elements',
+		validateAction: {
+			label: 'Delete',
+			onClick: action('ok'),
+			bsStyle: 'danger',
+		},
+		secondaryActions: [
+			{
+				label: 'Show info',
+				onClick: action('info'),
+				bsStyle: 'info',
 			},
-			secondaryActions: [
-				{
-					label: 'Show info',
-					onClick: action('info'),
-					bsStyle: 'info',
-				},
-			],
-		};
-		return (
-			<div>
-				<h1>Dialog</h1>
-				<ConfirmDialog {...propsWithMoreActions}>{children}</ConfirmDialog>
-			</div>
-		);
-	});
+		],
+	};
+	return (
+		<div>
+			<h1>Dialog</h1>
+			<ConfirmDialog {...propsWithMoreActions}>{children}</ConfirmDialog>
+		</div>
+	);
+};

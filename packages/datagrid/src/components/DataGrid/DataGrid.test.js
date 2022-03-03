@@ -265,10 +265,7 @@ describe('#AgGrid API', () => {
 		const api = {};
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({ api });
+		wrapper.find('AgGridReact').props().onGridReady({ api });
 
 		expect(wrapper.instance().gridAPI).toBe(api);
 	});
@@ -384,10 +381,7 @@ describe('#Datagrid method', () => {
 			rowIndex: 2,
 		};
 
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({ api });
+		wrapper.find('AgGridReact').props().onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
 			nextCellPosition,
@@ -414,10 +408,7 @@ describe('#Datagrid method', () => {
 			rowIndex: 2,
 		};
 
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({ api });
+		wrapper.find('AgGridReact').props().onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
 			nextCellPosition,
@@ -440,10 +431,7 @@ describe('#Datagrid method', () => {
 			rowIndex: 2,
 		};
 
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({ api });
+		wrapper.find('AgGridReact').props().onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
 			nextCellPosition,
@@ -466,9 +454,11 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const deselectAll = jest.fn();
 		const clearFocusedCell = jest.fn();
+		const ensureColumnVisible = jest.fn();
 		const api = {
 			deselectAll,
 			clearFocusedCell,
+			ensureColumnVisible,
 		};
 		const instance = wrapper.instance();
 		instance.onGridReady({ api });
@@ -497,7 +487,7 @@ describe('#Datagrid method', () => {
 
 		instance.onFocusedColumn('field4');
 
-		expect(instance.currentColId).toEqual('field3');
+		expect(instance.currentColId).toEqual(null);
 	});
 
 	it('should scroll to focused column', () => {
@@ -540,10 +530,7 @@ describe('#Datagrid method', () => {
 		instance.removeFocusColumn = jest.fn();
 		instance.updateStyleFocusColumn = jest.fn();
 
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({ api });
+		wrapper.find('AgGridReact').props().onGridReady({ api });
 
 		instance.onFocusedColumn(currentColId);
 
@@ -688,10 +675,7 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
 
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({ api });
+		wrapper.find('AgGridReact').props().onGridReady({ api });
 
 		instance.onKeyDownHeaderColumn(
 			{
@@ -713,13 +697,10 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		const instance = wrapper.instance();
 
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({
-				setFocusedCell,
-				ensureIndexVisible,
-			});
+		wrapper.find('AgGridReact').props().onGridReady({
+			setFocusedCell,
+			ensureIndexVisible,
+		});
 
 		instance.onKeyDownHeaderColumn(
 			{
@@ -749,12 +730,9 @@ describe('#Datagrid method', () => {
 		);
 		const instance = wrapper.instance();
 
-		wrapper
-			.find('AgGridReact')
-			.props()
-			.onGridReady({
-				api,
-			});
+		wrapper.find('AgGridReact').props().onGridReady({
+			api,
+		});
 
 		instance.onBodyScroll(event);
 
