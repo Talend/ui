@@ -1,4 +1,4 @@
-# @talend/react-components s
+# @talend/react-components
 
 ## 6.44.4
 
