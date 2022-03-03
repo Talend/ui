@@ -66,9 +66,10 @@ jobs:
             if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx || $file == *.mdx || $file == *.scss || $file == *.json ]]; then
               echo "Run Prettier on $file"
               yarn prettier --config .prettierrc $file --write
+              git add $file
             fi
           done
-          STATUS=$(git status --short output)
+          STATUS=$(git status --short -u no)
           echo "::set-output name=STATUS::$STATUS"
           git commit -m "chore: prettier" ${{ steps.changed-files.outputs.all_changed_files }}
 
@@ -79,5 +80,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: "chore: apply prettier on modified files"
           branch: ${{ github.head_ref }}
-
 
