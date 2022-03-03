@@ -17,7 +17,6 @@ if (os.platform() === 'win32') {
  * This script let you run a script regardless the exit code.
  * node workspace-run.js SCRIPT_NAME
  *
- * The exitCode will give you an int with the number of pkg in error.
  */
 function run(cmd, opts = {}) {
 	if (opts.verbose) {
@@ -30,7 +29,6 @@ function run(cmd, opts = {}) {
 		let stderr = '';
 		out.on('error', error => {
 			console.error(error);
-			run.exitCode += 1;
 			reject(error);
 		});
 		out.on('close', () => {
@@ -71,10 +69,5 @@ function run(cmd, opts = {}) {
 		});
 	});
 }
-
-run.exitCode = 0;
-run.getExitCode = () => {
-	return run.exitCode;
-};
 
 module.exports = run;
