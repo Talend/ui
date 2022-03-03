@@ -20,10 +20,10 @@ import theme from './DataGrid.scss';
 
 const AgGridReact = React.lazy(() =>
 	assetsApi
-		.getUMD('ag-grid-community', '25.3.0', 'agGrid', '/dist/ag-grid-community.min.js')
+		.getUMD('ag-grid-community')
 		.then(() =>
 			assetsApi
-				.getUMD('ag-grid-react', '25.3.0', 'AgGridReact', '/bundles/ag-grid-react.min.js')
+				.getUMD('ag-grid-react')
 				.then(mod => ({ default: mod.AgGridReact, __esModule: true })),
 		),
 );
