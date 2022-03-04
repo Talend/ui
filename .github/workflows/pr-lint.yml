@@ -66,14 +66,7 @@ jobs:
           done
           STATUS=$(git diff --name-only)
           echo "::set-output name=STATUS::$STATUS"
-
-      - name: Commit and push changes
-        uses: actions-js/push@master
-        if: steps.prettier.outputs.STATUS
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: apply prettier on modified files"
-          branch: ${{ github.head_ref }}
-          author_email: 41898282+github-actions[bot]@users.noreply.github.com
-          author_name: github-actions[bot]
+          if [ ! -z $STATUS ];
+              exit 1
+          fi
 
