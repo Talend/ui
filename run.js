@@ -20,7 +20,7 @@ if (os.platform() === 'win32') {
  */
 function run(cmd, opts = {}) {
 	if (opts.verbose) {
-		console.log(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')}`);
+		console.log(`\n#### RUNNER: ${cmd.name} ${cmd.args.join(' ')}`);
 	}
 	const start = Date.now();
 	return new Promise((resolve, reject) => {
@@ -42,6 +42,7 @@ function run(cmd, opts = {}) {
 				console.error(`#### RUNNER: Child Process STDOUT: ${stdout}`);
 			}
 			if (code > 0) {
+				run.exitCode += 1;
 				console.error(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
 				reject(stderr);
 				return;

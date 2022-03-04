@@ -1,30 +1,29 @@
-import '@talend/bootstrap-theme/dist/bootstrap.css';
+import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
+import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 
-import React from 'react';
-import { ThemeProvider } from '@talend/design-system';
-import { IconsProvider } from '@talend/design-system';
-import { withA11y } from '@storybook/addon-a11y';
-import { namespaces } from '@talend/locales-tui-components/namespaces';
-import init, { withI18Next } from '../../../.storybook/i18n';
-export { globalTypes } from '../../../.storybook/i18n';
-import { addParameters } from '@storybook/react';
+export const i18n = {
+	namespaces: [...tuiNamespaces, ...dsNamespaces],
+	remoteLocalesMap: {
+		'tui-components':
+			'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
+		'design-system': 'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
+	},
+};
 
-import 'focus-outline-manager';
-import '../../../.storybook/sortStories';
-
-init({
-	defaultNS: namespaces[0],
-	fallbackNS: namespaces,
-});
-addParameters({ layout: 'fullscreen' });
-
-export const decorators = [
-	withA11y,
-	withI18Next,
-	storyFn => (
-		<ThemeProvider>
-			<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-			{storyFn()}
-		</ThemeProvider>
-	),
-];
+export const parameters = {
+	options: {
+		storySort: {
+			order: [
+				'Design Principles',
+				'Writing Principles',
+				'Navigation',
+				'Layout',
+				'Buttons',
+				'Messaging & Communication',
+				'Form',
+				'Data',
+				'Deprecated',
+			],
+		},
+	},
+};
