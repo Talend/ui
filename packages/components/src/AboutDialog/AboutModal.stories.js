@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import AboutDialog from '.';
 
@@ -44,21 +43,33 @@ const services = [
 
 const { name, version } = AboutDialog.Table.getColumnHeaders();
 
-storiesOf('Layout/Modals/AboutModal', module)
-	.addDecorator(story => (
-		<div>
-			<h1>AboutDialog</h1>
-			{story()}
-		</div>
-	))
-	.add('default', () => <AboutDialog {...props} />)
-	.add('without the version', () => <AboutDialog {...props} version={null} />)
-	.add('loading', () => <AboutDialog loading {...props} />)
-	.add('expanded', () => <AboutDialog expanded {...props} />)
-	.add('expanded with lot of services', () => (
-		<AboutDialog expanded {...props} services={services} />
-	))
-	.add('with custom definition', () => (
-		<AboutDialog expanded {...props} services={services} definition={[name, version]} />
-	))
-	.add('expanded & loading', () => <AboutDialog expanded loading {...props} />);
+export default {
+	title: 'Layout/Modals/AboutModal',
+
+	decorators: [
+		story => (
+			<div>
+				<h1>AboutDialog</h1>
+				{story()}
+			</div>
+		),
+	],
+};
+
+export const Default = () => <AboutDialog {...props} />;
+
+export const WithoutTheVersion = () => <AboutDialog {...props} version={null} />;
+
+export const Loading = () => <AboutDialog loading {...props} />;
+
+export const Expanded = () => <AboutDialog expanded {...props} />;
+
+export const ExpandedWithLotOfServices = () => (
+	<AboutDialog expanded {...props} services={services} />
+);
+
+export const WithCustomDefinition = () => (
+	<AboutDialog expanded {...props} services={services} definition={[name, version]} />
+);
+
+export const ExpandedLoading = () => <AboutDialog expanded loading {...props} />;

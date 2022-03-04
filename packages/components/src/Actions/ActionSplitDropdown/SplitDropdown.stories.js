@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
@@ -37,61 +36,68 @@ const myAction = {
 	emptyDropdownLabel: 'No option',
 };
 
-storiesOf('Deprecated/SplitDropdown', module)
-	.addDecorator(story => (
-		<div>
-			{story()}
-			<div className="container" style={{ paddingTop: 40 }} />
+export default {
+	title: 'Deprecated/SplitDropdown',
+
+	decorators: [
+		story => (
+			<div>
+				{story()}
+				<div className="container" style={{ paddingTop: 40 }} />
+			</div>
+		),
+	],
+};
+
+export const Default = () => (
+	<div>
+		<p>By default :</p>
+		<div id="default">
+			<ActionSplitDropdown {...myAction} />
 		</div>
-	))
-	.add('default', () => (
-		<div>
-			<p>By default :</p>
-			<div id="default">
-				<ActionSplitDropdown {...myAction} />
-			</div>
-			<p>Options with icons</p>
-			<div id="icon">
-				<ActionSplitDropdown {...myAction} items={itemsWithIcons} />
-			</div>
-			<p>Without icon</p>
-			<div id="noicon">
-				<ActionSplitDropdown {...myAction} icon="" />
-			</div>
-			<p>dropup</p>
-			<div id="noicon">
-				<ActionSplitDropdown {...myAction} dropup />
-			</div>
-			<p>Empty option</p>
-			<div id="empty">
-				<ActionSplitDropdown {...myAction} items={[]} />
-			</div>
+		<p>Options with icons</p>
+		<div id="icon">
+			<ActionSplitDropdown {...myAction} items={itemsWithIcons} />
 		</div>
-	))
-	.add('style variatons', () => {
-		const btnStyles = {
-			margin: '0 5px',
-		};
-		return (
-			<div id="styles">
-				<span style={btnStyles}>
-					<ActionSplitDropdown bsStyle="default" {...myAction} />
-				</span>
-				<span style={btnStyles}>
-					<ActionSplitDropdown bsStyle="primary" {...myAction} />
-				</span>
-				<span style={btnStyles}>
-					<ActionSplitDropdown bsStyle="success" {...myAction} />
-				</span>
-				<span style={btnStyles}>
-					<ActionSplitDropdown bsStyle="info" {...myAction} />
-				</span>
-				<span style={btnStyles}>
-					<ActionSplitDropdown bsStyle="warning" {...myAction} />
-				</span>
-				<span style={btnStyles}>
-					<ActionSplitDropdown bsStyle="danger" {...myAction} />
-				</span>
-			</div>
-		);
-	});
+		<p>Without icon</p>
+		<div id="noicon">
+			<ActionSplitDropdown {...myAction} icon="" />
+		</div>
+		<p>dropup</p>
+		<div id="noicon">
+			<ActionSplitDropdown {...myAction} dropup />
+		</div>
+		<p>Empty option</p>
+		<div id="empty">
+			<ActionSplitDropdown {...myAction} items={[]} />
+		</div>
+	</div>
+);
+
+export const StyleVariations = () => {
+	const btnStyles = {
+		margin: '0 5px',
+	};
+	return (
+		<div id="styles">
+			<span style={btnStyles}>
+				<ActionSplitDropdown bsStyle="default" {...myAction} />
+			</span>
+			<span style={btnStyles}>
+				<ActionSplitDropdown bsStyle="primary" {...myAction} />
+			</span>
+			<span style={btnStyles}>
+				<ActionSplitDropdown bsStyle="success" {...myAction} />
+			</span>
+			<span style={btnStyles}>
+				<ActionSplitDropdown bsStyle="info" {...myAction} />
+			</span>
+			<span style={btnStyles}>
+				<ActionSplitDropdown bsStyle="warning" {...myAction} />
+			</span>
+			<span style={btnStyles}>
+				<ActionSplitDropdown bsStyle="danger" {...myAction} />
+			</span>
+		</div>
+	);
+};

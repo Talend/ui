@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import FilterBar from '../FilterBar';
 import Tag from '../Tag';
@@ -67,114 +66,128 @@ const center = (
 	</SubHeaderBar.Content>
 );
 
-const stories = storiesOf('Navigation/SubHeader', module);
+export default {
+	title: 'Navigation/SubHeader',
+};
 
-stories
-	.add('with default', () => (
-		<div>
-			<SubHeaderBar {...viewProps} onGoBack={backAction} />
-		</div>
-	))
-	.add('with editable', () => (
-		<div>
-			<SubHeaderBar {...viewProps} onGoBack={backAction} editable />
-		</div>
-	))
-	.add('with icon', () => (
-		<div>
-			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} />
-		</div>
-	))
-	.add('with subtitle', () => (
-		<div>
-			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
-		</div>
-	))
-	.add('with loading subtitle', () => (
-		<div>
-			<SubHeaderBar {...viewProps} subTitleLoading onGoBack={backAction} />
-		</div>
-	))
-	.add('with custom subtitle', () => (
-		<div>
-			<SubHeaderBar
-				{...viewProps}
-				subTitle="mySubTitle"
-				onGoBack={backAction}
-				subTitleAs={({ subTitle }) => <Tag bsStyle="info">{subTitle}</Tag>}
-			/>
-		</div>
-	))
-	.add('with right components', () => (
-		<div>
-			<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight} />
-		</div>
-	))
-	.add('with center components', () => (
-		<div>
-			<SubHeaderBar {...viewProps} onGoBack={backAction} center={[componentAction]}>
-				{center}
-			</SubHeaderBar>
-		</div>
-	))
-	.add('with center components with tag props', () => (
-		<div>
-			<SubHeaderBar {...viewProps} onGoBack={backAction}>
-				<SubHeaderBar.Content tag="form" center>
-					<input id="inputTitle" type="text" onChange={action('onChange')} value="" />
-				</SubHeaderBar.Content>
-			</SubHeaderBar>
-		</div>
-	))
-	.add('with center && right components', () => (
-		<div>
-			<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight}>
-				{center}
-			</SubHeaderBar>
-		</div>
-	))
-	.add('with all', () => (
-		<div>
-			<SubHeaderBar
-				{...viewProps}
-				iconId="talend-file-csv-o"
-				subTitle="mySubTitle"
-				onGoBack={backAction}
-				right={injectedComponentsRight}
-			>
-				{center}
-			</SubHeaderBar>
-		</div>
-	))
-	.add('with skeleton', () => (
-		<div>
-			<SubHeaderBar
-				{...viewProps}
-				iconId="talend-file-csv-o"
-				subTitle="mySubTitle"
-				onGoBack={backAction}
-				loading
-			>
-				{center}
-			</SubHeaderBar>
-		</div>
-	))
-	.add('with inProgress', () => (
-		<div>
-			<SubHeaderBar
-				{...viewProps}
-				iconId="talend-file-csv-o"
-				subTitle="mySubTitle"
-				onGoBack={backAction}
-				inProgress
-				editable
-			>
-				{center}
-			</SubHeaderBar>
-		</div>
-	))
-	.add('with right actions loading', () => (
-		<div>
-			<SubHeaderBar {...viewProps} onGoBack={backAction} rightActionsLoading />
-		</div>
-	));
+export const WithDefault = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction} />
+	</div>
+);
+
+export const WithEditable = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction} editable />
+	</div>
+);
+
+export const WithIcon = () => (
+	<div>
+		<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} />
+	</div>
+);
+
+export const WithSubtitle = () => (
+	<div>
+		<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
+	</div>
+);
+
+export const WithLoadingSubtitle = () => (
+	<div>
+		<SubHeaderBar {...viewProps} subTitleLoading onGoBack={backAction} />
+	</div>
+);
+
+export const WithCustomSubtitle = () => (
+	<div>
+		<SubHeaderBar
+			{...viewProps}
+			subTitle="mySubTitle"
+			onGoBack={backAction}
+			subTitleAs={({ subTitle }) => <Tag bsStyle="info">{subTitle}</Tag>}
+		/>
+	</div>
+);
+
+export const WithRightComponents = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight} />
+	</div>
+);
+
+export const WithCenterComponents = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction} center={[componentAction]}>
+			{center}
+		</SubHeaderBar>
+	</div>
+);
+
+export const WithCenterComponentsWithTagProps = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction}>
+			<SubHeaderBar.Content tag="form" center>
+				<input id="inputTitle" type="text" onChange={action('onChange')} value="" />
+			</SubHeaderBar.Content>
+		</SubHeaderBar>
+	</div>
+);
+
+export const WithCenterRightComponents = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight}>
+			{center}
+		</SubHeaderBar>
+	</div>
+);
+
+export const WithAll = () => (
+	<div>
+		<SubHeaderBar
+			{...viewProps}
+			iconId="talend-file-csv-o"
+			subTitle="mySubTitle"
+			onGoBack={backAction}
+			right={injectedComponentsRight}
+		>
+			{center}
+		</SubHeaderBar>
+	</div>
+);
+
+export const WithSkeleton = () => (
+	<div>
+		<SubHeaderBar
+			{...viewProps}
+			iconId="talend-file-csv-o"
+			subTitle="mySubTitle"
+			onGoBack={backAction}
+			loading
+		>
+			{center}
+		</SubHeaderBar>
+	</div>
+);
+
+export const WithInProgress = () => (
+	<div>
+		<SubHeaderBar
+			{...viewProps}
+			iconId="talend-file-csv-o"
+			subTitle="mySubTitle"
+			onGoBack={backAction}
+			inProgress
+			editable
+		>
+			{center}
+		</SubHeaderBar>
+	</div>
+);
+
+export const WithRightActionsLoading = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction} rightActionsLoading />
+	</div>
+);
