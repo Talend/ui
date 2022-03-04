@@ -61,12 +61,6 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx || $file == *.mdx || $file == *.scss || $file == *.json ]]; then
               echo "Run Prettier on $file"
-              yarn prettier --config .prettierrc $file --write
+              yarn prettier --config .prettierrc --check $file
             fi
           done
-          STATUS=$(git diff --name-only)
-          echo "::set-output name=STATUS::$STATUS"
-          if [ ! -z $STATUS ];
-              then exit 1
-          fi
-
