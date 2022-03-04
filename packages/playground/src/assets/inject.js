@@ -29,7 +29,7 @@
 		const m = CDN_URL_REGEX.exec(url);
 		if (m !== null) {
 			//	return base ? url.slice(1) : url;
-			if (!url.includes('/cdn/@talend') && !url.includes('/cdn/ag-grid-react')) {
+			if (!url.includes('/cdn/@talend')) {
 				newUrl = url.replace(m[1], 'https://statics.cloud.talend.com');
 			}
 		}

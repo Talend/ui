@@ -3,9 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import assetsApi from '@talend/assets-api';
-// import { AgGridReact } from 'ag-grid-react';
 import { Inject, Skeleton } from '@talend/react-components';
-// import 'ag-grid-community/dist/styles/ag-grid.css';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -106,7 +104,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	componentDidMount() {
-		const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community', '25.3.0');
+		const href = assetsApi.getURL('/dist/styles/ag-grid.css');
 		assetsApi.addStyle({ href });
 	}
 
