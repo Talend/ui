@@ -9,11 +9,11 @@
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
-    "start": "start-storybook -p 6007",
+    "start": "talend-scripts start-storybook -p 6007",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "build-storybook --quiet",
+    "test:demo": "talend-scripts build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
@@ -49,10 +49,7 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.19",
-    "@storybook/addons": "^6.4.19",
-    "@storybook/react": "^6.4.19",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.39.0",
     "@talend/locales-tui-containers": "^6.38.1",
@@ -81,5 +78,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.2"
+  "version": "7.0.2",
+  "msw": {
+    "workerDirectory": ".storybook/public"
+  }
 }

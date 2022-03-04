@@ -14,7 +14,7 @@
     "test:cy": "cypress run-ct",
     "test:demo": "npm run build-storybook",
     "storybook": "npm run build:lib && BROWSER=none start-storybook -p 6006",
-    "build-storybook": "npm run build:lib && build-storybook --docs && node ./scripts/sitemap.js",
+    "build-storybook": "build-storybook --docs && node ./scripts/sitemap.js",
     "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner --config i18next-scanner.config.js && rm -rf tmp",
     "lint:es": "talend-scripts lint:es"
   },

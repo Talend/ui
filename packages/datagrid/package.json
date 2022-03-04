@@ -46,10 +46,6 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.4.19",
-    "@storybook/addon-actions": "^6.4.19",
-    "@storybook/addons": "^6.4.19",
-    "@storybook/react": "^6.4.19",
     "@talend/icons": "^6.39.0",
     "@talend/locales-tui-datagrid": "^6.36.5",
     "@talend/react-cmf": "^7.0.1",
