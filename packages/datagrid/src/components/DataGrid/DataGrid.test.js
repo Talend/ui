@@ -476,9 +476,11 @@ describe('#Datagrid method', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId={null} />);
 		const deselectAll = jest.fn();
 		const clearFocusedCell = jest.fn();
+		const ensureColumnVisible = jest.fn();
 		const api = {
 			deselectAll,
 			clearFocusedCell,
+			ensureColumnVisible,
 		};
 		const instance = wrapper.instance();
 		instance.removeFocusColumn = jest.fn();

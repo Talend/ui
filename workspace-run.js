@@ -22,13 +22,20 @@ function consume(cmds) {
 					consume(cmds);
 				} else {
 					console.error(error);
-					process.exit(run.exitCode);
+					process.exit(1);
 				}
 			});
 	} else if (process.env.EXECUTE_PARALLEL) {
-		Promise.all(cmds.map(cmd => run(cmd, options))).finally(() => process.exit(run.exitCode));
+		Promise.all(cmds.map(cmd => run(cmd, options)))
+			.catch(error => {
+				console.error(error);
+				process.exit(1);
+			})
+			.then(() => {
+				process.exit(0);
+			});
 	} else {
-		process.exit(run.exitCode);
+		process.exit(0);
 	}
 }
 

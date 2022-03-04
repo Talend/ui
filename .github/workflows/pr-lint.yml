@@ -31,7 +31,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --ignore-scripts
 
       - name: eslint
         continue-on-error: true
@@ -52,10 +52,6 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json
 
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
 
       - name: Prettier
         continue-on-error: true
@@ -65,15 +61,19 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx || $file == *.mdx || $file == *.scss || $file == *.json ]]; then
               echo "Run Prettier on $file"
-              prettier --config .prettierrc $file --write
+              yarn prettier --config .prettierrc $file --write
             fi
           done
-          git commit -m "chore: prettier" ${{ steps.changed-files.outputs.all_changed_files }}
+          STATUS=$(git diff --name-only)
+          echo "::set-output name=STATUS::$STATUS"
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Commit and push changes
+        uses: actions-js/push@master
+        if: steps.prettier.outputs.STATUS
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "chore: apply prettier on modified files"
           branch: ${{ github.head_ref }}
-
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          author_name: github-actions[bot]
 
