@@ -41,15 +41,13 @@ const structureWithIcons = [
 			{
 				name: 'raichu',
 				icon: {
-					name:
-						'src-http://static.pokemonpets.com/images/monsters-images-300-300/2026-Shiny-Raichu.png',
+					name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/2026-Shiny-Raichu.png',
 				},
 			},
 		],
 		isOpened: true,
 		icon: {
-			name:
-				'src-http://static.pokemonpets.com/images/monsters-images-300-300/2025-Shiny-Pikachu.png',
+			name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/2025-Shiny-Pikachu.png',
 		},
 	},
 	{
@@ -68,8 +66,7 @@ const structureWithIcons = [
 					{
 						name: 'Alakazam',
 						icon: {
-							name:
-								'src-http://static.pokemonpets.com/images/monsters-images-300-300/65-Alakazam.png',
+							name: 'src-http://static.pokemonpets.com/images/monsters-images-300-300/65-Alakazam.png',
 						},
 					},
 				],
@@ -381,8 +378,7 @@ const cornerCaseLongName = {
 };
 cornerCaseLongName.structure = [
 	{
-		name:
-			'Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1 Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1',
+		name: 'Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1 Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1Hitmonlee1',
 		isOpened: true,
 	},
 ];
