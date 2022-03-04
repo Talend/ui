@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and deploy
+    name: Build and deploy playground
     environment: pull_request_unsafe
 
     steps:
