@@ -119,18 +119,25 @@ export default class DataGrid extends React.Component {
 		}
 	}
 
+	handleKeyboard({ nextCellPosition, previousCellPosition }) {
+		if (!nextCellPosition || nextCellPosition.rowIndex < 0) {
+			return null;
+		}
+
+		if (this.gridAPI && previousCellPosition.rowIndex !== nextCellPosition.rowIndex) {
+			// ag-grid workaround: ag-grid set a selected row only by a click by an user
+			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
+			this.gridAPI.getDisplayedRowAtIndex(nextCellPosition.rowIndex).setSelected(true, true);
+		}
+
+		return nextCellPosition;
+	}
+
 	onGridReady({ api }) {
 		this.gridAPI = api;
 		if (this.props.focusedColumnId && this.props.focusedColumnId !== this.currentColId) {
 			this.onFocusedColumn(this.props.focusedColumnId);
 		}
-	}
-
-	shouldUpdateCurrentColumn() {
-		// Update local state if component is not controlled or if props changed
-		return (
-			this.props.focusedColumnId === undefined || this.props.focusedColumnId !== this.currentColId
-		);
 	}
 
 	onFocusedCell(props) {
@@ -236,6 +243,7 @@ export default class DataGrid extends React.Component {
 
 		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
 		const columnDefs = this.props.getColumnDefsFn(this.props.data, this.props.columnsConf);
+
 		let adaptedColumnDefs = [];
 
 		if (pinnedColumnDefs) {
@@ -288,6 +296,13 @@ export default class DataGrid extends React.Component {
 		return agGridOptions;
 	}
 
+	shouldUpdateCurrentColumn() {
+		// Update local state if component is not controlled or if props changed
+		return (
+			this.props.focusedColumnId === undefined || this.props.focusedColumnId !== this.currentColId
+		);
+	}
+
 	removeFocusColumn() {
 		// workaround see README.md#Workaround Active Column
 		const focusedCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
@@ -310,20 +325,6 @@ export default class DataGrid extends React.Component {
 		);
 
 		columnsCells.forEach(({ classList }) => classList.add(FOCUSED_COLUMN_CLASS_NAME));
-	}
-
-	handleKeyboard({ nextCellPosition, previousCellPosition }) {
-		if (!nextCellPosition || nextCellPosition.rowIndex < 0) {
-			return null;
-		}
-
-		if (this.gridAPI && previousCellPosition.rowIndex !== nextCellPosition.rowIndex) {
-			// ag-grid workaround: ag-grid set a selected row only by a click by an user
-			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
-			this.gridAPI.getDisplayedRowAtIndex(nextCellPosition.rowIndex).setSelected(true, true);
-		}
-
-		return nextCellPosition;
 	}
 
 	render() {
