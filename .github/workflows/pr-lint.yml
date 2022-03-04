@@ -52,10 +52,6 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json
 
-      # - name: Configure git
-      #   run: |
-      #     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      #     git config --local user.name "github-actions[bot]"
 
       - name: Prettier
         continue-on-error: true
