@@ -67,6 +67,6 @@ jobs:
           STATUS=$(git diff --name-only)
           echo "::set-output name=STATUS::$STATUS"
           if [ ! -z $STATUS ];
-              exit 1
+              then exit 1
           fi
 
