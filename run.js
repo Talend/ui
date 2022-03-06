@@ -17,11 +17,10 @@ if (os.platform() === 'win32') {
  * This script let you run a script regardless the exit code.
  * node workspace-run.js SCRIPT_NAME
  *
- * The exitCode will give you an int with the number of pkg in error.
  */
 function run(cmd, opts = {}) {
 	if (opts.verbose) {
-		console.log(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')}`);
+		console.log(`\n#### RUNNER: ${cmd.name} ${cmd.args.join(' ')}`);
 	}
 	const start = Date.now();
 	return new Promise((resolve, reject) => {
@@ -30,7 +29,6 @@ function run(cmd, opts = {}) {
 		let stderr = '';
 		out.on('error', error => {
 			console.error(error);
-			run.exitCode += 1;
 			reject(error);
 		});
 		out.on('close', () => {
@@ -44,6 +42,7 @@ function run(cmd, opts = {}) {
 				console.error(`#### RUNNER: Child Process STDOUT: ${stdout}`);
 			}
 			if (code > 0) {
+				run.exitCode += 1;
 				console.error(`#### RUNNER: ${cmd.name} ${cmd.args.join(' ')} exit code ${code}`);
 				reject(stderr);
 				return;
@@ -71,7 +70,5 @@ function run(cmd, opts = {}) {
 		});
 	});
 }
-
-run.exitCode = 0;
 
 module.exports = run;

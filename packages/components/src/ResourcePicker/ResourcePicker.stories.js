@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ResourcePicker from '.';
@@ -132,92 +131,102 @@ const props = {
 	onRowClick: action('Row clicked'),
 };
 
-storiesOf('Form/Controls/ResourcePicker', module)
-	.add('default', () => (
-		<div>
-			<p>By default :</p>
-			<ResourcePicker id="default" {...props} />
-		</div>
-	))
-	.add('generic subtitle', () => (
-		<div>
-			<p>By default :</p>
-			<div style={{ width: '40rem', height: '10rem' }}>
-				<ResourcePicker
-					id="default"
-					{...props}
-					collection={simpleCollection}
-					toolbar={{
-						name,
-						sort: {
-							onChange: action('Sort option changed'),
-							types: [ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.NAME],
-							orders: {
-								[ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]:
-									ResourcePicker.TOOLBAR_OPTIONS.ORDERS.DESC,
-							},
-						},
-						state: { types: [] },
-					}}
-				/>
-			</div>
-		</div>
-	))
-	.add('with selected resources', () => (
-		<div>
-			<p>By default :</p>
-			<ResourcePicker id="default" {...props} isSelected={() => true} />
-		</div>
-	))
-	.add('without toolbar', () => (
-		<div>
-			<p>By default :</p>
-			<ResourcePicker id="default" collection={collection} />
-		</div>
-	))
-	.add('without sort options', () => (
-		<div>
-			<p>By default :</p>
-			<ResourcePicker id="default" collection={collection} toolbar={{ name, state }} />
-		</div>
-	))
-	.add('with partial sort options', () => (
-		<div>
-			<p>By default :</p>
+export default {
+	title: 'Form/Controls/ResourcePicker',
+};
+
+export const Default = () => (
+	<div>
+		<p>By default :</p>
+		<ResourcePicker id="default" {...props} />
+	</div>
+);
+
+export const GenericSubtitle = () => (
+	<div>
+		<p>By default :</p>
+		<div style={{ width: '40rem', height: '10rem' }}>
 			<ResourcePicker
 				id="default"
-				collection={collection}
+				{...props}
+				collection={simpleCollection}
 				toolbar={{
 					name,
-					state,
 					sort: {
-						...sort,
-						types: [ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.DATE],
+						onChange: action('Sort option changed'),
+						types: [ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.NAME],
+						orders: {
+							[ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]:
+								ResourcePicker.TOOLBAR_OPTIONS.ORDERS.DESC,
+						},
 					},
+					state: { types: [] },
 				}}
 			/>
 		</div>
-	))
-	.add('without state filter', () => (
-		<div>
-			<p>By default :</p>
-			<ResourcePicker id="default" collection={collection} toolbar={{ name, sort }} />
-		</div>
-	))
-	.add('with partial state options', () => (
-		<div>
-			<p>By default :</p>
-			<ResourcePicker
-				id="default"
-				collection={collection}
-				toolbar={{
-					name,
-					sort,
-					state: {
-						...state,
-						types: [ResourcePicker.TOOLBAR_OPTIONS.STATE_FILTERS.CERTIFIED],
-					},
-				}}
-			/>
-		</div>
-	));
+	</div>
+);
+
+export const WithSelectedResources = () => (
+	<div>
+		<p>By default :</p>
+		<ResourcePicker id="default" {...props} isSelected={() => true} />
+	</div>
+);
+
+export const WithoutToolbar = () => (
+	<div>
+		<p>By default :</p>
+		<ResourcePicker id="default" collection={collection} />
+	</div>
+);
+
+export const WithoutSortOptions = () => (
+	<div>
+		<p>By default :</p>
+		<ResourcePicker id="default" collection={collection} toolbar={{ name, state }} />
+	</div>
+);
+
+export const WithPartialSortOptions = () => (
+	<div>
+		<p>By default :</p>
+		<ResourcePicker
+			id="default"
+			collection={collection}
+			toolbar={{
+				name,
+				state,
+				sort: {
+					...sort,
+					types: [ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.DATE],
+				},
+			}}
+		/>
+	</div>
+);
+
+export const WithoutStateFilter = () => (
+	<div>
+		<p>By default :</p>
+		<ResourcePicker id="default" collection={collection} toolbar={{ name, sort }} />
+	</div>
+);
+
+export const WithPartialStateOptions = () => (
+	<div>
+		<p>By default :</p>
+		<ResourcePicker
+			id="default"
+			collection={collection}
+			toolbar={{
+				name,
+				sort,
+				state: {
+					...state,
+					types: [ResourcePicker.TOOLBAR_OPTIONS.STATE_FILTERS.CERTIFIED],
+				},
+			}}
+		/>
+	</div>
+);

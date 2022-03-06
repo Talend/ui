@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionIconToggle from './ActionIconToggle.component';
@@ -62,67 +61,72 @@ class DisableActionIconToggle extends React.Component {
 	}
 }
 
-storiesOf('Buttons/IconToggle', module)
-	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.add('disable the buttons', () => (
-		<div>
-			<DisableActionIconToggle />
-		</div>
-	))
-	.add('default', () => (
-		<div>
-			<p>Inactive (By default)</p>
-			<ActionIconToggle {...inactiveIconToggle} />
+export default {
+	title: 'Buttons/IconToggle',
+	decorators: [story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>],
+};
 
-			<p>Active</p>
-			<ActionIconToggle {...activeIconToggle} />
+export const DisableTheButtons = () => (
+	<div>
+		<DisableActionIconToggle />
+	</div>
+);
 
-			<p>With tick</p>
-			<ActionIconToggle {...inactiveIconToggle} tick />
+export const Default = () => (
+	<div>
+		<p>Inactive (By default)</p>
+		<ActionIconToggle {...inactiveIconToggle} />
 
-			<p>Active with tick</p>
-			<ActionIconToggle {...activeIconToggle} tick />
-		</div>
-	))
-	.add('customize sizes', () => (
-		<div>
-			<p>You can customize a specific icon toggle using a sass mixin</p>
-			<pre>
-				{`// sass file
+		<p>Active</p>
+		<ActionIconToggle {...activeIconToggle} />
+
+		<p>With tick</p>
+		<ActionIconToggle {...inactiveIconToggle} tick />
+
+		<p>Active with tick</p>
+		<ActionIconToggle {...activeIconToggle} tick />
+	</div>
+);
+
+export const CustomizeSizes = () => (
+	<div>
+		<p>You can customize a specific icon toggle using a sass mixin</p>
+		<pre>
+			{`// sass file
 @import '~@talend/react-components/lib/Actions/ActionIconToggle/ActionIconToggle.scss'
 $my-btn-size: 4rem;
 $my-btn-icon-size: 2.5rem;
 .tc-icon-toggle.my-custom-icon-toggle {
-	@include tc-icon-toggle($my-btn-size, $my-btn-icon-size);
+    @include tc-icon-toggle($my-btn-size, $my-btn-icon-size);
 }`}
-			</pre>
-			<pre>
-				{`// component file
+		</pre>
+		<pre>
+			{`// component file
 <ActionIconToggle
-	className={'my-custom-icon-toggle'}
-	{...otherProps}
+    className={'my-custom-icon-toggle'}
+    {...otherProps}
 />`}
-			</pre>
+		</pre>
 
-			<style>
-				{`.tc-icon-toggle.my-custom-icon-toggle {
-						height: 4rem;
-						width: 4rem;
-						border-radius:2rem;
-					}
+		<style>
+			{`.tc-icon-toggle.my-custom-icon-toggle {
+                        height: 4rem;
+                        width: 4rem;
+                        border-radius:2rem;
+                    }
 
-					.tc-icon-toggle.my-custom-icon-toggle svg {
-						height: 2.5rem;
-						width: 2.5rem;
-					}`}
-			</style>
+                    .tc-icon-toggle.my-custom-icon-toggle svg {
+                        height: 2.5rem;
+                        width: 2.5rem;
+                    }`}
+		</style>
 
-			<p>Custom sizes</p>
-			<ActionIconToggle {...inactiveIconToggle} className="my-custom-icon-toggle" />
-			<ActionIconToggle {...activeIconToggle} className="my-custom-icon-toggle" />
+		<p>Custom sizes</p>
+		<ActionIconToggle {...inactiveIconToggle} className="my-custom-icon-toggle" />
+		<ActionIconToggle {...activeIconToggle} className="my-custom-icon-toggle" />
 
-			<p>Classical sizes</p>
-			<ActionIconToggle {...inactiveIconToggle} />
-			<ActionIconToggle {...activeIconToggle} />
-		</div>
-	));
+		<p>Classical sizes</p>
+		<ActionIconToggle {...inactiveIconToggle} />
+		<ActionIconToggle {...activeIconToggle} />
+	</div>
+);

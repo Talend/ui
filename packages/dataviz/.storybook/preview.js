@@ -1,23 +1,16 @@
 import React from 'react';
-import { ThemeProvider, IconsProvider } from '@talend/design-system';
-import init, { withI18Next } from '../../../.storybook/i18n';
+import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
+import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
+
+export const i18n = {
+	namespaces: [...tuiNamespaces, ...dsNamespaces],
+	remoteLocalesMap: {
+		'tui-components':
+			'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
+		'design-system': 'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
+	},
+};
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 };
-
-init({});
-
-export const decorators = [
-	withI18Next,
-	storyFn => {
-		return (
-			<ThemeProvider>
-				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-				{storyFn()}
-			</ThemeProvider>
-		);
-	},
-];
-
-export { globalTypes } from '../../../.storybook/i18n';
