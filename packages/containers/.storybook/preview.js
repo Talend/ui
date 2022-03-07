@@ -6,8 +6,6 @@ import { namespaces as formsNamespaces } from '@talend/locales-tui-forms/namespa
 import { namespaces as containersNamespaces } from '@talend/locales-tui-containers/namespaces';
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 
-export const namespaces = [componentsNamespaces, containersNamespaces, formsNamespaces];
-
 import cmfModule, { settings } from './cmfModule';
 
 export const i18n = {
