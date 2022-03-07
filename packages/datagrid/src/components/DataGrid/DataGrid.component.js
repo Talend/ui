@@ -104,8 +104,8 @@ export default class DataGrid extends React.Component {
 	}
 
 	componentDidMount() {
-		const href = assetsApi.getURL('/dist/styles/ag-grid.css');
-		assetsApi.addStyle({ href });
+		// const href = assetsApi.getURL('/dist/styles/ag-grid.css');
+		// assetsApi.addStyle({ href });
 	}
 
 	/**
@@ -298,7 +298,6 @@ export default class DataGrid extends React.Component {
 				DefaultPinHeaderRenderer,
 			),
 		};
-
 		return agGridOptions;
 	}
 
