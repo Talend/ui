@@ -83,33 +83,45 @@ function addScript({ src, integrity, ...attr }: Script) {
 }
 
 function getUMD(name: string, version?: string, varName?: string, path?: string) {
+	const cache = { resolved: false };
+	function loaded() {
+		if (!varName) {
+			return false;
+		}
+		return !!(window as any)[varName];
+	}
+	if (loaded() && varName) {
+		return Promise.resolve({ default: (window as any)[varName] });
+	}
 	const src = getURL(path || '/undefined', name, version);
 	console.log('getUMD', src);
-	const cache = { resolved: false };
+
 	return new Promise((resolve, reject) => {
 		function onload() {
 			if (!varName) {
 				cache.resolved = true;
 				resolve(undefined);
+			} else {
+				console.log(`${varName} onload ok`);
 			}
 		}
 		function onerror(e: Error) {
+			console.error(e);
 			reject(e);
 		}
 		addScript({ src, onload, onerror });
 		if (varName) {
 			const intervalId = setInterval(() => {
-				const mod = (window as any)[varName];
-				if (mod) {
+				if (loaded()) {
 					cache.resolved = true;
 					clearInterval(intervalId);
-					resolve(mod);
+					resolve({ default: (window as any)[varName] });
 				}
 			}, 200);
 			setTimeout(() => {
 				if (!cache.resolved) {
 					clearInterval(intervalId);
-					reject(new Error(`UMD from ${src} not loaded in ${TIMEOUT}`));
+					reject(new Error(`UMD from ${src}, ${varName} not found in ${TIMEOUT}`));
 				}
 			}, TIMEOUT);
 		}
