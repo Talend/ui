@@ -65,7 +65,7 @@
     "reactour": "^1.18.7",
     "recharts": "^2.1.9",
     "simplebar": "^4.2.3",
-    "simplebar-react": "^1.2.3",
+    "simplebar-react": "^2.3.6",
     "styled-components": "^5.3.3",
     "uuid": "^3.4.0"
   },
