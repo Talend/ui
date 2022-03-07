@@ -1,6 +1,6 @@
 {
   "name": "@talend/router-bridge",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Bridge on top of cmf-router or react-router v5 + connected-react-router",
   "main": "lib/index.js",
   "scripts": {
@@ -19,8 +19,8 @@
   "license": "Apache-2.0",
   "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
   "devDependencies": {
-    "@talend/scripts-core": "^11.5.1",
-    "@talend/scripts-preset-react-lib": "^9.11.2",
+    "@talend/scripts-core": "^11.6.0",
+    "@talend/scripts-preset-react-lib": "^9.12.4",
     "connected-react-router": "^6.9.2",
     "history": "^5.2.0",
     "react": "^16.14.0",

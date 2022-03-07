@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Use Node.js 14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14
           registry-url: "https://registry.npmjs.org/"
@@ -25,7 +25,7 @@ jobs:
 
       - name: Upgrade dependencies
         run: |
-          yarn
+          yarn --frozen-lockfile --ignore-scripts
           yarn talend-scripts upgrade:deps
           yarn talend-scripts upgrade:deps --scope=@talend --latest
           yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.txt

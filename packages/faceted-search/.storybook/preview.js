@@ -1,29 +1,20 @@
 import React from 'react';
-import { I18nextProvider } from 'react-i18next';
-import { IconsProvider } from '@talend/design-system';
 
-import i18n from './i18n';
+import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
+import { namespaces as facetedNamespaces } from '@talend/locales-tui-faceted-search/namespaces';
 
-export const globalTypes = {
-	locale: {
-		name: 'Locale',
-		defaultValue: 'en',
-		toolbar: {
-			icon: 'globe',
-			items: [
-				{ value: 'zh', title: 'Chinese' },
-				{ value: 'en', title: 'English' },
-				{ value: 'fr', title: 'French' },
-				{ value: 'de', title: 'German' },
-				{ value: 'ja', title: 'Japanese' },
-			],
-		},
+export const i18n = {
+	namespaces: [...tuiNamespaces, ...facetedNamespaces],
+	remoteLocalesMap: {
+		'tui-components':
+			'https://unpkg.com/@talend/locales-tui-components/locales/{{lng}}/{{ns}}.json',
+		'tui-faceted-search':
+			'https://unpkg.com/@talend/locales-tui-faceted-search/locales/{{lng}}/{{ns}}.json',
 	},
 };
 
 export const decorators = [
 	(Story, context) => {
-		i18n.changeLanguage(context.globals?.locale);
 		return (
 			<div
 				style={{
@@ -34,11 +25,7 @@ export const decorators = [
 					backgroundColor: 'rgba(145, 209, 237, 0.1)',
 				}}
 			>
-				{' '}
-				<I18nextProvider i18n={i18n}>
-					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-					<Story {...context} />
-				</I18nextProvider>
+				<Story {...context} />
 			</div>
 		);
 	},
