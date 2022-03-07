@@ -12,14 +12,21 @@ import { DocsContainer } from '@storybook/addon-docs';
 import { UPDATE_GLOBALS, SET_STORIES } from '@storybook/core-events';
 import { TableOfContents, BackToTop } from 'storybook-docs-toc';
 
-import 'focus-outline-manager';
+import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 
-import i18n from './i18n';
+import 'focus-outline-manager';
 
 import { BadgeFigma, BadgeStorybook, BadgeReact, BadgeI18n, Badges } from './docs';
 import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
 
 import { light, dark } from '../src/themes';
+
+export const i18n = {
+	namespaces: [...dsNamespaces],
+	remoteLocalesMap: {
+		'design-system': 'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
+	},
+};
 
 export const globalTypes = {
 	theme: {
@@ -30,20 +37,6 @@ export const globalTypes = {
 			items: [
 				{ value: 'light', left: '⚪️', title: 'Default theme' },
 				{ value: 'dark', left: '⚫️', title: 'Dark theme' },
-			],
-		},
-	},
-	locale: {
-		name: 'Locale',
-		defaultValue: 'en',
-		toolbar: {
-			icon: 'globe',
-			items: [
-				{ value: 'zh', title: 'Chinese' },
-				{ value: 'en', title: 'English' },
-				{ value: 'fr', title: 'French' },
-				{ value: 'de', title: 'German' },
-				{ value: 'ja', title: 'Japanese' },
 			],
 		},
 	},
@@ -291,20 +284,11 @@ export const decorators = [
 		if (localeKey) i18n.changeLanguage(localeKey);
 		const theme = getTheme(themeKey);
 
-		const themedStory = (
+		return (
 			<ThemeProvider theme={theme}>
 				<ThemeProvider.GlobalStyle />
 				<Story {...context} />
 			</ThemeProvider>
-		);
-
-		return viewMode === 'docs' ? (
-			themedStory
-		) : (
-			<I18nextProvider i18n={i18n}>
-				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
-				{themedStory}
-			</I18nextProvider>
 		);
 	},
 ];
