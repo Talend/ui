@@ -15,7 +15,7 @@ We use different distribution formats for our libraries:
 We see commits with a mix of libraries being added to `peerDependencies` and `dependencies` without real guidelines.
 Each change in peerDependencies leads to [a major release](https://github.com/semver/semver/issues/502).
 
-We do not know when to put a dependency in the `"peerDependencies"` or just in the `"dependencies"` attribute of the package.json file.
+We do not know when to put a dependency in the `"peerDependencies"` or just in the `"dependencies"` of the package.json file.
 
 With yarn, `peerDependencies` are hard to manage. Yarn only outputs a warning the first time it encounters the dependency, when it needs to really install it in your node_modules. It's easy to miss and to forget. We have also seen some false positive warnings.
 
