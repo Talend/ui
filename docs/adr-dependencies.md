@@ -2,7 +2,7 @@
 
 ## Context
 
-Dependencies are specified using the package.json file in library repositories.
+Dependencies are specified using the package.json file in the library's codebase.
 We have more and more libraries written and used by projects.
 
 We use different distribution formats for our libraries:
