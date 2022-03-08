@@ -5,7 +5,7 @@
 	height: tokens.$coral-size-xl;
 	width: tokens.$coral-size-xl;
 	background: tokens.$coral-color-neutral-background-strong;
-	animation: blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite;
+	animation: tokens.$coral-animation-heartbeat;
 	border-radius: tokens.$coral-radius-s;
 	cursor: wait;
 
@@ -33,14 +33,4 @@
 
 .size-XS {
 	height: tokens.$coral-size-xs;
-}
-
-@keyframes blink {
-	0%,
-	100% {
-		opacity: 1;
-	}
-	50% {
-		opacity: 0.5;
-	}
 }

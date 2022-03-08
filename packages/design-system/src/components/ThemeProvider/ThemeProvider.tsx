@@ -4,6 +4,8 @@ import {
 	ThemeProvider as StyledThemeProvider,
 	ThemeProviderProps,
 } from 'styled-components';
+// eslint-disable-next-line @talend/import-depth
+import '@talend/design-tokens/dist/TalendDesignTokens.css';
 
 import ThemeContext from './ThemeContext';
 
