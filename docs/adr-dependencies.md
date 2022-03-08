@@ -1,4 +1,4 @@
-# usage of Dependencies, peerDependencies, devDependencies in package.json
+# Usage of dependencies, peerDependencies, devDependencies in package.json
 
 ## Context
 
