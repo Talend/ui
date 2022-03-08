@@ -3260,11 +3260,6 @@
   resolved "https://registry.yarnpkg.com/@talend/daikon-tql-client/-/daikon-tql-client-1.3.1.tgz#75a764ec14b06355af3924f3b2d65ff8e61db4f0"
   integrity sha512-trwueNzgISaN2jSNBxuiHw76jWX2G/vtSrCtlTaoeS3NzsCIVUlGryqKZnuBLfZWJyVWeImx9xm34mBOHITMIQ==
 
-"@talend/design-tokens@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@talend/design-tokens/-/design-tokens-1.4.0.tgz#ec36de4e718817f2b0623fb14a82b69a55bdf108"
-  integrity sha512-jRRSDX1AQdkleXW117oRAmQRmy+c/tDhuxHgnAH6jVVyrhDAgg/3ujhnvN48/0MXQSTcxp/yb1CRPuBi61PT1A==
-
 "@talend/dynamic-cdn-webpack-plugin@^9.7.15":
   version "9.7.15"
   resolved "https://registry.yarnpkg.com/@talend/dynamic-cdn-webpack-plugin/-/dynamic-cdn-webpack-plugin-9.7.15.tgz#eb85a65f571d15321d2625f1a6f5d4e6001cb6a6"
