@@ -87,9 +87,17 @@ Only use when necessary to avoid multiple clicks when the action is not instant.
 
 ### Skeleton
 
-Skeleton needs are handled by the Skeleton component.
+Skeletons are placeholders for UIs that are not yet ready but will feature a ButtonIcon.
 
-// TODO
+The Loading state is for asynchronous tasks where the Button (and the button only) represents a pending state.
+
+Skeleton needs are handled by the Skeleton component. Use `SkeletonButtonIcon` or the right `variant` prop on `Skeleton`.
+
+<Canvas>
+	<Story story={Stories.ButtonIconSkeletons} />
+</Canvas>
+
+[The Skeleton Documentation is over there!](/docs/components-skeleton--skeleton-button-story)
 
 ## Interaction
 
