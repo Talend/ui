@@ -37,6 +37,7 @@ describe('GeoChart component', () => {
 
 	it('Should match data in configured properties only', async () => {
 		const chartConfig = await getGeoChartConfig('US_STATE_CODE');
+
 		const component = mount(
 			<GeoChart
 				{...defaultProps}
