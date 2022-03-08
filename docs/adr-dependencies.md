@@ -8,7 +8,7 @@ We have more and more libraries written and used by projects.
 We use different distribution formats for our libraries:
 
 - UMD for some (react-components, react-cmf, etc ...)
-- mix of transpiled JS and SASS files which need shared config to make it work for others
+- a mix of transpiled JS and SASS files which needs sharing config to make it work for others
 
 ## Problems
 
