@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 1.4.0
+
+### Minor Changes
+
+- de71a183b: CSS export is no longer hashed
+
 ## 1.3.0
 
 ### Minor Changes
