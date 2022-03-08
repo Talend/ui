@@ -200,7 +200,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@>=7.9.0", "@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.12.3", "@babel/core@^7.16.12", "@babel/core@^7.17.0", "@babel/core@^7.17.4", "@babel/core@^7.7.5":
+"@babel/core@>=7.9.0", "@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.12.3", "@babel/core@^7.17.0", "@babel/core@^7.17.4", "@babel/core@^7.17.5", "@babel/core@^7.7.5":
   version "7.17.5"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.17.5.tgz#6cd2e836058c28f06a4ca8ee7ed955bbf37c8225"
   integrity sha512-/BBMw4EvjmyquN5O+t5eh0+YqB3XXJkYD2cjKpYtWOfFy4lQ4UozNSmxAcWT8r2XtZs0ewG+zrfsqeR15i1ajA==
@@ -3240,6 +3240,14 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
+"@talend/babel-plugin-assets-api@^1.0.1":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@talend/babel-plugin-assets-api/-/babel-plugin-assets-api-1.0.2.tgz#c902f72b895c0e11924dadd1a3d7533a80197b97"
+  integrity sha512-JUo0z6LrNY0Edm6TtV9HIotRQxxExYD4/HLzoBrhhXSdqdu5HmYDQrvVN24vlHT6DL1iAbxkXU/ujrT5sh+9bA==
+  dependencies:
+    "@talend/module-to-cdn" "^9.7.7"
+    read-pkg-up "^7.0.1"
+
 "@talend/babel-plugin-import-from-index@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@talend/babel-plugin-import-from-index/-/babel-plugin-import-from-index-1.5.0.tgz#f91904a07e098ba7e6359cbc86e76355b3c71c8f"
@@ -3313,12 +3321,12 @@
     mkdirp "^1.0.4"
     semver "^7.3.5"
 
-"@talend/scripts-config-babel@^9.7.3", "@talend/scripts-config-babel@^9.8.0":
-  version "9.8.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-9.8.0.tgz#0e302953ebb668276494fc2b9e23f69346757d37"
-  integrity sha512-OsIwPcD6WLsrQJyVgJ2crO1SjPko6iFtCBh0/VyuwljZj/8q9TVjh6jA8JuydKMOfuepfsEID+CE3sjv7Q314g==
+"@talend/scripts-config-babel@^9.7.3", "@talend/scripts-config-babel@^9.8.0", "@talend/scripts-config-babel@^9.9.0":
+  version "9.9.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-9.9.0.tgz#c1c6d4679e962f08ba35a6dd7d8928a258bc0125"
+  integrity sha512-1C3jV7uPTdZkgRtnOKG1wVg/NMaooNQVL+rNh9G6Cup1W6663h0Xxma/6pdabBndu1ZeDOFAYCz7MGmiF806bg==
   dependencies:
-    "@babel/core" "^7.16.12"
+    "@babel/core" "^7.17.5"
     "@babel/plugin-proposal-class-properties" "^7.16.7"
     "@babel/plugin-proposal-export-default-from" "^7.16.7"
     "@babel/plugin-proposal-export-namespace-from" "^7.16.7"
@@ -3328,6 +3336,7 @@
     "@babel/preset-env" "^7.16.11"
     "@babel/preset-react" "^7.16.7"
     "@babel/preset-typescript" "^7.16.7"
+    "@talend/babel-plugin-assets-api" "^1.0.1"
     "@talend/babel-plugin-import-from-index" "^1.5.0"
     babel-core "^7.0.0-bridge.0"
     babel-plugin-angularjs-annotate "^0.10.0"
@@ -3387,12 +3396,12 @@
   integrity sha512-lqNU8kB4PDR4tTDIZ0OMF0PfSAnNk5guS11UHn3ktiac0hy6/ENeD5qEJ2POJeTh7IP4l0Vxs0WwOkj20UkRCA==
 
 "@talend/scripts-config-react-webpack@^11.2.1", "@talend/scripts-config-react-webpack@^11.5.0":
-  version "11.5.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.5.0.tgz#a0a9ccfb6bc6a051aaeecca76b5ba97615c46a5d"
-  integrity sha512-UtjilzUDpkqAoAUGSt2/NC4P5B0fYkFEnjAZFLvfhSEL0SdltOUxtQ2owdB9tlX1dkKb8lgrZJbyj5/wnbd6DQ==
+  version "11.5.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-11.5.1.tgz#0071060b2dbe881f1752dad95140024bfc3aaa8b"
+  integrity sha512-F8u1UUoYTv7SHXV3wTcdiACQaDhgHj9uzRT/T9zusc0Ho4crDVpy5ozKEodWSq9dKLKZWhr6LnziJ+9YD5Vldw==
   dependencies:
     "@talend/react-cmf-webpack-plugin" "^6.36.6"
-    "@talend/scripts-config-babel" "^9.8.0"
+    "@talend/scripts-config-babel" "^9.9.0"
     "@talend/scripts-config-cdn" "^9.12.0"
     "@welldone-software/why-did-you-render" "^6.2.3"
     "@yarnpkg/lockfile" "^1.1.0"
@@ -3418,7 +3427,7 @@
     source-map-loader "^0.2.4"
     style-loader "^1.3.0"
     svg64 "^1.1.0"
-    terser "^5.11.0"
+    terser "^5.12.0"
     terser-webpack-plugin "^4.2.3"
     tmp "^0.2.1"
     url-loader "^3.0.0"
@@ -19733,10 +19742,10 @@ terser@^4.1.2, terser@^4.6.3:
     source-map "~0.6.1"
     source-map-support "~0.5.12"
 
-terser@^5.11.0, terser@^5.3.4:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.11.0.tgz#2da5506c02e12cd8799947f30ce9c5b760be000f"
-  integrity sha512-uCA9DLanzzWSsN1UirKwylhhRz3aKPInlfmpGfw8VN6jHsAtu8HJtIpeeHHK23rxnE/cDc+yvmq5wqkIC6Kn0A==
+terser@^5.12.0, terser@^5.3.4:
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.12.0.tgz#728c6bff05f7d1dcb687d8eace0644802a9dae8a"
+  integrity sha512-R3AUhNBGWiFc77HXag+1fXpAxTAFRQTJemlJKjAgD9r8xXTpjNKqIXwHM/o7Rh+O0kUJtS3WQVdBeMKFk5sw9A==
   dependencies:
     acorn "^8.5.0"
     commander "^2.20.0"
