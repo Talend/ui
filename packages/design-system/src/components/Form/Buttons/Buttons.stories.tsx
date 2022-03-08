@@ -12,8 +12,8 @@ export default {
 export const FormButtonsSkeleton = () => (
 	<Form>
 		<Form.Buttons>
-			<Skeleton.Button />
-			<Skeleton.Button />
+			<Skeleton variant="button" />
+			<Skeleton variant="button" />
 		</Form.Buttons>
 	</Form>
 );

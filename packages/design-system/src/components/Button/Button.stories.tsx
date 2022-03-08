@@ -317,13 +317,12 @@ export const TertiaryVariations = () => (
 );
 
 export const SkeletonButton = () => {
-	return <Skeleton.Button />;
-};
-export const SkeletonButtonSmall = () => {
-	return <Skeleton.Button />;
-};
-export const SkeletonButtonIcon = () => {
-	return <Skeleton.Icon />;
+	return (
+		<StackHorizontal gap="XS">
+			<Skeleton variant="button" />
+			<Skeleton variant="button" size="S" />
+		</StackHorizontal>
+	);
 };
 
 export const TooltipButton = (props: Story<BaseButtonProps>) => (
