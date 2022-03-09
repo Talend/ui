@@ -17,13 +17,22 @@ import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
 
 const AgGridReact = React.lazy(() =>
-	assetsApi
-		.getUMD('ag-grid-community')
-		.then(() =>
-			assetsApi
-				.getUMD('ag-grid-react')
-				.then(mod => ({ default: mod.AgGridReact, __esModule: true })),
-		),
+	assetsApi.getUMD('ag-grid-community').then(() =>
+		assetsApi.getUMD('ag-grid-react').then(mod => {
+			return Object.create(null, {
+				default: {
+					value: mod.AgGridReact,
+					enumerable: true,
+				},
+				__esModule: {
+					value: true,
+				},
+				[Symbol.toStringTag]: {
+					value: 'Module',
+				},
+			});
+		}),
+	),
 );
 
 export const AG_GRID = {
@@ -104,7 +113,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	componentDidMount() {
-		const href = assetsApi.getURL('/dist/styles/ag-grid.css');
+		const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community');
 		assetsApi.addStyle({ href });
 	}
 

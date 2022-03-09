@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Grid as agGrid } from 'ag-grid-community';
-import { AgGridReact } from 'ag-grid-react';
+import { AgGridReact, AgGridColumn } from 'ag-grid-react';
 import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DataGrid from './DataGrid.component';
@@ -159,11 +159,12 @@ const sample = {
 jest.mock('ally.js');
 
 describe('#DataGrid', () => {
-	xit('should render DataGrid', async () => {
+	it('should render DataGrid', async () => {
+		// add globals
 		window.React = React;
 		window.ReactDOM = ReactDOM;
 		window.agGrid = agGrid;
-		window.AgGridReact = { AgGridReact };
+		window.AgGridReact = { AgGridReact, AgGridColumn };
 		render(<DataGrid getComponent={getComponent} data={sample} />);
 		await waitFor(
 			() =>
