@@ -29,11 +29,19 @@ jobs:
           path: packages/*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
-      - name: Install and build
+      - name: Install
         run: |
           yarn install --frozen-lockfile
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
+
+      - name: Build Storybook of the design tokens
+        run: |
+          cd packages/design-tokens
+          yarn pre-release
+          cd ../..
+
+      - name: Build
           yarn test:demo
           ./.github/workflows/before-surge.sh
         env:
