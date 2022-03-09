@@ -2009,10 +2009,10 @@
     "@types/set-cookie-parser" "^2.4.0"
     set-cookie-parser "^2.4.6"
 
-"@mswjs/interceptors@^0.13.3":
-  version "0.13.5"
-  resolved "https://registry.yarnpkg.com/@mswjs/interceptors/-/interceptors-0.13.5.tgz#51d8a10562a4313774eebdb417a9c55f5204c247"
-  integrity sha512-hZnq197mUDLfTBRgWYOxgPP39VNHavKYfCBqU1QGilGqPYgmHBLI3U2LmlCXggD7uOHmDiv7Dizu1K8u80jQOA==
+"@mswjs/interceptors@^0.13.5":
+  version "0.13.6"
+  resolved "https://registry.yarnpkg.com/@mswjs/interceptors/-/interceptors-0.13.6.tgz#db46ba29c9ec118aefcf6ef61ecc38b25837967f"
+  integrity sha512-28FzF44Q84h9vxQ0XBpEz940KC/q3fzlo+TtaIyfilnJ7+HeIcnVfRM4hkp0/q2Uh466PmgpD4BH7A0F0kCBbQ==
   dependencies:
     "@open-draft/until" "^1.0.3"
     "@xmldom/xmldom" "^0.7.5"
@@ -3321,7 +3321,7 @@
     mkdirp "^1.0.4"
     semver "^7.3.5"
 
-"@talend/scripts-config-babel@^9.7.3", "@talend/scripts-config-babel@^9.8.0", "@talend/scripts-config-babel@^9.9.0":
+"@talend/scripts-config-babel@^9.7.3", "@talend/scripts-config-babel@^9.9.0":
   version "9.9.0"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-babel/-/scripts-config-babel-9.9.0.tgz#c1c6d4679e962f08ba35a6dd7d8928a258bc0125"
   integrity sha512-1C3jV7uPTdZkgRtnOKG1wVg/NMaooNQVL+rNh9G6Cup1W6663h0Xxma/6pdabBndu1ZeDOFAYCz7MGmiF806bg==
@@ -3435,11 +3435,12 @@
     webpack-bundle-analyzer "^4.5.0"
     webpack-cli "^4.9.2"
 
-"@talend/scripts-config-storybook-lib@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.8.0.tgz#c803d21cbcf56729e0d77da24290256d197b880e"
-  integrity sha512-adTOR8prBGhg2JuspDp5B4P/bp4y/6vkw4wFHWQx04adTL83eH8pksqqHBVl0Cpy/m9TVlBzMDG2X6HzR54bEA==
+"@talend/scripts-config-storybook-lib@^0.9.0":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.9.1.tgz#03e069a58c3c11f8a253b921f64e37d3d070205b"
+  integrity sha512-BM5IQkMtSAwex22Kx0UpxptMM/wzlTKMRhD0Fw3QnSGTc1RH5kICK0YiLdC9N6bqbOfz3J5NqBbEYD6XupnWag==
   dependencies:
+    "@storybook/addon-a11y" "^6.4.19"
     "@storybook/addon-essentials" "^6.4.19"
     "@storybook/addon-interactions" "^6.4.19"
     "@storybook/addon-links" "^6.4.19"
@@ -3449,8 +3450,8 @@
     fs-extra "^10.0.1"
     i18next-http-backend "^1.3.2"
     lodash "^4.17.21"
-    msw "^0.38.1"
-    msw-storybook-addon "^1.6.0"
+    msw "^0.38.2"
+    msw-storybook-addon "^1.6.1"
 
 "@talend/scripts-config-stylelint@^1.0.1":
   version "1.0.1"
@@ -3486,18 +3487,18 @@
     which "^2.0.2"
     yargs "^15.4.1"
 
-"@talend/scripts-preset-react-lib@^9.12.2", "@talend/scripts-preset-react-lib@^9.12.4":
-  version "9.12.4"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.12.4.tgz#174733a31d18c707a99be887e4400347faa95ee6"
-  integrity sha512-lzeO7DHJ30P1iVfBN3T2rqyTvJx8tDop04+PQ/HcOCtYwKwaOdHPVTP5aywwLxiHMqJRymtq4EPHUbt0WCCmvQ==
+"@talend/scripts-preset-react-lib@^9.12.2", "@talend/scripts-preset-react-lib@^9.12.5":
+  version "9.12.5"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-9.12.5.tgz#fbe2f5ae7a492477b3f344ee6ab4ddb4168ccd9f"
+  integrity sha512-7299Ay03nZbMMEFa09eCUJlTC7VgJqM88syO5vcfServ2bppbeNZVitaeG/OazcTmZqw5m9b3lze5//P6vQ5og==
   dependencies:
-    "@talend/scripts-config-babel" "^9.8.0"
+    "@talend/scripts-config-babel" "^9.9.0"
     "@talend/scripts-config-cdn" "^9.12.0"
     "@talend/scripts-config-eslint" "^9.8.0"
     "@talend/scripts-config-jest" "^9.7.1"
     "@talend/scripts-config-prettier" "^9.6.3"
     "@talend/scripts-config-react-webpack" "^11.5.0"
-    "@talend/scripts-config-storybook-lib" "^0.8.0"
+    "@talend/scripts-config-storybook-lib" "^0.9.0"
     "@talend/scripts-config-stylelint" "^1.0.1"
     "@talend/scripts-config-typescript" "^9.11.1"
 
@@ -11070,7 +11071,7 @@ he@1.2.0, he@1.2.x, he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-headers-polyfill@^3.0.3, headers-polyfill@^3.0.4:
+headers-polyfill@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/headers-polyfill/-/headers-polyfill-3.0.4.tgz#cd70c815a441dd882372fcd6eda212ce997c9b18"
   integrity sha512-I1DOM1EdWYntdrnCvqQtcKwSSuiTzoqOExy4v1mdcFixFZABlWP4IPHdmoLtPda0abMHqDOY4H9svhQ10DFR4w==
@@ -14300,21 +14301,21 @@ ms@2.1.3, ms@^2.0.0, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-msw-storybook-addon@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/msw-storybook-addon/-/msw-storybook-addon-1.6.0.tgz#85671ca4a685a29884fc09a1dcce5d16f3ee2c4c"
-  integrity sha512-M9QfrMrUykgGbHkVlyYSRFrkiDS+ibMedjWmFjm448TUl8QtvMpopM4ki9+NB2UeDLInMR9YkEmljFkT/q2gPw==
+msw-storybook-addon@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/msw-storybook-addon/-/msw-storybook-addon-1.6.1.tgz#9799be482cead315a24870a4c608be8c9602c164"
+  integrity sha512-kIKW7xr81TisCKBnDLJc8htReMPbxbP7D/7Cbt7HsIv8v7dEIRA56b2qh11Q585cn6DiW1vuhZ8QiHHBPlE6rQ==
   dependencies:
     "@storybook/addons" "^6.0.0"
     is-node-process "^1.0.1"
 
-msw@^0.38.1:
-  version "0.38.1"
-  resolved "https://registry.yarnpkg.com/msw/-/msw-0.38.1.tgz#87b59f4ea49a4d1b7abde080de2ecceea7f78c5a"
-  integrity sha512-4BMEc54nX12UzOAxw6cB31tEytuxfTPwmGoBrItCHoD9Aj9ZLO9aoBaZjCA1W0wfiYcd7sjekLpnT0lE/uR0qA==
+msw@^0.38.2:
+  version "0.38.2"
+  resolved "https://registry.yarnpkg.com/msw/-/msw-0.38.2.tgz#0c3637b392b65d5cc781468036c4be5965382c58"
+  integrity sha512-gD2vkV/ol3+zaC6AHKlPxB4zvl5mTV1uzhcv+0H6kwlbaiTZe/vVwiEGPeE9mQroAFvh0c8uJmltDebEys28qA==
   dependencies:
     "@mswjs/cookies" "^0.1.7"
-    "@mswjs/interceptors" "^0.13.3"
+    "@mswjs/interceptors" "^0.13.5"
     "@open-draft/until" "^1.0.3"
     "@types/cookie" "^0.4.1"
     "@types/js-levenshtein" "^1.1.1"
@@ -14322,7 +14323,7 @@ msw@^0.38.1:
     chokidar "^3.4.2"
     cookie "^0.4.2"
     graphql "^16.3.0"
-    headers-polyfill "^3.0.3"
+    headers-polyfill "^3.0.4"
     inquirer "^8.2.0"
     is-node-process "^1.0.1"
     js-levenshtein "^1.1.6"
