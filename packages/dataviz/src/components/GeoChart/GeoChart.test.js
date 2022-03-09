@@ -4,10 +4,18 @@ import GeoChart from './GeoChart.component';
 import { getGeoChartConfig } from './GeoChart.utils';
 import styles from './GeoChart.scss';
 
+function getTopo(url) {
+	const last = url.split('/').pop();
+	return require(`../../../assets/maps/${last}`);
+}
+
 describe('GeoChart component', () => {
 	let defaultProps;
-
+	let originalfetch;
 	beforeEach(async () => {
+		jest.resetAllMocks();
+		originalfetch = global.fetch;
+		global.fetch = jest.fn(url => ({ ok: true, json: () => Promise.resolve(getTopo(url)) }));
 		defaultProps = {
 			data: [
 				{ key: 'Occitanie', value: 10 },
@@ -17,6 +25,9 @@ describe('GeoChart component', () => {
 			chartConfig: await getGeoChartConfig('FR_REGION'),
 			onSelection: jest.fn(),
 		};
+	});
+	afterEach(() => {
+		global.fetch = originalfetch;
 	});
 
 	it('Should match data', () => {
@@ -37,7 +48,6 @@ describe('GeoChart component', () => {
 
 	it('Should match data in configured properties only', async () => {
 		const chartConfig = await getGeoChartConfig('US_STATE_CODE');
-
 		const component = mount(
 			<GeoChart
 				{...defaultProps}
@@ -48,6 +58,7 @@ describe('GeoChart component', () => {
 				]}
 			/>,
 		).render();
+		expect(global.fetch).toHaveBeenCalled();
 
 		expect(component.find('[data-key="TX"]')).toHaveLength(1);
 		expect(component.find('[data-key="New York"]')).toHaveLength(0);
