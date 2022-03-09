@@ -12,11 +12,11 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "build-storybook --quiet",
+    "test:demo": "talend-scripts build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
     "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
     "lint": "yarn run lint:es && yarn run lint:style",
-    "start": "start-storybook -p 6008",
+    "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
@@ -55,6 +55,7 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-knobs": "^6.4.0",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.39.0",
@@ -94,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.3"
+  "version": "7.0.4"
 }
