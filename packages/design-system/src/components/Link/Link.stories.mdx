@@ -2,6 +2,7 @@ import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
 import { IconsProvider } from '../IconsProvider';
 import * as Stories from './Link.stories';
+import * as StoriesButton from '../LinkAsButton/LinkAsButton.stories';
 
 import Link from '.';
 
@@ -18,7 +19,7 @@ import Link from '.';
 
 Link is used for navigation.
 
-If you use a link for triggering an action on the page, you must consider using a [Button](/?path=/docs/components-button--primary) instead.
+If you use a link for triggering an action on the page, you must consider using a [Button](/docs/components-clickable-buttons-button--variations) instead.
 
 Still need to be convinced? Please, take the time to read [this article written by Marcy Sutton](https://marcysutton.com/links-vs-buttons-in-modern-web-applications).
 
@@ -75,15 +76,23 @@ Even if it's the same domain, when the link opens in a new window or tab, the ti
 
 The attribute `rel="noopener noreferrer"` is added if its target is `_blank`.
 
-### As a button
+### Router links
 
-You may need the style of a link but the behavior of a button.
-
-For this, use the provided `as` props.
+In React SPAs, most links are handled by libraries such as React Router. `Link` takes that into account.
 
 <Canvas>
-	<Story story={Stories.AsButton} />
+	<Story story={Stories.RouterLinkStory} />
 </Canvas>
+
+### As a button
+
+In extreme cases we do not condone, you may need the style of a link but the behavior of a button.
+
+<Canvas>
+	<Story story={StoriesButton.LinkAsButtonStory} name="Link as Button" />
+</Canvas>
+
+<ArgsTable story="Link as Button" />
 
 ## Content
 
@@ -133,23 +142,15 @@ Press <kbd>ENTER</kbd> to open a link
 	<Story
 		name="usage"
 		args={{
-			iconBefore: 'talend-info-circle',
+			icon: 'talend-info-circle',
 			children: 'Help',
-			iconAfter: '',
 			href: 'https://help.talend.com',
 			disabled: false,
 			hideExternalIcon: false,
 		}}
 		argTypes={{
-			iconBefore: {
+			icon: {
 				description: 'Link icon before text as illustration',
-				control: {
-					type: 'select',
-					options: [''].concat(IconsProvider.getCurrentIconIds()),
-				},
-			},
-			iconAfter: {
-				description: 'Link icon after text as illustration',
 				control: {
 					type: 'select',
 					options: [''].concat(IconsProvider.getCurrentIconIds()),

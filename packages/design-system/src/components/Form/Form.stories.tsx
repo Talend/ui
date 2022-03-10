@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Form from '.';
-import Button from '../Button';
+import { ButtonPrimary, ButtonSecondary } from '../Button';
 import InlineMessage from '../InlineMessage';
 import Skeleton from '../Skeleton';
 import Link from '../Link';
@@ -20,12 +20,12 @@ function getCountryCodes() {
 
 export const FormSkeleton = () => (
 	<Form>
-		<Skeleton.Heading />
-		<Skeleton />
-		<Skeleton />
+		<Skeleton variant="heading" />
+		<Skeleton variant="paragraph" />
+		<Skeleton variant="paragraph" />
 		<Form.Buttons>
-			<Skeleton.Button />
-			<Skeleton.Button />
+			<Skeleton variant="button" />
+			<Skeleton variant="button" />
 		</Form.Buttons>
 	</Form>
 );
@@ -63,7 +63,7 @@ export const Default = () => (
 				I have read and accept the <Link href="#">terms of use</Link>
 			</Form.Checkbox>
 			<Form.Buttons>
-				<Button.Primary onClick={action('submit')}>Complete Registration</Button.Primary>
+				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
 			</Form.Buttons>
 		</Form.Fieldset>
 	</Form>
@@ -83,7 +83,7 @@ export const Error = () => (
 				<Form.Password label="Password" required value="password" />
 			</Form.Fieldset>
 			<Form.Buttons style={{ justifyContent: 'center' }}>
-				<Button.Primary onClick={action('clicked')}>Login</Button.Primary>
+				<ButtonPrimary onClick={action('clicked')}>Login</ButtonPrimary>
 			</Form.Buttons>
 		</Form>
 	</div>
@@ -122,7 +122,7 @@ export const Disabled = () => (
 				I have read and accept the <Link href="#">terms of use</Link>
 			</Form.Checkbox>
 			<Form.Buttons>
-				<Button.Primary onClick={action('submit')}>Complete Registration</Button.Primary>
+				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
 			</Form.Buttons>
 		</Form.Fieldset>
 	</Form>
@@ -161,7 +161,7 @@ export const ReadOnly = () => (
 				I have read and accept the <Link href="#">terms of use</Link>
 			</Form.Checkbox>
 			<Form.Buttons>
-				<Button.Primary onClick={action('submit')}>Complete Registration</Button.Primary>
+				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
 			</Form.Buttons>
 		</Form.Fieldset>
 	</Form>
@@ -180,8 +180,8 @@ export const InlineHelp = () => (
 				<Form.Password label="Re-enter new password" required />
 			</Form.Fieldset>
 			<Form.Buttons>
-				<Button.Secondary onClick={action('clicked')}>Cancel</Button.Secondary>
-				<Button.Primary onClick={action('clicked')}>Save</Button.Primary>
+				<ButtonSecondary onClick={action('clicked')}>Cancel</ButtonSecondary>
+				<ButtonPrimary onClick={action('clicked')}>Save</ButtonPrimary>
 			</Form.Buttons>
 		</Form>
 	</div>
@@ -196,11 +196,11 @@ export const Loading = () => (
 				<Form.Textarea label="Description" placeholder="Describe the job" />
 			</Form.Fieldset>
 			<Form.Buttons>
-				<Button.Secondary>Previous</Button.Secondary>
-				<Button.Secondary>Save</Button.Secondary>
-				<Button.Primary icon="talend-launch" loading>
+				<ButtonSecondary onClick={action('clicked')}>Previous</ButtonSecondary>
+				<ButtonSecondary onClick={action('clicked')}>Save</ButtonSecondary>
+				<ButtonPrimary onClick={action('clicked')} icon="talend-launch" isLoading>
 					Run
-				</Button.Primary>
+				</ButtonPrimary>
 			</Form.Buttons>
 		</Form>
 	</div>

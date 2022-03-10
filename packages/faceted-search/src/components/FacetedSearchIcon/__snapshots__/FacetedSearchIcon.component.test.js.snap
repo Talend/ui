@@ -8,8 +8,8 @@ exports[`FacetedSearchIcon should render by default 1`] = `
         type="button"
         class="faceted-search-icon theme-faceted-search-icon tc-icon-toggle theme-tc-icon-toggle btn btn-link"
 >
-  <coral.icon name="talend-search">
-  </coral.icon>
+  <coralicon name="talend-search">
+  </coralicon>
 </button>
 `;
 

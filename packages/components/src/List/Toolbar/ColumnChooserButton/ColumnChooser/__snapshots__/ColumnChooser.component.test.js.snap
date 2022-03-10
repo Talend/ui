@@ -17,10 +17,10 @@ exports[`ColumnChooser should render with default props 1`] = `
       role="search"
 >
   <div class="form-group">
-    <coral.icon name="talend-search"
-                class="theme-search-icon"
+    <coralicon name="talend-search"
+               class="theme-search-icon"
     >
-    </coral.icon>
+    </coralicon>
     <input name="search"
            placeholder="Find a column"
            autocomplete="off"

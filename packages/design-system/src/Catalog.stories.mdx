@@ -1,5 +1,25 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle } from './';
+import {
+	ButtonPrimary,
+	ButtonSecondary,
+	ButtonTertiary,
+	ButtonDestructive,
+	Dropdown,
+	Form,
+	Icon,
+	InlineMessage,
+	Link,
+	Popover,
+	Tag,
+	TagInformation,
+	TagSuccess,
+	TagWarning,
+	TagDestructive,
+	ButtonIconToggle,
+	ButtonIcon,
+	ButtonIconFloating,
+	Toggle,
+} from './';
 
 <Meta title="Component catalog" />
 
@@ -7,11 +27,32 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 
 <Canvas>
 	<Story name="Buttons">
-		<Button.Primary icon="talend-datagrid">Primary button</Button.Primary>
-		<Button.Destructive icon="talend-datagrid">Destructive button</Button.Destructive>
-		<Button.Secondary icon="talend-datagrid">Secondary button</Button.Secondary>
-		<Button.Tertiary icon="talend-datagrid">Tertiary button</Button.Tertiary>
-		<Button.Icon icon="talend-datagrid">Datagrid</Button.Icon>
+		<ButtonPrimary onClick={() => {}} icon="talend-datagrid">
+			Primary button
+		</ButtonPrimary>
+		<ButtonDestructive onClick={() => {}} icon="talend-datagrid">
+			Destructive button
+		</ButtonDestructive>
+		<ButtonSecondary onClick={() => {}} icon="talend-datagrid">
+			Secondary button
+		</ButtonSecondary>
+		<ButtonTertiary onClick={() => {}} icon="talend-datagrid">
+			Tertiary button
+		</ButtonTertiary>
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story name="ButtonIcon">
+		<ButtonIcon icon="talend-datagrid" onClick={() => {}}>
+			ButtonIcon
+		</ButtonIcon>
+		<ButtonIconFloating icon="talend-datagrid" onClick={() => {}}>
+			ButtonIconFloating
+		</ButtonIconFloating>
+		<ButtonIconToggle icon="talend-datagrid" onClick={() => {}} isActive={false}>
+			ButtonIconToggle
+		</ButtonIconToggle>
 	</Story>
 </Canvas>
 
@@ -19,9 +60,26 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 
 <Canvas>
 	<Story name="Toggles">
-		<Toggle icon="talend-datagrid">Toggle button</Toggle>
-		<Toggle icon="talend-datagrid" disabled>
+		<Toggle icon="talend-datagrid" isActive={false} onClick={() => {}}>
 			Toggle button
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={true} onClick={() => {}}>
+			Toggle button active
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={false} onClick={() => {}} disabled>
+			Toggle button disabled
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive disabled onClick={() => {}}>
+			Toggle button active disabled
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={true} onClick={() => {}}>
+			Toggle button active
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive={false} onClick={() => {}} disabled>
+			Toggle button disabled
+		</Toggle>
+		<Toggle icon="talend-datagrid" isActive disabled onClick={() => {}}>
+			Toggle button active disabled
 		</Toggle>
 	</Story>
 </Canvas>
@@ -31,7 +89,7 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 <Canvas>
 	<Story name="Dropdowns" height="20rem">
 		<Dropdown
-			as={Button.Primary}
+			as={ButtonPrimary}
 			aria-label="Custom menu"
 			icon="talend-datagrid"
 			items={[
@@ -43,7 +101,7 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 			Primary Dropdown
 		</Dropdown>
 		<Dropdown
-			as={Button.Destructive}
+			as={ButtonDestructive}
 			aria-label="Custom menu"
 			icon="talend-datagrid"
 			items={[
@@ -55,7 +113,7 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 			Destructive Dropdown
 		</Dropdown>
 		<Dropdown
-			as={Button.Secondary}
+			as={ButtonSecondary}
 			aria-label="Custom menu"
 			icon="talend-datagrid"
 			items={[
@@ -67,7 +125,7 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 			Secondary Dropdown
 		</Dropdown>
 		<Dropdown
-			as={Button.Tertiary}
+			as={ButtonTertiary}
 			aria-label="Custom menu"
 			icon="talend-datagrid"
 			items={[
@@ -79,7 +137,7 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 			Tertiary Dropdown
 		</Dropdown>
 		<Dropdown
-			as={Button.Icon}
+			as={ButtonIcon}
 			aria-label="Custom menu"
 			icon={<Icon name="talend-ellipsis" transform="rotate-90" />}
 			items={[
@@ -102,36 +160,6 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 			Inline help
 		</Link>
 		<Link href="https://www.talend.com">Talend</Link>
-		<Button
-			as={Link}
-			iconBefore={<Icon name="talend-arrow-left" transform="rotate-90" />}
-			onClick={() => {
-				document.body.scrollTop = 0; // For Safari
-				document.documentElement.scrollTop = 0; // For others
-			}}
-		>
-			Scroll to top
-		</Button>
-	</Story>
-</Canvas>
-
-## As button, As link
-
-<Canvas>
-	<Story name="As">
-		<Link as="button">Button as link</Link>
-		<Button.Primary as="a" href="#">
-			Link as primary button
-		</Button.Primary>
-		<Button.Destructive as="a" href="#">
-			Link as destructive button
-		</Button.Destructive>
-		<Button.Secondary as="a" href="#">
-			Link as secondary button
-		</Button.Secondary>
-		<Button.Tertiary as="a" href="#">
-			Link as tertiary button
-		</Button.Tertiary>
 	</Story>
 </Canvas>
 
@@ -163,8 +191,12 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 				<Form.Switch label="Switch" checked />
 			</Form.Fieldset>
 			<Form.Buttons>
-				<Button.Secondary type="reset">Reset</Button.Secondary>
-				<Button.Primary type="submit">Submit</Button.Primary>
+				<ButtonSecondary onClick={() => {}} type="reset">
+					Reset
+				</ButtonSecondary>
+				<ButtonPrimary onClick={() => {}} type="submit">
+					Submit
+				</ButtonPrimary>
 			</Form.Buttons>
 		</Form>
 	</Story>
@@ -175,10 +207,10 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 <Canvas>
 	<Story name="Tags">
 		<Tag>Example</Tag>
-		<Tag.Information>Example</Tag.Information>
-		<Tag.Success>Example</Tag.Success>
-		<Tag.Warning>Example</Tag.Warning>
-		<Tag.Destructive>Example</Tag.Destructive>
+		<TagInformation>Example</TagInformation>
+		<TagSuccess>Example</TagSuccess>
+		<TagWarning>Example</TagWarning>
+		<TagDestructive>Example</TagDestructive>
 	</Story>
 </Canvas>
 
@@ -228,16 +260,9 @@ import { Button, Dropdown, Form, Icon, InlineMessage, Link, Popover, Tag, Toggle
 		<Popover
 			aria-label="Custom popover"
 			disclosure={
-				<Button.Icon
-					icon={
-						<Icon
-							name="talend-question-circle
-"
-						/>
-					}
-				>
+				<ButtonIcon icon="talend-question-circle" onClick={() => {}}>
 					Open popover
-				</Button.Icon>
+				</ButtonIcon>
 			}
 		>
 			Custom popover

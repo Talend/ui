@@ -1,12 +1,10 @@
 import React from 'react';
 import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit';
-import { ButtonComponentType } from '../Button';
 
 import * as S from './Drawer.style';
-import { ButtonProps } from '../Button/Button';
 
 export type DrawerProps = {
-	toggleButton?: React.ReactElement<ButtonProps, ButtonComponentType>;
+	toggleButton?: React.ReactElement;
 	heading?: React.ReactNodeArray | React.ReactNode;
 	footer?: React.ReactNodeArray | React.ReactNode;
 	visible: boolean;

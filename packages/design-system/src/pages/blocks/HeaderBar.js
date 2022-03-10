@@ -2,13 +2,13 @@ import React from 'react';
 
 import { VisuallyHidden } from 'reakit';
 
-import Button from '../../components/Button';
+import Clickable from '../../components/Clickable';
 import Dropdown from '../../components/Dropdown';
 import HeaderBar from '../../components/HeaderBar';
 import Modal from '../../components/Modal';
 import Link from '../../components/Link';
 import { Icon } from '../../components/Icon';
-import Toggle from '../../components/Toggle';
+import { ButtonIconToggle } from '../../components/ButtonIcon';
 import Tooltip from '../../components/Tooltip';
 
 export default function HeaderBarBlock() {
@@ -51,12 +51,21 @@ export default function HeaderBarBlock() {
 				<HeaderBar.ContentRight>
 					<HeaderBar.Item>
 						<Tooltip title="Notifications (you have no unread notifications)" placement="bottom">
-							<Toggle icon="talend-bell-notification">Notifications</Toggle>
+							<ButtonIconToggle
+								isActive={false}
+								size="S"
+								onClick={() => {}}
+								icon="talend-bell-notification"
+							>
+								Notifications
+							</ButtonIconToggle>
 						</Tooltip>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Tooltip title="Chat with Talend support" placement="bottom">
-							<Toggle icon="talend-bubbles">Intercom</Toggle>
+							<ButtonIconToggle isActive={false} size="S" onClick={() => {}} icon="talend-bubbles">
+								Intercom
+							</ButtonIconToggle>
 						</Tooltip>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
@@ -70,7 +79,7 @@ export default function HeaderBarBlock() {
 						<Dropdown
 							icon="talend-user-circle"
 							items={[
-								<Button onClick={() => aboutModal.show()}>About</Button>,
+								<Clickable onClick={() => aboutModal.show()}>About</Clickable>,
 								<></>,
 								<Link href="#">Support</Link>,
 								<Link href="#">Community</Link>,

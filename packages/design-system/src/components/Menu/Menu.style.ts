@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
-
-import Button from '../Button';
-import Link from '../Link';
+import DSTokens from '@talend/design-tokens';
 
 import tokens from '../../tokens';
-import { StyledLink } from '../Link/Link';
+import Linkable, { LinkableType } from '../Linkable';
 
 export const Nav = styled.nav.attrs({
 	className: 'c-menu',
@@ -36,27 +34,41 @@ export const Nav = styled.nav.attrs({
 		}`}
 `;
 
-export const NavButton = styled(Button.Icon)`
+// With CSS module, replace this with two buttons that build on ButtonIconPrimitive
+export const NavButton = styled('span')`
 	flex: 0;
-	align-self: start;
-	margin: 1.5rem;
-	border: none;
-	transform: translateZ(0);
 
-	&.nav__button,
-	&.nav__button:hover,
-	&.nav__button:active {
+	.nav__button {
+		align-self: start;
+		margin: 1.5rem;
+		border: none;
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+		border-radius: 100%;
+	}
+
+	.nav__button,
+	.nav__button:hover,
+	.nav__button:active {
 		color: inherit;
 		background: none;
 	}
 
-	.btn__icon {
+	.nav__button-icon {
+		display: inline-block;
+		transform: translateZ(0) rotate(0deg);
 		transition: transform ${tokens.transitions.fast};
+
+		> svg {
+			width: ${DSTokens.coralSizeS};
+			height: ${DSTokens.coralSizeS};
+		}
 	}
 
-	&.nav__button--collapsed {
-		.btn__icon {
-			transform: rotate(-180deg);
+	.nav__button--collapsed {
+		.nav__button-icon {
+			transform: translateZ(0) rotate(-180deg);
 		}
 	}
 `;
@@ -81,9 +93,11 @@ export const Menu = styled.div`
 	}
 `;
 
-export const MenuItem = styled(Link).attrs(({ active }: StyledLink & { active: boolean }) => ({
-	'aria-current': active ? 'page' : null,
-}))`
+export const MenuItem = styled(Linkable).attrs(
+	({ active }: LinkableType & { active: boolean }) => ({
+		'aria-current': active ? 'page' : null,
+	}),
+)`
 	display: flex;
 	padding: 0.5rem 1rem;
 	color: ${({ active }) => (active ? tokens.colors.deepBlue[500] : 'inherit')};
@@ -95,20 +109,21 @@ export const MenuItem = styled(Link).attrs(({ active }: StyledLink & { active: b
 	overflow: hidden;
 	cursor: pointer;
 
-	.link__icon {
+	> svg {
 		height: 2rem;
 		width: 2rem;
 		margin-right: 1rem;
 		overflow: visible;
 	}
 
-	.link__text {
+	.item__text {
 		font-weight: ${tokens.fontWeights.semiBold};
 		min-width: 0;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
 		border: none !important;
+		flex-shrink: 1;
 	}
 
 	&:hover {
@@ -116,6 +131,7 @@ export const MenuItem = styled(Link).attrs(({ active }: StyledLink & { active: b
 			// @ts-ignore
 			({ active, theme }) => (active ? theme.colors.primaryColor : 'inherit')
 		};
+		text-decoration: none;
 		background: ${({ active }) => transparentize(active ? 0.12 : 0.88, tokens.colors.gray[0])};
 	}
 `;

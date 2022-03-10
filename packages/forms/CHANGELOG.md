@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 7.0.5
+
+### Patch Changes
+
+- Updated dependencies [7af0ef8f6]
+  - @talend/design-system@2.0.0
+  - @talend/react-components@6.44.5
+
 ## 7.0.4
 
 ### Patch Changes

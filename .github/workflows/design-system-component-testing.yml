@@ -34,7 +34,7 @@ jobs:
       - name: Build @talend/design-tokens
         run: |
           cd ../design-tokens
-          yarn build:lib
+          yarn pre-release
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@v3

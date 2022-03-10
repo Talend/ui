@@ -49,7 +49,7 @@ jobs:
       - name: Build @talend/design-tokens
         run: |
           cd ../design-tokens
-          yarn build:lib
+          yarn pre-release
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
