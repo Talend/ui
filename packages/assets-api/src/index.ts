@@ -82,6 +82,21 @@ function addScript({ src, integrity, ...attr }: Script) {
 	document.body.appendChild(script);
 }
 
+function toDefaultModule(value: any) {
+	return Object.create(null, {
+		default: {
+			value,
+			enumerable: true,
+		},
+		__esModule: {
+			value: true,
+		},
+		[Symbol.toStringTag]: {
+			value: 'Module',
+		},
+	});
+}
+
 function getUMD(name: string, version?: string, varName?: string, path?: string) {
 	const cache = { resolved: false };
 	function loaded() {
@@ -91,20 +106,7 @@ function getUMD(name: string, version?: string, varName?: string, path?: string)
 		return !!(window as any)[varName];
 	}
 	if (loaded() && varName) {
-		return Promise.resolve(
-			Object.create(null, {
-				default: {
-					value: (window as any)[varName],
-					enumerable: true,
-				},
-				__esModule: {
-					value: true,
-				},
-				[Symbol.toStringTag]: {
-					value: 'Module',
-				},
-			}),
-		);
+		return Promise.resolve((window as any)[varName]);
 	}
 	const src = getURL(path || '/undefined', name, version);
 	console.log('getUMD', src, varName);
@@ -128,20 +130,7 @@ function getUMD(name: string, version?: string, varName?: string, path?: string)
 				if (loaded()) {
 					cache.resolved = true;
 					clearInterval(intervalId);
-					resolve(
-						Object.create(null, {
-							default: {
-								value: (window as any)[varName],
-								enumerable: true,
-							},
-							__esModule: {
-								value: true,
-							},
-							[Symbol.toStringTag]: {
-								value: 'Module',
-							},
-						}),
-					);
+					resolve((window as any)[varName]);
 				}
 			}, 200);
 			setTimeout(() => {
@@ -216,4 +205,5 @@ export default {
 	getJSON,
 	addScript,
 	addStyle,
+	toDefaultModule,
 };

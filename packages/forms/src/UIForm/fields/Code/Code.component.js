@@ -12,7 +12,7 @@ import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 const ReactAce = React.lazy(() =>
-	assetsApi.getUMD('react-ace').then(mod => ({ default: mod.default, __esModule: true })),
+	assetsApi.getUMD('react-ace').then(mod => assetsApi.toDefaultModule(mod.default)),
 );
 
 function CodeSkeleton() {
