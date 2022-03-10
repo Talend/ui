@@ -24,9 +24,12 @@ const designTokensPlugin = () => tree =>
 
 module.exports = {
 	features: {
+		buildStoriesJson: true,
 		modernInlineRender: true,
+		previewCsfV3: true,
 		// storyStoreV7: true, // will break all work related to aggregated status in the next major version of Storybook
 	},
+	framework: '@storybook/react',
 	/*
 	refs: {
 		'design-tokens': {
@@ -54,7 +57,21 @@ module.exports = {
 		'../src/pages/**/*.stories.@(js|tsx|mdx)',
 	],
 	staticDirs: ['../static'],
-	addons: ['@storybook/addon-a11y', 'storybook-addon-mdx-embed'],
+	addons: [
+		'@storybook/addon-a11y',
+		'@storybook/addon-essentials',
+		'@storybook/addon-links',
+		'@storybook/addon-interactions',
+		{
+			name: '@storybook/preset-scss',
+			options: {
+				cssLoaderOptions: {
+					modules: true,
+				},
+			},
+		},
+		'storybook-addon-mdx-embed',
+	],
 	typescript: {
 		check: true,
 		checkOptions: {},
