@@ -5,10 +5,10 @@ exports[`AdvancedSearch should render by default 1`] = `
      class="adv-search theme-adv-search"
 >
   <form id="some-id-adv-search-form">
-    <coral.icon name="talend-filter"
-                class="adv-search-filter-icon theme-adv-search-filter-icon"
+    <coralicon name="talend-filter"
+               class="adv-search-filter-icon theme-adv-search-filter-icon"
     >
-    </coral.icon>
+    </coralicon>
     <input name="advanced-search-faceted"
            placeholder="Enter your query"
            autocomplete="off"
@@ -27,8 +27,8 @@ exports[`AdvancedSearch should render by default 1`] = `
               type="button"
               class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
       >
-        <coral.icon name="talend-cross">
-        </coral.icon>
+        <coralicon name="talend-cross">
+        </coralicon>
       </button>
       <button aria-label="Submit"
               data-feature="filter.advanced.apply"
@@ -37,8 +37,8 @@ exports[`AdvancedSearch should render by default 1`] = `
               aria-describedby="42"
               class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
       >
-        <coral.icon name="talend-check">
-        </coral.icon>
+        <coralicon name="talend-check">
+        </coralicon>
       </button>
     </div>
   </form>
@@ -50,10 +50,10 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
      class="adv-search theme-adv-search"
 >
   <form id="some-id-adv-search-form">
-    <coral.icon name="talend-filter"
-                class="adv-search-filter-icon theme-adv-search-filter-icon"
+    <coralicon name="talend-filter"
+               class="adv-search-filter-icon theme-adv-search-filter-icon"
     >
-    </coral.icon>
+    </coralicon>
     <input name="advanced-search-faceted"
            placeholder="Enter your query"
            autocomplete="off"
@@ -72,8 +72,8 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
               type="button"
               class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
       >
-        <coral.icon name="talend-cross">
-        </coral.icon>
+        <coralicon name="talend-cross">
+        </coralicon>
       </button>
       <button aria-label="Submit"
               data-feature="filter.advanced.apply"
@@ -82,8 +82,8 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
               aria-describedby="42"
               class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
       >
-        <coral.icon name="talend-check">
-        </coral.icon>
+        <coralicon name="talend-check">
+        </coralicon>
       </button>
     </div>
   </form>
