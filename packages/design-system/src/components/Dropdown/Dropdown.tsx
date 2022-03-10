@@ -21,13 +21,15 @@ export type DropdownProps = BoxProps &
 	};
 
 function convertItem(item: ButtonType | LinkType) {
-	return 'href' in item ? (
-		<Linkable icon={item.icon} {...item}>
-			{item.label}
-		</Linkable>
-	) : (
-		<Clickable {...(item as ButtonType)}>{item.label}</Clickable>
-	);
+	if ('href' in item) {
+		const { label, icon, ...rest } = item;
+		return (
+			<Linkable icon={icon} {...rest}>
+				{label}
+			</Linkable>
+		);
+	}
+	return <Clickable {...(item as ButtonType)}>{item.label}</Clickable>;
 }
 
 const Dropdown: React.FC<DropdownProps> = React.forwardRef(
