@@ -256,8 +256,8 @@ export const parameters = {
 				'Components',
 				[
 					'Accordion',
-					'Button',
-					'ButtonIcon',
+					'Clickable (Buttons)',
+					['About', 'Button', 'ButtonAsLink', 'ButtonIcon'],
 					'Combobox',
 					'Divider',
 					'Drawer',

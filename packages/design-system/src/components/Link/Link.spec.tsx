@@ -17,11 +17,6 @@ context('<Link />', () => {
 		cy.getByTest('link.icon.before').should('have.attr', 'name', 'talend-info-circle');
 	});
 
-	it('should render icon after', () => {
-		cy.mount(<Link iconAfter="talend-stop" />);
-		cy.getByTest('link.icon.after').should('have.attr', 'name', 'talend-stop');
-	});
-
 	it('should render external', () => {
 		cy.mount(<External />);
 		cy.getByTest('link.icon.external').should('have.attr', 'name', 'talend-link');
@@ -37,18 +32,26 @@ context('<Link />', () => {
 		cy.getByTestId('my.link')
 			.should('have.attr', 'title', 'Open in a new tab')
 			.should('have.attr', 'target', '_blank')
-			.should('have.attr', 'rel', 'noopener noreferrer');
+			.should('have.attr', 'rel', 'noreferrer noopener');
 	});
 
 	it('should deal with unknown target', () => {
-		cy.mount(<Link data-testid="my.link" target="unknown" />);
+		cy.mount(
+			<Link data-testid="my.link" target="unknown">
+				Unknown target
+			</Link>,
+		);
 		cy.getByTestId('my.link')
 			.should('have.attr', 'title', 'Open in a new tab')
-			.should('have.attr', 'rel', 'noopener noreferrer');
+			.should('have.attr', 'rel', 'noreferrer noopener');
 	});
 
 	it('should deal with target self', () => {
-		cy.mount(<Link data-testid="my.link" target="_self" />);
+		cy.mount(
+			<Link data-testid="my.link" target="_self">
+				Self target
+			</Link>,
+		);
 		cy.getByTestId('my.link').should('not.have.attr', 'title');
 		cy.getByTestId('my.link').should('not.have.attr', 'rel');
 	});

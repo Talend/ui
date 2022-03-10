@@ -16,10 +16,10 @@ exports[`AddFacetPopover should render the html output 1`] = `
               role="search"
         >
           <div class="form-group">
-            <coral.icon name="talend-search"
-                        class="theme-search-icon"
+            <coralicon name="talend-search"
+                       class="theme-search-icon"
             >
-            </coral.icon>
+            </coralicon>
             <input name="search"
                    placeholder="Find a filter"
                    autocomplete="off"

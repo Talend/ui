@@ -73,7 +73,7 @@ exports[`List DisplayMode should render 1`] = `
               <Icon
                 name="talend-table"
               >
-                <Coral.Icon
+                <CoralIcon
                   name="talend-table"
                 />
               </Icon>
@@ -142,7 +142,7 @@ exports[`List DisplayMode should render 1`] = `
               <Icon
                 name="talend-expanded"
               >
-                <Coral.Icon
+                <CoralIcon
                   name="talend-expanded"
                 />
               </Icon>

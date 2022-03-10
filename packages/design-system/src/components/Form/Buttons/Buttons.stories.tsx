@@ -1,7 +1,8 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 
 import Form from '..';
-import Button from '../../Button';
+import { ButtonPrimary, ButtonSecondary } from '../../Button';
 import Skeleton from '../../Skeleton';
 
 export default {
@@ -11,8 +12,8 @@ export default {
 export const FormButtonsSkeleton = () => (
 	<Form>
 		<Form.Buttons>
-			<Skeleton.Button />
-			<Skeleton.Button />
+			<Skeleton variant="button" />
+			<Skeleton variant="button" />
 		</Form.Buttons>
 	</Form>
 );
@@ -21,9 +22,11 @@ FormButtonsSkeleton.parameters = {};
 export const FormButtonsDefault = () => (
 	<Form>
 		<Form.Buttons>
-			<Button.Secondary>Previous</Button.Secondary>
-			<Button.Secondary>Save</Button.Secondary>
-			<Button.Primary icon="talend-launch">Run</Button.Primary>
+			<ButtonSecondary onClick={action('Clicked Previous')}>Previous</ButtonSecondary>
+			<ButtonSecondary onClick={action('Clicked Save')}>Save</ButtonSecondary>
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch">
+				Run
+			</ButtonPrimary>
 		</Form.Buttons>
 	</Form>
 );
@@ -32,11 +35,15 @@ FormButtonsDefault.parameters = {};
 export const FormButtonsLoading = () => (
 	<Form>
 		<Form.Buttons>
-			<Button.Secondary disabled>Previous</Button.Secondary>
-			<Button.Secondary disabled>Save</Button.Secondary>
-			<Button.Primary icon="talend-launch" loading>
+			<ButtonSecondary onClick={action('Clicked Previous')} disabled>
+				Previous
+			</ButtonSecondary>
+			<ButtonSecondary onClick={action('Clicked Save')} disabled>
+				Save
+			</ButtonSecondary>
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch" isLoading>
 				Run
-			</Button.Primary>
+			</ButtonPrimary>
 		</Form.Buttons>
 	</Form>
 );
@@ -49,9 +56,11 @@ export const FormButtonsOrder = () => (
 			<Form.Textarea label="Description" placeholder="Describe the job" />
 		</Form.Fieldset>
 		<Form.Buttons>
-			<Button.Secondary>Previous</Button.Secondary>
-			<Button.Secondary>Save</Button.Secondary>
-			<Button.Primary icon="talend-launch">Run</Button.Primary>
+			<ButtonSecondary onClick={action('Clicked Previous')}>Previous</ButtonSecondary>
+			<ButtonSecondary onClick={action('Clicked Save')}>Save</ButtonSecondary>
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch">
+				Run
+			</ButtonPrimary>
 		</Form.Buttons>
 	</Form>
 );

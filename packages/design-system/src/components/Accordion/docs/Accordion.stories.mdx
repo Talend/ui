@@ -4,7 +4,7 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
 
 import Accordion from '../';
-import Button from '../../Button';
+import { ButtonSecondary } from '../../Button';
 
 <Meta
 	title="Components/Accordion"
@@ -95,7 +95,7 @@ A scrollbar is added in the content after exceeding `37rem`.
 				disclosure={
 					<header>
 						Accordion title 2{' '}
-						<Button.Secondary onClick={action('call to action')}>CTA</Button.Secondary>
+						<ButtonSecondary onClick={action('call to action')}>CTA</ButtonSecondary>
 					</header>
 				}
 			>

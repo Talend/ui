@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^9.12.5",
+    "@talend/scripts-preset-react-lib": "^11.0.1",
     "@typescript-eslint/parser": "^4.33.0",
     "cross-env": "^7.0.3"
   },
