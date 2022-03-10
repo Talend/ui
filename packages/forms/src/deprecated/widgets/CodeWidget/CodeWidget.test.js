@@ -1,36 +1,37 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-
+import ReactDOM from 'react-dom';
+import { render, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import ReactAce from 'react-ace';
 import CodeWidget from './CodeWidget.component';
+
+jest.mock('ally.js');
 
 describe('CodeWidget', () => {
 	it('should be AceCodeWidget', () => {
 		expect(CodeWidget.displayName).toBe('AceCodeWidget');
 	});
 
-	it('should render ReactAce', () => {
-		const wrapper = shallow(<CodeWidget />);
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should check config props', () => {
-		const wrapper = shallow(<CodeWidget options={{ height: '250px' }} />);
-		expect(wrapper.props().height).toEqual('250px');
-	});
-
-	it('should support formContext.codeWidgetProps customization', () => {
-		const formContext = {
-			codeWidgetProps: { foo: 'bar' },
-		};
-		const wrapper = shallow(<CodeWidget formContext={formContext} />);
-		expect(wrapper.props().foo).toBe('bar');
-	});
-
-	it('should call formContext.codeWidgetOnLoad', () => {
+	it('should render ReactAce', async () => {
+		window.React = React;
+		window.ReactDOM = ReactDOM;
+		window.ReactAce = ReactAce;
 		const formContext = {
 			codeWidgetOnLoad: jest.fn(),
 		};
-		mount(<CodeWidget formContext={formContext} />);
-		expect(formContext.codeWidgetOnLoad).toHaveBeenCalled();
+		const wrapper = render(<CodeWidget formContext={formContext} />);
+		await waitFor(
+			() =>
+				new Promise(resolve => {
+					setTimeout(() => {
+						resolve(true);
+					}, 1000);
+				}),
+			{ timeout: 1100 },
+		);
+		// eslint-disable-next-line testing-library/no-container
+		const input = wrapper.container.querySelector('textarea');
+		expect(input).toBeInTheDocument();
+		expect(input.tagName).toBe('TEXTAREA');
 	});
 });

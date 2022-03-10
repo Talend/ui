@@ -17,6 +17,7 @@ const mockBackend = require('./mockBackend/server');
 function getPath(pkg) {
 	const pkgPath = resolve(pkg, { cwd: process.cwd() });
 	return pkgPath
+		.replace('main.js', '')
 		.replace('lib/index.js', '')
 		.replace('dist/bootstrap.js', '')
 		.replace('dist/TalendIcons.js', '');
@@ -28,6 +29,7 @@ function getVersion(pkg) {
 
 const PKGS = [
 	'@talend/design-system',
+	'@talend/design-tokens',
 	'@talend/react-components',
 	'@talend/react-containers',
 	'@talend/react-cmf',
