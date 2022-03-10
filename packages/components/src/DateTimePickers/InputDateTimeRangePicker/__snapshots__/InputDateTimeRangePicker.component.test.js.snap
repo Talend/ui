@@ -276,7 +276,7 @@ exports[`InputDateTimeRangePicker should render 1`] = `
           className="theme-icon icon"
           name="talend-arrow-right"
         >
-          <Coral.Icon
+          <CoralIcon
             className="theme-icon icon"
             name="talend-arrow-right"
           />
@@ -853,7 +853,7 @@ exports[`InputDateTimeRangePicker should render with default time 1`] = `
           className="theme-icon icon"
           name="talend-arrow-right"
         >
-          <Coral.Icon
+          <CoralIcon
             className="theme-icon icon"
             name="talend-arrow-right"
           />

@@ -4,7 +4,7 @@ exports[`InlineMessage should render with higligthed background 1`] = `
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <Coral.InlineMessage.Success
+  <CoralInlineMessageSuccess
     description="Validation and successful messages"
     link={null}
     title="Validation title."
@@ -17,7 +17,7 @@ exports[`InlineMessage should render with icon and description 1`] = `
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <Coral.InlineMessage.Success
+  <CoralInlineMessageSuccess
     description="Validation and successful messages"
     link={null}
     title=""
@@ -29,7 +29,7 @@ exports[`InlineMessage should render with icon, title and description 1`] = `
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <Coral.InlineMessage.Success
+  <CoralInlineMessageSuccess
     description="Validation and successful messages"
     link={null}
     title="Validation title."
@@ -41,7 +41,7 @@ exports[`InlineMessage should render with icon, title, description and link 1`] 
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <Coral.InlineMessage.Success
+  <CoralInlineMessageSuccess
     description="Validation and successful messages"
     link={
       <Link
@@ -59,7 +59,7 @@ exports[`InlineMessage should render with title and description 1`] = `
 <div
   className="tc-inline-message theme-tc-inline-message"
 >
-  <Coral.InlineMessage.Success
+  <CoralInlineMessageSuccess
     description="Validation and successful messages"
     link={null}
     title="Validation title."

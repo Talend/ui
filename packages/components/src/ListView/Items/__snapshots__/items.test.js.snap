@@ -1068,7 +1068,7 @@ exports[`Items should render with nested items 1`] = `
                                       key="icon"
                                       name="talend-caret-down"
                                     >
-                                      <Coral.Icon
+                                      <CoralIcon
                                         name="talend-caret-down"
                                       />
                                     </Icon>
