@@ -42,6 +42,7 @@ jobs:
           cd ../..
 
       - name: Build
+        run: |
           yarn test:demo
           ./.github/workflows/before-surge.sh
         env:
