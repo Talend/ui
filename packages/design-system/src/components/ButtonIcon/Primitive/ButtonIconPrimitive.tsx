@@ -1,7 +1,7 @@
-import React, { ButtonHTMLAttributes } from 'react';
-import { Button } from 'reakit';
+import React, { forwardRef, Ref, ButtonHTMLAttributes } from 'react';
 import classnames from 'classnames';
 import { IconName } from '@talend/icons';
+import Button from '../../Clickable';
 import Tooltip from '../../Tooltip';
 import { Icon } from '../../Icon/Icon';
 import Loading from '../../Loading';
@@ -35,33 +35,31 @@ export type DefaultTypes = CommonTypes & {
 
 export type ButtonIconProps = ToggleTypes | FloatingTypes | DefaultTypes;
 
-const ButtonIconPrimitive = React.forwardRef(
-	(props: ButtonIconProps, ref: React.Ref<HTMLButtonElement>) => {
-		const activeButtonIconPrimitive = props.variant === 'toggle' ? props.isActive : false;
-		const { children, variant, size, isLoading, icon, disabled, ...rest } = props;
+const ButtonIconPrimitive = forwardRef((props: ButtonIconProps, ref: Ref<HTMLButtonElement>) => {
+	const activeButtonIconPrimitive = props.variant === 'toggle' ? props.isActive : false;
+	const { children, variant, size, isLoading, icon, disabled, ...rest } = props;
 
-		return (
-			<Tooltip title={children} placement="top">
-				<Button
-					{...rest}
-					className={classnames(styles.buttonIcon, {
-						[styles.floating]: variant === 'floating',
-						[styles.toggle]: variant === 'toggle',
-						[styles.size_S]: size === 'S',
-						[styles.size_XS]: size === 'XS',
-					})}
-					ref={ref}
-					disabled={disabled || isLoading}
-					{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
-				>
-					<span className={styles.buttonIcon__icon} aria-hidden>
-						{!isLoading && icon && <Icon name={icon} />}
-						{isLoading && <Loading />}
-					</span>
-				</Button>
-			</Tooltip>
-		);
-	},
-);
+	return (
+		<Tooltip title={children} placement="top">
+			<Button
+				{...rest}
+				className={classnames(styles.buttonIcon, {
+					[styles.floating]: variant === 'floating',
+					[styles.toggle]: variant === 'toggle',
+					[styles.size_S]: size === 'S',
+					[styles.size_XS]: size === 'XS',
+				})}
+				ref={ref}
+				disabled={disabled || isLoading}
+				{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
+			>
+				<span className={styles.buttonIcon__icon} aria-hidden>
+					{!isLoading && icon && <Icon name={icon} />}
+					{isLoading && <Loading />}
+				</span>
+			</Button>
+		</Tooltip>
+	);
+});
 
 export default ButtonIconPrimitive;

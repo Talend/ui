@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { WithSelector } from '~docs';
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 import Link from '.';
 import { LinkProps } from './Link';
@@ -43,7 +44,7 @@ export const Active = {
 
 export const WithIcon = {
 	render: (props: Story<LinkProps>) => (
-		<Link href="#" iconBefore="talend-info-circle" {...props}>
+		<Link href="#" icon="talend-info-circle" {...props}>
 			Link example
 		</Link>
 	),
@@ -51,7 +52,7 @@ export const WithIcon = {
 
 export const MultiLines = {
 	render: (props: Story<LinkProps>) => (
-		<Link href="https://www.talend.com" target="_blank" iconBefore="talend-info-circle" {...props}>
+		<Link href="https://www.talend.com" target="_blank" icon="talend-info-circle" {...props}>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et
 			massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci
 			maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique
@@ -66,7 +67,7 @@ export const MultiLines = {
 export const Disabled = {
 	render(props: Story<LinkProps>) {
 		return (
-			<Link href="#" iconBefore="talend-info-circle" disabled {...props}>
+			<Link href="#" icon="talend-info-circle" disabled {...props}>
 				Link example
 			</Link>
 		);
@@ -93,10 +94,10 @@ export const TargetBlank = {
 	},
 };
 
-export const AsButton = (props: Story<LinkProps>) => {
-	return (
-		<Link onClick={() => {}} as="button" {...props}>
-			Button styled as a link
+export const RouterLinkStory = () => (
+	<BrowserRouter>
+		<Link as={<RouterLink to="/documentation" />} icon="talend-info-circle">
+			Documentation
 		</Link>
-	);
-};
+	</BrowserRouter>
+);

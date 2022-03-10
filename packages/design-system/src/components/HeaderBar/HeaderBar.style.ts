@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import DSTokens from '@talend/design-tokens';
 import { hideVisually, transparentize } from 'polished';
-import Button from '../Button';
+import Clickable from '../Clickable';
 import tokens from '../../tokens';
 
 const borderLeft = () => `
@@ -96,6 +97,11 @@ export const Item = styled.span.attrs({
 export const Logo = styled(Item).attrs({
 	className: 'header-bar__logo',
 })<{ full?: boolean }>`
+	a {
+		// Bootstrap override
+		color: ${DSTokens.coralColorNeutralTextInverted};
+	}
+
 	svg {
 		height: ${tokens.sizes.xl};
 		width: ${({ full }) => (full ? '6rem' : tokens.sizes.xl)};
@@ -116,7 +122,7 @@ export const Brand = styled(Item).attrs({
 		flex-grow: 0;
 	}
 `;
-export const MenuDisclosure = styled(Button).attrs({
+export const MenuDisclosure = styled(Clickable).attrs({
 	className: 'header-bar__menu-disclosure',
 })`
 	margin-left: auto;

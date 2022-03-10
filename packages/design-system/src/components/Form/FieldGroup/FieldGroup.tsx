@@ -5,6 +5,7 @@ import classnames from 'classnames';
 
 import { FieldProps } from '../Field/Field';
 import InlineMessage from '../../InlineMessage';
+import { AffixReadOnly } from '../Field/Input/Affix';
 
 import * as S from './FieldGroup.style';
 
@@ -90,7 +91,7 @@ const FieldGroup = React.forwardRef(
 					{prefix && (
 						<div className="c-field-group__item c-field-group__item--prefix">
 							{!isElement(prefix) ? (
-								<S.SpanPrefix>{prefix}</S.SpanPrefix>
+								<AffixReadOnly>{prefix.toString()}</AffixReadOnly>
 							) : (
 								React.cloneElement(prefix, childrenProps)
 							)}
@@ -118,7 +119,7 @@ const FieldGroup = React.forwardRef(
 					{suffix && (
 						<div className="c-field-group__item c-field-group__item--suffix">
 							{!isElement(suffix) ? (
-								<S.SpanSuffix>{suffix}</S.SpanSuffix>
+								<AffixReadOnly>{suffix.toString()}</AffixReadOnly>
 							) : (
 								React.cloneElement(suffix, childrenProps)
 							)}

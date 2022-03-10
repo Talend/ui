@@ -1,0 +1,178 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+import * as Stories from './Button.stories';
+
+<Meta
+	title="Components/Clickable (Buttons)/Button"
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons',
+	}}
+/>
+
+# Button
+
+Buttons are clickable items used for actions. They can have different styles depending on the needs.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons?node-id=2919%3A7371"
+	alt="zoning image for buttons"
+/>
+
+## Style
+
+### Sizes
+
+Coral supports two button sizes: `M` and `S`.
+
+The small size won't display icons.
+
+### Variations
+
+<FigmaImage
+	src="https://www.figma.com/file/vvJTHBAgiLfBpgeKEjmvvZ/Buttons?node-id=3371%3A33589"
+	alt="Buttons in all their variations"
+/>
+
+<Canvas withSource="closed">
+	<Story story={Stories.Variations} />
+</Canvas>
+
+#### Primary
+
+<Canvas withSource="closed">
+	<Story story={Stories.PrimaryVariations} />
+</Canvas>
+
+<Canvas>
+	<Story story={Stories.Primary} name="ButtonPrimary usage" />
+</Canvas>
+
+<ArgsTable story="ButtonPrimary usage" />
+
+#### Destructive
+
+<Canvas withSource="closed">
+	<Story story={Stories.DestructiveVariations} />
+</Canvas>
+
+<Canvas>
+	<Story story={Stories.Destructive} name="ButtonDestructive usage" />
+</Canvas>
+
+<ArgsTable story="ButtonDestructive usage" />
+
+#### Secondary
+
+<Canvas withSource="closed">
+	<Story story={Stories.SecondaryVariations} />
+</Canvas>
+
+<Canvas>
+	<Story story={Stories.Secondary} name="ButtonSecondary usage" />
+</Canvas>
+
+<ArgsTable story="ButtonSecondary usage" />
+
+#### Tertiary
+
+<Canvas withSource="closed">
+	<Story story={Stories.TertiaryVariations} />
+</Canvas>
+
+<Canvas>
+	<Story story={Stories.Tertiary} name="ButtonTertiary usage" />
+</Canvas>
+
+<ArgsTable story="ButtonTertiary usage" />
+
+## Interactions
+
+All buttons have interactive states for "hover", "active" and "disabled". A focus ring should also be displayed on keyboard navigation.
+
+### Button skeletons
+
+Use `SkeletonButton` or `Skeleton variant="button"` to represent a placeholder for a button.
+
+<Canvas>
+	<Story story={Stories.SkeletonButton} />
+</Canvas>
+
+[The Skeleton Documentation is over there!](/docs/components-skeleton--skeleton-button-story)
+
+### Button tooltips
+
+Buttons can have a tooltip on hover displaying additional description.
+
+<Canvas>
+	<Story story={Stories.TooltipButton} />
+</Canvas>
+
+### Async buttons
+
+When the user clicks on the button, and the action is asynchronous, a spinner will appear on the left of the label.
+If the button has an icon, the spinner will temporarily replace this icon as long as it's loading.
+No action will be possible until it's done.
+
+<Canvas>
+	<Story story={Stories.Loading} />
+</Canvas>
+
+## Usage
+
+As you've seen, each variant has its own component. But you may want to switch from a variant to another using props.
+You can, using the `<Button>` generic component.
+
+<Canvas>
+	<Story story={Stories.VariantComponent} />
+</Canvas>
+
+Each variant has the same usage rules as their standalone component counterparts seen above.
+
+## Content
+
+The word(s) on buttons should be accurate, specific, and explicit—not vague.
+A good button label invites users to take action.
+Best to use verbs and label the button with what it actually does.
+Use OK sparingly—replace it with the specific action whenever possible.
+Users usually click OK to confirm the action they want to do.
+Name that action instead.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in button labels.</li>
+			<li>
+				Always start with an action verb: something happens when you click a button. Say what
+				happens with a verb. Navigation buttons are an example of an exception to using an action
+				verb. These often use -Next- and -Back-.
+			</li>
+			<li>
+				Choose specific words over vague words: “Try it now” for example is a common call to action
+				(CTA), but it doesn't really tell the user what will happen next. It might be too vague. Use
+				your judgment according to what the user should be doing when they click the button.
+			</li>
+			<li>
+				Choose words that logically align with the preceding content: if your headline says "Sign up
+				for a free trial" then your button text should also say "Sign up".
+			</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don’t use more than 3 words on a button: keep it short and simple.</li>
+			<li>
+				Don't use Yes and No for buttons. Say what action really happens when the user clicks.
+			</li>
+			<li>Don't use title case or all caps in button labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Accessibility
+
+- Press <kbd>Tab</kbd> to focus on the button
+
+- Press <kbd>Spacebar</kbd> or <kbd>Enter</kbd> to activate the button
