@@ -43,7 +43,6 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@svgr/webpack": "^5.5.0",
-    "autoprefixer": "^7.2.6",
     "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^1.0.1",

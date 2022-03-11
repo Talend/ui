@@ -6,13 +6,14 @@
   "types": "lib/index.d.ts",
   "mainSrc": "src/index.ts",
   "scripts": {
-    "pre-release": "yarn build:lib && yarn build:umd:dev && yarn build:umd:prod",
+    "pre-release": "yarn build:lib && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
     "build:lib": "talend-scripts build:ts:lib",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
     "test:demo": "yarn build-storybook",
+    "test:umd": "jest scripts/umd.test.js",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --docs"
@@ -37,7 +38,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^11.0.1",
+    "@talend/scripts-preset-react-lib": "^11.0.2",
     "color-contrast-checker": "^2.1.0",
     "react": "^16.14.0",
     "typeface-source-sans-pro": "^1.1.13"

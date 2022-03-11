@@ -28,6 +28,7 @@ function getVersion(pkg) {
 }
 
 const PKGS = [
+	'@talend/design-tokens',
 	'@talend/design-system',
 	'@talend/design-tokens',
 	'@talend/react-components',
