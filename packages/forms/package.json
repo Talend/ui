@@ -12,11 +12,11 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "build-storybook --quiet",
+    "test:demo": "talend-scripts build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
     "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
     "lint": "yarn run lint:es && yarn run lint:style",
-    "start": "start-storybook -p 6008",
+    "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
@@ -36,9 +36,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^1.17.0",
+    "@talend/design-system": "^2.0.0",
     "@talend/json-schema-form-core": "1.0.5",
-    "@talend/react-components": "^6.44.4",
+    "@talend/react-components": "^6.44.5",
     "@talend/utils": "^2.2.0",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
@@ -54,13 +54,14 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-knobs": "^6.4.0",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.39.0",
     "@talend/locales-tui-forms": "^6.41.3",
-    "@talend/react-components": "^6.44.4",
+    "@talend/react-components": "^6.44.5",
     "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^9.12.4",
+    "@talend/scripts-preset-react-lib": "^11.0.1",
     "autoprefixer": "^7.2.6",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
@@ -91,5 +92,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.3"
+  "version": "7.0.5"
 }

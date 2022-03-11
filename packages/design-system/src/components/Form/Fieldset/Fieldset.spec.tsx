@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Fieldset from './Fieldset';
-import Button from '../../Button';
+import { ButtonPrimary } from '../../Button';
 import ThemeProvider from '../../ThemeProvider';
 
 context('<Fieldset />', () => {
@@ -18,7 +18,7 @@ context('<Fieldset />', () => {
 						{hasError ? <span>Error message</span> : null}
 						<TestComponentWithState />
 					</Fieldset>
-					<Button.Primary onClick={() => setHasError(!hasError)}>Toggle error</Button.Primary>
+					<ButtonPrimary onClick={() => setHasError(!hasError)}>Toggle error</ButtonPrimary>
 				</ThemeProvider>
 			);
 		};

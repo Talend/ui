@@ -2,8 +2,11 @@ import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
 import { useForm } from 'react-hook-form';
 import { FigmaImage, FigmaIframe, WithSelector } from '~docs';
 import Form from '../';
-import Button from '../../Button';
+import { ButtonPrimary, ButtonSecondary } from '../../Button';
+import { ButtonIcon } from '../../ButtonIcon';
 import InlineMessage from '../../InlineMessage';
+import Button from '../../Clickable';
+import { AffixButton } from '../Field/Input/Affix';
 
 <Meta
 	title="Components/Form/Form Field Group"
@@ -63,7 +66,7 @@ A field group allows to extend the form controls by adding simple text, select o
 
 <Canvas>
 	<Story name="button">
-		<Form.FieldGroup label="Input" suffix={<Button.Secondary>Button</Button.Secondary>}>
+		<Form.FieldGroup label="Input" suffix={<AffixButton onClick={() => {}}>Button</AffixButton>}>
 			<Form.Text />
 		</Form.FieldGroup>
 	</Story>
@@ -80,7 +83,11 @@ A field group allows to extend the form controls by adding simple text, select o
 	<Story name="button--icon">
 		<Form.FieldGroup
 			label="Expression builder"
-			suffix={<Button.Icon icon={'talend-wrench'}>Open expression builder</Button.Icon>}
+			suffix={
+				<AffixButton onClick={() => {}} icon={'talend-wrench'} hideText>
+					Open expression builder
+				</AffixButton>
+			}
 		>
 			<Form.Text placeholder="Write your expression or drag element" />
 		</Form.FieldGroup>
@@ -231,13 +238,20 @@ Use lower case on prefix and suffix except if it's an interactive element.
 					)}
 					<Form.FieldGroup
 						label="API Key"
-						suffix={<Button.Icon icon="talend-files-o">Copy</Button.Icon>}
+						suffix={
+							<AffixButton onClick={() => {}} icon="talend-files-o" hideText>
+								Copy
+							</AffixButton>
+						}
 						description="The input seems readonly and the value is not displayed while submitting the form"
 					>
 						<Form.Text label="API Key" defaultValue={42} {...register('apiKey')} />
 					</Form.FieldGroup>
 					<Form.Buttons>
-						<Button.Primary type="submit">Submit</Button.Primary>
+						<ButtonPrimary type="submit" onClick={() => {}}>
+							{' '}
+							Submit
+						</ButtonPrimary>
 					</Form.Buttons>
 				</Form>
 			);
@@ -312,7 +326,7 @@ Use lower case on prefix and suffix except if it's an interactive element.
 							</Form.Select>
 						);
 					case 'Button':
-						return <Button>Next week</Button>;
+						return <AffixButton onClick={() => {}}>Next week</AffixButton>;
 					default:
 						return name;
 				}

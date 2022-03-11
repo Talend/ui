@@ -211,7 +211,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
       className="theme-no-result no-result"
       key="no-result"
     >
-      <Coral.Icon
+      <CoralIcon
         name="talend-fieldglass"
         title="No result."
       />

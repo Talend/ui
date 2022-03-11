@@ -24,7 +24,7 @@ exports[`Notification should render 1`] = `
         role={null}
         type="button"
       >
-        <Coral.Icon
+        <CoralIcon
           name="talend-cross"
         />
         <span>
@@ -47,7 +47,7 @@ exports[`Notification should render 1`] = `
             role={null}
             type="button"
           >
-            <Coral.Icon
+            <CoralIcon
               name="talend-undo"
             />
             <span>
@@ -79,7 +79,7 @@ exports[`Notification should render 1`] = `
         role={null}
         type="button"
       >
-        <Coral.Icon
+        <CoralIcon
           name="talend-cross"
         />
         <span>
@@ -107,7 +107,7 @@ exports[`Notification should render 1`] = `
             role={null}
             type="button"
           >
-            <Coral.Icon
+            <CoralIcon
               name="talend-undo"
             />
             <span>
@@ -136,7 +136,7 @@ exports[`Notification should render 1`] = `
         role={null}
         type="button"
       >
-        <Coral.Icon
+        <CoralIcon
           name="talend-cross"
         />
         <span>
@@ -180,7 +180,7 @@ exports[`Notification should render 1`] = `
         role={null}
         type="button"
       >
-        <Coral.Icon
+        <CoralIcon
           name="talend-cross"
         />
         <span>

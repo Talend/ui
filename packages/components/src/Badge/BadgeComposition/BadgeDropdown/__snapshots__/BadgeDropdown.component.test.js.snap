@@ -13,10 +13,10 @@ exports[`BadgeDropdown should render a dropdown 1`] = `
     <span class="tc-dropdown-button-title-label">
       Label
     </span>
-    <coral.icon name="talend-caret-down"
-                class="theme-tc-dropdown-caret"
+    <coralicon name="talend-caret-down"
+               class="theme-tc-dropdown-caret"
     >
-    </coral.icon>
+    </coralicon>
   </button>
   <ul role="menu"
       class="dropdown-menu"

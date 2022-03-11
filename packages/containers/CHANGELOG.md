@@ -1,5 +1,13 @@
 # @talend/react-containers
 
+## 7.0.3
+
+### Patch Changes
+
+- d839ab8ed: fix: MultiSelect in text mode
+- Updated dependencies [d839ab8ed]
+  - @talend/react-forms@7.0.4
+
 ## 7.0.2
 
 ### Patch Changes

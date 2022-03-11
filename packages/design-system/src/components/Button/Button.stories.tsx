@@ -1,232 +1,346 @@
 import React from 'react';
-import { Story } from '@storybook/react';
+import { ComponentStory, Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
-import Button from '.';
-import { ButtonProps } from './Button';
 import Skeleton from '../Skeleton';
 import Tooltip from '../Tooltip';
+import { BaseButtonProps } from './Primitive/ButtonPrimitive';
+import ButtonPrimary from './variations/ButtonPrimary';
+import ButtonSecondary from './variations/ButtonSecondary';
+import ButtonDestructive from './variations/ButtonDestructive';
+import ButtonTertiary from './variations/ButtonTertiary';
+import Button from './Button';
+
+import { StackHorizontal, StackVertical } from '../Stack';
+
+const commonArgTypes = {
+	children: {
+		control: { type: 'text' },
+		defaultValue: 'Action label',
+	},
+	onClick: {
+		disabled: true,
+		description: 'A callback function',
+		defaultValue: action('Button clicked'),
+	},
+	icon: {
+		control: { type: 'text' },
+		defaultValue: 'talend-plus',
+		description: 'optional',
+	},
+	isLoading: {
+		control: { type: 'boolean' },
+		defaultValue: false,
+		description: 'optional',
+	},
+	isDropdown: {
+		control: { type: 'boolean' },
+		defaultValue: false,
+		description: 'optional',
+	},
+	disabled: {
+		control: { type: 'boolean' },
+		defaultValue: false,
+		description: 'optional',
+	},
+	focusable: {
+		control: { type: 'boolean' },
+		defaultValue: false,
+		description: 'optional',
+	},
+	size: {
+		control: { type: 'select', options: ['M', 'S'] },
+		defaultValue: 'M',
+		description: 'optional (default is "M")',
+	},
+	type: {
+		control: { type: 'select', options: ['button', 'submit', 'reset'] },
+		defaultValue: 'button',
+		description: 'optional (default is "button")',
+	},
+};
 
 export default {
-	component: Button,
+	component: ButtonPrimary,
 	parameters: {
 		actions: { argTypesRegex: '^on[A-Z].*' },
 	},
 };
 
-export const Primary = {
-	render: (props: Story<ButtonProps>) => {
-		return <Button.Primary {...props}>Basic Button</Button.Primary>;
-	},
+const PrimaryTemplate: ComponentStory<typeof ButtonPrimary> = args => {
+	return <ButtonPrimary {...args} />;
+};
+const DestructiveTemplate: ComponentStory<typeof ButtonDestructive> = args => {
+	return <ButtonDestructive {...args} />;
 };
 
-export const PrimaryIcon = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Primary icon="talend-plus" {...props}>
-			Button with icon
-		</Button.Primary>
-	);
-};
-export const PrimarySmall = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Primary small {...props}>
-			Small Button
-		</Button.Primary>
-	);
-};
-export const PrimaryDisabled = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Primary disabled {...props}>
-			Disabled Button
-		</Button.Primary>
-	);
-};
-export const PrimaryDisabledFocusable = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Primary disabled focusable {...props}>
-			Disabled Focusable Button
-		</Button.Primary>
-	);
-};
-export const PrimaryAsLink = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Primary as="a" href="pouet" {...props}>
-			This is an anchor
-		</Button.Primary>
-	);
+const SecondaryTemplate: ComponentStory<typeof ButtonSecondary> = args => {
+	return <ButtonSecondary {...args} />;
 };
 
-export const Destructive = (props: Story<ButtonProps>) => {
-	return <Button.Destructive {...props}>Basic Button</Button.Destructive>;
-};
-export const DestructiveIcon = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Destructive icon="talend-plus" {...props}>
-			Button with icon
-		</Button.Destructive>
-	);
-};
-export const DestructiveSmall = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Destructive small {...props}>
-			Small Button
-		</Button.Destructive>
-	);
-};
-export const DestructiveDisabled = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Destructive disabled {...props}>
-			Disabled Button
-		</Button.Destructive>
-	);
-};
-export const DestructiveDisabledFocusable = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Destructive disabled focusable {...props}>
-			Disabled Focusable Button
-		</Button.Destructive>
-	);
-};
-export const DestructiveAsLink = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Destructive as="a" href="pouet" {...props}>
-			This is an anchor
-		</Button.Destructive>
-	);
+const TertiaryTemplate: ComponentStory<typeof ButtonTertiary> = args => {
+	return <ButtonTertiary {...args} />;
 };
 
-export const Secondary = (props: Story<ButtonProps>) => {
-	return <Button.Secondary {...props}>Basic Button</Button.Secondary>;
-};
-export const SecondaryIcon = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Secondary icon="talend-plus" {...props}>
-			Button with icon
-		</Button.Secondary>
-	);
-};
-export const SecondarySmall = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Secondary small {...props}>
-			Small Button
-		</Button.Secondary>
-	);
-};
-export const SecondaryDisabled = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Secondary disabled {...props}>
-			Disabled Button
-		</Button.Secondary>
-	);
-};
-export const SecondaryDisabledFocusable = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Secondary disabled focusable {...props}>
-			Disabled Focusable Button
-		</Button.Secondary>
-	);
-};
-export const SecondaryAsLink = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Secondary as="a" href="pouet" {...props}>
-			This is an anchor
-		</Button.Secondary>
-	);
-};
+export const Primary = PrimaryTemplate.bind({});
+Primary.argTypes = commonArgTypes;
 
-export const Tertiary = (props: Story<ButtonProps>) => {
-	return <Button.Tertiary {...props}>Basic Button</Button.Tertiary>;
-};
-export const TertiaryIcon = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Tertiary icon="talend-plus" {...props}>
-			Button with icon
-		</Button.Tertiary>
-	);
-};
-export const TertiarySmall = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Tertiary small {...props}>
-			Small Button
-		</Button.Tertiary>
-	);
-};
-export const TertiaryDisabled = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Tertiary disabled {...props}>
-			Disabled Button
-		</Button.Tertiary>
-	);
-};
-export const TertiaryDisabledFocusable = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Tertiary disabled focusable {...props}>
-			Disabled Focusable Button
-		</Button.Tertiary>
-	);
-};
-export const TertiaryAsLink = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Tertiary as="a" href="pouet" {...props}>
-			This is an anchor
-		</Button.Tertiary>
-	);
-};
+export const Destructive = DestructiveTemplate.bind({});
+Destructive.argTypes = commonArgTypes;
 
-export const Icon = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Icon icon="talend-plus" {...props}>
-			Button with icon
-		</Button.Icon>
-	);
-};
-export const IconDisabled = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Icon disabled icon="talend-plus" {...props}>
-			Disabled Button
-		</Button.Icon>
-	);
-};
-export const IconDisabledFocusable = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Icon disabled focusable icon="talend-plus" {...props}>
-			Disabled Focusable Button
-		</Button.Icon>
-	);
-};
-export const IconAsLink = (props: Story<ButtonProps>) => {
-	return (
-		<Button.Icon as="a" href="pouet" icon="talend-plus" {...props}>
-			This is an anchor
-		</Button.Icon>
-	);
-};
+export const Secondary = SecondaryTemplate.bind({});
+Secondary.argTypes = commonArgTypes;
+
+export const Tertiary = TertiaryTemplate.bind({});
+Tertiary.argTypes = commonArgTypes;
+
+export const PrimaryVariations = () => (
+	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Default</h3>
+			<ButtonPrimary onClick={action('Clicked')}>Primary M</ButtonPrimary>
+			<ButtonPrimary onClick={action('Clicked')} size="S">
+				Primary S
+			</ButtonPrimary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>With icon</h3>
+			<ButtonPrimary icon="talend-upload" onClick={action('Clicked')}>
+				Primary M
+			</ButtonPrimary>
+			<ButtonPrimary icon="talend-upload" onClick={action('Clicked')} size="S">
+				Primary S
+			</ButtonPrimary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>With dropdown indicator</h3>
+			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')}>
+				Primary M
+			</ButtonPrimary>
+			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S">
+				Primary S
+			</ButtonPrimary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Disabled</h3>
+			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} disabled>
+				Primary M
+			</ButtonPrimary>
+			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S" disabled>
+				Primary S
+			</ButtonPrimary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Loading</h3>
+			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} isLoading>
+				Primary M
+			</ButtonPrimary>
+			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S" isLoading>
+				Primary S
+			</ButtonPrimary>
+		</StackVertical>
+	</StackHorizontal>
+);
+
+export const DestructiveVariations = () => (
+	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Default</h3>
+			<ButtonDestructive onClick={action('Clicked')}>Destructive M</ButtonDestructive>
+			<ButtonDestructive onClick={action('Clicked')} size="S">
+				Destructive S
+			</ButtonDestructive>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>With icon</h3>
+			<ButtonDestructive icon="talend-upload" onClick={action('Clicked')}>
+				Primary M
+			</ButtonDestructive>
+			<ButtonDestructive icon="talend-upload" onClick={action('Clicked')} size="S">
+				Primary S
+			</ButtonDestructive>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>With dropdown indicator</h3>
+			<ButtonDestructive icon="talend-upload" isDropdown onClick={action('Clicked')}>
+				Destructive M
+			</ButtonDestructive>
+			<ButtonDestructive icon="talend-upload" isDropdown onClick={action('Clicked')} size="S">
+				Destructive S
+			</ButtonDestructive>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Disabled</h3>
+			<ButtonDestructive icon="talend-upload" isDropdown onClick={action('Clicked')} disabled>
+				Destructive M
+			</ButtonDestructive>
+			<ButtonDestructive
+				icon="talend-upload"
+				isDropdown
+				onClick={action('Clicked')}
+				size="S"
+				disabled
+			>
+				Destructive S
+			</ButtonDestructive>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Loading</h3>
+			<ButtonDestructive icon="talend-upload" isDropdown onClick={action('Clicked')} isLoading>
+				Destructive M
+			</ButtonDestructive>
+			<ButtonDestructive
+				icon="talend-upload"
+				isDropdown
+				onClick={action('Clicked')}
+				size="S"
+				isLoading
+			>
+				Destructive S
+			</ButtonDestructive>
+		</StackVertical>
+	</StackHorizontal>
+);
+
+export const SecondaryVariations = () => (
+	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Default</h3>
+			<ButtonSecondary onClick={action('Clicked')}>Secondary M</ButtonSecondary>
+			<ButtonSecondary onClick={action('Clicked')} size="S">
+				Secondary S
+			</ButtonSecondary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>With icon</h3>
+			<ButtonSecondary icon="talend-upload" onClick={action('Clicked')}>
+				Primary M
+			</ButtonSecondary>
+			<ButtonSecondary icon="talend-upload" onClick={action('Clicked')} size="S">
+				Primary S
+			</ButtonSecondary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>With dropdown indicator</h3>
+			<ButtonSecondary icon="talend-upload" isDropdown onClick={action('Clicked')}>
+				Secondary M
+			</ButtonSecondary>
+			<ButtonSecondary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S">
+				Secondary S
+			</ButtonSecondary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Disabled</h3>
+			<ButtonSecondary icon="talend-upload" isDropdown onClick={action('Clicked')} disabled>
+				Secondary M
+			</ButtonSecondary>
+			<ButtonSecondary
+				icon="talend-upload"
+				isDropdown
+				onClick={action('Clicked')}
+				size="S"
+				disabled
+			>
+				Secondary S
+			</ButtonSecondary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Loading</h3>
+			<ButtonSecondary icon="talend-upload" isDropdown onClick={action('Clicked')} isLoading>
+				Secondary M
+			</ButtonSecondary>
+			<ButtonSecondary
+				icon="talend-upload"
+				isDropdown
+				onClick={action('Clicked')}
+				size="S"
+				isLoading
+			>
+				Secondary S
+			</ButtonSecondary>
+		</StackVertical>
+	</StackHorizontal>
+);
+
+export const TertiaryVariations = () => (
+	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Default</h3>
+			<ButtonTertiary onClick={action('Clicked')}>Tertiary M</ButtonTertiary>
+			<ButtonTertiary onClick={action('Clicked')} size="S">
+				Tertiary S
+			</ButtonTertiary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>With icon</h3>
+			<ButtonTertiary icon="talend-upload" onClick={action('Clicked')}>
+				Primary M
+			</ButtonTertiary>
+			<ButtonTertiary icon="talend-upload" onClick={action('Clicked')} size="S">
+				Primary S
+			</ButtonTertiary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>With dropdown indicator</h3>
+			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')}>
+				Tertiary M
+			</ButtonTertiary>
+			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S">
+				Tertiary S
+			</ButtonTertiary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Disabled</h3>
+			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')} disabled>
+				Tertiary M
+			</ButtonTertiary>
+			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S" disabled>
+				Tertiary S
+			</ButtonTertiary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Loading</h3>
+			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')} isLoading>
+				Tertiary M
+			</ButtonTertiary>
+			<ButtonTertiary
+				icon="talend-upload"
+				isDropdown
+				onClick={action('Clicked')}
+				size="S"
+				isLoading
+			>
+				Tertiary S
+			</ButtonTertiary>
+		</StackVertical>
+	</StackHorizontal>
+);
 
 export const SkeletonButton = () => {
-	return <Skeleton.Button />;
-};
-export const SkeletonButtonSmall = () => {
-	return <Skeleton.Button />;
-};
-export const SkeletonButtonIcon = () => {
-	return <Skeleton.Icon />;
+	return (
+		<StackHorizontal gap="XS">
+			<Skeleton variant="button" />
+			<Skeleton variant="button" size="S" />
+		</StackHorizontal>
+	);
 };
 
-export const TooltipButton = (props: Story<ButtonProps>) => (
+export const TooltipButton = (props: Story<BaseButtonProps>) => (
 	<Tooltip title="Relevant information about contacting the support">
-		<Button.Primary icon="talend-bubbles" {...props}>
+		<ButtonPrimary onClick={action('I have been clicked')} icon="talend-bubbles" {...props}>
 			Contact support
-		</Button.Primary>
+		</ButtonPrimary>
 	</Tooltip>
 );
 
 export const Loading = {
-	render: (props: Story<ButtonProps>) => {
+	render: (props: Story<BaseButtonProps>) => {
 		const [loading, isLoading] = React.useState(false);
 		return (
 			<Tooltip title="Relevant description of the basic button">
-				<Button.Primary
+				<ButtonPrimary
 					icon="talend-check"
-					loading={loading}
+					isLoading={loading}
 					onClick={() => {
 						isLoading(true);
 						setTimeout(() => isLoading(false), 3000);
@@ -234,8 +348,71 @@ export const Loading = {
 					{...props}
 				>
 					Async call to action
-				</Button.Primary>
+				</ButtonPrimary>
 			</Tooltip>
 		);
 	},
 };
+
+export const Variations = () => (
+	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
+		<StackVertical gap="S" justify="spaceAround" align="center">
+			<p>&nbsp;</p>
+			<h3>M</h3>
+			<h3>S</h3>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Primary</h3>
+			<ButtonPrimary icon="talend-upload" onClick={action('Clicked')} isDropdown>
+				Label
+			</ButtonPrimary>
+			<ButtonPrimary icon="talend-upload" onClick={action('Clicked')} size="S" isDropdown>
+				Label
+			</ButtonPrimary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Destructive</h3>
+			<ButtonDestructive icon="talend-upload" onClick={action('Clicked')} isDropdown>
+				Label
+			</ButtonDestructive>
+			<ButtonDestructive icon="talend-upload" onClick={action('Clicked')} size="S" isDropdown>
+				Label
+			</ButtonDestructive>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Secondary</h3>
+			<ButtonSecondary icon="talend-upload" onClick={action('Clicked')} isDropdown>
+				Label
+			</ButtonSecondary>
+			<ButtonSecondary icon="talend-upload" onClick={action('Clicked')} size="S" isDropdown>
+				Label
+			</ButtonSecondary>
+		</StackVertical>
+		<StackVertical gap="S" justify="start" align="center">
+			<h3>Tertiary</h3>
+			<ButtonTertiary icon="talend-upload" onClick={action('Clicked')} isDropdown>
+				Label
+			</ButtonTertiary>
+			<ButtonTertiary icon="talend-upload" onClick={action('Clicked')} size="S" isDropdown>
+				Label
+			</ButtonTertiary>
+		</StackVertical>
+	</StackHorizontal>
+);
+
+export const VariantComponent = () => (
+	<StackHorizontal gap="S">
+		<Button variant="primary" onClick={action('Clicked')}>
+			Primary Button
+		</Button>
+		<Button variant="destructive" onClick={action('Clicked')}>
+			Destructive Button
+		</Button>
+		<Button variant="secondary" onClick={action('Clicked')}>
+			Secondary Button
+		</Button>
+		<Button variant="tertiary" onClick={action('Clicked')}>
+			Tertiary Button
+		</Button>
+	</StackHorizontal>
+);

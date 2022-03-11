@@ -36,7 +36,7 @@ exports[`FieldTemplate should render the common widget markup 1`] = `
             link={null}
             small={true}
           >
-            <Coral.InlineMessage
+            <CoralInlineMessage
               className="sr-only"
               description="This is the description"
               id="test-description"
@@ -56,21 +56,21 @@ exports[`FieldTemplate should render the common widget markup 1`] = `
         <div
           className="tc-inline-message theme-tc-inline-message"
         >
-          <InlineMessage.Destructive
+          <InlineMessageDestructive
             aria-live="assertive"
             description="This is the error"
             id="test-error"
             link={null}
             small={true}
           >
-            <Coral.InlineMessage.Destructive
+            <CoralInlineMessageDestructive
               aria-live="assertive"
               description="This is the error"
               id="test-error"
               link={null}
               small={true}
             />
-          </InlineMessage.Destructive>
+          </InlineMessageDestructive>
         </div>
       </InlineMessage>
     </div>
