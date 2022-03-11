@@ -20,8 +20,8 @@ check versions of packages/cmf-cqrs/package.json using latest
 
 check versions of packages/cmf-router/package.json using latest
 "path-to-regexp": "^2.4.0" => "^6.2.0"
-"react-router": "^3.2.6" => "^6.2.1"
-"node-fetch": "^2.6.7" => "^3.2.0"
+"react-router": "^3.2.6" => "^6.2.2"
+"node-fetch": "^2.6.7" => "^3.2.2"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
@@ -33,7 +33,7 @@ check versions of packages/cmf/package.json using latest
 "nested-combine-reducers": "^1.2.2" => "^2.0.0"
 "path-to-regexp": "^2.4.0" => "^6.2.0"
 "uuid": "^3.4.0" => "^8.3.2"
-"node-fetch": "^2.6.7" => "^3.2.0"
+"node-fetch": "^2.6.7" => "^3.2.2"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
@@ -42,19 +42,18 @@ check versions of packages/components/package.json using latest
 "date-fns": "^1.30.1" => "^2.28.0"
 "immutable": "^3.8.2" => "^4.0.0"
 "memoize-one": "^5.2.1" => "^6.0.0"
-"rc-slider": "8.6.3" => "^9.7.5"
+"rc-slider": "8.6.3" => "^10.0.0-alpha.4"
 "rc-tooltip": "3.7.3" => "^5.1.1"
 "react-autowhatever": "10.2.0" => "^10.2.1"
-"react-bootstrap": "0.32.4" => "^2.1.2"
+"react-bootstrap": "0.32.4" => "^2.2.0"
 "react-debounce-input": "3.2.0" => "^3.2.5"
-"react-grid-layout": "0.16.6" => "^1.3.3"
 "react-transition-group": "^2.9.0" => "^4.4.2"
 "simplebar": "^4.2.3" => "^5.3.6"
 "simplebar-react": "^1.2.3" => "^2.3.6"
 "uuid": "^3.4.0" => "^8.3.2"
 "autoprefixer": "^7.2.6" => "^10.4.2"
-"css-loader": "^1.0.1" => "^6.6.0"
-"i18next": "^20.6.1" => "^21.6.11"
+"css-loader": "^1.0.1" => "^6.7.1"
+"i18next": "^20.6.1" => "^21.6.14"
 "jsdom": "^16.7.0" => "^19.0.0"
 "postcss-loader": "^3.0.0" => "^6.2.1"
 "react": "^16.14.0" => "^17.0.2"
@@ -66,11 +65,11 @@ check versions of packages/components/package.json using latest
 check versions of packages/containers/package.json using latest
 "immutable": "^3.8.2" => "^4.0.0"
 "memoize-one": "^5.2.1" => "^6.0.0"
-"react-bootstrap": "0.32.4" => "^2.1.2"
+"react-bootstrap": "0.32.4" => "^2.2.0"
 "reselect": "^2.5.4" => "^4.1.5"
 "uuid": "^3.4.0" => "^8.3.2"
-"css-loader": "^1.0.1" => "^6.6.0"
-"i18next": "^20.6.1" => "^21.6.11"
+"css-loader": "^1.0.1" => "^6.7.1"
+"i18next": "^20.6.1" => "^21.6.14"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 "react-test-renderer": "^16.14.0" => "^17.0.2"
@@ -79,8 +78,8 @@ check versions of packages/containers/package.json using latest
 check versions of packages/datagrid/package.json using latest
 "ag-grid-community": "^25.3.0" => "^27.0.1"
 "ag-grid-react": "^25.3.0" => "^27.0.1"
-"css-loader": "^1.0.1" => "^6.6.0"
-"i18next": "^20.6.1" => "^21.6.11"
+"css-loader": "^1.0.1" => "^6.7.1"
+"i18next": "^20.6.1" => "^21.6.14"
 "immutable": "^3.8.2" => "^4.0.0"
 "jsdom": "^16.7.0" => "^19.0.0"
 "react": "^16.14.0" => "^17.0.2"
@@ -90,22 +89,21 @@ check versions of packages/datagrid/package.json using latest
 check versions of packages/dataviz/package.json using latest
 "d3": "^6.7.0" => "^7.3.0"
 "@types/d3": "^6.7.5" => "^7.1.0"
-"@types/react": "^16.14.23" => "^17.0.39"
-"i18next": "^20.6.1" => "^21.6.11"
+"@types/react": "^16.14.24" => "^17.0.40"
+"i18next": "^20.6.1" => "^21.6.14"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
 check versions of packages/design-system/package.json using latest
 "@storybook/testing-library": "^0.0.8" => "^0.0.9"
 "@svgr/webpack": "^5.5.0" => "^6.2.1"
-"@types/react": "^16.14.23" => "^17.0.39"
-"@types/react-dom": "^16.9.14" => "^17.0.11"
+"@types/react": "^16.14.24" => "^17.0.40"
+"@types/react-dom": "^16.9.14" => "^17.0.13"
 "@types/react-is": "^16.7.2" => "^17.0.3"
-"babel-plugin-styled-components": "^1.13.3" => "^2.0.2"
-"css-loader": "^5.2.7" => "^6.6.0"
-"i18next": "^20.6.1" => "^21.6.11"
+"babel-plugin-styled-components": "^1.13.3" => "^2.0.6"
+"css-loader": "^5.2.7" => "^6.7.1"
+"i18next": "^20.6.1" => "^21.6.14"
 "mdx-embed": "^0.0.22" => "^1.0.0"
-"prettier": "2.3.0" => "^2.5.1"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 "react-is": "^16.13.1" => "^17.0.2"
@@ -118,22 +116,21 @@ check versions of packages/design-tokens/package.json using latest
 
 check versions of packages/faceted-search/package.json using latest
 "date-fns": "^1.30.1" => "^2.28.0"
-"react-bootstrap": "0.32.4" => "^2.1.2"
+"react-bootstrap": "0.32.4" => "^2.2.0"
 "uuid": "^3.4.0" => "^8.3.2"
 "@storybook/testing-library": "^0.0.8" => "^0.0.9"
 "husky": "^4.3.8" => "^7.0.4"
-"i18next": "^20.6.1" => "^21.6.11"
-"lint-staged": "^10.5.4" => "^12.3.4"
+"i18next": "^20.6.1" => "^21.6.14"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
 check versions of packages/flow-designer/package.json using latest
 "d3": "^6.7.0" => "^7.3.0"
 "@types/d3": "^6.7.5" => "^7.1.0"
-"@types/react": "^16.14.23" => "^17.0.39"
+"@types/react": "^16.14.24" => "^17.0.40"
 "@types/react-test-renderer": "^16.9.5" => "^17.0.1"
-"@typescript-eslint/parser": "^4.33.0" => "^5.12.0"
-"i18next": "^20.6.1" => "^21.6.11"
+"@typescript-eslint/parser": "^4.33.0" => "^5.14.0"
+"i18next": "^20.6.1" => "^21.6.14"
 "immutable": "^3.8.2" => "^4.0.0"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
@@ -142,19 +139,19 @@ check versions of packages/forms/package.json using latest
 "ajv": "^6.12.6" => "^8.10.0"
 "memoize-one": "^5.2.1" => "^6.0.0"
 "react-autowhatever": "10.2.0" => "^10.2.1"
-"react-bootstrap": "0.32.4" => "^2.1.2"
-"react-hook-form": "^6.15.8" => "^7.27.0"
+"react-bootstrap": "0.32.4" => "^2.2.0"
+"react-hook-form": "^6.15.8" => "^7.27.1"
 "react-jsonschema-form": "0.51.0" => "^1.8.1"
 "uuid": "^3.4.0" => "^8.3.2"
 "autoprefixer": "^7.2.6" => "^10.4.2"
-"i18next": "^20.6.1" => "^21.6.11"
+"i18next": "^20.6.1" => "^21.6.14"
 "react": "^16.14.0" => "^17.0.2"
 "react-ace": "6.2.0" => "^9.5.0"
 "react-dom": "^16.14.0" => "^17.0.2"
 "react-test-renderer": "^16.14.0" => "^17.0.2"
 
 check versions of packages/http/package.json using latest
-"node-fetch": "^2.6.7" => "^3.2.0"
+"node-fetch": "^2.6.7" => "^3.2.2"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
@@ -162,21 +159,21 @@ check versions of packages/icons/package.json using latest
 "@svgr/webpack": "^5.5.0" => "^6.2.1"
 "autoprefixer": "^7.2.6" => "^10.4.2"
 "copy-webpack-plugin": "^6.4.1" => "^10.2.4"
-"css-loader": "^1.0.1" => "^6.6.0"
-"mini-css-extract-plugin": "^1.6.2" => "^2.5.3"
+"css-loader": "^1.0.1" => "^6.7.1"
+"mini-css-extract-plugin": "^1.6.2" => "^2.6.0"
 "react": "^16.14.0" => "^17.0.2"
 "rimraf": "^2.7.1" => "^3.0.2"
 "string-replace-loader": "^2.3.0" => "^3.1.0"
 "style-loader": "^0.23.1" => "^3.3.1"
 "svgo": "^1.3.2" => "^2.8.0"
-"webpack": "^4.46.0" => "^5.69.0"
+"webpack": "^4.46.0" => "^5.70.0"
 "webpack-cli": "^3.3.12" => "^4.9.2"
 
 check versions of packages/jsfc/package.json using latest
 "objectpath": "^1.2.2" => "^2.0.0"
 "@types/chai": "^3.5.2" => "^4.3.0"
 "@types/mocha": "^2.2.48" => "^9.1.0"
-"@types/node": "^6.14.13" => "^17.0.18"
+"@types/node": "^6.14.13" => "^17.0.21"
 "sinon": "^11.1.2" => "^13.0.1"
 "json-refs": "^2.1.7" => "^3.0.15"
 "rimraf": "^2.7.1" => "^3.0.2"
@@ -185,14 +182,14 @@ check versions of packages/local-libs-webpack-plugin/package.json using latest
 "jest-cli": "^26.6.3" => "^27.5.1"
 
 check versions of packages/playground/package.json using latest
-"history": "^3.3.0" => "^5.2.0"
-"i18next": "^20.6.1" => "^21.6.11"
+"history": "^3.3.0" => "^5.3.0"
+"i18next": "^20.6.1" => "^21.6.14"
 "react": "^16.14.0" => "^17.0.2"
 "react-dom": "^16.14.0" => "^17.0.2"
 
 check versions of packages/router-bridge/package.json using latest
 "react": "^16.14.0" => "^17.0.2"
-"react-router-dom": "^5.3.0" => "^6.2.1"
+"react-router-dom": "^5.3.0" => "^6.2.2"
 
 check versions of packages/sagas/package.json using latest
 "immutable": "^3.8.2" => "^4.0.0"
@@ -200,8 +197,8 @@ check versions of packages/sagas/package.json using latest
 "react-dom": "^16.14.0" => "^17.0.2"
 
 check versions of packages/stepper/package.json using latest
-"css-loader": "^1.0.1" => "^6.6.0"
-"i18next": "^20.6.1" => "^21.6.11"
+"css-loader": "^1.0.1" => "^6.7.1"
+"i18next": "^20.6.1" => "^21.6.14"
 "immutable": "^3.8.2" => "^4.0.0"
 "jsdom": "^16.7.0" => "^19.0.0"
 "react": "^16.14.0" => "^17.0.2"
@@ -217,11 +214,11 @@ check versions of packages/theme/package.json using latest
 "copy-webpack-plugin": "^6.4.1" => "^10.2.4"
 "css-minimizer-webpack-plugin": "^1.3.0" => "^3.4.1"
 "html-webpack-plugin": "^4.5.2" => "^5.5.0"
-"postcss-preset-env": "^6.7.1" => "^7.4.0"
+"postcss-preset-env": "^6.7.1" => "^7.4.2"
 
 check versions of packages/utils/package.json using latest
 "date-fns": "^1.30.1" => "^2.28.0"
-"@typescript-eslint/parser": "^4.33.0" => "^5.12.0"
+"@typescript-eslint/parser": "^4.33.0" => "^5.14.0"
 
 check versions of fork/bootstrap-sass/package.json using latest
-Done in 174.74s.
+Done in 140.17s.
