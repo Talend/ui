@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 2.0.1
+
+### Patch Changes
+
+- 42a4eafa6: Export AffixButton and AffixReadOnly for FieldGroups.
+- Updated dependencies [c7816c160]
+  - @talend/design-tokens@1.4.1
+
 ## 2.0.0
 
 ### Major Changes

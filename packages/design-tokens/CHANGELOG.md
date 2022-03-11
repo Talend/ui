@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 1.4.1
+
+### Patch Changes
+
+- c7816c160: fix: umd distribution
+
 ## 1.4.0
 
 ### Minor Changes
