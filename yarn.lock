@@ -3485,24 +3485,6 @@
     webpack-bundle-analyzer "^4.5.0"
     webpack-cli "^4.9.2"
 
-"@talend/scripts-config-storybook-lib@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.10.0.tgz#6f1036bf0812ce583206536caeabdd310fd64b1e"
-  integrity sha512-3vJReVq2VsZDAndSq0Ei540CEthNA7usZM6g47nnxWivFz5GWo30dg7Cl/sgwmB3Zu9fORpCGivzo1fdre8LzQ==
-  dependencies:
-    "@storybook/addon-a11y" "^6.4.19"
-    "@storybook/addon-essentials" "^6.4.19"
-    "@storybook/addon-interactions" "^6.4.19"
-    "@storybook/addon-links" "^6.4.19"
-    "@storybook/react" "^6.4.19"
-    "@storybook/testing-library" "^0.0.8"
-    "@talend/dynamic-cdn-webpack-plugin" "^9.7.15"
-    fs-extra "^10.0.1"
-    i18next-http-backend "^1.3.2"
-    lodash "^4.17.21"
-    msw "^0.38.2"
-    msw-storybook-addon "^1.6.1"
-
 "@talend/scripts-config-storybook-lib@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.8.0.tgz#c803d21cbcf56729e0d77da24290256d197b880e"
