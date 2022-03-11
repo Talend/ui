@@ -15,7 +15,7 @@ describe('CodeWidget', () => {
 	it('should render ReactAce', async () => {
 		window.React = React;
 		window.ReactDOM = ReactDOM;
-		window.ReactAce = ReactAce;
+		window.ReactAce = { default: ReactAce };
 		const formContext = {
 			codeWidgetOnLoad: jest.fn(),
 		};
@@ -25,9 +25,9 @@ describe('CodeWidget', () => {
 				new Promise(resolve => {
 					setTimeout(() => {
 						resolve(true);
-					}, 1000);
+					}, 200);
 				}),
-			{ timeout: 1100 },
+			{ timeout: 300 },
 		);
 		// eslint-disable-next-line testing-library/no-container
 		const input = wrapper.container.querySelector('textarea');
