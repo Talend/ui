@@ -6,7 +6,9 @@ import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DataGrid from './DataGrid.component';
 
-function PinHeaderRenderer() {}
+function PinHeaderRenderer() {
+	return <span>test hello</span>;
+}
 
 function getComponent() {
 	return PinHeaderRenderer;
