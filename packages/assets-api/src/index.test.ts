@@ -1,8 +1,8 @@
-import { readPackageUpSync } from 'read-pkg-up';
+import readPackageUp from 'read-pkg-up';
 import assetsApi from '.';
 
-const iconsInfo = readPackageUpSync({ cwd: require.resolve('@talend/icons') });
-const currentInfo = readPackageUpSync({ cwd: __dirname });
+const iconsInfo = readPackageUp.sync({ cwd: require.resolve('@talend/icons') });
+const currentInfo = readPackageUp.sync({ cwd: __dirname });
 
 describe('assets-api', () => {
 	describe('getURL', () => {
