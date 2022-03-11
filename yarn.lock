@@ -3485,6 +3485,24 @@
     webpack-bundle-analyzer "^4.5.0"
     webpack-cli "^4.9.2"
 
+"@talend/scripts-config-storybook-lib@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.10.0.tgz#6f1036bf0812ce583206536caeabdd310fd64b1e"
+  integrity sha512-3vJReVq2VsZDAndSq0Ei540CEthNA7usZM6g47nnxWivFz5GWo30dg7Cl/sgwmB3Zu9fORpCGivzo1fdre8LzQ==
+  dependencies:
+    "@storybook/addon-a11y" "^6.4.19"
+    "@storybook/addon-essentials" "^6.4.19"
+    "@storybook/addon-interactions" "^6.4.19"
+    "@storybook/addon-links" "^6.4.19"
+    "@storybook/react" "^6.4.19"
+    "@storybook/testing-library" "^0.0.8"
+    "@talend/dynamic-cdn-webpack-plugin" "^9.7.15"
+    fs-extra "^10.0.1"
+    i18next-http-backend "^1.3.2"
+    lodash "^4.17.21"
+    msw "^0.38.2"
+    msw-storybook-addon "^1.6.1"
+
 "@talend/scripts-config-storybook-lib@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.8.0.tgz#c803d21cbcf56729e0d77da24290256d197b880e"
@@ -3506,6 +3524,24 @@
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-0.9.1.tgz#03e069a58c3c11f8a253b921f64e37d3d070205b"
   integrity sha512-BM5IQkMtSAwex22Kx0UpxptMM/wzlTKMRhD0Fw3QnSGTc1RH5kICK0YiLdC9N6bqbOfz3J5NqBbEYD6XupnWag==
+  dependencies:
+    "@storybook/addon-a11y" "^6.4.19"
+    "@storybook/addon-essentials" "^6.4.19"
+    "@storybook/addon-interactions" "^6.4.19"
+    "@storybook/addon-links" "^6.4.19"
+    "@storybook/react" "^6.4.19"
+    "@storybook/testing-library" "^0.0.8"
+    "@talend/dynamic-cdn-webpack-plugin" "^9.7.15"
+    fs-extra "^10.0.1"
+    i18next-http-backend "^1.3.2"
+    lodash "^4.17.21"
+    msw "^0.38.2"
+    msw-storybook-addon "^1.6.1"
+
+"@talend/scripts-config-storybook-lib@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-storybook-lib/-/scripts-config-storybook-lib-1.0.0.tgz#426cb940448a3d43a06e778d8393efdbb7a98f01"
+  integrity sha512-uZQa0Z4euk+87TlOQ/4a/S44n6omRwI9n27I3RQxoxXkzHNV6ob8YgRRDloPi4PSJd+cksbHaHUmez5SwDSnnA==
   dependencies:
     "@storybook/addon-a11y" "^6.4.19"
     "@storybook/addon-essentials" "^6.4.19"
@@ -3554,10 +3590,10 @@
     which "^2.0.2"
     yargs "^15.4.1"
 
-"@talend/scripts-preset-react-lib@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-11.0.0.tgz#64fcc6179a174903f0567b8d3f3c0907537bc6c2"
-  integrity sha512-6kEecSXEITywLpLofHkGJuvbLsqqGuwZyJzLe2uAOtW090QHJ+9BDXBQXpnZXLSSIN8PWfsfhYruL55dgCvy1g==
+"@talend/scripts-preset-react-lib@^11.0.0", "@talend/scripts-preset-react-lib@^11.0.1", "@talend/scripts-preset-react-lib@^11.0.2":
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-11.0.2.tgz#afc6716f13188f4d4eebd00a059e67b2908c3184"
+  integrity sha512-4fdSm4YUivU9KX0gKXx/px0T5bTDpqhYh6KvoaowXCPFaMDk5rvag/AgCN5+e7eR3psa9g8ioxSIU7mnwGdGsw==
   dependencies:
     "@talend/scripts-config-babel" "^9.9.0"
     "@talend/scripts-config-cdn" "^10.0.0"
@@ -3565,7 +3601,7 @@
     "@talend/scripts-config-jest" "^9.7.1"
     "@talend/scripts-config-prettier" "^9.6.3"
     "@talend/scripts-config-react-webpack" "^12.0.0"
-    "@talend/scripts-config-storybook-lib" "^0.9.0"
+    "@talend/scripts-config-storybook-lib" "^1.0.0"
     "@talend/scripts-config-stylelint" "^1.0.1"
     "@talend/scripts-config-typescript" "^9.11.1"
 
