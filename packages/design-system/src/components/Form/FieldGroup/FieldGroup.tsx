@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import { FieldProps } from '../Field/Field';
 import InlineMessage from '../../InlineMessage';
-import { AffixReadOnly } from '../Field/Input/Affix';
+import { AffixReadOnly } from './Affix';
 
 import * as S from './FieldGroup.style';
 
