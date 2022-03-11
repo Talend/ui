@@ -40,3 +40,4 @@ jobs:
           title: "chore: upgrade dependencies"
           body: "Upgrade dependencies using `talend-scripts upgrade:deps`"
           branch: ci/chore/upgrade-dependencies
+          token: ${{ secrets.GITHUB_TOKEN }}
