@@ -2,4 +2,4 @@
 '@talend/design-system': patch
 ---
 
-Export AffixButton for FieldGroups.
+Export AffixButton and AffixReadOnly for FieldGroups.
