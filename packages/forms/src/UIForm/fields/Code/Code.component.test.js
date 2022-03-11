@@ -32,16 +32,16 @@ describe('Code field', () => {
 	async function initWith(dprops) {
 		window.React = React;
 		window.ReactDOM = ReactDOM;
-		window.ReactAce = ReactAce;
+		window.ReactAce = { default: ReactAce };
 		render(<Code {...dprops} />);
 		await waitFor(
 			() =>
 				new Promise(resolve => {
 					setTimeout(() => {
 						resolve(true);
-					}, 1000);
+					}, 200);
 				}),
-			{ timeout: 1100 },
+			{ timeout: 300 },
 		);
 	}
 	it('should render ace-editor in FieldTemplate', async () => {
