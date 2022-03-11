@@ -22,6 +22,8 @@
 		width: tokens.$coral-size-xs;
 		height: tokens.$coral-size-xs;
 		align-items: center;
+		transform: rotate(0);
+		transition: transform tokens.$coral-transition-fast;
 	}
 
 	&__loading {
@@ -42,5 +44,11 @@
 	&[aria-busy='true'] {
 		color: tokens.$coral-color-neutral-text-disabled;
 		border-color: tokens.$coral-color-neutral-border-disabled;
+	}
+
+	&[aria-expanded='true'] {
+		.button__caret {
+			transform: rotate(-180deg);
+		}
 	}
 }

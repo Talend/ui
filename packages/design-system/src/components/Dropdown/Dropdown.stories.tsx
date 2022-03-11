@@ -1,6 +1,8 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Dropdown from '.';
+import DropdownRewrite from './Primitive/Dropdown';
 import { ButtonPrimary, ButtonTertiary } from '../Button';
 
 export default {
@@ -121,3 +123,31 @@ export const WithLongText = {
 		</Dropdown>
 	),
 };
+
+export const Test = () => (
+	<DropdownRewrite
+		items={[
+			{
+				label: 'Entry test 1',
+				onClick: () => {
+					action('clicked');
+				},
+			},
+			{
+				label: 'Entry test 2 with way too much copy for a label',
+				icon: 'talend-plus-circle',
+				onClick: () => {
+					action('clicked');
+				},
+			},
+			{
+				label: 'Entry test 3',
+				href: 'https://www.test.com',
+			},
+		]}
+	>
+		<ButtonTertiary isDropdown onClick={() => {}}>
+			Dropdown
+		</ButtonTertiary>
+	</DropdownRewrite>
+);

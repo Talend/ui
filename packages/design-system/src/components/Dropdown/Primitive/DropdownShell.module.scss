@@ -1,0 +1,12 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.dropDownShell {
+	background: tokens.$coral-color-neutral-background;
+	border-radius: tokens.$coral-radius-s;
+	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	display: flex;
+	flex-flow: column nowrap;
+	max-height: tokens.$coral-size-limit;
+	overflow: auto;
+	min-width: 14.8rem;
+}
