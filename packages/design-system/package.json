@@ -33,6 +33,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@talend/assets-api": "^1.0.0",
     "@talend/design-tokens": "^1.4.0",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
@@ -44,7 +45,7 @@
   },
   "devDependencies": {
     "@algolia/autocomplete-js": "^1.5.2",
-    "@babel/core": "^7.17.4",
+    "@babel/core": "^7.17.5",
     "@changesets/cli": "^2.20.0",
     "@cypress/react": "^5.12.3",
     "@cypress/webpack-dev-server": "^1.8.1",
