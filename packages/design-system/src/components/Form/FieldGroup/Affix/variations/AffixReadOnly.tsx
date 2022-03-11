@@ -1,9 +1,9 @@
 import React, { forwardRef, Ref, HTMLAttributes } from 'react';
 import { IconName } from '@talend/icons';
 
-import { Icon } from '../../../../../Icon/Icon';
-import { StackHorizontal } from '../../../../../Stack';
-import VisuallyHidden from '../../../../../VisuallyHidden';
+import { Icon } from '../../../../Icon/Icon';
+import { StackHorizontal } from '../../../../Stack';
+import VisuallyHidden from '../../../../VisuallyHidden';
 
 import styles from '../AffixStyles.module.scss';
 

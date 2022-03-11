@@ -1,4 +1,5 @@
 import Accordion from './components/Accordion';
+import { AffixButton } from './components/Form/FieldGroup/Affix';
 import {
 	ButtonPrimary,
 	ButtonSecondary,
@@ -67,6 +68,7 @@ import tokens from './tokens';
 export * from './components/Stack';
 export {
 	Accordion,
+	AffixButton,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,

@@ -2,12 +2,12 @@ import React, { forwardRef, Ref } from 'react';
 import { IconName } from '@talend/icons';
 import classnames from 'classnames';
 
-import { Icon } from '../../../../../Icon/Icon';
-import Tooltip from '../../../../../Tooltip';
-import { StackHorizontal } from '../../../../../Stack';
+import { Icon } from '../../../../Icon/Icon';
+import Tooltip from '../../../../Tooltip';
+import { StackHorizontal } from '../../../../Stack';
 
 import styles from '../AffixStyles.module.scss';
-import Clickable, { ClickableProps } from '../../../../../Clickable';
+import Clickable, { ClickableProps } from '../../../../Clickable';
 
 type CommonAffixButtonPropTypes = {
 	children: string;
