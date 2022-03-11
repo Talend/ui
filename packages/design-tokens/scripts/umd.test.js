@@ -21,4 +21,10 @@ describe('umd', () => {
 		expect(min.default.coralColorNeutralText).toBeDefined();
 		expect(dev.default.coralColorNeutralText).toBeDefined();
 	});
+	it('should expose dark and light css properties in css', () => {
+		const content = fs.readFileSync(cssDev).toString();
+		expect(content).toContain('[data-theme=light]');
+		expect(content).toContain('[data-theme=dark]');
+		expect(content).toContain('--coral-color-neutral-text');
+	});
 });

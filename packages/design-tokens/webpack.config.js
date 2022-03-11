@@ -1,6 +1,3 @@
 module.exports = {
-	// entry: {
-	// 	TalendDesignTokens: './src/index.ts',
-	// TalendDesignTokensCss: './src/index.scss',
-	// },
+	entry: './src/index.umd.ts',
 };
