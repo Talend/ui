@@ -18,6 +18,7 @@ export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'
 	children: ReactNode | ReactNodeArray;
 	icon?: IconName | ReactElement;
 	hideExternalIcon?: boolean;
+	isNaturallyAligned?: boolean;
 };
 
 export function isBlank(target: string | undefined): boolean {
@@ -26,7 +27,17 @@ export function isBlank(target: string | undefined): boolean {
 
 const Linkable = forwardRef(
 	(
-		{ as = 'a', href, children, target, icon, hideExternalIcon, className, ...rest }: LinkableType,
+		{
+			as = 'a',
+			isNaturallyAligned = false,
+			href,
+			children,
+			target,
+			icon,
+			hideExternalIcon,
+			className,
+			...rest
+		}: LinkableType,
 		// Ref<any>: Linkable is polymorphic. Could be any HTML element
 		ref: Ref<any>,
 	) => {
@@ -59,7 +70,7 @@ const Linkable = forwardRef(
 		const Element = (
 			<>
 				{MaybeIcon}
-				{children}
+				<span className={style.linkContent}>{children}</span>
 				{MaybeExternal}
 			</>
 		);
@@ -68,11 +79,13 @@ const Linkable = forwardRef(
 			return (
 				<a
 					{...rest}
-					ref={ref}
 					href={href}
+					ref={ref}
 					target={target}
 					rel={isBlank(target) ? 'noreferrer noopener' : undefined}
-					className={classnames(style.linkable, className)}
+					className={classnames(style.linkable, className, {
+						[style.naturallyAligned]: isNaturallyAligned,
+					})}
 				>
 					{Element}
 				</a>
@@ -86,7 +99,9 @@ const Linkable = forwardRef(
 				target,
 				href,
 				rel: isBlank(target) ? 'noreferrer noopener' : undefined,
-				className: classnames(style.linkable, className),
+				className: classnames(style.linkable, className, {
+					[style.naturallyAligned]: isNaturallyAligned,
+				}),
 				ref,
 			},
 			[Element],

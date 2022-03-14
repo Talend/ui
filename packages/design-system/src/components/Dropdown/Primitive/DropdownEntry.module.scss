@@ -7,18 +7,31 @@
 	justify-content: flex-start;
 	align-items: center;
 	white-space: nowrap;
+	width: 100%;
+	min-width: 0;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	min-width: 0;
-	width: 100%;
 	color: tokens.$coral-color-neutral-text;
 	font: tokens.$coral-paragraph-m;
 	transition: all tokens.$coral-transition-fast;
 	padding: 0 tokens.$coral-size-s;
+	max-width: 24rem;
 
 	> span {
 		overflow: hidden;
 		text-overflow: ellipsis;
+		min-width: 0;
+	}
+
+	.buttonIcon {
+		display: inline-block;
+		flex-shrink: 0;
+		height: tokens.$coral-size-m;
+		width: tokens.$coral-size-m;
+		margin-right: tokens.$coral-size-xxs;
+	}
+
+	.buttonContent {
 		min-width: 0;
 	}
 

@@ -4,21 +4,23 @@ import { IconName } from '@talend/icons';
 import DropdownButton from './DropdownButton';
 import DropdownLink from './DropdownLink';
 import DropdownShell from './DropdownShell';
+import { LinkableType } from '../../Linkable';
+import Clickable from '../../Clickable';
 
 type DropdownButtonType = {
 	label: string;
 	onClick: () => void;
 	icon?: IconName;
+	type: 'button';
 };
 
-type DropdownLinkType = {
+type DropdownLinkType = Omit<LinkableType, 'children'> & {
 	label: string;
-	icon?: IconName;
-	as?: ReactElement;
-} & ({ href: string } | { to: string });
+	type: 'link';
+};
 
 type DropdownPropsType = {
-	children: ReactElement;
+	children: ReactElement<typeof Clickable>;
 	items: (DropdownButtonType | DropdownLinkType)[];
 };
 
@@ -29,34 +31,30 @@ const Dropdown = forwardRef(({ children, items }: DropdownPropsType, ref: Ref<HT
 		loop: true,
 	});
 
-	const buildList = () => {
-		return items.map(entry => {
-			if ('onClick' in entry) {
-				const { label, ...rest } = entry;
-				return (
-					<DropdownButton {...rest} {...menu}>
-						{label}
-					</DropdownButton>
-				);
-			}
-
-			const { label, ...rest } = entry;
-
-			return (
-				<DropdownLink {...rest} {...menu}>
-					{label}
-				</DropdownLink>
-			);
-		});
-	};
-
 	return (
 		<>
 			<MenuButton {...menu}>
 				{disclosureProps => cloneElement(children, disclosureProps)}
 			</MenuButton>
 			<Menu {...menu} as={DropdownShell} aria-label="Example" ref={ref}>
-				{buildList()}
+				{items.map(entry => {
+					if (entry.type === 'button') {
+						const { label, ...rest } = entry;
+						return (
+							<DropdownButton {...rest} {...menu} key={entry.label}>
+								{label}
+							</DropdownButton>
+						);
+					}
+
+					const { label, as, ...rest } = entry;
+
+					return (
+						<DropdownLink as={as} {...rest} {...menu} key={entry.label}>
+							{label}
+						</DropdownLink>
+					);
+				})}
 			</Menu>
 		</>
 	);

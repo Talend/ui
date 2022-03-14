@@ -1,12 +1,26 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .dropDownShell {
-	background: tokens.$coral-color-neutral-background;
-	border-radius: tokens.$coral-radius-s;
-	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
-	display: flex;
-	flex-flow: column nowrap;
-	max-height: tokens.$coral-size-limit;
-	overflow: auto;
-	min-width: 14.8rem;
+	.animatedZone {
+		background: tokens.$coral-color-neutral-background;
+		border-radius: tokens.$coral-radius-s;
+		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: stretch;
+		justify-content: stretch;
+		max-height: tokens.$coral-size-limit;
+		overflow: auto;
+		min-width: 14.8rem;
+		max-width: 24rem;
+		transition: all tokens.$coral-transition-fast;
+		opacity: 0;
+		transform: translateY(10%);
+	}
+	&[data-enter] {
+		.animatedZone {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+	}
 }
