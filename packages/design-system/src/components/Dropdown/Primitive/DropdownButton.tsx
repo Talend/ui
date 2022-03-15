@@ -6,10 +6,10 @@ import Clickable, { ClickableProps } from '../../Clickable';
 import styles from './DropdownEntry.module.scss';
 import { Icon } from '../../Icon/Icon';
 
-type ButtonProps = Omit<ClickableProps, 'as'> & MenuItemProps & { icon?: IconName };
+export type DropdownButtonType = Omit<ClickableProps, 'as'> & MenuItemProps & { icon?: IconName };
 
 const DropdownButton = forwardRef(
-	({ children, icon, ...props }: ButtonProps, ref: Ref<HTMLAnchorElement>) => {
+	({ children, icon, ...props }: DropdownButtonType, ref: Ref<HTMLAnchorElement>) => {
 		return (
 			<MenuItem as={Clickable} {...props} className={styles.dropdownEntry} ref={ref}>
 				{icon && <Icon name={icon} data-test="button.icon.before" className={styles.buttonIcon} />}

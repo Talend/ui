@@ -1,77 +1,108 @@
-import React from 'react';
-import { StyledProps } from 'styled-components';
-import { BoxProps, useMenuState } from 'reakit';
-
-import Linkable, { LinkableType } from '../Linkable';
+import React, { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import { Menu, MenuButton, useMenuState } from 'reakit';
+import { IconName } from '@talend/icons';
+import DropdownButton from './Primitive/DropdownButton';
+import DropdownLink from './Primitive/DropdownLink';
+import DropdownShell from './Primitive/DropdownShell';
+import DropdownTitle from './Primitive/DropdownTitle';
+import DropdownDivider from './Primitive/DropdownDivider';
 import Clickable, { ClickableProps } from '../Clickable';
+import { LinkableType } from '../Linkable';
 
-import * as S from './Dropdown.style';
+type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
+	label: string;
+	onClick: () => void;
+	icon?: IconName;
+	type: 'button';
+};
 
-type DividerType = { divider: boolean };
-type LinkType = Omit<LinkableType, 'children'> & {
+type DropdownLinkType = Omit<LinkableType, 'children'> & {
+	label: string;
+	type: 'link';
+};
+
+type DropdownLabelType = {
+	type: 'title';
 	label: string;
 };
-type ButtonType = Omit<LinkType, 'href'> & Omit<ClickableProps, 'children'>;
-type MenuItemProps = DividerType | LinkType | ButtonType;
 
-export type DropdownProps = BoxProps &
-	StyledProps<any> & {
-		/** Dropdown menu items */
-		items: MenuItemProps[];
-	};
+type DropdownDividerType = {
+	type: 'divider';
+};
 
-function convertItem(item: ButtonType | LinkType) {
-	if ('href' in item) {
-		const { label, icon, ...rest } = item;
-		return (
-			<Linkable icon={icon} {...rest}>
-				{label}
-			</Linkable>
-		);
-	}
-	return <Clickable {...(item as ButtonType)}>{item.label}</Clickable>;
-}
+type DropdownPropsType = {
+	children: ReactElement<typeof Clickable>;
+	items: (DropdownButtonType | DropdownLinkType | DropdownLabelType | DropdownDividerType)[];
+	'aria-label': string;
+};
 
-const Dropdown: React.FC<DropdownProps> = React.forwardRef(
-	({ children, items = [], ...props }: DropdownProps, ref) => {
-		const menu = useMenuState({
-			animated: 250,
-			gutter: 0,
-			loop: true,
-		});
-		const { 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, ...rest } = props;
+const Dropdown = forwardRef(({ children, items }: DropdownPropsType, ref: Ref<HTMLDivElement>) => {
+	const menu = useMenuState({
+		animated: 250,
+		gutter: 4,
+		loop: true,
+	});
 
-		return (
-			<>
-				<S.Button as={Clickable} data-test="dropdown.button" {...menu} {...rest} ref={ref}>
-					{children}
-				</S.Button>
-				{items.length ? (
-					<S.Menu {...menu} aria-label={ariaLabel} aria-labelledby={ariaLabelledby}>
-						<S.AnimatedMenu data-test="dropdown.menu" {...menu}>
-							{items.map((item: MenuItemProps, index: number) => {
-								if ('divider' in item) {
-									return <S.MenuSeparator key={`separator-${index}`} />;
-								}
+	return (
+		<>
+			<MenuButton {...menu} data-test="dropdown.button">
+				{disclosureProps => cloneElement(children, disclosureProps)}
+			</MenuButton>
+			<Menu {...menu} as={DropdownShell} aria-label="Example" ref={ref} data-test="dropdown.menu">
+				{items.map((entry, index) => {
+					if (entry.type === 'button') {
+						const { label, ...rest } = entry;
+						return (
+							<DropdownButton
+								{...rest}
+								{...menu}
+								key={`${label}-${index}`}
+								id={`${label}-${index}`}
+								data-test="dropdown.menuitem"
+							>
+								{label}
+							</DropdownButton>
+						);
+					}
 
-								const LinkOrButton = convertItem(item);
-								return (
-									<S.MenuItem
-										data-test="dropdown.menuitem"
-										{...LinkOrButton.props}
-										key={`entry-${index}`}
-										{...menu}
-									>
-										{itemProps => React.cloneElement(LinkOrButton, itemProps)}
-									</S.MenuItem>
-								);
-							})}
-						</S.AnimatedMenu>
-					</S.Menu>
-				) : null}
-			</>
-		);
-	},
-);
+					if (entry.type === 'title') {
+						const { label, type, ...rest } = entry;
+						return (
+							<DropdownTitle
+								{...rest}
+								{...menu}
+								key={`${label}-${index}`}
+								id={`${label}-${index}`}
+								data-test="dropdown.menuitem"
+							>
+								{label}
+							</DropdownTitle>
+						);
+					}
+
+					if (entry.type === 'divider') {
+						return (
+							<DropdownDivider {...menu} key={`divider-${index}`} data-test="dropdown.menuitem" />
+						);
+					}
+
+					const { label, as, type, ...rest } = entry;
+					return (
+						<DropdownLink
+							as={as}
+							{...rest}
+							{...menu}
+							key={`${label}-${index}`}
+							id={`${label}-${index}`}
+							data-test="dropdown.menuitem"
+						>
+							{label}
+						</DropdownLink>
+					);
+				})}
+			</Menu>
+		</>
+	);
+});
 
 export default Dropdown;

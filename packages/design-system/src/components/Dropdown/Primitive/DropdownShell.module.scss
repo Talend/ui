@@ -11,11 +11,11 @@
 		justify-content: stretch;
 		max-height: tokens.$coral-size-limit;
 		overflow: auto;
-		min-width: 14.8rem;
+		min-width: 16rem;
 		max-width: 24rem;
 		transition: all tokens.$coral-transition-fast;
 		opacity: 0;
-		transform: translateY(10%);
+		transform: translateY(-10%);
 	}
 	&[data-enter] {
 		.animatedZone {

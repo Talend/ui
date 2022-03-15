@@ -1,0 +1,6 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.divider {
+	margin: 0;
+	border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+}

@@ -37,17 +37,18 @@ const Breadcrumbs = forwardRef(
 
 						<li className={styles.entry}>
 							<Dropdown
-								as={ButtonTertiary}
+								aria-label="Collapsed links"
 								items={collapsed.map(collapsedLinks => ({
 									href: collapsedLinks.href,
 									label: collapsedLinks.label,
 									target: collapsedLinks.target,
+									type: 'link',
 									as,
 								}))}
-								isDropdown
-								size="S"
 							>
-								...
+								<ButtonTertiary isDropdown size="S" onClick={() => {}}>
+									...
+								</ButtonTertiary>
 							</Dropdown>
 						</li>
 

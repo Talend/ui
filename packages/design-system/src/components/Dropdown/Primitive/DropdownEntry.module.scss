@@ -1,34 +1,29 @@
 @use '~@talend/design-tokens/lib/tokens';
 
+$iconAlignmentOffsetM: -0.3rem;
+
 .dropdownEntry {
 	background: tokens.$coral-color-accent-background-weak;
-	min-height: tokens.$coral-size-l;
-	display: inline-flex;
-	justify-content: flex-start;
-	align-items: center;
-	white-space: nowrap;
+	display: block;
 	width: 100%;
 	min-width: 0;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	color: tokens.$coral-color-neutral-text;
 	font: tokens.$coral-paragraph-m;
 	transition: all tokens.$coral-transition-fast;
-	padding: 0 tokens.$coral-size-s;
+	padding: tokens.$coral-size-xxs tokens.$coral-size-s;
 	max-width: 24rem;
+	text-align: start;
 
 	> span {
-		overflow: hidden;
-		text-overflow: ellipsis;
 		min-width: 0;
 	}
 
 	.buttonIcon {
-		display: inline-block;
-		flex-shrink: 0;
 		height: tokens.$coral-size-m;
 		width: tokens.$coral-size-m;
 		margin-right: tokens.$coral-size-xxs;
+		flex-shrink: 0;
+		margin-bottom: $iconAlignmentOffsetM;
 	}
 
 	.buttonContent {
@@ -43,5 +38,10 @@
 	&:active {
 		background: tokens.$coral-color-accent-background-weak-active;
 		color: tokens.$coral-color-accent-text-strong-active;
+	}
+
+	&:disabled {
+		background: tokens.$coral-color-neutral-background;
+		color: tokens.$coral-color-neutral-text-disabled;
 	}
 }
