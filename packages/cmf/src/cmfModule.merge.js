@@ -1,5 +1,5 @@
 import React from 'react';
-import { spawn } from 'redux-saga/effects';
+import { fork } from 'redux-saga/effects';
 import _merge from 'lodash/merge';
 import { assertValueTypeOf } from './assert';
 
@@ -73,8 +73,8 @@ function mergeSaga(saga, newSaga) {
 
 	if (saga && newSaga) {
 		return function* mergedSaga() {
-			yield spawn(saga);
-			yield spawn(newSaga);
+			yield fork(saga);
+			yield fork(newSaga);
 		};
 	}
 	if (newSaga) {

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
 import { batchedSubscribe } from 'redux-batched-subscribe';
-import { spawn } from 'redux-saga/effects';
+import { fork } from 'redux-saga/effects';
 import compose from 'redux';
 
 import App from './App';
@@ -51,10 +51,10 @@ export function bootstrapRegistry(options) {
 export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
-		yield spawn(handleSagaComponent);
-		yield spawn(sagas.component.handle);
+		yield fork(handleSagaComponent);
+		yield fork(sagas.component.handle);
 		if (typeof options.saga === 'function') {
-			yield spawn(options.saga);
+			yield fork(options.saga);
 		}
 	}
 	// https://chrome.google.com/webstore/detail/redux-saga-dev-tools/kclmpmjofefcpjlommdpokoccidafnbi
