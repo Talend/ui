@@ -14,5 +14,5 @@
 	color: tokens.$coral-color-neutral-text;
 	font: tokens.$coral-paragraph-m-bold;
 	padding: 0 tokens.$coral-size-s;
-	max-width: 24rem;
+	max-width: tokens.$coral-size-limit;
 }

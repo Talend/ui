@@ -49,4 +49,15 @@ $iconAlignmentOffsetS: -0.1rem;
 			border-bottom-color: transparent;
 		}
 	}
+
+	&[aria-current='page'] {
+		color: tokens.$coral-color-neutral-text;
+
+		&:hover {
+			color: tokens.$coral-color-accent-text-hover;
+		}
+		&:active {
+			color: tokens.$coral-color-accent-text-active;
+		}
+	}
 }

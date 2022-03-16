@@ -2,6 +2,7 @@
 
 .breadcrumbs {
 	display: block;
+	max-width: 100%;
 
 	.divider {
 		transform: skew(-15deg);
@@ -12,6 +13,7 @@
 
 	.entry {
 		max-width: tokens.$coral-size-limit;
+		min-width: 0;
 
 		[data-ellipsis='true'] {
 			white-space: nowrap;

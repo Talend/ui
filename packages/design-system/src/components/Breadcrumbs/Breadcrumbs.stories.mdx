@@ -39,16 +39,36 @@ It helps them locate the current page within a larger workflow.
 Breadcrumbs cannot display more than 4 items without collapsing the "crumbs" somewhat. Here's how it behaves above 4 links.
 
 <Canvas>
-	<Story story={Stories.Advanced} />
+	<Story height="15rem" story={Stories.Advanced} />
 </Canvas>
 
 ## States
+
+### Overflow
+
+The individual items of a `Breadcrumbs` component have a max-width of 320px.
+
+If they do not have enough space to spread that wide, the text-overflow sets in as needed:
+
+<Canvas>
+	<Story story={Stories.FullWidth} />
+</Canvas>
 
 ## Interactions
 
 ## Content
 
 ## Usage
+
+### With Router Links
+
+`Breadcrumb` uses `Link` components in the background. You can use a subset of `Link`'s props, including `as`.
+
+This enables React Router or Reach Router links to be used in a breadcrumb.
+
+<Canvas>
+	<Story story={Stories.Usage} />
+</Canvas>
 
 ## Accessibility
 

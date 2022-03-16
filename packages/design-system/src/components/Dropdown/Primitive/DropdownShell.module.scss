@@ -8,7 +8,7 @@
 		max-height: tokens.$coral-size-limit;
 		overflow: auto;
 		min-width: 16rem;
-		max-width: 24rem;
+		max-width: tokens.$coral-size-limit;
 		transition: all tokens.$coral-transition-fast;
 		opacity: 0;
 		transform: translateY(-10%);

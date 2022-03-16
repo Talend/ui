@@ -11,7 +11,7 @@ $iconAlignmentOffsetM: -0.3rem;
 	font: tokens.$coral-paragraph-m;
 	transition: all tokens.$coral-transition-fast;
 	padding: tokens.$coral-size-xxs tokens.$coral-size-s;
-	max-width: 24rem;
+	max-width: tokens.$coral-size-limit;
 	text-align: start;
 
 	> span {

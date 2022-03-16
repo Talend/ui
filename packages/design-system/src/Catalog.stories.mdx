@@ -89,64 +89,134 @@ import {
 <Canvas>
 	<Story name="Dropdowns" height="20rem">
 		<Dropdown
-			as={ButtonPrimary}
 			aria-label="Custom menu"
-			icon="talend-datagrid"
 			items={[
-				<button>Custom item 1</button>,
-				<button>Custom item 2</button>,
-				<button>Custom item 3</button>,
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
 			]}
 		>
-			Primary Dropdown
+			<ButtonPrimary isDropdown onClick={() => {}} icon="talend-datagrid">
+				Primary Dropdown
+			</ButtonPrimary>
 		</Dropdown>
 		<Dropdown
-			as={ButtonDestructive}
 			aria-label="Custom menu"
-			icon="talend-datagrid"
 			items={[
-				<button>Custom item 1</button>,
-				<button>Custom item 2</button>,
-				<button>Custom item 3</button>,
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
 			]}
 		>
-			Destructive Dropdown
+			<ButtonDestructive isDropdown onClick={() => {}} icon="talend-datagrid">
+				Destructive Dropdown
+			</ButtonDestructive>
 		</Dropdown>
 		<Dropdown
-			as={ButtonSecondary}
 			aria-label="Custom menu"
-			icon="talend-datagrid"
 			items={[
-				<button>Custom item 1</button>,
-				<button>Custom item 2</button>,
-				<button>Custom item 3</button>,
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
 			]}
 		>
-			Secondary Dropdown
+			<ButtonSecondary isDropdown onClick={() => {}} icon="talend-datagrid">
+				Secondary Dropdown
+			</ButtonSecondary>
 		</Dropdown>
 		<Dropdown
-			as={ButtonTertiary}
 			aria-label="Custom menu"
-			icon="talend-datagrid"
 			items={[
-				<button>Custom item 1</button>,
-				<button>Custom item 2</button>,
-				<button>Custom item 3</button>,
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
 			]}
 		>
-			Tertiary Dropdown
+			<ButtonTertiary isDropdown onClick={() => {}} icon="talend-datagrid">
+				Tertiary Dropdown
+			</ButtonTertiary>
 		</Dropdown>
 		<Dropdown
-			as={ButtonIcon}
 			aria-label="Custom menu"
-			icon={<Icon name="talend-ellipsis" transform="rotate-90" />}
 			items={[
-				<button>Custom item 1</button>,
-				<button>Custom item 2</button>,
-				<button>Custom item 3</button>,
+				{
+					type: 'title',
+					label: 'Title',
+				},
+				{
+					type: 'divider',
+				},
+				{
+					type: 'button',
+					label: 'Button item',
+					onClick: () => action('Clicked'),
+				},
+				{
+					type: 'link',
+					label: 'Link item',
+					href: '/link',
+				},
 			]}
 		>
-			Icon Dropdown
+			<ButtonIcon onClick={() => {}} icon="talend-datagrid">
+				Icon Dropdown
+			</ButtonIcon>
 		</Dropdown>
 	</Story>
 </Canvas>
