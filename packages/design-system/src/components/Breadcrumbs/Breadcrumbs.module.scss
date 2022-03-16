@@ -1,37 +1,32 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-.breadcrumb {
+.breadcrumbs {
 	display: block;
 
-	> ul {
-		list-style-type: none;
+	.divider {
+		transform: skew(-15deg);
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.entry {
-		display: inline-flex;
-		align-items: center;
-		flex-wrap: nowrap;
-		max-width: 30rem;
+		max-width: tokens.$coral-size-limit;
 
-		> * {
+		[data-ellipsis='true'] {
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
-			min-width: 0;
 		}
 
-		&:after {
-			content: '';
-			height: tokens.$coral-size-m;
-			width: 0.1rem;
-			border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-			transform: skew(-15deg);
-			display: inline-block;
-			margin-left: tokens.$coral-size-s;
+		.copy {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		&:last-child {
-			&:after {
+			.divider {
 				display: none;
 			}
 		}
