@@ -1,16 +1,15 @@
 import React, { forwardRef, Ref } from 'react';
-import { MenuItem, MenuItemProps } from 'reakit';
 
 import styles from './DropdownTitle.module.scss';
 
-export type DropdownTitleType = MenuItemProps & { children: string };
+export type DropdownTitleType = { children: string };
 
 const DropdownTitle = forwardRef(
-	({ children, ...props }: DropdownTitleType, ref: Ref<HTMLHeadingElement>) => {
+	({ children, ...rest }: DropdownTitleType, ref: Ref<HTMLParagraphElement>) => {
 		return (
-			<MenuItem as="h4" {...props} className={styles.dropdownTitle} ref={ref}>
+			<p className={styles.dropdownTitle} {...rest} ref={ref}>
 				{children}
-			</MenuItem>
+			</p>
 		);
 	},
 );

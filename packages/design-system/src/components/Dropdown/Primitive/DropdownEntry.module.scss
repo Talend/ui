@@ -30,7 +30,8 @@ $iconAlignmentOffsetM: -0.3rem;
 		min-width: 0;
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background: tokens.$coral-color-accent-background-weak-hover;
 		color: tokens.$coral-color-accent-text-strong-hover;
 	}

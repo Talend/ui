@@ -70,7 +70,7 @@ const Linkable = forwardRef(
 		const Element = (
 			<>
 				{MaybeIcon}
-				<span className={style.linkContent}>{children}</span>
+				{children}
 				{MaybeExternal}
 			</>
 		);

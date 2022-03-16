@@ -7,10 +7,6 @@ $iconAlignmentOffsetS: -0.1rem;
 	cursor: pointer;
 }
 
-.linkContent {
-	min-width: 0;
-}
-
 svg.link__icon {
 	margin-bottom: $iconAlignmentOffsetM;
 	height: tokens.$coral-size-m;

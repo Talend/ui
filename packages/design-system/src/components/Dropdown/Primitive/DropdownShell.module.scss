@@ -5,10 +5,6 @@
 		background: tokens.$coral-color-neutral-background;
 		border-radius: tokens.$coral-radius-s;
 		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
-		display: flex;
-		flex-flow: column nowrap;
-		align-items: stretch;
-		justify-content: stretch;
 		max-height: tokens.$coral-size-limit;
 		overflow: auto;
 		min-width: 16rem;

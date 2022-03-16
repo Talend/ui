@@ -66,15 +66,9 @@ const Dropdown = forwardRef(({ children, items }: DropdownPropsType, ref: Ref<HT
 					}
 
 					if (entry.type === 'title') {
-						const { label, type, ...rest } = entry;
+						const { label } = entry;
 						return (
-							<DropdownTitle
-								{...rest}
-								{...menu}
-								key={`${label}-${index}`}
-								id={`${label}-${index}`}
-								data-test="dropdown.menuitem"
-							>
+							<DropdownTitle key={`${label}-${index}`} data-test="dropdown.menuitem">
 								{label}
 							</DropdownTitle>
 						);
