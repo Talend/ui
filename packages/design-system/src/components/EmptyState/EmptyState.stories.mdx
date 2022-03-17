@@ -1,0 +1,104 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+
+import EmptyState from './';
+
+import * as Stories from './EmptyState.stories';
+
+<Meta
+	title="Components/EmptyState"
+	component={EmptyState}
+	parameters={{
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'wip' },
+		figmaLink: 'https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/EmptyState',
+	}}
+/>
+
+# EmptyState
+
+They describe the “empty” screens in an application when a system does not have anything to show.
+
+Use empty states to communicate about the current state of the system or to tell users what they can do next to get started.
+
+## Zoning
+
+<FigmaImage src="" alt="zoning image for EmptyState" />
+
+## Style
+
+<Canvas>
+	<Story story={Stories.Default} />
+</Canvas>
+
+### Purposes
+
+Two goals are identified:
+
+- **Informative empty states**: No data is shown yet because there are things to be done first, but with no direct action from the user.
+- **Actionable empty states**:
+  - No data is shown yet because there is an action the user must take first
+  - No data is shown because the system can't find any results, ex. filter or search results
+
+### Variations
+
+**Spot illustration (AKA Spot)**
+
+**Icon illustration (AKA Icon)**
+
+## States
+
+N/A
+
+## Content
+
+### Title
+
+Template: No `<name>` yet / You have no `<name>` yet.
+
+Example: No preparations yet.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Include an informative scannable title</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Write a long block of text</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+### Body
+
+Template: `<Do something>` to `<get something>`. Learn more.
+
+Example: Add a preparation to clean, format, and transform data prior to processing. Learn more.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>
+				Explain briefly why there's nothing to show here, avoid repeating content from the title and
+				keep it maximum to 2 sentences
+			</li>
+			<li>Include a link to the documentation (Learn more)</li>
+			<li>Guide users towards the next step with a CTA button</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Write more than 2 sentences</li>
+			<li>Repeat the title</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interactions
+
+## Accessibility
+
+N/A
+
+## Usage
