@@ -11,18 +11,32 @@
 
 		&-row {
 			display: flex;
+			gap: 1.4rem;
 			justify-content: center;
 			align-items: center;
 			margin-top: 2rem;
 			margin-bottom: 1rem;
 
+			> div:not(:empty) {
+				flex: 1;
+				display: flex;
+				justify-content: flex-end;
+			}
+
+			> div:empty ~ div {
+				.tc-badge-value-unit,
+				input {
+					text-align: center;
+				}
+			}
+
 			svg {
 				width: 3.2rem;
 				height: 3.2rem;
-				margin-right: 1.4rem;
 			}
 
 			.tc-badge-value-unit {
+				flex: 1;
 				font-size: 3.2rem;
 				font-weight: $font-weight-semi-bold;
 				width: 5rem;
@@ -30,19 +44,21 @@
 				margin-bottom: 0;
 				border: none;
 				background: none;
-				padding: {
-					left: 0;
-					top: 0.2rem;
-				}
+				padding: 0;
+				margin: 0px 2px;
+				text-align: start;
 			}
 
 			input {
+				flex: 1;
 				font-size: 3.2rem;
 				font-weight: $font-weight-semi-bold;
-				width: 5rem;
+				width: 8rem;
 				color: $dove-gray;
 				box-shadow: none;
 				height: 4.7rem;
+				padding: 0;
+				margin: 0;
 
 				-moz-appearance: textfield;
 
@@ -51,10 +67,6 @@
 					-webkit-appearance: none;
 					margin: 0;
 				}
-			}
-
-			> div {
-				display: none;
 			}
 		}
 	}

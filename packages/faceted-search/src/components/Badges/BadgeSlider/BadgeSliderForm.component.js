@@ -76,41 +76,45 @@ const BadgeSliderForm = ({
 		<form className={theme('tc-badge-slider-form')} id={`${id}-slider`} onSubmit={onSubmit}>
 			<Rich.Layout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
 				<div className={theme('tc-badge-slider-form-body-row')}>
-					{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class || icon.className)} />}
-					{editing ? (
-						<input
-							id={`${id}-input`}
-							autoFocus // eslint-disable-line jsx-a11y/no-autofocus
-							className="form-control"
-							min={min}
-							max={max}
-							step={step}
-							onChange={event => {
-								const v = event.target.value;
-								setInput(v);
-								setValue(!isErroneous(v) ? v : defaultValue);
-							}}
-							onBlur={() => {
-								setInput(value);
-								setValue(value);
-								setSlider(value);
-								setEditing(false);
-							}}
-							type="number"
-							value={input}
-						/>
-					) : (
-						<button
-							className={theme('tc-badge-value-unit')}
-							onClick={() => setEditing(true)}
-							title={t('FACETED_SEARCH_EDIT_DIRECTLY', {
-								defaultValue: 'Edit directly',
-							})}
-						>
-							{value}
-							{unit}
-						</button>
-					)}
+					<div>
+						{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class || icon.className)} />}
+					</div>
+					<div>
+						{editing ? (
+							<input
+								id={`${id}-input`}
+								autoFocus // eslint-disable-line jsx-a11y/no-autofocus
+								className="form-control"
+								min={min}
+								max={max}
+								step={step}
+								onChange={event => {
+									const v = event.target.value;
+									setInput(v);
+									setValue(!isErroneous(v) ? v : defaultValue);
+								}}
+								onBlur={() => {
+									setInput(value);
+									setValue(value);
+									setSlider(value);
+									setEditing(false);
+								}}
+								type="number"
+								value={input}
+							/>
+						) : (
+							<button
+								className={theme('tc-badge-value-unit')}
+								onClick={() => setEditing(true)}
+								title={t('FACETED_SEARCH_EDIT_DIRECTLY', {
+									defaultValue: 'Edit directly',
+								})}
+							>
+								{value}
+								{unit}
+							</button>
+						)}
+					</div>
 				</div>
 				<Slider
 					value={slider}
