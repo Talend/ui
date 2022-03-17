@@ -11,8 +11,6 @@ import React, {
 import { IconName } from '@talend/icons';
 import classnames from 'classnames';
 import { Icon } from '../Icon/Icon';
-import { StackHorizontal } from '../Stack';
-
 import style from './LinkableStyles.module.scss';
 
 export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'> & {
@@ -71,6 +69,7 @@ const Linkable = forwardRef(
 				<a
 					{...rest}
 					ref={ref}
+					href={href}
 					target={target}
 					rel={isBlank(target) ? 'noreferrer noopener' : undefined}
 					className={classnames(style.linkable, className)}
@@ -85,6 +84,7 @@ const Linkable = forwardRef(
 			{
 				...rest,
 				target,
+				href,
 				rel: isBlank(target) ? 'noreferrer noopener' : undefined,
 				className: classnames(style.linkable, className),
 				ref,
