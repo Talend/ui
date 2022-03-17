@@ -58,8 +58,8 @@
     "immutable": "^3.8.2",
     "jsdom": "^16.7.0",
     "prop-types": "^15.8.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-i18next": "^11.15.6",
     "style-loader": "^0.23.1"
   },

@@ -40,7 +40,7 @@
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
     "color-contrast-checker": "^2.1.0",
-    "react": "^16.14.0",
+    "react": "^17.0.2",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}
