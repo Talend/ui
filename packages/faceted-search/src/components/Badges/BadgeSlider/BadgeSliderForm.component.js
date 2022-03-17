@@ -61,13 +61,10 @@ const BadgeSliderForm = ({
 	const [slider, setSlider] = useState(initialValue);
 	const [input, setInput] = useState(initialValue);
 	const [editing, setEditing] = useState(false);
-	const error = useMemo(() => getErrorMessage(t, decimal, min, max, input), [
-		t,
-		decimal,
-		min,
-		max,
-		input,
-	]);
+	const error = useMemo(
+		() => getErrorMessage(t, decimal, min, max, input),
+		[t, decimal, min, max, input],
+	);
 	const isErroneous = useMemo(() => getValidator(decimal, min, max), [decimal, min, max]);
 
 	useEffect(() => onChange(null, value), [onChange, value]);
@@ -77,7 +74,12 @@ const BadgeSliderForm = ({
 			<Rich.Layout.Body id={`${id}-badge-body`} className={theme('tc-badge-slider-form-body')}>
 				<div className={theme('tc-badge-slider-form-body-row')}>
 					<div>
-						{icon && <Icon name={icon.name} className={theme('tc-badge-icon', icon.class || icon.className)} />}
+						{icon && (
+							<Icon
+								name={icon.name}
+								className={theme('tc-badge-icon', icon.class || icon.className)}
+							/>
+						)}
 					</div>
 					<div>
 						{editing ? (
