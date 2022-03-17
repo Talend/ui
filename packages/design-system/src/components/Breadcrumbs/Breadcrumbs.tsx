@@ -1,4 +1,5 @@
 import React, { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Breadcrumbs.module.scss';
 import Link from '../Link';
@@ -28,6 +29,7 @@ type BreadCrumbsProps = Omit<HTMLAttributes<HTMLElement>, 'className'> & {
 const maxBreadcrumbsItemLength = 4;
 
 const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<HTMLElement>) => {
+	const { t } = useTranslation();
 	const buildEntries = () => {
 		if (items.length > maxBreadcrumbsItemLength) {
 			const origin = items[0];
@@ -57,7 +59,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 					<li className={styles.entry}>
 						<StackHorizontal gap="S" align="center" wrap="nowrap">
 							<Dropdown
-								aria-label="Collapsed links"
+								aria-label={t('COLLAPSED_LINKS_MENU', 'Collapsed links')}
 								items={collapsed.map(collapsedLinks => {
 									if ('href' in collapsedLinks) {
 										return {
@@ -168,7 +170,12 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 	};
 
 	return (
-		<nav {...rest} className={styles.breadcrumbs} ref={ref} aria-label="breadcrumb">
+		<nav
+			{...rest}
+			className={styles.breadcrumbs}
+			ref={ref}
+			aria-label={t('BREADCRUMB_LABEL', 'breadcrumb')}
+		>
 			<StackHorizontal gap="S" as="ul" justify="start" align="center" role="list">
 				{buildEntries()}
 			</StackHorizontal>

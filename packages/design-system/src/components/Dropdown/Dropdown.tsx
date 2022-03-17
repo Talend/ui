@@ -36,67 +36,69 @@ type DropdownPropsType = {
 	'aria-label': string;
 };
 
-const Dropdown = forwardRef(({ children, items }: DropdownPropsType, ref: Ref<HTMLDivElement>) => {
-	const menu = useMenuState({
-		animated: 250,
-		gutter: 4,
-		loop: true,
-	});
+const Dropdown = forwardRef(
+	({ children, items, ...rest }: DropdownPropsType, ref: Ref<HTMLDivElement>) => {
+		const menu = useMenuState({
+			animated: 250,
+			gutter: 4,
+			loop: true,
+		});
 
-	return (
-		<>
-			<MenuButton {...menu} data-test="dropdown.button">
-				{disclosureProps => cloneElement(children, disclosureProps)}
-			</MenuButton>
-			<Menu {...menu} as={DropdownShell} aria-label="Example" ref={ref} data-test="dropdown.menu">
-				{items.map((entry, index) => {
-					if (entry.type === 'button') {
-						const { label, ...rest } = entry;
+		return (
+			<>
+				<MenuButton {...menu} data-test="dropdown.button">
+					{disclosureProps => cloneElement(children, disclosureProps)}
+				</MenuButton>
+				<Menu {...menu} as={DropdownShell} {...rest} ref={ref} data-test="dropdown.menu">
+					{items.map((entry, index) => {
+						if (entry.type === 'button') {
+							const { label, ...entryRest } = entry;
+							return (
+								<DropdownButton
+									{...entryRest}
+									{...menu}
+									key={`${label}-${index}`}
+									id={`${label}-${index}`}
+									data-test="dropdown.menuitem"
+								>
+									{label}
+								</DropdownButton>
+							);
+						}
+
+						if (entry.type === 'title') {
+							const { label } = entry;
+							return (
+								<DropdownTitle key={`${label}-${index}`} data-test="dropdown.menuitem">
+									{label}
+								</DropdownTitle>
+							);
+						}
+
+						if (entry.type === 'divider') {
+							return (
+								<DropdownDivider {...menu} key={`divider-${index}`} data-test="dropdown.menuitem" />
+							);
+						}
+
+						const { label, as, type, ...entryRest } = entry;
 						return (
-							<DropdownButton
-								{...rest}
+							<DropdownLink
+								as={as}
+								{...entryRest}
 								{...menu}
 								key={`${label}-${index}`}
 								id={`${label}-${index}`}
 								data-test="dropdown.menuitem"
 							>
 								{label}
-							</DropdownButton>
+							</DropdownLink>
 						);
-					}
-
-					if (entry.type === 'title') {
-						const { label } = entry;
-						return (
-							<DropdownTitle key={`${label}-${index}`} data-test="dropdown.menuitem">
-								{label}
-							</DropdownTitle>
-						);
-					}
-
-					if (entry.type === 'divider') {
-						return (
-							<DropdownDivider {...menu} key={`divider-${index}`} data-test="dropdown.menuitem" />
-						);
-					}
-
-					const { label, as, type, ...rest } = entry;
-					return (
-						<DropdownLink
-							as={as}
-							{...rest}
-							{...menu}
-							key={`${label}-${index}`}
-							id={`${label}-${index}`}
-							data-test="dropdown.menuitem"
-						>
-							{label}
-						</DropdownLink>
-					);
-				})}
-			</Menu>
-		</>
-	);
-});
+					})}
+				</Menu>
+			</>
+		);
+	},
+);
 
 export default Dropdown;
