@@ -54,3 +54,13 @@ export default function DataGrid(props) {
 	return <React.Suspense fallback={}>AgGridReact</React.Suspense>
 }
 ```
+
+## How to configure the CDN to use ?
+
+assets API use a global function to compute the url: `window.Talend.getCDNUrl`. By default the package will add it for you. This version will use a global CDN_URL with the following shape:
+
+```javascript
+`${CDN_URL}/${info.name}/${info.version}${info.path}`;
+```
+
+but fallback to unpkg.com public cdn if no CDN_URL is provided.
