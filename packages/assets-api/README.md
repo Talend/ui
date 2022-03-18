@@ -36,9 +36,8 @@ async function getTopology(file) {
 const AgGridReact = React.lazy(() =>
 	assetsApi
 		.getUMD('ag-grid-community')
-		.then(() =>
-			assetsApi.getUMD('ag-grid-react').then(mod => assetsApi.toDefaultModule(mod.AgGridReact)),
-		),
+		.then(() => assetsApi.getUMD('ag-grid-react'))
+		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact))
 );
 
 
