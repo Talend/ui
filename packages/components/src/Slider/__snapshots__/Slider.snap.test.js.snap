@@ -28,6 +28,7 @@ exports[`Slider component snaps renderers should render Slider 1`] = `
       onChange={[Function]}
       prefixCls="rc-slider"
       railStyle={Object {}}
+      reverse={false}
       step={1}
       trackStyle={
         Array [
@@ -66,6 +67,7 @@ exports[`Slider component snaps renderers should render Slider disabled 1`] = `
       onChange={[Function]}
       prefixCls="rc-slider"
       railStyle={Object {}}
+      reverse={false}
       step={1}
       trackStyle={
         Array [
@@ -142,6 +144,7 @@ exports[`Slider component snaps renderers should render Slider with captionActio
       onChange={[Function]}
       prefixCls="rc-slider"
       railStyle={Object {}}
+      reverse={false}
       step={1}
       trackStyle={
         Array [
@@ -217,6 +220,7 @@ exports[`Slider component snaps renderers should render Slider with captionTextS
       onChange={[Function]}
       prefixCls="rc-slider"
       railStyle={Object {}}
+      reverse={false}
       step={1}
       trackStyle={
         Array [
@@ -287,6 +291,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
       onChange={[Function]}
       prefixCls="rc-slider"
       railStyle={Object {}}
+      reverse={false}
       step={1}
       trackStyle={
         Array [
@@ -374,6 +379,7 @@ exports[`Slider component snaps renderers should render a range 1`] = `
       prefixCls="rc-slider"
       pushable={false}
       railStyle={Object {}}
+      reverse={false}
       step={1}
       tabIndex={Array []}
       trackStyle={

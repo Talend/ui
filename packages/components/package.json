@@ -50,7 +50,7 @@
     "keycode": "^2.2.1",
     "lodash": "^4.17.21",
     "memoize-one": "^5.2.1",
-    "rc-slider": "8.6.3",
+    "rc-slider": "8.7.1",
     "rc-tooltip": "3.7.3",
     "react-autowhatever": "10.2.0",
     "react-bootstrap": "0.32.4",
