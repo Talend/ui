@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import FieldGroup from '../../FieldGroup';
 import Text from './Input.Text';
 import { InputProps } from './Input';
-import { AffixButton, AffixReadOnly } from './Affix';
+import { AffixButton, AffixReadOnly } from '../../FieldGroup/Affix';
 
 const InputCopy = React.forwardRef(
 	(

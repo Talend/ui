@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.40.0
+
+### Minor Changes
+
+- 800a68fc9: feat(icons): field remover
+
 ## 6.39.0
 
 ### Minor Changes

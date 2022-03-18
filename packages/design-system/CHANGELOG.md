@@ -1,5 +1,20 @@
 # @talend/design-system
 
+## 2.0.2
+
+### Patch Changes
+
+- da8e2b46f: Link: href is ignored
+- f5cb575c9: Step: Add tooltip support
+
+## 2.0.1
+
+### Patch Changes
+
+- 42a4eafa6: Export AffixButton and AffixReadOnly for FieldGroups.
+- Updated dependencies [c7816c160]
+  - @talend/design-tokens@1.4.1
+
 ## 2.0.0
 
 ### Major Changes
