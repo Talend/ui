@@ -14,6 +14,7 @@ export const badgeName = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		inputTextPlaceholder: 'Enter a dataset name',
 	},
 };
 
@@ -33,9 +34,9 @@ export const badgeConnectionName = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		inputTextPlaceholder: 'Enter a connection name',
 	},
 };
-
 
 export const badgeAuthor = {
 	properties: {
@@ -53,6 +54,7 @@ export const badgeAuthor = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		inputTextPlaceholder: 'Enter an author name',
 	},
 };
 
@@ -290,6 +292,7 @@ export const badgeTextAsCustomAttribute = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		inputTextPlaceholder: 'Enter a custom attribute',
 	},
 };
 
@@ -330,6 +333,7 @@ export const badgeTextAsCategory = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals'],
+		inputTextPlaceholder: 'Enter a category name',
 	},
 };
 

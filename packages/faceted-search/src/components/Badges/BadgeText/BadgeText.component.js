@@ -38,6 +38,7 @@ const BadgeText = ({
 	readOnly,
 	removable,
 	displayType,
+	inputTextPlaceholder,
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
@@ -67,6 +68,7 @@ const BadgeText = ({
 					value={badgeValue}
 					feature={category || label}
 					t={t}
+					placeholder={inputTextPlaceholder}
 				/>
 			)}
 		</BadgeFaceted>
@@ -87,6 +89,7 @@ BadgeText.propTypes = {
 	readOnly: PropTypes.bool,
 	removable: PropTypes.bool,
 	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
+	inputTextPlaceholder: PropTypes.string,
 };
 
 // eslint-disable-next-line import/prefer-default-export
