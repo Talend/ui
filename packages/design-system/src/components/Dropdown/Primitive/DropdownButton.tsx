@@ -11,7 +11,7 @@ export type DropdownButtonType = Omit<ClickableProps, 'as'> & MenuItemProps & { 
 const DropdownButton = forwardRef(
 	({ children, icon, ...props }: DropdownButtonType, ref: Ref<HTMLButtonElement>) => {
 		return (
-			<MenuItem as={Clickable} {...props} className={styles.dropdownEntry} ref={ref}>
+			<MenuItem {...props} as={Clickable} className={styles.dropdownEntry} ref={ref}>
 				{icon && <Icon name={icon} data-test="button.icon.before" className={styles.buttonIcon} />}
 				<span className={styles.buttonContent}>{children}</span>
 			</MenuItem>

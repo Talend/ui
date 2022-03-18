@@ -7,9 +7,9 @@ export type DropdownTitleType = { children: string };
 const DropdownTitle = forwardRef(
 	({ children, ...rest }: DropdownTitleType, ref: Ref<HTMLParagraphElement>) => {
 		return (
-			<p {...rest} className={styles.dropdownTitle} ref={ref}>
+			<div {...rest} className={styles.dropdownTitle} ref={ref}>
 				{children}
-			</p>
+			</div>
 		);
 	},
 );

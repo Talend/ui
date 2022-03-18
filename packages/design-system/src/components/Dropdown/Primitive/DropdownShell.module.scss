@@ -7,7 +7,7 @@
 		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 		max-height: tokens.$coral-size-limit;
 		overflow: auto;
-		min-width: calc(#{tokens.$coral-size-limit} / 2);;
+		min-width: calc(#{tokens.$coral-size-limit} / 2);
 		max-width: tokens.$coral-size-limit;
 		transition: all tokens.$coral-transition-fast;
 		opacity: 0;
