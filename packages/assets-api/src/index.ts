@@ -40,15 +40,17 @@ interface TypedResponse<T = any> extends Response {
 function getPackageVersion(name?: string, version?: string): string | undefined {
 	if (name) {
 		const sessionVersion = sessionStorage.getItem(name);
-		const metas = document.querySelectorAll(`meta[name="${name}"]`);
-		let builtVersion;
-		if (metas.length > 0) {
-			builtVersion = metas[0].getAttribute('value');
-			if (metas.length > 1) {
-				console.warn(`Package ${name} is installed multiple times`);
-			}
+		if(sessionVersion) {
+			return sessionVersion;
 		}
-		return sessionVersion || builtVersion || version;
+		
+		const metas = document.querySelectorAll(`meta[name="${name}"]`);
+		if (metas.length > 1) {
+			console.warn(`Package ${name} is installed multiple times`);
+		}
+		if (metas.length > 0) {
+			return metas[0].getAttribute('value');
+		}
 	}
 	return version;
 }
