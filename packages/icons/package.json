@@ -48,7 +48,7 @@
     "css-loader": "^1.0.1",
     "mini-css-extract-plugin": "^1.6.2",
     "mkdirp": "^1.0.4",
-    "react": "^16.14.0",
+    "react": "^17.0.2",
     "rimraf": "^2.7.1",
     "string-replace-loader": "^2.3.0",
     "style-loader": "^0.23.1",
