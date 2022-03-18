@@ -193,12 +193,12 @@ describe('smart websocket tests', () => {
 			// given
 			jest.useFakeTimers();
 			const url = urlWS;
-			// const serv = new Server(url);
 			const options = {
 				onMessage: jest.fn(),
 				onOpen: jest.fn(),
 				onClose: jest.fn(),
 				onError: jest.fn(),
+				onPing: jest.fn(),
 				onPingTimeout: jest.fn(),
 				checkInterval: 70,
 				// < 4ms, that is the delay from ws mock to send
@@ -211,10 +211,10 @@ describe('smart websocket tests', () => {
 			expect(options.onPingTimeout).not.toBeCalled();
 
 			// when
-			jest.runTimersToTime(1);
+			jest.advanceTimersByTime(1);
 
 			// then
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
+			expect(options.onPing).not.toBeCalled();
 			expect(options.onPingTimeout).toBeCalled();
 		});
 	});
