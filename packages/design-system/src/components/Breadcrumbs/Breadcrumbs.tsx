@@ -1,5 +1,6 @@
 import React, { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
+import classnames from 'classnames';
 
 import styles from './Breadcrumbs.module.scss';
 import Link from '../Link';
@@ -56,7 +57,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 						</StackHorizontal>
 					</li>
 
-					<li className={styles.entry}>
+					<li className={classnames(styles.entry, styles.collapsed)}>
 						<StackHorizontal gap="S" align="center" wrap="nowrap">
 							<Dropdown
 								aria-label={t('COLLAPSED_LINKS_MENU', 'Collapsed links')}

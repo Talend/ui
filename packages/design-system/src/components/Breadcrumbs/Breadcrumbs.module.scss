@@ -13,7 +13,11 @@
 
 	.entry {
 		max-width: tokens.$coral-size-limit;
-		min-width: 0;
+		min-width: tokens.$coral-size-xl;
+
+		&.collapsed {
+			flex-shrink: 0;
+		}
 
 		[data-ellipsis='true'] {
 			white-space: nowrap;
