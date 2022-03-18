@@ -8,7 +8,7 @@ type ShellProps = MenuProps;
 
 const DropdownShell = forwardRef(({ children, ...rest }: ShellProps, ref: Ref<HTMLDivElement>) => {
 	return (
-		<div className={styles.dropDownShell} {...rest} ref={ref}>
+		<div {...rest} className={styles.dropDownShell} ref={ref}>
 			<div className={styles.animatedZone}>
 				<StackVertical gap={0} align="stretch" justify="stretch">
 					{children}

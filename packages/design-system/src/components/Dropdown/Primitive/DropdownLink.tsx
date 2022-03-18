@@ -14,14 +14,14 @@ const LocalLink = forwardRef(
 		ref: Ref<HTMLAnchorElement>,
 	) => {
 		const { asPassThrough, ...rest } = localProps;
-		return <Linkable className={styles.dropdownEntry} as={asPassThrough} ref={ref} {...rest} />;
+		return <Linkable {...rest} className={styles.dropdownEntry} as={asPassThrough} ref={ref} />;
 	},
 );
 
 const DropdownLink = forwardRef(
 	({ children, as, ...props }: DropdownLinkType, ref: Ref<HTMLAnchorElement>) => {
 		return (
-			<MenuItem as={LocalLink} asPassThrough={as !== 'a' ? as : undefined} {...props} ref={ref}>
+			<MenuItem {...props} as={LocalLink} asPassThrough={as !== 'a' ? as : undefined} ref={ref}>
 				{children}
 			</MenuItem>
 		);

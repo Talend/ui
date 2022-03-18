@@ -8,11 +8,8 @@
 	align-items: center;
 	white-space: nowrap;
 	width: 100%;
-	min-width: 0;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	color: tokens.$coral-color-neutral-text;
 	font: tokens.$coral-paragraph-m-bold;
-	padding: 0 tokens.$coral-size-s;
+	padding: tokens.$coral-size-xxs tokens.$coral-size-s;
 	max-width: tokens.$coral-size-limit;
 }

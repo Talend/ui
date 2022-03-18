@@ -23,7 +23,7 @@ type BreadcrumbsRouterLink = {
 
 type BreadcrumbsItem = (BreadcrumbsRouterLink | BreadcrumbsLink)[];
 
-type BreadCrumbsProps = Omit<HTMLAttributes<HTMLElement>, 'className'> & {
+type BreadCrumbsProps = Omit<HTMLAttributes<HTMLElement>, 'className' | 'style'> & {
 	items: BreadcrumbsItem;
 };
 
@@ -42,11 +42,11 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 					<li className={styles.entry}>
 						<StackHorizontal gap="S" align="center" wrap="nowrap">
 							{'href' in origin ? (
-								<Link href={origin.href} target={origin.target} data-ellipsis>
+								<Link href={origin.href} target={origin.target} withEllipsis>
 									{origin.label}
 								</Link>
 							) : (
-								<Link as={origin.as} target={origin.target} data-ellipsis>
+								<Link as={origin.as} target={origin.target} withEllipsis>
 									{origin.label}
 								</Link>
 							)}
@@ -79,7 +79,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 								})}
 							>
 								<ButtonTertiary isDropdown size="S" onClick={() => {}}>
-									...
+									…
 								</ButtonTertiary>
 							</Dropdown>
 							<span aria-hidden className={styles.divider}>
@@ -89,6 +89,7 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 					</li>
 
 					{suffix.map((entry, index) => {
+						const isLastEntry = index === suffix.length - 1;
 						if ('href' in entry) {
 							const { label, ...entryProps } = entry;
 							return (
@@ -96,14 +97,16 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 									<StackHorizontal gap="S" align="center" wrap="nowrap">
 										<Link
 											{...entryProps}
-											aria-current={index === suffix.length - 1 ? 'page' : undefined}
-											data-ellipsis
+											aria-current={isLastEntry ? 'page' : undefined}
+											withEllipsis
 										>
 											{label}
 										</Link>
-										<span aria-hidden className={styles.divider}>
-											<Divider orientation="vertical" />
-										</span>
+										{!isLastEntry && (
+											<span aria-hidden className={styles.divider}>
+												<Divider orientation="vertical" />
+											</span>
+										)}
 									</StackHorizontal>
 								</li>
 							);
@@ -115,14 +118,16 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 									<Link
 										{...entryProps}
 										as={as}
-										aria-current={index === suffix.length - 1 ? 'page' : undefined}
-										data-ellipsis
+										aria-current={isLastEntry ? 'page' : undefined}
+										withEllipsis
 									>
 										{label}
 									</Link>
-									<span aria-hidden className={styles.divider}>
-										<Divider orientation="vertical" />
-									</span>
+									{!isLastEntry && (
+										<span aria-hidden className={styles.divider}>
+											<Divider orientation="vertical" />
+										</span>
+									)}
 								</StackHorizontal>
 							</li>
 						);
@@ -132,20 +137,19 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 		}
 
 		return items.map((entry, index) => {
+			const isLastEntry = index === items.length - 1;
 			if ('href' in entry) {
 				return (
 					<li className={styles.entry} key={`${entry.label}-${index}`}>
 						<StackHorizontal gap="S" align="center" wrap="nowrap">
-							<Link
-								data-ellipsis
-								href={entry.href}
-								aria-current={index === items.length - 1 ? 'page' : undefined}
-							>
+							<Link withEllipsis href={entry.href} aria-current={isLastEntry ? 'page' : undefined}>
 								{entry.label}
 							</Link>
-							<span aria-hidden className={styles.divider}>
-								<Divider orientation="vertical" />
-							</span>
+							{!isLastEntry && (
+								<span aria-hidden className={styles.divider}>
+									<Divider orientation="vertical" />
+								</span>
+							)}
 						</StackHorizontal>
 					</li>
 				);
@@ -154,16 +158,14 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 			return (
 				<li className={styles.entry} key={`${entry.label}-${index}`}>
 					<StackHorizontal gap="S" align="center" wrap="nowrap">
-						<Link
-							as={entry.as}
-							aria-current={index === items.length - 1 ? 'page' : undefined}
-							data-ellipsis
-						>
+						<Link as={entry.as} aria-current={isLastEntry ? 'page' : undefined} withEllipsis>
 							{entry.label}
 						</Link>
-						<span aria-hidden className={styles.divider}>
-							<Divider orientation="vertical" />
-						</span>
+						{!isLastEntry && (
+							<span aria-hidden className={styles.divider}>
+								<Divider orientation="vertical" />
+							</span>
+						)}
 					</StackHorizontal>
 				</li>
 			);

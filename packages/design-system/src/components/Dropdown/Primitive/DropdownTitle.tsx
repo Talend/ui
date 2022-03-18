@@ -7,7 +7,7 @@ export type DropdownTitleType = { children: string };
 const DropdownTitle = forwardRef(
 	({ children, ...rest }: DropdownTitleType, ref: Ref<HTMLParagraphElement>) => {
 		return (
-			<p className={styles.dropdownTitle} {...rest} ref={ref}>
+			<p {...rest} className={styles.dropdownTitle} ref={ref}>
 				{children}
 			</p>
 		);

@@ -19,6 +19,7 @@ export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'
 	icon?: IconName | ReactElement;
 	hideExternalIcon?: boolean;
 	isNaturallyAligned?: boolean;
+	withEllipsis?: boolean;
 };
 
 export function isBlank(target: string | undefined): boolean {
@@ -36,6 +37,7 @@ const Linkable = forwardRef(
 			icon,
 			hideExternalIcon,
 			className,
+			withEllipsis,
 			...rest
 		}: LinkableType,
 		// Ref<any>: Linkable is polymorphic. Could be any HTML element
@@ -85,6 +87,7 @@ const Linkable = forwardRef(
 					rel={isBlank(target) ? 'noreferrer noopener' : undefined}
 					className={classnames(style.linkable, className, {
 						[style.naturallyAligned]: isNaturallyAligned,
+						[style.withEllipsis]: withEllipsis,
 					})}
 				>
 					{Element}
@@ -101,6 +104,7 @@ const Linkable = forwardRef(
 				rel: isBlank(target) ? 'noreferrer noopener' : undefined,
 				className: classnames(style.linkable, className, {
 					[style.naturallyAligned]: isNaturallyAligned,
+					[style.withEllipsis]: withEllipsis,
 				}),
 				ref,
 			},

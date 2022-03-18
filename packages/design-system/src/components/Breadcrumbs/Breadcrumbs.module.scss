@@ -2,7 +2,6 @@
 
 .breadcrumbs {
 	display: block;
-	max-width: 100%;
 
 	.divider {
 		transform: skew(-15deg);
@@ -19,22 +18,10 @@
 			flex-shrink: 0;
 		}
 
-		[data-ellipsis='true'] {
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-
 		.copy {
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
-		}
-
-		&:last-child {
-			.divider {
-				display: none;
-			}
 		}
 	}
 }
