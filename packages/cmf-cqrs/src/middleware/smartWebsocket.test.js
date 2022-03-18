@@ -214,7 +214,6 @@ describe('smart websocket tests', () => {
 			jest.advanceTimersByTime(1);
 
 			// then
-			expect(options.onPing).not.toBeCalled();
 			expect(options.onPingTimeout).toBeCalled();
 		});
 	});
