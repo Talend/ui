@@ -1,8 +1,8 @@
 {
   "name": "@talend/react-cmf-cqrs",
   "description": "@talend/react-cmf plugin for CQRS backend architecture",
-  "main": "lib/index.js",
-  "mainSrc": "src/index.js",
+  "main": "lib/index.ts",
+  "mainSrc": "src/index.ts",
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
