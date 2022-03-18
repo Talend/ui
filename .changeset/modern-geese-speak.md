@@ -2,4 +2,4 @@
 '@talend/react-components': patch
 ---
 
-update simplebar
+update rc-slider dependency
