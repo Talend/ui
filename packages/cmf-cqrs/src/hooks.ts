@@ -2,14 +2,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { WEBSOCKET_READY_STATE } from './constants';
 import { getWebSocketFromRegistry } from './registry';
 
-// const [messages, _setMessages] = useState<T[]>([]);
-// const messagesRef = useRef(messages);
-// const setMessages = (data: T[]) => {
-// 	messagesRef.current = data;
-// 	_setMessages(data);
-// };
-// setMessages([...messagesRef.current, data]);
-
 export interface WebsocketMessageData {
 	applicationId: string;
 	applicationService: string;
@@ -70,16 +62,3 @@ export const useWebSocket = <T extends WebsocketMessageData>(
 		sendJsonMessage,
 	};
 };
-
-// const {
-//   sendMessage,
-//   sendJsonMessage,
-//   lastMessage,
-//   lastJsonMessage,
-//   readyState,
-//   getWebSocket,
-// } = useWebSocket(socketUrl, {
-//   onOpen: () => console.log('opened'),
-//   //Will attempt to reconnect on all close events, such as server shutting down
-//   shouldReconnect: (closeEvent) => true,
-// });
