@@ -8,6 +8,7 @@ import Dropdown from '../Dropdown/Dropdown';
 import { ButtonTertiary } from '../Button';
 import { StackHorizontal } from '../Stack';
 import Divider from '../Divider';
+import VisuallyHidden from '../VisuallyHidden';
 
 type BreadcrumbsLink = {
 	label: string;
@@ -79,7 +80,10 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 								})}
 							>
 								<ButtonTertiary isDropdown size="S" onClick={() => {}}>
-									…
+									<VisuallyHidden>
+										{t('COLLAPSED_LINKS_BUTTON', 'Display collapsed links')}
+									</VisuallyHidden>
+									<span aria-hidden>…</span>
 								</ButtonTertiary>
 							</Dropdown>
 							<span aria-hidden className={styles.divider}>

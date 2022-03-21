@@ -7,6 +7,46 @@ Dropdown no longer is a Styled Component. Its types are fixed.
 - Cannot use `as` for its disclosure anymore. Use a Clickable (`ButtonPrimary`, `ButtonIcon` etc...) as a child instead.
 - The `items` prop extend `Linkable` and `Clickable`. Links can be from React-Router using `as`.
 - The `items` prop requires entries with a specified `type` : `'link' | 'title' | 'button' | ' divider'`.
+- `items` elements cannot be React elements anymore.
+
+**Before**
+
+```tsx
+<Dropdown
+	as={ButtonTertiary}
+	aria-label="Describe the content of the menu"
+	items={[
+		<Link href="https://tdp.cloud.talend.com">Value</Link>,
+		<button onClick={action}>Value</button>,
+	]}
+>
+	App switcher
+</Dropdown>
+```
+
+**After**
+
+```tsx
+<Dropdown
+	aria-label="Describe the content of the menu"
+	items={[
+		{
+			label: 'Link with icon',
+			href: 'https://tdp.cloud.talend.com',
+			type: 'link',
+		},
+		{
+			label: 'value',
+			onClick: action,
+			type: 'button',
+		},
+	]}
+>
+	<ButtonTertiary isDropdown onClick={() => {}}>
+		App switcher
+	</ButtonTertiary>
+</Dropdown>
+```
 
 ---
 
