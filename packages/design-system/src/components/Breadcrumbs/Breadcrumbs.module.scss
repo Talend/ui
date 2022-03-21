@@ -1,0 +1,27 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.breadcrumbs {
+	display: block;
+
+	.divider {
+		transform: skew(-15deg);
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.entry {
+		max-width: tokens.$coral-size-limit;
+		min-width: tokens.$coral-size-xl;
+
+		&.collapsed {
+			flex-shrink: 0;
+		}
+
+		.copy {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}

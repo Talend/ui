@@ -1,7 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .secondary {
-	color: tokens.$coral-color-accent-text-strong;
+	color: tokens.$coral-color-accent-text;
 	border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
 
 	&:hover {
