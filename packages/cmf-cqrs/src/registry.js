@@ -7,3 +7,7 @@ export const addWebsocketToRegistry = (ws, id = 'default') => {
 export const getWebSocketFromRegistry = (id = 'default') => {
 	return websockets[id];
 };
+
+export const removeWebSocketFromRegistry = (id = 'default') => {
+	delete websockets[id];
+};

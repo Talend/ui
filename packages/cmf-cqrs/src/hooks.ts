@@ -12,12 +12,14 @@ export interface WebsocketMessageData {
 }
 
 export const useWebSocket = <T extends WebsocketMessageData>(
-	messageTypeFilter: string[] = [],
+	messageTypeDenyList: string[] = [],
 	id: string = 'default',
 ) => {
 	const websocketRef = useRef<WebSocket>();
-	const [lastJsonMessage, setLastJsonMessage] = useState<T>();
-	const [lastMessage, setLastMessage] = useState<MessageEvent<string>>();
+	const [lastMessage, setLastMessage] = useState<{
+		message: MessageEvent<string>;
+		jsonData: T;
+	}>();
 
 	const sendMessage = useCallback((message: string) => {
 		if (websocketRef.current?.readyState === WEBSOCKET_READY_STATE.OPEN) {
@@ -34,9 +36,8 @@ export const useWebSocket = <T extends WebsocketMessageData>(
 
 	const onMessage = (messageEvent: MessageEvent<string>) => {
 		const data: T = JSON.parse(messageEvent.data);
-		if (!messageTypeFilter.includes(data.messageType)) {
-			setLastJsonMessage(data);
-			setLastMessage(messageEvent);
+		if (!messageTypeDenyList.includes(data.messageType)) {
+			setLastMessage({ message: messageEvent, jsonData: data });
 		}
 	};
 
@@ -55,8 +56,8 @@ export const useWebSocket = <T extends WebsocketMessageData>(
 	}, []);
 
 	return {
-		lastJsonMessage,
-		lastMessage,
+		lastJsonMessage: lastMessage?.jsonData,
+		lastMessage: lastMessage?.message,
 		readyState: websocketRef.current?.readyState,
 		sendMessage,
 		sendJsonMessage,
