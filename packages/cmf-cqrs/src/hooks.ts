@@ -3,12 +3,8 @@ import { WEBSOCKET_READY_STATE } from './constants';
 import { getWebSocketFromRegistry } from './registry';
 
 export interface WebsocketMessageData {
-	applicationId: string;
-	applicationService: string;
 	body: any;
-	clientId: string;
 	messageType: string;
-	timestamp: number;
 }
 
 export const useWebSocket = <T extends WebsocketMessageData>(
