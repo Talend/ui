@@ -13,6 +13,7 @@
 	.entry {
 		max-width: tokens.$coral-size-limit;
 		min-width: tokens.$coral-size-xl;
+		position: relative;
 
 		&.collapsed {
 			flex-shrink: 0;
