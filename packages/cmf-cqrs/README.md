@@ -169,3 +169,19 @@ function MyComponent() {
 	}, [lastJsonMessage]);
 }
 ```
+
+We can provide a list of ignored events (because we make some pong request to maintain the connection) this way :
+
+```javascript
+import { useWebsocket } from '@talend/react-cmf-cqrs';
+
+function MyComponent() {
+	const { lastJsonMessage, lastMessage, readyState, sendMessage, sendJsonMessage } = useWebsocket([
+		'pong',
+	]);
+
+	useEffect(() => {
+		makeStuff(lastJsonMessage);
+	}, [lastJsonMessage]);
+}
+```
