@@ -159,7 +159,7 @@ on socket connection timeout reached, the following action get dispatched
 Once boostraped with the `createWebsocketMiddleware`, you can use the hook to get the websocket instance
 
 ```javascript
-import { useWebsocket } from '@talend/react-cmf-cqrs';
+import { useWebSocket } from '@talend/react-cmf-cqrs';
 
 function MyComponent() {
 	const { lastJsonMessage, lastMessage, readyState, sendMessage, sendJsonMessage } = useWebsocket();
@@ -173,7 +173,7 @@ function MyComponent() {
 We can provide a list of ignored events (because we make some pong request to maintain the connection) this way :
 
 ```javascript
-import { useWebsocket } from '@talend/react-cmf-cqrs';
+import { useWebSocket } from '@talend/react-cmf-cqrs';
 
 function MyComponent() {
 	const { lastJsonMessage, lastMessage, readyState, sendMessage, sendJsonMessage } = useWebsocket([
