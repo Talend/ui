@@ -25,6 +25,15 @@
 	}
 }
 
+:global(div[role='columnheader']) {
+	overflow: hidden;
+
+	> span {
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+}
+
 .tc-list-progress {
 	width: 100%;
 	display: flex;
