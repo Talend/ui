@@ -25,7 +25,7 @@
 	}
 }
 
-:global(div[role='columnheader']) {
+:global(.tc-list-table [role='columnheader']) {
 	overflow: hidden;
 
 	> span {
