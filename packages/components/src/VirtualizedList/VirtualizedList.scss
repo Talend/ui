@@ -19,20 +19,6 @@
 	}
 }
 
-:global(.ReactVirtualized__Table__headerColumn) {
-	overflow: hidden;
-
-	:global(.ReactVirtualized__Table__headerTruncatedText) {
-		text-overflow: ellipsis;
-		overflow: hidden;
-		white-space: nowrap;
-	}
-
-	:global(.ReactVirtualized__Table__sortableHeaderIcon) {
-		flex-shrink: 0;
-	}
-}
-
 .tc-list-progress {
 	width: 100%;
 	display: flex;
