@@ -30,6 +30,36 @@ type BreadCrumbsProps = Omit<HTMLAttributes<HTMLElement>, 'className' | 'style'>
 
 const maxBreadcrumbsItemLength = 4;
 
+function BreadcrumbLink({
+	link,
+	isLastLink,
+}: {
+	link: BreadcrumbsLink | BreadcrumbsRouterLink;
+	isLastLink: boolean;
+}) {
+	const destinationProps = 'href' in link ? { href: link.href } : { as: link.as };
+	return (
+		<li className={styles.entry}>
+			<StackHorizontal gap="S" align="center" wrap="nowrap">
+				<Link
+					{...destinationProps}
+					target={link.target}
+					withEllipsis
+					aria-current={isLastLink ? 'page' : undefined}
+				>
+					{link.label}
+				</Link>
+
+				{!isLastLink && (
+					<span aria-hidden className={styles.divider}>
+						<Divider orientation="vertical" />
+					</span>
+				)}
+			</StackHorizontal>
+		</li>
+	);
+}
+
 const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<HTMLElement>) => {
 	const { t } = useTranslation();
 	const buildEntries = () => {
@@ -40,42 +70,22 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 
 			return (
 				<>
-					<li className={styles.entry}>
-						<StackHorizontal gap="S" align="center" wrap="nowrap">
-							{'href' in origin ? (
-								<Link href={origin.href} target={origin.target} withEllipsis>
-									{origin.label}
-								</Link>
-							) : (
-								<Link as={origin.as} target={origin.target} withEllipsis>
-									{origin.label}
-								</Link>
-							)}
+					<BreadcrumbLink link={origin} isLastLink={false} />
 
-							<span aria-hidden className={styles.divider}>
-								<Divider orientation="vertical" />
-							</span>
-						</StackHorizontal>
-					</li>
-
-					<li className={classnames(styles.entry, styles.collapsed)}>
+					<li className={classnames(styles.entry, styles.entry__collapsed)}>
 						<StackHorizontal gap="S" align="center" wrap="nowrap">
 							<Dropdown
 								aria-label={t('COLLAPSED_LINKS_MENU', 'Collapsed links')}
 								items={collapsed.map(collapsedLinks => {
-									if ('href' in collapsedLinks) {
-										return {
-											href: collapsedLinks.href,
-											label: collapsedLinks.label,
-											target: collapsedLinks.target,
-											type: 'link',
-										};
-									}
+									const refinedProp =
+										'href' in collapsedLinks
+											? { href: collapsedLinks.href }
+											: { as: collapsedLinks.as };
 									return {
 										label: collapsedLinks.label,
 										target: collapsedLinks.target,
 										type: 'link',
-										as: collapsedLinks.as,
+										...refinedProp,
 									};
 								})}
 							>
@@ -94,46 +104,12 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 
 					{suffix.map((entry, index) => {
 						const isLastEntry = index === suffix.length - 1;
-						if ('href' in entry) {
-							const { label, ...entryProps } = entry;
-							return (
-								<li className={styles.entry} key={`${label}-${index}`}>
-									<StackHorizontal gap="S" align="center" wrap="nowrap">
-										<Link
-											{...entryProps}
-											aria-current={isLastEntry ? 'page' : undefined}
-											withEllipsis
-										>
-											{label}
-										</Link>
-										{!isLastEntry && (
-											<span aria-hidden className={styles.divider}>
-												<Divider orientation="vertical" />
-											</span>
-										)}
-									</StackHorizontal>
-								</li>
-							);
-						}
-						const { label, as, ...entryProps } = entry;
 						return (
-							<li className={styles.entry} key={`${label}-${index}`}>
-								<StackHorizontal gap="S" align="center" wrap="nowrap">
-									<Link
-										{...entryProps}
-										as={as}
-										aria-current={isLastEntry ? 'page' : undefined}
-										withEllipsis
-									>
-										{label}
-									</Link>
-									{!isLastEntry && (
-										<span aria-hidden className={styles.divider}>
-											<Divider orientation="vertical" />
-										</span>
-									)}
-								</StackHorizontal>
-							</li>
+							<BreadcrumbLink
+								link={entry}
+								isLastLink={isLastEntry}
+								key={`${entry.label}-${index}`}
+							/>
 						);
 					})}
 				</>
@@ -142,36 +118,8 @@ const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<H
 
 		return items.map((entry, index) => {
 			const isLastEntry = index === items.length - 1;
-			if ('href' in entry) {
-				return (
-					<li className={styles.entry} key={`${entry.label}-${index}`}>
-						<StackHorizontal gap="S" align="center" wrap="nowrap">
-							<Link withEllipsis href={entry.href} aria-current={isLastEntry ? 'page' : undefined}>
-								{entry.label}
-							</Link>
-							{!isLastEntry && (
-								<span aria-hidden className={styles.divider}>
-									<Divider orientation="vertical" />
-								</span>
-							)}
-						</StackHorizontal>
-					</li>
-				);
-			}
-
 			return (
-				<li className={styles.entry} key={`${entry.label}-${index}`}>
-					<StackHorizontal gap="S" align="center" wrap="nowrap">
-						<Link as={entry.as} aria-current={isLastEntry ? 'page' : undefined} withEllipsis>
-							{entry.label}
-						</Link>
-						{!isLastEntry && (
-							<span aria-hidden className={styles.divider}>
-								<Divider orientation="vertical" />
-							</span>
-						)}
-					</StackHorizontal>
-				</li>
+				<BreadcrumbLink link={entry} isLastLink={isLastEntry} key={`${entry.label}-${index}`} />
 			);
 		});
 	};

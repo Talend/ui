@@ -86,8 +86,8 @@ const Linkable = forwardRef(
 					target={target}
 					rel={isBlank(target) ? 'noreferrer noopener' : undefined}
 					className={classnames(style.linkable, className, {
-						[style.naturallyAligned]: isNaturallyAligned,
-						[style.withEllipsis]: withEllipsis,
+						[style.naturally_aligned]: isNaturallyAligned,
+						[style.with_ellipsis]: withEllipsis,
 					})}
 				>
 					{Element}
@@ -103,8 +103,8 @@ const Linkable = forwardRef(
 				href,
 				rel: isBlank(target) ? 'noreferrer noopener' : undefined,
 				className: classnames(style.linkable, className, {
-					[style.naturallyAligned]: isNaturallyAligned,
-					[style.withEllipsis]: withEllipsis,
+					[style.naturally_aligned]: isNaturallyAligned,
+					[style.with_ellipsis]: withEllipsis,
 				}),
 				ref,
 			},

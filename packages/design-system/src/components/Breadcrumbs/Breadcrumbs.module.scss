@@ -15,7 +15,7 @@
 		min-width: tokens.$coral-size-xl;
 		position: relative;
 
-		&.collapsed {
+		&__collapsed {
 			flex-shrink: 0;
 		}
 

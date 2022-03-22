@@ -23,14 +23,14 @@ svg.link__iconExternal {
 	flex-shrink: 0;
 }
 
-.naturallyAligned {
+.naturally_aligned {
 	svg.link__icon,
 	svg.link__iconExternal {
 		margin-bottom: 0;
 	}
 }
 
-.withEllipsis {
+.with_ellipsis {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
