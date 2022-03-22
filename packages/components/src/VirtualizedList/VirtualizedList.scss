@@ -9,28 +9,27 @@
 	height: calc(100% - 2px);
 	padding: 0 0 0 $padding-large;
 	position: relative;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
 
 	&:hover {
 		cursor: pointer;
 	}
 	:global(.ReactVirtualized__Table__headerTruncatedText) {
 		align-self: center;
-		overflow: hidden;
 		padding-left: $padding-small;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 }
 
-:global(.tc-list-header-cell) {
+:global(.ReactVirtualized__Table__headerColumn) {
 	overflow: hidden;
 
-	> span {
+	:global(.ReactVirtualized__Table__headerTruncatedText) {
 		text-overflow: ellipsis;
 		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	:global(.ReactVirtualized__Table__sortableHeaderIcon) {
+		flex-shrink: 0;
 	}
 }
 
