@@ -1,5 +1,5 @@
 ---
-'@talend/react-components': minor
+'@talend/react-components': patch
 ---
 
-feat(components): shrink column headers to fit with cells width
+fix(components/VirtualizedList): shrink column headers to fit with cells width and ellipsis
