@@ -59,15 +59,9 @@ export function toColumns({ id, theme, children, columnsWidths, getRowState }) {
 			// ...createColumnWidthProps(columnWidth),
 			width: -1,
 			...field.props,
-			headerClassName: classNames(
-				field.props.headerClassName,
-				theme.header,
-				colClassName,
-				{
-					'tc-header-resizable': columnWidth && columnWidth.resizable,
-				},
-				'tc-list-header-cell',
-			),
+			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName, {
+				'tc-header-resizable': columnWidth && columnWidth.resizable,
+			}),
 			className: classNames(field.props.className, theme.cell, colClassName),
 			columnData:
 				typeof field.props.columnData === 'function'
