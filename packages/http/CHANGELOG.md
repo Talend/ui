@@ -1,5 +1,27 @@
 # @talend/http
 
+## 2.0.2
+
+### Patch Changes
+
+- d4bdd2ec2: chore(http): Add typing for error cases
+
+## 2.0.1
+
+### Patch Changes
+
+- 1488ec429: typings: allow empty PUT payload
+
+## 2.0.0
+
+### Major Changes
+
+- 48c0d55a4: chore(http): remove generators as async functions are enough (and they are not used)
+
+### Minor Changes
+
+- 48c0d55a4: chore(http): migrate to typescript
+
 ## 1.2.0
 
 ### Minor Changes

@@ -9,6 +9,10 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: ['chrome', 'firefox']
     defaults:
       run:
         working-directory: ./packages/design-system
@@ -16,12 +20,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '14'
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
-          cache: "yarn"
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@talend'
+          cache: 'yarn'
 
       - name: Install dependencies
         run: |
@@ -30,15 +34,25 @@ jobs:
       - name: Build @talend/design-tokens
         run: |
           cd ../design-tokens
-          yarn build:lib
+          yarn pre-release
 
       - name: Cypress Component Testing
-        run: |
-          npx cypress run-ct
-
-      - name: Cypress artifacts upload
-        uses: actions/upload-artifact@v2
-        if: ${{ always() }}
+        uses: cypress-io/github-action@v3
         with:
-          name: cypress-component-testing-videos
-          path: cypress/videos/components/**/*
+          browser: ${{ matrix.browser }}
+          command: yarn test:cy
+          working-directory: packages/design-system
+
+      - name: Cypress screenshots upload
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-component-testing-${{ matrix.browser }}-screenshots
+          path: packages/design-system/cypress/screenshots/**/*
+
+      - name: Cypress videos upload
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-component-testing-${{ matrix.browser }}-videos
+          path: packages/design-system/cypress/videos/**/*

@@ -1,7 +1,7 @@
 {
   "actions": {
     "menu:ComponentForm": {
-      "icon": "talend-burger",
+      "icon": "talend-text",
       "label": "ComponentForm",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
@@ -11,12 +11,42 @@
       }
     },
     "menu:List": {
-      "icon": "talend-burger",
+      "icon": "talend-table",
       "label": "List",
       "onClickDispatch": {
         "type": "MENU_LIST_CLICKED",
         "cmf": {
           "routerPush": "/List"
+        }
+      }
+    },
+    "menu:Dataviz": {
+      "icon": "talend-charts",
+      "label": "Dataviz",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/Dataviz"
+        }
+      }
+    },
+    "menu:FacetedSearch": {
+      "icon": "talend-search",
+      "label": "Faceted Search",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/FacetedSearch"
+        }
+      }
+    },
+    "menu:DataGrid": {
+      "icon": "talend-datagrid",
+      "label": "DataGrid",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/DataGrid"
         }
       }
     }
@@ -66,7 +96,13 @@
       "productsUrl": "/api/mock/header-bar/products-list"
     },
     "SidePanel#default": {
-      "actionIds": ["menu:ComponentForm", "menu:List"]
+      "actionIds": [
+        "menu:ComponentForm",
+        "menu:List",
+        "menu:Dataviz",
+        "menu:DataGrid",
+        "menu:FacetedSearch"
+      ]
     },
     "Layout#default": {
       "mode": "TwoColumns",
@@ -95,6 +131,22 @@
       {
         "path": "ComponentForm",
         "component": "ComponentFormSandbox"
+      },
+      {
+        "path": "Dataviz",
+        "component": "Dataviz"
+      },
+      {
+        "path": "FacetedSearch",
+        "component": "FacetedSearch"
+      },
+      {
+        "path": "DataGrid",
+        "component": "DataGrid"
+      },
+      {
+        "path": "*",
+        "component": "Redirect"
       }
     ]
   }

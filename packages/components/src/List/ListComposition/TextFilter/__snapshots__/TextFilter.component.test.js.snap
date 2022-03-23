@@ -90,7 +90,7 @@ exports[`TextFilter should render text filter component 1`] = `
                 key="icon"
                 name="talend-search"
               >
-                <Coral.Icon
+                <CoralIcon
                   name="talend-search"
                 />
               </Icon>
@@ -194,7 +194,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                 key="icon"
                 name="talend-search"
               >
-                <Coral.Icon
+                <CoralIcon
                   name="talend-search"
                 />
               </Icon>

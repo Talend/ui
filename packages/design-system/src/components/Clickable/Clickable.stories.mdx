@@ -1,0 +1,41 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+import { Variations as ButtonVariations } from '../Button/Button.stories';
+import { Variations as ButtonAsLinkVariations } from '../ButtonAsLink/ButtonAsLink.stories';
+import { Variations as ButtonIconVariations } from '../ButtonIcon/ButtonIcon.stories';
+
+<Meta title="Components/Clickable (Buttons)/About" />
+
+# About Clickables
+
+Clickables are just the things that look like buttons. It's a UI pattern that has various UX effects.
+
+## Buttons
+
+[Checkout the Button docs here.](/docs/components-clickable-buttons-button--variations)
+
+Use `Button` when you need highly readable CTAs that trigger an action on the page.
+
+<Canvas withSource="closed">
+	<Story story={ButtonVariations} />
+</Canvas>
+
+## ButtonAsLinks
+
+[Checkout the ButtonAsLink docs here.](/docs/components-clickable-buttons-buttonaslink--variations)
+
+Use `ButtonAsLink` when you need a CTA that will navigate to a new page.
+
+<Canvas withSource="closed">
+	<Story story={ButtonAsLinkVariations} />
+</Canvas>
+
+## ButtonIcon
+
+[Checkout the ButtonIcon docs here.](/docs/components-clickable-buttons-buttonicon--variations)
+
+Use `ButtonIcon` when you need to click on a standalone icon. This should never be a hyperlink.
+
+<Canvas withSource="closed">
+	<Story story={ButtonIconVariations} name="ButtonIcon Variations" />
+</Canvas>

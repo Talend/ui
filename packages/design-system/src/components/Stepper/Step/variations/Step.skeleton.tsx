@@ -6,6 +6,7 @@ import { StepProps } from '../Step';
 
 const StepSkeletonWrapper = styled.span.attrs({ className: 'step--skeleton' })`
 	position: relative;
+	width: 11.5rem;
 
 	&:before {
 		position: absolute;
@@ -17,17 +18,11 @@ const StepSkeletonWrapper = styled.span.attrs({ className: 'step--skeleton' })`
 		background: ${({ theme }) => theme.colors?.backgroundColor};
 		border-radius: ${tokens.radii.rectRadius};
 	}
-
-	&,
-	.skeleton {
-		height: ${tokens.space.l};
-		width: 11.5rem;
-	}
 `;
 
 const StepSkeleton = (props: StepProps) => (
 	<StepSkeletonWrapper {...props}>
-		<Skeleton />
+		<Skeleton variant="heading" size="M" />
 	</StepSkeletonWrapper>
 );
 

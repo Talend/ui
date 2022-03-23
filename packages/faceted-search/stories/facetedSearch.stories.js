@@ -1,11 +1,12 @@
 import React from 'react';
 import { within, userEvent } from '@storybook/testing-library';
-import times from 'lodash/times';
+import { action } from '@storybook/addon-actions';
+import { Badge } from '@talend/react-components';
+import { useTranslation } from 'react-i18next';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
-import { action } from '@storybook/addon-actions';
-import { useTranslation } from 'react-i18next';
-import Badge from '@talend/react-components/lib/Badge';
+import times from 'lodash/times';
+
 import FacetedSearch from '../src';
 import { FacetedSearchIcon } from '../src/components';
 import { BadgeFacetedProvider } from '../src/components/context/badgeFaceted.context';
@@ -22,15 +23,15 @@ import {
 	badgeValid,
 	badgeEmpty,
 	badgeInvalid,
-	badgeEnumWithLotOfValues,
 	badgeTags,
+	badgeCreationDate,
 	badgeWithVeryLongName,
+	badgeEnumWithLotOfValues,
+	badgeTextAsCategory,
 	badgeTextAsCustomAttribute,
 	badgeEnumsAsCustomAttribute,
-	badgeTextAsCategory,
-	badgeEmptyLabel,
 	badgePriceAsCustomAttribute,
-	badgeCreationDate,
+	badgeEmptyLabel,
 } from './badgesDefinitions';
 
 const badgesDefinitions = [
@@ -46,12 +47,6 @@ const badgesDefinitions = [
 	badgeInvalid,
 	badgeCreationDate,
 ];
-const lotsOfBadgesDefinitions = [];
-let i = 0;
-while (i < 50) {
-	lotsOfBadgesDefinitions.push(badgeName);
-	i += 1;
-}
 
 const callbacks = {
 	getTags: () =>
@@ -75,31 +70,6 @@ const callbacks = {
 				'api',
 			]),
 		),
-};
-
-const badgesWithAll = {
-	badges: [
-		{
-			properties: {
-				attribute: 'all',
-				initialOperatorOpened: false,
-				initialValueOpened: false,
-				label: 'All',
-				operator: { label: 'Contains', name: 'containsIgnoreCase', iconName: 'contains' },
-				operators: [],
-				type: 'text',
-				value: 'test',
-			},
-			metadata: {
-				isAvailableForFacetList: false,
-				badgePerFacet: 'N',
-				entitiesPerBadge: '1',
-				operators: ['containsIgnoreCase'],
-				badgeId: 'all-b6c04e3d-1d72-4aca-9565-09d206f76d88',
-				isInCreation: false,
-			},
-		},
-	],
 };
 
 const badgesFaceted = {
@@ -148,7 +118,33 @@ const badgesFaceted = {
 	],
 };
 
+const badgesWithAll = {
+	badges: [
+		{
+			properties: {
+				attribute: 'all',
+				initialOperatorOpened: false,
+				initialValueOpened: false,
+				label: 'All',
+				operator: { label: 'Contains', name: 'containsIgnoreCase', iconName: 'contains' },
+				operators: [],
+				type: 'text',
+				value: 'test',
+			},
+			metadata: {
+				isAvailableForFacetList: false,
+				badgePerFacet: 'N',
+				entitiesPerBadge: '1',
+				operators: ['containsIgnoreCase'],
+				badgeId: 'all-b6c04e3d-1d72-4aca-9565-09d206f76d88',
+				isInCreation: false,
+			},
+		},
+	],
+};
+
 export default {
+	title: 'Faceted search',
 	component: FacetedSearch.Faceted,
 	parameters: {
 		docs: {
@@ -186,214 +182,195 @@ export default {
 	],
 };
 
-export const Default = {
-	render: () => (
-		<FacetedSearch.Faceted id="my-faceted-search">
-			{currentFacetedMode =>
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
-					<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
-				)) ||
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
-					<FacetedSearch.BasicSearch
-						badgesDefinitions={badgesDefinitions}
-						callbacks={callbacks}
-						onSubmit={action('onSubmit')}
-					/>
-				))
-			}
-		</FacetedSearch.Faceted>
-	),
-};
+export const Default = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		{currentFacetedMode =>
+			(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+				<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+			)) ||
+			(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={badgesDefinitions}
+					callbacks={callbacks}
+					onSubmit={action('onSubmit')}
+				/>
+			))
+		}
+	</FacetedSearch.Faceted>
+);
 
-export const IconDefaultActiveAndLoading = {
-	render: () => (
-		<div style={{ display: 'flex', gap: '1rem' }}>
-			<div>
-				<FacetedSearchIcon loading onClick={action('onClick')} />
-			</div>
-			<div>
-				<FacetedSearchIcon active onClick={action('onClick')} />
-			</div>
-			<div>
-				<FacetedSearchIcon onClick={action('onClick')} />
-			</div>
+export const IconDefaultActiveAndLoading = () => (
+	<div style={{ display: 'flex', gap: '1rem' }}>
+		<div>
+			<FacetedSearchIcon loading onClick={action('onClick')} />
 		</div>
-	),
-};
+		<div>
+			<FacetedSearchIcon active onClick={action('onClick')} />
+		</div>
+		<div>
+			<FacetedSearchIcon onClick={action('onClick')} />
+		</div>
+	</div>
+);
 
-export const Initialized = {
-	render: () => (
-		<FacetedSearch.Faceted id="my-faceted-search">
-			{currentFacetedMode =>
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
-					<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
-				)) ||
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
-					<FacetedSearch.BasicSearch
-						badgesDefinitions={badgesDefinitions}
-						badgesFaceted={badgesFaceted}
-						onSubmit={action('onSubmit')}
-						callbacks={callbacks}
-					/>
-				))
-			}
-		</FacetedSearch.Faceted>
-	),
-};
-
-export const InitializedWithABadgeWhichIsNotVisibleInTheList = {
-	render: () => (
-		<FacetedSearch.Faceted id="my-faceted-search">
-			{currentFacetedMode =>
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
-					<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
-				)) ||
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
-					<FacetedSearch.BasicSearch
-						badgesDefinitions={badgesDefinitions}
-						badgesFaceted={badgesWithAll}
-						callbacks={callbacks}
-						onSubmit={action('onSubmit')}
-					/>
-				))
-			}
-		</FacetedSearch.Faceted>
-	),
-};
-
-export const Colored = {
-	render: () => (
-		<FacetedSearch.Faceted id="my-faceted-search">
-			{currentFacetedMode =>
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
-					<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
-				)) ||
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
-					<FacetedSearch.BasicSearch
-						badgesDefinitions={badgesDefinitions}
-						badgesFaceted={set(
-							cloneDeep(badgesFaceted),
-							'badges[0].properties.displayType',
-							Badge.TYPES.VALUE,
-						)}
-						onSubmit={action('onSubmit')}
-						callbacks={callbacks}
-					/>
-				))
-			}
-		</FacetedSearch.Faceted>
-	),
-};
-
-export const WithSpecialChars = {
-	render: () => {
-		const { t } = useTranslation();
-		const badgesDictionary = createBadgesDict();
-		const badge = cloneDeep(badgesFaceted.badges[0]);
-		Object.assign(badge.properties, {
-			value: '  text  ',
-			type: 'text',
-			displayType: Badge.TYPES.PATTERN,
-		});
-		return (
-			<BadgeFacetedProvider value={{}}>
-				<BadgesGenerator
-					badges={[badge]}
-					badgesDictionary={badgesDictionary}
-					getBadgeFromDict={getBadgesFromDict}
-					t={t}
+export const Initialized = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		{currentFacetedMode =>
+			(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+				<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+			)) ||
+			(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={badgesDefinitions}
+					badgesFaceted={badgesFaceted}
+					onSubmit={action('onSubmit')}
+					callbacks={callbacks}
 				/>
-			</BadgeFacetedProvider>
-		);
-	},
-};
+			))
+		}
+	</FacetedSearch.Faceted>
+);
 
-export const DatePicker = {
-	render: () => {
-		const { t } = useTranslation();
-		const badgesDictionary = createBadgesDict();
-		const badge = cloneDeep(badgesFaceted.badges[0]);
-		Object.assign(badge.properties, {
-			value: Date.now(),
-			type: 'date',
-		});
-		return (
-			<BadgeFacetedProvider value={{}}>
-				<BadgesGenerator
-					badges={[badge]}
-					badgesDictionary={badgesDictionary}
-					getBadgeFromDict={getBadgesFromDict}
-					t={t}
+export const InitializedWithABadgeWhichIsNotVisibleInTheList = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		{currentFacetedMode =>
+			(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+				<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+			)) ||
+			(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={badgesDefinitions}
+					badgesFaceted={badgesWithAll}
+					callbacks={callbacks}
+					onSubmit={action('onSubmit')}
 				/>
-			</BadgeFacetedProvider>
-		);
-	},
-};
+			))
+		}
+	</FacetedSearch.Faceted>
+);
 
-export const ReadOnly = {
-	render: () => {
-		const { t } = useTranslation();
-		const badgesDictionary = createBadgesDict();
-		return (
-			<BadgeFacetedProvider value={{}}>
-				<BadgesGenerator
-					badges={[
-						set(cloneDeep(badgesFaceted.badges[0]), 'properties.readOnly', true),
-						set(cloneDeep(badgesFaceted.badges[0]), 'properties.removable', false),
-					]}
-					badgesDictionary={badgesDictionary}
-					getBadgeFromDict={getBadgesFromDict}
-					t={t}
+export const Colored = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		{currentFacetedMode =>
+			(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+				<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+			)) ||
+			(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={badgesDefinitions}
+					badgesFaceted={set(
+						cloneDeep(badgesFaceted),
+						'badges[0].properties.displayType',
+						Badge.TYPES.VALUE,
+					)}
+					onSubmit={action('onSubmit')}
+					callbacks={callbacks}
 				/>
-			</BadgeFacetedProvider>
-		);
-	},
-};
+			))
+		}
+	</FacetedSearch.Faceted>
+);
 
-export const WithExternalState = {
-	render: () => {
-		const [state, setState] = React.useState(badgesFaceted);
-		const onSubmit = React.useCallback(
-			(_, badges) => setState(previousState => ({ ...previousState, badges })),
-			[setState],
-		);
-
-		return (
-			<div>
-				<button onClick={() => setState(badgesFaceted)}>Reset state</button>
-				<FacetedSearch.Faceted id="my-faceted-search">
-					{currentFacetedMode =>
-						(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
-							<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
-						)) ||
-						(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
-							<FacetedSearch.BasicSearch
-								badgesDefinitions={badgesDefinitions}
-								badgesFaceted={state}
-								onSubmit={onSubmit}
-								callbacks={callbacks}
-							/>
-						))
-					}
-				</FacetedSearch.Faceted>
-			</div>
-		);
-	},
-};
-
-export const WithoutLabelOrOperatorButton = {
-	render: () => (
-		<FacetedSearch.Faceted id="my-faceted-search">
-			<FacetedSearch.BasicSearch
-				badgesDefinitions={badgesDefinitions}
-				badgesFaceted={set(cloneDeep(badgesFaceted), 'badges[0].properties.label', '')}
-				onSubmit={action('onSubmit')}
-				callbacks={callbacks}
+export const WithSpecialChars = () => {
+	const { t } = useTranslation();
+	const badgesDictionary = createBadgesDict();
+	const badge = cloneDeep(badgesFaceted.badges[0]);
+	Object.assign(badge.properties, {
+		value: '  text  ',
+		type: 'text',
+		displayType: Badge.TYPES.PATTERN,
+	});
+	return (
+		<BadgeFacetedProvider value={{}}>
+			<BadgesGenerator
+				badges={[badge]}
+				badgesDictionary={badgesDictionary}
+				getBadgeFromDict={getBadgesFromDict}
+				t={t}
 			/>
-		</FacetedSearch.Faceted>
-	),
+		</BadgeFacetedProvider>
+	);
 };
 
+export const DatePicker = () => {
+	const { t } = useTranslation();
+	const badgesDictionary = createBadgesDict();
+	const badge = cloneDeep(badgesFaceted.badges[0]);
+	Object.assign(badge.properties, {
+		value: Date.now(),
+		type: 'date',
+	});
+	return (
+		<BadgeFacetedProvider value={{}}>
+			<BadgesGenerator
+				badges={[badge]}
+				badgesDictionary={badgesDictionary}
+				getBadgeFromDict={getBadgesFromDict}
+				t={t}
+			/>
+		</BadgeFacetedProvider>
+	);
+};
+
+export const ReadOnly = () => {
+	const { t } = useTranslation();
+	const badgesDictionary = createBadgesDict();
+	return (
+		<BadgeFacetedProvider value={{}}>
+			<BadgesGenerator
+				badges={[
+					set(cloneDeep(badgesFaceted.badges[0]), 'properties.readOnly', true),
+					set(cloneDeep(badgesFaceted.badges[0]), 'properties.removable', false),
+				]}
+				badgesDictionary={badgesDictionary}
+				getBadgeFromDict={getBadgesFromDict}
+				t={t}
+			/>
+		</BadgeFacetedProvider>
+	);
+};
+
+export const WithExternalState = () => {
+	const [state, setState] = React.useState(badgesFaceted);
+	const onSubmit = React.useCallback(
+		(_, badges) => setState(previousState => ({ ...previousState, badges })),
+		[setState],
+	);
+
+	return (
+		<div>
+			<button onClick={() => setState(badgesFaceted)}>Reset state</button>
+			<FacetedSearch.Faceted id="my-faceted-search">
+				{currentFacetedMode =>
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+						<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+					)) ||
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+						<FacetedSearch.BasicSearch
+							badgesDefinitions={badgesDefinitions}
+							badgesFaceted={state}
+							onSubmit={onSubmit}
+							callbacks={callbacks}
+						/>
+					))
+				}
+			</FacetedSearch.Faceted>
+		</div>
+	);
+};
+
+export const WithoutLabelOrOperatorButton = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.BasicSearch
+			badgesDefinitions={badgesDefinitions}
+			badgesFaceted={set(cloneDeep(badgesFaceted), 'badges[0].properties.label', '')}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);
+
+const lotsOfBadgesDefinitions = Array(50).fill(badgeName);
 export const BasicSearchWithLotOfBadgeDefinitions = {
 	render: () => (
 		<FacetedSearch.Faceted id="my-faceted-search">
@@ -424,47 +401,100 @@ export const BasicSearchWithBadgeWithVeryLongName = {
 	},
 };
 
-export const BasicSearchInABadgeWithALotOfValues = {
-	render: () => (
-		<FacetedSearch.Faceted id="my-faceted-search">
-			<FacetedSearch.BasicSearch
-				badgesDefinitions={[badgeEnumWithLotOfValues]}
-				onSubmit={action('onSubmit')}
-				callbacks={callbacks}
-			/>
-		</FacetedSearch.Faceted>
-	),
-};
+export const BasicSearchInABadgeWithALotOfValues = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.BasicSearch
+			badgesDefinitions={[badgeEnumWithLotOfValues]}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);
 
-export const BasicSearchWithBadgesCategories = {
-	render: () => (
-		<FacetedSearch.Faceted id="my-faceted-search">
-			<FacetedSearch.BasicSearch
-				badgesDefinitions={[
-					badgeConnectionType,
-					badgeName,
-					badgePrice,
-					badgeTags,
-					badgeTextAsCustomAttribute,
-					badgePriceAsCustomAttribute,
-					badgeEnumsAsCustomAttribute,
-					...times(2, () => badgeTextAsCategory),
-				]}
-				onSubmit={action('onSubmit')}
-				callbacks={callbacks}
-			/>
-		</FacetedSearch.Faceted>
-	),
-};
+export const BasicSearchWithBadgesCategories = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.BasicSearch
+			badgesDefinitions={[
+				badgeConnectionType,
+				badgeName,
+				badgePrice,
+				badgeTags,
+				badgeTextAsCustomAttribute,
+				badgePriceAsCustomAttribute,
+				badgeEnumsAsCustomAttribute,
+				...times(2, () => badgeTextAsCategory),
+			]}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);
 
-export const BasicSearchWithAnEmptyLabelBadge = {
-	render: () => (
-		<FacetedSearch.Faceted id="my-faceted-search">
-			<FacetedSearch.BasicSearch
-				badgesDefinitions={[badgeName, badgeEmptyLabel]}
-				onSubmit={action('onSubmit')}
-				callbacks={callbacks}
-			/>
-		</FacetedSearch.Faceted>
-	),
+export const BasicSearchWithAnEmptyLabelBadge = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.BasicSearch
+			badgesDefinitions={[badgeName, badgeEmptyLabel]}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);
+
+export const BasicSearchWithSliderPopin = {
+	render: ({ decimal, withIcon }) => {
+		const step = decimal ? 0.01 : 1;
+		const icon = withIcon ? badgeValid.properties.icon : undefined;
+
+		const overritenProperties = {
+			initialOperatorOpened: false,
+			initialValueOpened: true,
+			step,
+			decimal: true,
+			operator: {
+				label: 'Less than',
+				name: 'LessThan',
+				iconName: 'less-than',
+			},
+			icon,
+			operators: [
+				{
+					label: 'Less than',
+					name: 'LessThan',
+					iconName: 'less-than',
+				},
+				{
+					label: 'Less than or equal',
+					name: 'LessThanOrEquals',
+					iconName: 'less-than-equal',
+				},
+			],
+		};
+
+		const badgeFacetedCustom = {
+			badges: [
+				{
+					...badgeValid,
+					properties: {
+						...badgeValid.properties,
+						...overritenProperties,
+					},
+				},
+			],
+		};
+
+		return (
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={badgesDefinitions}
+					badgesFaceted={badgeFacetedCustom}
+					callbacks={callbacks}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		);
+	},
+	args: {
+		decimal: true,
+		withIcon: true,
+	},
 };

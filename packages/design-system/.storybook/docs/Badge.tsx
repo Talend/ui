@@ -29,6 +29,17 @@ export const renderStatus = (status?: Status) => {
 					{status}
 				</span>
 			);
+		case Status.DEPRECATED:
+			return (
+				<span
+					style={{
+						color: tokens.coralColorWarningTextWeak,
+						background: tokens.coralColorWarningBackgroundStrong,
+					}}
+				>
+					{status}
+				</span>
+			);
 		case Status.KO:
 			return (
 				<span

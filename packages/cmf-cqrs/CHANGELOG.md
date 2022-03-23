@@ -1,5 +1,16 @@
 # @talend/react-cmf-cqrs
 
+## 7.0.1
+
+### Patch Changes
+
+- 275c25ee0: chore(dependencies): auto update for maintenance purpose
+
+  ```diff
+  -    "@talend/react-cmf": "^7.0.0"
+  +    "@talend/react-cmf": "^7.0.1"
+  ```
+
 ## 7.0.0
 
 ### Major Changes

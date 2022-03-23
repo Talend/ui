@@ -1,47 +1,70 @@
 import React from 'react';
+import { ComponentStory } from '@storybook/react';
 
-import Tag from '.';
+import { Tag, TagDefault, TagDestructive, TagInformation, TagSuccess, TagWarning } from '.';
+import tagDestructive from './variations/TagDestructive';
 
 export default {
 	component: Tag,
 };
 
-const render = ({ variant, ...rest }: { variant?: keyof typeof Tag }) => {
-	switch (variant) {
-		case 'Information':
-			return <Tag.Information {...rest} />;
-		case 'Success':
-			return <Tag.Success {...rest} />;
-		case 'Warning':
-			return <Tag.Warning {...rest} />;
-		case 'Destructive':
-			return <Tag.Destructive {...rest} />;
-		default:
-			return <Tag {...rest} />;
-	}
-};
+export const Default: ComponentStory<typeof TagDefault> = props => (
+	<TagDefault {...props}>Example</TagDefault>
+);
 
-const defaultProps = {
-	children: 'Example',
-};
+export const Information: ComponentStory<typeof TagInformation> = props => (
+	<TagInformation {...props}>Example</TagInformation>
+);
 
-export const Default = { args: { ...defaultProps }, render };
+export const Success: ComponentStory<typeof TagSuccess> = props => (
+	<TagSuccess {...props}>Example</TagSuccess>
+);
 
-export const Information = {
-	args: {
-		...defaultProps,
-		variant: 'Information',
-	},
-	render,
-};
+export const Warning: ComponentStory<typeof TagWarning> = props => (
+	<TagWarning {...props}>Example</TagWarning>
+);
 
-export const Success = { args: { ...defaultProps, variant: 'Success' }, render };
+export const Destructive: ComponentStory<typeof tagDestructive> = props => (
+	<TagDestructive {...props}>Example</TagDestructive>
+);
 
-export const Warning = { args: { ...defaultProps, variant: 'Warning' }, render };
+export const VariantDefault: ComponentStory<typeof Tag> = props => (
+	<Tag {...props} variant="default">
+		Example
+	</Tag>
+);
 
-export const Destructive = { args: { ...defaultProps, variant: 'Destructive' }, render };
+export const VariantInformation: ComponentStory<typeof Tag> = props => (
+	<Tag {...props} variant="information">
+		Example
+	</Tag>
+);
 
-export const Ellipsis = {
-	args: { ...defaultProps, children: 'Lorem ipsum dolor sit amet' },
-	render,
-};
+export const VariantSuccess: ComponentStory<typeof Tag> = props => (
+	<Tag {...props} variant="success">
+		Example
+	</Tag>
+);
+
+export const VariantWarning: ComponentStory<typeof Tag> = props => (
+	<Tag {...props} variant="warning">
+		Example
+	</Tag>
+);
+
+export const VariantDestructive: ComponentStory<typeof Tag> = props => (
+	<Tag {...props} variant="destructive">
+		Example
+	</Tag>
+);
+
+export const Ellipsis: ComponentStory<typeof TagDefault> = props => (
+	<TagDefault {...props}>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum nunc non diam vehicula
+		gravida. Pellentesque nisi velit, porttitor nec facilisis at, egestas quis magna. Sed tempus
+		convallis orci, quis aliquet risus porta eu. In hac habitasse platea dictumst. Vestibulum porta,
+		magna quis porta commodo, lacus elit venenatis eros, varius fringilla enim justo sed lectus.
+		Donec at tortor imperdiet, tincidunt lacus ac, viverra nisi. Vivamus feugiat, ligula in
+		venenatis faucibus, quam justo molestie libero, bibendum feugiat sapien turpis in neque.
+	</TagDefault>
+);

@@ -1,6 +1,14 @@
 name: Design System visual testing
 
 on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: The SHA-1 hash referring to the commit to check.
+        required: true
+      ref:
+        description: The head branch associated with the pull request.
+        required: true
   pull_request:
     branches:
       - master
@@ -28,7 +36,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '14'
           registry-url: "https://registry.npmjs.org/"
@@ -41,11 +49,22 @@ jobs:
       - name: Build @talend/design-tokens
         run: |
           cd ../design-tokens
-          yarn build:lib
+          yarn pre-release
 
-      - name: Publish to Chromatic
+      - name: Publish PR to DS Chromatic
+        if: github.ref != 'refs/heads/master'
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: "packages/design-system"
+          exitZeroOnChanges: true # Option to prevent the workflow from failing in PR
+
+      - name: Publish Master to DS Chromatic
+        if: github.ref == 'refs/heads/master'
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: "packages/design-system"
+          autoAcceptChanges: true # Option to accept any change for this baseline refresh

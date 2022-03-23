@@ -1,8 +1,9 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 
 import * as Page from '..';
 
-import Button from '../../components/Button';
+import { ButtonPrimary, ButtonSecondary } from '../../components/Button';
 import Form from '../../components/Form';
 import Link from '../../components/Link';
 import Drawer from '../../components/Drawer';
@@ -54,7 +55,9 @@ export const Login = () => (
 			<Form.Email label="Email" />
 			<Form.Password label="Password" />
 			<Form.Buttons className="form__buttons">
-				<Button.Primary>Login</Button.Primary>
+				<ButtonPrimary onClick={action('Clicked login')} type="submit">
+					Login
+				</ButtonPrimary>
 			</Form.Buttons>
 		</Form>
 	</LoginPageWith>
@@ -68,7 +71,9 @@ export const PasswordRecovery = () => (
 			<Form>
 				<Form.Email label="Email" />
 				<Form.Buttons className="form__buttons">
-					<Button.Primary>Submit</Button.Primary>
+					<ButtonPrimary onClick={action('Clicked login')} type="submit">
+						Login
+					</ButtonPrimary>
 				</Form.Buttons>
 			</Form>
 		</div>
@@ -82,7 +87,7 @@ const ItemWithDetails = ({
 }: {
 	itemId: number;
 	isActive?: boolean;
-	onClick: (event: React.MouseEvent, id: number) => void;
+	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent, id: number) => void;
 }) => {
 	const [visible, setVisible] = React.useState(false);
 
@@ -94,12 +99,16 @@ const ItemWithDetails = ({
 		<>
 			<Drawer
 				toggleButton={
-					<Button.Primary onClick={event => onClick(event, itemId)}>
+					<ButtonPrimary
+						onClick={(event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) =>
+							onClick(event, itemId)
+						}
+					>
 						Item {itemId + 1}
-					</Button.Primary>
+					</ButtonPrimary>
 				}
 				heading={<h3>Item {itemId + 1}</h3>}
-				footer={<Button.Secondary onClick={() => setVisible(false)}>Close</Button.Secondary>}
+				footer={<ButtonSecondary onClick={() => setVisible(false)}>Close</ButtonSecondary>}
 				visible={visible}
 			>
 				Item {itemId + 1} details

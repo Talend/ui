@@ -37,6 +37,7 @@ export const FieldControl = styled.input`
 	&:focus {
 		border-width: 2px;
 		border-color: ${({ theme }) => theme.colors.inputFocusBorderColor};
+		outline:none;
 	}
 
 	&:disabled {
@@ -251,7 +252,7 @@ export const FieldGroup = styled.div<{ after: React.ReactNode }>`
   }`
 			: ''}
 
-	svg, 
+	svg,
   button {
 		position: absolute;
 		padding: 0;

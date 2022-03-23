@@ -9,13 +9,14 @@ jobs:
   upgrade:
     name: Upgrade dependencies
     runs-on: ubuntu-latest
+    continue-on-error: true  # we want the PR to popup even if sth goes wrong
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Use Node.js 14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14
           registry-url: "https://registry.npmjs.org/"
@@ -24,11 +25,11 @@ jobs:
 
       - name: Upgrade dependencies
         run: |
-          yarn
+          yarn --frozen-lockfile --ignore-scripts
           yarn talend-scripts upgrade:deps
-          node_modules/.bin/talend-scripts upgrade:deps --latest --dry > dependencies-latest.md
-          git add dependencies-latest.md
-          git add .changeset/ci-dependencies.md
+          yarn talend-scripts upgrade:deps --scope=@talend --latest
+          yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.txt
+          git add dependencies-latest.txt
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
@@ -39,3 +40,4 @@ jobs:
           title: "chore: upgrade dependencies"
           body: "Upgrade dependencies using `talend-scripts upgrade:deps`"
           branch: ci/chore/upgrade-dependencies
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -13,10 +13,9 @@
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
-    "test:demo": "build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "npm run lint:es",
-    "start": "start-storybook -p 6009"
+    "start": "echo nothing to start"
   },
   "keywords": [
     "react",
@@ -33,21 +32,17 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-components": "^6.43.5",
+    "@talend/react-components": "^6.44.5",
     "classnames": "^2.3.1",
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^6.4.14",
-    "@storybook/addon-actions": "^6.4.14",
-    "@storybook/addons": "^6.4.14",
-    "@storybook/react": "^6.4.14",
-    "@talend/icons": "^6.38.0",
-    "@talend/react-components": "^6.43.5",
-    "@talend/scripts-core": "^11.4.0",
-    "@talend/scripts-preset-react-lib": "^9.11.0",
+    "@talend/icons": "^6.39.0",
+    "@talend/react-components": "^6.44.5",
+    "@talend/scripts-core": "^11.6.0",
+    "@talend/scripts-preset-react-lib": "^11.0.2",
     "babel-loader": "^8.2.3",
     "css-loader": "^1.0.1",
     "enzyme": "^3.11.0",
@@ -57,7 +52,7 @@
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.15.3",
+    "react-i18next": "^11.15.6",
     "react-redux": "^7.2.6",
     "react-transition-group": "^2.9.0",
     "style-loader": "^0.23.1"
@@ -73,5 +68,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.1"
+  "version": "7.0.2"
 }

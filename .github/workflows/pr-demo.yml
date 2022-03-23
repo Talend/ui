@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and deploy
+    name: Build demo and deploy it
     environment: pull_request_unsafe
 
     steps:
@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Use Node.js 14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14
           registry-url: "https://registry.npmjs.org/"
@@ -24,16 +24,25 @@ jobs:
           cache: "yarn"
 
       - name: cache for storybook
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: packages/*/node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
-      - name: Install and build
+      - name: Install
         run: |
           yarn install --frozen-lockfile
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
+
+      - name: Build Storybook of the design tokens
+        run: |
+          cd packages/design-tokens
+          yarn pre-release
+          cd ../..
+
+      - name: Build
+        run: |
           yarn test:demo
           ./.github/workflows/before-surge.sh
         env:

@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Actions from './Actions.component';
@@ -64,7 +63,11 @@ const actions = [
 	},
 ];
 
-storiesOf('Buttons/ButtonGroup', module).add('default', () => (
+export default {
+	title: 'Buttons/ButtonGroup',
+};
+
+export const Default = () => (
 	<div>
 		<p>By default :</p>
 		<div id="default">
@@ -75,4 +78,4 @@ storiesOf('Buttons/ButtonGroup', module).add('default', () => (
 			<Actions actions={actions} vertical />
 		</div>
 	</div>
-));
+);

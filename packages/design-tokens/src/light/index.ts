@@ -318,6 +318,8 @@ const tokens = {
 	coralElevationLayerStandardFront: 'var(--coral-elevation-layer-standard-front, 4)',
 	coralElevationLayerInteractiveFront: 'var(--coral-elevation-layer-interactive-front, 8)',
 	coralElevationLayerOverlay: 'var(--coral-elevation-layer-overlay, 16)',
+	coralAnimationHeartbeat:
+		'var(--coral-animation-heartbeat, coral-light-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite)',
 };
 
 export default tokens;

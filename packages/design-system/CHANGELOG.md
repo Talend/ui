@@ -1,5 +1,128 @@
 # @talend/design-system
 
+## 2.0.2
+
+### Patch Changes
+
+- da8e2b46f: Link: href is ignored
+- f5cb575c9: Step: Add tooltip support
+
+## 2.0.1
+
+### Patch Changes
+
+- 42a4eafa6: Export AffixButton and AffixReadOnly for FieldGroups.
+- Updated dependencies [c7816c160]
+  - @talend/design-tokens@1.4.1
+
+## 2.0.0
+
+### Major Changes
+
+- 7af0ef8f6: ## Link
+
+  Link component is no longer a Styled Component. Its types are fixed.
+
+  - Can't be used as buttons, use `LinkAsButton` instead.
+
+  ## Status
+
+  Status is no longer a Styled Component.
+
+  We expect no real breaking changes.
+
+  ## Toggle, Button.Icon
+
+  We introduced `ButtonIcon` and `ButtonToggle` instead.
+
+  ```tsx
+  import { ButtonIcon, ButtonToggle } from '@talend/design-system';
+  ```
+
+  The new APIs and looks lead to breaking changes.
+
+  ### ButtonToggle vs Toggle
+
+  - Style changes (larger by default)
+  - Props changed (can be size M or S)
+  - No longer stateful (active state must be handled by client application)
+  - Mandatory props: `icon`, `isActive`, `onClick` and `children`
+
+  **How to fix**: Handle the state through your application and pass a boolean to `isActive`.
+  Use size `S` if you need to stick closer to previous design.
+
+  ### ButtonIcon vs Button.Icon
+
+  - Style changes (larger by default, round)
+  - Props changed (can be size M, S or XS)
+  - Can't display more than one icon (no more icon + caret)
+  - Mandatory props: `icon`, `onClick` and `children`
+  - Cannot be an HTML anchor
+
+  **How to fix**: The change should be mostly straightforward.
+
+  ## Tag
+
+  Tag is no longer a Styled Component.
+
+  To avoid customization, now `Tag` won't accept `className` anymore and each variation will be replaced by its shorthand version (no more `<Tag.[Variant] />` but `<Tag[Variant]`. ie `<Tag.Information />`is now `<TagInformation />`)
+
+  ## Buttons
+
+  Buttons are no longer Styled Components. Their types are fixed.
+
+  - Style changes (slightly larger by default, new tokens for colors)
+  - No more `Button.Icon`, use `ButtonIcon` components instead.
+  - No more `Button.Variant` syntax. Use `ButtonPrimary`, `ButtonDestructive` etc... instead.
+  - Props `small` is replaced with props `size="S"` to align with size props across the DS.
+  - Can't be used as links, use `ButtonAsLink` components instead.
+  - Can't be used as `prefix` or `sufix` for `Form.InputGroup`. Use `AffixButton` instead.
+
+  ## Skeletons
+
+  Skeletons are no longer Styled Components.
+
+  - No more `Skeleton.Variant` syntax. Use the dedicated component for the variant (ie: `SkeletonButton`).
+  - Skeletons do not accept classnames anymore.
+
+## 1.17.0
+
+### Minor Changes
+
+- a98bf3ede: Fix: Firefox default outline is displayed when taking focus in an input with tab.
+
+## 1.16.0
+
+### Minor Changes
+
+- 0ba5f75f9: doc(design-tokens): Button.Icon and Toggle usage is now discouraged
+- ee100fbde: fix(APIC-751): add a prefix parameter to the copy component
+
+## 1.15.1
+
+### Patch Changes
+
+- 3bf0f1f18: add applications icon
+
+## 1.15.0
+
+### Minor Changes
+
+- 4ca31151f: Export Stack components
+
+## 1.14.4
+
+### Patch Changes
+
+- 277ad2977: fix(design-system): Divider uses CSS modules
+- 07b5d6fc5: fix(design-system): tooltip with css modules
+
+## 1.14.3
+
+### Patch Changes
+
+- 1c85f8588: Bump @talend/design-token to get missing tokens
+
 ## 1.14.2
 
 ### Patch Changes

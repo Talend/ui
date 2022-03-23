@@ -1,5 +1,65 @@
 # @talend/react-components
 
+## 6.44.5
+
+### Patch Changes
+
+- Updated dependencies [7af0ef8f6]
+  - @talend/design-system@2.0.0
+
+## 6.44.4
+
+### Patch Changes
+
+- a0cbbb968: convertToTimeZone function with specific timezone and summertime
+- Updated dependencies [9f87b591a]
+- Updated dependencies [a98bf3ede]
+  - @talend/utils@2.2.0
+  - @talend/design-system@1.17.0
+
+## 6.44.3
+
+### Patch Changes
+
+- 832d82673: upgrade build to expose stylePath from design-system
+
+## 6.44.2
+
+### Patch Changes
+
+- 2e22151be: WithDrawer: Drawer is rendering below Switcher buttons
+
+## 6.44.1
+
+### Patch Changes
+
+- 275c25ee0: chore(dependencies): auto update for maintenance purpose
+
+  ```diff
+  -    "@talend/design-system": "^1.14.4"
+  +    "@talend/design-system": "^1.15.0"
+  ```
+
+- Updated dependencies [3bf0f1f18]
+- Updated dependencies [275c25ee0]
+- Updated dependencies [3bf0f1f18]
+  - @talend/icons@6.39.0
+  - @talend/utils@2.1.1
+  - @talend/design-system@1.15.1
+
+## 6.44.0
+
+### Minor Changes
+
+- aff6d1de5: WithDrawer: Support appear/exit animations
+
+### Patch Changes
+
+- 6d48f0ba0: fix: update withDrawer z-index
+- Updated dependencies [277ad2977]
+- Updated dependencies [07b5d6fc5]
+  - @talend/design-system@1.14.4
+
 ## 6.43.5
 
 ### Patch Changes

@@ -6,7 +6,7 @@ exports[`Intercom button should render a button 1`] = `
         class="btn btn-link tc-intercom theme-tc-intercom"
         aria-describedby="42"
 >
-  <coral.icon name="talend-bubbles">
-  </coral.icon>
+  <coralicon name="talend-bubbles">
+  </coralicon>
 </button>
 `;

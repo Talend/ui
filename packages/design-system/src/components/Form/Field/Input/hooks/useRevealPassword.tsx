@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Icon } from '../../../../Icon';
-import Button from '../../../../Button';
+import Clickable from '../../../../Clickable';
 import Tooltip from '../../../../Tooltip';
+import { Icon } from '../../../../Icon/Icon';
 
 export default function useRevealPassword() {
 	const [revealed, setRevealed] = useState(false);
@@ -24,7 +24,7 @@ export default function useRevealPassword() {
 	function RevealPasswordButton(props: any) {
 		return (
 			<Tooltip title={revealed ? hideMsg : showMsg} placement="top">
-				<Button
+				<Clickable
 					className="reveal__button"
 					onMouseDown={e => {
 						onReveal(e);
@@ -38,7 +38,7 @@ export default function useRevealPassword() {
 					{...props}
 				>
 					<Icon name={revealed ? 'talend-eye-slash' : 'talend-eye'} />
-				</Button>
+				</Clickable>
 			</Tooltip>
 		);
 	}

@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and deploy
+    name: Build and deploy playground
     environment: pull_request_unsafe
 
     steps:
@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js 14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14
           registry-url: "https://registry.npmjs.org/"
@@ -37,7 +37,12 @@ jobs:
 
       - name: deploy if master
         if: github.ref == 'refs/heads/master'
-        run: surge --project packages/playground/dist --domain "talend-playground.surge.sh"
+        run: |
+          rm -rf .static
+          mkdir .static
+          mkdir .static/playground
+          cp -R packages/playground/dist/* .static/playground
+          surge --project .static --domain "talend-playground.surge.sh"
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

@@ -3,10 +3,11 @@ import { StyledProps } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import useKey from 'react-use/lib/useKey';
 import classNames from 'classnames';
-import Button from '../Button';
+import { ButtonIcon } from '../ButtonIcon';
 import Form from '../Form';
 
 import * as S from './InlineEditing.style';
+import { StackHorizontal } from '../Stack';
 
 export enum Mode {
 	Single,
@@ -113,22 +114,33 @@ const InlineEditing = React.forwardRef(
 										| React.ChangeEvent<HTMLTextAreaElement>,
 								): void => setValue(event.target.value)}
 								data-test={testId}
+								data-padding-override={mode !== Mode.Multi}
 							/>
 							<div className="c-inline-editing__actions">
-								<Button.Icon
-									onClick={handleCancel}
-									icon="talend-cross-circle"
-									data-test="inlineediting.button.cancel"
+								<StackHorizontal
+									gap="XXS"
+									padding={{ x: 'XXS', y: 0 }}
+									display="inline"
+									align="center"
+									justify="spaceBetween"
 								>
-									{t('INLINE_EDITING_CANCEL', 'Cancel')}
-								</Button.Icon>
-								<Button.Icon
-									onClick={handleSubmit}
-									icon="talend-check-circle"
-									data-test="inlineediting.button.submit"
-								>
-									{t('INLINE_EDITING_SUBMIT', 'Submit')}
-								</Button.Icon>
+									<ButtonIcon
+										onClick={handleCancel}
+										icon="talend-cross-circle"
+										data-test="inlineediting.button.cancel"
+										size="XS"
+									>
+										{t('INLINE_EDITING_CANCEL', 'Cancel')}
+									</ButtonIcon>
+									<ButtonIcon
+										onClick={handleSubmit}
+										icon="talend-check-circle"
+										data-test="inlineediting.button.submit"
+										size="XS"
+									>
+										{t('INLINE_EDITING_SUBMIT', 'Submit')}
+									</ButtonIcon>
+								</StackHorizontal>
 							</div>
 						</form>
 					</div>
@@ -145,16 +157,18 @@ const InlineEditing = React.forwardRef(
 						>
 							{value}
 						</S.InlineEditingValue>
-						<Button.Icon
-							className="c-inline-editing__action"
-							data-test="inlineediting.button.edit"
-							onClick={() => setEditMode(true)}
-							aria-label={ariaLabel}
-							icon="talend-pencil"
-							disabled={loading}
-						>
-							<span aria-hidden>{t('INLINE_EDITING_EDIT', 'Edit')}</span>
-						</Button.Icon>
+						<span className="c-inline-editing__action">
+							<ButtonIcon
+								data-test="inlineediting.button.edit"
+								onClick={() => setEditMode(true)}
+								aria-label={ariaLabel}
+								icon="talend-pencil"
+								disabled={loading}
+								size="XS"
+							>
+								{t('INLINE_EDITING_EDIT', 'Edit')}
+							</ButtonIcon>
+						</span>
 					</div>
 				)}
 			</S.InlineEditing>
@@ -163,4 +177,3 @@ const InlineEditing = React.forwardRef(
 );
 
 export default InlineEditing;
-

@@ -1,7 +1,0 @@
-extends: ./api/eslintrc.base.yaml
-env:
-  shared-node-browser: true
-rules:
-  import/no-extraneous-dependencies:
-    - error
-    - { devDependencies: true }

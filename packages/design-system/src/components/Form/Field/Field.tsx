@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import classnames from 'classnames';
 import { unstable_useId as useId } from 'reakit';
 
 import Loading from '../../Loading';
 import VisuallyHidden from '../../VisuallyHidden';
 import InlineMessage from '../../InlineMessage';
-import { LinkProps } from '../../Link/Link';
+import Link from '../../Link';
 
 import * as S from './Field.style';
 
@@ -27,7 +27,7 @@ type ControlProps = WithInlineMessageProps & {
 	loading?: boolean;
 	indeterminate?: boolean;
 	multiple?: boolean;
-	link?: LinkProps;
+	link?: ReactElement<typeof Link>;
 };
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & ControlProps;

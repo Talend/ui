@@ -1,14 +1,14 @@
 import React from 'react';
 import { useCopyToClipboard } from 'react-use';
 import { useTranslation } from 'react-i18next';
-import Button from '../../../Button';
 import FieldGroup from '../../FieldGroup';
 import Text from './Input.Text';
 import { InputProps } from './Input';
+import { AffixButton, AffixReadOnly } from '../../FieldGroup/Affix';
 
 const InputCopy = React.forwardRef(
 	(
-		{ label, disabled, readOnly, value, defaultValue, ...rest }: InputProps,
+		{ label, disabled, readOnly, value, defaultValue, prefix, ...rest }: InputProps,
 		ref: React.Ref<HTMLInputElement | null>,
 	) => {
 		const [{ value: copiedValue, error: copyError }, copyToClipboard] = useCopyToClipboard();
@@ -30,16 +30,22 @@ const InputCopy = React.forwardRef(
 		return (
 			<FieldGroup
 				label={label}
+				prefix={prefix}
 				suffix={
-					!readOnly ? (
-						<Button.Icon
+					!readOnly || disabled ? (
+						<AffixButton
 							icon="talend-files-o"
 							onClick={() => copyToClipboard(inputRef.current?.value || '')}
+							hideText
 							disabled={disabled}
 						>
 							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
-						</Button.Icon>
-					) : undefined
+						</AffixButton>
+					) : (
+						<AffixReadOnly icon="talend-files-o" hideText>
+							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
+						</AffixReadOnly>
+					)
 				}
 				readOnly={!disabled}
 				disabled={!!disabled}

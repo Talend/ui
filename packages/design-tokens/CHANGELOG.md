@@ -1,5 +1,24 @@
 # @talend/design-tokens
 
+## 1.4.1
+
+### Patch Changes
+
+- c7816c160: fix: umd distribution
+
+## 1.4.0
+
+### Minor Changes
+
+- de71a183b: CSS export is no longer hashed
+
+## 1.3.0
+
+### Minor Changes
+
+- 63079b40d: Added Heartbeat animaiton token
+- 36748e5c8: Added Figma keys to style dictionnary
+
 ## 1.2.0
 
 ### Minor Changes

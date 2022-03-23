@@ -1,0 +1,13 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.tag {
+	display: inline-block;
+	padding: 0 tokens.$coral-size-xxs;
+	max-width: tokens.$coral-size-limit;
+	font: tokens.$coral-paragraph-s-bold;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	border-radius: tokens.$coral-radius-s;
+}

@@ -12,10 +12,9 @@ jobs:
 
     steps:
       - name: Use Node.js 14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 14
-          cache: 'npm'
 
       - name: Push to surge
         run: npx surge teardown ${{ github.event.pull_request.number }}.talend.surge.sh --token ${{ secrets.SURGE_TOKEN }}

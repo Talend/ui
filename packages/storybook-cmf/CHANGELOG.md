@@ -1,5 +1,16 @@
 # @talend/react-storybook-cmf
 
+## 7.0.2
+
+### Patch Changes
+
+- 275c25ee0: chore(dependencies): auto update for maintenance purpose
+
+  ```diff
+  -    "@storybook/addons": "^6.4.14"
+  +    "@storybook/addons": "^6.4.17"
+  ```
+
 ## 7.0.1
 
 ### Patch Changes
