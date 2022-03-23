@@ -74,7 +74,7 @@
     "@types/styled-components": "^5.1.24",
     "algoliasearch": "^4.13.0",
     "babel-plugin-styled-components": "^1.13.3",
-    "browser-sync": "^2.27.8",
+    "browser-sync": "^2.27.9",
     "browser-sync-webpack-plugin": "^2.3.0",
     "chromatic": "^6.5.3",
     "core-js": "^3.21.1",
