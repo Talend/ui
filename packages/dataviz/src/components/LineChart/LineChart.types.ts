@@ -9,6 +9,7 @@ export type LineOptions = {
 	key: string;
 	color: string;
 	tooltipLabel?: string;
+	legendLabel?: string;
 	axis?: "left" | "right";
 	rechartsOptions?: LineProps;
 };
@@ -28,6 +29,7 @@ export type LineChartOptions = {
 		formatter?: any,
 	}
 	legend?: {
+		custom?: boolean
 		rechartsOptions: LegendProps
 	}
 	xAxisOptions?: {

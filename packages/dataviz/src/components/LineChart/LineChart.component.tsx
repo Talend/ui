@@ -4,6 +4,7 @@ import { LineChart as RLineChart, Line, CartesianGrid, ResponsiveContainer, Tool
 import { LineChartEntry, LineChartOptions, LineOptions } from './LineChart.types';
 
 import { CustomTooltip } from './LineChartTooltip.component';
+import { CustomLegend } from './LineChartLegend.component';
 
 export interface LineChartProps {
 	data: LineChartEntry[];
@@ -48,18 +49,24 @@ function LineChart({ data, lines, chartOptions }: LineChartProps) {
 				unit={rightYAxisOptions?.hideUnitInAxis ? '' : rightYAxisOptions?.rechartsOptions.unit}
 			/>
 			{tooltip?.custom ?
-				<Tooltip
-					content={
-						<CustomTooltip
-							external={{chartOptions: chartOptions, linesConfig: lines}}
-						/>
-					}
-				/>
+				<Tooltip content={
+					<CustomTooltip external={{chartOptions: chartOptions, linesConfig: lines}} />
+				}/>
 			:
 				<Tooltip contentStyle={tooltip?.constentStyle} formatter={tooltip?.formatter} />
 
 			}
-			<Legend {...legend?.rechartsOptions}/>
+			{legend?.custom ?
+				<Legend
+				{...legend?.rechartsOptions}
+				content={
+					<CustomLegend external={{chartOptions: chartOptions, linesConfig: lines, align: legend?.rechartsOptions?.align}}/>
+				}
+				/>
+			:
+				<Legend {...legend?.rechartsOptions}/>
+
+			}
 			{lines.map((options) =>
 				<Line
 					key={options.key}

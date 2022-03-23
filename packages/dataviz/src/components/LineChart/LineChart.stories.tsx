@@ -30,6 +30,7 @@ BasicLineChart.args = {
 	chartOptions: {
 		showGridLines: true,
 		legend: {
+			custom: true,
 			rechartsOptions:{
 				iconType: "plainline",
 				iconSize: 20,
@@ -77,6 +78,7 @@ BasicLineChart.args = {
 			key: 'trustScore',
 			color: '#1667DF',
 			tooltipLabel: 'Trust Score™',
+			legendLabel: "Talend Trust Score™",
 			axis: "right",
 			rechartsOptions: {
 				type: 'monotone',
@@ -89,6 +91,7 @@ BasicLineChart.args = {
 			key: 'validity',
 			color: '#B045E5',
 			tooltipLabel: 'Validity',
+			legendLabel: 'Validity',
 			axis: "left",
 			rechartsOptions: {
 				type: 'monotone',
