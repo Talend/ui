@@ -439,3 +439,62 @@ export const BasicSearchWithAnEmptyLabelBadge = () => (
 		/>
 	</FacetedSearch.Faceted>
 );
+
+export const BasicSearchWithSliderPopin = {
+	render: ({ decimal, withIcon }) => {
+		const step = decimal ? 0.01 : 1;
+		const icon = withIcon ? badgeValid.properties.icon : undefined;
+
+		const overritenProperties = {
+			initialOperatorOpened: false,
+			initialValueOpened: true,
+			step,
+			decimal: true,
+			operator: {
+				label: 'Less than',
+				name: 'LessThan',
+				iconName: 'less-than',
+			},
+			icon,
+			operators: [
+				{
+					label: 'Less than',
+					name: 'LessThan',
+					iconName: 'less-than',
+				},
+				{
+					label: 'Less than or equal',
+					name: 'LessThanOrEquals',
+					iconName: 'less-than-equal',
+				},
+			],
+		};
+
+		const badgeFacetedCustom = {
+			badges: [
+				{
+					...badgeValid,
+					properties: {
+						...badgeValid.properties,
+						...overritenProperties,
+					},
+				},
+			],
+		};
+
+		return (
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={badgesDefinitions}
+					badgesFaceted={badgeFacetedCustom}
+					callbacks={callbacks}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		);
+	},
+	args: {
+		decimal: true,
+		withIcon: true,
+	},
+};
