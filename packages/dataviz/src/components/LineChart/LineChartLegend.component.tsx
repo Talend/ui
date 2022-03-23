@@ -12,13 +12,21 @@ export interface LineChartLegendProps {
 		linesConfig: LineOptions[],
 		align: string | undefined,
 	},
+	legendClicked?: (key: string) => void,
+	legendHovered?: (key: string) => void
+
 }
 
-export const CustomLegend = ({ payload, external }: LineChartLegendProps) => {
+export const CustomLegend = ({
+	payload,
+	external,
+	legendClicked = (key) => {},
+	legendHovered = (key) => {}
+
+}: LineChartLegendProps) => {
 	const { chartOptions, linesConfig, align } = external;
 
 	const getLineIconBackground = (strokeDasharray: string | number | undefined, color: string) => {
-		console.log('stroke : ', strokeDasharray);
 		if(strokeDasharray) {
 			return `repeating-linear-gradient(to right, ${color} 0, ${color} 10px,transparent 10px,transparent 12px)`;
 		} else {
@@ -38,12 +46,16 @@ export const CustomLegend = ({ payload, external }: LineChartLegendProps) => {
 
 	if (payload && payload.length) {
 	  return (
-		<div
+		<ul
 			className={classNames(styles["line-chart-custom-legend-wrapper"])}
 			style={{ justifyContent: getContentJustification(align)}}
 		>
 			{linesConfig.map(config => (
-				<p>
+				<li
+					onClick={() => legendClicked(config.key)}
+					onMouseEnter={() => legendHovered(config.key)}
+					onMouseLeave={() => legendHovered('')}
+				>
 					<div
 					className={classNames(styles["line-chart-custom-legend-line-icon"])}
 					style={{ background: getLineIconBackground(config.rechartsOptions?.strokeDasharray, config.color)}}
@@ -52,9 +64,9 @@ export const CustomLegend = ({ payload, external }: LineChartLegendProps) => {
 						{ config.legendLabel? config.legendLabel : config.key }
 					</span>
 
-				</p>
+				</li>
 			))}
-		</div>
+		</ul>
 	  );
 	}
 

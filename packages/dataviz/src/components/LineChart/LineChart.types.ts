@@ -25,7 +25,7 @@ export type LineChartOptions = {
 	}
 	tooltip?: {
 		custom?: boolean,
-		constentStyle?: any,
+		contentStyle?: any,
 		formatter?: any,
 	}
 	legend?: {

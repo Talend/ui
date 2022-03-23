@@ -10,9 +10,22 @@ export interface LineChartProps {
 	data: LineChartEntry[];
 	lines: LineOptions[];
 	chartOptions: LineChartOptions;
+	lineClicked?: (key: string) => void
+	lineHovered?: (key: string) => void
+	legendItemClicked?: (key: string) => void
+	legendItemHovered?: (key: string) => void
+
 };
 
-function LineChart({ data, lines, chartOptions }: LineChartProps) {
+function LineChart({
+	data,
+	lines,
+	chartOptions,
+	lineClicked = (key) => {},
+	lineHovered = (key) => {},
+	legendItemClicked = (key) => {},
+	legendItemHovered = (key) => {},
+}: LineChartProps) {
 	const {
 		width,
 		height,
@@ -53,18 +66,31 @@ function LineChart({ data, lines, chartOptions }: LineChartProps) {
 					<CustomTooltip external={{chartOptions: chartOptions, linesConfig: lines}} />
 				}/>
 			:
-				<Tooltip contentStyle={tooltip?.constentStyle} formatter={tooltip?.formatter} />
+				<Tooltip contentStyle={tooltip?.contentStyle} formatter={tooltip?.formatter} />
 
 			}
 			{legend?.custom ?
 				<Legend
 				{...legend?.rechartsOptions}
 				content={
-					<CustomLegend external={{chartOptions: chartOptions, linesConfig: lines, align: legend?.rechartsOptions?.align}}/>
+					<CustomLegend
+						external={{
+							chartOptions: chartOptions,
+							linesConfig: lines,
+							align: legend?.rechartsOptions?.align
+						}}
+						legendClicked={legendItemClicked}
+						legendHovered={legendItemHovered}
+					/>
 				}
 				/>
 			:
-				<Legend {...legend?.rechartsOptions}/>
+				<Legend
+					{...legend?.rechartsOptions}
+					onClick={({ dataKey }) => legendItemClicked(dataKey)}
+					onMouseEnter={({ dataKey }) => legendItemHovered(dataKey)}
+					onMouseLeave={() => legendItemHovered('')}
+				/>
 
 			}
 			{lines.map((options) =>
@@ -75,6 +101,9 @@ function LineChart({ data, lines, chartOptions }: LineChartProps) {
 					stroke={options.color}
 					connectNulls
 					{...options.rechartsOptions}
+					onClick={() => lineClicked(options.key)}
+					onMouseEnter={() => lineHovered(options.key)}
+					onMouseLeave={() => lineHovered('')}
 				/>
 			)}
 		  </RLineChart>

@@ -21,7 +21,6 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 	const getLineUnit = (axis: 'left' | 'right' | undefined) => axis === 'right' ? chartOptions.rightYAxisOptions?.rechartsOptions?.unit : chartOptions.leftYAxisOptions?.rechartsOptions?.unit ;
 
 	const getLineIconBackground = (strokeDasharray: string | number | undefined, color: string) => {
-		console.log('stroke : ', strokeDasharray);
 		if(strokeDasharray) {
 			return `repeating-linear-gradient(to right, ${color} 0, ${color} 10px,transparent 10px,transparent 12px)`;
 		} else {
