@@ -6,7 +6,13 @@ Use the following template when creating a new `ComponentName.stories.mdx` page.
 import { Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '../../docs';
 
-<Meta title="Components/Title"/>
+<Meta
+    title="Components/Title"
+    parameters={{
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/????',
+	}}
+/>
 
 # Title
 
@@ -32,5 +38,4 @@ Description
 ## Usage
 
 ## Accessibility
-
 ```

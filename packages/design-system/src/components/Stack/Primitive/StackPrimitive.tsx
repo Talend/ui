@@ -9,6 +9,7 @@ export const justifyOptions = {
 	spaceBetween: 'justify-space-between',
 	spaceAround: 'justify-space-around',
 	spaceEvenly: 'justify-space-evenly',
+	stretch: 'justify-stretch',
 };
 
 export const alignOptions = {
