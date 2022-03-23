@@ -29,7 +29,6 @@ It helps them locate the current page within a larger workflow.
 	src="https://www.figma.com/file/8ifUyNjdZkWBmKKrgfB675/Breadcrumbs?node-id=53%3A435"
 	alt="Breadcrumb in various states"
 />
-
 <Canvas>
 	<Story story={Stories.Basic} />
 </Canvas>
@@ -76,5 +75,7 @@ Breadcrumbs have:
 
 - `aria-label="breadcrumb"` on their outer `nav` DOM element
 - `aria-current="page"` on the last link it shows
+- The button triggering the dropdown for collapsed links has screen-ready specific text: `Display collapsed links`
+- The dropdown with the collapsed links has `aria-label="Collapsed links"`
 
 [Learn more here.](https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html)
