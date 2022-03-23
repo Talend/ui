@@ -7,6 +7,7 @@ export const badgeName = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter a dataset name',
 	},
 	metadata: {
 		isAvailableForQuickSearch: true,
@@ -14,7 +15,6 @@ export const badgeName = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
-		inputTextPlaceholder: 'Enter a dataset name',
 	},
 };
 
@@ -27,6 +27,7 @@ export const badgeConnectionName = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter a connection name',
 	},
 	metadata: {
 		isAvailableForQuickSearch: true,
@@ -34,7 +35,6 @@ export const badgeConnectionName = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
-		inputTextPlaceholder: 'Enter a connection name',
 	},
 };
 
@@ -47,6 +47,7 @@ export const badgeAuthor = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter an author name',
 	},
 	metadata: {
 		isAvailableForQuickSearch: true,
@@ -54,7 +55,6 @@ export const badgeAuthor = {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
-		inputTextPlaceholder: 'Enter an author name',
 	},
 };
 
@@ -286,13 +286,13 @@ export const badgeTextAsCustomAttribute = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter a custom attribute',
 	},
 	metadata: {
 		category: 'Custom attributes',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
-		inputTextPlaceholder: 'Enter a custom attribute',
 	},
 };
 
@@ -327,13 +327,13 @@ export const badgeTextAsCategory = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter a category name',
 	},
 	metadata: {
 		category: 'Very long long long long long long category',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals'],
-		inputTextPlaceholder: 'Enter a category name',
 	},
 };
 
