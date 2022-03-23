@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/jsx-no-bind */
+import React, { useState, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
@@ -14,111 +15,295 @@ export function escapeRegexCharacters(str) {
 }
 
 const PROPS_TO_OMIT = ['restricted', 'titleMap', 'value'];
+const DISPLAY = {
+	ALL: 'all',
+	FILTER: 'filter',
+	NONE: 'none',
+};
 
-class Datalist extends Component {
-	constructor(props) {
-		super(props);
-		this.onBlur = this.onBlur.bind(this);
-		this.onChange = this.onChange.bind(this);
-		this.onFocus = this.onFocus.bind(this);
-		this.onClick = this.onClick.bind(this);
-		this.onKeyDown = this.onKeyDown.bind(this);
-		this.onSelect = this.onSelect.bind(this);
-		this.resetSuggestions = this.resetSuggestions.bind(this);
-
-		this.theme = {
-			container: classNames(theme.container, 'tc-datalist-container'),
-			itemsContainer: theme['items-container'],
-			itemsList: theme.items,
-		};
-
-		this.state = {
-			previousValue: props.value,
-			value: props.value,
-			titleMapping: this.buildTitleMapping(props.titleMap),
-		};
+function buildSuggestions({ displayMode, titleMap, filterValue, multiSection }) {
+	if (displayMode === DISPLAY.NONE) {
+		return undefined;
 	}
 
-	componentWillReceiveProps({ value, titleMap }) {
-		const newState = {};
-		let stateCallback;
-		if (value !== this.props.value) {
-			newState.previousValue = value;
-			newState.value = value;
+	if (displayMode === DISPLAY.ALL || !filterValue) {
+		return titleMap;
+	}
+
+	// building multiSection items or single section items
+	const escapedValue = escapeRegexCharacters(filterValue.trim());
+	const regex = new RegExp(escapedValue, 'i');
+	if (multiSection) {
+		return titleMap
+			.map(group => ({
+				...group,
+				suggestions: filterValue
+					? group.suggestions.filter(item => regex.test(item.name))
+					: group.suggestions,
+			}))
+			.filter(group => group.suggestions.length > 0);
+	}
+
+	// only one group so items are inline
+	return titleMap.filter(itemValue => regex.test(itemValue.name));
+}
+
+function findEntry(titleMap, attributeName, attributeValue = '') {
+	if (!titleMap) {
+		return null;
+	}
+
+	for (let index = 0; index < titleMap.length; index += 1) {
+		const entry = titleMap[index];
+
+		if (entry.suggestions) {
+			// entry is a category, it has suggestions that are real entries {name, value}
+			const categorySuggestion = entry.suggestions.find(
+				item =>
+					!item.disabled && item[attributeName].toLowerCase() === attributeValue.toLowerCase(),
+			);
+			if (categorySuggestion) {
+				return categorySuggestion;
+			}
+		} else if (
+			!entry.disabled &&
+			entry[attributeName].toLowerCase() === attributeValue.toLowerCase()
+		) {
+			// entry is {name, value}
+			return entry;
 		}
-		if (titleMap !== this.props.titleMap) {
-			newState.titleMapping = this.buildTitleMapping(titleMap);
-			stateCallback = () => {
-				if (this.state.suggestions) {
-					const filter = value !== this.state.value ? this.state.value : null;
-					this.updateSuggestions(filter);
-				}
-			};
+	}
+
+	return null;
+}
+
+function getEntryFromName(titleMap, name, restricted) {
+	const entry = findEntry(titleMap, 'name', name);
+	if (entry) {
+		return entry;
+	}
+
+	return restricted ? undefined : { name, value: name };
+}
+
+function getEntryFromValue(titleMap, value, restricted) {
+	const entry = findEntry(titleMap, 'value', value);
+	if (entry) {
+		return entry;
+	}
+
+	return restricted ? undefined : { name: value, value };
+}
+
+function getEntry(titleMap, nameOrValue, restricted) {
+	const entry =
+		findEntry(titleMap, 'name', nameOrValue) || findEntry(titleMap, 'value', nameOrValue);
+	if (entry) {
+		return entry;
+	}
+
+	return restricted ? undefined : { name: nameOrValue, value: nameOrValue };
+}
+
+function Datalist(props) {
+	// Current persisted value
+	// In case of simple values, this is a string
+	// In case of titleMap, it's an object { name: "display value", value: "technical value" }
+	const [value, setValue] = useState();
+
+	// suggestions: filter value, display flag, current hover selection
+	const [filterValue, setFilterValue] = useState('');
+	const [displaySuggestion, setDisplaySuggestion] = useState(DISPLAY.NONE);
+	const [selection, setSelection] = useState({
+		focusedItemIndex: undefined,
+		focusedSectionIndex: undefined,
+	});
+
+	// suggestions computation
+	const suggestions = useMemo(
+		() =>
+			buildSuggestions({
+				displayMode: props.readOnly || props.disabled ? DISPLAY.NONE : displaySuggestion,
+				titleMap: props.titleMap,
+				filterValue,
+				multiSection: props.multiSection,
+			}),
+		[
+			displaySuggestion,
+			filterValue,
+			props.readOnly,
+			props.disabled,
+			props.titleMap,
+			props.multiSection,
+		],
+	);
+
+	// in uncontrolled mode, props.value acts as an initial value, then Datalist handles state, props.value never changes.
+	// in controlled mode, props.value has to be reflected every time it changes
+	useEffect(() => {
+		if (props.value === undefined || props.value === null) {
+			return;
 		}
-		this.setState(newState, stateCallback);
+
+		const entry = getEntryFromValue(props.titleMap, props.value);
+		if (!entry) {
+			return;
+		}
+
+		if (entry.value !== value) {
+			setValue(entry.value);
+		}
+		if (entry.name !== filterValue) {
+			setFilterValue(entry.name);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [props.value]);
+
+	// Suggestion display syntaxic sugar
+	const resetSelection = () =>
+		setSelection({
+			focusedItemIndex: undefined,
+			focusedSectionIndex: undefined,
+		});
+	const showFilteredSuggestions = () => setDisplaySuggestion(DISPLAY.FILTER);
+	const showAllSuggestions = () => setDisplaySuggestion(DISPLAY.ALL);
+	const hideSuggestions = () => {
+		setDisplaySuggestion(DISPLAY.NONE);
+		resetSelection();
+	};
+	const resetFilter = () => {
+		const entry = getEntryFromValue(props.titleMap, value);
+		if (entry) {
+			setFilterValue(entry.name);
+		}
+	};
+
+	/**
+	 * Set a value.
+	 * This new value can be persisted, or not. If not, it enables the ESC key to reset the value
+	 * @param event The change event
+	 * @param newValue The new value
+	 * @param persist Value will be persisted if true
+	 */
+	function updateValue(event, entry, persist) {
+		// update the suggestion filter
+		const newFilter = entry.name;
+		setFilterValue(newFilter);
+
+		if (persist) {
+			setValue(entry.value);
+			props.onChange(event, { value: entry.value });
+		} else if (props.onLiveChange) {
+			props.onLiveChange(event, entry.value);
+		}
 	}
 
 	/**
-	 * Persist the value (if not already persisted) and remove the suggestions on blur event
-	 * @param event The blur event
+	 * Update the focused item and section given the current value
+	 * Managing the two cases (multi section and single section)
 	 */
-	onBlur(event) {
-		if (this.props.onBlur) {
-			this.props.onBlur();
-		}
-		const { value, previousValue } = this.state;
-
-		if (value !== previousValue) {
-			let newValue = value;
-			if (!this.props.multiSection && this.state.suggestions && value) {
-				const hasMatchingSuggestion = this.state.suggestions.find(
-					item => !item.disabled && item.name.toLowerCase() === value.toLowerCase(),
+	function setSelectionToCurrentValue() {
+		if (props.multiSection) {
+			const groups = props.titleMap;
+			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
+				const focusedIndex = groups[sectionIndex].suggestions.findIndex(
+					item => item.name === value,
 				);
-
-				if (hasMatchingSuggestion) {
-					newValue = hasMatchingSuggestion;
+				if (focusedIndex > -1) {
+					setSelection({
+						focusedItemIndex: focusedIndex,
+						focusedSectionIndex: sectionIndex,
+					});
+					break;
 				}
 			}
-
-			this.updateValue(event, newValue, true);
+		} else {
+			const index = props.titleMap.findIndex(item => item.name === value);
+			setSelection({
+				focusedItemIndex: index === -1 ? null : index,
+			});
 		}
 	}
+
+	/**
+	 * Persist the current filter value as value
+	 * @param {*} event
+	 */
+	function persistValue(event) {
+		hideSuggestions();
+		const entry = getEntryFromName(props.titleMap, filterValue, props.restricted);
+		if (entry && entry.value !== value) {
+			updateValue(event, entry, true);
+		} else {
+			resetFilter();
+		}
+	}
+
+	/**
+	 * On blur: persist the value and remove the suggestions
+	 * @param event The blur event
+	 */
+	const onBlur = function onBlur(event) {
+		if (props.onBlur) {
+			props.onBlur();
+		}
+		persistValue(event);
+	};
 
 	/**
 	 * Update value (non persistent) on input value change and update the suggestions
 	 * @param event the change event
-	 * @param value
+	 * @param payload
 	 */
-	onChange(event, { value }) {
-		this.updateSuggestions(value);
-		this.updateValue(event, value, false);
+	function onFilterChange(event, payload) {
+		const entry = getEntry(props.titleMap, payload.value);
+		updateValue(event, entry, false);
+		showFilteredSuggestions();
+
 		// resetting selection here in order to reinit the section + item indexes
-		this.resetSelection();
+		resetSelection();
 	}
 
 	/**
 	 * Display suggestions on focus
 	 * @param event the focus event
 	 */
-	onFocus(event) {
-		if (this.props.onFocus) {
-			this.props.onFocus(event);
+	function onFocus(event) {
+		if (props.onFocus) {
+			props.onFocus(event);
 		}
 		event.target.select();
-		this.updateSuggestions();
-		this.updateSelectedIndexes(this.state.value);
+		showAllSuggestions();
+		setSelectionToCurrentValue();
 	}
 
 	/**
 	 * Display suggestions on click
 	 * @param event the click event
 	 */
-	onClick() {
-		if (!this.state.suggestions) {
-			// display all suggestions when they are not displayed
-			this.updateSuggestions();
-			this.updateSelectedIndexes(this.state.value);
+	function onClick() {
+		showAllSuggestions();
+		setSelectionToCurrentValue();
+	}
+
+	/**
+	 * Select an item in suggestions list
+	 * @param event The select event
+	 * @param sectionIndex The section index in suggestions list
+	 * @param itemIndex The item index in suggestions list
+	 */
+	function onSelect(event, { sectionIndex, itemIndex }) {
+		const newEntry = props.multiSection
+			? suggestions[sectionIndex].suggestions[itemIndex]
+			: suggestions[itemIndex];
+		hideSuggestions();
+
+		if (newEntry.disabled || newEntry.value === value) {
+			event.preventDefault();
+			return;
 		}
+
+		updateValue(event, newEntry, true);
 	}
 
 	/**
@@ -132,7 +317,7 @@ class Datalist extends Component {
 	 * @param highlightedSectionIndex The previous focused section index
 	 * @param newHighlightedSectionIndex The new focused section index
 	 */
-	onKeyDown(event, params) {
+	function onKeyDown(event, params) {
 		const {
 			highlightedItemIndex,
 			highlightedSectionIndex,
@@ -142,43 +327,35 @@ class Datalist extends Component {
 		switch (event.which) {
 			case keycode.codes.esc:
 				event.preventDefault();
-				this.resetValue();
+				resetFilter();
+				hideSuggestions();
 				break;
 			case keycode.codes.enter:
-				if (!this.state.suggestions) {
+				if (!suggestions) {
 					break;
 				}
 				event.preventDefault();
 				if (Number.isInteger(highlightedItemIndex)) {
 					// suggestions are displayed and an item has the focus : we select it
-					this.onSelect(event, {
+					onSelect(event, {
 						itemIndex: highlightedItemIndex,
 						sectionIndex: highlightedSectionIndex,
 					});
-				} else if (this.state.value !== this.state.previousValue) {
-					// there is no focused item and the current value is not persisted
-					// we persist it
-					this.updateValue(event, this.state.value, true);
+				} else {
+					// there is no focused item and the current value is not persisted, we persist it
+					persistValue(event);
 				}
-				// resetting suggestions to close dropdown
-				this.resetSuggestions();
 				break;
 			case keycode.codes.down:
-				event.preventDefault();
-				if (!this.state.suggestions) {
-					// display all suggestions when they are not displayed
-					this.updateSuggestions();
-					this.updateSelectedIndexes(this.state.value);
-					break;
-				}
-				this.setState({
-					focusedItemIndex: newHighlightedItemIndex,
-					focusedSectionIndex: newHighlightedSectionIndex,
-				});
-				break;
 			case keycode.codes.up:
 				event.preventDefault();
-				this.setState({
+				if (!suggestions) {
+					// display all suggestions when they are not displayed
+					showAllSuggestions();
+					setSelectionToCurrentValue();
+					break;
+				}
+				setSelection({
 					focusedItemIndex: newHighlightedItemIndex,
 					focusedSectionIndex: newHighlightedSectionIndex,
 				});
@@ -189,57 +366,24 @@ class Datalist extends Component {
 	}
 
 	/**
-	 * Select an item in suggestions list
-	 * @param event The select event
-	 * @param sectionIndex The section index in suggestions list
-	 * @param itemIndex The item index in suggestions list
-	 */
-	onSelect(event, { sectionIndex, itemIndex }) {
-		let newValue = this.state.suggestions[itemIndex];
-		if (this.props.multiSection) {
-			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
-		}
-		if (newValue.disabled) {
-			event.preventDefault();
-			return;
-		}
-
-		this.resetSuggestions();
-		this.updateValue(event, newValue, true);
-	}
-
-	/**
-	 * Get the selected value's label.
-	 * If there is no label defined or no label defined for the value, the value itself is returned.
-	 */
-	getSelectedLabel() {
-		if (this.state.titleMapping) {
-			return this.state.titleMapping[this.state.value] || this.state.value;
-		}
-		return this.state.value;
-	}
-
-	/**
 	 * Returns the selected item's icon props if there's one or undefined.
 	 * @returns {Object|undefined}
 	 */
-	getSelectedIcon() {
-		if (this.props.titleMap) {
-			if (this.props.multiSection) {
-				const multiSection = this.props.titleMap.find(titleMap =>
-					titleMap.suggestions.find(suggestion => suggestion.name === this.state.value),
+	function getSelectedIcon() {
+		if (props.titleMap) {
+			if (props.multiSection) {
+				const multiSection = props.titleMap.find(titleMap =>
+					titleMap.suggestions.find(suggestion => suggestion.name === value),
 				);
 				return get(
-					multiSection &&
-						multiSection.suggestions.find(suggestion => suggestion.name === this.state.value),
+					multiSection && multiSection.suggestions.find(suggestion => suggestion.name === value),
 					'icon',
 				);
 			}
 
-			let item = this.props.titleMap.find(titleMap => titleMap.name === this.state.value);
-			if (!item) {
-				item = this.props.titleMap.find(titleMap => titleMap.value === this.state.value);
-			}
+			const item =
+				props.titleMap.find(titleMap => titleMap.name === value) ||
+				props.titleMap.find(titleMap => titleMap.value === value);
 			if (item) {
 				return get(item, 'icon');
 			}
@@ -247,192 +391,32 @@ class Datalist extends Component {
 		return undefined;
 	}
 
-	/**
-	 * Reset the focused item and section
-	 */
-	resetSelection() {
-		this.setState({
-			focusedItemIndex: undefined,
-			focusedSectionIndex: undefined,
-		});
-	}
-
-	/**
-	 * Prepares a map (object) to match the label from the value in the render
-	 * function.
-	 *
-	 * @param titleMap the titleMap to use to create the label/value mapping.
-	 */
-	buildTitleMapping(titleMap) {
-		return titleMap.reduce((obj, item) => {
-			if (this.props.multiSection && item.title !== undefined && item.suggestions) {
-				const children = this.buildTitleMapping(item.suggestions);
-				return { ...obj, ...children };
-			}
-			const mapping = { [item.value]: item.name || item.value };
-			return { ...obj, ...mapping };
-		}, {});
-	}
-
-	/**
-	 * Update the focused item and section given the current value
-	 * Managing the two cases (multi section and single section)
-	 */
-	updateSelectedIndexes(value) {
-		if (this.props.multiSection) {
-			const groups = this.props.titleMap;
-			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
-				const focusedIndex = groups[sectionIndex].suggestions.findIndex(
-					item => item.name === value,
-				);
-				if (focusedIndex > -1) {
-					this.setState({
-						focusedItemIndex: focusedIndex,
-						focusedSectionIndex: sectionIndex,
-					});
-					break;
-				}
-			}
-		} else {
-			const index = this.props.titleMap.findIndex(item => item.name === value);
-			this.setState({
-				focusedItemIndex: index === -1 ? null : index,
-			});
-		}
-	}
-
-	/**
-	 * Set a value.
-	 * This new value can be persisted, or not. If not, it enables the ESC key to reset the value
-	 * @param event The change event
-	 * @param value The new value
-	 * @param persist Value will be persisted if true
-	 */
-	updateValue(event, value, persist) {
-		const previousValue = persist ? value : this.state.previousValue;
-		const newValue = typeof value === 'object' ? value.name : value;
-		this.setState({
-			// setting the filtered value so it needs to be actual value
-			value: newValue,
-		});
-		if (persist) {
-			let enumValue = value;
-			if (this.props.multiSection) {
-				const groups = this.props.titleMap;
-				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
-					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === value);
-					if (itemObj) {
-						enumValue = itemObj;
-						break;
-					}
-				}
-			}
-			const selectedEnumValue = get(enumValue, 'value');
-
-			if (selectedEnumValue || !this.props.restricted) {
-				this.props.onChange(event, { value: selectedEnumValue || value });
-				this.setState({
-					previousValue: previousValue.name,
-				});
-			} else {
-				this.resetValue();
-			}
-		} else if (this.props.onLiveChange) {
-			this.props.onLiveChange(event, value);
-		}
-	}
-
-	/**
-	 * Set back the value to the last validated value.
-	 * This remove the suggestions.
-	 */
-	resetValue() {
-		this.resetSuggestions();
-		this.setState(oldState => ({
-			value: oldState.previousValue,
-		}));
-	}
-
-	/**
-	 * Building multiSection items or single section items
-	 * return the items list
-	 */
-	buildGroupItems() {
-		return this.props.titleMap;
-	}
-
-	/**
-	 * Filter suggestions.
-	 * This sets at least an empty array, which means the suggestion box will always display
-	 * If the array is empty, the suggestion box will display a "No result" message
-	 * Checking if the new value is equal to previous one,
-	 * in that case we have to show all suggestions, otherwise we need to filter the suggestions
-	 * @param value The value to base suggestions on
-	 */
-	updateSuggestions(value) {
-		if (this.props.readOnly || this.props.disabled) {
-			return;
-		}
-
-		// building multiSection items or single section items
-		let groups = this.buildGroupItems();
-		if (value) {
-			// filtering
-			const escapedValue = escapeRegexCharacters(value.trim());
-			const regex = new RegExp(escapedValue, 'i');
-			if (this.props.multiSection) {
-				groups = groups
-					.map(group => ({
-						...group,
-						suggestions: value
-							? group.suggestions.filter(item => regex.test(item.name))
-							: group.suggestions,
-					}))
-					.filter(group => group.suggestions.length > 0);
-			} else {
-				// only one group so items are inline
-				groups = value ? groups.filter(itemValue => regex.test(itemValue.name)) : groups;
-			}
-		}
-
-		this.setState({ suggestions: groups });
-	}
-
-	/**
-	 * Remove all suggestions
-	 */
-	resetSuggestions() {
-		this.setState({
-			suggestions: undefined,
-		});
-		this.resetSelection();
-	}
-
-	render() {
-		const label = this.getSelectedLabel();
-		const icon = this.getSelectedIcon();
-		return (
-			<FocusManager onFocusOut={this.resetSuggestions} className={theme['tc-datalist-item']}>
-				{icon && <Icon className={theme['tc-datalist-item-icon']} {...icon} />}
-				<Typeahead
-					{...omit(this.props, PROPS_TO_OMIT)}
-					className={classNames('tc-datalist', this.props.className)}
-					focusedItemIndex={this.state.focusedItemIndex}
-					focusedSectionIndex={this.state.focusedSectionIndex}
-					items={this.state.suggestions}
-					onBlur={this.onBlur}
-					onChange={this.onChange}
-					onFocus={this.onFocus}
-					onClick={this.onClick}
-					onKeyDown={this.onKeyDown}
-					onSelect={this.onSelect}
-					theme={this.theme}
-					value={label}
-					caret
-				/>
-			</FocusManager>
-		);
-	}
+	const icon = getSelectedIcon();
+	return (
+		<FocusManager onFocusOut={hideSuggestions} className={theme['tc-datalist-item']}>
+			{icon && <Icon className={theme['tc-datalist-item-icon']} {...icon} />}
+			<Typeahead
+				{...omit(props, PROPS_TO_OMIT)}
+				className={classNames('tc-datalist', props.className)}
+				focusedItemIndex={selection.focusedItemIndex}
+				focusedSectionIndex={selection.focusedSectionIndex}
+				items={suggestions}
+				onBlur={onBlur}
+				onChange={onFilterChange}
+				onFocus={onFocus}
+				onClick={onClick}
+				onKeyDown={onKeyDown}
+				onSelect={onSelect}
+				theme={{
+					container: classNames(theme.container, 'tc-datalist-container'),
+					itemsContainer: theme['items-container'],
+					itemsList: theme.items,
+				}}
+				value={filterValue}
+				caret
+			/>
+		</FocusManager>
+	);
 }
 
 Datalist.displayName = 'Datalist component';
