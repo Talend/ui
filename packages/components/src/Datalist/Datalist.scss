@@ -24,6 +24,12 @@ $tc-datalist-item-height: 4rem !default;
 	}
 }
 
+.tc-datalist {
+	:global(.icon-caret) {
+		pointer-events: none;
+	}
+}
+
 .tc-datalist-item {
 	display: flex;
 	align-items: center;
