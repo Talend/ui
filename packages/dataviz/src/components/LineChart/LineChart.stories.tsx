@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 // import VerticalBarChart, { VerticalBarChartProps } from './VerticalBarChart.component';
 import  LineChart, { LineChartProps } from './LineChart.component';
-import { YAxis } from 'recharts';
+// import { YAxis } from 'recharts';
 // import TooltipContent from '../../TooltipContent/TooltipContent.component';
 // import { getVerticalBarChartTooltip } from '../barChart.tooltip';
 
@@ -32,10 +32,10 @@ BasicLineChart.args = {
 		legend: {
 			custom: true,
 			rechartsOptions:{
-				iconType: "plainline",
+				iconType: 'plainline',
 				iconSize: 20,
-				align: "right",
-				verticalAlign: "top",
+				align: 'right',
+				verticalAlign: 'top',
 				wrapperStyle: {
 					padding: '0 3.5rem 1rem 0'
 				}
@@ -52,23 +52,23 @@ BasicLineChart.args = {
 		},
 		leftYAxisOptions : {
 			rechartsOptions : {
-				type: "number",
+				type: 'number',
 				domain: [0, 100],
 				tickCount: 6,
-				interval: "preserveStartEnd",
+				interval: 'preserveStartEnd',
 				tickLine: false,
-				unit: "%",
+				unit: '%',
 			},
 		},
 		rightYAxisOptions : {
 			hideUnitInAxis: true,
 			rechartsOptions: {
 				hide: false,
-				type: "number",
+				type: 'number',
 				domain: [0, 5],
 				tickCount: 6,
 				tickLine: false,
-				unit: "/5"
+				unit: '/5'
 			},
 		}
 	},
@@ -78,12 +78,12 @@ BasicLineChart.args = {
 			key: 'trustScore',
 			color: '#1667DF',
 			tooltipLabel: 'Trust Score™',
-			legendLabel: "Talend Trust Score™",
-			axis: "right",
+			legendLabel: 'Talend Trust Score™',
+			axis: 'right',
 			rechartsOptions: {
 				type: 'monotone',
 				strokeWidth: 3,
-				strokeDasharray: "13 4 13",
+				strokeDasharray: '13 4 13',
 				dot: { r: 0 }
 			}
 		},
@@ -92,7 +92,7 @@ BasicLineChart.args = {
 			color: '#B045E5',
 			tooltipLabel: 'Validity',
 			legendLabel: 'Validity',
-			axis: "left",
+			axis: 'left',
 			rechartsOptions: {
 				type: 'monotone',
 				strokeWidth: 3,
@@ -177,60 +177,4 @@ BasicLineChart.args = {
 			validity: 75,
 		},
 	],
-	// getTooltipContent: entry => <TooltipContent entries={getVerticalBarChartTooltip(entry)} />,
 };
-
-// export const DateBarChart = Template.bind({});
-// DateBarChart.args = {
-// 	data: [
-// 		{
-// 			key: {
-// 				min: 946681200000,
-// 				max: 1262300400000,
-// 			},
-// 			label: '[2000, 2010[',
-// 			value: 249,
-// 			filteredValue: 40,
-// 		},
-// 		{
-// 			key: {
-// 				min: 1577833200000,
-// 				max: 1262300400000,
-// 			},
-// 			label: '[2010, 2020[',
-// 			value: 152,
-// 			filteredValue: 75,
-// 		},
-// 		{
-// 			key: { min: 1893452400000, max: 1577833200000 },
-// 			label: '[2020, 2030[',
-// 			value: 20,
-// 			filteredValue: 20,
-// 		},
-// 	],
-// 	showXAxis: true,
-// 	getTooltipContent: entry => <TooltipContent entries={getVerticalBarChartTooltip(entry)} />,
-// };
-
-// export const MinBarSize = Template.bind({});
-// MinBarSize.args = {
-// 	data: [
-// 		{
-// 			key: {
-// 				min: 10,
-// 				max: 20,
-// 			},
-// 			label: '',
-// 			value: 1,
-// 		},
-// 		{
-// 			key: {
-// 				min: 20,
-// 				max: 30,
-// 			},
-// 			label: '',
-// 			value: 9999,
-// 		},
-// 	],
-// 	getTooltipContent: () => <div />,
-// };

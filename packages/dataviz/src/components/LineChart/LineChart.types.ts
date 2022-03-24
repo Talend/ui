@@ -1,4 +1,4 @@
-import { LineProps, XAxisProps, YAxisProps, LegendProps } from "recharts";
+import { LineProps, XAxisProps, YAxisProps, LegendProps } from 'recharts';
 
 export type LineChartEntry = {
 	xLabel: string;
@@ -10,7 +10,7 @@ export type LineOptions = {
 	color: string;
 	tooltipLabel?: string;
 	legendLabel?: string;
-	axis?: "left" | "right";
+	axis?: 'left' | 'right';
 	rechartsOptions?: LineProps;
 };
 

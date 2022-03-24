@@ -10,10 +10,10 @@ export interface LineChartProps {
 	data: LineChartEntry[];
 	lines: LineOptions[];
 	chartOptions: LineChartOptions;
-	lineClicked?: (key: string) => void
-	lineHovered?: (key: string) => void
-	legendItemClicked?: (key: string) => void
-	legendItemHovered?: (key: string) => void
+	onLineClicked?: (key: string) => void
+	onLineHovered?: (key: string) => void
+	onLegendItemClicked?: (key: string) => void
+	onLegendItemHovered?: (key: string) => void
 
 };
 
@@ -21,10 +21,10 @@ function LineChart({
 	data,
 	lines,
 	chartOptions,
-	lineClicked = (key) => {},
-	lineHovered = (key) => {},
-	legendItemClicked = (key) => {},
-	legendItemHovered = (key) => {},
+	onLineClicked = () => {},
+	onLineHovered = () => {},
+	onLegendItemClicked = () => {},
+	onLegendItemHovered = () => {},
 }: LineChartProps) {
 	const {
 		width,
@@ -39,7 +39,7 @@ function LineChart({
 	} = chartOptions;
 
 	return (
-		<ResponsiveContainer width={width || "100%"} height={height || "100%"} debounce={1}>
+		<ResponsiveContainer width={width || '100%'} height={height || '100%'} debounce={1}>
 		  <RLineChart
 			data={data}
 			margin={margin || {}}
@@ -57,14 +57,14 @@ function LineChart({
 			<YAxis
 				yAxisId="right"
 				orientation='right'
-				hide={true}
+				hide
 				{...rightYAxisOptions?.rechartsOptions}
 				unit={rightYAxisOptions?.hideUnitInAxis ? '' : rightYAxisOptions?.rechartsOptions.unit}
 			/>
 			{tooltip?.custom ?
-				<Tooltip content={
-					<CustomTooltip external={{chartOptions: chartOptions, linesConfig: lines}} />
-				}/>
+				<Tooltip
+					content={<CustomTooltip external={{chartOptions, linesConfig: lines}} />}
+				/>
 			:
 				<Tooltip contentStyle={tooltip?.contentStyle} formatter={tooltip?.formatter} />
 
@@ -75,25 +75,25 @@ function LineChart({
 				content={
 					<CustomLegend
 						external={{
-							chartOptions: chartOptions,
+							chartOptions,
 							linesConfig: lines,
 							align: legend?.rechartsOptions?.align
 						}}
-						legendClicked={legendItemClicked}
-						legendHovered={legendItemHovered}
+						onLegendClicked={onLegendItemClicked}
+						onLegendHovered={onLegendItemHovered}
 					/>
 				}
 				/>
 			:
 				<Legend
 					{...legend?.rechartsOptions}
-					onClick={({ dataKey }) => legendItemClicked(dataKey)}
-					onMouseEnter={({ dataKey }) => legendItemHovered(dataKey)}
-					onMouseLeave={() => legendItemHovered('')}
+					onClick={({ dataKey }) => onLegendItemClicked(dataKey)}
+					onMouseEnter={({ dataKey }) => onLegendItemHovered(dataKey)}
+					onMouseLeave={() => onLegendItemHovered('')}
 				/>
 
 			}
-			{lines.map((options) =>
+			{lines.map(options =>
 				<Line
 					key={options.key}
 					yAxisId={options.axis || 'left'}
@@ -101,9 +101,9 @@ function LineChart({
 					stroke={options.color}
 					connectNulls
 					{...options.rechartsOptions}
-					onClick={() => lineClicked(options.key)}
-					onMouseEnter={() => lineHovered(options.key)}
-					onMouseLeave={() => lineHovered('')}
+					onClick={() => onLineClicked(options.key)}
+					onMouseEnter={() => onLineHovered(options.key)}
+					onMouseLeave={() => onLineHovered('')}
 				/>
 			)}
 		  </RLineChart>
