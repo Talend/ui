@@ -125,7 +125,7 @@ describe('Datalist component', () => {
 		// given
 		const onFocus = jest.fn();
 		render(<Datalist id="my-datalist" onChange={jest.fn()} onFocus={onFocus} {...props} />);
-		const input = screen.getByRole('textboxa');
+		const input = screen.getByRole('textbox');
 
 		// when
 		fireEvent.click(input);
