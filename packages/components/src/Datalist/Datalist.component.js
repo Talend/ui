@@ -416,7 +416,7 @@ class Datalist extends Component {
 				{icon && <Icon className={theme['tc-datalist-item-icon']} {...icon} />}
 				<Typeahead
 					{...omit(this.props, PROPS_TO_OMIT)}
-					className={classNames('tc-datalist', theme['tc-datalist'], this.props.className)}
+					className={classNames('tc-datalist', this.props.className)}
 					focusedItemIndex={this.state.focusedItemIndex}
 					focusedSectionIndex={this.state.focusedSectionIndex}
 					items={this.state.suggestions}
