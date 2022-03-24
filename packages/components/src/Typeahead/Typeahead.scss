@@ -25,6 +25,10 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 	display: flex;
 	width: auto;
 
+	:global(.icon-caret) {
+		pointer-events: none;
+	}
+
 	&.loading {
 		.typeahead-input-container,
 		.items-container {
