@@ -3443,9 +3443,9 @@
   integrity sha512-lqNU8kB4PDR4tTDIZ0OMF0PfSAnNk5guS11UHn3ktiac0hy6/ENeD5qEJ2POJeTh7IP4l0Vxs0WwOkj20UkRCA==
 
 "@talend/scripts-config-react-webpack@^12.0.0":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-12.0.1.tgz#59e90035c763222c9ee13c15ed014a7227bad55a"
-  integrity sha512-az7IM+1PDo9ph5TCGrkXfWkkh2WXWcvvjl7wVNsH0DqoNBoqR6G3LvCvlZWESNeJq4kPpVBEdYXj9TTghtZ+Og==
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-config-react-webpack/-/scripts-config-react-webpack-12.0.2.tgz#182938517a75df363a8ece0d99ce0f7c981ec146"
+  integrity sha512-G0VgQfaHkJWjlm4rvo/oJA7EWotpyMfw4R9ted0FYw8jCD/W1TjOZkUxbgif6CBh7Sh1Pf4L2m/5pTD7o3QT1Q==
   dependencies:
     "@talend/react-cmf-webpack-plugin" "^6.36.6"
     "@talend/scripts-config-babel" "^9.9.0"
