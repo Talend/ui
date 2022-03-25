@@ -5,7 +5,7 @@
 Dropdown no longer is a Styled Component. Its types are fixed.
 
 - Cannot use `as` for its disclosure anymore. Use a Clickable (`ButtonPrimary`, `ButtonIcon` etc...) as a child instead.
-- The `items` prop extend `Linkable` and `Clickable`. Links can be from React-Router using `as`.
+- The `items` prop extends `Linkable` and `Clickable`. Links can be from React-Router using `as`.
 - The `items` prop requires entries with a specified `type` : `'link' | 'title' | 'button' | ' divider'`.
 - `items` elements cannot be React elements anymore.
 
