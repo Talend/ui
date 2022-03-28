@@ -1,7 +1,9 @@
 import React from 'react';
 import { LineChart as RLineChart, Line, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from 'recharts';
 
+import tokens from '@talend/design-tokens';
 import { LineChartEntry, LineChartOptions, LineOptions } from './LineChart.types';
+
 
 import { CustomTooltip } from './LineChartTooltip.component';
 import { CustomLegend } from './LineChartLegend.component';
@@ -38,13 +40,15 @@ function LineChart({
 		legend,
 	} = chartOptions;
 
+
+
 	return (
 		<ResponsiveContainer width={width || '100%'} height={height || '100%'} debounce={1}>
 		  <RLineChart
 			data={data}
 			margin={margin || {}}
 		  >
-			{ !!showGridLines && <CartesianGrid stroke="#F2F2F2" strokeDasharray="2" vertical={false} />}
+			{ !!showGridLines && <CartesianGrid stroke={tokens.coralColorNeutralBackgroundMedium} strokeDasharray="2" vertical={false} />}
 			<XAxis
 				dataKey="xLabel"
 				{...xAxisOptions?.rechartsOptions}
