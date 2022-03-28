@@ -7,11 +7,13 @@ export const Buttons = styled.div`
 	justify-content: flex-end;
 	padding: ${tokens.space.xl} ${tokens.space.none};
 
-	.btn + .btn {
+	> button + button,
+	> span + span {
 		margin-left: ${tokens.space.m};
 	}
 
-	.btn:first-child {
+	button:first-child,
+	span:first-child {
 		margin-left: 0;
 		margin-right: auto;
 	}
