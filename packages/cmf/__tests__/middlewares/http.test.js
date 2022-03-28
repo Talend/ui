@@ -23,10 +23,12 @@ describe('CMF http middleware', () => {
 	it('should be available from middlewares/http', () => {
 		expect(http).toBe(httpMiddleware);
 	});
+
 	it('should DEFAULT_HTTP_HEADERS be json', () => {
 		expect(DEFAULT_HTTP_HEADERS.Accept).toBe('application/json');
 		expect(DEFAULT_HTTP_HEADERS['Content-Type']).toBe('application/json');
 	});
+
 	it('should isHTTPRequest check action type', () => {
 		const action = {
 			type: HTTP_METHODS.POST,
@@ -38,6 +40,7 @@ describe('CMF http middleware', () => {
 		action.type = 'HTTP/POST';
 		expect(isHTTPRequest(action)).toBe(false);
 	});
+
 	it('should isHTTPRequest check action.cmf.http', () => {
 		const action = {
 			type: 'WHAT_EVER_YOU_WANT',
@@ -47,6 +50,7 @@ describe('CMF http middleware', () => {
 		};
 		expect(isHTTPRequest(action)).toBe(true);
 	});
+
 	it('should getMethod find HTTP method in action type', () => {
 		expect(getMethod({ type: HTTP_METHODS.POST })).toBe('POST');
 		expect(getMethod({ type: HTTP_METHODS.OPTIONS })).toBe('OPTIONS');
@@ -326,7 +330,7 @@ describe('CMF http middleware', () => {
 				type: 'basic',
 				url: '//foo/bar',
 				clone: () => ({
-					text: () => new Promise(resolve => resolve('invalid json')),
+					text: () => Promise.resolve('invalid json'),
 				}),
 			},
 		};
@@ -404,6 +408,7 @@ describe('status function', () => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve if status >= HTTP_STATUS.OK & < 300', () => {
 		const response = {
 			status: HTTP_STATUS.NO_CONTENT,
@@ -423,6 +428,7 @@ describe('json function', () => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve if attr json is on response', () => {
 		const response = {
 			status: HTTP_STATUS.OK,
@@ -435,6 +441,7 @@ describe('json function', () => {
 			expect(r).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve status HTTP_STATUS.NO_CONTENT but without json function', () => {
 		const response = {
 			status: HTTP_STATUS.NO_CONTENT,
@@ -589,6 +596,7 @@ describe('httpMiddleware configuration', () => {
 			done();
 		});
 	});
+
 	it('should call interceptor at every levels', done => {
 		// given
 		const response = { foo: 'bar' };

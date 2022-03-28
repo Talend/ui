@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.6
+
+### Patch Changes
+
+- 72a99ac3d: fix(faceted-search): input width in badge with slider popin
+
 ## 3.5.5
 
 ### Patch Changes

@@ -2,20 +2,20 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
 import { FigmaImage } from '~docs';
 
-import { PortalOnBoarding as pobStory, Portal as pStory, Apps as aStory } from './HeaderBar';
+import * as Stories from './HeaderBar.stories';
 
 import HeaderBar from '..';
 
 <Meta
-	title="Components/HeaderBar"
+	title="[WIP] Components/HeaderBar"
 	component={HeaderBar}
 	parameters={{
-		status: { figma: 'wip', storybook: 'ok', react: 'ok', i18n: 'ok' },
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'ok' },
 		figmaLink: 'https://www.figma.com/file/oBVS5vWSK3PX2hZ7logRHc/Header-bar',
 	}}
 />
 
-# Header Bar
+# Header Bar (WIP, do not use)
 
 The header bar is the place, where the user finds useful information and tools to for the application.
 The header is placed on the top and takes the full window width.
@@ -35,24 +35,24 @@ The header is placed on the top and takes the full window width.
 
 Only Talend Logo should be visible on the left and no other elements are displayed on the right.
 
-<Canvas>
-	<Story name="portal-onboarding">{pobStory.bind({})}</Story>
+<Canvas withSource="closed">
+	<Story name="portal-onboarding" story={Stories.PortalOnBoarding} />
 </Canvas>
 
 **Portal**
 
 The Talend logo should be linked to the Portal homepage.
 
-<Canvas>
-	<Story name="portal">{pStory.bind({})}</Story>
+<Canvas withSource="closed">
+	<Story name="portal" story={Stories.Portal} />
 </Canvas>
 
 **In the apps**
 
 The Talend logo should be linked to the Portal.
 
-<Canvas>
-	<Story name="apps">{aStory.bind({})}</Story>
+<Canvas withSource="closed">
+	<Story name="apps" story={Stories.Apps} />
 </Canvas>
 
 ### App switcher
