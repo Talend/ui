@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
@@ -120,23 +120,13 @@ function Datalist(props) {
 	});
 
 	// suggestions computation
-	const suggestions = useMemo(
-		() =>
-			buildSuggestions({
-				displayMode: props.readOnly || props.disabled ? DISPLAY.NONE : displaySuggestion,
-				titleMap: props.titleMap,
-				filterValue,
-				multiSection: props.multiSection,
-			}),
-		[
-			displaySuggestion,
-			filterValue,
-			props.readOnly,
-			props.disabled,
-			props.titleMap,
-			props.multiSection,
-		],
-	);
+	// we don't memo bacause it changes at EVERY modification
+	const suggestions = buildSuggestions({
+		displayMode: props.readOnly || props.disabled ? DISPLAY.NONE : displaySuggestion,
+		titleMap: props.titleMap,
+		filterValue,
+		multiSection: props.multiSection,
+	});
 
 	// in uncontrolled mode, props.value acts as an initial value, then Datalist handles state, props.value never changes.
 	// in controlled mode, props.value has to be reflected every time it changes
