@@ -15,14 +15,17 @@ export default {
 			</div>
 		),
 	],
-	args: {
-		onBarClick: action('onClick'),
-		dataFeature: 'my.data.feature',
+	parameters: {
+		docs: {
+			description: {
+				component: 'A curve type chart based on the [LineChart component](https://recharts.org/en-US/api/LineChart) of [Recharts ](https://recharts.org/en-US)',
+			  },
+		},
 	},
 } as Meta<LineChartProps>;
 
-export const BasicLineChart = Template.bind({});
-BasicLineChart.args = {
+export const FullyCustomisedLineChart = Template.bind({});
+FullyCustomisedLineChart.args = {
 	chartOptions: {
 		showGridLines: true,
 		legend: {
@@ -224,3 +227,173 @@ SimpleLineChart.args = {
 		},
 	],
 };
+
+export const MultiCurveLineChart = Template.bind({});
+MultiCurveLineChart.args = {
+	chartOptions: {
+		legend: {
+			rechartsOptions:{
+				align: 'right',
+				verticalAlign: 'top',
+			},
+		},
+		leftYAxisOptions : {
+			rechartsOptions: {
+				type: 'number',
+				domain: [0, 5],
+				tickCount: 6,
+				tickLine: false,
+			},
+		},
+	},
+	lines: [
+		{
+			key: 'trustScore',
+			color: '#1667DF',
+			rechartsOptions: {
+				type: 'monotone',
+				strokeWidth: 3,
+			}
+		},
+		{
+			key: 'globalScore',
+			color: '#4DD832',
+			rechartsOptions: {
+				type: 'monotone',
+				strokeWidth: 3,
+			}
+		},
+	],
+	data: [
+		{
+			xLabel: '2/2',
+			trustScore: 2.2,
+			globalScore: 3,
+		},
+
+		{
+			xLabel: '2/16',
+			trustScore: 3.4,
+			globalScore: 3.2,
+		},
+
+		{
+			xLabel: '2/24',
+			trustScore: 3.5,
+			globalScore: 3.2,
+		},
+
+		{
+			xLabel: '2/30',
+			trustScore: 4.2,
+			globalScore: 4,
+		},
+	],
+};
+
+export const CustomLegendLineChart = Template.bind({});
+CustomLegendLineChart.args = {
+	chartOptions: {
+		legend: {
+			custom: true,
+			rechartsOptions:{
+				align: 'right',
+				verticalAlign: 'top',
+			},
+		},
+		leftYAxisOptions : {
+			rechartsOptions: {
+				type: 'number',
+				domain: [0, 5],
+				tickCount: 6,
+				tickLine: false,
+			},
+		},
+	},
+	lines: [
+		{
+			key: 'trustScore',
+			color: '#1667DF',
+			rechartsOptions: {
+				type: 'monotone',
+				strokeWidth: 3,
+			}
+		},
+	],
+	data: [
+		{
+			xLabel: '2/2',
+			trustScore: 2.2,
+		},
+
+		{
+			xLabel: '2/16',
+			trustScore: 3.4,
+		},
+
+		{
+			xLabel: '2/24',
+			trustScore: 3.5,
+		},
+
+		{
+			xLabel: '2/30',
+			trustScore: 4.2,
+		},
+	],
+};
+
+export const CustomTooltipLineChart = Template.bind({});
+CustomTooltipLineChart.args = {
+	chartOptions: {
+		legend: {
+			rechartsOptions:{
+				align: 'right',
+				verticalAlign: 'top',
+			},
+		},
+		tooltip: {
+			custom: true,
+		},
+		leftYAxisOptions : {
+			rechartsOptions: {
+				type: 'number',
+				domain: [0, 5],
+				tickCount: 6,
+				tickLine: false,
+			},
+		},
+	},
+	lines: [
+		{
+			key: 'trustScore',
+			color: '#1667DF',
+			rechartsOptions: {
+				type: 'monotone',
+				strokeWidth: 3,
+			}
+		},
+	],
+	data: [
+		{
+			xLabel: '2/2',
+			trustScore: 2.2,
+		},
+
+		{
+			xLabel: '2/16',
+			trustScore: 3.4,
+		},
+
+		{
+			xLabel: '2/24',
+			trustScore: 3.5,
+		},
+
+		{
+			xLabel: '2/30',
+			trustScore: 4.2,
+		},
+	],
+};
+
