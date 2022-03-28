@@ -9,19 +9,13 @@
 	height: calc(100% - 2px);
 	padding: 0 0 0 $padding-large;
 	position: relative;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
 
 	&:hover {
 		cursor: pointer;
 	}
 	:global(.ReactVirtualized__Table__headerTruncatedText) {
 		align-self: center;
-		overflow: hidden;
 		padding-left: $padding-small;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 }
 

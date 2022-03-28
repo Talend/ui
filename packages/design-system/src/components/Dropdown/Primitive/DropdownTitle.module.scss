@@ -1,0 +1,15 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.dropdownTitle {
+	background: tokens.$coral-color-accent-background-weak;
+	min-height: tokens.$coral-size-l;
+	display: inline-flex;
+	justify-content: flex-start;
+	align-items: center;
+	white-space: nowrap;
+	width: 100%;
+	color: tokens.$coral-color-neutral-text;
+	font: tokens.$coral-paragraph-m-bold;
+	padding: tokens.$coral-size-xxs tokens.$coral-size-s;
+	max-width: tokens.$coral-size-limit;
+}

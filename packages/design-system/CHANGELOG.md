@@ -1,5 +1,23 @@
 # @talend/design-system
 
+## 2.1.0
+
+### Minor Changes
+
+- cb8f55ef0: Breadcurmbs are now part of the design system
+
+### Patch Changes
+
+- c891f780a: HeaderBar isn't ready for primetime yet. API and style need work.
+- e4fb9b78d: Update i18next version to match other packages
+
+## 2.0.2
+
+### Patch Changes
+
+- da8e2b46f: Link: href is ignored
+- f5cb575c9: Step: Add tooltip support
+
 ## 2.0.1
 
 ### Patch Changes

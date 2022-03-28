@@ -11,8 +11,6 @@ import React, {
 import { IconName } from '@talend/icons';
 import classnames from 'classnames';
 import { Icon } from '../Icon/Icon';
-import { StackHorizontal } from '../Stack';
-
 import style from './LinkableStyles.module.scss';
 
 export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'> & {
@@ -20,6 +18,8 @@ export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'
 	children: ReactNode | ReactNodeArray;
 	icon?: IconName | ReactElement;
 	hideExternalIcon?: boolean;
+	isNaturallyAligned?: boolean;
+	withEllipsis?: boolean;
 };
 
 export function isBlank(target: string | undefined): boolean {
@@ -28,7 +28,18 @@ export function isBlank(target: string | undefined): boolean {
 
 const Linkable = forwardRef(
 	(
-		{ as = 'a', href, children, target, icon, hideExternalIcon, className, ...rest }: LinkableType,
+		{
+			as = 'a',
+			isNaturallyAligned = false,
+			href,
+			children,
+			target,
+			icon,
+			hideExternalIcon,
+			className,
+			withEllipsis,
+			...rest
+		}: LinkableType,
 		// Ref<any>: Linkable is polymorphic. Could be any HTML element
 		ref: Ref<any>,
 	) => {
@@ -70,10 +81,14 @@ const Linkable = forwardRef(
 			return (
 				<a
 					{...rest}
+					href={href}
 					ref={ref}
 					target={target}
 					rel={isBlank(target) ? 'noreferrer noopener' : undefined}
-					className={classnames(style.linkable, className)}
+					className={classnames(style.linkable, className, {
+						[style.naturally_aligned]: isNaturallyAligned,
+						[style.with_ellipsis]: withEllipsis,
+					})}
 				>
 					{Element}
 				</a>
@@ -85,8 +100,12 @@ const Linkable = forwardRef(
 			{
 				...rest,
 				target,
+				href,
 				rel: isBlank(target) ? 'noreferrer noopener' : undefined,
-				className: classnames(style.linkable, className),
+				className: classnames(style.linkable, className, {
+					[style.naturally_aligned]: isNaturallyAligned,
+					[style.with_ellipsis]: withEllipsis,
+				}),
 				ref,
 			},
 			[Element],
