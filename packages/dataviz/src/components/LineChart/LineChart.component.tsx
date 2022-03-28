@@ -95,6 +95,7 @@ function LineChart({
 			}
 			{lines.map(options =>
 				<Line
+					id={`line_${options.key}`}
 					key={options.key}
 					yAxisId={options.axis || 'left'}
 					dataKey={options.key}

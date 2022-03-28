@@ -32,7 +32,7 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 		<div className={classNames(styles['line-chart-custom-tooltip-wrapper'])}>
 			<p className={classNames(styles['line-chart-custom-tooltip-wrapper-title'])}>{label}</p>
 			{linesConfig.map(config => (
-		  		<p>
+		  		<p id={`tooltip_item_${config.key}`}>
 					<div
 						className={classNames(
 							styles['line-chart-custom-tooltip-line-icon'],

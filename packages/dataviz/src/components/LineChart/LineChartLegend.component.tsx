@@ -51,7 +51,7 @@ export const CustomLegend = ({
 			style={{ justifyContent: getContentJustification(align)}}
 		>
 			{linesConfig.map(config => (
-				<li>
+				<li id={`legend_item_${config.key}`} key={`legend_item_${config.key}`}>
 					<div
 						role='button'
 						onClick={() => onLegendClicked(config.key)}

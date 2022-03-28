@@ -15,8 +15,8 @@ export type LineOptions = {
 };
 
 export type LineChartOptions = {
-	width?: string,
-	height?: string,
+	width?: string | number,
+	height?: string | number,
 	margin?: {
 		top: number,
 		right: number,
@@ -30,18 +30,18 @@ export type LineChartOptions = {
 	}
 	legend?: {
 		custom?: boolean
-		rechartsOptions: LegendProps
+		rechartsOptions?: LegendProps
 	}
 	xAxisOptions?: {
-		rechartsOptions: XAxisProps;
+		rechartsOptions?: XAxisProps;
 	},
 	leftYAxisOptions?: {
 		hideUnitInAxis?: boolean;
-		rechartsOptions: YAxisProps;
+		rechartsOptions?: YAxisProps;
 	}
 	rightYAxisOptions?: {
 		hideUnitInAxis?: boolean;
-		rechartsOptions: YAxisProps;
+		rechartsOptions?: YAxisProps;
 	}
 	showGridLines?: boolean;
 };

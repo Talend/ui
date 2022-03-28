@@ -1,11 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-// import VerticalBarChart, { VerticalBarChartProps } from './VerticalBarChart.component';
 import  LineChart, { LineChartProps } from './LineChart.component';
-// import { YAxis } from 'recharts';
-// import TooltipContent from '../../TooltipContent/TooltipContent.component';
-// import { getVerticalBarChartTooltip } from '../barChart.tooltip';
 
 const Template: Story<LineChartProps> = args => <LineChart {...args} />;
 
@@ -74,7 +70,6 @@ BasicLineChart.args = {
 	},
 	lines: [
 		{
-
 			key: 'trustScore',
 			color: '#1667DF',
 			tooltipLabel: 'Trust Score™',
@@ -175,6 +170,57 @@ BasicLineChart.args = {
 			xLabel: '2/30',
 			trustScore: 4.2,
 			validity: 75,
+		},
+	],
+};
+
+export const SimpleLineChart = Template.bind({});
+SimpleLineChart.args = {
+	chartOptions: {
+		legend: {
+			rechartsOptions:{
+				align: 'right',
+				verticalAlign: 'top',
+			},
+		},
+		leftYAxisOptions : {
+			rechartsOptions: {
+				type: 'number',
+				domain: [0, 5],
+				tickCount: 6,
+				tickLine: false,
+			},
+		},
+	},
+	lines: [
+		{
+			key: 'trustScore',
+			color: '#1667DF',
+			rechartsOptions: {
+				type: 'monotone',
+				strokeWidth: 3,
+			}
+		},
+	],
+	data: [
+		{
+			xLabel: '2/2',
+			trustScore: 2.2,
+		},
+
+		{
+			xLabel: '2/16',
+			trustScore: 3.4,
+		},
+
+		{
+			xLabel: '2/24',
+			trustScore: 3.5,
+		},
+
+		{
+			xLabel: '2/30',
+			trustScore: 4.2,
 		},
 	],
 };
