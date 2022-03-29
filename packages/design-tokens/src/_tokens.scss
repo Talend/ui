@@ -208,6 +208,16 @@ $coral-color-charts-color-09-text: #{var(--coral-color-charts-color-09-text, hsl
 $coral-color-charts-color-09-text-strong: #{var(--coral-color-charts-color-09-text-strong, hsla(36, 36%, 5%, 1))};
 $coral-color-charts-color-09-text-weak: #{var(--coral-color-charts-color-09-text-weak, hsla(35, 28%, 82%, 1))};
 $coral-color-neutral-background-heavy: #{var(--coral-color-neutral-background-heavy, hsla(0, 0%, 78%, 1))};
+$coral-color-illustration-color-01: #{var(--coral-color-illustration-color-01, hsla(252, 43%, 25%, 1))};
+$coral-color-illustration-color-02: #{var(--coral-color-illustration-color-02, hsla(215, 69%, 27%, 1))};
+$coral-color-illustration-color-03: #{var(--coral-color-illustration-color-03, hsla(0, 100%, 74%, 1))};
+$coral-color-illustration-color-05: #{var(--coral-color-illustration-color-05, hsla(20, 23%, 97%, 1))};
+$coral-color-illustration-color-04: #{var(--coral-color-illustration-color-04, hsla(201, 41%, 64%, 1))};
+$coral-color-illustration-color-06: #{var(--coral-color-illustration-color-06, hsla(245, 46%, 5%, 1))};
+$coral-color-illustration-skintone-01: #{var(--coral-color-illustration-skintone-01, hsla(20, 91%, 83%, 1))};
+$coral-color-illustration-skintone-02: #{var(--coral-color-illustration-skintone-02, hsla(21, 34%, 55%, 1))};
+$coral-color-illustration-skintone-03: #{var(--coral-color-illustration-skintone-03, hsla(17, 33%, 28%, 1))};
+$coral-color-illustration-shadow: #{var(--coral-color-illustration-shadow, hsla(0, 0%, 0%, 0.1))};
 $coral-color-branding-background: #{var(--coral-color-branding-background, linear-gradient(133deg, hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%))};
 $coral-color-branding-navigation: #{var(--coral-color-branding-navigation, linear-gradient(133deg, hsla(210, 62%, 26%, 1) 0%, hsla(254, 47%, 23%, 1) 100%))};
 $coral-size-xxs: #{var(--coral-size-xxs, 0.4rem)};
@@ -224,6 +234,8 @@ $coral-elevation-shadow-success: #{var(--coral-elevation-shadow-success, 0rem 0.
 $coral-elevation-shadow-danger: #{var(--coral-elevation-shadow-danger, 0rem 0.1rem 0.1rem 0rem hsla(359, 51%, 53%, 0.3))};
 $coral-elevation-shadow-warning: #{var(--coral-elevation-shadow-warning, 0rem 0.1rem 0.1rem 0rem hsla(22, 93%, 41%, 0.3))};
 $coral-elevation-shadow-beta: #{var(--coral-elevation-shadow-beta, 0rem 0.1rem 0.1rem 0rem hsla(281, 58%, 29%, 0.3))};
+$coral-elevation-shadow-neutral-inverted-m: #{var(--coral-elevation-shadow-neutral-inverted-m, 0rem -0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.3))};
+$coral-elevation-shadow-neutral-inverted-l: #{var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.3))};
 $coral-heading-l: #{var(--coral-heading-l, 600 1.8rem/140% 'Source Sans Pro')};
 $coral-paragraph-m: #{var(--coral-paragraph-m, 400 1.4rem/140% 'Source Sans Pro')};
 $coral-paragraph-m-bold: #{var(--coral-paragraph-m-bold, 600 1.4rem/140% 'Source Sans Pro')};

@@ -6,6 +6,7 @@ const getAttribute = badgeDefinitionRaw => get(badgeDefinitionRaw, 'attribute');
 const createBadgeId = attribute => `${attribute}-${uuid.v4()}`;
 const getOperators = badgeDefinitionRaw => get(badgeDefinitionRaw, 'operators');
 const getType = badgeDefinitionRaw => get(badgeDefinitionRaw, 'type');
+const getTypeProperties = badgeDefinitionRaw => get(badgeDefinitionRaw, 'typeProperties');
 const getLabel = badgeDefinitionRaw => get(badgeDefinitionRaw, 'label');
 
 const facetedBadgeDefinitionStruct = {
@@ -28,6 +29,7 @@ const facetedBadgeDefinitionStruct = {
 const fromRaw = badgeDefinitionRaw => {
 	const newStruct = Object.create(facetedBadgeDefinitionStruct);
 	const name = getAttribute(badgeDefinitionRaw);
+	const typeProperties = getTypeProperties(badgeDefinitionRaw);
 	newStruct.properties = {
 		attribute: name,
 		initialOperatorOpened: true,
@@ -36,6 +38,7 @@ const fromRaw = badgeDefinitionRaw => {
 		operator: {},
 		operators: [],
 		type: getType(badgeDefinitionRaw),
+		...typeProperties,
 	};
 	newStruct.metadata = {
 		...badgeDefinitionRaw.metadata,
