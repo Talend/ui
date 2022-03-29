@@ -7,6 +7,7 @@ Icon provider deserves fresh new behaviors, to serve the icons, because:
 * We serve icons as they are exported, in their non-optimized version.
 * There is no strong types definitions for the icons.
 * The icons we see in Figma high fidelity mockups and the icons we get in production can differ.
+* We can't update icon's parts unitary and reuse shapes for composition purpose since they are flattened.
 
 ## Problem
 
@@ -26,6 +27,15 @@ These components will be used by our product designers to compose the hi-fi mock
 
 GitHub will get the icons from Figma and expose them as React components using TypeScript.
 The NPM package will include each SVG icon, with each size variations, and will be exposed through Amazon CloudFront.
+
+```mermaid
+graph LR
+    Icons[Icon System library] --> FaaS[Function as a Service]
+    FaaS --> Coral[Design System library]
+    FaaS --> Github[Codebase]
+    Coral --- PT[Product teams' needs]
+    Github --- PT
+```
 
 Since icons are not really critical, it's time to serve them in a smartest way.
 Instead of fetching the whole SVG sprite, even if it's put in cache, we can befenit of our current CDN architecture to push forward the limits.
