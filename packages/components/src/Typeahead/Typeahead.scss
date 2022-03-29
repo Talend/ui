@@ -112,6 +112,7 @@ $tc-typeahead-item-description-height: 1.6rem !default;
 			bottom: 0;
 			margin: 0;
 			width: $padding-larger;
+			pointer-events: none;
 
 			> svg {
 				height: 0.8rem;
