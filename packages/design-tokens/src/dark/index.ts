@@ -264,8 +264,8 @@ const tokens = {
 		'var(--coral-color-charts-color-09-text-weak, hsla(35,28%,82%,1))',
 	coralColorNeutralBackgroundHeavy:
 		'var(--coral-color-neutral-background-heavy, hsla(204,18%,11%,1))',
-	coralColorIllustrationColor01: 'var(--coral-color-illustration-color-01, hsla(252,43%,25%,1))',
-	coralColorIllustrationColor02: 'var(--coral-color-illustration-color-02, hsla(215,69%,27%,1))',
+	coralColorIllustrationColor01: 'var(--coral-color-illustration-color-01, hsla(252,83%,52%,1))',
+	coralColorIllustrationColor02: 'var(--coral-color-illustration-color-02, hsla(215,89%,49%,1))',
 	coralColorIllustrationColor03: 'var(--coral-color-illustration-color-03, hsla(0,100%,74%,1))',
 	coralColorIllustrationColor04: 'var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))',
 	coralColorIllustrationColor05: 'var(--coral-color-illustration-color-05, hsla(20,23%,97%,1))',
