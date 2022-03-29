@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.6.0
+
+### Minor Changes
+
+- ffda839d2: feat(faceted-search): make text badge placeholder configurable
+
 ## 3.5.6
 
 ### Patch Changes
