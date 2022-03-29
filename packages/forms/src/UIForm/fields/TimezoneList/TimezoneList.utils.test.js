@@ -13,8 +13,7 @@ describe('getTimezones', () => {
 									Freetown: { exemplarCity: '[EN] Freetown' },
 								},
 								Europe: {
-									Paris: { exemplarCity: '[EN] Paris' },
-									Kiev: { exemplarCity: '[EN] Kiev' },
+									Istanbul: { exemplarCity: '[EN] Istanbul' },
 								},
 							},
 						},
@@ -33,8 +32,7 @@ describe('getTimezones', () => {
 									Freetown: { exemplarCity: '[FR] Freetown' },
 								},
 								Europe: {
-									Paris: { exemplarCity: '[FR] Paris' },
-									Kiev: { exemplarCity: '[FR] Kiev' },
+									Istanbul: { exemplarCity: '[FR] Istanbul' },
 								},
 							},
 						},
@@ -50,10 +48,24 @@ describe('getTimezones', () => {
 
 		// then
 		expect(timezones).toEqual([
-			{ name: '(UTC +00:00) [FR] Abidjan', timezoneName: '[FR] Abidjan', offset: 0, value: 'Africa/Abidjan' },
-			{ name: '(UTC +00:00) [FR] Freetown', timezoneName: '[FR] Freetown', offset: 0, value: 'Africa/Freetown' },
-			{ name: '(UTC +01:00) [FR] Paris', timezoneName: '[FR] Paris', offset: 60, value: 'Europe/Paris' },
-			{ name: '(UTC +02:00) [FR] Kiev', timezoneName: '[FR] Kiev', offset: 120, value: 'Europe/Kiev' },
+			{
+				name: '(UTC +00:00) [FR] Abidjan',
+				timezoneName: '[FR] Abidjan',
+				offset: 0,
+				value: 'Africa/Abidjan',
+			},
+			{
+				name: '(UTC +00:00) [FR] Freetown',
+				timezoneName: '[FR] Freetown',
+				offset: 0,
+				value: 'Africa/Freetown',
+			},
+			{
+				name: '(UTC +03:00) [FR] Istanbul',
+				timezoneName: '[FR] Istanbul',
+				offset: 180,
+				value: 'Europe/Istanbul',
+			},
 		]);
 	});
 
@@ -63,10 +75,24 @@ describe('getTimezones', () => {
 
 		// then
 		expect(timezones).toEqual([
-			{ name: '(UTC +00:00) [EN] Abidjan', timezoneName: '[EN] Abidjan', offset: 0, value: 'Africa/Abidjan' },
-			{ name: '(UTC +00:00) [EN] Freetown', timezoneName: '[EN] Freetown', offset: 0, value: 'Africa/Freetown' },
-			{ name: '(UTC +01:00) [EN] Paris', timezoneName: '[EN] Paris', offset: 60, value: 'Europe/Paris' },
-			{ name: '(UTC +02:00) [EN] Kiev', timezoneName: '[EN] Kiev', offset: 120, value: 'Europe/Kiev' },
+			{
+				name: '(UTC +00:00) [EN] Abidjan',
+				timezoneName: '[EN] Abidjan',
+				offset: 0,
+				value: 'Africa/Abidjan',
+			},
+			{
+				name: '(UTC +00:00) [EN] Freetown',
+				timezoneName: '[EN] Freetown',
+				offset: 0,
+				value: 'Africa/Freetown',
+			},
+			{
+				name: '(UTC +03:00) [EN] Istanbul',
+				timezoneName: '[EN] Istanbul',
+				offset: 180,
+				value: 'Europe/Istanbul',
+			},
 		]);
 	});
 
