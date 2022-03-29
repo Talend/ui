@@ -1,13 +1,13 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
 
-import EmptyState from './';
+import EmptyStatePrimitive from './primitive/EmptyStatePrimitive';
 
 import * as Stories from './EmptyState.stories';
 
 <Meta
 	title="Components/EmptyState"
-	component={EmptyState}
+	component={EmptyStatePrimitive}
 	parameters={{
 		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'wip' },
 		figmaLink: 'https://www.figma.com/file/IUeLBwjDCMkpdO7OtZ29u1/EmptyState',
@@ -37,17 +37,29 @@ Two goals are identified:
 
 ### Variations
 
-**Spot illustration (AKA Spot)**
+#### EmptyStateLarge (with Spot illustration)
 
 <Canvas>
-	<Story story={Stories.Spot} />
+	<Story story={Stories.Large} />
 </Canvas>
 
-**Icon illustration (AKA Icon)**
+**Content guidelines for this variant**
+
+#### EmptyStateMedium (with Icon illustration)
 
 <Canvas>
-	<Story story={Stories.Icon} />
+	<Story story={Stories.Medium} />
 </Canvas>
+
+**Content guidelines for this variant**
+
+#### EmptyStateSmall (with Icon illustration)
+
+<Canvas>
+	<Story story={Stories.Small} />
+</Canvas>
+
+**Content guidelines for this variant**
 
 ## States
 

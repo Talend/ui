@@ -1,0 +1,6 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.largeIllustration {
+	width: tokens.$coral-size-limit;
+	height: 22rem;
+}

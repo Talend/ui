@@ -1,29 +1,26 @@
 import React from 'react';
-import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import EmptyState from '.';
+import { EmptyStateLarge, EmptyStateMedium, EmptyStateSmall } from '.';
 
 export default {
-	component: EmptyState,
+	component: EmptyStateLarge,
 };
 
-const Template: ComponentStory<typeof EmptyState> = args => {
-	return <EmptyState {...args} />;
-};
+export const Large = () => (
+	<EmptyStateLarge
+		title="No preparations yet."
+		docLinkURL="https://talend.com"
+		description="Add a preparation to clean, format, and transform data prior to processing."
+		callback={{ label: 'Create a dataset', action: () => action('clicked'), icon: 'talend-plus' }}
+	/>
+);
 
-export const Icon = Template.bind({});
-Icon.args = {
-	title: 'No preparations yet.',
-	description: 'Add a preparation to clean, format, and transform data prior to processing.',
-	variant: 'icon',
-	docLinkURL: 'https://talend.com',
-};
+export const Medium = () => (
+	<EmptyStateMedium
+		title="No preparations yet."
+		docLinkURL="https://talend.com"
+		description="Add a preparation to clean, format, and transform data prior to processing."
+	/>
+);
 
-export const Spot = Template.bind({});
-Spot.args = {
-	title: 'No preparations yet.',
-	description: 'Add a preparation to clean, format, and transform data prior to processing.',
-	variant: 'spot',
-	docLinkURL: 'https://talend.com',
-	callback: { label: 'Create a dataset', action: () => action('clicked'), icon: 'talend-plus' },
-};
+export const Small = () => <EmptyStateSmall title="Create a preparation first" />;

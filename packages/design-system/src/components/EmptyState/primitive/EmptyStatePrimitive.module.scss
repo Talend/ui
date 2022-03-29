@@ -1,0 +1,18 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.emptyState {
+	width: 95%;
+	margin: 0 auto;
+	max-width: tokens.$coral-size-limit;
+	text-align: center;
+
+	.title {
+		font: tokens.$coral-heading-s;
+		color: tokens.$coral-color-neutral-text;
+	}
+
+	.description {
+		font: tokens.$coral-paragraph-m;
+		color: tokens.$coral-color-neutral-text;
+	}
+}
