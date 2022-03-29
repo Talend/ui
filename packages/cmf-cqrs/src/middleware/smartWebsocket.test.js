@@ -5,12 +5,13 @@ import SmartWebsocket, { wsSend, wsIsClosed } from './smartWebsocket';
 
 // Set the websocket mock used by smartWebsocket middleware
 global.WebSocket = WebSocket;
+window.WebSocket = WebSocket;
 // Set the fake websocket server
 const urlWS = 'ws://localhost:8092/';
 const mockServer = new Server(urlWS);
 // bind event on the websocket connection
-mockServer.on('connection', () => {
-	mockServer.send('test message 1');
+mockServer.on('connection', socket => {
+	socket.send('test message 1');
 });
 
 describe('smart websocket tests', () => {
@@ -109,11 +110,11 @@ describe('smart websocket tests', () => {
 				onError: jest.fn(),
 			};
 			// when
-			const result = SmartWebsocket('/test/', options); // eslint-disable-line
+			const result = SmartWebsocket('ws://test/', options); // eslint-disable-line
 			// then
 			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
 			expect(result.getBufferedAmount()).toBe(undefined);
-			expect(result.getUrl()).toEqual('/test/');
+			expect(result.getUrl()).toEqual('ws://test/');
 			expect(result.close()).toEqual(undefined);
 		});
 
@@ -176,11 +177,11 @@ describe('smart websocket tests', () => {
 				onError: jest.fn(),
 			};
 			// when
-			const result = SmartWebsocket('/test/', options); // eslint-disable-line
+			const result = SmartWebsocket('ws://test/', options); // eslint-disable-line
 			// then
 			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
 			expect(result.getBufferedAmount()).toBe(undefined);
-			expect(result.getUrl()).toEqual('/test/');
+			expect(result.getUrl()).toEqual('ws://test/');
 			expect(result.close()).toEqual(undefined);
 			setTimeout(() => {
 				expect(options.onClose).toHaveBeenCalled();
@@ -197,6 +198,7 @@ describe('smart websocket tests', () => {
 				onOpen: jest.fn(),
 				onClose: jest.fn(),
 				onError: jest.fn(),
+				onPing: jest.fn(),
 				onPingTimeout: jest.fn(),
 				checkInterval: 70,
 				// < 4ms, that is the delay from ws mock to send
@@ -209,10 +211,9 @@ describe('smart websocket tests', () => {
 			expect(options.onPingTimeout).not.toBeCalled();
 
 			// when
-			jest.runTimersToTime(1);
+			jest.advanceTimersByTime(1);
 
 			// then
-			expect(result.getReadyState()).toEqual(WebSocket.CONNECTING);
 			expect(options.onPingTimeout).toBeCalled();
 		});
 	});
