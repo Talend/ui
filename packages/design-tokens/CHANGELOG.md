@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 1.5.0
+
+### Minor Changes
+
+- d244858a7: Added illustration colors
+
 ## 1.4.1
 
 ### Patch Changes
