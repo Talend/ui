@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import TimezoneList from './TimezoneList.component';
 
 jest.mock('../Datalist', () => {
-	return function DataList() { };
+	return function DataList() {};
 });
 
 describe('TimezoneList component', () => {
@@ -28,8 +28,7 @@ describe('TimezoneList component', () => {
 										Freetown: { exemplarCity: 'Freetown' },
 									},
 									Europe: {
-										Paris: { exemplarCity: 'Paris' },
-										Kiev: { exemplarCity: 'Kiev' },
+										Istanbul: { exemplarCity: 'Istanbul' },
 									},
 								},
 							},
