@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 6.44.6
+
+### Patch Changes
+
+- 96c51cd49: fix(Datalist): Allow to open the datalist clicking the caret icon
+- 8118231d6: update simplebar dependency
+- cf3a08f50: update rc-slider dependency
+- 95ebe8e3b: fix(components/VirtualizedList): shrink column headers to fit with cells width and ellipsis
+- Updated dependencies [c891f780a]
+- Updated dependencies [e4fb9b78d]
+- Updated dependencies [cb8f55ef0]
+  - @talend/design-system@2.1.0
+
 ## 6.44.5
 
 ### Patch Changes
