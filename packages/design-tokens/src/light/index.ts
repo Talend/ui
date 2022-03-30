@@ -261,6 +261,19 @@ const tokens = {
 	coralColorChartsColor09TextWeak:
 		'var(--coral-color-charts-color-09-text-weak, hsla(35,28%,82%,1))',
 	coralColorNeutralBackgroundHeavy: 'var(--coral-color-neutral-background-heavy, hsla(0,0%,78%,1))',
+	coralColorIllustrationColor01: 'var(--coral-color-illustration-color-01, hsla(252,43%,25%,1))',
+	coralColorIllustrationColor02: 'var(--coral-color-illustration-color-02, hsla(215,69%,27%,1))',
+	coralColorIllustrationColor03: 'var(--coral-color-illustration-color-03, hsla(0,100%,74%,1))',
+	coralColorIllustrationColor05: 'var(--coral-color-illustration-color-05, hsla(20,23%,97%,1))',
+	coralColorIllustrationColor04: 'var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))',
+	coralColorIllustrationColor06: 'var(--coral-color-illustration-color-06, hsla(245,46%,5%,1))',
+	coralColorIllustrationSkintone01:
+		'var(--coral-color-illustration-skintone-01, hsla(20,91%,83%,1))',
+	coralColorIllustrationSkintone02:
+		'var(--coral-color-illustration-skintone-02, hsla(21,34%,55%,1))',
+	coralColorIllustrationSkintone03:
+		'var(--coral-color-illustration-skintone-03, hsla(17,33%,28%,1))',
+	coralColorIllustrationShadow: 'var(--coral-color-illustration-shadow, hsla(0,0%,0%,0.1))',
 	coralColorBrandingBackground:
 		'var(--coral-color-branding-background, linear-gradient(133deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%))',
 	coralColorBrandingNavigation:
@@ -286,6 +299,10 @@ const tokens = {
 		'var(--coral-elevation-shadow-warning, 0rem 0.1rem 0.1rem 0rem hsla(22,93%,41%,0.3))',
 	coralElevationShadowBeta:
 		'var(--coral-elevation-shadow-beta, 0rem 0.1rem 0.1rem 0rem hsla(281,58%,29%,0.3))',
+	coralElevationShadowNeutralInvertedM:
+		'var(--coral-elevation-shadow-neutral-inverted-m, 0rem -0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3))',
+	coralElevationShadowNeutralInvertedL:
+		'var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3))',
 	coralHeadingL: "var(--coral-heading-l, 600 1.8rem/140% 'Source Sans Pro')",
 	coralParagraphM: "var(--coral-paragraph-m, 400 1.4rem/140% 'Source Sans Pro')",
 	coralParagraphMBold: "var(--coral-paragraph-m-bold, 600 1.4rem/140% 'Source Sans Pro')",
