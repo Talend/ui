@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/design-tokens": "^1.4.1",
+    "@talend/design-tokens": "^1.5.0",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.1.4",
@@ -43,11 +43,11 @@
     "typeface-source-sans-pro": "^1.1.13"
   },
   "devDependencies": {
-    "@algolia/autocomplete-js": "^1.5.3",
-    "@babel/core": "^7.17.5",
-    "@changesets/cli": "^2.21.1",
+    "@algolia/autocomplete-js": "^1.5.4",
+    "@babel/core": "^7.17.8",
+    "@changesets/cli": "^2.22.0",
     "@cypress/react": "^5.12.4",
-    "@cypress/webpack-dev-server": "^1.8.2",
+    "@cypress/webpack-dev-server": "^1.8.4",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
@@ -58,7 +58,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.8",
-    "@storybook/testing-react": "^1.2.3",
+    "@storybook/testing-react": "^1.2.4",
     "@storybook/theming": "^6.4.19",
     "@svgr/webpack": "^5.5.0",
     "@talend/bootstrap-theme": "^6.38.6",
@@ -78,9 +78,9 @@
     "chromatic": "^6.5.3",
     "core-js": "^3.21.1",
     "css-loader": "^5.2.7",
-    "cypress": "^9.5.1",
+    "cypress": "^9.5.3",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-import-resolver-typescript": "^2.7.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-storybook": "^0.5.7",
     "figma-js": "^1.15.0",
@@ -91,8 +91,8 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^7.27.1",
-    "react-i18next": "^11.15.6",
+    "react-hook-form": "^7.29.0",
+    "react-i18next": "^11.16.2",
     "react-is": "^16.13.1",
     "react-router-dom": "^6.2.2",
     "sass": "^1.49.9",
@@ -100,7 +100,7 @@
     "storybook-addon-mdx-embed": "^0.0.22",
     "storybook-docs-toc": "^1.7.0",
     "style-loader": "^2.0.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.5"
   },
   "peerDependencies": {
     "@talend/icons": "^6.36.3",
