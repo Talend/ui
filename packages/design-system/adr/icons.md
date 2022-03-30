@@ -1,8 +1,8 @@
-# Icon provider
+# Icons
 
 ## Context
 
-Icon provider deserves fresh new behaviors, to serve the icons, because:
+Icon component deserves fresh new behaviors, to serve the icons, because:
 
 * We serve icons as they are exported, in their non-optimized version.
 * There are no strong types definitions for the icons.
