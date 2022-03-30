@@ -50,7 +50,11 @@ function AboutDialog({
 			show={show}
 		>
 			<div>
-				<Icon name={icon} className={classNames(theme['about-logo'], 'about-logo')} />
+				<Icon
+					name={icon}
+					className={classNames(theme['about-logo'], 'about-logo')}
+					data-testid="icon"
+				/>
 				<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
 					{version && (
 						<Text
