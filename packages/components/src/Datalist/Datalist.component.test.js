@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 import Datalist from './Datalist.component';
 
 const props = {
-	autoFocus: true,
 	disabled: false,
 	placeholder: 'Type here',
 	noResultText: 'there is nothing ...',
@@ -126,9 +125,10 @@ describe('Datalist component', () => {
 		const onFocus = jest.fn();
 		render(<Datalist id="my-datalist" onChange={jest.fn()} onFocus={onFocus} {...props} />);
 		const input = screen.getByRole('textbox');
+		expect(onFocus).not.toBeCalled();
 
 		// when
-		fireEvent.click(input);
+		userEvent.click(input);
 
 		// then
 		expect(onFocus).toBeCalled();
@@ -168,7 +168,7 @@ describe('Datalist component', () => {
 		const input = screen.getByRole('textbox');
 		fireEvent.click(input);
 
-		expect(screen.getAllByRole('listbox').length).toBeGreaterThan(0);
+		expect(screen.getByRole('listbox')).toBeInTheDocument();
 
 		// when
 		fireEvent.blur(input);
@@ -181,9 +181,10 @@ describe('Datalist component', () => {
 		// given
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} />);
 		const input = screen.getByRole('textbox');
-		fireEvent.click(input);
+		expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
 
-		expect(screen.getAllByRole('listbox').length).toBeGreaterThan(0);
+		userEvent.click(input);
+		expect(screen.getByRole('listbox')).toBeInTheDocument();
 
 		// when
 		userEvent.type(input, '{enter}');
@@ -198,7 +199,7 @@ describe('Datalist component', () => {
 		const input = screen.getByRole('textbox');
 		fireEvent.click(input);
 
-		expect(screen.getAllByRole('listbox').length).toBeGreaterThan(0);
+		expect(screen.getByRole('listbox')).toBeInTheDocument();
 
 		// when
 		userEvent.type(input, '{esc}');

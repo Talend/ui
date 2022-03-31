@@ -36,7 +36,6 @@ exports[`Typeahead injection should use render props to inject extra components 
   <div
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
-    role="listbox"
     style={
       Object {
         "left": "0",
@@ -168,7 +167,6 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
   <div
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
-    role="listbox"
     style={
       Object {
         "left": "0",
@@ -430,7 +428,6 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
   <div
     className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
     id="react-autowhatever-my-search"
-    role="listbox"
     style={
       Object {
         "left": "0",
@@ -496,7 +493,6 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
   <div
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
-    role="listbox"
     style={
       Object {
         "left": "0",
@@ -700,7 +696,6 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
   <div
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
-    role="listbox"
     style={
       Object {
         "left": "0",
@@ -814,7 +809,6 @@ exports[`Typeahead items should render typeahead without items 1`] = `
   <div
     className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
     id="react-autowhatever-my-search"
-    role="listbox"
     style={
       Object {
         "left": "0",
