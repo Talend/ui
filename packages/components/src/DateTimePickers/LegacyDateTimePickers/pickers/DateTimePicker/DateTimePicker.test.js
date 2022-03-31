@@ -183,7 +183,6 @@ describe('DateTimePicker', () => {
 
 			// when
 			wrapper.setProps({ selection: { time: t2 } });
-			wrapper.update();
 
 			// then
 			expect(wrapper.state('selectedTime')).toBe(t2);

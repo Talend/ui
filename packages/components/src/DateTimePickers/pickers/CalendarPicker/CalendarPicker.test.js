@@ -198,7 +198,6 @@ describe('CalendarPicker', () => {
 
 			// when
 			wrapper.find({ label: 'Today' }).at(0).simulate('click');
-			wrapper.update();
 
 			// then
 			expect(wrapper.state('isDateView')).toBe(true);
