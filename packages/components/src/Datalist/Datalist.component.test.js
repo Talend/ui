@@ -183,7 +183,7 @@ describe('Datalist component', () => {
 		const input = screen.getByRole('textbox');
 		expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
 
-		fireEvent.click(input);
+		userEvent.click(input);
 		expect(screen.getByRole('listbox')).toBeInTheDocument();
 
 		// when
