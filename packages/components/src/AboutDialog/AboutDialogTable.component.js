@@ -1,10 +1,8 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
-
-import { getI18nInstance } from '../translate';
 import Skeleton from '../Skeleton';
-
+import { getI18nInstance } from '../translate';
 import theme from './AboutDialog.scss';
 
 const i18n = getI18nInstance();
@@ -16,7 +14,7 @@ export const getColumnHeaders = () => ({
 });
 
 export function Text({ text, loading, size = Skeleton.SIZES.medium }) {
-	return <div>{loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text}</div>;
+	return loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text;
 }
 
 export function AboutDialogTable({
