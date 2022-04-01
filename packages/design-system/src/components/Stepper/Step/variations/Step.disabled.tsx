@@ -5,6 +5,7 @@ import tokens from '../../../../tokens';
 
 const StepDisabled = styled(Step).attrs({ className: 'step--disabled' })`
 	color: ${({ theme }) => theme.colors?.grayColor[900]};
+	cursor: not-allowed;
 
 	&:before,
 	.step__title {
@@ -12,7 +13,6 @@ const StepDisabled = styled(Step).attrs({ className: 'step--disabled' })`
 	}
 
 	.step__icon {
-		cursor: not-allowed;
 		background: radial-gradient(
 			${tokens.sizes.m} ${tokens.sizes.m} at ${tokens.space.s} ${tokens.space.s},
 			${({ theme }) => theme.colors?.grayColor[100]} 50%,

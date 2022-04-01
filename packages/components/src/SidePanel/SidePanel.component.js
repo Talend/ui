@@ -59,6 +59,7 @@ function SidePanel({
 	onToggleDock,
 	t,
 }) {
+	console.log('[SG]', 'this log from @talend/ui');
 	const [dockState, setDockState] = useState(dockedProp);
 	const docked = onToggleDock ? dockedProp : dockState;
 	const [width, setWidth] = useState(() => getInitialWidth(docked, large));
