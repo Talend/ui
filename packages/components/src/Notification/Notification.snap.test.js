@@ -1,10 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import NotificationContainer from './Notification.component';
+import Notification from './Notification.component';
 
 describe('Notification', () => {
 	it('should render', () => {
+		// given
 		const notifications = [
 			{
 				id: 'story-1',
@@ -20,7 +22,7 @@ describe('Notification', () => {
 				type: 'error',
 				message: [
 					'This is a feedback of your operation2',
-					'This is a feedback of your operation1, This is a feedback of your operation1',
+					'This is a feedback of your operationZ, This is a feedback of your operationZ',
 				],
 				action: {
 					label: 'undo',
@@ -39,9 +41,76 @@ describe('Notification', () => {
 				message: 'This is a feedback of your operation4',
 			},
 		];
-		const wrapper = renderer
-			.create(<NotificationContainer notifications={notifications} leaveFn={() => {}} />)
-			.toJSON();
-		expect(wrapper).toMatchSnapshot();
+
+		// when
+		render(<Notification notifications={notifications} leaveFn={() => {}} />);
+
+		// then
+		expect(screen.getAllByRole('status').length).toBe(3);
+		expect(screen.getAllByRole('alert').length).toBe(1);
+		notifications
+			.map(({ message }) => message)
+			.flat()
+			.forEach(message => {
+				expect(screen.getByText(message)).toBeInTheDocument();
+			});
+	});
+
+	it('should pin notification when the user click', () => {
+		// given
+		const leaveFn = jest.fn();
+		const notification = { id: '1', message: 'foo' };
+		render(<Notification notifications={[notification]} leaveFn={leaveFn} />);
+		const notifDiv = screen.getByRole('status');
+		expect(notifDiv).not.toHaveAttribute('pin', 'true');
+
+		// when
+		userEvent.click(notifDiv);
+
+		// then
+		expect(notifDiv).toHaveAttribute('pin', 'true');
+	});
+
+	it('should call leaveFn props when the user click', () => {
+		// given
+		const leaveFn = jest.fn();
+		const notification = { id: '1', message: 'foo' };
+		render(<Notification notifications={[notification]} leaveFn={leaveFn} />);
+		expect(leaveFn).not.toHaveBeenCalled();
+		const notifDiv = screen.getByRole('status');
+
+		// when
+		userEvent.click(notifDiv); // pin
+		userEvent.click(notifDiv);
+
+		// then
+		expect(leaveFn).toHaveBeenCalledWith(notification);
+	});
+
+	it('should call leaveFn props when the user click on close button', () => {
+		// given
+		const leaveFn = jest.fn();
+		const notification = { id: '1', message: 'foo' };
+		render(<Notification notifications={[notification]} leaveFn={leaveFn} />);
+		expect(leaveFn).not.toHaveBeenCalled();
+		const closeBtn = screen.getByRole('button');
+
+		// when
+		userEvent.click(closeBtn);
+
+		// then
+		expect(leaveFn).toHaveBeenCalledWith(notification);
+	});
+
+	it('should render an Action in notification', () => {
+		// given
+		const action = { id: 'lol', onClick: jest.fn(), 'data-testid': 'lol' };
+		const notification = { message: 'foo', action };
+
+		// when
+		render(<Notification notifications={[notification]} leaveFn={jest.fn()} />);
+
+		// then
+		expect(screen.getByTestId('lol')).toBeInTheDocument();
 	});
 });

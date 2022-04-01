@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -106,13 +107,17 @@ function Notification({ notification, leaveFn, ...props }) {
 	const leaveAction = event => props.onMouseOut(event, notification);
 
 	return (
-		<div // eslint-disable-line jsx-a11y/no-static-element-interactions
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events
+		<div
 			role={isError ? 'alert' : 'status'}
 			className={classes}
 			onClick={event => props.onClick(event, notification)}
 			onFocus={enterAction}
 			onMouseEnter={enterAction}
 			onMouseLeave={leaveAction}
+			// eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
 			tabIndex={0}
 		>
 			<CloseButton
@@ -185,97 +190,91 @@ class Registry {
 	}
 }
 
-class NotificationsContainer extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-		this.registry = new Registry();
-		this.onMouseEnter = this.onMouseEnter.bind(this);
-		this.onMouseOut = this.onMouseOut.bind(this);
-		this.onClick = this.onClick.bind(this);
-		this.onClose = this.onClose.bind(this);
-		this.register = this.register.bind(this);
-		this.register(props);
-	}
+function NotificationsContainer({
+	autoLeaveError,
+	autoLeaveTimeout,
+	enterTimeout,
+	leaveFn,
+	leaveTimeout,
+	notifications,
+}) {
+	const registryRef = useRef(new Registry());
+	const registry = registryRef.current;
 
-	componentWillReceiveProps(nextProps) {
-		this.register(nextProps);
-	}
+	useEffect(() => {
+		if (!registry) {
+			return;
+		}
+		notifications
+			.filter(notification => !registry.isRegistered(notification))
+			.filter(notification => notification.type !== TYPES.ERROR || autoLeaveError)
+			.forEach(notification => {
+				registry.register(
+					notification,
+					new Timer(() => {
+						leaveFn(notification);
+						registry.cancel(notification);
+					}, autoLeaveTimeout),
+				);
+			});
+	}, [autoLeaveError, autoLeaveTimeout, leaveFn, notifications, registry]);
 
-	onClick(event, notification) {
+	const onClick = (event, notification) => {
 		if (notification.type !== TYPES.ERROR || this.props.autoLeaveError) {
 			if (event.currentTarget.getAttribute('pin') !== 'true') {
 				event.currentTarget.setAttribute('pin', 'true');
 			} else {
 				event.currentTarget.setAttribute('pin', 'false');
-				this.props.leaveFn(notification);
+				leaveFn(notification);
 			}
 		}
-	}
+	};
 
-	onClose(event, notification) {
+	const onClose = (event, notification) => {
 		event.stopPropagation();
-		this.registry.cancel(notification);
-		this.props.leaveFn(notification);
-	}
+		registry.cancel(notification);
+		leaveFn(notification);
+	};
 
-	onMouseEnter(event, notification) {
-		if (notification.type !== TYPES.ERROR || this.props.autoLeaveError) {
-			this.registry.pause(notification);
+	const onMouseEnter = (event, notification) => {
+		if (notification.type !== TYPES.ERROR || autoLeaveError) {
+			registry.pause(notification);
 		}
-	}
+	};
 
-	onMouseOut(event, notification) {
+	const onMouseOut = (event, notification) => {
 		if (
-			(notification.type !== TYPES.ERROR || this.props.autoLeaveError) &&
+			(notification.type !== TYPES.ERROR || autoLeaveError) &&
 			event.currentTarget.getAttribute('pin') !== 'true'
 		) {
-			this.registry.resume(notification);
+			registry.resume(notification);
 		}
-	}
+	};
 
-	register(props) {
-		props.notifications
-			.filter(notification => !this.registry.isRegistered(notification))
-			.filter(notification => notification.type !== TYPES.ERROR || props.autoLeaveError)
-			.forEach(notification => {
-				this.registry.register(
-					notification,
-					new Timer(() => {
-						this.props.leaveFn(notification);
-						this.registry.cancel(notification);
-					}, this.props.autoLeaveTimeout),
-				);
-			});
-	}
-
-	render() {
-		const { enterTimeout, leaveTimeout, notifications, leaveFn, autoLeaveTimeout } = this.props;
-		return (
-			<div className={classNames(theme['tc-notification-container'], 'tc-notification-container')}>
-				<TransitionGroup>
-					{notifications.map(notification => (
-						<CSSTransition
-							classNames="tc-notification"
-							key={notification.id}
-							timeout={{ enter: enterTimeout, exit: leaveTimeout }}
-						>
-							<Notification
-								notification={notification}
-								leaveFn={leaveFn}
-								autoLeaveTimeout={autoLeaveTimeout}
-								autoLeaveError={this.props.autoLeaveError}
-								onMouseEnter={this.onMouseEnter}
-								onMouseOut={this.onMouseOut}
-								onClose={this.onClose}
-								onClick={this.onClick}
-							/>
-						</CSSTransition>
-					))}
-				</TransitionGroup>
-			</div>
-		);
-	}
+	return (
+		<div className={classNames(theme['tc-notification-container'], 'tc-notification-container')}>
+			<TransitionGroup>
+				{notifications.map(notification => (
+					<CSSTransition
+						classNames="tc-notification"
+						key={notification.id}
+						timeout={{ enter: enterTimeout, exit: leaveTimeout }}
+					>
+						<Notification
+							notification={notification}
+							leaveFn={leaveFn}
+							autoLeaveTimeout={autoLeaveTimeout}
+							autoLeaveError={autoLeaveError}
+							onMouseEnter={onMouseEnter}
+							onMouseOut={onMouseOut}
+							onClose={onClose}
+							onClick={onClick}
+						/>
+					</CSSTransition>
+				))}
+			</TransitionGroup>
+		</div>
+	);
 }
 
 const notificationShape = {

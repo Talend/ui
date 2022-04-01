@@ -4,26 +4,6 @@ import Notification from './Notification.component';
 
 jest.useFakeTimers();
 
-describe('CloseButton', () => {
-	it('should call leaveFn props when the user click', () => {
-		const leaveFn = jest.fn();
-		const notification = { message: 'foo' };
-		const wrapper = mount(<Notification notifications={[notification]} leaveFn={leaveFn} />);
-		wrapper.find('button').simulate('click');
-		expect(leaveFn).toHaveBeenCalledWith(notification);
-	});
-});
-
-describe('MessageAction', () => {
-	it('should render an Action if action props', () => {
-		const action = { id: 'lol', onClick: jest.fn() };
-		const notification = { message: 'foo', action };
-		const wrapper = mount(<Notification notifications={[notification]} leaveFn={jest.fn()} />);
-		wrapper.find('button#lol').simulate('click');
-		expect(action.onClick).toHaveBeenCalled();
-	});
-});
-
 describe('Message', () => {
 	it('should render an article with one paragraph if notification is not an array', () => {
 		const notification = { message: 'bar' };
