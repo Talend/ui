@@ -2,4 +2,4 @@
 '@talend/design-system': patch
 ---
 
-fix(design-system/Stepper): Disabled step cursor"
+fix(design-system/Stepper): Disabled step cursor
