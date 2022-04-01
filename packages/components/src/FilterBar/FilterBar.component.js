@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
@@ -118,55 +118,40 @@ export default function FilterBar(props) {
 		setValue(props.value);
 	}, [props.value]);
 
-	const onFocusCallback = useCallback(
-		event => {
-			setFocus(true);
-			if (onFocus) {
-				onFocus(event);
-			}
-		},
-		[onFocus, setFocus],
-	);
+	const onFocusCallback = event => {
+		setFocus(true);
+		if (onFocus) {
+			onFocus(event);
+		}
+	};
 
-	const onBlurCallback = useCallback(
-		event => {
-			setFocus(false);
-			if (onBlur) {
-				onBlur(event);
-			}
-			if (!value && onToggle) {
-				onToggle(event);
-			}
-		},
-		[onBlur, onToggle, setFocus, value],
-	);
+	const onBlurCallback = event => {
+		setFocus(false);
+		if (onBlur) {
+			onBlur(event);
+		}
+		if (!value && onToggle) {
+			onToggle(event);
+		}
+	};
 
-	const onFilterCallback = useCallback(
-		event => {
-			setValue(event.target.value);
-			if (onFilter) {
-				onFilter(event, event.target.value);
-			}
-		},
-		[onFilter, setValue],
-	);
+	const onFilterCallback = event => {
+		setValue(event.target.value);
+		if (onFilter) {
+			onFilter(event, event.target.value);
+		}
+	};
 
-	const onClearCallback = useCallback(
-		event => {
-			// needed to avoid blur of the input
-			event.preventDefault();
-			onFilterCallback({ target: { value: '' } });
-		},
-		[onFilterCallback],
-	);
+	const onClearCallback = event => {
+		// needed to avoid blur of the input
+		event.preventDefault();
+		onFilterCallback({ target: { value: '' } });
+	};
 
-	const onSubmit = useCallback(
-		event => {
-			event.preventDefault();
-			return onFilterCallback(event);
-		},
-		[onFilterCallback],
-	);
+	const onSubmit = event => {
+		event.preventDefault();
+		return onFilterCallback(event);
+	};
 
 	if (props.dockable && props.docked) {
 		return (
