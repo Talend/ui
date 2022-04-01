@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Step from '../Step';
 import tokens from '../../../../tokens';
 
-const StepDisabled = styled(Step).attrs({ className: 'step--disabled' })`
+const StepDisabled = styled(Step).attrs({ className: 'step--disabled', 'aria-disabled': 'true' })`
 	color: ${({ theme }) => theme.colors?.grayColor[900]};
 	cursor: not-allowed;
 
