@@ -553,6 +553,13 @@ describe('core', () => {
 						version: '4.2.4',
 						path: '/bundles/core.umd.js',
 					},
+					angular: {
+						var: 'angular',
+						name: 'angular',
+						url: 'https://unpkg.com/angular@1.2.17/angular.min.js',
+						version: '1.2.17',
+						path: '//angular.min.js',
+					},
 					rxjs: {
 						var: 'Rx',
 						name: 'rxjs',
