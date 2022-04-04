@@ -84,7 +84,10 @@ function TimerBar({ type, autoLeaveError }) {
 		return null;
 	}
 	return (
-		<div className={classNames(theme['tc-notification-timer-bar'], 'tc-notification-timer-bar')} />
+		<div
+			className={classNames(theme['tc-notification-timer-bar'], 'tc-notification-timer-bar')}
+			data-testid="timer"
+		/>
 	);
 }
 
