@@ -4,7 +4,7 @@ import keycode from 'keycode';
 import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';
 import CircularProgress from '@talend/react-components/lib/CircularProgress';
-import FormControl from '@talend/react-bootstrap/lib/FormControl';
+import { FormControl } from '@talend/react-bootstrap';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { useFacetedSearchContext } from '../context/facetedSearch.context';

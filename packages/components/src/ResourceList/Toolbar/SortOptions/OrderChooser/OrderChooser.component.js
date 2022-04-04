@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Button from '@talend/react-bootstrap/lib/Button';
+import { Button } from '@talend/react-bootstrap';
 import Icon from '../../../../Icon';
 import TooltipTrigger from '../../../../TooltipTrigger';
 import OverlayTrigger from '../../../../OverlayTrigger';

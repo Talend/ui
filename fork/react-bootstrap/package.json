@@ -9,13 +9,11 @@
   "homepage": "https://react-bootstrap.github.io/",
   "sideEffects": false,
   "main": "lib/index.js",
-  "jsnext:main": "es/index.js",
-  "module": "es/index.js",
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
-    "prepublishOnly": "yarn build:dev --display=none && yarn build:prod --display=none",
-    "prepare": "talend-scripts build:lib",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
     "lint:es": "talend-scripts lint:es",
     "test": "talend-scripts test",
     "test-browser": "cross-env NODE_ENV=test karma start --single-run",
@@ -45,8 +43,8 @@
     "react-dom": ">=16.3.0"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^9.11.0",
-    "@talend/scripts-preset-react-lib": "^9.8.2",
+    "@talend/scripts-core": "^11.6.0",
+    "@talend/scripts-preset-react-lib": "^11.0.2",
     "chai": "^4.3.4",
     "chalk": "^2.3.2",
     "colors": "^1.2.1",

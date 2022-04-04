@@ -7,8 +7,8 @@ import UIForm from '@talend/react-forms';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
-import theme from '../example.scss';
 import { Alert } from '@talend/react-bootstrap';
+import theme from '../example.scss';
 
 const example = require('../../../mockBackend/mock/kit/example.json');
 const { isComponentFormDirty } = ComponentForm.selectors;

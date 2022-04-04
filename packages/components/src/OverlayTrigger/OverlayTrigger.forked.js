@@ -7,10 +7,8 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import warning from 'warning';
 
-import Overlay from '@talend/react-bootstrap/lib/Overlay';
-
-import utils from '@talend/react-bootstrap/lib/utils';
-
+import { Overlay, utils } from '@talend/react-bootstrap';
+console.log('$####', Overlay, utils);
 /**
  * Check if value one is inside or equal to the of value
  *

@@ -22,16 +22,15 @@ function mockFakeComponent(name) {
 	return fakeComponent;
 }
 
-jest.mock('@talend/react-bootstrap/lib/Modal', () => {
+jest.mock('@talend/react-bootstrap', () => {
 	const Modal = mockFakeComponent('Modal');
 	Modal.Header = mockFakeComponent('Header');
 	Modal.Title = mockFakeComponent('Title');
 	Modal.Body = mockFakeComponent('Body');
 	Modal.Footer = mockFakeComponent('Footer');
-
-	return Modal;
+	const ProgressBar = mockFakeComponent('ProgressBar');
+	return { Modal, ProgressBar };
 });
-jest.mock('@talend/react-bootstrap/lib/ProgressBar', () => mockFakeComponent('ProgressBar'));
 
 const children = <div>BODY</div>;
 
