@@ -25,7 +25,7 @@
     "@types/d3": "^6.7.5",
     "@types/enzyme": "^3.10.11",
     "@types/invariant": "^2.2.35",
-    "@types/lodash": "^4.14.179",
+    "@types/lodash": "^4.14.181",
     "@types/react": "^16.14.24",
     "@types/react-redux": "^7.1.23",
     "@types/react-test-renderer": "^16.9.5",
