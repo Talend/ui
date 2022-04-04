@@ -73,9 +73,7 @@ function ListTable(props) {
 			onRowClick={onRowClickCallback}
 			onRowDoubleClick={onRowDoubleClickCallback}
 			rowClassName={({ index }) =>
-				classNames(
-					...[theme['tc-list-item'], rowThemes, collection[index] && collection[index].className],
-				)
+				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
 			}
 			rowCount={rowCount || collection.length}
 			rowGetter={({ index }) => collection[index] || {}}

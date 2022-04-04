@@ -225,7 +225,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row"
+                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
                       role="row"
                       style={
                         Object {
@@ -1210,7 +1210,7 @@ exports[`List should render 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row"
+                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
                       role="row"
                       style={
                         Object {
@@ -2219,7 +2219,7 @@ exports[`List should render id if provided 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row"
+                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
                       role="row"
                       style={
                         Object {
