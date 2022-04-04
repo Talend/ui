@@ -83,6 +83,7 @@ function Badge({
 	white,
 	type,
 	dropdown,
+	dataTest,
 }) {
 	const displayClass =
 		display === SIZES.small ? 'tc-badge-display-small' : 'tc-badge-display-large';
@@ -106,7 +107,7 @@ function Badge({
 	};
 
 	return (
-		<div className={containerClasses} style={style}>
+		<div className={containerClasses} style={style} data-test={dataTest}>
 			<BadgeType {...badgeProps} disabled={disabled} onSelect={onSelect}>
 				{!children ? (
 					<DefaultBadge
@@ -144,6 +145,7 @@ Badge.propTypes = {
 	white: PropTypes.bool,
 	type: PropTypes.oneOf(Object.values(TYPES)),
 	dropdown: PropTypes.object,
+	dataTest: PropTypes.string,
 };
 Badge.displayName = 'Badge';
 Badge.SIZES = SIZES;

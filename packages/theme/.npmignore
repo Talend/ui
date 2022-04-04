@@ -45,3 +45,9 @@ test
 .sass-lint.yml
 screenshots.config.json
 yarn.lock
+
+.babelrc.json
+eslint-report.json
+i18next-scanner.config.js
+stylelint-report.json
+talend-scripts.json

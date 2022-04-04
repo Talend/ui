@@ -1,16 +1,15 @@
 {
   "name": "@talend/json-schema-form-core",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "prepare": "rimraf dist && talend-scripts build:lib:umd",
+    "build:lib": "rimraf dist && talend-scripts build:lib:umd",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "test:cov": "npm run test",
-    "test": "echo need to fix all tests before",
-    "test:demo": "echo nothing to do"
+    "test": "echo need to fix all tests before"
   },
   "author": "json-schema-form",
   "contributors": [
@@ -40,24 +39,24 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@talend/scripts-core": "^9.11.0",
-    "@talend/scripts-preset-react-lib": "^9.8.2",
-    "@types/chai": "^3.4.34",
-    "@types/mocha": "^2.2.33",
-    "@types/node": "^6.0.42",
-    "chai": "^4.3.0",
-    "karma": "^6.3.0",
+    "@talend/scripts-core": "^11.6.0",
+    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^6.14.13",
+    "chai": "^4.3.6",
+    "karma": "^6.3.17",
     "karma-chai-sinon": "^0.1.5",
-    "karma-coverage": "^2.0.1",
+    "karma-coverage": "^2.2.0",
     "karma-mocha": "^2.0.1",
-    "mocha": "^9.0.0",
-    "sinon": "^11.0.0",
+    "mocha": "^9.2.1",
+    "sinon": "^11.1.2",
     "sinon-chai": "^3.7.0",
-    "json-refs": "^2.1.6",
-    "rimraf": "^2.6.2"
+    "json-refs": "^2.1.7",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "objectpath": "^1.2.1",
+    "objectpath": "^1.2.2",
     "tv4": "^1.3.0"
   },
   "publishConfig": {

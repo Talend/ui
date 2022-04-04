@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import words from 'lodash/words';
@@ -28,64 +27,99 @@ function buildRegExpJsonpath(jsonpath) {
 	return new RegExp(deepJsonPath);
 }
 
-const stories = storiesOf('Data/Tree/DataViewer', module);
+export default {
+	title: 'Data/Tree/DataViewer',
+};
 
-stories
-	.addDecorator(story => (
-		<div style={{ backgroundColor: 'white', height: '400px' }} className="col-lg-offset-2 col-lg-8">
-			{story()}
-		</div>
-	))
-	.add('DataTree with highlight', () => {
-		const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
-		const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
+export const DataTreeWithHighlight = () => {
+	const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
+	const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
 
-		const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
-		const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
-		const isUnion = item => Array.isArray(item.type);
-		const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
+	const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
+	const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
+	const isUnion = item => Array.isArray(item.type);
+	const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
 
-		return (
-			<div className={layoutCn}>
-				<div
-					className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}
-				>
-					<ModelViewer
-						componentId="ModelViewer"
-						highlighted={highlighted}
-						jsonPathSelection={jsonPathSelection}
-						onSelect={onSelect}
-						sample={hierarchicSample}
-						renderLeafOptions={() => {}}
-						getDisplayValue={getDisplayValue}
-						isUnion={isUnion}
-						hasSemanticAwareness
-					/>
-				</div>
-				<div
-					className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
-				>
-					<RecordsViewer
-						componentId="RecordsViewer"
-						highlighted={highlighted}
-						onVerticalScroll={() => {}}
-						sample={hierarchicSample}
-						renderLeafAdditionalValue={() => {}}
-						renderBranchAdditionalValue={() => {}}
-					/>
-				</div>
-			</div>
-		);
-	})
-	.add('DataTree with type display on records', () => {
-		return (
-			<div style={{ height: '100%' }}>
-				<RecordsViewer
-					componentId="RecordsViewer"
+	return (
+		<div className={layoutCn}>
+			<div className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}>
+				<ModelViewer
+					componentId="ModelViewer"
+					highlighted={highlighted}
+					jsonPathSelection={jsonPathSelection}
+					onSelect={onSelect}
 					sample={hierarchicSample}
-					displayTypes
-					typesRenderer={schema => <>- of type {schema.type[0].type}</>}
+					renderLeafOptions={() => {}}
+					getDisplayValue={getDisplayValue}
+					isUnion={isUnion}
+					hasSemanticAwareness
 				/>
 			</div>
-		);
-	});
+			<div
+				className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
+			>
+				<RecordsViewer
+					componentId="RecordsViewer"
+					highlighted={highlighted}
+					onVerticalScroll={() => {}}
+					sample={hierarchicSample}
+					renderLeafAdditionalValue={() => {}}
+					renderBranchAdditionalValue={() => {}}
+				/>
+			</div>
+		</div>
+	);
+};
+
+export const DataTreeWithoutSemanticAwareness = () => {
+	const [jsonPathSelection, setJsonPathSelection] = useState("$['category']");
+	const layoutCn = classNames(theme['tc-twoviewers-layout'], 'tc-twoviewers-layout');
+
+	const highlighted = [buildRegExpJsonpath(jsonPathSelection)];
+	const onSelect = (_, jsonpath) => setJsonPathSelection(jsonpath);
+	const isUnion = item => Array.isArray(item.type);
+	const getDisplayValue = item => (typeof item === 'string' ? item : get(item, 'doc', item.name));
+
+	return (
+		<div className={layoutCn}>
+			<div className={classNames(theme['tc-twoviewers-layout-left'], 'tc-twoviewers-layout-left')}>
+				<ModelViewer
+					componentId="ModelViewer"
+					highlighted={highlighted}
+					jsonPathSelection={jsonPathSelection}
+					onSelect={onSelect}
+					sample={hierarchicSample}
+					renderLeafOptions={() => {}}
+					getDisplayValue={getDisplayValue}
+					isUnion={isUnion}
+					hasSemanticAwareness={false}
+				/>
+			</div>
+			<div
+				className={classNames(theme['tc-twoviewers-layout-right'], 'tc-twoviewers-layout-right')}
+			>
+				<RecordsViewer
+					componentId="RecordsViewer"
+					highlighted={highlighted}
+					onVerticalScroll={() => {}}
+					sample={hierarchicSample}
+					renderLeafAdditionalValue={() => {}}
+					renderBranchAdditionalValue={() => {}}
+				/>
+			</div>
+		</div>
+	);
+};
+
+export const DataTreeWithTypeDisplayOnRecords = () => {
+	return (
+		<div style={{ height: '100%' }}>
+			<RecordsViewer
+				componentId="RecordsViewer"
+				sample={hierarchicSample}
+				displayTypes
+				typesRenderer={schema => <>- of type {schema.type[0].type}</>}
+			/>
+		</div>
+	);
+};

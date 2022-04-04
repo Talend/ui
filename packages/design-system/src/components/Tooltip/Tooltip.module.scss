@@ -1,0 +1,25 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.tooltip {
+	.container {
+		padding: tokens.$coral-size-xxs tokens.$coral-size-xs;
+		max-width: tokens.$coral-size-limit;
+		font: tokens.$coral-paragraph-s;
+		color: tokens.$coral-color-assistive-text;
+		background: tokens.$coral-color-assistive-background;
+		border-radius: tokens.$coral-radius-s;
+		z-index: tokens.$coral-elevation-layer-overlay;
+		transition: opacity tokens.$coral-transition-fast;
+		opacity: 0;
+	}
+
+	&[data-enter] .container {
+		opacity: 1;
+	}
+
+	.arrow {
+		:global(.stroke) {
+			display: none;
+		}
+	}
+}

@@ -9,7 +9,6 @@ exports[`TextArea field should render disabled textarea 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <textarea
@@ -39,7 +38,6 @@ exports[`TextArea field should render provided rows 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <textarea
@@ -68,7 +66,6 @@ exports[`TextArea field should render readonly textarea 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <textarea
@@ -97,7 +94,6 @@ exports[`TextArea field should render textarea 1`] = `
   id="myForm"
   isValid={true}
   label="My input title"
-  labelAfter={true}
   required={true}
 >
   <textarea

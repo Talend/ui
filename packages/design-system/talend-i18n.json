@@ -1,0 +1,18 @@
+{
+  "extract": {
+    "method": "yarn",
+    "script": "extract-i18n",
+    "target": "./i18n-extract",
+    "transform": "flatten"
+  },
+  "load": {
+    "project": "design-system"
+  },
+  "module": {
+    "type": "npm",
+    "private": false
+  },
+  "github": {
+    "url": "https://github.com/Talend/i18n-product.git"
+  }
+}

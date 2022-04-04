@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+
 import ErrorBoundary from './ErrorBoundary.component';
 
 // missing in jsdom: https://github.com/jsdom/jsdom/issues/1721
-global.window.URL.createObjectURL = jest.fn();
 
 function TestChildren(props) {
 	if (props.breaking) {
@@ -17,22 +17,29 @@ TestChildren.propTypes = {
 };
 
 describe('Component ErrorBoundary', () => {
+	beforeEach(() => {
+		global.window.URL.createObjectURL = jest.fn();
+		global.console = {
+			log: jest.fn(),
+			error: jest.fn(),
+		};
+	});
 	it('should render children', () => {
-		const wrapper = mount(
+		render(
 			<ErrorBoundary>
 				<TestChildren />
 			</ErrorBoundary>,
 		);
-		expect(wrapper.text()).toEqual('hello world');
-		expect(wrapper.find('ErrorPanel').length).toBe(0);
+		expect(screen.getByText('hello world')).toBeInTheDocument();
 	});
 	it('should render error panel when children break', () => {
-		const wrapper = mount(
+		render(
 			<ErrorBoundary>
 				<TestChildren breaking />
 			</ErrorBoundary>,
 		);
-		expect(wrapper.text()).not.toEqual('hello world');
-		expect(wrapper.find('ErrorPanel').length).toBe(1);
+		expect(screen.getByText('Error: Bad')).toBeInTheDocument();
+		expect(() => screen.getByText('hello world')).toThrow();
+		expect(global.console.error).toHaveBeenCalled();
 	});
 });

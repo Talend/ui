@@ -274,16 +274,16 @@ describe('Date extraction', () => {
 			// given
 			const payload = {
 				date: new Date(2019, 9, 11),
-				textInput: '2019-10-11',
+				textInput: '11/10/2019',
 			};
 			const time = '12:30';
-			const options = { dateFormat: 'YYYY-MM-DD', timezone: 'America/New_York' };
+			const options = { dateFormat: 'DD/MM/YYYY', timezone: 'America/Caracas' };
 			// when
 			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 16, 30)));
 			expect(parts.date).toEqual(new Date(2019, 9, 11));
-			expect(parts.textInput).toEqual('2019-10-11 12:30');
+			expect(parts.textInput).toEqual('11/10/2019 12:30');
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
@@ -350,13 +350,13 @@ describe('Date extraction', () => {
 				textInput: '09:32',
 			};
 			const date = new Date(2019, 9, 11);
-			const options = { dateFormat: 'YYYY-MM-DD', timezone: 'America/New_York' };
+			const options = { dateFormat: 'DD/MM/YYYY', timezone: 'America/Caracas' };
 			// when
 			const parts = updatePartsOnTimeChange(payload, date, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 13, 32)));
 			expect(parts.time).toEqual({ hours: '09', minutes: '32', seconds: '00' });
-			expect(parts.textInput).toEqual('2019-10-11 09:32');
+			expect(parts.textInput).toEqual('11/10/2019 09:32');
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});

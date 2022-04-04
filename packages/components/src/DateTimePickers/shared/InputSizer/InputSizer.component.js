@@ -4,15 +4,10 @@ import PropTypes from 'prop-types';
 const EXTRA_SPACE = 5;
 
 const inputTextSizerStyle = {
-	fontWeight: 400,
-	fontSize: '1.6rem',
+	padding: '0 1rem',
+	fontSize: '1.4rem',
 	visibility: 'hidden',
 	position: 'absolute',
-};
-
-const placeholderSizerStyle = {
-	...inputTextSizerStyle,
-	fontStyle: 'oblique',
 };
 
 function InputSizer({ placeholder, inputText, children, minWidth }) {
@@ -23,12 +18,11 @@ function InputSizer({ placeholder, inputText, children, minWidth }) {
 		setWidth(minWidth || sizerRef.current.getBoundingClientRect().width);
 	});
 
-	const style = inputText ? inputTextSizerStyle : placeholderSizerStyle;
 	const text = inputText || placeholder;
 	return (
 		<React.Fragment>
 			{children(width + EXTRA_SPACE)}
-			<span style={style} ref={sizerRef}>
+			<span style={inputTextSizerStyle} ref={sizerRef}>
 				{text}
 			</span>
 		</React.Fragment>

@@ -29,6 +29,7 @@ describe('MultiSelectTag field', () => {
 				{ name: 'toto', value: 'titi' },
 				{ name: 'tata', value: 'tutu' },
 			],
+			dataTest: 'item',
 		},
 		value: ['aze', 'tutu'],
 	};

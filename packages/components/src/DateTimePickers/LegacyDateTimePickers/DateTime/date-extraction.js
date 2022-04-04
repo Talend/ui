@@ -4,7 +4,7 @@ import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
-import talendUtils from '@talend/utils';
+import { date as dateUtils } from '@talend/utils';
 
 import getErrorMessage from './error-messages';
 
@@ -295,7 +295,7 @@ function dateAndTimeToDateTime(date, time, options) {
 	try {
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds, options);
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return useUTC ? talendUtils.date.convertToUTC(localTimezoneDate) : localTimezoneDate;
+		return useUTC ? dateUtils.convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
 	}

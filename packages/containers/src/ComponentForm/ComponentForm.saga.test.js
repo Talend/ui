@@ -67,8 +67,9 @@ describe('ComponentForm saga', () => {
 
 			// when
 			const selectJsonSchema = gen.next().value;
-			expect(selectJsonSchema.SELECT).toBeDefined();
-			const selector = selectJsonSchema.SELECT.selector;
+			expect(selectJsonSchema.payload).toBeDefined();
+			expect(selectJsonSchema.type).toBe('SELECT');
+			const selector = selectJsonSchema.payload.selector;
 			const jsonSchemaSelection = selector({
 				cmf: {
 					components: fromJS({
@@ -129,6 +130,42 @@ describe('ComponentForm saga', () => {
 
 			// then
 			expect(fetchUiSpecStep.done).toBe(false);
+		});
+
+		it('should NOT fetch uiSpec when provided', () => {
+			// given
+			const jsonSchema = {
+				properties: {
+					_datasetMetadata: {
+						properties: {
+							name: {
+								title: 'Name',
+								type: 'string',
+							},
+							type: {
+								title: 'Types',
+								type: 'string',
+							},
+						},
+						type: 'object',
+					},
+				},
+			};
+			const props = {
+				componentId: 'MyComponentId',
+				definitionURL: 'http://lol',
+				definition: jsonSchema,
+			};
+			const gen = sagas.onDidMount(props);
+
+			// when
+			gen.next(); // select
+
+			// then
+			expect(gen.next().value.payload.action.cmf.componentState.componentState).toEqual({
+				initialState: jsonSchema,
+				...jsonSchema,
+			});
 		});
 	});
 
@@ -192,8 +229,9 @@ describe('ComponentForm saga', () => {
 			// when
 			gen.next(); // fetch step
 			const errorStep = gen.next({ response }).value;
-			expect(errorStep.PUT).toBeDefined();
-			const setStateAction = errorStep.PUT.action(null, getReduxStore);
+			expect(errorStep.payload).toBeDefined();
+			expect(errorStep.type).toBe('PUT');
+			const setStateAction = errorStep.payload.action(null, getReduxStore);
 
 			// then
 			expect(setStateAction).toEqual({
@@ -229,7 +267,7 @@ describe('ComponentForm saga', () => {
 			const nextStep = gen.next({ response, data }).value;
 
 			// then
-			expect(nextStep.PUT.action).toEqual({
+			expect(nextStep.payload.action).toEqual({
 				cmf: {
 					componentState: {
 						componentName: 'ComponentForm',
@@ -264,11 +302,40 @@ describe('ComponentForm saga', () => {
 			const nextStep = gen.next({ response, data }).value;
 
 			// then
-			expect(nextStep.PUT.action).toEqual({
+			expect(nextStep.payload.action).toEqual({
 				cmf: {
 					componentState: {
 						componentName: 'ComponentForm',
 						componentState: { ...data, initialState: data },
+						key: 'MyComponentId',
+						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+					},
+				},
+				type: 'ComponentForm.setState',
+			});
+		});
+		it('should init form with provided state', () => {
+			// given
+			const props = {
+				componentId,
+				definitionURL: 'http://lol',
+				data: {
+					jsonSchema: {},
+				},
+			};
+			const response = { ok: true };
+			const gen = sagas.fetchDefinition(props);
+
+			// when
+			gen.next(); // fetch step
+			const nextStep = gen.next({ response, data }).value;
+
+			// then
+			expect(nextStep.payload.action).toEqual({
+				cmf: {
+					componentState: {
+						componentName: 'ComponentForm',
+						componentState: { ...data, initialState: data, ...props.data },
 						key: 'MyComponentId',
 						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 					},

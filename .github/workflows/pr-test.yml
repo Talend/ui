@@ -1,0 +1,30 @@
+name: PR tests
+
+on:
+  pull_request:
+  push:
+    branches: [master, maintenance/*]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and test
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          check-latest: true
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Test
+        run: yarn test

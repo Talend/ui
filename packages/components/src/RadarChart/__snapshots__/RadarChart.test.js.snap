@@ -59,6 +59,7 @@ exports[`RadarChart should render a RadarChart 1`] = `
     scale="auto"
     tick={true}
     tickLine={true}
+    tickSize={8}
     type="category"
   />
   <Radar
@@ -140,6 +141,7 @@ exports[`RadarChart should render a chart with custom dots 1`] = `
     scale="auto"
     tick={true}
     tickLine={true}
+    tickSize={8}
     type="category"
   />
   <Radar

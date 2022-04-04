@@ -1,0 +1,18 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.skeletonHeading {
+	max-width: tokens.$coral-size-limit;
+
+	// Font-size mimics
+	&.size-L {
+		height: 1.8rem;
+	}
+
+	&.size-M {
+		height: 1.6rem;
+	}
+
+	&.size-S {
+		height: 1.4rem;
+	}
+}

@@ -13,7 +13,8 @@ const Default = () => {
 	const { columns, t } = useColumnChooserContext();
 	const selectedColumns = t('SELECT_COLUMNS', {
 		count: columns.filter(isVisible).length,
-		defaultValue: `{{count}}/${columns.length} selected`,
+		total: columns.length,
+		defaultValue: '{{count}}/{{total}} selected',
 	});
 	return (
 		<div>

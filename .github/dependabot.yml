@@ -1,0 +1,23 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "@storybook/*"
+      - dependency-name: "@talend/*"
+      - dependency-name: "@types/react*"
+        versions: ^17
+      - dependency-name: "react*"
+        versions: ^17
+      - dependency-name: "css-loader"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "sass-loader"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "style-loader"
+        update-types: [ "version-update:semver-major" ]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"

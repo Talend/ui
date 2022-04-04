@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { OverlayTrigger } from '@talend/react-bootstrap';
 import classNames from 'classnames';
 import uuid from 'uuid';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
+import OverlayTrigger from '../../OverlayTrigger';
 import Icon from '../../Icon';
 import theme from './ActionFile.scss';
 

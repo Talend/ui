@@ -21,13 +21,22 @@ function ColoredBar({
 	barType,
 	focusedBarIndex,
 	chartStyle,
-	...props
+	...rest
 }: BarRenderProps) {
 	const MIN_BAR_SIZE = 3;
 	const correctedHeight = !height ? 0 : Math.max(MIN_BAR_SIZE, height);
+	const props: RectangleProps = {
+		x: rest.x,
+		y: !(height && y) ? y : y - (correctedHeight - height),
+		width: !width ? 0 : Math.max(MIN_BAR_SIZE, width),
+		height: correctedHeight,
+	};
 	return (
 		<Rectangle
-			{...props}
+			x={props.x}
+			y={props.y}
+			width={props.width}
+			height={props.height}
 			className={classNames(
 				styles[`colored-bar--${chartStyle}`],
 				{
@@ -35,9 +44,6 @@ function ColoredBar({
 				},
 				styles[`colored-bar__${barType}-bar`],
 			)}
-			width={!width ? 0 : Math.max(MIN_BAR_SIZE, width)}
-			height={correctedHeight}
-			y={!(height && y) ? y : y - (correctedHeight - height)}
 		/>
 	);
 }

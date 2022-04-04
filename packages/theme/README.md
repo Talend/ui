@@ -66,7 +66,7 @@ module.exports = {
 and in your app you can do the following
 
 ```javascript
-import '!style!css!sass!@talend/bootstrap-theme/src/theme/theme.scss';
+import '!style!css!@talend/bootstrap-theme/dist/bootstrap.css';
 ```
 
 sassLoader data is a sassLib params which inject the content on every @import directive.

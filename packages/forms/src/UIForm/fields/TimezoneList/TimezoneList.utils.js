@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import talendUtils from '@talend/utils';
+import { date as dateUtils } from '@talend/utils';
 
 /**
  * Get the sorted list of timezones in a given language.
@@ -23,8 +23,8 @@ export function getTimezones(lang, cldrTimezones) {
 	 */
 	const getTimezoneInfo = (timezone, translatedName) => {
 		const timezoneName = translatedName || get(zones, `${timezone.replaceAll('/', '.')}.exemplarCity`, timezone);
-		const offset = talendUtils.date.getUTCOffset(timezone);
-		const name = `(UTC ${talendUtils.date.formatReadableUTCOffset(offset)}) ${timezoneName}`;
+		const offset = dateUtils.getUTCOffset(timezone);
+		const name = `(UTC ${dateUtils.formatReadableUTCOffset(offset)}) ${timezoneName}`;
 
 		return { name, timezoneName, offset, value: timezone };
 	};

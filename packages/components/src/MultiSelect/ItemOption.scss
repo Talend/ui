@@ -10,6 +10,14 @@
 	label {
 		height: 3rem;
 		width: 100%;
+		display: flex;
+		margin-bottom: 0;
+		align-items: center;
+	}
+	input[type='checkbox'],
+	:global(.checkbox input + :before),
+	:global(.checkbox input + :after) {
+		top: calc($padding-normal/2);
 	}
 }
 .item {
@@ -18,4 +26,9 @@
 	&[for='checkbox-select-all'] {
 		font-style: italic;
 	}
+}
+
+:global(.tc-multi-select-item) {
+	display: flex;
+	align-items: center;
 }

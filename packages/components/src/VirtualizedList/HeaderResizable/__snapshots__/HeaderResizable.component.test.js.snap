@@ -29,7 +29,6 @@ exports[`HeaderResizable should render with no specific props 1`] = `
           allowAnyClick={false}
           axis="x"
           bounds={false}
-          cancel={null}
           className="tc-header-cell-resizable-drag-button-handle theme-tc-header-cell-resizable-drag-button-handle"
           defaultClassName="react-draggable"
           defaultClassNameDragged="react-draggable-dragged"
@@ -42,9 +41,6 @@ exports[`HeaderResizable should render with no specific props 1`] = `
           }
           disabled={false}
           enableUserSelectHack={true}
-          grid={null}
-          handle={null}
-          offsetParent={null}
           onDrag={[Function]}
           onMouseDown={[Function]}
           onStart={[Function]}
@@ -55,49 +51,25 @@ exports[`HeaderResizable should render with no specific props 1`] = `
             }
           }
           scale={1}
-          transform={null}
         >
           <DraggableCore
             allowAnyClick={false}
-            axis="x"
-            bounds={false}
-            cancel={null}
             className="tc-header-cell-resizable-drag-button-handle theme-tc-header-cell-resizable-drag-button-handle"
-            defaultClassName="react-draggable"
-            defaultClassNameDragged="react-draggable-dragged"
-            defaultClassNameDragging="react-draggable-dragging"
-            defaultPosition={
-              Object {
-                "x": 0,
-                "y": 0,
-              }
-            }
             disabled={false}
             enableUserSelectHack={true}
-            grid={null}
-            handle={null}
-            offsetParent={null}
             onDrag={[Function]}
             onMouseDown={[Function]}
             onStart={[Function]}
             onStop={[Function]}
-            position={
-              Object {
-                "x": 0,
-              }
-            }
             scale={1}
-            transform={null}
           >
             <div
               className="tc-header-cell-resizable-drag-button-handle-icon theme-tc-header-cell-resizable-drag-button-handle-icon react-draggable"
               onMouseDown={[Function]}
               onMouseUp={[Function]}
               onTouchEnd={[Function]}
-              onTouchStart={[Function]}
               style={
                 Object {
-                  "touchAction": "none",
                   "transform": "translate(0px,undefinedpx)",
                 }
               }

@@ -1,40 +1,46 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import Inject from '../src/Inject.component';
+import { mock } from '../src';
 
 describe('Inject', () => {
 	it('should render', () => {
 		// given
-		const MyComponent = jest.fn();
+		const MyComponent = jest.fn(props => <span {...props}>Hello</span>);
 		MyComponent.displayName = 'MyComponent';
-		const context = {
-			registry: {
-				'_.route.component:MyComponent': MyComponent,
-			},
+		const registry = {
+			'_.route.component:MyComponent': MyComponent,
 		};
 
 		// when
-		const wrapper = shallow(<Inject component="MyComponent" extra-props />, { context });
+		render(
+			<mock.Provider registry={registry}>
+				<Inject component="MyComponent" data-testid="foo" />
+			</mock.Provider>,
+		);
 
 		// then
-		expect(wrapper.equals(<MyComponent extra-props />)).toBe(true);
+		const out = screen.getByTestId('foo');
+		expect(out).toBeInTheDocument();
+		expect(out.nodeName).toBe('SPAN');
 	});
 
 	it('should render error if component not found', () => {
 		// given
 		const MyComponent = jest.fn();
 		MyComponent.displayName = 'MyComponent';
-		const context = { registry: {} };
 
 		// when
-		const wrapper = shallow(<Inject component="MyComponent" />, { context });
+		render(
+			<mock.Provider>
+				<Inject component="MyComponent" />
+			</mock.Provider>,
+		);
 
 		// then
-		expect(wrapper.equals(
-			<Inject.NotFoundComponent
-				error="component not found in the registry: MyComponent"
-			/>
-		)).toBe(true);
+		expect(
+			screen.getByText('component not found in the registry: MyComponent'),
+		).toBeInTheDocument();
 	});
 });

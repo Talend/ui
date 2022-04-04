@@ -55,7 +55,7 @@ function VerticalBarChart({
 					// Or labels will overflow
 					bottom: showXAxis ? 40 : 10,
 				}}
-				onMouseOut={onMouseOut}
+				onMouseLeave={onMouseOut}
 			>
 				<CartesianGrid strokeDasharray="3 3" vertical={false} />
 
@@ -90,13 +90,7 @@ function VerticalBarChart({
 				/>
 
 				{showXAxis && (
-					<XAxis
-						dataKey="label"
-						type="category"
-						interval={0}
-						tick={{ angle: -45 }}
-						textAnchor="end"
-					/>
+					<XAxis dataKey="label" type="category" interval={0} angle={-45} textAnchor="end" />
 				)}
 
 				<YAxis

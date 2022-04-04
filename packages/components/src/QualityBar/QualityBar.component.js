@@ -6,6 +6,7 @@ import {
 	QualityEmptyLine,
 	QualityInvalidLine,
 	QualityNotApplicableLine,
+	QualityPlaceholderLine,
 	QualityType,
 	QualityValidLine,
 } from './QualityRatioBar.component';
@@ -20,13 +21,13 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
  * @param {number} naRaw number of not applicable raw
  * @param {number} digits number of digits we want to keep
  */
-export function getQualityPercentagesRounded(invalid, empty, valid, na = 0, digits = 0) {
+export function getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits = 0) {
 	let sumValues = 0;
 	let sumRounded = 0;
 	const digitMultiplier = Math.pow(10, digits);
 	const multiplier = 100 * digitMultiplier;
 
-	const total = invalid + empty + valid + na;
+	const total = invalid + empty + valid + na + placeholder;
 
 	sumValues = (invalid * multiplier) / total;
 	const invalidRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
@@ -43,10 +44,22 @@ export function getQualityPercentagesRounded(invalid, empty, valid, na = 0, digi
 	sumValues += (na * multiplier) / total;
 	const naRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
 
-	return [invalidRounded, emptyRounded, validRounded, naRounded];
+	sumValues += (placeholder * multiplier) / total;
+	const placeholderRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+
+	return [invalidRounded, emptyRounded, validRounded, naRounded, placeholderRounded];
 }
 
-export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature, digits = 1 }) {
+export function QualityBar({
+	digits = 1,
+	empty = 0,
+	getDataFeature,
+	invalid = 0,
+	na = 0,
+	placeholder = 0,
+	onClick,
+	valid = 0,
+}) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	const [
@@ -54,11 +67,13 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 		emptyPercentage,
 		validPercentage,
 		naPercentage,
-	] = getQualityPercentagesRounded(invalid, empty, valid, na, digits);
+		placeholderPercentage,
+	] = getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
 
 	return (
 		<RatioBar.Composition>
 			<QualityInvalidLine
+				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
 				onClick={
 					onClick
 						? e =>
@@ -67,12 +82,12 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
-				value={invalid}
 				percentage={invalidPercentage}
 				t={t}
+				value={invalid}
 			/>
 			<QualityEmptyLine
+				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
 				onClick={
 					onClick
 						? e =>
@@ -81,12 +96,12 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
-				value={empty}
 				percentage={emptyPercentage}
 				t={t}
+				value={empty}
 			/>
 			<QualityNotApplicableLine
+				dataFeature={getDataFeature ? getDataFeature(QualityType.NA) : null}
 				onClick={
 					onClick
 						? e =>
@@ -95,12 +110,12 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.NA) : null}
-				value={na}
 				percentage={naPercentage}
 				t={t}
+				value={na}
 			/>
 			<QualityValidLine
+				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
 				onClick={
 					onClick
 						? e =>
@@ -109,21 +124,22 @@ export function QualityBar({ invalid, valid, empty, na, onClick, getDataFeature,
 								})
 						: null
 				}
-				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
 				value={valid}
 				percentage={validPercentage}
 				t={t}
 			/>
+			<QualityPlaceholderLine percentage={placeholderPercentage} t={t} value={placeholder} />
 		</RatioBar.Composition>
 	);
 }
 
 QualityBar.propTypes = {
-	invalid: PropTypes.number.isRequired,
-	empty: PropTypes.number.isRequired,
-	valid: PropTypes.number.isRequired,
-	na: PropTypes.number.isRequired,
-	onClick: PropTypes.func,
-	getDataFeature: PropTypes.func,
 	digits: PropTypes.number,
+	empty: PropTypes.number,
+	getDataFeature: PropTypes.func,
+	invalid: PropTypes.number,
+	na: PropTypes.number,
+	placeholder: PropTypes.number,
+	onClick: PropTypes.func,
+	valid: PropTypes.number,
 };

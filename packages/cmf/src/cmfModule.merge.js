@@ -83,6 +83,11 @@ function mergeSaga(saga, newSaga) {
 	return saga;
 }
 
+/** undefined mean true, only false work  */
+function booleanAnd(a, b) {
+	return a !== false && b !== false;
+}
+
 function mergeArrays(preReducer, newPreReducer) {
 	if (preReducer && newPreReducer) {
 		return [].concat(preReducer).concat(newPreReducer);
@@ -109,6 +114,7 @@ const MERGE_FNS = {
 	id: () => undefined,
 	modules: () => undefined,
 	init: () => undefined,
+	render: booleanAnd,
 	onError: getUnique,
 	root: getUnique,
 	appId: getUnique,

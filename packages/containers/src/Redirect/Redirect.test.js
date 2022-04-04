@@ -1,20 +1,25 @@
+import React from 'react';
+import { mount } from 'enzyme';
 import Redirect from './Redirect.container';
+import AppLoader from '@talend/react-components/lib/AppLoader';
 
 describe('Redirect', () => {
 	it('should dispatch a redirect action', () => {
 		const dispatch = jest.fn();
-		const result = new Redirect.WrappedComponent({ path: '/hello-world', dispatch });
+		const Wrapped = Redirect.WrappedComponent;
+		const wrapper = mount(<Wrapped path="/hello-world" dispatch={dispatch} />);
 		expect(dispatch.mock.calls.length).toBe(1);
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');
 		expect(action.cmf.routerReplace).toBe('/hello-world');
-		expect(result).toMatchSnapshot();
+		expect(wrapper.find(AppLoader).length).toBe(1);
 	});
 
 	it('should dispatch a redirect action if to props given', () => {
 		const dispatch = jest.fn();
 		// eslint-disable-next-line new-cap
-		Redirect.WrappedComponent({ path: '/to', dispatch });
+		const Wrapped = Redirect.WrappedComponent;
+		mount(<Wrapped path="/to" dispatch={dispatch} />);
 		expect(dispatch.mock.calls.length).toBe(1);
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');

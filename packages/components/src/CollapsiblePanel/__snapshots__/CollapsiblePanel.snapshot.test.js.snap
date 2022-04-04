@@ -14,8 +14,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                    class="theme-tc-status tc-status theme-action"
               >
                 <span class="theme-tc-status-icon tc-status-icon theme-info">
-                  <coral.icon name="fa fa-check">
-                  </coral.icon>
+                  <coralicon name="fa fa-check">
+                  </coralicon>
                 </span>
                 <span class="theme-tc-status-label tc-status-label theme-info"
                       aria-describedby="42"
@@ -27,8 +27,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                           type="button"
                           class="btn btn-default"
                   >
-                    <coral.icon name="fa fa-cancel">
-                    </coral.icon>
+                    <coralicon name="fa fa-cancel">
+                    </coralicon>
                     <span>
                       cancel
                     </span>
@@ -37,8 +37,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                           type="button"
                           class="btn btn-default"
                   >
-                    <coral.icon name="fa fa-delete">
-                    </coral.icon>
+                    <coralicon name="fa fa-delete">
+                    </coralicon>
                     <span>
                       delete
                     </span>
@@ -53,8 +53,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                       type="button"
                       class="theme-undefined btn-icon-only btn btn-link"
               >
-                <coral.icon name="fa fa-edit">
-                </coral.icon>
+                <coralicon name="fa fa-edit">
+                </coralicon>
               </button>
             </div>
             <div class="theme-undefined theme-col-4">
@@ -70,11 +70,11 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               >
                 on TDP
               </div>
-              <coral.tag class="theme-undefined"
-                         aria-describedby="42"
+              <coraltag class="theme-undefined"
+                        aria-describedby="42"
               >
                 XML
-              </coral.tag>
+              </coraltag>
             </div>
           </div>
         </button>
@@ -85,10 +85,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 aria-describedby="42"
                 class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
         >
-          <coral.icon name="talend-caret-down"
-                      transform="flip-vertical"
+          <coralicon name="talend-caret-down"
+                     transform="flip-vertical"
           >
-          </coral.icon>
+          </coralicon>
         </button>
       </div>
     </div>
@@ -97,9 +97,9 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
     <div class="panel-body">
       <dl class="theme-content">
         <dt class="theme-label">
-          <coral.tag>
+          <coraltag>
             Content
-          </coral.tag>
+          </coraltag>
         </dt>
         <dd class="theme-description">
           Description3
@@ -124,8 +124,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                    class="theme-tc-status tc-status theme-action"
               >
                 <span class="theme-tc-status-icon tc-status-icon theme-info">
-                  <coral.icon name="fa fa-check">
-                  </coral.icon>
+                  <coralicon name="fa fa-check">
+                  </coralicon>
                 </span>
                 <span class="theme-tc-status-label tc-status-label theme-info"
                       aria-describedby="42"
@@ -137,8 +137,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                           type="button"
                           class="btn btn-default"
                   >
-                    <coral.icon name="fa fa-cancel">
-                    </coral.icon>
+                    <coralicon name="fa fa-cancel">
+                    </coralicon>
                     <span>
                       cancel
                     </span>
@@ -147,8 +147,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                           type="button"
                           class="btn btn-default"
                   >
-                    <coral.icon name="fa fa-delete">
-                    </coral.icon>
+                    <coralicon name="fa fa-delete">
+                    </coralicon>
                     <span>
                       delete
                     </span>
@@ -163,8 +163,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                       type="button"
                       class="theme-undefined btn-icon-only btn btn-link"
               >
-                <coral.icon name="fa fa-edit">
-                </coral.icon>
+                <coralicon name="fa fa-edit">
+                </coralicon>
               </button>
             </div>
             <div class="theme-undefined theme-col-4">
@@ -180,11 +180,11 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               >
                 on TDP
               </div>
-              <coral.tag class="theme-undefined"
-                         aria-describedby="42"
+              <coraltag class="theme-undefined"
+                        aria-describedby="42"
               >
                 XML
-              </coral.tag>
+              </coraltag>
             </div>
           </div>
         </button>
@@ -194,8 +194,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 aria-describedby="42"
                 class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
         >
-          <coral.icon name="talend-caret-down">
-          </coral.icon>
+          <coralicon name="talend-caret-down">
+          </coralicon>
         </button>
       </div>
     </div>
@@ -204,9 +204,9 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
     <div class="panel-body">
       <dl class="theme-content">
         <dt class="theme-label">
-          <coral.tag>
+          <coraltag>
             Content
-          </coral.tag>
+          </coraltag>
         </dt>
         <dd class="theme-description">
           Description3
@@ -231,8 +231,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                    class="theme-tc-status tc-status theme-action"
               >
                 <span class="theme-tc-status-icon tc-status-icon theme-info">
-                  <coral.icon name="fa fa-check">
-                  </coral.icon>
+                  <coralicon name="fa fa-check">
+                  </coralicon>
                 </span>
                 <span class="theme-tc-status-label tc-status-label theme-info"
                       aria-describedby="42"
@@ -244,8 +244,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                           type="button"
                           class="btn btn-default"
                   >
-                    <coral.icon name="fa fa-cancel">
-                    </coral.icon>
+                    <coralicon name="fa fa-cancel">
+                    </coralicon>
                     <span>
                       cancel
                     </span>
@@ -254,8 +254,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                           type="button"
                           class="btn btn-default"
                   >
-                    <coral.icon name="fa fa-delete">
-                    </coral.icon>
+                    <coralicon name="fa fa-delete">
+                    </coralicon>
                     <span>
                       delete
                     </span>
@@ -270,8 +270,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                       type="button"
                       class="theme-undefined btn-icon-only btn btn-link"
               >
-                <coral.icon name="fa fa-edit">
-                </coral.icon>
+                <coralicon name="fa fa-edit">
+                </coralicon>
               </button>
             </div>
             <div class="theme-undefined theme-col-4">
@@ -287,11 +287,11 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               >
                 on TDP
               </div>
-              <coral.tag class="theme-undefined"
-                         aria-describedby="42"
+              <coraltag class="theme-undefined"
+                        aria-describedby="42"
               >
                 XML
-              </coral.tag>
+              </coraltag>
             </div>
           </div>
         </button>
@@ -385,8 +385,8 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
                 aria-describedby="42"
                 class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
         >
-          <coral.icon name="talend-caret-down">
-          </coral.icon>
+          <coralicon name="talend-caret-down">
+          </coralicon>
         </button>
       </div>
     </div>

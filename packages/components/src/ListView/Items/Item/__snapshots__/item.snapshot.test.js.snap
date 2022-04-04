@@ -4,11 +4,12 @@ exports[`Item should display a selected item 1`] = `
 <div
   aria-selected={true}
   className="checkbox"
+  data-test="item"
   id="0-item"
   role="option"
 >
   <div
-    className="checkbox tc-toggle theme-tc-toggle checkbox"
+    className="checkbox tc-checkbox"
   >
     <label
       htmlFor="checkbox-0-item"
@@ -17,6 +18,8 @@ exports[`Item should display a selected item 1`] = `
         aria-label="Deselect toto"
         checked={true}
         data-checked={2}
+        data-test="item.checkbox"
+        disabled={false}
         id="checkbox-0-item"
         onChange={[Function]}
         type="checkbox"

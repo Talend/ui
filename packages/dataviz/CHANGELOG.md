@@ -1,5 +1,116 @@
 # Changelog
 
+## 1.0.6
+
+### Patch Changes
+
+- e2bcac8e6: GeoChart: Useless zoom buttons z-index
+
+## 1.0.5
+
+### Patch Changes
+
+- 22d74ae79: fix: replace dynamic import syntax by static
+
+  It was not supported by typescript which replace it with static import.
+  Wait for CDN API which is incoming to load assets on demand.
+
+- Updated dependencies [2e22151be]
+  - @talend/react-components@6.44.2
+
+## 1.0.4
+
+### Patch Changes
+
+- 275c25ee0: chore(dependencies): auto update for maintenance purpose
+
+  ```diff
+  -    "@talend/react-components": "^6.43.5"
+  +    "@talend/react-components": "^6.44.0"
+  ```
+
+- Updated dependencies [275c25ee0]
+  - @talend/react-components@6.44.1
+
+## 1.0.3
+
+### Patch Changes
+
+- 618951c8b: chore(deps): auto update for maintenance purpose
+- Updated dependencies [618951c8b]
+  - @talend/react-components@6.43.5
+
+## 1.0.2
+
+### Patch Changes
+
+- 86f208189: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [86f208189]
+  - @talend/react-components@6.43.3
+
+## 1.0.1
+
+### Patch Changes
+
+- 3bbf55610: fix(components/dataviz): recharts path in dependencies.json
+- Updated dependencies [3bbf55610]
+  - @talend/react-components@6.42.1
+
+## 1.0.0
+
+### Major Changes
+
+- 42efdca45: Upgrade to recharts 2 and ensure everything is working well
+
+### Patch Changes
+
+- Updated dependencies [2e5511f79]
+- Updated dependencies [cfa90496c]
+- Updated dependencies [42efdca45]
+  - @talend/react-components@6.42.0
+
+## 0.4.10
+
+### Patch Changes
+
+- b33eb8655: fix(GeoChart): ?? operator is breaking angular tests
+- Updated dependencies [d353a0a3c]
+  - @talend/react-components@6.41.4
+
+## 0.4.9
+
+### Patch Changes
+
+- 039b85775: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [039b85775]
+  - @talend/react-components@6.41.3
+
+## 0.4.8
+
+### Patch Changes
+
+- 667cd0a50: chore: upgrade dependencies and align @talend scoped packages to latest
+- Updated dependencies [667cd0a50]
+- Updated dependencies [7dde61e46]
+  - @talend/react-components@6.40.0
+
+## 0.4.7
+
+### Patch Changes
+
+- f1f4ec5bc: fix(workspace-run): package run order
+- Updated dependencies [f1f4ec5bc]
+  - @talend/react-components@6.39.2
+
+## 0.4.6
+
+### Patch Changes
+
+- 3e9121287: chore(build): order packages on pre-release hook
+- Updated dependencies [3e9121287]
+- Updated dependencies [80ca14323]
+  - @talend/react-components@6.39.1
+
 ## 0.4.5
 
 ### Fixed
@@ -79,7 +190,6 @@
 ### Fixed
 
 - [Reset tooltip line margin](https://github.com/Talend/ui/pull/3158):
-
 
 ## [0.1.3]
 

@@ -1,0 +1,175 @@
+@use '../tokens';
+
+dl,
+dt,
+dd {
+	margin: 0;
+}
+
+.skeleton {
+}
+.tokenFilter {
+	margin: tokens.$coral-size-xl 0;
+	padding: tokens.$coral-size-s;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-radius: tokens.$coral-radius-s;
+
+	label {
+		color: tokens.$coral-color-neutral-text-weak;
+		font: tokens.$coral-paragraph-s-bold;
+	}
+
+	input {
+		margin: tokens.$coral-size-xxs;
+	}
+}
+
+.token {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas:
+		'name demo demo'
+		'description value value';
+	margin: tokens.$coral-size-s 0 tokens.$coral-size-xl;
+}
+
+.tokenName {
+	grid-area: name;
+	align-self: end;
+	font: tokens.$coral-paragraph-s-bold;
+}
+
+.tokenDescription {
+	grid-area: description;
+}
+
+.tokenValueDemo {
+	grid-area: demo;
+	align-self: end;
+	justify-self: end;
+}
+
+.tokenValue {
+	grid-area: value;
+	position: relative;
+	margin-top: tokens.$coral-size-s;
+	padding: tokens.$coral-size-xs;
+	margin-left: auto;
+	max-width: 90%;
+	text-align: end;
+	color: tokens.$coral-color-neutral-text-weak;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-radius: tokens.$coral-radius-s;
+
+	&:after {
+		position: absolute;
+		bottom: 100%;
+		right: tokens.$coral-size-xs;
+		content: '';
+		height: 0;
+		width: 0;
+		border: solid transparent;
+	}
+
+	&:after {
+		border-bottom-color: tokens.$coral-color-neutral-background-medium;
+		border-width: tokens.$coral-size-xs;
+		margin-left: -#{tokens.$coral-size-xs};
+	}
+
+	code {
+		display: block;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}
+
+.border {
+	width: tokens.$coral-size-xl;
+	height: tokens.$coral-size-xl;
+	border-radius: tokens.$coral-radius-s;
+	border: none;
+}
+
+.branding {
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.breakpoint {
+	margin: 0;
+	border: 1px solid tokens.$coral-color-accent-background-hover;
+}
+
+.color {
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	border-radius: tokens.$coral-radius-s;
+	border: 1px solid tokens.$coral-color-neutral-border-weak;
+}
+
+.elevation {
+	margin: tokens.$coral-size-xs;
+	width: tokens.$coral-size-xl;
+	height: calc(#{tokens.$coral-size-xl} / 2);
+	background: tokens.$coral-color-accent-background;
+	border-radius: tokens.$coral-radius-s;
+	transform: skew(-45deg);
+}
+
+.gradient {
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-limit;
+	background-size: contain;
+	background-repeat: no-repeat;
+	border-radius: tokens.$coral-radius-s;
+}
+
+.measure {
+	width: tokens.$coral-size-xl;
+	height: tokens.$coral-size-xl;
+	background: tokens.$coral-color-accent-background;
+	border-radius: tokens.$coral-radius-s;
+}
+
+.radius {
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	background: tokens.$coral-color-accent-background;
+}
+
+.shadow {
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	border-radius: tokens.$coral-radius-s;
+}
+
+.opacity {
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-limit;
+	background-image: linear-gradient(to right, rgba(192, 192, 192, 0.75), rgba(192, 192, 192, 0.75)), linear-gradient(to right, black 50%, white 50%), linear-gradient(to bottom, black 50%, white 50%);
+	background-blend-mode: normal, difference, normal;
+	background-size: tokens.$coral-size-xs tokens.$coral-size-xs;
+	border-radius: tokens.$coral-radius-s;
+
+	&Layer {
+		height: 100%;
+		width: 100%;
+		background: tokens.$coral-color-accent-background-hover;
+	}
+}
+
+.transition {
+	height: tokens.$coral-size-xl;
+	width: tokens.$coral-size-xl;
+	background: tokens.$coral-color-accent-background;
+	border-radius: tokens.$coral-radius-s;
+
+	&:hover {
+		transform: scale(2);
+		background: tokens.$coral-color-accent-background-hover;
+	}
+}

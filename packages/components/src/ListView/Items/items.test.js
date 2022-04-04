@@ -15,6 +15,7 @@ describe('Items', () => {
 			{ label: 'Lorem ipsum dolor sit amet 1', checked: true },
 			{ label: 'Lorem ipsum dolor sit amet 2' },
 		],
+		dataTest:'item',
 		getItemHeight: () => 42,
 	};
 
@@ -23,6 +24,7 @@ describe('Items', () => {
 			{ label: 'Lorem ipsum dolor default' },
 			{ label: 'Lorem ipsum dolor Parent', checked: true, children: props.items },
 		],
+		dataTest:'item',
 		getItemHeight: () => 42,
 	};
 

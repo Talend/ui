@@ -4,6 +4,8 @@
 	"parser": "@typescript-eslint/parser",
 	"plugins": ["@typescript-eslint"],
 	"rules": {
+		"no-use-before-define": "off",
+		"@typescript-eslint/no-use-before-define": "off",
 		"jsx-a11y/label-has-associated-control": [
 			2,
 			{

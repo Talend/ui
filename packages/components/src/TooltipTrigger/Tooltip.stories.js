@@ -1,6 +1,5 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { storiesOf } from '@storybook/react';
 
 import { Button } from '@talend/react-bootstrap';
 import TooltipTrigger from './TooltipTrigger.component';
@@ -20,7 +19,11 @@ function generateButtonWithTooltip(label, tooltipPlacement) {
 	);
 }
 
-storiesOf('Messaging & Communication/Tooltip', module).add('default', () => {
+export default {
+	title: 'Messaging & Communication/Tooltip',
+};
+
+export const Default = () => {
 	const style = {
 		flex: '0 0 auto',
 		display: 'flex',
@@ -102,4 +105,4 @@ storiesOf('Messaging & Communication/Tooltip', module).add('default', () => {
 			</div>
 		</div>
 	);
-});
+};

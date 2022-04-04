@@ -225,7 +225,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
+                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row"
                       role="row"
                       style={
                         Object {
@@ -294,11 +294,12 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                                   data-feature="list.select_all"
                                   disabled={false}
                                   intermediate={0}
+                                  label=""
                                   onChange={[MockFunction]}
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                    className="checkbox tc-checkbox"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -367,7 +368,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     </div>
                     <Grid
                       aria-label="grid"
-                      aria-readonly={true}
+                      aria-readonly={null}
                       autoContainerWidth={true}
                       autoHeight={false}
                       autoWidth={false}
@@ -423,7 +424,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     >
                       <div
                         aria-label="grid"
-                        aria-readonly={true}
+                        aria-readonly={null}
                         className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"
@@ -887,7 +888,7 @@ exports[`List should render 1`] = `
                                 <Icon
                                   name="talend-chevron-end"
                                 >
-                                  <Coral.Icon
+                                  <CoralIcon
                                     name="talend-chevron-end"
                                   />
                                 </Icon>
@@ -924,7 +925,7 @@ exports[`List should render 1`] = `
                                 <Icon
                                   name="talend-chevron-left"
                                 >
-                                  <Coral.Icon
+                                  <CoralIcon
                                     name="talend-chevron-left"
                                   />
                                 </Icon>
@@ -971,7 +972,7 @@ exports[`List should render 1`] = `
                                   name="talend-chevron-left"
                                   transform="rotate-180"
                                 >
-                                  <Coral.Icon
+                                  <CoralIcon
                                     name="talend-chevron-left"
                                     transform="rotate-180"
                                   />
@@ -1010,7 +1011,7 @@ exports[`List should render 1`] = `
                                   name="talend-chevron-end"
                                   transform="rotate-180"
                                 >
-                                  <Coral.Icon
+                                  <CoralIcon
                                     name="talend-chevron-end"
                                     transform="rotate-180"
                                   />
@@ -1209,7 +1210,7 @@ exports[`List should render 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
+                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row"
                       role="row"
                       style={
                         Object {
@@ -1278,11 +1279,12 @@ exports[`List should render 1`] = `
                                   data-feature="list.select_all"
                                   disabled={false}
                                   intermediate={0}
+                                  label=""
                                   onChange={[MockFunction]}
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                    className="checkbox tc-checkbox"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -1351,7 +1353,7 @@ exports[`List should render 1`] = `
                     </div>
                     <Grid
                       aria-label="grid"
-                      aria-readonly={true}
+                      aria-readonly={null}
                       autoContainerWidth={true}
                       autoHeight={false}
                       autoWidth={false}
@@ -1407,7 +1409,7 @@ exports[`List should render 1`] = `
                     >
                       <div
                         aria-label="grid"
-                        aria-readonly={true}
+                        aria-readonly={null}
                         className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"
@@ -1880,7 +1882,7 @@ exports[`List should render id if provided 1`] = `
                                 <Icon
                                   name="talend-chevron-end"
                                 >
-                                  <Coral.Icon
+                                  <CoralIcon
                                     name="talend-chevron-end"
                                   />
                                 </Icon>
@@ -1920,7 +1922,7 @@ exports[`List should render id if provided 1`] = `
                                 <Icon
                                   name="talend-chevron-left"
                                 >
-                                  <Coral.Icon
+                                  <CoralIcon
                                     name="talend-chevron-left"
                                   />
                                 </Icon>
@@ -1970,7 +1972,7 @@ exports[`List should render id if provided 1`] = `
                                   name="talend-chevron-left"
                                   transform="rotate-180"
                                 >
-                                  <Coral.Icon
+                                  <CoralIcon
                                     name="talend-chevron-left"
                                     transform="rotate-180"
                                   />
@@ -2012,7 +2014,7 @@ exports[`List should render id if provided 1`] = `
                                   name="talend-chevron-end"
                                   transform="rotate-180"
                                 >
-                                  <Coral.Icon
+                                  <CoralIcon
                                     name="talend-chevron-end"
                                     transform="rotate-180"
                                   />
@@ -2217,7 +2219,7 @@ exports[`List should render id if provided 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
+                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row"
                       role="row"
                       style={
                         Object {
@@ -2289,11 +2291,12 @@ exports[`List should render id if provided 1`] = `
                                   disabled={false}
                                   id="context-header-check"
                                   intermediate={0}
+                                  label=""
                                   onChange={[MockFunction]}
                                   type="checkbox"
                                 >
                                   <div
-                                    className="checkbox tc-toggle theme-tc-toggle checkbox"
+                                    className="checkbox tc-checkbox"
                                   >
                                     <label
                                       data-feature="list.select_all.enable"
@@ -2364,7 +2367,7 @@ exports[`List should render id if provided 1`] = `
                     </div>
                     <Grid
                       aria-label="grid"
-                      aria-readonly={true}
+                      aria-readonly={null}
                       autoContainerWidth={true}
                       autoHeight={false}
                       autoWidth={false}
@@ -2420,7 +2423,7 @@ exports[`List should render id if provided 1`] = `
                     >
                       <div
                         aria-label="grid"
-                        aria-readonly={true}
+                        aria-readonly={null}
                         className="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
                         onScroll={[Function]}
                         role="rowgroup"

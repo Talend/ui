@@ -1,11 +1,25 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-empty-function */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import mergeModules from '../src/cmfModule.merge';
 
 describe('mergeModule', () => {
+	// eslint-disable-next-line no-console
+	const originalLog = console;
+	beforeEach(() => {
+		// eslint-disable-next-line no-console
+		global.console = {
+			warn: jest.fn(),
+			log: jest.fn(),
+		};
+	});
+	afterEach(() => {
+		// eslint-disable-next-line no-console
+		global.console = originalLog;
+	});
 	it('should merge components config', () => {
 		const a = {
 			components: {
@@ -219,20 +233,55 @@ describe('mergeModule', () => {
 
 	it('should compose RootComponent', () => {
 		// given
-		const module1 = { RootComponent: ({ children }) => <div id="mod1">{children}</div> };
-		const module2 = { RootComponent: ({ children }) => <div id="mod2">{children}</div> };
-		const module3 = { RootComponent: ({ children }) => <div id="mod3">{children}</div> };
+		const module1 = {
+			RootComponent: ({ children }) => (
+				<div>
+					<h1>first</h1>
+					{children}
+				</div>
+			),
+		};
+		const module2 = {
+			RootComponent: ({ children }) => (
+				<div>
+					<h2>second</h2>
+					{children}
+				</div>
+			),
+		};
+		const module3 = {
+			RootComponent: ({ children }) => (
+				<div>
+					<h3>third</h3>
+					{children}
+				</div>
+			),
+		};
 
 		// when
 		const { RootComponent } = mergeModules(module1, module2, module3);
-		const wrapper = mount(<RootComponent />);
+		render(<RootComponent />);
 
 		// then
-		const mod1 = wrapper.find('#mod1');
-		expect(mod1.length).toBe(1);
-		const mod2 = mod1.find('#mod2');
-		expect(mod2.length).toBe(1);
-		const mod3 = mod1.find('#mod3');
-		expect(mod3.length).toBe(1);
+		const mod1 = screen.getByText('first');
+		expect(mod1).toBeInTheDocument();
+		const mod2 = screen.getByText('second');
+		expect(mod2).toBeInTheDocument();
+		const mod3 = screen.getByText('third');
+		expect(mod3).toBeInTheDocument();
+	});
+	it('should merge render', () => {
+		const module1 = {};
+		const module2 = { render: true };
+		const module3 = { render: false };
+		const outputTrue = mergeModules(module1, module2);
+		const outputUndefined = mergeModules(module1, {});
+		const outputFalse1 = mergeModules(module2, module3);
+		const outputFalse2 = mergeModules(module2, module3);
+		expect(outputFalse1.render).toBe(false);
+		expect(outputFalse2.render).toBe(false);
+		expect(outputTrue.render).toBe(true);
+		expect(outputUndefined.render).toBe(undefined);
+		expect(mergeModules({}).render).toBe(undefined);
 	});
 });

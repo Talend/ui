@@ -1,0 +1,37 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$iconAlignmentOffsetM: -0.3rem;
+$iconAlignmentOffsetS: -0.1rem;
+
+.linkable {
+	cursor: pointer;
+}
+
+svg.link__icon {
+	margin-bottom: $iconAlignmentOffsetM;
+	height: tokens.$coral-size-m;
+	width: tokens.$coral-size-m;
+	margin-right: tokens.$coral-size-xxs;
+	flex-shrink: 0;
+}
+
+svg.link__iconExternal {
+	margin-bottom: $iconAlignmentOffsetS;
+	height: tokens.$coral-size-s;
+	width: tokens.$coral-size-s;
+	margin-left: tokens.$coral-size-xxs;
+	flex-shrink: 0;
+}
+
+.naturally_aligned {
+	svg.link__icon,
+	svg.link__iconExternal {
+		margin-bottom: 0;
+	}
+}
+
+.with_ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

@@ -1,15 +1,13 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
-
 import Dialog from '../Dialog';
-import Skeleton from '../Skeleton';
 import Icon from '../Icon';
+import Skeleton from '../Skeleton';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import theme from './AboutDialog.scss';
-
-import I18N_DOMAIN_COMPONENTS from '../constants';
 import { AboutDialogTable, Text } from './AboutDialogTable.component';
 
 function AboutDialog({
@@ -50,30 +48,38 @@ function AboutDialog({
 			show={show}
 		>
 			<div>
-				<Icon name={icon} className={classNames(theme['about-logo'], 'about-logo')} />
+				<Icon
+					name={icon}
+					className={classNames(theme['about-logo'], 'about-logo')}
+					data-testid="icon"
+				/>
 				<div className={classNames(theme['about-excerpt'], 'about-excerpt')}>
 					{version && (
+						<div>
+							<Text
+								text={t('ABOUT_VERSION_NAME', {
+									defaultValue: 'Version: {{version}}',
+									version,
+									interpolation: { escapeValue: false },
+								})}
+								size={Skeleton.SIZES.xlarge}
+								loading={loading}
+							/>
+						</div>
+					)}
+					<div>
 						<Text
-							text={t('ABOUT_VERSION_NAME', {
-								defaultValue: 'Version: {{version}}',
-								version,
-								interpolation: { escapeValue: false },
-							})}
-							size={Skeleton.SIZES.xlarge}
+							text={
+								copyrights ||
+								t('ABOUT_COPYRIGHTS', {
+									defaultValue: '© {{year}} Talend. All Rights Reserved',
+									year: new Date().getFullYear(),
+								})
+							}
+							size={Skeleton.SIZES.large}
 							loading={loading}
 						/>
-					)}
-					<Text
-						text={
-							copyrights ||
-							t('ABOUT_COPYRIGHTS', {
-								defaultValue: '© {{year}} Talend. All Rights Reserved',
-								year: new Date().getFullYear(),
-							})
-						}
-						size={Skeleton.SIZES.large}
-						loading={loading}
-					/>
+					</div>
 				</div>
 				{expanded && (
 					<AboutDialogTable t={t} loading={loading} services={services} definition={definition} />

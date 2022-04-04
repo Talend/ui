@@ -1,0 +1,218 @@
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+	rel="stylesheet"
+/>
+<link id="bootstrap-theme" href="https://talend.surge.sh/theme/bootstrap.css" rel="stylesheet" />
+<style>
+	html {
+		font-size: 62.5%;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-size: 14px;
+	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}
+
+	.sbdocs.sbdocs-toc,
+	.sbdocs.sbdocs-top {
+		border-radius: 0.5rem;
+	}
+
+	.sbdocs.sbdocs-toc {
+		--toc-color: #202020;
+		--toc-background: white;
+		--toc-indicator-color: #f5f5f5;
+		--toc-indicator-color--active: #0675c1;
+
+		box-shadow: 0 2px 6px rgb(0 0 0 / 25%);
+	}
+
+	.sbdocs.sbdocs-top {
+		--toc-button-color: #202020;
+		--toc-button-background: transparent;
+		--toc-button-background--hover: #ffffff;
+		--toc-button-background--active: #efefef;
+	}
+
+	.sbdocs.sbdocs-wrapper {
+		background: #f7f3ef;
+	}
+
+	.sbdocs .sbdocs-content {
+		padding: 2rem 4rem;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+		background: white;
+		border-radius: 0.5rem;
+	}
+
+	.sbdocs abbr {
+		font-family: 'Inconsolata', monospace;
+		font-style: normal;
+		color: #ff6d70;
+	}
+
+	#docs-root,
+	.sbdocs .sbdocs-content,
+	.sbdocs .sbdocs-div,
+	.sbdocs .sbdocs-p {
+		margin-top: 0;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 1.4rem;
+		line-height: normal;
+		color: #202020;
+	}
+
+	.sbdocs #diveinto {
+		margin-bottom: 2rem;
+	}
+
+	.sbdocs img {
+		display: block;
+		max-width: 100%;
+	}
+
+	.sbdocs .sbdocs-h1,
+	.sbdocs .sbdocs-h2,
+	.sbdocs .sbdocs-h3,
+	.sbdocs .sbdocs-h4,
+	.sbdocs .sbdocs-h5,
+	.sbdocs .sbdocs-h6 {
+		border: none;
+		color: #202020;
+	}
+
+	.sbdocs .sbdocs-h1 {
+		position: relative;
+		display: inline-block;
+		font-family: 'Gelasio', serif;
+		font-weight: bold;
+		font-size: 3.2rem;
+		z-index: 0;
+	}
+
+	.sbdocs .sbdocs-h1:after {
+		content: '';
+		position: absolute;
+		height: 1rem;
+		width: 100%;
+		bottom: 0.8rem;
+		left: 0;
+		background: #fde1e2;
+		z-index: -1;
+	}
+
+	.sbdocs .sbdocs-h2 {
+		font-size: 2rem;
+	}
+
+	.sbdocs .sbdocs-h3 {
+		font-size: 1.6rem;
+	}
+
+	.sbdocs .sbdocs-h4 {
+		font-size: 1.4rem;
+	}
+
+	.sbdocs .sbdocs-h5 {
+		font-size: 1.2rem;
+	}
+
+	.sbdocs .sbdocs-h6 {
+		font-size: 1rem;
+	}
+
+	.sbdocs .sbdocs-a {
+		color: #0675c1;
+		font-weight: 600;
+	}
+
+	.sbdocs .sbdocs-table {
+		width: 100%;
+		border-collapse: collapse;
+		overflow: hidden;
+	}
+
+	.sbdocs .sbdocs-table th,
+	.sbdocs .sbdocs-table td {
+		padding: 0.5rem 1.5rem;
+		border: none;
+	}
+
+	.sbdocs .sbdocs-table th:first-child {
+		border-radius: 0.4rem 0 0 0;
+	}
+
+	.sbdocs .sbdocs-table th:last-child {
+		border-radius: 0 0.4rem 0 0;
+	}
+
+	.sbdocs .sbdocs-table th {
+		width: 50%;
+		color: #323e48;
+		text-align: start;
+		font-size: 1.2rem;
+		font-weight: 600;
+		background: #f5f5f5;
+	}
+
+	.sbdocs .sbdocs-table td {
+		font-weight: normal;
+		font-size: 1.4rem;
+		border: 1px solid #f5f5f5;
+	}
+
+	.sbdocs-div > dt {
+		font-size: 1.6rem;
+		font-weight: 600;
+	}
+	.sbdocs-div > dt:before {
+		content: '#';
+		color: #ff6d70;
+		padding-right: 1ch;
+	}
+
+	.sbdocs-div > dd {
+		margin: 0.5rem 0;
+		font-size: 1.4rem;
+	}
+
+	.sbdocs.sbdocs-preview pre.prismjs {
+		background: #022e4d;
+	}
+
+	.sbdocs .token.plain-text {
+		color: #91d1ed;
+	}
+
+	.sbdocs kbd {
+		padding: 0.25rem 0.5rem;
+		color: #202020;
+		background-color: #eeeeee;
+		border-radius: 0.4rem;
+		border: 1px solid #606060;
+		font-size: 1.2rem;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+	}
+
+	.sbdocs footer {
+		text-align: center;
+	}
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic" />
+<script type="text/javascript">
+	// add this because of badly built https://unpkg.com/hoist-non-react-statics@3.3.2/dist/hoist-non-react-statics.min.js
+	window.process = window.process || { env: { NODE_ENV: 'production' } };
+</script>

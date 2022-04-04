@@ -83,6 +83,7 @@ export default class DataGrid extends React.Component {
 
 		this.handleKeyboard = this.handleKeyboard.bind(this);
 		this.onFocusedColumn = this.onFocusedColumn.bind(this);
+		this.shouldUpdateCurrentColumn = this.shouldUpdateCurrentColumn.bind(this);
 		this.onFocusedCell = this.onFocusedCell.bind(this);
 		this.onGridReady = this.onGridReady.bind(this);
 		this.onBodyScroll = this.onBodyScroll.bind(this);
@@ -90,6 +91,7 @@ export default class DataGrid extends React.Component {
 		this.setCurrentFocusedColumn = this.setCurrentFocusedColumn.bind(this);
 		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
+		this.currentColId = null;
 	}
 
 	/**
@@ -108,10 +110,34 @@ export default class DataGrid extends React.Component {
 			console.warn('DEPRECATED: forceRedrawRows is deprecated');
 			this.gridAPI.redrawRows();
 		}
+
+		if (
+			this.props.focusedColumnId !== prevProps.focusedColumnId &&
+			this.props.focusedColumnId !== this.currentColId
+		) {
+			this.onFocusedColumn(this.props.focusedColumnId);
+		}
+	}
+
+	handleKeyboard({ nextCellPosition, previousCellPosition }) {
+		if (!nextCellPosition || nextCellPosition.rowIndex < 0) {
+			return null;
+		}
+
+		if (this.gridAPI && previousCellPosition.rowIndex !== nextCellPosition.rowIndex) {
+			// ag-grid workaround: ag-grid set a selected row only by a click by an user
+			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
+			this.gridAPI.getDisplayedRowAtIndex(nextCellPosition.rowIndex).setSelected(true, true);
+		}
+
+		return nextCellPosition;
 	}
 
 	onGridReady({ api }) {
 		this.gridAPI = api;
+		if (this.props.focusedColumnId && this.props.focusedColumnId !== this.currentColId) {
+			this.onFocusedColumn(this.props.focusedColumnId);
+		}
 	}
 
 	onFocusedCell(props) {
@@ -120,17 +146,19 @@ export default class DataGrid extends React.Component {
 			return;
 		}
 
-		if (column.colId !== this.currentColId || column.pinned) {
-			this.removeFocusColumn();
+		if (this.shouldUpdateCurrentColumn()) {
+			if (column.colId !== this.currentColId || column.pinned) {
+				this.removeFocusColumn();
+			}
+
+			this.setCurrentFocusedColumn(column.colId);
+
+			if (column.pinned) {
+				return;
+			}
+
+			this.updateStyleFocusColumn();
 		}
-
-		this.setCurrentFocusedColumn(column.colId);
-
-		if (column.pinned) {
-			return;
-		}
-
-		this.updateStyleFocusColumn();
 
 		if (this.props.onFocusedCell) {
 			this.props.onFocusedCell(props);
@@ -138,14 +166,21 @@ export default class DataGrid extends React.Component {
 	}
 
 	onFocusedColumn(colId) {
-		this.gridAPI.deselectAll();
-		this.gridAPI.clearFocusedCell();
+		if (this.shouldUpdateCurrentColumn()) {
+			// Scroll to focused column in controlled mode
+			if (this.props.focusedColumnId != null) {
+				this.gridAPI.ensureColumnVisible(colId);
+			}
 
-		this.removeFocusColumn();
-		this.setCurrentFocusedColumn(colId);
-		this.updateStyleFocusColumn();
+			this.gridAPI.deselectAll();
+			this.gridAPI.clearFocusedCell();
 
-		if (this.props.onFocusedColumn) {
+			this.removeFocusColumn();
+			this.setCurrentFocusedColumn(colId);
+			this.updateStyleFocusColumn();
+		}
+
+		if (this.props.onFocusedColumn && this.props.focusedColumnId !== colId) {
 			this.props.onFocusedColumn({ colId });
 		}
 	}
@@ -208,6 +243,7 @@ export default class DataGrid extends React.Component {
 
 		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
 		const columnDefs = this.props.getColumnDefsFn(this.props.data, this.props.columnsConf);
+
 		let adaptedColumnDefs = [];
 
 		if (pinnedColumnDefs) {
@@ -260,6 +296,13 @@ export default class DataGrid extends React.Component {
 		return agGridOptions;
 	}
 
+	shouldUpdateCurrentColumn() {
+		// Update local state if component is not controlled or if props changed
+		return (
+			this.props.focusedColumnId === undefined || this.props.focusedColumnId !== this.currentColId
+		);
+	}
+
 	removeFocusColumn() {
 		// workaround see README.md#Workaround Active Column
 		const focusedCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
@@ -282,20 +325,6 @@ export default class DataGrid extends React.Component {
 		);
 
 		columnsCells.forEach(({ classList }) => classList.add(FOCUSED_COLUMN_CLASS_NAME));
-	}
-
-	handleKeyboard({ nextCellPosition, previousCellPosition }) {
-		if (!nextCellPosition || nextCellPosition.rowIndex < 0) {
-			return null;
-		}
-
-		if (this.gridAPI && previousCellPosition.rowIndex !== nextCellPosition.rowIndex) {
-			// ag-grid workaround: ag-grid set a selected row only by a click by an user
-			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
-			this.gridAPI.getDisplayedRowAtIndex(nextCellPosition.rowIndex).setSelected(true, true);
-		}
-
-		return nextCellPosition;
 	}
 
 	render() {

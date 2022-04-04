@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Drawer from '../Drawer';
@@ -8,6 +7,7 @@ import Layout from '.';
 import SidePanel from '../SidePanel';
 import SubHeaderBar from '../SubHeaderBar';
 import List from '../List/ListComposition';
+import appStyle from '../../stories/config/themes.scss';
 
 const actions = [
 	{
@@ -50,7 +50,7 @@ const sidePanel = <SidePanel actions={actions} />;
 const dockedSidePanel = <SidePanel actions={actions} docked />;
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')} />;
-const footer = 'Footer content';
+const footer = <>Footer content</>;
 
 const items = [...new Array(61)].map((_, index) => ({
 	id: index,
@@ -81,156 +81,109 @@ const tabs = {
 	selectedKey: '2',
 };
 
-const stories = storiesOf('Layout/AppLayout', module);
+export default {
+	title: 'Layout/AppLayout',
+};
 
-const appStyle = require('../../stories/config/themes.scss');
+export const OneColumn = () => <Layout mode="OneColumn" children={content} />;
 
-/**
- * Generate story for <Layout/> component
- *
- * @param layoutStoryName Story name to display in storybook
- * @param layoutStoryProps Props to pass to <Layout/> component
- * @param layoutStoryContent Optional custom children
- */
-function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
-	stories.add(layoutStoryName, () => <Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>);
-}
+export const OneColumnWithHeader = () => (
+	<Layout mode="OneColumn" header={header} children={content} />
+);
 
-/**
- * Generate story and its variations for <Layout/> component
- *
- * @param layoutStoryName Story name to display in storybook
- * @param layoutStoryProps Props to pass to <Layout/> component
- * @param layoutStoryContent Optional custom children
- */
-function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
-	layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent);
-	[
-		{ key: 'mdm', value: 'Master Data Management' },
-		{ key: 'tdc', value: 'Data Inventory' },
-		{ key: 'tdp', value: 'Data Preparation' },
-		{ key: 'tds', value: 'Data Stewardship' },
-		{ key: 'tmc', value: 'Management Console' },
-		{ key: 'tfd', value: 'Pipeline Designer' },
-	].forEach(({ key, value }) => {
-		const decoratedPropsWithTheme = {
-			...layoutStoryProps,
-			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
-		};
-		stories.add(`[${value}] ${layoutStoryName} `, () => (
-			<div className={appStyle[key]}>
-				<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
-					<Layout {...decoratedPropsWithTheme}>{layoutStoryContent}</Layout>
-				</div>
+export const OneColumnWithSubheader = () => (
+	<Layout mode="OneColumn" header={header} subHeader={subHeader} children={content} />
+);
+
+export const OneColumnWithHeaderAndFooter = () => (
+	<Layout mode="OneColumn" header={header} footer={footer} children={content} />
+);
+
+export const OneColumnWithTabs = () => (
+	<Layout mode="OneColumn" header={header} tabs={tabs} children={content} />
+);
+
+export const TwoColumnsWithHeader = () => (
+	<Layout mode="TwoColumns" header={header} one={sidePanel} children={content} />
+);
+
+export const TwoColumnsWithSubheader = () => (
+	<Layout
+		mode="TwoColumns"
+		header={header}
+		subHeader={subHeader}
+		one={sidePanel}
+		children={content}
+	/>
+);
+
+export const TwoColumnsWithHeaderAndFooter = () => (
+	<Layout mode="TwoColumns" header={header} footer={footer} one={sidePanel} children={content} />
+);
+
+export const TwoColumnsWithTabs = () => (
+	<Layout mode="TwoColumns" header={header} one={sidePanel} tabs={tabs} children={content} />
+);
+
+export const TwoColumnsWithBigTableList = () => (
+	<Layout mode="TwoColumns" header={header} one={sidePanel}>
+		<List.Manager id="my-list" collection={items}>
+			<List.Toolbar>
+				<List.DisplayMode id="my-list-displayMode" />
+			</List.Toolbar>
+			<List.VList id="my-vlist">
+				<List.VList.Text label="Id" dataKey="id" />
+				<List.VList.Text label="Name" dataKey="name" />
+				<List.VList.Text label="Author" dataKey="author" />
+				<List.VList.Text label="Created" dataKey="created" />
+				<List.VList.Text label="Modified" dataKey="modified" />
+			</List.VList>
+		</List.Manager>
+	</Layout>
+);
+
+export const TwoColumnsWithBigLargeList = () => (
+	<Layout mode="TwoColumns" header={header} one={sidePanel}>
+		<List.Manager id="my-list" collection={items} initialDisplayMode="large">
+			<List.Toolbar>
+				<List.DisplayMode id="my-list-displayMode" />
+			</List.Toolbar>
+			<List.VList id="my-vlist">
+				<List.VList.Text label="Id" dataKey="id" />
+				<List.VList.Text label="Name" dataKey="name" />
+				<List.VList.Text label="Author" dataKey="author" />
+				<List.VList.Text label="Created" dataKey="created" />
+				<List.VList.Text label="Modified" dataKey="modified" />
+			</List.VList>
+		</List.Manager>
+	</Layout>
+);
+
+export const TwoColumnsDocked = () => (
+	<Layout mode="TwoColumns" header={header} one={dockedSidePanel} children={content} />
+);
+
+export const TwoColumnsWithDrawers = () => (
+	<Layout mode="TwoColumns" header={header} one={sidePanel} drawers={drawers} children={content} />
+);
+
+export const OnlySubheader = () => <Layout subHeader={subHeader} children={content} />;
+
+function AppSpecificLayoutStory({ app }) {
+	return (
+		<div className={appStyle[app]}>
+			<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
+				<Layout mode="TwoColumns" header={header} one={sidePanel}>
+					{content}
+				</Layout>
 			</div>
-		));
-	});
+		</div>
+	);
 }
 
-decoratedLayoutStory('OneColumn', {
-	header,
-	mode: 'OneColumn',
-});
-
-decoratedLayoutStory('OneColumn with tabs', {
-	header,
-	tabs,
-	mode: 'OneColumn',
-});
-
-decoratedLayoutStory('TwoColumns', {
-	header,
-	mode: 'TwoColumns',
-	one: sidePanel,
-});
-
-decoratedLayoutStory('TwoColumns with tabs', {
-	header,
-	tabs,
-	mode: 'TwoColumns',
-	one: sidePanel,
-});
-
-decoratedLayoutStory(
-	'TwoColumns with big Table list',
-	{
-		header,
-		mode: 'TwoColumns',
-		one: sidePanel,
-	},
-	<List.Manager id="my-list" collection={items}>
-		<List.Toolbar>
-			<List.DisplayMode id="my-list-displayMode" />
-		</List.Toolbar>
-		<List.VList id="my-vlist">
-			<List.VList.Text label="Id" dataKey="id" />
-			<List.VList.Text label="Name" dataKey="name" />
-			<List.VList.Text label="Author" dataKey="author" />
-			<List.VList.Text label="Created" dataKey="created" />
-			<List.VList.Text label="Modified" dataKey="modified" />
-		</List.VList>
-	</List.Manager>,
-);
-
-decoratedLayoutStory(
-	'TwoColumns with big Large list',
-	{
-		header,
-		mode: 'TwoColumns',
-		one: sidePanel,
-	},
-	<List.Manager id="my-list" collection={items}>
-		<List.Toolbar>
-			<List.DisplayMode id="my-list-displayMode" initialValue="large" />
-		</List.Toolbar>
-		<List.VList id="my-vlist">
-			<List.VList.Text label="Id" dataKey="id" />
-			<List.VList.Text label="Name" dataKey="name" />
-			<List.VList.Text label="Author" dataKey="author" />
-			<List.VList.Text label="Created" dataKey="created" />
-			<List.VList.Text label="Modified" dataKey="modified" />
-		</List.VList>
-	</List.Manager>,
-);
-
-decoratedLayoutStory('TwoColumns docked', {
-	header,
-	mode: 'TwoColumns',
-	one: dockedSidePanel,
-});
-
-decoratedLayoutStory('TwoColumns with drawers', {
-	header,
-	mode: 'TwoColumns',
-	one: sidePanel,
-	drawers,
-});
-
-decoratedLayoutStory('OneColumn with footer', {
-	header,
-	mode: 'OneColumn',
-	footer,
-});
-
-layoutStory('OneColumn without header', {
-	mode: 'OneColumn',
-});
-
-decoratedLayoutStory('OneColumn with subHeader', {
-	header,
-	subHeader,
-	mode: 'OneColumn',
-	footer,
-});
-
-decoratedLayoutStory('TwoColumns with subHeader', {
-	header,
-	subHeader,
-	one: sidePanel,
-	mode: 'TwoColumns',
-	footer,
-});
-
-layoutStory('Only subHeader', {
-	subHeader,
-});
+export const MasterDataManagement = () => <AppSpecificLayoutStory app="mdm" />;
+export const DataInventory = () => <AppSpecificLayoutStory app="tdc" />;
+export const DataPreparation = () => <AppSpecificLayoutStory app="tdp" />;
+export const DataStewardship = () => <AppSpecificLayoutStory app="tds" />;
+export const ManagementConsole = () => <AppSpecificLayoutStory app="tmc" />;
+export const PipelineDesigner = () => <AppSpecificLayoutStory app="tfd" />;

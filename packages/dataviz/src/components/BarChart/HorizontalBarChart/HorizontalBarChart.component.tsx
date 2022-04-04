@@ -17,7 +17,7 @@ export interface HorizontalBarChartProps {
 	data: ChartEntry<string>[];
 	dataFeature?: string;
 	chartStyle: ChartStyle;
-	onBarClick: (event: MouseEvent, entry: ChartEntry<string>) => void;
+	onBarClick(event: MouseEvent, entry: ChartEntry<string>): void;
 	getTooltipContent: (entry: ChartEntry<string>) => JSX.Element;
 	width?: number;
 	height?: number;
@@ -51,7 +51,7 @@ function HorizontalBarChart({
 				className={styles['horizontal-bar-chart']}
 				onMouseMove={onMouseMove}
 				onClick={onClick}
-				onMouseOut={onMouseOut}
+				onMouseLeave={onMouseOut}
 			>
 				<CartesianGrid strokeDasharray="3 3" horizontal={false} />
 

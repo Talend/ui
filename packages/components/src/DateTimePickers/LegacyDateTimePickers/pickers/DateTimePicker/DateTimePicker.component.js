@@ -52,14 +52,15 @@ class DateTimePicker extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const newSelectedDate = nextProps.selection.date;
-		const newSelectedTime = nextProps.selection.time;
-		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
-		const needToUpdateTime = newSelectedTime !== this.state.selectedTime;
-		const noNeedToUpdateState = !needToUpdateDate && !needToUpdateTime;
+	componentDidUpdate(prevProps) {
+		const newSelectedDate = this.props.selection.date;
+		const newSelectedTime = this.props.selection.time;
+		const datePropsHasChanged = prevProps.selection.date !== newSelectedDate;
+		const timePropsHasChanged = prevProps.selection.time !== newSelectedTime;
+		const needToUpdateDate = datePropsHasChanged && newSelectedDate !== this.state.selectedDate;
+		const needToUpdateTime = timePropsHasChanged && newSelectedTime !== this.state.selectedTime;
 
-		if (noNeedToUpdateState) {
+		if (!needToUpdateDate && !needToUpdateTime) {
 			return;
 		}
 
@@ -184,6 +185,7 @@ class DateTimePicker extends React.Component {
 				ref={ref => {
 					this.pickerRef = ref;
 				}}
+				// eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
 				tabIndex={this.state.allowFocus ? 0 : -1}
 				aria-label="Date picker"
 			>

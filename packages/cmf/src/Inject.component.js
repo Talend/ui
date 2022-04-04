@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import componentAPI from './component';
+import { useCMFContext } from './useContext';
 
 /**
  * The Inject component let you use the registry to render named component
@@ -28,17 +29,15 @@ NotFoundComponent.propTypes = {
 	error: PropTypes.string.isRequired,
 };
 
-function Inject({ component, ...props }, context) {
+function Inject({ component, ...props }) {
+	const context = useCMFContext();
 	try {
 		const Component = componentAPI.get(component, context);
 		return <Component {...props} />;
 	} catch (error) {
-		return <NotFoundComponent error={error.message} />;
+		return <NotFoundComponent error={error} />;
 	}
 }
-Inject.contextTypes = {
-	registry: PropTypes.object.isRequired,
-};
 Inject.propTypes = {
 	component: PropTypes.string.isRequired,
 };

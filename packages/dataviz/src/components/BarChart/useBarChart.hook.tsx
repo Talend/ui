@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimationEasingType } from 'recharts';
+import { AnimationTiming } from 'recharts/types/util/types';
 import { ChartEntry } from './barChart.types';
 
 const ANIMATION_DURATION = 80;
@@ -7,7 +7,7 @@ const ANIMATION_DURATION = 80;
 interface AnimationProps {
 	animationBegin: number;
 	animationDuration: number;
-	animationEasing: AnimationEasingType;
+	animationEasing: AnimationTiming;
 }
 
 export const PRIMARY_BAR_ANIMATION_PROPS: AnimationProps = {

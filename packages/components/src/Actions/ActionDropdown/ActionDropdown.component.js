@@ -5,10 +5,11 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
-import { DropdownButton, MenuItem, OverlayTrigger } from '@talend/react-bootstrap';
+import { DropdownButton, MenuItem } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
+import OverlayTrigger from '../../OverlayTrigger';
 import theme from './ActionDropdown.scss';
 import Tag from '../../Tag';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -145,6 +146,7 @@ class ActionDropdown extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
+		this.onItemSelect = this.onItemSelect.bind(this);
 		this.state = {};
 	}
 
@@ -185,6 +187,12 @@ class ActionDropdown extends React.Component {
 				this.props.onToggle(isOpen);
 			}
 		});
+	}
+
+	onItemSelect(object, event) {
+		if (this.props.onSelect) {
+			this.props.onSelect(event, object);
+		}
 	}
 
 	render() {
@@ -239,18 +247,12 @@ class ActionDropdown extends React.Component {
 			].filter(Boolean);
 		const style = link || ellipsis ? 'link' : bsStyle;
 
-		function onItemSelect(object, event) {
-			if (onSelect) {
-				onSelect(event, object);
-			}
-		}
-
 		const dropdown = (
 			<Renderers.DropdownButton
 				title={title}
 				bsStyle={style}
 				role="button"
-				onSelect={onItemSelect}
+				onSelect={this.onItemSelect}
 				className={classNames(theme['tc-dropdown-button'], 'tc-dropdown-button', className, {
 					[theme.ellipsis]: ellipsis,
 				})}

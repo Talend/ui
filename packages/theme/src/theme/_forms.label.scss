@@ -1,0 +1,25 @@
+label {
+	font-size: $font-size-small;
+	font-weight: 600;
+	color: var(--t-form-color);
+	cursor: pointer;
+}
+
+// Disable floating labels
+.form-control + label {
+	order: -1;
+}
+
+// Mandatory for being stronger than Bootstrap
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
+.has-error.checkbox-inline label {
+	color: var(--t-form-color);
+}

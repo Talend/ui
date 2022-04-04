@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { OverlayTrigger } from '@talend/react-bootstrap';
 import PieChartIcon from './PieChartIcon.component';
 import PieChartButton from './PieChartButton.component';
 import TooltipTrigger from '../TooltipTrigger';
+import OverlayTrigger from '../OverlayTrigger';
 
 /**
  * This function wrap the button with a TooltipTrigger

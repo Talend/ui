@@ -13,9 +13,12 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 	background-color: rgba(0, 0, 0, 0.025);
 
 	.tc-item-container {
+		margin: 0;
+
 		:global {
 			.checkbox {
-				margin-left: $padding-smaller;
+				margin: $padding-smaller;
+				margin-right: 0;
 			}
 
 			.with-icon {
@@ -37,12 +40,17 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 
 			.checkbox-nested > .checkbox {
 				height: $row-height;
-				margin-top: $row-vertical-margin;
 				margin-bottom: 0;
+
+				+ .checkbox {
+					margin-top: $row-vertical-margin;
+				}
 			}
 		}
 
 		&.toggle {
+			display: flex;
+			align-items: center;
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		}
 	}
@@ -51,10 +59,10 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 // This exported values are used to compute properly sizes
 // in react-virtualized's calculation method
 :export {
-	// sass-lint:disable no-misspelled-properties
+	// stylelint-disable property-no-unknown
 	row-height: $row-height;
 	row-vertical-margin: $row-vertical-margin;
 	row-nested-inner-margin-top: $row-nested-inner-margin-top;
 	row-nested-inner-margin-bottom: $row-nested-inner-margin-bottom;
-	// sass-lint:enable no-misspelled-properties
+	// stylelint-enable property-no-unknown
 }

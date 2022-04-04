@@ -5,7 +5,9 @@
 
 /// Layout height of the header
 /// @type Number (Unit)
-$tc-drawer-z-index: $drawer-z-index !default;
+
+// Need to be higher to typehead (1035)
+$tc-drawer-z-index: $zindex-navbar-fixed + 6 !default;
 $tc-layout-header-height: $navbar-height !default;
 $tc-layout-skip-links-z-index: $tc-drawer-z-index + 20 !default;
 $tc-layout-header-z-index: $tc-drawer-z-index + 10 !default;

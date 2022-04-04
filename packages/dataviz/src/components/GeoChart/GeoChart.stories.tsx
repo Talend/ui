@@ -1,104 +1,108 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import GeoChart, { Entry } from './GeoChart.component';
-import { getGeoChartConfig, getGeoChartSupportedDomains } from './GeoChart.utils';
+import GeoChart, { GeoChartProps } from './GeoChart.component';
+import { getGeoChartConfig } from './GeoChart.utils';
 
-const SAMPLE_DATA: { [key in string]: Entry[] } = {
-	CONTINENT: [
+export default {
+	title: 'Dataviz/GeoChart',
+	component: GeoChart,
+	decorators: [
+		(fn: () => React.ReactNode) => (
+			<div
+				style={{
+					width: 500,
+					height: 500,
+				}}
+			>
+				{fn()}
+			</div>
+		),
+	],
+	args: {
+		columnName: 'Geo key',
+		onSelection: action('onSelection'),
+	},
+	loaders: [
+		async ({ name }: Story) => ({
+			chartConfig: await getGeoChartConfig(name.replaceAll(' ', '_')),
+		}),
+	],
+};
+
+const Default: Story<GeoChartProps> = (props, { loaded }) => <GeoChart {...loaded} {...props} />;
+
+export const CONTINENT = Default.bind({});
+CONTINENT.args = {
+	data: [
 		{ key: 'Asia', value: 10 },
 		{ key: 'Amérique du Nord', value: 20 },
 	],
-	CONTINENT_CODE: [
-		{ key: 'EUR', value: 10 },
-		{ key: 'ASI', value: 20 },
-	],
-	COUNTRY: [
+};
+
+export const COUNTRY = Default.bind({});
+COUNTRY.args = {
+	data: [
 		{ key: 'Russie', value: 10 },
 		{ key: 'China', value: 20 },
 	],
-	COUNTRY_CODE_ISO2: [
-		{ key: 'US', value: 10 },
-		{ key: 'RU', value: 20 },
-	],
-	COUNTRY_CODE_ISO3: [
-		{ key: 'USA', value: 10 },
-		{ key: 'RUS', value: 20 },
-	],
-	US_STATE: [
+};
+
+export const US_STATE = Default.bind({});
+US_STATE.args = {
+	data: [
 		{ key: 'California', value: 2 },
 		{ key: 'New Jersey', value: 52 },
 		{ key: 'Texas', value: 45 },
 	],
-	US_STATE_CODE: [
-		{ key: 'CA', value: 2 },
-		{ key: 'NJ', value: 52 },
-		{ key: 'TX', value: 45 },
-	],
-	CA_PROVINCE_TERRITORY: [
+};
+
+export const CA_PROVINCE_TERRITORY = Default.bind({});
+CA_PROVINCE_TERRITORY.args = {
+	data: [
 		{ key: 'British Columbia', value: 2 },
 		{ key: 'Quebec', value: 52 },
 	],
-	CA_PROVINCE_TERRITORY_CODE: [
-		{ key: 'BC', value: 2 },
-		{ key: 'QC', value: 52 },
-	],
-	NA_STATE: [
+};
+
+export const NA_STATE = Default.bind({});
+NA_STATE.args = {
+	data: [
 		{ key: 'British Columbia', value: 2 },
 		{ key: 'Quebec', value: 200 },
 		{ key: 'California', value: 130 },
 		{ key: 'New Jersey', value: 40 },
 	],
-	NA_STATE_CODE: [
-		{ key: 'BC', value: 2 },
-		{ key: 'QC', value: 52 },
-	],
-	MX_ESTADO: [
+};
+
+export const MX_ESTADO = Default.bind({});
+MX_ESTADO.args = {
+	data: [
 		{ key: 'Sinaloa', value: 10 },
 		{ key: 'Guanajuato', value: 20 },
 	],
-	MX_ESTADO_CODE: [
-		{ key: 'SIN', value: 10 },
-		{ key: 'GUA', value: 20 },
-	],
-	FR_DEPARTEMENT: [
+};
+
+export const FR_DEPARTEMENT = Default.bind({});
+FR_DEPARTEMENT.args = {
+	data: [
 		{ key: 'Loire-Atlantique', value: 10 },
 		{ key: 'Vendée', value: 20 },
 	],
-	FR_REGION: [
+};
+
+export const FR_REGION = Default.bind({});
+FR_REGION.args = {
+	data: [
 		{ key: 'Occitanie', value: 10 },
 		{ key: 'Martinique', value: 20 },
 	],
-	FR_REGION_LEGACY: [
+};
+
+export const FR_REGION_LEGACY = Default.bind({});
+FR_REGION_LEGACY.args = {
+	data: [
 		{ key: 'Bretagne', value: 10 },
 		{ key: 'Picardie', value: 20 },
 	],
 };
-
-const stories = storiesOf('Dataviz/GeoChart', module).addDecorator(fn => (
-	<div
-		style={{
-			width: 500,
-			height: 500,
-		}}
-	>
-		{fn()}
-	</div>
-));
-
-// eslint-disable-next-line
-const storyStore = (window as any).__STORYBOOK_STORY_STORE__;
-
-getGeoChartSupportedDomains().map(async domain => {
-	const chartConfig = await getGeoChartConfig(domain);
-	storyStore.startConfiguring();
-	stories.add(domain, () => (
-		<GeoChart
-			chartConfig={chartConfig}
-			data={SAMPLE_DATA[domain]}
-			columnName="Geo key"
-			onSelection={action('onSelection')}
-		/>
-	));
-	storyStore.finishConfiguring();
-});

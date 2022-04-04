@@ -76,7 +76,6 @@ Open `index.js`, you'll see
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-import 'bootstrap-talend-theme/src/theme/theme.scss';
 import React from 'react';
 import cmf from '@talend/react-cmf';
 

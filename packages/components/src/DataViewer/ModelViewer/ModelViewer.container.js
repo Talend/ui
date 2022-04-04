@@ -1,3 +1,4 @@
+import noop from 'lodash/noop';
 import get from 'lodash/get';
 import head from 'lodash/head';
 import PropTypes from 'prop-types';
@@ -137,6 +138,7 @@ export class ModelViewer extends React.Component {
 		getChilds: PropTypes.func,
 		getDisplayKey: PropTypes.func,
 		getDisplayValue: PropTypes.func,
+		getDisplayClassName: PropTypes.func,
 		getJSONPath: PropTypes.func,
 		getItemType: PropTypes.func,
 		hasSemanticAwareness: PropTypes.bool,
@@ -153,6 +155,7 @@ export class ModelViewer extends React.Component {
 		getChilds: defaultTransformChilds,
 		getDisplayKey: defaultGetDisplayKey,
 		getDisplayValue: defaultGetDisplayValue,
+		getDisplayClassName: noop,
 		getJSONPath,
 		getItemType,
 		hasSemanticAwareness: true,

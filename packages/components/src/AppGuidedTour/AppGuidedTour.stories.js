@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import AppGuidedTour from './AppGuidedTour.component';
 import Stepper from '../Stepper';
 
@@ -41,6 +40,10 @@ function AppGuidedTourContainer({ withDemoContent = false }) {
 	);
 }
 
-storiesOf('Messaging & Communication/AppGuidedTour', module)
-	.add('default', () => <AppGuidedTourContainer withDemoContent />)
-	.add('without demo content', () => <AppGuidedTourContainer />);
+export default {
+	title: 'Messaging & Communication/AppGuidedTour',
+};
+
+export const Default = () => <AppGuidedTourContainer withDemoContent />;
+
+export const WithoutDemoContent = () => <AppGuidedTourContainer />;

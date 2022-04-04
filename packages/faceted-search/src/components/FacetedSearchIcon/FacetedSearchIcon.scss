@@ -1,0 +1,8 @@
+$faceted-search-icon-height: 2.4rem;
+
+.faceted-search-icon {
+	&:global(.tc-icon-toggle) {
+		height: $faceted-search-icon-height;
+		min-height: $faceted-search-icon-height;
+	}
+}

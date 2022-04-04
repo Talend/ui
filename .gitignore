@@ -35,20 +35,17 @@ target/
 *.war
 *.ear
 
-# e2e driver #
-packages/components/e2e/component-objects/chromedriver
-
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .classpath
 
 # Talend web apps build directory
 build/
-/i18n/
+/packages/*/i18n/
 tmp/
 lib/
 storybook-static/
 dist/
-i18n-extract/
 eslint-report.json
 stylelint-report.json
+i18n-extract

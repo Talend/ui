@@ -26,10 +26,11 @@ module.exports = (env, argv) => {
 						{
 							loader: 'file-loader',
 							options: {
-							  outputPath: 'fonts',
-							  name: '[name].[ext]',
+								outputPath: 'fonts',
+								name: '[name].[ext]',
+								esModule: false,
 							},
-						  },
+						},
 					],
 				},
 				{
@@ -49,9 +50,7 @@ module.exports = (env, argv) => {
 							loader: 'postcss-loader',
 							options: {
 								ident: 'postcss',
-								plugins: [
-									postcssPresetEnv({ browsers: 'last 2 versions' })
-								],
+								plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
 							},
 						},
 						{
@@ -88,11 +87,11 @@ module.exports = (env, argv) => {
 		],
 		devServer: {
 			port: 1234,
-			stats: 'errors-only',
 			historyApiFallback: true,
-			contentBase: path.join(process.cwd(), 'dist'),
+			static: {
+				directory: path.join(process.cwd(), 'dist'),
+			},
 			compress: true,
-			inline: true,
 			hot: true,
 		},
 	};

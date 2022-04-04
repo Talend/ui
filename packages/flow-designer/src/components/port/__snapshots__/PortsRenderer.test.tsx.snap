@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PortsRenderer /> renders correctly 1`] = `
+<g>
+  <span>
+    MockPort
+  </span>
+</g>
+`;

@@ -1,41 +1,23 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import Component from './ErrorFeedBack.component';
 
 global.window.URL.createObjectURL = jest.fn();
 
 describe('Component ErrorFeedBack', () => {
+	beforeEach(() => {
+		window.URL.revokeObjectURL = jest.fn();
+	});
 	it('should render ErrorPanel', () => {
 		const errors = [
 			{
-				foo: 'bar',
+				name: 'Error',
+				message: 'foo',
 			},
 		];
-		const wrapper = shallow(<Component errors={errors} />);
-		const panels = wrapper.find('ErrorPanel');
+		render(<Component errors={errors} />);
+		const panels = screen.getAllByText('Error: foo');
 		expect(panels.length).toBe(1);
-		expect(panels.props().error).toEqual(errors[0]);
-	});
-	it('should add marginTop in fullPage mode', () => {
-		const errors = [
-			{
-				message: 'Error message',
-				name: 'Error name',
-				stack: 'Error stack',
-			},
-		];
-		const wrapper = mount(<Component errors={errors} fullPage />);
-		expect(wrapper.find('.col-md-6').props().style.marginTop).toBe(200);
-	});
-	it('should render react fragment in fullPage mode', () => {
-		const errors = [
-			{
-				message: 'Error message',
-				name: 'Error name',
-				stack: 'Error stack',
-			},
-		];
-		const wrapper = shallow(<Component errors={errors} />);
-		expect(wrapper.find('Fragment').length).toBe(1);
+		expect(panels[0]).toHaveTextContent(`${errors[0].name}: ${errors[0].message}`);
 	});
 });

@@ -4,18 +4,20 @@ exports[`CMFStory should render its name 1`] = `
 <Provider
   store={
     Object {
+      "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
       "subscribe": [Function],
-      Symbol(observable): [Function],
     }
   }
 >
-  <RegistryProvider>
+  <Context.Provider
+    value={Object {}}
+  >
     <div>
       My Story
     </div>
-  </RegistryProvider>
+  </Context.Provider>
 </Provider>
 `;

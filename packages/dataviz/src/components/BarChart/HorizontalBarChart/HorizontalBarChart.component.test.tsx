@@ -84,7 +84,6 @@ describe('Horizontal bar chart', () => {
 				getTooltipContent={jest.fn()}
 			/>,
 		);
-
-		expect(component.find('ResponsiveContainer').prop('height')).toEqual(65);
+		expect(component.find('ForwardRef').prop('height')).toEqual(65);
 	});
 });

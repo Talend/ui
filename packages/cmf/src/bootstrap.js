@@ -18,6 +18,7 @@ import sagas from './sagas';
 import { registerInternals } from './register';
 import cmfModule from './cmfModule';
 import interceptors from './httpInterceptors';
+import { handleSagaComponent } from './components/Saga';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);
@@ -50,6 +51,7 @@ export function bootstrapRegistry(options) {
 export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
+		yield spawn(handleSagaComponent);
 		yield spawn(sagas.component.handle);
 		if (typeof options.saga === 'function') {
 			yield spawn(options.saga);
@@ -132,13 +134,32 @@ export default async function bootstrap(appOptions = {}) {
 
 	const store = bootstrapRedux(options, saga.middleware);
 	onError.bootstrap(options, store);
-	saga.run();
+
 	const RootComponent = options.RootComponent || DefaultRootComponent;
 	const element = options.root || document.getElementById(appId);
-	render(
-		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
-			<RootComponent />
-		</App>,
-		element,
-	);
+
+	const config = {
+		store,
+		saga,
+		App,
+		cmfModule: options,
+	};
+
+	if (options.render !== false) {
+		saga.run();
+
+		render(
+			<App
+				store={store}
+				loading={options.AppLoader}
+				withSettings={!!options.settingsURL}
+				registry={registry.getRegistry()}
+			>
+				<RootComponent />
+			</App>,
+			element,
+		);
+	}
+
+	return config;
 }

@@ -54,7 +54,6 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
   className="theme-items-container items-container theme-items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
-  role="listbox"
   style={
     Object {
       "left": "0",
@@ -112,7 +111,6 @@ exports[`MultiSelectTagWidget should render section title when items has categor
   className="theme-items-container items-container theme-items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
-  role="listbox"
   style={
     Object {
       "left": "0",
@@ -189,7 +187,6 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
   className="theme-items-container items-container theme-items-container theme-container-open"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
-  role="listbox"
   style={
     Object {
       "left": "0",
@@ -211,7 +208,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
       className="theme-no-result no-result"
       key="no-result"
     >
-      <Coral.Icon
+      <CoralIcon
         name="talend-fieldglass"
         title="No result."
       />

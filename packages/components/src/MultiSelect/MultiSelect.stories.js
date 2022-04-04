@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import MultiSelect from './MultiSelect.container';
 
@@ -28,6 +27,7 @@ class Photos extends React.Component {
 			<section style={{ margin: 20 }}>
 				<form className="form">
 					<div className="form-group">
+						{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
 						<label className="control-label" htmlFor="storybook">
 							photos
 						</label>
@@ -39,10 +39,11 @@ class Photos extends React.Component {
 						/>
 					</div>
 					<div className="form-group">
-						<input className="form-control" type="text" id="useless" />
+						{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
 						<label className="control-label" htmlFor="useless">
 							another
 						</label>
+						<input className="form-control" type="text" id="useless" />
 					</div>
 				</form>
 			</section>
@@ -50,4 +51,8 @@ class Photos extends React.Component {
 	}
 }
 
-storiesOf('Deprecated/MultiSelect', module).add('default', () => <Photos />);
+export default {
+	title: 'Deprecated/MultiSelect',
+};
+
+export const Default = () => <Photos />;

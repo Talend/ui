@@ -1,5 +1,5 @@
 import * as FormTemplate from './FormTemplate';
-import FieldTemplate from './fields/FieldTemplate';
+import FieldTemplate, { TextModeTemplate } from './fields/FieldTemplate';
 import Message from './Message';
 import callTrigger from './trigger';
 import utils from './utils';
@@ -16,6 +16,7 @@ import * as triggers from './utils/triggers';
 export { UIForm, triggers };
 
 UIForm.FormTemplate = FormTemplate;
+UIForm.TextModeTemplate = TextModeTemplate;
 UIForm.FieldTemplate = FieldTemplate;
 UIForm.Message = Message;
 UIForm.callTrigger = callTrigger;

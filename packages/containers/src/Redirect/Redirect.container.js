@@ -11,13 +11,15 @@ export const REDIRECT_ACTION_TYPE = 'REDIRECT';
 <Redirect name="Hello world"></Redirect>
  */
 function Redirect({ path, to, dispatch, componentId }) {
-	dispatch({
-		type: REDIRECT_ACTION_TYPE,
-		componentId,
-		cmf: {
-			routerReplace: to || path,
-		},
-	});
+	React.useLayoutEffect(() => {
+		dispatch({
+			type: REDIRECT_ACTION_TYPE,
+			componentId,
+			cmf: {
+				routerReplace: to || path,
+			},
+		});
+	}, [dispatch, path, to, componentId]);
 	return <AppLoader />;
 }
 

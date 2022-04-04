@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ListView from '.';
@@ -24,6 +23,7 @@ const props = {
 	headerLabel: 'Choose wisely',
 	toggleAllChecked: false,
 	onToggleAll: action('onToggleAll'),
+	dataTest: 'item',
 };
 
 const searchProps = {
@@ -110,6 +110,7 @@ const withNestedItems = {
 	toggleAllChecked: false,
 	onToggleAll: action('onToggleAll'),
 	showToggleAll: false,
+	dataTest: 'item',
 };
 
 const withIconProps = {
@@ -132,83 +133,98 @@ const withIconProps = {
 	],
 };
 
-storiesOf('Form/Controls/ListView', module)
-	.addDecorator(story => (
-		<div>
-			<h1>ListView</h1>
-			<form>{story()}</form>
-		</div>
-	))
-	.add('empty', () => {
-		const emptyProps = { ...props };
-		emptyProps.items = [];
-		return (
-			<div id="listview-empty">
-				<ListView {...emptyProps} />
-			</div>
-		);
-	})
-	.add('single entry', () => {
-		const singleEntryProps = { ...props };
-		singleEntryProps.items = [props.items[0]];
-		return (
-			<div id="listview-single">
-				<ListView {...singleEntryProps} />
-			</div>
-		);
-	})
-	.add('several values', () => (
-		<div id="listview-several">
-			<ListView {...props} />
-		</div>
-	))
-	.add('search mode', () => (
-		<div id="listview-search">
-			<ListView {...searchProps} />
-		</div>
-	))
-	.add('search mode without results', () => (
-		<div id="listview-search-no-result">
-			<ListView {...noResultsSearch} />
-		</div>
-	))
-	.add('selected values', () => {
-		const selectedValuesProps = { ...props };
+export default {
+	title: 'Form/Controls/ListView',
 
-		selectedValuesProps.items[1].checked = true;
+	decorators: [
+		story => (
+			<div>
+				<h1>ListView</h1>
+				<form>{story()}</form>
+			</div>
+		),
+	],
+};
 
-		return (
-			<div id="listview-selected">
-				<ListView {...selectedValuesProps} />
-			</div>
-		);
-	})
-	.add('with switch box', () => {
-		return (
-			<div id="listview-switch">
-				<ListView {...withSwitchBox} />
-			</div>
-		);
-	})
-	.add('with nested items', () => {
-		return (
-			<div id="listview-nested">
-				<ListView {...withNestedItems} />
-			</div>
-		);
-	})
-	.add('with icons', () => (
-		<div id="listview-with-icon">
-			<ListView {...withIconProps} />
+export const Empty = () => {
+	const emptyProps = { ...props };
+	emptyProps.items = [];
+	return (
+		<div id="listview-empty">
+			<ListView {...emptyProps} />
 		</div>
-	))
-	.add('without toggleAll', () => {
-		const withoutToggleALLProps = { ...props };
-		withoutToggleALLProps.showToggleAll = false;
+	);
+};
 
-		return (
-			<div id="listview-without-toggle-all">
-				<ListView {...withoutToggleALLProps} />
-			</div>
-		);
-	});
+export const SingleEntry = () => {
+	const singleEntryProps = { ...props };
+	singleEntryProps.items = [props.items[0]];
+	return (
+		<div id="listview-single">
+			<ListView {...singleEntryProps} />
+		</div>
+	);
+};
+
+export const SeveralValues = () => (
+	<div id="listview-several">
+		<ListView {...props} />
+	</div>
+);
+
+export const SearchMode = () => (
+	<div id="listview-search">
+		<ListView {...searchProps} />
+	</div>
+);
+
+export const SearchModeWithoutResults = () => (
+	<div id="listview-search-no-result">
+		<ListView {...noResultsSearch} />
+	</div>
+);
+
+export const SelectedValues = () => {
+	const selectedValuesProps = { ...props };
+
+	selectedValuesProps.items[1].checked = true;
+
+	return (
+		<div id="listview-selected">
+			<ListView {...selectedValuesProps} />
+		</div>
+	);
+};
+
+export const WithSwitchBox = () => {
+	return (
+		<div id="listview-switch">
+			<ListView {...withSwitchBox} />
+		</div>
+	);
+};
+
+export const WithNestedItems = () => {
+	return (
+		<div id="listview-nested">
+			<ListView {...withNestedItems} />
+		</div>
+	);
+};
+
+export const WithIcons = () => (
+	<div id="listview-with-icon">
+		<ListView {...withIconProps} />
+	</div>
+);
+
+export const WithoutToggleAll = () => {
+	const withoutToggleALLProps = { ...props };
+	withoutToggleALLProps.showToggleAll = false;
+
+	return (
+		<div id="listview-without-toggle-all">
+			<ListView {...withoutToggleALLProps} />
+		</div>
+	);
+};

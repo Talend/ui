@@ -2,7 +2,7 @@ import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
-import talendUtils from '@talend/utils';
+import { date as dateUtils } from '@talend/utils';
 
 import getErrorMessage from '../shared/error-messages';
 
@@ -52,10 +52,10 @@ function dateToStr(date, { dateFormat }) {
 
 function convertDateToTimezone(date, { useUTC, timezone }) {
 	if (useUTC) {
-		return talendUtils.date.convertToUTC(date);
+		return dateUtils.convertToUTC(date);
 	}
 	if (timezone) {
-		return talendUtils.date.convertToLocalTime(date, { timeZone: timezone });
+		return dateUtils.convertToLocalTime(date, { timeZone: timezone });
 	}
 	return date;
 }
@@ -132,7 +132,7 @@ function checkSupportedDateFormat(dateFormat) {
  * @throws
  */
 function checkSupportedTimezone(timezone) {
-	if (!talendUtils.date.timeZoneExists(timezone)) {
+	if (!dateUtils.timeZoneExists(timezone)) {
 		throw new Error(`Timezone: ${timezone} - NOT SUPPORTED`);
 	}
 }
@@ -149,7 +149,7 @@ function extractDateOnly(date, { useUTC, timezone }) {
 	if (useUTC) {
 		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 	} else if (timezone) {
-		const converted = talendUtils.date.convertToTimeZone(date, { timeZone: timezone });
+		const converted = dateUtils.convertToTimeZone(date, { timeZone: timezone });
 		return new Date(converted.getFullYear(), converted.getMonth(), converted.getDate());
 	}
 	return new Date(date.getFullYear(), date.getMonth(), date.getDate());

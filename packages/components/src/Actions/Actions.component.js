@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ButtonGroup, OverlayTrigger } from '@talend/react-bootstrap';
+import { ButtonGroup } from '@talend/react-bootstrap';
 import classNames from 'classnames';
 import Action from './Action';
+import OverlayTrigger from '../OverlayTrigger';
 import Inject from '../Inject';
 
 function getButtonGroupProps(props) {

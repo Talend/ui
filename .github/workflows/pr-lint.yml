@@ -1,0 +1,66 @@
+name: PR lint
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Lint
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          check-latest: true
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v18.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install
+        run: yarn install --frozen-lockfile --ignore-scripts
+
+      - name: eslint
+        continue-on-error: true
+        id: eslint
+        run: yarn lint:es
+
+      - name: stylelint
+        continue-on-error: true
+        run: yarn lint:style
+
+      - name: Merge lint
+        run: node merge-report.js
+
+      - name: Annotate Code Linting Results
+        continue-on-error: true
+        uses: ataylorme/eslint-annotate-action@1.2.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          report-json: ./eslint-report.json
+
+
+      - name: Prettier
+        continue-on-error: true
+        id: prettier
+        shell: bash
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx || $file == *.mdx || $file == *.scss || $file == *.json ]]; then
+              echo "Run Prettier on $file"
+              yarn prettier --config .prettierrc --check $file
+            fi
+          done

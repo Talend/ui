@@ -1,0 +1,47 @@
+{
+  "name": "@talend/design-tokens",
+  "version": "1.5.0",
+  "description": "Talend Design Tokens",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "mainSrc": "src/index.ts",
+  "scripts": {
+    "pre-release": "yarn build:lib && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
+    "build:umd:dev": "talend-scripts build:lib:umd --dev",
+    "build:umd:prod": "talend-scripts build:lib:umd",
+    "build:lib": "talend-scripts build:ts:lib",
+    "test": "echo no test for @talend/design-tokens",
+    "test:cov": "echo no test for @talend/design-tokens",
+    "test:demo": "yarn build-storybook",
+    "test:umd": "jest scripts/umd.test.js",
+    "start": "yarn storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook --docs"
+  },
+  "keywords": [
+    "talend",
+    "design tokens",
+    "theme"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/design-tokens#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^11.6.0",
+    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "color-contrast-checker": "^2.1.0",
+    "react": "^16.14.0",
+    "typeface-source-sans-pro": "^1.1.13"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,38 @@
+$padding: 2rem;
+
+.tc-badge-date-form {
+	&-label {
+		font-weight: $font-weight-semi-bold;
+		font-size: 1.2rem;
+	}
+
+	:global(.tc-tooltip-body) {
+		margin: 0;
+		padding: $padding;
+		width: 100%;
+	}
+
+	&-body {
+		display: block;
+	}
+
+	&-submit {
+		position: absolute;
+		bottom: $padding;
+		right: $padding;
+	}
+
+	&-input-container {
+		margin-bottom: $padding;
+	}
+
+	&-picker-container > div {
+		padding: 0;
+		min-height: unset;
+	}
+
+	:global(.tc-tooltip-content) {
+		flex-direction: column;
+		max-height: unset;
+	}
+}

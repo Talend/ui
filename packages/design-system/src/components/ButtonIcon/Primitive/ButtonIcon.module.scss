@@ -1,0 +1,96 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.buttonIcon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	padding: 0;
+	width: tokens.$coral-size-xl;
+	height: tokens.$coral-size-xl;
+	color: tokens.$coral-color-accent-icon;
+	border-radius: tokens.$coral-radius-round;
+	transition: all tokens.$coral-transition-fast;
+
+	&__icon {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: tokens.$coral-size-m;
+		height: tokens.$coral-size-m;
+	}
+
+	&.size_S {
+		width: tokens.$coral-size-l;
+		height: tokens.$coral-size-l;
+	}
+
+	&.size_XS {
+		width: tokens.$coral-size-m;
+		height: tokens.$coral-size-m;
+		border-radius: 0.4rem; // TODO: Discuss adding as a token
+
+		.buttonIcon__icon {
+			width: tokens.$coral-size-s;
+			height: tokens.$coral-size-s;
+		}
+	}
+
+	&.floating {
+		background: tokens.$coral-color-neutral-background;
+		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	}
+
+	&.toggle {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+
+		&:hover {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
+		}
+
+		&:active {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-active;
+		}
+
+		&:disabled {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+		}
+
+		&[aria-pressed='true'] {
+			color: tokens.$coral-color-accent-text-weak;
+			background: tokens.$coral-color-accent-background-strong;
+
+			&:hover {
+				color: tokens.$coral-color-accent-text-weak-hover;
+				background: tokens.$coral-color-accent-background-strong-hover;
+			}
+
+			&:active {
+				color: tokens.$coral-color-accent-text-weak-active;
+				background: tokens.$coral-color-accent-background-strong-active;
+			}
+
+			&:disabled {
+				color: tokens.$coral-color-neutral-text-disabled;
+				background: tokens.$coral-color-neutral-background-disabled;
+			}
+		}
+	}
+
+	&:hover {
+		color: tokens.$coral-color-accent-icon-hover;
+		background: tokens.$coral-color-accent-background-weak-hover;
+	}
+
+	&:active {
+		color: tokens.$coral-color-accent-icon-active;
+		background: tokens.$coral-color-accent-background-weak-active;
+	}
+
+	&:disabled {
+		color: tokens.$coral-color-neutral-text-disabled;
+		cursor: not-allowed;
+	}
+}

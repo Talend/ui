@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { OverlayTrigger, Panel, Button } from '@talend/react-bootstrap';
+import { Panel, Button } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
+import OverlayTrigger from '../OverlayTrigger';
 import Action from '../Actions/Action';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import Status from '../Status';
@@ -144,6 +145,7 @@ function CollapsiblePanelHeader(props) {
 			</Button>
 		) : (
 			/* eslint-disable jsx-a11y/no-static-element-interactions */
+			// eslint-disable-next-line jsx-a11y/click-events-have-key-events
 			<div className={classNames(css['panel-title'])} key="panel-toggle" onClick={onToggle}>
 				{headerItems}
 			</div>

@@ -149,7 +149,6 @@ export function renderItemsContainerFactory(
 				className={containerClassName}
 				id={containerProps.id}
 				key={containerProps.key}
-				role={containerProps.role}
 				ref={setPopperElement}
 				style={styles.popper}
 				{...attributes.popper}

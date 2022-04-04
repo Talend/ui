@@ -28,7 +28,7 @@ exports[`Skip links should render navigation link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <Coral.Icon
+                <CoralIcon
                   name="talend-arrow-left"
                   transform="rotate-270"
                 />
@@ -59,7 +59,7 @@ exports[`Skip links should render navigation link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <Coral.Icon
+                <CoralIcon
                   name="talend-arrow-left"
                   transform="rotate-270"
                 />
@@ -105,7 +105,7 @@ exports[`Skip links should render only main link 1`] = `
                 name="talend-arrow-left"
                 transform="rotate-270"
               >
-                <Coral.Icon
+                <CoralIcon
                   name="talend-arrow-left"
                   transform="rotate-270"
                 />

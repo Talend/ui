@@ -13,10 +13,7 @@ import {
 } from '../../src/middlewares/http/middleware';
 import interceptors from '../../src/httpInterceptors';
 
-import {
-	HTTP_METHODS,
-	HTTP_STATUS,
-} from '../../src/middlewares/http/constants';
+import { HTTP_METHODS, HTTP_STATUS } from '../../src/middlewares/http/constants';
 
 describe('CMF http middleware', () => {
 	beforeEach(() => {
@@ -26,10 +23,12 @@ describe('CMF http middleware', () => {
 	it('should be available from middlewares/http', () => {
 		expect(http).toBe(httpMiddleware);
 	});
+
 	it('should DEFAULT_HTTP_HEADERS be json', () => {
 		expect(DEFAULT_HTTP_HEADERS.Accept).toBe('application/json');
 		expect(DEFAULT_HTTP_HEADERS['Content-Type']).toBe('application/json');
 	});
+
 	it('should isHTTPRequest check action type', () => {
 		const action = {
 			type: HTTP_METHODS.POST,
@@ -41,6 +40,7 @@ describe('CMF http middleware', () => {
 		action.type = 'HTTP/POST';
 		expect(isHTTPRequest(action)).toBe(false);
 	});
+
 	it('should isHTTPRequest check action.cmf.http', () => {
 		const action = {
 			type: 'WHAT_EVER_YOU_WANT',
@@ -50,6 +50,7 @@ describe('CMF http middleware', () => {
 		};
 		expect(isHTTPRequest(action)).toBe(true);
 	});
+
 	it('should getMethod find HTTP method in action type', () => {
 		expect(getMethod({ type: HTTP_METHODS.POST })).toBe('POST');
 		expect(getMethod({ type: HTTP_METHODS.OPTIONS })).toBe('OPTIONS');
@@ -94,9 +95,9 @@ describe('CMF http middleware', () => {
 		const httpConfig = {
 			headers: {
 				'Accept-Language': 'fr-FR',
-			}
+			},
 		};
-		const defaultOptions = { url: '/url1', headers: { Accept: 'application/json'} };
+		const defaultOptions = { url: '/url1', headers: { Accept: 'application/json' } };
 		const options = mergeConfiguredHeader(httpConfig)(defaultOptions);
 		expect(options.url).toBe('/url1');
 		expect(options.headers.Accept).toBe('application/json');
@@ -108,11 +109,11 @@ describe('CMF http middleware', () => {
 		const httpConfig = {
 			headers: {
 				'Accept-Language': 'fr-FR',
-			}
+			},
 		};
 		const defaultOptions = {
 			url: '/url1',
-			headers: { Accept: 'application/json', 'Accept-Language': 'en-US', }
+			headers: { Accept: 'application/json', 'Accept-Language': 'en-US' },
 		};
 		const options = mergeConfiguredHeader(httpConfig)(defaultOptions);
 		expect(options.url).toBe('/url1');
@@ -125,14 +126,14 @@ describe('CMF http middleware', () => {
 		const httpConfig = {
 			headers: {
 				'Accept-Language': 'fr-FR',
-			}
+			},
 		};
 		const actionOptions = {
 			url: '/url1',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'a content type',
-			}
+			},
 		};
 		const options = mergeConfiguredHeader(httpConfig)(actionOptions);
 		expect(options.url).toBe('/url1');
@@ -145,7 +146,7 @@ describe('CMF http middleware', () => {
 		const httpConfig = {
 			headers: {
 				'Accept-Language': 'fr-FR',
-			}
+			},
 		};
 		const actionOptions = {
 			url: '/url1',
@@ -153,7 +154,7 @@ describe('CMF http middleware', () => {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'a content type',
-			}
+			},
 		};
 		const options = mergeConfiguredHeader(httpConfig)(actionOptions);
 		expect(options.url).toBe('/url1');
@@ -329,7 +330,7 @@ describe('CMF http middleware', () => {
 				type: 'basic',
 				url: '//foo/bar',
 				clone: () => ({
-					text: () => new Promise(resolve => resolve('invalid json')),
+					text: () => Promise.resolve('invalid json'),
 				}),
 			},
 		};
@@ -407,6 +408,7 @@ describe('status function', () => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve if status >= HTTP_STATUS.OK & < 300', () => {
 		const response = {
 			status: HTTP_STATUS.NO_CONTENT,
@@ -426,6 +428,7 @@ describe('json function', () => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve if attr json is on response', () => {
 		const response = {
 			status: HTTP_STATUS.OK,
@@ -438,6 +441,7 @@ describe('json function', () => {
 			expect(r).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve status HTTP_STATUS.NO_CONTENT but without json function', () => {
 		const response = {
 			status: HTTP_STATUS.NO_CONTENT,
@@ -500,7 +504,6 @@ describe('httpMiddleware configuration', () => {
 		const middleware = httpMiddleware(httpDefaultConfig)(store)(next);
 		expect(typeof middleware).toBe('function');
 		middleware(action).then(() => {
-
 			// then
 			const firstCall = global.fetch.mock.calls[0];
 			const firstCallSecondParam = firstCall[1];
@@ -508,10 +511,7 @@ describe('httpMiddleware configuration', () => {
 			expect(firstCallSecondParam).toHaveProperty('body', expectedBody);
 			expect(firstCallSecondParam).toHaveProperty('credentials', expectedCredentials);
 			expect(firstCallSecondParam).toHaveProperty('headers.Accept', expectedAccept);
-			expect(firstCallSecondParam).toHaveProperty(
-				'headers.Content-Type',
-				expectedContentType,
-			);
+			expect(firstCallSecondParam).toHaveProperty('headers.Content-Type', expectedContentType);
 			expect(firstCallSecondParam).toHaveProperty('headers.headerKey', expectedCSRFKeyValue);
 			expect(firstCallSecondParam).toHaveProperty('method', expectedMethod);
 			expect(firstCallSecondParam).toHaveProperty('onError', expectedOnError);
@@ -578,14 +578,8 @@ describe('httpMiddleware configuration', () => {
 			expect(firstCallSecondParam).toHaveProperty('body', expectedBody);
 			expect(firstCallSecondParam).toHaveProperty('credentials', expectedCredentials);
 			expect(firstCallSecondParam).toHaveProperty('headers.Accept', expectedAccept);
-			expect(firstCallSecondParam).toHaveProperty(
-				'headers.Content-Type',
-				expectedContentType,
-			);
-			expect(firstCallSecondParam).toHaveProperty(
-				'headers.X-CSRF-Token',
-				expectedCSRFKeyValue,
-			);
+			expect(firstCallSecondParam).toHaveProperty('headers.Content-Type', expectedContentType);
+			expect(firstCallSecondParam).toHaveProperty('headers.X-CSRF-Token', expectedCSRFKeyValue);
 			expect(firstCallSecondParam).toHaveProperty('method', expectedMethod);
 			expect(firstCallSecondParam).toHaveProperty('onError', expectedOnError);
 			expect(firstCallSecondParam).toHaveProperty('onResponse', expectedOnResponse);
@@ -602,6 +596,7 @@ describe('httpMiddleware configuration', () => {
 			done();
 		});
 	});
+
 	it('should call interceptor at every levels', done => {
 		// given
 		const response = { foo: 'bar' };
@@ -638,7 +633,7 @@ describe('httpMiddleware configuration', () => {
 			expect(interceptor.request).toHaveBeenCalled();
 			const augmentedConfig = interceptor.request.mock.calls[0][0];
 			expect(augmentedConfig.url).toBe(action.url);
-			expect(interceptor.response).toHaveBeenCalledWith({ data: response, headers: {}});
+			expect(interceptor.response).toHaveBeenCalledWith({ data: response, headers: {} });
 			// eslint-disable-next-line no-underscore-dangle
 			interceptors._clear();
 			done();

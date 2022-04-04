@@ -1,7 +1,6 @@
-@import '~@talend/bootstrap-theme/src/theme/forms.guideline';
 $dropdown-items-max-height: 320px !default;
-$tf-typeahead-section-header-color: #63aebd !default;
-$tf-typeahead-section-border-color: #e0e0e0 !default;
+$tf-typeahead-section-header-color: #63AEBD !default;
+$tf-typeahead-section-border-color: $gray75 !default;
 
 .dropdown-toggle {
 	position: absolute;
@@ -25,7 +24,6 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 
 	border: 0;
 	border-radius: 0;
-	box-shadow: $form-shadow;
 	padding: 0;
 
 	.typeahead {

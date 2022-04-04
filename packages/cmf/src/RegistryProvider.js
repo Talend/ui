@@ -4,39 +4,10 @@
  * @module react-cmf/lib/RegistryProvider
  * @see module:react-cmf/lib/App
  */
-import PropTypes from 'prop-types';
-import React, { Children } from 'react';
+import React from 'react';
 import Registry from './registry';
 
-/**
- * The provider is a JSX wrapper to inject the registry as a context var
- * You should never need to use this, it's an internal component
- */
-export default class RegistryProvider extends React.Component {
-	constructor(props) {
-		super(props);
-		this.registry = Registry.getRegistry();
-	}
+export const RegistryContext = React.createContext(Registry.getRegistry());
+export const RegistryProvider = RegistryContext.Provider;
 
-	/**
-	 * @return {object} child with registry as only key
-	 */
-	getChildContext() {
-		return { registry: this.registry };
-	}
-
-	/**
-	 * react rendering
-	 * @return {object} ReactElement
-	 */
-	render() {
-		return Children.only(this.props.children);
-	}
-}
-
-RegistryProvider.propTypes = {
-	children: PropTypes.element.isRequired,
-};
-RegistryProvider.childContextTypes = {
-	registry: PropTypes.object,
-};
+export default RegistryContext.Provider;

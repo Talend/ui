@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FlowDesigner /> renders correctly <FlowDesigner /> renders correctly 1`] = `
+<svg
+  width="100%"
+>
+  <defs>
+    <filter
+      height="1.5"
+      id="blur-filter"
+      width="1.5"
+      x="-.25"
+      y="-.25"
+    >
+      <feFlood
+        floodColor="#01A7CF"
+        result="COLOR"
+      />
+      <feComposite
+        in="COLOR"
+        in2="SourceGraphic"
+        operator="in"
+        result="shadow"
+      />
+      <feGaussianBlur
+        in="shadow"
+        stdDeviation="3"
+      />
+      <feOffset
+        dx="0"
+        dy="0"
+      />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode
+          in="SourceGraphic"
+        />
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
+`;

@@ -175,7 +175,7 @@ describe('#DataGrid', () => {
 			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
 		);
 
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
@@ -185,7 +185,7 @@ describe('#DataGrid', () => {
 			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
 		);
 
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
@@ -201,7 +201,7 @@ describe('#DataGrid', () => {
 				redrawRows,
 			},
 		});
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 
 		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).toHaveBeenCalled();
@@ -219,7 +219,7 @@ describe('#DataGrid', () => {
 				redrawRows,
 			},
 		});
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 
 		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).not.toHaveBeenCalled();
@@ -440,6 +440,78 @@ describe('#Datagrid method', () => {
 
 		expect(nextFocusedCell).toBe(nextCellPosition);
 		expect(setSelected).not.toHaveBeenCalled();
+	});
+
+	it('should set the current selected column from props', () => {
+		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId="field3" />);
+		wrapper.instance().onFocusedColumn = jest.fn();
+		wrapper.instance().onGridReady({ api: {} });
+
+		expect(wrapper.instance().onFocusedColumn).toHaveBeenCalledWith('field3');
+	});
+
+	it('should update current selected column from props', () => {
+		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const deselectAll = jest.fn();
+		const clearFocusedCell = jest.fn();
+		const ensureColumnVisible = jest.fn();
+		const api = {
+			deselectAll,
+			clearFocusedCell,
+			ensureColumnVisible,
+		};
+		const instance = wrapper.instance();
+		instance.onGridReady({ api });
+		instance.removeFocusColumn = jest.fn();
+		instance.updateStyleFocusColumn = jest.fn();
+
+		wrapper.setProps({
+			focusedColumnId: 'field2',
+		});
+
+		expect(instance.currentColId).toEqual('field2');
+	});
+
+	it('should not update local state on click when in controlled mode', () => {
+		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId={null} />);
+		const deselectAll = jest.fn();
+		const clearFocusedCell = jest.fn();
+		const ensureColumnVisible = jest.fn();
+		const api = {
+			deselectAll,
+			clearFocusedCell,
+			ensureColumnVisible,
+		};
+		const instance = wrapper.instance();
+		instance.removeFocusColumn = jest.fn();
+		instance.updateStyleFocusColumn = jest.fn();
+		instance.onGridReady({ api });
+
+		instance.onFocusedColumn('field4');
+
+		expect(instance.currentColId).toEqual(null);
+	});
+
+	it('should scroll to focused column', () => {
+		const deselectAll = jest.fn();
+		const clearFocusedCell = jest.fn();
+		const ensureColumnVisible = jest.fn();
+		const api = {
+			deselectAll,
+			clearFocusedCell,
+			ensureColumnVisible,
+		};
+		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId="field2" />);
+		const instance = wrapper.instance();
+		instance.setCurrentFocusedColumn = jest.fn();
+		instance.setCurrentFocusedColumn = jest.fn();
+		instance.removeFocusColumn = jest.fn();
+		instance.updateStyleFocusColumn = jest.fn();
+		instance.onGridReady({
+			api,
+		});
+
+		expect(api.ensureColumnVisible).toHaveBeenCalled();
 	});
 
 	it('should focus a column', () => {
@@ -729,7 +801,7 @@ describe('#forceRedraw', () => {
 			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
 		);
 
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
@@ -739,7 +811,7 @@ describe('#forceRedraw', () => {
 			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
 		);
 
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
 	});
 
@@ -755,7 +827,7 @@ describe('#forceRedraw', () => {
 				redrawRows,
 			},
 		});
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 
 		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).toHaveBeenCalled();
@@ -773,7 +845,7 @@ describe('#forceRedraw', () => {
 				redrawRows,
 			},
 		});
-		wrapper.instance().componentDidUpdate();
+		wrapper.instance().componentDidUpdate({});
 
 		expect(forceRedrawRows).toHaveBeenCalled();
 		expect(redrawRows).not.toHaveBeenCalled();

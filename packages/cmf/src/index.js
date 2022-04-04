@@ -11,6 +11,7 @@ import cmfModule from './cmfModule';
 import component from './component';
 import ConnectedDispatcher from './Dispatcher';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
+import { Saga, CmfRegisteredSaga } from './components/Saga';
 import expression from './expression';
 import expressions from './expressions';
 import Inject from './Inject.component';
@@ -22,6 +23,7 @@ import localStorage from './localStorage';
 import onError from './onError';
 import reduxStorage from './reduxstorage';
 import * as mock from './mock';
+import { useCMFContext } from './useContext';
 
 // DEPRECATED APIs
 import action from './action';
@@ -62,7 +64,10 @@ export {
 	reducers,
 	registry,
 	RegistryProvider,
+	Saga,
+	CmfRegisteredSaga,
 	store,
+	useCMFContext,
 };
 
 /**
@@ -86,6 +91,7 @@ export default {
 	component,
 	connect: cmfConnect,
 	constants,
+	CmfRegisteredSaga,
 	expression,
 	expressions,
 	middlewares,
@@ -96,6 +102,7 @@ export default {
 	router: {
 		matchPath,
 	},
+	Saga,
 	saga: sagas,
 	sagas,
 	selectors,

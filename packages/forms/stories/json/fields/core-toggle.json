@@ -1,0 +1,50 @@
+{
+  "doc": "Toggle/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Booleans",
+    "properties": {
+      "standard": {
+        "type": "boolean"
+      },
+      "required": {
+        "type": "boolean"
+      },
+      "autofocused": {
+        "type": "boolean"
+      },
+      "disabled": {
+        "type": "boolean"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "standard",
+      "title": "Check if you are exciting",
+      "widget": "toggle",
+      "data-test": "simple.toggle"
+    },
+    {
+      "key": "required",
+      "title": "Check if you are happy (it's required)",
+      "required": true,
+      "widget": "toggle"
+    },
+    {
+      "key": "disabled",
+      "title": "Check if you are neutral (you can't, it's disabled)",
+      "disabled": true,
+      "widget": "toggle"
+    },
+    {
+      "key": "autofocused",
+      "title": "Check if you are sad (autofocused)",
+      "autoFocus": true,
+      "widget": "toggle"
+    }
+  ],
+  "properties": {
+    "standard": true
+  }
+}
