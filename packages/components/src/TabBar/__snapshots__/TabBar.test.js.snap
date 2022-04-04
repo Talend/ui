@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TabBar component should render with badges 1`] = `
-<Uncontrolled(TabContainer)
+<ForwardRef
   activeKey="3"
   className="tabs-classname"
   id="my-tabs"
@@ -99,11 +99,11 @@ exports[`TabBar component should render with badges 1`] = `
       />
     </TabContent>
   </div>
-</Uncontrolled(TabContainer)>
+</ForwardRef>
 `;
 
 exports[`TabBar component should render with selected children from item definition 1`] = `
-<Uncontrolled(TabContainer)
+<ForwardRef
   activeKey="3"
   className="tabs-classname"
   id="my-tabs"
@@ -299,11 +299,11 @@ exports[`TabBar component should render with selected children from item definit
       </TabPane>
     </TabContent>
   </div>
-</Uncontrolled(TabContainer)>
+</ForwardRef>
 `;
 
 exports[`TabBar component should render with selected children managed by user 1`] = `
-<Uncontrolled(TabContainer)
+<ForwardRef
   activeKey="3"
   className="tabs-classname"
   id="my-tabs"
@@ -476,5 +476,5 @@ exports[`TabBar component should render with selected children managed by user 1
       />
     </TabContent>
   </div>
-</Uncontrolled(TabContainer)>
+</ForwardRef>
 `;
