@@ -7,7 +7,7 @@ import FilterBar from './FilterBar.component';
 describe('Filter', () => {
 	const noOp = jest.fn();
 
-	it('should render button', () => {
+	it('should render Toggle filter button', () => {
 		// when
 		render(<FilterBar onFilter={noOp} onToggle={noOp} docked />);
 
