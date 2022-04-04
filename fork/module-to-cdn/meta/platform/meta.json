@@ -1,0 +1,52 @@
+{
+  "https://unpkg.com/platform@1.0.0/platform.js": {
+    "integrity": "sha384-qPXx54KuXHC89T8Q1aFbVrvmC6kbpC9qYCTbKA7ES/dBpUOeThkko5tRWGauXeCO",
+    "lastModified": "Sun, 12 Aug 2012 09:39:49 GMT",
+    "size": 31798
+  },
+  "https://unpkg.com/platform@1.1.0/platform.js": {
+    "integrity": "sha384-SgMkFnMUmYv/Vdr+696CpUizTFrP0elClf6OFZ5JIe0EpS1Y3XqXZwWrkgh1H1KR",
+    "lastModified": "Fri, 23 May 2014 06:12:27 GMT",
+    "size": 34672
+  },
+  "https://unpkg.com/platform@1.2.0/platform.js": {
+    "integrity": "sha384-g3D62ffiYoRASRyRDZ9qw04pOFdKv5szQtPgpGwFQQcgQYY1m7JfC9L7k5xsuBjG",
+    "lastModified": "Mon, 23 Jun 2014 06:32:43 GMT",
+    "size": 35111
+  },
+  "https://unpkg.com/platform@1.3.0/platform.js": {
+    "integrity": "sha384-nBSNIq7+vVBiz1kar0h8etslNj4+LosUyWHdThqOjwG/P5/TzGeVQmRVV7MAg9qO",
+    "lastModified": "Mon, 01 Dec 2014 05:18:40 GMT",
+    "size": 36713
+  },
+  "https://unpkg.com/platform@1.3.1/platform.js": {
+    "integrity": "sha384-oovonYFmQr7ve72ZBdeu8emBX9Epi9qa1nahKlwY8jGiVN7GetD22QG6xNCMxUf1",
+    "lastModified": "Fri, 01 Jan 2016 19:37:52 GMT",
+    "size": 36766
+  },
+  "https://unpkg.com/platform@1.3.2/platform.js": {
+    "integrity": "sha384-2SX9cyguXnlammJOujwwiFGvuKTwJlTIjpSeUF0FBYx2TmltuNnF2qB30lralDhd",
+    "lastModified": "Tue, 01 Nov 2016 02:45:04 GMT",
+    "size": 39230
+  },
+  "https://unpkg.com/platform@1.3.3/platform.js": {
+    "integrity": "sha384-+sTxtdeTaJHKQLO9tbg9VQEUq4ldPowAEw6neJ6BN9i/358772dfpzN6FNUdHuDM",
+    "lastModified": "Thu, 10 Nov 2016 03:46:38 GMT",
+    "size": 39231
+  },
+  "https://unpkg.com/platform@1.3.4/platform.js": {
+    "integrity": "sha384-1tL7veG3Ai7k0nqVKWiUU4mPYNkrRMCR4k/5YA3BG5K2Cd2Bqko+aZRpxJXjkvb/",
+    "lastModified": "Wed, 01 Mar 2017 20:39:20 GMT",
+    "size": 40754
+  },
+  "https://unpkg.com/platform@1.3.5/platform.js": {
+    "integrity": "sha384-lS4j3uXXA1hLt3ffnh5byAy4kG4ybOB3qlvPIo6vc0qqSU8rEFjjiGCKWiG6j0Te",
+    "lastModified": "Fri, 29 Dec 2017 02:39:26 GMT",
+    "size": 40687
+  },
+  "https://unpkg.com/platform@1.3.6/platform.js": {
+    "integrity": "sha384-vDMO2RuNNt4HdAdUnRGBJMevzLZyJwbnIdoPyjfRC8rwoEkj0LpjSHx5IWz+WhVo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 42695
+  }
+}

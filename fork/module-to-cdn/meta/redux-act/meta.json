@@ -1,0 +1,227 @@
+{
+  "https://unpkg.com/redux-act@0.4.2/dist/redux-act.js": {
+    "integrity": "sha384-BMKz3v0UmNn0ZSZqjF4+1dQXgZQM+TWxOINwHGzJe6YEKYCFKloiz1kFW4Kic+/G",
+    "lastModified": "Fri, 13 May 2016 09:23:56 GMT",
+    "size": 14831
+  },
+  "https://unpkg.com/redux-act@0.5.0/dist/redux-act.js": {
+    "integrity": "sha384-TbUdwOv2EQqGFg7lD/wHiwm9b0aVQUBlH8ASr1XFAJCrqbXlUQYu8cg6g4No7k5h",
+    "lastModified": "Wed, 15 Jun 2016 19:01:53 GMT",
+    "size": 14916
+  },
+  "https://unpkg.com/redux-act@1.0.0/dist/redux-act.js": {
+    "integrity": "sha384-yrgx2vItVGxztbVPNHkyPhMFtpPLTBtKUfNHU2lRVFrq/BjV6FJdrToPVMGNh4ft",
+    "lastModified": "Sun, 04 Sep 2016 21:12:41 GMT",
+    "size": 14496
+  },
+  "https://unpkg.com/redux-act@1.1.0/dist/redux-act.js": {
+    "integrity": "sha384-IRb0PxQbhwFkNjYILWXaChMkl7JpaJopP8cnj3DdB1COj8Z5lO8mzgrF1cx5nCeY",
+    "lastModified": "Fri, 14 Oct 2016 20:37:28 GMT",
+    "size": 14499
+  },
+  "https://unpkg.com/redux-act@1.1.1/dist/redux-act.js": {
+    "integrity": "sha384-AQSaWTYqeuGieP4rbE/rE971pe0wP14S7YK/LotaQ+bD8ikxvlmJEEyp1MBKNUTW",
+    "lastModified": "Sun, 26 Feb 2017 16:07:21 GMT",
+    "size": 14933
+  },
+  "https://unpkg.com/redux-act@1.2.0/dist/redux-act.js": {
+    "integrity": "sha384-X6wB6yKuajzSgLhsZ76wqI5R7J/rV+J1biTnv+iwifc9jHNMLFAJgfXas5OBXzVq",
+    "lastModified": "Thu, 20 Apr 2017 21:57:18 GMT",
+    "size": 15953
+  },
+  "https://unpkg.com/redux-act@1.2.0/dist/redux-act.min.js": {
+    "integrity": "sha384-mk9XY2H0IEVJB+cekdMxxk6ilNGOAs4orXLFwxzhU/ZHfgS6FgVSGCLbRMyAoSxO",
+    "lastModified": "Thu, 20 Apr 2017 21:57:19 GMT",
+    "size": 13270
+  },
+  "https://unpkg.com/redux-act@1.3.0/dist/redux-act.js": {
+    "integrity": "sha384-ERMJTfutuMfELGUVsn2UMymFidpG45cSXeiAikZJWxZ0VV9wjnzKGB/T13+rTgZ6",
+    "lastModified": "Wed, 07 Jun 2017 22:02:14 GMT",
+    "size": 16279
+  },
+  "https://unpkg.com/redux-act@1.3.0/dist/redux-act.min.js": {
+    "integrity": "sha384-63LQTZVWS8J86liNsaHwNEH/3Nu/PkW01oo3ftIhfH74Ydy4Qmgjct4AJWwKrHdR",
+    "lastModified": "Wed, 07 Jun 2017 22:02:15 GMT",
+    "size": 13555
+  },
+  "https://unpkg.com/redux-act@1.3.1/dist/redux-act.js": {
+    "integrity": "sha384-OnbMTJhGmr3yKFyyrstwxtkplJgVL/I2EHg98nTqerg7NQDApu9cMQsXQdsZdeOF",
+    "lastModified": "Sun, 06 Aug 2017 12:21:17 GMT",
+    "size": 15774
+  },
+  "https://unpkg.com/redux-act@1.3.1/dist/redux-act.min.js": {
+    "integrity": "sha384-DJb8EoDvEcpPfFUht6klY/TLMfzKb/Ak826+LrT78s9PXDicPOTfOKfRg6GzSafA",
+    "lastModified": "Sun, 06 Aug 2017 12:21:17 GMT",
+    "size": 13174
+  },
+  "https://unpkg.com/redux-act@1.3.2/dist/redux-act.js": {
+    "integrity": "sha384-OnbMTJhGmr3yKFyyrstwxtkplJgVL/I2EHg98nTqerg7NQDApu9cMQsXQdsZdeOF",
+    "lastModified": "Wed, 09 Aug 2017 10:45:41 GMT",
+    "size": 15774
+  },
+  "https://unpkg.com/redux-act@1.3.2/dist/redux-act.min.js": {
+    "integrity": "sha384-DJb8EoDvEcpPfFUht6klY/TLMfzKb/Ak826+LrT78s9PXDicPOTfOKfRg6GzSafA",
+    "lastModified": "Wed, 09 Aug 2017 10:45:41 GMT",
+    "size": 13174
+  },
+  "https://unpkg.com/redux-act@1.4.0/dist/redux-act.js": {
+    "integrity": "sha384-7UhDBQQULUW2ht0vij5fCs7DYrhVS5DFFHLROHKwi9DgXYM2CskTbSDK6nBIBB2I",
+    "lastModified": "Sun, 27 Aug 2017 09:46:49 GMT",
+    "size": 16128
+  },
+  "https://unpkg.com/redux-act@1.4.0/dist/redux-act.min.js": {
+    "integrity": "sha384-0XZ7uIGd9sdmBNJJ0C0qBzPQUvU+gscdexsKrBhUtqOE+3blijbqF2SGNtvCXR9k",
+    "lastModified": "Sun, 27 Aug 2017 09:46:49 GMT",
+    "size": 13426
+  },
+  "https://unpkg.com/redux-act@1.4.1/dist/redux-act.js": {
+    "integrity": "sha384-7UhDBQQULUW2ht0vij5fCs7DYrhVS5DFFHLROHKwi9DgXYM2CskTbSDK6nBIBB2I",
+    "lastModified": "Mon, 11 Sep 2017 16:33:42 GMT",
+    "size": 16128
+  },
+  "https://unpkg.com/redux-act@1.4.1/dist/redux-act.min.js": {
+    "integrity": "sha384-0XZ7uIGd9sdmBNJJ0C0qBzPQUvU+gscdexsKrBhUtqOE+3blijbqF2SGNtvCXR9k",
+    "lastModified": "Mon, 11 Sep 2017 16:33:43 GMT",
+    "size": 13426
+  },
+  "https://unpkg.com/redux-act@1.5.0/dist/redux-act.js": {
+    "integrity": "sha384-whhRcF7udUfbJYoaq7QVkRYJP/4YT0I6m6DUua+kaP3ttr9mNOKeg4ameUe5HpPS",
+    "lastModified": "Sun, 29 Oct 2017 19:08:44 GMT",
+    "size": 17302
+  },
+  "https://unpkg.com/redux-act@1.5.0/dist/redux-act.min.js": {
+    "integrity": "sha384-3WWYXeq533F3hPOK3y+4gFbYASFEbzJSWkItoPM++xSkRjN5p7DAzEHtkqyqx+bJ",
+    "lastModified": "Sun, 29 Oct 2017 19:08:45 GMT",
+    "size": 14400
+  },
+  "https://unpkg.com/redux-act@1.5.1/dist/redux-act.js": {
+    "integrity": "sha384-whhRcF7udUfbJYoaq7QVkRYJP/4YT0I6m6DUua+kaP3ttr9mNOKeg4ameUe5HpPS",
+    "lastModified": "Sun, 03 Dec 2017 09:45:42 GMT",
+    "size": 17302
+  },
+  "https://unpkg.com/redux-act@1.5.1/dist/redux-act.min.js": {
+    "integrity": "sha384-3WWYXeq533F3hPOK3y+4gFbYASFEbzJSWkItoPM++xSkRjN5p7DAzEHtkqyqx+bJ",
+    "lastModified": "Sun, 03 Dec 2017 09:45:42 GMT",
+    "size": 14400
+  },
+  "https://unpkg.com/redux-act@1.6.0/dist/redux-act.js": {
+    "integrity": "sha384-/8oigAL0G3GdMh4HxOMfBpZZDMfFJaCMiBX8+X6YS/mn/iQ3QescMF3wZh7eHfYW",
+    "lastModified": "Sat, 27 Jan 2018 17:26:52 GMT",
+    "size": 17432
+  },
+  "https://unpkg.com/redux-act@1.6.0/dist/redux-act.min.js": {
+    "integrity": "sha384-NI3zDLXcXVbjrUjL+9gdKGXulAdkXANA3ehiiktoODa5KlX5ZriXdI0OLTxdyMqo",
+    "lastModified": "Sat, 27 Jan 2018 17:26:52 GMT",
+    "size": 14484
+  },
+  "https://unpkg.com/redux-act@1.7.0/dist/redux-act.js": {
+    "integrity": "sha384-w8BBtnw8iAbYaaavwi2gXzZkRn7ZZ1lzC9bI1cA4Dfp8W3XUK3N1OY0JG4hQ+YEW",
+    "lastModified": "Sun, 04 Feb 2018 13:06:01 GMT",
+    "size": 17467
+  },
+  "https://unpkg.com/redux-act@1.7.0/dist/redux-act.min.js": {
+    "integrity": "sha384-aVjWUhuYPYbTbbUcPPbtNQpWQtpKruUDz4wyjWTThn8hKPY6YRnNHr7QF/wsF28N",
+    "lastModified": "Sun, 04 Feb 2018 13:06:01 GMT",
+    "size": 14515
+  },
+  "https://unpkg.com/redux-act@1.7.1/dist/redux-act.js": {
+    "integrity": "sha384-w8BBtnw8iAbYaaavwi2gXzZkRn7ZZ1lzC9bI1cA4Dfp8W3XUK3N1OY0JG4hQ+YEW",
+    "lastModified": "Thu, 08 Feb 2018 21:56:03 GMT",
+    "size": 17467
+  },
+  "https://unpkg.com/redux-act@1.7.1/dist/redux-act.min.js": {
+    "integrity": "sha384-aVjWUhuYPYbTbbUcPPbtNQpWQtpKruUDz4wyjWTThn8hKPY6YRnNHr7QF/wsF28N",
+    "lastModified": "Thu, 08 Feb 2018 21:56:04 GMT",
+    "size": 14515
+  },
+  "https://unpkg.com/redux-act@1.7.2/dist/redux-act.js": {
+    "integrity": "sha384-w8BBtnw8iAbYaaavwi2gXzZkRn7ZZ1lzC9bI1cA4Dfp8W3XUK3N1OY0JG4hQ+YEW",
+    "lastModified": "Mon, 19 Feb 2018 19:58:15 GMT",
+    "size": 17467
+  },
+  "https://unpkg.com/redux-act@1.7.2/dist/redux-act.min.js": {
+    "integrity": "sha384-aVjWUhuYPYbTbbUcPPbtNQpWQtpKruUDz4wyjWTThn8hKPY6YRnNHr7QF/wsF28N",
+    "lastModified": "Mon, 19 Feb 2018 19:58:16 GMT",
+    "size": 14515
+  },
+  "https://unpkg.com/redux-act@1.7.3/dist/redux-act.js": {
+    "integrity": "sha384-w8BBtnw8iAbYaaavwi2gXzZkRn7ZZ1lzC9bI1cA4Dfp8W3XUK3N1OY0JG4hQ+YEW",
+    "lastModified": "Wed, 21 Feb 2018 11:51:31 GMT",
+    "size": 17467
+  },
+  "https://unpkg.com/redux-act@1.7.3/dist/redux-act.min.js": {
+    "integrity": "sha384-aVjWUhuYPYbTbbUcPPbtNQpWQtpKruUDz4wyjWTThn8hKPY6YRnNHr7QF/wsF28N",
+    "lastModified": "Wed, 21 Feb 2018 11:51:31 GMT",
+    "size": 14515
+  },
+  "https://unpkg.com/redux-act@1.7.4/dist/redux-act.js": {
+    "integrity": "sha384-w8BBtnw8iAbYaaavwi2gXzZkRn7ZZ1lzC9bI1cA4Dfp8W3XUK3N1OY0JG4hQ+YEW",
+    "lastModified": "Wed, 04 Apr 2018 21:19:09 GMT",
+    "size": 17467
+  },
+  "https://unpkg.com/redux-act@1.7.4/dist/redux-act.min.js": {
+    "integrity": "sha384-aVjWUhuYPYbTbbUcPPbtNQpWQtpKruUDz4wyjWTThn8hKPY6YRnNHr7QF/wsF28N",
+    "lastModified": "Wed, 04 Apr 2018 21:19:09 GMT",
+    "size": 14515
+  },
+  "https://unpkg.com/redux-act@1.7.5/dist/redux-act.js": {
+    "integrity": "sha384-w5aCXJyOM+ThiKcfIhTqRxO4T3XuzG+NV2X9U28OWrMitbWZEPuu/8VDaWHLRHOH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 18124
+  },
+  "https://unpkg.com/redux-act@1.7.5/dist/redux-act.min.js": {
+    "integrity": "sha384-3DbCfsj/wxVhMxiF8iTcs0u9sFcvlJHYFORbpbkpCcK11wGlOjxIO5bHaXk8ghmq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 15077
+  },
+  "https://unpkg.com/redux-act@1.7.6/dist/redux-act.js": {
+    "integrity": "sha384-w5aCXJyOM+ThiKcfIhTqRxO4T3XuzG+NV2X9U28OWrMitbWZEPuu/8VDaWHLRHOH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 18124
+  },
+  "https://unpkg.com/redux-act@1.7.6/dist/redux-act.min.js": {
+    "integrity": "sha384-3DbCfsj/wxVhMxiF8iTcs0u9sFcvlJHYFORbpbkpCcK11wGlOjxIO5bHaXk8ghmq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 15077
+  },
+  "https://unpkg.com/redux-act@1.7.7/dist/redux-act.js": {
+    "integrity": "sha384-w5aCXJyOM+ThiKcfIhTqRxO4T3XuzG+NV2X9U28OWrMitbWZEPuu/8VDaWHLRHOH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 18124
+  },
+  "https://unpkg.com/redux-act@1.7.7/dist/redux-act.min.js": {
+    "integrity": "sha384-3DbCfsj/wxVhMxiF8iTcs0u9sFcvlJHYFORbpbkpCcK11wGlOjxIO5bHaXk8ghmq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 15077
+  },
+  "https://unpkg.com/redux-act@1.7.8/dist/redux-act.js": {
+    "integrity": "sha384-w5aCXJyOM+ThiKcfIhTqRxO4T3XuzG+NV2X9U28OWrMitbWZEPuu/8VDaWHLRHOH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 18124
+  },
+  "https://unpkg.com/redux-act@1.7.8/dist/redux-act.min.js": {
+    "integrity": "sha384-3DbCfsj/wxVhMxiF8iTcs0u9sFcvlJHYFORbpbkpCcK11wGlOjxIO5bHaXk8ghmq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 15077
+  },
+  "https://unpkg.com/redux-act@1.7.9/dist/redux-act.js": {
+    "integrity": "sha384-w5aCXJyOM+ThiKcfIhTqRxO4T3XuzG+NV2X9U28OWrMitbWZEPuu/8VDaWHLRHOH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 18124
+  },
+  "https://unpkg.com/redux-act@1.7.9/dist/redux-act.min.js": {
+    "integrity": "sha384-3DbCfsj/wxVhMxiF8iTcs0u9sFcvlJHYFORbpbkpCcK11wGlOjxIO5bHaXk8ghmq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 15077
+  },
+  "https://unpkg.com/redux-act@1.8.0/dist/redux-act.js": {
+    "integrity": "sha384-9656n63FQEJxmFusdI+lPu4FCmmdyPuoFXooHvcG6+yXnQx6Q3ZT3H5OZHWo7CdF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 19903
+  },
+  "https://unpkg.com/redux-act@1.8.0/dist/redux-act.min.js": {
+    "integrity": "sha384-uVxEHqZ+EtMUEpcNsuAhiZoz003IKYMFsC/G1KjneKhpfGRMIubVIFF4aJS5ITy2",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 16656
+  }
+}

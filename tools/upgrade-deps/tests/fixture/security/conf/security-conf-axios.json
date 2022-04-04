@@ -1,0 +1,9 @@
+{
+  "name": "axios",
+  "vulnerableVersions": [
+    {
+      "range": ["0.0.1", "0.21.1"],
+      "fixVersion": "0.21.2"
+    }
+  ]
+}

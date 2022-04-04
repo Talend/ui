@@ -1,0 +1,11 @@
+{
+  "name": "@talend/test-security",
+  "private": true,
+  "devDependencies": {
+    "@talend/scripts-core": "^9.10.0",
+    "@talend/scripts-preset-react-lib": "^10.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

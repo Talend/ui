@@ -1,0 +1,432 @@
+{
+  "https://unpkg.com/react-popper@0.10.2/dist/umd/react-popper.js": {
+    "integrity": "sha384-lLrIrL9KgCxIOVy4OauditePZh7V2vWFwQRhok8QJmWksrSHxfVEgk50cKQa97Vx",
+    "lastModified": "Tue, 01 May 2018 09:42:03 GMT",
+    "size": 15389
+  },
+  "https://unpkg.com/react-popper@0.10.2/dist/umd/react-popper.min.js": {
+    "integrity": "sha384-33wwj8afq4N/skgoyWRt/N9KhelSSDxZd4SHkHkR48puwPgx6UpxcZuNi+fpJ9i8",
+    "lastModified": "Tue, 01 May 2018 09:42:05 GMT",
+    "size": 7005
+  },
+  "https://unpkg.com/react-popper@0.10.3/dist/umd/react-popper.js": {
+    "integrity": "sha384-lLrIrL9KgCxIOVy4OauditePZh7V2vWFwQRhok8QJmWksrSHxfVEgk50cKQa97Vx",
+    "lastModified": "Tue, 01 May 2018 14:56:57 GMT",
+    "size": 15389
+  },
+  "https://unpkg.com/react-popper@0.10.3/dist/umd/react-popper.min.js": {
+    "integrity": "sha384-33wwj8afq4N/skgoyWRt/N9KhelSSDxZd4SHkHkR48puwPgx6UpxcZuNi+fpJ9i8",
+    "lastModified": "Tue, 01 May 2018 14:56:59 GMT",
+    "size": 7005
+  },
+  "https://unpkg.com/react-popper@0.10.4/dist/umd/react-popper.js": {
+    "integrity": "sha384-lLrIrL9KgCxIOVy4OauditePZh7V2vWFwQRhok8QJmWksrSHxfVEgk50cKQa97Vx",
+    "lastModified": "Tue, 01 May 2018 16:50:42 GMT",
+    "size": 15389
+  },
+  "https://unpkg.com/react-popper@0.10.4/dist/umd/react-popper.min.js": {
+    "integrity": "sha384-33wwj8afq4N/skgoyWRt/N9KhelSSDxZd4SHkHkR48puwPgx6UpxcZuNi+fpJ9i8",
+    "lastModified": "Tue, 01 May 2018 16:50:44 GMT",
+    "size": 7005
+  },
+  "https://unpkg.com/react-popper@0.2.0/dist/react-popper.js": {
+    "integrity": "sha384-FwwfoOF4mg5e4zG1g5OEUVeutDNyZ1ZPqULgwv7nw3Ec2B5L5Afq/E6iW4rwTag/",
+    "lastModified": "Thu, 02 Mar 2017 22:11:25 GMT",
+    "size": 70056
+  },
+  "https://unpkg.com/react-popper@0.2.0/dist/react-popper.min.js": {
+    "integrity": "sha384-Z0j7WNbYO9TZWqdfU2DlIpkqCxbOJ48eZK/GWTJojHxYZUXuk+YewfTbBMApfOri",
+    "lastModified": "Thu, 02 Mar 2017 22:11:27 GMT",
+    "size": 19405
+  },
+  "https://unpkg.com/react-popper@0.2.1/dist/react-popper.js": {
+    "integrity": "sha384-J35xBnY7xb3OSaLiPV38Orw3L3DvprpgZ8uG7C1T3n21K53GHpgWjZ67OHvGwjcU",
+    "lastModified": "Thu, 02 Mar 2017 22:17:00 GMT",
+    "size": 70052
+  },
+  "https://unpkg.com/react-popper@0.2.1/dist/react-popper.min.js": {
+    "integrity": "sha384-7SqT9qrdfJmr8qAVX1EVkktoMgmyUkPaDTPBz3hfwTNKM0mfniFEUvxn8qtMXtRR",
+    "lastModified": "Thu, 02 Mar 2017 22:17:02 GMT",
+    "size": 19331
+  },
+  "https://unpkg.com/react-popper@0.2.2/dist/react-popper.js": {
+    "integrity": "sha384-HDBr4lYtDgkBKlv4lphMTxyQzI2kAbcBCtbQp099YkwZOAHTS5+qkkJpOrObXjPc",
+    "lastModified": "Sat, 04 Mar 2017 00:16:41 GMT",
+    "size": 153181
+  },
+  "https://unpkg.com/react-popper@0.2.2/dist/react-popper.min.js": {
+    "integrity": "sha384-IqDEUIJEjGfL30HXnVKGNa92vz2v8DT1RWZk33eUUk6vXwS7bQbukahW7KdN7EJ5",
+    "lastModified": "Sat, 04 Mar 2017 00:16:44 GMT",
+    "size": 38270
+  },
+  "https://unpkg.com/react-popper@0.3.0/dist/react-popper.js": {
+    "integrity": "sha384-dxpaQJPENIHfRILtSAzLlOmpT8I2WMo2YlanCptR5+m0fstz32xgtLkrv9D3LKH1",
+    "lastModified": "Tue, 07 Mar 2017 08:46:45 GMT",
+    "size": 153471
+  },
+  "https://unpkg.com/react-popper@0.3.0/dist/react-popper.min.js": {
+    "integrity": "sha384-5gFQfOz6k6BId9pBEyQTmnpqijIBktpVKxwLtLq3RJC7ZS1sq9lxE32yqqKd/jIm",
+    "lastModified": "Tue, 07 Mar 2017 08:46:54 GMT",
+    "size": 38487
+  },
+  "https://unpkg.com/react-popper@0.4.0/dist/react-popper.js": {
+    "integrity": "sha384-AtwxS5ORvKXYqbAO0HT8F0GEGu1fS8c841sUk0eQvjOWZDmQsdgUrkfZ5KBjzgat",
+    "lastModified": "Thu, 16 Mar 2017 06:40:53 GMT",
+    "size": 157468
+  },
+  "https://unpkg.com/react-popper@0.4.0/dist/react-popper.min.js": {
+    "integrity": "sha384-2UybKjNOpa4P/rxuMWmuS7xRapjrrGnIerpz7T06jUgErDHdA/clBYvJQN0sdKYM",
+    "lastModified": "Thu, 16 Mar 2017 06:40:55 GMT",
+    "size": 40368
+  },
+  "https://unpkg.com/react-popper@0.4.1/dist/react-popper.js": {
+    "integrity": "sha384-YOB7tH+6AcMM6GMSpDgCBveYfsUUxvSjxR4Qja1FaWMOR4tmFflbc91LRQOu1zxa",
+    "lastModified": "Thu, 16 Mar 2017 19:51:52 GMT",
+    "size": 157427
+  },
+  "https://unpkg.com/react-popper@0.4.1/dist/react-popper.min.js": {
+    "integrity": "sha384-CimPrxssoZoyJyYxkhU3JsVSLi/MNtOpLc6eR7flhA4aaoBDmZ+S+bcEjc7fpAxI",
+    "lastModified": "Thu, 16 Mar 2017 19:51:54 GMT",
+    "size": 40338
+  },
+  "https://unpkg.com/react-popper@0.4.2/dist/react-popper.js": {
+    "integrity": "sha384-GqKlLW/9zXMpS/Ctyzbj10Lf7FJJTuqNUNMgGN23+lOr4c4nAgFQtwnFM6R4tRVd",
+    "lastModified": "Thu, 16 Mar 2017 20:03:19 GMT",
+    "size": 157492
+  },
+  "https://unpkg.com/react-popper@0.4.2/dist/react-popper.min.js": {
+    "integrity": "sha384-S+Q6/po01S3GmI9YM6rywXY6FmBTN9Ko8QJ6SuuiWmzgFMjfdYihTZBuOLQbwzsP",
+    "lastModified": "Thu, 16 Mar 2017 20:03:22 GMT",
+    "size": 40392
+  },
+  "https://unpkg.com/react-popper@0.4.3/dist/react-popper.js": {
+    "integrity": "sha384-UMJk141EOJeJkg2p8GH0taRgapw0X4p/JFJ/Rw65rKjfBk/uRBoxZpeidEDd8HS7",
+    "lastModified": "Fri, 17 Mar 2017 14:12:21 GMT",
+    "size": 158182
+  },
+  "https://unpkg.com/react-popper@0.4.3/dist/react-popper.min.js": {
+    "integrity": "sha384-YI2oFuRx2/xJvkxHt6TueXg90TnRb00+DvIoHRAYxM9cFuKW2oeEKRW7dhrOYECr",
+    "lastModified": "Fri, 17 Mar 2017 14:12:23 GMT",
+    "size": 40612
+  },
+  "https://unpkg.com/react-popper@0.5.0/dist/react-popper.js": {
+    "integrity": "sha384-DhvGDYP6CrNDyo1cu3ZqXSyAQ+51wW8cs1VEyiY2tG+zCYgUtireAespLDY2uHaQ",
+    "lastModified": "Tue, 25 Apr 2017 08:31:32 GMT",
+    "size": 192102
+  },
+  "https://unpkg.com/react-popper@0.5.0/dist/react-popper.min.js": {
+    "integrity": "sha384-2qbPuX5ugVufjXRgwWPvrKp9nMoHV7Ou/TwENRTt4wseT3lJHROx7h7gSrDz3dF9",
+    "lastModified": "Tue, 25 Apr 2017 08:31:35 GMT",
+    "size": 49792
+  },
+  "https://unpkg.com/react-popper@0.6.0/dist/react-popper.js": {
+    "integrity": "sha384-f/6HXu5Xokav1Sb9I/Hh4xsIwK4YD22ZiSCH7uPgkUblb84ikIGjmLlGjq0+yIbF",
+    "lastModified": "Wed, 26 Apr 2017 01:00:47 GMT",
+    "size": 192642
+  },
+  "https://unpkg.com/react-popper@0.6.0/dist/react-popper.min.js": {
+    "integrity": "sha384-mlrKtIpLxynDqLB01l9SnBDdxctE1inLbCscHzd6GcUjtUQhdSZx3EBmcxDV2e8D",
+    "lastModified": "Wed, 26 Apr 2017 01:00:50 GMT",
+    "size": 50075
+  },
+  "https://unpkg.com/react-popper@0.6.1/dist/react-popper.js": {
+    "integrity": "sha384-Hg5UAzfdylb7tnlIvHaMig3xpAC7UKeQTNK9vLXo3JpjnrtCo9MQQnyTasWrGBFA",
+    "lastModified": "Sun, 21 May 2017 03:40:48 GMT",
+    "size": 153235
+  },
+  "https://unpkg.com/react-popper@0.6.1/dist/react-popper.min.js": {
+    "integrity": "sha384-F7Mwl3bvh5KT4exm7ssl5Josntq5aM3/7tODEm0OhbcFzUE134UhUrALG9XcIdCh",
+    "lastModified": "Sun, 21 May 2017 03:40:51 GMT",
+    "size": 38597
+  },
+  "https://unpkg.com/react-popper@0.6.2/dist/react-popper.js": {
+    "integrity": "sha384-01K/xdrn6Dc+kjB15eWw8Omj47hDypJEVlD4vtDTIs3dKUwNtG+um2CI3R+JdgZM",
+    "lastModified": "Sun, 21 May 2017 03:49:58 GMT",
+    "size": 102623
+  },
+  "https://unpkg.com/react-popper@0.6.2/dist/react-popper.min.js": {
+    "integrity": "sha384-BvJwCO/h++9HI5XMyKgIccttXZLwkj0/l6W3y9pTVYMgBEz4Sh7G9NX7qt5PxDQA",
+    "lastModified": "Sun, 21 May 2017 03:50:00 GMT",
+    "size": 28734
+  },
+  "https://unpkg.com/react-popper@0.6.3/dist/react-popper.js": {
+    "integrity": "sha384-gQMwx1vRp6bDxvC+JYfFmbjWvkXOlHfgocpLdOnPWX+h5jhyG+OMlk0OKasRjbxv",
+    "lastModified": "Mon, 22 May 2017 03:55:09 GMT",
+    "size": 102767
+  },
+  "https://unpkg.com/react-popper@0.6.3/dist/react-popper.min.js": {
+    "integrity": "sha384-TPd52P63NAN4nykl7HJ2LWI+ozeomn/I9s3IgJ5pJImNjxLbtDX3NRRGm1u/fZYR",
+    "lastModified": "Mon, 22 May 2017 03:55:11 GMT",
+    "size": 28758
+  },
+  "https://unpkg.com/react-popper@0.6.4/dist/react-popper.js": {
+    "integrity": "sha384-GpMVVStoT/MxWpjB1dMU8hgK3EOTzTBbM+ijp2TaOjqq48oBeaTtLS2pM2QopQjS",
+    "lastModified": "Mon, 22 May 2017 07:23:47 GMT",
+    "size": 102704
+  },
+  "https://unpkg.com/react-popper@0.6.4/dist/react-popper.min.js": {
+    "integrity": "sha384-FsfNRlimqbNyvn3vhrcWiUwsxSRvALXeryA1viVi7qzItO0QkWs7IcUEB6n7mav5",
+    "lastModified": "Mon, 22 May 2017 07:23:50 GMT",
+    "size": 28735
+  },
+  "https://unpkg.com/react-popper@0.6.5/dist/react-popper.js": {
+    "integrity": "sha384-ehd2COpEXTdI+gzLahpGtY9C+g8ICbLzXKqJefOZ9C4/4WrzQbVcB2Jo0IveOc7k",
+    "lastModified": "Tue, 23 May 2017 08:52:22 GMT",
+    "size": 102594
+  },
+  "https://unpkg.com/react-popper@0.6.5/dist/react-popper.min.js": {
+    "integrity": "sha384-lvC1d8n4jf0yDCVcarw7PRYH68fPR3t1mTsP7AOrGxUDGvsEyMYOlB0kGMULB592",
+    "lastModified": "Tue, 23 May 2017 08:52:24 GMT",
+    "size": 28689
+  },
+  "https://unpkg.com/react-popper@0.6.6/dist/react-popper.js": {
+    "integrity": "sha384-JquPDBr2hMn3p3pAuRw+jdg6cea7QNEfpDpwP/do6nWgFifdfbwJd5jwySW0okme",
+    "lastModified": "Tue, 30 May 2017 03:08:29 GMT",
+    "size": 103035
+  },
+  "https://unpkg.com/react-popper@0.6.6/dist/react-popper.min.js": {
+    "integrity": "sha384-BOFjMt1tbiiic/DY5+q+6wXaW5P3BK6/RadPJN2rBGr8H0shC60N28lSHlyw6Blg",
+    "lastModified": "Tue, 30 May 2017 03:08:31 GMT",
+    "size": 28985
+  },
+  "https://unpkg.com/react-popper@0.6.7/dist/react-popper.js": {
+    "integrity": "sha384-vCTHewATpb4MCj8cnkTp8ChCrwMaCHBatlai9IJrgIGR7hQ+lJ8UF4C7gj2CKLKm",
+    "lastModified": "Fri, 16 Jun 2017 04:53:42 GMT",
+    "size": 102871
+  },
+  "https://unpkg.com/react-popper@0.6.7/dist/react-popper.min.js": {
+    "integrity": "sha384-WuC5REe8EL7zpPWIAsoEJmM4jWKtmu3XBcUm+VtIUrmsg9+LP4rsoAGPFw2VwM8W",
+    "lastModified": "Fri, 16 Jun 2017 04:53:45 GMT",
+    "size": 28876
+  },
+  "https://unpkg.com/react-popper@0.7.0/dist/react-popper.js": {
+    "integrity": "sha384-6pbPTAtG+Cm5KTkcmc2lvfsOfeaXCzarmoi0cxAh2HVxH00j420MM8bntzztcKsH",
+    "lastModified": "Tue, 20 Jun 2017 20:14:50 GMT",
+    "size": 108747
+  },
+  "https://unpkg.com/react-popper@0.7.0/dist/react-popper.min.js": {
+    "integrity": "sha384-uIANtxF7RYcUKV9QdqERKXRTMPGHRR4nhhphtel8YCJTMGi0VkR5l2VXkbqjRyah",
+    "lastModified": "Tue, 20 Jun 2017 20:14:52 GMT",
+    "size": 29954
+  },
+  "https://unpkg.com/react-popper@0.7.1/dist/react-popper.js": {
+    "integrity": "sha384-3+CfhmGYzumBKsQakITs0BsjoVDaCcyq7cbivmOC2EyyqnCyhGr8w2VHuc9sg7D/",
+    "lastModified": "Wed, 19 Jul 2017 18:54:41 GMT",
+    "size": 110159
+  },
+  "https://unpkg.com/react-popper@0.7.1/dist/react-popper.min.js": {
+    "integrity": "sha384-dICxnO4bm82JG9fJSfXeDHjagretZLrE867PrGAaWHTCV3XQk/inlZg72HxFQW0g",
+    "lastModified": "Wed, 19 Jul 2017 18:54:43 GMT",
+    "size": 31217
+  },
+  "https://unpkg.com/react-popper@0.7.2/dist/react-popper.js": {
+    "integrity": "sha384-Cd5EM+kLkcXzRn+xWu7Cr+FTN244s41HDpmNatXXob3JDIAHkfcaR2X5dfaIWbWF",
+    "lastModified": "Mon, 24 Jul 2017 18:19:02 GMT",
+    "size": 110157
+  },
+  "https://unpkg.com/react-popper@0.7.2/dist/react-popper.min.js": {
+    "integrity": "sha384-OmmUP2a4JtYjUPtOW2qR6cgW4UdXJDX2S5voPYFOTm0lEBnEGN2JRKvzhPW0cIAV",
+    "lastModified": "Mon, 24 Jul 2017 18:19:04 GMT",
+    "size": 31215
+  },
+  "https://unpkg.com/react-popper@0.7.3/dist/react-popper.js": {
+    "integrity": "sha384-LT46Y65QYVKpaVen/8EulMgRibSLlvPfaSaT6YQF21KYtGT3y9Yx6ayIHs0A8EBe",
+    "lastModified": "Fri, 22 Sep 2017 20:06:57 GMT",
+    "size": 104890
+  },
+  "https://unpkg.com/react-popper@0.7.3/dist/react-popper.min.js": {
+    "integrity": "sha384-0ymkzChk+0ncpSuMythUl4pdvgEIDSAF2GRwJDhkFkv7cxi7drh7XF0eN4t9DfFw",
+    "lastModified": "Fri, 22 Sep 2017 20:06:59 GMT",
+    "size": 29815
+  },
+  "https://unpkg.com/react-popper@0.7.4/dist/react-popper.js": {
+    "integrity": "sha384-fzUor79DMF7767vRKS9G8i70PRJSRglkxJNJvgvGbEG3Ad2+LCDFV4rrbCXRGfKd",
+    "lastModified": "Sat, 21 Oct 2017 12:20:53 GMT",
+    "size": 104890
+  },
+  "https://unpkg.com/react-popper@0.7.4/dist/react-popper.min.js": {
+    "integrity": "sha384-7o1e/tAIQWNmp9m74KX+fqkMyUmFQuenLlnVH8aET4Gn5vwDIsRC2OpwMzhaK8s0",
+    "lastModified": "Sat, 21 Oct 2017 12:20:56 GMT",
+    "size": 29815
+  },
+  "https://unpkg.com/react-popper@0.7.5/dist/react-popper.js": {
+    "integrity": "sha384-I0krdCrAHfWRjptNMu+Oz6NGL3r+Rfx0IW5/KTCI+Ol21Sc8EJNBDTd8LPolBRct",
+    "lastModified": "Mon, 08 Jan 2018 09:01:13 GMT",
+    "size": 104872
+  },
+  "https://unpkg.com/react-popper@0.7.5/dist/react-popper.min.js": {
+    "integrity": "sha384-8HG/cUJkLwTaof4c7Hr+wEFBeyI8GQDr50ETt+P1tZ/dA3qgS3lP16czsFUtnXGq",
+    "lastModified": "Mon, 08 Jan 2018 09:01:16 GMT",
+    "size": 29700
+  },
+  "https://unpkg.com/react-popper@0.8.0/dist/react-popper.js": {
+    "integrity": "sha384-bef0/qQ3sFbH74aJfweLoNFiwwvi09nPeaWr+YGrB8khJETJUDWHRLmsd0tVmAj5",
+    "lastModified": "Fri, 02 Feb 2018 10:42:28 GMT",
+    "size": 103004
+  },
+  "https://unpkg.com/react-popper@0.8.0/dist/react-popper.min.js": {
+    "integrity": "sha384-wTHVrQ+s/IWptp/PkS0pWMN0zXDOKI5kndCvmjKYFbPp75zGJoSJxhCPhDqhZmyu",
+    "lastModified": "Fri, 02 Feb 2018 10:42:30 GMT",
+    "size": 29262
+  },
+  "https://unpkg.com/react-popper@0.8.1/dist/react-popper.js": {
+    "integrity": "sha384-FmHj1lDup/uk0P0qSbjgQFs0Ak5ZFxkUVSWGOwuwGcbXv8r9pf5DNjfQaJDc/6Z4",
+    "lastModified": "Tue, 06 Feb 2018 20:24:28 GMT",
+    "size": 105891
+  },
+  "https://unpkg.com/react-popper@0.8.1/dist/react-popper.min.js": {
+    "integrity": "sha384-tQlN+V4LOusoTVLrB+Q4RKtukBlgtLUuH1PMt/+KVFwGzig+4yLjv3cvE07/cYMc",
+    "lastModified": "Tue, 06 Feb 2018 20:24:30 GMT",
+    "size": 28767
+  },
+  "https://unpkg.com/react-popper@0.8.2/dist/react-popper.js": {
+    "integrity": "sha384-NCFjukBQ+fYDHEYkKPHzKgS5PupeBI7vbbZiKdMXqKYpRL+1GKybGM1EelhpPXeD",
+    "lastModified": "Tue, 06 Feb 2018 23:55:02 GMT",
+    "size": 103616
+  },
+  "https://unpkg.com/react-popper@0.8.2/dist/react-popper.min.js": {
+    "integrity": "sha384-gdy1UgrV2vs7p/rLiQgJTD8w5U214NuDiTEPwBq/fnjo83xDnl4bnZWZPGeQMoln",
+    "lastModified": "Tue, 06 Feb 2018 23:55:04 GMT",
+    "size": 29643
+  },
+  "https://unpkg.com/react-popper@0.8.3/dist/react-popper.js": {
+    "integrity": "sha384-ZdIX5QAuanQDnFm8LLzyuC1D8O+W5/+yfwAyeYifNYLj2O3d+W26lNaIxNma+fVA",
+    "lastModified": "Mon, 19 Mar 2018 14:34:48 GMT",
+    "size": 103448
+  },
+  "https://unpkg.com/react-popper@0.8.3/dist/react-popper.min.js": {
+    "integrity": "sha384-e6hmKK2WhZEB3on1hwsHcHnqPh6g9K1nSjivZW/qbaWNK+aC0WCofsdpHUuF5WEG",
+    "lastModified": "Mon, 19 Mar 2018 14:34:51 GMT",
+    "size": 29434
+  },
+  "https://unpkg.com/react-popper@1.0.0/dist/index.umd.js": {
+    "integrity": "sha384-1/g8ZAVk/tYdNnwmQEk/b/Rmr5slSFFUPk9itjlfH3pm3ufw3swDtZ4GjRi/NheR",
+    "lastModified": "Thu, 14 Jun 2018 07:47:43 GMT",
+    "size": 50894
+  },
+  "https://unpkg.com/react-popper@1.0.0/dist/index.umd.min.js": {
+    "integrity": "sha384-kgGtC4Op6J712FDAKkx4cn0dZBlXonRuj8P20ZzEeVgu5T5YGxbgttBJRR1q1ASB",
+    "lastModified": "Thu, 14 Jun 2018 07:47:43 GMT",
+    "size": 10654
+  },
+  "https://unpkg.com/react-popper@1.0.1/dist/index.umd.js": {
+    "integrity": "sha384-s8Bs8YkkkPjVhWaMXarTKf/psfy0aUUknIYzYeRX5+oSCqB/G03YLXFP9itFMpTt",
+    "lastModified": "Thu, 09 Aug 2018 15:01:35 GMT",
+    "size": 49515
+  },
+  "https://unpkg.com/react-popper@1.0.1/dist/index.umd.min.js": {
+    "integrity": "sha384-W7wyE0AQ+RgRshotCbNsyqvFIRQHJlEYX080Dbp+8le2i3r26+HsAdqlYQP+7Ipj",
+    "lastModified": "Thu, 09 Aug 2018 15:01:36 GMT",
+    "size": 9984
+  },
+  "https://unpkg.com/react-popper@1.0.2/dist/index.umd.js": {
+    "integrity": "sha384-s8Bs8YkkkPjVhWaMXarTKf/psfy0aUUknIYzYeRX5+oSCqB/G03YLXFP9itFMpTt",
+    "lastModified": "Thu, 09 Aug 2018 15:10:22 GMT",
+    "size": 49515
+  },
+  "https://unpkg.com/react-popper@1.0.2/dist/index.umd.min.js": {
+    "integrity": "sha384-W7wyE0AQ+RgRshotCbNsyqvFIRQHJlEYX080Dbp+8le2i3r26+HsAdqlYQP+7Ipj",
+    "lastModified": "Thu, 09 Aug 2018 15:10:23 GMT",
+    "size": 9984
+  },
+  "https://unpkg.com/react-popper@1.1.0/dist/index.umd.js": {
+    "integrity": "sha384-D6vE9ExN6W5pA46eSY2D3UlCXeQG5+fWxqaMQeB2Tcr++4Q93PrFSo0wREguxG1Q",
+    "lastModified": "Thu, 08 Nov 2018 13:00:29 GMT",
+    "size": 49704
+  },
+  "https://unpkg.com/react-popper@1.1.0/dist/index.umd.min.js": {
+    "integrity": "sha384-Byjy+CRd9J28am5niOPN0biIMRP8CZzqu0F49iBXsAuJtc2y8o000jeTdFjg3s1P",
+    "lastModified": "Thu, 08 Nov 2018 13:00:30 GMT",
+    "size": 10150
+  },
+  "https://unpkg.com/react-popper@1.2.0/dist/index.umd.js": {
+    "integrity": "sha384-D6vE9ExN6W5pA46eSY2D3UlCXeQG5+fWxqaMQeB2Tcr++4Q93PrFSo0wREguxG1Q",
+    "lastModified": "Thu, 08 Nov 2018 13:01:22 GMT",
+    "size": 49704
+  },
+  "https://unpkg.com/react-popper@1.2.0/dist/index.umd.min.js": {
+    "integrity": "sha384-Byjy+CRd9J28am5niOPN0biIMRP8CZzqu0F49iBXsAuJtc2y8o000jeTdFjg3s1P",
+    "lastModified": "Thu, 08 Nov 2018 13:01:23 GMT",
+    "size": 10150
+  },
+  "https://unpkg.com/react-popper@1.3.0/dist/index.umd.js": {
+    "integrity": "sha384-D6vE9ExN6W5pA46eSY2D3UlCXeQG5+fWxqaMQeB2Tcr++4Q93PrFSo0wREguxG1Q",
+    "lastModified": "Thu, 08 Nov 2018 13:02:19 GMT",
+    "size": 49704
+  },
+  "https://unpkg.com/react-popper@1.3.0/dist/index.umd.min.js": {
+    "integrity": "sha384-Byjy+CRd9J28am5niOPN0biIMRP8CZzqu0F49iBXsAuJtc2y8o000jeTdFjg3s1P",
+    "lastModified": "Thu, 08 Nov 2018 13:02:20 GMT",
+    "size": 10150
+  },
+  "https://unpkg.com/react-popper@1.3.1/dist/index.umd.js": {
+    "integrity": "sha384-rjd84wqX/kvMKW4CxkeFzchNDp0yvIibj6dYtq6rk76O+O41tuyzpndAAX5T9urD",
+    "lastModified": "Wed, 12 Dec 2018 17:50:58 GMT",
+    "size": 50023
+  },
+  "https://unpkg.com/react-popper@1.3.1/dist/index.umd.min.js": {
+    "integrity": "sha384-sz3IgQLQkCxB7gfUMJlu/tsXGRKBrWwD9Fgw96Lr2vJSbR1hjNOY/wMfhKLFLSbH",
+    "lastModified": "Wed, 12 Dec 2018 17:50:59 GMT",
+    "size": 10257
+  },
+  "https://unpkg.com/react-popper@1.3.2/dist/index.umd.js": {
+    "integrity": "sha384-x5cyX9Tzsix0NtN07bMTCe9Sqiuunr1Z3nip2iEaYnuCrXsB62zx1+Sa9soStjYQ",
+    "lastModified": "Wed, 12 Dec 2018 18:52:09 GMT",
+    "size": 51978
+  },
+  "https://unpkg.com/react-popper@1.3.2/dist/index.umd.min.js": {
+    "integrity": "sha384-uMc+L7OZaMiobamI7klKpsexUFLFVER8QbzOAXufrO9qUdB9bW/IJmEQiX+hw7qz",
+    "lastModified": "Wed, 12 Dec 2018 18:52:10 GMT",
+    "size": 9923
+  },
+  "https://unpkg.com/react-popper@1.3.3/dist/index.umd.js": {
+    "integrity": "sha384-oDbU+/pieJ31VwAIs+mQsnlTKGMH+0B1jQ7CprA2CDUZ2TRKTeBh5KTDfYXYb1aV",
+    "lastModified": "Mon, 28 Jan 2019 17:33:31 GMT",
+    "size": 52104
+  },
+  "https://unpkg.com/react-popper@1.3.3/dist/index.umd.min.js": {
+    "integrity": "sha384-13hqoN4h8FIGdR0mG4j06UvuB4Malsto61TZ6hzu9R+Zi6tDkBTPRU9aELXjYXY7",
+    "lastModified": "Mon, 28 Jan 2019 17:33:32 GMT",
+    "size": 9971
+  },
+  "https://unpkg.com/react-popper@2.2.0/dist/index.umd.js": {
+    "integrity": "sha384-87SuY0ZjEiqSFKmv8q1IpmEgLbFwuNaUlEe54GaQq4vQRDHVhP95WG0yHibHvqUI",
+    "lastModified": "Thu, 09 Apr 2020 14:59:59 GMT",
+    "size": 15571
+  },
+  "https://unpkg.com/react-popper@2.2.0/dist/index.umd.min.js": {
+    "integrity": "sha384-n/iPSpq4HjwUwEocWUzXPXPk7GuLF/S5YhyAmUJEPj3tqIyfqb0sUcWzoRearCOv",
+    "lastModified": "Thu, 09 Apr 2020 14:59:59 GMT",
+    "size": 5195
+  },
+  "https://unpkg.com/react-popper@2.2.1/dist/index.umd.js": {
+    "integrity": "sha384-87SuY0ZjEiqSFKmv8q1IpmEgLbFwuNaUlEe54GaQq4vQRDHVhP95WG0yHibHvqUI",
+    "lastModified": "Fri, 10 Apr 2020 06:08:36 GMT",
+    "size": 15571
+  },
+  "https://unpkg.com/react-popper@2.2.1/dist/index.umd.min.js": {
+    "integrity": "sha384-n/iPSpq4HjwUwEocWUzXPXPk7GuLF/S5YhyAmUJEPj3tqIyfqb0sUcWzoRearCOv",
+    "lastModified": "Fri, 10 Apr 2020 06:08:37 GMT",
+    "size": 5195
+  },
+  "https://unpkg.com/react-popper@2.2.2/dist/index.umd.js": {
+    "integrity": "sha384-87SuY0ZjEiqSFKmv8q1IpmEgLbFwuNaUlEe54GaQq4vQRDHVhP95WG0yHibHvqUI",
+    "lastModified": "Sat, 11 Apr 2020 13:45:06 GMT",
+    "size": 15571
+  },
+  "https://unpkg.com/react-popper@2.2.2/dist/index.umd.min.js": {
+    "integrity": "sha384-n/iPSpq4HjwUwEocWUzXPXPk7GuLF/S5YhyAmUJEPj3tqIyfqb0sUcWzoRearCOv",
+    "lastModified": "Sat, 11 Apr 2020 13:45:06 GMT",
+    "size": 5195
+  },
+  "https://unpkg.com/react-popper@2.2.3/dist/index.umd.js": {
+    "integrity": "sha384-NMqAp10q4wKu79o97nrWqH8cKtrkvZC78ODuhE+LEOXQuUgpWUsZ3k+nf66ofEfF",
+    "lastModified": "Tue, 28 Apr 2020 09:55:05 GMT",
+    "size": 15360
+  },
+  "https://unpkg.com/react-popper@2.2.3/dist/index.umd.min.js": {
+    "integrity": "sha384-p0ZJRMmAxSrciNkKzOKrrUH9XzU3Cw03MW6h8kix1Yaredr4YgWKW5nW2/frW3wQ",
+    "lastModified": "Tue, 28 Apr 2020 09:55:05 GMT",
+    "size": 5108
+  }
+}
