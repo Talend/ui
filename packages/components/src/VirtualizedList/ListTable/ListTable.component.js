@@ -63,6 +63,15 @@ function ListTable(props) {
 
 	const onRowClickCallback = decorateRowClick(onRowClick);
 	const onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
+	const headerRowRenderer = ({ className, columns, style }) => (
+		<div
+			className={classNames(...[className, theme['tc-list-headerRow']])}
+			role="row"
+			style={style}
+		>
+			{columns}
+		</div>
+	);
 
 	return (
 		<VirtualizedTable
@@ -73,11 +82,14 @@ function ListTable(props) {
 			onRowClick={onRowClickCallback}
 			onRowDoubleClick={onRowDoubleClickCallback}
 			rowClassName={({ index }) =>
-				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
+				classNames(
+					...[theme['tc-list-item'], rowThemes, collection[index] && collection[index].className],
+				)
 			}
 			rowCount={rowCount || collection.length}
 			rowGetter={({ index }) => collection[index] || {}}
 			rowRenderer={RowTableRenderer}
+			headerRowRenderer={headerRowRenderer}
 			{...restProps}
 		/>
 	);
