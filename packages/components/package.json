@@ -49,7 +49,7 @@
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21",
-    "memoize-one": "^5.2.1",
+    "memoize-one": "^6.0.0",
     "rc-slider": "8.7.1",
     "rc-tooltip": "3.7.3",
     "react-autowhatever": "10.2.0",
@@ -77,6 +77,9 @@
     "@talend/locales-tui-components": "^6.42.3",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
     "cross-env": "^7.0.3",
     "css-loader": "^1.0.1",
     "enzyme": "^3.11.0",
@@ -107,5 +110,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.44.6"
+  "version": "6.44.7"
 }
