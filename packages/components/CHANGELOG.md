@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 6.44.7
+
+### Patch Changes
+
+- fd3f5442e: chore(ARCH-482/DateTimePickers): remove deprecated lifecycle
+- a44e4d55b: fix(Typeahead): removed extra listbox role on container div
+- a835c8ce5: AboutDialog: Unnecessary div in markup
+
 ## 6.44.6
 
 ### Patch Changes
