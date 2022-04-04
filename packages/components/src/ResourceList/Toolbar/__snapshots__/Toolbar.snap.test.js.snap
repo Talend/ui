@@ -4,15 +4,13 @@ exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = 
 <div
   className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
 >
-  <withI18nextTranslation(FilterBar)
+  <FilterBar
     autoFocus={true}
     className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
     disabled={false}
     dockable={false}
     docked={true}
-    focus={false}
     navbar={true}
-    t={[Function]}
   />
   <withI18nextTranslation(SortOptions)
     orders={
@@ -78,15 +76,13 @@ exports[`Toolbar component snaps should render Toolbar without sort widgets 1`] 
 <div
   className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
 >
-  <withI18nextTranslation(FilterBar)
+  <FilterBar
     autoFocus={true}
     className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
     disabled={false}
     dockable={false}
     docked={true}
-    focus={false}
     navbar={true}
-    t={[Function]}
   />
   <withI18nextTranslation(StateFilter)
     t={[Function]}
@@ -105,15 +101,13 @@ exports[`Toolbar component snaps should render Toolbar without state widgets 1`]
 <div
   className="tc-resource-list-toolbar theme-tc-resource-list-toolbar"
 >
-  <withI18nextTranslation(FilterBar)
+  <FilterBar
     autoFocus={true}
     className="tc-resource-list-toolbar-filter theme-tc-resource-list-toolbar-filter"
     disabled={false}
     dockable={false}
     docked={true}
-    focus={false}
     navbar={true}
-    t={[Function]}
   />
   <withI18nextTranslation(SortOptions)
     orders={
