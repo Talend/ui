@@ -2,4 +2,4 @@
 '@talend/react-components': patch
 ---
 
-fix(ListTable): remove shaddow-box on each item
+fix(ListTable): remove box-shadow on each item
