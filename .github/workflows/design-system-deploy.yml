@@ -5,16 +5,13 @@ on:
     branches:
       - master
     paths:
-      - 'packages/design-system/**'
-      - 'packages/design-tokens/**'
+      - "packages/design-system/**"
+      - "packages/design-tokens/**"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: main
-    defaults:
-      run:
-        working-directory: ./packages/design-system
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
