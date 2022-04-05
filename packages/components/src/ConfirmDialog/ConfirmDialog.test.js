@@ -6,13 +6,13 @@ import { mount } from 'enzyme';
 
 import ConfirmDialog from './ConfirmDialog.component';
 
-function mockFakeComponent(name) {
+function mockFakeComponent(name, Component) {
 	const fakeComponent = ({ children, className, ...rest }) => {
 		const mergedClassName = classNames(className, name, 'mocked-component');
-		return (
-			<div {...rest} className={mergedClassName}>
-				{children}
-			</div>
+		return React.createElement(
+			Component || 'div',
+			{ ...rest, className: mergedClassName },
+			children,
 		);
 	};
 	fakeComponent.propTypes = {
@@ -29,7 +29,14 @@ jest.mock('@talend/react-bootstrap', () => {
 	Modal.Body = mockFakeComponent('Body');
 	Modal.Footer = mockFakeComponent('Footer');
 	const ProgressBar = mockFakeComponent('ProgressBar');
-	return { Modal, ProgressBar };
+	const Overlay = mockFakeComponent('Overlay');
+	const MenuItem = mockFakeComponent('MenuItem');
+	const ButtonGroup = mockFakeComponent('ButtonGroup');
+	const Button = mockFakeComponent('Button', 'button');
+	const utils = {
+		createChainedFunction: jest.fn(),
+	};
+	return { Modal, ProgressBar, Overlay, utils, Button, ButtonGroup, MenuItem };
 });
 
 const children = <div>BODY</div>;
