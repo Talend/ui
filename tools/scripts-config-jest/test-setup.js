@@ -2,6 +2,7 @@ require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
+const i18next = require('i18next');
 
 const React = require('react');
 const configure = require('enzyme').configure;
@@ -44,28 +45,29 @@ Object.defineProperty(window, 'sessionStorage', {
 	writable: true,
 });
 
-function tMock(key, options) {
-	if (typeof options === 'string') {
-		return options;
+jest.mock('i18next', () => {
+	function tMock(key, options) {
+		if (typeof options === 'string') {
+			return options;
+		}
+		if (options && options.defaultValue) {
+			const getOptionValue = k => (options[k] === undefined ? '' : options[k]);
+			return (options.defaultValue || '').replace(/{{\s*(\w+)\s*}}/g, (_, k) => getOptionValue(k));
+		}
+		return key.split(':').reverse()[0];
 	}
-	if (options && options.defaultValue) {
-		const getOptionValue = k => (options[k] === undefined ? '' : options[k]);
-		return (options.defaultValue || '').replace(/{{\s*(\w+)\s*}}/g, (_, k) => getOptionValue(k));
-	}
-	return key.split(':').reverse()[0];
-}
-
-const i18nextMock = jest.genMockFromModule('i18next');
-i18nextMock.t = tMock;
-i18nextMock.getFixedT = () => tMock;
-i18nextMock.use = () => i18nextMock;
-i18nextMock.addResources = () => {};
-
-jest.mock('i18next', () => i18nextMock);
+	const i18nextMock = jest.genMockFromModule('i18next');
+	i18nextMock.t = tMock;
+	i18nextMock.getFixedT = () => tMock;
+	i18nextMock.use = () => i18nextMock;
+	i18nextMock.addResources = () => {};
+	return i18nextMock;
+});
 
 jest.mock('react-i18next', () => {
 	// from https://github.com/i18next/react-i18next/blob/master/example/test-jest/__mocks__/react-i18next.js
 	const React = require('react');
+	const i18next = require('i18next');
 
 	const hasChildren = node => node && (node.children || (node.props && node.props.children));
 
@@ -98,13 +100,13 @@ jest.mock('react-i18next', () => {
 	// this mock makes sure any components using the translate HoC receive the t function as a prop
 	return {
 		withTranslation: () => Component => {
-			Component.defaultProps = { ...Component.defaultProps, t: tMock };
+			Component.defaultProps = { ...Component.defaultProps, t: i18next.t };
 			Component.displayName = `withI18nextTranslation(${Component.displayName || Component.name})`;
 			return Component;
 		},
-		useTranslation: () => ({ t: tMock }),
+		useTranslation: () => ({ t: i18next.t }),
 		setI18n: () => {},
-		getI18n: () => i18nextMock,
+		getI18n: () => i18next,
 		Trans: ({ children }) =>
 			Array.isArray(children) ? renderNodes(children) : renderNodes([children]),
 	};
@@ -112,6 +114,7 @@ jest.mock('react-i18next', () => {
 
 try {
 	jest.mock('@talend/design-system', () => {
+		const React = require('react');
 		const Coral = jest.requireActual('@talend/design-system');
 
 		const mocks = {};
