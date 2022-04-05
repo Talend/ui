@@ -148,7 +148,7 @@ describe('Notification', () => {
 		expect(leaveFn).toHaveBeenCalledWith(notification);
 	});
 
-	it('should call leaveFn props when the user click on close button', () => {
+	it('should call leaveFn props when the user clicks on close button', () => {
 		// given
 		const leaveFn = jest.fn();
 		const notification = { id: 'id', message: 'foo' };
