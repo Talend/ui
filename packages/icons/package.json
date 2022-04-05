@@ -45,6 +45,7 @@
     "@svgr/webpack": "^5.5.0",
     "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^6.4.1",
+    "css-loader": "^3.6.0",
     "mini-css-extract-plugin": "^1.6.2",
     "mkdirp": "^1.0.4",
     "react": "^16.14.0",
