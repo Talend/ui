@@ -2,7 +2,6 @@
   "name": "@talend/test-basic",
   "private": true,
   "devDependencies": {
-    "@talend/scripts-core": "^9.0.0",
     "chokidar": "^2.1.0"
   },
   "dependencies": {

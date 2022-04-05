@@ -1,11 +1,18 @@
 {
   "name": "@talend/test-security",
   "private": true,
-  "devDependencies": {
-    "@talend/scripts-core": "^9.10.0",
-    "@talend/scripts-preset-react-lib": "^10.1.0"
+  "transitive": {
+    "css-what": "css-select",
+    "prompts": "jest-cli"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "ansi-regex": "^2.0.0",
+    "css-select": "^2.0.0",
+    "glob-parent": "^5.0.0",
+    "postcss": "^7.0.21",
+    "jest-cli": "^26.6.3",
+    "tmpl": "^1.0.0",
+    "yargs-parser": "20.2.7"
   }
 }

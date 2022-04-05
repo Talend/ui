@@ -44,11 +44,9 @@ describe('talend-upgrade-deps', () => {
 		expect(pkg.devDependencies.chokidar).toBe('^2.1.8');
 		expect(isMinorGt('chokidar', pkg, origin)).toBe(true);
 		expect(isMinorGt('react-dom', pkg, origin)).toBe(true);
-		expect(isMinorGt('@talend/scripts-core', pkg, origin)).toBe(true);
 		// no update on this old version installed
 		expect(isMinorLockGT('chokidar', tmpLock, originLock)).toBe(false);
 		expect(isMinorLockGT('react-dom', tmpLock, originLock)).toBe(true);
-		expect(isMinorLockGT('@talend/scripts-core', tmpLock, originLock)).toBe(true);
 		// sub package should be also updated
 		console.error(pkgSub, originSub);
 		expect(isMinorGt('react', pkgSub, originSub)).toBe(true);
@@ -66,7 +64,6 @@ describe('talend-upgrade-deps', () => {
 		}
 		expect(logs).toContain('package.json using same requirements');
 		expect(logs).toContain('"chokidar": "^2.1.0" => "^2.1.8"');
-		expect(logs).toContain('"@talend/scripts-core": "^9.0.0" => ');
 		expect(logs).toContain('check versions of');
 		expect(output.error).toBeUndefined();
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
@@ -87,7 +84,6 @@ describe('talend-upgrade-deps', () => {
 		expect(logs).toContain('"chokidar": "^2.1.0" => "');
 		expect(logs).toContain('"react-dom": "^16.0.0" => "');
 		expect(logs).toContain('"react": "16.0.0" => "');
-		expect(logs).toContain('"@talend/scripts-core": "^9.0.0" => "');
 		expect(logs).toContain('"react": "16.0.0" => "');
 		expect(logs).toContain('update all packages versions of');
 		expect(output.error).toBeUndefined();
@@ -112,18 +108,15 @@ describe('talend-upgrade-deps', () => {
 		expect(logs).not.toContain('"chokidar"');
 		expect(logs).not.toContain('"react-dom"');
 		expect(logs).not.toContain('"react"');
-		expect(logs).toContain('"@talend/scripts-core": "^9.0.0" => "');
 		expect(output.error).toBeUndefined();
 
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
 		expect(isSameVersion('chokidar', pkg, origin)).toBe(true);
 		expect(isSameVersion('react-dom', pkg, origin)).toBe(true);
-		expect(isMinorGt('@talend/scripts-core', pkg, origin)).toBe(true);
 
 		const tmpLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString());
 		expect(isSameLockVersion('chokidar', tmpLock, originLock)).toBe(true);
 		expect(isSameLockVersion('react-dom', tmpLock, originLock)).toBe(true);
-		expect(isMinorLockGT('@talend/scripts-core', tmpLock, originLock)).toBe(true);
 	});
 
 	it('should support a --starts-with option', () => {
@@ -137,17 +130,14 @@ describe('talend-upgrade-deps', () => {
 		expect(logs).not.toContain('"chokidar"');
 		expect(logs).not.toContain('"react-dom"');
 		expect(logs).not.toContain('"react"');
-		expect(logs).toContain('"@talend/scripts-core": "^9.0.0" => "');
 		expect(output.error).toBeUndefined();
 
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
 		expect(isSameVersion('chokidar', pkg, origin)).toBe(true);
 		expect(isSameVersion('react', pkg, origin)).toBe(true);
-		expect(isMinorGt('@talend/scripts-core', pkg, origin)).toBe(true);
 
 		const tmpLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString());
 		expect(isSameLockVersion('chokidar', tmpLock, originLock)).toBe(true);
 		expect(isSameLockVersion('react', tmpLock, originLock)).toBe(true);
-		expect(isMinorLockGT('@talend/scripts-core', tmpLock, originLock)).toBe(true);
 	});
 });
