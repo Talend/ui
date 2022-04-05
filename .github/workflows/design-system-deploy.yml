@@ -30,9 +30,11 @@ jobs:
       - name: Build Storybook of the design tokens
         run: |
           yarn workspace @talend/dynamic-webpack-plugin run build:lib
-          yarn workspace @talend/design-tokens run build:lib
-          yarn workspace @talend/design-tokens run pre-release
-          yarn workspace @talend/design-tokens run build-storybook
+          cd packages/design-tokens
+          yarn install --frozen-lock
+          yarn run build:lib
+          yarn run pre-release
+          yarn run build-storybook
 
       - name: Build Storybook of the design system
         run: yarn workspace @talend/design-system run build-storybook
