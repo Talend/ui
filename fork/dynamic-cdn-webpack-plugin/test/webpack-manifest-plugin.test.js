@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const ManifestPlugin = require('webpack-manifest-plugin');
 
-const DynamicCdnWebpackPlugin = require('../src');
+const DynamicCdnWebpackPlugin = require('../src').default;
 
 const runWebpack = require('./helpers/run-webpack');
 const cleanDir = require('./helpers/clean-dir');

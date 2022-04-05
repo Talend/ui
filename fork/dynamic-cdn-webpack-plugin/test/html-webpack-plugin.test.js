@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DynamicCdnWebpackPlugin = require('../src');
+const DynamicCdnWebpackPlugin = require('../src').default;
 
 const runWebpack = require('./helpers/run-webpack');
 const cleanDir = require('./helpers/clean-dir');

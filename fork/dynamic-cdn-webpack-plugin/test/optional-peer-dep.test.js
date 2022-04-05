@@ -3,7 +3,7 @@ const path = require('path');
 const runWebpack = require('./helpers/run-webpack');
 const cleanDir = require('./helpers/clean-dir');
 
-const DynamicCdnWebpackPlugin = require('../src');
+const DynamicCdnWebpackPlugin = require('../src').default;
 
 describe('Optional Peer Dep', () => {
 	it('should work', async () => {

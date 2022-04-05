@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const runWebpack = require('./helpers/run-webpack');
 const cleanDir = require('./helpers/clean-dir');
 
-const DynamicCdnWebpackPlugin = require('../src');
+const DynamicCdnWebpackPlugin = require('../src').default;
 
 describe('core', () => {
 	it('should set deps as cdn externals', async () => {
