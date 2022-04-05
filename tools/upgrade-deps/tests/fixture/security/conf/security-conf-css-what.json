@@ -1,0 +1,9 @@
+{
+  "name": "css-what",
+  "vulnerableVersions": [
+    {
+      "range": "3.4.2",
+      "fixVersion": "5.0.1"
+    }
+  ]
+}

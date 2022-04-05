@@ -1,0 +1,432 @@
+{
+  "https://unpkg.com/popper.js@1.10.0/dist/umd/popper.js": {
+    "integrity": "sha384-voY6IhjCZk4srXdFfI396eYHJ6M+t05MxF/MptEerOrTOpTxYI38T1/so4gOc1SV",
+    "lastModified": "Wed, 14 Jun 2017 15:34:35 GMT",
+    "size": 78557
+  },
+  "https://unpkg.com/popper.js@1.10.0/dist/umd/popper.min.js": {
+    "integrity": "sha384-LTLPbUC3MlOJd0u2snISb9V4WP5gZKesW+EKSwKnmmmR61/6HFwg2jcHYPl+VGiV",
+    "lastModified": "Wed, 14 Jun 2017 15:34:37 GMT",
+    "size": 18801
+  },
+  "https://unpkg.com/popper.js@1.10.1/dist/umd/popper.js": {
+    "integrity": "sha384-nQTaXjsQEVyfU5sWGe/HlqZvPG3GuMRj+9XCJ1uulo3Ri3lQYxhQHWDLEYHXVHhZ",
+    "lastModified": "Wed, 14 Jun 2017 16:22:36 GMT",
+    "size": 78594
+  },
+  "https://unpkg.com/popper.js@1.10.1/dist/umd/popper.min.js": {
+    "integrity": "sha384-LTLPbUC3MlOJd0u2snISb9V4WP5gZKesW+EKSwKnmmmR61/6HFwg2jcHYPl+VGiV",
+    "lastModified": "Wed, 14 Jun 2017 16:22:38 GMT",
+    "size": 18801
+  },
+  "https://unpkg.com/popper.js@1.10.2/dist/umd/popper.js": {
+    "integrity": "sha384-HeMRuS4mWTpr+iw2tag5mSu8S2SejMoYJyqInE9yUPriM4TfM6HhBPTCTDw/MoSK",
+    "lastModified": "Fri, 16 Jun 2017 17:31:15 GMT",
+    "size": 78970
+  },
+  "https://unpkg.com/popper.js@1.10.2/dist/umd/popper.min.js": {
+    "integrity": "sha384-chK2N4v/DYNwaDpR/b2t/9g9PY7Yx+ONc+YnaQW+YYpFDDDJ7j01YK1cf4JaXbxc",
+    "lastModified": "Fri, 16 Jun 2017 17:31:16 GMT",
+    "size": 18861
+  },
+  "https://unpkg.com/popper.js@1.10.3/dist/umd/popper.js": {
+    "integrity": "sha384-o/9Z8YeLOx2gf+ZJWFWb6asI9f8A6bQ5rRxDwaEbWCPMRC95fEvfcPtmDiXie/PM",
+    "lastModified": "Sat, 24 Jun 2017 16:14:14 GMT",
+    "size": 80624
+  },
+  "https://unpkg.com/popper.js@1.10.3/dist/umd/popper.min.js": {
+    "integrity": "sha384-6qOMaUYtYbS9Q2xOnlKgpqnVvPta6lojkbcGS5F7qErlzz7SNjj+m2VONmObC5uq",
+    "lastModified": "Sat, 24 Jun 2017 16:14:16 GMT",
+    "size": 19956
+  },
+  "https://unpkg.com/popper.js@1.10.4/dist/umd/popper.js": {
+    "integrity": "sha384-bmTYt8cP5xZs7zoSQpdTiVxDPHfkDrsTWJCC7sM92EdQKGF17juTeMQlOGSI+14T",
+    "lastModified": "Sun, 25 Jun 2017 15:43:34 GMT",
+    "size": 80624
+  },
+  "https://unpkg.com/popper.js@1.10.4/dist/umd/popper.min.js": {
+    "integrity": "sha384-LuxAE5cUZRvlIGzDy4eWWEhXYK4NEN9zrQHWXWq2wX9OWwzhdGfGKqZamqPSAyLl",
+    "lastModified": "Sun, 25 Jun 2017 15:43:36 GMT",
+    "size": 19964
+  },
+  "https://unpkg.com/popper.js@1.10.5/dist/umd/popper.js": {
+    "integrity": "sha384-z4u5UT/V4Lbn0perzNevG5996jtX3K79qSxFG3QnJasbZwbelhgM+EGhfC3IvHr9",
+    "lastModified": "Sun, 25 Jun 2017 15:50:07 GMT",
+    "size": 80746
+  },
+  "https://unpkg.com/popper.js@1.10.5/dist/umd/popper.min.js": {
+    "integrity": "sha384-v4gTPQGzezskqDYzdHRjkpd86RgpSp4iDkVbgaQKgQO6RVMguqLCUlGedlgWZ72G",
+    "lastModified": "Sun, 25 Jun 2017 15:50:09 GMT",
+    "size": 19906
+  },
+  "https://unpkg.com/popper.js@1.10.6/dist/umd/popper.js": {
+    "integrity": "sha384-sowPTRGjsA/0IaHUg/nhk2bxz0kEx9bfI7vsRqhOOAodJyIHZ9hiP3jLZqbg6gQR",
+    "lastModified": "Mon, 26 Jun 2017 15:51:59 GMT",
+    "size": 79112
+  },
+  "https://unpkg.com/popper.js@1.10.6/dist/umd/popper.min.js": {
+    "integrity": "sha384-ZZhwjIDgbaMocYALFDcIUsgr9rJpbvBYjAAF5eR2dn8EjXl3X6cMBnTFPyy1aZ6f",
+    "lastModified": "Mon, 26 Jun 2017 15:52:01 GMT",
+    "size": 18814
+  },
+  "https://unpkg.com/popper.js@1.10.7/dist/umd/popper.js": {
+    "integrity": "sha384-MiCrkx/ZOkP6U7cm+3lD+eaXwv8caZ9INjLi0KrRMuNDqeboV9/QSlKJaHxan1CA",
+    "lastModified": "Sun, 02 Jul 2017 09:33:12 GMT",
+    "size": 80514
+  },
+  "https://unpkg.com/popper.js@1.10.7/dist/umd/popper.min.js": {
+    "integrity": "sha384-zoqRMZydpwViXbC2rrbqPrOW1kVo7CRgD/2Mj+C+C8QU/DlYkPaNmWpUF+zqw4AC",
+    "lastModified": "Sun, 02 Jul 2017 09:33:12 GMT",
+    "size": 19057
+  },
+  "https://unpkg.com/popper.js@1.10.8/dist/umd/popper.js": {
+    "integrity": "sha384-X8vD+jXCs3BJ+ahVtTOrfT8I6Gb3l+A9vQ14ufERvm2YQkapphFxrsiGca3sso0n",
+    "lastModified": "Sun, 02 Jul 2017 10:13:24 GMT",
+    "size": 80405
+  },
+  "https://unpkg.com/popper.js@1.10.8/dist/umd/popper.min.js": {
+    "integrity": "sha384-DnkRdQ7qQnIyQu3l2I77BVrTus+ZPSPbzkftVyG/w9e7UxGp0S0a72dG5FfBY/G3",
+    "lastModified": "Sun, 02 Jul 2017 10:13:24 GMT",
+    "size": 18970
+  },
+  "https://unpkg.com/popper.js@1.11.0/dist/umd/popper.js": {
+    "integrity": "sha384-rhMnTp3C09wAlxvC1UYI1PqkEPo3eEAC1rdD8/MrovlWd+lF9zV1sPjSXuvb2WSM",
+    "lastModified": "Wed, 26 Jul 2017 18:45:05 GMT",
+    "size": 80747
+  },
+  "https://unpkg.com/popper.js@1.11.0/dist/umd/popper.min.js": {
+    "integrity": "sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4",
+    "lastModified": "Wed, 26 Jul 2017 18:45:05 GMT",
+    "size": 19033
+  },
+  "https://unpkg.com/popper.js@1.11.1/dist/umd/popper.js": {
+    "integrity": "sha384-Ms0A9qbArSmc3HPVoUjhTRc64h1LweggpuDFeJYV+hq5852F/K4OpFSyaEXGRwc6",
+    "lastModified": "Sun, 30 Jul 2017 13:20:09 GMT",
+    "size": 80747
+  },
+  "https://unpkg.com/popper.js@1.11.1/dist/umd/popper.min.js": {
+    "integrity": "sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4",
+    "lastModified": "Sun, 30 Jul 2017 13:20:09 GMT",
+    "size": 19033
+  },
+  "https://unpkg.com/popper.js@1.12.0/dist/umd/popper.js": {
+    "integrity": "sha384-CfsA32l52UoT3zsCfuLvzjB4FTSBlO2aDSl4/di3+46HP9wNu8cpDJjSPXTvzx8F",
+    "lastModified": "Tue, 15 Aug 2017 11:10:18 GMT",
+    "size": 81332
+  },
+  "https://unpkg.com/popper.js@1.12.0/dist/umd/popper.min.js": {
+    "integrity": "sha384-D6xhHwxO49zH4dDBnEL+rkiLYlbtI8KgD4ScHJvNpEq+Fo89pFlWOr/wJLcRBaBH",
+    "lastModified": "Tue, 15 Aug 2017 11:10:18 GMT",
+    "size": 19208
+  },
+  "https://unpkg.com/popper.js@1.12.1/dist/umd/popper.js": {
+    "integrity": "sha384-UQxPwgkVPmb5OAgAGHUcUJ/Wnw0YBalyalFGfwbNMNK7FhAKwag0x+lVdxlGbLCW",
+    "lastModified": "Tue, 15 Aug 2017 15:52:45 GMT",
+    "size": 81624
+  },
+  "https://unpkg.com/popper.js@1.12.1/dist/umd/popper.min.js": {
+    "integrity": "sha384-SiqPHsdQ3E40IwNLc19JpOEkuYqQYK013FJEKw+wc7fuNqAuAzbZjRl1TubhefHU",
+    "lastModified": "Tue, 15 Aug 2017 15:52:45 GMT",
+    "size": 19208
+  },
+  "https://unpkg.com/popper.js@1.12.2/dist/umd/popper.js": {
+    "integrity": "sha384-R+iEYKvtZIrU8EEcMWE2i0ybqZjYRJiR1du429b3L6yVa8Iu97fjSqBQM4Kwci+h",
+    "lastModified": "Wed, 16 Aug 2017 15:09:30 GMT",
+    "size": 81624
+  },
+  "https://unpkg.com/popper.js@1.12.2/dist/umd/popper.min.js": {
+    "integrity": "sha384-SiqPHsdQ3E40IwNLc19JpOEkuYqQYK013FJEKw+wc7fuNqAuAzbZjRl1TubhefHU",
+    "lastModified": "Wed, 16 Aug 2017 15:09:30 GMT",
+    "size": 19208
+  },
+  "https://unpkg.com/popper.js@1.12.3/dist/umd/popper.js": {
+    "integrity": "sha384-O3atgv4S+tjKL8lwgxFsCZkKL29eOHERZjgcAknCdwk4WN4wdsbqKWYyA93Dp055",
+    "lastModified": "Fri, 18 Aug 2017 12:23:54 GMT",
+    "size": 81670
+  },
+  "https://unpkg.com/popper.js@1.12.3/dist/umd/popper.min.js": {
+    "integrity": "sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh",
+    "lastModified": "Fri, 18 Aug 2017 12:23:54 GMT",
+    "size": 19236
+  },
+  "https://unpkg.com/popper.js@1.12.4/dist/umd/popper.js": {
+    "integrity": "sha384-7OllWBrW2BNKKpronwAriPXCaZTffluCgM2mRrXPr9HCOomrOO1Pnb1kpyM9z3vb",
+    "lastModified": "Mon, 28 Aug 2017 12:13:19 GMT",
+    "size": 81857
+  },
+  "https://unpkg.com/popper.js@1.12.4/dist/umd/popper.min.js": {
+    "integrity": "sha384-B7qnoLbF157IelPAW1zZ5iVrGslLkKSbVAzIAJEVSUqxDEd0cJxirJhwYfz9s28H",
+    "lastModified": "Mon, 28 Aug 2017 12:13:19 GMT",
+    "size": 19312
+  },
+  "https://unpkg.com/popper.js@1.12.5/dist/umd/popper.js": {
+    "integrity": "sha384-KlVcf2tswD0JOTQnzU4uwqXcbAy57PvV48YUiLjqpk/MJ2wExQhg9tuozn5A1iVw",
+    "lastModified": "Tue, 29 Aug 2017 14:16:25 GMT",
+    "size": 81670
+  },
+  "https://unpkg.com/popper.js@1.12.5/dist/umd/popper.min.js": {
+    "integrity": "sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh",
+    "lastModified": "Tue, 29 Aug 2017 14:16:25 GMT",
+    "size": 19236
+  },
+  "https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js": {
+    "integrity": "sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U",
+    "lastModified": "Sun, 22 Oct 2017 07:46:41 GMT",
+    "size": 81094
+  },
+  "https://unpkg.com/popper.js@1.12.6/dist/umd/popper.min.js": {
+    "integrity": "sha384-W1IgCZfiFCplncoIxD5rld+uzdB6FlcG2vm4qjrCP5Z7uUt7vnwbztJXeqXgd26w",
+    "lastModified": "Sun, 22 Oct 2017 07:46:41 GMT",
+    "size": 19196
+  },
+  "https://unpkg.com/popper.js@1.12.7/dist/umd/popper.js": {
+    "integrity": "sha384-qfeNYR8WNU60ZxFxfy1icr7tEaKjEvwBht0zcfDdFVAnobu4Z1r9b5fZ/RnKo/kH",
+    "lastModified": "Sat, 11 Nov 2017 11:57:07 GMT",
+    "size": 81097
+  },
+  "https://unpkg.com/popper.js@1.12.7/dist/umd/popper.min.js": {
+    "integrity": "sha384-TUSpaPr16YQQOdRqTlO+JgktHTijOcvPtWvOyfo7F6Usp/LtNvvmKLpZ+NSgVdjA",
+    "lastModified": "Sat, 11 Nov 2017 11:57:07 GMT",
+    "size": 19196
+  },
+  "https://unpkg.com/popper.js@1.12.8/dist/umd/popper.js": {
+    "integrity": "sha384-vsEIkefSoUykbMqK5aPN/GbiY2KGORadRmhDHEAx7dUf3LBSNo3YmzJUGvQgvrZy",
+    "lastModified": "Tue, 14 Nov 2017 12:20:33 GMT",
+    "size": 81224
+  },
+  "https://unpkg.com/popper.js@1.12.8/dist/umd/popper.min.js": {
+    "integrity": "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q",
+    "lastModified": "Tue, 14 Nov 2017 12:20:33 GMT",
+    "size": 19188
+  },
+  "https://unpkg.com/popper.js@1.12.9/dist/umd/popper.js": {
+    "integrity": "sha384-iHnbbhSOn6yYBGx9nxl9zSYhWF3+CK/hCiWZAZzQi/nHBHkC/ORFrBWSL9mPcWnH",
+    "lastModified": "Wed, 15 Nov 2017 12:09:57 GMT",
+    "size": 81224
+  },
+  "https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js": {
+    "integrity": "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q",
+    "lastModified": "Wed, 15 Nov 2017 12:09:57 GMT",
+    "size": 19188
+  },
+  "https://unpkg.com/popper.js@1.13.0/dist/umd/popper.js": {
+    "integrity": "sha384-a3rDJRG99zyw11LMh7uEY9FFzVTVivnSlCkdhN0TZIwhWdbc5Kt3wQpJWhQRcrW7",
+    "lastModified": "Sat, 18 Nov 2017 09:28:46 GMT",
+    "size": 81224
+  },
+  "https://unpkg.com/popper.js@1.13.0/dist/umd/popper.min.js": {
+    "integrity": "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q",
+    "lastModified": "Sat, 18 Nov 2017 09:28:46 GMT",
+    "size": 19188
+  },
+  "https://unpkg.com/popper.js@1.14.0/dist/umd/popper.js": {
+    "integrity": "sha384-A5T+klXElc4nct29cC1LagN192uvpbolkJQXZ5AzehJ7IhSo7UPOYifQ1Q2Qh3AK",
+    "lastModified": "Mon, 12 Mar 2018 14:46:15 GMT",
+    "size": 84216
+  },
+  "https://unpkg.com/popper.js@1.14.0/dist/umd/popper.min.js": {
+    "integrity": "sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ",
+    "lastModified": "Mon, 12 Mar 2018 14:46:15 GMT",
+    "size": 20495
+  },
+  "https://unpkg.com/popper.js@1.14.1/dist/umd/popper.js": {
+    "integrity": "sha384-CgoAsb9hMCdxJBgGQIhrm8LuD18j3RZAVxntgi4Zz1/0v7Liu7WGzv1naCGgt4S/",
+    "lastModified": "Tue, 13 Mar 2018 17:20:49 GMT",
+    "size": 84216
+  },
+  "https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js": {
+    "integrity": "sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ",
+    "lastModified": "Tue, 13 Mar 2018 17:20:49 GMT",
+    "size": 20495
+  },
+  "https://unpkg.com/popper.js@1.14.2/dist/umd/popper.js": {
+    "integrity": "sha384-Zxyv5NZbXIj0ATlyzotX+j6oEI4tDD9IAw0X3IKtH9CU/gPyAmgh8vRUBbzTjo50",
+    "lastModified": "Tue, 03 Apr 2018 11:47:25 GMT",
+    "size": 84216
+  },
+  "https://unpkg.com/popper.js@1.14.2/dist/umd/popper.min.js": {
+    "integrity": "sha384-AXEnX7PDLv+jdnMoormAUbt+QXfB3RKKzS6zZY474XEGvwG9uMHSCAsKGnslQULy",
+    "lastModified": "Tue, 03 Apr 2018 11:47:25 GMT",
+    "size": 20275
+  },
+  "https://unpkg.com/popper.js@1.14.3/dist/umd/popper.js": {
+    "integrity": "sha384-AsJUT69WgSCIrLgOnMRkNjLvBl0aoHtB3vBDnAEOKRfxKMm7gvmSTJUZCefoYWdA",
+    "lastModified": "Wed, 04 Apr 2018 14:18:40 GMT",
+    "size": 84615
+  },
+  "https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js": {
+    "integrity": "sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49",
+    "lastModified": "Wed, 04 Apr 2018 14:18:40 GMT",
+    "size": 20337
+  },
+  "https://unpkg.com/popper.js@1.14.4/dist/umd/popper.js": {
+    "integrity": "sha384-pADhp9aIh9okwXEx9eL4zuJ4oWtc3pPdY/KelhFvMEWAy35FiQtYvOcvvuM+bkDH",
+    "lastModified": "Fri, 03 Aug 2018 07:42:49 GMT",
+    "size": 85365
+  },
+  "https://unpkg.com/popper.js@1.14.4/dist/umd/popper.min.js": {
+    "integrity": "sha384-GM0Y80ecpwKxF1D5XCrGanKusGDy9WW0O2sSM84neB4iFhvKp3fwnoIRnPsQcN1R",
+    "lastModified": "Fri, 03 Aug 2018 07:42:49 GMT",
+    "size": 20536
+  },
+  "https://unpkg.com/popper.js@1.14.5/dist/umd/popper.js": {
+    "integrity": "sha384-hoZ6LqX+egbG2ZLhjncGm+m3YmT6ElKNLSqDLctN+NBHCTgZ24A3PA4AIS+78eg1",
+    "lastModified": "Thu, 08 Nov 2018 13:07:09 GMT",
+    "size": 85497
+  },
+  "https://unpkg.com/popper.js@1.14.5/dist/umd/popper.min.js": {
+    "integrity": "sha384-a3GqK/TQoh+gPFAiesulJK7xiYNo3loQBWP1a68OkSUM5SqmmQxhzdMUGuNlAw3r",
+    "lastModified": "Thu, 08 Nov 2018 13:07:09 GMT",
+    "size": 20611
+  },
+  "https://unpkg.com/popper.js@1.14.6/dist/umd/popper.js": {
+    "integrity": "sha384-HzqOR2vfXkFlYAX/3YipGekTG6pn/9zeXoTLZZpSdO3w94laYDd5KXyKA22nTfuQ",
+    "lastModified": "Wed, 28 Nov 2018 14:43:17 GMT",
+    "size": 87009
+  },
+  "https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js": {
+    "integrity": "sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut",
+    "lastModified": "Wed, 28 Nov 2018 14:43:17 GMT",
+    "size": 20973
+  },
+  "https://unpkg.com/popper.js@1.14.7/dist/umd/popper.js": {
+    "integrity": "sha384-+pJF094Ta2RnahQyTGMfUIP/QGRrcV9M7UybKYko0JCH3B5ukTC6V0kEUSWTWhrn",
+    "lastModified": "Tue, 29 Jan 2019 11:46:10 GMT",
+    "size": 87203
+  },
+  "https://unpkg.com/popper.js@1.14.7/dist/umd/popper.min.js": {
+    "integrity": "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1",
+    "lastModified": "Tue, 29 Jan 2019 11:46:10 GMT",
+    "size": 21004
+  },
+  "https://unpkg.com/popper.js@1.15.0/dist/umd/popper.js": {
+    "integrity": "sha384-pPGXaBMsJRALMdm7MaTNILgYVlY/jHTDrtHn7e4DqC0TFAcZcyrUyypeAjpZrz7j",
+    "lastModified": "Thu, 04 Apr 2019 13:25:49 GMT",
+    "size": 88317
+  },
+  "https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js": {
+    "integrity": "sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9+4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb",
+    "lastModified": "Thu, 04 Apr 2019 13:25:49 GMT",
+    "size": 21162
+  },
+  "https://unpkg.com/popper.js@1.16.0/dist/umd/popper.js": {
+    "integrity": "sha384-EsqqCR7beeX9mWjsrB8ySgz3pKDhWr3OgqnudRtew5RApIIhEN6/qqiPM99Lk9qM",
+    "lastModified": "Wed, 16 Oct 2019 10:34:33 GMT",
+    "size": 88768
+  },
+  "https://unpkg.com/popper.js@1.16.0/dist/umd/popper.min.js": {
+    "integrity": "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo",
+    "lastModified": "Wed, 16 Oct 2019 10:34:33 GMT",
+    "size": 21257
+  },
+  "https://unpkg.com/popper.js@1.16.1/dist/umd/popper.js": {
+    "integrity": "sha384-cpSm/ilDFOWiMuF2bj03ZzJinb48NO9IGCXcYDtUzdP5y64Ober65chnoOj1XFoA",
+    "lastModified": "Wed, 22 Jan 2020 15:27:18 GMT",
+    "size": 88736
+  },
+  "https://unpkg.com/popper.js@1.16.1/dist/umd/popper.min.js": {
+    "integrity": "sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN",
+    "lastModified": "Wed, 22 Jan 2020 15:27:18 GMT",
+    "size": 21233
+  },
+  "https://unpkg.com/popper.js@1.9.0/dist/umd/popper.js": {
+    "integrity": "sha384-J5/QfJt2OtpsZYx3mw6+Xf29qDU9oSVbuMefunEhfQjSm67PvHokwlinVPCCWSao",
+    "lastModified": "Thu, 27 Apr 2017 11:05:43 GMT",
+    "size": 72547
+  },
+  "https://unpkg.com/popper.js@1.9.0/dist/umd/popper.min.js": {
+    "integrity": "sha384-XCZZJB7yZlgjeWf95eijXP00/ycjqTtdyXLByandkkemLVGPip3bgmvb92jubPbE",
+    "lastModified": "Thu, 27 Apr 2017 11:05:46 GMT",
+    "size": 19190
+  },
+  "https://unpkg.com/popper.js@1.9.1/dist/umd/popper.js": {
+    "integrity": "sha384-BuWErD0uR+Ki1grnRCnyAk9k0Lv3ckEUXmHF8oyLyj+cyL1irZBb8btuXrq6ZOcI",
+    "lastModified": "Thu, 27 Apr 2017 11:14:26 GMT",
+    "size": 72596
+  },
+  "https://unpkg.com/popper.js@1.9.1/dist/umd/popper.min.js": {
+    "integrity": "sha384-Vo+T+EA1h5znLu4rNL0bjs2pORqT9G5Fh3oTICzYJGQh9MV+xd6xCU2FnM00DCkY",
+    "lastModified": "Thu, 27 Apr 2017 11:14:28 GMT",
+    "size": 19228
+  },
+  "https://unpkg.com/popper.js@1.9.2/dist/umd/popper.js": {
+    "integrity": "sha384-kSMR0sc9Y+4exc1cAhaCnuiRhmV0hYA5J0ZV/2jtlJo0hpnKSss/S5yPAePmRjtK",
+    "lastModified": "Wed, 10 May 2017 17:23:44 GMT",
+    "size": 71518
+  },
+  "https://unpkg.com/popper.js@1.9.2/dist/umd/popper.min.js": {
+    "integrity": "sha384-cmvORipEXfaSxItt0nKxqF+ca58Cst2BNFFnhx1QsrOJVQiKHcnCwl/o8jIpYGSj",
+    "lastModified": "Wed, 10 May 2017 17:23:46 GMT",
+    "size": 18850
+  },
+  "https://unpkg.com/popper.js@1.9.3/dist/umd/popper.js": {
+    "integrity": "sha384-5n8OoufEa9KYjvfC0fiLW8ne9U/B8BHHDS3lmRn5uKfwd7EkvaO4IKoDCtA3M2l+",
+    "lastModified": "Fri, 12 May 2017 10:28:25 GMT",
+    "size": 73436
+  },
+  "https://unpkg.com/popper.js@1.9.3/dist/umd/popper.min.js": {
+    "integrity": "sha384-knhBOwpf8/28D6ygAjJeb0STNDZqfPbKaWQ8wIz/xgSc0xXwKsKhNype8fmfMka2",
+    "lastModified": "Fri, 12 May 2017 10:28:26 GMT",
+    "size": 19311
+  },
+  "https://unpkg.com/popper.js@1.9.4/dist/umd/popper.js": {
+    "integrity": "sha384-BjABYeJmTSqZJFVcr8Z3JoWVc6t1FFmqMldCUr2Ycv8mR+xphLi3lfUr851Yb+5+",
+    "lastModified": "Mon, 15 May 2017 12:34:49 GMT",
+    "size": 73707
+  },
+  "https://unpkg.com/popper.js@1.9.4/dist/umd/popper.min.js": {
+    "integrity": "sha384-it12rvxh8f1jhzxmS/Bh+1+vRHUnjw64lm9u4JUKKILYTfp5P04nMTSi38sgKpKg",
+    "lastModified": "Mon, 15 May 2017 12:34:51 GMT",
+    "size": 19414
+  },
+  "https://unpkg.com/popper.js@1.9.5/dist/umd/popper.js": {
+    "integrity": "sha384-cnQlLSa/NOyeTy6TZBuGuTyrO0tLFrqdcdXhpYfrtGocWdABoKEItwn8N/es6o8c",
+    "lastModified": "Sun, 21 May 2017 10:18:17 GMT",
+    "size": 73845
+  },
+  "https://unpkg.com/popper.js@1.9.5/dist/umd/popper.min.js": {
+    "integrity": "sha384-EnEcdYL1p8URt1Dn303WrWQdee9Rtf15uWKS1bopxkwaL7Je8Q8ieOlJJHnRXCnK",
+    "lastModified": "Sun, 21 May 2017 10:18:19 GMT",
+    "size": 19439
+  },
+  "https://unpkg.com/popper.js@1.9.6/dist/umd/popper.js": {
+    "integrity": "sha384-IpzpOVkSmzIUqdSnJ38gq0P7ML6aYsw8JpCiPULSHy7R4POakcrdKtltd8UXIML+",
+    "lastModified": "Mon, 22 May 2017 19:06:22 GMT",
+    "size": 73857
+  },
+  "https://unpkg.com/popper.js@1.9.6/dist/umd/popper.min.js": {
+    "integrity": "sha384-jipmwn0fBZ4Dyf2K5NPVpI7VhhLHpbcUi9aAwPsKHP5izL/PGSi7+b5wl2UAi8Cg",
+    "lastModified": "Mon, 22 May 2017 19:06:25 GMT",
+    "size": 19451
+  },
+  "https://unpkg.com/popper.js@1.9.7/dist/umd/popper.js": {
+    "integrity": "sha384-gGDUEAhfEPEQFMIJPJZYNPjldw2y4ivHAGh/a+KWSssRZZtx5dS1A2HGWfApjprk",
+    "lastModified": "Tue, 23 May 2017 09:31:44 GMT",
+    "size": 73880
+  },
+  "https://unpkg.com/popper.js@1.9.7/dist/umd/popper.min.js": {
+    "integrity": "sha384-5sNpPcRM0/GZMa+q9Baf4qbpGk2NaR171mf6qAiNoTddekOREootaYiYLU8oZk8G",
+    "lastModified": "Tue, 23 May 2017 09:31:45 GMT",
+    "size": 19457
+  },
+  "https://unpkg.com/popper.js@1.9.8/dist/umd/popper.js": {
+    "integrity": "sha384-neQVaNpsZiTvh00/YCBz7OIVTwv9FY/WD7Q/1uEPvvgyGtRnfUly/s3Marn9qWdr",
+    "lastModified": "Tue, 23 May 2017 10:43:43 GMT",
+    "size": 74742
+  },
+  "https://unpkg.com/popper.js@1.9.8/dist/umd/popper.min.js": {
+    "integrity": "sha384-e44Uz2GmKJJmNOMA3duG9DCYY18GE+HsC0U1KnPU7jAFV3yPpuCDw23hpr1LK+7s",
+    "lastModified": "Tue, 23 May 2017 10:43:45 GMT",
+    "size": 19914
+  },
+  "https://unpkg.com/popper.js@1.9.9/dist/umd/popper.js": {
+    "integrity": "sha384-75DjLVoNpebSH+Xc3NWuKSmOhVnum2zXribW1K6ZQkkYtJ+bDSbKk5eEX6YIReD1",
+    "lastModified": "Wed, 24 May 2017 10:15:11 GMT",
+    "size": 74235
+  },
+  "https://unpkg.com/popper.js@1.9.9/dist/umd/popper.min.js": {
+    "integrity": "sha384-Gt9NkfXQ2T4FNEllsRhogD4qyYOO9Zw4jdhH0fhy+xU9OXUthpAC7pVg1DuMtpGO",
+    "lastModified": "Wed, 24 May 2017 10:15:13 GMT",
+    "size": 19766
+  }
+}

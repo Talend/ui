@@ -1,0 +1,9 @@
+{
+  "name": "tmpl",
+  "vulnerableVersions": [
+    {
+      "range": ["1.0.0", "1.0.4"],
+      "fixVersion": "1.0.5"
+    }
+  ]
+}

@@ -1,0 +1,497 @@
+{
+  "https://unpkg.com/react-hook-form@5.0.0/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-p3+QALbxmP5eHC0tP8hhNrGph9xdoikg6LKyjeTzc4UAqCDdwqWpb1k6rC/eHu9t",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75984
+  },
+  "https://unpkg.com/react-hook-form@5.0.1/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-4r2Ieqo/8xi3vO1BRBdb2t+l/9/9YIDgENQ7uNFH4YwMNVTTc0zYn3o3u54MJTJI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75610
+  },
+  "https://unpkg.com/react-hook-form@5.0.2/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-qJBDVch6GmoISOvhp2ysuX0UuOh3Hdv7Scey2yfP2m40R61HiiZKpaVIUr1xbXt1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75616
+  },
+  "https://unpkg.com/react-hook-form@5.0.3/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-QMHiRXeTp2E/vwJPrVe6pV6BC2SRvqVp4IqbcFY33O0J2+YqJJvd24bZvU/j/R/u",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75690
+  },
+  "https://unpkg.com/react-hook-form@5.1.0/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-xumPV+oFlH7dyHcByXtqVijqDKn0zw7bx2vct2CD17p0YPaG9sFwNeolwoB7kgJc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76573
+  },
+  "https://unpkg.com/react-hook-form@5.1.1/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-ES6GR537JLyzQQuY1U2U17PwRmyIAoc9g1ZLcheXG+Y/MiWhtYNXDUppRhsuZrti",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76567
+  },
+  "https://unpkg.com/react-hook-form@5.1.2/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-olF+FBXJThApjlXgC3quMVif2fTquIYn0w+XrFnkMWxEr9l5pJ30PAT7z0m86kFH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76805
+  },
+  "https://unpkg.com/react-hook-form@5.1.3/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-V85hjimhMt1l/dpKFTzeS4RyS5YxzIzSaI0D1YtqU/DkISch33sVi4/qe2zs47NZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76625
+  },
+  "https://unpkg.com/react-hook-form@5.2.0/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-bxd1BwoQZbBQPnagUMe9LbWxUtjiE92lqIpDI7sn2/qJJluBt+MVPjV1KtdU0sO7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75379
+  },
+  "https://unpkg.com/react-hook-form@5.3.0/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-R5cHgbU88H7fkdHhKTGTWlXfzNHVrq406Mkcveih14WULceGqM2rY2i5IbCF7UAK",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76567
+  },
+  "https://unpkg.com/react-hook-form@5.3.1/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-6Buqzh2KjoifAEt+OVRC5pLxhE3RIP1XW3qTkskaHTel8ig4QQ9qNf30OGO/kHxg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76933
+  },
+  "https://unpkg.com/react-hook-form@5.4.0/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-6Io+RIF/7rodINsyQjcqjzpdnIS8Bsuehv/vXWmTKXZafmWevvLDONXbKr8ho0i6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80423
+  },
+  "https://unpkg.com/react-hook-form@5.4.1/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-Amms8KrnetkLkZ+YpwmQ1cPK6XjgMwRjUTBXj0mVJ2oij7ZfFuSxrNtEswNpTpji",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80552
+  },
+  "https://unpkg.com/react-hook-form@5.4.2/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-Wo4YYa6YDoFxE6YX/l5WsLHLyNxUSD+wEzU6H22uMvK92UwBAqQMhIYtn3SZ8QSY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80772
+  },
+  "https://unpkg.com/react-hook-form@5.5.0/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-CkhEN1gce9uHJWWsIiuvkKeVHoJ/iRkya9IoQVG34OnXNpL70wZ4oKknUWbU4esm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81170
+  },
+  "https://unpkg.com/react-hook-form@5.5.1/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-EFMnavCRw51poxOPfPH0E+nJ1yH+rcjPtGMpxkUAMhqpCHgpbnSH1IxIp5hIj3uX",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80680
+  },
+  "https://unpkg.com/react-hook-form@5.5.2/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-5D6z8/xUJJ6+/b3nfz5FLdFJYVm7uHQonWzRIKE2SG9B+G4+0mwe5Ms+/KES6sUD",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80587
+  },
+  "https://unpkg.com/react-hook-form@5.5.3/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-dRJlZsYslV2sMdT6FYvOuElcGn7FZRockOaXvwV42isaer0q+nCVJAa3sec1TLea",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80648
+  },
+  "https://unpkg.com/react-hook-form@5.6.0/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-y9On06d0CnJGMh8rSj3oN1vgisd6cNwAL+V/B+pYnl6njuirCMIRkox3VVBdNpAq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80675
+  },
+  "https://unpkg.com/react-hook-form@5.6.1/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-jQu8JdmOdWznhzQxm77UqSSz7QTLcmb0l3/PfrSQkk1341MVe4fhEoNbVCrPew0B",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80851
+  },
+  "https://unpkg.com/react-hook-form@5.6.2/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-nKglmybXUTK615vQxUdxmTj+CXB5cIKCapspndhPrrgP41zSlJvVWoQusKwnp/Mj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80938
+  },
+  "https://unpkg.com/react-hook-form@5.6.3/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-DG5ofdlcCN1Ve61/gy14le37HI7p9hTHOl+VPuY1aNamzRnE46k7jW+0qrMFVUV4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80860
+  },
+  "https://unpkg.com/react-hook-form@5.7.0/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-HZZlAwHjab7atrCBXFvWTsO2sjcrMywr1ZJBO+vWsMTbtkwYblBNfXKAMueANVXv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81186
+  },
+  "https://unpkg.com/react-hook-form@5.7.1/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-HZZlAwHjab7atrCBXFvWTsO2sjcrMywr1ZJBO+vWsMTbtkwYblBNfXKAMueANVXv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81186
+  },
+  "https://unpkg.com/react-hook-form@5.7.2/dist/react-hook-form.umd.js": {
+    "integrity": "sha384-P02nj0rdhE+0lFqYYmVVWjnHqSDhmcfU6Q0wvPZuUzCowVyfNkkjOERwgd+FF3Ky",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81063
+  },
+  "https://unpkg.com/react-hook-form@6.0.0/dist/index.umd.development.js": {
+    "integrity": "sha384-2ZM4eqhBo6weQkOBykf9sl2TNP1+Q3wgdmzIt3UvE1W99kuOT+tYP7Xrzr3Az3WJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 77145
+  },
+  "https://unpkg.com/react-hook-form@6.0.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-210RVH39InqMNbnKqeJvC/4GwqCpjPtPpOgGhyjxfGENVbsOHc8qmusRK3myAmJL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23619
+  },
+  "https://unpkg.com/react-hook-form@6.0.1/dist/index.umd.development.js": {
+    "integrity": "sha384-oHdJtAfzsM4iHZLDrpPMzL8tmOpmVL/SbBut2iS3jE5UgMiIwnewPr9/6L56J1M0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 77487
+  },
+  "https://unpkg.com/react-hook-form@6.0.1/dist/index.umd.production.min.js": {
+    "integrity": "sha384-AaQHn7SRQUOgX/pttO4NbxtL2LfxqHQzkh7mII7lpYUyDB96h8eW5hse/7j4CXG3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23685
+  },
+  "https://unpkg.com/react-hook-form@6.0.2/dist/index.umd.development.js": {
+    "integrity": "sha384-75MJtrOgLFrcpizvn4bLzz2X2ejL/uB1cOW+XbI7G5y6QlWWMBe5p0ymRAz0uR+q",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 77634
+  },
+  "https://unpkg.com/react-hook-form@6.0.2/dist/index.umd.production.min.js": {
+    "integrity": "sha384-a2D5zF4elLl7HQd8K33BkcV1EOVwrTLFrLuGpvjkZJXGoIzkZuazh4vMAx+NfMZ+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23727
+  },
+  "https://unpkg.com/react-hook-form@6.0.3/dist/index.umd.development.js": {
+    "integrity": "sha384-UDIRGHDNn9FrKCVAN/hKRs9ZaHcHFstR1KlINjJVc3pXaeOe11iNw3hdZeqKvifW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 77399
+  },
+  "https://unpkg.com/react-hook-form@6.0.3/dist/index.umd.production.min.js": {
+    "integrity": "sha384-pmatgD9YX/PT6grkLg7dfQCRT6UIwfE7njNVxVYg4spJnQ2lnE5xIrC8pxWutuZH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23687
+  },
+  "https://unpkg.com/react-hook-form@6.0.4/dist/index.umd.development.js": {
+    "integrity": "sha384-Xbx+3GN5o4JpxXBrWzZhgYCQzxBijHy1Aw1dCeq2dmF1i2pRdY3HkiU4h0DFrf5j",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 77409
+  },
+  "https://unpkg.com/react-hook-form@6.0.4/dist/index.umd.production.min.js": {
+    "integrity": "sha384-eHgVqlFD3LDmthPkDY5KVK8mipMuq1afQMZ4WJD4F45dvfz0oEiYEzdsDit4gbA1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23697
+  },
+  "https://unpkg.com/react-hook-form@6.0.5/dist/index.umd.development.js": {
+    "integrity": "sha384-06eqaloqRzB1ypAkSvcqj47MWXhRIEzKQ886qfX6S6PCkNvBw5clxVLHVduJfblk",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76913
+  },
+  "https://unpkg.com/react-hook-form@6.0.5/dist/index.umd.production.min.js": {
+    "integrity": "sha384-+hYzO7wKokP1Fh8h+bqQeGcB0y3N4nFc09r2iRSgprXRplVICHOzcJMPA/DKUVS5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23454
+  },
+  "https://unpkg.com/react-hook-form@6.0.6/dist/index.umd.development.js": {
+    "integrity": "sha384-eNH8J+WnBpHML5t5Pt/+n2j8isHT91DRvGu2we5jOPU8Np7uuFgd++EK40V13UE3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76710
+  },
+  "https://unpkg.com/react-hook-form@6.0.6/dist/index.umd.production.min.js": {
+    "integrity": "sha384-Cd314O+NI38jYnq8iB7QxBFPZbdnGf+RXFsQQ2yCX7sphjyqZkllbL0xQSnpDxbN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23433
+  },
+  "https://unpkg.com/react-hook-form@6.0.7/dist/index.umd.development.js": {
+    "integrity": "sha384-GVhD0fe53S9Uk9+zCOQ2WQ77wrvkEf+NcqMadrGHbT4Q7UazXkH2bzE3wUWgXcvQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76924
+  },
+  "https://unpkg.com/react-hook-form@6.0.7/dist/index.umd.production.min.js": {
+    "integrity": "sha384-/yRbTbREUGdPnmx/WS6O8N0HUVmOz4xH4ojDOOyQDA4B2c6p7JTNWKRpDoXkyUV/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23431
+  },
+  "https://unpkg.com/react-hook-form@6.0.8/dist/index.umd.development.js": {
+    "integrity": "sha384-7sg5XomcQEw35tkF33XmPJK0vmn8dXUUf3pLe4fcSRh87sBZvHsSc9uq661fHD9g",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76627
+  },
+  "https://unpkg.com/react-hook-form@6.0.8/dist/index.umd.production.min.js": {
+    "integrity": "sha384-isXwXZZmIw0SLHpj+hoxRznQI5VajAXsi1IvVGxaT5YSoQPmzoCaZizdqqykPGn3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23295
+  },
+  "https://unpkg.com/react-hook-form@6.1.0/dist/index.umd.development.js": {
+    "integrity": "sha384-t3g9hfkOXXPc0FLF1GasTBoSunrESaHIXnnsOkJyV7uZgDeB7gRc7/gm1D+bEBxM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 77337
+  },
+  "https://unpkg.com/react-hook-form@6.1.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-LO+VSosTFRmg30R58nl5uGe6r99OQ9nnRG4pmffEYF43+b8zcB6yrvOnyCyWYkZq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23406
+  },
+  "https://unpkg.com/react-hook-form@6.1.1/dist/index.umd.development.js": {
+    "integrity": "sha384-oTikZc6HrrIK4UGH7JWREDSylQOako3ayllffpe9Wkq5fSLdOfCPz02fp80PBhwa",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 77452
+  },
+  "https://unpkg.com/react-hook-form@6.1.1/dist/index.umd.production.min.js": {
+    "integrity": "sha384-cgCAFM9jX+VmRmM/YbDNnIDKcJPIz9HcjaJCdzTYU3Dej9npQRYMKWt67y++zGQ9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23455
+  },
+  "https://unpkg.com/react-hook-form@6.1.2/dist/index.umd.development.js": {
+    "integrity": "sha384-f1/qD4fRxAXxQHADDlzV6TfFImFwvjDI+2jQK5trMG8Q7fMwKMgHpqECPK9k/2k7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 77660
+  },
+  "https://unpkg.com/react-hook-form@6.1.2/dist/index.umd.production.min.js": {
+    "integrity": "sha384-5A//qJ4tEZ02odMmvEJe3Ps21yEmUCx3dM8qpj6rzIu8tVVXmwFXYVX1W32BvU8R",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23524
+  },
+  "https://unpkg.com/react-hook-form@6.2.0/dist/index.umd.development.js": {
+    "integrity": "sha384-LJOwu1aszGhNDxHyG+y3L2eSavKV7UVzEiGnnGGS5LjmQ15+mR1JAZXiwGLlRlJZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76984
+  },
+  "https://unpkg.com/react-hook-form@6.2.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-t9FyFeB3tCUWs4hZ5M7vQbW79s0x0FBurD9t5lFjKB27sCmWDECJ8ci+vcdp7Sv6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23351
+  },
+  "https://unpkg.com/react-hook-form@6.3.0/dist/index.umd.development.js": {
+    "integrity": "sha384-J74LayATT5Cx7ZTP7t70hg60YSiPXLfq2x1zFiTcy3zR2orbS9DPrmrYb1TBvJ0T",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 78961
+  },
+  "https://unpkg.com/react-hook-form@6.3.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-3shZeG8MZSljf5F5ZDHIC25uBctdr9wpBSkOLAEo5baJxVBTIwDvfEYBfdKNlGI6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23406
+  },
+  "https://unpkg.com/react-hook-form@6.3.1/dist/index.umd.development.js": {
+    "integrity": "sha384-pMmZQVeGRgZ5F4ioawRpu1xEVWcRExPZyCPkuSGFb67OFsSmk9H71f6vz32nZhmf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79535
+  },
+  "https://unpkg.com/react-hook-form@6.3.1/dist/index.umd.production.min.js": {
+    "integrity": "sha384-8z9PszJroAuPoYGYo/ilkyBGTmhebByAYZCk0yzMh3hy9n77lPp/lPght8p/spB8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23487
+  },
+  "https://unpkg.com/react-hook-form@6.3.2/dist/index.umd.development.js": {
+    "integrity": "sha384-p8qTwtyaRdXDEuIQ4kOvEUiu5iIZC9hfW//iAHBK5naRbKEzNOyaob60VHgVsHBO",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79543
+  },
+  "https://unpkg.com/react-hook-form@6.3.2/dist/index.umd.production.min.js": {
+    "integrity": "sha384-RGwGakyP1mVN1Tfn5IXExbWSstwWRqd9W3Fy/h26ySlMR4gjiCTRf4jbCeDWvJdP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23495
+  },
+  "https://unpkg.com/react-hook-form@6.3.3/dist/index.umd.development.js": {
+    "integrity": "sha384-f5qVYNBi8YknlGB6H/8uqv/iBLt0VHwv1LUQfzBU3bm7vmKe+PLYbi98Qiy4aGnG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79612
+  },
+  "https://unpkg.com/react-hook-form@6.3.3/dist/index.umd.production.min.js": {
+    "integrity": "sha384-1qCReI/3fNoutoCpfP160pAayGzDG/jMD0Ta1a81k1spDiEtS2caO8tg4M2mfKCS",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23555
+  },
+  "https://unpkg.com/react-hook-form@6.4.0/dist/index.umd.development.js": {
+    "integrity": "sha384-XDV9TIK+sZOZPr3aajnQbmnACOMRtBwUmkRAKxm7hFUgDs/pgS/ygXR1Vhi9pBRs",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79860
+  },
+  "https://unpkg.com/react-hook-form@6.4.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-dGzQj94qdnNOvC0ZMuejNZwYJT7N+DnrcxYQhtUiUgcCVDkBDTTCGpVX4kXJ3YQU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23700
+  },
+  "https://unpkg.com/react-hook-form@6.4.1/dist/index.umd.development.js": {
+    "integrity": "sha384-Fp1a4h0aUnxff2KsZW9YJSrWHinuQtjpfiVw/2inJB9DJhj1J5cCe77N+qkZKb5O",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79909
+  },
+  "https://unpkg.com/react-hook-form@6.4.1/dist/index.umd.production.min.js": {
+    "integrity": "sha384-tmtypLiauchlxqPhyK0a4BO6z+/DDA/wQdAU+qJrfBgGTY0hlTNcQaYa0lbiPv3y",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23722
+  },
+  "https://unpkg.com/react-hook-form@6.5.0/dist/index.umd.development.js": {
+    "integrity": "sha384-ySHiImaAA1w2edNz4NYW7PEOD3XLrh00N+q4AnujybN4UHdImk2K7v/ErLNuL92x",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79279
+  },
+  "https://unpkg.com/react-hook-form@6.5.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-LF88ISLN9Nnz2nOIOHX59YTE3IUGLVpw7w12xlOCvZuWAAZ5/8IVlJx+fdfOQvbd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23824
+  },
+  "https://unpkg.com/react-hook-form@6.5.1/dist/index.umd.development.js": {
+    "integrity": "sha384-Cz28kV74idfqaAYgc/eteMjOhWiTLxgGMrupyqaRJNaICnARi9BEoH9NEM0N1o6a",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79474
+  },
+  "https://unpkg.com/react-hook-form@6.5.1/dist/index.umd.production.min.js": {
+    "integrity": "sha384-hIumZB3DLT2acyWX2uAYxXNuCaHy7vZTqXw2K+dPlL9uVjc0pI+QATUr49ow7/rq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23847
+  },
+  "https://unpkg.com/react-hook-form@6.5.2/dist/index.umd.development.js": {
+    "integrity": "sha384-TC47JQlkxVgg2YnQjizcPlnGqBklkutHSsQ/3pVSwzTjY/AIUkyrVBA870/Rgfss",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79473
+  },
+  "https://unpkg.com/react-hook-form@6.5.2/dist/index.umd.production.min.js": {
+    "integrity": "sha384-hIumZB3DLT2acyWX2uAYxXNuCaHy7vZTqXw2K+dPlL9uVjc0pI+QATUr49ow7/rq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23847
+  },
+  "https://unpkg.com/react-hook-form@6.5.3/dist/index.umd.development.js": {
+    "integrity": "sha384-GqaB7cti22ueMjL3CjkpqfauwSpk4iuoxEXK3JXI2dwaFxAqL4FWsNy9CWlwwMSo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79503
+  },
+  "https://unpkg.com/react-hook-form@6.5.3/dist/index.umd.production.min.js": {
+    "integrity": "sha384-0EzvzwlBd5taxwEJNWcxeLJ2S2zetJOL/9SEAFnJ8BeECN1A44OEhiWIvSI8G2wq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23839
+  },
+  "https://unpkg.com/react-hook-form@6.6.0/dist/index.umd.development.js": {
+    "integrity": "sha384-TdsXR1an9Y/PEKxIk0S8dMJOG5vMCiMGg6aohk89waCqCdA6SjhQx+yKVXviapPP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79986
+  },
+  "https://unpkg.com/react-hook-form@6.6.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-KmBcqmugf/aD4OEgOH8XtD0Qa5pxMkGzrDorqbUlnEq7oaEHCzzjaH1yjbDX+h1D",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23973
+  },
+  "https://unpkg.com/react-hook-form@6.7.0/dist/index.umd.development.js": {
+    "integrity": "sha384-e5J+9sxnK0JPTa/b4CMoBEhjNfABv2jmN2atYdHjFJKyXDx//aaUyJga7sRr53GZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 78572
+  },
+  "https://unpkg.com/react-hook-form@6.7.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-+96r8SSb970TQBgGWcX2aVSPPO0B2FVHRC4xg13z1tBomwbYNq/q+ovIaPALo43T",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23677
+  },
+  "https://unpkg.com/react-hook-form@6.7.1/dist/index.umd.development.js": {
+    "integrity": "sha384-qvW/th6ZnzSwXK+wMLxdm2ZV+rBAysw2Oi2FUKi++mv/LqAaMcVXGVSQVWsv+TEW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 78906
+  },
+  "https://unpkg.com/react-hook-form@6.7.1/dist/index.umd.production.min.js": {
+    "integrity": "sha384-i+Uzf6d9RePaCyavKPblJpouaxXg3KlgRAcUssQNOuCqQ7jqqhJYDpyICk1yWqut",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23836
+  },
+  "https://unpkg.com/react-hook-form@6.7.2/dist/index.umd.development.js": {
+    "integrity": "sha384-WiPCpGtWmvEDfuxNFa3kWMhvHUInfsQCfsBKRgJj09mCSFyyCqN25f+Vg2AAjLjB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 78836
+  },
+  "https://unpkg.com/react-hook-form@6.7.2/dist/index.umd.production.min.js": {
+    "integrity": "sha384-+h0jSgxoWx7i0siMtWUkZ7CYrjPT82Nk64+VqeN+0tz+FmoorBykEJJWw6juNJFJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 23810
+  },
+  "https://unpkg.com/react-hook-form@6.8.0/dist/index.umd.development.js": {
+    "integrity": "sha384-O0WEjASgt+r4Egs6ZZ49AR8rkwm8261M6jVa8zdxrZac2dTJXBuTRp0WhBmwrdZB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80096
+  },
+  "https://unpkg.com/react-hook-form@6.8.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-lABIthw0blV62N517k+kljysyJ1b6yKkxjeN97u7Wp4R+c+Vci07NwlAyC8E3UbU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24188
+  },
+  "https://unpkg.com/react-hook-form@6.8.1/dist/index.umd.development.js": {
+    "integrity": "sha384-7Qz9F/XkDltGOfURZ/YJq8oreKpaCU7xL5INwZOCe+OnGLTgB4goj5Z/Jbyr+itT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80172
+  },
+  "https://unpkg.com/react-hook-form@6.8.1/dist/index.umd.production.min.js": {
+    "integrity": "sha384-rrQha3NyfHe9+yR+Q5yV59RAyT23MhN0Zj6R652aY6gZzupncu7Zf7Kd9N6JDsDQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24247
+  },
+  "https://unpkg.com/react-hook-form@6.8.2/dist/index.umd.development.js": {
+    "integrity": "sha384-Z0wqRq+IB73vSqOLNqoNHCT/x5DQoc6PogLgFtF5oeIx7MHPrj/e1Lm0qdAuvdiT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80429
+  },
+  "https://unpkg.com/react-hook-form@6.8.2/dist/index.umd.production.min.js": {
+    "integrity": "sha384-2/SUZCSDdIcR2+Ui+SHo28sew1qT+FIYNXKJyrreXKFh3U/JBAhWDirGmBKT4C7W",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24156
+  },
+  "https://unpkg.com/react-hook-form@6.8.3/dist/index.umd.development.js": {
+    "integrity": "sha384-YJ0/bSBNF9w+8bUuIoQRFEjJf3APrQ5F4g1rrr6sB2NHX/ImMOBD8YtOHnTXe4dC",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81188
+  },
+  "https://unpkg.com/react-hook-form@6.8.3/dist/index.umd.production.min.js": {
+    "integrity": "sha384-cLEFrAuUTl86/ofTJZjXymyxbptXb3nf2pdA2n22DpmAVhQVxZK6+8VsWV6Ie6iY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24628
+  },
+  "https://unpkg.com/react-hook-form@6.8.4/dist/index.umd.development.js": {
+    "integrity": "sha384-hUL4HL109EJkCjyngIy8J1BI4Jk2NFyDHWmlQuv+HC18UZ+gm4RevZcZIhWhAq+P",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81096
+  },
+  "https://unpkg.com/react-hook-form@6.8.4/dist/index.umd.production.min.js": {
+    "integrity": "sha384-xaMjX/weOfuhaJnENt3Tiq20v+9m4wB/fouOpTf1DNaesmWYE294EYctSPLEeDsU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24535
+  },
+  "https://unpkg.com/react-hook-form@6.8.5/dist/index.umd.development.js": {
+    "integrity": "sha384-lP6T2KeAbjF9HS3XBMgVgKwOjGwDj9aDWugEXj00uhjsbpidi7iaSzA6kYHQegkU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81229
+  },
+  "https://unpkg.com/react-hook-form@6.8.5/dist/index.umd.production.min.js": {
+    "integrity": "sha384-Vreayej70t1vnTshdYq9/Fxq7pgEffVFEhf4jVvw7wDbmthhgtUurjaK4yHqM9Gj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24574
+  },
+  "https://unpkg.com/react-hook-form@6.8.6/dist/index.umd.development.js": {
+    "integrity": "sha384-a9kugeuaBb6xdbk+FOEfSnTF3KOVVQp6NcivcMfXh1i5VoRHFzTdaPpa2GDnJJMd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81199
+  },
+  "https://unpkg.com/react-hook-form@6.8.6/dist/index.umd.production.min.js": {
+    "integrity": "sha384-C9NfnMxsffx26Mia/ACgppYLyjOOmipMwdG8ZnQT/39MilL4YrcAVrlnhASFBYge",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24564
+  },
+  "https://unpkg.com/react-hook-form@6.9.0/dist/index.umd.development.js": {
+    "integrity": "sha384-leCT2Hm40Sqqe4C3apC0/aH9OKkQn5niQY9bHM8U5oh63MqdqNEEQDfz0/QNU82G",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81365
+  },
+  "https://unpkg.com/react-hook-form@6.9.0/dist/index.umd.production.min.js": {
+    "integrity": "sha384-f/jTW/GYir0zHdC6Uy/BmicSN1Rqf7s/Z0patow/Sqpl0e2+nKxZ8VXmYzeIwezg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24818
+  },
+  "https://unpkg.com/react-hook-form@6.9.1/dist/index.umd.development.js": {
+    "integrity": "sha384-hpQkh+fZO7LnQxDkNwqyJBJrmRRCBDYhdIm9MhAbHSx9KuibRvdz/BybIrhg+Icl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81521
+  },
+  "https://unpkg.com/react-hook-form@6.9.1/dist/index.umd.production.min.js": {
+    "integrity": "sha384-kT7bIo/UCk7qMLFEk6TKFYkepJ4zhH+SEhSThSP5CDNZJW3oi8jFFJ9j1o72IqVo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24765
+  },
+  "https://unpkg.com/react-hook-form@6.9.2/dist/index.umd.development.js": {
+    "integrity": "sha384-OVgSqN6jINO4+750ns26Kq8hSensOeHrsvqf2bNFPzRZAJoMdeTEthC0t84yLSeg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 81494
+  },
+  "https://unpkg.com/react-hook-form@6.9.2/dist/index.umd.production.min.js": {
+    "integrity": "sha384-rCpn93KuZpKzeNhiyLTgUa4eNqS1Qvo7JSP2Ci0BQBdfDH1/mJPFNXLxKICnBaJv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 24737
+  }
+}

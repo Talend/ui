@@ -1,0 +1,17 @@
+{
+  "https://unpkg.com/focus-outline-manager@1.0.0/focus-outline-manager.js": {
+    "integrity": "sha384-PCPiVU6V7QZx7X8Z3ebgnVeqHCTyPd7ionzNcwcPFUQQM2uwvLfLPq8hewsybdIg",
+    "lastModified": "Fri, 24 Jun 2016 20:46:15 GMT",
+    "size": 2099
+  },
+  "https://unpkg.com/focus-outline-manager@1.0.1/focus-outline-manager.js": {
+    "integrity": "sha384-PCPiVU6V7QZx7X8Z3ebgnVeqHCTyPd7ionzNcwcPFUQQM2uwvLfLPq8hewsybdIg",
+    "lastModified": "Fri, 24 Jun 2016 20:46:15 GMT",
+    "size": 2099
+  },
+  "https://unpkg.com/focus-outline-manager@1.0.2/focus-outline-manager.js": {
+    "integrity": "sha384-PCPiVU6V7QZx7X8Z3ebgnVeqHCTyPd7ionzNcwcPFUQQM2uwvLfLPq8hewsybdIg",
+    "lastModified": "Tue, 28 Jun 2016 01:25:11 GMT",
+    "size": 2099
+  }
+}

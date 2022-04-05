@@ -1,0 +1,9 @@
+{ 
+    "name": "@talend/popper-core",
+    "devDependencies": {
+        "patch-package": "^6.2.2"
+    },
+    "dependencies": {
+        "@popperjs/core": "2.5.0"
+    }
+}
