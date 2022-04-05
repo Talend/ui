@@ -1,19 +1,26 @@
 import icons from '../icon';
 
+enum Size {
+	XS = 8,
+	S = 12,
+	M = 16,
+	L = 24,
+}
+
 type Icon =
 	| {
-			size: 8;
-			name: keyof icons[8];
+			size: 'XS';
+			name: keyof typeof icons['XS'];
 	  }
 	| {
-			size: 12;
-			name: keyof icons[8];
+			size: 'S';
+			name: keyof typeof icons['S'];
 	  }
 	| {
-			size: 16;
-			name: keyof icons[16];
+			size: 'M';
+			name: keyof typeof icons['M'];
 	  }
 	| {
-			size: 24;
-			name: keyof icons[24];
+			size: 'L';
+			name: keyof typeof icons['L'];
 	  };
