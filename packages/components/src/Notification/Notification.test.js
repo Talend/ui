@@ -106,7 +106,7 @@ describe('Notification', () => {
 		expect(screen.getByTestId('timer')).toBeInTheDocument();
 	});
 
-	it('should render not time bar with error notification', () => {
+	it('should not render a time bar with error notification', () => {
 		// given
 		const notification = { id: 'id', message: 'foo', type: 'error' };
 
