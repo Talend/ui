@@ -132,7 +132,7 @@ describe('Notification', () => {
 		expect(notifDiv).toHaveAttribute('pin', 'true');
 	});
 
-	it('should call leaveFn props when the user click', () => {
+	it('should call leaveFn props when the user clicks', () => {
 		// given
 		const leaveFn = jest.fn();
 		const notification = { id: 'id', message: 'foo' };
