@@ -83,7 +83,7 @@ describe('Notification', () => {
 		expect(screen.getByText('bar')).toBeInTheDocument();
 	});
 
-	it('should render an an array of message', () => {
+	it('should render an an array of messages', () => {
 		// given
 		const notification = { id: 'id', message: ['foo', 'bar'] };
 
