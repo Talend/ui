@@ -38,7 +38,7 @@ jobs:
       - name: Build Storybook of the design tokens
         run: |
           cd packages/design-tokens
-          yarn install
+          yarn install --frozen-lock
           yarn pre-release
           cd ../..
 

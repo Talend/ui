@@ -31,11 +31,8 @@ jobs:
       - name: Build @talend/design-tokens
         run: |
           yarn workspace @talend/dynamic-webpack-plugin run build:lib
-          cd packages/design-tokens
-          yarn install
-          yarn build:lib
-          yarn pre-release
-          cd ../..
+          yarn workspace @talend/design-tokens run build:lib
+          yarn workspace @talend/design-tokens run pre-release
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@v3
