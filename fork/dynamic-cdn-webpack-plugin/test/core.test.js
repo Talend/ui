@@ -1,11 +1,12 @@
-import path from 'path';
-import fs from 'fs';
-import webpack from 'webpack';
+/* eslint-disable no-console */
+const path = require('path');
+const fs = require('fs');
+const webpack = require('webpack');
 
-import runWebpack from './helpers/run-webpack';
-import cleanDir from './helpers/clean-dir';
+const runWebpack = require('./helpers/run-webpack');
+const cleanDir = require('./helpers/clean-dir');
 
-import DynamicCdnWebpackPlugin from '../src';
+const DynamicCdnWebpackPlugin = require('../src');
 
 describe('core', () => {
 	it('should set deps as cdn externals', async () => {

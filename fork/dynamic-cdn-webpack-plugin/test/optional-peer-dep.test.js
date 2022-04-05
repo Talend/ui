@@ -1,9 +1,9 @@
-import path from 'path';
+const path = require('path');
 
-import runWebpack from './helpers/run-webpack';
-import cleanDir from './helpers/clean-dir';
+const runWebpack = require('./helpers/run-webpack');
+const cleanDir = require('./helpers/clean-dir');
 
-import DynamicCdnWebpackPlugin from '../src';
+const DynamicCdnWebpackPlugin = require('../src');
 
 describe('Optional Peer Dep', () => {
 	it('should work', async () => {
