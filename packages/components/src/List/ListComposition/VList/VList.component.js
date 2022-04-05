@@ -9,8 +9,10 @@ import VirtualizedList from '../../../VirtualizedList';
 import { DISPLAY_MODE, SORT } from '../constants';
 
 import theme from '../List.scss';
+import { columnsFromChildrens } from '../utils';
+import ColumnChooserHeaderButton from '../ColumnChooser/ColumnChooserHeaderButton.component';
 
-function VList({ children, ...rest }) {
+function VList({ children, columnChooser, ...rest }) {
 	const {
 		displayMode = DISPLAY_MODE.TABLE,
 		collection,
@@ -19,20 +21,28 @@ function VList({ children, ...rest }) {
 		sortParams,
 		setColumns,
 		columns,
+		setVisibleColumns,
 	} = useListContext();
 
+	// initialize visible columns
+	if (!visibleColumns) {
+		const foundColumns = columnsFromChildrens(children);
+		setVisibleColumns(map(foundColumns, 'dataKey'));
+	}
+
 	React.useEffect(() => {
-		if (Array.isArray(children)) {
-			const next = children.filter(column => column.props?.dataKey).map(column => column.props);
-			if (!isEqual(map(next, 'dataKey'), map(columns, 'dataKey'))) {
-				setColumns(next);
-			}
+		const nextColumns = columnsFromChildrens(children);
+		if (nextColumns && !isEqual(map(nextColumns, 'dataKey'), map(columns, 'dataKey'))) {
+			setColumns(nextColumns);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [children, setColumns]);
 
 	return (
 		<div className={theme.vlist}>
+			{columnChooser && displayMode === DISPLAY_MODE.TABLE && (
+				<ColumnChooserHeaderButton {...columnChooser} />
+			)}
 			<VirtualizedList
 				collection={collection}
 				type={displayMode.toUpperCase()}
@@ -53,6 +63,7 @@ function VList({ children, ...rest }) {
 
 VList.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.node),
+	columnChooser: ColumnChooserHeaderButton.propTypes,
 };
 
 // we port the VirtualizedList columns to VList to allow VList.Title/Badge/...

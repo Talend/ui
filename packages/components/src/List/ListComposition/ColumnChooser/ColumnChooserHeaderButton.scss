@@ -1,0 +1,8 @@
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+
+.columnChooserHeaderButtonContainer {
+	position: absolute;
+	right: 0;
+	margin-top: tokens.$coral-size-xxs;
+	margin-right: tokens.$coral-size-s;
+}
