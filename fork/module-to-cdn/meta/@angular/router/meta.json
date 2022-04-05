@@ -1,0 +1,1882 @@
+{
+  "https://unpkg.com/@angular/router@10.0.0/bundles/router.umd.js": {
+    "integrity": "sha384-G3UiagWb0We+zmVNuKA2b7+InaD+COGqdbVAKKZN1ddyRqjkgJBDYJUnAqCve6/f",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 273193
+  },
+  "https://unpkg.com/@angular/router@10.0.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-SGNwicJPMjX1eq2KGkVaYuE1p9WEhhNhf3bk3MXagWdRPX2zp4cGFRcidfFO9Hca",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91423
+  },
+  "https://unpkg.com/@angular/router@10.0.1/bundles/router.umd.js": {
+    "integrity": "sha384-MWPXK8BIWQ9aD7/ZZeKkbun6kuCIbleGATA2F/9lrV8Qt/ujePq0s0nEYcYDMJO5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 273323
+  },
+  "https://unpkg.com/@angular/router@10.0.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-FGKPCB3S4iSFsgk/6Rvo6d5rA8OmXvegnkWvERJMsIGB9VHJNqlqqyIhLllzj4gm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91501
+  },
+  "https://unpkg.com/@angular/router@10.0.10/bundles/router.umd.js": {
+    "integrity": "sha384-y0YWynFaTjUsjAt6WWVSJb87sdp06D3b/515kcij3N9QaBQgP3jgYIYGhNwnz9hk",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 277521
+  },
+  "https://unpkg.com/@angular/router@10.0.10/bundles/router.umd.min.js": {
+    "integrity": "sha384-Vbz/zZz0toJMxYrYcDj+IwOazyWIyG9VBKzGdmQtzQ0rVKixGDtAfGi9LFFH2a9T",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91921
+  },
+  "https://unpkg.com/@angular/router@10.0.11/bundles/router.umd.js": {
+    "integrity": "sha384-igIQnUWG4adEKsbWy3v4z5p3gzOZiO6j4lYEp6CHyDuHiQlTKXlk2hGrL2ZIAmc0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 277641
+  },
+  "https://unpkg.com/@angular/router@10.0.11/bundles/router.umd.min.js": {
+    "integrity": "sha384-iOSlGxBPYQh85wPKnq8qnlKA2nWFYqxx41yu78InShTFRYpOBGSHti7uNPFJ3/WT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91965
+  },
+  "https://unpkg.com/@angular/router@10.0.12/bundles/router.umd.js": {
+    "integrity": "sha384-I9Ih86OWJJNOl65KMW6wPlFH115KuMdmo84UidVO6ehDcOO81tupbJlaPAQ7tp5I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 277641
+  },
+  "https://unpkg.com/@angular/router@10.0.12/bundles/router.umd.min.js": {
+    "integrity": "sha384-jOoVGD8tuCq0kVSXybf7zRoqlbMAx9eoiiDSzpS7epDwQzKI0HcRZpNlBzvyBZ3S",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91965
+  },
+  "https://unpkg.com/@angular/router@10.0.13/bundles/router.umd.js": {
+    "integrity": "sha384-ddUs5rnYwB1XZOFHGzKe6udf9Ug/WBPsPY4iXUA9FfL5IekwkoGi9DsmxEFhELGH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 277641
+  },
+  "https://unpkg.com/@angular/router@10.0.13/bundles/router.umd.min.js": {
+    "integrity": "sha384-I+uOBbp1YtKJSEWOi2RgPvxZa3Gn8T2wh7mKHj+lDEJXd6H7gf06Uqrm4HEOWK+5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91965
+  },
+  "https://unpkg.com/@angular/router@10.0.14/bundles/router.umd.js": {
+    "integrity": "sha384-Y3Zhcpd/mj5uGkIpoX7ZixgsM5nvPjjoxOUg9kMZnYV7v1E7eP8bjshJBAgR2lu8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 277641
+  },
+  "https://unpkg.com/@angular/router@10.0.14/bundles/router.umd.min.js": {
+    "integrity": "sha384-2t43sC7CXTmJRYS3Z0+Ixvk9GG5FtxmPVJP606CMtsciRZH4YYSlBHmd3zjS/qWK",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91965
+  },
+  "https://unpkg.com/@angular/router@10.0.2/bundles/router.umd.js": {
+    "integrity": "sha384-JqKaH56Ub84Z9Qi4hGF/YN4FDsgkrrcjh4QsCDdYxDApZVWFqI11FDf6nt1H/KcV",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 273323
+  },
+  "https://unpkg.com/@angular/router@10.0.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-XYJ3WLguFbp6C5G4WF6CSVhYyw0quD4LCjL4GDobZN751xp3JNno4XFaSWfuc5Cs",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91501
+  },
+  "https://unpkg.com/@angular/router@10.0.3/bundles/router.umd.js": {
+    "integrity": "sha384-iGv6fASupOYb9SqCxo8iiShCjkB2dh+PV93T23TNNM2M0Q8gAXpA53//jrURU0oL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 273323
+  },
+  "https://unpkg.com/@angular/router@10.0.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-aUZO2ml3dmYVijyHa5syJrqF7bIoq0oBAXDd53gwI/IIBi49wNppyIY6sAT3lRMG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91501
+  },
+  "https://unpkg.com/@angular/router@10.0.4/bundles/router.umd.js": {
+    "integrity": "sha384-qIcGQtpUZ6621SvlPAR/HNgho0SX8BQXObIM9JnOW3Nly2UuQoJ5V+BCqtspq4oQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 272840
+  },
+  "https://unpkg.com/@angular/router@10.0.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-tSiNlCqcCGEsCFNGyQ4rpWtp+oOdaJPC7/G2PzITato3foBdTyk4p9ubKaAacjsd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91239
+  },
+  "https://unpkg.com/@angular/router@10.0.5/bundles/router.umd.js": {
+    "integrity": "sha384-4asxEhiEy8PtAwJQzButopi8IIbDaf08J+4vsiYe1KZOJMM1zg/j8a8TA78+dNjE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 274470
+  },
+  "https://unpkg.com/@angular/router@10.0.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-iUvWPDFBl8oLgGsVuDEzuXLxXTSw7YPcwNDZy+N6kfDJtKasQ5jP9U7DcsJwl9iq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91239
+  },
+  "https://unpkg.com/@angular/router@10.0.6/bundles/router.umd.js": {
+    "integrity": "sha384-vXk8Ml2QlWbx3x64muVQLTRELTeFY6xZq0jsTunF/wLQmkc5dmhy8D5cLPhbKatd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 276234
+  },
+  "https://unpkg.com/@angular/router@10.0.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-zvrYAqqKa7C6Zcop2iCeyKCk6ELAWMYzvmtHZoWgwWedE3+btlWq86xyp4tgi6uT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91467
+  },
+  "https://unpkg.com/@angular/router@10.0.7/bundles/router.umd.js": {
+    "integrity": "sha384-2mYI7ZaMJFAEioMqcAadckGVDokSlmxzlBf5dIlQUqOtJQa0/Sr4ouTMHOTXYK/U",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 276234
+  },
+  "https://unpkg.com/@angular/router@10.0.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-9D6aLnHvqEmnnC0MDvW0P7fFSrhCKTtVPFJpVhSel5ZDLXVwJoe1JigzeTTTZyil",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91467
+  },
+  "https://unpkg.com/@angular/router@10.0.8/bundles/router.umd.js": {
+    "integrity": "sha384-dQH17VVP0m6sindDFRp/KQwvsx/f/8Kq7CsvAiFWlzpErs9GM/RMbkB6wHkGAgiT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 276234
+  },
+  "https://unpkg.com/@angular/router@10.0.8/bundles/router.umd.min.js": {
+    "integrity": "sha384-WvxW5CrgJTk3Rnqr3bWrSTBFx4yLDFv/gnmMj3/glBaqlyWSWf58bsCJaQlfje8c",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91467
+  },
+  "https://unpkg.com/@angular/router@10.0.9/bundles/router.umd.js": {
+    "integrity": "sha384-AyxZfLUbBAjYEsPxL99ZlYhBPwB9NUeNdVJnVgObWZMkJpf92fuhhKuPNnOmLGMn",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 276051
+  },
+  "https://unpkg.com/@angular/router@10.0.9/bundles/router.umd.min.js": {
+    "integrity": "sha384-dl77QBz94GR8R05ArHvHuZS9hE0J+nyBf4PgEfl/E8SVQU+/r20BoH2vMRtidOEP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91486
+  },
+  "https://unpkg.com/@angular/router@10.1.0/bundles/router.umd.js": {
+    "integrity": "sha384-hz/qm7VGAIcxd/VmF1kj7Ht5m4jO3NaBNfrfqpBcUmnZbnSysRr7RVOtf2K1OGa4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 282757
+  },
+  "https://unpkg.com/@angular/router@10.1.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-XAAvrJLNoiOOvT3vYwvkZe9RBUHbX6JQvk6vKVSGorw/pvQJPNL86uXBc6c/zrJc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92762
+  },
+  "https://unpkg.com/@angular/router@10.1.1/bundles/router.umd.js": {
+    "integrity": "sha384-zU4dWdmSlyx8CdmQ5rHINAAhAZ7hGQrdPWCSvI+fzBqUTgJeH8BVdlqZwN9GxZ9F",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 282813
+  },
+  "https://unpkg.com/@angular/router@10.1.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-ozZeNOiwyfAuOwvJ/8/fgJefyRgRzV9+4i5GUABs1wx+PAxwXaCNyF4aUWaBzXcG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92783
+  },
+  "https://unpkg.com/@angular/router@10.1.2/bundles/router.umd.js": {
+    "integrity": "sha384-/mYu3p49ivoLoGTI6woeInhi28Pk597s8G16Ion7n8oUiyOY4EK8ncA9/uKUHY6/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 282759
+  },
+  "https://unpkg.com/@angular/router@10.1.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-JfoXRuizsomIPERmtFyGocR/9Llop+M3X/IzlOQHULgVQxTT4JCni/rEAvCgxgCc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92748
+  },
+  "https://unpkg.com/@angular/router@10.1.3/bundles/router.umd.js": {
+    "integrity": "sha384-Nmk3x+jZ7VA0oSq0ift0LvcnuqNnSa4mJfcZOS+Xj1bXHiHRyiXXySWsWaUOiqUR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 282489
+  },
+  "https://unpkg.com/@angular/router@10.1.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-WgQgarhVb5jGAHCBmndR8YCVezTVbyiaNLsFVRC2GxrU1JmPQAZ5Q2bfm1/MnNpT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92585
+  },
+  "https://unpkg.com/@angular/router@10.1.4/bundles/router.umd.js": {
+    "integrity": "sha384-kbpgFNSkYnP9OMnWQo08/SNGoMNVbM8u6GvcUs/uuEEqg95eNhomgC2oLRj/HZNf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 282489
+  },
+  "https://unpkg.com/@angular/router@10.1.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-j2yBtV+lvhHZAxC4f/WJq/WGhC/nwV3bp7Kdc2I5TYc0kJRoWKg1nsJLjv6b1GMl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92585
+  },
+  "https://unpkg.com/@angular/router@10.1.5/bundles/router.umd.js": {
+    "integrity": "sha384-TpXZQ0xUa9joQpi+ubU9VGecdtfd68OQqtuv/YCFOqAE1IU/3uB0P0DN1nB7g/U1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 282468
+  },
+  "https://unpkg.com/@angular/router@10.1.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-apLo3D6NvMapiEhN8HnAVKPemjrIaUpNniL4PC/bwM5AvQTvbWa2w5fdGZpKqp0X",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92601
+  },
+  "https://unpkg.com/@angular/router@10.1.6/bundles/router.umd.js": {
+    "integrity": "sha384-xZIuyJ7eNkD54iCb+aaDywgtBVFBIZuSBjNnNJU0YVL+3ISQ5Ojq2Gq4gbmaG8/K",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 282468
+  },
+  "https://unpkg.com/@angular/router@10.1.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-JzZOYYF6zSDqk+uemOtXX5QXdzNALficiiT0AlNLETPXCXItVY/4k8KUvZka16lW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92601
+  },
+  "https://unpkg.com/@angular/router@3.0.0/bundles/router.umd.js": {
+    "integrity": "sha384-MLwVOtXaNAFdzzfDcR/DqqKZ2LGALz5IB48+y+lr1KczvhtcMJETA/mD0EUacrJI",
+    "lastModified": "Wed, 14 Sep 2016 23:30:55 GMT",
+    "size": 156288
+  },
+  "https://unpkg.com/@angular/router@3.0.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-4MpJWuMKM8sdNJi00AljWNb6e3r2oOs8aCCkIQrYbK8Yo94d8UxGiYMqvZD6UNSB",
+    "lastModified": "Wed, 14 Sep 2016 23:31:07 GMT",
+    "size": 84175
+  },
+  "https://unpkg.com/@angular/router@3.0.1/bundles/router.umd.js": {
+    "integrity": "sha384-qRGXOK0VJ6WlyR8iwFig+2d/tkKCt4cyFLCb8mzNnodocfuob3O4U91vYO1Ms56e",
+    "lastModified": "Fri, 23 Sep 2016 18:00:10 GMT",
+    "size": 156280
+  },
+  "https://unpkg.com/@angular/router@3.0.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-Ds0id4vC5E3FUhqo3Ih9kbuItMtzoUOcIPyzie7Y9W4R/qg4lA8NxOUgIIYfM+xc",
+    "lastModified": "Fri, 23 Sep 2016 18:00:10 GMT",
+    "size": 84167
+  },
+  "https://unpkg.com/@angular/router@3.0.2/bundles/router.umd.js": {
+    "integrity": "sha384-9ryvHn0KlSiFKY06tpkOx/fsba/IsGiewp5c6RfjiFyGumidypZUaaSt4HuEapnK",
+    "lastModified": "Thu, 06 Oct 2016 13:09:48 GMT",
+    "size": 156855
+  },
+  "https://unpkg.com/@angular/router@3.0.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-91+M+3mi7WHVokPkQMbKtbzKJT0sSXK7jcA9jOsptqcQe9p/K9NTVvSz8HMc6t1E",
+    "lastModified": "Thu, 06 Oct 2016 13:09:48 GMT",
+    "size": 84383
+  },
+  "https://unpkg.com/@angular/router@3.1.0/bundles/router.umd.js": {
+    "integrity": "sha384-MavPGl5SpvT9YZrU7Xepb+/0xElvaDySOhwnqawLbx7UHALhtnb4l3zegFl+jjO0",
+    "lastModified": "Wed, 12 Oct 2016 20:31:57 GMT",
+    "size": 162542
+  },
+  "https://unpkg.com/@angular/router@3.1.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-3H0mmgFGsEuTS1DqKW04K8O+JfWQBCjwSrwqTN9IoGzfuDIWWXUYxlmW15snkwmC",
+    "lastModified": "Wed, 12 Oct 2016 20:31:57 GMT",
+    "size": 87452
+  },
+  "https://unpkg.com/@angular/router@3.1.1/bundles/router.umd.js": {
+    "integrity": "sha384-XOwENFfzvQapX05gKqujRMsPbxz0Wm8LRZSDw1lpq0KN3xPTSCbNtQUTsLwEPd8Y",
+    "lastModified": "Thu, 20 Oct 2016 22:40:55 GMT",
+    "size": 163294
+  },
+  "https://unpkg.com/@angular/router@3.1.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-Xm0uzAhY+F5gmRxLsxV/M3IsocvkV8msICrhmQLjDUQpBUwa1aJRcTxUknCOg1qp",
+    "lastModified": "Thu, 20 Oct 2016 22:40:55 GMT",
+    "size": 88019
+  },
+  "https://unpkg.com/@angular/router@3.1.2/bundles/router.umd.js": {
+    "integrity": "sha384-vroZsgxBqehp2R/ojYzZKcHRUQ3x8EBE6+E6DgcMRrP0jLv4731XCHOFWFxpE6GR",
+    "lastModified": "Thu, 27 Oct 2016 18:32:12 GMT",
+    "size": 162224
+  },
+  "https://unpkg.com/@angular/router@3.1.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-GYpLp9Zb4D3K5/NmZzeP7G+DJb2boGkgyqEg9+zzj50GaXHQddXclRXTvj2c/Wn8",
+    "lastModified": "Thu, 27 Oct 2016 18:32:12 GMT",
+    "size": 87209
+  },
+  "https://unpkg.com/@angular/router@3.2.0/bundles/router.umd.js": {
+    "integrity": "sha384-M94XS5cPWk1bOfQ858XpQL7CmM4FvP+ns1BngaF2gHzm+07smxad2OgjdkgE9vXe",
+    "lastModified": "Mon, 14 Nov 2016 18:23:44 GMT",
+    "size": 173863
+  },
+  "https://unpkg.com/@angular/router@3.2.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-USopwv5BrKdMB4v23F9+MXfWgf83i91y6m+i/aBYmn2zYV/0l1ZJ6nry1LtbQWo9",
+    "lastModified": "Mon, 14 Nov 2016 18:23:44 GMT",
+    "size": 93897
+  },
+  "https://unpkg.com/@angular/router@3.2.1/bundles/router.umd.js": {
+    "integrity": "sha384-2Herkh6Gr26sNo+yraMOK0MLjjVBBRYzlF0HVIRizq/dCY6yqE0S7FUpqLJDipjY",
+    "lastModified": "Thu, 17 Nov 2016 01:19:09 GMT",
+    "size": 175097
+  },
+  "https://unpkg.com/@angular/router@3.2.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-7Vgo4nYqBf6KknoId3pjvVExzps0MTpgXM8rljeQFwTWUnj9eLqu07H+KUejvqfo",
+    "lastModified": "Thu, 17 Nov 2016 01:19:09 GMT",
+    "size": 94447
+  },
+  "https://unpkg.com/@angular/router@3.2.2/bundles/router.umd.js": {
+    "integrity": "sha384-cAoH7d9SE1Zq97otjzA21WUOegAocpynCQ1iQGfCC+1SA0EOPu3TKyMujYx1m13u",
+    "lastModified": "Tue, 22 Nov 2016 22:39:52 GMT",
+    "size": 177981
+  },
+  "https://unpkg.com/@angular/router@3.2.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-1AW1PAaJdHiWqKpvsYIwMTC4Rg1cIRIkaA2xFtnBG60Gu9tpoV8PXNahhmnMrDeq",
+    "lastModified": "Tue, 22 Nov 2016 22:39:52 GMT",
+    "size": 96394
+  },
+  "https://unpkg.com/@angular/router@3.2.3/bundles/router.umd.js": {
+    "integrity": "sha384-4akwW2vJnoymRgR/XHkbKm1tQzJPTNlFe3JEzo7HUV2W9J0F7eiNQD5MqmvwAFDW",
+    "lastModified": "Wed, 23 Nov 2016 21:04:03 GMT",
+    "size": 177981
+  },
+  "https://unpkg.com/@angular/router@3.2.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-OX9rG+4de2J75DKgwJ7RFrebKt52nqOgeChD4TVxgJGiiMad64oj1O+nNyv+RWvx",
+    "lastModified": "Wed, 23 Nov 2016 21:04:03 GMT",
+    "size": 96394
+  },
+  "https://unpkg.com/@angular/router@3.2.4/bundles/router.umd.js": {
+    "integrity": "sha384-JDzcV6aJgzDyeMvo+jCHIFilsaVFtQNE76Lq8Hu8tktO4u2iyQBfQUc9xdc9YH9k",
+    "lastModified": "Wed, 30 Nov 2016 23:22:28 GMT",
+    "size": 177981
+  },
+  "https://unpkg.com/@angular/router@3.2.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-3MaTBRcLxtTVC/UjVXgPUZJdhywKPkGiwVeQT+erzfE2CtTfE7qqg1TIi62cyaLi",
+    "lastModified": "Wed, 30 Nov 2016 23:22:28 GMT",
+    "size": 96394
+  },
+  "https://unpkg.com/@angular/router@3.3.0/bundles/router.umd.js": {
+    "integrity": "sha384-VC8PMbazEiDPsMRW+dlID1qtXt0B8aewECX8/uX1P08aBQSQyE7se2wBM1RGvc2m",
+    "lastModified": "Wed, 07 Dec 2016 19:23:39 GMT",
+    "size": 202958
+  },
+  "https://unpkg.com/@angular/router@3.3.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-TFq11n8maqI/Hq3JIKFyH3xQDTGSHmgFP7wPHxzPPEduCMu62va+WELrJz9rQgqP",
+    "lastModified": "Wed, 07 Dec 2016 19:23:39 GMT",
+    "size": 101195
+  },
+  "https://unpkg.com/@angular/router@3.3.1/bundles/router.umd.js": {
+    "integrity": "sha384-2dXGSr86NTIRmnKsNFDgpeT3Xj7kTsfF/1tHWryAaX46IU7/QQele3M0wBiduTRH",
+    "lastModified": "Thu, 15 Dec 2016 02:24:31 GMT",
+    "size": 202671
+  },
+  "https://unpkg.com/@angular/router@3.3.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-IJli5nxuApd0Ka5oe5Il0+eYRmMgGSPJynNvlbFLC1m88/4FjjXj66MqiD0NCGsO",
+    "lastModified": "Thu, 15 Dec 2016 02:24:31 GMT",
+    "size": 101162
+  },
+  "https://unpkg.com/@angular/router@3.4.0/bundles/router.umd.js": {
+    "integrity": "sha384-DrNHnOK35XBa7/biRDm+iHHLaUpxXbiLNuJxmDPON0q/0bOddZYwE8CS12nTrNs7",
+    "lastModified": "Tue, 20 Dec 2016 01:51:05 GMT",
+    "size": 202671
+  },
+  "https://unpkg.com/@angular/router@3.4.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-0RXxjfCZKVKMOEgmFrVEWcGJI6uRopvzYGMIF4mB8OUSeYxd3vZ/tKckvW9pU9Wg",
+    "lastModified": "Tue, 20 Dec 2016 01:51:05 GMT",
+    "size": 101162
+  },
+  "https://unpkg.com/@angular/router@3.4.1/bundles/router.umd.js": {
+    "integrity": "sha384-e/EA8YYvtPpSj7MxPOsHdSbVQQ/htEbF6b0IAQauSLNYI/Byl7e0l4kAG61ZfSvJ",
+    "lastModified": "Wed, 21 Dec 2016 22:29:08 GMT",
+    "size": 203165
+  },
+  "https://unpkg.com/@angular/router@3.4.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-MCObie0I8+nPiWqOPshCVxYe+3z1tRSupjZrqef54xazMwwnoxjxPRZhQumarxme",
+    "lastModified": "Wed, 21 Dec 2016 22:29:08 GMT",
+    "size": 101389
+  },
+  "https://unpkg.com/@angular/router@3.4.10/bundles/router.umd.js": {
+    "integrity": "sha384-jRcusWrwI+FE1B68jTPFSTZHSOohuKqs0BusGcvLYjQgZSWkGwy9Ft3NxqtcPJUj",
+    "lastModified": "Fri, 17 Mar 2017 02:29:34 GMT",
+    "size": 224238
+  },
+  "https://unpkg.com/@angular/router@3.4.10/bundles/router.umd.min.js": {
+    "integrity": "sha384-vHnKCbBlJgzlg9gjh73u3SXcpoDe7UIREMdCXz5rz72UdhIn2+9guLijwn9dkXWN",
+    "lastModified": "Fri, 17 Mar 2017 02:29:34 GMT",
+    "size": 104327
+  },
+  "https://unpkg.com/@angular/router@3.4.2/bundles/router.umd.js": {
+    "integrity": "sha384-XndToVCfeMopCjGYDSRFRXYw3QWvwDwlBUvu1Ai5j3lqYRqfKnyQASFM4b7Kcbft",
+    "lastModified": "Fri, 06 Jan 2017 20:50:54 GMT",
+    "size": 203372
+  },
+  "https://unpkg.com/@angular/router@3.4.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-+ciwD6NXntkKm17PNtfnxEHcoZgWISNp0dsZRm+GlJ6F0gDmEFKJFHUzDm/eE407",
+    "lastModified": "Fri, 06 Jan 2017 20:50:54 GMT",
+    "size": 101526
+  },
+  "https://unpkg.com/@angular/router@3.4.3/bundles/router.umd.js": {
+    "integrity": "sha384-ng7mAdxTgMXFmwMx9IK+EFfjIDNzKoh+pYsc4oSt7b49+mC8rvB3EcEnN88j8V7W",
+    "lastModified": "Wed, 11 Jan 2017 21:53:09 GMT",
+    "size": 203845
+  },
+  "https://unpkg.com/@angular/router@3.4.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-bi6RzYcpna7ny6lDmVB+85Bl5mU45wkw2lDGubKRs7HpIsD4GkpbSHfelQjyXDMn",
+    "lastModified": "Wed, 11 Jan 2017 21:53:09 GMT",
+    "size": 101801
+  },
+  "https://unpkg.com/@angular/router@3.4.4/bundles/router.umd.js": {
+    "integrity": "sha384-FYawj6BWjRCfjIqHWaTtc3NpLwvO3Bcaq7XjM8H6MV9vpIaVoCM4iLdfI+Y2mFnc",
+    "lastModified": "Thu, 19 Jan 2017 00:42:30 GMT",
+    "size": 218616
+  },
+  "https://unpkg.com/@angular/router@3.4.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-JSEot//KAaLl0BNqXIZC75rZ1qpdUQS4RUh0ZuShzOCdYTuYxvrN7fXXg9dvtPM6",
+    "lastModified": "Thu, 19 Jan 2017 00:42:30 GMT",
+    "size": 102015
+  },
+  "https://unpkg.com/@angular/router@3.4.5/bundles/router.umd.js": {
+    "integrity": "sha384-/kMqTP6Wk+mTnDdaMNSQNXIyHG0p8v79Jp91e2tnXPMfdl6WX4SYRwfiR1zTGaYT",
+    "lastModified": "Wed, 25 Jan 2017 22:01:53 GMT",
+    "size": 218616
+  },
+  "https://unpkg.com/@angular/router@3.4.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-Pvk74TMI5P0UPcwgODdaOKiBN79070rOIDq8NXS6couJ8xwAXAMW7lRWFWb5RUnA",
+    "lastModified": "Wed, 25 Jan 2017 22:01:53 GMT",
+    "size": 102015
+  },
+  "https://unpkg.com/@angular/router@3.4.6/bundles/router.umd.js": {
+    "integrity": "sha384-B0PoIjio9EB4h6awme2vtY0i/nzvRpdA4QBGWxMjImqv7zcnTNvfjQOpqlXBe+8h",
+    "lastModified": "Fri, 03 Feb 2017 04:09:58 GMT",
+    "size": 218666
+  },
+  "https://unpkg.com/@angular/router@3.4.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-i+feEb2R1e5WUtwqOSqm6iY794hRLse19yAjJn4QmVO4op+7W5BeCsM99mVlFqHM",
+    "lastModified": "Fri, 03 Feb 2017 04:09:58 GMT",
+    "size": 101888
+  },
+  "https://unpkg.com/@angular/router@3.4.7/bundles/router.umd.js": {
+    "integrity": "sha384-Gc5REJEfz1HLE4s5JiAFqLd4cV4PyY2UP2Hhmt2kmgrErji9eAOrSmEuAiRQHQdq",
+    "lastModified": "Thu, 09 Feb 2017 04:30:29 GMT",
+    "size": 218666
+  },
+  "https://unpkg.com/@angular/router@3.4.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-VU/aZoS9I81dWYfJZlcuL7ajgh2GzIbRCCkRygFtzV1m4VR/PJsQ4rlfl7vslgEq",
+    "lastModified": "Thu, 09 Feb 2017 04:30:29 GMT",
+    "size": 101888
+  },
+  "https://unpkg.com/@angular/router@3.4.8/bundles/router.umd.js": {
+    "integrity": "sha384-8CfOdrrkQdMLZxjEf4v0kHuU2uEFQpFwQeRJiYxXaCYoC902R/OtSrsCeVzOttIU",
+    "lastModified": "Sat, 18 Feb 2017 21:58:33 GMT",
+    "size": 222788
+  },
+  "https://unpkg.com/@angular/router@3.4.8/bundles/router.umd.min.js": {
+    "integrity": "sha384-+SGUWgnY0ndcnYe/EJGr8Mf8AM4jKpfAj8BW4HGGoi2W7nvbO22nS0E1xO5wI2Wb",
+    "lastModified": "Sat, 18 Feb 2017 21:58:33 GMT",
+    "size": 103661
+  },
+  "https://unpkg.com/@angular/router@3.4.9/bundles/router.umd.js": {
+    "integrity": "sha384-g5UZz87xqdD8fpodVAwaHW7fI2xj4ErblmMaydAQ/oaJicun6YwEMCKe8sP0MRjk",
+    "lastModified": "Thu, 02 Mar 2017 07:13:42 GMT",
+    "size": 218740
+  },
+  "https://unpkg.com/@angular/router@3.4.9/bundles/router.umd.min.js": {
+    "integrity": "sha384-6z2z8o6RuSdicT3GMEI/dbMe9NyojigPbczax6c/fli0xoITENSagqAvdBa5sCIB",
+    "lastModified": "Thu, 02 Mar 2017 07:13:42 GMT",
+    "size": 101839
+  },
+  "https://unpkg.com/@angular/router@4.0.0/bundles/router.umd.js": {
+    "integrity": "sha384-0hUrSCja4NCpFm4XIKbW9UWGUB8Ekr3Ml+njBpr9VxBEKOYlid1QRcLCguFbr4kk",
+    "lastModified": "Thu, 23 Mar 2017 23:54:13 GMT",
+    "size": 214878
+  },
+  "https://unpkg.com/@angular/router@4.0.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-szO2zpYiMtFXc2JBg2JWRoRKicK1ILj3xUzXUmRKt6oQ266wQEtEMmaCV2oSVJTg",
+    "lastModified": "Thu, 23 Mar 2017 23:54:13 GMT",
+    "size": 112216
+  },
+  "https://unpkg.com/@angular/router@4.0.1/bundles/router.umd.js": {
+    "integrity": "sha384-CtZvELF5I+3Q2C4c5UYp73YkAELbBibyhEOZOR54AsbVZovVrvd8J+jzjA9G5kVa",
+    "lastModified": "Wed, 29 Mar 2017 23:35:25 GMT",
+    "size": 215583
+  },
+  "https://unpkg.com/@angular/router@4.0.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-D0IpYqNMa8MtKJDgkAmfK175BRforSsJLcQsOlBd4VJ+UOcUMoBG+43blwfOP+pW",
+    "lastModified": "Wed, 29 Mar 2017 23:35:25 GMT",
+    "size": 113112
+  },
+  "https://unpkg.com/@angular/router@4.0.2/bundles/router.umd.js": {
+    "integrity": "sha384-mCsyybsGC1cPIkXSsepPbegZDFjM7TN990zKZJy/f2Hs4eDYjS3HF5q5Hj2OKb+K",
+    "lastModified": "Tue, 11 Apr 2017 22:37:45 GMT",
+    "size": 214675
+  },
+  "https://unpkg.com/@angular/router@4.0.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-lOtnqan8/xROIDFBUFKdHlmzpD9Sk/JGKMO1/Lpia/SF7gbi5ersfMlbe7O1+eW3",
+    "lastModified": "Tue, 11 Apr 2017 22:37:45 GMT",
+    "size": 112485
+  },
+  "https://unpkg.com/@angular/router@4.0.3/bundles/router.umd.js": {
+    "integrity": "sha384-GsUQTUzJqS1CitF4Ew/jMqEQM5KcFcGSp2IpI7ZcEAe2A1Srs8q/8dTQzaJUaP7G",
+    "lastModified": "Fri, 21 Apr 2017 04:58:42 GMT",
+    "size": 214662
+  },
+  "https://unpkg.com/@angular/router@4.0.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-Pn1aAyyCKI+UwVxyb2XVOK9oWQvrjb6tdjETJy0XdnQE9aqMkjzwIKpIOiHOPRpD",
+    "lastModified": "Fri, 21 Apr 2017 04:58:42 GMT",
+    "size": 112314
+  },
+  "https://unpkg.com/@angular/router@4.1.0/bundles/router.umd.js": {
+    "integrity": "sha384-Vc4epw4vJSUa8SlTLXaqZApg/9CfTbalq4i18RPp31pt+G+26pqYDi0JSe1NzCYZ",
+    "lastModified": "Wed, 26 Apr 2017 15:57:40 GMT",
+    "size": 215257
+  },
+  "https://unpkg.com/@angular/router@4.1.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-XLso2v1koLv7C7CSqs3Xc0KV1+lWO4vPWYmuJt06miidLnb1HwPAINuB1rqmH0k3",
+    "lastModified": "Wed, 26 Apr 2017 15:57:40 GMT",
+    "size": 112323
+  },
+  "https://unpkg.com/@angular/router@4.1.1/bundles/router.umd.js": {
+    "integrity": "sha384-BDLDah714R5LUDq0I3SwftpMK2Z4cTTVTAOsVAjYvQzaHL9icnsy8jXeEbuQ96kg",
+    "lastModified": "Thu, 04 May 2017 21:25:35 GMT",
+    "size": 215258
+  },
+  "https://unpkg.com/@angular/router@4.1.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-3ULw8xxNP70kWiZjDQk+7dAsQhcDiTSb/Us2mwSqWW+SjgbuvqTt+R0f+Lzi9hXZ",
+    "lastModified": "Thu, 04 May 2017 21:25:35 GMT",
+    "size": 112323
+  },
+  "https://unpkg.com/@angular/router@4.1.2/bundles/router.umd.js": {
+    "integrity": "sha384-g+yppD7OfU7n5fL/fIwF1kvK8B3Gb2gsqALVdQ/WfHqzr+wme2gNodUeyVpTSZPM",
+    "lastModified": "Wed, 10 May 2017 22:54:01 GMT",
+    "size": 215505
+  },
+  "https://unpkg.com/@angular/router@4.1.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-4dnXsclDkt2ZMdQXtvrmr+yShjfFGYNoUWpGL/V/gy1OVED+qabgdhb9x1x0IZjy",
+    "lastModified": "Wed, 10 May 2017 22:54:01 GMT",
+    "size": 112420
+  },
+  "https://unpkg.com/@angular/router@4.1.3/bundles/router.umd.js": {
+    "integrity": "sha384-7tFyl4jeJ03F70JxLdcrsF72clQXTDdaMT/gPYgJjIW+K6gU8N3EbkCTM6SP313H",
+    "lastModified": "Wed, 17 May 2017 22:50:09 GMT",
+    "size": 215715
+  },
+  "https://unpkg.com/@angular/router@4.1.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-7ng0hfLaCACqiB+ziLVG2wiweL0fozWdWBfCc7NBNhMxDM9huJLDyS2vygfQrBy/",
+    "lastModified": "Wed, 17 May 2017 22:50:09 GMT",
+    "size": 112437
+  },
+  "https://unpkg.com/@angular/router@4.2.0/bundles/router.umd.js": {
+    "integrity": "sha384-9PQ7lCRCBQl8/bfKyrYWq8pb0Kt625Bwv9Is/Mg5wEo49EOkjf/Wyb6St+A1t3Ko",
+    "lastModified": "Thu, 08 Jun 2017 22:19:36 GMT",
+    "size": 219698
+  },
+  "https://unpkg.com/@angular/router@4.2.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-DrhplrVk/LQdRtxqeSQt2LRvUCwd+hKh2RQDzFgrFdvt7QqJiexMc7n7+SChv0Cj",
+    "lastModified": "Thu, 08 Jun 2017 22:19:36 GMT",
+    "size": 112962
+  },
+  "https://unpkg.com/@angular/router@4.2.1/bundles/router.umd.js": {
+    "integrity": "sha384-X6R/TtzK1mSLhZE2Go3ZHRLTuYT5WWydlk97qC2d7PqCrHHhco98Twvt88EvwFSR",
+    "lastModified": "Fri, 09 Jun 2017 23:17:15 GMT",
+    "size": 219698
+  },
+  "https://unpkg.com/@angular/router@4.2.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-48dM4Vfgr5fD4b0NUQugifGR91ke8qm0ku41ozINK5tyfYQOE2YRgOBa+ySpFThd",
+    "lastModified": "Fri, 09 Jun 2017 23:17:15 GMT",
+    "size": 112962
+  },
+  "https://unpkg.com/@angular/router@4.2.2/bundles/router.umd.js": {
+    "integrity": "sha384-ecS4PEKAVbxfmcy/FRTzUhOg74/J0jZKAorqo/vb+VPCZFZ3sXdBUeo4jbx3C6d0",
+    "lastModified": "Mon, 12 Jun 2017 22:43:14 GMT",
+    "size": 219698
+  },
+  "https://unpkg.com/@angular/router@4.2.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-EXds0v5eLExl+290+TAPNrmKULgvQuMyDlIqJGr6XAJPkfF9o8dup+y0iTbabTWb",
+    "lastModified": "Mon, 12 Jun 2017 22:43:14 GMT",
+    "size": 112962
+  },
+  "https://unpkg.com/@angular/router@4.2.3/bundles/router.umd.js": {
+    "integrity": "sha384-d5ZCzjpXIFY1TvmrkM7hOiQX6fnH5WCVMdRbt5PvIdAm5XRztYvx+o/f8J+KLFDE",
+    "lastModified": "Fri, 16 Jun 2017 16:47:53 GMT",
+    "size": 219698
+  },
+  "https://unpkg.com/@angular/router@4.2.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-CCm5OAhs3qKlEu5Dj6eXo4r0845R1Vpy3rPr6TiMZoMWzb0Bh64E7AnsOqTVM1IV",
+    "lastModified": "Fri, 16 Jun 2017 16:47:53 GMT",
+    "size": 112962
+  },
+  "https://unpkg.com/@angular/router@4.2.4/bundles/router.umd.js": {
+    "integrity": "sha384-/ZM70JpRmDH0b1NWCkGYl6Bv8V0fnigpCbRL1szuFcHdOKGicRLuLHHli/mtVC6H",
+    "lastModified": "Thu, 22 Jun 2017 00:06:19 GMT",
+    "size": 219829
+  },
+  "https://unpkg.com/@angular/router@4.2.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-IuIKS0DWHYfTHtbDY2REKgKuOfPjkp6k38l0/8vwIi0pKSrw+AJjX3yCmZIqL+Uy",
+    "lastModified": "Thu, 22 Jun 2017 00:06:19 GMT",
+    "size": 113070
+  },
+  "https://unpkg.com/@angular/router@4.2.5/bundles/router.umd.js": {
+    "integrity": "sha384-9FjOV71GC8VABTLW1Ljv9NDnL+N+jzj6YmlL+98hTlnsHxs+iaWBB2zqIUy+VQzf",
+    "lastModified": "Fri, 30 Jun 2017 00:25:31 GMT",
+    "size": 219829
+  },
+  "https://unpkg.com/@angular/router@4.2.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-j4gHsLch7NAkbpy94SLfq+rC3ooK+SpMoPaTVYwSKBoD8Dja8+Iruk0HTPtjmERt",
+    "lastModified": "Fri, 30 Jun 2017 00:25:31 GMT",
+    "size": 113070
+  },
+  "https://unpkg.com/@angular/router@4.2.6/bundles/router.umd.js": {
+    "integrity": "sha384-ou9vCyJQMK2y3CE6cEtNW8Eyw9NekMDj7k2J7XMcLe/D3ukeXrTDbieXbyvJB8eM",
+    "lastModified": "Sat, 08 Jul 2017 04:54:42 GMT",
+    "size": 220558
+  },
+  "https://unpkg.com/@angular/router@4.2.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-Xui4Bty1SmBIHFDGptbeqU2gdCPQbQdniDAxrDLlA11T4t7pxuSWK3RDPhTc4hLN",
+    "lastModified": "Sat, 08 Jul 2017 04:54:42 GMT",
+    "size": 113173
+  },
+  "https://unpkg.com/@angular/router@4.3.0/bundles/router.umd.js": {
+    "integrity": "sha384-5rjcpksrcxs5u5qzm7QWdl4CC8YUMFMUSBGDPYHeh/e0mZPpV+kaKpjH1rifukoR",
+    "lastModified": "Fri, 14 Jul 2017 20:17:30 GMT",
+    "size": 225065
+  },
+  "https://unpkg.com/@angular/router@4.3.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-M26qmDXYRgNUe0+RiLjG3MPEktdjXXzj8yNnyXd/MBWZIAzFzRPU4lpTQspXLyGJ",
+    "lastModified": "Fri, 14 Jul 2017 20:17:30 GMT",
+    "size": 115447
+  },
+  "https://unpkg.com/@angular/router@4.3.1/bundles/router.umd.js": {
+    "integrity": "sha384-m5ovTl1lreobtPhO8Sji2MMl94AEFiGgI2+2148Q86AbNNRenlJFKqfFdwrG2ysj",
+    "lastModified": "Wed, 19 Jul 2017 20:00:32 GMT",
+    "size": 226346
+  },
+  "https://unpkg.com/@angular/router@4.3.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-UDGIJ2gPvrS8X6XD9+EAckfm7wyvG4vou4PBprVXJyj/RCu10qxhfA6LLnqdAh5M",
+    "lastModified": "Wed, 19 Jul 2017 20:00:32 GMT",
+    "size": 116209
+  },
+  "https://unpkg.com/@angular/router@4.3.2/bundles/router.umd.js": {
+    "integrity": "sha384-ouAC2QlJvOGlOEaZ4MsWSjRgoLwadYa/INlM0dnYEebEubi/yNScOefGEl9bce0v",
+    "lastModified": "Thu, 27 Jul 2017 21:07:13 GMT",
+    "size": 226348
+  },
+  "https://unpkg.com/@angular/router@4.3.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-bm9e5/Y80vtwnFjSZvcfZu8Ba5Yl4Ofai6tqLD59rLruckt7mNceh+GGugAnH0W8",
+    "lastModified": "Thu, 27 Jul 2017 21:07:13 GMT",
+    "size": 116211
+  },
+  "https://unpkg.com/@angular/router@4.3.3/bundles/router.umd.js": {
+    "integrity": "sha384-pchBmn7cPEC9S1ovB0xMOfKC6dovV4YJcQDTV1Ngi//5LcN9PzVwIGok+zK+16tT",
+    "lastModified": "Wed, 02 Aug 2017 20:05:25 GMT",
+    "size": 226348
+  },
+  "https://unpkg.com/@angular/router@4.3.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-Fa3pQ+fDS6/6DOGjpOvSlotO4sGpakTOcBaN2l0xRDkN+p7SbrfyqVLWhHirhfdR",
+    "lastModified": "Wed, 02 Aug 2017 20:05:25 GMT",
+    "size": 116211
+  },
+  "https://unpkg.com/@angular/router@4.3.4/bundles/router.umd.js": {
+    "integrity": "sha384-S32b5z8Nvb0NssFj7rohOvxMaIbb7SlpSnZtbzl4enLlawr2bGGCxi/i9P2898eW",
+    "lastModified": "Thu, 10 Aug 2017 18:25:40 GMT",
+    "size": 226411
+  },
+  "https://unpkg.com/@angular/router@4.3.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-aH/t0fzYu+f10l6gZAjjKFmM5LFFXFanhpmRwd/BNDRu2uJVaR5LIq9SzrDdm3be",
+    "lastModified": "Thu, 10 Aug 2017 18:25:40 GMT",
+    "size": 116218
+  },
+  "https://unpkg.com/@angular/router@4.3.5/bundles/router.umd.js": {
+    "integrity": "sha384-yvWU0hHe9GWOiIjydJLOBh/vvdyYG9PcDv9GJZrb37eutyxqUDAtlYSd3ccRt1BH",
+    "lastModified": "Wed, 16 Aug 2017 17:58:18 GMT",
+    "size": 226411
+  },
+  "https://unpkg.com/@angular/router@4.3.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-7mXPtne44jeStO8++99ihbHSBtJA7qg7HNOtRoTjxSmH8ZOUNXXF+BIWLlhZ8qDz",
+    "lastModified": "Wed, 16 Aug 2017 17:58:18 GMT",
+    "size": 116218
+  },
+  "https://unpkg.com/@angular/router@4.3.6/bundles/router.umd.js": {
+    "integrity": "sha384-ohn3sZGDy7pdXGwuw1VEExcpOFUrQ24kOCmDjLhAfoTdZ1ehZgpEPPuz+lV8U805",
+    "lastModified": "Wed, 23 Aug 2017 20:09:15 GMT",
+    "size": 226411
+  },
+  "https://unpkg.com/@angular/router@4.3.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-Qdes/izLSW5A+XjlXuWYqTwP3BaEEJBylXi2ybqOSXZdT5tKfwVHW6yJUSVaQpqO",
+    "lastModified": "Wed, 23 Aug 2017 20:09:15 GMT",
+    "size": 116218
+  },
+  "https://unpkg.com/@angular/router@4.4.1/bundles/router.umd.js": {
+    "integrity": "sha384-IVjGGQVkNYT+8hUU+SCrPwjikKW469LJwSZA60PtRYbgEPbTpCqVh1ecND/YYcVe",
+    "lastModified": "Fri, 15 Sep 2017 22:40:24 GMT",
+    "size": 226411
+  },
+  "https://unpkg.com/@angular/router@4.4.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-zTJIREwpAtknX2uKB1P8XEjfuDdZ4V8DcG3AqU1AeYo99cyVuLVXNoHHgSJVQOho",
+    "lastModified": "Fri, 15 Sep 2017 22:40:24 GMT",
+    "size": 116218
+  },
+  "https://unpkg.com/@angular/router@4.4.2/bundles/router.umd.js": {
+    "integrity": "sha384-m30zjtto6ez1neOQMJuTOPss3jrEM09UmsEg8GVYJ4oPqkpYMYu1HpItn9r1xlEe",
+    "lastModified": "Mon, 18 Sep 2017 22:47:09 GMT",
+    "size": 226411
+  },
+  "https://unpkg.com/@angular/router@4.4.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-MiHB8jSHjz8IThaXABpwICd3xV7lhLF71JInLf2G7m9FccKmZI4b4AirtGDlkC44",
+    "lastModified": "Mon, 18 Sep 2017 22:47:09 GMT",
+    "size": 116218
+  },
+  "https://unpkg.com/@angular/router@4.4.3/bundles/router.umd.js": {
+    "integrity": "sha384-4qJdKLZf4cIa+5xG5MqAZcInFDWJ7OElf3pEm+LlvTsKoUq11hkKnUI7o9AqywiC",
+    "lastModified": "Tue, 19 Sep 2017 22:32:39 GMT",
+    "size": 226411
+  },
+  "https://unpkg.com/@angular/router@4.4.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-ciJvmvvF/ONA+/S0VwDDBqEevEPh5kce5EulejZG9Qqi9GxC1Exzg0wSFyINZJPE",
+    "lastModified": "Tue, 19 Sep 2017 22:32:39 GMT",
+    "size": 116218
+  },
+  "https://unpkg.com/@angular/router@4.4.4/bundles/router.umd.js": {
+    "integrity": "sha384-OtF9hzmHevZpwfqAUCiXDWc/ElgDOoOzYLBwZ0mZtJSruegmkM4PGZFc5my+g4Wt",
+    "lastModified": "Thu, 28 Sep 2017 19:28:10 GMT",
+    "size": 226411
+  },
+  "https://unpkg.com/@angular/router@4.4.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-Qq2T62zW4krhfBGL70J7gCkme9zS2xF71j4rUO2l7PM3owdQdfPdQxd8/UVC0F/p",
+    "lastModified": "Thu, 28 Sep 2017 19:28:10 GMT",
+    "size": 116218
+  },
+  "https://unpkg.com/@angular/router@4.4.5/bundles/router.umd.js": {
+    "integrity": "sha384-xCV1L9OQkFSzKQxfP+QpvkUkIjaUlGTg+ULoLl+79e9uFHLgpISy4Bdd1G0Bmr6+",
+    "lastModified": "Thu, 12 Oct 2017 19:51:16 GMT",
+    "size": 226406
+  },
+  "https://unpkg.com/@angular/router@4.4.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-n0PFUS7M/gjB4eHrin3zBCwFRSosN98NJ3x1HEsaLjm7aorlZYu8vj7ZjOQu4LAF",
+    "lastModified": "Thu, 12 Oct 2017 19:51:16 GMT",
+    "size": 115773
+  },
+  "https://unpkg.com/@angular/router@4.4.6/bundles/router.umd.js": {
+    "integrity": "sha384-ETODZvaK7DvlYVPmGOVkC0WUWsYcgqX7o9WiAEPd01ox6FwnNlWJz1FEyEPFasFl",
+    "lastModified": "Thu, 19 Oct 2017 00:06:52 GMT",
+    "size": 226373
+  },
+  "https://unpkg.com/@angular/router@4.4.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-D0MkPYC4Ge9WunTtbliP0MNXcKfwXYYM+lPWw/JXr+cdwcPdelxgxIwbvsR6QIQ7",
+    "lastModified": "Thu, 19 Oct 2017 00:06:52 GMT",
+    "size": 115753
+  },
+  "https://unpkg.com/@angular/router@4.4.7/bundles/router.umd.js": {
+    "integrity": "sha384-l20Uj7z0G+XQGk5hd65gg7YozP6tWjEZK12op798b/zBUwWAqtRaBkV+uRtlIDBc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 226373
+  },
+  "https://unpkg.com/@angular/router@4.4.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-WoIpNSVw7jw10QydVV2iJr0s/tarMON373k3YqkNGGCreKgofeLUbmxiVsjSMqT0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 115753
+  },
+  "https://unpkg.com/@angular/router@5.0.0/bundles/router.umd.js": {
+    "integrity": "sha384-GVwyeDv0xJkdftwnX9a98A8bLqpoA92isLvYMIUUqEnBHxy2kKfdiD/M05AQ8nTZ",
+    "lastModified": "Wed, 01 Nov 2017 16:54:02 GMT",
+    "size": 253153
+  },
+  "https://unpkg.com/@angular/router@5.0.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-2752ky75gfTx+fJmWouc5p2xaoJu/icm4MJVDxW/qqxaGxEP61t4YsFPYf+dLTiM",
+    "lastModified": "Wed, 01 Nov 2017 16:54:02 GMT",
+    "size": 116244
+  },
+  "https://unpkg.com/@angular/router@5.0.1/bundles/router.umd.js": {
+    "integrity": "sha384-/4pPoFykUPXHuFN9UYXM46FkxS7FnoufeF+mGD2rKf3waBOakNOp8cpDeDYZ7Xvf",
+    "lastModified": "Wed, 08 Nov 2017 18:36:55 GMT",
+    "size": 253217
+  },
+  "https://unpkg.com/@angular/router@5.0.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-xzMlVIFhF01A9ArOepLo/yE277BiNI2LNiwKiTsgNb0aXorsdbCbAP0/62CTmpwV",
+    "lastModified": "Wed, 08 Nov 2017 18:36:55 GMT",
+    "size": 116245
+  },
+  "https://unpkg.com/@angular/router@5.0.2/bundles/router.umd.js": {
+    "integrity": "sha384-uIbnBFj5nkouBkrIw9h1eoDf51L3fdcqUQPfYOkUgKvdTQYX0JUmyL/1NzAiggeC",
+    "lastModified": "Thu, 16 Nov 2017 21:04:08 GMT",
+    "size": 253124
+  },
+  "https://unpkg.com/@angular/router@5.0.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-rMNMdai7nRBbCy4819GtM84xDUiG4pR/HAGvWTEgIWBi1wrhrh5tNVwUZ4i7hESL",
+    "lastModified": "Thu, 16 Nov 2017 21:04:08 GMT",
+    "size": 116155
+  },
+  "https://unpkg.com/@angular/router@5.0.3/bundles/router.umd.js": {
+    "integrity": "sha384-/FcCKknS77W66Z303Jgz7ZOpKsA50k56aUd0UFJI2Pv62c38AEDbOvftcgd1xQ5l",
+    "lastModified": "Wed, 22 Nov 2017 21:15:30 GMT",
+    "size": 253124
+  },
+  "https://unpkg.com/@angular/router@5.0.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-etBcNAD8iQnh04NkEcLujGeGho1TzYrZC0tWRb6xW+x8vXdpm6sEZSaK0TozMTWM",
+    "lastModified": "Wed, 22 Nov 2017 21:15:30 GMT",
+    "size": 116155
+  },
+  "https://unpkg.com/@angular/router@5.0.4/bundles/router.umd.js": {
+    "integrity": "sha384-Ax+wdKB12Rve9Mbbeem1i17Zzv6trkr5e4h1gWSJaAGHWFf37H2iDScWuIx0kLR7",
+    "lastModified": "Fri, 01 Dec 2017 05:28:42 GMT",
+    "size": 253124
+  },
+  "https://unpkg.com/@angular/router@5.0.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-NL9S66cQzbYSzvXAdaH+PJlSqjZJGFn47BbyQwH74AaaKxBvlf+3gcrMARy8t/G0",
+    "lastModified": "Fri, 01 Dec 2017 05:28:42 GMT",
+    "size": 116155
+  },
+  "https://unpkg.com/@angular/router@5.0.5/bundles/router.umd.js": {
+    "integrity": "sha384-YfuNfmsQCc9DF3Ol03GU/OfMcsOAp34qRh4vCxfOkXju6L47j1CUpg4UjHDHaAdV",
+    "lastModified": "Fri, 01 Dec 2017 22:48:24 GMT",
+    "size": 253124
+  },
+  "https://unpkg.com/@angular/router@5.0.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-vcjNGIRe0kbLT8EI7BVsOQjbl107iyd9hQH3ShOFqMe3ayQcdieukYhSJRf7Wtyq",
+    "lastModified": "Fri, 01 Dec 2017 22:48:24 GMT",
+    "size": 116158
+  },
+  "https://unpkg.com/@angular/router@5.1.0/bundles/router.umd.js": {
+    "integrity": "sha384-FrGbFUrwdXIvWoWyX6U8FSU4nPmh5+KGPp6rpcbcPmvuECSqXYh9wreWhGsrvrxX",
+    "lastModified": "Wed, 06 Dec 2017 20:21:34 GMT",
+    "size": 258162
+  },
+  "https://unpkg.com/@angular/router@5.1.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-sN7Dn+N63Okdn1c338Lu/NE02NnHkHAnBO02Go+jaHQc9KQMNFOB7gRYMFR47EDO",
+    "lastModified": "Wed, 06 Dec 2017 20:21:34 GMT",
+    "size": 116735
+  },
+  "https://unpkg.com/@angular/router@5.1.1/bundles/router.umd.js": {
+    "integrity": "sha384-nA9Vfqm+uShTEhrZ/O7Bc9sJ3ES32nxPHXz8mRXXD6+KFd1lRpjzUhUXi5+LYsor",
+    "lastModified": "Wed, 13 Dec 2017 19:30:55 GMT",
+    "size": 258549
+  },
+  "https://unpkg.com/@angular/router@5.1.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-mM6OlwVPDlgUt1w/fQVZNTLHA/MZurqgfJAwEmohVPz7a2iw2A6eHtf2WAKDxbbb",
+    "lastModified": "Wed, 13 Dec 2017 19:30:55 GMT",
+    "size": 116885
+  },
+  "https://unpkg.com/@angular/router@5.1.2/bundles/router.umd.js": {
+    "integrity": "sha384-kFy63MU5jFkVGQ5YmLdclYOcZ1B7vpaiDSzhvlf7rfoPeDCqLCavD/A+f/vLMPlH",
+    "lastModified": "Wed, 20 Dec 2017 20:56:21 GMT",
+    "size": 258549
+  },
+  "https://unpkg.com/@angular/router@5.1.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-wxybZxhw8VrsVhwI+G0pGPXje99Q/FoWOhDf1m5oKiHK//3wvC5hXuPsimCePcbm",
+    "lastModified": "Wed, 20 Dec 2017 20:56:21 GMT",
+    "size": 116880
+  },
+  "https://unpkg.com/@angular/router@5.1.3/bundles/router.umd.js": {
+    "integrity": "sha384-Vy+P6hsMn2OjfMQkAR/9DapGI3qOtCPx1wgCFL98pzFIAykK0feoCO9VoYw3v1pQ",
+    "lastModified": "Thu, 04 Jan 2018 00:00:17 GMT",
+    "size": 258611
+  },
+  "https://unpkg.com/@angular/router@5.1.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-II/5BdPENVYSL1PHXbST2SFaL6vSImqnez2cynz4UWwc1b7cBSyn1IRZJ0LszORv",
+    "lastModified": "Thu, 04 Jan 2018 00:00:17 GMT",
+    "size": 116816
+  },
+  "https://unpkg.com/@angular/router@5.2.0/bundles/router.umd.js": {
+    "integrity": "sha384-5jnBppK/aJxlbFX4kmHX4VtjCG2j2ZhyvtiKEcO0ITsqipfFW3cv1JuhWKtNbC1R",
+    "lastModified": "Wed, 10 Jan 2018 01:05:15 GMT",
+    "size": 260218
+  },
+  "https://unpkg.com/@angular/router@5.2.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-Qm4TZ/4HUofqci3WDWlEE5gr85nMEZMROFZVEzmN0TLC1/yo7TMxH7Sza9cmCjTe",
+    "lastModified": "Wed, 10 Jan 2018 01:05:15 GMT",
+    "size": 117553
+  },
+  "https://unpkg.com/@angular/router@5.2.1/bundles/router.umd.js": {
+    "integrity": "sha384-n94P9lYrGh8fM6vDah+1VfFKBo9ZwhXEQojzGxQlAloBrvfwQPD6QqJ6pSL0/Y9K",
+    "lastModified": "Wed, 17 Jan 2018 17:44:58 GMT",
+    "size": 260218
+  },
+  "https://unpkg.com/@angular/router@5.2.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-v4MIl2ky++m8uGGH3s8Gr/c97E34zt+Fhlj/Pd6cZlfz+tA8rIWTdPhgdIj1tII5",
+    "lastModified": "Wed, 17 Jan 2018 17:44:58 GMT",
+    "size": 117553
+  },
+  "https://unpkg.com/@angular/router@5.2.10/bundles/router.umd.js": {
+    "integrity": "sha384-bOOoLQ0f3WFfCn7zx3WsDGNMXTwUKGYPimr2x0OrG+9mmF4H5NXxqQLY1vgJNXx5",
+    "lastModified": "Thu, 01 Jan 1970 00:00:00 GMT",
+    "size": 262510
+  },
+  "https://unpkg.com/@angular/router@5.2.10/bundles/router.umd.min.js": {
+    "integrity": "sha384-ao0I0+gCrjqZeSqN+WoXtcHdQNiUBKi/8eiyUxgFuftxGKTKqI4/owksoTUs39+o",
+    "lastModified": "Thu, 01 Jan 1970 00:00:00 GMT",
+    "size": 118340
+  },
+  "https://unpkg.com/@angular/router@5.2.11/bundles/router.umd.js": {
+    "integrity": "sha384-YQwRgc08e/9pJ4xFsntF6ZI037dLQ3BoBVl+95PCBqoKiXPGgictDlU8X8ebvBI6",
+    "lastModified": "Wed, 16 May 2018 21:50:08 GMT",
+    "size": 262510
+  },
+  "https://unpkg.com/@angular/router@5.2.11/bundles/router.umd.min.js": {
+    "integrity": "sha384-vTqXbgzNu39MuM773lirVkQ91BjjONQSI+bbGKMFrZdttnbAtemGC0Z5Wd7+tfGE",
+    "lastModified": "Wed, 16 May 2018 21:50:08 GMT",
+    "size": 118340
+  },
+  "https://unpkg.com/@angular/router@5.2.2/bundles/router.umd.js": {
+    "integrity": "sha384-XqXR7ZDcFNtzpwonx/r3Gk0O3RHyM4Y1pZNVn9F4ZehsmpcIBzNRFCrBCCUTv2L0",
+    "lastModified": "Thu, 25 Jan 2018 05:32:35 GMT",
+    "size": 260218
+  },
+  "https://unpkg.com/@angular/router@5.2.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-iognnFVfxDl9oCL8JjfnjnkCnX2uFbskMjuwFeDPI2sQDsCK8iHXlQy4xmRu9Snc",
+    "lastModified": "Thu, 25 Jan 2018 05:32:35 GMT",
+    "size": 117553
+  },
+  "https://unpkg.com/@angular/router@5.2.3/bundles/router.umd.js": {
+    "integrity": "sha384-/sZs+FSktg+Rj0SLZ4wlQA4mjMM2ttDcPZzdPaZk+QmaLoVymMuvw58Hcm49LWLF",
+    "lastModified": "Wed, 31 Jan 2018 20:54:27 GMT",
+    "size": 260218
+  },
+  "https://unpkg.com/@angular/router@5.2.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-gnw0KY/mRpo3m6kNtpdbkng2uSp13QR4Z29FpvYj/d70URYiiIIX0fs+o8YaaWZO",
+    "lastModified": "Wed, 31 Jan 2018 20:54:27 GMT",
+    "size": 117553
+  },
+  "https://unpkg.com/@angular/router@5.2.4/bundles/router.umd.js": {
+    "integrity": "sha384-LyxUV2V6mLca5YQI3ITb2X6+MK8LGsTWm5zBgBKjJMEnYCoH5FQnyaQy2oNmN0lh",
+    "lastModified": "Wed, 07 Feb 2018 18:27:15 GMT",
+    "size": 260210
+  },
+  "https://unpkg.com/@angular/router@5.2.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-oZ1wIZRi0Ph32l0h8amRnTl56y0yddh94dJxtbISPIsszgdpWMi2A0mOMPJtG20i",
+    "lastModified": "Wed, 07 Feb 2018 18:27:15 GMT",
+    "size": 117534
+  },
+  "https://unpkg.com/@angular/router@5.2.5/bundles/router.umd.js": {
+    "integrity": "sha384-9Pj7BsEkCSRnqOpTqp+6/qE62R071Bxzds9szgL0nQtflXlRouXs5qB8JWrk4w4N",
+    "lastModified": "Wed, 14 Feb 2018 05:13:09 GMT",
+    "size": 261199
+  },
+  "https://unpkg.com/@angular/router@5.2.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-yTQylhj6i9BKamOk6V6aoKUIjwEJ2i2986QYYRl1DPHWEh8O/TEaQi6UL8gtrm3N",
+    "lastModified": "Wed, 14 Feb 2018 05:13:09 GMT",
+    "size": 117772
+  },
+  "https://unpkg.com/@angular/router@5.2.6/bundles/router.umd.js": {
+    "integrity": "sha384-lUJTE6DdS12q6GahBrZ7abG07tg0j5aNRRk2BZeryK9AuBIflOZCbp7g1qsyARLN",
+    "lastModified": "Thu, 22 Feb 2018 00:51:02 GMT",
+    "size": 261199
+  },
+  "https://unpkg.com/@angular/router@5.2.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-06aJo6P0GKmakNP0n7J35RsrrY4d26nTgD2qgPCDfOP449Vs6FotEjiXgYmr+wlA",
+    "lastModified": "Thu, 22 Feb 2018 00:51:02 GMT",
+    "size": 117772
+  },
+  "https://unpkg.com/@angular/router@5.2.7/bundles/router.umd.js": {
+    "integrity": "sha384-4ittJFMu8dSY/tpokBwcRyxOOf8dMC8JDnAYyTHcrE8/1tnPFg8YQGzIyb24AV0I",
+    "lastModified": "Wed, 28 Feb 2018 23:05:15 GMT",
+    "size": 261456
+  },
+  "https://unpkg.com/@angular/router@5.2.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-aoDie9nff+y/FbdoNw8Wp/bAB5kkt4L7MVRh91iAafEPAgJ9qUAM5g8T4aQxOh1+",
+    "lastModified": "Wed, 28 Feb 2018 23:05:15 GMT",
+    "size": 117945
+  },
+  "https://unpkg.com/@angular/router@5.2.8/bundles/router.umd.js": {
+    "integrity": "sha384-k7pfAzfFphge0djjhHWrBCyA2/YfvjChY47AUgLi0CpcJdxtXXgnwHSkNZe7GZu4",
+    "lastModified": "Wed, 07 Mar 2018 22:48:55 GMT",
+    "size": 262550
+  },
+  "https://unpkg.com/@angular/router@5.2.8/bundles/router.umd.min.js": {
+    "integrity": "sha384-7PG8/JMl+XUgMB3Rh9a4u9X/fThswBkd1ZnywllhJ33qvR3DRAlGkTiM6OgWJUkf",
+    "lastModified": "Wed, 07 Mar 2018 22:48:55 GMT",
+    "size": 118285
+  },
+  "https://unpkg.com/@angular/router@5.2.9/bundles/router.umd.js": {
+    "integrity": "sha384-ZT17d9iKhyx/Aqp3TEQb3aZXxINwW+qOUIGTr40mixwRv/zN8PHShtuj/+199exw",
+    "lastModified": "Wed, 14 Mar 2018 22:05:06 GMT",
+    "size": 262461
+  },
+  "https://unpkg.com/@angular/router@5.2.9/bundles/router.umd.min.js": {
+    "integrity": "sha384-fz4Mbr+tyTLlb1I584eWytEG2PMKi4/5NzhMUOIAs/3u4hcxrzPaNnOJIHs9tNcq",
+    "lastModified": "Wed, 14 Mar 2018 22:05:06 GMT",
+    "size": 118338
+  },
+  "https://unpkg.com/@angular/router@6.0.0/bundles/router.umd.js": {
+    "integrity": "sha384-eEgESLHGoPI+EW7L2XnEGpJE+Zm16hGNknRygesWFLlCcaT98PQ0iUzUjtoNyVUx",
+    "lastModified": "Thu, 03 May 2018 19:32:42 GMT",
+    "size": 226706
+  },
+  "https://unpkg.com/@angular/router@6.0.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-F3g9BcsqXKi+lWqrOWantwJf0xTVfyuvUZ4srU1tpCev1Vl/5K3L0x389x34vtVC",
+    "lastModified": "Thu, 03 May 2018 19:32:42 GMT",
+    "size": 79307
+  },
+  "https://unpkg.com/@angular/router@6.0.1/bundles/router.umd.js": {
+    "integrity": "sha384-zAK7PdaASv225sVbsaZRJEfu+s2oH346ZH/HZ4Ybw7+hn/7Z/Qt0fPml4EsbF2Kh",
+    "lastModified": "Fri, 11 May 2018 05:35:48 GMT",
+    "size": 226736
+  },
+  "https://unpkg.com/@angular/router@6.0.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-Ocq17OYjNe3GD+LZOKmwRr5AqWwtZaiNI9mPNUHeAPzHbzy6T+rbYwRXWw1NDTbj",
+    "lastModified": "Fri, 11 May 2018 05:35:48 GMT",
+    "size": 79324
+  },
+  "https://unpkg.com/@angular/router@6.0.2/bundles/router.umd.js": {
+    "integrity": "sha384-sL0n+2Fh0yx/WMDwiNKUxw17qSsrKDPOXPLCHj6WqcL1yteXJt23/zLJ3RPKOdzj",
+    "lastModified": "Tue, 15 May 2018 19:38:44 GMT",
+    "size": 226736
+  },
+  "https://unpkg.com/@angular/router@6.0.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-ohQ1K+UFzotUWzFAUKNze9VzDN1vvWlLhR3nrMQfEBNEspnURC+m+X7RkpYnOMJu",
+    "lastModified": "Tue, 15 May 2018 19:38:44 GMT",
+    "size": 79324
+  },
+  "https://unpkg.com/@angular/router@6.0.3/bundles/router.umd.js": {
+    "integrity": "sha384-ORlGdNBCaPJAgjFD+8hyPaOTB4ODnL/170EngFZezj0x4pxRzgDEcH9rwbvhAjS6",
+    "lastModified": "Tue, 22 May 2018 23:35:25 GMT",
+    "size": 226736
+  },
+  "https://unpkg.com/@angular/router@6.0.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-LQF3LLVb0bmS9jHnxWtm2epagC0KWjlvP+FRKPJZAbgMtjS0TuiQ8xeidl9ju4iM",
+    "lastModified": "Tue, 22 May 2018 23:35:25 GMT",
+    "size": 79324
+  },
+  "https://unpkg.com/@angular/router@6.0.4/bundles/router.umd.js": {
+    "integrity": "sha384-pqcGj97+QoloONmZkFQj7I/bK+ix1ppS+2HHvoFtwNZLTNscHiwxTCkgG+ESIfDL",
+    "lastModified": "Wed, 06 Jun 2018 18:57:47 GMT",
+    "size": 209350
+  },
+  "https://unpkg.com/@angular/router@6.0.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-HoG2urIGA/2wLigUh6MLP1oKBcJvIX9qN3CaCMqwO+GxnXevxGEfdA07cst/FcKh",
+    "lastModified": "Wed, 06 Jun 2018 18:57:47 GMT",
+    "size": 79324
+  },
+  "https://unpkg.com/@angular/router@6.0.5/bundles/router.umd.js": {
+    "integrity": "sha384-zu4ic1UXE2VUEEu9xat9WMMT67F3fJIk9Lr1F6462jEv3VDixMSJRgl6bpRV/AzZ",
+    "lastModified": "Wed, 13 Jun 2018 22:35:51 GMT",
+    "size": 210725
+  },
+  "https://unpkg.com/@angular/router@6.0.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-//nx57Ovh+BinbyXu5/7nR/1vj6HkpCj4qLqdseP7DxyEhAkG3bCJZlOFY+1IVc8",
+    "lastModified": "Wed, 13 Jun 2018 22:35:51 GMT",
+    "size": 79642
+  },
+  "https://unpkg.com/@angular/router@6.0.6/bundles/router.umd.js": {
+    "integrity": "sha384-PH/Clxoeoe4VVnShB+UjhwwKYNy1DDUCjQM2W0dwZcwevDSRaP4INQ6qOjMckpVe",
+    "lastModified": "Wed, 20 Jun 2018 23:18:56 GMT",
+    "size": 210725
+  },
+  "https://unpkg.com/@angular/router@6.0.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-mTe2q1mkB0kPxcpxgi9u3Ek2zcqR3ArOOfShL/407qxU4gd5aUdsw2KJgZXbKpjs",
+    "lastModified": "Wed, 20 Jun 2018 23:18:56 GMT",
+    "size": 79642
+  },
+  "https://unpkg.com/@angular/router@6.0.7/bundles/router.umd.js": {
+    "integrity": "sha384-QSKCHU943rd+mAtKPpRsFV2FjCmtZIoeW6RqDQBO7nOA2q8BHx3zKP8khLRWe2sf",
+    "lastModified": "Thu, 28 Jun 2018 00:10:06 GMT",
+    "size": 210725
+  },
+  "https://unpkg.com/@angular/router@6.0.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-qLcsAWD9SOrq5rxK1Ts0wjCFHiQIy/8uKoEa9fvigchyseV3shQgu89dPJJzyawH",
+    "lastModified": "Thu, 28 Jun 2018 00:10:06 GMT",
+    "size": 79642
+  },
+  "https://unpkg.com/@angular/router@6.0.8/bundles/router.umd.js": {
+    "integrity": "sha384-38527SsSIohK1tuzYiWvojxHXVL2jmJ3qmRoUsJFBK4rQ77O7hJELwk94de1M+t8",
+    "lastModified": "Wed, 11 Jul 2018 20:47:52 GMT",
+    "size": 232167
+  },
+  "https://unpkg.com/@angular/router@6.0.8/bundles/router.umd.min.js": {
+    "integrity": "sha384-/1jgTwSSH+XzoXtg/pCETV25onS/qN+I4dvcCjbsdKjIWzvArmiADaC9wOAAUBbZ",
+    "lastModified": "Wed, 11 Jul 2018 20:47:52 GMT",
+    "size": 80335
+  },
+  "https://unpkg.com/@angular/router@6.0.9/bundles/router.umd.js": {
+    "integrity": "sha384-iaEgDH7FB665JUahkIn9qsv+oKoXfSmhqm7n4TxcsAqKyzNkK5T/Q+uSJYoLO1KM",
+    "lastModified": "Wed, 11 Jul 2018 21:42:11 GMT",
+    "size": 232167
+  },
+  "https://unpkg.com/@angular/router@6.0.9/bundles/router.umd.min.js": {
+    "integrity": "sha384-EJNAz/n7TlVLybGwUBk/YByor0n8iZZwub5PLpjCgxRESOdg8VHPPwu2AaZaszEe",
+    "lastModified": "Wed, 11 Jul 2018 21:42:11 GMT",
+    "size": 80335
+  },
+  "https://unpkg.com/@angular/router@6.1.0/bundles/router.umd.js": {
+    "integrity": "sha384-qbAcELXB67PfLRKTMPFjhGej9P4rxewVID+FQDP6PSspogS1oXPsQPsGe/gdMLOK",
+    "lastModified": "Wed, 25 Jul 2018 21:34:47 GMT",
+    "size": 240335
+  },
+  "https://unpkg.com/@angular/router@6.1.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-CXLldW2EdCXiwzXFOpBD/WE3ES34/pfMrvqEkKrfjaOtvXoQG50VbKYWDl8mjD9P",
+    "lastModified": "Wed, 25 Jul 2018 21:34:47 GMT",
+    "size": 83260
+  },
+  "https://unpkg.com/@angular/router@6.1.1/bundles/router.umd.js": {
+    "integrity": "sha384-rbNl6sV9L7VyczH3oKOkGIH/9vZKsXHsxm3IaWEGOot8D1e3s8iAkuUo4LOFBHgv",
+    "lastModified": "Thu, 02 Aug 2018 21:10:57 GMT",
+    "size": 240544
+  },
+  "https://unpkg.com/@angular/router@6.1.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-jfLlqIDu5DjDN5rhd7HAbxeTm9woB0438IvqwFqfb6KtrL3d3srlZoASyKOtlTrD",
+    "lastModified": "Thu, 02 Aug 2018 21:10:57 GMT",
+    "size": 83334
+  },
+  "https://unpkg.com/@angular/router@6.1.10/bundles/router.umd.js": {
+    "integrity": "sha384-0a9nAKUqdcVjXu75i0OrnabFu3IF4HtsDF/hmkQAsC+65tGB18tKOg3e9JgZpw5L",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 244757
+  },
+  "https://unpkg.com/@angular/router@6.1.10/bundles/router.umd.min.js": {
+    "integrity": "sha384-jP2KiHKFh2/uxub+U1sr236pudeonmwngb3mrfNaD049EZ+v3UN87penom7sin5V",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 85055
+  },
+  "https://unpkg.com/@angular/router@6.1.2/bundles/router.umd.js": {
+    "integrity": "sha384-OjfGedfrCZj8bnoaJHpwJVglwkwa4e6mexC2VuLshxhA5sKZZJ+qpfkKG6b0TRRU",
+    "lastModified": "Wed, 08 Aug 2018 18:47:25 GMT",
+    "size": 240544
+  },
+  "https://unpkg.com/@angular/router@6.1.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-WeHhyZfUvKMUsgd8fGShkbf76AMT2+Im7syxPogMBkRtpo9yIh6TWnQxrUbBxUhH",
+    "lastModified": "Wed, 08 Aug 2018 18:47:25 GMT",
+    "size": 83334
+  },
+  "https://unpkg.com/@angular/router@6.1.3/bundles/router.umd.js": {
+    "integrity": "sha384-BUcdjm+tNdOzP75zXmJrQi0JdFcIkNT6FeqsA/7jOdYTmqlJuoG+J6rg8RvKAAJB",
+    "lastModified": "Wed, 15 Aug 2018 21:54:03 GMT",
+    "size": 240544
+  },
+  "https://unpkg.com/@angular/router@6.1.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-DrRZ2sE7wplG3BKU42nH6DsN9OC6ZvDx9leXt8Df6mwZUa8/jf+C4LDqYiSd3IOa",
+    "lastModified": "Wed, 15 Aug 2018 21:54:03 GMT",
+    "size": 83334
+  },
+  "https://unpkg.com/@angular/router@6.1.4/bundles/router.umd.js": {
+    "integrity": "sha384-b/H/fWhYSXJWiuCJmWxqiGAg0ZP9gyzJmOraRwloIgs+JDb4Dn7W235coUUd5v8f",
+    "lastModified": "Wed, 22 Aug 2018 22:28:12 GMT",
+    "size": 240768
+  },
+  "https://unpkg.com/@angular/router@6.1.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-BLsJ1Kl2J8JShykRmt1quaXkB8P3hcQ3rxhhRQ2cmCWEd4ecFGetZlrij+zBnLDi",
+    "lastModified": "Wed, 22 Aug 2018 22:28:12 GMT",
+    "size": 83450
+  },
+  "https://unpkg.com/@angular/router@6.1.6/bundles/router.umd.js": {
+    "integrity": "sha384-KvbOKBWLkPi9N8GrtdBa+uJjz8PIWg1ZkaAUCpRrK298H0qR1qSU9LGiBMT/wbJ5",
+    "lastModified": "Wed, 29 Aug 2018 22:47:46 GMT",
+    "size": 240768
+  },
+  "https://unpkg.com/@angular/router@6.1.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-35lGZLlom6Dn3upQtxgMe6TMtZDjDoEXWHlD1UKkqeFKMdrzsq16XblMCU+MyhAQ",
+    "lastModified": "Wed, 29 Aug 2018 22:47:46 GMT",
+    "size": 83450
+  },
+  "https://unpkg.com/@angular/router@6.1.7/bundles/router.umd.js": {
+    "integrity": "sha384-eoB7fxrfhuxn8ahXzK+CZoiJ2Eyz3uqGA4tXSXt8acP5sNF2ridT7YOAzJKlIjEr",
+    "lastModified": "Thu, 06 Sep 2018 04:06:35 GMT",
+    "size": 241213
+  },
+  "https://unpkg.com/@angular/router@6.1.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-V8LstDUhlJg8oWAGFqzjT1bqUKtutbPwWhyIKtwPoKlw2aOtQSZnO2VXWsi/vxVT",
+    "lastModified": "Thu, 06 Sep 2018 04:06:35 GMT",
+    "size": 83740
+  },
+  "https://unpkg.com/@angular/router@6.1.8/bundles/router.umd.js": {
+    "integrity": "sha384-c/D0oxg10m5UoSJn+zHlHNykqRwxLdrKjxnnQ++yVOsnLVJ05pcyjbBQnc7H/bPD",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 244507
+  },
+  "https://unpkg.com/@angular/router@6.1.8/bundles/router.umd.min.js": {
+    "integrity": "sha384-BHBEq1W6n94xzsHU9fy56NoVXQrsZmtHNjZvrUyGzFm2kPfklkVpcV/7h1HNK3ci",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 85053
+  },
+  "https://unpkg.com/@angular/router@6.1.9/bundles/router.umd.js": {
+    "integrity": "sha384-w95uytSpwN+aLlsm8LEpyJcXcXqempyb7dz+hj2ivPK72d20qcXVtCIQNpGAPwWF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 244755
+  },
+  "https://unpkg.com/@angular/router@6.1.9/bundles/router.umd.min.js": {
+    "integrity": "sha384-xTvdy1w9Pj9EZ8VOTzZgbROeuL431UCWv3KwD+xuls22PA0uSOc7LMlO/hva3uSj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 85053
+  },
+  "https://unpkg.com/@angular/router@7.0.0/bundles/router.umd.js": {
+    "integrity": "sha384-I+1zKSQn9eE7xGhH14krcYTBnAqNcOOnQUsm4xWvvg59YUYfquuZ0iOYNun6mmQp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 249709
+  },
+  "https://unpkg.com/@angular/router@7.0.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-CVsZaD2wNwAEwb34FNlTmtXfqhSqjzmWqWynigWS/Se2PB7psXvPTjyzYZ+EmTIF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 86924
+  },
+  "https://unpkg.com/@angular/router@7.0.1/bundles/router.umd.js": {
+    "integrity": "sha384-d79IDfvby4AdgTaWfs9+T5aqq8y+fO2k56KMXRkcIfgSXIrXas4Rn6gWchqmDx7i",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 250008
+  },
+  "https://unpkg.com/@angular/router@7.0.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-TRtM7NWI0KzmNSM9zKw1QNBfOOvgBZ6bJYRF5FS6yZ9g5/NiLWSlNR0GKe4VubTP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 86924
+  },
+  "https://unpkg.com/@angular/router@7.0.2/bundles/router.umd.js": {
+    "integrity": "sha384-5JUeMS0WqWoFH06LKJ57vhFFFQdN+jXE2Irps7LOXq5KHWr87f72SpvnBgqDYBPC",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 250008
+  },
+  "https://unpkg.com/@angular/router@7.0.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-lCjzvFEYDZfrJLlxoShjN+CpqDRZ559Q+zpm8BWo8sngWTSiRAGuLNTiO0KmocSe",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 86924
+  },
+  "https://unpkg.com/@angular/router@7.0.3/bundles/router.umd.js": {
+    "integrity": "sha384-DbYX5Rmnd+JJt9adPm671zDNxIJPPAm3qgWawTzl85tty+o1JY37/8irFChMKpHl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 250051
+  },
+  "https://unpkg.com/@angular/router@7.0.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-TOV3QMktZgknMy9gqdrjJnfJzu5mjBHzktxAH4WyZ8+0ugJfMIBIOuJxTJpaA04h",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 86943
+  },
+  "https://unpkg.com/@angular/router@7.0.4/bundles/router.umd.js": {
+    "integrity": "sha384-61zT/BKN66Vk0Nd4VzlWyR/Ow6ig3+AZhlQZ9cwQMlQuvM7wys4qQe+Ium5oSnO9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 250161
+  },
+  "https://unpkg.com/@angular/router@7.0.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-w4YQxr3SlSqD4xPHgZ0Nc3QZO8ly2UEI8R0OoAYvXblSC+kyNaPJSBc+5WKU7Cjj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 86972
+  },
+  "https://unpkg.com/@angular/router@7.1.0/bundles/router.umd.js": {
+    "integrity": "sha384-6rb/kDeA7GuYFDgf1y6TmLeqRn+T/xebOc91euaAGNn7jBcXdJVohafGI9YVXxRt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 254972
+  },
+  "https://unpkg.com/@angular/router@7.1.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-0hF1X9mxY/DqhPvUNN9KXf4cFJwti1de5lC0t/MV9nhvm4D+FSd7o7RfWDOgli7K",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 88708
+  },
+  "https://unpkg.com/@angular/router@7.1.1/bundles/router.umd.js": {
+    "integrity": "sha384-JLndKb6RRAZQ7d+1iUSv9YlFnpishEm0FbvAAW/NywsmPUxQL3iNDrgYVwG9zma5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 254972
+  },
+  "https://unpkg.com/@angular/router@7.1.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-BoiYZtRg02XCeer6II1SO6unakFNatTXfNlY86/xlti4ELr2sJ9ceycwCRyUGSoI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 88708
+  },
+  "https://unpkg.com/@angular/router@7.1.2/bundles/router.umd.js": {
+    "integrity": "sha384-N3O3NFyrI2lflPQTZIBITYnnPywtbUKwR0K7lgp42wFu+jbLwSuiKEqHonMGPiMl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 254972
+  },
+  "https://unpkg.com/@angular/router@7.1.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-SfjzNHNUGENkJqe9uyikqHqzKhi6OzGQ4fiH5jesmIH0ouyG/gslecmmWKTdbgNq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 88708
+  },
+  "https://unpkg.com/@angular/router@7.1.3/bundles/router.umd.js": {
+    "integrity": "sha384-XNAX1h1BfUIM2Qfz5HsMptapzaMz8auyKZXHJic11+TUZ3zjhSG65K82WUXlgpT9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 254972
+  },
+  "https://unpkg.com/@angular/router@7.1.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-JRMZokJankgFL006rDTt+Wf33Rzynp9xOfkuNWt9tT1CQcHWVhQsOrC2ejwb2xjp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 88708
+  },
+  "https://unpkg.com/@angular/router@7.1.4/bundles/router.umd.js": {
+    "integrity": "sha384-lqf23e98SfJsfIN7esPoHzehlC/ONT5NTIcn6OI+C6T598ZVEWlsW4hURPculxyM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 254972
+  },
+  "https://unpkg.com/@angular/router@7.1.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-E6fP2xmXDn57a8X2kCGkJ8WUxfCv3KMQYzoXtXLz/pc1xNlPz9hvlAOReZo5BEet",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 88708
+  },
+  "https://unpkg.com/@angular/router@7.2.0/bundles/router.umd.js": {
+    "integrity": "sha384-Ul3wDbAVJgdaFjSNiXVgmXIxGvcQ4k5ctikjWi1DQXXtEexlTB5tUxuGVzSD2PbI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 258541
+  },
+  "https://unpkg.com/@angular/router@7.2.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-Av0kJJeslAw14+Jky7a9TdfqZBp1mXn5Lgu+q+KmVBAmdndA6I8zhgqNF9Dd1lkV",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89621
+  },
+  "https://unpkg.com/@angular/router@7.2.1/bundles/router.umd.js": {
+    "integrity": "sha384-BAnvJpabsdFG1hdyIj7V1akL5a1+IjyRup2mhf25c8xKW55p3YbdGrGZkPAWmRxC",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 258872
+  },
+  "https://unpkg.com/@angular/router@7.2.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-PotSNoIjQ0Bt2pkxVoBAzv8dNnmfVJL1/BILpmYtsKDgfInQTxDNHRAiSrfbHif9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89758
+  },
+  "https://unpkg.com/@angular/router@7.2.10/bundles/router.umd.js": {
+    "integrity": "sha384-fbZVBgkha9P3FSpbfHKtVyZtFUOYWoE8KbBHV1tQkRBHoAQtmD7xQPuRtOuuDCzW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259764
+  },
+  "https://unpkg.com/@angular/router@7.2.10/bundles/router.umd.min.js": {
+    "integrity": "sha384-cSwEBtehGT5tNHhDAEpm9FrPR0KOKh5tuzqjSZuecNlZ5ACcXsgoCC/0x3tdLGCB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89772
+  },
+  "https://unpkg.com/@angular/router@7.2.11/bundles/router.umd.js": {
+    "integrity": "sha384-37gel7aX3E3LfkK0Z8xQRU8cFU1zCWVFnR3TtMstH/vBfVwV2QLCgakAZudHK3hu",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259764
+  },
+  "https://unpkg.com/@angular/router@7.2.11/bundles/router.umd.min.js": {
+    "integrity": "sha384-g0ZBdHhXEfsTz/PFRPFTce7EU0glkp/b2fZichryHhLooFVQPqHuvt3Tuq0Xq8PL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89772
+  },
+  "https://unpkg.com/@angular/router@7.2.12/bundles/router.umd.js": {
+    "integrity": "sha384-DXBrold5z+dHeS5H//GN0ynzS1rcdRMoKUBIBe7mYzogqKypptAVuhZNKNaEqqTE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259812
+  },
+  "https://unpkg.com/@angular/router@7.2.12/bundles/router.umd.min.js": {
+    "integrity": "sha384-bpw037g1Iv49Qp1Xex8yJtDy8EFlmepLceGVzg59bRoGoTyd56izY6u8buOh2cg4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89772
+  },
+  "https://unpkg.com/@angular/router@7.2.13/bundles/router.umd.js": {
+    "integrity": "sha384-WcvPb3jfBUhNd52Gi+sEJxgYJQYVNvyvI4nznPQ9L0QmMBF08Coma+X5m/s0z+Ni",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259830
+  },
+  "https://unpkg.com/@angular/router@7.2.13/bundles/router.umd.min.js": {
+    "integrity": "sha384-UpqOfJ1zNXH0Ll0PLDuFP8SGqKAVNK3dkDkTOnY8b9VIEzCVnTdnCkSYlpWBIBbp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89772
+  },
+  "https://unpkg.com/@angular/router@7.2.14/bundles/router.umd.js": {
+    "integrity": "sha384-DVy4fQMn3bfJucBGNKdO/DpkHfWPwpKedjCcxYZQ/qusYAn2zK9KRaFkjJ2l+TmH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 260766
+  },
+  "https://unpkg.com/@angular/router@7.2.14/bundles/router.umd.min.js": {
+    "integrity": "sha384-5Bv0kvt+5xfKalhFGC4mfGkp/Aliopn/Y+cqPgoHgaC3hszycnHyMYKVt1ccKcYs",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89772
+  },
+  "https://unpkg.com/@angular/router@7.2.15/bundles/router.umd.js": {
+    "integrity": "sha384-80R/1z4WM+9zcGB+1gK0TgwvDccfHHqksSql8k1a6zsyPik7gxpNoVdNiCPNUhbG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 260766
+  },
+  "https://unpkg.com/@angular/router@7.2.15/bundles/router.umd.min.js": {
+    "integrity": "sha384-fZ4Y6JIVrMq5cDI0Km7bAAX+Xm4ap0LADXVxvylx9x8500sXyBmrGR8FUP1xeE3D",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89772
+  },
+  "https://unpkg.com/@angular/router@7.2.16/bundles/router.umd.js": {
+    "integrity": "sha384-geQ934mp6EHwBesUe3gzlN/UowqKI4Z8CWnC694GCUeFOwXcO5OCzq52Nh4rAPEh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 260766
+  },
+  "https://unpkg.com/@angular/router@7.2.16/bundles/router.umd.min.js": {
+    "integrity": "sha384-8kFXbo5s4PmBFbHKlSOXvYDxCbl6gIDEiXhhRxFMkTaDOCrlxennap3ceFayKvNz",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89772
+  },
+  "https://unpkg.com/@angular/router@7.2.2/bundles/router.umd.js": {
+    "integrity": "sha384-73f9wjQFbVr1iv4G4BuDSFGwoHtD0Og5XJibxbwhJoBOFzX1X1hDtFHq8FdhySsD",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259004
+  },
+  "https://unpkg.com/@angular/router@7.2.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-jickx+PpuckXnTXnkV+C6ZI+CUajXCWqi0NMr+FUbRHrPxs9AYpAFrs18vBUVEGl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89758
+  },
+  "https://unpkg.com/@angular/router@7.2.3/bundles/router.umd.js": {
+    "integrity": "sha384-nNWrN1UO+LDbGS+SMO2X85A5l8Tw/jmX1Sm5yKycO22jm3Rjbt5MEzN45OhUQhJi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 258985
+  },
+  "https://unpkg.com/@angular/router@7.2.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-fzWrt8DbcgQJCxJAAx6rhQIYBGXUcDbShWOu7FVzm+Klw1cGfksY7sxKPBeqmcUh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89742
+  },
+  "https://unpkg.com/@angular/router@7.2.4/bundles/router.umd.js": {
+    "integrity": "sha384-t0Tth/YJNFtYKHr+7oduV8BpGmCQsnjmFL81JleprNgnmc2ERIJ6UYA6zgvOOISE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 258984
+  },
+  "https://unpkg.com/@angular/router@7.2.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-Vqg+GziJbJxG1eVI38eXgC/7hI4zwm6UaG0Bq0F0CbZfMjVBfl4DpQLMZMQzwp0o",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89741
+  },
+  "https://unpkg.com/@angular/router@7.2.5/bundles/router.umd.js": {
+    "integrity": "sha384-Bz7DwjHfIU9YCmP+irFpwDpzhokzDbQPtjlKcX0EpVmpOtUJ7VMqKAtIyIWIJatW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259496
+  },
+  "https://unpkg.com/@angular/router@7.2.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-R7Iv249k5D3AA1v5whJYj16h9Kt9CCORehPn9YPsurb3ppwJg2gybkFNsqn2fpkI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89770
+  },
+  "https://unpkg.com/@angular/router@7.2.6/bundles/router.umd.js": {
+    "integrity": "sha384-uYIqEUR29EFRc3JSLbpzx3QHBT3G0mQDVegeMhzWJKAD2+NhvbNMNwa8E/uwXX0V",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259496
+  },
+  "https://unpkg.com/@angular/router@7.2.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-QLLYUxX9L1U6RHszJDK7ZFDO1l/enPtGVBqTdXXLVRrzqEmPVmsz+86JQ2q2OkZN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89770
+  },
+  "https://unpkg.com/@angular/router@7.2.7/bundles/router.umd.js": {
+    "integrity": "sha384-uJ9rJXlaKclqXEzk2sdLw9zJ+6963hILFPkIurz6LF5CZaRYnMy2QtQLlsuOHS9V",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259496
+  },
+  "https://unpkg.com/@angular/router@7.2.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-Ixe2p8IYdTYRxC2a1bg2br0QrPh2Th91Gp+bJ1laKLz+1zoHfCccY5f/srg/PDPL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89770
+  },
+  "https://unpkg.com/@angular/router@7.2.8/bundles/router.umd.js": {
+    "integrity": "sha384-4Uik+/qODpTaMpxSuS8edoAmPFxY/PJAQMcXO10xwAwjOyc1PFO9O25TmFal+aMd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259496
+  },
+  "https://unpkg.com/@angular/router@7.2.8/bundles/router.umd.min.js": {
+    "integrity": "sha384-ml6P7QX3r+0WqqB0+Rq0PgALoKs3PdjN6lbDc3g+5zHkt9pY3G01gqIK+73riwJB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89770
+  },
+  "https://unpkg.com/@angular/router@7.2.9/bundles/router.umd.js": {
+    "integrity": "sha384-2J6oBnis/zJN66rdHJdcmg8L4xC7jqTmppZb+gcwWTQ6E55IfDujoqiWr7VQMw9Z",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 259762
+  },
+  "https://unpkg.com/@angular/router@7.2.9/bundles/router.umd.min.js": {
+    "integrity": "sha384-+fdhiN5uPuctxXFQcOAz+nT0BFMAf6G9o1Q8bihhhT7qu7K90VSdQYCin6dujsmr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 89770
+  },
+  "https://unpkg.com/@angular/router@8.0.0/bundles/router.umd.js": {
+    "integrity": "sha384-E0BFgPpQgWT4pv8gsxvpCN8Dtnqqq+S74sjPCaEG/2THpBVlbdcpHKwMtzhUkLHI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 261723
+  },
+  "https://unpkg.com/@angular/router@8.0.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-7PE9OWibm43oMMIhj5goBmq6xVqUILM+miouxmfkExrMniElyeDavDIO7CS0qoNA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.0.1/bundles/router.umd.js": {
+    "integrity": "sha384-92ZJnySDqrNg4GuFHb0uu0h6jDJtk3TiQkGmI8ET6+4NoT3FTR7EphpR4X7SHPs1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 261723
+  },
+  "https://unpkg.com/@angular/router@8.0.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-3B3pYtDPpiUuL4bG1N+gaphTWZgXm1XHjKR9vYtBvTLF2AfOZX1neIvKVbzb3mBR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.0.2/bundles/router.umd.js": {
+    "integrity": "sha384-o5ejNnQP3mS+qcfIGJDaBR+CsbSjsmWCGWir7zzrE+z2M5i6KmjE3VoRBAVUJ8vO",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 261723
+  },
+  "https://unpkg.com/@angular/router@8.0.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-jCZnUWxFS63AO5pOlXxk33zdrVapc0VVwwuPIx4FxvATgdZCBWbZwnoAH7iOVy/S",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.0.3/bundles/router.umd.js": {
+    "integrity": "sha384-fBl4owZSRLLvqNu0J9oB1rUs0vbNeuMPzJcxSc3GX3hAY5ulFBII0JEWgGeY7pFj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 261723
+  },
+  "https://unpkg.com/@angular/router@8.0.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-1yCjtIhtlN1najKruycKE0ujhvktudVAexfq+pNbKUTto1Er2qPZ1iDNcWp6W1sM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.1.0/bundles/router.umd.js": {
+    "integrity": "sha384-SFAzdcLAg0ipL4b0R8ZN/xdbucxA+/v146m7FXQ9GhhnB2xk7FRt2sOoyk707Sro",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 261723
+  },
+  "https://unpkg.com/@angular/router@8.1.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-oYP55lj5mtnhXq6uSIIwxvGjndA+QU6St7SciyYb9JvW8jp/fTPlkypLp0A0hcfW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.1.1/bundles/router.umd.js": {
+    "integrity": "sha384-R8xoARw6EiaEiUy9yo2KOrW9WyV1nsj3Pe3rZ8ZHJMn3x3tMSIPMXEg8hmlih/GM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 261723
+  },
+  "https://unpkg.com/@angular/router@8.1.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-izjbF3oAx5eIe1lrfR1X/inBX9NrxhtL7e59HlMHOcWA89cfF0exueNGjNCKuraK",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.1.2/bundles/router.umd.js": {
+    "integrity": "sha384-KZLzp9ZOxbPkMwnZPTQ/HG6baBRq/yVkXXpKNEZUjga941QUZFZj0/DMyekzsfZF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 261723
+  },
+  "https://unpkg.com/@angular/router@8.1.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-OZEgaenPJIoI74LS2K/yZ7fisiZGUVIXC1icJjGysatIq3eansyIXuj5vXOkixV9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.1.3/bundles/router.umd.js": {
+    "integrity": "sha384-KFrsZwpQmkgzXbUiIyNrzuXUWjYk+jHxXueeH/LJd88vwCH6SCbhkyDF3ficdGG8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 260288
+  },
+  "https://unpkg.com/@angular/router@8.1.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-vcQio1afBRgdEUAlfb+jIlIQ+5Xpvb3AqqfnQLXCvSJoIQMWu5XCEXgyf44N/T+n",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.2.0/bundles/router.umd.js": {
+    "integrity": "sha384-71EcML3aewhmK1Ro+GLOAHPg4UZZVNaH+AVxW0qYYrZSpNIRDzaW1d2yApT326mY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 260448
+  },
+  "https://unpkg.com/@angular/router@8.2.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-LVGPjQS/5bF+N4IV9jZCsk32pH9O2cvEtbQAzrn6ccv4/xDF6y/G6x9fKWiOfnMQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.2.1/bundles/router.umd.js": {
+    "integrity": "sha384-HJ/gP+pRkkZssNfW43qQa1iwOv9dDTHRTrPXHyIgRW9r75JY+4K/CrmffT3KJzfH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 260448
+  },
+  "https://unpkg.com/@angular/router@8.2.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-L4y6XtvJMFmFZTvH9+WZ5UV3oWOjGTptyjGHzA6ns50/UQfkPEKMrsUc22yBZ8VF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90000
+  },
+  "https://unpkg.com/@angular/router@8.2.10/bundles/router.umd.js": {
+    "integrity": "sha384-w5P87bF6XQI6/N+RRo82pVtXAixjo5oj7t0ynRGSfbYkbuiSkFurw/IbnkEc6yuQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266636
+  },
+  "https://unpkg.com/@angular/router@8.2.10/bundles/router.umd.min.js": {
+    "integrity": "sha384-ii0RBozvqVsY+vyiprvh9DT5XgmtiUueEqYpxRSiQMANRKP/bMGPsujgxVB9VdGS",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90003
+  },
+  "https://unpkg.com/@angular/router@8.2.11/bundles/router.umd.js": {
+    "integrity": "sha384-JJNm0q9GSAqGPI3N04OVk6VXoPyuHqQfEvmreS1wFUMoUPMbVH6dAlAX8D8E2oPU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266814
+  },
+  "https://unpkg.com/@angular/router@8.2.11/bundles/router.umd.min.js": {
+    "integrity": "sha384-9sa1hiU755DYGkVq4uXesp/M9QfcWHb5qOUPGZQggGIK3dvll6+UVMLDTS0yoLxi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90003
+  },
+  "https://unpkg.com/@angular/router@8.2.12/bundles/router.umd.js": {
+    "integrity": "sha384-hbiIjxc9vpi27oEzFkamg4o2rE2iKtYLINYT8iuUP7aTfy5OlKrinfPNw6lRQC/i",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266814
+  },
+  "https://unpkg.com/@angular/router@8.2.12/bundles/router.umd.min.js": {
+    "integrity": "sha384-b4boCrMn3N7yzN6H1bclH2oY4dWRD3czdnDs+byGng6JCOmZpwpFKJ9LYhFOC9gf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90003
+  },
+  "https://unpkg.com/@angular/router@8.2.13/bundles/router.umd.js": {
+    "integrity": "sha384-ZSm9kg9gWRxWP4el/+P8y+mHNxzBXFwVDiOBrR0cUMoo9KtdwMj1KagiQ+yIfx8G",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266814
+  },
+  "https://unpkg.com/@angular/router@8.2.13/bundles/router.umd.min.js": {
+    "integrity": "sha384-0vkFYTQkjwpIMFmyVJt0thl3ZOmIX5cJ83HtKpuUI+1PHtDTE+1afXDMf2Sf3JME",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90003
+  },
+  "https://unpkg.com/@angular/router@8.2.14/bundles/router.umd.js": {
+    "integrity": "sha384-xWidGV9R98ZDrMqeHiTO8oM0C7CuDo885ZjNYrwPK+wG4nhfIMr0Penas3wRjcSX",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266814
+  },
+  "https://unpkg.com/@angular/router@8.2.14/bundles/router.umd.min.js": {
+    "integrity": "sha384-RPenu1SIXBbcWQphhwidZfAm7/7cpNUdGCFiAK2Jyutn4WlzpcPYC7gFoPV3GX9h",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90003
+  },
+  "https://unpkg.com/@angular/router@8.2.2/bundles/router.umd.js": {
+    "integrity": "sha384-MkOb+iKGOLr8HUm2DLcNM8FRxS05JMmu/UzgjtzP5a684s2LZD+PTaJ6kySI7SaS",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266447
+  },
+  "https://unpkg.com/@angular/router@8.2.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-HfNeoAw1p5cJZZ9F8SyBkJ7M3SrF2a2FKMpTIc2PDggs1jAQKtaiIM9ghDkV/lFu",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90001
+  },
+  "https://unpkg.com/@angular/router@8.2.3/bundles/router.umd.js": {
+    "integrity": "sha384-VxfDqJRCH+0hkEcKC9jlf89+c9XxGgrCHH6Kya9q+j6ZDkRshbdK2WupIFZABpow",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266445
+  },
+  "https://unpkg.com/@angular/router@8.2.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-Q2yGn5P82OP8XvI6pDaRFayMUzUL2sxWiEK0JUSoIKxiaCwmnZ8HTRll1xdPaxG9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90001
+  },
+  "https://unpkg.com/@angular/router@8.2.4/bundles/router.umd.js": {
+    "integrity": "sha384-ljeRuj2wCY1+kGWNghGjreFbhellaTyYEnTwBAAdSGR5gZzAvwnp99mCXA/vQALZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266632
+  },
+  "https://unpkg.com/@angular/router@8.2.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-oqGr/B6wmP7sabnML2Re5Ndx2ixJ4aYOIE5H8oTM/ncTFzFNQeKAf4UD/NUz785i",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90001
+  },
+  "https://unpkg.com/@angular/router@8.2.5/bundles/router.umd.js": {
+    "integrity": "sha384-bokrtiwY4VCj475gYrKVq5ahWvVMu6858/wUU9wGdZTu5VRFn0m00Z5hAoJfcYwy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266632
+  },
+  "https://unpkg.com/@angular/router@8.2.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-hKyKciLrS5tVIBu5KOX8/nGXZi+wu0SBjw6ZnMkJXGN46e/Xq2JEmktB+HlgXwyu",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90001
+  },
+  "https://unpkg.com/@angular/router@8.2.6/bundles/router.umd.js": {
+    "integrity": "sha384-k/P2+LLSV8D9KFwVxPGwt/9EkU4M2BAzaa0nOMPlcAHv8iyZa+uzYXH/L32Z2U++",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266633
+  },
+  "https://unpkg.com/@angular/router@8.2.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-mfoZABy2BEfhX/oGiz5hGLyS3LB1pYwfOsSkKjHy7ambuCaOpPNiqat53PovmCFd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90001
+  },
+  "https://unpkg.com/@angular/router@8.2.7/bundles/router.umd.js": {
+    "integrity": "sha384-btywn7IzMrG62SazXRxmjwfAkZ/3BchQptqZ9TT0qlsies9ZEWyS/V2mcaNK3Ldh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266633
+  },
+  "https://unpkg.com/@angular/router@8.2.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-oU/umBTHZmxQqZmbmt6H3oW2nN7oZVM2IBebnvm7SLzfDgvJPsJdoi8s5nMVhIkv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90001
+  },
+  "https://unpkg.com/@angular/router@8.2.8/bundles/router.umd.js": {
+    "integrity": "sha384-+HFnMc7x+uEPFQZJbqwPQdBuedR/aSJiBY1K9CVkG2JltfRJ1nzt/qF9xqLxu+f9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266633
+  },
+  "https://unpkg.com/@angular/router@8.2.8/bundles/router.umd.min.js": {
+    "integrity": "sha384-KusmtBDgEEfFFbD4AFm+13fO70I38W25pihc5arAfkHn18rxFpgGLoD2VkeZc/xN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90001
+  },
+  "https://unpkg.com/@angular/router@8.2.9/bundles/router.umd.js": {
+    "integrity": "sha384-322723zPoCKb+P8HTDrlMidvJBQK5JSsOUpl/7txLRGz0aN7pGZKK1cViGxjbJZj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 266634
+  },
+  "https://unpkg.com/@angular/router@8.2.9/bundles/router.umd.min.js": {
+    "integrity": "sha384-SPqZvlKVoaBNCgjfb9Rnytn+Gqb4pTMIHSCMqdGO9EldlMNa7z3aw61a8WdK035L",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90001
+  },
+  "https://unpkg.com/@angular/router@9.0.0/bundles/router.umd.js": {
+    "integrity": "sha384-dhH1jw2VVD5yw6Zg12p1HiLyq/LkGCToH0pWNV7XiNSnxFiAsTZDkr/gXBjKlPEM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269204
+  },
+  "https://unpkg.com/@angular/router@9.0.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-xfE+IQQuvqPnj2fY9WdQ9leer9FHzaHr3+9MTi184QgZigb7IHsnVfCCZp16JhH6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91598
+  },
+  "https://unpkg.com/@angular/router@9.0.1/bundles/router.umd.js": {
+    "integrity": "sha384-O78IOKp7DqVln70Sg1kYihLRljA0LX7g0Cow/fcC4pzH7KePP7JFay/5hMItmWCr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269204
+  },
+  "https://unpkg.com/@angular/router@9.0.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-UZMRiFD/Fc1yXgpTE0jGC+RNHRNGMFm7Zf4hI5pP+0QaiXBZcOjPPT7EztkZtmFy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91598
+  },
+  "https://unpkg.com/@angular/router@9.0.2/bundles/router.umd.js": {
+    "integrity": "sha384-CgWaSd8KhiAhaL0kfS4laVtGBrjkwZxMti7Dx8DmrSOspfG+bVeXP2U1Kjvsv2k7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269204
+  },
+  "https://unpkg.com/@angular/router@9.0.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-gHdgvIUDWpvUVjucS1M0E/S38+YjHTZMXet5ewaKiFF5tm1kOfYY/5SJ8BSTpOlN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91598
+  },
+  "https://unpkg.com/@angular/router@9.0.3/bundles/router.umd.js": {
+    "integrity": "sha384-QmAc0V3lp8SA2KQ3W9wbccnxRniXr+Jo3FfHnA29S59kdgAWwL913jayisQ2BBfY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269178
+  },
+  "https://unpkg.com/@angular/router@9.0.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-oFdARimNZQ5IIjAMZjk4GR2MUHVtsoqwJSd2c7ElwhxJeBVKXdwoB36nCVMIg+7C",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91579
+  },
+  "https://unpkg.com/@angular/router@9.0.4/bundles/router.umd.js": {
+    "integrity": "sha384-jG7Cmn5LrN3SpQsKWSB/iveBh22K3dkjGBkS0gLHVZjGSFkRUWSLJ1IsXp1YipP1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269178
+  },
+  "https://unpkg.com/@angular/router@9.0.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-7HJKOzTXs2ehsPuTJwPIA51kF6fSKyuxUVSO9AHg1J3b3War3H6715XPMRGUEvr9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91579
+  },
+  "https://unpkg.com/@angular/router@9.0.5/bundles/router.umd.js": {
+    "integrity": "sha384-6XI6Bp7Md+TpDe0J4x9PCOirNcvKvJbqEiD7TGCe1voGtdS1q8DwnKi9pfYxHVHC",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269178
+  },
+  "https://unpkg.com/@angular/router@9.0.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-NLhaG569m8sWMb1vi3hOYywZGKVuGVzcWPN00uur0Gx2QNDykgiMVgkfurekXsuw",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91579
+  },
+  "https://unpkg.com/@angular/router@9.0.6/bundles/router.umd.js": {
+    "integrity": "sha384-/fH0jgrlPoBfuqrY+WjEqCxmbJqjS228xIzqbKea+dn1Y/6oMqtFy+1UvcfUCQRD",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269212
+  },
+  "https://unpkg.com/@angular/router@9.0.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-PvnBjiKnKwnSXUk6Q4Ji2c5gfxBLnyCO18cO965jGbYWQc7tdv2wvIyvVQKYPs6N",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91596
+  },
+  "https://unpkg.com/@angular/router@9.0.7/bundles/router.umd.js": {
+    "integrity": "sha384-TnTS8i4bMbKki6oFmQzpefLy/veMxQlGM/zMLkS/WycpWCS/LXAcEqSpChS7uQ+I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269212
+  },
+  "https://unpkg.com/@angular/router@9.0.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-z6cxAHt1lz0QW28W/HFNHRZeH/5x38bL2NI+9IKvuZpNFY1OQwvx3U4M+GXSaHaK",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91596
+  },
+  "https://unpkg.com/@angular/router@9.1.0/bundles/router.umd.js": {
+    "integrity": "sha384-83jKH7TmbbmOKhhkfe4vOT8h1aqDKC5hcXJhgAwWg4a2nala6VNHDRsyGRa80/To",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269178
+  },
+  "https://unpkg.com/@angular/router@9.1.0/bundles/router.umd.min.js": {
+    "integrity": "sha384-INXblm0hLQETaoUGBZIHVplDR3xnzu4MYCVYRrQmaIgme4mCZy4SO9Z7g5Hj27f0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91579
+  },
+  "https://unpkg.com/@angular/router@9.1.1/bundles/router.umd.js": {
+    "integrity": "sha384-7XnBtm+ZDiqIQf0e1x4m9hJRLX3zLc3+fMdJ/1UPW5rejnsRNIwzdXlS/SvxRInS",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 270014
+  },
+  "https://unpkg.com/@angular/router@9.1.1/bundles/router.umd.min.js": {
+    "integrity": "sha384-bswUdLDvQUKxw+yyuzhDLlklWPTygFf9qMjHgG6I3wEvsQZ/GfPA+Od1Q3IZ3WL/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92024
+  },
+  "https://unpkg.com/@angular/router@9.1.10/bundles/router.umd.js": {
+    "integrity": "sha384-lTT9BN1q2nN2RI49wtYZmKrn9gINK3I0CIMzIsVjzeDcHhQaIYsabHg0+OC25BSB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 272766
+  },
+  "https://unpkg.com/@angular/router@9.1.10/bundles/router.umd.min.js": {
+    "integrity": "sha384-YWB37z3tdIfg0AIxRON1N1K+xvQ/hDUJ+2UuIb7VoLnmDc7O42PQDIIF5E1cUb4j",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92026
+  },
+  "https://unpkg.com/@angular/router@9.1.11/bundles/router.umd.js": {
+    "integrity": "sha384-PeCxy59dpaUwXbzpzbJ7nWl+WWK7indpBH2zcWmpzoR2v0OFU78qyf4+6j+QnAeA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 272766
+  },
+  "https://unpkg.com/@angular/router@9.1.11/bundles/router.umd.min.js": {
+    "integrity": "sha384-8F2/QI17+QRzsREqXKwlY7lf+aY1v5eh2NJO5HijleecN6TujInp8wzpchSFepqP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92026
+  },
+  "https://unpkg.com/@angular/router@9.1.12/bundles/router.umd.js": {
+    "integrity": "sha384-x0YgficGJVRuX1wcQD7Niu7QUJWTov0/8/VjSWpdKmT7q8LmBxo5WvWcDj2LYqOl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 272766
+  },
+  "https://unpkg.com/@angular/router@9.1.12/bundles/router.umd.min.js": {
+    "integrity": "sha384-oQokTEDYno2VHGpkDZSFTRx9od7fOAAcHGotZTfE+crMXF5kz24+GiceS2er9je5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92026
+  },
+  "https://unpkg.com/@angular/router@9.1.2/bundles/router.umd.js": {
+    "integrity": "sha384-HGXKWJ+9NvODfbkPCO4uYr0nq0tt7fL7vue+jT29XSqz8/fD2+K/r/v6cZK8hUis",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 271681
+  },
+  "https://unpkg.com/@angular/router@9.1.2/bundles/router.umd.min.js": {
+    "integrity": "sha384-go8Ps1PDiVMULvPbiIr3Zis5D3veSbzuw5OXUrtZyvnWEOXaU3Hv0e1pnRKPz+lU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92050
+  },
+  "https://unpkg.com/@angular/router@9.1.3/bundles/router.umd.js": {
+    "integrity": "sha384-dsoLFJZvhrpZ1yZ5Cx9r1O3f7hYuZEG5pI9w5UOf1QGdi1qyh6HLJ+FlgKkcLaf2",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 271535
+  },
+  "https://unpkg.com/@angular/router@9.1.3/bundles/router.umd.min.js": {
+    "integrity": "sha384-DXETRLT6q0qrAc9dg9HN2jbQe+LgRDn5VToEminMhOvNiAp6l36FMPKb1/P6pmNn",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92024
+  },
+  "https://unpkg.com/@angular/router@9.1.4/bundles/router.umd.js": {
+    "integrity": "sha384-ihr8mbiULhhslD6n2fx7zP20zwxEnZZiF72OhB3wVtFyrMjU4XH63wRBXI3qqyTg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 271535
+  },
+  "https://unpkg.com/@angular/router@9.1.4/bundles/router.umd.min.js": {
+    "integrity": "sha384-qzM5GKUK1Ttat5VvXKthg+Ufi2soxgvd4r6JgTiBjaEoX0eD8Dp7SWLTgjiKI4OR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92024
+  },
+  "https://unpkg.com/@angular/router@9.1.5/bundles/router.umd.js": {
+    "integrity": "sha384-7YCFvlmLy5UOgB8jjpDLNuFYi6ptuLhbYCBlgQGC7m3X7Bru63lb8f0oziEzr+0X",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 271535
+  },
+  "https://unpkg.com/@angular/router@9.1.5/bundles/router.umd.min.js": {
+    "integrity": "sha384-qW0H2WzdLRiCJ3BOEPCpqSLr75ySSlcaU9VJOPdf+9hV6bT+U+kcjhQup/l53FY9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92024
+  },
+  "https://unpkg.com/@angular/router@9.1.6/bundles/router.umd.js": {
+    "integrity": "sha384-dQL7L1OuC85BaoTv4Q7Msdtdom4Dn2AQ6etR/ehOGJVNkBK2LJg74TQszXuZtDB2",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 271535
+  },
+  "https://unpkg.com/@angular/router@9.1.6/bundles/router.umd.min.js": {
+    "integrity": "sha384-bFPd/Arcr4e4CURHilc3OkKeujh9vzxDymrNa1x/wMGrHbht5/Z5SWpJMswz0vt/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92024
+  },
+  "https://unpkg.com/@angular/router@9.1.7/bundles/router.umd.js": {
+    "integrity": "sha384-6kRQUBCJLs53TWrOZsUDg2tGCdGjyZx+fhH+2+az1rh86DE3beAr8UUD9liZV3jr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 271535
+  },
+  "https://unpkg.com/@angular/router@9.1.7/bundles/router.umd.min.js": {
+    "integrity": "sha384-CDw+6T4Rfx47ONroFQe523wj/IneV5r4kY3VNXkvuwZsbXOqU0YfvxHgPB0SH/xy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92024
+  },
+  "https://unpkg.com/@angular/router@9.1.8/bundles/router.umd.js": {
+    "integrity": "sha384-/Qh2zERlTrwLWUFD7Ci25OlMLPORpMYuuWoRosVlDHsuk7BaeQ4wOCbiSKk5i4yP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 272764
+  },
+  "https://unpkg.com/@angular/router@9.1.8/bundles/router.umd.min.js": {
+    "integrity": "sha384-D+1v7iu6QeGV731AMQ1B3t+LiORYTOFGDIiujdgI+RRj1Vn0iG1/CZPziobS6VC4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92024
+  },
+  "https://unpkg.com/@angular/router@9.1.9/bundles/router.umd.js": {
+    "integrity": "sha384-oRML2PXi7AYR2c0zi9bMx4af4e/vymnBRpfv81wZmdjMl97SLyj7CR64VFMfrmaf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 272764
+  },
+  "https://unpkg.com/@angular/router@9.1.9/bundles/router.umd.min.js": {
+    "integrity": "sha384-1P3RIvw8rJaWt1gM6e5rohvWTcJR2f6R5fxx6x0n/fDGayy3nIPlv8WBR50DP5F/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92024
+  }
+}

@@ -1,0 +1,255 @@
+{
+    "lodash": {},
+    "date-fns": {},
+    "react-bootstrap": {
+        "default": "/lib/"
+    },
+    "@talend/react-containers": {
+        "default": "/lib/"
+    },
+    "@talend/react-components": {
+        "default": "/lib/",
+        "Alert": {
+            "from": "react-bootstrap/lib/Alert"
+        },
+        "Breadcrumb": {
+            "from": "react-bootstrap/lib/Breadcrumb"
+        },
+        "BreadcrumbItem": {
+            "from": "react-bootstrap/lib/BreadcrumbItem"
+        },
+        "Button": {
+            "from": "react-bootstrap/lib/Button"
+        },
+        "ButtonGroup": {
+            "from": "react-bootstrap/lib/ButtonGroup"
+        },
+        "ButtonToolbar": {
+            "from": "react-bootstrap/lib/ButtonToolbar"
+        },
+        "Carousel": {
+            "from": "react-bootstrap/lib/Carousel"
+        },
+        "CarouselItem": {
+            "from": "react-bootstrap/lib/CarouselItem"
+        },
+        "Clearfix": {
+            "from": "react-bootstrap/lib/Clearfix"
+        },
+        "ControlLabel": {
+            "from": "react-bootstrap/lib/ControlLabel"
+        },
+        "Col": {
+            "from": "react-bootstrap/lib/Col"
+        },
+        "Collapse": {
+            "from": "react-bootstrap/lib/Collapse"
+        },
+        "Dropdown": {
+            "from": "react-bootstrap/lib/Dropdown"
+        },
+        "DropdownButton": {
+            "from": "react-bootstrap/lib/DropdownButton"
+        },
+        "Fade": {
+            "from": "react-bootstrap/lib/Fade"
+        },
+        "Form": {
+            "from": "react-bootstrap/lib/Form"
+        },
+        "FormControl": {
+            "from": "react-bootstrap/lib/FormControl"
+        },
+        "FormGroup": {
+            "from": "react-bootstrap/lib/FormGroup"
+        },
+        "Glyphicon": {
+            "from": "react-bootstrap/lib/Glyphicon"
+        },
+        "Grid": {
+            "from": "react-bootstrap/lib/Grid"
+        },
+        "HelpBlock": {
+            "from": "react-bootstrap/lib/HelpBlock"
+        },
+        "InputGroup": {
+            "from": "react-bootstrap/lib/InputGroup"
+        },
+        "Jumbotron": {
+            "from": "react-bootstrap/lib/Jumbotron"
+        },
+        "Label": {
+            "from": "react-bootstrap/lib/Label"
+        },
+        "ListGroup": {
+            "from": "react-bootstrap/lib/ListGroup"
+        },
+        "ListGroupItem": {
+            "from": "react-bootstrap/lib/ListGroupItem"
+        },
+        "Media": {
+            "from": "react-bootstrap/lib/Media"
+        },
+        "MenuItem": {
+            "from": "react-bootstrap/lib/MenuItem"
+        },
+        "Modal": {
+            "from": "react-bootstrap/lib/Modal"
+        },
+        "ModalBody": {
+            "from": "react-bootstrap/lib/ModalBody"
+        },
+        "ModalFooter": {
+            "from": "react-bootstrap/lib/ModalFooter"
+        },
+        "ModalHeader": {
+            "from": "react-bootstrap/lib/ModalHeader"
+        },
+        "ModalTitle": {
+            "from": "react-bootstrap/lib/ModalTitle"
+        },
+        "Nav": {
+            "from": "react-bootstrap/lib/Nav"
+        },
+        "Navbar": {
+            "from": "react-bootstrap/lib/Navbar"
+        },
+        "NavbarBrand": {
+            "from": "react-bootstrap/lib/NavbarBrand"
+        },
+        "NavDropdown": {
+            "from": "react-bootstrap/lib/NavDropdown"
+        },
+        "NavItem": {
+            "from": "react-bootstrap/lib/NavItem"
+        },
+        "Overlay": {
+            "from": "react-bootstrap/lib/Overlay"
+        },
+        "OverlayTrigger": {
+            "from": "react-bootstrap/lib/OverlayTrigger"
+        },
+        "PageHeader": {
+            "from": "react-bootstrap/lib/PageHeader"
+        },
+        "PageItem": {
+            "from": "react-bootstrap/lib/PageItem"
+        },
+        "Pager": {
+            "from": "react-bootstrap/lib/Pager"
+        },
+        "Pagination": {
+            "from": "react-bootstrap/lib/Pagination"
+        },
+        "Panel": {
+            "from": "react-bootstrap/lib/Panel"
+        },
+        "PanelGroup": {
+            "from": "react-bootstrap/lib/PanelGroup"
+        },
+        "Popover": {
+            "from": "react-bootstrap/lib/Popover"
+        },
+        "ProgressBar": {
+            "from": "react-bootstrap/lib/ProgressBar"
+        },
+        "Radio": {
+            "from": "react-bootstrap/lib/Radio"
+        },
+        "ResponsiveEmbed": {
+            "from": "react-bootstrap/lib/ResponsiveEmbed"
+        },
+        "Row": {
+            "from": "react-bootstrap/lib/Row"
+        },
+        "SafeAnchor": {
+            "from": "react-bootstrap/lib/SafeAnchor"
+        },
+        "SplitButton": {
+            "from": "react-bootstrap/lib/SplitButton"
+        },
+        "Tab": {
+            "from": "react-bootstrap/lib/Tab"
+        },
+        "TabContainer": {
+            "from": "react-bootstrap/lib/TabContainer"
+        },
+        "TabContent": {
+            "from": "react-bootstrap/lib/TabContent"
+        },
+        "TabPane": {
+            "from": "react-bootstrap/lib/TabPane"
+        },
+        "Tabs": {
+            "from": "react-bootstrap/lib/Tabs"
+        },
+        "Thumbnail": {
+            "from": "react-bootstrap/lib/Thumbnail"
+        },
+        "Tooltip": {
+            "from": "react-bootstrap/lib/Tooltip"
+        },
+        "Well": {
+            "from": "react-bootstrap/lib/Well"
+        },
+        "Action": {
+            "path": "/lib/Actions",
+            "default": false
+        },
+        "Actions": {
+            "path": "/lib/Actions",
+            "default": false
+        },
+        "ActionButton": {
+            "path": "/lib/Actions",
+            "default": false
+        },
+        "ActionDropdown": {
+            "path": "/lib/Actions",
+            "default": false
+        },
+        "ActionFile": {
+            "path": "/lib/Actions",
+            "default": false
+        },
+        "ActionIconToggle": {
+            "path": "/lib/Actions",
+            "default": false
+        },
+        "ActionSplitDropdown": {
+            "path": "/lib/Actions",
+            "default": false
+        },
+        "RichLayout": {
+            "path": "/lib/RichTooltip/RichLayout"
+        },
+        "RichError": {
+            "path": "/lib/RichTooltip/RichError"
+        },
+        "Checkbox": {
+            "path": "/lib/Toggle"
+        },
+        "CIRCULAR_PROGRESS_SIZE": {
+            "path": "/lib/constants"
+        },
+        "I18N_DOMAIN_COMPONENTS": {
+            "path": "/lib/constants"
+        },
+        "getLocale": {
+            "path": "/lib/DateFnsLocale/locale"
+        },
+        "getTheme": {
+            "path": "/lib/theme",
+            "default": false
+        },
+        "BootstrapBadge": {
+            "from": "react-bootstrap/lib/Badge"
+        },
+        "BootstrapCheckbox": {
+            "from": "react-bootstrap/lib/Checkbox"
+        },
+        "BootstrapTable": {
+            "from": "react-bootstrap/lib/Table"
+        }
+    }
+}

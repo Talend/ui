@@ -1,0 +1,48 @@
+{
+  "https://unpkg.com/ally.js@1.0.0/ally.min.js": {
+    "integrity": "sha384-+mBUGQ8QnpJ7E9fGbU/Nh3YVdEPA69pO+S4MK+nZpt06JrEn7ZTrAxbK/rqTPFCr",
+    "lastModified": "Wed, 18 Nov 2015 13:05:03 GMT",
+    "size": 81396
+  },
+  "https://unpkg.com/ally.js@1.0.1/ally.min.js": {
+    "integrity": "sha384-h20t/6Ijz0cRf/7MRBDuSZBrqmY3y43kegW2OxHdAw1ax3wBga7m6XLuw2MNNRqv",
+    "lastModified": "Fri, 20 Nov 2015 10:02:53 GMT",
+    "size": 81396
+  },
+  "https://unpkg.com/ally.js@1.1.0/ally.min.js": {
+    "integrity": "sha384-Dx/ITyyGOtuw2IWZFJwzkSUGe/wGeP9Isez9tC5cvMIp1rhFC5yutmd8OBqYq8zU",
+    "lastModified": "Thu, 17 Mar 2016 21:22:24 GMT",
+    "size": 128808
+  },
+  "https://unpkg.com/ally.js@1.1.1/ally.min.js": {
+    "integrity": "sha384-NOvyABFluikhoa8DE0CmJAsycIv2T2c/vcW9BAK+Wi7Mdq2kCTVC4aB/s8YzyWB1",
+    "lastModified": "Sat, 06 Aug 2016 11:13:39 GMT",
+    "size": 129064
+  },
+  "https://unpkg.com/ally.js@1.2.0/ally.min.js": {
+    "integrity": "sha384-hVodXuZGT5mru6W2Q5Rf7gvvYC1f3hszKeH9dlOdWc0PyF/Z5tF1mlhpOmYb9urX",
+    "lastModified": "Tue, 23 Aug 2016 17:12:46 GMT",
+    "size": 126596
+  },
+  "https://unpkg.com/ally.js@1.3.0/ally.min.js": {
+    "integrity": "sha384-4P7H3L5vog2MJJzWBeWIcNCCzx1HLw7jKSRt8MTHasFotI4v5m0jWRS7tprfOV94",
+    "lastModified": "Sat, 17 Sep 2016 14:33:49 GMT",
+    "size": 74367
+  },
+  "https://unpkg.com/ally.js@1.3.1/ally.min.js": {},
+  "https://unpkg.com/ally.js@1.3.2/ally.min.js": {
+    "integrity": "sha384-ncIGDAncV3rUAkomDSl/6FkTIHCIFDZKl+Q6tG4LE4B/Hwd8OE5zoSjcBximJl8H",
+    "lastModified": "Tue, 15 Nov 2016 15:01:57 GMT",
+    "size": 75248
+  },
+  "https://unpkg.com/ally.js@1.4.0/ally.min.js": {
+    "integrity": "sha384-Y4Gq0IAVeAD2NQF8FxeVd1J7O0RgGA8Z/O+sHakN4b1h1EFN5p+SD80/vrMNfdly",
+    "lastModified": "Thu, 12 Jan 2017 21:55:03 GMT",
+    "size": 77497
+  },
+  "https://unpkg.com/ally.js@1.4.1/ally.min.js": {
+    "integrity": "sha384-4tafTflqhz9+1XxuLkwXUSVJwcvdeh2fYCsnGB+P9eMHX+XDG87+zYEIF1GlJ5H1",
+    "lastModified": "Tue, 31 Jan 2017 18:12:06 GMT",
+    "size": 76942
+  }
+}
