@@ -2397,7 +2397,7 @@ const dictionary = [
         type: 'shadow',
         description: ``,
         id: `S:a5099a594218ccacd1f632af854309e6422c7f83,:shadow:0`,
-        value: '0rem -0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3)',
+        value: '0rem -0.2rem 0.6rem 0rem hsla(0,0%,2%,0.3)',
         
     },
     {
@@ -2405,7 +2405,7 @@ const dictionary = [
         type: 'shadow',
         description: ``,
         id: `S:4a469b9d512c8d4b89bd6f9cf8c40fc2a40b921d,:shadow:0`,
-        value: '0rem -0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3)',
+        value: '0rem -0.4rem 0.8rem 0rem hsla(0,0%,5%,0.3)',
         
     },
     {
