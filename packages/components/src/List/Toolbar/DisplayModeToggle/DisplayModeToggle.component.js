@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { ActionIconToggle } from '../../../Actions';
+import { ButtonIconToggle, StackHorizontal } from '@talend/design-system';
 import getDefaultT from '../../../translate';
-
-import theme from './DisplayModeToggle.scss';
 
 const options = ['table', 'large'];
 function getLabel(selected, t) {
@@ -23,27 +20,28 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 
 	function getActionIcon(option) {
 		return (
-			<ActionIconToggle
+			<ButtonIconToggle
 				key={option}
 				id={`${id}-${option}`}
 				icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
-				label={t('LIST_SELECT_DISPLAY_MODE', {
-					defaultValue: 'Set {{displayMode}} as current display mode.',
-					displayMode: getLabel(option, t),
-				})}
-				active={mode === option}
-				disabled={mode === option}
+				isActive={mode === option}
+				size="S"
 				onClick={e => {
 					onChange(e, option);
 				}}
-			/>
+			>
+				{t('LIST_SELECT_DISPLAY_MODE', {
+					defaultValue: 'Set {{displayMode}} as current display mode.',
+					displayMode: getLabel(option, t),
+				})}
+			</ButtonIconToggle>
 		);
 	}
 
 	return (
-		<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
+		<StackHorizontal gap="XS" padding={{ x: 'XS', y: 0 }}>
 			{modes.map(getActionIcon)}
-		</div>
+		</StackHorizontal>
 	);
 }
 
