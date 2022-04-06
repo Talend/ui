@@ -48,6 +48,7 @@
     "@changesets/cli": "^2.21.1",
     "@cypress/react": "^5.12.4",
     "@cypress/webpack-dev-server": "^1.8.2",
+    "@faker-js/faker": "^6.1.2",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",

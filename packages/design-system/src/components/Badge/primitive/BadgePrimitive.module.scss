@@ -1,0 +1,24 @@
+@use "~@talend/design-tokens/lib/tokens";
+
+.badge {
+	display: inline-flex;
+	align-items: stretch;
+	max-width: tokens.$coral-sizing-maximal;
+	padding: 0 tokens.$coral-spacing-m;
+	height: tokens.$coral-sizing-s;
+	font: tokens.$coral-paragraph-m-bold;
+	background: tokens.$coral-color-neutral-background-medium;
+	border-radius: tokens.$coral-radius-round;
+
+	&__label {
+		display: inline;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	&__label,
+	&__value {
+		min-width: 33%;
+	}
+}
