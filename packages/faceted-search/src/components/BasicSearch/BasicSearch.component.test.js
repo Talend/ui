@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { mount } from 'enzyme';
-import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
-
+import set from 'lodash/set';
+import React from 'react';
 import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
+
 
 describe('BasicSearch', () => {
 	const badgeText = {
@@ -133,6 +133,38 @@ describe('BasicSearch', () => {
 		);
 		// Then
 		expect(wrapper.html()).toMatchSnapshot();
+	});
+	it('should filter facets available in quick search', () => {
+		// Given
+		const props = {
+			badgesDefinitions: badgesDefinitionsWithQuicksearch,
+			badgesFaceted,
+			onSubmit: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<FacetedManager id="manager-id">
+				<BasicSearch
+					{...props}
+					quickSearchFacetsFilter={(term, facet) => facet.properties.label === term}
+				/>
+			</FacetedManager>,
+		);
+		// Then
+		wrapper.find('input[role="searchbox"]').simulate('change', {
+			target: {
+				value: 'Name'
+			}
+		});
+		expect(wrapper.find('[role="option"]')).toHaveLength(1);
+
+		wrapper.find('input[role="searchbox"]').simulate('change', {
+			target: {
+				value: 'NotName'
+			}
+		});
+		expect(wrapper.find('[role="option"]')).toHaveLength(0);
+
 	});
 	it('should not trigger onSubmit when a badge is in creation', () => {
 		// given
