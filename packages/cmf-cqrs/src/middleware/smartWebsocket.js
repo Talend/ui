@@ -1,3 +1,5 @@
+import { addWebsocketToRegistry } from '../registry';
+
 /**
  * Send message on ws if available.
  * feed the offlineBuffer if it is not
@@ -100,7 +102,7 @@ export function startWebsocket(url, offlinebuffer, options) {
  * @param url
  * @param options
  */
-export default function SmartWebsocket(url, options = {}) {
+export default function SmartWebsocket(url, options = {}, id = 'default') {
 	let ws;
 	const offlinebuffer = [];
 	offlinebuffer.reset = () => {
@@ -110,6 +112,7 @@ export default function SmartWebsocket(url, options = {}) {
 	const send = (message, callback) => wsSend(ws, message, callback, offlinebuffer);
 	const start = () => {
 		ws = startWebsocket(url, offlinebuffer, options);
+		addWebsocketToRegistry(ws, id);
 	};
 
 	start();

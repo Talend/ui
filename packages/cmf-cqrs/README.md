@@ -2,7 +2,6 @@
 
 This is a library to help you to build configurable React App with CQRS pattern.
 
-
 [![Travis CI][travis-ci-image] ][travis-ci-url]
 [![NPM][npm-icon] ][npm-url]
 [![dependencies][dependencies-image] ][dependencies-url]
@@ -21,14 +20,14 @@ This is a library to help you to build configurable React App with CQRS pattern.
 
 This package provides tools to deal with cqrs backend allowing websocket handling :
 
-* acknowledgement actions
-* ACKDispatcher component
-* Smart Websocket middleware
-* ACK reducer
+- acknowledgement actions
+- ACKDispatcher component
+- Smart Websocket middleware
+- ACK reducer
 
 ## How it works
 
-* to start the websocket with smartWebsocket middleware :
+- to start the websocket with smartWebsocket middleware :
 
 ```javascript
 ws = new SmartWebsocket(urlPrefix, {
@@ -60,16 +59,16 @@ socketOptions is optionnal but allows websocket configuration from middleware in
 }
 ```
 
-* checkInterval : max duration between 2 websocket connections trials if closed
-* pingInterval : duration between ping message from the webapp to the server, like a heartbeat of the connection
-* pingTimeoutDelay : duration after which a PING message not being answered by a PONG will trigger a SOCKET_ON_PING_TIMEOUT and force close of the current connection
+- checkInterval : max duration between 2 websocket connections trials if closed
+- pingInterval : duration between ping message from the webapp to the server, like a heartbeat of the connection
+- pingTimeoutDelay : duration after which a PING message not being answered by a PONG will trigger a SOCKET_ON_PING_TIMEOUT and force close of the current connection
 
 In onMessage event, you should get middleware handlers as well.
 
-* On the reducer, actions handled :
-  * ACK_ADD_CONTEXT : Used to add a new request on stack
-  * ACK_RECEIVE_MESSAGE : Used when a message come from the ws
-  * ACK_DELETE : Used when you want to delete a handler
+- On the reducer, actions handled :
+  - ACK_ADD_CONTEXT : Used to add a new request on stack
+  - ACK_RECEIVE_MESSAGE : Used when a message come from the ws
+  - ACK_DELETE : Used when you want to delete a handler
 
 ## SocketMiddleware
 
@@ -153,4 +152,36 @@ on socket connection timeout reached, the following action get dispatched
 
 ```
 { type: SOCKET_ON_PING_TIMEOUT }
+```
+
+## Hook
+
+Once boostraped with the `createWebsocketMiddleware`, you can use the hook to get the websocket instance
+
+```javascript
+import { useWebSocket } from '@talend/react-cmf-cqrs';
+
+function MyComponent() {
+	const { lastJsonMessage, lastMessage, readyState, sendMessage, sendJsonMessage } = useWebsocket();
+
+	useEffect(() => {
+		makeStuff(lastJsonMessage);
+	}, [lastJsonMessage]);
+}
+```
+
+We can provide a list of ignored events (because we make some pong request to maintain the connection) this way :
+
+```javascript
+import { useWebSocket } from '@talend/react-cmf-cqrs';
+
+function MyComponent() {
+	const { lastJsonMessage, lastMessage, readyState, sendMessage, sendJsonMessage } = useWebsocket([
+		'pong',
+	]);
+
+	useEffect(() => {
+		makeStuff(lastJsonMessage);
+	}, [lastJsonMessage]);
+}
 ```
