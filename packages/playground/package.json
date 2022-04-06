@@ -32,6 +32,7 @@
   "dependencies": {
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.39.0",
+    "@talend/react-bootstrap": "^1.31.1",
     "@talend/react-cmf": "^7.0.1",
     "@talend/react-cmf-router": "^4.0.1",
     "@talend/react-components": "^6.44.5",

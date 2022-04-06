@@ -88,7 +88,7 @@
   "//comment_with_dom": "// deps: libs that interact with the DOM",
   "d3-shape": "1.2.0",
   "react-ace": "6.2.0",
-  "react-bootstrap": "0.32.4",
+  "@talend/react-bootstrap": "^1.33.1",
   "rc-slider": "8.6.3",
   "rc-tooltip": "3.7.3",
   "react-autowhatever": "10.2.0",
