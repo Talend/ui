@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {ThemeProvider} from '@talend/design-system';
 import { namespaces as tuiNamespaces } from '@talend/locales-tui-components/namespaces';
 import { namespaces as facetedNamespaces } from '@talend/locales-tui-faceted-search/namespaces';
 
@@ -24,8 +24,10 @@ export const decorators = [
 					padding: '3rem',
 					backgroundColor: 'rgba(145, 209, 237, 0.1)',
 				}}
-			>
-				<Story {...context} />
+			>	
+				<ThemeProvider>
+					<Story {...context} />
+				</ThemeProvider>
 			</div>
 		);
 	},
