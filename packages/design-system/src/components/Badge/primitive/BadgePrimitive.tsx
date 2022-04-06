@@ -39,23 +39,26 @@ const DropdownValue = ({
 	<span className={style.badge__value}>
 		<StackHorizontal as="span" gap="XXS" align="center">
 			<Divider orientation="vertical" />
-			<Dropdown
-				{...rest}
-				as={ButtonTertiary}
-				size="S"
-				onChange={onChange}
-				data-test="badge.dropdown"
-				items={values?.map((value: string) => ({
-					label: value,
-					onClick: (e: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-						if (onChange) {
-							onChange(e, { label: value });
-						}
-					},
-				}))}
-			>
-				{defaultValue}
-			</Dropdown>
+			{values && (
+				<Dropdown
+					{...rest}
+					aria-label="Badge dropdown"
+					data-test="badge.dropdown"
+					items={values.map((value: string) => ({
+						label: value,
+						type: 'button',
+						onClick: e => {
+							if (onChange) {
+								onChange(e, { label: value });
+							}
+						},
+					}))}
+				>
+					<ButtonTertiary onClick={() => {}} size="S" isDropdown>
+						{defaultValue}
+					</ButtonTertiary>
+				</Dropdown>
+			)}
 		</StackHorizontal>
 	</span>
 );

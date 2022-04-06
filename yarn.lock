@@ -1717,10 +1717,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@faker-js/faker@^6.0.0-alpha.6":
-  version "6.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-6.0.0-alpha.6.tgz#1724c4f67b62d2a14e76781675179c2f02dafbae"
-  integrity sha512-+jatKq8wYwOgCpVQ0wE4t9BglS16qJH/Nu4WjPU+ABTywivTY8BCsD1XIZhw9iXDq3t1InyiXmz+R70TcUMbrg==
+"@faker-js/faker@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-6.1.2.tgz#7093ea65e6d78eae388918a46968c083366bd621"
+  integrity sha512-QSvmexHCxeRUk1/yKmoEDaWB5Hohjvtim5g2JJwy8S/l0L4b3y/GxSpE6vN4SBoVGGahEQW21uqyRr7EofI35A==
 
 "@gar/promisify@^1.0.1":
   version "1.1.3"

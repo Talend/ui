@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
 import { Menu, MenuButton, useMenuState } from 'reakit';
 import { IconName } from '@talend/icons';
 import DropdownButton from './Primitive/DropdownButton';
@@ -11,7 +11,7 @@ import { LinkableType } from '../Linkable';
 
 type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 	label: string;
-	onClick: () => void;
+	onClick: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 	icon?: IconName;
 	type: 'button';
 };

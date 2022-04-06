@@ -9,6 +9,7 @@
 	border-radius: tokens.$coral-radius-s;
 	height: tokens.$coral-sizing-m;
 	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-m;
+	min-width: 0;
 
 	&__icon {
 		display: inline-flex;
