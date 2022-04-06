@@ -2,8 +2,8 @@
 
 .skeleton {
 	display: inline-block;
-	height: tokens.$coral-size-xl;
-	width: tokens.$coral-size-xl;
+	height: tokens.$coral-sizing-m;
+	width: tokens.$coral-sizing-m;
 	background: tokens.$coral-color-neutral-background-strong;
 	animation: tokens.$coral-animation-heartbeat;
 	border-radius: tokens.$coral-radius-s;
@@ -16,21 +16,21 @@
 }
 
 .size-XL {
-	height: tokens.$coral-size-xl;
+	height: tokens.$coral-sizing-m;
 }
 
 .size-L {
-	height: tokens.$coral-size-l;
+	height: tokens.$coral-sizing-s;
 }
 
 .size-M {
-	height: tokens.$coral-size-m;
+	height: tokens.$coral-sizing-xxxs;
 }
 
 .size-S {
-	height: tokens.$coral-size-s;
+	height: tokens.$coral-sizing-minimal;
 }
 
 .size-XS {
-	height: tokens.$coral-size-xs;
+	height: tokens.$coral-spacing-xs;
 }

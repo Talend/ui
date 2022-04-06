@@ -53,7 +53,7 @@ export const InlineEditing = styled.div`
 		.c-inline-editing__action {
 			flex: 0 0 auto;
 			opacity: 0;
-			margin-left: ${DStokens.coralSizeXxs};
+			margin-left: ${DStokens.coralSpacingXxs};
 			transition: opacity ${DStokens.coralTransitionFast};
 
 			> * {
