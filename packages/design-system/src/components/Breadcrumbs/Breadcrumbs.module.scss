@@ -11,8 +11,8 @@
 	}
 
 	.entry {
-		max-width: tokens.$coral-size-limit;
-		min-width: tokens.$coral-size-xl;
+		max-width: tokens.$coral-sizing-maximal;
+		min-width: tokens.$coral-sizing-m;
 		position: relative;
 
 		&__collapsed {
