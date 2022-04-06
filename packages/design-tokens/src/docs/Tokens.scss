@@ -9,8 +9,8 @@ dd {
 .skeleton {
 }
 .tokenFilter {
-	margin: tokens.$coral-size-xl 0;
-	padding: tokens.$coral-size-s;
+	margin: tokens.$coral-spacing-xl 0;
+	padding: tokens.$coral-spacing-s;
 	background: tokens.$coral-color-neutral-background-medium;
 	border-radius: tokens.$coral-radius-s;
 
@@ -20,7 +20,7 @@ dd {
 	}
 
 	input {
-		margin: tokens.$coral-size-xxs;
+		margin: tokens.$coral-spacing-xxs;
 	}
 }
 
@@ -30,7 +30,7 @@ dd {
 	grid-template-areas:
 		'name demo demo'
 		'description value value';
-	margin: tokens.$coral-size-s 0 tokens.$coral-size-xl;
+	margin: tokens.$coral-spacing-s 0 tokens.$coral-spacing-xl;
 }
 
 .tokenName {
@@ -52,8 +52,8 @@ dd {
 .tokenValue {
 	grid-area: value;
 	position: relative;
-	margin-top: tokens.$coral-size-s;
-	padding: tokens.$coral-size-xs;
+	margin-top: tokens.$coral-spacing-s;
+	padding: tokens.$coral-spacing-xs;
 	margin-left: auto;
 	max-width: 90%;
 	text-align: end;
@@ -64,7 +64,7 @@ dd {
 	&:after {
 		position: absolute;
 		bottom: 100%;
-		right: tokens.$coral-size-xs;
+		right: tokens.$coral-spacing-xs;
 		content: '';
 		height: 0;
 		width: 0;
@@ -73,8 +73,8 @@ dd {
 
 	&:after {
 		border-bottom-color: tokens.$coral-color-neutral-background-medium;
-		border-width: tokens.$coral-size-xs;
-		margin-left: -#{tokens.$coral-size-xs};
+		border-width: tokens.$coral-spacing-xs;
+		margin-left: -#{tokens.$coral-spacing-xs};
 	}
 
 	code {
@@ -86,15 +86,15 @@ dd {
 }
 
 .border {
-	width: tokens.$coral-size-xl;
-	height: tokens.$coral-size-xl;
+	width: tokens.$coral-sizing-m;
+	height: tokens.$coral-sizing-m;
 	border-radius: tokens.$coral-radius-s;
 	border: none;
 }
 
 .branding {
-	height: tokens.$coral-size-xl;
-	width: tokens.$coral-size-xl;
+	height: tokens.$coral-sizing-m;
+	width: tokens.$coral-sizing-m;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -105,54 +105,54 @@ dd {
 }
 
 .color {
-	height: tokens.$coral-size-xl;
-	width: tokens.$coral-size-xl;
+	height: tokens.$coral-sizing-m;
+	width: tokens.$coral-sizing-m;
 	border-radius: tokens.$coral-radius-s;
 	border: 1px solid tokens.$coral-color-neutral-border-weak;
 }
 
 .elevation {
-	margin: tokens.$coral-size-xs;
-	width: tokens.$coral-size-xl;
-	height: calc(#{tokens.$coral-size-xl} / 2);
+	margin: tokens.$coral-spacing-xs;
+	width: tokens.$coral-sizing-m;
+	height: calc(#{tokens.$coral-sizing-m} / 2);
 	background: tokens.$coral-color-accent-background;
 	border-radius: tokens.$coral-radius-s;
 	transform: skew(-45deg);
 }
 
 .gradient {
-	height: tokens.$coral-size-xl;
-	width: tokens.$coral-size-limit;
+	height: tokens.$coral-sizing-m;
+	width: tokens.$coral-sizing-maximal;
 	background-size: contain;
 	background-repeat: no-repeat;
 	border-radius: tokens.$coral-radius-s;
 }
 
 .measure {
-	width: tokens.$coral-size-xl;
-	height: tokens.$coral-size-xl;
+	width: tokens.$coral-sizing-m;
+	height: tokens.$coral-sizing-m;
 	background: tokens.$coral-color-accent-background;
 	border-radius: tokens.$coral-radius-s;
 }
 
 .radius {
-	height: tokens.$coral-size-xl;
-	width: tokens.$coral-size-xl;
+	height: tokens.$coral-sizing-m;
+	width: tokens.$coral-sizing-m;
 	background: tokens.$coral-color-accent-background;
 }
 
 .shadow {
-	height: tokens.$coral-size-xl;
-	width: tokens.$coral-size-xl;
+	height: tokens.$coral-sizing-m;
+	width: tokens.$coral-sizing-m;
 	border-radius: tokens.$coral-radius-s;
 }
 
 .opacity {
-	height: tokens.$coral-size-xl;
-	width: tokens.$coral-size-limit;
+	height: tokens.$coral-sizing-m;
+	width: tokens.$coral-sizing-maximal;
 	background-image: linear-gradient(to right, rgba(192, 192, 192, 0.75), rgba(192, 192, 192, 0.75)), linear-gradient(to right, black 50%, white 50%), linear-gradient(to bottom, black 50%, white 50%);
 	background-blend-mode: normal, difference, normal;
-	background-size: tokens.$coral-size-xs tokens.$coral-size-xs;
+	background-size: tokens.$coral-sizing-xs tokens.$coral-sizing-xs;
 	border-radius: tokens.$coral-radius-s;
 
 	&Layer {
@@ -163,8 +163,8 @@ dd {
 }
 
 .transition {
-	height: tokens.$coral-size-xl;
-	width: tokens.$coral-size-xl;
+	height: tokens.$coral-sizing-m;
+	width: tokens.$coral-sizing-m;
 	background: tokens.$coral-color-accent-background;
 	border-radius: tokens.$coral-radius-s;
 
