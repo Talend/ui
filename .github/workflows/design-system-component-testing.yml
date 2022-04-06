@@ -36,7 +36,7 @@ jobs:
         uses: cypress-io/github-action@v3
         with:
           browser: ${{ matrix.browser }}
-          command: yarn test:cy
+          command: yarn workspace @talend/design-system run test:cy
           working-directory: packages/design-system
 
       - name: Cypress screenshots upload
