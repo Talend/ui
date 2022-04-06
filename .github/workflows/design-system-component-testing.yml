@@ -32,7 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn --frozen-lock --ignore-scripts
+          yarn --frozen-lock
 
       - name: Build @talend/design-tokens
         run: |
