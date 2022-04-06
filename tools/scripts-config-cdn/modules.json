@@ -44,7 +44,7 @@
       }
     }
   },
-  "@talend/react-bootstraqp": {
+  "@talend/react-bootstrap": {
     "var": "TalendReactBootstrap",
     "versions": {
       ">= 1.0.0": {
