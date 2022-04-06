@@ -1,7 +1,7 @@
-import { Typeahead } from '@talend/react-components/lib/Typeahead';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import { Typeahead } from '@talend/react-components/lib/Typeahead';
 import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 
 const MINIMUM_LENGTH = 2;
@@ -29,7 +29,7 @@ export const QuickSearchInput = ({
 	return (
 		<Typeahead
 			placeholder={
-				placeholder || t('QUICKSEARCH_PLACEHOLDER', { defaultValue: 'Find in a column...' })
+				placeholder || t('QUICKSEARCH_PLACEHOLDER', 'Find in a column...')
 			}
 			onFocus={() => setOpened(value.length >= MINIMUM_LENGTH)}
 			onBlur={() => {
