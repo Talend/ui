@@ -40,8 +40,6 @@ function LineChart({
 		legend,
 	} = chartOptions;
 
-
-
 	return (
 		<ResponsiveContainer width={width || '100%'} height={height || '100%'} debounce={1}>
 		  <RLineChart
@@ -53,6 +51,7 @@ function LineChart({
 				dataKey="xLabel"
 				interval={xAxisOptions?.interval}
 				dx={xAxisOptions?.horizontalOffset}
+				tickFormatter={xAxisOptions?.formatter}
 			/>
 			<YAxis
 				yAxisId="left"
@@ -62,6 +61,7 @@ function LineChart({
 				interval='preserveEnd'
 				tickCount={6}
 				tickLine={false}
+				tickFormatter={leftYAxisOptions?.formatter}
 			/>
 			<YAxis
 				hide={rightYAxisOptions?.hide !== false}
@@ -73,6 +73,7 @@ function LineChart({
 				interval='preserveEnd'
 				tickCount={6}
 				tickLine={false}
+				tickFormatter={rightYAxisOptions?.formatter}
 			/>
 			{!hideTooltip &&
 				<Tooltip
@@ -80,6 +81,7 @@ function LineChart({
 						<CustomTooltip
 							external={{
 								linesConfig: lines,
+								xformatter: xAxisOptions?.tooltipFormatter || xAxisOptions?.formatter,
 								leftUnit: leftYAxisOptions?.unit,
 								rightUnit: rightYAxisOptions?.unit
 							}}

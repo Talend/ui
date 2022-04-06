@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './LineChart.scss';
 
 import { LineOptions } from './LineChart.types';
+// import { values } from 'lodash';
 
 
 export interface LineChartTooltipProps {
@@ -10,6 +11,7 @@ export interface LineChartTooltipProps {
 	payload?: any[],
 	label?: string,
 	external: {
+		xformatter?: (value: any) => string,
 		leftUnit?: string | number,
 		rightUnit?: string | number,
 		linesConfig: LineOptions[],
@@ -17,7 +19,7 @@ export interface LineChartTooltipProps {
 }
 
 export const CustomTooltip = ({ active, payload, label, external }: LineChartTooltipProps) => {
-	const { linesConfig, leftUnit, rightUnit } = external;
+	const { linesConfig, leftUnit, rightUnit, xformatter } = external;
 
 	const getLineUnit = (axis: 'left' | 'right' | undefined) => axis === 'right' ? rightUnit : leftUnit ;
 
@@ -28,12 +30,20 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 		return color;
 	};
 
+	const getItemDisplayValue = (payloadTable: any[], lineConfig: LineOptions) => {
+		const initialValue = payloadTable.find(item => item.dataKey === lineConfig.key).value;
+
+		return lineConfig.tooltipFormatter ? lineConfig.tooltipFormatter(initialValue) : initialValue;
+	};
+
+	const labelDisplayValue = label && xformatter ? xformatter(label) : label;
+
 	if (active && payload && payload.length) {
 	  return (
 		<div className={classNames(styles['line-chart-custom-tooltip-wrapper'])}>
-			<p className={classNames(styles['line-chart-custom-tooltip-wrapper-title'])}>{label}</p>
+			<div className={classNames(styles['line-chart-custom-tooltip-wrapper-title'])}>{labelDisplayValue}</div>
 			{linesConfig.map(config => (
-		  		<p id={`tooltip_item_${config.key}`}>
+		  		<div id={`tooltip_item_${config.key}`}>
 					<div
 						className={classNames(
 							styles['line-chart-custom-tooltip-line-icon'],
@@ -45,12 +55,12 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 					</span>
 					:
 					<span className={classNames(styles['line-chart-custom-tooltip-line-value'])}>
-						{payload.find(item => item.dataKey === config.key).value}
+						{getItemDisplayValue(payload, config)}
 					</span>
 					<span className={classNames(styles['line-chart-custom-tooltip-line-unit'])}>
 						{getLineUnit(config.axis)}
 					</span>
-		  		</p>
+		  		</div>
 			))}
 		</div>
 	  );

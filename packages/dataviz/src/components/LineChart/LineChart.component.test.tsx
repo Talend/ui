@@ -7,45 +7,26 @@ import { LineChartOptions, LineOptions } from './LineChart.types';
 const chartOptions: LineChartOptions = {
 	width: 300,
 	height: 150,
-	legend: {
-		custom: true,
-		rechartsOptions:{
-			align: 'right',
-			verticalAlign: 'top',
-		},
-	},
+
 	leftYAxisOptions : {
-		rechartsOptions: {
-			type: 'number',
-			domain: [0, 5],
-			tickCount: 6,
-			tickLine: false,
-		},
+		type: 'number',
+		domain: [0, 5],
 	},
 };
 
 const dualAxisChartOptions: LineChartOptions = {
 	...chartOptions,
 	rightYAxisOptions: {
-		rechartsOptions : {
-			hide: false,
-			type: 'number',
-			domain: [0, 100],
-			tickCount: 6,
-			interval: 'preserveStartEnd',
-			tickLine: false,
-			unit: '%',
-		},
+		hide: false,
+		type: 'number',
+		unit: '%',
+		domain: [0, 100],
 	}
 };
 
 const trustScoreLine: LineOptions = {
 	key: 'trustScore',
-		color: '#1667DF',
-		rechartsOptions: {
-			type: 'monotone',
-			strokeWidth: 3,
-		}
+	color: '#1667DF',
 };
 
 const validityLine: LineOptions = {
@@ -54,11 +35,6 @@ const validityLine: LineOptions = {
 		tooltipLabel: 'Validity',
 		legendLabel: 'Validity',
 		axis: 'right',
-		rechartsOptions: {
-			type: 'monotone',
-			strokeWidth: 3,
-			dot: { r: 0 },
-		}
 };
 
 const lines: LineOptions[]
@@ -66,10 +42,6 @@ const lines: LineOptions[]
 	{
 		key: 'trustScore',
 		color: '#1667DF',
-		rechartsOptions: {
-			type: 'monotone',
-			strokeWidth: 3,
-		}
 	},
 ];
 const entries = [

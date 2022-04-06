@@ -24,6 +24,7 @@ export default {
 	},
 } as Meta<LineChartProps>;
 
+
 export const FullyCustomisedLineChart = Template.bind({});
 FullyCustomisedLineChart.args = {
 	chartOptions: {
@@ -35,6 +36,8 @@ FullyCustomisedLineChart.args = {
 		xAxisOptions: {
 			interval: 2,
 			horizontalOffset: 0,
+			formatter: date => `${date.getMonth()}/${date.getDate()}`,
+			tooltipFormatter: date => date.toLocaleString(),
 		},
 		leftYAxisOptions : {
 			unit: '%',
@@ -68,77 +71,77 @@ FullyCustomisedLineChart.args = {
 	],
 	data: [
 		{
-			xLabel: '2/2',
+			xLabel: new Date(2022, 2, 2),
 			trustScore: 2.2,
 			validity: 50,
 		},
 		{
-			xLabel: '2/4',
+			xLabel: new Date(2022, 2, 4),
 			trustScore: 2.2,
 			validity: 50,
 		},
 		{
-			xLabel: '2/6',
+			xLabel: new Date(2022, 2, 6),
 			trustScore: 2.6,
 			validity: 50,
 		},
 		{
-			xLabel: '2/8',
+			xLabel: new Date(2022, 2, 8),
 			trustScore: 3,
 			validity: 50,
 		},
 		{
-			xLabel: '2/10',
+			xLabel: new Date(2022, 2, 10),
 			trustScore: 2.9,
 			validity: 50,
 		},
 		{
-			xLabel: '2/12',
+			xLabel: new Date(2022, 2, 12),
 			trustScore: 3.1,
 			validity: 50,
 		},
 		{
-			xLabel: '2/14',
+			xLabel: new Date(2022, 2, 14),
 			trustScore: 3.4,
 			validity: 65,
 		},
 		{
-			xLabel: '2/16',
+			xLabel: new Date(2022, 2, 16),
 			trustScore: 3.4,
 			validity: 65,
 		},
 		{
-			xLabel: '2/18',
+			xLabel: new Date(2022, 2, 18),
 			trustScore: 3,
 			validity: 65,
 		},
 		{
-			xLabel: '2/20',
+			xLabel: new Date(2022, 2, 20),
 			trustScore: 3.1,
 			validity: 65,
 		},
 		{
-			xLabel: '2/22',
+			xLabel: new Date(2022, 2, 22),
 			trustScore: 3.9,
 			validity: 55,
 		},
 		{
-			xLabel: '2/24',
+			xLabel: new Date(2022, 2, 24),
 			trustScore: 3.5,
 			validity: 55,
 		},
 		{
-			xLabel: '2/26',
+			xLabel: new Date(2022, 2, 26),
 			trustScore: 3.5,
 			validity: 55,
 		},
 		{
-			xLabel: '2/28',
+			xLabel: new Date(2022, 2, 28),
 			trustScore: 3.9,
 			validity: 55,
 		},
 		{
-			xLabel: '2/30',
+			xLabel: new Date(2022, 2, 30),
 			trustScore: 4.2,
 			validity: 75,
 		},

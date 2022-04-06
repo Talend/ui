@@ -1,5 +1,5 @@
 export type LineChartEntry = {
-	xLabel: string;
+	xLabel: any;
 	[key: string]: any;
 };
 
@@ -10,6 +10,7 @@ export type LineOptions = {
 	legendLabel?: string;
 	axis?: 'left' | 'right';
 	dashed?: boolean;
+	tooltipFormatter?: (value: any) => string;
 };
 
 export type LineChartOptions = {
@@ -30,12 +31,15 @@ export type LineChartOptions = {
 	xAxisOptions?: {
 		interval: number | 'preserveStart' | 'preserveEnd' | 'preserveStartEnd';
 		horizontalOffset: number;
+		formatter?: (value: any) => string;
+		tooltipFormatter?: (value: any) => string;
 	},
 	leftYAxisOptions?: {
 		type?: 'number' | 'category';
 		domain?: any[];
 		unit?: string | number
 		hideUnitInAxis?: boolean;
+		formatter?: (value: any) => string;
 	}
 	rightYAxisOptions?: {
 		hide: boolean;
@@ -43,6 +47,7 @@ export type LineChartOptions = {
 		domain?: any[];
 		unit?: string | number
 		hideUnitInAxis?: boolean;
+		formatter?: (value: any) => string;
 	}
 	showGridLines?: boolean;
 };
