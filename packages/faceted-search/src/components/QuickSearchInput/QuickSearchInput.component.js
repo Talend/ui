@@ -29,7 +29,7 @@ export const QuickSearchInput = ({
 	return (
 		<Typeahead
 			placeholder={
-				placeholder || t('QUICKSEARCH_PLACEHOLDER', { defaultValue: 'Find in a column...' })
+				placeholder || t('QUICKSEARCH_PLACEHOLDER', 'Find in a column...')
 			}
 			onFocus={() => setOpened(value.length >= MINIMUM_LENGTH)}
 			onBlur={() => {
