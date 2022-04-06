@@ -5,10 +5,10 @@
 		background: tokens.$coral-color-neutral-background;
 		border-radius: tokens.$coral-radius-s;
 		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
-		max-height: tokens.$coral-size-limit;
+		max-height: tokens.$coral-sizing-maximal;
 		overflow: auto;
-		min-width: calc(#{tokens.$coral-size-limit} / 2);
-		max-width: tokens.$coral-size-limit;
+		min-width: calc(#{tokens.$coral-sizing-maximal} / 2);
+		max-width: tokens.$coral-sizing-maximal;
 		transition: all tokens.$coral-transition-fast;
 		opacity: 0;
 		transform: translateY(-10%);

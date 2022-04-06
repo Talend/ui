@@ -6,7 +6,7 @@
 	flex-shrink: 0;
 	color: tokens.$coral-color-neutral-text-weak;
 	background: tokens.$coral-color-neutral-background-strong;
-	padding: 0 tokens.$coral-size-xs;
+	padding: 0 tokens.$coral-spacing-xs;
 	justify-content: center;
 	align-items: center;
 	font: tokens.$coral-paragraph-m;
@@ -25,13 +25,13 @@
 	}
 
 	&__icon {
-		width: tokens.$coral-size-m;
-		height: tokens.$coral-size-m;
+		width: tokens.$coral-sizing-xxxs;
+		height: tokens.$coral-sizing-xxxs;
 	}
 
 	&__caret {
-		width: tokens.$coral-size-xs;
-		height: tokens.$coral-size-xs;
+		width: tokens.$coral-sizing-minimal;
+		height: tokens.$coral-sizing-minimal;
 	}
 
 	&.button {

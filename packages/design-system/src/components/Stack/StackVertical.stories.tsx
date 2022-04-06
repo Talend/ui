@@ -19,7 +19,7 @@ function Block({ width }: { width: string }) {
 		<div
 			style={{
 				width,
-				height: tokens.coralSizeL,
+				height: tokens.coralSizingS,
 				borderRadius: tokens.coralRadiusM,
 				background: tokens.coralColorAccentBackground,
 				border: `${tokens.coralBorderSDashed} ${tokens.coralColorAccentBorder}`,
