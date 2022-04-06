@@ -60,7 +60,7 @@ Limit changes to styled-components scope.
 
 ### End-to-End tests
 
-Snapshot testing will be covered by Chromatic.
+Visual non-regression testing will be covered by Chromatic.
 Use Cypress if you have to perform interaction tests, in real browsers.
 
 ## License

@@ -61,8 +61,8 @@ export const NavButton = styled('span')`
 		transition: transform ${tokens.transitions.fast};
 
 		> svg {
-			width: ${DSTokens.coralSizeS};
-			height: ${DSTokens.coralSizeS};
+			width: ${DSTokens.coralSizingMinimal};
+			height: ${DSTokens.coralSizingMinimal};
 		}
 	}
 
