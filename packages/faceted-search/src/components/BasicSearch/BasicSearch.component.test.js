@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { mount } from 'enzyme';
-import cloneDeep from 'lodash/cloneDeep';
-import set from 'lodash/set';
 import React from 'react';
+import { mount } from 'enzyme';
+import set from 'lodash/set';
+import cloneDeep from 'lodash/cloneDeep';
 import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
