@@ -3,6 +3,7 @@ name: Design System component testing
 on:
   push:
     paths:
+      - ".github/workflows/design-system-*"
       - "packages/design-tokens/**"
       - "packages/design-system/**"
 
@@ -37,7 +38,6 @@ jobs:
         with:
           browser: ${{ matrix.browser }}
           command: yarn workspace @talend/design-system run test:cy
-          working-directory: packages/design-system
 
       - name: Cypress screenshots upload
         uses: actions/upload-artifact@v2
