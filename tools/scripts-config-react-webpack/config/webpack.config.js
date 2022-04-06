@@ -173,9 +173,7 @@ function getVersions() {
 	const talendLibraries = cdn
 		.getModulesFromLockFile()
 		.filter(Boolean)
-		.map(info => {
-			return { version: info.version, name: info.name };
-		});
+		.map(info => ({ version: info.version, name: info.name }));
 	// eslint-disable-next-line
 	const packageJson = require(path.join(process.cwd(), 'package.json'));
 
