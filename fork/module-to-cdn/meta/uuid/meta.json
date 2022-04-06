@@ -1,0 +1,47 @@
+{
+  "https://unpkg.com/uuid@7.0.0/dist/umd/uuid.min.js": {
+    "integrity": "sha384-hxlY5BOddeG1cpHSIThABUGwMnSRa3e4MgIqA4Y0rdCgV6roMx6qpMs6XJZpaS0t",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 7410
+  },
+  "https://unpkg.com/uuid@7.0.1/dist/umd/uuid.min.js": {
+    "integrity": "sha384-hxlY5BOddeG1cpHSIThABUGwMnSRa3e4MgIqA4Y0rdCgV6roMx6qpMs6XJZpaS0t",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 7410
+  },
+  "https://unpkg.com/uuid@7.0.2/dist/umd/uuid.min.js": {
+    "integrity": "sha384-u9xOgraKKwsDjZR4rXqjtmINh2thRDICaUXV2GsI0NxourFjzr6LagUltg615ECB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 7332
+  },
+  "https://unpkg.com/uuid@7.0.3/dist/umd/uuid.min.js": {
+    "integrity": "sha384-u9xOgraKKwsDjZR4rXqjtmINh2thRDICaUXV2GsI0NxourFjzr6LagUltg615ECB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 7332
+  },
+  "https://unpkg.com/uuid@8.0.0/dist/umd/uuid.min.js": {
+    "integrity": "sha384-u9xOgraKKwsDjZR4rXqjtmINh2thRDICaUXV2GsI0NxourFjzr6LagUltg615ECB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 7332
+  },
+  "https://unpkg.com/uuid@8.1.0/dist/umd/uuid.min.js": {
+    "integrity": "sha384-B/oeapyT7r/x4V/ES6kZeYmw8q+m0U3KuSGIIhqh2rTk35FWHtJOi4rz+0vBMejk",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 7335
+  },
+  "https://unpkg.com/uuid@8.2.0/dist/umd/uuid.min.js": {
+    "integrity": "sha384-vGylWQMMy7y+wsUm/E7BJwQ3zO7v80pjBlIEHZdA18j88CXceL71YR7pRrGu/XWI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 7274
+  },
+  "https://unpkg.com/uuid@8.3.0/dist/umd/uuid.min.js": {
+    "integrity": "sha384-QsBvj0Dc5yUyQrUUmnjfiBG3DOogYSx/mhv5N3HGBQyI5ObmuV8GduqR/0CVBPya",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 8131
+  },
+  "https://unpkg.com/uuid@8.3.1/dist/umd/uuid.min.js": {
+    "integrity": "sha384-vQ7l6TXmQNfOQtV8rxxcdoBF8sdPGw6EiCj/81NA7eoQOG6BuxTDBn0gW3OCzUMh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 8154
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "https://unpkg.com/json-logic-js@1.0.1/logic.js": {
+    "integrity": "sha384-02ggDCrZazunGNlOPeKdAWXDrBUJtaL/1VYhQq/og6mrhdRR2mL2oVyfa5tScIJc",
+    "lastModified": "Mon, 29 Feb 2016 22:15:36 GMT",
+    "size": 6432
+  },
+  "https://unpkg.com/json-logic-js@1.0.10/logic.js": {
+    "integrity": "sha384-/Sqim+fTIocK2CvYUVzYFETe+AQPUWrlxKXXVDRLC9dnComcdoSpncbrQ2aB1mUe",
+    "lastModified": "Thu, 02 Mar 2017 17:53:15 GMT",
+    "size": 9227
+  },
+  "https://unpkg.com/json-logic-js@1.0.11/logic.js": {
+    "integrity": "sha384-8BVuPOcg8X8YEn9OIU3wzK+0uvgWFIDITVG86A3su4nZysISyshitotEfzKf3KNs",
+    "lastModified": "Thu, 02 Mar 2017 18:37:40 GMT",
+    "size": 9148
+  },
+  "https://unpkg.com/json-logic-js@1.0.3/logic.js": {
+    "integrity": "sha384-woVUVg8Er9g8CxPmm6Ctx3brSxGJGK8ri+JvzRHqA0lVcsbENLmaQ42XV7qZi/Xx",
+    "lastModified": "Wed, 02 Mar 2016 20:34:10 GMT",
+    "size": 6458
+  },
+  "https://unpkg.com/json-logic-js@1.0.9/logic.js": {
+    "integrity": "sha384-0xZmgnBZrC8vAhJnrRTwR4WpcBwka2o5nQ+pygtMUQZReOs/4tkeyx/4rYbZZGFg",
+    "lastModified": "Fri, 28 Oct 2016 02:49:33 GMT",
+    "size": 8302
+  },
+  "https://unpkg.com/json-logic-js@1.1.0/logic.js": {
+    "integrity": "sha384-FhD61gNmBKwodK/l1JIl+3Yti6ooIxx8U+Z1rgxBnnlJV2mbqB6VG/yX6kM7T7ys",
+    "lastModified": "Wed, 05 Apr 2017 19:33:42 GMT",
+    "size": 11072
+  },
+  "https://unpkg.com/json-logic-js@1.1.1/logic.js": {
+    "integrity": "sha384-rtrhK5QBDMrgYCu+NxpXpH5Hrn2ic2F+6dvpwlkd6UEPEa2pemQ6ZqK3OF4ukuLR",
+    "lastModified": "Fri, 12 May 2017 02:21:21 GMT",
+    "size": 11012
+  },
+  "https://unpkg.com/json-logic-js@1.1.2/logic.js": {
+    "integrity": "sha384-R2sGEd+IaNLJDSJ9EZNLaGFYwYNEWd1wKNMja3SdMcTMQD+99mIW3ULLKrhEuyr2",
+    "lastModified": "Wed, 21 Jun 2017 19:50:53 GMT",
+    "size": 11449
+  },
+  "https://unpkg.com/json-logic-js@1.1.3/logic.js": {
+    "integrity": "sha384-n1OwlQWfEM6v1zTULi8Lwu7G10mBYarpOOTuoby6iwBkGBQ5vqnf9MP/66W6bqqs",
+    "lastModified": "Fri, 30 Jun 2017 15:27:44 GMT",
+    "size": 11527
+  },
+  "https://unpkg.com/json-logic-js@1.2.0/logic.js": {
+    "integrity": "sha384-g8/HoQwDxoEfmMWlgYBx6sd9oUR+3E89VB6AR7SVfPGkA528sXVL/h0XB+skOjNq",
+    "lastModified": "Tue, 12 Sep 2017 02:48:19 GMT",
+    "size": 13818
+  },
+  "https://unpkg.com/json-logic-js@1.2.1/logic.js": {
+    "integrity": "sha384-IaB1zWnapBi1J6ebQ1D1FHMSL8Tqf1pYQUDxNVQHWOGLFj2TPbibXuQz2OLn0+Jp",
+    "lastModified": "Thu, 05 Oct 2017 02:56:38 GMT",
+    "size": 14122
+  },
+  "https://unpkg.com/json-logic-js@1.2.2/logic.js": {
+    "integrity": "sha384-oPUgQLAU2g16doA0Xhc3GX0QshvPJJcbWIkPAClySXcyuPx5krY8p3DjMJId/2/T",
+    "lastModified": "Fri, 05 Jan 2018 06:50:35 GMT",
+    "size": 14128
+  }
+}

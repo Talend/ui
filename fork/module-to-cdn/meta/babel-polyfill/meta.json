@@ -1,0 +1,252 @@
+{
+  "https://unpkg.com/babel-polyfill@6.0.14/dist/polyfill.js": {
+    "integrity": "sha384-IP3+ns6OnmPWgdId/XV/G3K5phTy1YtWfyiemaN+VEJQY/dh+Tv3gdVsl+IsjQoi",
+    "lastModified": "Fri, 30 Oct 2015 23:31:09 GMT",
+    "size": 142613
+  },
+  "https://unpkg.com/babel-polyfill@6.0.14/dist/polyfill.min.js": {
+    "integrity": "sha384-dYdlV41ECiIa8QyIC/U3pqnLeBrX+6UoVWOGe5JBmLc67AqS/MC3yTQ6mqU9ljkK",
+    "lastModified": "Fri, 30 Oct 2015 23:31:10 GMT",
+    "size": 58558
+  },
+  "https://unpkg.com/babel-polyfill@6.0.16/dist/polyfill.js": {
+    "integrity": "sha384-iKiMX5/kuaRO1XQg55irRpNyJ45GJYsEAMG3i2IqHq7ufp7JbVeAkh7IoMDqaFmz",
+    "lastModified": "Mon, 02 Nov 2015 07:14:11 GMT",
+    "size": 142613
+  },
+  "https://unpkg.com/babel-polyfill@6.0.16/dist/polyfill.min.js": {
+    "integrity": "sha384-gEJXz0EnGyowdw1Guxxf1StGYOU1A+bQpFSvzALctS2aomeVdh5bTEt9Opo5TeJK",
+    "lastModified": "Mon, 02 Nov 2015 07:14:12 GMT",
+    "size": 58558
+  },
+  "https://unpkg.com/babel-polyfill@6.0.2/dist/polyfill.js": {
+    "integrity": "sha384-5q366iR10aMEJIwCSQyUEUSbuicfnxJd7+xy/nRoTh9ab6/DaPQbA17QIQgQ1kvI",
+    "lastModified": "Thu, 29 Oct 2015 18:07:19 GMT",
+    "size": 141296
+  },
+  "https://unpkg.com/babel-polyfill@6.0.2/dist/polyfill.min.js": {
+    "integrity": "sha384-8/kKSZ3SvfZWWy6P7vieFKA41PvE/W2ivFmW8a4UhpktPinXSedePTGiWAboYQGQ",
+    "lastModified": "Thu, 29 Oct 2015 18:07:21 GMT",
+    "size": 57845
+  },
+  "https://unpkg.com/babel-polyfill@6.1.17/dist/polyfill.js": {
+    "integrity": "sha384-UrzDMOqWLyoCZYKPFsXteHXPimZJ15KcoheH46PkWTME6pJaA/e/6bby8hKbghwV",
+    "lastModified": "Thu, 12 Nov 2015 21:40:35 GMT",
+    "size": 148814
+  },
+  "https://unpkg.com/babel-polyfill@6.1.17/dist/polyfill.min.js": {
+    "integrity": "sha384-BWrarm4/QfXhHfJzyX9jPCZRfr9QBGItW9+8Xs4xUsDWDaJON/vQPMScz4dYEFOc",
+    "lastModified": "Thu, 12 Nov 2015 21:40:35 GMT",
+    "size": 61898
+  },
+  "https://unpkg.com/babel-polyfill@6.1.18/dist/polyfill.js": {
+    "integrity": "sha384-UrzDMOqWLyoCZYKPFsXteHXPimZJ15KcoheH46PkWTME6pJaA/e/6bby8hKbghwV",
+    "lastModified": "Thu, 12 Nov 2015 21:46:39 GMT",
+    "size": 148814
+  },
+  "https://unpkg.com/babel-polyfill@6.1.18/dist/polyfill.min.js": {
+    "integrity": "sha384-BWrarm4/QfXhHfJzyX9jPCZRfr9QBGItW9+8Xs4xUsDWDaJON/vQPMScz4dYEFOc",
+    "lastModified": "Thu, 12 Nov 2015 21:46:40 GMT",
+    "size": 61898
+  },
+  "https://unpkg.com/babel-polyfill@6.1.19/dist/polyfill.js": {
+    "integrity": "sha384-UrzDMOqWLyoCZYKPFsXteHXPimZJ15KcoheH46PkWTME6pJaA/e/6bby8hKbghwV",
+    "lastModified": "Thu, 12 Nov 2015 22:18:34 GMT",
+    "size": 148814
+  },
+  "https://unpkg.com/babel-polyfill@6.1.19/dist/polyfill.min.js": {
+    "integrity": "sha384-BWrarm4/QfXhHfJzyX9jPCZRfr9QBGItW9+8Xs4xUsDWDaJON/vQPMScz4dYEFOc",
+    "lastModified": "Thu, 12 Nov 2015 22:18:34 GMT",
+    "size": 61898
+  },
+  "https://unpkg.com/babel-polyfill@6.1.4/dist/polyfill.js": {
+    "integrity": "sha384-UrzDMOqWLyoCZYKPFsXteHXPimZJ15KcoheH46PkWTME6pJaA/e/6bby8hKbghwV",
+    "lastModified": "Wed, 11 Nov 2015 10:04:39 GMT",
+    "size": 148814
+  },
+  "https://unpkg.com/babel-polyfill@6.1.4/dist/polyfill.min.js": {
+    "integrity": "sha384-BWrarm4/QfXhHfJzyX9jPCZRfr9QBGItW9+8Xs4xUsDWDaJON/vQPMScz4dYEFOc",
+    "lastModified": "Wed, 11 Nov 2015 10:04:41 GMT",
+    "size": 61898
+  },
+  "https://unpkg.com/babel-polyfill@6.13.0/dist/polyfill.js": {
+    "integrity": "sha384-zPJweiqi3UuI1ULqyCNG0jbBAZxnJeSZQWCjV33Bug6bMEqOoG5pkavUdLnRMMaP",
+    "lastModified": "Thu, 04 Aug 2016 23:28:25 GMT",
+    "size": 233103
+  },
+  "https://unpkg.com/babel-polyfill@6.13.0/dist/polyfill.min.js": {
+    "integrity": "sha384-vqdIZ/QLRwPCEuhZYvYR9a3IQPsfnOMePPc6ODEOeIZTqsZh3ox3KIp1osNKjcAw",
+    "lastModified": "Thu, 04 Aug 2016 23:28:27 GMT",
+    "size": 97649
+  },
+  "https://unpkg.com/babel-polyfill@6.16.0/dist/polyfill.js": {
+    "integrity": "sha384-jMjLj254kozAhZLUpbnQ02dxM5VkXXIJSRh70ALixtb7Zkfb5pl8bPw+9QA2YtLB",
+    "lastModified": "Wed, 28 Sep 2016 19:35:55 GMT",
+    "size": 233029
+  },
+  "https://unpkg.com/babel-polyfill@6.16.0/dist/polyfill.min.js": {
+    "integrity": "sha384-vqdIZ/QLRwPCEuhZYvYR9a3IQPsfnOMePPc6ODEOeIZTqsZh3ox3KIp1osNKjcAw",
+    "lastModified": "Wed, 28 Sep 2016 19:35:57 GMT",
+    "size": 97649
+  },
+  "https://unpkg.com/babel-polyfill@6.2.0/dist/polyfill.js": {
+    "integrity": "sha384-cAGzsh2lMt1S8cIFJ8eAVKL1sJbaCKAHXD3euzU3HdmcDkzaJvS1UuYwBvnwW3XT",
+    "lastModified": "Thu, 19 Nov 2015 04:33:50 GMT",
+    "size": 148622
+  },
+  "https://unpkg.com/babel-polyfill@6.2.0/dist/polyfill.min.js": {
+    "integrity": "sha384-BX1xJTr3EsPkDNpZchk6Sad6S2cklTRnKgjdpe3SXw+Tm0fxjpsQdb+exu1wTzVp",
+    "lastModified": "Thu, 19 Nov 2015 04:33:50 GMT",
+    "size": 61785
+  },
+  "https://unpkg.com/babel-polyfill@6.2.4/dist/polyfill.js": {
+    "integrity": "sha384-cAGzsh2lMt1S8cIFJ8eAVKL1sJbaCKAHXD3euzU3HdmcDkzaJvS1UuYwBvnwW3XT",
+    "lastModified": "Wed, 25 Nov 2015 03:12:22 GMT",
+    "size": 148622
+  },
+  "https://unpkg.com/babel-polyfill@6.2.4/dist/polyfill.min.js": {
+    "integrity": "sha384-BX1xJTr3EsPkDNpZchk6Sad6S2cklTRnKgjdpe3SXw+Tm0fxjpsQdb+exu1wTzVp",
+    "lastModified": "Wed, 25 Nov 2015 03:12:23 GMT",
+    "size": 61785
+  },
+  "https://unpkg.com/babel-polyfill@6.20.0/dist/polyfill.js": {
+    "integrity": "sha384-BRxrkBiXXzRD1sMNIuDIVo9RvCASqWwEDVc3pvvQxniGYmuqOP9Y+skO6gUTQ8m4",
+    "lastModified": "Thu, 08 Dec 2016 23:21:36 GMT",
+    "size": 233156
+  },
+  "https://unpkg.com/babel-polyfill@6.20.0/dist/polyfill.min.js": {
+    "integrity": "sha384-rBjL8Ve1ukKGEEUDNBI7BMlT5bSdfwzP4M7OPBylbmAs3xPUg5rE43D8SLBSWARA",
+    "lastModified": "Thu, 08 Dec 2016 23:21:38 GMT",
+    "size": 97686
+  },
+  "https://unpkg.com/babel-polyfill@6.22.0/dist/polyfill.js": {
+    "integrity": "sha384-4L0QKU4TUZXBNNRtCIbt9G73L2fXYHnzgCjL65qwFxsXPvuAf1aB6D3X+LIflqu3",
+    "lastModified": "Fri, 20 Jan 2017 00:29:26 GMT",
+    "size": 233721
+  },
+  "https://unpkg.com/babel-polyfill@6.22.0/dist/polyfill.min.js": {
+    "integrity": "sha384-FbHUaR69a828hqWjPw4PFllFj1bvveKOTWORGkyosCw720HXy/56+2hSuQDaogMb",
+    "lastModified": "Fri, 20 Jan 2017 00:29:28 GMT",
+    "size": 97798
+  },
+  "https://unpkg.com/babel-polyfill@6.23.0/dist/polyfill.js": {
+    "integrity": "sha384-4L0QKU4TUZXBNNRtCIbt9G73L2fXYHnzgCjL65qwFxsXPvuAf1aB6D3X+LIflqu3",
+    "lastModified": "Mon, 13 Feb 2017 23:01:47 GMT",
+    "size": 233721
+  },
+  "https://unpkg.com/babel-polyfill@6.23.0/dist/polyfill.min.js": {
+    "integrity": "sha384-FbHUaR69a828hqWjPw4PFllFj1bvveKOTWORGkyosCw720HXy/56+2hSuQDaogMb",
+    "lastModified": "Mon, 13 Feb 2017 23:01:48 GMT",
+    "size": 97798
+  },
+  "https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.js": {
+    "integrity": "sha384-FLl3gSshBdjnN9jJeb5rwa2jstfE9os25mTXn+TWdz0qIbbUiB11Dx9LkYbwmJoH",
+    "lastModified": "Wed, 16 Aug 2017 15:48:17 GMT",
+    "size": 248871
+  },
+  "https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js": {
+    "integrity": "sha384-Ui1pvNxCzO7LqnfgsWJ2ndsgpJPrWVTg7DCIag+do29np24E7Jyy6A09M3JUuLQf",
+    "lastModified": "Wed, 16 Aug 2017 15:48:20 GMT",
+    "size": 104563
+  },
+  "https://unpkg.com/babel-polyfill@6.3.13/dist/polyfill.js": {
+    "integrity": "sha384-cAGzsh2lMt1S8cIFJ8eAVKL1sJbaCKAHXD3euzU3HdmcDkzaJvS1UuYwBvnwW3XT",
+    "lastModified": "Fri, 04 Dec 2015 11:54:59 GMT",
+    "size": 148622
+  },
+  "https://unpkg.com/babel-polyfill@6.3.13/dist/polyfill.min.js": {
+    "integrity": "sha384-TmnwjvAKkzj4PFkf8tmEY5hRKf1eAWU6/P8/Skd+sR59LMx4z+w/jV2HKF9S+Ucw",
+    "lastModified": "Fri, 04 Dec 2015 11:55:00 GMT",
+    "size": 61789
+  },
+  "https://unpkg.com/babel-polyfill@6.3.14/dist/polyfill.js": {
+    "integrity": "sha384-Raq7u+uifoGTvoruRm+mttdPDADkv4rax29dCROEdZMcIafckJeDX+ieaZokPOEL",
+    "lastModified": "Fri, 04 Dec 2015 03:48:06 GMT",
+    "size": 145891
+  },
+  "https://unpkg.com/babel-polyfill@6.3.14/dist/polyfill.min.js": {
+    "integrity": "sha384-7S0Hm7bJJmZ4Mofw3ykp0HomVl9jpoQtK/jb/3HENPX8cvjORtN03sjLDmevm1zJ",
+    "lastModified": "Fri, 04 Dec 2015 03:48:07 GMT",
+    "size": 61356
+  },
+  "https://unpkg.com/babel-polyfill@6.5.0/dist/polyfill.js": {
+    "integrity": "sha384-cAGzsh2lMt1S8cIFJ8eAVKL1sJbaCKAHXD3euzU3HdmcDkzaJvS1UuYwBvnwW3XT",
+    "lastModified": "Thu, 14 Jan 2016 21:55:29 GMT",
+    "size": 148622
+  },
+  "https://unpkg.com/babel-polyfill@6.5.0/dist/polyfill.min.js": {
+    "integrity": "sha384-TmnwjvAKkzj4PFkf8tmEY5hRKf1eAWU6/P8/Skd+sR59LMx4z+w/jV2HKF9S+Ucw",
+    "lastModified": "Thu, 14 Jan 2016 21:55:30 GMT",
+    "size": 61789
+  },
+  "https://unpkg.com/babel-polyfill@6.6.0/dist/polyfill.js": {
+    "integrity": "sha384-cAGzsh2lMt1S8cIFJ8eAVKL1sJbaCKAHXD3euzU3HdmcDkzaJvS1UuYwBvnwW3XT",
+    "lastModified": "Thu, 14 Jan 2016 21:55:29 GMT",
+    "size": 148622
+  },
+  "https://unpkg.com/babel-polyfill@6.6.0/dist/polyfill.min.js": {
+    "integrity": "sha384-TmnwjvAKkzj4PFkf8tmEY5hRKf1eAWU6/P8/Skd+sR59LMx4z+w/jV2HKF9S+Ucw",
+    "lastModified": "Thu, 14 Jan 2016 21:55:30 GMT",
+    "size": 61789
+  },
+  "https://unpkg.com/babel-polyfill@6.6.1/dist/polyfill.js": {
+    "integrity": "sha384-5wlBdLJOkJ9RxEciNWah7SHGoJMJr2dKvvfBoPQtN8hiVKRcm0cJ1L86oGDeXmRD",
+    "lastModified": "Tue, 01 Mar 2016 00:24:22 GMT",
+    "size": 219147
+  },
+  "https://unpkg.com/babel-polyfill@6.6.1/dist/polyfill.min.js": {
+    "integrity": "sha384-eHTSdfv2+3eXoweCw2mnQC+R7py7UnqgfWocqN3m3VHKp+iTnwxjhYsFjU/68IHI",
+    "lastModified": "Tue, 01 Mar 2016 00:24:24 GMT",
+    "size": 91958
+  },
+  "https://unpkg.com/babel-polyfill@6.7.2/dist/polyfill.js": {
+    "integrity": "sha384-psHTMvGS3qOCvViI4EV0bCF9/pxgHiCtS6QB4XjO20H7imDmVq+L2hGW3a4UnrJR",
+    "lastModified": "Thu, 10 Mar 2016 22:39:46 GMT",
+    "size": 219624
+  },
+  "https://unpkg.com/babel-polyfill@6.7.2/dist/polyfill.min.js": {
+    "integrity": "sha384-pVhvSxrMnyiQFc8aZxwmYEjeDNa5WGJd5QCRQOGjqmTweA/9HyDO+Qfvl2JnjDzu",
+    "lastModified": "Thu, 10 Mar 2016 22:39:47 GMT",
+    "size": 92062
+  },
+  "https://unpkg.com/babel-polyfill@6.7.4/dist/polyfill.js": {
+    "integrity": "sha384-v0pR12+qGHTBJQrTanRxht5V43wXGZoJ8sn0A1l7KeKHgLmp7Jh7axcfTtQ51++c",
+    "lastModified": "Wed, 23 Mar 2016 03:36:14 GMT",
+    "size": 224281
+  },
+  "https://unpkg.com/babel-polyfill@6.7.4/dist/polyfill.min.js": {
+    "integrity": "sha384-UGW4/+yZ1Tzj+VmFrv2bVev8B4/oCzQeN9FPAr9xEswOD80h7qPw3H3qG/9cE1OX",
+    "lastModified": "Wed, 23 Mar 2016 03:36:15 GMT",
+    "size": 93851
+  },
+  "https://unpkg.com/babel-polyfill@6.8.0/dist/polyfill.js": {
+    "integrity": "sha384-FmKdg32CGepgjFKU3DvjZupke5eCuHUcviDam03fuRv0dsCpF+HbLM8Rzi/A1n1s",
+    "lastModified": "Mon, 02 May 2016 23:43:39 GMT",
+    "size": 227504
+  },
+  "https://unpkg.com/babel-polyfill@6.8.0/dist/polyfill.min.js": {
+    "integrity": "sha384-V1HiZ70wP0AK02fNntnxSPhe/dj6mnnFFj77oIQK9Rk0oJwIB1gc2cdhToiCNOtq",
+    "lastModified": "Mon, 02 May 2016 23:43:41 GMT",
+    "size": 95235
+  },
+  "https://unpkg.com/babel-polyfill@6.9.0/dist/polyfill.js": {
+    "integrity": "sha384-FmKdg32CGepgjFKU3DvjZupke5eCuHUcviDam03fuRv0dsCpF+HbLM8Rzi/A1n1s",
+    "lastModified": "Tue, 17 May 2016 18:28:09 GMT",
+    "size": 227504
+  },
+  "https://unpkg.com/babel-polyfill@6.9.0/dist/polyfill.min.js": {
+    "integrity": "sha384-V1HiZ70wP0AK02fNntnxSPhe/dj6mnnFFj77oIQK9Rk0oJwIB1gc2cdhToiCNOtq",
+    "lastModified": "Tue, 17 May 2016 18:28:10 GMT",
+    "size": 95235
+  },
+  "https://unpkg.com/babel-polyfill@6.9.1/dist/polyfill.js": {
+    "integrity": "sha384-RlHScAt/lAS/LiUG9SH4DLYmJk9kc84YOP0iIwhGtgTJ2kr6kO9u1KQFACXQEJAl",
+    "lastModified": "Sun, 29 May 2016 19:45:33 GMT",
+    "size": 234141
+  },
+  "https://unpkg.com/babel-polyfill@6.9.1/dist/polyfill.min.js": {
+    "integrity": "sha384-RQi19Do09/8iJGc2fqKXLGIpK3uEjL2ZO5TmzFVyctaUv55ptE0a+bxJ+h+PLC5e",
+    "lastModified": "Sun, 29 May 2016 19:45:34 GMT",
+    "size": 97861
+  }
+}

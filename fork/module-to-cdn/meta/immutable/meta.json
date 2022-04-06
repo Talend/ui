@@ -1,0 +1,254 @@
+{
+  "https://unpkg.com/immutable@3.0.0/dist/immutable.js": {
+    "integrity": "sha384-5IGOt+qZydGhbe4NhhH8QMKWuGT+S1fX2+bm4HV9Q3EPqOOyM2SHDSyeFi2cCRnd",
+    "lastModified": "Wed, 29 Oct 2014 03:12:24 GMT",
+    "size": 110934
+  },
+  "https://unpkg.com/immutable@3.0.0/dist/immutable.min.js": {
+    "integrity": "sha384-tfOBVgoK0p+jHvpVfJEdBakyRMurgUgMjt2uT65ONJKfdmCc4290X6hoOAwILx1m",
+    "lastModified": "Wed, 29 Oct 2014 03:12:24 GMT",
+    "size": 51567
+  },
+  "https://unpkg.com/immutable@3.0.1/dist/immutable.js": {
+    "integrity": "sha384-5IGOt+qZydGhbe4NhhH8QMKWuGT+S1fX2+bm4HV9Q3EPqOOyM2SHDSyeFi2cCRnd",
+    "lastModified": "Wed, 29 Oct 2014 04:10:54 GMT",
+    "size": 110934
+  },
+  "https://unpkg.com/immutable@3.0.1/dist/immutable.min.js": {
+    "integrity": "sha384-tfOBVgoK0p+jHvpVfJEdBakyRMurgUgMjt2uT65ONJKfdmCc4290X6hoOAwILx1m",
+    "lastModified": "Wed, 29 Oct 2014 04:10:55 GMT",
+    "size": 51567
+  },
+  "https://unpkg.com/immutable@3.0.2/dist/immutable.js": {
+    "integrity": "sha384-ivbMXC6EBQ1tjOTwkJ6xW9CUdwxRlRvkryW/pVbPC34Ki7LtY20JIKPbbpY6urYD",
+    "lastModified": "Sat, 01 Nov 2014 02:37:13 GMT",
+    "size": 111312
+  },
+  "https://unpkg.com/immutable@3.0.2/dist/immutable.min.js": {
+    "integrity": "sha384-LN+5LFEQgD8YEczdWMGLTBcDSFSo/bVIaKNL9cLJqXXmjlxIo83f7qLpqfScHajO",
+    "lastModified": "Sat, 01 Nov 2014 02:37:14 GMT",
+    "size": 51672
+  },
+  "https://unpkg.com/immutable@3.0.3/dist/immutable.js": {
+    "integrity": "sha384-x2nBpvlfgcBMK5/Y8KiDr4VMWQ1Tq0tihvDrxOq67dc/OxCOuelMSZYpMfjVYDNZ",
+    "lastModified": "Wed, 05 Nov 2014 21:28:33 GMT",
+    "size": 111871
+  },
+  "https://unpkg.com/immutable@3.0.3/dist/immutable.min.js": {
+    "integrity": "sha384-1dovz3GVC8/RfaQySYPMTmr7Itg+dq/yZVUAviR8giOx3U6DFvYtmSWD6XAovA12",
+    "lastModified": "Wed, 05 Nov 2014 21:28:34 GMT",
+    "size": 51898
+  },
+  "https://unpkg.com/immutable@3.1.0/dist/immutable.js": {
+    "integrity": "sha384-vg7625n253/awTzkTWAYn/yGTIO/D60wBYdn6ZSNjr8i6FpqT8NBwSE7dXVOxh+v",
+    "lastModified": "Tue, 11 Nov 2014 23:21:13 GMT",
+    "size": 116901
+  },
+  "https://unpkg.com/immutable@3.1.0/dist/immutable.min.js": {
+    "integrity": "sha384-fdvDSRxzAeit9ZycbvukDocHqb54YOfNN9hj2qRqz9IIvGaBr5KmHFWNKvjLdEB1",
+    "lastModified": "Tue, 11 Nov 2014 23:21:13 GMT",
+    "size": 53768
+  },
+  "https://unpkg.com/immutable@3.2.0/dist/immutable.js": {
+    "integrity": "sha384-371QZggvie5jbh+gPdDkQENUVbjIqO2lBVu7cgtBWr54uOlMXgfQA8poBx1O+MB4",
+    "lastModified": "Fri, 14 Nov 2014 23:49:54 GMT",
+    "size": 117524
+  },
+  "https://unpkg.com/immutable@3.2.0/dist/immutable.min.js": {
+    "integrity": "sha384-++JSm4ptfTjmeoHFYrIDr+08pfylb6hcrCK4nKyEqDFMJ+DBW97Rc3t6bPwCVqTb",
+    "lastModified": "Fri, 14 Nov 2014 23:49:55 GMT",
+    "size": 53989
+  },
+  "https://unpkg.com/immutable@3.2.1/dist/immutable.js": {
+    "integrity": "sha384-I/u79l/0efVm10CMgJw+qw3vtTvL2z5kLBckJxadVm7g4q6Mgq1w0SWPSP9F2TOW",
+    "lastModified": "Sat, 15 Nov 2014 07:13:16 GMT",
+    "size": 117636
+  },
+  "https://unpkg.com/immutable@3.2.1/dist/immutable.min.js": {
+    "integrity": "sha384-x2pBIvoMx7AEld5NlUsAHLq7lSYCyk+9NFWEDMk2j+RYp5g0bB84LGDZaWhjzO3j",
+    "lastModified": "Sat, 15 Nov 2014 07:13:17 GMT",
+    "size": 54027
+  },
+  "https://unpkg.com/immutable@3.3.0/dist/immutable.js": {
+    "integrity": "sha384-YGwOyXq6+IPf+mUt6+M3NbCCXXUPlLZFUBOvAhWY9FR/Ob3u1Jp/dbNMa3gYglAP",
+    "lastModified": "Mon, 24 Nov 2014 02:53:50 GMT",
+    "size": 120758
+  },
+  "https://unpkg.com/immutable@3.3.0/dist/immutable.min.js": {
+    "integrity": "sha384-LB7++O6wFVFM+8YILjnjSG9i6aoydqXD82n99vMkyJAScsIiwE2h90m/m2XxZDx4",
+    "lastModified": "Mon, 24 Nov 2014 02:53:50 GMT",
+    "size": 55627
+  },
+  "https://unpkg.com/immutable@3.4.0/dist/immutable.js": {
+    "integrity": "sha384-+TRZlGPzUaMpYxl0X7L5sfIbr4qtt9/XiQJmtH03Vb6cP1XMbW0/V//hsZNXZBbo",
+    "lastModified": "Tue, 16 Dec 2014 22:27:38 GMT",
+    "size": 119908
+  },
+  "https://unpkg.com/immutable@3.4.0/dist/immutable.min.js": {
+    "integrity": "sha384-ZObsCrBtwqJBXqguq4aZY4OGy1epsVJp+e+oRagR5GspPPCXGjeQbBKaR3ySau0V",
+    "lastModified": "Tue, 16 Dec 2014 22:27:39 GMT",
+    "size": 55217
+  },
+  "https://unpkg.com/immutable@3.4.1/dist/immutable.js": {
+    "integrity": "sha384-ZUBL5h+Cx4kzIfSa+41POW9u6JoH5nHCZaa5SQVciAgrcjYcsY4fVdAR7kwj329R",
+    "lastModified": "Thu, 18 Dec 2014 22:26:21 GMT",
+    "size": 120109
+  },
+  "https://unpkg.com/immutable@3.4.1/dist/immutable.min.js": {
+    "integrity": "sha384-1d7ygvCR9Px4Xa9QPwDg6CwoYjFR8kgs7Vlfg1jYDlU4qJPuQ7WHOP1LwMnZ/7MF",
+    "lastModified": "Thu, 18 Dec 2014 22:26:21 GMT",
+    "size": 55331
+  },
+  "https://unpkg.com/immutable@3.5.0/dist/immutable.js": {
+    "integrity": "sha384-RRhqcAdtxbkFXFzRLKX2pdh3Vr9XSd2cOfL63jomQy2FMi0BFUgMjWKc3Yyywl8h",
+    "lastModified": "Wed, 07 Jan 2015 03:10:22 GMT",
+    "size": 138519
+  },
+  "https://unpkg.com/immutable@3.5.0/dist/immutable.min.js": {
+    "integrity": "sha384-B+XmKzMiglzF9pOFtAqqncKGEfVOdsfRriKOP9tM2cCu3D7/x90fPoh8xv2MuhsL",
+    "lastModified": "Wed, 07 Jan 2015 03:10:23 GMT",
+    "size": 56012
+  },
+  "https://unpkg.com/immutable@3.6.0/dist/immutable.js": {
+    "integrity": "sha384-uXdBJgpXvFMN2rijZv/4lV9IxO23oUjaEMckpVqgmr4n5DRsb2PZ5jXzxrSaDCwH",
+    "lastModified": "Mon, 12 Jan 2015 17:19:27 GMT",
+    "size": 138653
+  },
+  "https://unpkg.com/immutable@3.6.0/dist/immutable.min.js": {
+    "integrity": "sha384-ioa3lFk6B4dhJj1u9hdBvpsOmRkZ4Lnt54kb7foHUPoKZeCNdElR6bK7TdGtvfnX",
+    "lastModified": "Mon, 12 Jan 2015 17:19:28 GMT",
+    "size": 56111
+  },
+  "https://unpkg.com/immutable@3.6.1/dist/immutable.js": {
+    "integrity": "sha384-uXdBJgpXvFMN2rijZv/4lV9IxO23oUjaEMckpVqgmr4n5DRsb2PZ5jXzxrSaDCwH",
+    "lastModified": "Mon, 12 Jan 2015 20:56:18 GMT",
+    "size": 138653
+  },
+  "https://unpkg.com/immutable@3.6.1/dist/immutable.min.js": {
+    "integrity": "sha384-ioa3lFk6B4dhJj1u9hdBvpsOmRkZ4Lnt54kb7foHUPoKZeCNdElR6bK7TdGtvfnX",
+    "lastModified": "Mon, 12 Jan 2015 20:56:19 GMT",
+    "size": 56111
+  },
+  "https://unpkg.com/immutable@3.6.2/dist/immutable.js": {
+    "integrity": "sha384-uXdBJgpXvFMN2rijZv/4lV9IxO23oUjaEMckpVqgmr4n5DRsb2PZ5jXzxrSaDCwH",
+    "lastModified": "Mon, 12 Jan 2015 22:55:29 GMT",
+    "size": 138653
+  },
+  "https://unpkg.com/immutable@3.6.2/dist/immutable.min.js": {
+    "integrity": "sha384-ioa3lFk6B4dhJj1u9hdBvpsOmRkZ4Lnt54kb7foHUPoKZeCNdElR6bK7TdGtvfnX",
+    "lastModified": "Mon, 12 Jan 2015 22:55:30 GMT",
+    "size": 56111
+  },
+  "https://unpkg.com/immutable@3.6.3/dist/immutable.js": {},
+  "https://unpkg.com/immutable@3.6.3/dist/immutable.min.js": {},
+  "https://unpkg.com/immutable@3.6.4/dist/immutable.js": {
+    "integrity": "sha384-f0oI5L3I1HseeLYNVBH+0yL80byRH5C6lsFbbTh78Eyp0yt8htAlFPRje8K47Lkc",
+    "lastModified": "Sun, 08 Mar 2015 01:00:55 GMT",
+    "size": 139568
+  },
+  "https://unpkg.com/immutable@3.6.4/dist/immutable.min.js": {
+    "integrity": "sha384-9XriZGxGo7e5rVfn5b4jeaGd+SVi/M3dWVPRXd3cO+lUZNk6KY+gv2331H9Y4q9N",
+    "lastModified": "Sun, 08 Mar 2015 01:00:56 GMT",
+    "size": 56052
+  },
+  "https://unpkg.com/immutable@3.7.0/dist/immutable.js": {
+    "integrity": "sha384-DzgT0XhOvKQVZvEkCrU0lKjqH5Iw1W/+rGyryqi/dXelDAxEK7fSQrn+gD2GUIXl",
+    "lastModified": "Fri, 27 Mar 2015 05:27:33 GMT",
+    "size": 140728
+  },
+  "https://unpkg.com/immutable@3.7.0/dist/immutable.min.js": {
+    "integrity": "sha384-1mqduMgRePhcuAMHhnwzVkrGKxAhzwY/gl/o5uZkTJtIhvzqG25pz/5fJydpRaAa",
+    "lastModified": "Fri, 27 Mar 2015 05:27:34 GMT",
+    "size": 56411
+  },
+  "https://unpkg.com/immutable@3.7.1/dist/immutable.js": {
+    "integrity": "sha384-xPE1o8gjefSDPVCR9ob78cPxXl0uPJcTTtDh2D+h6IkAPh/79cvQmv62Q8XC1HCa",
+    "lastModified": "Sun, 29 Mar 2015 20:21:32 GMT",
+    "size": 140815
+  },
+  "https://unpkg.com/immutable@3.7.1/dist/immutable.min.js": {
+    "integrity": "sha384-lGPDOe+giefW+FdOwN7+hAexuvPkPqd7noKiM60dlY2jwnF9NC4kGJx8Npn1uKig",
+    "lastModified": "Sun, 29 Mar 2015 20:21:33 GMT",
+    "size": 56458
+  },
+  "https://unpkg.com/immutable@3.7.2/dist/immutable.js": {
+    "integrity": "sha384-xPE1o8gjefSDPVCR9ob78cPxXl0uPJcTTtDh2D+h6IkAPh/79cvQmv62Q8XC1HCa",
+    "lastModified": "Sun, 29 Mar 2015 20:21:32 GMT",
+    "size": 140815
+  },
+  "https://unpkg.com/immutable@3.7.2/dist/immutable.min.js": {
+    "integrity": "sha384-lGPDOe+giefW+FdOwN7+hAexuvPkPqd7noKiM60dlY2jwnF9NC4kGJx8Npn1uKig",
+    "lastModified": "Sun, 29 Mar 2015 20:21:33 GMT",
+    "size": 56458
+  },
+  "https://unpkg.com/immutable@3.7.3/dist/immutable.js": {
+    "integrity": "sha384-O0zDceeIRT4QI+j0Gg4D2fKGg1haWKmcouKqmYu/7ON0YEah6XNtg9g7KXcAQoOl",
+    "lastModified": "Wed, 20 May 2015 02:08:25 GMT",
+    "size": 141361
+  },
+  "https://unpkg.com/immutable@3.7.3/dist/immutable.min.js": {
+    "integrity": "sha384-CCFb+aUEMtU72aOg/gl4/fkYGeCgr6Neqjtx1Eq8mlkklJkXnJI3aS1BrBeX6lNJ",
+    "lastModified": "Wed, 20 May 2015 02:08:25 GMT",
+    "size": 56524
+  },
+  "https://unpkg.com/immutable@3.7.4/dist/immutable.js": {
+    "integrity": "sha384-85xv7AaSDDYI426Mcm3m7OyVFJAmja40gRD2sGb6YZIGR9apdhm1/hauXE2PYC8Z",
+    "lastModified": "Wed, 17 Jun 2015 21:17:43 GMT",
+    "size": 141445
+  },
+  "https://unpkg.com/immutable@3.7.4/dist/immutable.min.js": {
+    "integrity": "sha384-SUG7SedwN+pJ68QuGIHXwL1zyIOz3rpzHfZ9GiPbkYxJdddQxd4+VARnOVK2rDk+",
+    "lastModified": "Wed, 17 Jun 2015 21:17:43 GMT",
+    "size": 56581
+  },
+  "https://unpkg.com/immutable@3.7.5/dist/immutable.js": {
+    "integrity": "sha384-F2wH5gi4BTXMJV8Np017DQO1yZ1KM5zKS4tcM4OjvvayEMNqR9I6Up1gZnCi7fRH",
+    "lastModified": "Wed, 02 Sep 2015 19:33:15 GMT",
+    "size": 142946
+  },
+  "https://unpkg.com/immutable@3.7.5/dist/immutable.min.js": {
+    "integrity": "sha384-RqBzNo6aNzd4YM1Gy5kHJZ47H+qhoKQAhFn77L+UoYW0kAwL65bSb2xZ+QYPdIGF",
+    "lastModified": "Wed, 02 Sep 2015 19:33:18 GMT",
+    "size": 56729
+  },
+  "https://unpkg.com/immutable@3.7.6/dist/immutable.js": {
+    "integrity": "sha384-0/BYi5QW22tK6Tr53rR5Yz0pr88rJIVKC62diqZwKlb+x2/7OspiGasINMBpXMJj",
+    "lastModified": "Wed, 16 Dec 2015 05:51:23 GMT",
+    "size": 142528
+  },
+  "https://unpkg.com/immutable@3.7.6/dist/immutable.min.js": {
+    "integrity": "sha384-KOIspdospoewBRTMllYpzY6VcUupvtsJRiMQC83yvi9rcmIhUZ0QM4afSSvvE7pb",
+    "lastModified": "Wed, 16 Dec 2015 05:51:24 GMT",
+    "size": 57041
+  },
+  "https://unpkg.com/immutable@3.8.0/dist/immutable.js": {
+    "integrity": "sha384-Z4zybP3F2B4In5yvEGwcxcgZswAjpgKkNje7DN7MDR6KEi4zkzLVA01pRZxpxkvS",
+    "lastModified": "Fri, 15 Apr 2016 23:56:42 GMT",
+    "size": 142397
+  },
+  "https://unpkg.com/immutable@3.8.0/dist/immutable.min.js": {
+    "integrity": "sha384-ova3sd9N2yrmew5XcCC1FEDNDnjdRrbcns4fpLMrW+rpDBOYwIQqSWExSD79ZK1G",
+    "lastModified": "Fri, 15 Apr 2016 23:56:44 GMT",
+    "size": 57007
+  },
+  "https://unpkg.com/immutable@3.8.1/dist/immutable.js": {
+    "integrity": "sha384-OteVOLO1sQTpB6NC6wco0op2FSUsOLzY46iQFcJxsdoQS6u1LZbXZY5Pfo6xPqkH",
+    "lastModified": "Mon, 18 Apr 2016 22:01:33 GMT",
+    "size": 142479
+  },
+  "https://unpkg.com/immutable@3.8.1/dist/immutable.min.js": {
+    "integrity": "sha384-TaopJbw5ytdNAPKhFKas7GHvnQ/mtR6oay1LGKETfwAvOj+JP1SUOLV59YU2pviL",
+    "lastModified": "Mon, 18 Apr 2016 22:01:35 GMT",
+    "size": 57032
+  },
+  "https://unpkg.com/immutable@3.8.2/dist/immutable.js": {
+    "integrity": "sha384-yjz75yKGaL1PqR6KDebhxCeO5bX24hbOpQmb50vA2dJG3yA+AsUycLilNpdU2pDS",
+    "lastModified": "Tue, 03 Oct 2017 18:26:54 GMT",
+    "size": 142351
+  },
+  "https://unpkg.com/immutable@3.8.2/dist/immutable.min.js": {
+    "integrity": "sha384-+lQTX7fixy6ISpxyTdgTcTXwDZrMvLt+k8NhpUIEh1XghcZ4bvCJbq0lEh/VLvVV",
+    "lastModified": "Tue, 03 Oct 2017 18:26:55 GMT",
+    "size": 56904
+  }
+}

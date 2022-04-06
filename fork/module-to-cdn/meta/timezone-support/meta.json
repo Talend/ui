@@ -1,0 +1,122 @@
+{
+  "https://unpkg.com/timezone-support@1.0.0/dist/index.umd.js": {
+    "integrity": "sha384-z4o05Oj7fHtIKN4uDl/Q10v06IXpqooI4VfTtZE1snIAw+dWCbRzJKhe/fdM2M5g",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 181153
+  },
+  "https://unpkg.com/timezone-support@1.1.0/dist/index.umd.js": {
+    "integrity": "sha384-u6qXY2EMc3RXs0x8AH6vLUm3lR32dgvDCxkTuLUGErztFH2uglOgOjl8z+AEE00P",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 181334
+  },
+  "https://unpkg.com/timezone-support@1.1.1/dist/index.umd.js": {
+    "integrity": "sha384-xNXeMvH2cYRkY6QG01XcniZ3HU/tMXI80l7sYvrNlxvtrn/Rg7+G0MHcTrcfwq9Y",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 181304
+  },
+  "https://unpkg.com/timezone-support@1.1.2/dist/index.umd.js": {
+    "integrity": "sha384-91BBpsRAzGjQEX+8eeqzeXuDfkddK11d9g/kFMZjcFXGAu5LInDvCaz3JxAPorK8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 181483
+  },
+  "https://unpkg.com/timezone-support@1.2.0/dist/index.umd.js": {
+    "integrity": "sha384-6OpnJ2xu7UguaoUVZTDE4qkYj3ghR2mouPA4VmESagkjt/qhSWKjV6xni9RRfB7C",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 181619
+  },
+  "https://unpkg.com/timezone-support@1.2.1/dist/index.umd.js": {
+    "integrity": "sha384-xaZkFqh7I/MsfmAEwS4EeiyZHoGcVFs7KGF6q+jlQIr85Fjws/jIXLVwarr7OCYl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 181660
+  },
+  "https://unpkg.com/timezone-support@1.3.0/dist/index.umd.js": {
+    "integrity": "sha384-l+2942xJABucN7Kr436ZU5ZGsXOqFAXg0m4FW5AgenydCRY+8ho4Z4chzucVGSy5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182242
+  },
+  "https://unpkg.com/timezone-support@1.3.1/dist/index.umd.js": {
+    "integrity": "sha384-l+2942xJABucN7Kr436ZU5ZGsXOqFAXg0m4FW5AgenydCRY+8ho4Z4chzucVGSy5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182242
+  },
+  "https://unpkg.com/timezone-support@1.3.2/dist/index.umd.js": {
+    "integrity": "sha384-XbLJWR2y0XXpWuil2Wg/Nf+kYATDpZPIho4VdY0I6jiGXxJgAbLOl1p73iT92+6I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182262
+  },
+  "https://unpkg.com/timezone-support@1.4.0/dist/index.umd.js": {
+    "integrity": "sha384-XbLJWR2y0XXpWuil2Wg/Nf+kYATDpZPIho4VdY0I6jiGXxJgAbLOl1p73iT92+6I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182262
+  },
+  "https://unpkg.com/timezone-support@1.5.0/dist/index.umd.js": {
+    "integrity": "sha384-XbLJWR2y0XXpWuil2Wg/Nf+kYATDpZPIho4VdY0I6jiGXxJgAbLOl1p73iT92+6I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182262
+  },
+  "https://unpkg.com/timezone-support@1.5.1/dist/index.umd.js": {
+    "integrity": "sha384-XbLJWR2y0XXpWuil2Wg/Nf+kYATDpZPIho4VdY0I6jiGXxJgAbLOl1p73iT92+6I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182262
+  },
+  "https://unpkg.com/timezone-support@1.5.2/dist/index.umd.js": {
+    "integrity": "sha384-XbLJWR2y0XXpWuil2Wg/Nf+kYATDpZPIho4VdY0I6jiGXxJgAbLOl1p73iT92+6I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182262
+  },
+  "https://unpkg.com/timezone-support@1.5.3/dist/index.umd.js": {
+    "integrity": "sha384-XbLJWR2y0XXpWuil2Wg/Nf+kYATDpZPIho4VdY0I6jiGXxJgAbLOl1p73iT92+6I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182262
+  },
+  "https://unpkg.com/timezone-support@1.5.4/dist/index.umd.js": {
+    "integrity": "sha384-XbLJWR2y0XXpWuil2Wg/Nf+kYATDpZPIho4VdY0I6jiGXxJgAbLOl1p73iT92+6I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182262
+  },
+  "https://unpkg.com/timezone-support@1.5.5/dist/index.umd.js": {
+    "integrity": "sha384-XbLJWR2y0XXpWuil2Wg/Nf+kYATDpZPIho4VdY0I6jiGXxJgAbLOl1p73iT92+6I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 182262
+  },
+  "https://unpkg.com/timezone-support@1.6.0/dist/index.umd.js": {
+    "integrity": "sha384-6BwCxHZHZDGGdoJGDO2BCSOoOSNmqhJjUKF42TaW+bA3XmzwXZO3PxsyXjx/4uyf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 926636
+  },
+  "https://unpkg.com/timezone-support@1.6.1/dist/index.umd.js": {
+    "integrity": "sha384-6BwCxHZHZDGGdoJGDO2BCSOoOSNmqhJjUKF42TaW+bA3XmzwXZO3PxsyXjx/4uyf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 926636
+  },
+  "https://unpkg.com/timezone-support@1.7.0/dist/index.umd.js": {
+    "integrity": "sha384-6BwCxHZHZDGGdoJGDO2BCSOoOSNmqhJjUKF42TaW+bA3XmzwXZO3PxsyXjx/4uyf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 926636
+  },
+  "https://unpkg.com/timezone-support@1.8.0/dist/index.umd.js": {
+    "integrity": "sha384-6BwCxHZHZDGGdoJGDO2BCSOoOSNmqhJjUKF42TaW+bA3XmzwXZO3PxsyXjx/4uyf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 926636
+  },
+  "https://unpkg.com/timezone-support@1.8.1/dist/index.umd.js": {
+    "integrity": "sha384-6BwCxHZHZDGGdoJGDO2BCSOoOSNmqhJjUKF42TaW+bA3XmzwXZO3PxsyXjx/4uyf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 926636
+  },
+  "https://unpkg.com/timezone-support@2.0.0/dist/index.umd.js": {
+    "integrity": "sha384-/XV34H6IUcFq3Ef+kL2+JfohafF0J08AP205Yv5JQ0fxsMTqygux5NmdqcgkmT4H",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 926647
+  },
+  "https://unpkg.com/timezone-support@2.0.1/dist/index.umd.js": {
+    "integrity": "sha384-UhXpJ8Zoa5gKgbav1IP+AkRs5Clp51qBM3lMbDAT/h9RqBxt2PVPkDKrlhF460Bs",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 926715
+  },
+  "https://unpkg.com/timezone-support@2.0.2/dist/index.umd.js": {
+    "integrity": "sha384-lYg7eOskUci8xZ5FopwjfRuvZmRcmgYm2lf1MLJ6BVjnGNg9RSpzO5FDdI9Au7oc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 928249
+  }
+}
