@@ -7,35 +7,35 @@
 	justify-content: center;
 	font: tokens.$coral-paragraph-m-bold;
 	border-radius: tokens.$coral-radius-s;
-	height: tokens.$coral-size-xl;
-	padding: tokens.$coral-size-xxs tokens.$coral-size-m;
+	height: tokens.$coral-sizing-m;
+	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-m;
 
 	&__icon {
 		display: inline-flex;
-		width: tokens.$coral-size-m;
-		height: tokens.$coral-size-m;
+		width: tokens.$coral-sizing-xxxs;
+		height: tokens.$coral-sizing-xxxs;
 		align-items: center;
 	}
 
 	&__caret {
 		display: inline-flex;
-		width: tokens.$coral-size-xs;
-		height: tokens.$coral-size-xs;
+		width: tokens.$coral-sizing-minimal;
+		height: tokens.$coral-sizing-minimal;
 		align-items: center;
 		transition: transform tokens.$coral-transition-fast;
 	}
 
 	&__loading {
 		display: inline-flex;
-		width: tokens.$coral-size-m;
-		height: tokens.$coral-size-m;
+		width: tokens.$coral-sizing-xxxs;
+		height: tokens.$coral-sizing-xxxs;
 		align-items: center;
 		color: tokens.$coral-color-accent-icon;
 	}
 
 	&.size-S {
-		height: tokens.$coral-size-l;
-		padding: tokens.$coral-size-xxs tokens.$coral-size-xs;
+		height: tokens.$coral-sizing-s;
+		padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
 	}
 
 	&:disabled,

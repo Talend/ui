@@ -10,8 +10,8 @@ $iconAlignmentOffsetM: -0.3rem;
 	color: tokens.$coral-color-neutral-text;
 	font: tokens.$coral-paragraph-m;
 	transition: all tokens.$coral-transition-fast;
-	padding: tokens.$coral-size-xxs tokens.$coral-size-s;
-	max-width: tokens.$coral-size-limit;
+	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
+	max-width: tokens.$coral-sizing-maximal;
 	text-align: start;
 
 	> span {
@@ -19,9 +19,9 @@ $iconAlignmentOffsetM: -0.3rem;
 	}
 
 	.buttonIcon {
-		height: tokens.$coral-size-m;
-		width: tokens.$coral-size-m;
-		margin-right: tokens.$coral-size-xxs;
+		height: tokens.$coral-sizing-xxxs;
+		width: tokens.$coral-sizing-xxxs;
+		margin-right: tokens.$coral-spacing-xxs;
 		flex-shrink: 0;
 		margin-bottom: $iconAlignmentOffsetM;
 	}

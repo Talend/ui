@@ -1,15 +1,15 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .buttonIconSkeleton {
-	width: tokens.$coral-size-xl;
+	width: tokens.$coral-sizing-m;
 	border-radius: tokens.$coral-radius-round;
 
 	&.size-S {
-		width: tokens.$coral-size-l;
+		width: tokens.$coral-sizing-s;
 	}
 
 	&.size-XS {
-		width: tokens.$coral-size-m;
+		width: tokens.$coral-sizing-xxxs;
 		border-radius: tokens.$coral-radius-s;
 	}
 }
