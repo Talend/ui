@@ -32,6 +32,8 @@ const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
 const ICON_DIST = icons.getIconsDistPath();
 const getFileNameForExtension = (extension, prefix) => `${prefix || ''}[name]-[hash].${extension}`;
 
+const TALEND_LIB_PREFIX = '@talend/';
+
 const BASENAME = process.env.BASENAME || '/';
 
 // set @talend packages in module-to-cdn
@@ -117,7 +119,7 @@ function getTalendVersions() {
 	const packageJson = require(path.join(process.cwd(), 'package.json'));
 
 	const talendDependencies = Object.keys(packageJson.dependencies).filter(dependency =>
-		dependency.includes('@talend/'),
+		dependency.includes(TALEND_LIB_PREFIX),
 	);
 
 	if (fs.existsSync(yarnlockPath)) {
@@ -125,10 +127,10 @@ function getTalendVersions() {
 		const lock = yarnlock.parse(data);
 
 		Object.keys(lock.object)
-			.filter(k => k.startsWith('@talend'))
+			.filter(k => k.startsWith(TALEND_LIB_PREFIX))
 			.reduce((acc, key) => {
 				// @talend/react-components@5.1.2
-				const name = `@talend/${key.split('/')[1].split('@')[0]}`;
+				const name = `${TALEND_LIB_PREFIX}${key.split('/')[1].split('@')[0]}`;
 				if (talendDependencies.includes(name)) {
 					const info = lock.object[key];
 					acc[name] = info.version;
@@ -140,9 +142,9 @@ function getTalendVersions() {
 		const packageLock = require(packagelockPath);
 
 		Object.keys(packageLock.packages)
-			.filter(k => k.includes('@talend'))
+			.filter(k => k.includes(TALEND_LIB_PREFIX))
 			.reduce((acc, key) => {
-				const name = `@talend/${key.split('@talend/')[1]}`;
+				const name = `${TALEND_LIB_PREFIX}${key.split(TALEND_LIB_PREFIX)[1]}`;
 				if (talendDependencies.includes(name)) {
 					acc[name] = packageLock.packages[key].version;
 				}
