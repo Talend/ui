@@ -1,0 +1,10 @@
+{
+  "name": "duplicate",
+  "version": "1.0.0",
+  "dependencies": {
+    "react-autowhatever": "^6.0.0",
+    "react-bootstrap": "0.20.0",
+    "react-ace": "^3.0.0",
+    "hoist-non-react-statics": "1.0.0"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "https://unpkg.com/@rooks/use-mutation-observer@1.1.0/lib/index.js": {
+    "integrity": "sha384-vQQvsZ+l/OQsWaHZPWdnWA2TKJ5CKm0EiZIUJfZiVocnAHhhbvfzVoYiDoiC5H7v",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 880
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@1.1.0/lib/index.min.js": {
+    "integrity": "sha384-26htAH0Huynvl54YqRDt0amDeqmgWyS0MNDKTCcmDC5hogg/7EH0Mna8Pms7fznA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 587
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.0.0/lib/index.js": {
+    "integrity": "sha384-rkWtpWiHdNjgcTH+UNCNELx7q7snUfW0a+uT3Vj5oZgML2oMluXOZwcrWsVU6Bmt",
+    "lastModified": "Sat, 20 Apr 2019 04:08:53 GMT",
+    "size": 1440
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.0.0/lib/index.min.js": {
+    "integrity": "sha384-YdU0ezjHf4/7dugwqLZSoy1T4Nwu3qOIxvRcDJsOhoDvJPZ10V/zTqVpu8SvNvfg",
+    "lastModified": "Sat, 20 Apr 2019 04:08:54 GMT",
+    "size": 498
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.0.1/lib/index.js": {
+    "integrity": "sha384-rkWtpWiHdNjgcTH+UNCNELx7q7snUfW0a+uT3Vj5oZgML2oMluXOZwcrWsVU6Bmt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1440
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.0.1/lib/index.min.js": {
+    "integrity": "sha384-YdU0ezjHf4/7dugwqLZSoy1T4Nwu3qOIxvRcDJsOhoDvJPZ10V/zTqVpu8SvNvfg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 498
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.0/lib/index.js": {
+    "integrity": "sha384-rkWtpWiHdNjgcTH+UNCNELx7q7snUfW0a+uT3Vj5oZgML2oMluXOZwcrWsVU6Bmt",
+    "lastModified": "Fri, 02 Aug 2019 12:08:03 GMT",
+    "size": 1440
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.0/lib/index.min.js": {
+    "integrity": "sha384-YdU0ezjHf4/7dugwqLZSoy1T4Nwu3qOIxvRcDJsOhoDvJPZ10V/zTqVpu8SvNvfg",
+    "lastModified": "Fri, 02 Aug 2019 12:08:04 GMT",
+    "size": 498
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.1/lib/index.js": {
+    "integrity": "sha384-iat7MO24wuwXB0ORh5Jh9Di8AnEbWhnqFZDBibv+c6hY2YkLsQe66y+ztuaDdnFy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1447
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.1/lib/index.min.js": {
+    "integrity": "sha384-YdU0ezjHf4/7dugwqLZSoy1T4Nwu3qOIxvRcDJsOhoDvJPZ10V/zTqVpu8SvNvfg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 498
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.2/lib/index.js": {
+    "integrity": "sha384-iat7MO24wuwXB0ORh5Jh9Di8AnEbWhnqFZDBibv+c6hY2YkLsQe66y+ztuaDdnFy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1447
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.2/lib/index.min.js": {
+    "integrity": "sha384-YdU0ezjHf4/7dugwqLZSoy1T4Nwu3qOIxvRcDJsOhoDvJPZ10V/zTqVpu8SvNvfg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 498
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.3/lib/index.js": {
+    "integrity": "sha384-iat7MO24wuwXB0ORh5Jh9Di8AnEbWhnqFZDBibv+c6hY2YkLsQe66y+ztuaDdnFy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1447
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.3/lib/index.min.js": {
+    "integrity": "sha384-YdU0ezjHf4/7dugwqLZSoy1T4Nwu3qOIxvRcDJsOhoDvJPZ10V/zTqVpu8SvNvfg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 498
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.4/lib/index.js": {
+    "integrity": "sha384-iat7MO24wuwXB0ORh5Jh9Di8AnEbWhnqFZDBibv+c6hY2YkLsQe66y+ztuaDdnFy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1447
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.2.4/lib/index.min.js": {
+    "integrity": "sha384-YdU0ezjHf4/7dugwqLZSoy1T4Nwu3qOIxvRcDJsOhoDvJPZ10V/zTqVpu8SvNvfg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 498
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.3.0/lib/index.js": {
+    "integrity": "sha384-iat7MO24wuwXB0ORh5Jh9Di8AnEbWhnqFZDBibv+c6hY2YkLsQe66y+ztuaDdnFy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1447
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.3.0/lib/index.min.js": {
+    "integrity": "sha384-YdU0ezjHf4/7dugwqLZSoy1T4Nwu3qOIxvRcDJsOhoDvJPZ10V/zTqVpu8SvNvfg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 498
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.4.0/lib/index.js": {
+    "integrity": "sha384-MFL3pBi/Pp6rZg2EFGnUegEUbIlRrLPALAr0WbS0Vd0gXCbzDCSYbwlgCjfPNWVd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1434
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.4.0/lib/index.min.js": {
+    "integrity": "sha384-FIO1vpX/UjO2gzxF7PVZqjaQbYp9utPwUYgk0d+LWmg9/z89dCYl7pSWBKxeLOgY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 488
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.4.1/lib/index.js": {
+    "integrity": "sha384-MFL3pBi/Pp6rZg2EFGnUegEUbIlRrLPALAr0WbS0Vd0gXCbzDCSYbwlgCjfPNWVd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1434
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.4.1/lib/index.min.js": {
+    "integrity": "sha384-FIO1vpX/UjO2gzxF7PVZqjaQbYp9utPwUYgk0d+LWmg9/z89dCYl7pSWBKxeLOgY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 488
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.4.2/lib/index.js": {
+    "integrity": "sha384-MFL3pBi/Pp6rZg2EFGnUegEUbIlRrLPALAr0WbS0Vd0gXCbzDCSYbwlgCjfPNWVd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1434
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.4.2/lib/index.min.js": {
+    "integrity": "sha384-FIO1vpX/UjO2gzxF7PVZqjaQbYp9utPwUYgk0d+LWmg9/z89dCYl7pSWBKxeLOgY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 488
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.4.3/lib/index.js": {
+    "integrity": "sha384-MFL3pBi/Pp6rZg2EFGnUegEUbIlRrLPALAr0WbS0Vd0gXCbzDCSYbwlgCjfPNWVd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1434
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.4.3/lib/index.min.js": {
+    "integrity": "sha384-FIO1vpX/UjO2gzxF7PVZqjaQbYp9utPwUYgk0d+LWmg9/z89dCYl7pSWBKxeLOgY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 488
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.5.0/lib/index.js": {
+    "integrity": "sha384-MFL3pBi/Pp6rZg2EFGnUegEUbIlRrLPALAr0WbS0Vd0gXCbzDCSYbwlgCjfPNWVd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1434
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.5.0/lib/index.min.js": {
+    "integrity": "sha384-FIO1vpX/UjO2gzxF7PVZqjaQbYp9utPwUYgk0d+LWmg9/z89dCYl7pSWBKxeLOgY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 488
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.5.1/lib/index.js": {
+    "integrity": "sha384-MFL3pBi/Pp6rZg2EFGnUegEUbIlRrLPALAr0WbS0Vd0gXCbzDCSYbwlgCjfPNWVd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1434
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.5.1/lib/index.min.js": {
+    "integrity": "sha384-FIO1vpX/UjO2gzxF7PVZqjaQbYp9utPwUYgk0d+LWmg9/z89dCYl7pSWBKxeLOgY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 488
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.6.0/lib/index.js": {
+    "integrity": "sha384-MFL3pBi/Pp6rZg2EFGnUegEUbIlRrLPALAr0WbS0Vd0gXCbzDCSYbwlgCjfPNWVd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1434
+  },
+  "https://unpkg.com/@rooks/use-mutation-observer@3.6.0/lib/index.min.js": {
+    "integrity": "sha384-FIO1vpX/UjO2gzxF7PVZqjaQbYp9utPwUYgk0d+LWmg9/z89dCYl7pSWBKxeLOgY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 488
+  }
+}

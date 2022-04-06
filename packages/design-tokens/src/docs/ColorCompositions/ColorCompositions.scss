@@ -3,20 +3,20 @@
 .colorGrid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: tokens.$coral-size-s;
+	gap: tokens.$coral-spacing-s;
 }
 
 .colorComposition {
 	display: flex;
 	flex-direction: column;
-	gap: tokens.$coral-size-s;
+	gap: tokens.$coral-spacing-s;
 }
 
 .colorBackground {
 	display: flex;
 	flex-direction: column;
-	gap: tokens.$coral-size-s;
-	padding: tokens.$coral-size-s;
+	gap: tokens.$coral-spacing-s;
+	padding: tokens.$coral-spacing-s;
 	color: inherit;
 	background: transparent;
 	border: tokens.$coral-border-m-solid transparent;
@@ -24,26 +24,26 @@
 }
 
 .colorContent {
-	padding: tokens.$coral-size-s;
+	padding: tokens.$coral-spacing-s;
 	border: tokens.$coral-border-m-solid transparent;
 	border-radius: tokens.$coral-radius-s;
 }
 
 .colorContentRow {
 	display: flex;
-	gap: tokens.$coral-size-s;
+	gap: tokens.$coral-spacing-s;
 }
 
 .colorIcon {
-	height: tokens.$coral-size-m;
-	width: tokens.$coral-size-m;
+	height: tokens.$coral-sizing-xxxs;
+	width: tokens.$coral-sizing-xxxs;
 	background: currentColor;
 	border-radius: tokens.$coral-radius-round;
 }
 
 .colorText {
-	height: tokens.$coral-size-m;
-	width: tokens.$coral-size-xl;
+	height: tokens.$coral-sizing-xxxs;
+	width: tokens.$coral-sizing-m;
 	background: currentColor;
 	border-radius: tokens.$coral-radius-s;
 }
