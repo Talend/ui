@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /**
  *
  * @param {string} moduleId use to require it
@@ -14,6 +15,7 @@ function resolve(moduleId, options) {
 	try {
 		return require.resolve(moduleId, { paths });
 	} catch {}
+	return undefined;
 }
 
 module.exports = resolve;
