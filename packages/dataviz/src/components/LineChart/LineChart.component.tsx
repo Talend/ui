@@ -36,7 +36,7 @@ function LineChart({
 		xAxisOptions,
 		leftYAxisOptions,
 		rightYAxisOptions,
-		tooltip,
+		hideTooltip,
 		legend,
 	} = chartOptions;
 
@@ -51,51 +51,56 @@ function LineChart({
 			{ !!showGridLines && <CartesianGrid stroke={tokens.coralColorNeutralBackgroundMedium} strokeDasharray="2" vertical={false} />}
 			<XAxis
 				dataKey="xLabel"
-				{...xAxisOptions?.rechartsOptions}
+				interval={xAxisOptions?.interval}
+				dx={xAxisOptions?.horizontalOffset}
 			/>
 			<YAxis
 				yAxisId="left"
-				{...leftYAxisOptions?.rechartsOptions}
-				unit={leftYAxisOptions?.hideUnitInAxis ? '' : leftYAxisOptions?.rechartsOptions.unit}
+				type={leftYAxisOptions?.type}
+				domain={leftYAxisOptions?.domain}
+				unit={leftYAxisOptions?.hideUnitInAxis ? '' : leftYAxisOptions?.unit}
+				interval='preserveEnd'
+				tickCount={6}
+				tickLine={false}
 			/>
 			<YAxis
+				hide={rightYAxisOptions?.hide !== false}
 				yAxisId="right"
 				orientation='right'
-				hide
-				{...rightYAxisOptions?.rechartsOptions}
-				unit={rightYAxisOptions?.hideUnitInAxis ? '' : rightYAxisOptions?.rechartsOptions.unit}
+				type={rightYAxisOptions?.type}
+				domain={rightYAxisOptions?.domain}
+				unit={rightYAxisOptions?.hideUnitInAxis ? '' : rightYAxisOptions?.unit}
+				interval='preserveEnd'
+				tickCount={6}
+				tickLine={false}
 			/>
-			{tooltip?.custom ?
+			{!hideTooltip &&
 				<Tooltip
-					content={<CustomTooltip external={{chartOptions, linesConfig: lines}} />}
+					content={
+						<CustomTooltip
+							external={{
+								linesConfig: lines,
+								leftUnit: leftYAxisOptions?.unit,
+								rightUnit: rightYAxisOptions?.unit
+							}}
+						/>
+					}
 				/>
-			:
-				<Tooltip contentStyle={tooltip?.contentStyle} formatter={tooltip?.formatter} />
-
 			}
-			{legend?.custom ?
+			{!legend?.hide &&
 				<Legend
-				{...legend?.rechartsOptions}
-				content={
-					<CustomLegend
-						external={{
-							chartOptions,
-							linesConfig: lines,
-							align: legend?.rechartsOptions?.align
-						}}
-						onLegendClicked={onLegendItemClicked}
-						onLegendHovered={onLegendItemHovered}
-					/>
-				}
+					verticalAlign={legend?.verticalAlign || 'bottom'}
+					content={
+						<CustomLegend
+							external={{
+								linesConfig: lines,
+								align: legend?.horizontalAlign || 'right'
+							}}
+							onLegendClicked={onLegendItemClicked}
+							onLegendHovered={onLegendItemHovered}
+						/>
+					}
 				/>
-			:
-				<Legend
-					{...legend?.rechartsOptions}
-					onClick={({ dataKey }) => onLegendItemClicked(dataKey)}
-					onMouseEnter={({ dataKey }) => onLegendItemHovered(dataKey)}
-					onMouseLeave={() => onLegendItemHovered('')}
-				/>
-
 			}
 			{lines.map(options =>
 				<Line
@@ -104,8 +109,11 @@ function LineChart({
 					yAxisId={options.axis || 'left'}
 					dataKey={options.key}
 					stroke={options.color}
+					type='monotone'
+					strokeWidth={3}
+					strokeDasharray={options?.dashed ? '13 4 13' : ''}
+					dot={{ r: 0 }}
 					connectNulls
-					{...options.rechartsOptions}
 					onClick={() => onLineClicked(options.key)}
 					onMouseEnter={() => onLineHovered(options.key)}
 					onMouseLeave={() => onLineHovered('')}

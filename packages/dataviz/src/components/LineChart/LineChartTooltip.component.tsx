@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './LineChart.scss';
 
-import { LineChartOptions,  LineOptions } from './LineChart.types';
+import { LineOptions } from './LineChart.types';
 
 
 export interface LineChartTooltipProps {
@@ -10,18 +10,19 @@ export interface LineChartTooltipProps {
 	payload?: any[],
 	label?: string,
 	external: {
-		chartOptions: LineChartOptions,
+		leftUnit?: string | number,
+		rightUnit?: string | number,
 		linesConfig: LineOptions[],
 	},
 }
 
 export const CustomTooltip = ({ active, payload, label, external }: LineChartTooltipProps) => {
-	const { chartOptions, linesConfig } = external;
+	const { linesConfig, leftUnit, rightUnit } = external;
 
-	const getLineUnit = (axis: 'left' | 'right' | undefined) => axis === 'right' ? chartOptions.rightYAxisOptions?.rechartsOptions?.unit : chartOptions.leftYAxisOptions?.rechartsOptions?.unit ;
+	const getLineUnit = (axis: 'left' | 'right' | undefined) => axis === 'right' ? rightUnit : leftUnit ;
 
-	const getLineIconBackground = (strokeDasharray: string | number | undefined, color: string) => {
-		if(strokeDasharray) {
+	const getLineIconBackground = (dashed: boolean | undefined, color: string) => {
+		if(dashed) {
 			return `repeating-linear-gradient(to right, ${color} 0, ${color} 10px,transparent 10px,transparent 12px)`;
 		}
 		return color;
@@ -37,7 +38,7 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 						className={classNames(
 							styles['line-chart-custom-tooltip-line-icon'],
 							)}
-						style={{ background: getLineIconBackground(config.rechartsOptions?.strokeDasharray, config.color)}}
+						style={{ background: getLineIconBackground(config.dashed, config.color)}}
 					/>
 					<span className={classNames(styles['line-chart-custom-tooltip-line-label'])}>
 						{ config.tooltipLabel ? config.tooltipLabel : config.key }

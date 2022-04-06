@@ -1,5 +1,3 @@
-import { LineProps, XAxisProps, YAxisProps, LegendProps } from 'recharts';
-
 export type LineChartEntry = {
 	xLabel: string;
 	[key: string]: any;
@@ -11,7 +9,7 @@ export type LineOptions = {
 	tooltipLabel?: string;
 	legendLabel?: string;
 	axis?: 'left' | 'right';
-	rechartsOptions?: LineProps;
+	dashed?: boolean;
 };
 
 export type LineChartOptions = {
@@ -22,26 +20,29 @@ export type LineChartOptions = {
 		right: number,
 		bottom: number,
 		left: number,
-	}
-	tooltip?: {
-		custom?: boolean,
-		contentStyle?: any,
-		formatter?: any,
-	}
+	},
+	hideTooltip?: boolean;
 	legend?: {
-		custom?: boolean
-		rechartsOptions?: LegendProps
+		hide?: boolean,
+		verticalAlign: 'top' | 'bottom',
+		horizontalAlign: 'left' | 'center' | 'right',
 	}
 	xAxisOptions?: {
-		rechartsOptions?: XAxisProps;
+		interval: number | 'preserveStart' | 'preserveEnd' | 'preserveStartEnd';
+		horizontalOffset: number;
 	},
 	leftYAxisOptions?: {
+		type?: 'number' | 'category';
+		domain?: any[];
+		unit?: string | number
 		hideUnitInAxis?: boolean;
-		rechartsOptions?: YAxisProps;
 	}
 	rightYAxisOptions?: {
+		hide: boolean;
+		type?: 'number' | 'category';
+		domain?: any[];
+		unit?: string | number
 		hideUnitInAxis?: boolean;
-		rechartsOptions?: YAxisProps;
 	}
 	showGridLines?: boolean;
 };

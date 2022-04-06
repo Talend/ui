@@ -2,15 +2,14 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './LineChart.scss';
 
-import { LineChartOptions,  LineOptions } from './LineChart.types';
+import { LineOptions } from './LineChart.types';
 
 
 export interface LineChartLegendProps {
 	payload?: any[],
 	external: {
-		chartOptions: LineChartOptions,
 		linesConfig: LineOptions[],
-		align: string | undefined,
+		align: 'left' | 'center' | 'right',
 	},
 	onLegendClicked?: (key: string) => void,
 	onLegendHovered?: (key: string) => void
@@ -36,8 +35,8 @@ export const CustomLegend = ({
 }: LineChartLegendProps) => {
 	const { linesConfig, align } = external;
 
-	const getLineIconBackground = (strokeDasharray: string | number | undefined, color: string) => {
-		if(strokeDasharray) {
+	const getLineIconBackground = (dashed: boolean | undefined, color: string) => {
+		if(dashed) {
 			return `repeating-linear-gradient(to right, ${color} 0, ${color} 10px,transparent 10px,transparent 12px)`;
 		}
 		return color;
@@ -51,7 +50,7 @@ export const CustomLegend = ({
 			style={{ justifyContent: getContentJustification(align)}}
 		>
 			{linesConfig.map(config => (
-				<li id={`legend_item_${config.key}`} key={`legend_item_${config.key}`}>
+				<li id={`legend_item_${config.key}`} key={config.key}>
 					<div
 						role='button'
 						onClick={() => onLegendClicked(config.key)}
@@ -61,8 +60,8 @@ export const CustomLegend = ({
 						tabIndex={0}
 					>
 						<div
-						className={classNames(styles['line-chart-custom-legend-line-icon'])}
-						style={{ background: getLineIconBackground(config.rechartsOptions?.strokeDasharray, config.color)}}
+							className={classNames(styles['line-chart-custom-legend-line-icon'])}
+							style={{ background: getLineIconBackground(config.dashed, config.color)}}
 						/>
 						<span className={classNames(styles['line-chart-custom-legend-line-label'])}>
 							{ config.legendLabel? config.legendLabel : config.key }

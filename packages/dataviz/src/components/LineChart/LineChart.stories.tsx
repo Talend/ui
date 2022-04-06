@@ -29,61 +29,34 @@ FullyCustomisedLineChart.args = {
 	chartOptions: {
 		showGridLines: true,
 		legend: {
-			custom: true,
-			rechartsOptions:{
-				iconType: 'plainline',
-				iconSize: 20,
-				align: 'right',
-				verticalAlign: 'top',
-				wrapperStyle: {
-					padding: '0 3.5rem 1rem 0'
-				}
-			},
-		},
-		tooltip: {
-			custom: true,
+			verticalAlign: 'top',
+			horizontalAlign: 'right',
 		},
 		xAxisOptions: {
-			rechartsOptions: {
-				dx: 0,
-				interval: 2,
-			}
+			interval: 2,
+			horizontalOffset: 0,
 		},
 		leftYAxisOptions : {
-			rechartsOptions : {
-				type: 'number',
-				domain: [0, 100],
-				tickCount: 6,
-				interval: 'preserveStartEnd',
-				tickLine: false,
-				unit: '%',
-			},
+			unit: '%',
+			type: 'number',
+			domain: [0, 100],
 		},
 		rightYAxisOptions : {
+			hide: false,
+			type: 'number',
+			domain: [0, 5],
+			unit: '/5',
 			hideUnitInAxis: true,
-			rechartsOptions: {
-				hide: false,
-				type: 'number',
-				domain: [0, 5],
-				tickCount: 6,
-				tickLine: false,
-				unit: '/5'
-			},
 		}
 	},
 	lines: [
 		{
 			key: 'trustScore',
 			color: '#1667DF',
+			dashed: true,
 			tooltipLabel: 'Trust Score™',
 			legendLabel: 'Talend Trust Score™',
 			axis: 'right',
-			rechartsOptions: {
-				type: 'monotone',
-				strokeWidth: 3,
-				strokeDasharray: '13 4 13',
-				dot: { r: 0 }
-			}
 		},
 		{
 			key: 'validity',
@@ -91,11 +64,6 @@ FullyCustomisedLineChart.args = {
 			tooltipLabel: 'Validity',
 			legendLabel: 'Validity',
 			axis: 'left',
-			rechartsOptions: {
-				type: 'monotone',
-				strokeWidth: 3,
-				dot: { r: 0 },
-			}
 		},
 	],
 	data: [
@@ -180,29 +148,15 @@ FullyCustomisedLineChart.args = {
 export const SimpleLineChart = Template.bind({});
 SimpleLineChart.args = {
 	chartOptions: {
-		legend: {
-			rechartsOptions:{
-				align: 'right',
-				verticalAlign: 'top',
-			},
-		},
 		leftYAxisOptions : {
-			rechartsOptions: {
-				type: 'number',
-				domain: [0, 5],
-				tickCount: 6,
-				tickLine: false,
-			},
+			type: 'number',
+			domain: [0, 5],
 		},
 	},
 	lines: [
 		{
 			key: 'trustScore',
 			color: '#1667DF',
-			rechartsOptions: {
-				type: 'monotone',
-				strokeWidth: 3,
-			}
 		},
 	],
 	data: [
@@ -231,37 +185,19 @@ SimpleLineChart.args = {
 export const MultiCurveLineChart = Template.bind({});
 MultiCurveLineChart.args = {
 	chartOptions: {
-		legend: {
-			rechartsOptions:{
-				align: 'right',
-				verticalAlign: 'top',
-			},
-		},
 		leftYAxisOptions : {
-			rechartsOptions: {
-				type: 'number',
-				domain: [0, 5],
-				tickCount: 6,
-				tickLine: false,
-			},
+			type: 'number',
+			domain: [0, 5],
 		},
 	},
 	lines: [
 		{
 			key: 'trustScore',
 			color: '#1667DF',
-			rechartsOptions: {
-				type: 'monotone',
-				strokeWidth: 3,
-			}
 		},
 		{
 			key: 'globalScore',
 			color: '#4DD832',
-			rechartsOptions: {
-				type: 'monotone',
-				strokeWidth: 3,
-			}
 		},
 	],
 	data: [
@@ -295,29 +231,18 @@ export const CustomLegendLineChart = Template.bind({});
 CustomLegendLineChart.args = {
 	chartOptions: {
 		legend: {
-			custom: true,
-			rechartsOptions:{
-				align: 'right',
-				verticalAlign: 'top',
-			},
+			verticalAlign: 'top',
+			horizontalAlign: 'right'
 		},
 		leftYAxisOptions : {
-			rechartsOptions: {
-				type: 'number',
-				domain: [0, 5],
-				tickCount: 6,
-				tickLine: false,
-			},
+			type: 'number',
+			domain: [0, 5],
 		},
 	},
 	lines: [
 		{
 			key: 'trustScore',
 			color: '#1667DF',
-			rechartsOptions: {
-				type: 'monotone',
-				strokeWidth: 3,
-			}
 		},
 	],
 	data: [
@@ -346,32 +271,16 @@ CustomLegendLineChart.args = {
 export const CustomTooltipLineChart = Template.bind({});
 CustomTooltipLineChart.args = {
 	chartOptions: {
-		legend: {
-			rechartsOptions:{
-				align: 'right',
-				verticalAlign: 'top',
-			},
-		},
-		tooltip: {
-			custom: true,
-		},
 		leftYAxisOptions : {
-			rechartsOptions: {
-				type: 'number',
-				domain: [0, 5],
-				tickCount: 6,
-				tickLine: false,
-			},
+			type: 'number',
+			domain: [0, 5],
 		},
 	},
 	lines: [
 		{
 			key: 'trustScore',
 			color: '#1667DF',
-			rechartsOptions: {
-				type: 'monotone',
-				strokeWidth: 3,
-			}
+
 		},
 	],
 	data: [
