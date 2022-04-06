@@ -117,7 +117,7 @@ describe('Notification', () => {
 		expect(screen.queryByTestId('timer')).not.toBeInTheDocument();
 	});
 
-	it('should pin notification when the user click', () => {
+	it('should pin notification when the user clicks', () => {
 		// given
 		const leaveFn = jest.fn();
 		const notification = { id: 'id', message: 'foo' };
