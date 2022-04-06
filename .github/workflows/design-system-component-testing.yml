@@ -3,6 +3,7 @@ name: Design System component testing
 on:
   push:
     paths:
+      - ".github/workflows/design-system-*"
       - "packages/design-tokens/**"
       - "packages/design-system/**"
 
