@@ -1,0 +1,9 @@
+{
+  "name": "optional-peer-deps",
+  "version": "1.0.0",
+  "dependencies": {
+    "react-dnd": "^14.0.3",
+    "react-redux": "^14.0.3",
+    "react": "16.14.0"
+  }
+}

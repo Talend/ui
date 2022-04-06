@@ -1,0 +1,82 @@
+{
+  "https://unpkg.com/aframe@0.9.0/dist/aframe-master.js": {
+    "integrity": "sha384-BMf2HnHLp9JsiMFkoZi1y0xrUNAcxlUsbx7U+8H67doV3CkIP7wToHhZbyXjG2NR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2167476
+  },
+  "https://unpkg.com/aframe@0.9.0/dist/aframe-master.min.js": {
+    "integrity": "sha384-t4HAI7ViXLjRb7DnF5wlU9zYIDFF4pjRLzy0ZyHcNrPklWe+TDq7fDxfR0IZzIcA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1119198
+  },
+  "https://unpkg.com/aframe@0.9.1/dist/aframe-master.js": {
+    "integrity": "sha384-z0YBwQs+sFf36dXwfVBuIGKTYIaqfwbOJur8pJR14xhu074y107QfD/EnJcr0Dk4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2205744
+  },
+  "https://unpkg.com/aframe@0.9.1/dist/aframe-master.min.js": {
+    "integrity": "sha384-cK0+rdpK2n8U+qNue7CC+nAi5YAgbG52bNfRyVfBhqEPW+eKb3YLz5Y5f3dJF6WM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1131650
+  },
+  "https://unpkg.com/aframe@0.9.2/dist/aframe-master.js": {
+    "integrity": "sha384-Z0puiW4yNMOpznGONcWcZi9Qn0nYvdrxJDpz33yt3sifBROs+42eJlsAzUl/O3d7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2205989
+  },
+  "https://unpkg.com/aframe@0.9.2/dist/aframe-master.min.js": {
+    "integrity": "sha384-hyIk0QdYAdMwmEkU3M/dUI1NBZVCTxpHi+hi689vbPgio2kuIfJBn4RoDxUZmqAl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1131785
+  },
+  "https://unpkg.com/aframe@1.0.0/dist/aframe-master.js": {
+    "integrity": "sha384-w6C+nmgTufG590uA4Kien/nH8MphjrwHmzGZfLdJFeRFYTb4gEqrJuuhFZ6nuY//",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2338706
+  },
+  "https://unpkg.com/aframe@1.0.0/dist/aframe-master.min.js": {
+    "integrity": "sha384-no6TrHjt5Cgkgi86CsfeNd63F+ZH6HelU2mjJz7WQxK2RyHOpxIgMyQV7XlYH3m5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1223890
+  },
+  "https://unpkg.com/aframe@1.0.1/dist/aframe-master.js": {
+    "integrity": "sha384-pJoUbw4vlojFFvwJKf1NBcgF/4aLGeDx1VG9A+5qD13xCQk/J+Bdy7e0TIdT6sQB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2343062
+  },
+  "https://unpkg.com/aframe@1.0.1/dist/aframe-master.min.js": {
+    "integrity": "sha384-0wxhKLeEYkWeITrXcn47VW++NdL4JhjfCdSQRRClTeV1LALg4yRCVQgUXMVjwMoe",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1226244
+  },
+  "https://unpkg.com/aframe@1.0.2/dist/aframe-master.js": {
+    "integrity": "sha384-HOgesDy1HlmGssDBFzJNR3XSngp729TNlwVznyID8vx0NnLA3YpQMNVFRWdoPHQo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2344101
+  },
+  "https://unpkg.com/aframe@1.0.2/dist/aframe-master.min.js": {
+    "integrity": "sha384-B1znZaI5K8Wzn8fPMlWQJNgi3vUXXRP9jHtjYA5YQ2r2/za1XnY8T8Yli1FSmi1O",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1226854
+  },
+  "https://unpkg.com/aframe@1.0.3/dist/aframe-master.js": {
+    "integrity": "sha384-m5mrmbj7qkpJNQ8lUbmyd6I4KvHHuSwbXJfdD7iWjA5Y/3YESE6FjQoIwUsp5Pw5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2352311
+  },
+  "https://unpkg.com/aframe@1.0.3/dist/aframe-master.min.js": {
+    "integrity": "sha384-eY9Xsw4fXuTT+2yIGMnrtTfRaasTk+JtZtzYxbnhTYVFaT6MF9sZJAQSLlhvQDSw",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1232187
+  },
+  "https://unpkg.com/aframe@1.0.4/dist/aframe-master.js": {
+    "integrity": "sha384-05UU60mrTBYawkeKtODAj5rZCJiGgSJxflhxRvoKjYgHnarfpuADwFPN094D3RB/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2361588
+  },
+  "https://unpkg.com/aframe@1.0.4/dist/aframe-master.min.js": {
+    "integrity": "sha384-4ReIXFP6oq6CnSNbcLIA6R7Y2Fpfd88F5+YTXFRHd8DpQSY3xr/1yEIn8qFujZ/R",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1238307
+  }
+}

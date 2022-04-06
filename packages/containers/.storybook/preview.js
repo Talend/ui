@@ -4,6 +4,7 @@ import { namespaces as containersNamespaces } from '@talend/locales-tui-containe
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 
 import cmfModule, { settings } from './cmfModule';
+import { ThemeProvider } from '@talend/design-system';
 
 export const i18n = {
 	namespaces: [
@@ -21,6 +22,14 @@ export const i18n = {
 		'design-system': 'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
 	},
 };
+
+export const decorators = [
+	(Story, context) => (
+		<ThemeProvider>
+			<Story {...context} />
+		</ThemeProvider>
+	),
+];
 
 export const cmf = {
 	modules: [cmfModule],
