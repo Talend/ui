@@ -1,7 +1,7 @@
-import { Typeahead } from '@talend/react-components/lib/Typeahead';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import { Typeahead } from '@talend/react-components/lib/Typeahead';
 import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 
 const MINIMUM_LENGTH = 2;
