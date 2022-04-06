@@ -1,0 +1,152 @@
+{
+  "https://unpkg.com/react-debounce-input@2.0.0/build/react-debounce-input.js": {
+    "integrity": "sha384-/FFD+1ceoM6FFXQqshBTBIHnnT7qtQISbgxj932Ge7a/XNC30QcFwfliJ+zln0GS",
+    "lastModified": "Sat, 12 Dec 2015 11:43:29 GMT",
+    "size": 22469
+  },
+  "https://unpkg.com/react-debounce-input@2.0.1/build/react-debounce-input.js": {
+    "integrity": "sha384-99V6ov38J2OkhnLqrMu9BLzp4Wp95yfj08OFWaBf92RUTcRJ9pH1kPeg4tTHa34C",
+    "lastModified": "Sat, 12 Dec 2015 12:15:34 GMT",
+    "size": 22328
+  },
+  "https://unpkg.com/react-debounce-input@2.0.2/build/react-debounce-input.js": {
+    "integrity": "sha384-Joht6L5DDXJjAhfqR7LrjwyuctgkQ7g2444UekGdT07wbE+8qx4UP0rEVV/JriHu",
+    "lastModified": "Sat, 12 Dec 2015 13:55:56 GMT",
+    "size": 5146
+  },
+  "https://unpkg.com/react-debounce-input@2.1.0/build/react-debounce-input.js": {
+    "integrity": "sha384-Azb0Jsi+B13DUsvnbRUaC4+yTAF9Ptdm54Kt+MnvB31YGQsPPQW60Fq+8iIn5gl8",
+    "lastModified": "Fri, 29 Jan 2016 12:11:22 GMT",
+    "size": 5372
+  },
+  "https://unpkg.com/react-debounce-input@2.2.0/build/react-debounce-input.js": {
+    "integrity": "sha384-rJeOggOH18QCC3iVTxz5AJB5VApDtl8KfpmMRBwsDuiX9jqoqB83nAc8gKu3wqO5",
+    "lastModified": "Mon, 01 Feb 2016 11:38:52 GMT",
+    "size": 22818
+  },
+  "https://unpkg.com/react-debounce-input@2.2.0/build/react-debounce-input.min.js": {
+    "integrity": "sha384-DOgnATtEvXjG5C3iPRnxC9W1XKxOiGsjiavCz5FMD9DSfB/gZngHTTNEO8uhK0iK",
+    "lastModified": "Mon, 01 Feb 2016 11:38:52 GMT",
+    "size": 5376
+  },
+  "https://unpkg.com/react-debounce-input@2.3.0/build/react-debounce-input.js": {
+    "integrity": "sha384-1xt9kmnxML1D5vWVdLT5GypBaFhN1wYcFfsdzyjQ+MzyjRDYNiLvo23eu4ipHX6o",
+    "lastModified": "Fri, 06 May 2016 06:19:49 GMT",
+    "size": 23373
+  },
+  "https://unpkg.com/react-debounce-input@2.3.0/build/react-debounce-input.min.js": {
+    "integrity": "sha384-rQrtjWb/M+FcO2YJ3xnsubmzJhEXz7kMnN9DxqEDeW6crdQpDiJu0eXiVyFfBMWN",
+    "lastModified": "Fri, 06 May 2016 06:19:49 GMT",
+    "size": 5479
+  },
+  "https://unpkg.com/react-debounce-input@2.3.1/build/react-debounce-input.js": {
+    "integrity": "sha384-drqt9MayfIe3y64rC/Ntht7VPPr2iZOFIlws5guKEq9QDBTtnqiMiFOEpPgUjoRN",
+    "lastModified": "Mon, 23 May 2016 12:20:10 GMT",
+    "size": 23486
+  },
+  "https://unpkg.com/react-debounce-input@2.3.1/build/react-debounce-input.min.js": {
+    "integrity": "sha384-Po41F5XDYsyTTg0t23PF7egJD8jp6OgXBmSO6QcCYKcHXOxfjhuZa+jwXBRTC+uK",
+    "lastModified": "Mon, 23 May 2016 12:20:10 GMT",
+    "size": 5508
+  },
+  "https://unpkg.com/react-debounce-input@2.3.2/build/react-debounce-input.js": {
+    "integrity": "sha384-1Njgb4clletvEINlMRienf+rwpq1rsAKI5Tl0HVsLpD0bFsMapUQ2wBT4P9zakYt",
+    "lastModified": "Tue, 24 May 2016 22:16:29 GMT",
+    "size": 23559
+  },
+  "https://unpkg.com/react-debounce-input@2.3.2/build/react-debounce-input.min.js": {
+    "integrity": "sha384-FIPx7kY8PtO9PhgjnnxaIpc0mIsrbGBlANmRi0exh350/gEZ/q9wmdqarNKSicnZ",
+    "lastModified": "Tue, 24 May 2016 22:16:29 GMT",
+    "size": 5574
+  },
+  "https://unpkg.com/react-debounce-input@2.4.0/build/react-debounce-input.js": {
+    "integrity": "sha384-Xbfp2qxLYM1hfJ7NEaLTGMRHXjj1U/6FeM8EK0XyUI/zvr6xnw7t9cZpV6NbhmBz",
+    "lastModified": "Thu, 09 Jun 2016 14:29:17 GMT",
+    "size": 23652
+  },
+  "https://unpkg.com/react-debounce-input@2.4.0/build/react-debounce-input.min.js": {
+    "integrity": "sha384-1bVWLV4rYOEeMDTQDyE72bzdPHCMYTS+uQtwOzi/aD0SY89BtH9WDvqPRsum9ltT",
+    "lastModified": "Thu, 09 Jun 2016 14:29:18 GMT",
+    "size": 5744
+  },
+  "https://unpkg.com/react-debounce-input@2.4.1/build/react-debounce-input.js": {
+    "integrity": "sha384-IORPZbx72RQCQB6RV7+mgbtj5DQqUAqlXNWqVQtAS7o4QMVyhLpvzQXUtJeH+6A3",
+    "lastModified": "Mon, 07 Nov 2016 23:44:53 GMT",
+    "size": 23556
+  },
+  "https://unpkg.com/react-debounce-input@2.4.1/build/react-debounce-input.min.js": {
+    "integrity": "sha384-af6sJTC8M4vYbe3jXukTd1Hhf3SCaJKr8IN5481H6h0b6GmAN7hjy9vTQRPiDHl+",
+    "lastModified": "Mon, 07 Nov 2016 23:44:53 GMT",
+    "size": 5895
+  },
+  "https://unpkg.com/react-debounce-input@2.4.2/build/react-debounce-input.js": {
+    "integrity": "sha384-JPVUEdf5r2LwOOtaYE+pEKIR/ij2gmzoPqZBtMPTLFLflb68+pZZD48WbClyVwSO",
+    "lastModified": "Fri, 18 Nov 2016 23:19:27 GMT",
+    "size": 24027
+  },
+  "https://unpkg.com/react-debounce-input@2.4.2/build/react-debounce-input.min.js": {
+    "integrity": "sha384-mg9oeG9TWtN/bCjhBEvXheFrpOmKCDerRwBzZIiYgPttoMEcxSvfbetlgl+8Npse",
+    "lastModified": "Fri, 18 Nov 2016 23:19:27 GMT",
+    "size": 6019
+  },
+  "https://unpkg.com/react-debounce-input@3.0.0/build/react-debounce-input.js": {
+    "integrity": "sha384-9OjIBSYxbldKrSLnDB86+pYgRbOQHLru8DhfsSNLQ+j7+CnBxoAUK7eiCNNF3Xmq",
+    "lastModified": "Wed, 26 Apr 2017 11:53:33 GMT",
+    "size": 22101
+  },
+  "https://unpkg.com/react-debounce-input@3.0.0/build/react-debounce-input.min.js": {
+    "integrity": "sha384-RUpa4rG53tjMR3AqfFaRYKCDF/9noUOSUfaX7Tmfn7yXl5nzNvVnwR/1NFkWh8zS",
+    "lastModified": "Wed, 26 Apr 2017 11:53:33 GMT",
+    "size": 6071
+  },
+  "https://unpkg.com/react-debounce-input@3.0.1/build/react-debounce-input.js": {
+    "integrity": "sha384-gOB+1bIgZWryH1/8tk1GvsdUg/72lYNJyYIqrwj+cBO3S9CplpQ5Rqp0DX411oHR",
+    "lastModified": "Thu, 03 Aug 2017 00:19:59 GMT",
+    "size": 22619
+  },
+  "https://unpkg.com/react-debounce-input@3.0.1/build/react-debounce-input.min.js": {
+    "integrity": "sha384-wziTY5ew3YTnQKp4qOOc8z/8q0+c3ErDSj0sWjsGxvsgCgOrhikiDG5dwNTqwzni",
+    "lastModified": "Thu, 03 Aug 2017 00:19:59 GMT",
+    "size": 6154
+  },
+  "https://unpkg.com/react-debounce-input@3.1.0/build/react-debounce-input.js": {
+    "integrity": "sha384-EqrMaiAw58+NhWH9NkYoBdRIsPlhnSqXbhdEDjvDvvSF0t5wQ0Q2TiiznHhqXC1z",
+    "lastModified": "Sat, 30 Sep 2017 13:21:55 GMT",
+    "size": 23034
+  },
+  "https://unpkg.com/react-debounce-input@3.1.0/build/react-debounce-input.min.js": {
+    "integrity": "sha384-hOqaSCNx+J7b/D7WMpKlPSws3MRMLil+wVtO8lez69QycFb5fz6KGswoxDs10XZQ",
+    "lastModified": "Sat, 30 Sep 2017 13:21:56 GMT",
+    "size": 6370
+  },
+  "https://unpkg.com/react-debounce-input@3.2.0/build/react-debounce-input.js": {
+    "integrity": "sha384-hh7EJCxxt0LzGEYOtCKeJHy/iChVfXaHgf0cwbtccM3Ygd3ug6vqi3XoM266yT8T",
+    "lastModified": "Sun, 04 Feb 2018 01:35:47 GMT",
+    "size": 23071
+  },
+  "https://unpkg.com/react-debounce-input@3.2.0/build/react-debounce-input.min.js": {
+    "integrity": "sha384-3JtATA9cM1x0jYsd8gq0KRXttLeQVJJSPFcS7bd3z3yMbC+eHxGSzzSXJtQnUmuz",
+    "lastModified": "Sun, 04 Feb 2018 01:35:49 GMT",
+    "size": 6400
+  },
+  "https://unpkg.com/react-debounce-input@3.2.1/build/react-debounce-input.js": {
+    "integrity": "sha384-I+WHz8QwDOCiwm20fXhqWqLvRSG+IAzNPtco4Jz2wpiUVKc9Uw5O35cIaKJRy3/0",
+    "lastModified": "Thu, 17 Oct 2019 02:00:06 GMT",
+    "size": 27130
+  },
+  "https://unpkg.com/react-debounce-input@3.2.1/build/react-debounce-input.min.js": {
+    "integrity": "sha384-LDDUhsjYP/8bSD3a6ITsyIv9UNO0tcg0k7noVGg/Pthf23AeLUCUs7TOVtqaUMUy",
+    "lastModified": "Thu, 17 Oct 2019 02:00:07 GMT",
+    "size": 7761
+  },
+  "https://unpkg.com/react-debounce-input@3.2.2/build/react-debounce-input.js": {
+    "integrity": "sha384-fdXW0JytMzHSBT2xsT6TXCPoEaLXXMQM1dvdJpGHRNJoen+LC1RUR0nyNZpcPdYX",
+    "lastModified": "Thu, 17 Oct 2019 02:24:00 GMT",
+    "size": 27261
+  },
+  "https://unpkg.com/react-debounce-input@3.2.2/build/react-debounce-input.min.js": {
+    "integrity": "sha384-H/J1P6fIkl8/ibR66oFrrmILOtUweAMi+8yD5kY4jpaKOFREdEnTV/8+NvVdSyrP",
+    "lastModified": "Thu, 17 Oct 2019 02:24:02 GMT",
+    "size": 7827
+  }
+}

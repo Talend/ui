@@ -1,0 +1,152 @@
+{
+  "https://unpkg.com/@babel/polyfill@7.0.0/dist/polyfill.js": {
+    "integrity": "sha384-H7p/4xpdK2pewsZSuS1uclL/HT7DYP/5o9z5YWZizXAl/k3JL9MZppeS6W23J3jK",
+    "lastModified": "Mon, 27 Aug 2018 21:37:21 GMT",
+    "size": 218031
+  },
+  "https://unpkg.com/@babel/polyfill@7.0.0/dist/polyfill.min.js": {
+    "integrity": "sha384-xdYv/bK/GurTImj8qnLxV6AgiEPQzHU4hufpOLFf5P/7Jh4O4GiGJKTJwtL9UhC0",
+    "lastModified": "Mon, 27 Aug 2018 21:37:22 GMT",
+    "size": 91750
+  },
+  "https://unpkg.com/@babel/polyfill@7.10.1/dist/polyfill.js": {
+    "integrity": "sha384-AlWQb4dKjSjkHg4zYf2T+oB+sqG0gR3lCR/4PAKKw+LZxB3rv8N5HRSMgHSav5Q8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239724
+  },
+  "https://unpkg.com/@babel/polyfill@7.10.1/dist/polyfill.min.js": {
+    "integrity": "sha384-LWXI0vFVs5802e/oQ2xmb3HGXVl2GGSHOmaTQnmifHguIujwVU5j5iiqmS+UZMSy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99310
+  },
+  "https://unpkg.com/@babel/polyfill@7.10.4/dist/polyfill.js": {
+    "integrity": "sha384-AlWQb4dKjSjkHg4zYf2T+oB+sqG0gR3lCR/4PAKKw+LZxB3rv8N5HRSMgHSav5Q8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239724
+  },
+  "https://unpkg.com/@babel/polyfill@7.10.4/dist/polyfill.min.js": {
+    "integrity": "sha384-LWXI0vFVs5802e/oQ2xmb3HGXVl2GGSHOmaTQnmifHguIujwVU5j5iiqmS+UZMSy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99310
+  },
+  "https://unpkg.com/@babel/polyfill@7.11.5/dist/polyfill.js": {
+    "integrity": "sha384-ik+VHLYInFXfY/Xl1cPSw9Av4AE1LuXlFOnWWpziy3/YDwfY+1uS3hutcGEY3Ky6",
+    "lastModified": "Sun, 04 Jan 1970 15:38:52 GMT",
+    "size": 239690
+  },
+  "https://unpkg.com/@babel/polyfill@7.11.5/dist/polyfill.min.js": {
+    "integrity": "sha384-FCwalFIn/oY5yqK5WoHWMqsdHAQgG5e8hoHwtQ/stzqubOMOvFXsWocs/XvlofdX",
+    "lastModified": "Sun, 04 Jan 1970 15:38:52 GMT",
+    "size": 99276
+  },
+  "https://unpkg.com/@babel/polyfill@7.12.1/dist/polyfill.js": {
+    "integrity": "sha384-ik+VHLYInFXfY/Xl1cPSw9Av4AE1LuXlFOnWWpziy3/YDwfY+1uS3hutcGEY3Ky6",
+    "lastModified": "Fri, 22 Jun 1984 21:50:00 GMT",
+    "size": 239690
+  },
+  "https://unpkg.com/@babel/polyfill@7.12.1/dist/polyfill.min.js": {
+    "integrity": "sha384-FCwalFIn/oY5yqK5WoHWMqsdHAQgG5e8hoHwtQ/stzqubOMOvFXsWocs/XvlofdX",
+    "lastModified": "Fri, 22 Jun 1984 21:50:00 GMT",
+    "size": 99276
+  },
+  "https://unpkg.com/@babel/polyfill@7.2.3/dist/polyfill.js": {
+    "integrity": "sha384-vJ7Oo9FwNAeU5HcVYPwpZQv+7vbCE2wySliutRLqoR7ZQQLiRJBORnOkyCbpRaaI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 230405
+  },
+  "https://unpkg.com/@babel/polyfill@7.2.3/dist/polyfill.min.js": {
+    "integrity": "sha384-Bg3zCWzzKg/7EnmKfOctzVXpyR9aE9WHJY2HdE5P6DKPWvikzXEfNNednNNcLfXI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 96193
+  },
+  "https://unpkg.com/@babel/polyfill@7.2.5/dist/polyfill.js": {
+    "integrity": "sha384-vJ7Oo9FwNAeU5HcVYPwpZQv+7vbCE2wySliutRLqoR7ZQQLiRJBORnOkyCbpRaaI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 230405
+  },
+  "https://unpkg.com/@babel/polyfill@7.2.5/dist/polyfill.min.js": {
+    "integrity": "sha384-Bg3zCWzzKg/7EnmKfOctzVXpyR9aE9WHJY2HdE5P6DKPWvikzXEfNNednNNcLfXI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 96193
+  },
+  "https://unpkg.com/@babel/polyfill@7.4.0/dist/polyfill.js": {
+    "integrity": "sha384-J8w4/iL8/0yte8GR1SZ8FvHHpEUfNG6dIUk/7PEaJ+3JlC746ZoFU7jx15EJgqJ0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234361
+  },
+  "https://unpkg.com/@babel/polyfill@7.4.0/dist/polyfill.min.js": {
+    "integrity": "sha384-TSD1J+e59Px9jLOsXOCC3tMW3UQIPZaamPyLolootG/N4IIzH/xBmKT+BW/hNrw5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 96768
+  },
+  "https://unpkg.com/@babel/polyfill@7.4.3/dist/polyfill.js": {
+    "integrity": "sha384-zkN/WJziz7/XLNdP0uIubtCQHUssOQuB4j6YXGIMMS9ikmTR2gQyqqt6J1Q4bnQ9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239098
+  },
+  "https://unpkg.com/@babel/polyfill@7.4.3/dist/polyfill.min.js": {
+    "integrity": "sha384-o5SiNpVsW49seRfGrhjNfKRA+EIc4+fr1XucQuSPJr0sBlCqKMegzAHhl7wJTGCv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99206
+  },
+  "https://unpkg.com/@babel/polyfill@7.4.4/dist/polyfill.js": {
+    "integrity": "sha384-MMGzh0WZh16yMJcvifVAfCCrCxtYpMK6ET8muqMhsyB8BnxxPmfVEEVDxwht//om",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239007
+  },
+  "https://unpkg.com/@babel/polyfill@7.4.4/dist/polyfill.min.js": {
+    "integrity": "sha384-Nh3J/XXlxyM3rjLEs3jwkHg5DP/zDvV7p86vEhCCFnYlYrlY7mGzUxRKm+oProPB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99133
+  },
+  "https://unpkg.com/@babel/polyfill@7.6.0/dist/polyfill.js": {
+    "integrity": "sha384-KaNBzkLzWZyqZHjcZHDLUNoc0Nls3MA30F9q1Bd/jzEId43p7RFZGPx71/wATbt8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239610
+  },
+  "https://unpkg.com/@babel/polyfill@7.6.0/dist/polyfill.min.js": {
+    "integrity": "sha384-zUb0UDpZHtanz8HHIyWMJMcOao87pEAS+E1M3vcNz2zp4SlqKDAdVjhdlgqg1IEI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99342
+  },
+  "https://unpkg.com/@babel/polyfill@7.7.0/dist/polyfill.js": {
+    "integrity": "sha384-c7lzi7M5kCsKkeoWUn5TIBYzsfEI0nsCfwggSsfPwuH9xAwWMnRZmfIgx+AzV2Zi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239611
+  },
+  "https://unpkg.com/@babel/polyfill@7.7.0/dist/polyfill.min.js": {
+    "integrity": "sha384-Fbe31ZqFxktD++WKw92rzNU9ROzGC0taO0LK7GrLloHkGRmL60n7Rp4gauiM2cfr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99343
+  },
+  "https://unpkg.com/@babel/polyfill@7.8.0/dist/polyfill.js": {
+    "integrity": "sha384-CXU11//d9/GtraxJmGO97uAWtDj7xh/n4d0lvCT5Oqzh3MbLaoPVt8COJZ2WP3Tf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239611
+  },
+  "https://unpkg.com/@babel/polyfill@7.8.0/dist/polyfill.min.js": {
+    "integrity": "sha384-N9GWJ6gGT4pUnJPVgFMCKy3eTg1Xg5NbjqHSoUSazWLr85eR1/JT1BM7Dv2qtFum",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99298
+  },
+  "https://unpkg.com/@babel/polyfill@7.8.3/dist/polyfill.js": {
+    "integrity": "sha384-CXU11//d9/GtraxJmGO97uAWtDj7xh/n4d0lvCT5Oqzh3MbLaoPVt8COJZ2WP3Tf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239611
+  },
+  "https://unpkg.com/@babel/polyfill@7.8.3/dist/polyfill.min.js": {
+    "integrity": "sha384-N9GWJ6gGT4pUnJPVgFMCKy3eTg1Xg5NbjqHSoUSazWLr85eR1/JT1BM7Dv2qtFum",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99298
+  },
+  "https://unpkg.com/@babel/polyfill@7.8.7/dist/polyfill.js": {
+    "integrity": "sha384-AlWQb4dKjSjkHg4zYf2T+oB+sqG0gR3lCR/4PAKKw+LZxB3rv8N5HRSMgHSav5Q8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 239724
+  },
+  "https://unpkg.com/@babel/polyfill@7.8.7/dist/polyfill.min.js": {
+    "integrity": "sha384-LWXI0vFVs5802e/oQ2xmb3HGXVl2GGSHOmaTQnmifHguIujwVU5j5iiqmS+UZMSy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 99310
+  }
+}

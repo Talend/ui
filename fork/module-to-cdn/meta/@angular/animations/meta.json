@@ -1,0 +1,1642 @@
+{
+  "https://unpkg.com/@angular/animations@10.0.0/bundles/animations.umd.js": {
+    "integrity": "sha384-thSVMKqU/pvgkFQ6K3GXZK4ObVxw2yX+YNi36Hm7f12tL30cvxdVFOggWCmIQvqe",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-iopQ/ODWmIF1/GSQEuyl+YVpoZZGu533KlA+oCatezJZmt8EV9CGpkWsO/zH5v+D",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.1/bundles/animations.umd.js": {
+    "integrity": "sha384-vS/5vUo4FpR6LXP3qcKm0wuHRV4ljLUL7ZuyFafuzHP8Hg6ZvALfhLFOidK+nzpm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-zrsZfaGzoPOqzlfao306EjdPGw9xZzoVjmdYqMzTXgRtP9n9EduEhzWj60LmiaDb",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.10/bundles/animations.umd.js": {
+    "integrity": "sha384-JRhnM7Pfj2nwsM9Y3nlclK138SkF22IQZM1Nuxm1DxPNTsfriaxJySdl2s1nGZj6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47314
+  },
+  "https://unpkg.com/@angular/animations@10.0.10/bundles/animations.umd.min.js": {
+    "integrity": "sha384-j5c2jopWYo6DSqpAixtx1z2KYYDE5VYoSiKUtK5nUmAhE+Boknq27tcTnS3h931l",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6994
+  },
+  "https://unpkg.com/@angular/animations@10.0.11/bundles/animations.umd.js": {
+    "integrity": "sha384-PInMRuWTxXJu1sZocDWTJeG1SmCBToeqta5MG5OGu4pAv5QFf2Mgf72s7KqXUI7+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47314
+  },
+  "https://unpkg.com/@angular/animations@10.0.11/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Ee5sckFcwbNOKdeis/IP4B1GCDqugpDKfqCPq1AEg/+slAaHfH8IUD+NXa6dnoYL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6994
+  },
+  "https://unpkg.com/@angular/animations@10.0.12/bundles/animations.umd.js": {
+    "integrity": "sha384-2P3FK8LVnAT4dRIKV49XpovcJXQJ6utCdiud/zWaVScAVRFLFjqGSO37kTmoZrZ1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47314
+  },
+  "https://unpkg.com/@angular/animations@10.0.12/bundles/animations.umd.min.js": {
+    "integrity": "sha384-8Nejp/YEwP3VW6Ndllq1sfis7ybOEYlyJV3q5pGGOzD5lUSZ4w4wTvMa2mPXyyen",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6994
+  },
+  "https://unpkg.com/@angular/animations@10.0.13/bundles/animations.umd.js": {
+    "integrity": "sha384-ZpfbDMUI8qEbu258Tfsy5hGjYS/+mbUcDRO4aWc0lzwvptkXP8N2YIUHN8jXqBg3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47314
+  },
+  "https://unpkg.com/@angular/animations@10.0.13/bundles/animations.umd.min.js": {
+    "integrity": "sha384-YQNMkQkonuTl0lYnlo0iHSWYle6kL4Kkl7ndR0IwzOnuu4z0ORm5nvB8reWeFtgn",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6994
+  },
+  "https://unpkg.com/@angular/animations@10.0.14/bundles/animations.umd.js": {
+    "integrity": "sha384-NXXJ0v8ZkFMCXri/MTi2g1G6ceDayHihfdoBTmSS+4MeKPswl1Ga6N6xPpAoCKcX",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47314
+  },
+  "https://unpkg.com/@angular/animations@10.0.14/bundles/animations.umd.min.js": {
+    "integrity": "sha384-mKUNUTq45JiwwHiD83qVvF6hNZAzUoGdllrK4H5PDkQ21OwTzkPEdjcujoafsTl6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6994
+  },
+  "https://unpkg.com/@angular/animations@10.0.2/bundles/animations.umd.js": {
+    "integrity": "sha384-9je0gR+0GpJC2dJ2EyLgCVGewCGF+aTV8y4QR5JK02dAV1YN/DaSZj/JgxJq4fSd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-1jRRrxPhR65bKlTauJwCMHKBABRex3I2f21zKXSuj1y6sgv6AZkLFx2SoCiEkgln",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.3/bundles/animations.umd.js": {
+    "integrity": "sha384-Nq+DJZKtNqmn5d99mgNi25aPy/JAfbgwNOyyPzxYzW4Y3L4XGSuaeipWbRonnxWd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-SWwrRNpRz7ExzN4SBb6PL+9+R7Y4n8NEykYIWGyPb2nOwtlHh9eYbzY5zhPyVR8n",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.4/bundles/animations.umd.js": {
+    "integrity": "sha384-p22tTA9p73yMDOXijR0MU+ZBMKcyu1QTFKkVfXbtv+J/Ir6+8YrlSW19eifmDlD+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-+sH60jo9ErN/u6OcLDs/K0AtHsyqritEg7lMUhtFj4RK3y9K34Ez3t5Bzd1mtliN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.5/bundles/animations.umd.js": {
+    "integrity": "sha384-8bLHl9lpeoj5ODps8aCTi/MusJNokcrPz+g900Bw9LkdvyXZwXwhgO+dkfy5kzdw",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-hyYVwSFiyVbqbvMbSCzeJeo5csWIWbDGviKUoBY5rMtr9cFEeeZv0yJV8ftMNdv+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.6/bundles/animations.umd.js": {
+    "integrity": "sha384-YQ12q5Q+SzsWFnfPT8BpmUgiTuxZQOrAN54P+luPgeaDIwX8pFjSLjNbPyxuR4h6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-pioVeag73xP65kaHOgejO+jJMguEzt+dHq7z116bhqaQyMGkPsvdm67xmfYWOAed",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.7/bundles/animations.umd.js": {
+    "integrity": "sha384-I60f2utlIlHqL/DONkuEEV96VkqyKVmko+AFNV2drymPVEE1sTY0MNCwkRBTrHOH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-6z0cpnu+yDtyJq00ug9+HEk8+9TWMqAB39Br4CyjX76BA9aI290bHKaCTo8K20XN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.8/bundles/animations.umd.js": {
+    "integrity": "sha384-B60WVcqeGEbp+n960yzBpfnSdFhJXvaIOhWp/G/GsEO/2DA5OgcH1wSnFFUpYk6Q",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.8/bundles/animations.umd.min.js": {
+    "integrity": "sha384-j09GMIFzvl8kUnZIXC9UcKzXFU151nt0FVB9K/F1i7q9McW1R4fZlVr9BHN4ZlbY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.0.9/bundles/animations.umd.js": {
+    "integrity": "sha384-zbqiasou9FqQdZE9/tWE8w+GgYka7s1A8kprlzMFQFFfPxfU5tQcdGiVWPBNtW4l",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.0.9/bundles/animations.umd.min.js": {
+    "integrity": "sha384-hmNM8r3c+taHvmiv3cBbqRdubP1s5VRKe1fOYQctcyDu+14cqFu7RQxHDozfP1ZC",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.1.0/bundles/animations.umd.js": {
+    "integrity": "sha384-4ys5CrHrz2s4Xcmeeuzm2zurW3jM9TvlkHAZw0n4ZZUQaro9AY7gdUevfgvpIWTg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.1.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-7IH4osAPwXEHJd+NBU7QPgzpRylvSiZknggCaDITzf4LR2ZAPefykcqgf18zO6Dr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.1.1/bundles/animations.umd.js": {
+    "integrity": "sha384-tb0TNO8FydL3vX6VeC8jxUnPh02WBIFf1TnUW+tckPdwPjc2kFrx2CfvNvzKPuYF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.1.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-XprEY57Ya8y13UkKUZrDjY5GKI+A7JTrgUvoxVQ5xOWx87kBQUOcu2lPLWomxzDT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.1.2/bundles/animations.umd.js": {
+    "integrity": "sha384-CCcywta/5Kwi4d2a4Dnox0wc8WjtrA6Flw61+M8gWwhpux427pOIwZu82Cwal4UV",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.1.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-GsCMxB+8RtmshywdZlsZMocCWfGeylCqN8utaDEK8G9YbYcAg+kUt8utxW2FHzIp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.1.3/bundles/animations.umd.js": {
+    "integrity": "sha384-GSLLIqKR81gp3lt6BaSiIcoktstXVWe5i3ltdSHNSI22lP5WfLhiqVjCDKawuLlg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.1.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-CzO5K9+BKZpiuSGJ0RENlNj+FuhvO5d9B779duCA5OZH0tSPFN0bZ1VjLJJmljiz",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.1.4/bundles/animations.umd.js": {
+    "integrity": "sha384-9i3x3EfnouXy2OirY7tsBQOu+a7AMrg0N5RoF52Q4QTlS2lM0bTxOm0PvHb9aWHa",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.1.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-uf9pje+L2HfQr/v0f//l6aKd1kin4oY/+4O0JiKMZwQTvq2FqCF7mr+uSmSqKduA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.1.5/bundles/animations.umd.js": {
+    "integrity": "sha384-99iL9+Ys9VCPrcUQN55ksEvYwqkF7lUXmoe/6e0opPM/4dS4FXia+cfFXvsSYaSZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.1.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-nS45PlLr83/iG0oE/3CxUvJFwUvMO8KlbW/wOnHNyseYdja80CQ6KS6L+QM3UVsR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@10.1.6/bundles/animations.umd.js": {
+    "integrity": "sha384-sw/snYQuyL82dNgfGz1h25d1eFOefJfJQdbSsqguovNSBR+byU0k5nk7XpBOZJ8+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47313
+  },
+  "https://unpkg.com/@angular/animations@10.1.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-XTFXyfodO8nXb5Lr+k6F2ZW5ku06FOie2Vuc1jWFoSORUoJX+q9681TsORamH9a5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6993
+  },
+  "https://unpkg.com/@angular/animations@4.0.0/bundles/animations.umd.js": {
+    "integrity": "sha384-r1pQnEyBCrIAeER0hs93bgxshScCg5lnwAdA4GRMGrht+ocODnAlQU7Pw7A4wAlH",
+    "lastModified": "Thu, 23 Mar 2017 23:52:24 GMT",
+    "size": 29457
+  },
+  "https://unpkg.com/@angular/animations@4.0.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-O7Bw1vusTLY6CTjiBFD0e8Z0L3jp355kT+x/XkqTRPPypraaUziEcHrNJCRmO3Hh",
+    "lastModified": "Thu, 23 Mar 2017 23:52:24 GMT",
+    "size": 6869
+  },
+  "https://unpkg.com/@angular/animations@4.0.1/bundles/animations.umd.js": {
+    "integrity": "sha384-IlBdDIQHrFmyhK+fWJNDs+FH30d6EWK0b1LBHDI2Xm0t/WkN4b51I4DoofTMKDp0",
+    "lastModified": "Wed, 29 Mar 2017 23:33:39 GMT",
+    "size": 29441
+  },
+  "https://unpkg.com/@angular/animations@4.0.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-U7gU+iGNLWyS+YU7iGvu4+NvsJObsQP85zD2wnVYCn64MKkR5Kfy+V8RLcVgvgTv",
+    "lastModified": "Wed, 29 Mar 2017 23:33:39 GMT",
+    "size": 6869
+  },
+  "https://unpkg.com/@angular/animations@4.0.2/bundles/animations.umd.js": {
+    "integrity": "sha384-HYAYC6wnhBaHL3zyc639JScmGnxkrbGP+Hzg86WcpRGS4RAN4zryEkOOlVvjrOyC",
+    "lastModified": "Tue, 11 Apr 2017 22:35:56 GMT",
+    "size": 29441
+  },
+  "https://unpkg.com/@angular/animations@4.0.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-2XQ2ZeecNPG2MX/CQjbXKaGV9P2TvPnU/PuZ7Tlf4FVa3imz5kwHSX1hZBa1DL6j",
+    "lastModified": "Tue, 11 Apr 2017 22:35:56 GMT",
+    "size": 6869
+  },
+  "https://unpkg.com/@angular/animations@4.0.3/bundles/animations.umd.js": {
+    "integrity": "sha384-hLsQircC5l03Lm09visvfAUrjcOb9NL8NVPGXote48A9rWz+x8aJbWUg2DuwXuV1",
+    "lastModified": "Fri, 21 Apr 2017 04:56:52 GMT",
+    "size": 29441
+  },
+  "https://unpkg.com/@angular/animations@4.0.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-r6M1dIBVu9bKoOMWXgRklFu0bVeMXHV6Q6/rHvtHU44EB2nRSqTs5TO+1Nsq36Ro",
+    "lastModified": "Fri, 21 Apr 2017 04:56:52 GMT",
+    "size": 6869
+  },
+  "https://unpkg.com/@angular/animations@4.1.0/bundles/animations.umd.js": {
+    "integrity": "sha384-UN5LLoCk+v6B5fO6Qk43BHYMTdnrD6H3x+MaClp4WuPvKkfnpePn4jMSCWb0EXrJ",
+    "lastModified": "Wed, 26 Apr 2017 15:55:46 GMT",
+    "size": 29441
+  },
+  "https://unpkg.com/@angular/animations@4.1.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-U2V1yFaAPxS4U26skY/RK0kABH41RlDl6KrCqhhpEehTrzGbWqO8gtbDgfSKsX5I",
+    "lastModified": "Wed, 26 Apr 2017 15:55:46 GMT",
+    "size": 6869
+  },
+  "https://unpkg.com/@angular/animations@4.1.1/bundles/animations.umd.js": {
+    "integrity": "sha384-0Rm3ymX3MkX7Aqq4jbFyjTCOisuSAXqoLLfiQJqNSnbFFnweb1ijSdMRZcHqJA35",
+    "lastModified": "Thu, 04 May 2017 21:23:51 GMT",
+    "size": 29441
+  },
+  "https://unpkg.com/@angular/animations@4.1.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-D28YfQseiJlfYB8LJKL5bjFX+ezZ6FYB8MM30ZOk3+zexd+oFTY72l5dzX9ZyUuI",
+    "lastModified": "Thu, 04 May 2017 21:23:51 GMT",
+    "size": 6869
+  },
+  "https://unpkg.com/@angular/animations@4.1.2/bundles/animations.umd.js": {
+    "integrity": "sha384-UlKxaq2BgfDTsjVN5SqJem+Dc3DS4JHv9yNgjYyP3h3F6YYN0kxeQn89KDosvA43",
+    "lastModified": "Wed, 10 May 2017 22:52:04 GMT",
+    "size": 29378
+  },
+  "https://unpkg.com/@angular/animations@4.1.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-2RlZOU7bKoyHkV8nj4CJjjsXI+IcKCt6/G4DahjWBCTtWFGhHyViIgXnLJQLIcX9",
+    "lastModified": "Wed, 10 May 2017 22:52:04 GMT",
+    "size": 6869
+  },
+  "https://unpkg.com/@angular/animations@4.1.3/bundles/animations.umd.js": {
+    "integrity": "sha384-PCGZREcsZFN1mFZYiO4ph/5ZZ8A6H++Ekt8zD7NnysCbvwm4crYZLesIrqwa5ef6",
+    "lastModified": "Wed, 17 May 2017 22:48:11 GMT",
+    "size": 29378
+  },
+  "https://unpkg.com/@angular/animations@4.1.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-5CnWQlheOTAhunTv+pRIcBzWjrzFIKo359AqzOVk177qp0WTneBVdNrLzfEJPeZt",
+    "lastModified": "Wed, 17 May 2017 22:48:11 GMT",
+    "size": 6869
+  },
+  "https://unpkg.com/@angular/animations@4.2.0/bundles/animations.umd.js": {
+    "integrity": "sha384-DQMPfGMpGy2N/qTPJA+mXLngBJNboQmlu6tjiih+6OWnAhDEGGitqOJHBxintZoc",
+    "lastModified": "Thu, 08 Jun 2017 22:17:31 GMT",
+    "size": 42689
+  },
+  "https://unpkg.com/@angular/animations@4.2.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-/bwSrzDPdc1lN/j0dYbUvk8diAr7qjHw7aR1aZfahmLeyevRgO5zwchc5RxEbiBZ",
+    "lastModified": "Thu, 08 Jun 2017 22:17:31 GMT",
+    "size": 8089
+  },
+  "https://unpkg.com/@angular/animations@4.2.1/bundles/animations.umd.js": {
+    "integrity": "sha384-vaT/kzA1zJk6Fq1CxvKOmPYo0yxH8mDXxsGscw+q5GykyQnl/bk6QwvvhaFpetQU",
+    "lastModified": "Fri, 09 Jun 2017 23:15:13 GMT",
+    "size": 42689
+  },
+  "https://unpkg.com/@angular/animations@4.2.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-iWJuihvntpFFlbubJWvcAyn6quN9cMsag8UwUjSUoAE9MhfApIE7IFSCtuW1KAO8",
+    "lastModified": "Fri, 09 Jun 2017 23:15:13 GMT",
+    "size": 8089
+  },
+  "https://unpkg.com/@angular/animations@4.2.2/bundles/animations.umd.js": {
+    "integrity": "sha384-OL5F2qwlEQng/tbPLGZBwXEPlm06YN0oieof8WblpyS1bnGRMbXTOqTCN+7e+EGR",
+    "lastModified": "Mon, 12 Jun 2017 22:41:06 GMT",
+    "size": 42689
+  },
+  "https://unpkg.com/@angular/animations@4.2.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-G7hZyyMqy/nkFjzSGUjhtMmnV7FFH0+yb+HUwN/5TC+EiLQFbHim+KT1rvepEn47",
+    "lastModified": "Mon, 12 Jun 2017 22:41:06 GMT",
+    "size": 8089
+  },
+  "https://unpkg.com/@angular/animations@4.2.3/bundles/animations.umd.js": {
+    "integrity": "sha384-SlpHMjPa/z87hYjHUcJEmBk+ipRWB7U5aKIB51DUCito4x+Nn15HPHCbL/C8xFve",
+    "lastModified": "Fri, 16 Jun 2017 16:45:59 GMT",
+    "size": 42689
+  },
+  "https://unpkg.com/@angular/animations@4.2.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-nJ1hOLny4V77+fa99JEVX9KWtk8zQQYwLaBb2K9iciXSluRoKJ1J056NRSC5PVoU",
+    "lastModified": "Fri, 16 Jun 2017 16:45:59 GMT",
+    "size": 8089
+  },
+  "https://unpkg.com/@angular/animations@4.2.4/bundles/animations.umd.js": {
+    "integrity": "sha384-m02VSsSstKf38A+aCZRwpTtNvCHvGG6B0m6cpkNLH45PnqC1Dru8vQkZJPtlUK4N",
+    "lastModified": "Thu, 22 Jun 2017 00:04:23 GMT",
+    "size": 42689
+  },
+  "https://unpkg.com/@angular/animations@4.2.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-UKMRsecYokeEkiSPsYD8p7pc6EFCObDjX969EKlA93paF/eUAr975oGSu3Wz4Mnf",
+    "lastModified": "Thu, 22 Jun 2017 00:04:23 GMT",
+    "size": 8089
+  },
+  "https://unpkg.com/@angular/animations@4.2.5/bundles/animations.umd.js": {
+    "integrity": "sha384-WDQXCSBbkcQi4VjRuqMHkrBUnaM0zTpM0rHdAN1b+Q0pNuZNKxsSsVZX+6TKQKYe",
+    "lastModified": "Fri, 30 Jun 2017 00:23:36 GMT",
+    "size": 42688
+  },
+  "https://unpkg.com/@angular/animations@4.2.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-/lC+Ymo6evJpFCiwyoc7dL1zi9Fw1ZDG5DLqZsavnKbqTKWDIFHeiNXPh6Rbv070",
+    "lastModified": "Fri, 30 Jun 2017 00:23:36 GMT",
+    "size": 8089
+  },
+  "https://unpkg.com/@angular/animations@4.2.6/bundles/animations.umd.js": {
+    "integrity": "sha384-K328jd2yjxTMyDSE8X8VGWtr842KAbx0tVAp7bxYAVwrRMsrReBA+UnCGh0+hgUn",
+    "lastModified": "Sat, 08 Jul 2017 04:52:56 GMT",
+    "size": 42688
+  },
+  "https://unpkg.com/@angular/animations@4.2.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-WSnnb0wu4lDDg2xQ2YcRN3GFhSGOlMPzjie1e2Fcky1+JrHzqJcF8jbZMVanztoG",
+    "lastModified": "Sat, 08 Jul 2017 04:52:56 GMT",
+    "size": 8089
+  },
+  "https://unpkg.com/@angular/animations@4.3.0/bundles/animations.umd.js": {
+    "integrity": "sha384-Eh7k+OPSNOPk9KEscRNPNfMaeJXdCgrc9SLkyAVEjoKp+zctQ1itSNOzNAPFCaTa",
+    "lastModified": "Fri, 14 Jul 2017 20:15:43 GMT",
+    "size": 44575
+  },
+  "https://unpkg.com/@angular/animations@4.3.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-u2uUoweM/HaTPRTaYf2MxCT8Dko0K+mp89TZ3E4dMBl2cjiBhsIZ4ka7nD5xo2zG",
+    "lastModified": "Fri, 14 Jul 2017 20:15:43 GMT",
+    "size": 8089
+  },
+  "https://unpkg.com/@angular/animations@4.3.1/bundles/animations.umd.js": {
+    "integrity": "sha384-SbrvPIXGaf7cSbdg/nag/9N3YNVXYwQZbY5ped6tALDk2Bucopogt1cPyqkZU/hU",
+    "lastModified": "Wed, 19 Jul 2017 19:58:43 GMT",
+    "size": 44837
+  },
+  "https://unpkg.com/@angular/animations@4.3.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-HUrft5LN5Ccl9/mz3PM/c+rvVVsN4sd9CDtbMGz/lWDjctHAGaVRsaAl3XMrWozz",
+    "lastModified": "Wed, 19 Jul 2017 19:58:43 GMT",
+    "size": 8231
+  },
+  "https://unpkg.com/@angular/animations@4.3.2/bundles/animations.umd.js": {
+    "integrity": "sha384-FJ73EAfMtd251cMwzMI0diYPYGv2jPLIYn0h2mhydwYAviPv7+Jun1AxQ4mo/mbs",
+    "lastModified": "Thu, 27 Jul 2017 21:05:26 GMT",
+    "size": 44837
+  },
+  "https://unpkg.com/@angular/animations@4.3.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-5+Uz4tPZojovTyfsG1/1QJib3HGQkfwzUlfXtwdmOaRONoFusAjDuchXwJEdpOWm",
+    "lastModified": "Thu, 27 Jul 2017 21:05:26 GMT",
+    "size": 8231
+  },
+  "https://unpkg.com/@angular/animations@4.3.3/bundles/animations.umd.js": {
+    "integrity": "sha384-CRE7UwwtYakk8m8EsCkdDIa0uByHpuaBG++i18Qdl44p12E/Iybd70emjz3fstol",
+    "lastModified": "Wed, 02 Aug 2017 20:03:38 GMT",
+    "size": 44837
+  },
+  "https://unpkg.com/@angular/animations@4.3.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-ZEGd7IPKoKgQury7ArLVYH25l88/xVuvNty2c0lALP81QbgY5aKqDx+/GdGzOZM6",
+    "lastModified": "Wed, 02 Aug 2017 20:03:38 GMT",
+    "size": 8231
+  },
+  "https://unpkg.com/@angular/animations@4.3.4/bundles/animations.umd.js": {
+    "integrity": "sha384-4k4+7vUnjhoJqfsR7F/7fynZKxRQ7v40CZVPcjduoQbcoEtUE6giE0gZyTVfr/wN",
+    "lastModified": "Thu, 10 Aug 2017 18:23:56 GMT",
+    "size": 44887
+  },
+  "https://unpkg.com/@angular/animations@4.3.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-lTUbgfKfK+bTd8SMwG92GL3OahivrN+f3RXocisGduDmhxfbcUNzNFz2iXkqKXAC",
+    "lastModified": "Thu, 10 Aug 2017 18:23:56 GMT",
+    "size": 8255
+  },
+  "https://unpkg.com/@angular/animations@4.3.5/bundles/animations.umd.js": {
+    "integrity": "sha384-fSqTu91JvVYDW1ae7PwjG8ET3Fa61ovUZKu/OMrPMQnH6LCB2pvLe02cGLvw7Ek8",
+    "lastModified": "Wed, 16 Aug 2017 17:56:25 GMT",
+    "size": 44887
+  },
+  "https://unpkg.com/@angular/animations@4.3.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-J7rv0Px+gJzJlCklWBVDSaWDmeeDy+/6MmKsPinConxpDFx0jshnV/ElHeh/k3Sa",
+    "lastModified": "Wed, 16 Aug 2017 17:56:25 GMT",
+    "size": 8255
+  },
+  "https://unpkg.com/@angular/animations@4.3.6/bundles/animations.umd.js": {
+    "integrity": "sha384-UXx2GTKLbXhlQ8vd8t6UUZoM95W973PXBFA9YmQwvcU4fxApc/023vJB+07HlyIy",
+    "lastModified": "Wed, 23 Aug 2017 20:07:09 GMT",
+    "size": 44940
+  },
+  "https://unpkg.com/@angular/animations@4.3.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-gGKex0iwAQGgcsUv/EEjJnyWyRtJeYuFUHUitMS2TJQ7Cg82JU6ubyLYhCu0sqF/",
+    "lastModified": "Wed, 23 Aug 2017 20:07:09 GMT",
+    "size": 8255
+  },
+  "https://unpkg.com/@angular/animations@4.4.1/bundles/animations.umd.js": {
+    "integrity": "sha384-Gfmsd/XW+Rb+Shvptg5UoW5/XjCM40kpHBc1gTK12Y4gq0HSw1VMpknlaThLnsrG",
+    "lastModified": "Fri, 15 Sep 2017 22:38:32 GMT",
+    "size": 44940
+  },
+  "https://unpkg.com/@angular/animations@4.4.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-e6B/3D1QGhfsHTzDfNQo0DJt5QsauWco1Ix24dkwT76Mg02BQNWFis19qXfMNyYA",
+    "lastModified": "Fri, 15 Sep 2017 22:38:32 GMT",
+    "size": 8255
+  },
+  "https://unpkg.com/@angular/animations@4.4.2/bundles/animations.umd.js": {
+    "integrity": "sha384-o8m5hXOwdp2TiB4edeydl5/NTa6KVwqbG4yjoihf8epPrQZcRNmi2Q2Is/yXAImM",
+    "lastModified": "Mon, 18 Sep 2017 22:45:39 GMT",
+    "size": 44940
+  },
+  "https://unpkg.com/@angular/animations@4.4.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Bs3x+J9RtDcpAk4A4LECQJjXnigBPXPnh8f6OvfVzIc2feR36xTw5uByY7S+wSl3",
+    "lastModified": "Mon, 18 Sep 2017 22:45:39 GMT",
+    "size": 8255
+  },
+  "https://unpkg.com/@angular/animations@4.4.3/bundles/animations.umd.js": {
+    "integrity": "sha384-nMLMVyufbfPH2mQZxM5KCREfk4ZPCAJFrTSBViCHYt+6YhJuNlfdEfEm0Ei77UPd",
+    "lastModified": "Tue, 19 Sep 2017 22:31:10 GMT",
+    "size": 44940
+  },
+  "https://unpkg.com/@angular/animations@4.4.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-W9QJUm4ygz6YvLn3Ne3lfr3MjtRwt1do0ZpfN1abB+LCJSZEhea1G3f0FyFQKLvL",
+    "lastModified": "Tue, 19 Sep 2017 22:31:10 GMT",
+    "size": 8255
+  },
+  "https://unpkg.com/@angular/animations@4.4.4/bundles/animations.umd.js": {
+    "integrity": "sha384-wyvGOXeJUeRK8/JnrKi/6dsEvev1Ioy+Cmuwle07OShuF9nk4sSaUt2t0OVghFKd",
+    "lastModified": "Thu, 28 Sep 2017 19:26:25 GMT",
+    "size": 44940
+  },
+  "https://unpkg.com/@angular/animations@4.4.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-OnLZE3hQc842hcSiH7CHd0EFz0MrqfEAhcMn3lxVPNc/JZy27v9nsmymmH8BO0Q1",
+    "lastModified": "Thu, 28 Sep 2017 19:26:25 GMT",
+    "size": 8255
+  },
+  "https://unpkg.com/@angular/animations@4.4.5/bundles/animations.umd.js": {
+    "integrity": "sha384-mSgfOqylGNE5Uz/eNl65cAQomO5RWlY89oUSUFdwLFNKcC25ptHe1U+s5GRNRa+c",
+    "lastModified": "Thu, 12 Oct 2017 19:49:36 GMT",
+    "size": 44940
+  },
+  "https://unpkg.com/@angular/animations@4.4.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-uQtcuVNXhP+OHRVOHIENsaMgOhu+1CT6H51bVp2uxzVzFybJvM+zoD+8yF/Vkwc3",
+    "lastModified": "Thu, 12 Oct 2017 19:49:36 GMT",
+    "size": 8209
+  },
+  "https://unpkg.com/@angular/animations@4.4.6/bundles/animations.umd.js": {
+    "integrity": "sha384-BSTWoXL6Q1L4qiAln5ZqG+ROxe06RhrzQR6VOsNhTLpcAQuEbD9IgeeFy3J+K36t",
+    "lastModified": "Thu, 19 Oct 2017 00:04:34 GMT",
+    "size": 45728
+  },
+  "https://unpkg.com/@angular/animations@4.4.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-H9bdhdx2VNj/I9/MqKMmblL2hJmYIFXyUee73wZODyKSwQj/6xLy5VdFulr9G7Ex",
+    "lastModified": "Thu, 19 Oct 2017 00:04:34 GMT",
+    "size": 8209
+  },
+  "https://unpkg.com/@angular/animations@4.4.7/bundles/animations.umd.js": {
+    "integrity": "sha384-66AyMSfWp5nucd14Rx3L/xPFqNvzg8+gMSP141VAG6zwUF8bRg1ZyapYs8E/jyis",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 45728
+  },
+  "https://unpkg.com/@angular/animations@4.4.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-s7bSASyGOLUz4gJ822xH1elHpuL8g5pAvR9g5zHmseK6Q26wxnUgakENuhbPyOCP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 8209
+  },
+  "https://unpkg.com/@angular/animations@5.0.0/bundles/animations.umd.js": {
+    "integrity": "sha384-wCUG+P76QIvaqcShm89T4hURiJv+IMb7gbuDqGYO5wBk+M1gkIzAmRDCfSm/aurJ",
+    "lastModified": "Wed, 01 Nov 2017 16:51:39 GMT",
+    "size": 52573
+  },
+  "https://unpkg.com/@angular/animations@5.0.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-MOtrXpb0Vb6tUYLbY/XZNLmO+gGfoUMNl48nx3HykICYywp/g0RMiakgcJLUiaHJ",
+    "lastModified": "Wed, 01 Nov 2017 16:51:39 GMT",
+    "size": 7807
+  },
+  "https://unpkg.com/@angular/animations@5.0.1/bundles/animations.umd.js": {
+    "integrity": "sha384-bnwdgKGr7JZM6Dt5IlV5RHLwS0sVu54+iM+UvJZ/bmep90QXlqfR6yRDHTDJY4Xj",
+    "lastModified": "Wed, 08 Nov 2017 18:34:55 GMT",
+    "size": 52573
+  },
+  "https://unpkg.com/@angular/animations@5.0.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-IVU93lOoDWz7vy7/aYroM7QRLl1dkEPCEEDlfCSQWYc5RlRC+ZqdPz5DrlKmWY6b",
+    "lastModified": "Wed, 08 Nov 2017 18:34:55 GMT",
+    "size": 7808
+  },
+  "https://unpkg.com/@angular/animations@5.0.2/bundles/animations.umd.js": {
+    "integrity": "sha384-UB3Svbl6DgfpICWqyMw3Ne7JJ/CW1vDeV0nwQA1HimMNyr0eyUGjMnD5JPcv7JNw",
+    "lastModified": "Thu, 16 Nov 2017 21:02:00 GMT",
+    "size": 52573
+  },
+  "https://unpkg.com/@angular/animations@5.0.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-EqIjXMfcUUT7tbGpRJar6X37ivztC+276VtH1vsF6VriCtBpWEg4sUpVxUNddTm6",
+    "lastModified": "Thu, 16 Nov 2017 21:02:00 GMT",
+    "size": 7806
+  },
+  "https://unpkg.com/@angular/animations@5.0.3/bundles/animations.umd.js": {
+    "integrity": "sha384-YKFTCO13pcrLSBWEp9EOc4yY6htF9ze53YS3QpVwVAfsscpIzYkGNcKp246OU8U8",
+    "lastModified": "Wed, 22 Nov 2017 21:13:21 GMT",
+    "size": 53396
+  },
+  "https://unpkg.com/@angular/animations@5.0.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-md5wrJpsTv/JNAypRKGHBOSuUHnDzvogfEnWSY2wtflex+BTAvSPTej+Mj/dVMjb",
+    "lastModified": "Wed, 22 Nov 2017 21:13:21 GMT",
+    "size": 8189
+  },
+  "https://unpkg.com/@angular/animations@5.0.4/bundles/animations.umd.js": {
+    "integrity": "sha384-tCct53VGcwar8JHUruEnpwY2mOBI4XU2VHktwh1hEO1njjlLkx91ZmMayD92Dcpk",
+    "lastModified": "Fri, 01 Dec 2017 05:26:29 GMT",
+    "size": 53396
+  },
+  "https://unpkg.com/@angular/animations@5.0.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-J2y5t2CsyZv2CZnFt//M7bvQ3QYmTEZtyb2vp+nKc8/9P1bNFJUVN4XSFk00vhLf",
+    "lastModified": "Fri, 01 Dec 2017 05:26:29 GMT",
+    "size": 8189
+  },
+  "https://unpkg.com/@angular/animations@5.0.5/bundles/animations.umd.js": {
+    "integrity": "sha384-LLafenH7LhJEa5Ru0wGU12gxKzBg7oocIy5/J4Cte+Dd0sX7wzIPuOmSel9YX3kU",
+    "lastModified": "Fri, 01 Dec 2017 22:46:14 GMT",
+    "size": 53396
+  },
+  "https://unpkg.com/@angular/animations@5.0.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-5T+ADnr8fuOEejnCr/ZfT9m5KjTeg5PiSx2kt1ry7CDU9O22vUX5/GLmdm7Kqo+w",
+    "lastModified": "Fri, 01 Dec 2017 22:46:14 GMT",
+    "size": 8192
+  },
+  "https://unpkg.com/@angular/animations@5.1.0/bundles/animations.umd.js": {
+    "integrity": "sha384-Ou7FJWJBK49mV1kQTS20wW5/KmqHcAKFjVAkkYIQW605CmCAerOeZV7sKoGXmzyH",
+    "lastModified": "Wed, 06 Dec 2017 20:20:07 GMT",
+    "size": 53407
+  },
+  "https://unpkg.com/@angular/animations@5.1.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-7aaVBiZMnHLdFC4q+wcMI1OnjA13IFI/3x+jo/MTdoQE3iF4UvnsROC0b3hzfGTq",
+    "lastModified": "Wed, 06 Dec 2017 20:20:07 GMT",
+    "size": 8163
+  },
+  "https://unpkg.com/@angular/animations@5.1.1/bundles/animations.umd.js": {
+    "integrity": "sha384-YTud6PfbfjcxGkTJQhl10LJ5uN9EmT5FAy0/s5eV3tRNuoy6It/rmWl1Zjf5QMi2",
+    "lastModified": "Wed, 13 Dec 2017 19:29:15 GMT",
+    "size": 53407
+  },
+  "https://unpkg.com/@angular/animations@5.1.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-kHGOnD4escUU4c1XsmSWLXt38SmRFwhhN4uO3H8tryURHmCxJKLnQZTNuUvEliSg",
+    "lastModified": "Wed, 13 Dec 2017 19:29:15 GMT",
+    "size": 8171
+  },
+  "https://unpkg.com/@angular/animations@5.1.2/bundles/animations.umd.js": {
+    "integrity": "sha384-AzEw1e1WBDu2dBP0nf6FOYzEASmNQ/UEMD4ZKEhr9dIv84b/ivjh4zHJma3btOrV",
+    "lastModified": "Wed, 20 Dec 2017 20:54:39 GMT",
+    "size": 53407
+  },
+  "https://unpkg.com/@angular/animations@5.1.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-2VAxLb3b2RMMJcGiwBVcfXdxv1Mxly8TgAcTNUBgOlLsbrAjuPLIA5TwoKFaLChH",
+    "lastModified": "Wed, 20 Dec 2017 20:54:39 GMT",
+    "size": 8166
+  },
+  "https://unpkg.com/@angular/animations@5.1.3/bundles/animations.umd.js": {
+    "integrity": "sha384-P7s8NgZUJ9TUuzd0HmAg2fNt4xj2J+9vjDZciPS2SBdWXBsEBohDf+C3We4ZOpv0",
+    "lastModified": "Wed, 03 Jan 2018 23:58:31 GMT",
+    "size": 53407
+  },
+  "https://unpkg.com/@angular/animations@5.1.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-jL0//c8XUqIb3T6NcAsddTrxWjjmcxeID3f9CIhrxdA/FBBCi9g7kMqfx+z+Q3Tl",
+    "lastModified": "Wed, 03 Jan 2018 23:58:31 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.0/bundles/animations.umd.js": {
+    "integrity": "sha384-7M/NMDD1twQudl3XtDpP9g4sQQ6bDgriyByfX1o3ixIdg4m4KNfysqDzg7XBr7A2",
+    "lastModified": "Wed, 10 Jan 2018 01:03:38 GMT",
+    "size": 53001
+  },
+  "https://unpkg.com/@angular/animations@5.2.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-YZl5Je9fPbtRe4EalBXDSafayBTwnojEIOJt7iK9TEK3F9THRp8MhytAK91Oz3Zd",
+    "lastModified": "Wed, 10 Jan 2018 01:03:38 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.1/bundles/animations.umd.js": {
+    "integrity": "sha384-n+z6uVuysPKiN/eROHdTDTF+xfySrHSK9zIjjJrxquNcDD64Vc7d8BFL1X8bVyEO",
+    "lastModified": "Wed, 17 Jan 2018 17:43:29 GMT",
+    "size": 53032
+  },
+  "https://unpkg.com/@angular/animations@5.2.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-fOJLQjkbPZtgIfaTJ6/gLKNRtuKeUoSFx4PQuh8juLhQETQvlugSK17hvIc3mkTK",
+    "lastModified": "Wed, 17 Jan 2018 17:43:29 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.10/bundles/animations.umd.js": {
+    "integrity": "sha384-wbxlPHopX43SJ0NW1CXP59XXw/bw5CcTrm4xNBB2WTh70/zJ9KACEB6TqErBLjWH",
+    "lastModified": "Thu, 01 Jan 1970 00:00:00 GMT",
+    "size": 53035
+  },
+  "https://unpkg.com/@angular/animations@5.2.10/bundles/animations.umd.min.js": {
+    "integrity": "sha384-wJcKRxi/Nq88X57ywfX12Ih0pDhVlvZEX0rA0Ojw4W21YDdePbD3eRx/Pa5b7Ejj",
+    "lastModified": "Thu, 01 Jan 1970 00:00:00 GMT",
+    "size": 8101
+  },
+  "https://unpkg.com/@angular/animations@5.2.11/bundles/animations.umd.js": {
+    "integrity": "sha384-6RHASY2+ztcmbPlGKYS3/WsDbjpSBKxZbVA3Kl0evjQ5/x1it+D+3WGIxuEf+wcy",
+    "lastModified": "Wed, 16 May 2018 21:48:19 GMT",
+    "size": 53035
+  },
+  "https://unpkg.com/@angular/animations@5.2.11/bundles/animations.umd.min.js": {
+    "integrity": "sha384-b2Xi+jkDuxrpIzaDG7LrWLaTcEv7ACSj7C5VlOCeEucyEO40HzvHeOqjF0VLG9rY",
+    "lastModified": "Wed, 16 May 2018 21:48:19 GMT",
+    "size": 8101
+  },
+  "https://unpkg.com/@angular/animations@5.2.2/bundles/animations.umd.js": {
+    "integrity": "sha384-SFkn58LWhzxVIG8HdcM2gHBEKcgPbqt5joTa5xW9my9/IndHI3p6Wy3yCYwD/FGZ",
+    "lastModified": "Thu, 25 Jan 2018 05:30:54 GMT",
+    "size": 53032
+  },
+  "https://unpkg.com/@angular/animations@5.2.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-e3RCJKd4vBS2IzTLLWk95TVdGsvxHRa65fgmKqUiaydi4bRrdr0gp1qLddxG4Mql",
+    "lastModified": "Thu, 25 Jan 2018 05:30:54 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.3/bundles/animations.umd.js": {
+    "integrity": "sha384-aE3rtuCe+NTzQ1Wmj0WZUnMEgiY5m0hTV5TRhqu5rVs7U/bSECN81fH4RudesB65",
+    "lastModified": "Wed, 31 Jan 2018 20:52:27 GMT",
+    "size": 53032
+  },
+  "https://unpkg.com/@angular/animations@5.2.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-bETVMSI1zf1Y3oCSjEjVsM3DWTKyjhLHeriKvmVv93S49wk/hJ3f+5OBuoRHsjkk",
+    "lastModified": "Wed, 31 Jan 2018 20:52:27 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.4/bundles/animations.umd.js": {
+    "integrity": "sha384-KGErqMSP1nLmWXnWbDARdPfijo+nmnR17P0vA0ZjhqH/8UFRNoEPWspZTn8GvF2t",
+    "lastModified": "Wed, 07 Feb 2018 18:25:26 GMT",
+    "size": 53032
+  },
+  "https://unpkg.com/@angular/animations@5.2.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-jijRCOdjUPyn+S1n/7XiZrdrAy4HjHQ3L2hhA96xSwG1KhzAyYXc3OMTwNCBlSiF",
+    "lastModified": "Wed, 07 Feb 2018 18:25:26 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.5/bundles/animations.umd.js": {
+    "integrity": "sha384-LKR7LGwgfCEyicqUFIjnH8dyoTAUE9mP/V3ekkve1Pi9deuiDgKXNCYxsozUsQRP",
+    "lastModified": "Wed, 14 Feb 2018 05:11:18 GMT",
+    "size": 53033
+  },
+  "https://unpkg.com/@angular/animations@5.2.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-x8uoLQROJwTg159tVGLHz7vvLysg4pZxhnBt+q71hMA7Xok+YhiXRnRujDPKwGC0",
+    "lastModified": "Wed, 14 Feb 2018 05:11:18 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.6/bundles/animations.umd.js": {
+    "integrity": "sha384-pEgd6p8ROI+m6UuNuzYYjG8S8wDH0Lf9rTNoprmtDJMJ8cnjr7UwF6pUrXGeJdju",
+    "lastModified": "Thu, 22 Feb 2018 00:49:14 GMT",
+    "size": 53033
+  },
+  "https://unpkg.com/@angular/animations@5.2.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-oxEoOYBzioe291HZJKoou4jdV1vp14SAECNEd+G9XBhC9id37UphHDkoFkZMqUkD",
+    "lastModified": "Thu, 22 Feb 2018 00:49:14 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.7/bundles/animations.umd.js": {
+    "integrity": "sha384-0Xfz2CC3PSRI8cI1zO9pIyIslxNveP88VDBqnYcBm1j1c8MvA+F4MiVoufeii+C2",
+    "lastModified": "Wed, 28 Feb 2018 23:03:56 GMT",
+    "size": 53033
+  },
+  "https://unpkg.com/@angular/animations@5.2.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-H9jsxkefi9tuC9t3o3EcE1nYf2IMI2UOtPE6sc0zB168TZD8pvaZDsR7zOeGmBso",
+    "lastModified": "Wed, 28 Feb 2018 23:03:56 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.8/bundles/animations.umd.js": {
+    "integrity": "sha384-an8ESi4GSonfvuAs0y5PIofADs3RvNQJ0GXXwCAwr8ZTIeS/tpJmhwtjqf4FdYE4",
+    "lastModified": "Wed, 07 Mar 2018 22:47:34 GMT",
+    "size": 53033
+  },
+  "https://unpkg.com/@angular/animations@5.2.8/bundles/animations.umd.min.js": {
+    "integrity": "sha384-PINTldFTU95CGurKin4gjRaalxyNBe6Fwl0QGT3Q1qTiqWj7ESpRZP95iol0Y79O",
+    "lastModified": "Wed, 07 Mar 2018 22:47:34 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@5.2.9/bundles/animations.umd.js": {
+    "integrity": "sha384-spZVnlJZRGuftjolf7k421ZA6AJWnIVXt6/XW+WPrVWIcTol8bcRDcKufc+rUsqD",
+    "lastModified": "Wed, 14 Mar 2018 22:03:20 GMT",
+    "size": 53033
+  },
+  "https://unpkg.com/@angular/animations@5.2.9/bundles/animations.umd.min.js": {
+    "integrity": "sha384-mp3ZCshFibyYSJcXKw424LGFez6CYts37J+wF8W149xKOdJgogD7mr4Eye2pO64n",
+    "lastModified": "Wed, 14 Mar 2018 22:03:20 GMT",
+    "size": 8099
+  },
+  "https://unpkg.com/@angular/animations@6.0.0/bundles/animations.umd.js": {
+    "integrity": "sha384-TyBGD3y1SWmHOf0aX3WpwT6SDCauoJnMG6Ke4YZARkYGiXwkhx7E4t8DYq7MDPy9",
+    "lastModified": "Thu, 03 May 2018 19:30:35 GMT",
+    "size": 47082
+  },
+  "https://unpkg.com/@angular/animations@6.0.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-hGeLkzTd+alK+JUNo/TOXynLa44kFLDaCA1Sh/CfVzm8NpL3qBO8H4cWQQ/VHsfD",
+    "lastModified": "Thu, 03 May 2018 19:30:35 GMT",
+    "size": 6590
+  },
+  "https://unpkg.com/@angular/animations@6.0.1/bundles/animations.umd.js": {
+    "integrity": "sha384-eZg7i4k8n040yabUSeCNohIyRQyZVZe1EDTbzrb6InbRgvvI2ThI6G9FAzojIQFP",
+    "lastModified": "Fri, 11 May 2018 05:35:45 GMT",
+    "size": 47082
+  },
+  "https://unpkg.com/@angular/animations@6.0.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-E0ycFWUeyRVMxneeu4IoPsu+UjkHZVh6MssEJ+DvCZi0wHj13w9RkxpRJ2lenidE",
+    "lastModified": "Fri, 11 May 2018 05:35:45 GMT",
+    "size": 6590
+  },
+  "https://unpkg.com/@angular/animations@6.0.2/bundles/animations.umd.js": {
+    "integrity": "sha384-kSEKRQBs9594WMq/qlfHI9tby26QXfoF4k2JkN0hcILNQGy2jvzKdx3xfZPj9rEq",
+    "lastModified": "Tue, 15 May 2018 19:38:46 GMT",
+    "size": 47082
+  },
+  "https://unpkg.com/@angular/animations@6.0.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-BfitHji1ixY1UgJokYF/ye/5C93AObymkVvP49amZ/RnWOWSif+3q97aWBAZipOI",
+    "lastModified": "Tue, 15 May 2018 19:38:46 GMT",
+    "size": 6590
+  },
+  "https://unpkg.com/@angular/animations@6.0.3/bundles/animations.umd.js": {
+    "integrity": "sha384-fpPtT25A51gLWWBjfK2Xeryp4wbJhdMYnvxRp2owBd17jCWwoNbjW/My6ql36ytw",
+    "lastModified": "Tue, 22 May 2018 23:34:48 GMT",
+    "size": 47082
+  },
+  "https://unpkg.com/@angular/animations@6.0.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-zaFxfgpuQ6z4BL84VnNMIvYqhRGoFp50XhG1GrCBVFmZqFh1iEkgAq8pmpIQBcbe",
+    "lastModified": "Tue, 22 May 2018 23:34:48 GMT",
+    "size": 6590
+  },
+  "https://unpkg.com/@angular/animations@6.0.4/bundles/animations.umd.js": {
+    "integrity": "sha384-hcAy+u5xaevuz/zuD3/vrGRej+xrWTQ4b8R4Zn1bdAD+Na5I+Ob0I1ARwhqvYGSF",
+    "lastModified": "Wed, 06 Jun 2018 18:57:48 GMT",
+    "size": 47800
+  },
+  "https://unpkg.com/@angular/animations@6.0.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-9FvvpFpiJeWz1+tz7IBMoT1lkWOgfpI49zcL5M7qokTHTAV36a6ZmZVt5KhwNzVO",
+    "lastModified": "Wed, 06 Jun 2018 18:57:48 GMT",
+    "size": 6793
+  },
+  "https://unpkg.com/@angular/animations@6.0.5/bundles/animations.umd.js": {
+    "integrity": "sha384-2AnJ1/i8eb3cMFsN78AZVNFRau65n/ieOYld9eMdtWvizfr6LfKIePzS/Tgfze4j",
+    "lastModified": "Wed, 13 Jun 2018 22:35:45 GMT",
+    "size": 47800
+  },
+  "https://unpkg.com/@angular/animations@6.0.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-N1OTnog+twjgIOFR7GilCQe8zMUUJ32PM3RLvQjXb1U63cMWg6xfzeiVH7eAxNq+",
+    "lastModified": "Wed, 13 Jun 2018 22:35:45 GMT",
+    "size": 6793
+  },
+  "https://unpkg.com/@angular/animations@6.0.6/bundles/animations.umd.js": {
+    "integrity": "sha384-S7kQsHwcFnTfJXeNu+5yzmNWMwJhPR2XWOYVKztopisG0rCIXJwkVHbEzpn30h6y",
+    "lastModified": "Wed, 20 Jun 2018 23:18:49 GMT",
+    "size": 41930
+  },
+  "https://unpkg.com/@angular/animations@6.0.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-IHpwqxZlL9gRJw/eKkw36KWgE9/p6+4fDeKpzFpPC/qHDZZQVfCnVlZbPHz0Imsw",
+    "lastModified": "Wed, 20 Jun 2018 23:18:49 GMT",
+    "size": 6793
+  },
+  "https://unpkg.com/@angular/animations@6.0.7/bundles/animations.umd.js": {
+    "integrity": "sha384-wth9bxrRBKG2hmk6WP2+pb5+W+2g65WxkEjjYWEOW4n7BRoYRWM8Qr6/Mc8ZW+PW",
+    "lastModified": "Thu, 28 Jun 2018 00:10:22 GMT",
+    "size": 42030
+  },
+  "https://unpkg.com/@angular/animations@6.0.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-qbZL1yK60eeMUZoyRDHU+a0WwVJW+lmneA2+FH0wPqU/ZUT6FVJo+M+3s5pfVXLZ",
+    "lastModified": "Thu, 28 Jun 2018 00:10:22 GMT",
+    "size": 6793
+  },
+  "https://unpkg.com/@angular/animations@6.0.8/bundles/animations.umd.js": {
+    "integrity": "sha384-QU2JA+1Bkda4SBclbV5nPrAWQWquYZf05d+/0HAPclM/MW4kLEyhFbzG5+SLX4XB",
+    "lastModified": "Wed, 11 Jul 2018 20:47:32 GMT",
+    "size": 46195
+  },
+  "https://unpkg.com/@angular/animations@6.0.8/bundles/animations.umd.min.js": {
+    "integrity": "sha384-HFvYDDP/C3PVhUk82/vabR+1tIBS3hjPLMBLIZNpZtvuTADvOrAas4SQsLYgBMe2",
+    "lastModified": "Wed, 11 Jul 2018 20:47:32 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.0.9/bundles/animations.umd.js": {
+    "integrity": "sha384-oav5fD5I2nAw/VY1ELTd/Cr7mYA2r3PkMTbMuOTBtr2lQELWv3nSZ1TJvqn3mwj5",
+    "lastModified": "Wed, 11 Jul 2018 21:41:54 GMT",
+    "size": 46195
+  },
+  "https://unpkg.com/@angular/animations@6.0.9/bundles/animations.umd.min.js": {
+    "integrity": "sha384-oumFW52KSxp5PlL6bsDcBXgb+GzOY4fZdF7Q10mobbueLMAANfxWXzm8kOTrfYgh",
+    "lastModified": "Wed, 11 Jul 2018 21:41:54 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.0/bundles/animations.umd.js": {
+    "integrity": "sha384-N/XnOptp20rsA6pD89AUZqwIknVLkVLRsFrzOJLFtoNbru3hJ2HZhN4CUvqZssOp",
+    "lastModified": "Wed, 25 Jul 2018 21:33:49 GMT",
+    "size": 46198
+  },
+  "https://unpkg.com/@angular/animations@6.1.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-CwE/FDP+2/3cf74l3abQB3KHZTcGY+ULBguXKPWrjqixS7vqhll4AKGrRBJXEN46",
+    "lastModified": "Wed, 25 Jul 2018 21:33:49 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.1/bundles/animations.umd.js": {
+    "integrity": "sha384-wErSyMOvbv6euPGv+CGA+6UPqRlD2GL3E4SA0MmUFVRak8R1GPCVpr3KP2+3w/vO",
+    "lastModified": "Thu, 02 Aug 2018 21:11:24 GMT",
+    "size": 46205
+  },
+  "https://unpkg.com/@angular/animations@6.1.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-nzxdX7fhcDTTQtNfMECDMIJ6YACjrLZ64i38kdQ9Ub5fKQC/crsMv1RHQPF9DjFT",
+    "lastModified": "Thu, 02 Aug 2018 21:11:24 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.10/bundles/animations.umd.js": {
+    "integrity": "sha384-yn2pZFHqOTRP7zMIz/vgm4dR9Pwrgvdx9/zrv2Wet/9seXXe0mbYurTWZM/2urgP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46677
+  },
+  "https://unpkg.com/@angular/animations@6.1.10/bundles/animations.umd.min.js": {
+    "integrity": "sha384-efaSLp11K40uUX+PCSNV/xnlAmjd1YPx1avO0qvUjt+t9sQADZ00oFNLUg42Vta4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6938
+  },
+  "https://unpkg.com/@angular/animations@6.1.2/bundles/animations.umd.js": {
+    "integrity": "sha384-Rm19KlvCcMunjmuZjSOLRKWfl+NlEuq/YQVAGop98wMegsjUh++6a/fsKnrEI5sd",
+    "lastModified": "Wed, 08 Aug 2018 18:48:46 GMT",
+    "size": 46205
+  },
+  "https://unpkg.com/@angular/animations@6.1.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-A0kFz1xdeN/gavCjFJ6mrYMcvwtDHh12oGK37GKw9Z0lSmb/+JgxzRxJ88JfEw9n",
+    "lastModified": "Wed, 08 Aug 2018 18:48:46 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.3/bundles/animations.umd.js": {
+    "integrity": "sha384-A8rhILUmAiidK58QPtUECVwsu3Zh5saKU0Xkdzdd4v/MQ7MgctsGvNOd6athODZQ",
+    "lastModified": "Wed, 15 Aug 2018 21:53:34 GMT",
+    "size": 46676
+  },
+  "https://unpkg.com/@angular/animations@6.1.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-0ych/GTmRfjr4VVwOzi+VzkjLqkEv07SlgSnzFSrxIQyuvLDMMGrDRD4vvds6y9p",
+    "lastModified": "Wed, 15 Aug 2018 21:53:34 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.4/bundles/animations.umd.js": {
+    "integrity": "sha384-oL19JtuMwFxajMCD/ta3bPEwiYo0ffQssfeFYilXSKEExTFh7H6yVfiRELxQZfZp",
+    "lastModified": "Wed, 22 Aug 2018 22:28:21 GMT",
+    "size": 46676
+  },
+  "https://unpkg.com/@angular/animations@6.1.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-PRwexFtEwDjSft4YXT4kh2ebKS6JW/CtrFpiJGionYmxxxZ2laaJZtS+ybAeM5IP",
+    "lastModified": "Wed, 22 Aug 2018 22:28:21 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.6/bundles/animations.umd.js": {
+    "integrity": "sha384-kzFN2fYZllLXDn7imC/akHBTH6cgqTt7azE0wJmRYZOk9+PCtziBHR3kmAQwYC/3",
+    "lastModified": "Wed, 29 Aug 2018 22:48:45 GMT",
+    "size": 46676
+  },
+  "https://unpkg.com/@angular/animations@6.1.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Q3pwzktcaIg7ynU7HWwU4iX7JSdPLWH1Nyy/S6C3eLc5CI4/kW4zqX11QTVPJIUp",
+    "lastModified": "Wed, 29 Aug 2018 22:48:45 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.7/bundles/animations.umd.js": {
+    "integrity": "sha384-LdjqsyJ5GBV1KEjYoZWX/tpOBPKLKSaf+OcuQnt/46OT5um2vSKSMBwXFmonzkY9",
+    "lastModified": "Thu, 06 Sep 2018 04:05:45 GMT",
+    "size": 46676
+  },
+  "https://unpkg.com/@angular/animations@6.1.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-HQMF1adZidlrkJDC+Su2/tfw5ZCBSdjfFUu9uFxsGE+1xfuJj4x6cA+H3Q8FO70p",
+    "lastModified": "Thu, 06 Sep 2018 04:05:45 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.8/bundles/animations.umd.js": {
+    "integrity": "sha384-0f8YFuO2HZzEOmcvLvk7EcouAcQST4VBvn2+OxRD6kRue0fCwK9iZdw13YIwtQZR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46676
+  },
+  "https://unpkg.com/@angular/animations@6.1.8/bundles/animations.umd.min.js": {
+    "integrity": "sha384-2aDa5QyOGaL38W6gQiwhiN/OeY4XsCqTnQNoEolru/0y4kflpXMdycp5hW9L54yE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@6.1.9/bundles/animations.umd.js": {
+    "integrity": "sha384-COadxpS4NcBhzkaxhCevKxlBnWcsHyFdWaTq9G7QS9AGl9EkpM2PoTjEhtajzZSt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46676
+  },
+  "https://unpkg.com/@angular/animations@6.1.9/bundles/animations.umd.min.js": {
+    "integrity": "sha384-N/4Ke8Y3JJeEmKJYVxY1fWKMi+HghsvQYPEmnFx3hOa6KBDs/k6E4rWkHCX/dlUL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.0.0/bundles/animations.umd.js": {
+    "integrity": "sha384-foLLHub/FeyZWiyDXRniO9LF/3PRvIydl95NnCnVOYdAFUG/bzFqo6KBFoocfX4v",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46676
+  },
+  "https://unpkg.com/@angular/animations@7.0.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-fTL47SzbfkoQJvbrismJarZ8EEXMB8IFxwk0Sv45pQp0zdw9BG4n/a5UoduGLV0W",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.0.1/bundles/animations.umd.js": {
+    "integrity": "sha384-ndAZLRO09AUTN4XpkqjvupriYMEgPMCJpiovnL0jqAV9VnuEmvfeRamfUql3LVAv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46997
+  },
+  "https://unpkg.com/@angular/animations@7.0.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-40dgDC6XsiEX2v/D4/nmO20/JPYmhm2MUXs7IBHMxF1TSo4g0JJzo0VwsqCVxB9D",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.0.2/bundles/animations.umd.js": {
+    "integrity": "sha384-I04yhP9IVGzNnnsCVfIJbUomeeeuLNCiuL+45cxX9hr68lV3GxXH0DThKPIx02/5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46997
+  },
+  "https://unpkg.com/@angular/animations@7.0.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-FnJLfh2hgoNAFqMdmVbkBMD2Zl4XRMa13KsS0bIFIi8BlVTBWVldss9W8ByRpTTa",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.0.3/bundles/animations.umd.js": {
+    "integrity": "sha384-2K6WIEepnX5NlugmYafOyD1dA9d9RsoU2prU6XADxqpX79tL2vJasveNwoQOr9QG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46997
+  },
+  "https://unpkg.com/@angular/animations@7.0.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Tq5TmZjZa4Q5GCADUNyv5AZvLMv75z/Eil6dlAtxQcYUlmLZU+7sMtpaS7M2IHki",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.0.4/bundles/animations.umd.js": {
+    "integrity": "sha384-nEMvNRC89dRmi1o6Fzg6/eKwBtHFrE3lVXd0xVq75XJq31BMBKOFCBh6j+XOXHWJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46997
+  },
+  "https://unpkg.com/@angular/animations@7.0.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-pVFmRsFcEbf38goJn9SUCXKA2Tg1VvcpPVkmxULHvsVfYImnxAJA61l4Dk99frJH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.1.0/bundles/animations.umd.js": {
+    "integrity": "sha384-wycBHiFQy0IlntNi9BYIz3eVSSiT4VPK9jU35qpp66enbDNxMpAzgiUXItuu4NJP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46997
+  },
+  "https://unpkg.com/@angular/animations@7.1.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-NDNxH/LQQQiCBkCFGDCYIQleudKkUegjK6e5VyK0wlFfnScZrB+an/FB4gNMWE9+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.1.1/bundles/animations.umd.js": {
+    "integrity": "sha384-mxPICfie+5vmndCBe0Wv//SXBTOiy5f+bZ4/iksknysrws3mekiyoXcGR9rQE96J",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46997
+  },
+  "https://unpkg.com/@angular/animations@7.1.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-GUHgfYjEda45/3wv6JHwySWS8uPTtMlCC4V3TEcVTCKcyFbIyvAZPySbJHGzef7N",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.1.2/bundles/animations.umd.js": {
+    "integrity": "sha384-jVewsE36ojyJSCvW5QjgwiKSqzg8E0Huv2IKrFzVudhUppxLa1nTZnDM1JmW7YOi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46997
+  },
+  "https://unpkg.com/@angular/animations@7.1.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Sj4S2CdWdN7aVOaiqJE7iUi9F7t2Iwc7fsi2RKT2+5nuY/75lgaSwJ/JnKt7LPRA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.1.3/bundles/animations.umd.js": {
+    "integrity": "sha384-A5/BXwZwY33yNSMYOrVlw2/tGZ3DLKmrg3e7iw+X4hi3/9TvjpuI90sPP6VGfmWV",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46997
+  },
+  "https://unpkg.com/@angular/animations@7.1.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-uoNGfMuAShzdzvh7TJuDgUdTLs6EyA/JG/eceLS7ykBEm23naTkfhqCeB/URc/Q6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.1.4/bundles/animations.umd.js": {
+    "integrity": "sha384-fhZ0y5A2RH3VrCc6q+swpW4hgZEHYVVe87Evn43vYCGxEJOUMmited7Sq0t3236L",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46987
+  },
+  "https://unpkg.com/@angular/animations@7.1.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-B/RjRBWHPqUQmtG35QrBAGklB+UXN9dkgTc2vhsmTztxdQPDPwNDY/C2kWNqEd8m",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.2.0/bundles/animations.umd.js": {
+    "integrity": "sha384-PoMZXieWU/ndl4jxoboEvOYmiL231uxskiDIYAoKNpErIkaC+Qb3o5s1YiU7ZGes",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 46987
+  },
+  "https://unpkg.com/@angular/animations@7.2.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-K3rjjGxIzh8BWKjIlXIyn/IJVm1BqkjE1X03Dj7Ve10FeFD+baKHpJPib858PVWo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6937
+  },
+  "https://unpkg.com/@angular/animations@7.2.1/bundles/animations.umd.js": {
+    "integrity": "sha384-WuUiMTixArxPAmro2dg/g9FYNtExXPKs5mspUMh4b7eOVvgEbX3otbnaCdr8TXiS",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47010
+  },
+  "https://unpkg.com/@angular/animations@7.2.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-h72DDYLbfpUSfPtnsjZ7TfZeQIvYev3sYvj1LnyCkpSYk9cTH0IptqKWojC5tJmj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.10/bundles/animations.umd.js": {
+    "integrity": "sha384-cfMaccrsk5R6R8FbYulhyHqJSfqw7AX/fsXm52xObwtdJbwNcAB8CAfAL8WCqx2x",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47032
+  },
+  "https://unpkg.com/@angular/animations@7.2.10/bundles/animations.umd.min.js": {
+    "integrity": "sha384-e53cD9o+HfqeXK2mwbrckJQCUPgpRfMWZDYMwUfb/pChuiuJwM4DAEjS4mv/2LZt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.11/bundles/animations.umd.js": {
+    "integrity": "sha384-x3oo+jdEtO7pXBMMPDsPJeI25eO4aq+j8I7vNb/arVo+IigP/O0egOWcAp9EC3mh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47032
+  },
+  "https://unpkg.com/@angular/animations@7.2.11/bundles/animations.umd.min.js": {
+    "integrity": "sha384-uT1OGDue7olU1AN3055X3AGRIjj079saK5NioPEpwMjhu32Rl/cXjhcBXf5coG3J",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.12/bundles/animations.umd.js": {
+    "integrity": "sha384-q8OH3ciKtnv27Sc1qnkSmbVr2dlW/VLiZZVLrE8eazise3gW84LiA75f1zPacRgn",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47032
+  },
+  "https://unpkg.com/@angular/animations@7.2.12/bundles/animations.umd.min.js": {
+    "integrity": "sha384-/9qAlWvnGXTuuFeSLACyf0yWrCdFOEMhsJCzL7vyODySqoSrtazktIH3PbC8OCnf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.13/bundles/animations.umd.js": {
+    "integrity": "sha384-/NggVyy9vAi0MXomXufjY+0L/bSViDa0P4ccdNjj67UreTftWIvZmWiAjz2WNthc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47032
+  },
+  "https://unpkg.com/@angular/animations@7.2.13/bundles/animations.umd.min.js": {
+    "integrity": "sha384-djZSJFeUCMqK/y+L5uh527fiS/Jbf9dCZCjaeQ4/PP8ngziWDmVq5/eZ37OqVgIq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.14/bundles/animations.umd.js": {
+    "integrity": "sha384-rAr+yLG6IqCdVi84RSleDA2Bqw1pd1KFBCPFd+tXqJ124QQDDuO1HlCluhBzlVkU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@7.2.14/bundles/animations.umd.min.js": {
+    "integrity": "sha384-pJJXvHOZa4g7/LA1FYklewJLJ/9L8Rr47AE4DNYsZAMmyWG0zxotakQlgkS4Y2lY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.15/bundles/animations.umd.js": {
+    "integrity": "sha384-5OUwUkj8asezgqSeJKSB9kzEgOCWbSLYL7RX2n87wEjEVZxA/waS0oYKOANtMesC",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@7.2.15/bundles/animations.umd.min.js": {
+    "integrity": "sha384-QTtVH0X9d9AQ1E/DIVEvg232sbgL9aCcqvitHQ+XGY5QcLbmNTwiynpOJlEuG3qt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.16/bundles/animations.umd.js": {
+    "integrity": "sha384-nxAIS3ys71caH+sU7WXm26aeelkQp0mBS2ssEQhlwU745YHy4mprXXhu4fPz0rEs",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@7.2.16/bundles/animations.umd.min.js": {
+    "integrity": "sha384-qfuG3J1wvlGZNMn9AYj89s5GlPgR4uAvX79jWNke2oudb1w/GahM6Z3F2VwvKuOx",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.2/bundles/animations.umd.js": {
+    "integrity": "sha384-LA3Pz2mJisJCnXrDg1TkFZfNgGqJHLgQWTcPw9ktKXF7E/1gskWwhMZrXq/0Ijij",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47010
+  },
+  "https://unpkg.com/@angular/animations@7.2.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-hq0jDrUKzbba4Z1+R4QdPCoB/M8+1ZcU0tuaIzF5s9ya19oUCEF3ZmVlIXlCvTHr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.3/bundles/animations.umd.js": {
+    "integrity": "sha384-FpgQMQT/pJtt4IK5Sdy36hOPgL1fHTkIqHGcOsZRFSCdNmwkizY4xyOXdanQXjLl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47029
+  },
+  "https://unpkg.com/@angular/animations@7.2.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-QVVS/oT2TV3Xtrpzcimz5yXy5eZa2sDY3rtN1ENyO9m3TukiRl4GXL6m9JWq8bYt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@7.2.4/bundles/animations.umd.js": {
+    "integrity": "sha384-pMxj3sxc3hXtBiuEzmQwpMF68fq/oE5OZir4u+Q1D536Hz/G2tGlSWVKtmyOfBx/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47028
+  },
+  "https://unpkg.com/@angular/animations@7.2.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-CXrkhxB4JWCDW/+dOtRu12sY7srwgJkl57pqEzy2LcofajWjYPlHXUdd9d6SH0Gc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@7.2.5/bundles/animations.umd.js": {
+    "integrity": "sha384-ebYt05ik4rDqI2JF8cWKY5tdDGoEZgXpnfbCfO7QdF118OqfWsW64Nw3VdCM0dHx",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47031
+  },
+  "https://unpkg.com/@angular/animations@7.2.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-sdu1zhCDLv3uxMhPHoDuE4kZGEiQdqfgEuU6tpqjEeMt0UwmMNhKoyWrji4YGFyw",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@7.2.6/bundles/animations.umd.js": {
+    "integrity": "sha384-fsmtiKp5vBhNCW56qcfhdEBSmbGBWBFTURX4JoEvQIPeWon/uojJkgVeyv7SR4U2",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47031
+  },
+  "https://unpkg.com/@angular/animations@7.2.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-YHvcf4GHRz4Y9Hl1X033hiw3VRZDPFAGRgJRd8fQ38jbNtSAr4Vjg2hMwa3j2QqJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@7.2.7/bundles/animations.umd.js": {
+    "integrity": "sha384-4EBe6s7YpRsC0M3Mfc3S/teCsNfpwPseov+FCkHr3bKLnnzu3QwaDDMYZQHP+XcT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47031
+  },
+  "https://unpkg.com/@angular/animations@7.2.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-dIdSeQguJGHnmypFI0rVn2CDc+0ffwLJE7+uYYvB49epvHQ0kegjUf2lwyY31oH/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@7.2.8/bundles/animations.umd.js": {
+    "integrity": "sha384-nJ2jcB48J8o7lQgh6FQNlRHe98bfP+Aq2HqQR4caxgZi9W6i/9YOhtxXJ/qT5QLm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47031
+  },
+  "https://unpkg.com/@angular/animations@7.2.8/bundles/animations.umd.min.js": {
+    "integrity": "sha384-6Iprj7lSfD9JSm3yn3dJtIb/hGMf3iNTiutTyTx7iHyE666pUNQYaUzZN06jhUkL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@7.2.9/bundles/animations.umd.js": {
+    "integrity": "sha384-mnO+zvQq5XuvNwFwm2LjUuNxs2gaBTQbxjTb1ppBX6JcHb+l24utNvFgTj/7kbQD",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47031
+  },
+  "https://unpkg.com/@angular/animations@7.2.9/bundles/animations.umd.min.js": {
+    "integrity": "sha384-pl4CcnlwqLslEcHSsOymBmdQcS6ZchNpqjrfAQL5//L4woquVriJyuGK84Zh/l0w",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.0.0/bundles/animations.umd.js": {
+    "integrity": "sha384-nNtYAqfc/ig4DrrbrFxdKhlxqhBAYr8orh7dK+6By0c4ew/BAD0hHSSEOGWqU6/K",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.0.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-4eK4VoF5djYpBwOJiiB1y5yesJAuGnOHCvGxipNgrE5idibDMBLBldN/qLgLckCi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.0.1/bundles/animations.umd.js": {
+    "integrity": "sha384-lE2OCBu+/nSrEKeOJbaNfvbnPjAVzj6LCxKdd366PuMzI8gW/4UXCH7xuJSRekUg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.0.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-dpfw2xtMxArTDJnfx0wLdBjRC6oWYwt493Gw8Kuv9Sv76qRacK6bXhcOaSG4MW0S",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.0.2/bundles/animations.umd.js": {
+    "integrity": "sha384-6eHk6MPhbaHapTvJXeFa2abA8BNyM8FvYTVY6JtsHKvDBaVF/Fkcik3E/2vbvVtv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.0.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-xJMIJYS5S5meDQbC5XcQg2xQqWxGCTrYlDtij/ydoKVYWm0pRmoYzamsfNNGoc5i",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.0.3/bundles/animations.umd.js": {
+    "integrity": "sha384-PsLQ+iWpfrKiiMOTul20NwzuBsFXOMTYy3vc51JN6inLwrdVLTbXPxoWt6ZRO2+r",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.0.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-O7T+FMYsAFbsiTp7ZW87OVj2GO1exROK/elBCDmaAxw44RQxWMPyGe9LWtLCEdNJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.1.0/bundles/animations.umd.js": {
+    "integrity": "sha384-8ykuRbb1N3wdKC/man1kl/kMoYkrNNbZWHm/n0Rn6m+uMD31ipryN9jybEGfN9dl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.1.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-bgV0OhhS3R4pcorsSZbEM2SIPimEZz1PQrsOD5bzLpTKLTUIq6kMKX+3tJHtxb8U",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.1.1/bundles/animations.umd.js": {
+    "integrity": "sha384-fdhZGG+0bbR7dfYQUcDfNVfNMhiXQ5j26F/liXOiDoWPq+FNMaYx/mv2bnDhOqri",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.1.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Vc93p+q/HLRWHZKEvZ7GCjOBxLr7K3sq3TfOq78p5D0ZDZbd535/ZDTiLrXieKF5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.1.2/bundles/animations.umd.js": {
+    "integrity": "sha384-gCQnfifNyJbSwpShweEVwbxsWGistzfqkHACWtROAvsft/qZmUDOG9vBGZfh8IoO",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.1.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-KYx4AnI6ckiNyOC0+ZlNQi1hC+XXfcY8Dhud5V7eb1hW0kpM2h8hdlh/bWbv5B2/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.1.3/bundles/animations.umd.js": {
+    "integrity": "sha384-+I4UE37Fy1Ta+RPj+A3t3Pbw0hgKG/h9qfO6im14JNWcCuA/apeEVxaGx7CSoE3x",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.1.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-HueJXy4qgmWHVTOuRuRthoyA1vVkVKMEFEZFrHBR2FGjiorTwXwS3xmQPJ9qyGW4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.0/bundles/animations.umd.js": {
+    "integrity": "sha384-KCZ274Bc76IszQ3qw+ugQrQYXDC7jhB92dO8xM7JYaQakQJ2dwhW7xb1PSWatG8W",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-/nZkZVYAFIoH+vnNQ5N50esytlJFjgGVq5tFKxG3TUyFAOruTv2IizXR3ZoTYE7g",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.1/bundles/animations.umd.js": {
+    "integrity": "sha384-rpU+7KaCx55Tn1EUOhPGsF3rdz1FEPOZ39hBL8UQd7UwLxv/1wdaX01T/UdaFONT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-2LvHUrWu75AYF8mNSk5C3bRBIYdnH4Mec82NYC58CKv/SDJXxC+xnW1ygAfYleSW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.10/bundles/animations.umd.js": {
+    "integrity": "sha384-9z6foCiJcYh8HK+dsjsSvdIV9yiD+QLJUVlXNKTT4ISdcolV8TSd3jK2GtrRuqS6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.10/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Ed6WYZyGCte4l9Q3P8v19CUpLthblAyKEugfnwJU2jKpT2cbt7EVmcPmkua3CUUA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@8.2.11/bundles/animations.umd.js": {
+    "integrity": "sha384-4tfDLvkTPFDC/ndo6AVGS4kNk4U2dv7lPLp/Ip5O1V92walGgjlg879jd0Iud/d1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.11/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Kn4B/G2ltM/+IWuVxbDFA18EjxFLXX+9fTJbzjsvCwHhkfxxvWcvvhesbOq3bzNN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@8.2.12/bundles/animations.umd.js": {
+    "integrity": "sha384-FRuDlrGmsWKNYj86MmNNZGZE1LrHisuKxaM+kb4mslHh/271fyGIQsfogosPc2YF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.12/bundles/animations.umd.min.js": {
+    "integrity": "sha384-J7EJyuwb0nYSIiAfnkEJeJ5XwyQVESllL4oOKAqEiZQTOfdyVxMqJbjn4tO/QD+s",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@8.2.13/bundles/animations.umd.js": {
+    "integrity": "sha384-zck6YmidB0qNbyfLTvMtsf2FT9Kq6qpX7xD7OFxr6Eau0LNoHTVkTglQTmjReyU+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.13/bundles/animations.umd.min.js": {
+    "integrity": "sha384-JWYaFHuOBDqMe+HkEEr16pULOC+reM6UKVbtruFsienHPaSXJO985GqLXC8Kxz3p",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@8.2.14/bundles/animations.umd.js": {
+    "integrity": "sha384-yUiTnZ4TwdIAa3hHNZQOdnLYxTw7fkAGt+99OGpGr1L59FpQvsmIAm3e9tWUuDwj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.14/bundles/animations.umd.min.js": {
+    "integrity": "sha384-/KIj7PBe4Xj9ZUFWu7Fg3FfAI8LqNZBoALK+j8uUtTHAs8Nttg9m4mdYc3+y8Zq3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6947
+  },
+  "https://unpkg.com/@angular/animations@8.2.2/bundles/animations.umd.js": {
+    "integrity": "sha384-mVW9qzcoI7tVz70SqCB1rrRlg1hs8sUkXsdoEsIbf3t/hyHoUeXnntz32kHwfEbO",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-DBXZRp3mrT6SvP17euCmAzEe3BlpO4o7+gf0UgwqhZyXqKeviS/v6rUbBbsnMNq4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.3/bundles/animations.umd.js": {
+    "integrity": "sha384-NTzvAK6lo1A3NH4ceai/J2f4AqIeTWEzMY7mDFB5EYkbcw/1twhW+x4skX3/nYK3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-uO7AGy5mUC7w7pliuN8wVVESaWQcmNf8ouCYQalzAMzF4fxGneY7PxWxqull+ykJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.4/bundles/animations.umd.js": {
+    "integrity": "sha384-m7UI98W7tTyJcDpHKNPrN05dstNN/w6rsCyoDA/ENxtdtslbxNVTbBhi7mN8sLA4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-NZaFJaAYrkaKYZNP4AdTvm/R9QWq/oF7FtkgYMQFiDwKhKz6J75AAf+dqjgp4OhO",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.5/bundles/animations.umd.js": {
+    "integrity": "sha384-cAcxP7Oy3uTGATO9D7j0j2uly4GJZOeWxKqEXUC0K2QNEQdN2LHzLGv+5VAkWchc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-u3sNZBAdBB+WVzDoOb5PAircmZr7j1hxhgmDkubA0KiZz1LztG4UteldFeubQAOk",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.6/bundles/animations.umd.js": {
+    "integrity": "sha384-/gKOvimjaLeam9TlXdFh4LCEHLoGiMYx/QOo19FNwpDFtw26LZcXzNFoWo1Cl3Rp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-ERQVW1/Hzv1reRboE7ws6OGDez12y1DVdj+bxDtEvuLEpp1TifJRx+rFcCbaQs4I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.7/bundles/animations.umd.js": {
+    "integrity": "sha384-wfh+nYPF4LL4buvmjEQbEd6hTxbjQZQ2gS1TG3DlVa+LQefD8VJhjNwIuTt9PKJg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-VM5k8gjPG5xeRXr0xoJEcqmP/88TFrjwcYDG7bJXM2ugh/fvP6Bkwv3XivusCNN7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.8/bundles/animations.umd.js": {
+    "integrity": "sha384-5fbJKSB4WzYiBz0xUk3DR8mOrdRdm+4VTkfNl91P74fsxhukN8gzVkapiYwF0ZIr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47033
+  },
+  "https://unpkg.com/@angular/animations@8.2.8/bundles/animations.umd.min.js": {
+    "integrity": "sha384-zmtbMfsp7a3j4IY4XQqpu+lw8H0m0Y+BULSlDwNbsDV82Ph4DvpWu5OPbiKiffSZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@8.2.9/bundles/animations.umd.js": {
+    "integrity": "sha384-EHYWCut51y0WiAccLaW1Mfw2wO5cEICmkdh0nUiAdxh1MOwTW/Hgt38tIURbNSB8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47032
+  },
+  "https://unpkg.com/@angular/animations@8.2.9/bundles/animations.umd.min.js": {
+    "integrity": "sha384-lFVwl16md5Yxk7BY16UooZkHGnD7raL8pWjHo2CcEQafu9NGWmMHCOhOFuKsfD7k",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6946
+  },
+  "https://unpkg.com/@angular/animations@9.0.0/bundles/animations.umd.js": {
+    "integrity": "sha384-8YibDNgbyoz4+ZzCa7O4HYM/9lxmsOyQho++Q38ZV2PYbL7ZhCI/bSe3H7VbALKE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.0.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-au8zCrVetqTL8Ga1mXjHUeVdP54JZCq7ZFxjPW0xZsaNOPZfK0uWKjlvc0lsMgkg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.0.1/bundles/animations.umd.js": {
+    "integrity": "sha384-YWVvDc0VuZVKshTwJ/uWa4XdStSQFY+zwps4WYFF0WXPxtVMYaEIk8Si/GOGk/+/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.0.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-QOwMG0ipQMYrCh72Mh6xEImUg/nz9qfTgCpcCx2ixEqYPe/HlwEUGRgqhrTkzJjr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.0.2/bundles/animations.umd.js": {
+    "integrity": "sha384-UBzqNsveXTc248Lt0qSBUFygKTErufi7wOqL73bhqOyRptHyaJSP6188i+GLbOf5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.0.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-j2RluW7dXH+EzY92GlnPb++oSVI/90zbtjuJW/e+a/PiQq2P4jgiGpMnX9CEPODk",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.0.3/bundles/animations.umd.js": {
+    "integrity": "sha384-GkA20Ct10va7F2bkRUx6O3w78je75s9DhCIDv1FZzlPtOELw8IHlilbLfJsOdehp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.0.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Cnny5fyGmzELyDjedwgfvK9nUZJbf3d1S7t50DGobqiaKyT/r+Zk4KHbmyv8Gp6m",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.0.4/bundles/animations.umd.js": {
+    "integrity": "sha384-FBU/sgHNMZKVnIQ2f3YKZyYP8SLzCaJqauNCE/M+LQEPnUlGasIKXFfoTqkJ9ll2",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.0.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-DFTZaRjBvQDcTaMj01mJw6fBik8W96Za6cHtS+4wNbPZJWPnhuCwtD0sRM0bjw7e",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.0.5/bundles/animations.umd.js": {
+    "integrity": "sha384-nPLDIICqB6QoK+/P7dXUB2OTf1paLx038ZsUWp3+1fWJ39LMyhphlT47EKEUCtss",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.0.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-xYzC5t/2+S/bjQy8FUyBpX1DTw+rNHqNLnTlwpQUuSVUtIdQR1mjQOw3FtY+nDtL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.0.6/bundles/animations.umd.js": {
+    "integrity": "sha384-SJ3ll/Jq0xazqNbnsbRXwYyxt4+vwHiCR7OHDD24rViJHnnXjpQDenELYtDmants",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.0.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-AA1O+aiZlHCP/bbZj24xI9EIQSW+Q+Dv0tYoB9sKKwj8jooJWQtws2diogjOFCmr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.0.7/bundles/animations.umd.js": {
+    "integrity": "sha384-fHCHb7Hka6KvKOeB5lzFzKh++T0Lt7zJjn0EiVlC0DyRaNUBSEnMLltkY3SlfcZG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.0.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-3HipBUJ5A/FjVVtO+/bgVBlztVSYsEDNVBQ48lOhDtLqwf6aybtjPu5hCkTIdUts",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.0/bundles/animations.umd.js": {
+    "integrity": "sha384-oGG9rbvcm1l8PHJUrkZHSvWKsCSxEsAevweV73F7s7jJEENsIpHtJ9M6GPZ72+Wc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.1.0/bundles/animations.umd.min.js": {
+    "integrity": "sha384-jEsvmB2yU5IQiUEsjbG9epAtGoaN+78mzuccDf6vzZnJaU6RK7tsMLD8/8iOfOCc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.1/bundles/animations.umd.js": {
+    "integrity": "sha384-qBeJpuhb9zT3ibQEbOgpHlkbn58KlLfB/odP7IkYMQvi6Bn4pqwntM2FuDm/KprB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47034
+  },
+  "https://unpkg.com/@angular/animations@9.1.1/bundles/animations.umd.min.js": {
+    "integrity": "sha384-oEVxE0Zotwaaz7Ob8FfndOfarPiOYF1xMLGKiqx6bj41fRQId+3xkau88PUGuJ9m",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.10/bundles/animations.umd.js": {
+    "integrity": "sha384-F8LIGTD6Qk5XqRO+ZV52Mtmkcezr+bLoohB+e8mthN2Vba2SLf1Rpv5Gq+egymLd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47321
+  },
+  "https://unpkg.com/@angular/animations@9.1.10/bundles/animations.umd.min.js": {
+    "integrity": "sha384-zFBFAhOqle3bUNsT4VOBrMaKG8VQkcGFHDEKWFDiMnA50USdujb67nCB3+VNAqwj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6999
+  },
+  "https://unpkg.com/@angular/animations@9.1.11/bundles/animations.umd.js": {
+    "integrity": "sha384-yiTOxF3zPHhHzh3Wu6gcQY1lpcgIN/dPA89QDD8VoOzxTroVruo7eqLx1+vaHxZI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47321
+  },
+  "https://unpkg.com/@angular/animations@9.1.11/bundles/animations.umd.min.js": {
+    "integrity": "sha384-9uU0XKfQU0HX3qAXcIICpQ2ITUs0rk3710gl/Msbl8RrTiNk5ppMZ832yuBf+l6l",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6999
+  },
+  "https://unpkg.com/@angular/animations@9.1.12/bundles/animations.umd.js": {
+    "integrity": "sha384-f8P53kzZyOo7mRiv2hX3RAEWOL4tKnUc3OSlT99u+Y7sT/D8z265WzXCbXqy/YKt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47321
+  },
+  "https://unpkg.com/@angular/animations@9.1.12/bundles/animations.umd.min.js": {
+    "integrity": "sha384-hYyZCU9LawT2qrLdMtUqPNvamA03FW7UK2DcOI/7QIoEMovJ1cvXnBduTLFP+diI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6999
+  },
+  "https://unpkg.com/@angular/animations@9.1.2/bundles/animations.umd.js": {
+    "integrity": "sha384-y7rgJMA3AHb3cmvCwzl0N4KoFcExZ64kyxMWKm4LzjTsh9d5hLSXqqBZfgFkQZTK",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47320
+  },
+  "https://unpkg.com/@angular/animations@9.1.2/bundles/animations.umd.min.js": {
+    "integrity": "sha384-OYTp98BfmEMFY1VdbWm90W3nHeLG8vq522CNT9keslMMoJQOGN4UlypcGzTyhZyl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.3/bundles/animations.umd.js": {
+    "integrity": "sha384-UvQFmNZGwUE1hj7s5E10mNJ//BZHrqp+mcC6KNRPSQFTU/Uq9rxwacefi/uG1Wth",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47320
+  },
+  "https://unpkg.com/@angular/animations@9.1.3/bundles/animations.umd.min.js": {
+    "integrity": "sha384-xMQ39XpKCWEiVL3CpQlpbqJYoeJuj2bEyghBg2EtcZ+xkeSHjp0S2BgDnOcbDJni",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.4/bundles/animations.umd.js": {
+    "integrity": "sha384-8x0ToaYc/mBC/hATb0dpp6lYncB+eplq5rQYNEBEoOfdehpWtNj7uOLiNpEOfw6u",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47320
+  },
+  "https://unpkg.com/@angular/animations@9.1.4/bundles/animations.umd.min.js": {
+    "integrity": "sha384-WtTaOaO1iG6jq+wuEqUfGBMC0Qf5RGAVJEmPahmZZHyoGrLKAxGU9aFvWWO+TsaM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.5/bundles/animations.umd.js": {
+    "integrity": "sha384-xYZoTFX5ncivTpX+W8nHzWaRpP8eoDJvrCv1QtG3W2SKJXKVuQ3+26qjYfIOxvpY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47320
+  },
+  "https://unpkg.com/@angular/animations@9.1.5/bundles/animations.umd.min.js": {
+    "integrity": "sha384-Kpf9o3b61gEDGWja3FEXY/QE+qM3QlVz+3e3EvzBhxIRbjVwbNsJO5gVVqyG8UUE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.6/bundles/animations.umd.js": {
+    "integrity": "sha384-nc3KsxTSoYPZmPTX+sKU9m5Qg6WNUT6bWQlQ6nsvYkAwv1LgoHn9EW4sdW273Ye/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47320
+  },
+  "https://unpkg.com/@angular/animations@9.1.6/bundles/animations.umd.min.js": {
+    "integrity": "sha384-AB5vcJnKmqoqWlKxS6h6fLOTKVPz/F+l5uM6nBcMs0yJO0tLTA529I24V6FDI8gM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.7/bundles/animations.umd.js": {
+    "integrity": "sha384-QXbPX2ilyq3mvq7w7oFCTa4uaw+WogC2QrHsqgUO9sqpyvirXgqhtE1aYOz8gITT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47320
+  },
+  "https://unpkg.com/@angular/animations@9.1.7/bundles/animations.umd.min.js": {
+    "integrity": "sha384-HryqJrHkiOWmi2gN21gGHz2AqHGP4J9Et5/Mcu0NY7nnnl6wkI756FTmQBa0IPiM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.8/bundles/animations.umd.js": {
+    "integrity": "sha384-1zOEV81Jjs4Rbz/PHqSVJpL6YELw0OBS20BUtAMWrLEEH8MEKBSkSenOARVEtBDt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47320
+  },
+  "https://unpkg.com/@angular/animations@9.1.8/bundles/animations.umd.min.js": {
+    "integrity": "sha384-l58e+a2RnIYK2MgDNOM+FNYZNNmA8HrGkNLeJLuBKNzCa3vysjNsNkkZdJqf+NC8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  },
+  "https://unpkg.com/@angular/animations@9.1.9/bundles/animations.umd.js": {
+    "integrity": "sha384-qzIILBENm1uT0/yvantrnfSHObU45eR+L9701uGuHzsH9YbrObf470T3hNxLMWxX",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 47320
+  },
+  "https://unpkg.com/@angular/animations@9.1.9/bundles/animations.umd.min.js": {
+    "integrity": "sha384-k9cjtZsWA1NK1lCjgTsQGhvyfgL9UdxWvL49J2XC/FX9/L3PD5qriFuhctq3G+9W",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 6998
+  }
+}

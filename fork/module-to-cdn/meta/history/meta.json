@@ -1,0 +1,282 @@
+{
+  "https://unpkg.com/history@2.1.1/umd/history.js": {
+    "integrity": "sha384-6EFldH3yJmR6gw+la+G9WbTpa5lIoS0LFxnwDylHlD4qI14Mc9JaddCQkFoXKwir",
+    "lastModified": "Wed, 27 Apr 2016 15:01:11 GMT",
+    "size": 68348
+  },
+  "https://unpkg.com/history@2.1.1/umd/history.min.js": {
+    "integrity": "sha384-h4PXJzAq6FQz7fNYHyhgBudfSiqWlUgLAFG873yaPEKWjDmoPeAZogJquqWGoC5r",
+    "lastModified": "Wed, 27 Apr 2016 15:01:14 GMT",
+    "size": 22976
+  },
+  "https://unpkg.com/history@2.1.2/umd/history.js": {
+    "integrity": "sha384-vfnKy+8J3TJDupHC5n+E9BdWQ2+ffC4qScOqtsaru9oy8zF2SFD4x/c1fYcjgWyF",
+    "lastModified": "Thu, 26 May 2016 15:57:13 GMT",
+    "size": 68413
+  },
+  "https://unpkg.com/history@2.1.2/umd/history.min.js": {
+    "integrity": "sha384-TLGLRPz8AFxEDLQQPsnD1POPxbtOWZAG0p//hXxgvHYcMhJKbIVp+T+oUoOsBSED",
+    "lastModified": "Thu, 26 May 2016 15:57:16 GMT",
+    "size": 22994
+  },
+  "https://unpkg.com/history@3.0.0/umd/history.js": {
+    "integrity": "sha384-kxbmn3DeVtXRI5ssxZH4MXFcA2fsbpnSYGNFf9WOcG7ystCLlDOfKsjbM5j4QNtB",
+    "lastModified": "Mon, 30 May 2016 17:36:18 GMT",
+    "size": 62115
+  },
+  "https://unpkg.com/history@3.0.0/umd/history.min.js": {
+    "integrity": "sha384-uXjSdppI+yZRRvzUABey57iIIeq60PD6gYoOHwgmofBMA0C7RsPS9TYRdut/hc9N",
+    "lastModified": "Mon, 30 May 2016 17:36:21 GMT",
+    "size": 22379
+  },
+  "https://unpkg.com/history@3.1.0/umd/history.js": {
+    "integrity": "sha384-z9YoTNJo8dzuVAElOA5kBlXa9lbs4F4QIBBs8UzYiBp3KTsIoIOn4J2uSrkXlX5n",
+    "lastModified": "Fri, 02 Sep 2016 00:13:29 GMT",
+    "size": 63446
+  },
+  "https://unpkg.com/history@3.1.0/umd/history.min.js": {
+    "integrity": "sha384-pck3Fk14OgWLMVemwnUwXH3/SMiCa9IoGlmkCeyaQTqbUBMLX0xhsW7rE+Te18g/",
+    "lastModified": "Fri, 02 Sep 2016 00:13:32 GMT",
+    "size": 22339
+  },
+  "https://unpkg.com/history@3.2.0/umd/history.js": {
+    "integrity": "sha384-LjZgUlClRInC5tBS5Gt3YtfhhfkUP/4SRZDeWNMODlVy+sqFOxxodagnMG0CEjWc",
+    "lastModified": "Fri, 02 Sep 2016 01:05:16 GMT",
+    "size": 63486
+  },
+  "https://unpkg.com/history@3.2.0/umd/history.min.js": {
+    "integrity": "sha384-IGaowV85xciZIOg+GnQmw0FwHaO1ZahnYjgfuuZ2Y69n3JF5Hi6i7MTUjvJvXqtB",
+    "lastModified": "Fri, 02 Sep 2016 01:05:19 GMT",
+    "size": 22355
+  },
+  "https://unpkg.com/history@3.2.1/umd/history.js": {
+    "integrity": "sha384-5YU5RNccyo/18PTsKkekFD3eMKjibNp6HlCPI4hs/v/OZBvVDLYIykQD8IXUQqoy",
+    "lastModified": "Fri, 02 Sep 2016 16:52:42 GMT",
+    "size": 63575
+  },
+  "https://unpkg.com/history@3.2.1/umd/history.min.js": {
+    "integrity": "sha384-J5t4eH0t38Vmhxw/rz31eFbzbOecakWhioaer9cYvXcahbny/CNM2zvmP80BhUX4",
+    "lastModified": "Fri, 02 Sep 2016 16:52:44 GMT",
+    "size": 22375
+  },
+  "https://unpkg.com/history@3.3.0/umd/history.js": {
+    "integrity": "sha384-I4ZzymExaTxuIXFkdI2RMHufEV8ikEZQcyFQMco2l2ScATxkcjoiUOMU/aYqBrlF",
+    "lastModified": "Sun, 26 Feb 2017 03:54:49 GMT",
+    "size": 66464
+  },
+  "https://unpkg.com/history@3.3.0/umd/history.min.js": {
+    "integrity": "sha384-M0QYIhfKWkBVymcXZuLNde3erwSE1Sg/0FJXeX/PsaevozHsFmBHFUm5K2VbAnMx",
+    "lastModified": "Sun, 26 Feb 2017 03:54:52 GMT",
+    "size": 23520
+  },
+  "https://unpkg.com/history@4.0.0/umd/history.js": {
+    "integrity": "sha384-2OlwXgOQR5OUPe1Y527UK7CzWtHkj1n0A0XoNxWHA4OiwCsuD2Dp7ok5kBqoiaJc",
+    "lastModified": "Sat, 10 Sep 2016 16:57:24 GMT",
+    "size": 39521
+  },
+  "https://unpkg.com/history@4.0.0/umd/history.min.js": {
+    "integrity": "sha384-cZnLpVWuC+CnLUV95Q325x8qgx8Sl7LAGqP0w+ScgFL9U0AkQGcUNAw7IHoTxC4l",
+    "lastModified": "Sat, 10 Sep 2016 16:57:27 GMT",
+    "size": 12702
+  },
+  "https://unpkg.com/history@4.0.1/umd/history.js": {
+    "integrity": "sha384-2OlwXgOQR5OUPe1Y527UK7CzWtHkj1n0A0XoNxWHA4OiwCsuD2Dp7ok5kBqoiaJc",
+    "lastModified": "Mon, 12 Sep 2016 22:58:34 GMT",
+    "size": 39521
+  },
+  "https://unpkg.com/history@4.0.1/umd/history.min.js": {
+    "integrity": "sha384-cZnLpVWuC+CnLUV95Q325x8qgx8Sl7LAGqP0w+ScgFL9U0AkQGcUNAw7IHoTxC4l",
+    "lastModified": "Mon, 12 Sep 2016 22:58:36 GMT",
+    "size": 12702
+  },
+  "https://unpkg.com/history@4.1.0/umd/history.js": {
+    "integrity": "sha384-Uf7t8VyglH+KIgDZ+VLA6pAzCSWUu0mq3h7HzmH8snbPLUqnxgQ8ajkU9ght5eWj",
+    "lastModified": "Thu, 15 Sep 2016 14:35:04 GMT",
+    "size": 39785
+  },
+  "https://unpkg.com/history@4.1.0/umd/history.min.js": {
+    "integrity": "sha384-BKNKiuQNj4NVf/ZGtJdGngcHmIAPwISpfvKJ7j++Sk26YK+rP954QWSerPn1GQQB",
+    "lastModified": "Thu, 15 Sep 2016 14:35:06 GMT",
+    "size": 12848
+  },
+  "https://unpkg.com/history@4.10.0/umd/history.js": {
+    "integrity": "sha384-f34q9thFFSciK/ZNAQAgBXI+nxk+aUWboXL72r+ASfIjp4i51pODwdib6Niudw7o",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 33177
+  },
+  "https://unpkg.com/history@4.10.0/umd/history.min.js": {
+    "integrity": "sha384-HxOMr1GEQ3FSjYiXN4lhrOue4YTE250lZRK0mfxclDqNfl4nfcM9J2+eHTXL4Vq/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 10003
+  },
+  "https://unpkg.com/history@4.10.1/umd/history.js": {
+    "integrity": "sha384-OALQN6XFuowBzNPS8o2eUz6xbLA61cdVxedtBdXUSP0tGQu121DHAXHgo7xGyg/f",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 33415
+  },
+  "https://unpkg.com/history@4.10.1/umd/history.min.js": {
+    "integrity": "sha384-LETDDW3fEsTdtHnk05921azHrvUurbiYt3DcFdNRmtxBSZColhpsdX7XBaKJG0q8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 10111
+  },
+  "https://unpkg.com/history@4.2.0/umd/history.js": {
+    "integrity": "sha384-LaGtkEsaoo7t4IhKzx6gF1mKpdjYDvLYPANnCKvSvg97+Hih/934JINqSF4SXjb3",
+    "lastModified": "Thu, 15 Sep 2016 22:28:32 GMT",
+    "size": 41289
+  },
+  "https://unpkg.com/history@4.2.0/umd/history.min.js": {
+    "integrity": "sha384-kdUEtfnNILaztQEYW9xNWl4sgPOVWZoAv+c+hWfCizvn5xEs/zkiAwmz1V2VF4UE",
+    "lastModified": "Thu, 15 Sep 2016 22:28:35 GMT",
+    "size": 13274
+  },
+  "https://unpkg.com/history@4.2.1/umd/history.js": {
+    "integrity": "sha384-eMm2T+vCQJwpqTUoMTDwlm70JEqx88EFnUTg3TTFAxvSMnZScHK8sHK/g0c4Diie",
+    "lastModified": "Thu, 29 Sep 2016 18:30:17 GMT",
+    "size": 41411
+  },
+  "https://unpkg.com/history@4.2.1/umd/history.min.js": {
+    "integrity": "sha384-At23V2jmP92LeFrNm7cuA0UQisjjQvnhFRZ9WSAk6hTYCcUGT5VOT7yC1+qYZfgI",
+    "lastModified": "Thu, 29 Sep 2016 18:30:20 GMT",
+    "size": 13302
+  },
+  "https://unpkg.com/history@4.3.0/umd/history.js": {
+    "integrity": "sha384-DBnlk6avvKVL9IysCcKbMfpuu9TQA1z1qyjbimME85duVUKZnlJVZJLAi0OvkcxH",
+    "lastModified": "Thu, 29 Sep 2016 22:29:34 GMT",
+    "size": 43426
+  },
+  "https://unpkg.com/history@4.3.0/umd/history.min.js": {
+    "integrity": "sha384-/5s7ym/rrx920anNAzKJ1QxcS5Mrfhnh0fYlUO7TBWp0l7Jz+FAKg9puUcLwrskG",
+    "lastModified": "Thu, 29 Sep 2016 22:29:37 GMT",
+    "size": 14612
+  },
+  "https://unpkg.com/history@4.4.0/umd/history.js": {
+    "integrity": "sha384-oFJa4imeVl6Zvb9wdUfeSORp6Z2QGJIWRPvOsnRAkaAugrRVdNBab+b3VXji5Bj9",
+    "lastModified": "Tue, 01 Nov 2016 15:58:36 GMT",
+    "size": 43870
+  },
+  "https://unpkg.com/history@4.4.0/umd/history.min.js": {
+    "integrity": "sha384-ynkqcV/V78SqGSOY10g/mt/N+CE3E2blOkHJiR+5GEt3H3C2UZWMRiSqDSAkyYUV",
+    "lastModified": "Tue, 01 Nov 2016 15:58:39 GMT",
+    "size": 14807
+  },
+  "https://unpkg.com/history@4.4.1/umd/history.js": {
+    "integrity": "sha384-by+aBJI987SKOaPIJ8q3FtNScC5Do4yeKvlAucUjhonJE1yUzzdgnnj/vNZNbXbg",
+    "lastModified": "Thu, 24 Nov 2016 18:30:00 GMT",
+    "size": 44317
+  },
+  "https://unpkg.com/history@4.4.1/umd/history.min.js": {
+    "integrity": "sha384-ibUWO5KltO8f6jI9AF6cICBsZVdvQCv66K4PsmxFtV88SnmOM8J+ji3ayuRTA9sQ",
+    "lastModified": "Thu, 24 Nov 2016 18:30:02 GMT",
+    "size": 14933
+  },
+  "https://unpkg.com/history@4.5.0/umd/history.js": {
+    "integrity": "sha384-OiXjG1fkYo1Y57HrN0hbxsj6g56TQb8rPZ/IWkpGUOJgmOqHDlC+oaUPBxyqccLV",
+    "lastModified": "Wed, 14 Dec 2016 20:26:41 GMT",
+    "size": 44703
+  },
+  "https://unpkg.com/history@4.5.0/umd/history.min.js": {
+    "integrity": "sha384-qS5Xg1UvGGqa6AhOB7eRltDwgtWz80hAa7QaPVMhGG9PRX9KblSOH09LMOfeTcy+",
+    "lastModified": "Wed, 14 Dec 2016 20:26:45 GMT",
+    "size": 15054
+  },
+  "https://unpkg.com/history@4.5.1/umd/history.js": {
+    "integrity": "sha384-nMLpAAjkVUpUb2oGpFTEIQA1Nc9upG83IawcZFyckdDtL6fiqVXkwOVoKnD9hc+8",
+    "lastModified": "Mon, 09 Jan 2017 23:52:59 GMT",
+    "size": 45707
+  },
+  "https://unpkg.com/history@4.5.1/umd/history.min.js": {
+    "integrity": "sha384-Dxxx9egd9sw7jmW6LTtckdzuqWqjLdxKaJWF+vDZZYo9GvVDPSiIWZ1mng8bVEdh",
+    "lastModified": "Mon, 09 Jan 2017 23:53:02 GMT",
+    "size": 14803
+  },
+  "https://unpkg.com/history@4.6.0/umd/history.js": {
+    "integrity": "sha384-m3/YEQks4jvxZWSPg97dsiwg9EmdyAr67vUcLfvXxPw0NKQz/8xDZP68jXu90z1P",
+    "lastModified": "Wed, 08 Mar 2017 00:41:05 GMT",
+    "size": 45561
+  },
+  "https://unpkg.com/history@4.6.0/umd/history.min.js": {
+    "integrity": "sha384-5cOpBAR6+mxDBkF5n22VfbpiQJ/YZBu5KDgJKH6VoXZUC7cIZ8Y4oGJDvVYSKTOe",
+    "lastModified": "Wed, 08 Mar 2017 00:41:07 GMT",
+    "size": 14897
+  },
+  "https://unpkg.com/history@4.6.1/umd/history.js": {
+    "integrity": "sha384-RziY1Im5NYR70K6xR/U7D8CjEQEPNDYN94yiixrWPRqZDdltMc0XHAPg5j0b5VUl",
+    "lastModified": "Thu, 16 Mar 2017 05:07:07 GMT",
+    "size": 45562
+  },
+  "https://unpkg.com/history@4.6.1/umd/history.min.js": {
+    "integrity": "sha384-nV7XOIG2UfKytoDD7/v/8i4MgsTyBvdxP8mR2T+nOgKxEWhkpznN6D9ue54aXPOD",
+    "lastModified": "Thu, 16 Mar 2017 05:07:09 GMT",
+    "size": 14893
+  },
+  "https://unpkg.com/history@4.6.2/umd/history.js": {
+    "integrity": "sha384-gkOt90uVcSxxOJ5D42PA5aAQbZNISXT0STgbx8F+toddHcHcfbsfLesSwWCd9ZMe",
+    "lastModified": "Wed, 14 Jun 2017 03:28:23 GMT",
+    "size": 46664
+  },
+  "https://unpkg.com/history@4.6.2/umd/history.min.js": {
+    "integrity": "sha384-CWzF0EK7RVB4JpjdBGpSas6MslDcWXGn3RXw1pMFhD8bsk1vJqbk5TtxCi6tciqK",
+    "lastModified": "Wed, 14 Jun 2017 03:28:25 GMT",
+    "size": 15171
+  },
+  "https://unpkg.com/history@4.6.3/umd/history.js": {
+    "integrity": "sha384-gkOt90uVcSxxOJ5D42PA5aAQbZNISXT0STgbx8F+toddHcHcfbsfLesSwWCd9ZMe",
+    "lastModified": "Tue, 20 Jun 2017 09:22:03 GMT",
+    "size": 46664
+  },
+  "https://unpkg.com/history@4.6.3/umd/history.min.js": {
+    "integrity": "sha384-CWzF0EK7RVB4JpjdBGpSas6MslDcWXGn3RXw1pMFhD8bsk1vJqbk5TtxCi6tciqK",
+    "lastModified": "Tue, 20 Jun 2017 09:22:05 GMT",
+    "size": 15171
+  },
+  "https://unpkg.com/history@4.7.0/umd/history.js": {
+    "integrity": "sha384-T7SwcjQqTQsHch3ze0OIM5YI1FZpbg8/yEQ0SLg+h909GhqNDN+NQaNICGnF3rEl",
+    "lastModified": "Wed, 23 Aug 2017 07:07:11 GMT",
+    "size": 46677
+  },
+  "https://unpkg.com/history@4.7.0/umd/history.min.js": {
+    "integrity": "sha384-T1jFdT8LRhg9U3BkoaPE4H/5M0zmg/0g3w3ayv3JSHSEadIaqdoMQtLmxkzr0aKa",
+    "lastModified": "Wed, 23 Aug 2017 07:07:13 GMT",
+    "size": 15199
+  },
+  "https://unpkg.com/history@4.7.1/umd/history.js": {
+    "integrity": "sha384-UcwBtMeMfFPW1qpa8jGTxOn63II6g0545eNAS3WnIkFa0BnTVYh10ASyCweovBrM",
+    "lastModified": "Wed, 23 Aug 2017 07:13:31 GMT",
+    "size": 46674
+  },
+  "https://unpkg.com/history@4.7.1/umd/history.min.js": {
+    "integrity": "sha384-vnlePUQNSmrFpbWjhAqFJCXMsF51hQFFxS1xub4nvT7Old0/MH9SOdrDyuh8JV4w",
+    "lastModified": "Wed, 23 Aug 2017 07:13:33 GMT",
+    "size": 15213
+  },
+  "https://unpkg.com/history@4.7.2/umd/history.js": {
+    "integrity": "sha384-UcwBtMeMfFPW1qpa8jGTxOn63II6g0545eNAS3WnIkFa0BnTVYh10ASyCweovBrM",
+    "lastModified": "Wed, 23 Aug 2017 08:35:03 GMT",
+    "size": 46674
+  },
+  "https://unpkg.com/history@4.7.2/umd/history.min.js": {
+    "integrity": "sha384-vnlePUQNSmrFpbWjhAqFJCXMsF51hQFFxS1xub4nvT7Old0/MH9SOdrDyuh8JV4w",
+    "lastModified": "Wed, 23 Aug 2017 08:35:04 GMT",
+    "size": 15213
+  },
+  "https://unpkg.com/history@4.9.0/umd/history.js": {
+    "integrity": "sha384-5of6UZ+Xb36c8ClpsJRQF+qTQ3OAdSoNuEeyrebL9ERXcEyMt4bGqvFt9khO05hI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 33175
+  },
+  "https://unpkg.com/history@4.9.0/umd/history.min.js": {
+    "integrity": "sha384-G8ovLgrIBgRi0sXCLo3r7Wt8aYU9iWYleohTxT/Xzymtc79Pv0ku4Cqzl4aBKP7K",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 10094
+  },
+  "https://unpkg.com/history@5.0.0/umd/history.development.js": {
+    "integrity": "sha384-LdLAkgLw5u6CphPouM83NnZz7ciyhF4NLzb3iPZmgfNxB3VQXgsvYzOa4rLdWi4O",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 7322
+  },
+  "https://unpkg.com/history@5.0.0/umd/history.production.min.js": {
+    "integrity": "sha384-5YwM3NOJ1L7vYQjhwyF91xWe0DdNI3FPzCNIrLWmL3DfPvvnKtCzTYkPCA98pPmp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 5858
+  }
+}

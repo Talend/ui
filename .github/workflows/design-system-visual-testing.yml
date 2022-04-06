@@ -18,8 +18,8 @@ on:
     branches:
       - master
     paths:
-      - 'packages/design-tokens/**'
-      - 'packages/design-system/**'
+      - "packages/design-tokens/**"
+      - "packages/design-system/**"
 
 jobs:
   build:
@@ -28,9 +28,6 @@ jobs:
       (github.ref == 'refs/heads/master') ||
       contains(github.event.pull_request.labels.*.name, 'need visual approval'))
     environment: pull_request_unsafe
-    defaults:
-      run:
-        working-directory: ./packages/design-system
     steps:
       - uses: actions/checkout@v2
         with:
@@ -44,12 +41,11 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn --frozen-lock
+        run: yarn --frozen-lock --ignore-scripts
 
       - name: Build @talend/design-tokens
         run: |
-          cd ../design-tokens
-          yarn pre-release
+          yarn workspace @talend/design-tokens run build:lib
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
