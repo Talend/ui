@@ -3,7 +3,7 @@
 .tooltip {
 	.container {
 		padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
-		max-width: tokens.$coral-sizing-limit;
+		max-width: tokens.$coral-sizing-maximal;
 		font: tokens.$coral-paragraph-s;
 		color: tokens.$coral-color-assistive-text;
 		background: tokens.$coral-color-assistive-background;
