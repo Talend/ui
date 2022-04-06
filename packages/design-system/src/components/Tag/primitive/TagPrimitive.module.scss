@@ -2,8 +2,8 @@
 
 .tag {
 	display: inline-block;
-	padding: 0 tokens.$coral-size-xxs;
-	max-width: tokens.$coral-size-limit;
+	padding: 0 tokens.$coral-spacing-xxs;
+	max-width: tokens.$coral-sizing-maximal;
 	font: tokens.$coral-paragraph-s-bold;
 	vertical-align: middle;
 	white-space: nowrap;

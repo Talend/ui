@@ -1,16 +1,24 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable consistent-return */
+/* eslint-disable no-param-reassign */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable no-continue */
+/* eslint-disable no-console */
+/* eslint-disable global-require */
 /* eslint-disable no-restricted-syntax */
 
-import readPkgUp from 'read-pkg-up';
-import ExternalModule from 'webpack/lib/ExternalModule';
-import { RawSource } from 'webpack-sources';
-import fs from 'fs';
-import path from 'path';
-import crypto from 'crypto';
-import { promisify } from 'util';
+const readPkgUp = require('read-pkg-up');
+const ExternalModule = require('webpack/lib/ExternalModule');
+const RawSource = require('webpack-sources').RawSource;
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const promisify = require('util').promisify;
 
-import resolvePkg from './resolve-pkg';
-import getResolver from './get-resolver';
-import { findPackage } from './find';
+const resolvePkg = require('./resolve-pkg');
+const getResolver = require('./get-resolver');
+const findPackage = require('./find').findPackage;
 
 const readFileAsync = promisify(fs.readFile);
 const pluginName = 'dynamic-cdn-webpack-plugin';
@@ -112,7 +120,7 @@ async function moduleCSSToMetadata(data, { name, version, stylePath, styleUrl })
 	return metadata;
 }
 
-export default class DynamicCdnWebpackPlugin {
+class DynamicCdnWebpackPlugin {
 	constructor({
 		disable = false,
 		env,
@@ -484,3 +492,5 @@ export default class DynamicCdnWebpackPlugin {
 		});
 	}
 }
+
+module.exports = { default: DynamicCdnWebpackPlugin };

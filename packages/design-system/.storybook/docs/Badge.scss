@@ -24,7 +24,7 @@
 	}
 
 	span {
-		padding: 0 tokens.$coral-size-xxs;
+		padding: 0 tokens.$coral-spacing-xxs;
 		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 
 		&:first-child {
@@ -46,7 +46,7 @@
 	}
 
 	img {
-		height: tokens.$coral-size-s;
-		width: tokens.$coral-size-s;
+		height: tokens.$coral-sizing-minimal;
+		width: tokens.$coral-sizing-minimal;
 	}
 }
