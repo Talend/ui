@@ -25,6 +25,11 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
       - name: Install dependencies
         run: |
           yarn --frozen-lock --ignore-scripts
