@@ -96,22 +96,6 @@ function getSassLoaders(enableModules, sassData, mode) {
 	});
 }
 
-const BLOCKED_LIST = ['@talend/backend-mock', '@talend/html-webpack-plugin', '@talend/copylib'];
-const BLOCKED_SUBSTRING = ['scripts', 'webpack'];
-
-function isBlockedLib(name) {
-	if (BLOCKED_LIST.indexOf(name) !== -1) {
-		return true;
-	}
-	let blocked = false;
-	BLOCKED_SUBSTRING.forEach(pattern => {
-		if (!blocked) {
-			blocked = name.includes(pattern);
-		}
-	});
-	return blocked;
-}
-
 function getGitRevision() {
 	let revision = process.env.GIT_COMMIT;
 	if (!revision) {
@@ -132,16 +116,21 @@ function getTalendVersions() {
 	// eslint-disable-next-line
 	const packageJson = require(path.join(process.cwd(), 'package.json'));
 
+	const talendDependencies = Object.keys(packageJson.dependencies).filter(dependency =>
+		dependency.includes('@talend/'),
+	);
+
 	if (fs.existsSync(yarnlockPath)) {
 		const data = fs.readFileSync(yarnlockPath, 'utf-8');
 		const lock = yarnlock.parse(data);
+
 		Object.keys(lock.object)
 			.filter(k => k.startsWith('@talend'))
 			.reduce((acc, key) => {
 				// @talend/react-components@5.1.2
 				const name = `@talend/${key.split('/')[1].split('@')[0]}`;
-				const info = lock.object[key];
-				if (!isBlockedLib(name)) {
+				if (talendDependencies.includes(name)) {
+					const info = lock.object[key];
 					acc[name] = info.version;
 				}
 				return acc;
@@ -149,22 +138,32 @@ function getTalendVersions() {
 	} else if (fs.existsSync(packagelockPath)) {
 		// eslint-disable-next-line
 		const packageLock = require(packagelockPath);
-		Object.keys(packageLock.dependencies)
-			.filter(k => k.startsWith('@talend'))
+
+		Object.keys(packageLock.packages)
+			.filter(k => k.includes('@talend'))
 			.reduce((acc, key) => {
-				const name = `@talend/${key.split('/')[1].split('@')[0]}`;
-				const info = packageLock.dependencies[key];
-				if (!isBlockedLib(name)) {
-					acc[name] = info.version;
+				const name = `@talend/${key.split('@talend/')[1]}`;
+				if (talendDependencies.includes(name)) {
+					acc[name] = packageLock.packages[key].version;
 				}
 				return acc;
 			}, talendLibraries);
 	}
 
+	let revision = process.env.GIT_COMMIT;
+	if (!revision) {
+		try {
+			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
+		} catch (e) {
+			// eslint-disable-next-line no-console
+			console.info('Failed to get git revision');
+		}
+	}
+
 	return {
 		version: packageJson.version,
 		talendLibraries: Object.entries(talendLibraries).map(([name, version]) => ({ name, version })),
-		revision: getGitRevision(),
+		revision,
 	};
 }
 
