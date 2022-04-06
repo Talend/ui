@@ -6,7 +6,7 @@
     "cross-spawn": "^7.0.3",
     "husky": "^7.0.4",
     "i18next-scanner": "^3.1.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.6.1"
   },
   "scripts": {
     "postinstall": "node workspace-run.js build:lib",
@@ -38,7 +38,8 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "packages/*",
+    "packages/!(design-tokens)",
+    "tools/*",
     "fork/*"
   ],
   "lint-staged": {

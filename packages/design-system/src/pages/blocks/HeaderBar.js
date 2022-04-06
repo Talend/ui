@@ -24,49 +24,35 @@ export default function HeaderBarBlock() {
 				</Tooltip>
 			</HeaderBar.Logo>
 			<HeaderBar.Brand>
-				<Tooltip title="Change for another Talend app" placement="bottom">
-					<Dropdown
-						icon="talend-tdc-colored"
-						aria-label="Apps switcher"
-						items={[
-							<Link iconBefore="talend-stop" href="#">
-								App name 2
-							</Link>,
-							<Link iconBefore="talend-stop" href="#">
-								App name 3
-							</Link>,
-							<Link iconBefore="talend-stop" href="#">
-								App name 4
-							</Link>,
-							<Link iconBefore="talend-stop" href="#">
-								App name 5
-							</Link>,
-						]}
-					>
-						App name
-					</Dropdown>
-				</Tooltip>
+				<Dropdown
+					aria-label="Apps switcher"
+					items={[
+						{ icon: 'talend-stop', href: '#', label: 'App name 1', type: 'link' },
+						{ icon: 'talend-stop', href: '#', label: 'App name 2', type: 'link' },
+						{ icon: 'talend-stop', href: '#', label: 'App name 3', type: 'link' },
+						{ icon: 'talend-stop', href: '#', label: 'App name 4', type: 'link' },
+						{ icon: 'talend-stop', href: '#', label: 'App name 5', type: 'link' },
+					]}
+				>
+					<Clickable onClick={() => {}}>App name</Clickable>
+				</Dropdown>
 			</HeaderBar.Brand>
 			<HeaderBar.Content>
 				<HeaderBar.ContentRight>
 					<HeaderBar.Item>
-						<Tooltip title="Notifications (you have no unread notifications)" placement="bottom">
-							<ButtonIconToggle
-								isActive={false}
-								size="S"
-								onClick={() => {}}
-								icon="talend-bell-notification"
-							>
-								Notifications
-							</ButtonIconToggle>
-						</Tooltip>
+						<ButtonIconToggle
+							isActive={false}
+							size="S"
+							onClick={() => {}}
+							icon="talend-bell-notification"
+						>
+							Notifications
+						</ButtonIconToggle>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
-						<Tooltip title="Chat with Talend support" placement="bottom">
-							<ButtonIconToggle isActive={false} size="S" onClick={() => {}} icon="talend-bubbles">
-								Intercom
-							</ButtonIconToggle>
-						</Tooltip>
+						<ButtonIconToggle isActive={false} size="S" onClick={() => {}} icon="talend-bubbles">
+							Intercom
+						</ButtonIconToggle>
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Tooltip title="Go to online help" placement="bottom">
@@ -77,18 +63,18 @@ export default function HeaderBarBlock() {
 					</HeaderBar.Item>
 					<HeaderBar.Item>
 						<Dropdown
-							icon="talend-user-circle"
+							aria-label="Apps switcher"
 							items={[
-								<Clickable onClick={() => aboutModal.show()}>About</Clickable>,
-								<></>,
-								<Link href="#">Support</Link>,
-								<Link href="#">Community</Link>,
-								<></>,
-								<Link href="#">Preferences</Link>,
-								<Link href="#">Logout</Link>,
+								{ onClick: () => {}, label: 'About', type: 'button' },
+								{ type: 'divider' },
+								{ href: '#', label: 'Support', type: 'link' },
+								{ href: '#', label: 'Community', type: 'link' },
+								{ type: 'divider' },
+								{ href: '#', label: 'Preferences', type: 'link' },
+								{ href: '#', label: 'Logout', type: 'link' },
 							]}
 						>
-							John Doe
+							<Clickable onClick={() => {}}>John Doe</Clickable>
 						</Dropdown>
 						<Modal.Dialog {...aboutModal} aria-label="About this product">
 							<p>Talend 2020</p>

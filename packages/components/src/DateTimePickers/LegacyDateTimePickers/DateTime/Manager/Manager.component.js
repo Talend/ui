@@ -78,16 +78,16 @@ class ContextualManager extends React.Component {
 		this.onPickerChange = this.onPickerChange.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const newSelectedDateTime = nextProps.selectedDateTime;
+	componentDidUpdate(prevProps, prevState) {
+		const newSelectedDateTime = this.props.selectedDateTime;
 
 		const needDateTimeStateUpdate =
-			newSelectedDateTime !== this.props.selectedDateTime && // selectedDateTime props updated
-			newSelectedDateTime !== this.state.datetime && // not the same ref as state date time
-			!isSameSecond(newSelectedDateTime, this.state.datetime); // not the same value as state
+			newSelectedDateTime !== prevProps.selectedDateTime && // selectedDateTime props updated
+			newSelectedDateTime !== prevState.datetime && // not the same ref as state date time
+			!isSameSecond(newSelectedDateTime, prevState.datetime); // not the same value as state
 
-		if (nextProps.dateFormat !== this.props.dateFormat) {
-			checkSupportedDateFormat(nextProps.dateFormat);
+		if (prevProps.dateFormat !== this.props.dateFormat) {
+			checkSupportedDateFormat(this.props.dateFormat);
 		}
 
 		if (needDateTimeStateUpdate) {

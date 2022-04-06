@@ -57,7 +57,7 @@
     "@types/d3": "^6.7.5",
     "@types/enzyme": "^3.10.11",
     "@types/geojson": "^7946.0.8",
-    "@types/lodash": "^4.14.179",
+    "@types/lodash": "^4.14.181",
     "@types/react": "^16.14.24",
     "@types/topojson-client": "^3.1.0",
     "@types/topojson-specification": "^1.0.2",

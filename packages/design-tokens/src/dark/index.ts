@@ -264,17 +264,38 @@ const tokens = {
 		'var(--coral-color-charts-color-09-text-weak, hsla(35,28%,82%,1))',
 	coralColorNeutralBackgroundHeavy:
 		'var(--coral-color-neutral-background-heavy, hsla(204,18%,11%,1))',
+	coralColorIllustrationColor01: 'var(--coral-color-illustration-color-01, hsla(252,83%,52%,1))',
+	coralColorIllustrationColor02: 'var(--coral-color-illustration-color-02, hsla(215,89%,49%,1))',
+	coralColorIllustrationColor03: 'var(--coral-color-illustration-color-03, hsla(0,100%,74%,1))',
+	coralColorIllustrationColor04: 'var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))',
+	coralColorIllustrationColor05: 'var(--coral-color-illustration-color-05, hsla(20,23%,97%,1))',
+	coralColorIllustrationColor06: 'var(--coral-color-illustration-color-06, hsla(245,46%,5%,1))',
+	coralColorIllustrationSkintone01:
+		'var(--coral-color-illustration-skintone-01, hsla(20,91%,83%,1))',
+	coralColorIllustrationSkintone02:
+		'var(--coral-color-illustration-skintone-02, hsla(21,34%,55%,1))',
+	coralColorIllustrationSkintone03:
+		'var(--coral-color-illustration-skintone-03, hsla(17,33%,28%,1))',
+	coralColorIllustrationShadow: 'var(--coral-color-illustration-shadow, hsla(0,0%,0%,0.1))',
 	coralColorBrandingBackground:
 		'var(--coral-color-branding-background, linear-gradient(133deg,hsla(226,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%))',
 	coralColorBrandingNavigation:
 		'var(--coral-color-branding-navigation, linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%))',
-	coralSizeXxs: 'var(--coral-size-xxs, 0.4rem)',
-	coralSizeXs: 'var(--coral-size-xs, 0.8rem)',
-	coralSizeS: 'var(--coral-size-s, 1.2rem)',
-	coralSizeM: 'var(--coral-size-m, 1.6rem)',
-	coralSizeL: 'var(--coral-size-l, 2.8rem)',
-	coralSizeXl: 'var(--coral-size-xl, 3.6rem)',
-	coralSizeLimit: 'var(--coral-size-limit, 32rem)',
+	coralSpacingXxs: 'var(--coral-spacing-xxs, 0.4rem)',
+	coralSpacingXs: 'var(--coral-spacing-xs, 0.8rem)',
+	coralSpacingS: 'var(--coral-spacing-s, 1.2rem)',
+	coralSpacingM: 'var(--coral-spacing-m, 1.6rem)',
+	coralSpacingL: 'var(--coral-spacing-l, 2.8rem)',
+	coralSpacingXl: 'var(--coral-spacing-xl, 3.6rem)',
+	coralSizingMinimal: 'var(--coral-sizing-minimal, 1.2rem)',
+	coralSizingXxxs: 'var(--coral-sizing-xxxs, 1.6rem)',
+	coralSizingXxs: 'var(--coral-sizing-xxs, 2rem)',
+	coralSizingXs: 'var(--coral-sizing-xs, 2.4rem)',
+	coralSizingS: 'var(--coral-sizing-s, 2.8rem)',
+	coralSizingM: 'var(--coral-sizing-m, 3.6rem)',
+	coralSizingL: 'var(--coral-sizing-l, 4rem)',
+	coralSizingXxxl: 'var(--coral-sizing-xxxl, 22rem)',
+	coralSizingMaximal: 'var(--coral-sizing-maximal, 32rem)',
 	coralElevationShadowNeutralM:
 		'var(--coral-elevation-shadow-neutral-m, 0rem 0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3))',
 	coralElevationShadowNeutralL:
@@ -289,6 +310,10 @@ const tokens = {
 		'var(--coral-elevation-shadow-warning, 0rem 0.1rem 0.1rem 0rem hsla(27,98%,67%,0.3))',
 	coralElevationShadowBeta:
 		'var(--coral-elevation-shadow-beta, 0rem 0.1rem 0.1rem 0rem hsla(279,34%,78%,0.3))',
+	coralElevationShadowNeutralInvertedM:
+		'var(--coral-elevation-shadow-neutral-inverted-m, 0rem -0.2rem 0.6rem 0rem hsla(0,0%,2%,0.3))',
+	coralElevationShadowNeutralInvertedL:
+		'var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0,0%,5%,0.3))',
 	coralHeadingL: "var(--coral-heading-l, 600 1.8rem/140% 'Source Sans Pro')",
 	coralHeadingM: "var(--coral-heading-m, 600 1.6rem/140% 'Source Sans Pro')",
 	coralHeadingS: "var(--coral-heading-s, 600 1.4rem/140% 'Source Sans Pro')",

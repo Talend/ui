@@ -5,45 +5,43 @@ on:
     branches:
       - master
     paths:
-      - 'packages/design-system/**'
-      - 'packages/design-tokens/**'
+      - "packages/design-system/**"
+      - "packages/design-tokens/**"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: main
-    defaults:
-      run:
-        working-directory: ./packages/design-system
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
-          cache: 'yarn'
+          node-version: 16
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
 
       - name: Install dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install --frozen-lockfile --ignore-scripts
 
       - name: Build Storybook of the design tokens
         run: |
-          cd ../design-tokens
-          yarn pre-release
-          yarn build-storybook
-          cd -
+          cd packages/design-tokens
+          yarn install --frozen-lock
+          yarn run build:lib
+          yarn run pre-release
+          yarn run build-storybook
 
       - name: Build Storybook of the design system
-        run: yarn build-storybook
+        run: yarn workspace @talend/design-system run build-storybook
         env:
           STORYBOOK_FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
 
       - name: Copy design tokens Storybook into design system output
-        run: cp -Rf ../design-tokens/storybook-static ./storybook-static/design-tokens
+        run: cp -Rf packages/design-tokens/storybook-static packages/design-system/storybook-static/design-tokens
 
       - name: Deploy to Netlify production
         uses: netlify/actions/cli@master

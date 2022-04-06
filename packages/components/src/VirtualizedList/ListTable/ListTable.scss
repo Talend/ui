@@ -23,15 +23,25 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 		}
 	}
 
-	:global(.ReactVirtualized__Table__headerRow) {
+	.tc-list-headerRow {
 		box-shadow: $shadow-default;
-
 		.header {
 			color: $tc-list-table-header-color;
 			display: inline-flex;
 			font-size: 1.2rem;
 			font-weight: 600;
 			padding: $tc-list-table-cell-padding;
+			overflow: hidden;
+
+			:global(.ReactVirtualized__Table__headerTruncatedText) {
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+
+			:global(.ReactVirtualized__Table__sortableHeaderIcon) {
+				flex-shrink: 0;
+			}
 		}
 	}
 

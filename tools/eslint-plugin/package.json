@@ -1,0 +1,32 @@
+{
+  "name": "@talend/eslint-plugin",
+  "version": "0.5.5",
+  "description": "Contains internal rules used at Talend",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Jean-Michel FRANCOIS",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "@talend/scripts-config-cdn": "^10.3.0",
+    "requireindex": "^1.2.0"
+  },
+  "devDependencies": {
+    "@talend/scripts-config-babel": "^9.9.0",
+    "eslint": "^7.32.0",
+    "mocha": "^7.2.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}

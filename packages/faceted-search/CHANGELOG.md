@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.6.0
+
+### Minor Changes
+
+- ffda839d2: feat(faceted-search): make text badge placeholder configurable
+
+## 3.5.6
+
+### Patch Changes
+
+- 72a99ac3d: fix(faceted-search): input width in badge with slider popin
+
 ## 3.5.5
 
 ### Patch Changes

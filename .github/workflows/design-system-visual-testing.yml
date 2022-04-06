@@ -18,19 +18,16 @@ on:
     branches:
       - master
     paths:
-      - 'packages/design-tokens/**'
-      - 'packages/design-system/**'
+      - "packages/design-tokens/**"
+      - "packages/design-system/**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     if: |
       (github.ref == 'refs/heads/master') ||
-      (github.event.label.name == 'need visual approval')
+      contains(github.event.pull_request.labels.*.name, 'need visual approval'))
     environment: pull_request_unsafe
-    defaults:
-      run:
-        working-directory: ./packages/design-system
     steps:
       - uses: actions/checkout@v2
         with:
@@ -38,18 +35,20 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: 16
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn --frozen-lock
+        run: yarn --frozen-lock --ignore-scripts
 
       - name: Build @talend/design-tokens
         run: |
-          cd ../design-tokens
-          yarn pre-release
+          cd packages/design-tokens
+          yarn install --frozen-lock
+          yarn run build:lib
+          yarn run pre-release
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
