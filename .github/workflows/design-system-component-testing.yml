@@ -30,10 +30,7 @@ jobs:
 
       - name: Build @talend/design-tokens
         run: |
-          cd packages/design-tokens
-          yarn install --frozen-lock
-          yarn run build:lib
-          yarn run pre-release
+          yarn workspace @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@v3

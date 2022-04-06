@@ -1,12 +1,12 @@
-import path from 'path';
-import fs from 'fs';
+const path = require('path');
+const fs = require('fs');
 
-import ManifestPlugin from 'webpack-manifest-plugin';
+const ManifestPlugin = require('webpack-manifest-plugin');
 
-import DynamicCdnWebpackPlugin from '../src';
+const DynamicCdnWebpackPlugin = require('../src').default;
 
-import runWebpack from './helpers/run-webpack';
-import cleanDir from './helpers/clean-dir';
+const runWebpack = require('./helpers/run-webpack');
+const cleanDir = require('./helpers/clean-dir');
 
 describe('webpack-manifest-plugin integration', () => {
 	it('should output cdn files in manifest', async () => {

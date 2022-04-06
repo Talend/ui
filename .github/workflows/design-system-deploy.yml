@@ -29,11 +29,8 @@ jobs:
 
       - name: Build Storybook of the design tokens
         run: |
-          cd packages/design-tokens
-          yarn install --frozen-lock
-          yarn run build:lib
-          yarn run pre-release
-          yarn run build-storybook
+          yarn workspace @talend/design-tokens run build:lib
+          yarn workspace @talend/design-tokens run build-storybook
 
       - name: Build Storybook of the design system
         run: yarn workspace @talend/design-system run build-storybook
