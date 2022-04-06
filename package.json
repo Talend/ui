@@ -39,6 +39,7 @@
   "private": true,
   "workspaces": [
     "packages/*",
+    "tools/*",
     "fork/*"
   ],
   "lint-staged": {

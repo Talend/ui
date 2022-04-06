@@ -1,0 +1,23 @@
+{
+    "@talend/react-components": {
+        "lib": true,
+        "named": false
+    },
+    "@talend/react-containers": {
+        "lib": true,
+        "named": false
+    },
+    "lodash": {
+        "lib": false,
+        "named": false
+    },
+    "react-bootstrap": {
+        "lib": true,
+        "named": false
+    },
+	"redux-saga": {
+        "lib": false,
+        "named": true,
+        "version": "< 1.0.0"
+    }
+}

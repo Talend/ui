@@ -1,0 +1,58 @@
+{
+  "projectName": "dynamic-cdn-webpack-plugin",
+  "projectOwner": "mastilver",
+  "files": [
+    "readme.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "mastilver",
+      "name": "Thomas Sileghem",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4112409?v=4",
+      "profile": "https://github.com/mastilver",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "aulisius",
+      "name": "​Faizaan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6629172?v=4",
+      "profile": "https://github.com/aulisius",
+      "contributions": [
+        "question",
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "mjackson",
+      "name": "MICHAEL JACKSON",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/92839?v=4",
+      "profile": "https://twitter.com/mjackson",
+      "contributions": [
+        {
+          "type": "example",
+          "url": "https://github.com/unpkg/unpkg-demos"
+        }
+      ]
+    },
+    {
+      "login": "fedeoo",
+      "name": "fedeoo",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5313455?v=4",
+      "profile": "http://blog.fedeoo.cn/",
+      "contributions": [
+        {
+          "type": "code",
+          "url": "https://github.com/mastilver/dynamic-cdn-webpack-plugin/pull/21"
+        }
+      ]
+    }
+  ],
+  "repoType": "github"
+}

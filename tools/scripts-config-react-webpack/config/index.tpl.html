@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title><%= htmlWebpackPlugin.options.title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	</head>
+
+	<body>
+		<<%= htmlWebpackPlugin.options.rootElement || 'div' %> id="app">
+			<%= htmlWebpackPlugin.options.appLoader %>
+		</<%= htmlWebpackPlugin.options.rootElement || 'div' %>>
+	</body>
+</html>

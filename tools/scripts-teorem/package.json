@@ -1,0 +1,31 @@
+{
+  "name": "@talend/scripts-teorem",
+  "version": "1.0.1",
+  "description": "",
+  "bin": {
+    "teorem": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "ingest.js",
+    "merge.js",
+    "config.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo Nothing to test"
+  },
+  "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@octokit/rest": "^18.12.0",
+    "@yarnpkg/lockfile": "^1.1.0",
+    "commander": "^6.2.1",
+    "dotenv": "^8.6.0",
+    "mkdirp": "^1.0.4",
+    "queue": "^6.0.2"
+  },
+  "devDependencies": {}
+}
