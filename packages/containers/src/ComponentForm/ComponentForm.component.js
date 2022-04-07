@@ -9,6 +9,8 @@ import memoizeOne from 'memoize-one';
 import kit from './kit';
 import tcompFieldsWidgets from './fields';
 
+const emptyMap = Map();
+
 const TO_OMIT = [
 	'definitionURL',
 	'uiSpecPath',
@@ -102,7 +104,7 @@ export class TCompForm extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		const nextProperties = this.props.state.get('properties', Map());
+		const nextProperties = this.props.state.get('properties', emptyMap);
 		if (prevProps.state.get('properties') !== nextProperties) {
 			this.setState({ properties: nextProperties.toJS() });
 		}
