@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ButtonIconFloating } from '@talend/design-system';
 
 import ColumnChooser from './ColumnChooser.component';
@@ -14,7 +13,4 @@ export default function ColumnChooserHeaderButton(props) {
 	);
 }
 
-ColumnChooserHeaderButton.propTypes = PropTypes.oneOfType(
-	ColumnChooserButton.propTypes,
-	PropTypes.bool,
-);
+ColumnChooserHeaderButton.propTypes = ColumnChooserButton.propTypes;

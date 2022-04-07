@@ -63,7 +63,7 @@ function VList({ children, columnChooser, ...rest }) {
 
 VList.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.node),
-	columnChooser: ColumnChooserHeaderButton.propTypes,
+	columnChooser: PropTypes.oneOfType([PropTypes.bool, ColumnChooserHeaderButton.propTypes]),
 };
 
 // we port the VirtualizedList columns to VList to allow VList.Title/Badge/...
