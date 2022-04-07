@@ -9,13 +9,13 @@ import cssModule from './FacetedToolbar.scss';
 const theme = getTheme(cssModule);
 
 const SwitchFacetedMode = ({ facetedMode, onChange, t }) => (
-	<form>
+	<Form>
 		<Form.Switch
 			label={t('FACETED_SEARCH_QUERY', 'Query')}
 			onChange={() => onChange(facetedMode === FACETED_MODE.BASIC ? FACETED_MODE.ADVANCED : FACETED_MODE.BASIC)}
-			dataFeature={facetedMode === FACETED_MODE.BASIC ? USAGE_TRACKING_TAGS.ADVANCED : USAGE_TRACKING_TAGS.BASIC}
+			dataFeature={facetedMode === FACETED_MODE.BASIC ? USAGE_TRACKING_TAGS.BASIC : USAGE_TRACKING_TAGS.ADVANCED}
 		/>
-	</form>
+	</Form>
 );
 
 SwitchFacetedMode.propTypes = {
