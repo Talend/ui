@@ -17,18 +17,18 @@
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
-    "@storybook/addon-a11y": "^6.4.19",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/addon-interactions": "^6.4.19",
-    "@storybook/addon-links": "^6.4.19",
-    "@storybook/react": "^6.4.19",
+    "@storybook/addon-a11y": "^6.4.20",
+    "@storybook/addon-essentials": "^6.4.20",
+    "@storybook/addon-interactions": "^6.4.20",
+    "@storybook/addon-links": "^6.4.20",
+    "@storybook/react": "^6.4.20",
     "@storybook/testing-library": "^0.0.8",
     "@talend/dynamic-cdn-webpack-plugin": "^10.0.0",
     "fs-extra": "^10.0.1",
     "i18next-http-backend": "^1.4.0",
     "lodash": "^4.17.21",
     "msw": "^0.38.2",
-    "msw-storybook-addon": "^1.6.1"
+    "msw-storybook-addon": "^1.6.2"
   },
   "peerDependencies": {
     "@talend/design-system": "*",
