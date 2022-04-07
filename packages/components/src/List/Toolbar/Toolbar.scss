@@ -92,6 +92,6 @@ $tc-list-toolbar-height: 7rem !default;
 	}
 
 	:global(li.separated button[data-feature='column-chooser.open']) {
-		margin-left: tokens.$coral-size-m;
+		margin-left: tokens.$coral-spacing-m;
 	}
 }

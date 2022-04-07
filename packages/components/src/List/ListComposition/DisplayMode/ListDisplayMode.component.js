@@ -7,13 +7,13 @@ import { DISPLAY_MODE } from '../constants';
 
 function ListDisplayMode({ children, displayModesOptions, id, onChange, selectedDisplayMode }) {
 	const { displayMode, setDisplayMode, t } = useListContext();
-	function onSelect(event, value) {
+	const onSelect = (event, value) => {
 		if (onChange) {
 			onChange(event, value);
 		} else {
 			setDisplayMode(value);
 		}
-	}
+	};
 
 	if (children) {
 		return children;
@@ -23,7 +23,7 @@ function ListDisplayMode({ children, displayModesOptions, id, onChange, selected
 			id={id}
 			mode={selectedDisplayMode || displayMode}
 			displayModes={displayModesOptions}
-			onChange={(event, value) => onSelect(event, value)}
+			onChange={onSelect}
 			t={t}
 		/>
 	);

@@ -39,7 +39,7 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 	}
 
 	return (
-		<StackHorizontal gap="XS" padding={{ x: 'XS', y: 0 }}>
+		<StackHorizontal gap="XS" padding={{ x: 'S', y: 0 }}>
 			{modes.map(getActionIcon)}
 		</StackHorizontal>
 	);

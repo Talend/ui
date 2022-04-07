@@ -8,7 +8,7 @@ import theme from './ColumnChooserHeaderButton.scss';
 
 export default function ColumnChooserHeaderButton(props) {
 	return (
-		<div className={theme.columnChooserHeaderButtonContainer}>
+		<div className={theme['column-chooser-header-button-container']}>
 			<ColumnChooser {...props} buttonRenderer={ButtonIconFloating} />
 		</div>
 	);
