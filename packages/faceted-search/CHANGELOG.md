@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.7.0
+
+### Minor Changes
+
+- c26d711da: feat(faceted-search): Add quick search facets filter
+
 ## 3.6.0
 
 ### Minor Changes
