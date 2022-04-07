@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- 1c20a3b6b: feat(faceted-search): replace faceted mode toggle by design system switch component
+
+  breaking change: "@talend/design-system": "^2.1.0" added as peer dep
+
+## 3.7.0
+
+### Minor Changes
+
+- c26d711da: feat(faceted-search): Add quick search facets filter
+
 ## 3.6.0
 
 ### Minor Changes

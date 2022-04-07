@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 10.3.2
+
+### Patch Changes
+
+- Updated dependencies [4589878a9]
+  - @talend/dynamic-cdn-webpack-plugin@11.0.0
+
+## 10.3.1
+
+### Patch Changes
+
+- b199a79e5: fix: upgrade dynamic-cdn-webpack-plugin
+- Updated dependencies [b199a79e5]
+  - @talend/dynamic-cdn-webpack-plugin@10.0.0
+
 ## 10.3.0
 
 ### Minor Changes

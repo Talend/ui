@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.0.0
+
+### Major Changes
+
+- fb3483b9f: The size tokens have been split in sizing and spacing tokens. Size tokens are no longer valid
+
 ## 1.5.0
 
 ### Minor Changes

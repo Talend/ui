@@ -1,5 +1,35 @@
 # @talend/react-components
 
+## 6.44.11
+
+### Patch Changes
+
+- aaba017d2: fix(Datalist): focus management on inside element click
+
+## 6.44.10
+
+### Patch Changes
+
+- a2210ebc2: fix(TDOPS-963/Typeahead): wrong positioning on first opening
+- 2ee202538: fix(List): add back tc-list-item for some hover behaviour
+
+## 6.44.9
+
+### Patch Changes
+
+- 1ae188285: fix(WithDrawer): Drawer is rendering below the Typeahead icon
+- Updated dependencies [ed98b0840]
+  - @talend/design-system@2.2.0
+
+## 6.44.8
+
+### Patch Changes
+
+- 66a9b86bc: fix(ListTable): remove box-shadow on each item
+- 0f848b415: chore(ARCH-482/FilterBar): remove deprecated lifecycle and use RTL for tests
+- Updated dependencies [3aa82e6be]
+  - @talend/design-system@2.1.2
+
 ## 6.44.7
 
 ### Patch Changes
