@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-config-cdn",
-  "version": "10.3.0",
+  "version": "10.3.1",
   "description": "Provide a simple API to inject CDN config into existing webpack configuration",
   "main": "cdn.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "@talend/dynamic-cdn-webpack-plugin": "^9.7.15",
+    "@talend/dynamic-cdn-webpack-plugin": "^10.0.0",
     "@talend/module-to-cdn": "^9.8.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "read-pkg-up": "^7.0.1"

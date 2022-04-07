@@ -3,6 +3,7 @@ const fs = require('fs');
 const childProcess = require('child_process');
 const tmp = require('tmp');
 
+const yarnlock = require('@yarnpkg/lockfile');
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -31,6 +32,8 @@ const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
 const ICON_DIST = icons.getIconsDistPath();
 const getFileNameForExtension = (extension, prefix) => `${prefix || ''}[name]-[hash].${extension}`;
 
+const TALEND_LIB_PREFIX = '@talend/';
+
 const BASENAME = process.env.BASENAME || '/';
 
 // set @talend packages in module-to-cdn
@@ -53,6 +56,8 @@ function getSassData(userSassData) {
 			.join('\n');
 		sassData += sassDataWith;
 	}
+
+	// eslint-disable-next-line no-console
 	console.log('sassData', sassData);
 	return sassData;
 }
@@ -93,28 +98,89 @@ function getSassLoaders(enableModules, sassData, mode) {
 	});
 }
 
-function getVersions() {
-	const talendLibraries = cdn
-		.getModulesFromLockFile()
-		.filter(Boolean)
-		.map(info => {
-			return { version: info.version, name: info.name };
-		});
+function getGitRevision() {
+	let revision = process.env.GIT_COMMIT;
+	if (!revision) {
+		try {
+			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
+		} catch (e) {
+			// eslint-disable-next-line no-console
+			console.info('Failed to get git revision');
+		}
+	}
+	return revision;
+}
+
+function getTalendVersions() {
+	const talendLibraries = {};
+	const packagelockPath = path.join(process.cwd(), 'package-lock.json');
+	const yarnlockPath = path.join(process.cwd(), 'yarn.lock');
+	// eslint-disable-next-line
 	const packageJson = require(path.join(process.cwd(), 'package.json'));
+
+	const talendDependencies = Object.keys(packageJson.dependencies).filter(dependency =>
+		dependency.includes(TALEND_LIB_PREFIX),
+	);
+
+	if (fs.existsSync(yarnlockPath)) {
+		const data = fs.readFileSync(yarnlockPath, 'utf-8');
+		const lock = yarnlock.parse(data);
+
+		Object.keys(lock.object)
+			.filter(k => k.startsWith(TALEND_LIB_PREFIX))
+			.reduce((acc, key) => {
+				// @talend/react-components@5.1.2
+				const name = `${TALEND_LIB_PREFIX}${key.split('/')[1].split('@')[0]}`;
+				if (talendDependencies.includes(name)) {
+					const info = lock.object[key];
+					acc[name] = info.version;
+				}
+				return acc;
+			}, talendLibraries);
+	} else if (fs.existsSync(packagelockPath)) {
+		// eslint-disable-next-line
+		const packageLock = require(packagelockPath);
+
+		Object.keys(packageLock.packages)
+			.filter(k => k.includes(TALEND_LIB_PREFIX))
+			.reduce((acc, key) => {
+				const name = `${TALEND_LIB_PREFIX}${key.split(TALEND_LIB_PREFIX)[1]}`;
+				if (talendDependencies.includes(name)) {
+					acc[name] = packageLock.packages[key].version;
+				}
+				return acc;
+			}, talendLibraries);
+	}
 
 	let revision = process.env.GIT_COMMIT;
 	if (!revision) {
 		try {
 			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
 		} catch (e) {
+			// eslint-disable-next-line no-console
 			console.info('Failed to get git revision');
 		}
 	}
 
 	return {
 		version: packageJson.version,
-		talendLibraries,
+		talendLibraries: Object.entries(talendLibraries).map(([name, version]) => ({ name, version })),
 		revision,
+	};
+}
+
+function getVersions() {
+	const talendLibraries = cdn
+		.getModulesFromLockFile()
+		.filter(Boolean)
+		.map(info => ({ version: info.version, name: info.name }));
+	// eslint-disable-next-line
+	const packageJson = require(path.join(process.cwd(), 'package.json'));
+
+	return {
+		version: packageJson.version,
+		talendLibraries,
+		revision: getGitRevision(),
 	};
 }
 
@@ -152,6 +218,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath) {
 
 	let customHead = '';
 	if (headExists) {
+		// eslint-disable-next-line no-console
 		console.log('custom head.html found');
 		customHead = await fs.promises.readFile(headPath);
 	}
@@ -347,7 +414,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				}),
 				new webpack.DefinePlugin({
 					BUILD_TIMESTAMP: Date.now(),
-					TALEND_APP_INFO: JSON.stringify(getVersions()),
+					TALEND_APP_INFO: JSON.stringify(getTalendVersions()),
 					'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
 					'process.env.FORM_MOZ': JSON.stringify(process.env.FORM_MOZ),
 					'process.env.DISABLE_JS_ERROR_NOTIFICATION': JSON.stringify(
