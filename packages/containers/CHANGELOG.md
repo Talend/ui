@@ -1,5 +1,14 @@
 # @talend/react-containers
 
+## 7.0.4
+
+### Patch Changes
+
+- 22fee906d: chore(ARCH-482/ComponentForm): remove deprecated lifecycle
+- Updated dependencies [66a9b86bc]
+- Updated dependencies [0f848b415]
+  - @talend/react-components@6.44.8
+
 ## 7.0.3
 
 ### Patch Changes

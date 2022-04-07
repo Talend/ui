@@ -1,5 +1,13 @@
 # @talend/scripts-config-react-webpack
 
+## 12.0.3
+
+### Patch Changes
+
+- 478648239: fix(scripts-config-react-webpack): Bring back @talend libs in TALEND_APP_INFO
+- Updated dependencies [b199a79e5]
+  - @talend/scripts-config-cdn@10.3.1
+
 ## 12.0.2
 
 ### Patch Changes
