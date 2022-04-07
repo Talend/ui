@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 2.2.0
+
+### Minor Changes
+
+- ed98b0840: Updated design tokens
+
 ## 2.1.2
 
 ### Patch Changes

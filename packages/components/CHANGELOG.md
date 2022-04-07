@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 6.44.9
+
+### Patch Changes
+
+- 1ae188285: fix(WithDrawer): Drawer is rendering below the Typeahead icon
+- Updated dependencies [ed98b0840]
+  - @talend/design-system@2.2.0
+
 ## 6.44.8
 
 ### Patch Changes
