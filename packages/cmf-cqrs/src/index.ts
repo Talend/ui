@@ -6,6 +6,7 @@ import { ackProcessed } from './reducers/ack';
 import * as constants from './constants';
 import sagas from './sagas';
 
+export { useWebSocket } from './hooks';
 export { actions, ACKDispatcher, constants, middlewares, reducers, sagas, ackProcessed };
 
 export default {
