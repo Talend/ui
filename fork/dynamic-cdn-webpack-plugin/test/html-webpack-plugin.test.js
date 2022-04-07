@@ -1,11 +1,11 @@
-import path from 'path';
-import fs from 'fs';
+const path = require('path');
+const fs = require('fs');
 
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import DynamicCdnWebpackPlugin from '../src';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DynamicCdnWebpackPlugin = require('../src').default;
 
-import runWebpack from './helpers/run-webpack';
-import cleanDir from './helpers/clean-dir';
+const runWebpack = require('./helpers/run-webpack');
+const cleanDir = require('./helpers/clean-dir');
 
 describe('html-webpack-plugin integration', () => {
 	it('should insert scripts in html', async () => {

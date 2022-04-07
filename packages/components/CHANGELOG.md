@@ -1,5 +1,14 @@
 # @talend/react-components
 
+## 6.44.8
+
+### Patch Changes
+
+- 66a9b86bc: fix(ListTable): remove box-shadow on each item
+- 0f848b415: chore(ARCH-482/FilterBar): remove deprecated lifecycle and use RTL for tests
+- Updated dependencies [3aa82e6be]
+  - @talend/design-system@2.1.2
+
 ## 6.44.7
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @talend/scripts-config-storybook-lib
 
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [b199a79e5]
+  - @talend/dynamic-cdn-webpack-plugin@10.0.0
+
 ## 1.0.4
 
 ### Patch Changes

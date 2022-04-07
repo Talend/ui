@@ -1,15 +1,15 @@
 {
   "name": "@talend/design-tokens",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "mainSrc": "src/index.ts",
   "scripts": {
-    "pre-release": "yarn build:lib && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
+    "pre-release": "echo nothing",
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:lib": "talend-scripts build:ts:lib && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
     "test:demo": "yarn build-storybook",
