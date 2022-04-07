@@ -255,7 +255,7 @@ class EnumerationForm extends React.Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.formData !== prevProps.formData) {
-			this.setState({ items: this.props.formData });
+			this.setState(oldState => ({ ...oldState, items: this.props.formData }));
 		}
 	}
 
