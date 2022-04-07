@@ -23,7 +23,7 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 		}
 	}
 
-	.tc-list-headerRow {
+	:global(.ReactVirtualized__Table__headerRow) {
 		box-shadow: $shadow-default;
 		.header {
 			color: $tc-list-table-header-color;
