@@ -2,7 +2,7 @@ import React from 'react';
 import { LineChart as RLineChart, Line, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from 'recharts';
 
 import tokens from '@talend/design-tokens';
-import { LineChartEntry, LineChartOptions, LineOptions } from './LineChart.types';
+import { LineChartEntry, LineChartOptions, LineOptions, LineStatus } from './LineChart.types';
 
 
 import { CustomTooltip } from './LineChartTooltip.component';
@@ -36,9 +36,34 @@ function LineChart({
 		xAxisOptions,
 		leftYAxisOptions,
 		rightYAxisOptions,
-		hideTooltip,
 		legend,
+		tooltip,
 	} = chartOptions;
+
+	const getLineStyleFromStatus = (status: LineStatus) => {
+		if(status === 'inactive') {
+			return {
+				strokeWidth: 2.5,
+				strokeOpacity: 0.25,
+				dot: { r: 0 },
+				activeDot: { r: 0 },
+			};
+		} else if (status === 'highlighted') {
+			return {
+				strokeWidth: 4,
+				strokeOpacity: 1,
+				dot: { r: 0 },
+				activeDot: { r: 6 },
+				filter: 'url(#shadow)'
+			};
+		}
+		return {
+			strokeWidth: 3,
+			strokeOpacity: 1,
+			dot: { r: 0 },
+			activeDot: { r: 5 },
+		};
+	};
 
 	return (
 		<ResponsiveContainer width={width || '100%'} height={height || '100%'} debounce={1}>
@@ -75,7 +100,7 @@ function LineChart({
 				tickLine={false}
 				tickFormatter={rightYAxisOptions?.formatter}
 			/>
-			{!hideTooltip &&
+			{!tooltip?.hide &&
 				<Tooltip
 					content={
 						<CustomTooltip
@@ -83,7 +108,8 @@ function LineChart({
 								linesConfig: lines,
 								xformatter: xAxisOptions?.tooltipFormatter || xAxisOptions?.formatter,
 								leftUnit: leftYAxisOptions?.unit,
-								rightUnit: rightYAxisOptions?.unit
+								rightUnit: rightYAxisOptions?.unit,
+								showInactives: tooltip?.showInnactives
 							}}
 						/>
 					}
@@ -96,7 +122,8 @@ function LineChart({
 						<CustomLegend
 							external={{
 								linesConfig: lines,
-								align: legend?.horizontalAlign || 'right'
+								align: legend?.horizontalAlign || 'right',
+								showInactives: legend?.showInactives
 							}}
 							onLegendClicked={onLegendItemClicked}
 							onLegendHovered={onLegendItemHovered}
@@ -104,6 +131,7 @@ function LineChart({
 					}
 				/>
 			}
+
 			{lines.map(options =>
 				<Line
 					id={`line_${options.key}`}
@@ -112,15 +140,33 @@ function LineChart({
 					dataKey={options.key}
 					stroke={options.color}
 					type='monotone'
-					strokeWidth={3}
 					strokeDasharray={options?.dashed ? '13 4 13' : ''}
-					dot={{ r: 0 }}
 					connectNulls
+					{...getLineStyleFromStatus(options?.status || 'active')}
 					onClick={() => onLineClicked(options.key)}
 					onMouseEnter={() => onLineHovered(options.key)}
 					onMouseLeave={() => onLineHovered('')}
 				/>
 			)}
+
+			{/* shadow filter for the highlighted curve  */}
+			<defs>
+				<filter id="shadow" height="200%">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="7" result="blur" />
+					<feOffset in="blur" dx="0" dy="7" result="offsetBlur" />
+					<feFlood floodColor="#000000" floodOpacity="0.5" result="offsetColor" />
+					<feComposite
+					in="offsetColor"
+					in2="offsetBlur"
+					operator="in"
+					result="offsetBlur"
+					/>
+					<feMerge>
+						<feMergeNode />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+			</defs>
 		  </RLineChart>
 		</ResponsiveContainer>
 	  );

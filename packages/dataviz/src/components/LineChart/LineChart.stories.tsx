@@ -29,9 +29,13 @@ export const FullyCustomisedLineChart = Template.bind({});
 FullyCustomisedLineChart.args = {
 	chartOptions: {
 		showGridLines: true,
+		tooltip: {
+			showInnactives: true,
+		},
 		legend: {
 			verticalAlign: 'top',
 			horizontalAlign: 'right',
+			showInactives: true,
 		},
 		xAxisOptions: {
 			interval: 2,
@@ -60,6 +64,7 @@ FullyCustomisedLineChart.args = {
 			tooltipLabel: 'Trust Score™',
 			legendLabel: 'Talend Trust Score™',
 			axis: 'right',
+			status: 'inactive',
 		},
 		{
 			key: 'validity',
@@ -67,6 +72,7 @@ FullyCustomisedLineChart.args = {
 			tooltipLabel: 'Validity',
 			legendLabel: 'Validity',
 			axis: 'left',
+			status: 'highlighted',
 		},
 	],
 	data: [

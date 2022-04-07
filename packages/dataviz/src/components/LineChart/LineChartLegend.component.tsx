@@ -10,6 +10,7 @@ export interface LineChartLegendProps {
 	external: {
 		linesConfig: LineOptions[],
 		align: 'left' | 'center' | 'right',
+		showInactives?: boolean
 	},
 	onLegendClicked?: (key: string) => void,
 	onLegendHovered?: (key: string) => void
@@ -33,7 +34,7 @@ export const CustomLegend = ({
 	onLegendHovered = () => {}
 
 }: LineChartLegendProps) => {
-	const { linesConfig, align } = external;
+	const { linesConfig, align, showInactives } = external;
 
 	const getLineIconBackground = (dashed: boolean | undefined, color: string) => {
 		if(dashed) {
@@ -43,15 +44,20 @@ export const CustomLegend = ({
 
 	};
 
+	const linesToShow = showInactives ? linesConfig : linesConfig.filter(lineConfig => lineConfig.status !== 'inactive');
+
 	if (payload && payload.length) {
 	  return (
 		<ul
 			className={classNames(styles['line-chart-custom-legend-wrapper'])}
 			style={{ justifyContent: getContentJustification(align)}}
 		>
-			{linesConfig.map(config => (
+			{linesToShow.map(config => (
 				<li id={`legend_item_${config.key}`} key={config.key}>
 					<div
+						className={classNames({
+							[styles['line-chart-custom-legend-button--inactive']] : config?.status === 'inactive'
+						})}
 						role='button'
 						onClick={() => onLegendClicked(config.key)}
 						onKeyPress={() => onLegendClicked(config.key)}

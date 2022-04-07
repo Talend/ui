@@ -13,6 +13,10 @@
 	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 	border-radius: tokens.$coral-radius-s;
 
+	.line-chart-custom-tooltip-line-item--inactive {
+		opacity: tokens.$coral-opacity-s;
+	}
+
 	.line-chart-custom-tooltip-wrapper-title {
 		font: tokens.$coral-paragraph-s;
 		// font-weight: 400;
@@ -53,6 +57,10 @@
 	align-items: center;
 	gap: tokens.$coral-size-m;
 	list-style: none;
+
+	.line-chart-custom-legend-button--inactive {
+		opacity: tokens.$coral-opacity-s;
+	}
 
 	.line-chart-custom-legend-line-icon {
 		display: inline-block;

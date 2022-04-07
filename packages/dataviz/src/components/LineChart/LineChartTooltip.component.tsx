@@ -15,11 +15,12 @@ export interface LineChartTooltipProps {
 		leftUnit?: string | number,
 		rightUnit?: string | number,
 		linesConfig: LineOptions[],
+		showInactives?: boolean
 	},
 }
 
 export const CustomTooltip = ({ active, payload, label, external }: LineChartTooltipProps) => {
-	const { linesConfig, leftUnit, rightUnit, xformatter } = external;
+	const { linesConfig, leftUnit, rightUnit, xformatter, showInactives } = external;
 
 	const getLineUnit = (axis: 'left' | 'right' | undefined) => axis === 'right' ? rightUnit : leftUnit ;
 
@@ -38,12 +39,19 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 
 	const labelDisplayValue = label && xformatter ? xformatter(label) : label;
 
+	const linesToShow = showInactives ? linesConfig : linesConfig.filter(lineConfig => lineConfig.status !== 'inactive');
+
 	if (active && payload && payload.length) {
 	  return (
 		<div className={classNames(styles['line-chart-custom-tooltip-wrapper'])}>
 			<div className={classNames(styles['line-chart-custom-tooltip-wrapper-title'])}>{labelDisplayValue}</div>
-			{linesConfig.map(config => (
-		  		<div id={`tooltip_item_${config.key}`}>
+			{linesToShow.map(config => (
+		  		<div
+					id={`tooltip_item_${config.key}`}
+					className={classNames({
+						[styles['line-chart-custom-tooltip-line-item--inactive']] : config?.status === 'inactive'
+					})}
+		  		>
 					<div
 						className={classNames(
 							styles['line-chart-custom-tooltip-line-icon'],

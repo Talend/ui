@@ -3,6 +3,8 @@ export type LineChartEntry = {
 	[key: string]: any;
 };
 
+export type LineStatus = 'active' | 'inactive' | 'highlighted';
+
 export type LineOptions = {
 	key: string;
 	color: string;
@@ -11,6 +13,7 @@ export type LineOptions = {
 	axis?: 'left' | 'right';
 	dashed?: boolean;
 	tooltipFormatter?: (value: any) => string;
+	status?: LineStatus;
 };
 
 export type LineChartOptions = {
@@ -22,11 +25,15 @@ export type LineChartOptions = {
 		bottom: number,
 		left: number,
 	},
-	hideTooltip?: boolean;
+	tooltip?: {
+		hide?: boolean,
+		showInnactives: boolean,
+	},
 	legend?: {
 		hide?: boolean,
-		verticalAlign: 'top' | 'bottom',
-		horizontalAlign: 'left' | 'center' | 'right',
+		verticalAlign?: 'top' | 'bottom',
+		horizontalAlign?: 'left' | 'center' | 'right',
+		showInactives?: boolean,
 	}
 	xAxisOptions?: {
 		interval: number | 'preserveStart' | 'preserveEnd' | 'preserveStartEnd';
