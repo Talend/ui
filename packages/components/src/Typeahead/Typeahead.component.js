@@ -116,7 +116,7 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 			{
 				name: 'computeStyles',
 				options: {
-					adaptive: false,
+					adaptive: true,
 				},
 			},
 			withSameWidth,
