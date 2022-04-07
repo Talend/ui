@@ -49,7 +49,7 @@
     "karma-chai-sinon": "^0.1.5",
     "karma-coverage": "^2.2.0",
     "karma-mocha": "^2.0.1",
-    "mocha": "^9.2.1",
+    "mocha": "^9.2.2",
     "sinon": "^11.1.2",
     "sinon-chai": "^3.7.0",
     "json-refs": "^2.1.7",
