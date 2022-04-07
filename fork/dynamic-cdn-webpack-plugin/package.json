@@ -1,6 +1,6 @@
 {
   "name": "@talend/dynamic-cdn-webpack-plugin",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "description": "Dynamically get your dependencies from a cdn rather than bundling them in your app",
   "license": "MIT",
   "repository": "Talend/dynamic-cdn-webpack-plugin",
@@ -36,7 +36,7 @@
     "externals"
   ],
   "dependencies": {
-    "@talend/module-to-cdn": "^9.8.0",
+    "@talend/module-to-cdn": "^9.8.2",
     "read-pkg-up": "^7.0.1",
     "webpack-sources": "^1.4.3"
   },
