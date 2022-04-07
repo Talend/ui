@@ -51,6 +51,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
 
 exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = `
 <div
+  aria-label="Suggestions"
   className="theme-items-container items-container theme-items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
@@ -61,6 +62,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
       "top": "0",
     }
   }
+  tabIndex="0"
 >
   <div
     className="theme-items-body"
@@ -108,6 +110,7 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
 
 exports[`MultiSelectTagWidget should render section title when items has category 1`] = `
 <div
+  aria-label="Suggestions"
   className="theme-items-container items-container theme-items-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
@@ -118,6 +121,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
       "top": "0",
     }
   }
+  tabIndex="0"
 >
   <div
     className="theme-items-body"
@@ -184,6 +188,7 @@ exports[`MultiSelectTagWidget should render section title when items has categor
 
 exports[`MultiSelectTagWidget should take default message when there isnt items 1`] = `
 <div
+  aria-label="Suggestions"
   className="theme-items-container items-container theme-items-container theme-container-open"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
@@ -194,6 +199,7 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
       "top": "0",
     }
   }
+  tabIndex="0"
 >
   <div
     className="theme-items-body"
