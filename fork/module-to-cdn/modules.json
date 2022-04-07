@@ -145,11 +145,11 @@
   "@sentry/browser": {
     "var": "Sentry",
     "versions": {
-      ">= 4.0.0 < 6.19.0": {
+      ">= 4.0.0 < 6.19.0 || >= 6.19.5": {
         "development": "/build/bundle.js",
         "production": "/build/bundle.min.js"
       },
-      ">= 6.19.0": {
+      ">= 6.19.0 < 6.19.5": {
         "development": "/bundles/bundle.js",
         "production": "/bundles/bundle.min.js"
       }
