@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 6.44.11
+
+### Patch Changes
+
+- aaba017d2: fix(Datalist): focus management on inside element click
+
+## 6.44.10
+
+### Patch Changes
+
+- a2210ebc2: fix(TDOPS-963/Typeahead): wrong positioning on first opening
+- 2ee202538: fix(List): add back tc-list-item for some hover behaviour
+
 ## 6.44.9
 
 ### Patch Changes

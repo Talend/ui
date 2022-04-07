@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-faceted-search",
-  "version": "3.7.0",
+  "version": "4.0.0",
   "description": "Faceted search",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -48,10 +48,11 @@
     "@storybook/addon-actions": "^6.4.20",
     "@storybook/testing-library": "^0.0.8",
     "@talend/bootstrap-theme": "^6.38.6",
+    "@talend/design-system": "^2.1.0",
     "@talend/icons": "^6.40.0",
     "@talend/locales-tui-components": "^6.42.3",
     "@talend/locales-tui-faceted-search": "^3.5.4",
-    "@talend/react-components": "^6.44.8",
+    "@talend/react-components": "^6.44.11",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
     "babel-plugin-angularjs-annotate": "^0.10.0",
@@ -65,6 +66,7 @@
     "react-i18next": "^11.16.2"
   },
   "peerDependencies": {
+    "@talend/design-system": "^2.1.0",
     "@talend/react-components": ">= 6.5.1",
     "i18next": "^20.6.1",
     "prop-types": "^15.5.10",

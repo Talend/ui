@@ -248,6 +248,7 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 			setPopperElement,
 			styles,
 			attributes,
+			t,
 		),
 		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};
