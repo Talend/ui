@@ -12,6 +12,8 @@
 	width: 100%;
 	top: 0;
 	right: 0;
+	// Need to go above the Typeahead icon https://github.com/Talend/ui/blob/f5bc529001c63cad7a6921e1284751efd750a579/packages/components/src/Typeahead/Typeahead.scss#L92
+	z-index: 2;
 }
 
 .tc-with-drawer-container > div {
