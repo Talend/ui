@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 2.1.2
+
+### Patch Changes
+
+- 3aa82e6be: fix: upgrade with the new tokens
+- Updated dependencies [fb3483b9f]
+  - @talend/design-tokens@2.0.0
+
 ## 2.1.1
 
 ### Patch Changes
