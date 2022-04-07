@@ -1,12 +1,12 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.21.1",
+    "@changesets/cli": "^2.22.0",
     "commander": "^2.20.3",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
     "husky": "^7.0.4",
     "i18next-scanner": "^3.1.0",
-    "prettier": "^2.6.1"
+    "prettier": "^2.6.2"
   },
   "scripts": {
     "postinstall": "node workspace-run.js build:lib",
