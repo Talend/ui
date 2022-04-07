@@ -138,9 +138,9 @@ class DatalistWidget extends React.Component {
 		};
 	}
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.value !== this.props.value) {
-			this.setValue(nextProps.value);
+	componentDidUpdate(prevProps) {
+		if (prevProps.value !== this.props.value) {
+			this.setValue(this.props.value);
 		}
 	}
 
@@ -154,7 +154,6 @@ class DatalistWidget extends React.Component {
 		const { value, lastKnownValue } = this.state;
 		const inputValue = this.getValue(inputLabel);
 		const isIncluded = this.isPartOfItems(value);
-
 		if (this.reference && this.reference.itemsContainer) {
 			this.reference.itemsContainer.removeEventListener('mousedown', itemsContainerClickHandler);
 		}
@@ -329,17 +328,18 @@ class DatalistWidget extends React.Component {
 	}
 
 	updateSuggestions(value) {
-		let suggestions = this.getMatchingSuggestions(this.state.initialItems, value);
-		if (!value && suggestions && suggestions.length === 0) {
-			suggestions = this.state.initialItems;
-		}
-
-		this.setState({
-			value,
-			items: this.getDropdownItems(suggestions),
-			sectionIndex: null,
-			itemIndex: null,
-			noMatch: value && suggestions && !suggestions.length,
+		this.setState(oldState => {
+			let suggestions = this.getMatchingSuggestions(oldState.initialItems, value);
+			if (!value && suggestions && suggestions.length === 0) {
+				suggestions = oldState.initialItems;
+			}
+			return {
+				value,
+				items: this.getDropdownItems(suggestions),
+				sectionIndex: null,
+				itemIndex: null,
+				noMatch: value && suggestions && !suggestions.length,
+			};
 		});
 	}
 
