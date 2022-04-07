@@ -1,0 +1,782 @@
+{
+  "https://unpkg.com/semantic-ui@1.1.2/dist/semantic.js": {
+    "integrity": "sha384-FRfn39MrPpze4gbgmO04b0MoGkUYgMsVaaRAuOPwXkBh+LoBuYqD896HT6eVma3e",
+    "lastModified": "Wed, 03 Dec 2014 23:12:00 GMT",
+    "size": 528302
+  },
+  "https://unpkg.com/semantic-ui@1.1.2/dist/semantic.min.js": {
+    "integrity": "sha384-UEMVTqf5+jT0jNgcJcZ3uXi64CBl08uJyqq1PBYMUjnbsS8AC9OrhSIKXbqRm4X9",
+    "lastModified": "Wed, 03 Dec 2014 23:12:00 GMT",
+    "size": 200946
+  },
+  "https://unpkg.com/semantic-ui@1.10.0/dist/semantic.js": {
+    "integrity": "sha384-07U7eXRumIwgnfCHXAWFqduYDoE70EcH37MqFHt97OpGkk5p6iCXtaWR+A9jF050",
+    "lastModified": "Tue, 24 Feb 2015 03:39:33 GMT",
+    "size": 587588
+  },
+  "https://unpkg.com/semantic-ui@1.10.0/dist/semantic.min.js": {
+    "integrity": "sha384-zoh5ore7HOOKejTeRTGBgWd5rXqSCBgCkinqq0P7pZXt9J6sk/A5FyIZgDZK9lMh",
+    "lastModified": "Tue, 24 Feb 2015 03:39:33 GMT",
+    "size": 222102
+  },
+  "https://unpkg.com/semantic-ui@1.10.2/dist/semantic.js": {
+    "integrity": "sha384-wHer9KPJzc0RJ7N0QLupWdUC58K/QnzUqhrDJ2sxZC+nYd+6/wdhjsVer2enVBRt",
+    "lastModified": "Tue, 24 Feb 2015 19:44:39 GMT",
+    "size": 587588
+  },
+  "https://unpkg.com/semantic-ui@1.10.2/dist/semantic.min.js": {
+    "integrity": "sha384-IX9ib9RCwkI/x1XCQD1J2nFKviWwvvMVnEL67AW+gqqtnILTcQ1cYk+TY8ys3auC",
+    "lastModified": "Tue, 24 Feb 2015 19:44:39 GMT",
+    "size": 222102
+  },
+  "https://unpkg.com/semantic-ui@1.10.3/dist/semantic.js": {
+    "integrity": "sha384-VZiL+PS0y/NG3saXhpjDBtPveBCQzf5EthlmLz2L2Wk/PNv1XjmK1rJSVbyrd4Eu",
+    "lastModified": "Fri, 27 Feb 2015 22:39:56 GMT",
+    "size": 589192
+  },
+  "https://unpkg.com/semantic-ui@1.10.3/dist/semantic.min.js": {
+    "integrity": "sha384-FNGskrS2qDNfVaFYxxlAGUcvUVRhedEk9CrwuJMxxRUc0wD0Z5nIhilcSlbAbRlO",
+    "lastModified": "Fri, 27 Feb 2015 22:39:56 GMT",
+    "size": 222474
+  },
+  "https://unpkg.com/semantic-ui@1.11.0/dist/semantic.js": {
+    "integrity": "sha384-npFlhIX/OFmTy/QxeKbtGU63/OudihI4E6pNPmf1CdnoiL4d1P5/BKmiVfwgUgJ/",
+    "lastModified": "Tue, 03 Mar 2015 23:13:41 GMT",
+    "size": 594389
+  },
+  "https://unpkg.com/semantic-ui@1.11.0/dist/semantic.min.js": {
+    "integrity": "sha384-Q6a/m2UIIifVoWmNqc3pSZZyVJpnpM7zuLjPVh0P1qpD59c4gpK5D6L3iFPeLDYt",
+    "lastModified": "Tue, 03 Mar 2015 23:13:41 GMT",
+    "size": 224421
+  },
+  "https://unpkg.com/semantic-ui@1.11.1/dist/semantic.js": {
+    "integrity": "sha384-6eNg3OLoZunw8aCcS0FaNEkewnJPzlOW9+El4eBxEo9Vbz9+SsqnuZAR8/6TPh5k",
+    "lastModified": "Thu, 05 Mar 2015 20:08:30 GMT",
+    "size": 595033
+  },
+  "https://unpkg.com/semantic-ui@1.11.1/dist/semantic.min.js": {
+    "integrity": "sha384-GC3qBThT2Mx+sKRccivbafkS8ZriZ13pRRj6JgRvBl3vgEG8a5RgT5dOAqe/CdR3",
+    "lastModified": "Thu, 05 Mar 2015 20:08:30 GMT",
+    "size": 224621
+  },
+  "https://unpkg.com/semantic-ui@1.11.2/dist/semantic.js": {
+    "integrity": "sha384-0HO+ujfu6asovw2Fb5sM+c78NXvHwlYlyLUma59Jg2PNhl907CRnwfL0jnhR4E/+",
+    "lastModified": "Fri, 06 Mar 2015 22:41:19 GMT",
+    "size": 597080
+  },
+  "https://unpkg.com/semantic-ui@1.11.2/dist/semantic.min.js": {
+    "integrity": "sha384-IjRCtkp0zWcabrejxU3ZKfghaTfqjL66uqcVmziiTASqWMRO4+m5xJkZ6afLm/PF",
+    "lastModified": "Fri, 06 Mar 2015 22:41:19 GMT",
+    "size": 225349
+  },
+  "https://unpkg.com/semantic-ui@1.11.3/dist/semantic.js": {
+    "integrity": "sha384-WUPxaORKm40tbTfRWdAlv934yxgISV2r5zMUIVRnsA0rKlz3rhtLrdPtBrYHMSz5",
+    "lastModified": "Sat, 07 Mar 2015 01:26:19 GMT",
+    "size": 597080
+  },
+  "https://unpkg.com/semantic-ui@1.11.3/dist/semantic.min.js": {
+    "integrity": "sha384-FifuyCTb2GP4pmdHcVshEH23TiqT5FyGKuCVQ6jMYFXkf+kGuvOFQRx8ofG4wO/w",
+    "lastModified": "Sat, 07 Mar 2015 01:26:19 GMT",
+    "size": 225349
+  },
+  "https://unpkg.com/semantic-ui@1.11.4/dist/semantic.js": {
+    "integrity": "sha384-I+IuT+4jRnmosLC1iyO/dAcOanl5+EAwjR52/y1gyoukfoEsHbT8ZOSyl3sLJuoq",
+    "lastModified": "Sat, 07 Mar 2015 02:44:58 GMT",
+    "size": 597080
+  },
+  "https://unpkg.com/semantic-ui@1.11.4/dist/semantic.min.js": {
+    "integrity": "sha384-LKqrn3W6E9gogslU1Hqeh/Df9y2qRw22txRmgPatUbx13j8yDDSOgkLkfNPrbXM/",
+    "lastModified": "Sat, 07 Mar 2015 02:44:58 GMT",
+    "size": 225349
+  },
+  "https://unpkg.com/semantic-ui@1.11.5/dist/semantic.js": {
+    "integrity": "sha384-U3y2wXmByG8RxqZ9A8WKGC6QqcTV87KiZFdhE5NNGHKwtRJm7kSCjjLXI9rk2BQA",
+    "lastModified": "Mon, 23 Mar 2015 15:52:02 GMT",
+    "size": 597608
+  },
+  "https://unpkg.com/semantic-ui@1.11.5/dist/semantic.min.js": {
+    "integrity": "sha384-Vqv9Xu6l8Ay+p4p9x9tZR8gqI2Gd9mOpWam292jVJ5g5nDKbo3CvTqVQxqpDHepq",
+    "lastModified": "Mon, 23 Mar 2015 15:52:02 GMT",
+    "size": 225552
+  },
+  "https://unpkg.com/semantic-ui@1.11.6/dist/semantic.js": {
+    "integrity": "sha384-4fzQhfUfTUnqpCY40FIMeM/RX55j90muE0dnZgeyzdBusErNHvdnMlgchcoxLpaN",
+    "lastModified": "Fri, 27 Mar 2015 16:22:18 GMT",
+    "size": 597608
+  },
+  "https://unpkg.com/semantic-ui@1.11.6/dist/semantic.min.js": {
+    "integrity": "sha384-rbMbnaippN8fa7qogAeh0UxwsYJbyCHBPksc7L6o+AxMLLKsGzwjcEPeYBLmjDg9",
+    "lastModified": "Fri, 27 Mar 2015 16:22:18 GMT",
+    "size": 225552
+  },
+  "https://unpkg.com/semantic-ui@1.11.7/dist/semantic.js": {
+    "integrity": "sha384-zyKWMBCGKQDNmvdlcU6zT3daug6ErqdSq7KNQAFvigYpqldqaCoUeiPgHJGcZRuw",
+    "lastModified": "Mon, 13 Apr 2015 18:11:35 GMT",
+    "size": 597551
+  },
+  "https://unpkg.com/semantic-ui@1.11.7/dist/semantic.min.js": {
+    "integrity": "sha384-Y2LtxaeMCy+f4RrgEseItH43ig8UUW1w1z5BmGu2a94Pm9LUqgy081rrBOdAVVN/",
+    "lastModified": "Mon, 13 Apr 2015 18:11:35 GMT",
+    "size": 225524
+  },
+  "https://unpkg.com/semantic-ui@1.11.8/dist/semantic.js": {
+    "integrity": "sha384-v/43r14sMnLkBiBY1zBf5rtzdU8HtMIs1nsxe/PtNGnxOe9iF6VyATFgH5ovLvXG",
+    "lastModified": "Mon, 13 Apr 2015 20:48:15 GMT",
+    "size": 597551
+  },
+  "https://unpkg.com/semantic-ui@1.11.8/dist/semantic.min.js": {
+    "integrity": "sha384-GNb86ETgorT/0HPKM3pJKFke/k9v4ZOCZf4a6xe1HlTaIRqup/xNH9Ut3SDOrxHf",
+    "lastModified": "Mon, 13 Apr 2015 20:48:15 GMT",
+    "size": 225524
+  },
+  "https://unpkg.com/semantic-ui@1.12.0/dist/semantic.js": {
+    "integrity": "sha384-sAYrCXp3Qun7U7KI7a+tZzFLpHkT+Z45YdL4tpSKVkdMIxUmaRTMt395wT08ORV9",
+    "lastModified": "Thu, 16 Apr 2015 16:13:54 GMT",
+    "size": 564908
+  },
+  "https://unpkg.com/semantic-ui@1.12.0/dist/semantic.min.js": {
+    "integrity": "sha384-4NB8HY3u0AdW//oHXTY2gMP+JBil3qDSzAQEqsuctwoLfbieBBYC0VD683OJbcUg",
+    "lastModified": "Thu, 16 Apr 2015 16:13:54 GMT",
+    "size": 213950
+  },
+  "https://unpkg.com/semantic-ui@1.12.1/dist/semantic.js": {
+    "integrity": "sha384-EiI8MTYo7obaY0UCjcaYFC4LPFfCBY42vtqqPP5hROrb+3xDXuc3bKMCOumbgaj7",
+    "lastModified": "Mon, 27 Apr 2015 00:58:56 GMT",
+    "size": 565140
+  },
+  "https://unpkg.com/semantic-ui@1.12.1/dist/semantic.min.js": {
+    "integrity": "sha384-nG9n0iCrf8rg5HURk042yoNUthhGzrMPIUuQUCezqp9JF2JXVCKjutKBRKSdpkhT",
+    "lastModified": "Mon, 27 Apr 2015 00:58:56 GMT",
+    "size": 214027
+  },
+  "https://unpkg.com/semantic-ui@1.12.2/dist/semantic.js": {
+    "integrity": "sha384-+Dso0lfk6jT66GBMgD09fCGnU7cmnA1RgRMZsn75QjE4e/SbXLDIbx2vE3mD9SNY",
+    "lastModified": "Mon, 04 May 2015 16:53:48 GMT",
+    "size": 565144
+  },
+  "https://unpkg.com/semantic-ui@1.12.2/dist/semantic.min.js": {
+    "integrity": "sha384-xNaEsi4zTefuGXOfqCy4Jm2UZ/xvQI30eJnJLuy7dkAiPSXcLsWRFsb64ykyfPGG",
+    "lastModified": "Mon, 04 May 2015 16:53:48 GMT",
+    "size": 214094
+  },
+  "https://unpkg.com/semantic-ui@1.12.3/dist/semantic.js": {
+    "integrity": "sha384-Hov4BJG91/eti4T66GNaO076oVqoF4PEsq3j9Q2qC1aYf5n0t9RGDf9mYqVCDfMc",
+    "lastModified": "Wed, 20 May 2015 15:51:37 GMT",
+    "size": 565153
+  },
+  "https://unpkg.com/semantic-ui@1.12.3/dist/semantic.min.js": {
+    "integrity": "sha384-39fR5c/5pyIrRTvKW6dbLRcpXE2ln2q84893oEG0roaT+fYmQqWn3SpLf5k1w8oQ",
+    "lastModified": "Wed, 20 May 2015 15:51:37 GMT",
+    "size": 214085
+  },
+  "https://unpkg.com/semantic-ui@1.2.0/dist/semantic.js": {
+    "integrity": "sha384-b+w60K5dnYiG+ZXG6BxMZQW8eRYb3m2AtkMzymSKjnBfxyJ6V9KirJ8C9ZhMm5oo",
+    "lastModified": "Wed, 10 Dec 2014 22:54:13 GMT",
+    "size": 532386
+  },
+  "https://unpkg.com/semantic-ui@1.2.0/dist/semantic.min.js": {
+    "integrity": "sha384-MM732fq+XOWyK6x+Ac3nuZuJtoouAIubFI7qcCSEA88fCUCuPKcw5TfU+5a8fdgK",
+    "lastModified": "Wed, 10 Dec 2014 22:54:13 GMT",
+    "size": 202615
+  },
+  "https://unpkg.com/semantic-ui@1.3.0/dist/semantic.js": {
+    "integrity": "sha384-tQKnQkIusXpil/3Z05fgdC643QbNWFD17c1PVjEX4GjchKyFp+ioBpx7U6vlbOqe",
+    "lastModified": "Wed, 17 Dec 2014 22:44:00 GMT",
+    "size": 537622
+  },
+  "https://unpkg.com/semantic-ui@1.3.0/dist/semantic.min.js": {
+    "integrity": "sha384-3zfSG2Qe9eW8brcE5SkOkxAR2cYv3Zdf9yxQNFOjBvhzq2uuVXQps8/sXLv3dde5",
+    "lastModified": "Wed, 17 Dec 2014 22:44:00 GMT",
+    "size": 204961
+  },
+  "https://unpkg.com/semantic-ui@1.3.1/dist/semantic.js": {
+    "integrity": "sha384-tQKnQkIusXpil/3Z05fgdC643QbNWFD17c1PVjEX4GjchKyFp+ioBpx7U6vlbOqe",
+    "lastModified": "Wed, 17 Dec 2014 23:02:53 GMT",
+    "size": 537622
+  },
+  "https://unpkg.com/semantic-ui@1.3.1/dist/semantic.min.js": {
+    "integrity": "sha384-3zfSG2Qe9eW8brcE5SkOkxAR2cYv3Zdf9yxQNFOjBvhzq2uuVXQps8/sXLv3dde5",
+    "lastModified": "Wed, 17 Dec 2014 23:02:53 GMT",
+    "size": 204961
+  },
+  "https://unpkg.com/semantic-ui@1.3.2/dist/semantic.js": {
+    "integrity": "sha384-dSLr1Gfc0PF95QwxtFIHLSsqJ3VmGehB+wl4HU+Q6sNurXduG4UPPUoSVaahLp8D",
+    "lastModified": "Mon, 22 Dec 2014 16:56:22 GMT",
+    "size": 537622
+  },
+  "https://unpkg.com/semantic-ui@1.3.2/dist/semantic.min.js": {
+    "integrity": "sha384-XKKtqViMxCOSC22MuNeSpqMwDxmzDhp8D5kpmkGo9tBQQrrRzAAUg4geqqF4p0ZH",
+    "lastModified": "Mon, 22 Dec 2014 16:56:22 GMT",
+    "size": 204934
+  },
+  "https://unpkg.com/semantic-ui@1.4.0/dist/semantic.js": {
+    "integrity": "sha384-iq1/UORilBHccH5bTUT+d/s5V+87aybe3dfsUaHKfglKT1Gu42MPyQGMRBC2/t9e",
+    "lastModified": "Mon, 22 Dec 2014 22:34:06 GMT",
+    "size": 482824
+  },
+  "https://unpkg.com/semantic-ui@1.4.0/dist/semantic.min.js": {
+    "integrity": "sha384-+izFIQ+nKplKQRLCeZJTMfPFtr2woGXulbu1xXZVCloErQ9tizCM+cS0fipsPJff",
+    "lastModified": "Mon, 22 Dec 2014 22:34:06 GMT",
+    "size": 184469
+  },
+  "https://unpkg.com/semantic-ui@1.4.1/dist/semantic.js": {
+    "integrity": "sha384-HgXxiYxANNezI3kS+g80RemTxKpO0U0lCfAzLXJ266cfu2Mj62FN3+PYSsbxFKFv",
+    "lastModified": "Tue, 23 Dec 2014 17:13:13 GMT",
+    "size": 749140
+  },
+  "https://unpkg.com/semantic-ui@1.4.1/dist/semantic.min.js": {
+    "integrity": "sha384-hmNMJgO3mdjPcaCkqi/xm6CYJ0oI+bf4y/BBjiSUdmovWBjHDt49MMTDDNY5sMp8",
+    "lastModified": "Tue, 23 Dec 2014 17:13:13 GMT",
+    "size": 410640
+  },
+  "https://unpkg.com/semantic-ui@1.5.0/dist/semantic.js": {
+    "integrity": "sha384-Y5b/rtbYofQHxIyMsb4nD0n/Di/4i+agqu7cAqZCpiRuEOVDdFTCWa+IDuOtlkHC",
+    "lastModified": "Tue, 30 Dec 2014 22:05:56 GMT",
+    "size": 545914
+  },
+  "https://unpkg.com/semantic-ui@1.5.0/dist/semantic.min.js": {
+    "integrity": "sha384-YW109ZNB8KttsrBnVFSLCNpYiPwQ7fYWFa0aE2f/23i/Ta4DH3xAiVcqCZLRr/6b",
+    "lastModified": "Tue, 30 Dec 2014 22:05:56 GMT",
+    "size": 208322
+  },
+  "https://unpkg.com/semantic-ui@1.5.2/dist/semantic.js": {
+    "integrity": "sha384-thlEttYwJ1Gss0VakWZiA3NuOoA18Sy0J7Vj9k2WtUZ1g2fophmHfVWhI0u/IVkq",
+    "lastModified": "Fri, 02 Jan 2015 16:45:57 GMT",
+    "size": 545981
+  },
+  "https://unpkg.com/semantic-ui@1.5.2/dist/semantic.min.js": {
+    "integrity": "sha384-7kp/EvZJtHvIRmmPH68YorUtpl1s9W2zgK5SNyYli8k+3u8vkX1Ebw9TfB6AVcKW",
+    "lastModified": "Fri, 02 Jan 2015 16:45:57 GMT",
+    "size": 208363
+  },
+  "https://unpkg.com/semantic-ui@1.6.0/dist/semantic.js": {
+    "integrity": "sha384-ZhRwqrqKKC+5HCXfjeSAu5QL0eHWGTXkMWPylbPwd7ZWClmpaUtZbakXdUa64cmQ",
+    "lastModified": "Mon, 05 Jan 2015 23:26:42 GMT",
+    "size": 547801
+  },
+  "https://unpkg.com/semantic-ui@1.6.0/dist/semantic.min.js": {
+    "integrity": "sha384-rs26/lo7ClUTZT5TDqx+VnqtQJXuTmrdiZtYah3nLxXWJwewzBxH8gXY3Rn4zCKM",
+    "lastModified": "Mon, 05 Jan 2015 23:26:42 GMT",
+    "size": 208846
+  },
+  "https://unpkg.com/semantic-ui@1.6.1/dist/semantic.js": {
+    "integrity": "sha384-aXJLSbN2oQbzgkpeLERhG0jGmYpWH04rfBnUuVs/gc1pgM805vP91JNc3wW+m2L9",
+    "lastModified": "Tue, 06 Jan 2015 16:08:49 GMT",
+    "size": 547935
+  },
+  "https://unpkg.com/semantic-ui@1.6.1/dist/semantic.min.js": {
+    "integrity": "sha384-RPGI8BSlnv6s/ZilIap+Sj5FSzpmlNW3VH9vuNKBIv/OsJJQ+kO7N3SdeK7P15PO",
+    "lastModified": "Tue, 06 Jan 2015 16:08:49 GMT",
+    "size": 208891
+  },
+  "https://unpkg.com/semantic-ui@1.6.2/dist/semantic.js": {
+    "integrity": "sha384-El4LnwYm5IhmTGWz0oMUtr1GPQLkfUYonle8RF+0Sh0pRj338gOa4bNRnUTNx/Ep",
+    "lastModified": "Tue, 06 Jan 2015 21:03:00 GMT",
+    "size": 547935
+  },
+  "https://unpkg.com/semantic-ui@1.6.2/dist/semantic.min.js": {
+    "integrity": "sha384-JdrFhDz5a4Kdo4zoKa2WUuQl/yAgCbQKLjU8VgZ2tRSzI+zI7FG7tGxypzBIBZS9",
+    "lastModified": "Tue, 06 Jan 2015 21:03:00 GMT",
+    "size": 208891
+  },
+  "https://unpkg.com/semantic-ui@1.6.4/dist/semantic.js": {
+    "integrity": "sha384-QhkACjeN2DWV+hCtU7t+D+z20XiyEJZzBmdlabvJ8jxQL2zaX8VYxbsRxfAcW2Rw",
+    "lastModified": "Mon, 12 Jan 2015 17:59:10 GMT",
+    "size": 547935
+  },
+  "https://unpkg.com/semantic-ui@1.6.4/dist/semantic.min.js": {
+    "integrity": "sha384-ivlGw6DHFYgMPZ55h5SSUmhQJqBAiRunFBn7NTT7V9xOFKOAGIQQ9sNpuf4+y5DB",
+    "lastModified": "Mon, 12 Jan 2015 17:59:10 GMT",
+    "size": 208891
+  },
+  "https://unpkg.com/semantic-ui@1.7.0/dist/semantic.js": {
+    "integrity": "sha384-fkHeskbG8sPy+qGKSOkZkLJTqHrBiWqsuqBU5sSRz+2rZujNX+z7kfzOnZFhpsZA",
+    "lastModified": "Wed, 14 Jan 2015 22:46:01 GMT",
+    "size": 551238
+  },
+  "https://unpkg.com/semantic-ui@1.7.0/dist/semantic.min.js": {
+    "integrity": "sha384-cwpSooO0Lpmr2xveYVHUaihGj00PQKVi9qJBB64OSpX31E6NGJJDZpY2JQFNJc2W",
+    "lastModified": "Wed, 14 Jan 2015 22:46:01 GMT",
+    "size": 209453
+  },
+  "https://unpkg.com/semantic-ui@1.7.1/dist/semantic.js": {
+    "integrity": "sha384-zi5/UJFIAleZ+Y5zVqed6EtdmzQcKHiCO9RZNE+v47MgrWZjS8vK7CYdOGVNrLwb",
+    "lastModified": "Thu, 15 Jan 2015 16:33:45 GMT",
+    "size": 551238
+  },
+  "https://unpkg.com/semantic-ui@1.7.1/dist/semantic.min.js": {
+    "integrity": "sha384-+zVMFrLP8rHoViY0aeci2XxGzWc1ugzGHEivWjsOpN1q6+TO8AjYrbL48u36SYPz",
+    "lastModified": "Thu, 15 Jan 2015 16:33:45 GMT",
+    "size": 209453
+  },
+  "https://unpkg.com/semantic-ui@1.7.2/dist/semantic.js": {
+    "integrity": "sha384-vr1TwaZvftQkNHbfzEC//Vjssw9J3nr/00W+2hgJ3WMx9HfXUA0LNOyhYRwccUD9",
+    "lastModified": "Thu, 15 Jan 2015 21:46:44 GMT",
+    "size": 551238
+  },
+  "https://unpkg.com/semantic-ui@1.7.2/dist/semantic.min.js": {
+    "integrity": "sha384-GaOAWViqgQIZ7AO6KgDd3Ikzt1wqqpTOJnD2YVBsGCEd1htVco2HxgAfXcJ7rpyu",
+    "lastModified": "Thu, 15 Jan 2015 21:46:44 GMT",
+    "size": 209453
+  },
+  "https://unpkg.com/semantic-ui@1.7.3/dist/semantic.js": {
+    "integrity": "sha384-XsEKimNNg358Mkk87K9AozFVNaabFoe6Wp3UNJLYDiD71LS/oTh1/2UaXJc6mrDY",
+    "lastModified": "Fri, 16 Jan 2015 21:42:19 GMT",
+    "size": 551238
+  },
+  "https://unpkg.com/semantic-ui@1.7.3/dist/semantic.min.js": {
+    "integrity": "sha384-cRjhQWw269NuqInjyAwCRSf5t3SzJw60GQCJTfL2Lmp7SvmIcQ808LDDXZEE2WZz",
+    "lastModified": "Fri, 16 Jan 2015 21:42:19 GMT",
+    "size": 209453
+  },
+  "https://unpkg.com/semantic-ui@1.8.0/dist/semantic.js": {
+    "integrity": "sha384-2IS8k14s4fJJzTaRIl/ApFy2pP391RP+OGTB0TwY3q7OX38uHdLj4k9R0a6XJq3j",
+    "lastModified": "Fri, 23 Jan 2015 22:14:25 GMT",
+    "size": 577375
+  },
+  "https://unpkg.com/semantic-ui@1.8.0/dist/semantic.min.js": {
+    "integrity": "sha384-je8nmXb++T0I/y8PypcZfrvpFvakVJdQ/kO1qN9qOfEIvwcSHsnL1unmKVqK6xMR",
+    "lastModified": "Fri, 23 Jan 2015 22:14:25 GMT",
+    "size": 218595
+  },
+  "https://unpkg.com/semantic-ui@1.8.1/dist/semantic.js": {
+    "integrity": "sha384-2xcbJpmrJkuXRwFZH11B/povG0E3C/SaRsxBjXnp8WzlpNfZ8K/iK8G1saJjzOdO",
+    "lastModified": "Mon, 26 Jan 2015 20:47:22 GMT",
+    "size": 577518
+  },
+  "https://unpkg.com/semantic-ui@1.8.1/dist/semantic.min.js": {
+    "integrity": "sha384-Y8cFwPFiP9jtHuizbNgYtXBvnrqJMYo6V7MSLNBvp1MJUozbHUIBz6tJi9GqACjM",
+    "lastModified": "Mon, 26 Jan 2015 20:47:22 GMT",
+    "size": 218637
+  },
+  "https://unpkg.com/semantic-ui@1.9.0/dist/semantic.js": {
+    "integrity": "sha384-Ki0g/zU5eqgmLBBfQP0oquYHBNTUbQ1j5GK9Tmul/E54FGtJAbs8LAvc+j7avx90",
+    "lastModified": "Tue, 17 Feb 2015 22:30:38 GMT",
+    "size": 582450
+  },
+  "https://unpkg.com/semantic-ui@1.9.0/dist/semantic.min.js": {
+    "integrity": "sha384-DTzyrnnSfopQ5RV9tm4/Bn/CgXbXJqAERNgim0HM2n6XPnMGCeSK4aTYLXACXQzz",
+    "lastModified": "Tue, 17 Feb 2015 22:30:38 GMT",
+    "size": 220277
+  },
+  "https://unpkg.com/semantic-ui@1.9.1/dist/semantic.js": {
+    "integrity": "sha384-k21E24dN85CDpm7CzTLrM6U2PmfIJ8pRj9+Vr4bVf8sCyHnA7G6l2i9LmO97g2rH",
+    "lastModified": "Thu, 19 Feb 2015 00:14:19 GMT",
+    "size": 582450
+  },
+  "https://unpkg.com/semantic-ui@1.9.1/dist/semantic.min.js": {
+    "integrity": "sha384-N0iCFGLKxy7PjT4zOh46iAcIKK19GpNUWJ0eluNXiS0r7fDgVy90X0S0u1U/9TM4",
+    "lastModified": "Thu, 19 Feb 2015 00:14:19 GMT",
+    "size": 220277
+  },
+  "https://unpkg.com/semantic-ui@1.9.3/dist/semantic.js": {
+    "integrity": "sha384-ZvOo1D7gUvCN67NKQmvxKR1gShwkGb19QUKXGKLyNrZH1jF4JRVl/z1GGDLGLgZw",
+    "lastModified": "Fri, 20 Feb 2015 21:19:26 GMT",
+    "size": 582878
+  },
+  "https://unpkg.com/semantic-ui@1.9.3/dist/semantic.min.js": {
+    "integrity": "sha384-7nPltC8eXyuv+IpZMm7nXesLlnO3KV+9LMmFYZbdPSZatU/G0nnEsf9klJQCOr37",
+    "lastModified": "Fri, 20 Feb 2015 21:19:26 GMT",
+    "size": 220448
+  },
+  "https://unpkg.com/semantic-ui@2.0.0/dist/semantic.js": {
+    "integrity": "sha384-pHa/jVZ9G7/hts6i8DO/0msu1eoCXbmefNxypwsMNPlMUgt2InnHPWqIZ9BhXY/g",
+    "lastModified": "Wed, 01 Jul 2015 16:03:32 GMT",
+    "size": 660568
+  },
+  "https://unpkg.com/semantic-ui@2.0.0/dist/semantic.min.js": {
+    "integrity": "sha384-EbtjyyVQL9CHctvt55YpJa37cd9YKQjhrmAipM8SEk5+CebCjLf06p85AStuKqcG",
+    "lastModified": "Wed, 01 Jul 2015 16:03:32 GMT",
+    "size": 248048
+  },
+  "https://unpkg.com/semantic-ui@2.0.1/dist/semantic.js": {
+    "integrity": "sha384-VNpHrBp9OH+oP2Xg7vArwDQNJ8WMEr11PiTH+f+L7hiiOZ2DbpbQ6VRjWi0ZTzSK",
+    "lastModified": "Mon, 06 Jul 2015 20:54:46 GMT",
+    "size": 662228
+  },
+  "https://unpkg.com/semantic-ui@2.0.1/dist/semantic.min.js": {
+    "integrity": "sha384-d3uQ9159NlpfDxjA2Y2mtwJj9N2oX1VvRrtKqt8ArIv1qEmxBAxHhrcYphxl/5yb",
+    "lastModified": "Mon, 06 Jul 2015 20:54:46 GMT",
+    "size": 248892
+  },
+  "https://unpkg.com/semantic-ui@2.0.2/dist/semantic.js": {
+    "integrity": "sha384-OIxe/o1+ADhKw1mlMC0Wjl98dz4fBjV6PzmhUQfgZvv9L0TBLIFLqC+JfCm2PP8O",
+    "lastModified": "Tue, 07 Jul 2015 21:43:17 GMT",
+    "size": 663611
+  },
+  "https://unpkg.com/semantic-ui@2.0.2/dist/semantic.min.js": {
+    "integrity": "sha384-WQjNggnGZofK50dd5OcH1TvojaFXeAnMDHF77xe4RYsYn7MhB83C24JyW/UI1icM",
+    "lastModified": "Tue, 07 Jul 2015 21:43:17 GMT",
+    "size": 249342
+  },
+  "https://unpkg.com/semantic-ui@2.0.3/dist/semantic.js": {
+    "integrity": "sha384-aFfUY9PkU9eam7St4mUu2kowDDQmsFaB8c9a+muC7jsZlcQiqdvJ9wjphTtQhlQx",
+    "lastModified": "Fri, 10 Jul 2015 18:33:46 GMT",
+    "size": 664002
+  },
+  "https://unpkg.com/semantic-ui@2.0.3/dist/semantic.min.js": {
+    "integrity": "sha384-Otue5tKAilrm44mjTqsZxTe3tg07QoU0uunOrFUTM3KIo9+kaU9zZrlgFRw/g3ep",
+    "lastModified": "Fri, 10 Jul 2015 18:33:46 GMT",
+    "size": 249548
+  },
+  "https://unpkg.com/semantic-ui@2.0.4/dist/semantic.js": {
+    "integrity": "sha384-xIIsxH9WdcO1bbPNvEe24dIbITgPFkaTedJK0RvGCl/UOHeG67PyJRTX5n+HBVef",
+    "lastModified": "Fri, 17 Jul 2015 20:40:04 GMT",
+    "size": 666788
+  },
+  "https://unpkg.com/semantic-ui@2.0.4/dist/semantic.min.js": {
+    "integrity": "sha384-kBfwYNODWPqv8Hv0VNeYS7wfAZnCQWBZwjctu0ijXZq0fZ8/oGMCCPUO8n2HJJ7/",
+    "lastModified": "Fri, 17 Jul 2015 20:40:04 GMT",
+    "size": 250513
+  },
+  "https://unpkg.com/semantic-ui@2.0.5/dist/semantic.js": {
+    "integrity": "sha384-wm4JobUQl7JleLc/TUnrpvBIFbFU8uMxuPEo+fL1KkOlheB3LaZgWGTbL8Oh5OMc",
+    "lastModified": "Mon, 20 Jul 2015 22:28:48 GMT",
+    "size": 669401
+  },
+  "https://unpkg.com/semantic-ui@2.0.5/dist/semantic.min.js": {
+    "integrity": "sha384-ugMPDqov9nIDNepPGKkt0s6N2iGvM+HNta4HkbDlcozTPsNJ3iIL/SjqMP7xSBt8",
+    "lastModified": "Mon, 20 Jul 2015 22:28:48 GMT",
+    "size": 251536
+  },
+  "https://unpkg.com/semantic-ui@2.0.6/dist/semantic.js": {
+    "integrity": "sha384-hxnXxGPZr6eRhWxRNBLbMd7yk8NYmQi+62Hdx+uB5gQaf+OjfemU07DjJV1y2t9q",
+    "lastModified": "Wed, 22 Jul 2015 15:39:14 GMT",
+    "size": 670124
+  },
+  "https://unpkg.com/semantic-ui@2.0.6/dist/semantic.min.js": {
+    "integrity": "sha384-Ga/6kXCVno3U/Nn38wGiZ7mhscrcYuoSI20rIgVXtVvzMrN9aXFAl8DXyk1R1y2O",
+    "lastModified": "Wed, 22 Jul 2015 15:39:14 GMT",
+    "size": 251748
+  },
+  "https://unpkg.com/semantic-ui@2.0.7/dist/semantic.js": {
+    "integrity": "sha384-+0Lnd/Zn/sE5QcNMyn4rvA1tlF8j0dTAYhJCbnvsVeSIPDZAmvhLodjNMM915N57",
+    "lastModified": "Thu, 23 Jul 2015 21:27:24 GMT",
+    "size": 671255
+  },
+  "https://unpkg.com/semantic-ui@2.0.7/dist/semantic.min.js": {
+    "integrity": "sha384-v6/dxgb2CEYU/l0/795fCeoNGs0Ez0W2zZ8PQIjcgeoZqu9q0bzNPl/EY5eQIA/6",
+    "lastModified": "Thu, 23 Jul 2015 21:27:24 GMT",
+    "size": 252095
+  },
+  "https://unpkg.com/semantic-ui@2.0.8/dist/semantic.js": {
+    "integrity": "sha384-b7OaZ9ejbkVOTyP0rugY2tEqpRB4I5CyTeypROj/s+fPvPUnkS+7Eip0Xbe8g7lz",
+    "lastModified": "Mon, 10 Aug 2015 18:18:08 GMT",
+    "size": 671255
+  },
+  "https://unpkg.com/semantic-ui@2.0.8/dist/semantic.min.js": {
+    "integrity": "sha384-ptg39K5Un2MrysSjTReEm4RTlve982jOVuGga3cvkkbnRujKv91W9kwzYdevxgNZ",
+    "lastModified": "Mon, 10 Aug 2015 18:18:08 GMT",
+    "size": 252095
+  },
+  "https://unpkg.com/semantic-ui@2.1.0/dist/semantic.js": {
+    "integrity": "sha384-Cfp66Rvup5UiT6LsE0r1IxnNVG5K5pz/tIFm2GeedrC4qRCdvSCi1VOlr36MkGSi",
+    "lastModified": "Wed, 02 Sep 2015 04:28:55 GMT",
+    "size": 684736
+  },
+  "https://unpkg.com/semantic-ui@2.1.0/dist/semantic.min.js": {
+    "integrity": "sha384-UEBp4RQaWBxzTzEHGpA9KTpMsCKh4iK5bjklPgwgsK+KRdF9v/yAymL579M6bmmK",
+    "lastModified": "Wed, 02 Sep 2015 04:28:55 GMT",
+    "size": 257491
+  },
+  "https://unpkg.com/semantic-ui@2.1.1/dist/semantic.js": {
+    "integrity": "sha384-7xjWaciy3Co/PJLbOYtWVYSqXV0lpxNN49iUDkPXwoejZvHX/dBkEgXZAiUpFONl",
+    "lastModified": "Wed, 02 Sep 2015 14:22:45 GMT",
+    "size": 684736
+  },
+  "https://unpkg.com/semantic-ui@2.1.1/dist/semantic.min.js": {
+    "integrity": "sha384-eZKPvyF0zGPxcllzIgZZGYHEluiKek2rnjQUhBCVUb9nL5Ro6u1Cm0lZAj00Bb27",
+    "lastModified": "Wed, 02 Sep 2015 14:22:45 GMT",
+    "size": 257491
+  },
+  "https://unpkg.com/semantic-ui@2.1.2/dist/semantic.js": {
+    "integrity": "sha384-zF9qhGRqqMIeFpF151mlv2MiColRjNSV5wWi896KRoCp1cYSW1+R/MFTdN/NitOR",
+    "lastModified": "Wed, 02 Sep 2015 15:31:06 GMT",
+    "size": 684743
+  },
+  "https://unpkg.com/semantic-ui@2.1.2/dist/semantic.min.js": {
+    "integrity": "sha384-xFQbPxBVujetsc+c/TivMB3TF+dqyhlohzjfkDMmOgpamxlrXjvh64uwkB7lR9iR",
+    "lastModified": "Wed, 02 Sep 2015 15:31:06 GMT",
+    "size": 257493
+  },
+  "https://unpkg.com/semantic-ui@2.1.3/dist/semantic.js": {
+    "integrity": "sha384-Gge9Xpktqv4K801QtTJliPRCofp6MeF1yJahvMsegNX/4O5ePKYbzdceTAn/Tws/",
+    "lastModified": "Thu, 03 Sep 2015 20:04:40 GMT",
+    "size": 684834
+  },
+  "https://unpkg.com/semantic-ui@2.1.3/dist/semantic.min.js": {
+    "integrity": "sha384-bjvubHepCp14F848aYOevR5iqmvpYaxVOHwVOeQZfGrWo6CN0eoDbFhMFpSbkdZB",
+    "lastModified": "Thu, 03 Sep 2015 20:04:40 GMT",
+    "size": 257492
+  },
+  "https://unpkg.com/semantic-ui@2.1.4/dist/semantic.js": {
+    "integrity": "sha384-YWm+cr4XPjtA9higdcm1hGqOUT3upprlgsnpTp+AOb8cYC32o7hIVDc81j3ivt3n",
+    "lastModified": "Sun, 13 Sep 2015 19:50:15 GMT",
+    "size": 689731
+  },
+  "https://unpkg.com/semantic-ui@2.1.4/dist/semantic.min.js": {
+    "integrity": "sha384-AYVaVQWvwhd8PQ2R3QexmFKUA8drF5Q/1RWzJFdZyOkeZhaAeeB9ZnJ9Lu8Ynb6n",
+    "lastModified": "Sun, 13 Sep 2015 19:50:15 GMT",
+    "size": 260029
+  },
+  "https://unpkg.com/semantic-ui@2.1.5/dist/semantic.js": {
+    "integrity": "sha384-bXmbehJ8aK8RFov7fud1eGpsoVTfF87Nh+7zNlplOINly8wSnY1zCgNLtdTi7OJL",
+    "lastModified": "Sun, 01 Nov 2015 23:14:21 GMT",
+    "size": 692584
+  },
+  "https://unpkg.com/semantic-ui@2.1.5/dist/semantic.min.js": {
+    "integrity": "sha384-aHbGDatOmaqCDFd7z3UMa3Sa/5NfumV9kSh/abVnNBmzTu9chR0+nLhPuh+FI2Kv",
+    "lastModified": "Sun, 01 Nov 2015 23:14:21 GMT",
+    "size": 261456
+  },
+  "https://unpkg.com/semantic-ui@2.1.6/dist/semantic.js": {
+    "integrity": "sha384-J1gFZQY2eeAdB0vSGWkGFvtKOomabvlTnoUZ9mLxW8wSx4cX+inVbLd6YZ6dfmKf",
+    "lastModified": "Fri, 06 Nov 2015 18:57:44 GMT",
+    "size": 692585
+  },
+  "https://unpkg.com/semantic-ui@2.1.6/dist/semantic.min.js": {
+    "integrity": "sha384-MdXXOzM1vYaBR9qKQQ96JwaidRYvkt4aTXuR/DdDp0JiItWy8rS95ZwFDy8ICJor",
+    "lastModified": "Fri, 06 Nov 2015 18:57:44 GMT",
+    "size": 261456
+  },
+  "https://unpkg.com/semantic-ui@2.1.7/dist/semantic.js": {
+    "integrity": "sha384-mX9BBR2M+FKC7vEVRMy+JWtKmIe8AbjR6Jt0Thmay+B634EdvTW3d/hZ0GwBAXop",
+    "lastModified": "Tue, 22 Dec 2015 00:24:23 GMT",
+    "size": 693878
+  },
+  "https://unpkg.com/semantic-ui@2.1.7/dist/semantic.min.js": {
+    "integrity": "sha384-raqmvMx1osRCvgOKS+pn3feCjT4fwsgIgSfQLadfxqEKU49Gk8yWzQnGsBCYYjLz",
+    "lastModified": "Tue, 22 Dec 2015 00:24:23 GMT",
+    "size": 261851
+  },
+  "https://unpkg.com/semantic-ui@2.1.8/dist/semantic.js": {
+    "integrity": "sha384-mX9BBR2M+FKC7vEVRMy+JWtKmIe8AbjR6Jt0Thmay+B634EdvTW3d/hZ0GwBAXop",
+    "lastModified": "Fri, 08 Jan 2016 04:42:33 GMT",
+    "size": 693878
+  },
+  "https://unpkg.com/semantic-ui@2.1.8/dist/semantic.min.js": {
+    "integrity": "sha384-TliAZkItG4hQmzQ3fkO1b36T+hwLupO3uILrCgAR7XSMAgdPEbQFoE0sCUWKqKMh",
+    "lastModified": "Fri, 08 Jan 2016 04:42:33 GMT",
+    "size": 261772
+  },
+  "https://unpkg.com/semantic-ui@2.2.0/dist/semantic.js": {
+    "integrity": "sha384-wOs9tG2I8nfUs0Q0Q2THTEfWnAwUH9KYw5RUIfcXwg7FAs8U6AOrJRkaDcZzCyFA",
+    "lastModified": "Sun, 26 Jun 2016 22:52:48 GMT",
+    "size": 726974
+  },
+  "https://unpkg.com/semantic-ui@2.2.0/dist/semantic.min.js": {
+    "integrity": "sha384-BL5iQXX9ktCPSyIi6uJHH2mTKo0JZT6PFQyrmDlu9Q2mrmvlL9tbVDKLXoq/FKAh",
+    "lastModified": "Sun, 26 Jun 2016 22:52:48 GMT",
+    "size": 275210
+  },
+  "https://unpkg.com/semantic-ui@2.2.1/dist/semantic.js": {
+    "integrity": "sha384-/fjDVSu7rPG70uLqLjcFr3R60oxIWqA8uUh5kN1ao1PUa+3WcuqsFO8khWk2iN1/",
+    "lastModified": "Mon, 27 Jun 2016 18:56:38 GMT",
+    "size": 726881
+  },
+  "https://unpkg.com/semantic-ui@2.2.1/dist/semantic.min.js": {
+    "integrity": "sha384-/HpVwex6HWzdmm1ZoKq41aCO4QpJ8G8CksBcyNNu/Fa9/mEird18um6I5vAbfVUr",
+    "lastModified": "Mon, 27 Jun 2016 18:56:38 GMT",
+    "size": 275163
+  },
+  "https://unpkg.com/semantic-ui@2.2.10/dist/semantic.js": {
+    "integrity": "sha384-lXFfut7bkyzRdw0uO1RYXNfMZe5AEE1SSH16RTvjSSdeMZc9fOXsu+HUd8eCTy4q",
+    "lastModified": "Tue, 28 Mar 2017 17:13:15 GMT",
+    "size": 736595
+  },
+  "https://unpkg.com/semantic-ui@2.2.10/dist/semantic.min.js": {
+    "integrity": "sha384-+cWrztdGsEltZuOZCWW/D/H0Ckh3y/QLaTdyVqJW06h9qptrq+qWWqhQqY4z2lP6",
+    "lastModified": "Tue, 28 Mar 2017 17:13:15 GMT",
+    "size": 278440
+  },
+  "https://unpkg.com/semantic-ui@2.2.11/dist/semantic.js": {
+    "integrity": "sha384-OyeEdb0VA7hZs0ZCp0rwuJMj8mzesHhn+1ZJxF/+OWfKWIr7ePh/nqOm1soqGoNK",
+    "lastModified": "Tue, 11 Jul 2017 15:53:05 GMT",
+    "size": 744002
+  },
+  "https://unpkg.com/semantic-ui@2.2.11/dist/semantic.min.js": {
+    "integrity": "sha384-6QN8NcBhTx53l4lDOPEa/rsW9+ZNVN9HFy8KMrRtLyjabUx2BjjYDqQdPH73EMzU",
+    "lastModified": "Tue, 11 Jul 2017 15:53:05 GMT",
+    "size": 282658
+  },
+  "https://unpkg.com/semantic-ui@2.2.12/dist/semantic.js": {
+    "integrity": "sha384-R3/DEcgfyFeIxf84K7jfQT6RQpXevJcVu+0BXQLJ2t3EpoBrZ1qhxhAhrlX/6kdk",
+    "lastModified": "Mon, 07 Aug 2017 04:13:34 GMT",
+    "size": 746362
+  },
+  "https://unpkg.com/semantic-ui@2.2.12/dist/semantic.min.js": {
+    "integrity": "sha384-xfhRYqbW4Asj6UIfXB+Fp7GsmhF9uCf4R+oIGrp7YaBMAmlQWihnvGrW2WbdQRIS",
+    "lastModified": "Mon, 07 Aug 2017 04:13:34 GMT",
+    "size": 283536
+  },
+  "https://unpkg.com/semantic-ui@2.2.13/dist/semantic.js": {
+    "integrity": "sha384-R3/DEcgfyFeIxf84K7jfQT6RQpXevJcVu+0BXQLJ2t3EpoBrZ1qhxhAhrlX/6kdk",
+    "lastModified": "Mon, 07 Aug 2017 04:13:34 GMT",
+    "size": 746362
+  },
+  "https://unpkg.com/semantic-ui@2.2.13/dist/semantic.min.js": {
+    "integrity": "sha384-xfhRYqbW4Asj6UIfXB+Fp7GsmhF9uCf4R+oIGrp7YaBMAmlQWihnvGrW2WbdQRIS",
+    "lastModified": "Mon, 07 Aug 2017 04:13:34 GMT",
+    "size": 283536
+  },
+  "https://unpkg.com/semantic-ui@2.2.14/dist/semantic.js": {
+    "integrity": "sha384-/OCHdyuUZjDPStDj7ti/VaVeGQ4U9HxuJhh0FNfMTf0eO1VeBLAam8EiKCIK+jso",
+    "lastModified": "Mon, 29 Jan 2018 06:55:18 GMT",
+    "size": 747954
+  },
+  "https://unpkg.com/semantic-ui@2.2.14/dist/semantic.min.js": {
+    "integrity": "sha384-KfrAxmzWxzKdfquWGNOhm/N9kEjIgoP2yBPMQmAjQ+Is0hp+3BlcWT6PcI7NuKEP",
+    "lastModified": "Mon, 29 Jan 2018 06:55:18 GMT",
+    "size": 280329
+  },
+  "https://unpkg.com/semantic-ui@2.2.2/dist/semantic.js": {
+    "integrity": "sha384-cVynK98Jye44czQuG91jEwILK+pkG0UMpPUsmaEi1kJMAL72v1dUHBYHNNipz+BU",
+    "lastModified": "Thu, 07 Jul 2016 22:45:31 GMT",
+    "size": 727021
+  },
+  "https://unpkg.com/semantic-ui@2.2.2/dist/semantic.min.js": {
+    "integrity": "sha384-0XfhiWRXqhAYf5BFse4UCEkjECt8XD6jjNYREhYYI4ICheLSxfSaYbZn0y/29yO2",
+    "lastModified": "Thu, 07 Jul 2016 22:45:31 GMT",
+    "size": 275145
+  },
+  "https://unpkg.com/semantic-ui@2.2.3/dist/semantic.js": {
+    "integrity": "sha384-JL2razCyTW8/e7p1RahghgaCNYxgjUU1vMVCpjSVq4pxoyAn+MoZiXsVQaf3xsCT",
+    "lastModified": "Mon, 22 Aug 2016 03:27:43 GMT",
+    "size": 728152
+  },
+  "https://unpkg.com/semantic-ui@2.2.3/dist/semantic.min.js": {
+    "integrity": "sha384-1AbCAKONL6Wqg0s+5+V5T+IC/w5IqUr1eYd5SH++GwPO4FzRA95xY0eHTfzoRyLJ",
+    "lastModified": "Mon, 22 Aug 2016 03:27:43 GMT",
+    "size": 275356
+  },
+  "https://unpkg.com/semantic-ui@2.2.4/dist/semantic.js": {
+    "integrity": "sha384-yKTxguNa7TqDGQXIPufSGzcuuZSaCZLFjt99ohDYqwIwqxNakpfZwi/k1WxJGumg",
+    "lastModified": "Thu, 25 Aug 2016 23:21:51 GMT",
+    "size": 728154
+  },
+  "https://unpkg.com/semantic-ui@2.2.4/dist/semantic.min.js": {
+    "integrity": "sha384-LlbDgC9iZdaw/h+lbnk6Q98yDLMuFeMNwVN18DU77RcJRHdmljv2C37l2KmGv/Yk",
+    "lastModified": "Thu, 25 Aug 2016 23:21:51 GMT",
+    "size": 275360
+  },
+  "https://unpkg.com/semantic-ui@2.2.5/dist/semantic.js": {
+    "integrity": "sha384-ww2L2XG7W7VkKIA4WOeoRY/uQic5gVCFRe+3uBleD/HIEoBsMB1rhksiPfO648MY",
+    "lastModified": "Fri, 28 Oct 2016 02:53:33 GMT",
+    "size": 730256
+  },
+  "https://unpkg.com/semantic-ui@2.2.5/dist/semantic.min.js": {
+    "integrity": "sha384-qulMKETct5HRvUhOG8MWgfv9F3VjL1pFosvTCYaKrK8cdUAGMqpLujZOwoAUjFSO",
+    "lastModified": "Fri, 28 Oct 2016 02:53:33 GMT",
+    "size": 276141
+  },
+  "https://unpkg.com/semantic-ui@2.2.6/dist/semantic.js": {
+    "integrity": "sha384-+uo6aHxXzMKW4db1EaNKNNiufIH1hHshxNO4o9FCjFNnY9rjBlNHOjycrfS6VoWY",
+    "lastModified": "Fri, 28 Oct 2016 03:10:00 GMT",
+    "size": 730256
+  },
+  "https://unpkg.com/semantic-ui@2.2.6/dist/semantic.min.js": {
+    "integrity": "sha384-kZT+CItOKWHYL+Rz37W2NEz60Pu2JJJ8wgzq+82VWsi3QM53eNFzQJZqzhPuyo63",
+    "lastModified": "Fri, 28 Oct 2016 03:10:00 GMT",
+    "size": 276121
+  },
+  "https://unpkg.com/semantic-ui@2.2.7/dist/semantic.js": {
+    "integrity": "sha384-cm5wdNQdv66XGhpF9ao1A8WXLGp+6XQ8MJ5fZnySngzmeTSAR5BX3tA2xDU9Pe84",
+    "lastModified": "Wed, 21 Dec 2016 20:26:01 GMT",
+    "size": 730256
+  },
+  "https://unpkg.com/semantic-ui@2.2.7/dist/semantic.min.js": {
+    "integrity": "sha384-PSPYZ405uwFeU9YdtB0IByYECMwUIEGlSjmq1V7MD1zJLZ2VEw+8ko9hcpILlAjZ",
+    "lastModified": "Wed, 21 Dec 2016 20:26:01 GMT",
+    "size": 276121
+  },
+  "https://unpkg.com/semantic-ui@2.2.8/dist/semantic.js": {
+    "integrity": "sha384-W9mTmQcFw8EOtoFl67/3UxbtuOVfDy9VZWDyKtnmGUAnCOgMSOfEAw2IedrHchm7",
+    "lastModified": "Tue, 21 Feb 2017 05:59:28 GMT",
+    "size": 734537
+  },
+  "https://unpkg.com/semantic-ui@2.2.8/dist/semantic.min.js": {
+    "integrity": "sha384-cxlmGKFLO4RqNXpoEZrnpVvjh50moGN9UpY/9gshiD/oHGVWGYdIYmajP/zdOiX3",
+    "lastModified": "Tue, 21 Feb 2017 05:59:28 GMT",
+    "size": 277511
+  },
+  "https://unpkg.com/semantic-ui@2.2.9/dist/semantic.js": {
+    "integrity": "sha384-mwmb97hvxgU8MeT5xnChkhZebWAk2iXZoZQjTZDqMHnQZTgYPVcm29bxtGSPpDLj",
+    "lastModified": "Tue, 21 Feb 2017 18:02:47 GMT",
+    "size": 734537
+  },
+  "https://unpkg.com/semantic-ui@2.2.9/dist/semantic.min.js": {
+    "integrity": "sha384-Ail6li4BXa+GztK4v0z2B8vXM69Kl5gw8vj3uPEna+3hHY9wAixO0hLotSJlOjlT",
+    "lastModified": "Tue, 21 Feb 2017 18:02:47 GMT",
+    "size": 277511
+  },
+  "https://unpkg.com/semantic-ui@2.3.0/dist/semantic.js": {
+    "integrity": "sha384-DLg6XUiKvw0lF9mtV2VTvvcLcNZgmh4ZYPKEKEilou6BSyjCAGA4+46LuWmvGmaG",
+    "lastModified": "Tue, 20 Feb 2018 05:24:00 GMT",
+    "size": 751935
+  },
+  "https://unpkg.com/semantic-ui@2.3.0/dist/semantic.min.js": {
+    "integrity": "sha384-Lfj+WvcdE/4W60mCiEIerDSQZxgbdhgAef87wNh2aCZtXJyvRzmtexjjR0v8FBis",
+    "lastModified": "Tue, 20 Feb 2018 05:24:00 GMT",
+    "size": 281864
+  },
+  "https://unpkg.com/semantic-ui@2.3.1/dist/semantic.js": {
+    "integrity": "sha384-yx5cdIJVheyuGfxXOZbKckIQ9QYwf3lm/DMdRNHZuyIc0bKHwu0pcUXktZKSJPD1",
+    "lastModified": "Mon, 19 Mar 2018 04:01:47 GMT",
+    "size": 731533
+  },
+  "https://unpkg.com/semantic-ui@2.3.1/dist/semantic.min.js": {
+    "integrity": "sha384-d0+ufSr6Y7eU5V6E8Bt1AioIn4ParGkr0AwQ5RZD/S2mTaiEXMV78mqaYKMLE2qv",
+    "lastModified": "Mon, 19 Mar 2018 04:01:47 GMT",
+    "size": 274206
+  },
+  "https://unpkg.com/semantic-ui@2.3.2/dist/semantic.js": {
+    "integrity": "sha384-u6e/vgbgQUgHRLEn5fqYLZqBZgMCZWx8LMMEmUCJiyjwJ6JKwQ/eXI3lS5AKodkL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 732389
+  },
+  "https://unpkg.com/semantic-ui@2.3.2/dist/semantic.min.js": {
+    "integrity": "sha384-476UOqrrm/nTPEs8fnd0H66F/ZbKCPLP+S7ypi4dXvcL4HBIZXPKm0Tai4h42Gms",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 274507
+  },
+  "https://unpkg.com/semantic-ui@2.3.3/dist/semantic.js": {
+    "integrity": "sha384-1wZOsP3hJ3dDnFCLI0myffeGUZRbbnuZbzWgBT01GCA5B/TNfKIZF7KjZyePNOqU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 732399
+  },
+  "https://unpkg.com/semantic-ui@2.3.3/dist/semantic.min.js": {
+    "integrity": "sha384-S8k/vI9n9uJx1pJ/XWhwQK8excdPDNcfQRBYl96sqVq6fhRoE7nVhthQjcAHJNCo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 274512
+  },
+  "https://unpkg.com/semantic-ui@2.4.0/dist/semantic.js": {
+    "integrity": "sha384-zNHhBrButh+rnQekvx2PESyFHbxcq3iKQhO6Zpy1HZ2nxGxF72pkwcHs35A7oVnu",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 736233
+  },
+  "https://unpkg.com/semantic-ui@2.4.0/dist/semantic.min.js": {
+    "integrity": "sha384-Br3adPUOrdIGX91zZZL4btaPKq6knAO+PKu0UfxNmuWJpk8ATCt/Xiktkq0OPP+X",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 275990
+  },
+  "https://unpkg.com/semantic-ui@2.4.1/dist/semantic.js": {
+    "integrity": "sha384-wpJWvolpeTfWbTZY66uYzpiDB+Ps+x9rGPQ/uv1NdK7GIPpKz+nMTzD6s/LkMlDy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 736574
+  },
+  "https://unpkg.com/semantic-ui@2.4.1/dist/semantic.min.js": {
+    "integrity": "sha384-6urqf2sgCGDfIXcoxTUOVIoQV+jFr/Zuc4O2wCRS6Rnd8w0OJ17C4Oo3PuXu8ZtF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 275730
+  },
+  "https://unpkg.com/semantic-ui@2.4.2/dist/semantic.js": {
+    "integrity": "sha384-xjrCLbKAgwwgd2ydWRoWpNqzGob1/znw16ibYQUBc1CyF7LEapMc+d3HB+YE/FX9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 736574
+  },
+  "https://unpkg.com/semantic-ui@2.4.2/dist/semantic.min.js": {
+    "integrity": "sha384-HtPdw6a7QeUoz9fgdEIk3iL4WifPUg7BuiWndgaxmBDiCHMYfOO2nEJ9J3YPg6+S",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 275730
+  }
+}

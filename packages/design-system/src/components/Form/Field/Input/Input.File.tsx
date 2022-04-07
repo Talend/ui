@@ -92,7 +92,7 @@ const FileField = styled.div`
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		padding: ${DSTokens.coralSizeXxs} ${DSTokens.coralSizeXs};
+		padding: ${DSTokens.coralSpacingXxs} ${DSTokens.coralSpacingXs};
 
 		&.single-file {
 			align-items: center;

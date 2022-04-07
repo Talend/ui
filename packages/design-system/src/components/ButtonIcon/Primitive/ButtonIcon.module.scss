@@ -8,8 +8,8 @@
 	background: transparent;
 	cursor: pointer;
 	padding: 0;
-	width: tokens.$coral-size-xl;
-	height: tokens.$coral-size-xl;
+	width: tokens.$coral-sizing-m;
+	height: tokens.$coral-sizing-m;
 	color: tokens.$coral-color-accent-icon;
 	border-radius: tokens.$coral-radius-round;
 	transition: all tokens.$coral-transition-fast;
@@ -18,23 +18,23 @@
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		width: tokens.$coral-size-m;
-		height: tokens.$coral-size-m;
+		width: tokens.$coral-sizing-xxxs;
+		height: tokens.$coral-sizing-xxxs;
 	}
 
 	&.size_S {
-		width: tokens.$coral-size-l;
-		height: tokens.$coral-size-l;
+		width: tokens.$coral-sizing-s;
+		height: tokens.$coral-sizing-s;
 	}
 
 	&.size_XS {
-		width: tokens.$coral-size-m;
-		height: tokens.$coral-size-m;
-		border-radius: 0.4rem; // TODO: Discuss adding as a token
+		width: tokens.$coral-sizing-xxxs;
+		height: tokens.$coral-sizing-xxxs;
+		border-radius: tokens.$coral-radius-s;
 
 		.buttonIcon__icon {
-			width: tokens.$coral-size-s;
-			height: tokens.$coral-size-s;
+			width: tokens.$coral-sizing-minimal;
+			height: tokens.$coral-sizing-minimal;
 		}
 	}
 

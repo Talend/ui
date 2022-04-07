@@ -1,0 +1,9 @@
+{
+  "name": "glob-parent",
+  "vulnerableVersions": [
+    {
+      "range": ["5.0.0", "5.1.2"],
+      "fixVersion": "6.0.1"
+    }
+  ]
+}

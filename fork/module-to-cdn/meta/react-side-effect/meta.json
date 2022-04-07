@@ -1,0 +1,52 @@
+{
+  "https://unpkg.com/react-side-effect@1.1.4/lib/index.umd.js": {
+    "integrity": "sha384-b/cexuYNhX9zFeLtgSoc51/b4ts0rqefoX49sYe2rUiiCRDWjPRb6Ne39r1+pziy",
+    "lastModified": "Thu, 22 Feb 2018 18:41:51 GMT",
+    "size": 6395
+  },
+  "https://unpkg.com/react-side-effect@1.1.4/lib/index.umd.min.js": {
+    "integrity": "sha384-53mbM3D8QdreUuV648TsXJ8/xQo8IYOmW9Q1ylqkQ6lIYmy99IYP0+uVrwUST4cK",
+    "lastModified": "Thu, 22 Feb 2018 18:41:53 GMT",
+    "size": 2895
+  },
+  "https://unpkg.com/react-side-effect@1.1.5/lib/index.umd.js": {
+    "integrity": "sha384-b/cexuYNhX9zFeLtgSoc51/b4ts0rqefoX49sYe2rUiiCRDWjPRb6Ne39r1+pziy",
+    "lastModified": "Fri, 23 Feb 2018 00:16:46 GMT",
+    "size": 6395
+  },
+  "https://unpkg.com/react-side-effect@1.1.5/lib/index.umd.min.js": {
+    "integrity": "sha384-53mbM3D8QdreUuV648TsXJ8/xQo8IYOmW9Q1ylqkQ6lIYmy99IYP0+uVrwUST4cK",
+    "lastModified": "Fri, 23 Feb 2018 00:16:47 GMT",
+    "size": 2895
+  },
+  "https://unpkg.com/react-side-effect@1.2.0/lib/index.umd.js": {
+    "integrity": "sha384-GiPT+1cD/uS+tAbAVZ0MUZkCQ+8LlfUV8DJhhIha3b+35nwAPl4d8AmdoXKUzj5Z",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 5254
+  },
+  "https://unpkg.com/react-side-effect@1.2.0/lib/index.umd.min.js": {
+    "integrity": "sha384-IcXqP8HnY4pspoGCRLo1YmaX5rjubXivv5FUKoYmgaQeav1b3/jm1FNLLv/1L+Zm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2220
+  },
+  "https://unpkg.com/react-side-effect@2.0.0/lib/index.umd.js": {
+    "integrity": "sha384-llBPD37AtLT4mTFglK87lBlCJd2OMjp7HRKi/WQ6idDaPCTIBLBJGh+avfKhNMHV",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 5165
+  },
+  "https://unpkg.com/react-side-effect@2.0.0/lib/index.umd.min.js": {
+    "integrity": "sha384-kVYliraqcJrEnLwlv5DAAlSEa9Nu8Cm4BgVvDAmwMpf6VfSLL7XLKyHHfyh23BEk",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 2227
+  },
+  "https://unpkg.com/react-side-effect@2.1.0/lib/index.umd.js": {
+    "integrity": "sha384-MboB9OrBspGRlfmPuibSGFZoyTmmEETD6HleXEO4s9+zPJyNSDxuAQoNWTsnPI4y",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 3983
+  },
+  "https://unpkg.com/react-side-effect@2.1.0/lib/index.umd.min.js": {
+    "integrity": "sha384-dVpVgFebzQ8HH6JqGGR45T0OrlCmvhRi8iYzieCA6Zh2fOQFCg2xs7BAjkHj42H+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 1759
+  }
+}

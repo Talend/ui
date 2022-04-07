@@ -3,8 +3,9 @@ name: Design System component testing
 on:
   push:
     paths:
-      - 'packages/design-tokens/**'
-      - 'packages/design-system/**'
+      - ".github/workflows/design-system-*"
+      - "packages/design-tokens/**"
+      - "packages/design-system/**"
 
 jobs:
   cypress-run:
@@ -12,10 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: ['chrome', 'firefox']
-    defaults:
-      run:
-        working-directory: ./packages/design-system
+        browser: ["chrome", "firefox"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -23,25 +21,29 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@talend'
-          cache: 'yarn'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
         run: |
-          yarn --frozen-lock
+          yarn --frozen-lock --ignore-scripts
+          yarn cypress install
 
       - name: Build @talend/design-tokens
         run: |
-          cd ../design-tokens
-          yarn pre-release
+          yarn workspace @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@v3
         with:
           browser: ${{ matrix.browser }}
-          command: yarn test:cy
-          working-directory: packages/design-system
+          command: yarn workspace @talend/design-system run test:cy
 
       - name: Cypress screenshots upload
         uses: actions/upload-artifact@v2

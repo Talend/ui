@@ -37,7 +37,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/design-system": "^2.1.0",
+    "@talend/design-system": "^2.1.2",
     "@talend/icons": "^6.39.0",
     "@talend/utils": "^2.2.0",
     "ally.js": "^1.4.1",
@@ -81,21 +81,18 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "cross-env": "^7.0.3",
-    "css-loader": "^1.0.1",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "i18next": "^20.6.1",
     "jest-in-case": "^1.0.2",
     "jsdom": "^16.7.0",
-    "postcss-loader": "^3.0.0",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-a11y": "^0.3.4",
     "react-dom": "^16.14.0",
     "react-i18next": "^11.15.6",
     "react-storybook-addon-props-combinations": "^1.1.0",
-    "react-test-renderer": "^16.14.0",
-    "style-loader": "^0.23.1"
+    "react-test-renderer": "^16.14.0"
   },
   "peerDependencies": {
     "i18next": "^20.1.0",
@@ -110,5 +107,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.44.7"
+  "version": "6.44.8"
 }

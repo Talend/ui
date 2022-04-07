@@ -1,0 +1,253 @@
+{
+  "@talend/bootstrap-theme": {
+    "var": "TalendBootstrapTheme",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/bootstrap.js",
+        "production": "/dist/bootstrap.js"
+      }
+    },
+    "style-versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/bootstrap.css",
+        "production": "/dist/bootstrap.css"
+      }
+    }
+  },
+  "@talend/design-tokens": {
+    "var": "TalendDesignTokens",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendDesignTokens.js",
+        "production": "/dist/TalendDesignTokens.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendDesignTokens.css",
+        "production": "/dist/TalendDesignTokens.css"
+      }
+    }
+  },
+  "@talend/design-system": {
+    "var": "TalendDesignSystem",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendDesignSystem.js",
+        "production": "/dist/TalendDesignSystem.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendDesignSystem.css",
+        "production": "/dist/TalendDesignSystem.css"
+      }
+    }
+  },
+  "@talend/react-components": {
+    "var": "TalendReactComponents",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactComponents.js",
+        "production": "/dist/TalendReactComponents.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactComponents.css",
+        "production": "/dist/TalendReactComponents.css"
+      }
+    }
+  },
+  "@talend/react-forms": {
+    "var": "TalendReactForms",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactForms.js",
+        "production": "/dist/TalendReactForms.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactForms.css",
+        "production": "/dist/TalendReactForms.css"
+      }
+    }
+  },
+  "@talend/react-cmf": {
+    "var": "TalendReactCmf",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactCmf.js",
+        "production": "/dist/TalendReactCmf.min.js"
+      }
+    }
+  },
+  "@talend/react-cmf-router": {
+    "var": "TalendReactCmfRouter",
+    "versions": {
+      ">= 3.4.0": {
+        "development": "/dist/TalendReactCmfRouter.js",
+        "production": "/dist/TalendReactCmfRouter.min.js"
+      }
+    }
+  },
+  "@talend/react-containers": {
+    "var": "TalendReactContainers",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactContainers.js",
+        "production": "/dist/TalendReactContainers.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactContainers.css",
+        "production": "/dist/TalendReactContainers.css"
+      }
+    }
+  },
+  "@talend/react-datagrid": {
+    "var": "TalendReactDatagrid",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactDatagrid.js",
+        "production": "/dist/TalendReactDatagrid.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactDatagrid.css",
+        "production": "/dist/TalendReactDatagrid.css"
+      }
+    }
+  },
+  "@talend/react-dataviz": {
+    "var": "TalendReactDataviz",
+    "versions": {
+      ">= 0.0.4": {
+        "development": "/dist/TalendReactDataviz.js",
+        "production": "/dist/TalendReactDataviz.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 0.0.4": {
+        "development": "/dist/TalendReactDataviz.css",
+        "production": "/dist/TalendReactDataviz.css"
+      }
+    }
+  },
+  "@talend/icons": {
+    "var": "TalendIcons",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendIcons.js",
+        "production": "/dist/TalendIcons.min.js"
+      }
+    }
+  },
+  "@talend/react-cmf-cqrs": {
+    "var": "TalendReactCmfCqrs",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactCmfCqrs.js",
+        "production": "/dist/TalendReactCmfCqrs.min.js"
+      }
+    }
+  },
+  "@talend/react-sagas": {
+    "var": "TalendReactSagas",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactSagas.js",
+        "production": "/dist/TalendReactSagas.min.js"
+      }
+    }
+  },
+  "@talend/react-stepper": {
+    "var": "TalendReactStepper",
+    "versions": {
+      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+        "development": "/dist/TalendReactStepper.js",
+        "production": "/dist/TalendReactStepper.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 5.27.0 < 5.31.0": {
+        "development": "/dist/TalendReactStepper.css",
+        "production": "/dist/TalendReactStepper.css"
+      }
+    }
+  },
+  "@talend/react-faceted-search": {
+    "var": "TalendReactFacetedSearch",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendReactFacetedSearch.js",
+        "production": "/dist/TalendReactFacetedSearch.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendReactFacetedSearch.css",
+        "production": "/dist/TalendReactFacetedSearch.css"
+      }
+    }
+  },
+  "@talend/locales-design-system": {
+    "versions": {
+      ">= 1.4.0": {
+        "development": "/locales.js",
+        "production": "/locales.js"
+      }
+    }
+  },
+  "@talend/locales-tui-components": {
+    "versions": {
+      ">= 6.39.5": {
+        "development": "/locales.js",
+        "production": "/locales.js"
+      }
+    }
+  },
+  "@talend/locales-tui-containers": {
+    "versions": {
+      ">= 6.37.3": {
+        "development": "/locales.js",
+        "production": "/locales.js"
+      }
+    }
+  },
+  "@talend/locales-tui-forms": {
+    "versions": {
+      ">= 6.39.3": {
+        "development": "/locales.js",
+        "production": "/locales.js"
+      }
+    }
+  },
+  "@talend/locales-tui-datagrid": {
+    "versions": {
+      ">= 6.36.3": {
+        "development": "/locales.js",
+        "production": "/locales.js"
+      }
+    }
+  },
+  "@talend/locales-tui-dataviz": {
+    "versions": {
+      ">= 6.31.0": {
+        "development": "/locales.js",
+        "production": "/locales.js"
+      }
+    }
+  },
+  "@talend/locales-tui-faceted-search": {
+    "versions": {
+      ">= 3.4.1": {
+        "development": "/locales.js",
+        "production": "/locales.js"
+      }
+    }
+  }
+}

@@ -1,0 +1,1015 @@
+{
+  "@angular/animations": {
+    "var": "ng.animations",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/animations.umd.js",
+        "production": "/bundles/animations.umd.min.js"
+      }
+    }
+  },
+  "@angular/animations/browser": {
+    "var": "ng.animations.browser",
+    "versions": {
+      ">=2.1.0 < 3.0.0 || >= 4.0.0 < 12.0.0": {
+        "development": "/bundles/animations-browser.umd.js",
+        "production": "/bundles/animations-browser.umd.min.js"
+      }
+    }
+  },
+  "@angular/common": {
+    "var": "ng.common",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/common.umd.js",
+        "production": "/bundles/common.umd.min.js"
+      }
+    }
+  },
+  "@angular/common/http": {
+    "var": "ng.common.http",
+    "versions": {
+      "> 4.3.6 < 12.0.0": {
+        "development": "/bundles/common-http.umd.js",
+        "production": "/bundles/common-http.umd.min.js"
+      }
+    }
+  },
+  "@angular/compiler": {
+    "var": "ng.compiler",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/compiler.umd.js",
+        "production": "/bundles/compiler.umd.min.js"
+      }
+    }
+  },
+  "@angular/core": {
+    "var": "ng.core",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/core.umd.js",
+        "production": "/bundles/core.umd.min.js"
+      }
+    }
+  },
+  "@angular/forms": {
+    "var": "ng.forms",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/forms.umd.js",
+        "production": "/bundles/forms.umd.min.js"
+      }
+    }
+  },
+  "@angular/http": {
+    "var": "ng.http",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/http.umd.js",
+        "production": "/bundles/http.umd.min.js"
+      }
+    }
+  },
+  "@angular/platform-browser": {
+    "var": "ng.platformBrowser",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/platform-browser.umd.js",
+        "production": "/bundles/platform-browser.umd.min.js"
+      }
+    }
+  },
+  "@angular/platform-browser-dynamic": {
+    "var": "ng.platformBrowserDynamic",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/platform-browser-dynamic.umd.js",
+        "production": "/bundles/platform-browser-dynamic.umd.min.js"
+      }
+    }
+  },
+  "@angular/router": {
+    "var": "ng.router",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/router.umd.js",
+        "production": "/bundles/router.umd.min.js"
+      }
+    }
+  },
+  "@angular/upgrade": {
+    "var": "ng.upgrade",
+    "versions": {
+      ">=2.0.0 < 12.0.0": {
+        "development": "/bundles/upgrade.umd.js",
+        "production": "/bundles/upgrade.umd.min.js"
+      }
+    }
+  },
+  "@angular/upgrade/static": {
+    "var": "ng.upgrade.static",
+    "versions": {
+      ">=2.2.0 < 3.0.0 || >= 4.0.0 < 12.0.0": {
+        "development": "/bundles/upgrade-static.umd.js",
+        "production": "/bundles/upgrade-static.umd.min.js"
+      }
+    }
+  },
+  "@babel/polyfill": {
+    "versions": {
+      ">= 7.0.0": {
+        "development": "/dist/polyfill.js",
+        "production": "/dist/polyfill.min.js"
+      }
+    }
+  },
+  "@popperjs/core": {
+    "var": "Popper",
+    "versions": {
+      ">= 2.0.0": {
+        "development": "/dist/umd/popper.js",
+        "production": "/dist/umd/popper.min.js"
+      }
+    }
+  },
+  "@rooks/use-mutation-observer": {
+    "var": "useMutationObserver",
+    "versions": {
+      ">= 1.1.0": {
+        "development": "/lib/index.js",
+        "production": "/lib/index.min.js"
+      }
+    }
+  },
+  "@sentry/browser": {
+    "var": "Sentry",
+    "versions": {
+      ">= 4.0.0 < 6.19.0": {
+        "development": "/build/bundle.js",
+        "production": "/build/bundle.min.js"
+      },
+      ">= 6.19.0": {
+        "development": "/bundles/bundle.js",
+        "production": "/bundles/bundle.min.js"
+      }
+    }
+  },
+  "aframe": {
+    "var": "AFRAME",
+    "versions": {
+      ">= 0.9.0": {
+        "development": "/dist/aframe-master.js",
+        "production": "/dist/aframe-master.min.js"
+      }
+    }
+  },
+  "ag-grid": {
+    "var": "agGrid",
+    "versions": {
+      ">= 4.0.0 < 4.2.2 || > 4.2.4 <= 18.1.2": {
+        "development": "/dist/ag-grid.js",
+        "production": "/dist/ag-grid.min.js"
+      }
+    }
+  },
+  "ag-grid-community": {
+    "var": "agGrid",
+    "versions": {
+      ">= 18.1.2 < 19.0.0": {
+        "development": "/dist/ag-grid.js",
+        "production": "/dist/ag-grid.min.js"
+      },
+      ">= 19.0.0": {
+        "development": "/dist/ag-grid-community.js",
+        "production": "/dist/ag-grid-community.min.js"
+      }
+    }
+  },
+  "ag-grid-enterprise": {
+    "var": "agGrid",
+    "versions": {
+      ">= 17.1.1 < 23.0.0 || > 23.0.0": {
+        "development": "/dist/ag-grid-enterprise.js",
+        "production": "/dist/ag-grid-enterprise.min.js"
+      }
+    }
+  },
+  "ag-grid-react": {
+    "var": "AgGridReact",
+    "versions": {
+      ">= 23.1.0": {
+        "development": "/bundles/ag-grid-react.min.js",
+        "production": "/bundles/ag-grid-react.min.js"
+      }
+    }
+  },
+  "ajv": {
+    "var": "Ajv",
+    "versions": {
+      ">= 3.1.0 < 7.0.0": {
+        "development": "/dist/ajv.min.js",
+        "production": "/dist/ajv.min.js"
+      }
+    }
+  },
+  "ally.js": {
+    "var": "ally",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/ally.min.js",
+        "production": "/ally.min.js"
+      }
+    }
+  },
+  "angular": {
+    "var": "angular",
+    "versions": {
+      ">= 1.2.17 <= 1.2.23": {
+        "development": "/lib/angular.js",
+        "production": "/lib/angular.min.js"
+      },
+      ">= 1.2.27": {
+        "development": "/angular.js",
+        "production": "/angular.min.js"
+      }
+    }
+  },
+  "auth0-lock": {
+    "var": "Auth0Lock",
+    "versions": {
+      ">= 10.0.0": {
+        "development": "https://cdn.auth0.com/js/lock/[version]/lock.js",
+        "production": "https://cdn.auth0.com/js/lock/[version]/lock.min.js"
+      }
+    }
+  },
+  "axios": {
+    "var": "axios",
+    "versions": {
+      ">= 0.6.0": {
+        "development": "/dist/axios.js",
+        "production": "/dist/axios.min.js"
+      }
+    }
+  },
+  "bootstrap": {
+    "versions": {
+      ">= 3.1.1 < 4.0.0": {
+        "development": "/dist/js/bootstrap.js",
+        "production": "/dist/js/bootstrap.min.js"
+      },
+      ">= 4.0.0": {
+        "var": "bootstrap",
+        "development": "/dist/js/bootstrap.js",
+        "production": "/dist/js/bootstrap.min.js"
+      }
+    }
+  },
+  "classnames": {
+    "var": "classNames",
+    "versions": {
+      ">= 1.2.0": {
+        "development": "/index.js",
+        "production": "/index.js"
+      }
+    }
+  },
+  "regenerator-runtime": {
+    "versions": {
+      ">= 0.13.0": {
+        "development": "/runtime.js",
+        "production": "/runtime.js"
+      }
+    }
+  },
+  "cldr-dates-full": {
+    "versions": {
+      ">= 39.0.0": {
+        "development": "/",
+        "production": "/"
+      }
+    }
+  },
+  "core-js-bundle": {
+    "versions": {
+      ">= 3.8.3": {
+        "development": "/index.js",
+        "production": "/minified.js"
+      }
+    }
+  },
+  "d3": {
+    "var": "d3",
+    "versions": {
+      ">= 4.0.0 < 5.0.0": {
+        "development": "/build/d3.js",
+        "production": "/build/d3.min.js"
+      },
+      ">= 5.0.0": {
+        "development": "/dist/d3.js",
+        "production": "/dist/d3.min.js"
+      }
+    }
+  },
+  "file-saver": {
+    "var": "saveAs",
+    "versions": {
+      ">= 1.2.0 <= 1.3.3 || >= 1.3.8 < 2.0.0-rc.1": {
+        "development": "/FileSaver.js",
+        "production": "/FileSaver.min.js"
+      },
+      ">= 2.0.0-rc.1": {
+        "development": "/dist/FileSaver.js",
+        "production": "/dist/FileSaver.min.js"
+      }
+    }
+  },
+  "focus-outline-manager": {
+    "var": "FocusOutlineManager",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/focus-outline-manager.js",
+        "production": "/focus-outline-manager.js"
+      }
+    }
+  },
+  "history": {
+    "versions": {
+      ">= 2.1.1 < 5.0.0": {
+        "var": "History",
+        "development": "/umd/history.js",
+        "production": "/umd/history.min.js"
+      },
+      ">= 5.0.0": {
+        "var": "HistoryLibrary",
+        "development": "/umd/history.development.js",
+        "production": "/umd/history.production.min.js"
+      }
+    }
+  },
+  "hoist-non-react-statics": {
+    "var": "hoistNonReactStatics",
+    "versions": {
+      ">= 2.5.1": {
+        "development": "/dist/hoist-non-react-statics.min.js",
+        "production": "/dist/hoist-non-react-statics.min.js"
+      }
+    }
+  },
+  "immutable": {
+    "var": "Immutable",
+    "versions": {
+      ">= 3.0.0 < 3.6.3 || > 3.6.3": {
+        "development": "/dist/immutable.js",
+        "production": "/dist/immutable.min.js"
+      }
+    }
+  },
+  "i18next": {
+    "var": "i18next",
+    "versions": {
+      ">= 3.0.0": {
+        "development": "/dist/umd/i18next.js",
+        "production": "/dist/umd/i18next.min.js"
+      }
+    }
+  },
+  "jquery": {
+    "var": "$",
+    "versions": {
+      ">= 2.1.1": {
+        "development": "/dist/jquery.js",
+        "production": "/dist/jquery.min.js"
+      }
+    }
+  },
+  "json-logic-js": {
+    "var": "jsonLogic",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/logic.js",
+        "production": "/logic.js"
+      }
+    }
+  },
+  "jszip": {
+    "var": "JSZip",
+    "versions": {
+      ">= 2.6.0": {
+        "development": "/dist/jszip.js",
+        "production": "/dist/jszip.min.js"
+      }
+    }
+  },
+  "jwt-decode": {
+    "var": "jwt_decode",
+    "versions": {
+      ">= 1.0.0 < 3.0.0": {
+        "development": "/build/jwt-decode.js",
+        "production": "/build/jwt-decode.min.js"
+      },
+      ">= 3.0.0": {
+        "development": "/build/jwt-decode.js",
+        "production": "/build/jwt-decode.js"
+      }
+    }
+  },
+  "lodash": {
+    "var": "_",
+    "versions": {
+      ">= 4.5.1 < 4.17.16 || > 4.14.17 < 4.17.16 || > 4.17.17": {
+        "development": "/lodash.js",
+        "production": "/lodash.min.js"
+      }
+    }
+  },
+  "mobx": {
+    "var": "mobx",
+    "versions": {
+      ">= 2.1.3 < 6.0.0": {
+        "development": "/lib/mobx.umd.js",
+        "production": "/lib/mobx.umd.min.js"
+      },
+      ">= 6.0.0": {
+        "development": "/dist/mobx.umd.development.js",
+        "production": "/dist/mobx.umd.production.min.js"
+      }
+    }
+  },
+  "platform": {
+    "var": "platform",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/platform.js",
+        "production": "/platform.js"
+      }
+    }
+  },
+  "popper.js": {
+    "var": "Popper",
+    "versions": {
+      ">= 1.9.0 < 2.0.0": {
+        "development": "/dist/umd/popper.js",
+        "production": "/dist/umd/popper.min.js"
+      }
+    }
+  },
+  "preact": {
+    "var": "preact",
+    "versions": {
+      ">= 2.4.0 < 10.0.0": {
+        "development": "/dist/preact.js",
+        "production": "/dist/preact.min.js"
+      },
+      ">= 10.0.0": {
+        "development": "/dist/preact.umd.js",
+        "production": "/dist/preact.umd.js"
+      }
+    }
+  },
+  "preact-compat": {
+    "var": "preactCompat",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/preact-compat.js",
+        "production": "/dist/preact-compat.min.js"
+      }
+    }
+  },
+  "prop-types": {
+    "var": "PropTypes",
+    "versions": {
+      ">= 15.5.2": {
+        "development": "/prop-types.js",
+        "production": "/prop-types.min.js"
+      }
+    }
+  },
+  "react": {
+    "var": "React",
+    "versions": {
+      ">= 0.11.0 < 16.0.0": {
+        "development": "/dist/react.js",
+        "production": "/dist/react.min.js"
+      },
+      ">= 16.0.0 < 16.6.2 || > 16.6.2": {
+        "development": "/umd/react.development.js",
+        "production": "/umd/react.production.min.js"
+      }
+    }
+  },
+  "react-ace": {
+    "var": "ReactAce",
+    "versions": {
+      ">= 3.0.0 < 9.4.0": {
+        "development": "/dist/react-ace.js",
+        "production": "/dist/react-ace.min.js"
+      },
+      ">= 9.4.0": {
+        "development": "/dist/react-ace.js/main.js",
+        "production": "/dist/react-ace.min.js/main.js"
+      }
+    }
+  },
+  "react-autowhatever": {
+    "var": "Autowhatever",
+    "versions": {
+      ">= 6.0.0": {
+        "development": "/dist/standalone/autowhatever.js",
+        "production": "/dist/standalone/autowhatever.min.js"
+      }
+    }
+  },
+  "react-bootstrap": {
+    "var": "ReactBootstrap",
+    "versions": {
+      ">= 0.20.0": {
+        "development": "/dist/react-bootstrap.js",
+        "production": "/dist/react-bootstrap.min.js"
+      }
+    }
+  },
+  "react-debounce-input": {
+    "var": "DebounceInput",
+    "versions": {
+      ">= 2.0.0 < 2.2.0": {
+        "development": "/build/react-debounce-input.js",
+        "production": "/build/react-debounce-input.js"
+      },
+      ">= 2.2.0": {
+        "development": "/build/react-debounce-input.js",
+        "production": "/build/react-debounce-input.min.js"
+      }
+    }
+  },
+  "react-css-transition": {
+    "versions": {
+      ">= 0.6.0 < 0.6.3": {
+        "var": "ReactCssTransition",
+        "development": "/dist/react-css-transition.js",
+        "production": "/dist/react-css-transition.min.js"
+      },
+      ">= 0.6.3": {
+        "var": "ReactCSSTransition",
+        "development": "/dist/react-css-transition.js",
+        "production": "/dist/react-css-transition.min.js"
+      }
+    }
+  },
+  "react-dnd": {
+    "var": "ReactDnD",
+    "versions": {
+      ">= 2.0.0 < 2.1.0": {
+        "development": "/dist/ReactDnD.min.js",
+        "production": "/dist/ReactDnD.min.js"
+      },
+      ">= 2.1.0 < 4.0.2 || > 4.0.2 < 8.0.0": {
+        "development": "/dist/ReactDnD.js",
+        "production": "/dist/ReactDnD.min.js"
+      },
+      ">= 9.4.0 < 15.0.0": {
+        "development": "/dist/umd/ReactDnD.js",
+        "production": "/dist/umd/ReactDnD.min.js"
+      }
+    }
+  },
+  "react-dnd-html5-backend": {
+    "var": "ReactDnDHTML5Backend",
+    "versions": {
+      ">= 1.0.0 < 3.0.0": {
+        "development": "/dist/ReactDnDHTML5Backend.min.js",
+        "production": "/dist/ReactDnDHTML5Backend.min.js"
+      },
+      ">= 3.0.0 < 4.0.2 || > 4.0.2 < 8.0.0": {
+        "development": "/dist/ReactDnDHTML5Backend.js",
+        "production": "/dist/ReactDnDHTML5Backend.min.js"
+      },
+      ">= 9.4.0 < 15.0.0": {
+        "development": "/dist/umd/ReactDnDHTML5Backend.js",
+        "production": "/dist/umd/ReactDnDHTML5Backend.min.js"
+      }
+    }
+  },
+  "react-dom": {
+    "var": "ReactDOM",
+    "versions": {
+      ">= 0.14.0 < 16.0.0": {
+        "development": "/dist/react-dom.js",
+        "production": "/dist/react-dom.min.js"
+      },
+      ">= 16.0.0 < 16.6.2 || > 16.6.2": {
+        "development": "/umd/react-dom.development.js",
+        "production": "/umd/react-dom.production.min.js"
+      }
+    }
+  },
+  "react-dom/server": {
+    "var": "ReactDOMServer",
+    "versions": {
+      ">= 16.0.0 < 16.6.2 || > 16.6.2": {
+        "development": "/umd/react-dom-server.browser.development.js",
+        "production": "/umd/react-dom-server.browser.production.min.js"
+      }
+    }
+  },
+  "react-draggable": {
+    "var": "ReactDraggable",
+    "versions": {
+      ">= 4.1.0": {
+        "development": "/build/web/react-draggable.min.js",
+        "production": "/build/web/react-draggable.min.js"
+      },
+      ">= 3.0.1 < 4.0.0": {
+        "development": "/dist/react-draggable.js",
+        "production": "/dist/react-draggable.min.js"
+      }
+    }
+  },
+  "react-hook-form": {
+    "var": "ReactHookForm",
+    "versions": {
+      ">= 5.0.0 < 6.0.0": {
+        "development": "/dist/react-hook-form.umd.js",
+        "production": "/dist/react-hook-form.umd.js"
+      },
+      ">= 6.0.0 <= 7.0.5": {
+        "development": "/dist/index.umd.development.js",
+        "production": "/dist/index.umd.production.min.js"
+      },
+      "> 7.0.5": {
+        "development": "/dist/index.umd.js",
+        "production": "/dist/index.umd.js"
+      }
+    }
+  },
+  "react-is": {
+    "var": "ReactIs",
+    "versions": {
+      ">= 16.0.0 < 16.6.2 || > 16.6.2": {
+        "development": "/umd/react-is.development.js",
+        "production": "/umd/react-is.production.min.js"
+      }
+    }
+  },
+  "react-jsonschema-form": {
+    "var": "JSONSchemaForm",
+    "versions": {
+      ">= 0.51.0 < 1.0.0": {
+        "development": "/dist/react-jsonschema-form.js",
+        "production": "/dist/react-jsonschema-form.js"
+      }
+    }
+  },
+  "react-i18next": {
+    "versions": {
+      ">= 2.0.0 < 8.0.0": {
+        "var": "reactI18next",
+        "development": "/dist/umd/react-i18next.js",
+        "production": "/dist/umd/react-i18next.min.js"
+      },
+      ">= 9.0.0": {
+        "var": "ReactI18next",
+        "development": "/dist/umd/react-i18next.js",
+        "production": "/dist/umd/react-i18next.min.js"
+      }
+    }
+  },
+  "react-lifecycles-compat": {
+    "var": "reactLifecyclesCompat",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/react-lifecycles-compat.js",
+        "production": "/react-lifecycles-compat.min.js"
+      }
+    }
+  },
+  "react-popper": {
+    "var": "ReactPopper",
+    "versions": {
+      ">= 0.2.0 < 0.9.0": {
+        "development": "/dist/react-popper.js",
+        "production": "/dist/react-popper.min.js"
+      },
+      ">= 0.10.2 < 1.0.0": {
+        "development": "/dist/umd/react-popper.js",
+        "production": "/dist/umd/react-popper.min.js"
+      },
+      ">= 1.0.0 <= 1.3.3": {
+        "development": "/dist/index.umd.js",
+        "production": "/dist/index.umd.min.js"
+      },
+      ">= 2.2.0": {
+        "development": "/dist/index.umd.js",
+        "production": "/dist/index.umd.min.js"
+      }
+    }
+  },
+  "react-redux": {
+    "var": "ReactRedux",
+    "versions": {
+      ">= 0.3.0 < 5.0.0 || >= 5.0.1": {
+        "development": "/dist/react-redux.js",
+        "production": "/dist/react-redux.min.js"
+      }
+    }
+  },
+  "react-router": {
+    "var": "ReactRouter",
+    "versions": {
+      ">= 3.0.0 < 3.2.2 || > 3.2.2 < 4.0.0": {
+        "development": "/umd/ReactRouter.js",
+        "production": "/umd/ReactRouter.min.js"
+      },
+      ">= 4.0.0 < 6.0.0": {
+        "development": "/umd/react-router.js",
+        "production": "/umd/react-router.min.js"
+      },
+      ">= 6.0.0": {
+        "development": "/umd/react-router.development.js",
+        "production": "/umd/react-router.production.min.js"
+      }
+    }
+  },
+  "react-router-dom": {
+    "var": "ReactRouterDOM",
+    "versions": {
+      ">= 4.0.0 < 6.0.0": {
+        "development": "/umd/react-router-dom.js",
+        "production": "/umd/react-router-dom.min.js"
+      },
+      ">= 6.0.0": {
+        "development": "/umd/react-router-dom.development.js",
+        "production": "/umd/react-router-dom.production.min.js"
+      }
+    }
+  },
+  "react-side-effect": {
+    "var": "withSideEffect",
+    "versions": {
+      ">= 1.1.4": {
+        "development": "/lib/index.umd.js",
+        "production": "/lib/index.umd.min.js"
+      }
+    }
+  },
+  "react-transition-group": {
+    "var": "ReactTransitionGroup",
+    "versions": {
+      ">= 1.1.1 < 1.2.0": {
+        "development": "/dist/react-transition-group.js",
+        "production": "/dist/react-transition-group.js"
+      },
+      ">= 1.2.0 < 2.5.0 || > 2.5.3": {
+        "development": "/dist/react-transition-group.js",
+        "production": "/dist/react-transition-group.min.js"
+      }
+    }
+  },
+  "react-virtualized": {
+    "versions": {
+      ">= 5.3.0": {
+        "var": "ReactVirtualized",
+        "development": "/dist/umd/react-virtualized.js",
+        "production": "/dist/umd/react-virtualized.js"
+      },
+      ">= 5.0.0 < 5.3.0": {
+        "var": "ReactVirtualized",
+        "development": "/dist/react-virtualized.js",
+        "production": "/dist/react-virtualized.js"
+      },
+      ">= 1.0.0 < 5.0.0": {
+        "var": "react-virtualized",
+        "development": "/dist/react-virtualized.js",
+        "production": "/dist/react-virtualized.js"
+      }
+    }
+  },
+  "reakit": {
+    "versions": {
+      ">= 1.0.0": {
+        "var": "Reakit",
+        "development": "/dist/reakit.min.js",
+        "production": "/dist/reakit.min.js"
+      }
+    }
+  },
+  "recharts": {
+    "versions": {
+      ">= 1.0.0 < 2.0.0": {
+        "var": "Recharts",
+        "development": "/umd/Recharts.js",
+        "production": "/umd/Recharts.min.js"
+      },
+      ">= 2.1.5": {
+        "var": "Recharts",
+        "development": "/umd/Recharts.js",
+        "production": "/umd/Recharts.js"
+      }
+    }
+  },
+  "redux": {
+    "var": "Redux",
+    "versions": {
+      ">= 0.12.0": {
+        "development": "/dist/redux.js",
+        "production": "/dist/redux.min.js"
+      }
+    }
+  },
+  "redux-act": {
+    "var": "ReduxAct",
+    "versions": {
+      ">= 0.4.2 <= 1.1.1": {
+        "development": "/dist/redux-act.js",
+        "production": "/dist/redux-act.js"
+      },
+      ">= 1.1.2": {
+        "development": "/dist/redux-act.js",
+        "production": "/dist/redux-act.min.js"
+      }
+    }
+  },
+  "redux-saga": {
+    "var": "ReduxSaga",
+    "versions": {
+      ">= 0.4.0 < 1.0.0": {
+        "development": "/dist/redux-saga.js",
+        "production": "/dist/redux-saga.min.js"
+      },
+      ">= 1.0.0": {
+        "development": "/dist/redux-saga.umd.js",
+        "production": "/dist/redux-saga.umd.min.js"
+      }
+    }
+  },
+  "redux-saga/effects": {
+    "var": "ReduxSagaEffects",
+    "versions": {
+      ">= 1.0.5": {
+        "development": "/dist/redux-saga-effects.umd.js",
+        "production": "/dist/redux-saga-effects.umd.min.js"
+      }
+    }
+  },
+  "redux-thunk": {
+    "var": "ReduxThunk",
+    "versions": {
+      ">= 2.0.1": {
+        "development": "/dist/redux-thunk.js",
+        "production": "/dist/redux-thunk.min.js"
+      }
+    }
+  },
+  "reflect-metadata": {
+    "var": "Reflect",
+    "versions": {
+      ">= 0.0.2": {
+        "development": "/Reflect.js",
+        "production": "/Reflect.js"
+      }
+    }
+  },
+  "rx": {
+    "var": "Rx",
+    "versions": {
+      ">= 2.2.21": {
+        "development": "/dist/rx.all.js",
+        "production": "/dist/rx.all.min.js"
+      }
+    }
+  },
+  "rxjs": {
+    "versions": {
+      "< 6.0.0": {
+        "var": "Rx",
+        "development": "/bundles/Rx.js",
+        "production": "/bundles/Rx.min.js"
+      },
+      ">= 6.0.0 < 7.0.0": {
+        "var": "rxjs",
+        "development": "/bundles/rxjs.umd.js",
+        "production": "/bundles/rxjs.umd.min.js"
+      }
+    }
+  },
+  "scroll-smooth": {
+    "var": "scrollSmooth",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/index.umd.js",
+        "production": "/dist/index.umd.min.js"
+      }
+    }
+  },
+  "semantic-ui": {
+    "var": null,
+    "versions": {
+      ">= 1.1.2": {
+        "development": "/dist/semantic.js",
+        "production": "/dist/semantic.min.js"
+      }
+    }
+  },
+  "simplebar": {
+    "var": "SimpleBar",
+    "versions": {
+      ">= 2.1.0 < 2.6.0": {
+        "development": "/dist/simplebar.js",
+        "production": "/dist/simplebar.js"
+      },
+      ">= 2.6.0 < 3.1.0": {
+        "development": "/dist/simplebar.umd.js",
+        "production": "/dist/simplebar.js"
+      },
+      ">= 3.1.0": {
+        "development": "/dist/simplebar.js",
+        "production": "/dist/simplebar.min.js"
+      }
+    }
+  },
+  "styled-components": {
+    "var": "styled",
+    "versions": {
+      ">= 2.0.0": {
+        "development": "/dist/styled-components.js",
+        "production": "/dist/styled-components.min.js"
+      }
+    }
+  },
+  "tachyons": {
+    "versions": {
+      "*": {
+        "development": "/css/tachyons.css",
+        "production": "/css/tachyons.min.css"
+      }
+    }
+  },
+  "three": {
+    "var": "THREE",
+    "versions": {
+      ">= 0.100.0": {
+        "development": "/build/three.js",
+        "production": "/build/three.min.js"
+      }
+    }
+  },
+  "timezone-support": {
+    "versions": {
+      ">= 1.0.0 < 2.0.0": {
+        "var": "timezone-support",
+        "development": "/dist/index.umd.js",
+        "production": "/dist/index.umd.js"
+      },
+      ">= 2.0.0": {
+        "var": "timezoneSupport",
+        "development": "/dist/index.umd.js",
+        "production": "/dist/index.umd.js"
+      }
+    }
+  },
+  "tooltip.js": {
+    "var": "Tooltip",
+    "versions": {
+      ">= 1.1.2 < 2.0.0": {
+        "development": "/dist/umd/tooltip.js",
+        "production": "/dist/umd/tooltip.min.js"
+      }
+    }
+  },
+  "uuid": {
+    "var": "uuid",
+    "versions": {
+      ">= 7.0.0": {
+        "development": "/dist/umd/uuid.min.js",
+        "production": "/dist/umd/uuid.min.js"
+      }
+    }
+  },
+  "vue": {
+    "var": "Vue",
+    "versions": {
+      ">= 0.8.7 <= 2.0.3": {
+        "development": "/dist/vue.js",
+        "production": "/dist/vue.min.js"
+      },
+      ">= 2.0.4 < 3.0.0": {
+        "development": "/dist/vue.runtime.js",
+        "production": "/dist/vue.runtime.min.js"
+      }
+    }
+  },
+  "zone.js": {
+    "var": "Zone",
+    "versions": {
+      ">= 0.5.0 <= 0.6.26 || >= 0.7.2 < 0.10.3": {
+        "development": "/dist/zone.js",
+        "production": "/dist/zone.min.js"
+      },
+      ">= 0.11.1": {
+        "development": "/bundles/zone.umd.js",
+        "production": "/bundles/zone.umd.min.js"
+      }
+    }
+  }
+}

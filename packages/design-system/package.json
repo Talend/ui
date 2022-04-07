@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/design-tokens": "^1.4.1",
+    "@talend/design-tokens": "^2.0.0",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.1.4",
@@ -77,7 +77,6 @@
     "browser-sync-webpack-plugin": "^2.3.0",
     "chromatic": "^6.5.3",
     "core-js": "^3.21.1",
-    "css-loader": "^5.2.7",
     "cypress": "^9.5.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^2.5.0",
@@ -95,11 +94,8 @@
     "react-i18next": "^11.15.6",
     "react-is": "^16.13.1",
     "react-router-dom": "^6.2.2",
-    "sass": "^1.49.9",
-    "sass-loader": "^8.0.2",
     "storybook-addon-mdx-embed": "^0.0.22",
     "storybook-docs-toc": "^1.7.0",
-    "style-loader": "^2.0.0",
     "styled-components": "^5.3.3"
   },
   "peerDependencies": {

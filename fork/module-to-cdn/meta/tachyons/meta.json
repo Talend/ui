@@ -1,0 +1,512 @@
+{
+  "https://unpkg.com/tachyons@1.1.0/css/tachyons.css": {
+    "integrity": "sha384-c7VYeXydoA+eJkcX6Zhi0HITXph3vC3tXXDByo08QSI7C7l7cZsCSrt8e65l739u",
+    "lastModified": "Sat, 07 Mar 2015 06:52:15 GMT",
+    "size": 93930
+  },
+  "https://unpkg.com/tachyons@1.1.0/css/tachyons.min.css": {
+    "integrity": "sha384-mGqCbZLPkGWKzUA7ovjxaSeb2y+4k9p89NyhAd5T6L90YzZ+SLziSGJkbN1LjA0K",
+    "lastModified": "Sat, 07 Mar 2015 06:52:15 GMT",
+    "size": 61696
+  },
+  "https://unpkg.com/tachyons@1.1.1/css/tachyons.css": {
+    "integrity": "sha384-c7VYeXydoA+eJkcX6Zhi0HITXph3vC3tXXDByo08QSI7C7l7cZsCSrt8e65l739u",
+    "lastModified": "Sat, 07 Mar 2015 06:52:15 GMT",
+    "size": 93930
+  },
+  "https://unpkg.com/tachyons@1.1.1/css/tachyons.min.css": {
+    "integrity": "sha384-mGqCbZLPkGWKzUA7ovjxaSeb2y+4k9p89NyhAd5T6L90YzZ+SLziSGJkbN1LjA0K",
+    "lastModified": "Sat, 07 Mar 2015 06:52:15 GMT",
+    "size": 61696
+  },
+  "https://unpkg.com/tachyons@1.2.0/css/tachyons.css": {
+    "integrity": "sha384-rw1l972BOUVxXknqp2akhjlX3cGAYQSgTXYJjQBrCzdXxKysvNXJiMlKIZqoP51q",
+    "lastModified": "Mon, 09 Mar 2015 00:05:37 GMT",
+    "size": 93862
+  },
+  "https://unpkg.com/tachyons@1.2.0/css/tachyons.min.css": {
+    "integrity": "sha384-OnS1YH2ggWnlwaNEL6eUCQFUf/xxdCUAoZmDa8dkZsGxo70BRLMRQceqdzKBGZeB",
+    "lastModified": "Mon, 09 Mar 2015 00:05:37 GMT",
+    "size": 61628
+  },
+  "https://unpkg.com/tachyons@3.0.1/css/tachyons.css": {
+    "integrity": "sha384-/ULPbLboI0L5IiypDvChTTOFd7enhTfaxDSVEo16eocjwNQs5U8wWFwsxkSTBiWm",
+    "lastModified": "Thu, 16 Jul 2015 02:31:31 GMT",
+    "size": 119184
+  },
+  "https://unpkg.com/tachyons@3.0.1/css/tachyons.min.css": {
+    "integrity": "sha384-vxujUppy7EUSd3HTiYQ9nqnpbuC1EPyEIfCQ2veSdh7FiQEmtDwtTU6DK9WQqaj2",
+    "lastModified": "Thu, 16 Jul 2015 02:31:31 GMT",
+    "size": 72884
+  },
+  "https://unpkg.com/tachyons@3.0.2/css/tachyons.css": {
+    "integrity": "sha384-cpT4gfQ0pAmDW/qpKFANUnGGHRvqw1C5bv6oR4b3tx5X85f17Hh0xoimMs3tREEY",
+    "lastModified": "Tue, 20 Oct 2015 17:41:05 GMT",
+    "size": 119185
+  },
+  "https://unpkg.com/tachyons@3.0.2/css/tachyons.min.css": {
+    "integrity": "sha384-Psf6OuHT39+ra84Z458FhPQ4CfjBo40WJFPz3eijo4XehuYPzX7sAP/s7sYnq5NM",
+    "lastModified": "Tue, 20 Oct 2015 17:41:05 GMT",
+    "size": 72885
+  },
+  "https://unpkg.com/tachyons@3.0.3/css/tachyons.css": {
+    "integrity": "sha384-Q2qb653mDxdf+XHTBBfcLbjQdC5p/RLwpSuX4TBC9w0REJL2bE30ZKL94Fbq4H6+",
+    "lastModified": "Sat, 26 Dec 2015 08:43:40 GMT",
+    "size": 93702
+  },
+  "https://unpkg.com/tachyons@3.0.3/css/tachyons.min.css": {
+    "integrity": "sha384-FCZaIyyIZKW5uUQSwPINb/lULnDUl8oq6dsatH5Yyd8Mxd2PCshwWWBDoGSD90J4",
+    "lastModified": "Sat, 26 Dec 2015 08:43:40 GMT",
+    "size": 63339
+  },
+  "https://unpkg.com/tachyons@3.1.0/css/tachyons.css": {
+    "integrity": "sha384-+YrKv5IJD/ezNuGNge2X/Z/zCcIhXwkUh/Ck8Wbx4T1teUiJZOH4EgnptREZMtHL",
+    "lastModified": "Tue, 02 Feb 2016 01:16:37 GMT",
+    "size": 73841
+  },
+  "https://unpkg.com/tachyons@3.1.0/css/tachyons.min.css": {
+    "integrity": "sha384-SlI6j0XoQUr+d7y1giZtQGxbE7bSzlsPKdeIku7tTZa9TJaPSPqxOFKjk6JDhVRz",
+    "lastModified": "Tue, 02 Feb 2016 01:16:39 GMT",
+    "size": 50517
+  },
+  "https://unpkg.com/tachyons@3.1.1/css/tachyons.css": {
+    "integrity": "sha384-v09Y193Byf0gIhErqDmAZpnbGuQxPiTVclPw3+yy/OOAEzcghXVXFSlyW+4xI+BK",
+    "lastModified": "Tue, 02 Feb 2016 20:24:21 GMT",
+    "size": 73842
+  },
+  "https://unpkg.com/tachyons@3.1.1/css/tachyons.min.css": {
+    "integrity": "sha384-ObYepGjnrknVTjRRk38bb62Q7CoEJFeoR4/+0dK43CXdY3/q3G2a9kVfqaenWe6f",
+    "lastModified": "Tue, 02 Feb 2016 20:24:25 GMT",
+    "size": 50518
+  },
+  "https://unpkg.com/tachyons@4.0.0/css/tachyons.css": {
+    "integrity": "sha384-Q2qb653mDxdf+XHTBBfcLbjQdC5p/RLwpSuX4TBC9w0REJL2bE30ZKL94Fbq4H6+",
+    "lastModified": "Thu, 12 Nov 2015 15:06:06 GMT",
+    "size": 93702
+  },
+  "https://unpkg.com/tachyons@4.0.0/css/tachyons.min.css": {
+    "integrity": "sha384-FCZaIyyIZKW5uUQSwPINb/lULnDUl8oq6dsatH5Yyd8Mxd2PCshwWWBDoGSD90J4",
+    "lastModified": "Thu, 12 Nov 2015 15:06:06 GMT",
+    "size": 63339
+  },
+  "https://unpkg.com/tachyons@4.0.1/css/tachyons.css": {
+    "integrity": "sha384-TGHBLmh3MP/MB/W3x1k3RpoleP9ee9Ylq8dEEfF3NzCyqOe7A10xUB9Ue/90ifcp",
+    "lastModified": "Tue, 05 Jul 2016 16:24:22 GMT",
+    "size": 76914
+  },
+  "https://unpkg.com/tachyons@4.0.1/css/tachyons.min.css": {
+    "integrity": "sha384-3CRXIH/DTRKzbDZJ9exugb7/8ZYP1W+RFN7L1BX/M+x7uIpT3nOtMT42/HgIl15J",
+    "lastModified": "Tue, 05 Jul 2016 16:24:22 GMT",
+    "size": 51904
+  },
+  "https://unpkg.com/tachyons@4.0.2/css/tachyons.css": {
+    "integrity": "sha384-l/10372knDhKmCjt1VA/NgOnUQcaQC7N5F9+liC+p2zlH3waEuDBinELv567nytS",
+    "lastModified": "Tue, 12 Jul 2016 08:21:51 GMT",
+    "size": 76906
+  },
+  "https://unpkg.com/tachyons@4.0.2/css/tachyons.min.css": {
+    "integrity": "sha384-3CRXIH/DTRKzbDZJ9exugb7/8ZYP1W+RFN7L1BX/M+x7uIpT3nOtMT42/HgIl15J",
+    "lastModified": "Tue, 12 Jul 2016 08:20:24 GMT",
+    "size": 51904
+  },
+  "https://unpkg.com/tachyons@4.0.3/css/tachyons.css": {
+    "integrity": "sha384-l/10372knDhKmCjt1VA/NgOnUQcaQC7N5F9+liC+p2zlH3waEuDBinELv567nytS",
+    "lastModified": "Thu, 14 Jul 2016 09:46:30 GMT",
+    "size": 76906
+  },
+  "https://unpkg.com/tachyons@4.0.3/css/tachyons.min.css": {
+    "integrity": "sha384-3CRXIH/DTRKzbDZJ9exugb7/8ZYP1W+RFN7L1BX/M+x7uIpT3nOtMT42/HgIl15J",
+    "lastModified": "Tue, 05 Jul 2016 16:24:22 GMT",
+    "size": 51904
+  },
+  "https://unpkg.com/tachyons@4.0.4/css/tachyons.css": {
+    "integrity": "sha384-5OZUcmkGeJ/iMtnXxep7gmpeSUsf/2cuDvjEYgu+lgYKn5WDANCqLqNMwl1xMu/P",
+    "lastModified": "Thu, 14 Jul 2016 11:09:30 GMT",
+    "size": 76908
+  },
+  "https://unpkg.com/tachyons@4.0.4/css/tachyons.min.css": {
+    "integrity": "sha384-oE8fi9hehJAAv5YCj5aXfl+Lzo2ot0YXh/p4aqg+msOesmU6Y66N60exiwZgLUtJ",
+    "lastModified": "Thu, 14 Jul 2016 11:09:35 GMT",
+    "size": 51905
+  },
+  "https://unpkg.com/tachyons@4.0.5/css/tachyons.css": {
+    "integrity": "sha384-CwqM8a/mazap+PsbY2TWi9QAVVJepn3ZR2gTKEwo6qIVJBJkN7PfrUPR4oFPWoVL",
+    "lastModified": "Wed, 10 Aug 2016 21:12:47 GMT",
+    "size": 76902
+  },
+  "https://unpkg.com/tachyons@4.0.5/css/tachyons.min.css": {
+    "integrity": "sha384-NmDjy3SuxYQLXTHDn4uJI5CdpWs+2a5zOAP2QChVqVJBtnsB33pF0CfpmlbRe7ww",
+    "lastModified": "Wed, 10 Aug 2016 21:12:51 GMT",
+    "size": 51901
+  },
+  "https://unpkg.com/tachyons@4.0.6/css/tachyons.css": {
+    "integrity": "sha384-dAAbohhV7YKeCi1ZGT9LA0/r/Z+3taVZRj84wwJgexTXqIyHogcQOWdQpt7dyMS6",
+    "lastModified": "Tue, 16 Aug 2016 14:54:35 GMT",
+    "size": 76969
+  },
+  "https://unpkg.com/tachyons@4.0.6/css/tachyons.min.css": {
+    "integrity": "sha384-c6CcKTb41BCZwAJNi7/S/nhetYqlxvaxBAn3AqfacxP1rdTUzoSeN82B+sY6AXx7",
+    "lastModified": "Tue, 16 Aug 2016 14:54:39 GMT",
+    "size": 51983
+  },
+  "https://unpkg.com/tachyons@4.0.7/css/tachyons.css": {
+    "integrity": "sha384-7r/zCKFbT2tgBuyQX5YOaT0KyVvdsA2tz9aHaRjkqniNDy/AFfyY6An1ZPNW67te",
+    "lastModified": "Wed, 17 Aug 2016 14:51:51 GMT",
+    "size": 78331
+  },
+  "https://unpkg.com/tachyons@4.0.7/css/tachyons.min.css": {
+    "integrity": "sha384-c6CcKTb41BCZwAJNi7/S/nhetYqlxvaxBAn3AqfacxP1rdTUzoSeN82B+sY6AXx7",
+    "lastModified": "Wed, 17 Aug 2016 14:51:55 GMT",
+    "size": 51983
+  },
+  "https://unpkg.com/tachyons@4.1.0/css/tachyons.css": {
+    "integrity": "sha384-UH+ns7VOGAWQy3CMV5su5wij1O1Dd/w4INTszuzmTzEArn+V6ZKEVvEO+URHc0xj",
+    "lastModified": "Fri, 19 Aug 2016 14:33:00 GMT",
+    "size": 78881
+  },
+  "https://unpkg.com/tachyons@4.1.0/css/tachyons.min.css": {
+    "integrity": "sha384-0hECUPlyAsayPIkmnvbVZqJ/quXX53pHZd7QGkLGJLj+acDhHpFxUoNtw7EdIs4K",
+    "lastModified": "Fri, 19 Aug 2016 14:33:06 GMT",
+    "size": 52353
+  },
+  "https://unpkg.com/tachyons@4.1.1/css/tachyons.css": {
+    "integrity": "sha384-XW96MBPgyYitRBTzWtC5/LErWqbL+SX4+qEgWieTl5oKdrFN376nLM31p1XPw5p8",
+    "lastModified": "Wed, 24 Aug 2016 15:51:49 GMT",
+    "size": 78643
+  },
+  "https://unpkg.com/tachyons@4.1.1/css/tachyons.min.css": {
+    "integrity": "sha384-0hECUPlyAsayPIkmnvbVZqJ/quXX53pHZd7QGkLGJLj+acDhHpFxUoNtw7EdIs4K",
+    "lastModified": "Wed, 24 Aug 2016 15:48:23 GMT",
+    "size": 52353
+  },
+  "https://unpkg.com/tachyons@4.1.2/css/tachyons.css": {
+    "integrity": "sha384-ogLDZCqDfp4o7jijb7IWH+0NUmOU4ox6St7KpTNcCf5E9oDlS36GmK7SoC8HMmxR",
+    "lastModified": "Thu, 25 Aug 2016 16:14:34 GMT",
+    "size": 86617
+  },
+  "https://unpkg.com/tachyons@4.1.2/css/tachyons.min.css": {
+    "integrity": "sha384-dkFP8t9MPON2F6ffiFbWsGud8pk/KwywivmPB7MGcQp3hU1Y3KsHjio3KZifN9Cr",
+    "lastModified": "Thu, 25 Aug 2016 16:14:34 GMT",
+    "size": 59523
+  },
+  "https://unpkg.com/tachyons@4.1.3/css/tachyons.css": {
+    "integrity": "sha384-G1iKHLAj/+HgB+iHav6OwLPEMDyJFjLJAB56mC/T7llfdD0BiNTzPuc1vUCdEKiD",
+    "lastModified": "Wed, 31 Aug 2016 11:31:45 GMT",
+    "size": 79366
+  },
+  "https://unpkg.com/tachyons@4.1.3/css/tachyons.min.css": {
+    "integrity": "sha384-61aIWHWWQOyJPR7N+DdvUmLlYXVwk+qLpX+mNdHPdQ4hxZX+G5AJQecIaxekwOTK",
+    "lastModified": "Wed, 31 Aug 2016 11:31:49 GMT",
+    "size": 52581
+  },
+  "https://unpkg.com/tachyons@4.10.0/css/tachyons.css": {
+    "integrity": "sha384-KCGUv9v44bkCUUuIPr2PwT6zQ70o2m2i17D5Qj2rvA8x5doHPwxga10hgo5+VI1S",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 114439
+  },
+  "https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css": {
+    "integrity": "sha384-0nBogmVNfj8rwBoxyqfXlsUPpeSwy00h65YPfo8ny122TaNsIhQVv5NNkr2SOSYT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 73496
+  },
+  "https://unpkg.com/tachyons@4.11.0/css/tachyons.css": {
+    "integrity": "sha384-CnyIuCW9QwhUovxIVfmFjKt/bY4APA4pDqQvIOCisFVNbSLQayeq+hrHz3XWRT2l",
+    "lastModified": "Fri, 20 Jul 2018 22:07:01 GMT",
+    "size": 114561
+  },
+  "https://unpkg.com/tachyons@4.11.0/css/tachyons.min.css": {
+    "integrity": "sha384-MgXkxgHvjuanykmVPqGY1xK6CDhkiOjqmhkw77x77wXdzJ0pnbzkDANtChhnVL7N",
+    "lastModified": "Fri, 20 Jul 2018 22:07:04 GMT",
+    "size": 73629
+  },
+  "https://unpkg.com/tachyons@4.11.1/css/tachyons.css": {
+    "integrity": "sha384-nT5V7G1ff/0T+6Ee17txsTFaHT1MtKcPLZvhpgqwLtthvKzNxRrBgMVMyHMQNT67",
+    "lastModified": "Sun, 22 Jul 2018 14:12:06 GMT",
+    "size": 114416
+  },
+  "https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css": {
+    "integrity": "sha384-rmLfbwHHgURkx7Lhs6epCubefWdJroMJ5TSP1pd5cKvE/CwgB/yVbUip7769lx3J",
+    "lastModified": "Sun, 22 Jul 2018 14:12:09 GMT",
+    "size": 73497
+  },
+  "https://unpkg.com/tachyons@4.12.0/css/tachyons.css": {
+    "integrity": "sha384-yC9VZXXDNVzCg4quMCYvZVnsYof3TstHVmcrIqpac2mDaEtdOGRK0qcURoeLfTjE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 114984
+  },
+  "https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css": {
+    "integrity": "sha384-HdwWLX4dk/rVys8SnenrDE/uk3Zk5VD9sqBD3/B4cWKBnmmaQ79BQgFXMHlJbVyQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 73972
+  },
+  "https://unpkg.com/tachyons@4.2.0/css/tachyons.css": {
+    "integrity": "sha384-+dVmOiktyBehsUDiwph92EzA2aA4bHT3SYg3lDFtbGB9LLPHNeglkMzIXwF/K+IC",
+    "lastModified": "Thu, 01 Sep 2016 17:25:15 GMT",
+    "size": 89699
+  },
+  "https://unpkg.com/tachyons@4.2.0/css/tachyons.min.css": {
+    "integrity": "sha384-a9lK8nSquNATJrPHbzi2uMj4PfzNSMLSbIKZ17Q9Xt1c2T/Cp7hi5ZyvxI1P8hvX",
+    "lastModified": "Thu, 01 Sep 2016 17:25:15 GMT",
+    "size": 61565
+  },
+  "https://unpkg.com/tachyons@4.2.1/css/tachyons.css": {
+    "integrity": "sha384-SodcNEllEIZ1n0v+2s5nOGwVOEx9mTGDKxJSGrVVbe7nLJ7XIwykzgwuhp0oHjFk",
+    "lastModified": "Mon, 05 Sep 2016 12:45:23 GMT",
+    "size": 93552
+  },
+  "https://unpkg.com/tachyons@4.2.1/css/tachyons.min.css": {
+    "integrity": "sha384-aUbc8vho0+qcuRSSc8E3ZHZZifVUznmKrSyHr5KOy37WXyLk5v6XTh9RTq34ej4W",
+    "lastModified": "Mon, 05 Sep 2016 12:45:27 GMT",
+    "size": 61603
+  },
+  "https://unpkg.com/tachyons@4.3.0/css/tachyons.css": {
+    "integrity": "sha384-QK4ZNHxE7OzCwwieKqWlmuOHHoWwpS2cCIcGQJD16cqQI4MVI1MjBnrQHn0VlJoY",
+    "lastModified": "Wed, 07 Sep 2016 15:23:53 GMT",
+    "size": 94070
+  },
+  "https://unpkg.com/tachyons@4.3.0/css/tachyons.min.css": {
+    "integrity": "sha384-AnfxpKqY+7UYEa1Y3wSDF04TJSY/wRyQ7qaLffserz9WZo0XS/f93hFRFmgOj/io",
+    "lastModified": "Wed, 07 Sep 2016 15:23:57 GMT",
+    "size": 61968
+  },
+  "https://unpkg.com/tachyons@4.3.1/css/tachyons.css": {
+    "integrity": "sha384-z/eZwSIr7PBbwPhKvMdfOrxfSqw4HtR7ELrhk0JOp1TsONBDirr1+Ybc1Y6JoZsu",
+    "lastModified": "Thu, 08 Sep 2016 13:46:53 GMT",
+    "size": 94158
+  },
+  "https://unpkg.com/tachyons@4.3.1/css/tachyons.min.css": {
+    "integrity": "sha384-OTOSjj0+4bp+QC0XNoqDbBINOl5aZN8zlNo0SjOzZEpPPPmYJJeudme5QWBhMUvU",
+    "lastModified": "Thu, 08 Sep 2016 13:46:57 GMT",
+    "size": 62048
+  },
+  "https://unpkg.com/tachyons@4.4.0/css/tachyons.css": {
+    "integrity": "sha384-5j66zUoiPO3e4Qy4OKEhPzqF9YWirxauvlkqUOkD2/ueKH/LZgTZQ4S22TiK78NF",
+    "lastModified": "Thu, 15 Sep 2016 14:50:59 GMT",
+    "size": 109498
+  },
+  "https://unpkg.com/tachyons@4.4.0/css/tachyons.min.css": {
+    "integrity": "sha384-oNfFguEwlu+Mqn6d8FOkT8YhLvhoWO3DTfo5QBNTeOjacVjTH4a5nKZLds4+QNbZ",
+    "lastModified": "Thu, 15 Sep 2016 14:50:59 GMT",
+    "size": 72332
+  },
+  "https://unpkg.com/tachyons@4.4.1/css/tachyons.css": {
+    "integrity": "sha384-qH0AztKcLzmTPAy/LBZGFCS7ZgZ5i8qKo2IfQ/KuwuQ5Tg6BsN8/5BRBcUd64ywr",
+    "lastModified": "Thu, 15 Sep 2016 16:05:45 GMT",
+    "size": 109483
+  },
+  "https://unpkg.com/tachyons@4.4.1/css/tachyons.min.css": {
+    "integrity": "sha384-tjItJSwtIT1zp+bU0uWaTYgHAqkffqICpl5qGpUZoVmTamXjd984ZsNuMjjZDRSL",
+    "lastModified": "Thu, 15 Sep 2016 16:06:17 GMT",
+    "size": 72307
+  },
+  "https://unpkg.com/tachyons@4.4.2/css/tachyons.css": {
+    "integrity": "sha384-XuwLYOyujFcSX0OATwc5xZerh/kb5tn3UmBLToBy/YiMGHXfy/7/KvA3DhbECZlg",
+    "lastModified": "Thu, 15 Sep 2016 20:10:47 GMT",
+    "size": 109483
+  },
+  "https://unpkg.com/tachyons@4.4.2/css/tachyons.min.css": {
+    "integrity": "sha384-Xmexicj2AnEKp7IzpUA4IgsoC2ra47gbRMnZOBGllorVn6pTwcgz64Znefv2WN2m",
+    "lastModified": "Thu, 15 Sep 2016 20:11:43 GMT",
+    "size": 72307
+  },
+  "https://unpkg.com/tachyons@4.4.3/css/tachyons.css": {
+    "integrity": "sha384-FBi0KW2iwuUUpIgNVF/RXDGnlg8EvAF5fpNi7IRnnHaaJMMCdV9jMiAL5nPRPcjx",
+    "lastModified": "Fri, 16 Sep 2016 21:16:07 GMT",
+    "size": 109456
+  },
+  "https://unpkg.com/tachyons@4.4.3/css/tachyons.min.css": {
+    "integrity": "sha384-ckBBr344zpb+F3W2EqjBHnD+9UJVnEf/I9U7jfcHCOwwUjUaEdOdMLjECDY4U3EG",
+    "lastModified": "Fri, 16 Sep 2016 21:16:14 GMT",
+    "size": 72285
+  },
+  "https://unpkg.com/tachyons@4.5.0/css/tachyons.css": {
+    "integrity": "sha384-HTjPkMYXZmq58O+XneUt0exsHpOwdzl9h3kX2e0+XalNuHlg5DM4YY0vbWLaDP+g",
+    "lastModified": "Sat, 17 Sep 2016 14:30:30 GMT",
+    "size": 110274
+  },
+  "https://unpkg.com/tachyons@4.5.0/css/tachyons.min.css": {
+    "integrity": "sha384-tujRdFwvBV3NRX5o1bg+UM5TWuyx3D+tkBVnXGaAPS7817vajWpGllpEnCu5pUhP",
+    "lastModified": "Sat, 17 Sep 2016 14:30:30 GMT",
+    "size": 72834
+  },
+  "https://unpkg.com/tachyons@4.5.1/css/tachyons.css": {
+    "integrity": "sha384-JUyjk93H+wkt+ZBt0OiiGNzIWp1C4ZfgVC6l3pj8iN8Kk0KLMNx1DsBEyItoouMj",
+    "lastModified": "Sat, 17 Sep 2016 18:04:32 GMT",
+    "size": 110275
+  },
+  "https://unpkg.com/tachyons@4.5.1/css/tachyons.min.css": {
+    "integrity": "sha384-X+cdX4vmnM0lMeMIzl6eGcIGR4uDfE3amU7KKkR3+QsigV/UBlILRXc0EMMD34wn",
+    "lastModified": "Sat, 17 Sep 2016 18:04:36 GMT",
+    "size": 72835
+  },
+  "https://unpkg.com/tachyons@4.5.2/css/tachyons.css": {
+    "integrity": "sha384-F3JIG96hYb4PCpQTz83/kKbq9qhnJV6lZmvPeUgBD39SYZbcPSWGs4rPbY2vzRy8",
+    "lastModified": "Tue, 20 Sep 2016 00:27:20 GMT",
+    "size": 110227
+  },
+  "https://unpkg.com/tachyons@4.5.2/css/tachyons.min.css": {
+    "integrity": "sha384-X+cdX4vmnM0lMeMIzl6eGcIGR4uDfE3amU7KKkR3+QsigV/UBlILRXc0EMMD34wn",
+    "lastModified": "Tue, 20 Sep 2016 00:15:33 GMT",
+    "size": 72835
+  },
+  "https://unpkg.com/tachyons@4.5.3/css/tachyons.css": {
+    "integrity": "sha384-ZXFNJU9esxBXYLIGKKmtx/t2+usU7nSrpmkeLUC/NRLcuKb7KuxkVeuQOqRGncAH",
+    "lastModified": "Fri, 23 Sep 2016 15:06:42 GMT",
+    "size": 110288
+  },
+  "https://unpkg.com/tachyons@4.5.3/css/tachyons.min.css": {
+    "integrity": "sha384-ENm2U0wo7HDvlj39DGRTkNbgZHJgI/cZsBiDMjo7o+/6eTa1fMiwnA5cTGINZySd",
+    "lastModified": "Fri, 23 Sep 2016 15:06:47 GMT",
+    "size": 72847
+  },
+  "https://unpkg.com/tachyons@4.5.4/css/tachyons.css": {
+    "integrity": "sha384-1oDjrQi9YEKnoL2kE9nD37WDsKIO2BrP3IT0znHgE6NEnSSsCvnfJm2S+rAcA5De",
+    "lastModified": "Fri, 14 Oct 2016 21:37:39 GMT",
+    "size": 109838
+  },
+  "https://unpkg.com/tachyons@4.5.4/css/tachyons.min.css": {
+    "integrity": "sha384-GDV+7aTeiE61PY2W0X4d26n7yo0vpdvfWzB0AUhcGIWA5dvkI/PIvKBigGUWEapQ",
+    "lastModified": "Fri, 14 Oct 2016 21:37:39 GMT",
+    "size": 72503
+  },
+  "https://unpkg.com/tachyons@4.5.5/css/tachyons.css": {
+    "integrity": "sha384-1oDjrQi9YEKnoL2kE9nD37WDsKIO2BrP3IT0znHgE6NEnSSsCvnfJm2S+rAcA5De",
+    "lastModified": "Fri, 14 Oct 2016 21:37:39 GMT",
+    "size": 109838
+  },
+  "https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css": {
+    "integrity": "sha384-GDV+7aTeiE61PY2W0X4d26n7yo0vpdvfWzB0AUhcGIWA5dvkI/PIvKBigGUWEapQ",
+    "lastModified": "Fri, 14 Oct 2016 21:37:39 GMT",
+    "size": 72503
+  },
+  "https://unpkg.com/tachyons@4.5.6/css/tachyons.css": {
+    "integrity": "sha384-1oDjrQi9YEKnoL2kE9nD37WDsKIO2BrP3IT0znHgE6NEnSSsCvnfJm2S+rAcA5De",
+    "lastModified": "Sat, 19 Nov 2016 12:12:53 GMT",
+    "size": 109838
+  },
+  "https://unpkg.com/tachyons@4.5.6/css/tachyons.min.css": {
+    "integrity": "sha384-GDV+7aTeiE61PY2W0X4d26n7yo0vpdvfWzB0AUhcGIWA5dvkI/PIvKBigGUWEapQ",
+    "lastModified": "Sat, 19 Nov 2016 12:12:53 GMT",
+    "size": 72503
+  },
+  "https://unpkg.com/tachyons@4.6.0/css/tachyons.css": {
+    "integrity": "sha384-nMZnre6icx8TTxbjcr64QpzQx4Z+sxX+24p6da8b00ZDhZTCVttigNEkbCq670+4",
+    "lastModified": "Tue, 13 Dec 2016 10:54:45 GMT",
+    "size": 125851
+  },
+  "https://unpkg.com/tachyons@4.6.0/css/tachyons.min.css": {
+    "integrity": "sha384-1zbeemArSnp2VAA2vODc+ALq/iMWvJy3i671f9DPadtJmMlJMmeCa2ZNf1JMMZ2M",
+    "lastModified": "Tue, 13 Dec 2016 10:54:45 GMT",
+    "size": 83737
+  },
+  "https://unpkg.com/tachyons@4.6.1/css/tachyons.css": {
+    "integrity": "sha384-m5yMCGr/NfGYrDhL7rv4m6elDPaUH250OAS0T7o2XkJI9JV2fK0V0hbkCV7/aBkn",
+    "lastModified": "Wed, 14 Dec 2016 18:01:22 GMT",
+    "size": 126247
+  },
+  "https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css": {
+    "integrity": "sha384-jwWgyVwDVprvvRk7Q+4QM85taoYehE+NVRTNHiHlTrOO/LwGoZuGt9bpyvXntChU",
+    "lastModified": "Wed, 14 Dec 2016 18:01:25 GMT",
+    "size": 83935
+  },
+  "https://unpkg.com/tachyons@4.6.2/css/tachyons.css": {
+    "integrity": "sha384-IjXItV6+5mEkcOdoGIZoVIgBXQpDTrs8AX5sCGVSQ3v1SThb+2h97jbDXDz8c3ow",
+    "lastModified": "Tue, 24 Jan 2017 16:29:51 GMT",
+    "size": 126478
+  },
+  "https://unpkg.com/tachyons@4.6.2/css/tachyons.min.css": {
+    "integrity": "sha384-04MPOsZWmFg2YbD5IsHWBcvhbmPjPmPBwiYhr6l3BD2wkKqkr5omHgx+/PJqlifn",
+    "lastModified": "Tue, 24 Jan 2017 16:29:53 GMT",
+    "size": 83982
+  },
+  "https://unpkg.com/tachyons@4.7.0/css/tachyons.css": {
+    "integrity": "sha384-dl5ApS3oynheF5DXEVFnamN2D3tV18OuF3lBUe+nDmUk9lS4ZZWwfZl5vzwWH1Jd",
+    "lastModified": "Mon, 03 Apr 2017 09:44:47 GMT",
+    "size": 127346
+  },
+  "https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css": {
+    "integrity": "sha384-fmnqXK4EIUbunpfs4FV8tTBMaGjHY1qF9vfU7AO5GwXMNH0Xr0lMGzLJnfVTxGqa",
+    "lastModified": "Mon, 03 Apr 2017 09:44:47 GMT",
+    "size": 84510
+  },
+  "https://unpkg.com/tachyons@4.7.1/css/tachyons.css": {
+    "integrity": "sha384-dl5ApS3oynheF5DXEVFnamN2D3tV18OuF3lBUe+nDmUk9lS4ZZWwfZl5vzwWH1Jd",
+    "lastModified": "Tue, 18 Apr 2017 13:23:02 GMT",
+    "size": 127346
+  },
+  "https://unpkg.com/tachyons@4.7.1/css/tachyons.min.css": {
+    "integrity": "sha384-fmnqXK4EIUbunpfs4FV8tTBMaGjHY1qF9vfU7AO5GwXMNH0Xr0lMGzLJnfVTxGqa",
+    "lastModified": "Tue, 18 Apr 2017 13:23:02 GMT",
+    "size": 84510
+  },
+  "https://unpkg.com/tachyons@4.7.2/css/tachyons.css": {
+    "integrity": "sha384-HiX8n8yCKN+RaUnAdbDuYmQZHbB4oIlN2qnFuxDkyjrmPrVQ8IpIsTeUwjLB708v",
+    "lastModified": "Wed, 10 May 2017 07:59:01 GMT",
+    "size": 128152
+  },
+  "https://unpkg.com/tachyons@4.7.2/css/tachyons.min.css": {
+    "integrity": "sha384-QvJZELpqruzvaEIjkr59/maudzB0bOdniha8B6yejAUiJKVhNjPIDzhX8uj5DAOc",
+    "lastModified": "Wed, 10 May 2017 07:58:46 GMT",
+    "size": 85652
+  },
+  "https://unpkg.com/tachyons@4.7.3/css/tachyons.css": {
+    "integrity": "sha384-XF5/KrMA87oyB08pipaAQygv50M31ndtWG+5I1OTHgNMd3K6/tUGzU+pAtu5g/mJ",
+    "lastModified": "Fri, 19 May 2017 20:29:00 GMT",
+    "size": 127564
+  },
+  "https://unpkg.com/tachyons@4.7.3/css/tachyons.min.css": {
+    "integrity": "sha384-e8Mjrd5v5kasNRCDEwtkGL6na31GV+yA9cVVBU5B3YFJRmbcWjdrqhCP+RICcB50",
+    "lastModified": "Fri, 19 May 2017 20:29:00 GMT",
+    "size": 85168
+  },
+  "https://unpkg.com/tachyons@4.7.4/css/tachyons.css": {
+    "integrity": "sha384-y2kBg2LWvzxQLfzmKHuECN8lOL5/2xXUWI0s6QkJQtSEXA40TZSocBckE8E7oopo",
+    "lastModified": "Fri, 19 May 2017 20:41:09 GMT",
+    "size": 128473
+  },
+  "https://unpkg.com/tachyons@4.7.4/css/tachyons.min.css": {
+    "integrity": "sha384-YESZYWgs5y7bdWP7uN/9/jOFygSSJcVuOqs/xcdb6t6kjgnilyseSzdZL/P6U9A7",
+    "lastModified": "Fri, 19 May 2017 20:41:11 GMT",
+    "size": 85757
+  },
+  "https://unpkg.com/tachyons@4.8.0/css/tachyons.css": {
+    "integrity": "sha384-H7dfU9zyBK7QK5Qx24owl0f56Y7xyYHM4RS6WSQW49AXAvYXGUWiFeb+b0pooDaJ",
+    "lastModified": "Sat, 12 Aug 2017 22:37:31 GMT",
+    "size": 123568
+  },
+  "https://unpkg.com/tachyons@4.8.0/css/tachyons.min.css": {
+    "integrity": "sha384-h+a1Jq5BlwXlXSDV7Wixjug/KZ2BMMa9XTWXxrGD5ZCa7yXIxMnFq1HTcVKGioGG",
+    "lastModified": "Sat, 12 Aug 2017 22:37:31 GMT",
+    "size": 80687
+  },
+  "https://unpkg.com/tachyons@4.8.1/css/tachyons.css": {
+    "integrity": "sha384-QBtO2iU+dGWD69pNelKBoUJ02H5VQstFEav+OnEE1M3L+uelULIG/YP9o5jF2SMO",
+    "lastModified": "Tue, 15 Aug 2017 16:54:17 GMT",
+    "size": 123250
+  },
+  "https://unpkg.com/tachyons@4.8.1/css/tachyons.min.css": {
+    "integrity": "sha384-Sjyn4fNHa2am1lmhXkf5Q4Yk/lumVsRgs+/I6u0i9wZ1A0Mc4Hx+0+SYmtKyZfhT",
+    "lastModified": "Tue, 15 Aug 2017 16:54:19 GMT",
+    "size": 80687
+  },
+  "https://unpkg.com/tachyons@4.9.0/css/tachyons.css": {
+    "integrity": "sha384-iDqvOzy/AJaBU4RMyAnlBZCCAdBSUd0BOR3uHZ1inOgCV5ydM/NcQlZ/5AtsAEIc",
+    "lastModified": "Thu, 26 Oct 2017 21:57:34 GMT",
+    "size": 124338
+  },
+  "https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css": {
+    "integrity": "sha384-D3A0GB7ArydwFzmHSKP0gFdOIK/ejRlT6u+mMjNK2+zuKKqq8BYpfMHcES82R0zu",
+    "lastModified": "Thu, 26 Oct 2017 21:57:36 GMT",
+    "size": 81619
+  },
+  "https://unpkg.com/tachyons@4.9.1/css/tachyons.css": {
+    "integrity": "sha384-HMW1eShz7CHkxdKHJgg6TdD90HpV9zhpXHa5+dlWdK9m2Z8u1kMCti6Raz+xnTNS",
+    "lastModified": "Mon, 01 Jan 2018 17:02:24 GMT",
+    "size": 124382
+  },
+  "https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css": {
+    "integrity": "sha384-QVMACRNcUWw6hYsjPb9VG4w1oUmXQDT+beNoCvCZYVr2vRM06khg+ShyPKVjLwnd",
+    "lastModified": "Mon, 01 Jan 2018 17:02:26 GMT",
+    "size": 81658
+  }
+}

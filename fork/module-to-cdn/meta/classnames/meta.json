@@ -1,0 +1,87 @@
+{
+  "https://unpkg.com/classnames@1.2.0/index.js": {
+    "integrity": "sha384-GhtteP87dhJcOXj+Wu+TRo49WIa4GGUYxXIdweNQoTN3oIl8l2J2/g7ALKEs2T9t",
+    "lastModified": "Tue, 17 Mar 2015 13:38:10 GMT",
+    "size": 730
+  },
+  "https://unpkg.com/classnames@1.2.1/index.js": {
+    "integrity": "sha384-3NSYNvsiqwrPAZ3AlLH9PuT4IT75BgzGBZfGhDqUY4ceuwz14cKeXesu8YSui6lz",
+    "lastModified": "Wed, 22 Apr 2015 13:31:54 GMT",
+    "size": 1012
+  },
+  "https://unpkg.com/classnames@1.2.2/index.js": {
+    "integrity": "sha384-Ujcl10hDNmhJYtUlq1iPvYA8NP4A6msR7Fy6t/NXYQ8avrsFpemGopucnCUjq2Ah",
+    "lastModified": "Tue, 28 Apr 2015 04:44:29 GMT",
+    "size": 988
+  },
+  "https://unpkg.com/classnames@2.0.0/index.js": {
+    "integrity": "sha384-081MISfAUprYosNLAcdYMU+/ZE0AVUOfwN04x5NE8zrztnco1ibHKiWGYHZf0nXY",
+    "lastModified": "Sun, 03 May 2015 07:34:33 GMT",
+    "size": 949
+  },
+  "https://unpkg.com/classnames@2.1.0/index.js": {
+    "integrity": "sha384-wvsvqnEiA3HR0M2Gz2YcigN+5whiEakzyr7Epk7jSpP2reUMRBgLQCRwxrXrKaRr",
+    "lastModified": "Tue, 05 May 2015 10:38:13 GMT",
+    "size": 959
+  },
+  "https://unpkg.com/classnames@2.1.1/index.js": {
+    "integrity": "sha384-4zXw4gUamMHAzEHanweWz8Qg4zRtbpPU2mTBTJVjkgSOLdLgDyiF49l3CeNpz+vz",
+    "lastModified": "Wed, 06 May 2015 13:22:31 GMT",
+    "size": 979
+  },
+  "https://unpkg.com/classnames@2.1.2/index.js": {
+    "integrity": "sha384-lcWN+flKhr33dcFlU4SxXFV43WZO42V8V8TCZIAAMET+QnAMhvMWwEvfRXnni2v8",
+    "lastModified": "Thu, 28 May 2015 09:38:03 GMT",
+    "size": 1024
+  },
+  "https://unpkg.com/classnames@2.1.3/index.js": {
+    "integrity": "sha384-aMtJ9MYca6LbjyWoHvsesuLLe8q9Eq318gMjqDEUQvXcywmBvSh0jzX2IJZSUxW8",
+    "lastModified": "Thu, 02 Jul 2015 17:40:12 GMT",
+    "size": 1023
+  },
+  "https://unpkg.com/classnames@2.1.4/index.js": {
+    "integrity": "sha384-r3ep8bNOc06pNvvjOGt8Sxom+kALAZfLag0KjrhdN6ZfVjT9QO4+sXsy68gZadPt",
+    "lastModified": "Wed, 30 Sep 2015 06:23:54 GMT",
+    "size": 1107
+  },
+  "https://unpkg.com/classnames@2.1.5/index.js": {
+    "integrity": "sha384-r3ep8bNOc06pNvvjOGt8Sxom+kALAZfLag0KjrhdN6ZfVjT9QO4+sXsy68gZadPt",
+    "lastModified": "Wed, 30 Sep 2015 06:23:54 GMT",
+    "size": 1107
+  },
+  "https://unpkg.com/classnames@2.2.0/index.js": {
+    "integrity": "sha384-r3ep8bNOc06pNvvjOGt8Sxom+kALAZfLag0KjrhdN6ZfVjT9QO4+sXsy68gZadPt",
+    "lastModified": "Wed, 30 Sep 2015 06:23:54 GMT",
+    "size": 1107
+  },
+  "https://unpkg.com/classnames@2.2.1/index.js": {
+    "integrity": "sha384-74iANAGVzCo7wsqvpUqUdEgaZqQf77nto9YuDzPXfvNoAVjeQWodrBNw5fWCgvo7",
+    "lastModified": "Thu, 26 Nov 2015 00:29:45 GMT",
+    "size": 1111
+  },
+  "https://unpkg.com/classnames@2.2.2/index.js": {
+    "integrity": "sha384-x2aqexAGTNwoXS9GtvIGlu1hIZAO7AzUDlqecvuTFCtArVNWNuoTVubnEAPbR+BK",
+    "lastModified": "Mon, 04 Jan 2016 08:46:22 GMT",
+    "size": 1102
+  },
+  "https://unpkg.com/classnames@2.2.3/index.js": {
+    "integrity": "sha384-x2aqexAGTNwoXS9GtvIGlu1hIZAO7AzUDlqecvuTFCtArVNWNuoTVubnEAPbR+BK",
+    "lastModified": "Tue, 05 Jan 2016 10:22:17 GMT",
+    "size": 1102
+  },
+  "https://unpkg.com/classnames@2.2.4/index.js": {
+    "integrity": "sha384-x2aqexAGTNwoXS9GtvIGlu1hIZAO7AzUDlqecvuTFCtArVNWNuoTVubnEAPbR+BK",
+    "lastModified": "Mon, 25 Apr 2016 13:13:00 GMT",
+    "size": 1102
+  },
+  "https://unpkg.com/classnames@2.2.5/index.js": {
+    "integrity": "sha384-x2aqexAGTNwoXS9GtvIGlu1hIZAO7AzUDlqecvuTFCtArVNWNuoTVubnEAPbR+BK",
+    "lastModified": "Mon, 25 Apr 2016 13:13:00 GMT",
+    "size": 1102
+  },
+  "https://unpkg.com/classnames@2.2.6/index.js": {
+    "integrity": "sha384-kMtYB0+8VY+yT4O/ViXJdo+q17z7FVjLC+vAGo+7u0QUDJbu7WNaym4jvMCcnk9z",
+    "lastModified": "Fri, 13 Apr 2018 13:40:49 GMT",
+    "size": 1198
+  }
+}

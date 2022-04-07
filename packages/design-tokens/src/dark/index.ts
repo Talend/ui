@@ -281,13 +281,21 @@ const tokens = {
 		'var(--coral-color-branding-background, linear-gradient(133deg,hsla(226,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%))',
 	coralColorBrandingNavigation:
 		'var(--coral-color-branding-navigation, linear-gradient(133deg,hsla(222,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%))',
-	coralSizeXxs: 'var(--coral-size-xxs, 0.4rem)',
-	coralSizeXs: 'var(--coral-size-xs, 0.8rem)',
-	coralSizeS: 'var(--coral-size-s, 1.2rem)',
-	coralSizeM: 'var(--coral-size-m, 1.6rem)',
-	coralSizeL: 'var(--coral-size-l, 2.8rem)',
-	coralSizeXl: 'var(--coral-size-xl, 3.6rem)',
-	coralSizeLimit: 'var(--coral-size-limit, 32rem)',
+	coralSpacingXxs: 'var(--coral-spacing-xxs, 0.4rem)',
+	coralSpacingXs: 'var(--coral-spacing-xs, 0.8rem)',
+	coralSpacingS: 'var(--coral-spacing-s, 1.2rem)',
+	coralSpacingM: 'var(--coral-spacing-m, 1.6rem)',
+	coralSpacingL: 'var(--coral-spacing-l, 2.8rem)',
+	coralSpacingXl: 'var(--coral-spacing-xl, 3.6rem)',
+	coralSizingMinimal: 'var(--coral-sizing-minimal, 1.2rem)',
+	coralSizingXxxs: 'var(--coral-sizing-xxxs, 1.6rem)',
+	coralSizingXxs: 'var(--coral-sizing-xxs, 2rem)',
+	coralSizingXs: 'var(--coral-sizing-xs, 2.4rem)',
+	coralSizingS: 'var(--coral-sizing-s, 2.8rem)',
+	coralSizingM: 'var(--coral-sizing-m, 3.6rem)',
+	coralSizingL: 'var(--coral-sizing-l, 4rem)',
+	coralSizingXxxl: 'var(--coral-sizing-xxxl, 22rem)',
+	coralSizingMaximal: 'var(--coral-sizing-maximal, 32rem)',
 	coralElevationShadowNeutralM:
 		'var(--coral-elevation-shadow-neutral-m, 0rem 0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3))',
 	coralElevationShadowNeutralL:
@@ -303,9 +311,9 @@ const tokens = {
 	coralElevationShadowBeta:
 		'var(--coral-elevation-shadow-beta, 0rem 0.1rem 0.1rem 0rem hsla(279,34%,78%,0.3))',
 	coralElevationShadowNeutralInvertedM:
-		'var(--coral-elevation-shadow-neutral-inverted-m, 0rem -0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3))',
+		'var(--coral-elevation-shadow-neutral-inverted-m, 0rem -0.2rem 0.6rem 0rem hsla(0,0%,2%,0.3))',
 	coralElevationShadowNeutralInvertedL:
-		'var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3))',
+		'var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0,0%,5%,0.3))',
 	coralHeadingL: "var(--coral-heading-l, 600 1.8rem/140% 'Source Sans Pro')",
 	coralHeadingM: "var(--coral-heading-m, 600 1.6rem/140% 'Source Sans Pro')",
 	coralHeadingS: "var(--coral-heading-s, 600 1.4rem/140% 'Source Sans Pro')",
