@@ -1,19 +1,26 @@
 import icons from '../icon';
 
-declare type Icon =
+export enum IconSize {
+	XS = 8,
+	S = 12,
+	M = 16,
+	L = 24,
+}
+
+export type Icon =
 	| {
-			size: 'XS';
+			size: keyof IconSize.XS;
 			name: keyof typeof icons['XS'];
 	  }
 	| {
-			size: 'S';
+			size: keyof IconSize.S;
 			name: keyof typeof icons['S'];
 	  }
 	| {
-			size: 'M';
+			size: keyof IconSize.M;
 			name: keyof typeof icons['M'];
 	  }
 	| {
-			size: 'L';
+			size: keyof IconSize.L;
 			name: keyof typeof icons['L'];
 	  };
