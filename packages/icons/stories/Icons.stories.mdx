@@ -27,7 +27,7 @@ export const iconTokens = {
 	'beta/icon': '#aa2de8',
 };
 
-export const IconTokensSelect = () => (
+export const IconColorTokenSelect = () => (
 	<select
 		onChange={e => {
 			const sections = document.getElementsByTagName('svg');
@@ -44,7 +44,7 @@ export const IconTokensSelect = () => (
 # Icons
 
 <div>
-    <IconTokensSelect />
+    <IconColorTokenSelect />
     {['XS', 'S', 'M', 'L', 'XL']
     	.filter(size => icons[size])
     	.map(size => {
