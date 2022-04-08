@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 7.0.6
+
+### Patch Changes
+
+- 9f7d702ea: chore(ARCH-482/EnumerationWidget): remove deprecatetd lifecycle and use RTL for tests
+- 543897cf7: chore(ARCH-482/MultiSelectTagWidget): remove deprecated lifecycle and use RTL for tests
+- ad4acc570: chore(ARCH-482/DatalistWidget): remove deprecatetd lifecycle and use RTL for tests
+- f3b15a44d: chore(ARCH-482/ListViewWidget): remove deprecated lifecycle and use RTL for tests
+
 ## 7.0.5
 
 ### Patch Changes

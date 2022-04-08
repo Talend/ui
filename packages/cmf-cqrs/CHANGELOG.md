@@ -1,5 +1,11 @@
 # @talend/react-cmf-cqrs
 
+## 7.1.0
+
+### Minor Changes
+
+- dc846fccd: feat(cmf-cqrs): Add usewebsocket hook
+
 ## 7.0.1
 
 ### Patch Changes
