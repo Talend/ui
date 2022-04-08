@@ -1,10 +1,13 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-empty */
 const path = require('path');
 const fs = require('fs');
 const moduleToCdn = require('@talend/module-to-cdn');
 const DynamicCdnWebpackPlugin = require('@talend/dynamic-cdn-webpack-plugin');
-const { findPackage } = require('@talend/dynamic-cdn-webpack-plugin/lib/find');
+const { findPackage } = require('@talend/dynamic-cdn-webpack-plugin/src/find');
 const lockfile = require('@yarnpkg/lockfile');
 const modules = require('./modules.json');
 const umds = require('./umds.json');

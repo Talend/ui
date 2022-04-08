@@ -45,9 +45,7 @@ jobs:
 
       - name: Build @talend/design-tokens
         run: |
-          yarn workspace @talend/dynamic-webpack-plugin run build:lib
           yarn workspace @talend/design-tokens run build:lib
-          yarn workspace @talend/design-tokens run pre-release
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'

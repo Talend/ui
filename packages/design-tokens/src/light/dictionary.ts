@@ -2163,63 +2163,129 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 		name: 'coralColorBrandingBackground',
 		type: 'gradient',
 		description: 'Main brand background. Used for heroes.',
-		id: 'S:7369c08796eae0029bd6cb957fdb947537ad8f1a,',
+		id: 'S:48da8b40c9b41977ec986642cfb91febb77cc536,',
 		value: 'linear-gradient(133deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%)',
 	},
 	{
 		name: 'coralColorBrandingNavigation',
 		type: 'gradient',
 		description: 'Main navigation background. Used for TopBar and branded Sidebar.',
-		id: 'S:39853a790e92be0612a0a997860d283ea38b03a9,',
+		id: 'S:901ebd713b6444217424da171789495f7e32c8d2,',
 		value: 'linear-gradient(133deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%)',
 	},
 	{
-		name: 'coralSizeXxs',
+		name: 'coralSpacingXxs',
 		type: 'measure',
-		description: '',
-		id: 'aaceda90-3e58-11ec-94da-6d5db9104cfa',
+		description: 'Use for paddings or margins',
+		id: '16bfe560-b4c3-11ec-8521-cbbf4c303d59',
 		value: '0.4rem',
 	},
 	{
-		name: 'coralSizeXs',
+		name: 'coralSpacingXs',
 		type: 'measure',
-		description: '',
-		id: 'afa19851-3e58-11ec-94da-6d5db9104cfa',
+		description: 'Use for paddings or margins',
+		id: '1ca7bca0-b4c3-11ec-b522-2f15f0dfcaeb',
 		value: '0.8rem',
 	},
 	{
-		name: 'coralSizeS',
+		name: 'coralSpacingS',
 		type: 'measure',
-		description: '',
-		id: 'b6ce99c1-3e58-11ec-94da-6d5db9104cfa',
+		description: 'Use for paddings or margins',
+		id: '2c35d2b0-b4c3-11ec-96ab-01d033d945fb',
 		value: '1.2rem',
 	},
 	{
-		name: 'coralSizeM',
+		name: 'coralSpacingM',
 		type: 'measure',
-		description: '',
-		id: 'bd9eae21-3e58-11ec-94da-6d5db9104cfa',
+		description: 'Use for paddings or margins',
+		id: '35c79f20-b4c3-11ec-84df-e5bfacc479f2',
 		value: '1.6rem',
 	},
 	{
-		name: 'coralSizeL',
+		name: 'coralSpacingL',
 		type: 'measure',
-		description: '',
-		id: 'c6d53b31-3e58-11ec-94da-6d5db9104cfa',
+		description: 'Use for margins, paddings of really necessary',
+		id: '3b3dc8d0-b4c3-11ec-b3c9-73d93683841a',
 		value: '2.8rem',
 	},
 	{
-		name: 'coralSizeXl',
+		name: 'coralSpacingXl',
 		type: 'measure',
-		description: '',
-		id: 'cc70a021-3e58-11ec-94da-6d5db9104cfa',
+		description: 'Use for margins, paddings of really necessary',
+		id: '4247b1e0-b4c3-11ec-8804-23bba7614e8e',
 		value: '3.6rem',
 	},
 	{
-		name: 'coralSizeLimit',
+		name: 'coralSizingMinimal',
 		type: 'measure',
-		description: '',
-		id: 'd3b76b21-3e58-11ec-94da-6d5db9104cfa',
+		description: 'Use for fixed-size elements',
+		id: 'c3717da0-b4c3-11ec-8909-db885780505b',
+		value: '1.2rem',
+	},
+	{
+		name: 'coralSizingXxxs',
+		type: 'measure',
+		description: 'For fixed-size elements. Minimal size for interactive elements.',
+		id: 'ed784f70-b4c3-11ec-b3b5-d3127ac3649e',
+		value: '1.6rem',
+	},
+	{
+		name: 'coralSizingXxs',
+		type: 'measure',
+		description: 'Use for fixed-size elements',
+		id: '08dc2e80-b4c4-11ec-8350-c9f2819e7422',
+		value: '2rem',
+	},
+	{
+		name: 'coralSizingXs',
+		type: 'measure',
+		description: 'Use for fixed-size elements',
+		id: '0e48e250-b4c4-11ec-b383-adf02fe16153',
+		value: '2.4rem',
+	},
+	{
+		name: 'coralSizingS',
+		type: 'measure',
+		description: `Use for fixed-size elements.
+
+Ex: Small Buttons`,
+		id: '12bf4f40-b4c4-11ec-ae8c-a93a8912678c',
+		value: '2.8rem',
+	},
+	{
+		name: 'coralSizingM',
+		type: 'measure',
+		description: `Use for fixed-size elements.
+
+Ex: Buttons`,
+		id: '1c14d600-b4c4-11ec-9b40-6fc6b8a4ad7a',
+		value: '3.6rem',
+	},
+	{
+		name: 'coralSizingL',
+		type: 'measure',
+		description: `Use for fixed-size elements.
+
+Ex: Icon illustration`,
+		id: '21129b60-b4c4-11ec-a702-27e439bbf696',
+		value: '4rem',
+	},
+	{
+		name: 'coralSizingXxxl',
+		type: 'measure',
+		description: `Use for fixed-size elements.
+
+Ex: Spot illustration height`,
+		id: '292e1b80-b4c4-11ec-800e-5bc0e3562a54',
+		value: '22rem',
+	},
+	{
+		name: 'coralSizingMaximal',
+		type: 'measure',
+		description: `Use for fixed-size elements.
+
+Ex: Spot illustration width`,
+		id: '2e751ee0-b4c4-11ec-9f9f-75ac4ca4ac00',
 		value: '32rem',
 	},
 	{
@@ -2230,15 +2296,6 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
 Use on "first layer" of elevation. `,
 		id: 'S:34a756f910ffc665554a228b44d5eec1e9c463cb,:shadow:0',
 		value: '0rem 0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3)',
-	},
-	{
-		name: 'coralElevationShadowNeutralL',
-		type: 'shadow',
-		description: `Large shadow.
-
-Use on "second layer" of elevation - something that need to be "above" anything else.`,
-		id: 'S:a2f6e4c6b17f0f6fcf8525d14fbd34f992350375,:shadow:0',
-		value: '0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3)',
 	},
 	{
 		name: 'coralElevationShadowAccent',
@@ -2298,16 +2355,30 @@ Ex: InlineMessage`,
 	{
 		name: 'coralElevationShadowNeutralInvertedM',
 		type: 'shadow',
-		description: '',
+		description: `Default shadow.
+
+Use on "first layer" of elevation. Reserve it for elements sticking to the bottom of the viewport.`,
 		id: 'S:1402e349bd668e8e2765a70a5b3c9d4aa261f6ac,:shadow:0',
 		value: '0rem -0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3)',
 	},
 	{
 		name: 'coralElevationShadowNeutralInvertedL',
 		type: 'shadow',
-		description: '',
+		description: `Large shadow.
+
+Use on "second layer" of elevation - something that need to be "above" anything else.
+Reserve it for elements sticking to the bottom of the viewport.`,
 		id: 'S:2442aa4ab53dacae61024bae62200ad42e042707,:shadow:0',
 		value: '0rem -0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3)',
+	},
+	{
+		name: 'coralElevationShadowNeutralL',
+		type: 'shadow',
+		description: `Large shadow.
+
+Use on "second layer" of elevation - something that need to be "above" anything else.`,
+		id: 'S:a2f6e4c6b17f0f6fcf8525d14fbd34f992350375,:shadow:0',
+		value: '0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3)',
 	},
 	{
 		name: 'coralHeadingL',

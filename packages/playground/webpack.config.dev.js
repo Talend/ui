@@ -4,7 +4,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const resolve = require('@talend/dynamic-cdn-webpack-plugin/lib/resolve-pkg');
+const resolve = require('@talend/dynamic-cdn-webpack-plugin/src/resolve-pkg');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const mockBackend = require('./mockBackend/server');
