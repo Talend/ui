@@ -23,7 +23,7 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - name: Upgrade dependencies
+      - name: Install and tests
         run: |
           yarn --frozen-lockfile --ignore-scripts
           yarn test:cron
