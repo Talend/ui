@@ -1,4 +1,4 @@
-name: Upgrade dependencies
+name: Tests Cron
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ jobs:
   tests:
     name: Long running Tests
     runs-on: ubuntu-latest
-    continue-on-error: true # we want the PR to popup even if sth goes wrong
+    continue-on-error: true # we want the issue to popup even if sth goes wrong
 
     steps:
       - name: Checkout
@@ -33,7 +33,7 @@ jobs:
         uses: dacbd/create-issue-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: Action workflow failed.
+          title: module-to-cdn configuration fails
           body: |
             ### Context
             [Failed Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
@@ -41,4 +41,4 @@ jobs:
             Workflow name - `${{ github.workflow }}`
             Job -           `${{ github.job }}`
             status -        `${{ job.status }}`
-          assignees: SomeUsername,AnotherUsername
+          assignees: jmfrancois
