@@ -43,29 +43,29 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 
 	if (active && payload && payload.length) {
 	  return (
-		<div className={classNames(styles['line-chart-custom-tooltip-wrapper'])}>
-			<div className={classNames(styles['line-chart-custom-tooltip-wrapper-title'])}>{labelDisplayValue}</div>
+		<div className={classNames(styles['line-chart-custom-tooltip'])}>
+			<div className={classNames(styles['line-chart-custom-tooltip__title'])}>{labelDisplayValue}</div>
 			{linesToShow.map(config => (
 		  		<div
 					id={`tooltip_item_${config.key}`}
 					className={classNames({
-						[styles['line-chart-custom-tooltip-line-item--inactive']] : config?.status === 'inactive'
+						[styles['line-chart-custom-tooltip__line-item--inactive']] : config?.status === 'inactive'
 					})}
 		  		>
 					<div
 						className={classNames(
-							styles['line-chart-custom-tooltip-line-icon'],
+							styles['line-chart-custom-tooltip__line-icon'],
 							)}
 						style={{ background: getLineIconBackground(config.dashed, config.color)}}
 					/>
-					<span className={classNames(styles['line-chart-custom-tooltip-line-label'])}>
+					<span className={classNames(styles['line-chart-custom-tooltip__line-label'])}>
 						{ config.tooltipLabel ? config.tooltipLabel : config.key }
 					</span>
 					:
-					<span className={classNames(styles['line-chart-custom-tooltip-line-value'])}>
+					<span className={classNames(styles['line-chart-custom-tooltip__line-value'])}>
 						{getItemDisplayValue(payload, config)}
 					</span>
-					<span className={classNames(styles['line-chart-custom-tooltip-line-unit'])}>
+					<span className={classNames(styles['line-chart-custom-tooltip__line-unit'])}>
 						{getLineUnit(config.axis)}
 					</span>
 		  		</div>

@@ -49,14 +49,14 @@ export const CustomLegend = ({
 	if (payload && payload.length) {
 	  return (
 		<ul
-			className={classNames(styles['line-chart-custom-legend-wrapper'])}
+			className={classNames(styles['line-chart-custom-legend'])}
 			style={{ justifyContent: getContentJustification(align)}}
 		>
 			{linesToShow.map(config => (
 				<li id={`legend_item_${config.key}`} key={config.key}>
 					<div
 						className={classNames({
-							[styles['line-chart-custom-legend-button--inactive']] : config?.status === 'inactive'
+							[styles['line-chart-custom-legend__button--inactive']] : config?.status === 'inactive'
 						})}
 						role='button'
 						onClick={() => onLegendClicked(config.key)}
@@ -66,10 +66,10 @@ export const CustomLegend = ({
 						tabIndex={0}
 					>
 						<div
-							className={classNames(styles['line-chart-custom-legend-line-icon'])}
+							className={classNames(styles['line-chart-custom-legend__line-icon'])}
 							style={{ background: getLineIconBackground(config.dashed, config.color)}}
 						/>
-						<span className={classNames(styles['line-chart-custom-legend-line-label'])}>
+						<span className={classNames(styles['line-chart-custom-legend__line-label'])}>
 							{ config.legendLabel? config.legendLabel : config.key }
 						</span>
 

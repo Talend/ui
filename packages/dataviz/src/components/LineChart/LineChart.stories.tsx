@@ -64,7 +64,7 @@ FullyCustomisedLineChart.args = {
 			tooltipLabel: 'Trust Score™',
 			legendLabel: 'Talend Trust Score™',
 			axis: 'right',
-			status: 'inactive',
+			status: 'active',
 		},
 		{
 			key: 'validity',
