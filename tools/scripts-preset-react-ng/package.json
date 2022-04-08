@@ -18,14 +18,14 @@
   },
   "dependencies": {
     "@talend/scripts-config-babel": "^9.9.0",
-    "@talend/scripts-config-cdn": "^10.3.0",
+    "@talend/scripts-config-cdn": "^10.3.1",
     "@talend/scripts-config-eslint": "^9.8.0",
-    "@talend/scripts-config-jest": "^9.7.2",
+    "@talend/scripts-config-jest": "^9.7.3",
     "@talend/scripts-config-karma": "^9.7.3",
     "@talend/scripts-config-ng-webpack": "^9.8.0",
     "@talend/scripts-config-prettier": "^9.6.3",
-    "@talend/scripts-config-react-webpack": "^12.0.2",
-    "@talend/scripts-config-storybook-lib": "^1.0.2",
+    "@talend/scripts-config-react-webpack": "^12.0.3",
+    "@talend/scripts-config-storybook-lib": "^1.0.5",
     "@talend/scripts-config-stylelint": "^1.0.1",
     "@talend/scripts-config-typescript": "^9.11.1"
   },

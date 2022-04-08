@@ -1,8 +1,13 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import DatalistWidget, { escapeRegexCharacters } from './DatalistWidget';
+
+const getByTextContent = text =>
+	screen.getByText((content, element) => content !== '' && element.textContent === text);
+const queryByTextContent = text =>
+	screen.queryByText((content, element) => content !== '' && element.textContent === text);
 
 describe('escapeRegexCharacters', () => {
 	it('should escape all regex chars', () => {
@@ -21,7 +26,6 @@ describe('escapeRegexCharacters', () => {
 describe('getMatchingSuggestions', () => {
 	it('should filter in case insensitive mode', () => {
 		// given
-		const value = 'aze';
 		const suggestions = [
 			{ value: 'aze', label: 'aze' },
 			{ value: 'banane', label: 'banane' },
@@ -29,187 +33,175 @@ describe('getMatchingSuggestions', () => {
 			{ value: '   AzErTy   ', label: '   AzErTy   ' },
 			{ value: 'Toto', label: 'Toto' },
 		];
-		let widget;
-		renderer.create(
+		render(
 			<DatalistWidget
-				ref={ref => {
-					widget = ref;
-				}}
+				onChange={jest.fn()}
+				schema={{ title: 'Fruits', enum: suggestions.map(({ value }) => value) }}
 			/>,
 		);
 
 		// when
-		const filteredSuggestions = widget.getMatchingSuggestions(suggestions, value);
+		userEvent.type(screen.getByRole('textbox'), 'aze');
 
 		// then
-		expect(filteredSuggestions).toEqual([
-			{ value: 'aze', label: 'aze' },
-			{ value: 'bananAze', label: 'bananAze' },
-			{ value: '   AzErTy   ', label: '   AzErTy   ' },
-		]);
+		expect(getByTextContent('aze')).toBeInTheDocument();
+		expect(getByTextContent('bananAze')).toBeInTheDocument();
+		expect(getByTextContent('   AzErTy   ')).toBeInTheDocument();
+		expect(queryByTextContent('babane')).not.toBeInTheDocument();
+		expect(queryByTextContent('Toto')).not.toBeInTheDocument();
 	});
 
 	it('should filter with special chars', () => {
 		// given
-		const value = 'az[e';
 		const suggestions = [
 			{ value: 'aze', label: 'aze' },
 			{ value: 'banane', label: 'banane' },
 			{ value: 'bananaz[e', label: 'bananaz[e' },
 			{ value: '   az[erty   ', label: '   az[erty   ' },
 		];
-		let widget;
-		renderer.create(
+		render(
 			<DatalistWidget
-				ref={ref => {
-					widget = ref;
-				}}
+				onChange={jest.fn()}
+				schema={{ title: 'Fruits', enum: suggestions.map(({ value }) => value) }}
 			/>,
 		);
 
 		// when
-		const filteredSuggestions = widget.getMatchingSuggestions(suggestions, value);
+		userEvent.type(screen.getByRole('textbox'), 'az[[e'); // double the bracket because it's a special char for userEvent
 
 		// then
-		expect(filteredSuggestions).toEqual([
-			{ value: 'bananaz[e', label: 'bananaz[e' },
-			{ value: '   az[erty   ', label: '   az[erty   ' },
-		]);
+		expect(getByTextContent('bananaz[e')).toBeInTheDocument();
+		expect(getByTextContent('   az[erty   ')).toBeInTheDocument();
+		expect(queryByTextContent('aze')).not.toBeInTheDocument();
+		expect(queryByTextContent('babane')).not.toBeInTheDocument();
 	});
 });
 
 describe('DatalistWidget', () => {
 	const schema = {
+		title: 'Fruits',
 		enum: ['aze', 'banane', 'bananAze', '   AzErTy   ', 'Toto'],
 	};
 
+	beforeAll(() => {
+		jest.useFakeTimers();
+	});
+
+	afterAll(() => {
+		jest.runAllTimers();
+		jest.useRealTimers();
+	});
+
 	it('should render input', () => {
 		// when
-		const wrapper = renderer
-			.create(<DatalistWidget id="myWidget" required schema={{}} onChange={jest.fn()} />)
-			.toJSON();
+		render(<DatalistWidget id="myWidget" required schema={schema} onChange={jest.fn()} />);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toBeInTheDocument();
 	});
 
 	it('should render "no match" message', () => {
 		// given
-		const wrapper = mount(
-			<DatalistWidget id="myWidget" required schema={schema} onChange={jest.fn()} />,
-		);
+		render(<DatalistWidget id="myWidget" required schema={schema} onChange={jest.fn()} />);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: 'noMatchingValue' } });
+		userEvent.type(screen.getByRole('textbox'), 'noMatchingValue');
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByText('No match.')).toBeInTheDocument();
 	});
 
 	it('should render "empty list" message', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<DatalistWidget
 				id="myWidget"
 				required
-				schema={{}}
+				schema={{ title: 'Fruits', enum: [] }}
 				onChange={jest.fn()}
 				renderEmptyList={() => 'Empty list'}
 			/>,
 		);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus');
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(wrapper.find('div.tf-typeahead-container').text()).toEqual('Empty list');
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByText('Empty list')).toBeInTheDocument();
 	});
 
 	it('should render all suggestions on focus', () => {
 		// given
-		const wrapper = mount(
-			<DatalistWidget id="myWidget" required schema={schema} onChange={jest.fn()} />,
-		);
+		render(<DatalistWidget id="myWidget" required schema={schema} onChange={jest.fn()} />);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus');
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByText('aze')).toBeInTheDocument();
+		expect(screen.getByText('banane')).toBeInTheDocument();
+		expect(screen.getByText('bananAze')).toBeInTheDocument();
+		expect(screen.getByText('AzErTy')).toBeInTheDocument();
+		expect(screen.getByText('Toto')).toBeInTheDocument();
 	});
 
-	it('should render hightlighted matching suggestions on value change', () => {
+	it('should render highlighted matching suggestions on value change', () => {
 		// given
-		const wrapper = mount(
-			<DatalistWidget id="myWidget" required schema={schema} onChange={jest.fn()} />,
-		);
+		render(<DatalistWidget id="myWidget" required schema={schema} onChange={jest.fn()} />);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: 'aze' } });
+		userEvent.type(screen.getByRole('textbox'), 'aze');
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(getByTextContent('aze')).toBeInTheDocument();
+		expect(getByTextContent('bananAze')).toBeInTheDocument();
+		expect(screen.getByText('Aze')).toBeInTheDocument(); // highlighted element from "bananAze"
+		expect(getByTextContent('   AzErTy   ')).toBeInTheDocument();
+		expect(screen.getByText('AzE')).toBeInTheDocument(); // highlighted element from "   AzErTy   "
+		expect(queryByTextContent('babane')).not.toBeInTheDocument();
+		expect(queryByTextContent('Toto')).not.toBeInTheDocument();
 	});
 
 	it('should set value and reset suggestions on suggestion selection', () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = mount(
-			<DatalistWidget id="myWidget" required schema={schema} onChange={onChange} />,
-		);
-
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus'); // to display suggestions
+		render(<DatalistWidget id="myWidget" required schema={schema} onChange={onChange} />);
 
 		// when
-		wrapper.find('li#react-autowhatever-myWidget--item-0').simulate('mouseDown');
+		userEvent.click(screen.getByRole('textbox'));
+		userEvent.click(screen.getByText('aze'));
 
 		// then
 		expect(onChange).toBeCalledWith('aze');
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toHaveValue('aze');
 	});
 
 	it('should set value when receiving a new value from props', () => {
+		// given
 		const onChange = jest.fn();
-		const wrapper = mount(
+		const { rerender } = render(
 			<DatalistWidget id="myWidget" required schema={schema} onChange={onChange} />,
 		);
 
-		wrapper.setProps({ value: 'new' });
+		// when
+		rerender(
+			<DatalistWidget id="myWidget" required schema={schema} onChange={onChange} value="new" />,
+		);
 
 		// then
-		expect(wrapper.state('value')).toEqual('new');
+		expect(screen.getByRole('textbox')).toHaveValue('new');
 	});
 
 	it('should not change the value if it is the same', () => {
 		// given
 		const onChange = jest.fn();
-		const value = 'aze';
-		const wrapper = mount(
-			<DatalistWidget id="myWidget" value={value} required schema={schema} onChange={onChange} />,
+		render(
+			<DatalistWidget id="myWidget" value="aze" required schema={schema} onChange={onChange} />,
 		);
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus'); // to display suggestions
 
 		// when
-		wrapper.find('li#react-autowhatever-myWidget--item-0').simulate('mouseDown');
+		userEvent.click(screen.getByRole('textbox'));
+		userEvent.click(screen.getByText('aze'));
 
 		// then
 		expect(onChange).not.toBeCalled();
@@ -217,29 +209,33 @@ describe('DatalistWidget', () => {
 
 	it('should reset value on unknown value input blur', () => {
 		// given
-		const onChange = jest.fn();
-		const wrapper = mount(
+		const schema2 = {
+			title: 'Fruits',
+			enum: ['aze', 'banane', 'bananAze', '   AzErTy   ', 'Toto'],
+		};
+		render(
 			<DatalistWidget
 				id="myWidget"
 				required
-				schema={schema}
-				onChange={onChange}
+				schema={schema2}
+				onChange={jest.fn()}
 				options={{ restricted: true }}
 			/>,
 		);
-		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('blur', { target: { value: 'unknown' } });
+		userEvent.type(screen.getByRole('textbox'), 'unknown');
+		jest.runAllTimers(); // userEvent.type manages the focus too. The focus management is done with a setTimeout
+		fireEvent.blur(screen.getByRole('textbox'));
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toHaveValue('');
 	});
 
 	it('should select known value on input blur', () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = mount(
+		render(
 			<DatalistWidget
 				id="myWidget"
 				required
@@ -248,22 +244,23 @@ describe('DatalistWidget', () => {
 				options={{ restricted: true }}
 			/>,
 		);
-		const input = wrapper.find('input').at(0);
+		const input = screen.getByRole('textbox');
 
 		// when
-		input.simulate('focus');
-		input.simulate('change', { target: { value: 'banane' } });
-		input.simulate('blur');
+		userEvent.click(input);
+		jest.runAllTimers(); // focus management via setTimeout
+		userEvent.type(input, 'banane');
+		fireEvent.blur(input);
 
 		// then
-		expect(onChange).toBeCalled();
-		expect(wrapper.find('input').prop('value')).toEqual('banane');
+		expect(onChange).toBeCalledWith('banane');
+		expect(input).toHaveValue('banane');
 	});
 
 	it('should select known value on input blur with enumOptions', () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = mount(
+		render(
 			<DatalistWidget
 				id="myWidget"
 				required
@@ -272,35 +269,35 @@ describe('DatalistWidget', () => {
 				options={{ enumOptions: [{ label: 'foo', value: 'bar' }], restricted: true }}
 			/>,
 		);
-		const input = wrapper.find('input').at(0);
+		const input = screen.getByRole('textbox');
 
 		// when
-		input.simulate('focus');
-		input.simulate('change', { target: { value: 'bar' } });
-		input.simulate('blur');
+		userEvent.click(input);
+		jest.runAllTimers(); // focus management via setTimeout
+		userEvent.type(input, 'bar');
+		fireEvent.blur(input);
 
 		// then
 		expect(onChange).toBeCalled();
-		expect(wrapper.find('input').prop('value')).toEqual('foo');
+		expect(input).toHaveValue('foo');
 	});
 
-	it('should not trigger onChange if value is not changed', () => {
+	it('should not trigger onChange on blur if value has not changed', () => {
+		// given
 		const onChange = jest.fn();
-		const value = 'banane';
-		const wrapper = mount(
+		render(
 			<DatalistWidget
 				id="myWidget"
 				required
 				schema={schema}
-				value={value}
+				value="banane"
 				onChange={onChange}
 				options={{ restricted: true }}
 			/>,
 		);
-		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('blur', { target: { value } });
+		fireEvent.blur(screen.getByRole('textbox'));
 
 		// then
 		expect(onChange).not.toBeCalled();
@@ -319,30 +316,25 @@ describe('DatalistWidget', () => {
 				},
 			],
 		};
-		const wrapper = mount(<DatalistWidget id="myWidget" required options={options} />);
+		render(
+			<DatalistWidget
+				id="myWidget"
+				required
+				options={options}
+				onChange={jest.fn()}
+				schema={{ title: 'Fruits', enum: [] }}
+			/>,
+		);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus'); // to display suggestions
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(
-			wrapper
-				.find('li')
-				.at(0)
-				.text(),
-		).toBe('Label A');
-		expect(
-			wrapper
-				.find('li')
-				.at(1)
-				.text(),
-		).toBe('Label B');
+		expect(screen.getByText('Label A')).toBeInTheDocument();
+		expect(screen.getByText('Label B')).toBeInTheDocument();
 	});
 
-	it('should return keys if in value/label mode', () => {
+	it('should return corresponding value on title selection in titleMap', () => {
 		const onChange = jest.fn();
 		const options = {
 			enumOptions: [
@@ -352,19 +344,19 @@ describe('DatalistWidget', () => {
 				},
 			],
 		};
-		const wrapper = mount(
-			<DatalistWidget id="myWidget" required options={options} onChange={onChange} />,
+		render(
+			<DatalistWidget
+				id="myWidget"
+				required
+				options={options}
+				onChange={onChange}
+				schema={{ title: 'Fruits', enum: ['key1'] }}
+			/>,
 		);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus'); // to display suggestions
-		wrapper
-			.find('li')
-			.at(0)
-			.simulate('mouseDown');
+		userEvent.click(screen.getByRole('textbox'));
+		userEvent.click(screen.getByText('Label A'));
 
 		// then
 		expect(onChange).toBeCalledWith('key1');
@@ -380,38 +372,43 @@ describe('DatalistWidget', () => {
 
 	it('should render items under category when it has "category" property', () => {
 		// given
-		const wrapper = mount(<DatalistWidget id="datawidget" options={options} />);
+		render(
+			<DatalistWidget
+				id="datawidget"
+				options={options}
+				onChange={jest.fn()}
+				schema={{ title: 'Fruits', enum: [] }}
+			/>,
+		);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus');
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(screen.getByText('fruit')).toBeInTheDocument();
+		expect(screen.getByText('color')).toBeInTheDocument();
 	});
 
 	it('should select item under category when press enter on focused item', () => {
 		// given
 		const onChange = jest.fn();
-		const wrapper = mount(<DatalistWidget id="datawidget" options={options} onChange={onChange} />);
+		render(
+			<DatalistWidget
+				id="datawidget"
+				options={options}
+				onChange={onChange}
+				schema={{ title: 'Fruits', enum: [] }}
+			/>,
+		);
+		const input = screen.getByRole('textbox');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus');
-		const event = new KeyboardEvent('keydown', { keyCode: 37 });
-		document.dispatchEvent(event);
-		wrapper
-			.find('li')
-			.at(0)
-			.simulate('mouseDown');
+		userEvent.click(input);
+		jest.runAllTimers(); // focus management via setTimeout
+		userEvent.type(input, '{arrowdown}{enter}');
 
 		// then
 		expect(onChange).toBeCalledWith('apple');
-
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(input).toHaveValue('Apple');
 	});
 });
