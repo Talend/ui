@@ -9,6 +9,11 @@ $toolbar-height: 5.5rem;
 	position: relative;
 	width: 100%;
 
+	.tc-faceted-switch-mode{
+		width: auto;
+		margin-right: $padding-small;
+	}
+
 	&-buttons {
 		background: $alto;
 		border-radius: $padding-large $padding-large $padding-large $padding-large;

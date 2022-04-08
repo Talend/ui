@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ListViewWidget from './ListViewWidget';
 
 /* eslint-disable */
@@ -37,38 +38,38 @@ function generateProps(values, selected) {
 	};
 }
 
-function switchToSearchMode(wrapper) {
-	wrapper.find('.tc-listview-header button').at(0).simulate('click');
-}
-
-function simulateSearch(wrapper, value) {
-	wrapper.find('.tc-listview-header input').at(0).simulate('change', { target: { value } });
-	jest.runAllTimers();
-}
-
 describe('ListViewWidget', () => {
-	it('should detect props change to update state.items', () => {
+	beforeAll(() => {
+		jest.useFakeTimers();
+	});
+
+	afterAll(() => {
+		jest.useRealTimers();
+	});
+
+	it('should detect props change to update items', () => {
+		// given
 		const values = ['A', 'B', 'C', 'D'];
 		const nextValues = ['A', 'F', 'G', 'H'];
 		const onChange = jest.fn();
-		let wrapper = mount(
+		const { rerender } = render(
 			<ListViewWidget {...generateProps(values, values.slice(0, 2))} onChange={onChange} />,
 		);
-		const items = wrapper.state('items');
-		expect(wrapper.state('items').length).toEqual(4);
-		expect(wrapper.state('items')[0].label).toEqual('A');
+		expect(screen.getByRole('checkbox', { name: 'Deselect A' })).toBeInTheDocument();
+		expect(screen.getByRole('checkbox', { name: 'Deselect B' })).toBeInTheDocument();
+		expect(screen.getByRole('checkbox', { name: 'Select C' })).toBeInTheDocument();
+		expect(screen.getByRole('checkbox', { name: 'Select D' })).toBeInTheDocument();
 
 		// when
-		wrapper = wrapper.setProps(generateProps(nextValues, nextValues.slice(0, 2)));
-		// then
+		rerender(
+			<ListViewWidget {...generateProps(nextValues, nextValues.slice(0, 2))} onChange={onChange} />,
+		);
 
-		const newItems = wrapper.state('items');
-		expect(items).not.toEqual(newItems);
-		expect(newItems.length).toEqual(4);
-		expect(newItems[0].label).toEqual('A');
-		expect(newItems[0].checked).toBe(false);
-		expect(newItems[1].label).toEqual('F');
-		expect(newItems[1].checked).toBe(false);
+		// then
+		expect(screen.getByRole('checkbox', { name: 'Select A' })).toBeInTheDocument();
+		expect(screen.getByRole('checkbox', { name: 'Select F' })).toBeInTheDocument();
+		expect(screen.getByRole('checkbox', { name: 'Select G' })).toBeInTheDocument();
+		expect(screen.getByRole('checkbox', { name: 'Select H' })).toBeInTheDocument();
 	});
 
 	describe('toggleAll', () => {
@@ -76,7 +77,7 @@ describe('ListViewWidget', () => {
 			// given
 			const values = ['A', 'B', 'C', 'D'];
 			const onChangeHandler = jest.fn();
-			const wrapper = mount(
+			render(
 				<ListViewWidget
 					onChange={onChangeHandler}
 					{...generateProps(values, values.slice(0, 2))}
@@ -84,7 +85,7 @@ describe('ListViewWidget', () => {
 			);
 
 			// when
-			wrapper.find('#my-widget-toggle-all').simulate('change');
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
 
 			// then
 			expect(onChangeHandler).toBeCalledWith(values);
@@ -94,12 +95,10 @@ describe('ListViewWidget', () => {
 			// given
 			const values = ['A', 'B', 'C', 'D'];
 			const onChangeHandler = jest.fn();
-			const wrapper = mount(
-				<ListViewWidget onChange={onChangeHandler} {...generateProps(values, values)} />,
-			);
+			render(<ListViewWidget onChange={onChangeHandler} {...generateProps(values, values)} />);
 
 			// when
-			wrapper.find('#my-widget-toggle-all').simulate('change');
+			userEvent.click(screen.getByRole('checkbox', { name: 'Deselect all' }));
 
 			// then
 			expect(onChangeHandler).toBeCalledWith([]);
@@ -107,116 +106,121 @@ describe('ListViewWidget', () => {
 
 		it('should be checked when every items are checked', () => {
 			// given
-			const evt = { target: { checked: true } };
 			const values = ['A', 'B', 'C', 'D'];
-			const wrapper = mount(<ListViewWidget onChange={jest.fn()} {...generateProps(values)} />);
+			render(<ListViewWidget onChange={jest.fn()} {...generateProps(values)} />);
+			expect(screen.getByRole('checkbox', { name: 'Select all' })).not.toBeChecked();
 
 			// when
-			values.forEach((_, i) => {
-				wrapper
-					.find(`input#checkbox-my-widget-${i + 1}-item`)
-					.at(0)
-					.simulate('change', evt);
-			});
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select A' }));
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select B' }));
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select C' }));
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select D' }));
 
 			// then
-			expect(wrapper.find('#my-widget-toggle-all').props().checked).toBe(true);
+			expect(screen.getByRole('checkbox', { name: 'Deselect all' })).toBeChecked();
 		});
 
 		it('should check only filtered items', () => {
 			// given
 			const values = ['Azert', 'Bnaze', 'Cvbn', 'Dfgh'];
 			const onChangeHandler = jest.fn();
-			const wrapper = mount(
-				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
-			);
-			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(4);
+			render(<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />);
+
+			expect(screen.getByRole('checkbox', { name: 'Select Azert' })).not.toBeChecked();
+			expect(screen.getByRole('checkbox', { name: 'Select Bnaze' })).not.toBeChecked();
+			expect(screen.getByRole('checkbox', { name: 'Select Cvbn' })).not.toBeChecked();
+			expect(screen.getByRole('checkbox', { name: 'Select Dfgh' })).not.toBeChecked();
+
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'ze');
+			jest.runAllTimers();
 
 			// when
-			switchToSearchMode(wrapper);
-			simulateSearch(wrapper, 'e');
-			wrapper.update();
-			wrapper.find('#my-widget-toggle-all').simulate('change');
-			simulateSearch(wrapper, '');
-			wrapper.update();
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
 
 			// then
-			const checkboxes = wrapper.find('.checkbox input');
-			expect(checkboxes.filterWhere(n => n.props().checked).length).toBe(2);
+			expect(screen.getByRole('checkbox', { name: 'Deselect Azert' })).toBeChecked();
+			expect(screen.getByRole('checkbox', { name: 'Deselect Bnaze' })).toBeChecked();
+			expect(screen.queryByRole('checkbox', { name: 'Select Cvbn' })).not.toBeInTheDocument();
+			expect(screen.queryByRole('checkbox', { name: 'Select Dfgh' })).not.toBeInTheDocument();
+			expect(onChangeHandler).toBeCalledWith(['Azert', 'Bnaze']);
+
+			// when
+			userEvent.click(screen.getByRole('link', { name: 'Abort' }));
+
+			// then
+			expect(screen.getByRole('checkbox', { name: 'Deselect Azert' })).toBeChecked();
+			expect(screen.getByRole('checkbox', { name: 'Deselect Bnaze' })).toBeChecked();
+			expect(screen.getByRole('checkbox', { name: 'Select Cvbn' })).not.toBeChecked();
+			expect(screen.getByRole('checkbox', { name: 'Select Dfgh' })).not.toBeChecked();
 		});
 	});
 
 	describe('search', () => {
 		it('input should be hidden by default', () => {
-			// given
-			const wrapper = mount(<ListViewWidget {...generateProps([])} />);
-
 			// when
-			// nothing
+			render(<ListViewWidget {...generateProps([])} onChange={jest.fn()} />);
 
 			// then
-			expect(wrapper.find('HeaderListView > input').length).toBe(0);
+			expect(screen.queryByRole('textbox', { name: 'Search' })).not.toBeInTheDocument();
 		});
 
-		it('should input should be toggled when clicking on searh icon', () => {
+		it('should input should be toggled when clicking on search icon', () => {
 			// given
-			const wrapper = mount(<ListViewWidget {...generateProps([])} />);
+			render(<ListViewWidget {...generateProps([])} onChange={jest.fn()} />);
 
 			// when
-			wrapper.find('button').at(0).simulate('click');
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
 
 			// then
-			expect(wrapper.find('HeaderListView input').length).toBe(1);
+			expect(screen.getByRole('textbox', { name: 'Search' })).toBeInTheDocument();
 		});
 
 		it('should filter displayed items', () => {
 			// given
 			const values = ['Azert', 'Bnaze', 'Cvbn', 'Dfgh'];
 			const onChangeHandler = jest.fn();
-			const wrapper = mount(
-				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
-			);
-			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(4);
+			render(<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />);
+			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			switchToSearchMode(wrapper);
-			simulateSearch(wrapper, 'e');
-			wrapper.update();
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'ze');
+			jest.runAllTimers();
 
 			// then
-			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(2);
+			expect(screen.getAllByRole('option').length).toBe(2);
+			expect(screen.getByRole('checkbox', { name: 'Select Azert' })).toBeInTheDocument();
+			expect(screen.getByRole('checkbox', { name: 'Select Bnaze' })).toBeInTheDocument();
 		});
 
 		it('should display a message when no results was found', () => {
 			// given
 			const values = ['A', 'B', 'C', 'D'];
 			const onChangeHandler = jest.fn();
-			const wrapper = mount(
-				<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />,
-			);
-			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(4);
+			render(<ListViewWidget onChange={onChangeHandler} {...generateProps(values)} />);
+			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			switchToSearchMode(wrapper);
-			simulateSearch(wrapper, 'E');
-			wrapper.update();
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'aaaaaa');
+			jest.runAllTimers();
 
 			// then
-			expect(wrapper.find('withI18nextTranslation(Item)').length).toBe(0);
-			expect(wrapper.find('span').at(0).text()).toBe(NO_RESULT_MESSAGE);
+			expect(screen.queryAllByRole('option').length).toBe(0);
+			expect(screen.getByText(NO_RESULT_MESSAGE)).toBeInTheDocument();
 		});
 	});
 
-	it('should only returns checked', () => {
+	it('should only return checked', () => {
 		// given
-		const evt = { target: { checked: true } };
 		const values = ['A', 'B', 'C', 'D'];
 		const handler = jest.fn();
-		const wrapper = mount(<ListViewWidget onChange={handler} {...generateProps(values)} />);
+		render(<ListViewWidget onChange={handler} {...generateProps(values)} />);
 
 		// when
-		wrapper.find('input#checkbox-my-widget-2-item').at(0).simulate('change', evt);
-		wrapper.find('input#checkbox-my-widget-3-item').at(0).simulate('change', evt);
+		userEvent.click(screen.getByRole('checkbox', { name: 'Select B' }));
+		userEvent.click(screen.getByRole('checkbox', { name: 'Select C' }));
 
 		// then
 		expect(handler).toBeCalledWith(['B', 'C']);
@@ -227,10 +231,10 @@ describe('ListViewWidget', () => {
 		const values = [];
 
 		// When
-		const wrapper = mount(<ListViewWidget {...generateProps(values)} />);
+		render(<ListViewWidget {...generateProps(values)} onChange={jest.fn()} />);
 
 		// then
-		expect(wrapper.find('span').at(0).text()).toBe(EMPTY_LIST_MESSAGE);
+		expect(screen.getByText(EMPTY_LIST_MESSAGE)).toBeInTheDocument();
 	});
 
 	describe('enumOptions management', () => {
@@ -242,39 +246,38 @@ describe('ListViewWidget', () => {
 				{ value: 'key3', label: 'Label 3' },
 				{ value: 'key4', label: 'Label 4' },
 			];
-			const wrapper = mount(<ListViewWidget {...generateProps(values)} />);
+			render(<ListViewWidget {...generateProps(values)} onChange={jest.fn()} />);
 
 			// then
-			values.forEach((v, i) => {
-				const node = wrapper.find(`#my-widget-${i + 1}-item label`).at(0);
-				expect(node.text()).toBe(v.label);
-			});
+			expect(screen.getByText('Label 1')).toBeInTheDocument();
+			expect(screen.getByText('Label 2')).toBeInTheDocument();
+			expect(screen.getByText('Label 3')).toBeInTheDocument();
+			expect(screen.getByText('Label 4')).toBeInTheDocument();
 		});
 
-		it('should display key if no labels are availables', () => {
-			// given
+		it('should display key if no labels are available', () => {
+			// when
 			const values = ['key1', 'key2', 'key3', 'key4'];
-			const wrapper = mount(<ListViewWidget {...generateProps(values)} />);
+			render(<ListViewWidget {...generateProps(values)} onChange={jest.fn()} />);
 
 			// then
-			values.forEach((v, i) => {
-				const node = wrapper.find(`#my-widget-${i + 1}-item label`).at(0);
-				expect(node.text()).toBe(v);
-			});
+			expect(screen.getByText('key1')).toBeInTheDocument();
+			expect(screen.getByText('key2')).toBeInTheDocument();
+			expect(screen.getByText('key3')).toBeInTheDocument();
+			expect(screen.getByText('key4')).toBeInTheDocument();
 		});
 
 		it('should returns keys even if label are provided', () => {
 			// given
-			const evt = { target: { checked: true } };
 			const values = [{ value: 'key1', label: 'Label 1' }];
-			const handler = jest.fn();
-			const wrapper = mount(<ListViewWidget onChange={handler} {...generateProps(values)} />);
+			const onChange = jest.fn();
+			render(<ListViewWidget onChange={onChange} {...generateProps(values)} />);
 
 			// when
-			wrapper.find('input#checkbox-my-widget-0-item').at(0).simulate('change', evt);
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select Label 1' }));
 
 			// then
-			expect(handler).toBeCalledWith(['key1']);
+			expect(onChange).toBeCalledWith(['key1']);
 		});
 	});
 });

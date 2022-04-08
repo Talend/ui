@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.44.11
+
+### Patch Changes
+
+- aaba017d2: fix(Datalist): focus management on inside element click
+
 ## 6.44.10
 
 ### Patch Changes

@@ -35,10 +35,10 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.2",
+    "@popperjs/core": "^2.11.5",
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/design-system": "^2.2.0",
-    "@talend/icons": "^6.39.0",
+    "@talend/icons": "^6.40.0",
     "@talend/utils": "^2.2.0",
     "ally.js": "^1.4.1",
     "classnames": "^2.3.1",
@@ -66,18 +66,18 @@
     "recharts": "^2.1.9",
     "simplebar": "^5.3.6",
     "simplebar-react": "^2.3.6",
-    "styled-components": "^5.3.3",
+    "styled-components": "^5.3.5",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-actions": "^6.4.20",
     "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/icons": "^6.39.0",
+    "@talend/icons": "^6.40.0",
     "@talend/locales-design-system": "^1.12.2",
     "@talend/locales-tui-components": "^6.42.3",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
-    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "cross-env": "^7.0.3",
@@ -90,7 +90,7 @@
     "react": "^16.14.0",
     "react-a11y": "^0.3.4",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.15.6",
+    "react-i18next": "^11.16.2",
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^16.14.0"
   },
@@ -107,5 +107,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.44.10"
+  "version": "6.44.11"
 }

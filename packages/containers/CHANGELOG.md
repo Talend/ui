@@ -1,5 +1,13 @@
 # @talend/react-containers
 
+## 7.0.5
+
+### Patch Changes
+
+- 5062e05c1: fix(ComponentForm): infinite rendering because of new Map ref everytime
+- Updated dependencies [aaba017d2]
+  - @talend/react-components@6.44.11
+
 ## 7.0.4
 
 ### Patch Changes
