@@ -16,7 +16,7 @@ export const QuickSearchInput = ({
 	placeholder,
 	className,
 	onSelect = () => {},
-	facetsFilter = () => true,
+	facetsFilter,
 }) => {
 	const defaultFacet = useMemo(() => getDefaultFacet(facets), [facets]);
 	const [opened, setOpened] = useState(false);
@@ -26,11 +26,11 @@ export const QuickSearchInput = ({
 		return null;
 	}
 
+	const filteredFacets = facetsFilter ? facetsFilter(value, facets) : facets;
+
 	return (
 		<Typeahead
-			placeholder={
-				placeholder || t('QUICKSEARCH_PLACEHOLDER', 'Find in a column...')
-			}
+			placeholder={placeholder || t('QUICKSEARCH_PLACEHOLDER', 'Find in a column...')}
 			onFocus={() => setOpened(value.length >= MINIMUM_LENGTH)}
 			onBlur={() => {
 				setValue('');
@@ -43,7 +43,7 @@ export const QuickSearchInput = ({
 			}}
 			onSelect={(_, { itemIndex }) => {
 				if (value.length >= MINIMUM_LENGTH) {
-					onSelect(facets[itemIndex] || defaultFacet, value);
+					onSelect(filteredFacets[itemIndex] || defaultFacet, value);
 					setValue('');
 					setOpened(false);
 				}
@@ -58,9 +58,7 @@ export const QuickSearchInput = ({
 						title: t('QUICKSEARCH_ITEM_TOOLTIP', {
 							defaultValue: 'Search in',
 						}),
-						suggestions: facets
-							.filter(facet => facetsFilter(value, facet))
-							.map(a => get(a, ['properties', 'label'], null)),
+						suggestions: filteredFacets.map(a => get(a, ['properties', 'label'], null)),
 					},
 				]
 			}
