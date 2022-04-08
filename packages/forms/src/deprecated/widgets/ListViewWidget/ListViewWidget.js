@@ -94,10 +94,10 @@ class ListViewWidget extends React.Component {
 		};
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const options = this.props.options;
-		const nextOptions = nextProps.options;
-		if (areOptionsDifferent(options, nextOptions)) {
+	componentDidUpdate(prevProps) {
+		const prevOptions = prevProps.options;
+		const nextOptions = this.props.options;
+		if (areOptionsDifferent(prevOptions, nextOptions)) {
 			this.setState(this.getStateFromOptions(nextOptions), () => this.props.onChange([]));
 		}
 	}
@@ -185,7 +185,7 @@ if (process.env.NODE_ENV !== 'production') {
 		value: PropTypes.any,
 		options: PropTypes.shape({
 			enumOptions: PropTypes.array,
-		}).isRequired,
+		}),
 		t: PropTypes.func,
 	};
 }
