@@ -18,16 +18,6 @@ export interface LineChartLegendProps {
 
 }
 
-function getContentJustification(align: string | undefined) {
-	if(align === 'left') {
-		return 'flex-start';
-	} else if(align === 'center') {
-		return 'center';
-	}
-	return 'flex-end';
-
-};
-
 export const CustomLegend = ({
 	payload,
 	external,
@@ -39,11 +29,13 @@ export const CustomLegend = ({
 
 	const linesToShow = showInactives ? linesConfig : linesConfig.filter(lineConfig => lineConfig.status !== 'inactive');
 
-	if (payload && payload.length) {
+	if (payload?.length) {
 	  return (
 		<ul
-			className={classNames(styles['line-chart-custom-legend'])}
-			style={{ justifyContent: getContentJustification(align)}}
+			className={classNames(
+				styles['line-chart-custom-legend'],
+				styles[`line-chart-custom-legend--align-${align || 'right'}`]
+			)}
 		>
 			{linesToShow.map(config => (
 				<li id={`legend_item_${config.key}`} key={config.key}>

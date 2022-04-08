@@ -21,7 +21,7 @@ export interface LineChartTooltipProps {
 export const CustomTooltip = ({ active, payload, label, external }: LineChartTooltipProps) => {
 	const { linesConfig, leftUnit, rightUnit, xformatter, showInactives } = external;
 
-	const getLineUnit = (axis: 'left' | 'right' | undefined) => axis === 'right' ? rightUnit : leftUnit ;
+	const getLineUnit = (axis?: 'left' | 'right') => axis === 'right' ? rightUnit : leftUnit ;
 
 	const getItemDisplayValue = (payloadTable: any[], lineConfig: LineOptions) => {
 		const initialValue = payloadTable.find(item => item.dataKey === lineConfig.key).value;

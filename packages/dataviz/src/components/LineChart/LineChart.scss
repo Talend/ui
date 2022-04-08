@@ -8,7 +8,7 @@ $module: line-chart;
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
-		padding: tokens.$coral-size-m;
+		padding: tokens.$coral-spacing-m;
 
 		background: tokens.$coral-color-neutral-background;
 		border: tokens.$coral-border-s-solid rgba(0, 0, 0, 0.103);
@@ -38,7 +38,7 @@ $module: line-chart;
 		&__line-value {
 			font: tokens.$coral-paragraph-m-bold;
 			color: tokens.$coral-color-neutral-text;
-			margin-left: tokens.$coral-size-xxs;
+			margin-left: tokens.$coral-spacing-xxs;
 		}
 
 		&__line-unit {
@@ -52,8 +52,21 @@ $module: line-chart;
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
-		gap: tokens.$coral-size-m;
+		gap: tokens.$coral-spacing-m;
 		list-style: none;
+
+		&--align-left {
+			justify-content: flex-start;
+		}
+
+		&--align-center {
+			justify-content: center;
+		}
+
+		&--align-right {
+			justify-content: flex-end;
+		}
+
 
 		&__button--inactive {
 			opacity: tokens.$coral-opacity-s;
