@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './LineChart.scss';
 
 import { LineOptions } from './LineChart.types';
+import { LineIcon } from './LineChartLineIcon.component';
 
 
 export interface LineChartLegendProps {
@@ -36,14 +37,6 @@ export const CustomLegend = ({
 }: LineChartLegendProps) => {
 	const { linesConfig, align, showInactives } = external;
 
-	const getLineIconBackground = (dashed: boolean | undefined, color: string) => {
-		if(dashed) {
-			return `repeating-linear-gradient(to right, ${color} 0, ${color} 10px,transparent 10px,transparent 12px)`;
-		}
-		return color;
-
-	};
-
 	const linesToShow = showInactives ? linesConfig : linesConfig.filter(lineConfig => lineConfig.status !== 'inactive');
 
 	if (payload && payload.length) {
@@ -65,12 +58,10 @@ export const CustomLegend = ({
 						onMouseLeave={() => onLegendHovered('')}
 						tabIndex={0}
 					>
-						<div
-							className={classNames(styles['line-chart-custom-legend__line-icon'])}
-							style={{ background: getLineIconBackground(config.dashed, config.color)}}
-						/>
+						<LineIcon color={config.color} dashed={config?.dashed} />
+
 						<span className={classNames(styles['line-chart-custom-legend__line-label'])}>
-							{ config.legendLabel? config.legendLabel : config.key }
+							{ config.legendLabel ?? config.key }
 						</span>
 
 					</div>

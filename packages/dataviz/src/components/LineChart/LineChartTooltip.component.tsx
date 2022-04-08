@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import styles from './LineChart.scss';
 
 import { LineOptions } from './LineChart.types';
-// import { values } from 'lodash';
-
+import { LineIcon } from './LineChartLineIcon.component';
 
 export interface LineChartTooltipProps {
 	active?: boolean,
@@ -24,13 +23,6 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 
 	const getLineUnit = (axis: 'left' | 'right' | undefined) => axis === 'right' ? rightUnit : leftUnit ;
 
-	const getLineIconBackground = (dashed: boolean | undefined, color: string) => {
-		if(dashed) {
-			return `repeating-linear-gradient(to right, ${color} 0, ${color} 10px,transparent 10px,transparent 12px)`;
-		}
-		return color;
-	};
-
 	const getItemDisplayValue = (payloadTable: any[], lineConfig: LineOptions) => {
 		const initialValue = payloadTable.find(item => item.dataKey === lineConfig.key).value;
 
@@ -41,35 +33,33 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 
 	const linesToShow = showInactives ? linesConfig : linesConfig.filter(lineConfig => lineConfig.status !== 'inactive');
 
-	if (active && payload && payload.length) {
+	if (active && payload?.length) {
 	  return (
 		<div className={classNames(styles['line-chart-custom-tooltip'])}>
 			<div className={classNames(styles['line-chart-custom-tooltip__title'])}>{labelDisplayValue}</div>
-			{linesToShow.map(config => (
-		  		<div
-					id={`tooltip_item_${config.key}`}
-					className={classNames({
-						[styles['line-chart-custom-tooltip__line-item--inactive']] : config?.status === 'inactive'
-					})}
-		  		>
-					<div
-						className={classNames(
-							styles['line-chart-custom-tooltip__line-icon'],
-							)}
-						style={{ background: getLineIconBackground(config.dashed, config.color)}}
-					/>
-					<span className={classNames(styles['line-chart-custom-tooltip__line-label'])}>
-						{ config.tooltipLabel ? config.tooltipLabel : config.key }
-					</span>
-					:
-					<span className={classNames(styles['line-chart-custom-tooltip__line-value'])}>
-						{getItemDisplayValue(payload, config)}
-					</span>
-					<span className={classNames(styles['line-chart-custom-tooltip__line-unit'])}>
-						{getLineUnit(config.axis)}
-					</span>
-		  		</div>
-			))}
+			<ul>
+				{linesToShow.map(config => (
+					<li
+						id={`tooltip_item_${config.key}`}
+						className={classNames({
+							[styles['line-chart-custom-tooltip__line-item--inactive']] : config?.status === 'inactive'
+						})}
+					>
+						<LineIcon color={config.color} dashed={config?.dashed} />
+
+						<span className={classNames(styles['line-chart-custom-tooltip__line-label'])}>
+							{ config.tooltipLabel ?? config.key }
+						</span>
+						:
+						<span className={classNames(styles['line-chart-custom-tooltip__line-value'])}>
+							{getItemDisplayValue(payload, config)}
+						</span>
+						<span className={classNames(styles['line-chart-custom-tooltip__line-unit'])}>
+							{getLineUnit(config.axis)}
+						</span>
+					</li>
+				))}
+			</ul>
 		</div>
 	  );
 	}

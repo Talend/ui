@@ -15,6 +15,12 @@ $module: line-chart;
 		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 		border-radius: tokens.$coral-radius-s;
 
+		& ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
 		&__title {
 			font: tokens.$coral-paragraph-s;
 			color: tokens.$coral-color-neutral-text-weak;
@@ -22,15 +28,6 @@ $module: line-chart;
 
 		&__line-item--inactive {
 			opacity: tokens.$coral-opacity-s;
-		}
-
-		&__line-icon {
-			display: inline-block;
-			width: 16px;
-			height: 2px;
-			margin-right: 1rem;
-			margin-bottom: 0.3rem;
-			border-radius: 25px;
 		}
 
 		&__line-label {
@@ -62,20 +59,20 @@ $module: line-chart;
 			opacity: tokens.$coral-opacity-s;
 		}
 
-		&__line-icon {
-			display: inline-block;
-			width: 16px;
-			height: 2px;
-			margin-right: 0.8rem;
-			margin-bottom: 0.3rem;
-			border-radius: 25px;
-		}
-
 		&__line-label {
 			font: tokens.$coral-paragraph-s;
 			font-style: normal;
 			color: tokens.$coral-color-neutral-text-weak;
 		}
+	}
+
+	&-line-icon {
+		display: inline-block;
+		width: 16px;
+		height: 2px;
+		margin-right: 0.8rem;
+		margin-bottom: 0.3rem;
+		border-radius: 25px;
 	}
 }
 
