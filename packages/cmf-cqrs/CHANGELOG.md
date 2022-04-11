@@ -1,5 +1,11 @@
 # @talend/react-cmf-cqrs
 
+## 7.1.1
+
+### Patch Changes
+
+- dd7db5acf: fix(cmf-cqrs): fix package build
+
 ## 7.1.0
 
 ### Minor Changes
