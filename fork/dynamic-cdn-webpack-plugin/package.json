@@ -38,7 +38,7 @@
   "dependencies": {
     "@talend/module-to-cdn": "^9.8.2",
     "read-pkg-up": "^7.0.1",
-    "webpack-sources": "^1.4.3"
+    "webpack-sources": "^3.2.3"
   },
   "peerDependencies": {
     "webpack": "4"
