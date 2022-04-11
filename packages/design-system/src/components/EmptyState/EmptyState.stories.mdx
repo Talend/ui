@@ -36,6 +36,7 @@ Two goals are identified:
   - No data is shown because the system can't find any results, ex. filter or search results
 
 ### Variations
+
 Empty states come in different sizes to accommodate to empty state types and page layout.
 
 #### EmptyStateLarge (with Spot illustration)
@@ -47,13 +48,12 @@ Empty states come in different sizes to accommodate to empty state types and pag
 **Content guidelines**
 
 Use large empty states when the empty content area on screen takes up at least 50% of the view.
- - Use a spot illustration which supports your empty state message
- - Include an informative title
- - Use body text to:
- 	- Informative empty states: tell users what will display here, with no direct actions from them
-	- Actionable empty states: guide users towards taking the next step when there's an action they can take
- - (Only actionable empty states) Give a call-to-action (CTA) button when users can resolve the empty state
- - (Optional but preferred) Include a "Learn more" link to the documentation if the feature is documented
+
+- Use a spot illustration which supports your empty state message
+- Include an informative title
+- Use body text to: - Informative empty states: tell users what will display here, with no direct actions from them - Actionable empty states: guide users towards taking the next step when there's an action they can take
+- (Only actionable empty states) Give a call-to-action (CTA) button when users can resolve the empty state
+- (Optional but preferred) Include a "Learn more" link to the documentation if the feature is documented
 
 #### EmptyStateMedium (with Icon illustration)
 
@@ -64,13 +64,12 @@ Use large empty states when the empty content area on screen takes up at least 5
 **Content guidelines**
 
 Use medium empty states when the empty content area on screen takes up less than 50% of the view.
- - Use an icon which supports your empty state message
- - Include an informative title
- - Use body text to:
- 	- Informative empty states: tell users what will display here, with no direct actions from them
-	- Actionable empty states: guide users towards taking the next step when there's an action the user can take
-  - (Optional but preferred) Include a "Learn more" link to the documentation if the feature is documented
-  
+
+- Use an icon which supports your empty state message
+- Include an informative title
+- Use body text to: - Informative empty states: tell users what will display here, with no direct actions from them - Actionable empty states: guide users towards taking the next step when there's an action the user can take
+- (Optional but preferred) Include a "Learn more" link to the documentation if the feature is documented
+
 #### EmptyStateSmall (with no Icon illustration)
 
 <Canvas>
@@ -80,14 +79,16 @@ Use medium empty states when the empty content area on screen takes up less than
 **Content guidelines**
 
 Use small empty states when the inline space is extremely limited.
- - Include text to tell user what to do when there's an action they can take
+
+- Include text to tell user what to do when there's an action they can take
 
 ## States
 
 N/A
 
 ## Content
-Use empty states to engage and educate users and let the product voice shine through illustrations and text. 
+
+Use empty states to engage and educate users and let the product voice shine through illustrations and text.
 
 ### Title
 
@@ -99,16 +100,12 @@ Example: No preparations yet
 	<Use.Do>
 		<ul>
 			<li>Include an informative scannable title</li>
-		</ul>
-		<ul>
 			<li>Keep it short and concise</li>
 		</ul>
 	</Use.Do>
 	<Use.Dont>
 		<ul>
 			<li>Don't use a period at the end of the title</li>
-		</ul>
-		<ul>
 			<li>Don't use phrases like “Oops!”</li>
 		</ul>
 	</Use.Dont>
@@ -116,17 +113,17 @@ Example: No preparations yet
 
 ### Body
 
-**Direct action from users** 
+**Direct action from users**
 
 Template: `<Do something>` to `<get something>`. CTA button (only large empty states). Learn more
-	
+
 Example: Add a preparation to clean, format, and transform data prior to processing. Add preparation. Learn more.
 
-**No direct action from users** 
+**No direct action from users**
 
 Template: `<Use this page>` to `<do something>`. Learn more.
 
-Example:    Use this page to monitor the plans and tasks created from the Studio or Pipeline Designer. Learn more.
+Example: Use this page to monitor the plans and tasks created from the Studio or Pipeline Designer. Learn more.
 
 <Use>
 	<Use.Do>
@@ -136,7 +133,7 @@ Example:    Use this page to monitor the plans and tasks created from the Studio
 	</Use.Do>
 	<Use.Dont>
 		<ul>
-			<li>Don't repeate content from the title</li>
+			<li>Don't repeat content from the title</li>
 			<li>Don't write more than 2 sentences</li>
 		</ul>
 	</Use.Dont>
@@ -152,7 +149,7 @@ N/A
 
 ### Button as Link
 
-You may need your callback to redirect to a page. The `callback` props is tailored to mimick either `ButtonPrimary` or `ButtonPrimaryAsLink`.
+You may need your callback to redirect to a page. The `callback` props is tailored to mimic either `ButtonPrimary` or `ButtonPrimaryAsLink`.
 
 You can therefore easily set-up a callback that's actually a link:
 
