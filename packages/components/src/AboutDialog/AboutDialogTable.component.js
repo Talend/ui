@@ -13,7 +13,7 @@ export const getColumnHeaders = () => ({
 	version: { key: 'version', label: i18n.t('tui-components:VERSION', { defaultValue: 'Version' }) },
 });
 
-export function Text({ text, loading, size = Skeleton.SIZES.medium }) {
+export function Text({ text = '', loading, size = Skeleton.SIZES.medium }) {
 	return loading ? <Skeleton type={Skeleton.TYPES.text} size={size} /> : text;
 }
 
