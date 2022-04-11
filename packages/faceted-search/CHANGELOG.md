@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.1
+
+### Patch Changes
+
+- 97e37ee66: fix: query toggle placement
+
 ## 4.0.0
 
 ### Major Changes
