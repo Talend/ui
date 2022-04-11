@@ -34,6 +34,7 @@ exports[`Typeahead injection should use render props to inject extra components 
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
@@ -43,6 +44,7 @@ exports[`Typeahead injection should use render props to inject extra components 
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -165,6 +167,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
@@ -174,6 +177,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -426,6 +430,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
     id="react-autowhatever-my-search"
     style={
@@ -435,6 +440,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -491,6 +497,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
@@ -500,6 +507,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -694,6 +702,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
@@ -703,6 +712,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -807,6 +817,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
     id="react-autowhatever-my-search"
     style={
@@ -816,6 +827,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
