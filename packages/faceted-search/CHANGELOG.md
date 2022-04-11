@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.2
+
+### Patch Changes
+
+- 4f9c8ec71: Quick search does not select correct facet when using filter
+
 ## 4.0.1
 
 ### Patch Changes
