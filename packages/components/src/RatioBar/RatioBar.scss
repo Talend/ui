@@ -21,7 +21,7 @@ $ratio-bar-hover-height: 8px;
 
 	.tc-ratio-bar-line {
 		height: $ratio-bar-height;
-		margin: 0 1px;
+		margin: 0 2px;
 		transition: height 0.3s;
 		min-width: 4px;
 		&:hover {
