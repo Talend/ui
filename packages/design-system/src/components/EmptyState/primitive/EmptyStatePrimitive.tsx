@@ -43,8 +43,10 @@ const EmptyStatePrimitive = forwardRef((props: EmptyStatePrimitiveProps, ref: Re
 		<article {...commonProps} ref={ref} className={styles.emptyState}>
 			<StackVertical gap="M" justify="center" align="center">
 				{illustration}
-				<h3 className={styles.title}>{title}</h3>
-				{description && <p className={styles.description}>{description}</p>}
+				<StackVertical gap={0} justify="center" align="center">
+					<h3 className={styles.title}>{title}</h3>
+					{description && <p className={styles.description}>{description}</p>}
+				</StackVertical>
 				{callback && buildCallBack(callback)}
 				{docLinkURL && (
 					<Link href={docLinkURL} target="_blank">

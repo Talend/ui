@@ -5,6 +5,7 @@ import IconDefault from '../illustrations/IconDefault';
 
 type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {
 	callback?: never;
+	description: string;
 };
 
 const EmptyStateMedium = forwardRef((props: EmptyStateLargeProps, ref: Ref<HTMLElement>) => {

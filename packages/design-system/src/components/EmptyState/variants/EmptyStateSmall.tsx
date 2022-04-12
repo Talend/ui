@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react';
 import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
 
-type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {
+type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration' | 'description'> & {
 	callback?: never;
 };
 

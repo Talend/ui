@@ -11,7 +11,6 @@ export default {
 export const Large = () => (
 	<EmptyStateLarge
 		title="No preparations yet"
-		docLinkURL="https://talend.com"
 		description="Add a preparation to clean, format, and transform data prior to processing."
 		callback={{
 			children: 'Create a dataset',
@@ -19,6 +18,7 @@ export const Large = () => (
 			icon: 'talend-plus',
 			callbackType: 'button',
 		}}
+		docLinkURL="https://talend.com"
 	/>
 );
 
@@ -26,7 +26,6 @@ export const LargeWithLinkButton = () => (
 	<BrowserRouter>
 		<EmptyStateLarge
 			title="No preparations yet"
-			docLinkURL="https://talend.com"
 			description="Add a preparation to clean, format, and transform data prior to processing."
 			callback={{
 				children: 'Create a preparation',
@@ -34,6 +33,7 @@ export const LargeWithLinkButton = () => (
 				callbackType: 'link',
 				as: <Link to="/preparation/new" />,
 			}}
+			docLinkURL="https://talend.com"
 		/>
 	</BrowserRouter>
 );
@@ -41,8 +41,8 @@ export const LargeWithLinkButton = () => (
 export const Medium = () => (
 	<EmptyStateMedium
 		title="No preparations yet"
-		docLinkURL="https://talend.com"
 		description="Add a preparation to clean, format, and transform data prior to processing."
+		docLinkURL="https://talend.com"
 	/>
 );
 
@@ -51,21 +51,20 @@ export const Small = () => <EmptyStateSmall title="Create a preparation first" /
 export const Demo = () => (
 	<StackHorizontal gap="XS" align="center" justify="spaceBetween">
 		<EmptyStateLarge
-			title="No preparations yet"
-			docLinkURL="https://talend.com"
-			description="Add a preparation to clean, format, and transform data prior to processing."
+			title="This space is empty"
+			description="Any additional data here"
 			callback={{
-				children: 'Create a dataset',
+				children: 'Action',
 				onClick: () => action('clicked'),
-				icon: 'talend-plus',
 				callbackType: 'button',
 			}}
+			docLinkURL="https://talend.com"
 		/>
 		<EmptyStateMedium
-			title="No preparations yet"
+			title="This space is empty"
+			description="Any additional data here"
 			docLinkURL="https://talend.com"
-			description="Add a preparation to clean, format, and transform data prior to processing."
 		/>
-		<EmptyStateSmall title="Create a preparation first" />
+		<EmptyStateSmall title="This space is empty" />
 	</StackHorizontal>
 );
