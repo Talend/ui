@@ -9,7 +9,7 @@ export default {
 
 export const Large = () => (
 	<EmptyStateLarge
-		title="No preparations yet."
+		title="No preparations yet"
 		docLinkURL="https://talend.com"
 		description="Add a preparation to clean, format, and transform data prior to processing."
 		callback={{
@@ -24,7 +24,7 @@ export const Large = () => (
 export const LargeWithLinkButton = () => (
 	<BrowserRouter>
 		<EmptyStateLarge
-			title="No preparations yet."
+			title="No preparations yet"
 			docLinkURL="https://talend.com"
 			description="Add a preparation to clean, format, and transform data prior to processing."
 			callback={{
@@ -39,7 +39,7 @@ export const LargeWithLinkButton = () => (
 
 export const Medium = () => (
 	<EmptyStateMedium
-		title="No preparations yet."
+		title="No preparations yet"
 		docLinkURL="https://talend.com"
 		description="Add a preparation to clean, format, and transform data prior to processing."
 	/>
