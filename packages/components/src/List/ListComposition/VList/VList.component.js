@@ -9,9 +9,13 @@ import VirtualizedList from '../../../VirtualizedList';
 import { DISPLAY_MODE, SORT } from '../constants';
 
 import theme from '../List.scss';
-import { columnsFromChildrens } from '../utils';
-import ColumnChooserHeaderButton from '../ColumnChooser/ColumnChooserHeaderButton.component';
+import { ColumnChooserHeaderButton } from '../ColumnChooser/ColumnChooserHeaderButton.component';
 
+const columnsFromChildrens = children => {
+	return Array.isArray(children)
+		? children.filter(column => !!column.props?.dataKey).map(column => column.props)
+		: null;
+};
 function VList({ children, columnChooser, ...rest }) {
 	const {
 		displayMode = DISPLAY_MODE.TABLE,
