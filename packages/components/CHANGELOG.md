@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.44.12
+
+### Patch Changes
+
+- aa1db9881: fix(AboutModal): rendering fail while no values was given everywhere
+
 ## 6.44.11
 
 ### Patch Changes
