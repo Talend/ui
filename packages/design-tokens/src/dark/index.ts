@@ -264,19 +264,22 @@ const tokens = {
 		'var(--coral-color-charts-color-09-text-weak, hsla(35,28%,82%,1))',
 	coralColorNeutralBackgroundHeavy:
 		'var(--coral-color-neutral-background-heavy, hsla(204,18%,11%,1))',
-	coralColorIllustrationColor01: 'var(--coral-color-illustration-color-01, hsla(252,83%,52%,1))',
-	coralColorIllustrationColor02: 'var(--coral-color-illustration-color-02, hsla(215,89%,49%,1))',
-	coralColorIllustrationColor03: 'var(--coral-color-illustration-color-03, hsla(0,100%,74%,1))',
-	coralColorIllustrationColor04: 'var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))',
-	coralColorIllustrationColor05: 'var(--coral-color-illustration-color-05, hsla(20,23%,97%,1))',
-	coralColorIllustrationColor06: 'var(--coral-color-illustration-color-06, hsla(245,46%,5%,1))',
+	coralColorIllustrationColor01: 'var(--coral-color-illustration-color-01, hsla(358,40%,53%,1))',
+	coralColorIllustrationColor02: 'var(--coral-color-illustration-color-02, hsla(355,39%,61%,1))',
+	coralColorIllustrationColor03: 'var(--coral-color-illustration-color-03, hsla(349,15%,71%,1))',
+	coralColorIllustrationColor04: 'var(--coral-color-illustration-color-04, hsla(211,54%,15%,1))',
+	coralColorIllustrationColor05: 'var(--coral-color-illustration-color-05, hsla(212,28%,37%,1))',
+	coralColorIllustrationColor06: 'var(--coral-color-illustration-color-06, hsla(212,29%,61%,1))',
 	coralColorIllustrationSkintone01:
-		'var(--coral-color-illustration-skintone-01, hsla(20,91%,83%,1))',
+		'var(--coral-color-illustration-skintone-01, hsla(20,29%,66%,1))',
 	coralColorIllustrationSkintone02:
-		'var(--coral-color-illustration-skintone-02, hsla(21,34%,55%,1))',
+		'var(--coral-color-illustration-skintone-02, hsla(21,23%,49%,1))',
 	coralColorIllustrationSkintone03:
-		'var(--coral-color-illustration-skintone-03, hsla(17,33%,28%,1))',
+		'var(--coral-color-illustration-skintone-03, hsla(17,29%,22%,1))',
 	coralColorIllustrationShadow: 'var(--coral-color-illustration-shadow, hsla(0,0%,0%,0.1))',
+	coralColorIllustrationColor07: 'var(--coral-color-illustration-color-07, hsla(213,13%,35%,1))',
+	coralColorIllustrationColor08: 'var(--coral-color-illustration-color-08, hsla(212,13%,19%,1))',
+	coralColorIllustrationColor09: 'var(--coral-color-illustration-color-09, hsla(240,3%,12%,1))',
 	coralColorBrandingBackground:
 		'var(--coral-color-branding-background, linear-gradient(133deg,hsla(226,49%,14%,1) 0%, hsla(253,46%,8%,1) 100%))',
 	coralColorBrandingNavigation:
@@ -297,9 +300,9 @@ const tokens = {
 	coralSizingXxxl: 'var(--coral-sizing-xxxl, 22rem)',
 	coralSizingMaximal: 'var(--coral-sizing-maximal, 32rem)',
 	coralElevationShadowNeutralM:
-		'var(--coral-elevation-shadow-neutral-m, 0rem 0.2rem 0.6rem 0rem hsla(0,0%,0%,0.3))',
+		'var(--coral-elevation-shadow-neutral-m, 0rem 0.2rem 0.6rem 0rem hsla(0,0%,0%,0.5))',
 	coralElevationShadowNeutralL:
-		'var(--coral-elevation-shadow-neutral-l, 0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.3))',
+		'var(--coral-elevation-shadow-neutral-l, 0rem 0.4rem 0.8rem 0rem hsla(0,0%,0%,0.5))',
 	coralElevationShadowAccent:
 		'var(--coral-elevation-shadow-accent, 0rem 0.1rem 0.1rem 0rem hsla(198,72%,75%,0.3))',
 	coralElevationShadowSuccess:
@@ -311,9 +314,9 @@ const tokens = {
 	coralElevationShadowBeta:
 		'var(--coral-elevation-shadow-beta, 0rem 0.1rem 0.1rem 0rem hsla(279,34%,78%,0.3))',
 	coralElevationShadowNeutralInvertedM:
-		'var(--coral-elevation-shadow-neutral-inverted-m, 0rem -0.2rem 0.6rem 0rem hsla(0,0%,2%,0.3))',
+		'var(--coral-elevation-shadow-neutral-inverted-m, 0rem -0.2rem 0.6rem 0rem hsla(0,0%,2%,0.5))',
 	coralElevationShadowNeutralInvertedL:
-		'var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0,0%,5%,0.3))',
+		'var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0,0%,5%,0.5))',
 	coralHeadingL: "var(--coral-heading-l, 600 1.8rem/140% 'Source Sans Pro')",
 	coralHeadingM: "var(--coral-heading-m, 600 1.6rem/140% 'Source Sans Pro')",
 	coralHeadingS: "var(--coral-heading-s, 600 1.4rem/140% 'Source Sans Pro')",
