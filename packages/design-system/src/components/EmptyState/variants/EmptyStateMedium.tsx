@@ -3,12 +3,12 @@ import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/Empt
 
 import IconDefault from '../illustrations/IconDefault';
 
-type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {
+export type EmptyStateMediumProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {
 	callback?: never;
 	description: string;
 };
 
-const EmptyStateMedium = forwardRef((props: EmptyStateLargeProps, ref: Ref<HTMLElement>) => {
+const EmptyStateMedium = forwardRef((props: EmptyStateMediumProps, ref: Ref<HTMLElement>) => {
 	return <EmptyStatePrimitive {...props} illustration={<IconDefault />} ref={ref} />;
 });
 

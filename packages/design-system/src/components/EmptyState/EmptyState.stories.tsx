@@ -1,8 +1,9 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { BrowserRouter, Link } from 'react-router-dom';
-import { EmptyStateLarge, EmptyStateMedium, EmptyStateSmall } from '.';
+import EmptyState, { EmptyStateLarge, EmptyStateMedium, EmptyStateSmall } from '.';
 import { StackHorizontal } from '../Stack';
+import { EmptyStateProps } from './EmptyState';
 
 export default {
 	component: EmptyStateLarge,
@@ -68,3 +69,64 @@ export const Demo = () => (
 		<EmptyStateSmall title="This space is empty" />
 	</StackHorizontal>
 );
+
+export const Usage = (args: EmptyStateProps) => {
+	switch (args.variant) {
+		case 'L': {
+			const { ...rest } = args;
+			return <EmptyState {...rest} />;
+		}
+
+		case 'M': {
+			const { callback, ...rest } = args;
+			return <EmptyState {...rest} />;
+		}
+
+		case 'S': {
+			const { variant, title } = args;
+			return <EmptyState variant={variant} title={title} />;
+		}
+
+		default: {
+			return <></>;
+		}
+	}
+};
+
+Usage.argTypes = {
+	variant: {
+		control: { type: 'select', options: ['L', 'M', 'S'] },
+		defaultValue: 'L',
+		description:
+			'Used for `<EmptyState>`. Use `<EmptyStateLarge>`, `<EmptyStateMedium>` and `<EmptyStateSmall>` instead',
+	},
+	title: {
+		control: { type: 'text' },
+		defaultValue: 'Title copy',
+		description: 'Mandatory across variants',
+	},
+	description: {
+		control: { type: 'text' },
+		defaultValue: 'Description copy',
+		description: 'Mandatory for Large and Medium, unavailable for Small',
+	},
+	docLinkURL: {
+		control: { type: 'text' },
+		defaultValue: 'https://talend.com',
+		description: 'Optional for Large and Medium, unavailable for Small',
+	},
+	callback: {
+		control: { type: 'object' },
+		defaultValue: {
+			children: 'Action',
+			onClick: () => {},
+			callbackType: 'button',
+		},
+		description: 'Optional for Large. Unavailable for Medium and Small',
+	},
+	illustration: {
+		table: {
+			disable: true,
+		},
+	},
+};

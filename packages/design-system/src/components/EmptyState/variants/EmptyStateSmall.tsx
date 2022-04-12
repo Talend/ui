@@ -1,11 +1,14 @@
 import React, { forwardRef, Ref } from 'react';
 import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/EmptyStatePrimitive';
 
-type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration' | 'description'> & {
+export type EmptyStateSmallProps = Omit<
+	EmptyStatePrimitiveProps,
+	'illustration' | 'description' | 'docLinkURL'
+> & {
 	callback?: never;
 };
 
-const EmptyStateSmall = forwardRef((props: EmptyStateLargeProps, ref: Ref<HTMLElement>) => {
+const EmptyStateSmall = forwardRef((props: EmptyStateSmallProps, ref: Ref<HTMLElement>) => {
 	return <EmptyStatePrimitive {...props} ref={ref} />;
 });
 

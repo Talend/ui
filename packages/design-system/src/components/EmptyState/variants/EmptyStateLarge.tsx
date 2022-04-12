@@ -3,7 +3,7 @@ import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/Empt
 
 import SpotDefault from '../illustrations/SpotDefault';
 
-type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {
+export type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {
 	description: string;
 };
 
