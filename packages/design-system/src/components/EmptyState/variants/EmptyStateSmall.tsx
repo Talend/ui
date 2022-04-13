@@ -3,9 +3,9 @@ import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/Empt
 
 export type EmptyStateSmallProps = Omit<
 	EmptyStatePrimitiveProps,
-	'illustration' | 'description' | 'docLinkURL'
+	'illustration' | 'description' | 'link'
 > & {
-	callback?: never;
+	action?: never;
 };
 
 const EmptyStateSmall = forwardRef((props: EmptyStateSmallProps, ref: Ref<HTMLElement>) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
+import { action as sbAction } from '@storybook/addon-actions';
 import { BrowserRouter, Link } from 'react-router-dom';
 import EmptyState, { EmptyStateLarge, EmptyStateMedium, EmptyStateSmall } from '.';
 import { StackHorizontal } from '../Stack';
@@ -13,13 +13,13 @@ export const Large = () => (
 	<EmptyStateLarge
 		title="No preparations yet"
 		description="Add a preparation to clean, format, and transform data prior to processing."
-		callback={{
+		action={{
 			children: 'Create a dataset',
-			onClick: () => action('clicked'),
+			onClick: () => sbAction('clicked'),
 			icon: 'talend-plus',
-			callbackType: 'button',
+			actionType: 'button',
 		}}
-		docLink={{ href: 'https://talend.com' }}
+		link={{ href: 'https://talend.com' }}
 	/>
 );
 
@@ -28,14 +28,14 @@ export const LargeWithLinkButton = () => (
 		<EmptyStateLarge
 			title="No preparations yet"
 			description="Add a preparation to clean, format, and transform data prior to processing."
-			callback={{
+			action={{
 				children: 'Create a preparation',
 				icon: 'talend-plus',
-				callbackType: 'link',
+				actionType: 'link',
 				as: <Link to="/preparation/new" />,
 				'data-feature': 'Preparation empty state clicked',
 			}}
-			docLink={{ href: 'https://talend.com' }}
+			link={{ href: 'https://talend.com' }}
 		/>
 	</BrowserRouter>
 );
@@ -44,7 +44,7 @@ export const Medium = () => (
 	<EmptyStateMedium
 		title="No preparations yet"
 		description="Add a preparation to clean, format, and transform data prior to processing."
-		docLink={{ href: 'https://talend.com' }}
+		link={{ href: 'https://talend.com' }}
 	/>
 );
 
@@ -55,17 +55,17 @@ export const Demo = () => (
 		<EmptyStateLarge
 			title="This space is empty"
 			description="Any additional data here"
-			callback={{
+			action={{
 				children: 'Action',
-				onClick: () => action('clicked'),
-				callbackType: 'button',
+				onClick: () => sbAction('clicked'),
+				actionType: 'button',
 			}}
-			docLink={{ href: 'https://talend.com' }}
+			link={{ href: 'https://talend.com' }}
 		/>
 		<EmptyStateMedium
 			title="This space is empty"
 			description="Any additional data here"
-			docLink={{ href: 'https://talend.com' }}
+			link={{ href: 'https://talend.com' }}
 		/>
 		<EmptyStateSmall title="This space is empty" />
 	</StackHorizontal>
@@ -79,7 +79,7 @@ export const Usage = (args: EmptyStateProps) => {
 		}
 
 		case 'M': {
-			const { callback, ...rest } = args;
+			const { action, ...rest } = args;
 			return <EmptyState {...rest} />;
 		}
 
@@ -111,17 +111,17 @@ Usage.argTypes = {
 		defaultValue: 'Description copy',
 		description: 'Mandatory for Large and Medium, unavailable for Small',
 	},
-	docLinkURL: {
+	link: {
 		control: { type: 'object' },
 		defaultValue: { href: 'https://talend.com', 'data-feature': 'Feature name' },
 		description: 'Optional for Large and Medium, unavailable for Small',
 	},
-	callback: {
+	action: {
 		control: { type: 'object' },
 		defaultValue: {
 			children: 'Action',
 			onClick: () => {},
-			callbackType: 'button',
+			actionType: 'button',
 			'data-feature': 'Feature name',
 		},
 		description: 'Optional for Large. Unavailable for Medium and Small',

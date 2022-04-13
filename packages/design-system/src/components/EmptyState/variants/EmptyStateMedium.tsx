@@ -4,7 +4,7 @@ import EmptyStatePrimitive, { EmptyStatePrimitiveProps } from '../primitive/Empt
 import IconDefault from '../illustrations/IconDefault';
 
 export type EmptyStateMediumProps = Omit<EmptyStatePrimitiveProps, 'illustration'> & {
-	callback?: never;
+	action?: never;
 	description: string;
 };
 

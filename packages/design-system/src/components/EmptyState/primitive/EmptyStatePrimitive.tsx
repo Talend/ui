@@ -11,8 +11,8 @@ import { ButtonPrimaryAsLinkPropsType } from '../../ButtonAsLink/variations/Butt
 import styles from './EmptyStatePrimitive.module.scss';
 
 type CallbackTypes =
-	| (ButtonPrimaryPropsType & { callbackType: 'button' })
-	| (ButtonPrimaryAsLinkPropsType & { callbackType: 'link' });
+	| (ButtonPrimaryPropsType & { actionType: 'button' })
+	| (ButtonPrimaryAsLinkPropsType & { actionType: 'link' });
 
 export type EmptyStatePrimitiveProps = Omit<
 	HTMLAttributes<HTMLElement>,
@@ -20,26 +20,26 @@ export type EmptyStatePrimitiveProps = Omit<
 > & {
 	title: string;
 	description?: string;
-	docLink?: {
+	link?: {
 		href: string;
 		'data-feature'?: string;
 	};
-	callback?: CallbackTypes & { 'data-feature'?: string };
+	action?: CallbackTypes & { 'data-feature'?: string };
 	illustration?: ReactElement;
 };
 
-function buildCallBack(callback: CallbackTypes) {
-	if (callback.callbackType === 'button') {
-		const { children, callbackType, ...rest } = callback;
+function buildAction(action: CallbackTypes) {
+	if (action.actionType === 'button') {
+		const { children, actionType, ...rest } = action;
 		return <ButtonPrimary {...rest}>{children}</ButtonPrimary>;
 	}
 
-	const { children, callbackType, ...rest } = callback;
+	const { children, actionType, ...rest } = action;
 	return <ButtonPrimaryAsLink {...rest}>{children}</ButtonPrimaryAsLink>;
 }
 
 const EmptyStatePrimitive = forwardRef((props: EmptyStatePrimitiveProps, ref: Ref<HTMLElement>) => {
-	const { title, description, docLink, illustration, callback, ...commonProps } = props;
+	const { title, description, link, illustration, action, ...commonProps } = props;
 	const { t } = useTranslation();
 
 	return (
@@ -50,9 +50,9 @@ const EmptyStatePrimitive = forwardRef((props: EmptyStatePrimitiveProps, ref: Re
 					<h3 className={styles.title}>{title}</h3>
 					{description && <p className={styles.description}>{description}</p>}
 				</StackVertical>
-				{callback && buildCallBack(callback)}
-				{docLink && (
-					<Link {...docLink} target="_blank">
+				{action && buildAction(action)}
+				{link && (
+					<Link {...link} target="_blank">
 						{t('EMPTY_LEARN_MORE', 'Learn more')}
 					</Link>
 				)}
