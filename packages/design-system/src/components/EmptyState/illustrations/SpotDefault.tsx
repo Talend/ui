@@ -148,7 +148,7 @@ export default function SpotDefault() {
 				fillRule="evenodd"
 				clipRule="evenodd"
 				d="M204.846 47.943a10.605 10.605 0 0 0-4.369-6.272 16.134 16.134 0 0 0-5.919-2.528c-.862-.352-1.111-.054-.748.896 1.218.92 2.478 1.833 3.78 2.739-1.001.583-1.405 1.775-1.214 3.575a7.915 7.915 0 0 0 5.852 3.749l2.618-2.159Z"
-				fill="#B27F64"
+				fill="var(--coral-color-illustration-skintone-02, hsla(21,34%,55%,1))"
 			/>
 			<path
 				fillRule="evenodd"
@@ -211,13 +211,13 @@ export default function SpotDefault() {
 				fillRule="evenodd"
 				clipRule="evenodd"
 				d="M247.243 73.823c-1.421 2.94-4.417 3.416-8.989 1.43 2.586-2.251 1.464-4.434 1.503-7.04l5.93-.4a5.81 5.81 0 0 0 1.556 6.01Z"
-				fill="#B27F64"
+				fill="var(--coral-color-illustration-skintone-02, hsla(21,34%,55%,1))"
 			/>
 			<path
 				fillRule="evenodd"
 				clipRule="evenodd"
 				d="m250.003 57.67-2.088 12.202c-5.585 2.743-9.125 3.055-10.621.935-1.901-3.118-1.835-8.474.198-16.067l12.511 2.93Z"
-				fill="#B27F64"
+				fill="var(--coral-color-illustration-skintone-02, hsla(21,34%,55%,1))"
 			/>
 			<path
 				fillRule="evenodd"
@@ -235,7 +235,7 @@ export default function SpotDefault() {
 				fillRule="evenodd"
 				clipRule="evenodd"
 				d="M187.536 95.937c-2.964-3.595-4.798-2.735-3.951-1.176.722 1.329-2.836-3.159-4.04-1.67a4.971 4.971 0 0 0 1.309 6.404 8.556 8.556 0 0 0 5.549.492l1.133-4.05Z"
-				fill="#B27F64"
+				fill="var(--coral-color-illustration-skintone-02, hsla(21,34%,55%,1))"
 			/>
 			<path
 				fillRule="evenodd"
