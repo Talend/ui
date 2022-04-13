@@ -20,8 +20,11 @@ export type EmptyStatePrimitiveProps = Omit<
 > & {
 	title: string;
 	description?: string;
-	docLinkURL?: string;
-	callback?: CallbackTypes;
+	docLink?: {
+		href: string;
+		'data-feature'?: string;
+	};
+	callback?: CallbackTypes & { 'data-feature'?: string };
 	illustration?: ReactElement;
 };
 
@@ -36,7 +39,7 @@ function buildCallBack(callback: CallbackTypes) {
 }
 
 const EmptyStatePrimitive = forwardRef((props: EmptyStatePrimitiveProps, ref: Ref<HTMLElement>) => {
-	const { title, description, docLinkURL, illustration, callback, ...commonProps } = props;
+	const { title, description, docLink, illustration, callback, ...commonProps } = props;
 	const { t } = useTranslation();
 
 	return (
@@ -48,8 +51,8 @@ const EmptyStatePrimitive = forwardRef((props: EmptyStatePrimitiveProps, ref: Re
 					{description && <p className={styles.description}>{description}</p>}
 				</StackVertical>
 				{callback && buildCallBack(callback)}
-				{docLinkURL && (
-					<Link href={docLinkURL} target="_blank">
+				{docLink && (
+					<Link {...docLink} target="_blank">
 						{t('EMPTY_LEARN_MORE', 'Learn more')}
 					</Link>
 				)}

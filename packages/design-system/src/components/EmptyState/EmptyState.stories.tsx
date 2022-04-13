@@ -19,7 +19,7 @@ export const Large = () => (
 			icon: 'talend-plus',
 			callbackType: 'button',
 		}}
-		docLinkURL="https://talend.com"
+		docLink={{ href: 'https://talend.com' }}
 	/>
 );
 
@@ -33,8 +33,9 @@ export const LargeWithLinkButton = () => (
 				icon: 'talend-plus',
 				callbackType: 'link',
 				as: <Link to="/preparation/new" />,
+				'data-feature': 'Preparation empty state clicked',
 			}}
-			docLinkURL="https://talend.com"
+			docLink={{ href: 'https://talend.com' }}
 		/>
 	</BrowserRouter>
 );
@@ -43,7 +44,7 @@ export const Medium = () => (
 	<EmptyStateMedium
 		title="No preparations yet"
 		description="Add a preparation to clean, format, and transform data prior to processing."
-		docLinkURL="https://talend.com"
+		docLink={{ href: 'https://talend.com' }}
 	/>
 );
 
@@ -59,12 +60,12 @@ export const Demo = () => (
 				onClick: () => action('clicked'),
 				callbackType: 'button',
 			}}
-			docLinkURL="https://talend.com"
+			docLink={{ href: 'https://talend.com' }}
 		/>
 		<EmptyStateMedium
 			title="This space is empty"
 			description="Any additional data here"
-			docLinkURL="https://talend.com"
+			docLink={{ href: 'https://talend.com' }}
 		/>
 		<EmptyStateSmall title="This space is empty" />
 	</StackHorizontal>
@@ -111,8 +112,8 @@ Usage.argTypes = {
 		description: 'Mandatory for Large and Medium, unavailable for Small',
 	},
 	docLinkURL: {
-		control: { type: 'text' },
-		defaultValue: 'https://talend.com',
+		control: { type: 'object' },
+		defaultValue: { href: 'https://talend.com', 'data-feature': 'Feature name' },
 		description: 'Optional for Large and Medium, unavailable for Small',
 	},
 	callback: {
@@ -121,6 +122,7 @@ Usage.argTypes = {
 			children: 'Action',
 			onClick: () => {},
 			callbackType: 'button',
+			'data-feature': 'Feature name',
 		},
 		description: 'Optional for Large. Unavailable for Medium and Small',
 	},

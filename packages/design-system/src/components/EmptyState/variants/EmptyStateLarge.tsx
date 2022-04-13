@@ -9,7 +9,7 @@ export type EmptyStateLargeProps = Omit<EmptyStatePrimitiveProps, 'illustration'
 
 const EmptyStateLarge = forwardRef((props: EmptyStateLargeProps, ref: Ref<HTMLElement>) => {
 	return (
-		<EmptyStatePrimitive {...props} aria-live="polite" illustration={<SpotDefault />} ref={ref} />
+		<EmptyStatePrimitive aria-live="polite" {...props} illustration={<SpotDefault />} ref={ref} />
 	);
 });
 
