@@ -10,10 +10,10 @@ on:
         description: The head branch associated with the pull request.
         required: true
   pull_request:
+    # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened
+    types: [ labeled, synchronize, opened, reopened]
     branches:
       - master
-    types:
-      - labeled
   push:
     branches:
       - master
