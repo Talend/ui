@@ -1,8 +1,0 @@
-@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
-
-.column-chooser-header-button-container {
-	position: absolute;
-	right: 0;
-	margin-top: tokens.$coral-spacing-xxs;
-	margin-right: tokens.$coral-spacing-s;
-}

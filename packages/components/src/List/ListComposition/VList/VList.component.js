@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import map from 'lodash/map';
+import { ButtonIconFloating } from '@talend/design-system';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
 import { DISPLAY_MODE, SORT } from '../constants';
+import ColumnChooser from '../ColumnChooser';
 
 import theme from '../List.scss';
-import { ColumnChooserHeaderButton } from '../ColumnChooser/ColumnChooserHeaderButton.component';
 
 const columnsFromChildrens = children => {
 	return Array.isArray(children)
@@ -42,11 +43,12 @@ function VList({ children, columnChooser, ...rest }) {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [children, setColumns]);
 
+	const headerAction = !!columnChooser && displayMode === DISPLAY_MODE.TABLE && (
+		<ColumnChooser {...columnChooser} buttonRenderer={ButtonIconFloating} />
+	);
+
 	return (
 		<div className={theme.vlist}>
-			{columnChooser && displayMode === DISPLAY_MODE.TABLE && (
-				<ColumnChooserHeaderButton {...columnChooser} />
-			)}
 			<VirtualizedList
 				collection={collection}
 				type={displayMode.toUpperCase()}
@@ -55,6 +57,7 @@ function VList({ children, columnChooser, ...rest }) {
 				sort={({ sortBy, sortDirection }) =>
 					setSortParams({ sortBy, isDescending: sortDirection === SORT.DESC })
 				}
+				headerAction={headerAction}
 				{...rest}
 			>
 				{visibleColumns
@@ -67,7 +70,7 @@ function VList({ children, columnChooser, ...rest }) {
 
 VList.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.node),
-	columnChooser: PropTypes.oneOfType([PropTypes.bool, ColumnChooserHeaderButton.propTypes]),
+	columnChooser: PropTypes.oneOfType([PropTypes.bool, ColumnChooser.propTypes]),
 };
 
 // we port the VirtualizedList columns to VList to allow VList.Title/Badge/...
