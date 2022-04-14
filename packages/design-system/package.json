@@ -13,7 +13,7 @@
     "test": "echo Tests are managed by Cypress using yarn test:cy",
     "test:cy": "cypress run-ct",
     "test:demo": "npm run build-storybook",
-    "storybook": "npm run build:lib && BROWSER=none start-storybook -p 6006",
+    "storybook": "cross-env BROWSER=none npm run build:lib && start-storybook -p 6006",
     "build-storybook": "build-storybook --docs && node ./scripts/sitemap.js",
     "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner --config i18next-scanner.config.js && rm -rf tmp",
     "lint:es": "talend-scripts lint:es"
