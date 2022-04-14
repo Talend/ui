@@ -1,88 +1,90 @@
-import React from 'react';
-import { useDialogState, DialogProps, Dialog as ReakitDialog } from 'reakit';
-import { useTranslation } from 'react-i18next';
+import React, { ReactElement, ReactNode } from 'react';
+import classNames from 'classnames';
+import i18n from 'i18next';
+import { Dialog, DialogBackdrop } from 'reakit/Dialog';
+import { IconName } from '@talend/icons';
 
-import { ButtonSecondary, ButtonPrimary } from '../Button';
+import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
 import { Icon } from '../Icon';
+import { StackHorizontal, StackVertical } from '../Stack';
+import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';
+import { ButtonSecondaryPropsType } from '../Button/variations/ButtonSecondary';
 
-import * as S from './Modal.style';
+import modalStyles from './Modal.scss';
 
-export type ModalProps = DialogProps & {
-	icon?: string;
-	disclosure: React.ComponentPropsWithRef<any>;
-	subtitle?: string;
-	onClose?: () => void;
-	onValidate?: () => void;
+type ModalIcon = IconName | ReactElement;
+
+function ModalIcon({ icon }: { icon: ModalIcon }): ReactElement {
+	return (
+		<div className={modalStyles['modal-icon']}>
+			{typeof icon === 'string' ? <Icon name={icon} /> : icon}
+		</div>
+	);
+}
+
+export type ModalPropsType = {
+	title: ReactNode;
+	description?: string;
+	icon?: ModalIcon;
+	onClose: Function;
+	// closeOnBackdropClick?: boolean;
+	primaryAction?: ButtonPrimaryPropsType & { destructive?: boolean };
+	secondaryAction?: ButtonSecondaryPropsType;
+	children: ReactNode | ReactNode[];
 };
 
-const Modal = React.forwardRef(
-	(
-		{ disclosure, children, icon, title, subtitle, onClose, onValidate, ...props }: ModalProps,
-		ref: React.Ref<HTMLDivElement>,
-	) => {
-		const dialog = useDialogState({ animated: true });
-		const { t } = useTranslation();
+function Modal(props: ModalPropsType): ReactElement {
+	const { title, icon, description, onClose, primaryAction, secondaryAction, children } = props;
+	const dialog = { visible: true };
 
-		const onCloseHandler = () => {
-			dialog.hide();
-			if (onClose) {
-				onClose();
-			}
-		};
+	const hasAction = primaryAction || secondaryAction;
+	const hasTabs = false; // @todo
+	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
 
-		const onValidateHandler = () => {
-			if (onValidate) {
-				onValidate();
-			}
-			dialog.hide();
-		};
+	return (
+		<DialogBackdrop {...dialog} className={modalStyles['modal-backdrop']}>
+			<Dialog {...dialog} className={modalStyles['modal']} aria-title={title}>
+				<StackVertical gap="L">
+					<div
+						className={classNames({
+							[modalStyles['modal__header']]: true,
+							[modalStyles['modal__header--with-tabs']]: hasTabs,
+						})}
+					>
+						{icon && <ModalIcon icon={icon} />}
+						<div className={modalStyles['modal-header-text']}>
+							<span className={modalStyles['modal-header-text__title']}>{title}</span>
+							{description && (
+								<span className={modalStyles['modal-header-text__description']}>{description}</span>
+							)}
+						</div>
+					</div>
 
-		return (
-			<>
-				{disclosure && (
-					<S.DialogDisclosure {...dialog} ref={disclosure.ref} {...disclosure.props}>
-						{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
-					</S.DialogDisclosure>
-				)}
-				<S.DialogBackdrop {...dialog}>
-					<ReakitDialog {...dialog} {...props} as={S.Dialog} ref={ref}>
-						<S.DialogHeading>
-							{icon && <Icon name={icon} />}
-							<div>
-								{title && <h1>{title}</h1>}
-								{subtitle && <h2>{subtitle}</h2>}
-							</div>
-						</S.DialogHeading>
-						{children}
-						<S.DialogButtons>
-							<ButtonSecondary onClick={onCloseHandler}>
-								{t('MODAL_CANCEL', 'Cancel')}
-							</ButtonSecondary>
-							<ButtonPrimary onClick={onValidateHandler}>
-								{t('MODAL_VALIDATE', 'Validate')}
-							</ButtonPrimary>
-						</S.DialogButtons>
-					</ReakitDialog>
-				</S.DialogBackdrop>
-			</>
-		);
-	},
-);
+					<div className={modalStyles['modal__content']}>{children}</div>
 
-export const useModalState = useDialogState;
+					<div className={modalStyles['modal__buttons']}>
+						<StackHorizontal gap="S" justify="spaceBetween">
+							<ButtonSecondary onClick={() => onClose()}>{onCloseLabel}</ButtonSecondary>
 
-export const ModalDisclosure = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>(
-	(props, ref) => <S.DialogDisclosure ref={ref} {...props} />,
-);
-
-export const ModalDialog = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>(
-	({ children, ...rest }: React.PropsWithChildren<any>, ref) => (
-		<S.DialogBackdrop {...rest}>
-			<S.Dialog {...rest} as={ReakitDialog} ref={ref}>
-				{children}
-			</S.Dialog>
-		</S.DialogBackdrop>
-	),
-);
+							{hasAction && (
+								<div>
+									<StackHorizontal gap="XS">
+										{secondaryAction && <ButtonSecondary {...secondaryAction} />}
+										{primaryAction &&
+											(!primaryAction.destructive ? (
+												<ButtonPrimary {...primaryAction} />
+											) : (
+												<ButtonDestructive {...primaryAction} />
+											))}
+									</StackHorizontal>
+								</div>
+							)}
+						</StackHorizontal>
+					</div>
+				</StackVertical>
+			</Dialog>
+		</DialogBackdrop>
+	);
+}
 
 export default Modal;

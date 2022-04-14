@@ -1,0 +1,99 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$modal-backdrop-z-index: 100;
+$modal-z-index: $modal-backdrop-z-index + 1;
+
+.modal-backdrop {
+	background-color: tokens.$coral-color-assistive-background;
+	opacity: tokens.$coral-opacity-l;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: $modal-backdrop-z-index;
+}
+
+.modal {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: $modal-z-index;
+	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	border-radius: tokens.$coral-radius-s;
+	background: tokens.$coral-color-neutral-background;
+
+	> :first-child {
+		// Fixed dimensions have to be set on the flex element so that overflow-y: auto can
+		// properly compute the height of each component of the modal (header / content / buttons).
+		min-width: 660px;
+		max-width: 95vw;
+		max-height: 80vh;
+	}
+
+	&__header,
+	&__content,
+	&__buttons {
+		width: 100%;
+	}
+
+	&__content,
+	&__buttons {
+		padding: 0 tokens.$coral-spacing-xl;
+	}
+
+	&__header {
+		flex-shrink: 0;
+		height: 60px;
+		padding: tokens.$coral-spacing-xs tokens.$coral-spacing-l;
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+
+		display: flex;
+		align-items: center;
+		column-gap: tokens.$coral-spacing-m;
+
+		&--with-tabs {
+			height: 70px;
+		}
+	}
+
+	&__content {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	&__buttons {
+		margin-bottom: tokens.$coral-spacing-m;
+		flex-shrink: 0;
+	}
+}
+
+.modal-header-text {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	overflow: hidden;
+
+	&__title,
+	&__description {
+		// @todo Those shouldn't expand the modal's width
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__title {
+		font: tokens.$coral-heading-l;
+	}
+}
+
+.modal-icon {
+	flex-grow: 0;
+	width: 24px;
+	height: 24px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
