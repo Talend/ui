@@ -46,14 +46,12 @@ class ZoomHandler extends React.Component<Props, State> {
 		this.selection.call(this.zoom);
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps: Props) {
-		if (nextProps.transformToApply) {
-			if (nextProps.transformToApply !== this.props.transformToApply) {
-				this.selection
-					.transition()
-					.duration(230)
-					.call(this.zoom.transform, nextProps.transformToApply);
-			}
+	componentDidUpdate(oldProps: Props) {
+		if (this.props.transformToApply && oldProps.transformToApply !== this.props.transformToApply) {
+			this.selection
+				.transition()
+				.duration(230)
+				.call(this.zoom.transform, this.props.transformToApply);
 		}
 	}
 
