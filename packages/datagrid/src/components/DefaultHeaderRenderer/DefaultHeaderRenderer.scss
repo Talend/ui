@@ -19,9 +19,13 @@ $td-grip-resize-width: 6px !default;
 .td-header-component {
 	height: 100%;
 
-	&:hover :global(.td-quality-bar) {
-		height: $td-quality-bar-hover-height;
-	}
+	:global(.tc-ratio-bar) {
+		display: flex;
+		width: 100%;
+		padding: 0 0.3rem;
+		position: absolute;
+		bottom: 0;
+	}	
 
 	.td-header {
 		height: 100%;
@@ -53,5 +57,5 @@ $td-grip-resize-width: 6px !default;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
-	}
+	}	
 }
