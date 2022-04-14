@@ -14,6 +14,9 @@ on:
     types: [labeled, synchronize, opened, reopened, ready_for_review]
     branches:
       - master
+    paths:
+      - "packages/design-tokens/**"
+      - "packages/design-system/**"
   push:
     branches:
       - master
