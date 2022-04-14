@@ -24,7 +24,7 @@ import {
 
 type Props = {
 	children?: any;
-	setNodeTypes: (nodeTypeMap: Map<string, any>) => void;
+	setNodeTypes: (nodeTypeMap: StateMap) => void;
 	startMoveNodeTo: (nodeId: Id, nodePosition: string) => void;
 	moveNodeTo: (nodeId: Id, nodePosition: Position) => void;
 	moveNodeToEnd: (nodeId: Id, nodePosition: Position) => void;
@@ -79,6 +79,10 @@ export function FlowDesigner(props: Props) {
 		}
 		return { nodeTypeMap, linkTypeMap, portTypeMap };
 	});
+
+	useEffect(() => {
+		props.setNodeTypes(state.nodeTypeMap);
+	}, []);
 
 	return (
 		<svg onClick={props.onClick} width="100%">
