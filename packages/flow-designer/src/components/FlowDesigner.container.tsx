@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import invariant from 'invariant';
 import get from 'lodash/get';
@@ -39,63 +39,32 @@ type Props = {
 	snapToGrid?: boolean;
 };
 
+type StateMap = { [key: string]: any };
+
 type State = {
-	nodeTypeMap: Map<string, any>;
-	linkTypeMap: Map<string, any>;
-	portTypeMap: Map<string, any>;
+	nodeTypeMap: StateMap;
+	linkTypeMap: StateMap;
+	portTypeMap: StateMap;
 };
 
-export class FlowDesigner extends React.Component<Props, State> {
-	node: any;
-
-	static defaultProps = {
-		snapToGrid: false,
-	};
-
-	constructor(props: Props) {
-		super(props);
-		this.state = {
-			nodeTypeMap: Map(),
-			linkTypeMap: Map(),
-			portTypeMap: Map(),
-		};
-	}
-
-	UNSAFE_componentWillMount() {
-		const { children } = this.props;
-		let nodeTypeMap = Map<string, any>();
-		let linkTypeMap = Map<string, any>();
-		let portTypeMap = Map<string, any>();
+export function FlowDesigner(props: Props) {
+	const [state, setState] = useState<State>(() => {
+		const nodeTypeMap: StateMap = {};
+		const linkTypeMap: StateMap = {};
+		const portTypeMap: StateMap = {};
+		const { children } = props;
 		if (children) {
 			(children as any).forEach(
-				(element: {
-					type: { displayName: string };
-					props: { component: any; type: string };
-				}) => {
+				(element: { type: { displayName: string }; props: { component: any; type: string } }) => {
 					switch (element.type.displayName) {
 						case 'NodeType':
-							nodeTypeMap = {
-								...nodeTypeMap,
-								[element.props.type]: {
-									component: element.props.component,
-								},
-							};
+							nodeTypeMap[element.props.type] = { component: element.props.component };
 							break;
 						case 'LinkType':
-							linkTypeMap = {
-								...linkTypeMap,
-								[element.props.type]: {
-									component: element.props.component,
-								},
-							};
+							linkTypeMap[element.props.type] = { component: element.props.component };
 							break;
 						case 'PortType':
-							portTypeMap = {
-								...portTypeMap,
-								[element.props.type]: {
-									component: element.props.component,
-								},
-							};
+							portTypeMap[element.props.type] = { component: element.props.component };
 							break;
 						default:
 							invariant(
@@ -108,61 +77,44 @@ export class FlowDesigner extends React.Component<Props, State> {
 		} else {
 			invariant(false, '<FlowDesigner /> should have configuration component as child');
 		}
+		return { nodeTypeMap, linkTypeMap, portTypeMap };
+	});
 
-		this.props.setNodeTypes(nodeTypeMap);
-		this.setState({ nodeTypeMap, linkTypeMap, portTypeMap });
-	}
-
-	render() {
-		return (
-			<svg
-				onClick={this.props.onClick}
-				ref={c => {
-					this.node = c;
-				}}
-				width="100%"
+	return (
+		<svg onClick={props.onClick} width="100%">
+			<defs>
+				<filter id="blur-filter" width="1.5" height="1.5" x="-.25" y="-.25">
+					<feFlood floodColor="#01A7CF" result="COLOR" />
+					<feComposite in="COLOR" in2="SourceGraphic" operator="in" result="shadow" />
+					<feGaussianBlur in="shadow" stdDeviation="3" />
+					<feOffset dx="0" dy="0" />
+					<feMerge>
+						<feMergeNode />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+			</defs>
+			<ZoomHandler
+				transform={props.transform}
+				transformToApply={props.transformToApply}
+				setZoom={props.setZoom}
 			>
-				<defs>
-					<filter id="blur-filter" width="1.5" height="1.5" x="-.25" y="-.25">
-						<feFlood floodColor="#01A7CF" result="COLOR" />
-						<feComposite in="COLOR" in2="SourceGraphic" operator="in" result="shadow" />
-						<feGaussianBlur in="shadow" stdDeviation="3" />
-						<feOffset dx="0" dy="0" />
-						<feMerge>
-							<feMergeNode />
-							<feMergeNode in="SourceGraphic" />
-						</feMerge>
-					</filter>
-				</defs>
-				<ZoomHandler
-					transform={this.props.transform}
-					transformToApply={this.props.transformToApply}
-					setZoom={this.props.setZoom}
-				>
-					<Grid />
-					<g>
-						<NodesRenderer
-							nodeTypeMap={this.state.nodeTypeMap}
-							startMoveNodeTo={this.props.startMoveNodeTo}
-							moveNodeTo={this.props.moveNodeTo}
-							moveNodeToEnd={this.props.moveNodeToEnd}
-							nodes={this.props.nodes}
-							snapToGrid={this.props.snapToGrid || false}
-						/>
-						<PortsRenderer
-							portTypeMap={this.state.portTypeMap}
-							ports={this.props.ports}
-						/>
-						<LinksRenderer
-							linkTypeMap={this.state.linkTypeMap}
-							links={this.props.links}
-							ports={this.props.ports}
-						/>
-					</g>
-				</ZoomHandler>
-			</svg>
-		);
-	}
+				<Grid />
+				<g>
+					<NodesRenderer
+						nodeTypeMap={state.nodeTypeMap}
+						startMoveNodeTo={props.startMoveNodeTo}
+						moveNodeTo={props.moveNodeTo}
+						moveNodeToEnd={props.moveNodeToEnd}
+						nodes={props.nodes}
+						snapToGrid={props.snapToGrid || false}
+					/>
+					<PortsRenderer portTypeMap={state.portTypeMap} ports={props.ports} />
+					<LinksRenderer linkTypeMap={state.linkTypeMap} links={props.links} ports={props.ports} />
+				</g>
+			</ZoomHandler>
+		</svg>
+	);
 }
 
 const mapStateToProps = (state: State, ownProps: Props) => ({
