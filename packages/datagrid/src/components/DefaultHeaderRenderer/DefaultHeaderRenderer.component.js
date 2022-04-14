@@ -43,8 +43,8 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 			</button>
 			{column.colDef[QUALITY_KEY] && (
 				<QualityBar
-					invalid={column.colDef[QUALITY_KEY][QUALITY_VALID_KEY].total}
-					toto={column.colDef[QUALITY_KEY][QUALITY_INVALID_KEY].total}
+					valid={column.colDef[QUALITY_KEY][QUALITY_VALID_KEY].total}
+					invalid={column.colDef[QUALITY_KEY][QUALITY_INVALID_KEY].total}
 					empty={column.colDef[QUALITY_KEY][QUALITY_EMPTY_KEY].total}
 				/>
 			)}
