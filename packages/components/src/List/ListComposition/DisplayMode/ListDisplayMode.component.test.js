@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ListDisplayMode, { DisplayModeActionIcon } from './ListDisplayMode.component';
+import ListDisplayMode, { DisplayModeIcon } from './ListDisplayMode.component';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 
@@ -36,23 +36,21 @@ describe('List DisplayMode', () => {
 		const wrapper = mount(
 			<ListContext.Provider value={contextValue}>
 				<ListDisplayMode id="myDisplayMode">
-					<DisplayModeActionIcon
+					<DisplayModeIcon
 						id="myId"
-						mode="custom1"
-						selectedMode="custom2"
+						displayMode="custom1"
+						displayModeOption="custom2"
 						icon="iconCustom1"
 						label="myCustomLabel1"
-						onChange={jest.fn()}
-						t={contextValue.t}
+						onSelect={jest.fn()}
 					/>
-					<DisplayModeActionIcon
+					<DisplayModeIcon
 						id="myId"
-						mode="custom2"
-						selectedMode="custom2"
+						displayMode="custom2"
+						displayModeOption="custom2"
 						icon="iconCustom2"
 						label="myCustomLabel2"
-						onChange={jest.fn()}
-						t={contextValue.t}
+						onSelect={jest.fn()}
 					/>
 				</ListDisplayMode>
 			</ListContext.Provider>,

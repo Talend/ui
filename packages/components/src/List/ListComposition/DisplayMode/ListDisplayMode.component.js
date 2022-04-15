@@ -7,7 +7,7 @@ import DisplayModeToggle, {
 import { useListContext } from '../context';
 
 export {
-	DisplayModeActionIcon,
+	DisplayModeActionIcon as DisplayModeIcon,
 	displayModesOptions,
 } from '../../Toolbar/DisplayModeToggle/DisplayModeToggle.component';
 

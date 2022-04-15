@@ -41,13 +41,13 @@ exports[`List DisplayMode should render 1`] = `
         }
       >
         <Memo()
+          displayMode="table"
+          displayModeOption="table"
           icon="talend-table"
           id="myDisplayMode"
           key="table"
-          mode="table"
-          onChange={[Function]}
-          selectedMode="table"
-          t={[Function]}
+          label="Set Table as current display mode."
+          onSelect={[Function]}
         >
           <ButtonIconToggle
             icon="talend-table"

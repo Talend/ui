@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonIconToggle, StackHorizontal } from '@talend/design-system';
 import getDefaultT from '../../../translate';
-import { DISPLAY_MODE } from '../constants';
+import { DISPLAY_MODE } from '../../ListComposition/constants';
 
 export const displayModesOptions = [DISPLAY_MODE.TABLE, DISPLAY_MODE.LARGE];
 
@@ -18,24 +18,22 @@ function getLabel(selected, t) {
 }
 
 export const DisplayModeActionIcon = React.memo(
-	({ id, icon, onChange, mode, selectedMode, t, label }) => (
-		<ButtonIconToggle
-			key={mode}
-			id={`${id}-${mode}`}
-			icon={icon}
-			isActive={mode === selectedMode}
-			size="S"
-			onClick={e => {
-				onChange(e, mode);
-			}}
-		>
-			{label ||
-				t('LIST_SELECT_DISPLAY_MODE', {
-					defaultValue: 'Set {{displayMode}} as current display mode.',
-					displayMode: getLabel(mode, t),
-				})}
-		</ButtonIconToggle>
-	),
+	({ displayMode, displayModeOption, icon, id, label, onSelect }) => {
+		return (
+			<ButtonIconToggle
+				key={displayMode}
+				id={`${id}-${displayMode}`}
+				icon={icon}
+				isActive={displayMode === displayModeOption}
+				size="S"
+				onClick={e => {
+					onSelect(e, displayMode);
+				}}
+			>
+				{label}
+			</ButtonIconToggle>
+		);
+	},
 );
 function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 	const modes = displayModes || displayModesOptions;
@@ -47,10 +45,13 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 					key={option}
 					id={id}
 					icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
-					onChange={onChange}
-					mode={option}
-					selectedMode={mode}
-					t={t}
+					label={t('LIST_SELECT_DISPLAY_MODE', {
+						defaultValue: 'Set {{displayMode}} as current display mode.',
+						displayMode: getLabel(option, t),
+					})}
+					onSelect={onChange}
+					displayMode={option}
+					displayModeOption={mode}
 				/>
 			))}
 		</StackHorizontal>
