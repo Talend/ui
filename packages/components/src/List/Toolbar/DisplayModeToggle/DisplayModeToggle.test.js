@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import DisplayModeToggle from './DisplayModeToggle.component';
 
@@ -9,32 +9,24 @@ const props = {
 describe('DisplayModeToggle', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(<DisplayModeToggle {...props} />);
+		const wrapper = mount(<DisplayModeToggle {...props} />);
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 	it('should render table mode selected', () => {
 		// when
-		const wrapper = shallow(<DisplayModeToggle {...props} mode="table" />);
-
+		const wrapper = mount(<DisplayModeToggle {...props} mode="table" />);
 		// then
-		expect(
-			wrapper
-				.find('ActionIconToggle')
-				.at(0)
-				.prop('active'),
-		).toEqual(true);
+		expect(wrapper.find('ButtonIconToggle').at(0).prop('isActive')).toEqual(true);
 	});
 	it('should call onChange when change display mode', () => {
 		// when
-		const wrapper = shallow(<DisplayModeToggle {...props} mode="table" />);
-		wrapper
-			.find('ActionIconToggle')
-			.at(1)
-			.simulate('click', {});
+		const wrapper = mount(<DisplayModeToggle {...props} mode="table" />);
+
+		wrapper.find('ButtonIconToggle').at(1).simulate('click', {});
 
 		// then
-		expect(props.onChange).toHaveBeenCalledWith({}, 'large');
+		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), 'large');
 	});
 });

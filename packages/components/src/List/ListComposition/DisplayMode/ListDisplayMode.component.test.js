@@ -37,18 +37,18 @@ describe('List DisplayMode', () => {
 			<ListContext.Provider value={contextValue}>
 				<ListDisplayMode id="myDisplayMode">
 					<DisplayModeIcon
-						id="myId"
 						displayMode="custom1"
 						displayModeOption="custom2"
 						icon="iconCustom1"
+						id="myId"
 						label="myCustomLabel1"
 						onSelect={jest.fn()}
 					/>
 					<DisplayModeIcon
-						id="myId"
 						displayMode="custom2"
 						displayModeOption="custom2"
 						icon="iconCustom2"
+						id="myId"
 						label="myCustomLabel2"
 						onSelect={jest.fn()}
 					/>

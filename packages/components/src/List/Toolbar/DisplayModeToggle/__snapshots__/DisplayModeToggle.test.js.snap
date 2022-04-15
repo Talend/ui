@@ -1,30 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DisplayModeToggle should render 1`] = `
-<div
-  className="theme-tc-display-mode-toggle tc-display-mode-toggle"
+<DisplayModeToggle
+  onChange={[MockFunction]}
+  t={[Function]}
 >
-  <ActionIconToggle
-    active={false}
-    disabled={false}
-    icon="talend-table"
-    id="undefined-table"
-    key="table"
-    label="Set Table as current display mode."
-    onClick={[Function]}
-    tick={false}
-    tooltipPlacement="top"
-  />
-  <ActionIconToggle
-    active={false}
-    disabled={false}
-    icon="talend-expanded"
-    id="undefined-large"
-    key="large"
-    label="Set Expanded as current display mode."
-    onClick={[Function]}
-    tick={false}
-    tooltipPlacement="top"
-  />
-</div>
+  <StackHorizontal
+    gap="XS"
+    padding={
+      Object {
+        "x": "S",
+        "y": 0,
+      }
+    }
+  >
+    <CoralStackHorizontal
+      gap="XS"
+      padding={
+        Object {
+          "x": "S",
+          "y": 0,
+        }
+      }
+    >
+      <Memo()
+        displayMode="table"
+        icon="talend-table"
+        key="table"
+        label="Set Table as current display mode."
+        onSelect={[MockFunction]}
+      >
+        <ButtonIconToggle
+          icon="talend-table"
+          id="undefined-table"
+          isActive={false}
+          key="table"
+          onClick={[Function]}
+          size="S"
+        >
+          <CoralButtonIconToggle
+            icon="talend-table"
+            id="undefined-table"
+            isActive={false}
+            onClick={[Function]}
+            size="S"
+          >
+            Set Table as current display mode.
+          </CoralButtonIconToggle>
+        </ButtonIconToggle>
+      </Memo()>
+      <Memo()
+        displayMode="large"
+        icon="talend-expanded"
+        key="large"
+        label="Set Expanded as current display mode."
+        onSelect={[MockFunction]}
+      >
+        <ButtonIconToggle
+          icon="talend-expanded"
+          id="undefined-large"
+          isActive={false}
+          key="large"
+          onClick={[Function]}
+          size="S"
+        >
+          <CoralButtonIconToggle
+            icon="talend-expanded"
+            id="undefined-large"
+            isActive={false}
+            onClick={[Function]}
+            size="S"
+          >
+            Set Expanded as current display mode.
+          </CoralButtonIconToggle>
+        </ButtonIconToggle>
+      </Memo()>
+    </CoralStackHorizontal>
+  </StackHorizontal>
+</DisplayModeToggle>
 `;

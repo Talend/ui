@@ -7,7 +7,7 @@ import { ButtonIconFloating } from '@talend/design-system';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
-import { SORT, DISPLAY_MODE } from '../constants';
+import { DISPLAY_MODE, SORT } from '../constants';
 import ColumnChooser from '../ColumnChooser';
 
 import theme from '../List.scss';
@@ -30,7 +30,7 @@ function VList({ children, columnChooser, ...rest }) {
 	} = useListContext();
 
 	// initialize visible columns
-	if (!visibleColumns) {
+	if (!!setVisibleColumns && !visibleColumns) {
 		const foundColumns = columnsFromChildrens(children);
 		setVisibleColumns(map(foundColumns, 'dataKey'));
 	}
