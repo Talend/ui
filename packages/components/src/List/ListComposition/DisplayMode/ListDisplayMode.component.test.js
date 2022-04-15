@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ListDisplayMode, { DisplayModeIcon } from './ListDisplayMode.component';
+import ListDisplayMode, { DisplayModeActionIcon } from './ListDisplayMode.component';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 
@@ -36,29 +36,35 @@ describe('List DisplayMode', () => {
 		const wrapper = mount(
 			<ListContext.Provider value={contextValue}>
 				<ListDisplayMode id="myDisplayMode">
-					<DisplayModeIcon
-						displayMode="custom2"
-						displayModeOption="custom1"
+					<DisplayModeActionIcon
+						id="myId"
+						mode="custom1"
+						selectedMode="custom2"
 						icon="iconCustom1"
-						id="myId"
 						label="myCustomLabel1"
-						onSelect={jest.fn()}
+						onChange={jest.fn()}
+						t={contextValue.t}
 					/>
-					<DisplayModeIcon
-						displayMode="custom2"
-						displayModeOption="custom2"
-						icon="iconCustom2"
+					<DisplayModeActionIcon
 						id="myId"
+						mode="custom2"
+						selectedMode="custom2"
+						icon="iconCustom2"
 						label="myCustomLabel2"
-						onSelect={jest.fn()}
+						onChange={jest.fn()}
+						t={contextValue.t}
 					/>
 				</ListDisplayMode>
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find('Button#myId-custom1').prop('aria-label')).toEqual('myCustomLabel1');
-		expect(wrapper.find('Button#myId-custom2').prop('aria-label')).toEqual('myCustomLabel2');
+		expect(wrapper.find('ButtonIconToggle#myId-custom1 CoralButtonIconToggle').text()).toEqual(
+			'myCustomLabel1',
+		);
+		expect(wrapper.find('ButtonIconToggle#myId-custom2 CoralButtonIconToggle').text()).toEqual(
+			'myCustomLabel2',
+		);
 	});
 
 	describe('uncontrolled mode', () => {
@@ -74,12 +80,9 @@ describe('List DisplayMode', () => {
 			);
 
 			// then
-			expect(
-				wrapper
-					.find('Button')
-					.at(0)
-					.prop('aria-label'),
-			).toBe('Set Table as current display mode.');
+			expect(wrapper.find('ButtonIconToggle CoralButtonIconToggle').at(0).text()).toBe(
+				'Set Table as current display mode.',
+			);
 		});
 
 		it('should propagate display mode', () => {
@@ -94,7 +97,7 @@ describe('List DisplayMode', () => {
 
 			const event = { target: {} };
 			act(() => {
-				wrapper.find('Button#myDisplayMode-large').prop('onClick')(event, 'large');
+				wrapper.find('ButtonIconToggle#myDisplayMode-large').prop('onClick')(event, 'large');
 			});
 
 			// then
@@ -115,9 +118,11 @@ describe('List DisplayMode', () => {
 			);
 
 			// then
-			const buttonLarge = wrapper.find('Button#myDisplayMode-large');
-			expect(buttonLarge.prop('aria-label')).toBe('Set Expanded as current display mode.');
-			expect(buttonLarge.prop('disabled')).toBe(true);
+			const buttonLarge = wrapper.find(
+				'ButtonIconToggle#myDisplayMode-large CoralButtonIconToggle',
+			);
+			expect(buttonLarge.text()).toBe('Set Expanded as current display mode.');
+			expect(buttonLarge.prop('isActive')).toBe(true);
 		});
 
 		it('should call props.onChange with new display mode', () => {
@@ -136,7 +141,7 @@ describe('List DisplayMode', () => {
 
 			// when: react-bootstrap use value-event instead of event-value
 			act(() => {
-				wrapper.find('Button#myDisplayMode-large').prop('onClick')(event, 'large');
+				wrapper.find('ButtonIconToggle#myDisplayMode-large').prop('onClick')(event, 'large');
 			});
 
 			// then

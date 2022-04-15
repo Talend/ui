@@ -7,7 +7,8 @@ import { ButtonIconFloating } from '@talend/design-system';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
-import { DISPLAY_MODE, SORT } from '../constants';
+import { SORT } from '../constants';
+import { DISPLAY_MODE } from '../../Toolbar/constants';
 import ColumnChooser from '../ColumnChooser';
 
 import theme from '../List.scss';

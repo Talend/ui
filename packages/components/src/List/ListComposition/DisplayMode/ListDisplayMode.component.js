@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
-import DisplayModeToggle from '../../Toolbar/DisplayModeToggle/DisplayModeToggle.component';
+import DisplayModeToggle, {
+	displayModesOptions as options,
+} from '../../Toolbar/DisplayModeToggle/DisplayModeToggle.component';
 import { useListContext } from '../context';
-import { DISPLAY_MODE } from '../constants';
+
+export {
+	DisplayModeActionIcon,
+	displayModesOptions,
+} from '../../Toolbar/DisplayModeToggle/DisplayModeToggle.component';
 
 function ListDisplayMode({ children, displayModesOptions, id, onChange, selectedDisplayMode }) {
 	const { displayMode, setDisplayMode, t } = useListContext();
@@ -29,11 +35,9 @@ function ListDisplayMode({ children, displayModesOptions, id, onChange, selected
 	);
 }
 
-export const displayModesOptions = [DISPLAY_MODE.TABLE, DISPLAY_MODE.LARGE];
-
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
-	displayModesOptions,
+	displayModesOptions: options,
 };
 ListDisplayMode.propTypes = {
 	children: PropTypes.node,

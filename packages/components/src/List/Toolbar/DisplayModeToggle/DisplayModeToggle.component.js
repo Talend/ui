@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonIconToggle, StackHorizontal } from '@talend/design-system';
 import getDefaultT from '../../../translate';
+import { DISPLAY_MODE } from '../constants';
 
-const options = ['table', 'large'];
+export const displayModesOptions = [DISPLAY_MODE.TABLE, DISPLAY_MODE.LARGE];
+
 function getLabel(selected, t) {
 	switch (selected) {
 		case 'table':
@@ -15,32 +17,42 @@ function getLabel(selected, t) {
 	}
 }
 
-function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
-	const modes = displayModes || options;
-
-	function getActionIcon(option) {
-		return (
-			<ButtonIconToggle
-				key={option}
-				id={`${id}-${option}`}
-				icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
-				isActive={mode === option}
-				size="S"
-				onClick={e => {
-					onChange(e, option);
-				}}
-			>
-				{t('LIST_SELECT_DISPLAY_MODE', {
+export const DisplayModeActionIcon = React.memo(
+	({ id, icon, onChange, mode, selectedMode, t, label }) => (
+		<ButtonIconToggle
+			key={mode}
+			id={`${id}-${mode}`}
+			icon={icon}
+			isActive={mode === selectedMode}
+			size="S"
+			onClick={e => {
+				onChange(e, mode);
+			}}
+		>
+			{label ||
+				t('LIST_SELECT_DISPLAY_MODE', {
 					defaultValue: 'Set {{displayMode}} as current display mode.',
-					displayMode: getLabel(option, t),
+					displayMode: getLabel(mode, t),
 				})}
-			</ButtonIconToggle>
-		);
-	}
+		</ButtonIconToggle>
+	),
+);
+function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
+	const modes = displayModes || displayModesOptions;
 
 	return (
 		<StackHorizontal gap="XS" padding={{ x: 'S', y: 0 }}>
-			{modes.map(getActionIcon)}
+			{modes.map(option => (
+				<DisplayModeActionIcon
+					key={option}
+					id={id}
+					icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
+					onChange={onChange}
+					mode={option}
+					selectedMode={mode}
+					t={t}
+				/>
+			))}
 		</StackHorizontal>
 	);
 }
@@ -51,6 +63,10 @@ DisplayModeToggle.propTypes = {
 	displayModes: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired,
 	t: PropTypes.func,
+};
+
+DisplayModeActionIcon.propTypes = {
+	...DisplayModeToggle.propTypes,
 };
 
 DisplayModeToggle.defaultProps = {
