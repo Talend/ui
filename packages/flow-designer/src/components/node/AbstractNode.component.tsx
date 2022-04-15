@@ -60,10 +60,7 @@ function calculatePortPosition(
 				Position.getXCoordinate(nodePosition) + Size.getWidth(nodeSize),
 				scaleYEmitter(emitterNumber),
 			);
-			portsWithPosition = portsWithPosition.set(
-				Port.getId(port),
-				Port.setPosition(port, position),
-			);
+			portsWithPosition = portsWithPosition.set(Port.getId(port), Port.setPosition(port, position));
 		});
 	sinkPorts
 		.sort((a, b) => {
@@ -81,10 +78,7 @@ function calculatePortPosition(
 				Position.getXCoordinate(nodePosition),
 				scaleYSink(sinkNumber),
 			);
-			portsWithPosition = portsWithPosition.set(
-				Port.getId(port),
-				Port.setPosition(port, position),
-			);
+			portsWithPosition = portsWithPosition.set(Port.getId(port), Port.setPosition(port, position));
 		});
 	return portsWithPosition;
 }
@@ -129,10 +123,12 @@ class AbstractNode extends React.Component<Props> {
 		);
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps: Props) {
-		const nextPosition = Node.getPosition(nextProps.node);
-		if (nextPosition !== Node.getPosition(this.props.node)) {
-			this.d3Node.data([nextPosition]);
+	componentDidUpdate(nextProps: Props) {
+		if (nextProps.node !== this.props.node) {
+			const nextPosition = Node.getPosition(nextProps.node);
+			if (nextPosition !== Node.getPosition(this.props.node)) {
+				this.d3Node.data([nextPosition]);
+			}
 		}
 	}
 

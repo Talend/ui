@@ -35,10 +35,8 @@ class ZoomHandler extends React.Component<Props, State> {
 			.scaleExtent([1 / 4, 2])
 			.on('zoom', this.onZoom)
 			.on('end', this.onZoomEnd);
-	}
 
-	UNSAFE_componentWillMount() {
-		this.setState({ transform: this.props.transform });
+		this.state = { transform: props.transform };
 	}
 
 	componentDidMount() {
@@ -46,14 +44,12 @@ class ZoomHandler extends React.Component<Props, State> {
 		this.selection.call(this.zoom);
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps: Props) {
-		if (nextProps.transformToApply) {
-			if (nextProps.transformToApply !== this.props.transformToApply) {
-				this.selection
-					.transition()
-					.duration(230)
-					.call(this.zoom.transform, nextProps.transformToApply);
-			}
+	componentDidUpdate(oldProps: Props) {
+		if (this.props.transformToApply && oldProps.transformToApply !== this.props.transformToApply) {
+			this.selection
+				.transition()
+				.duration(230)
+				.call(this.zoom.transform, this.props.transformToApply);
 		}
 	}
 
@@ -67,7 +63,7 @@ class ZoomHandler extends React.Component<Props, State> {
 
 	render() {
 		const { transform } = this.state;
-		const childrens = React.Children.map(this.props.children, children =>
+		const children = React.Children.map(this.props.children, children =>
 			React.cloneElement(children, {
 				transformData: transform,
 				transform: transformToString(transform),
@@ -85,7 +81,7 @@ class ZoomHandler extends React.Component<Props, State> {
 					width="100%"
 					height="100%"
 				/>
-				{childrens}
+				{children}
 			</g>
 		);
 	}
