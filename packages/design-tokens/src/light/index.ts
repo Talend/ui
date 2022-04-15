@@ -261,12 +261,12 @@ const tokens = {
 	coralColorChartsColor09TextWeak:
 		'var(--coral-color-charts-color-09-text-weak, hsla(35,28%,82%,1))',
 	coralColorNeutralBackgroundHeavy: 'var(--coral-color-neutral-background-heavy, hsla(0,0%,78%,1))',
-	coralColorIllustrationColor01: 'var(--coral-color-illustration-color-01, hsla(252,43%,25%,1))',
-	coralColorIllustrationColor02: 'var(--coral-color-illustration-color-02, hsla(215,69%,27%,1))',
-	coralColorIllustrationColor03: 'var(--coral-color-illustration-color-03, hsla(0,100%,74%,1))',
-	coralColorIllustrationColor05: 'var(--coral-color-illustration-color-05, hsla(20,23%,97%,1))',
-	coralColorIllustrationColor04: 'var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))',
-	coralColorIllustrationColor06: 'var(--coral-color-illustration-color-06, hsla(245,46%,5%,1))',
+	coralColorIllustrationColor01: 'var(--coral-color-illustration-color-01, hsla(211,62%,26%,1))',
+	coralColorIllustrationColor02: 'var(--coral-color-illustration-color-02, hsla(211,43%,47%,1))',
+	coralColorIllustrationColor03: 'var(--coral-color-illustration-color-03, hsla(201,31%,85%,1))',
+	coralColorIllustrationColor05: 'var(--coral-color-illustration-color-05, hsla(359,82%,81%,1))',
+	coralColorIllustrationColor04: 'var(--coral-color-illustration-color-04, hsla(359,100%,72%,1))',
+	coralColorIllustrationColor06: 'var(--coral-color-illustration-color-06, hsla(358,100%,93%,1))',
 	coralColorIllustrationSkintone01:
 		'var(--coral-color-illustration-skintone-01, hsla(20,91%,83%,1))',
 	coralColorIllustrationSkintone02:
@@ -274,6 +274,9 @@ const tokens = {
 	coralColorIllustrationSkintone03:
 		'var(--coral-color-illustration-skintone-03, hsla(17,33%,28%,1))',
 	coralColorIllustrationShadow: 'var(--coral-color-illustration-shadow, hsla(0,0%,0%,0.1))',
+	coralColorIllustrationColor07: 'var(--coral-color-illustration-color-07, hsla(192,33%,97%,1))',
+	coralColorIllustrationColor08: 'var(--coral-color-illustration-color-08, hsla(211,23%,74%,1))',
+	coralColorIllustrationColor09: 'var(--coral-color-illustration-color-09, hsla(245,10%,23%,1))',
 	coralColorBrandingBackground:
 		'var(--coral-color-branding-background, linear-gradient(133deg,hsla(210,62%,26%,1) 0%, hsla(254,47%,23%,1) 100%))',
 	coralColorBrandingNavigation:

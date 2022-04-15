@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -13,7 +13,7 @@
     "test": "echo Tests are managed by Cypress using yarn test:cy",
     "test:cy": "cypress run-ct",
     "test:demo": "npm run build-storybook",
-    "storybook": "npm run build:lib && BROWSER=none start-storybook -p 6006",
+    "storybook": "cross-env BROWSER=none npm run build:lib && start-storybook -p 6006",
     "build-storybook": "build-storybook --docs && node ./scripts/sitemap.js",
     "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner --config i18next-scanner.config.js && rm -rf tmp",
     "lint:es": "talend-scripts lint:es"
@@ -33,7 +33,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/design-tokens": "^2.0.0",
+    "@talend/design-tokens": "^2.1.0",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.2.2",

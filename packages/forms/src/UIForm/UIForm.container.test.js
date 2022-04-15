@@ -1,8 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen, fireEvent, queryByAttribute, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import { data, mergedSchema, initProps } from '../../__mocks__/data';
+import { actions, getMockData, getMockNestedData, initProps } from '../../__mocks__/data';
 import UIForm from './UIForm.container';
+
+jest.mock('ally.js');
 
 describe('UIForm container', () => {
 	let props;
@@ -12,273 +15,381 @@ describe('UIForm container', () => {
 
 	it('should render form', () => {
 		// when
-		const wrapper = shallow(<UIForm data={data} {...props} />);
+		render(<UIForm data={getMockData()} {...props} />);
 
 		// then
 		expect(
-			wrapper // eslint-disable-line no-underscore-dangle
-				.instance().state,
-		).toMatchSnapshot();
-		expect(wrapper.getElement()).toMatchSnapshot();
+			screen.getByRole('textbox', { name: 'Last Name (with description)' }),
+		).toBeInTheDocument();
+		expect(
+			screen.getByRole('textbox', { name: 'First Name (with placeholder)' }),
+		).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Check the thing' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
 	});
 
-	describe('#UNSAFE_componentWillReceiveProps', () => {
-		it('should update state if form data structure changed', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
+	it('should render a custom tag', () => {
+		// when
+		const dom = render(
+			<form>
+				<UIForm data={getMockData()} {...props} as="div" />
+			</form>,
+		);
 
-			const previousState = wrapper.state();
+		// then
+		// eslint-disable-next-line testing-library/no-container
+		const customElementForm = dom.container.querySelector('div.tf-uiform');
+		expect(customElementForm).toBeDefined();
+	});
 
-			const newData = {
-				jsonSchema: {},
-				uiSchema: [],
-				properties: {},
-			};
+	it('should render form in text display mode', () => {
+		// when
+		render(
+			<UIForm
+				data={getMockData()}
+				properties={{ lastname: 'toto' }}
+				{...props}
+				displayMode="text"
+			/>,
+		);
 
-			// when
-			wrapper.setProps({
-				data: newData,
-			});
+		// then
+		expect(
+			screen.queryByRole('textbox', { name: 'Last Name (with description)' }),
+		).not.toBeInTheDocument();
+		expect(screen.getByText('toto')).toBeInTheDocument();
+	});
 
-			// then
-			expect(wrapper.state()).not.toBe(previousState);
-			expect(wrapper.state().initialState).toBe(previousState.initialState);
-			expect(wrapper.state().liveState).toEqual({ ...newData, errors: {} });
+	it('should render form with ids concatenated with ; if nested', () => {
+		// when
+		render(<UIForm data={getMockNestedData()} {...props} idSeparator=";" />);
+
+		// then
+		expect(screen.getByLabelText('Content of the comment')).toHaveAttribute(
+			'id',
+			'myFormId;content',
+		);
+		expect(screen.getByLabelText('Published at')).toHaveAttribute('id', 'timestamp;value');
+		expect(screen.getByLabelText('+ GMT offset')).toHaveAttribute('id', 'timestamp;gmt_offset');
+	});
+
+	it('should render provided actions', () => {
+		// when
+		render(<UIForm data={getMockData()} {...props} actions={actions} />);
+
+		// then
+		expect(screen.getByRole('button', { name: 'Reset' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Disabled' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Disabled' })).toBeDisabled();
+		expect(screen.getByRole('button', { name: 'In progress (in progress)' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Trigger' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
+	});
+
+	it('should update if form data structure changed', () => {
+		// given
+		const { rerender } = render(<UIForm data={getMockData()} {...props} />);
+
+		const newMockedData = getMockData();
+		newMockedData.uiSchema = newMockedData.uiSchema.filter(({ key }) => key !== 'lastname');
+
+		// when
+		rerender(<UIForm data={newMockedData} {...props} />);
+
+		// then
+		expect(
+			screen.queryByRole('textbox', { name: 'Last Name (with description)' }),
+		).not.toBeInTheDocument();
+		expect(
+			screen.getByRole('textbox', { name: 'First Name (with placeholder)' }),
+		).toBeInTheDocument();
+	});
+
+	it('should update data if properties change', () => {
+		// given
+		const { rerender } = render(<UIForm data={getMockData()} {...props} />);
+		expect(screen.getByRole('textbox', { name: 'Last Name (with description)' })).toHaveValue('');
+
+		const newMockedData = getMockData();
+		newMockedData.properties = { lastname: 'toto' };
+
+		// when
+		rerender(<UIForm data={newMockedData} {...props} />);
+
+		// then
+		expect(screen.getByRole('textbox', { name: 'Last Name (with description)' })).toHaveValue(
+			'toto',
+		);
+	});
+
+	it('should reset data on new initial data', () => {
+		// given
+		const mockedData = getMockData();
+		const { rerender } = render(<UIForm {...props} data={mockedData} initialData={{}} />);
+		expect(screen.getByRole('textbox', { name: 'Last Name (with description)' })).toHaveValue('');
+
+		const initialData = { ...mockedData, properties: { lastname: 'toto' } };
+
+		// when
+		rerender(<UIForm {...props} data={mockedData} initialData={initialData} />);
+
+		// then
+		expect(screen.getByRole('textbox', { name: 'Last Name (with description)' })).toHaveValue(
+			'toto',
+		);
+	});
+
+	it('should call onChange callback', () => {
+		// given
+		const onChange = jest.fn();
+		render(<UIForm {...props} data={getMockData()} initialData={{}} onChange={onChange} />);
+
+		// when
+		userEvent.type(screen.getByRole('textbox', { name: 'Last Name (with description)' }), 'toto');
+
+		// then
+		const lastCall = onChange.mock.calls.pop();
+		expect(lastCall[1].properties).toEqual({ lastname: 'toto' });
+	});
+
+	it('should reset', () => {
+		// given
+		const onReset = jest.fn();
+		const mockedData = { ...getMockData(), properties: { lastname: 'toto' } };
+		render(
+			<UIForm
+				{...props}
+				data={mockedData}
+				onReset={onReset}
+				actions={[
+					{
+						bsStyle: 'secondary',
+						label: 'Reset',
+						type: 'reset',
+						widget: 'button',
+						position: 'left',
+					},
+				]}
+			/>,
+		);
+
+		// when
+		userEvent.type(screen.getByRole('textbox', { name: 'Last Name (with description)' }), 'coucou');
+		userEvent.click(screen.getByRole('button', { name: 'Reset' }));
+
+		// then
+		expect(screen.getByRole('textbox', { name: 'Last Name (with description)' })).toHaveValue(
+			'toto',
+		);
+		expect(onReset).toHaveBeenCalled();
+	});
+
+	it('should set error', () => {
+		// given
+
+		const onChange = jest.fn();
+		const dom = render(<UIForm {...props} data={getMockData()} onChange={onChange} />);
+
+		// when
+		const lastnameInput = screen.getByRole('textbox', { name: 'Last Name (with description)' });
+		userEvent.type(lastnameInput, 'toto'); // min length is 10
+		fireEvent.blur(lastnameInput);
+
+		// then
+		// we need to get it like that because of the DS mock in ui-scripts :/
+		// TODO: remove that when we remove the mock
+		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_lastname-error');
+		expect(errorMessage).toBeInTheDocument();
+		expect(errorMessage).toHaveAttribute(
+			'description',
+			'String is too short (4 chars), minimum 10',
+		);
+	});
+
+	it('should take customFormat for validation', async () => {
+		// given
+		const customFormats = {
+			noABC: fieldData => {
+				if (typeof fieldData === 'string' && !/^((?!abc).)*$/.test(fieldData)) {
+					return 'test custom';
+				}
+				return null;
+			},
+		};
+
+		const mockedData = getMockData();
+		mockedData.jsonSchema.properties.lastname.format = 'noABC';
+		const dom = render(<UIForm data={mockedData} {...props} customFormats={customFormats} />);
+
+		// when
+		const lastnameInput = screen.getByRole('textbox', { name: 'Last Name (with description)' });
+		userEvent.type(lastnameInput, 'abc_qoskdoqskdoqsk');
+		fireEvent.blur(lastnameInput);
+
+		// then
+		// we need to get it like that because of the DS mock in ui-scripts :/
+		// TODO: remove that when we remove the mock
+		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_lastname-error');
+		expect(errorMessage).toBeInTheDocument();
+		expect(errorMessage).toHaveAttribute('description', 'Format validation failed (test custom)');
+	});
+
+	it('should update errors from trigger', async () => {
+		// given
+		const errors = { firstname: 'my firstname is invalid' };
+		const onTrigger = jest.fn(() => Promise.resolve({ errors }));
+		const dom = render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
+		expect(onTrigger).not.toBeCalled();
+
+		// when
+		userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
+		await waitFor(() => {
+			const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
+			expect(errorMessage).toBeInTheDocument();
 		});
 
-		it("should not update state if form data structure didn't change", () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
+		// then
+		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
+		expect(errorMessage).toHaveAttribute('description', 'my firstname is invalid');
+	});
 
-			const previousState = wrapper.state();
+	it('should call onTrigger from button', () => {
+		// given
+		const onTrigger = jest.fn(() => Promise.resolve({}));
+		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
+		expect(onTrigger).not.toBeCalled();
 
-			// when
-			wrapper.setProps({
-				whateverOtherThanData: 'something',
-			});
+		// when
+		userEvent.click(screen.getByRole('button', { name: 'Check the thing' }));
 
-			// then
-			expect(wrapper.state()).toBe(previousState);
-		});
-
-		it('should update initialState and liveState if initialData has changed', () => {
-			// given
-			const initialData = {};
-			const wrapper = shallow(<UIForm intialData={initialData} data={data} {...props} />);
-
-			const previousState = wrapper.state();
-			const newInitialData = {
-				jsonSchema: {},
-				uiSchema: [],
-				properties: {},
-			};
-			// when
-			wrapper.setProps({
-				initialData: newInitialData,
-			});
-
-			// then
-			expect(wrapper.state()).not.toBe(previousState);
-			expect(wrapper.state().liveState).toEqual({ ...newInitialData, errors: {} });
-			expect(wrapper.state().initialState).toEqual({ ...newInitialData, errors: {} });
+		// then
+		expect(onTrigger).toBeCalledWith(expect.anything(), {
+			errors: {},
+			properties: {},
+			schema: {
+				key: ['check'],
+				title: 'Check the thing',
+				triggers: ['after'],
+				widget: 'button',
+			},
+			trigger: 'after',
 		});
 	});
 
-	describe('#onChange', () => {
-		it('should update state properties', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
-			const instance = wrapper.instance();
-			const properties = { lastname: 'toto' };
+	it('should call onTrigger from input type finish', () => {
+		// given
+		const onTrigger = jest.fn(() => Promise.resolve({}));
+		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} />);
+		expect(onTrigger).not.toBeCalled();
 
-			// when
-			instance.onChange(null, {
-				schema: mergedSchema[0],
-				value: 'toto',
-				properties,
-			});
+		// when
+		const firstnameInput = screen.getByRole('textbox', { name: 'First Name (with placeholder)' });
+		userEvent.type(firstnameInput, 'aze');
+		fireEvent.blur(firstnameInput);
 
-			// then
-			expect(instance.state.liveState.properties).toEqual(properties);
-			expect(instance.state.initialState.properties).not.toEqual(properties);
-		});
-
-		it('should call onChange callback', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
-			const instance = wrapper.instance();
-			const event = { target: {} };
-			const payload = {
-				schema: mergedSchema[0],
-				value: 'toto',
-				properties: { lastname: 'toto' },
-			};
-
-			// when
-			instance.onChange(event, payload);
-
-			// then
-			expect(props.onChange).toBeCalledWith(event, payload);
-		});
-
-		it('should trigger onChange callback', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
-			const instance = wrapper.instance();
-			const event = { target: {} };
-
-			// when
-			instance.onChange(event, {
-				schema: mergedSchema[0],
-				value: 'toto',
-			});
-
-			// then
-			expect(props.onChange).toBeCalledWith(event, {
-				schema: mergedSchema[0],
-				value: 'toto',
-				properties: props.properties,
-			});
+		// then
+		expect(onTrigger).toBeCalledWith(expect.anything(), {
+			errors: {},
+			properties: { firstname: 'aze' },
+			schema: expect.anything(),
+			trigger: 'after',
 		});
 	});
 
-	describe('#onReset', () => {
-		it('should spread the event object to "onReset" prop callback', () => {
-			const onReset = jest.fn();
-			const resetEvent = { whateverProp: 'whatever value' };
-			const wrapper = shallow(<UIForm data={data} {...props} onReset={onReset} />);
+	it('should handle submit mouse enter/leave callbacks', () => {
+		// given
+		const onEnter = jest.fn();
+		const onLeave = jest.fn();
+		render(
+			<UIForm data={getMockData()} {...props} onSubmitEnter={onEnter} onSubmitLeave={onLeave} />,
+		);
+		expect(onEnter).not.toBeCalled();
+		expect(onLeave).not.toBeCalled();
 
-			wrapper.prop('onReset')(resetEvent);
+		// when / then
+		userEvent.hover(screen.getByRole('button', { name: 'Submit' }));
+		expect(onEnter).toBeCalled();
 
-			expect(onReset).toHaveBeenCalledTimes(1);
-			expect(onReset).toHaveBeenCalledWith(resetEvent);
-		});
+		// when / then
+		userEvent.unhover(screen.getByRole('button', { name: 'Submit' }));
+		expect(onLeave).toBeCalled();
 	});
 
-	describe('#setErrors', () => {
-		it('should update state errors', () => {
-			// given
-			const wrapper = shallow(<UIForm data={data} {...props} />);
-			const instance = wrapper.instance();
-			const errors = { firstname: 'my firstname is invalid' };
-			const callback = jest.fn();
+	it('should validate all fields on submit', async () => {
+		// given
+		const onSubmit = jest.fn();
+		const onTrigger = jest.fn(() =>
+			Promise.resolve({ errors: { check: 'error added via a trigger' } }),
+		);
+		const dom = render(
+			<UIForm data={getMockData()} {...props} onSubmit={onSubmit} onTrigger={onTrigger} />,
+		);
 
-			// when
-			instance.setErrors(null, errors, callback);
-
-			// then
-			expect(instance.state.liveState.errors).toEqual(errors);
-			expect(callback).toHaveBeenCalled();
+		// when
+		userEvent.click(screen.getByRole('button', { name: 'Check the thing' })); // add error via trigger
+		await waitFor(() => {
+			const checkMessage = queryByAttribute('id', dom.container, 'myFormId_check-error');
+			expect(checkMessage).toBeInTheDocument();
 		});
+		userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+		// then
+		expect(onSubmit).not.toBeCalled();
+		// new error via validation on submit
+		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
+		expect(errorMessage).toBeInTheDocument();
+		expect(errorMessage).toHaveAttribute('description', 'Missing required field');
+		expect(screen.getByRole('textbox', { name: 'First Name (with placeholder)' })).toHaveFocus();
+		// preserve old error added via trigger
+		const checkMessage = queryByAttribute('id', dom.container, 'myFormId_check-error');
+		expect(checkMessage).toBeInTheDocument();
+		expect(checkMessage).toHaveAttribute('description', 'error added via a trigger');
 	});
 
-	describe('#onTrigger', () => {
-		it('should call onTrigger from props', () => {
-			// given
-			const onTrigger = jest.fn(() => Promise.resolve({}));
-			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
-			const instance = wrapper.instance();
-			expect(onTrigger).not.toBeCalled();
+	it('should should take custom language error messages', () => {
+		// given
+		const onSubmit = jest.fn();
+		const dom = render(
+			<UIForm
+				data={getMockData()}
+				{...props}
+				onSubmit={onSubmit}
+				language={{ OBJECT_REQUIRED: 'is required' }}
+			/>,
+		);
 
-			const event = { target: {} };
-			const payload = {
-				properties: {},
-				schema: {},
-			};
+		// when
+		userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-			// when
-			instance.onTrigger(event, payload);
+		// then
+		expect(onSubmit).not.toBeCalled();
+		const errorMessage = queryByAttribute('id', dom.container, 'myFormId_firstname-error');
+		expect(errorMessage).toBeInTheDocument();
+		expect(errorMessage).toHaveAttribute('description', 'is required');
+	});
 
-			// then
-			expect(onTrigger).toBeCalledWith(event, payload);
-		});
+	it('should submit with valid fields', () => {
+		// given
+		const onSubmit = jest.fn();
+		const onTrigger = jest.fn(() => Promise.resolve({}));
+		render(<UIForm data={getMockData()} {...props} onTrigger={onTrigger} onSubmit={onSubmit} />);
 
-		it('should update state errors', done => {
-			// given
-			const errors = { firstname: 'my firstname is invalid' };
-			const onTrigger = jest.fn(() => Promise.resolve({ errors }));
-			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
-			const instance = wrapper.instance();
+		// when
+		userEvent.type(
+			screen.getByRole('textbox', { name: 'Last Name (with description)' }),
+			'long enough text',
+		);
+		userEvent.type(screen.getByRole('textbox', { name: 'First Name (with placeholder)' }), 'toto');
+		userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-			// when
-			const triggerPromise = instance.onTrigger();
-
-			// then
-			triggerPromise.then(() => {
-				expect(instance.state.liveState.errors).toBe(errors);
-				done();
-			});
-		});
-
-		it('should call errors updater if given', done => {
-			// given
-			const updater = jest.fn(() => ({ test: 42 }));
-			const onTrigger = jest.fn(() => Promise.resolve({ errors: updater }));
-			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
-			const instance = wrapper.instance();
-
-			instance.state.liveState.errors = { test: 666 };
-
-			// when
-			const triggerPromise = instance.onTrigger();
-
-			// then
-			triggerPromise.then(() => {
-				expect(updater).toHaveBeenCalledWith({ test: 666 });
-				expect(instance.state.liveState.errors).toEqual({ test: 42 });
-				done();
-			});
-		});
-
-		it('should update state properties', done => {
-			// given
-			const properties = { firstname: 'my firstname is invalid' };
-			const onTrigger = jest.fn(() => Promise.resolve({ properties }));
-			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
-			const instance = wrapper.instance();
-
-			// when
-			const triggerPromise = instance.onTrigger(null, {});
-
-			// then
-			triggerPromise.then(() => {
-				expect(instance.state.liveState.properties).toBe(properties);
-				done();
-			});
-		});
-
-		it('should call properties updater if given', done => {
-			// given
-			const onChange = jest.fn();
-			const updater = jest.fn(() => ({ test: 42 }));
-			const onTrigger = jest.fn(() => Promise.resolve({ properties: updater }));
-			const wrapper = shallow(
-				<UIForm data={data} {...props} onTrigger={onTrigger} onChange={onChange} />,
-			);
-			const instance = wrapper.instance();
-
-			instance.state.liveState.properties = { test: 666 };
-
-			const event = { target: {} };
-			const schema = { key: ['test'] };
-			const value = 666;
-			const oldProperties = { test: 777 };
-
-			// when
-			const triggerPromise = instance.onTrigger(event, { schema, value, oldProperties });
-
-			triggerPromise.then(() => {
-				expect(updater).toHaveBeenCalledWith({ test: 666 });
-				expect(onChange).toBeCalledWith(event, {
-					schema,
-					value,
-					oldProperties,
-					properties: { test: 42 },
-					formData: { test: 42 },
-				});
-				expect(instance.state.liveState.properties).toEqual({ test: 42 });
-				done();
-			});
-		});
+		// then
+		expect(onSubmit).toBeCalledWith(
+			expect.anything(),
+			{
+				firstname: 'toto',
+				lastname: 'long enough text',
+			},
+			expect.anything(),
+		);
 	});
 });
