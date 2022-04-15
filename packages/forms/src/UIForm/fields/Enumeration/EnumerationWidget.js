@@ -11,6 +11,7 @@ import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from '
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 import FieldTemplate from '../FieldTemplate';
+import { generateDescriptionId, generateErrorId } from '../../Message';
 
 export const enumerationStates = {
 	DISPLAY_MODE_DEFAULT: 'DISPLAY_MODE_DEFAULT',
@@ -252,9 +253,9 @@ class EnumerationForm extends React.Component {
 		this.onBlur = this.onBlur.bind(this);
 	}
 
-	UNSAFE_componentWillReceiveProps(nextProps) {
-		if (nextProps.value) {
-			this.setState(prevState => ({ ...prevState, items: nextProps.value }));
+	componentDidUpdate(prevProps) {
+		if (this.props.value !== prevProps.value) {
+			this.setState(oldState => ({ ...oldState, items: this.props.value }));
 		}
 	}
 
@@ -1016,15 +1017,19 @@ class EnumerationForm extends React.Component {
 		}
 		const stateToShow = { ...this.state, items };
 		const { description, required, title, labelProps } = this.props.schema;
-		const { errorMessage, isValid } = this.props;
+		const { errorMessage, isValid, id } = this.props;
+		const descriptionId = generateDescriptionId(id);
+		const errorId = generateErrorId(id);
 		return (
 			<FieldTemplate
 				description={description}
+				descriptionId={descriptionId}
 				label={title}
 				labelProps={labelProps}
 				required={required}
 				isValid={isValid}
 				errorMessage={errorMessage}
+				errorId={errorId}
 			>
 				{this.allowImport && this.renderImportFile()}
 				<FocusManager onFocusOut={this.onBlur}>
@@ -1037,6 +1042,7 @@ class EnumerationForm extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	EnumerationForm.propTypes = {
+		id: PropTypes.string,
 		errorMessage: PropTypes.string,
 		isValid: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
