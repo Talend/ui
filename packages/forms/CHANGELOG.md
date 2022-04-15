@@ -1,5 +1,16 @@
 # @talend/react-forms
 
+## 7.0.7
+
+### Patch Changes
+
+- b91b4d39a: chore(ARCH-482/UIForm): remove deprecated lifecycle and use RTL for tests
+- Updated dependencies [2b355ac2e]
+- Updated dependencies [2e19164bf]
+- Updated dependencies [5ff371756]
+  - @talend/design-system@2.3.0
+  - @talend/react-components@6.44.13
+
 ## 7.0.6
 
 ### Patch Changes

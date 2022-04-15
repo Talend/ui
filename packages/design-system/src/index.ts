@@ -20,6 +20,11 @@ import Combobox from './components/Combobox';
 import Divider from './components/Divider';
 import Drawer from './components/Drawer';
 import Dropdown from './components/Dropdown';
+import EmptyState, {
+	EmptyStateLarge,
+	EmptyStateMedium,
+	EmptyStateSmall,
+} from './components/EmptyState';
 import Form from './components/Form';
 import HeaderBar from './components/HeaderBar';
 import { Icon } from './components/Icon';
@@ -89,6 +94,10 @@ export {
 	Divider,
 	Drawer,
 	Dropdown,
+	EmptyState,
+	EmptyStateMedium,
+	EmptyStateSmall,
+	EmptyStateLarge,
 	Form,
 	HeaderBar,
 	Icon,
