@@ -2,9 +2,6 @@ require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
-const i18next = require('i18next');
-
-const React = require('react');
 const configure = require('enzyme').configure;
 const Adapter = require('enzyme-adapter-react-16');
 
@@ -114,8 +111,10 @@ jest.mock('react-i18next', () => {
 
 try {
 	jest.mock('@talend/design-system', () => {
-		const React = require('react');
+		const React = jest.requireActual('react');
 		const Coral = jest.requireActual('@talend/design-system');
+		const propTypes = jest.requireActual('prop-types');
+		const classnames = jest.requireActual('classnames');
 
 		const mocks = {};
 
@@ -124,17 +123,27 @@ try {
 		}
 
 		function getMock(name) {
-			return props => React.createElement(`Coral${name}`, props);
+			const mockName = `Coral${name}`;
+			// const lowecaseName = mockName.toLocaleLowerCase();
+			function Component(props) {
+				return React.createElement('span', {
+					...props,
+					className: classnames(mockName, props.className),
+				});
+			}
+			Component.displayName = name;
+			Component.propTypes = {
+				className: propTypes.string,
+			};
+			return Component;
 		}
 
 		function registerMock(componentName, variationName) {
 			if (variationName) {
 				const variationDisplayName = `${componentName}${variationName}`;
 				mocks[componentName][variationName] = getMock(variationDisplayName);
-				mocks[componentName][variationName].displayName = variationDisplayName;
 			} else {
 				mocks[componentName] = getMock(componentName);
-				mocks[componentName].displayName = componentName;
 			}
 		}
 
