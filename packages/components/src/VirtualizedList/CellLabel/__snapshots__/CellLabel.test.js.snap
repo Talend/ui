@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CellLabel should default render a string 1`] = `
-<coraltaginformation id="25"
-                     title="my label"
+<span id="25"
+      title="my label"
+      class="CoralTagInformation"
 >
   my label
-</coraltaginformation>
+</span>
 `;
 
 exports[`CellLabel should default render an object 1`] = `
-<coraltaginformation id="25"
-                     title="my label"
+<span id="25"
+      title="my label"
+      class="CoralTagInformation"
 >
   my label
-</coraltaginformation>
+</span>
 `;

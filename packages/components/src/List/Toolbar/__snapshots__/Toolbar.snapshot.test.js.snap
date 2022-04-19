@@ -20,7 +20,8 @@ exports[`Toolbar should render actions toolbar 1`] = `
         role={null}
         type="button"
       >
-        <CoralIcon
+        <span
+          className="CoralIcon"
           name="talend-plus"
         />
         <span>
@@ -62,7 +63,8 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
         role={null}
         type="button"
       >
-        <CoralIcon
+        <span
+          className="CoralIcon"
           name="talend-trash"
         />
         <span>
@@ -215,7 +217,8 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="talend-chevron-end"
             />
           </a>
@@ -232,7 +235,8 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="talend-chevron-left"
             />
           </a>
@@ -257,7 +261,8 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="talend-chevron-left"
               transform="rotate-180"
             />
@@ -275,7 +280,8 @@ exports[`Toolbar should render pagination 1`] = `
             onKeyDown={[Function]}
             role="button"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="talend-chevron-end"
               transform="rotate-180"
             />
