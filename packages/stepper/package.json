@@ -32,7 +32,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-components": "^6.44.8",
+    "@talend/react-components": "^6.44.13",
     "classnames": "^2.3.1",
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@talend/icons": "^6.40.0",
-    "@talend/react-components": "^6.44.8",
+    "@talend/react-components": "^6.44.13",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
     "enzyme": "^3.11.0",
@@ -50,7 +50,7 @@
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.16.2",
+    "react-i18next": "^11.16.7",
     "react-redux": "^7.2.8",
     "react-transition-group": "^2.9.0"
   },

@@ -36,7 +36,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-components": "^6.44.8",
+    "@talend/react-components": "^6.44.13",
     "classnames": "^2.3.1",
     "d3": "^6.7.0",
     "date-fns": "^2.28.0",
@@ -50,15 +50,15 @@
     "@talend/icons": "^6.40.0",
     "@talend/locales-tui-components": "^6.42.3",
     "@talend/locales-tui-dataviz": "^0.4.6",
-    "@talend/react-components": "^6.44.8",
+    "@talend/react-components": "^6.44.13",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
     "@types/classnames": "^2.3.1",
     "@types/d3": "^6.7.5",
-    "@types/enzyme": "^3.10.11",
+    "@types/enzyme": "^3.10.12",
     "@types/geojson": "^7946.0.8",
-    "@types/lodash": "^4.14.181",
-    "@types/react": "^16.14.24",
+    "@types/lodash": "^4.14.182",
+    "@types/react": "^16.14.25",
     "@types/topojson-client": "^3.1.1",
     "@types/topojson-specification": "^1.0.2",
     "cross-env": "^7.0.3",
@@ -66,7 +66,7 @@
     "i18next": "^20.6.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.16.2"
+    "react-i18next": "^11.16.7"
   },
   "peerDependencies": {
     "i18next": "^20.1.0",
