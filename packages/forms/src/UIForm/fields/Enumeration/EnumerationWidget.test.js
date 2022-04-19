@@ -29,12 +29,7 @@ describe('EnumerationWidget', () => {
 			/>,
 		);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-		expect(
-			wrapper
-				.find('.tc-enumeration-header')
-				.at(0)
-				.find(Button).length,
-		).toBe(2);
+		expect(wrapper.find('.tc-enumeration-header').at(0).find(Button).length).toBe(2);
 	});
 
 	it('should be in disabled mode', () => {
@@ -50,18 +45,8 @@ describe('EnumerationWidget', () => {
 				]}
 			/>,
 		);
-		expect(
-			wrapper
-				.find('.tc-enumeration-header')
-				.at(0)
-				.find(Button).length,
-		).toBe(1);
-		expect(
-			wrapper
-				.find('.tc-enumeration-item-actions')
-				.at(0)
-				.find(Button).length,
-		).toBe(0);
+		expect(wrapper.find('.tc-enumeration-header').at(0).find(Button).length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-item-actions').at(0).find(Button).length).toBe(0);
 	});
 
 	it('should be in add mode', () => {
@@ -69,10 +54,7 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(<EnumerationWidget schema={{}} />);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-header .btn-link')
-			.last()
-			.simulate('click');
+		wrapper.find('.tc-enumeration-header .btn-link').last().simulate('click');
 
 		// then
 		expect(wrapper.find('.tc-enumeration-header #tc-enumeration_add').length).toBe(1);
@@ -84,10 +66,7 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(<EnumerationWidget schema={{}} />);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-header .btn-link')
-			.first()
-			.simulate('click');
+		wrapper.find('.tc-enumeration-header .btn-link').first().simulate('click');
 
 		// then
 		expect(wrapper.find('.tc-enumeration-header #tc-enumeration_search').length).toBe(1);
@@ -106,24 +85,10 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
 
-		expect(
-			wrapper
-				.find('.tc-enumeration-item')
-				.at(0)
-				.find('input').length,
-		).toBe(1);
-		expect(
-			wrapper
-				.find('.tc-enumeration-item-actions')
-				.at(0)
-				.find(Button).length,
-		).toBe(2);
+		expect(wrapper.find('.tc-enumeration-item').at(0).find('input').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-item-actions').at(0).find(Button).length).toBe(2);
 	});
 
 	it('should trigger rename action', () => {
@@ -143,22 +108,11 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
 
-		wrapper
-			.find('.tc-enumeration-item input')
-			.at(0)
-			.instance().value = 'foo';
+		wrapper.find('.tc-enumeration-item input').at(0).instance().value = 'foo';
 
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
 		// then
 		expect(wrapper.find('.tc-enumeration-item').length).toBe(1);
 		expect(onTrigger.mock.calls[0][1]).toEqual({
@@ -191,11 +145,7 @@ describe('EnumerationWidget', () => {
 
 		// when
 		// add mode
-		wrapper
-			.find('.tc-enumeration-header')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-header').find('.btn-link').at(0).simulate('click');
 
 		wrapper
 			.find('.tc-enumeration-header input')
@@ -232,11 +182,7 @@ describe('EnumerationWidget', () => {
 
 		// when
 		// add mode
-		wrapper
-			.find('.tc-enumeration-header')
-			.find('.btn-link')
-			.at(1)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
 
 		wrapper
 			.find('.tc-enumeration-header input')
@@ -244,11 +190,7 @@ describe('EnumerationWidget', () => {
 			.simulate('change', { target: { value: 'foo' } });
 
 		// trigger add action
-		wrapper
-			.find('.tc-enumeration-header')
-			.find('.btn-link')
-			.at(1)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
 
 		// then
 		expect(onTrigger.mock.calls[0][1]).toEqual({
@@ -274,11 +216,7 @@ describe('EnumerationWidget', () => {
 		expect(wrapper.find('.tc-enumeration-item').length).toBe(1);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(1)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1).simulate('click');
 
 		// then
 		expect(onChange.mock.calls[0][1].value).toEqual([]);
@@ -296,14 +234,11 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-item-label')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-label').at(0).simulate('click');
 
 		// then
 		// number of selected item and trash icon
-		expect(wrapper.find('.tc-enumeration-header span').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-header > span').length).toBe(1);
 		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
 		expect(wrapper.find('.tc-enumeration-item.selected-item').length).toBe(1);
 	});
@@ -323,18 +258,12 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper
-			.find('button.tc-enumeration-item-label')
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find('button.tc-enumeration-item-label')
-			.at(1)
-			.simulate('click', { ctrlKey: true });
+		wrapper.find('button.tc-enumeration-item-label').at(0).simulate('click');
+		wrapper.find('button.tc-enumeration-item-label').at(1).simulate('click', { ctrlKey: true });
 
 		// then
 		// number of selected item and trash icon
-		expect(wrapper.find('.tc-enumeration-header span').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-header > span').length).toBe(1);
 		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
 		expect(wrapper.find('.tc-enumeration-item.selected-item').length).toBe(2);
 	});
@@ -355,21 +284,11 @@ describe('EnumerationWidget', () => {
 		);
 		expect(wrapper.find('.tc-enumeration-item').length).toBe(2);
 
-		wrapper
-			.find('button.tc-enumeration-item-label')
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find('button.tc-enumeration-item-label')
-			.at(1)
-			.simulate('click', { ctrlKey: true });
+		wrapper.find('button.tc-enumeration-item-label').at(0).simulate('click');
+		wrapper.find('button.tc-enumeration-item-label').at(1).simulate('click', { ctrlKey: true });
 
 		// when click on trash icon
-		wrapper
-			.find('.tc-enumeration-header')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-header').find('.btn-link').at(0).simulate('click');
 
 		// then
 		expect(onChange.mock.calls[0][1].value).toEqual([]);
@@ -392,11 +311,7 @@ describe('EnumerationWidget', () => {
 		);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(1)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(1).simulate('click');
 
 		// then
 		expect(onTrigger.mock.calls[0][1]).toEqual({
@@ -423,17 +338,10 @@ describe('EnumerationWidget', () => {
 		);
 
 		// edit item
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-actions').find('.btn-link').at(0).simulate('click');
 
 		// when select another item
-		wrapper
-			.find('.tc-enumeration-item-label')
-			.at(1)
-			.simulate('click');
+		wrapper.find('.tc-enumeration-item-label').at(1).simulate('click');
 
 		// should reset all items to default mode
 		expect(wrapper.find('.tc-enumeration-item input').length).toBe(0);
@@ -473,11 +381,7 @@ describe('EnumerationWidget', () => {
 			wrapper.instance().simulateClickInputFile = jest.fn();
 
 			// when
-			wrapper
-				.find('.tc-enumeration-header')
-				.find('.btn-link')
-				.at(1)
-				.simulate('click');
+			wrapper.find('.tc-enumeration-header').find('.btn-link').at(1).simulate('click');
 
 			// then
 			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
@@ -497,10 +401,7 @@ describe('EnumerationWidget', () => {
 			wrapper.instance().simulateClickInputFile = jest.fn();
 
 			// when
-			wrapper
-				.find('.tc-enumeration-header div.btn-group-link button')
-				.at(0)
-				.simulate('click');
+			wrapper.find('.tc-enumeration-header div.btn-group-link button').at(0).simulate('click');
 
 			// then
 			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
@@ -520,10 +421,7 @@ describe('EnumerationWidget', () => {
 			wrapper.instance().simulateClickInputFile = jest.fn();
 
 			// when
-			wrapper
-				.find('.tc-enumeration-header div.btn-group-link li a')
-				.at(0)
-				.simulate('click');
+			wrapper.find('.tc-enumeration-header div.btn-group-link li a').at(0).simulate('click');
 
 			// then
 			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
@@ -543,10 +441,7 @@ describe('EnumerationWidget', () => {
 			wrapper.instance().simulateClickInputFile = jest.fn();
 
 			// when
-			wrapper
-				.find('.tc-enumeration-header div.btn-group-link li a')
-				.at(1)
-				.simulate('click');
+			wrapper.find('.tc-enumeration-header div.btn-group-link li a').at(1).simulate('click');
 
 			// then
 			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
@@ -681,9 +576,8 @@ describe('EnumerationWidget', () => {
 				t: () => {},
 			});
 			// when
-			const resultArray = enumerationWidget.constructor.parseStringValueToArray(
-				'toto ,  to , tata ',
-			);
+			const resultArray =
+				enumerationWidget.constructor.parseStringValueToArray('toto ,  to , tata ');
 			// then
 			expect(resultArray).toEqual(['toto', 'to', 'tata']);
 		});

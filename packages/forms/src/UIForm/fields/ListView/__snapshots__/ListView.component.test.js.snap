@@ -574,7 +574,8 @@ exports[`ListView field render should render no items message 1`] = `
                       key="icon"
                       name="talend-search"
                     >
-                      <CoralIcon
+                      <span
+                        className="CoralIcon"
                         name="talend-search"
                       />
                     </Icon>

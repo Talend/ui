@@ -36,8 +36,8 @@ exports[`FieldTemplate should render the common widget markup 1`] = `
             link={null}
             small={true}
           >
-            <CoralInlineMessage
-              className="sr-only"
+            <span
+              className="CoralInlineMessage sr-only"
               description="This is the description"
               id="test-description"
               link={null}
@@ -63,8 +63,9 @@ exports[`FieldTemplate should render the common widget markup 1`] = `
             link={null}
             small={true}
           >
-            <CoralInlineMessageDestructive
+            <span
               aria-live="assertive"
+              className="CoralInlineMessageDestructive"
               description="This is the error"
               id="test-error"
               link={null}
