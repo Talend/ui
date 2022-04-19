@@ -101,15 +101,12 @@ export class TCompForm extends React.Component {
 		this.getMemoizedInitialState = memoizeOne(toJS);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const nextProperties = nextProps.state.get('properties', Map());
-
-		if (this.props.state.get('properties') !== nextProperties) {
-			this.setState({ properties: nextProperties.toJS() });
-		}
-	}
-
 	componentDidUpdate(prevProps) {
+		const nextProperties = this.props.state.get('properties');
+		if (prevProps.state.get('properties') !== nextProperties) {
+			this.setState({ properties: nextProperties?.toJS() || {} });
+		}
+
 		if (
 			prevProps.triggerURL !== this.props.triggerURL ||
 			prevProps.customTriggers !== this.props.customTriggers

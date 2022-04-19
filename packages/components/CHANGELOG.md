@@ -1,5 +1,71 @@
 # @talend/react-components
 
+## 6.44.13
+
+### Patch Changes
+
+- 5ff371756: fix(MultiSelect): add height for the dropdown if there is no option available
+- Updated dependencies [2b355ac2e]
+- Updated dependencies [2e19164bf]
+  - @talend/design-system@2.3.0
+
+## 6.44.12
+
+### Patch Changes
+
+- aa1db9881: fix(AboutModal): rendering fail while no values was given everywhere
+
+## 6.44.11
+
+### Patch Changes
+
+- aaba017d2: fix(Datalist): focus management on inside element click
+
+## 6.44.10
+
+### Patch Changes
+
+- a2210ebc2: fix(TDOPS-963/Typeahead): wrong positioning on first opening
+- 2ee202538: fix(List): add back tc-list-item for some hover behaviour
+
+## 6.44.9
+
+### Patch Changes
+
+- 1ae188285: fix(WithDrawer): Drawer is rendering below the Typeahead icon
+- Updated dependencies [ed98b0840]
+  - @talend/design-system@2.2.0
+
+## 6.44.8
+
+### Patch Changes
+
+- 66a9b86bc: fix(ListTable): remove box-shadow on each item
+- 0f848b415: chore(ARCH-482/FilterBar): remove deprecated lifecycle and use RTL for tests
+- Updated dependencies [3aa82e6be]
+  - @talend/design-system@2.1.2
+
+## 6.44.7
+
+### Patch Changes
+
+- fd3f5442e: chore(ARCH-482/DateTimePickers): remove deprecated lifecycle
+- a44e4d55b: fix(Typeahead): removed extra listbox role on container div
+- a835c8ce5: AboutDialog: Unnecessary div in markup
+
+## 6.44.6
+
+### Patch Changes
+
+- 96c51cd49: fix(Datalist): Allow to open the datalist clicking the caret icon
+- 8118231d6: update simplebar dependency
+- cf3a08f50: update rc-slider dependency
+- 95ebe8e3b: fix(components/VirtualizedList): shrink column headers to fit with cells width and ellipsis
+- Updated dependencies [c891f780a]
+- Updated dependencies [e4fb9b78d]
+- Updated dependencies [cb8f55ef0]
+  - @talend/design-system@2.1.0
+
 ## 6.44.5
 
 ### Patch Changes

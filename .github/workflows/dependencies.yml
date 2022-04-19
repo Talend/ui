@@ -15,10 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use Node.js 14
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
           cache: "yarn"
@@ -32,7 +32,7 @@ jobs:
           git add dependencies-latest.txt
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
           assignees: jmfrancois
           reviewers: jmfrancois

@@ -1,0 +1,46 @@
+{
+  "name": "@talend/module-to-cdn",
+  "version": "9.8.2",
+  "description": "Get cdn config from npm module name",
+  "license": "MIT",
+  "repository": "https://github.com/Talend/ui-scripts/tree/master/packages/module-to-cdn",
+  "author": {
+    "name": "Thomas Sileghem",
+    "email": "th.sileghem@gmail.com",
+    "url": "https://mastilver.com"
+  },
+  "contributors": [
+    {
+      "name": "Talend"
+    }
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint:es": "eslint --config .eslintrc --ext '.js,.ts,.tsx' ."
+  },
+  "files": [
+    "index.js",
+    "cache.js",
+    "version.js",
+    "url.js",
+    "modules.json"
+  ],
+  "keywords": [
+    "cdn"
+  ],
+  "dependencies": {
+    "execa": "^4.1.0",
+    "mkdirp": "^1.0.4",
+    "semver": "^7.3.6"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

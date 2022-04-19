@@ -1,0 +1,1082 @@
+{
+  "https://unpkg.com/@sentry/browser@4.0.0/build/bundle.js": {
+    "integrity": "sha384-HBE7A3AqNSN7FkDEWZpkxFSD4CmVOdCJdvKS0L961AEa2qceNGbf1GcuorHQA3pX",
+    "lastModified": "Tue, 18 Sep 2018 12:17:08 GMT",
+    "size": 248853
+  },
+  "https://unpkg.com/@sentry/browser@4.0.0/build/bundle.min.js": {
+    "integrity": "sha384-fsZJOs1exlt0o+u4xNBqHYbTdwOdUSy5YTMsV8i7p/KGzBItnvxLc1/TxytMIaMk",
+    "lastModified": "Tue, 18 Sep 2018 12:17:14 GMT",
+    "size": 78714
+  },
+  "https://unpkg.com/@sentry/browser@4.0.1/build/bundle.js": {
+    "integrity": "sha384-I0h25sZaNS4cSqgO/ALKBAuGckaUyvhBAl3vOnawlabHQJbzfgVMONvxZvu0axN9",
+    "lastModified": "Wed, 19 Sep 2018 14:05:35 GMT",
+    "size": 279918
+  },
+  "https://unpkg.com/@sentry/browser@4.0.1/build/bundle.min.js": {
+    "integrity": "sha384-G5PRX0k3tXWEl5CUpvOZ/19pVGyr/1MhZFvdY75bb31h+x5bK8YUo11yuwwa4BSP",
+    "lastModified": "Wed, 19 Sep 2018 14:05:41 GMT",
+    "size": 80667
+  },
+  "https://unpkg.com/@sentry/browser@4.0.2/build/bundle.js": {
+    "integrity": "sha384-Z/cDZg/BTm8Q6NKQEyZgdBvG2zyINOK1tjE7ahme4fSzglukeGSEC6NZH/LMkE9r",
+    "lastModified": "Wed, 19 Sep 2018 14:36:08 GMT",
+    "size": 279951
+  },
+  "https://unpkg.com/@sentry/browser@4.0.2/build/bundle.min.js": {
+    "integrity": "sha384-eRdJA5Obc04/8MpLdXTPHBdAeTmrelKhM4hPkh/wXE6gsl7MEY2Ueovx2t+Ut5J4",
+    "lastModified": "Wed, 19 Sep 2018 14:36:14 GMT",
+    "size": 80678
+  },
+  "https://unpkg.com/@sentry/browser@4.0.3/build/bundle.js": {
+    "integrity": "sha384-KJ43zcxGcQDQ3oCS21+vTAVCdEtJEK/iQshxMyLPLLZjSI+zxmuG5oHah9kDqLtE",
+    "lastModified": "Thu, 20 Sep 2018 11:03:08 GMT",
+    "size": 293324
+  },
+  "https://unpkg.com/@sentry/browser@4.0.3/build/bundle.min.js": {
+    "integrity": "sha384-7ThZKiFw0ZEMeNCsjy8q4iPCa2u4vZuBtVB5/cuwSgELVu+m3m5g50LKog7lz9Mo",
+    "lastModified": "Thu, 20 Sep 2018 11:03:16 GMT",
+    "size": 87386
+  },
+  "https://unpkg.com/@sentry/browser@4.0.4/build/bundle.js": {
+    "integrity": "sha384-mVwYIXOcdKv8kX/ikGCwLl+Q/7srGQKKz73hudRCNli4DJPm9JmjjODA8WKq80S3",
+    "lastModified": "Fri, 21 Sep 2018 06:42:47 GMT",
+    "size": 293671
+  },
+  "https://unpkg.com/@sentry/browser@4.0.4/build/bundle.min.js": {
+    "integrity": "sha384-OFqybWYrxPsysV20/3NGHmtA8y7GIemulE08Pja3QfUcRSq1oyi6bOFyLHmLgL4b",
+    "lastModified": "Fri, 21 Sep 2018 06:42:55 GMT",
+    "size": 87437
+  },
+  "https://unpkg.com/@sentry/browser@4.0.5/build/bundle.js": {
+    "integrity": "sha384-nWXoHPnc+O9RmyqJzHy1myKLSFPgYi91mGogwNAM3ExR0qN5TIL3xAXnmPX0G4Mw",
+    "lastModified": "Tue, 25 Sep 2018 13:46:57 GMT",
+    "size": 290687
+  },
+  "https://unpkg.com/@sentry/browser@4.0.5/build/bundle.min.js": {
+    "integrity": "sha384-GBuMTYSVbNX2T8znvVCZnO4rc/izXyS4EMzltAUjjio037UxfHsgG/QoufqAY8mS",
+    "lastModified": "Tue, 25 Sep 2018 13:47:03 GMT",
+    "size": 85643
+  },
+  "https://unpkg.com/@sentry/browser@4.0.6/build/bundle.js": {
+    "integrity": "sha384-VHSREOjTGyDF+FQ8tZk5zewdkbMlduVew+0Pnhgv5BVp7yzKE9+FreV08SW8v/ro",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 290642
+  },
+  "https://unpkg.com/@sentry/browser@4.0.6/build/bundle.min.js": {
+    "integrity": "sha384-2OJ6FnzCdq+oL6gZh8iGQuApLTRtrm8L9fEo7xh2SCXjF9h46SjuiU1/VdLwnMl2",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 85622
+  },
+  "https://unpkg.com/@sentry/browser@4.1.0/build/bundle.js": {
+    "integrity": "sha384-+d9WfkxRVHM3duN0P1i5VXVIEYaB8qRdKME6HpYtL1uQzsaM3MoWGEOiAc4Ycv0a",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 308466
+  },
+  "https://unpkg.com/@sentry/browser@4.1.0/build/bundle.min.js": {
+    "integrity": "sha384-mxndvYiIf9lQpp7xozknP9c+Aa0nLYEyE/M64QwefVie09YJYZ9WSWmLNkxR/mTQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90756
+  },
+  "https://unpkg.com/@sentry/browser@4.1.1/build/bundle.js": {
+    "integrity": "sha384-xc2k4+gWH6MpUcW/kxiEOnDHfYqgK7xMC8a0/uX3oSRK3xM9BTmLaoLpxpO7Sghc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 306870
+  },
+  "https://unpkg.com/@sentry/browser@4.1.1/build/bundle.min.js": {
+    "integrity": "sha384-TJ/KhB8gCIR3qKkKWksVoD7cpLbRmSo0SlbnthsefHS6hst7ZSRydRZNPyZDaLtl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 90313
+  },
+  "https://unpkg.com/@sentry/browser@4.2.0/build/bundle.js": {
+    "integrity": "sha384-xtNV+JEjCBzo0mE30IDvsceFlYFcFFmgZm5SiTIm8pjMRNSJhmPpux1H7Ikz/vzg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 319825
+  },
+  "https://unpkg.com/@sentry/browser@4.2.0/build/bundle.min.js": {
+    "integrity": "sha384-3a00iSQySxw9TDl+WFarAfD4TeYdSk4hdpss8tbg/cEHFMjWHAb1yu2daZC21R7U",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 94108
+  },
+  "https://unpkg.com/@sentry/browser@4.2.1/build/bundle.js": {
+    "integrity": "sha384-CSvGrdyfQY7J5y1B1DY2yz3vgtpmU2oAnpLWFelsgiKsrTdcTdVjmct5odBYm4mt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 317199
+  },
+  "https://unpkg.com/@sentry/browser@4.2.1/build/bundle.min.js": {
+    "integrity": "sha384-be46IBfMGC0DTuQfhcSsqI3tYi0kDRa6mlUsEQpj110Ir77IsT78SvzkmvCtu0CK",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 93092
+  },
+  "https://unpkg.com/@sentry/browser@4.2.2/build/bundle.js": {
+    "integrity": "sha384-CRc9/C979bA2me/4Xtxe8QAt7k7Bff3ZNepB3nAYSrjrWjv4yWEZea9v4MdVZz1O",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 318250
+  },
+  "https://unpkg.com/@sentry/browser@4.2.2/build/bundle.min.js": {
+    "integrity": "sha384-UPWS4zT5Cca8vbIj9vetqs0bJ8xHNwzkC9oowPj0ZH1ZKAbzpVJ/+PyL7+WEvWOB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 93146
+  },
+  "https://unpkg.com/@sentry/browser@4.2.3/build/bundle.js": {
+    "integrity": "sha384-AzXE6ppKZoRspxCY1iG/z7niiHqXRrMR+xrVIr61tpHKl+RMhYZri9DG9p2/yU+1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 318010
+  },
+  "https://unpkg.com/@sentry/browser@4.2.3/build/bundle.min.js": {
+    "integrity": "sha384-pP/7qteA/2aXoHAKl+7LQgARfRQCwQ8w3hioraSv5Ryhu/yKW6coanqLkKSYsbbr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 93125
+  },
+  "https://unpkg.com/@sentry/browser@4.2.4/build/bundle.js": {
+    "integrity": "sha384-uUbm1tTqx2821UlY98NPDwp0A5Spg2P8pFMVS5iU4uOIq+MnRWucMSS9e8gP8CpC",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 318781
+  },
+  "https://unpkg.com/@sentry/browser@4.2.4/build/bundle.min.js": {
+    "integrity": "sha384-lZGvJ6QZuSY4uhab2CMXV+uR4coczuzsvaBMulkRxkJQZCvYY1VrG9QhpDglpyJC",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 93299
+  },
+  "https://unpkg.com/@sentry/browser@4.3.0/build/bundle.js": {
+    "integrity": "sha384-kvChQs0M05P/tZo44GhtfeIy/7tvplGXX5wfGz6PhVmK4tqCw36V8rCOLTJtQ95O",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 318747
+  },
+  "https://unpkg.com/@sentry/browser@4.3.0/build/bundle.min.js": {
+    "integrity": "sha384-cOcwme53k92SVDcGENwB19CkMgqrWCk7uwWQj+Wk7ojGnnHsDtE7NZHHyIuls0lp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 93292
+  },
+  "https://unpkg.com/@sentry/browser@4.3.1/build/bundle.js": {
+    "integrity": "sha384-3LHzxlXHtvjPllaWG0DoL62acJt+sJ5AeL1CKjaOJFnvKcOm/Zpe8dLe2NW10tyh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269831
+  },
+  "https://unpkg.com/@sentry/browser@4.3.1/build/bundle.min.js": {
+    "integrity": "sha384-huwSziQZ65/zkxy7zMDf0XExGt330q6sZUwo+xAQphSH4WTrQzFlPfYAPvrk1+LI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 67870
+  },
+  "https://unpkg.com/@sentry/browser@4.3.2/build/bundle.js": {
+    "integrity": "sha384-t//SNUHHYf+BfgLuzRMFQH7VRZQYpNuPRMIzjn2YG8hqZMDYMXs65AiZXHln1k9/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269831
+  },
+  "https://unpkg.com/@sentry/browser@4.3.2/build/bundle.min.js": {
+    "integrity": "sha384-z/oLJ5D3zuXLuRIKEF0RDwmGE/b1qggHTgZMtzwTZKdKXTkTH8eZK0GxThj+vz5L",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 67870
+  },
+  "https://unpkg.com/@sentry/browser@4.3.3/build/bundle.js": {
+    "integrity": "sha384-W1PPtmuA5VQGbiBPBahJ+1V53foeq4NHYh/JtZBNusygsa31cnKe78wOMrIHKFiB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269831
+  },
+  "https://unpkg.com/@sentry/browser@4.3.3/build/bundle.min.js": {
+    "integrity": "sha384-ZCPlxUzqRVbgf3spxCIKjvOYIxT/mZkXF5WTva1DtNE9hgbQAxLXLkcO1tIKcM57",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 67870
+  },
+  "https://unpkg.com/@sentry/browser@4.3.4/build/bundle.js": {
+    "integrity": "sha384-/Uh3YgmL2VB4y1H6Ab8wjG0U5mYqdU23SiW5ihkYyGN7bW+hpmAqpHW5LPkJ/lQE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269069
+  },
+  "https://unpkg.com/@sentry/browser@4.3.4/build/bundle.min.js": {
+    "integrity": "sha384-uoHo+08PqDk1B3XE4vRTtjm17q4BqgC3Ou69cK1vxCuq7HUamVtPUVun3IHOgH0I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 67604
+  },
+  "https://unpkg.com/@sentry/browser@4.4.0/build/bundle.js": {
+    "integrity": "sha384-9C6DEXCUYdXnFQE/xYHYNsnkqAa5kLwDv9O3KhZanM65sgY4iglvfzYtWGbAS9k0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269395
+  },
+  "https://unpkg.com/@sentry/browser@4.4.0/build/bundle.min.js": {
+    "integrity": "sha384-eJQD3LiIptaa/6uX3e5B5HDbB7x0UMPrBvgXF0PIuvg6zklHlZ83IdjQP7QZDOh9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 67723
+  },
+  "https://unpkg.com/@sentry/browser@4.4.1/build/bundle.js": {
+    "integrity": "sha384-DK6c036w5a7NrH5zBK9tzZ3gsx8WLzYQ2FPyacKRe4XSIUQ29RJS7vzXt/oZNi84",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 269395
+  },
+  "https://unpkg.com/@sentry/browser@4.4.1/build/bundle.min.js": {
+    "integrity": "sha384-rFFfdk7U3iPMIpePisCrWOmO5N1ndYuAXvZHOGq1Ms1SCac9E8FuvchPxFGwG3Dx",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 67723
+  },
+  "https://unpkg.com/@sentry/browser@4.4.2/build/bundle.js": {
+    "integrity": "sha384-ziJ23Kk1+luijE+v827fqLsIdbzFDktOaHbhe3wGDYwShY89R1lzh5yiTDLULKdL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 289419
+  },
+  "https://unpkg.com/@sentry/browser@4.4.2/build/bundle.min.js": {
+    "integrity": "sha384-bW79dask6g+4MR7Fa/Bt863WjHb3vxrp96tBD8j/fYluPKn8xq8OySgurAopQ/j0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 73824
+  },
+  "https://unpkg.com/@sentry/browser@4.5.0/build/bundle.js": {
+    "integrity": "sha384-E65gU0tRDOaOWHRsSIiPXCm0zd800QcfYPUWVsjj1OtXwlUeU7fYtndtFix+qKre",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 293890
+  },
+  "https://unpkg.com/@sentry/browser@4.5.0/build/bundle.min.js": {
+    "integrity": "sha384-ZdpL2i2tj+JoLvEcm74SeOOieQ7ZvDOoke/Rz+/vDFbTev4Ne3W/bc63eRoo1NqM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75067
+  },
+  "https://unpkg.com/@sentry/browser@4.5.1/build/bundle.js": {
+    "integrity": "sha384-3z1Gdp9SRChwRFQPs9G8xUhsnYPSqQKR/nuICct1JcN2ML4D4Y7Gyz7JED+9Ytq5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 293903
+  },
+  "https://unpkg.com/@sentry/browser@4.5.1/build/bundle.min.js": {
+    "integrity": "sha384-Ht7kkS0RJFsKT4Ai+9IsAGTANqBo+Pz6d7MHZHVPmYwjl6ddTls6pGGVTfc9IomR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75080
+  },
+  "https://unpkg.com/@sentry/browser@4.5.2/build/bundle.js": {
+    "integrity": "sha384-+LafLJDYWwEyLpRAB4leEIRPEumE0q+FJiNSrBdSyGwzxqS+BiwvtIyTLlObxLuB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 297052
+  },
+  "https://unpkg.com/@sentry/browser@4.5.2/build/bundle.min.js": {
+    "integrity": "sha384-B40T8JbVXw6SvEWUzdCliv4rtB06EhQznO11FvvMJ7pWnniode1Ggyu4VPk9L8l1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75925
+  },
+  "https://unpkg.com/@sentry/browser@4.5.3/build/bundle.js": {
+    "integrity": "sha384-5FgRPVuxMldJYDv4PlOxI6p1zB68xCY0baGmvTx45zLEbtvUBlTchpm2kkBgyxHi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 281628
+  },
+  "https://unpkg.com/@sentry/browser@4.5.3/build/bundle.min.js": {
+    "integrity": "sha384-da/Bo2Ah6Uw3mlhl6VINMblg2SyGbSnULKrukse3P5D9PTJi4np9HoKvR19D7zOL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 71251
+  },
+  "https://unpkg.com/@sentry/browser@4.5.4/build/bundle.js": {
+    "integrity": "sha384-KjWlcZrv/G3k09+CQaoGWcV/GOKRRia7efXQYjlDUz/MUwrYH+yyu7U3CgS5llZM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 283510
+  },
+  "https://unpkg.com/@sentry/browser@4.5.4/build/bundle.min.js": {
+    "integrity": "sha384-+xRNR5D6o6qIxyC4brQP4fUet66z5sBqAahoNlb+RIqLlhqY9Daf4XihIGIoQ40w",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 71778
+  },
+  "https://unpkg.com/@sentry/browser@4.6.0/build/bundle.js": {
+    "integrity": "sha384-J5l9PkvyQweXmUyzmsSMrC/lqfNWrB/jLicyNhIA0q9+XgaxizQCMPq4lxSpmQVm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 285137
+  },
+  "https://unpkg.com/@sentry/browser@4.6.0/build/bundle.min.js": {
+    "integrity": "sha384-vO7TpU2txcq0Vf/YdgQzIiDjzsncO4AfaUtXIKgLxKug/ouIurKelSkDpc/vrerJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72238
+  },
+  "https://unpkg.com/@sentry/browser@4.6.1/build/bundle.js": {
+    "integrity": "sha384-lK4x2euM0qDzWKrEeYrL39Z192Yubl7D50bp5jVO6op+bcOJ6vmP6d9tr9Ywx5Cu",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 284807
+  },
+  "https://unpkg.com/@sentry/browser@4.6.1/build/bundle.min.js": {
+    "integrity": "sha384-CZUZO/I6kwlW33/jW3h9EhvwZZ+OAL+KRoR3DHCWZBb7naxDOrWFy5bOzsikA6qE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72121
+  },
+  "https://unpkg.com/@sentry/browser@4.6.2/build/bundle.js": {
+    "integrity": "sha384-lMwKcoxAXpzxm7kGsRVyQfGxPFfpg3/jsb7iCnGLsXreeYWtBnvFwIIlzy0V32Ao",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 284984
+  },
+  "https://unpkg.com/@sentry/browser@4.6.2/build/bundle.min.js": {
+    "integrity": "sha384-/NGc6/W+oLQpWIV5pXzzq8jUHj+5u8FPngDNOm7ZRYIgqi4ReuzPl34r0satPGD7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72170
+  },
+  "https://unpkg.com/@sentry/browser@4.6.3/build/bundle.js": {
+    "integrity": "sha384-ueYVyljl9IOtrlkoU3Xhje0fnatt2zf0GADG2tUc07TpkAbyZdhomGKNa5/fSM9N",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 285722
+  },
+  "https://unpkg.com/@sentry/browser@4.6.3/build/bundle.min.js": {
+    "integrity": "sha384-Gsf0Tua6QNbF6Z/PQhcBGMl5ScesDOD331OIr94kAl9EHpvQEX5LRzm624UD2Cvz",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72274
+  },
+  "https://unpkg.com/@sentry/browser@4.6.4/build/bundle.js": {
+    "integrity": "sha384-JkvxYHfhUDIgdDi4o1eJWop7ovF6hU7ApokT9bajErlgIUJc2twug6iTVEP9B0F9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 286447
+  },
+  "https://unpkg.com/@sentry/browser@4.6.4/build/bundle.min.js": {
+    "integrity": "sha384-EjK17q3MbBxWLEMvEYJrhFkrEOohZSA2xbbotiXcAr+FqLqJinN91/WEIkhjJkRf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72593
+  },
+  "https://unpkg.com/@sentry/browser@4.6.5/build/bundle.js": {
+    "integrity": "sha384-tblYfi3VaCTGzXx1o8topmrJTkXkSBfCxsi7KSQsQDnHK6LS/UmQD8IQlFgeYqyL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 282671
+  },
+  "https://unpkg.com/@sentry/browser@4.6.5/build/bundle.min.js": {
+    "integrity": "sha384-YglxbmfKMHIH+eDATXRzbR5MTJ3wh6jDiB2TjHWrNtTsHaXbhnwQ2tSZ+DtIfQBy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 71662
+  },
+  "https://unpkg.com/@sentry/browser@4.6.6/build/bundle.js": {
+    "integrity": "sha384-U9GHi6J381/eAwRbGQ9rqcYMs2zMZaMrmG2Xj1qg9jiGGqXybCx7oSzAMukHPgg4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 283198
+  },
+  "https://unpkg.com/@sentry/browser@4.6.6/build/bundle.min.js": {
+    "integrity": "sha384-2Cv5k3R17ppwnY2sy1wy62XDBgKAAnCs1WTYWCl/vIuTpvhx2MlvreCjTVwTZ/Xj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 71790
+  },
+  "https://unpkg.com/@sentry/browser@5.0.0/build/bundle.js": {
+    "integrity": "sha384-FkErxPuWXg/wVjuAc9sOT6oPKpZs6WgPc1bHJCIrx+rbS6EJDbs36IcQ4meWTUdv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208799
+  },
+  "https://unpkg.com/@sentry/browser@5.0.0/build/bundle.min.js": {
+    "integrity": "sha384-Mvmdt0uqmyWr9mYaGnKZzzTERp3vieqnjF3gztPOOUtlg8orVf3bKKMh0J9FqdHG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50312
+  },
+  "https://unpkg.com/@sentry/browser@5.0.1/build/bundle.js": {
+    "integrity": "sha384-H65Nb3su0DfqrYVgZYJ2dr8LiLP3GY0pqrcj6YoDibijXvaUBoZ/S3zkdpzchnMl",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208799
+  },
+  "https://unpkg.com/@sentry/browser@5.0.1/build/bundle.min.js": {
+    "integrity": "sha384-A3yEvoDQrVkFcdVTzvjd3WIgl2snKdwNG0oOlr1nrFaTyvzU3C/450NIkywR4W5M",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50312
+  },
+  "https://unpkg.com/@sentry/browser@5.0.2/build/bundle.js": {
+    "integrity": "sha384-UVrKpscs/jESU9u8zxhP9cfBf0RY2Qq+D40xztTimmiRG10JQs5QM5sGCSnjZ3qO",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208799
+  },
+  "https://unpkg.com/@sentry/browser@5.0.2/build/bundle.min.js": {
+    "integrity": "sha384-UVJfcr2DOEJf4FKkky5ynBeuczYQAGHVDzm8YNdF6daJwX/KrJTDOAYSDKaHFoHf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50312
+  },
+  "https://unpkg.com/@sentry/browser@5.0.3/build/bundle.js": {
+    "integrity": "sha384-lkGv+MyS3ka0JqIxDoJVNcatTylSJyFoncmaz0VdZ5KP+KePEZuQWe5p5VUEiH4W",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208821
+  },
+  "https://unpkg.com/@sentry/browser@5.0.3/build/bundle.min.js": {
+    "integrity": "sha384-zgxnOHyAexUJxOK6N1uf3t424BZUPHSNZYHSYuEuZwiy0YmlYYe9FpQJqsRPAvP/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50326
+  },
+  "https://unpkg.com/@sentry/browser@5.0.5/build/bundle.js": {
+    "integrity": "sha384-9Hae0T5/gcr57P0xjo4AxH0CLmj9pbVkmzZ6LWcmNGagqeLqih0SDXEvs9O7u9h+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208821
+  },
+  "https://unpkg.com/@sentry/browser@5.0.5/build/bundle.min.js": {
+    "integrity": "sha384-rG/pb+5LVhxBPOTkPzsKoGzCbcOoSHnqdrRHqejMqlSO9HlAwir12RMgT30Bj+uz",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50326
+  },
+  "https://unpkg.com/@sentry/browser@5.0.6/build/bundle.js": {
+    "integrity": "sha384-GxCwHANoqWE06SstoQibu60jNC1h5ww1zGvojSd32Xrn8KM5ejbG3mvWS3oWg/Se",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208899
+  },
+  "https://unpkg.com/@sentry/browser@5.0.6/build/bundle.min.js": {
+    "integrity": "sha384-q1qcWpijYH0XeHcXo27MYpZ1oaLKyDcP/g+WHInEXrEJZZ1IUAD00lmjZcVqmFhf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50330
+  },
+  "https://unpkg.com/@sentry/browser@5.0.7/build/bundle.js": {
+    "integrity": "sha384-oJA5iFYviXQ5okAnk+wha7wmGeSkG8Ec3Ar6v1MLSoB+IjIBwvmD9gP/UOJbYyIq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208454
+  },
+  "https://unpkg.com/@sentry/browser@5.0.7/build/bundle.min.js": {
+    "integrity": "sha384-fuy8skKkSNqk8Wr+srDarUEdJbrMroQr1l1MkwLPbkauPHeXMUSlFWeEnhfWGPvj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50196
+  },
+  "https://unpkg.com/@sentry/browser@5.0.8/build/bundle.js": {
+    "integrity": "sha384-aWT4CiecvISqDZqTVZQXsvzlQ4JQYtPTNx3E1pC89tMIxkMcsP6v4dtIwoDngXiq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208939
+  },
+  "https://unpkg.com/@sentry/browser@5.0.8/build/bundle.min.js": {
+    "integrity": "sha384-PKOJCSVL6suo2Qz9Hs4hkrZqX7S6iLwadxXxBEa0h0ycsuoDNZCiAcHlPGHYxU6l",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50375
+  },
+  "https://unpkg.com/@sentry/browser@5.1.0/build/bundle.js": {
+    "integrity": "sha384-UJazQqCR7ert44d7PL9FYFOdYXIi2L/qxJ07IDCcGeihwtYrODIxBpRwTziP15es",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 210622
+  },
+  "https://unpkg.com/@sentry/browser@5.1.0/build/bundle.min.js": {
+    "integrity": "sha384-xTbANCE0PmEEKm8FbcF410tt93VUza59AVguNb2JsffjXKDxH4rh7HMeX4n7W9fU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 51107
+  },
+  "https://unpkg.com/@sentry/browser@5.1.1/build/bundle.js": {
+    "integrity": "sha384-SuMX1eXqplFYRx+AkM8dBPw9BJx2EvdkWBnlYghxKA7T2jfbVZycWnsd/z/VdSsE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 210628
+  },
+  "https://unpkg.com/@sentry/browser@5.1.1/build/bundle.min.js": {
+    "integrity": "sha384-0znzoqUbyftJkpWmb2rwYMxJPeLAtl8wmfD0G4i/CDmRyIfpdx3yOg7xt0Mf1B4w",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 51110
+  },
+  "https://unpkg.com/@sentry/browser@5.1.2/build/bundle.js": {
+    "integrity": "sha384-pVFUJLB3jlUHU1euC1upfDX4DNQTugZzhsSAxsNqUAFu+5HZT+KQmZLPn8DJY04L",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 211514
+  },
+  "https://unpkg.com/@sentry/browser@5.1.2/build/bundle.min.js": {
+    "integrity": "sha384-+/oUcWqoSlvX84sy3dZn9d+ruXMwNqkl52P1vv4Bl/SSwniu4Q2xqCiNc4LJyp5k",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50674
+  },
+  "https://unpkg.com/@sentry/browser@5.1.3/build/bundle.js": {
+    "integrity": "sha384-Pud7qNsn2zEBbE9LwWSYpp0t8/a9mc2SOlB7airBOwpuM/n+rIgzFkDwZWhc5/gU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 212087
+  },
+  "https://unpkg.com/@sentry/browser@5.1.3/build/bundle.min.js": {
+    "integrity": "sha384-Zh889f/aPrLf9Dr1DK3kzfSOs+dBIiiSk6QSesvzyn1BTzTdbO5rCyDGdpRmn1zJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50819
+  },
+  "https://unpkg.com/@sentry/browser@5.10.0/build/bundle.js": {
+    "integrity": "sha384-ez5FZMWRRhzP8AETpr+fTzu1Pw1PR+5ApDEztu74vMpgwDHPc3uVmyah5ASQS3vr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 224275
+  },
+  "https://unpkg.com/@sentry/browser@5.10.0/build/bundle.min.js": {
+    "integrity": "sha384-YAdWhYzOvLE0Ljm0m9rfuzS/WFm/lvK7UTAw0C9dYmBTl2ygdHiD0MaZ30S7frq8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55881
+  },
+  "https://unpkg.com/@sentry/browser@5.10.1/build/bundle.js": {
+    "integrity": "sha384-ockfjjtfO3L0CRCU0CprjpJn6XhYbuZ3EecbZNvON1vvJ/eb37b5t+QDXTnmL1cA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 223783
+  },
+  "https://unpkg.com/@sentry/browser@5.10.1/build/bundle.min.js": {
+    "integrity": "sha384-sAOze6ZTBIpiWBF3VlUteSInM4rYpjxrejp1wMmmKqA9clRZ1vZJ36Ihmt1ilTrG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55740
+  },
+  "https://unpkg.com/@sentry/browser@5.10.2/build/bundle.js": {
+    "integrity": "sha384-RN8BMncFgNflj+7j5XRO8I3xuyZIkQiqNJzAHS1OOKIc0atSjRxbHjdju3sq1SSb",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 223758
+  },
+  "https://unpkg.com/@sentry/browser@5.10.2/build/bundle.min.js": {
+    "integrity": "sha384-ssBfXiBvlVC7bdA/VX03S88B5MwXQWdnpJRbUYFPgswlOBwETwTp6F3SMUNpo9M9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55717
+  },
+  "https://unpkg.com/@sentry/browser@5.11.0/build/bundle.js": {
+    "integrity": "sha384-k5SLmjEcnUeUjaUVRWvT1uilmKyU43TR9fGfvm2RcOnRNvqYGw5ikLat9czjv3qy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 223987
+  },
+  "https://unpkg.com/@sentry/browser@5.11.0/build/bundle.min.js": {
+    "integrity": "sha384-jbFinqIbKkHNg+QL+yxB4VrBC0EAPTuaLGeRT0T+NfEV89YC6u1bKxHLwoo+/xxY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55815
+  },
+  "https://unpkg.com/@sentry/browser@5.11.1/build/bundle.js": {
+    "integrity": "sha384-K3Bmyzey7dIYCunkMbiKS8e662Y1AYyGQ6DYcmxf2HVlVurAnrF+2QvwAD9WviRx",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 223987
+  },
+  "https://unpkg.com/@sentry/browser@5.11.1/build/bundle.min.js": {
+    "integrity": "sha384-r7/ZcDRYpWjCNXLUKk3iuyyyEcDJ+o+3M5CqXP5GUGODYbolXewNHAZLYSJ3ZHcV",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55815
+  },
+  "https://unpkg.com/@sentry/browser@5.11.2/build/bundle.js": {
+    "integrity": "sha384-r40oMJgbcOgtbsKhxeu3KsuNsaNFVwwUyASlP9o3B29Ljzuy3nIRBD5FGXcCBK30",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 224137
+  },
+  "https://unpkg.com/@sentry/browser@5.11.2/build/bundle.min.js": {
+    "integrity": "sha384-FLzYisBa7tvsi/ZP1ISnzZJqBkmw5mvwk7KOmH82W9wdPZKG3bG9hSO8GQFVSlOu",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55880
+  },
+  "https://unpkg.com/@sentry/browser@5.12.0/build/bundle.js": {
+    "integrity": "sha384-MiExfI5OHm4K4wSjEcUh9IRrfOWHEOwm1MlpLHgTCNv/343vAXS7/fFFv3hILlr0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 225418
+  },
+  "https://unpkg.com/@sentry/browser@5.12.0/build/bundle.min.js": {
+    "integrity": "sha384-628yQYiY4aWhtsw5Qy17Mmuij8Qwsu5EeUbhpWDRUBkxa41oNaPoXwVJ7+dH7CJb",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56188
+  },
+  "https://unpkg.com/@sentry/browser@5.12.1/build/bundle.js": {
+    "integrity": "sha384-enQYOFZkKwU5jce0aQZ29BFpI16GGWJfrsm/qnKqgQLiOZY/UO7WJaWMKYRd18vA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 225725
+  },
+  "https://unpkg.com/@sentry/browser@5.12.1/build/bundle.min.js": {
+    "integrity": "sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56268
+  },
+  "https://unpkg.com/@sentry/browser@5.12.4/build/bundle.js": {
+    "integrity": "sha384-OhZLixqjjoVNNItov/KBmCTi90u3leQJVe8tu0Cs/1ksBmsHIGgISZRDFVkoSMo4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 224768
+  },
+  "https://unpkg.com/@sentry/browser@5.12.4/build/bundle.min.js": {
+    "integrity": "sha384-1mOjLccPe18oBECej92DbE5SVA4k96pJSrB8Apra0TXOATvFxoAUleTrTxalU46I",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55940
+  },
+  "https://unpkg.com/@sentry/browser@5.12.5/build/bundle.js": {
+    "integrity": "sha384-B92ULuLWMufSn9ZAkrJy0ZvZ/z78HNKHUbtdlqmCHKUSZl+xM/pgkZaVJTPghw7v",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 224828
+  },
+  "https://unpkg.com/@sentry/browser@5.12.5/build/bundle.min.js": {
+    "integrity": "sha384-YuaiVBoovZBS7bIMsBbflMfsnIEWrE3sPGRY4s63aFD5qz/O3kAfuTDZS0olBFaF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55978
+  },
+  "https://unpkg.com/@sentry/browser@5.13.0/build/bundle.js": {
+    "integrity": "sha384-D7V5PlTssOKULH0xvg1D+5KpPfpeqw1b6dmSxrYNRlBzXxQ40hkaGgISK1tTuZyL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 224733
+  },
+  "https://unpkg.com/@sentry/browser@5.13.0/build/bundle.min.js": {
+    "integrity": "sha384-ePH2Cp6F+/PJbfhDWeQuXujAbpil3zowccx6grtsxOals4qYqJzCjeIa7W2UqunJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55946
+  },
+  "https://unpkg.com/@sentry/browser@5.13.2/build/bundle.js": {
+    "integrity": "sha384-Xk7h42a+tRQRLIihP3H49nKrr6KxITUccczJ6bzLwSLzWbS2508FiQ86JA7voMgX",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 224745
+  },
+  "https://unpkg.com/@sentry/browser@5.13.2/build/bundle.min.js": {
+    "integrity": "sha384-dfLJFVWgMshiEcDOKARUAYP75u71aRBwHGnklTytOvQJrhnj+l2KDLvnyMnHxWj+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 55948
+  },
+  "https://unpkg.com/@sentry/browser@5.14.0/build/bundle.js": {
+    "integrity": "sha384-vvBDXaW70lBvAEf8VLtyx5bx/gPPISZBqzEhaLAk2Y2f+3CKfmpFZSMQA4zo8X4y",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227098
+  },
+  "https://unpkg.com/@sentry/browser@5.14.0/build/bundle.min.js": {
+    "integrity": "sha384-y6mVQo8fj1oJKtFP58+E/i2APk2uhYl5YAsE2KAxLlJ+aSChOicE/uSlruEXtrLY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56514
+  },
+  "https://unpkg.com/@sentry/browser@5.14.1/build/bundle.js": {
+    "integrity": "sha384-xDhu+ZG+c+WJE+k66dvmGJovq++naVm6YPNYbqI+2+Q++GopoDQ2rAef+V/ZFaVx",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227551
+  },
+  "https://unpkg.com/@sentry/browser@5.14.1/build/bundle.min.js": {
+    "integrity": "sha384-uNLty2kYRXkczv6MLytto1fP/VzNBKjYpUNIpNa3yvW0CYZrzJE4TyvUBDHtbMmq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56595
+  },
+  "https://unpkg.com/@sentry/browser@5.14.2/build/bundle.js": {
+    "integrity": "sha384-tbNI7yj0hwKslUqomNULb4ElO1KB3e4Vt6M6SWsU3A2SOMh+DAJj3AhwUn3aBRKc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227390
+  },
+  "https://unpkg.com/@sentry/browser@5.14.2/build/bundle.min.js": {
+    "integrity": "sha384-ukDuknhff/B0FboSejWA/Er+sqGXUC9WCUDZ+74pDelvPem9OZXd8xSKj5bDovvB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56537
+  },
+  "https://unpkg.com/@sentry/browser@5.15.0/build/bundle.js": {
+    "integrity": "sha384-JYNvqQ+XmceTj5KYT/x0QD/Vl9wqugAPwHj9iuLCO64lGSGuT8xZdvMI+bJwakJ2",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227576
+  },
+  "https://unpkg.com/@sentry/browser@5.15.0/build/bundle.min.js": {
+    "integrity": "sha384-+ysfQckQvwCB5SppH41IScIz/Iynt2pePnJNMl+D7ZOzDJ+VYhQEuwB0pA60IDM0",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56611
+  },
+  "https://unpkg.com/@sentry/browser@5.15.1/build/bundle.js": {
+    "integrity": "sha384-hgB0ZQCcfTwkJrHzz7ymKBpwbjP9oQYWK7kCFDhvB8nVFcGQQDdYxvn0/SHARJ1f",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227390
+  },
+  "https://unpkg.com/@sentry/browser@5.15.1/build/bundle.min.js": {
+    "integrity": "sha384-7PUyOjjPo57bAVGHBy/KwjdLcgzEVP5vtpH+KrRxWG1ZuFSvO0MFPik0RgwCbsrU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56669
+  },
+  "https://unpkg.com/@sentry/browser@5.15.2/build/bundle.js": {
+    "integrity": "sha384-eYJVkNnu7d9v9N1TXmWH8p5d4iVVeTiXeVSzyRxsyXSUKogQrLKB84Xnvb2I7T/k",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227142
+  },
+  "https://unpkg.com/@sentry/browser@5.15.2/build/bundle.min.js": {
+    "integrity": "sha384-HA4Glk4hAwUFBIu+OfNR4bvn6vGCxT134gRiQce9rwp2YfxcuHHG8nG7qkooJwFt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56649
+  },
+  "https://unpkg.com/@sentry/browser@5.15.3/build/bundle.js": {
+    "integrity": "sha384-89zQ/1KnFULqtfnNqaoqbMR0GVC3WHlu/06CM4ATH6TKAwWMw7xqOsGfwlbzhUVR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227418
+  },
+  "https://unpkg.com/@sentry/browser@5.15.3/build/bundle.min.js": {
+    "integrity": "sha384-bHTPTY6RH9VSKdYMV2oNwpH3zYKMONra9+b/3eDYNaR3gVCIeb+BALdQqRSZd/2Z",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56673
+  },
+  "https://unpkg.com/@sentry/browser@5.15.4/build/bundle.js": {
+    "integrity": "sha384-5acnPH4X6KffvxiXz7xVV/mil6UGDsgaIGSgMYTbiuE6XauAzjx97ugGs+ahQvrp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227744
+  },
+  "https://unpkg.com/@sentry/browser@5.15.4/build/bundle.min.js": {
+    "integrity": "sha384-Nrg+xiw+qRl3grVrxJtWazjeZmUwoSt0FAVsbthlJ5OMpx0G08bqIq3b/v0hPjhB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56753
+  },
+  "https://unpkg.com/@sentry/browser@5.15.5/build/bundle.js": {
+    "integrity": "sha384-jH4AYi+ZlO9XU6u/IF78YpPT868o7Ks8Kvkid8ys0LbsPYxcscu6jWELuLdl0fFp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 227815
+  },
+  "https://unpkg.com/@sentry/browser@5.15.5/build/bundle.min.js": {
+    "integrity": "sha384-wF7Jc4ZlWVxe/L8Ji3hOIBeTgo/HwFuaeEfjGmS3EXAG7Y+7Kjjr91gJpJtr+PAT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 56762
+  },
+  "https://unpkg.com/@sentry/browser@5.16.0/build/bundle.js": {
+    "integrity": "sha384-zGClcFfduOWsNI2VY0h8sY68FqqxjxM2zUTXOXW+HC34J83LRPbz6sKjcSCOCIW6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 229935
+  },
+  "https://unpkg.com/@sentry/browser@5.16.0/build/bundle.min.js": {
+    "integrity": "sha384-8XeHBuZ2XhMbhyH74W/+6MLGL3PfryfC87kUgxZXJ/z3cUmSETfEZLMo4CPVxh1r",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 57033
+  },
+  "https://unpkg.com/@sentry/browser@5.16.1/build/bundle.js": {
+    "integrity": "sha384-DJfmKTKsnqvDfXtHp/UlQ0fhZoZZMUquQNjGaOcHQHex1cA+PllAmEORkjydB/iy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 229879
+  },
+  "https://unpkg.com/@sentry/browser@5.16.1/build/bundle.min.js": {
+    "integrity": "sha384-XeIbINcUQP10HtmVHwZigannjNDpoQRe+uhAoW9J5HU5dHFpilP164LjqO78xtIB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 57033
+  },
+  "https://unpkg.com/@sentry/browser@5.17.0/build/bundle.js": {
+    "integrity": "sha384-aOkY9KNCSy11L5DPQ3jz6Ak9bnZdqwfRRmtYOveHwZD43AvOvX5n4J66JgXZo/aU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 232887
+  },
+  "https://unpkg.com/@sentry/browser@5.17.0/build/bundle.min.js": {
+    "integrity": "sha384-lowBFC6YTkvMIWPORr7+TERnCkZdo5ab00oH5NkFLeQUAmBTLGwJpFjF6djuxJ/5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 57701
+  },
+  "https://unpkg.com/@sentry/browser@5.18.0/build/bundle.js": {
+    "integrity": "sha384-qKdOUGXLQUriFGs0BKW1/trTOpuQmJLxXYAUQKZmsHAOoIizmWN0Dj69CquP3tcP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 233419
+  },
+  "https://unpkg.com/@sentry/browser@5.18.0/build/bundle.min.js": {
+    "integrity": "sha384-9M0M/t9hmfACAyfoyFXXyzRbljCren5OjRJhHwZHJzuzFt02ZB67XZO27O1tml6L",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 57858
+  },
+  "https://unpkg.com/@sentry/browser@5.18.1/build/bundle.js": {
+    "integrity": "sha384-x/KixHR480Yro6rdJJl530tNWiBsK/pFM8Pk1D+9+HQ1xasG+1BA4WJgixqtocFB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 233419
+  },
+  "https://unpkg.com/@sentry/browser@5.18.1/build/bundle.min.js": {
+    "integrity": "sha384-4zdOhGLDdcXl+MRlpApt/Nvfe6A3AqGGBil9+lwFSkXNTv0rVx0eCyM1EaJCXS7r",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 57858
+  },
+  "https://unpkg.com/@sentry/browser@5.19.0/build/bundle.js": {
+    "integrity": "sha384-YhAE2aQOJoPJIVIazl8Gy/Ow/54JDJ55n23QTrwh6bMjyh5luWa4A5A4JLefj5ag",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 233419
+  },
+  "https://unpkg.com/@sentry/browser@5.19.0/build/bundle.min.js": {
+    "integrity": "sha384-edPCPWtQrj57nipnV3wt78Frrb12XdZsyMbmpIKZ9zZRi4uAxNWiC6S8xtGCqwDG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 57858
+  },
+  "https://unpkg.com/@sentry/browser@5.19.1/build/bundle.js": {
+    "integrity": "sha384-qfP08eG5ia9Fh6YEvNEjhPVlGiCffdktcvzcRLmfJekBhWJlQZHbSRZ3q5oeOEGj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 235345
+  },
+  "https://unpkg.com/@sentry/browser@5.19.1/build/bundle.min.js": {
+    "integrity": "sha384-ibWewy8LWP0FdvEBD3iLjNmbFkkh/FKtOz8GR9C8ZBWjDTbjbdIDpa4nc/AasWns",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 57883
+  },
+  "https://unpkg.com/@sentry/browser@5.19.2/build/bundle.js": {
+    "integrity": "sha384-tc7wtXGMEwDDMUqXzEEKWvC+spkca/Iuw4wpnCGqHaMFsjLf1KsQ+6NC4gUgFLqd",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 235245
+  },
+  "https://unpkg.com/@sentry/browser@5.19.2/build/bundle.min.js": {
+    "integrity": "sha384-JpEWxJ7oLRn+baXBgcCKEv73uYWsgouzEResgJneOXvTjDZ+1crAXcNAKZoiL96Z",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 57952
+  },
+  "https://unpkg.com/@sentry/browser@5.2.0/build/bundle.js": {
+    "integrity": "sha384-YWv/ND9FUWwYXqFBM6PBpEulI/XpWDT1rszbNdF2DAKPon8FcvRLgWW1bq7fFNXM",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208690
+  },
+  "https://unpkg.com/@sentry/browser@5.2.0/build/bundle.min.js": {
+    "integrity": "sha384-khQaIyAjM+/x4rFM4oqoXsmlzVmNfenGyoTz91AN/jrVU3StrjnsOOFGd+7x28Id",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 49356
+  },
+  "https://unpkg.com/@sentry/browser@5.2.1/build/bundle.js": {
+    "integrity": "sha384-M2+x8qnP/YIKe1cToNVtbObJx+GQdo4khdHSDjwQMuiPKwm5sVKEWEdqMwLYo0HG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 208836
+  },
+  "https://unpkg.com/@sentry/browser@5.2.1/build/bundle.min.js": {
+    "integrity": "sha384-qTy4WJvaigMIIYbFZNJsoZk3uAWZ9T7JAi2auFUPF7+2HM7dJ9gVawMBKgXYINw8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 49402
+  },
+  "https://unpkg.com/@sentry/browser@5.20.0/build/bundle.js": {
+    "integrity": "sha384-RsYfsZRtEP2UdZ2FqP4u4FYDnTY4sm0kc1Alwse9EA6nfwlDERXdOorDPA3cGCCi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 228849
+  },
+  "https://unpkg.com/@sentry/browser@5.20.0/build/bundle.min.js": {
+    "integrity": "sha384-mmBh0B1uYbzmP0q9QcqWr4el7gVXBSY0hWB2U8cNhNZi/RIuVQRp7pm1NlPOa644",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58205
+  },
+  "https://unpkg.com/@sentry/browser@5.20.1/build/bundle.js": {
+    "integrity": "sha384-6e37Cs4IGGstz9bOxU2IargE86mS3f9WpEUDBTiYzH2Ftbv8CkQoUIQX0D6wJ/Wn",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 228758
+  },
+  "https://unpkg.com/@sentry/browser@5.20.1/build/bundle.min.js": {
+    "integrity": "sha384-O8HdAJg1h8RARFowXd2J/r5fIWuinSBtjhwQoPesfVILeXzGpJxvyY/77OaPPXUo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58216
+  },
+  "https://unpkg.com/@sentry/browser@5.21.0/build/bundle.js": {
+    "integrity": "sha384-Vv+RkyT7HSwO3Extb/gebIbSmbF6wz7pa33d1fYc679jLFE1RbalXpuZ/PfrpXTR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234308
+  },
+  "https://unpkg.com/@sentry/browser@5.21.0/build/bundle.min.js": {
+    "integrity": "sha384-jLyD4NeDp3o6ZJoixn4DDxdQPzbHZiRx8CMjqb6W5Wu/RzcvGZ6yB0HfqFEZiR6h",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58324
+  },
+  "https://unpkg.com/@sentry/browser@5.21.1/build/bundle.js": {
+    "integrity": "sha384-gdal1JwP17Va/LKOx4xPVp1NJfJP4lg+KLn0Dm6K4IG1vPoGRZhMXP8suzP+1o1/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234308
+  },
+  "https://unpkg.com/@sentry/browser@5.21.1/build/bundle.min.js": {
+    "integrity": "sha384-uFON5MXfE3NkWO60hM8JaXAYAV0fqTCQbdy282z8YfelqBoXx+F7JFzX6+WfFIML",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58324
+  },
+  "https://unpkg.com/@sentry/browser@5.21.2/build/bundle.js": {
+    "integrity": "sha384-pSo+ACbF2O94p69igolu/m928jpq437srXV1co2LgzxifLxHTSbWAvpIRaotyfOR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234307
+  },
+  "https://unpkg.com/@sentry/browser@5.21.2/build/bundle.min.js": {
+    "integrity": "sha384-fToiA54hoY6d6KAxhmTRMeYUFgOcig4WzZfZTJdJ0FWhC9yrnxA3dnqFvFVXMzFQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58325
+  },
+  "https://unpkg.com/@sentry/browser@5.21.3/build/bundle.js": {
+    "integrity": "sha384-pSo+ACbF2O94p69igolu/m928jpq437srXV1co2LgzxifLxHTSbWAvpIRaotyfOR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234307
+  },
+  "https://unpkg.com/@sentry/browser@5.21.3/build/bundle.min.js": {
+    "integrity": "sha384-fToiA54hoY6d6KAxhmTRMeYUFgOcig4WzZfZTJdJ0FWhC9yrnxA3dnqFvFVXMzFQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58325
+  },
+  "https://unpkg.com/@sentry/browser@5.21.4/build/bundle.js": {
+    "integrity": "sha384-rbIG7oeyGpDrRDVJ+NWrHbYBsB1Q5rVJPM4yIfPYY2tTEbFzurpt2n4FXe/KFqbv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234307
+  },
+  "https://unpkg.com/@sentry/browser@5.21.4/build/bundle.min.js": {
+    "integrity": "sha384-hXPIq6duynMwqovXwOzK31H6KFsmzNTUoPwjOkI/tuMVxu3hrtrz7FfWDilpHTU4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58325
+  },
+  "https://unpkg.com/@sentry/browser@5.22.0/build/bundle.js": {
+    "integrity": "sha384-EzMMbhzcJ5kNqeocMxdSmyuX+SnkNl36tB7ZMryRQGmEewUbIknAUbuwVjz+6s0H",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234324
+  },
+  "https://unpkg.com/@sentry/browser@5.22.0/build/bundle.min.js": {
+    "integrity": "sha384-1JujDcqjV6xgb7Q9OBf3Zni8Gwol8A1lVDUKAkG7DOmUG24bOqLk/f1dB6oFOYYO",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58335
+  },
+  "https://unpkg.com/@sentry/browser@5.22.1/build/bundle.js": {
+    "integrity": "sha384-TTpi7/Hu69kUW36LY9rXKKHXY+E0+8HOCxRKIC0qPvoc3kLyDM4oJzYdurLj+9M1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234324
+  },
+  "https://unpkg.com/@sentry/browser@5.22.1/build/bundle.min.js": {
+    "integrity": "sha384-OkYhpIsnNL7uZDA8puwQ2ras4jZHGUUSowb4vqTKZgBm/Z7nRxGDj0wWg8qH/u+d",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58335
+  },
+  "https://unpkg.com/@sentry/browser@5.22.2/build/bundle.js": {
+    "integrity": "sha384-5dk2S7CLUypo1RAp6qVYvEr3XQI9vPkCafIyaOS0LymyXYjk7gIVB15rQaI1E4Rv",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234324
+  },
+  "https://unpkg.com/@sentry/browser@5.22.2/build/bundle.min.js": {
+    "integrity": "sha384-FqorQ2kUUGDWCbrzOPg4E5CYCFtqESLHhmoVB2a1+OBG+pFDn2dsK0AEprXhebGu",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58335
+  },
+  "https://unpkg.com/@sentry/browser@5.22.3/build/bundle.js": {
+    "integrity": "sha384-yuRfC2Vn5PKs9EKRUet0b84L7KjHyqWwD+S2vJutil2/9GvMtY1OkM49bs3N/+U5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234324
+  },
+  "https://unpkg.com/@sentry/browser@5.22.3/build/bundle.min.js": {
+    "integrity": "sha384-A1qzcXXJWl+bzYr+r8AdFzSaLbdcbYRFmG37MEDKr4EYjtraUyoZ6UiMw31jHcV9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58335
+  },
+  "https://unpkg.com/@sentry/browser@5.23.0/build/bundle.js": {
+    "integrity": "sha384-gv25iObmCmbdFi5KaqvkGYZcgvYCxNyZfiQgmXJH86Gxv+5J58yqTHyysCUy3HCZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 234323
+  },
+  "https://unpkg.com/@sentry/browser@5.23.0/build/bundle.min.js": {
+    "integrity": "sha384-5yYHk2XjpqhbWfLwJrxsdolnhl+HfgEnD1UhVzAs6Kd2fx+ZoD0wBFjd65mWgZOG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58335
+  },
+  "https://unpkg.com/@sentry/browser@5.24.0/build/bundle.js": {
+    "integrity": "sha384-yhjxv/u4KP8pJcmpkhisdo4eDveG3XLMOYKQvx9KQHxxyQtyxBFHQroIZgiJoyVo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 237403
+  },
+  "https://unpkg.com/@sentry/browser@5.24.0/build/bundle.min.js": {
+    "integrity": "sha384-TJ3B4a/3uovGl3v9P0r7EK9zLBoNQQnOsNvcDYZJaNwYGViSxwPiUJDOvCHC/xNm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 59017
+  },
+  "https://unpkg.com/@sentry/browser@5.24.1/build/bundle.js": {
+    "integrity": "sha384-50N7CHCaHGz1JnkJ5Jw/nhuC3eyhC73CsIVtAhV/IKX31fDXadikC7OVvF0GVDr7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 237403
+  },
+  "https://unpkg.com/@sentry/browser@5.24.1/build/bundle.min.js": {
+    "integrity": "sha384-l79fWJer3fG+zJDlUyaCSCQm2nbBVOaOYQaGygrLVQItqSlD4WvI8c37dzdfqyPW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 59017
+  },
+  "https://unpkg.com/@sentry/browser@5.24.2/build/bundle.js": {
+    "integrity": "sha384-fD1mBmYz1B6bRhJuagoApYZO+9PreU+opn3iFcsNP0QX8XpDiM9/HJ8Qs9cCKrJb",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 237660
+  },
+  "https://unpkg.com/@sentry/browser@5.24.2/build/bundle.min.js": {
+    "integrity": "sha384-8x1Z8KjWCA4KJ7mh5cTEtm1Jngg4yEZDYTAU3A4HfHdtaiCYba4cCuJDHQ3zc2Qe",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 59054
+  },
+  "https://unpkg.com/@sentry/browser@5.25.0/build/bundle.js": {
+    "integrity": "sha384-Rps3ZsNOOzIXwYrVu5fuRGL1tLXHl8+0QeJD1VTH6dOy/UZrbJRe6eTUasroskGc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 240645
+  },
+  "https://unpkg.com/@sentry/browser@5.25.0/build/bundle.min.js": {
+    "integrity": "sha384-2p7fXoWSRPG49ZgmmJlTEI/01BY1LgxCNFQFiWpImAERmS/bROOQm+cJMdq/kmWS",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 59094
+  },
+  "https://unpkg.com/@sentry/browser@5.26.0/build/bundle.js": {
+    "integrity": "sha384-IQ6b/q9WTAbqP9Q14tU2r4gUKC8BRDYyiXJSCFRJEdwIG0CVLsic3hggKYJxhBSm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 242502
+  },
+  "https://unpkg.com/@sentry/browser@5.26.0/build/bundle.min.js": {
+    "integrity": "sha384-VGljl8BTZL6Py4DmlOaYmfkOwp8mD3PrmD2L+fN446PZpsrIHuDhX7mnV/L5KuNR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 59763
+  },
+  "https://unpkg.com/@sentry/browser@5.3.0/build/bundle.js": {
+    "integrity": "sha384-xPoW2FzXRRJ1pbAQeoYh4v3HbSqtCBVLM1wsppFHfFCFHkgQQZ/fqOrpRAgmZ1Th",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 209199
+  },
+  "https://unpkg.com/@sentry/browser@5.3.0/build/bundle.min.js": {
+    "integrity": "sha384-Z6kbVo62MH9xTsHAa8GSKdl+RNND5AimlUBGFyK4RNrN3Jv8mw3n71LwbFn1z6s7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 49521
+  },
+  "https://unpkg.com/@sentry/browser@5.4.0/build/bundle.js": {
+    "integrity": "sha384-6RDCJdLWnqwcEdOylubj/pBLne0Jj3k9FHdAofbBVIg3GoI6jDiyb8daElHJlFBi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 212578
+  },
+  "https://unpkg.com/@sentry/browser@5.4.0/build/bundle.min.js": {
+    "integrity": "sha384-u3qbwb1d1m0GnCefH+mMCbD+HBWBBeICsteb3CMS6Xq4YzSkrTRBKPLqyOcmaxUw",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50315
+  },
+  "https://unpkg.com/@sentry/browser@5.4.2/build/bundle.js": {
+    "integrity": "sha384-LmwxtKr8ss/s7+tKu19pKUiaPmIuwGsuRBwr7nOA08Wuuq84TO7wA3t9gdtY8bma",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 213616
+  },
+  "https://unpkg.com/@sentry/browser@5.4.2/build/bundle.min.js": {
+    "integrity": "sha384-wT313zrGGU8GZFKE0pZC/Zz3d+mDs6pBoHn7QD07yE7V2GLWeu2b7yT1W1HMJya6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50757
+  },
+  "https://unpkg.com/@sentry/browser@5.4.3/build/bundle.js": {
+    "integrity": "sha384-sP4T+uHiVsj4ycfLgT/D+Hv99zAGeooeBu1DegPIP4a0JKld/T40UaCy2Q0wvumP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 214439
+  },
+  "https://unpkg.com/@sentry/browser@5.4.3/build/bundle.min.js": {
+    "integrity": "sha384-YLYTaH73bJr+7YcmMXQTyCWmoIsJbvwtEwW/agYTQWJQc8DbESn0+2L3Za38uPZN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 50945
+  },
+  "https://unpkg.com/@sentry/browser@5.5.0/build/bundle.js": {
+    "integrity": "sha384-Q3qDCh0RxRHDmXgJ9B0146Vm1vsiGxhu3clV0gIAOGIEkh3lvYf+i8LO5XIT2pNA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 217665
+  },
+  "https://unpkg.com/@sentry/browser@5.5.0/build/bundle.min.js": {
+    "integrity": "sha384-/kLYKYxlMDI1l+lhDHECQrq1Z4fnk/A32MWVF6rRnuE2WiOuAmg3wr3McNOG3Szi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 51570
+  },
+  "https://unpkg.com/@sentry/browser@5.6.0/build/bundle.js": {
+    "integrity": "sha384-OgZv2ySG38Mo+jelOsqXKgg3yCE8cAf4KKUcx2CxjdS6jJDDW+dE1yrbPSYyS0TB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 219587
+  },
+  "https://unpkg.com/@sentry/browser@5.6.0/build/bundle.min.js": {
+    "integrity": "sha384-9aGOmRDrtIQRcZmYbrNQmfS1dW44OCMtOlQ3JFUYCdCpxTJQ8vK+//K35AKgZh96",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 52222
+  },
+  "https://unpkg.com/@sentry/browser@5.6.1/build/bundle.js": {
+    "integrity": "sha384-D6cWa96MuVzqxGYd/KqsMu/iYgrfga2kC+k29KZ9I3bLWluEUg0Aitw5yeK1nk1n",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 219588
+  },
+  "https://unpkg.com/@sentry/browser@5.6.1/build/bundle.min.js": {
+    "integrity": "sha384-pGTFmbQfua2KiaV2+ZLlfowPdd5VMT2xU4zCBcuJr7TVQozMO+I1FmPuVHY3u8KB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 52222
+  },
+  "https://unpkg.com/@sentry/browser@5.6.2/build/bundle.js": {
+    "integrity": "sha384-Lc1edLJaoKI4ntO+RGXeJAh5EmxtLmGLW6B4Ng362Ha0+okzWUJwfoWpSdAgtglf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 228114
+  },
+  "https://unpkg.com/@sentry/browser@5.6.2/build/bundle.min.js": {
+    "integrity": "sha384-H4chu/XQ3ztniOYTpWo+kwec6yx3KQutpNkHiKyeY05XCZwCSap7KSwahg16pzJo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 52442
+  },
+  "https://unpkg.com/@sentry/browser@5.6.3/build/bundle.js": {
+    "integrity": "sha384-jeoQKRMiBBU/tnUeGHli1kC5eHQgCbR8AwMF1L+dEsZJL92WDBdMNv8TsvJkw1dQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 228228
+  },
+  "https://unpkg.com/@sentry/browser@5.6.3/build/bundle.min.js": {
+    "integrity": "sha384-/Cqa/8kaWn7emdqIBLk3AkFMAHBk0LObErtMhO+hr52CntkaurEnihPmqYj3uJho",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 52484
+  },
+  "https://unpkg.com/@sentry/browser@5.7.0/build/bundle.js": {
+    "integrity": "sha384-Wpb5DOgvOYKfz1bz6n5FgOABFLr249JlMdm3SAEGB/UZhVmg8hUFVbwrGV3IIp/s",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 210114
+  },
+  "https://unpkg.com/@sentry/browser@5.7.0/build/bundle.min.js": {
+    "integrity": "sha384-pHnCJ3bbzJ+LzI19wAdyBvGAjJ5vNAC59uxeRpw5WpgkSlZUQstEADxkSbBnI95q",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 51142
+  },
+  "https://unpkg.com/@sentry/browser@5.7.1/build/bundle.js": {
+    "integrity": "sha384-gBWxl3o54frrwXN98pWCh+1RW+v6M6MEnMmiiUwM0SBFR1GYdoTAF3qEjufG7FhN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 210238
+  },
+  "https://unpkg.com/@sentry/browser@5.7.1/build/bundle.min.js": {
+    "integrity": "sha384-KMv6bBTABABhv0NI+rVWly6PIRvdippFEgjpKyxUcpEmDWZTkDOiueL5xW+cztZZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 51194
+  },
+  "https://unpkg.com/@sentry/browser@5.8.0/build/bundle.js": {
+    "integrity": "sha384-zBqOuMAx3DneF3DHHIppdH8eFs/J0SNEDYHho20P4ztHfcapVgeWFZHJt7sKqvCx",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 214692
+  },
+  "https://unpkg.com/@sentry/browser@5.8.0/build/bundle.min.js": {
+    "integrity": "sha384-qlxNoEAgNliJy7zXiR+uKx/fFAimdeVfEOK0SA5/wrXLioMmASbjvfVAMaQFKVI6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 53999
+  },
+  "https://unpkg.com/@sentry/browser@5.9.0/build/bundle.js": {
+    "integrity": "sha384-V83vnbVY5m3YhWzXC1xWllLa6mEoYEs7KIRyiXEw1gI8/SSoXZajCTfLtrImRl9i",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 214688
+  },
+  "https://unpkg.com/@sentry/browser@5.9.0/build/bundle.min.js": {
+    "integrity": "sha384-hMcetfUA+TR8vwXLe2PQTtnfYMs/1BMpXcmNGMNVjzbdKcd5mQ50kU6EC1fPHHq7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 53995
+  },
+  "https://unpkg.com/@sentry/browser@5.9.1/build/bundle.js": {
+    "integrity": "sha384-l0kpY3Ad2sIcuWfV/+syr7oybF7gAGMvKT9uRMUNFELU9JvNyglrXDHxx6Uie5KB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 213948
+  },
+  "https://unpkg.com/@sentry/browser@5.9.1/build/bundle.min.js": {
+    "integrity": "sha384-/x1aHz0nKRd6zVUazsV6CbQvjJvr6zQL2CHbQZf3yoLkezyEtZUpqUNnOLW9Nt3v",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 52479
+  }
+}

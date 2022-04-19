@@ -15,7 +15,7 @@ context('<Dropdown />', () => {
 		cy.mount(<WithIcons />);
 		cy.getByTest('dropdown.button').click();
 		cy.getByTest('dropdown.menu').should('be.visible');
-		cy.getByTest('dropdown.menuitem').should('have.length', 3);
+		cy.getByTest('dropdown.menuitem').should('have.length', 2);
 		cy.clickOutside();
 		cy.getByTest('dropdown.menu').should('not.be.visible');
 	});

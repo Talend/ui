@@ -1,7 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .tertiary {
-	color: tokens.$coral-color-accent-text-strong;
+	color: tokens.$coral-color-accent-text;
 
 	&:hover {
 		color: tokens.$coral-color-accent-text-strong-hover;

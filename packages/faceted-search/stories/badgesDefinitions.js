@@ -7,6 +7,7 @@ export const badgeName = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter a dataset name',
 	},
 	metadata: {
 		isAvailableForQuickSearch: true,
@@ -26,6 +27,7 @@ export const badgeConnectionName = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter a connection name',
 	},
 	metadata: {
 		isAvailableForQuickSearch: true,
@@ -36,7 +38,6 @@ export const badgeConnectionName = {
 	},
 };
 
-
 export const badgeAuthor = {
 	properties: {
 		attribute: 'Author',
@@ -46,6 +47,7 @@ export const badgeAuthor = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter an author name',
 	},
 	metadata: {
 		isAvailableForQuickSearch: true,
@@ -284,6 +286,7 @@ export const badgeTextAsCustomAttribute = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter a custom attribute',
 	},
 	metadata: {
 		category: 'Custom attributes',
@@ -324,6 +327,7 @@ export const badgeTextAsCategory = {
 		operator: {},
 		operators: [],
 		type: 'text',
+		placeholder: 'Enter a category name',
 	},
 	metadata: {
 		category: 'Very long long long long long long category',

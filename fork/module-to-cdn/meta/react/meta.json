@@ -1,0 +1,754 @@
+{
+  "https://unpkg.com/react@0.11.0/dist/react.js": {
+    "integrity": "sha384-cvate1em0Ws2Unt3xk/QzDljD5M7VLEqQBVXviJvOvk+LOBpqwlXz7W/RNeusdBL",
+    "lastModified": "Thu, 17 Jul 2014 20:33:27 GMT",
+    "size": 592869
+  },
+  "https://unpkg.com/react@0.11.0/dist/react.min.js": {
+    "integrity": "sha384-UDVepTUfoHAw9lkKJmZnIB9dbnJYtYs+GbuCDC4XD07UhlqHjHzNhD6nBP7u/YVQ",
+    "lastModified": "Thu, 17 Jul 2014 20:33:27 GMT",
+    "size": 126275
+  },
+  "https://unpkg.com/react@0.11.1/dist/react.js": {
+    "integrity": "sha384-eIV5VgpR+hRd9/IEfGUI2rXp1Vnr6ve8GSSgmTAHmuVQA65YwnK17yBL+XTvk/Z5",
+    "lastModified": "Fri, 25 Jul 2014 18:24:53 GMT",
+    "size": 593628
+  },
+  "https://unpkg.com/react@0.11.1/dist/react.min.js": {
+    "integrity": "sha384-8EVWnvpXSnNZQi+bUcW485GQqboGmOXlURMfNd0Y6xFCif+7gZ2rC7vQRspU7gCf",
+    "lastModified": "Fri, 25 Jul 2014 18:24:53 GMT",
+    "size": 126354
+  },
+  "https://unpkg.com/react@0.11.2/dist/react.js": {
+    "integrity": "sha384-yunBX/8V9mqTz3+VjB16JOGcK4pbgShjAjjHkzq4++f3h5T5SbsplJiT8cdFI7Ct",
+    "lastModified": "Tue, 16 Sep 2014 18:12:19 GMT",
+    "size": 594461
+  },
+  "https://unpkg.com/react@0.11.2/dist/react.min.js": {
+    "integrity": "sha384-Xb4JYYV4HRKRDhspQPwu7iZcaD14nc3+uOTUCeWIg5HekBnsFWagb9RA+Q20YUJB",
+    "lastModified": "Tue, 16 Sep 2014 18:12:19 GMT",
+    "size": 126490
+  },
+  "https://unpkg.com/react@0.12.0/dist/react.js": {
+    "integrity": "sha384-vOhjEAITq7Zx+bj+dVJqB9nAAn2IB1mgS72SWECivopXbrfbndGFwtOpxrjRUnA4",
+    "lastModified": "Tue, 28 Oct 2014 18:30:56 GMT",
+    "size": 570900
+  },
+  "https://unpkg.com/react@0.12.0/dist/react.min.js": {
+    "integrity": "sha384-G9c4xKNLt1vWqXxNKCTFbQk38lXsXmS6vnnGTH6oFmLMpcVxPpmJD5Br8TCUiscR",
+    "lastModified": "Tue, 28 Oct 2014 18:30:56 GMT",
+    "size": 130289
+  },
+  "https://unpkg.com/react@0.12.1/dist/react.js": {
+    "integrity": "sha384-Tjvgr2aC4J0p6QCYaMWswBRZpCRWgMZT1jlQZAPsvdN/iUlGR2hGBQdLEdH7TM3h",
+    "lastModified": "Tue, 18 Nov 2014 06:33:41 GMT",
+    "size": 571026
+  },
+  "https://unpkg.com/react@0.12.1/dist/react.min.js": {
+    "integrity": "sha384-yoXIQNLh/xl9VHt01ldNwWntHKKNSlMwavlstN/J0gjJlsshrHKSzFQkBZWHp5WR",
+    "lastModified": "Tue, 18 Nov 2014 06:33:41 GMT",
+    "size": 130289
+  },
+  "https://unpkg.com/react@0.12.2/dist/react.js": {
+    "integrity": "sha384-Ci0kaVHg61K7MxPl5ReOsSlN1iaH0yRk5s4UYmyNtWwfE4Ol9hbAZ4ACVhWs9AiX",
+    "lastModified": "Thu, 18 Dec 2014 20:33:36 GMT",
+    "size": 571784
+  },
+  "https://unpkg.com/react@0.12.2/dist/react.min.js": {
+    "integrity": "sha384-N00HdHo4KITU3oAxrXk5Vo3C/axWTzYBXgHsxahxkGEw3TbBtIHeJ9UDbqSvr5q0",
+    "lastModified": "Thu, 18 Dec 2014 20:33:36 GMT",
+    "size": 130436
+  },
+  "https://unpkg.com/react@0.13.0/dist/react.js": {
+    "integrity": "sha384-lWS7sso6bpvyuuggeHpT+DD+2VUAOmQLJXYOu0v7+dD5dKk3EdEUjE12mZGTHLUT",
+    "lastModified": "Tue, 10 Mar 2015 21:46:38 GMT",
+    "size": 598400
+  },
+  "https://unpkg.com/react@0.13.0/dist/react.min.js": {
+    "integrity": "sha384-RvB7n76MQtQtt/YMk1/1xht/X7khtH3o3+Kqq4IbOJ6/s4JPmOSN7jJcHyVKYskg",
+    "lastModified": "Tue, 10 Mar 2015 21:46:38 GMT",
+    "size": 120732
+  },
+  "https://unpkg.com/react@0.13.1/dist/react.js": {
+    "integrity": "sha384-k4/jFB2Tsaceir3aYjD39qO2EWKlPKCXoE5bqXUknBsJvauWnKsTpobhTjzBi+iZ",
+    "lastModified": "Mon, 16 Mar 2015 23:51:10 GMT",
+    "size": 598504
+  },
+  "https://unpkg.com/react@0.13.1/dist/react.min.js": {
+    "integrity": "sha384-ZD7z+yZdrTWUlIZe2qle3GAp8S+YrT87fPTbFQi4sXtEdq/3cBrDPC6wnVAwZ59O",
+    "lastModified": "Mon, 16 Mar 2015 23:51:10 GMT",
+    "size": 120797
+  },
+  "https://unpkg.com/react@0.13.2/dist/react.js": {
+    "integrity": "sha384-SYfP87QqMIprjLPvgTB02V+VjjNFFB3GEypWVnVVpiNJiDj5ff6GK2Mn7LJ/Clsy",
+    "lastModified": "Sat, 18 Apr 2015 22:30:52 GMT",
+    "size": 599376
+  },
+  "https://unpkg.com/react@0.13.2/dist/react.min.js": {
+    "integrity": "sha384-cEH/702lfZD1RX2w2ISDiNIWRnihx6/lOjpoZy384RwrhsEIFTMCKkSa+GVfHqNw",
+    "lastModified": "Sat, 18 Apr 2015 22:30:52 GMT",
+    "size": 121458
+  },
+  "https://unpkg.com/react@0.13.3/dist/react.js": {
+    "integrity": "sha384-3Hmws2uIls+SVGUI8AR5SWcLAhkv69dej4qvyOYeCef2+IkrOFQ0WXq3osS3Ks1g",
+    "lastModified": "Fri, 08 May 2015 23:28:53 GMT",
+    "size": 600572
+  },
+  "https://unpkg.com/react@0.13.3/dist/react.min.js": {
+    "integrity": "sha384-tjjw37fFr0JRWChbN+Q4hnYgm0XG7ol9fHz/IaBctiM7mPTWqtSwx7kf4tRPEhzw",
+    "lastModified": "Fri, 08 May 2015 23:28:53 GMT",
+    "size": 121738
+  },
+  "https://unpkg.com/react@0.14.0/dist/react.js": {
+    "integrity": "sha384-1r5xapOzGaryXhpMY42AsWXZKVcFlT1ipkfy+8McsIxDvjAlruHpFqMWVBNNq6Du",
+    "lastModified": "Wed, 07 Oct 2015 17:21:21 GMT",
+    "size": 640047
+  },
+  "https://unpkg.com/react@0.14.0/dist/react.min.js": {
+    "integrity": "sha384-vh0lEVfqgU0Tsf4TpyV4vBnncRPgbSeoJfAlj00exrIok7zqOBBgMlion4FKsTgv",
+    "lastModified": "Wed, 07 Oct 2015 17:21:21 GMT",
+    "size": 135334
+  },
+  "https://unpkg.com/react@0.14.1/dist/react.js": {
+    "integrity": "sha384-49N8lkGAqDTNcAWUTYJHZRcU2Qbytswv70j8uw0tgqoa+CTsvuMXbidZYscQUxqZ",
+    "lastModified": "Wed, 28 Oct 2015 21:22:27 GMT",
+    "size": 640971
+  },
+  "https://unpkg.com/react@0.14.1/dist/react.min.js": {
+    "integrity": "sha384-hgfEvTaFAjCCE5ojSdDg+1I/+poPaQwf9Z5yrXuc5WVwykbJfe/POSGV2dE3Z5qC",
+    "lastModified": "Wed, 28 Oct 2015 21:22:27 GMT",
+    "size": 135480
+  },
+  "https://unpkg.com/react@0.14.10/dist/react.js": {
+    "integrity": "sha384-4iq2XPLfvdCK3K14pShuFSa2gsfXOaOesCJNsfo+eTMCZZNTcUYnik/qSSVF2AaL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 642028
+  },
+  "https://unpkg.com/react@0.14.10/dist/react.min.js": {
+    "integrity": "sha384-SyKFSTnfgyKl3zCWpabtErwwN7NERUalF1SnKwdBC/TB/CdPbx+2UxtBQqmbjgM8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 135995
+  },
+  "https://unpkg.com/react@0.14.2/dist/react.js": {
+    "integrity": "sha384-rAiwhXVie+rPMjqRIqPzR9Gr7iDAHXCI6+K3y4r9CiULmQuG9mufzL6u/wwgR3Jk",
+    "lastModified": "Mon, 02 Nov 2015 19:46:40 GMT",
+    "size": 641226
+  },
+  "https://unpkg.com/react@0.14.2/dist/react.min.js": {
+    "integrity": "sha384-Sxkzks2Ec4TMYVEOKOHPjNcPLYGu+qMkpCy6V8RyJDZnJWRjLwiy+6qjWJMyffUP",
+    "lastModified": "Mon, 02 Nov 2015 19:46:40 GMT",
+    "size": 135543
+  },
+  "https://unpkg.com/react@0.14.3/dist/react.js": {
+    "integrity": "sha384-UT222vrCI2SiYuzcLmBq0UI3ZvKJiap8U6nN2Q9XJNRDlnWH+LwlFYLZSzXIF1rN",
+    "lastModified": "Thu, 19 Nov 2015 02:09:51 GMT",
+    "size": 641366
+  },
+  "https://unpkg.com/react@0.14.3/dist/react.min.js": {
+    "integrity": "sha384-doMoh+1gpjUIeL5V990KI9qJL+zcFgNBV2m6TfevnhcVL6CsVF3kqXjl4lh3aS9+",
+    "lastModified": "Thu, 19 Nov 2015 02:09:51 GMT",
+    "size": 135618
+  },
+  "https://unpkg.com/react@0.14.4/dist/react.js": {
+    "integrity": "sha384-uupUjPO5HzOvaRitB3KNn2BWiPsyiUW8RzQ7UkdCG2y83aoM1HfkbvV8NLP814e2",
+    "lastModified": "Tue, 29 Dec 2015 21:54:19 GMT",
+    "size": 641356
+  },
+  "https://unpkg.com/react@0.14.4/dist/react.min.js": {
+    "integrity": "sha384-pOG9uCBFwXkdEbYKaePU02yiJOa8En7mtP3Gg5G1BOVOAJ1Lo72508QY2H82MLIz",
+    "lastModified": "Tue, 29 Dec 2015 21:54:19 GMT",
+    "size": 135528
+  },
+  "https://unpkg.com/react@0.14.5/dist/react.js": {
+    "integrity": "sha384-c89L3ZBY35T910V6JoCraOdk2ABp2pR+wkAWUBEBoxN+CCTQD03bwPQB/KBTn+R/",
+    "lastModified": "Tue, 29 Dec 2015 22:37:45 GMT",
+    "size": 641356
+  },
+  "https://unpkg.com/react@0.14.5/dist/react.min.js": {
+    "integrity": "sha384-En0hOewBv+G2v6ARH6BBJxdkdhOhUDAxmuAjQHJ4taS8ott8MqDens+JNOrV/RwQ",
+    "lastModified": "Tue, 29 Dec 2015 22:37:45 GMT",
+    "size": 135528
+  },
+  "https://unpkg.com/react@0.14.6/dist/react.js": {
+    "integrity": "sha384-OJcRFKJ0AmdGfSHVLX+urq2A92CTmT81TOoKtOao5likf7Gi4OrEr5Tc1XVeldkc",
+    "lastModified": "Wed, 06 Jan 2016 23:29:38 GMT",
+    "size": 641479
+  },
+  "https://unpkg.com/react@0.14.6/dist/react.min.js": {
+    "integrity": "sha384-7cs0nz34XWFfjT081SFZw+OhSNLOexGgmmNFnYS9Ue+lBqdk8QkMk5XLApt/RTfe",
+    "lastModified": "Wed, 06 Jan 2016 23:29:38 GMT",
+    "size": 135572
+  },
+  "https://unpkg.com/react@0.14.7/dist/react.js": {
+    "integrity": "sha384-xQae1pUPdAKUe0u0KUTNt09zzdwheX4VSUsV8vatqM+t6X7rta01qOzessL808ox",
+    "lastModified": "Thu, 28 Jan 2016 19:39:13 GMT",
+    "size": 641547
+  },
+  "https://unpkg.com/react@0.14.7/dist/react.min.js": {
+    "integrity": "sha384-zTm/dblzLXQNp3CgY+hfaC/WJ6h4XtNrePh2CW2+rO9GPuNiPb9jmthvAL+oI/dQ",
+    "lastModified": "Thu, 28 Jan 2016 19:39:13 GMT",
+    "size": 135581
+  },
+  "https://unpkg.com/react@0.14.8/dist/react.js": {
+    "integrity": "sha384-TRXni4AIXKUSoauyRkXFkgX+hrXtkSjuxyI/P9uIZJXNBHwOS4cPX1mqotlaPylX",
+    "lastModified": "Tue, 29 Mar 2016 16:01:11 GMT",
+    "size": 641672
+  },
+  "https://unpkg.com/react@0.14.8/dist/react.min.js": {
+    "integrity": "sha384-ABrc5WG8nn7HHzU3dowM24xvbjLqDaqWuxpdknSemmtd8FcqK1Kfd41M6jv+FbGg",
+    "lastModified": "Tue, 29 Mar 2016 16:01:11 GMT",
+    "size": 135647
+  },
+  "https://unpkg.com/react@0.14.9/dist/react.js": {
+    "integrity": "sha384-gms+U0aVuyCMYSnjZbA2BIPqbx1eIchbBF50ShbxWPzrdTE3M9GZsQzHe36ci5LR",
+    "lastModified": "Wed, 12 Apr 2017 15:41:04 GMT",
+    "size": 642026
+  },
+  "https://unpkg.com/react@0.14.9/dist/react.min.js": {
+    "integrity": "sha384-aQ79Y9/PrZPPNfLuEj0zokBr7+/68f0oopiCJ/Q6w3kRLycyOSBxciBHQaLypV8K",
+    "lastModified": "Wed, 12 Apr 2017 15:41:04 GMT",
+    "size": 135992
+  },
+  "https://unpkg.com/react@15.0.0/dist/react.js": {
+    "integrity": "sha384-Cq98Gnp/9Q99TFfuPlSLebblQc+9qMrZtWD0FCe4s7GUZxPiQs3xrnDfXGa4ViyS",
+    "lastModified": "Thu, 07 Apr 2016 19:44:09 GMT",
+    "size": 655607
+  },
+  "https://unpkg.com/react@15.0.0/dist/react.min.js": {
+    "integrity": "sha384-9BYbHhdnftnl0BXeFq2Vu9/Q4PbgcQEzhgGVV+AdFn45HLRsjIt7quhJDydhEhXy",
+    "lastModified": "Thu, 07 Apr 2016 19:44:09 GMT",
+    "size": 145410
+  },
+  "https://unpkg.com/react@15.0.1/dist/react.js": {
+    "integrity": "sha384-PcrCc8vAh3jounTGQGibvUE4liSu8s91ycPotf/cfEHdSnq9qaW2c9tFr3oyDzW4",
+    "lastModified": "Fri, 08 Apr 2016 18:14:50 GMT",
+    "size": 656686
+  },
+  "https://unpkg.com/react@15.0.1/dist/react.min.js": {
+    "integrity": "sha384-S9sTQnq5vvBUhj91S9s9dhE4fiZWgytnfFyIW7hu3Vk5leHzq03A9dULSd0IqW9N",
+    "lastModified": "Fri, 08 Apr 2016 18:14:50 GMT",
+    "size": 145685
+  },
+  "https://unpkg.com/react@15.0.2/dist/react.js": {
+    "integrity": "sha384-dedPNF++oHBwT++5v2VMeXSzyNkqJd7tbc3ic+wN3l0u/NEBcMNuf9a7knYgwTco",
+    "lastModified": "Sat, 30 Apr 2016 00:29:18 GMT",
+    "size": 659291
+  },
+  "https://unpkg.com/react@15.0.2/dist/react.min.js": {
+    "integrity": "sha384-1kql9Cm3anPpO0n0a4T7keJt+N4pixvMU33Bk69kZi1WkN6gbq1EVZdfZLjqwmFq",
+    "lastModified": "Sat, 30 Apr 2016 00:29:18 GMT",
+    "size": 146648
+  },
+  "https://unpkg.com/react@15.1.0/dist/react.js": {
+    "integrity": "sha384-I9uU7ZWS2zpxPvpUfutJ7LD6Mmzk3pvvBCbfC7/imYVdtuPR9hRiLIJrVIZilwht",
+    "lastModified": "Fri, 20 May 2016 22:55:41 GMT",
+    "size": 668793
+  },
+  "https://unpkg.com/react@15.1.0/dist/react.min.js": {
+    "integrity": "sha384-3aKuzevuBSs0FfxObUZ42KUGqneCk7kh9g7/aZ+Yzf5MhucA9KvfUSH5jcma9kdZ",
+    "lastModified": "Fri, 20 May 2016 22:55:41 GMT",
+    "size": 147112
+  },
+  "https://unpkg.com/react@15.2.0/dist/react.js": {
+    "integrity": "sha384-vck4RVcD/d8oCyYODNkyY5bF8we4hBqLNCQzIsK1n4eN+WTWkSMaXH8Bl0ByIaMd",
+    "lastModified": "Fri, 01 Jul 2016 18:36:03 GMT",
+    "size": 690515
+  },
+  "https://unpkg.com/react@15.2.0/dist/react.min.js": {
+    "integrity": "sha384-SA/uTNKFAqs8tVn1gROCqtn9Y/waa33EiLYKD7iALN+MDxP1DWBEWPCPmSkYzdsa",
+    "lastModified": "Fri, 01 Jul 2016 18:36:03 GMT",
+    "size": 153133
+  },
+  "https://unpkg.com/react@15.2.1/dist/react.js": {
+    "integrity": "sha384-g2900ZIpFKhyIsz+bnx4YDEfAISugYRU58ljeAgI8TZ0A0AkRLGUCN7OmjF16Cj+",
+    "lastModified": "Fri, 08 Jul 2016 22:15:52 GMT",
+    "size": 691206
+  },
+  "https://unpkg.com/react@15.2.1/dist/react.min.js": {
+    "integrity": "sha384-ICzDcvbNpMy31akJ8WzksHoK9tl1iRIUPRCaBRN+sn/k40TNGjs9IvgPN0SekkDT",
+    "lastModified": "Fri, 08 Jul 2016 22:15:52 GMT",
+    "size": 147398
+  },
+  "https://unpkg.com/react@15.3.0/dist/react.js": {
+    "integrity": "sha384-R8v794QN9hrNjnivoQ3Mf7nMGVwFIHBkUmBanB40ZBIMttZbBEUatXNosjytvPUC",
+    "lastModified": "Fri, 29 Jul 2016 18:28:57 GMT",
+    "size": 703233
+  },
+  "https://unpkg.com/react@15.3.0/dist/react.min.js": {
+    "integrity": "sha384-asiNTW+3f/iCKtm+05EX+4V4n6R5R1fyAY9M8Md0DLHodFResXMSBlt8ns9iJaPK",
+    "lastModified": "Fri, 29 Jul 2016 18:28:57 GMT",
+    "size": 148583
+  },
+  "https://unpkg.com/react@15.3.1/dist/react.js": {
+    "integrity": "sha384-gS+zau+tpUQYisQ0pOWmfNOfcczNoZQjeQ6+5jOgVqV1WBYqkIbdqpay3VuCHQjt",
+    "lastModified": "Fri, 19 Aug 2016 18:43:00 GMT",
+    "size": 702373
+  },
+  "https://unpkg.com/react@15.3.1/dist/react.min.js": {
+    "integrity": "sha384-GjSRThJn3fjCmKim4Jou04Ax7vvKfk76xSCKUo7/V70VNIlidvZd3ZnT9rtJk0KM",
+    "lastModified": "Fri, 19 Aug 2016 18:43:00 GMT",
+    "size": 148665
+  },
+  "https://unpkg.com/react@15.3.2/dist/react.js": {
+    "integrity": "sha384-bQIyvl+8Ufi5KiKZPG9VItNWmhcAXA1pa5nHIEoBGob+rdbjJnpNV3s288Mz2yZu",
+    "lastModified": "Mon, 19 Sep 2016 17:39:24 GMT",
+    "size": 701412
+  },
+  "https://unpkg.com/react@15.3.2/dist/react.min.js": {
+    "integrity": "sha384-drG4TSBgFQ0Hb/A3ynRyFDT22irpJDL+duuxvYD5mkC9adCYDqEwnX13371waqiH",
+    "lastModified": "Mon, 19 Sep 2016 17:39:24 GMT",
+    "size": 148805
+  },
+  "https://unpkg.com/react@15.4.0/dist/react.js": {
+    "integrity": "sha384-buVLzxzBI8Ps3svVMSUurNdb5dozNidH5Ow4H0YgZeia3t6Oeui2VLpvtAq1fwtK",
+    "lastModified": "Wed, 16 Nov 2016 14:21:28 GMT",
+    "size": 127469
+  },
+  "https://unpkg.com/react@15.4.0/dist/react.min.js": {
+    "integrity": "sha384-nCjsa0kjNQPQdxWm12/ReVJzfBJaVubEwwDswyQDGMKYJmeWv3qShMuETfU5fisu",
+    "lastModified": "Wed, 16 Nov 2016 14:21:28 GMT",
+    "size": 21339
+  },
+  "https://unpkg.com/react@15.4.1/dist/react.js": {
+    "integrity": "sha384-xG3wxLq5+GRhucALLBKIp9TmmEDgSUKaZf6yiDTn2g+LqROHjaaEwjn7eQdZrGOv",
+    "lastModified": "Wed, 23 Nov 2016 01:50:57 GMT",
+    "size": 127517
+  },
+  "https://unpkg.com/react@15.4.1/dist/react.min.js": {
+    "integrity": "sha384-x190O+fE0kVyk4JkztErEHUjLO1+UqSBW9M5UBPTogN9WpicYjNKb9i2i24IA7Vl",
+    "lastModified": "Wed, 23 Nov 2016 01:50:57 GMT",
+    "size": 21339
+  },
+  "https://unpkg.com/react@15.4.2/dist/react.js": {
+    "integrity": "sha384-QcxyA0JGEIt8G8i6K79vDBTQI4hYjW8FNnpWuBs6xXM0rgZ0bjoITq3TLcjhQ/Dd",
+    "lastModified": "Fri, 06 Jan 2017 19:55:19 GMT",
+    "size": 127694
+  },
+  "https://unpkg.com/react@15.4.2/dist/react.min.js": {
+    "integrity": "sha384-LQJt2WYLVjqR6CtPmZ7RlCwSnRxagESW5PKN9LCewWq4KnCIZIQewStnUJ/KEc+w",
+    "lastModified": "Fri, 06 Jan 2017 19:55:19 GMT",
+    "size": 21203
+  },
+  "https://unpkg.com/react@15.5.0/dist/react.js": {
+    "integrity": "sha384-EpICGw2myUYV9Urg5ohvi8E6EHN8Kvv9DzqHLpAfO5ktzWPkZPhQvEsY35MOUauA",
+    "lastModified": "Fri, 07 Apr 2017 21:26:04 GMT",
+    "size": 136018
+  },
+  "https://unpkg.com/react@15.5.0/dist/react.min.js": {
+    "integrity": "sha384-unua6Gv4M/M70BdLhkLiN8hgAL+jKt8Iiy6SFD9S0ywoRy+5zHVBuztpyEn0tAus",
+    "lastModified": "Fri, 07 Apr 2017 21:26:04 GMT",
+    "size": 17488
+  },
+  "https://unpkg.com/react@15.5.1/dist/react.js": {
+    "integrity": "sha384-FxFP2K0+xsKP2ijfWTVi+a48oSr74DKPqophI6MI7576NEGQCSdBeYcf2JUpkW4P",
+    "lastModified": "Fri, 07 Apr 2017 22:39:48 GMT",
+    "size": 136018
+  },
+  "https://unpkg.com/react@15.5.1/dist/react.min.js": {
+    "integrity": "sha384-4w8v4C0EPXnX4VxyKVZtFq90r7ymctkSRr/ZLTjEoTZnjiJfoH6e0C28fT5P9FDa",
+    "lastModified": "Fri, 07 Apr 2017 22:39:48 GMT",
+    "size": 17488
+  },
+  "https://unpkg.com/react@15.5.2/dist/react.js": {
+    "integrity": "sha384-Cz05ofcRSfx6B9deQpT3JrTdwSrnuYCL0AZNrZv+fFQdviUEWSckvi1zqYTItX8I",
+    "lastModified": "Sat, 08 Apr 2017 01:37:54 GMT",
+    "size": 136016
+  },
+  "https://unpkg.com/react@15.5.2/dist/react.min.js": {
+    "integrity": "sha384-E9+EiTC5GWIhaa/KBCQ3pa+yJ0NnyGlXe1MhaX/qEWGyjS4Cv3ZvtHVCO5uPSKD8",
+    "lastModified": "Sat, 08 Apr 2017 01:37:54 GMT",
+    "size": 17488
+  },
+  "https://unpkg.com/react@15.5.3/dist/react.js": {
+    "integrity": "sha384-7c4ZI/pHtS8Svg5Y7qbxwYbtU0zF5BZvvNCwd0rPXEv1VP0SjSafPLaOztzK5ps8",
+    "lastModified": "Sat, 08 Apr 2017 04:09:25 GMT",
+    "size": 136016
+  },
+  "https://unpkg.com/react@15.5.3/dist/react.min.js": {
+    "integrity": "sha384-jr88nI4r4SJUBjpjpwxNVEtBb8V8Bx3qxVLD40Cn5+mZjvQGgRS8kwIePfrZ3qMM",
+    "lastModified": "Sat, 08 Apr 2017 04:09:25 GMT",
+    "size": 17488
+  },
+  "https://unpkg.com/react@15.5.4/dist/react.js": {
+    "integrity": "sha384-N2avuvY+M2/nedmKL+wxsEjPt9bluL3EWgDqKgrjnmpdSuvmjbAlIJRSA4h5/94m",
+    "lastModified": "Tue, 11 Apr 2017 19:24:20 GMT",
+    "size": 136397
+  },
+  "https://unpkg.com/react@15.5.4/dist/react.min.js": {
+    "integrity": "sha384-KCcQxCQ8452utAL7RLSTRhVOu2NCK0vDgKZqCyrLy0C5SCpfQjRAEVSgX4za/YxS",
+    "lastModified": "Tue, 11 Apr 2017 19:24:20 GMT",
+    "size": 21335
+  },
+  "https://unpkg.com/react@15.6.0/dist/react.js": {
+    "integrity": "sha384-SKx/lIP/8K8acW0eWQ24AKX64i/BRoBHzD9NsiTrm2yHWOHA9RxFJlXDZ0yYFx39",
+    "lastModified": "Tue, 13 Jun 2017 17:04:22 GMT",
+    "size": 142442
+  },
+  "https://unpkg.com/react@15.6.0/dist/react.min.js": {
+    "integrity": "sha384-zx2Rd7fqae7CC38T54d5FAYhIWLx/xu7ZkiDhPbJuBOsrQMq7jQWo19Nt/+cQ0sl",
+    "lastModified": "Tue, 13 Jun 2017 17:04:22 GMT",
+    "size": 22631
+  },
+  "https://unpkg.com/react@15.6.1/dist/react.js": {
+    "integrity": "sha384-sfaC01sZATdYSJMLJufPgFeCnESWa6C7iwjSsH19HruDma9G54ZYpk9htYV+mYNL",
+    "lastModified": "Thu, 15 Jun 2017 00:00:25 GMT",
+    "size": 145032
+  },
+  "https://unpkg.com/react@15.6.1/dist/react.min.js": {
+    "integrity": "sha384-u/3By6KAUETM5AnedAbB9xV0qLxlsRyVBi8mEekTeqD468SBVx2FXEm+1lf85M7c",
+    "lastModified": "Thu, 15 Jun 2017 00:00:25 GMT",
+    "size": 23040
+  },
+  "https://unpkg.com/react@15.6.2/dist/react.js": {
+    "integrity": "sha384-he9AA9/8qM76i3aSHntCDB5f79SAnTenD4k/Lwa/Yqh5W+1AWtRXqRg9Cmf0e0ny",
+    "lastModified": "Tue, 26 Sep 2017 00:09:09 GMT",
+    "size": 141859
+  },
+  "https://unpkg.com/react@15.6.2/dist/react.min.js": {
+    "integrity": "sha384-ddefOBuuNyTM/Cmow+OyNByTvyFn+WsOZoEeef8i9foAbxVX7H05qiV6kCQBLMaq",
+    "lastModified": "Tue, 26 Sep 2017 00:09:09 GMT",
+    "size": 22918
+  },
+  "https://unpkg.com/react@15.7.0/dist/react.js": {
+    "integrity": "sha384-c5vmKklZhjjQUA/aNcX1yjQAlJfcEteMwebg1Eld2Ih+WLSQO/86gCjc6rUnbSQx",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 141848
+  },
+  "https://unpkg.com/react@15.7.0/dist/react.min.js": {
+    "integrity": "sha384-9fvsYagTiRPdDO3GMsEYfFD31+KjuGg2qY3fFDAu7s04+mTUiRcglDXW04eDfr5B",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 22919
+  },
+  "https://unpkg.com/react@16.0.0/umd/react.development.js": {
+    "integrity": "sha384-Bc4nlsXs8qw4KL1gqOHIovVYXn5aBDMRERxl/5yfw8uzFZ+v3gAqrJdSmBjhRYjl",
+    "lastModified": "Tue, 26 Sep 2017 15:50:45 GMT",
+    "size": 64392
+  },
+  "https://unpkg.com/react@16.0.0/umd/react.production.min.js": {
+    "integrity": "sha384-hqL/av/jdhwexbPMcoB6jzLfvBwAgAo5jKJzMpirHW+FBIg769b9IP70lr90RZm0",
+    "lastModified": "Tue, 26 Sep 2017 15:50:48 GMT",
+    "size": 6588
+  },
+  "https://unpkg.com/react@16.1.0/umd/react.development.js": {
+    "integrity": "sha384-2f+yxSuZf54fwAIEb6zoZp6XH03gidFtOFetT/v/p+3M4ti9syVZTQpyA9CA4KjY",
+    "lastModified": "Thu, 09 Nov 2017 14:53:29 GMT",
+    "size": 54798
+  },
+  "https://unpkg.com/react@16.1.0/umd/react.production.min.js": {
+    "integrity": "sha384-fxMqpEIVIyyo5HWUwK/TMDN8ln3NtWw6VH3HOlS83gAmCbCX0FLEiv5Mub1h7IXC",
+    "lastModified": "Thu, 09 Nov 2017 14:53:31 GMT",
+    "size": 6563
+  },
+  "https://unpkg.com/react@16.1.1/umd/react.development.js": {
+    "integrity": "sha384-MSr0lg4OG1br8VKzdJn5Wd0KsnZtSl2XzqNFuKty7ycezW4uFm6fkPT2wj5Fxzho",
+    "lastModified": "Mon, 13 Nov 2017 16:08:11 GMT",
+    "size": 54852
+  },
+  "https://unpkg.com/react@16.1.1/umd/react.production.min.js": {
+    "integrity": "sha384-Ph7Uujlf9FjqfryfRdN6i1BwQEUozSWvZW9F7SCOXW6j4+sifq21uXq3f3Or2TGt",
+    "lastModified": "Mon, 13 Nov 2017 16:08:13 GMT",
+    "size": 6563
+  },
+  "https://unpkg.com/react@16.10.0/umd/react.development.js": {
+    "integrity": "sha384-YHp4kskJwmy18nO4uq/PL3zXKc/+szvz1VjFhWaD8BFAI/iEw90o7p4EM+RRqvux",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 120826
+  },
+  "https://unpkg.com/react@16.10.0/umd/react.production.min.js": {
+    "integrity": "sha384-OT7xFKYqjWq/kXjSHkNSnNJak1U0IHZPNg96mC2Y7WDTLIuRnT+8bQcL6yukwREY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12703
+  },
+  "https://unpkg.com/react@16.10.1/umd/react.development.js": {
+    "integrity": "sha384-bT/mZjgUQKY3gEwx5hoALqpP7wKzg0fPX85uXM2rS5h85T2ZdSJ0Qh4nc5cOlCoN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 120826
+  },
+  "https://unpkg.com/react@16.10.1/umd/react.production.min.js": {
+    "integrity": "sha384-zgutOTVfGY55QdOonYplgxM0v8NLZP8uhS1mWfmyGl6YyUf9C8RH7pwQlxhPFEJx",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12703
+  },
+  "https://unpkg.com/react@16.10.2/umd/react.development.js": {
+    "integrity": "sha384-JWbgPxa30k8gPPT0oY/XiMm+nF1pj7VeWBCO6I6uGZJjRdn9jqGBCHWWIJbIiAa1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 120826
+  },
+  "https://unpkg.com/react@16.10.2/umd/react.production.min.js": {
+    "integrity": "sha384-4jrCxbo60MLLTZAAd68g4oJEJ5PMLlZl97deB5AZ2jNtgdJGaCCZUrmhyKR53CzU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12703
+  },
+  "https://unpkg.com/react@16.11.0/umd/react.development.js": {
+    "integrity": "sha384-LgX7eAT/oHxWlvLg4CgcA7GM/8MEMC+iYy+SZh3WMDrbMzH4vOP4svyH1L7LCZ5a",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 120472
+  },
+  "https://unpkg.com/react@16.11.0/umd/react.production.min.js": {
+    "integrity": "sha384-FV1ihVoO32GM2yI7xUO+aiUvx9DBv0ij+ZAll/zyrnYtrau6lHoU0pNlPaTyxwY5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12601
+  },
+  "https://unpkg.com/react@16.12.0/umd/react.development.js": {
+    "integrity": "sha384-5l9PFjfzS2E5Gx88inFinqBHRa+gZtXaPxAFp9a54+T34j/Mp4dKFndKLBWJs9dz",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 115653
+  },
+  "https://unpkg.com/react@16.12.0/umd/react.production.min.js": {
+    "integrity": "sha384-3LaF+GDeugL4KEmnsbb+HuxO42PMnX+W5VYrAF98SHC8Wq47T6D7WpBckxQuazOA",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12588
+  },
+  "https://unpkg.com/react@16.13.0/umd/react.development.js": {
+    "integrity": "sha384-la+HjWha794NCzhq4C6bRCUKKdeJsVWHu2xk5LaN9UtLO83RjCpC9JddSGN8r0Yc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 105138
+  },
+  "https://unpkg.com/react@16.13.0/umd/react.production.min.js": {
+    "integrity": "sha384-glT5YWhdcsK/phOsKZNrs7+Mi3l5X/ilfoo9+xekHBepp1Z1CarcFOaDnUWB18Zf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12463
+  },
+  "https://unpkg.com/react@16.13.1/umd/react.development.js": {
+    "integrity": "sha384-U5suA1hvaY3jdSj/eys1iFOLEhVOrzFChmEU4xdxiMixWT3xOdKJB5nNd1OF9xim",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 105138
+  },
+  "https://unpkg.com/react@16.13.1/umd/react.production.min.js": {
+    "integrity": "sha384-Q5wFTPC/kyhbXJt5GLrIeka2uDOSTG7m1zpW91iMO1DJb7+vOwu2lgZC30d4uQmU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12463
+  },
+  "https://unpkg.com/react@16.14.0/umd/react.development.js": {
+    "integrity": "sha384-ZHBAhj6mPF2wke1Ie6UN+ozxCHBXIuRrcszqkblgAqCrZtYGI3zZYn4SsU+ozss4",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 105138
+  },
+  "https://unpkg.com/react@16.14.0/umd/react.production.min.js": {
+    "integrity": "sha384-N7y5SSAooNlIfb9H750GR82ufkn1JXJFaCjg8pmt+OZuKcZoTvTGfog4d4taG/cF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12463
+  },
+  "https://unpkg.com/react@16.2.0/umd/react.development.js": {
+    "integrity": "sha384-UPapAe7NrpqKvkXZb2NLIqYfbN6v7JdoqAa+aC9PZgLyNtSnT2JR2wZOe6Rimrp9",
+    "lastModified": "Tue, 28 Nov 2017 21:26:40 GMT",
+    "size": 54742
+  },
+  "https://unpkg.com/react@16.2.0/umd/react.production.min.js": {
+    "integrity": "sha384-j40ChW3xknV2Dsc9+kP3/6SW2UrR7gYSbx9pmyNU1YTacm/PEj/0bxB9vM8jWFqx",
+    "lastModified": "Tue, 28 Nov 2017 21:26:42 GMT",
+    "size": 6617
+  },
+  "https://unpkg.com/react@16.3.0/umd/react.development.js": {
+    "integrity": "sha384-1VDUBhH76SEIBNxAdz3pd0kx71yWts5GZk2XXUezYAYqJIQ5jZpUqAZtd7GAb7IN",
+    "lastModified": "Thu, 29 Mar 2018 20:03:37 GMT",
+    "size": 56156
+  },
+  "https://unpkg.com/react@16.3.0/umd/react.production.min.js": {
+    "integrity": "sha384-np9fvDAELU3iY0BXKBLMkxHt6IFagbxPxnvenyb2XMWv5VcCr+yS7bqr9dmyLftm",
+    "lastModified": "Thu, 29 Mar 2018 20:03:40 GMT",
+    "size": 6867
+  },
+  "https://unpkg.com/react@16.3.1/umd/react.development.js": {
+    "integrity": "sha384-dCNWL/X1+OaMrPPZlHVQaMM6IMFXNb3iDdUiRJjGrrLJvtckBKiop18WnqoK0psE",
+    "lastModified": "Thu, 01 Jan 1970 00:00:00 GMT",
+    "size": 56109
+  },
+  "https://unpkg.com/react@16.3.1/umd/react.production.min.js": {
+    "integrity": "sha384-4srYLE+UG0buQNlOqH1tQBudzBUlBoEZg/fAtDaPfAzqmDXgZh9eFTPzzogPHlJB",
+    "lastModified": "Thu, 01 Jan 1970 00:00:00 GMT",
+    "size": 6868
+  },
+  "https://unpkg.com/react@16.3.2/umd/react.development.js": {
+    "integrity": "sha384-xdd85JdkeBA3rHCfDOjwrWDg6gbUZfStm69C8+jdMBC8Yq5IfKaoRgSQsYv46FID",
+    "lastModified": "Thu, 01 Jan 1970 00:00:00 GMT",
+    "size": 56545
+  },
+  "https://unpkg.com/react@16.3.2/umd/react.production.min.js": {
+    "integrity": "sha384-ssmDfleGSKwIS4GlKJM3gqgSQtp6pzFAc7y8f0r2Mfjn+EsHt4UqrSM8EXKZCAFU",
+    "lastModified": "Thu, 01 Jan 1970 00:00:00 GMT",
+    "size": 7164
+  },
+  "https://unpkg.com/react@16.4.0/umd/react.development.js": {
+    "integrity": "sha384-ZiupxvDbssyBE46GY4FXYpfT7nf7mcDqYTp1B7dweeCiI5JufcFJJR0nYHqUGufx",
+    "lastModified": "Thu, 24 May 2018 00:30:37 GMT",
+    "size": 58569
+  },
+  "https://unpkg.com/react@16.4.0/umd/react.production.min.js": {
+    "integrity": "sha384-v2idw2oCR9LMlpJYSzv6tmiCFVSFBuZYoQpbrE/bTouGWXr4xlFFuJtu8YCgwsSM",
+    "lastModified": "Thu, 24 May 2018 00:30:41 GMT",
+    "size": 7217
+  },
+  "https://unpkg.com/react@16.4.1/umd/react.development.js": {
+    "integrity": "sha384-KZKuU+zkY4+C1We6ttE2S7bLoEg11SPz89UYYF0YvqWJlRCDD/XdN6MHfLKUuDV1",
+    "lastModified": "Wed, 13 Jun 2018 16:16:13 GMT",
+    "size": 59086
+  },
+  "https://unpkg.com/react@16.4.1/umd/react.production.min.js": {
+    "integrity": "sha384-nknFr2hIJEELeBc74Ig3GPXUXITBKkPCdvhYiaI9N/z4w29fBDju2T1Fa8UYtYXY",
+    "lastModified": "Wed, 13 Jun 2018 16:16:15 GMT",
+    "size": 7217
+  },
+  "https://unpkg.com/react@16.4.2/umd/react.development.js": {
+    "integrity": "sha384-Z+sNEeldH/u7gzJVGhmd06d0Z+RUilRsGoNaqCUDbKlieB+WFRPNB/eqYA2rGfQS",
+    "lastModified": "Wed, 01 Aug 2018 18:19:44 GMT",
+    "size": 59086
+  },
+  "https://unpkg.com/react@16.4.2/umd/react.production.min.js": {
+    "integrity": "sha384-h6QXRvNMHDNwdjUIA5y9qzljw7h6SV1AJRR4ccA3sVdKNJQ5fIaq1ozaxFi4oYJL",
+    "lastModified": "Wed, 01 Aug 2018 18:19:47 GMT",
+    "size": 7217
+  },
+  "https://unpkg.com/react@16.5.0/umd/react.development.js": {
+    "integrity": "sha384-obIG8VzHFtwYJhK+SGtTxa5i37fqdUZwvDOFl9UYhBrDf069TqbDxvn+5J52BuK5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 85453
+  },
+  "https://unpkg.com/react@16.5.0/umd/react.production.min.js": {
+    "integrity": "sha384-/d1+ajIp3eNRfbnoMBOkqBWZ0cV9I0393DxIjXsXi/fcOkg6JMNh03ir013b7WDo",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 9760
+  },
+  "https://unpkg.com/react@16.5.1/umd/react.development.js": {
+    "integrity": "sha384-yvxdtE2/XFvvAuTlL6DJoutYC5pP6CwmzfXUQ3ez9GZxyJfo0uSck/+mMvdo0X4f",
+    "lastModified": "Thu, 13 Sep 2018 18:06:41 GMT",
+    "size": 87146
+  },
+  "https://unpkg.com/react@16.5.1/umd/react.production.min.js": {
+    "integrity": "sha384-TxRtixpJUGd5aw9dGzHnvHChjvf+UiM8nFPmYT6LEWOM9gbijhTKGOPo8qepQFpp",
+    "lastModified": "Thu, 13 Sep 2018 18:06:44 GMT",
+    "size": 9766
+  },
+  "https://unpkg.com/react@16.5.2/umd/react.development.js": {
+    "integrity": "sha384-U7MJRpI7c9E9rK5Z/zMs/TzPh8SPOSiJIQEbnNlb78op1oXv8HbIQEbGdVqPhLZc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 85735
+  },
+  "https://unpkg.com/react@16.5.2/umd/react.production.min.js": {
+    "integrity": "sha384-Yi0gacTNJqXkg0cW4aIcDYSxeByVmKiohsbG47CzKt4PzRHAvQZ5isIrry9EI5jq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 10402
+  },
+  "https://unpkg.com/react@16.6.0/umd/react.development.js": {
+    "integrity": "sha384-MUdyFuiWeaNswaJleqKu8Tbts25ywZb4d7sYQpMZLEiOfpRyudD2FRR4maTJYQYp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 95936
+  },
+  "https://unpkg.com/react@16.6.0/umd/react.production.min.js": {
+    "integrity": "sha384-I3sR01Rko3zsR3HHXChatyBHIyrMRG5xVcHZrrrJEhC32Ww39Jv7u7emyipbOdG3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 11933
+  },
+  "https://unpkg.com/react@16.6.1/umd/react.development.js": {
+    "integrity": "sha384-dQc470tW5nPh/49V8qXvU63qr2GyBFnAQ5FIb2YzsxgneXKBRdVtkLSFvm/cTi0d",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 97676
+  },
+  "https://unpkg.com/react@16.6.1/umd/react.production.min.js": {
+    "integrity": "sha384-DDVCZmwBefEya/gllSz8If5sgMKVowazItDhJzj18fAt2TaA6G2N6XPruKSt5uNj",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 11771
+  },
+  "https://unpkg.com/react@16.6.2/umd/react.development.js": {},
+  "https://unpkg.com/react@16.6.2/umd/react.production.min.js": {},
+  "https://unpkg.com/react@16.6.3/umd/react.development.js": {
+    "integrity": "sha384-zHkyH/cHeRLWVzS7+I74y+1cMs9KGBxWsVCWzoHHXct9Q/erTk2KElocQaGOQ+yk",
+    "lastModified": "Tue, 13 Nov 2018 03:49:43 GMT",
+    "size": 98230
+  },
+  "https://unpkg.com/react@16.6.3/umd/react.production.min.js": {
+    "integrity": "sha384-iux0izj7Hd5A91m1k45xtV2Lt1RTPNZYUPLTElh/5icjzSS1YztZTlseuwlkcQqO",
+    "lastModified": "Tue, 13 Nov 2018 03:49:43 GMT",
+    "size": 11814
+  },
+  "https://unpkg.com/react@16.7.0/umd/react.development.js": {
+    "integrity": "sha384-tXCDAtthUmf476WKp4ppE34054NRkUUb2mOHLnd43c7yXTf2vRvmzGU4OIglLRvU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 100355
+  },
+  "https://unpkg.com/react@16.7.0/umd/react.production.min.js": {
+    "integrity": "sha384-bDWFfmoLfqL0ZuPgUiUz3ekiv8NyiuJrrk1wGblri8Nut8UVD6mj7vXhjnenE9vy",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 11800
+  },
+  "https://unpkg.com/react@16.8.0/umd/react.development.js": {
+    "integrity": "sha384-fUGqAzCBTqoKUdUAZQdq/Lur51nsooIfk9L74yZyiYj+0YwzSPsPJX9dwcWDbroQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 101072
+  },
+  "https://unpkg.com/react@16.8.0/umd/react.production.min.js": {
+    "integrity": "sha384-DuraTFYhHnsuRkwKGzXGG27a4YMH7SF8DDywoJYlLUr3ER8eqsPg7KuGPIGGWl9n",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12407
+  },
+  "https://unpkg.com/react@16.8.1/umd/react.development.js": {
+    "integrity": "sha384-u6dcdSrqusR2EOhUtyN5ZpO+FBD+nkBJshu9fKAOENbwl0tN+tIBUhJXXYcRIX5v",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 101072
+  },
+  "https://unpkg.com/react@16.8.1/umd/react.production.min.js": {
+    "integrity": "sha384-dpqFmqq1oucSECBcQiWYpi4j+BuWOoBOFaLj/NOYZx6ASW7b33mFJmYKSNI7IxuH",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12407
+  },
+  "https://unpkg.com/react@16.8.2/umd/react.development.js": {
+    "integrity": "sha384-jL+rkuPmHsUdNEMI8vmEwJ67SvQp6Hr2ouq9PBAQHDFSkA5h5K+MMYhwYvhWqPgU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 101989
+  },
+  "https://unpkg.com/react@16.8.2/umd/react.production.min.js": {
+    "integrity": "sha384-ev7iC4n7TIUi+mvXeacxGo9rAVspHrfbQpiilOSJPDTTOxEIuFGjRqzUC13a5GZs",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12548
+  },
+  "https://unpkg.com/react@16.8.3/umd/react.development.js": {
+    "integrity": "sha384-tdcmFJ8Z9EVMkCCDhz4/awu7DTKSqnHNXcN3xSzi//94+DqwXf0Bx9c4m0vvisTn",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 102232
+  },
+  "https://unpkg.com/react@16.8.3/umd/react.production.min.js": {
+    "integrity": "sha384-DcQOCtGhTYFAnjQxRM4FHwCB5NwnS4hJcT43JX6l2j2v+V8OlzCzY4MVh+Et8AJS",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12682
+  },
+  "https://unpkg.com/react@16.8.4/umd/react.development.js": {
+    "integrity": "sha384-705PUfvJvAQK8mZapbTkJP9DI68yuyEhNgddniXP8PS96e38myoZMbbvxAkjZYJu",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 102232
+  },
+  "https://unpkg.com/react@16.8.4/umd/react.production.min.js": {
+    "integrity": "sha384-Rlv9E9ZsblTAvBVLLJn8RADR598Xsh7MPmd5VVh+vSw+wmF4KuUQNIU/IRoP/x5r",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12682
+  },
+  "https://unpkg.com/react@16.8.5/umd/react.development.js": {
+    "integrity": "sha384-A0opiX1tZqT9tlb2hSwXTXx2v12726pMufa5msbpdZkvSrfDcjy2Sik2lhvPO57O",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 102553
+  },
+  "https://unpkg.com/react@16.8.5/umd/react.production.min.js": {
+    "integrity": "sha384-dOCiLz3nZfHiJj//EWxjwSKSC6Z1IJtyIEK/b/xlHVNdVLXDYSesoxiZb94bbuGE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12682
+  },
+  "https://unpkg.com/react@16.8.6/umd/react.development.js": {
+    "integrity": "sha384-u6DTDagyAFm2JKvgGBO8jWd9YzrDzg6FuBPKWkKIg0/GVA6HM9UkSxH2rzxEJ5GF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 102553
+  },
+  "https://unpkg.com/react@16.8.6/umd/react.production.min.js": {
+    "integrity": "sha384-qn+ML/QkkJxqn4LLs1zjaKxlTg2Bl/6yU/xBTJAgxkmNGc6kMZyeskAG0a7eJBR1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 12682
+  },
+  "https://unpkg.com/react@16.9.0/umd/react.development.js": {
+    "integrity": "sha384-Y4yTC9ZyKH1jhJ27CA+vfVwmFfxNg+aT1+mwSE8cCqbQJ+NLVbCPQ7IB2OzJ9z/R",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 120044
+  },
+  "https://unpkg.com/react@16.9.0/umd/react.production.min.js": {
+    "integrity": "sha384-CkwnPTQUF6/knDyAdScDfjTRGGbMqivPLvXfe4XughFhcWhZatKk2jZWuoBSgcNz",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 13317
+  }
+}

@@ -45,6 +45,7 @@ const BasicSearch = ({
 	callbacks,
 	badgesDefinitionsSort,
 	quickSearchPlaceholder,
+	quickSearchFacetsFilter,
 }) => {
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary), [
@@ -104,6 +105,7 @@ const BasicSearch = ({
 				className={css('tc-basic-search-quicksearch')}
 				facets={quicksearchable}
 				placeholder={quickSearchPlaceholder}
+				facetsFilter={quickSearchFacetsFilter}
 				onSelect={(facet, value) => {
 					const operators = getOperatorsFromDict(
 						operatorsDictionary,
@@ -188,6 +190,8 @@ BasicSearch.propTypes = {
 	customOperatorsDictionary: operatorsPropTypes,
 	initialFilterValue: PropTypes.string,
 	quickSearchPlaceholder: PropTypes.string,
+	/* Can be used to filter facets displayed when input changes; (term, facets) => [facets] */
+	quickSearchFacetsFilter: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
 	setBadgesFaceted: PropTypes.func,
 	callbacks: callbacksPropTypes,

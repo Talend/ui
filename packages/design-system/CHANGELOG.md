@@ -1,5 +1,46 @@
 # @talend/design-system
 
+## 2.3.0
+
+### Minor Changes
+
+- 2e19164bf: Added EmptyState component
+
+### Patch Changes
+
+- 2b355ac2e: fix(design-system/storybook): Broken Storybook on Windows
+
+## 2.2.0
+
+### Minor Changes
+
+- ed98b0840: Updated design tokens
+
+## 2.1.2
+
+### Patch Changes
+
+- 3aa82e6be: fix: upgrade with the new tokens
+- Updated dependencies [fb3483b9f]
+  - @talend/design-tokens@2.0.0
+
+## 2.1.1
+
+### Patch Changes
+
+- f5bc52900: fix(design-system/Stepper): Disabled step cursor
+
+## 2.1.0
+
+### Minor Changes
+
+- cb8f55ef0: Breadcurmbs are now part of the design system
+
+### Patch Changes
+
+- c891f780a: HeaderBar isn't ready for primetime yet. API and style need work.
+- e4fb9b78d: Update i18next version to match other packages
+
 ## 2.0.2
 
 ### Patch Changes

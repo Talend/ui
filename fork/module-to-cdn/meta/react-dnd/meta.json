@@ -1,0 +1,547 @@
+{
+  "https://unpkg.com/react-dnd@10.0.0/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-B3WCxrEGIYMzbtpBV5K4ebbSJGsk/V8O7v4VXvmNa0iTg+cKLXecXF//5uiQAvxh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 167693
+  },
+  "https://unpkg.com/react-dnd@10.0.0/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-HxPIPJlAprpXEuYH/q3e8+tX/qku++s2I5AQFcCFp4jEP8jFLZwfjDZ6i8g/m9mi",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 71708
+  },
+  "https://unpkg.com/react-dnd@10.0.1/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-YT81Yxj/LdGKnTl5icJD7mzwwxjfdoa5yxz92kuT7cldzM7Uyx826Ma4XyZq094v",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 173472
+  },
+  "https://unpkg.com/react-dnd@10.0.1/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-1oPqGGx47fAoJK4GnNYGgk+re3/ty4RUAqW/ntFrxF7mqnxX1fi9Gq+t+I9ujGGW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72049
+  },
+  "https://unpkg.com/react-dnd@10.0.2/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-Hp9BYlTj4zROSYRDuS3P3QRZAXpE7QXrvbm46coGWdyqJja5cacexQOxLIoaAAqB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 173227
+  },
+  "https://unpkg.com/react-dnd@10.0.2/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-BFbfyF8lTCfNo5M66LyxWVFaZltG7th/uptM2BkGKvks/qWJ0C/kWC2/tsly0i5Q",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 71912
+  },
+  "https://unpkg.com/react-dnd@11.0.0/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-XPS3q2X/ZRkbLSJkpsRy0m1i0O853lSpAus3Q502oW+HuGE45AFEooG0hpYN4hGf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 177426
+  },
+  "https://unpkg.com/react-dnd@11.0.0/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-Y2UWNGBJDgEE4+2+nGDLIoeUXaIZ8LPhe/Ud16jzV2+9xbOxmSbrSQhjExXLECKg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72966
+  },
+  "https://unpkg.com/react-dnd@11.1.0/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-XPS3q2X/ZRkbLSJkpsRy0m1i0O853lSpAus3Q502oW+HuGE45AFEooG0hpYN4hGf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 177426
+  },
+  "https://unpkg.com/react-dnd@11.1.0/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-Y2UWNGBJDgEE4+2+nGDLIoeUXaIZ8LPhe/Ud16jzV2+9xbOxmSbrSQhjExXLECKg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72966
+  },
+  "https://unpkg.com/react-dnd@11.1.1/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-XPS3q2X/ZRkbLSJkpsRy0m1i0O853lSpAus3Q502oW+HuGE45AFEooG0hpYN4hGf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 177426
+  },
+  "https://unpkg.com/react-dnd@11.1.1/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-Y2UWNGBJDgEE4+2+nGDLIoeUXaIZ8LPhe/Ud16jzV2+9xbOxmSbrSQhjExXLECKg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72966
+  },
+  "https://unpkg.com/react-dnd@11.1.3/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-exQ//xCnOTU5npOgxgJ0i6mbaGlsEOVn8SGkoqd+j+MCiTZR6zibWR2NBF10zUzU",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 177466
+  },
+  "https://unpkg.com/react-dnd@11.1.3/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-Y2UWNGBJDgEE4+2+nGDLIoeUXaIZ8LPhe/Ud16jzV2+9xbOxmSbrSQhjExXLECKg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 72966
+  },
+  "https://unpkg.com/react-dnd@2.0.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-MYWQdBf3tgNk9qPPXm3IrkzsWR1NmQJvXg2EGyz4/HSHBJtRXYC3elrpgPU2HJtq",
+    "lastModified": "Wed, 14 Oct 2015 23:21:20 GMT",
+    "size": 51563
+  },
+  "https://unpkg.com/react-dnd@2.0.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-R3NDqalyr41W13InkanzFdqWCUep6Aw58gNBpMRqToxjy94lTH8Lho8D2ET2L3wu",
+    "lastModified": "Tue, 20 Oct 2015 12:11:43 GMT",
+    "size": 51568
+  },
+  "https://unpkg.com/react-dnd@2.0.2/dist/ReactDnD.min.js": {
+    "integrity": "sha384-mF1MRCZEwmhE3pU5Fe70Nw08tcjgReA86OHCMSSCWOCyv9YclXZ/Eks+8pV3vgY8",
+    "lastModified": "Tue, 20 Oct 2015 12:27:13 GMT",
+    "size": 51749
+  },
+  "https://unpkg.com/react-dnd@2.1.0/dist/ReactDnD.js": {
+    "integrity": "sha384-pwYnKEdyG5zdfxakqWRasmc5PRWp1rJ3gyA9u1wVpP61/rtVNGd4kn8+zf9vOwoM",
+    "lastModified": "Sun, 14 Feb 2016 03:34:34 GMT",
+    "size": 170306
+  },
+  "https://unpkg.com/react-dnd@2.1.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-aLwhYVeBhIwZkW0cTnM8WWCDHZhcaYllsAHC05HIGM9y+7eJcut1YanBSSw5xZ7a",
+    "lastModified": "Sun, 14 Feb 2016 03:34:39 GMT",
+    "size": 57535
+  },
+  "https://unpkg.com/react-dnd@2.1.1/dist/ReactDnD.js": {
+    "integrity": "sha384-R4A2rgOAqSIy4ohKJKkXJbH5+cfCAIwZzIkrHHdm2PRR6XZid6/Z5wSUhfqOHVTY",
+    "lastModified": "Wed, 17 Feb 2016 14:22:17 GMT",
+    "size": 173072
+  },
+  "https://unpkg.com/react-dnd@2.1.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-PnWRdyuVnadSVMvEftUT6KsqLPH035i1O6uHNv8iHeyIBaKbVc7S3O5wQ9Qws2gN",
+    "lastModified": "Wed, 17 Feb 2016 14:22:25 GMT",
+    "size": 58180
+  },
+  "https://unpkg.com/react-dnd@2.1.2/dist/ReactDnD.js": {
+    "integrity": "sha384-vEaDC7Uz7rKYWCXIK3PSSkcAih07tOd4knl8p+1F29F3VtWAAeA6gtHc7Bt39jQG",
+    "lastModified": "Fri, 19 Feb 2016 12:26:00 GMT",
+    "size": 173156
+  },
+  "https://unpkg.com/react-dnd@2.1.2/dist/ReactDnD.min.js": {
+    "integrity": "sha384-tT8zDFKGtTRqXHQB2NfOIrRqdIMR+lrY6qu6aPnkB8cDDFHI9B2FiwWGjm4J1LbX",
+    "lastModified": "Fri, 19 Feb 2016 12:26:04 GMT",
+    "size": 58125
+  },
+  "https://unpkg.com/react-dnd@2.1.3/dist/ReactDnD.js": {
+    "integrity": "sha384-sibM1Kfhg/TA2V5HJRJGURTa7/Ecv2c+rJln5W5M/ichC/d7mIynmy22hSdOiK57",
+    "lastModified": "Sun, 13 Mar 2016 00:59:54 GMT",
+    "size": 172745
+  },
+  "https://unpkg.com/react-dnd@2.1.3/dist/ReactDnD.min.js": {
+    "integrity": "sha384-tT8zDFKGtTRqXHQB2NfOIrRqdIMR+lrY6qu6aPnkB8cDDFHI9B2FiwWGjm4J1LbX",
+    "lastModified": "Sun, 13 Mar 2016 00:59:59 GMT",
+    "size": 58125
+  },
+  "https://unpkg.com/react-dnd@2.1.4/dist/ReactDnD.js": {
+    "integrity": "sha384-UYnm3KXqRPndM5/ppxPjz0k3YCpAPcagApG16xsCaKVqzD3wXbPVHVRV8rDqS4Ub",
+    "lastModified": "Sat, 02 Apr 2016 21:07:26 GMT",
+    "size": 175088
+  },
+  "https://unpkg.com/react-dnd@2.1.4/dist/ReactDnD.min.js": {
+    "integrity": "sha384-g5JAESgR5Huh7tvc3dsj2OUVPwisDUdNSKTxfVnwzbOXW6BbiW/SFTwwfZY++vZb",
+    "lastModified": "Sat, 02 Apr 2016 21:07:29 GMT",
+    "size": 58425
+  },
+  "https://unpkg.com/react-dnd@2.2.0/dist/ReactDnD.js": {
+    "integrity": "sha384-H6pT4aF5Gnu4cT9PpPf3/jDuxt/1UdmZQkszqxLfPFIkZB7gDALyGK1bjaITuGOB",
+    "lastModified": "Tue, 07 Feb 2017 04:35:17 GMT",
+    "size": 205271
+  },
+  "https://unpkg.com/react-dnd@2.2.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-Njnv6hk4idRTSTIpXRVFyF5QWLWqsQJvOcUwWsDJc0Q6d+eDYE+w6TstfWhdFJkB",
+    "lastModified": "Tue, 07 Feb 2017 04:35:19 GMT",
+    "size": 70362
+  },
+  "https://unpkg.com/react-dnd@2.2.3/dist/ReactDnD.js": {
+    "integrity": "sha384-6eAuGyHKXxv11f450Crk8852hJl1zTBvA2dGl5oBwlD4UeeLup/8cX0Cup02mnzc",
+    "lastModified": "Tue, 07 Feb 2017 22:08:37 GMT",
+    "size": 215123
+  },
+  "https://unpkg.com/react-dnd@2.2.3/dist/ReactDnD.min.js": {
+    "integrity": "sha384-jJsFU5C+3PE1hhdzBOmkXIHoPiQus7qPU6IamHnfDpEbNZOlKaGXSGXs4V5EhNPX",
+    "lastModified": "Tue, 07 Feb 2017 22:08:38 GMT",
+    "size": 72484
+  },
+  "https://unpkg.com/react-dnd@2.2.4/dist/ReactDnD.js": {
+    "integrity": "sha384-AiMF6Tw42z94BUMxLMcaYS/om1clWl/K5j9ZWoGI/1/Im4//7VnXVHtSOph6r+76",
+    "lastModified": "Tue, 28 Feb 2017 18:08:37 GMT",
+    "size": 205353
+  },
+  "https://unpkg.com/react-dnd@2.2.4/dist/ReactDnD.min.js": {
+    "integrity": "sha384-qWFUZSYUG8oxDXIQelegM/Dhu8uI+T/jv6wxDBaJ4YrDt9A53VpWEdl8fT/c3+xB",
+    "lastModified": "Tue, 28 Feb 2017 18:08:39 GMT",
+    "size": 70397
+  },
+  "https://unpkg.com/react-dnd@2.3.0/dist/ReactDnD.js": {
+    "integrity": "sha384-3tf77ie9dJwgVNiadyQXan+LCKlDhvCvsZg6W7LtSPzpDCVFtlmQ50ONDEjybMaN",
+    "lastModified": "Sat, 25 Mar 2017 17:41:59 GMT",
+    "size": 215617
+  },
+  "https://unpkg.com/react-dnd@2.3.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-UlSXhbssNtkdl1aF3ZP/mkPPJHhiJpSf3hrSEteR0tjwCLgvpmB3Yx0LiIxhKuMm",
+    "lastModified": "Sat, 25 Mar 2017 17:42:00 GMT",
+    "size": 72755
+  },
+  "https://unpkg.com/react-dnd@2.4.0/dist/ReactDnD.js": {
+    "integrity": "sha384-j1QdiL5+V6YGmAyGmykVUr9XzUiUeAK5m9vfju8ifwCMQToBbpBtMm3gpsZKGvBi",
+    "lastModified": "Tue, 09 May 2017 18:20:34 GMT",
+    "size": 243750
+  },
+  "https://unpkg.com/react-dnd@2.4.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-1cyCyI1ivPJLsPYLFaiicL4qUdQnHT4NscyF66CaubrmOyNUEAyWIDFwvX2PL2VV",
+    "lastModified": "Tue, 09 May 2017 18:20:35 GMT",
+    "size": 74484
+  },
+  "https://unpkg.com/react-dnd@2.5.1/dist/ReactDnD.js": {
+    "integrity": "sha384-DmqVogrxr2Miih/5pKEPbOqY4roBVeMckwllaQd94ltUbZBnmYByo4BWs4/le9tR",
+    "lastModified": "Wed, 06 Sep 2017 04:56:38 GMT",
+    "size": 211310
+  },
+  "https://unpkg.com/react-dnd@2.5.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-bSPdG9GN7oeS+nsST9XK9hKPJdM4JyH2hLddAQsfHtN96oCl1AG9pA4yVwtZQogb",
+    "lastModified": "Wed, 06 Sep 2017 04:56:39 GMT",
+    "size": 72564
+  },
+  "https://unpkg.com/react-dnd@2.5.2/dist/ReactDnD.js": {
+    "integrity": "sha384-XhELWSmcrZ97JkmOASxLH80Lp2i2M46oYNBEbKvV4Ohaux4mU+qvQrXDjGi6TBrZ",
+    "lastModified": "Wed, 27 Sep 2017 01:33:24 GMT",
+    "size": 210712
+  },
+  "https://unpkg.com/react-dnd@2.5.2/dist/ReactDnD.min.js": {
+    "integrity": "sha384-CQwxybWJpawbsVmqbClmKoL9S9RVBwpKa9THdK1Y8t94WZuMa6S7dRcPWe9jZJUr",
+    "lastModified": "Wed, 27 Sep 2017 01:33:25 GMT",
+    "size": 72572
+  },
+  "https://unpkg.com/react-dnd@2.5.3/dist/ReactDnD.js": {
+    "integrity": "sha384-XhELWSmcrZ97JkmOASxLH80Lp2i2M46oYNBEbKvV4Ohaux4mU+qvQrXDjGi6TBrZ",
+    "lastModified": "Wed, 27 Sep 2017 02:05:10 GMT",
+    "size": 210712
+  },
+  "https://unpkg.com/react-dnd@2.5.3/dist/ReactDnD.min.js": {
+    "integrity": "sha384-CQwxybWJpawbsVmqbClmKoL9S9RVBwpKa9THdK1Y8t94WZuMa6S7dRcPWe9jZJUr",
+    "lastModified": "Wed, 27 Sep 2017 02:05:11 GMT",
+    "size": 72572
+  },
+  "https://unpkg.com/react-dnd@2.5.4/dist/ReactDnD.js": {
+    "integrity": "sha384-GMynOqwQ8hyxuqi0A7yNmPQyDNheyJnpfBnhlyCRIQ4yY3V6jpwbHEw5hC/ScSIb",
+    "lastModified": "Sat, 07 Oct 2017 17:10:23 GMT",
+    "size": 206933
+  },
+  "https://unpkg.com/react-dnd@2.5.4/dist/ReactDnD.min.js": {
+    "integrity": "sha384-gj7dH1UT+asUaVOR4DO0QZejIW8oFaBMR9WIHX61OrSipAhUjBhgSYrvTUmnE+E7",
+    "lastModified": "Sat, 07 Oct 2017 17:10:24 GMT",
+    "size": 72847
+  },
+  "https://unpkg.com/react-dnd@2.6.0/dist/ReactDnD.js": {
+    "integrity": "sha384-ZAQzo0tTUmD5brJ/7rZBM6+mnLHqRX4jZirejgsDkcaSMUPgvLMPRV0CcSSFw9ov",
+    "lastModified": "Wed, 21 Mar 2018 20:16:29 GMT",
+    "size": 207332
+  },
+  "https://unpkg.com/react-dnd@2.6.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-0uuLvOcjYFHI/qhm2e2HSEC+sXa0LYXIeW1RxFjX7b5rUcR8eOrW9IZieV8ztuBM",
+    "lastModified": "Wed, 21 Mar 2018 20:16:30 GMT",
+    "size": 72929
+  },
+  "https://unpkg.com/react-dnd@3.0.0/dist/ReactDnD.js": {
+    "integrity": "sha384-8EoAINpXxQnSLuCBmBj+Egf2i21Y+LJJbxXSEcpusaM8ohL0ELm8GoFlwwctIVKT",
+    "lastModified": "Wed, 02 May 2018 21:03:47 GMT",
+    "size": 270321
+  },
+  "https://unpkg.com/react-dnd@3.0.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-Po6SVQcOvgLTyTNN7gMkXj+I6qt7v+8kQf7zsmEojEH4mGfRGRL9AnjXLzLWrjRs",
+    "lastModified": "Wed, 02 May 2018 21:03:50 GMT",
+    "size": 65718
+  },
+  "https://unpkg.com/react-dnd@3.0.1/dist/ReactDnD.js": {
+    "integrity": "sha384-ejIjlwBo2T5LZIaHeQfQorBcR6DOI7QGgnvSQ0z/PX9Yl0jl3xvYNDPUx0inySPD",
+    "lastModified": "Tue, 29 May 2018 17:12:17 GMT",
+    "size": 287835
+  },
+  "https://unpkg.com/react-dnd@3.0.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-5zR8CiZJ5HEDwGC4ag+vhxEcwRnd3XxoRrEsN8tqsmvQEGTeFjjoH//dg2A9c89i",
+    "lastModified": "Tue, 29 May 2018 17:12:17 GMT",
+    "size": 67387
+  },
+  "https://unpkg.com/react-dnd@3.0.2/dist/ReactDnD.js": {
+    "integrity": "sha384-a9WT5hEKSfTnn8pyUIkh5CUYAI3ou/kLKypoKIAqkS8t4ltUxNYOCFgLiswSDlA0",
+    "lastModified": "Tue, 29 May 2018 20:47:35 GMT",
+    "size": 290681
+  },
+  "https://unpkg.com/react-dnd@3.0.2/dist/ReactDnD.min.js": {
+    "integrity": "sha384-z4g1D3oQOjyYMJhHoNLp+F7tGKD85kI6fFkPkBpzf9DyoLehIUbhlQftb5gSXdwe",
+    "lastModified": "Tue, 29 May 2018 20:47:35 GMT",
+    "size": 69635
+  },
+  "https://unpkg.com/react-dnd@4.0.0/dist/ReactDnD.js": {
+    "integrity": "sha384-FqS146Jk7vucoNUHgnXXfeAlvjuCxIPsm9oTWoN+j3vBKYjkXA50D9+uPsMUZBkn",
+    "lastModified": "Fri, 01 Jun 2018 17:27:59 GMT",
+    "size": 282493
+  },
+  "https://unpkg.com/react-dnd@4.0.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-Tbt5x7hTlLImkG0WjvXoOBVrY0dAbX/g5P6hUbmbZRPCOY85+BqW+CF3MeLVVxUn",
+    "lastModified": "Fri, 01 Jun 2018 17:28:01 GMT",
+    "size": 70487
+  },
+  "https://unpkg.com/react-dnd@4.0.3/dist/ReactDnD.js": {
+    "integrity": "sha384-rEqu5q+//aHAU9bSWbj5Q45zNFq7ayhNYjcYkLFavAVFhY8XDX4IiN01MEfjInpB",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 280153
+  },
+  "https://unpkg.com/react-dnd@4.0.3/dist/ReactDnD.min.js": {
+    "integrity": "sha384-rF4il0ca53o9dh5fDesWGjvXBSPLxQFmnxwTLnfn4dLRZKkqGqsLkgLo/s27h7qh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 67332
+  },
+  "https://unpkg.com/react-dnd@4.0.4/dist/ReactDnD.js": {
+    "integrity": "sha384-SsgIRirvBRMqmd7XDIuB/5LBozbahryq4npM9DDg131e3XT0neSI+R3wXj5JEOrX",
+    "lastModified": "Wed, 06 Jun 2018 17:21:15 GMT",
+    "size": 279340
+  },
+  "https://unpkg.com/react-dnd@4.0.4/dist/ReactDnD.min.js": {
+    "integrity": "sha384-GCZzlWU2QnciVxsCbYQi00MGUV5VUv9pz+qiHDf6LaywOIwzGKwBL1iTEBUG9YqU",
+    "lastModified": "Wed, 06 Jun 2018 17:21:15 GMT",
+    "size": 67332
+  },
+  "https://unpkg.com/react-dnd@4.0.5/dist/ReactDnD.js": {
+    "integrity": "sha384-He+R3uYBtn9J15giK9L5IazWvfYoX5ewxAqUiqXAJqPM4DUR2QGZO7gqDfhqZfK3",
+    "lastModified": "Wed, 13 Jun 2018 21:10:13 GMT",
+    "size": 272432
+  },
+  "https://unpkg.com/react-dnd@4.0.5/dist/ReactDnD.min.js": {
+    "integrity": "sha384-mq/9UY/HpwgAKO3rz3dOdV4lFONzBnYDgHqNubvwXxcgd7uiCPEfBw6mxtFc46dU",
+    "lastModified": "Wed, 13 Jun 2018 21:10:13 GMT",
+    "size": 63994
+  },
+  "https://unpkg.com/react-dnd@5.0.0/dist/ReactDnD.js": {
+    "integrity": "sha384-OevqlQjXsFNyYoQF4Frq8U5Lf9Aho5BSbEfFAH2oVtaPp27FrIWm0rBFI7lgkBz1",
+    "lastModified": "Tue, 19 Jun 2018 01:39:09 GMT",
+    "size": 273715
+  },
+  "https://unpkg.com/react-dnd@5.0.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-z1HZdV8TnqOqEO9uns9qHrUUrELX0G5ShHSypIZ/cMIYMtdlzSu/vBgORpBu1bRF",
+    "lastModified": "Tue, 19 Jun 2018 01:39:09 GMT",
+    "size": 63999
+  },
+  "https://unpkg.com/react-dnd@6.0.0/dist/ReactDnD.js": {
+    "integrity": "sha384-Dga6MkWZ4kNnXRG+Km4H51QSmjfoG3R/n/uCsxljhOWGcJyIvYLcv3QY297pKZjq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 301953
+  },
+  "https://unpkg.com/react-dnd@6.0.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-giPyNUrjBZpSbrdI0fjTf9itKLcjto6EYEsuTbeY3UAioek9MB90PJf67r4iUnFD",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 69068
+  },
+  "https://unpkg.com/react-dnd@7.0.0/dist/ReactDnD.js": {
+    "integrity": "sha384-MDleHDYwm4XSE/5wbnNrGNqD83VtW8NZ6ywEh+G4UIAK+a3uLubr8vdchx3js11d",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 301235
+  },
+  "https://unpkg.com/react-dnd@7.0.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-HXNFoHdwp60qKnMMAXKr4O2iFdiCzYCvVaDBQ0P+H6RD+mpCa7rwCrCd3CehZS00",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 68688
+  },
+  "https://unpkg.com/react-dnd@7.0.1/dist/ReactDnD.js": {
+    "integrity": "sha384-ZT8NH382mqdfxSYM/QBKwXeVzBaOfOKkGEpnFGq3CWONH0uq622/VasmmOkJLSM5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 301258
+  },
+  "https://unpkg.com/react-dnd@7.0.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-wUsnOVe58Tf4Zv7RWU/WKTSNMQLlK2+aEcysCfVAtm8imqGiQLCxsfdJW/0hAOV+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 68708
+  },
+  "https://unpkg.com/react-dnd@7.0.2/dist/ReactDnD.js": {
+    "integrity": "sha384-ZT8NH382mqdfxSYM/QBKwXeVzBaOfOKkGEpnFGq3CWONH0uq622/VasmmOkJLSM5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 301258
+  },
+  "https://unpkg.com/react-dnd@7.0.2/dist/ReactDnD.min.js": {
+    "integrity": "sha384-wUsnOVe58Tf4Zv7RWU/WKTSNMQLlK2+aEcysCfVAtm8imqGiQLCxsfdJW/0hAOV+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 68708
+  },
+  "https://unpkg.com/react-dnd@7.1.0/dist/ReactDnD.js": {
+    "integrity": "sha384-j2Jh0HXvOehNMsIXFpKdFLMPF7MaprIhCcQT2o/KNvueO39KxzslLcWF9rY93xHF",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 272311
+  },
+  "https://unpkg.com/react-dnd@7.1.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-tcrmNjsbG9D5OXPqQgbSPI2j4iVyAU2KGNHfg+ISLaUEgSrZVISzKcLwuPY39vmQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 63088
+  },
+  "https://unpkg.com/react-dnd@7.2.0/dist/ReactDnD.js": {
+    "integrity": "sha384-TSt2iMKVcLMfguNSaGCtgYVHZePd41R6/q1SBgO38JrRO1fE6TYalwKJK5UNAl/8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 303147
+  },
+  "https://unpkg.com/react-dnd@7.2.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-C1Jh/FbATIjrFFMpYLEKdQHRW69bMq1d0xMjoHYrN/Sm/z0xav9LoFtNIlbYjwQc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 73426
+  },
+  "https://unpkg.com/react-dnd@7.2.1/dist/ReactDnD.js": {
+    "integrity": "sha384-FFF836kbT1ty+fLSYRW62SCGpDPAzPW58JDPcGm7jaCchvk0ClV8DnY4O1fcfePZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 305682
+  },
+  "https://unpkg.com/react-dnd@7.2.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-WwmE4SlBaYjffzR+FwqFURqg00UYQ3H1dWhaYqbhErChkmxKnn8aNXV1ISf1HjLf",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 73915
+  },
+  "https://unpkg.com/react-dnd@7.3.0/dist/ReactDnD.js": {
+    "integrity": "sha384-LPJw32qQZop57GsqIRGr6PjDuM5ofhyAsr+lvKYlsFrYA6DDWGFpZk/vudEM3dbL",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 304630
+  },
+  "https://unpkg.com/react-dnd@7.3.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-b0sSOvu9CI/Q3RW+PvFeZW1xPBdy0h6WP7dW1meNhrAm3IlUvKZjBn7yIuwDm5l+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 73961
+  },
+  "https://unpkg.com/react-dnd@7.3.1/dist/ReactDnD.js": {
+    "integrity": "sha384-beKPCNnc2kXTyI9BKFvWqmtp18z2a1LRjeECTvalzHrb4/wfyd0itqxEWWUmF4BE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 427556
+  },
+  "https://unpkg.com/react-dnd@7.3.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-WhNTa8RVPKpLUIZAXWOzS4sP+Vi2NoDQ1FkL3L9RqOP1uBwzXvdgN1YTFR68/1nh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 186385
+  },
+  "https://unpkg.com/react-dnd@7.3.2/dist/ReactDnD.js": {
+    "integrity": "sha384-XHhaH1ZUOZ4IEjZP6nNQGCOYsmBoul1VZx3x/BaBhtkfZIsRGEu6YxhcNvEr8782",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 427635
+  },
+  "https://unpkg.com/react-dnd@7.3.2/dist/ReactDnD.min.js": {
+    "integrity": "sha384-CKldjFFzlG+SK1TIn2GNf8s1WGSSu3o4Hpg+mRKvRuRqO9X8RjqzCZHJKw2EnBFG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 186639
+  },
+  "https://unpkg.com/react-dnd@7.4.0/dist/ReactDnD.js": {
+    "integrity": "sha384-sLfoOzcvD6YUnlv+GbLKkLcJCvcjTeP5B123hzRtNCnI1gyKzXd6MZYrm7jTven3",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 312433
+  },
+  "https://unpkg.com/react-dnd@7.4.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-WVMAtp0RRdULXJ8VNXw1BmcZa9EHK/Jm7po4TNe/97v+QALFo+FIMJ+MiunWLjWY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79678
+  },
+  "https://unpkg.com/react-dnd@7.4.1/dist/ReactDnD.js": {
+    "integrity": "sha384-FzcH/wj2D57221TDCywuL9oY+Ftoc36q0Zh9m/z54BRyCTMxSZidQ/988rqzF9RG",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 312593
+  },
+  "https://unpkg.com/react-dnd@7.4.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-fbe0UGslMiF9BYO9pvI9VwZIKChcFRpyIWQXTGc478dBcy5IgbMJiGXQJSABapGQ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 79755
+  },
+  "https://unpkg.com/react-dnd@7.4.2/dist/ReactDnD.js": {
+    "integrity": "sha384-v+VjPOW7cjA51m7y8VBZdOFSusQkpVPwD/3SC1zRsuW11eCofbkCBznMD/lHeiw5",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 313308
+  },
+  "https://unpkg.com/react-dnd@7.4.2/dist/ReactDnD.min.js": {
+    "integrity": "sha384-+Py+Jv2X/5flVLyihgwQPWbdaeW3f0aVJDikIMpNiRbLyBB4GdZgT85ixY8wfwIN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80104
+  },
+  "https://unpkg.com/react-dnd@7.4.3/dist/ReactDnD.js": {
+    "integrity": "sha384-mD0gZP7uAJo3iMRejKj2HfX5mmwk3y7SxHpVG52O1mcCuyYRKTeFYBPYlk9entnR",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 314512
+  },
+  "https://unpkg.com/react-dnd@7.4.3/dist/ReactDnD.min.js": {
+    "integrity": "sha384-p3sCTyHsGIQ835T46zKfbkLWTe43OAWtlS4WSEWBYeeVNEejcMBpb/VDcWIrShxW",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80394
+  },
+  "https://unpkg.com/react-dnd@7.4.4/dist/ReactDnD.js": {
+    "integrity": "sha384-3tkdYev4rQOUUiNm+YGGtmjvtbxk+/HOgNvdj/0C0aurSDPOyI5hGPQH5IdpN630",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 223307
+  },
+  "https://unpkg.com/react-dnd@7.4.4/dist/ReactDnD.min.js": {
+    "integrity": "sha384-BgaYZKiASOELQbPuHkcicLfzTHN37i0bNfn8lQHgAlhmSVGbvcYXflZAl7O/69Mg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 69383
+  },
+  "https://unpkg.com/react-dnd@7.4.5/dist/ReactDnD.js": {
+    "integrity": "sha384-2tHTl5zl2ZXR5mbplhGE6NJte76oFC9oh33eDFiyk3ezrCLllG8P20UMjYI8B3Ww",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 211489
+  },
+  "https://unpkg.com/react-dnd@7.4.5/dist/ReactDnD.min.js": {
+    "integrity": "sha384-JWfye7M2o0etkceNM29xEjhFYaUbi/7/HttF1mFp+Sg2HStu+QxoalGuCjGOv6e8",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 68070
+  },
+  "https://unpkg.com/react-dnd@7.5.0/dist/ReactDnD.js": {
+    "integrity": "sha384-CMP7KTuBP53j/tRLapktp+FH+Ccci+kxmlsha/KSOWHH/cxfYYHzg2TTpMd+S4X+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 220090
+  },
+  "https://unpkg.com/react-dnd@7.5.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-oagAGj3qQdGE6kuR+GvWz/L+HG5GuxX6xDmThctYLIEow9To4QussDBTzD4XmW0r",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58527
+  },
+  "https://unpkg.com/react-dnd@7.6.0/dist/ReactDnD.js": {
+    "integrity": "sha384-86dImWUBO+WZDVFYC0GN4ZFAJGYk6pc/tqpaVCol2BY11Jd+BP13Coe+c1iazuGq",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 219576
+  },
+  "https://unpkg.com/react-dnd@7.6.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-XeMZ6tsjNV3RIXFPqcJ7o7DNZKXv57I2uugBNy1fTzQKzs1s+H87jY2Idck3gh0p",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 58546
+  },
+  "https://unpkg.com/react-dnd@7.6.1/dist/ReactDnD.js": {
+    "integrity": "sha384-4b93kHhfLCrp9LFtWSL0V/AFqB79BSgaqn+jfpcGziyH4A040eEUgwSVUiy+oPhY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 212111
+  },
+  "https://unpkg.com/react-dnd@7.6.1/dist/ReactDnD.min.js": {
+    "integrity": "sha384-WnlQYRrRRYJo8Z7TOopAV2/UJ/M6rGv64D3PTOmhFzW+UORxQq3cyBG/JSvCFAKc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 68582
+  },
+  "https://unpkg.com/react-dnd@7.7.0/dist/ReactDnD.js": {
+    "integrity": "sha384-4b93kHhfLCrp9LFtWSL0V/AFqB79BSgaqn+jfpcGziyH4A040eEUgwSVUiy+oPhY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 212111
+  },
+  "https://unpkg.com/react-dnd@7.7.0/dist/ReactDnD.min.js": {
+    "integrity": "sha384-WnlQYRrRRYJo8Z7TOopAV2/UJ/M6rGv64D3PTOmhFzW+UORxQq3cyBG/JSvCFAKc",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 68582
+  },
+  "https://unpkg.com/react-dnd@9.4.0/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-sWwAml3nlbGzZ35Ma6QeDIhegkLh0tJkHbBu24hd5MID+5YvkLcIhpIo3Ksls4Yg",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 255159
+  },
+  "https://unpkg.com/react-dnd@9.4.0/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-BqpX5Y0MxzBK1MQzlzOx1ClgDfa35BqClW2UTNcPkucAmZaYJd+n3DVLnXTbYl6H",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 54336
+  },
+  "https://unpkg.com/react-dnd@9.5.0/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-V/USkhY2c8wZIE47w7YrA82TuIEKvII9pxydBUYV84W2Ckb0GwvsIC5DSqisP0TJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 157133
+  },
+  "https://unpkg.com/react-dnd@9.5.0/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-IxtoP+JEB1z7tRyQ51xoI4+UuPSD7upQXKUQwtT1wvjpjg35H6wiN3xP3L0lENAk",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 63509
+  },
+  "https://unpkg.com/react-dnd@9.5.1/dist/umd/ReactDnD.js": {
+    "integrity": "sha384-apZ/bQcvpqMFhmhw4OqdsaAciB1Q4vSjxK1VPHi/N4bWV8XY/moJvRNsCZGtnahb",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 157045
+  },
+  "https://unpkg.com/react-dnd@9.5.1/dist/umd/ReactDnD.min.js": {
+    "integrity": "sha384-hG+F4C53V8zBozTf77WxtFPKlAjDCIjt4CmwJ7tdbVirYHmJjhmTOxin2bqIK/WP",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 63479
+  }
+}

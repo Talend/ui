@@ -37,12 +37,12 @@ or, with dark mode enabled,
 @use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
 
 .element {
-  font: tokens.$coral-paragraph-m-bold;
-  color: tokens.$coral-color-neutral-text-inverted;
-  background-color: tokens.$coral-color-accent-background-strong;
-  border: tokens.$coral-color-accent-border;
-  padding: tokens.$coral-size-m tokens.$coral-size-s;
-  box-shadow: tokens.$coral-elevation-shadow-m;
+	font: tokens.$coral-paragraph-m-bold;
+	color: tokens.$coral-color-neutral-text-inverted;
+	background-color: tokens.$coral-color-accent-background-strong;
+	border: tokens.$coral-color-accent-border;
+	padding: tokens.$coral-spacing-m tokens.$coral-spacing-s;
+	box-shadow: tokens.$coral-elevation-shadow-m;
 }
 ```
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { cloneDeep } from 'lodash';
 
 export const data = {
 	jsonSchema: {
@@ -166,3 +167,6 @@ export function initProps() {
 		},
 	};
 }
+
+export const getMockNestedData = () => cloneDeep(nestedData);
+export const getMockData = () => cloneDeep(data);

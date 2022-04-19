@@ -4,7 +4,7 @@ $iconAlignmentOffsetM: -0.3rem;
 $iconAlignmentOffsetS: -0.1rem;
 
 .link {
-	font: tokens.$coral-paragraph-m;
+	font: tokens.$coral-paragraph-m-bold;
 	color: tokens.$coral-color-accent-text;
 	background: none;
 	border: none;
@@ -47,6 +47,18 @@ $iconAlignmentOffsetS: -0.1rem;
 
 		.link__text {
 			border-bottom-color: transparent;
+		}
+	}
+
+	&[aria-current='page'] {
+		color: tokens.$coral-color-neutral-text;
+
+		&:hover {
+			color: tokens.$coral-color-accent-text-hover;
+		}
+
+		&:active {
+			color: tokens.$coral-color-accent-text-active;
 		}
 	}
 }

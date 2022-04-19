@@ -116,7 +116,7 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 			{
 				name: 'computeStyles',
 				options: {
-					adaptive: false,
+					adaptive: true,
 				},
 			},
 			withSameWidth,
@@ -248,6 +248,7 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 			setPopperElement,
 			styles,
 			attributes,
+			t,
 		),
 		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};

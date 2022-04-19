@@ -49,9 +49,11 @@ class CalendarPicker extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const newSelectedDate = nextProps.selectedDate;
-		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
+	componentDidUpdate(prevProps) {
+		const newSelectedDate = this.props.selectedDate;
+		const oldSelectedDate = prevProps.selectedDate;
+		const needToUpdateDate =
+			newSelectedDate !== oldSelectedDate && newSelectedDate !== this.state.selectedDate;
 
 		if (!needToUpdateDate) {
 			return;
@@ -170,6 +172,7 @@ class CalendarPicker extends React.Component {
 				ref={ref => {
 					this.pickerRef = ref;
 				}}
+				// eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
 				tabIndex={this.state.allowFocus ? 0 : -1}
 				aria-label="Date picker"
 			>

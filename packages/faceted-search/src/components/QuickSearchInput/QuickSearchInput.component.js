@@ -10,7 +10,14 @@ export const DEFAULT_QUICKSEARCH_OPERATOR = 'containsIgnoreCase';
 const getDefaultFacet = (facets = []) =>
 	facets.find(({ metadata }) => metadata.isDefaultForQuickSearch) || facets[0];
 
-export const QuickSearchInput = ({ t, facets, placeholder, className, onSelect = () => {} }) => {
+export const QuickSearchInput = ({
+	t,
+	facets,
+	placeholder,
+	className,
+	onSelect = () => {},
+	facetsFilter,
+}) => {
 	const defaultFacet = useMemo(() => getDefaultFacet(facets), [facets]);
 	const [opened, setOpened] = useState(false);
 	const [value, setValue] = useState('');
@@ -19,9 +26,11 @@ export const QuickSearchInput = ({ t, facets, placeholder, className, onSelect =
 		return null;
 	}
 
+	const filteredFacets = facetsFilter ? facetsFilter(value, facets) : facets;
+
 	return (
 		<Typeahead
-			placeholder={placeholder || t('QUICKSEARCH_PLACEHOLDER', { defaultValue: 'Find in a column...' })}
+			placeholder={placeholder || t('QUICKSEARCH_PLACEHOLDER', 'Find in a column...')}
 			onFocus={() => setOpened(value.length >= MINIMUM_LENGTH)}
 			onBlur={() => {
 				setValue('');
@@ -34,7 +43,7 @@ export const QuickSearchInput = ({ t, facets, placeholder, className, onSelect =
 			}}
 			onSelect={(_, { itemIndex }) => {
 				if (value.length >= MINIMUM_LENGTH) {
-					onSelect(facets[itemIndex] || defaultFacet, value);
+					onSelect(filteredFacets[itemIndex] || defaultFacet, value);
 					setValue('');
 					setOpened(false);
 				}
@@ -49,7 +58,7 @@ export const QuickSearchInput = ({ t, facets, placeholder, className, onSelect =
 						title: t('QUICKSEARCH_ITEM_TOOLTIP', {
 							defaultValue: 'Search in',
 						}),
-						suggestions: facets.map(a => get(a, ['properties', 'label'], null)),
+						suggestions: filteredFacets.map(a => get(a, ['properties', 'label'], null)),
 					},
 				]
 			}
@@ -65,5 +74,6 @@ QuickSearchInput.propTypes = {
 	className: PropTypes.string,
 	placeholder: PropTypes.string,
 	onSelect: PropTypes.func,
+	facetsFilter: PropTypes.func,
 	t: PropTypes.func,
 };
