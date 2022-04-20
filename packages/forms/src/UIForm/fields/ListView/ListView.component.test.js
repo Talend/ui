@@ -154,7 +154,7 @@ describe('ListView field', () => {
 			expect(screen.getByRole('checkbox', { name: 'Deselect Algeria' })).toBeInTheDocument();
 		});
 
-		it('should display a message when no results was found', () => {
+		it('should display a message when no results were found', () => {
 			// given
 			jest.useFakeTimers();
 			render(<ListView {...props} />);
