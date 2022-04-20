@@ -124,7 +124,6 @@ try {
 
 		function getMock(name) {
 			const mockName = `Coral${name}`;
-			// const lowecaseName = mockName.toLocaleLowerCase();
 			function Component(props) {
 				return React.createElement('span', {
 					...props,
