@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: |
           yarn --frozen-lock --ignore-scripts
-          yarn global add cypress
+          yarn cypress install
 
       - name: Build @talend/design-tokens
         run: |
