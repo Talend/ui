@@ -49,16 +49,16 @@ class ListViewWidget extends React.Component {
 	/**
 	 * On new schema : we redefine the items
 	 * On new value : we update the check status
-	 * @param { Object } schema The new mergedSchema
-	 * @param { Array } value The new value
 	 */
-	UNSAFE_componentWillReceiveProps({ schema, value }) {
-		if (schema !== this.props.schema) {
+	componentDidUpdate(prevProps) {
+		const { schema: prevSchema, value: prevValue } = prevProps;
+		const { schema: nextSchema, value: nextValue } = this.props;
+		if (prevSchema !== nextSchema) {
 			this.setState(oldState =>
-				initItems(schema, value, oldState.searchCriteria, this.onToggleItem.bind(this)),
+				initItems(nextSchema, nextValue, oldState.searchCriteria, this.onToggleItem.bind(this)),
 			);
-		} else if (value !== this.props.value) {
-			this.setState(oldState => updateItems(oldState.items, value, oldState.searchCriteria));
+		} else if (prevValue !== nextValue) {
+			this.setState(oldState => updateItems(oldState.items, nextValue, oldState.searchCriteria));
 		}
 	}
 

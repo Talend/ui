@@ -165,7 +165,7 @@ describe('ListViewWidget', () => {
 			expect(screen.queryByRole('textbox', { name: 'Search' })).not.toBeInTheDocument();
 		});
 
-		it('should input should be toggled when clicking on search icon', () => {
+		it('should display search input when clicking on search icon', () => {
 			// given
 			render(<ListViewWidget {...generateProps([])} onChange={jest.fn()} />);
 
