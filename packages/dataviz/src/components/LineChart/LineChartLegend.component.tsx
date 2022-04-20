@@ -38,8 +38,9 @@ export const CustomLegend = ({
 			)}
 		>
 			{linesToShow.map(config => (
-				<li id={`legend_item_${config.key}`} key={config.key}>
+				<li key={config.key}>
 					<div
+						data-testid={`legend_item_${config.key}`}
 						className={classNames({
 							[styles['line-chart-custom-legend__button--inactive']] : config?.status === 'inactive'
 						})}

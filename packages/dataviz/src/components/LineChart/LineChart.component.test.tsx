@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, fireEvent, screen } from '@testing-library/react';
 import LineChart from './LineChart.component';
 import { LineChartOptions, LineOptions } from './LineChart.types';
 
@@ -73,34 +72,39 @@ const entries = [
 describe('line chart', () => {
 	it('Should render one line', () => {
 
-		const wrapper = mount(
+		const { container } = render(
 			<LineChart
 				data={entries}
 				lines={[trustScoreLine]}
 				chartOptions={chartOptions}
 			/>
 		);
+		// eslint-disable-next-line testing-library/no-container
+		const lineItems = container.querySelectorAll('g.recharts-layer.recharts-line');
 
-		expect(wrapper.find('Layer.recharts-line').length).toBe(1);
+		expect(lineItems.length).toBe(1);
+
 	});
 
 	it('Should render one axis', () => {
 
-		const wrapper = mount(
+		const { container } = render(
 			<LineChart
 				data={entries}
 				lines={[trustScoreLine]}
 				chartOptions={chartOptions}
 			/>
 		);
+		// eslint-disable-next-line testing-library/no-container
+		const foundYAxis = container.querySelectorAll('g.recharts-yAxis.yAxis');
 
-		expect(wrapper.find('Layer.recharts-yAxis').length).toBe(1);
+		expect(foundYAxis.length).toBe(1);
 	});
 
 	it('Should trigger line click', () => {
 		const onLineClicked = jest.fn();
 
-		const wrapper = mount(
+		const { container } = render(
 			<LineChart
 				data={entries}
 				lines={[trustScoreLine]}
@@ -108,32 +112,35 @@ describe('line chart', () => {
 				onLineClicked={onLineClicked}
 			/>
 		);
-
-		wrapper.find(`Line#line_${lines[0].key}`).invoke('onClick')!({} as any);
+		// eslint-disable-next-line testing-library/no-container
+		const lineItem = container.querySelector('#line_trustScore');
+		if (lineItem) {
+			fireEvent.click(lineItem);
+		}
 
 		expect(onLineClicked).toHaveBeenCalledWith(lines[0].key);
 	});
 
 	it('Should trigger legend click', () => {
-		const onLegendItemClicked = jest.fn();
+		const handleLegendItemClicked = jest.fn();
 
-		const wrapper = mount(
+		render(
 			<LineChart
 				data={entries}
 				lines={[trustScoreLine]}
 				chartOptions={chartOptions}
-				onLegendItemClicked={onLegendItemClicked}
+				onLegendItemClicked={handleLegendItemClicked}
 			/>
 		);
+		fireEvent.click(screen.getByTestId(`legend_item_${trustScoreLine.key}`));
 
-		wrapper.find(`li#legend_item_${lines[0].key}`).childAt(0).invoke('onClick')!({} as any);
-		expect(onLegendItemClicked).toHaveBeenCalledWith(lines[0].key);
+		expect(handleLegendItemClicked).toHaveBeenCalledWith(trustScoreLine.key);
 	});
 
 	it('Should trigger line hover', () => {
 		const onLineHovered = jest.fn();
 
-		const wrapper = mount(
+		const { container } = render(
 			<LineChart
 				data={entries}
 				lines={[trustScoreLine]}
@@ -141,45 +148,52 @@ describe('line chart', () => {
 				onLineHovered={onLineHovered}
 			/>
 		);
+		// eslint-disable-next-line testing-library/no-container
+		const lineItem = container.querySelector('#line_trustScore');
+		if(lineItem) {
+			fireEvent.mouseEnter(lineItem);
+			fireEvent.mouseLeave(lineItem);
+		}
 
-		wrapper.find(`Line#line_${lines[0].key}`).invoke('onMouseEnter')!({} as any);
-		wrapper.find(`Line#line_${lines[0].key}`).invoke('onMouseLeave')!({} as any);
 		expect(onLineHovered).toHaveBeenNthCalledWith(1, lines[0].key);
 		expect(onLineHovered).toHaveBeenNthCalledWith(2, '');
 	});
 
 	it('Should trigger legend hover', () => {
-		const onLegendItemHovered = jest.fn();
+		const handleLegendItemHovered = jest.fn();
 
-		const wrapper = mount(
+		render(
 			<LineChart
 				data={entries}
 				lines={[trustScoreLine]}
 				chartOptions={chartOptions}
-				onLegendItemHovered={onLegendItemHovered}
+				onLegendItemHovered={handleLegendItemHovered}
 			/>
 		);
+		const legendItem = screen.getByTestId(`legend_item_${trustScoreLine.key}`);
+		fireEvent.mouseEnter(legendItem);
+		fireEvent.mouseLeave(legendItem);
 
-		wrapper.find(`li#legend_item_${lines[0].key}`).childAt(0).invoke('onMouseEnter')!({} as any);
-		wrapper.find(`li#legend_item_${lines[0].key}`).childAt(0).invoke('onMouseLeave')!({} as any);
-		expect(onLegendItemHovered).toHaveBeenNthCalledWith(1, lines[0].key);
-		expect(onLegendItemHovered).toHaveBeenNthCalledWith(2, '');
+		expect(handleLegendItemHovered).toHaveBeenNthCalledWith(1, lines[0].key);
+		expect(handleLegendItemHovered).toHaveBeenNthCalledWith(2, '');
 	});
 
 	it('Should render two line', () => {
-		const wrapper = mount(
+		const { container } = render(
 			<LineChart
 				data={entries}
 				lines={[trustScoreLine, validityLine]}
 				chartOptions={dualAxisChartOptions}
 			/>
 		);
+		// eslint-disable-next-line testing-library/no-container
+		const lineItems = container.querySelectorAll('g.recharts-layer.recharts-line');
 
-		expect(wrapper.find('Layer.recharts-line').length).toBe(2);
+		expect(lineItems.length).toBe(2);
 	});
 
 	it('Should render two axis', () => {
-		const wrapper = mount(
+		const { container } = render(
 			<LineChart
 				data={entries}
 				lines={[trustScoreLine, validityLine]}
@@ -187,6 +201,9 @@ describe('line chart', () => {
 			/>
 		);
 
-		expect(wrapper.find('Layer.recharts-yAxis').length).toBe(2);
+		// eslint-disable-next-line testing-library/no-container
+		const foundYAxis = container.querySelectorAll('g.recharts-yAxis.yAxis');
+
+		expect(foundYAxis.length).toBe(2);
 	});
 });
