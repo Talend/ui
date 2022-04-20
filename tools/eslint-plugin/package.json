@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.17.0",
-    "@talend/scripts-config-cdn": "^10.3.1",
+    "@talend/scripts-config-cdn": "^10.3.2",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
