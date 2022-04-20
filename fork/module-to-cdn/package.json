@@ -18,7 +18,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest index.test.js",
+    "test:cron": "jest modules.test.js",
     "lint:es": "eslint --config .eslintrc --ext '.js,.ts,.tsx' ."
   },
   "files": [
@@ -37,8 +38,7 @@
     "semver": "^7.3.6"
   },
   "devDependencies": {
-    "jest": "^26.6.3",
-    "validate-npm-package-name": "^3.0.0"
+    "jest": "^26.6.3"
   },
   "publishConfig": {
     "access": "public"
