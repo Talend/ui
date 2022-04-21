@@ -47,16 +47,12 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 					>
 						<LineIcon color={config.color} dashed={config?.dashed} />
 
-						<span className={classNames(styles['line-chart-custom-tooltip__line-label'])}>
-							{ config.tooltipLabel ?? config.key }
-						</span>
+						<span>{ config.tooltipLabel ?? config.key }</span>
 						:
 						<span className={classNames(styles['line-chart-custom-tooltip__line-value'])}>
 							{getItemDisplayValue(payload, config)}
 						</span>
-						<span className={classNames(styles['line-chart-custom-tooltip__line-unit'])}>
-							{getLineUnit(config.axis)}
-						</span>
+						<span>{getLineUnit(config.axis)}</span>
 					</li>
 				))}
 			</ul>

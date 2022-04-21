@@ -46,22 +46,21 @@ function LineChart({
 				strokeWidth: 2.5,
 				strokeOpacity: 0.25,
 				dot: { r: 0 },
-				activeDot: { r: 0 },
+				activeDot: { r: 0, strokeWidth: 0},
 			};
 		} else if (status === 'highlighted') {
 			return {
 				strokeWidth: 4,
 				strokeOpacity: 1,
 				dot: { r: 0 },
-				activeDot: { r: 6 },
-				filter: 'url(#shadow)'
+				activeDot: { r: 6, strokeWidth: 0 },
 			};
 		}
 		return {
 			strokeWidth: 3,
 			strokeOpacity: 1,
 			dot: { r: 0 },
-			activeDot: { r: 5 },
+			activeDot: { r: 5, strokeWidth: 0 },
 		};
 	};
 
@@ -149,24 +148,6 @@ function LineChart({
 				/>
 			)}
 
-			{/* shadow filter for the highlighted curve  */}
-			<defs>
-				<filter id="shadow" height="200%">
-					<feGaussianBlur in="SourceAlpha" stdDeviation="7" result="blur" />
-					<feOffset in="blur" dx="0" dy="7" result="offsetBlur" />
-					<feFlood floodColor="#000000" floodOpacity="0.5" result="offsetColor" />
-					<feComposite
-					in="offsetColor"
-					in2="offsetBlur"
-					operator="in"
-					result="offsetBlur"
-					/>
-					<feMerge>
-						<feMergeNode />
-						<feMergeNode in="SourceGraphic" />
-					</feMerge>
-				</filter>
-			</defs>
 		  </RLineChart>
 		</ResponsiveContainer>
 	  );

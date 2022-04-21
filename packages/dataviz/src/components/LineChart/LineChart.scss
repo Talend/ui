@@ -10,9 +10,11 @@ $module: line-chart;
 		align-items: flex-start;
 		padding: tokens.$coral-spacing-m;
 
-		background: tokens.$coral-color-neutral-background;
+		color: tokens.$coral-color-neutral-text-inverted;
+		font: tokens.$coral-paragraph-m;
+
+		background: tokens.$coral-color-assistive-background;
 		border: tokens.$coral-border-s-solid rgba(0, 0, 0, 0.103);
-		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 		border-radius: tokens.$coral-radius-s;
 
 		& ul {
@@ -23,27 +25,15 @@ $module: line-chart;
 
 		&__title {
 			font: tokens.$coral-paragraph-s;
-			color: tokens.$coral-color-neutral-text-weak;
 		}
 
 		&__line-item--inactive {
 			opacity: tokens.$coral-opacity-s;
 		}
 
-		&__line-label {
-			font: tokens.$coral-paragraph-m;
-			color: tokens.$coral-color-neutral-text;
-		}
-
 		&__line-value {
 			font: tokens.$coral-paragraph-m-bold;
-			color: tokens.$coral-color-neutral-text;
 			margin-left: tokens.$coral-spacing-xxs;
-		}
-
-		&__line-unit {
-			font: tokens.$coral-paragraph-m;
-			color: tokens.$coral-color-neutral-text;
 		}
 	}
 
