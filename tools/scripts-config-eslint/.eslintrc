@@ -1,12 +1,14 @@
 {
 	"extends": [
-		"prettier",
+		"plugin:prettier/recommended",
 		"plugin:jest-dom/recommended",
 		"plugin:testing-library/react",
 		"plugin:mdx/recommended",
 		"plugin:import/recommended",
 		"plugin:jsx-a11y/recommended",
-		"plugin:react/recommended"
+		"plugin:react/recommended",
+		"plugin:cypress/recommended",
+		"plugin:storybook/recommended"
 	],
 	"parser": "@babel/eslint-parser",
 	"parserOptions": {
@@ -16,14 +18,17 @@
 		"requireConfigFile": false
 	},
 	"plugins": [
-		"jsx-a11y",
-		"import",
+		"@talend",
 		"angular",
+		"cypress",
+		"import",
+		"jest-dom",
+		"jsx-a11y",
+		"prettier",
 		"react",
 		"react-hooks",
-		"@talend",
-		"testing-library",
-		"jest-dom"
+		"storybook",
+		"testing-library"
 	],
 	"rules": {
 		"@talend/import-depth": 2,
