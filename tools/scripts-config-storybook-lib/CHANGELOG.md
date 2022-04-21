@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 1.1.0
+
+### Minor Changes
+
+- bc22c11ee: Support apps
+
 ## 1.0.6
 
 ### Patch Changes
