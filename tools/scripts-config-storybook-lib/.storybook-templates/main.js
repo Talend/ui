@@ -4,6 +4,8 @@ const path = require('path');
 const getTalendWebpackConfig = require('@talend/scripts-core/config/webpack.config');
 const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 const { getAllModules } = require('@talend/module-to-cdn');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DuplicatesPlugin } = require('inspectpack/plugin');
 
 const cwd = process.cwd();
 
@@ -19,6 +21,12 @@ function getStoriesFolders() {
 	}
 	return storiesFolders;
 }
+
+const excludedPlugins = [
+	CDNPlugin, // will be overrided without @talend modules
+	DuplicatesPlugin, // slow
+	HtmlWebpackPlugin, //  use SB index.html, not app's
+]
 
 const defaultMain = {
 	features: {
@@ -67,20 +75,22 @@ const defaultMain = {
 						return rule;
 					}),
 					...talendWebpackConfig.module.rules,
+					// Not sure this will stay here, but we need it for now
+					{
+						test: /\.css$/,
+						use: ['style-loader', 'css-loader'],
+						include: /design-tokens/,
+					}
 				],
 			},
 			plugins: [
 				...config.plugins,
-				...talendWebpackConfig.plugins.filter(plugin => !(plugin instanceof CDNPlugin)), // remove dynamic-cdn-webpack-plugin with @talend modules
+				...talendWebpackConfig.plugins
+					.filter(plugin => !excludedPlugins.some(excludedPlugin => plugin instanceof excludedPlugin)),
+				// use dynamic-cdn-webpack-plugin with default modules
 				new CDNPlugin({
 					exclude: Object.keys(getAllModules()).filter(name => name.startsWith('@talend/'))
-				}) // use dynamic-cdn-webpack-plugin with default modules
-				// TODO: if build perf consider that
-				// ...talendWebpackConfig.plugins.filter(plugin =>
-				// 	[ReactCMFWebpackPlugin, webpack.ProvidePlugin].some(
-				// 		whitelisted => plugin instanceof whitelisted,
-				// 	),
-				// ),
+				}),
 			],
 			node: {
 				...config.node,
