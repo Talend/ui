@@ -1,6 +1,5 @@
 {
 	"extends": [
-		"airbnb-typescript",
 		"prettier",
 		"plugin:jest-dom/recommended",
 		"plugin:testing-library/react",
@@ -10,6 +9,12 @@
 		"plugin:react/recommended"
 	],
 	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"project": "tsconfig.json",
+		"sourceType": "module",
+		"requireConfigFile": false
+	},
 	"plugins": [
 		"jsx-a11y",
 		"import",
@@ -93,11 +98,6 @@
 	"globals": {
 		"jsdom": true,
 		"TALEND_APP_INFO": true
-	},
-	"parserOptions": {
-		"ecmaVersion": 6,
-		"project": "tsconfig.json",
-		"sourceType": "module"
 	},
 	"settings": {
 		"react": {

@@ -15,6 +15,7 @@ if (isTS) {
 		parser: '@typescript-eslint/parser',
 		extends: config.extends
 			.concat([
+				'airbnb-typescript',
 				'plugin:import/typescript',
 				'plugin:@typescript-eslint/recommended',
 				'prettier/@typescript-eslint',
@@ -26,6 +27,11 @@ if (isTS) {
 			tsconfigRootDir: cwd,
 		},
 	});
+} else {
+	// support our babel config file
+	config.parserOptions.babelOptions = {
+		extends: '@talend/scripts-config-babel/.babelrc.json',
+	};
 }
 
 module.exports = config;
