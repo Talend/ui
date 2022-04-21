@@ -34,18 +34,18 @@
     "@talend/icons": "^6.40.0",
     "@talend/react-cmf": "^7.0.2",
     "@talend/react-cmf-router": "^4.0.1",
-    "@talend/react-components": "^6.44.11",
+    "@talend/react-components": "^6.44.13",
     "@talend/react-containers": "^7.0.5",
     "@talend/react-datagrid": "^7.0.3",
     "@talend/react-dataviz": "^1.0.6",
-    "@talend/react-faceted-search": "^4.0.0",
-    "@talend/react-forms": "^7.0.5",
+    "@talend/react-faceted-search": "^4.0.2",
+    "@talend/react-forms": "^7.0.7",
     "history": "^3.3.0",
     "i18next": "^20.6.1",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.16.2",
+    "react-i18next": "^11.16.7",
     "redux-logger": "^3.0.6"
   }
 }

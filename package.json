@@ -32,6 +32,10 @@
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
     "prepare": "husky install"
   },
+  "resolutions": {
+    "@types/react": "^16.14.25",
+    "@types/react-dom": "^16.9.14"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
