@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.44.14
+
+### Patch Changes
+
+- 80a15c11a: fix(Datalist): keep suggestions when clicking inside the suggestion box
+
 ## 6.44.13
 
 ### Patch Changes
