@@ -1,14 +1,10 @@
 module.exports = {
 	root: true,
 	extends: [
-		'../../node_modules/@talend/scripts-config-eslint/.eslintrc',
+		'../../node_modules/@talend/scripts-config-eslint/.eslintrc.js',
 		'plugin:cypress/recommended',
 		'plugin:storybook/recommended',
 	],
-	parserOptions: {
-		project: ['./tsconfig.build.json'],
-		tsconfigRootDir: __dirname,
-	},
 	settings: {
 		'import/resolver': {
 			alias: {
