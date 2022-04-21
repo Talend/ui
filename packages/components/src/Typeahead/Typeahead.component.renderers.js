@@ -105,6 +105,7 @@ export function renderItemsContainerFactory(
 	setPopperElement,
 	styles,
 	attributes,
+	t,
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
@@ -151,6 +152,10 @@ export function renderItemsContainerFactory(
 				ref={setPopperElement}
 				style={styles.popper}
 				{...attributes.popper}
+				// we need to make this div focusable for FocusManager to not close this box when we click on custom children.
+				// eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+				tabIndex="0"
+				aria-label={t('TYPEAHEAD_SUGGESTIONS', { defaultValue: 'Suggestions' })}
 			>
 				<div
 					ref={containerProps.ref}

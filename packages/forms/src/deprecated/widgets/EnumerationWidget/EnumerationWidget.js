@@ -120,6 +120,7 @@ class EnumerationForm extends React.Component {
 				icon: 'talend-cross',
 				inProgress: true,
 				id: 'loading',
+				onClick() {},
 			},
 		];
 		this.itemEditActions = [
@@ -252,8 +253,10 @@ class EnumerationForm extends React.Component {
 		};
 	}
 
-	componentWillReceiveProps(nextProps) {
-		this.setState(prevState => ({ ...prevState, items: nextProps.formData }));
+	componentDidUpdate(prevProps) {
+		if (this.props.formData !== prevProps.formData) {
+			this.setState(oldState => ({ ...oldState, items: this.props.formData }));
+		}
 	}
 
 	onImportAppendClick() {
@@ -904,7 +907,6 @@ class EnumerationForm extends React.Component {
 			items = this.searchItems(this.state.searchCriteria);
 		}
 		const stateToShow = { ...this.state, items };
-
 		return (
 			<div>
 				{this.allowImport && this.renderImportFile()}
@@ -923,7 +925,7 @@ if (process.env.NODE_ENV !== 'production') {
 		uiSchema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
-		t: PropTypes.func.isRequired,
+		t: PropTypes.func,
 	};
 }
 

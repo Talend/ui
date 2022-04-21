@@ -66,8 +66,8 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 		this.resetSuggestions = this.resetSuggestions.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.value === this.props.value) {
+	componentDidUpdate(prevProps) {
+		if (prevProps.value === this.props.value) {
 			return;
 		}
 		if (this.state.suggestions) {

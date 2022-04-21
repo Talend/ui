@@ -1,5 +1,41 @@
 # @talend/react-components
 
+## 6.44.13
+
+### Patch Changes
+
+- 5ff371756: fix(MultiSelect): add height for the dropdown if there is no option available
+- Updated dependencies [2b355ac2e]
+- Updated dependencies [2e19164bf]
+  - @talend/design-system@2.3.0
+
+## 6.44.12
+
+### Patch Changes
+
+- aa1db9881: fix(AboutModal): rendering fail while no values was given everywhere
+
+## 6.44.11
+
+### Patch Changes
+
+- aaba017d2: fix(Datalist): focus management on inside element click
+
+## 6.44.10
+
+### Patch Changes
+
+- a2210ebc2: fix(TDOPS-963/Typeahead): wrong positioning on first opening
+- 2ee202538: fix(List): add back tc-list-item for some hover behaviour
+
+## 6.44.9
+
+### Patch Changes
+
+- 1ae188285: fix(WithDrawer): Drawer is rendering below the Typeahead icon
+- Updated dependencies [ed98b0840]
+  - @talend/design-system@2.2.0
+
 ## 6.44.8
 
 ### Patch Changes

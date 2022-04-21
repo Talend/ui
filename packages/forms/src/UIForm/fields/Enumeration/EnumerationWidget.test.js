@@ -1,211 +1,175 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { Button } from '@talend/react-bootstrap';
-import toJsonWithoutI18n from '../../../../__mocks__/props-without-i18n';
-import TranslatedEnumeration, {
-	EnumerationForm as EnumerationWidget,
-	enumerationStates,
-} from './EnumerationWidget';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import EnumerationWidget from './EnumerationWidget';
 
 describe('EnumerationWidget', () => {
-	it('should wrapped in Translate component', () => {
-		const wrapper = mount(<TranslatedEnumeration schema={{}} />);
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-	});
-
-	it('should be in default mode', () => {
-		// given
-		const wrapper = mount(<EnumerationWidget schema={{}} />);
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-	});
-
-	it('should be in default mode', () => {
-		// given
-		const wrapper = mount(
+	it('should render items', () => {
+		// when
+		render(
 			<EnumerationWidget
-				schema={{
-					required: true,
-				}}
+				value={[{ id: '112', values: ['titi', 'tata'] }]}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
+				schema={{}}
 			/>,
 		);
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-		expect(
-			wrapper
-				.find('.tc-enumeration-header')
-				.at(0)
-				.find(Button).length,
-		).toBe(2);
+
+		// then
+		expect(screen.getByRole('gridcell', { name: /titi,tata/i })).toBeInTheDocument();
+	});
+
+	it('should render actions', () => {
+		// when
+		render(
+			<EnumerationWidget
+				value={[{ id: '112', values: ['titi', 'tata'] }]}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
+				schema={{}}
+			/>,
+		);
+
+		// then
+		expect(screen.getByRole('link', { name: 'Search for specific values' })).toBeInTheDocument();
+		expect(screen.getByRole('link', { name: 'Add item' })).toBeInTheDocument();
 	});
 
 	it('should be in disabled mode', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<EnumerationWidget
-				schema={{
-					disabled: true,
-				}}
+				schema={{ disabled: true }}
 				value={[
 					{ id: '112', values: ['titi', 'tata'] },
 					{ id: '113', values: ['titi2', 'tata2'] },
 				]}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
 			/>,
 		);
-		expect(
-			wrapper
-				.find('.tc-enumeration-header')
-				.at(0)
-				.find(Button).length,
-		).toBe(1);
-		expect(
-			wrapper
-				.find('.tc-enumeration-item-actions')
-				.at(0)
-				.find(Button).length,
-		).toBe(0);
+		expect(screen.getByRole('link', { name: 'Search for specific values' })).toBeInTheDocument();
+		expect(screen.queryByRole('link', { name: 'Add item' })).not.toBeInTheDocument();
 	});
 
 	it('should be in add mode', () => {
 		// given
-		const wrapper = mount(<EnumerationWidget schema={{}} />);
+		render(
+			<EnumerationWidget
+				value={[{ id: '112', values: ['titi', 'tata'] }]}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
+				schema={{}}
+			/>,
+		);
+		expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
 
 		// when
-		wrapper
-			.find('.tc-enumeration-header .btn-link')
-			.last()
-			.simulate('click');
+		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
 
 		// then
-		expect(wrapper.find('.tc-enumeration-header #tc-enumeration_add').length).toBe(1);
-		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
+		expect(screen.getByRole('textbox', { name: 'Enter new entry name' })).toBeInTheDocument();
 	});
 
 	it('should be in search mode', () => {
 		// given
-		const wrapper = mount(<EnumerationWidget schema={{}} />);
+		render(
+			<EnumerationWidget
+				value={[{ id: '112', values: ['titi', 'tata'] }]}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
+				schema={{}}
+			/>,
+		);
+		expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
 
 		// when
-		wrapper
-			.find('.tc-enumeration-header .btn-link')
-			.first()
-			.simulate('click');
+		userEvent.click(screen.queryByRole('link', { name: 'Search for specific values' }));
 
 		// then
-		expect(wrapper.find('.tc-enumeration-header #tc-enumeration_search').length).toBe(1);
-		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
+		expect(screen.getByRole('textbox', { name: 'Enter search term' })).toBeInTheDocument();
 	});
 
 	it('should be in edit mode', () => {
 		// given
-		const wrapper = mount(
+		render(
 			<EnumerationWidget
+				value={[{ id: '112', values: ['titi', 'tata'] }]}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
 				schema={{}}
-				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
 		);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		userEvent.hover(screen.getByRole('row'));
+		userEvent.click(screen.getByRole('link', { name: 'Edit' }));
 
-		expect(
-			wrapper
-				.find('.tc-enumeration-item')
-				.at(0)
-				.find('input').length,
-		).toBe(1);
-		expect(
-			wrapper
-				.find('.tc-enumeration-item-actions')
-				.at(0)
-				.find(Button).length,
-		).toBe(2);
+		// then
+		expect(screen.getByLabelText('Enter the new value')).toBeInTheDocument();
 	});
 
-	it('should trigger rename action', () => {
+	it('should call rename trigger on edit', () => {
 		// given
-		const onTrigger = jest.fn(() => Promise.resolve({}));
-		const wrapper = mount(
+		const onTrigger = jest.fn(() => Promise.resolve());
+		render(
 			<EnumerationWidget
-				schema={{}}
-				properties={{
-					connectedMode: true,
-				}}
+				value={[{ id: '112', values: ['titi'] }]}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={onTrigger}
-				value={[{ id: '111', values: ['titi', 'tata'] }]}
+				schema={{}}
+				properties={{ connectedMode: true }}
 			/>,
 		);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		userEvent.hover(screen.getByRole('row'));
+		userEvent.click(screen.getByRole('link', { name: 'Edit' }));
+		userEvent.clear(screen.getByLabelText('Enter the new value'));
+		userEvent.type(screen.getByLabelText('Enter the new value'), 'foo');
+		userEvent.click(screen.getByRole('link', { name: 'Validate' }));
 
-		wrapper
-			.find('.tc-enumeration-item input')
-			.at(0)
-			.instance().value = 'foo';
-
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
 		// then
-		expect(wrapper.find('.tc-enumeration-item').length).toBe(1);
-		expect(onTrigger.mock.calls[0][1]).toEqual({
+		expect(onTrigger).toBeCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_RENAME_ACTION',
-				id: '111',
+				id: '112',
 				index: 0,
 				value: ['foo'],
 			},
 		});
 	});
 
-	it('should trigger search action', () => {
+	it('should call search trigger', () => {
 		// given
 		jest.useFakeTimers();
 		const onTrigger = jest.fn(() => Promise.resolve([]));
-		const wrapper = mount(
+		render(
 			<EnumerationWidget
-				schema={{}}
-				properties={{
-					connectedMode: true,
-				}}
+				value={[{ id: '112', values: ['titi'] }]}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={onTrigger}
-				value={[{ id: '111', values: ['titi', 'tata'] }]}
+				schema={{}}
+				properties={{ connectedMode: true }}
 			/>,
 		);
 
 		// when
-		// add mode
-		wrapper
-			.find('.tc-enumeration-header')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
-
-		wrapper
-			.find('.tc-enumeration-header input')
-			.at(0)
-			.simulate('change', { target: { value: 'foo' } });
-
+		userEvent.click(screen.queryByRole('link', { name: 'Search for specific values' }));
+		userEvent.type(screen.queryByRole('textbox', { name: 'Enter search term' }), 'foo');
 		jest.runAllTimers();
 
 		// then
-		expect(onTrigger.mock.calls[0][1]).toEqual({
+		expect(onTrigger).toBeCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_SEARCH_ACTION',
@@ -214,44 +178,27 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should trigger add action', () => {
+	it('should call add trigger', () => {
 		// given
-		const onTrigger = jest.fn(() => Promise.resolve({}));
-		const wrapper = mount(
+		const onTrigger = jest.fn(() => Promise.resolve([]));
+		render(
 			<EnumerationWidget
-				schema={{}}
-				properties={{
-					connectedMode: true,
-				}}
+				value={[{ id: '112', values: ['titi'] }]}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={onTrigger}
-				value={[{ id: '111', values: ['titi', 'tata'] }]}
+				schema={{}}
+				properties={{ connectedMode: true }}
 			/>,
 		);
 
 		// when
-		// add mode
-		wrapper
-			.find('.tc-enumeration-header')
-			.find('.btn-link')
-			.at(1)
-			.simulate('click');
-
-		wrapper
-			.find('.tc-enumeration-header input')
-			.at(0)
-			.simulate('change', { target: { value: 'foo' } });
-
-		// trigger add action
-		wrapper
-			.find('.tc-enumeration-header')
-			.find('.btn-link')
-			.at(1)
-			.simulate('click');
+		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
+		userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo');
+		userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
 
 		// then
-		expect(onTrigger.mock.calls[0][1]).toEqual({
+		expect(onTrigger).toBeCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_ADD_ACTION',
@@ -260,146 +207,25 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should delete an item', () => {
-		// given
-		const onChange = jest.fn();
-		const wrapper = mount(
-			<EnumerationWidget
-				schema={{}}
-				onChange={onChange}
-				onFinish={jest.fn()}
-				value={[{ id: '111', values: ['titi', 'tata'] }]}
-			/>,
-		);
-		expect(wrapper.find('.tc-enumeration-item').length).toBe(1);
-
-		// when
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(1)
-			.simulate('click');
-
-		// then
-		expect(onChange.mock.calls[0][1].value).toEqual([]);
-	});
-
-	it('should select an item', () => {
-		// given
-		const wrapper = mount(
-			<EnumerationWidget
-				schema={{}}
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				value={[{ id: '111', values: ['titi', 'tata'] }]}
-			/>,
-		);
-
-		// when
-		wrapper
-			.find('.tc-enumeration-item-label')
-			.at(0)
-			.simulate('click');
-
-		// then
-		// number of selected item and trash icon
-		expect(wrapper.find('.tc-enumeration-header span').length).toBe(1);
-		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
-		expect(wrapper.find('.tc-enumeration-item.selected-item').length).toBe(1);
-	});
-
-	it('should select multiple  items', () => {
-		// given
-		const wrapper = mount(
-			<EnumerationWidget
-				schema={{}}
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				value={[
-					{ id: '111', values: ['titi', 'tata'] },
-					{ id: '112', values: ['titi2', 'tata2'] },
-				]}
-			/>,
-		);
-
-		// when
-		wrapper
-			.find('button.tc-enumeration-item-label')
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find('button.tc-enumeration-item-label')
-			.at(1)
-			.simulate('click', { ctrlKey: true });
-
-		// then
-		// number of selected item and trash icon
-		expect(wrapper.find('.tc-enumeration-header span').length).toBe(1);
-		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
-		expect(wrapper.find('.tc-enumeration-item.selected-item').length).toBe(2);
-	});
-
-	it('delete all', () => {
-		// given
-		const onChange = jest.fn();
-		const wrapper = mount(
-			<EnumerationWidget
-				schema={{}}
-				onChange={onChange}
-				onFinish={jest.fn()}
-				value={[
-					{ id: '112', values: ['titi', 'tata'] },
-					{ id: '113', values: ['titi2', 'tata2'] },
-				]}
-			/>,
-		);
-		expect(wrapper.find('.tc-enumeration-item').length).toBe(2);
-
-		wrapper
-			.find('button.tc-enumeration-item-label')
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find('button.tc-enumeration-item-label')
-			.at(1)
-			.simulate('click', { ctrlKey: true });
-
-		// when click on trash icon
-		wrapper
-			.find('.tc-enumeration-header')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
-
-		// then
-		expect(onChange.mock.calls[0][1].value).toEqual([]);
-	});
-
-	it('should delete an item calling onTrigger', () => {
+	it('should call delete trigger', () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve({}));
-		const wrapper = mount(
+		render(
 			<EnumerationWidget
-				properties={{
-					connectedMode: true,
-				}}
-				schema={{}}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={onTrigger}
 				value={[{ id: '11212242', values: ['titi', 'tata'] }]}
+				schema={{}}
+				properties={{ connectedMode: true }}
 			/>,
 		);
 
 		// when
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(1)
-			.simulate('click');
+		userEvent.click(screen.getByRole('link', { name: 'Remove value' }));
 
 		// then
-		expect(onTrigger.mock.calls[0][1]).toEqual({
+		expect(onTrigger).toBeCalledWith(expect.anything(), {
 			schema: {},
 			trigger: {
 				action: 'ENUMERATION_REMOVE_ACTION',
@@ -408,301 +234,114 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should deselect edit mode when select other item', () => {
+	it('should delete an item', () => {
 		// given
-		const wrapper = mount(
+		const onChange = jest.fn();
+		render(
 			<EnumerationWidget
+				value={[{ id: '111', values: ['titi', 'tata'] }]}
+				onChange={onChange}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
 				schema={{}}
+			/>,
+		);
+		expect(screen.getByRole('gridcell', { name: /titi,tata/i })).toBeInTheDocument();
+
+		// when
+		userEvent.hover(screen.getByRole('gridcell', { name: /titi,tata/i }));
+		userEvent.click(screen.getByRole('link', { name: 'Remove value' }));
+
+		// then
+		expect(onChange).toBeCalledWith(expect.anything(), { schema: {}, value: [] });
+	});
+
+	it('should select an item', () => {
+		// given
+		render(
+			<EnumerationWidget
+				value={[{ id: '112', values: ['titi', 'tata'] }]}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
-				value={[
-					{ id: '111', values: ['titi', 'tata'] },
-					{ id: '112', values: ['toto', 'tutu'] },
-				]}
+				onTrigger={jest.fn()}
+				schema={{}}
 			/>,
 		);
 
-		// edit item
-		wrapper
-			.find('.tc-enumeration-item-actions')
-			.find('.btn-link')
-			.at(0)
-			.simulate('click');
+		// when
+		userEvent.click(screen.getByText('titi,tata'));
 
-		// when select another item
-		wrapper
-			.find('.tc-enumeration-item-label')
-			.at(1)
-			.simulate('click');
+		// then
+		expect(screen.getByText('1 selected value')).toBeInTheDocument();
+	});
 
-		// should reset all items to default mode
-		expect(wrapper.find('.tc-enumeration-item input').length).toBe(0);
-		expect(wrapper.find('.tc-enumeration-item button.tc-enumeration-item-label').length).toBe(2);
+	it('should select multiple items', () => {
+		// given
+		render(
+			<EnumerationWidget
+				value={[
+					{ id: '112', values: ['titi', 'tata'] },
+					{ id: '113', values: ['titi2', 'tata2'] },
+				]}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
+				schema={{}}
+			/>,
+		);
+
+		// when
+		userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi,tata"' }));
+		userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi2,tata2"' }), {
+			ctrlKey: true,
+		});
+
+		// then
+		expect(screen.getByText('2 selected values')).toBeInTheDocument();
+	});
+
+	it('should delete all', () => {
+		// given
+		const onChange = jest.fn();
+		render(
+			<EnumerationWidget
+				value={[
+					{ id: '112', values: ['titi', 'tata'] },
+					{ id: '113', values: ['titi2', 'tata2'] },
+				]}
+				onChange={onChange}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn()}
+				schema={{}}
+			/>,
+		);
+
+		// when
+		userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi,tata"' }));
+		userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi2,tata2"' }), {
+			ctrlKey: true,
+		});
+		userEvent.click(screen.getByRole('link', { name: 'Remove selected values' }));
+
+		// then
+		expect(onChange).toBeCalledWith(expect.anything(), { schema: {}, value: [] });
 	});
 
 	describe('upload file', () => {
 		it('should add a upload icon and set data-feature', () => {
-			const wrapper = mount(
-				<EnumerationWidget
-					schema={{
-						allowImport: true,
-						'data-feature': {
-							overwriteExisting: 'file.overwrite',
-							addFromFile: 'file.add',
-							importFile: 'file.import',
-						},
-					}}
-				/>,
-			);
-			expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-		});
-
-		it('should send a event with a method to simulate the click on the input file', () => {
-			// given
-			const wrapper = mount(
-				<EnumerationWidget
-					properties={{
-						connectedMode: true,
-					}}
-					schema={{
-						allowImport: true,
-					}}
-				/>,
-			);
-
-			wrapper.instance().simulateClickInputFile = jest.fn();
-
 			// when
-			wrapper
-				.find('.tc-enumeration-header')
-				.find('.btn-link')
-				.at(1)
-				.simulate('click');
-
-			// then
-			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
-		});
-
-		it('should send a event when we click on the icon of the dropdown', () => {
-			// given
-			const wrapper = mount(
+			render(
 				<EnumerationWidget
-					schema={{
-						allowImport: true,
-					}}
-					uiSchema={{}}
-				/>,
-			);
-
-			wrapper.instance().simulateClickInputFile = jest.fn();
-
-			// when
-			wrapper
-				.find('.tc-enumeration-header div.btn-group-link button')
-				.at(0)
-				.simulate('click');
-
-			// then
-			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
-		});
-
-		it('should send a event with the choice APPEND', () => {
-			// given
-			const wrapper = mount(
-				<EnumerationWidget
-					schema={{
-						allowImport: true,
-					}}
-					uiSchema={{}}
-				/>,
-			);
-
-			wrapper.instance().simulateClickInputFile = jest.fn();
-
-			// when
-			wrapper
-				.find('.tc-enumeration-header div.btn-group-link li a')
-				.at(0)
-				.simulate('click');
-
-			// then
-			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
-		});
-
-		it('should send a event with the choice OVERWRITE', () => {
-			// given
-			const wrapper = mount(
-				<EnumerationWidget
-					schema={{
-						allowImport: true,
-					}}
-					uiSchema={{}}
-				/>,
-			);
-
-			wrapper.instance().simulateClickInputFile = jest.fn();
-
-			// when
-			wrapper
-				.find('.tc-enumeration-header div.btn-group-link li a')
-				.at(1)
-				.simulate('click');
-
-			// then
-			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
-		});
-
-		it('should set header back to default and import mode to empty after upload', () => {
-			// given
-			const onChange = jest.fn();
-			const wrapper = mount(
-				<EnumerationWidget
-					schema={{
-						allowImport: true,
-					}}
-					properties={{
-						connectedMode: true,
-					}}
-					onChange={onChange}
+					schema={{ allowImport: true }}
+					onChange={jest.fn()}
 					onFinish={jest.fn()}
+					onTrigger={jest.fn()}
+					value={[]}
 				/>,
 			);
 
-			// when
-			wrapper.instance().importFileHandler();
-
 			// then
-			expect(wrapper.instance().state.headerDefault.length).toBe(3);
-			expect(wrapper.instance().state.importMode).toBe('');
-		});
-
-		it('should simulate click on the input', () => {
-			// given
-			jest.useFakeTimers();
-			const wrapper = mount(
-				<EnumerationWidget
-					schema={{
-						allowImport: true,
-					}}
-				/>,
-			);
-			wrapper.instance().state.importMode = enumerationStates.IMPORT_MODE_APPEND;
-			wrapper.instance().inputFile.click = jest.fn();
-			spyOn(document.activeElement, 'blur').and.callThrough();
-
-			// when
-			wrapper.instance().simulateClickInputFile();
-			jest.runAllTimers();
-
-			// then
-			expect(wrapper.instance().inputFile.click).toBeCalled();
-			expect(document.activeElement.blur).toBeCalled();
-		});
-
-		it(
-			'should trigger a event when the user clicks on the upload action' +
-				', shows a loading and return to initial state when we call the success callback',
-			() => {
-				// given
-				const onTrigger = jest.fn(() =>
-					Promise.resolve([
-						{
-							id: 1,
-							values: ['val1'],
-						},
-						{
-							id: 2,
-							values: ['val2'],
-						},
-					]),
-				);
-				const onFinish = jest.fn();
-				const onChange = jest.fn();
-				const wrapper = mount(
-					<EnumerationWidget
-						id="enumeration"
-						schema={{
-							allowImport: true,
-						}}
-						onTrigger={onTrigger}
-						onFinish={onFinish}
-						onChange={onChange}
-						properties={{
-							connectedMode: true,
-						}}
-						value={[
-							{ id: '111', values: ['titi', 'tata'] },
-							{ id: '112', values: ['titi2', 'tata2'] },
-						]}
-					/>,
-				);
-
-				const event = {
-					target: {
-						files: ['file'],
-					},
-				};
-
-				wrapper.instance().resetInputFile = jest.fn();
-
-				// when
-				return wrapper
-					.instance()
-					.importFile(event)
-					.then(() => {
-						// then
-						expect(onTrigger).toBeCalledWith(event, {
-							schema: { allowImport: true },
-							trigger: {
-								action: 'ENUMERATION_IMPORT_FILE_ACTION',
-								importMode: undefined,
-								label: undefined,
-								value: 'file',
-							},
-						});
-
-						expect(wrapper.instance().resetInputFile).toBeCalled();
-						expect(onChange).toBeCalledWith(event, {
-							schema: { allowImport: true },
-							value: [
-								{ id: 1, values: ['val1'] },
-								{ id: 2, values: ['val2'] },
-							],
-						});
-					});
-			},
-		);
-	});
-
-	describe('utils method', () => {
-		it('should split with using coma separator and trim the sub strings', () => {
-			// given
-			const enumerationWidget = new EnumerationWidget({
-				t: () => {},
-			});
-			// when
-			const resultArray = enumerationWidget.constructor.parseStringValueToArray(
-				'toto ,  to , tata ',
-			);
-			// then
-			expect(resultArray).toEqual(['toto', 'to', 'tata']);
-		});
-
-		it('should compute the correct item when in search mode', () => {
-			// given
-			const enumerationWidget = new EnumerationWidget({
-				t: () => {},
-			});
-			spyOn(enumerationWidget, 'searchItems').and.returnValue([{ values: ['toto'] }]);
-			// when
-			const resultArray = enumerationWidget.getItemInSearchMode('toto', 0, [
-				{ values: ['toto'] },
-				{ values: ['tata'] },
-				{ values: ['titi'] },
-			]);
-
-			// then
-			expect(resultArray).toEqual({ values: ['toto'] });
+			expect(screen.getByRole('button', { name: 'Import values from a file' })).toBeInTheDocument();
 		});
 	});
 });

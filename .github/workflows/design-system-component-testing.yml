@@ -25,7 +25,7 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.cache/Cypress
           key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
@@ -46,14 +46,14 @@ jobs:
           command: yarn workspace @talend/design-system run test:cy
 
       - name: Cypress screenshots upload
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-screenshots
           path: packages/design-system/cypress/screenshots/**/*
 
       - name: Cypress videos upload
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos

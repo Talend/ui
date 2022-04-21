@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 11.0.0
+
+### Major Changes
+
+-   4589878a9: 10.x.x already exists from last year so let's bump to 11
+
+## 10.0.1
+
+### Patch Changes
+
+-   f4b3d115f: fix: add missing src folder in release
+-   Updated dependencies [e170f5dfe]
+    -   @talend/module-to-cdn@9.8.2
+
 ## 10.0.0
 
 ### Major Changes

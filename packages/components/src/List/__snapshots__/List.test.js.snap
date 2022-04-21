@@ -225,7 +225,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row theme-tc-list-headerRow"
+                      className="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
                       role="row"
                       style={
                         Object {
@@ -1227,7 +1227,7 @@ exports[`List should render 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row theme-tc-list-headerRow"
+                      className="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
                       role="row"
                       style={
                         Object {
@@ -2253,7 +2253,7 @@ exports[`List should render id if provided 1`] = `
                     style={Object {}}
                   >
                     <div
-                      className="ReactVirtualized__Table__headerRow theme-tc-list-item theme-row theme-row theme-tc-list-headerRow"
+                      className="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
                       role="row"
                       style={
                         Object {
