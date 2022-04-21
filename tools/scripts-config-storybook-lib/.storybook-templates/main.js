@@ -75,12 +75,6 @@ const defaultMain = {
 						return rule;
 					}),
 					...talendWebpackConfig.module.rules,
-					// Not sure this will stay here, but we need it for now
-					{
-						test: /\.css$/,
-						use: ['style-loader', 'css-loader'],
-						include: /design-tokens/,
-					}
 				],
 			},
 			plugins: [
