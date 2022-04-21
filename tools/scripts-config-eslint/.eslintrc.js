@@ -10,6 +10,7 @@ const content = fs
 const config = JSON.parse(content);
 
 if (isTS) {
+	delete config.parserOptions;
 	const TO_REMOVE = ['plugin:import/recommended'];
 	Object.assign(config, {
 		parser: '@typescript-eslint/parser',
@@ -23,15 +24,11 @@ if (isTS) {
 			.filter(i => !TO_REMOVE.includes(i)),
 		plugins: config.plugins.concat(['@typescript-eslint']),
 		parserOptions: {
-			project: ['./tsconfig.json'],
+			project: './tsconfig.json',
 			tsconfigRootDir: cwd,
 		},
 	});
-} else {
-	// support our babel config file
-	config.parserOptions.babelOptions = {
-		extends: '@talend/scripts-config-babel/.babelrc.json',
-	};
 }
 
+console.log('eslintrc.js configuration content: ', JSON.stringify(config, null, 2));
 module.exports = config;
