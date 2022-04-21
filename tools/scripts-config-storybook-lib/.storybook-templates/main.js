@@ -25,7 +25,7 @@ function getStoriesFolders() {
 const excludedPlugins = [
 	CDNPlugin, // will be overrided without @talend modules
 	DuplicatesPlugin, // slow
-	HtmlWebpackPlugin, //  use SB index.html, not app's
+	HtmlWebpackPlugin, // use SB index.html, not app's
 ]
 
 const defaultMain = {
