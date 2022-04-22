@@ -10,7 +10,7 @@ This package exposes a simple API covering the following requirements:
 - for UMDs, the path is computed form `module-to-cdn` and injected at build time thanks to the babel plugin
 - for relative paths in a package, the name of the package is optional
 
-## Learn by examples
+## Learn with examples
 
 First you need to ensure you have setup the [babel plugin](https://npmjs.com/package/@talend/babel-plugin-assets-api) or you use @talend/scripts-core to build your lib / project.
 
