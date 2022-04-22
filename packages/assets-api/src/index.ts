@@ -56,11 +56,11 @@ function getPackageVersion(name?: string, version?: string): string | undefined 
 }
 
 function getURL(path: string, name?: string, version?: string) {
-	const overridedVersion = getPackageVersion(name, version);
-	if (!overridedVersion) {
+	const overriddenVersion = getPackageVersion(name, version);
+	if (!overriddenVersion) {
 		throw new Error(`Version not found for ${name}`);
 	}
-	return window.Talend.getCDNUrl({ name, version: overridedVersion, path });
+	return window.Talend.getCDNUrl({ name, version: overriddenVersion, path });
 }
 
 const TIMEOUT = 10000;
