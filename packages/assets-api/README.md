@@ -42,8 +42,7 @@ const AgGridReact = React.lazy(() =>
 );
 
 
-// Last example is on how to load styles from a lazy loaded component
-// you can use
+// Finally, this is how we load styles from a lazy loaded component.
 export default function DataGrid(props) {
 	//...
 	useEffect(() => {
