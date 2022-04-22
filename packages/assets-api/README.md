@@ -20,7 +20,8 @@ import assetsAPI from '@talend/assets-api';
 // The lowest level API is the ability to get the URL of anything. Here, a CSS file.
 const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community');
 // babel will add all missing arguments and at runtime you will have
-href === 'https://unpkg.com/ag-grid-community@25.0.0/dist/styles/ag-grid.css';
+console.log(href);
+// -> 'https://unpkg.com/ag-grid-community@25.0.0/dist/styles/ag-grid.css';
 
 
 // Then we have higher level API to get a JSON file for locales, timezones, etc...
