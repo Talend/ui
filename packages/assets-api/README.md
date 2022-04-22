@@ -62,4 +62,4 @@ The assets API uses a global function to compute the URL: `window.Talend.getCDNU
 `${CDN_URL}/${info.name}/${info.version}${info.path}`;
 ```
 
-but fallback to unpkg.com public cdn if no CDN_URL is provided.
+but fallbacks to unpkg.com public CDN if no CDN_URL is provided.
