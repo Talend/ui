@@ -1,5 +1,20 @@
 # @talend/react-components
 
+## 6.44.14
+
+### Patch Changes
+
+- 80a15c11a: fix(Datalist): keep suggestions when clicking inside the suggestion box
+
+## 6.44.13
+
+### Patch Changes
+
+- 5ff371756: fix(MultiSelect): add height for the dropdown if there is no option available
+- Updated dependencies [2b355ac2e]
+- Updated dependencies [2e19164bf]
+  - @talend/design-system@2.3.0
+
 ## 6.44.12
 
 ### Patch Changes

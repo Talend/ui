@@ -87,7 +87,6 @@ describe('EnumerationWidget', () => {
 
 	it('should be in edit mode', () => {
 		// given
-		jest.useFakeTimers();
 		render(
 			<EnumerationWidget
 				onChange={jest.fn()}
@@ -133,7 +132,6 @@ describe('EnumerationWidget', () => {
 
 		// when
 		userEvent.click(screen.getByText('titi,tata'));
-		// userEvent.click(screen.getByRole('gridcell', { name: 'Select item "titi,tata"' }));
 
 		// then
 		expect(screen.getByText('1 selected value')).toBeInTheDocument();
@@ -161,7 +159,7 @@ describe('EnumerationWidget', () => {
 		expect(screen.getByText('2 selected values')).toBeInTheDocument();
 	});
 
-	it('delete all', () => {
+	it('should delete all', () => {
 		// given
 		render(
 			<EnumerationWidget

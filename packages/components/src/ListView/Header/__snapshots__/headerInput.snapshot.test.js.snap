@@ -27,7 +27,8 @@ exports[`Header should render filter header 1`] = `
     role="link"
     type="button"
   >
-    <CoralIcon
+    <span
+      className="CoralIcon"
       name="talend-cross"
     />
   </button>

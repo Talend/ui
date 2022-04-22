@@ -11,9 +11,12 @@ on:
         required: true
   pull_request:
     # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened
-    types: [ labeled, synchronize, opened, reopened]
+    types: [labeled, synchronize, opened, reopened, ready_for_review]
     branches:
       - master
+    paths:
+      - "packages/design-tokens/**"
+      - "packages/design-system/**"
   push:
     branches:
       - master
@@ -24,9 +27,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: |
-      (github.ref == 'refs/heads/master') ||
-      contains(github.event.pull_request.labels.*.name, 'need visual approval')
+    if: ( !github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
     environment: pull_request_unsafe
     steps:
       - uses: actions/checkout@v2

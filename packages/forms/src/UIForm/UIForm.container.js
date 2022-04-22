@@ -91,14 +91,14 @@ export default class UIForm extends React.Component {
 	 * Update live and initialState with the new schema
 	 * @param nextProps
 	 */
-	UNSAFE_componentWillReceiveProps(nextProps) {
-		if (nextProps.data !== this.props.data) {
-			this.setState(reinitLiveState(nextProps.data));
+	componentDidUpdate(prevProps) {
+		if (prevProps.data !== this.props.data) {
+			this.setState(reinitLiveState(this.props.data));
 		}
-		if (nextProps.initialData !== this.props.initialData) {
+		if (prevProps.initialData !== this.props.initialData) {
 			this.setState({
-				initialState: addErrorObject(nextProps.initialData), // eslint-disable-line react/no-unused-state
-				liveState: addErrorObject(nextProps.initialData),
+				initialState: addErrorObject(this.props.initialData), // eslint-disable-line react/no-unused-state
+				liveState: addErrorObject(this.props.initialData),
 			});
 		}
 	}
