@@ -1,6 +1,6 @@
 # @talend/assets-api
 
-Package which expose a simple API which cover the following requirements:
+This package exposes a simple API covering the following requirements:
 
 - dev do not have to write the version: inject it at build time thanks to [babel plugin](https://npmjs.com/package/@talend/babel-plugin-assets-api)
 - the assets version is implicitly specified by the webapp (talend-scripts add global data read by the api at runtime)
