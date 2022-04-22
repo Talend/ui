@@ -1,18 +1,18 @@
 # @talend/assets-api
 
-This package exposes a simple API covering the following requirements:
+Assets are files from a npm package which can be needeed at some point by a web application. It can be a stylesheet, a SVG icon, a js script, a json file, etc...
 
-- devs do not have to write the version: it is injected at build time thanks to [babel plugin](https://npmjs.com/package/@talend/babel-plugin-assets-api)
-- the assets' version is implicitly specified by the consumer webapp (`talend-scripts` adds global data that is then read by the API at runtime)
-- the inject.js script will be able to control this version (it should update meta value)
-- `sessionStorage` is used to let anyone override a version locally
-- the API is compatible with `React.Suspense` / lazy React APIs
-- for UMDs, the path is computed form `module-to-cdn` and injected at build time thanks to the babel plugin
-- for relative paths in a package, the name of the package is optional
+At Talend our web applications may rely on a CDN to load libraries like lodash, d3 but also @talend/design-system using UMD distribution format. An application rely on a CDN depending of the execution context; We are following 12 factors principals. So the same code base must work in both case so an asset url may change from '/cdn/my-package/1.2.3/dist/my-assets.svg`to`https://mycdn.talend.com/my-package/1.2.3/dist/my-assets.svg`.
+
+This is made possible using custom configuration of `@talend/dynamic-cdn-webpack-plugin`. Now we also need to be able to load translations, icons and more **assets** from the code.
+
+This package exposes a simple and friendly API to let developers access assets without the complexity of computing URL depending on the context (CDN or not).
 
 ## Learn with examples
 
 First you need to ensure you have setup the [babel plugin](https://npmjs.com/package/@talend/babel-plugin-assets-api) or you use @talend/scripts-core to build your lib / project.
+
+Then we can start with this global example:
 
 ```javascript
 import assetsAPI from '@talend/assets-api';
@@ -53,6 +53,16 @@ export default function DataGrid(props) {
 	return <React.Suspense fallback={}>AgGridReact</React.Suspense>
 }
 ```
+
+## Requirements
+
+- devs do not have to write the version: it is injected at build time thanks to [babel plugin](https://npmjs.com/package/@talend/babel-plugin-assets-api)
+- the assets' version is implicitly specified by the consumer webapp (`talend-scripts` adds global data that is then read by the API at runtime)
+- the inject.js script will be able to control this version (it should update meta value)
+- `sessionStorage` is used to let anyone override a version locally
+- the API is compatible with `React.Suspense` / lazy React APIs
+- for UMDs, the path is computed form `module-to-cdn` and injected at build time thanks to the babel plugin
+- for relative paths in a package, the name of the package is optional
 
 ## How to configure the CDN to use ?
 
