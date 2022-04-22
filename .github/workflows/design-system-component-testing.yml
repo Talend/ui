@@ -25,10 +25,16 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
+      - name: Get cypress cache directory
+        id: cypress-cache
+        run: |
+          echo "::set-output name=dir::$(cypress cache path)"
+          echo "::set-output name=versions::$(cypress versions | tr -d '\n')"
+
       - uses: actions/cache@v3
         with:
-          path: ~/.cache/Cypress
-          key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          path: ${{ steps.cypress-cache.outputs.dir }}
+          key: cypress-${{ runner.os }}-${{ steps.cypress-cache.outputs.versions }}
 
       - name: Install dependencies
         run: |
@@ -37,6 +43,7 @@ jobs:
 
       - name: Build @talend/design-tokens
         run: |
+          yarn workspace @talend/assets-api run build:lib
           yarn workspace @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing
