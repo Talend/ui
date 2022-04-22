@@ -2,7 +2,7 @@
 
 This package exposes a simple API covering the following requirements:
 
-- dev do not have to write the version: inject it at build time thanks to [babel plugin](https://npmjs.com/package/@talend/babel-plugin-assets-api)
+- devs do not have to write the version: it is injected at build time thanks to [babel plugin](https://npmjs.com/package/@talend/babel-plugin-assets-api)
 - the assets version is implicitly specified by the webapp (talend-scripts add global data read by the api at runtime)
 - the inject.js script will be able to control this version (it should update meta value)
 - the sessionStorage is used to let anyone try a new version
