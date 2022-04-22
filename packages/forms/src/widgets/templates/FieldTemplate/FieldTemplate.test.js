@@ -41,10 +41,8 @@ describe('FieldTemplate', () => {
 		// then
 		const descBlock = wrapper.find('.tc-inline-message #test-description').at(0);
 		expect(descBlock.props().description).toEqual('This is the description');
-		expect(descBlock.props().className).toContain('sr-only');
 
 		const errorBlock = wrapper.find('.tc-inline-message #test-error').at(1);
 		expect(errorBlock.props().description).toEqual('This is the error');
-		expect(errorBlock.props().className).toBeUndefined();
 	});
 });

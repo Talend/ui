@@ -8,7 +8,9 @@ exports[`BadgeDelete should render 1`] = `
         type="button"
         class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
 >
-  <coralicon name="talend-cross">
-  </coralicon>
+  <span name="talend-cross"
+        class="CoralIcon"
+  >
+  </span>
 </button>
 `;
