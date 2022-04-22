@@ -88,9 +88,11 @@ describe('Fieldset widget', () => {
 		const properties = { configuration: { fields: [{ type: 'FREETEXT' }] } };
 		// when
 		const wrapper = shallow(<Fieldset schema={schema} properties={properties} />);
+		const widgets = wrapper.find('Widget');
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(widgets.length).toBe(2);
+		expect(widgets.at(1).props().schema.title).toBe('Free text');
 	});
 
 	it('should not render fieldset legend without any title', () => {
