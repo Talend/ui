@@ -7,7 +7,7 @@ This package exposes a simple API covering the following requirements:
 - the inject.js script will be able to control this version (it should update meta value)
 - `sessionStorage` is used to let anyone override a version locally
 - the API is compatible with `React.Suspense` / lazy React APIs
-- for UMD, the path is computed form module-to-cdn and injected at build time thanks to the babel plugin
+- for UMDs, the path is computed form `module-to-cdn` and injected at build time thanks to the babel plugin
 - for relative path in current package, the name of the package is optional
 
 ## Learn by examples
