@@ -56,7 +56,7 @@ export default function DataGrid(props) {
 
 ## How to configure the CDN to use ?
 
-assets API use a global function to compute the url: `window.Talend.getCDNUrl`. By default the package will add it for you. This version will use a global CDN_URL with the following shape:
+The assets API uses a global function to compute the URL: `window.Talend.getCDNUrl()`. By default the package will add it for you. This version will use a global `CDN_URL` with the following shape:
 
 ```javascript
 `${CDN_URL}/${info.name}/${info.version}${info.path}`;
