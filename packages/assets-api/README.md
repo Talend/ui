@@ -24,7 +24,7 @@ console.log(href);
 // -> 'https://unpkg.com/ag-grid-community@25.0.0/dist/styles/ag-grid.css';
 
 
-// Then we have higher level API to get a JSON file for locales, timezones, etc...
+// Higher level APIs enable users to get a JSON file for locales, timezones, etc...
 async function getTopology(file) {
 	const locales = await assetsAPI.getJSON(
 		`/dist/assets/maps/${file}.topo.json`,
