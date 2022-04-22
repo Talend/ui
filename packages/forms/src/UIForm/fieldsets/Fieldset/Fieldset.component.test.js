@@ -29,6 +29,70 @@ describe('Fieldset widget', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render fieldset with nested condition', () => {
+		// given
+		const schema = {
+			items: [
+				{
+					key: ['configuration', 'fields', 0, 'type'],
+					placeholder: 'Select a field type',
+					required: true,
+					restricted: true,
+					title: 'Type',
+					titleMap: [
+						{ name: 'Age', value: 'AGE' },
+						{ name: 'Free text', value: 'FREETEXT' },
+					],
+					widget: 'datalist',
+					schema: { default: 'FULLNAME', enum: ['AGE', 'FREETEXT'], title: 'Type', type: 'string' },
+					ngModelOptions: {},
+					type: 'select',
+				},
+				{
+					condition: { '===': [{ var: 'configuration.fields[].type' }, 'AGE'] },
+					key: ['configuration', 'fields', 0, 'max'],
+					placeholder: 'max',
+					required: true,
+					title: 'Max',
+					widget: 'text',
+					schema: { default: 100, title: 'Max', type: 'number' },
+					ngModelOptions: {},
+					type: 'number',
+				},
+				{
+					condition: { '===': [{ var: 'configuration.fields[].type' }, 'FREETEXT'] },
+					key: ['configuration', 'fields', 0, 'freetext'],
+					placeholder: 'Enter any dummy text',
+					title: 'Free text',
+					widget: 'textarea',
+					schema: { default: '', title: 'Free text', type: 'string' },
+					ngModelOptions: {},
+					type: 'text',
+				},
+			],
+			key: ['configuration', 'fields', 0],
+			placeholder: 'fields',
+			required: true,
+			title: 'fields',
+			schema: {
+				properties: {
+					freetext: { default: '', title: 'Free text', type: 'string' },
+					max: { default: 100, title: 'Max', type: 'number' },
+					type: { default: 'FULLNAME', enum: ['AGE', 'FREETEXT'], title: 'Type', type: 'string' },
+				},
+				type: 'object',
+			},
+			ngModelOptions: {},
+			type: 'fieldset',
+		};
+		const properties = { configuration: { fields: [{ type: 'FREETEXT' }] } };
+		// when
+		const wrapper = shallow(<Fieldset schema={schema} properties={properties} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should not render fieldset legend without any title', () => {
 		// given
 		const schema = {
