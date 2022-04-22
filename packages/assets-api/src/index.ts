@@ -155,9 +155,7 @@ async function getJSON<T>(path: string, name?: string, version?: string) {
 }
 
 function addStyle({ href, integrity, ...attr }: StyleAsset) {
-	const found = Array.from(document.querySelectorAll('link').values()).find(
-		item => item.getAttribute('href') === href,
-	);
+	const found = !! document.querySelector(`link[href="${href}"]`);
 	if (found) {
 		return;
 	}
