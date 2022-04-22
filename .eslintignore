@@ -1,4 +1,5 @@
 .changeset
+.eslintrc.js
 .github
 .husky
 .idea

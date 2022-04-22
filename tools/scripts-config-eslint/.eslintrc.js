@@ -30,5 +30,4 @@ if (isTS) {
 	});
 }
 
-console.log('eslintrc.js configuration content: ', JSON.stringify(config, null, 2));
 module.exports = config;
