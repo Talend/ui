@@ -32,8 +32,8 @@ async function getTopology(file) {
 }
 
 
-// Then we have lazy load of a component from UMD
-// this one is a bit more complex. You have to know React.lazy want a default esModule from a Promise. This is what getUMD + toDefaultModule give you.
+// We can also lazy load a component from a UMD.
+// This one is a bit more complex. You have to know that React.lazy wants a default esModule from a Promise. This is what getUMD + toDefaultModule give you.
 const AgGridReact = React.lazy(() =>
 	assetsApi
 		.getUMD('ag-grid-community')
