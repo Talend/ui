@@ -105,7 +105,7 @@ function getUMD(name: string, version?: string, varName?: string, path?: string)
 		}
 		return !!(window as any)[varName];
 	}
-	if (loaded() && varName) {
+	if (loaded()) {
 		return Promise.resolve((window as any)[varName]);
 	}
 	const src = getURL(path || '/undefined', name, version);
