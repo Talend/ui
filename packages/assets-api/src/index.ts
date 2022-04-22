@@ -5,23 +5,23 @@ declare global {
 	}
 }
 
-interface Asset {
+export interface Asset {
 	name: string;
 	version: string;
 	path: string;
 }
-interface Script {
+export interface Script {
 	src: string;
 	integrity?: string;
 	onload?: () => void;
 	onerror?: (e: Error) => void;
 }
-interface StyleAsset {
+export interface StyleAsset {
 	href: string;
 	integrity: string;
 }
 
-interface TypedResponse<T = any> extends Response {
+export interface TypedResponse<T = any> extends Response {
 	/**
 	 * this will override `json` method from `Body` that is extended by `Response`
 	 * interface Body {
@@ -66,7 +66,7 @@ function getURL(path: string, name?: string, version?: string) {
 const TIMEOUT = 10000;
 
 function addScript({ src, integrity, ...attr }: Script) {
-	const found = !! document.querySelector(`script[src="${src}"]`);
+	const found = !!document.querySelector(`script[src="${src}"]`);
 	if (found) {
 		return;
 	}
@@ -105,7 +105,7 @@ function getUMD(name: string, version?: string, varName?: string, path?: string)
 		}
 		return !!(window as any)[varName];
 	}
-	if (loaded()) {
+	if (loaded() && varName) {
 		return Promise.resolve((window as any)[varName]);
 	}
 	const src = getURL(path || '/undefined', name, version);
@@ -155,7 +155,7 @@ async function getJSON<T>(path: string, name?: string, version?: string) {
 }
 
 function addStyle({ href, integrity, ...attr }: StyleAsset) {
-	const found = !! document.querySelector(`link[href="${href}"]`);
+	const found = !!document.querySelector(`link[href="${href}"]`);
 	if (found) {
 		return;
 	}
