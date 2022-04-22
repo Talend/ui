@@ -33,6 +33,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@talend/assets-api": "^1.0.0",
     "@talend/design-tokens": "^2.1.0",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
@@ -75,9 +76,8 @@
     "babel-plugin-styled-components": "^1.13.3",
     "browser-sync": "^2.27.9",
     "browser-sync-webpack-plugin": "^2.3.0",
-    "chromatic": "^6.5.4",
-    "core-js": "^3.22.0",
-    "cypress": "^9.5.4",
+    "chromatic": "^6.5.3",
+    "core-js": "^3.21.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-cypress": "^2.12.1",
