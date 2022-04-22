@@ -888,7 +888,8 @@ exports[`List should render 1`] = `
                                 <Icon
                                   name="talend-chevron-end"
                                 >
-                                  <CoralIcon
+                                  <span
+                                    className="CoralIcon"
                                     name="talend-chevron-end"
                                   />
                                 </Icon>
@@ -925,7 +926,8 @@ exports[`List should render 1`] = `
                                 <Icon
                                   name="talend-chevron-left"
                                 >
-                                  <CoralIcon
+                                  <span
+                                    className="CoralIcon"
                                     name="talend-chevron-left"
                                   />
                                 </Icon>
@@ -972,7 +974,8 @@ exports[`List should render 1`] = `
                                   name="talend-chevron-left"
                                   transform="rotate-180"
                                 >
-                                  <CoralIcon
+                                  <span
+                                    className="CoralIcon"
                                     name="talend-chevron-left"
                                     transform="rotate-180"
                                   />
@@ -1011,7 +1014,8 @@ exports[`List should render 1`] = `
                                   name="talend-chevron-end"
                                   transform="rotate-180"
                                 >
-                                  <CoralIcon
+                                  <span
+                                    className="CoralIcon"
                                     name="talend-chevron-end"
                                     transform="rotate-180"
                                   />
@@ -1882,7 +1886,8 @@ exports[`List should render id if provided 1`] = `
                                 <Icon
                                   name="talend-chevron-end"
                                 >
-                                  <CoralIcon
+                                  <span
+                                    className="CoralIcon"
                                     name="talend-chevron-end"
                                   />
                                 </Icon>
@@ -1922,7 +1927,8 @@ exports[`List should render id if provided 1`] = `
                                 <Icon
                                   name="talend-chevron-left"
                                 >
-                                  <CoralIcon
+                                  <span
+                                    className="CoralIcon"
                                     name="talend-chevron-left"
                                   />
                                 </Icon>
@@ -1972,7 +1978,8 @@ exports[`List should render id if provided 1`] = `
                                   name="talend-chevron-left"
                                   transform="rotate-180"
                                 >
-                                  <CoralIcon
+                                  <span
+                                    className="CoralIcon"
                                     name="talend-chevron-left"
                                     transform="rotate-180"
                                   />
@@ -2014,7 +2021,8 @@ exports[`List should render id if provided 1`] = `
                                   name="talend-chevron-end"
                                   transform="rotate-180"
                                 >
-                                  <CoralIcon
+                                  <span
+                                    className="CoralIcon"
                                     name="talend-chevron-end"
                                     transform="rotate-180"
                                   />

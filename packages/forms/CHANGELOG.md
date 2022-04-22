@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 7.0.8
+
+### Patch Changes
+
+- 6037e575c: chore(ARCH-482/ListView): remove deprecated lifecycle and use RTL for test
+- 4fa935c57: chore(ARCH-482/EnumerationWidget): remove deprecated lifecycle and use RTL for test
+- Updated dependencies [80a15c11a]
+  - @talend/react-components@6.44.14
+
 ## 7.0.7
 
 ### Patch Changes

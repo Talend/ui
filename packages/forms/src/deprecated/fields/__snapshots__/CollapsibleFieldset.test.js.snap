@@ -160,7 +160,8 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
             name="talend-caret-down"
             transform=""
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="talend-caret-down"
               transform=""
             />
@@ -814,7 +815,8 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
             name="talend-caret-down"
             transform=""
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="talend-caret-down"
               transform=""
             />
@@ -1468,7 +1470,8 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
             name="talend-caret-down"
             transform=""
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="talend-caret-down"
               transform=""
             />
@@ -2122,7 +2125,8 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
             name="talend-caret-down"
             transform="flip-vertical"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="talend-caret-down"
               transform="flip-vertical"
             />
