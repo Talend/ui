@@ -66,9 +66,7 @@ function getURL(path: string, name?: string, version?: string) {
 const TIMEOUT = 10000;
 
 function addScript({ src, integrity, ...attr }: Script) {
-	const found = Array.from(document.querySelectorAll('script').values()).find(
-		s => s.getAttribute('src') === src,
-	);
+	const found = !! document.querySelector(`script[src="${src}"]`);
 	if (found) {
 		return;
 	}
