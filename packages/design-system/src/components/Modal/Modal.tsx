@@ -39,6 +39,7 @@ function Modal(props: ModalPropsType): ReactElement {
 
 	const hasAction = primaryAction || secondaryAction;
 	const hasTabs = false; // @todo
+	const hasPrimaryAction = !!primaryAction;
 	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
 
 	return (
@@ -72,7 +73,7 @@ function Modal(props: ModalPropsType): ReactElement {
 										{secondaryAction && <ButtonSecondary {...secondaryAction} />}
 										{primaryAction &&
 											(!primaryAction.destructive ? (
-												<ButtonPrimary {...primaryAction} />
+												<ButtonPrimary tabIndex={0} {...primaryAction} />
 											) : (
 												<ButtonDestructive {...primaryAction} />
 											))}
