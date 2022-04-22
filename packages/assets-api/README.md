@@ -8,7 +8,7 @@ This package exposes a simple API covering the following requirements:
 - `sessionStorage` is used to let anyone override a version locally
 - the API is compatible with `React.Suspense` / lazy React APIs
 - for UMDs, the path is computed form `module-to-cdn` and injected at build time thanks to the babel plugin
-- for relative path in current package, the name of the package is optional
+- for relative paths in a package, the name of the package is optional
 
 ## Learn by examples
 
