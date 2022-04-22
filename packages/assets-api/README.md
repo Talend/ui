@@ -6,7 +6,7 @@ This package exposes a simple API covering the following requirements:
 - the assets' version is implicitly specified by the consumer webapp (`talend-scripts` adds global data that is then read by the API at runtime)
 - the inject.js script will be able to control this version (it should update meta value)
 - the sessionStorage is used to let anyone try a new version
-- the API is friend / compatible with suspense / lazy react api
+- the API is compatible with `React.Suspense` / lazy React APIs
 - for UMD, the path is computed form module-to-cdn and injected at build time thanks to the babel plugin
 - for relative path in current package, the name of the package is optional
 
