@@ -17,7 +17,7 @@ First you need to ensure you have setup the [babel plugin](https://npmjs.com/pac
 ```javascript
 import assetsAPI from '@talend/assets-api';
 
-// First the most low level API is to get URL of anything like a css here
+// The lowest level API is the ability to get the URL of anything. Here, a CSS file.
 const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community');
 // babel will add all missing arguments and at runtime you will have
 href === 'https://unpkg.com/ag-grid-community@25.0.0/dist/styles/ag-grid.css';
