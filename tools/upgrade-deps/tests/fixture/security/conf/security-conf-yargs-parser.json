@@ -1,0 +1,9 @@
+{
+  "name": "yargs-parser",
+  "vulnerableVersions": [
+    {
+      "range": "20.2.7",
+      "fixVersion": "20.2.9"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@talend/babel-plugin-assets-api",
+  "version": "1.0.2",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "read-pkg-up": "^7.0.1",
+    "@talend/module-to-cdn": "^9.8.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-tester": "^10.1.0",
+    "jest": "^26.6.3"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
+  "license": "Apache-2.0"
+}

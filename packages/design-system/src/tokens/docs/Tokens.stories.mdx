@@ -3,10 +3,26 @@ import { ColorPalette, ColorItem, Typeset } from '@storybook/components';
 import { Table, ColorSwatches } from '~docs';
 import tokens from './../index';
 import colors, { brand, palette, gradients, swatches } from './../colors.tokens';
+import InlineMessageDestructive from '../../components/InlineMessage/variations/InlineMessage.destructive';
+import Link from '../../components/Link';
+import { StackVertical } from '../../components/Stack';
 
-<Meta title="Design Tokens/Design Tokens" />
+<Meta title="[Deprecated] Design Tokens/Design Tokens" />
 
-# Design Tokens
+# Design Tokens (deprecated)
+
+<StackVertical gap="XS" margin={{ x: 'auto', y: 'M' }}>
+	<InlineMessageDestructive
+		withBackground
+		title="This page is deprecated"
+		description="Design tokens are now a separate package and rely on CSS custom properties."
+		link={
+			<Link href="https://talend.surge.sh/design-tokens/?path=/docs/welcome--page" target="_blank">
+				Get the new doc
+			</Link>
+		}
+	/>
+</StackVertical>
 
 We are using <a href="https://system-ui.com/theme/" target="_blank">the System UI theme specification</a>
 

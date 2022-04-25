@@ -1,0 +1,22 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.dropdownShell {
+	.animatedZone {
+		background: tokens.$coral-color-neutral-background;
+		border-radius: tokens.$coral-radius-s;
+		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+		max-height: tokens.$coral-sizing-maximal;
+		overflow: auto;
+		min-width: calc(#{tokens.$coral-sizing-maximal} / 2);
+		max-width: tokens.$coral-sizing-maximal;
+		transition: all tokens.$coral-transition-fast;
+		opacity: 0;
+		transform: translateY(-10%);
+	}
+	&[data-enter] {
+		.animatedZone {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+	}
+}

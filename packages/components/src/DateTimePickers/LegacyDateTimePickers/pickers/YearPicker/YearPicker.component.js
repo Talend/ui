@@ -33,13 +33,15 @@ class YearPicker extends React.Component {
 		this.state = { yearsWindow: buildYears(props.selectedYear, YEAR_WINDOW_OVERFLOW_SIZE) };
 	}
 
-	componentWillReceiveProps({ selectedYear }) {
+	componentDidUpdate(prevProps) {
+		const oldSelectedYear = prevProps.selectedYear;
+		const newSelectedYear = this.props.selectedYear;
 		if (
-			selectedYear &&
-			selectedYear !== this.props.selectedYear &&
-			!this.state.yearsWindow.includes(selectedYear)
+			newSelectedYear &&
+			newSelectedYear !== oldSelectedYear &&
+			!this.state.yearsWindow.includes(newSelectedYear)
 		) {
-			this.setState({ yearsWindow: buildYears(selectedYear, YEAR_WINDOW_OVERFLOW_SIZE) });
+			this.setState({ yearsWindow: buildYears(newSelectedYear, YEAR_WINDOW_OVERFLOW_SIZE) });
 		}
 	}
 

@@ -35,10 +35,10 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.2",
+    "@popperjs/core": "^2.11.5",
     "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/design-system": "^2.0.0",
-    "@talend/icons": "^6.39.0",
+    "@talend/design-system": "^2.3.0",
+    "@talend/icons": "^6.40.0",
     "@talend/utils": "^2.2.0",
     "ally.js": "^1.4.1",
     "classnames": "^2.3.1",
@@ -49,7 +49,7 @@
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21",
-    "memoize-one": "^5.2.1",
+    "memoize-one": "^6.0.0",
     "rc-slider": "8.7.1",
     "rc-tooltip": "3.7.3",
     "react-autowhatever": "10.2.0",
@@ -66,33 +66,33 @@
     "recharts": "^2.1.9",
     "simplebar": "^5.3.6",
     "simplebar-react": "^2.3.6",
-    "styled-components": "^5.3.3",
+    "styled-components": "^5.3.5",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-actions": "^6.4.22",
     "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/icons": "^6.39.0",
+    "@talend/icons": "^6.40.0",
     "@talend/locales-design-system": "^1.12.2",
     "@talend/locales-tui-components": "^6.42.3",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
     "cross-env": "^7.0.3",
-    "css-loader": "^1.0.1",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "i18next": "^20.6.1",
     "jest-in-case": "^1.0.2",
     "jsdom": "^16.7.0",
-    "postcss-loader": "^3.0.0",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-a11y": "^0.3.4",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.15.6",
+    "react-i18next": "^11.16.7",
     "react-storybook-addon-props-combinations": "^1.1.0",
-    "react-test-renderer": "^16.14.0",
-    "style-loader": "^0.23.1"
+    "react-test-renderer": "^16.14.0"
   },
   "peerDependencies": {
     "i18next": "^20.1.0",
@@ -107,5 +107,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.44.5"
+  "version": "6.44.14"
 }

@@ -5,20 +5,14 @@
     "title": "Datalist",
     "properties": {
       "simpleDatalist": {
-        "type": "string",
-        "enum": ["Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit"]
+        "type": "string"
       },
       "restrictedDatalist": {
         "type": "string",
         "enum": ["Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit"]
       },
       "titleMapDatalist": {
-        "type": "string",
-        "enum": ["Apple", "Pine[apple]", "Banana", "Cher[ry", "Lemo}n", "Grapefruit"]
-      },
-      "enumNamesDatalist": {
-        "type": "string",
-        "enum": ["a", "p", "b", "c", "l", "g"]
+        "type": "string"
       },
       "asyncTitleMap": {
         "type": "string"
@@ -26,35 +20,10 @@
       "restrictedAsyncTitleMap": {
         "type": "string"
       },
-      "datalistWithCategoryRestricted": {
-        "type": "string",
-        "enum": [
-          "salesforce",
-          "marketo",
-          "box",
-          "googledrive",
-          "dropbox",
-          "awss3",
-          "ftp",
-          "sftp",
-          "smtp",
-          "mongodb",
-          "soapclient",
-          "restclient",
-          "hdfs",
-          "hive",
-          "impala",
-          "aurora",
-          "hbase",
-          "netsuite",
-          "cassandra",
-          "redshift",
-          "awsmysql",
-          "saprfc",
-          "sap"
-        ]
+      "datalistWithCategory": {
+        "type": "string"
       },
-      "datalistWithCategoryNotRestricted": {
+      "restrictedDatalistWithCategory": {
         "type": "string",
         "enum": [
           "salesforce",
@@ -91,7 +60,33 @@
       "title": "Simple Datalist",
       "description": "This datalist accepts values that are not in the list of suggestions",
       "widget": "datalist",
-      "data-test": "datalist.simple"
+      "data-test": "datalist.simple",
+      "titleMap": [
+        {
+          "name": "Apple",
+          "value": "Apple"
+        },
+        {
+          "name": "Pine[apple]",
+          "value": "Pine[apple]"
+        },
+        {
+          "name": "Banana",
+          "value": "Banana"
+        },
+        {
+          "name": "Cher[ry",
+          "value": "Cher[ry"
+        },
+        {
+          "name": "Lemo}n",
+          "value": "Lemo}n"
+        },
+        {
+          "name": "Grapefruit",
+          "value": "Grapefruit"
+        }
+      ]
     },
     {
       "key": "restrictedDatalist",
@@ -153,7 +148,7 @@
     {
       "key": "restrictedAsyncTitleMap",
       "restricted": true,
-      "title": "Datalist with async options ans restricted value",
+      "title": "Datalist with async options and restricted value",
       "widget": "datalist",
       "triggers": [
         {
@@ -170,12 +165,12 @@
       ]
     },
     {
-      "key": "datalistWithCategoryRestricted",
-      "title": "Datalist With category and restricted value",
-      "restricted": true,
+      "key": "datalistWithCategory",
+      "title": "Datalist with category",
       "widget": "datalist",
       "options": {
         "isMultiSection": true,
+
         "titleMap": [
           {
             "title": "SaaS",
@@ -303,12 +298,12 @@
       }
     },
     {
-      "key": "datalistWithCategoryNotRestricted",
-      "title": "Datalist With category and without restricted value",
+      "key": "restrictedDatalistWithCategory",
+      "title": "Datalist With category and restricted value",
+      "restricted": true,
       "widget": "datalist",
       "options": {
         "isMultiSection": true,
-
         "titleMap": [
           {
             "title": "SaaS",

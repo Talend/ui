@@ -20,11 +20,8 @@ exports[`TimezoneList component should render the timezone dropdown widget 1`] =
                       },
                     },
                     "Europe": Object {
-                      "Kiev": Object {
-                        "exemplarCity": "Kiev",
-                      },
-                      "Paris": Object {
-                        "exemplarCity": "Paris",
+                      "Istanbul": Object {
+                        "exemplarCity": "Istanbul",
                       },
                     },
                   },
@@ -50,16 +47,10 @@ exports[`TimezoneList component should render the timezone dropdown widget 1`] =
             "value": "Africa/Freetown",
           },
           Object {
-            "name": "(UTC +01:00) Paris",
-            "offset": 60,
-            "timezoneName": "Paris",
-            "value": "Europe/Paris",
-          },
-          Object {
-            "name": "(UTC +02:00) Kiev",
-            "offset": 120,
-            "timezoneName": "Kiev",
-            "value": "Europe/Kiev",
+            "name": "(UTC +03:00) Istanbul",
+            "offset": 180,
+            "timezoneName": "Istanbul",
+            "value": "Europe/Istanbul",
           },
         ],
       },
@@ -78,16 +69,10 @@ exports[`TimezoneList component should render the timezone dropdown widget 1`] =
           "value": "Africa/Freetown",
         },
         Object {
-          "name": "(UTC +01:00) Paris",
-          "offset": 60,
-          "timezoneName": "Paris",
-          "value": "Europe/Paris",
-        },
-        Object {
-          "name": "(UTC +02:00) Kiev",
-          "offset": 120,
-          "timezoneName": "Kiev",
-          "value": "Europe/Kiev",
+          "name": "(UTC +03:00) Istanbul",
+          "offset": 180,
+          "timezoneName": "Istanbul",
+          "value": "Europe/Istanbul",
         },
       ],
     }

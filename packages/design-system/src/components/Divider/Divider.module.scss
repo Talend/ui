@@ -1,6 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .divider {
+	border: none;
 
 	&[aria-orientation='horizontal'] {
 		width: 100%;

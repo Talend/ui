@@ -1,0 +1,23 @@
+{
+  "name": "@talend/scripts-publish-local",
+  "version": "1.1.4",
+  "description": "",
+  "bin": {
+    "talend-publish-local": "./bin/cli.js"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo nothing to test"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "generate-password": "^1.7.0",
+    "rimraf": "^3.0.2",
+    "verdaccio": "^5.9.0"
+  },
+  "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}

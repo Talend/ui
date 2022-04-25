@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 7.0.2
+
+### Patch Changes
+
+- 5a9aa8718: fix(cmf): catch uncaught error in http error handling
+
 ## 7.0.1
 
 ### Patch Changes

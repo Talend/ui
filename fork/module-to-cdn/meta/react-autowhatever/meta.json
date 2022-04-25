@@ -1,0 +1,112 @@
+{
+  "https://unpkg.com/react-autowhatever@10.0.0/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-ECt4bB6rH0rqe4SkhWv7c0FYmub1c1qhQTm4x7euVjpi+ZU8EocqPU+F6OrWc3jw",
+    "lastModified": "Wed, 19 Apr 2017 21:07:14 GMT",
+    "size": 78572
+  },
+  "https://unpkg.com/react-autowhatever@10.0.0/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-1kSP3AmxOsIzTqv5b3xsYikn8A3bx+letZf3A8lrbETU0U0ZUBb4zNzkkbOdCRig",
+    "lastModified": "Wed, 19 Apr 2017 21:07:14 GMT",
+    "size": 20985
+  },
+  "https://unpkg.com/react-autowhatever@10.1.0/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-gqAAjicusmOSOTXtnpps5XEdo9uxGXEE54lWZHpiuPc/s+l6R4AlODzHCcwzYMrz",
+    "lastModified": "Fri, 09 Jun 2017 17:54:37 GMT",
+    "size": 80182
+  },
+  "https://unpkg.com/react-autowhatever@10.1.0/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-mqMwbUKF4hCim0ykLJIlmcq0juNvbz8X8d5wU/s15VmCiDH2m8VR+cvadrKJlw+8",
+    "lastModified": "Fri, 09 Jun 2017 17:54:37 GMT",
+    "size": 21215
+  },
+  "https://unpkg.com/react-autowhatever@10.1.1/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-6nL0WqRDjB6jns+FG+ho7y/H+JsVkcqPfBf0ku2ME2/TvLwGb2IzmF4Hccq5dhj5",
+    "lastModified": "Sat, 10 Mar 2018 19:04:00 GMT",
+    "size": 80148
+  },
+  "https://unpkg.com/react-autowhatever@10.1.1/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-KQFVPhQxIwyb4sgo7jChQMA/666nUf9WMF8seRdehgR2VQ4HcjDlP8iMmxfyIxRP",
+    "lastModified": "Sat, 10 Mar 2018 19:04:00 GMT",
+    "size": 21197
+  },
+  "https://unpkg.com/react-autowhatever@10.1.2/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-ynvzlRuZSC+EmqgzcdP2NxvSR5i4o7WbDFFFGUexckkAy7EPARU4PQMYV+OpI8z/",
+    "lastModified": "Sun, 10 Jun 2018 00:13:20 GMT",
+    "size": 80323
+  },
+  "https://unpkg.com/react-autowhatever@10.1.2/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-JSavnHwx9CEB/Loo+/elSe8EG97O6yT2v46nDeEFhk9moGsteoKwM0eeVhXWN1PU",
+    "lastModified": "Sun, 10 Jun 2018 00:13:20 GMT",
+    "size": 21279
+  },
+  "https://unpkg.com/react-autowhatever@10.2.0/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-YaCua91Ezk9o5fqKLM9tJN5M/rpdTwC3VXjgcbPtzCUPUbL8mCtWqX3RFc9ZiAnK",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80458
+  },
+  "https://unpkg.com/react-autowhatever@10.2.0/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-ZjU/l4XSGjDq+/2vVCLja93MRuQxFcleI3nQ+iEC6eX8BplcVaUgcbrsM2rhQ3lT",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 21354
+  },
+  "https://unpkg.com/react-autowhatever@10.2.1/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-3zPOCmaxXQ0yuputRVutp9iAoopcW3058ePt1RR1fQO6sN0qnezofDr+xgCf47/N",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 80534
+  },
+  "https://unpkg.com/react-autowhatever@10.2.1/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-sUQzLuMXIqzEmXlNZ6fW4kIWECkn39u+sA/Kklw133JZvn5MtdgorDZX65DVZ0Yn",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 21361
+  },
+  "https://unpkg.com/react-autowhatever@6.0.0/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-Om3bXrQY+75fC00HI5FLlTSwhPKgeDPRQ2ByW/wVyBuW+p8oZ9DY+MGIxV7EFVzC",
+    "lastModified": "Thu, 13 Oct 2016 00:53:28 GMT",
+    "size": 41609
+  },
+  "https://unpkg.com/react-autowhatever@6.0.0/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-ZgEPNKRLxbo1PYc4e8UpmCUrJ5cbjV0n6DP3/aEozNI1/AV9DNNNDe6xmf9vrIhi",
+    "lastModified": "Thu, 13 Oct 2016 00:53:28 GMT",
+    "size": 19563
+  },
+  "https://unpkg.com/react-autowhatever@7.0.0/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-8VxPmCXQiP+G6VQCkNzSNgTbCMTxds45P6iveEz4Caph6gyryjVXIKxjd4MdulX0",
+    "lastModified": "Tue, 18 Oct 2016 01:51:45 GMT",
+    "size": 41827
+  },
+  "https://unpkg.com/react-autowhatever@7.0.0/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-+lXWzSoUshcC1CYnP303wbH/jjdOYYpgA9m7fYx+eqBRUMBj5qXXVlzhZMuRh6kq",
+    "lastModified": "Tue, 18 Oct 2016 01:51:45 GMT",
+    "size": 19633
+  },
+  "https://unpkg.com/react-autowhatever@8.0.0/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-oiwMsQApCUffKiZCchKyE3cmXWoilIcZZjzLPC8KfuW18Q4LjGaOwHFnkUwNws6f",
+    "lastModified": "Tue, 21 Feb 2017 01:19:12 GMT",
+    "size": 42785
+  },
+  "https://unpkg.com/react-autowhatever@8.0.0/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-jLTS41PoSp1HPgBoLMgg18GgUDpJbMlyy6EU7We5fIpzx2iaFjzxsBNZ4LTMbTCC",
+    "lastModified": "Tue, 21 Feb 2017 01:19:12 GMT",
+    "size": 19860
+  },
+  "https://unpkg.com/react-autowhatever@9.0.0/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-zHXhYv1PFap9zwcYYh5ljd5j8Vz7WNBrSvQNFlYulLlyCCvzvZ6vqHb6VgHso2qh",
+    "lastModified": "Tue, 21 Feb 2017 04:19:51 GMT",
+    "size": 42797
+  },
+  "https://unpkg.com/react-autowhatever@9.0.0/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-X49r/Uelr2VZPdsohHY6Nl4Ok2JFg7djimVZEv4WRcjfyVTqzRWiwRM8/MyiRdom",
+    "lastModified": "Tue, 21 Feb 2017 04:19:51 GMT",
+    "size": 19872
+  },
+  "https://unpkg.com/react-autowhatever@9.1.0/dist/standalone/autowhatever.js": {
+    "integrity": "sha384-Od8T3k0bh6zcBqpxCnzaogyDmpIUUiAW/WUzO7Ve6eP1Wfkdr3h4Ck/eJbN0V7Xt",
+    "lastModified": "Sun, 26 Feb 2017 01:52:31 GMT",
+    "size": 42913
+  },
+  "https://unpkg.com/react-autowhatever@9.1.0/dist/standalone/autowhatever.min.js": {
+    "integrity": "sha384-TuLhsFH3vE1iwuK7RyEJorCcR3zD3XZ4s/+mmzN0shalAIUkHxdrvM4AnA9gJAKO",
+    "lastModified": "Sun, 26 Feb 2017 01:52:31 GMT",
+    "size": 19939
+  }
+}

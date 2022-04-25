@@ -1,0 +1,407 @@
+{
+  "date-fns": {
+    "var": "DateFns",
+    "versions": {
+      ">= 1.30.1": {
+        "development": "/talend-umds/DateFns.min.js",
+        "production": "/talend-umds/DateFns.min.js"
+      }
+    }
+  },
+  "date-fns-timezone": {
+    "var": "DateFnsTimezone",
+    "versions": {
+      ">= 0.1.4": {
+        "development": "/talend-umds/DateFnsTimezone.min.js",
+        "production": "/talend-umds/DateFnsTimezone.min.js"
+      }
+    }
+  },
+  "invariant": {
+    "var": "Invariant",
+    "versions": {
+      ">= 2.2.4": {
+        "development": "/talend-umds/Invariant.min.js",
+        "production": "/talend-umds/Invariant.min.js"
+      }
+    }
+  },
+  "keycode": {
+    "var": "Keycode",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/talend-umds/Keycode.min.js",
+        "production": "/talend-umds/Keycode.min.js"
+      }
+    }
+  },
+  "memoize-one": {
+    "var": "MemoizeOne",
+    "versions": {
+      ">= 5.1.1": {
+        "development": "/talend-umds/MemoizeOne.min.js",
+        "production": "/talend-umds/MemoizeOne.min.js"
+      }
+    }
+  },
+  "rc-slider": {
+    "var": "RcSlider",
+    "versions": {
+      ">= 8.6.3": {
+        "development": "/talend-umds/RcSlider.min.js",
+        "production": "/talend-umds/RcSlider.min.js"
+      }
+    }
+  },
+  "rc-tooltip": {
+    "var": "RcTooltip",
+    "versions": {
+      ">= 3.7.3": {
+        "development": "/talend-umds/RcTooltip.min.js",
+        "production": "/talend-umds/RcTooltip.min.js"
+      }
+    }
+  },
+  "react-dnd": {
+    "var": "ReactDnD",
+    "versions": {
+      ">= 2.6.0": {
+        "development": "/talend-umds/ReactDnd.min.js",
+        "production": "/talend-umds/ReactDnd.min.js"
+      }
+    }
+  },
+  "react-draggable": {
+    "var": "ReactDraggable",
+    "versions": {
+      ">= 3.3.2 < 4.0.1 || > 4.0.1": {
+        "development": "/talend-umds/ReactDraggable.min.js",
+        "production": "/talend-umds/ReactDraggable.min.js"
+      }
+    }
+  },
+  "react-grid-layout": {
+    "var": "ReactGridLayout",
+    "versions": {
+      ">= 0.16.6": {
+        "development": "/talend-umds/ReactGridLayout.min.js",
+        "production": "/talend-umds/ReactGridLayout.min.js"
+      }
+    }
+  },
+  "react-immutable-proptypes": {
+    "var": "ReactImmutableProptypes",
+    "versions": {
+      ">= 2.2.0": {
+        "development": "/talend-umds/ReactImmutableProptypes.min.js",
+        "production": "/talend-umds/ReactImmutableProptypes.min.js"
+      }
+    }
+  },
+  "react-popper": {
+    "var": "ReactPopper",
+    "versions": {
+      ">= 1.3.7": {
+        "development": "/talend-umds/ReactPopper.min.js",
+        "production": "/talend-umds/ReactPopper.min.js"
+      }
+    }
+  },
+  "react-transition-group": {
+    "var": "ReactTransitionGroup",
+    "versions": {
+      ">= 1.2.1": {
+        "development": "/talend-umds/ReactTransitionGroup.min.js",
+        "production": "/talend-umds/ReactTransitionGroup.min.js"
+      }
+    }
+  },
+  "react-use": {
+    "var": "ReactUse",
+    "versions": {
+      ">= 13.27.1": {
+        "development": "/talend-umds/ReactUse.min.js",
+        "production": "/talend-umds/ReactUse.min.js"
+      }
+    }
+  },
+  "react-virtualized": {
+    "var": "ReactVirtualized",
+    "versions": {
+      ">= 9.21.0": {
+        "development": "/talend-umds/ReactVirtualized.min.js",
+        "production": "/talend-umds/ReactVirtualized.min.js"
+      }
+    }
+  },
+  "reactour": {
+    "var": "Reactour",
+    "versions": {
+      ">= 1.18.0": {
+        "development": "/talend-umds/Reactour.min.js",
+        "production": "/talend-umds/Reactour.min.js"
+      }
+    }
+  },
+  "recharts": {
+    "var": "Recharts",
+    "versions": {
+      ">= 1.8.5": {
+        "development": "/talend-umds/Recharts.min.js",
+        "production": "/talend-umds/Recharts.min.js"
+      }
+    }
+  },
+  "simplebar": {
+    "var": "SimpleBar",
+    "versions": {
+      ">= 4.2.3": {
+        "development": "/talend-umds/Simplebar.min.js",
+        "production": "/talend-umds/Simplebar.min.js"
+      }
+    }
+  },
+  "simplebar-react": {
+    "var": "SimplebarReact",
+    "versions": {
+      ">= 1.2.3": {
+        "development": "/talend-umds/SimplebarReact.min.js",
+        "production": "/talend-umds/SimplebarReact.min.js"
+      }
+    }
+  },
+  "timezone-support": {
+    "var": "timezoneSupport",
+    "versions": {
+      ">= 1.8.1": {
+        "development": "/talend-umds/TimezoneSupport.min.js",
+        "production": "/talend-umds/TimezoneSupport.min.js"
+      }
+    }
+  },
+  "uuid": {
+    "var": "uuid",
+    "versions": {
+      ">= 3.4.0": {
+        "development": "/talend-umds/Uuid.min.js",
+        "production": "/talend-umds/Uuid.min.js"
+      }
+    }
+  },
+  "path-to-regexp": {
+    "var": "PathToRegexp",
+    "versions": {
+      ">= 2.0.0": {
+        "development": "/talend-umds/PathToRegexp.min.js",
+        "production": "/talend-umds/PathToRegexp.min.js"
+      }
+    }
+  },
+  "react-tap-event-plugin": {
+    "var": "ReactTapEventPlugin",
+    "versions": {
+      ">= 2.0.0": {
+        "development": "/talend-umds/ReactTapEventPlugin.min.js",
+        "production": "/talend-umds/ReactTapEventPlugin.min.js"
+      }
+    }
+  },
+  "whatwg-fetch": {
+    "var": "WhatwgFetch",
+    "versions": {
+      ">= 2.0.3": {
+        "development": "/talend-umds/WhatwgFetch.min.js",
+        "production": "/talend-umds/WhatwgFetch.min.js"
+      }
+    }
+  },
+  "ajv": {
+    "var": "Ajv",
+    "versions": {
+      ">= 6.2.1": {
+        "development": "/talend-umds/Ajv.min.js",
+        "production": "/talend-umds/Ajv.min.js"
+      }
+    }
+  },
+  "bson-objectid": {
+    "var": "BsonObjectid",
+    "versions": {
+      ">= 1.1.5": {
+        "development": "/talend-umds/BsonObjectid.min.js",
+        "production": "/talend-umds/BsonObjectid.min.js"
+      }
+    }
+  },
+  "hoist-non-react-statics": {
+    "var": "hoistNonReactStatics",
+    "versions": {
+      ">= 2.5.5": {
+        "development": "/talend-umds/HoistNonReactStatics.min.js",
+        "production": "/talend-umds/HoistNonReactStatics.min.js"
+      }
+    }
+  },
+  "immutablediff": {
+    "var": "Immutablediff",
+    "versions": {
+      ">= 0.4.4": {
+        "development": "/talend-umds/Immutablediff.min.js",
+        "production": "/talend-umds/Immutablediff.min.js"
+      }
+    }
+  },
+  "i18next": {
+    "var": "i18next",
+    "versions": {
+      ">= 15.1.3": {
+        "development": "/talend-umds/I18next.min.js",
+        "production": "/talend-umds/I18next.min.js"
+      }
+    }
+  },
+  "react-hook-form": {
+    "var": "ReactHookForm",
+    "versions": {
+      ">= 6.9.2 < 6.9.3 || > 6.9.3": {
+        "development": "/talend-umds/ReactHookForm.min.js",
+        "production": "/talend-umds/ReactHookForm.min.js"
+      }
+    }
+  },
+  "react-i18next": {
+    "var": "ReactI18next",
+    "versions": {
+      ">= 10.11.4": {
+        "development": "/talend-umds/ReactI18next.min.js",
+        "production": "/talend-umds/ReactI18next.min.js"
+      }
+    }
+  },
+  "react-router": {
+    "var": "ReactRouter",
+    "versions": {
+      ">= 3.2.0": {
+        "development": "/talend-umds/ReactRouter.min.js",
+        "production": "/talend-umds/ReactRouter.min.js"
+      }
+    }
+  },
+  "react-router-redux": {
+    "var": "ReactRouterRedux",
+    "versions": {
+      ">= 4.0.8": {
+        "development": "/talend-umds/ReactRouterRedux.min.js",
+        "production": "/talend-umds/ReactRouterRedux.min.js"
+      }
+    }
+  },
+  "redux-batched-actions": {
+    "var": "ReduxBatchedActions",
+    "versions": {
+      ">= 0.2.0": {
+        "development": "/talend-umds/ReduxBatchedActions.min.js",
+        "production": "/talend-umds/ReduxBatchedActions.min.js"
+      }
+    }
+  },
+  "redux-batched-subscribe": {
+    "var": "ReduxBatchedSubscribe",
+    "versions": {
+      ">= 0.1.6": {
+        "development": "/talend-umds/ReduxBatchedSubscribe.min.js",
+        "production": "/talend-umds/ReduxBatchedSubscribe.min.js"
+      }
+    }
+  },
+  "redux-logger": {
+    "var": "ReduxLogger",
+    "versions": {
+      ">= 3.0.6": {
+        "development": "/talend-umds/ReduxLogger.min.js",
+        "production": "/talend-umds/ReduxLogger.min.js"
+      }
+    }
+  },
+  "redux-saga": {
+    "var": "ReduxSaga",
+    "versions": {
+      ">= 0.15.4": {
+        "development": "/talend-umds/ReduxSaga.min.js",
+        "production": "/talend-umds/ReduxSaga.min.js"
+      }
+    }
+  },
+  "redux-thunk": {
+    "var": "ReduxThunk",
+    "versions": {
+      ">= 2.2.0": {
+        "development": "/talend-umds/ReduxThunk.min.js",
+        "production": "/talend-umds/ReduxThunk.min.js"
+      }
+    }
+  },
+  "redux-undo": {
+    "var": "ReduxUndo",
+    "versions": {
+      ">= beta": {
+        "development": "/talend-umds/ReduxUndo.min.js",
+        "production": "/talend-umds/ReduxUndo.min.js"
+      }
+    }
+  },
+  "reselect": {
+    "var": "Reselect",
+    "versions": {
+      ">= 2.5.4": {
+        "development": "/talend-umds/Reselect.min.js",
+        "production": "/talend-umds/Reselect.min.js"
+      }
+    }
+  },
+  "slugify": {
+    "var": "Slugify",
+    "versions": {
+      ">= 1.1.0": {
+        "development": "/talend-umds/Slugify.min.js",
+        "production": "/talend-umds/Slugify.min.js"
+      }
+    }
+  },
+  "tv4": {
+    "var": "tv4",
+    "versions": {
+      ">= 1.3.0": {
+        "development": "/talend-umds/Tv4.min.js",
+        "production": "/talend-umds/Tv4.min.js"
+      }
+    }
+  },
+  "react-ace": {
+    "var": "ReactAce",
+    "versions": {
+      ">= 6.2.0": {
+        "development": "/talend-umds/ReactAce.min.js",
+        "production": "/talend-umds/ReactAce.min.js"
+      }
+    }
+  },
+  "react-jsonschema-form": {
+    "var": "JSONSchemaForm",
+    "versions": {
+      ">= 0.51.0 < 1.0.0": {
+        "development": "/talend-umds/ReactJsonschemaForm.min.js",
+        "production": "/talend-umds/ReactJsonschemaForm.min.js"
+      }
+    }
+  },
+  "regenerator-runtime": {
+    "var": "RegeneratorRuntime",
+    "versions": {
+      ">= 0.13.1": {
+        "development": "/talend-umds/RegeneratorRuntime.min.js",
+        "production": "/talend-umds/RegeneratorRuntime.min.js"
+      }
+    }
+  }
+}

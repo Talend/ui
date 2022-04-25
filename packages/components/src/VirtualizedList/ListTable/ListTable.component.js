@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
@@ -12,8 +11,11 @@ import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
 import Skeleton from '../../Skeleton';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
+import { getTheme } from '../../theme';
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
+
+const css = getTheme(theme);
 
 function SkeletonRow({ columns }) {
 	return columns.map(column => (
@@ -63,23 +65,27 @@ function ListTable(props) {
 
 	const onRowClickCallback = decorateRowClick(onRowClick);
 	const onRowDoubleClickCallback = decorateRowDoubleClick(onRowDoubleClick);
+	const headerRowRenderer = ({ className, columns, style }) => (
+		<div className={css('tc-list-headerRow', className)} role="row" style={style}>
+			{columns}
+		</div>
+	);
 
 	return (
 		<VirtualizedTable
-			className={`tc-list-table ${theme['tc-list-table']}`}
+			className={css('tc-list-table')}
 			gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
 			headerHeight={40}
 			id={id}
 			onRowClick={onRowClickCallback}
 			onRowDoubleClick={onRowDoubleClickCallback}
 			rowClassName={({ index }) =>
-				classNames(
-					...[theme['tc-list-item'], rowThemes, collection[index] && collection[index].className],
-				)
+				css('tc-list-item', rowThemes, { [collection[index]?.className]: collection[index] })
 			}
 			rowCount={rowCount || collection.length}
 			rowGetter={({ index }) => collection[index] || {}}
 			rowRenderer={RowTableRenderer}
+			headerRowRenderer={headerRowRenderer}
 			{...restProps}
 		/>
 	);

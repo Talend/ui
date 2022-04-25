@@ -1,0 +1,1122 @@
+{
+  "https://unpkg.com/core-js@0.0.9/client/core.js": {
+    "integrity": "sha384-RJUNWv0N9tYS11p5WwgRNqFt53huwTlnPErNTA5Zxu4s+kocXFGcx0rs0OrcLDE6",
+    "lastModified": "Thu, 30 Oct 2014 13:35:14 GMT",
+    "size": 69461
+  },
+  "https://unpkg.com/core-js@0.0.9/client/core.min.js": {
+    "integrity": "sha384-Xv5zGcLUNq+M1u8shrf7Jmh+h2EIxIDuDFMgkoYQ3dbBQLOfAHzwSbRKn+Dydibc",
+    "lastModified": "Thu, 30 Oct 2014 13:35:18 GMT",
+    "size": 21686
+  },
+  "https://unpkg.com/core-js@0.1.1/client/core.js": {
+    "integrity": "sha384-N4EBMJw8a5GNlc4Ktg/ztN5KT9w7kj0xzjXGexInE42JtEf1mLN8AuCZWVooO/+F",
+    "lastModified": "Tue, 18 Nov 2014 11:48:48 GMT",
+    "size": 70950
+  },
+  "https://unpkg.com/core-js@0.1.1/client/core.min.js": {
+    "integrity": "sha384-qBpVaH1gvz5cW0CImg8oXVHEHmUpfb3yMeO5mSj5Q70F2XZcRRyJB0hS2ELoiLEy",
+    "lastModified": "Tue, 18 Nov 2014 11:48:52 GMT",
+    "size": 22347
+  },
+  "https://unpkg.com/core-js@0.1.2/client/core.js": {
+    "integrity": "sha384-PJai9kaW0gg561AwF0GgBvo6qcR1fotPTv8XvxXSp/QJY3E/1RpqNmDJ6PnGTYkA",
+    "lastModified": "Wed, 19 Nov 2014 13:35:18 GMT",
+    "size": 71106
+  },
+  "https://unpkg.com/core-js@0.1.2/client/core.min.js": {
+    "integrity": "sha384-eTlfFdmlozu73nFsm6Z8BNBCNd9VRvBTKbtEZTSMzibhKDwqCX4v1dzltvM6EKun",
+    "lastModified": "Wed, 19 Nov 2014 13:35:22 GMT",
+    "size": 22410
+  },
+  "https://unpkg.com/core-js@0.1.3/client/core.js": {
+    "integrity": "sha384-cO2x/cpL31cxvQLSgokDRP4uZ/2pCkGPzFXb14kH6rZyVCWgsT/wmxhOQ7mBXQc9",
+    "lastModified": "Thu, 20 Nov 2014 08:44:02 GMT",
+    "size": 71755
+  },
+  "https://unpkg.com/core-js@0.1.3/client/core.min.js": {
+    "integrity": "sha384-kN9TShlFey2hAtS21J9bw1O79XyIkwTE0NNvVik0/qQeZhwnUWEHyrfcPpQ1ebTe",
+    "lastModified": "Thu, 20 Nov 2014 08:44:06 GMT",
+    "size": 22708
+  },
+  "https://unpkg.com/core-js@0.1.4/client/core.js": {
+    "integrity": "sha384-qOYiXf99FnT0CVakFWP9Il39+SbSHMFUYwgf4LMEq5kBsI5shlLP9EzmH4yCUPgZ",
+    "lastModified": "Thu, 27 Nov 2014 10:58:30 GMT",
+    "size": 71851
+  },
+  "https://unpkg.com/core-js@0.1.4/client/core.min.js": {
+    "integrity": "sha384-m4FKheC5rJD5nAjfLaCpG38SZtwBklfJGGt0K86CHUfLwOUaALak/SI4MEv2FDlB",
+    "lastModified": "Thu, 27 Nov 2014 10:58:34 GMT",
+    "size": 22763
+  },
+  "https://unpkg.com/core-js@0.1.5/client/core.js": {
+    "integrity": "sha384-aVhjk/iriMovIuWuy5Pr2SqPyWtquf7L0h2/Rx193Bcx2t/ZlVInKIAIwsFt/qdl",
+    "lastModified": "Mon, 01 Dec 2014 13:26:23 GMT",
+    "size": 73070
+  },
+  "https://unpkg.com/core-js@0.1.5/client/core.min.js": {
+    "integrity": "sha384-fHsTCYWGwm7Or+O6qsFMF0+9dImvvo+pVmuOAP896tUV7m77yIyFRAoCo8KKqoEH",
+    "lastModified": "Mon, 01 Dec 2014 13:26:26 GMT",
+    "size": 23353
+  },
+  "https://unpkg.com/core-js@0.2.0/client/core.js": {
+    "integrity": "sha384-AyA3Z6HaZYQiqqnUo+QslfelHYDXC/ez45x9WuNm4SfopGG2cKtiyhtolZPGzXnf",
+    "lastModified": "Fri, 05 Dec 2014 20:39:51 GMT",
+    "size": 74785
+  },
+  "https://unpkg.com/core-js@0.2.0/client/core.min.js": {
+    "integrity": "sha384-yW0ATXR3yefyK4Tjk/BXB6DlQM1KAqZWKNLa5TKNIi2x55lR2K2jVqyQyqIGfuaQ",
+    "lastModified": "Fri, 05 Dec 2014 20:39:56 GMT",
+    "size": 23727
+  },
+  "https://unpkg.com/core-js@0.2.1/client/core.js": {
+    "integrity": "sha384-M2yHXSUNYPWPNLVKAGUN5Di0pKF522NgikHE65HYMoZiUrz+yJSuLHmqb4cgiNA4",
+    "lastModified": "Thu, 11 Dec 2014 20:31:28 GMT",
+    "size": 74894
+  },
+  "https://unpkg.com/core-js@0.2.1/client/core.min.js": {
+    "integrity": "sha384-0CcyDdzel9aipKzEJZ4M4/JAzVN2iMA7guJLb3FyLIEBTqXsVLzp9glg/FXDqsFl",
+    "lastModified": "Thu, 11 Dec 2014 20:31:33 GMT",
+    "size": 23773
+  },
+  "https://unpkg.com/core-js@0.2.2/client/core.js": {
+    "integrity": "sha384-2p9DzbfSO30+METWVx4smkNuZvhUta4Y2snq/TaDm73+0dhWfjHO3QeYs8wwBJDC",
+    "lastModified": "Fri, 12 Dec 2014 21:13:01 GMT",
+    "size": 75542
+  },
+  "https://unpkg.com/core-js@0.2.2/client/core.min.js": {
+    "integrity": "sha384-6lZ/TjUsxHkPrZJXA2iRLMonnLUr1n2ET8za+RO3036Hx+KX+iQcZRHAINkEnzQZ",
+    "lastModified": "Fri, 12 Dec 2014 21:13:06 GMT",
+    "size": 24024
+  },
+  "https://unpkg.com/core-js@0.2.3/client/core.js": {
+    "integrity": "sha384-nEi5Ng9I/1+22aWonngem36BBhMn+Z9+Lz4rXyGZf88QXg3D3lUgPNLDbPdk/y8r",
+    "lastModified": "Mon, 15 Dec 2014 14:58:42 GMT",
+    "size": 76229
+  },
+  "https://unpkg.com/core-js@0.2.3/client/core.min.js": {
+    "integrity": "sha384-0tuSW11JvGbMO302ffU+zCq/eG9Z/eN8Wt4ShB92rfmdknGFQjmmd8q6BI2q/VF5",
+    "lastModified": "Mon, 15 Dec 2014 14:58:47 GMT",
+    "size": 24214
+  },
+  "https://unpkg.com/core-js@0.2.4/client/core.js": {
+    "integrity": "sha384-QX46fUIw4hflMptvdc1oZzWs7GWT6heIOeGR+kSs1E4oZRja4q8jK5umhzfuMd+O",
+    "lastModified": "Wed, 17 Dec 2014 00:21:49 GMT",
+    "size": 77254
+  },
+  "https://unpkg.com/core-js@0.2.4/client/core.min.js": {
+    "integrity": "sha384-DOsOe4xntAFnUIiK00dRGAo61llVn0eP8ni1L+mJBbjCJNJPVeMLXCMHqbuTyFwE",
+    "lastModified": "Wed, 17 Dec 2014 00:21:54 GMT",
+    "size": 24634
+  },
+  "https://unpkg.com/core-js@0.2.5/client/core.js": {
+    "integrity": "sha384-RxsUYe9J2kBy2MnsbVURDY5Qw0r9wRuZzGmgRcDNFagKQ4ThQ2vhPwQ7xyCFYvlp",
+    "lastModified": "Sat, 20 Dec 2014 03:23:02 GMT",
+    "size": 77278
+  },
+  "https://unpkg.com/core-js@0.2.5/client/core.min.js": {
+    "integrity": "sha384-Oh3hfHsAiRd9XgqZV9hRvanEPvyYAg7FedTytJXCzBvn1rRrhz0NnCEcxowR0iEX",
+    "lastModified": "Sat, 20 Dec 2014 03:23:06 GMT",
+    "size": 24611
+  },
+  "https://unpkg.com/core-js@0.3.0/client/core.js": {
+    "integrity": "sha384-H/mpJZ1bRE6BXtuhQ1ljHf6IXwkf6HuIB+bxFACzhXDul1TBHfLSYluSPOMzOSEW",
+    "lastModified": "Mon, 22 Dec 2014 22:18:36 GMT",
+    "size": 76302
+  },
+  "https://unpkg.com/core-js@0.3.0/client/core.min.js": {
+    "integrity": "sha384-vf2+xyofcs9u6T7oRY/en96AecFwwlKpAmLOXinM4kGoozTS/sJnEZId/4DmY1ep",
+    "lastModified": "Mon, 22 Dec 2014 22:18:42 GMT",
+    "size": 24575
+  },
+  "https://unpkg.com/core-js@0.3.1/client/core.js": {
+    "integrity": "sha384-9rrI+G4O1P6gZLXpVonH/+pTEyQnRTN0i7FbHDbWLZYwFBmFBudhi/vckTZdqG/U",
+    "lastModified": "Tue, 23 Dec 2014 12:42:47 GMT",
+    "size": 76125
+  },
+  "https://unpkg.com/core-js@0.3.1/client/core.min.js": {
+    "integrity": "sha384-UMprXpAlAsGzoy6vgbHhiQn/ZJPsdbye8yD3rjmVHq3auq3WfFmyqzb23/XzzBC6",
+    "lastModified": "Tue, 23 Dec 2014 12:42:52 GMT",
+    "size": 24484
+  },
+  "https://unpkg.com/core-js@0.3.2/client/core.js": {
+    "integrity": "sha384-m+iwvyh6L8gFRcfJf0kjyMZo8JluKP7AXvAjUDun840aVNEdT3NpFvT64o6OYAms",
+    "lastModified": "Thu, 25 Dec 2014 04:10:33 GMT",
+    "size": 76430
+  },
+  "https://unpkg.com/core-js@0.3.2/client/core.min.js": {
+    "integrity": "sha384-/7bmFTPCDCVSf5HcSM5uhGNgr2DGeIMwAJjOpWeAp2twk5HVM7ICZWz0a8pAxkgZ",
+    "lastModified": "Thu, 25 Dec 2014 04:10:38 GMT",
+    "size": 24591
+  },
+  "https://unpkg.com/core-js@0.3.3/client/core.js": {
+    "integrity": "sha384-tKoUC9ZPrOs3kt58VFmvOem24x9761IrCW/jqKDXYdIFrUNp5+Rg/KyqRRvK6Q/M",
+    "lastModified": "Sun, 28 Dec 2014 01:26:31 GMT",
+    "size": 75792
+  },
+  "https://unpkg.com/core-js@0.3.3/client/core.min.js": {
+    "integrity": "sha384-8I0CB7AiFtwEw/1mgcaVKv44JDgMYbcHWxeqffjNtYFgLpjSUdjeSldMmr4Awc4H",
+    "lastModified": "Sun, 28 Dec 2014 01:26:35 GMT",
+    "size": 24455
+  },
+  "https://unpkg.com/core-js@0.4.0/client/core.js": {
+    "integrity": "sha384-eDpa0jxibfQSe1yf3UJkFbhzfVNGZHF+u2n0BFKI58f9j+LlC5+Pl9zX+pTGdxKc",
+    "lastModified": "Sun, 04 Jan 2015 15:16:33 GMT",
+    "size": 80380
+  },
+  "https://unpkg.com/core-js@0.4.0/client/core.min.js": {
+    "integrity": "sha384-1sKE9t602VwJewWf+/fRxPQeX7aQxaJonrHrxeuVkrHHhwcg4qT+Fzrl21qWS8Ff",
+    "lastModified": "Sun, 04 Jan 2015 15:16:39 GMT",
+    "size": 25824
+  },
+  "https://unpkg.com/core-js@0.4.1/client/core.js": {
+    "integrity": "sha384-8AzEGSHgEFTmzwp6DB5KDvpiU1GS+jnrJPzKfmFHcYooTKtgHNj0opQykVJac/Dx",
+    "lastModified": "Mon, 05 Jan 2015 22:32:50 GMT",
+    "size": 80386
+  },
+  "https://unpkg.com/core-js@0.4.1/client/core.min.js": {
+    "integrity": "sha384-40dDvwzYsLANMScuhPOGoT0Q50TXy2YknTRFtM/YyLcF85HNa0d/JJCBbnFj9Avg",
+    "lastModified": "Mon, 05 Jan 2015 22:32:56 GMT",
+    "size": 25873
+  },
+  "https://unpkg.com/core-js@0.4.10/client/core.js": {
+    "integrity": "sha384-7KuINWfOjQM0qMY1Asnm70Xs8FQbRj0rAVTYnos8wCnMUHiTEr2MvUJ9bOqDBf+e",
+    "lastModified": "Wed, 28 Jan 2015 09:10:22 GMT",
+    "size": 87252
+  },
+  "https://unpkg.com/core-js@0.4.10/client/core.min.js": {
+    "integrity": "sha384-8lIK4PzH5pGRhCIJf63shZKlQPGk6EbaQSPEUP8Lz4kIOJ8hrkoXFhPazvlq8a8C",
+    "lastModified": "Wed, 28 Jan 2015 09:10:32 GMT",
+    "size": 28261
+  },
+  "https://unpkg.com/core-js@0.4.2/client/core.js": {
+    "integrity": "sha384-539CFkW/RjsGa61MK0cJCx3uLaWKHgrARPkliMRUcvjj5al8dXttF1/cRDV8owei",
+    "lastModified": "Sat, 10 Jan 2015 05:39:44 GMT",
+    "size": 82691
+  },
+  "https://unpkg.com/core-js@0.4.2/client/core.min.js": {
+    "integrity": "sha384-OSCqGXxfw0bmKhUY7XNwh2SSVleGdps/rtcU3uKSpcTcwX9LWWkeKqmZRS4MB8s+",
+    "lastModified": "Sat, 10 Jan 2015 05:39:49 GMT",
+    "size": 26778
+  },
+  "https://unpkg.com/core-js@0.4.3/client/core.js": {
+    "integrity": "sha384-cYc170bpIrOT4Og2To9Ck4Iq5icLGdks+c/xOfhIdHg44C6sjUJU8miR7y0krQaN",
+    "lastModified": "Sat, 10 Jan 2015 11:37:09 GMT",
+    "size": 83078
+  },
+  "https://unpkg.com/core-js@0.4.3/client/core.min.js": {
+    "integrity": "sha384-QI3/DQ+4aCGVhisHks6OzGG66pAh+Br7MbRJc5HmZXVGk2nV4QAm0wnRCB40Zjgi",
+    "lastModified": "Sat, 10 Jan 2015 11:37:14 GMT",
+    "size": 26939
+  },
+  "https://unpkg.com/core-js@0.4.4/client/core.js": {
+    "integrity": "sha384-MfISgKAAdqTTx5KiNHulxPqR1yj8zhq59Glf8d7sj+rzwdVO1d2J0q+FLZ0tXfmG",
+    "lastModified": "Sun, 11 Jan 2015 15:05:30 GMT",
+    "size": 83387
+  },
+  "https://unpkg.com/core-js@0.4.4/client/core.min.js": {
+    "integrity": "sha384-bk0kYj6aoSFIlkukj25cmG5s++GTQGi6efQES/ptX74YkM4Tn1q9JjToeWd+VDs3",
+    "lastModified": "Sun, 11 Jan 2015 15:05:36 GMT",
+    "size": 27141
+  },
+  "https://unpkg.com/core-js@0.4.5/client/core.js": {
+    "integrity": "sha384-JQoftyyay+as+1mHP09F4Ued8pO5W24hV2LFHJOtCXVUVUYXzhUKkYnJ51Jv8eX6",
+    "lastModified": "Fri, 16 Jan 2015 14:16:15 GMT",
+    "size": 83740
+  },
+  "https://unpkg.com/core-js@0.4.5/client/core.min.js": {
+    "integrity": "sha384-MGzp7j02Pl39os3+JI69f1zPesI/+UIQyQmbSqkGlpKd4oforWWcvhyHqUlzXiRk",
+    "lastModified": "Fri, 16 Jan 2015 14:16:20 GMT",
+    "size": 27283
+  },
+  "https://unpkg.com/core-js@0.4.6/client/core.js": {
+    "integrity": "sha384-CYUUDhfDKTIf2nO8KYnia95m12zZIUjaNZ7Mh+bw0GLYxvlTevPlpu8IsIqTWVKE",
+    "lastModified": "Wed, 21 Jan 2015 16:39:05 GMT",
+    "size": 85033
+  },
+  "https://unpkg.com/core-js@0.4.6/client/core.min.js": {
+    "integrity": "sha384-vFc1VCzSSDZEnb5GGcTdfFWhmWEyesrmEmfwFGmir+QR5qyne0Rw68ZEdEVmiSbQ",
+    "lastModified": "Wed, 21 Jan 2015 16:39:12 GMT",
+    "size": 27667
+  },
+  "https://unpkg.com/core-js@0.4.7/client/core.js": {
+    "integrity": "sha384-rtcHIdZNN1Z+IWzZixm+Ok7WWa+WdmRm0UTHm5JQn9Ewf9e2C7mfrmqKdS3lqgkx",
+    "lastModified": "Sat, 24 Jan 2015 19:07:45 GMT",
+    "size": 85985
+  },
+  "https://unpkg.com/core-js@0.4.7/client/core.min.js": {
+    "integrity": "sha384-bBVn6xaUPxt43T19x4u7d66jSSsMDtsoGlrkhENhgBbM9xXm7N8+mAZMHjuADP6k",
+    "lastModified": "Sat, 24 Jan 2015 19:07:51 GMT",
+    "size": 28001
+  },
+  "https://unpkg.com/core-js@0.4.8/client/core.js": {
+    "integrity": "sha384-F4eN8t3TevZuLCGIfP+ekdPSdz8h6gYKLEcQwt5l+jhpqNB1LD5FYCkjzlUrUSsq",
+    "lastModified": "Sun, 25 Jan 2015 09:59:09 GMT",
+    "size": 86705
+  },
+  "https://unpkg.com/core-js@0.4.8/client/core.min.js": {
+    "integrity": "sha384-9WCL3ZSb9oqKStlNv9ocg8kDZ0f6tYBiJ5AvL4pSt7mWeIBzFFpPGqWeOYwA6QeI",
+    "lastModified": "Sun, 25 Jan 2015 09:59:15 GMT",
+    "size": 28197
+  },
+  "https://unpkg.com/core-js@0.4.9/client/core.js": {
+    "integrity": "sha384-8G9VVZUPCtN13tcSCyeg5V/qJRla6Isg/S2MlyKksIGONgUxhX+hx0wf4Ic75eL5",
+    "lastModified": "Mon, 26 Jan 2015 18:22:26 GMT",
+    "size": 87219
+  },
+  "https://unpkg.com/core-js@0.4.9/client/core.min.js": {
+    "integrity": "sha384-9ysVR6dmr6xYXLES//xs14JqczGnfIEaU2BbvypDK5lCN0+/txqwdJ+1UaHLoouR",
+    "lastModified": "Mon, 26 Jan 2015 18:22:32 GMT",
+    "size": 28254
+  },
+  "https://unpkg.com/core-js@0.5.0/client/core.js": {
+    "integrity": "sha384-ZqnAclNQLSoX+TyXZatPrCZAFQd0o4yRl0dqF3zg0zG8qyye4y5De2ulq/JDrX+0",
+    "lastModified": "Sat, 07 Feb 2015 22:21:18 GMT",
+    "size": 90849
+  },
+  "https://unpkg.com/core-js@0.5.0/client/core.min.js": {
+    "integrity": "sha384-/jhDoZSnGytdSKQBWte4IqzWnxGGhcPJ1Izkp1uBrupIZVli9Gsxj8Vm2an6eGOF",
+    "lastModified": "Sat, 07 Feb 2015 22:21:23 GMT",
+    "size": 28671
+  },
+  "https://unpkg.com/core-js@0.5.1/client/core.js": {
+    "integrity": "sha384-g3epAorMcjJDjMGkkYjy+Lg9x2bvq5L5xNH6O2WH5vZQomlx2MhwI8cgTjmQZObP",
+    "lastModified": "Sun, 08 Feb 2015 22:22:39 GMT",
+    "size": 90825
+  },
+  "https://unpkg.com/core-js@0.5.1/client/core.min.js": {
+    "integrity": "sha384-mJ7y7SfVE8NyH3z2tk1KGf3T9O0Tvr+Tq+w7qGO551oHVEOsX4fPiT9irU5Tfv9s",
+    "lastModified": "Sun, 08 Feb 2015 22:22:44 GMT",
+    "size": 28670
+  },
+  "https://unpkg.com/core-js@0.5.2/client/core.js": {
+    "integrity": "sha384-Co0TXy2o3CsYRpgOH2PNYm0CE4VGz2hCDtaKC2y4aWDLG3brCaG0oXMPQpJVZIc6",
+    "lastModified": "Tue, 10 Feb 2015 10:21:54 GMT",
+    "size": 90834
+  },
+  "https://unpkg.com/core-js@0.5.2/client/core.min.js": {
+    "integrity": "sha384-/5RKvJuDwAVkDD0byaYi39qf+nQl6v4nlsm6QskDgjNDpZSGoA0HitOgbd4OSCcr",
+    "lastModified": "Tue, 10 Feb 2015 10:21:58 GMT",
+    "size": 28678
+  },
+  "https://unpkg.com/core-js@0.5.3/client/core.js": {
+    "integrity": "sha384-s1SS/vkxLIyI7ZCnME+NuTaJWX2m3cU8lQ17T7nFxVzfe6sDQyLMjN3Ick6q5fDj",
+    "lastModified": "Sat, 14 Feb 2015 05:20:34 GMT",
+    "size": 92835
+  },
+  "https://unpkg.com/core-js@0.5.3/client/core.min.js": {
+    "integrity": "sha384-uOFu0iM9QaqDP5VkkMYbmSwechLDBMLpjRze54f3TiLy4k6QUTAv71oyamaZcy3J",
+    "lastModified": "Sat, 14 Feb 2015 05:20:38 GMT",
+    "size": 29625
+  },
+  "https://unpkg.com/core-js@0.5.4/client/core.js": {
+    "integrity": "sha384-U2U8l55P88nFAchQ+2Te8pCcxRNJk8/0EdZcbQJhpSyyK8u/wIqlWFyRMgmVenNb",
+    "lastModified": "Sun, 15 Feb 2015 01:07:41 GMT",
+    "size": 93009
+  },
+  "https://unpkg.com/core-js@0.5.4/client/core.min.js": {
+    "integrity": "sha384-jCrpQbERoxy3LU5Noh9Oc0BLVRbLR9nwzfxYnpVcWe5Qpo2xmlNYH+fOQG5DjS1N",
+    "lastModified": "Sun, 15 Feb 2015 01:07:47 GMT",
+    "size": 29662
+  },
+  "https://unpkg.com/core-js@0.6.0/client/core.js": {
+    "integrity": "sha384-XfGmhYUsWcUltFm3XKJbjxwTgwtEGQBMrjUY7e7b4iC6C12Y02QMSY6Gysgl4rCU",
+    "lastModified": "Mon, 23 Feb 2015 04:28:30 GMT",
+    "size": 95312
+  },
+  "https://unpkg.com/core-js@0.6.0/client/core.min.js": {
+    "integrity": "sha384-kCrNyAg9nWK+E+spKzFXde3E3uuyEFl4oDC9Mzc8Q88A0VvN1DPMP839PNrRa8LX",
+    "lastModified": "Mon, 23 Feb 2015 04:28:34 GMT",
+    "size": 30026
+  },
+  "https://unpkg.com/core-js@0.6.1/client/core.js": {
+    "integrity": "sha384-hWOQ0IxKE1AN5Kb9E5SGVeQhmKZ19oeCU8ue8UxuA4SEdG2sl/NltutGQQ7vE9oP",
+    "lastModified": "Tue, 24 Feb 2015 09:23:30 GMT",
+    "size": 95450
+  },
+  "https://unpkg.com/core-js@0.6.1/client/core.min.js": {
+    "integrity": "sha384-jThvLIMX71g/kPo1lH5xuZq2scfOLQcUbao1IpxOFeyCk0WbBDbLZf86dKxDIb1U",
+    "lastModified": "Tue, 24 Feb 2015 09:23:35 GMT",
+    "size": 30129
+  },
+  "https://unpkg.com/core-js@0.7.0/client/core.js": {
+    "integrity": "sha384-6npEO1yKm9B+3ymfo+FvkAho6GxlzxbIyEujJeGE8rjrZcjEPNA9uOesIz0fM+l3",
+    "lastModified": "Thu, 05 Mar 2015 18:40:07 GMT",
+    "size": 94682
+  },
+  "https://unpkg.com/core-js@0.7.0/client/core.min.js": {
+    "integrity": "sha384-aghVYj87sRDuow7rhNiEmdCUXt8x8G6Z8SgHc2/42RgEgvaaPFOzUe8npGGHJ4HI",
+    "lastModified": "Thu, 05 Mar 2015 18:40:12 GMT",
+    "size": 42488
+  },
+  "https://unpkg.com/core-js@0.7.1/client/core.js": {
+    "integrity": "sha384-yi/MnM3Bu5fxty+4YvhLPnA9qORZ75Ta/BZyTXpPcFFntnr/EtTVfnI/DsN60WHt",
+    "lastModified": "Sat, 07 Mar 2015 00:43:57 GMT",
+    "size": 94826
+  },
+  "https://unpkg.com/core-js@0.7.1/client/core.min.js": {
+    "integrity": "sha384-e2pWxb7A/0f1ovKXDFlEVBfYrH6Ilv7p4vuEKYjoRslrIGAfb8OI3yWxZAPCyPUf",
+    "lastModified": "Sat, 07 Mar 2015 00:44:03 GMT",
+    "size": 42510
+  },
+  "https://unpkg.com/core-js@0.7.2/client/core.js": {
+    "integrity": "sha384-f/H+Vw6wpt1TjYxMF8y0g1CFJuUY+dr4fepfQc2pRTl76U5DzEI47ymjRKv8g1Fc",
+    "lastModified": "Sun, 08 Mar 2015 22:25:40 GMT",
+    "size": 96659
+  },
+  "https://unpkg.com/core-js@0.7.2/client/core.min.js": {
+    "integrity": "sha384-EOVYerun6GOlu0loxcPTrqsoB7e85wtNiLRrnmtsuKu7SbnNJBVGMaBUdhBT9RUl",
+    "lastModified": "Sun, 08 Mar 2015 22:25:48 GMT",
+    "size": 43189
+  },
+  "https://unpkg.com/core-js@0.8.0/client/core.js": {
+    "integrity": "sha384-6CeXaLMfeys82ZvTarnbK//5+PKKHE1F44gwSwuL9NESQO62kQTo2jGiikAe0DNI",
+    "lastModified": "Thu, 02 Apr 2015 15:08:42 GMT",
+    "size": 102578
+  },
+  "https://unpkg.com/core-js@0.8.0/client/core.min.js": {
+    "integrity": "sha384-6mc2KOoBy+3b7dX+xzci36gm23ZQKlRAjb2sM5GZjNBsuNsa4ml8/2PLj5guTG13",
+    "lastModified": "Thu, 02 Apr 2015 15:08:47 GMT",
+    "size": 47410
+  },
+  "https://unpkg.com/core-js@0.8.1/client/core.js": {
+    "integrity": "sha384-LlcGXqNuEMmQ8UI7p9YR3llI5Bb//Us3le765hEhjr2B1gGmcf2FcM1iz0Wut7qw",
+    "lastModified": "Fri, 03 Apr 2015 07:57:18 GMT",
+    "size": 102597
+  },
+  "https://unpkg.com/core-js@0.8.1/client/core.min.js": {
+    "integrity": "sha384-twjiZIcZFDJwEG5XFzAd25kiK8upZOKKQTbWg6P54QidCyEaV4xx0OXQdyQryUis",
+    "lastModified": "Fri, 03 Apr 2015 07:57:28 GMT",
+    "size": 47403
+  },
+  "https://unpkg.com/core-js@0.8.2/client/core.js": {
+    "integrity": "sha384-AtFIQ9JBTnp+XxeIqGSXrn6nKuZhx7VUmWJ+zun9DbfmxDV/E8IqOi0t9a4SrNOU",
+    "lastModified": "Mon, 13 Apr 2015 00:46:41 GMT",
+    "size": 104144
+  },
+  "https://unpkg.com/core-js@0.8.2/client/core.min.js": {
+    "integrity": "sha384-dx2sZ9iTePUsKeMFv3j3lN3tz8OuUvVZosTTz/5EEAF9rU82hBwmtuu0ZrEJDAPx",
+    "lastModified": "Mon, 13 Apr 2015 00:46:47 GMT",
+    "size": 47902
+  },
+  "https://unpkg.com/core-js@0.8.3/client/core.js": {
+    "integrity": "sha384-CBWa5RmeNG77IfhwYeVEIAg3PBJ6R02s00/mAC8Ix4Va/3DHxc32F9KrWhUsFtUg",
+    "lastModified": "Mon, 13 Apr 2015 18:52:35 GMT",
+    "size": 104149
+  },
+  "https://unpkg.com/core-js@0.8.3/client/core.min.js": {
+    "integrity": "sha384-iW4dmZKfuPwzfUpJPWVXH7Gcymq3oBTSYSBXdJwztatXxj/905CUrLXAaggi408x",
+    "lastModified": "Mon, 13 Apr 2015 18:52:42 GMT",
+    "size": 47903
+  },
+  "https://unpkg.com/core-js@0.8.4/client/core.js": {
+    "integrity": "sha384-ZKMDKWcIvCoW8fv00nATauZnh/C5hOWg0qD47ZCc+zmiv4DRIeDsHCtoSOZeQnyv",
+    "lastModified": "Fri, 17 Apr 2015 17:39:42 GMT",
+    "size": 106777
+  },
+  "https://unpkg.com/core-js@0.8.4/client/core.min.js": {
+    "integrity": "sha384-1JbIoES6aOr4rzuw6BPFilS7OnwmNNN08kdDocmDFrycjj1rOKO/ahdZfMXN0Z/J",
+    "lastModified": "Fri, 17 Apr 2015 17:39:46 GMT",
+    "size": 39989
+  },
+  "https://unpkg.com/core-js@0.9.0/client/core.js": {
+    "integrity": "sha384-h9hao0QpTXRHIrprc9aDMu1Q/y63Mm6MfEfOiPczqdYjahVx7eSUNUwT71Fb7CR+",
+    "lastModified": "Fri, 24 Apr 2015 05:45:32 GMT",
+    "size": 109141
+  },
+  "https://unpkg.com/core-js@0.9.0/client/core.min.js": {
+    "integrity": "sha384-mvngpIIkc2RGYKXkvjXz731M3GhBthKxDzuLS8cNE9ZYA0Q4SBlwoLPLX42+seQB",
+    "lastModified": "Fri, 24 Apr 2015 05:45:41 GMT",
+    "size": 40124
+  },
+  "https://unpkg.com/core-js@0.9.1/client/core.js": {
+    "integrity": "sha384-oGcrpMzU9sFgQTLboC2EPcCEXGbJ0F5p2fzWC6xNhIJFCMeiLfs6eXBN7D7SJdPn",
+    "lastModified": "Sat, 25 Apr 2015 04:16:04 GMT",
+    "size": 109878
+  },
+  "https://unpkg.com/core-js@0.9.1/client/core.min.js": {
+    "integrity": "sha384-eWQX27gwxzXqNNx58b6qPT+H4SttO/1gw2Dynu5Sa+Cl2v4mvWe/QP4YvCHj5Ukd",
+    "lastModified": "Sat, 25 Apr 2015 04:16:10 GMT",
+    "size": 40362
+  },
+  "https://unpkg.com/core-js@0.9.10/client/core.js": {
+    "integrity": "sha384-YU7PuVM50wkwQKJa9pe6r7KIs6yJKQjoHCKZMz4uM31GvHr1GOHlYIuNILT4BAt+",
+    "lastModified": "Fri, 15 May 2015 18:13:43 GMT",
+    "size": 116542
+  },
+  "https://unpkg.com/core-js@0.9.10/client/core.min.js": {
+    "integrity": "sha384-MWm+LgK4usDMnaGXqf9c3F1Ysd5U/ZDNeVKJguyxzFlQ2zKWWzBPU4uyk2K1C9pw",
+    "lastModified": "Fri, 15 May 2015 18:13:49 GMT",
+    "size": 43592
+  },
+  "https://unpkg.com/core-js@0.9.11/client/core.js": {
+    "integrity": "sha384-IYJvtbA61KvoSjOlHW12cOXFjwQaAGTIrP3K5X0P38mUlMzQMBUYEXbZOY9wzW9I",
+    "lastModified": "Mon, 18 May 2015 15:22:16 GMT",
+    "size": 116559
+  },
+  "https://unpkg.com/core-js@0.9.11/client/core.min.js": {
+    "integrity": "sha384-mDtrQ9WC1ey4J2wemf9WfUbghhJ90RF5Aqx8SPoRJBGTWQUWNC8EZr2WlMrb9/Lo",
+    "lastModified": "Mon, 18 May 2015 15:22:23 GMT",
+    "size": 43541
+  },
+  "https://unpkg.com/core-js@0.9.12/client/core.js": {
+    "integrity": "sha384-eAbQdvLKDlEZDHz2f9NkKatq/PwzORTGnv0M9buI32kxSbbgxKl24+Nku3wTkbDD",
+    "lastModified": "Sat, 23 May 2015 22:27:16 GMT",
+    "size": 117313
+  },
+  "https://unpkg.com/core-js@0.9.12/client/core.min.js": {
+    "integrity": "sha384-YAcOAZJmUo0f7XCbqOsw1T2YjZ1K2jlMmHjZf1xq/ZsiUMC6VUvDJT0aMsNvXZrQ",
+    "lastModified": "Sat, 23 May 2015 22:27:22 GMT",
+    "size": 43849
+  },
+  "https://unpkg.com/core-js@0.9.13/client/core.js": {
+    "integrity": "sha384-/wCNn+FPqD77elOOxlGD72m3BkHk7ZuAw+fdnpb63p5DBTbWjWjxVLK5BqqvHblA",
+    "lastModified": "Mon, 25 May 2015 10:16:18 GMT",
+    "size": 118141
+  },
+  "https://unpkg.com/core-js@0.9.13/client/core.min.js": {
+    "integrity": "sha384-on+4B4y62X/vAUc54PlX+JYhI0BNr5jFgfc4i4y0SnlwadJo5krPqH/SNrqD2nes",
+    "lastModified": "Mon, 25 May 2015 10:16:23 GMT",
+    "size": 44104
+  },
+  "https://unpkg.com/core-js@0.9.14/client/core.js": {
+    "integrity": "sha384-kF5cFe1Tu5+UjIYkV+V6V6+Hh/p388xjR7UcSrw3H8+/eYJij8X0LX3WCRkpTY5E",
+    "lastModified": "Wed, 03 Jun 2015 20:42:26 GMT",
+    "size": 120113
+  },
+  "https://unpkg.com/core-js@0.9.14/client/core.min.js": {
+    "integrity": "sha384-BFpGvECmFtBteCmLI4HZCShepZwe4tVVwwJ5LYQ6mtRaNsy7DIAY97UK//QxmI4I",
+    "lastModified": "Wed, 03 Jun 2015 20:42:32 GMT",
+    "size": 44951
+  },
+  "https://unpkg.com/core-js@0.9.15/client/core.js": {
+    "integrity": "sha384-w+vPOd0vdCEY9ZODOXIpiDj+f3/MFofiX6AbtXalYoe2Ktz8avz5Y8Ko3ZS+UEJA",
+    "lastModified": "Tue, 09 Jun 2015 02:57:03 GMT",
+    "size": 120064
+  },
+  "https://unpkg.com/core-js@0.9.15/client/core.min.js": {
+    "integrity": "sha384-4cgLWAXilyoVd21ZUwMYYpf/34s0hDozjT9dEjItPDplW/ifyoClRu4ZHCFjhOfi",
+    "lastModified": "Tue, 09 Jun 2015 02:57:11 GMT",
+    "size": 44871
+  },
+  "https://unpkg.com/core-js@0.9.16/client/core.js": {
+    "integrity": "sha384-9xcI40LSdGBELBzQwYcZiqzUalqOAiBa03eXiQFlrqVLR5vBDez6gBR4nGgg235G",
+    "lastModified": "Thu, 11 Jun 2015 10:40:16 GMT",
+    "size": 120458
+  },
+  "https://unpkg.com/core-js@0.9.16/client/core.min.js": {
+    "integrity": "sha384-MQMnzIIoRJlr3LfQoUcfSeXYATxMkWrAVbX2PFKa7mbltzLMlZpvnm/XynZGcVgv",
+    "lastModified": "Thu, 11 Jun 2015 10:40:23 GMT",
+    "size": 44993
+  },
+  "https://unpkg.com/core-js@0.9.17/client/core.js": {
+    "integrity": "sha384-0520/KQlxI6rIMqc3jcs0EVT8VLwOd8A2nEH85QQVlVFy1NzNF1TICqbNJe48kWq",
+    "lastModified": "Sat, 13 Jun 2015 18:31:03 GMT",
+    "size": 120622
+  },
+  "https://unpkg.com/core-js@0.9.17/client/core.min.js": {
+    "integrity": "sha384-PEa0hx034Bq1dh5cqm9uN9Cekl99isI7/BeVBpfDhJfHo+b1EkH+uhgIOXjSZfY+",
+    "lastModified": "Sat, 13 Jun 2015 18:31:13 GMT",
+    "size": 45024
+  },
+  "https://unpkg.com/core-js@0.9.18/client/core.js": {
+    "integrity": "sha384-9ZqEijrPPxea8hQSH9YtWpNd8rjRJehCxyjc43pz083/c/TO4A0zsJOSY1RhqSlF",
+    "lastModified": "Wed, 17 Jun 2015 16:41:13 GMT",
+    "size": 120621
+  },
+  "https://unpkg.com/core-js@0.9.18/client/core.min.js": {
+    "integrity": "sha384-XbYqNsaJr+wnth3wu+omyzqmMO6AEzVgBGfMZSNuAeyDXkUzDwkiw9d/kcU7ziXc",
+    "lastModified": "Wed, 17 Jun 2015 16:41:20 GMT",
+    "size": 45022
+  },
+  "https://unpkg.com/core-js@0.9.2/client/core.js": {
+    "integrity": "sha384-wd6b/5HM2YdB+5H6/gCC/zUF8GRx7Heym1uaIj74cvxPNoOOo8rgBpjmiTBjLjvl",
+    "lastModified": "Sat, 25 Apr 2015 06:45:04 GMT",
+    "size": 109908
+  },
+  "https://unpkg.com/core-js@0.9.2/client/core.min.js": {
+    "integrity": "sha384-l3qWdEqaO6aatSV/ZM5pxmJk3hS0uDAFfgpAqOA2tihHP4gzPJx/lCQi+xFJV8kg",
+    "lastModified": "Sat, 25 Apr 2015 06:45:11 GMT",
+    "size": 40368
+  },
+  "https://unpkg.com/core-js@0.9.3/client/core.js": {
+    "integrity": "sha384-BAHGPyjj+g/mrW6yJwdWMW29wYc4FVTUgvz7XLwhLhX6csVDPgfVmSUItikxzi8j",
+    "lastModified": "Sat, 25 Apr 2015 22:59:33 GMT",
+    "size": 111035
+  },
+  "https://unpkg.com/core-js@0.9.3/client/core.min.js": {
+    "integrity": "sha384-cVhSd1ValGaoc6BSmJN6amLezDsjMHoGhETVRFh6XqLTAyEkrrvbF7thrsRN/IsR",
+    "lastModified": "Sat, 25 Apr 2015 22:59:42 GMT",
+    "size": 40719
+  },
+  "https://unpkg.com/core-js@0.9.4/client/core.js": {
+    "integrity": "sha384-tJYsD6fD0W/uzEXDOLUxHBN+TrvFra/bcvMX0d8yuJ07QVt5FMdS6ljlstbZja0Y",
+    "lastModified": "Sun, 26 Apr 2015 21:35:05 GMT",
+    "size": 111378
+  },
+  "https://unpkg.com/core-js@0.9.4/client/core.min.js": {
+    "integrity": "sha384-/MIyslhUuOwu+P/pE4kCpLwXRzrMdggp7B9pFl5g4lyxrB5/EngJ+YM69WDUaQXD",
+    "lastModified": "Sun, 26 Apr 2015 21:35:12 GMT",
+    "size": 40780
+  },
+  "https://unpkg.com/core-js@0.9.5/client/core.js": {
+    "integrity": "sha384-piwGMGIKgrJ/maHX6el3PG7U/bFMYsjhpRO7xeG4pSZfDOCdltZZ8NF2NFicK+fQ",
+    "lastModified": "Wed, 29 Apr 2015 21:33:17 GMT",
+    "size": 114090
+  },
+  "https://unpkg.com/core-js@0.9.5/client/core.min.js": {
+    "integrity": "sha384-6sdMIa+LvXiuo5clhgHPnJbkXqXB8AHT9U2azQwsZEtiUQQSrh0qKrucY8s6Fi+7",
+    "lastModified": "Wed, 29 Apr 2015 21:33:23 GMT",
+    "size": 41779
+  },
+  "https://unpkg.com/core-js@0.9.6/client/core.js": {
+    "integrity": "sha384-b5wI+a1tW+uHML/qDMCspFAJgrqnahtbl6a/l/BQRjDdf73M1BfkLBLx+GYIHDWC",
+    "lastModified": "Fri, 01 May 2015 12:17:31 GMT",
+    "size": 116949
+  },
+  "https://unpkg.com/core-js@0.9.6/client/core.min.js": {
+    "integrity": "sha384-9+U86426EpJXHfYMYYquodkQYFXOuL6KWePIWfKpY/M1ZfPZ4xDgaxJtGcYTiL44",
+    "lastModified": "Fri, 01 May 2015 12:17:39 GMT",
+    "size": 42561
+  },
+  "https://unpkg.com/core-js@0.9.7/client/core.js": {
+    "integrity": "sha384-AlFolJ73N1jBfTuHslHEfhQ7CXzRs7FbpkLMKF+8lP3qKcmy65O+Tt2FR+EnBRgf",
+    "lastModified": "Thu, 07 May 2015 12:11:51 GMT",
+    "size": 117673
+  },
+  "https://unpkg.com/core-js@0.9.7/client/core.min.js": {
+    "integrity": "sha384-x9IhWLJoOVYPHoSWxQjYOlaHud79va52vK3mBqRO02cFDXI+WOJ45AyNH4yvzxJA",
+    "lastModified": "Thu, 07 May 2015 12:11:57 GMT",
+    "size": 42822
+  },
+  "https://unpkg.com/core-js@0.9.8/client/core.js": {
+    "integrity": "sha384-ucYltrbBz9vCzZLDzOKlldII/jNtgh860CL0/Rdezelt/UzE4Ft6jvqz5Mb+nyV2",
+    "lastModified": "Mon, 11 May 2015 16:24:35 GMT",
+    "size": 117751
+  },
+  "https://unpkg.com/core-js@0.9.8/client/core.min.js": {
+    "integrity": "sha384-glpxqyyH1E4EMnrvRxJSMWF/Szcu0JMLvamNak5bO+gTnKG3eeJFe08vn8sE88MO",
+    "lastModified": "Mon, 11 May 2015 16:24:43 GMT",
+    "size": 42845
+  },
+  "https://unpkg.com/core-js@0.9.9/client/core.js": {
+    "integrity": "sha384-UtCsB9EbCSX90MJva/RTNBMUORA+xyNPvXzTcdz6XkYj4Y11K3yeqEKu0ZVTfa/T",
+    "lastModified": "Thu, 14 May 2015 17:22:17 GMT",
+    "size": 115257
+  },
+  "https://unpkg.com/core-js@0.9.9/client/core.min.js": {
+    "integrity": "sha384-GOx6I8G3Jy6qvDeb3dWrEtPkRCs0SCcRUZNjm151W1RNCCBfk974e4Y24OHKmkIx",
+    "lastModified": "Thu, 14 May 2015 17:22:23 GMT",
+    "size": 43144
+  },
+  "https://unpkg.com/core-js@1.0.0/client/core.js": {
+    "integrity": "sha384-Mo5cEhYZnYxORK4e2Im/ncmMQDk9RvECJZa5Oy2o/UyCwbZO27uiKQbmx2mtEbha",
+    "lastModified": "Tue, 21 Jul 2015 18:23:53 GMT",
+    "size": 132345
+  },
+  "https://unpkg.com/core-js@1.0.0/client/core.min.js": {
+    "integrity": "sha384-h6lmOywPSM/zX1MY1w2ZFay6b3buHtK40z+awnmXUH5RrER03eGIjpxI6Ydd3Agb",
+    "lastModified": "Tue, 21 Jul 2015 18:24:01 GMT",
+    "size": 46577
+  },
+  "https://unpkg.com/core-js@1.0.1/client/core.js": {
+    "integrity": "sha384-gmabmvYaQrIz0rs6iLzVi67pxEjMW5k/cErPdJZL511dNX4ym0tHjPqhLI3Ic/xd",
+    "lastModified": "Fri, 31 Jul 2015 01:01:28 GMT",
+    "size": 131707
+  },
+  "https://unpkg.com/core-js@1.0.1/client/core.min.js": {
+    "integrity": "sha384-mxVcT2FKIrmOY5tSVbqOkWp9sGF+2TFUq3dVYezs2HmC/9UOmSI6AOMRp2BciJy/",
+    "lastModified": "Fri, 31 Jul 2015 01:01:30 GMT",
+    "size": 49484
+  },
+  "https://unpkg.com/core-js@1.1.0/client/core.js": {
+    "integrity": "sha384-H0sv9p5sqR62LLuL7aBw9BFSspFXGUXxD8gY2EBRm692fZB+dlYgvZ+ZZZpf1b5a",
+    "lastModified": "Mon, 17 Aug 2015 16:50:30 GMT",
+    "size": 135268
+  },
+  "https://unpkg.com/core-js@1.1.0/client/core.min.js": {
+    "integrity": "sha384-73ytCEDcjW+TSwxuXIslr9GWK3xEM76ZbxBKS+EohK97qsZt/k62wTp/el3zZ6Di",
+    "lastModified": "Mon, 17 Aug 2015 16:50:32 GMT",
+    "size": 48989
+  },
+  "https://unpkg.com/core-js@1.1.1/client/core.js": {
+    "integrity": "sha384-uk502AKloVMbsnrlZga9vOUEk7xAc1W/8A26Eb0ZLOh6+c8WSkN/ihqYzQ6mI9Po",
+    "lastModified": "Thu, 20 Aug 2015 07:56:11 GMT",
+    "size": 136391
+  },
+  "https://unpkg.com/core-js@1.1.1/client/core.min.js": {
+    "integrity": "sha384-Hb8mycmt4RXMjVCunD5j997+TnSl7Dx1FLNpMhpcQl3v6LclcHuXY/skOIIn01Pn",
+    "lastModified": "Thu, 20 Aug 2015 07:56:12 GMT",
+    "size": 49391
+  },
+  "https://unpkg.com/core-js@1.1.2/client/core.js": {
+    "integrity": "sha384-HR6DyZPN38vKQglj8v8sv1VjU0/yEOT4S00r4OFypSCoQLCy60mRIOhpibFvB0mW",
+    "lastModified": "Fri, 28 Aug 2015 12:29:07 GMT",
+    "size": 137333
+  },
+  "https://unpkg.com/core-js@1.1.2/client/core.min.js": {
+    "integrity": "sha384-+ENmkbL5060wxV0MGHKGRmBXi9015dv46FgWjofDKx4+MaY/AiTrgVM1HKjqx3zi",
+    "lastModified": "Fri, 28 Aug 2015 12:29:08 GMT",
+    "size": 49428
+  },
+  "https://unpkg.com/core-js@1.1.3/client/core.js": {
+    "integrity": "sha384-zgNB/Z6U/98vU9e+U8yQjH15aP9l7UfRqnUSIcZ/krfTDjg4I4VV2PgzRm32klWQ",
+    "lastModified": "Sat, 29 Aug 2015 12:07:47 GMT",
+    "size": 137638
+  },
+  "https://unpkg.com/core-js@1.1.3/client/core.min.js": {
+    "integrity": "sha384-oAKPkpP1GFDlnMpgAu6avaWdUrZZ2IbdmFrTQsBoj5NXGx8Y5dj+cWWll+fVVUC/",
+    "lastModified": "Sat, 29 Aug 2015 12:07:48 GMT",
+    "size": 49549
+  },
+  "https://unpkg.com/core-js@1.1.4/client/core.js": {
+    "integrity": "sha384-Wu1s9cOmNyXDgYMfgpULCQ09fm66yooyclX9x2VL/nkYiZPemzUlVWilDjEhW+9E",
+    "lastModified": "Sat, 05 Sep 2015 02:26:53 GMT",
+    "size": 138027
+  },
+  "https://unpkg.com/core-js@1.1.4/client/core.min.js": {
+    "integrity": "sha384-9FXeZwH0jCG9YBmmmV07GnLY1p+DhVgQUqdy+jP5eiCEJTUmPXk/00qB78Y5dwiB",
+    "lastModified": "Sat, 05 Sep 2015 02:26:54 GMT",
+    "size": 49730
+  },
+  "https://unpkg.com/core-js@1.2.0/client/core.js": {
+    "integrity": "sha384-l2vnWNj+MqaJMRa5Mfrj6wFtxD2GFek42bWqbkkkEzz+IpOIeflGe2zbWcWqTrNV",
+    "lastModified": "Sat, 26 Sep 2015 19:34:10 GMT",
+    "size": 140399
+  },
+  "https://unpkg.com/core-js@1.2.0/client/core.min.js": {
+    "integrity": "sha384-pnrTuLeMufwPI6qnjEvB9mCbbAonldTOGt+2E/l2m7QzM6TpTdwuMQ6hN8afIZhC",
+    "lastModified": "Sat, 26 Sep 2015 19:34:13 GMT",
+    "size": 50610
+  },
+  "https://unpkg.com/core-js@1.2.1/client/core.js": {
+    "integrity": "sha384-Ny1HkB+8zmHBM7WFe9AncLFztOepy1fR2gBNuDUCkOvYHQrX+Owm/9dhm2BJOlss",
+    "lastModified": "Thu, 01 Oct 2015 19:50:29 GMT",
+    "size": 141346
+  },
+  "https://unpkg.com/core-js@1.2.1/client/core.min.js": {
+    "integrity": "sha384-MxTMhjldA7yPq+KqkT0KXeqKJ5Qkvx9x0DumnPIE7pLm5lWee213qWP585gw2r33",
+    "lastModified": "Thu, 01 Oct 2015 19:50:32 GMT",
+    "size": 50936
+  },
+  "https://unpkg.com/core-js@1.2.2/client/core.js": {
+    "integrity": "sha384-ThTeu7xj7GcH1/hwYpB49l+p3++Vxe4eoXziAzTc6XUVoOy5KYHiL/lLhMcsDbLL",
+    "lastModified": "Sun, 18 Oct 2015 17:43:11 GMT",
+    "size": 142154
+  },
+  "https://unpkg.com/core-js@1.2.2/client/core.min.js": {
+    "integrity": "sha384-zMKxFonPhnwYpTzVxS+jB3PLCRuL/tuSnrWtEmJQZ6tKmUL5wT5zg8mFtaAytuU0",
+    "lastModified": "Sun, 18 Oct 2015 17:43:13 GMT",
+    "size": 51339
+  },
+  "https://unpkg.com/core-js@1.2.3/client/core.js": {
+    "integrity": "sha384-zTD5wtooOjzXMwoh+/GggtlklCbiQd6lTaUNu/55fRPnduVFd8381UM1H2fk/Cix",
+    "lastModified": "Thu, 22 Oct 2015 19:38:29 GMT",
+    "size": 142736
+  },
+  "https://unpkg.com/core-js@1.2.3/client/core.min.js": {
+    "integrity": "sha384-GPVJY9qYqyn2a2UZ3UnrSbjvec44nNW1hW6GVg3LXlHTVknH3n4beOTf8LDx3Wic",
+    "lastModified": "Thu, 22 Oct 2015 19:38:31 GMT",
+    "size": 51537
+  },
+  "https://unpkg.com/core-js@1.2.4/client/core.js": {
+    "integrity": "sha384-dFXrd2DBMYsSBXVUhwduoTilH5Hr2CuuG5XyPMKdUQsopm82w25N7FNfBqZST+5D",
+    "lastModified": "Sat, 31 Oct 2015 22:58:50 GMT",
+    "size": 144394
+  },
+  "https://unpkg.com/core-js@1.2.4/client/core.min.js": {
+    "integrity": "sha384-MXZVf0iWmLrXEXgbhcIaV4MXbJeljAD3I1YFL0MvnnwL7OQT169+RDcb0KHTwXFL",
+    "lastModified": "Sat, 31 Oct 2015 22:58:52 GMT",
+    "size": 51927
+  },
+  "https://unpkg.com/core-js@1.2.5/client/core.js": {
+    "integrity": "sha384-RW87NP4ljULK8FDYsB8zruKRHAzAViqt5JCZHVsZa33GYCYmhslNru9GN1dmXqLf",
+    "lastModified": "Mon, 02 Nov 2015 11:02:46 GMT",
+    "size": 146098
+  },
+  "https://unpkg.com/core-js@1.2.5/client/core.min.js": {
+    "integrity": "sha384-map+qpqPTrrzab3UPwMcAg/bQxEuLm2hI4SjH4vOYcYCEx/POgOHH+2Iq+gC7x8K",
+    "lastModified": "Mon, 02 Nov 2015 11:02:47 GMT",
+    "size": 52369
+  },
+  "https://unpkg.com/core-js@1.2.6/client/core.js": {
+    "integrity": "sha384-VUZEhx2MRxjSTKUqRIuUVbC8BQOqb7jtMvKbmj2266SCqJTknMYQ0zUNv942GgcB",
+    "lastModified": "Mon, 09 Nov 2015 04:36:24 GMT",
+    "size": 148868
+  },
+  "https://unpkg.com/core-js@1.2.6/client/core.min.js": {
+    "integrity": "sha384-w6FlxotylcddBbaanad+GIkD/kJrBhMEJZNUfMgnvRdwsGMKuTTOFMo/2EYp7IXl",
+    "lastModified": "Mon, 09 Nov 2015 04:36:26 GMT",
+    "size": 52734
+  },
+  "https://unpkg.com/core-js@1.2.7/client/core.js": {
+    "integrity": "sha384-Vmomr2kRvOpCpWK77wiQthka2Y7qbdSo2pIHqbb3O12kppEZK+u7GijFKZRLK9Hp",
+    "lastModified": "Sun, 17 Jul 2016 21:16:13 GMT",
+    "size": 149039
+  },
+  "https://unpkg.com/core-js@1.2.7/client/core.min.js": {
+    "integrity": "sha384-ZdfzgF+cuk3FfNDsDt+N9G4ZfLRnSMIPoea57l0rDZa8lSxixZ5YnpCjwigWPClR",
+    "lastModified": "Sun, 17 Jul 2016 21:16:14 GMT",
+    "size": 52789
+  },
+  "https://unpkg.com/core-js@2.0.0/client/core.js": {
+    "integrity": "sha384-xtvqL4FTftwAyg+ipYT4+Nn+/9ZwIVMs3Nl2mMtEGnOxyyf7onqwZ8HDcG1DuLpz",
+    "lastModified": "Thu, 24 Dec 2015 07:05:35 GMT",
+    "size": 192981
+  },
+  "https://unpkg.com/core-js@2.0.0/client/core.min.js": {
+    "integrity": "sha384-XpNNorx+L8bdlufCbdG5DmoO+yUdG6SUYj91CYNUqTXq/ctjqAYNQKbWMAxVNDms",
+    "lastModified": "Thu, 24 Dec 2015 07:05:37 GMT",
+    "size": 67995
+  },
+  "https://unpkg.com/core-js@2.0.1/client/core.js": {
+    "integrity": "sha384-Sjpvqm8871HsGYcoGAT6lyj8rMVFCpBPQBAYGeCbYK+M2tmp74//BcKiHws4wiiN",
+    "lastModified": "Thu, 31 Dec 2015 10:19:47 GMT",
+    "size": 193337
+  },
+  "https://unpkg.com/core-js@2.0.1/client/core.min.js": {
+    "integrity": "sha384-r2o+CSmOV8CE0WkxJFuaMsfZ2mU9W25HhxVxlGC2PDAIW5oXoSlVNgQ0xSPKX+z3",
+    "lastModified": "Thu, 31 Dec 2015 10:19:50 GMT",
+    "size": 68116
+  },
+  "https://unpkg.com/core-js@2.0.2/client/core.js": {
+    "integrity": "sha384-7R0E8MeuBVcum5ulEEFv4RGPa8b/2RVFkSEDIPT6D10HLc2i/MQI2rS/XEz8user",
+    "lastModified": "Sun, 03 Jan 2016 22:44:48 GMT",
+    "size": 193547
+  },
+  "https://unpkg.com/core-js@2.0.2/client/core.min.js": {
+    "integrity": "sha384-p3LtSSRczjoohjkSRBJnrDbUfhtyiMWVO6uWaEgyNg2N72/ePqRBqsCd6rWLHKNY",
+    "lastModified": "Sun, 03 Jan 2016 22:44:51 GMT",
+    "size": 68144
+  },
+  "https://unpkg.com/core-js@2.0.3/client/core.js": {
+    "integrity": "sha384-SMW3OTGLLmetUJpEUKz6jJ3x89R3ZzQQuXZCzeNOwYOdKhOvbvG4tRAQuw+b4Gmy",
+    "lastModified": "Sun, 10 Jan 2016 19:37:48 GMT",
+    "size": 193636
+  },
+  "https://unpkg.com/core-js@2.0.3/client/core.min.js": {
+    "integrity": "sha384-QZ7LgCBEHSgUFOt5LEvdkDuCeXeKbsRnfJdAoh3RnGOJmPTWH2FtKfQ1LsuLuB4B",
+    "lastModified": "Sun, 10 Jan 2016 19:37:52 GMT",
+    "size": 68167
+  },
+  "https://unpkg.com/core-js@2.1.0/client/core.js": {
+    "integrity": "sha384-L/4zCNVzrTyvCRKwdLBWAzUYa1pglp2vm8wmYR4n1iL+xx1WX9DweBd1RQJXUOFD",
+    "lastModified": "Mon, 08 Feb 2016 20:54:47 GMT",
+    "size": 222612
+  },
+  "https://unpkg.com/core-js@2.1.0/client/core.min.js": {
+    "integrity": "sha384-4eMHdbxgKxXfuZW/CXjp9X6wQ3BfZ9SteUm3X3DzZP8LIOBnVJi2L++mtBDeJZRs",
+    "lastModified": "Mon, 08 Feb 2016 20:54:52 GMT",
+    "size": 77196
+  },
+  "https://unpkg.com/core-js@2.1.1/client/core.js": {
+    "integrity": "sha384-QBPZMlwBNbLpwSsS8/vGXPInFdggHV3svJ9lt88Fv2qkupLvH7mNNHYxk5EOUhIa",
+    "lastModified": "Mon, 22 Feb 2016 03:59:31 GMT",
+    "size": 221974
+  },
+  "https://unpkg.com/core-js@2.1.1/client/core.min.js": {
+    "integrity": "sha384-+/vIgy9QCCbQb1i3LA90ypPfve8oc4+m7z4o3m+gGALkdq98c4uSS9l9u3ieOrO/",
+    "lastModified": "Mon, 22 Feb 2016 03:59:41 GMT",
+    "size": 76940
+  },
+  "https://unpkg.com/core-js@2.1.2/client/core.js": {
+    "integrity": "sha384-GW0PwvKzA51oK1kWJBSepmIxxhiWNPdebBi4MRlHMqvoHbBAobFe4UJumgzjiL3d",
+    "lastModified": "Mon, 29 Feb 2016 04:39:45 GMT",
+    "size": 222226
+  },
+  "https://unpkg.com/core-js@2.1.2/client/core.min.js": {
+    "integrity": "sha384-hLqRj/m8/nQnHFFTBsAMxQkrk8cUQf0RhHj0qlSd06CCrh3Yq12SV5ljoiVhicv1",
+    "lastModified": "Mon, 29 Feb 2016 04:39:49 GMT",
+    "size": 76982
+  },
+  "https://unpkg.com/core-js@2.1.3/client/core.js": {
+    "integrity": "sha384-NRn+eja4etHPG4a/VYLD2R7zJqwvu9QCzAHtPQhpYun5z4uOKrXVoO1pE1q7YNrn",
+    "lastModified": "Mon, 29 Feb 2016 17:09:52 GMT",
+    "size": 222100
+  },
+  "https://unpkg.com/core-js@2.1.3/client/core.min.js": {
+    "integrity": "sha384-yK8NH6Ptza6vnG34IINVNJCHOW2CG729TB+uexncH2CykUd3eLx3WGuSYT3bCJht",
+    "lastModified": "Mon, 29 Feb 2016 17:09:55 GMT",
+    "size": 76946
+  },
+  "https://unpkg.com/core-js@2.1.4/client/core.js": {
+    "integrity": "sha384-w7WljNFvaTeJnL9ZThlZwcMSbM+tVD3mpfDd9/76dael8ZHereLq6Bpb1zE6PGLy",
+    "lastModified": "Tue, 08 Mar 2016 17:33:19 GMT",
+    "size": 222458
+  },
+  "https://unpkg.com/core-js@2.1.4/client/core.min.js": {
+    "integrity": "sha384-CtawrHqtEzJlMcJXx671gLL35L4/vGOZPB8hTHhXmBvvlQPhg3SfCZ//vMQnZ0Jn",
+    "lastModified": "Tue, 08 Mar 2016 17:33:23 GMT",
+    "size": 77036
+  },
+  "https://unpkg.com/core-js@2.1.5/client/core.js": {
+    "integrity": "sha384-6kH4EJOAW+q5G1mrp712OhBeOAZKeG6AWdOXyMFDLmpAhTwwQZxgNF9j5oYBWS2F",
+    "lastModified": "Sat, 12 Mar 2016 10:52:36 GMT",
+    "size": 222666
+  },
+  "https://unpkg.com/core-js@2.1.5/client/core.min.js": {
+    "integrity": "sha384-DJMjiMgONYyUH8MMw5y6pp/wO+/DnRmghWW2OV8hU9ZNSpE+G0uQGai3hLsf/CU1",
+    "lastModified": "Sat, 12 Mar 2016 10:52:39 GMT",
+    "size": 77101
+  },
+  "https://unpkg.com/core-js@2.2.0/client/core.js": {
+    "integrity": "sha384-+idL9r+d/WLDunsspL5m2HqSfTle4OKq/leAW6RHnrisXjxWSjvmB1tG05Ezx7VK",
+    "lastModified": "Tue, 15 Mar 2016 15:59:26 GMT",
+    "size": 228534
+  },
+  "https://unpkg.com/core-js@2.2.0/client/core.min.js": {
+    "integrity": "sha384-xnHgilPN2BT4qIv2Tr0BD48rD57cA3iKYXp5DcFWuazjyVvNzJaML04t8K5oEWEq",
+    "lastModified": "Tue, 15 Mar 2016 15:59:29 GMT",
+    "size": 78977
+  },
+  "https://unpkg.com/core-js@2.2.1/client/core.js": {
+    "integrity": "sha384-unEQ5sqXIsUJ5t6LltgqqJ8exABSOyBg6XjxRdbS3MxU/z//T8BG3HB+a7kaYtDA",
+    "lastModified": "Fri, 18 Mar 2016 18:30:16 GMT",
+    "size": 228533
+  },
+  "https://unpkg.com/core-js@2.2.1/client/core.min.js": {
+    "integrity": "sha384-EFmM3PfG/FIrW5q4RzUwXg6phoY21XrzxnJ1X1AAbmtVXySoYUHQbdTaip80L6kO",
+    "lastModified": "Fri, 18 Mar 2016 18:30:21 GMT",
+    "size": 78975
+  },
+  "https://unpkg.com/core-js@2.2.2/client/core.js": {
+    "integrity": "sha384-QTZZog3W0q6LnRRDETlTS8J2pm/596HAucbCBX+1OnddL5KG7J1Y5z4toUSFCnrj",
+    "lastModified": "Wed, 06 Apr 2016 06:59:57 GMT",
+    "size": 229992
+  },
+  "https://unpkg.com/core-js@2.2.2/client/core.min.js": {
+    "integrity": "sha384-HU7/hazBPx1B4+BH7c4RMZh1CC6aNKVRMDUZbNHFYDRJy6Df2jV9ppisODoiMPqY",
+    "lastModified": "Wed, 06 Apr 2016 07:00:02 GMT",
+    "size": 79409
+  },
+  "https://unpkg.com/core-js@2.3.0/client/core.js": {
+    "integrity": "sha384-tnq6moWZZJGApkLRJpJgkTF7E5torRmtrrSiQMWthcbYMY7MmMnyL66L0C1DHIub",
+    "lastModified": "Sat, 23 Apr 2016 21:30:35 GMT",
+    "size": 231968
+  },
+  "https://unpkg.com/core-js@2.3.0/client/core.min.js": {
+    "integrity": "sha384-7TMu75nfLSg6nMCUc0aKARcLxN9Opix/qII3C1uqEPJopYchU2GGUdYkmPbGlLgP",
+    "lastModified": "Sat, 23 Apr 2016 21:30:41 GMT",
+    "size": 80093
+  },
+  "https://unpkg.com/core-js@2.4.0/client/core.js": {
+    "integrity": "sha384-hOUAe50cAdJg8fZuTzj7bWEB4z8YikwJLOrEtxqHoP3uR8mmaMcWzsMwWLuVL/4v",
+    "lastModified": "Sun, 08 May 2016 01:33:02 GMT",
+    "size": 238738
+  },
+  "https://unpkg.com/core-js@2.4.0/client/core.min.js": {
+    "integrity": "sha384-vRtWBWJB74CBYGzXkWbBx1sH3TIUQIi855tzA2CG2rDsixXBViJwMqCaLCN/u7U4",
+    "lastModified": "Sun, 08 May 2016 01:33:06 GMT",
+    "size": 82505
+  },
+  "https://unpkg.com/core-js@2.4.1/client/core.js": {
+    "integrity": "sha384-Ltf3zlo018jgSFarBV4ZXF8GxwymfafIj3qWz3rrjhL8hTVd2XzglHH+BCuIKnbk",
+    "lastModified": "Sun, 17 Jul 2016 21:38:36 GMT",
+    "size": 238050
+  },
+  "https://unpkg.com/core-js@2.4.1/client/core.min.js": {
+    "integrity": "sha384-DMCpc53dyOmVxs15of1e+rSkDVxDaPsrRNyL5YxGX7gmoNaMK5ZdJlA8edEGbyLj",
+    "lastModified": "Sun, 17 Jul 2016 21:38:37 GMT",
+    "size": 82685
+  },
+  "https://unpkg.com/core-js@2.5.0/client/core.js": {
+    "integrity": "sha384-EGQhG6FlPRTysBRo0/1Hv2ROBB7uf731nkzv60wm+udDNKcXXZkSgpT1d3FEgj9W",
+    "lastModified": "Sun, 06 Aug 2017 14:28:01 GMT",
+    "size": 248390
+  },
+  "https://unpkg.com/core-js@2.5.0/client/core.min.js": {
+    "integrity": "sha384-hmKaf7NDQMaTRwgTcks7/o6Ybfa5KC/y0JwJYCtl+9vQW7eH6SJZaDyIhyAj83nJ",
+    "lastModified": "Sun, 06 Aug 2017 14:28:05 GMT",
+    "size": 87785
+  },
+  "https://unpkg.com/core-js@2.5.1/client/core.js": {
+    "integrity": "sha384-X/jpV1Jq24/Dj1TLi6coirsO8IvP1+PMcg+Uu3PyrpM9u+ZBmshhd2y5ZZRWEBo7",
+    "lastModified": "Thu, 31 Aug 2017 17:45:37 GMT",
+    "size": 248242
+  },
+  "https://unpkg.com/core-js@2.5.1/client/core.min.js": {
+    "integrity": "sha384-utYdr5vTNPm+OUISwLWTTgrYLeYZ8cDqNo7gn1yLOfrtapa5gE3M2agiLC0LrDFD",
+    "lastModified": "Thu, 31 Aug 2017 17:45:40 GMT",
+    "size": 87800
+  },
+  "https://unpkg.com/core-js@2.5.2/client/core.js": {
+    "integrity": "sha384-8aodqgoqqdKh3jBbI+W+HHzT4W7FffdvZDP9S9bXOQ6hB66mIVGOHjXE3HQ/4Rnr",
+    "lastModified": "Sat, 09 Dec 2017 12:08:32 GMT",
+    "size": 248388
+  },
+  "https://unpkg.com/core-js@2.5.2/client/core.min.js": {
+    "integrity": "sha384-fxQmLvMJzKQaTHYnTeaulF4K7HXnsrdcufEgOy/cYDyPvMf9u7fqs8cPemsxiLxJ",
+    "lastModified": "Sat, 09 Dec 2017 12:08:42 GMT",
+    "size": 87551
+  },
+  "https://unpkg.com/core-js@2.5.3/client/core.js": {
+    "integrity": "sha384-EXJtatavQeQYp5eKE4tvdIEQ0MfRVsCwZ4cNbv10OWgAj/yIoMkE+z/rBllUAIgn",
+    "lastModified": "Mon, 11 Dec 2017 20:04:35 GMT",
+    "size": 248747
+  },
+  "https://unpkg.com/core-js@2.5.3/client/core.min.js": {
+    "integrity": "sha384-rHxcgDAR9TWcl++gvkv8wFzh42py+il/tfyzZbuZioDppmIJSP1bSoElLrNRyqaN",
+    "lastModified": "Mon, 11 Dec 2017 20:04:42 GMT",
+    "size": 87635
+  },
+  "https://unpkg.com/core-js@2.5.4/client/core.js": {
+    "integrity": "sha384-/3EO33feRdTgg+4wxAnCKiHjeHz0DguxH2CnMOWGIp+HtpvzQnF2fsOr3jRkz4RS",
+    "lastModified": "Tue, 27 Mar 2018 16:11:53 GMT",
+    "size": 248841
+  },
+  "https://unpkg.com/core-js@2.5.4/client/core.min.js": {
+    "integrity": "sha384-8JYER4xuGyKO3draz9QEAFy6VsAXRZ/Kh5YwO+bAZ2RqzSRudU/6UxPpYYIbIkeV",
+    "lastModified": "Tue, 27 Mar 2018 16:11:59 GMT",
+    "size": 87531
+  },
+  "https://unpkg.com/core-js@2.5.5/client/core.js": {
+    "integrity": "sha384-hwxSawMZWCt984fGmm7lUaqcZhALhxrC/zAkAk4frTiRCU909B/nMsSdRbC/nUvH",
+    "lastModified": "Mon, 09 Apr 2018 03:25:05 GMT",
+    "size": 249007
+  },
+  "https://unpkg.com/core-js@2.5.5/client/core.min.js": {
+    "integrity": "sha384-wtxIwbukHP+mPfVbK/KhksnpHjlBqGMpaVprTGIkj6BMqkF8D9GpsNOpmh4qQwQr",
+    "lastModified": "Mon, 09 Apr 2018 03:25:12 GMT",
+    "size": 87628
+  },
+  "https://unpkg.com/core-js@2.5.6/client/core.js": {
+    "integrity": "sha384-7Q0poyMT2x+BiIHNILaRUEtfAzhS4d38acl/anf2CgIrvVn7z0PY1vUDLEp3QCa7",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 249752
+  },
+  "https://unpkg.com/core-js@2.5.6/client/core.min.js": {
+    "integrity": "sha384-Oasg8C5/veUKUxPN/ilnSDDBvZqYf5AvA0l6ZOgE+fOWmOiaNhm3kLd7COjoNZ4T",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 87860
+  },
+  "https://unpkg.com/core-js@2.5.7/client/core.js": {
+    "integrity": "sha384-5G6gZp/J0oeeNHrTBpaReKG0YlWOYJEGxbaE0rJtJgyIt+3t8OjXQnu1PC+O4I3m",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 249746
+  },
+  "https://unpkg.com/core-js@2.5.7/client/core.min.js": {
+    "integrity": "sha384-NFXzGjtfkkQ0mcoeYfPoA0IXj2bDW/e+gBhx4+5Y6wf2jtbIXfwg9nLth19u+KR9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 87860
+  },
+  "https://unpkg.com/core-js@2.6.0/client/core.js": {
+    "integrity": "sha384-TRNRhHsNMrXBDzsSGTTW9Q3ZhB7u3IQQaN3UDa8cVzzLO5UoYXYWhGt3PT2lwE5G",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 262883
+  },
+  "https://unpkg.com/core-js@2.6.0/client/core.min.js": {
+    "integrity": "sha384-3wYroqoB4EyexpNCJjEkkL1ei/SOa5npnVlFQONkjWRFkvEDS7t+OylE4IB4QaEN",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91816
+  },
+  "https://unpkg.com/core-js@2.6.1/client/core.js": {
+    "integrity": "sha384-uQgWcyiQMwyIBYcFexu91HIem1uoqqDcSP7HmQZI5UL/wTE7dg8bul7cUF3KnNyr",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 262913
+  },
+  "https://unpkg.com/core-js@2.6.1/client/core.min.js": {
+    "integrity": "sha384-BzXycSU7UYb54oZC4k9+6wdutdzhatRDzvK667WIf0XfGCNmhdpAVW+U3JC3FVXJ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91812
+  },
+  "https://unpkg.com/core-js@2.6.10/client/core.js": {
+    "integrity": "sha384-RTgEYZOJ7VEppsWiWyNwNpius0TiGiHox3QhpaOI842hOgvfwalpdU/LuiBpb5jp",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 263899
+  },
+  "https://unpkg.com/core-js@2.6.10/client/core.min.js": {
+    "integrity": "sha384-jwvriWK9Z/DJ2jN0oxS8ycOdwii72HkN/Wo8EQHetGC3zHuyN5KL59cNPS0dLKC2",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92053
+  },
+  "https://unpkg.com/core-js@2.6.11/client/core.js": {
+    "integrity": "sha384-vWVnhs+l8so+5ViAtRSjAHjuzSuum4bug4rJCX1xp9uGT3fAriFyewyN6eR9saZY",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 263899
+  },
+  "https://unpkg.com/core-js@2.6.11/client/core.min.js": {
+    "integrity": "sha384-myllZ1GAgYXjB7PQDGnUfH5RNCuhZ8JLz4+CdG6yhzAISmQOah4nKhXaELkjvfUm",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92053
+  },
+  "https://unpkg.com/core-js@2.6.2/client/core.js": {
+    "integrity": "sha384-cVpjwv6D1TP48Hd/VhJjbO6JlB1etetdrOnrFjRg4dzEJJKp2DCic7JVSMip2GjI",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 262922
+  },
+  "https://unpkg.com/core-js@2.6.2/client/core.min.js": {
+    "integrity": "sha384-BhfAmy2CaKo50RIwlMW7fw5trBGON5U+HeORyIDFSIum6ODhX6Wqk0+GhAh25smO",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91812
+  },
+  "https://unpkg.com/core-js@2.6.3/client/core.js": {
+    "integrity": "sha384-tgRoHMXfQzasUz7XmxPt9vS6qUP+vg9Zuza0UD8rwsDeVXy03qISoO0d6Bm2HEU/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 262999
+  },
+  "https://unpkg.com/core-js@2.6.3/client/core.min.js": {
+    "integrity": "sha384-jfXx2uQCC5keaMk3eVx9qEeflJ8KFJsZI16UpYtqaz0rOULV94vRPwG9lr1QUY4R",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91786
+  },
+  "https://unpkg.com/core-js@2.6.4/client/core.js": {
+    "integrity": "sha384-8SOukANrQiX3cF919CPJSQN8weRPY4lB7goKXYlomGLhXfg6x0U1dl3ZdtCWyf26",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 263201
+  },
+  "https://unpkg.com/core-js@2.6.4/client/core.min.js": {
+    "integrity": "sha384-SKjXWH2un4i89isa4/du9bKtmT9xfErJe7rp0HjxkblrCKAby5+ZDzHDeok5bgWK",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91835
+  },
+  "https://unpkg.com/core-js@2.6.5/client/core.js": {
+    "integrity": "sha384-o0fKW7OLTv6BNGdU1K0ymh/UOfk+M/jZLIyzeuNARBOVJSU2ENEEhMKy8uFdiZzS",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 263291
+  },
+  "https://unpkg.com/core-js@2.6.5/client/core.min.js": {
+    "integrity": "sha384-ZX63pz8qXTMdSBnLASYRpN/PXv2i+6c3hyEJJDqpiRAK8sgTJOxZQkKKtK/co1Gh",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 91873
+  },
+  "https://unpkg.com/core-js@2.6.6/client/core.js": {
+    "integrity": "sha384-Ini2qA6FZ8KHWMgZqTBgic4fZzp79eYLB+0cRRREd3o8PGcvOqq7/buMX5kFcgJE",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 263884
+  },
+  "https://unpkg.com/core-js@2.6.6/client/core.min.js": {
+    "integrity": "sha384-NsRQGS5EgknkrzB5+2J5AWVr5ilMYgPMWhuhcgG8fKpHlIp2PWCERdNXawJpSCqz",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92044
+  },
+  "https://unpkg.com/core-js@2.6.7/client/core.js": {
+    "integrity": "sha384-doNYqnTdSknhGEDEYjtnLjeBiKNAaJxUETNFUIG89kaTV0IuQ//9AHCJPyDo7o9g",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 263897
+  },
+  "https://unpkg.com/core-js@2.6.7/client/core.min.js": {
+    "integrity": "sha384-Rt6wt2szOvJyapHMAy9BrYWJx3fb+QGQMX+YdJbKOidsm2CDONeuWC+s7rRxfy8/",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92051
+  },
+  "https://unpkg.com/core-js@2.6.8/client/core.js": {
+    "integrity": "sha384-hRXqvR1f/ZirtxSZCH8fNoJgvzGxcKcmHGw3qjy8GepKi4vFeD2rwytv4yysSZVZ",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 263897
+  },
+  "https://unpkg.com/core-js@2.6.8/client/core.min.js": {
+    "integrity": "sha384-3mvQHvFU6WjHHkeYv+KmZF4r9TLWZHZbz8bbTuS53RxuM6RwDFKyEq5Ha1NFxTPD",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92051
+  },
+  "https://unpkg.com/core-js@2.6.9/client/core.js": {
+    "integrity": "sha384-DHBxcU9WXGTv1MqoeWJ/3RElhUwa5uLSBHEv961CWZg2c96INKksJWshAK7vkOMt",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 263897
+  },
+  "https://unpkg.com/core-js@2.6.9/client/core.min.js": {
+    "integrity": "sha384-u7aSPLEWYh+3Lao3A3rhjJxGU+gZPFkj+LvhZODAgsf45A2CyHbIx7oA+ug9iGfk",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 92051
+  }
+}

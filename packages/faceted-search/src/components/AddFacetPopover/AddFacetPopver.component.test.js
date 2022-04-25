@@ -189,8 +189,10 @@ describe('AddFacetPopover', () => {
 		});
 		wrapper.update();
 		expect(wrapper.find('button.tc-add-facet-popover-row')).toHaveLength(0);
-		expect(wrapper.find('span').first()).toHaveLength(1);
-		expect(wrapper.find('span').first().text()).toBe('No result found');
+		expect(wrapper.find('span.tc-add-facet-popover-filter-empty').first()).toHaveLength(1);
+		expect(wrapper.find('span.tc-add-facet-popover-filter-empty').first().text()).toBe(
+			'No result found',
+		);
 	});
 	it('should render an disabled row if badgePerFacet is exceeded', () => {
 		// Given
@@ -270,7 +272,9 @@ describe('AddFacetPopover', () => {
 
 		// Then
 		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Connection name');
-		expect(wrapper.find('.tc-add-facet-popover-row-text').at(1).text()).toEqual('Custom attributes');
+		expect(wrapper.find('.tc-add-facet-popover-row-text').at(1).text()).toEqual(
+			'Custom attributes',
+		);
 		expect(wrapper.find('.tc-add-facet-popover-row-text').at(2).text()).toEqual('Name');
 	});
 	it('should not sort if null is provided as comparator', () => {
@@ -289,6 +293,8 @@ describe('AddFacetPopover', () => {
 		// Then
 		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Name');
 		expect(wrapper.find('.tc-add-facet-popover-row-text').at(1).text()).toEqual('Connection name');
-		expect(wrapper.find('.tc-add-facet-popover-row-text').at(2).text()).toEqual('Custom attributes');
+		expect(wrapper.find('.tc-add-facet-popover-row-text').at(2).text()).toEqual(
+			'Custom attributes',
+		);
 	});
 });

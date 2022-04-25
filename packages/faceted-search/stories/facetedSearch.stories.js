@@ -498,3 +498,16 @@ export const BasicSearchWithSliderPopin = {
 		withIcon: true,
 	},
 };
+
+export const WithQuickSearchFilter = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<p>Quick search will only suggest facets matching input (Connection name, Author)</p>
+		<br />
+		<FacetedSearch.BasicSearch
+			quickSearchFacetsFilter={(term, facets) => facets.filter(facet => facet.properties.label.includes(term))}
+			badgesDefinitions={[badgeAuthor, badgeName, badgeConnectionName]}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);

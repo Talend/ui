@@ -5,19 +5,17 @@ exports[`TextFilter should render text filter component 1`] = `
   id="myTextFilter"
   initialDocked={true}
 >
-  <withI18nextTranslation(FilterBar)
+  <FilterBar
     autoFocus={true}
     className=""
     debounceTimeout={300}
     disabled={false}
     dockable={true}
     docked={true}
-    focus={false}
     id="myTextFilter"
     navbar={true}
     onFilter={[Function]}
     onToggle={[Function]}
-    t={[Function]}
     value=""
   >
     <Action
@@ -90,7 +88,8 @@ exports[`TextFilter should render text filter component 1`] = `
                 key="icon"
                 name="talend-search"
               >
-                <CoralIcon
+                <span
+                  className="CoralIcon"
                   name="talend-search"
                 />
               </Icon>
@@ -99,7 +98,7 @@ exports[`TextFilter should render text filter component 1`] = `
         </TooltipTrigger>
       </withI18nextTranslation(ActionButton)>
     </Action>
-  </withI18nextTranslation(FilterBar)>
+  </FilterBar>
 </TextFilter>
 `;
 
@@ -109,19 +108,17 @@ exports[`TextFilter should render text filter component with defined docked stat
   id="myTextFilter"
   initialDocked={true}
 >
-  <withI18nextTranslation(FilterBar)
+  <FilterBar
     autoFocus={true}
     className=""
     debounceTimeout={300}
     disabled={false}
     dockable={true}
     docked={true}
-    focus={false}
     id="myTextFilter"
     navbar={true}
     onFilter={[Function]}
     onToggle={[Function]}
-    t={[Function]}
     value=""
   >
     <Action
@@ -194,7 +191,8 @@ exports[`TextFilter should render text filter component with defined docked stat
                 key="icon"
                 name="talend-search"
               >
-                <CoralIcon
+                <span
+                  className="CoralIcon"
                   name="talend-search"
                 />
               </Icon>
@@ -203,6 +201,6 @@ exports[`TextFilter should render text filter component with defined docked stat
         </TooltipTrigger>
       </withI18nextTranslation(ActionButton)>
     </Action>
-  </withI18nextTranslation(FilterBar)>
+  </FilterBar>
 </TextFilter>
 `;

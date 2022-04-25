@@ -6,8 +6,8 @@ const Area = styled.div`
 	flex-basis: 100%;
 	align-items: center;
 	justify-content: center;
-	margin: ${tokens.coralSizeXs} ${tokens.coralSizeM};
-	padding: ${tokens.coralSizeXs};
+	margin: ${tokens.coralSpacingXs} ${tokens.coralSpacingM};
+	padding: ${tokens.coralSpacingXs};
 	min-height: 0;
 	font-weight: bold;
 	font-size: 2rem;

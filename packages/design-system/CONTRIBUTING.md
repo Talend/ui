@@ -1,4 +1,5 @@
 # Contributing
+
 Congratulations on becoming a contributor to the design system! You are pushing the whole company upwards.
 
 Here's what we expect our contributors to do when it comes to code.
@@ -6,6 +7,7 @@ Here's what we expect our contributors to do when it comes to code.
 We don't believe in giving you rigid steps to follow, we prefer guidance and a loose checklist. Always put people before processes.
 
 ## How do I know what I can do?
+
 We have a [self-service Jira board set-up for this](https://jira.talendforge.org/secure/RapidBoard.jspa?projectKey=TUX&rapidView=1030). All the tasks in the TODO column are up for grabs!
 
 Assign yourself to a ticket, it's all fair game.
@@ -13,10 +15,12 @@ Assign yourself to a ticket, it's all fair game.
 You can also simply ask on Slack, channel #ask-designsystem.
 
 ## TL;WR
+
 - Contribute to the design phase by offering browser-based know-how.
 - You may need to create the initial Storybook PR and help contributing designers write down specs (use the [provided template for the ComponentName.stories.mdx pages](DOCTEMPLATE.md)).
 - Get peer reviews on the [API of your component](#Designing-the-component's-API) before moving on to the implementation.
 - Follow the basic structure of a component/layout folder in the repository and use the [provided template for doc pages](DOCTEMPLATE.md).
+
 ```
 ├── Component.tsx          # Component
 ├── Component.spec.tsx     # Cypress tests
@@ -24,10 +28,14 @@ You can also simply ask on Slack, channel #ask-designsystem.
 ├── Component.stories.tsx  # Actual stories written explicitely in TSX
 ├── Component.module.scss  # Component styles (in BEM)
 ├── index.ts               # Clean component export
-└── private                # Internal composition elements
+└── primitive              # Internal composition elements
     ├── ComponentBrick.A.tsx
     └── ComponentBrick.B.tsx
+└── variants               # Standalone variants of the components
+    ├── ComponentVariantA.tsx
+    └── ComponentVariantB.tsx
 ```
+
 - Use design tokens with a burning passion.
 - Explicitness > Implicitness, always and in all things.
 - Don't let consumers easily override the styles or behaviours of the component.
@@ -71,7 +79,6 @@ Both can be done in one pull request, but ideally in very separate commits and s
 The goal is to outline the API, without necessarily coding the component itself.
 
 It can be something like that:
-
 
 ```tsx
 type Data = {
@@ -141,4 +148,3 @@ If not, reach out on Slack through a public channel (`#ak-ux` or `#ask-designsys
 The requirements are basically the same as they are for new implementations, but the required reviews are less strict. You need approval from a code owner and from the ticket's creator for most maintenance tasks.
 
 However, if your upgrade involves API changes or design changes, you'll still need approval from an outside developer and a product designer.
-
