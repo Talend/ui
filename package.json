@@ -22,6 +22,7 @@
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris yarn workspaces run test:cov",
     "test:demo": "node workspace-run.js test:demo",
+    "test:cron": "node workspace-run.js test:cron",
     "start-components": "yarn workspace @talend/react-components run start",
     "start-containers": "yarn workspace  @talend/react-containers run start",
     "start-datagrid": "yarn workspace  @talend/react-datagrid run start",
@@ -30,6 +31,10 @@
     "start-theme": "yarn workspace @talend/bootstrap-theme run start",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
     "prepare": "husky install"
+  },
+  "resolutions": {
+    "@types/react": "^16.14.25",
+    "@types/react-dom": "^16.9.14"
   },
   "repository": {
     "type": "git",

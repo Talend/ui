@@ -72,11 +72,12 @@ exports[`SelectSortBy should render 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="talend-sort-asc"
       />
-      <CoralIcon
-        className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
+      <span
+        className="CoralIcon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
         name="talend-caret-down"
         transform="rotate-180"
       />
@@ -160,11 +161,12 @@ exports[`SelectSortBy should render id if provided 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="talend-sort-asc"
       />
-      <CoralIcon
-        className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
+      <span
+        className="CoralIcon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
         name="talend-caret-down"
         transform="rotate-180"
       />
@@ -194,11 +196,12 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="talend-sort-asc"
       />
-      <CoralIcon
-        className="tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
+      <span
+        className="CoralIcon tc-list-toolbar-order-indicator theme-tc-list-toolbar-order-indicator"
         name="talend-caret-down"
         transform="rotate-180"
       />

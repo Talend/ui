@@ -37,9 +37,9 @@ describe('BadgeCheckboxesForm', () => {
 		// When
 		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
 		// Then
-		expect(wrapper.find('span').at(0).text()).toBe('Checkbox One');
-		expect(wrapper.find('span').at(1).text()).toBe('Checkbox Two');
-		expect(wrapper.find('span').at(2).text()).toBe('Checkbox Three');
+		expect(wrapper.find('.checkbox > label > span').at(0).text()).toBe('Checkbox One');
+		expect(wrapper.find('.checkbox > label > span').at(1).text()).toBe('Checkbox Two');
+		expect(wrapper.find('.checkbox > label > span').at(2).text()).toBe('Checkbox Three');
 		expect(wrapper.find('input[type="checkbox"]')).toHaveLength(3);
 	});
 	it('should trigger on change callback when checkbox generated from checkbox values are clicked', () => {
@@ -102,6 +102,7 @@ describe('BadgeCheckboxesForm', () => {
 		};
 		// When
 		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
+
 		expect(wrapper.find('input[id="checkbox-one-checkbox"]')).toHaveLength(1);
 		expect(wrapper.find('input[id="checkbox-two-checkbox"]')).toHaveLength(1);
 		expect(wrapper.find('input[id="checkbox-three-checkbox"]')).toHaveLength(1);

@@ -1,18 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { mount, shallow } from 'enzyme';
-import keycode from 'keycode';
-import ListView, { ListViewWidget } from './ListView.component';
-import toJsonWithoutI18n from '../../../../__mocks__/props-without-i18n';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-jest.useFakeTimers();
+import ListView from './ListView.component';
 
-function filter(wrapper, searchCriteria) {
-	wrapper.find('.tc-listview-header button').at(0).simulate('click');
-	const event = { target: { value: searchCriteria } };
-	wrapper.find('.tc-listview-header input').at(0).simulate('change', event);
-	jest.runAllTimers();
-}
+const NO_RESULT_MESSAGE = 'No result found.';
 
 describe('ListView field', () => {
 	let props;
@@ -66,151 +58,160 @@ describe('ListView field', () => {
 	});
 
 	describe('render', () => {
-		it('should render ListView', () => {
+		it('should render ListView items', () => {
 			// when
-			const wrapper = shallow(<ListView {...props} />);
+			render(<ListView {...props} />);
+
 			// then
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(screen.getByText('Afghanistan')).toBeInTheDocument();
+			expect(screen.getByText('Albania')).toBeInTheDocument();
+			expect(screen.getByText('Algeria')).toBeInTheDocument();
+			expect(screen.getByText('Andorra')).toBeInTheDocument();
 		});
 
 		it('should render no items message', () => {
 			// when
-			const wrapper = mount(<ListView {...props} schema={noItemsSchema} />);
+			render(<ListView {...props} schema={noItemsSchema} />);
 
 			// then
-			expect(toJsonWithoutI18n(wrapper.find('.tc-listview').at(0))).toMatchSnapshot();
+			expect(screen.getByText('This list is empty.')).toBeInTheDocument();
 		});
 	});
 
-	describe('UNSAFE_componentWillReceiveProps', () => {
-		it('should update items on props.value change', () => {
-			// given
-			const node = document.createElement('div');
-			// eslint-disable-next-line react/no-render-return-value
-			const instance = ReactDOM.render(<ListViewWidget {...props} value={[]} />, node);
-			const previousItems = instance.state.displayedItems;
-			expect(previousItems.length).toBe(4);
-			previousItems.forEach(({ checked }) => expect(checked).toBe(false));
+	it('should update items on props.value change', () => {
+		// given
+		const { rerender } = render(<ListView {...props} />);
+		expect(screen.getByRole('checkbox', { name: 'Select Afghanistan' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Albania' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Algeria' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Select Andorra' })).not.toBeChecked();
 
-			const allValues = props.schema.titleMap.map(option => option.value);
+		// when
+		rerender(<ListView {...props} value={['country3', 'country4']} />);
 
-			// when : trigger a props update
-			ReactDOM.render(<ListViewWidget {...props} value={allValues} />, node);
-
-			// then
-			const nextItems = instance.state.displayedItems;
-			expect(nextItems.length).toBe(4);
-			nextItems.forEach(({ checked }) => expect(checked).toBe(true));
-		});
-
-		it('should update items on props.schema change', () => {
-			// given
-			const node = document.createElement('div');
-			// eslint-disable-next-line react/no-render-return-value
-			const instance = ReactDOM.render(<ListViewWidget {...props} />, node);
-			const previousItems = instance.state.displayedItems;
-			expect(previousItems.length).toBe(4);
-
-			const allValues = alternativeSchema.titleMap.map(option => option.value);
-
-			// when : trigger a props update
-			ReactDOM.render(
-				<ListViewWidget {...props} schema={alternativeSchema} value={allValues} />,
-				node,
-			);
-
-			// then
-			const nextItems = instance.state.displayedItems;
-			expect(nextItems.length).toBe(6);
-		});
+		// then
+		expect(screen.getByRole('checkbox', { name: 'Select Afghanistan' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Select Albania' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Algeria' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Andorra' })).toBeChecked();
 	});
 
-	describe('filter', () => {
-		it('should switch to input mode on search button click', () => {
-			// given
-			const wrapper = mount(<ListView {...props} />);
-			const initialHeader = wrapper.find('.tc-listview-header').at(0);
-			expect(initialHeader.find('input').length).toBe(0);
-			expect(initialHeader.text()).toBe('Countries*(2/4 selected)');
+	it('should update items on props.schema change', () => {
+		// given
+		const { rerender } = render(<ListView {...props} />);
+		expect(screen.getByRole('checkbox', { name: 'Select Afghanistan' })).not.toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Albania' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Algeria' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Select Andorra' })).not.toBeChecked();
 
+		// when
+		const allValues = alternativeSchema.titleMap.map(option => option.value);
+		rerender(<ListView {...props} schema={alternativeSchema} value={allValues} />);
+
+		// then
+		expect(screen.getByRole('checkbox', { name: 'Deselect Afghanistan' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Albania' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Algeria' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Andorra' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Angola' })).toBeChecked();
+		expect(screen.getByRole('checkbox', { name: 'Deselect Anguilla' })).toBeChecked();
+	});
+
+	describe('search', () => {
+		it('input should be hidden by default', () => {
 			// when
-			initialHeader.find('button').at(0).simulate('click');
+			render(<ListView {...props} />);
 
 			// then
-			const nextHeader = wrapper.find('.tc-listview-header').at(0);
-			expect(nextHeader.find('input').length).toBe(1);
-			expect(nextHeader.text()).toBe('');
+			expect(screen.queryByRole('textbox', { name: 'Search' })).not.toBeInTheDocument();
 		});
 
-		it('should filter items on input change', () => {
+		it('should display search input when clicking on search icon', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
+			render(<ListView {...props} />);
 
 			// when
-			filter(wrapper, 'ia');
-			wrapper.update();
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
 
 			// then
-			expect(wrapper.find('input[id^="checkbox-my-list-view-"]').length).toBe(2);
-			expect(wrapper.find('.theme-tc-item-container label').at(1).text()).toBe('Albania');
-			expect(wrapper.find('.theme-tc-item-container label').at(2).text()).toBe('Algeria');
+			expect(screen.getByRole('textbox', { name: 'Search' })).toBeInTheDocument();
 		});
 
-		it('should show no result message', () => {
+		it('should filter displayed items', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
+			jest.useFakeTimers();
+			render(<ListView {...props} />);
+			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			filter(wrapper, 'lol');
-			wrapper.update();
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'al');
+			jest.runAllTimers();
 
 			// then
-			expect(wrapper.find('.tc-listview > span').at(0).text()).toBe('No result found.');
+			expect(screen.getAllByRole('option').length).toBe(2);
+			expect(screen.getByRole('checkbox', { name: 'Deselect Albania' })).toBeInTheDocument();
+			expect(screen.getByRole('checkbox', { name: 'Deselect Algeria' })).toBeInTheDocument();
+		});
+
+		it('should display a message when no results were found', () => {
+			// given
+			jest.useFakeTimers();
+			render(<ListView {...props} />);
+			expect(screen.getAllByRole('option').length).toBe(4);
+
+			// when
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'aaaaaa');
+			jest.runAllTimers();
+
+			// then
+			expect(screen.queryAllByRole('option').length).toBe(0);
+			expect(screen.getByText(NO_RESULT_MESSAGE)).toBeInTheDocument();
 		});
 
 		it('should switch back to default mode on abort button click', () => {
 			// given
-			const wrapper = mount(<ListViewWidget {...props} />);
-			filter(wrapper, 'ia');
-
-			expect(wrapper.state()).toMatchSnapshot();
+			jest.useFakeTimers();
+			render(<ListView {...props} />);
+			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			wrapper.find('.tc-listview-header button').at(0).simulate('click');
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'aaaaaa');
+			jest.runAllTimers();
+			userEvent.click(screen.getByRole('link', { name: 'Abort' }));
 
 			// then
-			expect(wrapper.state()).toMatchSnapshot();
+			expect(screen.queryAllByRole('option').length).toBe(4);
 		});
 
 		it('should switch back to default mode on ESC keydown', () => {
 			// given
-			const wrapper = mount(<ListViewWidget {...props} />);
-			filter(wrapper, 'ia');
-
-			expect(wrapper.state()).toMatchSnapshot();
+			jest.useFakeTimers();
+			render(<ListView {...props} />);
+			expect(screen.getAllByRole('option').length).toBe(4);
 
 			// when
-			wrapper
-				.find('.tc-listview-header input')
-				.at(0)
-				.simulate('keydown', { keyCode: keycode('escape') });
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'aaaaaa');
+			jest.runAllTimers();
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), '{esc}');
 
 			// then
-			expect(wrapper.state()).toMatchSnapshot();
+			expect(screen.queryAllByRole('option').length).toBe(4);
 		});
 	});
 
 	describe('list change', () => {
 		it('should toggle item', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
+			render(<ListView {...props} />);
 			expect(props.onChange).not.toBeCalled();
 			expect(props.onFinish).not.toBeCalled();
 
 			// when
-			wrapper
-				.find('input#checkbox-my-list-view-1-item')
-				.simulate('change', { target: { checked: true } });
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select Afghanistan' }));
 
 			// then
 			const payload = {
@@ -223,12 +224,12 @@ describe('ListView field', () => {
 
 		it('should select all item', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
+			render(<ListView {...props} />);
 			expect(props.onChange).not.toBeCalled();
 			expect(props.onFinish).not.toBeCalled();
 
 			// when
-			wrapper.find('#my-list-view-toggle-all').simulate('change', { target: { checked: true } });
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
 
 			// then
 			const payload = {
@@ -242,12 +243,12 @@ describe('ListView field', () => {
 		it('should deselect all item', () => {
 			// given
 			const allValues = props.schema.titleMap.map(option => option.value);
-			const wrapper = mount(<ListView {...props} value={allValues} />);
+			render(<ListView {...props} value={allValues} />);
 			expect(props.onChange).not.toBeCalled();
 			expect(props.onFinish).not.toBeCalled();
 
 			// when
-			wrapper.find('#my-list-view-toggle-all').simulate('change', { target: { checked: false } });
+			userEvent.click(screen.getByRole('checkbox', { name: 'Deselect all' }));
 
 			// then
 			const payload = {
@@ -260,11 +261,13 @@ describe('ListView field', () => {
 
 		it('should select all filtered item', () => {
 			// given
-			const wrapper = mount(<ListView {...props} />);
-			filter(wrapper, 'g');
+			render(<ListView {...props} />);
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'g');
+			jest.runAllTimers();
 
 			// when
-			wrapper.find('#my-list-view-toggle-all').simulate('change', { target: { checked: true } });
+			userEvent.click(screen.getByRole('checkbox', { name: 'Select all' }));
 
 			// then
 			const payload = {
@@ -278,11 +281,14 @@ describe('ListView field', () => {
 		it('should deselect all filtered item', () => {
 			// given
 			const allValues = props.schema.titleMap.map(option => option.value);
-			const wrapper = mount(<ListView {...props} value={allValues} />);
-			filter(wrapper, 'ia');
+
+			render(<ListView {...props} value={allValues} />);
+			userEvent.click(screen.getByRole('link', { name: 'Search for specific values' }));
+			userEvent.type(screen.getByRole('textbox', { name: 'Search' }), 'ia');
+			jest.runAllTimers();
 
 			// when
-			wrapper.find('#my-list-view-toggle-all').simulate('change', { target: { checked: false } });
+			userEvent.click(screen.getByRole('checkbox', { name: 'Deselect all' }));
 
 			// then
 			const payload = {
