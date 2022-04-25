@@ -1,7 +1,16 @@
 // custom inject to UMD from surge and the others from unpkg
 
+// eslint-disable-next-line func-names
 (function () {
 	const CDN_URL_REGEX = /^(\/?.*\/cdn)\//;
+
+	function removeIntegrity(info) {
+		if (info.name && info.name.startsWith('@talend')) {
+			// eslint-disable-next-line no-param-reassign
+			delete info.integrity;
+		}
+		return info;
+	}
 
 	function prepareUrl(url) {
 		let newUrl;
@@ -16,6 +25,6 @@
 		return newUrl || url;
 	}
 
-	window.talendAddStyles(window.cssFiles, prepareUrl);
-	window.talendAddScripts(window.jsFiles, prepareUrl);
+	window.talendAddStyles(window.Talend.cssBuild.map(removeIntegrity), prepareUrl);
+	window.talendAddScripts(window.Talend.build.map(removeIntegrity), prepareUrl);
 })();
