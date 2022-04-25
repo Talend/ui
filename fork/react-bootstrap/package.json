@@ -16,8 +16,6 @@
     "build:lib": "talend-scripts build:lib",
     "lint:es": "talend-scripts lint:es",
     "test": "talend-scripts test",
-    "test-browser": "cross-env NODE_ENV=test karma start --single-run",
-    "test-node": "cross-env NODE_ENV=test-server mocha --compilers js:@babel/register test/server/*Spec.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -45,6 +43,9 @@
   "devDependencies": {
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
     "chai": "^4.3.4",
     "chalk": "^2.3.2",
     "colors": "^1.2.1",
