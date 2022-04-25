@@ -38,7 +38,6 @@ function Modal(props: ModalPropsType): ReactElement {
 	const dialog = { visible: true };
 
 	const hasAction = primaryAction || secondaryAction;
-	const hasPrimaryAction = !!primaryAction;
 	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
 
 	return (

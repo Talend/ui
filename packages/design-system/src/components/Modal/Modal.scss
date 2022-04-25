@@ -15,21 +15,23 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 }
 
 .modal {
-	position: absolute;
+	position: fixed;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	z-index: $modal-z-index;
+	min-width: 660px;
+	max-width: 95%;
+	max-height: 80%;
 	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 	border-radius: tokens.$coral-radius-s;
 	background: tokens.$coral-color-neutral-background;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 
 	> :first-child {
-		// Fixed dimensions have to be set on the flex element so that overflow-y: auto can
-		// properly compute the height of each component of the modal (header / content / buttons).
-		min-width: 660px;
-		max-width: 95vw;
-		max-height: 80vh;
+		overflow: hidden;
 	}
 
 	&__header,
