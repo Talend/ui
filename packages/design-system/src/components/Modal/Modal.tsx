@@ -38,7 +38,6 @@ function Modal(props: ModalPropsType): ReactElement {
 	const dialog = { visible: true };
 
 	const hasAction = primaryAction || secondaryAction;
-	const hasTabs = false; // @todo
 	const hasPrimaryAction = !!primaryAction;
 	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
 
@@ -46,12 +45,7 @@ function Modal(props: ModalPropsType): ReactElement {
 		<DialogBackdrop {...dialog} className={modalStyles['modal-backdrop']}>
 			<Dialog {...dialog} className={modalStyles['modal']} aria-title={title}>
 				<StackVertical gap="L">
-					<div
-						className={classNames({
-							[modalStyles['modal__header']]: true,
-							[modalStyles['modal__header--with-tabs']]: hasTabs,
-						})}
-					>
+					<div className={modalStyles['modal__header']}>
 						{icon && <ModalIcon icon={icon} />}
 						<div className={modalStyles['modal-header-text']}>
 							<span className={modalStyles['modal-header-text__title']}>{title}</span>
