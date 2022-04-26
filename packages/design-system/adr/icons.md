@@ -7,7 +7,8 @@ Icon component deserves fresh new behaviors, to serve the icons, because:
 * We serve icons as they are exported, in their non-optimized version.
 * There are no strong types definitions for the icons.
 * The icons we see in Figma high fidelity mockups and the icons we get in production can differ.
-* We can't update icon's parts unitary and reuse shapes for composition purposes since they are flattened.
+* We can't easily update icon's parts, unitary, and reuse shapes for composition purposes since they are flattened.
+* The whole bundle needs to be downloaded to start rendering icons
 
 ## Problem
 
@@ -39,7 +40,7 @@ graph LR
 
 Since icons are not really critical, it's time to serve them in the smartest way.
 Instead of fetching the whole SVG sprite, even if it's put in the cache, we can benefit of our current CDN architecture to push forward the limits.
-The goal is to introduce the usage of [service worker for a caching strategy](https://serviceworke.rs/strategy-cache-and-update.html).
+The goal is to introduce the usage of [service worker for a caching strategy](https://serviceworke.rs/strategy-cache-and-update.html) as a bonus.
 
 ```mermaid
 sequenceDiagram
@@ -56,5 +57,25 @@ sequenceDiagram
     deactivate W
 ```
 
-The first time you hit the icon, we will fetch it on the CDN.
-Next time, you will get the cached version and it will be updated in the background for the next calls. 
+The first time a client will hit the icon, it will fetch the icon as React component on the CDN.
+Next time, they will get the cached version and it will be updated in the background, if and only if the icon has changed, for the next calls.
+
+### Under the hood
+
+Figma stores the icons. Easy part!  
+Now, we need to fetch the icons from Figma, using a GitHub Action that will create a Pull Request (PR). 
+That PR will organize the icons per size, only if they have changed.
+
+Using Webpak 5 + [SVGR](https://react-svgr.com/), we can easily lazy-import each icon, as a React component. 
+Each React component get a hashed name based on its content `[contenthash].js`.  
+If you have already fetched the file, the web browser cache can reuse it.  
+If not, it will fetch a couple of kilobytes for once. 
+
+Now, you can say "OK, but what if my version of the package `@talend/icons` changes?"  
+That's why we introduce the service worker, since, if the version changes, that implies a new URL to reach the CDN. 
+And a new URL is a new cache key for your web browser.
+
+The package `@talend/icons` won't expose a generic `<Icon />` React component. 
+This component will be part of the Design System package. 
+The package `@talend/icons` will expose a factory, instead, to retrieve the right icon at the right time. 
+It will either be a new icon or fall back on our previous icons, for a smooth migration path.

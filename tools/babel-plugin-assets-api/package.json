@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "read-pkg-up": "^7.0.1",
-    "@talend/module-to-cdn": "^9.8.0"
+    "@talend/module-to-cdn": "^9.8.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "babel-jest": "^26.6.3",
     "babel-plugin-tester": "^10.1.0",

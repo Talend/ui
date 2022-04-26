@@ -34,6 +34,7 @@ exports[`Typeahead injection should use render props to inject extra components 
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
@@ -43,6 +44,7 @@ exports[`Typeahead injection should use render props to inject extra components 
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -165,6 +167,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
@@ -174,6 +177,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -193,7 +197,8 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="fa fa-filter"
               title="icon"
             />
@@ -327,7 +332,8 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="fa fa-asterisk"
               title="icon"
             />
@@ -426,6 +432,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
     id="react-autowhatever-my-search"
     style={
@@ -435,6 +442,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -491,6 +499,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
@@ -500,6 +509,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -519,7 +529,8 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="fa fa-filter"
               title="icon"
             />
@@ -607,7 +618,8 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
           >
-            <CoralIcon
+            <span
+              className="CoralIcon"
               name="fa fa-asterisk"
               title="icon"
             />
@@ -694,6 +706,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
@@ -703,6 +716,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -807,6 +821,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     />
   </div>
   <div
+    aria-label="Suggestions"
     className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
     id="react-autowhatever-my-search"
     style={
@@ -816,6 +831,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
         "top": "0",
       }
     }
+    tabIndex="0"
   >
     <div
       className="theme-items-body"
@@ -829,7 +845,8 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       <div
         className="theme-no-result no-result"
       >
-        <CoralIcon
+        <span
+          className="CoralIcon"
           name="talend-fieldglass"
           title="No result."
         />
@@ -933,7 +950,8 @@ exports[`Typeahead with toggle should render button 1`] = `
   onMouseOver={[Function]}
   type="button"
 >
-  <CoralIcon
+  <span
+    className="CoralIcon"
     name="fa fa-search"
   />
 </button>

@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 9.7.3
+
+### Patch Changes
+
+- 799c40db6: fix: jest.mock should not rely on external deps
+
 ## 9.7.2
 
 ### Patch Changes

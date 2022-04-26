@@ -190,7 +190,7 @@ BasicSearch.propTypes = {
 	customOperatorsDictionary: operatorsPropTypes,
 	initialFilterValue: PropTypes.string,
 	quickSearchPlaceholder: PropTypes.string,
-	/* Can be used to filter facets displayed when input changes; (term, facet) => boolean */
+	/* Can be used to filter facets displayed when input changes; (term, facets) => [facets] */
 	quickSearchFacetsFilter: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
 	setBadgesFaceted: PropTypes.func,

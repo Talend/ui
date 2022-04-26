@@ -63,14 +63,15 @@ export class UIFormComponent extends React.Component {
 	 * @param jsonSchema
 	 * @param uiSchema
 	 */
-	UNSAFE_componentWillReceiveProps({ jsonSchema, uiSchema }) {
+	componentDidUpdate(prevProps) {
 		if (
-			!jsonSchema ||
-			!uiSchema ||
-			(this.props.jsonSchema === jsonSchema && this.props.uiSchema === uiSchema)
+			!this.props.jsonSchema ||
+			!this.props.uiSchema ||
+			(this.props.jsonSchema === prevProps.jsonSchema && this.props.uiSchema === prevProps.uiSchema)
 		) {
 			return;
 		}
+		const { jsonSchema, uiSchema } = this.props;
 		if (Object.keys(jsonSchema).length) {
 			const merged = merge(jsonSchema, uiSchema);
 			this.setState({

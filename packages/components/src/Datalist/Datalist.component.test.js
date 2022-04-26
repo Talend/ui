@@ -164,6 +164,7 @@ describe('Datalist component', () => {
 
 	it('should close suggestions on blur', () => {
 		// given
+		jest.useFakeTimers();
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} />);
 		const input = screen.getByRole('textbox');
 		fireEvent.click(input);
@@ -172,6 +173,7 @@ describe('Datalist component', () => {
 
 		// when
 		fireEvent.blur(input);
+		jest.runAllTimers(); // focus manager
 
 		// then
 		expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -210,6 +212,7 @@ describe('Datalist component', () => {
 
 	it('should clear input', () => {
 		// given
+		jest.useFakeTimers();
 		const onChange = jest.fn();
 		render(<Datalist id="my-datalist" onChange={onChange} {...props} value="foo" />);
 
@@ -217,6 +220,7 @@ describe('Datalist component', () => {
 		const input = screen.getByRole('textbox');
 		userEvent.clear(input);
 		fireEvent.blur(input);
+		jest.runAllTimers(); // focus manager
 
 		// then
 		expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
@@ -268,6 +272,7 @@ describe('Datalist component', () => {
 	describe('non restricted mode (default)', () => {
 		it('should persist known value on blur', () => {
 			// given
+			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} />);
 			expect(onChange).not.toBeCalled();
@@ -276,6 +281,7 @@ describe('Datalist component', () => {
 			const input = screen.getByRole('textbox');
 			userEvent.type(input, 'foo');
 			fireEvent.blur(input);
+			jest.runAllTimers(); // focus manager
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
@@ -283,6 +289,7 @@ describe('Datalist component', () => {
 
 		it('should persist unknown value on blur', () => {
 			// given
+			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} />);
 
@@ -290,6 +297,7 @@ describe('Datalist component', () => {
 			const input = screen.getByRole('textbox');
 			userEvent.type(input, 'not a known value');
 			fireEvent.blur(input);
+			jest.runAllTimers(); // focus manager
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not a known value' });
@@ -326,6 +334,7 @@ describe('Datalist component', () => {
 	describe('restricted mode', () => {
 		it('should persist known value on blur', () => {
 			// given
+			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} restricted {...props} />);
 			expect(onChange).not.toBeCalled();
@@ -334,6 +343,7 @@ describe('Datalist component', () => {
 			// when
 			userEvent.type(input, 'foo');
 			fireEvent.blur(input);
+			jest.runAllTimers(); // focus manager
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: 'foo' });
@@ -341,6 +351,7 @@ describe('Datalist component', () => {
 
 		it('should reset unknown value on blur', () => {
 			// given
+			jest.useFakeTimers();
 			const onChange = jest.fn();
 			render(<Datalist id="my-datalist" onChange={onChange} {...props} restricted value="foo" />);
 
@@ -348,6 +359,7 @@ describe('Datalist component', () => {
 			const input = screen.getByRole('textbox');
 			userEvent.type(input, 'not a known value');
 			fireEvent.blur(input);
+			jest.runAllTimers(); // focus manager
 
 			// then
 			expect(onChange).not.toBeCalled();

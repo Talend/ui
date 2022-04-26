@@ -1,5 +1,17 @@
 # @talend/design-tokens
 
+## 2.1.0
+
+### Minor Changes
+
+- af3a9f02c: Added 3 new illustration color tokens
+
+## 2.0.0
+
+### Major Changes
+
+- fb3483b9f: The size tokens have been split in sizing and spacing tokens. Size tokens are no longer valid
+
 ## 1.5.0
 
 ### Minor Changes

@@ -1,5 +1,29 @@
 # @talend/design-system
 
+## 2.3.0
+
+### Minor Changes
+
+- 2e19164bf: Added EmptyState component
+
+### Patch Changes
+
+- 2b355ac2e: fix(design-system/storybook): Broken Storybook on Windows
+
+## 2.2.0
+
+### Minor Changes
+
+- ed98b0840: Updated design tokens
+
+## 2.1.2
+
+### Patch Changes
+
+- 3aa82e6be: fix: upgrade with the new tokens
+- Updated dependencies [fb3483b9f]
+  - @talend/design-tokens@2.0.0
+
 ## 2.1.1
 
 ### Patch Changes
