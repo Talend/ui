@@ -1,6 +1,7 @@
 $td-header-component-border-color: $gallery !default;
 $td-quality-bar-hover-height: 1rem !default;
 $td-grip-resize-width: 6px !default;
+$td-header-padding: .8rem;
 
 :global(.ag-header-cell) {
 	border-right: $td-header-component-border-color 1px solid;
@@ -20,9 +21,7 @@ $td-grip-resize-width: 6px !default;
 	height: 100%;
 
 	:global(.tc-ratio-bar) {
-		display: flex;
-		width: 100%;
-		padding: 0 0.3rem;
+		padding: $td-header-padding .7rem;
 		position: absolute;
 		bottom: 0;
 	}
@@ -30,7 +29,7 @@ $td-grip-resize-width: 6px !default;
 	.td-header {
 		height: 100%;
 		width: calc(100% - #{$td-grip-resize-width});
-		padding: 1rem;
+		padding: $td-header-padding;
 		text-align: left;
 		background-color: transparent;
 		border: none;

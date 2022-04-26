@@ -8,7 +8,7 @@
 
 .tc-ratio-bar-line-quality-empty {
 	@extend %tc-ratio-bar-lines;
-	background-color: tokens.$coral-color-charts-neutral-strong;
+	background-color: tokens.$coral-color-charts-neutral;
 }
 
 .tc-ratio-bar-line-quality-valid {
@@ -23,12 +23,12 @@
 
 .tc-ratio-bar-line-quality-na {
 	@extend %tc-ratio-bar-lines;
-	background-color: $alto;
+	background-color: tokens.$coral-color-charts-neutral;
 }
 
 .tc-ratio-bar-line-quality-placeholder {
 	@extend %tc-ratio-bar-lines;
-	background-color: $alto;
+	background-color: tokens.$coral-color-charts-neutral-weak;
 
 	:global(.tc-ratio-bar) &:hover {
 		height: 5px;
