@@ -13,18 +13,21 @@ import modalStyles from './Modal.scss';
 
 type ModalIcon = IconName | ReactElement;
 
-function ModalIcon({ icon }: { icon: ModalIcon }): ReactElement {
+function ModalIcon(props: { icon: ModalIcon; 'data-test'?: string }): ReactElement {
+	const { icon, ['data-test']: dataTest } = props;
 	return (
-		<div className={modalStyles['modal-icon']}>
+		<div className={modalStyles['modal-icon']} data-test={dataTest}>
 			{typeof icon === 'string' ? <Icon name={icon} /> : icon}
 		</div>
 	);
 }
 
 export type ModalPropsType = {
-	title: ReactNode;
-	description?: string;
-	icon?: ModalIcon;
+	header: {
+		title: ReactNode;
+		description?: string;
+		icon?: ModalIcon;
+	};
 	onClose: Function;
 	primaryAction?: ButtonPrimaryPropsType & { destructive?: boolean };
 	secondaryAction?: ButtonSecondaryPropsType;
@@ -33,55 +36,76 @@ export type ModalPropsType = {
 };
 
 function Modal(props: ModalPropsType): ReactElement {
-	const {
-		title,
-		icon,
-		description,
-		onClose,
-		primaryAction,
-		secondaryAction,
-		preventEscaping,
-		children,
-	} = props;
+	const { header, onClose, primaryAction, secondaryAction, preventEscaping, children } = props;
 	const dialog = { visible: true };
 
 	const hasAction = primaryAction || secondaryAction;
 	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
 
 	return (
-		<DialogBackdrop {...dialog} className={modalStyles['modal-backdrop']}>
+		<DialogBackdrop
+			{...dialog}
+			className={modalStyles['modal-backdrop']}
+			data-test="modal.backdrop"
+		>
 			<Dialog
 				{...dialog}
-				aria-title={title}
+				data-test="modal"
+				aria-title={header.title}
 				className={modalStyles['modal']}
 				hide={preventEscaping ? undefined : () => onClose()}
 			>
 				<StackVertical gap="L">
 					<div className={modalStyles['modal__header']}>
-						{icon && <ModalIcon icon={icon} />}
+						{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
 						<div className={modalStyles['modal-header-text']}>
-							<span className={modalStyles['modal-header-text__title']}>{title}</span>
-							{description && (
-								<span className={modalStyles['modal-header-text__description']}>{description}</span>
+							<span
+								className={modalStyles['modal-header-text__title']}
+								data-test="modal.header.title"
+							>
+								{header.title}
+							</span>
+							{header.description && (
+								<span
+									className={modalStyles['modal-header-text__description']}
+									data-test="modal.header.description"
+								>
+									{header.description}
+								</span>
 							)}
 						</div>
 					</div>
 
-					<div className={modalStyles['modal__content']}>{children}</div>
+					<div className={modalStyles['modal__content']} data-test="modal.content">
+						{children}
+					</div>
 
-					<div className={modalStyles['modal__buttons']}>
+					<div className={modalStyles['modal__buttons']} data-test="modal.buttons">
 						<StackHorizontal gap="S" justify="spaceBetween">
-							<ButtonSecondary onClick={() => onClose()}>{onCloseLabel}</ButtonSecondary>
+							<ButtonSecondary onClick={() => onClose()} data-test="modal.buttons.close">
+								{onCloseLabel}
+							</ButtonSecondary>
 
 							{hasAction && (
 								<div>
 									<StackHorizontal gap="XS">
-										{secondaryAction && <ButtonSecondary {...secondaryAction} />}
+										{secondaryAction && (
+											<ButtonSecondary
+												{...secondaryAction}
+												data-test="modal.buttons.secondary-action"
+											/>
+										)}
 										{primaryAction &&
 											(!primaryAction.destructive ? (
-												<ButtonPrimary tabIndex={0} {...primaryAction} />
+												<ButtonPrimary
+													{...primaryAction}
+													data-test="modal.buttons.primary-action"
+												/>
 											) : (
-												<ButtonDestructive {...primaryAction} />
+												<ButtonDestructive
+													{...primaryAction}
+													data-test="modal.buttons.primary-action"
+												/>
 											))}
 									</StackHorizontal>
 								</div>

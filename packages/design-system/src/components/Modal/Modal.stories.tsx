@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Story } from '@storybook/react';
+import { ComponentStory, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Modal, { ModalPropsType } from './Modal';
@@ -11,7 +11,7 @@ export default {
 function ModalStory(props: Partial<ModalPropsType>) {
 	return (
 		<Modal
-			title="(Default story title)"
+			header={{ title: '(Default story title)' }}
 			children="(Default story child)"
 			onClose={action('onClose')}
 			{...props}
@@ -121,33 +121,37 @@ function QuicheRecipe(): ReactElement {
 	);
 }
 
-export const Basic = () => (
-	<ModalStory title="Basic modal">
+export const Basic: ComponentStory<typeof Modal> = props => (
+	<ModalStory {...props} header={{ title: 'Basic modal' }}>
 		<p>A basic modal with only a title and a text content.</p>
 	</ModalStory>
 );
 
-export const WithIcon = () => (
-	<ModalStory title="With icon" icon="talend-file-hdfs-o">
+export const WithIcon: ComponentStory<typeof Modal> = props => (
+	<ModalStory {...props} header={{ title: 'With icon', icon: 'talend-file-hdfs-o' }}>
 		<p>A basic modal with title, a text content and an icon.</p>
 	</ModalStory>
 );
 
-export const WithCustomIcon = () => (
-	<ModalStory title="With custom icon" icon={<span>💪</span>}>
+export const WithCustomIcon: ComponentStory<typeof Modal> = props => (
+	<ModalStory {...props} header={{ title: 'With custom icon', icon: <span>💪</span> }}>
 		<p>A basic modal with title, a text content and a custom icon.</p>
 	</ModalStory>
 );
 
-export const WithDescription = () => (
-	<ModalStory title="With description" description="That is the description">
+export const WithDescription: ComponentStory<typeof Modal> = props => (
+	<ModalStory
+		{...props}
+		header={{ title: 'With description', description: 'That is the description' }}
+	>
 		<p>A basic modal with title, a description and a text content.</p>
 	</ModalStory>
 );
 
-export const WithActions = () => (
+export const WithActions: ComponentStory<typeof Modal> = props => (
 	<ModalStory
-		title="With actions"
+		{...props}
+		header={{ title: 'With actions' }}
 		primaryAction={{
 			children: 'Primary action',
 			onClick: action('[Primary action] onClick'),
@@ -164,34 +168,44 @@ export const WithActions = () => (
 	</ModalStory>
 );
 
-export const WithNonClosingBackdrop = () => (
-	<ModalStory title="With non closing backdrop">
+export const WithNonClosingBackdrop: ComponentStory<typeof Modal> = props => (
+	<ModalStory {...props} header={{ title: 'With non closing backdrop' }}>
 		<p>
 			A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked.
 		</p>
 	</ModalStory>
 );
 
-export const WithOverflowingHeader = () => (
+export const WithOverflowingHeader: ComponentStory<typeof Modal> = props => (
 	<ModalStory
-		title="With overflowing content (including the title and the description, text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
-		description="The description is also too long (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
+		{...props}
+		header={{
+			title:
+				'With overflowing content (including the title and the description, text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)',
+			description:
+				'The description is also too long (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)',
+		}}
 	>
 		👋
 	</ModalStory>
 );
 
-export const WithOverflowingContent = () => (
-	<ModalStory title="With overflowing content">
+export const WithOverflowingContent: ComponentStory<typeof Modal> = props => (
+	<ModalStory {...props} header={{ title: 'With overflowing content' }}>
 		<QuicheRecipe />
 	</ModalStory>
 );
 
-export const WithEverything = () => (
+export const WithEverything: ComponentStory<typeof Modal> = props => (
 	<ModalStory
-		icon="talend-file-hdfs-o"
-		title="With everything, including a long title (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
-		description="... and description (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
+		{...props}
+		header={{
+			title:
+				'With everything, including a long title (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)',
+			description:
+				'... and description (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)',
+			icon: 'talend-file-hdfs-o',
+		}}
 		primaryAction={{
 			children: 'Primary action',
 			onClick: action('[Primary action] onClick'),
