@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 import i18n from 'i18next';
-import { Dialog, DialogBackdrop, useDialogState } from 'reakit/Dialog';
+import { Dialog, DialogBackdrop } from 'reakit/Dialog';
 import { IconName } from '@talend/icons';
 
 import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
@@ -54,7 +54,7 @@ function Modal(props: ModalPropsType): ReactElement {
 				{...dialog}
 				aria-title={title}
 				className={modalStyles['modal']}
-				hide={!preventEscaping ? () => onClose() : undefined}
+				hide={preventEscaping ? undefined : () => onClose()}
 			>
 				<StackVertical gap="L">
 					<div className={modalStyles['modal__header']}>

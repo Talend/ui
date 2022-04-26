@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Modal, { ModalPropsType } from './Modal';
@@ -7,12 +8,12 @@ export default {
 	component: Modal,
 };
 
-function StoryModal(props: Partial<ModalPropsType>) {
+function ModalStory(props: Partial<ModalPropsType>) {
 	return (
 		<Modal
 			title="(Default story title)"
 			children="(Default story child)"
-			onClose={() => action('onClose')}
+			onClose={action('onClose')}
 			{...props}
 		/>
 	);
@@ -121,83 +122,85 @@ function QuicheRecipe(): ReactElement {
 }
 
 export const Basic = () => (
-	<StoryModal title="Basic modal">
+	<ModalStory title="Basic modal">
 		<p>A basic modal with only a title and a text content.</p>
-	</StoryModal>
+	</ModalStory>
 );
 
 export const WithIcon = () => (
-	<StoryModal title="With icon" icon="talend-file-hdfs-o">
+	<ModalStory title="With icon" icon="talend-file-hdfs-o">
 		<p>A basic modal with title, a text content and an icon.</p>
-	</StoryModal>
+	</ModalStory>
 );
 
 export const WithCustomIcon = () => (
-	<StoryModal title="With custom icon" icon={<span>💪</span>}>
+	<ModalStory title="With custom icon" icon={<span>💪</span>}>
 		<p>A basic modal with title, a text content and a custom icon.</p>
-	</StoryModal>
+	</ModalStory>
 );
 
 export const WithDescription = () => (
-	<StoryModal title="With description" description="That is the description">
+	<ModalStory title="With description" description="That is the description">
 		<p>A basic modal with title, a description and a text content.</p>
-	</StoryModal>
+	</ModalStory>
 );
 
 export const WithActions = () => (
-	<StoryModal
+	<ModalStory
 		title="With actions"
 		primaryAction={{
 			children: 'Primary action',
-			onClick: () => action('[Primary action] onClick'),
+			onClick: action('[Primary action] onClick'),
 		}}
 		secondaryAction={{
 			children: 'Secondary action',
-			onClick: () => action('[Secondary action] onClick'),
+			onClick: action('[Secondary action] onClick'),
 		}}
 	>
 		<p>
 			A modal with title, a text content, an icon and both available actions (primary and
 			secondary).
 		</p>
-	</StoryModal>
+	</ModalStory>
 );
 
 export const WithNonClosingBackdrop = () => (
-	<StoryModal title="With non closing backdrop">
-		<p>A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked.</p>
-	</StoryModal>
+	<ModalStory title="With non closing backdrop">
+		<p>
+			A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked.
+		</p>
+	</ModalStory>
 );
 
 export const WithOverflowingHeader = () => (
-	<StoryModal
+	<ModalStory
 		title="With overflowing content (including the title and the description, text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
 		description="The description is also too long (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
 	>
 		👋
-	</StoryModal>
+	</ModalStory>
 );
 
 export const WithOverflowingContent = () => (
-	<StoryModal title="With overflowing content">
+	<ModalStory title="With overflowing content">
 		<QuicheRecipe />
-	</StoryModal>
+	</ModalStory>
 );
 
 export const WithEverything = () => (
-	<StoryModal
+	<ModalStory
 		icon="talend-file-hdfs-o"
 		title="With everything, including a long title (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
 		description="... and description (text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
 		primaryAction={{
 			children: 'Primary action',
-			onClick: () => action('[Primary action] onClick'),
+			onClick: action('[Primary action] onClick'),
 		}}
 		secondaryAction={{
 			children: 'Secondary action',
-			onClick: () => action('[Secondary action] onClick'),
+			onClick: action('[Secondary action] onClick'),
 		}}
 	>
 		<QuicheRecipe />
-	</StoryModal>
+	</ModalStory>
 );
