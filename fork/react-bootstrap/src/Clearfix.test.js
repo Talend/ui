@@ -1,59 +1,69 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import ReactTestUtils from 'react-dom/test-utils';
-import { assert } from 'chai';
+import { render, screen } from '@testing-library/react';
 
 import Clearfix from './Clearfix';
 
 describe('<Clearfix>', () => {
   it('uses "div" by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(<Clearfix />);
+    // when
+    render(<Clearfix data-testid="test" />);
 
-    assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
+    // then
+    expect(screen.getByTestId('test').tagName).toBe('DIV');
   });
 
   it('has "clearfix" class', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix>Clearfix content</Clearfix>
-    );
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'clearfix');
+    // when
+    render(<Clearfix data-testid="test" />);
+
+    // then
+    expect(screen.getByTestId('test')).toHaveClass('clearfix');
   });
 
   it('Defaults to no visible block classes', () => {
-    let instance = ReactTestUtils.renderIntoDocument(<Clearfix />);
+    // when
+    render(<Clearfix data-testid="test" />);
 
-    let instanceClassName = ReactDOM.findDOMNode(instance).className;
-    assert.ok(!instanceClassName.match(/\bvisible-xs-block\b/));
-    assert.ok(!instanceClassName.match(/\bvisible-sm-block\b/));
-    assert.ok(!instanceClassName.match(/\bvisible-md-block\b/));
-    assert.ok(!instanceClassName.match(/\bvisible-lg-block\b/));
+    // then
+    const div = screen.getByTestId('test');
+    expect(div).not.toHaveClass('visible-xs-block');
+    expect(div).not.toHaveClass('visible-sm-block');
+    expect(div).not.toHaveClass('visible-md-block');
+    expect(div).not.toHaveClass('visible-lg-block');
   });
 
   it('Should apply visible block classes', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix visibleXsBlock visibleSmBlock visibleMdBlock visibleLgBlock />
+    render(
+      <Clearfix
+        data-testid="test"
+        visibleXsBlock
+        visibleSmBlock
+        visibleMdBlock
+        visibleLgBlock
+      />
     );
 
-    let instanceClassName = ReactDOM.findDOMNode(instance).className;
-    assert.ok(instanceClassName.match(/\bvisible-xs-block\b/));
-    assert.ok(instanceClassName.match(/\bvisible-sm-block\b/));
-    assert.ok(instanceClassName.match(/\bvisible-md-block\b/));
-    assert.ok(instanceClassName.match(/\bvisible-lg-block\b/));
+    // then
+    const div = screen.getByTestId('test');
+    expect(div).toHaveClass('visible-xs-block');
+    expect(div).toHaveClass('visible-sm-block');
+    expect(div).toHaveClass('visible-md-block');
+    expect(div).toHaveClass('visible-lg-block');
   });
 
   it('Should merge additional classes passed in', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix className="bob" />
-    );
-    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bbob\b/));
-    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bclearfix\b/));
+    // when
+    render(<Clearfix data-testid="test" className="bob" />);
+
+    // then
+    expect(screen.getByTestId('test')).toHaveClass('clearfix bob');
   });
 
   it('allows custom elements instead of "div"', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix componentClass="section" />
-    );
+    // when
+    render(<Clearfix data-testid="test" componentClass="section" />);
 
-    assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'SECTION');
+    // then
+    expect(screen.getByTestId('test').tagName).toBe('SECTION');
   });
 });
