@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /**
  * Internal. It contains the wrapper to make react-router run with the CMF
  * settings
@@ -77,27 +78,33 @@ export function getRouter(history, basename) {
 	 * @param  {object} props   The waited props (history and routes)
 	 * @return {object} ReactElement
 	 */
-	function CMFRouter(props) {
+	function CMFRouter({ action, location, ...props }) {
 		const [state, setState] = React.useState({
 			action: history.action,
 			location: history.location,
 		});
-
-		const [unlisten] = React.useState(
-			history.listen((...args) => {
+		React.useEffect(() => {
+			return history.listen((...args) => {
+				// eslint-disable-next-line no-console
+				console.log('#### listen');
 				setState(...args);
 				props.dispatch(onLocationChanged(...args));
-			}),
-		);
-		React.useLayoutEffect(() => unlisten, [unlisten]);
+			});
+		}, []);
+		React.useEffect(() => {
+			// debugger;
+			if (location.key !== state.location.key || action !== state.action) {
+				setState({ action, location });
+			}
+		}, [location, action]);
 
 		if (props.routes.path && props.routes.component) {
 			const routeProps = getRouteProps(props.routes, props.routes.path);
+			window.Talend.printRouterCfg = () => printRouterConfig(routeProps);
 			if (process.env.NODE_ENV === 'development') {
-				window.talendPrintRouterCfg = () => printRouterConfig(routeProps);
-				window.talendPrintRouterCfg(routeProps);
+				window.Talend.printRouterCfg(routeProps);
 			}
-			// eslint-disable-next-line no-console
+
 			return (
 				<Router
 					basename={basename}
@@ -121,13 +128,21 @@ export function getRouter(history, basename) {
 		dispatch: PropTypes.func,
 		routes: PropTypes.object,
 		loading: PropTypes.node,
+		action: PropTypes.string,
+		location: PropTypes.shape({
+			key: PropTypes.string,
+		}),
 	};
 	CMFRouter.contextTypes = {
 		registry: PropTypes.object,
 	};
 	CMFRouter.displayName = 'CMFReactRouterIntegration';
 
-	const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
+	const mapStateToProps = state => ({
+		routes: state.cmf.settings.routes,
+		action: state.router.action,
+		location: state.router.location,
+	});
 	const mapDispatchToProps = dispatch => ({ dispatch });
 	return connect(mapStateToProps, mapDispatchToProps)(CMFRouter);
 }
