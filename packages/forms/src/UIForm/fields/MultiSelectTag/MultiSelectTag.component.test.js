@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { mount, shallow } from 'enzyme';
-import Badge from '@talend/react-components/lib/Badge';
-import Typeahead from '@talend/react-components/lib/Typeahead';
-import keycode from 'keycode';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import MultiSelectTag from './MultiSelectTag.component';
 
 jest.mock('ally.js');
@@ -28,119 +26,130 @@ describe('MultiSelectTag field', () => {
 			titleMap: [
 				{ name: 'toto', value: 'titi' },
 				{ name: 'tata', value: 'tutu' },
+				{ name: 'totomobile', value: 'totomobile' },
 			],
 			dataTest: 'item',
 		},
 		value: ['aze', 'tutu'],
 	};
 
-	it('should render MultiSelectTag', () => {
+	it('should render input', () => {
 		// when
-		const wrapper = shallow(<MultiSelectTag {...props} />);
+		render(<MultiSelectTag {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('textbox')).toBeInTheDocument();
+	});
+
+	it('should render suggestions on focus', () => {
+		// given
+		render(<MultiSelectTag {...props} />);
+
+		// when
+		userEvent.click(screen.getByRole('textbox'));
+
+		// then
+		expect(screen.getByRole('listbox')).toBeInTheDocument();
+		expect(screen.getByRole('option', { name: 'toto' })).toBeInTheDocument();
+		expect(screen.getByRole('option', { name: 'totomobile' })).toBeInTheDocument();
+		expect(screen.queryByRole('option', { name: 'tata' })).not.toBeInTheDocument(); // preset in value, not iin suggestionos
 	});
 
 	it('should update suggestion on input change', () => {
 		// given
-		const wrapper = mount(<MultiSelectTag {...props} />);
+		render(<MultiSelectTag {...props} />);
+		const input = screen.getByRole('textbox');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: 'titi' } });
+		userEvent.click(input);
+		userEvent.type(input, 'mobile');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'titi (new)', value: 'titi' }]);
+		expect(screen.getByRole('listbox')).toBeInTheDocument();
+		expect(screen.getByRole('option', { name: 'totomobile' })).toBeInTheDocument();
+		expect(screen.queryByRole('option', { name: 'toto' })).not.toBeInTheDocument();
 	});
 
 	it('should update suggestion on props.value change', () => {
 		// given
-		const node = document.createElement('div');
-		// eslint-disable-next-line react/no-render-return-value
-		const instance = ReactDOM.render(<MultiSelectTag {...props} />, node);
-		instance.updateSuggestions();
-		expect(instance.state.suggestions).toEqual([{ title: 'toto', value: 'titi' }]);
+		const { rerender } = render(<MultiSelectTag {...props} />);
+		expect(screen.getByRole('option', { name: 'toto' })).toBeInTheDocument();
+		expect(screen.getByRole('option', { name: 'totomobile' })).toBeInTheDocument();
+		expect(screen.queryByRole('option', { name: 'tata' })).not.toBeInTheDocument();
 
-		// when : trigger a props update
-		ReactDOM.render(<MultiSelectTag {...props} value={['aze']} />, node);
+		// when
+		rerender(<MultiSelectTag {...props} value={['aze']} />);
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(instance.state.suggestions).toEqual([
-			{ title: 'toto', value: 'titi' },
-			{ title: 'tata', value: 'tutu' },
-		]);
+		expect(screen.getByRole('option', { name: 'toto' })).toBeInTheDocument();
+		expect(screen.getByRole('option', { name: 'totomobile' })).toBeInTheDocument();
+		expect(screen.getByRole('option', { name: 'tata' })).toBeInTheDocument();
 	});
 
 	it('should suggest new item creation when widget is not restricted', () => {
 		// given
-		const wrapper = mount(<MultiSelectTag {...props} />);
+		render(<MultiSelectTag {...props} />);
+		const input = screen.getByRole('textbox');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: 'az' } });
+		userEvent.click(input);
+		userEvent.type(input, 'titi');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'az (new)', value: 'az' }]);
+		expect(screen.getByRole('option', { name: 'titi (new)' })).toBeInTheDocument();
 	});
 
 	it('should NOT suggest new item creation when widget is restricted', () => {
 		// given
 		const restrictedSchema = { ...props.schema, restricted: true };
-		const wrapper = mount(<MultiSelectTag {...props} schema={restrictedSchema} />);
+		render(<MultiSelectTag {...props} schema={restrictedSchema} />);
+		const input = screen.getByRole('textbox');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: 'az' } });
+		userEvent.click(input);
+		userEvent.type(input, 'az');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([]);
+		expect(screen.queryByRole('option', { name: 'az (new)' })).not.toBeInTheDocument();
 	});
 
 	it('should NOT suggest new item creation when a value already matches', () => {
 		// given
-		const wrapper = mount(<MultiSelectTag {...props} value={['az']} />);
+		render(<MultiSelectTag {...props} />);
+		const input = screen.getByRole('textbox');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: 'az' } });
+		userEvent.click(input);
+		userEvent.type(input, 'aze');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([]);
+		expect(screen.queryByRole('option', { name: 'aze (new)' })).not.toBeInTheDocument();
 	});
 
 	it('should NOT suggest new item creation when a suggestion matches', () => {
 		// given
-		const wrapper = mount(<MultiSelectTag {...props} />);
+		render(<MultiSelectTag {...props} />);
+		const input = screen.getByRole('textbox');
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: 'toto' } });
+		userEvent.click(input);
+		userEvent.type(input, 'toto');
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'toto', value: 'titi' }]);
+		expect(screen.queryByRole('option', { name: 'toto (new)' })).not.toBeInTheDocument();
 	});
 
 	it('should add tag', () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
-		const input = wrapper.find('input').at(0);
+		render(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
+		const input = screen.getByRole('textbox');
 
 		// when
-		input.simulate('change', { target: { value: 'titi' } });
-		input.simulate('keydown', { which: keycode.codes.enter });
+		userEvent.click(input);
+		userEvent.type(input, 'titi{enter}');
 
 		// then
 		const payload = { schema: props.schema, value: props.value.concat('titi') };
@@ -152,10 +161,11 @@ describe('MultiSelectTag field', () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
+		render(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
+		const deleteButtons = screen.getAllByRole('button', { name: 'Delete' });
 
 		// when
-		wrapper.find('Button.tc-badge-delete-icon').at(0).simulate('click');
+		userEvent.click(deleteButtons[0]);
 
 		// then
 		const payload = { schema: props.schema, value: props.value.slice(1) };
@@ -163,70 +173,57 @@ describe('MultiSelectTag field', () => {
 		expect(onFinish).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should call onTrigger on focus', done => {
+	it('should call onTrigger on focus', async () => {
 		// given
+
 		const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 		const triggerProps = {
 			...props,
-			onTrigger: jest.fn(
-				event =>
-					new Promise(resolve => {
-						// hack: to be sure we catch the setState after the promise
-						setTimeout(() => {
-							expect(event.target.state.isLoading).toBe(false);
-							done();
-						}, 0);
-						return resolve(data);
-					}),
-			),
+			onTrigger: jest.fn(() => Promise.resolve(data)),
 			schema: {
 				...props.schema,
-				triggers: [
-					{
-						onEvent: 'focus',
-					},
-				],
+				triggers: [{ onEvent: 'focus' }],
 			},
 		};
-		const wrapper = shallow(<MultiSelectTag {...triggerProps} />);
-		const event = { type: 'focus', target: wrapper.instance() };
+		render(<MultiSelectTag {...triggerProps} />);
 
 		// when
-		wrapper.find('FieldTemplate').find(Typeahead).prop('onFocus')(event);
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(triggerProps.onTrigger).toBeCalledWith(event, {
+		expect(triggerProps.onTrigger).toBeCalledWith(expect.anything(), {
 			trigger: triggerProps.schema.triggers[0],
 			schema: triggerProps.schema,
 			errors: triggerProps.errors,
 			properties: triggerProps.properties,
 		});
-		expect(wrapper.state('isLoading')).toBe(true);
+		const option = await screen.findByRole('option', { name: 'Foo' });
+		expect(option).toBeInTheDocument();
 	});
 
-	it('should call onTrigger on focus', () => {
+	it('should resolve name from value', () => {
 		// given
 		const nameResolverProps = {
 			...props,
 			resolveName: value => value.map(next => `${next}_name`),
 		};
-		const wrapper = shallow(<MultiSelectTag {...nameResolverProps} />);
+		render(<MultiSelectTag {...nameResolverProps} />);
 
 		// when
-		const firstLabel = wrapper.find('FieldTemplate').find(Badge).first().prop('label');
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(firstLabel).toBe('aze_name');
+		expect(screen.getByText('aze_name')).toBeInTheDocument();
 	});
 
 	it('should call onBlur when blurring the input', () => {
 		// given
 		const onBlur = jest.fn();
 		const propsWithBlur = { ...props, onBlur };
-		const wrapper = mount(<MultiSelectTag {...propsWithBlur} />);
+		render(<MultiSelectTag {...propsWithBlur} />);
 
 		// when
-		wrapper.find('input').at(0).simulate('blur');
+		fireEvent.blur(screen.getByRole('textbox'));
 
 		// then
 		expect(onBlur).toHaveBeenCalled();

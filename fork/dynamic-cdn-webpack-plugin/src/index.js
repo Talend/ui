@@ -276,7 +276,9 @@ class DynamicCdnWebpackPlugin {
 
 	async addModule(contextPath, modulePath, { env, isOptional = false }) {
 		const isModuleExcluded =
-			this.exclude.includes(modulePath) || (this.only && !this.only.includes(modulePath));
+			this.exclude.includes(modulePath) ||
+			(this.only && !this.only.includes(modulePath)) ||
+			modulePath.startsWith('@types/');
 		if (isModuleExcluded) {
 			return false;
 		}
@@ -316,7 +318,7 @@ class DynamicCdnWebpackPlugin {
 				if (!this.directDependencies[modulePath]) {
 					this.directDependencies[modulePath] = this.modulesFromCdn[modulePath];
 				}
-				return this.modulesFromCdn[modulePath].var;
+				return this.modulesFromCdn[modulePath].var || true;
 			}
 
 			this.log(
@@ -401,7 +403,7 @@ class DynamicCdnWebpackPlugin {
 		this.modulesFromCdn[modulePath] = cdnConfig;
 		this.directDependencies[modulePath] = cdnConfig;
 		this.debug('\n✅', modulePath, version, `will be served by ${cdnConfig.url}`);
-		return cdnConfig.var;
+		return cdnConfig.var || true;
 	}
 
 	applyWebpackCore(compiler) {
