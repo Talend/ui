@@ -41,6 +41,7 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 				{linesToShow.map(config => (
 					<li
 						id={`tooltip_item_${config.key}`}
+						key={config.key}
 						className={classNames({
 							[styles['line-chart-custom-tooltip__line-item--inactive']] : config?.status === 'inactive'
 						})}
