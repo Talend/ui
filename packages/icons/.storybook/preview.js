@@ -1,6 +1,9 @@
-import React from 'react';
-
-// FIXME storybook preset must be updated
-export const i18n = {
-	namespaces: [],
+export const parameters = {
+	actions: { argTypesRegex: '^on[A-Z].*' },
+	controls: {
+		matchers: {
+			color: /(background|color)$/i,
+			date: /Date$/,
+		},
+	},
 };

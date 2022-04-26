@@ -1,8 +1,0 @@
-{
-  "react": {
-    "name": "react",
-    "var": "React",
-    "version": "16.13.1",
-    "path": "/umd/react.development.js"
-  }
-}

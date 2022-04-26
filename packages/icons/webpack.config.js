@@ -1,44 +1,81 @@
 const path = require('path');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-	mode: 'production',
-	context: path.resolve(__dirname),
-	entry: './index.js',
+	mode: 'development',
+	entry: path.resolve(__dirname, 'src'),
 	output: {
-		filename: 'bundle.js',
-		path: path.join(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'dist'),
+		publicPath: 'auto',
+		filename: 'TalendIcons.js',
+		chunkFilename: '[contenthash].js',
+		library: 'TalendIcons',
+		libraryTarget: 'umd',
+		globalObject: 'this',
+	},
+	devtool: 'source-map',
+	externals: {
+		react: 'React',
+	},
+	resolve: {
+		extensions: ['.js', '.ts', '.tsx'],
 	},
 	module: {
 		rules: [
 			{
-				test: /\.font\.(js)$/,
+				test: /\.(js|ts|tsx)$/,
 				use: [
-					MiniCssExtractPlugin.loader,
 					{
-						// The replacer is used to create relative local paths instead of paths relative
-						// to publicPath, because it makes it processable by webpack.
-						loader: 'string-replace-loader',
+						loader: 'cache-loader',
+					},
+					{
+						loader: 'babel-loader',
 						options: {
-							search: /url\(\\"\//g, // The CSS output by css-loader is stringified, so the quotes are escaped
-							replace: 'url(\\"./'
+							extends: '@talend/scripts-config-babel/.babelrc.json',
+							plugins: ['syntax-dynamic-import'],
 						},
 					},
-					'css-loader',
-					'webfonts-loader'
 				],
 			},
 			{
-				test: /\.(woff|eot|ttf|svg)$/,
-				loader: 'url-loader',
+				test: /\.svg$/,
+				include: path.resolve(__dirname, 'src'),
+				use: [
+					{
+						loader: '@svgr/webpack',
+						options: {
+							ignoreExisting: true,
+							memo: true,
+							ref: true,
+							replaceAttrValues: {
+								'#202020': 'currentColor',
+							},
+							svgProps: {
+								'aria-hidden': true,
+							},
+						},
+					},
+				],
 			},
 		],
 	},
-	plugins: [
-		new MiniCssExtractPlugin({ filename: 'talend-icons-webfont.css' }),
-	],
-	node: {
-		fs: 'empty',
+	optimization: {
+		chunkIds: 'named',
+		moduleIds: 'named',
+		splitChunks: {
+			chunks: 'all',
+		},
 	},
+	stats: {
+		children: false,
+	},
+	plugins: [
+		new BundleAnalyzerPlugin({
+			analyzerMode: 'static',
+			openAnalyzer: false,
+			logLevel: 'error',
+		}),
+	],
 };
