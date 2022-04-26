@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import  LineChart, { LineChartProps } from './LineChart.component';
+import LineChart, { LineChartProps } from './LineChart.component';
 
 export default {
 	title: 'Dataviz/LineChart',
@@ -15,12 +15,12 @@ export default {
 	parameters: {
 		docs: {
 			description: {
-				component: 'A curve type chart based on the [LineChart component](https://recharts.org/en-US/api/LineChart) of [Recharts ](https://recharts.org/en-US)',
-			  },
+				component:
+					'A curve type chart based on the [LineChart component](https://recharts.org/en-US/api/LineChart) of [Recharts ](https://recharts.org/en-US)',
+			},
 		},
 	},
 } as Meta<LineChartProps>;
-
 
 export const FullyCustomisedLineChart = {
 	args: {
@@ -40,18 +40,18 @@ export const FullyCustomisedLineChart = {
 				formatter: (date: Date) => `${date.getMonth()}/${date.getDate()}`,
 				tooltipFormatter: (date: Date) => date.toLocaleString(),
 			},
-			leftYAxisOptions : {
+			leftYAxisOptions: {
 				unit: '%',
 				type: 'number',
 				domain: [0, 100],
 			},
-			rightYAxisOptions : {
+			rightYAxisOptions: {
 				hide: false,
 				type: 'number',
 				domain: [0, 5],
 				unit: '/5',
 				hideUnitInAxis: true,
-			}
+			},
 		},
 		lines: [
 			{
@@ -152,10 +152,10 @@ export const FullyCustomisedLineChart = {
 	},
 };
 
-export const SimpleLineChart =  {
+export const SimpleLineChart = {
 	args: {
 		chartOptions: {
-			leftYAxisOptions : {
+			leftYAxisOptions: {
 				type: 'number',
 				domain: [0, 5],
 			},
@@ -193,7 +193,7 @@ export const SimpleLineChart =  {
 export const MultiCurveLineChart = {
 	args: {
 		chartOptions: {
-			leftYAxisOptions : {
+			leftYAxisOptions: {
 				type: 'number',
 				domain: [0, 5],
 			},
@@ -235,4 +235,3 @@ export const MultiCurveLineChart = {
 		],
 	},
 };
-

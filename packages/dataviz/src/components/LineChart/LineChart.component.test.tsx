@@ -7,7 +7,7 @@ const chartOptions: LineChartOptions = {
 	width: 300,
 	height: 150,
 
-	leftYAxisOptions : {
+	leftYAxisOptions: {
 		type: 'number',
 		domain: [0, 5],
 	},
@@ -20,7 +20,7 @@ const dualAxisChartOptions: LineChartOptions = {
 		type: 'number',
 		unit: '%',
 		domain: [0, 100],
-	}
+	},
 };
 
 const trustScoreLine: LineOptions = {
@@ -29,15 +29,14 @@ const trustScoreLine: LineOptions = {
 };
 
 const validityLine: LineOptions = {
-		key: 'validity',
-		color: '#B045E5',
-		tooltipLabel: 'Validity',
-		legendLabel: 'Validity',
-		axis: 'right',
+	key: 'validity',
+	color: '#B045E5',
+	tooltipLabel: 'Validity',
+	legendLabel: 'Validity',
+	axis: 'right',
 };
 
-const lines: LineOptions[]
- = [
+const lines: LineOptions[] = [
 	{
 		key: 'trustScore',
 		color: '#1667DF',
@@ -71,29 +70,18 @@ const entries = [
 
 describe('line chart', () => {
 	it('Should render one line', () => {
-
 		const { container } = render(
-			<LineChart
-				data={entries}
-				lines={[trustScoreLine]}
-				chartOptions={chartOptions}
-			/>
+			<LineChart data={entries} lines={[trustScoreLine]} chartOptions={chartOptions} />,
 		);
 		// eslint-disable-next-line testing-library/no-container
 		const lineItems = container.querySelectorAll('g.recharts-layer.recharts-line');
 
 		expect(lineItems.length).toBe(1);
-
 	});
 
 	it('Should render one axis', () => {
-
 		const { container } = render(
-			<LineChart
-				data={entries}
-				lines={[trustScoreLine]}
-				chartOptions={chartOptions}
-			/>
+			<LineChart data={entries} lines={[trustScoreLine]} chartOptions={chartOptions} />,
 		);
 		// eslint-disable-next-line testing-library/no-container
 		const foundYAxis = container.querySelectorAll('g.recharts-yAxis.yAxis');
@@ -110,7 +98,7 @@ describe('line chart', () => {
 				lines={[trustScoreLine]}
 				chartOptions={chartOptions}
 				onLineClicked={onLineClicked}
-			/>
+			/>,
 		);
 		// eslint-disable-next-line testing-library/no-container
 		const lineItem = container.querySelector('#line_trustScore');
@@ -130,7 +118,7 @@ describe('line chart', () => {
 				lines={[trustScoreLine]}
 				chartOptions={chartOptions}
 				onLegendItemClicked={handleLegendItemClicked}
-			/>
+			/>,
 		);
 		fireEvent.click(screen.getByTestId(`legend_item_${trustScoreLine.key}`));
 
@@ -146,11 +134,11 @@ describe('line chart', () => {
 				lines={[trustScoreLine]}
 				chartOptions={chartOptions}
 				onLineHovered={onLineHovered}
-			/>
+			/>,
 		);
 		// eslint-disable-next-line testing-library/no-container
 		const lineItem = container.querySelector('#line_trustScore');
-		if(lineItem) {
+		if (lineItem) {
 			fireEvent.mouseEnter(lineItem);
 			fireEvent.mouseLeave(lineItem);
 		}
@@ -168,7 +156,7 @@ describe('line chart', () => {
 				lines={[trustScoreLine]}
 				chartOptions={chartOptions}
 				onLegendItemHovered={handleLegendItemHovered}
-			/>
+			/>,
 		);
 		const legendItem = screen.getByTestId(`legend_item_${trustScoreLine.key}`);
 		fireEvent.mouseEnter(legendItem);
@@ -184,7 +172,7 @@ describe('line chart', () => {
 				data={entries}
 				lines={[trustScoreLine, validityLine]}
 				chartOptions={dualAxisChartOptions}
-			/>
+			/>,
 		);
 		// eslint-disable-next-line testing-library/no-container
 		const lineItems = container.querySelectorAll('g.recharts-layer.recharts-line');
@@ -198,7 +186,7 @@ describe('line chart', () => {
 				data={entries}
 				lines={[trustScoreLine, validityLine]}
 				chartOptions={dualAxisChartOptions}
-			/>
+			/>,
 		);
 
 		// eslint-disable-next-line testing-library/no-container

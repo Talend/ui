@@ -17,44 +17,44 @@ export type LineOptions = {
 };
 
 export type LineChartOptions = {
-	width?: string | number,
-	height?: string | number,
+	width?: string | number;
+	height?: string | number;
 	margin?: {
-		top: number,
-		right: number,
-		bottom: number,
-		left: number,
-	},
+		top: number;
+		right: number;
+		bottom: number;
+		left: number;
+	};
 	tooltip?: {
-		hide?: boolean,
-		showInnactives: boolean,
-	},
+		hide?: boolean;
+		showInnactives: boolean;
+	};
 	legend?: {
-		hide?: boolean,
-		verticalAlign?: 'top' | 'bottom',
-		horizontalAlign?: 'left' | 'center' | 'right',
-		showInactives?: boolean,
-	}
+		hide?: boolean;
+		verticalAlign?: 'top' | 'bottom';
+		horizontalAlign?: 'left' | 'center' | 'right';
+		showInactives?: boolean;
+	};
 	xAxisOptions?: {
 		interval: number | 'preserveStart' | 'preserveEnd' | 'preserveStartEnd';
 		horizontalOffset: number;
 		formatter?: (value: any) => string;
 		tooltipFormatter?: (value: any) => string;
-	},
+	};
 	leftYAxisOptions?: {
 		type?: 'number' | 'category';
 		domain?: any[];
-		unit?: string | number
+		unit?: string | number;
 		hideUnitInAxis?: boolean;
 		formatter?: (value: any) => string;
-	}
+	};
 	rightYAxisOptions?: {
 		hide: boolean;
 		type?: 'number' | 'category';
 		domain?: any[];
-		unit?: string | number
+		unit?: string | number;
 		hideUnitInAxis?: boolean;
 		formatter?: (value: any) => string;
-	}
+	};
 	showGridLines?: boolean;
 };
