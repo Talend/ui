@@ -1,7 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
-import classNames from 'classnames';
 import i18n from 'i18next';
-import { Dialog, DialogBackdrop } from 'reakit/Dialog';
+import { Dialog, DialogBackdrop, useDialogState } from 'reakit/Dialog';
 import { IconName } from '@talend/icons';
 
 import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
@@ -27,14 +26,23 @@ export type ModalPropsType = {
 	description?: string;
 	icon?: ModalIcon;
 	onClose: Function;
-	// closeOnBackdropClick?: boolean;
 	primaryAction?: ButtonPrimaryPropsType & { destructive?: boolean };
 	secondaryAction?: ButtonSecondaryPropsType;
+	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
 };
 
 function Modal(props: ModalPropsType): ReactElement {
-	const { title, icon, description, onClose, primaryAction, secondaryAction, children } = props;
+	const {
+		title,
+		icon,
+		description,
+		onClose,
+		primaryAction,
+		secondaryAction,
+		preventEscaping,
+		children,
+	} = props;
 	const dialog = { visible: true };
 
 	const hasAction = primaryAction || secondaryAction;
@@ -42,7 +50,12 @@ function Modal(props: ModalPropsType): ReactElement {
 
 	return (
 		<DialogBackdrop {...dialog} className={modalStyles['modal-backdrop']}>
-			<Dialog {...dialog} className={modalStyles['modal']} aria-title={title}>
+			<Dialog
+				{...dialog}
+				aria-title={title}
+				className={modalStyles['modal']}
+				hide={!preventEscaping ? () => onClose() : undefined}
+			>
 				<StackVertical gap="L">
 					<div className={modalStyles['modal__header']}>
 						{icon && <ModalIcon icon={icon} />}

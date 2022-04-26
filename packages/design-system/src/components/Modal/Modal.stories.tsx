@@ -163,6 +163,12 @@ export const WithActions = () => (
 	</StoryModal>
 );
 
+export const WithNonClosingBackdrop = () => (
+	<StoryModal title="With non closing backdrop">
+		<p>A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked.</p>
+	</StoryModal>
+);
+
 export const WithOverflowingHeader = () => (
 	<StoryModal
 		title="With overflowing content (including the title and the description, text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text)"
