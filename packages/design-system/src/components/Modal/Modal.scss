@@ -78,7 +78,6 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 
 	&__title,
 	&__description {
-		// @todo Those shouldn't expand the modal's width
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
