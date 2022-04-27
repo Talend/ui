@@ -29,7 +29,7 @@ export type ModalPropsType = {
 		icon?: ModalIcon;
 	};
 	onClose: Function;
-	primaryAction?: ButtonPrimaryPropsType & { destructive?: boolean };
+	primaryAction?: ButtonPrimaryPropsType || { destructive?: boolean & ButtonDestructivePropTypes };
 	secondaryAction?: ButtonSecondaryPropsType;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
