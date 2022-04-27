@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import keycode from 'keycode';
 import { AgGridReact } from 'ag-grid-react';
 import Inject from '@talend/react-components/lib/Inject';
-import Skeleton from '@talend/react-components/lib/Skeleton';
+import { Icon } from '@talend/design-system';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
@@ -330,7 +330,11 @@ export default class DataGrid extends React.Component {
 	render() {
 		let content;
 		if (this.props.loading) {
-			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
+			content = (
+				<div className={theme['td-grid-loader']}>
+					<Icon name="talend-table" />
+				</div>
+			);
 		} else {
 			content = <AgGridReact {...this.getAgGridConfig()} />;
 		}

@@ -1,10 +1,9 @@
-$td-header-component-border-color: $gallery !default;
+@use '~@talend/design-tokens/lib/tokens';
+
 $td-quality-bar-hover-height: 1rem !default;
 $td-grip-resize-width: 6px !default;
 
 :global(.ag-header-cell) {
-	border-right: $td-header-component-border-color 1px solid;
-
 	:global(.ag-header-cell-resize) {
 		width: $td-grip-resize-width;
 	}
@@ -33,8 +32,7 @@ $td-grip-resize-width: 6px !default;
 
 		&-title {
 			display: flex;
-			color: $dove-gray;
-			font-weight: 400;
+			font: tokens.$coral-paragraph-m;
 
 			&-ellipse {
 				flex-grow: 1;
@@ -45,9 +43,8 @@ $td-grip-resize-width: 6px !default;
 		}
 
 		&-type {
-			font-size: 1.2rem;
-			font-weight: 700;
-			color: $dark-silver;
+			color: tokens.$coral-color-neutral-text-weak;
+			font: tokens.$coral-paragraph-s;
 			flex-grow: 1;
 			overflow: hidden;
 			text-overflow: ellipsis;
