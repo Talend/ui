@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { ComponentStory, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -9,13 +9,23 @@ export default {
 };
 
 function ModalStory(props: Partial<ModalPropsType>) {
+	const [modalOpen, setModalOpen] = useState(false);
+
 	return (
-		<Modal
-			header={{ title: '(Default story title)' }}
-			children="(Default story child)"
-			onClose={action('onClose')}
-			{...props}
-		/>
+		<>
+			<button onClick={() => setModalOpen(true)}>Open modal</button>
+			{modalOpen && (
+				<Modal
+					header={{ title: '(Default story title)' }}
+					children="(Default story child)"
+					onClose={() => {
+						action('onClose');
+						setModalOpen(false);
+					}}
+					{...props}
+				/>
+			)}
+		</>
 	);
 }
 
