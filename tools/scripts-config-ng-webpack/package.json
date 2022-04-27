@@ -20,7 +20,7 @@
     "@talend/scripts-config-babel": "^9.9.0",
     "babel-loader": "^8.2.4",
     "cache-loader": "^4.1.0",
-    "html-loader": "^0.5.5",
+    "html-loader": "^2.1.2",
     "ngtemplate-loader": "^2.1.0",
     "webpack": "^5.72.0"
   },

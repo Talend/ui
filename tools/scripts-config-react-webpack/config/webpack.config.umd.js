@@ -72,8 +72,10 @@ module.exports = options => {
 							{
 								loader: 'postcss-loader',
 								options: {
-									sourceMap: isEnvProd,
-									plugins: () => [autoprefixer()],
+									postcssOptions: {
+										plugins: ['autoprefixer'],
+									},
+									sourceMap: true,
 								},
 							},
 							{ loader: 'resolve-url-loader' },
