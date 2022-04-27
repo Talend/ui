@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -49,8 +50,10 @@ module.exports = (env, argv) => {
 						{
 							loader: 'postcss-loader',
 							options: {
-								ident: 'postcss',
-								plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
+								postcssOptions: {
+									plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
+								},
+								sourceMap: true,
 							},
 						},
 						{
