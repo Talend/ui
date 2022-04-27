@@ -133,8 +133,9 @@ export const WithIcon: ComponentStory<typeof Modal> = props => (
 	</ModalStory>
 );
 
+const customIcon = <span>👋</span>;
 export const WithCustomIcon: ComponentStory<typeof Modal> = props => (
-	<ModalStory {...props} header={{ title: 'With custom icon', icon: <span>💪</span> }}>
+	<ModalStory {...props} header={{ title: 'With custom icon', icon: customIcon }}>
 		<p>A basic modal with title, a text content and a custom icon.</p>
 	</ModalStory>
 );
