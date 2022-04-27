@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 const path = require('path');
 const fs = require('fs');
-const webpack = require('webpack');
 
 const runWebpack = require('./helpers/run-webpack');
 const cleanDir = require('./helpers/clean-dir');
@@ -175,10 +174,11 @@ describe('core', () => {
 		});
 
 		// then
-		const files = getChunkFiles(stats);
-		expect(files).toEqual([
+		const files = stats.compilation.getAssets().map(i => i.name);
+		const chunks = getChunkFiles(stats);
+		expect(files).toEqual(['app.js', 'app.js.map']);
+		expect(chunks).toEqual([
 			'app.js',
-			'app.js.map',
 			'https://unpkg.com/hoist-non-react-statics@2.5.3/dist/hoist-non-react-statics.min.js',
 			'https://unpkg.com/react-bootstrap@0.34.0/dist/react-bootstrap.js',
 			'https://unpkg.com/react-ace@3.0.0/dist/react-ace.js',
@@ -664,7 +664,10 @@ describe('core', () => {
 				app: './single.js',
 			},
 
-			plugins: [new DynamicCdnWebpackPlugin(), new webpack.NamedModulesPlugin()],
+			plugins: [new DynamicCdnWebpackPlugin()],
+			optimization: {
+				moduleIds: 'named',
+			},
 		});
 
 		// then
