@@ -1,6 +1,5 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -58,7 +57,7 @@ module.exports = options => {
 							{
 								loader: 'css-loader',
 								options: {
-									sourceMap: isEnvProd,
+									sourceMap: true,
 									...(cssModulesEnabled
 										? {
 												modules: {
@@ -78,11 +77,11 @@ module.exports = options => {
 									sourceMap: true,
 								},
 							},
-							{ loader: 'resolve-url-loader' },
+							{ loader: 'resolve-url-loader', options: { sourceMap: true } },
 							{
 								loader: 'sass-loader',
 								options: {
-									sourceMap: isEnvProd,
+									sourceMap: true,
 									additionalData: "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;",
 								},
 							},
@@ -93,8 +92,16 @@ module.exports = options => {
 						use: [
 							{ loader: MiniCssExtractPlugin.loader },
 							{ loader: 'css-loader' },
-							{ loader: 'postcss-loader', options: { plugins: () => [autoprefixer()] } },
-							{ loader: 'resolve-url-loader' },
+							// {
+							// 	loader: 'postcss-loader',
+							// 	options: {
+							// 		postcssOptions: {
+							// 			plugins: ['autoprefixer'],
+							// 		},
+							// 		sourceMap: true,
+							// 	},
+							// },
+							// { loader: 'resolve-url-loader', options: { sourceMap: true } },
 						],
 					},
 					{
