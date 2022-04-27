@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 11.0.1
+
+### Patch Changes
+
+-   28df3ee1b: fix: handle package without varName
+
 ## 11.0.0
 
 ### Major Changes
