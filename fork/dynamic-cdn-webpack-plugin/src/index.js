@@ -182,8 +182,8 @@ class DynamicCdnWebpackPlugin {
 		this.publicPath = compiler.options.output.publicPath;
 		if (isUsingHtmlWebpackPlugin) {
 			this.applyHtmlWebpackPlugin(compiler);
-			// } else {
-			// 	this.applyWebpackCore(compiler);
+		} else {
+			this.applyWebpackCore(compiler);
 		}
 	}
 
