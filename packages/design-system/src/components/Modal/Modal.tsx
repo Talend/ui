@@ -8,6 +8,7 @@ import { Icon } from '../Icon';
 import { StackHorizontal, StackVertical } from '../Stack';
 import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';
 import { ButtonSecondaryPropsType } from '../Button/variations/ButtonSecondary';
+import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructive';
 
 import modalStyles from './Modal.scss';
 
@@ -29,7 +30,7 @@ export type ModalPropsType = {
 		icon?: ModalIcon;
 	};
 	onClose: Function;
-	primaryAction?: ButtonPrimaryPropsType || { destructive?: boolean & ButtonDestructivePropTypes };
+	primaryAction?: ButtonPrimaryPropsType | { destructive?: boolean & ButtonDestructivePropsType };
 	secondaryAction?: ButtonSecondaryPropsType;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
