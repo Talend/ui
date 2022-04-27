@@ -46,6 +46,7 @@ export type LineChartOptions = {
 		domain?: any[];
 		unit?: string | number;
 		hideUnitInAxis?: boolean;
+		manualTicks?: [],
 		formatter?: (value: any) => string;
 	};
 	rightYAxisOptions?: {
@@ -54,6 +55,7 @@ export type LineChartOptions = {
 		domain?: any[];
 		unit?: string | number;
 		hideUnitInAxis?: boolean;
+		manualTicks?: [],
 		formatter?: (value: any) => string;
 	};
 	showGridLines?: boolean;

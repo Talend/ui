@@ -11,6 +11,7 @@ export interface LineChartLegendProps {
 		linesConfig: LineOptions[];
 		align: 'left' | 'center' | 'right';
 		showInactives?: boolean;
+		isRightAxisDisplayed?: boolean
 	};
 	onLegendClicked?: (key: string) => void;
 	onLegendHovered?: (key: string) => void;
@@ -22,7 +23,7 @@ export const CustomLegend = ({
 	onLegendClicked = () => {},
 	onLegendHovered = () => {},
 }: LineChartLegendProps) => {
-	const { linesConfig, align, showInactives } = external;
+	const { linesConfig, align, showInactives, isRightAxisDisplayed } = external;
 
 	const linesToShow = showInactives
 		? linesConfig
@@ -34,6 +35,7 @@ export const CustomLegend = ({
 				className={classNames(
 					styles['line-chart-custom-legend'],
 					styles[`line-chart-custom-legend--align-${align || 'right'}`],
+					{ [styles['line-chart-custom-legend--shift-left']]: isRightAxisDisplayed },
 				)}
 			>
 				{linesToShow.map(config => (

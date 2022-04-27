@@ -57,6 +57,10 @@ $module: line-chart;
 			justify-content: flex-end;
 		}
 
+		&--shift-left {
+			padding-right: 6rem;
+		}
+
 		&__button--inactive {
 			opacity: tokens.$coral-opacity-s;
 		}
