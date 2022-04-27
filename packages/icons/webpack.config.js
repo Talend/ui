@@ -33,7 +33,12 @@ module.exports = {
 							replace: 'url(\\"./',
 						},
 					},
-					'css-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							url: false,
+						},
+					},
 					'webfonts-loader',
 				],
 			},
