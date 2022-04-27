@@ -13,4 +13,7 @@ Upgrade to react-router v6
 # Breaking changes (code)
 
 - onEnter / onLeave hooks are not supported anymore. You can use React.useEffect for that
-- sagaRouter is deprecated but still works. You should use `saga` props on a cmfConnected component or dispatch `cmf.actions.saga.start({saga: 'nameOfRegistredSaga'})` action creator
+- sagaRouter is deprecated but still works. You can use either
+  - `saga` props on a cmfConnected component
+  - dispatch `cmf.actions.saga.start({saga: 'nameOfRegistredSaga'})` action creator
+  - Saga component
