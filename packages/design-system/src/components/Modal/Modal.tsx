@@ -30,7 +30,7 @@ export type ModalPropsType = {
 		icon?: ModalIcon;
 	};
 	onClose: Function;
-	primaryAction?: ButtonPrimaryPropsType | { destructive?: boolean & ButtonDestructivePropsType };
+	primaryAction?: ButtonPrimaryPropsType | { destructive: true & ButtonDestructivePropsType };
 	secondaryAction?: ButtonSecondaryPropsType;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
@@ -42,6 +42,20 @@ function Modal(props: ModalPropsType): ReactElement {
 
 	const hasAction = primaryAction || secondaryAction;
 	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
+
+	let primaryActionRendered;
+	if (primaryAction) {
+		const dataTest = 'modal.buttons.primary-action';
+
+		if (!('destructive' in primaryAction) || !primaryAction.destructive) {
+			const buttonProps = primaryAction as ButtonPrimaryPropsType;
+			primaryActionRendered = <ButtonPrimary {...buttonProps} data-test={dataTest} />;
+		} else {
+			const { destructive, ...rest } = primaryAction;
+			const buttonProps = rest as ButtonDestructivePropsType;
+			primaryActionRendered = <ButtonDestructive {...buttonProps} data-test={dataTest} />;
+		}
+	}
 
 	return (
 		<DialogBackdrop
@@ -96,18 +110,7 @@ function Modal(props: ModalPropsType): ReactElement {
 												data-test="modal.buttons.secondary-action"
 											/>
 										)}
-										{primaryAction &&
-											(!primaryAction.destructive ? (
-												<ButtonPrimary
-													{...primaryAction}
-													data-test="modal.buttons.primary-action"
-												/>
-											) : (
-												<ButtonDestructive
-													{...primaryAction}
-													data-test="modal.buttons.primary-action"
-												/>
-											))}
+										{primaryActionRendered}
 									</StackHorizontal>
 								</div>
 							)}
