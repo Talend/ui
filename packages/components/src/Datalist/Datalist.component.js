@@ -78,6 +78,10 @@ function findEntry(titleMap, attributeName, attributeValue = '') {
 }
 
 function getEntryFromName(titleMap, name, restricted) {
+	if (name === '') {
+		return { name: '', value: '' };
+	}
+
 	const entry = findEntry(titleMap, 'name', name);
 	if (entry) {
 		return entry;
