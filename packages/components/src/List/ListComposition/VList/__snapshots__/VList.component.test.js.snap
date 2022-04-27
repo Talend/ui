@@ -4,12 +4,13 @@ exports[`List VList Should display column chooser from boolean 1`] = `
 <div class="theme-vlist">
   <div style="overflow: visible; height: 0px; width: 0px;">
     <div class="tc-list-table-right-action theme-tc-list-table-right-action">
-      <coralbuttoniconfloating icon="talend-column-chooser"
-                               data-feature="column-chooser.open"
-                               id="undefined-button"
+      <span icon="talend-column-chooser"
+            data-feature="column-chooser.open"
+            id="undefined-button"
+            class="CoralButtonIconFloating"
       >
         Open the column chooser
-      </coralbuttoniconfloating>
+      </span>
     </div>
     <div aria-colcount="2"
          aria-rowcount="0"

@@ -31,7 +31,8 @@ exports[`List DisplayMode should render 1`] = `
         }
       }
     >
-      <CoralStackHorizontal
+      <span
+        className="CoralStackHorizontal"
         gap="XS"
         padding={
           Object {
@@ -57,48 +58,26 @@ exports[`List DisplayMode should render 1`] = `
             onClick={[Function]}
             size="S"
           >
-            <CoralButtonIconToggle
+            <span
+              className="CoralButtonIconToggle"
               icon="talend-table"
               id="myDisplayMode-table"
               isActive={true}
               onClick={[Function]}
               size="S"
             >
-              <Icon
-                name="talend-table"
-              >
-                <span
-                  className="CoralIcon"
-                  name="talend-table"
-                />
-              </Icon>
-            </button>
-          </Button>
-        </TooltipTrigger>
-      </ActionIconToggle>
-    </Memo()>
-    <Memo()
-      displayMode="table"
-      displayModeOption="large"
-      icon="talend-expanded"
-      id="myDisplayMode"
-      key="large"
-      onSelect={[Function]}
-    >
-      <ActionIconToggle
-        active={false}
-        disabled={false}
-        icon="talend-expanded"
-        id="myDisplayMode-large"
-        key="large"
-        label="Set Expanded as current display mode."
-        onClick={[Function]}
-        tick={false}
-        tooltipPlacement="top"
-      >
-        <TooltipTrigger
+              Set Table as current display mode.
+            </span>
+          </ButtonIconToggle>
+        </Memo()>
+        <Memo()
+          displayMode="large"
+          displayModeOption="table"
+          icon="talend-expanded"
+          id="myDisplayMode"
+          key="large"
           label="Set Expanded as current display mode."
-          tooltipPlacement="top"
+          onSelect={[Function]}
         >
           <ButtonIconToggle
             icon="talend-expanded"
@@ -108,26 +87,20 @@ exports[`List DisplayMode should render 1`] = `
             onClick={[Function]}
             size="S"
           >
-            <CoralButtonIconToggle
+            <span
+              className="CoralButtonIconToggle"
               icon="talend-expanded"
               id="myDisplayMode-large"
               isActive={false}
               onClick={[Function]}
               size="S"
             >
-              <Icon
-                name="talend-expanded"
-              >
-                <span
-                  className="CoralIcon"
-                  name="talend-expanded"
-                />
-              </Icon>
-            </button>
-          </Button>
-        </TooltipTrigger>
-      </ActionIconToggle>
-    </Memo()>
-  </div>
+              Set Expanded as current display mode.
+            </span>
+          </ButtonIconToggle>
+        </Memo()>
+      </span>
+    </StackHorizontal>
+  </DisplayModeToggle>
 </ListDisplayMode>
 `;

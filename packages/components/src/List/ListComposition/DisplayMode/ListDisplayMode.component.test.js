@@ -57,10 +57,10 @@ describe('List DisplayMode', () => {
 		);
 
 		// then
-		expect(wrapper.find('ButtonIconToggle#myId-custom1 CoralButtonIconToggle').text()).toEqual(
+		expect(wrapper.find('ButtonIconToggle#myId-custom1 .CoralButtonIconToggle').text()).toEqual(
 			'myCustomLabel1',
 		);
-		expect(wrapper.find('ButtonIconToggle#myId-custom2 CoralButtonIconToggle').text()).toEqual(
+		expect(wrapper.find('ButtonIconToggle#myId-custom2 .CoralButtonIconToggle').text()).toEqual(
 			'myCustomLabel2',
 		);
 	});
@@ -78,7 +78,7 @@ describe('List DisplayMode', () => {
 			);
 
 			// then
-			expect(wrapper.find('ButtonIconToggle CoralButtonIconToggle').at(0).text()).toBe(
+			expect(wrapper.find('ButtonIconToggle .CoralButtonIconToggle').at(0).text()).toBe(
 				'Set Table as current display mode.',
 			);
 		});
@@ -117,7 +117,7 @@ describe('List DisplayMode', () => {
 
 			// then
 			const buttonLarge = wrapper.find(
-				'ButtonIconToggle#myDisplayMode-large CoralButtonIconToggle',
+				'ButtonIconToggle#myDisplayMode-large .CoralButtonIconToggle',
 			);
 			expect(buttonLarge.text()).toBe('Set Expanded as current display mode.');
 			expect(buttonLarge.prop('isActive')).toBe(true);

@@ -14,7 +14,8 @@ exports[`DisplayModeToggle should render 1`] = `
       }
     }
   >
-    <CoralStackHorizontal
+    <span
+      className="CoralStackHorizontal"
       gap="XS"
       padding={
         Object {
@@ -38,7 +39,8 @@ exports[`DisplayModeToggle should render 1`] = `
           onClick={[Function]}
           size="S"
         >
-          <CoralButtonIconToggle
+          <span
+            className="CoralButtonIconToggle"
             icon="talend-table"
             id="undefined-table"
             isActive={false}
@@ -46,7 +48,7 @@ exports[`DisplayModeToggle should render 1`] = `
             size="S"
           >
             Set Table as current display mode.
-          </CoralButtonIconToggle>
+          </span>
         </ButtonIconToggle>
       </Memo()>
       <Memo()
@@ -64,7 +66,8 @@ exports[`DisplayModeToggle should render 1`] = `
           onClick={[Function]}
           size="S"
         >
-          <CoralButtonIconToggle
+          <span
+            className="CoralButtonIconToggle"
             icon="talend-expanded"
             id="undefined-large"
             isActive={false}
@@ -72,10 +75,10 @@ exports[`DisplayModeToggle should render 1`] = `
             size="S"
           >
             Set Expanded as current display mode.
-          </CoralButtonIconToggle>
+          </span>
         </ButtonIconToggle>
       </Memo()>
-    </CoralStackHorizontal>
+    </span>
   </StackHorizontal>
 </DisplayModeToggle>
 `;
