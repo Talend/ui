@@ -22,7 +22,7 @@
     "cache-loader": "^4.1.0",
     "html-loader": "^0.5.5",
     "ngtemplate-loader": "^2.1.0",
-    "webpack": "^4.46.0"
+    "webpack": "^5.72.0"
   },
   "publishConfig": {
     "access": "public"

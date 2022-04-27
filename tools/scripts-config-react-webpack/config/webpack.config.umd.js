@@ -81,7 +81,7 @@ module.exports = options => {
 								loader: 'sass-loader',
 								options: {
 									sourceMap: isEnvProd,
-									prependData: "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;",
+									additionalData: "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;",
 								},
 							},
 						],
@@ -106,9 +106,9 @@ module.exports = options => {
 					},
 				],
 			},
-			node: {
-				fs: 'empty',
-			},
+			// node: {
+			// 	fs: 'empty',
+			// },
 			stats: { children: false }, // remove warnings of all plugins ...
 			plugins: [
 				new BundleAnalyzerPlugin({

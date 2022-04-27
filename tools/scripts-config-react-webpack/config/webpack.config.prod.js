@@ -1,4 +1,3 @@
-const PostCssSafeParser = require('postcss-safe-parser');
 const TerserPlugin = require('terser-webpack-plugin');
 const LICENSE_BANNER = require('./licence');
 
@@ -46,9 +45,6 @@ module.exports = () => ({
 				// Use multi-process parallel running to improve the build speed
 				// Default number of concurrent runs: os.cpus().length - 1
 				parallel: true,
-				// Enable file caching
-				cache: true,
-				sourceMap: true,
 			}),
 		],
 	},
