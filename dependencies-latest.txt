@@ -9,6 +9,7 @@ Talend scripts mode : production
 
 RUN -----------------------------------------------------------------------------------------------
 
+
 check versions of /home/runner/work/ui/ui/package.json using latest
 "@types/react-dom": "^16.9.14" => "^18.0.0"
 "commander": "^2.20.3" => "^9.2.0"
