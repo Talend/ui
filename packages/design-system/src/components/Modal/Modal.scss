@@ -90,8 +90,8 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 
 .modal-icon {
 	flex-grow: 0;
-	width: 24px;
-	height: 24px;
+	width: tokens.$coral-sizing-xs;
+	height: tokens.$coral-sizing-xs;
 
 	display: flex;
 	justify-content: center;
