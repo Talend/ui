@@ -13,7 +13,7 @@ function ModalStory(props: Partial<ModalPropsType>) {
 
 	return (
 		<>
-			<button onClick={() => setModalOpen(true)}>Open modal</button>
+			<button data-test="open-modal" onClick={() => setModalOpen(true)}>Open modal</button>
 			{modalOpen && (
 				<Modal
 					header={{ title: '(Default story title)' }}

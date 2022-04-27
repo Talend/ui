@@ -8,6 +8,7 @@ const { Basic, WithNonClosingBackdrop } = composeStories(Stories);
 context('<Modal />', () => {
 	it('should render', () => {
 		cy.mount(<Basic />);
+		cy.getByTest('open-modal').click();
 		cy.getByTest('modal').should('be.visible');
 	});
 
@@ -17,6 +18,7 @@ context('<Modal />', () => {
 
 		// when
 		cy.mount(<Basic onClose={onCloseStub} />);
+		cy.getByTest('open-modal').click();
 		cy.getByTest('modal.buttons.close')
 			.click()
 			.then(() => {
@@ -31,6 +33,7 @@ context('<Modal />', () => {
 
 		// when
 		cy.mount(<Basic onClose={onCloseStub} />);
+		cy.getByTest('open-modal').click();
 		cy.getByTest('modal')
 			.type('{esc}')
 			.then(() => {
@@ -45,6 +48,7 @@ context('<Modal />', () => {
 
 		// when
 		cy.mount(<WithNonClosingBackdrop onClose={onCloseStub} />);
+		cy.getByTest('open-modal').click();
 		cy.getByTest('modal.buttons.close').click();
 		cy.getByTest('modal').type('{esc}');
 
