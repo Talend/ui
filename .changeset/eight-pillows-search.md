@@ -1,5 +1,5 @@
 ---
-'@talend/design-system': major
+'@talend/design-system': minor
 ---
 
 chore(design-system): PropsType naming
