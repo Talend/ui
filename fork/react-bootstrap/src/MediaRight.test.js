@@ -5,13 +5,13 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Media from '../src/Media';
 
 describe('Media.Right', () => {
-  it('uses "div"', () => {
+  xit('uses "div"', () => {
     const instance = ReactTestUtils.renderIntoDocument(<Media.Right />);
 
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
   });
 
-  it('has "media-right" class', () => {
+  xit('has "media-right" class', () => {
     const instance = ReactTestUtils.renderIntoDocument(<Media.Right />);
 
     assert.ok(
@@ -19,7 +19,7 @@ describe('Media.Right', () => {
     );
   });
 
-  it('should be able to change alignment to middle', () => {
+  xit('should be able to change alignment to middle', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.Right align="middle" />
     );
@@ -29,7 +29,7 @@ describe('Media.Right', () => {
     );
   });
 
-  it('should be able to change alignment to bottom', () => {
+  xit('should be able to change alignment to bottom', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.Right align="bottom" />
     );
@@ -39,7 +39,7 @@ describe('Media.Right', () => {
     );
   });
 
-  it('should merge additional classes passed in', () => {
+  xit('should merge additional classes passed in', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.Right className="custom-class" />
     );
@@ -48,7 +48,7 @@ describe('Media.Right', () => {
     assert.include(ReactDOM.findDOMNode(instance).className, 'custom-class');
   });
 
-  it('should render children', () => {
+  xit('should render children', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.Right>
         <img />

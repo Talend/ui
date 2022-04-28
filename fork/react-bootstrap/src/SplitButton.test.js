@@ -18,7 +18,7 @@ describe('<SplitButton>', () => {
     </SplitButton>
   );
 
-  it('should open the menu when dropdown button is clicked', () => {
+  xit('should open the menu when dropdown button is clicked', () => {
     const instance = ReactTestUtils.renderIntoDocument(simple);
 
     const toggleNode = ReactTestUtils.findRenderedDOMComponentWithClass(
@@ -32,7 +32,7 @@ describe('<SplitButton>', () => {
     splitButtonNode.className.should.match(/open/);
   });
 
-  it('should not open the menu when other button is clicked', () => {
+  xit('should not open the menu when other button is clicked', () => {
     const instance = ReactTestUtils.renderIntoDocument(simple);
 
     const buttonNode = ReactDOM.findDOMNode(
@@ -45,7 +45,7 @@ describe('<SplitButton>', () => {
     splitButtonNode.className.should.not.match(/open/);
   });
 
-  it('should invoke onClick when SplitButton.Button is clicked (prop)', done => {
+  xit('should invoke onClick when SplitButton.Button is clicked (prop)', (done) => {
     const instance = ReactTestUtils.renderIntoDocument(
       <SplitButton title="Title" id="test-id" onClick={() => done()}>
         <MenuItem>Item 1</MenuItem>
@@ -58,7 +58,7 @@ describe('<SplitButton>', () => {
     ReactTestUtils.Simulate.click(buttonNode);
   });
 
-  it('should not invoke onClick when SplitButton.Toggle is clicked (prop)', done => {
+  xit('should not invoke onClick when SplitButton.Toggle is clicked (prop)', (done) => {
     let onClickSpy = sinon.spy();
 
     const instance = ReactTestUtils.renderIntoDocument(
@@ -80,7 +80,7 @@ describe('<SplitButton>', () => {
     }, 10);
   });
 
-  it('Should pass disabled to both buttons', () => {
+  xit('Should pass disabled to both buttons', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <SplitButton title="Title" id="test-id" disabled>
         <MenuItem>Item 1</MenuItem>
@@ -100,7 +100,7 @@ describe('<SplitButton>', () => {
     expect(buttonNode.disabled).to.be.true;
   });
 
-  it('Should set target attribute on anchor', () => {
+  xit('Should set target attribute on anchor', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <SplitButton
         title="Title"
@@ -121,7 +121,7 @@ describe('<SplitButton>', () => {
     assert.equal(linkElement.target, '_blank');
   });
 
-  it('should set aria-label on toggle from title', () => {
+  xit('should set aria-label on toggle from title', () => {
     const instance = ReactTestUtils.renderIntoDocument(simple);
 
     const toggleNode = ReactTestUtils.findRenderedDOMComponentWithClass(
@@ -131,7 +131,7 @@ describe('<SplitButton>', () => {
     expect(toggleNode.getAttribute('aria-label')).to.equal('Title');
   });
 
-  it('should set aria-label on toggle from toggleLabel', () => {
+  xit('should set aria-label on toggle from toggleLabel', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <SplitButton title="Title" id="test-id" toggleLabel="Label">
         <MenuItem>Item 1</MenuItem>
@@ -145,7 +145,7 @@ describe('<SplitButton>', () => {
     expect(toggleNode.getAttribute('aria-label')).to.equal('Label');
   });
 
-  it('should derive bsClass from parent', () => {
+  xit('should derive bsClass from parent', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <SplitButton title="title" id="test-id" bsClass="my-dropdown">
         <MenuItem eventKey="1">MenuItem 1 content</MenuItem>

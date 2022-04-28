@@ -15,7 +15,7 @@ describe('<OverlayTrigger>', () => {
     <div className={className}>{children}</div>
   );
 
-  it('Should create OverlayTrigger element', () => {
+  xit('Should create OverlayTrigger element', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger overlay={<Div>test</Div>}>
         <button>button</button>
@@ -25,7 +25,7 @@ describe('<OverlayTrigger>', () => {
     assert.equal(overlayTrigger.nodeName, 'BUTTON');
   });
 
-  it('Should pass OverlayTrigger onClick prop to child', () => {
+  xit('Should pass OverlayTrigger onClick prop to child', () => {
     const callback = sinon.spy();
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger overlay={<Div>test</Div>} onClick={callback}>
@@ -37,7 +37,7 @@ describe('<OverlayTrigger>', () => {
     callback.called.should.be.true;
   });
 
-  it('Should show after click trigger', () => {
+  xit('Should show after click trigger', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger trigger="click" overlay={<Div>test</Div>}>
         <button>button</button>
@@ -49,7 +49,7 @@ describe('<OverlayTrigger>', () => {
     instance.state.show.should.be.true;
   });
 
-  it('Should not set aria-describedby if the state is not show', () => {
+  xit('Should not set aria-describedby if the state is not show', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger trigger="click" overlay={<Div>test</Div>}>
         <button>button</button>
@@ -60,7 +60,7 @@ describe('<OverlayTrigger>', () => {
     assert.equal(overlayTrigger.getAttribute('aria-describedby'), null);
   });
 
-  it('Should set aria-describedby if the state is show', () => {
+  xit('Should set aria-describedby if the state is show', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger trigger="click" overlay={<Div id="overlayid">test</Div>}>
         <button>button</button>
@@ -85,7 +85,7 @@ describe('<OverlayTrigger>', () => {
       document.body.removeChild(mountPoint);
     });
 
-    it('Should keep trigger handlers', done => {
+    xit('Should keep trigger handlers', (done) => {
       const instance = render(
         <div>
           <OverlayTrigger trigger="focus" overlay={<Div>test</Div>}>
@@ -101,7 +101,7 @@ describe('<OverlayTrigger>', () => {
     });
   });
 
-  it('Should maintain overlay classname', () => {
+  xit('Should maintain overlay classname', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger
         trigger="click"
@@ -117,7 +117,7 @@ describe('<OverlayTrigger>', () => {
     expect(document.getElementsByClassName('test-overlay').length).to.equal(1);
   });
 
-  it('Should pass transition callbacks to Transition', done => {
+  xit('Should pass transition callbacks to Transition', (done) => {
     let count = 0;
     const increment = () => count++;
 
@@ -149,9 +149,9 @@ describe('<OverlayTrigger>', () => {
     ReactTestUtils.Simulate.click(overlayTrigger);
   });
 
-  it('Should forward requested context', () => {
+  xit('Should forward requested context', () => {
     const contextTypes = {
-      key: PropTypes.string
+      key: PropTypes.string,
     };
 
     const contextSpy = sinon.spy();
@@ -191,13 +191,13 @@ describe('<OverlayTrigger>', () => {
     [
       {
         name: 'Popover',
-        overlay: <Popover id="test-popover">test</Popover>
+        overlay: <Popover id="test-popover">test</Popover>,
       },
       {
         name: 'Tooltip',
-        overlay: <Tooltip id="test-tooltip">test</Tooltip>
-      }
-    ].forEach(testCase => {
+        overlay: <Tooltip id="test-tooltip">test</Tooltip>,
+      },
+    ].forEach((testCase) => {
       describe(testCase.name, () => {
         let instance;
         let overlayTrigger;
@@ -211,7 +211,7 @@ describe('<OverlayTrigger>', () => {
           overlayTrigger = ReactDOM.findDOMNode(instance);
         });
 
-        it('Should handle trigger without warnings', () => {
+        xit('Should handle trigger without warnings', () => {
           ReactTestUtils.Simulate.click(overlayTrigger);
         });
       });
@@ -223,14 +223,14 @@ describe('<OverlayTrigger>', () => {
       {
         label: 'true',
         rootClose: true,
-        shownAfterClick: false
+        shownAfterClick: false,
       },
       {
         label: 'default (false)',
         rootClose: null,
-        shownAfterClick: true
-      }
-    ].forEach(testCase => {
+        shownAfterClick: true,
+      },
+    ].forEach((testCase) => {
       describe(testCase.label, () => {
         let instance;
 
@@ -248,7 +248,7 @@ describe('<OverlayTrigger>', () => {
           ReactTestUtils.Simulate.click(overlayTrigger);
         });
 
-        it('Should have correct show state', () => {
+        xit('Should have correct show state', () => {
           // Need to click this way for it to propagate to document element.
           document.documentElement.click();
 
@@ -270,7 +270,7 @@ describe('<OverlayTrigger>', () => {
         document.body.removeChild(mountNode);
       });
 
-      it('should hide after clicking on trigger', () => {
+      xit('should hide after clicking on trigger', () => {
         const instance = ReactDOM.render(
           <OverlayTrigger overlay={<Div>test</Div>} trigger="click" rootClose>
             <button>button</button>
@@ -334,7 +334,7 @@ describe('<OverlayTrigger>', () => {
         ReactTestUtils.Simulate.click(overlayTrigger);
       });
 
-      it('Should still be shown', () => {
+      xit('Should still be shown', () => {
         // Need to click this way for it to propagate to document element.
         const replaceOverlay = document.getElementById('replace-overlay');
         replaceOverlay.click();

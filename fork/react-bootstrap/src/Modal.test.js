@@ -21,7 +21,7 @@ describe('<Modal>', () => {
     document.body.removeChild(mountPoint);
   });
 
-  it('Should render the modal content', () => {
+  xit('Should render the modal content', () => {
     const noOp = () => {};
     const instance = render(
       <Modal show onHide={noOp} animation={false}>
@@ -33,7 +33,7 @@ describe('<Modal>', () => {
     assert.ok(instance._modal.getDialogElement().querySelector('strong'));
   });
 
-  it('Should close the modal when the modal dialog is clicked', done => {
+  xit('Should close the modal when the modal dialog is clicked', (done) => {
     const doneOp = () => {
       done();
     };
@@ -50,7 +50,7 @@ describe('<Modal>', () => {
     ReactTestUtils.Simulate.click(dialog);
   });
 
-  it('Should not close the modal when the "static" dialog is clicked', () => {
+  xit('Should not close the modal when the "static" dialog is clicked', () => {
     const onHideSpy = sinon.spy();
     const instance = render(
       <Modal show onHide={onHideSpy} backdrop="static">
@@ -66,7 +66,7 @@ describe('<Modal>', () => {
     expect(onHideSpy).to.not.have.been.called;
   });
 
-  it('Should close the modal when the modal close button is clicked', done => {
+  xit('Should close the modal when the modal close button is clicked', (done) => {
     const doneOp = () => {
       done();
     };
@@ -86,7 +86,7 @@ describe('<Modal>', () => {
     ReactTestUtils.Simulate.click(button);
   });
 
-  it('Should pass className to the dialog', () => {
+  xit('Should pass className to the dialog', () => {
     const noOp = () => {};
     const instance = render(
       <Modal show className="mymodal" onHide={noOp}>
@@ -100,7 +100,7 @@ describe('<Modal>', () => {
     assert.ok(dialog.className.match(/\bmymodal\b/));
   });
 
-  it('Should use bsClass on the dialog', () => {
+  xit('Should use bsClass on the dialog', () => {
     const noOp = () => {};
     const instance = render(
       <Modal show bsClass="mymodal" onHide={noOp}>
@@ -124,7 +124,7 @@ describe('<Modal>', () => {
     assert.ok(baseModal.backdrop.className.match(/\bmymodal-backdrop\b/));
   });
 
-  it('Should use backdropClassName to add classes to the backdrop', () => {
+  xit('Should use backdropClassName to add classes to the backdrop', () => {
     const noOp = () => {};
     const instance = render(
       <Modal show backdropClassName="my-modal-backdrop" onHide={noOp}>
@@ -142,7 +142,7 @@ describe('<Modal>', () => {
     );
   });
 
-  it('Should pass bsSize to the dialog', () => {
+  xit('Should pass bsSize to the dialog', () => {
     const noOp = () => {};
     const instance = render(
       <Modal show bsSize="small" onHide={noOp}>
@@ -158,7 +158,7 @@ describe('<Modal>', () => {
     assert.ok(dialog.className.match(/\bmodal-sm\b/));
   });
 
-  it('Should pass dialog style to the dialog', () => {
+  xit('Should pass dialog style to the dialog', () => {
     const noOp = () => {};
     const instance = render(
       <Modal show style={{ top: 1000 }} onHide={noOp}>
@@ -172,7 +172,7 @@ describe('<Modal>', () => {
     assert.ok(dialog.style.top === '1000px');
   });
 
-  it('Should pass dialogClassName to the dialog', () => {
+  xit('Should pass dialogClassName to the dialog', () => {
     const noOp = () => {};
     const instance = render(
       <Modal show dialogClassName="testCss" onHide={noOp}>
@@ -188,7 +188,7 @@ describe('<Modal>', () => {
     assert.ok(dialog.className.match(/\btestCss\b/));
   });
 
-  it('Should use dialogComponentClass', () => {
+  xit('Should use dialogComponentClass', () => {
     const noOp = () => {};
 
     function CustomDialog() {
@@ -205,7 +205,7 @@ describe('<Modal>', () => {
     assert.equal(instance._modal.getDialogElement().className, 'custom-dialog');
   });
 
-  it('Should pass transition callbacks to Transition', done => {
+  xit('Should pass transition callbacks to Transition', (done) => {
     let count = 0;
     const increment = () => {
       ++count;
@@ -246,13 +246,13 @@ describe('<Modal>', () => {
       events.off.restore();
     });
 
-    it('should remove resize listener when unmounted', () => {
+    xit('should remove resize listener when unmounted', () => {
       class Component extends React.Component {
         constructor(props, context) {
           super(props, context);
 
           this.state = {
-            show: true
+            show: true,
           };
         }
 

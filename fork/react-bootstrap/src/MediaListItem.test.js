@@ -5,17 +5,17 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Media from '../src/Media';
 
 describe('Media.ListItem', () => {
-  it('uses "li"', () => {
+  xit('uses "li"', () => {
     const instance = ReactTestUtils.renderIntoDocument(<Media.ListItem />);
 
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'LI');
   });
-  it('has "media" class', () => {
+  xit('has "media" class', () => {
     const instance = ReactTestUtils.renderIntoDocument(<Media.ListItem />);
 
     assert.include(ReactDOM.findDOMNode(instance).className, 'media');
   });
-  it('should merge additional classes passed in', () => {
+  xit('should merge additional classes passed in', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.ListItem className="custom-class" />
     );
@@ -24,7 +24,7 @@ describe('Media.ListItem', () => {
     assert.include(classes, 'media');
     assert.include(classes, 'custom-class');
   });
-  it('should render children', () => {
+  xit('should render children', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.ListItem>
         <strong>Content</strong>

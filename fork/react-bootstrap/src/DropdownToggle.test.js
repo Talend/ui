@@ -8,7 +8,7 @@ import { getOne } from './helpers';
 describe('<DropdownToggle>', () => {
   const simpleToggle = <DropdownToggle open={false} title="herpa derpa" />;
 
-  it('renders toggle button', () => {
+  xit('renders toggle button', () => {
     const instance = ReactTestUtils.renderIntoDocument(simpleToggle);
     const buttonNode = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
@@ -21,7 +21,7 @@ describe('<DropdownToggle>', () => {
     buttonNode.getAttribute('aria-expanded').should.equal('false');
   });
 
-  it('renders title prop', () => {
+  xit('renders title prop', () => {
     const instance = ReactTestUtils.renderIntoDocument(simpleToggle);
     const buttonNode = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
@@ -31,7 +31,7 @@ describe('<DropdownToggle>', () => {
     buttonNode.textContent.should.match(/herpa derpa/);
   });
 
-  it('renders title children', () => {
+  xit('renders title children', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownToggle title="toggle" open={false}>
         <h3>herpa derpa</h3>
@@ -46,7 +46,7 @@ describe('<DropdownToggle>', () => {
     h3Node.textContent.should.match(/herpa derpa/);
   });
 
-  it('renders dropdown toggle button caret', () => {
+  xit('renders dropdown toggle button caret', () => {
     const instance = ReactTestUtils.renderIntoDocument(simpleToggle);
     const caretNode = ReactTestUtils.findRenderedDOMComponentWithClass(
       instance,
@@ -56,7 +56,7 @@ describe('<DropdownToggle>', () => {
     caretNode.tagName.should.equal('SPAN');
   });
 
-  it('does not render toggle button caret', () => {
+  xit('does not render toggle button caret', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownToggle open={false} title="no caret" noCaret />
     );
@@ -68,7 +68,7 @@ describe('<DropdownToggle>', () => {
     caretNode.length.should.equal(0);
   });
 
-  it('forwards onClick handler', (done) => {
+  xit('forwards onClick handler', (done) => {
     const handleClick = (event) => {
       event.should.be.ok;
       done();
@@ -88,7 +88,7 @@ describe('<DropdownToggle>', () => {
     ReactTestUtils.Simulate.click(button);
   });
 
-  it('forwards id', () => {
+  xit('forwards id', () => {
     const id = 'testid';
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownToggle id={id} open={false} title="id forwards" />
@@ -101,7 +101,7 @@ describe('<DropdownToggle>', () => {
     button.getAttribute('id').should.equal(id);
   });
 
-  it('forwards bsStyle', () => {
+  xit('forwards bsStyle', () => {
     const style = 'success';
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownToggle bsStyle={style} open={false} title="bsStyle forwards" />
@@ -114,7 +114,7 @@ describe('<DropdownToggle>', () => {
     button.className.should.match(/\bbtn-success\b/);
   });
 
-  it('forwards bsSize', () => {
+  xit('forwards bsSize', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownToggle bsSize="small" open={false} title="bsSize forwards" />
     );
@@ -126,7 +126,7 @@ describe('<DropdownToggle>', () => {
     button.className.should.match(/\bbtn-sm\b/);
   });
 
-  it('does not forward bsClass', () => {
+  xit('does not forward bsClass', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownToggle
         bsClass="my-custom-bsClass"

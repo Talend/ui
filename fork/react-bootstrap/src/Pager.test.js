@@ -5,7 +5,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Pager from '../src/Pager';
 
 describe('Pager', () => {
-  it('Should output a unordered list as root element with class "pager"', () => {
+  xit('Should output a unordered list as root element with class "pager"', () => {
     let instance = ReactTestUtils.renderIntoDocument(<Pager />);
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'UL');
     assert.ok(
@@ -13,7 +13,7 @@ describe('Pager', () => {
     );
   });
 
-  it('Should allow "Pager.Item" as child element', () => {
+  xit('Should allow "Pager.Item" as child element', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Pager>
         <Pager.Item href="#">Top</Pager.Item>
@@ -23,7 +23,7 @@ describe('Pager', () => {
     assert.equal(ReactDOM.findDOMNode(instance).children[0].nodeName, 'LI');
   });
 
-  it('Should allow multiple "Pager.Item" as child elements', () => {
+  xit('Should allow multiple "Pager.Item" as child elements', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Pager>
         <Pager.Item previous href="#">
@@ -48,7 +48,7 @@ describe('Pager', () => {
     );
   });
 
-  it('Should call "onSelect" when item is clicked', done => {
+  xit('Should call "onSelect" when item is clicked', (done) => {
     function handleSelect(key, e) {
       assert.equal(key, 2);
       assert.equal(e.target.hash, '#next');

@@ -5,19 +5,19 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Modal from '../src/Modal';
 
 describe('Modal.Footer', () => {
-  it('uses "div" by default', () => {
+  xit('uses "div" by default', () => {
     const instance = ReactTestUtils.renderIntoDocument(<Modal.Footer />);
 
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
   });
 
-  it('has "modal-footer" class', () => {
+  xit('has "modal-footer" class', () => {
     const instance = ReactTestUtils.renderIntoDocument(<Modal.Footer />);
 
     assert.include(ReactDOM.findDOMNode(instance).className, 'modal-footer');
   });
 
-  it('should merge additional classes passed in', () => {
+  xit('should merge additional classes passed in', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Modal.Footer className="custom-class" />
     );
@@ -27,7 +27,7 @@ describe('Modal.Footer', () => {
     assert.include(classes, 'custom-class');
   });
 
-  it('should allow custom elements instead of "div"', () => {
+  xit('should allow custom elements instead of "div"', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Modal.Footer componentClass="section" />
     );
@@ -35,7 +35,7 @@ describe('Modal.Footer', () => {
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'SECTION');
   });
 
-  it('should render children', () => {
+  xit('should render children', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Modal.Footer>
         <strong>Content</strong>

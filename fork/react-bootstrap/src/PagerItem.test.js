@@ -5,7 +5,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Pager from '../src/Pager';
 
 describe('PagerItem', () => {
-  it('Should output a "list item" as root element, and an "anchor" as a child item', () => {
+  xit('Should output a "list item" as root element, and an "anchor" as a child item', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Pager.Item href="#">Text</Pager.Item>
     );
@@ -16,7 +16,7 @@ describe('PagerItem', () => {
     assert.equal(node.children[0].nodeName, 'A');
   });
 
-  it('Should output "disabled" attribute as a class', () => {
+  xit('Should output "disabled" attribute as a class', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Pager.Item disabled href="#">
         Text
@@ -27,7 +27,7 @@ describe('PagerItem', () => {
     );
   });
 
-  it('Should output "next" attribute as a class', () => {
+  xit('Should output "next" attribute as a class', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Pager.Item previous href="#">
         Previous
@@ -38,7 +38,7 @@ describe('PagerItem', () => {
     );
   });
 
-  it('Should output "previous" attribute as a class', () => {
+  xit('Should output "previous" attribute as a class', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Pager.Item next href="#">
         Next
@@ -49,7 +49,7 @@ describe('PagerItem', () => {
     );
   });
 
-  it('Should call "onSelect" when item is clicked', done => {
+  xit('Should call "onSelect" when item is clicked', (done) => {
     function handleSelect(key) {
       assert.equal(key, 1);
       done();
@@ -64,7 +64,7 @@ describe('PagerItem', () => {
     );
   });
 
-  it('Should not call "onSelect" when item disabled and is clicked', () => {
+  xit('Should not call "onSelect" when item disabled and is clicked', () => {
     function handleSelect() {
       throw new Error('onSelect should not be called');
     }
@@ -78,7 +78,7 @@ describe('PagerItem', () => {
     );
   });
 
-  it('Should set target attribute on anchor', () => {
+  xit('Should set target attribute on anchor', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Pager.Item next href="#" target="_blank">
         Next
@@ -89,7 +89,7 @@ describe('PagerItem', () => {
     assert.equal(anchor.getAttribute('target'), '_blank');
   });
 
-  it('Should call "onSelect" with target attribute', done => {
+  xit('Should call "onSelect" with target attribute', (done) => {
     function handleSelect(key, e) {
       assert.equal(e.target.target, '_blank');
       done();

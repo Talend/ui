@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import ToggleButtonGroup from './ToggleButtonGroup';
 
 describe('ToggleButtonGroup', () => {
-  it('should render checkboxes', () => {
+  xit('should render checkboxes', () => {
     mount(
       <ToggleButtonGroup type="checkbox">
         <ToggleButtonGroup.Button value={1}>Option 1</ToggleButtonGroup.Button>
@@ -17,7 +17,7 @@ describe('ToggleButtonGroup', () => {
       .length.should.equal(3);
   });
 
-  it('should render radios', () => {
+  xit('should render radios', () => {
     mount(
       <ToggleButtonGroup type="radio" name="items">
         <ToggleButtonGroup.Button value={1}>Option 1</ToggleButtonGroup.Button>
@@ -29,7 +29,7 @@ describe('ToggleButtonGroup', () => {
       .length.should.equal(3);
   });
 
-  it('should select initial values', () => {
+  xit('should select initial values', () => {
     mount(
       <ToggleButtonGroup type="checkbox" defaultValue={[1, 3]}>
         <ToggleButtonGroup.Button value={1}>Option 1</ToggleButtonGroup.Button>
@@ -41,7 +41,7 @@ describe('ToggleButtonGroup', () => {
       .length.should.equal(2);
   });
 
-  it('should disable radios', () => {
+  xit('should disable radios', () => {
     mount(
       <ToggleButtonGroup type="radio" name="items">
         <ToggleButtonGroup.Button value={1} disabled>
@@ -57,7 +57,7 @@ describe('ToggleButtonGroup', () => {
       .length.should.equal(2);
   });
 
-  it('should return an array of values', () => {
+  xit('should return an array of values', () => {
     const spy = sinon.spy();
     mount(
       <ToggleButtonGroup type="checkbox" onChange={spy}>
@@ -73,7 +73,7 @@ describe('ToggleButtonGroup', () => {
     spy.should.have.been.calledWith([2]);
   });
 
-  it('should return a single value', () => {
+  xit('should return a single value', () => {
     const spy = sinon.spy();
     mount(
       <ToggleButtonGroup type="radio" name="items" onChange={spy}>

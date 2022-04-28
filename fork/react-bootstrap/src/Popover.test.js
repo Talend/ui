@@ -5,7 +5,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import Popover from '../src/Popover';
 
 describe('Popover', () => {
-  it('Should output a popover title and content', () => {
+  xit('Should output a popover title and content', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Popover id="test-popover" title="Popover title">
         <strong>Popover Content</strong>

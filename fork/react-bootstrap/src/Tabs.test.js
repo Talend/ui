@@ -11,7 +11,7 @@ import Tabs from '../src/Tabs';
 import ValidComponentChildren from '../src/utils/ValidComponentChildren';
 
 describe('<Tabs>', () => {
-  it('Should show the correct tab', () => {
+  xit('Should show the correct tab', () => {
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={1}>
         <Tab title="Tab 1" eventKey={1}>
@@ -42,7 +42,7 @@ describe('<Tabs>', () => {
     assert.equal(nav.context.$bs_tabContainer.activeKey, 1);
   });
 
-  it('Should only show the tabs with `Tab.props.title` set', () => {
+  xit('Should only show the tabs with `Tab.props.title` set', () => {
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={3}>
         <Tab title="Tab 1" eventKey={1}>
@@ -59,7 +59,7 @@ describe('<Tabs>', () => {
     assert.equal(ValidComponentChildren.count(nav.props.children), 2);
   });
 
-  it('Should allow tab to have React components', () => {
+  xit('Should allow tab to have React components', () => {
     const tabTitle = <strong className="special-tab">Tab 2</strong>;
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={2}>
@@ -78,7 +78,7 @@ describe('<Tabs>', () => {
     );
   });
 
-  it('Should call onSelect when tab is selected', done => {
+  xit('Should call onSelect when tab is selected', (done) => {
     function onSelect(key) {
       assert.equal(key, '2');
       done();
@@ -99,7 +99,7 @@ describe('<Tabs>', () => {
     ReactTestUtils.Simulate.click(wrapper.find('.tab2').getDOMNode());
   });
 
-  it('Should have children with the correct DOM properties', () => {
+  xit('Should have children with the correct DOM properties', () => {
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={1}>
         <Tab title="Tab 1" className="custom" eventKey={1}>
@@ -129,7 +129,7 @@ describe('<Tabs>', () => {
     assert.equal(panes.at(0).getDOMNode().id, 'test-pane-1');
   });
 
-  it('Should show the correct first tab with no active key value', () => {
+  xit('Should show the correct first tab with no active key value', () => {
     const wrapper = mount(
       <Tabs id="test">
         <Tab title="Tab 1" eventKey={1}>
@@ -159,8 +159,8 @@ describe('<Tabs>', () => {
     assert.equal(nav.context.$bs_tabContainer.activeKey, 1);
   });
 
-  it('Should show the correct first tab with children array', () => {
-    const panes = [0, 1].map(index => (
+  xit('Should show the correct first tab with children array', () => {
+    const panes = [0, 1].map((index) => (
       <Tab key={index} eventKey={index} title={`Tab #${index}`}>
         <div>content</div>
       </Tab>
@@ -177,7 +177,7 @@ describe('<Tabs>', () => {
     assert.equal(nav.context.$bs_tabContainer.activeKey, 0);
   });
 
-  it('Should show the correct tab when selected', () => {
+  xit('Should show the correct tab when selected', () => {
     const tab1 = <span className="tab1">Tab 1</span>;
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={2} animation={false}>
@@ -211,7 +211,7 @@ describe('<Tabs>', () => {
     assert.equal(nav.context.$bs_tabContainer.activeKey, 1);
   });
 
-  it('Should mount initial tab and no others when unmountOnExit is true and animation is false', () => {
+  xit('Should mount initial tab and no others when unmountOnExit is true and animation is false', () => {
     const tab1 = <span className="tab1">Tab 1</span>;
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={1} animation={false} unmountOnExit>
@@ -233,7 +233,7 @@ describe('<Tabs>', () => {
     expect(panes.at(2).getDOMNode()).to.not.exist;
   });
 
-  it('Should mount the correct tab when selected and unmount the previous when unmountOnExit is true and animation is false', () => {
+  xit('Should mount the correct tab when selected and unmount the previous when unmountOnExit is true and animation is false', () => {
     const tab1 = <span className="tab1">Tab 1</span>;
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={2} animation={false} unmountOnExit>
@@ -257,7 +257,7 @@ describe('<Tabs>', () => {
     assert.equal(nav.context.$bs_tabContainer.activeKey, 1);
   });
 
-  it('Should treat active key of null as nothing selected', () => {
+  xit('Should treat active key of null as nothing selected', () => {
     const wrapper = mount(
       <Tabs id="test" activeKey={null} onSelect={() => {}}>
         <Tab title="Tab 1" eventKey={1}>
@@ -273,7 +273,7 @@ describe('<Tabs>', () => {
     expect(nav.context.$bs_tabContainer.activeKey).to.not.exist;
   });
 
-  it('Should pass default bsStyle (of "tabs") to Nav', () => {
+  xit('Should pass default bsStyle (of "tabs") to Nav', () => {
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={1} animation={false}>
         <Tab title="Tab 1" eventKey={1}>
@@ -288,7 +288,7 @@ describe('<Tabs>', () => {
     assert.ok(wrapper.find('.nav-tabs').getDOMNode());
   });
 
-  it('Should pass bsStyle to Nav', () => {
+  xit('Should pass bsStyle to Nav', () => {
     const wrapper = mount(
       <Tabs id="test" bsStyle="pills" defaultActiveKey={1} animation={false}>
         <Tab title="Tab 1" eventKey={1}>
@@ -303,7 +303,7 @@ describe('<Tabs>', () => {
     assert.ok(wrapper.find('.nav-pills').getDOMNode());
   });
 
-  it('Should pass disabled to Nav', () => {
+  xit('Should pass disabled to Nav', () => {
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={1}>
         <Tab title="Tab 1" eventKey={1}>
@@ -318,7 +318,7 @@ describe('<Tabs>', () => {
     assert.ok(wrapper.find('.disabled').getDOMNode());
   });
 
-  it('Should not show content when clicking disabled tab', () => {
+  xit('Should not show content when clicking disabled tab', () => {
     const tab1 = <span className="tab1">Tab 1</span>;
     const wrapper = mount(
       <Tabs id="test" defaultActiveKey={2} animation={false}>
@@ -365,8 +365,8 @@ describe('<Tabs>', () => {
       document.body.removeChild(mountPoint);
     });
 
-    [true, false].forEach(animation => {
-      it(`should correctly set "active" after Tab is removed with "animation=${animation}"`, () => {
+    [true, false].forEach((animation) => {
+      xit(`should correctly set "active" after Tab is removed with "animation=${animation}"`, () => {
         let wrapper = mount(
           <Tabs
             id="test"
@@ -441,61 +441,51 @@ describe('<Tabs>', () => {
       );
     });
 
-    it('Should generate ids from parent id', () => {
+    xit('Should generate ids from parent id', () => {
       const tabs = wrapper.find(NavItem);
 
-      tabs.every(tab => assert.ok(tab.prop('aria-controls') && tab.prop('id')));
+      tabs.every((tab) =>
+        assert.ok(tab.prop('aria-controls') && tab.prop('id'))
+      );
     });
 
-    it('Should add aria-labelledby', () => {
+    xit('Should add aria-labelledby', () => {
       const panes = wrapper.find('.tab-pane');
 
       assert.equal(
-        panes
-          .at(0)
-          .getDOMNode()
-          .getAttribute('aria-labelledby'),
+        panes.at(0).getDOMNode().getAttribute('aria-labelledby'),
         'test-tab-1'
       );
       assert.equal(
-        panes
-          .at(1)
-          .getDOMNode()
-          .getAttribute('aria-labelledby'),
+        panes.at(1).getDOMNode().getAttribute('aria-labelledby'),
         'test-tab-2'
       );
     });
 
-    it('Should add aria-controls', () => {
+    xit('Should add aria-controls', () => {
       const tabs = wrapper.find(NavItem);
 
       assert.equal(tabs.at(0).prop('aria-controls'), 'test-pane-1');
       assert.equal(tabs.at(1).prop('aria-controls'), 'test-pane-2');
     });
 
-    it('Should add role=tablist to the nav', () => {
+    xit('Should add role=tablist to the nav', () => {
       const nav = wrapper.find(Nav).instance();
 
       assert.equal(nav.props.role, 'tablist');
     });
 
-    it('Should add aria-selected to the nav item for the selected tab', () => {
+    xit('Should add aria-selected to the nav item for the selected tab', () => {
       const tabs = wrapper.find(NavItem);
-      const link1 = tabs
-        .at(0)
-        .find('a')
-        .getDOMNode();
-      const link2 = tabs
-        .at(1)
-        .find('a')
-        .getDOMNode();
+      const link1 = tabs.at(0).find('a').getDOMNode();
+      const link2 = tabs.at(1).find('a').getDOMNode();
 
       assert.equal(link1.getAttribute('aria-selected'), 'false');
       assert.equal(link2.getAttribute('aria-selected'), 'true');
     });
   });
 
-  it('Should not pass className to Nav', () => {
+  xit('Should not pass className to Nav', () => {
     const wrapper = mount(
       <Tabs id="test" bsStyle="pills" defaultActiveKey={1} animation={false}>
         <Tab title="Tab 1" eventKey={1} className="my-tab-class">
@@ -507,19 +497,13 @@ describe('<Tabs>', () => {
       </Tabs>
     );
 
-    const myTabClass = wrapper
-      .find('.my-tab-class')
-      .hostNodes()
-      .getDOMNode();
-    const myNavItem = wrapper
-      .find('.nav-pills')
-      .first()
-      .getDOMNode();
+    const myTabClass = wrapper.find('.my-tab-class').hostNodes().getDOMNode();
+    const myNavItem = wrapper.find('.nav-pills').first().getDOMNode();
 
     assert.notDeepEqual(myTabClass, myNavItem);
   });
 
-  it('Should pass className, Id, and style to Tabs', () => {
+  xit('Should pass className, Id, and style to Tabs', () => {
     const wrapper = mount(
       <Tabs
         bsStyle="pills"
@@ -537,7 +521,7 @@ describe('<Tabs>', () => {
     assert.equal(parseFloat(wrapper.getDOMNode().style.opacity), 0.5);
   });
 
-  it('should derive bsClass from parent', () => {
+  xit('should derive bsClass from parent', () => {
     const wrapper = mount(
       <Tabs id="test" bsClass="my-tabs">
         <Tab eventKey={1} title="Tab 1" />

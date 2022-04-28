@@ -19,7 +19,7 @@ describe('<DropdownButton>', () => {
     </DropdownButton>
   );
 
-  it('renders title prop', () => {
+  xit('renders title prop', () => {
     const instance = ReactTestUtils.renderIntoDocument(simpleDropdown);
     const buttonNode = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
@@ -29,7 +29,7 @@ describe('<DropdownButton>', () => {
     buttonNode.textContent.should.match(/Simple Dropdown/);
   });
 
-  it('renders dropdown toggle button', () => {
+  xit('renders dropdown toggle button', () => {
     const instance = ReactTestUtils.renderIntoDocument(simpleDropdown);
 
     const buttonNode = ReactTestUtils.findRenderedDOMComponentWithTag(
@@ -46,7 +46,7 @@ describe('<DropdownButton>', () => {
     buttonNode.getAttribute('id').should.be.ok;
   });
 
-  it('renders single MenuItem child', () => {
+  xit('renders single MenuItem child', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownButton title="Single child" id="test-id">
         <MenuItem>Item 1</MenuItem>
@@ -60,7 +60,7 @@ describe('<DropdownButton>', () => {
     expect(menuNode.children.length).to.equal(1);
   });
 
-  it('forwards pullRight to menu', () => {
+  xit('forwards pullRight to menu', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownButton pullRight title="blah" id="test-id">
         <MenuItem>Item 1</MenuItem>
@@ -74,7 +74,7 @@ describe('<DropdownButton>', () => {
     menu.props.pullRight.should.be.true;
   });
 
-  it('renders bsSize', () => {
+  xit('renders bsSize', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownButton title="blah" bsSize="small" id="test-id">
         <MenuItem>Item 1</MenuItem>
@@ -85,7 +85,7 @@ describe('<DropdownButton>', () => {
     node.className.should.match(/\bbtn-group-sm\b/);
   });
 
-  it('renders bsStyle', () => {
+  xit('renders bsStyle', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownButton title="blah" bsStyle="success" id="test-id">
         <MenuItem>Item 1</MenuItem>
@@ -99,7 +99,7 @@ describe('<DropdownButton>', () => {
     buttonNode.className.should.match(/\bbtn-success\b/);
   });
 
-  it('forwards onSelect handler to MenuItems', (done) => {
+  xit('forwards onSelect handler to MenuItems', (done) => {
     const selectedEvents = [];
 
     const onSelect = (eventKey) => {
@@ -129,7 +129,7 @@ describe('<DropdownButton>', () => {
     });
   });
 
-  it('closes when child MenuItem is selected', () => {
+  xit('closes when child MenuItem is selected', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownButton title="Simple Dropdown" id="test-id">
         <MenuItem eventKey="1">Item 1</MenuItem>
@@ -153,7 +153,7 @@ describe('<DropdownButton>', () => {
     node.className.should.not.match(/\bopen\b/);
   });
 
-  it('does not close when onToggle is controlled', () => {
+  xit('does not close when onToggle is controlled', () => {
     const handleSelect = () => {};
 
     const instance = ReactTestUtils.renderIntoDocument(
@@ -185,7 +185,7 @@ describe('<DropdownButton>', () => {
     node.className.should.match(/\bopen\b/);
   });
 
-  it('Should pass props to button', () => {
+  xit('Should pass props to button', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownButton title="Title" bsStyle="primary" id="testId" disabled>
         <MenuItem eventKey="1">MenuItem 1 content</MenuItem>
@@ -203,7 +203,7 @@ describe('<DropdownButton>', () => {
     assert.ok(buttonNode.disabled);
   });
 
-  it('should derive bsClass from parent', () => {
+  xit('should derive bsClass from parent', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownButton title="title" id="test-id" bsClass="my-dropdown">
         <MenuItem eventKey="1">MenuItem 1 content</MenuItem>
@@ -224,7 +224,7 @@ describe('<DropdownButton>', () => {
     );
   });
 
-  it('should pass defaultOpen to `<Dropdown>`', () => {
+  xit('should pass defaultOpen to `<Dropdown>`', () => {
     const wrapper = mount(
       <DropdownButton id="test-id" title="title" defaultOpen>
         <MenuItem eventKey="1">MenuItem 1 content</MenuItem>
@@ -238,7 +238,7 @@ describe('<DropdownButton>', () => {
     expect(toggle.props().defaultOpen).to.not.exist;
   });
 
-  it('should pass onMouseEnter and onMouseLeave to `<Dropdown>`', () => {
+  xit('should pass onMouseEnter and onMouseLeave to `<Dropdown>`', () => {
     const onMouseEnter = () => {};
     const onMouseLeave = () => {};
 

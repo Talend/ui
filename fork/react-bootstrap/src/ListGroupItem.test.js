@@ -5,7 +5,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import ListGroupItem from '../src/ListGroupItem';
 
 describe('<ListGroupItem>', () => {
-  it('Should output a "span" with the class "list-group-item"', () => {
+  xit('Should output a "span" with the class "list-group-item"', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem>Text</ListGroupItem>
     );
@@ -18,7 +18,7 @@ describe('<ListGroupItem>', () => {
     );
   });
 
-  it('Should output an "anchor" if "href" prop is set', () => {
+  xit('Should output an "anchor" if "href" prop is set', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem href="#test">Anchor</ListGroupItem>
     );
@@ -31,7 +31,7 @@ describe('<ListGroupItem>', () => {
     );
   });
 
-  it('Should output a "button" if an "onClick" handler is set', () => {
+  xit('Should output a "button" if an "onClick" handler is set', () => {
     let noop = () => {};
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem onClick={noop}>Button</ListGroupItem>
@@ -45,7 +45,7 @@ describe('<ListGroupItem>', () => {
     );
   });
 
-  it('Should output an "li" if "listItem" prop is set', () => {
+  xit('Should output an "li" if "listItem" prop is set', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem listItem>Item 1</ListGroupItem>
     );
@@ -58,7 +58,7 @@ describe('<ListGroupItem>', () => {
     );
   });
 
-  it('Should support "bsStyle" prop', () => {
+  xit('Should support "bsStyle" prop', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem bsStyle="success">Item 1</ListGroupItem>
     );
@@ -70,7 +70,7 @@ describe('<ListGroupItem>', () => {
     );
   });
 
-  it('Should support "active" and "disabled" prop', () => {
+  xit('Should support "active" and "disabled" prop', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem active>Item 1</ListGroupItem>
     );
@@ -79,7 +79,7 @@ describe('<ListGroupItem>', () => {
     );
   });
 
-  it('Should support "disabled" prop', () => {
+  xit('Should support "disabled" prop', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem disabled>Item 2</ListGroupItem>
     );
@@ -88,7 +88,7 @@ describe('<ListGroupItem>', () => {
     );
   });
 
-  it('Should support "header" prop as a string', () => {
+  xit('Should support "header" prop as a string', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem header="Heading">Item text</ListGroupItem>
     );
@@ -102,7 +102,7 @@ describe('<ListGroupItem>', () => {
     assert.ok(node.lastChild.className.match(/\blist-group-item-text\b/));
   });
 
-  it('Should support "header" prop as a ReactComponent', () => {
+  xit('Should support "header" prop as a ReactComponent', () => {
     let header = <h2>Heading</h2>;
     let instance = ReactTestUtils.renderIntoDocument(
       <ListGroupItem header={header}>Item text</ListGroupItem>
