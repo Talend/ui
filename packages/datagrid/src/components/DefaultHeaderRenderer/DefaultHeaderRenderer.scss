@@ -1,7 +1,8 @@
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+
 $td-header-component-border-color: $gallery !default;
 $td-quality-bar-hover-height: 1rem !default;
 $td-grip-resize-width: 6px !default;
-$td-header-padding: .8rem;
 
 :global(.ag-header-cell) {
 	border-right: $td-header-component-border-color 1px solid;
@@ -19,17 +20,16 @@ $td-header-padding: .8rem;
 
 .td-header-component {
 	height: 100%;
+	display: flex;
+	flex-direction: column;
 
 	:global(.tc-ratio-bar) {
-		padding: $td-header-padding .7rem;
-		position: absolute;
-		bottom: 0;
+		padding: 0 tokens.$coral-spacing-xs tokens.$coral-spacing-xs tokens.$coral-spacing-xs;
 	}
 
 	.td-header {
-		height: 100%;
 		width: calc(100% - #{$td-grip-resize-width});
-		padding: $td-header-padding;
+		padding: tokens.$coral-spacing-xs;
 		text-align: left;
 		background-color: transparent;
 		border: none;
