@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, useEffect } from 'react';
+import React, { ReactElement, ReactNode, useEffect, useRef } from 'react';
 import i18n from 'i18next';
 import { Dialog, DialogBackdrop, useDialogState } from 'reakit/Dialog';
 import { IconName } from '@talend/icons';
@@ -38,6 +38,10 @@ export type ModalPropsType = {
 
 function Modal(props: ModalPropsType): ReactElement {
 	const { header, onClose, primaryAction, secondaryAction, preventEscaping, children } = props;
+	const ref = useRef(null);
+	useEffect(() => {
+		(ref.current as unknown as HTMLElement).focus();
+	}, []);
 	const dialog = useDialogState({ visible: true });
 
 	const hasAction = primaryAction || secondaryAction;
@@ -48,12 +52,14 @@ function Modal(props: ModalPropsType): ReactElement {
 		const dataTest = 'modal.buttons.primary';
 
 		if (!('destructive' in primaryAction) || !primaryAction.destructive) {
-			const buttonProps = primaryAction as ButtonPrimaryPropsType;
-			primaryActionRendered = <ButtonPrimary {...buttonProps} data-test={dataTest} />;
+			primaryActionRendered = (
+				<ButtonPrimary {...(primaryAction as ButtonPrimaryPropsType)} data-test={dataTest} />
+			);
 		} else {
-			const { destructive, ...rest } = primaryAction;
-			const buttonProps = rest as ButtonDestructivePropsType;
-			primaryActionRendered = <ButtonDestructive {...buttonProps} data-test={dataTest} />;
+			const { destructive, ...buttonProps } = primaryAction;
+			primaryActionRendered = (
+				<ButtonDestructive {...(buttonProps as ButtonDestructivePropsType)} data-test={dataTest} />
+			);
 		}
 	}
 
@@ -64,7 +70,7 @@ function Modal(props: ModalPropsType): ReactElement {
 				data-test="modal"
 				className={styles['modal']}
 				hide={preventEscaping ? undefined : () => onClose()}
-				tabIndex={0}
+				ref={ref}
 			>
 				<StackVertical gap={0}>
 					<div className={styles['modal__header']}>
