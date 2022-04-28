@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import { ComponentStory, Story } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Modal, { ModalPropsType } from './Modal';

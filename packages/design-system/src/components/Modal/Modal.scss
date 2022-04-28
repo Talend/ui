@@ -69,6 +69,10 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 	&__buttons {
 		margin-bottom: tokens.$coral-spacing-m;
 		flex-shrink: 0;
+
+		.close-button {
+			margin-right: auto;
+		}
 	}
 }
 
