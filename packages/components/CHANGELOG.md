@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.45.1
+
+### Patch Changes
+
+- f5e8188f1: FormatValue: Handle string without whitespaces
+
 ## 6.45.0
 
 ### Minor Changes
