@@ -27,7 +27,6 @@ function getModule(...args) {
 		throw new Error('@talend/react-cmf-router routerFunctions is not supported');
 	}
 	const history = createBrowserHistory(options);
-	window.Talend.history = history;
 	const basename = options.basename;
 
 	function* saga() {

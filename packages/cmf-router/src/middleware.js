@@ -11,10 +11,8 @@ const cmfMiddleware = store => next => action => {
 			route = route(action);
 		}
 		if (config.routerPush) {
-			console.log(push(route));
 			store.dispatch(push(route));
 		} else {
-			console.log(replace(route));
 			store.dispatch(replace(route));
 		}
 	}
