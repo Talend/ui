@@ -8,7 +8,6 @@
  */
 import PropTypes from 'prop-types';
 import React from 'react';
-// BrowserRouter from react-router-dom do not support custom history
 import { Router } from 'react-router';
 import { Route, Routes, Outlet } from 'react-router-dom';
 import { onLocationChanged } from 'connected-react-router';
@@ -71,6 +70,16 @@ function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath,
 	return routeProps;
 }
 
+function isDifferent(historyA, historyB) {
+	const isDiff =
+		historyA.location.pathname !== historyB.location.pathname ||
+		historyA.location.search !== historyB.location.search ||
+		historyA.location.hash !== historyB.location.hash;
+	// eslint-disable-next-line no-console
+	console.log({ isDiff });
+	return isDiff;
+}
+
 export function getRouter(history, basename) {
 	/**
 	 * pure arrow function that render the router component.
@@ -79,21 +88,26 @@ export function getRouter(history, basename) {
 	 * @return {object} ReactElement
 	 */
 	function CMFRouter({ action, location, ...props }) {
+		// init with history object;
 		const [state, setState] = React.useState({
 			action: history.action,
 			location: history.location,
 		});
+		// sync from history to redux
 		React.useEffect(() => {
-			return history.listen((...args) => {
+			return history.listen(opts => {
 				// eslint-disable-next-line no-console
-				console.log('#### listen');
-				setState(...args);
-				props.dispatch(onLocationChanged(...args));
+				console.log('#### listen', opts.action, opts.location);
+				if (isDifferent(opts, state)) {
+					setState(opts);
+					props.dispatch(onLocationChanged(opts.location, opts.action));
+				}
 			});
 		}, []);
+		// sync from redux to history
 		React.useEffect(() => {
 			// debugger;
-			if (location.key !== state.location.key || action !== state.action) {
+			if (isDifferent(state, { action, location })) {
 				setState({ action, location });
 			}
 		}, [location, action]);

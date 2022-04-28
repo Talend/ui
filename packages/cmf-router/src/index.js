@@ -11,7 +11,6 @@ import documentTitle from './sagas/documentTitle';
 import cmfRouterMiddleware from './middleware';
 
 const mergeConfig = {
-	history: cmf.module.merge.getUnique,
 	basename: cmf.module.merge.getUnique,
 	sagaRouterConfig: cmf.module.merge.mergeObjects,
 	routerFunctions: cmf.module.merge.mergeObjects,
@@ -27,7 +26,7 @@ function getModule(...args) {
 	if (options.routerFunctions) {
 		throw new Error('@talend/react-cmf-router routerFunctions is not supported');
 	}
-	const history = options.history || createBrowserHistory(options);
+	const history = createBrowserHistory(options);
 	window.Talend.history = history;
 	const basename = options.basename;
 
