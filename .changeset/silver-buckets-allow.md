@@ -1,5 +1,5 @@
 ---
-'@talend/react-components': fix
+'@talend/react-components': patch
 ---
 
 FormatValue: Handle string without whitespaces
