@@ -157,6 +157,7 @@ function LineChart({
 							type="monotone"
 							strokeDasharray={options?.dashed ? '17 4' : ''}
 							connectNulls
+							animationDuration={300}
 							{...getLineStyleFromStatus(options?.status || 'active')}
 							onClick={() => onLineClicked(options.key)}
 							onMouseEnter={() => onLineHovered(options.key)}
