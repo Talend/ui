@@ -2,7 +2,7 @@ export { default as HorizontalBarChart } from './components/BarChart/HorizontalB
 export { default as VerticalBarChart } from './components/BarChart/VerticalBarChart';
 export { default as VerticalChartFilter } from './components/ChartPanel/VerticalChartFilter';
 export { default as GeoChart } from './components/GeoChart';
-export { default as TooltipContent } from './components/TooltipContent/TooltipContent.component';
+export { default as KeyValueTooltip } from './components/KeyValueTooltip/KeyValueTooltip.component';
 export { default as BoxPlot } from './components/BoxPlot';
 export { default as LineChart } from './components/LineChart';
 export * from './components/BarChart/barChart.tooltip';
@@ -18,8 +18,8 @@ export type { VerticalChartFilterProps } from './components/ChartPanel/VerticalC
 export type { GeoChartProps } from './components/GeoChart';
 export type {
 	TooltipEntry,
-	TooltipContentProps,
-} from './components/TooltipContent/TooltipContent.component';
+	KeyValueTooltipProps,
+} from './components/KeyValueTooltip/KeyValueTooltip.component';
 export type { BoxPlotProps, BoxPlotData } from './components/BoxPlot';
 export type {
 	LineChartEntry,

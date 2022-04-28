@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import { Tooltip } from '../Tooltip/Tooltip.component';
 import styles from './LineChart.scss';
-
 import { LineOptions } from './LineChart.types';
 import { LineIcon } from './LineChartLineIcon.component';
 
@@ -37,11 +37,8 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 
 	if (active && payload?.length) {
 		return (
-			<div className={classNames(styles['line-chart-custom-tooltip'])}>
-				<div className={classNames(styles['line-chart-custom-tooltip__title'])}>
-					{labelDisplayValue}
-				</div>
-				<ul>
+			<Tooltip title={labelDisplayValue}>
+				<ul className={styles['line-chart-custom-tooltip']}>
 					{linesToShow.map(config => (
 						<li
 							id={`tooltip_item_${config.key}`}
@@ -60,7 +57,7 @@ export const CustomTooltip = ({ active, payload, label, external }: LineChartToo
 						</li>
 					))}
 				</ul>
-			</div>
+			</Tooltip>
 		);
 	}
 

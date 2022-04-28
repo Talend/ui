@@ -4,28 +4,9 @@ $module: line-chart;
 
 .#{$module} {
 	&-custom-tooltip {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
-		padding: tokens.$coral-spacing-m;
-
-		color: tokens.$coral-color-neutral-text-inverted;
-		font: tokens.$coral-paragraph-m;
-
-		background: tokens.$coral-color-assistive-background;
-		border: tokens.$coral-border-s-solid rgba(0, 0, 0, 0.103);
-		border-radius: tokens.$coral-radius-s;
-
-		& ul {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
-
-		&__title {
-			font: tokens.$coral-paragraph-s;
-		}
+		list-style: none;
+		margin: 0;
+		padding: 0;
 
 		&__line-item--inactive {
 			opacity: tokens.$coral-opacity-s;
