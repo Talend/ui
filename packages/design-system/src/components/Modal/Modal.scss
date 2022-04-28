@@ -50,7 +50,7 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 
 	&__header {
 		flex-shrink: 0;
-		height: 60px;
+		height: 6rem;
 		padding: tokens.$coral-spacing-xs tokens.$coral-spacing-l;
 		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 
