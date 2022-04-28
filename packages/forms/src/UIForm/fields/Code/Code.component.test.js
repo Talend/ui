@@ -35,9 +35,8 @@ describe('Code field', () => {
 				new Promise(resolve => {
 					setTimeout(() => {
 						resolve(true);
-					}, 200);
+					}, 10);
 				}),
-			{ timeout: 300 },
 		);
 	}
 	it('should render ace-editor in FieldTemplate', async () => {

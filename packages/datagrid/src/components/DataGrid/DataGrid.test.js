@@ -2,17 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Grid as agGrid } from 'ag-grid-community';
 import { AgGridReact, AgGridColumn } from 'ag-grid-react';
-import { render, waitFor } from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DataGrid from './DataGrid.component';
-
-function PinHeaderRenderer() {
-	return <span>test hello</span>;
-}
-
-function getComponent() {
-	return PinHeaderRenderer;
-}
 
 const sample = {
 	schema: {
@@ -167,17 +159,16 @@ describe('#DataGrid', () => {
 		window.ReactDOM = ReactDOM;
 		window.agGrid = agGrid;
 		window.AgGridReact = { AgGridReact, AgGridColumn };
-		render(<DataGrid getComponent={getComponent} data={sample} />);
+		render(<DataGrid data={sample} />);
 		await waitFor(
 			() =>
 				new Promise(resolve => {
 					setTimeout(() => {
 						resolve(true);
-					}, 1000);
+					}, 30);
 				}),
-			{ timeout: 1100 },
 		);
-		expect(true).toBe(true);
-		// expect(wrapper.getElement()).toMatchSnapshot();
+		const column = await screen.findByText('Aéroport Charles de Gaulle 2 TGV');
+		expect(column).toBeInTheDocument();
 	});
 });
