@@ -16,7 +16,7 @@ exports[`#DataGrid should render DataGrid 1`] = `
       }
     }
     getRowNodeId={[Function]}
-    headerHeight={55}
+    headerHeight={65}
     legacyComponentRendering={false}
     maxComponentCreationTimeMs={1000}
     navigateToNextCell={[Function]}
@@ -144,7 +144,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
       }
     }
     getRowNodeId={[Function]}
-    headerHeight={55}
+    headerHeight={65}
     legacyComponentRendering={false}
     maxComponentCreationTimeMs={1000}
     navigateToNextCell={[Function]}
