@@ -1,5 +1,16 @@
 # @talend/react-components
 
+## 6.45.0
+
+### Minor Changes
+
+- 9522692fa: chore(Datalist): Allow reset to empty in restricted mode
+
+### Patch Changes
+
+- Updated dependencies [59a16bfa7]
+  - @talend/design-system@2.4.0
+
 ## 6.44.14
 
 ### Patch Changes
