@@ -6,9 +6,12 @@
     "cross-spawn": "^7.0.3",
     "husky": "^7.0.4",
     "i18next-scanner": "^3.1.0",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "eslint": "^7.32.0",
+    "lint-staged": "^12.3.8"
   },
   "scripts": {
+    "preinstall": "node preinstall.mjs",
     "postinstall": "node workspace-run.js build:lib",
     "pre-release": "node workspace-run.js pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
@@ -42,11 +45,7 @@
   },
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "tools/*",
-    "fork/*"
-  ],
+  "workspaces": [],
   "lint-staged": {
     "*.{js,ts,tsx,jsx}": [
       "eslint --quiet --fix"
