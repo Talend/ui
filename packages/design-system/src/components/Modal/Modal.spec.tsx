@@ -6,10 +6,11 @@ import * as Stories from './Modal.stories';
 const { Basic, WithNonClosingBackdrop } = composeStories(Stories);
 
 context('<Modal />', () => {
-	it('should render', () => {
+	it('should render and focus on the modal', () => {
 		cy.mount(<Basic />);
 		cy.getByTest('open-modal').click();
 		cy.getByTest('modal').should('be.visible');
+		cy.focused().should('have.attr', 'data-test', 'modal');
 	});
 
 	it('should close the modal on cancel/close action', () => {
