@@ -2,11 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const cwd = process.cwd();
 const isTS = fs.existsSync(path.join(cwd, 'tsconfig.json'));
-const removeComment = /\/\/.*/g;
+const commentsRegex = /\/\/.*/g;
 const content = fs
 	.readFileSync(path.join(__dirname, '.eslintrc'))
 	.toString()
-	.replace(removeComment, '');
+	.replace(commentsRegex, '');
 const config = JSON.parse(content);
 
 if (isTS) {
