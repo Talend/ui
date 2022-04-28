@@ -1,6 +1,6 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ReactNode, useEffect } from 'react';
 import i18n from 'i18next';
-import { Dialog, DialogBackdrop } from 'reakit/Dialog';
+import { Dialog, DialogBackdrop, useDialogState } from 'reakit/Dialog';
 import { IconName } from '@talend/icons';
 
 import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
@@ -38,7 +38,7 @@ export type ModalPropsType = {
 
 function Modal(props: ModalPropsType): ReactElement {
 	const { header, onClose, primaryAction, secondaryAction, preventEscaping, children } = props;
-	const dialog = { visible: true };
+	const dialog = useDialogState({ visible: true });
 
 	const hasAction = primaryAction || secondaryAction;
 	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
@@ -69,8 +69,9 @@ function Modal(props: ModalPropsType): ReactElement {
 				aria-title={header.title}
 				className={modalStyles['modal']}
 				hide={preventEscaping ? undefined : () => onClose()}
+				tabIndex={0}
 			>
-				<StackVertical gap="L">
+				<StackVertical gap={0}>
 					<div className={modalStyles['modal__header']}>
 						{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
 						<div className={modalStyles['modal-header-text']}>

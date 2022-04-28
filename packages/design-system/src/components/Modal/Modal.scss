@@ -62,6 +62,8 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 	&__content {
 		overflow-x: hidden;
 		overflow-y: auto;
+		padding-top: tokens.$coral-spacing-l;
+		margin-bottom: tokens.$coral-spacing-l;
 	}
 
 	&__buttons {
