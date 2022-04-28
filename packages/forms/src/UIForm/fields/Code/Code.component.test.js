@@ -25,10 +25,6 @@ describe('Code field', () => {
 		value: 'toto',
 	};
 
-	// afterEach(() => {
-	// 	// clear JSDOM to avoid tests that mount on document.body to pollute other tests
-	// 	document.documentElement.innerHTML = '';
-	// });
 	async function initWith(dprops) {
 		window.React = React;
 		window.ReactDOM = ReactDOM;
