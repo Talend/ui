@@ -13,46 +13,38 @@ context('<Modal />', () => {
 	});
 
 	it('should close the modal on cancel/close action', () => {
-		// given
-		const onCloseStub = cy.stub();
-
 		// when
-		cy.mount(<Basic onClose={onCloseStub} />);
+		cy.mount(<Basic />);
 		cy.getByTest('open-modal').click();
 		cy.getByTest('modal.buttons.close')
 			.click()
 			.then(() => {
 				// then
-				expect(onCloseStub).to.have.been.called;
+				cy.getByTest('modal').should('not.exist');
 			});
 	});
 
 	it('should close the modal on ESC key', () => {
-		// given
-		const onCloseStub = cy.stub();
-
 		// when
-		cy.mount(<Basic onClose={onCloseStub} />);
+		cy.mount(<Basic />);
 		cy.getByTest('open-modal').click();
 		cy.getByTest('modal')
 			.type('{esc}')
 			.then(() => {
 				// then
-				expect(onCloseStub).to.be.called;
+				cy.getByTest('modal').should('not.exist');
 			});
 	});
 
-	it('should not close the modal on cancel/close action or ESC key', () => {
-		// given
-		const onCloseStub = cy.stub();
-
+	it('should not close the modal on ESC key', () => {
 		// when
-		cy.mount(<WithNonClosingBackdrop onClose={onCloseStub} />);
+		cy.mount(<WithNonClosingBackdrop />);
 		cy.getByTest('open-modal').click();
-		cy.getByTest('modal.buttons.close').click();
-		cy.getByTest('modal').type('{esc}');
-
-		// then
-		expect(onCloseStub).not.to.be.called;
+		cy.getByTest('modal')
+			.type('{esc}')
+			.then(() => {
+				// then
+				cy.getByTest('modal').should('exist');
+			});
 	});
 });

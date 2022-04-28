@@ -45,7 +45,7 @@ function Modal(props: ModalPropsType): ReactElement {
 
 	let primaryActionRendered;
 	if (primaryAction) {
-		const dataTest = 'modal.buttons.primary-action';
+		const dataTest = 'modal.buttons.primary';
 
 		if (!('destructive' in primaryAction) || !primaryAction.destructive) {
 			const buttonProps = primaryAction as ButtonPrimaryPropsType;
@@ -62,7 +62,6 @@ function Modal(props: ModalPropsType): ReactElement {
 			<Dialog
 				{...dialog}
 				data-test="modal"
-				aria-title={header.title}
 				className={styles['modal']}
 				hide={preventEscaping ? undefined : () => onClose()}
 				tabIndex={0}
@@ -98,7 +97,7 @@ function Modal(props: ModalPropsType): ReactElement {
 							</span>
 
 							{secondaryAction && (
-								<ButtonSecondary {...secondaryAction} data-test="modal.buttons.secondary-action" />
+								<ButtonSecondary {...secondaryAction} data-test="modal.buttons.secondary" />
 							)}
 							{primaryActionRendered}
 						</StackHorizontal>
