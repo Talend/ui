@@ -13,7 +13,10 @@ function ModalStory(props: Partial<ModalPropsType>) {
 
 	return (
 		<>
-			<button data-test="open-modal" onClick={() => setModalOpen(true)}>Open modal</button>
+			<button onClick={() => setModalOpen(true)} data-test="open-modal">
+				See
+			</button>
+
 			{modalOpen && (
 				<Modal
 					header={{ title: '(Default story title)' }}
@@ -180,7 +183,7 @@ export const WithActions: ComponentStory<typeof Modal> = props => (
 );
 
 export const WithNonClosingBackdrop: ComponentStory<typeof Modal> = props => (
-	<ModalStory {...props} header={{ title: 'With non closing backdrop' }}>
+	<ModalStory {...props} header={{ title: 'With non closing backdrop' }} preventEscaping>
 		<p>
 			A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked.
 		</p>

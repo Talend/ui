@@ -1,13 +1,13 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$modal-backdrop-z-index: 100;
+$modal-backdrop-z-index: 100000;
 $modal-z-index: $modal-backdrop-z-index + 1;
 
 .modal-backdrop {
 	&:before {
 		z-index: $modal-backdrop-z-index - 1;
 		content: '';
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
