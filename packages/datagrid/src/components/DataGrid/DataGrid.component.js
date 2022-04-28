@@ -19,9 +19,8 @@ import theme from './DataGrid.scss';
 const AgGridReact = React.lazy(() =>
 	assetsApi
 		.getUMD('ag-grid-community')
-		.then(() =>
-			assetsApi.getUMD('ag-grid-react').then(mod => assetsApi.toDefaultModule(mod.AgGridReact)),
-		),
+		.then(() => assetsApi.getUMD('ag-grid-react'))
+		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact))
 );
 
 export const AG_GRID = {
