@@ -109,11 +109,11 @@ const propTypes = {
   /**
    * @private
    */
-  onMouseLeave: PropTypes.func
+  onMouseLeave: PropTypes.func,
 };
 
 const defaultProps = {
-  componentClass: ButtonGroup
+  componentClass: ButtonGroup,
 };
 
 class Dropdown extends React.Component {
@@ -132,15 +132,6 @@ class Dropdown extends React.Component {
     this.focusNextOnOpen();
   }
 
-  UNSAFE_componentWillUpdate(nextProps) { // eslint-disable-line
-    if (!nextProps.open && this.props.open) {
-      this._focusInDropdown = contains(
-        ReactDOM.findDOMNode(this.menu),
-        activeElement(document)
-      );
-    }
-  }
-
   componentDidUpdate(prevProps) {
     const { open } = this.props;
     const prevOpen = prevProps.open;
@@ -150,6 +141,10 @@ class Dropdown extends React.Component {
     }
 
     if (!open && prevOpen) {
+      this._focusInDropdown = contains(
+        ReactDOM.findDOMNode(this.menu),
+        activeElement(document)
+      );
       // if focus hasn't already moved from the menu let's return it
       // to the toggle
       if (this._focusInDropdown) {
@@ -233,7 +228,7 @@ class Dropdown extends React.Component {
   }
 
   renderMenu(child, { id, onSelect, rootCloseEvent, ...props }) {
-    let ref = c => {
+    let ref = (c) => {
       this.menu = c;
     };
 
@@ -259,12 +254,12 @@ class Dropdown extends React.Component {
         onSelect,
         (key, event) => this.handleClose(event, { source: 'select' })
       ),
-      rootCloseEvent
+      rootCloseEvent,
     });
   }
 
   renderToggle(child, props) {
-    let ref = c => {
+    let ref = (c) => {
       this.toggle = c;
     };
 
@@ -287,7 +282,7 @@ class Dropdown extends React.Component {
       onKeyDown: createChainedFunction(
         child.props.onKeyDown,
         this.handleKeyDown
-      )
+      ),
     });
   }
 
@@ -313,7 +308,7 @@ class Dropdown extends React.Component {
     const classes = {
       [bsClass]: true,
       open,
-      disabled
+      disabled,
     };
 
     if (dropup) {
@@ -326,7 +321,7 @@ class Dropdown extends React.Component {
 
     return (
       <Component {...props} className={classNames(className, classes)}>
-        {ValidComponentChildren.map(children, child => {
+        {ValidComponentChildren.map(children, (child) => {
           switch (child.props.bsRole) {
             case TOGGLE_ROLE:
               return this.renderToggle(child, {
@@ -334,7 +329,7 @@ class Dropdown extends React.Component {
                 disabled,
                 open,
                 role,
-                bsClass
+                bsClass,
               });
             case MENU_ROLE:
               return this.renderMenu(child, {
@@ -343,7 +338,7 @@ class Dropdown extends React.Component {
                 pullRight,
                 bsClass,
                 onSelect,
-                rootCloseEvent
+                rootCloseEvent,
               });
             default:
               return child;

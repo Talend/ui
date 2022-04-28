@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import React, { useState, useRef } from 'react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import keycode from 'keycode';
@@ -444,30 +444,59 @@ describe('<Dropdown>', () => {
     });
   });
 
-  xit('chains refs', () => {
-    class RefDropdown extends React.Component {
-      render() {
+  describe('ref', () => {
+    const originalConsoleError = console.error;
+
+    beforeEach(() => {
+      console.error = jest.fn();
+    });
+
+    afterEach(() => {
+      console.error = originalConsoleError;
+    });
+
+    it('chains refs', () => {
+      // given
+      function RefDropdown() {
+        const [hasBaseRef, setHasBaseRef] = useState(false);
+        const [hasToggleRef, setHasToggleRef] = useState(false);
+        const [hasMenuRef, setHasMenuRef] = useState(false);
+
+        const setBaseRef = () => {
+          setHasBaseRef(true);
+        };
+        const setToggleRef = () => {
+          setHasToggleRef(true);
+        };
+        const setMenuRef = () => {
+          setHasMenuRef(true);
+        };
+
         return (
-          <Dropdown ref={(dropdown) => (this.dropdown = dropdown)} id="test">
-            <Dropdown.Toggle ref={(toggle) => (this.toggle = toggle)} />
-            <Dropdown.Menu ref={(menu) => (this.menu = menu)} />
-          </Dropdown>
+          <>
+            <Dropdown ref={setBaseRef} id="test">
+              <Dropdown.Toggle ref={setToggleRef} />
+              <Dropdown.Menu ref={setMenuRef} />
+            </Dropdown>
+            {hasBaseRef && <div data-testid="baseRefSet" />}
+            {hasToggleRef && <div data-testid="toggleRefSet" />}
+            {hasMenuRef && <div data-testid="menuRefSet" />}
+          </>
         );
       }
-    }
 
-    let inst = mount(<RefDropdown />).instance();
+      // when
+      render(<RefDropdown />);
 
-    inst.menu.should.exist;
-    inst.dropdown.menu.should.exist;
+      // then
+      expect(screen.getByTestId('baseRefSet')).toBeInTheDocument();
+      expect(screen.getByTestId('toggleRefSet')).toBeInTheDocument();
+      expect(screen.getByTestId('menuRefSet')).toBeInTheDocument();
+    });
 
-    inst.toggle.should.exist;
-    inst.dropdown.toggle.should.exist;
-  });
-
-  xit('warns when a string ref is specified', () => {
-    class RefDropdown extends React.Component {
-      render() {
+    it('warns when a string ref is specified', () => {
+      // given
+      function RefDropdown() {
         return (
           <Dropdown id="test">
             <Dropdown.Toggle ref="toggle" />
@@ -475,11 +504,15 @@ describe('<Dropdown>', () => {
           </Dropdown>
         );
       }
-    }
 
-    shouldWarn('String refs are not supported');
+      // when
+      render(<RefDropdown />);
 
-    mount(<RefDropdown />);
+      // then
+      expect(console.error.mock.calls[0][0]).toContain(
+        'String refs are not supported'
+      );
+    });
   });
 
   describe('focusable state', () => {
@@ -495,26 +528,38 @@ describe('<Dropdown>', () => {
       document.body.removeChild(focusableContainer);
     });
 
-    xit('when focused and closed sets focus on first menu item when the key "down" is pressed', () => {
-      const wrapper = mount(simpleDropdown, { attachTo: focusableContainer });
-      const buttonNode = wrapper.find('button').getDOMNode();
-      buttonNode.focus();
-      ReactTestUtils.Simulate.keyDown(buttonNode, { keyCode: keycode('down') });
+    it('when focused and closed sets focus on first menu item when the key "down" is pressed', () => {
+      // given
+      render(simpleDropdown, { container: focusableContainer });
 
-      const firstMenuItemAnchor = wrapper.find('a').first().getDOMNode();
-      document.activeElement.should.equal(firstMenuItemAnchor);
+      // when
+      fireEvent.focus(screen.getByRole('button'));
+      fireEvent.keyDown(screen.getByRole('button'), {
+        key: 'ArrowDown',
+        keyCode: keycode('down'),
+      });
+
+      // then
+      expect(screen.getByRole('menuitem', { name: 'Item 1' })).toHaveFocus();
     });
 
-    xit('when focused and open does not toggle closed when the key "down" is pressed', () => {
-      const wrapper = mount(simpleDropdown);
-      const node = wrapper.getDOMNode();
-      const buttonNode = wrapper.find('button').getDOMNode();
+    it('when focused and open does not toggle closed when the key "down" is pressed', () => {
+      // given
+      render(simpleDropdown);
 
-      ReactTestUtils.Simulate.click(buttonNode);
-      ReactTestUtils.Simulate.keyDown(buttonNode, { keyCode: keycode('down') });
+      // when
+      userEvent.click(screen.getByRole('button'));
+      fireEvent.keyDown(screen.getByRole('button'), {
+        key: 'ArrowDown',
+        keyCode: keycode('down'),
+      });
 
-      node.className.should.match(/\bopen\b/);
-      buttonNode.getAttribute('aria-expanded').should.equal('true');
+      // then
+      expect(screen.getByRole('button')).toHaveAttribute(
+        'aria-expanded',
+        'true'
+      );
+      expect(screen.getByTestId('test-id')).toHaveClass('open');
     });
 
     // This test is more complicated then it appears to need. This is
@@ -522,54 +567,54 @@ describe('<Dropdown>', () => {
     // The failure occurred when all tests in the suite were run together, but not a subset of the tests.
     //
     // I am fairly confident that the failure is due to a test specific conflict and not an actual bug.
-    xit('when open and the key "esc" is pressed the menu is closed and focus is returned to the button', () => {
-      const wrapper = mount(
-        <Dropdown defaultOpen role="menuitem" id="test-id">
+    it('when open and the key "esc" is pressed the menu is closed and focus is returned to the button', () => {
+      // given
+      render(
+        <Dropdown defaultOpen role="menuitem" data-testid="test-id" id="lol">
           {dropdownChildren}
         </Dropdown>,
-        { attachTo: focusableContainer }
+        { container: focusableContainer }
       );
+      const firstItem = screen.getByRole('menuitem', { name: 'Item 1' });
+      expect(firstItem).toHaveFocus();
 
-      const buttonNode = wrapper.find('button').getDOMNode();
-      const firstMenuItemAnchor = wrapper.find('a').first().getDOMNode();
-
-      document.activeElement.should.equal(firstMenuItemAnchor);
-
-      ReactTestUtils.Simulate.keyDown(firstMenuItemAnchor, {
-        type: 'keydown',
+      // when
+      fireEvent.keyDown(firstItem, {
+        key: 'Escape',
         keyCode: keycode('esc'),
       });
 
-      document.activeElement.should.equal(buttonNode);
+      // then
+      expect(screen.getByRole('button')).toHaveFocus();
+      expect(screen.getByTestId('test-id')).not.toHaveClass('open');
     });
 
-    xit('when open and the key "tab" is pressed the menu is closed and focus is progress to the next focusable element', (done) => {
-      const wrapper = mount(
+    it('when open and the key "tab" is pressed the menu is closed and focus is progress to the next focusable element', () => {
+      // given
+      render(
         <Grid>
           {simpleDropdown}
           <input type="text" id="next-focusable" />
         </Grid>,
         { attachTo: focusableContainer }
       );
-      const node = wrapper.find(Dropdown);
-      const buttonNode = node.find('button').getDOMNode();
 
-      ReactTestUtils.Simulate.click(buttonNode);
-      buttonNode.getAttribute('aria-expanded').should.equal('true');
-
-      ReactTestUtils.Simulate.keyDown(buttonNode, {
-        key: keycode('tab'),
+      // when
+      userEvent.click(screen.getByRole('button'));
+      expect(screen.getByRole('button')).toHaveAttribute(
+        'aria-expanded',
+        'true'
+      );
+      fireEvent.keyDown(screen.getByRole('button'), {
+        key: 'Tab',
         keyCode: keycode('tab'),
       });
 
-      setTimeout(() => {
-        buttonNode.getAttribute('aria-expanded').should.equal('false');
-        done();
-      });
-
-      // simulating a tab event doesn't actually shift focus.
-      // at least that seems to be the case according to SO.
-      // hence no assert on the input having focus.
+      // then
+      expect(screen.getByRole('button')).toHaveAttribute(
+        'aria-expanded',
+        'false'
+      );
     });
   });
 
@@ -586,99 +631,98 @@ describe('<Dropdown>', () => {
       document.body.removeChild(focusableContainer);
     });
 
-    xit('passes open, event, and source correctly when opened with click', () => {
-      const spy = sinon.spy();
-      const wrapper = mount(
-        <Dropdown id="test-id" onToggle={spy}>
+    it('passes open, event, and source correctly when opened with click', () => {
+      // given
+      const onToggle = jest.fn();
+      render(
+        <Dropdown id="lol" data-testid="test-id" onToggle={onToggle}>
           {dropdownChildren}
         </Dropdown>
       );
-      const buttonNode = wrapper.find('button').getDOMNode();
+      expect(onToggle).not.toHaveBeenCalled();
 
-      expect(spy).to.not.have.been.called;
+      // when
+      userEvent.click(screen.getByRole('button'));
 
-      ReactTestUtils.Simulate.click(buttonNode);
-
-      expect(spy).to.have.been.calledOnce;
-      expect(spy.getCall(0).args.length).to.equal(3);
-      expect(spy.getCall(0).args[0]).to.equal(true);
-      expect(spy.getCall(0).args[1]).to.be.an('object');
-      assert.deepEqual(spy.getCall(0).args[2], { source: 'click' });
+      // then
+      expect(onToggle).toHaveBeenCalledWith(true, expect.any(Object), {
+        source: 'click',
+      });
     });
 
-    xit('passes open, event, and source correctly when closed with click', () => {
-      const spy = sinon.spy();
-      const wrapper = mount(
-        <Dropdown id="test-id" onToggle={spy}>
+    it('passes open, event, and source correctly when closed with click', () => {
+      // given
+      const onToggle = jest.fn();
+      render(
+        <Dropdown id="test-id" onToggle={onToggle}>
           {dropdownChildren}
         </Dropdown>
       );
-      const buttonNode = wrapper.find('button').getDOMNode();
+      expect(onToggle).not.toHaveBeenCalled();
 
-      expect(spy).to.not.have.been.called;
-      ReactTestUtils.Simulate.click(buttonNode);
-      expect(spy).to.have.been.calledOnce;
-      ReactTestUtils.Simulate.click(buttonNode);
+      // when
+      userEvent.click(screen.getByRole('button'));
+      expect(onToggle).toHaveBeenCalledTimes(1);
+      userEvent.click(screen.getByRole('button'));
 
-      expect(spy).to.have.been.calledTwice;
-      expect(spy.getCall(1).args.length).to.equal(3);
-      expect(spy.getCall(1).args[0]).to.equal(false);
-      expect(spy.getCall(1).args[1]).to.be.an('object');
-      assert.deepEqual(spy.getCall(1).args[2], { source: 'click' });
+      // then
+      expect(onToggle.mock.calls.length).toBeGreaterThanOrEqual(2);
+      expect(onToggle).toHaveBeenCalledWith(false, expect.any(Object), {
+        source: 'click',
+      });
     });
 
-    xit('passes open, event, and source correctly when child selected', () => {
-      const spy = sinon.spy();
-      const wrapper = mount(
-        <Dropdown id="test-id" onToggle={spy}>
+    it('passes open, event, and source correctly when child selected', () => {
+      // given
+      const onToggle = jest.fn();
+      render(
+        <Dropdown id="lol" data-testid="test-id" onToggle={onToggle}>
           <Dropdown.Toggle key="toggle">Child Title</Dropdown.Toggle>
           <Dropdown.Menu key="menu">
             <MenuItem eventKey={1}>Item 1</MenuItem>
           </Dropdown.Menu>
         </Dropdown>
       );
-      const buttonNode = wrapper.find('button').getDOMNode();
-      const childNode = wrapper.find('a').getDOMNode();
 
-      expect(spy).to.not.have.been.called;
-      ReactTestUtils.Simulate.click(buttonNode);
-      expect(spy).to.have.been.calledOnce;
+      // when
+      userEvent.click(screen.getByRole('button'));
+      expect(onToggle).toBeCalledTimes(1);
+      userEvent.click(screen.getByRole('menuitem', { name: 'Item 1' }));
 
-      ReactTestUtils.Simulate.click(childNode);
-
-      expect(spy).to.have.been.calledTwice;
-      expect(spy.getCall(1).args.length).to.equal(3);
-      expect(spy.getCall(1).args[0]).to.equal(false);
-      expect(spy.getCall(1).args[1]).to.be.an('object');
-      assert.deepEqual(spy.getCall(1).args[2], { source: 'select' });
+      // then
+      expect(onToggle).toBeCalledTimes(2);
+      expect(onToggle).toHaveBeenLastCalledWith(false, expect.any(Object), {
+        source: 'select',
+      });
     });
 
-    xit('passes open, event, and source correctly when opened with keydown', () => {
-      const spy = sinon.spy();
-      const wrapper = mount(
-        <Dropdown id="test-id" onToggle={spy}>
+    it('passes open, event, and source correctly when opened with keydown', () => {
+      // given
+      const onToggle = jest.fn();
+      render(
+        <Dropdown id="lol" data-testid="test-id" onToggle={onToggle}>
           {dropdownChildren}
         </Dropdown>
       );
-      const buttonNode = wrapper.find('button').getDOMNode();
 
-      ReactTestUtils.Simulate.keyDown(buttonNode, {
-        key: 'Down Arrow',
-        keyCode: 40,
-        which: 40,
+      // when
+      fireEvent.keyDown(screen.getByRole('button'), {
+        key: 'ArrowDown',
+        keyCode: keycode('down'),
       });
 
-      expect(spy).to.have.been.calledOnce;
-      expect(spy.getCall(0).args.length).to.equal(3);
-      expect(spy.getCall(0).args[0]).to.equal(true);
-      expect(spy.getCall(0).args[1]).to.be.an('object');
-      assert.deepEqual(spy.getCall(0).args[2], { source: 'keydown' });
+      // then
+      expect(onToggle).toHaveBeenCalledTimes(1);
+      expect(onToggle).toHaveBeenCalledWith(true, expect.any(Object), {
+        source: 'keydown',
+      });
     });
   });
 
-  xit('should derive bsClass from parent', () => {
-    const wrapper = mount(
-      <Dropdown bsClass="my-dropdown" id="test-id">
+  it('should derive bsClass from parent', () => {
+    // when
+    render(
+      <Dropdown bsClass="my-dropdown" id="lol" data-testid="test-id">
         <Dropdown.Toggle bsClass="my-toggle">Child Title</Dropdown.Toggle>
         <Dropdown.Menu bsClass="my-menu">
           <MenuItem>Item 1</MenuItem>
@@ -686,10 +730,8 @@ describe('<Dropdown>', () => {
       </Dropdown>
     );
 
-    expect(wrapper.exists('.my-dropdown-toggle')).to.be.true;
-    expect(wrapper.exists('.my-dropdown-menu')).to.be.true;
-
-    expect(wrapper.find('.my-toggle')).to.have.lengthOf(0);
-    expect(wrapper.find('.my-menu')).to.have.lengthOf(0);
+    // then
+    expect(screen.getByRole('button')).toHaveClass('my-dropdown-toggle');
+    expect(screen.getByRole('menu')).toHaveClass('my-dropdown-menu');
   });
 });

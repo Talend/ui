@@ -99,28 +99,28 @@ class Carousel extends React.Component {
     this.waitForNext();
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     // eslint-disable-line
     const activeIndex = this.getActiveIndex();
 
     if (
-      nextProps.activeIndex != null &&
-      nextProps.activeIndex !== activeIndex
+      this.props.activeIndex != null &&
+      this.props.activeIndex !== activeIndex
     ) {
       clearTimeout(this.timeout);
 
       this.setState({
         previousActiveIndex: activeIndex,
         direction:
-          nextProps.direction != null
-            ? nextProps.direction
-            : this.getDirection(activeIndex, nextProps.activeIndex),
+          this.props.direction != null
+            ? this.props.direction
+            : this.getDirection(activeIndex, this.props.activeIndex),
       });
     }
 
     if (
-      nextProps.activeIndex == null &&
-      this.state.activeIndex >= nextProps.children.length
+      this.props.activeIndex == null &&
+      this.state.activeIndex >= this.props.children.length
     ) {
       this.setState({
         activeIndex: 0,

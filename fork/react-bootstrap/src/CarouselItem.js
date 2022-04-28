@@ -10,13 +10,13 @@ const propTypes = {
   active: PropTypes.bool,
   animateIn: PropTypes.bool,
   animateOut: PropTypes.bool,
-  index: PropTypes.number
+  index: PropTypes.number,
 };
 
 const defaultProps = {
   active: false,
   animateIn: false,
-  animateOut: false
+  animateOut: false,
 };
 
 class CarouselItem extends React.Component {
@@ -26,14 +26,15 @@ class CarouselItem extends React.Component {
     this.handleAnimateOutEnd = this.handleAnimateOutEnd.bind(this);
 
     this.state = {
-      direction: null
+      direction: null,
     };
 
     this.isUnmounted = false;
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line
-    if (this.props.active !== nextProps.active) {
+  componentDidUpdate(prevProps) {
+    // eslint-disable-line
+    if (this.props.active !== prevProps.active) {
       this.setState({ direction: null });
     }
   }
@@ -71,26 +72,20 @@ class CarouselItem extends React.Component {
     }
 
     this.setState({
-      direction: this.props.direction === 'prev' ? 'right' : 'left'
+      direction: this.props.direction === 'prev' ? 'right' : 'left',
     });
   }
 
   render() {
-    const {
-      direction,
-      active,
-      animateIn,
-      animateOut,
-      className,
-      ...props
-    } = this.props;
+    const { direction, active, animateIn, animateOut, className, ...props } =
+      this.props;
 
     delete props.onAnimateOutEnd;
     delete props.index;
 
     const classes = {
       item: true,
-      active: (active && !animateIn) || animateOut
+      active: (active && !animateIn) || animateOut,
     };
     if (direction && active && animateIn) {
       classes[direction] = true;
