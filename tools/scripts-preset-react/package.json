@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-preset-react",
   "description": "Preset for talend/scripts-core",
-  "version": "12.0.2",
+  "version": "12.0.3",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -20,7 +20,7 @@
     "@talend/scripts-config-babel": "^9.9.0",
     "@talend/scripts-config-cdn": "^10.3.2",
     "@talend/scripts-config-eslint": "^9.8.0",
-    "@talend/scripts-config-jest": "^9.7.3",
+    "@talend/scripts-config-jest": "^10.0.0",
     "@talend/scripts-config-prettier": "^9.6.3",
     "@talend/scripts-config-react-webpack": "^12.0.3",
     "@talend/scripts-config-storybook-lib": "^1.0.6",
