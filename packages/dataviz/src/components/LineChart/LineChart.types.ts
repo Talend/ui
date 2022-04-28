@@ -1,6 +1,6 @@
 export type LineChartEntry = {
-	xLabel: any;
-	[key: string]: any;
+	xLabel: string | number | Date;
+	[key: string]: string | number | Date;
 };
 
 export type LineStatus = 'active' | 'inactive' | 'highlighted';
@@ -37,6 +37,7 @@ export type LineChartOptions = {
 	};
 	xAxisOptions?: {
 		interval: number | 'preserveStart' | 'preserveEnd' | 'preserveStartEnd';
+		manualTicks?: Array<string | number>;
 		horizontalOffset: number;
 		formatter?: (value: any) => string;
 		tooltipFormatter?: (value: any) => string;
@@ -46,7 +47,7 @@ export type LineChartOptions = {
 		domain?: any[];
 		unit?: string | number;
 		hideUnitInAxis?: boolean;
-		manualTicks?: [],
+		manualTicks?: Array<string | number>;
 		formatter?: (value: any) => string;
 	};
 	rightYAxisOptions?: {
@@ -55,7 +56,7 @@ export type LineChartOptions = {
 		domain?: any[];
 		unit?: string | number;
 		hideUnitInAxis?: boolean;
-		manualTicks?: [],
+		manualTicks?: Array<string | number>;
 		formatter?: (value: any) => string;
 	};
 	showGridLines?: boolean;

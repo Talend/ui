@@ -86,6 +86,8 @@ function LineChart({
 						dataKey="xLabel"
 						interval={xAxisOptions?.interval}
 						dx={xAxisOptions?.horizontalOffset}
+						ticks={xAxisOptions?.manualTicks}
+						tickLine={false}
 						tickFormatter={xAxisOptions?.formatter}
 					/>
 					<YAxis
