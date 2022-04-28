@@ -17,8 +17,10 @@ exports[`BasicSearch should render the default html output with initial badges 1
         Search
       </label>
       <div class="icon-cls theme-icon-cls">
-        <coralicon name="talend-search">
-        </coralicon>
+        <span name="talend-search"
+              class="CoralIcon"
+        >
+        </span>
       </div>
       <input autocomplete="off"
              aria-autocomplete="list"
@@ -52,10 +54,10 @@ exports[`BasicSearch should render the default html output with initial badges 1
                     aria-describedby="42"
                     class="btn btn-link"
             >
-              <coralicon name="talend-contains"
-                         class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+              <span name="talend-contains"
+                    class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
               >
-              </coralicon>
+              </span>
             </button>
           </div>
         </div>
@@ -78,8 +80,10 @@ exports[`BasicSearch should render the default html output with initial badges 1
                 type="button"
                 class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
         >
-          <coralicon name="talend-cross">
-          </coralicon>
+          <span name="talend-cross"
+                class="CoralIcon"
+          >
+          </span>
         </button>
       </div>
     </div>
@@ -91,10 +95,10 @@ exports[`BasicSearch should render the default html output with initial badges 1
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
-        <coralicon name="talend-plus-circle"
-                   class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+        <span name="talend-plus-circle"
+              class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
         >
-        </coralicon>
+        </span>
         <span>
           Add filter
         </span>
@@ -108,8 +112,10 @@ exports[`BasicSearch should render the default html output with initial badges 1
           type="button"
           class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
   >
-    <coralicon name="talend-trash">
-    </coralicon>
+    <span name="talend-trash"
+          class="CoralIcon"
+    >
+    </span>
     <span>
     </span>
   </button>
@@ -133,8 +139,10 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
         Search
       </label>
       <div class="icon-cls theme-icon-cls">
-        <coralicon name="talend-search">
-        </coralicon>
+        <span name="talend-search"
+              class="CoralIcon"
+        >
+        </span>
       </div>
       <input autocomplete="off"
              aria-autocomplete="list"
@@ -158,10 +166,10 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
-        <coralicon name="talend-plus-circle"
-                   class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+        <span name="talend-plus-circle"
+              class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
         >
-        </coralicon>
+        </span>
         <span>
           Add filter
         </span>
@@ -188,8 +196,10 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
         Search
       </label>
       <div class="icon-cls theme-icon-cls">
-        <coralicon name="talend-search">
-        </coralicon>
+        <span name="talend-search"
+              class="CoralIcon"
+        >
+        </span>
       </div>
       <input autocomplete="off"
              aria-autocomplete="list"
@@ -223,10 +233,10 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                     aria-describedby="42"
                     class="btn btn-link"
             >
-              <coralicon name="talend-equal"
-                         class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+              <span name="talend-equal"
+                    class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
               >
-              </coralicon>
+              </span>
             </button>
           </div>
         </div>
@@ -249,8 +259,10 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                 type="button"
                 class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
         >
-          <coralicon name="talend-cross">
-          </coralicon>
+          <span name="talend-cross"
+                class="CoralIcon"
+          >
+          </span>
         </button>
       </div>
     </div>
@@ -262,10 +274,10 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
-        <coralicon name="talend-plus-circle"
-                   class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+        <span name="talend-plus-circle"
+              class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
         >
-        </coralicon>
+        </span>
         <span>
           Add filter
         </span>
@@ -279,8 +291,10 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
           type="button"
           class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
   >
-    <coralicon name="talend-trash">
-    </coralicon>
+    <span name="talend-trash"
+          class="CoralIcon"
+    >
+    </span>
     <span>
     </span>
   </button>
@@ -304,8 +318,10 @@ exports[`BasicSearch should render the default html output with some badges and 
         Search
       </label>
       <div class="icon-cls theme-icon-cls">
-        <coralicon name="talend-search">
-        </coralicon>
+        <span name="talend-search"
+              class="CoralIcon"
+        >
+        </span>
       </div>
       <input autocomplete="off"
              aria-autocomplete="list"
@@ -339,10 +355,10 @@ exports[`BasicSearch should render the default html output with some badges and 
                     aria-describedby="42"
                     class="btn btn-link"
             >
-              <coralicon name="talend-equal"
-                         class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+              <span name="talend-equal"
+                    class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
               >
-              </coralicon>
+              </span>
             </button>
           </div>
         </div>
@@ -365,8 +381,10 @@ exports[`BasicSearch should render the default html output with some badges and 
                 type="button"
                 class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
         >
-          <coralicon name="talend-cross">
-          </coralicon>
+          <span name="talend-cross"
+                class="CoralIcon"
+          >
+          </span>
         </button>
       </div>
     </div>
@@ -378,10 +396,10 @@ exports[`BasicSearch should render the default html output with some badges and 
               aria-describedby="42"
               class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
       >
-        <coralicon name="talend-plus-circle"
-                   class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+        <span name="talend-plus-circle"
+              class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
         >
-        </coralicon>
+        </span>
         <span>
           Add filter
         </span>
@@ -395,8 +413,10 @@ exports[`BasicSearch should render the default html output with some badges and 
           type="button"
           class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
   >
-    <coralicon name="talend-trash">
-    </coralicon>
+    <span name="talend-trash"
+          class="CoralIcon"
+    >
+    </span>
     <span>
     </span>
   </button>

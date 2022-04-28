@@ -1,5 +1,25 @@
 # @talend/react-forms
 
+## 7.0.9
+
+### Patch Changes
+
+- 7373fd30a: chore(ARCH-482/MultiSelectTag): remove deprecated lifecycle and use RTL for test
+- ce7950623: fix(Fieldset): nested conditional fieldset are broken
+- Updated dependencies [9522692fa]
+- Updated dependencies [59a16bfa7]
+  - @talend/react-components@6.45.0
+  - @talend/design-system@2.4.0
+
+## 7.0.8
+
+### Patch Changes
+
+- 6037e575c: chore(ARCH-482/ListView): remove deprecated lifecycle and use RTL for test
+- 4fa935c57: chore(ARCH-482/EnumerationWidget): remove deprecated lifecycle and use RTL for test
+- Updated dependencies [80a15c11a]
+  - @talend/react-components@6.44.14
+
 ## 7.0.7
 
 ### Patch Changes

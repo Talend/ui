@@ -31,10 +31,10 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <coralicon name="talend-caret-down"
-               class="theme-tc-dropdown-caret"
+    <span name="talend-caret-down"
+          class="CoralIcon theme-tc-dropdown-caret"
     >
-    </coralicon>
+    </span>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -50,8 +50,10 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
          tabindex="-1"
          href="#"
       >
-        <coralicon name="talend-icon">
-        </coralicon>
+        <span name="talend-icon"
+              class="CoralIcon"
+        >
+        </span>
         document 1
       </a>
     </li>
@@ -84,10 +86,10 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <coralicon name="talend-caret-down"
-               class="theme-tc-dropdown-caret"
+    <span name="talend-caret-down"
+          class="CoralIcon theme-tc-dropdown-caret"
     >
-    </coralicon>
+    </span>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -103,8 +105,10 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
          tabindex="-1"
          href="#"
       >
-        <coralicon name="talend-icon">
-        </coralicon>
+        <span name="talend-icon"
+              class="CoralIcon"
+        >
+        </span>
         document 1
       </a>
     </li>
@@ -134,15 +138,17 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
           type="button"
           class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
   >
-    <coralicon name="fa fa-file-excel-o">
-    </coralicon>
+    <span name="fa fa-file-excel-o"
+          class="CoralIcon"
+    >
+    </span>
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <coralicon name="talend-caret-down"
-               class="theme-tc-dropdown-caret"
+    <span name="talend-caret-down"
+          class="CoralIcon theme-tc-dropdown-caret"
     >
-    </coralicon>
+    </span>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -158,8 +164,10 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
          tabindex="-1"
          href="#"
       >
-        <coralicon name="talend-icon">
-        </coralicon>
+        <span name="talend-icon"
+              class="CoralIcon"
+        >
+        </span>
         document 1
       </a>
     </li>
@@ -205,8 +213,10 @@ exports[`ActionDropdown should render an ellipsis dropdown 1`] = `
          tabindex="-1"
          href="#"
       >
-        <coralicon name="talend-icon">
-        </coralicon>
+        <span name="talend-icon"
+              class="CoralIcon"
+        >
+        </span>
         document 1
       </a>
     </li>
@@ -237,12 +247,14 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
           type="button"
           class="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-default"
   >
-    <coralicon name="fa fa-file-excel-o">
-    </coralicon>
-    <coralicon name="talend-caret-down"
-               class="theme-tc-dropdown-caret"
+    <span name="fa fa-file-excel-o"
+          class="CoralIcon"
     >
-    </coralicon>
+    </span>
+    <span name="talend-caret-down"
+          class="CoralIcon theme-tc-dropdown-caret"
+    >
+    </span>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -258,8 +270,10 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
          tabindex="-1"
          href="#"
       >
-        <coralicon name="talend-icon">
-        </coralicon>
+        <span name="talend-icon"
+              class="CoralIcon"
+        >
+        </span>
         document 1
       </a>
     </li>
@@ -294,8 +308,10 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
        tabindex="-1"
        href="#"
     >
-      <coralicon name="talend-icon">
-      </coralicon>
+      <span name="talend-icon"
+            class="CoralIcon"
+      >
+      </span>
     </a>
   </li>
   <li role="presentation"
@@ -325,10 +341,10 @@ exports[`ActionDropdown should render immutable items 1`] = `
     <span class="tc-dropdown-button-title-label">
       related items
     </span>
-    <coralicon name="talend-caret-down"
-               class="theme-tc-dropdown-caret"
+    <span name="talend-caret-down"
+          class="CoralIcon theme-tc-dropdown-caret"
     >
-    </coralicon>
+    </span>
   </button>
   <ul role="menu"
       class="dropdown-menu"
@@ -344,8 +360,10 @@ exports[`ActionDropdown should render immutable items 1`] = `
          tabindex="-1"
          href="#"
       >
-        <coralicon name="talend-icon">
-        </coralicon>
+        <span name="talend-icon"
+              class="CoralIcon"
+        >
+        </span>
         document 1
       </a>
     </li>
@@ -407,8 +425,10 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
        tabindex="-1"
        href="#"
     >
-      <coralicon name="talend-icon">
-      </coralicon>
+      <span name="talend-icon"
+            class="CoralIcon"
+      >
+      </span>
       document 1
     </a>
   </li>

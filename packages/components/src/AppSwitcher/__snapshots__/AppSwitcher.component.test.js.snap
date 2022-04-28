@@ -17,10 +17,10 @@ exports[`AppSwitcher should render the products 1`] = `
         <span class="tc-dropdown-button-title-label">
           My App
         </span>
-        <coralicon name="talend-caret-down"
-                   class="theme-tc-dropdown-caret"
+        <span name="talend-caret-down"
+              class="CoralIcon theme-tc-dropdown-caret"
         >
-        </coralicon>
+        </span>
       </button>
       <ul role="menu"
           class="dropdown-menu"
@@ -36,8 +36,10 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <coralicon name="talend-tdp-colored">
-            </coralicon>
+            <span name="talend-tdp-colored"
+                  class="CoralIcon"
+            >
+            </span>
             Data Preparation
           </a>
         </li>
@@ -51,8 +53,10 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <coralicon name="talend-tic-colored">
-            </coralicon>
+            <span name="talend-tic-colored"
+                  class="CoralIcon"
+            >
+            </span>
             Integration Cloud
           </a>
         </li>
@@ -66,8 +70,10 @@ exports[`AppSwitcher should render the products 1`] = `
              tabindex="-1"
              href="#"
           >
-            <coralicon name="talend-tmc-colored">
-            </coralicon>
+            <span name="talend-tmc-colored"
+                  class="CoralIcon"
+            >
+            </span>
             Management Console
           </a>
         </li>

@@ -34,7 +34,8 @@ exports[`Status should render a label 1`] = `
       role={null}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="fa fa-cancel"
       />
       <span>
@@ -50,7 +51,8 @@ exports[`Status should render a label 1`] = `
       role={null}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="fa fa-delete"
       />
       <span>
@@ -69,7 +71,8 @@ exports[`Status should render a label with Icon 1`] = `
   <span
     className="theme-tc-status-icon tc-status-icon theme-success"
   >
-    <CoralIcon
+    <span
+      className="CoralIcon"
       name="fa fa-check"
     />
   </span>
@@ -97,7 +100,8 @@ exports[`Status should render a label with Icon 1`] = `
       role={null}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="fa fa-cancel"
       />
       <span>
@@ -113,7 +117,8 @@ exports[`Status should render a label with Icon 1`] = `
       role={null}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="fa fa-delete"
       />
       <span>
@@ -132,7 +137,8 @@ exports[`Status should render a label with Icon without actions 1`] = `
   <span
     className="theme-tc-status-icon tc-status-icon theme-success"
   >
-    <CoralIcon
+    <span
+      className="CoralIcon"
       name="fa fa-check"
     />
   </span>
@@ -208,7 +214,8 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       role={null}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="fa fa-cancel"
       />
       <span>
@@ -224,7 +231,8 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       role={null}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="fa fa-delete"
       />
       <span>
@@ -289,7 +297,8 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       role={null}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="fa fa-cancel"
       />
       <span>
@@ -305,7 +314,8 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       role={null}
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="fa fa-delete"
       />
       <span>

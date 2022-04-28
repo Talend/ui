@@ -19,10 +19,10 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
                 aria-describedby="42"
                 class="btn btn-link"
         >
-          <coralicon name="talend-talend-my-icon-equal"
-                     class="tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+          <span name="talend-talend-my-icon-equal"
+                class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
           >
-          </coralicon>
+          </span>
         </button>
       </div>
     </div>
@@ -45,8 +45,10 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
             type="button"
             class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
     >
-      <coralicon name="talend-cross">
-      </coralicon>
+      <span name="talend-cross"
+            class="CoralIcon"
+      >
+      </span>
     </button>
   </div>
 </div>
