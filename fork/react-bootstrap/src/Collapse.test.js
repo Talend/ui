@@ -1,232 +1,282 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import ReactTestUtils from 'react-dom/test-utils';
-import { assert } from 'chai';
+import { render, screen } from '@testing-library/react';
 
 import Collapse from './Collapse';
 
 describe('<Collapse>', () => {
-  let Component, instance;
-
-  beforeEach(() => {
-    Component = class extends React.Component {
-      render() {
-        let { children, ...props } = this.props;
-
-        return (
-          <Collapse
-            ref={(r) => (this.collapse = r)}
-            getDimensionValue={() => 15}
-            {...props}
-            {...this.state}
-          >
-            <div>
-              <div ref="panel">{children}</div>
-            </div>
-          </Collapse>
-        );
-      }
-    };
-  });
+  const Component = ({ children, ...props }) => (
+    <Collapse getDimensionValue={() => 15} {...props}>
+      <div>{children}</div>
+    </Collapse>
+  );
 
   it('Should default to collapsed', () => {
-    instance = ReactTestUtils.renderIntoDocument(
-      <Component>Panel content</Component>
-    );
+    // when
+    render(<Component>Panel content</Component>);
 
-    assert.ok(instance.collapse.props.in === false);
-  });
-
-  describe('collapsed', () => {
-    it('Should have collapse class', () => {
-      instance = ReactTestUtils.renderIntoDocument(
-        <Component>Panel content</Component>
-      );
-
-      assert.ok(
-        ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'collapse')
-      );
-    });
+    // then
+    expect(screen.getByText('Panel content')).toHaveClass('collapse');
   });
 
   describe('from collapsed to expanded', () => {
-    beforeEach(() => {
-      instance = ReactTestUtils.renderIntoDocument(
-        <Component>Panel content</Component>
-      );
+    const originalOffsetHeight = Object.getOwnPropertyDescriptor(
+      HTMLElement.prototype,
+      'scrollHeight'
+    );
+    const originalOffsetWidth = Object.getOwnPropertyDescriptor(
+      HTMLElement.prototype,
+      'scrollWidth'
+    );
+    beforeAll(() => {
+      Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+        configurable: true,
+        value: 100,
+      });
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
+        configurable: true,
+        value: 100,
+      });
+    });
 
-      // since scrollHeight is gonna be 0 detached from the DOM
-      sinon.stub(instance.collapse, '_getScrollDimensionValue').returns('15px');
+    afterAll(() => {
+      Object.defineProperty(
+        HTMLElement.prototype,
+        'scrollHeight',
+        originalOffsetHeight
+      );
+      Object.defineProperty(
+        HTMLElement.prototype,
+        'scrollWidth',
+        originalOffsetWidth
+      );
     });
 
     it('Should have collapsing class', () => {
-      instance.setState({ in: true });
+      // given
+      const { rerender } = render(<Component>Panel content</Component>);
+      expect(screen.getByText('Panel content')).not.toHaveClass('collapsing');
 
-      let node = ReactDOM.findDOMNode(instance);
+      // when
+      rerender(<Component in>Panel content</Component>);
 
-      assert.equal(node.className, 'collapsing');
+      // then
+      expect(screen.getByText('Panel content')).toHaveClass('collapsing');
     });
 
     it('Should set initial 0px height', (done) => {
-      let node = ReactDOM.findDOMNode(instance);
-
-      function onEnter() {
-        assert.equal(node.style.height, '0px');
+      // given
+      const onEnter = () => {
+        // then
+        expect(screen.getByText('Panel content')).toHaveStyle('height: 0px');
         done();
-      }
+      };
+      const { rerender } = render(
+        <Component onEnter={onEnter}>Panel content</Component>
+      );
 
-      assert.equal(node.style.height, '');
-
-      instance.setState({ in: true, onEnter });
+      // when
+      rerender(
+        <Component onEnter={onEnter} in>
+          Panel content
+        </Component>
+      );
     });
 
-    it('Should set node to height', () => {
-      let node = ReactDOM.findDOMNode(instance);
+    it('Should set node to height', (done) => {
+      // given
+      const onEntering = () => {
+        // then
+        expect(screen.getByText('Panel content')).toHaveStyle('height: 100px');
+        done();
+      };
+      const { rerender } = render(
+        <Component onEntering={onEntering}>Panel content</Component>
+      );
 
-      assert.equal(node.styled, undefined);
-
-      instance.setState({ in: true });
-      assert.equal(node.style.height, '15px');
+      // when
+      rerender(
+        <Component onEntering={onEntering} in>
+          Panel content
+        </Component>
+      );
     });
 
     it('Should transition from collapsing to not collapsing', (done) => {
-      let node = ReactDOM.findDOMNode(instance);
-
-      function onEntered() {
-        assert.equal(node.className, 'collapse in');
+      // given
+      const onEntering = () => {
+        // then
+        expect(screen.getByText('Panel content')).toHaveClass('collapsing');
+      };
+      const onEntered = () => {
+        // then
+        expect(screen.getByText('Panel content')).toHaveClass('collapse in');
         done();
-      }
+      };
+      const { rerender } = render(
+        <Component onEntering={onEntering} onEntered={onEntered}>
+          Panel content
+        </Component>
+      );
 
-      instance.setState({ in: true, onEntered });
-
-      assert.equal(node.className, 'collapsing');
+      // when
+      rerender(
+        <Component onEntering={onEntering} onEntered={onEntered} in>
+          Panel content
+        </Component>
+      );
     });
 
     it('Should clear height after transition complete', (done) => {
-      let node = ReactDOM.findDOMNode(instance);
-
-      function onEntered() {
-        assert.equal(node.style.height, '');
+      // given
+      const onEntered = () => {
+        expect(screen.getByText('Panel content')).toHaveAttribute('style', '');
         done();
-      }
+      };
 
-      assert.equal(node.style.height, '');
+      const { rerender } = render(
+        <Component onEntered={onEntered}>Panel content</Component>
+      );
 
-      instance.setState({ in: true, onEntered });
-      assert.equal(node.style.height, '15px');
+      // when
+      rerender(
+        <Component onEntered={onEntered} in>
+          Panel content
+        </Component>
+      );
     });
   });
 
   describe('from expanded to collapsed', () => {
-    beforeEach(() => {
-      instance = ReactTestUtils.renderIntoDocument(
-        <Component in>Panel content</Component>
-      );
-    });
-
     it('Should have collapsing class', () => {
-      instance.setState({ in: false });
-      let node = ReactDOM.findDOMNode(instance);
-      assert.equal(node.className, 'collapsing');
+      // given
+      const { rerender } = render(<Component in>Panel content</Component>);
+
+      // when
+      rerender(<Component>Panel content</Component>);
+
+      // then
+      expect(screen.getByText('Panel content')).toHaveClass('collapsing');
     });
 
-    it('Should set initial height', () => {
-      let node = ReactDOM.findDOMNode(instance);
+    it('Should set initial height', (done) => {
+      // given
+      const onExit = () => {
+        expect(screen.getByText('Panel content')).toHaveStyle('height: 15px');
+        done();
+      };
+      const { rerender } = render(
+        <Component onExit={onExit} in>
+          Panel content
+        </Component>
+      );
 
-      function onExit() {
-        assert.equal(node.style.height, '15px');
-      }
-
-      assert.equal(node.style.height, '');
-      instance.setState({ in: false, onExit });
+      // when
+      rerender(<Component onExit={onExit}>Panel content</Component>);
     });
 
-    it('Should set node to height', () => {
-      let node = ReactDOM.findDOMNode(instance);
-      assert.equal(node.style.height, '');
+    it('Should set node to height', (done) => {
+      // given
+      const onExiting = () => {
+        expect(screen.getByText('Panel content')).toHaveStyle('height: 0px');
+        done();
+      };
+      const { rerender } = render(
+        <Component onExiting={onExiting} in>
+          Panel content
+        </Component>
+      );
 
-      instance.setState({ in: false });
-      assert.equal(node.style.height, '0px');
+      // when
+      rerender(<Component onExiting={onExiting}>Panel content</Component>);
     });
 
     it('Should transition from collapsing to not collapsing', (done) => {
-      let node = ReactDOM.findDOMNode(instance);
-
-      function onExited() {
-        assert.equal(node.className, 'collapse');
+      // given
+      const onExited = () => {
+        expect(screen.getByText('Panel content')).toHaveClass('collapse');
         done();
-      }
+      };
+      const { rerender } = render(
+        <Component onExited={onExited} in>
+          Panel content
+        </Component>
+      );
 
-      instance.setState({ in: false, onExited });
+      // when
+      rerender(<Component onExited={onExited}>Panel content</Component>);
 
-      assert.equal(node.className, 'collapsing');
+      // then
+      expect(screen.getByText('Panel content')).toHaveClass('collapsing');
     });
 
-    it('Should have 0px height after transition complete', (done) => {
-      let node = ReactDOM.findDOMNode(instance);
+    it('Should have 0px height after transition complete', () => {
+      // given
+      const { rerender } = render(<Component in>Panel content</Component>);
+      expect(screen.getByText('Panel content')).not.toHaveAttribute('style');
 
-      function onExited() {
-        assert.ok(node.style.height === '0px');
-        done();
-      }
+      // when
+      rerender(<Component>Panel content</Component>);
 
-      assert.equal(node.style.height, '');
-
-      instance.setState({ in: false, onExited });
+      // then
+      expect(screen.getByText('Panel content')).toHaveStyle('height: 0px');
     });
   });
 
   describe('expanded', () => {
     it('Should have collapse and in class', () => {
-      instance = ReactTestUtils.renderIntoDocument(
-        <Component in>Panel content</Component>
-      );
+      // when
+      render(<Component in>Panel content</Component>);
 
-      expect(ReactDOM.findDOMNode(instance.collapse).className).to.match(
-        /\bcollapse in\b/
-      );
-    });
-  });
-
-  describe('dimension', () => {
-    beforeEach(() => {
-      instance = ReactTestUtils.renderIntoDocument(
-        <Component>Panel content</Component>
-      );
-    });
-
-    it('Defaults to height', () => {
-      assert.equal(instance.collapse.getDimension(), 'height');
-    });
-
-    it('Uses getCollapsibleDimension if exists', () => {
-      function dimension() {
-        return 'whatevs';
-      }
-
-      instance.setState({ dimension });
-
-      assert.equal(instance.collapse.getDimension(), 'whatevs');
+      // then
+      expect(screen.getByText('Panel content')).toHaveClass('collapse in');
     });
   });
 
   describe('with a role', () => {
-    beforeEach(() => {
-      instance = ReactTestUtils.renderIntoDocument(
+    it('sets aria-expanded true when expanded', () => {
+      // given
+      const { rerender } = render(
         <Component role="note">Panel content</Component>
+      );
+      expect(screen.getByText('Panel content')).not.toHaveAttribute(
+        'aria-expanded',
+        'true'
+      );
+
+      // when
+      rerender(
+        <Component role="note" in>
+          Panel content
+        </Component>
+      );
+
+      // then
+      expect(screen.getByText('Panel content')).toHaveAttribute(
+        'aria-expanded',
+        'true'
       );
     });
 
-    it('sets aria-expanded true when expanded', () => {
-      let node = ReactDOM.findDOMNode(instance);
-      instance.setState({ in: true });
-      assert.equal(node.getAttribute('aria-expanded'), 'true');
-    });
-
     it('sets aria-expanded false when collapsed', () => {
-      let node = ReactDOM.findDOMNode(instance);
-      instance.setState({ in: false });
-      assert.equal(node.getAttribute('aria-expanded'), 'false');
+      // given
+      const { rerender } = render(
+        <Component role="note" in>
+          Panel content
+        </Component>
+      );
+      expect(screen.getByText('Panel content')).toHaveAttribute(
+        'aria-expanded',
+        'true'
+      );
+
+      // when
+      rerender(<Component role="note">Panel content</Component>);
+
+      // then
+      expect(screen.getByText('Panel content')).toHaveAttribute(
+        'aria-expanded',
+        'false'
+      );
     });
   });
 });

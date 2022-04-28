@@ -1,45 +1,68 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import ControlLabel from './ControlLabel';
 import FormGroup from './FormGroup';
 
-import { shouldWarn } from './helpers';
-
 describe('<ControlLabel>', () => {
+  const originalConsoleError = console.error;
+
+  beforeEach(() => {
+    console.error = jest.fn();
+  });
+
+  afterEach(() => {
+    console.error = originalConsoleError;
+  });
+
   it('should render correctly', () => {
-    expect(
-      shallow(
-        <ControlLabel htmlFor="foo" className="my-control-label">
-          Label
-        </ControlLabel>
-      )
-        .assertSingle('label.control-label.my-control-label[htmlFor="foo"]')
-        .text()
-    ).to.equal('Label');
+    // when
+    render(
+      <ControlLabel htmlFor="foo" className="my-control-label">
+        Label
+      </ControlLabel>
+    );
+
+    // then
+    const label = screen.getByText('Label');
+    expect(label.tagName).toBe('LABEL');
+    expect(label).toHaveClass('control-label');
+    expect(label).toHaveClass('my-control-label');
+    expect(label).toHaveAttribute('for', 'foo');
   });
 
   it('should respect srOnly', () => {
-    shallow(<ControlLabel srOnly>Label</ControlLabel>).assertSingle(
-      'label.control-label.sr-only'
-    );
+    // when
+    render(<ControlLabel srOnly>Label</ControlLabel>);
+
+    // then
+    expect(screen.getByText('Label')).toHaveClass('sr-only');
   });
 
   it('should use controlId for htmlFor', () => {
-    mount(
+    // when
+    render(
       <FormGroup controlId="foo">
         <ControlLabel>Label</ControlLabel>
       </FormGroup>
-    ).assertSingle('label.control-label[htmlFor="foo"]');
+    );
+
+    // then
+    expect(screen.getByText('Label')).toHaveAttribute('for', 'foo');
   });
 
   it('should prefer explicit htmlFor', () => {
-    shouldWarn('ignored');
-
-    mount(
+    // when
+    render(
       <FormGroup controlId="foo">
         <ControlLabel htmlFor="bar">Label</ControlLabel>
       </FormGroup>
-    ).assertSingle('label.control-label[htmlFor="bar"]');
+    );
+
+    // then
+    expect(screen.getByText('Label')).toHaveAttribute('for', 'bar');
+    expect(console.error).toBeCalledWith(
+      'Warning: `controlId` is ignored on `<ControlLabel>` when `htmlFor` is specified.'
+    );
   });
 });

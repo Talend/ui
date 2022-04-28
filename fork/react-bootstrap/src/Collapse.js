@@ -6,7 +6,7 @@ import Transition, {
   EXITED,
   ENTERED,
   ENTERING,
-  EXITING
+  EXITING,
 } from 'react-transition-group/Transition';
 
 import capitalize from './utils/capitalize';
@@ -14,7 +14,7 @@ import createChainedFunction from './utils/createChainedFunction';
 
 const MARGINS = {
   height: ['marginTop', 'marginBottom'],
-  width: ['marginLeft', 'marginRight']
+  width: ['marginLeft', 'marginRight'],
 };
 
 // reading a dimension prop will cause the browser to recalculate,
@@ -38,7 +38,7 @@ const collapseStyles = {
   [EXITED]: 'collapse',
   [EXITING]: 'collapsing',
   [ENTERING]: 'collapsing',
-  [ENTERED]: 'collapse in'
+  [ENTERED]: 'collapse in',
 };
 
 const propTypes = {
@@ -104,7 +104,7 @@ const propTypes = {
    */
   dimension: PropTypes.oneOfType([
     PropTypes.oneOf(['height', 'width']),
-    PropTypes.func
+    PropTypes.func,
   ]),
 
   /**
@@ -119,7 +119,7 @@ const propTypes = {
   /**
    * ARIA role of collapsible element
    */
-  role: PropTypes.string
+  role: PropTypes.string,
 };
 
 const defaultProps = {
@@ -130,7 +130,7 @@ const defaultProps = {
   appear: false,
 
   dimension: 'height',
-  getDimensionValue
+  getDimensionValue,
 };
 
 class Collapse extends React.Component {
@@ -146,21 +146,21 @@ class Collapse extends React.Component {
   }
 
   /* -- Expanding -- */
-  handleEnter = elem => {
+  handleEnter = (elem) => {
     elem.style[this.getDimension()] = '0';
   };
 
-  handleEntering = elem => {
+  handleEntering = (elem) => {
     const dimension = this.getDimension();
     elem.style[dimension] = this._getScrollDimensionValue(elem, dimension);
   };
 
-  handleEntered = elem => {
+  handleEntered = (elem) => {
     elem.style[this.getDimension()] = null;
   };
 
   /* -- Collapsing -- */
-  handleExit = elem => {
+  handleExit = (elem) => {
     const dimension = this.getDimension();
     elem.style[dimension] = `${this.props.getDimensionValue(
       dimension,
@@ -169,7 +169,7 @@ class Collapse extends React.Component {
     triggerBrowserReflow(elem);
   };
 
-  handleExiting = elem => {
+  handleExiting = (elem) => {
     elem.style[this.getDimension()] = '0';
   };
 
@@ -215,7 +215,7 @@ class Collapse extends React.Component {
               children.props.className,
               collapseStyles[state],
               this.getDimension() === 'width' && 'width'
-            )
+            ),
           })
         }
       </Transition>
