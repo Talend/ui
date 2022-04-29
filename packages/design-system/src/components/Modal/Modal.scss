@@ -4,7 +4,7 @@ $modal-backdrop-z-index: 100000;
 $modal-z-index: $modal-backdrop-z-index + 1;
 
 .modal-backdrop:before,
-.modal-centering {
+.modal-container {
 	position: fixed;
 	top: 0;
 	left: 0;
