@@ -73,54 +73,59 @@ function Modal(props: ModalPropsType): ReactElement {
 			{disclosure && disclosure(dialog)}
 			{dialog.visible && (
 				<DialogBackdrop {...dialog} className={styles['modal-backdrop']} data-test="modal.backdrop">
-					<Dialog
-						{...dialog}
-						data-test="modal"
-						className={styles['modal']}
-						hide={preventEscaping ? undefined : () => onCloseHandler()}
-						ref={ref}
-					>
-						<StackVertical gap={0}>
-							<div className={styles['modal__header']}>
-								{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
-								<div className={styles['modal-header-text']}>
-									<span
-										className={styles['modal-header-text__title']}
-										data-test="modal.header.title"
-									>
-										{header.title}
-									</span>
-									{header.description && (
+					<div className={styles['modal-container']}>
+						<Dialog
+							{...dialog}
+							data-test="modal"
+							className={styles['modal']}
+							hide={preventEscaping ? undefined : () => onCloseHandler()}
+							ref={ref}
+						>
+							<StackVertical gap={0}>
+								<div className={styles['modal__header']}>
+									{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
+									<div className={styles['modal-header-text']}>
 										<span
-											className={styles['modal-header-text__description']}
-											data-test="modal.header.description"
+											className={styles['modal-header-text__title']}
+											data-test="modal.header.title"
 										>
-											{header.description}
+											{header.title}
 										</span>
-									)}
+										{header.description && (
+											<span
+												className={styles['modal-header-text__description']}
+												data-test="modal.header.description"
+											>
+												{header.description}
+											</span>
+										)}
+									</div>
 								</div>
-							</div>
 
-							<div className={styles['modal__content']} data-test="modal.content">
-								{children}
-							</div>
+								<div className={styles['modal__content']} data-test="modal.content">
+									{children}
+								</div>
 
-							<div className={styles['modal__buttons']} data-test="modal.buttons">
-								<StackHorizontal gap="XS" justify="end">
-									<span className={styles['close-button']}>
-										<ButtonSecondary onClick={() => onCloseHandler()} data-test="modal.buttons.close">
-											{onCloseLabel}
-										</ButtonSecondary>
-									</span>
+								<div className={styles['modal__buttons']} data-test="modal.buttons">
+									<StackHorizontal gap="XS" justify="end">
+										<span className={styles['close-button']}>
+											<ButtonSecondary
+												onClick={() => onCloseHandler()}
+												data-test="modal.buttons.close"
+											>
+												{onCloseLabel}
+											</ButtonSecondary>
+										</span>
 
-									{secondaryAction && (
-										<ButtonSecondary {...secondaryAction} data-test="modal.buttons.secondary" />
-									)}
-									{primaryActionRendered}
-								</StackHorizontal>
-							</div>
-						</StackVertical>
-					</Dialog>
+										{secondaryAction && (
+											<ButtonSecondary {...secondaryAction} data-test="modal.buttons.secondary" />
+										)}
+										{primaryActionRendered}
+									</StackHorizontal>
+								</div>
+							</StackVertical>
+						</Dialog>
+					</div>
 				</DialogBackdrop>
 			)}
 		</>
