@@ -37,12 +37,13 @@ const importLegacyIcon: Promise<any> = (folder: string, icon: string) => {
 				);
 		}
 		return Promise.any(
-			FOLDERS.map(legacyFolder =>
-				import(
-					/* webpackMode: "lazy" */
-					/* webpackChunkName: "legacy_icon" */
-					`./svg/${legacyFolder}/${icon}.svg`
-				),
+			FOLDERS.map(
+				legacyFolder =>
+					import(
+						/* webpackMode: "lazy" */
+						/* webpackChunkName: "legacy_icon" */
+						`./svg/${legacyFolder}/${icon}.svg`
+					),
 			),
 		)
 			.then(legacyIcon => resolve(legacyIcon))
@@ -51,7 +52,7 @@ const importLegacyIcon: Promise<any> = (folder: string, icon: string) => {
 };
 
 // @ts-ignore
-const importIcon = (size, icon) => {
+const importIcon = (size: 8 | 12 | 16 | 24, icon) => {
 	return new Promise((resolve, reject) =>
 		import(
 			/* webpackMode: "lazy" */

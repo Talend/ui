@@ -1,0 +1,38 @@
+import { Meta, IconGallery, IconItem } from '@storybook/addon-docs';
+
+import Icon, { IconColorTokenSelect } from './Icon';
+import { icons } from '../src/icon';
+
+export const sizes = Object.keys(icons);
+export const iconsByName = {};
+Object.entries(icons)
+	.filter(([size]) => sizes.find(s => s === size))
+	.forEach(([size, icons]) => {
+		icons.forEach(iconName => {
+			if (!iconsByName[iconName]) {
+				iconsByName[iconName] = [];
+			}
+			if (!iconsByName[iconName][size]) {
+				iconsByName[iconName].push(size);
+			}
+		});
+		return iconsByName;
+	});
+
+<Meta title="Icons by name" />
+
+# Icons
+
+<IconColorTokenSelect />
+{Object.entries(iconsByName).map(([name, sizes], i) => (
+	<section key={i}>
+		<h2>{name}</h2>
+		<IconGallery>
+			{sizes.map((size, j) => (
+				<IconItem key={j} name={size}>
+					<Icon size={size} name={name} />
+				</IconItem>
+			))}
+		</IconGallery>
+	</section>
+))}

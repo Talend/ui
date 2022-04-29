@@ -2,10 +2,15 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "importHelpers": true,
     "jsx": "react",
     "target": "ESNext",
     "module": "ESNext",
-    "outDir": "dist"
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "removeComments": false,
+    "skipLibCheck": true
   }
 }

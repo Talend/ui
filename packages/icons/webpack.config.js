@@ -1,24 +1,16 @@
 const path = require('path');
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 module.exports = {
 	mode: 'development',
 	entry: path.resolve(__dirname, 'src'),
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'lib'),
+		filename: 'index.js',
 		publicPath: 'auto',
-		filename: 'TalendIcons.js',
 		chunkFilename: '[contenthash].js',
-		library: 'TalendIcons',
-		libraryTarget: 'umd',
 		globalObject: 'this',
 	},
 	devtool: 'source-map',
-	externals: {
-		react: 'React',
-	},
 	resolve: {
 		extensions: ['.js', '.ts', '.tsx'],
 	},
@@ -50,6 +42,7 @@ module.exports = {
 							memo: true,
 							ref: true,
 							replaceAttrValues: {
+								// #202020 is the value of our neutral/icon token used by Figma
 								'#202020': 'currentColor',
 							},
 							svgProps: {
@@ -71,11 +64,4 @@ module.exports = {
 	stats: {
 		children: false,
 	},
-	plugins: [
-		new BundleAnalyzerPlugin({
-			analyzerMode: 'static',
-			openAnalyzer: false,
-			logLevel: 'error',
-		}),
-	],
 };
