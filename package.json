@@ -11,6 +11,7 @@
     "lint-staged": "^12.3.8"
   },
   "scripts": {
+    "changeset": "node preinstall.mjs --full-workspace && changeset && node preinstall.mjs",
     "preinstall": "node preinstall.mjs",
     "postinstall": "node workspace-run.js build:lib",
     "pre-release": "node workspace-run.js pre-release",

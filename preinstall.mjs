@@ -3,7 +3,10 @@
 /* eslint-disable no-restricted-syntax */
 import path from 'path';
 import { open, readdir, writeFile } from 'fs/promises';
-const postcommand = 'node workspace-run.js build:lib';
+
+const DEFAULT_WORKSPACE = process.argv.includes('--full-workspace')
+	? ['tools/*', 'packages/*', 'fork/*']
+	: [];
 
 async function getContent(p) {
 	let filehandle = null;
@@ -41,9 +44,23 @@ async function getChangedPackages() {
 }
 
 const info = await getJSON('./info.json');
+function addDependent(pkg, buff) {
+	const dependent = [];
+	Object.keys(info)
+		.filter(i => info[i].workspaceDependencies.includes(pkg) && !buff.includes(i))
+		.forEach(i => buff.push(i) && dependent.push(i));
+
+	if (dependent.length > 0) {
+		dependent.map(d => addDependent(d, buff));
+	}
+}
+
 const packageJSON = await getJSON('./package.json');
 const modifiedPkgs = await getChangedPackages();
+modifiedPkgs.forEach(pkg => addDependent(pkg, modifiedPkgs));
+
 const workspaces = modifiedPkgs.map(p => info[p].location);
+console.log(workspaces);
 // TODO: if different modified and re trigger the yarn install
-packageJSON.workspaces = workspaces;
+packageJSON.workspaces = workspaces.concat(DEFAULT_WORKSPACE);
 await writeFile('./package.json', JSON.stringify(packageJSON, null, 2));
