@@ -70,7 +70,7 @@ function Modal(props: ModalPropsType): ReactElement {
 
 	return (
 		<>
-			{disclosure && disclosure(() => dialog.setVisible(true))}
+			{disclosure && disclosure(dialog)}
 			{dialog.visible && (
 				<DialogBackdrop {...dialog} className={styles['modal-backdrop']} data-test="modal.backdrop">
 					<Dialog
