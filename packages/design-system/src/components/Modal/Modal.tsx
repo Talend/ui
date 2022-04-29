@@ -30,6 +30,7 @@ export type ModalPropsType = {
 		icon?: ModalIcon;
 	};
 	onClose: Function;
+	disclosure?: Function;
 	primaryAction?: ButtonPrimaryPropsType | { destructive: true & ButtonDestructivePropsType };
 	secondaryAction?: ButtonSecondaryPropsType;
 	preventEscaping?: boolean;
@@ -37,15 +38,19 @@ export type ModalPropsType = {
 };
 
 function Modal(props: ModalPropsType): ReactElement {
-	const { header, onClose, primaryAction, secondaryAction, preventEscaping, children } = props;
+	const { header, onClose, disclosure, primaryAction, secondaryAction, preventEscaping, children } =
+		props;
+	const dialog = useDialogState({ visible: !disclosure });
 	const ref = useRef(null);
 	useEffect(() => {
-		(ref.current as unknown as HTMLElement).focus();
+		if (ref.current) {
+			(ref.current as unknown as HTMLElement).focus();
+		}
 	}, []);
-	const dialog = useDialogState({ visible: true });
 
 	const hasAction = primaryAction || secondaryAction;
 	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
+	const onCloseHandler = disclosure ? () => dialog.setVisible(false) : onClose;
 
 	let primaryActionRendered;
 	if (primaryAction) {
@@ -64,53 +69,61 @@ function Modal(props: ModalPropsType): ReactElement {
 	}
 
 	return (
-		<DialogBackdrop {...dialog} className={styles['modal-backdrop']} data-test="modal.backdrop">
-			<Dialog
-				{...dialog}
-				data-test="modal"
-				className={styles['modal']}
-				hide={preventEscaping ? undefined : () => onClose()}
-				ref={ref}
-			>
-				<StackVertical gap={0}>
-					<div className={styles['modal__header']}>
-						{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
-						<div className={styles['modal-header-text']}>
-							<span className={styles['modal-header-text__title']} data-test="modal.header.title">
-								{header.title}
-							</span>
-							{header.description && (
-								<span
-									className={styles['modal-header-text__description']}
-									data-test="modal.header.description"
-								>
-									{header.description}
-								</span>
-							)}
-						</div>
-					</div>
+		<>
+			{disclosure && disclosure(() => dialog.setVisible(true))}
+			{dialog.visible && (
+				<DialogBackdrop {...dialog} className={styles['modal-backdrop']} data-test="modal.backdrop">
+					<Dialog
+						{...dialog}
+						data-test="modal"
+						className={styles['modal']}
+						hide={preventEscaping ? undefined : () => onCloseHandler()}
+						ref={ref}
+					>
+						<StackVertical gap={0}>
+							<div className={styles['modal__header']}>
+								{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
+								<div className={styles['modal-header-text']}>
+									<span
+										className={styles['modal-header-text__title']}
+										data-test="modal.header.title"
+									>
+										{header.title}
+									</span>
+									{header.description && (
+										<span
+											className={styles['modal-header-text__description']}
+											data-test="modal.header.description"
+										>
+											{header.description}
+										</span>
+									)}
+								</div>
+							</div>
 
-					<div className={styles['modal__content']} data-test="modal.content">
-						{children}
-					</div>
+							<div className={styles['modal__content']} data-test="modal.content">
+								{children}
+							</div>
 
-					<div className={styles['modal__buttons']} data-test="modal.buttons">
-						<StackHorizontal gap="XS" justify="end">
-							<span className={styles['close-button']}>
-								<ButtonSecondary onClick={() => onClose()} data-test="modal.buttons.close">
-									{onCloseLabel}
-								</ButtonSecondary>
-							</span>
+							<div className={styles['modal__buttons']} data-test="modal.buttons">
+								<StackHorizontal gap="XS" justify="end">
+									<span className={styles['close-button']}>
+										<ButtonSecondary onClick={() => onCloseHandler()} data-test="modal.buttons.close">
+											{onCloseLabel}
+										</ButtonSecondary>
+									</span>
 
-							{secondaryAction && (
-								<ButtonSecondary {...secondaryAction} data-test="modal.buttons.secondary" />
-							)}
-							{primaryActionRendered}
-						</StackHorizontal>
-					</div>
-				</StackVertical>
-			</Dialog>
-		</DialogBackdrop>
+									{secondaryAction && (
+										<ButtonSecondary {...secondaryAction} data-test="modal.buttons.secondary" />
+									)}
+									{primaryActionRendered}
+								</StackHorizontal>
+							</div>
+						</StackVertical>
+					</Dialog>
+				</DialogBackdrop>
+			)}
+		</>
 	);
 }
 
