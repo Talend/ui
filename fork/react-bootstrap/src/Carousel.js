@@ -10,7 +10,7 @@ import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsPropsAndOmit
+  splitBsPropsAndOmit,
 } from './utils/bootstrapUtils';
 import ValidComponentChildren from './utils/ValidComponentChildren';
 
@@ -58,7 +58,7 @@ const propTypes = {
    * in the carousel.
    * Set to null to deactivate.
    */
-  nextLabel: PropTypes.string
+  nextLabel: PropTypes.string,
 };
 
 const defaultProps = {
@@ -71,7 +71,7 @@ const defaultProps = {
   prevIcon: <Glyphicon glyph="chevron-left" />,
   prevLabel: 'Previous',
   nextIcon: <Glyphicon glyph="chevron-right" />,
-  nextLabel: 'Next'
+  nextLabel: 'Next',
 };
 
 class Carousel extends React.Component {
@@ -89,7 +89,7 @@ class Carousel extends React.Component {
     this.state = {
       activeIndex: defaultActiveIndex != null ? defaultActiveIndex : 0,
       previousActiveIndex: null,
-      direction: null
+      direction: null,
     };
 
     this.isUnmounted = false;
@@ -99,32 +99,33 @@ class Carousel extends React.Component {
     this.waitForNext();
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line
+  componentDidUpdate(prevProps) {
+    // eslint-disable-line
     const activeIndex = this.getActiveIndex();
 
     if (
-      nextProps.activeIndex != null &&
-      nextProps.activeIndex !== activeIndex
+      this.props.activeIndex != null &&
+      this.props.activeIndex !== activeIndex
     ) {
       clearTimeout(this.timeout);
 
       this.setState({
         previousActiveIndex: activeIndex,
         direction:
-          nextProps.direction != null
-            ? nextProps.direction
-            : this.getDirection(activeIndex, nextProps.activeIndex)
+          this.props.direction != null
+            ? this.props.direction
+            : this.getDirection(activeIndex, this.props.activeIndex),
       });
     }
 
     if (
-      nextProps.activeIndex == null &&
-      this.state.activeIndex >= nextProps.children.length
+      this.props.activeIndex == null &&
+      this.state.activeIndex >= this.props.children.length
     ) {
       this.setState({
         activeIndex: 0,
         previousActiveIndex: null,
-        direction: null
+        direction: null,
       });
     }
   }
@@ -151,7 +152,7 @@ class Carousel extends React.Component {
     this.setState(
       {
         previousActiveIndex: null,
-        direction: null
+        direction: null,
       },
       () => {
         this.waitForNext();
@@ -191,7 +192,6 @@ class Carousel extends React.Component {
 
   handlePrev(e) {
     let index = this.getActiveIndex() - 1;
-
     if (index < 0) {
       if (!this.props.wrap) {
         return;
@@ -258,7 +258,7 @@ class Carousel extends React.Component {
       this.setState({
         activeIndex: index,
         previousActiveIndex,
-        direction
+        direction,
       });
     }
   }
@@ -280,7 +280,7 @@ class Carousel extends React.Component {
       nextIcon,
       bsProps,
       prevLabel,
-      nextLabel
+      nextLabel,
     } = properties;
     const controlClassName = prefix(bsProps, 'control');
     const count = ValidComponentChildren.count(children);
@@ -306,7 +306,7 @@ class Carousel extends React.Component {
           {nextIcon}
           {nextLabel && <span className="sr-only">{nextLabel}</span>}
         </SafeAnchor>
-      )
+      ),
     ];
   }
 
@@ -318,7 +318,7 @@ class Carousel extends React.Component {
         <li
           key={index}
           className={index === activeIndex ? 'active' : null}
-          onClick={e => this.select(index, e)}
+          onClick={(e) => this.select(index, e)}
         />,
 
         // Force whitespace between indicator elements. Bootstrap requires
@@ -354,14 +354,14 @@ class Carousel extends React.Component {
       'onSlideEnd',
       'activeIndex', // Accessed via this.getActiveIndex().
       'defaultActiveIndex',
-      'direction'
+      'direction',
     ]);
 
     const activeIndex = this.getActiveIndex();
 
     const classes = {
       ...getClassSet(bsProps),
-      slide
+      slide,
     };
 
     return (
@@ -386,7 +386,7 @@ class Carousel extends React.Component {
               direction,
               onAnimateOutEnd: previousActive
                 ? this.handleItemAnimateOutEnd
-                : null
+                : null,
             });
           })}
         </div>
@@ -400,7 +400,7 @@ class Carousel extends React.Component {
             prevLabel,
             nextIcon,
             nextLabel,
-            bsProps
+            bsProps,
           })}
       </div>
     );

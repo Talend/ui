@@ -25,11 +25,12 @@ function deprecationWarning(oldname, newname, link) {
 
 deprecationWarning.wrapper = (Component, ...args) =>
   class DeprecatedComponent extends Component {
-    UNSAFE_componentWillMount(...methodArgs) {  // eslint-disable-line
+    componentDidMount(...methodArgs) {
+      // eslint-disable-line
       deprecationWarning(...args);
 
-      if (super.UNSAFE_componentWillMount) {
-        super.UNSAFE_componentWillMount(...methodArgs);
+      if (super.componentDidMount) {
+        super.componentDidMount(...methodArgs);
       }
     }
   };

@@ -1,82 +1,92 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import ReactTestUtils from 'react-dom/test-utils';
-import { assert } from 'chai';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Alert from './Alert';
 
 describe('<Alert>', () => {
   it('Should output a alert with message', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    // when
+    render(
       <Alert>
         <strong>Message</strong>
       </Alert>
     );
-    assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong')
-    );
+
+    // then
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+    expect(screen.getByText('Message')).toBeInTheDocument();
   });
 
   it('Should have bsType by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(<Alert>Message</Alert>);
-    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\balert\b/));
+    // when
+    render(
+      <Alert>
+        <strong>Message</strong>
+      </Alert>
+    );
+
+    // then
+    expect(screen.getByRole('alert')).toHaveClass('alert-info');
   });
 
   it('Should have dismissable style with onDismiss', () => {
-    let noOp = () => {};
-    let instance = ReactTestUtils.renderIntoDocument(
-      <Alert onDismiss={noOp}>Message</Alert>
+    // when
+    render(
+      <Alert onDismiss={jest.fn()}>
+        <strong>Message</strong>
+      </Alert>
     );
-    assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\balert-dismissable\b/)
-    );
+
+    // then
+    expect(screen.getByRole('alert')).toHaveClass('alert-dismissable');
   });
 
-  it('Should call onDismiss callback on dismiss click', done => {
-    let doneOp = () => {
-      done();
-    };
-    let instance = ReactTestUtils.renderIntoDocument(
-      <Alert onDismiss={doneOp}>Message</Alert>
+  it('Should call onDismiss callback on dismiss click', () => {
+    // given
+    const onDismiss = jest.fn();
+    render(
+      <Alert onDismiss={onDismiss} closeLabel="close">
+        <strong>Message</strong>
+      </Alert>
     );
-    ReactTestUtils.Simulate.click(ReactDOM.findDOMNode(instance).children[0]);
+    expect(onDismiss).not.toBeCalled();
+
+    // when
+    userEvent.click(screen.getByRole('button', { name: 'close' }));
+
+    // then
+    expect(onDismiss).toBeCalled();
   });
 
   it('Should have a default bsStyle class', () => {
-    let instance = ReactTestUtils.renderIntoDocument(<Alert>Message</Alert>);
-    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\balert-\w+\b/));
+    // when
+    render(<Alert>Message</Alert>);
+
+    // then
+    expect(screen.getByRole('alert')).toHaveClass('alert-info');
   });
 
   it('Should have use bsStyle class', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
-      <Alert bsStyle="danger">Message</Alert>
-    );
-    assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\balert-danger\b/)
-    );
+    // when
+    render(<Alert bsStyle="danger">Message</Alert>);
+
+    // then
+    expect(screen.getByRole('alert')).toHaveClass('alert-danger');
   });
 
   describe('Web Accessibility', () => {
-    it('Should have alert role', () => {
-      let instance = ReactTestUtils.renderIntoDocument(<Alert>Message</Alert>);
+    it('Should call onDismiss callback when the sr-only dismiss link is activated', () => {
+      // given
+      const onDismiss = jest.fn();
+      render(<Alert onDismiss={onDismiss}>Message</Alert>);
+      expect(onDismiss).not.toBeCalled();
 
-      assert.equal(
-        ReactDOM.findDOMNode(instance).getAttribute('role'),
-        'alert'
-      );
-    });
+      // when
+      userEvent.click(screen.getByRole('button', { name: 'Close alert' }));
 
-    it('Should call onDismiss callback when the sr-only dismiss link is activated', done => {
-      let doneOp = () => {
-        done();
-      };
-      let instance = ReactTestUtils.renderIntoDocument(
-        <Alert onDismiss={doneOp}>Message</Alert>
-      );
-
-      ReactTestUtils.Simulate.click(
-        ReactDOM.findDOMNode(instance).getElementsByClassName('sr-only')[0]
-      );
+      // then
+      expect(onDismiss).toBeCalled();
     });
   });
 });

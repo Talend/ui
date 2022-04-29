@@ -6,7 +6,7 @@ import elementType from 'prop-types-extra/lib/elementType';
 import {
   bsClass as setBsClass,
   prefix,
-  splitBsPropsAndOmit
+  splitBsPropsAndOmit,
 } from './utils/bootstrapUtils';
 
 const propTypes = {
@@ -27,20 +27,20 @@ const propTypes = {
   /**
    * Unmount tabs (remove it from the DOM) when they are no longer visible
    */
-  unmountOnExit: PropTypes.bool
+  unmountOnExit: PropTypes.bool,
 };
 
 const defaultProps = {
   componentClass: 'div',
   animation: true,
   mountOnEnter: false,
-  unmountOnExit: false
+  unmountOnExit: false,
 };
 
 const contextTypes = {
   $bs_tabContainer: PropTypes.shape({
-    activeKey: PropTypes.any
-  })
+    activeKey: PropTypes.any,
+  }),
 };
 
 const childContextTypes = {
@@ -52,8 +52,8 @@ const childContextTypes = {
     unmountOnExit: PropTypes.bool,
     onPaneEnter: PropTypes.func.isRequired,
     onPaneExited: PropTypes.func.isRequired,
-    exiting: PropTypes.bool.isRequired
-  })
+    exiting: PropTypes.bool.isRequired,
+  }),
 };
 
 class TabContent extends React.Component {
@@ -68,7 +68,7 @@ class TabContent extends React.Component {
     // but the active key does not.
     this.state = {
       activeKey: null,
-      activeChild: null
+      activeChild: null,
     };
   }
 
@@ -92,13 +92,16 @@ class TabContent extends React.Component {
         unmountOnExit,
         onPaneEnter: this.handlePaneEnter,
         onPaneExited: this.handlePaneExited,
-        exiting
-      }
+        exiting,
+      },
     };
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line
-    if (!nextProps.animation && this.state.activeChild) {
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.animation !== prevProps.animation &&
+      this.state.activeChild
+    ) {
       this.setState({ activeKey: null, activeChild: null });
     }
   }
@@ -124,7 +127,7 @@ class TabContent extends React.Component {
 
     this.setState({
       activeKey: childKey,
-      activeChild: child
+      activeChild: child,
     });
 
     return true;
@@ -143,7 +146,7 @@ class TabContent extends React.Component {
 
       return {
         activeKey: null,
-        activeChild: null
+        activeChild: null,
       };
     });
   }
@@ -153,7 +156,7 @@ class TabContent extends React.Component {
     const [bsProps, elementProps] = splitBsPropsAndOmit(props, [
       'animation',
       'mountOnEnter',
-      'unmountOnExit'
+      'unmountOnExit',
     ]);
 
     return (
