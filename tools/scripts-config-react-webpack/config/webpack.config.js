@@ -13,8 +13,8 @@ const webpack = require('webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { DuplicatesPlugin } = require('inspectpack/plugin');
-const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
@@ -280,7 +280,6 @@ module.exports = ({ getUserConfig, mode }) => {
 		const userHtmlConfig = getUserConfig('html', {});
 		const userSassData = getUserConfig('sass', {});
 		const userCopyConfig = getUserConfig('copy', []);
-		const cmf = getUserConfig('cmf');
 		const dcwpConfig = getUserConfig('dynamic-cdn-webpack-plugin');
 		const { theme } = userSassData;
 
@@ -445,7 +444,6 @@ module.exports = ({ getUserConfig, mode }) => {
 				cdn.getWebpackPlugin(env, dcwpConfig),
 				new CopyWebpackPlugin({ patterns: getCopyConfig(env, userCopyConfig) }),
 				new webpack.BannerPlugin({ banner: LICENSE_BANNER }),
-				cmf && new ReactCMFWebpackPlugin({ watch: isEnvDevelopment }),
 				useTypescript && new ForkTsCheckerWebpackPlugin(),
 			].filter(Boolean),
 			optimization: {

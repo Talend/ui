@@ -1,0 +1,48 @@
+{
+  "extends": "nx/presets/npm.json",
+  "npmScope": "undetermined",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build:lib",
+          "test",
+          "lint:es",
+          "lint:style",
+          "package",
+          "test:demo"
+        ],
+        "runtimeCacheInputs": ["node -v", "yarn -v", "cat yarn.lock | sha512sum"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build:lib": [
+      {
+        "target": "build:lib",
+        "projects": "dependencies"
+      }
+    ],
+    "pre-release": [
+      {
+        "target": "pre-release",
+        "projects": "dependencies"
+      }
+    ],
+    "package": [
+      {
+        "target": "package",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": false
+    }
+  }
+}

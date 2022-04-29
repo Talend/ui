@@ -8,7 +8,6 @@
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
-    "build": "talend-scripts build:lib",
     "test": "talend-scripts test"
   },
   "repository": {
