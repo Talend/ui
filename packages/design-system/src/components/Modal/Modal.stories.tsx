@@ -2,8 +2,8 @@ import React, { ReactElement, useState } from 'react';
 import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import Modal, { ModalPropsType } from './Modal';
 import { ButtonPrimary } from '../Button';
+import Modal, { ModalPropsType } from './Modal';
 
 export default {
 	component: Modal,
