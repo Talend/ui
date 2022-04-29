@@ -145,12 +145,11 @@ export const WithDisclosure: ComponentStory<typeof Modal> = props => (
 	<Modal
 		{...props}
 		header={{ title: 'With disclosure' }}
-		onClose={() => {}}
-		disclosure={({ setVisible }: { setVisible: Function }) => (
-			<ButtonPrimary data-test="modal-disclosure" onClick={() => setVisible(true)}>
+		disclosure={
+			<ButtonPrimary data-test="modal-disclosure" onClick={() => {}}>
 				Open the modal
 			</ButtonPrimary>
-		)}
+		}
 	>
 		<p>A basic modal with an associated disclosure button.</p>
 	</Modal>

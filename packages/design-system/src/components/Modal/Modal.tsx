@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode, useEffect, useRef } from 'react';
 import i18n from 'i18next';
-import { Dialog, DialogBackdrop, useDialogState } from 'reakit/Dialog';
+import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog';
 import { IconName } from '@talend/icons';
 
 import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
@@ -29,8 +29,8 @@ export type ModalPropsType = {
 		description?: string;
 		icon?: ModalIcon;
 	};
-	onClose: Function;
-	disclosure?: Function;
+	onClose?: Function;
+	disclosure?: ReactElement;
 	primaryAction?: ButtonPrimaryPropsType | { destructive: true & ButtonDestructivePropsType };
 	secondaryAction?: ButtonSecondaryPropsType;
 	preventEscaping?: boolean;
@@ -38,19 +38,20 @@ export type ModalPropsType = {
 };
 
 function Modal(props: ModalPropsType): ReactElement {
-	const { header, onClose, disclosure, primaryAction, secondaryAction, preventEscaping, children } =
+	const { header, primaryAction, disclosure, onClose, secondaryAction, preventEscaping, children } =
 		props;
-	const dialog = useDialogState({ visible: !disclosure });
-	const ref = useRef(null);
-	useEffect(() => {
-		if (ref.current) {
-			(ref.current as unknown as HTMLElement).focus();
-		}
-	}, []);
+	const hasDisclosure = 'disclosure' in props;
 
-	const hasAction = primaryAction || secondaryAction;
-	const onCloseLabel = hasAction ? i18n.t('CLOSE', 'Close') : i18n.t('CANCEL', 'Cancel');
-	const onCloseHandler = disclosure ? () => dialog.setVisible(false) : onClose;
+	const dialog = useDialogState({ visible: !hasDisclosure });
+	const ref = useRef(null);
+
+	useEffect(() => {
+		(ref.current as unknown as HTMLElement)?.focus();
+	}, [dialog.visible]);
+
+	const onCloseHandler = hasDisclosure
+		? () => dialog.setVisible(false)
+		: () => onClose && onClose();
 
 	let primaryActionRendered;
 	if (primaryAction) {
@@ -70,7 +71,11 @@ function Modal(props: ModalPropsType): ReactElement {
 
 	return (
 		<>
-			{disclosure && disclosure(dialog)}
+			{disclosure && (
+				<DialogDisclosure {...dialog}>
+					{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
+				</DialogDisclosure>
+			)}
 			{dialog.visible && (
 				<DialogBackdrop {...dialog} className={styles['modal-backdrop']} data-test="modal.backdrop">
 					<div className={styles['modal-container']}>
@@ -113,7 +118,9 @@ function Modal(props: ModalPropsType): ReactElement {
 												onClick={() => onCloseHandler()}
 												data-test="modal.buttons.close"
 											>
-												{onCloseLabel}
+												{primaryAction || secondaryAction
+													? i18n.t('CLOSE', 'Close')
+													: i18n.t('CANCEL', 'Cancel')}
 											</ButtonSecondary>
 										</span>
 
