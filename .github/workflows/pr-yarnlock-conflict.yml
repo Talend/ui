@@ -1,0 +1,28 @@
+name: PR Yarn.lock resolve conflict
+on:
+  workflow_dispatch:
+
+jobs:
+  pr-yarnlock-conflict:
+    environment: pull_request_unsafe
+    name: Install and resolve yarn conflict
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
+      - name: Use Node.js
+        run: |
+          git merge master
+          yarn install
+
+      - name: Commit yarn.lock
+        uses: actions-js/push@v1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "chore: merge branch master"
+          branch: ${{ github.head_ref }}
