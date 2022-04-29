@@ -1,7 +1,10 @@
 name: PR Yarn.lock resolve conflict
 on:
   workflow_dispatch:
-
+    inputs:
+      ref:
+        description: The head branch associated with the pull request.
+        required: true
 jobs:
   pr-yarnlock-conflict:
     environment: pull_request_unsafe
@@ -14,15 +17,13 @@ jobs:
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+          ref: master
 
       - name: Use Node.js
         run: |
+          git checkout ${{ inputs.ref }}
           git merge master
           yarn install
-
-      - name: Commit yarn.lock
-        uses: actions-js/push@v1.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: "chore: merge branch master"
-          branch: ${{ github.head_ref }}
+          git add yarn.lock
+          git commit -am 'merge master into ${{ inputs.ref }}'
+          git push --set-upstream origin ${{ inputs.ref }}
