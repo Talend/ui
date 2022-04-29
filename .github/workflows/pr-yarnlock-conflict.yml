@@ -1,10 +1,15 @@
 name: PR Yarn.lock resolve conflict
 on:
+  push:
+    branches:
+      - jmfrancois/chore/monorepo-build-only-changed
   workflow_dispatch:
     inputs:
       ref:
         description: The head branch associated with the pull request.
         required: true
+        default: jmfrancois/chore/monorepo-build-only-changed
+
 jobs:
   pr-yarnlock-conflict:
     environment: pull_request_unsafe
