@@ -71,7 +71,7 @@ async function getLatest(dependency) {
 async function getUpdate(dependency, requirement) {
 	const cachekey = `${dependency}@${requirement}`;
 	if (!CACHE[cachekey]) {
-		const latest = await execProm(`npm view ${dependency}@'${requirement}' version --json`);
+		const latest = await execProm(`npm view ${dependency}@${requirement} version --json`);
 		const output = JSON.parse(stripAnsi(latest.stdout));
 		if (Array.isArray(output)) {
 			CACHE[cachekey] = output.pop();
