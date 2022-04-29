@@ -20,13 +20,16 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v2
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          # persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
           ref: master
 
       - name: Merge master and resolve conflict
         run: |
+          echo merge conflict on ${{ inputs.ref.value }}
           git checkout ${{ inputs.ref.value }}
+          git branch
+          git remote -v
           git merge master
           yarn install
           git add yarn.lock
