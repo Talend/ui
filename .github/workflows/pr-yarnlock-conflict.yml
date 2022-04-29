@@ -24,11 +24,11 @@ jobs:
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
           ref: master
 
-      - name: Use Node.js
+      - name: Merge master and resolve conflict
         run: |
-          git checkout ${{ inputs.ref }}
+          git checkout ${{ inputs.ref.value }}
           git merge master
           yarn install
           git add yarn.lock
-          git commit -am 'merge master into ${{ inputs.ref }}'
-          git push --set-upstream origin ${{ inputs.ref }}
+          git commit -am 'merge master into ${{ inputs.ref.value }}'
+          git push --set-upstream origin ${{ inputs.ref.value }}
