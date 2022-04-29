@@ -5,7 +5,7 @@
   "types": "lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "node ./scripts/typescript.js",
+    "pre-release": "node ./scripts/types.js",
     "build:dist": "webpack --mode='production",
     "build:lib": "webpack --config webpack.umd.config.js && webpack --config webpack.umd.config.js --mode='production'",
     "test": "echo no test",
