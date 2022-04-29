@@ -26,12 +26,12 @@ jobs:
 
       - name: Merge master and resolve conflict
         run: |
-          echo merge conflict on ${{ inputs.ref.value }}
-          git checkout ${{ inputs.ref.value }}
+          echo merge conflict on ${{ github.event.inputs.ref }}
+          git checkout ${{ github.event.inputs.ref }}
           git branch
           git remote -v
           git merge master
           yarn install
           git add yarn.lock
-          git commit -am 'merge master into ${{ inputs.ref.value }}'
-          git push --set-upstream origin ${{ inputs.ref.value }}
+          git commit -am 'merge master into ${{ github.event.inputs.ref }}'
+          git push --set-upstream origin ${{ github.event.inputs.ref }}
