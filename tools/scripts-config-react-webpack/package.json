@@ -17,7 +17,6 @@
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
-    "@talend/react-cmf-webpack-plugin": "^6.36.6",
     "@talend/scripts-config-babel": "^9.9.0",
     "@talend/scripts-config-cdn": "^10.3.2",
     "@welldone-software/why-did-you-render": "^6.2.3",
@@ -53,9 +52,6 @@
     "webpack-cli": "^4.9.2"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "*",
-    "@talend/icons": "*",
-    "@talend/react-components": "*",
     "react": "*"
   },
   "publishConfig": {
