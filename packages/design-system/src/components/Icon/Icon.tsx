@@ -2,9 +2,12 @@ import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
 import { IconName } from '@talend/icons';
+// import { importIcon } from '@talend/icons';
 
 import tokens from '../../tokens';
 import { IconsProvider } from '../IconsProvider';
+
+// console.log(importIcon);
 
 export enum SVG_TRANSFORMS {
 	Spin = 'spin',
