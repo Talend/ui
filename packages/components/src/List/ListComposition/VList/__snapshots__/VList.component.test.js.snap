@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List VList Should display column chooser from boolean 1`] = `
+<div class="theme-vlist">
+  <div style="overflow: visible; height: 0px; width: 0px;">
+    <div class="tc-list-table-right-action theme-tc-list-table-right-action">
+      <span icon="talend-column-chooser"
+            data-feature="column-chooser.open"
+            id="undefined-button"
+            class="CoralButtonIconFloating"
+      >
+        Open the column chooser
+      </span>
+    </div>
+    <div aria-colcount="2"
+         aria-rowcount="0"
+         class="ReactVirtualized__Table tc-list-table theme-tc-list-table right-action theme-right-action"
+         role="grid"
+    >
+      <div class="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
+           role="row"
+           style="height: 40px; overflow: hidden; padding-right: 0px; width: 0px;"
+      >
+        <div aria-label="Id"
+             aria-sort="none"
+             class="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id ReactVirtualized__Table__sortableHeaderColumn"
+             role="columnheader"
+             style="flex: 0 0 -1px;"
+             tabindex="0"
+        >
+          <span class="ReactVirtualized__Table__headerTruncatedText"
+                title="Id"
+          >
+            Id
+          </span>
+        </div>
+        <div aria-label="name"
+             aria-sort="none"
+             class="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-name ReactVirtualized__Table__sortableHeaderColumn"
+             role="columnheader"
+             style="flex: 0 0 -1px;"
+             tabindex="0"
+        >
+          <span class="ReactVirtualized__Table__headerTruncatedText"
+                title="name"
+          >
+            name
+          </span>
+        </div>
+      </div>
+      <div aria-label="grid"
+           class="ReactVirtualized__Grid ReactVirtualized__Table__Grid theme-grid tc-dropdown-container"
+           role="rowgroup"
+           style="box-sizing: border-box; direction: ltr; height: 210px; position: relative; width: 0px; will-change: transform; overflow-x: hidden; overflow-y: hidden;"
+           tabindex="0"
+      >
+      </div>
+    </div>
+  </div>
+  <div class="resize-triggers">
+    <div class="expand-trigger">
+      <div style="width: 1px; height: 1px;">
+      </div>
+    </div>
+    <div class="contract-trigger">
+    </div>
+  </div>
+</div>
+`;
