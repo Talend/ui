@@ -41,7 +41,8 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
       role="link"
       type="button"
     >
-      <CoralIcon
+      <span
+        className="CoralIcon"
         name="talend-arrow-left"
       />
       <span>

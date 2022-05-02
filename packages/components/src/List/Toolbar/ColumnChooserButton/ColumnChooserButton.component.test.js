@@ -21,8 +21,9 @@ describe('ColumnChooserButton', () => {
 		};
 		// when
 		const wrapper = mount(<ColumnChooserButton {...props} />);
+
 		// then
-		expect(wrapper.find('Icon[name="talend-column-chooser"]')).toHaveLength(1);
-		expect(wrapper.find('button#my-wrapper-id-button')).toHaveLength(1);
+		expect(wrapper.find('ButtonIcon[icon="talend-column-chooser"]')).toHaveLength(1);
+		expect(wrapper.find('ButtonIcon#my-wrapper-id-button')).toHaveLength(1);
 	});
 });

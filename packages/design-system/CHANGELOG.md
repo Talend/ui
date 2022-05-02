@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 2.4.0
+
+### Minor Changes
+
+- 59a16bfa7: chore(design-system): PropsType naming
+
 ## 2.3.0
 
 ### Minor Changes

@@ -51,12 +51,10 @@ export default class MultiSelectTag extends React.Component {
 	 * On Tags value change, we update suggestions if they are displayed
 	 * @param { Object } nextProps The new props
 	 */
-	UNSAFE_componentWillReceiveProps(nextProps) {
-		if (nextProps.value === this.props.value) {
-			return;
-		}
-		if (this.state.suggestions) {
-			this.updateSuggestions(undefined, nextProps);
+	componentDidUpdate(prevProps) {
+		const hasSuggestions = this.state.suggestions;
+		if (hasSuggestions && prevProps.value !== this.props.value) {
+			this.updateSuggestions(undefined, this.props);
 		}
 	}
 
@@ -244,7 +242,11 @@ export default class MultiSelectTag extends React.Component {
 				<div className={`${theme.wrapper} form-control`}>
 					{this.props.value.map((val, index) => {
 						const label = getLabel(this.getTitleMap(), val, names[index]);
-						const badgeProps = { label, key: index, dataTest: schema.dataTest && `${schema.dataTest}.${index}`};
+						const badgeProps = {
+							label,
+							key: index,
+							dataTest: schema.dataTest && `${schema.dataTest}.${index}`,
+						};
 						if (!schema.readOnly && !schema.disabled) {
 							badgeProps.onDelete = event => this.onRemoveTag(event, index);
 						}
