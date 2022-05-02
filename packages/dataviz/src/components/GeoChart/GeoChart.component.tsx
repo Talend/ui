@@ -14,7 +14,7 @@ import { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import { Icon } from '@talend/react-components';
 
-import TooltipContent, { TooltipEntry } from '../TooltipContent/TooltipContent.component';
+import KeyValueTooltip, { TooltipEntry } from '../KeyValueTooltip/KeyValueTooltip.component';
 import styles from './GeoChart.scss';
 
 // Rename ugly d3 types
@@ -266,7 +266,7 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 						pointerEvents: 'none',
 					}}
 				>
-					<TooltipContent entries={[tooltip.entry]} />
+					<KeyValueTooltip entries={[tooltip.entry]} />
 				</div>
 			)}
 		</div>

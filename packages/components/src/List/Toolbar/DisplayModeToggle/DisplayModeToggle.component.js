@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { ActionIconToggle } from '../../../Actions';
+import { ButtonIconToggle, StackHorizontal } from '@talend/design-system';
 import getDefaultT from '../../../translate';
+import { DISPLAY_MODE } from '../../ListComposition/constants';
 
-import theme from './DisplayModeToggle.scss';
+export const displayModesOptions = [DISPLAY_MODE.TABLE, DISPLAY_MODE.LARGE];
 
-const options = ['table', 'large'];
 function getLabel(selected, t) {
 	switch (selected) {
 		case 'table':
@@ -18,32 +17,44 @@ function getLabel(selected, t) {
 	}
 }
 
-function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
-	const modes = displayModes || options;
-
-	function getActionIcon(option) {
+export const DisplayModeActionIcon = React.memo(
+	({ displayMode, displayModeOption, icon, id, label, onSelect }) => {
 		return (
-			<ActionIconToggle
-				key={option}
-				id={`${id}-${option}`}
-				icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
-				label={t('LIST_SELECT_DISPLAY_MODE', {
-					defaultValue: 'Set {{displayMode}} as current display mode.',
-					displayMode: getLabel(option, t),
-				})}
-				active={mode === option}
-				disabled={mode === option}
+			<ButtonIconToggle
+				key={displayMode}
+				id={`${id}-${displayMode}`}
+				icon={icon}
+				isActive={displayMode === displayModeOption}
+				size="S"
 				onClick={e => {
-					onChange(e, option);
+					onSelect(e, displayMode);
 				}}
-			/>
+			>
+				{label}
+			</ButtonIconToggle>
 		);
-	}
+	},
+);
+function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
+	const modes = displayModes || displayModesOptions;
 
 	return (
-		<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
-			{modes.map(getActionIcon)}
-		</div>
+		<StackHorizontal gap="XS" padding={{ x: 'S', y: 0 }}>
+			{modes.map(option => (
+				<DisplayModeActionIcon
+					key={option}
+					id={id}
+					icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
+					label={t('LIST_SELECT_DISPLAY_MODE', {
+						defaultValue: 'Set {{displayMode}} as current display mode.',
+						displayMode: getLabel(option, t),
+					})}
+					onSelect={onChange}
+					displayMode={option}
+					displayModeOption={mode}
+				/>
+			))}
+		</StackHorizontal>
 	);
 }
 
@@ -53,6 +64,10 @@ DisplayModeToggle.propTypes = {
 	displayModes: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired,
 	t: PropTypes.func,
+};
+
+DisplayModeActionIcon.propTypes = {
+	...DisplayModeToggle.propTypes,
 };
 
 DisplayModeToggle.defaultProps = {
