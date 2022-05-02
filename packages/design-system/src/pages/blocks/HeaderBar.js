@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { VisuallyHidden } from 'reakit';
+import { useDialogState } from 'reakit/Dialog';
 
 import Clickable from '../../components/Clickable';
 import Dropdown from '../../components/Dropdown';
@@ -12,7 +13,7 @@ import { ButtonIconToggle } from '../../components/ButtonIcon';
 import Tooltip from '../../components/Tooltip';
 
 export default function HeaderBarBlock() {
-	const aboutModal = Modal.useDialogState();
+	const aboutModal = useDialogState();
 	return (
 		<HeaderBar>
 			<HeaderBar.Logo full>
