@@ -31,6 +31,10 @@ module.exports = (on, config) => {
 							mimetype: 'application/font-woff',
 						},
 					},
+					{
+						test: /\.svg?$/,
+						loader: 'url-loader',
+					},
 				],
 			},
 			resolve: {
