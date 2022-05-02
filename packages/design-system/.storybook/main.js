@@ -38,7 +38,12 @@ module.exports = {
 	staticDirs: ['../static'],
 	addons: [
 		'@storybook/addon-a11y',
-		'@storybook/addon-essentials',
+		{
+			name: '@storybook/addon-essentials',
+			options: {
+				backgrounds: false,
+			},
+		},
 		'@storybook/addon-links',
 		'@storybook/addon-interactions',
 		{
@@ -50,6 +55,7 @@ module.exports = {
 			},
 		},
 		'storybook-addon-mdx-embed',
+		'storybook-dark-mode',
 	],
 	typescript: {
 		check: true,

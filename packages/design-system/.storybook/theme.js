@@ -1,38 +1,55 @@
 import { create } from '@storybook/theming/create';
-import logo from './logo.svg';
 
-export default create({
-	base: 'light',
+import dictionaryLight from '@talend/design-tokens/lib/light/dictionary';
+import dictionaryDark from '@talend/design-tokens/lib/dark/dictionary';
 
-	colorPrimary: '#0675C1',
-	colorSecondary: '#19426c',
+import logoLight from './logo-light.svg';
+import logoDark from './logo-dark.svg';
 
-	// UI
-	appBg: '#f3f3f3',
-	appContentBg: 'white',
-	appBorderColor: '#C6C6C6',
-	appBorderRadius: 4,
+export default mode => {
+	const isDark = mode === 'dark';
+	const dictionary = isDark ? dictionaryDark : dictionaryLight;
+	const logo = isDark ? logoDark : logoLight;
+	const t = tokenName => {
+		const token = dictionary.find(t => t.name === tokenName);
+		if (!token) {
+			throw Error('Cannot find token ' + tokenName);
+		}
+		return token.value;
+	};
+	return create({
+		base: mode, // 'light',
 
-	// Typography
-	fontBase: '"Source Sans Pro", sans-serif',
-	fontCode: '"Inconsolata", monospace',
+		colorPrimary: t('coralColorAccentText'), // '#0675C1',
+		colorSecondary: t('coralColorAccentTextActive'), // '#19426c',
 
-	// Text colors
-	textColor: '#202020',
-	textInverseColor: 'rgba(255,255,255,0.9)',
+		// UI
+		// appBg: t('coralColorNeutralBackgroundMedium'), // '#f3f3f3',
+		// appContentBg: t('coralColorNeutralBackground'), // 'white',
+		appBorderColor: t('coralColorNeutralBorderWeak'), // '#C6C6C6',
+		appBorderRadius: t('coralRadiusS'), // 4,
 
-	// Toolbar default and active colors
-	barTextColor: '#555555',
-	barSelectedColor: '#202020',
-	barBg: 'white',
+		// Typography
+		fontBase: '"Source Sans Pro", sans-serif',
+		fontCode: '"Inconsolata", monospace',
 
-	// Form colors
-	inputBg: 'white',
-	inputBorder: 'silver',
-	inputTextColor: 'black',
-	inputBorderRadius: 4,
+		// Text colors
+		textColor: t('coralColorNeutralText'), // '#202020',
+		textInverseColor: t('coralColorNeutralTextInverted'), // 'rgba(255,255,255,0.9)',
 
-	brandTitle: 'Coral',
-	// brandUrl: '/',
-	brandImage: logo,
-});
+		// Toolbar default and active colors
+		barTextColor: t('coralColorNeutralText'), // '#555555',
+		barSelectedColor: t('coralColorAccentIcon'), // '#202020',
+		// barBg: t('coralColorNeutralBackgroundMedium'), // 'white',
+
+		// Form colors
+		// inputBg: t('coralColorNeutralBackgroundMedium'), // 'white',
+		inputBorder: t('coralColorNeutralBorder'), // 'silver',
+		inputTextColor: t('coralColorNeutralText'), // 'black',
+		inputBorderRadius: t('coralRadiusS'), // 4,
+
+		brandTitle: 'Coral',
+		// brandUrl: '/',
+		brandImage: logo,
+	});
+};

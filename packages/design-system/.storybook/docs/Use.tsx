@@ -14,6 +14,10 @@ const Block = styled(({ title, icon, children, ...rest }) => (
 		{children}
 	</div>
 ))`
+	color: ${tokens.coralColorNeutralText};
+	padding: ${tokens.coralSpacingXs};
+	border-radius: ${tokens.coralRadiusS};
+
 	strong {
 		display: flex;
 		align-items: center;
@@ -22,9 +26,6 @@ const Block = styled(({ title, icon, children, ...rest }) => (
 	svg {
 		margin: 0 ${tokens.coralSpacingXs};
 	}
-
-	padding: 1rem;
-	border-radius: ${tokens.coralRadiusS};
 `;
 
 const Do = styled(props => <Block title="Do" icon="talend-check" {...props} />)`
