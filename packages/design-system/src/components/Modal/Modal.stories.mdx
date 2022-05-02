@@ -29,6 +29,7 @@ A modal serves as a root component for all varieties of dialog (confirm ...).
 ### Sizing
 
 The modal should adapt to the content:
+
 - Width can vary between a minimum 660px up to 95% of the screen's width
 - Height can expand up to 80% of the screen's height
 
@@ -40,9 +41,10 @@ Header icon: Either a 24x24 icon from the library OR a provided logo.
 For devs this means either an IconName or a ReactElement.
 Enforce the 24x24 sizing if it’s an element.
 
-Title and description:  Both have an ellipsis if there isn’t enough space, the text will not wrap.
+Title and description: Both have an ellipsis if there isn’t enough space, the text will not wrap.
 
 ### Content
+
 Overflow should be vertically scrollable when needed, but horizontally hidden.
 Scroll is limited to the content section (header and footer remain fixed).
 
@@ -53,6 +55,7 @@ Actions: Up to two, one primary, one secondary. Ideally can’t have a secondary
 Destructive: The primary action can be destructive.
 
 ### Backdrop
+
 Transparent layer behind every modal. Clicking it closes the modal by default, but this behavior can be disabled by a prop.
 
 ### Variations
@@ -61,6 +64,12 @@ Transparent layer behind every modal. Clicking it closes the modal by default, b
 
 <Canvas>
 	<Story height="5rem" story={Stories.Basic} />
+</Canvas>
+
+**With disclosure**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithDisclosure} />
 </Canvas>
 
 **With icon**

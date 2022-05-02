@@ -3,26 +3,33 @@
 $modal-backdrop-z-index: 100000;
 $modal-z-index: $modal-backdrop-z-index + 1;
 
+.modal-backdrop:before,
+.modal-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
 .modal-backdrop {
 	&:before {
 		z-index: $modal-backdrop-z-index - 1;
 		content: '';
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
 		background-color: tokens.$coral-color-assistive-background;
 		opacity: tokens.$coral-opacity-l;
 	}
 }
 
+.modal-container {
+	z-index: $modal-z-index;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .modal {
 	position: fixed;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	z-index: $modal-z-index;
 	min-width: 660px;
 	max-width: 95%;
 	max-height: 80%;

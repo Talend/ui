@@ -3,7 +3,7 @@ import { composeStories } from '@storybook/testing-react';
 
 import * as Stories from './Modal.stories';
 
-const { Basic, WithNonClosingBackdrop } = composeStories(Stories);
+const { Basic, WithDisclosure, WithNonClosingBackdrop } = composeStories(Stories);
 
 context('<Modal />', () => {
 	it('should render and focus on the modal', () => {
@@ -11,6 +11,12 @@ context('<Modal />', () => {
 		cy.getByTest('open-modal').click();
 		cy.getByTest('modal').should('be.visible');
 		cy.focused().should('have.attr', 'data-test', 'modal');
+	});
+
+	it('should support custom disclosure', () => {
+		cy.mount(<WithDisclosure />);
+		cy.getByTest('modal-disclosure').click();
+		cy.getByTest('modal').should('be.visible');
 	});
 
 	it('should close the modal on cancel/close action', () => {

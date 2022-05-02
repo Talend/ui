@@ -2,6 +2,7 @@ import React, { ReactElement, useState } from 'react';
 import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
+import { ButtonPrimary } from '../Button';
 import Modal, { ModalPropsType } from './Modal';
 
 export default {
@@ -138,6 +139,20 @@ export const Basic: ComponentStory<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'Basic modal' }}>
 		<p>A basic modal with only a title and a text content.</p>
 	</ModalStory>
+);
+
+export const WithDisclosure: ComponentStory<typeof Modal> = props => (
+	<Modal
+		{...props}
+		header={{ title: 'With disclosure' }}
+		disclosure={
+			<ButtonPrimary data-test="modal-disclosure" onClick={() => {}}>
+				Open the modal
+			</ButtonPrimary>
+		}
+	>
+		<p>A basic modal with an associated disclosure button.</p>
+	</Modal>
 );
 
 export const WithIcon: ComponentStory<typeof Modal> = props => (
