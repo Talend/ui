@@ -50,4 +50,41 @@ describe('List VList', () => {
 		// then
 		expect(wrapper.find(VirtualizedList).prop('type')).toBe('TABLE');
 	});
+
+	it('Should not display column chooser by default', () => {
+		// given
+		const contextValue = { collection: [{ id: 0 }, { id: 1 }], setColumns: jest.fn() };
+
+		// when
+		const wrapper = mount(
+			<ListContext.Provider value={contextValue}>
+				<VList />
+			</ListContext.Provider>,
+		);
+
+		expect(wrapper.exists('ColumnChooser')).toBe(false);
+	});
+
+	it('Should display column chooser from boolean', () => {
+		const contextValue = {
+			displayMode: 'table',
+			collection: [],
+			columns: [],
+			setColumns: jest.fn(),
+			setVisibleColumns: jest.fn(),
+		};
+
+		const wrapper = mount(
+			<ListContext.Provider value={contextValue}>
+				<VList type="TABLE" columnChooser>
+					<VList.Text label="Id" dataKey="id" />
+					<VList.Text label="name" dataKey="name" />
+				</VList>
+			</ListContext.Provider>,
+		);
+
+		expect(wrapper.html()).toMatchSnapshot();
+
+		expect(wrapper.find('ColumnChooser')).toHaveLength(1);
+	});
 });

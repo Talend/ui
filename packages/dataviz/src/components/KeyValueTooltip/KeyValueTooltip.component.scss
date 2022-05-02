@@ -1,9 +1,6 @@
-$module: dataviz-tooltip;
+$module: key-value-tooltip;
 
 .#{$module} {
-	padding: 12px;
-	border-radius: 4px;
-	background: rgba(0, 0, 0, 0.8);
 	list-style-type: none;
 	white-space: nowrap;
 	pointer-events: none;

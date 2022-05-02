@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TooltipContent Should render 1`] = `
+<div class="theme-dataviz-tooltip">
+  <div class="theme-dataviz-tooltip__title">
+  </div>
+  <dl class="theme-key-value-tooltip theme-key-value-tooltip--value">
+    <div class="theme-key-value-tooltip__entry">
+      <dt class="theme-key-value-tooltip__key">
+        key1
+      </dt>
+      <dd>
+        <span class="theme-key-value-tooltip__value">
+          value1
+        </span>
+      </dd>
+    </div>
+  </dl>
+</div>
+`;
