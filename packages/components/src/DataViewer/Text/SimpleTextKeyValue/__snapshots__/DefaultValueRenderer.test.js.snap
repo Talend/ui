@@ -2,13 +2,19 @@
 
 exports[`#DefaultValueRenderer should render DefaultValueRenderer with the tooltip when the label overflow in width 1`] = `
 <TooltipTrigger
-  label="loreum"
+  label={
+    <FormatValueComponent
+      value="loreum"
+    />
+  }
   tooltipPlacement="bottom"
 >
   <div
     className="theme-td-default-cell td-default-cell theme-shrink-value"
   >
-    loreum
+    <FormatValueComponent
+      value="loreum"
+    />
   </div>
 </TooltipTrigger>
 `;
@@ -17,7 +23,9 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer with the toolt
 <div
   className="theme-td-default-cell td-default-cell"
 >
-  loreum
+  <FormatValueComponent
+    value="loreum"
+  />
 </div>
 `;
 
@@ -25,7 +33,9 @@ exports[`#DefaultValueRenderer should render a boolean 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
 >
-  false
+  <FormatValueComponent
+    value="false"
+  />
 </div>
 `;
 
@@ -33,7 +43,9 @@ exports[`#DefaultValueRenderer should render a bytes 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
 >
-  ejfiejifje
+  <FormatValueComponent
+    value="ejfiejifje"
+  />
 </div>
 `;
 
@@ -41,7 +53,9 @@ exports[`#DefaultValueRenderer should render empty when the value is null 1`] = 
 <div
   className="theme-td-default-cell td-default-cell"
 >
-  
+  <FormatValueComponent
+    value=""
+  />
 </div>
 `;
 
@@ -49,8 +63,7 @@ exports[`#DefaultValueRenderer should render the leading/trailing special charac
 <div
   className="theme-td-default-cell td-default-cell"
 >
-  <withI18nextTranslation(FormatValueComponent)
-    t={[Function]}
+  <FormatValueComponent
     value=" loreum "
   />
 </div>
@@ -60,6 +73,8 @@ exports[`#DefaultValueRenderer should render without the tooltip 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"
 >
-  loreum
+  <FormatValueComponent
+    value="loreum"
+  />
 </div>
 `;

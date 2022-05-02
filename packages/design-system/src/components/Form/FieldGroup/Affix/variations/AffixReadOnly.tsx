@@ -7,7 +7,7 @@ import VisuallyHidden from '../../../../VisuallyHidden';
 
 import styles from '../AffixStyles.module.scss';
 
-type CommonAffixReadOnlyPropTypes = {
+type CommonAffixReadOnlyPropsType = {
 	children: string;
 };
 
@@ -21,13 +21,13 @@ type AffixReadOnlyShowTextProps = {
 	icon?: IconName;
 };
 
-export type AffixReadOnlyPropTypes = Omit<HTMLAttributes<HTMLSpanElement>, 'className' | 'style'> &
-	CommonAffixReadOnlyPropTypes &
+export type AffixReadOnlyPropsType = Omit<HTMLAttributes<HTMLSpanElement>, 'className' | 'style'> &
+	CommonAffixReadOnlyPropsType &
 	(AffixReadOnlyHideTextProps | AffixReadOnlyShowTextProps);
 
 const AffixReadOnly = forwardRef(
 	(
-		{ children, icon, hideText = false, ...rest }: AffixReadOnlyPropTypes,
+		{ children, icon, hideText = false, ...rest }: AffixReadOnlyPropsType,
 		ref: Ref<HTMLSpanElement>,
 	) => {
 		return (

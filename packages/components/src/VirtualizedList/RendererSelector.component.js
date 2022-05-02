@@ -70,6 +70,7 @@ class RendererSelector extends React.Component {
 			registerChild,
 			scrollToIndex,
 			scrollToAlignment,
+			headerAction,
 		} = this.props;
 
 		const collection = inProgress ? [] : this.props.collection;
@@ -104,6 +105,7 @@ class RendererSelector extends React.Component {
 				sort,
 				sortBy,
 				sortDirection,
+				headerAction,
 			};
 		} else {
 			ListRenderer = ListGrid;
@@ -124,8 +126,8 @@ RendererSelector.propTypes = {
 	rowRenderers: PropTypes.object,
 };
 RendererSelector.defaultProps = {
-	noRowsRenderer: NoRows,
-	type: TABLE,
+	noRowsRenderer: NoRows, // eslint-disable-line react/default-props-match-prop-types
+	type: TABLE, // eslint-disable-line react/default-props-match-prop-types
 };
 
 export default RendererSelector;
