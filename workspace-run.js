@@ -42,38 +42,35 @@ function consume(cmds) {
 run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 	.then(info => JSON.parse(info))
 	.then(workspaceInfo => {
-		const orderedWorkspaceInfo = Object.entries(workspaceInfo)
-			// FIXME
-			.filter(([packageName]) => packageName.includes('icons'))
-			.reduce(
-				(accu, [packageName, packageInfo]) => {
-					const { commands, packages } = accu;
-					const { location, workspaceDependencies } = packageInfo;
+		const orderedWorkspaceInfo = Object.entries(workspaceInfo).reduce(
+			(accu, [packageName, packageInfo]) => {
+				const { commands, packages } = accu;
+				const { location, workspaceDependencies } = packageInfo;
 
-					const packageJson = require(path.resolve(path.join('.', location, 'package.json')));
-					if (packageJson.scripts[script]) {
-						const cmd = {
-							name: 'yarn',
-							args: ['workspace', '--silent', packageName, 'run', script].concat(scriptArgs),
-						};
+				const packageJson = require(path.resolve(path.join('.', location, 'package.json')));
+				if (packageJson.scripts[script]) {
+					const cmd = {
+						name: 'yarn',
+						args: ['workspace', '--silent', packageName, 'run', script].concat(scriptArgs),
+					};
 
-						// package must be built after its workspace dependencies
-						// let's place the command, after the dependencies in the commands list
-						// to do that, we find the dependencies index, and put the command after the last dependency (max index)
-						let packagePlace = 0;
-						if (workspaceDependencies.length) {
-							const depsIndexes = workspaceDependencies.map(dep => packages.indexOf(dep));
-							packagePlace = Math.max(...depsIndexes) + 1;
-						}
-
-						packages.splice(packagePlace, 0, packageName);
-						commands.splice(packagePlace, 0, cmd);
+					// package must be built after its workspace dependencies
+					// let's place the command, after the dependencies in the commands list
+					// to do that, we find the dependencies index, and put the command after the last dependency (max index)
+					let packagePlace = 0;
+					if (workspaceDependencies.length) {
+						const depsIndexes = workspaceDependencies.map(dep => packages.indexOf(dep));
+						packagePlace = Math.max(...depsIndexes) + 1;
 					}
 
-					return accu;
-				},
-				{ commands: [], packages: [] },
-			);
+					packages.splice(packagePlace, 0, packageName);
+					commands.splice(packagePlace, 0, cmd);
+				}
+
+				return accu;
+			},
+			{ commands: [], packages: [] },
+		);
 		consume(orderedWorkspaceInfo.commands);
 	})
 	.catch(e => {
