@@ -55,8 +55,5 @@
     "*.{json,md,mdx,html,js,jsx,ts,tsx}": [
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "@types/react-dom": "^16.9.14"
   }
 }
