@@ -408,6 +408,7 @@ describe('status function', () => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve if status >= HTTP_STATUS.OK & < 300', () => {
 		const response = {
 			status: HTTP_STATUS.NO_CONTENT,
@@ -427,6 +428,7 @@ describe('json function', () => {
 			expect(JSON.parse(JSON.stringify(err))).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve if attr json is on response', () => {
 		const response = {
 			status: HTTP_STATUS.OK,
@@ -439,6 +441,7 @@ describe('json function', () => {
 			expect(r).toMatchSnapshot();
 		});
 	});
+
 	it('should resolve status HTTP_STATUS.NO_CONTENT but without json function', () => {
 		const response = {
 			status: HTTP_STATUS.NO_CONTENT,
@@ -593,6 +596,7 @@ describe('httpMiddleware configuration', () => {
 			done();
 		});
 	});
+
 	it('should call interceptor at every levels', done => {
 		// given
 		const response = { foo: 'bar' };

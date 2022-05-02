@@ -195,15 +195,15 @@ function getOnError(dispatch, httpAction) {
 					try {
 						errorObject.stack.messageObject = JSON.parse(response);
 					} catch (e) {
-						// don't care if we can't parse response (not json), the response is still put in errorObject.stack.response
-					}
+						/* If response is not in json format, it's ok, we have it in errorObject.stack.response */
+					} finally {
+						if (httpAction.onError) {
+							dispatch(http.onActionError(httpAction, errorObject));
+						}
 
-					if (httpAction.onError) {
-						dispatch(http.onActionError(httpAction, errorObject));
-					}
-
-					if (typeof httpAction.onError !== 'function') {
-						dispatch(http.onError(errorObject));
+						if (typeof httpAction.onError !== 'function') {
+							dispatch(http.onError(errorObject));
+						}
 					}
 				});
 		}
@@ -213,24 +213,22 @@ function getOnError(dispatch, httpAction) {
 /**
  * @param {Config} middlewareDefaultConfig
  */
-export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
-	dispatch,
-}) => next => action => {
-	if (!isHTTPRequest(action)) {
-		return next(action);
-	}
-	const httpAction = get(action, 'cmf.http', action);
-	const config = flow([
-		mergeOptions,
-		mergeConfiguredHeader(middlewareDefaultConfig),
-		mergeCSRFToken(middlewareDefaultConfig),
-	])(action);
+export const httpMiddleware =
+	(middlewareDefaultConfig = {}) =>
+	({ dispatch }) =>
+	next =>
+	action => {
+		if (!isHTTPRequest(action)) {
+			return next(action);
+		}
+		const httpAction = get(action, 'cmf.http', action);
+		const config = flow([
+			mergeOptions,
+			mergeConfiguredHeader(middlewareDefaultConfig),
+			mergeCSRFToken(middlewareDefaultConfig),
+		])(action);
 
-	const onHTTPError = getOnError(dispatch, httpAction);
-
-	return interceptors
-		.onRequest({ url: httpAction.url, ...config })
-		.then(newConfig => {
+		return interceptors.onRequest({ url: httpAction.url, ...config }).then(newConfig => {
 			dispatch(http.onRequest(newConfig.url, newConfig));
 			if (httpAction.onSend) {
 				dispatch({
@@ -238,24 +236,24 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 					httpAction,
 				});
 			}
-
-			return fetch(newConfig.url, newConfig);
-		})
-		.then(status)
-		.then(handleResponse)
-		.then(interceptors.onResponse)
-		.then(response => {
-			const newAction = { ...action };
-			dispatch(http.onResponse(response.data));
-			if (newAction.transform) {
-				newAction.response = newAction.transform(response.data);
-			} else {
-				newAction.response = response.data;
-			}
-			if (newAction.onResponse) {
-				dispatch(http.onActionResponse(newAction, newAction.response, response.headers));
-			}
-			return next(newAction);
-		})
-		.catch(onHTTPError);
-};
+			const onHTTPError = getOnError(dispatch, httpAction);
+			return fetch(newConfig.url, newConfig)
+				.then(status)
+				.then(handleResponse)
+				.then(interceptors.onResponse)
+				.then(response => {
+					const newAction = { ...action };
+					dispatch(http.onResponse(response.data));
+					if (newAction.transform) {
+						newAction.response = newAction.transform(response.data);
+					} else {
+						newAction.response = response.data;
+					}
+					if (newAction.onResponse) {
+						dispatch(http.onActionResponse(newAction, newAction.response, response.headers));
+					}
+					return next(newAction);
+				})
+				.catch(onHTTPError);
+		});
+	};

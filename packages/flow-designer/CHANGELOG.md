@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.3
+
+### Patch Changes
+
+- bbdddaec1: chore(ARCH-482/FlowDesigner): remove deprecated lifecycle
+
 ## 5.0.2
 
 ### Patch Changes

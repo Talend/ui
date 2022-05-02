@@ -35,9 +35,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/icons": "^6.39.0",
-    "@talend/react-cmf": "^7.0.1",
-    "@talend/react-components": "^6.44.5",
+    "@talend/icons": "^6.40.0",
+    "@talend/react-cmf": "^7.0.2",
+    "@talend/react-components": "^6.44.13",
     "ag-grid-community": "^25.3.0",
     "ag-grid-react": "^25.3.0",
     "classnames": "^2.3.1",
@@ -45,14 +45,12 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^6.39.0",
+    "@talend/icons": "^6.40.0",
     "@talend/locales-tui-datagrid": "^6.36.5",
-    "@talend/react-cmf": "^7.0.1",
-    "@talend/react-components": "^6.44.5",
+    "@talend/react-cmf": "^7.0.2",
+    "@talend/react-components": "^6.44.13",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^12.0.0-rc.2",
-    "babel-loader": "^8.2.3",
-    "css-loader": "^1.0.1",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
     "immutable": "^3.8.2",
@@ -60,8 +58,7 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.15.6",
-    "style-loader": "^0.23.1"
+    "react-i18next": "^11.16.7"
   },
   "peerDependencies": {
     "i18next": "^20.1.0",

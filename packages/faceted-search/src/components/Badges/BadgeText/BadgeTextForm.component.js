@@ -9,7 +9,7 @@ import cssModule from './BadgeText.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t }) => {
+const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t, placeholder }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
 	const onChangeText = event => {
@@ -24,7 +24,7 @@ const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 					autoFocus // eslint-disable-line jsx-a11y/no-autofocus
 					className="form-control"
 					onChange={onChangeText}
-					placeholder={t('TYPE_HERE', { defaultValue: 'Type here' })}
+					placeholder={placeholder || t('TYPE_HERE', { defaultValue: 'Type here' })}
 					type="text"
 					value={value}
 				/>
@@ -48,6 +48,7 @@ BadgeTextForm.propTypes = {
 	value: PropTypes.string,
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
+	placeholder: PropTypes.string,
 };
 
 // eslint-disable-next-line import/prefer-default-export

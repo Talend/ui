@@ -1,0 +1,152 @@
+{
+  "https://unpkg.com/react-draggable@3.0.1/dist/react-draggable.js": {
+    "integrity": "sha384-rG0cuH/bamIPT1k4CssMo7GpJCt0G8A8R2YCe31z0oefQGFwOZTF9lUjwyDcWdA9",
+    "lastModified": "Mon, 21 Aug 2017 19:11:51 GMT",
+    "size": 91771
+  },
+  "https://unpkg.com/react-draggable@3.0.1/dist/react-draggable.min.js": {
+    "integrity": "sha384-Zb1XoNB+Xci84H5NtTIoqHeAFRtXl/LVq2Md6/JnPlp6lritBv8p58EfWZ7rR0p6",
+    "lastModified": "Mon, 21 Aug 2017 19:11:51 GMT",
+    "size": 46461
+  },
+  "https://unpkg.com/react-draggable@3.0.2/dist/react-draggable.js": {
+    "integrity": "sha384-rG0cuH/bamIPT1k4CssMo7GpJCt0G8A8R2YCe31z0oefQGFwOZTF9lUjwyDcWdA9",
+    "lastModified": "Tue, 22 Aug 2017 15:40:36 GMT",
+    "size": 91771
+  },
+  "https://unpkg.com/react-draggable@3.0.2/dist/react-draggable.min.js": {
+    "integrity": "sha384-Zb1XoNB+Xci84H5NtTIoqHeAFRtXl/LVq2Md6/JnPlp6lritBv8p58EfWZ7rR0p6",
+    "lastModified": "Tue, 22 Aug 2017 15:40:37 GMT",
+    "size": 46461
+  },
+  "https://unpkg.com/react-draggable@3.0.3/dist/react-draggable.js": {
+    "integrity": "sha384-cDQ6mk99R3Xp2pHImqueBH+0l1+lxJZa9P4nDomGZWhrucD/WXh7rliT9O/JV+fK",
+    "lastModified": "Thu, 31 Aug 2017 20:12:38 GMT",
+    "size": 91419
+  },
+  "https://unpkg.com/react-draggable@3.0.3/dist/react-draggable.min.js": {
+    "integrity": "sha384-AxpubFG5MKvlDuw9VsE1BkcWVJbteLD+mAYkBI1jb9JBYNXLl1BAR8jMLm0l+T8M",
+    "lastModified": "Thu, 31 Aug 2017 20:12:39 GMT",
+    "size": 46185
+  },
+  "https://unpkg.com/react-draggable@3.0.4/dist/react-draggable.js": {
+    "integrity": "sha384-CduLBICZc2gjerzDAIBOIkgi1t98kobO/FSNrZSCJDeGeg7rsWV58nIIRCN1E5Wu",
+    "lastModified": "Mon, 27 Nov 2017 20:31:32 GMT",
+    "size": 94437
+  },
+  "https://unpkg.com/react-draggable@3.0.4/dist/react-draggable.min.js": {
+    "integrity": "sha384-Z8nZGn2qqlNj5fd4p6HGu9CUV0ENkqJhwmChRVYaYGgdscP6IgyvvJ3SG3yf85aV",
+    "lastModified": "Mon, 27 Nov 2017 20:31:33 GMT",
+    "size": 47927
+  },
+  "https://unpkg.com/react-draggable@3.0.5/dist/react-draggable.js": {
+    "integrity": "sha384-4EHHsQc8yV76qwh4KO/u8KXJUcmSIKjbaU4T+aRAY7dKtptAofgqdnnrj9c2jCEl",
+    "lastModified": "Fri, 12 Jan 2018 16:36:58 GMT",
+    "size": 94468
+  },
+  "https://unpkg.com/react-draggable@3.0.5/dist/react-draggable.min.js": {
+    "integrity": "sha384-B8Nksycg6V9eAlV7RUBNagXB7X58h/WX+WlNzuV6Db/1lYLPHoLsjE8A1Xh1Z624",
+    "lastModified": "Fri, 12 Jan 2018 16:36:59 GMT",
+    "size": 47941
+  },
+  "https://unpkg.com/react-draggable@3.1.0/dist/react-draggable.js": {
+    "integrity": "sha384-DF1tpQ8H3TjbMvBVHdvY/8g6LTC7y2iHEXRChKNBmiIFNBkpexwWu1je70HkSWg9",
+    "lastModified": "Fri, 21 Dec 2018 10:24:27 GMT",
+    "size": 75703
+  },
+  "https://unpkg.com/react-draggable@3.1.0/dist/react-draggable.min.js": {
+    "integrity": "sha384-XkOHQkJaOwbTW3zstoXVhoBtISZQtGBnVfngVt2slDSDc5c2M2y775QblEX3LKK1",
+    "lastModified": "Fri, 21 Dec 2018 10:24:28 GMT",
+    "size": 15884
+  },
+  "https://unpkg.com/react-draggable@3.1.1/dist/react-draggable.js": {
+    "integrity": "sha384-DF1tpQ8H3TjbMvBVHdvY/8g6LTC7y2iHEXRChKNBmiIFNBkpexwWu1je70HkSWg9",
+    "lastModified": "Fri, 21 Dec 2018 19:08:40 GMT",
+    "size": 75703
+  },
+  "https://unpkg.com/react-draggable@3.1.1/dist/react-draggable.min.js": {
+    "integrity": "sha384-XkOHQkJaOwbTW3zstoXVhoBtISZQtGBnVfngVt2slDSDc5c2M2y775QblEX3LKK1",
+    "lastModified": "Fri, 21 Dec 2018 19:08:41 GMT",
+    "size": 15884
+  },
+  "https://unpkg.com/react-draggable@3.2.1/dist/react-draggable.js": {
+    "integrity": "sha384-DF1tpQ8H3TjbMvBVHdvY/8g6LTC7y2iHEXRChKNBmiIFNBkpexwWu1je70HkSWg9",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 75703
+  },
+  "https://unpkg.com/react-draggable@3.2.1/dist/react-draggable.min.js": {
+    "integrity": "sha384-XkOHQkJaOwbTW3zstoXVhoBtISZQtGBnVfngVt2slDSDc5c2M2y775QblEX3LKK1",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 15884
+  },
+  "https://unpkg.com/react-draggable@3.3.0/dist/react-draggable.js": {
+    "integrity": "sha384-MF9qPfPEd68b71GHS3bgPwEAFwIjmvWlyJvVB8+DBr8vJ4INQn3LBBzWTbcEE1H6",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 76857
+  },
+  "https://unpkg.com/react-draggable@3.3.0/dist/react-draggable.min.js": {
+    "integrity": "sha384-4ehu45DHOOEXOZqwzG5TAxLVs0PbtmXvdiR3EsEjcqDhy39WlsiWxDleBLSUA+N+",
+    "lastModified": "Sat, 26 Oct 1985 08:15:00 GMT",
+    "size": 16184
+  },
+  "https://unpkg.com/react-draggable@3.3.1/dist/react-draggable.js": {
+    "integrity": "sha384-4LZYwhp94Os7yWQsD4s/7SDBbMzhaNciFIsB9ajdst36N5n3KODnxfXoqwgWPOJ7",
+    "lastModified": "Mon, 12 Aug 2019 18:09:38 GMT",
+    "size": 76755
+  },
+  "https://unpkg.com/react-draggable@3.3.1/dist/react-draggable.min.js": {
+    "integrity": "sha384-6ZvbhgTB6NYWss8A2xpdlOcquq8/w322MJBScILzb3K+pMrft1wO+UUvw8pUg1ih",
+    "lastModified": "Mon, 12 Aug 2019 18:09:40 GMT",
+    "size": 16112
+  },
+  "https://unpkg.com/react-draggable@3.3.2/dist/react-draggable.js": {
+    "integrity": "sha384-TtZEdJwsscd4WsEB7gMopdyjvcFjGQHc1TInoVNn1/qgXtzEK/4cV+qWt4WQE7GS",
+    "lastModified": "Fri, 16 Aug 2019 19:32:11 GMT",
+    "size": 76733
+  },
+  "https://unpkg.com/react-draggable@3.3.2/dist/react-draggable.min.js": {
+    "integrity": "sha384-VhYBLopZlQfLrqEPG3dVIq08zNBuHscFgBf4fTR3k6AL8eLlYq/UInylcj7pa5Ib",
+    "lastModified": "Fri, 16 Aug 2019 19:32:12 GMT",
+    "size": 16090
+  },
+  "https://unpkg.com/react-draggable@4.1.0/build/web/react-draggable.min.js": {
+    "integrity": "sha384-d6bWQC8scfllXUKyR2rCIHaDrI3MdP7HqeDhM7vRlOOE/jBRO9VyLUGcAuNdxIps",
+    "lastModified": "Fri, 25 Oct 2019 17:40:23 GMT",
+    "size": 20665
+  },
+  "https://unpkg.com/react-draggable@4.2.0/build/web/react-draggable.min.js": {
+    "integrity": "sha384-LVerLBacp9FE2CEy2brPh1UcFTOJRyZxFMzqD99MaHpsDuLMUuEoZ4VVlRh/0Zy+",
+    "lastModified": "Fri, 06 Dec 2019 02:53:02 GMT",
+    "size": 20714
+  },
+  "https://unpkg.com/react-draggable@4.3.0/build/web/react-draggable.min.js": {
+    "integrity": "sha384-oTYScdueGaybJRu8vDU/Pr669uDyi3VVJGTyRrbcBPErF4ae6skJZWJMya2+dxpw",
+    "lastModified": "Sat, 11 Apr 2020 14:39:58 GMT",
+    "size": 23352
+  },
+  "https://unpkg.com/react-draggable@4.3.1/build/web/react-draggable.min.js": {
+    "integrity": "sha384-NeTdP5AIBuOs/ekm1d3/PB0S96StFyUvTawqbZYDdI7PI+npEUaxqahfkLzDH+7i",
+    "lastModified": "Sun, 12 Apr 2020 20:08:09 GMT",
+    "size": 22907
+  },
+  "https://unpkg.com/react-draggable@4.4.0/build/web/react-draggable.min.js": {
+    "integrity": "sha384-uXEkPehmlBTc2TXWSArsJkSpYD5B+ibLnY0VsZuqkvTpo3mkgPYF87EilJeLRjC8",
+    "lastModified": "Tue, 12 May 2020 16:40:17 GMT",
+    "size": 70753
+  },
+  "https://unpkg.com/react-draggable@4.4.1/build/web/react-draggable.min.js": {
+    "integrity": "sha384-uXEkPehmlBTc2TXWSArsJkSpYD5B+ibLnY0VsZuqkvTpo3mkgPYF87EilJeLRjC8",
+    "lastModified": "Tue, 12 May 2020 21:26:31 GMT",
+    "size": 70753
+  },
+  "https://unpkg.com/react-draggable@4.4.2/build/web/react-draggable.min.js": {
+    "integrity": "sha384-uXEkPehmlBTc2TXWSArsJkSpYD5B+ibLnY0VsZuqkvTpo3mkgPYF87EilJeLRjC8",
+    "lastModified": "Thu, 14 May 2020 14:38:02 GMT",
+    "size": 70753
+  },
+  "https://unpkg.com/react-draggable@4.4.3/build/web/react-draggable.min.js": {
+    "integrity": "sha384-wx1AnCkKKeY3s9zCWBji2uxTE4pjwnfp8Gubx3hdcGxsz+vEWOE9qOI14jUdOcJS",
+    "lastModified": "Mon, 08 Jun 2020 15:43:16 GMT",
+    "size": 70947
+  }
+}

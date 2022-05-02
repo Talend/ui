@@ -17,10 +17,10 @@ exports[`ColumnChooser should render with default props 1`] = `
       role="search"
 >
   <div class="form-group">
-    <coralicon name="talend-search"
-               class="theme-search-icon"
+    <span name="talend-search"
+          class="CoralIcon theme-search-icon"
     >
-    </coralicon>
+    </span>
     <input name="search"
            placeholder="Find a column"
            autocomplete="off"
@@ -205,6 +205,7 @@ exports[`ColumnChooser should render with default props 1`] = `
   >
     <button aria-label="Apply"
             id="my-id-submit-button"
+            data-feature="column-chooser.submit"
             type="submit"
             class="btn btn-info"
     >

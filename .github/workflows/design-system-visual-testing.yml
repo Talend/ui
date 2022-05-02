@@ -10,27 +10,25 @@ on:
         description: The head branch associated with the pull request.
         required: true
   pull_request:
+    # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened
+    types: [labeled, synchronize, opened, reopened, ready_for_review]
     branches:
       - master
-    types:
-      - labeled
+    paths:
+      - "packages/design-tokens/**"
+      - "packages/design-system/**"
   push:
     branches:
       - master
     paths:
-      - 'packages/design-tokens/**'
-      - 'packages/design-system/**'
+      - "packages/design-tokens/**"
+      - "packages/design-system/**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: |
-      (github.ref == 'refs/heads/master') ||
-      (github.event.label.name == 'need visual approval')
+    if: ( !github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
     environment: pull_request_unsafe
-    defaults:
-      run:
-        working-directory: ./packages/design-system
     steps:
       - uses: actions/checkout@v2
         with:
@@ -38,18 +36,17 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: 16
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn --frozen-lock
+        run: yarn --frozen-lock --ignore-scripts
 
       - name: Build @talend/design-tokens
         run: |
-          cd ../design-tokens
-          yarn pre-release
+          yarn workspace @talend/design-tokens run build:lib
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'

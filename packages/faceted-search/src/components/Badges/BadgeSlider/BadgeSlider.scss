@@ -1,4 +1,5 @@
 // stylelint-disable property-no-vendor-prefix
+
 .tc-badge-slider-form {
 	:global(.tc-tooltip-body) {
 		margin: 0;
@@ -11,18 +12,36 @@
 
 		&-row {
 			display: flex;
+			gap: 1.2rem;
 			justify-content: center;
 			align-items: center;
 			margin-top: 2rem;
 			margin-bottom: 1rem;
 
+			.tc-badge-slider-form-body-row-icon,
+			.tc-badge-slider-form-body-row-value {
+				flex: 1;
+				display: flex;
+			}
+
+			.tc-badge-slider-form-body-row-icon {
+				justify-content: flex-end;
+			}
+
+			.tc-badge-slider-form-body-row-value:only-child {
+				.tc-badge-value-unit,
+				input {
+					text-align: center;
+				}
+			}
+
 			svg {
 				width: 3.2rem;
 				height: 3.2rem;
-				margin-right: 1.4rem;
 			}
 
 			.tc-badge-value-unit {
+				flex: 1;
 				font-size: 3.2rem;
 				font-weight: $font-weight-semi-bold;
 				width: 5rem;
@@ -30,19 +49,20 @@
 				margin-bottom: 0;
 				border: none;
 				background: none;
-				padding: {
-					left: 0;
-					top: 0.2rem;
-				}
+				padding: 0;
+				text-align: start;
 			}
 
 			input {
+				flex: 1;
 				font-size: 3.2rem;
 				font-weight: $font-weight-semi-bold;
-				width: 5rem;
+				width: 8rem;
 				color: $dove-gray;
 				box-shadow: none;
 				height: 4.7rem;
+				padding: 0;
+				margin: 0;
 
 				-moz-appearance: textfield;
 
@@ -51,10 +71,6 @@
 					-webkit-appearance: none;
 					margin: 0;
 				}
-			}
-
-			> div {
-				display: none;
 			}
 		}
 	}

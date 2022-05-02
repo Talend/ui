@@ -89,6 +89,7 @@ describe('DateTime.Manager', () => {
 				wrapper.setProps({
 					selectedDateTime: newDate,
 				});
+				wrapper.update();
 
 				// then
 				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
@@ -182,10 +183,7 @@ describe('DateTime.Manager', () => {
 					);
 
 					// when
-					wrapper
-						.find('DateTimeConsumerDiv')
-						.prop('inputManagement')
-						.onChange(event);
+					wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
 					wrapper.update();
 
 					// then
@@ -250,10 +248,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
 
 				// then
 				expect(onChange).toBeCalledWith(event, {
@@ -277,10 +272,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
 
 				// then
 				expect(onChange).not.toBeCalled();
@@ -298,10 +290,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
 
 				// then
 				expect(onChange).toBeCalled();
@@ -539,18 +528,12 @@ describe('DateTime.Manager', () => {
 			);
 
 			const event = { target: { value: '2001-01-02' } };
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('inputManagement')
-				.onChange(event);
+			wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
 			wrapper.update();
 			expect(wrapper.find('DateTimeConsumerDiv').prop('datetime').textInput).toBe('2001-01-02');
 
 			// when
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('formManagement')
-				.onReset();
+			wrapper.find('DateTimeConsumerDiv').prop('formManagement').onReset();
 			wrapper.update();
 
 			// then
@@ -568,19 +551,13 @@ describe('DateTime.Manager', () => {
 			);
 
 			const event = { target: { value: '2001-01-02' } };
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('inputManagement')
-				.onChange(event);
+			wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
 			wrapper.update();
 			expect(onChange).not.toBeCalled();
 
 			// when
 			const submitEvent = { target: {}, preventDefault: jest.fn() };
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('formManagement')
-				.onSubmit(submitEvent, 'PICKER');
+			wrapper.find('DateTimeConsumerDiv').prop('formManagement').onSubmit(submitEvent, 'PICKER');
 
 			// then
 			expect(submitEvent.preventDefault).toBeCalled();
@@ -636,10 +613,7 @@ describe('DateTime.Manager', () => {
 
 			// when
 			const event = { target: { value: 'lol' } };
-			wrapper
-				.find('DateTimeConsumerDiv')
-				.prop('inputManagement')
-				.onChange(event);
+			wrapper.find('DateTimeConsumerDiv').prop('inputManagement').onChange(event);
 			wrapper.update();
 
 			// then

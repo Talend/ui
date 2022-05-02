@@ -26,7 +26,7 @@ const SCHEMA = `{
 	  { "key": "bio", "title": "Bio", "widget": "textarea" },
 	  { "key": "password", "title": "Password", "type": "password", "description": "Hint: Make it strong!" }
 	],
-	"properties": {
+	"data": {
 	  "firstName": "Chuck",
 	  "lastName": "Norris",
 	  "age": 75,

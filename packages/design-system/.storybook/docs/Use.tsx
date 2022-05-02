@@ -20,7 +20,7 @@ const Block = styled(({ title, icon, children, ...rest }) => (
 	}
 
 	svg {
-		margin: 0 ${tokens.coralSizeXs};
+		margin: 0 ${tokens.coralSpacingXs};
 	}
 
 	padding: 1rem;

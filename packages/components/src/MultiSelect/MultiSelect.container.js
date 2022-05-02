@@ -250,9 +250,12 @@ class MultiSelect extends React.Component {
 
 	render() {
 		const items = this.getListItems();
+		// If we don't have item to display, we show the message that tell there is no items
+		const itemsDisplayed = Math.min(items.length, 6) || 1;
+
 		const height = this.props.isLoading
 			? 120
-			: this.props.itemOptionRender.rowHeight * Math.min(items.length, 6);
+			: this.props.itemOptionRender.rowHeight * itemsDisplayed;
 
 		const nbSelected = this.getSelectedMap().size;
 		const viewHeight = this.props.itemViewRender.rowHeight * Math.min(6, nbSelected + 1);
@@ -282,6 +285,7 @@ class MultiSelect extends React.Component {
 				)}
 				<input
 					type="text"
+					// eslint-disable-next-line
 					role="search"
 					className="form-control"
 					name={this.props.name}
@@ -290,6 +294,7 @@ class MultiSelect extends React.Component {
 					onFocus={this.onInputFocus}
 					onKeyDown={this.onInputKeyDown}
 					disabled={this.props.disabled}
+					// eslint-disable-next-line
 					autoFocus={this.props.autoFocus}
 					placeholder={this.props.placeholder}
 					readOnly={this.props.readOnly}

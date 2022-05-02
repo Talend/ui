@@ -1,0 +1,12 @@
+{
+  "https://unpkg.com/react-resizable@1.11.0/dist/bundle.js": {
+    "integrity": "sha384-MBmiOwLU/YaTD6tew5O8rM6jpxoKU/T2dx89IwTRDVq5PjWiKiaLfRLbkzzssOiU",
+    "lastModified": "Fri, 28 Aug 2020 19:27:58 GMT",
+    "size": 47779
+  },
+  "https://unpkg.com/react-resizable@2.0.0/dist/bundle.js": {
+    "integrity": "sha384-MBmiOwLU/YaTD6tew5O8rM6jpxoKU/T2dx89IwTRDVq5PjWiKiaLfRLbkzzssOiU",
+    "lastModified": "Fri, 28 Aug 2020 19:27:58 GMT",
+    "size": 47779
+  }
+}

@@ -2,12 +2,13 @@
   "name": "@talend/react-cmf-cqrs",
   "description": "@talend/react-cmf plugin for CQRS backend architecture",
   "main": "lib/index.js",
-  "mainSrc": "src/index.js",
+  "mainSrc": "src/index.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build:ts:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
@@ -31,15 +32,16 @@
   },
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
-    "@talend/react-cmf": "^7.0.1",
+    "@talend/react-cmf": "^7.0.2",
     "immutable": "^3.8.2",
     "redux-saga": "^1.1.3"
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^12.0.0-rc.2",
+    "@testing-library/react-hooks": "^3.7.0",
     "enzyme": "^3.11.0",
-    "mock-socket": "^7.1.0",
+    "mock-socket": "^9.1.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -53,5 +55,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.1"
+  "version": "7.1.1"
 }

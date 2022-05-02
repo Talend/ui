@@ -3,7 +3,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
-
 import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
@@ -57,13 +56,15 @@ describe('BasicSearch', () => {
 
 	const badgesDefinitions = [badgeDefinitionName];
 
-	const badgesDefinitionsWithQuicksearch = [{
-		...badgeDefinitionName,
-		metadata: {
-			...badgeDefinitionName.metadata,
-			isAvailableForQuickSearch: true,
+	const badgesDefinitionsWithQuicksearch = [
+		{
+			...badgeDefinitionName,
+			metadata: {
+				...badgeDefinitionName.metadata,
+				isAvailableForQuickSearch: true,
+			},
 		},
-	}];
+	];
 
 	it('should render the default html output with no badges', () => {
 		// Given
@@ -101,11 +102,13 @@ describe('BasicSearch', () => {
 		// Given
 		const props = {
 			badgesDefinitions,
-			initialBadges: [{
-				attribute: 'name',
-				operator: '=',
-				value: 'hello'
-			}],
+			initialBadges: [
+				{
+					attribute: 'name',
+					operator: '=',
+					value: 'hello',
+				},
+			],
 			onSubmit: jest.fn(),
 		};
 		// When
@@ -133,6 +136,39 @@ describe('BasicSearch', () => {
 		);
 		// Then
 		expect(wrapper.html()).toMatchSnapshot();
+	});
+	it('should filter facets available in quick search', () => {
+		// Given
+		const props = {
+			badgesDefinitions: badgesDefinitionsWithQuicksearch,
+			badgesFaceted,
+			onSubmit: jest.fn(),
+		};
+		// When
+		const wrapper = mount(
+			<FacetedManager id="manager-id">
+				<BasicSearch
+					{...props}
+					quickSearchFacetsFilter={(term, facets) =>
+						facets.filter(facet => facet.properties.label === term)
+					}
+				/>
+			</FacetedManager>,
+		);
+		// Then
+		wrapper.find('input[role="searchbox"]').simulate('change', {
+			target: {
+				value: 'Name',
+			},
+		});
+		expect(wrapper.find('[role="option"]')).toHaveLength(1);
+
+		wrapper.find('input[role="searchbox"]').simulate('change', {
+			target: {
+				value: 'NotName',
+			},
+		});
+		expect(wrapper.find('[role="option"]')).toHaveLength(0);
 	});
 	it('should not trigger onSubmit when a badge is in creation', () => {
 		// given
@@ -199,12 +235,10 @@ describe('BasicSearch', () => {
 		);
 
 		// Then
-		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_ADD}"]`).length).toBe(
-			0,
+		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_ADD}"]`).length).toBe(0);
+		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`).length).toBe(
+			1,
 		);
-		expect(
-			wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`).length,
-		).toBe(1);
 	});
 
 	it('should not show remove all button when no badge can be removed', () => {
@@ -222,12 +256,10 @@ describe('BasicSearch', () => {
 		);
 
 		// Then
-		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_ADD}"]`).length).toBe(
-			1,
+		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_ADD}"]`).length).toBe(1);
+		expect(wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`).length).toBe(
+			0,
 		);
-		expect(
-			wrapper.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`).length,
-		).toBe(0);
 	});
 
 	it('should remove all badges on clear button click', () => {
@@ -246,10 +278,7 @@ describe('BasicSearch', () => {
 
 		// Then
 		expect(wrapper.find('.tc-badge').length).toBe(1);
-		wrapper
-			.find('.tc-basic-search-clear-button')
-			.at(0)
-			.simulate('click');
+		wrapper.find('.tc-basic-search-clear-button').at(0).simulate('click');
 		expect(wrapper.find('.tc-badge').length).toBe(0);
 	});
 });

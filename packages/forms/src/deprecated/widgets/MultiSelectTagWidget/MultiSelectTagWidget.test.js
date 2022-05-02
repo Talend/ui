@@ -1,10 +1,11 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import { MultiSelectTagWidgetComponent, transformOptions } from './MultiSelectTagWidget';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+import { MultiSelectTagWidgetComponent } from './MultiSelectTagWidget';
 
 describe('MultiSelectTagWidget', () => {
-	it('should render multiSelectTagWidget', () => {
+	it('should render tag and combobox', () => {
 		// given
 		const options = {
 			enumOptions: [
@@ -26,55 +27,14 @@ describe('MultiSelectTagWidget', () => {
 			noAvailableMessage: 'None',
 		};
 
-		const wrapper = shallow(
-			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
-		);
+		render(<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Foo')).toBeInTheDocument();
+		expect(screen.getByRole('combobox')).toBeInTheDocument();
 	});
 
-	it('should render multiSelectTagWidget dropdown', () => {
-		// given
-		const options = {
-			enumOptions: [
-				{
-					value: 'foo-1',
-					label: 'Foo',
-				},
-				{
-					value: 'bar-1',
-					label: 'Bar',
-				},
-			],
-		};
-
-		const value = ['foo-1'];
-
-		const schema = {
-			createIfNoneMatch: false,
-			noAvailableMessage: 'None',
-		};
-
-		const wrapper = mount(
-			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
-		);
-
-		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('click');
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: '' } });
-
-		// then
-		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
-	});
-
-	it('should take default message when there isnt items', () => {
+	it('should display message when there is no items', () => {
 		// given
 		const options = {
 			enumOptions: [
@@ -95,22 +55,14 @@ describe('MultiSelectTagWidget', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(
-			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
-		);
+		render(<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />);
 
 		// when
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('focus');
-		wrapper
-			.find('input')
-			.at(0)
-			.simulate('change', { target: { value: 'lol' } });
+		userEvent.click(screen.getByRole('textbox'));
+		userEvent.type(screen.getByRole('textbox'), 'unknown');
 
 		// then
-		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
+		expect(screen.getByText('No result.')).toBeInTheDocument();
 	});
 
 	it('should render section title when items has category', () => {
@@ -141,18 +93,12 @@ describe('MultiSelectTagWidget', () => {
 			createIfNoneMatch: false,
 		};
 
-		const wrapper = mount(
-			<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />,
-		);
-
 		// when
-		wrapper.find('input').simulate('focus');
+		render(<MultiSelectTagWidgetComponent options={options} schema={schema} value={value} />);
+		userEvent.click(screen.getByRole('textbox'));
 
 		// then
-		expect(toJson(wrapper.find('.items-container'), { mode: 'deep' })).toMatchSnapshot();
-	});
-
-	it('should return a default value', () => {
-		expect(transformOptions({})).toEqual([]);
+		expect(screen.queryByText('fruit')).not.toBeInTheDocument(); // all fruits are already in values so group is not displayed anymore
+		expect(screen.getByText('pet')).toBeInTheDocument();
 	});
 });

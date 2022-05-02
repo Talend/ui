@@ -1,0 +1,41 @@
+{
+  "name": "@talend/scripts-config-jest",
+  "description": "Jest configuration for @talend/scripts-core",
+  "version": "10.0.0",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui-scripts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui-scripts.git"
+  },
+  "scripts": {
+    "test": "echo \"Nothing to test\""
+  },
+  "peerDependencies": {
+    "enzyme": "3",
+    "react": "^16.8.6"
+  },
+  "dependencies": {
+    "@talend/scripts-config-babel": "^9.9.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@types/jest": "^26.0.24",
+    "babel-jest": "^26.6.3",
+    "core-js": "^3.22.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^26.6.3",
+    "jest-environment-jsdom": "^26.6.2",
+    "jest-environment-jsdom-global": "^3.0.0",
+    "jest-serializer-html": "^7.1.0",
+    "raf": "^3.4.1",
+    "regenerator-runtime": "^0.13.9",
+    "ts-jest": "^26.5.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

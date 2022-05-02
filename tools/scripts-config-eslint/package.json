@@ -1,0 +1,38 @@
+{
+  "name": "@talend/scripts-config-eslint",
+  "description": "Eslint configuration for @talend/scripts-core",
+  "version": "9.8.0",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui-scripts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui-scripts.git"
+  },
+  "scripts": {
+    "test": "echo \"Nothing to test\""
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "@talend/eslint-plugin": "^0.5.5",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-typescript": "^6.3.2",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-angular": "^4.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest-dom": "^4.0.1",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-mdx": "^1.17.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "eslint-plugin-testing-library": "^5.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

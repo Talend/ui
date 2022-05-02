@@ -26,6 +26,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
         <VirtualizedList
           collection={Array []}
           defaultHeight={250}
+          headerAction={false}
           id="myLazyLoadingList"
           onRowsRendered={[Function]}
           registerChild={[Function]}
@@ -51,6 +52,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
             >
               <VirtualizedList(RendererSelector)
                 collection={Array []}
+                headerAction={false}
                 height={250}
                 id="myLazyLoadingList"
                 noRowsRenderer={[Function]}
@@ -64,6 +66,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
                 <VirtualizedList(ListTable)
                   collection={Array []}
                   disableHeader={false}
+                  headerAction={false}
                   height={250}
                   id="myLazyLoadingList"
                   noRowsRenderer={[Function]}
@@ -112,7 +115,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
                       style={Object {}}
                     >
                       <div
-                        className="ReactVirtualized__Table__headerRow tc-list-item theme-row theme-row"
+                        className="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
                         role="row"
                         style={
                           Object {

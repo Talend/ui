@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import { ChartEntry } from './barChart.types';
-import { TooltipEntry } from '../TooltipContent/TooltipContent.component';
+import { TooltipEntry } from '../KeyValueTooltip/KeyValueTooltip.component';
 import { VerticalBarChartEntry } from './VerticalBarChart/VerticalBarChart.component';
 import { I18N_DOMAIN_DATAVIZ } from '../../constants';
 

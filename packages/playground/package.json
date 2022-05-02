@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-playground",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Showcase Talend/UI",
   "private": true,
   "main": "app/index.js",
@@ -27,25 +27,25 @@
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.17.3",
-    "i18next-http-backend": "^1.3.2"
+    "i18next-http-backend": "^1.4.0"
   },
   "dependencies": {
     "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/icons": "^6.39.0",
-    "@talend/react-cmf": "^7.0.1",
+    "@talend/icons": "^6.40.0",
+    "@talend/react-cmf": "^7.0.2",
     "@talend/react-cmf-router": "^4.0.1",
-    "@talend/react-components": "^6.44.5",
-    "@talend/react-containers": "^7.0.3",
+    "@talend/react-components": "^6.44.13",
+    "@talend/react-containers": "^7.0.5",
     "@talend/react-datagrid": "^7.0.3",
-    "@talend/react-dataviz": "^1.0.6",
-    "@talend/react-faceted-search": "^3.5.5",
-    "@talend/react-forms": "^7.0.5",
+    "@talend/react-dataviz": "^2.0.0",
+    "@talend/react-faceted-search": "^4.0.2",
+    "@talend/react-forms": "^7.0.7",
     "history": "^3.3.0",
     "i18next": "^20.6.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.15.6",
+    "react-i18next": "^11.16.7",
     "redux-logger": "^3.0.6"
   }
 }

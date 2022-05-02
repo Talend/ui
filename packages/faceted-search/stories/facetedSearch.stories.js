@@ -439,3 +439,75 @@ export const BasicSearchWithAnEmptyLabelBadge = () => (
 		/>
 	</FacetedSearch.Faceted>
 );
+
+export const BasicSearchWithSliderPopin = {
+	render: ({ decimal, withIcon }) => {
+		const step = decimal ? 0.01 : 1;
+		const icon = withIcon ? badgeValid.properties.icon : undefined;
+
+		const overritenProperties = {
+			initialOperatorOpened: false,
+			initialValueOpened: true,
+			step,
+			decimal: true,
+			operator: {
+				label: 'Less than',
+				name: 'LessThan',
+				iconName: 'less-than',
+			},
+			icon,
+			operators: [
+				{
+					label: 'Less than',
+					name: 'LessThan',
+					iconName: 'less-than',
+				},
+				{
+					label: 'Less than or equal',
+					name: 'LessThanOrEquals',
+					iconName: 'less-than-equal',
+				},
+			],
+		};
+
+		const badgeFacetedCustom = {
+			badges: [
+				{
+					...badgeValid,
+					properties: {
+						...badgeValid.properties,
+						...overritenProperties,
+					},
+				},
+			],
+		};
+
+		return (
+			<FacetedSearch.Faceted id="my-faceted-search">
+				<FacetedSearch.BasicSearch
+					badgesDefinitions={badgesDefinitions}
+					badgesFaceted={badgeFacetedCustom}
+					callbacks={callbacks}
+					onSubmit={action('onSubmit')}
+				/>
+			</FacetedSearch.Faceted>
+		);
+	},
+	args: {
+		decimal: true,
+		withIcon: true,
+	},
+};
+
+export const WithQuickSearchFilter = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<p>Quick search will only suggest facets matching input (Connection name, Author)</p>
+		<br />
+		<FacetedSearch.BasicSearch
+			quickSearchFacetsFilter={(term, facets) => facets.filter(facet => facet.properties.label.includes(term))}
+			badgesDefinitions={[badgeAuthor, badgeName, badgeConnectionName]}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);
