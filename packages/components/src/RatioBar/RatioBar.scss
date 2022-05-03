@@ -1,9 +1,5 @@
 @use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
 
-$ratio-bar-width: 100%;
-$ratio-bar-height: 5px;
-$ratio-bar-hover-height: 8px;
-
 .tc-ratio-bar-lines {
 	width: 100%;
 	height: 100%;
@@ -13,8 +9,8 @@ $ratio-bar-hover-height: 8px;
 .tc-ratio-bar {
 	padding: $padding-small 0;
 	display: flex;
-	height: $ratio-bar-hover-height;
-	width: $ratio-bar-width;
+	height: tokens.$coral-spacing-xs;
+	width: 100%;
 	align-items: center;
 
 	&-counter {
@@ -22,12 +18,12 @@ $ratio-bar-hover-height: 8px;
 	}
 
 	.tc-ratio-bar-line {
-		height: $ratio-bar-height;
-		margin: 0 2px;
+		height: tokens.$coral-spacing-xxs;
+		margin: 0 2px 0 0;
 		transition: height 0.3s;
-		min-width: 4px;
+		min-width: tokens.$coral-spacing-xxs;
 		&:hover {
-			height: $ratio-bar-hover-height;
+			height: tokens.$coral-spacing-xs;
 		}
 		&-grow {
 			flex-grow: 1;
