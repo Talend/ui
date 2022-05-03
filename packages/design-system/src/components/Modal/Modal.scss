@@ -103,6 +103,7 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 
 .modal-icon {
 	flex-grow: 0;
+	flex-shrink: 0;
 	width: tokens.$coral-sizing-xs;
 	height: tokens.$coral-sizing-xs;
 
