@@ -23,7 +23,7 @@ context('<Modal />', () => {
 		// when
 		cy.mount(<NoDisclosure />);
 		cy.getByTest('open-modal').click();
-		cy.getByTest('modal.buttons.close')
+		cy.getByTestId('modal.buttons.close')
 			.click()
 			.then(() => {
 				// then

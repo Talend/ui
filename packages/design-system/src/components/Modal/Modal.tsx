@@ -42,17 +42,13 @@ export type ModalPropsType = {
 };
 
 function PrimaryAction(props: PrimaryActionPropsType) {
-	const dataTest = 'modal.buttons.primary';
-
 	if (!('destructive' in props) || !props.destructive) {
-		return <ButtonPrimary {...(props as ButtonPrimaryPropsType)} data-test={dataTest} />;
+		return <ButtonPrimary {...(props as ButtonPrimaryPropsType)} />;
 	}
 
 	const { destructive, ...buttonProps } = props;
 
-	return (
-		<ButtonDestructive {...(buttonProps as ButtonDestructivePropsType)} data-test={dataTest} />
-	);
+	return <ButtonDestructive {...(buttonProps as ButtonDestructivePropsType)} />;
 }
 
 function Modal(props: ModalPropsType): ReactElement {
@@ -118,7 +114,7 @@ function Modal(props: ModalPropsType): ReactElement {
 										<span className={styles['close-button']}>
 											<ButtonSecondary
 												onClick={() => onCloseHandler()}
-												data-test="modal.buttons.close"
+												data-testid="modal.buttons.close"
 											>
 												{primaryAction || secondaryAction
 													? i18n.t('CLOSE', 'Close')
@@ -127,10 +123,12 @@ function Modal(props: ModalPropsType): ReactElement {
 										</span>
 
 										{secondaryAction && (
-											<ButtonSecondary {...secondaryAction} data-test="modal.buttons.secondary" />
+											<ButtonSecondary {...secondaryAction} data-testid="modal.buttons.secondary" />
 										)}
 
-										{primaryAction && <PrimaryAction {...primaryAction} />}
+										{primaryAction && (
+											<PrimaryAction {...primaryAction} data-testid="modal.buttons.primary" />
+										)}
 									</StackHorizontal>
 								</div>
 							</StackVertical>
