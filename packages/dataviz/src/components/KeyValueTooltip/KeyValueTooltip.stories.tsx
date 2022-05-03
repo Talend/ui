@@ -1,12 +1,12 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import TooltipContent, { TooltipContentProps } from './TooltipContent.component';
+import KeyValueTooltip, { KeyValueTooltipProps } from './KeyValueTooltip.component';
 
-const Template: Story<TooltipContentProps> = args => <TooltipContent {...args} />;
+const Template: Story<KeyValueTooltipProps> = args => <KeyValueTooltip {...args} />;
 
 export default {
-	title: 'Dataviz/TooltipContent',
-	component: TooltipContent,
+	title: 'Dataviz/KeyValueTooltip',
+	component: KeyValueTooltip,
 	decorators: [
 		MyStory => (
 			<div style={{ width: 200 }}>
@@ -32,5 +32,5 @@ export const Default = Template.bind({});
 
 export const Pattern = Template.bind({});
 Pattern.args = {
-	chartStyle: TooltipContent.ChartStyle.PATTERN,
+	chartStyle: KeyValueTooltip.ChartStyle.PATTERN,
 };

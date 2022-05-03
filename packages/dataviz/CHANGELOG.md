@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- 9f3cad9bd: feat(TAD-6145): add a LineChart component in dataviz
+
+  Migration: TooltipContent(Props) is renamed to KeyValueTooltip(Props)
+
 ## 1.0.6
 
 ### Patch Changes

@@ -50,6 +50,7 @@ function ListTable(props) {
 		onRowClick,
 		onRowDoubleClick,
 		rowCount,
+		headerAction,
 		...restProps
 	} = props;
 
@@ -70,24 +71,26 @@ function ListTable(props) {
 			{columns}
 		</div>
 	);
-
 	return (
-		<VirtualizedTable
-			className={css('tc-list-table')}
-			gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
-			headerHeight={40}
-			id={id}
-			onRowClick={onRowClickCallback}
-			onRowDoubleClick={onRowDoubleClickCallback}
-			rowClassName={({ index }) =>
-				css('tc-list-item', rowThemes, { [collection[index]?.className]: collection[index] })
-			}
-			rowCount={rowCount || collection.length}
-			rowGetter={({ index }) => collection[index] || {}}
-			rowRenderer={RowTableRenderer}
-			headerRowRenderer={headerRowRenderer}
-			{...restProps}
-		/>
+		<>
+			{headerAction && <div className={css('tc-list-table-right-action')}>{headerAction}</div>}
+			<VirtualizedTable
+				className={css('tc-list-table', { 'right-action': !!headerAction })}
+				gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
+				headerHeight={40}
+				id={id}
+				onRowClick={onRowClickCallback}
+				onRowDoubleClick={onRowDoubleClickCallback}
+				rowClassName={({ index }) =>
+					css('tc-list-item', rowThemes, { [collection[index]?.className]: collection[index] })
+				}
+				rowCount={rowCount || collection.length}
+				rowGetter={({ index }) => collection[index] || {}}
+				rowRenderer={RowTableRenderer}
+				headerRowRenderer={headerRowRenderer}
+				{...restProps}
+			/>
+		</>
 	);
 }
 
@@ -111,6 +114,7 @@ ListTable.propTypes = {
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
 	rowCount: PropTypes.number,
+	headerAction: PropTypes.element,
 };
 
 ListTable.defaultProps = {

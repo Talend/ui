@@ -1,5 +1,21 @@
 # @talend/react-components
 
+## 6.46.0
+
+### Minor Changes
+
+- b375a5ba7: feat(List): add column chooser for VList and change toolbar buttons aspect
+
+### Patch Changes
+
+- d514bd8ea: fix DataList component error when int type
+
+## 6.45.1
+
+### Patch Changes
+
+- f5e8188f1: FormatValue: Handle string without whitespaces
+
 ## 6.45.0
 
 ### Minor Changes

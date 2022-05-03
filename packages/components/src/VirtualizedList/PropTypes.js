@@ -56,4 +56,6 @@ export default {
 	sortDirection: PropTypes.oneOf([SORT_BY.ASC, SORT_BY.DESC]),
 	// List type ('TABLE' | 'LARGE' | ...)
 	type: PropTypes.string,
+	// Action to display in the header
+	headerAction: PropTypes.element,
 };
