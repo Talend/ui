@@ -1,7 +1,5 @@
 ---
-'@talend/react-dataviz': major
+'@talend/react-dataviz': minor
 ---
 
 feat: Use @talend/assets-api to load topologies.
-
-Breaking change: Ensure you are up to date with your toolchain (talend/scripts) to build your webapp.

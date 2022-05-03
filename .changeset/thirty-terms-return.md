@@ -1,7 +1,5 @@
 ---
-'@talend/react-forms': major
+'@talend/react-forms': minor
 ---
 
 Use @talend/assets-api to load aceeditor
-
-Breaking change: Ensure you are up to date with your toolchain (talend/scripts) to build your webapp.
