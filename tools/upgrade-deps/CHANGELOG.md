@@ -1,5 +1,11 @@
 # @talend/upgrade-deps
 
+## 1.3.3
+
+### Patch Changes
+
+- b82096450: Fix npm view command on Windows
+
 ## 1.3.2
 
 ### Patch Changes
