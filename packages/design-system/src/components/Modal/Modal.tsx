@@ -23,6 +23,10 @@ function ModalIcon(props: { icon: ModalIcon; 'data-test'?: string }): ReactEleme
 	);
 }
 
+type PrimaryActionPropsType =
+	| ButtonPrimaryPropsType
+	| ({ destructive: true } & ButtonDestructivePropsType);
+
 export type ModalPropsType = {
 	header: {
 		title: ReactNode;
@@ -31,11 +35,25 @@ export type ModalPropsType = {
 	};
 	onClose?: Function;
 	disclosure?: ReactElement;
-	primaryAction?: ButtonPrimaryPropsType | { destructive: true & ButtonDestructivePropsType };
+	primaryAction?: PrimaryActionPropsType;
 	secondaryAction?: ButtonSecondaryPropsType;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
 };
+
+function PrimaryAction(props: PrimaryActionPropsType) {
+	const dataTest = 'modal.buttons.primary';
+
+	if (!('destructive' in props) || !props.destructive) {
+		return <ButtonPrimary {...(props as ButtonPrimaryPropsType)} data-test={dataTest} />;
+	}
+
+	const { destructive, ...buttonProps } = props;
+
+	return (
+		<ButtonDestructive {...(buttonProps as ButtonDestructivePropsType)} data-test={dataTest} />
+	);
+}
 
 function Modal(props: ModalPropsType): ReactElement {
 	const { header, primaryAction, disclosure, onClose, secondaryAction, preventEscaping, children } =
@@ -52,22 +70,6 @@ function Modal(props: ModalPropsType): ReactElement {
 	const onCloseHandler = hasDisclosure
 		? () => dialog.setVisible(false)
 		: () => onClose && onClose();
-
-	let primaryActionRendered;
-	if (primaryAction) {
-		const dataTest = 'modal.buttons.primary';
-
-		if (!('destructive' in primaryAction) || !primaryAction.destructive) {
-			primaryActionRendered = (
-				<ButtonPrimary {...(primaryAction as ButtonPrimaryPropsType)} data-test={dataTest} />
-			);
-		} else {
-			const { destructive, ...buttonProps } = primaryAction;
-			primaryActionRendered = (
-				<ButtonDestructive {...(buttonProps as ButtonDestructivePropsType)} data-test={dataTest} />
-			);
-		}
-	}
 
 	return (
 		<>
@@ -127,7 +129,8 @@ function Modal(props: ModalPropsType): ReactElement {
 										{secondaryAction && (
 											<ButtonSecondary {...secondaryAction} data-test="modal.buttons.secondary" />
 										)}
-										{primaryActionRendered}
+
+										{primaryAction && <PrimaryAction {...primaryAction} />}
 									</StackHorizontal>
 								</div>
 							</StackVertical>

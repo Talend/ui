@@ -197,6 +197,20 @@ export const WithActions: ComponentStory<typeof Modal> = props => (
 	</ModalStory>
 );
 
+export const WithDestructivePrimaryAction: ComponentStory<typeof Modal> = props => (
+	<ModalStory
+		{...props}
+		header={{ title: 'With actions' }}
+		primaryAction={{
+			children: 'Primary action',
+			onClick: action('[Primary action] onClick'),
+			destructive: true,
+		}}
+	>
+		<p>A modal with a destructive primary action.</p>
+	</ModalStory>
+);
+
 export const WithNonClosingBackdrop: ComponentStory<typeof Modal> = props => (
 	<ModalStory {...props} header={{ title: 'With non closing backdrop' }} preventEscaping>
 		<p>
