@@ -2,7 +2,7 @@
 
 Assets are files from a npm package which can be needeed at some point by a web application. It can be a stylesheet, a SVG icon, a js script, a json file, etc...
 
-At Talend our web applications may rely on a CDN to load libraries like lodash, d3 but also @talend/design-system using UMD distribution format. An application rely on a CDN depending of the execution context; We are following 12 factors principals. So the same code base must work in both case so an asset url may change from '/cdn/my-package/1.2.3/dist/my-assets.svg`to`https://mycdn.talend.com/my-package/1.2.3/dist/my-assets.svg`.
+At Talend our web applications may rely on a CDN to load libraries like lodash, d3 but also @talend/design-system using UMD distribution format. An application rely on a CDN depending of the execution context; We are following 12 factors principals. So the same code base must work in both case so an asset url may change from `/cdn/my-package/1.2.3/dist/my-assets.svg` to `https://mycdn.talend.com/my-package/1.2.3/dist/my-assets.svg`.
 
 This is made possible using custom configuration of `@talend/dynamic-cdn-webpack-plugin`. Now we also need to be able to load translations, icons and more **assets** from the code.
 
