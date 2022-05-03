@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.46.1
+
+### Patch Changes
+
+- bcc5e70ed: fix(VList): handle VList without columns
+
 ## 6.46.0
 
 ### Minor Changes
