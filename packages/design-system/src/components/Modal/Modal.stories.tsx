@@ -135,8 +135,8 @@ function QuicheRecipe(): ReactElement {
 	);
 }
 
-export const Basic: ComponentStory<typeof Modal> = props => (
-	<ModalStory {...props} header={{ title: 'Basic modal' }}>
+export const NoDisclosure: ComponentStory<typeof Modal> = props => (
+	<ModalStory {...props} header={{ title: 'No disclosure modal' }}>
 		<p>A basic modal with only a title and a text content.</p>
 	</ModalStory>
 );

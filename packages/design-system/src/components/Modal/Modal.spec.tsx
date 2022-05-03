@@ -3,11 +3,11 @@ import { composeStories } from '@storybook/testing-react';
 
 import * as Stories from './Modal.stories';
 
-const { Basic, WithDisclosure, WithNonClosingBackdrop } = composeStories(Stories);
+const { NoDisclosure, WithDisclosure, WithNonClosingBackdrop } = composeStories(Stories);
 
 context('<Modal />', () => {
 	it('should render and focus on the modal', () => {
-		cy.mount(<Basic />);
+		cy.mount(<NoDisclosure />);
 		cy.getByTest('open-modal').click();
 		cy.getByTest('modal').should('be.visible');
 		cy.focused().should('have.attr', 'data-test', 'modal');
@@ -21,7 +21,7 @@ context('<Modal />', () => {
 
 	it('should close the modal on cancel/close action', () => {
 		// when
-		cy.mount(<Basic />);
+		cy.mount(<NoDisclosure />);
 		cy.getByTest('open-modal').click();
 		cy.getByTest('modal.buttons.close')
 			.click()
@@ -33,7 +33,7 @@ context('<Modal />', () => {
 
 	it('should close the modal on ESC key', () => {
 		// when
-		cy.mount(<Basic />);
+		cy.mount(<NoDisclosure />);
 		cy.getByTest('open-modal').click();
 		cy.getByTest('modal')
 			.type('{esc}')
