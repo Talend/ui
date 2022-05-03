@@ -40,6 +40,9 @@ export const Default = () => (
 		enableColResize={false}
 	/>
 );
+Default.parameters = {
+	chromatic: { disableSnapshot: false },
+};
 
 export const NoSubtype = () => (
 	<DataGrid

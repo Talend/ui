@@ -1,4 +1,4 @@
-name: Design System visual testing
+name: Visual testing
 
 on:
   workflow_dispatch:
@@ -14,21 +14,38 @@ on:
     types: [labeled, synchronize, opened, reopened, ready_for_review]
     branches:
       - master
-    paths:
-      - "packages/design-tokens/**"
-      - "packages/design-system/**"
   push:
     branches:
       - master
-    paths:
-      - "packages/design-tokens/**"
-      - "packages/design-system/**"
 
 jobs:
-  build:
+  changes:
     runs-on: ubuntu-latest
-    if: ( !github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
+    outputs:
+      packages: ${{ steps.filter.outputs.changes }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            design-system:
+             - 'packages/design-tokens/**'
+             - 'packages/design-system/**'
+            datagrid: packages/datagrid/**
+            dataviz: packages/dataviz/**
+
+  build:
+    needs: changes
+    strategy:
+      # Avoid // deploys when multiple packages are changed
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        package: ${{ fromJSON(needs.changes.outputs.packages) }}
+    runs-on: ubuntu-latest
     environment: pull_request_unsafe
+    if: needs.changes.outputs.packages != '[]'
     steps:
       - uses: actions/checkout@v2
         with:
@@ -37,17 +54,22 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
           cache: "yarn"
 
       - name: Install dependencies
         run: yarn --frozen-lock --ignore-scripts
 
       - name: Build @talend/design-tokens
+        if: matrix.package == 'design-system'
         run: |
           yarn workspace @talend/assets-api run build:lib
           yarn workspace @talend/design-tokens run build:lib
+
+      - name: Build @talend/*
+        if: matrix.package != 'design-system'
+        run: |
+          # We need to build all dependencies (cmf, coponents...)
+          yarn postinstall
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
@@ -55,8 +77,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: "packages/design-system"
+          workingDir: packages/${{ matrix.package }}
           exitZeroOnChanges: true # Option to prevent the workflow from failing in PR
+          # Handle monorepos https://www.chromatic.com/docs/monorepos
+          preserveMissing: true
+          forceRebuild: true
 
       - name: Publish Master to DS Chromatic
         if: github.ref == 'refs/heads/master'
@@ -64,5 +89,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: "packages/design-system"
+          workingDir: packages/${{ matrix.package }}
           autoAcceptChanges: true # Option to accept any change for this baseline refresh
+          preserveMissing: true
+          forceRebuild: true

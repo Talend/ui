@@ -37,3 +37,10 @@ export const decorators = [
 		</App>
 	),
 ];
+
+export const parameters = {
+	chromatic: {
+		// Disable by default and enable only on some stories
+		disableSnapshot: true,
+	},
+};

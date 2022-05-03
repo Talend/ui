@@ -9,6 +9,7 @@
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
+    "build-storybook": "talend-scripts build-storybook",
     "start": "talend-scripts start-storybook -p 6010",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
