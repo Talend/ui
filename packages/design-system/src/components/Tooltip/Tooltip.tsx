@@ -33,14 +33,14 @@ export type TooltipProps = React.PropsWithChildren<any> &
 	};
 
 const Tooltip: React.FC<TooltipProps> = ({ children, title, baseId, ...rest }: TooltipProps) => {
-	const computedId = useId();
+	const { id: reakitId } = useId();
 	const tooltipState = useReakitTooltipState({
 		...rest,
 		animated: 250,
 		gutter: 15,
 		unstable_flip: true,
 		unstable_preventOverflow: true,
-		baseId: baseId || computedId.id,
+		baseId: baseId || reakitId,
 	});
 
 	return (
