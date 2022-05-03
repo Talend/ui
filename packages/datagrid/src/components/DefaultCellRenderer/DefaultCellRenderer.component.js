@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Skeleton } from '@talend/react-components';
+import { SkeletonParagraph } from '@talend/design-system';
 
 import { AVRO_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
@@ -26,7 +26,7 @@ function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }
 	const plainValue = convertValue(value);
 
 	if (data.loaded === false) {
-		content = <Skeleton key="1" />;
+		content = <SkeletonParagraph size="M" />;
 	} else {
 		content = [
 			<QualityIndicator key="2" qualityIndex={plainValue.quality} />,

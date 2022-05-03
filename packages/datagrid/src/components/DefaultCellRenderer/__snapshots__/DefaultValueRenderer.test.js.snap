@@ -27,7 +27,9 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer with the toolt
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  loreum
+  <FormatValueComponent
+    value="loreum"
+  />
 </div>
 `;
 
@@ -36,7 +38,9 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer with the toolt
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  loreum
+  <FormatValueComponent
+    value="loreum"
+  />
 </div>
 `;
 
@@ -45,7 +49,9 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer with the toolt
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  loreum
+  <FormatValueComponent
+    value="loreum"
+  />
 </div>
 `;
 
@@ -54,7 +60,9 @@ exports[`#DefaultValueRenderer should render DefaultValueRenderer with the toolt
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  loreum
+  <FormatValueComponent
+    value="loreum"
+  />
 </div>
 `;
 
@@ -63,7 +71,9 @@ exports[`#DefaultValueRenderer should render a boolean 1`] = `
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  false
+  <FormatValueComponent
+    value="false"
+  />
 </div>
 `;
 
@@ -72,7 +82,9 @@ exports[`#DefaultValueRenderer should render a bytes 1`] = `
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  ejfiejifje
+  <FormatValueComponent
+    value="ejfiejifje"
+  />
 </div>
 `;
 
@@ -81,7 +93,9 @@ exports[`#DefaultValueRenderer should render empty when the value is null 1`] = 
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  
+  <FormatValueComponent
+    value=""
+  />
 </div>
 `;
 
@@ -101,6 +115,8 @@ exports[`#DefaultValueRenderer should render without the tooltip 1`] = `
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
 >
-  loreum
+  <FormatValueComponent
+    value="loreum"
+  />
 </div>
 `;
