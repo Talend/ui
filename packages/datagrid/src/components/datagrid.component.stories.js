@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '.';
 import DynamicDataGrid from '../../stories/DynamicDataGrid.component';
@@ -24,9 +23,13 @@ very loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
+sample.data[3].value.field0.value = 'multiple       spaces';
+
 export default {
 	title: 'Datagrid/Component',
-	decorators: [story => <div style={{ height: '90vh' }}>{story()}</div>],
+	decorators: [
+		story => <div style={{ height: '90vh', backgroundColor: 'lightGrey' }}>{story()}</div>,
+	],
 };
 
 export const Default = () => (
@@ -40,6 +43,9 @@ export const Default = () => (
 		enableColResize={false}
 	/>
 );
+Default.parameters = {
+	chromatic: { disableSnapshot: false },
+};
 
 export const OnlyColumnName = () => (
 	<DataGrid
@@ -127,11 +133,6 @@ export const DynamicChangeSchema = () => {
 				<div>
 					<input type="button" value="changestatus" onClick={this.changeState} />
 					Number of fields : {currentSample.schema.fields.length}
-					<IconsProvider
-						bundles={[
-							'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-						]}
-					/>
 					<div style={{ height: '200px' }}>
 						<DataGrid
 							data={currentSample}

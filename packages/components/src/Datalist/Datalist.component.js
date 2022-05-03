@@ -67,7 +67,7 @@ function findEntry(titleMap, attributeName, attributeValue = '') {
 			}
 		} else if (
 			!entry.disabled &&
-			entry[attributeName].toLowerCase() === attributeValue.toLowerCase()
+			String(entry[attributeName]).toLowerCase() === String(attributeValue).toLowerCase()
 		) {
 			// entry is {name, value}
 			return entry;
@@ -78,6 +78,10 @@ function findEntry(titleMap, attributeName, attributeValue = '') {
 }
 
 function getEntryFromName(titleMap, name, restricted) {
+	if (name === '') {
+		return { name, value: '' };
+	}
+
 	const entry = findEntry(titleMap, 'name', name);
 	if (entry) {
 		return entry;

@@ -19,7 +19,10 @@ describe('ListGrid', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.getElement().props.rowRenderer.displayName).not.toBe('RowSelection(undefined)');
+
+		expect(wrapper.find('Table').props().rowRenderer.displayName).not.toBe(
+			'RowSelection(undefined)',
+		);
 	});
 
 	it('should render react-virtualized table without header', () => {
@@ -77,7 +80,7 @@ describe('ListGrid', () => {
 		);
 
 		// then
-		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('RowSelection(undefined)');
+		expect(wrapper.find('Table').props().rowRenderer.displayName).toBe('RowSelection(undefined)');
 	});
 
 	it('should render noRows', () => {

@@ -1,5 +1,38 @@
 # @talend/react-components
 
+## 6.46.1
+
+### Patch Changes
+
+- bcc5e70ed: fix(VList): handle VList without columns
+
+## 6.46.0
+
+### Minor Changes
+
+- b375a5ba7: feat(List): add column chooser for VList and change toolbar buttons aspect
+
+### Patch Changes
+
+- d514bd8ea: fix DataList component error when int type
+
+## 6.45.1
+
+### Patch Changes
+
+- f5e8188f1: FormatValue: Handle string without whitespaces
+
+## 6.45.0
+
+### Minor Changes
+
+- 9522692fa: chore(Datalist): Allow reset to empty in restricted mode
+
+### Patch Changes
+
+- Updated dependencies [59a16bfa7]
+  - @talend/design-system@2.4.0
+
 ## 6.44.14
 
 ### Patch Changes

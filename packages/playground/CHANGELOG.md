@@ -1,5 +1,12 @@
 # @talend/ui-playground
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [9f3cad9bd]
+  - @talend/react-dataviz@2.0.0
+
 ## 1.0.2
 
 ### Patch Changes
