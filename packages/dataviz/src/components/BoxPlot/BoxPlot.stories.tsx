@@ -7,6 +7,11 @@ const Template: Story<BoxPlotProps> = args => <BoxPlot {...args} />;
 export default {
 	title: 'Dataviz/BoxPlot',
 	component: BoxPlot,
+	parameters: {
+		chromatic: {
+			delay: 1500,
+		},
+	},
 } as Meta<BoxPlotProps>;
 
 export const Default = Template.bind({});
