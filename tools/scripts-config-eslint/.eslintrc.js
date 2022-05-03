@@ -19,7 +19,6 @@ if (isTS) {
 				'airbnb-typescript',
 				'plugin:import/typescript',
 				'plugin:@typescript-eslint/recommended',
-				'prettier/@typescript-eslint',
 			])
 			.filter(i => !TO_REMOVE.includes(i)),
 		plugins: config.plugins.concat(['@typescript-eslint']),
