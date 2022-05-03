@@ -3,8 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import assetsApi from '@talend/assets-api';
-import { Inject, Skeleton } from '@talend/react-components';
-
+import { Inject } from '@talend/react-components';
+import { Icon } from '@talend/design-system';
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
 import DefaultPinHeaderRenderer, {
@@ -20,7 +20,7 @@ const AgGridReact = React.lazy(() =>
 	assetsApi
 		.getUMD('ag-grid-community')
 		.then(() => assetsApi.getUMD('ag-grid-react'))
-		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact))
+		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact)),
 );
 
 export const AG_GRID = {
@@ -340,10 +340,14 @@ export default class DataGrid extends React.Component {
 	render() {
 		let content;
 		if (this.props.loading) {
-			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
+			content = (
+				<div className={theme['td-grid-loader']}>
+					<Icon name="talend-table" />
+				</div>
+			);
 		} else {
 			content = (
-				<React.Suspense fallback={<Skeleton name="talend-table" type={Skeleton.TYPES.icon} />}>
+				<React.Suspense fallback={<Icon name="talend-table" />}>
 					<AgGridReact {...this.getAgGridConfig()} />
 				</React.Suspense>
 			);
