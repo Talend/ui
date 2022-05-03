@@ -33,7 +33,7 @@ function ModalStory(props: Partial<ModalPropsType>) {
 	);
 }
 
-function QuicheRecipe(): ReactElement {
+function QuicheRecipe() {
 	return (
 		<div>
 			<p>
