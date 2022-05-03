@@ -891,15 +891,3 @@ export const TableWithColumnChooserAndLockedColumns = () => (
 		</section>
 	</div>
 );
-
-export const ListWithoutColumns = () => {
-	return (
-		<div className="virtualized-list">
-			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection}>
-					<List.VList></List.VList>
-				</List.Manager>
-			</section>
-		</div>
-	);
-};
