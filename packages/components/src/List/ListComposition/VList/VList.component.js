@@ -61,7 +61,7 @@ function VList({ children, columnChooser, ...rest }) {
 				{...rest}
 			>
 				{visibleColumns
-					? children.filter(column => visibleColumns?.includes(column.props?.dataKey))
+					? children?.filter(column => visibleColumns?.includes(column.props?.dataKey))
 					: children}
 			</VirtualizedList>
 		</div>
