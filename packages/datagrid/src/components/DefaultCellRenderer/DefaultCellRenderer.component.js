@@ -20,7 +20,7 @@ function convertValue(value) {
 	return value.toJS();
 }
 
-function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
+function DefaultCellRenderer({ avroRenderer, colDef, value, data }) {
 	let content;
 
 	const plainValue = convertValue(value);
@@ -30,13 +30,7 @@ function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }
 	} else {
 		content = [
 			<QualityIndicator key="2" qualityIndex={plainValue.quality} />,
-			<AvroRenderer
-				key="3"
-				colDef={colDef}
-				data={plainValue}
-				avroRenderer={avroRenderer}
-				getComponent={getComponent}
-			/>,
+			<AvroRenderer key="3" colDef={colDef} data={plainValue} avroRenderer={avroRenderer} />,
 		];
 	}
 
@@ -63,7 +57,6 @@ DefaultCellRenderer.propTypes = {
 	}),
 	value: PropTypes.object,
 	data: PropTypes.object,
-	getComponent: PropTypes.func,
 };
 
 DefaultCellRenderer.theme = theme;

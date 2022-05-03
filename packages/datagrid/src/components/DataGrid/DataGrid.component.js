@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import { AgGridReact } from 'ag-grid-react';
-import Inject from '@talend/react-components/lib/Inject';
 import { Icon } from '@talend/design-system';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 
@@ -11,6 +10,9 @@ import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRend
 import DefaultPinHeaderRenderer, {
 	PIN_HEADER_RENDERER_COMPONENT,
 } from '../DefaultPinHeaderRenderer';
+import DefaultIntCellRenderer from '../DefaultIntCellRenderer';
+import DefaultRenderer from '../DefaultCellRenderer/DefaultRenderer.component';
+import DefaultDateCellRenderer from '../DefaultDateCellRenderer';
 
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
@@ -31,35 +33,26 @@ const COLUMN_MIN_WIDTH = 30;
 const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;
 
-export function injectHeaderRenderer(
-	getComponent,
-	injectedHeaderRenderer,
-	onFocusedColumn,
-	onKeyDown,
-) {
-	const Component = Inject.get(getComponent, injectedHeaderRenderer, DefaultHeaderRenderer);
-
+export function injectHeaderRenderer(Component, onFocusedColumn, onKeyDown) {
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
-export function injectCellRenderer(getComponent, cellRenderer, avroRenderer) {
-	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
-
-	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
+export function injectCellRenderer(Component, avroRenderer) {
+	return props => <Component {...props} avroRenderer={avroRenderer} />;
 }
 
 export function getAvroRenderer(avroRenderer) {
 	return {
-		intCellRenderer: 'DefaultIntCellRenderer',
-		stringCellRenderer: 'DefaultStringCellRenderer',
-		dateCellRenderer: 'DefaultDateCellRenderer',
+		intCellRenderer: DefaultIntCellRenderer,
+		stringCellRenderer: DefaultRenderer,
+		dateCellRenderer: DefaultDateCellRenderer,
 		...avroRenderer,
 	};
 }
 
 export default class DataGrid extends React.Component {
 	static defaultProps = {
-		cellRenderer: 'DefaultCellRenderer',
+		cellRenderer: DefaultCellRenderer,
 		columnMinWidth: COLUMN_MIN_WIDTH,
 		deltaRowDataMode: true,
 		enableColResize: true,
@@ -68,8 +61,8 @@ export default class DataGrid extends React.Component {
 		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
 		getRowDataFn: serializer.getRowData,
 		headerHeight: HEADER_HEIGHT,
-		headerRenderer: 'DefaultHeaderRenderer',
-		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
+		headerRenderer: DefaultHeaderRenderer,
+		pinHeaderRenderer: DefaultPinHeaderRenderer,
 		rowHeight: ROW_HEIGHT,
 		rowNodeIdentifier: 'index.index',
 		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
@@ -276,21 +269,15 @@ export default class DataGrid extends React.Component {
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
 			[CELL_RENDERER_COMPONENT]: injectCellRenderer(
-				this.props.getComponent,
 				this.props.cellRenderer,
 				getAvroRenderer(this.props.avroRenderer),
 			),
 			[HEADER_RENDERER_COMPONENT]: injectHeaderRenderer(
-				this.props.getComponent,
 				this.props.headerRenderer,
 				this.onFocusedColumn,
 				this.onKeyDownHeaderColumn,
 			),
-			[PIN_HEADER_RENDERER_COMPONENT]: Inject.get(
-				this.props.getComponent,
-				this.props.pinHeaderRenderer,
-				DefaultPinHeaderRenderer,
-			),
+			[PIN_HEADER_RENDERER_COMPONENT]: this.props.pinHeaderRenderer,
 		};
 
 		return agGridOptions;

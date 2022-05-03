@@ -5,13 +5,7 @@ import { JSDOM } from 'jsdom';
 
 import { NAMESPACE_DATA, NAMESPACE_INDEX } from '../../constants';
 
-import DataGrid, { injectHeaderRenderer, AG_GRID } from './DataGrid.component';
-
-function PinHeaderRenderer() {}
-
-function getComponent() {
-	return PinHeaderRenderer;
-}
+import DataGrid, { AG_GRID } from './DataGrid.component';
 
 const sample = {
 	schema: {
@@ -165,15 +159,13 @@ jest.mock('react-dom', () => ({
 
 describe('#DataGrid', () => {
 	it('should render DataGrid', () => {
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should not call forceRedrawRows when the DataGrid is loading', () => {
 		const forceRedrawRows = jest.fn(() => true);
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
-		);
+		const wrapper = shallow(<DataGrid forceRedrawRows={forceRedrawRows} loading />);
 
 		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
@@ -181,9 +173,7 @@ describe('#DataGrid', () => {
 
 	it('should not call forceRedrawRows when the DataGrid is not ready', () => {
 		const forceRedrawRows = jest.fn(() => true);
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
-		);
+		const wrapper = shallow(<DataGrid forceRedrawRows={forceRedrawRows} />);
 
 		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
@@ -192,9 +182,7 @@ describe('#DataGrid', () => {
 	it('should call redrawRows when forceRedrawRows return true', () => {
 		const forceRedrawRows = jest.fn(() => true);
 		const redrawRows = jest.fn();
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
-		);
+		const wrapper = shallow(<DataGrid forceRedrawRows={forceRedrawRows} rowData={[]} />);
 
 		wrapper.instance().onGridReady({
 			api: {
@@ -210,9 +198,7 @@ describe('#DataGrid', () => {
 	it('should not call redrawRows when forceRedrawRows return false', () => {
 		const forceRedrawRows = jest.fn(() => false);
 		const redrawRows = jest.fn();
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
-		);
+		const wrapper = shallow(<DataGrid forceRedrawRows={forceRedrawRows} rowData={[]} />);
 
 		wrapper.instance().onGridReady({
 			api: {
@@ -226,7 +212,7 @@ describe('#DataGrid', () => {
 	});
 
 	it('should render DataGrid with columnsDefs and rowData', () => {
-		const wrapper = shallow(<DataGrid getComponent={getComponent} data={sample} />);
+		const wrapper = shallow(<DataGrid data={sample} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -240,7 +226,6 @@ describe('#DataGrid', () => {
 		const props = {
 			columnsConf: {},
 			data: sample,
-			getComponent,
 			getCellValueFn,
 			getColumnDefsFn,
 			getPinnedColumnDefsFn,
@@ -263,7 +248,7 @@ describe('#DataGrid', () => {
 describe('#AgGrid API', () => {
 	it('should set the AgGrid API when the ag-grid is loaded', () => {
 		const api = {};
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 
 		wrapper.find('AgGridReact').props().onGridReady({ api });
 
@@ -274,7 +259,7 @@ describe('#AgGrid API', () => {
 describe('#Datagrid method', () => {
 	it('should set the current grid ref', () => {
 		const element = {};
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 
 		wrapper.instance().setGridInstance(element);
 
@@ -283,7 +268,7 @@ describe('#Datagrid method', () => {
 
 	it('should set the current selected column', () => {
 		const currentColumn = 'colId';
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 
 		wrapper.instance().setCurrentFocusedColumn(currentColumn);
 
@@ -295,7 +280,7 @@ describe('#Datagrid method', () => {
 			'<!DOCTYPE html><div class="grid-element"><div class="column-focus"></div><div class="column-focus"></div><div></div></div>',
 		).window;
 		const gridElement = document.querySelector('.grid-element');
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		wrapper.instance().setGridInstance({
 			[AG_GRID.ELEMENT]: gridElement,
 		});
@@ -312,7 +297,7 @@ describe('#Datagrid method', () => {
 			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_DATA}colId"></div><div col-id="${NAMESPACE_DATA}colId"></div><div></div></div>`,
 		).window;
 		const gridElement = document.querySelector('.grid-element');
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const instance = wrapper.instance();
 		instance.setGridInstance({
 			[AG_GRID.ELEMENT]: gridElement,
@@ -331,7 +316,7 @@ describe('#Datagrid method', () => {
 			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_DATA}colId"></div><div col-id="${NAMESPACE_DATA}colId"></div><div></div></div>`,
 		).window;
 		const gridElement = document.querySelector('.grid-element');
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const instance = wrapper.instance();
 		instance.setGridInstance({
 			[AG_GRID.ELEMENT]: gridElement,
@@ -349,7 +334,7 @@ describe('#Datagrid method', () => {
 			`<!DOCTYPE html><div class="grid-element"><div col-id="${NAMESPACE_DATA}colId"></div><div col-id="${NAMESPACE_DATA}colId"></div><div></div></div>`,
 		).window;
 		const gridElement = document.querySelector('.grid-element');
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const instance = wrapper.instance();
 		instance.setGridInstance({
 			[AG_GRID.ELEMENT]: gridElement,
@@ -372,7 +357,7 @@ describe('#Datagrid method', () => {
 				};
 			},
 		};
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const nextCellPosition = {
 			rowIndex: 1,
 		};
@@ -401,7 +386,7 @@ describe('#Datagrid method', () => {
 				};
 			},
 		};
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const nextCellPosition = null;
 
 		const previousCellPosition = {
@@ -422,7 +407,7 @@ describe('#Datagrid method', () => {
 	it('should not manage the cells with keyboard if any api', () => {
 		const setSelected = jest.fn();
 		const api = null;
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const nextCellPosition = {
 			rowIndex: 1,
 		};
@@ -443,7 +428,7 @@ describe('#Datagrid method', () => {
 	});
 
 	it('should set the current selected column from props', () => {
-		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId="field3" />);
+		const wrapper = shallow(<DataGrid focusedColumnId="field3" />);
 		wrapper.instance().onFocusedColumn = jest.fn();
 		wrapper.instance().onGridReady({ api: {} });
 
@@ -451,7 +436,7 @@ describe('#Datagrid method', () => {
 	});
 
 	it('should update current selected column from props', () => {
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const deselectAll = jest.fn();
 		const clearFocusedCell = jest.fn();
 		const ensureColumnVisible = jest.fn();
@@ -473,7 +458,7 @@ describe('#Datagrid method', () => {
 	});
 
 	it('should not update local state on click when in controlled mode', () => {
-		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId={null} />);
+		const wrapper = shallow(<DataGrid focusedColumnId={null} />);
 		const deselectAll = jest.fn();
 		const clearFocusedCell = jest.fn();
 		const ensureColumnVisible = jest.fn();
@@ -501,7 +486,7 @@ describe('#Datagrid method', () => {
 			clearFocusedCell,
 			ensureColumnVisible,
 		};
-		const wrapper = shallow(<DataGrid getComponent={getComponent} focusedColumnId="field2" />);
+		const wrapper = shallow(<DataGrid focusedColumnId="field2" />);
 		const instance = wrapper.instance();
 		instance.setCurrentFocusedColumn = jest.fn();
 		instance.setCurrentFocusedColumn = jest.fn();
@@ -523,9 +508,7 @@ describe('#Datagrid method', () => {
 		};
 		const currentColId = 'colId';
 		const onFocusedColumn = jest.fn();
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} onFocusedColumn={onFocusedColumn} />,
-		);
+		const wrapper = shallow(<DataGrid onFocusedColumn={onFocusedColumn} />);
 		const instance = wrapper.instance();
 
 		instance.setCurrentFocusedColumn = jest.fn();
@@ -552,7 +535,7 @@ describe('#Datagrid method', () => {
 			pinned: false,
 		};
 		const onFocusedCell = jest.fn();
-		const wrapper = shallow(<DataGrid getComponent={getComponent} onFocusedCell={onFocusedCell} />);
+		const wrapper = shallow(<DataGrid onFocusedCell={onFocusedCell} />);
 		const instance = wrapper.instance();
 		instance.setCurrentFocusedColumn(currentColId);
 
@@ -578,7 +561,7 @@ describe('#Datagrid method', () => {
 			pinned: false,
 		};
 		const onFocusedCell = jest.fn();
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const instance = wrapper.instance();
 		instance.setCurrentFocusedColumn(currentColId);
 
@@ -603,7 +586,7 @@ describe('#Datagrid method', () => {
 			pinned: false,
 		};
 		const onFocusedCell = jest.fn();
-		const wrapper = shallow(<DataGrid getComponent={getComponent} onFocusedCell={onFocusedCell} />);
+		const wrapper = shallow(<DataGrid onFocusedCell={onFocusedCell} />);
 		const instance = wrapper.instance();
 		instance.setCurrentFocusedColumn(currentColId);
 
@@ -624,7 +607,7 @@ describe('#Datagrid method', () => {
 	it('should not focus a column when there is no column', () => {
 		const column = null;
 		const onFocusedCell = jest.fn();
-		const wrapper = shallow(<DataGrid getComponent={getComponent} onFocusedCell={onFocusedCell} />);
+		const wrapper = shallow(<DataGrid onFocusedCell={onFocusedCell} />);
 		const instance = wrapper.instance();
 
 		instance.setCurrentFocusedColumn = jest.fn();
@@ -648,7 +631,7 @@ describe('#Datagrid method', () => {
 			pinned: true,
 		};
 		const onFocusedCell = jest.fn();
-		const wrapper = shallow(<DataGrid getComponent={getComponent} onFocusedCell={onFocusedCell} />);
+		const wrapper = shallow(<DataGrid onFocusedCell={onFocusedCell} />);
 		const instance = wrapper.instance();
 
 		instance.setCurrentFocusedColumn = jest.fn();
@@ -674,7 +657,7 @@ describe('#Datagrid method', () => {
 			ensureIndexVisible,
 		};
 		const colId = 'colId';
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const instance = wrapper.instance();
 
 		wrapper.find('AgGridReact').props().onGridReady({ api });
@@ -696,7 +679,7 @@ describe('#Datagrid method', () => {
 		const setFocusedCell = jest.fn();
 		const ensureIndexVisible = jest.fn();
 		const colId = 'colId';
-		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
+		const wrapper = shallow(<DataGrid />);
 		const instance = wrapper.instance();
 
 		wrapper.find('AgGridReact').props().onGridReady({
@@ -727,9 +710,7 @@ describe('#Datagrid method', () => {
 			getLastDisplayedRow: () => lastIndex,
 		};
 		const onVerticalScroll = jest.fn();
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} onVerticalScroll={onVerticalScroll} />,
-		);
+		const wrapper = shallow(<DataGrid onVerticalScroll={onVerticalScroll} />);
 		const instance = wrapper.instance();
 
 		wrapper.find('AgGridReact').props().onGridReady({
@@ -749,9 +730,7 @@ describe('#Datagrid method', () => {
 			direction: 'horizontal',
 		};
 		const onVerticalScroll = jest.fn();
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} onVerticalScroll={onVerticalScroll} />,
-		);
+		const wrapper = shallow(<DataGrid onVerticalScroll={onVerticalScroll} />);
 		const instance = wrapper.instance();
 
 		instance.onBodyScroll(event);
@@ -760,46 +739,10 @@ describe('#Datagrid method', () => {
 	});
 });
 
-describe('#injectHeaderRenderer', () => {
-	const Component = () => {};
-	const onFocusedColumn = jest.fn();
-	const onKeyDown = jest.fn();
-
-	it('should injected the header renderer', () => {
-		const getCellComponent = jest.fn(() => Component);
-		const componentId = 'header';
-		const InjectedComponent = injectHeaderRenderer(
-			getCellComponent,
-			'header',
-			onFocusedColumn,
-			onKeyDown,
-		);
-
-		const wrapper = shallow(<InjectedComponent id="injectedComponent" myProps="myProps" />);
-		wrapper.props().onFocusedColumn();
-		wrapper.props().onKeyDown();
-
-		expect(wrapper.props().myProps).toBe('myProps');
-		expect(getCellComponent).toHaveBeenCalledWith(componentId);
-		expect(onFocusedColumn).toHaveBeenCalled();
-		expect(onKeyDown).toHaveBeenCalled();
-	});
-
-	it('should injected the default header renderer', () => {
-		const InjectedComponent = injectHeaderRenderer(null, 'header', onFocusedColumn);
-
-		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
-
-		expect(wrapper.find('DefaultHeaderRenderer').length).toBe(1);
-	});
-});
-
 describe('#forceRedraw', () => {
 	it('should not call forceRedrawRows when the DataGrid is loading', () => {
 		const forceRedrawRows = jest.fn(() => true);
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
-		);
+		const wrapper = shallow(<DataGrid forceRedrawRows={forceRedrawRows} loading />);
 
 		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
@@ -807,9 +750,7 @@ describe('#forceRedraw', () => {
 
 	it('should not call forceRedrawRows when the DataGrid is not ready', () => {
 		const forceRedrawRows = jest.fn(() => true);
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
-		);
+		const wrapper = shallow(<DataGrid forceRedrawRows={forceRedrawRows} />);
 
 		wrapper.instance().componentDidUpdate({});
 		expect(forceRedrawRows).not.toHaveBeenCalled();
@@ -818,9 +759,7 @@ describe('#forceRedraw', () => {
 	it('should call redrawRows when forceRedrawRows return true', () => {
 		const forceRedrawRows = jest.fn(() => true);
 		const redrawRows = jest.fn();
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
-		);
+		const wrapper = shallow(<DataGrid forceRedrawRows={forceRedrawRows} rowData={[]} />);
 
 		wrapper.instance().onGridReady({
 			api: {
@@ -836,9 +775,7 @@ describe('#forceRedraw', () => {
 	it('should not call redrawRows when forceRedrawRows return false', () => {
 		const forceRedrawRows = jest.fn(() => false);
 		const redrawRows = jest.fn();
-		const wrapper = shallow(
-			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
-		);
+		const wrapper = shallow(<DataGrid forceRedrawRows={forceRedrawRows} rowData={[]} />);
 
 		wrapper.instance().onGridReady({
 			api: {
