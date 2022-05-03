@@ -1,24 +1,11 @@
 // custom inject to UMD from surge and the others from unpkg
 
+// eslint-disable-next-line func-names
 (function () {
 	const CDN_URL_REGEX = /^(\/?.*\/cdn)\//;
 
-	const PKGS = [
-		'@talend/design-system',
-		'@talend/design-tokens',
-		'@talend/react-components',
-		'@talend/react-containers',
-		'@talend/react-cmf',
-		'@talend/react-cmf-router',
-		'@talend/react-dataviz',
-		'@talend/react-faceted-search',
-		'@talend/react-datagrid',
-		'@talend/react-forms',
-		'@talend/bootstrap-theme',
-		'@talend/icons',
-	];
-	function removeIntegrityOnDev(info) {
-		if (PKGS.includes(info.name)) {
+	function removeIntegrity(info) {
+		if (info.name && info.name.startsWith('@talend')) {
 			// eslint-disable-next-line no-param-reassign
 			delete info.integrity;
 		}
@@ -35,8 +22,12 @@
 		}
 		return newUrl || url;
 	}
+	window.Talend.CDN_URL = 'https://statics.cloud.talend.com';
+
+	// let's override the assets-api's getCDNUrl to serve local package
 	window.Talend.getCDNUrl = function getCDNUrl(pkg = {}) {
-		if (PKGS.includes(pkg.name)) {
+		// if local to the repository load from /cdn
+		if (['@talend/react-dataviz', '@talend/icons'].includes(pkg.name)) {
 			const baseTag = document.querySelector('base');
 			if (baseTag) {
 				const root = baseTag.getAttribute('href') || '';
@@ -44,8 +35,8 @@
 			}
 			return `/cdn/${pkg.name}/${pkg.version}${pkg.path}`;
 		}
-		return `https://unpkg.com/${pkg.name}@${pkg.version}${pkg.path}`;
+		return `${window.Talend.CDN_URL}/${pkg.name}/${pkg.version}${pkg.path}`;
 	};
-	window.talendAddStyles(window.Talend.cssBuild.map(removeIntegrityOnDev), prepareUrl);
-	window.talendAddScripts(window.Talend.build.map(removeIntegrityOnDev), prepareUrl);
+	window.talendAddStyles(window.Talend.cssBuild.map(removeIntegrity), prepareUrl);
+	window.talendAddScripts(window.Talend.build.map(removeIntegrity), prepareUrl);
 })();

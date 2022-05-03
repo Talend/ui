@@ -173,8 +173,6 @@ function addStyle({ href, integrity, ...attr }: StyleAsset) {
 	document.head.insertBefore(style, title);
 }
 
-// TODO: move this to ui-scripts.
-// implicit dependency, patch if not available
 if (!window.Talend) {
 	window.Talend = {};
 }

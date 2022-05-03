@@ -244,7 +244,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath) {
 			window.TALEND_INITIATOR_URL = '${INITIATOR_URL}';
 			window.jsFiles = [<%= htmlWebpackPlugin.files.js.map(href => '"'+href+'"').join(',') %>];
 			window.cssFiles = [<%= htmlWebpackPlugin.files.css.map(href => '"'+href+'"').join(',') %>];
-			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata)%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata)%> };
+			window.Talend = { CDN_URL: '/cdn', build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata)%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata)%> };
 			${await inject.getMinified()}
 		</script>
 		<base href="${BASENAME}" />
