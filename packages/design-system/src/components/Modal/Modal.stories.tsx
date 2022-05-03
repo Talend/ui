@@ -14,9 +14,9 @@ function ModalStory(props: Partial<ModalPropsType>) {
 
 	return (
 		<>
-			<button onClick={() => setModalOpen(true)} data-test="open-modal">
+			<ButtonPrimary onClick={() => setModalOpen(true)} data-test="open-modal">
 				See
-			</button>
+			</ButtonPrimary>
 
 			{modalOpen && (
 				<Modal
