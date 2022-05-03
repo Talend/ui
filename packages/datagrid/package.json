@@ -2,13 +2,15 @@
   "name": "@talend/react-datagrid",
   "description": "Provide a datagrid for at least talend applications based on ag-grid",
   "main": "lib/index.js",
-  "mainSrc": "src/index.js",
+  "mainSrc": "src/index.ts",
+  "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build:ts:lib",
+    "build-storybook": "talend-scripts build-storybook",
     "start": "talend-scripts start-storybook -p 6010",
     "test": "talend-scripts test --silent",
     "test:noisy": "talend-scripts test",
@@ -37,7 +39,7 @@
   "dependencies": {
     "@talend/icons": "^6.40.0",
     "@talend/react-cmf": "^7.0.2",
-    "@talend/react-components": "^6.44.13",
+    "@talend/react-components": "^6.45.1",
     "ag-grid-community": "^25.3.0",
     "ag-grid-react": "^25.3.0",
     "classnames": "^2.3.1",
@@ -45,10 +47,10 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@talend/design-system": "^2.3.0",
     "@talend/icons": "^6.40.0",
     "@talend/locales-tui-datagrid": "^6.36.5",
     "@talend/react-cmf": "^7.0.2",
-    "@talend/react-components": "^6.44.13",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
     "enzyme": "^3.11.0",
@@ -61,6 +63,7 @@
     "react-i18next": "^11.16.7"
   },
   "peerDependencies": {
+    "@talend/design-system": "^2.3.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
