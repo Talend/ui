@@ -1,5 +1,31 @@
 # @talend/react-datagrid
 
+## 9.0.0
+
+### Major Changes
+
+- 9f84c4ad7: - Remove cmf module
+
+  - Immutable data support is no longer tested & documented
+
+  Migration: renderer are no longer provided through CMF registry using their id, they have to be provided as props;
+
+  ```
+  BEFORE
+  <Datagrid headerRenderer="myComponentIdInRegistry" />
+  AFTER
+  <Datagrid headerRenderer={MyComponent} />
+  ```
+
+- 65599e1a5: chore(datagrid): Drop deprecated `forceRedrawRows` prop
+- e04e3910f: feat(datagrid): replace internal quality bar with react-component one
+  Breaking change: previous internal datagrid/QualityBar export has been removed
+
+### Patch Changes
+
+- Updated dependencies [e04e3910f]
+  - @talend/react-components@6.46.2
+
 ## 8.0.0
 
 ### Major Changes
