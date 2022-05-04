@@ -40,9 +40,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			const boxHeight = height - margin.top - margin.bottom;
 			const duration = 1000;
 
-			d3select(containerRef.current)
-				.select('svg')
-				.remove();
+			d3select(containerRef.current).select('svg').remove();
 
 			const svg = d3select(containerRef.current)
 				.append('svg')
@@ -55,9 +53,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			const quartileData = [boxPlotData.q1, boxPlotData.median, boxPlotData.q2];
 
 			// Compute the new vertical-scale.
-			const vScale = scaleLinear()
-				.domain([boxPlotData.min, boxPlotData.max])
-				.range([boxHeight, 0]);
+			const vScale = scaleLinear().domain([boxPlotData.min, boxPlotData.max]).range([boxHeight, 0]);
 
 			// central vertical Axis
 			const center = svg.append('g');
@@ -77,10 +73,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 			const boxPlot = svg.append('g');
 
 			// top box
-			const boxTop = boxPlot
-				.append('g')
-				.selectAll('rect')
-				.data([quartileData]);
+			const boxTop = boxPlot.append('g').selectAll('rect').data([quartileData]);
 
 			boxTop
 				.enter()
@@ -96,10 +89,7 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 				.attr('height', d => vScale(d[1]) - vScale(d[2]));
 
 			// bottom box.
-			const boxBottom = boxPlot
-				.append('g')
-				.selectAll('rect')
-				.data([quartileData]);
+			const boxBottom = boxPlot.append('g').selectAll('rect').data([quartileData]);
 
 			boxBottom
 				.enter()
@@ -118,12 +108,14 @@ function Boxplot({ id, width, height, boxPlotData }: BoxPlotProps): JSX.Element 
 
 			const max = boxPlotData.max;
 			// whiskers
-			const topWhiskerPolyg = `0,${vScale(max)} ${boxWidth},${vScale(max)} ${boxWidth -
-				20},${vScale(max) - 20} ${vScale(max) + 20},${vScale(max) - 20}`;
+			const topWhiskerPolyg = `0,${vScale(max)} ${boxWidth},${vScale(max)} ${boxWidth - 20},${
+				vScale(max) - 20
+			} ${vScale(max) + 20},${vScale(max) - 20}`;
 
 			const min = boxPlotData.min;
-			const bottomWhiskerPolyg = `0,${vScale(min)} ${boxWidth},${vScale(min)} ${boxWidth -
-				20},${vScale(min) + 20} 20,${vScale(min) + 20}`;
+			const bottomWhiskerPolyg = `0,${vScale(min)} ${boxWidth},${vScale(min)} ${boxWidth - 20},${
+				vScale(min) + 20
+			} 20,${vScale(min) + 20}`;
 
 			const gWhisker = svg.append('g');
 
