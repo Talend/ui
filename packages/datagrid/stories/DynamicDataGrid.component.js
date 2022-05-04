@@ -42,24 +42,6 @@ export function getRowDataInfos(rowData) {
 	);
 }
 
-/**
- * redrawRows - call redrawRows only if necessary. (improve ag-grid performance)
- *
- * @param  {object} props     component props
- * @param  {object} prevProps previous component prop
- * @return {boolean}         return true if we need to reload the grid
- */
-function forceRedrawRows(props, prevProps) {
-	const prevInfos = getRowDataInfos(prevProps.rowData);
-	const currentInfos = getRowDataInfos(props.rowData);
-
-	return (
-		prevInfos.loaded !== currentInfos.loaded ||
-		prevInfos.loading !== currentInfos.loading ||
-		prevInfos.notLoaded !== currentInfos.notLoaded
-	);
-}
-
 function getItemWithRandomValue() {
 	return {
 		loading: false,
@@ -110,9 +92,7 @@ function getItemWithRandomValue() {
 }
 
 export default class DynamicDataGrid extends React.Component {
-	static propTypes = {
-		forceRedraw: PropTypes.bool,
-	};
+	static propTypes = {};
 
 	constructor() {
 		super();
@@ -121,7 +101,7 @@ export default class DynamicDataGrid extends React.Component {
 		this.terminateItems = this.terminateItems.bind(this);
 		this.changeColumnQuality = this.changeColumnQuality.bind(this);
 
-		const datagridSample = { ...sample};
+		const datagridSample = { ...sample };
 		datagridSample.data = new Array(ADD_ITEMS_NUMBER).fill().map(() => ({ ...LOADING_ITEM }));
 		this.state = { sample: datagridSample, loading: true, index: 1 };
 
@@ -130,7 +110,7 @@ export default class DynamicDataGrid extends React.Component {
 
 	terminateItems() {
 		this.setState(prevState => {
-			const datagridSample = { ...prevState.sample};
+			const datagridSample = { ...prevState.sample };
 			datagridSample.data.splice(
 				(prevState.index - 1) * ADD_ITEMS_NUMBER,
 				ADD_ITEMS_NUMBER,
@@ -146,7 +126,7 @@ export default class DynamicDataGrid extends React.Component {
 
 	changeColumnQuality() {
 		this.setState(prevState => {
-			const datagridSample = { ...prevState.sample};
+			const datagridSample = { ...prevState.sample };
 			datagridSample.data = datagridSample.data.map(rowData => ({
 				...rowData,
 				value: {
@@ -165,7 +145,7 @@ export default class DynamicDataGrid extends React.Component {
 	}
 
 	addLoadingsItems() {
-		const datagridSample = { ...this.state.sample};
+		const datagridSample = { ...this.state.sample };
 		datagridSample.data = datagridSample.data.concat(
 			new Array(ADD_ITEMS_NUMBER).fill().map(() => ({ ...LOADING_ITEM })),
 		);
@@ -196,12 +176,7 @@ export default class DynamicDataGrid extends React.Component {
 				/>
 				Number of data : {this.state.sample.data.length}
 				<IconsProvider />
-				<DataGrid
-					data={this.state.sample}
-					rowSelection="multiple"
-					forceRedrawRows={this.props.forceRedraw ? forceRedrawRows : null}
-					rowData={this.props.forceRedraw ? serializer.getRowData(this.state.sample) : null} //
-				/>
+				<DataGrid data={this.state.sample} rowSelection="multiple" rowData={null} />
 			</div>
 		);
 	}

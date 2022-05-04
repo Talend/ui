@@ -11,7 +11,6 @@ const DATAGRID_PROPTYPES = {
 	enableColResize: PropTypes.bool,
 	columnMinWidth: PropTypes.number,
 	focusedColumnId: PropTypes.string,
-	forceRedrawRows: PropTypes.func, // deprecated
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,
 	getRowDataFn: PropTypes.func,
