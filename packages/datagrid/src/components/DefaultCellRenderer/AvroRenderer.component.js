@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Inject } from '@talend/react-components';
 
 import { AVRO_TYPES, LOGICAL_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
@@ -8,10 +7,9 @@ import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 import DefaultRenderer from './DefaultRenderer.component';
 import { getTypeRenderer } from './mappingTypeRenderer';
 
-export default function AvroRenderer({ avroRenderer, colDef, data, getComponent }) {
+export default function AvroRenderer({ avroRenderer, colDef, data }) {
 	const typeRenderer = getTypeRenderer(colDef.avro.type);
-	const componentId = avroRenderer[`${typeRenderer}CellRenderer`];
-	const Component = Inject.get(getComponent, componentId, DefaultRenderer);
+	const Component = avroRenderer[`${typeRenderer}CellRenderer`] ?? DefaultRenderer;
 
 	return <Component data={data} colDef={colDef} />;
 }
@@ -27,5 +25,4 @@ AvroRenderer.propTypes = {
 		}),
 	}),
 	data: PropTypes.object,
-	getComponent: PropTypes.func,
 };

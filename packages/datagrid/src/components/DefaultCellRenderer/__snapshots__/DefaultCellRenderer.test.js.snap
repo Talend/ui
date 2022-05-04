@@ -25,7 +25,6 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer 1`] = `
         "quality": 0,
       }
     }
-    getComponent={[Function]}
   />
 </div>
 `;

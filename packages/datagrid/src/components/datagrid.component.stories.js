@@ -6,12 +6,10 @@ import { action } from '@storybook/addon-actions';
 import DataGrid from '.';
 import DynamicDataGrid from '../../stories/DynamicDataGrid.component';
 import FasterDatagridComponent from '../../stories/FasterDatagrid.component';
-import ImmutableDataGrid from '../../stories/ImmutableDatagrid.component';
 import sample from '../../stories/sample.json';
 import sample2 from '../../stories/sample2.json';
 import sample3 from '../../stories/sample3.json';
 import sampleWithoutQuality from '../../stories/sampleWithoutQuality.json';
-import getComponent from '../../stories/getComponent';
 
 // eslint-disable-next-line no-irregular-whitespace
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
@@ -35,7 +33,6 @@ export default {
 export const Default = () => (
 	<DataGrid
 		data={sample}
-		getComponent={getComponent}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
 		onVerticalScroll={event => console.log(event)}
@@ -47,12 +44,20 @@ Default.parameters = {
 	chromatic: { disableSnapshot: false },
 };
 
+export const CustomRenderer = () => (
+	<DataGrid
+		data={sample}
+		cellRenderer={props => <div>{`${props.value.value}`}&#128570;</div>}
+		headerRenderer={props => <div>{props.displayName} &#128126;</div>}
+		pinHeaderRenderer={() => <div>&#129302;</div>}
+	/>
+);
+
 export const OnlyColumnName = () => (
 	<DataGrid
 		headerHeight={45}
 		columnsConf={{ hideSubType: true }}
 		data={sampleWithoutQuality}
-		getComponent={getComponent}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
 		onVerticalScroll={event => console.log(event)}
@@ -65,7 +70,6 @@ export const NoQuality = () => (
 	<DataGrid
 		headerHeight={55}
 		data={sampleWithoutQuality}
-		getComponent={getComponent}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
 		onVerticalScroll={event => console.log(event)}
@@ -77,7 +81,6 @@ export const NoQuality = () => (
 export const ColumnsResizables = () => (
 	<DataGrid
 		data={sample}
-		getComponent={getComponent}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
 		onVerticalScroll={event => console.log(event)}
@@ -88,7 +91,6 @@ export const ColumnsResizables = () => (
 export const StartIndexTo1 = () => (
 	<DataGrid
 		data={sample}
-		getComponent={getComponent}
 		startIndex={1}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
@@ -100,7 +102,6 @@ export const StartIndexTo1 = () => (
 export const NoRowSpecificMessage = () => (
 	<DataGrid
 		data={[]}
-		getComponent={getComponent}
 		overlayNoRowsTemplate="Custom message"
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
@@ -136,7 +137,6 @@ export const DynamicChangeSchema = () => {
 					<div style={{ height: '200px' }}>
 						<DataGrid
 							data={currentSample}
-							getComponent={getComponent}
 							onFocusedCell={action('onFocusedCell')}
 							onFocusedColumn={action('onFocusedColumn')}
 							onVerticalScroll={event => console.log(event)}
@@ -158,8 +158,6 @@ export const DynamicChangeData = () => <DynamicDataGrid />;
 
 export const FasterDatagrid = () => <FasterDatagridComponent />;
 
-export const ImmutableData = () => <ImmutableDataGrid />;
-
 export const ControlledFocusedColumn = () => {
 	const [focusedColumnId, setFocusedColumnId] = useState('data.field2');
 	const [locked, setLocked] = useState(false);
@@ -179,7 +177,6 @@ export const ControlledFocusedColumn = () => {
 			<input type="button" value={locked ? 'Unlock' : 'Lock'} onClick={() => setLocked(!locked)} />
 			<DataGrid
 				data={sample}
-				getComponent={getComponent}
 				focusedColumnId={focusedColumnId}
 				onFocusedCell={cell => {
 					if (!locked) {
