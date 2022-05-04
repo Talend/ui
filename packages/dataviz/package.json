@@ -17,7 +17,7 @@
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
     "start": "talend-scripts start-storybook -p 6006",
-    "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
+    "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet"
@@ -37,6 +37,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/assets-api": "^1.0.0",
     "@talend/react-components": "^6.44.14",
     "@talend/design-tokens": "^2.1.0",
     "classnames": "^2.3.1",

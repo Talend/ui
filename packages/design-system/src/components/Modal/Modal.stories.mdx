@@ -1,0 +1,137 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Use } from '~docs';
+
+import Modal from './';
+
+import * as Stories from './Modal.stories';
+
+<Meta
+	title="Components/Modal"
+	parameters={{
+		status: { figma: 'ok', storybook: 'wip', react: 'ok', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/0Jolh2prAAdfO5224n3OU3/Modal',
+	}}
+/>
+
+# Modal
+
+A modal serves as a root component for all varieties of dialog (confirm ...).
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/0Jolh2prAAdfO5224n3OU3/Modal?node-id=738%3A12433"
+	alt="Zoning image for Modal"
+/>
+
+## Style
+
+### Sizing
+
+The modal should adapt to the content:
+
+- Width can vary between a minimum 660px up to 95% of the screen's width
+- Height can expand up to 80% of the screen's height
+
+### Header
+
+It can feature a description and / or an icon.
+
+Header icon: Either a 24x24 icon from the library OR a provided logo.
+For devs this means either an IconName or a ReactElement.
+Enforce the 24x24 sizing if it’s an element.
+
+Title and description: Both have an ellipsis if there isn’t enough space, the text will not wrap.
+
+### Content
+
+Overflow should be vertically scrollable when needed, but horizontally hidden.
+Scroll is limited to the content section (header and footer remain fixed).
+
+### Buttons
+
+Close button: Should say “cancel” when there are actions on the right, a “close” when there are none.
+Actions: Up to two, one primary, one secondary. Ideally can’t have a secondary if there’s no primary.
+Destructive: The primary action can be destructive.
+
+### Backdrop
+
+Transparent layer behind every modal. Clicking it closes the modal by default, but this behavior can be disabled by a prop.
+
+### Variations
+
+**No disclosure (controlled state)**
+
+<Canvas>
+	<Story height="5rem" story={Stories.NoDisclosure} />
+</Canvas>
+
+**With disclosure**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithDisclosure} />
+</Canvas>
+
+**With icon**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithIcon} />
+</Canvas>
+
+**With custom icon**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithCustomIcon} />
+</Canvas>
+
+**With description**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithDescription} />
+</Canvas>
+
+**With actions**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithActions} />
+</Canvas>
+
+**With destructive primary action**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithDestructivePrimaryAction} />
+</Canvas>
+
+**With non closing backdrop**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithNonClosingBackdrop} />
+</Canvas>
+
+**With overflowing header**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithOverflowingHeader} />
+</Canvas>
+
+**With overflowing content**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithOverflowingContent} />
+</Canvas>
+
+**With everything**
+
+<Canvas>
+	<Story height="5rem" story={Stories.WithEverything} />
+</Canvas>
+
+## States
+
+## Interactions
+
+## Content
+
+## Usage
+
+## Accessibility
