@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+
 $td-quality-bar-indicator-width: 0.3rem !default;
 
 .td-cell-quality-indicator {
@@ -8,6 +10,6 @@ $td-quality-bar-indicator-width: 0.3rem !default;
 	height: 100%;
 
 	&-invalid {
-		background-color: $td-quality-bar-invalid-background-color;
+		background-color: tokens.$coral-color-charts-danger;
 	}
 }

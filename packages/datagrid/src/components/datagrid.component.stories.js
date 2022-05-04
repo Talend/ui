@@ -47,10 +47,11 @@ Default.parameters = {
 	chromatic: { disableSnapshot: false },
 };
 
-export const NoSubtype = () => (
+export const OnlyColumnName = () => (
 	<DataGrid
+		headerHeight={45}
 		columnsConf={{ hideSubType: true }}
-		data={sample}
+		data={sampleWithoutQuality}
 		getComponent={getComponent}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
@@ -62,6 +63,7 @@ export const NoSubtype = () => (
 
 export const NoQuality = () => (
 	<DataGrid
+		headerHeight={55}
 		data={sampleWithoutQuality}
 		getComponent={getComponent}
 		onFocusedCell={action('onFocusedCell')}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { QualityBar } from '@talend/react-components';
 import {
 	QUALITY_KEY,
 	QUALITY_EMPTY_KEY,
@@ -9,7 +10,6 @@ import {
 } from '../../constants';
 
 import DefaultHeaderRenderer from './DefaultHeaderRenderer.component';
-import QualityBar from './QualityBar.component';
 
 describe('#DefaultHeaderGrid', () => {
 	it('should render DefaultHeaderGrid', () => {
