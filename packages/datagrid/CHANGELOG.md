@@ -1,5 +1,17 @@
 # @talend/react-datagrid
 
+## 8.0.0
+
+### Major Changes
+
+- 4605d2ce4: Design-system migration + add typescript config
+
+  Migration: @talend/design-system is added as peer dep + `ThemeProvider` is required
+
+### Minor Changes
+
+- d1815c0af: feat: use @talend/assets-api to load datagrid umds on demand
+
 ## 7.0.3
 
 ### Patch Changes

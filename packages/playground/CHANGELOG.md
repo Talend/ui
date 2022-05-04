@@ -1,5 +1,17 @@
 # @talend/ui-playground
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [d1815c0af]
+- Updated dependencies [4605d2ce4]
+- Updated dependencies [d1815c0af]
+- Updated dependencies [d1815c0af]
+  - @talend/react-datagrid@8.0.0
+  - @talend/react-forms@7.1.0
+  - @talend/react-dataviz@2.1.0
+
 ## 1.0.3
 
 ### Patch Changes

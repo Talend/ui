@@ -47,7 +47,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/design-system": "^2.3.0",
+    "@talend/design-system": "^2.5.0",
     "@talend/icons": "^6.40.0",
     "@talend/locales-tui-datagrid": "^6.36.5",
     "@talend/react-cmf": "^7.0.2",
@@ -74,5 +74,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.3"
+  "version": "8.0.0"
 }

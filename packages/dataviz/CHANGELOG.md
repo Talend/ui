@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.0
+
+### Minor Changes
+
+- d1815c0af: feat: Use @talend/assets-api to load topologies.
+
 ## 2.0.0
 
 ### Major Changes
