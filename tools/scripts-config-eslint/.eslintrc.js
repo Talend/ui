@@ -26,6 +26,22 @@ if (isTS) {
 			project: './tsconfig.json',
 			tsconfigRootDir: cwd,
 		},
+		overrides: [
+			...(config.overrides || []),
+			{
+				// Disable TS rules for JS files if project uses plugin:@typescript-eslint/recommended-requiring-type-checking
+				files: ['*.js'],
+				rules: {
+					'@typescript-eslint/no-unsafe-return': 'off',
+					'@typescript-eslint/no-unsafe-call': 'off',
+					'@typescript-eslint/no-unsafe-member-access': 'off',
+					'@typescript-eslint/no-unsafe-assignment': 'off',
+					'@typescript-eslint/no-unsafe-argument': 'off',
+					'@typescript-eslint/restrict-template-expressions': 'off',
+					'@typescript-eslint/restrict-plus-operands': 'off',
+				},
+			},
+		],
 	});
 }
 
