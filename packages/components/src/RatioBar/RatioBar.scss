@@ -1,4 +1,8 @@
-@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+@use '~@talend/design-tokens/lib/tokens';
+
+$custom-ratio-bar-height: 0.8rem;
+$custom-ratio-bar-line-height: 0.4rem;
+$custom-ratio-bar-line-hover-height: 0.8rem;
 
 .tc-ratio-bar-lines {
 	width: 100%;
@@ -9,7 +13,7 @@
 .tc-ratio-bar {
 	padding: $padding-small 0;
 	display: flex;
-	height: tokens.$coral-spacing-xs;
+	height: $custom-ratio-bar-height;
 	width: 100%;
 	align-items: center;
 
@@ -18,12 +22,12 @@
 	}
 
 	.tc-ratio-bar-line {
-		height: tokens.$coral-spacing-xxs;
+		height: $custom-ratio-bar-line-height;
 		margin: 0 2px 0 0;
 		transition: height 0.3s;
-		min-width: tokens.$coral-spacing-xxs;
+		min-width: $custom-ratio-bar-line-height;
 		&:hover {
-			height: tokens.$coral-spacing-xs;
+			height: $custom-ratio-bar-line-hover-height;
 		}
 		&-grow {
 			flex-grow: 1;

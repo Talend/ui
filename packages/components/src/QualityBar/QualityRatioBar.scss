@@ -1,4 +1,6 @@
-@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+@use '~@talend/design-tokens/lib/tokens';
+
+$custom-quality-bar-placeholder-line-hover-height: 0.4rem;
 
 %tc-ratio-bar-lines {
 	width: 100%;
@@ -31,6 +33,6 @@
 	background-color: tokens.$coral-color-charts-neutral-weak;
 
 	:global(.tc-ratio-bar) &:hover {
-		height: 5px;
+		height: $custom-quality-bar-placeholder-line-hover-height;
 	}
 }
