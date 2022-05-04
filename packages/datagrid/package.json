@@ -38,7 +38,7 @@
   "dependencies": {
     "@talend/assets-api": "^1.0.0",
     "@talend/icons": "^6.40.0",
-    "@talend/react-components": "^6.45.1",
+    "@talend/react-components": "^6.46.2",
     "ag-grid-community": "^25.3.0",
     "ag-grid-react": "^25.3.0",
     "classnames": "^2.3.1",
@@ -71,5 +71,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.0.0"
+  "version": "9.0.0"
 }

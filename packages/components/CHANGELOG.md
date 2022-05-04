@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.46.2
+
+### Patch Changes
+
+- e04e3910f: feat(components/QualityBar): rework quality bar with design tokens
+
 ## 6.46.1
 
 ### Patch Changes

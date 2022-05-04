@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.1
+
+### Patch Changes
+
+- 20e907887: formating to comply with lint
+- Updated dependencies [82bb8c1c8]
+- Updated dependencies [e04e3910f]
+  - @talend/design-tokens@2.2.0
+  - @talend/react-components@6.46.2
+
 ## 2.1.0
 
 ### Minor Changes
