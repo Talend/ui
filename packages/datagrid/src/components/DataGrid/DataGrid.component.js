@@ -11,7 +11,6 @@ import DefaultPinHeaderRenderer, {
 } from '../DefaultPinHeaderRenderer';
 import DefaultIntCellRenderer from '../DefaultIntCellRenderer';
 import DefaultRenderer from '../DefaultCellRenderer/DefaultRenderer.component';
-import DefaultDateCellRenderer from '../DefaultDateCellRenderer';
 
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
@@ -51,7 +50,8 @@ export function getAvroRenderer(avroRenderer) {
 	return {
 		intCellRenderer: DefaultIntCellRenderer,
 		stringCellRenderer: DefaultRenderer,
-		dateCellRenderer: DefaultDateCellRenderer,
+		// Date are formatted on backend side
+		// dateCellRenderer: DefaultDateCellRenderer,
 		...avroRenderer,
 	};
 }
