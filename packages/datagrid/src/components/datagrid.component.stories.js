@@ -150,10 +150,6 @@ export const DynamicChangeSchema = () => {
 	return <WithLayout />;
 };
 
-export const DynamicChangeDataWithForceRedrawRows = () => <DynamicDataGrid forceRedraw />;
-DynamicChangeDataWithForceRedrawRows.storyName =
-	'@deprecated - dynamic change data with forceRedrawRows';
-
 export const DynamicChangeData = () => <DynamicDataGrid />;
 
 export const FasterDatagrid = () => <FasterDatagridComponent />;

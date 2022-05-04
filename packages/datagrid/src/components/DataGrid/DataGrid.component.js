@@ -39,10 +39,12 @@ const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;
 
 export function injectHeaderRenderer(Component, onFocusedColumn, onKeyDown) {
+	// eslint-disable-next-line react/display-name
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
 export function injectCellRenderer(Component, avroRenderer) {
+	// eslint-disable-next-line react/display-name
 	return props => <Component {...props} avroRenderer={avroRenderer} />;
 }
 
@@ -99,7 +101,6 @@ export default class DataGrid extends React.Component {
 	}
 
 	/**
-	 * componentDidUpdate - call forceRedrawRows after props changes to redraw or
 	 * not the grid
 	 * @deprecated
 	 * @param  {object} prevProps previous props
@@ -107,12 +108,6 @@ export default class DataGrid extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (this.props.loading || !this.gridAPI) {
 			return;
-		}
-
-		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
-			// eslint-disable-next-line no-console
-			console.warn('DEPRECATED: forceRedrawRows is deprecated');
-			this.gridAPI.redrawRows();
 		}
 
 		if (
