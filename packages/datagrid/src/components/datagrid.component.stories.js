@@ -53,10 +53,11 @@ export const CustomRenderer = () => (
 	/>
 );
 
-export const NoSubtype = () => (
+export const OnlyColumnName = () => (
 	<DataGrid
+		headerHeight={45}
 		columnsConf={{ hideSubType: true }}
-		data={sample}
+		data={sampleWithoutQuality}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
 		onVerticalScroll={event => console.log(event)}
@@ -67,6 +68,7 @@ export const NoSubtype = () => (
 
 export const NoQuality = () => (
 	<DataGrid
+		headerHeight={55}
 		data={sampleWithoutQuality}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}

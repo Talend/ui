@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import QualityBar, { QUALITY_PROPTYPE } from './QualityBar.component';
+import { QualityBar, QUALITY_PROPTYPE } from '@talend/react-components';
 import theme from './DefaultHeaderRenderer.scss';
 import {
 	QUALITY_KEY,
@@ -43,9 +43,9 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 			</button>
 			{column.colDef[QUALITY_KEY] && (
 				<QualityBar
-					invalid={column.colDef[QUALITY_KEY][QUALITY_INVALID_KEY]}
-					empty={column.colDef[QUALITY_KEY][QUALITY_EMPTY_KEY]}
-					valid={column.colDef[QUALITY_KEY][QUALITY_VALID_KEY]}
+					valid={column.colDef[QUALITY_KEY][QUALITY_VALID_KEY].total}
+					invalid={column.colDef[QUALITY_KEY][QUALITY_INVALID_KEY].total}
+					empty={column.colDef[QUALITY_KEY][QUALITY_EMPTY_KEY].total}
 				/>
 			)}
 		</div>

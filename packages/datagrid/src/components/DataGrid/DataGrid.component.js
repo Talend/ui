@@ -33,7 +33,7 @@ export const AG_GRID = {
 };
 
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
-const HEADER_HEIGHT = 55;
+const HEADER_HEIGHT = 65;
 const COLUMN_MIN_WIDTH = 30;
 const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;

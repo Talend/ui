@@ -1,5 +1,18 @@
 # @talend/react-forms
 
+## 7.1.0
+
+### Minor Changes
+
+- d1815c0af: Use @talend/assets-api to load aceeditor
+
+### Patch Changes
+
+- Updated dependencies [8e95aab34]
+- Updated dependencies [0d18d5d03]
+- Updated dependencies [d1815c0af]
+  - @talend/design-system@2.5.0
+
 ## 7.0.9
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 2.5.0
+
+### Minor Changes
+
+- 8e95aab34: feat(design-system/Modal): Modal component
+- 0d18d5d03: feat(Tooltip): use reakit useId as default baseId
+- d1815c0af: feat: use @talend/assets-api to load icons
+
 ## 2.4.0
 
 ### Minor Changes
