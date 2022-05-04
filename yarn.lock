@@ -13488,7 +13488,7 @@ loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-loader-utils@^2.0.0:
+loader-utils@^2.0.0, loader-utils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-2.0.2.tgz#d6e3b4fb81870721ae4e0868ab11dd638368c129"
   integrity sha512-TM57VeHptv569d/GKh6TAYdzKblwDNiumOdkFnejjD0XwTH87K90w3O7AiJRqdQoXygvi1VQTJTLGhJl7WqA7A==
@@ -14483,6 +14483,18 @@ modern-css-reset@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/modern-css-reset/-/modern-css-reset-1.4.0.tgz#5bee4d11eeca2ff19b882c6e8f1769773e792d04"
   integrity sha512-0crZmSFmrxkI7159rvQWjpDhy0u4+Awg/iOycJdlVn0RSeft/a+6BrQHR3IqvmdK25sqt0o6Z5Ap7cWgUee2rw==
+
+monaco-editor-webpack-plugin@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/monaco-editor-webpack-plugin/-/monaco-editor-webpack-plugin-7.0.1.tgz#ba19c60aba990184e36ad8722b1ed6a564527c7c"
+  integrity sha512-M8qIqizltrPlIbrb73cZdTWfU9sIsUVFvAZkL3KGjAHmVWEJ0hZKa/uad14JuOckc0GwnCaoGHvMoYtJjVyCzw==
+  dependencies:
+    loader-utils "^2.0.2"
+
+monaco-editor@^0.33.0:
+  version "0.33.0"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.33.0.tgz#842e244f3750a2482f8a29c676b5684e75ff34af"
+  integrity sha512-VcRWPSLIUEgQJQIE0pVT8FcGBIgFoxz7jtqctE+IiCxWugD0DwgyQBcZBhdSrdMC84eumoqMZsGl2GTreOzwqw==
 
 moo@^0.5.0:
   version "0.5.1"
@@ -17193,6 +17205,13 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-monaco-editor@*:
+  version "0.48.0"
+  resolved "https://registry.yarnpkg.com/react-monaco-editor/-/react-monaco-editor-0.48.0.tgz#f2b547c619f0ba3b49d3c8a0e0168ff9d0aa70dc"
+  integrity sha512-fD3ww76aIGJynTa6QZqM9hbRHCQe8v20+W2ofTjLzx8P1FTdoWoPPR6AIqCTMc1xjOrmGJVWFYFp5U6z5C04KQ==
+  dependencies:
+    prop-types "^15.8.1"
 
 react-overlays@^0.8.0:
   version "0.8.3"

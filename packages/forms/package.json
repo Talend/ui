@@ -38,6 +38,7 @@
   "dependencies": {
     "@talend/assets-api": "^1.0.0",
     "@talend/design-system": "^2.5.0",
+    "@talend/monaco-editor": "^1.0.0",
     "@talend/json-schema-form-core": "1.0.5",
     "@talend/react-components": "^6.45.0",
     "@talend/utils": "^2.2.0",
