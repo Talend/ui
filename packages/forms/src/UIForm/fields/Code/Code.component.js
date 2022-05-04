@@ -11,8 +11,8 @@ import { generateId, generateDescriptionId, generateErrorId } from '../../Messag
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-const ReactAce = React.lazy(() =>
-	assetsApi.getUMD('react-ace').then(mod => assetsApi.toDefaultModule(mod.default)),
+const Monaco = React.lazy(() =>
+	assetsApi.getUMD('@talend/monaco-editor').then(mod => assetsApi.toDefaultModule(mod.default)),
 );
 
 function CodeSkeleton() {
@@ -108,15 +108,15 @@ function Code(props) {
 					})}
 				</div>
 				<Suspense fallback={<CodeSkeleton />}>
-					<ReactAce
+					<Monaco
 						key="ace"
 						className="tf-widget-code form-control"
 						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
 						focus={autoFocus}
 						name={`${id}_wrapper`}
-						mode={options && options.language}
+						language={options && options.language}
 						onBlur={onFinish}
-						onLoad={onLoad}
+						editorDidMount={onLoad}
 						onChange={onChange}
 						// disabled is not supported by ace use readonly
 						// https://github.com/ajaxorg/ace/issues/406
@@ -124,7 +124,7 @@ function Code(props) {
 						setOptions={DEFAULT_SET_OPTIONS}
 						showGutter={false}
 						showPrintMargin={false}
-						theme="chrome"
+						theme="vs-light"
 						value={value}
 						width="auto"
 						{...options}
