@@ -33,6 +33,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@talend/assets-api": "^1.0.0",
     "@talend/design-tokens": "^2.1.0",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
