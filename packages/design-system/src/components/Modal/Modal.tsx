@@ -12,10 +12,10 @@ import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructi
 
 import styles from './Modal.scss';
 
-type ModalIcon = IconName | ReactElement;
+type IconProp = IconName | ReactElement;
 
-function ModalIcon(props: { icon: ModalIcon; 'data-test'?: string }): ReactElement {
-	const { icon, ['data-test']: dataTest } = props;
+function ModalIcon(props: { icon: IconProp; 'data-test'?: string }): ReactElement {
+	const { icon, 'data-test': dataTest } = props;
 	return (
 		<div className={styles['modal-icon']} data-test={dataTest}>
 			{typeof icon === 'string' ? <Icon name={icon} /> : icon}
@@ -31,7 +31,7 @@ export type ModalPropsType = {
 	header: {
 		title: ReactNode;
 		description?: string;
-		icon?: ModalIcon;
+		icon?: IconProp;
 	};
 	onClose?: Function;
 	disclosure?: ReactElement;
@@ -80,12 +80,12 @@ function Modal(props: ModalPropsType): ReactElement {
 						<Dialog
 							{...dialog}
 							data-test="modal"
-							className={styles['modal']}
+							className={styles.modal}
 							hide={preventEscaping ? undefined : () => onCloseHandler()}
 							ref={ref}
 						>
 							<StackVertical gap={0}>
-								<div className={styles['modal__header']}>
+								<div className={styles.modal__header}>
 									{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
 									<div className={styles['modal-header-text']}>
 										<span
@@ -105,11 +105,11 @@ function Modal(props: ModalPropsType): ReactElement {
 									</div>
 								</div>
 
-								<div className={styles['modal__content']} data-test="modal.content">
+								<div className={styles.modal__content} data-test="modal.content">
 									{children}
 								</div>
 
-								<div className={styles['modal__buttons']} data-test="modal.buttons">
+								<div className={styles.modal__buttons} data-test="modal.buttons">
 									<StackHorizontal gap="XS" justify="end">
 										<span className={styles['close-button']}>
 											<ButtonSecondary
