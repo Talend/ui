@@ -1,4 +1,3 @@
-import Immutable, { fromJS } from 'immutable';
 import omit from 'lodash/omit';
 import cloneDeep from 'lodash/cloneDeep';
 
@@ -198,12 +197,6 @@ describe('#getColumnDefs', () => {
 		expect(columnDefs).toMatchSnapshot();
 	});
 
-	it('should returns the columns definitions from immutable', () => {
-		const columnDefs = getColumnDefs(fromJS(sample));
-
-		expect(columnDefs).toMatchSnapshot();
-	});
-
 	it('should returns an empty columns definitions', () => {
 		const columnDefs = getColumnDefs();
 
@@ -240,12 +233,6 @@ describe('#getColumnDefs', () => {
 describe('#getRowData', () => {
 	it('should returns the row data', () => {
 		const rowData = getRowData(sample);
-
-		expect(rowData).toMatchSnapshot();
-	});
-
-	it('should returns the row data', () => {
-		const rowData = getRowData(fromJS(sample));
 
 		expect(rowData).toMatchSnapshot();
 	});
@@ -460,13 +447,6 @@ describe('getFieldQuality', () => {
 });
 
 describe('convertSample', () => {
-	it('should return a plain sample from immutable', () => {
-		const sampleData = {
-			id: 42,
-		};
-		expect(convertSample(Immutable.Map(sampleData))).toEqual(sampleData);
-	});
-
 	it('should return the sample', () => {
 		const sampleData = {
 			id: 42,
