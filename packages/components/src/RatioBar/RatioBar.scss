@@ -24,7 +24,7 @@ $custom-ratio-bar-line-hover-height: 0.8rem;
 	.tc-ratio-bar-line {
 		height: $custom-ratio-bar-line-height;
 		margin: 0 2px 0 0;
-		transition: height 0.3s;
+		transition: tokens.$coral-transition-instant;
 		min-width: $custom-ratio-bar-line-height;
 		&:hover {
 			height: $custom-ratio-bar-line-hover-height;
