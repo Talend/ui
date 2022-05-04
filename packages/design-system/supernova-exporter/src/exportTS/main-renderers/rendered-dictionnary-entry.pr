@@ -1,0 +1,39 @@
+{*
+
+Injectable blueprint that represents full token as an object.
+
+Source data: Token Metadata and Payload, all types (https://developers.supernova.io/design-system-data/tokens)
+Note: Token is passed as `context` property because it is injected
+
+{
+  "context": {
+    "id": string
+    "name": string
+    "description": string
+    "tokenType": Depends on the token type
+    "origin": ItemOrigin | null
+    "value": Depends on the token type
+  }
+}
+
+
+Rendered as:
+
+  {
+    name: string,
+    type: string,
+    description: string,
+    value: string,
+    key: value pairs according to the various tokens types
+  };
+
+*}
+    {
+{[ let token = context /]}
+        name: '{[ inject "rendered-ts-name" context token /]}',
+        type: '{[ inject "rendered-type" context token /]}',
+        description: `{{ token.description }}`,
+        id: `{{ getFigmaKey(token) }}`,
+        {[ inject "rendered-value-detailed" context token /]}
+
+    },

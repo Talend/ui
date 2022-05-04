@@ -1,0 +1,19 @@
+{[ let brand = ds.currentBrand() /]}
+const dictionary = [
+{[ for token in ds.tokensByType("Color", brand.id) ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Gradient", brand.id) ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Measure", brand.id) ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Shadow", brand.id) ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}
+
+{[ const allTokens = ds.tokensByType("Typography", brand.id) /]}{[ for token in allTokens ]}{[ if !token.referencedToken ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}{[/]}
+
+{[ for token in ds.tokensByType("Radius", brand.id) ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Text", brand.id) ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}
+
+];
+
+export default dictionary;

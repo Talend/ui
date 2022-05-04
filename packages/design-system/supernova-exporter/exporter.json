@@ -1,0 +1,27 @@
+{
+    "id": "io.supernova.ts",
+    "name": "Exporter for Talend",
+    "description": "Exporter for tokens in all forms",
+    "author": "Talend and Ivan Terpugov & Jiri Trecak",
+    "organization": "Talend",
+    "source_dir": "src",
+    "homepage": "https://design.talend.com",
+    "version": "1.2",
+    "usesBrands": true,
+    "config": {
+        "sources": "sources.json",
+        "output": "output.json",
+        "js": "src/js/helpers.js"
+    },
+    "engines": {
+        "pulsar": "1.0.0",
+        "supernova": "1.0.0"
+    },
+    "tags": [
+        "TS",
+        "Tokens",
+        "Dictionary",
+        "CSS",
+        "SCSS"
+    ]
+}
