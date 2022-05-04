@@ -1,0 +1,109 @@
+{
+  "text": {
+    "border-s-solid": {
+      "value": "1px solid",
+      "type": "text",
+      "comment": "Solid border to visually separate elements"
+    },
+    "border-m-solid": {
+      "value": "2px solid",
+      "type": "text",
+      "comment": "Solid border to visually identify a selection"
+    },
+    "border-s-dashed": {
+      "value": "1px dashed",
+      "type": "text",
+      "comment": "Dashed border to visually identify potentially interactive components.\n\nEx: Droppable zone"
+    },
+    "border-m-dashed": {
+      "value": "2px dashed",
+      "type": "text",
+      "comment": "Dashed border to visually identify a possible selection.\n\nEx: Ongoing mapper link"
+    },
+    "opacity-l": {
+      "value": "0.2",
+      "type": "text",
+      "comment": "Very transparent.\n\nOpacity for components that are not currently enabled."
+    },
+    "opacity-m": {
+      "value": "0.4",
+      "type": "text",
+      "comment": "Transparent.\n\nOpacity for components that are only temporarily disabled."
+    },
+    "opacity-s": {
+      "value": "0.6",
+      "type": "text",
+      "comment": "Barely transparent."
+    },
+    "breakpoint-s": {
+      "value": "40em",
+      "type": "text",
+      "comment": "Small screen (Portrait)"
+    },
+    "breakpoint-m": {
+      "value": "48em",
+      "type": "text",
+      "comment": "Small screen (Landscape)"
+    },
+    "breakpoint-l": {
+      "value": "64em",
+      "type": "text",
+      "comment": "Wide screen (Portrait)"
+    },
+    "breakpoint-xl": {
+      "value": "80em",
+      "type": "text",
+      "comment": "Wide screen (Landscape)"
+    },
+    "branding-logo": {
+      "value": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAQ3SURBVHgB7Zu/UxNBFMe/e6ahQ0qxiBpaQWfUTjM0aqMMnWMh1iJEeyHBXiLqjDM6IP+A0Dk2Gkq0EMaxkhmuADsgNmZGgfW9vZz5dUcul938uPGbCbnb+5H95L3bu33vIaBZMpXqxT6GADEIIYcgaFmilzbFq3a1aZtN2/KQIkdHrovn2Rw0S0CDilBJOtskrRKcAgqjPL1zEGJZzM0uQoOaAlRghwQlkUJ4KD/ZYNg/yIiXWRshFQrQMFjN11EvM/iNxTCgDQPK8dQIHbUA82DV2iTXzTTquoEBldUkpslyKbRTFmap1zMim80H2T0QIMHFCWyJAIfQGdqka3M4iMvWBVRwB/iI2mG+3QoEeSRgB8O5qgvpC9gFcK6OhPQEVAPKAb6g8+EcCeqrRZAeA4/leQCPlt0Cx5I4R+8pr001FpT3U2P0sYDuk6TXKD3PLpc3VlhQXXdQ1jOn61eBvj4YkKDXE3V5lanSRQ9xByZd89IFArwGDJyBIZ2ih/6KB5F/gMp6EmmYUk+PA2daAhPlVixZcN8gHMuca1breLkVS4ACV2BKDJc0d/oalVlRARZHzjhMiOFa4ZqVoumcUL+oa8Gb0C2+5m7fagccS0DKSWcByoJ70DW/Y7DkZccledlLGxvAzm5l2y6tv3sPjdrDMZyO0QQ2CV1woyN0K7joD+YqkaB3VdvOjm5AFfyKqTmeltATnFFya9tZHkj471coAL8KlW1fv0G7JANaGkfP1/POJ4OmH/nv93YJWP0MwxLEdpYHmVbHVloniskyYBxRFQWcow1IbBYirv+A3S4GtBFd2ZZKX0VVkgGBdURVAj/ZgmuIpiSFYFYsoowqIFtwzUJMAUbxOsxzStwqRoOjaMUV/uPcByWeIlqSnOfnBQcwRrnwVrqp+eia7WaCFaByU51W5AltoeC/PeExGU5QMLi/H5qUcxdiKC1lKaPEgZrm54cMxzN7v1k9t3NAiuMwHN5g4JME951iNc9eoElJSqfNuCsVwQqKz6SpRU9ugt1w4l5wd+Qf5dW8E5BqRhIZGj3T7mrlwzZbkROKOsTWmSNrrH7iL/UXg3GwKf24eTju+z7elDfUps+cMpEl6BRbUbnhiVLEbesHsL2tA8oVj5x3q8tMvDO84yku1WhvuUijksiSaz6obvaeD8aQUWnh7tGm6rOHPAHVbcPCKHRdj2blFCH4FAYFKSP5AE4sdqbCl5G46mDIQIVAdWMyZHqbkhjD6CR35fEhYClXoKBTEfI8j1Q4+q5mXtwHKxgcq/FySidZyjUprXbZTYJ7WF0mUk9hC2Lj9MQwRkdPhT1HA3ImAvSUFbSEslzNljQz6HQxvx+HXtimwFxp65ByXYkbdMYkSjOSRs+fLwbBGCzXDBhCdiCQilnjQXqzZXvpW+KotbCtYrIc9JJijf+tgONDOqDK9RfJ1nAWmpwCzwAAAABJRU5ErkJggg==",
+      "type": "text",
+      "comment": "Brand logo in App heading"
+    },
+    "transition-instant": {
+      "value": "100ms ease-out",
+      "type": "text",
+      "comment": "Instant transition for hovering effects (opacity, color...)"
+    },
+    "transition-fast": {
+      "value": "250ms ease-in-out",
+      "type": "text",
+      "comment": "Fast transition for \"out\" effects (closing menu, hide modal...)"
+    },
+    "transition-normal": {
+      "value": "300ms ease-in-out",
+      "type": "text",
+      "comment": "Normal transition for \"in\" effects (opening menu, show modal...)"
+    },
+    "transition-slow": {
+      "value": "400ms ease-in",
+      "type": "text",
+      "comment": "Slow transition for background illustrations with movement."
+    },
+    "elevation-layer-flat": {
+      "value": "0",
+      "type": "text",
+      "comment": "Default content elevation"
+    },
+    "elevation-layer-standard-front": {
+      "value": "4",
+      "type": "text",
+      "comment": "First elevation layer.\n\nJust above the default content (Drawer, Modal, Fixed layout...)"
+    },
+    "elevation-layer-interactive-front": {
+      "value": "8",
+      "type": "text",
+      "comment": "Second elevation layer. \n\nFor elements above any layout (Dropdown, Popover)."
+    },
+    "elevation-layer-overlay": {
+      "value": "16",
+      "type": "text",
+      "comment": "Topmost layer.\n\nFor items that stand on top of anything (Alert, Confirm, Tooltip, etc.)"
+    },
+    "animation-heartbeat": {
+      "value": "coral-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite",
+      "type": "text",
+      "comment": "Heartbeat animation. \n\nEx: Skeletons \n\nUsage: \n\nanimate: tokens.$animation-heartbeat;"
+    }
+  }
+}

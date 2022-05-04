@@ -1,0 +1,80 @@
+{
+  "radius": {
+    "radius-m": {
+      "value": {
+        "radius": {
+          "type": "measure",
+          "value": {
+            "measure": {
+              "type": "size",
+              "value": 8
+            },
+            "unit": {
+              "type": "string",
+              "value": "pixels"
+            }
+          }
+        }
+      },
+      "type": "radius",
+      "comment": "Radius for molecules (Accordion, Fieldset, Popover, etc.)"
+    },
+    "radius-l": {
+      "value": {
+        "radius": {
+          "type": "measure",
+          "value": {
+            "measure": {
+              "type": "size",
+              "value": 16
+            },
+            "unit": {
+              "type": "string",
+              "value": "pixels"
+            }
+          }
+        }
+      },
+      "type": "radius",
+      "comment": "Radius for layout components (Card, Modal, etc.)"
+    },
+    "radius-round": {
+      "value": {
+        "radius": {
+          "type": "measure",
+          "value": {
+            "measure": {
+              "type": "size",
+              "value": 99999
+            },
+            "unit": {
+              "type": "string",
+              "value": "pixels"
+            }
+          }
+        }
+      },
+      "type": "radius",
+      "comment": "Radius for immediate actions (badges, switch, etc.)"
+    },
+    "radius-s": {
+      "value": {
+        "radius": {
+          "type": "measure",
+          "value": {
+            "measure": {
+              "type": "size",
+              "value": 4
+            },
+            "unit": {
+              "type": "string",
+              "value": "pixels"
+            }
+          }
+        }
+      },
+      "type": "radius",
+      "comment": "Radius for atomic components (button, tag, tooltip, etc.) "
+    }
+  }
+}

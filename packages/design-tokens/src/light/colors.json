@@ -1,0 +1,1094 @@
+{
+  "color": {
+    "neutral": {
+      "text": {
+        "value": "#202020ff",
+        "type": "color",
+        "comment": "Default text color. if you don't know which color to pick for text, then this is the safest bet."
+      },
+      "text-weak": {
+        "value": "#616161ff",
+        "type": "color",
+        "comment": "Weak text color. \nBest used when there is regular neutral-text next to it."
+      },
+      "text-disabled": {
+        "value": "#707070ff",
+        "type": "color",
+        "comment": "Disabled text color. \nOnly use for interactive elements in their disabled state.\n"
+      },
+      "text-inverted": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Inverted text color. \nOnly use on dark backgrounds.\n"
+      },
+      "background": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Default background color. If there's no reason for a semantic background, then that is the one to use."
+      },
+      "background-medium": {
+        "value": "#f7f7f7ff",
+        "type": "color",
+        "comment": "Medium contrasting background color. \n\nEx: SubHeader"
+      },
+      "background-strong": {
+        "value": "#e0e0e0ff",
+        "type": "color",
+        "comment": "Strongly contrasting background color. \nUse sparingly.\n\nEx: SubHeader back button."
+      },
+      "background-disabled": {
+        "value": "#e0e0e0ff",
+        "type": "color",
+        "comment": "Background color for disabled interactive elements only. \n\nEx: Buttons"
+      },
+      "border": {
+        "value": "#8c8c8cff",
+        "type": "color",
+        "comment": "Default border color. \n\nEx: Inputs"
+      },
+      "border-weak": {
+        "value": "#d2d2d2ff",
+        "type": "color",
+        "comment": "Weaker border color, for discreet separators\n\nEx: Dividers"
+      },
+      "border-hover": {
+        "value": "#666666ff",
+        "type": "color",
+        "comment": "Default border color, on mouseover. \n\nEx: Inputs"
+      },
+      "border-disabled": {
+        "value": "#a6a6a6ff",
+        "type": "color",
+        "comment": "Disabled border color for interactive elements \n\nEx: Inputs"
+      },
+      "border-weak-hover": {
+        "value": "#b8b8b8ff",
+        "type": "color",
+        "comment": "Weaker border color on mouseover."
+      },
+      "border-strong": {
+        "value": "#404040ff",
+        "type": "color",
+        "comment": "Strongest border color.\n\nUse on strong backgrounds (neutral-background-medium, -strong or -heavy)."
+      },
+      "border-strong-hover": {
+        "value": "#262626ff",
+        "type": "color",
+        "comment": "Strongest border color on mouseover."
+      },
+      "icon-inverted": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Neutral icon color on dark backgrounds."
+      },
+      "icon": {
+        "value": "#202020ff",
+        "type": "color",
+        "comment": "Default icon color.\n\nBest used when the icon doesn't expect interactivity. "
+      },
+      "icon-weak": {
+        "value": "#616161ff",
+        "type": "color",
+        "comment": "Weakly contrasting icon color.\n\nBest used when there is regular neutral-text or neutral-icon colors nearby for efficient hierarchy."
+      },
+      "background-heavy": {
+        "value": "#c7c7c7ff",
+        "type": "color"
+      }
+    },
+    "accent": {
+      "text-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Accent text color on accent-background-strong. \n\nEx: ButtonPrimary"
+      },
+      "text-weak-hover": {
+        "value": "#cde3f2ff",
+        "type": "color",
+        "comment": "Accent text color on accent-background-strong, on mouseover. \n\nEx: ButtonPrimary\n"
+      },
+      "text-weak-active": {
+        "value": "#9bc7e6ff",
+        "type": "color",
+        "comment": "Accent text color on accent-background-strong, while pressing. \n\nEx: ButtonPrimary"
+      },
+      "text": {
+        "value": "#045d9aff",
+        "type": "color",
+        "comment": "Accent text color. \nUse for interactive text content without background. \n\nEx: Links"
+      },
+      "text-hover": {
+        "value": "#023659ff",
+        "type": "color",
+        "comment": "Accent text color on mouseover. \n\nEx: Links"
+      },
+      "text-active": {
+        "value": "#022741ff",
+        "type": "color",
+        "comment": "Accent text color while pressed. \n\nEx: Links"
+      },
+      "background": {
+        "value": "#cde3f2ff",
+        "type": "color",
+        "comment": "Accent background color by default. Use with text-strong.\n\nEx: InlineMessage"
+      },
+      "background-hover": {
+        "value": "#9bc7e6ff",
+        "type": "color",
+        "comment": "Accent background color by default, on mouseover. "
+      },
+      "background-active": {
+        "value": "#69acd9ff",
+        "type": "color",
+        "comment": "Accent background color by default, while pressing. "
+      },
+      "background-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Weakest accent background color. Same color as neutral-background but with accent-tinted hover and active.\n\nUse as placeholder to indicate that you want accent-tinted interactive states.\n\nEx: ButtonTertiary"
+      },
+      "background-weak-hover": {
+        "value": "#cde3f2ff",
+        "type": "color",
+        "comment": "Weakest accent background color on mouseover.\n\nEx: ButtonTertiary"
+      },
+      "background-weak-active": {
+        "value": "#9bc7e6ff",
+        "type": "color",
+        "comment": "Weakest accent background color on press.\n\nEx: ButtonTertiary"
+      },
+      "background-strong": {
+        "value": "#045d9aff",
+        "type": "color",
+        "comment": "Strongest accent background color.\nUse for primary interactive items. Use with text-weak.\n\nEx: ButtonPrimary"
+      },
+      "background-strong-hover": {
+        "value": "#034673ff",
+        "type": "color",
+        "comment": "Strongest accent background color on mouseover\n\nEx: ButtonPrimary"
+      },
+      "background-strong-active": {
+        "value": "#022e4dff",
+        "type": "color",
+        "comment": "Strongest accent background color on press.\n\nEx: ButtonPrimary"
+      },
+      "border-hover": {
+        "value": "#034673ff",
+        "type": "color",
+        "comment": "Border with accent color on mouseover.\n\nEx: ButtonSecondary"
+      },
+      "border-active": {
+        "value": "#022e4dff",
+        "type": "color",
+        "comment": "Border with accent color while pressing.\n\nEx: ButtonSecondary"
+      },
+      "text-strong": {
+        "value": "#023659ff",
+        "type": "color",
+        "comment": "Accent text color on accent-background."
+      },
+      "text-strong-hover": {
+        "value": "#012741ff",
+        "type": "color",
+        "comment": "Accent text color on mouseover."
+      },
+      "text-strong-active": {
+        "value": "#011828ff",
+        "type": "color",
+        "comment": "Accent text color while pressed."
+      },
+      "icon": {
+        "value": "#0c78c2ff",
+        "type": "color",
+        "comment": "Icon with accent color.\n\nEx: ButtonIcon"
+      },
+      "icon-hover": {
+        "value": "#095990ff",
+        "type": "color",
+        "comment": "Icon with accent color on mouseover.\n\nEx: ButtonIcon"
+      },
+      "icon-active": {
+        "value": "#063b60ff",
+        "type": "color",
+        "comment": "Icon with accent color while pressing.\n\nEx: ButtonIcon"
+      },
+      "border": {
+        "value": "#045d9aff",
+        "type": "color",
+        "comment": "Border with accent color.\nUse for interactive items.\n\nEx: ButtonSecondary"
+      }
+    },
+    "danger": {
+      "text-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Danger text color on danger-background-strong. \n\nEx: ButtonDestructive"
+      },
+      "text-weak-hover": {
+        "value": "#ffe1e2ff",
+        "type": "color",
+        "comment": "Danger text color on mouseover. \n\nEx: ButtonDestructive"
+      },
+      "text-weak-active": {
+        "value": "#ffc4c5ff",
+        "type": "color",
+        "comment": "Danger text color while pressing. \n\nEx: ButtonDestructive"
+      },
+      "text": {
+        "value": "#c4484aff",
+        "type": "color",
+        "comment": "Danger text color. \nUse for text content without background that must carry a negative semantic value on its own. "
+      },
+      "text-hover": {
+        "value": "#a63537ff",
+        "type": "color",
+        "comment": "Danger text color on mouseover, if interactive. "
+      },
+      "text-active": {
+        "value": "#7f292aff",
+        "type": "color",
+        "comment": "Danger text color while pressing, if interactive. "
+      },
+      "background": {
+        "value": "#ffebebff",
+        "type": "color",
+        "comment": "Danger background color by default. Use with text-strong.\n\nEx: InlineMessage"
+      },
+      "background-hover": {
+        "value": "#ffc4c5ff",
+        "type": "color",
+        "comment": "Danger background on mouseover. "
+      },
+      "background-active": {
+        "value": "#ffa7a9ff",
+        "type": "color",
+        "comment": "Danger background while pressing."
+      },
+      "background-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Weakest danger background color. Same color as neutral-background but with danger-tinted hover and active.\n\nUse as placeholder to indicate that you want danger-tinted interactive states."
+      },
+      "background-weak-hover": {
+        "value": "#ffe1e2ff",
+        "type": "color",
+        "comment": "Weakest danger background color on mouseover. "
+      },
+      "background-weak-active": {
+        "value": "#ffc4c5ff",
+        "type": "color",
+        "comment": "Weakest danger background color while pressed."
+      },
+      "background-strong": {
+        "value": "#c4484aff",
+        "type": "color",
+        "comment": "Strongest danger background color. Use on strong interactive elements with a negative semantic attached. Use with text-weak.\n\nEx: ButtonDestructive "
+      },
+      "background-strong-hover": {
+        "value": "#952d2fff",
+        "type": "color",
+        "comment": "Strongest danger background color on mouseover.\n\nEx: ButtonDestructive"
+      },
+      "background-strong-active": {
+        "value": "#812729ff",
+        "type": "color",
+        "comment": "Strongest danger background color while pressed.\n\nEx: ButtonDestructive"
+      },
+      "border": {
+        "value": "#c4484aff",
+        "type": "color",
+        "comment": "Border color with danger semantic.\n\nEx: Input in error state"
+      },
+      "border-hover": {
+        "value": "#952d2fff",
+        "type": "color",
+        "comment": "Border color with danger semantic on mouseover.\n\nEx: Input in error state"
+      },
+      "border-active": {
+        "value": "#812729ff",
+        "type": "color",
+        "comment": "Border color with danger semantic while pressing.\n\nEx: Input in error state"
+      },
+      "text-strong": {
+        "value": "#a43b3dff",
+        "type": "color",
+        "comment": "Danger text color on danger-background. "
+      },
+      "text-strong-hover": {
+        "value": "#952d2fff",
+        "type": "color",
+        "comment": "Danger text color on mouseover. "
+      },
+      "text-strong-active": {
+        "value": "#812729ff",
+        "type": "color",
+        "comment": "Danger text color while pressing. "
+      },
+      "icon": {
+        "value": "#d93335ff",
+        "type": "color",
+        "comment": "Icon with danger color.\n\nEx: Status"
+      },
+      "icon-hover": {
+        "value": "#b92224ff",
+        "type": "color",
+        "comment": "Icon with danger color on mouseover."
+      },
+      "icon-active": {
+        "value": "#8e1a1cff",
+        "type": "color",
+        "comment": "Icon with danger color while pressed."
+      }
+    },
+    "success": {
+      "text-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Success text color on success-background-strong. "
+      },
+      "text-weak-hover": {
+        "value": "#ddf2d9ff",
+        "type": "color",
+        "comment": "Success text color on mouseover. "
+      },
+      "text-weak-active": {
+        "value": "#ccebc6ff",
+        "type": "color",
+        "comment": "Success text color while pressed. "
+      },
+      "text": {
+        "value": "#39812cff",
+        "type": "color",
+        "comment": "Success text color. \nUse for text content without background that must carry a positive semantic value on its own. \n\nEx: StatusSuccessful"
+      },
+      "text-hover": {
+        "value": "#316e26ff",
+        "type": "color",
+        "comment": "Success text color on mouseover."
+      },
+      "text-active": {
+        "value": "#285b1fff",
+        "type": "color",
+        "comment": "Success text color while pressed."
+      },
+      "background": {
+        "value": "#ddf2d9ff",
+        "type": "color",
+        "comment": "Success background color by default. Use with text-strong. \n\nEx: InlineMessage "
+      },
+      "background-hover": {
+        "value": "#ccebc6ff",
+        "type": "color",
+        "comment": "Success background color on mouseover. "
+      },
+      "background-active": {
+        "value": "#bbe5b3ff",
+        "type": "color",
+        "comment": "Success background color while pressed. "
+      },
+      "background-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Weakest success background color. Same color as neutral-background but with success-tinted hover and active.\n\nUse as placeholder to indicate that you want success-tinted interactive states."
+      },
+      "background-weak-hover": {
+        "value": "#ddf2d9ff",
+        "type": "color",
+        "comment": "Weakest success background color on mouseover."
+      },
+      "background-weak-active": {
+        "value": "#ccebc6ff",
+        "type": "color",
+        "comment": "Weakest success background color while pressed."
+      },
+      "background-strong": {
+        "value": "#39812cff",
+        "type": "color",
+        "comment": "Strongest success background color. Use on strong interactive elements with a positive semantic attached. Use with text-weak."
+      },
+      "background-strong-hover": {
+        "value": "#316e26ff",
+        "type": "color",
+        "comment": "Strongest success background color on mouseover."
+      },
+      "background-strong-active": {
+        "value": "#285b1fff",
+        "type": "color",
+        "comment": "Strongest success background color while pressed."
+      },
+      "border": {
+        "value": "#39812cff",
+        "type": "color",
+        "comment": "Border color with success semantic."
+      },
+      "border-hover": {
+        "value": "#316e26ff",
+        "type": "color",
+        "comment": "Border color with success semantic, on mouseover."
+      },
+      "border-active": {
+        "value": "#285b1fff",
+        "type": "color",
+        "comment": "Border color with success semantic, while pressed."
+      },
+      "text-strong": {
+        "value": "#316e26ff",
+        "type": "color",
+        "comment": "Success text color on success-background. "
+      },
+      "text-strong-hover": {
+        "value": "#295b1fff",
+        "type": "color",
+        "comment": "Success text color on mouseover. "
+      },
+      "text-strong-active": {
+        "value": "#204819ff",
+        "type": "color",
+        "comment": "Success text color while pressed. "
+      },
+      "icon": {
+        "value": "#409c30ff",
+        "type": "color",
+        "comment": "Icon with success color.\n\nEx: StatusSuccessful"
+      },
+      "icon-hover": {
+        "value": "#307524ff",
+        "type": "color",
+        "comment": "Icon with success color, on mouseover."
+      },
+      "icon-active": {
+        "value": "#204e18ff",
+        "type": "color",
+        "comment": "Icon with success color, while pressed."
+      }
+    },
+    "warning": {
+      "text-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Warning text color on warning-background-strong. "
+      },
+      "text-weak-hover": {
+        "value": "#fce6d9ff",
+        "type": "color",
+        "comment": "Warning weak text color, on mouseover. "
+      },
+      "text-weak-active": {
+        "value": "#f8c7aaff",
+        "type": "color",
+        "comment": "Warning weak text color, while pressed. "
+      },
+      "text": {
+        "value": "#ca4d07ff",
+        "type": "color",
+        "comment": "Waring text color. \nUse for text content without background that must carry a warning semantic value on its own. \n\nEx: StatusWarning"
+      },
+      "text-hover": {
+        "value": "#993a05ff",
+        "type": "color",
+        "comment": "Waring text color, on mouseover."
+      },
+      "text-active": {
+        "value": "#682704ff",
+        "type": "color",
+        "comment": "Warning text color, while pressed."
+      },
+      "background": {
+        "value": "#fce6d9ff",
+        "type": "color",
+        "comment": "Warning background color by default. Use with text-strong.\n\nEx: InlineMessage"
+      },
+      "background-hover": {
+        "value": "#f8c7aaff",
+        "type": "color",
+        "comment": "Warning background color, on mouseover."
+      },
+      "background-active": {
+        "value": "#f4a87bff",
+        "type": "color",
+        "comment": "Warning background color, while pressed."
+      },
+      "background-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Weakest warning background color. Same color as neutral-background but with warning-tinted hover and active.\n\nUse as placeholder to indicate that you want warning-tinted interactive states."
+      },
+      "background-weak-hover": {
+        "value": "#fce6d9ff",
+        "type": "color",
+        "comment": "Weakest warning background color, on mouseover."
+      },
+      "background-weak-active": {
+        "value": "#f8c7aaff",
+        "type": "color",
+        "comment": "Weakest warning background color, while pressed."
+      },
+      "background-strong": {
+        "value": "#ca4d07ff",
+        "type": "color",
+        "comment": "Strongest warning background color. Use on strong interactive elements with a warning semantic attached. Use with text-weak."
+      },
+      "background-strong-hover": {
+        "value": "#993a05ff",
+        "type": "color",
+        "comment": "Strongest warning background color, on mouseover."
+      },
+      "background-strong-active": {
+        "value": "#672704ff",
+        "type": "color",
+        "comment": "Strongest warning background color, while pressed."
+      },
+      "border": {
+        "value": "#ca4d07ff",
+        "type": "color",
+        "comment": "Border color with warning semantic."
+      },
+      "border-hover": {
+        "value": "#993a05ff",
+        "type": "color",
+        "comment": "Border color with warning semantic, on mouseover."
+      },
+      "border-active": {
+        "value": "#672704ff",
+        "type": "color",
+        "comment": "Border color with warning semantic, while pressed."
+      },
+      "text-strong": {
+        "value": "#80360aff",
+        "type": "color",
+        "comment": "Warning text color on warning-background."
+      },
+      "text-strong-hover": {
+        "value": "#682c08ff",
+        "type": "color",
+        "comment": "Warning strong text color, on mouseover. "
+      },
+      "text-strong-active": {
+        "value": "#502206ff",
+        "type": "color",
+        "comment": "Warning strong text color, while pressed."
+      },
+      "icon": {
+        "value": "#e25c10ff",
+        "type": "color",
+        "comment": "Icon with warning color.\n\nEx: StatusWarning"
+      },
+      "icon-hover": {
+        "value": "#b0480cff",
+        "type": "color",
+        "comment": "Icon with warning color, on mouseover."
+      },
+      "icon-active": {
+        "value": "#813409ff",
+        "type": "color",
+        "comment": "Icon with warning color, while pressed."
+      }
+    },
+    "beta": {
+      "text": {
+        "value": "#9435c3ff",
+        "type": "color",
+        "comment": "Beta text color, for things that are new or temporary.\nUse for text content without background that must carry a beta semantic value on its own. "
+      },
+      "text-hover": {
+        "value": "#772a9cff",
+        "type": "color",
+        "comment": "Beta text color, on mouseover."
+      },
+      "text-active": {
+        "value": "#591f74ff",
+        "type": "color",
+        "comment": "Beta text color, while pressed."
+      },
+      "icon": {
+        "value": "#aa2de8ff",
+        "type": "color",
+        "comment": "Icon with beta color.\n\nEx: InlineMessage"
+      },
+      "icon-hover": {
+        "value": "#8e16caff",
+        "type": "color",
+        "comment": "Icon with beta color, on mouseover."
+      },
+      "icon-active": {
+        "value": "#6e119cff",
+        "type": "color",
+        "comment": "Icon with beta color, while pressed."
+      },
+      "text-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Beta text color on beta-background-strong. "
+      },
+      "text-weak-hover": {
+        "value": "#dcbbecff",
+        "type": "color",
+        "comment": "Beta weak text color, on mouseover."
+      },
+      "text-weak-active": {
+        "value": "#c793e1ff",
+        "type": "color",
+        "comment": "Beta weak text color, while pressed."
+      },
+      "text-strong": {
+        "value": "#591f74ff",
+        "type": "color",
+        "comment": "Beta text color on beta-background."
+      },
+      "text-strong-hover": {
+        "value": "#3b144cff",
+        "type": "color",
+        "comment": "Beta strong text color, on mouseover. "
+      },
+      "text-strong-active": {
+        "value": "#1c0a24ff",
+        "type": "color",
+        "comment": "Beta strong text color, while pressed. "
+      },
+      "background": {
+        "value": "#ead7f4ff",
+        "type": "color",
+        "comment": "Beta background color by default. Use with text-strong.\n\nEx: InlineMessage"
+      },
+      "background-hover": {
+        "value": "#d7b3eaff",
+        "type": "color",
+        "comment": "Beta background color, on mouseover."
+      },
+      "background-active": {
+        "value": "#c28bdfff",
+        "type": "color",
+        "comment": "Beta background color, while pressed."
+      },
+      "background-weak": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Weakest beta background color. Same color as neutral-background but with beta-tinted hover and active.\n\nUse as placeholder to indicate that you want beta-tinted interactive states."
+      },
+      "background-weak-hover": {
+        "value": "#ead7f4ff",
+        "type": "color",
+        "comment": "Weakest beta background color, on mouseover."
+      },
+      "background-weak-active": {
+        "value": "#d5afe9ff",
+        "type": "color",
+        "comment": "Weakest beta background color, while pressed."
+      },
+      "background-strong": {
+        "value": "#591f74ff",
+        "type": "color",
+        "comment": "Strongest beta background color. Use on strong interactive elements with a beta semantic attached. Use with text-weak."
+      },
+      "background-strong-hover": {
+        "value": "#3b144cff",
+        "type": "color",
+        "comment": "Strongest beta background color, on mouseover."
+      },
+      "background-strong-active": {
+        "value": "#1c0a24ff",
+        "type": "color",
+        "comment": "Strongest beta background color, while pressed."
+      },
+      "border": {
+        "value": "#591f74ff",
+        "type": "color",
+        "comment": "Border color with beta semantic."
+      },
+      "border-hover": {
+        "value": "#3b144cff",
+        "type": "color",
+        "comment": "Border color with beta semantic, on mouseover."
+      },
+      "border-active": {
+        "value": "#1c0a24ff",
+        "type": "color",
+        "comment": "Border color with beta semantic, while pressed."
+      }
+    },
+    "branding": {
+      "brand": {
+        "value": "#ff6d70ff",
+        "type": "color",
+        "comment": "Main brand color. Used for logo."
+      }
+    },
+    "assistive": {
+      "text": {
+        "value": "#ffffffff",
+        "type": "color",
+        "comment": "Text for assistive elements. Use with assistive-background.\n\nEx: Tooltip"
+      },
+      "background": {
+        "value": "#050d15ff",
+        "type": "color",
+        "comment": "Background for assistive elements. Use with assistive-text.\n\nEx: Tooltip"
+      },
+      "border": {
+        "value": "#797979ff",
+        "type": "color",
+        "comment": "Border for assistive elements. "
+      },
+      "border-focus": {
+        "value": "#6664d1ff",
+        "type": "color",
+        "comment": "Focus color for focus rings across the products.\n\nEx: Buttons on focus"
+      }
+    },
+    "charts": {
+      "neutral": {
+        "value": "#383838ff",
+        "type": "color",
+        "comment": "Chart color: Neutral. \nUse for neutral / empty semantic values. \n\nEx: QualityBar"
+      },
+      "neutral-weak": {
+        "value": "#d4d4d4ff",
+        "type": "color",
+        "comment": "Chart color: Neutral-weak. \nWeak contrast for neutral / empty semantic values."
+      },
+      "neutral-strong": {
+        "value": "#1f1f1fff",
+        "type": "color",
+        "comment": "Chart color: Neutral-strong. \nStrong contrast for neutral / empty semantic values."
+      },
+      "neutral-hover": {
+        "value": "#1f1f1fff",
+        "type": "color",
+        "comment": "Chart color: Neutral on mouseover for interactive charts."
+      },
+      "success": {
+        "value": "#0dbd5eff",
+        "type": "color",
+        "comment": "Chart color: Success. \nUse for success / positive semantic values. \n\nEx: QualityBar"
+      },
+      "success-weak": {
+        "value": "#dcf4e0ff",
+        "type": "color",
+        "comment": "Chart color: Success-weak. \nWeak contrast for positive / success semantic values."
+      },
+      "success-strong": {
+        "value": "#1c552eff",
+        "type": "color",
+        "comment": "Chart color: Success-strong. \nStrong contrast for positive / success semantic values."
+      },
+      "success-hover": {
+        "value": "#1c552eff",
+        "type": "color",
+        "comment": "Chart color: Success on mouseover for interactive charts."
+      },
+      "danger": {
+        "value": "#ea1b0eff",
+        "type": "color",
+        "comment": "Chart color: Danger. \nUse for danger / negative semantic values. \n\nEx: QualityBar"
+      },
+      "danger-weak": {
+        "value": "#e9898aff",
+        "type": "color",
+        "comment": "Chart color: Danger-weak. \nWeak contrast for negative / danger semantic values."
+      },
+      "danger-strong": {
+        "value": "#b32a2cff",
+        "type": "color",
+        "comment": "Chart color: Danger-strong. \nStrong contrast for negative / danger semantic values."
+      },
+      "danger-hover": {
+        "value": "#b32a2cff",
+        "type": "color",
+        "comment": "Chart color: Danger on mouseover for interactive charts."
+      },
+      "warning": {
+        "value": "#ff9820ff",
+        "type": "color",
+        "comment": "Chart color: Warning. \nUse for warning semantic values."
+      },
+      "warning-weak": {
+        "value": "#facbb0ff",
+        "type": "color",
+        "comment": "Chart color: Warning-weak. \nWeak contrast for warning semantic values."
+      },
+      "warning-strong": {
+        "value": "#b9541bff",
+        "type": "color",
+        "comment": "Chart color: Warning-strong. \nStrong contrast for warning semantic values."
+      },
+      "warning-hover": {
+        "value": "#b9541bff",
+        "type": "color",
+        "comment": "Chart color: Warning on mouseover for interactive charts."
+      },
+      "default": {
+        "value": "#1667dfff",
+        "type": "color",
+        "comment": "Chart color by default. \nIf the chart only has one set of value, and not a semantic (danger / warning / success) then use this colorset."
+      },
+      "default-weak": {
+        "value": "#91c2e3ff",
+        "type": "color",
+        "comment": "Chart color: default-weak. \nWeak contrast for basic chart values."
+      },
+      "default-strong": {
+        "value": "#06568dff",
+        "type": "color",
+        "comment": "Chart color: default-strong. \nStrong contrast for basic chart values. "
+      },
+      "default-hover": {
+        "value": "#06568dff",
+        "type": "color",
+        "comment": "Chart color: default on mouseover for interactive charts.\n\nif there is text on top if this, use default-text-weak."
+      },
+      "color-00": {
+        "value": "#ffcc00ff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-00-weak": {
+        "value": "#fbefa9ff",
+        "type": "color"
+      },
+      "color-00-strong": {
+        "value": "#d2ad15ff",
+        "type": "color"
+      },
+      "color-00-hover": {
+        "value": "#d2ad15ff",
+        "type": "color"
+      },
+      "color-01": {
+        "value": "#1667dfff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-01-weak": {
+        "value": "#91c2e3ff",
+        "type": "color"
+      },
+      "color-01-strong": {
+        "value": "#06568dff",
+        "type": "color"
+      },
+      "color-01-hover": {
+        "value": "#06568dff",
+        "type": "color"
+      },
+      "color-02": {
+        "value": "#0abef5ff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-02-weak": {
+        "value": "#d2f3fdff",
+        "type": "color"
+      },
+      "color-02-strong": {
+        "value": "#067b9fff",
+        "type": "color"
+      },
+      "color-02-hover": {
+        "value": "#067b9fff",
+        "type": "color"
+      },
+      "color-03": {
+        "value": "#b3dec1ff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-03-weak": {
+        "value": "#e1f2e6ff",
+        "type": "color"
+      },
+      "color-03-strong": {
+        "value": "#506356ff",
+        "type": "color"
+      },
+      "color-03-hover": {
+        "value": "#506356ff",
+        "type": "color"
+      },
+      "color-04": {
+        "value": "#0dbd5eff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-04-weak": {
+        "value": "#dcf4e0ff",
+        "type": "color"
+      },
+      "color-04-strong": {
+        "value": "#1c552eff",
+        "type": "color"
+      },
+      "color-04-hover": {
+        "value": "#1c552eff",
+        "type": "color"
+      },
+      "color-05": {
+        "value": "#e884c0ff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-05-weak": {
+        "value": "#fbe9f4ff",
+        "type": "color"
+      },
+      "color-05-strong": {
+        "value": "#a15b85ff",
+        "type": "color"
+      },
+      "color-05-hover": {
+        "value": "#a15b85ff",
+        "type": "color"
+      },
+      "color-06": {
+        "value": "#b045e5ff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-06-weak": {
+        "value": "#e8caf8ff",
+        "type": "color"
+      },
+      "color-06-strong": {
+        "value": "#6e2b8fff",
+        "type": "color"
+      },
+      "color-06-hover": {
+        "value": "#6e2b8fff",
+        "type": "color"
+      },
+      "color-07": {
+        "value": "#ea1b0eff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-07-weak": {
+        "value": "#e9898aff",
+        "type": "color"
+      },
+      "color-07-strong": {
+        "value": "#b32a2cff",
+        "type": "color"
+      },
+      "color-07-hover": {
+        "value": "#b32a2cff",
+        "type": "color"
+      },
+      "color-08": {
+        "value": "#f16e23ff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-08-weak": {
+        "value": "#facbb0ff",
+        "type": "color"
+      },
+      "color-08-strong": {
+        "value": "#b9541bff",
+        "type": "color"
+      },
+      "color-08-hover": {
+        "value": "#b9541bff",
+        "type": "color"
+      },
+      "color-09": {
+        "value": "#99784cff",
+        "type": "color",
+        "comment": "Chart color used in combinations with the other numerical chart colors. \n\nEx: Chart with three types of values? use chart-color-00, chart-color-01 and chart-color-03."
+      },
+      "color-09-weak": {
+        "value": "#ded3c4ff",
+        "type": "color"
+      },
+      "color-09-strong": {
+        "value": "#5b482dff",
+        "type": "color"
+      },
+      "color-09-hover": {
+        "value": "#5b482dff",
+        "type": "color"
+      },
+      "default-text": {
+        "value": "#e3f2fdff",
+        "type": "color",
+        "comment": "Text color for chart-default. \n\nText on a chart is discouraged, but if you must, then use this with chart-default."
+      },
+      "default-text-strong": {
+        "value": "#04426dff",
+        "type": "color",
+        "comment": "Strong text color for chart-default-weak. \n\nText on a chart is discouraged, but if you must, then use this with chart-default-weak."
+      },
+      "default-text-weak": {
+        "value": "#e3f2feff",
+        "type": "color",
+        "comment": "Weak text color for chart-default-strong. \n\nText on a chart is discouraged, but if you must, then use this with chart-default-strong."
+      },
+      "color-09-text": {
+        "value": "#130f09ff",
+        "type": "color"
+      },
+      "color-09-text-strong": {
+        "value": "#130f09ff",
+        "type": "color"
+      },
+      "color-09-text-weak": {
+        "value": "#ded3c4ff",
+        "type": "color"
+      }
+    },
+    "illustration": {
+      "": {
+        "shadow": {
+          "value": "#0000001a",
+          "type": "color"
+        }
+      },
+      "color-01": {
+        "value": "#19416cff",
+        "type": "color"
+      },
+      "color-02": {
+        "value": "#4577acff",
+        "type": "color"
+      },
+      "color-03": {
+        "value": "#cedde5ff",
+        "type": "color"
+      },
+      "color-05": {
+        "value": "#f6a5a6ff",
+        "type": "color"
+      },
+      "color-04": {
+        "value": "#ff6e70ff",
+        "type": "color"
+      },
+      "color-06": {
+        "value": "#ffdadbff",
+        "type": "color"
+      },
+      "skintone-01": {
+        "value": "#fbc6abff",
+        "type": "color"
+      },
+      "skintone-02": {
+        "value": "#b27f64ff",
+        "type": "color"
+      },
+      "skintone-03": {
+        "value": "#5f3d30ff",
+        "type": "color"
+      },
+      "color-07": {
+        "value": "#f5f9faff",
+        "type": "color"
+      },
+      "color-08": {
+        "value": "#adbcccff",
+        "type": "color"
+      },
+      "color-09": {
+        "value": "#35343fff",
+        "type": "color"
+      }
+    }
+  }
+}

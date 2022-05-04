@@ -1,0 +1,214 @@
+{
+  "measure": {
+    "spacing-xxs": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 4
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for paddings or margins"
+    },
+    "spacing-xs": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 8
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for paddings or margins"
+    },
+    "spacing-s": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 12
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for paddings or margins"
+    },
+    "spacing-m": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 16
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for paddings or margins"
+    },
+    "spacing-l": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 28
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for margins, paddings of really necessary"
+    },
+    "spacing-xl": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 36
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for margins, paddings of really necessary"
+    },
+    "sizing-minimal": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 12
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for fixed-size elements"
+    },
+    "sizing-xxxs": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 16
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "For fixed-size elements. Minimal size for interactive elements."
+    },
+    "sizing-xxs": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 20
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for fixed-size elements"
+    },
+    "sizing-xs": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 24
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for fixed-size elements"
+    },
+    "sizing-s": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 28
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for fixed-size elements. \n\nEx: Small Buttons"
+    },
+    "sizing-m": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 36
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for fixed-size elements.\n\nEx: Buttons"
+    },
+    "sizing-l": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 40
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for fixed-size elements.\n\nEx: Icon illustration"
+    },
+    "sizing-xxxl": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 220
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for fixed-size elements.\n\nEx: Spot illustration height"
+    },
+    "sizing-maximal": {
+      "value": {
+        "measure": {
+          "type": "size",
+          "value": 320
+        },
+        "unit": {
+          "type": "string",
+          "value": "pixels"
+        }
+      },
+      "type": "measure",
+      "comment": "Use for fixed-size elements.\n\nEx: Spot illustration width"
+    }
+  }
+}

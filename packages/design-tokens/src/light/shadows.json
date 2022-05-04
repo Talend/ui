@@ -1,0 +1,606 @@
+{
+  "shadow": {
+    "elevation": {
+      "shadow": {
+        "neutral": {
+          "inverted": {
+            "m": {
+              "value": {
+                "color": {
+                  "type": "color",
+                  "value": "#00000040"
+                },
+                "x": {
+                  "type": "measure",
+                  "value": {
+                    "measure": {
+                      "type": "size",
+                      "value": 0
+                    },
+                    "unit": {
+                      "type": "string",
+                      "value": "pixels"
+                    }
+                  }
+                },
+                "y": {
+                  "type": "measure",
+                  "value": {
+                    "measure": {
+                      "type": "size",
+                      "value": -2
+                    },
+                    "unit": {
+                      "type": "string",
+                      "value": "pixels"
+                    }
+                  }
+                },
+                "radius": {
+                  "type": "measure",
+                  "value": {
+                    "measure": {
+                      "type": "size",
+                      "value": 6
+                    },
+                    "unit": {
+                      "type": "string",
+                      "value": "pixels"
+                    }
+                  }
+                },
+                "spread": {
+                  "type": "measure",
+                  "value": {
+                    "measure": {
+                      "type": "size",
+                      "value": 0
+                    },
+                    "unit": {
+                      "type": "string",
+                      "value": "pixels"
+                    }
+                  }
+                },
+                "opacity": {
+                  "type": "size",
+                  "value": 1
+                }
+              },
+              "type": "shadow",
+              "comment": "Default shadow. \n\nUse on \"first layer\" of elevation. Reserve it for elements sticking to the bottom of the viewport."
+            },
+            "l": {
+              "value": {
+                "color": {
+                  "type": "color",
+                  "value": "#0000004d"
+                },
+                "x": {
+                  "type": "measure",
+                  "value": {
+                    "measure": {
+                      "type": "size",
+                      "value": 0
+                    },
+                    "unit": {
+                      "type": "string",
+                      "value": "pixels"
+                    }
+                  }
+                },
+                "y": {
+                  "type": "measure",
+                  "value": {
+                    "measure": {
+                      "type": "size",
+                      "value": -4
+                    },
+                    "unit": {
+                      "type": "string",
+                      "value": "pixels"
+                    }
+                  }
+                },
+                "radius": {
+                  "type": "measure",
+                  "value": {
+                    "measure": {
+                      "type": "size",
+                      "value": 8
+                    },
+                    "unit": {
+                      "type": "string",
+                      "value": "pixels"
+                    }
+                  }
+                },
+                "spread": {
+                  "type": "measure",
+                  "value": {
+                    "measure": {
+                      "type": "size",
+                      "value": 0
+                    },
+                    "unit": {
+                      "type": "string",
+                      "value": "pixels"
+                    }
+                  }
+                },
+                "opacity": {
+                  "type": "size",
+                  "value": 1
+                }
+              },
+              "type": "shadow",
+              "comment": "Large shadow. \n\nUse on \"second layer\" of elevation - something that need to be \"above\" anything else.\nReserve it for elements sticking to the bottom of the viewport."
+            }
+          },
+          "m": {
+            "value": {
+              "color": {
+                "type": "color",
+                "value": "#00000040"
+              },
+              "x": {
+                "type": "measure",
+                "value": {
+                  "measure": {
+                    "type": "size",
+                    "value": 0
+                  },
+                  "unit": {
+                    "type": "string",
+                    "value": "pixels"
+                  }
+                }
+              },
+              "y": {
+                "type": "measure",
+                "value": {
+                  "measure": {
+                    "type": "size",
+                    "value": 2
+                  },
+                  "unit": {
+                    "type": "string",
+                    "value": "pixels"
+                  }
+                }
+              },
+              "radius": {
+                "type": "measure",
+                "value": {
+                  "measure": {
+                    "type": "size",
+                    "value": 6
+                  },
+                  "unit": {
+                    "type": "string",
+                    "value": "pixels"
+                  }
+                }
+              },
+              "spread": {
+                "type": "measure",
+                "value": {
+                  "measure": {
+                    "type": "size",
+                    "value": 0
+                  },
+                  "unit": {
+                    "type": "string",
+                    "value": "pixels"
+                  }
+                }
+              },
+              "opacity": {
+                "type": "size",
+                "value": 1
+              }
+            },
+            "type": "shadow",
+            "comment": "Default shadow. \n\nUse on \"first layer\" of elevation. "
+          },
+          "l": {
+            "value": {
+              "color": {
+                "type": "color",
+                "value": "#0000004d"
+              },
+              "x": {
+                "type": "measure",
+                "value": {
+                  "measure": {
+                    "type": "size",
+                    "value": 0
+                  },
+                  "unit": {
+                    "type": "string",
+                    "value": "pixels"
+                  }
+                }
+              },
+              "y": {
+                "type": "measure",
+                "value": {
+                  "measure": {
+                    "type": "size",
+                    "value": 4
+                  },
+                  "unit": {
+                    "type": "string",
+                    "value": "pixels"
+                  }
+                }
+              },
+              "radius": {
+                "type": "measure",
+                "value": {
+                  "measure": {
+                    "type": "size",
+                    "value": 8
+                  },
+                  "unit": {
+                    "type": "string",
+                    "value": "pixels"
+                  }
+                }
+              },
+              "spread": {
+                "type": "measure",
+                "value": {
+                  "measure": {
+                    "type": "size",
+                    "value": 0
+                  },
+                  "unit": {
+                    "type": "string",
+                    "value": "pixels"
+                  }
+                }
+              },
+              "opacity": {
+                "type": "size",
+                "value": 1
+              }
+            },
+            "type": "shadow",
+            "comment": "Large shadow. \n\nUse on \"second layer\" of elevation - something that need to be \"above\" anything else."
+          }
+        },
+        "accent": {
+          "value": {
+            "color": {
+              "type": "color",
+              "value": "#045d9a40"
+            },
+            "x": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "y": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "radius": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "spread": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "opacity": {
+              "type": "size",
+              "value": 1
+            }
+          },
+          "type": "shadow",
+          "comment": "Shadow with an accent tint. \n\nUse for subtle highlights. \n\nEx: InlineMessage"
+        },
+        "success": {
+          "value": {
+            "color": {
+              "type": "color",
+              "value": "#39812c40"
+            },
+            "x": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "y": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "radius": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "spread": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "opacity": {
+              "type": "size",
+              "value": 1
+            }
+          },
+          "type": "shadow",
+          "comment": "Shadow with a success tint. \n\nUse for subtle highlights. \n\nEx: InlineMessage"
+        },
+        "danger": {
+          "value": {
+            "color": {
+              "type": "color",
+              "value": "#c4484a40"
+            },
+            "x": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "y": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "radius": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "spread": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "opacity": {
+              "type": "size",
+              "value": 1
+            }
+          },
+          "type": "shadow",
+          "comment": "Shadow with a danger tint. \n\nUse for subtle highlights. \n\nEx: InlineMessage"
+        },
+        "warning": {
+          "value": {
+            "color": {
+              "type": "color",
+              "value": "#ca4d0740"
+            },
+            "x": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "y": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "radius": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "spread": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "opacity": {
+              "type": "size",
+              "value": 1
+            }
+          },
+          "type": "shadow",
+          "comment": "Shadow with a warning tint. \n\nUse for subtle highlights. \n\nEx: InlineMessage"
+        },
+        "beta": {
+          "value": {
+            "color": {
+              "type": "color",
+              "value": "#591f7440"
+            },
+            "x": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "y": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "radius": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "spread": {
+              "type": "measure",
+              "value": {
+                "measure": {
+                  "type": "size",
+                  "value": 0
+                },
+                "unit": {
+                  "type": "string",
+                  "value": "pixels"
+                }
+              }
+            },
+            "opacity": {
+              "type": "size",
+              "value": 1
+            }
+          },
+          "type": "shadow",
+          "comment": "Shadow with a beta tint. \n\nUse for subtle highlights. \n\nEx: InlineMessage"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "typography": {
+    "heading": {
+      "l": {
+        "value": {
+          "font": {
+            "type": "font",
+            "value": {
+              "family": {
+                "type": "string",
+                "value": "Source Sans Pro"
+              },
+              "subfamily": {
+                "type": "string",
+                "value": "SemiBold"
+              }
+            }
+          },
+          "fontSize": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 18
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "textDecoration": "None",
+          "textCase": "Original",
+          "letterSpacing": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          },
+          "paragraphIndent": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "lineHeight": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 140
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          }
+        },
+        "type": "typography",
+        "comment": "Heading text - Use for highest level headings."
+      },
+      "m": {
+        "value": {
+          "font": {
+            "type": "font",
+            "value": {
+              "family": {
+                "type": "string",
+                "value": "Source Sans Pro"
+              },
+              "subfamily": {
+                "type": "string",
+                "value": "SemiBold"
+              }
+            }
+          },
+          "fontSize": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 16
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "textDecoration": "None",
+          "textCase": "Original",
+          "letterSpacing": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          },
+          "paragraphIndent": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "lineHeight": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 140
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          }
+        },
+        "type": "typography",
+        "comment": "Heading text - Use for medium level headings, most current ones."
+      },
+      "s": {
+        "value": {
+          "font": {
+            "type": "font",
+            "value": {
+              "family": {
+                "type": "string",
+                "value": "Source Sans Pro"
+              },
+              "subfamily": {
+                "type": "string",
+                "value": "SemiBold"
+              }
+            }
+          },
+          "fontSize": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 14
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "textDecoration": "None",
+          "textCase": "Original",
+          "letterSpacing": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          },
+          "paragraphIndent": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "lineHeight": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 140
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          }
+        },
+        "type": "typography",
+        "comment": "Heading text - Use for small level headings. Use with caution, this can clash with bold paragraphs."
+      }
+    },
+    "paragraph": {
+      "m": {
+        "value": {
+          "font": {
+            "type": "font",
+            "value": {
+              "family": {
+                "type": "string",
+                "value": "Source Sans Pro"
+              },
+              "subfamily": {
+                "type": "string",
+                "value": "Regular"
+              }
+            }
+          },
+          "fontSize": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 14
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "textDecoration": "None",
+          "textCase": "Original",
+          "letterSpacing": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          },
+          "paragraphIndent": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "lineHeight": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 140
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          }
+        },
+        "type": "typography",
+        "comment": "Paragraph text - Standard size."
+      },
+      "s": {
+        "value": {
+          "font": {
+            "type": "font",
+            "value": {
+              "family": {
+                "type": "string",
+                "value": "Source Sans Pro"
+              },
+              "subfamily": {
+                "type": "string",
+                "value": "Regular"
+              }
+            }
+          },
+          "fontSize": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 12
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "textDecoration": "None",
+          "textCase": "Original",
+          "letterSpacing": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          },
+          "paragraphIndent": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "lineHeight": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 140
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          }
+        },
+        "type": "typography",
+        "comment": "Paragraph text - Small size."
+      }
+    },
+    "data": {
+      "m": {
+        "value": {
+          "font": {
+            "type": "font",
+            "value": {
+              "family": {
+                "type": "string",
+                "value": "Inconsolata"
+              },
+              "subfamily": {
+                "type": "string",
+                "value": "Regular"
+              }
+            }
+          },
+          "fontSize": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 14
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "textDecoration": "None",
+          "textCase": "Original",
+          "letterSpacing": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          },
+          "paragraphIndent": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 0
+              },
+              "unit": {
+                "type": "string",
+                "value": "pixels"
+              }
+            }
+          },
+          "lineHeight": {
+            "type": "measure",
+            "value": {
+              "measure": {
+                "type": "size",
+                "value": 140
+              },
+              "unit": {
+                "type": "string",
+                "value": "percent"
+              }
+            }
+          }
+        },
+        "type": "typography"
+      }
+    }
+  }
+}

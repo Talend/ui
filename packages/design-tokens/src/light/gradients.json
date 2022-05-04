@@ -1,0 +1,132 @@
+{
+  "gradient": {
+    "branding": {
+      "background": {
+        "value": {
+          "to": {
+            "type": "point",
+            "value": {
+              "x": {
+                "type": "size",
+                "value": 0.8656768448673572
+              },
+              "y": {
+                "type": "size",
+                "value": 0.8409991811776458
+              }
+            }
+          },
+          "from": {
+            "type": "point",
+            "value": {
+              "x": {
+                "type": "size",
+                "value": 0.1343231551326428
+              },
+              "y": {
+                "type": "size",
+                "value": 0.15900081882235423
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "value": "Linear"
+          },
+          "aspectRatio": {
+            "type": "size"
+          },
+          "stops": {
+            "0": {
+              "type": "gradientStop",
+              "position": {
+                "type": "size",
+                "value": 0
+              },
+              "color": {
+                "type": "color",
+                "value": "#19426cff"
+              }
+            },
+            "1": {
+              "type": "gradientStop",
+              "position": {
+                "type": "size",
+                "value": 1
+              },
+              "color": {
+                "type": "color",
+                "value": "#2c1f56ff"
+              }
+            }
+          }
+        },
+        "type": "gradient",
+        "comment": "Main brand background. Used for heroes."
+      },
+      "navigation": {
+        "value": {
+          "to": {
+            "type": "point",
+            "value": {
+              "x": {
+                "type": "size",
+                "value": 0.8656768448673572
+              },
+              "y": {
+                "type": "size",
+                "value": 0.8409991811776458
+              }
+            }
+          },
+          "from": {
+            "type": "point",
+            "value": {
+              "x": {
+                "type": "size",
+                "value": 0.1343231551326428
+              },
+              "y": {
+                "type": "size",
+                "value": 0.15900081882235423
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "value": "Linear"
+          },
+          "aspectRatio": {
+            "type": "size"
+          },
+          "stops": {
+            "0": {
+              "type": "gradientStop",
+              "position": {
+                "type": "size",
+                "value": 0
+              },
+              "color": {
+                "type": "color",
+                "value": "#19426cff"
+              }
+            },
+            "1": {
+              "type": "gradientStop",
+              "position": {
+                "type": "size",
+                "value": 1
+              },
+              "color": {
+                "type": "color",
+                "value": "#2c1f56ff"
+              }
+            }
+          }
+        },
+        "type": "gradient",
+        "comment": "Main navigation background. Used for TopBar and branded Sidebar."
+      }
+    }
+  }
+}
