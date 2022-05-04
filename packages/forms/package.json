@@ -36,6 +36,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/assets-api": "^1.0.0",
     "@talend/design-system": "^2.4.0",
     "@talend/json-schema-form-core": "1.0.5",
     "@talend/react-components": "^6.45.0",
