@@ -33,7 +33,6 @@ Rendered as:
         name: '{[ inject "rendered-ts-name" context token /]}',
         type: '{[ inject "rendered-type" context token /]}',
         description: `{{ token.description }}`,
-        id: `{{ getFigmaKey(token) }}`,
         {[ inject "rendered-value-detailed" context token /]}
-
+id: {{ addQuotes(getFigmaKey(token)) }}
     },

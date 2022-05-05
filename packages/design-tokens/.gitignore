@@ -2,4 +2,4 @@
 .idea
 .next
 
-.build/*
+/supernova-exporter/.build/**

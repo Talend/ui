@@ -10,25 +10,25 @@
 
 {[ for token in ds.tokensByType("Gradient", brand.id) ]}
     {[ inject "css-rendered-token-var" context token /]}
-    
+
 
 {[/]}
 
 {[ for token in ds.tokensByType("Border", brand.id) ]}
     {[ inject "css-rendered-token-var" context token /]}
-    
+
 
 {[/]}
 
 {[ for token in ds.tokensByType("Measure", brand.id) ]}
     {[ inject "css-rendered-token-var" context token /]}
-    
+
 
 {[/]}
 
 {[ for token in ds.tokensByType("Shadow", brand.id) ]}
     {[ inject "css-rendered-token-var" context token /]}
-    
+
 
 {[/]}
 
@@ -43,7 +43,7 @@
 
 {[ for token in ds.tokensByType("Radius", brand.id) ]}
     {[ inject "css-rendered-token-var" context token /]}
-    
+
 
 {[/]}
 
@@ -57,6 +57,6 @@
 
 {[ for token in ds.tokensByType("GenericToken", brand.id) ]}
 {[ inject "css-rendered-token-style" context token /]}
-    
+
 
 {[/]}

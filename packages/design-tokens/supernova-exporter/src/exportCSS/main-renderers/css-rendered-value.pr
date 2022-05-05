@@ -30,9 +30,9 @@ Rendered as:
 {[ case "Typography" ]}{[ inject "css-rendered-typography" context token.value /]}
 {[ case "Shadow" ]}{[ inject "css-rendered-shadow" context token.value /]}
 {[ case "Border" ]}{[ inject "css-rendered-border" context token.value /]}
-{[ case "Measure" ]}{[ inject "css-rendered-measure" context token.value /]} 
-{[ case "Gradient" ]}{[ inject "css-rendered-gradient" context token.value /]} 
-{[ case "Text" ]}{[ inject "css-rendered-text" context token.value /]} 
-{[ case "Radius" ]}{[ inject "css-rendered-radius" context token.value /]} 
-{[ case "GenericToken" ]}{[ inject "css-rendered-other" context token.value /]} 
+{[ case "Measure" ]}{[ inject "css-rendered-measure" context token.value /]}
+{[ case "Gradient" ]}{[ inject "css-rendered-gradient" context token.value /]}
+{[ case "Text" ]}{[ inject "css-rendered-text" context token.value /]}
+{[ case "Radius" ]}{[ inject "css-rendered-radius" context token.value /]}
+{[ case "GenericToken" ]}{[ inject "css-rendered-other" context token.value /]}
 {[/]}

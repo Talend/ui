@@ -115,7 +115,7 @@ Pulsar.registerFunction('rgbaToHsla', function (r, g, b, a = 1) {
 
 	var alpha = Math.round((a / 255) * 10) / 10;
 
-	return 'hsla(' + hue + ',' + saturation + '%,' + lightness + '%,' + alpha + ')';
+	return 'hsla(' + hue + ', ' + saturation + '%, ' + lightness + '%, ' + alpha + ')';
 });
 
 Pulsar.registerFunction('subFamilyToWeight', function (subfamily) {
@@ -168,7 +168,7 @@ Pulsar.registerFunction('baseWrap', function (token, designSystemName) {
 	const stringPrefix = token.split(':')[0];
 	const safeName = designSystemName.toLowerCase();
 	if (stringPrefix === 'data') {
-		return `url("${token}")`;
+		return `url('${token}')`;
 	}
 
 	if (token.includes('keyframes')) {
@@ -251,4 +251,9 @@ Pulsar.registerFunction('constructGenericTokensStyles', function (token, dsName)
 Pulsar.registerFunction('prefixWithThemeName', function (value, dsName) {
 	const safeThemeName = dsName.toLowerCase();
 	return value.replace('coral', `coral-${safeThemeName}`);
+});
+
+// TS
+Pulsar.registerFunction('addQuotes', function (text) {
+	return `'${text}'`;
 });

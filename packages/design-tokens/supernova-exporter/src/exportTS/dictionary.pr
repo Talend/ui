@@ -1,5 +1,5 @@
-{[ let brand = ds.currentBrand() /]}
-const dictionary = [
+const dictionary = [{[ let brand = ds.currentBrand() /]}
+
 {[ for token in ds.tokensByType("Color", brand.id) ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}
 
 {[ for token in ds.tokensByType("Gradient", brand.id) ]}{[ inject "rendered-dictionnary-entry" context token /]}{[/]}
