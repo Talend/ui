@@ -38,7 +38,6 @@ const collection = [
 		titleActions,
 	},
 ];
-const foo = 'bar';
 
 const parent = {
 	props: {
