@@ -38,13 +38,6 @@
 		"implicit-arrow-linebreak": 0,
 		"import/prefer-default-export": 0,
 		"import/no-named-as-default": "off",
-		"import/no-extraneous-dependencies": [
-			2,
-			{
-				"devDependencies": ["**/*.test.js", "**/*.test.ts*", "**/*.stories.js", "**/*.stories.ts*"],
-				"peerDependencies": true
-			}
-		],
 		"jsx-a11y/label-has-associated-control": 2,
 		"jsx-a11y/label-has-for": 0, // deprecated and buggy, replaced by jsx-a11y/label-has-associated-control
 		"max-classes-per-file": 0,
@@ -94,6 +87,14 @@
 		"testing-library/no-node-access": "off",
 		"testing-library/render-result-naming-convention": "off"
 	},
+	"overrides": [
+		{
+			"files": ["**/*.test.js", "**/*.test.ts*", "**/*.stories.js", "**/*.stories.ts*"],
+			"rules": {
+				"import/no-extraneous-dependencies": "off"
+			}
+		}
+	],
 	"env": {
 		"es6": true,
 		"browser": true,
