@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.46.3
+
+### Patch Changes
+
+- 3be3e132d: Datalist should update its value when the titleMap changes
+
 ## 6.46.2
 
 ### Patch Changes
