@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import fs from 'fs';
 
-const infos = JSON.parse(fs.readFileSync('./info.json').toString());
+const infos = JSON.parse(fs.readFileSync('./workspace.json').toString());
 const reports = ['eslint-report.json', 'stylelint-report.json'];
 
 let buff = [];
@@ -16,6 +16,8 @@ if (fs.existsSync(diffPath)) {
 	files = JSON.parse(fs.readFileSync(diffPath).toString());
 	// eslint-disable-next-line no-console
 	console.log(files);
+} else {
+	console.log('no files.json found, you can do git diff --name-only');
 }
 
 function onlyIfInDiff(lint) {
