@@ -1,9 +1,8 @@
 /* eslint-disable no-param-reassign */
-const fs = require('fs');
+import fs from 'fs';
 
-const ROOT = './packages';
+const infos = JSON.parse(fs.readFileSync('./info.json').toString());
 const reports = ['eslint-report.json', 'stylelint-report.json'];
-const pkgs = fs.readdirSync(ROOT);
 
 let buff = [];
 let files = [];
@@ -45,9 +44,9 @@ function transform(item) {
 	return item;
 }
 
-pkgs.forEach(pkg => {
+Object.keys(infos).forEach(pkg => {
 	reports.forEach(report => {
-		const fpath = `${ROOT}/${pkg}/${report}`;
+		const fpath = `${infos[pkg].location}/${report}`;
 		if (fs.existsSync(fpath)) {
 			try {
 				buff = buff.concat(JSON.parse(fs.readFileSync(fpath)).map(transform).filter(onlyIfInDiff));
