@@ -68,7 +68,6 @@ WithSelection.parameters = {
 export const OnlyColumnName = () => (
 	<DataGrid
 		headerHeight={45}
-		columnsConf={{ hideSubType: true }}
 		data={sampleWithoutQuality}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}

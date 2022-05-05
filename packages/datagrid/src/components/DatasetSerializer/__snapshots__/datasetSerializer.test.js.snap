@@ -3,20 +3,6 @@
 exports[`#getColumnDefs should returns the columns definitions 1`] = `
 Array [
   Object {
-    "@talend-quality@": Object {
-      "-1": Object {
-        "percentage": 62,
-        "total": 62,
-      },
-      "0": Object {
-        "percentage": 0,
-        "total": 0,
-      },
-      "1": Object {
-        "percentage": 38,
-        "total": 38,
-      },
-    },
     "avro": Object {
       "doc": "Nom de la gare",
       "name": "field0",
@@ -33,24 +19,20 @@ Array [
       },
     },
     "field": "data.field0",
-    "headerName": "Nom de la gare",
-    "type": "FR Commune",
-  },
-  Object {
-    "@talend-quality@": Object {
-      "-1": Object {
-        "percentage": 0,
-        "total": 0,
-      },
-      "0": Object {
-        "percentage": 0,
-        "total": 0,
-      },
-      "1": Object {
-        "percentage": 100,
+    "headerComponentParams": Object {
+      "quality": Object {
+        "-1": 62,
+        "0": 0,
+        "1": 38,
         "total": 100,
       },
+      "required": false,
+      "semanticTypeLabel": "FR Commune",
+      "typeLabel": "string",
     },
+    "headerName": "Nom de la gare",
+  },
+  Object {
     "avro": Object {
       "name": "field1",
       "type": Object {
@@ -66,8 +48,18 @@ Array [
       },
     },
     "field": "data.field1",
+    "headerComponentParams": Object {
+      "quality": Object {
+        "-1": 0,
+        "0": 0,
+        "1": 100,
+        "total": 100,
+      },
+      "required": true,
+      "semanticTypeLabel": "",
+      "typeLabel": "int",
+    },
     "headerName": "field1",
-    "type": "int*",
   },
 ]
 `;
@@ -75,20 +67,6 @@ Array [
 exports[`#getColumnDefs should returns the columns definitions with optional 1`] = `
 Array [
   Object {
-    "@talend-quality@": Object {
-      "-1": Object {
-        "percentage": 62,
-        "total": 62,
-      },
-      "0": Object {
-        "percentage": 0,
-        "total": 0,
-      },
-      "1": Object {
-        "percentage": 38,
-        "total": 38,
-      },
-    },
     "avro": Object {
       "doc": "Nom de la gare",
       "name": "field0",
@@ -105,24 +83,20 @@ Array [
       },
     },
     "field": "data.field0",
-    "headerName": "Nom de la gare",
-    "type": "FR Commune",
-  },
-  Object {
-    "@talend-quality@": Object {
-      "-1": Object {
-        "percentage": 0,
-        "total": 0,
-      },
-      "0": Object {
-        "percentage": 0,
-        "total": 0,
-      },
-      "1": Object {
-        "percentage": 100,
+    "headerComponentParams": Object {
+      "quality": Object {
+        "-1": 62,
+        "0": 0,
+        "1": 38,
         "total": 100,
       },
+      "required": false,
+      "semanticTypeLabel": "FR Commune",
+      "typeLabel": "string",
     },
+    "headerName": "Nom de la gare",
+  },
+  Object {
     "avro": Object {
       "name": "field1",
       "type": Object {
@@ -138,8 +112,18 @@ Array [
       },
     },
     "field": "data.field1",
+    "headerComponentParams": Object {
+      "quality": Object {
+        "-1": 0,
+        "0": 0,
+        "1": 100,
+        "total": 100,
+      },
+      "required": true,
+      "semanticTypeLabel": "",
+      "typeLabel": "int",
+    },
     "headerName": "field1",
-    "type": "int*",
   },
 ]
 `;

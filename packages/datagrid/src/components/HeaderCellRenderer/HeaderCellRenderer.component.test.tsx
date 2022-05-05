@@ -1,0 +1,17 @@
+import React from 'react';
+
+import { render, fireEvent, screen } from '@testing-library/react';
+
+import { WithMenus, All } from './HeaderCellRenderer.component.stories';
+
+describe('HeaderCellRenderer', () => {
+	it('should render', () => {
+		const { asFragment } = render(<All />);
+		expect(asFragment()).toMatchSnapshot();
+	});
+	it('should open menu', () => {
+		render(<WithMenus />);
+		fireEvent.click(screen.getAllByRole('button')[1]);
+		expect(screen.getByText('MY MENU')).toBeVisible();
+	});
+});
