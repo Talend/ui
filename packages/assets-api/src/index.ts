@@ -186,7 +186,9 @@ if (!window.Talend.getCDNUrl) {
 				const baseTag = document.querySelector('base');
 				if (baseTag) {
 					const root = baseTag.getAttribute('href') || '';
-					return `${root}${CDN_URL}/${info.name}/${info.version}${info.path}`;
+					if (root !== '/') {
+						return `${root}${CDN_URL}/${info.name}/${info.version}${info.path}`;
+					}
 				}
 			}
 			return `${CDN_URL}/${info.name}/${info.version}${info.path}`;
