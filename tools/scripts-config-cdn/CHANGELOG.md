@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.4.0
+
+### Minor Changes
+
+- 9222aa7fc: @talend/assets-api is now distributed as UMD file
+
 ## 10.3.2
 
 ### Patch Changes

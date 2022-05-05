@@ -1,5 +1,15 @@
 # @talend/react-forms
 
+## 7.1.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+- Updated dependencies [9222aa7fc]
+  - @talend/design-system@2.5.1
+  - @talend/assets-api@1.1.0
+
 ## 7.1.0
 
 ### Minor Changes
