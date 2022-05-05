@@ -49,7 +49,10 @@
     "fork/*"
   ],
   "lint-staged": {
-    "*.{js,ts,tsx,jsx}": [
+    "*.{js,jsx}": [
+      "eslint --quiet --fix"
+    ],
+    "*.{ts,tsx}": [
       "eslint --quiet --fix"
     ],
     "*.{json,md,mdx,html,js,jsx,ts,tsx}": [

@@ -13,7 +13,6 @@
 	"parser": "@babel/eslint-parser",
 	"parserOptions": {
 		"ecmaVersion": 6,
-		"project": "tsconfig.json",
 		"sourceType": "module",
 		"requireConfigFile": false
 	},
@@ -86,7 +85,6 @@
 		"react/state-in-constructor": 0,
 		"react/static-property-placement": "off",
 
-		"@typescript-eslint/indent": 0,
 		// https://github.com/testing-library/eslint-plugin-testing-library#switching-all-aggressive-reporting-mechanisms-off
 		"testing-library/utils-module": "off",
 		"testing-library/custom-renders": "off",
