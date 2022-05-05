@@ -43,7 +43,7 @@ jobs:
         run: yarn lint:style
 
       - name: Merge lint
-        run: node merge-report.js
+        run: node merge-report.mjs
 
       - name: Annotate Code Linting Results
         continue-on-error: true
