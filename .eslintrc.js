@@ -4,7 +4,8 @@ const config = {
 };
 
 if (process.argv.join(' ').includes('.ts')) {
-	config.extends[0] += '.js';
+	// switch to ts config which is the .eslintrc.js
+	config.extends = ['./node_modules/@talend/scripts-config-eslint/.eslintrc.js'];
 }
 
 module.exports = config;
