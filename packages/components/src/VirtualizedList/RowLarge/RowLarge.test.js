@@ -38,6 +38,7 @@ const collection = [
 		titleActions,
 	},
 ];
+var a = 'fio';
 
 const parent = {
 	props: {

@@ -26,6 +26,10 @@ if (isTS) {
 			project: './tsconfig.json',
 			tsconfigRootDir: cwd,
 		},
+		rules: {
+			...config.rules,
+			'@typescript-eslint/indent': 0,
+		},
 		overrides: [
 			...(config.overrides || []),
 			{

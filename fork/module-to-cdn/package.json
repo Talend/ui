@@ -20,7 +20,7 @@
   "scripts": {
     "test": "jest index.test.js",
     "test:cron": "jest modules.test.js",
-    "lint:es": "eslint --config ../../.eslintrc.js --ext '.js,.ts,.tsx' ."
+    "lint:es": "eslint --config ../../.eslintrc.js"
   },
   "files": [
     "index.js",
