@@ -28,6 +28,14 @@ context('<Dropdown />', () => {
 		cy.getByTest('dropdown.menu').should('not.be.visible');
 	});
 
+	it('should hide the menu clicking on a link', () => {
+		cy.mount(<WithIcons />);
+		cy.getByTest('dropdown.button').click();
+		cy.getByTest('dropdown.menu').should('be.visible');
+		cy.get('a[data-test="dropdown.menuitem"]').eq(0).invoke('removeAttr', 'href').click();
+		cy.getByTest('dropdown.menu').should('not.be.visible');
+	});
+
 	it('should display menu with keyboard', () => {
 		cy.mount(<WithIcons />);
 		cy.getByTest('dropdown.button').type(' ');
