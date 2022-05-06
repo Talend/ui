@@ -24,12 +24,6 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - name: Get changed files
-        # this generate files.json in homedirectory, which is consume by merge-report.js
-        uses: trilom/file-changes-action@v1
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Install
         run: yarn install --frozen-lockfile --ignore-scripts
 
