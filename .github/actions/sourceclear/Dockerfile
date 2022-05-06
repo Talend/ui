@@ -1,5 +1,4 @@
-FROM node:16-alpine
-RUN apk add --no-cache jq
-RUN apk --no-cache add curl
+FROM node:16
+RUN apt-get install -y --no-install-recommends curl jq
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
