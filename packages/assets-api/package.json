@@ -6,7 +6,7 @@
   "mainSrc": "src/index.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "echo no pre-release for assets-api",
+    "pre-release": "talend-scripts build:lib:umd && talend-scripts build:lib:umd --dev",
     "build:lib": "talend-scripts build:ts:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
@@ -30,12 +30,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@talend/scripts-core": "^11.6.0",
+    "@talend/scripts-core": "^11.7.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
     "read-pkg-up": "^7.0.1"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

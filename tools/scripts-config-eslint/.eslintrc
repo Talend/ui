@@ -13,7 +13,6 @@
 	"parser": "@babel/eslint-parser",
 	"parserOptions": {
 		"ecmaVersion": 6,
-		"project": "tsconfig.json",
 		"sourceType": "module",
 		"requireConfigFile": false
 	},
@@ -38,13 +37,6 @@
 		"implicit-arrow-linebreak": 0,
 		"import/prefer-default-export": 0,
 		"import/no-named-as-default": "off",
-		"import/no-extraneous-dependencies": [
-			2,
-			{
-				"devDependencies": ["**/*.test.js", "**/*.test.ts*", "**/*.stories.js", "**/*.stories.ts*"],
-				"peerDependencies": true
-			}
-		],
 		"jsx-a11y/label-has-associated-control": 2,
 		"jsx-a11y/label-has-for": 0, // deprecated and buggy, replaced by jsx-a11y/label-has-associated-control
 		"max-classes-per-file": 0,
@@ -86,7 +78,6 @@
 		"react/state-in-constructor": 0,
 		"react/static-property-placement": "off",
 
-		"@typescript-eslint/indent": 0,
 		// https://github.com/testing-library/eslint-plugin-testing-library#switching-all-aggressive-reporting-mechanisms-off
 		"testing-library/utils-module": "off",
 		"testing-library/custom-renders": "off",
@@ -94,6 +85,14 @@
 		"testing-library/no-node-access": "off",
 		"testing-library/render-result-naming-convention": "off"
 	},
+	"overrides": [
+		{
+			"files": ["**/*.test.js", "**/*.test.ts*", "**/*.stories.js", "**/*.stories.ts*"],
+			"rules": {
+				"import/no-extraneous-dependencies": "off"
+			}
+		}
+	],
 	"env": {
 		"es6": true,
 		"browser": true,

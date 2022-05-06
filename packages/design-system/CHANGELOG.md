@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 2.5.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+  - @talend/assets-api@1.1.0
+
 ## 2.5.0
 
 ### Minor Changes

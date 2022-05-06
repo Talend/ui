@@ -1,5 +1,17 @@
 # @talend/react-components
 
+## 6.46.3
+
+### Patch Changes
+
+- 3be3e132d: Datalist should update its value when the titleMap changes
+
+## 6.46.2
+
+### Patch Changes
+
+- e04e3910f: feat(components/QualityBar): rework quality bar with design tokens
+
 ## 6.46.1
 
 ### Patch Changes
