@@ -59,7 +59,7 @@ const Dropdown = forwardRef(
 									{...menu}
 									onClick={event => {
 										menu.hide();
-										entry?.onClick(event);
+										entry.onClick(event);
 									}}
 									key={`${label}-${index}`}
 									id={`${label}-${index}`}
