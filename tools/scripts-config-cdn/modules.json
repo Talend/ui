@@ -1,4 +1,13 @@
 {
+  "@talend/assets-api": {
+    "var": "TalendAssetsApi",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendAssetsApi.js",
+        "production": "/dist/TalendAssetsApi.min.js"
+      }
+    }
+  },
   "@talend/bootstrap-theme": {
     "var": "TalendBootstrapTheme",
     "versions": {

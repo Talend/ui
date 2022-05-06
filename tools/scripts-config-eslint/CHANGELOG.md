@@ -1,5 +1,17 @@
 # @talend/scripts-config-eslint
 
+## 9.9.1
+
+### Patch Changes
+
+- 09722b071: Disable no-extraneous-dependencies for stories & tests
+
+## 9.9.0
+
+### Minor Changes
+
+- 20e907887: feat: add ts support. Just point to eslintrc.js
+
 ## 9.8.0
 
 ### Minor Changes

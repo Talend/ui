@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "include": ["src/index.ts", "src/styled.d.ts", "custom.d.ts"],
+  "exclude": ["*.spec.*"],
   "compilerOptions": {
     "declaration": true
   }

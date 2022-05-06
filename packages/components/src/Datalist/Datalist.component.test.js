@@ -255,6 +255,25 @@ describe('Datalist component', () => {
 		expect(screen.getByRole('textbox')).toHaveValue('My bar');
 	});
 
+	it('should set value on props titleMap update', () => {
+		// given
+		const onChange = jest.fn();
+		const { rerender } = render(
+			<Datalist id="my-datalist" onChange={onChange} {...props} value="foo" />,
+		);
+		expect(screen.getByRole('textbox')).toHaveValue('My foo');
+
+		// when
+		const propsNewTitlemap = {
+			...props,
+			titleMap: [{ name: 'My foo updated', value: 'foo', description: 'foo description' }],
+		};
+		rerender(<Datalist id="my-datalist" onChange={onChange} {...propsNewTitlemap} value="foo" />);
+
+		// then
+		expect(screen.getByRole('textbox')).toHaveValue('My foo updated');
+	});
+
 	it('should set highlight on current value suggestion', () => {
 		// given
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} value="foo" />);
@@ -392,6 +411,38 @@ describe('Datalist component', () => {
 			// then
 			expect(onChange).not.toBeCalled();
 			expect(input).toHaveValue('My foo');
+		});
+
+		it('should persist empty value on enter', () => {
+			// given
+			const onChange = jest.fn();
+			render(<Datalist id="my-datalist" value="foo" onChange={onChange} restricted {...props} />);
+			expect(onChange).not.toBeCalled();
+
+			// when
+			const input = screen.getByRole('textbox');
+			userEvent.clear(input);
+			userEvent.type(input, '{enter}');
+
+			// then
+			expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
+		});
+
+		it('should persist empty value on blur', () => {
+			// given
+			jest.useFakeTimers();
+			const onChange = jest.fn();
+			render(<Datalist id="my-datalist" value="foo" onChange={onChange} restricted {...props} />);
+			expect(onChange).not.toBeCalled();
+
+			// when
+			const input = screen.getByRole('textbox');
+			userEvent.clear(input);
+			fireEvent.blur(input);
+			jest.runAllTimers(); // focus manager
+
+			// then
+			expect(onChange).toBeCalledWith(expect.anything(), { value: '' });
 		});
 	});
 });

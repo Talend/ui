@@ -4,7 +4,7 @@ import VerticalBarChart, {
 } from '../../BarChart/VerticalBarChart/VerticalBarChart.component';
 import styles from './VerticalChartFilter.component.scss';
 import RangeFilter from '../../RangeFilter/RangeFilter.component';
-import TooltipContent from '../../TooltipContent/TooltipContent.component';
+import KeyValueTooltip from '../../KeyValueTooltip/KeyValueTooltip.component';
 import { getVerticalBarChartTooltip } from '../../BarChart/barChart.tooltip';
 import { Range } from '../../../types';
 import { RangeHandler } from '../../RangeFilter/handlers/range-handler.types';
@@ -60,7 +60,7 @@ function VerticalChartFilter({
 					dataFeature={barDataFeature}
 					onBarClick={onBarClick}
 					getTooltipContent={(entry: VerticalBarChartEntry) => (
-						<TooltipContent entries={getVerticalBarChartTooltip(entry)} />
+						<KeyValueTooltip entries={getVerticalBarChartTooltip(entry)} />
 					)}
 				/>
 			</div>

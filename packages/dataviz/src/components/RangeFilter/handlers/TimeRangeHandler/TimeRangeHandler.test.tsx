@@ -9,8 +9,13 @@ describe('TimeRangeHandler', () => {
 		const onChange = jest.fn();
 		const component = shallow(<TimeInputField id="" value={9845} onChange={onChange} />);
 
-		// @ts-ignore
-		component.find('InputTimePicker').invoke('onChange')!({}, { textInput: '11:11:11' } as any);
+		const inputOnChange = component.find('InputTimePicker').invoke('onChange') as any;
+		inputOnChange(
+			{},
+			{
+				textInput: '11:11:11',
+			},
+		);
 		expect(onChange).not.toHaveBeenCalled();
 
 		component.find('InputTimePicker').invoke('onBlur')!({} as any);
@@ -23,8 +28,13 @@ describe('TimeRangeHandler', () => {
 			<TimeInputField id="" value={H11_11_11_IN_SECS} onChange={onChange} />,
 		);
 
-		// @ts-ignore
-		component.find('InputTimePicker').invoke('onChange')!({}, { textInput: '12:12:12' } as any);
+		const inputOnChange = component.find('InputTimePicker').invoke('onChange') as any;
+		inputOnChange(
+			{},
+			{
+				textInput: '12:12:12',
+			},
+		);
 		component.find('InputTimePicker').invoke('onKeyDown')!({ key: 'Escape' } as any);
 
 		expect(component.find('InputTimePicker').prop('value')).toBe('11:11:11');
@@ -34,8 +44,13 @@ describe('TimeRangeHandler', () => {
 		const onChange = jest.fn();
 		const component = shallow(<TimeInputField id="" value={3600} onChange={onChange} />);
 
-		// @ts-ignore
-		component.find('InputTimePicker').invoke('onChange')!({}, { textInput: '11:11:11' } as any);
+		const inputOnChange = component.find('InputTimePicker').invoke('onChange') as any;
+		inputOnChange(
+			{},
+			{
+				textInput: '11:11:11',
+			},
+		);
 		component.find('InputTimePicker').invoke('onKeyDown')!({ key: 'Enter' } as any);
 
 		expect(onChange).toHaveBeenCalledWith(H11_11_11_IN_SECS);
