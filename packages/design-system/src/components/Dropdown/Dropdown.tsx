@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, MouseEventHandler, ReactElement, Ref } from 'react';
+import React, { cloneElement, forwardRef, ReactElement, Ref } from 'react';
 import { Menu, MenuButton, useMenuState } from 'reakit';
 import { IconName } from '@talend/icons';
 import DropdownButton from './Primitive/DropdownButton';
