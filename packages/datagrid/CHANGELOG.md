@@ -1,5 +1,13 @@
 # @talend/react-datagrid
 
+## 9.0.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+  - @talend/assets-api@1.1.0
+
 ## 9.0.0
 
 ### Major Changes

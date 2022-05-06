@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-dataviz",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Talend charts and visualization components",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
@@ -37,7 +37,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/assets-api": "^1.0.0",
+    "@talend/assets-api": "^1.1.0",
     "@talend/react-components": "^6.46.2",
     "@talend/design-tokens": "^2.2.0",
     "classnames": "^2.3.1",
