@@ -2,20 +2,20 @@
   "name": "@talend/monaco-editor",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/TalendMonacoEditor.js",
+  "main": "dist/TalendMonacoEditor.min.js",
   "scripts": {
     "pre-release": "talend-scripts build:lib:umd",
     "test": "echo nothing to test"
   },
   "dependencies": {
     "monaco-editor": "^0.33.0",
-    "react-monaco-editor": "*"
+    "react-monaco-editor": "^0.48.0"
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.3",
     "monaco-editor-webpack-plugin": "^7.0.1",
-    "react": "16.14.0"
+    "react": "^16.14.0"
   },
   "peerDependencies": {
     "react": ">=16.14.0"

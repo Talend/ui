@@ -20,6 +20,7 @@ function getPath(pkg) {
 		.replace('main.js', '')
 		.replace('lib/index.js', '')
 		.replace('dist/bootstrap.js', '')
+		.replace('dist/TalendMonacoEditor.min.js', '')
 		.replace('dist/TalendIcons.js', '');
 }
 
@@ -40,6 +41,7 @@ const PKGS = [
 	'@talend/react-faceted-search',
 	'@talend/react-datagrid',
 	'@talend/react-forms',
+	'@talend/monaco-editor',
 	'@talend/bootstrap-theme',
 	'@talend/icons',
 ];

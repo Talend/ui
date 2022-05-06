@@ -38,6 +38,9 @@ module.exports = options => {
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
 			},
+			performance: {
+				hints: false,
+			},
 			module: {
 				rules: [
 					{

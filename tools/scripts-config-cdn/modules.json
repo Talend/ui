@@ -53,6 +53,22 @@
       }
     }
   },
+  "@talend/monaco-editor": {
+    "var": "TalendMonacoEditor",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendMonacoEditor.min.js",
+        "production": "/dist/TalendMonacoEditor.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendMonacoEditor.css",
+        "production": "/dist/TalendMonacoEditor.css"
+      }
+    }
+  },
+
   "@talend/react-components": {
     "var": "TalendReactComponents",
     "versions": {

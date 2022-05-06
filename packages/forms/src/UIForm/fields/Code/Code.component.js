@@ -11,9 +11,11 @@ import { generateId, generateDescriptionId, generateErrorId } from '../../Messag
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-const Monaco = React.lazy(() =>
-	assetsApi.getUMD('@talend/monaco-editor').then(mod => assetsApi.toDefaultModule(mod.default)),
-);
+// switch back to stock import time to setup the UMD in a way it works
+import Monaco from '@talend/monaco-editor';
+// const Monaco = React.lazy(() =>
+// 	assetsApi.getUMD('@talend/monaco-editor').then(mod => assetsApi.toDefaultModule(mod.default)),
+// );
 
 function CodeSkeleton() {
 	return (
@@ -44,9 +46,9 @@ function Code(props) {
 
 	useEffect(() => {
 		if (editor) {
-			const textarea = editor.textInput.getElement();
-			textarea.setAttribute('id', id);
-			textarea.setAttribute('aria-describedby', `${instructionsId} ${descriptionId} ${errorId}`);
+			// const textarea = editor.textInput.getElement();
+			// textarea.setAttribute('id', id);
+			// textarea.setAttribute('aria-describedby', `${instructionsId} ${descriptionId} ${errorId}`);
 		}
 	}, [editor, instructionsId, descriptionId, errorId, id]);
 
@@ -65,7 +67,7 @@ function Code(props) {
 			if (containerRef.current.lastEsc && containerRef.current.lastEsc - now < 1000) {
 				containerRef.current.lastEsc = null;
 				containerRef.current.focus();
-				editor.textInput.getElement().setAttribute('tabindex', -1);
+				// editor.textInput.getElement().setAttribute('tabindex', -1);
 			} else {
 				containerRef.current.lastEsc = now;
 			}
@@ -75,11 +77,11 @@ function Code(props) {
 	}
 
 	function onBlur() {
-		editor.textInput.getElement().removeAttribute('tabindex');
+		// editor.textInput.getElement().removeAttribute('tabindex');
 	}
 
-	function onLoad(ace) {
-		setEditor(ace);
+	function onLoad(editor) {
+		setEditor(editor);
 	}
 
 	return (
