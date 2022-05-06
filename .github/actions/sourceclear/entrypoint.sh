@@ -18,6 +18,7 @@ echo "Scan completed on . (root)"
 for folder in $packages;
 do
     echo "Starting scan on ./$folder ..."
+    ln -s yarn.lock ./$folder/yarn.lock
     ./srcclr.sh scan ./$folder
     echo "Scan completed on ./$folder"
 done
