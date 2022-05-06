@@ -123,7 +123,7 @@ function Code(props) {
 						// disabled is not supported by ace use readonly
 						// https://github.com/ajaxorg/ace/issues/406
 						readOnly={readOnly || schema.disabled || valueIsUpdating}
-						setOptions={DEFAULT_SET_OPTIONS}
+						// setOptions={DEFAULT_SET_OPTIONS}
 						showGutter={false}
 						showPrintMargin={false}
 						theme="vs-light"
