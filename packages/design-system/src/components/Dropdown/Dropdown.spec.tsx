@@ -20,6 +20,14 @@ context('<Dropdown />', () => {
 		cy.getByTest('dropdown.menu').should('not.be.visible');
 	});
 
+	it('should hide the menu clicking on a button', () => {
+		cy.mount(<WithIcons />);
+		cy.getByTest('dropdown.button').click();
+		cy.getByTest('dropdown.menu').should('be.visible');
+		cy.get('button[data-test="dropdown.menuitem"]').click();
+		cy.getByTest('dropdown.menu').should('not.be.visible');
+	});
+
 	it('should display menu with keyboard', () => {
 		cy.mount(<WithIcons />);
 		cy.getByTest('dropdown.button').type(' ');
