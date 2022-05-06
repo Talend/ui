@@ -6,7 +6,7 @@
   "mainSrc": "src/index.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "echo no pre-release for assets-api",
+    "pre-release": "talend-scripts build:lib:umd && talend-scripts build:lib:umd --dev",
     "build:lib": "talend-scripts build:ts:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
@@ -37,5 +37,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.1"
+  "version": "1.1.0"
 }
