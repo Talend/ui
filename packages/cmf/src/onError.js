@@ -164,7 +164,7 @@ function middleware() {
 				tags: [{ key: 'redux-action-type', value: get(action, 'type', 'UNKNOWN') }],
 			});
 			// eslint-disable-next-line no-console
-			console.error(error);
+			console?.error(error);
 			return undefined;
 		}
 	};

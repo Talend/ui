@@ -37,7 +37,7 @@ module.exports = options => {
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
 				fallback: {
-					url: require.resolve('url'),
+					url: false,
 				},
 			},
 			module: {
