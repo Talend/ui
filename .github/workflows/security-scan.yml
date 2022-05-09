@@ -7,8 +7,7 @@ on:
 
 jobs:
   build:
-    # environment: main
-    environment: pull_request_unsafe
+    environment: main
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
