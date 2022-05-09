@@ -10,6 +10,9 @@ packages=$(yarn --silent workspaces info  | jq '.[].location' | sed 's/\"//g')
 Field_Separator=$IFS
 IFS=,
 
+pwd
+ls -l
+
 # scan each folder
 echo "Starting scan on . (root) ..."
 ./srcclr.sh scan .
