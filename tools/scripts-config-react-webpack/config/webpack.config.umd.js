@@ -36,6 +36,9 @@ module.exports = options => {
 			devtool: 'source-map',
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
+				fallback: {
+					url: require.resolve('url'),
+				},
 			},
 			module: {
 				rules: [

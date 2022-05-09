@@ -104,7 +104,10 @@ function getGitRevision() {
 	let revision = process.env.GIT_COMMIT;
 	if (!revision) {
 		try {
-			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
+			revision = childProcess
+				.execSync('git rev-parse HEAD')
+				.toString()
+				.trim();
 		} catch (e) {
 			// eslint-disable-next-line no-console
 			console.info('Failed to get git revision');
@@ -157,7 +160,10 @@ function getTalendVersions() {
 	let revision = process.env.GIT_COMMIT;
 	if (!revision) {
 		try {
-			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
+			revision = childProcess
+				.execSync('git rev-parse HEAD')
+				.toString()
+				.trim();
 		} catch (e) {
 			// eslint-disable-next-line no-console
 			console.info('Failed to get git revision');
@@ -325,6 +331,9 @@ module.exports = ({ getUserConfig, mode }) => {
 			devtool: 'cheap-module-source-map',
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
+				fallback: {
+					url: require.resolve('url'),
+				},
 			},
 			module: {
 				rules: [
