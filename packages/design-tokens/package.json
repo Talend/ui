@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-tokens",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -37,12 +37,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^11.6.0",
+    "@talend/scripts-core": "^11.7.1",
     "@talend/scripts-preset-react-lib": "^11.0.2",
     "color-contrast-checker": "^2.1.0",
     "react": "^16.14.0",
-    "typeface-source-sans-pro": "^1.1.13",
-    "webpack": "^5"
+    "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}
 }
