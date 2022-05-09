@@ -9,7 +9,7 @@ import { StackHorizontal } from '../../../../Stack';
 import styles from '../AffixStyles.module.scss';
 import Clickable, { ClickableProps } from '../../../../Clickable';
 
-type CommonAffixButtonPropTypes = {
+type CommonAffixButtonPropsType = {
 	children: string;
 	isDropdown?: boolean;
 	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
@@ -25,8 +25,8 @@ type AffixButtonShowTextProps = {
 	icon?: IconName;
 };
 
-export type AffixButtonPropTypes = Omit<ClickableProps, 'className' | 'children'> &
-	CommonAffixButtonPropTypes &
+export type AffixButtonPropsType = Omit<ClickableProps, 'className' | 'children'> &
+	CommonAffixButtonPropsType &
 	(AffixButtonHideTextProps | AffixButtonShowTextProps);
 
 const AffixButton = forwardRef(
@@ -38,7 +38,7 @@ const AffixButton = forwardRef(
 			onClick,
 			hideText = false,
 			...rest
-		}: AffixButtonPropTypes,
+		}: AffixButtonPropsType,
 		ref: Ref<HTMLButtonElement>,
 	) => {
 		const element = (

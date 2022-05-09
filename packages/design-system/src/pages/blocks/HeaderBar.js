@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { VisuallyHidden } from 'reakit';
 
@@ -12,7 +12,7 @@ import { ButtonIconToggle } from '../../components/ButtonIcon';
 import Tooltip from '../../components/Tooltip';
 
 export default function HeaderBarBlock() {
-	const aboutModal = Modal.useDialogState();
+	const [aboutOpen, setAboutOpen] = useState(false);
 	return (
 		<HeaderBar>
 			<HeaderBar.Logo full>
@@ -65,7 +65,7 @@ export default function HeaderBarBlock() {
 						<Dropdown
 							aria-label="Apps switcher"
 							items={[
-								{ onClick: () => {}, label: 'About', type: 'button' },
+								{ onClick: () => setAboutOpen(true), label: 'About', type: 'button' },
 								{ type: 'divider' },
 								{ href: '#', label: 'Support', type: 'link' },
 								{ href: '#', label: 'Community', type: 'link' },
@@ -76,9 +76,11 @@ export default function HeaderBarBlock() {
 						>
 							<Clickable onClick={() => {}}>John Doe</Clickable>
 						</Dropdown>
-						<Modal.Dialog {...aboutModal} aria-label="About this product">
-							<p>Talend 2020</p>
-						</Modal.Dialog>
+						{aboutOpen && (
+							<Modal header={{ title: 'About this product' }} onClose={() => setAboutOpen(false)}>
+								<p>Talend 2020</p>
+							</Modal>
+						)}
 					</HeaderBar.Item>
 				</HeaderBar.ContentRight>
 			</HeaderBar.Content>

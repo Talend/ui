@@ -45,7 +45,7 @@ function getModuleName(importPath) {
     return splitted[0];
 }
 
-function main(importPath, version, options={}) {
+function main(importPath, version, options = {}) {
     const env = options.env || 'development';
 
     if (typeof importPath !== 'string') {
@@ -71,7 +71,9 @@ function main(importPath, version, options={}) {
 
     const moduleName = getModuleName(importPath);
     const moduleConf = modules[importPath];
-    const range = Object.keys(moduleConf.versions).find(nrange => semver.satisfies(safeVersion, nrange));
+    const range = Object.keys(moduleConf.versions).find(nrange =>
+        semver.satisfies(safeVersion, nrange)
+    );
     const config = moduleConf.versions[range];
     const styleConfig = moduleConf['style-versions'] && moduleConf['style-versions'][range];
 

@@ -24,7 +24,7 @@
     "pre-release": "yarn build:dev && yarn build:prod",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
+    "lint:es": "talend-scripts lint:es"
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.6.0",

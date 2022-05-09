@@ -324,6 +324,8 @@ const tokens = {
 	coralParagraphMBold: "var(--coral-paragraph-m-bold, 600 1.4rem/140% 'Source Sans Pro')",
 	coralParagraphS: "var(--coral-paragraph-s, 400 1.2rem/140% 'Source Sans Pro')",
 	coralParagraphSBold: "var(--coral-paragraph-s-bold, 600 1.2rem/140% 'Source Sans Pro')",
+	coralDataM: "var(--coral-data-m, 400 1.4rem/140% 'Inconsolata')",
+	coralDataMBold: "var(--coral-data-m-bold, 700 1.4rem/140% 'Inconsolata')",
 	coralRadiusM: 'var(--coral-radius-m, 0.8rem)',
 	coralRadiusL: 'var(--coral-radius-l, 1.6rem)',
 	coralRadiusRound: 'var(--coral-radius-round, 9999.9rem)',

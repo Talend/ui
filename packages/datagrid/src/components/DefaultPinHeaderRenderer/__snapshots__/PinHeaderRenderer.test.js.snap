@@ -4,8 +4,9 @@ exports[`#DefaultBooleanCellRenderer should render DefaultBooleanCellRenderer 1`
 <div
   className="theme-td-pin-header td-pin-header"
 >
-  <Icon
-    name="talend-burger"
+  <ButtonIcon
+    icon="talend-ellipsis"
+    size="S"
   />
 </div>
 `;

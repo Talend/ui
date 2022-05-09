@@ -6,7 +6,6 @@ const cache = {
     fn: unpkg
 };
 
-
 /**
  * This function is used to return the url from the modules information
  */

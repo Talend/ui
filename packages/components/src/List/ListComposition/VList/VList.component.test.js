@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 
 import VList from './VList.component';
 import VirtualizedList from '../../../VirtualizedList';
+import Manager from '../Manager';
 import { ListContext } from '../context';
 
 describe('List VList', () => {
@@ -49,5 +50,52 @@ describe('List VList', () => {
 
 		// then
 		expect(wrapper.find(VirtualizedList).prop('type')).toBe('TABLE');
+	});
+
+	it('Should not display column chooser by default', () => {
+		// given
+		const contextValue = { collection: [{ id: 0 }, { id: 1 }], setColumns: jest.fn() };
+
+		// when
+		const wrapper = mount(
+			<ListContext.Provider value={contextValue}>
+				<VList />
+			</ListContext.Provider>,
+		);
+
+		expect(wrapper.exists('ColumnChooser')).toBe(false);
+	});
+
+	it('Should display column chooser from boolean', () => {
+		const contextValue = {
+			displayMode: 'table',
+			collection: [],
+			columns: [],
+			setColumns: jest.fn(),
+			setVisibleColumns: jest.fn(),
+		};
+
+		const wrapper = mount(
+			<ListContext.Provider value={contextValue}>
+				<VList type="TABLE" columnChooser>
+					<VList.Text label="Id" dataKey="id" />
+					<VList.Text label="name" dataKey="name" />
+				</VList>
+			</ListContext.Provider>,
+		);
+
+		expect(wrapper.html()).toMatchSnapshot();
+
+		expect(wrapper.find('ColumnChooser')).toHaveLength(1);
+	});
+
+	it('should display a list without columns', () => {
+		const wrapper = mount(
+			<Manager id="my-list" collection={[]}>
+				<VList type="TABLE" />
+			</Manager>,
+		);
+
+		expect(wrapper.find('Table .tc-list-table')).toHaveLength(1);
 	});
 });

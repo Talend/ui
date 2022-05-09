@@ -8,10 +8,13 @@ describe('DateTimeRangeHandler', () => {
 		const onChange = jest.fn();
 		const component = mount(<DateTimeInputField id="" value={1262300400000} onChange={onChange} />);
 
-		// @ts-ignore
-		component.find('InputDateTimePicker').invoke('onChange')({}, {
-			textInput: '2015-01-01 02:00:00',
-		} as any);
+		const inputOnChange = component.find('InputDateTimePicker').invoke('onChange') as any;
+		inputOnChange(
+			{},
+			{
+				textInput: '2015-01-01 02:00:00',
+			},
+		);
 		expect(onChange).not.toHaveBeenCalled();
 
 		component.find('InputDateTimePicker').invoke('onBlur')!({} as any);
@@ -22,10 +25,12 @@ describe('DateTimeRangeHandler', () => {
 		const onChange = jest.fn();
 		const component = mount(<DateTimeInputField id="" value={1262300400000} onChange={onChange} />);
 
-		component.find('InputDateTimePicker').invoke('onChange')!(
+		const inputOnChange = component.find('InputDateTimePicker').invoke('onChange') as any;
+		inputOnChange(
 			{},
-			// @ts-ignore
-			{ textInput: '2015-01-01 02:00:00' },
+			{
+				textInput: '2015-01-01 02:00:00',
+			},
 		);
 		component.find('InputDateTimePicker').invoke('onKeyDown')!({ key: 'Escape' } as any);
 
@@ -42,10 +47,13 @@ describe('DateTimeRangeHandler', () => {
 			/>,
 		);
 
-		// @ts-ignore
-		component.find('InputDateTimePicker').invoke('onChange')!({}, {
-			textInput: '2010-24-24 02:00:00',
-		} as any);
+		const inputOnChange = component.find('InputDateTimePicker').invoke('onChange') as any;
+		inputOnChange(
+			{},
+			{
+				textInput: '2010-24-24 02:00:00',
+			},
+		);
 		component.find('InputDateTimePicker').invoke('onBlur')!({} as any);
 
 		expect(component.find('InputDateTimePicker').prop('value')).toBe('2010-01-01 02:00:00');

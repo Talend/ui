@@ -1,5 +1,39 @@
 # @talend/react-forms
 
+## 7.1.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+- Updated dependencies [9222aa7fc]
+  - @talend/design-system@2.5.1
+  - @talend/assets-api@1.1.0
+
+## 7.1.0
+
+### Minor Changes
+
+- d1815c0af: Use @talend/assets-api to load aceeditor
+
+### Patch Changes
+
+- Updated dependencies [8e95aab34]
+- Updated dependencies [0d18d5d03]
+- Updated dependencies [d1815c0af]
+  - @talend/design-system@2.5.0
+
+## 7.0.9
+
+### Patch Changes
+
+- 7373fd30a: chore(ARCH-482/MultiSelectTag): remove deprecated lifecycle and use RTL for test
+- ce7950623: fix(Fieldset): nested conditional fieldset are broken
+- Updated dependencies [9522692fa]
+- Updated dependencies [59a16bfa7]
+  - @talend/react-components@6.45.0
+  - @talend/design-system@2.4.0
+
 ## 7.0.8
 
 ### Patch Changes

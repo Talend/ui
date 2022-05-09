@@ -1,5 +1,27 @@
 # @talend/design-system
 
+## 2.5.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+  - @talend/assets-api@1.1.0
+
+## 2.5.0
+
+### Minor Changes
+
+- 8e95aab34: feat(design-system/Modal): Modal component
+- 0d18d5d03: feat(Tooltip): use reakit useId as default baseId
+- d1815c0af: feat: use @talend/assets-api to load icons
+
+## 2.4.0
+
+### Minor Changes
+
+- 59a16bfa7: chore(design-system): PropsType naming
+
 ## 2.3.0
 
 ### Minor Changes
