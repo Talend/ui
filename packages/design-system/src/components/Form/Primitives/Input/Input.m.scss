@@ -1,0 +1,6 @@
+@use '../sharedStyles' as Form;
+
+.input {
+  @include Form.baseInput();
+  height: Form.$standardInputHeight;
+}
