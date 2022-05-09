@@ -1,0 +1,7 @@
+@use '~@talend/design-tokens/lib/tokens';
+@use '../sharedStyles' as Form;
+
+.textarea {
+  @include Form.baseInput();
+  min-height: tokens.$coral-sizing-xxxl;
+}
