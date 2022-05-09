@@ -175,6 +175,9 @@ class DynamicCdnWebpackPlugin {
 			});
 		}
 
+		// Make the external modules available to other plugins
+		this.applyWebpackCore(compiler);
+
 		const isUsingHtmlWebpackPlugin =
 			HtmlWebpackPlugin != null &&
 			compiler.options.plugins.some(x => x instanceof HtmlWebpackPlugin);
@@ -182,8 +185,6 @@ class DynamicCdnWebpackPlugin {
 		this.publicPath = compiler.options.output.publicPath;
 		if (isUsingHtmlWebpackPlugin) {
 			this.applyHtmlWebpackPlugin(compiler);
-		} else {
-			this.applyWebpackCore(compiler);
 		}
 	}
 
@@ -193,17 +194,14 @@ class DynamicCdnWebpackPlugin {
 				const modulePath = data.dependencies[0].request;
 				const contextPath = data.context;
 
-				const isModulePath = moduleRegex.test(modulePath);
+				// Unrecognized as a module so use default
+				if (!moduleRegex.test(modulePath)) return undefined;
 
-				if (!isModulePath) {
-					return undefined;
-				}
-
-				const varName = await this.addModule(contextPath, modulePath, {
-					env,
-				});
-				// varname is either string or True for module without global variable like polyfills
-				return varName ? new ExternalModule(varName || '{}', 'var', modulePath) : undefined;
+				// Use recognized CDN module if found
+				const varName = await this.addModule(contextPath, modulePath, { env });
+				return typeof varName === 'string'
+					? new ExternalModule(varName, 'var', modulePath)
+					: undefined;
 			});
 		});
 	}
@@ -276,7 +274,11 @@ class DynamicCdnWebpackPlugin {
 		const moduleName = modulePath.match(moduleRegex)[1];
 		const cwd = resolvePkg(modulePath, { cwd: contextPath });
 		if (!cwd) {
-			if (!isOptional && MODULE_WITHOUT_MAIN.indexOf(moduleName) === -1) {
+			if (
+				!isOptional &&
+				!modulePath.startsWith('data:text/javascript') && // ignore inline content
+				MODULE_WITHOUT_MAIN.indexOf(moduleName) === -1
+			) {
 				this.error(
 					'\n❌',
 					modulePath,
