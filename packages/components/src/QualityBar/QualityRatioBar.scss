@@ -1,3 +1,7 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$custom-quality-bar-placeholder-line-hover-height: 0.4rem;
+
 %tc-ratio-bar-lines {
 	width: 100%;
 	height: 100%;
@@ -6,29 +10,29 @@
 
 .tc-ratio-bar-line-quality-empty {
 	@extend %tc-ratio-bar-lines;
-	background-color: $dove-gray;
+	background-color: tokens.$coral-color-charts-neutral;
 }
 
 .tc-ratio-bar-line-quality-valid {
 	@extend %tc-ratio-bar-lines;
-	background-color: $rio-grande;
+	background-color: tokens.$coral-color-charts-success;
 }
 
 .tc-ratio-bar-line-quality-invalid {
 	@extend %tc-ratio-bar-lines;
-	background-color: $chestnut-rose;
+	background-color: tokens.$coral-color-charts-danger;
 }
 
 .tc-ratio-bar-line-quality-na {
 	@extend %tc-ratio-bar-lines;
-	background-color: $alto;
+	background-color: tokens.$coral-color-charts-neutral;
 }
 
 .tc-ratio-bar-line-quality-placeholder {
 	@extend %tc-ratio-bar-lines;
-	background-color: $alto;
+	background-color: tokens.$coral-color-charts-neutral-weak;
 
 	:global(.tc-ratio-bar) &:hover {
-		height: 5px;
+		height: $custom-quality-bar-placeholder-line-hover-height;
 	}
 }

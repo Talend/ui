@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Icon from '../Icon';
-import getDefaultT from '../translate';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import theme from './FormatValue.scss';
 
@@ -25,6 +24,7 @@ function replaceCharacterByIcon(value, t) {
 		case '\t':
 			return (
 				<Icon
+					key={value}
 					aria-label={t('FORMAT_VALUE_TAB_CHARACTER', { defaultValue: 'tab character' })}
 					className={classNames(
 						theme['td-white-space-character'],
@@ -37,6 +37,7 @@ function replaceCharacterByIcon(value, t) {
 		case ' ':
 			return (
 				<Icon
+					key={value}
 					aria-label={t('FORMAT_VALUE_SPACE_CHARACTER', { defaultValue: 'space character' })}
 					className={classNames(theme['td-white-space-character'], 'td-white-space-character')}
 					name="talend-empty-space"
@@ -46,6 +47,7 @@ function replaceCharacterByIcon(value, t) {
 			return (
 				<span>
 					<Icon
+						key={value}
 						aria-label={t('FORMAT_VALUE_LINE_FEEDING_CHARACTER', {
 							defaultValue: 'line feeding character',
 						})}
@@ -59,6 +61,7 @@ function replaceCharacterByIcon(value, t) {
 			if (REG_EXP_WHITE_SPACE_CHARACTERS.test(value)) {
 				return (
 					<Icon
+						key={value}
 						aria-label={t('FORMAT_VALUE_WHITE_SPACE_CHARACTER', {
 							defaultValue: 'white space character',
 						})}
@@ -71,7 +74,11 @@ function replaceCharacterByIcon(value, t) {
 					/>
 				);
 			}
-			return <span className={classNames(theme['td-value'], 'td-value')}>{value}</span>;
+			return (
+				<span key={value} className={classNames(theme['td-value'], 'td-value')}>
+					{value}
+				</span>
+			);
 	}
 }
 
@@ -106,17 +113,6 @@ function isEmptyCharacter(value) {
 }
 
 /**
- * addKeyAttribute - add key attribute in the array to avoid react warning
- *
- * @param  {Component} component component to modify
- * @param  {int} index     current index
- * @return {type}           shallow component with key attribute
- */
-function addKeyAttribute(component, index) {
-	return { ...component, key: index };
-}
-
-/**
  * replaceWhiteCharacters - description
  *
  * @param  {string} content string part to replace by corresponding HTML
@@ -128,48 +124,46 @@ function replaceWhiteCharacters(content, regexp, t) {
 	return splitting.filter(isEmptyCharacter).map(value => replaceCharacterByIcon(value, t));
 }
 
-export function FormatValueComponent(props) {
-	let content = [];
+export function FormatValueComponent({ value, className }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
-	const hiddenCharsRegExpMatch = props.value.match(REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS);
+	let formattedValue = value;
+	if (hasWhiteSpaceCharacters(value)) {
+		formattedValue = [];
+		const hiddenCharsRegExpMatch = value.match(REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS);
 
-	if (hiddenCharsRegExpMatch[1]) {
-		content = replaceWhiteCharacters(
-			hiddenCharsRegExpMatch[1],
-			REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
-			props.t,
-		);
+		if (hiddenCharsRegExpMatch[1]) {
+			formattedValue = replaceWhiteCharacters(
+				hiddenCharsRegExpMatch[1],
+				REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
+				t,
+			);
+		}
+
+		if (hiddenCharsRegExpMatch[2]) {
+			const formattedContent = replaceWhiteCharacters(
+				hiddenCharsRegExpMatch[2],
+				REG_EXP_CAPTUR_LINE_FEEDING,
+				t,
+			);
+			formattedValue = [...formattedValue, ...formattedContent];
+		}
+
+		if (hiddenCharsRegExpMatch[3]) {
+			const formattedContent = replaceWhiteCharacters(
+				hiddenCharsRegExpMatch[3],
+				REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
+				t,
+			);
+			formattedValue = [...formattedValue, ...formattedContent];
+		}
 	}
-
-	if (hiddenCharsRegExpMatch[2]) {
-		const formattedContent = replaceWhiteCharacters(
-			hiddenCharsRegExpMatch[2],
-			REG_EXP_CAPTUR_LINE_FEEDING,
-			props.t,
-		);
-		content = [...content, ...formattedContent];
-	}
-
-	if (hiddenCharsRegExpMatch[3]) {
-		const formattedContent = replaceWhiteCharacters(
-			hiddenCharsRegExpMatch[3],
-			REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
-			props.t,
-		);
-		content = [...content, ...formattedContent];
-	}
-
-	return <span className={props.className}>{content.map(addKeyAttribute)}</span>;
+	return <span className={className}>{formattedValue}</span>;
 }
 
 FormatValueComponent.propTypes = {
 	className: PropTypes.string,
 	value: PropTypes.string,
-	t: PropTypes.func,
 };
 
-FormatValueComponent.defaultProps = {
-	t: getDefaultT(),
-};
-
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(FormatValueComponent);
+export default FormatValueComponent;

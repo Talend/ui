@@ -24,12 +24,6 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v18.7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Install
         run: yarn install --frozen-lockfile --ignore-scripts
 
@@ -51,16 +45,3 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json
-
-
-      - name: Prettier
-        continue-on-error: true
-        id: prettier
-        shell: bash
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx || $file == *.mdx || $file == *.scss || $file == *.json ]]; then
-              echo "Run Prettier on $file"
-              yarn prettier --config .prettierrc --check $file
-            fi
-          done

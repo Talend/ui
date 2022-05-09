@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import VerticalBarChart, { VerticalBarChartProps } from './VerticalBarChart.component';
-import TooltipContent from '../../TooltipContent/TooltipContent.component';
+import KeyValueTooltip from '../../KeyValueTooltip/KeyValueTooltip.component';
 import { getVerticalBarChartTooltip } from '../barChart.tooltip';
 
 const Template: Story<VerticalBarChartProps> = args => <VerticalBarChart {...args} />;
@@ -62,7 +62,7 @@ NumberBarChart.args = {
 			filteredValue: 400,
 		},
 	],
-	getTooltipContent: entry => <TooltipContent entries={getVerticalBarChartTooltip(entry)} />,
+	getTooltipContent: entry => <KeyValueTooltip entries={getVerticalBarChartTooltip(entry)} />,
 };
 
 export const DateBarChart = Template.bind({});
@@ -94,7 +94,7 @@ DateBarChart.args = {
 		},
 	],
 	showXAxis: true,
-	getTooltipContent: entry => <TooltipContent entries={getVerticalBarChartTooltip(entry)} />,
+	getTooltipContent: entry => <KeyValueTooltip entries={getVerticalBarChartTooltip(entry)} />,
 };
 
 export const MinBarSize = Template.bind({});

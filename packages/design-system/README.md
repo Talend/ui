@@ -63,6 +63,10 @@ Limit changes to styled-components scope.
 Visual non-regression testing will be covered by Chromatic.
 Use Cypress if you have to perform interaction tests, in real browsers.
 
+To launch non the tests you first need to have cypress installed on your environment. Then you can just execute the corresponding npm scripts:
+
+    yarn workspace @talend/design-system run test:cy
+
 ## License
 
 [Apache 2.0](https://github.com/Talend/design-system/blob/master/LICENSE)

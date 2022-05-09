@@ -1,38 +1,32 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 $td-datagrid-skeleton-width: 9.6rem !default;
 $td-datagrid-skeleton-height: 9.6rem !default;
 
 .td-grid {
-	color: $black;
+	color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-neutral-background;
 	height: 100%;
 	width: 100%;
+
+	&-loader svg {
+		color: tokens.$coral-color-neutral-background-strong;
+		animation: tokens.$coral-animation-heartbeat;
+		width: $td-datagrid-skeleton-width;
+		height: $td-datagrid-skeleton-height;
+	}
 
 	&-loading {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
-		svg {
-			width: $td-datagrid-skeleton-width;
-			height: $td-datagrid-skeleton-height;
-		}
 	}
 
-	&-focus-row {
-		:global(.ag-row-focus) {
-			background-color: $white;
-		}
-
-		:global(.ag-row-selected) {
-			background-color: $white;
-		}
+	:global(.ag-root) {
+		border: tokens.$coral-color-neutral-border-weak tokens.$coral-border-s-solid;
 	}
 
 	/* ==== HEADER ==== */
-	:global(.ag-header-viewport) {
-		background-color: $white;
-		color: $dove-gray;
-	}
-
 	:global(.ag-react-container) {
 		height: 100%;
 		width: 100%;
@@ -42,24 +36,18 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		cursor: col-resize;
 	}
 	/* ==== PIN ==== */
-	:global(.ag-pinned-left-header) {
-		border: $gallery 0.1rem solid;
-	}
-
 	:global(.ag-pinned-left-header .ag-react-container) {
 		height: 100%;
 	}
 
 	:global(.ag-cell.ag-cell-last-left-pinned) {
 		padding: 1rem;
-		color: $dove-gray;
-		background-color: $white;
 	}
 
 	/* ==== COLUMN ====  */
 
 	:global(.column-focus) {
-		background-color: rgba($scooter, 0.2);
+		background-color: tokens.$coral-color-accent-background;
 	}
 
 	/* ==== BODY ==== */
@@ -80,21 +68,19 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	:global(.ag-center-cols-clipper) {
-		background-color: $td-body-background-color;
-		font-family: $td-body-font-family;
+		font: tokens.$coral-paragraph-m;
+		// TMP, pending new $coral-data-m token
+		font-family: "Inconsolata";
 	}
 
-	:global(.ag-cell) {
-		border-right: 0.1rem solid $alto;
-		border-bottom: 0.1rem solid $alto;
+	:global(.ag-cell), :global(.ag-header-cell) {
+		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 
 	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
-		background-color: $white;
-		outline: solid 0.1rem $scooter;
-	}
-
-	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned):focus) {
-		box-shadow: none;
+		background-color: tokens.$coral-color-neutral-background;
+		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border;
+		outline-offset: -2px;
 	}
 }

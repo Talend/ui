@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 12.1.0
+
+### Minor Changes
+
+- d1815c0af: feat: add CDN_URL to /cdn by default
+
 ## 12.0.3
 
 ### Patch Changes

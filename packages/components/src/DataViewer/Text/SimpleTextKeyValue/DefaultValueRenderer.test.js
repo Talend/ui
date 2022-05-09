@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import DefaultValueRenderer from './DefaultValueRenderer.component';
 
@@ -29,7 +29,7 @@ describe('#DefaultValueRenderer', () => {
 	});
 
 	it('should render empty when the value is undefined', () => {
-		const wrapper = shallow(<DefaultValueRenderer value={undefined} />);
+		const wrapper = mount(<DefaultValueRenderer value={undefined} />);
 
 		expect(wrapper.find('div').text()).toBe('');
 	});

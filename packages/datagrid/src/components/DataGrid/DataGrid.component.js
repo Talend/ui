@@ -1,21 +1,28 @@
+/* eslint-disable react/sort-comp */
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import { AgGridReact } from 'ag-grid-react';
-import Inject from '@talend/react-components/lib/Inject';
-import Skeleton from '@talend/react-components/lib/Skeleton';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-
+import assetsApi from '@talend/assets-api';
+import { Icon } from '@talend/design-system';
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
 import DefaultPinHeaderRenderer, {
 	PIN_HEADER_RENDERER_COMPONENT,
 } from '../DefaultPinHeaderRenderer';
+import DefaultIntCellRenderer from '../DefaultIntCellRenderer';
+import DefaultRenderer from '../DefaultCellRenderer/DefaultRenderer.component';
 
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
+
+const AgGridReact = React.lazy(() =>
+	assetsApi
+		.getUMD('ag-grid-community')
+		.then(() => assetsApi.getUMD('ag-grid-react'))
+		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact)),
+);
 
 export const AG_GRID = {
 	CUSTOM_HEADER_KEY: 'headerComponent',
@@ -26,40 +33,34 @@ export const AG_GRID = {
 };
 
 const FOCUSED_COLUMN_CLASS_NAME = 'column-focus';
-const HEADER_HEIGHT = 55;
+const HEADER_HEIGHT = 65;
 const COLUMN_MIN_WIDTH = 30;
 const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;
 
-export function injectHeaderRenderer(
-	getComponent,
-	injectedHeaderRenderer,
-	onFocusedColumn,
-	onKeyDown,
-) {
-	const Component = Inject.get(getComponent, injectedHeaderRenderer, DefaultHeaderRenderer);
-
+export function injectHeaderRenderer(Component, onFocusedColumn, onKeyDown) {
+	// eslint-disable-next-line react/display-name
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
-export function injectCellRenderer(getComponent, cellRenderer, avroRenderer) {
-	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
-
-	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
+export function injectCellRenderer(Component, avroRenderer) {
+	// eslint-disable-next-line react/display-name
+	return props => <Component {...props} avroRenderer={avroRenderer} />;
 }
 
 export function getAvroRenderer(avroRenderer) {
 	return {
-		intCellRenderer: 'DefaultIntCellRenderer',
-		stringCellRenderer: 'DefaultStringCellRenderer',
-		dateCellRenderer: 'DefaultDateCellRenderer',
+		intCellRenderer: DefaultIntCellRenderer,
+		stringCellRenderer: DefaultRenderer,
+		// Date are formatted on backend side
+		// dateCellRenderer: DefaultDateCellRenderer,
 		...avroRenderer,
 	};
 }
 
 export default class DataGrid extends React.Component {
 	static defaultProps = {
-		cellRenderer: 'DefaultCellRenderer',
+		cellRenderer: DefaultCellRenderer,
 		columnMinWidth: COLUMN_MIN_WIDTH,
 		deltaRowDataMode: true,
 		enableColResize: true,
@@ -68,8 +69,8 @@ export default class DataGrid extends React.Component {
 		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
 		getRowDataFn: serializer.getRowData,
 		headerHeight: HEADER_HEIGHT,
-		headerRenderer: 'DefaultHeaderRenderer',
-		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
+		headerRenderer: DefaultHeaderRenderer,
+		pinHeaderRenderer: DefaultPinHeaderRenderer,
 		rowHeight: ROW_HEIGHT,
 		rowNodeIdentifier: 'index.index',
 		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
@@ -94,8 +95,12 @@ export default class DataGrid extends React.Component {
 		this.currentColId = null;
 	}
 
+	componentDidMount() {
+		const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community');
+		assetsApi.addStyle({ href });
+	}
+
 	/**
-	 * componentDidUpdate - call forceRedrawRows after props changes to redraw or
 	 * not the grid
 	 * @deprecated
 	 * @param  {object} prevProps previous props
@@ -103,12 +108,6 @@ export default class DataGrid extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (this.props.loading || !this.gridAPI) {
 			return;
-		}
-
-		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
-			// eslint-disable-next-line no-console
-			console.warn('DEPRECATED: forceRedrawRows is deprecated');
-			this.gridAPI.redrawRows();
 		}
 
 		if (
@@ -276,23 +275,16 @@ export default class DataGrid extends React.Component {
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
 			[CELL_RENDERER_COMPONENT]: injectCellRenderer(
-				this.props.getComponent,
 				this.props.cellRenderer,
 				getAvroRenderer(this.props.avroRenderer),
 			),
 			[HEADER_RENDERER_COMPONENT]: injectHeaderRenderer(
-				this.props.getComponent,
 				this.props.headerRenderer,
 				this.onFocusedColumn,
 				this.onKeyDownHeaderColumn,
 			),
-			[PIN_HEADER_RENDERER_COMPONENT]: Inject.get(
-				this.props.getComponent,
-				this.props.pinHeaderRenderer,
-				DefaultPinHeaderRenderer,
-			),
+			[PIN_HEADER_RENDERER_COMPONENT]: this.props.pinHeaderRenderer,
 		};
-
 		return agGridOptions;
 	}
 
@@ -330,9 +322,17 @@ export default class DataGrid extends React.Component {
 	render() {
 		let content;
 		if (this.props.loading) {
-			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
+			content = (
+				<div className={theme['td-grid-loader']}>
+					<Icon name="talend-table" />
+				</div>
+			);
 		} else {
-			content = <AgGridReact {...this.getAgGridConfig()} />;
+			content = (
+				<React.Suspense fallback={<Icon name="talend-table" />}>
+					<AgGridReact {...this.getAgGridConfig()} />
+				</React.Suspense>
+			);
 		}
 
 		return (
