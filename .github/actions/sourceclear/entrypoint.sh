@@ -16,7 +16,7 @@ for folder in $packages;
 do
     echo "Starting scan on ./$folder ..."
     echo "> ln -s yarn.lock ./$folder/yarn.lock"
-    ln -s yarn.lock ./$folder/yarn.lock
+    cp yarn.lock ./$folder/yarn.lock
     ls -l ./$folder
     echo "> ./srcclr.sh scan ./$folder"
     ./srcclr.sh scan ./$folder
