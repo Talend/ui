@@ -2182,6 +2182,17 @@ Text on a chart is discouraged, but if you must, then use this with chart-defaul
         id: 'S:603e1e228ae66fa1496162cb8cdbec5a70580da9,'
     },
     {
+        name: 'coralColorAccentBackgroundSelected',
+        type: 'color',
+        description: `Accent background for currently selected elements: 
+
+Ex: Selected column or line in a datagrid.`,
+        hsla: 'hsla(204, 100%, 95%, 1)',
+        hex: '#e3f4ff',
+        value: 'hsla(204, 100%, 95%, 1)',
+        id: 'S:8e41c9f17635925c89f424569bb6ac93eb5c008e,'
+    },
+    {
         name: 'coralColorBrandingBackground',
         type: 'gradient',
         description: `Main brand background. Used for heroes.`,
