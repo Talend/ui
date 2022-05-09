@@ -1,10 +1,10 @@
 {[ const designSystem = ds.currentDesignSystem() /]}
-{[ const filename = "_index.scss" /]}
+{[ const filename = "_tokens.scss" /]}
 {[ const folderName = getThemeName(designSystem.name) /]}
 
 {[ if (folderName === "light") ]}
 {{ filename }}
 {[ else ]}
-{{ folderName }}/{{ "_tokens.scss" }}
+{{ folderName }}/{{ filename }}
 {[/]}
 
