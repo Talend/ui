@@ -1,0 +1,30 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$standardInputHeight = #{tokens.$coral-sizing-m};
+
+@mixin baseInput (){
+  background: tokens.$coral-color-neutral-background;
+  color: tokens.$coral-color-neutral-text;
+  padding: tokens.$coral-spacing-xs;
+  font: tokens.$coral-paragraph-m;
+  border: 0;
+  margin: 0;
+
+  &:read-only,
+  &.readOnly {
+    background: tokens.$coral-color-neutral-background-strong;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: tokens.$coral-color-neutral-text-disabled;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::placeholder {
+    color: tokens.$coral-color-neutral-text-weak;
+  }
+}
