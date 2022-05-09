@@ -1,5 +1,6 @@
 const path = require('path');
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -9,6 +10,13 @@ module.exports = {
 	output: {
 		filename: 'bundle.js',
 		path: path.join(__dirname, 'dist'),
+	},
+	resolve: {
+		fallback: {
+			// not present by default
+			fs: false,
+			path: false,
+		},
 	},
 	module: {
 		rules: [
@@ -22,11 +30,16 @@ module.exports = {
 						loader: 'string-replace-loader',
 						options: {
 							search: /url\(\\"\//g, // The CSS output by css-loader is stringified, so the quotes are escaped
-							replace: 'url(\\"./'
+							replace: 'url(\\"./',
 						},
 					},
-					'css-loader',
-					'webfonts-loader'
+					{
+						loader: 'css-loader',
+						options: {
+							url: false,
+						},
+					},
+					'webfonts-loader',
 				],
 			},
 			{
@@ -35,10 +48,8 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [
-		new MiniCssExtractPlugin({ filename: 'talend-icons-webfont.css' }),
-	],
-	node: {
-		fs: 'empty',
-	},
+	plugins: [new MiniCssExtractPlugin({ filename: 'talend-icons-webfont.css' })],
+	// node: {
+	// 	fs: 'empty',
+	// },
 };

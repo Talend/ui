@@ -4,11 +4,10 @@ const childProcess = require('child_process');
 const tmp = require('tmp');
 
 const yarnlock = require('@yarnpkg/lockfile');
-const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const webpack = require('webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -30,7 +29,8 @@ const cdnMode = !!process.env.INITIATOR_URL;
 const DEFAULT_INDEX_TEMPLATE_PATH = 'src/app/index.html';
 const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
 const ICON_DIST = icons.getIconsDistPath();
-const getFileNameForExtension = (extension, prefix) => `${prefix || ''}[name]-[hash].${extension}`;
+const getFileNameForExtension = (extension, prefix) =>
+	`${prefix || ''}[name]-[contenthash].${extension}`;
 
 const TALEND_LIB_PREFIX = '@talend/';
 
@@ -83,7 +83,9 @@ function getCommonStyleLoaders(enableModules, mode) {
 		{
 			loader: 'postcss-loader',
 			options: {
-				plugins: () => [autoprefixer()],
+				postcssOptions: {
+					plugins: ['autoprefixer'],
+				},
 				sourceMap: true,
 			},
 		},
@@ -94,7 +96,7 @@ function getCommonStyleLoaders(enableModules, mode) {
 function getSassLoaders(enableModules, sassData, mode) {
 	return getCommonStyleLoaders(enableModules, mode).concat({
 		loader: 'sass-loader',
-		options: { sourceMap: true, prependData: sassData },
+		options: { sourceMap: true, additionalData: sassData },
 	});
 }
 
@@ -102,7 +104,10 @@ function getGitRevision() {
 	let revision = process.env.GIT_COMMIT;
 	if (!revision) {
 		try {
-			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
+			revision = childProcess
+				.execSync('git rev-parse HEAD')
+				.toString()
+				.trim();
 		} catch (e) {
 			// eslint-disable-next-line no-console
 			console.info('Failed to get git revision');
@@ -155,7 +160,10 @@ function getTalendVersions() {
 	let revision = process.env.GIT_COMMIT;
 	if (!revision) {
 		try {
-			revision = childProcess.execSync('git rev-parse HEAD').toString().trim();
+			revision = childProcess
+				.execSync('git rev-parse HEAD')
+				.toString()
+				.trim();
 		} catch (e) {
 			// eslint-disable-next-line no-console
 			console.info('Failed to get git revision');
@@ -300,6 +308,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		meta['app-id'] = userHtmlConfig.appId || theme;
 
 		return {
+			mode,
 			entry: {
 				polyfills: [
 					'regenerator-runtime',
@@ -317,10 +326,14 @@ module.exports = ({ getUserConfig, mode }) => {
 				chunkFilename: getFileNameForExtension('js', jsPrefix),
 				publicPath: '/',
 				globalObject: 'this',
+				clean: true,
 			},
 			devtool: 'cheap-module-source-map',
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
+				fallback: {
+					url: require.resolve('url'),
+				},
 			},
 			module: {
 				rules: [
@@ -379,39 +392,50 @@ module.exports = ({ getUserConfig, mode }) => {
 					},
 					{
 						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
-						loader: 'url-loader',
-						options: {
-							name: './fonts/[name].[ext]',
-							limit: 10000,
-							mimetype: 'application/font-woff',
-						},
+						type: 'asset/resource',
+						use: [
+							{
+								loader: 'url-loader',
+								options: {
+									name: './fonts/[name].[ext]',
+									limit: 10000,
+									mimetype: 'application/font-woff',
+								},
+							},
+						],
 					},
 					{
 						test: /\.svg$/,
-						loader: 'url-loader',
-						options: {
-							name: 'assets/svg/[name].[ext]',
-							limit: 10000,
-							mimetype: 'image/svg+xml',
-						},
+						type: 'asset/resource',
+						use: [
+							{
+								loader: 'url-loader',
+								options: {
+									name: 'assets/svg/[name].[ext]',
+									limit: 10000,
+									mimetype: 'image/svg+xml',
+								},
+							},
+						],
 					},
 					{
 						test: /\.(png|jpg|jpeg|gif)$/,
-						loader: 'url-loader',
-						options: {
-							name: 'assets/img/[name].[ext]',
-							limit: 10000,
-							mimetype: 'image/png',
-						},
+						type: 'asset/resource',
+						use: [
+							{
+								loader: 'url-loader',
+								options: {
+									name: 'assets/img/[name].[ext]',
+									limit: 10000,
+									mimetype: 'image/png',
+								},
+							},
+						],
 					},
 				].filter(Boolean),
 			},
 			plugins: [
 				isEnvDevelopment && new DuplicatesPlugin(),
-				new CleanWebpackPlugin({
-					verbose: true,
-					cleanOnceBeforeBuildPatterns: [path.join(process.cwd(), 'dist')],
-				}),
 				new webpack.DefinePlugin({
 					BUILD_TIMESTAMP: Date.now(),
 					TALEND_APP_INFO: JSON.stringify(getTalendVersions()),
@@ -444,7 +468,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				}),
 				cdn.getWebpackPlugin(env, dcwpConfig),
 				new CopyWebpackPlugin({ patterns: getCopyConfig(env, userCopyConfig) }),
-				new webpack.BannerPlugin({ banner: LICENSE_BANNER }),
+				new webpack.BannerPlugin({ banner: LICENSE_BANNER, entryOnly: true }),
 				cmf && new ReactCMFWebpackPlugin({ watch: isEnvDevelopment }),
 				useTypescript && new ForkTsCheckerWebpackPlugin(),
 			].filter(Boolean),
@@ -461,6 +485,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				// Keep the runtime chunk separated to enable long term caching
 				// https://twitter.com/wSokra/status/969679223278505985
 				runtimeChunk: true,
+				moduleIds: 'named',
 			},
 			watchOptions: {
 				aggregateTimeout: 300,
