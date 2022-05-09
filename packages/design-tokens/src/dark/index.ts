@@ -222,6 +222,8 @@ const tokens = {
   coralColorIllustrationColor07: `var(--coral-color-illustration-color-07, hsla(213, 13%, 35%, 1))`,
   coralColorIllustrationColor08: `var(--coral-color-illustration-color-08, hsla(212, 13%, 19%, 1))`,
   coralColorIllustrationColor09: `var(--coral-color-illustration-color-09, hsla(240, 3%, 12%, 1))`,
+  coralColorAccentBackgroundAccent: `var(--coral-color-accent-background-accent, hsla(199, 73%, 13%, 1))`,
+  coralColorAccentBackgroundSelected: `var(--coral-color-accent-background-selected, hsla(198, 77%, 9%, 1))`,
   coralColorBrandingBackground: `var(--coral-color-branding-background, linear-gradient(133deg,hsla(226, 49%, 14%, 1) 0%, hsla(253, 46%, 8%, 1) 100%))`,
   coralColorBrandingNavigation: `var(--coral-color-branding-navigation, linear-gradient(133deg,hsla(222, 49%, 14%, 1) 0%, hsla(253, 46%, 8%, 1) 100%))`,
   coralSpacingXxs: `var(--coral-spacing-xxs, 0.4rem)`,

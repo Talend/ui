@@ -2007,6 +2007,24 @@ const dictionary = [
         id: 'S:e73f099a6ec3332931b3c1f961795360426572a3,'
     },
     {
+        name: 'coralColorAccentBackgroundAccent',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(199, 73%, 13%, 1)',
+        hex: '#092a39',
+        value: 'hsla(199, 73%, 13%, 1)',
+        id: 'S:329d230c3e61eb5749462c92ec5f8d089286b006,'
+    },
+    {
+        name: 'coralColorAccentBackgroundSelected',
+        type: 'color',
+        description: ``,
+        hsla: 'hsla(198, 77%, 9%, 1)',
+        hex: '#051d27',
+        value: 'hsla(198, 77%, 9%, 1)',
+        id: 'S:e90340e641ca4e9da503dbae26e63f01ee15ba6a,'
+    },
+    {
         name: 'coralColorBrandingBackground',
         type: 'gradient',
         description: ``,
