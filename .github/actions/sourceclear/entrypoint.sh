@@ -13,6 +13,8 @@ IFS=,
 pwd
 ls -l
 
+echo "Packages: $packages"
+
 # scan each folder
 echo "Starting scan on . (root) ..."
 ./srcclr.sh scan .
@@ -21,7 +23,9 @@ echo "Scan completed on . (root)"
 for folder in $packages;
 do
     echo "Starting scan on ./$folder ..."
+    echo "ln -s yarn.lock ./$folder/yarn.lock"
     ln -s yarn.lock ./$folder/yarn.lock
+    echo "./srcclr.sh scan ./$folder"
     ./srcclr.sh scan ./$folder
     echo "Scan completed on ./$folder"
 done
