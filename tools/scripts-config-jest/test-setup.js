@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
