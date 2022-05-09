@@ -1,0 +1,4 @@
+{[ const designSystem = ds.currentDesignSystem() /]}
+{[ const filename = "dictionnary.ts" /]}
+{[ const folderName = getThemeName(designSystem.name) /]}
+{{folderName}}/{{ filename }}
