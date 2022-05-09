@@ -41,9 +41,7 @@ const defaultMain = {
 		'@storybook/addon-essentials'
 	],
 	core: {
-		// this is the default value, but if not defined explicitly here, it fails
-		// because we define a core object, SB takes core.builder in this case
-		builder: 'webpack4',
+		builder: 'webpack5',
 	},
 	webpackFinal: async (config) => {
 		process.env.TALEND_SCRIPTS_CONFIG = JSON.stringify(require(path.join(cwd, 'talend-scripts.json')));
@@ -86,9 +84,11 @@ const defaultMain = {
 					exclude: Object.keys(getAllModules()).filter(name => name.startsWith('@talend/'))
 				}),
 			],
-			node: {
-				...config.node,
-				...talendWebpackConfig.node,
+			resolve: {
+				extensions: ['.ts', '.tsx', '.js'],
+				fallback: {
+					util: false,
+				}
 			},
 			// avoid concurrency issues when build & build-storybook
 			optimization: {
@@ -117,6 +117,7 @@ module.exports = {
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
 	staticDirs: fixWindowsPath([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
+	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
 		let finalConfig = await defaultMain.webpackFinal(config);
 		if(userMain.webpackFinal) {

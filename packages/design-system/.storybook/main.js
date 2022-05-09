@@ -67,6 +67,9 @@ module.exports = {
 			},
 		},
 	},
+	core: {
+		builder: 'webpack5',
+	},
 	webpackFinal: async config => {
 		config.entry.unshift('core-js');
 		config.plugins.push(

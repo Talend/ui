@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet';
 import { I18nextProvider } from 'react-i18next';
 import { useLocalStorage } from 'react-use';
 
-import prettier from 'prettier/standalone';
-import prettierBabel from 'prettier/parser-babel';
+// import prettier from 'prettier/standalone';
+// import prettierBabel from 'prettier/parser-babel';
 
 import { addons } from '@storybook/addons';
 
@@ -220,11 +220,13 @@ export const parameters = {
 			state: 'open',
 		},
 		transformSource: input => {
+			/*
 			const format = source =>
 				prettier.format(source, {
 					parser: 'babel',
 					plugins: [prettierBabel],
 				});
+			*/
 			// remove code snippet with selector since is redundant
 			if (input?.includes('WithSelector')) {
 				return ' ';

@@ -35,12 +35,12 @@
   "resolutions": {
     "@types/react": "^16.14.25",
     "@types/react-dom": "^16.9.14",
-    "webpack": "^5.72.0",
-    "@storybook/react/webpack": "^5.72.0",
-    "@storybook/core-common/webpack": "^5.72.0",
-    "@storybook/core-server/webpack": "^5.72.0",
-    "@storybook/builder-webpack4/webpack": "^5.72.0",
-    "@storybook/manager-webpack4/webpack": "^5.72.0"
+    "webpack": "^5",
+    "@storybook/react/webpack": "^5",
+    "@storybook/core-common/webpack": "^5",
+    "@storybook/core-server/webpack": "^5",
+    "@storybook/builder-webpack4/webpack": "^5",
+    "@storybook/manager-webpack4/webpack": "^5"
   },
   "repository": {
     "type": "git",
