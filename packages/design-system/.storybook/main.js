@@ -52,26 +52,12 @@ module.exports = {
 		'storybook-addon-mdx-embed',
 	],
 	typescript: {
-		check: true,
-		checkOptions: {},
-		reactDocgen: 'react-docgen-typescript',
-		reactDocgenTypescriptOptions: {
-			shouldExtractLiteralValuesFromEnum: true,
-			propFilter: prop => {
-				if (prop.parent) {
-					// filter inherited props
-					return !prop.parent.fileName.includes('node_modules');
-				}
-				// filter inherited styled-components props
-				return !['theme', 'as', 'forwardedAs', 'ref'].includes(prop.name);
-			},
-		},
+		reactDocgen: false,
 	},
 	core: {
 		builder: 'webpack5',
 	},
 	webpackFinal: async config => {
-		config.entry.unshift('core-js');
 		config.plugins.push(
 			new BrowserSyncPlugin({
 				host: 'localhost',

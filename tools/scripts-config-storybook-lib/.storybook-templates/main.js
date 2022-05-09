@@ -43,6 +43,7 @@ const defaultMain = {
 	core: {
 		builder: 'webpack5',
 	},
+	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
 		process.env.TALEND_SCRIPTS_CONFIG = JSON.stringify(require(path.join(cwd, 'talend-scripts.json')));
 		process.env.TALEND_MODE = 'development';
@@ -85,10 +86,7 @@ const defaultMain = {
 				}),
 			],
 			resolve: {
-				extensions: ['.ts', '.tsx', '.js'],
-				fallback: {
-					util: false,
-				}
+				extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
 			},
 			// avoid concurrency issues when build & build-storybook
 			optimization: {
@@ -117,7 +115,6 @@ module.exports = {
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
 	staticDirs: fixWindowsPath([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
-	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
 		let finalConfig = await defaultMain.webpackFinal(config);
 		if(userMain.webpackFinal) {
