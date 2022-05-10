@@ -5,7 +5,7 @@ type SelectProps = HTMLAttributes<HTMLSelectElement> & {
 	children: HTMLOptionElement[];
 };
 
-import styles from './Select.m.scss';
+import styles from './Select.module.scss';
 
 const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement>) => {
 	const { children, className, ...rest } = props;

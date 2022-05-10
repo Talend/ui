@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 type TextareaProps = HTMLAttributes<HTMLTextAreaElement>;
 
-import styles from './Textarea.m.scss';
+import styles from './Textarea.module.scss';
 
 const Textarea = forwardRef((props: TextareaProps, ref: Ref<HTMLTextAreaElement>) => {
 	const { className, ...rest } = props;

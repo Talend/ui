@@ -1,0 +1,5 @@
+@use '../sharedStyles' as Form;
+
+.inputShell {
+  @include Form.borderStyles();
+}

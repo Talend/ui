@@ -1,13 +1,18 @@
-import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import React, { forwardRef, Ref, InputHTMLAttributes } from 'react';
 import classnames from 'classnames';
 
-type InputProps = HTMLAttributes<HTMLInputElement>;
+type InputProps = InputHTMLAttributes<any>;
 
-import styles from './Input.m.scss';
+import styles from './Input.module.scss';
+import InputWrapper from '../InputWrapper/InputWrapper';
 
 const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
 	const { className, ...rest } = props;
-	return <input {...rest} ref={ref} className={classnames(styles.input, className)} />;
+	return (
+		<InputWrapper>
+			<Input {...rest} ref={ref} className={classnames(styles.input, className)} />
+		</InputWrapper>
+	);
 });
 
 Input.displayName = 'Input';

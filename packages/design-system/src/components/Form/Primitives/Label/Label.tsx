@@ -14,7 +14,7 @@ const Label = forwardRef((props: LabelProps, ref: Ref<HTMLLabelElement>) => {
 	return (
 		<label
 			{...props}
-			className={classnames(styles.label, { [styles.inline]: inline }, className)}
+			className={classnames(styles.label, { [styles.label_inline]: inline }, className)}
 			ref={ref}
 		>
 			{children}
