@@ -11,7 +11,7 @@ const Textarea = forwardRef((props: TextareaProps, ref: Ref<HTMLTextAreaElement>
 		<textarea
 			{...rest}
 			ref={ref}
-			disabled={disabled}
+			disabled={disabled || readOnly}
 			className={classnames(
 				styles.textarea,
 				{ [styles.textarea_readOnly]: !!readOnly, [styles.textarea_disabled]: !!disabled },
