@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$standardInputHeight = #{tokens.$coral-sizing-m};
+$standardInputHeight: #{tokens.$coral-sizing-m};
 
 @mixin baseInput (){
   background: tokens.$coral-color-neutral-background;
@@ -9,10 +9,12 @@ $standardInputHeight = #{tokens.$coral-sizing-m};
   font: tokens.$coral-paragraph-m;
   border: 0;
   margin: 0;
+  transition: all tokens.$coral-transition-instant;
 
   &:read-only,
   &.readOnly {
     background: tokens.$coral-color-neutral-background-strong;
+    color: tokens.$coral-color-neutral-text-weak;
   }
 
   &:disabled,
@@ -24,7 +26,39 @@ $standardInputHeight = #{tokens.$coral-sizing-m};
     outline: 0;
   }
 
+  &:disabled {
+    color: tokens.$coral-color-neutral-text-disabled;
+  }
+
   &::placeholder {
     color: tokens.$coral-color-neutral-text-weak;
+  }
+}
+
+@mixin borderStyles (){
+  border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+  box-shadow: 0 0 0 0 transparent;
+  border-radius: 0.2rem; // TODO: token
+
+  &:hover {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+  }
+
+  &:focus-within, &:focus {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+    box-shadow: 0 0 0 0.1rem tokens.$coral-color-accent-border;
+  }
+
+  &.border_error {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
+
+    &:focus-within, &:focus {
+      border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
+      box-shadow: 0 0 0 0.1rem tokens.$coral-color-danger-border;
+    }
+  }
+
+  &.border_disabled {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
   }
 }
