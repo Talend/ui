@@ -1,6 +1,12 @@
+@use '~@talend/design-tokens/lib/tokens';
 @use '../sharedStyles' as Form;
 
 .select {
   @include Form.baseInput();
   height: Form.$standardInputHeight;
+
+  option:disabled {
+      color: tokens.$coral-color-neutral-text-weak;
+      opacity: tokens.$coral-opacity-s;
+  }
 }

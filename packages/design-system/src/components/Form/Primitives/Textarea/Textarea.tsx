@@ -1,13 +1,24 @@
-import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import React, { forwardRef, Ref, TextareaHTMLAttributes } from 'react';
 import classnames from 'classnames';
 
-type TextareaProps = HTMLAttributes<HTMLTextAreaElement>;
+type TextareaProps = TextareaHTMLAttributes<any>;
 
 import styles from './Textarea.module.scss';
 
 const Textarea = forwardRef((props: TextareaProps, ref: Ref<HTMLTextAreaElement>) => {
-	const { className, ...rest } = props;
-	return <textarea {...rest} ref={ref} className={classnames(styles.textarea, className)} />;
+	const { className, readOnly, disabled, ...rest } = props;
+	return (
+		<textarea
+			{...rest}
+			ref={ref}
+			disabled={disabled}
+			className={classnames(
+				styles.textarea,
+				{ [styles.textarea_readOnly]: !!readOnly, [styles.textarea_disabled]: !!disabled },
+				className,
+			)}
+		/>
+	);
 });
 
 Textarea.displayName = 'Textarea';

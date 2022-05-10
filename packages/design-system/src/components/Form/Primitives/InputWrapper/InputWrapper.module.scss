@@ -1,5 +1,12 @@
+@use '~@talend/design-tokens/lib/tokens';
 @use '../sharedStyles' as Form;
 
 .inputShell {
   @include Form.borderStyles();
+  height: tokens.$coral-sizing-m;
+  display: flex;
+  flex-flow: row;
+  gap: 0;
+  justify-content: stretch;
+  align-items: stretch;
 }
