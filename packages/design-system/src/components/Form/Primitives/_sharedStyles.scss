@@ -1,25 +1,31 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$standardInputHeight: #{tokens.$coral-sizing-m};
+$standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 
 @mixin baseInput (){
-  background: tokens.$coral-color-neutral-background;
+  background: transparent;
   color: tokens.$coral-color-neutral-text;
   padding: tokens.$coral-spacing-xs;
   font: tokens.$coral-paragraph-m;
   border: 0;
   margin: 0;
   transition: all tokens.$coral-transition-instant;
+  display: block;
+  flex-grow: 1;
+  width: 100%;
 
-  &:read-only,
-  &.readOnly {
-    background: tokens.$coral-color-neutral-background-strong;
-    color: tokens.$coral-color-neutral-text-weak;
+  &:only-child {
+    border-radius: 2px; // TODO: token
   }
 
   &:disabled,
-  &.disabled {
+  &_disabled {
     color: tokens.$coral-color-neutral-text-disabled;
+  }
+
+  &_readOnly {
+    background: tokens.$coral-color-neutral-background-strong;
+    color: tokens.$coral-color-neutral-text-weak;
   }
 
   &:focus {
@@ -32,16 +38,42 @@ $standardInputHeight: #{tokens.$coral-sizing-m};
 
   &::placeholder {
     color: tokens.$coral-color-neutral-text-weak;
+    opacity: tokens.$coral-opacity-s;
+  }
+
+  &[disabled] {
+    opacity: 1;
+
+     > option {
+      color: tokens.$coral-color-neutral-text;
+    }
   }
 }
 
 @mixin borderStyles (){
   border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
   box-shadow: 0 0 0 0 transparent;
-  border-radius: 0.2rem; // TODO: token
+  border-radius: 2px; // TODO: token
+  transition: all tokens.$coral-transition-instant;
 
   &:hover {
     border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+  }
+
+  &_disabled {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+  }
+
+  &_readOnly {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+  }
+
+  &_disabled:hover {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+  }
+
+  &_readOnly:hover {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
   }
 
   &:focus-within, &:focus {
@@ -58,7 +90,4 @@ $standardInputHeight: #{tokens.$coral-sizing-m};
     }
   }
 
-  &.border_disabled {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
-  }
 }

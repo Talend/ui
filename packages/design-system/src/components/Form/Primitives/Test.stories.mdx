@@ -12,9 +12,17 @@ import * as Stories from './Test.stories';
 />
 
 <Canvas>
+	<Story story={Stories.TextareaPrimitive} />
+</Canvas>
+
+<Canvas>
 	<Story story={Stories.InputPrimitive} />
 </Canvas>
 
 <Canvas>
-	<Story story={Stories.TextareaPrimitive} />
+	<Story story={Stories.SelectPrimitive} />
+</Canvas>
+
+<Canvas>
+	<Story story={Stories.InputPrimitiveWithDropdown} height={'20rem'} />
 </Canvas>
