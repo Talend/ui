@@ -27,11 +27,6 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	/* ==== HEADER ==== */
-	:global(.ag-react-container) {
-		height: 100%;
-		width: 100%;
-	}
-
 	:global(.ag-header-cell-resize) {
 		cursor: col-resize;
 	}
