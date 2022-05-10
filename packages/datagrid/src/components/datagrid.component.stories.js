@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, react/prop-types */
 
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
