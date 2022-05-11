@@ -1,31 +1,53 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 // import { FigmaImage, Use } from '~docs';
 
-import * as Stories from './Test.stories';
+import InlineMessage from '../../InlineMessage/InlineMessage';
+import * as Stories from './Primitives.stories';
+import { StackVertical } from '../../Stack';
 
 <Meta
-	title="Components/Form/Test"
+	title="[WIP] Components/Form/Primitives (unexported)"
 	parameters={{
 		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'wip' },
 		figmaLink: 'https://www.figma.com/file/6XBBCBVOhyX6yTaNcZQiti/Empty-States',
 	}}
 />
 
+# Form Primitives
+
+<StackVertical gap="0" padding={{ x: '0', y: 'M' }}>
+	<InlineMessage.Information
+		withBackground
+		description="Primitives are unexported components used within
+    the design system. They are composed together to create the public components."
+	/>
+</StackVertical>
+
+## Textarea
+
 <Canvas>
 	<Story story={Stories.TextareaPrimitive} />
 </Canvas>
+
+## Input
 
 <Canvas>
 	<Story story={Stories.InputPrimitive} />
 </Canvas>
 
+### Password input
+
 <Canvas>
 	<Story story={Stories.InputPrimitivePassword} />
 </Canvas>
 
+## Select
+
 <Canvas>
 	<Story story={Stories.SelectPrimitive} />
 </Canvas>
+
+## Advanced affixes
 
 <Canvas>
 	<Story story={Stories.InputPrimitiveWithDropdown} height={'20rem'} />
