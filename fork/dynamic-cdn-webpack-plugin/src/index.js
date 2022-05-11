@@ -174,6 +174,8 @@ class DynamicCdnWebpackPlugin {
 				env: this.env || getEnvironment(compiler.options.mode),
 			});
 		}
+		// Make the external modules available to other plugins
+		this.applyWebpackCore(compiler);
 
 		const isUsingHtmlWebpackPlugin =
 			HtmlWebpackPlugin != null &&
@@ -182,8 +184,6 @@ class DynamicCdnWebpackPlugin {
 		this.publicPath = compiler.options.output.publicPath;
 		if (isUsingHtmlWebpackPlugin) {
 			this.applyHtmlWebpackPlugin(compiler);
-		} else {
-			this.applyWebpackCore(compiler);
 		}
 	}
 
@@ -203,7 +203,9 @@ class DynamicCdnWebpackPlugin {
 					env,
 				});
 				// varname is either string or True for module without global variable like polyfills
-				return varName ? new ExternalModule(varName || '{}', 'var', modulePath) : undefined;
+				return typeof varName === 'string'
+					? new ExternalModule(varName, 'var', modulePath)
+					: undefined;
 			});
 		});
 	}
@@ -276,7 +278,11 @@ class DynamicCdnWebpackPlugin {
 		const moduleName = modulePath.match(moduleRegex)[1];
 		const cwd = resolvePkg(modulePath, { cwd: contextPath });
 		if (!cwd) {
-			if (!isOptional && MODULE_WITHOUT_MAIN.indexOf(moduleName) === -1) {
+			if (
+				!isOptional &&
+				!modulePath.startsWith('data:text/javascript') && // ignore inline content
+				MODULE_WITHOUT_MAIN.indexOf(moduleName) === -1
+			) {
 				this.error(
 					'\n❌',
 					modulePath,

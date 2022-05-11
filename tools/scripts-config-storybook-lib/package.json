@@ -25,7 +25,7 @@
     "@storybook/manager-webpack5": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.8",
-    "@talend/dynamic-cdn-webpack-plugin": "^11.0.0",
+    "@talend/dynamic-cdn-webpack-plugin": "^11.0.1",
     "fs-extra": "^10.1.0",
     "i18next-http-backend": "^1.4.0",
     "lodash": "^4.17.21",
