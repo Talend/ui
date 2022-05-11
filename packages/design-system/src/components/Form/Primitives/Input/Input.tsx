@@ -8,6 +8,7 @@ import React, {
 	useImperativeHandle,
 } from 'react';
 import classnames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 import Tooltip from '../../../Tooltip';
 import Clickable from '../../../Clickable';
@@ -19,9 +20,14 @@ import styles from './Input.module.scss';
 
 const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) => {
 	const { className, prefix, suffix, readOnly, disabled, type, onBlur, ...rest } = props;
+
+	// Password type management
 	const [isClear, setClear] = useState<boolean>(type !== 'password');
 	const inputType = type === 'password' ? (isClear ? 'text' : type) : type;
 	const inputRef = useRef<HTMLInputElement | null>(null);
+	const { t } = useTranslation();
+	const showMsg = t('FORM_PASSWORD_SHOW', { defaultValue: 'Show password' });
+	const hideMsg = t('FORM_PASSWORD_HIDE', { defaultValue: 'Hide password' });
 
 	useImperativeHandle(ref, () => inputRef.current);
 
@@ -44,7 +50,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 					className={classnames(styles.input, { [styles.input_readOnly]: !!readOnly }, className)}
 				/>
 				{type === 'password' && (
-					<Tooltip title={isClear ? 'Hide password' : 'Reveal password'}>
+					<Tooltip title={isClear ? hideMsg : showMsg}>
 						<Clickable
 							onClick={() => {
 								setClear(!isClear);
