@@ -1,5 +1,17 @@
 # @talend/react-datagrid
 
+## 9.1.0
+
+### Minor Changes
+
+- ea6f0874a: - Bump ag-grid to v27
+  - Drop assets-api as it's too painful to use ATM
+
+### Patch Changes
+
+- Updated dependencies [344a7551f]
+  - @talend/react-components@6.46.4
+
 ## 9.0.1
 
 ### Patch Changes
