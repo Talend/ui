@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-jest",
   "description": "Jest configuration for @talend/scripts-core",
-  "version": "10.0.0",
+  "version": "10.1.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -24,6 +24,7 @@
     "@talend/scripts-config-babel": "^9.9.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@types/jest": "^26.0.24",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "babel-jest": "^26.6.3",
     "core-js": "^3.22.2",
     "enzyme-adapter-react-16": "^1.15.6",

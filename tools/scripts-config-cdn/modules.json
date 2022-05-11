@@ -2,7 +2,7 @@
   "@talend/assets-api": {
     "var": "TalendAssetsApi",
     "versions": {
-      ">= 1.0.0": {
+      ">= 1.1.0": {
         "development": "/dist/TalendAssetsApi.js",
         "production": "/dist/TalendAssetsApi.min.js"
       }
@@ -41,13 +41,13 @@
   "@talend/design-system": {
     "var": "TalendDesignSystem",
     "versions": {
-      ">= 1.0.0": {
+      "> 1.1.0": {
         "development": "/dist/TalendDesignSystem.js",
         "production": "/dist/TalendDesignSystem.min.js"
       }
     },
     "style-versions": {
-      ">= 1.0.0": {
+      "> 1.1.0": {
         "development": "/dist/TalendDesignSystem.css",
         "production": "/dist/TalendDesignSystem.css"
       }

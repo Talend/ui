@@ -9,3 +9,4 @@ dist
 node_modules
 
 **/*.stories.js
+packages/design-tokens/supernova-exporter
