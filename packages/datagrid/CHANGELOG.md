@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 9.1.1
+
+### Patch Changes
+
+- d6d8cd78d: Broken selection since v9.1.0
+
 ## 9.1.0
 
 ### Minor Changes
