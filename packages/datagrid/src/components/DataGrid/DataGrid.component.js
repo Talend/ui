@@ -23,7 +23,6 @@ export const AG_GRID = {
 	CUSTOM_HEADER_KEY: 'headerComponent',
 	CUSTOM_CELL_KEY: 'cellRenderer',
 	DEFAULT_ROW_SELECTION: 'single',
-	ELEMENT: 'eGridDiv',
 	SCROLL_VERTICAL_DIRECTION: 'vertical',
 };
 
@@ -83,11 +82,11 @@ export default class DataGrid extends React.Component {
 		this.onFocusedCell = this.onFocusedCell.bind(this);
 		this.onGridReady = this.onGridReady.bind(this);
 		this.onBodyScroll = this.onBodyScroll.bind(this);
-		this.setGridInstance = this.setGridInstance.bind(this);
 		this.setCurrentFocusedColumn = this.setCurrentFocusedColumn.bind(this);
 		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 		this.currentColId = null;
+		this.containerRef = React.createRef();
 	}
 
 	/**
@@ -196,10 +195,6 @@ export default class DataGrid extends React.Component {
 		this.currentColId = colId;
 	}
 
-	setGridInstance(gridInstance) {
-		this.gridInstance = gridInstance;
-	}
-
 	getAgGridConfig() {
 		let rowData = this.props.rowData;
 		if (typeof this.props.getRowDataFn === 'function') {
@@ -216,7 +211,6 @@ export default class DataGrid extends React.Component {
 			onViewportChanged: this.updateStyleFocusColumn,
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
 			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
-			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
 			rowBuffer: this.props.rowBuffer,
 			rowData,
 			rowHeight: this.props.rowHeight,
@@ -287,7 +281,7 @@ export default class DataGrid extends React.Component {
 
 	removeFocusColumn() {
 		// workaround see README.md#Workaround Active Column
-		const focusedCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
+		const focusedCells = this.containerRef.current.querySelectorAll(
 			`.${FOCUSED_COLUMN_CLASS_NAME}`,
 		);
 
@@ -302,7 +296,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		// workaround see README.md#Workaround Active Column
-		const columnsCells = this.gridInstance[AG_GRID.ELEMENT].querySelectorAll(
+		const columnsCells = this.containerRef.current.querySelectorAll(
 			`[col-id="${colId}"]:not(.${FOCUSED_COLUMN_CLASS_NAME})`,
 		);
 
@@ -331,6 +325,7 @@ export default class DataGrid extends React.Component {
 					this.props.className,
 					'td-grid',
 				)}
+				ref={this.containerRef}
 			>
 				{content}
 			</div>

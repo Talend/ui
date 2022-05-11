@@ -53,6 +53,18 @@ export const CustomRenderer = () => (
 	/>
 );
 
+export const WithSelection = () => (
+	<DataGrid
+		data={sample}
+		onFocusedCell={action('onFocusedCell')}
+		onFocusedColumn={action('onFocusedColumn')}
+		focusedColumnId="data.field2"
+	/>
+);
+WithSelection.parameters = {
+	chromatic: { disableSnapshot: false },
+};
+
 export const OnlyColumnName = () => (
 	<DataGrid
 		headerHeight={45}
