@@ -11,11 +11,11 @@ export interface QualityIndicatorProps {
 	qualityIndex: keyof Quality;
 }
 
-function QualityIndicator({ qualityIndex }: QualityIndicatorProps): JSX.Element {
+function QualityIndicator({ qualityIndex }: QualityIndicatorProps): JSX.Element | null {
 	const { t } = useTranslation();
 
 	if (qualityIndex !== QUALITY_INVALID_KEY) {
-		return <></>;
+		return null;
 	}
 
 	return (
