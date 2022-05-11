@@ -15,7 +15,7 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
   width: 100%;
 
   &:only-child {
-    border-radius: 2px; // TODO: token
+    border-radius: tokens.$coral-radius-s;
   }
 
   &:disabled,
@@ -53,7 +53,7 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 @mixin borderStyles (){
   border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
   box-shadow: 0 0 0 0 transparent;
-  border-radius: 2px; // TODO: token
+  border-radius: tokens.$coral-radius-s;
   transition: all tokens.$coral-transition-instant;
 
   &:hover {
