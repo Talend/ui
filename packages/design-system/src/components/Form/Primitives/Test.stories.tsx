@@ -42,6 +42,27 @@ export const InputPrimitive = () => (
 	</StackVertical>
 );
 
+export const InputPrimitivePassword = () => (
+	<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
+		<Input type="password" placeholder="Placeholder" />
+		<Input type="password" defaultValue="With default value" />
+		<Input type="password" readOnly defaultValue="Test read-only" />
+		<Input type="password" disabled defaultValue="Test disabled" />
+		<Input type="password" disabled placeholder="Test disabled empty" />
+		<Input
+			placeholder="Test with afixes"
+			type="password"
+			prefix={{ type: 'text', children: 'Affix', hideText: false, icon: 'talend-file-o' }}
+			suffix={{
+				type: 'button',
+				onClick: () => action('clicked'),
+				children: 'action',
+				icon: 'talend-file-o',
+			}}
+		/>
+	</StackVertical>
+);
+
 export const SelectPrimitive = () => {
 	return (
 		<StackVertical gap="XS" padding="XS" align="stretch" justify="start">

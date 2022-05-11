@@ -1,21 +1,78 @@
-import React, { forwardRef, Ref, InputHTMLAttributes } from 'react';
+import React, {
+	forwardRef,
+	Ref,
+	InputHTMLAttributes,
+	useState,
+	FocusEvent,
+	useRef,
+	useImperativeHandle,
+} from 'react';
 import classnames from 'classnames';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
+import Tooltip from '../../../Tooltip';
+import Clickable from '../../../Clickable';
+import { Icon } from '../../../Icon/Icon';
 
 type InputProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> & AffixesProps;
 
 import styles from './Input.module.scss';
 
-const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
-	const { className, prefix, suffix, readOnly, disabled, ...rest } = props;
+const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) => {
+	const { className, prefix, suffix, readOnly, disabled, type, onBlur, ...rest } = props;
+	const [isClear, setClear] = useState<boolean>(type !== 'password');
+	const inputType = type === 'password' ? (isClear ? 'text' : type) : type;
+	const inputRef = useRef<HTMLInputElement | null>(null);
+
+	useImperativeHandle(ref, () => inputRef.current);
+
+	function handleBlur(event: FocusEvent<any, HTMLInputElement>) {
+		setClear(false);
+		if (onBlur) {
+			onBlur(event);
+		}
+	}
+
 	return (
 		<InputWrapper prefix={prefix} suffix={suffix} disabled={!!disabled} readOnly={!!readOnly}>
-			<input
-				{...rest}
-				ref={ref}
-				disabled={!!disabled}
-				className={classnames(styles.input, { [styles.input_readOnly]: !!readOnly }, className)}
-			/>
+			<>
+				<input
+					{...rest}
+					type={inputType}
+					ref={inputRef}
+					disabled={!!disabled || !!readOnly}
+					onBlur={handleBlur}
+					className={classnames(styles.input, { [styles.input_readOnly]: !!readOnly }, className)}
+				/>
+				{type === 'password' && (
+					<Tooltip title={isClear ? 'Hide password' : 'Reveal password'}>
+						<Clickable
+							onClick={() => {
+								setClear(!isClear);
+								if (inputRef.current) {
+									inputRef.current.focus();
+									const valueLength = inputRef.current.value.length || 0;
+									inputRef.current.setSelectionRange(valueLength, valueLength);
+								}
+							}}
+							disabled={disabled}
+							aria-pressed={isClear}
+							tabIndex={-1}
+							aria-hidden
+							data-test="form.password.reveal"
+							className={classnames(
+								styles.button,
+								{ [styles.button_readOnly]: !!readOnly },
+								className,
+							)}
+						>
+							<Icon
+								name={isClear ? 'talend-eye-slash' : 'talend-eye'}
+								className={styles.button__icon}
+							/>
+						</Clickable>
+					</Tooltip>
+				)}
+			</>
 		</InputWrapper>
 	);
 });
