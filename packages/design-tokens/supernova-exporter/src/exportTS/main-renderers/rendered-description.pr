@@ -1,0 +1,25 @@
+{*
+Injectable blueprint that represents token description
+
+Source data: Token Metadata and Payload, all types (https://developers.supernova.io/design-system-data/tokens)
+Note: Token is passed as `context` property because it is injected
+
+{
+  "context": {
+    "id": string
+    "name": string
+    "description": string
+    "tokenType": Depends on the token type
+    "origin": ItemOrigin | null
+    "value": Depends on the token type
+  }
+}
+
+
+Rendered as:
+
+/* description */
+*}
+{[ if (context.description && context.description.count() > 0) ]}
+/* {{ context.description.replacing("*/", "* /") }} */
+{[/]}

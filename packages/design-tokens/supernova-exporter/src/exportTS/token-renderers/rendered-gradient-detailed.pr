@@ -1,0 +1,35 @@
+{*
+
+Injectable blueprint that represents Gradient token. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Color Value (https://developers.supernova.io/design-system-data/tokens/gradients)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "value": {
+    "from": {
+      "x": double
+      "y": double
+    }, 
+    "to": {
+      "x": double
+      "y": double
+    },
+    "type": "Linear" | "Radial" | "Angular",
+    "aspectRatio": double
+    "stops": [Gradient Stop],
+    "referencedToken": Gradient | null
+  }
+}
+
+
+Rendered as:
+
+value: actual consummed value (see rendered-gradient.pr) 
+
+*}
+{[ inject "reference-wrapper" context context ]}
+value: '{[ inject "rendered-gradient" context context /]}',
+{[/]}

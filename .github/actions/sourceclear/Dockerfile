@@ -1,4 +1,5 @@
 FROM node:16
-RUN apk add --no-cache jq
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends curl jq
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

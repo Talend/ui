@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 2.5.2
+
+### Patch Changes
+
+- 472645461: fix(Dropdown): close the dropdown menu while clicking on a button or a link inside.
+- Updated dependencies [0c4804287]
+  - @talend/design-tokens@2.3.0
+
 ## 2.5.1
 
 ### Patch Changes

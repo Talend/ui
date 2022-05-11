@@ -1,0 +1,23 @@
+{*
+
+Injectable blueprint that represents token type as a string
+
+Note: Value is passed as `context` property because it is injected
+
+{
+  "context": {
+    "id": string
+    "name": string
+    "description": string
+    "tokenType": Depends on the token type
+    "origin": ItemOrigin | null
+    "value": Depends on the token type
+  }
+}
+
+
+Rendered differently depending on the token type
+
+*}
+{[ let token = context /]}
+{{ parseTokenType(token) }}

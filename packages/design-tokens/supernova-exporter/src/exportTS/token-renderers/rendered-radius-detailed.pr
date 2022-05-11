@@ -1,0 +1,11 @@
+{*
+
+This only work for radii. They must be defined within Supernova.
+
+Rendered as:
+value: actual consummed value (see rendered-radius.pr) 
+
+*}
+{[ inject "reference-wrapper" context context ]}
+value: '{[ inject "rendered-radius" context context /]}',
+{[/]}
