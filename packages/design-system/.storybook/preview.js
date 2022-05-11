@@ -83,8 +83,15 @@ channel.once(SET_STORIES, eventData => {
 	);
 });
 
+const isCurrentDark =
+    typeof window !== 'undefined'
+        ? window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+        : null
+
 export const parameters = {
 	darkMode: {
+		current: isCurrentDark ? 'dark' : 'light',
 		dark: { ...themes.dark, ...theme('dark') },
 		light: { ...themes.light, ...theme('light') },
 	},
