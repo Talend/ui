@@ -10,3 +10,5 @@ node_modules
 
 **/*.stories.js
 packages/design-tokens/supernova-exporter
+**/jest.setup.js
+**/jest.config.js

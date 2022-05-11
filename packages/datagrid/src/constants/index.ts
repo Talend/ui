@@ -1,22 +1,2 @@
-import {
-	NAMESPACE_INDEX,
-	NAMESPACE_DATA,
-	COLUMN_INDEX,
-	QUALITY_KEY,
-	QUALITY_INVALID_KEY,
-	QUALITY_EMPTY_KEY,
-	QUALITY_VALID_KEY,
-} from './datagrid.constants';
-import { AVRO_TYPES, LOGICAL_TYPES } from './avro-type.constant';
-
-export {
-	NAMESPACE_INDEX,
-	NAMESPACE_DATA,
-	COLUMN_INDEX,
-	QUALITY_KEY,
-	QUALITY_INVALID_KEY,
-	QUALITY_EMPTY_KEY,
-	QUALITY_VALID_KEY,
-	AVRO_TYPES,
-	LOGICAL_TYPES,
-};
+export * from './datagrid.constants';
+export { AVRO_TYPES, LOGICAL_TYPES } from './avro-type.constant';
