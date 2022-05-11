@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 10.1.0
+
+### Minor Changes
+
+- f038a450c: feat(jest): support react 17
+
 ## 10.0.0
 
 ### Major Changes
