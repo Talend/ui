@@ -52,41 +52,27 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 				add(kcc, dep);
 				return kcc;
 			}, acc);
-
 			acc.push(pkg);
-		}
-		const packages = Object.keys(workspaceInfo).reduce((acc, pkg) => {
-			add(acc, pkg);
 			return acc;
-		}, []);
-
-		const orderedWorkspaceInfo = packages.reduce(
-			(accu, packageName) => {
+		}
+		const packages = Object.keys(workspaceInfo).reduce(add, []);
+		const commands = packages
+			.map(packageName => {
 				const packageInfo = workspaceInfo[packageName];
-				const { commands } = accu;
-				const { location, workspaceDependencies } = packageInfo;
+				const { location } = packageInfo;
 
 				const packageJson = require(path.resolve(path.join('.', location, 'package.json')));
 				if (packageJson.scripts[script]) {
-					const cmd = {
+					return {
 						name: 'yarn',
 						args: ['workspace', '--silent', packageName, 'run', script].concat(scriptArgs),
 					};
-
-					let packagePlace = 0;
-					if (workspaceDependencies.length) {
-						const depsIndexes = workspaceDependencies.map(dep => packages.indexOf(dep));
-						packagePlace = Math.max(...depsIndexes) + 1;
-					}
-
-					commands.splice(packagePlace, 0, cmd);
 				}
 
-				return accu;
-			},
-			{ commands: [] },
-		);
-		consume(orderedWorkspaceInfo.commands);
+				return undefined;
+			})
+			.filter(Boolean);
+		consume(commands);
 	})
 	.catch(e => {
 		console.error(e);
