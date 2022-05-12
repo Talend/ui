@@ -2,7 +2,7 @@ import { Range } from '../../../types';
 import { InputFieldProps } from './useRangeInputField.hook';
 
 export interface Ticks {
- [value: number]: string
+	[value: number]: string;
 }
 
 export interface RangeHandler {

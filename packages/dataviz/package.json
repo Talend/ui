@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-dataviz",
-  "version": "2.0.0",
+  "version": "2.1.2",
   "description": "Talend charts and visualization components",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
@@ -11,12 +11,13 @@
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
     "build:lib": "talend-scripts build:ts:lib",
+    "build-storybook": "talend-scripts build-storybook",
     "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner && rm -rf tmp",
     "lint": "yarn lint:es && yarn lint:style",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
-    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "lint:es": "talend-scripts lint:es",
+    "lint:style": "talend-scripts lint:style",
     "start": "talend-scripts start-storybook -p 6006",
-    "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
+    "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet"
@@ -36,8 +37,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-components": "^6.44.13",
-    "@talend/design-tokens": "^2.1.0",
+    "@talend/assets-api": "^1.1.0",
+    "@talend/react-components": "^6.46.2",
+    "@talend/design-tokens": "^2.2.0",
     "classnames": "^2.3.1",
     "d3": "^6.7.0",
     "date-fns": "^2.28.0",
@@ -49,9 +51,9 @@
   "devDependencies": {
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.40.0",
-    "@talend/locales-tui-components": "^6.42.3",
+    "@talend/locales-tui-components": "^6.44.11",
     "@talend/locales-tui-dataviz": "^0.4.6",
-    "@talend/react-components": "^6.44.13",
+    "@talend/react-components": "^6.46.2",
     "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.2",
     "@testing-library/react": "^12.1.2",

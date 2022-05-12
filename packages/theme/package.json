@@ -9,7 +9,7 @@
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",
-    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "lint:style": "talend-scripts lint:style",
     "lint": "yarn lint:style"
   },
   "keywords": [

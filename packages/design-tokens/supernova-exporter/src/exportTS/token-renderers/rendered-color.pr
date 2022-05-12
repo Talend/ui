@@ -1,0 +1,29 @@
+{*
+
+Injectable blueprint that represents Color token as CSS string. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Color Value (https://developers.supernova.io/design-system-data/tokens/colors)
+Note: Value is passed as `context` property because it is injected
+
+{
+  Note: Value is passed as `context` because it is injected
+  "context": {
+    "hex": string
+    "r": int (0-255),
+    "g": int (0-255),
+    "b": int (0-255),
+    "a": int (0-255),
+    "referencedToken": Color | null
+  }
+}
+
+
+Rendered as HSLA:
+
+*}
+{[ inject "reference-wrapper" context context ]}
+{[ let hslaOutput = rgbaToHsla(context.r, context.g, context.b, context.a) /]}
+{{ hslaOutput }}
+{[/]}

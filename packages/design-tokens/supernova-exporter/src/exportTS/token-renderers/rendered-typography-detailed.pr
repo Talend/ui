@@ -1,0 +1,66 @@
+{*
+
+Injectable blueprint that represents Typography token as CSS string. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Shadow Value (https://developers.supernova.io/design-system-data/tokens/typographies)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "id": string
+  "name": string
+  "description": string
+  "tokenType": "Typography"
+  "origin": ItemOrigin | null
+  "value": {
+    "font": {
+      "family": string,
+      "subfamily": string
+      "referencedToken": Font | null
+    },
+    "fontSize": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "letterSpacing": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "lineHeight": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "paragraphIndent": {
+      "unit": "px",
+      "measure": double
+      "referencedToken": Measure | null
+    },
+    "textDecoration": "None" | "Underline" | "Strikethrough"
+    "textCase": "Original" | "Upper" | "Lower" | "Camel"
+    "referencedToken": Typography | null
+  }
+}
+
+
+Rendered as:
+
+value: actual consummed value (see rendered-typography.pr)
+fontStyle: string,
+fontWeight: string,
+fontSize: string,
+lineHeight: string,
+fontFamily: string,
+
+*}
+{[ inject "reference-wrapper" context context ]}
+value: `{[ inject "rendered-typography" context context /]}`,
+fontStyle: '{[ if ds.isFontItalic(context.font) ]}italic{[else]}normal{[/]}',
+fontWeight: '{{ ds.fontWeight(context.font)}}',
+fontSize: '{{ pixelsToRem(context.fontSize) }}',
+lineHeight: '{[ if context.lineHeight ]}{[ inject "rendered-lineHeight" context context.lineHeight /]}{[ else ]}100%{[/]}',
+fontFamily: '{{ context.font.family }}',
+{[/]}

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import DataGrid from '../src/components/';
+import DataGrid from '../src/components';
 import { COLUMN_INDEX, NAMESPACE_DATA, NAMESPACE_INDEX } from '../src/constants';
 import sample from './sample.json';
-import getComponent from './getComponent';
 
 const CHANGE_QUALITY_COLUMN_ID = 'field3';
 
@@ -33,17 +32,16 @@ export default class FasterDatagrid extends React.Component {
 	}
 
 	changeColumnQuality = columnId => {
-		this.setState({
-			rowData: this.state.rowData.map(rowData =>
-				Object.assign({}, rowData, {
-					[`${NAMESPACE_DATA}${columnId}`]: Object.assign(
-						{},
-						rowData[`${NAMESPACE_DATA}${columnId}`],
-						{ quality: rowData[`${NAMESPACE_DATA}${columnId}`].quality === -1 ? 1 : -1 },
-					),
-				}),
+		this.setState(prev => ({
+			...prev,
+			rowData: prev.rowData.map(rowData =>
+				({ ...rowData, [`${NAMESPACE_DATA}${columnId}`]: {
+						
+						...rowData[`${NAMESPACE_DATA}${columnId}`],
+						quality: rowData[`${NAMESPACE_DATA}${columnId}`].quality === -1 ? 1 : -1,
+					}}),
 			),
-		});
+		}));
 	};
 
 	render() {
@@ -51,15 +49,10 @@ export default class FasterDatagrid extends React.Component {
 			<div style={{ height: '100vh' }}>
 				<input
 					type="button"
-					value={'change quality for field3 column'}
+					value="change quality for field3 column"
 					onClick={() => this.changeColumnQuality(CHANGE_QUALITY_COLUMN_ID)}
 				/>
-				<DataGrid
-					data={this.state.data}
-					rowData={this.state.rowData}
-					getComponent={getComponent}
-					getRowDataFn={null}
-				/>
+				<DataGrid data={this.state.data} rowData={this.state.rowData} getRowDataFn={null} />
 			</div>
 		);
 	}
