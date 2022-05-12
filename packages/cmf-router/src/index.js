@@ -65,6 +65,7 @@ function getModule(...args) {
 			saga,
 		},
 		RootComponent: CMFRouter,
+		history,
 	};
 }
 
