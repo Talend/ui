@@ -63,25 +63,9 @@ Check this NN/G group article about the impact of tone of voice on the brand's p
 
 ## Spelling: American vs. British
 
-Follow spelling rules for American English. Check this site to get some help about your word choice: https://www.lexico.com/grammar/spelling/spelling-differences-and-changes
+Follow spelling rules for American English. Check this site to get some help about your word choice: https://www.oxfordinternationalenglish.com/differences-in-british-and-american-spelling/
 
-## Capitalization & Punctuation
-
-There are two common forms of capitalization — "Title Case" and "Sentence case". But in Talend the default is sentence case.
-
-### Sentence case
-
-Capitalize only the first letter of the first word in a phrase.
-
-In the user interface, use sentence case for everything except for buttons and tabs. This text is forced by CSS into all caps. There's one CSS for common elements in the portal, then every team has its own CSS to force all caps in elements in their specific apps.
-
-See [Capitalization](/docs/content-capitalization--page).
-
-### Capitalization in titles
-
-According to most style guides, prepositions, articles, and conjunctions aren't capitalized — unless they are the first word in the title.
-
-### Punctuation
+## Punctuation
 
 Avoid using punctuation marks or special characters in menu names and items.
 
@@ -90,6 +74,7 @@ Avoid using punctuation marks or special characters in menu names and items.
 When strings are complete sentences, use proper punctuation and capitalization.
 
 - Use periods at the end of complete sentences in error message and notifications.
+- Use periods at the end of imperative sentences and sentences with implied subjects.
 - Don't use periods at the end of labels, subtitles, subheads, hint text, and tooltips.
 - Don't end text for radio buttons, check boxes, toggles with periods.
 
@@ -105,45 +90,63 @@ When strings are complete sentences, use proper punctuation and capitalization.
 		<ul>
 			<li>To focus out of the editor, press the ESC key twice</li>
 			<li>Search for specific values</li>
-			<li>Must be a valid URL.</li>
+			<li>Must be a valid URL</li>
 		</ul>
 	</Use.Dont>
 </Use>
 
 #### Colon
 
-Use a colon to introduce an item or a list.
-
-Use no space before a colon and 1 space after.
-
-Start the first word after the colon with lower case.
+- Use a colon to introduce an item or a list.
+- Use no space before a colon and 1 space after.
+- Start the first word after the colon with lower case.
 
 #### Quotes
 
 Don’t use quotes to emphasize or highlight a term.
-Use quotation marks only for quoted speech. Quotes should not be used to emphasize a word.
+Use quotation marks only for quoted speech. 
 
 <Use>
 	<Use.Do>
-		<p>
-			The <b>host</b> field is required.
-		</p>
-		<p>(the UX team are putting in place a rule to use semi-bold for terms like this!)</p>
+		<ul>
+			<li>The <b>host</b> field is required.</li>
+		<p>(the UX team are putting in place a rule to use semi-bold for terms like this)</p>
+		</ul>
 	</Use.Do>
-	<Use.Dont>The "host" field is required.</Use.Dont>
+	<Use.Dont>
+		<ul>
+			<li>The "host" field is required.</li>
+		</ul>
+	</Use.Dont>	
 </Use>
 
 #### Exclamation marks
 
-Use them sparingly and when appropriate to enhance the conversational style!
+Use them sparingly and when appropriate to enhance engament and conversational style, in an onboarding message or when doing some exciting announcement for example. Otherwise they could come across as shouting.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Hold tight!We're getting everything ready for you.</li>
+		</ul>
+	</Use.Do>
+</Use>
 
 #### Commas with e.g. and i.e.
 
 Use commas before and after e.g. and i.e.
 
 <Use>
-	<Use.Do>Enter a valid phone number, e.g., +15342945863</Use.Do>
-	<Use.Dont>Enter a valid phone number e.g. +15342945863</Use.Dont>
+	<Use.Do>
+		<ul>
+			<li>Enter a valid phone number, e.g., +15342945863</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Enter a valid phone number e.g. +15342945863</li>
+		</ul>
+	</Use.Dont>
 </Use>
 
 ## Present tense vs. past and future tenses
@@ -166,14 +169,15 @@ Use active voice rather than passive voice. Sentences using active voice sound s
 	<Use.Dont>No notifications were found.</Use.Dont>
 </Use>
 
-Even though we stated that active voice is the ideal, passive voice has its place. Use passive voice when the action is more important than what caused (subject) the action. Using it carefully will allow you to control the focus of your readers’ attention.
+Even though we stated that active voice is the ideal, passive voice has its place. 
+Use passive voice when the action is more important than what caused (subject) the action. Using it carefully will allow you to control the focus of your readers’ attention.
 
-‘Results not found’ is better than ‘The search did not return any results’.
-
-Good examples:
-
-- Cannot submit pipeline {1}. Too many Livy sessions are used.
-- The connection is created successfully.
+<Use>
+	<Use.Do>Results not found.</Use.Do>
+	<Use.Do>The connection is created successfully.</Use.Do>
+	<Use.Dont>The search did not return any results.</Use.Dont>
+	<Use.Dont>You have created the connection successfully.</Use.Dont>
+</Use>
 
 ## Questions
 
@@ -213,13 +217,10 @@ Don't use spaces before and after slashes when used between individual words. Ad
 
 ## Wordiness
 
-Avoid wordy and over-polite language.
-
-Don't use common introductory text. Cut out the wordiness.
-
-Lead the sentence with the core idea. Give key points the most visibility.
-
-Begin with the goal to achieve and follow it with the needed action.
+- Avoid wordy and over-polite language.
+- Don't use common introductory text. Cut out the wordiness.
+- Lead the sentence with the core idea. Give key points the most visibility.
+- Begin with the goal to achieve and follow it with the needed action.
 
 <Use>
 	<Use.Do>
@@ -243,9 +244,9 @@ Limit please to situations that inconvenience the user in some way.
 
 <Use>
 	<Use.Do>A remote service is unavailable. Please try again later or contact us.</Use.Do>
-	<Use.Dont>
-		The input definition is invalid. Please check it is valid and it uses UTF-8 encoding.
-	</Use.Dont>
+	<Use.Do>The input definition is invalid. Check it is valid and it uses UTF-8 encoding.</Use.Do>
+	<Use.Dont>A remote service is unavailable. Try again later or contact us.</Use.Dont>
+	<Use.Dont>The input definition is invalid. Please check it is valid and it uses UTF-8 encoding.	</Use.Dont>
 </Use>
 
 ### Sorry
@@ -308,8 +309,7 @@ When you need to use a title, make it short and try not to repeat the same words
 <Use>
 	<Use.Do>
 		<ul>
-			<li>The rule name NAME already exists. Rename your rule.</li>
-			<li>[Conversational: The rule name NAME already exits. Try another name.]</li>
+			<li>The rule name ToTo already exists. Try another name. (body)</li>
 			<li>
 				Expression undefined (title)
 				<br />
@@ -321,7 +321,7 @@ When you need to use a title, make it short and try not to repeat the same words
 	<Use.Dont>
 		<ul>
 			<li>
-				The rule name NAME already exists (title)
+				The rule name ToTo already exists (title)
 				<br />
 				Rename your rule. (body)
 			</li>
@@ -340,15 +340,14 @@ Error messages can be complete sentences or sentence fragments. Both are accepte
 
 Examples of sentence fragments: Unreadable Swagger structure, unsupported field type
 
-### Cannot vs couldn't
+### Can't vs couldn't
 
 Both are accepted forms in error messages.
 
-Use "couldn't" if an attempt to do something failed, but could perhaps succeed next time (perhaps after fixing some problem).
+- Use "couldn't" if an attempt to do something failed, but could perhaps succeed next time (perhaps after fixing some problem).
+- Use "can't" if the failure is permanent and the condition will persist at least for now.
 
-Use "can't" if the failure is permanent and the condition will persist at least for now.
-
-the average user may not be able to draw great conclusions merely from the tense of the message, but since the language provides us with a grammar we should use it correctly.
+The average user may not be able to draw great conclusions merely from the tense of the message, but since the language provides us with a grammar we should use it correctly.
 
 Examples:
 
@@ -356,11 +355,19 @@ Configuration couldn't be saved. Check the Single Sign-On configuration and your
 
 Sorry, an unexpected error occurred and we cannot complete your last operation. You can continue to use Data Preparation.
 
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Configuration couldn't be saved. Check the Single Sign-On configuration and your SSO provider settings.</li>
+			<li>Sorry, an unexpected error occurred and we can't complete your last operation. You can continue to use Data Preparation.</li>
+		</ul>
+	</Use.Do>
+</Use>	
+	
 ## Lists
 
-Aim for parallel lists to help users connect ideas and to ease reading flow.
-
-Not all lists can be completely parallel. Start the list with the same part of speech, a verb in the present tense for example.
+- Aim for parallel lists to help users connect ideas and to ease reading flow.
+- If the lists can't be completely parallel, start the list items with the same part of speech, a verb in the present tense for example.
 
 <Use>
 	<Use.Do>
