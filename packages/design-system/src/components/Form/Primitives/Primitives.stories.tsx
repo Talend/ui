@@ -6,6 +6,7 @@ import { action } from '@storybook/addon-actions';
 import Dropdown from '../../Dropdown';
 import { AffixButton } from '../FieldGroup/Affix';
 import { StackVertical } from '../../Stack';
+import Checkbox from './Checkbox/Checkbox';
 
 export default {
 	component: Textarea,
@@ -60,6 +61,17 @@ export const InputPrimitivePassword = () => (
 				icon: 'talend-file-o',
 			}}
 		/>
+	</StackVertical>
+);
+
+export const CheckboxPrimitive = () => (
+	<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
+		<Checkbox label="Test checkbox" id="checkbox-1" />
+		<Checkbox label="Test checkbox selected" id="checkbox-2" defaultChecked />
+		<Checkbox label="Test checkbox indeterminate" id="checkbox-3" indeterminate />
+		<Checkbox label="Test checkbox read-only" id="checkbox-4" readOnly defaultChecked />
+		<Checkbox label="Test checkbox disabled" id="checkbox-5" disabled defaultChecked />
+		<Checkbox label="Test checkbox disabled unselected" id="checkbox-6" disabled />
 	</StackVertical>
 );
 

@@ -43,14 +43,14 @@ export const sizeOptionsWithAuto = {
 	auto: 'auto',
 };
 
-type gapType =
+type GapType =
 	| keyof typeof sizeOptions
 	| {
 			x: keyof typeof sizeOptions;
 			y: keyof typeof sizeOptions;
 	  };
 
-type spacingType =
+type SpacingType =
 	| keyof typeof sizeOptions
 	| {
 			x: keyof typeof sizeOptions;
@@ -63,7 +63,7 @@ type spacingType =
 			bottom: keyof typeof sizeOptions;
 	  };
 
-type spacingTypeWithAuto =
+type SpacingTypeWithAuto =
 	| keyof typeof sizeOptionsWithAuto
 	| {
 			x: keyof typeof sizeOptionsWithAuto;
@@ -78,21 +78,22 @@ type spacingTypeWithAuto =
 
 export const possibleAsTypes = ['div', 'ul', 'ol', 'article', 'span', 'dl'] as const;
 
-type directionType = 'row' | 'column';
+type DirectionType = 'row' | 'column';
 
 export type StackPrimitiveProps = {
 	as?: typeof possibleAsTypes[number];
 	justify?: keyof typeof justifyOptions;
 	align?: keyof typeof alignOptions;
-	gap: gapType;
-	padding?: spacingType;
-	margin?: spacingTypeWithAuto;
+	gap: GapType;
+	padding?: SpacingType;
+	margin?: SpacingTypeWithAuto;
 	children: ReactNode | ReactNode[];
-	direction?: directionType;
+	direction?: DirectionType;
 	wrap?: 'nowrap' | 'wrap' | 'wrapReverse';
 	alignContent?: keyof typeof alignContentOptions;
 	display?: 'block' | 'inline';
 	role?: string;
+	relative?: boolean;
 };
 
 const StackPrimitive = forwardRef(function StackPrimitive(
@@ -104,6 +105,7 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 		wrap = 'nowrap',
 		direction = 'row',
 		display = 'block',
+		relative = false,
 		gap,
 		padding,
 		margin,
@@ -201,6 +203,7 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 				styles[wrap],
 				styles[direction],
 				styles[display],
+				{ [styles.relative]: relative },
 				getAlignContent(),
 				...getGap(),
 				...getPadding(),

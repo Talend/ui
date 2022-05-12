@@ -1,7 +1,7 @@
-import React, { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
+import React, { forwardRef, ReactElement, Ref, LabelHTMLAttributes } from 'react';
 import classnames from 'classnames';
 
-type LabelProps = HTMLAttributes<HTMLLabelElement> & {
+type LabelProps = LabelHTMLAttributes<any> & {
 	children: string | ReactElement;
 	inline?: boolean;
 };
@@ -13,7 +13,7 @@ const Label = forwardRef((props: LabelProps, ref: Ref<HTMLLabelElement>) => {
 
 	return (
 		<label
-			{...props}
+			{...rest}
 			className={classnames(styles.label, { [styles.label_inline]: inline }, className)}
 			ref={ref}
 		>
