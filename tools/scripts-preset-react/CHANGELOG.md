@@ -1,5 +1,12 @@
 # @talend/scripts-preset-react
 
+## 12.0.3
+
+### Patch Changes
+
+- Updated dependencies [2875eb2ce]
+  - @talend/scripts-config-jest@10.0.0
+
 ## 12.0.2
 
 ### Patch Changes

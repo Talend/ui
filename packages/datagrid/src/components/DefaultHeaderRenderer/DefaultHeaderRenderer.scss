@@ -1,10 +1,9 @@
-$td-header-component-border-color: $gallery !default;
+@use '~@talend/design-tokens/lib/tokens';
+
 $td-quality-bar-hover-height: 1rem !default;
 $td-grip-resize-width: 6px !default;
 
 :global(.ag-header-cell) {
-	border-right: $td-header-component-border-color 1px solid;
-
 	:global(.ag-header-cell-resize) {
 		width: $td-grip-resize-width;
 	}
@@ -18,23 +17,25 @@ $td-grip-resize-width: 6px !default;
 
 .td-header-component {
 	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: tokens.$coral-spacing-xs;
 
-	&:hover :global(.td-quality-bar) {
-		height: $td-quality-bar-hover-height;
+	:global(.tc-ratio-bar) {
+		padding: tokens.$coral-spacing-xs 0 0;
 	}
 
 	.td-header {
-		height: 100%;
 		width: calc(100% - #{$td-grip-resize-width});
-		padding: 1rem;
+		padding: 0;
 		text-align: left;
 		background-color: transparent;
 		border: none;
 
 		&-title {
 			display: flex;
-			color: $dove-gray;
-			font-weight: 400;
+			font: tokens.$coral-paragraph-m;
 
 			&-ellipse {
 				flex-grow: 1;
@@ -45,9 +46,8 @@ $td-grip-resize-width: 6px !default;
 		}
 
 		&-type {
-			font-size: 1.2rem;
-			font-weight: 700;
-			color: $dark-silver;
+			color: tokens.$coral-color-neutral-text-weak;
+			font: tokens.$coral-paragraph-s;
 			flex-grow: 1;
 			overflow: hidden;
 			text-overflow: ellipsis;

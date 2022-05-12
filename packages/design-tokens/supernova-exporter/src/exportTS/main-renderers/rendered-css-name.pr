@@ -1,0 +1,41 @@
+{*
+
+Injectable blueprint that represents token name and groups as css-valid string. 
+Note that this only converts the name, actual value is provided somewhere else
+
+
+Source data: Any Token (https://developers.supernova.io/design-system-data/tokens)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "context": {
+    "id": string
+    "name": string
+    "description": string
+    "tokenType": Depends on the token type, but we don't care about it here
+    "origin": ItemOrigin | null
+    "value": Depends on the token type, but we don't care about it here
+  }
+}
+
+
+Rendered as:
+
+[group1][group2][...][name];
+
+*}
+{[ let tokenGroup = ds.tokenGroupContainingTokenId(context.id) /]}
+{[ let prefix = "" /]}
+{[ switch context.tokenType ]}
+{[ case "Color" ]}{[ prefix = behavior.colorTokenPrefix /]}
+{[ case "Typography" ]}{[ prefix = behavior.typographyTokenPrefix /]}  
+{[ case "Shadow" ]}{[ prefix = behavior.shadowTokenPrefix /]}  
+{[ case "Border" ]}{[ prefix = behavior.borderTokenPrefix /]}  
+{[ case "Measure" ]}{[ prefix = behavior.measureTokenPrefix /]}  
+{[ case "Gradient" ]}{[ prefix = behavior.gradientTokenPrefix /]}  
+{[ case "Radius" ]}{[ prefix = behavior.radiusTokenPrefix /]}  
+{[ case "Text" ]}{[ prefix = behavior.textTokenPrefix /]}  
+{[ default ]}{[ prefix = "" /]}  
+{[/]}
+{[ let tokenName = readableVariableKhebabName(context, tokenGroup, prefix) /]}
+{{ tokenName }}

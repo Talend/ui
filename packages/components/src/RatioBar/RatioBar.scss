@@ -1,6 +1,8 @@
-$ratio-bar-width: 100%;
-$ratio-bar-height: 5px;
-$ratio-bar-hover-height: 8px;
+@use '~@talend/design-tokens/lib/tokens';
+
+$custom-ratio-bar-height: 0.8rem;
+$custom-ratio-bar-line-height: 0.4rem;
+$custom-ratio-bar-line-hover-height: 0.8rem;
 
 .tc-ratio-bar-lines {
 	width: 100%;
@@ -11,8 +13,8 @@ $ratio-bar-hover-height: 8px;
 .tc-ratio-bar {
 	padding: $padding-small 0;
 	display: flex;
-	height: $ratio-bar-hover-height;
-	width: $ratio-bar-width;
+	height: $custom-ratio-bar-height;
+	width: 100%;
 	align-items: center;
 
 	&-counter {
@@ -20,12 +22,12 @@ $ratio-bar-hover-height: 8px;
 	}
 
 	.tc-ratio-bar-line {
-		height: $ratio-bar-height;
-		margin: 0 1px;
-		transition: height 0.3s;
-		min-width: 4px;
+		height: $custom-ratio-bar-line-height;
+		margin: 0 2px 0 0;
+		transition: tokens.$coral-transition-instant;
+		min-width: $custom-ratio-bar-line-height;
 		&:hover {
-			height: $ratio-bar-hover-height;
+			height: $custom-ratio-bar-line-hover-height;
 		}
 		&-grow {
 			flex-grow: 1;
@@ -40,16 +42,16 @@ $ratio-bar-hover-height: 8px;
 
 	.tc-ratio-bar-line-empty {
 		@extend .tc-ratio-bar-lines;
-		background-color: $lochmara100;
+		background-color: tokens.$coral-color-charts-neutral-weak;
 	}
 
 	.tc-ratio-bar-line-filled {
 		@extend .tc-ratio-bar-lines;
-		background-color: $lochmara500;
+		background-color: tokens.$coral-color-charts-default;
 	}
 
 	.tc-ratio-bar-line-error {
 		@extend .tc-ratio-bar-lines;
-		background-color: $chestnut-rose;
+		background-color: tokens.$coral-color-charts-danger;
 	}
 }

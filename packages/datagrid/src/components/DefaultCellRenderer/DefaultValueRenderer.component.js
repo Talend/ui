@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import has from 'lodash/has';
-import { TooltipTrigger } from '@talend/react-components';
-import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
+import { Tooltip } from '@talend/design-system';
+import { FormatValue } from '@talend/react-components';
 
 import theme from './DefaultValueRenderer.scss';
 
@@ -61,10 +61,10 @@ export default class DefaultValueRenderer extends React.Component {
 			stringValue = String(this.props.value);
 		}
 
-		const hasWhiteSpace = hasWhiteSpaceCharacters(stringValue);
-		const formattedContent = hasWhiteSpace ? <FormatValue value={stringValue} /> : stringValue;
+		const formattedContent = <FormatValue value={stringValue} />;
 
 		const content = (
+			// eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
 			<div
 				ref={this.setDOMElement}
 				onMouseOver={this.checkOverflow}
@@ -76,9 +76,9 @@ export default class DefaultValueRenderer extends React.Component {
 
 		if (this.state.overflowing) {
 			return (
-				<TooltipTrigger tooltipPlacement="bottom" label={formattedContent}>
+				<Tooltip placement="bottom" title={formattedContent}>
 					{content}
-				</TooltipTrigger>
+				</Tooltip>
 			);
 		}
 

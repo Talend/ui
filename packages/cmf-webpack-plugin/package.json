@@ -8,7 +8,7 @@
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
     "test:cov": "npm run test",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
+    "lint:es": "talend-scripts lint:es"
   },
   "repository": {
     "type": "git",

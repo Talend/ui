@@ -6,7 +6,7 @@ const { getUserConfigFile } = require('../utils/env');
 const jest = resolveBin('jest');
 
 module.exports = function test(env, presetApi, options) {
-	const presetName = presetApi.getUserConfig(['preset'], 'talend');
+	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
 	const jestConfigPath =
 		getUserConfigFile('jest.config.js') || preset.getJestConfigurationPath(presetApi);

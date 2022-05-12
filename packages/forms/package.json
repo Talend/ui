@@ -14,7 +14,7 @@
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
-    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "lint:style": "talend-scripts lint:style",
     "lint": "yarn run lint:es && yarn run lint:style",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
@@ -36,9 +36,10 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^2.3.0",
+    "@talend/assets-api": "^1.1.0",
+    "@talend/design-system": "^2.5.1",
     "@talend/json-schema-form-core": "1.0.5",
-    "@talend/react-components": "^6.44.14",
+    "@talend/react-components": "^6.45.0",
     "@talend/utils": "^2.2.0",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
@@ -59,9 +60,9 @@
     "@talend/bootstrap-theme": "^6.38.6",
     "@talend/icons": "^6.40.0",
     "@talend/locales-tui-forms": "^6.41.3",
-    "@talend/react-components": "^6.44.14",
+    "@talend/react-components": "^6.45.0",
     "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
@@ -94,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.8"
+  "version": "7.1.1"
 }

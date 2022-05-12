@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+
 // Toolbar styles
 $tc-list-toolbar-display-color: $silver !default;
 $tc-list-toolbar-background-color: $wild-sand !default;
@@ -90,7 +92,6 @@ $tc-list-toolbar-height: 7rem !default;
 	}
 
 	:global(li.separated button[data-feature='column-chooser.open']) {
-		margin: 0;
-		padding-right: 0;
+		margin-left: tokens.$coral-spacing-m;
 	}
 }
