@@ -83,7 +83,7 @@ channel.once(SET_STORIES, eventData => {
 	);
 });
 
-const isCurrentDark =
+const isPreferringDark =
     typeof window !== 'undefined'
         ? window.matchMedia &&
           window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -91,14 +91,13 @@ const isCurrentDark =
 
 export const parameters = {
 	darkMode: {
-		current: isCurrentDark ? 'dark' : 'light',
 		dark: { ...themes.dark, ...theme('dark') },
 		light: { ...themes.light, ...theme('light') },
 	},
 	docs: {
 		container: props => {
 			const [hasFigmaIframe, setFigmaIframe] = useLocalStorage('coral--has-figma-iframe', false);
-			const [isDark, setDark] = useLocalStorage('coral--has-dark-mode', false);
+			const [isDark, setDark] = useLocalStorage('coral--has-dark-mode', isPreferringDark);
 
 			const [hasBootstrapStylesheet, setBootstrapStylesheet] = useLocalStorage(
 				'coral--has-bootstrap-stylesheet',
