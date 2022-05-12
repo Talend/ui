@@ -1,0 +1,11 @@
+{*
+
+This only work for strings. They must be defined within Supernova.
+
+Rendered as:
+value: string, 
+
+*}
+{[ inject "reference-wrapper" context context ]}
+value: `{[ inject "rendered-text" context context /]}`,
+{[/]}

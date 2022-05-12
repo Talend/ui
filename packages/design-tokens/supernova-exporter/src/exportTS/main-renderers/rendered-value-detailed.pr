@@ -1,0 +1,34 @@
+{*
+
+Injectable blueprint that represents token values
+Note that this only converts the value, name is converted somewhere else
+
+
+Source data: Any Token (https://developers.supernova.io/design-system-data/tokens)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "context": {
+    "id": string
+    "name": string
+    "description": string
+    "tokenType": Depends on the token type
+    "origin": ItemOrigin | null
+    "value": Depends on the token type
+  }
+}
+
+
+Rendered differently depending on the token type
+
+*}
+{[ let token = context /]}
+{[ switch context.tokenType ]}
+{[ case "Color" ]}{[ inject "rendered-color-detailed" context token.value /]}
+{[ case "Typography" ]}{[ inject "rendered-typography-detailed" context token.value /]}
+{[ case "Shadow" ]}{[ inject "rendered-shadow-detailed" context token.value /]}
+{[ case "Measure" ]}{[ inject "rendered-measure-detailed" context token.value /]} 
+{[ case "Gradient" ]}{[ inject "rendered-gradient-detailed" context token.value /]}
+{[ case "Radius" ]}{[ inject "rendered-radius-detailed" context token.value /]} 
+{[ case "Text" ]}{[ inject "rendered-text-detailed" context token.value /]} 
+{[/]}

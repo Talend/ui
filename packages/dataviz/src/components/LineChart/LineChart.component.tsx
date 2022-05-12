@@ -140,7 +140,7 @@ function LineChart({
 										linesConfig: lines,
 										align: legend?.horizontalAlign || 'right',
 										showInactives: legend?.showInactives,
-										isRightAxisDisplayed: rightYAxisOptions?.hide === false
+										isRightAxisDisplayed: rightYAxisOptions?.hide === false,
 									}}
 									onLegendClicked={onLegendItemClicked}
 									onLegendHovered={onLegendItemHovered}

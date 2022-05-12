@@ -80,9 +80,9 @@ describe('Profiling chart panel', () => {
 		);
 
 		expect(
-			((component
-				.find('VerticalBarChart')
-				.prop('data')! as unknown) as VerticalBarChartEntry[]).map(entry => entry.filteredValue),
+			(component.find('VerticalBarChart').prop('data')! as unknown as VerticalBarChartEntry[]).map(
+				entry => entry.filteredValue,
+			),
 		).toEqual([0, 10, undefined, 0, 0]);
 	});
 
@@ -111,9 +111,9 @@ describe('Profiling chart panel', () => {
 		);
 
 		expect(
-			((component
-				.find('VerticalBarChart')
-				.prop('data')! as unknown) as VerticalBarChartEntry[]).map(entry => entry.filteredValue),
+			(component.find('VerticalBarChart').prop('data')! as unknown as VerticalBarChartEntry[]).map(
+				entry => entry.filteredValue,
+			),
 		).toEqual([10, 10]);
 	});
 });

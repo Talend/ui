@@ -11,7 +11,7 @@ export interface LineChartLegendProps {
 		linesConfig: LineOptions[];
 		align: 'left' | 'center' | 'right';
 		showInactives?: boolean;
-		isRightAxisDisplayed?: boolean
+		isRightAxisDisplayed?: boolean;
 	};
 	onLegendClicked?: (key: string) => void;
 	onLegendHovered?: (key: string) => void;

@@ -255,6 +255,25 @@ describe('Datalist component', () => {
 		expect(screen.getByRole('textbox')).toHaveValue('My bar');
 	});
 
+	it('should set value on props titleMap update', () => {
+		// given
+		const onChange = jest.fn();
+		const { rerender } = render(
+			<Datalist id="my-datalist" onChange={onChange} {...props} value="foo" />,
+		);
+		expect(screen.getByRole('textbox')).toHaveValue('My foo');
+
+		// when
+		const propsNewTitlemap = {
+			...props,
+			titleMap: [{ name: 'My foo updated', value: 'foo', description: 'foo description' }],
+		};
+		rerender(<Datalist id="my-datalist" onChange={onChange} {...propsNewTitlemap} value="foo" />);
+
+		// then
+		expect(screen.getByRole('textbox')).toHaveValue('My foo updated');
+	});
+
 	it('should set highlight on current value suggestion', () => {
 		// given
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} value="foo" />);

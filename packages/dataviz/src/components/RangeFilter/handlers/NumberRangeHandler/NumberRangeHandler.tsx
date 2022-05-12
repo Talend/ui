@@ -31,12 +31,8 @@ function getTicks(limits: Range): Ticks {
 	// Use number of chars in formatted number to guess how many ticks we can show
 	const tickCount = maxDigits < 11 ? 3 : 1;
 
-	return formatD3Ticks(
-		limits,
-		scaleLinear()
-			.domain([limits.min, limits.max])
-			.ticks(tickCount),
-		v => formatNumber(v, +getPrecision(limits)),
+	return formatD3Ticks(limits, scaleLinear().domain([limits.min, limits.max]).ticks(tickCount), v =>
+		formatNumber(v, +getPrecision(limits)),
 	);
 }
 

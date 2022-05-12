@@ -85,22 +85,10 @@ describe('Range filter', () => {
 				/>,
 			);
 
-			component
-				.find('NumberInputField')
-				.at(0)
-				.invoke('onChange')!(5 as any);
-			component
-				.find('NumberInputField')
-				.at(0)
-				.invoke('onChange')!(100 as any);
-			component
-				.find('NumberInputField')
-				.at(1)
-				.invoke('onChange')!(100 as any);
-			component
-				.find('NumberInputField')
-				.at(1)
-				.invoke('onChange')!(0 as any);
+			component.find('NumberInputField').at(0).invoke('onChange')!(5 as any);
+			component.find('NumberInputField').at(0).invoke('onChange')!(100 as any);
+			component.find('NumberInputField').at(1).invoke('onChange')!(100 as any);
+			component.find('NumberInputField').at(1).invoke('onChange')!(0 as any);
 
 			expect(mocks.onAfterChange).toHaveBeenNthCalledWith(1, {
 				min: limits.min,
