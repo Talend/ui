@@ -42,9 +42,28 @@ function consume(cmds) {
 run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 	.then(info => JSON.parse(info))
 	.then(workspaceInfo => {
-		const orderedWorkspaceInfo = Object.entries(workspaceInfo).reduce(
-			(accu, [packageName, packageInfo]) => {
-				const { commands, packages } = accu;
+		function add(acc, pkg) {
+			if (acc.indexOf(pkg) !== -1) {
+				return acc;
+			}
+			const wd = workspaceInfo[pkg].workspaceDependencies;
+
+			wd.reduce((kcc, dep) => {
+				add(kcc, dep);
+				return kcc;
+			}, acc);
+
+			acc.push(pkg);
+		}
+		const packages = Object.keys(workspaceInfo).reduce((acc, pkg) => {
+			add(acc, pkg);
+			return acc;
+		}, []);
+
+		const orderedWorkspaceInfo = packages.reduce(
+			(accu, packageName) => {
+				const packageInfo = workspaceInfo[packageName];
+				const { commands } = accu;
 				const { location, workspaceDependencies } = packageInfo;
 
 				const packageJson = require(path.resolve(path.join('.', location, 'package.json')));
@@ -54,22 +73,18 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 						args: ['workspace', '--silent', packageName, 'run', script].concat(scriptArgs),
 					};
 
-					// package must be built after its workspace dependencies
-					// let's place the command, after the dependencies in the commands list
-					// to do that, we find the dependencies index, and put the command after the last dependency (max index)
 					let packagePlace = 0;
 					if (workspaceDependencies.length) {
 						const depsIndexes = workspaceDependencies.map(dep => packages.indexOf(dep));
 						packagePlace = Math.max(...depsIndexes) + 1;
 					}
 
-					packages.splice(packagePlace, 0, packageName);
 					commands.splice(packagePlace, 0, cmd);
 				}
 
 				return accu;
 			},
-			{ commands: [], packages: [] },
+			{ commands: [] },
 		);
 		consume(orderedWorkspaceInfo.commands);
 	})
