@@ -8,9 +8,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import { Icon } from '@talend/design-system';
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
-import DefaultPinHeaderRenderer, {
-	PIN_HEADER_RENDERER_COMPONENT,
-} from '../DefaultPinHeaderRenderer';
+import DefaultPinHeaderRenderer, { PIN_HEADER_RENDERER_COMPONENT } from '../PinHeaderRenderer';
 import DefaultIntCellRenderer from '../DefaultIntCellRenderer';
 import DefaultRenderer from '../DefaultCellRenderer/DefaultRenderer.component';
 
