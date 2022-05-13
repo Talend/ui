@@ -69,9 +69,12 @@ export const CheckboxPrimitive = () => (
 		<Checkbox label="Test checkbox" id="checkbox-1" />
 		<Checkbox label="Test checkbox selected" id="checkbox-2" defaultChecked />
 		<Checkbox label="Test checkbox indeterminate" id="checkbox-3" indeterminate />
+		<Checkbox label="Test checkbox read-only unselected" id="checkbox-4" readOnly />
 		<Checkbox label="Test checkbox read-only" id="checkbox-4" readOnly defaultChecked />
-		<Checkbox label="Test checkbox disabled" id="checkbox-5" disabled defaultChecked />
-		<Checkbox label="Test checkbox disabled unselected" id="checkbox-6" disabled />
+		<Checkbox label="Test checkbox indeterminate readonly" id="checkbox-5" indeterminate readOnly />
+		<Checkbox label="Test checkbox disabled unselected" id="checkbox-7" disabled />
+		<Checkbox label="Test checkbox disabled" id="checkbox-6" disabled defaultChecked />
+		<Checkbox label="Test checkbox indeterminate disabled" id="checkbox-8" indeterminate disabled />
 	</StackVertical>
 );
 

@@ -18,7 +18,7 @@ const Checkbox = forwardRef((props: CheckboxType, ref: Ref<HTMLInputElement>) =>
 	});
 
 	return (
-		<span className={classnames(styles.checkbox, { [styles.readOnly]: readOnly })}>
+		<span className={classnames(styles.checkbox, { [styles.checkbox_readOnly]: readOnly })}>
 			<ReakitCheckbox
 				{...checkboxState}
 				type="checkbox"

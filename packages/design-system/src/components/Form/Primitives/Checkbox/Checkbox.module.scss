@@ -1,6 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 $checkmark-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImZpbGw6IHdoaXRlIj4KCTxwYXRoIGQ9Ik02IDE0TDAgOGwxLjktMS45TDYgMTAuMiAxNC4xIDIgMTYgMy45eiI+PC9wYXRoPgo8L3N2Zz4=');
+$checkmark-image-indeterminate: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgMTIgMTIiPgogIDxyZWN0IHg9IjMiIHk9IjUiIHdpZHRoPSI2IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K');;
 
 .checkbox {
   display: inline-flex;
@@ -9,71 +10,74 @@ $checkmark-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5
   align-items: center;
   position: relative;
 
-  input {
+  input[type="checkbox"] {
     margin: 0;
     width: tokens.$coral-sizing-minimal;
     height: tokens.$coral-sizing-minimal;
     position: relative;
-    z-index: -1;
+    z-index: 3;
     opacity: 0;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
-  input + label {
-    // Checkbox
-    &:before {
-      content: "";
-      width: tokens.$coral-sizing-minimal;
-      height: tokens.$coral-sizing-minimal;
-      border-radius: tokens.$coral-radius-s;
-      display: block;
-      border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-      background: tokens.$coral-color-neutral-background-medium;
-      transition: all tokens.$coral-transition-fast;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1;
-      cursor: pointer;
-    }
-
-    // Mark
+  input[type="checkbox"] + label {
+    &:before,
     &:after {
       content: "";
       width: tokens.$coral-sizing-minimal;
       height: tokens.$coral-sizing-minimal;
       border-radius: tokens.$coral-radius-s;
-      display: block;
       transition: all tokens.$coral-transition-fast;
+      display: block;
       position: absolute;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
+      margin: 0;
+    }
+    // Checkbox
+    &:before {
+      z-index: 1;
+      border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+      background: tokens.$coral-color-neutral-background-medium;
+    }
+
+    // Mark
+    &:after {
       z-index: 2;
-      cursor: pointer;
       opacity: 0;
-      background: $checkmark-image no-repeat center center;
-      background-size: 58%;
+      mask-image: $checkmark-image;
+      -webkit-mask-image: $checkmark-image;
+      background-image: none;
+      background-color: tokens.$coral-color-neutral-background;
+      width: calc(#{tokens.$coral-sizing-xxxs} / 2);
+      height: calc(#{tokens.$coral-sizing-xxxs} / 2);
+      left: calc(#{tokens.$coral-sizing-minimal} / 2 - #{tokens.$coral-sizing-xxxs} / 4)
     }
   }
 
-  input:hover + label {
+  input[type="checkbox"]:hover + label {
     // Checkbox
     &:before {
       border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
     }
   }
 
-  input:active + label {
+  input[type="checkbox"]:active + label {
     // Checkbox
     &:before {
       background: tokens.$coral-color-accent-background-active;
     }
   }
 
-  input:checked + label {
+  input[type="checkbox"]:checked + label {
     // Checkbox
     &:before {
+      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
       background: tokens.$coral-color-accent-background-strong;
     }
 
@@ -83,22 +87,50 @@ $checkmark-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5
     }
   }
 
-  input:checked:not(:disabled):hover + label {
+  input[type="checkbox"][aria-checked="mixed"] + label {
     // Checkbox
     &:before {
+      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+      background: tokens.$coral-color-accent-background-strong;
+    }
+
+    // Mark
+    &:after {
+      opacity: 1;
+      mask-image: $checkmark-image;
+      -webkit-mask-image: $checkmark-image-indeterminate;
+      width: calc(#{tokens.$coral-sizing-xxxs} / 2);
+      height: calc(#{tokens.$coral-sizing-xxxs} / 2);
+      left: calc(#{tokens.$coral-sizing-minimal} / 2 - #{tokens.$coral-sizing-xxxs} / 4)
+    }
+  }
+
+  input[type="checkbox"]:checked:not(:disabled):hover + label,
+  input[type="checkbox"][aria-checked="mixed"]:not(:disabled):hover + label {
+    // Checkbox
+    &:before {
+      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
       background: tokens.$coral-color-accent-background-strong-hover;
     }
   }
 
-  input:checked:not(:disabled):active + label {
+  input[type="checkbox"]:checked:not(:disabled):active + label,
+  input[type="checkbox"][aria-checked="mixed"]:not(:disabled):active + label {
     // Checkbox
     &:before {
+      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-active;
       background: tokens.$coral-color-accent-background-strong-active;
     }
   }
 
-  input:disabled + label {
+
+  // Disabled and read-only cases
+
+  input[type="checkbox"]:disabled + label,
+  input[type="checkbox"]:checked:disabled + label,
+  input[type="checkbox"][aria-checked="mixed"]:disabled + label {
     color: tokens.$coral-color-neutral-text-disabled;
+    cursor: not-allowed;
 
     // Checkbox
     &:before {
@@ -109,4 +141,42 @@ $checkmark-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy5
     }
   }
 
+  input[type="checkbox"]:checked:disabled + label,
+  input[type="checkbox"][aria-checked="mixed"]:disabled + label {
+    // Mark
+    &:after {
+      background-color: tokens.$coral-color-neutral-icon-weak;
+      opacity: tokens.$coral-opacity-m;
+    }
+  }
+
+  &_readOnly {
+    input[type="checkbox"]:disabled:not(:checked) + label,
+    input[type="checkbox"]:checked:disabled + label,
+    input[type="checkbox"][aria-checked="mixed"]:disabled + label {
+      color: tokens.$coral-color-neutral-text;
+      cursor: not-allowed;
+
+      // Checkbox
+      &:before {
+        border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+        background: tokens.$coral-color-neutral-background-strong;
+        opacity: 1;
+      }
+
+      // Mark
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    input[type="checkbox"]:checked:disabled + label,
+    input[type="checkbox"][aria-checked="mixed"]:disabled + label {
+      // Mark
+      &:after {
+        background-color: tokens.$coral-color-neutral-icon-weak;
+        opacity: 1;
+      }
+    }
+  }
 }
