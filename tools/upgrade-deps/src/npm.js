@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-await-in-loop, no-restricted-syntax */
 const fs = require('fs');
@@ -60,6 +61,17 @@ function createPackageJsonManager(filePath) {
 	return new PackageJson(filePath);
 }
 
+async function getNext(dependency) {
+	if (!CACHE[dependency]) {
+		const nextVersion = await execProm(`npm dist-tag ls ${dependency}`);
+		CACHE[dependency] = nextVersion.stdout
+			.split('\n')
+			.filter(line => line.includes('next:'))[0]
+			.replace('next: ', '');
+	}
+	return CACHE[dependency];
+}
+
 async function getLatest(dependency) {
 	if (!CACHE[dependency]) {
 		const latest = await execProm(`npm view ${dependency} version latest`);
@@ -111,11 +123,14 @@ async function checkVersionsOf(pkgJson, opts) {
 
 		try {
 			let newVersion;
-			if (opts.latest) {
+			if (opts.next) {
+				newVersion = await getNext(depName);
+			} else if (opts.latest) {
 				newVersion = await getLatest(depName);
 			} else {
 				newVersion = await getUpdate(depName, requestedVersion);
 			}
+			console.log(newVersion, requestedVersion);
 			if (newVersion && requestedVersion !== `${semantic}${newVersion}`) {
 				const isMajor = !semver.satisfies(newVersion, requestedVersion);
 				let msg = `"${depName}": "${requestedVersion}" => "^${newVersion}"`;
@@ -139,7 +154,9 @@ async function checkPackageJson(filePath, opts) {
 	console.log(
 		`\n${
 			opts.dry ? 'check' : `update ${opts.scope || opts.package || 'all'} packages`
-		} versions of ${filePath} ${opts.latest ? 'using latest' : 'using same requirements'}`,
+		} versions of ${filePath} using ${
+			(opts.latest && 'latest') || (opts.next && 'next') || 'same requirements'
+		}`,
 	);
 
 	const pkgJson = createPackageJsonManager(filePath);
