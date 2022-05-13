@@ -5,11 +5,7 @@ echo "Script saved to srcclr.sh"
 chmod a+x srcclr.sh
 echo "Script execution rights added"
 
-packages="cmf,cmf-cqrs,cmf-webpack-plugin,components,containers,datagrid,forms,icons,sagas,stepper,theme,dataviz,cmf-router,flow-designer"
-
-# set comma as internal field separator for the string list
-Field_Separator=$IFS
-IFS=,
+packages=$(yarn --silent workspaces info  | jq '.[].location' | sed 's/\"//g')
 
 # scan each folder
 echo "Starting scan on . (root) ..."
@@ -18,11 +14,13 @@ echo "Scan completed on . (root)"
 
 for folder in $packages;
 do
-    echo "Starting scan on ./packages/$folder ..."
-    ./srcclr.sh scan ./packages/$folder
-    echo "Scan completed on ./packages/$folder"
+    echo "Starting scan on ./$folder ..."
+    echo "> ln -s yarn.lock ./$folder/yarn.lock"
+    cp yarn.lock ./$folder/yarn.lock
+    ls -l ./$folder
+    echo "> ./srcclr.sh scan ./$folder"
+    ./srcclr.sh scan ./$folder
+    echo "Scan completed on ./$folder"
 done
 
-# set back default field separator
-IFS=$Field_Separator
 

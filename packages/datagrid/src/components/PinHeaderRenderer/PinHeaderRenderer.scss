@@ -1,0 +1,11 @@
+.td-pin-header {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		transform: rotate(90deg);
+	}
+}

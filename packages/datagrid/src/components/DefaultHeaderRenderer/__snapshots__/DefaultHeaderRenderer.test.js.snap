@@ -29,10 +29,6 @@ exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
       </div>
     </span>
   </button>
-  <QualityBar
-    empty={33}
-    invalid={33}
-    valid={34}
-  />
+  <QualityBar />
 </div>
 `;

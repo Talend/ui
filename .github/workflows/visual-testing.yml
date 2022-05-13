@@ -1,0 +1,99 @@
+name: Visual testing
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: The SHA-1 hash referring to the commit to check.
+        required: true
+      ref:
+        description: The head branch associated with the pull request.
+        required: true
+  pull_request:
+    # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened
+    types: [labeled, synchronize, opened, reopened, ready_for_review]
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  changes:
+    # Trigger on ready PRs or draft with label
+    # if: ( !github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
+    # We ran out of screenshots, trigger only on label
+    if: ( github.ref == 'refs/heads/master' || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.filter.outputs.changes }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            design-system:
+             - 'packages/design-tokens/**'
+             - 'packages/design-system/**'
+            datagrid: packages/datagrid/**
+            dataviz: packages/dataviz/**
+
+  build:
+    needs: changes
+    strategy:
+      # Avoid // deploys when multiple packages are changed
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        package: ${{ fromJSON(needs.changes.outputs.packages) }}
+    runs-on: ubuntu-latest
+    environment: pull_request_unsafe
+    if: needs.changes.outputs.packages != '[]'
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn --frozen-lock --ignore-scripts
+
+      - name: Build @talend/design-tokens
+        if: matrix.package == 'design-system'
+        run: |
+          yarn workspace @talend/assets-api run build:lib
+          yarn workspace @talend/design-tokens run build:lib
+
+      - name: Build @talend/*
+        if: matrix.package != 'design-system'
+        run: |
+          # We need to build all dependencies (cmf, coponents...)
+          yarn postinstall
+
+      - name: Publish PR to DS Chromatic
+        if: github.ref != 'refs/heads/master'
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/${{ matrix.package }}
+          exitZeroOnChanges: true # Option to prevent the workflow from failing in PR
+          # Handle monorepos https://www.chromatic.com/docs/monorepos
+          preserveMissing: true
+          forceRebuild: true
+
+      - name: Publish Master to DS Chromatic
+        if: github.ref == 'refs/heads/master'
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/${{ matrix.package }}
+          autoAcceptChanges: true # Option to accept any change for this baseline refresh
+          preserveMissing: true
+          forceRebuild: true

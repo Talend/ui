@@ -6,7 +6,7 @@ const { getUserConfigFile } = require('../utils/env');
 const stylelint = resolveBin('stylelint');
 
 module.exports = function lintCss(env, presetApi, options) {
-	const presetName = presetApi.getUserConfig(['preset'], 'talend');
+	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
 	const stylelintConfigPath =
 		getUserConfigFile([
@@ -17,8 +17,18 @@ module.exports = function lintCss(env, presetApi, options) {
 			'stylelint.config.js',
 			'.stylelintrc',
 		]) || preset.getStylelintConfigurationPath(presetApi);
+	const args = ['--config', stylelintConfigPath, './src/**/*.*css', ...options];
 
-	return spawn.sync(stylelint, ['--config', stylelintConfigPath, './src/**/*.*css', ...options], {
+	// https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
+	if (process.env.CI && process.env.GITHUB_ACTIONS) {
+		if (!options.includes('-o')) {
+			args.push('-o', 'stylelint-report.json');
+		}
+		if (!options.includes('--format')) {
+			args.push('-f', 'json');
+		}
+	}
+	return spawn.sync(stylelint, args, {
 		stdio: 'inherit',
 		env,
 	});

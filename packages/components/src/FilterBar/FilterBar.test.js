@@ -250,7 +250,7 @@ describe('Filter', () => {
 		setTimeout(() => {
 			expect(onFilter).toBeCalledWith(expect.anything(), 'couc');
 			done();
-		}, debounceTimeout);
+		}, debounceTimeout + 100);
 	});
 
 	it('should clear filter on clear button click', () => {

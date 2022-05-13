@@ -18,7 +18,8 @@ const eslintExtendsTemplate = template(`{
 }
 `);
 
-const stylelintExtendsTemplate = template(`const defaults = require('<%= presetConfigRelativePath %>');
+const stylelintExtendsTemplate =
+	template(`const defaults = require('<%= presetConfigRelativePath %>');
 
 module.exports = {
   ...defaults,
@@ -26,7 +27,8 @@ module.exports = {
 	// add/change default config here
 };`);
 
-const prettierExtendsTemplate = template(`const defaults = require('<%= presetConfigRelativePath %>');
+const prettierExtendsTemplate =
+	template(`const defaults = require('<%= presetConfigRelativePath %>');
 
 module.exports = {
   ...defaults,
@@ -66,7 +68,7 @@ function generateConfigFile({ configFileNames, defaultConfigFilePath, generateCo
 }
 
 module.exports = function extend(env, presetApi) {
-	const presetName = presetApi.getUserConfig(['preset'], 'talend');
+	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
 	const rootPath = process.cwd();
 	const nodeModulesPath = path.join(rootPath, 'node_modules');

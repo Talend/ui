@@ -151,7 +151,7 @@ function Datalist(props) {
 			setFilterValue(entry.name);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [props.value]);
+	}, [props.value, props.titleMap]);
 
 	// Suggestion display syntaxic sugar
 	const resetSelection = () =>

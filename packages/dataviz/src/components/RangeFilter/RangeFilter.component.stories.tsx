@@ -40,6 +40,11 @@ export default {
 			);
 		},
 	],
+	parameters: {
+		chromatic: {
+			disableSnapshot: true,
+		},
+	},
 } as Meta<RangeFilterProps>;
 
 export const IntegerRangeFilter = Template.bind({});

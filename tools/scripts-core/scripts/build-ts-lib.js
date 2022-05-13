@@ -12,7 +12,7 @@ const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const tsc = resolveBin('typescript', { executable: 'tsc' });
 
 module.exports = function build(env, presetApi, options) {
-	const presetName = presetApi.getUserConfig(['preset'], 'talend');
+	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
 
 	const babelConfigPath =
