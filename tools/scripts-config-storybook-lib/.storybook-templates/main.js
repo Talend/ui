@@ -92,7 +92,6 @@ const defaultMain = {
 			],
 			resolve: {
 				extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
-				fallback: { "assert": false }
 			},
 		};
 

@@ -17,26 +17,34 @@
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
-    "@storybook/addon-a11y": "^6.4.22",
-    "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-interactions": "^6.4.22",
-    "@storybook/addon-links": "^6.4.22",
-    "@storybook/builder-webpack5": "^6.4.22",
-    "@storybook/manager-webpack5": "^6.4.22",
-    "@storybook/react": "^6.4.22",
-    "@storybook/testing-library": "^0.0.8",
+    "@storybook/addon-a11y": "^6.5.0-beta.8",
+    "@storybook/addon-essentials": "^6.5.0-beta.8",
+    "@storybook/addon-interactions": "^6.5.0-beta.8",
+    "@storybook/addon-links": "^6.5.0-beta.8",
+    "@storybook/builder-webpack5": "^6.5.0-beta.8",
+    "@storybook/manager-webpack5": "^6.5.0-beta.8",
+    "@storybook/react": "^6.5.0-beta.8",
+    "@storybook/testing-library": "^0.0.11",
     "@talend/dynamic-cdn-webpack-plugin": "^11.0.1",
+    "assert": "^2.0.0",
     "fs-extra": "^10.1.0",
     "i18next-http-backend": "^1.4.0",
     "lodash": "^4.17.21",
-    "msw": "^0.38.2",
-    "msw-storybook-addon": "^1.6.3"
+    "util": "^0.12.4"
   },
   "peerDependencies": {
     "@talend/design-system": "*",
     "i18next": "*",
     "react": "*",
     "react-i18next": "*"
+  },
+  "resolutions": {
+    "webpack": "^5",
+    "@storybook/react/webpack": "^5",
+    "@storybook/core-common/webpack": "^5",
+    "@storybook/core-server/webpack": "^5",
+    "@storybook/builder-webpack4/webpack": "^5",
+    "@storybook/manager-webpack4/webpack": "^5"
   },
   "publishConfig": {
     "access": "public"
