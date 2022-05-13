@@ -30,6 +30,8 @@
     "fs-extra": "^10.1.0",
     "i18next-http-backend": "^1.4.0",
     "lodash": "^4.17.21",
+    "msw": "^0.38.2",
+    "msw-storybook-addon": "^1.6.3",
     "util": "^0.12.4"
   },
   "peerDependencies": {
@@ -37,14 +39,6 @@
     "i18next": "*",
     "react": "*",
     "react-i18next": "*"
-  },
-  "resolutions": {
-    "webpack": "^5",
-    "@storybook/react/webpack": "^5",
-    "@storybook/core-common/webpack": "^5",
-    "@storybook/core-server/webpack": "^5",
-    "@storybook/builder-webpack4/webpack": "^5",
-    "@storybook/manager-webpack4/webpack": "^5"
   },
   "publishConfig": {
     "access": "public"
