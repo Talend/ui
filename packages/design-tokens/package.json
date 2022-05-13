@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^11.7.1",
-    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "color-contrast-checker": "^2.1.0",
     "react": "^16.14.0",
     "typeface-source-sans-pro": "^1.1.13"

@@ -1,4 +1,7 @@
-const merge = require('webpack-merge');
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable no-console */
+const { merge } = require('webpack-merge');
 const { getAbsolutePath } = require('../utils/path-resolver');
 const { getPreset, getPresetApi } = require('../utils/preset');
 
@@ -42,7 +45,7 @@ module.exports = async (env = {}) => {
 	);
 
 	// Merge all configuration. User config can override preset ones,
-	const config = merge.smart(webpackConfigurations);
+	const config = merge(...webpackConfigurations);
 
 	if (presetApi.getUserConfig(['webpack', 'debug'], false)) {
 		const light = Object.keys(config)

@@ -30,8 +30,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@talend/scripts-core": "^11.7.0",
-    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "read-pkg-up": "^7.0.1"
   },
   "publishConfig": {

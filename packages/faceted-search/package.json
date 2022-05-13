@@ -45,16 +45,16 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.22",
-    "@storybook/testing-library": "^0.0.8",
+    "@storybook/addon-actions": "^6.5.0-beta.8",
+    "@storybook/testing-library": "^0.0.11",
     "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/design-system": "^2.3.0",
+    "@talend/design-system": "^2.5.2",
     "@talend/icons": "^6.40.0",
     "@talend/locales-tui-components": "^6.44.11",
     "@talend/locales-tui-faceted-search": "^4.0.2",
-    "@talend/react-components": "^6.44.14",
-    "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@talend/react-components": "^6.46.3",
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "cross-env": "^7.0.3",
     "husky": "^4.3.8",
@@ -63,7 +63,7 @@
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-i18next": "^11.16.7"
+    "react-i18next": "^11.16.9"
   },
   "peerDependencies": {
     "@talend/design-system": "^2.1.0",
