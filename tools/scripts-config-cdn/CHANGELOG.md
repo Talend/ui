@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.4.1
+
+### Patch Changes
+
+- 5c0fa88aa: fix(cdn): DS and assets-api available cdn versions
+
 ## 10.4.0
 
 ### Minor Changes

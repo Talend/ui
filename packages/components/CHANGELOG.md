@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.46.4
+
+### Patch Changes
+
+- 344a7551f: fix: proptypes of VList
+
 ## 6.46.3
 
 ### Patch Changes

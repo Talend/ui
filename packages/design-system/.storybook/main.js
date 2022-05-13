@@ -1,6 +1,8 @@
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+const groupBy = require('./mdx/groupBy');
+
 module.exports = {
 	features: {
 		buildStoriesJson: true,
@@ -78,6 +80,17 @@ module.exports = {
 				codeSync: false,
 			}),
 		);
+		config.module.rules.map(rule => {
+			if (rule.use?.some(use => use.loader?.includes('@mdx-js'))) {
+				return rule.use.map(use => {
+					if (use.options?.remarkPlugins) {
+						use.options.remarkPlugins.push(groupBy);
+					}
+					return use;
+				});
+			}
+			return rule;
+		});
 		const existingAlias = config.resolve.alias || {};
 		config.resolve.alias = {
 			...existingAlias,

@@ -1,0 +1,38 @@
+{*
+
+Generate all typography tokens as named variables.
+Tokens are named by their group path and then name, 
+and their value rendered using `rendered-color` blueprint
+
+*}
+{[ let brand = ds.currentBrand() /]}
+const tokens = {
+{[ for token in ds.tokensByType("Border", brand.id) ]}
+{[ inject "rendered-token-var" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Color", brand.id) ]}
+{[ inject "rendered-token-var" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Gradient", brand.id) ]}
+{[ inject "rendered-token-var" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Measure", brand.id) ]}
+{[ inject "rendered-token-var" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Shadow", brand.id) ]}
+{[ inject "rendered-token-var" context token /]}{[/]}
+
+{[ const allTokens = ds.tokensByType("Typography", brand.id) /]}
+{[ for token in allTokens ]}
+{[ if !token.referencedToken ]}
+{[ inject "rendered-token-var" context token /]}
+{[/]}{[/]}
+
+{[ for token in ds.tokensByType("Radius", brand.id) ]}
+{[ inject "rendered-token-var" context token /]}{[/]}
+
+{[ for token in ds.tokensByType("Text", brand.id) ]}
+{[ inject "rendered-token-var" context token /]}{[/]}
+};
+
+export default tokens;
