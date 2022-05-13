@@ -1,4 +1,4 @@
-import { convertValue, getValue, mutateValue } from './properties';
+import { convertValue, flattenProperties, getValue, mutateValue } from './properties';
 
 describe('Properties utils', () => {
 	describe('#getValue', () => {
@@ -133,6 +133,37 @@ describe('Properties utils', () => {
 					lastname: 'tata',
 				},
 			});
+		});
+	});
+
+	describe('#flattenProperties', () => {
+		it('should handle object and arrays', () => {
+			// given
+			const properties = {
+				$datasetMetadata: {
+					name: 'test payload',
+				},
+				configuration: {
+					connection: {
+						parameters: [{ key: 'debug', value: '4' }],
+					},
+				},
+				$remoteEngineId: 'test-id',
+			};
+			// when
+			const value = flattenProperties(properties);
+
+			// then
+			expect(value).toEqual({
+				$remoteEngineId: 'test-id',
+				'datasetMetadata.name': 'test payload',
+				'figuration.connection.parameters[0].key': 'debug',
+				'figuration.connection.parameters[0].value': '4',
+			});
+		});
+		it('should handle primitive types', () => {
+			expect(flattenProperties(null));
+			expect(flattenProperties('flat')).toEqual('flat');
 		});
 	});
 });

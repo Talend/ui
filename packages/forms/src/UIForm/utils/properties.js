@@ -84,3 +84,32 @@ export function extractDataAttributes(props, index) {
 	});
 	return dataProps;
 }
+
+/**
+ * Transform nested objects, to flat key/value object
+ * { a: { b: ["c", { d: "e" } ] } }
+ * ===>
+ * {
+ *     "a.b[0]": "c",
+ *     "a.b[1].d": "e"
+ * }
+ * Adapted from https://github.com/lodash/lodash/issues/2240
+ */
+export function flattenProperties(object, initialPathPrefix = '') {
+	if (!object || typeof object !== 'object') {
+		if (initialPathPrefix === '') {
+			return object;
+		}
+		return [{ [initialPathPrefix]: object }];
+	}
+	return Object.keys(object)
+		.flatMap(key =>
+			flattenProperties(
+				object[key],
+				Array.isArray(object)
+					? `${initialPathPrefix}[${key}]`
+					: `${initialPathPrefix}.${key}`.replace(/^./, ''),
+			),
+		)
+		.reduce((acc, path) => ({ ...acc, ...path }));
+}
