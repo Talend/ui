@@ -6,7 +6,7 @@
     "eslint": "^7.32.0",
     "husky": "^7.0.4",
     "i18next-scanner": "^3.1.0",
-    "lint-staged": "^12.3.8",
+    "lint-staged": "^12.4.1",
     "prettier": "^2.6.2"
   },
   "scripts": {
@@ -34,7 +34,14 @@
   },
   "resolutions": {
     "@types/react": "^16.14.25",
-    "@types/react-dom": "^16.9.14"
+    "@types/react-dom": "^16.9.14",
+    "@storybook/addons": "^6.5.0-beta.8",
+    "webpack": "^5.72.0",
+    "@storybook/react/webpack": "^5.72.0",
+    "@storybook/core-common/webpack": "^5.72.0",
+    "@storybook/core-server/webpack": "^5.72.0",
+    "@storybook/builder-webpack4/webpack": "^5.72.0",
+    "@storybook/manager-webpack4/webpack": "^5.72.0"
   },
   "repository": {
     "type": "git",

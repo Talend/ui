@@ -9,7 +9,7 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "@talend/dynamic-cdn-webpack-plugin": "^11.0.0",
+    "@talend/dynamic-cdn-webpack-plugin": "^11.0.1",
     "@talend/module-to-cdn": "^9.8.2",
     "@yarnpkg/lockfile": "^1.1.0",
     "read-pkg-up": "^7.0.1"

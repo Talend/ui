@@ -2,6 +2,7 @@
   "preset": "@talend/scripts-preset-react-lib",
   "copy": [{ "from": "src/images", "to": "images" }],
   "webpack": {
+    "debug": true,
     "config": {
       "development": "./webpack.config.js",
       "production": "./webpack.config.js"
