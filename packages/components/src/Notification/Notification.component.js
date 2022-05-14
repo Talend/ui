@@ -223,7 +223,7 @@ function NotificationsContainer({
 	}, [autoLeaveError, autoLeaveTimeout, leaveFn, notifications, registry]);
 
 	const onClick = (event, notification) => {
-		if (notification.type !== TYPES.ERROR || this.props.autoLeaveError) {
+		if (notification.type !== TYPES.ERROR || autoLeaveError) {
 			if (event.currentTarget.getAttribute('pin') !== 'true') {
 				event.currentTarget.setAttribute('pin', 'true');
 			} else {
