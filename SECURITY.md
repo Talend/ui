@@ -8,7 +8,7 @@ We also provide [talend-scripts upgrade:deps](./tools/upgrade-deps) scripts to m
 
 The script comes with options about security use cases, so please read the documentation first.
 
-Distance to latest from npm is added on [dependencies.txt](./dependencies.txt) file on each upgrade PR.
+Distance to latest from npm is added on a [dependencies.txt](./dependencies.txt) file on each upgrade PR.
 
 ## Reporting a Vulnerability
 
