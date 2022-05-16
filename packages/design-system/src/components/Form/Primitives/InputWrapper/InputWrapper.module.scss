@@ -1,5 +1,5 @@
 @use '~@talend/design-tokens/lib/tokens';
-@use '../sharedStyles' as Form;
+@use 'src/components/Form/Primitives/mixins' as Form;
 
 .inputShell {
   @include Form.borderStyles();

@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import React, { forwardRef, ReactElement, Ref } from 'react';
 import { isElement } from 'react-is';
 import { AffixButtonPropsType } from '../../FieldGroup/Affix/variations/AffixButton';
 import { AffixReadOnlyPropsType } from '../../FieldGroup/Affix/variations/AffixReadOnly';

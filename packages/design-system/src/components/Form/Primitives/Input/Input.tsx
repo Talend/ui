@@ -6,6 +6,7 @@ import React, {
 	FocusEvent,
 	useRef,
 	useImperativeHandle,
+	FocusEventHandler,
 } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -26,12 +27,12 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 	const inputType = type === 'password' ? (isClear ? 'text' : type) : type;
 	const inputRef = useRef<HTMLInputElement | null>(null);
 	const { t } = useTranslation();
-	const showMsg = t('FORM_PASSWORD_SHOW', { defaultValue: 'Show password' });
-	const hideMsg = t('FORM_PASSWORD_HIDE', { defaultValue: 'Hide password' });
+	const showMsg = t('FORM_PASSWORD_SHOW', 'Show password');
+	const hideMsg = t('FORM_PASSWORD_HIDE', 'Hide password');
 
 	useImperativeHandle(ref, () => inputRef.current);
 
-	function handleBlur(event: FocusEvent<any, HTMLInputElement>) {
+	function handleBlur(event: FocusEvent<HTMLInputElement, HTMLInputElement>) {
 		setClear(false);
 		if (onBlur) {
 			onBlur(event);
