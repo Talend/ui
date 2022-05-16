@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, react/prop-types */
 
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
@@ -52,6 +52,18 @@ export const CustomRenderer = () => (
 		pinHeaderRenderer={() => <div>&#129302;</div>}
 	/>
 );
+
+export const WithSelection = () => (
+	<DataGrid
+		data={sample}
+		onFocusedCell={action('onFocusedCell')}
+		onFocusedColumn={action('onFocusedColumn')}
+		focusedColumnId="data.field2"
+	/>
+);
+WithSelection.parameters = {
+	chromatic: { disableSnapshot: false },
+};
 
 export const OnlyColumnName = () => (
 	<DataGrid

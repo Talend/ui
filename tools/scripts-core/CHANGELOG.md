@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 11.7.1
+
+### Patch Changes
+
+- dbb0947fa: fix: work in ci mode
+
 ## 11.7.0
 
 ### Minor Changes
