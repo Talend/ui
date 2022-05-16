@@ -103,7 +103,7 @@ class AbstractNode extends React.Component<Props> {
 
 	nodeElement: any;
 
-	squaredDeltaDrag: number = 0;
+	squaredDeltaDrag = 0;
 
 	constructor(props: Props) {
 		super(props);
@@ -123,10 +123,11 @@ class AbstractNode extends React.Component<Props> {
 		);
 	}
 
-	componentDidUpdate(nextProps: Props) {
-		if (nextProps.node !== this.props.node) {
-			const nextPosition = Node.getPosition(nextProps.node);
-			if (nextPosition !== Node.getPosition(this.props.node)) {
+	componentDidUpdate(prevProps: Props) {
+		if (prevProps.node !== this.props.node) {
+			const nextPosition = Node.getPosition(this.props.node);
+
+			if (nextPosition !== Node.getPosition(prevProps.node)) {
 				this.d3Node.data([nextPosition]);
 			}
 		}
