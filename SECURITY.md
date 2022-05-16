@@ -2,9 +2,11 @@
 
 ## Supported Versions
 
-We use changeset to provide new version everyday with fixes, features and major release when we have a breaking change.
-Let latest is the better. We also provide [talend-scripts upgrade:deps](./tools/upgrade-deps) scripts to make it easier to be aligned and updated.
-The script comes with option about security use case so please read it first.
+We use `changeset` to provide versioning for our packages with fixes, features and major release in case of breaking changes. The latest package is always the better one.
+
+We also provide [talend-scripts upgrade:deps](./tools/upgrade-deps) scripts to make it easier to keep our packages and apps aligned and updated.
+
+The script comes with options about security use cases, so please read the documentation first.
 
 Distance to latest from npm is added on [dependencies.txt](./dependencies.txt) file on each upgrade PR.
 
