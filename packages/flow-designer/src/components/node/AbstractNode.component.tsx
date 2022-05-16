@@ -126,7 +126,6 @@ class AbstractNode extends React.Component<Props> {
 	componentDidUpdate(prevProps: Props) {
 		if (prevProps.node !== this.props.node) {
 			const nextPosition = Node.getPosition(this.props.node);
-
 			if (nextPosition !== Node.getPosition(prevProps.node)) {
 				this.d3Node.data([nextPosition]);
 			}
