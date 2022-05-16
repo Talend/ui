@@ -24,7 +24,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 
 	// Password type management
 	const [isClear, setClear] = useState<boolean>(type !== 'password');
-	const inputType = type === 'password' ? (isClear ? 'text' : type) : type;
+	const inputType = type === 'password' && isClear ? 'text' : type;
 	const inputRef = useRef<HTMLInputElement | null>(null);
 	const { t } = useTranslation();
 	const showMsg = t('FORM_PASSWORD_SHOW', 'Show password');
