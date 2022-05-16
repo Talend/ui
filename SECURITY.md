@@ -12,6 +12,7 @@ Distance to latest from npm is added on a [dependencies.txt](./dependencies.txt)
 
 ## Reporting a Vulnerability
 
-Please open an issue on github repository if you are outside Talend or in the companie tracker of your team if you are inside Talend.
+Please open an issue on this github repository if you are outside Talend, or in the company's tracker for your team if you are inside Talend.
+
 You can then ask for help if you need to address the issue.
 
