@@ -103,7 +103,7 @@ class AbstractNode extends React.Component<Props> {
 
 	nodeElement: any;
 
-	squaredDeltaDrag = 0;
+	squaredDeltaDrag: number = 0;
 
 	constructor(props: Props) {
 		super(props);
