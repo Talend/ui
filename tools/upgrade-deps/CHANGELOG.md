@@ -1,5 +1,11 @@
 # @talend/upgrade-deps
 
+## 1.4.0
+
+### Minor Changes
+
+- 013c801ff: add --next option to get beta release of packages
+
 ## 1.3.3
 
 ### Patch Changes

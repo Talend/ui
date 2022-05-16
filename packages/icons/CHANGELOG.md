@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.41.0
+
+### Minor Changes
+
+- 6f68d11f4: Added map icon
+
 ## 6.40.0
 
 ### Minor Changes
