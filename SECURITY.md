@@ -1,5 +1,7 @@
 # Security Policy
 
+Please refer to our [vulnerability disclosure dedicated page](https://www.talend.com/security/vulnerability-disclosure/) first.
+
 ## Supported Versions
 
 We use `changeset` to provide versioning for our packages with fixes, features and major release in case of breaking changes. The latest package is always the better one.
