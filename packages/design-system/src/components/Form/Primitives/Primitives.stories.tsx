@@ -5,8 +5,9 @@ import Select from './Select/Select';
 import { action } from '@storybook/addon-actions';
 import Dropdown from '../../Dropdown';
 import { AffixButton } from '../FieldGroup/Affix';
-import { StackVertical } from '../../Stack';
+import { StackHorizontal, StackVertical } from '../../Stack';
 import Checkbox from './Checkbox/Checkbox';
+import Label from './Label/Label';
 
 export default {
 	component: Textarea,
@@ -143,5 +144,29 @@ export const InputPrimitiveWithDropdown = () => {
 				}
 			/>
 		</StackVertical>
+	);
+};
+
+export const FakeForm = () => {
+	return (
+		<form>
+			<StackVertical gap="S" padding="XS" align="stretch" justify="start">
+				<StackHorizontal gap="XS" align="stretch" justify="spaceBetween">
+					<StackVertical gap="XXS" align="stretch" justify="start">
+						<Label htmlFor="test1">Name</Label>
+						<Input id="test1" type="text" />
+					</StackVertical>
+
+					<StackVertical gap="XXS" align="stretch" justify="start">
+						<Label htmlFor="test2">Email</Label>
+						<Input id="test2" type="email" />
+					</StackVertical>
+				</StackHorizontal>
+				<StackVertical gap="XXS" align="stretch" justify="start">
+					<Label>Send me emails</Label>
+					<Checkbox id="emails" label="Yes I love emails" />
+				</StackVertical>
+			</StackVertical>
+		</form>
 	);
 };

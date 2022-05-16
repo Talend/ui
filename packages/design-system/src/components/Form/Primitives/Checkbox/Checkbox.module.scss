@@ -2,6 +2,7 @@
 
 $checkmark-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik03LjA1IDEgMyA1LjEuOTUgMy4wNDk1IDAgNGwzIDMgNS01LjA1TDcuMDUgMVoiIGZpbGw9IiNmZmYiLz48bWFzayBpZD0iYSIgc3R5bGU9Im1hc2stdHlwZTphbHBoYSIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMSIgd2lkdGg9IjgiIGhlaWdodD0iNiI+PHBhdGggZD0iTTcuMDUgMSAzIDUuMS45NSAzLjA0OTUgMCA0bDMgMyA1LTUuMDVMNy4wNSAxWiIgZmlsbD0iI2ZmZiIvPjwvbWFzaz48L3N2Zz4=');
 $checkmark-image-indeterminate: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOCA1SDBWM2g4djJaIiBmaWxsPSIjZmZmIi8+PC9zdmc+');;
+$checkbox-size: tokens.$coral-sizing-xxxs;
 
 .checkbox {
   display: inline-flex;
@@ -12,8 +13,8 @@ $checkmark-image-indeterminate: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iO
 
   input[type="checkbox"] {
     margin: 0;
-    width: tokens.$coral-sizing-xxxs;
-    height: tokens.$coral-sizing-xxxs;
+    width: $checkbox-size;
+    height: $checkbox-size;
     position: relative;
     z-index: 3;
     opacity: 0;
@@ -28,8 +29,8 @@ $checkmark-image-indeterminate: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iO
     &:before,
     &:after {
       content: "";
-      width: tokens.$coral-sizing-xxxs;
-      height: tokens.$coral-sizing-xxxs;
+      width: $checkbox-size;
+      height: $checkbox-size;
       border-radius: tokens.$coral-radius-s;
       transition: all tokens.$coral-transition-fast;
       display: block;
@@ -56,7 +57,7 @@ $checkmark-image-indeterminate: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iO
       background-color: tokens.$coral-color-neutral-background;
       width: calc(#{tokens.$coral-sizing-xxxs} / 2);
       height: calc(#{tokens.$coral-sizing-xxxs} / 2);
-      left: calc(#{tokens.$coral-sizing-xxxs} / 2 - #{tokens.$coral-sizing-xxxs} / 4)
+      left: calc(#{tokens.$coral-sizing-xxxs} / 2 - #{$checkbox-size} / 4)
     }
   }
 
