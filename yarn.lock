@@ -4120,9 +4120,9 @@
   integrity sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==
 
 "@types/react-dom@<18.0.0", "@types/react-dom@^16.9.14", "@types/react-dom@^16.9.15":
-  version "16.9.15"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.15.tgz#7bf41f2b2b86915ff9c0de475cb111d904df12c6"
-  integrity sha512-PjWhZj54ACucQX2hDmnHyqHz+N2On5g3Lt5BeNn+wy067qvOokVSQw1nEog1XGfvLYrSl3cyrdebEfjQQNXD3A==
+  version "16.9.16"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.16.tgz#c591f2ed1c6f32e9759dfa6eb4abfd8041f29e39"
+  integrity sha512-Oqc0RY4fggGA3ltEgyPLc3IV9T73IGoWjkONbsyJ3ZBn+UPPCYpU2ec0i3cEbJuEdZtkqcCF2l1zf2pBdgUGSg==
   dependencies:
     "@types/react" "^16"
 
@@ -9359,10 +9359,10 @@ eslint-plugin-storybook@^0.5.11:
     "@typescript-eslint/experimental-utils" "^5.3.0"
     requireindex "^1.1.0"
 
-eslint-plugin-testing-library@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-5.3.1.tgz#7638ee79cc86fd8bb57d671af35a1cbaa77e9548"
-  integrity sha512-OfF4dlG/q6ck6DL3P8Z0FPdK0dU5K57gsBu7eUcaVbwYKaNzjgejnXiM9CCUevppORkvfek+9D3Uj/9ZZ8Vz8g==
+eslint-plugin-testing-library@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-5.5.0.tgz#ce43113dac5a5d93e8b0a8d9937983cdbf63f049"
+  integrity sha512-eWQ19l6uWL7LW8oeMyQVSGjVYFnBqk7DMHjadm0yOHBvX3Xi9OBrsNuxoAMdX4r7wlQ5WWpW46d+CB6FWFL/PQ==
   dependencies:
     "@typescript-eslint/utils" "^5.13.0"
 
