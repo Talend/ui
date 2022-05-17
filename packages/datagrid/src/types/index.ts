@@ -10,3 +10,8 @@ export interface Quality {
 	[QUALITY_EMPTY_KEY]: QualityEntry;
 	[QUALITY_VALID_KEY]: QualityEntry;
 }
+
+export interface AgGridCellValue {
+	name: string;
+	value: string;
+}

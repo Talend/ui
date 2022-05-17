@@ -1,0 +1,20 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.apply-to-identical-values {
+	min-width: 30rem;
+	background-color: tokens.$coral-color-neutral-background;
+	padding: tokens.$coral-spacing-m tokens.$coral-spacing-s tokens.$coral-spacing-s;
+
+	display: flex;
+	flex-direction: column;
+	row-gap: tokens.$coral-spacing-m;
+
+	// CSS targeting needed to override bootstrap's specificity
+	input[type='checkbox'] {
+		margin: 0;
+	}
+
+	&__text {
+		font-size: 1.3rem;
+	}
+}
