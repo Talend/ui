@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath, isIndex) {
-	const injectProps = { ...props };
+	const injectProps = { ...indexRoute, ...props };
 	let absPath;
 	// some route has no path (indexRoute for example)
 	if (path) {
@@ -53,7 +53,7 @@ function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath,
 	}
 	if (childRoutes) {
 		// Outlet is the children renderer of react-router v6
-		injectProps.children = [<Outlet />];
+		injectProps.children = [<Outlet key="outlet" />];
 	}
 
 	const routeProps = {
@@ -62,7 +62,11 @@ function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath,
 		element: <Inject {...injectProps} />,
 		children: [indexRoute && <Route {...getRouteProps(indexRoute, currentpath, true)} />]
 			.filter(Boolean)
-			.concat((childRoutes || []).map(child => <Route {...getRouteProps(child, path)} />)),
+			.concat(
+				(childRoutes || []).map((child, index) => (
+					<Route key={index} {...getRouteProps(child, path)} />
+				)),
+			),
 	};
 	if (isIndex) {
 		routeProps.index = true;
