@@ -14,14 +14,14 @@ type CellValue = string;
 interface RichCellEditorPropTypes {
 	initialValue: CellValue;
 	isLoading?: boolean;
-	hasOptions?: boolean;
+	hasSuggestions?: boolean;
 	onChange: (value: CellValue) => void;
 	onFilter?: (search: string) => Promise<AgGridCellValue[]>;
 	onCancel: () => void;
 }
 
 function RichCellEditor(props: RichCellEditorPropTypes) {
-	const { onChange, onFilter, onCancel, initialValue, hasOptions, isLoading } = props;
+	const { onChange, onFilter, onCancel, initialValue, hasSuggestions, isLoading } = props;
 	const [value, setValue] = useState(initialValue);
 
 	const handleInputChange = (
@@ -31,7 +31,7 @@ function RichCellEditor(props: RichCellEditorPropTypes) {
 		const hasChanged = newValue !== initialValue;
 		setValue(newValue);
 
-		if (hasOptions && !hasChanged) {
+		if (hasSuggestions && !hasChanged) {
 			onCancel();
 		} else {
 			onChange(newValue);
@@ -42,14 +42,14 @@ function RichCellEditor(props: RichCellEditorPropTypes) {
 		<div
 			className={classNames({
 				[theme['rich-cell-editor--loading']]: isLoading,
-				[theme['rich-cell-editor--datalist']]: !!hasOptions,
+				[theme['rich-cell-editor--datalist']]: !!hasSuggestions,
 			})}
 		>
 			{isLoading ? (
 				<div className={theme['rich-cell-editor__skeleton']}>
 					<SkeletonParagraph size="M" />
 				</div>
-			) : hasOptions && onFilter ? (
+			) : hasSuggestions && onFilter ? (
 				<CellEditorDatalist onFilter={onFilter} onChange={handleInputChange} value={value} />
 			) : (
 				<CellEditorTextarea onChange={handleInputChange} value={value} />

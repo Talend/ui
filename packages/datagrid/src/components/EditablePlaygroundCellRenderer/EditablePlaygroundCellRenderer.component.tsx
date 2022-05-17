@@ -1,7 +1,7 @@
 import React, { useEffect, useImperativeHandle, useState } from 'react';
 
 import { AgCellEditorRendererPropTypes, AgGridCellValue } from '../../types';
-import RichCellEditorComponent from '../EditableCellRenderer/RichCellEditor.component';
+import RichCellEditorComponent from '../RichCellEditor';
 
 import ApplyToIdenticalValues from './ApplyToIdenticalValues.component';
 
@@ -59,7 +59,7 @@ function EditablePlaygroundCellRenderer(
 		<>
 			<RichCellEditorComponent
 				initialValue={value.value}
-				hasOptions={hasSuggestions}
+				hasSuggestions={hasSuggestions}
 				isLoading={isLoading}
 				onChange={newValue => {
 					setShowApplyAll(newValue !== value.value);

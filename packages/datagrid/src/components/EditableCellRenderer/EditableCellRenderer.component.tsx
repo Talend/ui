@@ -1,7 +1,7 @@
 import React, { useState, useImperativeHandle, Ref } from 'react';
 import { AgCellEditorRendererPropTypes } from '../../types';
 
-import RichCellEditor from './RichCellEditor.component';
+import RichCellEditor from '../RichCellEditor';
 
 function EditableCellRenderer(props: AgCellEditorRendererPropTypes, ref: Ref<HTMLElement>) {
 	const { value, colDef, data, stopEditing } = props;
