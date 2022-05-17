@@ -15,3 +15,14 @@ export interface AgGridCellValue {
 	name: string;
 	value: string;
 }
+
+export interface AgCellEditorRendererPropTypes {
+	value: {
+		value: string;
+	};
+	colDef: {
+		cellEditorPopup?: boolean;
+		domain: string;
+	};
+	stopEditing: (variable?: boolean) => void;
+}

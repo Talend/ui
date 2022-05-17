@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import classNames from 'classnames';
+
+import theme from './CellEditorTextarea.scss';
 
 const defaultStyle = {
 	minHeight: '3.6rem',
@@ -35,7 +38,7 @@ function CellEditorTextarea({ value, onChange }: CellEditorTextareaPropTypes) {
 
 	return (
 		<textarea
-			className="form-control"
+			className={classNames('form-control', theme['cell-editor-text-area'])}
 			style={{ ...defaultStyle, height }}
 			rows={rows}
 			value={value}

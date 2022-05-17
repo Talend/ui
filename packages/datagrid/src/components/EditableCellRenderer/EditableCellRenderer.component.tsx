@@ -1,27 +1,12 @@
 import React, { useState, useImperativeHandle, Ref } from 'react';
+import { AgCellEditorRendererPropTypes } from '../../types';
 
 import RichCellEditor from './RichCellEditor.component';
 
-interface AgEditorCellRendererPropTypes {
-	value: string;
-	colDef: {
-		domain: string; // @todo ?
-	};
-	// props.colDef.domain;
-	data: any; // @todo
-	stopEditing: (variable?: boolean) => void;
-}
-
-function EditableCellRenderer(props: AgEditorCellRendererPropTypes, ref: Ref<HTMLElement>) {
+function EditableCellRenderer(props: AgCellEditorRendererPropTypes, ref: Ref<HTMLElement>) {
 	const { value, colDef, data, stopEditing } = props;
 	const [state, setState] = useState(value.value);
-	useImperativeHandle(ref, () => ({
-		isPopup: () => true,
-		getValue: () => state,
-	}));
-
-	const semanticType = props.colDef.domain;
-	
+	useImperativeHandle(ref, (): any => ({ getValue: () => state }));
 
 	return (
 		<RichCellEditor

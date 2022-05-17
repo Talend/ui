@@ -8,13 +8,4 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: tokens.$coral-spacing-m;
-
-	// CSS targeting needed to override bootstrap's specificity
-	input[type='checkbox'] {
-		margin: 0;
-	}
-
-	&__text {
-		font-size: 1.3rem;
-	}
 }
