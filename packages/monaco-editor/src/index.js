@@ -40,6 +40,29 @@ self.MonacoEnvironment = {
 	},
 };
 
+basicLanguage.forEach(lng => {
+	const src = assetsApi.getURL(`/dist/languages/${lng}.js`);
+	registerLanguage({
+		id: lng,
+		// extensions: ['.py', '.rpy', '.pyw', '.cpy', '.gyp', '.gypi'],
+		aliases: [lng],
+		firstLine: '^#!/.*\\bpython[0-9.-]*\\b',
+		loader: () => {
+			return new Promise((resolve, reject) => {
+				const onload = () => {
+					const value = window.TalendMonacoEditor.languages[lng];
+					if (value) {
+						const mod = toLanguageMod(value);
+						resolve(mod);
+					}
+					reject(new Error(`fail to load monaco ${lng}`));
+				};
+				assetsApi.addScript({ src, onload });
+			});
+		},
+	});
+});
+
 function toLanguageMod(mod) {
 	return Object.create(null, {
 		conf: {
@@ -73,62 +96,58 @@ const Monaco = React.forwardRef((props, ref) => {
 		}
 	}, []);
 
-	React.useEffect(() => {
-		if (!props.language) {
-			return;
-		}
-		if (basicLanguage.includes(props.language) && !loaded[props.language]) {
-			if (window.TalendMonacoEditor.languages[props.language]) {
-				console.log('## setLoaded from cache', props.language);
-				setLoaded({ ...loaded, [props.language]: true });
-				return;
-			}
-			const src = assetsApi.getURL(`/dist/languages/${props.language}.js`);
-			onload = () => {
-				const value = window.TalendMonacoEditor.languages[props.language];
-				if (value) {
-					const mod = toLanguageMod(value);
-					console.log('### onload mod', mod);
-					registerLanguage({
-						id: props.language,
-						// extensions: ['.py', '.rpy', '.pyw', '.cpy', '.gyp', '.gypi'],
-						aliases: [props.language],
-						firstLine: '^#!/.*\\bpython[0-9.-]*\\b',
-						loader: () => {
-							console.log('## call loader');
+	// React.useEffect(() => {
+	// 	if (!props.language) {
+	// 		return;
+	// 	}
+	// 	if (basicLanguage.includes(props.language) && !loaded[props.language]) {
+	// 		if (window.TalendMonacoEditor.languages[props.language]) {
+	// 			setLoaded({ ...loaded, [props.language]: true });
+	// 			return;
+	// 		}
+	// 		const src = assetsApi.getURL(`/dist/languages/${props.language}.js`);
+	// 		onload = () => {
+	// 			const value = window.TalendMonacoEditor.languages[props.language];
+	// 			if (value) {
+	// 				const mod = toLanguageMod(value);
+	// 				console.log('### onload mod', mod);
+	// 				registerLanguage({
+	// 					id: props.language,
+	// 					// extensions: ['.py', '.rpy', '.pyw', '.cpy', '.gyp', '.gypi'],
+	// 					aliases: [props.language],
+	// 					firstLine: '^#!/.*\\bpython[0-9.-]*\\b',
+	// 					loader: () => {
+	// 						console.log('## call loader');
 
-							return new Promise(resolve => {
-								setTimeout(() => {
-									console.log('## return from loader ', props.language, mod);
-									resolve(mod);
-								}, 100);
-							});
-						},
-					});
-					setLoaded({ ...loaded, [props.language]: true });
-				}
-			};
-			assetsApi.addScript({ src, onload });
-		} else if (props.loadLanguage) {
-			props.loadLanguage(props.language);
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [props, props.language, editor]);
+	// 						return new Promise(resolve => {
+	// 							setTimeout(() => {
+	// 								console.log('## return from loader ', props.language, mod);
+	// 								resolve(mod);
+	// 							}, 100);
+	// 						});
+	// 					},
+	// 				});
+	// 				setLoaded({ ...loaded, [props.language]: true });
+	// 			}
+	// 		};
+	// 		assetsApi.addScript({ src, onload });
+	// 	} else if (props.loadLanguage) {
+	// 		props.loadLanguage(props.language);
+	// 	}
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, [props.language]);
 	const style = {
 		width: props.width || '100%',
 		height: props.height || '200px',
 	};
-	if (loaded[props.language]) {
-		return <div ref={editorRef} style={style} />;
-	}
-	return 'loading';
+	return <div ref={editorRef} style={style} />;
 });
+
 Monaco.displayName = 'TalendMonacoEditor';
+
 Monaco.propTypes = {
-	language: PropTypes.string.isRequired,
 	width: PropTypes.string,
 	height: PropTypes.string,
-	loadLanguage: PropTypes.func,
 };
 Monaco.registerLanguage = registerLanguage;
 Monaco.api = monaco;
