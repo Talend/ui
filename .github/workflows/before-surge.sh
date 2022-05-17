@@ -12,6 +12,7 @@ mkdir .static/design-tokens
 mkdir .static/faceted-search
 mkdir .static/forms
 mkdir .static/icons
+mkdir .static/monaco-editor
 mkdir .static/theme
 mkdir .static/datagrid
 cp .surge/index.html .static
@@ -26,6 +27,7 @@ cp -R packages/faceted-search/storybook-static/* .static/faceted-search
 cp -R packages/forms/storybook-static/* .static/forms
 cp -R packages/icons/docs/index.html .static/icons
 cp -R packages/icons/dist .static/icons
+cp -R packages/monaco-editor/storybook-static/* .static/monaco-editor
 cp -R packages/theme/dist/* .static/theme
 cp -R packages/theme/dist .static/theme
 echo Size of demo:
