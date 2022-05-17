@@ -1,18 +1,37 @@
 @use '~@talend/design-tokens/lib/tokens';
 @use 'src/components/Form/Primitives/mixins' as Form;
 
-$caret-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwLjA0OTIgMi4yNSA2IDYuMyAxLjk1IDIuMjUgMCA0LjJsNiA2IDYtNi0xLjk1MDgtMS45NVoiIGZpbGw9IiMyMDIwMjAiLz48bWFzayBpZD0iYSIgc3R5bGU9Im1hc2stdHlwZTphbHBoYSIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjkiPjxwYXRoIGQ9Ik0xMC4wNDkyIDIuMjUgNiA2LjMgMS45NSAyLjI1IDAgNC4ybDYgNiA2LTYtMS45NTA4LTEuOTVaIiBmaWxsPSIjZmZmIi8+PC9tYXNrPjwvc3ZnPg==");
-
 .select {
   @include Form.baseInput();
   height: Form.$standardInputHeight;
   appearance: none;
-  background-image: $caret-image;
-  background-position: calc(100% - #{tokens.$coral-spacing-xs}) center;
-  background-repeat: no-repeat;
+  -webkit-appearance: none;
 
   option:disabled {
       color: tokens.$coral-color-neutral-text-weak;
       opacity: tokens.$coral-opacity-s;
   }
+}
+
+.select__wrapper {
+  display: block;
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+}
+
+.select__icon {
+  width: tokens.$coral-sizing-xxxs;
+  height: tokens.$coral-sizing-xxxs;
+  position: absolute;
+  right: tokens.$coral-spacing-xs;
+  top: 50%;
+  transform: translateY(-50%);
+  color: tokens.$coral-color-neutral-icon;
+  pointer-events: none;
+}
+
+.select:disabled + .select__icon {
+  color: tokens.$coral-color-neutral-text-disabled;
+  opacity: tokens.$coral-opacity-s;
 }

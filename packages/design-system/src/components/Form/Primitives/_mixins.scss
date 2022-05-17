@@ -21,6 +21,7 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
   &:disabled,
   &_disabled {
     color: tokens.$coral-color-neutral-text-disabled;
+    cursor: not-allowed;
   }
 
   &_readOnly {
