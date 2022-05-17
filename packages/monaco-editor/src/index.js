@@ -1,13 +1,12 @@
+/* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-// import 'monaco-editor/esm/vs/basic-languages/python/python.contribution.js';
-// import 'monaco-editor/esm/vs/basic-languages/sql/sql.contribution.js';
 import { registerLanguage } from 'monaco-editor/esm/vs/basic-languages/_.contribution.js';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { languages } from 'monaco-editor/esm/metadata';
 import assetsApi from '@talend/assets-api';
 
-if (window) {
+if (window && !window.TalendMonacoEditorAPI) {
 	window.TalendMonacoEditorAPI = monaco;
 }
 
@@ -97,9 +96,12 @@ const Monaco = React.forwardRef((props, ref) => {
 						firstLine: '^#!/.*\\bpython[0-9.-]*\\b',
 						loader: () => {
 							console.log('## call loader');
+
 							return new Promise(resolve => {
-								console.log('call promiseload ', props.language);
-								resolve(mod);
+								setTimeout(() => {
+									console.log('## return from loader ', props.language, mod);
+									resolve(mod);
+								}, 100);
 							});
 						},
 					});
@@ -107,7 +109,6 @@ const Monaco = React.forwardRef((props, ref) => {
 				}
 			};
 			assetsApi.addScript({ src, onload });
-			console.log('## script added', props.language, src);
 		} else if (props.loadLanguage) {
 			props.loadLanguage(props.language);
 		}

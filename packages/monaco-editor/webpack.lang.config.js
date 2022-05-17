@@ -3,7 +3,7 @@ const fs = require('fs');
 const metadata = require('monaco-editor/esm/metadata');
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
-const LANGUAGES = metadata.languages.filter(lng => !lng.label.includes('-'));
+const LANGUAGES = metadata.languages.filter(l => l.label !== 'json');
 
 // generate src before build
 LANGUAGES.forEach(lng => {
@@ -14,7 +14,6 @@ LANGUAGES.forEach(lng => {
 			'.contribution',
 			'',
 		)}';\n`;
-		console.log('check', label, entry);
 		// content += entry
 		// 	.map(
 		// 		i =>
@@ -27,7 +26,7 @@ LANGUAGES.forEach(lng => {
 			'',
 		)}';\n`;
 	}
-	content += `window.TalendMonacoEditor.languages.${label} = { conf, language };\n`;
+	content += `window.TalendMonacoEditor.languages['${label}'] = { conf, language };\n`;
 	fs.writeFileSync(`${__dirname}/src/languages/${label}.js`, content);
 	if (worker) {
 	}
@@ -55,9 +54,9 @@ module.exports = function (env, argv) {
 		output: {
 			path: path.join(__dirname, './dist/languages'),
 			filename: `${lng.label}.js`,
-			library: `TalendMonacoLang${lng.label}`,
-			libraryTarget: 'umd2',
-			globalObject: 'window',
+			// library: `TalendMonacoLang${lng.label}`,
+			libraryTarget: 'umd',
+			globalObject: 'self',
 		},
 		module: {
 			rules: [
