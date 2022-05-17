@@ -4,7 +4,9 @@
   "description": "",
   "main": "dist/TalendMonacoEditor.min.js",
   "scripts": {
-    "pre-release": "talend-scripts build:lib:umd",
+    "pre-release": "talend-scripts build:lib:umd && yarn build:languages",
+    "build:languages": "webpack --config ./webpack.lang.config.js",
+    "start": "talend-scripts start-storybook",
     "test": "echo nothing to test"
   },
   "dependencies": {

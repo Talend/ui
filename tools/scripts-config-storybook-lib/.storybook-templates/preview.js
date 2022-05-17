@@ -46,7 +46,7 @@ const defaultPreview = {
 	decorators: [
 		mswDecorator,
 		(Story, context) => {
-			i18n.changeLanguage(context.globals && context.globals.locale);
+			i18n?.changeLanguage(context.globals && context.globals.locale);
 			return React.createElement(React.Suspense, { fallback: null },
 				React.createElement(I18nextProvider, { i18n: i18n, key: 'i18n' },
 					React.createElement(Story, {...context, key: 'story'})
