@@ -54,6 +54,7 @@ async function upgradeYarnProject(program) {
 		startsWith: program['starts-with'],
 		dry: program.dry || false,
 		latest: program.latest,
+		next: program.next,
 		security: program.security,
 		message: program.message,
 	};
@@ -78,6 +79,9 @@ async function upgradeYarnProject(program) {
 		}
 		if (opts.latest) {
 			throw new Error('Deps security fix mode is incompatible with "latest" option.');
+		}
+		if (opts.next) {
+			throw new Error('Deps security fix mode is incompatible with "next" option.');
 		}
 
 		const securityConfPath = path.join(CWD, program.security);

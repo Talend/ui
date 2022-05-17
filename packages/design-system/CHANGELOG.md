@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 2.6.0
+
+### Minor Changes
+
+- 453802c72: Add props placement to ButtonIcon to choose tooltip placement
+
 ## 2.5.2
 
 ### Patch Changes

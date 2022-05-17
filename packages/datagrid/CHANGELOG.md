@@ -1,5 +1,19 @@
 # @talend/react-datagrid
 
+## 9.2.0
+
+### Minor Changes
+
+- 4119033fd: - Boot rtl config
+  - Rewrite QualityIndicator in typescript
+
+### Patch Changes
+
+- Updated dependencies [c834a7ec6]
+- Updated dependencies [6f68d11f4]
+  - @talend/react-components@6.46.5
+  - @talend/icons@6.41.0
+
 ## 9.1.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 6.46.5
+
+### Patch Changes
+
+- c834a7ec6: fix(Notification): remove this in functional component
+- Updated dependencies [453802c72]
+- Updated dependencies [6f68d11f4]
+  - @talend/design-system@2.6.0
+  - @talend/icons@6.41.0
+
 ## 6.46.4
 
 ### Patch Changes
