@@ -1,4 +1,4 @@
-const { findPackages } = require('./find');
+const { findPackage } = require('./find');
 
 /* eslint-disable no-empty */
 /**
