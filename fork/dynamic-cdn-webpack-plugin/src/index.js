@@ -8,7 +8,6 @@
 /* eslint-disable global-require */
 /* eslint-disable no-restricted-syntax */
 
-const semver = require('semver');
 const readPkgUp = require('read-pkg-up');
 const ExternalModule = require('webpack/lib/ExternalModule');
 const RawSource = require('webpack-sources').RawSource;
@@ -237,11 +236,6 @@ class DynamicCdnWebpackPlugin {
 			}
 			const pkg = readPkgUp.sync({ cwd });
 			const installedVersion = pkg.packageJson.version;
-			if (semver.major(installedVersion) !== semver.major(cdnConfig.version)) {
-				throw new Error(
-					`not compatible version of ${cdnConfig.name}, based on ${cdnConfig.version} installed ${installeVersion}`,
-				);
-			}
 			cdnConfig.version = installedVersion;
 			cdnConfig.local = path.resolve(
 				pkg.path,
