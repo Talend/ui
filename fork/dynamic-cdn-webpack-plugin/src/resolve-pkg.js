@@ -13,7 +13,7 @@ function resolve(moduleId, options) {
 		if (moduleId.startsWith('@')) {
 			scope = moduleId.split('/')[0];
 		}
-		const found = findPackage({ name: moduleId, version: options.version });
+		return findPackage({ name: moduleId, version: options.version });
 	}
 	let paths = require.resolve.paths(moduleId) || [];
 
