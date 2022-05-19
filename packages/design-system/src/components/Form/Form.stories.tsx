@@ -8,21 +8,23 @@ import Skeleton from '../Skeleton';
 import Link from '../Link';
 
 import CountryCodes from './docs/data/CountryCodes.json';
+import { StackVertical } from '../Stack';
 
 export default {
 	component: Form,
 };
 
 function getCountryCodes() {
-	// eslint-disable-next-line @typescript-eslint/camelcase
 	return CountryCodes.map(({ name, dial_code }) => `${name} (${dial_code})`);
 }
 
 export const FormSkeleton = () => (
 	<Form>
-		<Skeleton variant="heading" />
-		<Skeleton variant="paragraph" />
-		<Skeleton variant="paragraph" />
+		<StackVertical gap="S">
+			<Skeleton variant="heading" />
+			<Skeleton variant="paragraph" />
+			<Skeleton variant="paragraph" />
+		</StackVertical>
 		<Form.Buttons>
 			<Skeleton variant="button" />
 			<Skeleton variant="button" />
