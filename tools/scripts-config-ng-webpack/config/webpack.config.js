@@ -8,7 +8,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: [{ loader: 'cache-loader' }, { loader: 'babel-loader', options: getBabelConfig() }],
+				use: [{ loader: 'babel-loader', options: getBabelConfig() }],
 			},
 			{
 				test: /\.html$/,

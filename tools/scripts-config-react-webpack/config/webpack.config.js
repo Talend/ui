@@ -23,6 +23,8 @@ const LICENSE_BANNER = require('./licence');
 const exists = require('./utils/exists');
 const inject = require('./inject');
 const icons = require('./icons');
+const { getBabelLoaderOptions } = require('./utils/cache');
+const getLockHash = require('./utils/cache').getLockHash;
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
 const cdnMode = !!process.env.INITIATOR_URL;
@@ -334,10 +336,9 @@ module.exports = ({ getUserConfig, mode }) => {
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
 						use: [
-							!process.env.NO_CACHE_LOADER && { loader: 'cache-loader' },
 							{
 								loader: 'babel-loader',
-								options: babelConfig,
+								options: getBabelLoaderOptions(babelConfig),
 							},
 						].filter(Boolean),
 					},
