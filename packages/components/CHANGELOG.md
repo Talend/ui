@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.46.6
+
+### Patch Changes
+
+- 0332ed371: Datalist : Blur should persist value only if the filter value is different from the selected one
+
 ## 6.46.5
 
 ### Patch Changes
