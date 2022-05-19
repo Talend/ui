@@ -13,7 +13,8 @@ function findPackage(info) {
 		const {
 			packageJson: { version },
 		} = readPkgUp.sync({ cwd });
-		return semver.major(version) === semver.major(info.version);
+		// check we are at least upper or equal using caret range syntax
+		return semver.satisfies(`^${info.version}`, version);
 	});
 }
 

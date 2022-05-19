@@ -9,10 +9,6 @@ const { findPackage } = require('./find');
  */
 function resolve(moduleId, options) {
 	if (options.version) {
-		let scope;
-		if (moduleId.startsWith('@')) {
-			scope = moduleId.split('/')[0];
-		}
 		return findPackage({ name: moduleId, version: options.version });
 	}
 	let paths = require.resolve.paths(moduleId) || [];
