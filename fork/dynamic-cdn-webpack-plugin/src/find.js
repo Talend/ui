@@ -10,10 +10,9 @@ function findPackage(info) {
 		[scope, name] = info.name.split('/');
 	}
 	return findPackages(scope, name).find(cwd => {
-		const pkg = readPkgUp.sync({ cwd });
 		const {
 			packageJson: { version },
-		} = pkg;
+		} = readPkgUp.sync({ cwd });
 		// check we are at least upper or equal using caret range syntax
 		return semver.satisfies(version, `^${info.version}`);
 	});
