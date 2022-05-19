@@ -223,7 +223,9 @@ class DynamicCdnWebpackPlugin {
 	addDependencies(contextPath, manifest, { env, requester }) {
 		for (const dependencyName of Object.keys(manifest)) {
 			const cdnConfig = manifest[dependencyName];
-			const cwd = resolvePkg(cdnConfig.name, { cwd: contextPath });
+			const cwd = resolvePkg(cdnConfig.name, {
+				version: cdnConfig.version,
+			});
 			if (!cwd) {
 				this.error(
 					'\n❌',
