@@ -2,9 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-
+import assetsApi from '@talend/assets-api';
 import { Icon } from '@talend/design-system';
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -16,6 +14,13 @@ import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
+
+const AgGridReact = React.lazy(() =>
+	assetsApi
+		.getUMD('ag-grid-community')
+		.then(() => assetsApi.getUMD('ag-grid-react'))
+		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact)),
+);
 
 export const AG_GRID = {
 	CUSTOM_HEADER_KEY: 'headerComponent',
@@ -85,6 +90,11 @@ export default class DataGrid extends React.Component {
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 		this.currentColId = null;
 		this.containerRef = React.createRef();
+	}
+
+	componentDidMount() {
+		const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community');
+		assetsApi.addStyle({ href });
 	}
 
 	/**
@@ -310,7 +320,11 @@ export default class DataGrid extends React.Component {
 				</div>
 			);
 		} else {
-			content = <AgGridReact {...this.getAgGridConfig()} />;
+			content = (
+				<React.Suspense fallback={<Icon name="talend-table" />}>
+					<AgGridReact {...this.getAgGridConfig()} />
+				</React.Suspense>
+			);
 		}
 
 		return (
