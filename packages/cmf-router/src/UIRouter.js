@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath, isIndex) {
-	const injectProps = { ...indexRoute, ...props };
+	const injectProps = { ...props };
 	let absPath;
 	// some route has no path (indexRoute for example)
 	if (path) {
