@@ -75,5 +75,9 @@ describe('find', () => {
 			const results = findPackage({ name: 'react', version: '17.0.0' });
 			expect(results).toBeUndefined();
 		});
+		test('should not find package from cdnConfig object if version is previous major', () => {
+			const results = findPackage({ name: 'react', version: '15.0.0' });
+			expect(results).toBeUndefined();
+		});
 	});
 });
