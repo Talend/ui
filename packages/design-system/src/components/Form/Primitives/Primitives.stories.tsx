@@ -8,6 +8,7 @@ import { AffixButton } from '../FieldGroup/Affix';
 import { StackHorizontal, StackVertical } from '../../Stack';
 import Checkbox from './Checkbox/Checkbox';
 import Label from './Label/Label';
+import Radio from './Radio/Radio';
 
 export default {
 	component: Textarea,
@@ -81,6 +82,17 @@ export const CheckboxPrimitive = () => (
 		<Checkbox label="Test checkbox disabled unselected" id="checkbox-7" disabled />
 		<Checkbox label="Test checkbox disabled" id="checkbox-8" disabled defaultChecked />
 		<Checkbox label="Test checkbox indeterminate disabled" id="checkbox-9" indeterminate disabled />
+	</StackVertical>
+);
+
+export const RadioPrimitive = () => (
+	<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
+		<Radio label="Test radio" id="radio-1" />
+		<Radio label="Test radio selected" id="radio-2" defaultChecked />
+		<Radio label="Test radio read-only unselected" id="radio-4" readOnly />
+		<Radio label="Test radio read-only" id="radio-4" readOnly defaultChecked />
+		<Radio label="Test radio disabled unselected" id="radio-7" disabled />
+		<Radio label="Test radio disabled" id="radio-6" disabled defaultChecked />
 	</StackVertical>
 );
 
