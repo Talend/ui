@@ -112,7 +112,7 @@ function getEntry(titleMap, nameOrValue, restricted) {
 function Datalist(props) {
 	// Current persisted value
 	// In case of simple values, this is a string
-	// In case of titleMap, it's an object { name: "display value", value: "technical value" }
+	// In case of titleMap, it's the object value key { name: "display value", value: "technical value" }
 	const [value, setValue] = useState();
 
 	// suggestions: filter value, display flag, current hover selection
@@ -225,11 +225,17 @@ function Datalist(props) {
 	 */
 	function persistValue(event) {
 		hideSuggestions();
-		const entry = getEntryFromName(props.titleMap, filterValue, props.restricted);
-		if (entry && entry.value !== value) {
-			updateValue(event, entry, true);
-		} else {
-			resetFilter();
+		const selectedEntry = getEntryFromValue(props.titleMap, value, props.restricted);
+
+		// If the filterValue is different from the selected entry
+		if (!selectedEntry || selectedEntry.name !== filterValue) {
+			const entry = getEntryFromName(props.titleMap, filterValue, props.restricted);
+
+			if (entry && entry.value !== value) {
+				updateValue(event, entry, true);
+			} else {
+				resetFilter();
+			}
 		}
 	}
 
