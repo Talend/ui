@@ -87,7 +87,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^7.30.0",
+    "react-hook-form": "^7.31.2",
     "react-i18next": "^11.16.7",
     "react-is": "^16.13.1",
     "react-router-dom": "^6.3.0",
