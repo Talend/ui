@@ -39,6 +39,26 @@ const itemsObject = [
 	},
 ];
 
+const itemsObjectWithId = [
+	{
+		title: 'category 1',
+		suggestions: [
+			{
+				title: 'le title 1',
+				value: 'letitle1',
+			},
+			{
+				title: 'le title 1',
+				value: 'letitle1copy',
+			},
+			{
+				title: 'le title 2',
+				value: 'letitle2',
+			},
+		],
+	},
+];
+
 const itemsString = ['category 1', 'category 2'];
 
 describe('Typeahead', () => {
@@ -145,6 +165,37 @@ describe('Typeahead', () => {
 				id: 'my-search',
 				value: 'le',
 				items: itemsObject,
+			};
+
+			// when
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+
+		it('should render typeahead selected item by id', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				value: 'le title 1',
+				valueId: 'letitle1copy',
+				items: itemsObjectWithId,
+			};
+
+			// when
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+
+		it('should render typeahead selected item by title', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				value: 'le title 1',
+				items: itemsObjectWithId,
 			};
 
 			// when
