@@ -7,8 +7,8 @@ const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver'
 
 const cdn = require('@talend/scripts-config-cdn');
 
-const { getLockHash, getHash, getBabelLoaderOptions } = require('./utils/cache');
-const exists = require('./utils/exists');
+const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
+const exists = require('@talend/scripts-utils/fs');
 
 const babelConfig = getBabelConfig();
 cdn.configureTalendModules();

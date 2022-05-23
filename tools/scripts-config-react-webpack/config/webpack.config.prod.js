@@ -1,4 +1,3 @@
-const PostCssSafeParser = require('postcss-safe-parser');
 const TerserPlugin = require('terser-webpack-plugin');
 const LICENSE_BANNER = require('./licence');
 

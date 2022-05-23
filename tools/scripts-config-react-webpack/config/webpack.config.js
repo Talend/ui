@@ -19,12 +19,11 @@ const AppLoader = require('@talend/react-components/lib/AppLoader/constant').def
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
 const cdn = require('@talend/scripts-config-cdn');
+const exists = require('@talend/scripts-utils/fs');
+const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
 const LICENSE_BANNER = require('./licence');
-const exists = require('./utils/exists');
 const inject = require('./inject');
 const icons = require('./icons');
-const { getBabelLoaderOptions } = require('./utils/cache');
-const getLockHash = require('./utils/cache').getLockHash;
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
 const cdnMode = !!process.env.INITIATOR_URL;
