@@ -12588,10 +12588,10 @@ jest-each@^26.6.2:
     jest-util "^26.6.2"
     pretty-format "^26.6.2"
 
-jest-environment-jsdom-global@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/jest-environment-jsdom-global/-/jest-environment-jsdom-global-3.0.0.tgz#a1c021d94232cc72b5fbf5b44639ac66b0ba4542"
-  integrity sha512-+7ZNxuB/35ybGug9vMaBYontqI7T8KhnUU55wtT5OYw6GRfDn2Vzak2YRvBwFjdm0so0Qz7KAL6NtEB0r+3x+g==
+jest-environment-jsdom-global@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/jest-environment-jsdom-global/-/jest-environment-jsdom-global-3.1.2.tgz#278f50f9fa8ea3301f9f3697b912f3571dab9dd8"
+  integrity sha512-Suq/B0c8OVUYrx05j8ynKqKMzNCTNll72SLxzoTeBtjnsbrScM2Az0dBEBPN8EVTuP1lcgWN0tV0M9+hfkvXHQ==
 
 jest-environment-jsdom@^26.6.2:
   version "26.6.2"
