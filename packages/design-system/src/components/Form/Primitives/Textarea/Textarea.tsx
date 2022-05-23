@@ -6,15 +6,16 @@ type TextareaProps = TextareaHTMLAttributes<any>;
 import styles from './Textarea.module.scss';
 
 const Textarea = forwardRef((props: TextareaProps, ref: Ref<HTMLTextAreaElement>) => {
-	const { className, readOnly, disabled, ...rest } = props;
+	const { className, readOnly = false, disabled = false, ...rest } = props;
 	return (
 		<textarea
 			{...rest}
 			ref={ref}
-			disabled={disabled || readOnly}
+			disabled={disabled}
+			readOnly={readOnly}
 			className={classnames(
 				styles.textarea,
-				{ [styles.textarea_readOnly]: !!readOnly, [styles.textarea_disabled]: !!disabled },
+				{ [styles.textarea_readOnly]: readOnly, [styles.textarea_disabled]: disabled },
 				className,
 			)}
 		/>

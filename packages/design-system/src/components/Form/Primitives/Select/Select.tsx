@@ -4,7 +4,6 @@ import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 
 type SelectProps = Omit<SelectHTMLAttributes<any>, 'prefix'> & {
 	children: ReactElement[];
-	readOnly?: boolean;
 } & AffixesProps;
 
 import styles from './Select.module.scss';
@@ -18,18 +17,17 @@ const Select = forwardRef((props: SelectProps, ref: Ref<HTMLSelectElement>) => {
 		suffix,
 		placeholder,
 		required,
-		readOnly = false,
 		disabled = false,
 		...rest
 	} = props;
 	return (
-		<InputWrapper prefix={prefix} suffix={suffix} readOnly={!!readOnly} disabled={!!disabled}>
+		<InputWrapper prefix={prefix} suffix={suffix} disabled={!!disabled}>
 			<div className={styles.select__wrapper}>
 				<select
 					{...rest}
-					disabled={disabled || readOnly}
+					disabled={disabled}
 					ref={ref}
-					className={classnames(styles.select, { [styles.select_readOnly]: readOnly }, className)}
+					className={classnames(styles.select, className)}
 				>
 					{placeholder && (
 						<option disabled selected>

@@ -20,7 +20,16 @@ type InputProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> & AffixesP
 import styles from './Input.module.scss';
 
 const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) => {
-	const { className, prefix, suffix, readOnly, disabled, type, onBlur, ...rest } = props;
+	const {
+		className,
+		prefix,
+		suffix,
+		readOnly = false,
+		disabled = false,
+		type,
+		onBlur,
+		...rest
+	} = props;
 
 	// Password type management
 	const [isClear, setClear] = useState<boolean>(type !== 'password');
@@ -40,15 +49,16 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 	}
 
 	return (
-		<InputWrapper prefix={prefix} suffix={suffix} disabled={!!disabled} readOnly={!!readOnly}>
+		<InputWrapper prefix={prefix} suffix={suffix} disabled={disabled} readOnly={readOnly}>
 			<>
 				<input
 					{...rest}
 					type={inputType}
 					ref={inputRef}
-					disabled={!!disabled || !!readOnly}
+					disabled={disabled}
+					readOnly={readOnly}
 					onBlur={handleBlur}
-					className={classnames(styles.input, { [styles.input_readOnly]: !!readOnly }, className)}
+					className={classnames(styles.input, { [styles.input_readOnly]: readOnly }, className)}
 				/>
 				{type === 'password' && (
 					<Tooltip title={isClear ? hideMsg : showMsg}>
@@ -68,7 +78,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 							data-test="form.password.reveal"
 							className={classnames(
 								styles.button,
-								{ [styles.button_readOnly]: !!readOnly },
+								{ [styles.button_readOnly]: readOnly },
 								className,
 							)}
 						>

@@ -25,7 +25,7 @@ export const InputPrimitive = () => (
 	<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
 		<Input type="text" placeholder="Placeholder" />
 		<Input type="text" defaultValue="With default value" />
-		<Input type="text" readOnly disabled defaultValue="Test read-only" />
+		<Input type="text" readOnly defaultValue="Test read-only" />
 		<Input type="text" disabled defaultValue="Test disabled" />
 		<Input type="text" disabled placeholder="Test disabled empty" />
 		<Input
@@ -72,12 +72,6 @@ export const SelectPrimitive = () => {
 			</Select>
 			<Select name="select" defaultValue="option 1">
 				<option value="option 1">With default value (controled)</option>
-				<option value="option 2">Option 2</option>
-			</Select>
-			<Select name="select" defaultValue="option 1" readOnly>
-				<option value="option 1" selected>
-					Test read-only
-				</option>
 				<option value="option 2">Option 2</option>
 			</Select>
 			<Select name="select" disabled defaultValue="option 1">
