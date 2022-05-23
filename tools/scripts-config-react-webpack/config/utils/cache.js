@@ -10,11 +10,13 @@ function getLockFilePath(cwd = process.cwd()) {
 	} else if (fs.existsSync(pkglockPath)) {
 		return pkglockPath;
 	}
-	try {
-		return getLockFilePath(path.join(cwd, '..'));
-	} catch (e) {
-		console.error(`can't find lock file`);
+	const parentPath = path.join(cwd, '..');
+	if (parentPath === cwd) {
+		// we are at root of the system;
+		throw new Error(`can't find lock file from ${process.cwd()} or in parent directories.`);
 	}
+
+	return getLockFilePath(parentPath);
 }
 
 function getHash(content) {
