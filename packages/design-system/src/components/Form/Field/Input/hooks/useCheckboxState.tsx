@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import Reakit, { useCheckboxState as useReakitCheckboxState } from 'reakit';
+import { CheckboxInitialState, useCheckboxState as useReakitCheckboxState } from 'reakit';
 
 import useReadOnly from './useReadOnly';
 
-type ChoiceState = Reakit.CheckboxInitialState & {
+type ChoiceState = CheckboxInitialState & {
 	readOnly?: boolean;
 };
 

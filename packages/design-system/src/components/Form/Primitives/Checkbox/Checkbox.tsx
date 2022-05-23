@@ -1,6 +1,8 @@
-import React, { forwardRef, Ref, InputHTMLAttributes, ReactElement } from 'react';
-import { Checkbox as ReakitCheckbox, CheckboxProps, useCheckboxState } from 'reakit';
+import React, { forwardRef, Ref, ReactElement } from 'react';
+import { Checkbox as ReakitCheckbox, CheckboxProps } from 'reakit';
 import classnames from 'classnames';
+
+import useCheckboxState from '../../Field/Input/hooks/useCheckboxState';
 import Label from '../Label/Label';
 
 import styles from './Checkbox.module.scss';
@@ -12,9 +14,19 @@ type CheckboxType = Omit<CheckboxProps, 'type' | 'prefix'> & {
 };
 
 const Checkbox = forwardRef((props: CheckboxType, ref: Ref<HTMLInputElement>) => {
-	const { id, label, readOnly, disabled, checked, defaultChecked, indeterminate, ...rest } = props;
+	const {
+		id,
+		label,
+		readOnly = false,
+		disabled = false,
+		checked,
+		defaultChecked,
+		indeterminate,
+		...rest
+	} = props;
 	const checkboxState = useCheckboxState({
 		state: (indeterminate && 'indeterminate') || checked || defaultChecked,
+		readOnly: readOnly,
 	});
 
 	return (
@@ -22,7 +34,8 @@ const Checkbox = forwardRef((props: CheckboxType, ref: Ref<HTMLInputElement>) =>
 			<ReakitCheckbox
 				{...checkboxState}
 				type="checkbox"
-				disabled={disabled || readOnly}
+				disabled={disabled}
+				readOnly={readOnly}
 				ref={ref}
 				id={id}
 				{...rest}
