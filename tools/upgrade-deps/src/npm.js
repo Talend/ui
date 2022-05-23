@@ -130,7 +130,7 @@ async function checkVersionsOf(pkgJson, opts) {
 			} else {
 				newVersion = await getUpdate(depName, requestedVersion);
 			}
-			console.log(newVersion, requestedVersion);
+
 			if (newVersion && requestedVersion !== `${semantic}${newVersion}`) {
 				const isMajor = !semver.satisfies(newVersion, requestedVersion);
 				let msg = `"${depName}": "${requestedVersion}" => "^${newVersion}"`;
