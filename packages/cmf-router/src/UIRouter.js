@@ -92,31 +92,16 @@ export function getRouter(history, basename) {
 	 * @return {object} ReactElement
 	 */
 	function CMFRouter({ action, location, ...props }) {
-		// init with history object;
-		const [state, setState] = React.useState({
-			action: history.action,
-			location: history.location,
-		});
 		// sync from history to redux
 		React.useEffect(() => {
 			return history.listen(opts => {
 				// eslint-disable-next-line no-console
 				console.log('#### listen', opts.action, opts.location);
-				if (isDifferent(opts, state)) {
-					setState(opts);
-				}
 
 				if (isDifferent(opts, { action, location })) {
 					props.dispatch(onLocationChanged(opts.location, opts.action));
 				}
 			});
-		}, []);
-		// sync from redux to history
-		React.useEffect(() => {
-			// debugger;
-			if (isDifferent(state, { action, location })) {
-				setState({ action, location });
-			}
 		}, [location, action]);
 
 		if (props.routes.path && props.routes.component) {
@@ -127,12 +112,7 @@ export function getRouter(history, basename) {
 			}
 
 			return (
-				<Router
-					basename={basename}
-					location={state.location}
-					navigationType={state.action}
-					navigator={history}
-				>
+				<Router basename={basename} location={location} navigationType={action} navigator={history}>
 					<Routes>
 						<Route {...routeProps} />
 					</Routes>
