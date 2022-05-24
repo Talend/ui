@@ -104,6 +104,9 @@ export function getRouter(history, basename) {
 				console.log('#### listen', opts.action, opts.location);
 				if (isDifferent(opts, state)) {
 					setState(opts);
+				}
+
+				if (isDifferent(opts, { action, location })) {
 					props.dispatch(onLocationChanged(opts.location, opts.action));
 				}
 			});
