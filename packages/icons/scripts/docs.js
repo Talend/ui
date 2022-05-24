@@ -4,7 +4,7 @@ const path = require('path');
 const mkdirp = require('mkdirp');
 const lib = require('../src');
 
-const HTML_TPL = (icons, style) => `
+const getHtmlTemplate = (icons, style) => `
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -149,6 +149,12 @@ const buff = Object.keys(lib.svgs)
 		key =>
 			`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${lib.svgs[key]}</svg><i class="icon icon-${key}"></i><span>${key}</span></li>`,
 	)
+	.concat(
+		Object.keys(lib.icons).map(
+			key =>
+				`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${lib.icons[key]}</svg><i class="icon icon-${key}"></i><span>${key}</span></li>`,
+		),
+	)
 	.concat(Object.keys(lib.filters).map(key => `${lib.filters[key]}`));
 
 const dist = path.join(__dirname, '../docs/');
@@ -158,4 +164,4 @@ const stylePath = path.join(__dirname, '../src/talendicons.css');
 const style = fs.readFileSync(stylePath, 'utf8');
 
 const icons = buff.join('\n');
-fs.writeFileSync(path.join(dist, 'index.html'), HTML_TPL(icons, style));
+fs.writeFileSync(path.join(dist, 'index.html'), getHtmlTemplate(icons, style));
