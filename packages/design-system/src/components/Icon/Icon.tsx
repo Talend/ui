@@ -130,7 +130,7 @@ export const Icon = React.forwardRef(
 				// eslint-disable-next-line no-param-reassign
 				current.innerHTML = content;
 			} else if (current && !isRemote) {
-				IconsProvider.injectIcon(name.split('talend-').reverse()[0] + ':16', current);
+				IconsProvider.injectIcon(name.split('talend-').reverse()[0] + '\\:16', current);
 			}
 		}, [isRemoteSVG, safeRef, content, name, isRemote]);
 
