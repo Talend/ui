@@ -2,10 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import {
-	rgb, RGBColor,
-	select as d3select, Selection,
-	scaleLinear, ScaleLinear,
-	geoIdentity, geoPath, GeoPath,
+	rgb,
+	RGBColor,
+	select as d3select,
+	Selection,
+	scaleLinear,
+	ScaleLinear,
+	geoIdentity,
+	geoPath,
+	GeoPath,
 	zoom as d3zoom,
 } from 'd3';
 import { FeatureCollection } from 'geojson';
@@ -14,7 +19,7 @@ import { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import { Icon } from '@talend/react-components';
 
-import TooltipContent, { TooltipEntry } from '../TooltipContent/TooltipContent.component';
+import KeyValueTooltip, { TooltipEntry } from '../KeyValueTooltip/KeyValueTooltip.component';
 import styles from './GeoChart.scss';
 
 // Rename ugly d3 types
@@ -49,8 +54,8 @@ interface TooltipPosition {
 }
 
 interface Tooltip {
-	entry: TooltipEntry,
-	position: TooltipPosition,
+	entry: TooltipEntry;
+	position: TooltipPosition;
 }
 
 // Don't worry, chart will fit it's container
@@ -93,7 +98,9 @@ function renderFeature(
 	);
 	if (entry) {
 		// if we have both label and entry key: "label (key): value", otherwise "label: value" or "key: value"
-		const tooltipLabel = `${label || entry.key}${label && entry.key !== label ? ` (${entry.key})` : ''}`;
+		const tooltipLabel = `${label || entry.key}${
+			label && entry.key !== label ? ` (${entry.key})` : ''
+		}`;
 
 		const setTooltipFromD3Event = (d3Event: any) => {
 			setTooltip({
@@ -104,7 +111,7 @@ function renderFeature(
 				position: {
 					x: d3Event.x,
 					y: d3Event.y,
-				}
+				},
 			});
 		};
 
@@ -120,15 +127,11 @@ function renderFeature(
 }
 
 function createSvg(parent: HTMLDivElement): Svg {
-	return d3select(parent)
-		.append('svg')
-		.attr('viewBox', `0 0 ${width} ${height}`);
+	return d3select(parent).append('svg').attr('viewBox', `0 0 ${width} ${height}`);
 }
 
 function clearChart(container: HTMLDivElement): void {
-	d3select(container)
-		.selectAll('svg')
-		.remove();
+	d3select(container).selectAll('svg').remove();
 }
 
 function getScale(data: Entry[]): ColorScale {
@@ -140,9 +143,7 @@ function getScale(data: Entry[]): ColorScale {
 
 function getGeoPath(featureCollection: FeatureCollection): GeoPath {
 	// we use the same projection for all maps: custom projections have to be applied to the topojson file
-	const projection = geoIdentity()
-		.scale(1)
-		.fitSize([width, height], featureCollection);
+	const projection = geoIdentity().scale(1).fitSize([width, height], featureCollection);
 	return geoPath().projection(projection);
 }
 
@@ -210,14 +211,7 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 						? findEntry(data, d.properties, chartConfig)
 						: undefined;
 					const label = chartConfig.labelProperty && d.properties?.[chartConfig.labelProperty];
-					renderFeature(
-						d3select(this),
-						colorScale,
-						setTooltip,
-						onSelection,
-						matchedEntry,
-						label,
-					);
+					renderFeature(d3select(this), colorScale, setTooltip, onSelection, matchedEntry, label);
 				})
 				.attr('d', getGeoPath(featureCollection));
 
@@ -262,11 +256,11 @@ function GeoChart({ data, columnName, onSelection, chartConfig }: GeoChartProps)
 					style={{
 						position: 'fixed',
 						top: `${tooltip.position.y - (tooltipRef.current?.offsetHeight || 0)}px`,
-						left: `${tooltip.position.x - ((tooltipRef.current?.offsetWidth || 0) / 2)}px`,
+						left: `${tooltip.position.x - (tooltipRef.current?.offsetWidth || 0) / 2}px`,
 						pointerEvents: 'none',
 					}}
 				>
-					<TooltipContent entries={[tooltip.entry]} />
+					<KeyValueTooltip entries={[tooltip.entry]} />
 				</div>
 			)}
 		</div>

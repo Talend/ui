@@ -13,4 +13,8 @@ export const i18n = {
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
+	chromatic: {
+		// To avoid issues with charts, we'll need to improve this later on
+		diffThreshold: 0.6,
+	},
 };

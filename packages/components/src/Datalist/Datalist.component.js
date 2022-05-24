@@ -67,7 +67,7 @@ function findEntry(titleMap, attributeName, attributeValue = '') {
 			}
 		} else if (
 			!entry.disabled &&
-			entry[attributeName].toLowerCase() === attributeValue.toLowerCase()
+			String(entry[attributeName]).toLowerCase() === String(attributeValue).toLowerCase()
 		) {
 			// entry is {name, value}
 			return entry;
@@ -78,6 +78,10 @@ function findEntry(titleMap, attributeName, attributeValue = '') {
 }
 
 function getEntryFromName(titleMap, name, restricted) {
+	if (name === '') {
+		return { name, value: '' };
+	}
+
 	const entry = findEntry(titleMap, 'name', name);
 	if (entry) {
 		return entry;
@@ -108,7 +112,7 @@ function getEntry(titleMap, nameOrValue, restricted) {
 function Datalist(props) {
 	// Current persisted value
 	// In case of simple values, this is a string
-	// In case of titleMap, it's an object { name: "display value", value: "technical value" }
+	// In case of titleMap, it's the object value key { name: "display value", value: "technical value" }
 	const [value, setValue] = useState();
 
 	// suggestions: filter value, display flag, current hover selection
@@ -147,7 +151,7 @@ function Datalist(props) {
 			setFilterValue(entry.name);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [props.value]);
+	}, [props.value, props.titleMap]);
 
 	// Suggestion display syntaxic sugar
 	const resetSelection = () =>
@@ -221,11 +225,17 @@ function Datalist(props) {
 	 */
 	function persistValue(event) {
 		hideSuggestions();
-		const entry = getEntryFromName(props.titleMap, filterValue, props.restricted);
-		if (entry && entry.value !== value) {
-			updateValue(event, entry, true);
-		} else {
-			resetFilter();
+		const selectedEntry = getEntryFromValue(props.titleMap, value, props.restricted);
+
+		// If the filterValue is different from the selected entry
+		if (!selectedEntry || selectedEntry.name !== filterValue) {
+			const entry = getEntryFromName(props.titleMap, filterValue, props.restricted);
+
+			if (entry && entry.value !== value) {
+				updateValue(event, entry, true);
+			} else {
+				resetFilter();
+			}
 		}
 	}
 

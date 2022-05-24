@@ -70,27 +70,25 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 
 ### Props
 
-| property                     | description                                                                                                         | type     | default                  |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------ |
-| avroRenderer                 | list of components to inject to the avro renderer                                                                   | object   |                          |
-| columnsConf                  | options pass to getColumnDefsFn. _hideSubType_(boolean) : hide the subtitle in the header hide                      | object   | { hideSubType : false }  |
-| cellRenderer                 | cell component to inject                                                                                            | string   | DefaultCellRenderer      |
-| forceRedrawRows - deprecated | function called when the component updated to know if ag-grid have to redraw the grid . should return true or false | function | null                     |
-| getComponent                 | method to provide the injected components                                                                           | function | cellRenderer             |
-| getPinnedColumnDefsFn        | method to provide the definition of the pinned columns                                                              | function | dataset serializer       |
-| getColumnDefsFn              | method to provide the definition of the columns                                                                     | function | dataset serializer       |
-| getRowDataFn                 | method to provide the row data                                                                                      | function | dataset serializer       |
-| getValueByCellFn             | method to provide the data by row/column                                                                            | function | dataset serializer       |
-| headerHeight                 | height of the header                                                                                                | int      | 69                       |
-| headerRenderer               | header component to inject                                                                                          | string   | DefaultHeaderRenderer    |
-| onFocusedCell                | callback when one cell is focused                                                                                   | function |                          |
-| onFocusedColumn              | callback when one column is focused                                                                                 | function |                          |
-| onVerticalScroll             | callback when the grid scroll vertical                                                                              | function |                          |
-| pinHeaderRenderer            | pinHeader component to inject                                                                                       | string   | DefaultPinHeaderRenderer |
-| data                         | data to set into the datagrid                                                                                       | Array    |                          |
-| rowData                      | pass the row data straight right to ag-grid                                                                         | Array    | single                   |
-| rowHeight                    | height of the row                                                                                                   | int      | 39                       |
-| rowSelection                 | set the type of selection (single or multiple)                                                                      | string   | single                   |
+| property              | description                                                                                    | type     | default                  |
+| --------------------- | ---------------------------------------------------------------------------------------------- | -------- | ------------------------ |
+| avroRenderer          | list of components to inject to the avro renderer                                              | object   |                          |
+| columnsConf           | options pass to getColumnDefsFn. _hideSubType_(boolean) : hide the subtitle in the header hide | object   | { hideSubType : false }  |
+| cellRenderer          | cell component to inject                                                                       | string   | DefaultCellRenderer      |
+| getPinnedColumnDefsFn | method to provide the definition of the pinned columns                                         | function | dataset serializer       |
+| getColumnDefsFn       | method to provide the definition of the columns                                                | function | dataset serializer       |
+| getRowDataFn          | method to provide the row data                                                                 | function | dataset serializer       |
+| getValueByCellFn      | method to provide the data by row/column                                                       | function | dataset serializer       |
+| headerHeight          | height of the header                                                                           | int      | 69                       |
+| headerRenderer        | header component to inject                                                                     | string   | DefaultHeaderRenderer    |
+| onFocusedCell         | callback when one cell is focused                                                              | function |                          |
+| onFocusedColumn       | callback when one column is focused                                                            | function |                          |
+| onVerticalScroll      | callback when the grid scroll vertical                                                         | function |                          |
+| pinHeaderRenderer     | pinHeader component to inject                                                                  | string   | DefaultPinHeaderRenderer |
+| data                  | data to set into the datagrid                                                                  | Array    |                          |
+| rowData               | pass the row data straight right to ag-grid                                                    | Array    | single                   |
+| rowHeight             | height of the row                                                                              | int      | 39                       |
+| rowSelection          | set the type of selection (single or multiple)                                                 | string   | single                   |
 
 ### Avro renderers
 

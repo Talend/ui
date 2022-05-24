@@ -1,5 +1,83 @@
 # @talend/react-datagrid
 
+## 9.2.0
+
+### Minor Changes
+
+- 4119033fd: - Boot rtl config
+  - Rewrite QualityIndicator in typescript
+
+### Patch Changes
+
+- Updated dependencies [c834a7ec6]
+- Updated dependencies [6f68d11f4]
+  - @talend/react-components@6.46.5
+  - @talend/icons@6.41.0
+
+## 9.1.1
+
+### Patch Changes
+
+- d6d8cd78d: Broken selection since v9.1.0
+
+## 9.1.0
+
+### Minor Changes
+
+- ea6f0874a: - Bump ag-grid to v27
+  - Drop assets-api as it's too painful to use ATM
+
+### Patch Changes
+
+- Updated dependencies [344a7551f]
+  - @talend/react-components@6.46.4
+
+## 9.0.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+  - @talend/assets-api@1.1.0
+
+## 9.0.0
+
+### Major Changes
+
+- 9f84c4ad7: - Remove cmf module
+
+  - Immutable data support is no longer tested & documented
+
+  Migration: renderer are no longer provided through CMF registry using their id, they have to be provided as props;
+
+  ```
+  BEFORE
+  <Datagrid headerRenderer="myComponentIdInRegistry" />
+  AFTER
+  <Datagrid headerRenderer={MyComponent} />
+  ```
+
+- 65599e1a5: chore(datagrid): Drop deprecated `forceRedrawRows` prop
+- e04e3910f: feat(datagrid): replace internal quality bar with react-component one
+  Breaking change: previous internal datagrid/QualityBar export has been removed
+
+### Patch Changes
+
+- Updated dependencies [e04e3910f]
+  - @talend/react-components@6.46.2
+
+## 8.0.0
+
+### Major Changes
+
+- 4605d2ce4: Design-system migration + add typescript config
+
+  Migration: @talend/design-system is added as peer dep + `ThemeProvider` is required
+
+### Minor Changes
+
+- d1815c0af: feat: use @talend/assets-api to load datagrid umds on demand
+
 ## 7.0.3
 
 ### Patch Changes

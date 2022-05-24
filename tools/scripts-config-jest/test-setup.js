@@ -2,13 +2,23 @@ require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
-const i18next = require('i18next');
 
-const React = require('react');
-const configure = require('enzyme').configure;
-const Adapter = require('enzyme-adapter-react-16');
+// enzyme adapter configuration
+let React;
+try {
+	React = require('react');
+} catch (e) {}
 
-configure({ adapter: new Adapter() });
+const version = React && React.version;
+if (version && version.startsWith('16.')) {
+	const configure = require('enzyme').configure;
+	const Adapter = require('enzyme-adapter-react-16');
+	configure({ adapter: new Adapter() });
+} else if (version && version.startsWith('17.')) {
+	const configure = require('enzyme').configure;
+	const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
+	configure({ adapter: new Adapter() });
+}
 
 // Mock fetch
 const fetch = jest.fn(
@@ -114,8 +124,10 @@ jest.mock('react-i18next', () => {
 
 try {
 	jest.mock('@talend/design-system', () => {
-		const React = require('react');
+		const React = jest.requireActual('react');
 		const Coral = jest.requireActual('@talend/design-system');
+		const propTypes = jest.requireActual('prop-types');
+		const classnames = jest.requireActual('classnames');
 
 		const mocks = {};
 
@@ -124,17 +136,26 @@ try {
 		}
 
 		function getMock(name) {
-			return props => React.createElement(`Coral${name}`, props);
+			const mockName = `Coral${name}`;
+			function Component(props) {
+				return React.createElement('span', {
+					...props,
+					className: classnames(mockName, props.className),
+				});
+			}
+			Component.displayName = name;
+			Component.propTypes = {
+				className: propTypes.string,
+			};
+			return Component;
 		}
 
 		function registerMock(componentName, variationName) {
 			if (variationName) {
 				const variationDisplayName = `${componentName}${variationName}`;
 				mocks[componentName][variationName] = getMock(variationDisplayName);
-				mocks[componentName][variationName].displayName = variationDisplayName;
 			} else {
 				mocks[componentName] = getMock(componentName);
-				mocks[componentName].displayName = componentName;
 			}
 		}
 

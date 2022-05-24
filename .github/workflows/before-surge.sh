@@ -16,7 +16,6 @@ mkdir .static/theme
 mkdir .static/datagrid
 cp .surge/index.html .static
 cp -R packages/cmf/jsdoc .static/cmf
-cp -R packages/cmf/website/build/cmf-doc/* .static/cmf
 cp -R packages/components/storybook-static/* .static/components
 cp -R packages/containers/storybook-static/* .static/containers
 cp -R packages/datagrid/storybook-static/* .static/datagrid

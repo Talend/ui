@@ -1,5 +1,17 @@
 # Changelog
 
+## 5.0.4
+
+### Patch Changes
+
+- 70f2f3ca2: fix(FlowDesigner): node position
+
+## 5.0.3
+
+### Patch Changes
+
+- bbdddaec1: chore(ARCH-482/FlowDesigner): remove deprecated lifecycle
+
 ## 5.0.2
 
 ### Patch Changes

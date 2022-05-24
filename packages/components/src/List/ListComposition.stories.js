@@ -31,10 +31,10 @@ function CustomList(props) {
 				}}
 				dataKey="iconAndTextWithGetter"
 			/>
-			<List.VList.Boolean label="Valid" dataKey="isValid" />
+			<List.VList.Boolean label="Valid" dataKey="isValid1" />
 			<List.VList.Boolean
 				label="ValidWithIcon"
-				dataKey="isValid"
+				dataKey="isValid2"
 				columnData={{ displayMode: List.VList.Boolean.displayMode.ICON }}
 			/>
 			<List.VList.QualityBar label="Quality" dataKey="quality" />
@@ -819,3 +819,75 @@ export const SelectableItemsTotalItems = () => {
 		</div>
 	);
 };
+
+export const TableWithColumnChooser = () => (
+	<div className="virtualized-list">
+		<h1>List with Column chooser in header</h1>
+		<pre>
+			{`<List.Manager
+	id="my-list"
+	collection={collection}
+>
+	<List.VList id="my-vlist" columnChooser>
+		...
+	</List.VList>
+</List.Manager>
+`}
+		</pre>
+		<section style={{ height: '50vh' }}>
+			<List.Manager id="my-list" collection={simpleCollection}>
+				<CustomList columnChooser />
+			</List.Manager>
+		</section>
+	</div>
+);
+
+export const TableWithColumnChooserAndInitialVisibleColumns = () => (
+	<div className="virtualized-list">
+		<h1>List with Column chooser in header with initialized visible columns</h1>
+		<pre>
+			{`<List.Manager
+	id="my-list"
+	collection={collection}
+	initialVisibleColumns={['id', 'name', 'quality']}
+>
+	<List.VList id="my-vlist" columnChooser>
+		...
+	</List.VList>
+</List.Manager>
+`}
+		</pre>
+		<section style={{ height: '50vh' }}>
+			<List.Manager
+				id="my-list"
+				collection={simpleCollection}
+				initialVisibleColumns={['id', 'name', 'quality']}
+			>
+				<CustomList columnChooser />
+			</List.Manager>
+		</section>
+	</div>
+);
+
+export const TableWithColumnChooserAndLockedColumns = () => (
+	<div className="virtualized-list">
+		<h1>List with Column chooser in header and locked columns</h1>
+		<p>You can pass any column chooser properties from VList columnChooser property</p>
+		<pre>
+			{`<List.Manager
+	id="my-list"
+	collection={collection}
+>
+	<List.VList id="my-vlist" columnChooser={{ nbLockedLeftItems: 2 }}>
+		...
+	</List.VList>
+</List.Manager>
+`}
+		</pre>
+		<section style={{ height: '50vh' }}>
+			<List.Manager id="my-list" collection={simpleCollection}>
+				<CustomList columnChooser={{ nbLockedLeftItems: 2 }} />
+			</List.Manager>
+		</section>
+	</div>
+);

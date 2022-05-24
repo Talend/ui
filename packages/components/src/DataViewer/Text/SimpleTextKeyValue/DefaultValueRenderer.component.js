@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import has from 'lodash/has';
 import TooltipTrigger from '../../../TooltipTrigger';
-import FormatValue, { hasWhiteSpaceCharacters } from '../../../FormatValue/FormatValue.component';
+import FormatValue from '../../../FormatValue/FormatValue.component';
 
 import theme from './DefaultValueRenderer.scss';
 
@@ -35,8 +35,7 @@ export default class DefaultValueRenderer extends React.Component {
 			stringValue = String(this.props.value);
 		}
 
-		const hasWhiteSpace = hasWhiteSpaceCharacters(stringValue);
-		const formattedContent = hasWhiteSpace ? <FormatValue value={stringValue} /> : stringValue;
+		const formattedContent = <FormatValue value={stringValue} />;
 
 		const content = (
 			<div

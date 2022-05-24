@@ -37,6 +37,7 @@ jobs:
 
       - name: Build @talend/design-tokens
         run: |
+          yarn workspace @talend/assets-api run build:lib
           yarn workspace @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing

@@ -1,8 +1,8 @@
+import { ButtonIcon } from '@talend/design-system';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Overlay, Popover } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import ActionButton from '../../../Actions/ActionButton';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import ColumnChooser from './ColumnChooser';
 
@@ -15,6 +15,7 @@ export default function ColumnChooserButton({
 	placement = 'left',
 	nbLockedLeftItems,
 	onSubmit,
+	buttonRenderer,
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const [opened, setOpened] = useState(initialOpenedPopover || false);
@@ -27,18 +28,20 @@ export default function ColumnChooserButton({
 		closePopover();
 	};
 
+	const ActionButtonRenderer = buttonRenderer || ButtonIcon;
+
 	return (
 		<React.Fragment>
-			<ActionButton
-				buttonRef={setButtonRef}
-				data-feature="column-chooser.open"
-				hideLabel
+			<ActionButtonRenderer
 				icon="talend-column-chooser"
+				ref={setButtonRef}
+				data-feature="column-chooser.open"
 				id={`${id}-button`}
-				label={t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Open the column chooser' })}
-				link
 				onClick={changeOpened}
-			/>
+				size="S"
+			>
+				{t('COLUMN_CHOOSER_OVERLAY_BUTTON', 'Open the column chooser')}
+			</ActionButtonRenderer>
 			<Overlay
 				id={`${id}-overlay`}
 				onHide={closePopover}
@@ -75,4 +78,5 @@ ColumnChooserButton.propTypes = {
 	nbLockedLeftItems: PropTypes.number,
 	placement: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
 	onSubmit: PropTypes.func.isRequired,
+	buttonRenderer: PropTypes.func,
 };

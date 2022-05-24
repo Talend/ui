@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 10.4.1
+
+### Patch Changes
+
+- 5c0fa88aa: fix(cdn): DS and assets-api available cdn versions
+
+## 10.4.0
+
+### Minor Changes
+
+- 9222aa7fc: @talend/assets-api is now distributed as UMD file
+
 ## 10.3.2
 
 ### Patch Changes
