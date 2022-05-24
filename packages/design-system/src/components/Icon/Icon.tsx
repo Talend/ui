@@ -6,6 +6,7 @@ import { IconName } from '@talend/icons';
 import tokens from '../../tokens';
 import { IconsProvider } from '../IconsProvider';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export enum SVG_TRANSFORMS {
 	Spin = 'spin',
 	Rotate45 = 'rotate-45',
@@ -88,8 +89,7 @@ export const Icon = React.forwardRef(
 		{ className, name = 'talend-empty-space', transform, border, ...rest }: IconProps,
 		ref: React.Ref<SVGSVGElement>,
 	) => {
-		// @ts-ignore
-		const safeRef = React.createRef<SVGSVGElement>(ref);
+		const safeRef = React.createRef<SVGSVGElement>();
 		const [content, setContent] = React.useState<string>();
 
 		const isRemote = name.startsWith('remote-');
@@ -130,7 +130,7 @@ export const Icon = React.forwardRef(
 				// eslint-disable-next-line no-param-reassign
 				current.innerHTML = content;
 			} else if (current && !isRemote) {
-				IconsProvider.injectIcon(name, current);
+				IconsProvider.injectIcon(name.split('talend-').reverse()[0] + ':16', current);
 			}
 		}, [isRemoteSVG, safeRef, content, name, isRemote]);
 
@@ -142,7 +142,7 @@ export const Icon = React.forwardRef(
 					if (svg) {
 						const { x, y, width, height }: DOMRect = svg.viewBox.baseVal;
 						const factor: number = height;
-						const strokeWidth: number = 1;
+						const strokeWidth = 1;
 						const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
 						circle.setAttribute('class', 'ti-border');
 						circle.setAttribute('cx', ((width + factor) / 2).toString());
@@ -182,7 +182,7 @@ export const Icon = React.forwardRef(
 		return (
 			<SVG
 				{...rest}
-				name={!(isImg || isRemote) ? name : null}
+				name={!(isImg || isRemote) ? name.split('talend-').reverse()[0] + ':16' : null}
 				{...accessibility}
 				className={classnames('tc-svg-icon', classname)}
 				border={border}
