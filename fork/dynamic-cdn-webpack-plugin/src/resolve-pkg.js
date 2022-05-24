@@ -1,3 +1,5 @@
+const { findPackage } = require('./find');
+
 /* eslint-disable no-empty */
 /**
  *
@@ -6,6 +8,9 @@
  * @returns {string|undefined} the full path of the module id requested
  */
 function resolve(moduleId, options) {
+	if (options.version) {
+		return findPackage({ name: moduleId, version: options.version });
+	}
 	let paths = require.resolve.paths(moduleId) || [];
 
 	if (options && options.cwd) {

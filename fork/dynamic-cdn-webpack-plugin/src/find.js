@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 const fs = require('fs');
 const path = require('path');
 const readPkgUp = require('read-pkg-up');
+const semver = require('semver');
 
 function findPackage(info) {
 	let name = info.name;
@@ -13,7 +13,8 @@ function findPackage(info) {
 		const {
 			packageJson: { version },
 		} = readPkgUp.sync({ cwd });
-		return version === info.version;
+		// check we are at least upper or equal using caret range syntax
+		return semver.satisfies(version, `^${info.version}`);
 	});
 }
 
