@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import RcSlider, { Range } from 'rc-slider';
+import RcSlider from 'rc-slider';
 import Tooltip from 'rc-tooltip';
 import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
@@ -211,96 +211,89 @@ function getHandle(captionsFormat, getTooltipContainer, hideTooltip) {
 	return Handle;
 }
 
-// eslint-disable-next-line react/prefer-stateless-function
-class Slider extends React.Component {
-	static displayName = 'Slider';
+const Slider = React.forwardRef((props, ref) => {
+	const [Handle, setHandle] = React.useState(
+		getHandle(props.captionsFormat, props.getTooltipContainer, props.hideTooltip),
+	);
 
-	static propTypes = {
-		id: PropTypes.string,
-		value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
-		onChange: PropTypes.func.isRequired,
-		getTooltipContainer: PropTypes.func,
-		onAfterChange: PropTypes.func,
-		captionActions: PropTypes.array,
-		captionIcons: PropTypes.array,
-		captionTextStepNumber: PropTypes.number,
-		min: PropTypes.number,
-		max: PropTypes.number,
-		step: PropTypes.number,
-		mode: PropTypes.string,
-		captionsFormat: PropTypes.func,
-		disabled: PropTypes.bool,
-		hideTooltip: PropTypes.bool,
-	};
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			handle: getHandle(props.captionsFormat, props.getTooltipContainer, props.hideTooltip),
-		};
-	}
-
-	render() {
-		const {
-			id,
-			value,
-			captionActions,
-			captionIcons,
-			captionTextStepNumber,
-			captionsFormat,
-			min,
-			max,
-			step,
-			mode,
-			onChange,
-			disabled,
-			...rest
-		} = this.props;
-		const noValue = value === null || value === undefined;
-		const Component = Array.isArray(value) ? Range : RcSlider;
-		return (
-			<div>
-				<div className={classnames(theme['tc-slider'], 'tc-slider')} key="slider">
-					<Component
-						id={id}
-						value={value}
-						min={min}
-						max={max}
-						step={step}
-						handle={noValue ? undefined : this.state.handle}
-						className={classnames(
-							theme['tc-slider-rc-slider'],
-							{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
-							{ [theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE },
-							{
-								[theme['tc-slider-rc-slider--track-greater-than']]:
-									mode === SLIDER_MODE.GREATER_THAN,
-							},
-							'tc-slider-rc-slider',
-							{ 'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS },
-							{ 'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE },
-							{ 'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN },
-						)}
-						onChange={onChange}
-						disabled={disabled}
-						{...rest}
-					/>
-				</div>
-				{getCaption(
-					captionActions,
-					captionIcons,
-					captionTextStepNumber,
-					captionsFormat,
-					value,
-					min,
-					max,
-					onChange,
-					disabled,
-				)}
+	const {
+		id,
+		value,
+		captionActions,
+		captionIcons,
+		captionTextStepNumber,
+		captionsFormat,
+		min,
+		max,
+		step,
+		mode,
+		onChange,
+		disabled,
+		...rest
+	} = props;
+	const noValue = value === null || value === undefined;
+	return (
+		<div>
+			<div className={classnames(theme['tc-slider'], 'tc-slider')}>
+				<RcSlider
+					range={Array.isArray(value)}
+					id={id}
+					value={value}
+					min={min}
+					max={max}
+					step={step}
+					handleRender={noValue ? undefined : Handle}
+					className={classnames(
+						theme['tc-slider-rc-slider'],
+						{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
+						{ [theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE },
+						{
+							[theme['tc-slider-rc-slider--track-greater-than']]: mode === SLIDER_MODE.GREATER_THAN,
+						},
+						'tc-slider-rc-slider',
+						{ 'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS },
+						{ 'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE },
+						{ 'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN },
+					)}
+					onChange={onChange}
+					disabled={disabled}
+					ref={ref}
+					{...rest}
+				/>
 			</div>
-		);
-	}
-}
+			{getCaption(
+				captionActions,
+				captionIcons,
+				captionTextStepNumber,
+				captionsFormat,
+				value,
+				min,
+				max,
+				onChange,
+				disabled,
+			)}
+		</div>
+	);
+});
+
+Slider.propTypes = {
+	id: PropTypes.string,
+	value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+	onChange: PropTypes.func.isRequired,
+	getTooltipContainer: PropTypes.func,
+	onAfterChange: PropTypes.func,
+	captionActions: PropTypes.array,
+	captionIcons: PropTypes.array,
+	captionTextStepNumber: PropTypes.number,
+	min: PropTypes.number,
+	max: PropTypes.number,
+	step: PropTypes.number,
+	mode: PropTypes.string,
+	captionsFormat: PropTypes.func,
+	disabled: PropTypes.bool,
+	hideTooltip: PropTypes.bool,
+};
+Slider.displayName = 'Slider';
 
 Slider.defaultProps = {
 	min: 0,
