@@ -230,7 +230,7 @@ describe('Typeahead', () => {
 
 			// then
 			const titleList = screen.getAllByTitle('le title 1');
-			expect(titleList[1]).toHaveClass('theme-selected');
+			expect(titleList[0]).toHaveClass('theme-selected');
 			expect(titleList[1]).toHaveClass('theme-selected');
 		});
 	});
