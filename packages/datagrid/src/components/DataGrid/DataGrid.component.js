@@ -266,6 +266,7 @@ export default class DataGrid extends React.Component {
 				this.onKeyDownHeaderColumn,
 			),
 			[PIN_HEADER_RENDERER_COMPONENT]: this.props.pinHeaderRenderer,
+			...this.props.frameworkComponents,
 		};
 		return agGridOptions;
 	}
