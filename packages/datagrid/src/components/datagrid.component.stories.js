@@ -170,14 +170,13 @@ export const ControlledFocusedColumn = () => {
 };
 
 export const EditablePlaygroundCell = () => {
-	const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
-	const searchSamplePostalCode = search => {
+	const sleep = () => new Promise(resolve => setTimeout(resolve, 1000));
+	const semanticTypeFields = ['Nom de la gare', 'Code postal', 'voyageurs 2015'];
+	const searchSampleValues = (search, avroName) => {
 		return sample.data
-			.reduce((codes, row) => {
-				const postalCode = row.value.field2.value;
-				return postalCode?.includes('search') && !codes.includes(postalCode)
-					? codes
-					: [...codes, postalCode];
+			.reduce((values, row) => {
+				const { value } = row.value[avroName];
+				return value?.includes('search') && !values.includes(value) ? values : [...values, value];
 			}, [])
 			.sort((a, b) => {
 				if (a?.startsWith(search) ^ b?.startsWith(search)) {
@@ -206,13 +205,13 @@ export const EditablePlaygroundCell = () => {
 					cellEditor: 'cellEditor',
 					cellEditorParams: {
 						getSemanticType: async semanticType => {
-							await delay();
-							const type = semanticType === 'Code postal' ? 'DICT' : 'NOT DICT';
+							await sleep();
+							const type = semanticTypeFields.includes(semanticType) ? 'DICT' : 'NOT DICT';
 							return { type };
 						},
 						getSemanticTypeSuggestions: async (_, search) => {
-							await delay();
-							return searchSamplePostalCode(search);
+							await sleep();
+							return searchSampleValues(search, column.avro.name);
 						},
 						onSubmit: action('onSubmit'),
 					},
