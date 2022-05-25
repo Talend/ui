@@ -14,7 +14,7 @@
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
-    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "lint:style": "talend-scripts lint:style",
     "lint": "yarn run lint:es && yarn run lint:style",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
@@ -36,7 +36,8 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^2.4.0",
+    "@talend/assets-api": "^1.1.0",
+    "@talend/design-system": "^2.5.1",
     "@talend/json-schema-form-core": "1.0.5",
     "@talend/react-components": "^6.45.0",
     "@talend/utils": "^2.2.0",
@@ -60,8 +61,8 @@
     "@talend/icons": "^6.40.0",
     "@talend/locales-tui-forms": "^6.41.3",
     "@talend/react-components": "^6.45.0",
-    "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^12.0.0-rc.2",
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
@@ -81,9 +82,9 @@
   "peerDependencies": {
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
+    "react": ">= 16.14.0 < 18.0.0",
     "react-ace": "6.2.0",
-    "react-dom": "^16.8.6",
+    "react-dom": ">= 16.14.0 < 18.0.0",
     "react-i18next": "^11.8.13"
   },
   "peerDependenciesMeta": {
@@ -94,5 +95,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.9"
+  "version": "7.1.1"
 }

@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 1.2.0
+
+### Minor Changes
+
+- a20e7673d: Add design-system providers if available
+
 ## 1.1.0
 
 ### Minor Changes

@@ -12,17 +12,16 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib": "talend-scripts build:ts:lib",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
-    "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
+    "lint:es": "talend-scripts lint:es",
+    "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "extends": "talend-scripts extends"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^12.0.0-rc.2",
-    "@typescript-eslint/parser": "^4.33.0",
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "cross-env": "^7.0.3"
   },
   "dependencies": {

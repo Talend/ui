@@ -14,7 +14,10 @@ function KeyValueTooltip({ entries, chartStyle = ChartStyle.VALUE }: KeyValueToo
 	return (
 		<Tooltip>
 			<dl
-				className={classNames(styles['key-value-tooltip'], styles[`key-value-tooltip--${chartStyle}`])}
+				className={classNames(
+					styles['key-value-tooltip'],
+					styles[`key-value-tooltip--${chartStyle}`],
+				)}
 			>
 				{entries.map(({ key, value }) => (
 					<div className={styles['key-value-tooltip__entry']} key={key}>

@@ -57,6 +57,10 @@ const Dropdown = forwardRef(
 								<DropdownButton
 									{...entryRest}
 									{...menu}
+									onClick={event => {
+										menu.hide();
+										entry.onClick(event);
+									}}
 									key={`${label}-${index}`}
 									id={`${label}-${index}`}
 									data-test="dropdown.menuitem"
@@ -89,6 +93,12 @@ const Dropdown = forwardRef(
 								{...menu}
 								key={`${label}-${index}`}
 								id={`${label}-${index}`}
+								onClick={event => {
+									menu.hide();
+									if (entry.onClick) {
+										entry.onClick(event);
+									}
+								}}
 								data-test="dropdown.menuitem"
 							>
 								{label}
@@ -100,5 +110,7 @@ const Dropdown = forwardRef(
 		);
 	},
 );
+
+Dropdown.displayName = 'Dropdown';
 
 export default Dropdown;

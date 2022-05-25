@@ -1,0 +1,41 @@
+{
+  "name": "@talend/assets-api",
+  "description": "A set of API designed to access assets using CDN",
+  "types": "lib/index.d.ts",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.ts",
+  "license": "Apache-2.0",
+  "scripts": {
+    "pre-release": "talend-scripts build:lib:umd && talend-scripts build:lib:umd --dev",
+    "build:lib": "talend-scripts build:ts:lib",
+    "start": "echo nothing to start",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
+    "test:demo": "echo nothing to demo",
+    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint": "talend-scripts lint:es --format json -o eslint-report.json"
+  },
+  "keywords": [
+    "talend"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/assets-api#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "read-pkg-up": "^7.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.1.0"
+}

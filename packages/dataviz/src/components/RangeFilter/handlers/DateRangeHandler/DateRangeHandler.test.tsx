@@ -8,8 +8,8 @@ describe('DateRangeHandler', () => {
 		const onChange = jest.fn();
 		const component = shallow(<DateInputField id="" value={1262300400000} onChange={onChange} />);
 
-		// @ts-ignore
-		component.find('InputDatePicker').invoke('onChange')!({}, { textInput: '2015-01-01' } as any);
+		const inputOnChange = component.find('InputDatePicker').invoke('onChange') as any;
+		inputOnChange({}, { textInput: '2015-01-01' });
 		expect(onChange).not.toHaveBeenCalled();
 
 		component.find('InputDatePicker').invoke('onBlur')!({} as any);
@@ -20,8 +20,8 @@ describe('DateRangeHandler', () => {
 		const onChange = jest.fn();
 		const component = shallow(<DateInputField id="" value={1262300400000} onChange={onChange} />);
 
-		// @ts-ignore
-		component.find('InputDatePicker').invoke('onChange')!({}, { textInput: '2015-01-01' } as any);
+		const inputOnChange = component.find('InputDatePicker').invoke('onChange') as any;
+		inputOnChange({}, { textInput: '2015-01-01' });
 		component.find('InputDatePicker').invoke('onKeyDown')!({ key: 'Escape' } as any);
 
 		expect(component.find('InputDatePicker').prop('value')).toBe('2010-01-01');
@@ -31,8 +31,8 @@ describe('DateRangeHandler', () => {
 		const onChange = jest.fn();
 		const component = shallow(<DateInputField id="" value={1262300400000} onChange={onChange} />);
 
-		// @ts-ignore
-		component.find('InputDatePicker').invoke('onChange')!({}, { textInput: '2015-01-01' } as any);
+		const inputOnChange = component.find('InputDatePicker').invoke('onChange') as any;
+		inputOnChange({}, { textInput: '2015-01-01' });
 		component.find('InputDatePicker').invoke('onKeyDown')!({ key: 'Enter' } as any);
 
 		expect(onChange).toHaveBeenCalledWith(parseISO('2015-01-01').getTime());
@@ -42,8 +42,8 @@ describe('DateRangeHandler', () => {
 		const onChange = jest.fn();
 		const component = shallow(<DateInputField id="" value={1262300400000} onChange={onChange} />);
 
-		// @ts-ignore
-		component.find('InputDatePicker').invoke('onChange')!({}, { textInput: '2010-24-24' } as any);
+		const inputOnChange = component.find('InputDatePicker').invoke('onChange') as any;
+		inputOnChange({}, { textInput: '2010-24-24' });
 		component.find('InputDatePicker').invoke('onBlur')!({} as any);
 
 		expect(component.find('InputDatePicker').prop('value')).toBe('2010-01-01');
@@ -88,7 +88,7 @@ describe('DateRangeHandler', () => {
 			min: new Date('2020-01-01T00:00:00').getTime(),
 			max: new Date('2020-01-01T23:59:59').getTime(),
 		};
-		const ticks =  DateRangeHandler.getTicks(limits);
+		const ticks = DateRangeHandler.getTicks(limits);
 		expect(ticks).toEqual({
 			[limits.min]: '2020-01-01',
 			[limits.max]: '2020-01-01',

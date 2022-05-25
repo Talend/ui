@@ -9,5 +9,5 @@ function parseToSemverIfPossible(version) {
 }
 
 module.exports = {
-    parseToSemverIfPossible,
+    parseToSemverIfPossible
 };

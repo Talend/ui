@@ -2,22 +2,23 @@
   "name": "@talend/react-datagrid",
   "description": "Provide a datagrid for at least talend applications based on ag-grid",
   "main": "lib/index.js",
-  "mainSrc": "src/index.js",
+  "mainSrc": "src/index.ts",
+  "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build:ts:lib",
+    "build-storybook": "talend-scripts build-storybook",
     "start": "talend-scripts start-storybook -p 6010",
-    "test": "talend-scripts test --silent",
-    "test:noisy": "talend-scripts test",
+    "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
     "lint": "yarn lint:es && yarn lint:style",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
-    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "lint:es": "talend-scripts lint:es",
+    "lint:style": "talend-scripts lint:style",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
@@ -35,25 +36,25 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/icons": "^6.40.0",
-    "@talend/react-cmf": "^7.0.2",
-    "@talend/react-components": "^6.44.13",
-    "ag-grid-community": "^25.3.0",
-    "ag-grid-react": "^25.3.0",
+    "@talend/assets-api": "^1.1.0",
+    "@talend/icons": "^6.41.0",
+    "@talend/react-components": "^6.46.5",
+    "ag-grid-community": "^27.2.1",
+    "ag-grid-react": "^27.2.1",
     "classnames": "^2.3.1",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^6.40.0",
+    "@talend/design-system": "^2.6.0",
+    "@talend/icons": "^6.41.0",
     "@talend/locales-tui-datagrid": "^6.36.5",
-    "@talend/react-cmf": "^7.0.2",
-    "@talend/react-components": "^6.44.13",
-    "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^12.0.0-rc.2",
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/jest-dom": "^5.16.4",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
-    "immutable": "^3.8.2",
     "jsdom": "^16.7.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -61,13 +62,14 @@
     "react-i18next": "^11.16.7"
   },
   "peerDependencies": {
+    "@talend/design-system": "^2.3.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
+    "react": ">= 16.14.0 < 18.0.0",
     "react-i18next": "^11.8.13"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.3"
+  "version": "9.2.0"
 }

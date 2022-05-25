@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 
 import VList from './VList.component';
 import VirtualizedList from '../../../VirtualizedList';
+import Manager from '../Manager';
 import { ListContext } from '../context';
 
 describe('List VList', () => {
@@ -86,5 +87,15 @@ describe('List VList', () => {
 		expect(wrapper.html()).toMatchSnapshot();
 
 		expect(wrapper.find('ColumnChooser')).toHaveLength(1);
+	});
+
+	it('should display a list without columns', () => {
+		const wrapper = mount(
+			<Manager id="my-list" collection={[]}>
+				<VList type="TABLE" />
+			</Manager>,
+		);
+
+		expect(wrapper.find('Table .tc-list-table')).toHaveLength(1);
 	});
 });

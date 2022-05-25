@@ -9,7 +9,7 @@ const { getUserConfigFile } = require('../utils/env');
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 
 module.exports = function build(env, presetApi, options) {
-	const presetName = presetApi.getUserConfig(['preset'], 'talend');
+	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||

@@ -13,7 +13,7 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json"
+    "lint:es": "talend-scripts lint:es"
   },
   "repository": {
     "type": "git",
@@ -37,11 +37,11 @@
     "redux-saga": "^1.1.3"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^12.0.0-rc.2",
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "@testing-library/react-hooks": "^3.7.0",
     "enzyme": "^3.11.0",
-    "mock-socket": "^9.1.2",
+    "mock-socket": "^9.1.3",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -49,8 +49,8 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": ">= 16.14.0 < 18.0.0",
+    "react-dom": ">= 16.14.0 < 18.0.0"
   },
   "publishConfig": {
     "access": "public"
