@@ -1,22 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import theme from './CellEditorTextarea.scss';
-
-const defaultStyle = {
-	minHeight: '3.6rem',
-	maxHeight: '10rem',
-};
+import theme from './CellEditorTextarea.component.scss';
 
 interface CellEditorTextareaPropTypes {
-	value: string;
+	eGridCell: HTMLDivElement;
 	onChange: (event: React.ChangeEvent<HTMLTextAreaElement>, value: string) => void;
+	value: string;
 }
 
-function CellEditorTextarea({ value, onChange }: CellEditorTextareaPropTypes) {
+function CellEditorTextarea({ eGridCell, value, onChange }: CellEditorTextareaPropTypes) {
 	const ref = useRef<HTMLTextAreaElement>(null);
 	const [rows, setRows] = useState(1);
-	const [height, setHeight] = useState('');
+	const [styles, setStyles] = useState({
+		minHeight: `${eGridCell.scrollHeight}px`,
+		minWidth: `${eGridCell.scrollWidth}px`,
+		height: `${eGridCell.scrollHeight}px`,
+		width: `${eGridCell.scrollWidth}px`,
+	});
 
 	const resizeTextarea = () => {
 		if (ref.current) {
@@ -27,7 +28,7 @@ function CellEditorTextarea({ value, onChange }: CellEditorTextareaPropTypes) {
 
 			const { scrollHeight } = ref.current;
 			setRows(scrollHeight / lineHeight);
-			setHeight(`${scrollHeight}px`);
+			setStyles({ ...styles, height: `${scrollHeight}px` });
 		}
 	};
 
@@ -38,8 +39,8 @@ function CellEditorTextarea({ value, onChange }: CellEditorTextareaPropTypes) {
 
 	return (
 		<textarea
-			className={classNames('form-control', theme['cell-editor-text-area'])}
-			style={{ ...defaultStyle, height }}
+			className={classNames(theme['cell-editor-textarea'], 'form-control')}
+			style={styles}
 			rows={rows}
 			value={value}
 			onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {

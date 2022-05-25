@@ -169,29 +169,8 @@ export const ControlledFocusedColumn = () => {
 	);
 };
 
-export const EditableCell = () => {
-	const cellEditor = (props, ref) => {
-		return <EditableCellRenderer {...props} ref={ref} />;
-	};
-
-	return (
-		<DataGrid
-			{...defaultGridProps}
-			editable
-			frameworkComponents={{ cellEditor: React.forwardRef(cellEditor) }}
-			getColumnDefsFn={(...args) => {
-				return getColumnDefs(...args).map(column => ({
-					...column,
-					editable: true,
-					cellEditor: 'cellEditor',
-				}));
-			}}
-		/>
-	);
-};
-
 export const EditablePlaygroundCell = () => {
-	const delay = () => new Promise(resolve => setTimeout(resolve, 500));
+	const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
 	const searchSamplePostalCode = search => {
 		return sample.data
 			.reduce((codes, row) => {
@@ -214,36 +193,29 @@ export const EditablePlaygroundCell = () => {
 			});
 	};
 
-	const cellEditor = (props, ref) => {
-		return (
-			<EditablePlaygroundCellRenderer
-				{...props}
-				ref={ref}
-				getSemanticType={async semanticType => {
-					await delay();
-					const type = semanticType === 'Code postal' ? 'DICT' : 'NOT DICT';
-					return { type };
-				}}
-				getSemanticTypeSuggestions={async (_, search) => {
-					await delay();
-					return searchSamplePostalCode(search);
-				}}
-				onSubmit={action('onSubmit')}
-			/>
-		);
-	};
-
 	return (
 		<DataGrid
 			{...defaultGridProps}
 			editable
-			frameworkComponents={{ cellEditor: React.forwardRef(cellEditor) }}
+			frameworkComponents={{ cellEditor: EditablePlaygroundCellRenderer }}
 			getColumnDefsFn={(...args) =>
 				getColumnDefs(...args).map(column => ({
 					...column,
 					domain: column.headerName,
 					editable: true,
 					cellEditor: 'cellEditor',
+					cellEditorParams: {
+						getSemanticType: async semanticType => {
+							await delay();
+							const type = semanticType === 'Code postal' ? 'DICT' : 'NOT DICT';
+							return { type };
+						},
+						getSemanticTypeSuggestions: async (_, search) => {
+							await delay();
+							return searchSamplePostalCode(search);
+						},
+						onSubmit: action('onSubmit'),
+					},
 					cellEditorPopup: true,
 				}))
 			}

@@ -2,10 +2,13 @@
 
 .apply-to-identical-values {
 	min-width: 30rem;
-	background-color: tokens.$coral-color-neutral-background;
+	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	border-radius: tokens.$coral-radius-s;
 	padding: tokens.$coral-spacing-m tokens.$coral-spacing-s tokens.$coral-spacing-s;
+	background: tokens.$coral-color-neutral-background;
 
 	display: flex;
 	flex-direction: column;
 	row-gap: tokens.$coral-spacing-m;
+	z-index: 9999999;
 }

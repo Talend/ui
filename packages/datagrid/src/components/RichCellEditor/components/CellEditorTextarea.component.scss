@@ -1,0 +1,8 @@
+@use '~@talend/design-tokens/lib/tokens' as tokens;
+
+textarea.cell-editor-textarea {
+	margin: 0;
+	padding: tokens.$coral-spacing-xs; // tokens.$coral-data-m; Token not yet available
+	font-family: 'Inconsolata';
+	outline: 0;
+}

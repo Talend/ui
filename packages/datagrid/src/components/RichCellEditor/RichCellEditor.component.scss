@@ -1,0 +1,15 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.rich-cell-editor {
+	&__skeleton {
+		min-height: 100%;
+		padding: 0 tokens.$coral-spacing-xs;
+		display: flex;
+		align-items: center;
+	}
+
+	&--loading,
+	&--datalist {
+		height: 100%;
+	}
+}
