@@ -130,7 +130,8 @@ export const Icon = React.forwardRef(
 				// eslint-disable-next-line no-param-reassign
 				current.innerHTML = content;
 			} else if (current && !isRemote) {
-				IconsProvider.injectIcon(name.split('talend-').reverse()[0] + '\\:16', current);
+				const adaptedName = name.includes(':') ? name.replace(':', '\\:') : name;
+				IconsProvider.injectIcon(adaptedName, current);
 			}
 		}, [isRemoteSVG, safeRef, content, name, isRemote]);
 
@@ -182,7 +183,7 @@ export const Icon = React.forwardRef(
 		return (
 			<SVG
 				{...rest}
-				name={!(isImg || isRemote) ? name.split('talend-').reverse()[0] + ':16' : null}
+				name={!(isImg || isRemote) ? name : null}
 				{...accessibility}
 				className={classnames('tc-svg-icon', classname)}
 				border={border}
