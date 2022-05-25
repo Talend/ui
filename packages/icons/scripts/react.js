@@ -7,7 +7,7 @@ const babel = require('@babel/core');
 const defaultOptions = require('@talend/scripts-config-babel/.babelrc.json');
 const src = require('../src');
 const info = require('../src/info').info;
-const infoFormFigma = require('../src/info').infoFormFigma;
+const infoFromFigma = require('../src/info').infoFromFigma;
 const extract = require('../src/extract');
 
 const dist = path.join(__dirname, '../dist/');
@@ -63,7 +63,7 @@ function createSvgBundles() {
 }
 
 function createIconBundles() {
-	const bundles = new Set(Object.values(infoFormFigma).map(({ parent }) => parent));
+	const bundles = [...new Set(Object.values(infoFromFigma).map(({ parent }) => parent))];
 	const save = bundle => {
 		const lib = extract.default(`../src/icon/${bundle}`);
 		const buff = Object.keys(lib).map(key => `<symbol id="${key}">${lib[key]}</symbol>`);
@@ -96,6 +96,11 @@ function createGetIconHref() {
 	const options = Object.assign({}, defaultOptions, { filename: 'info.js' });
 	const buff = Object.keys(info).map(key => `  "talend-${key}": "${info[key].parent || ''}",`);
 	buff.unshift('export const info = {');
+	buff.push('};');
+	buff.push('export const infoFromFigma = {');
+	buff.push(
+		Object.keys(infoFromFigma).map(key => `  "${key}": "${infoFromFigma[key].parent || ''}"`),
+	);
 	buff.push('};');
 	buff.push('export function getIconHref(name) {');
 	buff.push('  return info[name] ? `/${info[name]}.svg#${name}` : `#${name}`;');
