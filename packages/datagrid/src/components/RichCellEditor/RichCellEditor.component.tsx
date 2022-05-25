@@ -57,8 +57,7 @@ function RichCellEditor(props: RichCellEditorPropTypes) {
 				[theme['rich-cell-editor--datalist']]: !!hasSuggestions,
 			})}
 		>
-			{/* {isLoading ? ( */}
-			{true ? (
+			{isLoading ? (
 				<div
 					className={theme['rich-cell-editor__skeleton']}
 					style={{
