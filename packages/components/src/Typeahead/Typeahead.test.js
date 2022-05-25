@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Typeahead from './Typeahead.component';
+import { render, screen } from '@testing-library/react';
 
 describe('Typeahead', () => {
 	const initialProps = {
@@ -67,6 +68,26 @@ describe('Typeahead', () => {
 					title: 'title 2 les elephants elementaires ont des aile ',
 					description:
 						'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
+				},
+			],
+		},
+	];
+
+	const itemsObjectWithId = [
+		{
+			title: 'category 1',
+			suggestions: [
+				{
+					title: 'le title 1',
+					value: 'letitle1',
+				},
+				{
+					title: 'le title 1',
+					value: 'letitle1copy',
+				},
+				{
+					title: 'le title 2',
+					value: 'letitle2',
 				},
 			],
 		},
@@ -176,6 +197,41 @@ describe('Typeahead', () => {
 
 			// then
 			expect(onSelect).toBeCalled();
+		});
+
+		it('should render typeahead selected item by id', () => {
+			// given
+			const props = {
+				...initialProps,
+				value: 'le title 1',
+				valueId: 'letitle1copy',
+				items: itemsObjectWithId,
+			};
+
+			// when
+			render(<Typeahead {...props} />);
+
+			// then
+			const titleList = screen.getAllByTitle('le title 1');
+			expect(titleList[0]).not.toHaveClass('theme-selected');
+			expect(titleList[1]).toHaveClass('theme-selected');
+		});
+
+		it('should render typeahead selected item by title', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				value: 'le title 1',
+				items: itemsObjectWithId,
+			};
+
+			// when
+			render(<Typeahead {...props} />);
+
+			// then
+			const titleList = screen.getAllByTitle('le title 1');
+			expect(titleList[1]).toHaveClass('theme-selected');
+			expect(titleList[1]).toHaveClass('theme-selected');
 		});
 	});
 	it('should not display section header if there are no title or icon', () => {
