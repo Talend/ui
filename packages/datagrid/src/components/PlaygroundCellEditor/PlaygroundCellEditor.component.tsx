@@ -1,4 +1,5 @@
-import React, { useEffect, useImperativeHandle, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useRef, useState, forwardRef } from 'react';
+import FocusTrap from 'focus-trap-react';
 
 import { AgCellEditorRendererPropTypes, AgGridCellValue } from '../../types';
 import RichCellEditorComponent from '../RichCellEditor';
@@ -13,21 +14,25 @@ function formatSuggestions(values: string[]): AgGridCellValue[] {
 	return values && values.length ? values.map(v => ({ name: v, value: v })) : [];
 }
 
-function EditablePlaygroundCellRenderer(
-	props: AgCellEditorRendererPropTypes,
-	ref: React.Ref<HTMLElement>,
-) {
-	const currentRef = React.useRef<HTMLDivElement>();
+function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.Ref<HTMLElement>) {
+	const currentRef = useRef<HTMLDivElement>(null);
 	const { eGridCell, value, colDef, stopEditing } = props;
 	const { domain, cellEditorPopup, cellEditorParams } = colDef;
 	const { getSemanticType, getSemanticTypeSuggestions, onSubmit } = cellEditorParams || {};
 
 	const [state, setState] = useState(value.value);
 	const [isLoading, setIsLoading] = useState(false);
-	const [showApplyToIdentical, setShowApplyToIdentical] = useState(false);
+	const [showApplyToIdentical, setShowApplyToIdenticalState] = useState(false);
+	const showApplyToIdenticalRef = useRef(showApplyToIdentical);
+
 	const [semanticType, setSemanticType] = useState<SemanticType>();
 
 	useImperativeHandle(ref, (): any => ({ getValue: () => state }));
+
+	const setShowApplyToIdentical = (flag: boolean) => {
+		showApplyToIdenticalRef.current = flag;
+		setShowApplyToIdenticalState(flag);
+	};
 
 	useEffect(() => {
 		// Check for misconfiguration in the column definition
@@ -41,10 +46,9 @@ function EditablePlaygroundCellRenderer(
 			);
 		}
 
-		// Block "Tab keydown" event propagation when "Apply to ..." element is visible
-		// @todo Improve by adding a focus trap so that focus remains between the edition field and the "Apply to ..." element
+		// 	// Block "Tab keydown" event propagation when "Apply to ..." element is visible
 		currentRef.current?.addEventListener('keydown', (e: KeyboardEvent) => {
-			if (e.key === 'Tab' && showApplyToIdentical) {
+			if (e.key === 'Tab' && showApplyToIdenticalRef.current) {
 				e.stopPropagation();
 			}
 		});
@@ -66,34 +70,37 @@ function EditablePlaygroundCellRenderer(
 	};
 
 	return (
-		<div ref={currentRef}>
-			<RichCellEditorComponent
-				eGridCell={eGridCell}
-				initialValue={value.value}
-				hasSuggestions={hasSuggestions}
-				isLoading={isLoading}
-				onChange={newValue => {
-					setShowApplyToIdentical(newValue !== value.value);
-					setState(newValue);
-				}}
-				onCancel={onCancel}
-				onFilter={
-					hasSuggestions
-						? (search: string) => getSemanticTypeSuggestions(domain, search).then(formatSuggestions)
-						: undefined
-				}
-			/>
-			{showApplyToIdentical && (
-				<ApplyToIdenticalValues
-					onCancel={onCancel}
-					onSubmit={(applyToIdenticalValues: boolean) => {
-						stopEditing();
-						onSubmit(state, applyToIdenticalValues);
+		<FocusTrap active={showApplyToIdentical}>
+			<div ref={currentRef}>
+				<RichCellEditorComponent
+					eGridCell={eGridCell}
+					initialValue={value.value}
+					hasSuggestions={hasSuggestions}
+					isLoading={isLoading}
+					onChange={newValue => {
+						setShowApplyToIdentical(newValue !== value.value);
+						setState(newValue);
 					}}
+					onCancel={onCancel}
+					onFilter={
+						hasSuggestions
+							? (search: string) =>
+									getSemanticTypeSuggestions(domain, search).then(formatSuggestions)
+							: undefined
+					}
 				/>
-			)}
-		</div>
+				{showApplyToIdentical && (
+					<ApplyToIdenticalValues
+						onCancel={onCancel}
+						onSubmit={(applyToIdenticalValues: boolean) => {
+							stopEditing();
+							onSubmit(state, applyToIdenticalValues);
+						}}
+					/>
+				)}
+			</div>
+		</FocusTrap>
 	);
 }
 
-export default React.forwardRef(EditablePlaygroundCellRenderer);
+export default forwardRef(PlaygroundCellEditor);

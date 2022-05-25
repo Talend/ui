@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
-import DataGrid, { EditableCellRenderer, EditablePlaygroundCellRenderer } from '.';
+import DataGrid, { PlaygroundCellEditor } from '.';
 import DynamicDataGrid from '../../stories/DynamicDataGrid.component';
 import FasterDatagridComponent from '../../stories/FasterDatagrid.component';
 import sample from '../../stories/sample.json';
@@ -196,7 +196,7 @@ export const EditablePlaygroundCell = () => {
 		<DataGrid
 			{...defaultGridProps}
 			editable
-			frameworkComponents={{ cellEditor: EditablePlaygroundCellRenderer }}
+			frameworkComponents={{ cellEditor: PlaygroundCellEditor }}
 			getColumnDefsFn={(...args) =>
 				getColumnDefs(...args).map(column => ({
 					...column,
