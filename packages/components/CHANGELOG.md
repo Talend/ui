@@ -1,5 +1,17 @@
 # @talend/react-components
 
+## 6.46.7
+
+### Patch Changes
+
+- ecd3b81ae: fix(components): datalist should show selected item by id
+
+## 6.46.6
+
+### Patch Changes
+
+- 0332ed371: Datalist : Blur should persist value only if the filter value is different from the selected one
+
 ## 6.46.5
 
 ### Patch Changes

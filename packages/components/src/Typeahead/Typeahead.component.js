@@ -250,7 +250,11 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 			attributes,
 			t,
 		),
-		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
+		renderItemData: {
+			valueId: rest.valueId,
+			value: rest.value,
+			'data-feature': rest['data-feature'],
+		},
 	};
 
 	const autowhateverProps = {
@@ -318,6 +322,7 @@ Typeahead.propTypes = {
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,
+	valueId: PropTypes.string,
 
 	// suggestions
 	dataFeature: PropTypes.string,

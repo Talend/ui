@@ -203,20 +203,22 @@ export function renderSectionTitle(section) {
 	return null;
 }
 
-export function renderItem(item, { value, ...rest }) {
+export function renderItem(item, { value, valueId, ...rest }) {
 	let title;
+	let itemValueId;
 	let description;
 	if (typeof item === 'string') {
-		title = item;
+		title = itemValueId = item;
 	} else {
 		title = (item.title || item.name || '').trim();
+		itemValueId = (item.value || item.id || '').trim();
 		description = item.description;
 	}
 	return (
 		<div
 			className={classNames(theme.item, {
 				[theme.disabled]: item.disabled,
-				[theme.selected]: value === title,
+				[theme.selected]: (valueId && valueId === itemValueId) || (!valueId && value === title),
 				[theme.multiline]: title && description,
 			})}
 			title={title}
