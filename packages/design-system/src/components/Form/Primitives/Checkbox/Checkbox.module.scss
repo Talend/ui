@@ -149,7 +149,7 @@ $checkbox-size: tokens.$coral-sizing-xxxs;
   }
 
   &_readOnly {
-    input[type=checkbox] {
+    input[type="checkbox"] {
       cursor: not-allowed;
     }
 
