@@ -87,12 +87,38 @@ export const CheckboxPrimitive = () => (
 
 export const RadioPrimitive = () => (
 	<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
-		<Radio label="Test radio" id="radio-1" />
-		<Radio label="Test radio selected" id="radio-2" defaultChecked />
-		<Radio label="Test radio read-only unselected" id="radio-4" readOnly />
-		<Radio label="Test radio read-only" id="radio-4" readOnly defaultChecked />
-		<Radio label="Test radio disabled unselected" id="radio-7" disabled />
-		<Radio label="Test radio disabled" id="radio-6" disabled defaultChecked />
+		<Radio label="Test radio" id="radio-1" value="choice1" name="choice1" />
+		<Radio label="Test radio selected" id="radio-2" value="choice2" name="choice2" defaultChecked />
+		<Radio
+			label="Test radio read-only unselected"
+			id="radio-3"
+			name="choice3"
+			value="choice3"
+			readOnly
+		/>
+		<Radio
+			label="Test radio read-only"
+			id="radio-4"
+			value="choice4"
+			name="choice4"
+			readOnly
+			defaultChecked
+		/>
+		<Radio
+			label="Test radio disabled unselected"
+			id="radio-5"
+			value="choice5"
+			name="choice5"
+			disabled
+		/>
+		<Radio
+			label="Test radio disabled"
+			id="radio-6"
+			value="choice6"
+			name="choice6"
+			disabled
+			defaultChecked
+		/>
 	</StackVertical>
 );
 
@@ -177,6 +203,13 @@ export const FakeForm = () => {
 				<StackVertical gap="XXS" align="stretch" justify="start">
 					<Label>Send me emails</Label>
 					<Checkbox id="emails" label="Yes I love emails" />
+				</StackVertical>
+				<StackVertical gap={'XXS'} align={'stretch'} justify={'start'}>
+					<Label>Pick a thing</Label>
+					<StackVertical gap="XXS" align="stretch" justify="start">
+						<Radio id="choice1" label="Choice 1" value="choice1" name="choice" />
+						<Radio id="choice2" label="Choice 2" value="choice2" name="choice" />
+					</StackVertical>
 				</StackVertical>
 			</StackVertical>
 		</form>
