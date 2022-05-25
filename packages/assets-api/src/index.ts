@@ -117,7 +117,7 @@ function getUMD(name: string, version?: string, varName?: string, path?: string)
 		function onload() {
 			cache.resolved = true;
 			console.log(`${varName} onload ok`);
-			resolve(undefined);
+			resolve(loadCachedModule(varName));
 		}
 		function onerror(e: Error) {
 			console.error(e);
