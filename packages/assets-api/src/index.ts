@@ -97,49 +97,47 @@ function toDefaultModule(value: any) {
 	});
 }
 
+function loadCachedModule(varName?: string) {
+	if (!varName) {
+		return false;
+	}
+	return (window as any)[varName];
+}
+
 function getUMD(name: string, version?: string, varName?: string, path?: string) {
 	const cache = { resolved: false };
-	function loaded() {
-		if (!varName) {
-			return false;
-		}
-		return !!(window as any)[varName];
-	}
-	if (loaded() && varName) {
-		return Promise.resolve((window as any)[varName]);
+	const cachedModule = loadCachedModule(varName);
+	if (cachedModule) {
+		return Promise.resolve(cachedModule);
 	}
 	const src = getURL(path || '/undefined', name, version);
 	console.log('getUMD', src, varName);
 
 	return new Promise((resolve, reject) => {
 		function onload() {
-			if (!varName) {
-				cache.resolved = true;
-				resolve(undefined);
-			} else {
-				console.log(`${varName} onload ok`);
-			}
+			cache.resolved = true;
+			console.log(`${varName} onload ok`);
+			resolve(undefined);
 		}
 		function onerror(e: Error) {
 			console.error(e);
 			reject(e);
 		}
 		addScript({ src, onload, onerror });
-		if (varName) {
-			const intervalId = setInterval(() => {
-				if (loaded()) {
-					cache.resolved = true;
-					clearInterval(intervalId);
-					resolve((window as any)[varName]);
-				}
-			}, 200);
-			setTimeout(() => {
-				if (!cache.resolved) {
-					clearInterval(intervalId);
-					reject(new Error(`UMD from ${src}, ${varName} not found in ${TIMEOUT}`));
-				}
-			}, TIMEOUT);
-		}
+
+		const intervalId = setInterval(() => {
+			if (cachedModule || loadCachedModule(varName)) {
+				cache.resolved = true;
+				clearInterval(intervalId);
+				resolve(cachedModule);
+			}
+		}, 200);
+		setTimeout(() => {
+			if (!cache.resolved) {
+				clearInterval(intervalId);
+				reject(new Error(`UMD from ${src}, ${varName} not found in ${TIMEOUT}`));
+			}
+		}, TIMEOUT);
 	});
 }
 
