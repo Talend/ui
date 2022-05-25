@@ -1,5 +1,13 @@
 # @talend/react-datagrid
 
+## 9.2.1
+
+### Patch Changes
+
+- d1273605b: int cell doesn't display text align right
+- Updated dependencies [ecd3b81ae]
+  - @talend/react-components@6.46.7
+
 ## 9.2.0
 
 ### Minor Changes
