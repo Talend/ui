@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.46.7
+
+### Patch Changes
+
+- ecd3b81ae: fix(components): datalist should show selected item by id
+
 ## 6.46.6
 
 ### Patch Changes
