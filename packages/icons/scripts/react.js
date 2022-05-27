@@ -7,6 +7,7 @@ const babel = require('@babel/core');
 const defaultOptions = require('@talend/scripts-config-babel/.babelrc.json');
 const src = require('../src');
 const info = require('../src/info').info;
+const infoFromFigma = require('../src/info').infoFromFigma;
 const extract = require('../src/extract');
 
 const dist = path.join(__dirname, '../dist/');
@@ -61,6 +62,19 @@ function createSvgBundles() {
 	bundles.forEach(save);
 }
 
+function createIconBundles() {
+	const bundles = [...new Set(Object.values(infoFromFigma).map(({ parent }) => parent))];
+	const save = bundle => {
+		const lib = extract.default(`../src/icon/${bundle}`);
+		const buff = Object.keys(lib).map(key => `<symbol id="${key}">${lib[key]}</symbol>`);
+		buff.unshift('');
+		buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
+		buff.push('</svg>');
+		fs.writeFileSync(path.join(dist, `../dist/svg-bundle/${bundle}.svg`), buff.join(''));
+	};
+	bundles.forEach(save);
+}
+
 function createSvgFilters() {
 	const buff = Object.keys(src.filters).map(id => src.filters[id]);
 	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
@@ -70,7 +84,9 @@ function createSvgFilters() {
 
 function createAllInOneBundle() {
 	let buff = Object.keys(src.filters).map(id => src.filters[id]);
-	buff = buff.concat(Object.keys(src.svgs).map(id => `<symbol id="talend-${id}">${src.svgs[id]}</symbol>`));
+	buff = buff.concat(
+		Object.keys(src.svgs).map(id => `<symbol id="talend-${id}">${src.svgs[id]}</symbol>`),
+	);
 	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
 	buff.push('</svg>');
 	fs.writeFileSync(path.join(dist, '../dist/svg-bundle/all.svg'), buff.join(''));
@@ -81,6 +97,11 @@ function createGetIconHref() {
 	const buff = Object.keys(info).map(key => `  "talend-${key}": "${info[key].parent || ''}",`);
 	buff.unshift('export const info = {');
 	buff.push('};');
+	buff.push('export const infoFromFigma = {');
+	buff.push(
+		Object.keys(infoFromFigma).map(key => `  "${key}": "${infoFromFigma[key].parent || ''}"`),
+	);
+	buff.push('};');
 	buff.push('export function getIconHref(name) {');
 	buff.push('  return info[name] ? `/${info[name]}.svg#${name}` : `#${name}`;');
 	buff.push('}');
@@ -90,6 +111,7 @@ function createGetIconHref() {
 
 createGetIconHref();
 createSvgBundles();
+createIconBundles();
 createSvgFilters();
 createAllInOneBundle();
 transform(src, 'react.js');
