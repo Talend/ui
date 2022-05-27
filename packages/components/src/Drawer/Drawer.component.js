@@ -5,6 +5,7 @@ import omit from 'lodash/omit';
 import noop from 'lodash/noop';
 import { Transition } from 'react-transition-group';
 import classnames from 'classnames';
+import { TagDefault } from '@talend/design-system';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
@@ -101,15 +102,21 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 	);
 }
 
-export function SubtitleComponent({ subtitle }) {
+export function SubtitleComponent({ subtitle, subtitleTagLabel }) {
 	if (!subtitle || !subtitle.length) {
 		return null;
 	}
-	return <h2 title={subtitle}>{subtitle}</h2>;
+	return (
+		<div className={css('inline-subtitle')}>
+			<h2 title={subtitle}>{subtitle}</h2>
+			{subtitleTagLabel ? <TagDefault>{subtitleTagLabel}</TagDefault> : null}
+		</div>
+	);
 }
 
 SubtitleComponent.propTypes = {
 	subtitle: PropTypes.string,
+	subtitleTagLabel: PropTypes.string,
 };
 
 export function subtitleComponent(subtitle) {
@@ -125,6 +132,7 @@ function DrawerTitle({
 	getComponent,
 	editable,
 	inProgress,
+	subtitleTagLabel,
 	onEdit,
 	onSubmit,
 	onCancel,
@@ -173,7 +181,9 @@ function DrawerTitle({
 						{...props}
 					/>
 				)}
-				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
+				{!isEditMode ? (
+					<SubtitleComponent subtitle={subtitle} subtitleTagLabel={subtitleTagLabel} />
+				) : null}
 				{renderTitleActions()}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
@@ -191,6 +201,7 @@ DrawerTitle.propTypes = {
 	renderTitleActions: PropTypes.func,
 	editable: PropTypes.bool,
 	inProgress: PropTypes.bool,
+	subtitleTagLabel: PropTypes.string,
 	onEdit: PropTypes.func,
 	onSubmit: PropTypes.func,
 	onCancel: PropTypes.func,
