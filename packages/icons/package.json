@@ -51,6 +51,7 @@
     "css-loader": "^3.6.0",
     "mini-css-extract-plugin": "^1.6.2",
     "mkdirp": "^1.0.4",
+    "prettier": "^2.6.2",
     "react": "^16.14.0",
     "rimraf": "^3.0.2",
     "string-replace-loader": "^2.3.0",

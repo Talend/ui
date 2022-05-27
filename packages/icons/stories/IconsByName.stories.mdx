@@ -1,36 +1,36 @@
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs';
 
-import Icon, { IconColorTokenSelect } from './Icon';
+import Icon, {
+	realIconNames,
+	realIconSizes,
+	getTshirtSize,
+	IconToolbar,
+	HiddenIconItem,
+} from './Icon';
 import { infoFromFigma as icons } from '../dist/info';
-
-export const sizes = [...new Set(Object.values(icons))];
-export const iconsByName = {};
-Object.entries(icons)
-	.forEach(([name, size]) => {
-        const iconName = name.split(':')[0];
-        if (!iconsByName[iconName]) {
-            iconsByName[iconName] = [];
-        }
-        if (!iconsByName[iconName][size]) {
-            iconsByName[iconName].push(size);
-        }
-		return iconsByName;
-	});
 
 <Meta title="Icons by name" />
 
 # Icons
 
-<IconColorTokenSelect />
-{Object.entries(iconsByName).map(([name, sizes], i) => (
-	<section key={i}>
-		<h2>{name}</h2>
-		<IconGallery>
-			{sizes.sort((a,b) => a - b).map((size, j) => (
-				<IconItem key={j} name={size}>
-					<Icon size={size} name={name + ':' + size} />
-				</IconItem>
-			))}
-		</IconGallery>
-	</section>
-))}
+<IconToolbar />
+
+<div>
+	{realIconNames.map((name, i) => (
+		<section key={i}>
+			<h2>{name}</h2>
+			<IconGallery>
+				{realIconSizes.map((size, j) => {
+					const tshirtSize = getTshirtSize(size);
+					const isFound = Object.keys(icons).find(key => key === name + ':' + size);
+					if (!isFound) return <HiddenIconItem key={j} />;
+					return (
+						<IconItem key={j} name={name + ':' + tshirtSize}>
+							<Icon size={tshirtSize} name={name} />
+						</IconItem>
+					);
+				})}
+			</IconGallery>
+		</section>
+	))}
+</div>

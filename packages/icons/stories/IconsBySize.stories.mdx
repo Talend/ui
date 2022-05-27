@@ -1,26 +1,30 @@
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs';
 
-import Icon, { IconColorTokenSelect } from './Icon';
+import Icon, { realIconSizes, getTshirtSize, IconToolbar } from './Icon';
 import { infoFromFigma as icons } from '../dist/info';
 
 <Meta title="Icons by size" />
 
 # Icons
 
-<IconColorTokenSelect />
-{[...new Set(Object.values(icons))].sort((a,b) => a - b).map((size, i) => (
-	<section key={i}>
-        <h2>{size}</h2>
-        <IconGallery>
-            {Object
-                .entries(icons)
-                .filter(([, s]) => s === size)
-                .map(([name, size], j) => (
-                    <IconItem key={j} name={name.split(':')[0]}>
-                        <Icon size={size} name={name} />
-                    </IconItem>
-                ))
-            }
-        </IconGallery>
-    </section>
-))}
+<IconToolbar />
+
+<div>
+	{realIconSizes.map((size, i) => (
+		<section key={i}>
+			<h2>{getTshirtSize(size)}</h2>
+			<IconGallery>
+				{Object.entries(icons)
+					.filter(([, s]) => s === size)
+					.map(([name, size], j) => {
+						const currentTshirtSize = getTshirtSize(size);
+						return (
+							<IconItem key={j} name={name.split(':')[0] + ':' + currentTshirtSize}>
+								<Icon size={currentTshirtSize} name={name} />
+							</IconItem>
+						);
+					})}
+			</IconGallery>
+		</section>
+	))}
+</div>

@@ -1,34 +1,32 @@
 import React from 'react';
-import { Args } from '@storybook/react';
+import { Story } from '@storybook/react';
 
-import Icon from './Icon';
-import { infoFromFigma } from '../dist/info';
+import Icon, { getTshirtSize, realIconNames, realIconSizes } from './Icon';
 
 export default {
 	title: 'Icon',
 	component: Icon,
 };
 
-// @ts-ignore
 export const Usage = {
 	args: {
-		size: '24',
-		name: 'search',
+		size: 'L',
+		name: 'check',
 	},
 	argTypes: {
 		size: {
 			// @ts-ignore
-			options: [...new Set(Object.values(infoFromFigma))],
+			options: realIconSizes.map(getTshirtSize),
 			control: {
 				type: 'select',
 			},
 		},
 		name: {
-			options: Object.keys(infoFromFigma).map(name => name?.split(':')[0]),
+			options: realIconNames,
 			control: {
 				type: 'select',
 			},
 		},
 	},
-	render: (props: Args) => <Icon {...props} />,
+	render: (props: Story<typeof Icon>) => <Icon {...props} />,
 };
