@@ -7,7 +7,8 @@ export type StatusCanceledProps = Omit<StatusProps, 'icon' | 'variant' | 'inProg
 const StatusCanceled = React.forwardRef(
 	(props: StatusCanceledProps, ref: React.Ref<HTMLSpanElement>) => {
 		return (
-			<StatusPrimitive icon="circle-slash:16" variant="canceled" {...props} ref={ref}>
+			// @ts-ignore
+			<StatusPrimitive icon="circle-slash" variant="canceled" {...props} ref={ref}>
 				{props.children || i18n.t('CANCELED', 'Canceled')}
 			</StatusPrimitive>
 		);

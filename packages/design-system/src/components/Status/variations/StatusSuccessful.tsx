@@ -7,7 +7,8 @@ export type StatusSuccessfulProps = Omit<StatusProps, 'icon' | 'variant' | 'inPr
 const StatusSuccessful = React.forwardRef(
 	(props: StatusSuccessfulProps, ref: React.Ref<HTMLSpanElement>) => {
 		return (
-			<StatusPrimitive icon="check-filled:16" variant="successful" {...props} ref={ref}>
+			// @ts-ignore
+			<StatusPrimitive icon="check-filled" variant="successful" {...props} ref={ref}>
 				{props.children || i18n.t('SUCCESSFUL', 'Successful')}
 			</StatusPrimitive>
 		);

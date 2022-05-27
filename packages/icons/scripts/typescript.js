@@ -48,13 +48,13 @@ fs.writeFileSync(
 		`
 /// <reference types="typescript" />
 
-declare type LegacyIconName =
+export declare type IconName =
 ${icons}
     | string;
 
-declare type LegacyIcon = { name: LegacyIconName };
+export declare type LegacyIcon = { name: IconName };
 
-const icons = { ${Object.entries(files)
+export const icons = { ${Object.entries(files)
 			.map(
 				([size, names]) =>
 					`${getTShirtSize(size)} : ${JSON.stringify(
@@ -63,15 +63,15 @@ const icons = { ${Object.entries(files)
 			)
 			.join(',')} } as const;
 
-declare type IconSize = ${Object.keys(files)
+export declare type IconSize = ${Object.keys(files)
 			.map(k => `'${getTShirtSize(k)}'`)
 			.join(' | ')};
 
-declare type IconName<S extends IconSize> = keyof typeof icons[S];
+export declare type IconNameWithSize<S extends IconSize> = keyof typeof icons[S];
 
-declare type Icon<S extends IconSize> = {
+export declare type Icon<S extends IconSize> = {
     size: S;
-    name: IconName<S>;
+    name: IconNameWithSize<S>;
 };
 `,
 		{ singleQuote: true, parser: 'typescript' },

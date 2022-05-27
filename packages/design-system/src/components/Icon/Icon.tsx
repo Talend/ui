@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
-import { IconName } from '@talend/icons';
+import { LegacyIcon } from '@talend/icons';
 
 import tokens from '../../tokens';
 import { IconsProvider } from '../IconsProvider';
@@ -20,12 +20,12 @@ export enum SVG_TRANSFORMS {
 	FlipVertical = 'flip-vertical',
 }
 
-export type IconProps = PropsWithChildren<any> & {
-	name: IconName;
-	transform: SVG_TRANSFORMS;
-	preserveColor: boolean;
-	border: boolean;
-};
+export type IconProps = PropsWithChildren<any> &
+	LegacyIcon & {
+		transform: SVG_TRANSFORMS;
+		preserveColor: boolean;
+		border: boolean;
+	};
 
 const SVG = styled.svg<IconProps>`
 	fill: currentColor;
@@ -130,8 +130,7 @@ export const Icon = React.forwardRef(
 				// eslint-disable-next-line no-param-reassign
 				current.innerHTML = content;
 			} else if (current && !isRemote) {
-				const adaptedName = name.includes(':') ? name.replace(':', '\\:') : name;
-				IconsProvider.injectIcon(adaptedName, current);
+				IconsProvider.injectIcon(name, current);
 			}
 		}, [isRemoteSVG, safeRef, content, name, isRemote]);
 

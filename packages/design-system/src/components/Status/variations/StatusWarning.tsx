@@ -7,7 +7,8 @@ export type StatusWarningProps = Omit<StatusProps, 'icon' | 'variant' | 'inProgr
 const StatusWarning = React.forwardRef(
 	(props: StatusWarningProps, ref: React.Ref<HTMLSpanElement>) => {
 		return (
-			<StatusPrimitive icon="exclamation:16" variant="warning" {...props} ref={ref}>
+			// @ts-ignore
+			<StatusPrimitive icon="exclamation" variant="warning" {...props} ref={ref}>
 				{props.children || i18n.t('WARNING', 'Warning')}
 			</StatusPrimitive>
 		);
