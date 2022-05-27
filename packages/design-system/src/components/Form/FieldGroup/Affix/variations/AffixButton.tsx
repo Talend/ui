@@ -13,6 +13,7 @@ type CommonAffixButtonPropsType = {
 	children: string;
 	isDropdown?: boolean;
 	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
+	isSuffix?: boolean;
 };
 
 type AffixButtonHideTextProps = {
@@ -37,6 +38,7 @@ const AffixButton = forwardRef(
 			icon,
 			onClick,
 			hideText = false,
+			isSuffix = false,
 			...rest
 		}: AffixButtonPropsType,
 		ref: Ref<HTMLButtonElement>,
@@ -47,7 +49,7 @@ const AffixButton = forwardRef(
 				onClick={onClick}
 				ref={ref}
 				{...rest}
-				className={classnames(styles.affix, styles.button)}
+				className={classnames(styles.affix, styles.button, { [styles.suffix]: isSuffix })}
 			>
 				<StackHorizontal gap="XXS" as="span">
 					{icon && (

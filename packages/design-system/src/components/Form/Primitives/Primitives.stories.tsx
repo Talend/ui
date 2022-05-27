@@ -175,7 +175,7 @@ export const InputPrimitiveWithDropdown = () => {
 							{ type: 'button', label: 'Option 2', onClick: () => setCurrentValue('Option 2') },
 						]}
 					>
-						<AffixButton isDropdown onClick={() => {}}>
+						<AffixButton isDropdown isSuffix onClick={() => {}}>
 							{currentValue}
 						</AffixButton>
 					</Dropdown>

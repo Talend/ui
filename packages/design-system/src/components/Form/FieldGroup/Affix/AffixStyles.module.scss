@@ -1,8 +1,8 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-.affix.affix {
-	display: inline-flex;
-	flex-grow: 1;
+.affix {
+	display: flex;
+	flex-grow: 0;
 	flex-shrink: 0;
 	color: tokens.$coral-color-neutral-text-weak;
 	background: tokens.$coral-color-neutral-background-strong;
@@ -10,18 +10,19 @@
 	justify-content: center;
 	align-items: center;
 	font: tokens.$coral-paragraph-m;
+	line-height: 1;
 	border: 0;
 	height: 100%;
 	min-height: auto;
 	max-height: tokens.$coral-sizing-m;
 	transition: tokens.$coral-transition-fast;
+	border-radius: tokens.$coral-radius-s 0 0 tokens.$coral-radius-s;
+	border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 
-	&:first-child {
-		border-radius: 2px 0 0 2px;
-	}
-
-	&:last-child {
-		border-radius: 0 2px 2px 0;
+	&.suffix {
+		border-radius: 0 tokens.$coral-radius-s tokens.$coral-radius-s 0;
+		border-right: 0;
+		border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 
 	&__icon {
@@ -30,14 +31,15 @@
 	}
 
 	&__caret {
-		width: tokens.$coral-sizing-minimal;
-		height: tokens.$coral-sizing-minimal;
+		width: tokens.$coral-spacing-s;
+		height: tokens.$coral-spacing-s;
 	}
 
 	&.button {
 		color: tokens.$coral-color-accent-text;
 		background: tokens.$coral-color-accent-background;
 		cursor: pointer;
+		padding: 0 tokens.$coral-spacing-xs;
 
 		&:hover {
 			color: tokens.$coral-color-accent-text-hover;
@@ -50,8 +52,8 @@
 		}
 
 		&:disabled {
-			color: tokens.$coral-color-neutral-text-weak;
-			background: tokens.$coral-color-neutral-background-strong;
+			color: tokens.$coral-color-neutral-text-disabled;
+			background: tokens.$coral-color-neutral-background-disabled;
 			cursor: not-allowed;
 		}
 	}

@@ -23,19 +23,33 @@ type InputWrapperProps = {
 	readOnly?: boolean;
 } & AffixesProps;
 
-function buildAffix(affixProps: AffixProps) {
+function buildAffix({
+	affixProps,
+	isSuffix = false,
+}: {
+	affixProps: AffixProps;
+	isSuffix?: boolean;
+}) {
 	if (isElement(affixProps)) {
 		return affixProps;
 	}
 
 	if (affixProps.type === 'button') {
 		const { type, children, ...rest } = affixProps;
-		return <AffixButton {...rest}>{children}</AffixButton>;
+		return (
+			<AffixButton {...rest} isSuffix={isSuffix}>
+				{children}
+			</AffixButton>
+		);
 	}
 
 	if (affixProps.type === 'text') {
 		const { type, children, ...rest } = affixProps;
-		return <AffixReadOnly {...rest}>{children}</AffixReadOnly>;
+		return (
+			<AffixReadOnly {...rest} isSuffix={isSuffix}>
+				{children}
+			</AffixReadOnly>
+		);
 	}
 
 	return <></>;
@@ -51,9 +65,9 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 				[styles.inputShell_readOnly]: readOnly,
 			})}
 		>
-			{prefix && buildAffix(prefix)}
+			{prefix && buildAffix({ affixProps: prefix })}
 			{children}
-			{suffix && buildAffix(suffix)}
+			{suffix && buildAffix({ affixProps: suffix, isSuffix: true })}
 		</div>
 	);
 });
