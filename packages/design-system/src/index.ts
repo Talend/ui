@@ -30,7 +30,14 @@ import HeaderBar from './components/HeaderBar';
 import { Icon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
-import InlineMessage from './components/InlineMessage';
+import {
+	InlineMessage,
+	InlineMessageInformation,
+	InlineMessageSuccess,
+	InlineMessageWarning,
+	InlineMessageDestructive,
+	InlineMessageBeta,
+} from './components/InlineMessage';
 import Layout from './components/Layout';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
@@ -104,6 +111,11 @@ export {
 	IconsProvider,
 	InlineEditing,
 	InlineMessage,
+	InlineMessageInformation,
+	InlineMessageSuccess,
+	InlineMessageWarning,
+	InlineMessageDestructive,
+	InlineMessageBeta,
 	Layout,
 	Link,
 	LinkAsButton,

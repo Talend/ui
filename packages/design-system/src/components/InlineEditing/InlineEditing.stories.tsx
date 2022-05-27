@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import InlineEditing from '.';
-import InlineMessage from '../InlineMessage';
+import { InlineMessageDestructive } from '../InlineMessage';
 
 export default {
 	component: InlineEditing,
@@ -92,46 +92,44 @@ export const LoadingMode = {
 	),
 };
 
-export const InUse = {
-	render: (props: Story) => {
-		const [data, setData] = React.useState('this is a default value');
-		const [error, setError] = React.useState(false);
-		const [loading, setLoading] = React.useState(false);
-		const onCancel = () => {
-			setError(false);
-		};
-		const onEdit = () => {
-			setError(false);
-			setLoading(true);
-			setTimeout(() => {
-				setLoading(false);
-				setData(data);
-				setError(true);
-			}, 2000);
-		};
+export const InUse = (props: Story) => {
+	const [data, setData] = React.useState('this is a default value');
+	const [error, setError] = React.useState(false);
+	const [loading, setLoading] = React.useState(false);
+	const onCancel = () => {
+		setError(false);
+	};
+	const onEdit = () => {
+		setError(false);
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+			setData(data);
+			setError(true);
+		}, 2000);
+	};
 
-		return (
-			<>
-				<InlineEditing.Text
-					ariaLabel="Edit the value"
-					label="Crawler name"
-					loading={loading}
-					defaultValue={data}
-					hasError={error}
-					onEdit={onEdit}
-					onCancel={onCancel}
-					aria-describedby="inlinemessage-id"
-					{...props}
+	return (
+		<>
+			<InlineEditing.Text
+				ariaLabel="Edit the value"
+				label="Crawler name"
+				loading={loading}
+				defaultValue={data}
+				hasError={error}
+				onEdit={onEdit}
+				onCancel={onCancel}
+				aria-describedby="inlinemessage-id"
+				{...props}
+			/>
+			{error && (
+				<InlineMessageDestructive
+					id="inlinemessage-id"
+					title="Oops"
+					description="An error occured"
+					withBackground
 				/>
-				{error && (
-					<InlineMessage.Destructive
-						id="inlinemessage-id"
-						title="Oops"
-						description="An error occured"
-						withBackground
-					/>
-				)}
-			</>
-		);
-	},
+			)}
+		</>
+	);
 };

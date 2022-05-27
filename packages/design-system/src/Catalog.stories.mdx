@@ -7,7 +7,10 @@ import {
 	Dropdown,
 	Form,
 	Icon,
-	InlineMessage,
+	InlineMessageInformation,
+	InlineMessageWarning,
+	InlineMessageSuccess,
+	InlineMessageDestructive,
 	Link,
 	Popover,
 	Tag,
@@ -288,36 +291,36 @@ import {
 
 <Canvas>
 	<Story name="InlineMessages">
-		<InlineMessage.Information
+		<InlineMessageInformation
 			title={'Lorem ipsum'}
 			description={
 				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
 			}
-			link={<Link href={'#'}>See more</Link>}
+			link={{ href: "#", children: "See more"}}
 			withBackground
 		/>
-		<InlineMessage.Success
+		<InlineMessageSuccess
 			title={'Lorem ipsum'}
 			description={
 				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
 			}
-			link={<Link href={'#'}>See more</Link>}
+			link={{ href: "#", children: "See more"}}
 			withBackground
 		/>
-		<InlineMessage.Warning
+		<InlineMessageWarning
 			title={'Lorem ipsum'}
 			description={
 				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
 			}
-			link={<Link href={'#'}>See more</Link>}
+			link={{ href: "#", children: "See more"}}
 			withBackground
 		/>
-		<InlineMessage.Destructive
+		<InlineMessageDestructive
 			title={'Lorem ipsum'}
 			description={
 				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
 			}
-			link={<Link href={'#'}>See more</Link>}
+			link={{ href: "#", children: "See more"}}
 			withBackground
 		/>
 	</Story>
