@@ -1,8 +1,6 @@
-import React from 'react';
-import { ButtonIcon } from '@talend/design-system';
 import theme from './PinHeaderRenderer.scss';
-
-export const PIN_HEADER_RENDERER_COMPONENT = 'pinHeaderRenderer';
+import { ButtonIcon } from '@talend/design-system';
+import React from 'react';
 
 export type PinHeaderRendererProps = Omit<Parameters<typeof ButtonIcon>[0], 'size' | 'icon'>;
 
