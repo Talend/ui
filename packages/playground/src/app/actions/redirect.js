@@ -8,7 +8,7 @@ export default function redirect(event, data) {
 	let path = data.action.path;
 	path = path.replace('$id', data.model.id);
 	return {
-		type: '@@router/CALL_HISTORY_METHOD',
+		type: 'foo',
 		payload: {
 			method: 'push',
 			args: [path],

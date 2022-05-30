@@ -1,3 +1,5 @@
+import { push, replace } from 'connected-react-router';
+
 const cmfMiddleware = store => next => action => {
 	const config = action.cmf;
 	if (!config) {
@@ -8,13 +10,11 @@ const cmfMiddleware = store => next => action => {
 		if (typeof route === 'function') {
 			route = route(action);
 		}
-		store.dispatch({
-			type: '@@router/CALL_HISTORY_METHOD',
-			payload: {
-				method: config.routerPush ? 'push' : 'replace',
-				args: [route],
-			},
-		});
+		if (config.routerPush) {
+			store.dispatch(push(route));
+		} else {
+			store.dispatch(replace(route));
+		}
 	}
 	return next(action);
 };
