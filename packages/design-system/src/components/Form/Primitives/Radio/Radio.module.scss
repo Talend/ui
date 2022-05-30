@@ -73,6 +73,15 @@ $mark-size: calc(#{tokens.$coral-sizing-xxs} / 2);
     }
   }
 
+  input[type="radio"]:focus-visible + label,
+  input[type="radio"]:global(.focus-visible) + label {
+    // Radio
+    &:before {
+      outline: tokens.$coral-border-m-solid tokens.$coral-color-assistive-border-focus;
+      outline-offset: 1px;
+    }
+  }
+
   input[type="radio"]:checked + label {
     // Radio
     &:before {

@@ -88,6 +88,15 @@ $checkbox-size: tokens.$coral-sizing-xxxs;
     }
   }
 
+  input[type="checkbox"]:focus-visible + label,
+  input[type="checkbox"]:global(.focus-visible) + label{
+    // Checkbox
+    &:before {
+      outline: tokens.$coral-border-m-solid tokens.$coral-color-assistive-border-focus;
+      outline-offset: 1px;
+    }
+  }
+
   input[type="checkbox"][aria-checked="mixed"] + label {
     // Checkbox
     &:before {
