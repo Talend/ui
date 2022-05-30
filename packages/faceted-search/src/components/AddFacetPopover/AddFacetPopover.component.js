@@ -1,6 +1,6 @@
 import React, { useState, useRef, createRef, useEffect, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Button } from '@talend/react-bootstrap';
 import isNaN from 'lodash/isNaN';
 import classNames from 'classnames';
 import { getTheme } from '@talend/react-components/lib/theme';
