@@ -38,7 +38,7 @@ function RichCellEditor(props: RichCellEditorPropTypes) {
 	const handleInputChange = (
 		_: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 		newValue: CellValue,
-	): void => {
+	) => {
 		const hasChanged = newValue !== initialValue;
 		setValue(newValue);
 
