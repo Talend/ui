@@ -174,7 +174,3 @@ $tc-drawer-z-index: $drawer-z-index !default;
 :global(.tc-with-drawer-wrapper:last-child) :global(.tc-drawer.stacked)::after {
 	content: none;
 }
-
-.inline-subtitle {
-	display: inline-flex;
-}
