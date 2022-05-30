@@ -8,7 +8,7 @@
     "build": "cross-env BASENAME='/playground' talend-scripts build",
     "test": "echo nothing to test in playground",
     "test:demo:umd": "cross-env BASENAME='/playground' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
-    "start": "cross-env BASENAME='/playground' INITIATOR_URL='/playground/inject.js' talend-scripts start --open http://localhost:3000/playground",
+    "start": "cross-env BASENAME='/' INITIATOR_URL='/inject.js' talend-scripts start --open http://localhost:3000",
     "start-dist": "talend-scripts build && node serve-dist"
   },
   "repository": {
@@ -41,7 +41,7 @@
     "@talend/react-dataviz": "^2.1.2",
     "@talend/react-faceted-search": "^4.0.2",
     "@talend/react-forms": "^7.1.1",
-    "history": "^3.3.0",
+    "history": "^5.3.0",
     "i18next": "^20.6.1",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
