@@ -171,12 +171,18 @@ export const ControlledFocusedColumn = () => {
 
 export const EditablePlaygroundCell = () => {
 	const sleep = () => new Promise(resolve => setTimeout(resolve, 1000));
-	const semanticTypeFields = ['Nom de la gare', 'Code postal', 'voyageurs 2015'];
+	const semanticTypeFields = [
+		'Nom de la gare',
+		'Code postal',
+		"volume total d'usagers 2014 (voyageurs+ non voyageurs)",
+	];
 	const searchSampleValues = (search, avroName) => {
 		return sample.data
 			.reduce((values, row) => {
 				const { value } = row.value[avroName];
-				return value?.includes('search') && !values.includes(value) ? values : [...values, value];
+				return value && value.includes(search) && !values.includes(value)
+					? [...values, value]
+					: values;
 			}, [])
 			.sort((a, b) => {
 				if (a?.startsWith(search) ^ b?.startsWith(search)) {

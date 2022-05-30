@@ -4,7 +4,7 @@ import FocusTrap from 'focus-trap-react';
 import { AgCellEditorRendererPropTypes, AgGridCellValue } from '../../types';
 import RichCellEditorComponent from '../RichCellEditor';
 
-import ApplyToIdenticalValues from './ApplyToIdenticalValues.component';
+import ApplyToValues from './ApplyToIdenticalValues.component';
 
 type SemanticType = {
 	type: string;
@@ -22,16 +22,18 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 
 	const [state, setState] = useState(value.value);
 	const [isLoading, setIsLoading] = useState(false);
-	const [showApplyToIdentical, setShowApplyToIdenticalState] = useState(false);
-	const showApplyToIdenticalRef = useRef(showApplyToIdentical);
+	const [showApplyTo, setShowApplyToState] = useState(false);
+	const showApplyToRef = useRef(showApplyTo);
+	const applyToRef = useRef<HTMLDivElement>(null);
+	const [applyToStyles, setApplyToStyles] = useState({});
 
 	const [semanticType, setSemanticType] = useState<SemanticType>();
 
 	useImperativeHandle(ref, (): any => ({ getValue: () => state }));
 
-	const setShowApplyToIdentical = (flag: boolean) => {
-		showApplyToIdenticalRef.current = flag;
-		setShowApplyToIdenticalState(flag);
+	const setShowApplyTo = (flag: boolean) => {
+		showApplyToRef.current = flag;
+		setShowApplyToState(flag);
 	};
 
 	useEffect(() => {
@@ -48,7 +50,7 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 
 		// 	// Block "Tab keydown" event propagation when "Apply to ..." element is visible
 		currentRef.current?.addEventListener('keydown', (e: KeyboardEvent) => {
-			if (e.key === 'Tab' && showApplyToIdenticalRef.current) {
+			if (e.key === 'Tab' && showApplyToRef.current) {
 				e.stopPropagation();
 			}
 		});
@@ -63,6 +65,22 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 		}
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+	useEffect(() => {
+		// Ensure "Apply to ..." is opened where it can be seen
+		if (showApplyTo && applyToRef.current) {
+			const { bottom, right } = applyToRef.current.getBoundingClientRect();
+
+			const overflowsRight = right > window.innerWidth;
+			const overflowsBottom = bottom > window.innerHeight;
+
+			setApplyToStyles({
+				...(overflowsRight || overflowsBottom ? { position: 'absolute' } : {}),
+				...(overflowsRight && { right: 0 }),
+				...(overflowsBottom && { bottom: eGridCell.offsetHeight }),
+			});
+		}
+	}, [applyToRef, eGridCell.offsetHeight, showApplyTo]);
+
 	const hasSuggestions = semanticType?.type === 'DICT';
 
 	const onCancel = () => {
@@ -70,7 +88,7 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 	};
 
 	return (
-		<FocusTrap active={showApplyToIdentical}>
+		<FocusTrap active={showApplyTo}>
 			<div ref={currentRef}>
 				<RichCellEditorComponent
 					eGridCell={eGridCell}
@@ -78,7 +96,7 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 					hasSuggestions={hasSuggestions}
 					isLoading={isLoading}
 					onChange={newValue => {
-						setShowApplyToIdentical(newValue !== value.value);
+						setShowApplyTo(newValue !== value.value);
 						setState(newValue);
 					}}
 					onCancel={onCancel}
@@ -89,14 +107,16 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 							: undefined
 					}
 				/>
-				{showApplyToIdentical && (
-					<ApplyToIdenticalValues
-						onCancel={onCancel}
-						onSubmit={(applyToIdenticalValues: boolean) => {
-							stopEditing();
-							onSubmit(state, applyToIdenticalValues);
-						}}
-					/>
+				{showApplyTo && (
+					<div ref={applyToRef} style={applyToStyles}>
+						<ApplyToValues
+							onCancel={onCancel}
+							onSubmit={(applyToValues: boolean) => {
+								stopEditing();
+								onSubmit(state, applyToValues);
+							}}
+						/>
+					</div>
 				)}
 			</div>
 		</FocusTrap>

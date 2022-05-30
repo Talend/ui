@@ -52,7 +52,6 @@ function RichCellEditor(props: RichCellEditorPropTypes) {
 	return (
 		<div
 			className={classNames({
-				[theme['rich-cell-editor']]: true,
 				[theme['rich-cell-editor--loading']]: isLoading,
 				[theme['rich-cell-editor--datalist']]: !!hasSuggestions,
 			})}
