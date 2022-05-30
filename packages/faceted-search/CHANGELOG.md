@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [66fa02548]
+  - @talend/react-bootstrap@1.34.0
+
 ## 4.0.2
 
 ### Patch Changes
