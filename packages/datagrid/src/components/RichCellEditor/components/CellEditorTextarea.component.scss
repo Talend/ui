@@ -2,7 +2,7 @@
 
 textarea.cell-editor-textarea {
 	margin: 0;
-	padding: tokens.$coral-spacing-xs; // tokens.$coral-data-m; Token not yet available
-	font-family: 'Inconsolata';
+	padding: tokens.$coral-spacing-xs;
+	font-family: 'Inconsolata'; // tokens.$coral-data-m; Token not yet available
 	outline: 0;
 }
