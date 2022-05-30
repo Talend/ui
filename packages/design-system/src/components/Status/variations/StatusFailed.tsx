@@ -7,7 +7,7 @@ export type StatusFailedProps = Omit<StatusProps, 'icon' | 'variant' | 'inProgre
 const StatusFailed = React.forwardRef(
 	(props: StatusFailedProps, ref: React.Ref<HTMLSpanElement>) => {
 		return (
-			<StatusPrimitive icon="square-cross" variant="failed" {...props} ref={ref}>
+			<StatusPrimitive icon="talend-error" variant="failed" {...props} ref={ref}>
 				{props.children || i18n.t('FAILED', 'Failed')}
 			</StatusPrimitive>
 		);

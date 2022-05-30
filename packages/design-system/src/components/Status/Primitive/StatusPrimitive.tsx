@@ -1,10 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Icon } from '@talend/icons';
-
+import { IconName } from '@talend/icons';
 import Tooltip from '../../Tooltip';
+import { Icon } from '../../Icon/Icon';
 import Loading from '../../Loading';
-import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 
 import styles from './Status.module.scss';
@@ -18,7 +17,7 @@ export const variants = {
 };
 
 export type StatusProps = {
-	icon?: Icon<'M'>['name'];
+	icon?: IconName;
 	inProgress?: boolean;
 	hideText?: boolean;
 	children?: string;
@@ -33,7 +32,8 @@ const Status = React.forwardRef(
 		const text = <span className={styles.status__text}>{children}</span>;
 		const picto = (
 			<span className={styles.status__icon} aria-hidden>
-				{inProgress ? <Loading /> : icon ? <SizedIcon name={icon} size="M" /> : null}
+				{!inProgress && icon && <Icon name={icon} />}
+				{inProgress && <Loading />}
 			</span>
 		);
 

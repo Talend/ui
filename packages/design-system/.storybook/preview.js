@@ -167,15 +167,7 @@ export const parameters = {
 						{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
 					</Helmet>
 
-					<IconsProvider
-						bundles={[
-							'https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg',
-							'http://4041.talend.surge.sh/icons/dist/svg-bundle/8.svg',
-							'http://4041.talend.surge.sh/icons/dist/svg-bundle/12.svg',
-							'http://4041.talend.surge.sh/icons/dist/svg-bundle/16.svg',
-							'http://4041.talend.surge.sh/icons/dist/svg-bundle/24.svg',
-						]}
-					/>
+					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
 					<TableOfContents>
 						{isDesignSystemElementPage && (
 							<ThemeProvider theme={light}>
@@ -241,15 +233,11 @@ export const parameters = {
 				// if wrapped into an arrow function
 				if (input?.trim().startsWith('(')) {
 					const body = input.replace(/\((.*)\) => {?((.|\n)*)?}?/gm, '$2');
-					return format(body)
-						.trim()
-						.replace(/;$/, '');
+					return format(body).trim().replace(/;$/, '');
 				}
 				// try to format JSX
 				// remove last semicolon added by Prettier
-				return format(input)
-					.trim()
-					.replace(/;$/, '');
+				return format(input).trim().replace(/;$/, '');
 			} catch (e) {
 				// otherwise, return the same string
 				return input;
