@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-config-prettier",
-  "version": "9.6.3",
+  "version": "9.7.0",
   "description": "Shared Prettier config",
   "main": ".prettierrc.js",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",

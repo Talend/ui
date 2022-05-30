@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 11.0.3
+
+### Patch Changes
+
+-   aa2ffc733: fix: findPackage follow symlink in monorepo
+
 ## 11.0.2
 
 ### Patch Changes

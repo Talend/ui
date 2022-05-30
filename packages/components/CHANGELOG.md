@@ -1,5 +1,17 @@
 # @talend/react-components
 
+## 6.47.0
+
+### Minor Changes
+
+- 7d1f9f509: Add a Feature tag on drawer subtitle
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [66fa02548]
+  - @talend/react-bootstrap@1.34.0
+
 ## 6.46.7
 
 ### Patch Changes
