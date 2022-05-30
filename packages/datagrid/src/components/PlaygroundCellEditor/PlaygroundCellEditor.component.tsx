@@ -15,12 +15,12 @@ function formatSuggestions(values: string[]): AgGridCellValue[] {
 }
 
 function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.Ref<HTMLElement>) {
-	const currentRef = useRef<HTMLDivElement>(null);
 	const { eGridCell, value, colDef, stopEditing } = props;
 	const { domain, cellEditorPopup, cellEditorParams } = colDef;
 	const { getSemanticType, getSemanticTypeSuggestions, onSubmit } = cellEditorParams || {};
 
 	const [state, setState] = useState(value.value);
+	const currentRef = useRef<HTMLDivElement>(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [showApplyTo, setShowApplyToState] = useState(false);
 	const showApplyToRef = useRef(showApplyTo);
@@ -50,7 +50,7 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 
 		// 	// Block "Tab keydown" event propagation when "Apply to ..." element is visible
 		currentRef.current?.addEventListener('keydown', (e: KeyboardEvent) => {
-			if (e.key === 'Tab' && showApplyToRef.current) {
+			if (e.key === 'Enter' || (e.key === 'Tab' && showApplyToRef.current)) {
 				e.stopPropagation();
 			}
 		});

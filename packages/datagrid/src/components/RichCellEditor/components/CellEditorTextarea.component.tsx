@@ -39,15 +39,15 @@ function CellEditorTextarea({ eGridCell, value, onChange }: CellEditorTextareaPr
 
 	return (
 		<textarea
+			ref={ref}
 			className={classNames(theme['cell-editor-textarea'], 'form-control')}
-			style={styles}
 			rows={rows}
 			value={value}
+			style={styles}
 			onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
 				resizeTextarea();
 				onChange(event, event.target?.value);
 			}}
-			ref={ref}
 		/>
 	);
 }

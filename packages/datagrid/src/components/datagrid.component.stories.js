@@ -171,6 +171,7 @@ export const ControlledFocusedColumn = () => {
 
 export const EditablePlaygroundCell = () => {
 	const sleep = () => new Promise(resolve => setTimeout(resolve, 1000));
+	// const sleep = () => new Promise(() => {});
 	const semanticTypeFields = [
 		'Nom de la gare',
 		'Code postal',
