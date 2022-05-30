@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SkeletonParagraph } from '@talend/design-system';
 import classNames from 'classnames';
 
@@ -26,12 +26,10 @@ function RichCellEditor(props: RichCellEditorPropTypes) {
 		props;
 	const [value, setValue] = useState(initialValue);
 
-	const previousCellColor = useRef<string>();
 	useEffect(() => {
-		previousCellColor.current = eGridCell.style.color;
-		eGridCell.style.color = 'transparent';
+		eGridCell.classList.add(theme['rich-cell-editor-edited-ag-grid-cell']);
 		return () => {
-			eGridCell.style.color = previousCellColor.current!;
+			eGridCell.classList.remove(theme['rich-cell-editor-edited-ag-grid-cell']);
 		};
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
