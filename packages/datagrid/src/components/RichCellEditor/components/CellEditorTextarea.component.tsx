@@ -44,7 +44,7 @@ function CellEditorTextarea({ eGridCell, value, onChange }: CellEditorTextareaPr
 			rows={rows}
 			value={value}
 			onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-				resizeTextarea(); // @todo Should be in sync with new value
+				resizeTextarea();
 				onChange(event, event.target?.value);
 			}}
 			ref={ref}
