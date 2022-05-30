@@ -10,3 +10,5 @@ export const StackVertical = forwardRef((props: StackVerticalProps, ref: React.R
 		</StackPrimitive>
 	);
 });
+
+StackVertical.displayName = 'StackVertical';

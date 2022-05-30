@@ -10,3 +10,5 @@ export const StackHorizontal = forwardRef((props: StackHorizontalProps, ref: Rea
 		</StackPrimitive>
 	);
 });
+
+StackHorizontal.displayName = 'StackHorizontal';

@@ -5,7 +5,10 @@ import Select from './Select/Select';
 import { action } from '@storybook/addon-actions';
 import Dropdown from '../../Dropdown';
 import { AffixButton } from '../FieldGroup/Affix';
-import { StackVertical } from '../../Stack';
+import { StackHorizontal, StackVertical } from '../../Stack';
+import Checkbox from './Checkbox/Checkbox';
+import Label from './Label/Label';
+import Radio from './Radio/Radio';
 
 export default {
 	component: Textarea,
@@ -59,6 +62,62 @@ export const InputPrimitivePassword = () => (
 				children: 'action',
 				icon: 'talend-file-o',
 			}}
+		/>
+	</StackVertical>
+);
+
+export const CheckboxPrimitive = () => (
+	<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
+		<Checkbox label="Test checkbox" id="checkbox-1" />
+		<Checkbox label="Test checkbox selected" id="checkbox-2" defaultChecked />
+		<Checkbox label="Test checkbox indeterminate" id="checkbox-3" indeterminate />
+		<Checkbox label="Test checkbox read-only unselected" id="checkbox-4" readOnly />
+		<Checkbox label="Test checkbox read-only" id="checkbox-5" readOnly defaultChecked />
+		<Checkbox
+			label="Test checkbox indeterminate read-only"
+			id="checkbox-6"
+			indeterminate
+			readOnly
+		/>
+		<Checkbox label="Test checkbox disabled unselected" id="checkbox-7" disabled />
+		<Checkbox label="Test checkbox disabled" id="checkbox-8" disabled defaultChecked />
+		<Checkbox label="Test checkbox indeterminate disabled" id="checkbox-9" indeterminate disabled />
+	</StackVertical>
+);
+
+export const RadioPrimitive = () => (
+	<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
+		<Radio label="Test radio" id="radio-1" value="choice1" name="choice1" />
+		<Radio label="Test radio selected" id="radio-2" value="choice2" name="choice2" defaultChecked />
+		<Radio
+			label="Test radio read-only unselected"
+			id="radio-3"
+			name="choice3"
+			value="choice3"
+			readOnly
+		/>
+		<Radio
+			label="Test radio read-only"
+			id="radio-4"
+			value="choice4"
+			name="choice4"
+			readOnly
+			defaultChecked
+		/>
+		<Radio
+			label="Test radio disabled unselected"
+			id="radio-5"
+			value="choice5"
+			name="choice5"
+			disabled
+		/>
+		<Radio
+			label="Test radio disabled"
+			id="radio-6"
+			value="choice6"
+			name="choice6"
+			disabled
+			defaultChecked
 		/>
 	</StackVertical>
 );
@@ -123,5 +182,36 @@ export const InputPrimitiveWithDropdown = () => {
 				}
 			/>
 		</StackVertical>
+	);
+};
+
+export const FakeForm = () => {
+	return (
+		<form>
+			<StackVertical gap="S" padding="XS" align="stretch" justify="start">
+				<StackHorizontal gap="XS" align="stretch" justify="spaceBetween">
+					<StackVertical gap="XXS" align="stretch" justify="start">
+						<Label htmlFor="test1">Name</Label>
+						<Input id="test1" type="text" />
+					</StackVertical>
+
+					<StackVertical gap="XXS" align="stretch" justify="start">
+						<Label htmlFor="test2">Email</Label>
+						<Input id="test2" type="email" />
+					</StackVertical>
+				</StackHorizontal>
+				<StackVertical gap="XXS" align="stretch" justify="start">
+					<Label>Send me emails</Label>
+					<Checkbox id="emails" label="Yes I love emails" />
+				</StackVertical>
+				<StackVertical gap={'XXS'} align={'stretch'} justify={'start'}>
+					<Label>Pick a thing</Label>
+					<StackVertical gap="XXS" align="stretch" justify="start">
+						<Radio id="choice1" label="Choice 1" value="choice1" name="choice" />
+						<Radio id="choice2" label="Choice 2" value="choice2" name="choice" />
+					</StackVertical>
+				</StackVertical>
+			</StackVertical>
+		</form>
 	);
 };
