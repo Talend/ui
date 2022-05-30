@@ -202,13 +202,12 @@ export const EditablePlaygroundCell = () => {
 		<DataGrid
 			{...defaultGridProps}
 			editable
-			frameworkComponents={{ cellEditor: PlaygroundCellEditor }}
 			getColumnDefsFn={(...args) =>
 				getColumnDefs(...args).map(column => ({
 					...column,
 					domain: column.headerName,
 					editable: true,
-					cellEditor: 'cellEditor',
+					cellEditor: PlaygroundCellEditor,
 					cellEditorParams: {
 						getSemanticType: async semanticType => {
 							await sleep();
