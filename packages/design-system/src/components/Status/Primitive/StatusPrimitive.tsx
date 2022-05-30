@@ -18,7 +18,7 @@ export const variants = {
 };
 
 export type StatusProps = {
-	icon?: Icon<'L'>['name'];
+	icon?: Icon<'M'>['name'];
 	inProgress?: boolean;
 	hideText?: boolean;
 	children?: string;
@@ -33,7 +33,7 @@ const Status = React.forwardRef(
 		const text = <span className={styles.status__text}>{children}</span>;
 		const picto = (
 			<span className={styles.status__icon} aria-hidden>
-				{inProgress ? <Loading /> : icon ? <SizedIcon name={icon} size="L" /> : null}
+				{inProgress ? <Loading /> : icon ? <SizedIcon name={icon} size="M" /> : null}
 			</span>
 		);
 

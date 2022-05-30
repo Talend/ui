@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, IconSize } from '@talend/icons';
 
-const getNumericSize = (size: string) => {
+const getNumericSize = (size: IconSize) => {
 	switch (size) {
 		case 'XS':
 			return 8;
