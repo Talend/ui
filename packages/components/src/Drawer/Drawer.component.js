@@ -107,10 +107,10 @@ export function SubtitleComponent({ subtitle, subtitleTagLabel }) {
 		return null;
 	}
 	return (
-		<div className={css('inline-subtitle')}>
+		<StackHorizontal gap="XXS">
 			<h2 title={subtitle}>{subtitle}</h2>
 			{subtitleTagLabel ? <TagDefault>{subtitleTagLabel}</TagDefault> : null}
-		</div>
+		</StackHorizontal>
 	);
 }
 
