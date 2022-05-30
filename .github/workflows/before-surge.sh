@@ -25,6 +25,7 @@ cp -R packages/design-tokens/storybook-static/* .static/design-tokens
 cp -R packages/faceted-search/storybook-static/* .static/faceted-search
 cp -R packages/forms/storybook-static/* .static/forms
 cp -R packages/icons/storybook-static/* .static/icons
+cp -R packages/icons/dist .static/icons
 cp -R packages/theme/dist/* .static/theme
 cp -R packages/theme/dist .static/theme
 echo Size of demo:
