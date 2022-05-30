@@ -1,7 +1,7 @@
 # React-bootstrap to @talend/react-bootstrap
 
 ```bash
-jscodeshift -t ./index.js TARGET_PATH
+find -E TARGET_PATH -regex '.*\.(jsx?|tsx?)' | xargs npx jscodeshift -t ./index.js
 ```
 
 This script transform react-bootstrap imports

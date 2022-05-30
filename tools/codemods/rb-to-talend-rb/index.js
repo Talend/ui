@@ -1,3 +1,5 @@
+export const parser = 'tsx';
+
 export default function transformer(file, { jscodeshift: j }, options) {
 	const source = j(file.source);
 
