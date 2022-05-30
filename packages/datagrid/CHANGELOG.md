@@ -1,5 +1,14 @@
 # @talend/react-datagrid
 
+## 9.2.2
+
+### Patch Changes
+
+- 5475efd58: Cleanup internal renderer API: remove usage of `frameworkComponents` to stick to ag-grid API & documentation
+- Updated dependencies [7d1f9f509]
+- Updated dependencies [66fa02548]
+  - @talend/react-components@6.47.0
+
 ## 9.2.1
 
 ### Patch Changes
