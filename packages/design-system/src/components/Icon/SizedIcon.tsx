@@ -1,8 +1,13 @@
 import React from 'react';
-import { Icon, IconSize, sizes } from '@talend/icons';
+import { Icon, IconSize } from '@talend/icons';
 
 const getNumericSize = (size: IconSize) => {
-	return sizes[size];
+	return {
+		XS: 8,
+		S: 12,
+		M: 16,
+		L: 24,
+	}[size];
 };
 
 export function SizedIcon<S extends IconSize>({ name, size }: Icon<S>) {
