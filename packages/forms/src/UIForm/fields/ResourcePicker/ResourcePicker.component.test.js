@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Button } from 'react-bootstrap';
+import { Button } from '@talend/react-bootstrap';
 
 import ResourcePicker from './ResourcePicker.component';
 
