@@ -1,6 +1,6 @@
 import { Meta, IconGallery } from '@storybook/addon-docs';
 
-import Icon, { realIconSizes, getTshirtSize, IconToolbar, IconItem } from './Icon';
+import Icon, { realIconSizes, getTShirtSize, IconToolbar, IconItem } from './Icon';
 import { infoFromFigma as icons } from '../dist/info';
 
 <Meta title="Icons by size" />
@@ -10,17 +10,17 @@ import { infoFromFigma as icons } from '../dist/info';
 <IconToolbar />
 
 <div>
-	{realIconSizes.map((size, i) => (
+	{realIconSizes.map((realIconSize, i) => (
 		<section key={i}>
-			<h2>{getTshirtSize(size)}</h2>
+			<h2>{getTShirtSize(realIconSize)}</h2>
 			<IconGallery>
 				{Object.entries(icons)
-					.filter(([, s]) => s === size)
+					.filter(([, size]) => size === realIconSize)
 					.map(([name, size], j) => {
-						const currentTshirtSize = getTshirtSize(size);
+						const currentTShirtSize = getTShirtSize(size);
 						return (
-							<IconItem key={j} name={name.split(':')[0] + ':' + currentTshirtSize}>
-								<Icon size={currentTshirtSize} name={name} />
+							<IconItem key={j} name={name.split(':')[0] + ':' + currentTShirtSize}>
+								<Icon size={currentTShirtSize} name={name} />
 							</IconItem>
 						);
 					})}

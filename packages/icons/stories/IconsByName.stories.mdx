@@ -3,9 +3,9 @@ import { Meta, IconGallery } from '@storybook/addon-docs';
 import Icon, {
 	realIconNames,
 	realIconSizes,
-	getTshirtSize,
+	getTShirtSize,
 	IconToolbar,
-    IconItem,
+	IconItem,
 	HiddenIconItem,
 } from './Icon';
 import { infoFromFigma as icons } from '../dist/info';
@@ -22,12 +22,12 @@ import { infoFromFigma as icons } from '../dist/info';
 			<h2>{name}</h2>
 			<IconGallery>
 				{realIconSizes.map((size, j) => {
-					const tshirtSize = getTshirtSize(size);
+					const tShirtSize = getTShirtSize(size);
 					const isFound = Object.keys(icons).find(key => key === name + ':' + size);
 					if (!isFound) return <HiddenIconItem key={j} />;
 					return (
-						<IconItem key={j} name={name + ':' + tshirtSize}>
-							<Icon size={tshirtSize} name={name} />
+						<IconItem key={j} name={name + ':' + tShirtSize}>
+							<Icon size={tShirtSize} name={name} />
 						</IconItem>
 					);
 				})}

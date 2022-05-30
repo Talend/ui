@@ -10,12 +10,18 @@ const getNumericSize = (size: IconSize) => {
 	}[size];
 };
 
-export function SizedIcon<S extends IconSize>({ name, size }: Icon<S>) {
-	const numericSize = getNumericSize(size);
-	const fullName = size ? `${name}:${numericSize}` : name;
-	return (
-		<svg style={{ width: numericSize, height: numericSize }}>
-			<use xlinkHref={`#${fullName}`} />
-		</svg>
-	);
-}
+const SizedIcon = React.forwardRef(
+	<S extends IconSize>({ name, size }: Icon<S>, ref: React.Ref<SVGSVGElement>) => {
+		const numericSize = getNumericSize(size);
+		const fullName = size ? `${name}:${numericSize}` : name;
+		return (
+			<svg style={{ width: numericSize, height: numericSize }} aria-hidden ref={ref}>
+				<use xlinkHref={`#${fullName}`} />
+			</svg>
+		);
+	},
+);
+
+SizedIcon.displayName = 'SizedIcon';
+
+export { SizedIcon };

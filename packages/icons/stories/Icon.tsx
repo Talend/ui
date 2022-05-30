@@ -29,9 +29,10 @@ const legacyIconSizes = {
 	LG: '2.4rem',
 };
 
-export const realIconSizes = [...Array.from(new Set(Object.values(icons)))].sort(
-	(a, b) => parseInt(a) - parseInt(b),
-);
+export const realIconSizes: (keyof typeof iconSizes)[] = [
+	...Array.from(new Set(Object.values(icons) as (keyof typeof iconSizes)[])),
+].sort((a, b) => parseInt(a) - parseInt(b));
+
 export const realIconNames = [
 	...Array.from(new Set(Object.keys(icons).map(icon => icon.split(':')[0]))),
 ].sort();
@@ -40,7 +41,7 @@ export const getRealSize = (size: keyof typeof iconSizes) => {
 	return iconSizes[size];
 };
 
-export const getTshirtSize = (size: keyof typeof iconSizes) => {
+export const getTShirtSize = (size: keyof typeof iconSizes) => {
 	return (Object.keys(iconSizes) as (keyof typeof iconSizes)[]).find(
 		iconSize => iconSizes[iconSize] === parseInt(size),
 	);

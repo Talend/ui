@@ -1,5 +1,4 @@
 import React from 'react';
-import { Story } from '@storybook/react';
 
 import Icon from './Icon';
 import { info as icons } from '../dist/info';
@@ -28,16 +27,4 @@ export const Usage = {
 			},
 		},
 	},
-	decorators: [
-		(Story: Story) => (
-			<>
-				<style
-					dangerouslySetInnerHTML={{
-						__html: '.sb-docs.sb-docs-svg svg { width: 2.4rem; height: 2.4rem; }',
-					}}
-				/>
-				<Story />
-			</>
-		),
-	],
 };

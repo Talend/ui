@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 
-import Icon, { getTshirtSize, realIconNames, realIconSizes } from './Icon';
+import Icon, { getTShirtSize, realIconNames, realIconSizes } from './Icon';
 
 export default {
 	title: 'Icon',
@@ -15,8 +15,7 @@ export const Usage = {
 	},
 	argTypes: {
 		size: {
-			// @ts-ignore
-			options: realIconSizes.map(getTshirtSize),
+			options: realIconSizes.map(iconSize => getTShirtSize(iconSize)),
 			control: {
 				type: 'select',
 			},
