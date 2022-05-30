@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { IconItem } from '@storybook/addon-docs';
+import { IconItem as StorybookIconItem } from '@storybook/addon-docs';
 
 import tokens from '@talend/design-tokens';
 
 import { infoFromFigma as icons } from '../dist/info';
+import { useCopyToClipboard } from 'react-use';
+import { PropsWithChildren } from 'react';
 
 const iconColorTokens = {
 	'neutral/icon': tokens.coralColorNeutralIcon,
@@ -134,9 +136,39 @@ export const HiddenIconItem = () => {
 		}
 	}, [ref]);
 	return (
-		<IconItem name="">
+		<StorybookIconItem name="">
 			<div ref={ref} />
-		</IconItem>
+		</StorybookIconItem>
+	);
+};
+
+export const IconItem = ({
+	name,
+	children,
+	...rest
+}: PropsWithChildren<typeof StorybookIconItem>) => {
+	const ref = React.createRef<HTMLDivElement>();
+	const [, copyToClipboard] = useCopyToClipboard();
+	const onClickHandler = () => {
+		const nameToCopy = name.split(':')[0];
+		copyToClipboard(nameToCopy);
+		alert(`"${nameToCopy}" has been copied to clipboard`);
+	};
+	React.useLayoutEffect(() => {
+		const hook = ref.current;
+		if (hook) {
+			const element = hook?.childNodes[0];
+			if (element) {
+				hook.className = (element as HTMLDivElement).className;
+			}
+		}
+	}, [ref]);
+	return (
+		<StorybookIconItem name={name} {...rest}>
+			<div role="button" onClick={onClickHandler} onKeyPress={onClickHandler} tabIndex={0}>
+				{children}
+			</div>
+		</StorybookIconItem>
 	);
 };
 
