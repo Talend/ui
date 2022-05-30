@@ -36,10 +36,14 @@ function extractFiles(folder) {
 			return Object.assign(acc, files);
 		}
 		const iconId = getIconId(file);
-		if (acc[iconId]) {
-			throw new Error(`Icon ${iconId} already included in the bundle`);
+		const parentFolder = path.basename(path.dirname(p));
+		const iconIdWithSize = `${!isNaN(parentFolder) ? `${iconId}:${parentFolder}` : iconId}`;
+		if (acc[iconIdWithSize]) {
+			throw new Error(`Icon ${iconIdWithSize} already included in the bundle`);
 		}
-		return Object.assign(acc, { [iconId]: fs.readFileSync(path.resolve(dir, file)) });
+		return Object.assign(acc, {
+			[iconIdWithSize]: fs.readFileSync(path.resolve(dir, file)),
+		});
 	}, {});
 }
 
@@ -54,10 +58,12 @@ function extractInfo(folder, parent) {
 		}
 		// check if the same file exists in another bundle
 		const iconId = getIconId(file);
-		if (acc[iconId]) {
-			throw new Error(`Icon ${iconId} already included in the bundle`);
+		const parentFolder = path.basename(path.dirname(p));
+		const iconIdWithSize = `${!isNaN(parentFolder) ? `${iconId}:${parentFolder}` : iconId}`;
+		if (acc[iconIdWithSize]) {
+			throw new Error(`Icon ${iconIdWithSize} already included in the bundle`);
 		}
-		return Object.assign(acc, { [iconId]: { parent } });
+		return Object.assign(acc, { [iconIdWithSize]: { parent } });
 	}, {});
 }
 
