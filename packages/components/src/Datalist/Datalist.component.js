@@ -412,6 +412,7 @@ function Datalist(props) {
 					itemsList: theme.items,
 				}}
 				value={filterValue}
+				valueId={value}
 				caret
 			/>
 		</FocusManager>

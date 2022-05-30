@@ -10,8 +10,6 @@ import QualityIndicator from './QualityIndicator.component';
 import AvroRenderer from './AvroRenderer.component';
 import theme from './DefaultCell.scss';
 
-export const CELL_RENDERER_COMPONENT = 'cellRenderer';
-
 function convertValue(value) {
 	if (!value.toJS) {
 		return value;

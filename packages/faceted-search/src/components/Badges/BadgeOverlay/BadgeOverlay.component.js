@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Overlay from 'react-bootstrap/lib/Overlay';
-import Popover from 'react-bootstrap/lib/Popover';
-import Button from 'react-bootstrap/lib/Button';
+import { Popover, Button, Overlay } from '@talend/react-bootstrap';
 import Icon from '@talend/react-components/lib/Icon';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 import FormatValue from '@talend/react-components/lib/FormatValue';
@@ -90,15 +88,9 @@ const BadgeOverlay = ({
 			data-feature={dataFeature}
 		>
 			{iconName && (
-				<Icon
-					name={`talend-${iconName}`}
-					key="icon"
-					className={theme('tc-badge-link-plus-icon')}
-				/>
+				<Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />
 			)}
-			{hasAddButton && (
-				<span>{t('BASIC_SEARCH_ADD_FILTER', { defaultValue: 'Add filter' })}</span>
-			)}
+			{hasAddButton && <span>{t('BASIC_SEARCH_ADD_FILTER', { defaultValue: 'Add filter' })}</span>}
 			{!iconName && getLabel(label, showSpecialChars)}
 		</Button>
 	);
