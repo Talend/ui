@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ButtonGroup } from 'react-bootstrap';
+import { ButtonGroup } from '@talend/react-bootstrap';
 import classNames from 'classnames';
 import Action from './Action';
 import OverlayTrigger from '../OverlayTrigger';

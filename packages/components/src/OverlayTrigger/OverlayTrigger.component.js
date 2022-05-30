@@ -1,6 +1,6 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import Popover from 'react-bootstrap/lib/Popover';
+import { Popover } from '@talend/react-bootstrap';
 import classNames from 'classnames';
 import BaseOverlayTrigger from './OverlayTrigger.forked';
 import Inject from '../Inject';
