@@ -1,5 +1,11 @@
 # @talend/upgrade-deps
 
+## 1.4.1
+
+### Patch Changes
+
+- 2814f3a5c: fix: remove useless log
+
 ## 1.4.0
 
 ### Minor Changes
