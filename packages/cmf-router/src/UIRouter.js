@@ -78,9 +78,8 @@ function isDifferent(historyA, historyB) {
 	const isDiff =
 		historyA.location.pathname !== historyB.location.pathname ||
 		historyA.location.search !== historyB.location.search ||
+		historyA.location.key !== historyB.location.key ||
 		historyA.location.hash !== historyB.location.hash;
-	// eslint-disable-next-line no-console
-	console.log({ isDiff });
 	return isDiff;
 }
 
@@ -95,9 +94,6 @@ export function getRouter(history, basename) {
 		// sync from history to redux
 		React.useEffect(() => {
 			return history.listen(opts => {
-				// eslint-disable-next-line no-console
-				console.log('#### listen', opts.action, opts.location);
-
 				if (isDifferent(opts, { action, location })) {
 					props.dispatch(onLocationChanged(opts.location, opts.action));
 				}
