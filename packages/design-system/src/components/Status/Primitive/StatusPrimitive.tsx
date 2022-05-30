@@ -4,7 +4,7 @@ import { Icon } from '@talend/icons';
 
 import Tooltip from '../../Tooltip';
 import Loading from '../../Loading';
-import { SizedIcon } from '../../Icon/SizedIcon';
+import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
 
 import styles from './Status.module.scss';

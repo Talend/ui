@@ -15,19 +15,15 @@ const icons = Object.keys(src.svgs)
 	.map((key, index) => `    ${index > 0 ? '|' : ''} 'talend-${key}'`)
 	.join('\n');
 
+const iconsSizesMapping = {
+	XS: 8,
+	S: 12,
+	M: 16,
+	L: 24,
+};
+
 const getTShirtSize = size => {
-	switch (size) {
-		case '8':
-			return 'XS';
-		case '12':
-			return 'S';
-		case '16':
-			return 'M';
-		case '24':
-			return 'L';
-		default:
-			return 'XL';
-	}
+	return Object.keys(iconsSizesMapping).find(k => iconsSizesMapping[k] === parseInt(size));
 };
 
 const srcFolder = path.join(__dirname, '../src');
@@ -53,6 +49,8 @@ ${icons}
     | string;
 
 export declare type LegacyIcon = { name: IconName };
+
+export const sizes = ${JSON.stringify(iconsSizesMapping)} as const;
 
 export const icons = { ${Object.entries(files)
 			.map(
