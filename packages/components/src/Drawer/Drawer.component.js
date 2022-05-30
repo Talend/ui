@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 import noop from 'lodash/noop';
 import { Transition } from 'react-transition-group';
 import classnames from 'classnames';
-import { TagDefault } from '@talend/design-system';
+import { TagDefault, StackHorizontal } from '@talend/design-system';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
