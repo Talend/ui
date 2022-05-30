@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SkeletonParagraph } from '@talend/design-system';
 import classNames from 'classnames';
 
@@ -27,7 +27,7 @@ function RichCellEditor(props: RichCellEditorPropTypes) {
 	const [value, setValue] = useState(initialValue);
 
 	const previousCellColor = useRef<string>();
-	React.useEffect(() => {
+	useEffect(() => {
 		previousCellColor.current = eGridCell.style.color;
 		eGridCell.style.color = 'transparent';
 		return () => {
