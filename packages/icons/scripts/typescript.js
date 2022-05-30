@@ -67,7 +67,7 @@ export declare type IconSize = ${Object.keys(files)
 			.map(k => `'${getTShirtSize(k)}'`)
 			.join(' | ')};
 
-export declare type IconNameWithSize<S extends IconSize> = keyof typeof icons[S];
+export declare type IconNameWithSize<S extends IconSize> = typeof icons[S][number];
 
 export declare type Icon<S extends IconSize> = {
     size: S;
