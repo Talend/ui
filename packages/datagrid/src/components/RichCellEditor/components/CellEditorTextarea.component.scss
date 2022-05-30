@@ -3,6 +3,6 @@
 textarea.cell-editor-textarea {
 	margin: 0;
 	padding: tokens.$coral-spacing-xs;
-	font-family: 'Inconsolata'; // tokens.$coral-data-m; Token not yet available
+	font: tokens.$coral-data-m;
 	outline: 0;
 }

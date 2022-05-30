@@ -1,7 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens' as tokens;
 
 .cell-editor-datalist {
-	font-family: 'Inconsolata'; // tokens.$coral-data-m; Token not yet available
+	font: tokens.$coral-data-m;
 
 	[class*='Datalist__tc-datalist-item'],
 	[class*='Typeahead__tc-typeahead-container'],
