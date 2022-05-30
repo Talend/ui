@@ -1,7 +1,7 @@
 import { ButtonIcon } from '@talend/design-system';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Overlay, Popover } from 'react-bootstrap';
+import { Overlay, Popover } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import ColumnChooser from './ColumnChooser';

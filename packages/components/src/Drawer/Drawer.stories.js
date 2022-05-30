@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Nav, NavItem, Tab } from 'react-bootstrap';
+import { Nav, NavItem, Tab } from '@talend/react-bootstrap';
 
 import Drawer from './Drawer.component';
 

@@ -53,6 +53,15 @@
       }
     }
   },
+  "@talend/react-bootstrap": {
+    "var": "TalendReactBootstrap",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/TalendReactBootstrap.js",
+        "production": "/dist/TalendReactBootstrap.min.js"
+      }
+    }
+  },
   "@talend/react-components": {
     "var": "TalendReactComponents",
     "versions": {

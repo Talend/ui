@@ -6,13 +6,13 @@ import { mount } from 'enzyme';
 
 import ConfirmDialog from './ConfirmDialog.component';
 
-function mockFakeComponent(name) {
+function mockFakeComponent(name, Component) {
 	const fakeComponent = ({ children, className, ...rest }) => {
 		const mergedClassName = classNames(className, name, 'mocked-component');
-		return (
-			<div {...rest} className={mergedClassName}>
-				{children}
-			</div>
+		return React.createElement(
+			Component || 'div',
+			{ ...rest, className: mergedClassName },
+			children,
 		);
 	};
 	fakeComponent.propTypes = {
@@ -22,16 +22,22 @@ function mockFakeComponent(name) {
 	return fakeComponent;
 }
 
-jest.mock('react-bootstrap/lib/Modal', () => {
+jest.mock('@talend/react-bootstrap', () => {
 	const Modal = mockFakeComponent('Modal');
 	Modal.Header = mockFakeComponent('Header');
 	Modal.Title = mockFakeComponent('Title');
 	Modal.Body = mockFakeComponent('Body');
 	Modal.Footer = mockFakeComponent('Footer');
-
-	return Modal;
+	const ProgressBar = mockFakeComponent('ProgressBar');
+	const Overlay = mockFakeComponent('Overlay');
+	const MenuItem = mockFakeComponent('MenuItem');
+	const ButtonGroup = mockFakeComponent('ButtonGroup');
+	const Button = mockFakeComponent('Button', 'button');
+	const utils = {
+		createChainedFunction: jest.fn(),
+	};
+	return { Modal, ProgressBar, Overlay, utils, Button, ButtonGroup, MenuItem };
 });
-jest.mock('react-bootstrap/lib/ProgressBar', () => mockFakeComponent('ProgressBar'));
 
 const children = <div>BODY</div>;
 
