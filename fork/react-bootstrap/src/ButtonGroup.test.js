@@ -70,8 +70,8 @@ describe('ButtonGroup', () => {
     );
 
     // then
-    expect(console.error).toHaveBeenCalledWith(
-      'Warning: Failed prop type: `block` requires `vertical` to be set to have any effect\n    in ButtonGroup'
+    expect(console.error.mock.calls[0]).toContain(
+      '`block` requires `vertical` to be set to have any effect'
     );
   });
 
