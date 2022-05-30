@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
-import FormControl from 'react-bootstrap/lib/FormControl';
+import { FormControl } from '@talend/react-bootstrap';
 import keycode from 'keycode';
 import { useTranslation } from 'react-i18next';
 import { Action } from '../Actions';

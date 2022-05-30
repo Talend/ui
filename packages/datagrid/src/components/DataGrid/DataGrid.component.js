@@ -6,9 +6,9 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 
 import { Icon } from '@talend/design-system';
-import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
-import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
-import DefaultPinHeaderRenderer, { PIN_HEADER_RENDERER_COMPONENT } from '../PinHeaderRenderer';
+import DefaultHeaderRenderer from '../DefaultHeaderRenderer';
+import DefaultCellRenderer from '../DefaultCellRenderer';
+import DefaultPinHeaderRenderer from '../PinHeaderRenderer';
 import DefaultIntCellRenderer from '../DefaultIntCellRenderer';
 import DefaultRenderer from '../DefaultCellRenderer/DefaultRenderer.component';
 
@@ -234,12 +234,21 @@ export default class DataGrid extends React.Component {
 				minWidth: this.props.columnMinWidth,
 				valueGetter: this.props.getCellValueFn,
 				width: CELL_WIDTH,
+				[AG_GRID.CUSTOM_HEADER_KEY]: DefaultPinHeaderRenderer,
 				...pinnedColumnDef,
-				[AG_GRID.CUSTOM_HEADER_KEY]: PIN_HEADER_RENDERER_COMPONENT,
 			}));
 		}
 
 		if (columnDefs) {
+			const cellRenderer = injectCellRenderer(
+				this.props.cellRenderer,
+				getAvroRenderer(this.props.avroRenderer),
+			);
+			const headerRenderer = injectHeaderRenderer(
+				this.props.headerRenderer,
+				this.onFocusedColumn,
+				this.onKeyDownHeaderColumn,
+			);
 			adaptedColumnDefs = adaptedColumnDefs.concat(
 				columnDefs.map(columnDef => ({
 					lockPinned: true,
@@ -247,27 +256,15 @@ export default class DataGrid extends React.Component {
 					valueGetter: this.props.getCellValueFn,
 					width: CELL_WIDTH,
 					resizable: this.props.enableColResize,
+					[AG_GRID.CUSTOM_CELL_KEY]: cellRenderer,
+					[AG_GRID.CUSTOM_HEADER_KEY]: headerRenderer,
 					...columnDef,
-					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
-					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
 				})),
 			);
 		}
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
-		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: injectCellRenderer(
-				this.props.cellRenderer,
-				getAvroRenderer(this.props.avroRenderer),
-			),
-			[HEADER_RENDERER_COMPONENT]: injectHeaderRenderer(
-				this.props.headerRenderer,
-				this.onFocusedColumn,
-				this.onKeyDownHeaderColumn,
-			),
-			[PIN_HEADER_RENDERER_COMPONENT]: this.props.pinHeaderRenderer,
-			...this.props.frameworkComponents,
-		};
+
 		return agGridOptions;
 	}
 
