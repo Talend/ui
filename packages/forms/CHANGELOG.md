@@ -1,5 +1,19 @@
 # @talend/react-forms
 
+## 7.2.0
+
+### Minor Changes
+
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [7d1f9f509]
+- Updated dependencies [66fa02548]
+- Updated dependencies [66fa02548]
+  - @talend/react-components@6.47.0
+  - @talend/react-bootstrap@1.34.0
+
 ## 7.1.1
 
 ### Patch Changes
