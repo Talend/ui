@@ -28,5 +28,7 @@ cp -R packages/icons/storybook-static/* .static/icons
 cp -R packages/icons/dist .static/icons
 cp -R packages/theme/dist/* .static/theme
 cp -R packages/theme/dist .static/theme
+ls -larth packages/icons/dist
+ls -larth .static/icons
 echo Size of demo:
 du -d 1 -h .static
