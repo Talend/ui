@@ -3,11 +3,12 @@ name: Download icons from Figma
 on:
   repository_dispatch:
   workflow_dispatch:
-
+  
 jobs:
   download:
     runs-on: ubuntu-latest
     name: Download icons from Figma
+    environment: main
     defaults:
       run:
         working-directory: ./packages/icons
@@ -23,8 +24,8 @@ jobs:
           cache: "yarn"
 
       - name: Download icons
-        run: npx @talend/figma-icons-downloader
-        env:
+        run: npx @talend/figma-icons-downloader       
+        env:          
           FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
 
       - name: Generate Pull Request Body
