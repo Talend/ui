@@ -103,7 +103,7 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 }
 
 function renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip) {
-	if (subtitleTagLabel && subtitleTagTooltip) {
+	if (subtitleTagTooltip) {
 		return (
 			<Tooltip placement="top" title={subtitleTagTooltip}>
 				<TagDefault>{subtitleTagLabel}</TagDefault>
