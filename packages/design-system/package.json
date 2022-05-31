@@ -88,7 +88,7 @@
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.30.0",
-    "react-i18next": "^11.16.9",
+    "react-i18next": "^11.16.7",
     "react-is": "^16.13.1",
     "react-router-dom": "^6.3.0",
     "storybook-addon-mdx-embed": "^1.0.0",
