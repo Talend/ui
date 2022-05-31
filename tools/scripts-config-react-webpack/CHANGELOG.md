@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 12.1.1
+
+### Patch Changes
+
+- bfb2a493d: fix source-map for apps built with prod mode. Change `devtool` to 'source-map' because Terser plugin only supports limited source-map types.
+
 ## 12.1.0
 
 ### Minor Changes

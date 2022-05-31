@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.48.0
+
+### Minor Changes
+
+- bdf23018f: Add a tooltip to the tag
+
 ## 6.47.0
 
 ### Minor Changes

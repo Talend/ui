@@ -1,0 +1,36 @@
+import { Meta, IconGallery } from '@storybook/addon-docs';
+
+import Icon, {
+	realIconNames,
+	realIconSizes,
+	getTShirtSize,
+	IconToolbar,
+	IconItem,
+	HiddenIconItem,
+} from './Icon';
+import { infoFromFigma as icons } from '../dist/info';
+
+<Meta title="Icons by name" />
+
+# Icons
+
+<IconToolbar />
+
+<div>
+	{realIconNames.map((name, i) => (
+		<section key={i}>
+			<IconGallery>
+				{realIconSizes.map((size, j) => {
+					const tShirtSize = getTShirtSize(size);
+					const isFound = Object.keys(icons).find(key => key === name + ':' + size);
+					if (!isFound) return <HiddenIconItem key={j} />;
+					return (
+						<IconItem key={j} name={name + ':' + tShirtSize}>
+							<Icon size={tShirtSize} name={name} />
+						</IconItem>
+					);
+				})}
+			</IconGallery>
+		</section>
+	))}
+</div>
