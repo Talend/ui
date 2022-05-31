@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, useEffect, useRef } from 'react';
+import React, { HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
 import i18n from 'i18next';
 import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog';
 import { IconName } from '@talend/icons';
@@ -39,8 +39,7 @@ export type ModalPropsType = {
 	secondaryAction?: ButtonSecondaryPropsType;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
-	dataFeature?: string;
-};
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'>;
 
 function PrimaryAction(props: PrimaryActionPropsType) {
 	if (!('destructive' in props) || !props.destructive) {
@@ -61,7 +60,7 @@ function Modal(props: ModalPropsType): ReactElement {
 		secondaryAction,
 		preventEscaping,
 		children,
-		dataFeature = 'default-modal',
+		...rest
 	} = props;
 	const hasDisclosure = 'disclosure' in props;
 
@@ -88,8 +87,8 @@ function Modal(props: ModalPropsType): ReactElement {
 					<div className={styles['modal-container']}>
 						<Dialog
 							{...dialog}
+							{...rest}
 							data-test="modal"
-							data-feature={dataFeature}
 							className={styles.modal}
 							hide={preventEscaping ? undefined : () => onCloseHandler()}
 							ref={ref}
@@ -125,7 +124,7 @@ function Modal(props: ModalPropsType): ReactElement {
 											<ButtonSecondary
 												onClick={() => onCloseHandler()}
 												data-testid="modal.buttons.close"
-												data-feature={`${dataFeature}.modal.buttons.close`}
+												data-feature="modal.buttons.close"
 											>
 												{primaryAction || secondaryAction
 													? i18n.t('CLOSE', 'Close')
@@ -137,7 +136,7 @@ function Modal(props: ModalPropsType): ReactElement {
 											<ButtonSecondary
 												{...secondaryAction}
 												data-testid="modal.buttons.secondary"
-												data-feature={`${dataFeature}.modal.buttons.secondary`}
+												data-feature="modal.buttons.secondary"
 											/>
 										)}
 
@@ -145,7 +144,7 @@ function Modal(props: ModalPropsType): ReactElement {
 											<PrimaryAction
 												{...primaryAction}
 												data-testid="modal.buttons.primary"
-												data-feature={`${dataFeature}.modal.buttons.primary`}
+												data-feature="modal.buttons.primary"
 											/>
 										)}
 									</StackHorizontal>
