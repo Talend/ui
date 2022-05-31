@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.41.1
+
+### Patch Changes
+
+- 293a4ebd9: feat(icons): expose icons from figma as extra svg sprites
+
 ## 6.41.0
 
 ### Minor Changes

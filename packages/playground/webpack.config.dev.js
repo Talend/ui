@@ -60,12 +60,12 @@ const webpackConfig = {
 		}),
 	],
 	output: {
-		publicPath: '/playground',
+		publicPath: process.env.BASENAME || '/',
 	},
 	devServer: {
 		onBeforeSetupMiddleware: mockBackend,
 		historyApiFallback: {
-			index: `${process.env.BASENAME || ''}/index.html`,
+			index: `${process.env.BASENAME || '/'}index.html`,
 		},
 	},
 };

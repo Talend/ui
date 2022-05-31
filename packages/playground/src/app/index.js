@@ -3,7 +3,6 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-import { createHistory, useBasename } from 'history';
 import getRouter from '@talend/react-cmf-router';
 import React from 'react';
 import cmf from '@talend/react-cmf';
@@ -21,15 +20,12 @@ import { Dataviz } from './components/Dataviz';
 import actions from './actions';
 
 // thanks ui-scripts
-const basename = window.basename;
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const history = useBasename(createHistory)({
-	// NOTE that we remove the trailing slash (/) at the end
-	// This ensures that the pathname resolution, with or without the basename, still starts with `/`
-	basename: basename.replace(/\/$/, ''),
-});
+let basename = window.basename;
+if (basename === '/') {
+	basename = undefined;
+}
 
-const router = getRouter({ history });
+const router = getRouter({ basename });
 
 initI18n();
 const allsvg = `${basename || ''}/cdn/@talend/icons/${
