@@ -372,3 +372,49 @@ describe('Drawer', () => {
 		);
 	});
 });
+
+describe('Drawer title', () => {
+	it('should render drawer title with a tag', () => {
+		function getComponent(name) {
+			if (name === 'EditableText') {
+				return function EditableText() {
+					return <input />;
+				};
+			}
+			return null;
+		}
+
+		const props = {
+			getComponent,
+			title: 'test',
+			subtitle: 'subtitle test',
+			subtitleTagLabel: 'BETA',
+		};
+
+		const wrapper = mount(<Drawer.Title {...props} />);
+		expect(wrapper.find('TagDefault')).toHaveLength(1);
+	});
+	it('should render drawer title with a tag and a tooltip', () => {
+		function getComponent(name) {
+			if (name === 'EditableText') {
+				return function EditableText() {
+					return <input />;
+				};
+			}
+			return null;
+		}
+
+		const props = {
+			getComponent,
+			title: 'test',
+			subtitle: 'subtitle test',
+			subtitleTagLabel: 'BETA',
+			subtitleTagTooltip: 'It might work :D',
+		};
+
+		const wrapper = mount(<Drawer.Title {...props} />);
+
+		expect(wrapper.find('Tooltip')).toHaveLength(1);
+		expect(wrapper.find('TagDefault')).toHaveLength(1);
+	});
+});
