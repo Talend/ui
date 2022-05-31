@@ -122,7 +122,7 @@ export function SubtitleComponent({ subtitle, ...rest }) {
 	return (
 		<StackHorizontal gap="XXS">
 			<h2 title={subtitle}>{subtitle}</h2>
-			{renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip)}
+			{subtitleTagLabel && renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip)}
 		</StackHorizontal>
 	);
 }
