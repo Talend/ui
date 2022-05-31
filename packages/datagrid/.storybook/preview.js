@@ -1,6 +1,6 @@
 import { namespaces as dsNamespaces } from '@talend/locales-design-system/namespaces';
 import { namespaces as componentsNamespaces } from '@talend/locales-tui-components/namespaces';
-import { namespaces as datagridNamespaces } from '@talend/locales-tui-components/namespaces';
+import { namespaces as datagridNamespaces } from '@talend/locales-tui-datagrid/namespaces';
 
 export const namespaces = [dsNamespaces, componentsNamespaces, datagridNamespaces];
 
