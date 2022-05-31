@@ -22,7 +22,7 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 	const isWantedScope = scopeFolderPath.endsWith(`${path.sep}${scope}`);
 	return fs
 		.readdirSync(scopeFolderPath, { withFileTypes: true })
-		.filter(f => f.isDirectory())
+		.filter(f => f.isDirectory() || f.isSymbolicLink())
 		.reduce((accu, subFolder) => {
 			const subFolderPath = path.join(scopeFolderPath, subFolder.name);
 			if (isWantedScope && subFolder.name === name) {
@@ -45,7 +45,7 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 	return fs
 		.readdirSync(nonScopeFolderPath, { withFileTypes: true })
-		.filter(f => f.isDirectory())
+		.filter(f => f.isDirectory() || f.isSymbolicLink())
 		.reduce((accu, subFolder) => {
 			if (subFolder.name === '.bin') {
 				return accu;
