@@ -61,7 +61,7 @@
     "@talend/icons": "^6.40.0",
     "@talend/locales-tui-forms": "^6.41.3",
     "@talend/react-components": "^6.47.0",
-    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-core": "^11.6.0",
     "@talend/scripts-preset-react-lib": "^11.0.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
