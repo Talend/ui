@@ -33,12 +33,13 @@ export type ModalPropsType = {
 		description?: string;
 		icon?: IconProp;
 	};
-	onClose?: Function;
+	onClose?: () => void;
 	disclosure?: ReactElement;
 	primaryAction?: PrimaryActionPropsType;
 	secondaryAction?: ButtonSecondaryPropsType;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
+	dataFeature?: string;
 };
 
 function PrimaryAction(props: PrimaryActionPropsType) {
@@ -52,8 +53,16 @@ function PrimaryAction(props: PrimaryActionPropsType) {
 }
 
 function Modal(props: ModalPropsType): ReactElement {
-	const { header, primaryAction, disclosure, onClose, secondaryAction, preventEscaping, children } =
-		props;
+	const {
+		header,
+		primaryAction,
+		disclosure,
+		onClose,
+		secondaryAction,
+		preventEscaping,
+		children,
+		dataFeature,
+	} = props;
 	const hasDisclosure = 'disclosure' in props;
 
 	const dialog = useDialogState({ visible: !hasDisclosure });
@@ -80,6 +89,7 @@ function Modal(props: ModalPropsType): ReactElement {
 						<Dialog
 							{...dialog}
 							data-test="modal"
+							data-feature={dataFeature}
 							className={styles.modal}
 							hide={preventEscaping ? undefined : () => onCloseHandler()}
 							ref={ref}
@@ -115,6 +125,7 @@ function Modal(props: ModalPropsType): ReactElement {
 											<ButtonSecondary
 												onClick={() => onCloseHandler()}
 												data-testid="modal.buttons.close"
+												data-feature={`${dataFeature}.modal.buttons.close`}
 											>
 												{primaryAction || secondaryAction
 													? i18n.t('CLOSE', 'Close')
@@ -123,11 +134,19 @@ function Modal(props: ModalPropsType): ReactElement {
 										</span>
 
 										{secondaryAction && (
-											<ButtonSecondary {...secondaryAction} data-testid="modal.buttons.secondary" />
+											<ButtonSecondary
+												{...secondaryAction}
+												data-testid="modal.buttons.secondary"
+												data-feature={`${dataFeature}.modal.buttons.secondary`}
+											/>
 										)}
 
 										{primaryAction && (
-											<PrimaryAction {...primaryAction} data-testid="modal.buttons.primary" />
+											<PrimaryAction
+												{...primaryAction}
+												data-testid="modal.buttons.primary"
+												data-feature={`${dataFeature}.modal.buttons.primary`}
+											/>
 										)}
 									</StackHorizontal>
 								</div>
