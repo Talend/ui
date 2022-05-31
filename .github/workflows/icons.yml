@@ -20,8 +20,6 @@ jobs:
         with:
           node-version: 16
           check-latest: true
-          registry-url: "https://registry.npmjs.org/"
-          scope: "@talend"
           cache: "yarn"
 
       - name: Download icons
