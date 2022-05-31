@@ -200,7 +200,6 @@ function getOnError(dispatch, httpAction) {
 						if (httpAction.onError) {
 							dispatch(http.onActionError(httpAction, errorObject));
 						}
-
 						if (typeof httpAction.onError !== 'function') {
 							dispatch(http.onError(errorObject));
 						}

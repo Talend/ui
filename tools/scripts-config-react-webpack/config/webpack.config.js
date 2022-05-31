@@ -303,18 +303,7 @@ module.exports = ({ getUserConfig, mode }) => {
 
 		return {
 			mode,
-			entry: {
-				polyfills: [
-					'regenerator-runtime',
-					'core-js-bundle',
-					isEnvDevelopment && path.join(__dirname, 'wdyr.js'),
-				].filter(Boolean),
-				theme: [
-					'@talend/bootstrap-theme',
-					theme && `@talend/bootstrap-theme/src/theme/variations/_${theme}.scss`,
-				].filter(Boolean),
-				app: [`${process.cwd()}/src/app/index`],
-			},
+			entry: `${process.cwd()}/src/app/index`,
 			output: {
 				filename: getFileNameForExtension('js', jsPrefix),
 				chunkFilename: getFileNameForExtension('js', jsPrefix),
