@@ -4,7 +4,6 @@ import ButtonPrimary, { ButtonPrimaryPropsType } from './variations/ButtonPrimar
 import ButtonSecondary, { ButtonSecondaryPropsType } from './variations/ButtonSecondary';
 import ButtonTertiary, { ButtonTertiaryPropsType } from './variations/ButtonTertiary';
 import ButtonDestructive, { ButtonDestructivePropsType } from './variations/ButtonDestructive';
-import Clickable from '../Clickable';
 import { ButtonVariantType } from './Primitive/ButtonPrimitive';
 
 type Primary = ButtonVariantType<'primary', ButtonPrimaryPropsType>;
@@ -37,7 +36,7 @@ const Button = forwardRef((props: ButtonType, ref: Ref<HTMLButtonElement>) => {
 		}
 
 		default: {
-			return <Clickable {...props} ref={ref} />;
+			return null;
 		}
 	}
 });

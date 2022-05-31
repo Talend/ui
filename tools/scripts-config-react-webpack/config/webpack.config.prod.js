@@ -9,6 +9,7 @@ module.exports = () => ({
 			// This is only used in production mode
 			new TerserPlugin({
 				terserOptions: {
+					sourceMap: true,
 					parse: {
 						// we want terser to parse ecma 8 code. However, we don't want it
 						// to apply any minfication steps that turns valid ecma 5 code
@@ -45,6 +46,8 @@ module.exports = () => ({
 				// Use multi-process parallel running to improve the build speed
 				// Default number of concurrent runs: os.cpus().length - 1
 				parallel: true,
+				// Enable file caching
+				cache: true,
 			}),
 		],
 	},

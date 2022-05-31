@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "",
   "main": "lib/index.js",
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",

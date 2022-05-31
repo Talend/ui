@@ -19,7 +19,7 @@
     "lint": "yarn lint:es && yarn lint:style",
     "lint:es": "talend-scripts lint:es",
     "lint:style": "talend-scripts lint:style",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [
     "react",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.1.0",
-    "@talend/icons": "^6.41.0",
+    "@talend/icons": "^6.41.1",
     "@talend/react-components": "^6.47.0",
     "ag-grid-community": "^27.2.1",
     "ag-grid-react": "^27.2.1",
@@ -46,15 +46,16 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/design-system": "^2.6.0",
-    "@talend/icons": "^6.41.0",
+    "@talend/design-system": "^2.6.1",
+    "@talend/icons": "^6.41.1",
     "@talend/locales-tui-datagrid": "^6.36.5",
     "@talend/scripts-core": "^11.7.1",
     "@talend/scripts-preset-react-lib": "^11.0.3",
-    "@testing-library/react": "^12.1.5",
     "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
+    "i18next-scanner-typescript": "^1.0.6",
     "jsdom": "^16.7.0",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
@@ -71,5 +72,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "9.2.2"
+  "version": "9.2.3"
 }

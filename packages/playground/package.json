@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-playground",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Showcase Talend/UI",
   "private": true,
   "main": "app/index.js",
@@ -34,7 +34,7 @@
     "@talend/react-bootstrap": "^1.31.1",
     "@talend/icons": "^6.40.0",
     "@talend/react-cmf": "^7.0.2",
-    "@talend/react-cmf-router": "^4.0.1",
+    "@talend/react-cmf-router": "^5.0.0",
     "@talend/react-components": "^6.46.3",
     "@talend/react-containers": "^7.0.5",
     "@talend/react-datagrid": "^9.0.1",
