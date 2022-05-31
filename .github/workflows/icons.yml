@@ -4,6 +4,9 @@ on:
   repository_dispatch:
   workflow_dispatch:
 
+env:          
+  FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
+  
 jobs:
   download:
     runs-on: ubuntu-latest
@@ -24,8 +27,6 @@ jobs:
 
       - name: Download icons
         run: npx @talend/figma-icons-downloader
-        env:
-          FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
 
       - name: Generate Pull Request Body
         id: get-pr-body
