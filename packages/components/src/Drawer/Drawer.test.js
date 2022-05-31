@@ -373,46 +373,34 @@ describe('Drawer', () => {
 	});
 });
 
+function getComponent(name) {
+	if (name === 'EditableText') {
+		return function EditableText() {
+			return <input />;
+		};
+	}
+	return null;
+}
+
+const tagTitleProps = {
+	getComponent,
+	title: 'test',
+	subtitle: 'subtitle test',
+	subtitleTagLabel: 'BETA',
+};
+
 describe('Drawer title', () => {
 	it('should render drawer title with a tag', () => {
-		function getComponent(name) {
-			if (name === 'EditableText') {
-				return function EditableText() {
-					return <input />;
-				};
-			}
-			return null;
-		}
-
-		const props = {
-			getComponent,
-			title: 'test',
-			subtitle: 'subtitle test',
-			subtitleTagLabel: 'BETA',
-		};
-
-		const wrapper = mount(<Drawer.Title {...props} />);
+		const wrapper = mount(<Drawer.Title {...tagTitleProps} />);
 		expect(wrapper.find('TagDefault')).toHaveLength(1);
 	});
 	it('should render drawer title with a tag and a tooltip', () => {
-		function getComponent(name) {
-			if (name === 'EditableText') {
-				return function EditableText() {
-					return <input />;
-				};
-			}
-			return null;
-		}
-
-		const props = {
-			getComponent,
-			title: 'test',
-			subtitle: 'subtitle test',
-			subtitleTagLabel: 'BETA',
+		const tooltipAndTagTitleProps = {
+			...tagTitleProps,
 			subtitleTagTooltip: 'It might work :D',
 		};
 
-		const wrapper = mount(<Drawer.Title {...props} />);
+		const wrapper = mount(<Drawer.Title {...tooltipAndTagTitleProps} />);
 
 		expect(wrapper.find('Tooltip')).toHaveLength(1);
 		expect(wrapper.find('TagDefault')).toHaveLength(1);
