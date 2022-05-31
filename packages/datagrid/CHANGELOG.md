@@ -1,5 +1,13 @@
 # @talend/react-datagrid
 
+## 9.2.3
+
+### Patch Changes
+
+- f1c69c2e3: Translations not loaded in storybook & not configured for typescript
+- Updated dependencies [293a4ebd9]
+  - @talend/icons@6.41.1
+
 ## 9.2.2
 
 ### Patch Changes

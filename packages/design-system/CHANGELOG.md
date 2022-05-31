@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 2.6.1
+
+### Patch Changes
+
+- 445887d9e: Spread in default case for collection component switch was not typesafe. Default case should be unreachable in TS anyways.
+
 ## 2.6.0
 
 ### Minor Changes
