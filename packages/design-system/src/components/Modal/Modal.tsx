@@ -61,7 +61,7 @@ function Modal(props: ModalPropsType): ReactElement {
 		secondaryAction,
 		preventEscaping,
 		children,
-		dataFeature,
+		dataFeature = 'default-modal',
 	} = props;
 	const hasDisclosure = 'disclosure' in props;
 
