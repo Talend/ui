@@ -31,8 +31,8 @@ jobs:
       - name: Generate Pull Request Body
         id: get-pr-body
         run: |
-          git add output
-          git diff --name-only HEAD ./output | zip diff.zip -@
+          git add src
+          git diff --name-only HEAD ./src | zip diff.zip -@
           mkdir .tmp
           unzip diff.zip -d .tmp/
           body="<h1>This Pull-Request was auto-generated</h1><p>Please, don't update this PR manually!</p><br/><h2>Modified files</h2> <pre>$(cd .tmp && du -sh && find . | sed 's;[^/]*/;|____;g' | sed 's;____|; |;g' | head -n 1000)</pre>"
