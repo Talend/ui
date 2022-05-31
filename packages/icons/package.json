@@ -6,11 +6,11 @@
   "style": "build/octicons.css",
   "license": "Apache-2.0",
   "scripts": {
-    "postinstall": "node scripts/typescript.js",
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env.production",
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
-    "build:lib": "npm run build-react && npm run build-webfont && npm run build-umd",
+    "build:lib": "npm run ts:types && npm run build-react && npm run build-webfont && npm run build-umd",
+    "ts:types": "node scripts/typescript.js",
     "test": "echo no test",
     "test:cov": "echo no test",
     "test:demo": "yarn build-storybook",
