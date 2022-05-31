@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = (on, config) => {
 	if (config.testingType === 'component') {
@@ -43,6 +44,11 @@ module.exports = (on, config) => {
 				filename: 'bundle.js',
 				path: path.resolve(__dirname, 'dist'),
 			},
+			plugins: [
+				new webpack.ProvidePlugin({
+					process: 'process/browser',
+				}),
+			],
 		};
 
 		on('dev-server:start', options => startDevServer({ options, webpackConfig }));

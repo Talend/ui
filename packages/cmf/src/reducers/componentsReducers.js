@@ -19,7 +19,7 @@ export function warnIfAnotherComponentBind(state, action) {
 	if (process.env.NODE_ENV !== 'production') {
 		if (state.getIn([action.componentName, action.key])) {
 			console.warn(`Beware component ${action.componentName} try to recreate an existing
- State namespace ${action.key}, meaning that the original one will be overloaded`);
+State namespace ${action.key}, meaning that the original one will be overloaded`);
 		}
 	}
 }
@@ -34,8 +34,8 @@ export function warnIfRemovingStateDoesntExist(state, action) {
 	if (process.env.NODE_ENV !== 'production') {
 		if (!state.getIn([action.componentName, action.key])) {
 			console.warn(`Beware the component ${action.componentName} try to remove a non existing
- State namespace ${action.key}, it isn't a normal behavior execpt if two component are binded
- to this specific namespace`);
+State namespace ${action.key}, it isn't a normal behavior execpt if two component are binded
+to this specific namespace`);
 		}
 	}
 }
@@ -52,7 +52,7 @@ export function errorIfMergingStateDoesntExist(state, action) {
 		invariant(
 			process.env.NODE_ENV === 'production',
 			`Error, the component ${action.componentName} try to mutate a non existing
- State namespace ${action.key}, this namespace may be not yet created or already removed.`,
+		State namespace ${action.key}, this namespace may be not yet created or already removed.`,
 		);
 	}
 }

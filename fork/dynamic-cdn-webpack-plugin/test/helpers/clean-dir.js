@@ -1,13 +1,14 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const rimraf = require('rimraf');
 
-module.exports = function (dir) {
-    return new Promise((resolve, reject) => {
-        rimraf(dir, err => {
-            if (err) {
-                return reject(err);
-            }
+module.exports = function cleanDir(dir) {
+	return new Promise((resolve, reject) => {
+		rimraf(dir, err => {
+			if (err) {
+				return reject(err);
+			}
 
-            resolve();
-        });
-    });
+			return resolve();
+		});
+	});
 };

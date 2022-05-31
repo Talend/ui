@@ -1,12 +1,18 @@
 /* eslint-disable no-console */
 const path = require('path');
 const fs = require('fs');
-const webpack = require('webpack');
 
 const runWebpack = require('./helpers/run-webpack');
 const cleanDir = require('./helpers/clean-dir');
 
 const DynamicCdnWebpackPlugin = require('../src').default;
+
+function getChunkFiles(stats) {
+	return Array.from(stats.compilation.chunks).reduce(
+		(files, x) => files.concat(Array.from(x.files)),
+		[],
+	);
+}
 
 describe('core', () => {
 	it('should set deps as cdn externals', async () => {
@@ -32,7 +38,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(4);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/react@15.6.1/dist/react.js');
@@ -71,14 +77,12 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(4);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/react@15.6.1/dist/react.min.js');
 		expect(files).toContain('https://unpkg.com/prop-types@15.7.2/prop-types.min.js');
-		expect(files).toContain(
-			'https://unpkg.com/react-is@16.13.1/umd/react-is.production.min.js',
-		);
+		expect(files).toContain('https://unpkg.com/react-is@16.13.1/umd/react-is.production.min.js');
 
 		const output = fs
 			.readFileSync(path.resolve(__dirname, './fixtures/output/env-prod/app.js'))
@@ -110,14 +114,12 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(4);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/react@15.6.1/dist/react.min.js');
 		expect(files).toContain('https://unpkg.com/prop-types@15.7.2/prop-types.min.js');
-		expect(files).toContain(
-			'https://unpkg.com/react-is@16.13.1/umd/react-is.production.min.js',
-		);
+		expect(files).toContain('https://unpkg.com/react-is@16.13.1/umd/react-is.production.min.js');
 
 		const output = fs
 			.readFileSync(path.resolve(__dirname, './fixtures/output/node-env-prod/app.js'))
@@ -146,7 +148,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toEqual(['app.js']);
 	});
 
@@ -172,10 +174,11 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
-		expect(files).toEqual([
+		const files = stats.compilation.getAssets().map(i => i.name);
+		const chunks = getChunkFiles(stats);
+		expect(files).toEqual(['app.js', 'app.js.map']);
+		expect(chunks).toEqual([
 			'app.js',
-			'app.js.map',
 			'https://unpkg.com/hoist-non-react-statics@2.5.3/dist/hoist-non-react-statics.min.js',
 			'https://unpkg.com/react-bootstrap@0.34.0/dist/react-bootstrap.js',
 			'https://unpkg.com/react-ace@3.0.0/dist/react-ace.js',
@@ -183,9 +186,7 @@ describe('core', () => {
 		]);
 
 		const output = fs
-			.readFileSync(
-				path.resolve(__dirname, './fixtures/output/duplicate-dependencies/app.js'),
-			)
+			.readFileSync(path.resolve(__dirname, './fixtures/output/duplicate-dependencies/app.js'))
 			.toString();
 		expect(output).toContain('module.exports = ReactAce;');
 		expect(output).toContain('module.exports = Autowhatever;');
@@ -214,7 +215,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(4);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/@angular/core@4.2.4/bundles/core.umd.js');
@@ -243,7 +244,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(3);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/@babel/polyfill@7.0.0/dist/polyfill.js');
@@ -274,7 +275,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(1);
 		expect(files).toContain('app.js');
 		expect(files).not.toContain('https://unpkg.com/react@15.6.1/dist/react.js');
@@ -310,7 +311,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(2);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/react@15.6.1/dist/react.js');
@@ -390,9 +391,7 @@ describe('core', () => {
 
 		// then
 		expect(logs).toContain('will be served by https://unpkg.com/react@15.6.1/dist/react.js');
-		expect(logs).toContain(
-			"couldn't be found, if you want it you can add it to your resolver.",
-		);
+		expect(logs).toContain("couldn't be found, if you want it you can add it to your resolver.");
 
 		console.log = originalLog;
 	});
@@ -418,7 +417,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(1);
 		expect(files).toContain('app.js');
 		expect(files).not.toContain('https://unpkg.com/react@15.6.1/dist/react.js');
@@ -445,7 +444,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/react@15.6.1/dist/react.js');
 		expect(
@@ -453,9 +452,7 @@ describe('core', () => {
 				.filter(x => !x.startsWith('https://unpkg.com'))
 				.some(fileName =>
 					fs
-						.readFileSync(
-							path.resolve(__dirname, `./fixtures/output/async/${fileName}`),
-						)
+						.readFileSync(path.resolve(__dirname, `./fixtures/output/async/${fileName}`))
 						.toString()
 						.includes('THIS IS REACT!'),
 				),
@@ -483,7 +480,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/react@15.6.1/dist/react.js');
 
@@ -530,7 +527,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://my-cdn.com/react.js');
 
@@ -590,7 +587,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(2);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/rxjs@5.4.1/bundles/Rx.js');
@@ -598,9 +595,7 @@ describe('core', () => {
 		expect(files).not.toContain('https://unpkg.com/zone.js@0.8.12/dist/zone.js');
 
 		const output = fs
-			.readFileSync(
-				path.resolve(__dirname, './fixtures/output/failing-peer-dependency/app.js'),
-			)
+			.readFileSync(path.resolve(__dirname, './fixtures/output/failing-peer-dependency/app.js'))
 			.toString();
 		expect(output).toContain('THIS IS ANGULAR!');
 	});
@@ -641,7 +636,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://my-cdn.com/react.js');
 
@@ -669,11 +664,14 @@ describe('core', () => {
 				app: './single.js',
 			},
 
-			plugins: [new DynamicCdnWebpackPlugin(), new webpack.NamedModulesPlugin()],
+			plugins: [new DynamicCdnWebpackPlugin()],
+			optimization: {
+				moduleIds: 'named',
+			},
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(4);
 		expect(files).toContain('app.js');
 		expect(files).toContain('https://unpkg.com/react@15.6.1/dist/react.js');
@@ -708,7 +706,7 @@ describe('core', () => {
 		});
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = getChunkFiles(stats);
 		expect(files).toHaveLength(1);
 		expect(files).toContain('app.js');
 	});
