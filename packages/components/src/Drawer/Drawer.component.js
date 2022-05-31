@@ -103,18 +103,15 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 }
 
 function renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip) {
-	if (subtitleTagLabel && subtitleTagTooltip)
+	if (subtitleTagLabel && subtitleTagTooltip) {
 		return (
 			<Tooltip placement="top" title={subtitleTagTooltip}>
 				<TagDefault>{subtitleTagLabel}</TagDefault>
 			</Tooltip>
 		);
-
-	if (subtitleTagLabel && !subtitleTagTooltip) {
-		return <TagDefault>{subtitleTagLabel}</TagDefault>;
 	}
 
-	return null;
+	return <TagDefault>{subtitleTagLabel}</TagDefault>;
 }
 export function SubtitleComponent({ subtitle, ...rest }) {
 	if (!subtitle || !subtitle.length) {
