@@ -4,6 +4,7 @@
  */
 import get from 'lodash/get';
 import { Map, fromJS } from 'immutable';
+import invariant from 'invariant';
 import CONSTANTS from '../constant';
 
 export const defaultState = new Map();
@@ -15,9 +16,11 @@ export const defaultState = new Map();
  * @param {Object} action a redux action
  */
 export function warnIfAnotherComponentBind(state, action) {
-	if (state.getIn([action.componentName, action.key])) {
-		console.warn(`Beware component ${action.componentName} try to recreate an existing
- State namespace ${action.key}, meaning that the original one will be overloaded`);
+	if (process.env.NODE_ENV !== 'production') {
+		if (state.getIn([action.componentName, action.key])) {
+			console.warn(`Beware component ${action.componentName} try to recreate an existing
+State namespace ${action.key}, meaning that the original one will be overloaded`);
+		}
 	}
 }
 
@@ -28,10 +31,12 @@ export function warnIfAnotherComponentBind(state, action) {
  * @param {Object} action a redux action
  */
 export function warnIfRemovingStateDoesntExist(state, action) {
-	if (!state.getIn([action.componentName, action.key])) {
-		console.warn(`Beware the component ${action.componentName} try to remove a non existing
+	if (process.env.NODE_ENV !== 'production') {
+		if (!state.getIn([action.componentName, action.key])) {
+			console.warn(`Beware the component ${action.componentName} try to remove a non existing
 State namespace ${action.key}, it isn't a normal behavior execpt if two component are binded
 to this specific namespace`);
+		}
 	}
 }
 
@@ -44,8 +49,11 @@ to this specific namespace`);
  */
 export function errorIfMergingStateDoesntExist(state, action) {
 	if (!state.getIn([action.componentName, action.key])) {
-		throw new Error(`Error, the component ${action.componentName} try to mutate a non existing
-		State namespace ${action.key}, this namespace may be not yet created or already removed.`);
+		invariant(
+			process.env.NODE_ENV === 'production',
+			`Error, the component ${action.componentName} try to mutate a non existing
+		State namespace ${action.key}, this namespace may be not yet created or already removed.`,
+		);
 	}
 }
 
@@ -68,6 +76,7 @@ export function componentsReducers(state = defaultState, action) {
 			return state.setIn([action.componentName, action.key], new Map());
 		case CONSTANTS.COMPONENT_MERGE_STATE:
 			errorIfMergingStateDoesntExist(state, action);
+
 			return state.mergeIn([action.componentName, action.key], fromJS(action.componentState));
 		case CONSTANTS.COMPONENT_REMOVE_STATE:
 			warnIfRemovingStateDoesntExist(state, action);
