@@ -19,7 +19,7 @@
     "lint": "yarn lint:es && yarn lint:style",
     "lint:es": "talend-scripts lint:es",
     "lint:style": "talend-scripts lint:style",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [
     "react",
@@ -57,6 +57,7 @@
     "@testing-library/react": "^12.1.5",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
+    "i18next-scanner-typescript": "^1.0.6",
     "jsdom": "^16.7.0",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
