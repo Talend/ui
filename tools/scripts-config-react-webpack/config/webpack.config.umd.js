@@ -9,6 +9,8 @@ const cdn = require('@talend/scripts-config-cdn');
 
 const exists = require('./utils/exists');
 
+const { getCommonStyleLoaders, getSassLoaders } = require('./webpack.config.common');
+
 const babelConfig = getBabelConfig();
 cdn.configureTalendModules();
 
@@ -55,57 +57,11 @@ module.exports = options => {
 					},
 					{
 						test: /\.scss$/,
-						use: [
-							{ loader: MiniCssExtractPlugin.loader },
-							{
-								loader: 'css-loader',
-								options: {
-									sourceMap: true,
-									...(cssModulesEnabled
-										? {
-												modules: {
-													localIdentName: '[name]__[local]___[hash:base64:5]',
-												},
-												importLoaders: 1,
-										  }
-										: {}),
-								},
-							},
-							{
-								loader: 'postcss-loader',
-								options: {
-									postcssOptions: {
-										plugins: ['autoprefixer'],
-									},
-									sourceMap: true,
-								},
-							},
-							{ loader: 'resolve-url-loader', options: { sourceMap: true } },
-							{
-								loader: 'sass-loader',
-								options: {
-									sourceMap: true,
-									additionalData: "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;",
-								},
-							},
-						],
+						use: getSassLoaders(cssModulesEnabled, undefined, options.mode),
 					},
 					{
 						test: /\.css$/,
-						use: [
-							{ loader: MiniCssExtractPlugin.loader },
-							{ loader: 'css-loader' },
-							// {
-							// 	loader: 'postcss-loader',
-							// 	options: {
-							// 		postcssOptions: {
-							// 			plugins: ['autoprefixer'],
-							// 		},
-							// 		sourceMap: true,
-							// 	},
-							// },
-							// { loader: 'resolve-url-loader', options: { sourceMap: true } },
-						],
+						use: getCommonStyleLoaders(false, options.mode),
 					},
 					{
 						test: /\.svg$/,

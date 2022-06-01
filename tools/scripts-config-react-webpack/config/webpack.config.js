@@ -22,6 +22,7 @@ const LICENSE_BANNER = require('./licence');
 const exists = require('./utils/exists');
 const inject = require('./inject');
 const icons = require('./icons');
+const { getCommonStyleLoaders, getSassLoaders } = require('./webpack.config.common');
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
 const cdnMode = !!process.env.INITIATOR_URL;
@@ -60,44 +61,6 @@ function getSassData(userSassData) {
 	// eslint-disable-next-line no-console
 	console.log('sassData', sassData);
 	return sassData;
-}
-
-function getCommonStyleLoaders(enableModules, mode) {
-	let cssOptions = {
-		sourceMap: true,
-	};
-	if (enableModules) {
-		cssOptions = {
-			sourceMap: true,
-			modules: {
-				localIdentName: '[name]__[local]___[hash:base64:5]',
-			},
-			importLoaders: 1,
-		};
-	}
-	return [
-		mode === 'development'
-			? { loader: 'style-loader' }
-			: { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
-		{ loader: 'css-loader', options: cssOptions },
-		{
-			loader: 'postcss-loader',
-			options: {
-				postcssOptions: {
-					plugins: ['autoprefixer'],
-				},
-				sourceMap: true,
-			},
-		},
-		{ loader: 'resolve-url-loader', options: { sourceMap: true } },
-	];
-}
-
-function getSassLoaders(enableModules, sassData, mode) {
-	return getCommonStyleLoaders(enableModules, mode).concat({
-		loader: 'sass-loader',
-		options: { sourceMap: true, additionalData: sassData },
-	});
 }
 
 function getGitRevision() {
