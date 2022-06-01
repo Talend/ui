@@ -38,9 +38,6 @@ module.exports = (env = {}) => ({
 			],
 		}),
 	],
-	// node: {
-	// 	fs: 'empty',
-	// },
 	externals: {
 		react: {
 			commonjs: 'react',

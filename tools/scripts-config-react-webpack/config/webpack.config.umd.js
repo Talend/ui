@@ -118,9 +118,6 @@ module.exports = options => {
 					},
 				],
 			},
-			// node: {
-			// 	fs: 'empty',
-			// },
 			stats: { children: false }, // remove warnings of all plugins ...
 			plugins: [
 				new BundleAnalyzerPlugin({
