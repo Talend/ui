@@ -1,7 +1,13 @@
 import React, { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
 import assetsAPI from '@talend/assets-api';
 
-const DEFAULT_BUNDLES = [assetsAPI.getURL('/dist/svg-bundle/all.svg', '@talend/icons')];
+const DEFAULT_BUNDLES = [
+	assetsAPI.getURL('/dist/svg-bundle/all.svg', '@talend/icons'),
+	assetsAPI.getURL('/dist/svg-bundle/8.svg', '@talend/icons'),
+	assetsAPI.getURL('/dist/svg-bundle/12.svg', '@talend/icons'),
+	assetsAPI.getURL('/dist/svg-bundle/16.svg', '@talend/icons'),
+	assetsAPI.getURL('/dist/svg-bundle/24.svg', '@talend/icons'),
+];
 const FETCHING_BUNDLES: { [url: string]: Promise<Response> } = {};
 const ICONS_PROVIDER_CLASS = '.tc-iconsprovider';
 
