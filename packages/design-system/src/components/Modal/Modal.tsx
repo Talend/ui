@@ -127,8 +127,8 @@ function Modal(props: ModalPropsType): ReactElement {
 												data-feature="modal.buttons.close"
 											>
 												{primaryAction || secondaryAction
-													? i18n.t('CLOSE', 'Close')
-													: i18n.t('CANCEL', 'Cancel')}
+													? i18n.t('CANCEL', 'Cancel')
+													: i18n.t('CLOSE', 'Close')}
 											</ButtonSecondary>
 										</span>
 
