@@ -6,26 +6,26 @@ module.exports = {
 		const spriteAll = await fs.readFile(path.resolve('./dist/svg-bundle/all.svg'), {
 			encoding: 'utf8',
 		});
-		const sprite8 = await fs.readFile(path.resolve('./dist/svg-bundle/8.svg'), {
+		const spriteXS = await fs.readFile(path.resolve('./dist/svg-bundle/XS.svg'), {
 			encoding: 'utf8',
 		});
-		const sprite12 = await fs.readFile(path.resolve('./dist/svg-bundle/12.svg'), {
+		const spriteS = await fs.readFile(path.resolve('./dist/svg-bundle/S.svg'), {
 			encoding: 'utf8',
 		});
-		const sprite16 = await fs.readFile(path.resolve('./dist/svg-bundle/16.svg'), {
+		const spriteM = await fs.readFile(path.resolve('./dist/svg-bundle/M.svg'), {
 			encoding: 'utf8',
 		});
-		const sprite24 = await fs.readFile(path.resolve('./dist/svg-bundle/24.svg'), {
+		const spriteL = await fs.readFile(path.resolve('./dist/svg-bundle/L.svg'), {
 			encoding: 'utf8',
 		});
 		config.plugins.map(plugin => {
 			if (plugin.constructor.name.includes('HtmlWebpackPlugin')) {
 				const htmlPlugin = plugin;
 				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteAll;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += sprite8;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += sprite12;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += sprite16;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += sprite24;
+				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteXS;
+				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteS;
+				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteM;
+				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteL;
 				return htmlPlugin;
 			}
 			return plugin;
