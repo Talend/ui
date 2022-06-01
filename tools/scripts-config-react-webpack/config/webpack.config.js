@@ -15,14 +15,17 @@ const { DuplicatesPlugin } = require('inspectpack/plugin');
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
-const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
 const cdn = require('@talend/scripts-config-cdn');
 const LICENSE_BANNER = require('./licence');
 const exists = require('./utils/exists');
 const inject = require('./inject');
 const icons = require('./icons');
-const { getCommonStyleLoaders, getSassLoaders } = require('./webpack.config.common');
+const {
+	getCommonStyleLoaders,
+	getSassLoaders,
+	getJSAndTSLoader,
+} = require('./webpack.config.common');
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
 const cdnMode = !!process.env.INITIATOR_URL;
@@ -272,7 +275,6 @@ module.exports = ({ getUserConfig, mode }) => {
 				chunkFilename: getFileNameForExtension('js', jsPrefix),
 				publicPath: '/',
 				globalObject: 'this',
-				clean: true,
 			},
 			devtool: 'source-map',
 			resolve: {
@@ -292,13 +294,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
-						use: [
-							!process.env.NO_CACHE_LOADER && { loader: 'cache-loader' },
-							{
-								loader: 'babel-loader',
-								options: babelConfig,
-							},
-						].filter(Boolean),
+						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
 						test: /\.html$/,

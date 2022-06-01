@@ -1,4 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
+
+const babelConfig = getBabelConfig();
 
 function getCommonStyleLoaders(enableModules, mode) {
 	let cssOptions = {
@@ -31,6 +34,16 @@ function getCommonStyleLoaders(enableModules, mode) {
 	];
 }
 
+function getJSAndTSLoader(env, useTypescript) {
+	return [
+		!env.nocache && { loader: 'cache-loader' },
+		{
+			loader: 'babel-loader',
+			options: babelConfig,
+		},
+	].filter(Boolean);
+}
+
 function getSassLoaders(enableModules, sassData, mode) {
 	return getCommonStyleLoaders(enableModules, mode).concat({
 		loader: 'sass-loader',
@@ -41,4 +54,5 @@ function getSassLoaders(enableModules, sassData, mode) {
 module.exports = {
 	getCommonStyleLoaders,
 	getSassLoaders,
+	getJSAndTSLoader,
 };

@@ -3,15 +3,16 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
-
 const cdn = require('@talend/scripts-config-cdn');
 
 const exists = require('./utils/exists');
 
-const { getCommonStyleLoaders, getSassLoaders } = require('./webpack.config.common');
+const {
+	getCommonStyleLoaders,
+	getSassLoaders,
+	getJSAndTSLoader,
+} = require('./webpack.config.common');
 
-const babelConfig = getBabelConfig();
 cdn.configureTalendModules();
 
 module.exports = options => {
@@ -47,13 +48,7 @@ module.exports = options => {
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
-						use: [
-							!env.nocache && { loader: 'cache-loader' },
-							{
-								loader: 'babel-loader',
-								options: babelConfig,
-							},
-						].filter(Boolean),
+						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
 						test: /\.scss$/,
