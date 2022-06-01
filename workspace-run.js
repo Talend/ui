@@ -65,7 +65,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 				if (packageJson.scripts[script]) {
 					return {
 						name: 'yarn',
-						args: ['workspace', '--silent', packageName, 'run', script].concat(scriptArgs),
+						args: ['workspace', packageName, 'run', script].concat(scriptArgs),
 					};
 				}
 
