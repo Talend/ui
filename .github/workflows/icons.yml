@@ -31,7 +31,7 @@ jobs:
       - name: Generate Pull Request Body
         id: get-pr-body
         run: |
-          cd ...
+          cd ../..
           git add packages/icons/src
           git diff --name-only HEAD ./packages/icons/srcsrc | zip diff.zip -@
           mkdir .tmp
