@@ -49,7 +49,4 @@ module.exports = {
 		],
 	},
 	plugins: [new MiniCssExtractPlugin({ filename: 'talend-icons-webfont.css' })],
-	// node: {
-	// 	fs: 'empty',
-	// },
 };
