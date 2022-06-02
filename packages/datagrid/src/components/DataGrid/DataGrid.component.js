@@ -22,6 +22,14 @@ const AgGridReact = React.lazy(() =>
 		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact)),
 );
 
+function DataGridSkeleton() {
+	return (
+		<div className={theme['td-grid-loader']}>
+			<Icon name="talend-table" />
+		</div>
+	);
+}
+
 export const AG_GRID = {
 	CUSTOM_HEADER_KEY: 'headerComponent',
 	CUSTOM_CELL_KEY: 'cellRenderer',
@@ -314,14 +322,10 @@ export default class DataGrid extends React.Component {
 	render() {
 		let content;
 		if (this.props.loading) {
-			content = (
-				<div className={theme['td-grid-loader']}>
-					<Icon name="talend-table" />
-				</div>
-			);
+			content = <DataGridSkeleton />;
 		} else {
 			content = (
-				<React.Suspense fallback={<Icon name="talend-table" />}>
+				<React.Suspense fallback={<DataGridSkeleton />}>
 					<AgGridReact {...this.getAgGridConfig()} />
 				</React.Suspense>
 			);
