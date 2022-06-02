@@ -3,7 +3,7 @@ name: Download icons from Figma
 on:
   repository_dispatch:
   workflow_dispatch:
-  
+
 jobs:
   download:
     runs-on: ubuntu-latest
@@ -24,8 +24,8 @@ jobs:
           cache: "yarn"
 
       - name: Download icons
-        run: npx @talend/figma-icons-downloader       
-        env:          
+        run: npx @talend/figma-icons-downloader
+        env:
           FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
 
       - name: Generate Pull Request Body
@@ -42,6 +42,27 @@ jobs:
           body="${body//$'\r'/'%0D'}"
           echo ::set-output name=body::$body
           rm -rf diff.zip .tmp
+
+      - name: Generate changeset
+        run: |
+          cd ../..
+          git add ./packages/icons/src
+          while read STATUS ADDR
+          do
+            ICON=`basename $ADDR .svg`
+            case $STATUS in
+              A)
+                echo "---\n'@talend/icons': minor\n---\n\nadded icon \`$ICON\`" > .changeset/add-icon-$ICON.md
+              ;;
+              M)
+                echo "---\n'@talend/icons': patch\n---\n\nchanged icon \`$ICON\`" > .changeset/fix-icon-$ICON.md
+              ;;
+              D)
+                echo "---\n'@talend/icons': major\n---\n\nremoved icon \`$ICON\`" > .changeset/delete-icon-$ICON.md
+              ;;
+            esac
+          done  < <(git diff --name-status HEAD ./packages/icons/src/icon/**/*.svg)
+          git add .changeset
 
       - name: Create Pull Request
         id: cpr
