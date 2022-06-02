@@ -67,6 +67,20 @@ module.exports = options => {
 							mimetype: 'image/svg+xml',
 						},
 					},
+					{
+						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
+						type: 'asset/resource',
+						use: [
+							{
+								loader: 'url-loader',
+								options: {
+									name: './fonts/[name].[ext]',
+									limit: 10000,
+									mimetype: 'application/font-woff',
+								},
+							},
+						],
+					},
 				],
 			},
 			stats: { children: false }, // remove warnings of all plugins ...

@@ -2,14 +2,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
 const babelConfig = getBabelConfig();
+const sourceMap = true;
 
 function getCommonStyleLoaders(enableModules, mode) {
 	let cssOptions = {
-		sourceMap: true,
+		sourceMap,
 	};
 	if (enableModules) {
 		cssOptions = {
-			sourceMap: true,
+			sourceMap,
 			modules: {
 				localIdentName: '[name]__[local]___[hash:base64:5]',
 			},
@@ -27,10 +28,9 @@ function getCommonStyleLoaders(enableModules, mode) {
 				postcssOptions: {
 					plugins: ['autoprefixer'],
 				},
-				sourceMap: true,
+				sourceMap,
 			},
 		},
-		{ loader: 'resolve-url-loader', options: { sourceMap: true } },
 	];
 }
 
@@ -45,10 +45,13 @@ function getJSAndTSLoader(env, useTypescript) {
 }
 
 function getSassLoaders(enableModules, sassData, mode) {
-	return getCommonStyleLoaders(enableModules, mode).concat({
-		loader: 'sass-loader',
-		options: { sourceMap: true, additionalData: sassData },
-	});
+	return getCommonStyleLoaders(enableModules, mode).concat(
+		{ loader: 'resolve-url-loader', options: { sourceMap: true } },
+		{
+			loader: 'sass-loader',
+			options: { sourceMap: true, additionalData: sassData },
+		},
+	);
 }
 
 module.exports = {
