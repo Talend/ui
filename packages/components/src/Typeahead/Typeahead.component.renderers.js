@@ -210,14 +210,16 @@ export function renderItem(item, { value, valueId, ...rest }) {
 		title = itemValueId = item;
 	} else {
 		title = (item.title || item.name || '').trim();
-		itemValueId = (item.value || item.id || '').trim();
+		itemValueId = item.value || item.id;
 		description = item.description;
 	}
 	return (
 		<div
 			className={classNames(theme.item, {
 				[theme.disabled]: item.disabled,
-				[theme.selected]: (valueId && valueId === itemValueId) || (!valueId && value === title),
+				[theme.selected]:
+					(valueId !== undefined && valueId === itemValueId) ||
+					(valueId === undefined && value === title),
 				[theme.multiline]: title && description,
 			})}
 			title={title}
