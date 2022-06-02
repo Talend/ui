@@ -181,7 +181,9 @@ export const EditablePlaygroundCell = () => {
 		return sample.data
 			.reduce((values, row) => {
 				const { value } = row.value[avroName];
-				return value && value.includes(search) && !values.includes(value)
+				return value &&
+					value.toLowerCase().includes(search.toLowerCase()) &&
+					!values.includes(value)
 					? [...values, value]
 					: values;
 			}, [])
