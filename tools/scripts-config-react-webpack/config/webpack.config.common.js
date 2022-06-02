@@ -4,6 +4,24 @@ const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver'
 const babelConfig = getBabelConfig();
 const sourceMap = true;
 
+function getSassData(userSassData) {
+	let sassData = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;\n";
+
+	if (userSassData && userSassData.data) {
+		console.warn(
+			'DEPRECATION Usage of sass.data in talend-script.json file is deprecated. Variables are considered as constants since Talend/UI 6.0',
+		);
+		const sassDataWith = Object.keys(userSassData.data)
+			.map(key => `${key}: ${userSassData.data[key]};`)
+			.join('\n');
+		sassData += sassDataWith;
+	}
+
+	// eslint-disable-next-line no-console
+	console.log('sassData', sassData);
+	return sassData;
+}
+
 function getCommonStyleLoaders(enableModules, mode) {
 	let cssOptions = {
 		sourceMap,
@@ -55,6 +73,7 @@ function getSassLoaders(enableModules, sassData, mode) {
 }
 
 module.exports = {
+	getSassData,
 	getCommonStyleLoaders,
 	getSassLoaders,
 	getJSAndTSLoader,

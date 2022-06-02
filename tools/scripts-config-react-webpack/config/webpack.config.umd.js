@@ -11,6 +11,7 @@ const {
 	getCommonStyleLoaders,
 	getSassLoaders,
 	getJSAndTSLoader,
+	getSassData,
 } = require('./webpack.config.common');
 
 cdn.configureTalendModules();
@@ -20,6 +21,8 @@ module.exports = options => {
 	const cssModulesEnabled = options.getUserConfig(['css', 'modules'], true);
 	const userCopyConfig = options.getUserConfig('copy', []);
 	const useTypescript = exists.tsConfig();
+	const userSassData = options.getUserConfig('sass', {});
+	const sassData = getSassData(userSassData);
 	const isEnvProd = options.mode === 'production';
 	return (env = {}) => {
 		const name = (env && env.umd) || 'Talend';
@@ -52,7 +55,7 @@ module.exports = options => {
 					},
 					{
 						test: /\.scss$/,
-						use: getSassLoaders(cssModulesEnabled, undefined, options.mode),
+						use: getSassLoaders(cssModulesEnabled, sassData, options.mode),
 					},
 					{
 						test: /\.css$/,
