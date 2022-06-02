@@ -207,7 +207,7 @@ export function renderItem(item, { value, valueId, ...rest }) {
 	let itemValueId;
 	let description;
 	if (typeof item === 'string') {
-		title = itemValueId = item.toString();
+		title = itemValueId = item;
 	} else {
 		title = (item.title || item.name || '').toString().trim();
 		itemValueId = (item.value ?? item.id ?? '').toString().trim();
