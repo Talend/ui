@@ -33,16 +33,17 @@ jobs:
         run: |
           cd ../..
           git add ./packages/icons/src
-          declare -A CHANGESET_BUMPS=( ["A"]="minor" ["D"]="major" ["M"]="patch" )
-          declare -A CHANGELOG_TEXT=( ["A"]="added" ["D"]="removed" ["M"]="changed" )
           while read STATUS ADDR
           do
-            ICON=`basename $ADDR .svg`
-            SIZE=`basename $(dirname $ADDR)`
-            echo "---\n'@talend/icons': $CHANGESET_BUMPS[$STATUS]\n---\n\n$CHANGELOG_TEXT[$STATUS] icon \`$ICON\` in size \`$SIZE\`" > .changeset/$ICON-$SIZE-$STATUS.md
-          done  < <(git diff --name-status HEAD ./packages/icons/src/icon/**/*.svg)
+            icon=`basename $ADDR .svg`
+            size=`basename $(dirname $ADDR)`
+            semver=`sed 's/A/minor/;s/D/major/;s/M/patch/' <<< $STATUS`
+            verb=`sed 's/A/added/;s/D/removed/;s/M/changed/' <<< $STATUS`
+            echo -e "---\n'@talend/icons': $semver\n---\n\n$verb icon \`$icon\` in size \`$size\`" > .changeset/$icon-$size-$semver.md
+          done < <(git diff --name-status HEAD ./packages/icons/src/icon/**/*.svg)
           git add .changeset
-          body=`git diff --name-only HEAD .changeset | xargs -L1 sed -n '5p'`
+          body=$(git diff --name-only HEAD .changeset/*.md | xargs -L1 sed -n '5p')
+          body="${body//$'\n'/'%0A'}"
           echo ::set-output name=body::$body
 
       - name: Create Pull Request
