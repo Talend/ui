@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { AVRO_TYPES, LOGICAL_TYPES } from '../../constants';
-import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
 import DefaultRenderer from './DefaultRenderer.component';
 import { getTypeRenderer } from './mappingTypeRenderer';
@@ -15,7 +14,7 @@ export default function AvroRenderer({ avroRenderer, colDef, data }) {
 }
 
 AvroRenderer.propTypes = {
-	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
+	avroRenderer: PropTypes.object,
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({

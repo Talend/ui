@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { SkeletonParagraph } from '@talend/design-system';
 
 import { AVRO_TYPES } from '../../constants';
-import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
 import QualityIndicator from './QualityIndicator.component';
 import AvroRenderer from './AvroRenderer.component';
@@ -45,7 +44,7 @@ DefaultCellRenderer.defaultProps = {
 };
 
 DefaultCellRenderer.propTypes = {
-	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
+	avroRenderer: PropTypes.object,
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
