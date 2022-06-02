@@ -6,7 +6,7 @@ import {
 	InlineMessageWarning,
 	InlineMessageSuccess,
 } from '.';
-import { StackVertical } from '../Stack';
+import { StackVertical, StackHorizontal } from '../Stack';
 import InlineMessageBeta from './variations/InlineMessageBeta';
 import { ComponentStory } from '@storybook/react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
