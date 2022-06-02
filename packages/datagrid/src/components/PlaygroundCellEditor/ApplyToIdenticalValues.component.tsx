@@ -5,7 +5,6 @@ import {
 	ButtonSecondary,
 	Form,
 	StackHorizontal,
-	StackVertical,
 } from '@talend/design-system';
 
 import theme from './ApplyToIdenticalValues.scss';
