@@ -22,7 +22,7 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		height: $td-datagrid-skeleton-height;
 	}
 
-	&-loading {
+	&--loading {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -51,14 +51,22 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	:global(.ag-cell) {
-		border: none;
+		border-top: none;
+		border-left: none;
+		border-bottom: none;
 	}
-
 
 	/* ==== COLUMN ====  */
 
-	:global(.column-focus) {
-		background-color: tokens.$coral-color-accent-background;
+	:global(.column-focus),
+	:global(.ag-row-selected) :global(.ag-cell) {
+		background-color: tokens.$coral-color-accent-background-selected !important;
+	}
+
+	:global(.ag-row-selected) :global(.column-focus) {
+		background-color: tokens.$coral-color-neutral-background;
+		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border !important;
+		outline-offset: -2px;
 	}
 
 	/* ==== BODY ==== */
@@ -80,11 +88,5 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 
 	:global(.ag-center-cols-clipper) {
 		font: tokens.$coral-data-m;
-	}
-
-	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
-		background-color: tokens.$coral-color-neutral-background;
-		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border !important;
-		outline-offset: -2px;
 	}
 }

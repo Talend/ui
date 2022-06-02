@@ -1,63 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#AvroRenderer should mount stringCellRenderer 1`] = `
-<AvroRenderer
-  avroRenderer={
-    Object {
-      "stringCellRenderer": [Function],
-    }
-  }
-  colDef={
-    Object {
-      "avro": Object {
-        "type": Object {
-          "type": "string",
-        },
-      },
-    }
-  }
-  data={
-    Object {
-      "value": "value",
-    }
-  }
-/>
-`;
-
-exports[`#AvroRenderer should render AvroRenderer and load Injected Component stringCellRenderer 1`] = `
-<StringDummyComponent
-  colDef={
-    Object {
-      "avro": Object {
-        "type": Object {
-          "type": "string",
-        },
-      },
-    }
-  }
-  data={
-    Object {
-      "value": "value",
-    }
-  }
-/>
-`;
-
 exports[`#AvroRenderer should render AvroRenderer and load default component when no renderer 1`] = `
-<DefaultRenderer
-  colDef={
-    Object {
-      "avro": Object {
-        "type": Object {
-          "type": "unknow",
-        },
-      },
-    }
-  }
-  data={
-    Object {
-      "value": "value",
-    }
-  }
-/>
+<DocumentFragment>
+  <div
+    class="theme-td-default-cell td-default-cell"
+  >
+    <span>
+      value
+    </span>
+  </div>
+</DocumentFragment>
 `;

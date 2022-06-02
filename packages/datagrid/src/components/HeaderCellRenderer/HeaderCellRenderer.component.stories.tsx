@@ -10,6 +10,7 @@ import HeaderCellRenderer, { HeaderRendererProps } from './HeaderCellRenderer.co
 
 const defaultArgs = {
 	displayName: 'My column',
+	type: 'string',
 	typeLabel: 'My type',
 	semanticTypeLabel: 'Semantic type',
 	quality: {
@@ -45,8 +46,6 @@ const Template = (props: HeaderComponentParams) => (
 	<div style={{ border: '1px solid var(--coral-color-neutral-border-weak)', width: 150 }}>
 		<HeaderCellRenderer
 			{...(props as HeaderRendererProps)}
-			onFocusedColumn={action('onFocusedColumn')}
-			onKeyDown={action('onKeyDown')}
 			column={
 				{
 					getColId: () => 'colId',

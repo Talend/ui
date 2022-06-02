@@ -1,7 +1,9 @@
-export const NAMESPACE_INDEX = 'index.';
-export const NAMESPACE_DATA = 'data.';
-export const COLUMN_INDEX = 'index';
 export const QUALITY_KEY = '@talend-quality@';
 export const QUALITY_INVALID_KEY = -1;
 export const QUALITY_EMPTY_KEY = 0;
 export const QUALITY_VALID_KEY = 1;
+export const HEADER_HEIGHT = 65;
+export const COLUMN_MIN_WIDTH = 30;
+export const ROW_HEIGHT = 39;
+export const CELL_WIDTH = 150;
+export const SELECTED_CELL_CLASS_NAME = 'column-focus';

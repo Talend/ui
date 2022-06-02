@@ -1,26 +1,25 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+
+import { render } from '@testing-library/react';
 
 import { QUALITY_EMPTY_KEY } from '../../constants';
-
 import DefaultCellRenderer from './DefaultCellRenderer.component';
 
 describe('#DefaultCellRenderer', () => {
 	it('should render DefaultCellRenderer', () => {
-		const wrapper = shallow(
+		const wrapper = render(
 			<DefaultCellRenderer
-				avroRenderer={{ stringCellRenderer: 'StringRenderer' }}
-				colDef={{ avro: { type: 'string' } }}
-				value={{ quality: QUALITY_EMPTY_KEY }}
+				avro={{ type: 'string' }}
+				value={{ quality: QUALITY_EMPTY_KEY, value: 'value' }}
 			/>,
 		);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
 	it('should render the default cell on loading state', () => {
-		const wrapper = shallow(<DefaultCellRenderer data={{ loaded: false }} />);
+		const wrapper = render(<DefaultCellRenderer data={{ loaded: false }} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 });
