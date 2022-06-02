@@ -28,27 +28,13 @@ jobs:
         env:
           FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
 
-      - name: Generate Pull Request Body
+      - name: Generate changeset & PR body
         id: get-pr-body
         run: |
           cd ../..
           git add ./packages/icons/src
-          git diff --name-only HEAD ./packages/icons/src | zip diff.zip -@
-          mkdir .tmp
-          unzip diff.zip -d .tmp/
-          body="<h1>This Pull-Request was auto-generated</h1><p>Please, don't update this PR manually!</p><br/><h2>Modified files</h2> <pre>$(cd .tmp && du -sh && find . | sed 's;[^/]*/;|____;g' | sed 's;____|; |;g' | head -n 1000)</pre>"
-          body="${body//'%'/'%25'}"
-          body="${body//$'\n'/'%0A'}"
-          body="${body//$'\r'/'%0D'}"
-          echo ::set-output name=body::$body
-          rm -rf diff.zip .tmp
-
-      - name: Generate changeset
-        run: |
           declare -A CHANGESET_BUMPS=( ["A"]="minor" ["D"]="major" ["M"]="patch" )
           declare -A CHANGELOG_TEXT=( ["A"]="added" ["D"]="removed" ["M"]="changed" )
-          cd ../..
-          git add ./packages/icons/src
           while read STATUS ADDR
           do
             ICON=`basename $ADDR .svg`
@@ -56,6 +42,8 @@ jobs:
             echo "---\n'@talend/icons': $CHANGESET_BUMPS[$STATUS]\n---\n\n$CHANGELOG_TEXT[$STATUS] icon \`$ICON\` in size \`$SIZE\`" > .changeset/$ICON-$SIZE-$STATUS.md
           done  < <(git diff --name-status HEAD ./packages/icons/src/icon/**/*.svg)
           git add .changeset
+          body=`git diff --name-only HEAD .changeset | xargs -L1 sed -n '5p'`
+          echo ::set-output name=body::$body
 
       - name: Create Pull Request
         id: cpr
@@ -66,8 +54,3 @@ jobs:
           body: ${{ steps.get-pr-body.outputs.body }}
           branch: ci/icons
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check outputs
-        run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
