@@ -1,5 +1,21 @@
 # @talend/react-components
 
+## 6.49.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- 6562e397f: fix(components): datalist selection by id should allow all types
+- Updated dependencies [47b758112]
+  - @talend/react-bootstrap@1.35.0
+  - @talend/design-system@2.7.0
+  - @talend/icons@6.42.0
+  - @talend/bootstrap-theme@6.39.0
+  - @talend/utils@2.3.0
+
 ## 6.48.0
 
 ### Minor Changes

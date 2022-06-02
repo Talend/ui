@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-flow-designer",
   "description": "Flow designer for react and redux",
-  "version": "5.0.4",
+  "version": "5.1.0",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -19,7 +19,7 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-config-jest": "^10.0.0",
+    "@talend/scripts-config-jest": "^10.2.0",
     "@talend/scripts-core": "^11.7.1",
     "@talend/scripts-preset-react-lib": "^11.0.3",
     "@types/d3": "^6.7.5",
