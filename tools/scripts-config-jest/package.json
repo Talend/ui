@@ -18,7 +18,7 @@
   },
   "peerDependencies": {
     "enzyme": "3",
-    "react": "^16.8.6"
+    "react": ">= 16.14.0 < 18.0.0"
   },
   "dependencies": {
     "@talend/scripts-config-babel": "^9.9.0",

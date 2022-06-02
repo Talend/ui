@@ -1,5 +1,30 @@
 # @talend/react-datagrid
 
+## 9.2.3
+
+### Patch Changes
+
+- f1c69c2e3: Translations not loaded in storybook & not configured for typescript
+- Updated dependencies [293a4ebd9]
+  - @talend/icons@6.41.1
+
+## 9.2.2
+
+### Patch Changes
+
+- 5475efd58: Cleanup internal renderer API: remove usage of `frameworkComponents` to stick to ag-grid API & documentation
+- Updated dependencies [7d1f9f509]
+- Updated dependencies [66fa02548]
+  - @talend/react-components@6.47.0
+
+## 9.2.1
+
+### Patch Changes
+
+- d1273605b: int cell doesn't display text align right
+- Updated dependencies [ecd3b81ae]
+  - @talend/react-components@6.46.7
+
 ## 9.2.0
 
 ### Minor Changes

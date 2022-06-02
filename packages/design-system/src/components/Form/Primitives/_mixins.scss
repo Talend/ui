@@ -1,0 +1,94 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
+
+@mixin baseInput (){
+  background: transparent;
+  color: tokens.$coral-color-neutral-text;
+  padding: tokens.$coral-spacing-xs;
+  font: tokens.$coral-paragraph-m;
+  border: 0;
+  margin: 0;
+  transition: all tokens.$coral-transition-instant;
+  display: block;
+  flex-grow: 1;
+  width: 100%;
+
+  &:only-child {
+    border-radius: tokens.$coral-radius-s;
+  }
+
+  &:disabled,
+  &_disabled {
+    color: tokens.$coral-color-neutral-text-disabled;
+    cursor: not-allowed;
+  }
+
+  &_readOnly {
+    background: tokens.$coral-color-neutral-background-strong;
+    color: tokens.$coral-color-neutral-text-weak;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:disabled {
+    color: tokens.$coral-color-neutral-text-disabled;
+  }
+
+  &::placeholder {
+    color: tokens.$coral-color-neutral-text-weak;
+    opacity: tokens.$coral-opacity-s;
+  }
+
+  &[disabled] {
+    opacity: 1;
+
+     > option {
+      color: tokens.$coral-color-neutral-text;
+    }
+  }
+}
+
+@mixin borderStyles (){
+  border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+  box-shadow: 0 0 0 0 transparent;
+  border-radius: tokens.$coral-radius-s;
+  transition: all tokens.$coral-transition-instant;
+
+  &:hover {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+  }
+
+  &_disabled {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+  }
+
+  &_readOnly {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+  }
+
+  &_disabled:hover {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+  }
+
+  &_readOnly:hover {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+  }
+
+  &:focus-within, &:focus {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+    box-shadow: 0 0 0 0.1rem tokens.$coral-color-accent-border;
+  }
+
+  &.border_error {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
+
+    &:focus-within, &:focus {
+      border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
+      box-shadow: 0 0 0 0.1rem tokens.$coral-color-danger-border;
+    }
+  }
+
+}

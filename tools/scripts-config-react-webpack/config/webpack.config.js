@@ -318,7 +318,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				publicPath: '/',
 				globalObject: 'this',
 			},
-			devtool: 'cheap-module-source-map',
+			devtool: 'source-map',
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
 			},

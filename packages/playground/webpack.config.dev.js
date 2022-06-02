@@ -32,6 +32,7 @@ const PKGS = [
 	'@talend/design-tokens',
 	'@talend/design-system',
 	'@talend/design-tokens',
+	'@talend/react-bootstrap',
 	'@talend/react-components',
 	'@talend/react-containers',
 	'@talend/react-cmf',
@@ -59,12 +60,12 @@ const webpackConfig = {
 		}),
 	],
 	output: {
-		publicPath: '/playground',
+		publicPath: process.env.BASENAME || '/',
 	},
 	devServer: {
 		onBeforeSetupMiddleware: mockBackend,
 		historyApiFallback: {
-			index: `${process.env.BASENAME || ''}/index.html`,
+			index: `${process.env.BASENAME || '/'}index.html`,
 		},
 	},
 };

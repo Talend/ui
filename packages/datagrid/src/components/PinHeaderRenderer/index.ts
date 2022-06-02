@@ -1,1 +1,1 @@
-export { default, PIN_HEADER_RENDERER_COMPONENT } from './PinHeaderRenderer.component';
+export { default } from './PinHeaderRenderer.component';

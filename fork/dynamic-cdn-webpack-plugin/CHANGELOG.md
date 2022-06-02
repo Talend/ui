@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 11.0.3
+
+### Patch Changes
+
+-   aa2ffc733: fix: findPackage follow symlink in monorepo
+
+## 11.0.2
+
+### Patch Changes
+
+-   5aaa1e9fc: use findPackage to ensure the version is compatible during dependency resolution from manifest
+
 ## 11.0.1
 
 ### Patch Changes

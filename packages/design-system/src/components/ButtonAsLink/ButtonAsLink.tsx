@@ -13,7 +13,6 @@ import ButtonDestructiveAsLink, {
 	ButtonDestructiveAsLinkPropsType,
 } from './variations/ButtonDestructiveAsLink';
 import { ButtonVariantType } from '../Button/Primitive/ButtonPrimitive';
-import Linkable from '../Linkable';
 
 type Primary = ButtonVariantType<'primary', ButtonPrimaryAsLinkPropsType>;
 type Secondary = ButtonVariantType<'secondary', ButtonSecondaryAsLinkPropsType>;
@@ -45,7 +44,7 @@ const ButtonAsLink = forwardRef((props: ButtonType, ref: Ref<any>) => {
 		}
 
 		default: {
-			return <Linkable {...props} ref={ref} />;
+			return null;
 		}
 	}
 });

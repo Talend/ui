@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 10.5.0
+
+### Minor Changes
+
+- 66fa02548: feat: add @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [aa2ffc733]
+  - @talend/dynamic-cdn-webpack-plugin@11.0.3
+
 ## 10.4.1
 
 ### Patch Changes
