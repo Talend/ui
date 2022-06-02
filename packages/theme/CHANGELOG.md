@@ -1,5 +1,16 @@
 # @talend/bootstrap-theme
 
+## 6.39.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [47b758112]
+  - @talend/icons@6.42.0
+
 ## 6.38.6
 
 ### Patch Changes
