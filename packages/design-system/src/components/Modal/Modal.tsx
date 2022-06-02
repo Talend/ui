@@ -134,17 +134,17 @@ function Modal(props: ModalPropsType): ReactElement {
 
 										{secondaryAction && (
 											<ButtonSecondary
-												{...secondaryAction}
 												data-testid="modal.buttons.secondary"
 												data-feature="modal.buttons.secondary"
+												{...secondaryAction}
 											/>
 										)}
 
 										{primaryAction && (
 											<PrimaryAction
-												{...primaryAction}
 												data-testid="modal.buttons.primary"
 												data-feature="modal.buttons.primary"
+												{...primaryAction}
 											/>
 										)}
 									</StackHorizontal>
