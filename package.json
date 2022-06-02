@@ -33,15 +33,14 @@
     "prepare": "husky install"
   },
   "resolutions": {
-    "@types/react": "^16.14.25",
-    "@types/react-dom": "^16.9.14",
-    "@storybook/addons": "^6.5.0-beta.8",
     "webpack": "^5.72.0",
     "@storybook/react/webpack": "^5.72.0",
     "@storybook/core-common/webpack": "^5.72.0",
     "@storybook/core-server/webpack": "^5.72.0",
     "@storybook/builder-webpack4/webpack": "^5.72.0",
     "@storybook/manager-webpack4/webpack": "^5.72.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
     "typescript": ">=4.6.3"
   },
   "repository": {
