@@ -45,22 +45,15 @@ jobs:
 
       - name: Generate changeset
         run: |
+          declare -A CHANGESET_BUMPS=( ["A"]="minor" ["D"]="major" ["M"]="patch" )
+          declare -A CHANGELOG_TEXT=( ["A"]="added" ["D"]="removed" ["M"]="changed" )
           cd ../..
           git add ./packages/icons/src
           while read STATUS ADDR
           do
             ICON=`basename $ADDR .svg`
-            case $STATUS in
-              A)
-                echo "---\n'@talend/icons': minor\n---\n\nadded icon \`$ICON\`" > .changeset/add-icon-$ICON.md
-              ;;
-              M)
-                echo "---\n'@talend/icons': patch\n---\n\nchanged icon \`$ICON\`" > .changeset/fix-icon-$ICON.md
-              ;;
-              D)
-                echo "---\n'@talend/icons': major\n---\n\nremoved icon \`$ICON\`" > .changeset/delete-icon-$ICON.md
-              ;;
-            esac
+            SIZE=`basename $(dirname $ADDR)`
+            echo "---\n'@talend/icons': $CHANGESET_BUMPS[$STATUS]\n---\n\n$CHANGELOG_TEXT[$STATUS] icon \`$ICON\` in size \`$SIZE\`" > .changeset/$ICON-$SIZE-$STATUS.md
           done  < <(git diff --name-status HEAD ./packages/icons/src/icon/**/*.svg)
           git add .changeset
 
