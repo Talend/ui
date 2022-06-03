@@ -15,6 +15,7 @@ export default function Message(props) {
 							description={description}
 							role={undefined}
 							aria-live={undefined}
+							data-test="fieldTemplate.inlineMessage"
 						/>
 				  )
 				: errorMessage && (
@@ -22,6 +23,7 @@ export default function Message(props) {
 							id={errorId}
 							description={errorMessage}
 							aria-live="assertive"
+							data-test="fieldTemplate.inlineMessageError"
 						/>
 				  )}
 		</div>

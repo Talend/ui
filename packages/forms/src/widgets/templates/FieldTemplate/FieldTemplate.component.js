@@ -28,6 +28,7 @@ function FieldTemplate(props) {
 							description={props.description}
 							role={undefined}
 							aria-live={undefined}
+							data-test="fieldTemplate.inlineMessage"
 						/>
 					</div>
 				)}
@@ -36,6 +37,7 @@ function FieldTemplate(props) {
 						id={props.errorId}
 						description={props.error}
 						aria-live="assertive"
+						data-test="fieldTemplate.inlineMessageError"
 					/>
 				)}
 			</div>
