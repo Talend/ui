@@ -1,5 +1,5 @@
 export type DataAttributes = {
-	'data-feature'?: string | undefined;
-	'data-test'?: string | undefined;
-	'data-testid'?: string | undefined;
+	'data-feature'?: string;
+	'data-test'?: string;
+	'data-testid'?: string;
 };
