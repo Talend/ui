@@ -314,7 +314,12 @@ export const HiddenIconItem = () => {
 const Icon = ({ name, size }: { name: string; size?: keyof typeof iconSizes }) => {
 	const iconContext = React.useContext(IconContext);
 	const legacyIconContext = React.useContext(LegacyIconContext);
-	const style = { color: 'initial' },
+	const style = {
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			color: 'initial',
+		},
 		styleWithSize = { width: 'auto', height: 'auto' };
 	let className = '';
 	if (iconContext.color) {
