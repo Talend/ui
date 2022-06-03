@@ -5,6 +5,7 @@ import omit from 'lodash/omit';
 import noop from 'lodash/noop';
 import { Transition } from 'react-transition-group';
 import classnames from 'classnames';
+import { TagDefault, StackHorizontal, Tooltip } from '@talend/design-system';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
@@ -101,15 +102,35 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 	);
 }
 
-export function SubtitleComponent({ subtitle }) {
+function renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip) {
+	if (subtitleTagTooltip) {
+		return (
+			<Tooltip placement="top" title={subtitleTagTooltip}>
+				<TagDefault>{subtitleTagLabel}</TagDefault>
+			</Tooltip>
+		);
+	}
+
+	return <TagDefault>{subtitleTagLabel}</TagDefault>;
+}
+export function SubtitleComponent({ subtitle, ...rest }) {
 	if (!subtitle || !subtitle.length) {
 		return null;
 	}
-	return <h2 title={subtitle}>{subtitle}</h2>;
+
+	const { subtitleTagLabel, subtitleTagTooltip } = rest;
+	return (
+		<StackHorizontal gap="XXS">
+			<h2 title={subtitle}>{subtitle}</h2>
+			{subtitleTagLabel && renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip)}
+		</StackHorizontal>
+	);
 }
 
 SubtitleComponent.propTypes = {
 	subtitle: PropTypes.string,
+	subtitleTagLabel: PropTypes.string,
+	subtitleTagTooltip: PropTypes.string,
 };
 
 export function subtitleComponent(subtitle) {
@@ -125,6 +146,8 @@ function DrawerTitle({
 	getComponent,
 	editable,
 	inProgress,
+	subtitleTagLabel,
+	subtitleTagTooltip,
 	onEdit,
 	onSubmit,
 	onCancel,
@@ -173,7 +196,13 @@ function DrawerTitle({
 						{...props}
 					/>
 				)}
-				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
+				{!isEditMode ? (
+					<SubtitleComponent
+						subtitle={subtitle}
+						subtitleTagLabel={subtitleTagLabel}
+						subtitleTagTooltip={subtitleTagTooltip}
+					/>
+				) : null}
 				{renderTitleActions()}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
@@ -191,6 +220,8 @@ DrawerTitle.propTypes = {
 	renderTitleActions: PropTypes.func,
 	editable: PropTypes.bool,
 	inProgress: PropTypes.bool,
+	subtitleTagLabel: PropTypes.string,
+	subtitleTagTooltip: PropTypes.string,
 	onEdit: PropTypes.func,
 	onSubmit: PropTypes.func,
 	onCancel: PropTypes.func,

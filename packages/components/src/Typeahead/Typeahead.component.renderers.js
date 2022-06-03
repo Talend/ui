@@ -2,8 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import get from 'lodash/get';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
+import { ControlLabel, FormControl } from '@talend/react-bootstrap';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
 
@@ -203,20 +202,25 @@ export function renderSectionTitle(section) {
 	return null;
 }
 
-export function renderItem(item, { value, ...rest }) {
+export function renderItem(item, { value, valueId, ...rest }) {
 	let title;
+	let itemValueId;
 	let description;
 	if (typeof item === 'string') {
-		title = item;
+		title = itemValueId = item;
 	} else {
-		title = (item.title || item.name || '').trim();
+		title = (item.title || item.name || '').toString().trim();
+		itemValueId = (item.value ?? item.id ?? '').toString().trim();
 		description = item.description;
 	}
+
 	return (
 		<div
 			className={classNames(theme.item, {
 				[theme.disabled]: item.disabled,
-				[theme.selected]: value === title,
+				[theme.selected]:
+					(valueId !== undefined && valueId?.toString() === itemValueId) ||
+					(valueId === undefined && value?.toString() === title),
 				[theme.multiline]: title && description,
 			})}
 			title={title}

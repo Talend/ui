@@ -1,5 +1,36 @@
 # @talend/react-forms
 
+## 7.3.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/react-bootstrap@1.35.0
+  - @talend/assets-api@1.2.0
+  - @talend/design-system@2.7.0
+  - @talend/json-schema-form-core@1.1.0
+  - @talend/utils@2.3.0
+
+## 7.2.0
+
+### Minor Changes
+
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [7d1f9f509]
+- Updated dependencies [66fa02548]
+- Updated dependencies [66fa02548]
+  - @talend/react-components@6.47.0
+  - @talend/react-bootstrap@1.34.0
+
 ## 7.1.1
 
 ### Patch Changes

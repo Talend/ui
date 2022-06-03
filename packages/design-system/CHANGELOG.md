@@ -1,5 +1,23 @@
 # @talend/design-system
 
+## 2.7.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [47b758112]
+  - @talend/assets-api@1.2.0
+  - @talend/design-tokens@2.4.0
+
+## 2.6.1
+
+### Patch Changes
+
+- 445887d9e: Spread in default case for collection component switch was not typesafe. Default case should be unreachable in TS anyways.
+
 ## 2.6.0
 
 ### Minor Changes

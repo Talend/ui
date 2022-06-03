@@ -1,10 +1,13 @@
+import React from 'react';
 import FacetedSearch from '@talend/react-faceted-search';
 import Layout from '@talend/react-components/lib/Layout';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
+// eslint-disable-next-line @talend/import-depth
 import * as badges from '@talend/react-faceted-search/stories/badgesDefinitions';
 
 function action(msg) {
+	// eslint-disable-next-line no-console
 	return (...args) => console.log(msg, ...args);
 }
 

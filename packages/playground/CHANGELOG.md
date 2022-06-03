@@ -1,5 +1,34 @@
 # @talend/ui-playground
 
+## 1.1.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/react-bootstrap@1.35.0
+  - @talend/react-cmf@7.1.0
+  - @talend/react-cmf-router@5.1.0
+  - @talend/react-containers@7.2.0
+  - @talend/react-datagrid@9.3.0
+  - @talend/react-dataviz@2.2.0
+  - @talend/react-faceted-search@4.2.0
+  - @talend/react-forms@7.3.0
+  - @talend/icons@6.42.0
+  - @talend/bootstrap-theme@6.39.0
+
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies [df182bbd4]
+  - @talend/react-cmf-router@5.0.0
+
 ## 1.0.5
 
 ### Patch Changes

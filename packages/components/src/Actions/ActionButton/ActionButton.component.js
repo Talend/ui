@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Button } from 'react-bootstrap';
+import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';

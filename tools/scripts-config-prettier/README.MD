@@ -14,3 +14,4 @@ module.exports = {
 	// add/change default config here
 };
 ```
+3. Config includes import order configuration for `@trivago/prettier-plugin-sort-imports`
