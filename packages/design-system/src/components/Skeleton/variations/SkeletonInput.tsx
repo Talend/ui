@@ -8,10 +8,10 @@ export type SkeletonInputProps = Omit<SkeletonPrimitiveProps, 'className'>;
 
 const SkeletonInput = forwardRef((props: SkeletonInputProps, ref: Ref<HTMLSpanElement>) => {
 	return (
-		<StackVertical gap="XXS" {...props} ref={ref}>
-			<div className={styles.skeletonInput__label}>
+		<StackVertical as="span" gap="XXS" {...props} ref={ref}>
+			<span className={styles.skeletonInput__label}>
 				<SkeletonParagraph size="S" />
-			</div>
+			</span>
 			<SkeletonPrimitive isBlock className={styles.skeletonInput} />
 		</StackVertical>
 	);
