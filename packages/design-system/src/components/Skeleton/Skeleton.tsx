@@ -1,9 +1,10 @@
+import React, { forwardRef, Ref } from 'react';
+
 import SkeletonButton, { SkeletonButtonProps } from './variations/SkeletonButton';
 import SkeletonButtonIcon, { SkeletonButtonIconProps } from './variations/SkeletonButtonIcon';
 import SkeletonHeading, { SkeletonHeadingProps } from './variations/SkeletonHeading';
 import SkeletonInput, { SkeletonInputProps } from './variations/SkeletonInput';
 import SkeletonParagraph, { SkeletonParagraphProps } from './variations/SkeletonParagraph';
-import React, { forwardRef, Ref } from 'react';
 
 type SkeletonProps =
 	| ({ variant: 'button' } & SkeletonButtonProps)

@@ -1,5 +1,11 @@
-@use 'src/components/Form/Primitives/mixins' as Form;
+@use '~@talend/design-tokens/lib/tokens';
+@use '../../Form/Primitives/mixins' as Form;
 
 .skeletonInput {
 	height: Form.$standardInputHeight;
+
+	&__label {
+		width: 100%;
+		max-width: calc(#{tokens.$coral-sizing-l} * 2);
+	}
 }
