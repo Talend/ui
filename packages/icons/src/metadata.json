@@ -3400,5 +3400,17 @@
     "name": "icon/L/zoom-plus",
     "description": "zoom in",
     "documentationLinks": []
+  },
+  {
+    "key": "ead04c47d5d6d55833e7b15c8e1bcd740a7cb91d",
+    "name": "icon/S/gwendal",
+    "description": "new icon for testing purpose with Gwendal",
+    "documentationLinks": []
+  },
+  {
+    "key": "98a9f5563196e587ae73d544b7be4d93d20d39ca",
+    "name": "icon/M/gwendal",
+    "description": "new icon for testing purpose with Gwendal",
+    "documentationLinks": []
   }
 ]
