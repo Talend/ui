@@ -5,7 +5,7 @@ import { IHeaderParams } from 'ag-grid-community';
 import classNames from 'classnames';
 import truncate from 'lodash/truncate';
 
-import { Icon, Tooltip, ButtonIcon, StackHorizontal } from '@talend/design-system';
+import { Icon, Tooltip, ButtonIcon, StackHorizontal, StackVertical } from '@talend/design-system';
 import { QualityBar } from '@talend/react-components';
 
 import { QUALITY_INVALID_KEY, QUALITY_EMPTY_KEY, QUALITY_VALID_KEY } from '../../constants';
@@ -49,45 +49,46 @@ export default function HeaderCellRenderer({
 			})}
 		>
 			<div
-				className={theme['header-cell__button']}
 				onClick={() => onFocusedColumn(colId)}
 				onKeyDown={event => onKeyDown(event, colId)}
 				role="button"
 				tabIndex={0}
 			>
-				<div className={theme['header-cell__first-line']}>
-					<StackHorizontal gap="XXS">
-						<div className={theme['header-cell__title']} title={displayName}>
-							{displayName}
-							{required && <abbr title={t('REQUIRED_FIELD', 'Required')}>*</abbr>}
+				<StackHorizontal gap="XXS" justify="spaceBetween" align="center">
+					<div className={theme['header-cell__first-line']}>
+						<StackHorizontal gap="XXS">
+							<div className={theme['header-cell__title']} title={displayName}>
+								{displayName}
+								{required && <abbr title={t('REQUIRED_FIELD', 'Required')}>*</abbr>}
+							</div>
+							{description && (
+								<Tooltip title={truncate(description, { length: 1000 })} placement="bottom">
+									<span className={theme['header-cell__description-tick']}>
+										<Icon name="talend-info-circle" />
+									</span>
+								</Tooltip>
+							)}
+						</StackHorizontal>
+						<div
+							className={theme['header-cell__type']}
+							title={draftType ?? `${semanticTypeLabel} (${typeLabel})`}
+						>
+							{semanticTypeLabel && !draftType ? (
+								<>
+									{semanticTypeLabel}
+									<span className={theme['header-cell__sub-type']}> ({typeLabel})</span>
+								</>
+							) : (
+								draftType ?? typeLabel
+							)}
 						</div>
-						{description && (
-							<Tooltip title={truncate(description, { length: 1000 })} placement="bottom">
-								<span className={theme['header-cell__description-tick']}>
-									<Icon name="talend-info-circle" />
-								</span>
-							</Tooltip>
-						)}
-					</StackHorizontal>
-					<div
-						className={theme['header-cell__type']}
-						title={draftType ?? `${semanticTypeLabel} (${typeLabel})`}
-					>
-						{semanticTypeLabel && !draftType ? (
-							<>
-								{semanticTypeLabel}
-								<span className={theme['header-cell__sub-type']}> ({typeLabel})</span>
-							</>
-						) : (
-							draftType ?? typeLabel
-						)}
 					</div>
-				</div>
-				{menuProps && (
-					<div className={theme['header-cell__menu-button']}>
-						<ButtonIcon icon="talend-ellipsis" size="XS" disabled={isLoading} {...menuProps} />
-					</div>
-				)}
+					{menuProps && (
+						<div className={theme['header-cell__menu-button']}>
+							<ButtonIcon icon="talend-ellipsis" size="XS" disabled={isLoading} {...menuProps} />
+						</div>
+					)}
+				</StackHorizontal>
 			</div>
 			{quality && (
 				<QualityBar

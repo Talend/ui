@@ -26,33 +26,36 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
-                >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
                   >
-                     (My type)
-                  </span>
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -81,33 +84,36 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My loooooooooooooooooooooong column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My loooooooooooooooooooooong column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My loooooooooooooooooooooong column"
+                    >
+                      My loooooooooooooooooooooong column
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="theme-header-cell__type"
-                  title="My loooooooooooooooooooooooooooong type (My type)"
-                >
-                  My loooooooooooooooooooooooooooong type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <div
+                    class="theme-header-cell__type"
+                    title="My loooooooooooooooooooooooooooong type (My type)"
                   >
-                     (My type)
-                  </span>
+                    My loooooooooooooooooooooooooooong type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -136,33 +142,36 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
-                >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
                   >
-                     (My type)
-                  </span>
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -184,33 +193,36 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
-                >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
                   >
-                     (My type)
-                  </span>
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -239,33 +251,36 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My loooooooooooooooooooooong column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My loooooooooooooooooooooong column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My loooooooooooooooooooooong column"
+                    >
+                      My loooooooooooooooooooooong column
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="theme-header-cell__type"
-                  title="My loooooooooooooooooooooooooooong type (My type)"
-                >
-                  My loooooooooooooooooooooooooooong type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <div
+                    class="theme-header-cell__type"
+                    title="My loooooooooooooooooooooooooooong type (My type)"
                   >
-                     (My type)
-                  </span>
+                    My loooooooooooooooooooooooooooong type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -294,33 +309,36 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
-                >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
                   >
-                     (My type)
-                  </span>
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -342,33 +360,36 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell theme-header-cell--loading"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
-                >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
                   >
-                     (My type)
-                  </span>
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -406,28 +427,31 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell theme-header-cell--type-draft"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="theme-header-cell__type"
-                  title="Draft type"
-                >
-                  Draft type
+                  <div
+                    class="theme-header-cell__type"
+                    title="Draft type"
+                  >
+                    Draft type
+                  </div>
                 </div>
               </div>
             </div>
@@ -472,56 +496,59 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
+                  </div>
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
+                  >
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
                   </div>
                 </div>
                 <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
+                  class="theme-header-cell__menu-button"
                 >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <button
+                    aria-describedby="42"
+                    class="theme-clickable theme-buttonIcon theme-size_XS"
+                    tabindex="0"
+                    type="button"
                   >
-                     (My type)
-                  </span>
-                </div>
-              </div>
-              <div
-                class="theme-header-cell__menu-button"
-              >
-                <button
-                  aria-describedby="42"
-                  class="theme-clickable theme-buttonIcon theme-size_XS"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="theme-buttonIcon__icon"
-                  >
-                    <svg
+                    <span
                       aria-hidden="true"
-                      class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
-                      focusable="false"
-                      name="talend-ellipsis"
-                    />
-                  </span>
-                </button>
+                      class="theme-buttonIcon__icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
+                        focusable="false"
+                        name="talend-ellipsis"
+                      />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -549,56 +576,59 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My loooooooooooooooooooooong column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My loooooooooooooooooooooong column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My loooooooooooooooooooooong column"
+                    >
+                      My loooooooooooooooooooooong column
+                    </div>
+                  </div>
+                  <div
+                    class="theme-header-cell__type"
+                    title="My loooooooooooooooooooooooooooong type (My type)"
+                  >
+                    My loooooooooooooooooooooooooooong type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
                   </div>
                 </div>
                 <div
-                  class="theme-header-cell__type"
-                  title="My loooooooooooooooooooooooooooong type (My type)"
+                  class="theme-header-cell__menu-button"
                 >
-                  My loooooooooooooooooooooooooooong type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <button
+                    aria-describedby="42"
+                    class="theme-clickable theme-buttonIcon theme-size_XS"
+                    tabindex="0"
+                    type="button"
                   >
-                     (My type)
-                  </span>
-                </div>
-              </div>
-              <div
-                class="theme-header-cell__menu-button"
-              >
-                <button
-                  aria-describedby="42"
-                  class="theme-clickable theme-buttonIcon theme-size_XS"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="theme-buttonIcon__icon"
-                  >
-                    <svg
+                    <span
                       aria-hidden="true"
-                      class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
-                      focusable="false"
-                      name="talend-ellipsis"
-                    />
-                  </span>
-                </button>
+                      class="theme-buttonIcon__icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
+                        focusable="false"
+                        name="talend-ellipsis"
+                      />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -626,56 +656,59 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
+                  </div>
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
+                  >
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
                   </div>
                 </div>
                 <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
+                  class="theme-header-cell__menu-button"
                 >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <button
+                    aria-describedby="42"
+                    class="theme-clickable theme-buttonIcon theme-size_XS"
+                    tabindex="0"
+                    type="button"
                   >
-                     (My type)
-                  </span>
-                </div>
-              </div>
-              <div
-                class="theme-header-cell__menu-button"
-              >
-                <button
-                  aria-describedby="42"
-                  class="theme-clickable theme-buttonIcon theme-size_XS"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="theme-buttonIcon__icon"
-                  >
-                    <svg
+                    <span
                       aria-hidden="true"
-                      class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
-                      focusable="false"
-                      name="talend-ellipsis"
-                    />
-                  </span>
-                </button>
+                      class="theme-buttonIcon__icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
+                        focusable="false"
+                        name="talend-ellipsis"
+                      />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -696,56 +729,59 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
+                  </div>
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
+                  >
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
                   </div>
                 </div>
                 <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
+                  class="theme-header-cell__menu-button"
                 >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <button
+                    aria-describedby="42"
+                    class="theme-clickable theme-buttonIcon theme-size_XS"
+                    tabindex="0"
+                    type="button"
                   >
-                     (My type)
-                  </span>
-                </div>
-              </div>
-              <div
-                class="theme-header-cell__menu-button"
-              >
-                <button
-                  aria-describedby="42"
-                  class="theme-clickable theme-buttonIcon theme-size_XS"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="theme-buttonIcon__icon"
-                  >
-                    <svg
+                    <span
                       aria-hidden="true"
-                      class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
-                      focusable="false"
-                      name="talend-ellipsis"
-                    />
-                  </span>
-                </button>
+                      class="theme-buttonIcon__icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
+                        focusable="false"
+                        name="talend-ellipsis"
+                      />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -773,56 +809,59 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My loooooooooooooooooooooong column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My loooooooooooooooooooooong column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My loooooooooooooooooooooong column"
+                    >
+                      My loooooooooooooooooooooong column
+                    </div>
+                  </div>
+                  <div
+                    class="theme-header-cell__type"
+                    title="My loooooooooooooooooooooooooooong type (My type)"
+                  >
+                    My loooooooooooooooooooooooooooong type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
                   </div>
                 </div>
                 <div
-                  class="theme-header-cell__type"
-                  title="My loooooooooooooooooooooooooooong type (My type)"
+                  class="theme-header-cell__menu-button"
                 >
-                  My loooooooooooooooooooooooooooong type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <button
+                    aria-describedby="42"
+                    class="theme-clickable theme-buttonIcon theme-size_XS"
+                    tabindex="0"
+                    type="button"
                   >
-                     (My type)
-                  </span>
-                </div>
-              </div>
-              <div
-                class="theme-header-cell__menu-button"
-              >
-                <button
-                  aria-describedby="42"
-                  class="theme-clickable theme-buttonIcon theme-size_XS"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="theme-buttonIcon__icon"
-                  >
-                    <svg
+                    <span
                       aria-hidden="true"
-                      class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
-                      focusable="false"
-                      name="talend-ellipsis"
-                    />
-                  </span>
-                </button>
+                      class="theme-buttonIcon__icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
+                        focusable="false"
+                        name="talend-ellipsis"
+                      />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -850,56 +889,59 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
+                  </div>
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
+                  >
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
                   </div>
                 </div>
                 <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
+                  class="theme-header-cell__menu-button"
                 >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <button
+                    aria-describedby="42"
+                    class="theme-clickable theme-buttonIcon theme-size_XS"
+                    tabindex="0"
+                    type="button"
                   >
-                     (My type)
-                  </span>
-                </div>
-              </div>
-              <div
-                class="theme-header-cell__menu-button"
-              >
-                <button
-                  aria-describedby="42"
-                  class="theme-clickable theme-buttonIcon theme-size_XS"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="theme-buttonIcon__icon"
-                  >
-                    <svg
+                    <span
                       aria-hidden="true"
-                      class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
-                      focusable="false"
-                      name="talend-ellipsis"
-                    />
-                  </span>
-                </button>
+                      class="theme-buttonIcon__icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
+                        focusable="false"
+                        name="talend-ellipsis"
+                      />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -920,58 +962,61 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell theme-header-cell--loading"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
+                  </div>
+                  <div
+                    class="theme-header-cell__type"
+                    title="Semantic type (My type)"
+                  >
+                    Semantic type
+                    <span
+                      class="theme-header-cell__sub-type"
+                    >
+                       (My type)
+                    </span>
                   </div>
                 </div>
                 <div
-                  class="theme-header-cell__type"
-                  title="Semantic type (My type)"
+                  class="theme-header-cell__menu-button"
                 >
-                  Semantic type
-                  <span
-                    class="theme-header-cell__sub-type"
+                  <button
+                    aria-describedby="42"
+                    aria-disabled="true"
+                    class="theme-clickable theme-buttonIcon theme-size_XS"
+                    disabled=""
+                    style="pointer-events: none;"
+                    type="button"
                   >
-                     (My type)
-                  </span>
-                </div>
-              </div>
-              <div
-                class="theme-header-cell__menu-button"
-              >
-                <button
-                  aria-describedby="42"
-                  aria-disabled="true"
-                  class="theme-clickable theme-buttonIcon theme-size_XS"
-                  disabled=""
-                  style="pointer-events: none;"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="theme-buttonIcon__icon"
-                  >
-                    <svg
+                    <span
                       aria-hidden="true"
-                      class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
-                      focusable="false"
-                      name="talend-ellipsis"
-                    />
-                  </span>
-                </button>
+                      class="theme-buttonIcon__icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
+                        focusable="false"
+                        name="talend-ellipsis"
+                      />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -1008,51 +1053,54 @@ exports[`HeaderCellRenderer should render 1`] = `
             class="theme-header-cell theme-header-cell--type-draft"
           >
             <div
-              class="theme-header-cell__button"
               role="button"
               tabindex="0"
             >
               <div
-                class="theme-header-cell__first-line"
+                class="theme-stack theme-justify-space-between theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
               >
                 <div
-                  class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
+                  class="theme-header-cell__first-line"
                 >
                   <div
-                    class="theme-header-cell__title"
-                    title="My column"
+                    class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-gap-x-XXS theme-gap-y-XXS"
                   >
-                    My column
+                    <div
+                      class="theme-header-cell__title"
+                      title="My column"
+                    >
+                      My column
+                    </div>
+                  </div>
+                  <div
+                    class="theme-header-cell__type"
+                    title="Draft type"
+                  >
+                    Draft type
                   </div>
                 </div>
                 <div
-                  class="theme-header-cell__type"
-                  title="Draft type"
+                  class="theme-header-cell__menu-button"
                 >
-                  Draft type
-                </div>
-              </div>
-              <div
-                class="theme-header-cell__menu-button"
-              >
-                <button
-                  aria-describedby="42"
-                  class="theme-clickable theme-buttonIcon theme-size_XS"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="theme-buttonIcon__icon"
+                  <button
+                    aria-describedby="42"
+                    class="theme-clickable theme-buttonIcon theme-size_XS"
+                    tabindex="0"
+                    type="button"
                   >
-                    <svg
+                    <span
                       aria-hidden="true"
-                      class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
-                      focusable="false"
-                      name="talend-ellipsis"
-                    />
-                  </span>
-                </button>
+                      class="theme-buttonIcon__icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-ellipsis"
+                        focusable="false"
+                        name="talend-ellipsis"
+                      />
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
             <div

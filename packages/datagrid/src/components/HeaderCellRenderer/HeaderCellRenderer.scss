@@ -1,13 +1,5 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$td-grip-resize-width: 6px !default;
-
-:global(.ag-header-cell) {
-	:global(.ag-header-cell-resize) {
-		width: $td-grip-resize-width;
-	}
-}
-
 @mixin ellipsis {
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -15,6 +7,7 @@ $td-grip-resize-width: 6px !default;
 }
 
 .header-cell {
+	$self: &;
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -23,17 +16,6 @@ $td-grip-resize-width: 6px !default;
 
 	:global(.tc-ratio-bar) {
 		padding: tokens.$coral-spacing-xs 0 0;
-	}
-
-	&__button {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0;
-		text-align: left;
-		background-color: transparent;
-		border: none;
-		gap: tokens.$coral-spacing-xxs;
 	}
 
 	&__first-line {
@@ -78,8 +60,8 @@ $td-grip-resize-width: 6px !default;
 	}
 
 	&--type-draft {
-		.td-header__title,
-		.td-header__type {
+		#{$self}__title,
+		#{$self}__type {
 			color: tokens.$coral-color-accent-text-strong;
 		}
 		:global(.tc-ratio-bar) {
