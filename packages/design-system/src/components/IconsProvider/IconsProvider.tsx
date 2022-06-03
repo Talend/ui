@@ -8,7 +8,9 @@ const DEFAULT_BUNDLES = [
 	assetsAPI.getURL('/dist/svg-bundle/M.svg', '@talend/icons'),
 	assetsAPI.getURL('/dist/svg-bundle/L.svg', '@talend/icons'),
 ];
+
 const FETCHING_BUNDLES: { [url: string]: Promise<Response> } = {};
+
 const ICONS_PROVIDER_CLASS = '.tc-iconsprovider';
 
 function hasBundle(url: string) {
@@ -63,7 +65,10 @@ function injectIcon(id: string, container: Element) {
 	const element = document.querySelector(`${ICONS_PROVIDER_CLASS} #${id}`);
 	if (element) {
 		while (container.hasChildNodes()) {
-			container.removeChild(container.lastChild);
+			const lastChild = container.lastChild;
+			if (lastChild) {
+				container.removeChild(lastChild);
+			}
 		}
 		container.appendChild(element.children[0].cloneNode(true));
 	} else if (Object.keys(FETCHING_BUNDLES).length) {
