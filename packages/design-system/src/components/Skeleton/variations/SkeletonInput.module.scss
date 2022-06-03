@@ -1,7 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 @use '../../Form/Primitives/mixins' as Form;
 
-.skeletonInput {
+.skeleton-input {
 	height: Form.$standardInputHeight;
 
 	&__label {
