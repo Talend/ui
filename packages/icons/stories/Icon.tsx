@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { IconItem as StorybookIconItem } from '@storybook/addon-docs';
+import { useCopyToClipboard } from 'react-use';
 
 import tokens from '@talend/design-tokens';
 
+import metadata from '../src/metadata.json';
 import { infoFromFigma as icons } from '../dist/info';
-import { useCopyToClipboard } from 'react-use';
-import { PropsWithChildren } from 'react';
 
 const iconColorTokens = {
 	'neutral/icon': tokens.coralColorNeutralIcon,
@@ -29,9 +28,7 @@ const legacyIconSizes = {
 	LG: '2.4rem',
 };
 
-export const getRealSize = (size: keyof typeof iconSizes) => {
-	return iconSizes[size];
-};
+export const getRealSize = (size: keyof typeof iconSizes) => iconSizes[size];
 
 export const realIconSizes: (keyof typeof iconSizes)[] = [
 	...Array.from(new Set(Object.values(icons) as (keyof typeof iconSizes)[])),
@@ -41,140 +38,313 @@ export const realIconNames = [
 	...Array.from(new Set(Object.keys(icons).map(icon => icon.split(':')[0]))),
 ].sort();
 
-const IconColorTokenPicker = () => (
-	<select
-		onChange={e => {
-			Array.from(document.getElementsByTagName('use')).forEach(element => {
-				element.style.color = e.currentTarget.value;
-			});
-		}}
-	>
-		{Object.entries(iconColorTokens).map(([name, value], index) => (
-			<option key={index} value={value}>
-				{name}
-			</option>
-		))}
-	</select>
-);
+export const getIconNamesBySize = (size: keyof typeof iconSizes) => {
+	const sizeInLowerCase = size.toLocaleLowerCase();
+	return Object.keys(icons)
+		.filter(key => key.toLocaleLowerCase().endsWith(':' + sizeInLowerCase))
+		.map(key => key.split(':')[0])
+		.sort();
+};
 
-export const IconToolbar = () => (
-	<form>
-		<IconColorTokenPicker />
-	</form>
-);
+const SearchContext = React.createContext({
+	query: '',
+	setQuery: (value: string) => {},
+});
 
-const LegacyIconSizePicker = () => (
-	<div className="form-group">
-		<label htmlFor="select-size" className="sr-only">
-			Icon size
-		</label>
-		<select
-			id="select-size"
-			className="form-control"
-			onChange={e => {
-				const size = e.currentTarget.value;
-				Array.from(
-					document.querySelectorAll('.sb-docs.sb-docs-svg svg') as NodeListOf<SVGSVGElement>,
-				).forEach(element => {
-					element.style.width = size;
-					element.style.height = size;
-				});
-			}}
-			defaultValue={Object.values(legacyIconSizes)[Object.values(legacyIconSizes).length - 1]}
-		>
-			{Object.entries(legacyIconSizes).map(([name, value], index) => (
-				<option key={index} value={value}>
-					{name}
-				</option>
-			))}
-		</select>
-	</div>
-);
+const IconFilter = () => {
+	const searchContext = React.useContext(SearchContext);
 
-const LegacyIconFilterPicker = () => (
-	<div className="form-group">
-		<label htmlFor="select-filter" className="sr-only">
-			Select filter
-		</label>
-		<select
-			id="select-filter"
-			className="form-control"
-			onChange={e => {
-				Array.from(document.querySelectorAll('.sb-docs.sb-docs-svg')).forEach(element => {
-					element.setAttribute('class', 'sb-docs sb-docs-svg ' + e.currentTarget.value);
-				});
-			}}
-		>
-			<option value="no-filter">No filter</option>
-			<option value="colormapping">Color mapping</option>
-			<option value="grayscale">grayscale</option>
-		</select>
-	</div>
-);
+	const onFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const value = event.currentTarget.value;
+		searchContext.setQuery(value);
+	};
 
-export const LegacyIconToolbar = () => (
-	<form className="form form-inline">
-		<LegacyIconSizePicker />
-		<LegacyIconFilterPicker />
-	</form>
-);
-
-export const HiddenIconItem = () => {
-	const ref = React.createRef<HTMLDivElement>();
-	React.useLayoutEffect(() => {
-		const hook = ref.current;
-		if (hook) {
-			const wrapper = hook?.parentNode?.parentNode;
-			if (wrapper) {
-				(wrapper as HTMLDivElement).style.visibility = 'hidden';
-			}
-		}
-	}, [ref]);
 	return (
-		<StorybookIconItem name="">
-			<div ref={ref} />
-		</StorybookIconItem>
+		<div className="form-group">
+			<label htmlFor="query" className="control-label">
+				Filter
+			</label>
+			<input
+				id="query"
+				className="form-control"
+				type="search"
+				onChange={onFilter}
+				placeholder={'Filter on name or desc...'}
+			/>
+		</div>
+	);
+};
+
+const LegacyIconContext = React.createContext({
+	size: '',
+	setSize: (value: string) => {},
+	filter: '',
+	setFilter: (value: string) => {},
+});
+
+const LegacyIconSizePicker = () => {
+	const legacyIconContext = React.useContext(LegacyIconContext);
+	return (
+		<div className="form-group">
+			<label htmlFor="select-size">Icon size</label>
+			<select
+				id="select-size"
+				className="form-control"
+				onChange={e => legacyIconContext.setSize(e.currentTarget.value)}
+				defaultValue={Object.values(legacyIconSizes).pop()}
+			>
+				{Object.entries(legacyIconSizes).map(([name, value], index) => (
+					<option key={index} value={value}>
+						{name}
+					</option>
+				))}
+			</select>
+		</div>
+	);
+};
+
+const LegacyIconFilterPicker = () => {
+	const legacyIconContext = React.useContext(LegacyIconContext);
+	return (
+		<div className="form-group">
+			<label htmlFor="select-filter" className="control-label">
+				Select filter
+			</label>
+			<select
+				id="select-filter"
+				className="form-control"
+				onChange={e => legacyIconContext.setFilter(e.currentTarget.value)}
+			>
+				<option value="no-filter">No filter</option>
+				<option value="colormapping">Color mapping</option>
+				<option value="grayscale">grayscale</option>
+			</select>
+		</div>
+	);
+};
+
+export const LegacyIconToolbar = () => {
+	return (
+		<form className="form">
+			<LegacyIconSizePicker />
+			<LegacyIconFilterPicker />
+		</form>
+	);
+};
+
+const IconContext = React.createContext({
+	color: '',
+	setColor: (value: string) => {},
+});
+
+const IconColorTokenPicker = () => {
+	const iconContext = React.useContext(IconContext);
+	return (
+		<div className="form-group">
+			<label htmlFor="color" className="control-label">
+				Color
+			</label>
+			<select
+				id="color"
+				className="form-control"
+				onChange={e => iconContext.setColor(e.currentTarget.value)}
+			>
+				{Object.entries(iconColorTokens).map(([name, value], index) => (
+					<option key={index} value={value}>
+						{name}
+					</option>
+				))}
+			</select>
+		</div>
+	);
+};
+
+const IconToolbar = () => {
+	return (
+		<form className="form">
+			<IconColorTokenPicker />
+			<IconFilter />
+		</form>
+	);
+};
+
+export const Grid = ({
+	columns = 1,
+	children,
+}: React.PropsWithChildren<HTMLElement> & { columns?: number }) => {
+	return (
+		<div
+			style={{
+				display: 'grid',
+				gridTemplateColumns: `repeat(${columns}, 1fr)`,
+			}}
+		>
+			{children}
+		</div>
+	);
+};
+
+const IconList = (props: React.PropsWithChildren<any>) => (
+	<div {...props} style={{ paddingBlock: tokens.coralSpacingM }} />
+);
+
+export const IconGallery = ({ children }: React.PropsWithChildren<HTMLElement>) => {
+	const [color, setColor] = React.useState('');
+	const [query, setQuery] = React.useState('');
+	return (
+		<IconContext.Provider value={{ color, setColor }}>
+			<SearchContext.Provider value={{ query, setQuery }}>
+				<IconToolbar />
+				<IconList>{children}</IconList>
+			</SearchContext.Provider>
+		</IconContext.Provider>
+	);
+};
+
+export const LegacyIconGallery = ({ children }: React.PropsWithChildren<HTMLElement>) => {
+	const [size, setSize] = React.useState('');
+	const [filter, setFilter] = React.useState('');
+	const [query, setQuery] = React.useState('');
+	return (
+		<LegacyIconContext.Provider value={{ size, setSize, filter, setFilter }}>
+			<SearchContext.Provider value={{ query, setQuery }}>
+				<LegacyIconToolbar />
+				<IconList>{children}</IconList>
+			</SearchContext.Provider>
+		</LegacyIconContext.Provider>
 	);
 };
 
 export const IconItem = ({
 	name,
-	children,
+	size,
 	...rest
-}: PropsWithChildren<typeof StorybookIconItem>) => {
-	const ref = React.createRef<HTMLDivElement>();
+}: {
+	name: string;
+	size?: 'XS' | 'S' | 'M' | 'L' | undefined;
+}) => {
+	const searchContext = React.useContext(SearchContext);
 	const [, copyToClipboard] = useCopyToClipboard();
 	const onClickHandler = () => {
 		const nameToCopy = name.split(':')[0];
 		copyToClipboard(nameToCopy);
 		alert(`"${nameToCopy}" has been copied to clipboard`);
 	};
-	React.useLayoutEffect(() => {
-		const hook = ref.current;
-		if (hook) {
-			const element = hook?.childNodes[0];
-			if (element) {
-				hook.className = (element as HTMLDivElement).className;
-			}
-		}
-	}, [ref]);
+	const iconMetadata = metadata.find(data => data.name.endsWith(size + '/' + name));
+	const isFound = size
+		? iconMetadata &&
+		  Object.values(iconMetadata).some(property =>
+				property.toString().toLocaleLowerCase().includes(searchContext.query),
+		  )
+		: true;
 	return (
-		<StorybookIconItem name={name} {...rest}>
-			<div role="button" onClick={onClickHandler} onKeyPress={onClickHandler} tabIndex={0}>
-				{children}
-			</div>
-		</StorybookIconItem>
+		<div {...rest}>
+			{isFound ? (
+				<div role="button" onClick={onClickHandler} onKeyPress={onClickHandler} tabIndex={0}>
+					<div
+						style={{
+							display: 'flex',
+							gap: tokens.coralSpacingM,
+							paddingBlock: tokens.coralSpacingXs,
+						}}
+					>
+						<div
+							style={{
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'center',
+								width: tokens.coralSizingM,
+								height: tokens.coralSizingM,
+								border: `${tokens.coralBorderSSolid} ${tokens.coralColorNeutralBorderWeak}`,
+								boxShadow: tokens.coralElevationShadowAccent,
+								borderRadius: tokens.coralRadiusS,
+							}}
+						>
+							<Icon size={size} name={name} />
+						</div>
+						<div
+							style={{
+								flex: 1,
+								font: tokens.coralParagraphM,
+							}}
+						>
+							{size ? (
+								<dl
+									style={{
+										display: 'grid',
+										gridTemplateColumns: '1fr 3fr',
+									}}
+								>
+									<dt>Name</dt>
+									<dd>{name}</dd>
+									{size && (
+										<>
+											<dt>Size</dt>
+											<dd>{size}</dd>
+										</>
+									)}
+									{iconMetadata &&
+										'description' in iconMetadata &&
+										iconMetadata.description.length > 0 && (
+											<>
+												<dt style={{ color: tokens.coralColorNeutralTextWeak }}>Desc</dt>
+												<dd style={{ color: tokens.coralColorNeutralTextWeak }}>
+													{iconMetadata.description}
+												</dd>
+											</>
+										)}
+								</dl>
+							) : (
+								<span>{name}</span>
+							)}
+						</div>
+					</div>
+				</div>
+			) : (
+				<div />
+			)}
+		</div>
 	);
 };
 
+export const HiddenIconItem = () => {
+	return <div aria-hidden />;
+};
+
 const Icon = ({ name, size }: { name: string; size?: keyof typeof iconSizes }) => {
+	const iconContext = React.useContext(IconContext);
+	const legacyIconContext = React.useContext(LegacyIconContext);
+	const style = {
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			color: 'initial',
+		},
+		styleWithSize = { width: 'auto', height: 'auto' };
+	let className = '';
+	if (iconContext.color) {
+		style.color = iconContext.color;
+	}
+	if (legacyIconContext.size) {
+		const { size } = legacyIconContext;
+		styleWithSize.width = size;
+		styleWithSize.height = size;
+	}
+	if (legacyIconContext.filter) {
+		className = legacyIconContext.filter;
+	}
+	if (size) {
+		const realSize = getRealSize(size).toString();
+		styleWithSize.width = realSize;
+		styleWithSize.height = realSize;
+	}
 	if (!name) {
 		return null;
 	}
 	const fullName = size ? name.split(':')[0] + ':' + size : name;
 	return (
-		<div className="sb-docs sb-docs-svg">
-			<svg style={size ? { width: getRealSize(size), height: getRealSize(size) } : {}}>
+		<div className={className} style={style}>
+			<svg style={styleWithSize}>
 				<use xlinkHref={'#' + fullName} />
 			</svg>
 		</div>
