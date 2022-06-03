@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { Icon, IconSize } from '@talend/icons';
 
 const getNumericSize = (size: IconSize) => {
@@ -11,11 +11,14 @@ const getNumericSize = (size: IconSize) => {
 };
 
 const SizedIcon = React.forwardRef(
-	<S extends IconSize>({ name, size }: Icon<S>, ref: React.Ref<SVGSVGElement>) => {
+	<S extends IconSize>(
+		{ className, style, name, size, ...rest }: HTMLAttributes<SVGSVGElement> & Icon<S>,
+		ref: React.Ref<SVGSVGElement>,
+	) => {
 		const numericSize = getNumericSize(size);
-		const fullName = size ? `${name}:${numericSize}` : name;
+		const fullName = size ? `${name}:${size}` : name;
 		return (
-			<svg style={{ width: numericSize, height: numericSize }} aria-hidden ref={ref}>
+			<svg {...rest} style={{ width: numericSize, height: numericSize }} aria-hidden ref={ref}>
 				<use xlinkHref={`#${fullName}`} />
 			</svg>
 		);
