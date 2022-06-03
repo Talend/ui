@@ -3,10 +3,10 @@ import { Icon, IconSize } from '@talend/icons';
 
 const getNumericSize = (size: IconSize) => {
 	return {
-		XS: 8,
-		S: 12,
-		M: 16,
-		L: 24,
+		XS: '0.8rem',
+		S: '1.2rem',
+		M: '1.6rem',
+		L: '2.4rem',
 	}[size];
 };
 
