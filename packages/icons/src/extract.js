@@ -2,6 +2,10 @@
 const fs = require('fs');
 const path = require('path');
 
+function isTShirtSize(size) {
+	return ['XS', 'S', 'M', 'L'].find(s => size === s);
+}
+
 function getAbsolutePath(folder) {
 	if (folder.startsWith(__dirname)) {
 		return folder;
@@ -37,7 +41,7 @@ function extractFiles(folder) {
 		}
 		const iconId = getIconId(file);
 		const parentFolder = path.basename(path.dirname(p));
-		const iconIdWithSize = `${!isNaN(parentFolder) ? `${iconId}:${parentFolder}` : iconId}`;
+		const iconIdWithSize = `${isTShirtSize(parentFolder) ? `${iconId}:${parentFolder}` : iconId}`;
 		if (acc[iconIdWithSize]) {
 			throw new Error(`Icon ${iconIdWithSize} already included in the bundle`);
 		}
@@ -59,7 +63,7 @@ function extractInfo(folder, parent) {
 		// check if the same file exists in another bundle
 		const iconId = getIconId(file);
 		const parentFolder = path.basename(path.dirname(p));
-		const iconIdWithSize = `${!isNaN(parentFolder) ? `${iconId}:${parentFolder}` : iconId}`;
+		const iconIdWithSize = `${isTShirtSize(parentFolder) ? `${iconId}:${parentFolder}` : iconId}`;
 		if (acc[iconIdWithSize]) {
 			throw new Error(`Icon ${iconIdWithSize} already included in the bundle`);
 		}

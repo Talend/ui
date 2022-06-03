@@ -209,15 +209,18 @@ export function renderItem(item, { value, valueId, ...rest }) {
 	if (typeof item === 'string') {
 		title = itemValueId = item;
 	} else {
-		title = (item.title || item.name || '').trim();
-		itemValueId = (item.value || item.id || '').trim();
+		title = (item.title || item.name || '').toString().trim();
+		itemValueId = (item.value ?? item.id ?? '').toString().trim();
 		description = item.description;
 	}
+
 	return (
 		<div
 			className={classNames(theme.item, {
 				[theme.disabled]: item.disabled,
-				[theme.selected]: (valueId && valueId === itemValueId) || (!valueId && value === title),
+				[theme.selected]:
+					(valueId !== undefined && valueId?.toString() === itemValueId) ||
+					(valueId === undefined && value?.toString() === title),
 				[theme.multiline]: title && description,
 			})}
 			title={title}

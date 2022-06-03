@@ -313,7 +313,7 @@ describe('CMF http middleware', () => {
 		});
 	});
 
-	it('should httpMiddleware handle response promise with error same if the body is not a JSON', done => {
+	it('should httpMiddleware handle response promise with error if the body is not a JSON', done => {
 		const store = {
 			dispatch: jest.fn(),
 		};
@@ -346,9 +346,9 @@ describe('CMF http middleware', () => {
 				expect(errorHTTPAction.error.stack.statusText).toBe('Internal Server Error');
 				expect(errorHTTPAction.error.stack.messageObject).toBe(undefined);
 				expect(errorHTTPAction.error.stack.response).toBe('invalid json');
-				done();
 			})
-			.catch(error => console.error(error));
+			.catch(error => console.error(error))
+			.finally(done);
 	});
 
 	it('should handle onError callback if this action property is a typeof function', done => {

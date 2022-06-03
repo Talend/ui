@@ -29,23 +29,17 @@ const legacyIconSizes = {
 	LG: '2.4rem',
 };
 
-export const realIconSizes: (keyof typeof iconSizes)[] = [
-	...Array.from(new Set(Object.values(icons) as (keyof typeof iconSizes)[])),
-].sort((a, b) => parseInt(a) - parseInt(b));
-
-export const realIconNames = [
-	...Array.from(new Set(Object.keys(icons).map(icon => icon.split(':')[0]))),
-].sort();
-
 export const getRealSize = (size: keyof typeof iconSizes) => {
 	return iconSizes[size];
 };
 
-export const getTShirtSize = (size: keyof typeof iconSizes) => {
-	return (Object.keys(iconSizes) as (keyof typeof iconSizes)[]).find(
-		iconSize => iconSizes[iconSize] === parseInt(size),
-	);
-};
+export const realIconSizes: (keyof typeof iconSizes)[] = [
+	...Array.from(new Set(Object.values(icons) as (keyof typeof iconSizes)[])),
+].sort((a, b) => getRealSize(b) - getRealSize(a));
+
+export const realIconNames = [
+	...Array.from(new Set(Object.keys(icons).map(icon => icon.split(':')[0]))),
+].sort();
 
 const IconColorTokenPicker = () => (
 	<select
@@ -175,13 +169,12 @@ export const IconItem = ({
 
 const Icon = ({ name, size }: { name: string; size?: keyof typeof iconSizes }) => {
 	if (!name) {
-		return <svg />;
+		return null;
 	}
-	const realSize = size ? getRealSize(size) : undefined;
-	const fullName = size ? name.split(':')[0] + ':' + realSize : name;
+	const fullName = size ? name.split(':')[0] + ':' + size : name;
 	return (
 		<div className="sb-docs sb-docs-svg">
-			<svg style={size ? { width: realSize, height: realSize } : {}}>
+			<svg style={size ? { width: getRealSize(size), height: getRealSize(size) } : {}}>
 				<use xlinkHref={'#' + fullName} />
 			</svg>
 		</div>

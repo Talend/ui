@@ -1,6 +1,6 @@
 import { Meta, IconGallery } from '@storybook/addon-docs';
 
-import Icon, { realIconSizes, getTShirtSize, IconToolbar, IconItem } from './Icon';
+import Icon, { realIconSizes, IconToolbar, IconItem } from './Icon';
 import { infoFromFigma as icons } from '../dist/info';
 
 <Meta title="Icons by size" />
@@ -9,18 +9,19 @@ import { infoFromFigma as icons } from '../dist/info';
 
 <IconToolbar />
 
+This page helps you figure out how many icons are available per size.
+
 <div>
 	{realIconSizes.map((realIconSize, i) => (
 		<section key={i}>
-			<h2>{getTShirtSize(realIconSize)}</h2>
+			<h2>{realIconSize}</h2>
 			<IconGallery>
 				{Object.entries(icons)
 					.filter(([, size]) => size === realIconSize)
 					.map(([name, size], j) => {
-						const currentTShirtSize = getTShirtSize(size);
 						return (
-							<IconItem key={j} name={name.split(':')[0] + ':' + currentTShirtSize}>
-								<Icon size={currentTShirtSize} name={name} />
+							<IconItem key={j} name={name.split(':')[0] + ':' + size}>
+								<Icon size={size} name={name} />
 							</IconItem>
 						);
 					})}

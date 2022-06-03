@@ -395,8 +395,8 @@ describe('<Dropdown>', () => {
         );
 
         // then
-        expect(console.error.mock.calls[0][0]).toContain(
-          'Warning: Failed prop type: (children) Dropdown - Duplicate children detected of bsRole: menu. Only one child each allowed with the following bsRoles: menu'
+        expect(console.error.mock.calls[0]).toContain(
+          '(children) Dropdown - Duplicate children detected of bsRole: menu. Only one child each allowed with the following bsRoles: menu'
         );
       });
 
@@ -437,8 +437,8 @@ describe('<Dropdown>', () => {
         );
 
         // then
-        expect(console.error.mock.calls[0][0]).toContain(
-          'Warning: Failed prop type: (children) Dropdown - Missing a required child with bsRole: toggle. Dropdown must have at least one child of each of the following bsRoles: toggle, menu'
+        expect(console.error.mock.calls[0]).toContain(
+          '(children) Dropdown - Missing a required child with bsRole: toggle. Dropdown must have at least one child of each of the following bsRoles: toggle, menu'
         );
       });
     });
