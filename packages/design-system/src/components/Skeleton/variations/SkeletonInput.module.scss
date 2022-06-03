@@ -1,0 +1,5 @@
+@use 'src/components/Form/Primitives/mixins' as Form;
+
+.skeletonInput {
+	height: Form.$standardInputHeight;
+}
