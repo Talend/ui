@@ -3,7 +3,7 @@ name: Download icons from Figma
 on:
   repository_dispatch:
   workflow_dispatch:
-  
+
 jobs:
   download:
     runs-on: ubuntu-latest
@@ -24,23 +24,27 @@ jobs:
           cache: "yarn"
 
       - name: Download icons
-        run: npx @talend/figma-icons-downloader       
-        env:          
+        run: npx @talend/figma-icons-downloader
+        env:
           FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
 
-      - name: Generate Pull Request Body
+      - name: Generate changeset & PR body
         id: get-pr-body
         run: |
-          git add src
-          git diff --name-only HEAD ./src | zip diff.zip -@
-          mkdir .tmp
-          unzip diff.zip -d .tmp/
-          body="<h1>This Pull-Request was auto-generated</h1><p>Please, don't update this PR manually!</p><br/><h2>Modified files</h2> <pre>$(cd .tmp && du -sh && find . | sed 's;[^/]*/;|____;g' | sed 's;____|; |;g' | head -n 1000)</pre>"
-          body="${body//'%'/'%25'}"
+          cd ../..
+          git add ./packages/icons/src
+          while read STATUS ADDR
+          do
+            icon=`basename $ADDR .svg`
+            size=`basename $(dirname $ADDR)`
+            semver=`sed 's/A/minor/;s/D/major/;s/M/patch/' <<< $STATUS`
+            verb=`sed 's/A/added/;s/D/removed/;s/M/changed/' <<< $STATUS`
+            echo -e "---\n'@talend/icons': $semver\n---\n\n$verb icon \`$icon\` in size \`$size\`" > .changeset/$icon-$size-$semver.md
+          done < <(git diff --name-status HEAD ./packages/icons/src/icon/**/*.svg)
+          git add .changeset
+          body=$(git diff --name-only HEAD .changeset/*.md | xargs -L1 sed -n '5p')
           body="${body//$'\n'/'%0A'}"
-          body="${body//$'\r'/'%0D'}"
           echo ::set-output name=body::$body
-          rm -rf diff.zip .tmp
 
       - name: Create Pull Request
         id: cpr
@@ -51,8 +55,3 @@ jobs:
           body: ${{ steps.get-pr-body.outputs.body }}
           branch: ci/icons
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check outputs
-        run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"

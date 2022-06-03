@@ -1,5 +1,19 @@
 # @talend/react-containers
 
+## 7.2.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/react-cmf@7.1.0
+  - @talend/react-forms@7.3.0
+
 ## 7.1.0
 
 ### Minor Changes

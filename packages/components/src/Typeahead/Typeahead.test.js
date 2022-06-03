@@ -73,7 +73,7 @@ describe('Typeahead', () => {
 		},
 	];
 
-	const itemsObjectWithId = [
+	const itemsObjectWithStringId = [
 		{
 			title: 'category 1',
 			suggestions: [
@@ -88,6 +88,26 @@ describe('Typeahead', () => {
 				{
 					title: 'le title 2',
 					value: 'letitle2',
+				},
+			],
+		},
+	];
+
+	const itemsObjectWithId = [
+		{
+			title: 'category 1',
+			suggestions: [
+				{
+					title: 'le title 1',
+					value: 6,
+				},
+				{
+					title: 'le title 1',
+					value: 0,
+				},
+				{
+					title: 'le title 2',
+					value: 19,
 				},
 			],
 		},
@@ -204,8 +224,26 @@ describe('Typeahead', () => {
 			const props = {
 				...initialProps,
 				value: 'le title 1',
-				valueId: 'letitle1copy',
+				valueId: 0,
 				items: itemsObjectWithId,
+			};
+
+			// when
+			render(<Typeahead {...props} />);
+
+			// then
+			const titleList = screen.getAllByTitle('le title 1');
+			expect(titleList[0]).not.toHaveClass('theme-selected');
+			expect(titleList[1]).toHaveClass('theme-selected');
+		});
+
+		it('should render typeahead selected item by string id', () => {
+			// given
+			const props = {
+				...initialProps,
+				value: 'le title 1',
+				valueId: 'letitle1copy',
+				items: itemsObjectWithStringId,
 			};
 
 			// when
