@@ -16968,7 +16968,7 @@ rc-motion@^2.0.0:
     classnames "^2.2.1"
     rc-util "^5.21.0"
 
-rc-slider@10.0.0:
+rc-slider@^10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/rc-slider/-/rc-slider-10.0.0.tgz#8ffe1dd3c8799c9d1f81ac808976f18af3dca206"
   integrity sha512-Bk54UIKWW4wyhHcL8ehAxt+wX+n69dscnHTX6Uv0FMxSke/TGrlkZz1LSIWblCpfE2zr/dwR2Ca8nZGk3U+Tbg==
@@ -16979,7 +16979,7 @@ rc-slider@10.0.0:
     rc-util "^5.18.1"
     shallowequal "^1.1.0"
 
-rc-tooltip@5.1.1, rc-tooltip@^5.0.1:
+rc-tooltip@^5.0.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/rc-tooltip/-/rc-tooltip-5.1.1.tgz#94178ed162d0252bc4993b725f5dc2ac0fccf154"
   integrity sha512-alt8eGMJulio6+4/uDm7nvV+rJq9bsfxFDCI0ljPdbuoygUscbsMYb6EQgwib/uqsXQUvzk+S7A59uYHmEgmDA==

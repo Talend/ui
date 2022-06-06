@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import RcSlider from 'rc-slider';
-import Tooltip from 'rc-tooltip';
+import { Tooltip } from '@talend/design-system';
 import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
@@ -185,36 +185,20 @@ function getCaption(
  * Function to set the tooltip
  * @param {function} captionsFormat the function to format the caption
  */
-function getHandle(captionsFormat, getTooltipContainer, hideTooltip) {
-	// https://github.com/react-component/slider/issues/502
-	function Handle({ dragging, ...rest }) {
+function getHandle(captionsFormat) {
+	function renderHandler(node, props) {
 		return (
-			<Tooltip
-				prefixCls="rc-slider-tooltip"
-				overlay={captionsFormat(rest.value)}
-				getTooltipContainer={getTooltipContainer}
-				visible={!hideTooltip}
-				placement="top"
-				key={rest.index}
-			>
-				<RcSlider.Handle dragging={dragging.toString()} {...rest} />
+			<Tooltip title={captionsFormat(props?.value)} placement="top">
+				{node}
 			</Tooltip>
 		);
 	}
 
-	Handle.propTypes = {
-		dragging: PropTypes.bool,
-		value: PropTypes.number.isRequired,
-		index: PropTypes.number.isRequired,
-	};
-
-	return Handle;
+	return renderHandler;
 }
 
 const Slider = React.forwardRef((props, ref) => {
-	const [Handle, setHandle] = React.useState(
-		getHandle(props.captionsFormat, props.getTooltipContainer, props.hideTooltip),
-	);
+	const handleRender = getHandle(props.captionsFormat);
 
 	const {
 		id,
@@ -238,11 +222,12 @@ const Slider = React.forwardRef((props, ref) => {
 				<RcSlider
 					range={Array.isArray(value)}
 					id={id}
+					defaultValue={value ? undefined : 0}
 					value={value}
 					min={min}
 					max={max}
 					step={step}
-					handleRender={noValue ? undefined : Handle}
+					handleRender={noValue ? undefined : handleRender}
 					className={classnames(
 						theme['tc-slider-rc-slider'],
 						{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
