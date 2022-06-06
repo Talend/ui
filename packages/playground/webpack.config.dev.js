@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const resolve = require('@talend/dynamic-cdn-webpack-plugin/src/resolve-pkg');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -48,7 +49,12 @@ const patterns = PKGS.map(pkg => ({
 }));
 
 const webpackConfig = {
-	plugins: [new CopyWebpackPlugin({ patterns })],
+	plugins: [
+		new CopyWebpackPlugin({ patterns }),
+		new webpack.DefinePlugin({
+			'process.env.ICONS_VERSION': JSON.stringify(getVersion('@talend/icons')),
+		}),
+	],
 	output: {
 		publicPath: process.env.BASENAME || '/',
 	},
