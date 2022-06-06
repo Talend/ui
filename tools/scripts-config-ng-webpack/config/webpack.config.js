@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
+const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
+const babelConfig = getBabelConfig();
 
 module.exports = {
 	module: {
@@ -8,7 +10,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				use: [{ loader: 'cache-loader' }, { loader: 'babel-loader', options: getBabelConfig() }],
+				use: [{ loader: 'babel-loader', options: getBabelLoaderOptions(babelConfig) }],
 			},
 			{
 				test: /\.html$/,

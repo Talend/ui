@@ -85,6 +85,7 @@ export const badgeConnectionType = {
 		operator: {},
 		operators: [],
 		type: 'checkbox',
+		filterBarPlaceholder: 'Find a connection type',
 	},
 	metadata: {
 		badgePerFacet: '1',
@@ -243,6 +244,7 @@ export const badgeEnumWithLotOfValues = {
 		operator: {},
 		operators: [],
 		type: 'checkbox',
+		filterBarPlaceholder: 'Find a connection type',
 	},
 	metadata: {
 		badgePerFacet: '1',
@@ -305,6 +307,7 @@ export const badgeEnumsAsCustomAttribute = {
 		operator: {},
 		operators: [],
 		type: 'checkbox',
+		filterBarPlaceholder: 'Find a visibility',
 	},
 	metadata: {
 		badgePerFacet: '1',

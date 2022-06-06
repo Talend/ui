@@ -9,18 +9,21 @@
 	media="screen"
 />
 <style>
-	.sb-docs.sb-docs-svg > svg {
+	svg {
 		max-width: 2.4rem;
 		max-height: 2.4rem;
 	}
-	.sb-docs.sb-docs-svg.colormapping > svg {
+	svg path {
+		shape-rendering: geometricPrecision;
+	}
+	.colormapping > svg {
 		filter: url(#colormapping);
 	}
-	.sb-docs.sb-docs-svg.grayscale > svg {
+	.grayscale > svg {
 		filter: url(#talend-grayscale);
 	}
-	.sb-docs.sb-docs-svg.colormapping:hover > svg,
-	.sb-docs.sb-docs-svg.grayscale:hover > svg {
+	.colormapping:hover > svg,
+	.grayscale:hover > svg {
 		filter: none;
 	}
 </style>

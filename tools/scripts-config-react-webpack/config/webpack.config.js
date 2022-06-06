@@ -17,8 +17,8 @@ const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
 
 const cdn = require('@talend/scripts-config-cdn');
+const exists = require('@talend/scripts-utils/fs');
 const LICENSE_BANNER = require('./licence');
-const exists = require('./utils/exists');
 const inject = require('./inject');
 const icons = require('./icons');
 const {

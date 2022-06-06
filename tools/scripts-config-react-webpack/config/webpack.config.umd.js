@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const cdn = require('@talend/scripts-config-cdn');
 
-const exists = require('./utils/exists');
+const exists = require('@talend/scripts-utils/fs');
 
 const {
 	getCommonStyleLoaders,
