@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -256,6 +256,7 @@ export const WithEverything: ComponentStory<typeof Modal> = props => (
 		secondaryAction={{
 			children: 'Secondary action',
 			onClick: action('[Secondary action] onClick'),
+			'data-feature': 'secondary-action',
 		}}
 	>
 		<QuicheRecipe />
