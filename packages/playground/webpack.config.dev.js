@@ -63,7 +63,10 @@ const webpackConfig = {
 		publicPath: process.env.BASENAME || '/',
 	},
 	devServer: {
-		onBeforeSetupMiddleware: mockBackend,
+		setupMiddlewares: (middlewares, devServer) => {
+			mockBackend(devServer);
+			return middlewares;
+		},
 		historyApiFallback: {
 			index: `${process.env.BASENAME || '/'}index.html`,
 		},

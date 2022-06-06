@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
+const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
 
 const babelConfig = getBabelConfig();
 const sourceMap = true;
@@ -57,7 +58,7 @@ function getJSAndTSLoader(env, useTypescript) {
 		!env.nocache && { loader: 'cache-loader' },
 		{
 			loader: 'babel-loader',
-			options: babelConfig,
+			options: getBabelLoaderOptions(babelConfig),
 		},
 	].filter(Boolean);
 }
