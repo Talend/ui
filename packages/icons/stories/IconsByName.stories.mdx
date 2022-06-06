@@ -1,36 +1,22 @@
-import { Meta, IconGallery } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
 
-import Icon, {
-	realIconNames,
-	realIconSizes,
-	IconToolbar,
-	IconItem,
-	HiddenIconItem,
-} from './Icon';
+import { realIconNames, realIconSizes, Grid, IconGallery, IconItem, HiddenIconItem } from './Icon';
 import { infoFromFigma as icons } from '../dist/info';
 
 <Meta title="Icons by name" />
 
 # Icons
 
-<IconToolbar />
-
 This page mimics Figma presentation for convenient reasons.
 
-<div>
-	{realIconNames.map((name, i) => (
-		<section key={i}>
-			<IconGallery>
-				{realIconSizes.map((size, j) => {
-					const isFound = Object.keys(icons).find(key => key === name + ':' + size);
-					if (!isFound) return <HiddenIconItem key={j} />;
-					return (
-						<IconItem key={j} name={name + ':' + size}>
-							<Icon size={size} name={name} />
-						</IconItem>
-					);
-				})}
-			</IconGallery>
-		</section>
-	))}
-</div>
+<IconGallery>
+	<Grid columns={realIconSizes.length}>
+		{realIconNames.map(name =>
+			realIconSizes.map((size, j) => {
+				const isFound = Object.keys(icons).find(key => key === name + ':' + size);
+				if (!isFound) return <HiddenIconItem key={j} />;
+				return <IconItem key={j} name={name} size={size} />;
+			}),
+		)}
+	</Grid>
+</IconGallery>

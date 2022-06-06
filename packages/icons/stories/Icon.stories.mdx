@@ -1,0 +1,123 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import Icon, { realIconSizes, getIconNamesBySize } from './Icon';
+
+<Meta title={'Icon'} component={Icon} />
+
+# Icon
+
+<Canvas>
+	<Story
+		name="xs"
+		args={{
+			size: 'XS',
+			name: 'cross',
+		}}
+		argTypes={{
+			size: {
+				table: {
+					disable: true,
+				},
+				control: {
+					type: 'select',
+				},
+				options: realIconSizes,
+			},
+			name: {
+				control: {
+					type: 'select',
+				},
+				options: getIconNamesBySize('XS'),
+			},
+		}}
+	/>
+</Canvas>
+
+<ArgsTable story="xs" />
+
+<Canvas>
+	<Story
+		name="s"
+		args={{
+			size: 'S',
+			name: 'cross',
+		}}
+		argTypes={{
+			size: {
+				table: {
+					disable: true,
+				},
+				control: {
+					type: 'select',
+				},
+				options: realIconSizes,
+			},
+			name: {
+				control: {
+					type: 'select',
+				},
+				options: getIconNamesBySize('S'),
+			},
+		}}
+	/>
+</Canvas>
+
+<ArgsTable story="s" />
+
+<Canvas>
+	<Story
+		name="m"
+		args={{
+			size: 'M',
+			name: 'cross',
+		}}
+		argTypes={{
+			size: {
+				table: {
+					disable: true,
+				},
+				control: {
+					type: 'select',
+				},
+				options: realIconSizes,
+			},
+			name: {
+				control: {
+					type: 'select',
+				},
+				options: getIconNamesBySize('M'),
+			},
+		}}
+	/>
+</Canvas>
+
+<ArgsTable story="m" />
+
+<Canvas>
+	<Story
+		name="l"
+		args={{
+			size: 'L',
+			name: 'cross',
+		}}
+		argTypes={{
+			size: {
+				table: {
+					disable: true,
+				},
+				control: {
+					type: 'select',
+				},
+				options: realIconSizes,
+			},
+			name: {
+				control: {
+					type: 'select',
+				},
+				options: getIconNamesBySize('L'),
+			},
+		}}
+	/>
+</Canvas>
+
+<ArgsTable story="l" />
