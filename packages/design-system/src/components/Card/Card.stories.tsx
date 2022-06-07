@@ -22,7 +22,7 @@ function CardWrapper({ children }: { children: React.ReactElement }) {
 	);
 }
 
-export const DefaultCard = (): React.ReactElement => (
+export const DefaultCard = (): React.ReactNode => (
 	<CardWrapper>
 		<Card header="Hello!">
 			<p>Here lies the card's content</p>
