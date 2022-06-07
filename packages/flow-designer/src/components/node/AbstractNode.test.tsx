@@ -62,8 +62,8 @@ describe('Testing <AbstractNode>', () => {
 				<rect />
 			</AbstractNode>,
 		);
-		wrapper.find('g[transform]').simulate('click');
-		expect(onClick).toHaveBeenCalledTimes(1);
+		wrapper.find('g[transform]').simulate('click').simulate('click');
+		expect(onDblClick).toHaveBeenCalledTimes(1);
 	});
 
 	// if anyone got a clue on how to test react + d3 events
