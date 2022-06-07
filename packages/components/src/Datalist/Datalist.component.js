@@ -111,8 +111,7 @@ function getEntry(titleMap, nameOrValue, restricted) {
 
 function Datalist(props) {
 	// Current persisted value
-	// In case of simple values, this is a string
-	// In case of titleMap, it's the object value key { name: "display value", value: "technical value" }
+	// It's the object value key { name: "display value", value: "technical value" }
 	const [{ name, value }, setEntry] = useState({});
 
 	// suggestions: filter value, display flag, current hover selection
