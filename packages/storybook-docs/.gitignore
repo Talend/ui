@@ -3,9 +3,6 @@
 .next
 
 coverage
-cypress/fixtures
-cypress/screenshots
-cypress/videos
 dist
 i18n-extract
 lib
