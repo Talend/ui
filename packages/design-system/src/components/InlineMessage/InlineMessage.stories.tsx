@@ -6,7 +6,7 @@ import {
 	InlineMessageWarning,
 	InlineMessageSuccess,
 } from '.';
-import { StackVertical, StackHorizontal } from '../Stack';
+import { StackVertical } from '../Stack';
 import InlineMessageBeta from './variations/InlineMessageBeta';
 import { ComponentStory } from '@storybook/react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
@@ -14,7 +14,7 @@ import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 export default { component: InlineMessage };
 
 export const DefaultDemo = () => (
-	<StackVertical gap={'XS'}>
+	<StackVertical gap="XS">
 		<InlineMessageInformation
 			title="Lorem ipsum"
 			link={{ href: 'https://talend.com', children: 'Learn more' }}
@@ -44,7 +44,7 @@ export const DefaultDemo = () => (
 );
 
 export const BackgroundDemo = () => (
-	<StackVertical gap={'XS'}>
+	<StackVertical gap="XS">
 		<InlineMessageInformation
 			title="Lorem ipsum"
 			withBackground

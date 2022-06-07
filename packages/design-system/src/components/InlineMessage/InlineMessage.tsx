@@ -47,9 +47,8 @@ const InlineMessage = forwardRef((props: InlineMessageType, ref: Ref<HTMLDivElem
 			return <InlineMessageBeta {...rest} ref={ref} />;
 		}
 
-		default: {
-			return null;
-		}
+		default:
+			throw new Error("InlineMessage needs a 'variant' prop");
 	}
 });
 
