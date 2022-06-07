@@ -2306,6 +2306,30 @@ const dictionary = [
         id: 'S:f2c5af46bfeef76f4e644aa0384b2994709f09d6,'
     },
     {
+        name: 'coralLinkMUnderlined',
+        type: 'typography',
+        description: ``,
+        value: `600 1.4rem/140% 'Source Sans Pro'`,
+        fontStyle: 'normal',
+        fontWeight: '600',
+        fontSize: '1.4rem',
+        lineHeight: '140%',
+        fontFamily: 'Source Sans Pro',
+        id: 'S:0459de0ba9f93a99351a262ad56b37a7141df5db,'
+    },
+    {
+        name: 'coralLinkM',
+        type: 'typography',
+        description: ``,
+        value: `600 1.4rem/140% 'Source Sans Pro'`,
+        fontStyle: 'normal',
+        fontWeight: '600',
+        fontSize: '1.4rem',
+        lineHeight: '140%',
+        fontFamily: 'Source Sans Pro',
+        id: 'S:f8714939f99dbb050689d7a9439bbd3d805d3248,'
+    },
+    {
         name: 'coralRadiusM',
         type: 'radius',
         description: ``,
