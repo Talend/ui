@@ -260,7 +260,6 @@ export const parameters = {
 				[
 					'Accordion',
 					'Breadcrumbs',
-					'Card',
 					'Clickable (Buttons)',
 					['About', 'Button', 'ButtonAsLink', 'ButtonIcon'],
 					'Combobox',
