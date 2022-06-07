@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@talend/scripts-config-babel": "^9.9.0",
+    "@talend/scripts-utils": "^1.0.0",
     "babel-loader": "^8.2.5",
     "cache-loader": "^4.1.0",
     "html-loader": "^0.5.5",

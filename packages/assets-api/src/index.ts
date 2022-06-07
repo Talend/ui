@@ -49,7 +49,7 @@ function getPackageVersion(name?: string, version?: string): string | undefined 
 			console.warn(`Package ${name} is installed multiple times`);
 		}
 		if (metas.length > 0) {
-			return metas[0].getAttribute('value') || version;
+			return metas[0].getAttribute('content') || version;
 		}
 	}
 	return version;

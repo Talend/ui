@@ -1,0 +1,19 @@
+{
+  "name": "@talend/scripts-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"nothing to test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talend/ui.git"
+  },
+  "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com/)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "homepage": "https://github.com/Talend/ui#readme"
+}

@@ -50,6 +50,7 @@ import Skeleton, {
 	SkeletonHeading,
 	SkeletonButton,
 	SkeletonButtonIcon,
+	SkeletonInput,
 } from './components/Skeleton';
 import {
 	StatusCanceled,
@@ -127,6 +128,7 @@ export {
 	SkeletonButton,
 	SkeletonButtonIcon,
 	SkeletonHeading,
+	SkeletonInput,
 	SkeletonParagraph,
 	Status,
 	StatusCanceled,
