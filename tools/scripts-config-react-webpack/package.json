@@ -20,6 +20,7 @@
     "@talend/react-cmf-webpack-plugin": "^6.36.6",
     "@talend/scripts-config-babel": "^9.9.0",
     "@talend/scripts-config-cdn": "^10.3.2",
+    "@talend/scripts-utils": "^1.0.0",
     "@welldone-software/why-did-you-render": "^6.2.3",
     "@yarnpkg/lockfile": "^1.1.0",
     "autoprefixer": "^9.8.8",
