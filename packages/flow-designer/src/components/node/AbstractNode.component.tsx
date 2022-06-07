@@ -93,7 +93,7 @@ type Props = {
 	onDrag?: (event: any) => void;
 	onDragEnd?: (event: any) => void;
 	onClick?: React.MouseEventHandler;
-	onDblClick?: React.MouseEventHandler;
+	onDoubleClick?: React.MouseEventHandler;
 	children?: any;
 };
 
@@ -104,12 +104,12 @@ class AbstractNode extends React.Component<Props> {
 
 	nodeElement: any;
 
-	squaredDeltaDrag: number = 0;
+	squaredDeltaDrag = 0;
 
 	constructor(props: Props) {
 		super(props);
 		this.onClick = this.onClick.bind(this);
-		this.onDblClick = this.onDblClick.bind(this);
+		this.onDoubleClick = this.onDoubleClick.bind(this);
 		this.onDragStart = this.onDragStart.bind(this);
 		this.onDrag = this.onDrag.bind(this);
 		this.onDragEnd = this.onDragEnd.bind(this);
@@ -148,9 +148,9 @@ class AbstractNode extends React.Component<Props> {
 		}
 	}
 
-	onDblClick(clickEvent: React.MouseEvent) {
-		if (this.props.onDblClick) {
-			this.props.onDblClick(clickEvent);
+	onDoubleClick(clickEvent: React.MouseEvent) {
+		if (this.props.onDoubleClick) {
+			this.props.onDoubleClick(clickEvent);
 		}
 	}
 
@@ -228,7 +228,7 @@ class AbstractNode extends React.Component<Props> {
 						this.nodeElement = c;
 					}}
 					onClick={this.onClick}
-					onDoubleClick={this.onDblClick}
+					onDoubleClick={this.onDoubleClick}
 				>
 					{this.renderContent()}
 				</g>
