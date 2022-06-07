@@ -62,9 +62,8 @@ describe('Testing <AbstractNode>', () => {
 			</AbstractNode>,
 		);
 		const nodeGroup = await screen.findByTestId(/group./, { exact: false });
-		// const svgRect = wrapper.findByTestId('designer.node.Data-Mapper_DataMapper-');
 		fireEvent.doubleClick(nodeGroup);
-		// ('g[transform]').simulate('doubleclick');
+
 		expect(onDoubleClick).toHaveBeenCalledTimes(1);
 	});
 
