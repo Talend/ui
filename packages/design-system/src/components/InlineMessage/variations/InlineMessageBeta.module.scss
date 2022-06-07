@@ -1,0 +1,12 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.beta {
+  &_withBackground {
+    background-color: tokens.$coral-color-beta-background;
+    box-shadow: tokens.$coral-elevation-shadow-beta;
+  }
+
+  &__icon {
+    color: tokens.$coral-color-beta-icon;
+  }
+}
