@@ -14,6 +14,7 @@ const RawSource = require('webpack-sources').RawSource;
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const semver = require('semver');
 const promisify = require('util').promisify;
 
 const resolvePkg = require('./resolve-pkg');
@@ -63,6 +64,7 @@ function getDeps(cdnConfig) {
 			version: cdnConfig[key].version,
 			path: cdnConfig[key].path,
 			stylePath: cdnConfig[key].stylePath,
+			peerDependency: cdnConfig[key].peerDependency,
 		};
 		return acc;
 	}, {});
@@ -134,7 +136,10 @@ class DynamicCdnWebpackPlugin {
 		if (exclude && only) {
 			throw new Error("You can't use 'exclude' and 'only' at the same time");
 		}
-
+		const pkgUp = readPkgUp.sync({ cwd: process.cwd() });
+		if (pkgUp) {
+			this.projectPeerDeps = pkgUp.packageJson.peerDependencies;
+		}
 		this.disable = disable;
 		this.env = env;
 		this.exclude = exclude || [];
@@ -223,9 +228,7 @@ class DynamicCdnWebpackPlugin {
 	addDependencies(contextPath, manifest, { env, requester }) {
 		for (const dependencyName of Object.keys(manifest)) {
 			const cdnConfig = manifest[dependencyName];
-			const cwd = resolvePkg(cdnConfig.name, {
-				version: cdnConfig.version,
-			});
+			const cwd = resolvePkg(cdnConfig.name, cdnConfig);
 			if (!cwd) {
 				this.error(
 					'\n❌',
@@ -236,6 +239,9 @@ class DynamicCdnWebpackPlugin {
 			}
 			const pkg = readPkgUp.sync({ cwd });
 			const installedVersion = pkg.packageJson.version;
+			if (this.projectPeerDeps[cdnConfig.name]) {
+				cdnConfig.peerDependency = this.projectPeerDeps[cdnConfig.name];
+			}
 			cdnConfig.version = installedVersion;
 			cdnConfig.local = path.resolve(
 				pkg.path,
@@ -244,7 +250,15 @@ class DynamicCdnWebpackPlugin {
 			);
 			this.addURL(cdnConfig, { env, publicPath: this.publicPath });
 			if (this.modulesFromCdn[dependencyName]) {
-				const alreadyAddedVersion = this.modulesFromCdn[dependencyName].version;
+				let alreadyAddedVersion = this.modulesFromCdn[dependencyName].version;
+				// if (this.projectPeerDeps[dependencyName]) {
+				// 	if (!semver.satisfies(installedVersion, alreadyAddedVersion)) {
+				// 		throw new Error(
+				// 			`https://github.com/Talend/ui-scripts/wiki/DEPENDENCY_ERROR_01: ${dependencyName} from manifest is peerDependencies and is already loaded in
+				//         ${alreadyAddedVersion} but found ${installedVersion}.`,
+				// 		);
+				// 	}
+				// } else if (alreadyAddedVersion !== installedVersion) {
 				if (alreadyAddedVersion !== installedVersion) {
 					throw new Error(
 						`https://github.com/Talend/ui-scripts/wiki/DEPENDENCY_ERROR_01: ${dependencyName} from manifest is already loaded in
@@ -319,6 +333,10 @@ class DynamicCdnWebpackPlugin {
 				// we add it in the "directDependencies" array to insert it in this project's manifest
 				if (!this.directDependencies[modulePath]) {
 					this.directDependencies[modulePath] = this.modulesFromCdn[modulePath];
+					if (this.projectPeerDeps[moduleName]) {
+						this.directDependencies[modulePath].peerDependency =
+							this.projectPeerDeps[moduleName];
+					}
 				}
 				return this.modulesFromCdn[modulePath].var || true;
 			}
@@ -404,6 +422,10 @@ class DynamicCdnWebpackPlugin {
 
 		this.modulesFromCdn[modulePath] = cdnConfig;
 		this.directDependencies[modulePath] = cdnConfig;
+		if (this.projectPeerDeps[cdnConfig.name]) {
+			this.directDependencies[modulePath].peerDependency =
+				this.projectPeerDeps[cdnConfig.name];
+		}
 		this.debug('\n✅', modulePath, version, `will be served by ${cdnConfig.url}`);
 		return cdnConfig.var || true;
 	}

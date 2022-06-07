@@ -9,7 +9,7 @@ const { findPackage } = require('./find');
  */
 function resolve(moduleId, options) {
 	if (options.version) {
-		return findPackage({ name: moduleId, version: options.version });
+		return findPackage({ ...options, name: moduleId });
 	}
 	let paths = require.resolve.paths(moduleId) || [];
 
