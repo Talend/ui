@@ -3,10 +3,8 @@
 	background-position: center;
 	background-size: cover;
 
-	@media only screen and (min-width: 468px) {
-		background-image: url("../images/datachaos.png"), linear-gradient(134deg, #19426c, #2c1f56);
-		overflow: auto;
-	}
+	background-image: url('../images/datachaos.png'), linear-gradient(134deg, #19426c, #2c1f56);
+	overflow: auto;
 
 	:global(.layout__main) {
 		background: none;
