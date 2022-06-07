@@ -27,106 +27,20 @@ const SWrapper = styled.div`
 			padding: 5rem;
 		}
 	}
-
-	.card__heading {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-
-		svg {
-			height: 3.2rem;
-			width: auto;
-			max-width: 100%;
-		}
-
-		h1 {
-			margin: 1.5rem 0;
-			font-size: 2.1rem;
-			font-family: ${tokens.fonts.sansSerif};
-			font-weight: ${tokens.fontWeights.semiBold};
-		}
-	}
-
-	.card__body {
-		.cookie-disclaimer,
-		.form__buttons,
-		.signup-cta {
-			text-align: center;
-			justify-content: center;
-		}
-
-		.form__buttons,
-		.cookie-disclaimer__button {
-			padding: 2rem 0;
-		}
-	}
-
-	.footer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		padding: 0.5rem 0;
-
-		@media only screen and (min-width: 468px) {
-			color: ${tokens.colors.gray[0]};
-			flex-direction: row;
-		}
-
-		.footer__links {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			flex-wrap: wrap;
-			margin: 0;
-			padding: 0;
-
-			&-item {
-				display: inline-flex;
-				padding: 0 1rem;
-				border-right: 1px solid ${tokens.colors.gray[75]};
-
-				&:last-child {
-					border-right-color: transparent;
-				}
-
-				@media only screen and (min-width: 468px) {
-					&,
-					&:last-child {
-						border-right-color: ${tokens.colors.gray[0]};
-					}
-				}
-			}
-		}
-
-		.footer__link {
-			color: ${({ theme }) => theme.colors.textColor};
-
-			&:hover,
-			&:focus {
-				// color: $footer-link-hover-color;
-			}
-
-			&:active {
-				// color: $footer-link-active-color;
-			}
-
-			@media only screen and (min-width: 468px) {
-				color: ${tokens.colors.gray[0]};
-			}
-		}
-
-		.footer__copyright {
-			padding: 0 1rem;
-			font-weight: 300;
-		}
-	}
 `;
 
 export type CardTemplateProps = PropsWithChildren<any> & {
 	title?: string;
 	footer?: React.ReactElement;
 };
+
+const LogoWrapper = styled.div`
+	svg {
+		height: 3.2rem;
+		width: auto;
+		max-width: 100%;
+	}
+`;
 
 const CardTemplate: React.FC<CardTemplateProps> = ({
 	title,
@@ -135,15 +49,33 @@ const CardTemplate: React.FC<CardTemplateProps> = ({
 }: CardTemplateProps) => (
 	<SWrapper>
 		<Layout hasOverflow footer={footer}>
-			<Card>
-				{title && (
-					<Card.Heading>
-						<Icon name="talend-logo" />
-						<h1>{title}</h1>
-					</Card.Heading>
-				)}
-				<Card.Body>{children}</Card.Body>
-			</Card>
+			<div
+				style={{
+					width: '100vw',
+					margin: '0 auto',
+					maxWidth: '65rem',
+					minHeight: '60rem',
+				}}
+			>
+				<Card
+					header={
+						<div
+							style={{
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'center',
+							}}
+						>
+							<LogoWrapper>
+								<Icon name="talend-logo" />
+							</LogoWrapper>
+							<h1 style={{ marginTop: tokens.space.s }}>{title}</h1>
+						</div>
+					}
+				>
+					{children}
+				</Card>
+			</div>
 		</Layout>
 	</SWrapper>
 );
