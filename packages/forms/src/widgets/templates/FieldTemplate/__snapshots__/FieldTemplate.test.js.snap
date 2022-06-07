@@ -20,60 +20,36 @@ exports[`FieldTemplate should render the common widget markup 1`] = `
       name="test"
     />
     <div>
-      <InlineMessage
+      <div
         className="sr-only"
-        description="This is the description"
-        id="test-description"
-        small={true}
       >
-        <div
-          className="tc-inline-message theme-tc-inline-message"
+        <InlineMessageInformation
+          data-test="fieldTemplate.inlineMessage"
+          description="This is the description"
+          id="test-description"
         >
-          <InlineMessage
-            className="sr-only"
+          <span
+            className="CoralInlineMessageInformation"
+            data-test="fieldTemplate.inlineMessage"
             description="This is the description"
             id="test-description"
-            link={null}
-            small={true}
-          >
-            <span
-              className="CoralInlineMessage sr-only"
-              description="This is the description"
-              id="test-description"
-              link={null}
-              small={true}
-            />
-          </InlineMessage>
-        </div>
-      </InlineMessage>
-      <InlineMessage
+          />
+        </InlineMessageInformation>
+      </div>
+      <InlineMessageDestructive
         aria-live="assertive"
+        data-test="fieldTemplate.inlineMessageError"
         description="This is the error"
         id="test-error"
-        small={true}
-        type="error"
       >
-        <div
-          className="tc-inline-message theme-tc-inline-message"
-        >
-          <InlineMessageDestructive
-            aria-live="assertive"
-            description="This is the error"
-            id="test-error"
-            link={null}
-            small={true}
-          >
-            <span
-              aria-live="assertive"
-              className="CoralInlineMessageDestructive"
-              description="This is the error"
-              id="test-error"
-              link={null}
-              small={true}
-            />
-          </InlineMessageDestructive>
-        </div>
-      </InlineMessage>
+        <span
+          aria-live="assertive"
+          className="CoralInlineMessageDestructive"
+          data-test="fieldTemplate.inlineMessageError"
+          description="This is the error"
+          id="test-error"
+        />
+      </InlineMessageDestructive>
     </div>
   </div>
 </FieldTemplate>
