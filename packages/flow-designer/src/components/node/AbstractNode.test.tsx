@@ -48,12 +48,10 @@ describe('Testing <AbstractNode>', () => {
 	});
 
 	it('call the injected onDblClick action when double clicked', () => {
-		const onClick = jest.fn();
 		const onDblClick = jest.fn();
 		const wrapper = mount(
 			<AbstractNode
 				node={node}
-				onClick={onClick}
 				onDblClick={onDblClick}
 				startMoveNodeTo={noOp}
 				moveNodeTo={noOp}
@@ -62,7 +60,7 @@ describe('Testing <AbstractNode>', () => {
 				<rect />
 			</AbstractNode>,
 		);
-		wrapper.find('g[transform]').simulate('click').simulate('click');
+		wrapper.find('g[transform]').simulate('doubleclick');
 		expect(onDblClick).toHaveBeenCalledTimes(1);
 	});
 
