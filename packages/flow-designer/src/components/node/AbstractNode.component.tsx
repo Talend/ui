@@ -229,6 +229,7 @@ class AbstractNode extends React.Component<Props> {
 					}}
 					onClick={this.onClick}
 					onDoubleClick={this.onDoubleClick}
+					data-testid={`group.${node.id}`}
 				>
 					{this.renderContent()}
 				</g>

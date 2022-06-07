@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import {
 	NodeGraphicalAttributes,
@@ -47,9 +48,9 @@ describe('Testing <AbstractNode>', () => {
 		expect(onClick).toHaveBeenCalledTimes(1);
 	});
 
-	it('call the injected onDblClick action when double clicked', () => {
+	it('call the onDoubleClick props when double clicked', async () => {
 		const onDoubleClick = jest.fn();
-		const wrapper = mount(
+		render(
 			<AbstractNode
 				node={node}
 				onDoubleClick={onDoubleClick}
@@ -60,7 +61,10 @@ describe('Testing <AbstractNode>', () => {
 				<rect />
 			</AbstractNode>,
 		);
-		wrapper.find('g[transform]').simulate('doubleclick');
+		const nodeGroup = await screen.findByTestId(/group./, { exact: false });
+		// const svgRect = wrapper.findByTestId('designer.node.Data-Mapper_DataMapper-');
+		fireEvent.doubleClick(nodeGroup);
+		// ('g[transform]').simulate('doubleclick');
 		expect(onDoubleClick).toHaveBeenCalledTimes(1);
 	});
 
