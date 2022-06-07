@@ -47,6 +47,25 @@ describe('Testing <AbstractNode>', () => {
 		expect(onClick).toHaveBeenCalledTimes(1);
 	});
 
+	it('call the injected onDblClick action when double clicked', () => {
+		const onClick = jest.fn();
+		const onDblClick = jest.fn();
+		const wrapper = mount(
+			<AbstractNode
+				node={node}
+				onClick={onClick}
+				onDblClick={onDblClick}
+				startMoveNodeTo={noOp}
+				moveNodeTo={noOp}
+				moveNodeToEnd={noOp}
+			>
+				<rect />
+			</AbstractNode>,
+		);
+		wrapper.find('g[transform]').simulate('click');
+		expect(onClick).toHaveBeenCalledTimes(1);
+	});
+
 	// if anyone got a clue on how to test react + d3 events
 
 	xit('call the injected onDragStart action when drag action start', done => {
@@ -87,12 +106,7 @@ describe('Testing <AbstractNode>', () => {
 	it('should fire an error if its rendered without a children set up', () => {
 		expect(() => {
 			shallow(
-				<AbstractNode
-					node={node}
-					startMoveNodeTo={noOp}
-					moveNodeTo={noOp}
-					moveNodeToEnd={noOp}
-				/>,
+				<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp} />,
 			);
 		}).toThrowError(ABSTRACT_NODE_INVARIANT);
 	});
