@@ -1,5 +1,11 @@
 # @talend/scripts-config-ng-webpack
 
+## 9.8.1
+
+### Patch Changes
+
+- 07e270241: fix: use yarn.lock content hash as cache key
+
 ## 9.8.0
 
 ### Minor Changes
