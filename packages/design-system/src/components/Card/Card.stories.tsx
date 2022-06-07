@@ -12,9 +12,9 @@ function CardWrapper({ children }: { children: React.ReactElement }) {
 			style={{
 				display: 'flex',
 				flexDirection: 'column',
-				padding: '2rem',
 				alignItems: 'center',
 				maxWidth: '50rem',
+				padding: '2rem',
 			}}
 		>
 			{children}

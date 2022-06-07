@@ -5,8 +5,8 @@ import { StackVertical } from '../Stack';
 import theme from './Card.scss';
 
 interface CardPropsType {
-	header: React.ReactElement | string;
-	children: React.ReactElement | string;
+	header: React.ReactNode;
+	children: React.ReactNode;
 }
 
 function Card({ header, children }: CardPropsType) {
