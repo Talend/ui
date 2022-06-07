@@ -48,11 +48,11 @@ describe('Testing <AbstractNode>', () => {
 	});
 
 	it('call the injected onDblClick action when double clicked', () => {
-		const onDblClick = jest.fn();
+		const onDoubleClick = jest.fn();
 		const wrapper = mount(
 			<AbstractNode
 				node={node}
-				onDblClick={onDblClick}
+				onDoubleClick={onDoubleClick}
 				startMoveNodeTo={noOp}
 				moveNodeTo={noOp}
 				moveNodeToEnd={noOp}
@@ -61,7 +61,7 @@ describe('Testing <AbstractNode>', () => {
 			</AbstractNode>,
 		);
 		wrapper.find('g[transform]').simulate('doubleclick');
-		expect(onDblClick).toHaveBeenCalledTimes(1);
+		expect(onDoubleClick).toHaveBeenCalledTimes(1);
 	});
 
 	// if anyone got a clue on how to test react + d3 events
