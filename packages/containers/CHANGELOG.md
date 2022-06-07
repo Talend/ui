@@ -1,5 +1,11 @@
 # @talend/react-containers
 
+## 7.2.1
+
+### Patch Changes
+
+- 136da403b: fix(Containers): add react-dom as peer dep
+
 ## 7.2.0
 
 ### Minor Changes

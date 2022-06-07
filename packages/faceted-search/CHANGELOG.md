@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.3.0
+
+### Minor Changes
+
+- 092f11bcd: feat(FacetedSearch): enable checkbox badge filter placeholder customization
+
 ## 4.2.0
 
 ### Minor Changes
