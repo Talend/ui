@@ -1,5 +1,17 @@
 # @talend/design-system
 
+## 2.8.0
+
+### Minor Changes
+
+- 0e4cfbaa8: Add new input variant
+
+### Patch Changes
+
+- 4419bbd0a: SkeletonInput does not stretch
+- Updated dependencies [eec63a996]
+  - @talend/assets-api@1.2.1
+
 ## 2.7.0
 
 ### Minor Changes

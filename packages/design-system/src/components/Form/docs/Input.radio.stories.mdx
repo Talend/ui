@@ -1,6 +1,6 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, Use } from '~docs';
-import InlineMessage from '../../InlineMessage';
+import { InlineMessageInformation } from '../../InlineMessage';
 import { ButtonPrimary } from '../../Button';
 import Form from '../';
 import { useForm } from 'react-hook-form';
@@ -80,7 +80,7 @@ Otherwise, consider <a href="/docs/components-form-fields-checkbox--default-stor
 			return (
 				<Form onSubmit={handleSubmit(setFormData)}>
 					{formData && (
-						<InlineMessage.Information
+						<InlineMessageInformation
 							title={'Form data'}
 							description={JSON.stringify(formData, null, 2)}
 							withBackground

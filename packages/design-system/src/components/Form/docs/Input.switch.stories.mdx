@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { FigmaIframe, FigmaImage, Use } from '~docs';
 import Form from '../';
 import { ButtonPrimary } from '../../Button';
-import InlineMessage from '../../InlineMessage';
+import { InlineMessageInformation } from '../../InlineMessage';
 
 <Meta
 	title="Components/Form/Fields/Switch"
@@ -122,7 +122,7 @@ Use switches to change the state of system functionalities and preferences on or
 			return (
 				<Form onSubmit={handleSubmit(setFormData)}>
 					{formData && (
-						<InlineMessage.Information
+						<InlineMessageInformation
 							title={'Form data'}
 							description={JSON.stringify(formData, null, 2)}
 							withBackground
