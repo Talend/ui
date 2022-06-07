@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { InlineMessage } from '@talend/react-components';
+import { InlineMessageInformation, InlineMessageDestructive } from '@talend/design-system';
 
 import theme from './FieldTemplate.scss';
 
@@ -22,22 +22,22 @@ function FieldTemplate(props) {
 
 			<div>
 				{props.description && (
-					<InlineMessage
-						id={props.descriptionId}
-						className={classNames({ 'sr-only': props.error })}
-						description={props.description}
-						small
-						role={undefined}
-						aria-live={undefined}
-					/>
+					<div className={classNames({ 'sr-only': props.error })}>
+						<InlineMessageInformation
+							id={props.descriptionId}
+							description={props.description}
+							role={undefined}
+							aria-live={undefined}
+							data-test="fieldTemplate.inlineMessage"
+						/>
+					</div>
 				)}
 				{props.error && (
-					<InlineMessage
+					<InlineMessageDestructive
 						id={props.errorId}
-						type={InlineMessage.TYPES.ERROR}
 						description={props.error}
 						aria-live="assertive"
-						small
+						data-test="fieldTemplate.inlineMessageError"
 					/>
 				)}
 			</div>

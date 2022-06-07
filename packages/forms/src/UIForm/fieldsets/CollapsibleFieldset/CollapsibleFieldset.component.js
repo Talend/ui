@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { InlineMessage } from '@talend/react-components';
+import { InlineMessageInformation } from '@talend/design-system';
 import CollapsiblePanel from '@talend/react-components/lib/CollapsiblePanel';
 import get from 'lodash/get';
 import Widget from '../../Widget';
@@ -106,11 +106,10 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					expanded={!value.isClosed}
 				>
 					{schema.description ? (
-						<InlineMessage
+						<InlineMessageInformation
 							key="description"
 							id={generateDescriptionId(id)}
 							description={schema.description}
-							small
 							role={undefined}
 							aria-live={undefined}
 						/>

@@ -1,148 +1,105 @@
 import React from 'react';
-import InlineMessage from '.';
-import Link from '../Link';
+import {
+	InlineMessage,
+	InlineMessageInformation,
+	InlineMessageDestructive,
+	InlineMessageWarning,
+	InlineMessageSuccess,
+} from '.';
+import { StackVertical } from '../Stack';
+import InlineMessageBeta from './variations/InlineMessageBeta';
+import { ComponentStory } from '@storybook/react';
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
 export default { component: InlineMessage };
 
-const render = ({ variant, ...rest }: { variant?: keyof typeof InlineMessage }) => {
-	switch (variant) {
-		case 'Information':
-			return <InlineMessage.Information {...rest} />;
-		case 'Success':
-			return <InlineMessage.Success {...rest} />;
-		case 'Warning':
-			return <InlineMessage.Warning {...rest} />;
-		case 'Destructive':
-			return <InlineMessage.Destructive {...rest} />;
-		default:
-			return <InlineMessage {...rest} />;
-	}
-};
+export const DefaultDemo = () => (
+	<StackVertical gap="XS">
+		<InlineMessageInformation
+			title="Lorem ipsum"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+		<InlineMessageSuccess
+			title="Lorem ipsum"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+		<InlineMessageWarning
+			title="Lorem ipsum"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+		<InlineMessageDestructive
+			title="Lorem ipsum"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+		<InlineMessageBeta
+			title="Lorem ipsum"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+	</StackVertical>
+);
 
-const defaultProps = {
+export const BackgroundDemo = () => (
+	<StackVertical gap="XS">
+		<InlineMessageInformation
+			title="Lorem ipsum"
+			withBackground
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+		<InlineMessageSuccess
+			title="Lorem ipsum"
+			withBackground
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+		<InlineMessageWarning
+			title="Lorem ipsum"
+			withBackground
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+		<InlineMessageDestructive
+			title="Lorem ipsum"
+			withBackground
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+		<InlineMessageBeta
+			title="Lorem ipsum"
+			withBackground
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac."
+		/>
+	</StackVertical>
+);
+
+const VariantTemplate: ComponentStory<typeof InlineMessage> = args => {
+	const { variant = 'information', ...rest } = args;
+	return <InlineMessage {...rest} variant={variant} />;
+};
+export const Variant = VariantTemplate.bind({});
+Variant.args = {
+	variant: 'information',
 	title: 'Lorem ipsum',
 	description:
-		'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.',
-	link: <Link href="#">See more</Link>,
+		'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac.',
 };
 
-export const Default = { args: { ...defaultProps }, render };
-export const Information = {
-	args: {
-		...defaultProps,
-		variant: 'Information',
-	},
-	render,
-};
-export const Success = {
-	args: {
-		...defaultProps,
-		variant: 'Success',
-	},
-	render,
-};
-export const Warning = {
-	args: {
-		...defaultProps,
-		variant: 'Warning',
-	},
-	render,
-};
-export const Destructive = {
-	args: {
-		...defaultProps,
-		variant: 'Destructive',
-	},
-	render,
-};
-
-export const InformationSmall = {
-	args: {
-		...Information.args,
-		small: true,
-	},
-	render,
-};
-export const SuccessSmall = {
-	args: {
-		...Success.args,
-		small: true,
-	},
-	render,
-};
-export const WarningSmall = {
-	args: {
-		...Warning.args,
-		small: true,
-	},
-	render,
-};
-export const DestructiveSmall = {
-	args: {
-		...Destructive.args,
-		small: true,
-	},
-	render,
-};
-
-export const InformationBackground = {
-	args: {
-		...Information.args,
-		withBackground: true,
-	},
-	render,
-};
-export const SuccessBackground = {
-	args: {
-		...Success.args,
-		withBackground: true,
-	},
-	render,
-};
-export const WarningBackground = {
-	args: {
-		...Warning.args,
-		withBackground: true,
-	},
-	render,
-};
-export const DestructiveBackground = {
-	args: {
-		...Destructive.args,
-		withBackground: true,
-	},
-	render,
-};
-
-export const InformationBackgroundSmall = {
-	args: {
-		...Information.args,
-		small: true,
-		withBackground: true,
-	},
-	render,
-};
-export const SuccessBackgroundSmall = {
-	args: {
-		...Success.args,
-		small: true,
-		withBackground: true,
-	},
-	render,
-};
-export const WarningBackgroundSmall = {
-	args: {
-		...Warning.args,
-		small: true,
-		withBackground: true,
-	},
-	render,
-};
-export const DestructiveBackgroundSmall = {
-	args: {
-		...Destructive.args,
-		small: true,
-		withBackground: true,
-	},
-	render,
-};
+export const WithRouterLink = () => (
+	<BrowserRouter>
+		<InlineMessage
+			withBackground
+			description="Inline message with a Router Link"
+			variant="information"
+			link={{
+				as: <RouterLink to="/documentation" />,
+				children: 'See more',
+			}}
+		/>
+	</BrowserRouter>
+);

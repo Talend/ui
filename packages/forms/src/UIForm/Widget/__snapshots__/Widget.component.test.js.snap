@@ -30,14 +30,13 @@ exports[`Widget component should render widget 1`] = `
          value="my firstname"
   >
   <div>
-    <div class="tc-inline-message theme-tc-inline-message">
-      <span id="myForm_user_firstname-error"
-            description="This is not ok"
-            aria-live="assertive"
-            class="CoralInlineMessageDestructive"
-      >
-      </span>
-    </div>
+    <span id="myForm_user_firstname-error"
+          description="This is not ok"
+          aria-live="assertive"
+          data-test="fieldTemplate.inlineMessageError"
+          class="CoralInlineMessageDestructive"
+    >
+    </span>
   </div>
 </div>
 `;

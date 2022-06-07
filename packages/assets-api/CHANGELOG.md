@@ -1,5 +1,11 @@
 # @talend/assets-api
 
+## 1.2.1
+
+### Patch Changes
+
+- eec63a996: fix: use meta element content attribute
+
 ## 1.2.0
 
 ### Minor Changes
