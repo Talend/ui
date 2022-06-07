@@ -39,10 +39,10 @@ describe('FieldTemplate', () => {
 			</FieldTemplate>,
 		);
 		// then
-		const descBlock = wrapper.find('.tc-inline-message #test-description').at(0);
+		const descBlock = wrapper.find('#test-description').at(0);
 		expect(descBlock.props().description).toEqual('This is the description');
 
-		const errorBlock = wrapper.find('.tc-inline-message #test-error').at(1);
+		const errorBlock = wrapper.find('#test-error').at(1);
 		expect(errorBlock.props().description).toEqual('This is the error');
 	});
 });
