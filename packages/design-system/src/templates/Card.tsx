@@ -1,83 +1,42 @@
 import React, { PropsWithChildren } from 'react';
-import styled from 'styled-components';
 
 import Card from '../components/Card';
 import { Icon } from '../components/Icon';
 import Layout from '../components/Layout';
+import { StackVertical } from '../components/Stack';
 
 import tokens from '../tokens';
 
-import Datachaos from '../images/datachaos.png';
-
-const SWrapper = styled.div`
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-
-	@media only screen and (min-width: 468px) {
-		background-image: url(${Datachaos}), linear-gradient(134deg, #19426c, #2c1f56);
-		overflow: auto;
-	}
-
-	.layout__main {
-		background: none;
-
-		@media only screen and (min-width: 768px) {
-			flex: 1 1 auto;
-			padding: 5rem;
-		}
-	}
-`;
+import theme from './Card.scss';
 
 export type CardTemplateProps = PropsWithChildren<any> & {
 	title?: string;
 	footer?: React.ReactElement;
 };
 
-const LogoWrapper = styled.div`
-	svg {
-		height: 3.2rem;
-		width: auto;
-		max-width: 100%;
-	}
-`;
-
 const CardTemplate: React.FC<CardTemplateProps> = ({
 	title,
 	children,
 	footer,
 }: CardTemplateProps) => (
-	<SWrapper>
+	<div className={theme['card-template']}>
 		<Layout hasOverflow footer={footer}>
-			<div
-				style={{
-					width: '100vw',
-					margin: '0 auto',
-					maxWidth: '65rem',
-					minHeight: '60rem',
-				}}
-			>
+			<div className={theme['card-template__card']}>
 				<Card
 					header={
-						<div
-							style={{
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'center',
-							}}
-						>
-							<LogoWrapper>
+						<StackVertical gap={0} align="center">
+							<div className={theme['card-template__talend-logo']}>
 								<Icon name="talend-logo" />
-							</LogoWrapper>
+							</div>
 							<h1 style={{ marginTop: tokens.space.s }}>{title}</h1>
-						</div>
+						</StackVertical>
 					}
 				>
 					{children}
 				</Card>
 			</div>
 		</Layout>
-	</SWrapper>
+	</div>
 );
 
 export default CardTemplate;
