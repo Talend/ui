@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 12.1.2
+
+### Patch Changes
+
+- 07e270241: fix: use yarn.lock content hash as cache key
+
 ## 12.1.1
 
 ### Patch Changes

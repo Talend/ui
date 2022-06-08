@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { FigmaImage, FigmaIframe, WithSelector } from '~docs';
 import Form from '../';
 import { ButtonPrimary } from '../../Button';
-import InlineMessage from '../../InlineMessage';
+import { InlineMessageInformation } from '../../InlineMessage';
 import Button from '../../Clickable';
 import { AffixButton } from '../FieldGroup/Affix';
 
@@ -229,7 +229,7 @@ Use lower case on prefix and suffix except if it's an interactive element.
 			return (
 				<Form onSubmit={handleSubmit(setFormData)}>
 					{formData && (
-						<InlineMessage.Information
+						<InlineMessageInformation
 							title={'Form data'}
 							description={JSON.stringify(formData, null, 2)}
 							withBackground

@@ -3,7 +3,7 @@ import { ColorPalette, ColorItem, Typeset } from '@storybook/components';
 import { Table, ColorSwatches } from '~docs';
 import tokens from './../index';
 import colors, { brand, palette, gradients, swatches } from './../colors.tokens';
-import InlineMessageDestructive from '../../components/InlineMessage/variations/InlineMessage.destructive';
+import InlineMessageDestructive from '../../components/InlineMessage/variations/InlineMessageDestructive';
 import Link from '../../components/Link';
 import { StackVertical } from '../../components/Stack';
 
@@ -16,11 +16,10 @@ import { StackVertical } from '../../components/Stack';
 		withBackground
 		title="This page is deprecated"
 		description="Design tokens are now a separate package and rely on CSS custom properties."
-		link={
-			<Link href="https://talend.surge.sh/design-tokens/?path=/docs/welcome--page" target="_blank">
-				Get the new doc
-			</Link>
-		}
+		link={{
+            href:"https://talend.surge.sh/design-tokens/?path=/docs/welcome--page",
+            target:"_blank",
+            children: "Get the new doc"}}
 	/>
 </StackVertical>
 
