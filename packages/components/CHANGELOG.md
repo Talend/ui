@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 6.46.8
+
+### Patch Changes
+
+- 5c8ed7e7d: Datalist: keep user filter when suggestion changes
+
 ## 6.46.7
 
 ### Patch Changes
