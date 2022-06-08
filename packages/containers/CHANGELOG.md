@@ -1,5 +1,15 @@
 # @talend/react-containers
 
+## 7.2.3
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-cmf@7.1.1
+  - @talend/react-components@7.0.1
+  - @talend/react-forms@7.3.2
+
 ## 7.2.2
 
 ### Patch Changes

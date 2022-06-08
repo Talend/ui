@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 7.1.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+
 ## 7.1.0
 
 ### Minor Changes

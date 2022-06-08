@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 3.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+
 ## 3.0.0
 
 ### Major Changes
