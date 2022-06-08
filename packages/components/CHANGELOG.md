@@ -1,10 +1,14 @@
 # @talend/react-components
 
-## 6.46.8
+## 6.46.9
 
 ### Patch Changes
 
 - 5c8ed7e7d: Datalist: keep user filter when suggestion changes
+
+## 6.46.8
+
+- Version withdrawn due to publish error
 
 ## 6.46.7
 
