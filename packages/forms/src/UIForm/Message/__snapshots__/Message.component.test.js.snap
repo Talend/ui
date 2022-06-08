@@ -4,10 +4,10 @@ exports[`Message component should render nothing when field is valid and no desc
 
 exports[`Message component should render provided description and no error if the field is valid 1`] = `
 <div>
-  <InlineMessage
+  <InlineMessageInformation
+    data-test="fieldTemplate.inlineMessage"
     description="My description"
     id="my-message-description"
-    small={true}
   />
 </div>
 `;
@@ -16,12 +16,11 @@ exports[`Message component should render provided error message and no descripti
 <div
   className="has-error"
 >
-  <InlineMessage
+  <InlineMessageDestructive
     aria-live="assertive"
+    data-test="fieldTemplate.inlineMessageError"
     description="My error message"
     id="my-message-error"
-    small={true}
-    type="error"
   />
 </div>
 `;

@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 $tc-drawer-content-max-width: 65rem !default;
 $tc-drawer-padding: $padding-large !default;
 
@@ -8,16 +10,8 @@ $tc-drawer-padding: $padding-large !default;
 	flex-direction: column;
 }
 
-.form-content {
-	:global {
-		.tc-skeleton {
-			margin: $padding-normal 0;
-
-			&.skeleton-fit-content {
-				width: auto;
-			}
-		}
-	}
+.form-content-wrapper {
+	gap: tokens.$coral-spacing-m;
 }
 
 .submit-wrapper {
@@ -55,7 +49,7 @@ $tc-drawer-padding: $padding-large !default;
 
 @media screen and (min-width: $screen-xs-max) {
 	:global(.stacked) :global(.tc-drawer-container) {
-		.form-content-wrapper,
+		.form-content,
 		.submit-wrapper {
 			margin: 0 auto;
 			padding: $tc-drawer-padding;

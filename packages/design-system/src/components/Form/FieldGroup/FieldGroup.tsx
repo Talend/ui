@@ -4,7 +4,12 @@ import { isElement } from 'react-is';
 import classnames from 'classnames';
 
 import { FieldProps } from '../Field/Field';
-import InlineMessage from '../../InlineMessage';
+import {
+	InlineMessageInformation,
+	InlineMessageSuccess,
+	InlineMessageWarning,
+	InlineMessageDestructive,
+} from '../../InlineMessage';
 import { AffixReadOnly } from './Affix';
 
 import * as S from './FieldGroup.style';
@@ -41,24 +46,27 @@ const FieldGroup = React.forwardRef(
 
 		const focusField = () => fieldRef.current?.focus();
 
-		const Description = () => {
+		const Description = ({ desc }: { desc: string }) => {
 			const descriptionProps = {
 				small: true,
-				description,
+				description: desc,
 			};
+			if (!description) {
+				return null;
+			}
 			if (hasError) {
-				return <InlineMessage.Destructive {...descriptionProps} />;
+				return <InlineMessageDestructive {...descriptionProps} />;
 			}
 			if (hasWarning) {
-				return <InlineMessage.Warning {...descriptionProps} />;
+				return <InlineMessageWarning {...descriptionProps} />;
 			}
 			if (hasSuccess) {
-				return <InlineMessage.Success {...descriptionProps} />;
+				return <InlineMessageSuccess {...descriptionProps} />;
 			}
 			if (hasInformation) {
-				return <InlineMessage.Information {...descriptionProps} />;
+				return <InlineMessageInformation {...descriptionProps} />;
 			}
-			return <InlineMessage {...descriptionProps} />;
+			return <InlineMessageInformation {...descriptionProps} />;
 		};
 
 		const childrenProps: { disabled?: boolean; readOnly?: boolean } = {};
@@ -129,7 +137,7 @@ const FieldGroup = React.forwardRef(
 				{description && (
 					<div id={descriptionId}>
 						<div className="c-input--group__description">
-							<Description />
+							<Description desc={description} />
 						</div>
 					</div>
 				)}

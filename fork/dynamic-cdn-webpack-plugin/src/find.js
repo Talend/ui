@@ -14,7 +14,11 @@ function findPackage(info) {
 			packageJson: { version },
 		} = readPkgUp.sync({ cwd });
 		// check we are at least upper or equal using caret range syntax
-		return semver.satisfies(version, `^${info.version}`);
+		let range = `^${info.version}`;
+		if (info.peerDependency) {
+			range += `|| ${info.peerDependency}`;
+		}
+		return semver.satisfies(version, range);
 	});
 }
 
