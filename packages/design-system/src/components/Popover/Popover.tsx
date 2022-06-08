@@ -9,7 +9,7 @@ import Clickable from '../Clickable';
 
 import style from './Popover.module.scss';
 
-const ANIMATION_DURATION = 250; // Sync with @talend/design-token animations duration
+const ANIMATION_DURATION = 150; // Sync with @talend/design-token animations duration
 
 export type PopoverPropsType = {
 	disclosure: ReactElement<typeof Clickable>;

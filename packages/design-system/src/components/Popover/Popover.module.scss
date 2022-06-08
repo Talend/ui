@@ -12,9 +12,7 @@
 	}
 
 	&__animated {
-		transition: opacity tokens.$coral-transition-fast, transform tokens.$coral-transition-fast;
-		transform-origin: top left;
-		transform: translate3d(0, -#{tokens.$coral-spacing-m}, 0);
+		transition: opacity tokens.$coral-transition-fast;
 		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 		border-radius: tokens.$coral-radius-s;
 		opacity: 0;
@@ -22,7 +20,6 @@
 
 		[data-enter] & {
 			opacity: 1;
-			transform: translate3d(0, 0, 0);
 		}
 	}
 }
