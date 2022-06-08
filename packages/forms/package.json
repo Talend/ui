@@ -7,6 +7,7 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
+    "build-storybook": "talend-scripts build-storybook",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "test": "talend-scripts test",
