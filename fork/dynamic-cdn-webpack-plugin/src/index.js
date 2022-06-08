@@ -14,7 +14,6 @@ const RawSource = require('webpack-sources').RawSource;
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const semver = require('semver');
 const promisify = require('util').promisify;
 
 const resolvePkg = require('./resolve-pkg');
@@ -235,6 +234,7 @@ class DynamicCdnWebpackPlugin {
 					'\n❌',
 					cdnConfig.name,
 					"addDependencies() couldn't load this lib because it has not been found by require.resolve",
+					requester,
 				);
 				continue;
 			}
@@ -251,15 +251,7 @@ class DynamicCdnWebpackPlugin {
 			);
 			this.addURL(cdnConfig, { env, publicPath: this.publicPath });
 			if (this.modulesFromCdn[dependencyName]) {
-				let alreadyAddedVersion = this.modulesFromCdn[dependencyName].version;
-				// if (this.projectPeerDeps[dependencyName]) {
-				// 	if (!semver.satisfies(installedVersion, alreadyAddedVersion)) {
-				// 		throw new Error(
-				// 			`https://github.com/Talend/ui-scripts/wiki/DEPENDENCY_ERROR_01: ${dependencyName} from manifest is peerDependencies and is already loaded in
-				//         ${alreadyAddedVersion} but found ${installedVersion}.`,
-				// 		);
-				// 	}
-				// } else if (alreadyAddedVersion !== installedVersion) {
+				const alreadyAddedVersion = this.modulesFromCdn[dependencyName].version;
 				if (alreadyAddedVersion !== installedVersion) {
 					throw new Error(
 						`https://github.com/Talend/ui-scripts/wiki/DEPENDENCY_ERROR_01: ${dependencyName} from manifest is already loaded in
@@ -334,10 +326,6 @@ class DynamicCdnWebpackPlugin {
 				// we add it in the "directDependencies" array to insert it in this project's manifest
 				if (!this.directDependencies[modulePath]) {
 					this.directDependencies[modulePath] = this.modulesFromCdn[modulePath];
-					if (this.projectPeerDeps[moduleName]) {
-						this.directDependencies[modulePath].peerDependency =
-							this.projectPeerDeps[moduleName];
-					}
 				}
 				return this.modulesFromCdn[modulePath].var || true;
 			}
@@ -363,6 +351,10 @@ class DynamicCdnWebpackPlugin {
 				"couldn't be found, if you want it you can add it to your resolver.",
 			);
 			return false;
+		}
+
+		if (this.projectPeerDeps[cdnConfig.name]) {
+			cdnConfig.peerDependency = this.projectPeerDeps[cdnConfig.name];
 		}
 
 		// Try to get the manifest
@@ -423,10 +415,6 @@ class DynamicCdnWebpackPlugin {
 
 		this.modulesFromCdn[modulePath] = cdnConfig;
 		this.directDependencies[modulePath] = cdnConfig;
-		if (this.projectPeerDeps[cdnConfig.name]) {
-			this.directDependencies[modulePath].peerDependency =
-				this.projectPeerDeps[cdnConfig.name];
-		}
 		this.debug('\n✅', modulePath, version, `will be served by ${cdnConfig.url}`);
 		return cdnConfig.var || true;
 	}
