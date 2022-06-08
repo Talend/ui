@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { HTMLAttributes, ReactElement, ReactNode } from 'react';
 import {
 	usePopoverState,
 	Popover as ReakitPopover,
@@ -6,18 +6,21 @@ import {
 	PopoverDisclosure as ReakitPopoverDisclosure,
 } from 'reakit';
 import Clickable from '../Clickable';
+import { Placement } from '../Tooltip/Tooltip';
+import { DataAttributes } from '../../types';
 
 import style from './Popover.module.scss';
 
 const ANIMATION_DURATION = 150; // Sync with @talend/design-token animations duration
 
-export type PopoverPropsType = {
+export type PopoverPropsType = HTMLAttributes<HTMLDivElement> & {
 	disclosure: ReactElement<typeof Clickable>;
 	children: ReactNode | ReactNode[];
-};
+	position?: Placement;
+} & DataAttributes;
 
-function Popover({ disclosure, ...props }: PopoverPropsType) {
-	const popover = usePopoverState({ animated: ANIMATION_DURATION });
+function Popover({ disclosure, position = 'auto', ...props }: PopoverPropsType) {
+	const popover = usePopoverState({ animated: ANIMATION_DURATION, placement: position });
 
 	return (
 		<>
