@@ -1,5 +1,31 @@
 # @talend/design-system
 
+## 3.0.0
+
+### Major Changes
+
+- 051dfd9fb: chore(design-system/Card): Refactor Card component
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+
+### Patch Changes
+
+- 5a30f1f0e: feat(design-system): new icon set for status
+
+## 2.8.0
+
+### Minor Changes
+
+- 0e4cfbaa8: Add new input variant
+
+### Patch Changes
+
+- 4419bbd0a: SkeletonInput does not stretch
+- Updated dependencies [eec63a996]
+  - @talend/assets-api@1.2.1
+
 ## 2.7.0
 
 ### Minor Changes

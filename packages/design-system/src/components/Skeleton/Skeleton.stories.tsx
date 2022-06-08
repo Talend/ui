@@ -6,6 +6,7 @@ import Skeleton, {
 	SkeletonButton,
 	SkeletonButtonIcon,
 	SkeletonHeading,
+	SkeletonInput,
 	SkeletonParagraph,
 } from '.';
 import { StackHorizontal, StackVertical } from '../Stack';
@@ -28,6 +29,10 @@ const SkeletonHeadingTemplate: ComponentStory<typeof SkeletonHeading> = args => 
 
 const SkeletonParagraphTemplate: ComponentStory<typeof SkeletonParagraph> = args => {
 	return <SkeletonParagraph {...args} />;
+};
+
+const SkeletonInputTemplate: ComponentStory<typeof SkeletonInput> = args => {
+	return <SkeletonInput {...args} />;
 };
 
 export const SkeletonButtonStory = SkeletonButtonTemplate.bind({});
@@ -64,6 +69,8 @@ SkeletonParagraphStory.argTypes = {
 		description: 'optional (default is "M")',
 	},
 };
+
+export const SkeletonInputStory = SkeletonInputTemplate.bind({});
 
 export const SkeletonButtons = () => (
 	<StackHorizontal gap="XS" align="center">

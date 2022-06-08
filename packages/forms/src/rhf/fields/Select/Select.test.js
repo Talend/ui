@@ -86,6 +86,8 @@ describe('Input RHF widget', () => {
 		});
 
 		wrapper.update();
-		expect(wrapper.find('InlineMessage').at(0).props().description).toBe('This should not be empty');
+		expect(wrapper.find('InlineMessageDestructive').at(0).props().description).toBe(
+			'This should not be empty',
+		);
 	});
 });

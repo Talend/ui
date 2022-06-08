@@ -4,7 +4,12 @@ import { unstable_useId as useId } from 'reakit';
 
 import Loading from '../../Loading';
 import VisuallyHidden from '../../VisuallyHidden';
-import InlineMessage from '../../InlineMessage';
+import {
+	InlineMessageWarning,
+	InlineMessageDestructive,
+	InlineMessageInformation,
+	InlineMessageSuccess,
+} from '../../InlineMessage';
 import Link from '../../Link';
 
 import * as S from './Field.style';
@@ -94,24 +99,24 @@ const Field = React.forwardRef(
 				<Label />
 			);
 
-		const Description = () => {
+		const Description = ({ descriptionText }: { descriptionText: string }) => {
 			const descProps = {
 				small: true,
-				description,
+				description: descriptionText,
 			};
 			if (hasError) {
-				return <InlineMessage.Destructive {...descProps} />;
+				return <InlineMessageDestructive {...descProps} />;
 			}
 			if (hasWarning) {
-				return <InlineMessage.Warning {...descProps} />;
+				return <InlineMessageWarning {...descProps} />;
 			}
 			if (hasSuccess) {
-				return <InlineMessage.Success {...descProps} />;
+				return <InlineMessageSuccess {...descProps} />;
 			}
 			if (hasInformation) {
-				return <InlineMessage.Information {...descProps} />;
+				return <InlineMessageInformation {...descProps} />;
 			}
-			return <InlineMessage {...descProps} />;
+			return <InlineMessageInformation {...descProps} />;
 		};
 
 		return (
@@ -155,7 +160,7 @@ const Field = React.forwardRef(
 				{inline && label && <WrappedLabel />}
 				{description && (
 					<div id={fieldDescriptionId} className="c-field__description">
-						<Description />
+						<Description descriptionText={description} />
 					</div>
 				)}
 			</S.Field>

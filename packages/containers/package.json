@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "@talend/react-cmf": "^7.1.0",
-    "@talend/react-components": "^6.49.0",
-    "@talend/react-forms": "^7.3.0",
+    "@talend/react-components": "^7.0.0",
+    "@talend/react-forms": "^7.3.1",
     "classnames": "^2.3.1",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
@@ -69,10 +69,11 @@
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
+    "react-dom": ">= 16.14.0 < 18.0.0",
     "react-i18next": "^11.8.13"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.2.0"
+  "version": "7.2.2"
 }

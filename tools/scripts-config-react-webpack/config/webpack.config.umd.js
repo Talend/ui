@@ -3,12 +3,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
 const cdn = require('@talend/scripts-config-cdn');
 
-const exists = require('./utils/exists');
+const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
+const exists = require('@talend/scripts-utils/fs');
 
 const babelConfig = getBabelConfig();
 cdn.configureTalendModules();
@@ -44,10 +44,9 @@ module.exports = options => {
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
 						use: [
-							!env.nocache && { loader: 'cache-loader' },
 							{
 								loader: 'babel-loader',
-								options: babelConfig,
+								options: getBabelLoaderOptions(babelConfig),
 							},
 						].filter(Boolean),
 					},

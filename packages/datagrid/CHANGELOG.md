@@ -1,5 +1,25 @@
 # @talend/react-datagrid
 
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/design-system@3.0.0
+
+## 9.3.1
+
+### Patch Changes
+
+- 07e270241: fix: use assets-api back to lazy load aggrid assets
+- Updated dependencies [eec63a996]
+  - @talend/assets-api@1.2.1
+
 ## 9.3.0
 
 ### Minor Changes

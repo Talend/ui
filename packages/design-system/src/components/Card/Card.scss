@@ -1,0 +1,15 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.card {
+	width: 100%;
+	height: 100%;
+	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+	border-radius: tokens.$coral-radius-m;
+	padding: tokens.$coral-spacing-xl;
+	background-color: tokens.$coral-color-neutral-background;
+
+	&__header,
+	&__body {
+		width: 100%;
+	}
+}

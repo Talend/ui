@@ -27,10 +27,17 @@ import EmptyState, {
 } from './components/EmptyState';
 import Form from './components/Form';
 import HeaderBar from './components/HeaderBar';
-import { Icon } from './components/Icon';
+import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
-import InlineMessage from './components/InlineMessage';
+import {
+	InlineMessage,
+	InlineMessageInformation,
+	InlineMessageSuccess,
+	InlineMessageWarning,
+	InlineMessageDestructive,
+	InlineMessageBeta,
+} from './components/InlineMessage';
 import Layout from './components/Layout';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
@@ -43,6 +50,7 @@ import Skeleton, {
 	SkeletonHeading,
 	SkeletonButton,
 	SkeletonButtonIcon,
+	SkeletonInput,
 } from './components/Skeleton';
 import {
 	StatusCanceled,
@@ -104,6 +112,11 @@ export {
 	IconsProvider,
 	InlineEditing,
 	InlineMessage,
+	InlineMessageInformation,
+	InlineMessageSuccess,
+	InlineMessageWarning,
+	InlineMessageDestructive,
+	InlineMessageBeta,
 	Layout,
 	Link,
 	LinkAsButton,
@@ -111,10 +124,12 @@ export {
 	Menu,
 	Modal,
 	Popover,
+	SizedIcon,
 	Skeleton,
 	SkeletonButton,
 	SkeletonButtonIcon,
 	SkeletonHeading,
+	SkeletonInput,
 	SkeletonParagraph,
 	Status,
 	StatusCanceled,
