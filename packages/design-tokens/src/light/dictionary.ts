@@ -2524,7 +2524,9 @@ Use on "second layer" of elevation - something that need to be "above" anything 
     {
         name: 'coralLinkMUnderlined',
         type: 'typography',
-        description: ``,
+        description: `Use only with accent/text-hover
+
+Developers: use Link component instead, you do not need to recreate styles.`,
         value: `600 1.4rem/140% 'Source Sans Pro'`,
         fontStyle: 'normal',
         fontWeight: '600',
@@ -2536,7 +2538,9 @@ Use on "second layer" of elevation - something that need to be "above" anything 
     {
         name: 'coralLinkM',
         type: 'typography',
-        description: ``,
+        description: `Use only with accent/text.
+
+Developers: use Link component instead, you do not need to recreate styles.`,
         value: `600 1.4rem/140% 'Source Sans Pro'`,
         fontStyle: 'normal',
         fontWeight: '600',
