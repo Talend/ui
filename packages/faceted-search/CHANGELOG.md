@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/design-system@3.0.0
+
 ## 4.3.0
 
 ### Minor Changes
