@@ -2330,6 +2330,18 @@ const dictionary = [
         id: 'S:f8714939f99dbb050689d7a9439bbd3d805d3248,'
     },
     {
+        name: 'coralDataXl',
+        type: 'typography',
+        description: ``,
+        value: `400 2.4rem/140% 'Inconsolata'`,
+        fontStyle: 'normal',
+        fontWeight: '400',
+        fontSize: '2.4rem',
+        lineHeight: '140%',
+        fontFamily: 'Inconsolata',
+        id: 'S:7a19acd294788646fc2263162aa038f44307a9bb,'
+    },
+    {
         name: 'coralRadiusM',
         type: 'radius',
         description: ``,
