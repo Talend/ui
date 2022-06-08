@@ -171,6 +171,7 @@ export function renderItemsContainerFactory(
 							searching,
 						},
 						containerProps.ref,
+						referenceElement,
 					)}
 				</div>
 			</div>
