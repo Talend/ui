@@ -1,5 +1,18 @@
 # @talend/icons
 
+## 6.43.0
+
+### Minor Changes
+
+- ffb05ebb8: added icon `exclamation-stroke` in size `L`
+- ffb05ebb8: added icon `exclamation-stroke` in size `M`
+- ffb05ebb8: added icon `exclamation-stroke` in size `S`
+
+### Patch Changes
+
+- ffb05ebb8: changed icon `less-than` in size `M`
+- ffb05ebb8: changed icon `less-than` in size `S`
+
 ## 6.42.0
 
 ### Minor Changes
