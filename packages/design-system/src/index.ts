@@ -27,7 +27,7 @@ import EmptyState, {
 } from './components/EmptyState';
 import Form from './components/Form';
 import HeaderBar from './components/HeaderBar';
-import { Icon } from './components/Icon';
+import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
 import {
@@ -124,6 +124,7 @@ export {
 	Menu,
 	Modal,
 	Popover,
+	SizedIcon,
 	Skeleton,
 	SkeletonButton,
 	SkeletonButtonIcon,
