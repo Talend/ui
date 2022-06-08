@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { action } from '@storybook/addon-actions';
 
 import Datalist from './Datalist.component';
@@ -96,6 +97,7 @@ export const DefaultSingleSection = () => {
 			},
 		})),
 	};
+	const [titleMap, setTitleMap] = useState(defaultValue.titleMap);
 	return (
 		<form className="form">
 			<h3>By default</h3>
@@ -112,6 +114,12 @@ export const DefaultSingleSection = () => {
 			<Datalist {...disabledItems} autoFocus />
 			<h3>With icons</h3>
 			<Datalist {...withIcons} />
+			<h3>With suggestions API</h3>
+			<Datalist {...defaultValue} titleMap={titleMap} onLiveChange={() => {
+				setTimeout(() => {
+					setTitleMap(prev => [...prev])
+				}, 200);
+			}}/>
 			<h3>Insert custom elements via render props</h3>
 			<Datalist {...singleSectionProps}>
 				{(content, { isShown }, _, inputRef) => (
