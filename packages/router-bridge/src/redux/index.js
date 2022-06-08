@@ -1,7 +1,7 @@
-import { isV5 } from '../router';
+import { isLegacy } from '../router';
 
 export function push(url, state, baseAction) {
-	if (isV5) {
+	if (!isLegacy) {
 		try {
 			const { push: connectedPush } = require('connected-react-router');
 			return connectedPush(url, state);
@@ -22,7 +22,7 @@ export function push(url, state, baseAction) {
 }
 
 export function replace(url, state, baseAction) {
-	if (isV5) {
+	if (!isLegacy) {
 		try {
 			const { replace: connectedReplace } = require('connected-react-router');
 			return connectedReplace(url, state);
