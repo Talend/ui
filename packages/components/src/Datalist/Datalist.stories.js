@@ -114,15 +114,15 @@ export const DefaultSingleSection = () => {
 			<Datalist {...withIcons} />
 			<h3>Insert custom elements via render props</h3>
 			<Datalist {...singleSectionProps}>
-				{(content, { isShown }) => (
+				{(content, { isShown }, _, inputRef) => (
 					<div>
 						{isShown && (
 							<button
-								onClick={action('onBeforeClick')}
+								onClick={() => inputRef.blur()}
 								onMouseDown={e => e.preventDefault()}
 								type="button"
 							>
-								before
+								Close dropdown
 							</button>
 						)}
 						{content}
