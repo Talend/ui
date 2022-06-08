@@ -33,9 +33,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^7.1.0",
-    "@talend/react-components": "^7.0.0",
-    "@talend/react-forms": "^7.3.1",
+    "@talend/react-cmf": "^7.1.1",
+    "@talend/react-components": "^7.0.1",
+    "@talend/react-forms": "^7.3.2",
     "classnames": "^2.3.1",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
@@ -75,5 +75,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.2.2"
+  "version": "7.2.3"
 }
