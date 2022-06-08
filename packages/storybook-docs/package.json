@@ -10,8 +10,8 @@
     "start": "npm run storybook",
     "test": "echo no test",
     "test:demo": "npm run build-storybook",
-    "storybook": "cross-env BROWSER=none npm run build:lib && start-storybook -p 6106",
-    "build-storybook": "build-storybook --docs"
+    "storybook": "cross-env BROWSER=none npm run build:lib && talend-scripts start-storybook -p 6106",
+    "build-storybook": "talend-scripts build-storybook --docs"
   },
   "repository": {
     "type": "git",

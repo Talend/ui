@@ -37,9 +37,34 @@ const defaultMain = {
 	staticDirs: [path.join(__dirname, 'msw')],
 	addons: [
 		'@storybook/addon-a11y',
+		'@storybook/addon-essentials',
 		'@storybook/addon-links',
-		'@storybook/addon-essentials'
+		'@storybook/addon-interactions',
+		{
+			name: '@storybook/preset-scss',
+			options: {
+				cssLoaderOptions: {
+					modules: true,
+				},
+			},
+		},
 	],
+	typescript: {
+		check: true,
+		checkOptions: {},
+		reactDocgen: 'react-docgen-typescript',
+		reactDocgenTypescriptOptions: {
+			shouldExtractLiteralValuesFromEnum: true,
+			propFilter: prop => {
+				if (prop.parent) {
+					// filter inherited props
+					return !prop.parent.fileName.includes('node_modules');
+				}
+				// filter inherited styled-components props
+				return !['theme', 'as', 'forwardedAs', 'ref'].includes(prop.name);
+			},
+		},
+	},
 	core: {
 		// this is the default value, but if not defined explicitly here, it fails
 		// because we define a core object, SB takes core.builder in this case
