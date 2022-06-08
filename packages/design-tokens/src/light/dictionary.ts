@@ -2546,6 +2546,18 @@ Use on "second layer" of elevation - something that need to be "above" anything 
         id: 'S:14231707ce62ba7e59d9fa51c7398fc916879560,'
     },
     {
+        name: 'coralDataXl',
+        type: 'typography',
+        description: `Data text style - use for large display of metrics.`,
+        value: `400 2.4rem/140% 'Inconsolata'`,
+        fontStyle: 'normal',
+        fontWeight: '400',
+        fontSize: '2.4rem',
+        lineHeight: '140%',
+        fontFamily: 'Inconsolata',
+        id: 'S:6136688c80e14f3c6a44576a2d5b943c6ce76121,'
+    },
+    {
         name: 'coralRadiusM',
         type: 'radius',
         description: `Radius for molecules (Accordion, Fieldset, Popover, etc.)`,

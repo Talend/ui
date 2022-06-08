@@ -260,6 +260,7 @@ const tokens = {
   coralDataMBold: `var(--coral-data-m-bold, 700 1.4rem/140% 'Inconsolata')`,
   coralLinkMUnderlined: `var(--coral-link-m-underlined, 600 1.4rem/140% 'Source Sans Pro')`,
   coralLinkM: `var(--coral-link-m, 600 1.4rem/140% 'Source Sans Pro')`,
+  coralDataXl: `var(--coral-data-xl, 400 2.4rem/140% 'Inconsolata')`,
   coralRadiusM: `var(--coral-radius-m, 0.8rem)`,
   coralRadiusL: `var(--coral-radius-l, 1.6rem)`,
   coralRadiusRound: `var(--coral-radius-round, 9999.9rem)`,
