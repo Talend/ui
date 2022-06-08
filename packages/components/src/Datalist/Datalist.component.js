@@ -111,9 +111,8 @@ function getEntry(titleMap, nameOrValue, restricted) {
 
 function Datalist(props) {
 	// Current persisted value
-	// In case of simple values, this is a string
-	// In case of titleMap, it's the object value key { name: "display value", value: "technical value" }
-	const [value, setValue] = useState();
+	// It's the object value key { name: "display value", value: "technical value" }
+	const [{ name, value }, setEntry] = useState({});
 
 	// suggestions: filter value, display flag, current hover selection
 	const [filterValue, setFilterValue] = useState('');
@@ -145,9 +144,10 @@ function Datalist(props) {
 		}
 
 		if (entry.value !== value) {
-			setValue(entry.value);
+			setEntry(entry);
 		}
-		if (entry.name !== filterValue) {
+		// Update the input value only if user did not change it
+		if (!name || name === filterValue) {
 			setFilterValue(entry.name);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -185,7 +185,7 @@ function Datalist(props) {
 		setFilterValue(newFilter);
 
 		if (persist) {
-			setValue(entry.value);
+			setEntry(entry);
 			props.onChange(event, { value: entry.value });
 		} else if (props.onLiveChange) {
 			props.onLiveChange(event, entry.value);

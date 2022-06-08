@@ -167,7 +167,7 @@ export const parameters = {
 						{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
 					</Helmet>
 
-					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+					<IconsProvider />
 					<TableOfContents>
 						{isDesignSystemElementPage && (
 							<ThemeProvider theme={light}>
@@ -233,11 +233,15 @@ export const parameters = {
 				// if wrapped into an arrow function
 				if (input?.trim().startsWith('(')) {
 					const body = input.replace(/\((.*)\) => {?((.|\n)*)?}?/gm, '$2');
-					return format(body).trim().replace(/;$/, '');
+					return format(body)
+						.trim()
+						.replace(/;$/, '');
 				}
 				// try to format JSX
 				// remove last semicolon added by Prettier
-				return format(input).trim().replace(/;$/, '');
+				return format(input)
+					.trim()
+					.replace(/;$/, '');
 			} catch (e) {
 				// otherwise, return the same string
 				return input;
@@ -279,6 +283,8 @@ export const parameters = {
 					'Stepper',
 					['Stepper', 'Step'],
 				],
+				'[WIP] Components',
+				'[WIP] Templates',
 				'[Deprecated] Design Tokens',
 			],
 		} /**/,
@@ -304,7 +310,7 @@ export const decorators = [
 			themedStory
 		) : (
 			<I18nextProvider i18n={i18n}>
-				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+				<IconsProvider />
 				{themedStory}
 			</I18nextProvider>
 		);

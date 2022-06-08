@@ -1,5 +1,21 @@
 # @talend/react-forms
 
+## 7.3.1
+
+### Patch Changes
+
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/design-system@3.0.0
+
 ## 7.3.0
 
 ### Minor Changes
