@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import {
 	usePopoverState,
 	Popover as ReakitPopover,
 	PopoverArrow as ReakitPopoverArrow,
 	PopoverDisclosure as ReakitPopoverDisclosure,
 } from 'reakit';
+import Clickable from '../Clickable';
 
-import theme from './Popover.scss';
+import style from './Popover.module.scss';
 
 const ANIMATION_DURATION = 250; // Sync with @talend/design-token animations duration
 
-export type PopoverPropsType = React.PropsWithChildren<any> & {
-	disclosure: React.ReactElement;
+export type PopoverPropsType = {
+	disclosure: ReactElement<typeof Clickable>;
+	children: ReactNode | ReactNode[];
 };
 
 function Popover({ disclosure, ...props }: PopoverPropsType) {
@@ -19,12 +21,12 @@ function Popover({ disclosure, ...props }: PopoverPropsType) {
 
 	return (
 		<>
-			<ReakitPopoverDisclosure {...popover} ref={disclosure.ref} {...disclosure.props}>
+			<ReakitPopoverDisclosure {...popover}>
 				{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
 			</ReakitPopoverDisclosure>
 			<ReakitPopover {...popover} {...props}>
-				<div className={theme.popover__animated}>
-					<ReakitPopoverArrow {...popover} className={theme.popover__arrow} />
+				<div className={style.popover__animated}>
+					<ReakitPopoverArrow {...popover} className={style.popover__arrow} />
 					{props.children}
 				</div>
 			</ReakitPopover>
