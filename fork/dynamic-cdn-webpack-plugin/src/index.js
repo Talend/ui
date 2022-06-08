@@ -131,12 +131,13 @@ class DynamicCdnWebpackPlugin {
 		addURL,
 		loglevel = 'ERROR',
 		verbose,
+		cwd = process.cwd(),
 	} = {}) {
 		if (exclude && only) {
 			throw new Error("You can't use 'exclude' and 'only' at the same time");
 		}
 		this.projectPeerDeps = {};
-		const pkgUp = readPkgUp.sync({ cwd: process.cwd() });
+		const pkgUp = readPkgUp.sync({ cwd });
 		if (pkgUp) {
 			this.projectPeerDeps = pkgUp.packageJson.peerDependencies || {};
 		}
