@@ -13,7 +13,7 @@ function Card({ header, children }: CardPropsType) {
 	return (
 		<div className={theme.card}>
 			<StackVertical gap="L" alignContent="center">
-				{header && <div className={theme.card__header}>{header}</div>}
+				{header && <header className={theme.card__header}>{header}</header>}
 				<div className={theme.card__body}>{children}</div>
 			</StackVertical>
 		</div>
