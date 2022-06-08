@@ -1,0 +1,28 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.popover {
+	&__arrow {
+		[class="fill"] {
+			fill: tokens.$coral-color-neutral-background;
+		}
+
+		[class="stroke"] {
+			fill: tokens.$coral-color-illustration-shadow;
+		}
+	}
+
+	&__animated {
+		transition: opacity tokens.$coral-transition-fast, transform tokens.$coral-transition-fast;
+		transform-origin: top left;
+		transform: translate3d(0, -#{tokens.$coral-spacing-m}, 0);
+		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+		border-radius: tokens.$coral-radius-s;
+		opacity: 0;
+		padding: tokens.$coral-spacing-m;
+
+		[data-enter] & {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
