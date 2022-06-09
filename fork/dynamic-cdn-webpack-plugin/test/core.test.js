@@ -11,16 +11,19 @@ const DynamicCdnWebpackPlugin = require('../src').default;
 describe('core', () => {
 	it('should set deps as cdn externals', async () => {
 		// given
+		const cwd = path.resolve(__dirname, './fixtures/app');
 		await cleanDir(path.resolve(__dirname, './fixtures/output/basic'));
-		const plugin = new DynamicCdnWebpackPlugin();
+		const plugin = new DynamicCdnWebpackPlugin({ cwd });
 		plugin.error = () => {};
 
 		// when
 		const stats = await runWebpack({
-			context: path.resolve(__dirname, './fixtures/app'),
+			context: cwd,
 
 			output: {
 				publicPath: '',
+				filename: 'app.js',
+				chunkFilename: '[name]-[hash].js',
 				path: path.resolve(__dirname, './fixtures/output/basic'),
 			},
 
@@ -44,6 +47,14 @@ describe('core', () => {
 			.toString();
 		expect(output).not.toContain('THIS IS REACT!');
 		expect(output).toContain('module.exports = React');
+		const manifest = JSON.parse(
+			fs
+				.readFileSync(
+					path.resolve(__dirname, './fixtures/output/basic/app.js.dependencies.json'),
+				)
+				.toString(),
+		);
+		expect(manifest.react.peerDependency).toBe('^15.6.1');
 	});
 
 	it('should use production version', async () => {
