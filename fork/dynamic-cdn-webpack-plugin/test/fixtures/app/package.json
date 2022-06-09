@@ -12,9 +12,15 @@
   "dependencies": {
     "@angular/core": "^4.2.5",
     "@babel/polyfill": "^7.0.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.12"
+  },
+  "devDependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "peerDependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   }
 }

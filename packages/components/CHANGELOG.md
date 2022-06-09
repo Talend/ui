@@ -1,5 +1,34 @@
 # @talend/react-components
 
+## 7.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/design-system@3.0.1
+
+## 7.0.0
+
+### Major Changes
+
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+
+### Minor Changes
+
+- c8fbf0130: feat(TDC-6235): pass input reference to datalist rendering function
+
+### Patch Changes
+
+- 9a581a4bc: Datalist: keep user filter when suggestion changes
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/design-system@3.0.0
+
 ## 6.49.0
 
 ### Minor Changes

@@ -2522,6 +2522,46 @@ Use on "second layer" of elevation - something that need to be "above" anything 
         id: 'S:4d7b8461e5b594b28d6d64272b468b810ff31e92,'
     },
     {
+        name: 'coralLinkMUnderlined',
+        type: 'typography',
+        description: `Use only with accent/text-hover
+
+Developers: use Link component instead, you do not need to recreate styles.`,
+        value: `600 1.4rem/140% 'Source Sans Pro'`,
+        fontStyle: 'normal',
+        fontWeight: '600',
+        fontSize: '1.4rem',
+        lineHeight: '140%',
+        fontFamily: 'Source Sans Pro',
+        id: 'S:3a35dcf2dc13003c2de78b3720430ace5a5dcd77,'
+    },
+    {
+        name: 'coralLinkM',
+        type: 'typography',
+        description: `Use only with accent/text.
+
+Developers: use Link component instead, you do not need to recreate styles.`,
+        value: `600 1.4rem/140% 'Source Sans Pro'`,
+        fontStyle: 'normal',
+        fontWeight: '600',
+        fontSize: '1.4rem',
+        lineHeight: '140%',
+        fontFamily: 'Source Sans Pro',
+        id: 'S:14231707ce62ba7e59d9fa51c7398fc916879560,'
+    },
+    {
+        name: 'coralDataXl',
+        type: 'typography',
+        description: `Data text style - use for large display of metrics.`,
+        value: `400 2.4rem/140% 'Inconsolata'`,
+        fontStyle: 'normal',
+        fontWeight: '400',
+        fontSize: '2.4rem',
+        lineHeight: '140%',
+        fontFamily: 'Inconsolata',
+        id: 'S:6136688c80e14f3c6a44576a2d5b943c6ce76121,'
+    },
+    {
         name: 'coralRadiusM',
         type: 'radius',
         description: `Radius for molecules (Accordion, Fieldset, Popover, etc.)`,
