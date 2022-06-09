@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-	ButtonPrimary,
-	ButtonSecondary,
-	Form,
-	StackHorizontal,
-} from '@talend/design-system';
+import { ButtonPrimary, ButtonSecondary, Form, StackHorizontal } from '@talend/design-system';
 
 import theme from './ApplyToIdenticalValues.scss';
 
