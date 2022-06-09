@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.1",
-    "@talend/design-tokens": "^2.4.0",
+    "@talend/design-tokens": "^2.5.0",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.2.2",
