@@ -26,7 +26,7 @@
     "@types/enzyme": "^3.10.12",
     "@types/invariant": "^2.2.35",
     "@types/lodash": "^4.14.182",
-    "@types/react": "^17.0.2",
+    "@types/react": "^17.0.45",
     "@types/react-redux": "^7.1.24",
     "@types/react-test-renderer": "^17.0.2",
     "@types/redux-mock-store": "^1.0.3",
@@ -38,13 +38,13 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.16.7",
+    "react-i18next": "^11.17.0",
     "react-redux": "^7.2.8",
     "react-test-renderer": "^17.0.2",
     "redux": "^4.2.0",
     "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.4.1",
-    "reselect": "^4.1.5"
+    "reselect": "^4.1.6"
   },
   "peerDependencies": {
     "immutable": "3",

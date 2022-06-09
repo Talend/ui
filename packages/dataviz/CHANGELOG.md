@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.2.2
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-components@7.0.1
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+
 ## 2.2.0
 
 ### Minor Changes

@@ -5,7 +5,7 @@ import Template from '..';
 import { Stepper } from '../../index';
 
 export default {
-	title: 'Templates/Templates',
+	title: '[WIP] Templates/Stories',
 };
 
 const args = {

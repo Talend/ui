@@ -33,9 +33,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^7.1.0",
-    "@talend/react-components": "^6.49.0",
-    "@talend/react-forms": "^7.3.0",
+    "@talend/react-cmf": "^7.1.1",
+    "@talend/react-components": "^7.0.1",
+    "@talend/react-forms": "^7.3.2",
     "classnames": "^2.3.1",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
@@ -48,7 +48,7 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-actions": "^6.5.7",
     "@talend/bootstrap-theme": "^6.39.0",
     "@talend/icons": "^6.42.0",
     "@talend/locales-tui-containers": "^6.38.1",
@@ -61,7 +61,7 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.16.7",
+    "react-i18next": "^11.17.0",
     "react-test-renderer": "^17.0.2",
     "redux-saga-tester": "^1.0.874"
   },
@@ -69,10 +69,11 @@
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
+    "react-dom": ">= 16.14.0 < 18.0.0",
     "react-i18next": "^11.8.13"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.2.0"
+  "version": "7.2.3"
 }

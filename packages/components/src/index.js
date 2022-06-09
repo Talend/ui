@@ -47,7 +47,6 @@ import Icon from './Icon';
 import IconsProvider from './IconsProvider';
 import i18n from './i18n';
 import Inject from './Inject';
-import { InlineMessage } from './InlineMessage';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import Link from './Link';
@@ -129,7 +128,6 @@ export {
 	Icon,
 	IconsProvider,
 	Inject,
-	InlineMessage,
 	JSONSchemaRenderer,
 	Layout,
 	Link,
