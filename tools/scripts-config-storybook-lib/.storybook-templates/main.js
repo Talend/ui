@@ -39,8 +39,17 @@ const defaultMain = {
 	staticDirs: [path.join(__dirname, 'msw')],
 	addons: [
 		'@storybook/addon-a11y',
+		'@storybook/addon-essentials',
 		'@storybook/addon-links',
-		'@storybook/addon-essentials'
+		'@storybook/addon-interactions',
+		{
+			name: '@storybook/preset-scss',
+			options: {
+				cssLoaderOptions: {
+					modules: true,
+				},
+			},
+		},
 	],
 	core: {
 		builder: 'webpack5',

@@ -39,12 +39,12 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.16.7",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
     "@svgr/webpack": "^5.5.0",
-    "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^4.3.0",
