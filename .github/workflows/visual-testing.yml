@@ -38,6 +38,7 @@ jobs:
              - 'packages/design-system/**'
             datagrid: packages/datagrid/**
             dataviz: packages/dataviz/**
+            forms: packages/forms/**
 
   build:
     needs: changes
@@ -68,6 +69,11 @@ jobs:
         run: |
           yarn workspace @talend/assets-api run build:lib
           yarn workspace @talend/design-tokens run build:lib
+
+      - name: Build @talend/icons
+        if: matrix.package == 'design-system'
+        run: |
+          yarn workspace @talend/icons run build:lib
 
       - name: Build @talend/*
         if: matrix.package != 'design-system'

@@ -1,5 +1,11 @@
 # @talend/router-bridge
 
+## 1.2.1
+
+### Patch Changes
+
+- e28cf0a73: fix: allow props to be well passed to Router component
+
 ## 1.2.0
 
 ### Minor Changes

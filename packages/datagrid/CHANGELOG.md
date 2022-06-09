@@ -1,5 +1,25 @@
 # @talend/react-datagrid
 
+## 10.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-components@7.0.1
+
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/design-system@3.0.0
+
 ## 9.3.1
 
 ### Patch Changes
