@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
-import TooltipTrigger from '../TooltipTrigger';
+import { Tooltip } from '@talend/design-system';
 import { getTheme } from '../theme';
 import ratioBarTheme from './RatioBar.scss';
 
@@ -55,9 +55,9 @@ export function RatioBarLine({ percentage, tooltipLabel, className, value, dataF
 	}
 
 	return (
-		<TooltipTrigger label={tooltipLabel} tooltipPlacement="bottom">
+		<Tooltip title={tooltipLabel} placement="bottom">
 			{content}
-		</TooltipTrigger>
+		</Tooltip>
 	);
 }
 RatioBarLine.propTypes = {
