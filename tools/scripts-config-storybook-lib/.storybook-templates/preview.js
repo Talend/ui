@@ -1,6 +1,6 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { IconsProvider, ThemeProvider } from '@talend/design-system';
+import { IconsProvider } from '@talend/design-system';
 import { merge } from 'lodash';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 
@@ -40,30 +40,20 @@ const defaultPreview = {
 			},
 		},
 	},
-	loaders: [
-		cmfLoader,
-	].filter(Boolean),
+	loaders: [cmfLoader].filter(Boolean),
 	decorators: [
 		mswDecorator,
 		(Story, context) => {
 			i18n.changeLanguage(context.globals && context.globals.locale);
-			return React.createElement(React.Suspense, { fallback: null },
-				React.createElement(I18nextProvider, { i18n: i18n, key: 'i18n' },
-					React.createElement(Story, {...context, key: 'story'})
-				)
-			);
-		},
-		(Story, context) => {
-			const storyElement = React.createElement(Story, {...context, key: 'story'});
-			return [
-				React.createElement(IconsProvider, {
-					bundles: ['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg'],
-					key: 'icons-provider-decorator'
-				}),
-				React.createElement(ThemeProvider, {
-					key: 'theme-provider-decorator'
-				}, storyElement)
-			];
+			return React.createElement(React.Suspense, { fallback: null }, [
+					React.createElement(I18nextProvider, { i18n: i18n, key: 'i18n' }, [
+						React.createElement(IconsProvider, {
+							bundles: ['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg'],
+							key: 'icons'
+						}),
+						React.createElement(Story, {...context, key: 'story'}),
+					])
+			]);
 		},
 		cmfDecorator
 	].filter(Boolean),

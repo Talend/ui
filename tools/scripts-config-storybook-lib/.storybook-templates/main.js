@@ -3,6 +3,7 @@ const { merge } = require('lodash');
 const path = require('path');
 const getTalendWebpackConfig = require('@talend/scripts-core/config/webpack.config');
 const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getAllModules } = require('@talend/module-to-cdn');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DuplicatesPlugin } = require('inspectpack/plugin');
@@ -25,6 +26,7 @@ function getStoriesFolders() {
 const excludedPlugins = [
 	CDNPlugin, // will be overrided without @talend modules
 	DuplicatesPlugin, // slow
+	MiniCssExtractPlugin, // blocker for optimization
 	HtmlWebpackPlugin, // use SB index.html, not app's
 ]
 
@@ -50,10 +52,9 @@ const defaultMain = {
 		},
 	],
 	core: {
-		// this is the default value, but if not defined explicitly here, it fails
-		// because we define a core object, SB takes core.builder in this case
-		builder: 'webpack4',
+		builder: 'webpack5',
 	},
+	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
 		process.env.TALEND_SCRIPTS_CONFIG = JSON.stringify(require(path.join(cwd, 'talend-scripts.json')));
 		process.env.TALEND_MODE = 'development';
@@ -94,14 +95,13 @@ const defaultMain = {
 				new CDNPlugin({
 					exclude: Object.keys(getAllModules()).filter(name => name.startsWith('@talend/'))
 				}),
+				new MiniCssExtractPlugin({
+					filename: `[name].css`,
+					chunkFilename: `[name].css`,
+				}),
 			],
-			node: {
-				...config.node,
-				...talendWebpackConfig.node,
-			},
-			// avoid concurrency issues when build & build-storybook
-			optimization: {
-				minimize: false,
+			resolve: {
+				extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
 			},
 		};
 
@@ -115,7 +115,7 @@ const userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %
 // Waiting for a release https://github.com/storybookjs/storybook/pull/17641
 function fixWindowsPath(paths){
 	return process.platform === 'win32'
-		? paths.map(path => path.replace(/\\/g, '/'))
+		? paths.map(p => p.replace(/\\/g, '/'))
 		: paths;
 }
 

@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.7",
-    "@storybook/addon-knobs": "^6.4.0",
+    "@storybook/addon-controls": "^6.5.5",
     "@talend/bootstrap-theme": "^6.39.0",
     "@talend/icons": "^6.42.0",
     "@talend/locales-tui-forms": "^6.41.3",

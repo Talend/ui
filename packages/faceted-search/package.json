@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.7",
-    "@storybook/testing-library": "^0.0.8",
+    "@storybook/testing-library": "^0.0.11",
     "@talend/bootstrap-theme": "^6.39.0",
     "@talend/design-system": "^3.0.1",
     "@talend/icons": "^6.42.0",

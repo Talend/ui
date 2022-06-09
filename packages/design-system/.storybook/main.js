@@ -11,14 +11,12 @@ module.exports = {
 		// storyStoreV7: true, // will break all work related to aggregated status in the next major version of Storybook
 	},
 	framework: '@storybook/react',
-	/*
 	refs: {
 		'design-tokens': {
 			title: 'Design Tokens',
 			url: 'https://design.talend.com/design-tokens',
 		},
 	},
-	*/
 	stories: [
 		'../src/Welcome.stories.@(js|tsx|mdx)',
 		'../src/GettingStarted.stories.@(js|tsx|mdx)',
@@ -54,23 +52,16 @@ module.exports = {
 		'storybook-addon-mdx-embed',
 	],
 	typescript: {
-		check: true,
-		checkOptions: {},
-		reactDocgen: 'react-docgen-typescript',
-		reactDocgenTypescriptOptions: {
-			shouldExtractLiteralValuesFromEnum: true,
-			propFilter: prop => {
-				if (prop.parent) {
-					// filter inherited props
-					return !prop.parent.fileName.includes('node_modules');
-				}
-				// filter inherited styled-components props
-				return !['theme', 'as', 'forwardedAs', 'ref'].includes(prop.name);
-			},
+		reactDocgen: false,
+	},
+	core: {
+		builder: 'webpack5',
+		options: {
+			lazyCompilation: true,
+			fsCache: true,
 		},
 	},
 	webpackFinal: async config => {
-		config.entry.unshift('core-js');
 		config.plugins.push(
 			new BrowserSyncPlugin({
 				host: 'localhost',

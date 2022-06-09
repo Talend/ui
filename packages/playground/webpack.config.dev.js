@@ -1,7 +1,3 @@
-/* eslint-disable import/no-dynamic-require */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable global-require */
-
 const path = require('path');
 const webpack = require('webpack');
 const resolve = require('@talend/dynamic-cdn-webpack-plugin/src/resolve-pkg');
@@ -63,7 +59,10 @@ const webpackConfig = {
 		publicPath: process.env.BASENAME || '/',
 	},
 	devServer: {
-		onBeforeSetupMiddleware: mockBackend,
+		setupMiddlewares: (middlewares, devServer) => {
+			mockBackend(devServer);
+			return middlewares;
+		},
 		historyApiFallback: {
 			index: `${process.env.BASENAME || '/'}index.html`,
 		},
