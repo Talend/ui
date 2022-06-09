@@ -64,6 +64,16 @@ describe('findPackage', () => {
 		const result = findPackage({ name: 'react', version: '16.14.0' });
 		expect(result).toBe('/node_modules/react');
 	});
+	test('should find package from peerDependencies', () => {
+		const result = findPackage({
+			name: 'react',
+			version: '17.0.0',
+			peerDependency: '>= 16.8.0',
+		});
+		expect(result).toBe('/node_modules/react');
+		const notfound = findPackage({ name: 'react', version: '17.0.0' });
+		expect(notfound).toBe(undefined);
+	});
 	test('should find package from cdnConfig object if present version is higher', () => {
 		const results = findPackage({ name: 'react', version: '16.13.0' });
 		expect(results).toBe('/node_modules/react');

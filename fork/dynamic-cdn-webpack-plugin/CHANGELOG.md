@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 11.1.0
+
+### Minor Changes
+
+-   1770e701b: feat: add support for peerDependencies
+
 ## 11.0.3
 
 ### Patch Changes

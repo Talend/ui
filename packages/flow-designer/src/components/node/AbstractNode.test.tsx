@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import {
 	NodeGraphicalAttributes,
@@ -47,6 +48,25 @@ describe('Testing <AbstractNode>', () => {
 		expect(onClick).toHaveBeenCalledTimes(1);
 	});
 
+	it('call the onDoubleClick props when double clicked', async () => {
+		const onDoubleClick = jest.fn();
+		render(
+			<AbstractNode
+				node={node}
+				onDoubleClick={onDoubleClick}
+				startMoveNodeTo={noOp}
+				moveNodeTo={noOp}
+				moveNodeToEnd={noOp}
+			>
+				<rect />
+			</AbstractNode>,
+		);
+		const nodeGroup = await screen.findByTestId(/group./, { exact: false });
+		fireEvent.doubleClick(nodeGroup);
+
+		expect(onDoubleClick).toHaveBeenCalledTimes(1);
+	});
+
 	// if anyone got a clue on how to test react + d3 events
 
 	xit('call the injected onDragStart action when drag action start', done => {
@@ -87,12 +107,7 @@ describe('Testing <AbstractNode>', () => {
 	it('should fire an error if its rendered without a children set up', () => {
 		expect(() => {
 			shallow(
-				<AbstractNode
-					node={node}
-					startMoveNodeTo={noOp}
-					moveNodeTo={noOp}
-					moveNodeToEnd={noOp}
-				/>,
+				<AbstractNode node={node} startMoveNodeTo={noOp} moveNodeTo={noOp} moveNodeToEnd={noOp} />,
 			);
 		}).toThrowError(ABSTRACT_NODE_INVARIANT);
 	});

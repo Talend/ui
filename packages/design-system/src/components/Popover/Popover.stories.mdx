@@ -1,12 +1,11 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { ButtonPrimary } from '../../Button';
-import Popover from '../';
-import { action } from '@storybook/addon-actions';
+import * as Stories from './Popover.stories';
+import { StackHorizontal } from '../Stack';
 
 <Meta
-	title="Components/Popover"
+	title="[WIP] Components/Popover"
 	parameters={{
-		status: { figma: 'ok', storybook: 'wip', react: 'wip', i18n: 'na' },
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
 	}}
 />
 
@@ -19,16 +18,7 @@ Popover displays floating informative and actionable content in relation to its 
 ## Style
 
 <Canvas>
-	<Story name="default" height="10rem">
-		<Popover
-			aria-label="Custom popover"
-			disclosure={
-				<ButtonPrimary onClick={action('Clicked disclosure')}>Open popover</ButtonPrimary>
-			}
-		>
-			Custom popover
-		</Popover>
-	</Story>
+	<Story height="12rem" story={Stories.DefaultStory} />
 </Canvas>
 
 ## States
