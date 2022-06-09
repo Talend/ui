@@ -1,0 +1,40 @@
+{
+  "name": "@talend/storybook-docs",
+  "version": "1.0.0",
+  "description": "Talend Storybook Docs component library",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build:lib": "talend-scripts build:ts:lib",
+    "pre-release": "npm run build:lib",
+    "start": "npm run storybook",
+    "test": "echo no test",
+    "test:demo": "npm run build-storybook",
+    "storybook": "cross-env BROWSER=none npm run build:lib && talend-scripts start-storybook -p 6106",
+    "build-storybook": "talend-scripts build-storybook --docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talend/ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@talend/design-system": "^2.7.0",
+    "@talend/design-tokens": "^2.4.0"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3"
+  },
+  "peerDependencies": {
+    "@talend/icons": "^6.42.0"
+  }
+}

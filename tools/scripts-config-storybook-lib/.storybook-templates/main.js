@@ -37,8 +37,17 @@ const defaultMain = {
 	staticDirs: [path.join(__dirname, 'msw')],
 	addons: [
 		'@storybook/addon-a11y',
+		'@storybook/addon-essentials',
 		'@storybook/addon-links',
-		'@storybook/addon-essentials'
+		'@storybook/addon-interactions',
+		{
+			name: '@storybook/preset-scss',
+			options: {
+				cssLoaderOptions: {
+					modules: true,
+				},
+			},
+		},
 	],
 	core: {
 		// this is the default value, but if not defined explicitly here, it fails
