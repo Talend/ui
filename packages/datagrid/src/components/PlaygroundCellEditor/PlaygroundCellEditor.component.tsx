@@ -69,7 +69,7 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 			const overflowsBottom = bottom > window.innerHeight;
 
 			setApplyToStyles({
-				...(overflowsRight || overflowsBottom ? { position: 'absolute' } : {}),
+				position: 'absolute',
 				...(overflowsRight && { right: 0 }),
 				...(overflowsBottom && { bottom: eGridCell.offsetHeight }),
 			});
