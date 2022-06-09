@@ -22,12 +22,17 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 	const [state, setState] = useState(value.value);
 	const currentRef = useRef<HTMLDivElement>(null);
 	const [isLoading, setIsLoading] = useState(false);
+	const [showApplyTo, setShowApplyToState] = useState(false);
+	const showApplyToRef = useRef(showApplyTo);
 	const applyToRef = useRef<HTMLDivElement>(null);
 	const [applyToStyles, setApplyToStyles] = useState({});
 
 	const [semanticType, setSemanticType] = useState<SemanticType>();
 
-	const showApplyTo = state !== value.value;
+	const setShowApplyTo = (flag: boolean) => {
+		showApplyToRef.current = flag;
+		setShowApplyToState(flag);
+	};
 
 	useImperativeHandle(ref, (): any => ({ getValue: () => state }));
 
@@ -43,9 +48,9 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 			);
 		}
 
-		// 	// Block "Tab keydown" event propagation when "Apply to ..." element is visible
+		// Block "Tab keydown" event propagation when "Apply to ..." element is visible
 		currentRef.current?.addEventListener('keydown', (e: KeyboardEvent) => {
-			if (e.key === 'Enter' || (e.key === 'Tab' && showApplyTo)) {
+			if (e.key === 'Enter' || (e.key === 'Tab' && showApplyToRef.current)) {
 				e.stopPropagation();
 			}
 		});
@@ -91,6 +96,7 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 					hasSuggestions={hasSuggestions}
 					isLoading={isLoading}
 					onChange={newValue => {
+						setShowApplyTo(newValue !== value.value);
 						setState(newValue);
 					}}
 					onCancel={onCancel}
