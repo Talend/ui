@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.0.3
+
+### Patch Changes
+
+- 85b73cb64: fix(TDC-6341): improve RatioBarComposition accessibility
+
 ## 7.0.2
 
 ### Patch Changes
