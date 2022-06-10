@@ -31,7 +31,6 @@
     "msw-storybook-addon": "^1.6.3"
   },
   "peerDependencies": {
-    "@talend/design-system": "*",
     "i18next": "*",
     "react": "*",
     "react-i18next": "*"

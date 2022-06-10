@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 const path = require('path');
-const mergeSettings = require('@talend/react-cmf/scripts/cmf-settings.merge');
+const mergeSettings = require('@talend/scripts-cmf/cmf-settings.merge');
 const get = require('lodash/get');
 
 /**
