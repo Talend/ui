@@ -3460,6 +3460,21 @@
   resolved "https://registry.yarnpkg.com/@talend/daikon-tql-client/-/daikon-tql-client-1.3.1.tgz#75a764ec14b06355af3924f3b2d65ff8e61db4f0"
   integrity sha512-trwueNzgISaN2jSNBxuiHw76jWX2G/vtSrCtlTaoeS3NzsCIVUlGryqKZnuBLfZWJyVWeImx9xm34mBOHITMIQ==
 
+"@talend/design-system@^2.7.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-2.8.0.tgz#d41df96d3963a76231f141fb239b402007bbd6e1"
+  integrity sha512-g6ALaXJDWAIr84uPYrbl87UuuqhlSRFK1yG0HOOCusnWjtDE4UhH8m02+lk8AIT5CAwHmjVyKL6H15LeaDdsLw==
+  dependencies:
+    "@talend/assets-api" "^1.2.1"
+    "@talend/design-tokens" "^2.4.0"
+    classnames "^2.3.1"
+    modern-css-reset "^1.4.0"
+    polished "^4.2.2"
+    react-use "^17.3.2"
+    reakit "^1.3.11"
+    typeface-inconsolata "^1.1.13"
+    typeface-source-sans-pro "^1.1.13"
+
 "@talend/locales-design-system@^1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-1.12.2.tgz#ed4f5412f052479c920f6baf6995cd4d84db7eb4"
@@ -10444,6 +10459,20 @@ focus-outline-manager@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/focus-outline-manager/-/focus-outline-manager-1.0.2.tgz#7bf3658865341fb6b08d042a037b9d2868b119b5"
   integrity sha512-bHWEmjLsTjGP9gVs7P3Hyl+oY5NlMW8aTSPdTJ+X2GKt6glDctt9fUCLbRV+d/l8NDC40+FxMjp9WlTQXaQALw==
+
+focus-trap-react@^8.11.1:
+  version "8.11.1"
+  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-8.11.1.tgz#dabda599f6834b8f55368494525167fa0128007c"
+  integrity sha512-ZFElB120Ntdxnq0aSWnzQqQ5QY1XUt8T1yuud/BIYAriMTWvyQghsk558ASSSV0iflaUgFQNRjKq3IEFEjGQGA==
+  dependencies:
+    focus-trap "^6.9.1"
+
+focus-trap@^6.9.1:
+  version "6.9.2"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.9.2.tgz#a9ef72847869bd2cbf62cb930aaf8e138fef1ca9"
+  integrity sha512-gBEuXOPNOKPrLdZpMFUSTyIo1eT2NSZRrwZ9r/0Jqw5tmT3Yvxfmu8KBHw8xW2XQkw6E/JoG+OlEq7UDtSUNgw==
+  dependencies:
+    tabbable "^5.3.2"
 
 follow-redirects@^1.0.0, follow-redirects@^1.14.0:
   version "1.15.1"
@@ -17661,7 +17690,7 @@ react-universal-interface@^0.6.2:
   resolved "https://registry.yarnpkg.com/react-universal-interface/-/react-universal-interface-0.6.2.tgz#5e8d438a01729a4dbbcbeeceb0b86be146fe2b3b"
   integrity sha512-dg8yXdcQmvgR13RIlZbTRQOoUrDciFVoSBZILwjE2LFISxZZ8loVJKAkuzswl5js8BHda79bIb2b84ehU8IjXw==
 
-react-use@^17.4.0:
+react-use@^17.3.2, react-use@^17.4.0:
   version "17.4.0"
   resolved "https://registry.yarnpkg.com/react-use/-/react-use-17.4.0.tgz#cefef258b0a6c534a5c8021c2528ac6e1a4cdc6d"
   integrity sha512-TgbNTCA33Wl7xzIJegn1HndB4qTS9u03QUwyNycUnXaweZkE4Kq2SB+Yoxx8qbshkZGYBDvUXbXWRUmQDcZZ/Q==
@@ -20228,6 +20257,11 @@ synckit@^0.4.1:
   dependencies:
     tslib "^2.3.1"
     uuid "^8.3.2"
+
+tabbable@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-5.3.2.tgz#66d6119ee8a533634c3f17deb0caa1c379e36ac7"
+  integrity sha512-6G/8EWRFx8CiSe2++/xHhXkmCRq2rHtDtZbQFHx34cvDfZzIBfvwG9zGUNTWMXWLCYvDj3aQqOzdl3oCxKuBkQ==
 
 table@^6.0.9, table@^6.6.0:
   version "6.8.0"
