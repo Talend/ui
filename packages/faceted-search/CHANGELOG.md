@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.0.2
+
+### Patch Changes
+
+- d3dc12c14: fix: use caret syntax for react-bootstrap
+- Updated dependencies [a2ebce94c]
+  - @talend/react-bootstrap@1.35.1
+
 ## 5.0.1
 
 ### Patch Changes
