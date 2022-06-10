@@ -1,0 +1,73 @@
+{
+  "name": "@talend/react-bootstrap",
+  "version": "1.35.0",
+  "description": "Bootstrap 3 components built with React",
+  "repository": {
+    "type": "git",
+    "url": "react-bootstrap/react-bootstrap"
+  },
+  "homepage": "https://react-bootstrap.github.io/",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "scripts": {
+    "build:dev": "talend-scripts build:lib:umd --dev",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build:lib",
+    "lint:es": "talend-scripts lint:es",
+    "test": "talend-scripts test",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "files": [
+    "CHANGELOG.md",
+    "lib",
+    "dist",
+    "es"
+  ],
+  "keywords": [
+    "react",
+    "ecosystem-react",
+    "react-component",
+    "bootstrap"
+  ],
+  "author": "Stephen J. Collings <stevoland@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.3.0",
+    "react-dom": ">=16.3.0"
+  },
+  "devDependencies": {
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
+    "chai": "^4.3.6",
+    "chalk": "^2.4.2",
+    "colors": "^1.4.0",
+    "create-react-class": "^15.7.0",
+    "cross-env": "^7.0.3",
+    "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "sinon": "^11.1.2"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "dom-helpers": "^3.4.0",
+    "invariant": "^2.2.4",
+    "keycode": "^2.2.1",
+    "prop-types": "^15.8.1",
+    "prop-types-extra": "^1.1.1",
+    "react-overlays": "^0.9.3",
+    "react-prop-types": "^0.4.0",
+    "react-transition-group": "^2.9.0",
+    "uncontrollable": "^7.2.1",
+    "warning": "^3.0.0"
+  }
+}

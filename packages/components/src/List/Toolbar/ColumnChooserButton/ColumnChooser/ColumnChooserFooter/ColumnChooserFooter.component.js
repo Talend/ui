@@ -16,6 +16,7 @@ const SubmitButton = () => {
 			id={`${id}-submit-button`}
 			label={t('COLUMN_CHOOSER_APPLY_BUTTON', { defaultValue: 'Apply' })}
 			type="submit"
+			data-feature="column-chooser.submit"
 		/>
 	);
 };

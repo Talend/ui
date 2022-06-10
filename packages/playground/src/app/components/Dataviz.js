@@ -7,6 +7,7 @@ import {
 	TooltipContent,
 	ValueType,
 } from '@talend/react-dataviz';
+import { ErrorBoundary } from '@talend/react-cmf';
 import Layout from '@talend/react-components/lib/Layout';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
@@ -59,14 +60,18 @@ export function Dataviz() {
 				/>
 			</div>
 			<div style={{ height: 500, width: 500 }}>
-				<GeoChart
-					data={geo}
-					columnName="Geo key"
-					chartConfig={chartsConfig}
-					getTooltipContent={entry => (
-						<TooltipContent entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
-					)}
-				/>
+				<ErrorBoundary>
+					<GeoChart
+						data={geo}
+						columnName="Geo key"
+						chartConfig={chartsConfig}
+						getTooltipContent={entry => (
+							<TooltipContent
+								entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)}
+							/>
+						)}
+					/>
+				</ErrorBoundary>
 			</div>
 		</Layout>
 	);

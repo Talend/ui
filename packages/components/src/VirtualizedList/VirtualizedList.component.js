@@ -48,6 +48,7 @@ function VirtualizedList(props) {
 		type,
 		widthsOfColumns,
 		setWidthsOfColumns,
+		headerAction,
 	} = props;
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		children,
@@ -116,6 +117,7 @@ function VirtualizedList(props) {
 						registerChild={registerChild}
 						scrollToIndex={scrollToIndex}
 						scrollToAlignment={scrollToAlignment}
+						headerAction={headerAction}
 					>
 						{columnDefinitions}
 					</RendererSelector>

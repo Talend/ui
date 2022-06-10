@@ -1,0 +1,22 @@
+import { Meta } from '@storybook/addon-docs';
+
+import { realIconNames, realIconSizes, Grid, IconGallery, IconItem, HiddenIconItem } from './Icon';
+import { infoFromFigma as icons } from '../dist/info';
+
+<Meta title="Icons by name" />
+
+# Icons
+
+This page mimics Figma presentation for convenient reasons.
+
+<IconGallery>
+	<Grid columns={realIconSizes.length}>
+		{realIconNames.map(name =>
+			realIconSizes.map((size, j) => {
+				const isFound = Object.keys(icons).find(key => key === name + ':' + size);
+				if (!isFound) return <HiddenIconItem key={j} />;
+				return <IconItem key={j} name={name} size={size} />;
+			}),
+		)}
+	</Grid>
+</IconGallery>

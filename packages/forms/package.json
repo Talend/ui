@@ -7,6 +7,7 @@
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
+    "build-storybook": "talend-scripts build-storybook",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
     "test": "talend-scripts test",
@@ -14,7 +15,7 @@
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
-    "lint:style": "talend-scripts lint:style -f json -o stylelint-report.json",
+    "lint:style": "talend-scripts lint:style",
     "lint": "yarn run lint:es && yarn run lint:style",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
@@ -36,10 +37,11 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^2.4.0",
-    "@talend/json-schema-form-core": "1.0.5",
-    "@talend/react-components": "^6.45.0",
-    "@talend/utils": "^2.2.0",
+    "@talend/assets-api": "^1.2.1",
+    "@talend/design-system": "^3.0.1",
+    "@talend/json-schema-form-core": "1.1.0",
+    "@talend/react-components": "^7.0.1",
+    "@talend/utils": "^2.3.0",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
     "json-logic-js": "^2.0.2",
@@ -47,20 +49,20 @@
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
     "react-autowhatever": "10.2.0",
-    "react-bootstrap": "0.32.4",
+    "@talend/react-bootstrap": "^1.35.0",
     "react-hook-form": "^6.15.8",
     "react-jsonschema-form": "0.51.0",
     "tv4": "^1.3.0",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-actions": "^6.5.7",
     "@storybook/addon-knobs": "^6.4.0",
-    "@talend/bootstrap-theme": "^6.38.6",
-    "@talend/icons": "^6.40.0",
+    "@talend/bootstrap-theme": "^6.39.0",
+    "@talend/icons": "^6.42.0",
     "@talend/locales-tui-forms": "^6.41.3",
-    "@talend/react-components": "^6.45.0",
-    "@talend/scripts-core": "^11.6.0",
+    "@talend/react-components": "^7.0.1",
+    "@talend/scripts-core": "^11.7.1",
     "@talend/scripts-preset-react-lib": "^11.0.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
@@ -72,18 +74,18 @@
     "json-loader": "^0.5.7",
     "mutationobserver-shim": "^0.3.7",
     "prop-types": "^15.8.1",
-    "react": "^16.14.0",
+    "react": "^17.0.2",
     "react-ace": "6.2.0",
-    "react-dom": "^16.14.0",
-    "react-i18next": "^11.16.7",
-    "react-test-renderer": "^16.14.0"
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.17.0",
+    "react-test-renderer": "^17.0.2"
   },
   "peerDependencies": {
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
+    "react": ">= 16.14.0 < 18.0.0",
     "react-ace": "6.2.0",
-    "react-dom": "^16.8.6",
+    "react-dom": ">= 16.14.0 < 18.0.0",
     "react-i18next": "^11.8.13"
   },
   "peerDependenciesMeta": {
@@ -94,5 +96,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.9"
+  "version": "7.3.2"
 }

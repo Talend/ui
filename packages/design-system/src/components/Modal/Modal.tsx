@@ -1,88 +1,161 @@
-import React from 'react';
-import { useDialogState, DialogProps, Dialog as ReakitDialog } from 'reakit';
-import { useTranslation } from 'react-i18next';
+import React, { HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
+import i18n from 'i18next';
+import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog';
+import { IconName } from '@talend/icons';
 
-import { ButtonSecondary, ButtonPrimary } from '../Button';
+import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
 import { Icon } from '../Icon';
+import { StackHorizontal, StackVertical } from '../Stack';
+import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';
+import { ButtonSecondaryPropsType } from '../Button/variations/ButtonSecondary';
+import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructive';
 
-import * as S from './Modal.style';
+import styles from './Modal.scss';
 
-export type ModalProps = DialogProps & {
-	icon?: string;
-	disclosure: React.ComponentPropsWithRef<any>;
-	subtitle?: string;
+type IconProp = IconName | ReactElement;
+
+function ModalIcon(props: { icon: IconProp; 'data-test'?: string }): ReactElement {
+	const { icon, 'data-test': dataTest } = props;
+	return (
+		<div className={styles['modal-icon']} data-test={dataTest}>
+			{typeof icon === 'string' ? <Icon name={icon} /> : icon}
+		</div>
+	);
+}
+
+type PrimaryActionPropsType =
+	| ButtonPrimaryPropsType
+	| ({ destructive: true } & ButtonDestructivePropsType);
+
+export type ModalPropsType = {
+	header: {
+		title: ReactNode;
+		description?: string;
+		icon?: IconProp;
+	};
 	onClose?: () => void;
-	onValidate?: () => void;
-};
+	disclosure?: ReactElement;
+	primaryAction?: PrimaryActionPropsType;
+	secondaryAction?: ButtonSecondaryPropsType;
+	preventEscaping?: boolean;
+	children: ReactNode | ReactNode[];
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'>;
 
-const Modal = React.forwardRef(
-	(
-		{ disclosure, children, icon, title, subtitle, onClose, onValidate, ...props }: ModalProps,
-		ref: React.Ref<HTMLDivElement>,
-	) => {
-		const dialog = useDialogState({ animated: true });
-		const { t } = useTranslation();
+function PrimaryAction(props: PrimaryActionPropsType) {
+	if (!('destructive' in props) || !props.destructive) {
+		return <ButtonPrimary {...(props as ButtonPrimaryPropsType)} />;
+	}
 
-		const onCloseHandler = () => {
-			dialog.hide();
-			if (onClose) {
-				onClose();
-			}
-		};
+	const { destructive, ...buttonProps } = props;
 
-		const onValidateHandler = () => {
-			if (onValidate) {
-				onValidate();
-			}
-			dialog.hide();
-		};
+	return <ButtonDestructive {...(buttonProps as ButtonDestructivePropsType)} />;
+}
 
-		return (
-			<>
-				{disclosure && (
-					<S.DialogDisclosure {...dialog} ref={disclosure.ref} {...disclosure.props}>
-						{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
-					</S.DialogDisclosure>
-				)}
-				<S.DialogBackdrop {...dialog}>
-					<ReakitDialog {...dialog} {...props} as={S.Dialog} ref={ref}>
-						<S.DialogHeading>
-							{icon && <Icon name={icon} />}
-							<div>
-								{title && <h1>{title}</h1>}
-								{subtitle && <h2>{subtitle}</h2>}
-							</div>
-						</S.DialogHeading>
-						{children}
-						<S.DialogButtons>
-							<ButtonSecondary onClick={onCloseHandler}>
-								{t('MODAL_CANCEL', 'Cancel')}
-							</ButtonSecondary>
-							<ButtonPrimary onClick={onValidateHandler}>
-								{t('MODAL_VALIDATE', 'Validate')}
-							</ButtonPrimary>
-						</S.DialogButtons>
-					</ReakitDialog>
-				</S.DialogBackdrop>
-			</>
-		);
-	},
-);
+function Modal(props: ModalPropsType): ReactElement {
+	const {
+		header,
+		primaryAction,
+		disclosure,
+		onClose,
+		secondaryAction,
+		preventEscaping,
+		children,
+		...rest
+	} = props;
+	const hasDisclosure = 'disclosure' in props;
 
-export const useModalState = useDialogState;
+	const dialog = useDialogState({ visible: !hasDisclosure });
+	const ref = useRef(null);
 
-export const ModalDisclosure = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>(
-	(props, ref) => <S.DialogDisclosure ref={ref} {...props} />,
-);
+	useEffect(() => {
+		(ref.current as unknown as HTMLElement)?.focus();
+	}, [dialog.visible]);
 
-export const ModalDialog = React.forwardRef<React.ReactElement, React.PropsWithChildren<any>>(
-	({ children, ...rest }: React.PropsWithChildren<any>, ref) => (
-		<S.DialogBackdrop {...rest}>
-			<S.Dialog {...rest} as={ReakitDialog} ref={ref}>
-				{children}
-			</S.Dialog>
-		</S.DialogBackdrop>
-	),
-);
+	const onCloseHandler = hasDisclosure
+		? () => dialog.setVisible(false)
+		: () => onClose && onClose();
+
+	return (
+		<>
+			{disclosure && (
+				<DialogDisclosure {...dialog}>
+					{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
+				</DialogDisclosure>
+			)}
+			{dialog.visible && (
+				<DialogBackdrop {...dialog} className={styles['modal-backdrop']} data-test="modal.backdrop">
+					<div className={styles['modal-container']}>
+						<Dialog
+							{...dialog}
+							{...rest}
+							data-test="modal"
+							className={styles.modal}
+							hide={preventEscaping ? undefined : () => onCloseHandler()}
+							ref={ref}
+						>
+							<StackVertical gap={0}>
+								<div className={styles.modal__header}>
+									{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
+									<div className={styles['modal-header-text']}>
+										<span
+											className={styles['modal-header-text__title']}
+											data-test="modal.header.title"
+										>
+											{header.title}
+										</span>
+										{header.description && (
+											<span
+												className={styles['modal-header-text__description']}
+												data-test="modal.header.description"
+											>
+												{header.description}
+											</span>
+										)}
+									</div>
+								</div>
+
+								<div className={styles.modal__content} data-test="modal.content">
+									{children}
+								</div>
+
+								<div className={styles.modal__buttons} data-test="modal.buttons">
+									<StackHorizontal gap="XS" justify="end">
+										<span className={styles['close-button']}>
+											<ButtonSecondary
+												onClick={() => onCloseHandler()}
+												data-testid="modal.buttons.close"
+												data-feature="modal.buttons.close"
+											>
+												{primaryAction || secondaryAction
+													? i18n.t('CANCEL', 'Cancel')
+													: i18n.t('CLOSE', 'Close')}
+											</ButtonSecondary>
+										</span>
+
+										{secondaryAction && (
+											<ButtonSecondary
+												data-testid="modal.buttons.secondary"
+												data-feature="modal.buttons.secondary"
+												{...secondaryAction}
+											/>
+										)}
+
+										{primaryAction && (
+											<PrimaryAction
+												data-testid="modal.buttons.primary"
+												data-feature="modal.buttons.primary"
+												{...primaryAction}
+											/>
+										)}
+									</StackHorizontal>
+								</div>
+							</StackVertical>
+						</Dialog>
+					</div>
+				</DialogBackdrop>
+			)}
+		</>
+	);
+}
 
 export default Modal;

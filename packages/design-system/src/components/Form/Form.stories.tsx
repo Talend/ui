@@ -3,26 +3,28 @@ import { action } from '@storybook/addon-actions';
 
 import Form from '.';
 import { ButtonPrimary, ButtonSecondary } from '../Button';
-import InlineMessage from '../InlineMessage';
+import { InlineMessageDestructive, InlineMessageInformation } from '../InlineMessage';
 import Skeleton from '../Skeleton';
 import Link from '../Link';
 
 import CountryCodes from './docs/data/CountryCodes.json';
+import { StackVertical } from '../Stack';
 
 export default {
 	component: Form,
 };
 
 function getCountryCodes() {
-	// eslint-disable-next-line @typescript-eslint/camelcase
 	return CountryCodes.map(({ name, dial_code }) => `${name} (${dial_code})`);
 }
 
 export const FormSkeleton = () => (
 	<Form>
-		<Skeleton variant="heading" />
-		<Skeleton variant="paragraph" />
-		<Skeleton variant="paragraph" />
+		<StackVertical gap="S">
+			<Skeleton variant="heading" />
+			<Skeleton variant="paragraph" />
+			<Skeleton variant="paragraph" />
+		</StackVertical>
 		<Form.Buttons>
 			<Skeleton variant="button" />
 			<Skeleton variant="button" />
@@ -74,7 +76,7 @@ export const Error = () => (
 	<div style={{ margin: '0 auto', width: '35rem' }}>
 		<Form>
 			<Form.Fieldset legend="Login">
-				<InlineMessage.Destructive
+				<InlineMessageDestructive
 					title="Login failed"
 					description="Please verify your email and password."
 					withBackground
@@ -172,7 +174,7 @@ export const InlineHelp = () => (
 	<div style={{ margin: '0 auto', width: '35rem' }}>
 		<Form>
 			<Form.Fieldset legend="Change your password">
-				<InlineMessage.Information
+				<InlineMessageInformation
 					description="You can reset the password for your account by  completing this form"
 					withBackground
 				/>

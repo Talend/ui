@@ -1,5 +1,85 @@
 # @talend/design-system
 
+## 3.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+
+## 3.0.0
+
+### Major Changes
+
+- 051dfd9fb: chore(design-system/Card): Refactor Card component
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+
+### Patch Changes
+
+- 5a30f1f0e: feat(design-system): new icon set for status
+
+## 2.8.0
+
+### Minor Changes
+
+- 0e4cfbaa8: Add new input variant
+
+### Patch Changes
+
+- 4419bbd0a: SkeletonInput does not stretch
+- Updated dependencies [eec63a996]
+  - @talend/assets-api@1.2.1
+
+## 2.7.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [47b758112]
+  - @talend/assets-api@1.2.0
+  - @talend/design-tokens@2.4.0
+
+## 2.6.1
+
+### Patch Changes
+
+- 445887d9e: Spread in default case for collection component switch was not typesafe. Default case should be unreachable in TS anyways.
+
+## 2.6.0
+
+### Minor Changes
+
+- 453802c72: Add props placement to ButtonIcon to choose tooltip placement
+
+## 2.5.2
+
+### Patch Changes
+
+- 472645461: fix(Dropdown): close the dropdown menu while clicking on a button or a link inside.
+- Updated dependencies [0c4804287]
+  - @talend/design-tokens@2.3.0
+
+## 2.5.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+  - @talend/assets-api@1.1.0
+
+## 2.5.0
+
+### Minor Changes
+
+- 8e95aab34: feat(design-system/Modal): Modal component
+- 0d18d5d03: feat(Tooltip): use reakit useId as default baseId
+- d1815c0af: feat: use @talend/assets-api to load icons
+
 ## 2.4.0
 
 ### Minor Changes

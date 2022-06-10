@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs';
+
+import { Grid, IconItem, LegacyIconGallery } from './Icon';
+import { info as icons } from '../dist/info';
+
+<Meta title="Deprecated/Icons" />
+
+# Deprecated icons
+
+Deprecated icons will be removed in the next major version.
+
+<LegacyIconGallery>
+	<Grid columns={5}>
+		{Object.keys(icons).map((name, index) => (
+			<IconItem key={index} name={name} />
+		))}
+	</Grid>
+</LegacyIconGallery>

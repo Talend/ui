@@ -1,5 +1,23 @@
 # @talend/scripts-config-react-webpack
 
+## 12.1.2
+
+### Patch Changes
+
+- 07e270241: fix: use yarn.lock content hash as cache key
+
+## 12.1.1
+
+### Patch Changes
+
+- bfb2a493d: fix source-map for apps built with prod mode. Change `devtool` to 'source-map' because Terser plugin only supports limited source-map types.
+
+## 12.1.0
+
+### Minor Changes
+
+- d1815c0af: feat: add CDN_URL to /cdn by default
+
 ## 12.0.3
 
 ### Patch Changes

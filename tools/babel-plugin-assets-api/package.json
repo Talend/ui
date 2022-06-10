@@ -1,6 +1,6 @@
 {
   "name": "@talend/babel-plugin-assets-api",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "@talend/module-to-cdn": "^9.8.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
     "babel-jest": "^26.6.3",
     "babel-plugin-tester": "^10.1.0",
     "jest": "^26.6.3"

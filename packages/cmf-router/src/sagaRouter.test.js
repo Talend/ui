@@ -12,7 +12,7 @@ describe('sagaRouter RouteChange', () => {
 	it(`start the configured saga if route equals current location, additionnaly add a second param
 	to the started saga set to 'true'`, () => {
 		const mockHistory = {
-			getCurrentLocation() {
+			get location() {
 				return {
 					pathname: '/matchingroute',
 				};
@@ -33,7 +33,7 @@ describe('sagaRouter RouteChange', () => {
 	it(`start the configured  saga if route is a fragment of current location additionnaly add a second param
 	to the started saga set to 'false'`, () => {
 		const mockHistory = {
-			getCurrentLocation() {
+			get location() {
 				return {
 					pathname: '/matchingroute/childroute',
 				};
@@ -55,20 +55,24 @@ describe('sagaRouter RouteChange', () => {
 		const mockTask = createMockTask();
 		function getMockedHistory() {
 			let count = 0;
+
 			return {
-				getCurrentLocation() {
+				get location() {
 					if (count === 0) {
 						count = 1;
+
 						return {
 							pathname: '/matchingroute',
 						};
 					}
+
 					return {
 						pathname: '/matchingroute/test',
 					};
 				},
 			};
 		}
+
 		const routes = {
 			'/matchingroute': function* matchingSaga() {
 				yield take('SOMETHING');
@@ -87,14 +91,17 @@ describe('sagaRouter RouteChange', () => {
 		const mockTask = createMockTask();
 		function getMockedHistory() {
 			let count = 0;
+
 			return {
-				getCurrentLocation() {
+				get location() {
 					if (count === 0) {
 						count = 1;
+
 						return {
 							pathname: '/matchingroute',
 						};
 					}
+
 					return {
 						pathname: '/anotherroute',
 					};
@@ -117,14 +124,17 @@ describe('sagaRouter RouteChange', () => {
 		const mockTask = createMockTask();
 		function getMockedHistory() {
 			let count = 0;
+
 			return {
-				getCurrentLocation() {
+				get location() {
 					if (count === 0 || count === 2) {
 						count = 1;
+
 						return {
 							pathname: '/toCancelFirst',
 						};
 					}
+
 					return {
 						pathname: '/toStartAfter',
 					};
@@ -181,14 +191,17 @@ describe('sagaRouter RouteChange', () => {
 		};
 		function getMockedHistory() {
 			let count = 0;
+
 			return {
-				getCurrentLocation() {
+				get location() {
 					if (count === 0) {
 						count = 1;
+
 						return {
 							pathname: '/resources',
 						};
 					}
+
 					return {
 						pathname: '/resources/action',
 					};
@@ -207,10 +220,8 @@ describe('sagaRouter RouteChange', () => {
 	it(`does not start the configured saga with 'runOnExactMatch' parameter,
 	if route is a fragment of current location`, () => {
 		const mockHistory = {
-			getCurrentLocation() {
-				return {
-					pathname: '/matchingroute/childroute',
-				};
+			location: {
+				pathname: '/matchingroute/childroute',
 			},
 		};
 		const routes = {
@@ -249,14 +260,17 @@ describe('sagaRouter RouteChange', () => {
 		};
 		function getMockedHistory() {
 			let count = 0;
+
 			return {
-				getCurrentLocation() {
+				get location() {
 					if (count === 0) {
 						count = 1;
+
 						return {
 							pathname: '/resources',
 						};
 					}
+
 					return {
 						pathname: '/resources/action',
 					};
@@ -279,14 +293,16 @@ describe('sagaRouter route and route params', () => {
 	it('route params should be given to target saga as object', () => {
 		function getMockedHistory() {
 			let count = 0;
+
 			return {
-				getCurrentLocation() {
+				get location() {
 					if (count === 0) {
 						count = 1;
 						return {
 							pathname: '/matchingroute/anId',
 						};
 					}
+
 					return {
 						pathname: '/anotherroute',
 					};
@@ -308,14 +324,16 @@ describe('sagaRouter route and route params', () => {
 		const mockTask = createMockTask();
 		function getMockedHistory() {
 			let count = 0;
+
 			return {
-				getCurrentLocation() {
+				get location() {
 					if (count === 0) {
 						count = 1;
 						return {
 							pathname: '/matchingroute/anId',
 						};
 					}
+
 					return {
 						pathname: '/matchingroute/anotherId',
 					};

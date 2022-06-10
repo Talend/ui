@@ -93,6 +93,7 @@ type Props = {
 	onDrag?: (event: any) => void;
 	onDragEnd?: (event: any) => void;
 	onClick?: React.MouseEventHandler;
+	onDoubleClick?: React.MouseEventHandler;
 	children?: any;
 };
 
@@ -108,6 +109,7 @@ class AbstractNode extends React.Component<Props> {
 	constructor(props: Props) {
 		super(props);
 		this.onClick = this.onClick.bind(this);
+		this.onDoubleClick = this.onDoubleClick.bind(this);
 		this.onDragStart = this.onDragStart.bind(this);
 		this.onDrag = this.onDrag.bind(this);
 		this.onDragEnd = this.onDragEnd.bind(this);
@@ -123,10 +125,10 @@ class AbstractNode extends React.Component<Props> {
 		);
 	}
 
-	componentDidUpdate(nextProps: Props) {
-		if (nextProps.node !== this.props.node) {
-			const nextPosition = Node.getPosition(nextProps.node);
-			if (nextPosition !== Node.getPosition(this.props.node)) {
+	componentDidUpdate(prevProps: Props) {
+		if (prevProps.node !== this.props.node) {
+			const nextPosition = Node.getPosition(this.props.node);
+			if (nextPosition !== Node.getPosition(prevProps.node)) {
 				this.d3Node.data([nextPosition]);
 			}
 		}
@@ -143,6 +145,12 @@ class AbstractNode extends React.Component<Props> {
 	onClick(clickEvent: React.MouseEvent) {
 		if (this.props.onClick) {
 			this.props.onClick(clickEvent);
+		}
+	}
+
+	onDoubleClick(clickEvent: React.MouseEvent) {
+		if (this.props.onDoubleClick) {
+			this.props.onDoubleClick(clickEvent);
 		}
 	}
 
@@ -220,6 +228,8 @@ class AbstractNode extends React.Component<Props> {
 						this.nodeElement = c;
 					}}
 					onClick={this.onClick}
+					onDoubleClick={this.onDoubleClick}
+					data-testid={`group.${node.id}`}
 				>
 					{this.renderContent()}
 				</g>

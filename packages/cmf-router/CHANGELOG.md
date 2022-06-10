@@ -1,5 +1,45 @@
 # Changelog
 
+## 5.1.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-cmf@7.1.1
+
+## 5.1.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [47b758112]
+  - @talend/react-cmf@7.1.0
+
+## 5.0.0
+
+### Major Changes
+
+- df182bbd4: Upgrade to react-router v6
+
+  ## Migration (dependencies)
+
+  - Update your package.json to point to `"@talend/react-cmf-router": "^4.0.0"`.
+  - Execute yarn install and yarn-deduplicate.
+  - yarn list --pattern router should not list `react-router-redux` anymore and all dependencies listed should be flat.
+
+  # Breaking changes (code)
+
+  `onEnter` and `onLeave` hooks are not supported anymore. You can use `React.useEffect` but be carefull as onEnter should be finished before rendering happens so use also a state for that.
+
+  - sagaRouter is deprecated but still works. You can use either
+    - use Saga component from `@talend/react-cmf` (prefered way)
+    - `saga` props on a cmfConnected component
+    - dispatch `cmf.actions.saga.start({saga: 'nameOfRegistredSaga'})` action creator
+
 ## 4.0.1
 
 ### Patch Changes

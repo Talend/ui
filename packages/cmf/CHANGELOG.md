@@ -1,5 +1,17 @@
 # @talend/react-cmf
 
+## 7.1.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+
+## 7.1.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
 ## 7.0.2
 
 ### Patch Changes

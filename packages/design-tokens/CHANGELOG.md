@@ -1,5 +1,23 @@
 # @talend/design-tokens
 
+## 2.4.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+## 2.3.0
+
+### Minor Changes
+
+- 0c4804287: Added accent-background-selected color
+
+## 2.2.0
+
+### Minor Changes
+
+- 82bb8c1c8: Added tokens for "data" font types
+
 ## 2.1.0
 
 ### Minor Changes

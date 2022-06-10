@@ -1,5 +1,58 @@
 # @talend/react-containers
 
+## 7.2.3
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-cmf@7.1.1
+  - @talend/react-components@7.0.1
+  - @talend/react-forms@7.3.2
+
+## 7.2.2
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/react-forms@7.3.1
+
+## 7.2.1
+
+### Patch Changes
+
+- 136da403b: fix(Containers): add react-dom as peer dep
+
+## 7.2.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/react-cmf@7.1.0
+  - @talend/react-forms@7.3.0
+
+## 7.1.0
+
+### Minor Changes
+
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [7d1f9f509]
+- Updated dependencies [66fa02548]
+  - @talend/react-components@6.47.0
+  - @talend/react-forms@7.2.0
+
 ## 7.0.5
 
 ### Patch Changes

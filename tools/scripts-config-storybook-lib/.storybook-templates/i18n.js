@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import HttpApi from 'i18next-http-backend';
 
 export function initI18n(userI18n = {}) {
-	const { namespaces, locales, remoteLocalesMap } = userI18n;
+	const { namespaces = [], locales, remoteLocalesMap } = userI18n;
 
 	const i18nextOptions = {
 		debug: true,

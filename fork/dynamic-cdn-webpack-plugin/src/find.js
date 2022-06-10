@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 const fs = require('fs');
 const path = require('path');
 const readPkgUp = require('read-pkg-up');
+const semver = require('semver');
 
 function findPackage(info) {
 	let name = info.name;
@@ -13,7 +13,12 @@ function findPackage(info) {
 		const {
 			packageJson: { version },
 		} = readPkgUp.sync({ cwd });
-		return version === info.version;
+		// check we are at least upper or equal using caret range syntax
+		let range = `^${info.version}`;
+		if (info.peerDependency) {
+			range += `|| ${info.peerDependency}`;
+		}
+		return semver.satisfies(version, range);
 	});
 }
 
@@ -21,7 +26,7 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 	const isWantedScope = scopeFolderPath.endsWith(`${path.sep}${scope}`);
 	return fs
 		.readdirSync(scopeFolderPath, { withFileTypes: true })
-		.filter(f => f.isDirectory())
+		.filter(f => f.isDirectory() || f.isSymbolicLink())
 		.reduce((accu, subFolder) => {
 			const subFolderPath = path.join(scopeFolderPath, subFolder.name);
 			if (isWantedScope && subFolder.name === name) {
@@ -44,7 +49,7 @@ function findPackagesFromScopeFolder(scope, name, scopeFolderPath) {
 function findPackagesFromNonScopeFolder(scope, name, nonScopeFolderPath) {
 	return fs
 		.readdirSync(nonScopeFolderPath, { withFileTypes: true })
-		.filter(f => f.isDirectory())
+		.filter(f => f.isDirectory() || f.isSymbolicLink())
 		.reduce((accu, subFolder) => {
 			if (subFolder.name === '.bin') {
 				return accu;

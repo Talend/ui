@@ -1,0 +1,29 @@
+<link
+	rel="stylesheet"
+	href="https://unpkg.com/@talend/design-tokens/dist/TalendDesignTokens.css"
+	media="screen"
+/>
+<link
+	rel="stylesheet"
+	href="https://unpkg.com/@talend/bootstrap-theme/dist/bootstrap.css"
+	media="screen"
+/>
+<style>
+	svg {
+		max-width: 2.4rem;
+		max-height: 2.4rem;
+	}
+	svg path {
+		shape-rendering: geometricPrecision;
+	}
+	.colormapping > svg {
+		filter: url(#colormapping);
+	}
+	.grayscale > svg {
+		filter: url(#talend-grayscale);
+	}
+	.colormapping:hover > svg,
+	.grayscale:hover > svg {
+		filter: none;
+	}
+</style>

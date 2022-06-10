@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
 import { Menu, MenuButton, useMenuState } from 'reakit';
 import { IconName } from '@talend/icons';
 import DropdownButton from './Primitive/DropdownButton';
@@ -57,6 +57,10 @@ const Dropdown = forwardRef(
 								<DropdownButton
 									{...entryRest}
 									{...menu}
+									onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
+										menu.hide();
+										entry.onClick(event);
+									}}
 									key={`${label}-${index}`}
 									id={`${label}-${index}`}
 									data-test="dropdown.menuitem"
@@ -89,6 +93,12 @@ const Dropdown = forwardRef(
 								{...menu}
 								key={`${label}-${index}`}
 								id={`${label}-${index}`}
+								onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+									menu.hide();
+									if (entry.onClick) {
+										entry.onClick(event);
+									}
+								}}
 								data-test="dropdown.menuitem"
 							>
 								{label}
@@ -100,5 +110,7 @@ const Dropdown = forwardRef(
 		);
 	},
 );
+
+Dropdown.displayName = 'Dropdown';
 
 export default Dropdown;

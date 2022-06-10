@@ -6,10 +6,7 @@ import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import warning from 'warning';
-
-import Overlay from 'react-bootstrap/lib/Overlay';
-
-import utils from 'react-bootstrap/lib/utils';
+import { Overlay, utils } from '@talend/react-bootstrap';
 
 /**
  * Check if value one is inside or equal to the of value

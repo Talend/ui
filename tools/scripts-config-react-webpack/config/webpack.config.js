@@ -19,8 +19,9 @@ const AppLoader = require('@talend/react-components/lib/AppLoader/constant').def
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
 const cdn = require('@talend/scripts-config-cdn');
+const exists = require('@talend/scripts-utils/fs');
+const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
 const LICENSE_BANNER = require('./licence');
-const exists = require('./utils/exists');
 const inject = require('./inject');
 const icons = require('./icons');
 
@@ -317,7 +318,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				publicPath: '/',
 				globalObject: 'this',
 			},
-			devtool: 'cheap-module-source-map',
+			devtool: 'source-map',
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
 			},
@@ -333,10 +334,9 @@ module.exports = ({ getUserConfig, mode }) => {
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
 						use: [
-							!process.env.NO_CACHE_LOADER && { loader: 'cache-loader' },
 							{
 								loader: 'babel-loader',
-								options: babelConfig,
+								options: getBabelLoaderOptions(babelConfig),
 							},
 						].filter(Boolean),
 					},

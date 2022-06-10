@@ -1,5 +1,73 @@
 # @talend/ui-playground
 
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/react-forms@7.3.1
+  - @talend/react-containers@7.2.2
+  - @talend/react-datagrid@10.0.0
+  - @talend/react-dataviz@2.2.1
+  - @talend/react-faceted-search@5.0.0
+
+## 1.1.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/react-bootstrap@1.35.0
+  - @talend/react-cmf@7.1.0
+  - @talend/react-cmf-router@5.1.0
+  - @talend/react-containers@7.2.0
+  - @talend/react-datagrid@9.3.0
+  - @talend/react-dataviz@2.2.0
+  - @talend/react-faceted-search@4.2.0
+  - @talend/react-forms@7.3.0
+  - @talend/icons@6.42.0
+  - @talend/bootstrap-theme@6.39.0
+
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies [df182bbd4]
+  - @talend/react-cmf-router@5.0.0
+
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [9f84c4ad7]
+- Updated dependencies [65599e1a5]
+- Updated dependencies [20e907887]
+- Updated dependencies [e04e3910f]
+- Updated dependencies [e04e3910f]
+  - @talend/react-datagrid@9.0.0
+  - @talend/react-dataviz@2.1.1
+  - @talend/react-components@6.46.2
+
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [d1815c0af]
+- Updated dependencies [4605d2ce4]
+- Updated dependencies [d1815c0af]
+- Updated dependencies [d1815c0af]
+  - @talend/react-datagrid@8.0.0
+  - @talend/react-forms@7.1.0
+  - @talend/react-dataviz@2.1.0
+
 ## 1.0.3
 
 ### Patch Changes

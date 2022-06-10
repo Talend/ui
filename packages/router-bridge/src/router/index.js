@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
 import React from 'react';
 
-let reactRouterV5;
+let reactRouter;
 let Switch = () => null;
 let Route = () => null;
 let Router = () => null;
@@ -12,22 +12,23 @@ let useParams = () => {};
 let useRouteMatch = () => {};
 
 let history = null;
-let isV5 = false;
+let isLegacy = true;
 
 try {
-	reactRouterV5 = require('react-router-dom');
-	isV5 = true;
+	reactRouter = require('react-router-dom');
+	isLegacy = false;
 	const { createBrowserHistory } = require('history');
 
-	Switch = reactRouterV5.Switch;
-	Route = reactRouterV5.Route;
-	Link = reactRouterV5.Link;
-	Redirect = reactRouterV5.Redirect;
-	useParams = reactRouterV5.useParams;
-	useRouteMatch = reactRouterV5.useRouteMatch;
+	Switch = reactRouter.Routes;
+	Route = reactRouter.Route;
+	Link = reactRouter.Link;
+	Redirect = reactRouter.Redirect;
+	useParams = reactRouter.useParams;
+	useRouteMatch = reactRouter.useRouteMatch;
 
 	history = createBrowserHistory({ basename: window.basename || '/' });
-	Router = (...props) => <reactRouterV5.Router {...props} history={history} />;
+	// eslint-disable-next-line
+	Router = props => <reactRouter.Router {...props} history={history} location={history.location} />;
 } catch (e) {
 	if (process.env.NODE_ENV !== 'production') {
 		console.warn(
@@ -36,5 +37,4 @@ try {
 	}
 }
 
-//TODO: export all V5 content before the overrides
-export { history, Switch, Route, Router, Link, Redirect, useParams, useRouteMatch, isV5 };
+export { history, Switch, Route, Router, Link, Redirect, useParams, useRouteMatch, isLegacy };

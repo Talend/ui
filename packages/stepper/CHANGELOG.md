@@ -1,5 +1,34 @@
 # @talend/react-stepper
 
+## 7.1.2
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-components@7.0.1
+
+## 7.1.1
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+
+## 7.1.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+
 ## 7.0.2
 
 ### Patch Changes

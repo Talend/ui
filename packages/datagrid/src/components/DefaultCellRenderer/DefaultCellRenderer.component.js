@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Skeleton } from '@talend/react-components';
+import { SkeletonParagraph } from '@talend/design-system';
 
 import { AVRO_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
@@ -9,8 +9,6 @@ import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 import QualityIndicator from './QualityIndicator.component';
 import AvroRenderer from './AvroRenderer.component';
 import theme from './DefaultCell.scss';
-
-export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
 function convertValue(value) {
 	if (!value.toJS) {
@@ -20,23 +18,17 @@ function convertValue(value) {
 	return value.toJS();
 }
 
-function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
+function DefaultCellRenderer({ avroRenderer, colDef, value, data }) {
 	let content;
 
 	const plainValue = convertValue(value);
 
 	if (data.loaded === false) {
-		content = <Skeleton key="1" />;
+		content = <SkeletonParagraph size="M" />;
 	} else {
 		content = [
 			<QualityIndicator key="2" qualityIndex={plainValue.quality} />,
-			<AvroRenderer
-				key="3"
-				colDef={colDef}
-				data={plainValue}
-				avroRenderer={avroRenderer}
-				getComponent={getComponent}
-			/>,
+			<AvroRenderer key="3" colDef={colDef} data={plainValue} avroRenderer={avroRenderer} />,
 		];
 	}
 
@@ -63,7 +55,6 @@ DefaultCellRenderer.propTypes = {
 	}),
 	value: PropTypes.object,
 	data: PropTypes.object,
-	getComponent: PropTypes.func,
 };
 
 DefaultCellRenderer.theme = theme;

@@ -26,6 +26,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
         <VirtualizedList
           collection={Array []}
           defaultHeight={250}
+          headerAction={false}
           id="myLazyLoadingList"
           onRowsRendered={[Function]}
           registerChild={[Function]}
@@ -51,6 +52,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
             >
               <VirtualizedList(RendererSelector)
                 collection={Array []}
+                headerAction={false}
                 height={250}
                 id="myLazyLoadingList"
                 noRowsRenderer={[Function]}
@@ -64,6 +66,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
                 <VirtualizedList(ListTable)
                   collection={Array []}
                   disableHeader={false}
+                  headerAction={false}
                   height={250}
                   id="myLazyLoadingList"
                   noRowsRenderer={[Function]}

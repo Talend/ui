@@ -170,7 +170,9 @@ describe('CollapsibleFieldset', () => {
 			<CollapsibleFieldset id="my-fieldset" onChange={onChange} schema={schema} />,
 		);
 		// then
-		expect(wrapper.find('InlineMessage').at(0).props().description).toBe('This is description');
+		expect(wrapper.find('InlineMessageInformation').at(0).props().description).toBe(
+			'This is description',
+		);
 	});
 });
 

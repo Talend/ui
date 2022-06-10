@@ -17,6 +17,7 @@ The binary installed in this package is `talend-upgrade-deps`.
 | package   | undefined | Used for single package upgrade. The name of the package.                        |
 | scope     | undefined | Used for single npm scope packages. (Example: `@talend`). The name of the scope. |
 | latest    | false     | If true, it forces the update to use **latest** tag on npm.                      |
+| next      | false     | If true, it forces the update to use **next** tag on npm.                        |
 | dry       | false     | Do not change anything, just look at what could be changed in your package.json. |
 | security  | undefined | Activates dependencies security mode, providing a configuration file path.       |
 | changeset | undefined | Create a changeset file based on git diff of each package.json.                  |
@@ -143,7 +144,7 @@ Example
 
 ### Manual fix
 
-In some cases, the security mode won't succeed to solve some dependencies vulnerabilities.  
+In some cases, the security mode won't succeed to solve some dependencies vulnerabilities.
 The run will output a `talend-security-report.json` file.
 
 Example:

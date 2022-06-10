@@ -1,5 +1,84 @@
 # @talend/react-forms
 
+## 7.3.2
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-components@7.0.1
+  - @talend/design-system@3.0.1
+
+## 7.3.1
+
+### Patch Changes
+
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/design-system@3.0.0
+
+## 7.3.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/react-bootstrap@1.35.0
+  - @talend/assets-api@1.2.0
+  - @talend/design-system@2.7.0
+  - @talend/json-schema-form-core@1.1.0
+  - @talend/utils@2.3.0
+
+## 7.2.0
+
+### Minor Changes
+
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [7d1f9f509]
+- Updated dependencies [66fa02548]
+- Updated dependencies [66fa02548]
+  - @talend/react-components@6.47.0
+  - @talend/react-bootstrap@1.34.0
+
+## 7.1.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+- Updated dependencies [9222aa7fc]
+  - @talend/design-system@2.5.1
+  - @talend/assets-api@1.1.0
+
+## 7.1.0
+
+### Minor Changes
+
+- d1815c0af: Use @talend/assets-api to load aceeditor
+
+### Patch Changes
+
+- Updated dependencies [8e95aab34]
+- Updated dependencies [0d18d5d03]
+- Updated dependencies [d1815c0af]
+  - @talend/design-system@2.5.0
+
 ## 7.0.9
 
 ### Patch Changes

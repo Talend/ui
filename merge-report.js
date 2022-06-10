@@ -1,27 +1,10 @@
 /* eslint-disable no-param-reassign */
 const fs = require('fs');
+const run = require('./run');
 
-const ROOT = './packages';
 const reports = ['eslint-report.json', 'stylelint-report.json'];
-const pkgs = fs.readdirSync(ROOT);
 
 let buff = [];
-let files = [];
-
-// gather diff from trilom/file-changes-action
-const diffPath = `${process.env.HOME}/files.json`;
-
-if (fs.existsSync(diffPath)) {
-	// eslint-disable-next-line no-console
-	console.log('found diff files');
-	files = JSON.parse(fs.readFileSync(diffPath).toString());
-	// eslint-disable-next-line no-console
-	console.log(files);
-}
-
-function onlyIfInDiff(lint) {
-	return !!files.find(f => lint.filePath.endsWith(`/${f}`));
-}
 
 function transform(item) {
 	if (item.source && !item.filePath) {
@@ -44,22 +27,38 @@ function transform(item) {
 	}
 	return item;
 }
+const info = run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] }).then(info =>
+	JSON.parse(info),
+);
 
-pkgs.forEach(pkg => {
-	reports.forEach(report => {
-		const fpath = `${ROOT}/${pkg}/${report}`;
-		if (fs.existsSync(fpath)) {
-			try {
-				buff = buff.concat(JSON.parse(fs.readFileSync(fpath)).map(transform).filter(onlyIfInDiff));
-			} catch (e) {
-				console.error(e);
+const diff = run({ name: 'git', args: ['diff', '--name-only'] }).then(out =>
+	out.split('\n').map(str => str.trim()),
+);
+
+Promise.all([info, diff]).then(results => {
+	const [infos, files] = results;
+	// eslint-disable-next-line no-console
+	console.log({ files });
+	function onlyIfInDiff(lint) {
+		return !!files.find(f => lint.filePath.endsWith(`/${f}`));
+	}
+	Object.keys(infos).forEach(pkg => {
+		reports.forEach(report => {
+			const fpath = `${infos[pkg].location}/${report}`;
+			if (fs.existsSync(fpath)) {
+				try {
+					buff = buff.concat(
+						JSON.parse(fs.readFileSync(fpath)).map(transform).filter(onlyIfInDiff),
+					);
+				} catch (e) {
+					console.error(e);
+				}
 			}
-		}
+		});
 	});
+	const target = `${process.cwd()}/eslint-report.json`;
+
+	// eslint-disable-next-line no-console
+	console.log(`report merge into ${target}`);
+	fs.writeFileSync(target, JSON.stringify(buff, null, 2));
 });
-
-const target = `${process.cwd()}/eslint-report.json`;
-
-// eslint-disable-next-line no-console
-console.log(`report merge into ${target}`);
-fs.writeFileSync(target, JSON.stringify(buff, null, 2));

@@ -1,0 +1,46 @@
+{*
+
+Injectable blueprint that represents Gradient token as CSS string. 
+Note that this only converts the value, actual name is provided somewhere else
+
+
+Source data: Color Value (https://developers.supernova.io/design-system-data/tokens/gradients)
+Note: Value is passed as `context` property because it is injected
+
+{
+  "value": {
+    "from": {
+      "x": double
+      "y": double
+    }, 
+    "to": {
+      "x": double
+      "y": double
+    },
+    "type": "Linear" | "Radial" | "Angular",
+    "aspectRatio": double
+    "stops": [Gradient Stop],
+    "referencedToken": Gradient | null
+  }
+}
+
+
+Rendered as:
+
+Xpx solid (rendered-color.pr);
+linear-gradient(
+  to bottom,
+    (rendered-color.pr) 0%,   
+    (rendered-color.pr) 49.4%,   
+    (rendered-color.pr) 100%  
+);    
+
+*}
+{[ inject "reference-wrapper" context context ]}
+{[ let gradientType = "linear-gradient" /]}
+{[ let gradientDirection = gradientAngle(context.from, context.to).rounded(2).toString().suffixed("deg") /]}
+{[ if (context.type === "Radial") ]}
+  {[ set "gradientType" = "radial-gradient" /]}
+  {[ set "gradientDirection" = "circle at center" /]}
+{[/]}
+{{ gradientType }}({{ gradientDirection }},{[ for stop in context.stops ]}{[ inject "rendered-color" context stop.color /]} {{ (stop.position * 100).rounded(1) }}%{[ if !(#last) ]}, {[/]}{[/]}){[/]}

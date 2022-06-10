@@ -1,5 +1,36 @@
 # @talend/icons
 
+## 6.43.0
+
+### Minor Changes
+
+- ffb05ebb8: added icon `exclamation-stroke` in size `L`
+- ffb05ebb8: added icon `exclamation-stroke` in size `M`
+- ffb05ebb8: added icon `exclamation-stroke` in size `S`
+
+### Patch Changes
+
+- ffb05ebb8: changed icon `less-than` in size `M`
+- ffb05ebb8: changed icon `less-than` in size `S`
+
+## 6.42.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+## 6.41.1
+
+### Patch Changes
+
+- 293a4ebd9: feat(icons): expose icons from figma as extra svg sprites
+
+## 6.41.0
+
+### Minor Changes
+
+- 6f68d11f4: Added map icon
+
 ## 6.40.0
 
 ### Minor Changes

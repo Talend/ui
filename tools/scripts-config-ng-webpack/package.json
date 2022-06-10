@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-ng-webpack",
   "description": "Webpack configuration for angularJS apps in @talend/scripts-core",
-  "version": "9.8.0",
+  "version": "9.8.1",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@talend/scripts-config-babel": "^9.9.0",
-    "babel-loader": "^8.2.4",
+    "@talend/scripts-utils": "^1.0.0",
+    "babel-loader": "^8.2.5",
     "cache-loader": "^4.1.0",
     "html-loader": "^0.5.5",
     "ngtemplate-loader": "^2.1.0",
