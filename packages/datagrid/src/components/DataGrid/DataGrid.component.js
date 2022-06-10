@@ -282,7 +282,6 @@ export default class DataGrid extends React.Component {
 		}
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
-
 		return agGridOptions;
 	}
 
