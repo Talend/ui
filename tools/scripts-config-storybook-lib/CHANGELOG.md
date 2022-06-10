@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 1.2.1
+
+### Patch Changes
+
+- 29302bc1f: chore(storybook): without i18n config
+
 ## 1.2.0
 
 ### Minor Changes
