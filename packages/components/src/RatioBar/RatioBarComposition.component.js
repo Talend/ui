@@ -47,7 +47,9 @@ export function RatioBarLine({ percentage, tooltipLabel, className, value, dataF
 			data-feature={dataFeature}
 			onClick={onClick}
 			onKeyDown={onKeyDown}
-		/>
+		>
+			{tooltipLabel && <span className="sr-only">{tooltipLabel}</span>}
+		</div>
 	);
 
 	if (!tooltipLabel) {
