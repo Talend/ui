@@ -24,9 +24,9 @@ After the install of `@talend/react-cmf`, the script `cmf-settings` is installed
 
 Options for this script:
 
-* -d to use sources-dev instead of sources
-* -q to run the script in quiet mode
-* -r to run the json search recursive
+- -d to use sources-dev instead of sources
+- -q to run the script in quiet mode
+- -r to run the json search recursive
 
 ### Configuration in cmf.json file
 
@@ -91,20 +91,20 @@ It will extract all object with a i18n attribute
 The i18n settings are merged to the destination property with the language.
 e.g. For the destination "src/assets/settings.json", each translated settings will be created like "src/assets/settings.{{language}}.json"
 
-| property  | description  | type  |
-|---|---|---|
-| languages | languages handle by your application  | array |
-| namespace-paths | path of the namespace used to build the i18next ressource  | array<Namespace> |
-| extract-namespaces | set the namespace to extract the keys/values  | array |
-| extract-from | indicate the folder to extract the keys/values  | array |
-| extract-sort | indicate if the keys are sorted (default: true) | boolean |
+| property           | description                                               | type             |
+| ------------------ | --------------------------------------------------------- | ---------------- |
+| languages          | languages handle by your application                      | array            |
+| namespace-paths    | path of the namespace used to build the i18next ressource | array<Namespace> |
+| extract-namespaces | set the namespace to extract the keys/values              | array            |
+| extract-from       | indicate the folder to extract the keys/values            | array            |
+| extract-sort       | indicate if the keys are sorted (default: true)           | boolean          |
 
 **Namespace definition**
 
-| property  | description  | type  |
-|---|---|---|
-| name | name of the namepace  | name |
-| path | pattern to find the locale  | string |
+| property | description                | type   |
+| -------- | -------------------------- | ------ |
+| name     | name of the namepace       | name   |
+| path     | pattern to find the locale | string |
 
 ### Exemple of settings with translation
 
@@ -132,6 +132,7 @@ e.g. For the destination "src/assets/settings.json", each translated settings wi
 Warning : if the namespace is not define in the settings files or if it is not define in the config file the key will not be extracted
 
 ### Multiple settings
+
 If you need to use multiple settings in one project you can do so with an environment variable `CMF_ENV`.
 
 `$ cross-env CMF_ENV=withoutMyOtherDep cmf-settings`
@@ -155,14 +156,8 @@ If you need to use multiple settings in one project you can do so with an enviro
 	"withoutMyOtherDep": {
 		// will be used
 		"settings": {
-			"sources": [
-				"src/settings",
-				"node_modules/@talend/dataset/lib/settings"
-			],
-			"sources-dev": [
-				"src/settings",
-				"../../dataset/webapp/src/settings"
-			],
+			"sources": ["src/settings", "node_modules/@talend/dataset/lib/settings"],
+			"sources-dev": ["src/settings", "../../dataset/webapp/src/settings"],
 			"destination": "src/assets/cmf-settings.json"
 		}
 	}
