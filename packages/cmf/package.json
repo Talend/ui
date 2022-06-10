@@ -32,9 +32,6 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "bin": {
-    "cmf-settings": "./scripts/cmf-settings.js"
-  },
   "dependencies": {
     "@talend/scripts-cmf": "^1.0.0",
     "deepmerge": "^1.5.2",

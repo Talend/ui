@@ -6,6 +6,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "bin": {
+    "cmf-settings": "./scripts/cmf-settings.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
