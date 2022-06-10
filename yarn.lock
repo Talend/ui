@@ -3460,26 +3460,6 @@
   resolved "https://registry.yarnpkg.com/@talend/daikon-tql-client/-/daikon-tql-client-1.3.1.tgz#75a764ec14b06355af3924f3b2d65ff8e61db4f0"
   integrity sha512-trwueNzgISaN2jSNBxuiHw76jWX2G/vtSrCtlTaoeS3NzsCIVUlGryqKZnuBLfZWJyVWeImx9xm34mBOHITMIQ==
 
-"@talend/design-system@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@talend/design-system/-/design-system-3.1.0.tgz#f2f06ca54aafc83cf3fb8922cfd55854c8bc2b9f"
-  integrity sha512-3HCbFN0R9xhuFoZLmkprPmNk1cfLrFe+JMB6mw7vmBGcBx434Hst+sARfP/VScJW7TdEB2XwVUHFWSNAI+GuCQ==
-  dependencies:
-    "@talend/assets-api" "^1.2.1"
-    "@talend/design-tokens" "^2.5.0"
-    classnames "^2.3.1"
-    modern-css-reset "^1.4.0"
-    polished "^4.2.2"
-    react-use "^17.4.0"
-    reakit "^1.3.11"
-    typeface-inconsolata "^1.1.13"
-    typeface-source-sans-pro "^1.1.13"
-
-"@talend/design-tokens@^2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@talend/design-tokens/-/design-tokens-2.5.0.tgz#3c36a332a641691fe4a468da6539ca9de897a9c5"
-  integrity sha512-VUptxm1NPBNpzFJrupKkzz0W2Jwmb3nclujMifF/GZHG7rvoGh/8OVB472S0pm4QvYbWFt4qR62AMyABZnMQAg==
-
 "@talend/locales-design-system@^1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@talend/locales-design-system/-/locales-design-system-1.12.2.tgz#ed4f5412f052479c920f6baf6995cd4d84db7eb4"
