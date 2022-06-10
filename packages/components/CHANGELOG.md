@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 7.0.2
+
+### Patch Changes
+
+- d4b21e191: fix(TDC-6341): quality bars should use Tooltip from DS
+- Updated dependencies [8b9a8b5da]
+  - @talend/design-system@3.1.0
+
 ## 7.0.1
 
 ### Patch Changes
