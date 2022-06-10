@@ -135,8 +135,33 @@ You can use validation from outside (let say button outside the form) this way:
 ```javascript
 import validate from '@talend/react-forms/lib/validate';
 
-function isValid({ payload}) {
+function isValid({ payload }) {
 	return validate(payload.jsonSchema, payload.formData);
+}
+```
+
+## Build with webpack
+
+@talend/react-forms comes with react-ace lazy loaded.
+No modes are loaded with the build and ace is trying to fetch modes,
+this is why you need to add a copyconfig to your build to use the 'code' widget.
+
+Please adapt from this webpack config example:
+
+```javascript
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const buildFormUtils = require('@talend/react-forms/build-utils');
+
+const patterns = buildFormUtils.getWebpackCopyConfig();
+
+module.exports = {
+	entry: './src/app/index.js'
+	output: {
+		//...
+	},
+	plugins: [
+		new CopyWebpackPlugin({ patterns })
+	]
 }
 ```
 
