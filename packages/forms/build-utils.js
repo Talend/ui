@@ -3,7 +3,7 @@ const path = require('path');
 function getWebpackCopyConfig() {
 	return [
 		{
-			from: 'mode-*.js',
+			from: '+(mode|theme)-*.js',
 			context: path.resolve(__dirname, 'dist'),
 			info: { minimized: true },
 		},
