@@ -12,6 +12,7 @@
 	}
 
 	&__animated {
+		background-color: tokens.$coral-color-neutral-background;
 		transition: opacity tokens.$coral-transition-fast;
 		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 		border-radius: tokens.$coral-radius-s;
