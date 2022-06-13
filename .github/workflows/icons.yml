@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 16
           check-latest: true
-          cache: "yarn"
+          #cache: "yarn"
 
       - name: Download icons
         run: npx @talend/figma-icons-downloader
