@@ -22,7 +22,7 @@ jobs:
           check-latest: true
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
-          cache: "yarn"
+          #cache: "yarn"
 
       - name: Install
         run: yarn install --frozen-lockfile --ignore-scripts

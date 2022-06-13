@@ -5,6 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const resolve = require('@talend/dynamic-cdn-webpack-plugin/src/resolve-pkg');
+const buildFormUtils = require('@talend/react-forms/build-utils');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const mockBackend = require('./mockBackend/server');
@@ -50,7 +51,7 @@ const patterns = PKGS.map(pkg => ({
 	from: path.resolve(getPath(pkg), 'dist'),
 	to: `${to(pkg)}/`,
 	info: { minimized: true },
-}));
+})).concat(buildFormUtils.getWebpackCopyConfig());
 
 const webpackConfig = {
 	plugins: [

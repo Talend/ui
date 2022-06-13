@@ -59,7 +59,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: "yarn"
+          #cache: "yarn"
 
       - name: Install dependencies
         run: yarn --frozen-lock --ignore-scripts
@@ -68,6 +68,7 @@ jobs:
         if: matrix.package == 'design-system'
         run: |
           yarn workspace @talend/assets-api run build:lib
+          yarn workspace @talend/icons run build:lib
           yarn workspace @talend/design-tokens run build:lib
 
       - name: Build @talend/icons
