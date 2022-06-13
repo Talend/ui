@@ -21,7 +21,7 @@ jobs:
           node-version: 16
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
-          cache: "yarn"
+          #cache: "yarn"
 
       - name: Upgrade dependencies
         run: |

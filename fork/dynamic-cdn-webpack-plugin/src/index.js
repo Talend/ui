@@ -63,6 +63,7 @@ function getDeps(cdnConfig) {
 			version: cdnConfig[key].version,
 			path: cdnConfig[key].path,
 			stylePath: cdnConfig[key].stylePath,
+			peerDependency: cdnConfig[key].peerDependency,
 		};
 		return acc;
 	}, {});
@@ -130,11 +131,16 @@ class DynamicCdnWebpackPlugin {
 		addURL,
 		loglevel = 'ERROR',
 		verbose,
+		cwd = process.cwd(),
 	} = {}) {
 		if (exclude && only) {
 			throw new Error("You can't use 'exclude' and 'only' at the same time");
 		}
-
+		this.projectPeerDeps = {};
+		const pkgUp = readPkgUp.sync({ cwd });
+		if (pkgUp) {
+			this.projectPeerDeps = pkgUp.packageJson.peerDependencies || {};
+		}
 		this.disable = disable;
 		this.env = env;
 		this.exclude = exclude || [];
@@ -223,19 +229,21 @@ class DynamicCdnWebpackPlugin {
 	addDependencies(contextPath, manifest, { env, requester }) {
 		for (const dependencyName of Object.keys(manifest)) {
 			const cdnConfig = manifest[dependencyName];
-			const cwd = resolvePkg(cdnConfig.name, {
-				version: cdnConfig.version,
-			});
+			const cwd = resolvePkg(cdnConfig.name, cdnConfig);
 			if (!cwd) {
 				this.error(
 					'\n❌',
 					cdnConfig.name,
 					"addDependencies() couldn't load this lib because it has not been found by require.resolve",
+					requester,
 				);
 				continue;
 			}
 			const pkg = readPkgUp.sync({ cwd });
 			const installedVersion = pkg.packageJson.version;
+			if (this.projectPeerDeps[cdnConfig.name]) {
+				cdnConfig.peerDependency = this.projectPeerDeps[cdnConfig.name];
+			}
 			cdnConfig.version = installedVersion;
 			cdnConfig.local = path.resolve(
 				pkg.path,
@@ -344,6 +352,10 @@ class DynamicCdnWebpackPlugin {
 				"couldn't be found, if you want it you can add it to your resolver.",
 			);
 			return false;
+		}
+
+		if (this.projectPeerDeps[cdnConfig.name]) {
+			cdnConfig.peerDependency = this.projectPeerDeps[cdnConfig.name];
 		}
 
 		// Try to get the manifest

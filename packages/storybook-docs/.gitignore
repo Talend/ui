@@ -1,0 +1,13 @@
+.DS_Store
+.idea
+.next
+
+coverage
+dist
+i18n-extract
+lib
+node_modules
+storybook-static
+yarn-error.log
+package-lock.json
+.build

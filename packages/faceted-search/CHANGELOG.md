@@ -1,5 +1,28 @@
 # Changelog
 
+## 5.0.2
+
+### Patch Changes
+
+- d3dc12c14: fix: use caret syntax for react-bootstrap
+- Updated dependencies [a2ebce94c]
+  - @talend/react-bootstrap@1.35.1
+
+## 5.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/design-system@3.0.0
+
 ## 4.3.0
 
 ### Minor Changes

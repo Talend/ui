@@ -1,0 +1,6 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.trial {
+  padding: tokens.$coral-sizing-m;
+  font: tokens.$coral-heading-m
+}

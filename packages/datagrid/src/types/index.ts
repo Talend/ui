@@ -23,3 +23,21 @@ export interface HeaderComponentParams {
 	};
 	qualityBarProps?: any;
 }
+
+export interface AgGridCellValue {
+	name: string;
+	value: string;
+}
+
+export interface AgCellEditorRendererPropTypes {
+	colDef: {
+		cellEditorParams?: Record<string, any>;
+		cellEditorPopup?: boolean;
+		domain: string;
+	};
+	eGridCell: HTMLDivElement;
+	stopEditing: (variable?: boolean) => void;
+	value: {
+		value: string;
+	};
+}

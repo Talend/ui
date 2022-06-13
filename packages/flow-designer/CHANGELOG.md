@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.0
+
+### Minor Changes
+
+- d9dc0701c: Add double click to nodes
+
 ## 5.1.0
 
 ### Minor Changes

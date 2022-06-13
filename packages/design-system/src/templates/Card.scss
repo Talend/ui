@@ -1,0 +1,26 @@
+.card-template {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+	background-image: url('../images/datachaos.png'), linear-gradient(134deg, #19426c, #2c1f56);
+	overflow: auto;
+
+	:global(.layout__main) {
+		background: none;
+		padding: 5rem;
+	}
+
+	&__card {
+		width: 65rem;
+		min-height: 60rem;
+	}
+
+	&__talend-logo {
+		svg {
+			height: 3.2rem;
+			width: auto;
+			max-width: 100%;
+		}
+	}
+}
