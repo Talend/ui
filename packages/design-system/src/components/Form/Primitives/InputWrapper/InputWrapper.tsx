@@ -6,6 +6,7 @@ import { AffixButton, AffixReadOnly } from '../../FieldGroup/Affix';
 
 import styles from './InputWrapper.module.scss';
 import classnames from 'classnames';
+import { FieldStatusProps } from '../Field/Field';
 
 type AffixProps =
 	| ({ type: 'button' } & AffixButtonPropsType)
@@ -21,7 +22,8 @@ type InputWrapperProps = {
 	children: ReactElement;
 	disabled?: boolean;
 	readOnly?: boolean;
-} & AffixesProps;
+} & AffixesProps &
+	FieldStatusProps;
 
 function buildAffix(affixProps: AffixProps) {
 	if (isElement(affixProps)) {
@@ -42,13 +44,23 @@ function buildAffix(affixProps: AffixProps) {
 }
 
 const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivElement>) => {
-	const { children, prefix, suffix, disabled = false, readOnly = false } = props;
+	const {
+		children,
+		prefix,
+		suffix,
+		disabled = false,
+		readOnly = false,
+		isError = false,
+		...rest
+	} = props;
 	return (
 		<div
+			{...rest}
 			ref={ref}
 			className={classnames(styles.inputShell, {
 				[styles.inputShell_disabled]: disabled,
 				[styles.inputShell_readOnly]: readOnly,
+				[styles.inputShell_borderError]: isError,
 			})}
 		>
 			{prefix && buildAffix(prefix)}

@@ -9,6 +9,7 @@ import { StackHorizontal, StackVertical } from '../../Stack';
 import Checkbox from './Checkbox/Checkbox';
 import Label from './Label/Label';
 import Radio from './Radio/Radio';
+import Field from './Field/Field';
 
 export default {
 	component: Textarea,
@@ -181,6 +182,31 @@ export const InputPrimitiveWithDropdown = () => {
 					</Dropdown>
 				}
 			/>
+		</StackVertical>
+	);
+};
+
+export const FieldStory = () => {
+	return (
+		<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
+			<Field
+				label={{ children: 'Test label' }}
+				id="testId"
+				description="This is a description"
+				isError
+				name="test"
+			>
+				<Input type="text" />
+			</Field>
+			<Field
+				label={{ children: 'Test Textarea' }}
+				id="testId2"
+				description="This is a description for a textarea"
+				isError
+				name="test"
+			>
+				<Textarea />
+			</Field>
 		</StackVertical>
 	);
 };
