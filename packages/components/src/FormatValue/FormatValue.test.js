@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import { FormatValueComponent } from './FormatValue.component';
 
 describe('FormatValue', () => {
-	it('should replace the leading/trainling white space and the line feeding', () => {
+	it('should replace the leading/trailing white space and the line feeding', () => {
 		// eslint-disable-next-line no-irregular-whitespace
 		const value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 		psum	 	 `;
@@ -14,12 +14,12 @@ describe('FormatValue', () => {
 	});
 
 	it('should handle leading empty space in the string', () => {
-		const wrapper = render(<FormatValueComponent value={'﻿l '} />);
+		const wrapper = render(<FormatValueComponent value={'﻿l'} />);
 		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
 	it('should handle trailing empty space in the string', () => {
-		const wrapper = render(<FormatValueComponent value={' l﻿'} />);
+		const wrapper = render(<FormatValueComponent value={'l﻿'} />);
 		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
@@ -28,6 +28,16 @@ describe('FormatValue', () => {
 			<FormatValueComponent
 				value={`loreum
 lopsum`}
+			/>,
+		);
+		expect(wrapper.asFragment()).toMatchSnapshot();
+	});
+
+	it('should handle single line feed', () => {
+		const wrapper = render(
+			<FormatValueComponent
+				value={`
+`}
 			/>,
 		);
 		expect(wrapper.asFragment()).toMatchSnapshot();

@@ -10,7 +10,6 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import theme from './FormatValue.scss';
 
 export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
-export const REG_EXP_HAS_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
 const REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS = /(\t| |\n)/g;
 const REG_EXP_CAPTUR_LINE_FEEDING = /(\n)/g;
 const REG_EXP_LINE_FEEDING = /\n/;
@@ -22,11 +21,12 @@ const REG_EXP_WHITE_SPACE_CHARACTERS = /^\s/;
  * @param  {string} value string to transform
  * @return {Component}    component with the replaced special characters by icon
  */
-function replaceCharacterByIcon(value, t) {
+function replaceCharacterByIcon(value, index, t) {
 	switch (value) {
 		case '\t':
 			return (
 				<Icon
+					key={index}
 					aria-label={t('FORMAT_VALUE_TAB_CHARACTER', { defaultValue: 'tab character' })}
 					className={classNames(
 						theme['td-white-space-character'],
@@ -39,6 +39,7 @@ function replaceCharacterByIcon(value, t) {
 		case ' ':
 			return (
 				<Icon
+					key={index}
 					aria-label={t('FORMAT_VALUE_SPACE_CHARACTER', { defaultValue: 'space character' })}
 					className={classNames(theme['td-white-space-character'], 'td-white-space-character')}
 					name="talend-empty-space"
@@ -46,7 +47,7 @@ function replaceCharacterByIcon(value, t) {
 			);
 		case '\n':
 			return (
-				<span>
+				<span key={index}>
 					<Icon
 						aria-label={t('FORMAT_VALUE_LINE_FEEDING_CHARACTER', {
 							defaultValue: 'line feeding character',
@@ -61,6 +62,7 @@ function replaceCharacterByIcon(value, t) {
 			if (REG_EXP_WHITE_SPACE_CHARACTERS.test(value)) {
 				return (
 					<Icon
+						key={index}
 						aria-label={t('FORMAT_VALUE_WHITE_SPACE_CHARACTER', {
 							defaultValue: 'white space character',
 						})}
@@ -73,28 +75,12 @@ function replaceCharacterByIcon(value, t) {
 					/>
 				);
 			}
-			return <span className={classNames(theme['td-value'], 'td-value')}>{value}</span>;
+			return (
+				<span key={index} className={classNames(theme['td-value'], 'td-value')}>
+					{value}
+				</span>
+			);
 	}
-}
-
-/**
- * hasWhiteSpaceCharacters - test a string if there are empty space trailing/leading or line feeding
- *
- * @param  {string} value string to test
- * @return {boolean}       indicate if the string to test has white space
- */
-export function hasWhiteSpaceCharacters(value) {
-	if (!value || typeof value !== 'string') {
-		return false;
-	}
-
-	const hiddenCharsRegExpMatch = value.match(REG_EXP_HAS_WHITE_SPACE_CHARACTERS);
-
-	if (hiddenCharsRegExpMatch[1] || hiddenCharsRegExpMatch[3]) {
-		return true;
-	}
-
-	return REG_EXP_LINE_FEEDING.test(value);
 }
 
 /**
@@ -107,50 +93,28 @@ function isEmptyCharacter(value) {
 	return value;
 }
 
-/**
- * replaceWhiteCharacters - description
- *
- * @param  {string} content string part to replace by corresponding HTML
- * @param  {RegExp} regexp  string to replace
- * @return {array}          replaced content
- */
-function replaceWhiteCharacters(content, regexp, t) {
-	const splitting = content.split(regexp);
-	return splitting.filter(isEmptyCharacter).map(value => replaceCharacterByIcon(value, t));
-}
+const SPLIT_REGEX = [
+	REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
+	REG_EXP_CAPTUR_LINE_FEEDING,
+	REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
+];
 
 export function FormatValueComponent({ value, className }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	let formattedValue = value;
-	if (hasWhiteSpaceCharacters(value)) {
-		formattedValue = [];
+	if (typeof value === 'string') {
 		const hiddenCharsRegExpMatch = value.match(REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS);
-
-		if (hiddenCharsRegExpMatch[1]) {
-			formattedValue = replaceWhiteCharacters(
-				hiddenCharsRegExpMatch[1],
-				REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
-				t,
-			);
-		}
-
-		if (hiddenCharsRegExpMatch[2]) {
-			const formattedContent = replaceWhiteCharacters(
-				hiddenCharsRegExpMatch[2],
-				REG_EXP_CAPTUR_LINE_FEEDING,
-				t,
-			);
-			formattedValue = [...formattedValue, ...formattedContent];
-		}
-
-		if (hiddenCharsRegExpMatch[3]) {
-			const formattedContent = replaceWhiteCharacters(
-				hiddenCharsRegExpMatch[3],
-				REG_EXP_REPLACED_WHITE_SPACE_CHARACTERS,
-				t,
-			);
-			formattedValue = [...formattedValue, ...formattedContent];
+		if (
+			hiddenCharsRegExpMatch[1] ||
+			hiddenCharsRegExpMatch[3] ||
+			REG_EXP_LINE_FEEDING.test(value)
+		) {
+			formattedValue = hiddenCharsRegExpMatch
+				.slice(1)
+				.flatMap((value, index) => value?.split(SPLIT_REGEX[index]))
+				.filter(isEmptyCharacter)
+				.map((value, index) => replaceCharacterByIcon(value, index, t));
 		}
 	}
 	return <span className={className}>{formattedValue}</span>;

@@ -19,11 +19,6 @@ exports[`FormatValue should handle leading empty space in the string 1`] = `
     >
       l
     </span>
-    <span
-      aria-label="space character"
-      class="CoralIcon theme-td-white-space-character td-white-space-character"
-      name="talend-empty-space"
-    />
   </span>
 </DocumentFragment>
 `;
@@ -62,6 +57,22 @@ exports[`FormatValue should handle non string param 1`] = `
 </DocumentFragment>
 `;
 
+exports[`FormatValue should handle single line feed 1`] = `
+<DocumentFragment>
+  <span>
+    <span>
+      <span
+        aria-label="line feeding character"
+        class="CoralIcon theme-td-white-space-character td-white-space-character"
+        name="talend-carriage-return"
+      />
+      
+
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
 exports[`FormatValue should handle string with only alpha 1`] = `
 <DocumentFragment>
   <span>
@@ -86,11 +97,6 @@ exports[`FormatValue should handle trailing empty space in the string 1`] = `
 <DocumentFragment>
   <span>
     <span
-      aria-label="space character"
-      class="CoralIcon theme-td-white-space-character td-white-space-character"
-      name="talend-empty-space"
-    />
-    <span
       class="theme-td-value td-value"
     >
       l
@@ -112,7 +118,7 @@ exports[`FormatValue should handle white space 1`] = `
 </DocumentFragment>
 `;
 
-exports[`FormatValue should replace the leading/trainling white space and the line feeding 1`] = `
+exports[`FormatValue should replace the leading/trailing white space and the line feeding 1`] = `
 <DocumentFragment>
   <span>
     <span
