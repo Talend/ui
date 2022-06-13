@@ -1,9 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import Icon from '../Icon';
 import I18N_DOMAIN_COMPONENTS from '../constants';
+
 import theme from './FormatValue.scss';
 
 export const REG_EXP_LEADING_TRAILING_WHITE_SPACE_CHARACTERS = /(^\s*)?([\s\S]*?)(\s*$)/;
@@ -24,7 +27,6 @@ function replaceCharacterByIcon(value, t) {
 		case '\t':
 			return (
 				<Icon
-					key={value}
 					aria-label={t('FORMAT_VALUE_TAB_CHARACTER', { defaultValue: 'tab character' })}
 					className={classNames(
 						theme['td-white-space-character'],
@@ -37,7 +39,6 @@ function replaceCharacterByIcon(value, t) {
 		case ' ':
 			return (
 				<Icon
-					key={value}
 					aria-label={t('FORMAT_VALUE_SPACE_CHARACTER', { defaultValue: 'space character' })}
 					className={classNames(theme['td-white-space-character'], 'td-white-space-character')}
 					name="talend-empty-space"
@@ -47,7 +48,6 @@ function replaceCharacterByIcon(value, t) {
 			return (
 				<span>
 					<Icon
-						key={value}
 						aria-label={t('FORMAT_VALUE_LINE_FEEDING_CHARACTER', {
 							defaultValue: 'line feeding character',
 						})}
@@ -61,7 +61,6 @@ function replaceCharacterByIcon(value, t) {
 			if (REG_EXP_WHITE_SPACE_CHARACTERS.test(value)) {
 				return (
 					<Icon
-						key={value}
 						aria-label={t('FORMAT_VALUE_WHITE_SPACE_CHARACTER', {
 							defaultValue: 'white space character',
 						})}
@@ -74,11 +73,7 @@ function replaceCharacterByIcon(value, t) {
 					/>
 				);
 			}
-			return (
-				<span key={value} className={classNames(theme['td-value'], 'td-value')}>
-					{value}
-				</span>
-			);
+			return <span className={classNames(theme['td-value'], 'td-value')}>{value}</span>;
 	}
 }
 
