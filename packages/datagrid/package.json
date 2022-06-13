@@ -37,8 +37,7 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.1",
-    "@talend/design-tokens": "^2.3.0",
-    "@talend/assets-api": "^1.2.1",
+    "@talend/design-tokens": "^2.4.0",
     "@talend/icons": "^6.42.0",
     "ag-grid-community": "^27.3.0",
     "ag-grid-react": "^27.3.0",

@@ -63,13 +63,14 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	:global(.ag-center-cols-clipper) {
-		font: tokens.$coral-paragraph-m;
-		// TMP, pending new $coral-data-m token
-		font-family: "Inconsolata";
+		font: tokens.$coral-data-m;
 	}
 
 	:global(.ag-cell), :global(.ag-header-cell) {
 		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	}
+
+	:global(.ag-cell), :global(.ag-header) {
 		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 
