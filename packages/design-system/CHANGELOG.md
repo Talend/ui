@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 3.1.1
+
+### Patch Changes
+
+- 79f7127a7: fix(design-system): add white background to popover component
+
 ## 3.1.0
 
 ### Minor Changes

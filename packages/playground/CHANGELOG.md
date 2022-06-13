@@ -1,5 +1,15 @@
 # @talend/ui-playground
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [df3460428]
+- Updated dependencies [6887f0fcf]
+- Updated dependencies [6887f0fcf]
+  - @talend/react-datagrid@11.0.0
+  - @talend/icons@6.44.0
+
 ## 1.1.1
 
 ### Patch Changes
