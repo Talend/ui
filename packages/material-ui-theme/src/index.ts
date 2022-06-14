@@ -39,4 +39,52 @@ export const themeOptions: ThemeOptions = {
 			dark: '#204e18',
 		},
 	},
+	typography: {
+		htmlFontSize: 14,
+		h1: {
+			fontWeight: 600,
+			fontSize: '1.8rem',
+			fontFamily: 'Source Sans Pro',
+		},
+		fontFamily: 'Source Sans Pro',
+		h2: {
+			fontSize: '1.6rem',
+			fontWeight: 600,
+		},
+		h3: {
+			fontSize: '1.4rem',
+			fontWeight: 600,
+		},
+		body1: {
+			fontSize: 14,
+		},
+		body2: {
+			fontSize: '1.2rem',
+		},
+		button: {
+			fontSize: '1.4rem',
+			fontWeight: 600,
+		},
+		caption: {
+			fontSize: '1.4rem',
+		},
+		overline: {
+			fontSize: '1.2rem',
+		},
+		h4: {
+			fontSize: '1.4rem',
+		},
+		h5: {
+			fontSize: '1.4rem',
+		},
+		h6: {
+			fontSize: '1.4rem',
+		},
+		subtitle1: {
+			fontSize: '1.4rem',
+		},
+		subtitle2: {
+			fontSize: '1.2rem',
+		},
+	},
 };
