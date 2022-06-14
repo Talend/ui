@@ -3408,8 +3408,20 @@
     "documentationLinks": []
   },
   {
+    "key": "2170abc153de70573073cb56ab237c718ff6a288",
+    "name": "icon/M/lightbulb",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
     "key": "1f1d0be725eb1f8d703a11beb9b7b38f305a98af",
     "name": "icon/M/exclamation-stroke",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "dd11264368fd6b6a224ef7c1197095e99c27805f",
+    "name": "icon/L/lightbulb",
     "description": "",
     "documentationLinks": []
   },

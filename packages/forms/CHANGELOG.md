@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 7.3.3
+
+### Patch Changes
+
+- ac9286be3: fix: build ace (code widget) modes, theme and snippets.
+  Add tools to configure the copy of modes in your apps.
+- Updated dependencies [a2ebce94c]
+  - @talend/react-bootstrap@1.35.1
+
 ## 7.3.2
 
 ### Patch Changes

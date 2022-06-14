@@ -24,10 +24,10 @@ jobs:
           node-version: 16
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
-          cache: "yarn"
+          #cache: "yarn"
 
       - name: Install Dependencies
-        run: yarn --frozen-lockfile && yarn pre-release
+        run: yarn --frozen-lockfile
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets

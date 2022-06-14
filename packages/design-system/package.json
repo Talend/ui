@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "3.0.1",
+  "version": "3.1.1",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.1",
-    "@talend/design-tokens": "^2.4.0",
+    "@talend/design-tokens": "^2.5.0",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.2.2",
@@ -63,7 +63,7 @@
     "@storybook/theming": "^6.5.8",
     "@svgr/webpack": "^5.5.0",
     "@talend/bootstrap-theme": "^6.39.0",
-    "@talend/icons": "^6.42.0",
+    "@talend/icons": "^6.44.0",
     "@talend/locales-design-system": "^1.12.2",
     "@talend/scripts-core": "^11.7.1",
     "@talend/scripts-preset-react-lib": "^11.0.3",

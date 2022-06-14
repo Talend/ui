@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.5.0
+
+### Minor Changes
+
+- f489c4b4f: Added data-XL size for font types, description for Link font types
+
 ## 2.4.0
 
 ### Minor Changes
