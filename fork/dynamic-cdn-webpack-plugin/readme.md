@@ -239,7 +239,7 @@ This function should be aligned with the resolver to support dependencies manife
 ## Related
 
 - [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
-- [@talend/module-to-cdn](https://github.com/toutpt/module-to-cdn)
+- [@talend/module-to-cdn](https://github.com/talend/ui/tree/master/fork/module-to-cdn)
 
 ## Contributors
 
