@@ -1,0 +1,19 @@
+{
+  "name": "@talend/material-ui-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
+  "license": "Apache-2.0"
+}
