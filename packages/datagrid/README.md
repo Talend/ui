@@ -13,18 +13,7 @@ yarn add @talend/react-datagrid
 ```
 
 ```javascript
-import DataGrid from '@talend/react-datagrid'; //use the DataGrid Container
-```
-
-Using CMF
-
-```javascript
-import cmf from '@talend/react-cmf';
-import datagridModule from '@talend/react-datagrid/lib/cmfModule';
-
-cmf.bootstrap({
-	modules: [datagridModule],
-});
+import DataGrid from '@talend/react-datagrid';
 ```
 
 ## DataGrid Component
@@ -73,7 +62,6 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 | property              | description                                                                                    | type     | default                  |
 | --------------------- | ---------------------------------------------------------------------------------------------- | -------- | ------------------------ |
 | avroRenderer          | list of components to inject to the avro renderer                                              | object   |                          |
-| columnsConf           | options pass to getColumnDefsFn. _hideSubType_(boolean) : hide the subtitle in the header hide | object   | { hideSubType : false }  |
 | cellRenderer          | cell component to inject                                                                       | string   | DefaultCellRenderer      |
 | getPinnedColumnDefsFn | method to provide the definition of the pinned columns                                         | function | dataset serializer       |
 | getColumnDefsFn       | method to provide the definition of the columns                                                | function | dataset serializer       |
@@ -98,23 +86,6 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 | dateCellRenderer    | renderer for the date renderer to inject    | string | DefaultDateCellRenderer    |
 | intCellRenderer     | renderer for the int renderer to inject     | string | DefaultIntCellRenderer     |
 | stringCellRenderer  | renderer for the string renderer to inject  | string | DefaultStringCellRenderer  |
-
-## Containers DataGrid
-
-The container DataGrid
-
-- connect the component DataGrid with the CMF settings
-- spread the data from the redux store and the CMF settings
-- dispatch the event by actioncreators.
-
-### API
-
-| property                        | description                                        | type   | default                   |
-| ------------------------------- | -------------------------------------------------- | ------ | ------------------------- |
-| sourceData                      | path of the collections in CMF store to load       | string |                           |
-| actionCreators                  | object of actionsCreators                          | object |                           |
-| actionsCreators.onFocusedColumn | action creator triggers when one column is focused | string |                           |
-| actionsCreators.onFocusedCell   | action creator triggers when one cell is focused   | string | DefaultStringCellRenderer |
 
 ## Issue solved with ag-grid
 

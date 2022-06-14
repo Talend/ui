@@ -6,16 +6,18 @@ import React, {
 	FocusEvent,
 	useRef,
 	useImperativeHandle,
-	FocusEventHandler,
 } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
+import { FieldStatusProps } from '../Field/Field';
 import Tooltip from '../../../Tooltip';
 import Clickable from '../../../Clickable';
 import { Icon } from '../../../Icon/Icon';
 
-type InputProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> & AffixesProps;
+type InputProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
+	AffixesProps &
+	Omit<FieldStatusProps, 'errorMessage'>;
 
 import styles from './Input.module.scss';
 
@@ -28,6 +30,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 		disabled = false,
 		type,
 		onBlur,
+		hasError,
 		...rest
 	} = props;
 
@@ -49,7 +52,13 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 	}
 
 	return (
-		<InputWrapper prefix={prefix} suffix={suffix} disabled={disabled} readOnly={readOnly}>
+		<InputWrapper
+			prefix={prefix}
+			suffix={suffix}
+			disabled={disabled}
+			readOnly={readOnly}
+			hasError={hasError}
+		>
 			<>
 				<input
 					{...rest}

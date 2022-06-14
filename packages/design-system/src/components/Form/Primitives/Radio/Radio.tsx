@@ -6,7 +6,7 @@ import useReadOnly from '../../Field/Input/hooks/useReadOnly';
 import styles from './Radio.module.scss';
 
 type RadioType = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'prefix'> & {
-	label: string | ReactElement;
+	label: string;
 	id: string;
 };
 

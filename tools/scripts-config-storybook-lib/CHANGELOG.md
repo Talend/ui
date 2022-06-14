@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 1.2.2
+
+### Patch Changes
+
+- 2f40e092e: fix: remove bundles props of IconsProvider
+
 ## 1.2.1
 
 ### Patch Changes

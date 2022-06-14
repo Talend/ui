@@ -71,7 +71,6 @@ export const OnlyColumnName = () => (
 		{...defaultGridProps}
 		data={sampleWithoutQuality}
 		headerHeight={45}
-		columnsConf={{ hideSubType: true }}
 		enableColResize={false}
 	/>
 );

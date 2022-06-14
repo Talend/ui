@@ -9,6 +9,8 @@ import { StackHorizontal, StackVertical } from '../../Stack';
 import Checkbox from './Checkbox/Checkbox';
 import Label from './Label/Label';
 import Radio from './Radio/Radio';
+import Field from './Field/Field';
+import { ButtonPrimary } from '../../Button';
 
 export default {
 	component: Textarea,
@@ -185,6 +187,35 @@ export const InputPrimitiveWithDropdown = () => {
 	);
 };
 
+export const FieldStory = () => {
+	const [isError, setIsError] = useState<boolean>(false);
+	return (
+		<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
+			<Field
+				label={{ children: 'Test label' }}
+				id="testId"
+				description={isError ? 'This is the error message' : 'This is a description'}
+				hasError={isError}
+				name="test"
+			>
+				<Input type="text" />
+			</Field>
+			<Field
+				label={{ children: 'Test Textarea' }}
+				id="testId2"
+				description={isError ? 'This is the error message' : 'This is a description for a textarea'}
+				name="test"
+				hasError={isError}
+			>
+				<Textarea />
+			</Field>
+			<div>
+				<ButtonPrimary onClick={() => setIsError(!isError)}>Set as error</ButtonPrimary>
+			</div>
+		</StackVertical>
+	);
+};
+
 export const FakeForm = () => {
 	return (
 		<form>
@@ -204,7 +235,7 @@ export const FakeForm = () => {
 					<Label>Send me emails</Label>
 					<Checkbox id="emails" label="Yes I love emails" />
 				</StackVertical>
-				<StackVertical gap={'XXS'} align={'stretch'} justify={'start'}>
+				<StackVertical gap="XXS" align="stretch" justify="start">
 					<Label>Pick a thing</Label>
 					<StackVertical gap="XXS" align="stretch" justify="start">
 						<Radio id="choice1" label="Choice 1" value="choice1" name="choice" />

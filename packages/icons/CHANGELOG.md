@@ -1,5 +1,12 @@
 # @talend/icons
 
+## 6.44.0
+
+### Minor Changes
+
+- 6887f0fcf: added icon `lightbulb` in size `L`
+- 6887f0fcf: added icon `lightbulb` in size `M`
+
 ## 6.43.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactElement, Ref, LabelHTMLAttributes } from 'react';
 import classnames from 'classnames';
 
-type LabelProps = LabelHTMLAttributes<any> & {
+export type LabelProps = LabelHTMLAttributes<any> & {
 	children: string | ReactElement;
 	inline?: boolean;
 };
