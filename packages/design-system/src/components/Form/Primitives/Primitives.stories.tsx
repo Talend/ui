@@ -235,7 +235,7 @@ export const FakeForm = () => {
 					<Label>Send me emails</Label>
 					<Checkbox id="emails" label="Yes I love emails" />
 				</StackVertical>
-				<StackVertical gap={'XXS'} align={'stretch'} justify={'start'}>
+				<StackVertical gap="XXS" align="stretch" justify="start">
 					<Label>Pick a thing</Label>
 					<StackVertical gap="XXS" align="stretch" justify="start">
 						<Radio id="choice1" label="Choice 1" value="choice1" name="choice" />

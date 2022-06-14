@@ -48,17 +48,18 @@ const Field = forwardRef(
 		);
 
 		const Description = () => {
-			if (hasError && description) {
-				return <InlineMessageDestructive description={description} />;
-			}
-			if (!!description) {
+			if (description) {
+				if (hasError) {
+					return <InlineMessageDestructive description={description} />;
+				}
+
 				return <InlineMessageInformation description={description} />;
 			}
 			return null;
 		};
 
 		return (
-			<StackVertical gap="XXS" align={'stretch'} justify={'start'}>
+			<StackVertical gap="XXS" align="stretch" justify="start">
 				{LabelComponent}
 				{cloneElement(children, { id, hasError, name, rest }, ref)}
 				{link && <Link {...link} />}
