@@ -71,7 +71,7 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.7",
+    "@storybook/addon-actions": "^6.5.9",
     "@talend/bootstrap-theme": "^6.39.0",
     "@talend/icons": "^6.42.0",
     "@talend/locales-design-system": "^1.12.2",

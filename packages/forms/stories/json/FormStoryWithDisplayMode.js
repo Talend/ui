@@ -210,24 +210,31 @@ export default function FormStoryWithDisplayMode({ category, doc, ...restProps }
 					Documentation
 				</a>
 			)}
-			<form>
-				<div className="form-group">
-					<div className="checkbox">
-						<label>
-							<input
-								type="checkbox"
-								checked={displayMode === 'text'}
-								onChange={toggleDisplayModeText}
-							/>
-							Text mode
-						</label>
-					</div>
+			<div className="container-fluid">
+				<div className="col-md-6">
+					<h2>Form</h2>
+					<Form.UIForm {...createCommonProps()} {...restProps} displayMode={displayMode} />
 				</div>
-			</form>
-
-			<hr style={{ borderColor: 'black' }} />
-
-			<Form.UIForm {...createCommonProps()} {...restProps} displayMode={displayMode} />
+				<div className="col-md-6">
+					<h2>Display mode</h2>
+					<form>
+						<div className="form-group">
+							<div className="checkbox">
+								<label>
+									<input
+										type="checkbox"
+										checked={displayMode === 'text'}
+										onChange={toggleDisplayModeText}
+									/>
+									Text mode
+								</label>
+							</div>
+						</div>
+					</form>
+					<h2>UI Spec / schema</h2>
+					<pre>{JSON.stringify(restProps.data, null, 2)}</pre>
+				</div>
+			</div>
 		</section>
 	);
 }
