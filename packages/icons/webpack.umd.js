@@ -1,4 +1,5 @@
 const path = require('path');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env = {}) => ({
@@ -37,9 +38,6 @@ module.exports = (env = {}) => ({
 			],
 		}),
 	],
-	node: {
-		fs: 'empty',
-	},
 	externals: {
 		react: {
 			commonjs: 'react',
