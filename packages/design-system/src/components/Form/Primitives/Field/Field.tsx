@@ -5,13 +5,18 @@ import Label, { LabelProps } from '../Label/Label';
 import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
 import VisuallyHidden from '../../../VisuallyHidden';
 
-export type FieldStatusProps = {
-	isError?: boolean;
-};
+export type FieldStatusProps =
+	| {
+			hasError: true;
+			description: string;
+	  }
+	| {
+			hasError?: false;
+			description?: string;
+	  };
 
 type FieldProps = {
 	link?: LinkProps;
-	description?: string;
 	hideLabel?: boolean;
 	label: LabelProps;
 	id: string;
@@ -28,8 +33,8 @@ const Field = forwardRef(
 			id,
 			label,
 			name,
+			hasError = false,
 			hideLabel = false,
-			isError = false,
 			description,
 			...rest
 		} = props;
@@ -42,22 +47,22 @@ const Field = forwardRef(
 			<Label {...label} htmlFor={id} />
 		);
 
-		const Description = ({ descriptionText }: { descriptionText: string }) => {
-			const descProps = {
-				description: descriptionText,
-			};
-			if (isError) {
-				return <InlineMessageDestructive {...descProps} />;
+		const Description = () => {
+			if (hasError && description) {
+				return <InlineMessageDestructive description={description} />;
 			}
-			return <InlineMessageInformation {...descProps} />;
+			if (!!description) {
+				return <InlineMessageInformation description={description} />;
+			}
+			return null;
 		};
 
 		return (
 			<StackVertical gap="XXS" align={'stretch'} justify={'start'}>
 				{LabelComponent}
-				{cloneElement(children, { id, isError, name, rest }, ref)}
+				{cloneElement(children, { id, hasError, name, rest }, ref)}
 				{link && <Link {...link} />}
-				{description && <Description descriptionText={description} />}
+				{description && <Description />}
 			</StackVertical>
 		);
 	},

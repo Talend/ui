@@ -10,6 +10,7 @@ import Checkbox from './Checkbox/Checkbox';
 import Label from './Label/Label';
 import Radio from './Radio/Radio';
 import Field from './Field/Field';
+import { ButtonPrimary } from '../../Button';
 
 export default {
 	component: Textarea,
@@ -187,13 +188,14 @@ export const InputPrimitiveWithDropdown = () => {
 };
 
 export const FieldStory = () => {
+	const [isError, setIsError] = useState<boolean>(false);
 	return (
 		<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
 			<Field
 				label={{ children: 'Test label' }}
 				id="testId"
-				description="This is a description"
-				isError
+				description={isError ? 'This is the error message' : 'This is a description'}
+				hasError={isError}
 				name="test"
 			>
 				<Input type="text" />
@@ -201,12 +203,15 @@ export const FieldStory = () => {
 			<Field
 				label={{ children: 'Test Textarea' }}
 				id="testId2"
-				description="This is a description for a textarea"
-				isError
+				description={isError ? 'This is the error message' : 'This is a description for a textarea'}
 				name="test"
+				hasError={isError}
 			>
 				<Textarea />
 			</Field>
+			<div>
+				<ButtonPrimary onClick={() => setIsError(!isError)}>Set as error</ButtonPrimary>
+			</div>
 		</StackVertical>
 	);
 };

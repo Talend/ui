@@ -23,7 +23,7 @@ type InputWrapperProps = {
 	disabled?: boolean;
 	readOnly?: boolean;
 } & AffixesProps &
-	FieldStatusProps;
+	Omit<FieldStatusProps, 'errorMessage'>;
 
 function buildAffix(affixProps: AffixProps) {
 	if (isElement(affixProps)) {
@@ -50,7 +50,7 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 		suffix,
 		disabled = false,
 		readOnly = false,
-		isError = false,
+		hasError = false,
 		...rest
 	} = props;
 	return (
@@ -60,7 +60,7 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 			className={classnames(styles.inputShell, {
 				[styles.inputShell_disabled]: disabled,
 				[styles.inputShell_readOnly]: readOnly,
-				[styles.inputShell_borderError]: isError,
+				[styles.inputShell_borderError]: hasError,
 			})}
 		>
 			{prefix && buildAffix(prefix)}

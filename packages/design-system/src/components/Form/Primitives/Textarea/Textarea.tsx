@@ -1,12 +1,12 @@
 import React, { forwardRef, Ref, TextareaHTMLAttributes } from 'react';
 import classnames from 'classnames';
 
-type TextareaProps = TextareaHTMLAttributes<any> & { isError?: boolean };
+type TextareaProps = TextareaHTMLAttributes<any> & { hasError?: boolean };
 
 import styles from './Textarea.module.scss';
 
 const Textarea = forwardRef((props: TextareaProps, ref: Ref<HTMLTextAreaElement>) => {
-	const { className, readOnly = false, disabled = false, isError = false, ...rest } = props;
+	const { className, readOnly = false, disabled = false, hasError = false, ...rest } = props;
 	return (
 		<textarea
 			{...rest}
@@ -18,7 +18,7 @@ const Textarea = forwardRef((props: TextareaProps, ref: Ref<HTMLTextAreaElement>
 				{
 					[styles.textarea_readOnly]: readOnly,
 					[styles.textarea_disabled]: disabled,
-					[styles.textarea_borderError]: isError,
+					[styles.textarea_borderError]: hasError,
 				},
 				className,
 			)}

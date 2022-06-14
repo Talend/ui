@@ -17,7 +17,7 @@ import { Icon } from '../../../Icon/Icon';
 
 type InputProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
 	AffixesProps &
-	FieldStatusProps;
+	Omit<FieldStatusProps, 'errorMessage'>;
 
 import styles from './Input.module.scss';
 
@@ -30,7 +30,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 		disabled = false,
 		type,
 		onBlur,
-		isError,
+		hasError,
 		...rest
 	} = props;
 
@@ -57,7 +57,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 			suffix={suffix}
 			disabled={disabled}
 			readOnly={readOnly}
-			isError={isError}
+			hasError={hasError}
 		>
 			<>
 				<input
