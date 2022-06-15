@@ -48,26 +48,28 @@ function LineChart({
 	} = chartOptions;
 
 	const getLineStyleFromStatus = (status: LineStatus) => {
+		let style = {};
 		if (status === 'inactive') {
-			return {
+			style = {
 				strokeWidth: 2.5,
 				strokeOpacity: 0.25,
-				dot: { r: 0 },
 				activeDot: { r: 0, strokeWidth: 0 },
 			};
 		} else if (status === 'highlighted') {
-			return {
+			style = {
 				strokeWidth: 4,
 				strokeOpacity: 1,
-				dot: { r: 0 },
 				activeDot: { r: 6, strokeWidth: 0 },
 			};
 		}
 		return {
 			strokeWidth: 3,
 			strokeOpacity: 1,
-			dot: { r: 0 },
+			dot: ({ cx, cy, r, stroke: fill, 'stroke-opacity': opacity, points }: any) => {
+				return points.length === 1 ? <circle {...{ cx, cy, r, fill, opacity }}></circle> : null;
+			},
 			activeDot: { r: 5, strokeWidth: 0 },
+			...style,
 		};
 	};
 
