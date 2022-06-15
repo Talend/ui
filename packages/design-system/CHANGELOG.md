@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 3.2.0
+
+### Minor Changes
+
+- a90ec3748: feat(design-system): Allow children as function for popover component in order to access the popover state
+
+### Patch Changes
+
+- a90ec3748: fix(design-system): add z-index to popover
+
 ## 3.1.1
 
 ### Patch Changes
