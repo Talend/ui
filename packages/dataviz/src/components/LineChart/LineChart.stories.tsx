@@ -240,3 +240,69 @@ export const MultiCurveLineChart = {
 		],
 	},
 };
+
+export const SinglePointLineChart = {
+	args: {
+		chartOptions: {
+			leftYAxisOptions: {
+				type: 'number',
+				domain: [0, 5],
+			},
+		},
+		lines: [
+			{
+				key: 'trustScore',
+				color: '#1667DF',
+			},
+		],
+		data: [
+			{
+				xLabel: '2/2',
+				trustScore: 2.2,
+			},
+		],
+	},
+};
+
+export const CustomXAxisDomainLineChart = {
+	args: {
+		chartOptions: {
+			leftYAxisOptions: {
+				type: 'number',
+				domain: [0, 5],
+			},
+			xAxisOptions: {
+				type: 'number',
+				domain: [new Date('2022-06-10').getTime(), new Date('2022-06-18').getTime()],
+				formatter: (value: any) => new Date(value).toLocaleDateString(),
+			},
+		},
+		lines: [
+			{
+				key: 'trustScore',
+				color: '#1667DF',
+			},
+		],
+		data: [
+			{
+				xLabel: new Date('2022-06-12').getTime(),
+				trustScore: 2.2,
+			},
+
+			{
+				xLabel: new Date('2022-06-13').getTime(),
+				trustScore: 3.4,
+			},
+
+			{
+				xLabel: new Date('2022-06-14').getTime(),
+				trustScore: 3.5,
+			},
+
+			{
+				xLabel: new Date('2022-06-15').getTime(),
+				trustScore: 4.2,
+			},
+		],
+	},
+};
