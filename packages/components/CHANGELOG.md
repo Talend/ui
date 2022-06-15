@@ -1,5 +1,14 @@
 # @talend/react-components
 
+## 7.0.4
+
+### Patch Changes
+
+- 4fb50ba78: FormatValue: `key` attribute can be duplicated
+- Updated dependencies [a90ec3748]
+- Updated dependencies [a90ec3748]
+  - @talend/design-system@3.2.0
+
 ## 7.0.3
 
 ### Patch Changes
