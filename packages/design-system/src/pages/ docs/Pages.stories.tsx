@@ -98,7 +98,7 @@ const ItemWithDetails = ({
 	return (
 		<>
 			<Drawer
-				toggleButton={
+				disclosure={
 					<ButtonPrimary
 						onClick={(event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) =>
 							onClick(event, itemId)
@@ -107,8 +107,10 @@ const ItemWithDetails = ({
 						Item {itemId + 1}
 					</ButtonPrimary>
 				}
-				heading={<h3>Item {itemId + 1}</h3>}
-				footer={<ButtonSecondary onClick={() => setVisible(false)}>Close</ButtonSecondary>}
+				header={<h3>Item {itemId + 1}</h3>}
+				footer={(dialog: any) => (
+					<ButtonSecondary onClick={() => dialog.setVisible(false)}>Close</ButtonSecondary>
+				)}
 				visible={visible}
 			>
 				Item {itemId + 1} details
