@@ -1,10 +1,5 @@
-import React, {
-	HTMLAttributes,
-	ReactElement,
-	ReactNode,
-	cloneElement,
-	isValidElement,
-} from 'react';
+import React, { HTMLAttributes, ReactElement, ReactNode, cloneElement } from 'react';
+import tokens from '@talend/design-tokens';
 import {
 	usePopoverState,
 	Popover as ReakitPopover,
@@ -37,7 +32,11 @@ function Popover({ disclosure, position = 'auto', ...props }: PopoverPropsType) 
 			<ReakitPopoverDisclosure {...popover}>
 				{disclosureProps => cloneElement(disclosure, disclosureProps)}
 			</ReakitPopoverDisclosure>
-			<ReakitPopover {...popover} {...props}>
+			<ReakitPopover
+				{...popover}
+				style={{ zIndex: tokens.coralElevationLayerStandardFront, ...props.style }}
+				{...props}
+			>
 				<div className={style.popover__animated}>
 					<ReakitPopoverArrow {...popover} className={style.popover__arrow} />
 					{children.map(child => {
