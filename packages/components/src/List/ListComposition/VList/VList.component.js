@@ -60,7 +60,7 @@ function VList({ children, columnChooser, ...rest }) {
 				headerAction={headerAction}
 				{...rest}
 			>
-				{visibleColumns && children?.filter
+				{visibleColumns && Array.isArray(children)
 					? children.filter(column => visibleColumns.includes(column.props?.dataKey))
 					: children}
 			</VirtualizedList>
