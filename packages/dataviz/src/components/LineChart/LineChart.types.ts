@@ -1,3 +1,5 @@
+import { AxisDomain, ScaleType } from 'recharts/types/util/types';
+
 export type LineChartEntry = {
 	xLabel: string | number | Date;
 	[key: string]: string | number | Date;
@@ -36,6 +38,8 @@ export type LineChartOptions = {
 		showInactives?: boolean;
 	};
 	xAxisOptions?: {
+		domain?: number[];
+		type?: 'number' | 'category';
 		interval: number | 'preserveStart' | 'preserveEnd' | 'preserveStartEnd';
 		manualTicks?: Array<string | number>;
 		horizontalOffset: number;

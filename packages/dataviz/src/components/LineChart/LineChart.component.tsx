@@ -89,6 +89,8 @@ function LineChart({
 						ticks={xAxisOptions?.manualTicks}
 						tickLine={false}
 						tickFormatter={xAxisOptions?.formatter}
+						domain={xAxisOptions?.domain}
+						type={xAxisOptions?.type}
 					/>
 					<YAxis
 						yAxisId="left"
