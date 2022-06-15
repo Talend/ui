@@ -86,6 +86,7 @@ function LineChart({
 						dataKey="xLabel"
 						interval={xAxisOptions?.interval}
 						dx={xAxisOptions?.horizontalOffset}
+						dy={xAxisOptions?.verticalOffset}
 						ticks={xAxisOptions?.manualTicks}
 						tickLine={false}
 						tickFormatter={xAxisOptions?.formatter}
@@ -98,6 +99,8 @@ function LineChart({
 						domain={leftYAxisOptions?.domain}
 						unit={leftYAxisOptions?.hideUnitInAxis ? '' : leftYAxisOptions?.unit}
 						interval={leftYAxisOptions?.manualTicks ? 0 : 'preserveEnd'}
+						dx={leftYAxisOptions?.horizontalOffset}
+						dy={leftYAxisOptions?.verticalOffset}
 						minTickGap={2}
 						tickCount={6}
 						ticks={leftYAxisOptions?.manualTicks}
@@ -112,6 +115,8 @@ function LineChart({
 						domain={rightYAxisOptions?.domain}
 						unit={rightYAxisOptions?.hideUnitInAxis ? '' : rightYAxisOptions?.unit}
 						interval={rightYAxisOptions?.manualTicks ? 0 : 'preserveEnd'}
+						dx={rightYAxisOptions?.horizontalOffset}
+						dy={rightYAxisOptions?.verticalOffset}
 						minTickGap={2}
 						tickCount={6}
 						ticks={rightYAxisOptions?.manualTicks}
