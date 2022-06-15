@@ -14,7 +14,7 @@ function EasyPopover() {
 	return <StackVertical gap="S">Hello hello</StackVertical>;
 }
 
-function ControlledPopover({ popover }: { popover?: PopoverStateReturn }) {
+function ChildrenAsFunctionPopoverContent({ popover }: { popover?: PopoverStateReturn }) {
 	return (
 		<StackVertical gap="S">
 			There is some content
@@ -44,7 +44,7 @@ export const WithFunctionAsChildren = () => (
 				<ButtonPrimary onClick={action('Clicked disclosure')}>Open popover</ButtonPrimary>
 			}
 		>
-			{(popover: PopoverStateReturn) => <ControlledPopover popover={popover} />}
+			{(popover: PopoverStateReturn) => <ChildrenAsFunctionPopoverContent popover={popover} />}
 			<EasyPopover />
 		</Popover>
 	</div>

@@ -21,9 +21,15 @@ export type PopoverPropsType = HTMLAttributes<HTMLDivElement> & {
 	disclosure: ReactElement<typeof Clickable>;
 	children: PopoverChildren | PopoverChildren[];
 	position?: Placement;
+	zIndex?: string | number;
 } & DataAttributes;
 
-function Popover({ disclosure, position = 'auto', ...props }: PopoverPropsType) {
+function Popover({
+	disclosure,
+	position = 'auto',
+	zIndex = tokens.coralElevationLayerStandardFront,
+	...props
+}: PopoverPropsType) {
 	const popover = usePopoverState({ animated: ANIMATION_DURATION, placement: position });
 	const children = Array.isArray(props.children) ? props.children : [props.children];
 
@@ -32,11 +38,7 @@ function Popover({ disclosure, position = 'auto', ...props }: PopoverPropsType) 
 			<ReakitPopoverDisclosure {...popover}>
 				{disclosureProps => cloneElement(disclosure, disclosureProps)}
 			</ReakitPopoverDisclosure>
-			<ReakitPopover
-				{...popover}
-				style={{ zIndex: tokens.coralElevationLayerStandardFront, ...props.style }}
-				{...props}
-			>
+			<ReakitPopover {...popover} {...props} style={{ zIndex }}>
 				<div className={style.popover__animated}>
 					<ReakitPopoverArrow {...popover} className={style.popover__arrow} />
 					{children.map(child => {
