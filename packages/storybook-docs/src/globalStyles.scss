@@ -1,0 +1,17 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+.docs-story {
+  border: 2px solid tokens.$coral-color-danger-border;
+}
+
