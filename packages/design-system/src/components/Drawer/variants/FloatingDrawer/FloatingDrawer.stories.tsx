@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentStory, Story } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import { Area } from '~docs';
+import { screen, userEvent } from '@storybook/testing-library';
 
 import { FloatingDrawer } from './FloatingDrawer';
 import { ButtonPrimary } from '../../../Button';
@@ -13,6 +14,11 @@ const defaultProps = {
 	header: <Area>Heading</Area>,
 	children: <Area>Body</Area>,
 	footer: <Area>Footer</Area>,
+};
+
+const playOpenDrawer = async () => {
+	const openButton = screen.getByRole('button');
+	await userEvent.click(openButton);
 };
 
 export const Simple: ComponentStory<typeof FloatingDrawer> = () => (
@@ -29,6 +35,7 @@ export const WithDisclosure: ComponentStory<typeof FloatingDrawer> = () => (
 		}
 	/>
 );
+WithDisclosure.play = playOpenDrawer;
 
 const ControlledFloatingDrawer = () => {
 	const [visible, setVisible] = React.useState(false);
@@ -44,6 +51,7 @@ const ControlledFloatingDrawer = () => {
 export const WithControlledVisibility: ComponentStory<typeof FloatingDrawer> = () => (
 	<ControlledFloatingDrawer />
 );
+WithControlledVisibility.play = playOpenDrawer;
 
 export const Usage: ComponentStory<typeof FloatingDrawer> = () => (
 	<FloatingDrawer
@@ -58,3 +66,4 @@ export const Usage: ComponentStory<typeof FloatingDrawer> = () => (
 		<Area>Body</Area>
 	</FloatingDrawer>
 );
+Usage.play = playOpenDrawer;
