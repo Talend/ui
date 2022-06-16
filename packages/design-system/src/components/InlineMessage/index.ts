@@ -1,21 +1,15 @@
 import InlineMessage from './InlineMessage';
-import InlineMessageInformation from './variations/InlineMessage.information';
-import InlineMessageSuccess from './variations/InlineMessage.success';
-import InlineMessageWarning from './variations/InlineMessage.warning';
-import InlineMessageDestructive from './variations/InlineMessage.destructive';
+import InlineMessageInformation from './variations/InlineMessageInformation';
+import InlineMessageSuccess from './variations/InlineMessageSuccess';
+import InlineMessageWarning from './variations/InlineMessageWarning';
+import InlineMessageDestructive from './variations/InlineMessageDestructive';
+import InlineMessageBeta from './variations/InlineMessageBeta';
 
-// @see https://company-57688.frontify.com/document/276652#/new-features/inline-message
-
-const InlineMessageComponent = InlineMessage as typeof InlineMessage & {
-	Information: typeof InlineMessageInformation;
-	Success: typeof InlineMessageSuccess;
-	Warning: typeof InlineMessageWarning;
-	Destructive: typeof InlineMessageDestructive;
+export {
+	InlineMessage,
+	InlineMessageInformation,
+	InlineMessageSuccess,
+	InlineMessageWarning,
+	InlineMessageDestructive,
+	InlineMessageBeta,
 };
-
-InlineMessageComponent.Information = InlineMessageInformation;
-InlineMessageComponent.Success = InlineMessageSuccess;
-InlineMessageComponent.Warning = InlineMessageWarning;
-InlineMessageComponent.Destructive = InlineMessageDestructive;
-
-export default InlineMessageComponent;

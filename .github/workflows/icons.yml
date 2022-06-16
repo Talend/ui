@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
+        with:
+          # Required when using a PAT for opening the PR
+          persist-credentials: false
 
       - name: Use Node.js
         uses: actions/setup-node@v3
@@ -55,3 +58,5 @@ jobs:
           body: ${{ steps.get-pr-body.outputs.body }}
           branch: ci/icons
           token: ${{ secrets.GITHUB_TOKEN }}
+          # Opening a PR with default token would not start build & test action
+          GITHUB_TOKEN: ${{ secrets.CHANGESET_GITHUB_TOKEN }}

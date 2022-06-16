@@ -1,5 +1,51 @@
 # @talend/react-datagrid
 
+## 11.0.0
+
+### Major Changes
+
+- df3460428: Rewrite header cell renderer to include all projects use cases + cleanup its API:
+
+  - Custom properties (type, column description, style...) are now provided in `colDef.headerComponentParams` field.
+    - See `HeaderComponentParams`for available fields
+  - Quality information is simplified (see: `HeaderComponentParams`)
+
+  Please remove custom renderers from projects
+
+### Patch Changes
+
+- Updated dependencies [6887f0fcf]
+- Updated dependencies [6887f0fcf]
+  - @talend/icons@6.44.0
+
+## 10.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-components@7.0.1
+
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/design-system@3.0.0
+
+## 9.3.1
+
+### Patch Changes
+
+- 07e270241: fix: use assets-api back to lazy load aggrid assets
+- Updated dependencies [eec63a996]
+  - @talend/assets-api@1.2.1
+
 ## 9.3.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 // import { FigmaImage, Use } from '~docs';
 
-import InlineMessage from '../../InlineMessage/InlineMessage';
+import { InlineMessageInformation } from '../../InlineMessage';
 import * as Stories from './Primitives.stories';
 import { StackVertical } from '../../Stack';
 
@@ -16,7 +16,7 @@ import { StackVertical } from '../../Stack';
 # Form Primitives
 
 <StackVertical gap="0" padding={{ x: '0', y: 'M' }}>
-	<InlineMessage.Information
+	<InlineMessageInformation
 		withBackground
 		description="Primitives are unexported components used within
     the design system. They are composed together to create the public components."
@@ -57,6 +57,12 @@ import { StackVertical } from '../../Stack';
 
 <Canvas>
 	<Story story={Stories.RadioPrimitive} />
+</Canvas>
+
+## Field
+
+<Canvas>
+	<Story story={Stories.FieldStory} />
 </Canvas>
 
 ## Advanced affixes

@@ -2,7 +2,6 @@ import React from 'react';
 import isEqual from 'lodash/isEqual';
 
 import { action } from '@storybook/addon-actions';
-import { object } from '@storybook/addon-knobs';
 
 import Form from '../src/FormSwitcher';
 
@@ -27,9 +26,7 @@ export default {
 	title: 'Playground',
 };
 
-export function Default() {
-	const data = object('data', DEFAULT_DATA);
-
+export function Default({ data }) {
 	if (!data || !data.jsonSchema || isEqual(data, DEFAULT_DATA)) {
 		return (
 			<div className="panel panel-info">
@@ -64,3 +61,7 @@ export function Default() {
 		/>
 	);
 }
+
+Default.args = {
+	data: DEFAULT_DATA,
+};

@@ -57,7 +57,6 @@ const defaultPreview = {
 			const storyElement = React.createElement(Story, {...context, key: 'story'});
 			return [
 				React.createElement(IconsProvider, {
-					bundles: ['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg'],
 					key: 'icons-provider-decorator'
 				}),
 				React.createElement(ThemeProvider, {

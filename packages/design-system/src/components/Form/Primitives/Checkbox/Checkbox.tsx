@@ -8,7 +8,7 @@ import Label from '../Label/Label';
 import styles from './Checkbox.module.scss';
 
 type CheckboxType = Omit<CheckboxProps, 'type' | 'prefix'> & {
-	label: string | ReactElement;
+	label: string;
 	id: string;
 	indeterminate?: boolean;
 };

@@ -1,5 +1,64 @@
 # @talend/design-system
 
+## 3.2.0
+
+### Minor Changes
+
+- a90ec3748: feat(design-system): Allow children as function for popover component in order to access the popover state
+
+### Patch Changes
+
+- a90ec3748: fix(design-system): add z-index to popover
+
+## 3.1.1
+
+### Patch Changes
+
+- 79f7127a7: fix(design-system): add white background to popover component
+
+## 3.1.0
+
+### Minor Changes
+
+- 8b9a8b5da: chore(design-system/Popover): Refactor Popover
+
+### Patch Changes
+
+- Updated dependencies [f489c4b4f]
+  - @talend/design-tokens@2.5.0
+
+## 3.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+
+## 3.0.0
+
+### Major Changes
+
+- 051dfd9fb: chore(design-system/Card): Refactor Card component
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+
+### Patch Changes
+
+- 5a30f1f0e: feat(design-system): new icon set for status
+
+## 2.8.0
+
+### Minor Changes
+
+- 0e4cfbaa8: Add new input variant
+
+### Patch Changes
+
+- 4419bbd0a: SkeletonInput does not stretch
+- Updated dependencies [eec63a996]
+  - @talend/assets-api@1.2.1
+
 ## 2.7.0
 
 ### Minor Changes

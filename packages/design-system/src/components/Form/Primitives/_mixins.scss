@@ -82,8 +82,12 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
     box-shadow: 0 0 0 0.1rem tokens.$coral-color-accent-border;
   }
 
-  &.border_error {
+  &_borderError {
     border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
+
+    &:hover {
+      border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border-hover;
+    }
 
     &:focus-within, &:focus {
       border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;

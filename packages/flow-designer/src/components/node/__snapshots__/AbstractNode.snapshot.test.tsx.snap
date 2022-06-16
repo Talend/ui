@@ -3,7 +3,9 @@
 exports[`<AbstractNode /> renders correctly 1`] = `
 <g>
   <g
+    data-testid="group.id"
     onClick={[Function]}
+    onDoubleClick={[Function]}
     transform="translate(100, 100)"
   >
     <rect />

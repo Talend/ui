@@ -30,6 +30,7 @@ jobs:
       - name: Build Storybook of the design tokens
         run: |
           yarn workspace @talend/assets-api run build:lib
+          yarn workspace @talend/icons run build:lib
           yarn workspace @talend/design-tokens run build:lib
           yarn workspace @talend/design-tokens run build-storybook
 

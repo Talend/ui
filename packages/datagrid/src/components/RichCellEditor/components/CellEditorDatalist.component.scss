@@ -1,0 +1,20 @@
+@use '~@talend/design-tokens/lib/tokens' as tokens;
+
+.cell-editor-datalist {
+	font: tokens.$coral-data-m;
+
+	[class*='Datalist__tc-datalist-item'],
+	[class*='Typeahead__tc-typeahead-container'],
+	[class*='Typeahead__typeahead-input'] {
+		height: 100%;
+	}
+
+	[class*='Typeahead__typeahead-input'] {
+		min-width: auto;
+		margin: 0;
+	}
+
+	[class*='Typeahead__items-container'] {
+		margin-top: 0;
+	}
+}

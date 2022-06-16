@@ -17,24 +17,24 @@
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.17.0",
+    "@babel/eslint-parser": "^7.18.2",
     "@talend/eslint-plugin": "^0.5.5",
-    "@typescript-eslint/parser": "^5.20.0",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.27.1",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-angular": "^4.1.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest-dom": "^4.0.1",
+    "eslint-plugin-jest-dom": "^4.0.2",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-mdx": "^1.17.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^2.5.1",
-    "eslint-plugin-storybook": "^0.5.11",
-    "eslint-plugin-testing-library": "^5.5.0"
+    "eslint-plugin-storybook": "^0.5.12",
+    "eslint-plugin-testing-library": "^5.5.1"
   },
   "publishConfig": {
     "access": "public"

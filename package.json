@@ -6,14 +6,14 @@
     "eslint": "^7.32.0",
     "husky": "^7.0.4",
     "i18next-scanner": "^3.1.0",
-    "lint-staged": "^12.3.8",
+    "lint-staged": "^12.5.0",
     "prettier": "^2.6.2"
   },
   "scripts": {
     "postinstall": "node workspace-run.js build:lib",
     "pre-release": "node workspace-run.js pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
-    "release": "yarn changeset publish",
+    "release": "yarn pre-release && yarn changeset publish",
     "lint-staged": "lint-staged",
     "lint:es": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:es",
     "lint:style": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:style",
@@ -55,5 +55,8 @@
     "*.{json,md,mdx,html,js,jsx,ts,tsx}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "typescript": ">=4.6.3"
   }
 }

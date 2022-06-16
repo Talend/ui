@@ -3400,5 +3400,35 @@
     "name": "icon/L/zoom-plus",
     "description": "zoom in",
     "documentationLinks": []
+  },
+  {
+    "key": "e5a4062b793278941e82771f83486a7cfd28a4e9",
+    "name": "icon/S/exclamation-stroke",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "2170abc153de70573073cb56ab237c718ff6a288",
+    "name": "icon/M/lightbulb",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "1f1d0be725eb1f8d703a11beb9b7b38f305a98af",
+    "name": "icon/M/exclamation-stroke",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "dd11264368fd6b6a224ef7c1197095e99c27805f",
+    "name": "icon/L/lightbulb",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "842aa484b9ccc3fe6f6cc1b0a7cf6878ba29fc9d",
+    "name": "icon/L/exclamation-stroke",
+    "description": "",
+    "documentationLinks": []
   }
 ]

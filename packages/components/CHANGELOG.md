@@ -1,5 +1,57 @@
 # @talend/react-components
 
+## 7.0.4
+
+### Patch Changes
+
+- 4fb50ba78: FormatValue: `key` attribute can be duplicated
+- Updated dependencies [a90ec3748]
+- Updated dependencies [a90ec3748]
+  - @talend/design-system@3.2.0
+
+## 7.0.3
+
+### Patch Changes
+
+- 85b73cb64: fix(TDC-6341): improve RatioBarComposition accessibility
+
+## 7.0.2
+
+### Patch Changes
+
+- d4b21e191: fix(TDC-6341): quality bars should use Tooltip from DS
+- Updated dependencies [8b9a8b5da]
+  - @talend/design-system@3.1.0
+
+## 7.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/design-system@3.0.1
+
+## 7.0.0
+
+### Major Changes
+
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+
+### Minor Changes
+
+- c8fbf0130: feat(TDC-6235): pass input reference to datalist rendering function
+
+### Patch Changes
+
+- 9a581a4bc: Datalist: keep user filter when suggestion changes
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/design-system@3.0.0
+
 ## 6.49.0
 
 ### Minor Changes
