@@ -7,7 +7,6 @@ import { ButtonPrimary, ButtonSecondary } from '../../components/Button';
 import Form from '../../components/Form';
 import Link from '../../components/Link';
 import { FloatingDrawer } from '../../components/Drawer';
-import { DialogStateReturn } from 'reakit/ts';
 
 export default {
 	title: 'Pages/Pages',
@@ -98,20 +97,16 @@ const ItemWithDetails = ({
 
 	return (
 		<>
-			<FloatingDrawer
-				disclosure={
-					<ButtonPrimary
-						onClick={(event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) =>
-							onClick(event, itemId)
-						}
-					>
-						Item {itemId + 1}
-					</ButtonPrimary>
+			<ButtonPrimary
+				onClick={(event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) =>
+					onClick(event, itemId)
 				}
+			>
+				Item {itemId + 1}
+			</ButtonPrimary>
+			<FloatingDrawer
 				header={<h3>Item {itemId + 1}</h3>}
-				footer={(dialog: DialogStateReturn) => (
-					<ButtonSecondary onClick={() => dialog.setVisible(false)}>Close</ButtonSecondary>
-				)}
+				footer={<ButtonSecondary onClick={() => setVisible(false)}>Close</ButtonSecondary>}
 				visible={visible}
 			>
 				Item {itemId + 1} details

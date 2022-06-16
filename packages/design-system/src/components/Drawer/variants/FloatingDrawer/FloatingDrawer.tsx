@@ -1,17 +1,24 @@
 import React, { useEffect, useRef } from 'react';
-import { Dialog, DialogDisclosure, useDialogState } from 'reakit';
+import { Dialog, DialogDisclosure, DialogStateReturn, useDialogState } from 'reakit';
 import PrimitiveDrawer from '../../Primitive/PrimitiveDrawer';
 
 import theme from './FloatingDrawer.scss';
 
-export type DrawerProps = {
-	disclosure?: React.ReactElement;
-	header?: React.ReactNode;
-	children: React.ReactNode;
-	footer?: React.ReactNode;
-	visible?: boolean;
-	onClose?: () => void;
+type WithDisclosure = {
+	disclosure: React.ReactElement;
+	visible?: never;
 };
+type Controlled = {
+	disclosure?: never;
+	visible: boolean;
+};
+
+export type DrawerProps = {
+	header?: ((dialog: DialogStateReturn) => React.ReactNode) | React.ReactNode;
+	children: ((dialog: DialogStateReturn) => React.ReactNode) | React.ReactNode;
+	footer?: ((dialog: DialogStateReturn) => React.ReactNode) | React.ReactNode;
+	onClose?: () => void;
+} & (WithDisclosure | Controlled);
 
 export const FloatingDrawer = ({
 	disclosure,
