@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Dialog, DialogDisclosure, useDialogState } from 'reakit';
-import Drawer from '../../Primitive/Drawer';
+import PrimitiveDrawer from '../../Primitive/PrimitiveDrawer';
 
 import theme from './FloatingDrawer.scss';
 
@@ -13,7 +13,6 @@ export type DrawerProps = {
 	onClose?: () => void;
 };
 
-// eslint-disable-next-line react/display-name
 export const FloatingDrawer = ({
 	disclosure,
 	header,
@@ -48,15 +47,13 @@ export const FloatingDrawer = ({
 				hide={onCloseHandler}
 				className={theme['floating-drawer']}
 			>
-				<Drawer
+				<PrimitiveDrawer
 					header={typeof header === 'function' ? header(dialog) : header}
 					footer={typeof footer === 'function' ? footer(dialog) : footer}
 				>
 					{typeof children === 'function' ? children(dialog) : children}
-				</Drawer>
+				</PrimitiveDrawer>
 			</Dialog>
 		</>
 	);
 };
-
-export default Drawer;
