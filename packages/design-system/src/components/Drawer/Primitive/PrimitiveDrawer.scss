@@ -27,7 +27,7 @@
 	&__footer {
 		flex-grow: 0;
 		flex-shrink: 0;
-		flex-basis: 5.5rem;
+		flex-basis: calc(tokens.$coral-sizing-l + 2 * tokens.$coral-spacing-xs);
 
 		display: flex;
 	}
