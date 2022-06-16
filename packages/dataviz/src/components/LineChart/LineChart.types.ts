@@ -39,6 +39,7 @@ export type LineChartOptions = {
 	};
 	xAxisOptions?: {
 		domain?: number[];
+		clipDomain?: boolean;
 		type?: 'number' | 'category';
 		interval: number | 'preserveStart' | 'preserveEnd' | 'preserveStartEnd';
 		manualTicks?: Array<string | number>;

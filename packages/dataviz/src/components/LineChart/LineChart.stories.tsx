@@ -38,6 +38,7 @@ export const FullyCustomisedLineChart = {
 				interval: 2,
 				horizontalOffset: 10,
 				verticalOffset: 10,
+				clipDomain: true,
 				formatter: (date: Date) => `${date.getMonth()}/${date.getDate()}`,
 				tooltipFormatter: (date: Date) => date.toLocaleString(),
 			},
@@ -78,6 +79,11 @@ export const FullyCustomisedLineChart = {
 			},
 		],
 		data: [
+			{
+				xLabel: new Date(2021, 2, 2),
+				trustScore: 2.2,
+				validity: 50,
+			},
 			{
 				xLabel: new Date(2022, 2, 2),
 				trustScore: 2.2,
@@ -236,29 +242,6 @@ export const MultiCurveLineChart = {
 				xLabel: '2/30',
 				trustScore: 4.2,
 				globalScore: 4,
-			},
-		],
-	},
-};
-
-export const SinglePointLineChart = {
-	args: {
-		chartOptions: {
-			leftYAxisOptions: {
-				type: 'number',
-				domain: [0, 5],
-			},
-		},
-		lines: [
-			{
-				key: 'trustScore',
-				color: '#1667DF',
-			},
-		],
-		data: [
-			{
-				xLabel: '2/2',
-				trustScore: 2.2,
 			},
 		],
 	},
