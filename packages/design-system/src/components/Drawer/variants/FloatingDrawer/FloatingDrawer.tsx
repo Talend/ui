@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { Dialog, DialogDisclosure, useDialogState } from 'reakit';
-import { useSpring, animated } from 'react-spring';
 import Drawer from '../../Primitive/Drawer';
 
 import theme from './FloatingDrawer.scss';
@@ -25,10 +24,6 @@ export const FloatingDrawer = ({
 }: DrawerProps) => {
 	const ref = useRef(null);
 	const dialog = useDialogState({ modal: false, visible: visibleProps ?? false, animated: true });
-	const { transform } = useSpring({
-		transform: dialog.visible ? 'translateX(0%)' : 'translateX(100%)',
-		onRest: dialog.stopAnimation,
-	});
 
 	useEffect(() => {
 		if (visibleProps !== undefined) {
@@ -51,9 +46,7 @@ export const FloatingDrawer = ({
 				ref={ref}
 				hideOnClickOutside={false}
 				hide={onCloseHandler}
-				as={animated.div}
 				className={theme['floating-drawer']}
-				style={{ transform }}
 			>
 				<Drawer
 					header={typeof header === 'function' ? header(dialog) : header}
