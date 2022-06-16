@@ -2,4 +2,4 @@
 '@talend/dynamic-cdn-webpack-plugin': patch
 ---
 
-fix: use find to resolve pkg instead of require.resolve
+fix: resolvePkg use find first and fallback to require.resolve
