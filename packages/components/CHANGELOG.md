@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.0.5
+
+### Patch Changes
+
+- cc9b1083f: fix(AMG-202): VList with single column crash
+
 ## 7.0.4
 
 ### Patch Changes
