@@ -8,15 +8,15 @@ const { findPackage } = require('./find');
  * @returns {string|undefined} the full path of the module id requested
  */
 function resolve(moduleId, options) {
-	let paths = require.resolve.paths(moduleId) || [];
-	if (options && options.cwd) {
-		paths = [options.cwd].concat(paths);
-	}
 	let result;
 	if (options && options.version) {
 		result = findPackage(options);
 	}
 	if (!result) {
+		let paths = require.resolve.paths(moduleId) || [];
+		if (options && options.cwd) {
+			paths = [options.cwd].concat(paths);
+		}
 		try {
 			return require.resolve(moduleId, { paths });
 		} catch {}
