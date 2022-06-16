@@ -7,7 +7,7 @@
 	bottom: 0;
 	box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 	z-index: tokens.$coral-elevation-layer-overlay;
-	transition: tokens.$coral-transition-fast;
+	transition: transform tokens.$coral-transition-fast;
 	transform: translateX(100%);
 
 	&[data-enter] {
