@@ -69,10 +69,10 @@ function getDeps(cdnConfig) {
 	}, {});
 }
 
-function getPackageRootPath(name, contextPath) {
-	const main = resolvePkg(name, { cwd: contextPath });
+function getPackageRootPath(cdnConfig) {
+	const main = resolvePkg(cdnConfig.name, cdnConfig);
 
-	const depPath = path.normalize(path.join(path.sep, name, path.sep));
+	const depPath = path.normalize(path.join(path.sep, cdnConfig.name, path.sep));
 	const index = main.indexOf(depPath);
 	// index may equal -1:
 	// name = @talend/react-cmf
@@ -261,8 +261,7 @@ class DynamicCdnWebpackPlugin {
 				}
 				continue;
 			}
-			const contextModulePath =
-				getPackageRootPath(cdnConfig.name, contextPath) || contextPath;
+			const contextModulePath = getPackageRootPath(cdnConfig) || contextPath;
 			const depPath = `${path.join(contextModulePath, cdnConfig.path)}.dependencies.json`;
 			if (fs.existsSync(depPath)) {
 				this.addDependencies(contextModulePath, require(depPath), {
@@ -359,7 +358,7 @@ class DynamicCdnWebpackPlugin {
 		}
 
 		// Try to get the manifest
-		const contextModulePath = getPackageRootPath(cdnConfig.name, contextPath) || contextPath;
+		const contextModulePath = getPackageRootPath(cdnConfig) || contextPath;
 		const depPath = `${path.join(contextModulePath, cdnConfig.path)}.dependencies.json`;
 		cdnConfig.local = path.join(contextModulePath, cdnConfig.path);
 

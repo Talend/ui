@@ -8,8 +8,8 @@ const { findPackage } = require('./find');
  * @returns {string|undefined} the full path of the module id requested
  */
 function resolve(moduleId, options) {
-	if (options.version) {
-		return findPackage({ ...options, name: moduleId });
+	if (options && options.version) {
+		return findPackage(options);
 	}
 	let paths = require.resolve.paths(moduleId) || [];
 
