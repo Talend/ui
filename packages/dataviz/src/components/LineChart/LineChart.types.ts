@@ -1,5 +1,3 @@
-import { AxisDomain, ScaleType } from 'recharts/types/util/types';
-
 export type LineChartEntry = {
 	xLabel: string | number | Date;
 	[key: string]: string | number | Date;
