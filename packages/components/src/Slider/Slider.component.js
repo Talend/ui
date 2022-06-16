@@ -213,6 +213,7 @@ const Slider = React.forwardRef((props, ref) => {
 		mode,
 		onChange,
 		disabled,
+		hideTooltip,
 		...rest
 	} = props;
 	const noValue = value === null || value === undefined;
@@ -222,12 +223,12 @@ const Slider = React.forwardRef((props, ref) => {
 				<RcSlider
 					range={Array.isArray(value)}
 					id={id}
-					defaultValue={value ? undefined : 0}
+					defaultValue={noValue ? undefined : 0}
 					value={value}
 					min={min}
 					max={max}
 					step={step}
-					handleRender={noValue ? undefined : handleRender}
+					handleRender={noValue || hideTooltip ? undefined : handleRender}
 					className={classnames(
 						theme['tc-slider-rc-slider'],
 						{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
