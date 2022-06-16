@@ -48,26 +48,26 @@ function LineChart({
 	} = chartOptions;
 
 	const getLineStyleFromStatus = (status: LineStatus) => {
-		let style = {};
-		if (status === 'inactive') {
-			style = {
+		const styleByStatus = {
+			active: {
+				strokeWidth: 3,
+				strokeOpacity: 1,
+				activeDot: { r: 5, strokeWidth: 0 },
+			},
+			inactive: {
 				strokeWidth: 2.5,
 				strokeOpacity: 0.25,
 				activeDot: { r: 0, strokeWidth: 0 },
-			};
-		} else if (status === 'highlighted') {
-			style = {
+			},
+			highlighted: {
 				strokeWidth: 4,
 				strokeOpacity: 1,
 				activeDot: { r: 6, strokeWidth: 0 },
-			};
-		}
+			},
+		};
 		return {
-			strokeWidth: 3,
-			strokeOpacity: 1,
 			dot: { r: 0 },
-			activeDot: { r: 5, strokeWidth: 0 },
-			...style,
+			...styleByStatus[status],
 		};
 	};
 
