@@ -1,5 +1,3 @@
-import Drawer from './Drawer.component';
+import { FloatingDrawer } from './variants/FloatingDrawer/FloatingDrawer';
 
-const DrawerComponent = Drawer as typeof Drawer & {};
-
-export default DrawerComponent;
+export { FloatingDrawer };

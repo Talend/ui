@@ -57,8 +57,8 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.8",
-    "@storybook/addon-controls": "^6.5.8",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-controls": "^6.5.9",
     "@talend/bootstrap-theme": "^6.39.0",
     "@talend/icons": "^6.42.0",
     "@talend/locales-tui-forms": "^6.41.3",

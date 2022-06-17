@@ -69,10 +69,13 @@ function getDeps(cdnConfig) {
 	}, {});
 }
 
-function getPackageRootPath(name, contextPath) {
-	const main = resolvePkg(name, { cwd: contextPath });
-
-	const depPath = path.normalize(path.join(path.sep, name, path.sep));
+function getPackageRootPath(cdnConfig, cwd) {
+	const opts = { cwd, ...cdnConfig };
+	const main = resolvePkg(cdnConfig.name, opts);
+	if (!main) {
+		console.error(`DynamicCdnWebpackPlugin package ${cdnConfig.name} not found in ${cwd}`);
+	}
+	const depPath = path.normalize(path.join(path.sep, cdnConfig.name, path.sep));
 	const index = main.indexOf(depPath);
 	// index may equal -1:
 	// name = @talend/react-cmf
@@ -258,7 +261,7 @@ class DynamicCdnWebpackPlugin {
 				}
 				continue;
 			}
-			const contextModulePath = getPackageRootPath(cdnConfig.name, contextPath) || contextPath;
+			const contextModulePath = getPackageRootPath(cdnConfig, contextPath) || contextPath;
 			const depPath = `${path.join(contextModulePath, cdnConfig.path)}.dependencies.json`;
 			if (fs.existsSync(depPath)) {
 				this.addDependencies(contextModulePath, require(depPath), {
@@ -356,7 +359,7 @@ class DynamicCdnWebpackPlugin {
 		}
 
 		// Try to get the manifest
-		const contextModulePath = getPackageRootPath(cdnConfig.name, contextPath) || contextPath;
+		const contextModulePath = getPackageRootPath(cdnConfig, contextPath) || contextPath;
 		const depPath = `${path.join(contextModulePath, cdnConfig.path)}.dependencies.json`;
 		cdnConfig.local = path.join(contextModulePath, cdnConfig.path);
 
