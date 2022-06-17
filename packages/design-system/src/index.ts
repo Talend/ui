@@ -65,6 +65,7 @@ import Stepper from './components/Stepper';
 import Tabs from './components/Tabs';
 import {
 	Tag,
+	TagBeta,
 	TagDefault,
 	TagInformation,
 	TagSuccess,
@@ -141,6 +142,7 @@ export {
 	Switch,
 	Tabs,
 	Tag,
+	TagBeta,
 	TagDefault,
 	TagDestructive,
 	TagInformation,
