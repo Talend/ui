@@ -1,6 +1,10 @@
 const path = require('path');
-const distFolder = path.join(__dirname, './dir');
 
 module.exports = {
-    staticDirs: [distFolder],
+	staticDirs: [
+		{
+			from: path.join(__dirname, '../dist'),
+			to: `/storybook-docs/assets/`,
+		},
+	],
 };
