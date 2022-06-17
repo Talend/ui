@@ -1,5 +1,16 @@
 # @talend/react-components
 
+## 7.1.0
+
+### Minor Changes
+
+- 252e346b1: feat(components/sidepanel): allow beta tag
+
+### Patch Changes
+
+- Updated dependencies [21189557e]
+  - @talend/design-system@3.4.0
+
 ## 7.0.5
 
 ### Patch Changes
