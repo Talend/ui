@@ -1,1 +1,1 @@
-import "../dist/globalStyles.min.css";
+import '../dist/globalStyles.min.css';
