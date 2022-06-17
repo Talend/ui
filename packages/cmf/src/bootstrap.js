@@ -60,7 +60,10 @@ export function bootstrapSaga(options) {
 	// https://chrome.google.com/webstore/detail/redux-saga-dev-tools/kclmpmjofefcpjlommdpokoccidafnbi
 	// eslint-disable-next-line no-underscore-dangle
 	const sagaMonitor = window.__SAGA_MONITOR_EXTENSION__;
-	const middleware = createSagaMiddleware({ onError: onError.report, sagaMonitor });
+	const middleware = createSagaMiddleware({
+		onError: onError.report,
+		sagaMonitor,
+	});
 	return {
 		middleware,
 		run: () => middleware.run(cmfSaga),

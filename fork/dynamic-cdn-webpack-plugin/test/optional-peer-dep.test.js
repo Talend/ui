@@ -12,7 +12,7 @@ describe('Optional Peer Dep', () => {
 		const plugin = new DynamicCdnWebpackPlugin();
 		plugin.error = () => {};
 
-		// wheb
+		// when
 		const stats = await runWebpack({
 			context: path.resolve(__dirname, './fixtures/optional-peer-deps'),
 
@@ -31,7 +31,10 @@ describe('Optional Peer Dep', () => {
 		const urlReactDom = 'https://unpkg.com/react-dom@16.14.0/umd/react-dom.development.js';
 
 		// then
-		const files = stats.compilation.chunks.reduce((accu, x) => accu.concat(x.files), []);
+		const files = Array.from(stats.compilation.chunks).reduce(
+			(f, x) => f.concat(Array.from(x.files)),
+			[],
+		);
 		expect(files).toContain('https://unpkg.com/react-dnd@14.0.3/dist/umd/ReactDnD.js');
 		expect(files).toContain(urlReactDom);
 		expect(files).toContain(urlReactRedux);
