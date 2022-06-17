@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { StackHorizontal, TagBeta } from '@talend/design-system';
 import { Action } from '../Actions';
 import Inject from '../Inject';
 import theme from './ActionList.scss';
@@ -57,7 +58,7 @@ function ActionListItem({ getComponent, id, onSelect, action, isSelected, isNav,
 			})}
 			{...a11y}
 		>
-			<Renderers.Action {...actionProps} />
+			<Renderers.Action {...actionProps}>{action.beta && <TagBeta>Beta</TagBeta>}</Renderers.Action>
 		</li>
 	);
 }
