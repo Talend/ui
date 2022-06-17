@@ -3,13 +3,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: './src/globalStyles.scss',
+    entry: { globalStyles: './src/globalStyles.scss', managerStyles: './src/managerStyles.scss' },
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'globalStyles.min.css',
+            filename: '[name].min.css',
+            chunkFilename: "[name].min.css",
         }),
     ],
     module: {
@@ -35,5 +36,10 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
 };
