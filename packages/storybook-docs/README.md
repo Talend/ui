@@ -21,9 +21,11 @@ $> yarn
 Start Storybook and start editing
 
 ```sh
-$> yarn start
+$> yarn workspace @talend/storybook-docs run start
 ```
+
+## How to integrate in your storybook
 
 ## License
 
-[Apache 2.0](https://github.com/Talend/design-system/blob/master/LICENSE)
+[Apache 2.0](https://github.com/Talend/ui/blob/master/packages/storybook-docs/LICENSE)
