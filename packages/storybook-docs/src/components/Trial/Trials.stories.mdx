@@ -1,9 +1,7 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import * as Stories from './Trial.stories';
 
-<Meta
-    title="Trial"
-/>
+<Meta title="Components/Trial" />
 
 # Trial
 
@@ -21,9 +19,7 @@ npm i -S react react-dom react-is classnames styled-components @talend/design-sy
 import { Component } from '@package/lib';
 
 function Component() {
-    return (
-        <div>Component</div>
-    )
+	return <div>Component</div>;
 }
 ```
 
@@ -40,9 +36,9 @@ function Component() {
 Nulla semper turpis vel sem ullamcorper condimentum.
 
 | Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
+| -------- | :-----------: | ----: |
+| col 1 is | left-aligned  | $1600 |
+| col 2 is |   centered    |   $12 |
 | col 3 is | right-aligned |    $1 |
 
 #### Header 5
@@ -54,5 +50,5 @@ Etiam vitae sollicitudin massa. Nulla facilisi. Duis sit amet vestibulum erat, u
 Duis sit amet vestibulum erat, ut rutrum eros.
 
 <Canvas withSource="closed">
-    <Story story={Stories.Story} />
+	<Story story={Stories.Story} />
 </Canvas>

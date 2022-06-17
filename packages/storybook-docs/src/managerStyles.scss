@@ -1,5 +1,19 @@
 @use '~@talend/design-tokens/lib/tokens';
 
+html {
+  font-size: 62.5%;
+}
+
+ #root {
+   div[role="main"] {
+     top: 0;
+
+     > div {
+       box-shadow: none;
+     }
+   }
+ }
+
 .sidebar-subheading.sidebar-subheading {
   letter-spacing: normal;
   text-transform: none;
@@ -7,14 +21,59 @@
   color: tokens.$coral-color-neutral-text;
 }
 
+button.sidebar-item.sidebar-item {
+  padding-left: 18px
+}
+
+.sidebar-subheading.sidebar-subheading {
+  padding: 0;
+
+  button[data-action="collapse-root"] {
+    align-items: center;
+    padding-left: 18px;
+    margin-left: 0;
+
+    > span:first-child {
+      margin-left: tokens.$coral-spacing-xxs;
+      color: tokens.$coral-color-neutral-text;
+    }
+  }
+}
+
 .sidebar-item.sidebar-item {
   font: tokens.$coral-paragraph-m;
-}
+  height: tokens.$coral-sizing-m;
+  align-items: center;
 
-button.sidebar-item.sidebar-item svg {
-  color: tokens.$coral-color-accent-icon;
-}
+  &:not([data-selected="true"]) {
+    background: transparent;
+  }
 
-a.sidebar-item.sidebar-item svg {
-  color: tokens.$coral-color-accent-icon;
+  > * {
+    margin: 0 tokens.$coral-spacing-xxs 0 0;
+  }
+
+  > span:first-child {
+    margin-left: tokens.$coral-spacing-xxs;
+    color: tokens.$coral-color-neutral-text;
+  }
+
+  svg {
+    color: tokens.$coral-color-neutral-text;
+  }
+
+  &[data-selected="true"],
+  &[data-selected="true"]:focus {
+    background: tokens.$coral-color-accent-background;
+    color: tokens.$coral-color-accent-text-strong;
+
+    svg {
+      color: tokens.$coral-color-accent-icon;
+    }
+
+    &:hover {
+      background: tokens.$coral-color-accent-background-hover;
+      color: tokens.$coral-color-accent-text-strong-hover;
+    }
+  }
 }
