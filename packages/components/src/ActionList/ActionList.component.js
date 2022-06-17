@@ -116,6 +116,7 @@ if (process.env.NODE_ENV !== 'production') {
 		icon: PropTypes.string,
 		key: PropTypes.string,
 		label: PropTypes.string,
+		beta: PropTypes.bool,
 		onClick: PropTypes.func,
 	});
 
