@@ -1,0 +1,20 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.sidebar-subheading.sidebar-subheading {
+  letter-spacing: normal;
+  text-transform: none;
+  font: tokens.$coral-heading-m;
+  color: tokens.$coral-color-neutral-text;
+}
+
+.sidebar-item.sidebar-item {
+  font: tokens.$coral-paragraph-m;
+}
+
+button.sidebar-item.sidebar-item svg {
+  color: tokens.$coral-color-accent-icon;
+}
+
+a.sidebar-item.sidebar-item svg {
+  color: tokens.$coral-color-accent-icon;
+}
