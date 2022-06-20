@@ -1,6 +1,6 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["packages/*/src/**/*", "packages/*/*.js"],
+  "include": ["packages/*/src/**/*", "packages/*/*"],
   "compilerOptions": {
     "allowJs": true,
     "declaration": true,
