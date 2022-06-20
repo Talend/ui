@@ -196,6 +196,8 @@ export const FORMAT = {
 	MY_LONG: 'MY_LONG',
 	/** en: 06/29/2020 / fr: 29/06/2020 / ja: 2020/06/29 / de: 29.06.2020 */
 	MDY: 'MDY',
+	/** en: 6/29 / fr: 29/06 / ja: 06/29 / de: 29.06 */
+	MD: 'MD',
 	/** en: 6/29/20, 10:00 PM / fr: 29/06/2020 22:00 / ja: 2020/06/29 22:00 / de: 29.06.20, 22:00 */
 	MDYHM: 'MDYHM',
 };
@@ -204,6 +206,7 @@ const options = {
 	[FORMAT.MDY_LONG]: { year: 'numeric', month: 'long', day: 'numeric' },
 	[FORMAT.MY_LONG]: { year: 'numeric', month: 'long' },
 	[FORMAT.MDY]: { year: 'numeric', month: '2-digit', day: '2-digit' },
+	[FORMAT.MD]: { month: 'numeric', day: 'numeric' },
 	[FORMAT.MDYHM]: { dateStyle: 'short', timeStyle: 'short' },
 } as DateFormatOptions;
 
