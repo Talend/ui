@@ -15,28 +15,40 @@ html {
  }
 
 .sidebar-subheading.sidebar-subheading {
-  letter-spacing: normal;
-  text-transform: none;
-  font: tokens.$coral-heading-m;
-  color: tokens.$coral-color-neutral-text;
-}
-
-button.sidebar-item.sidebar-item {
-  padding-left: 18px
-}
-
-.sidebar-subheading.sidebar-subheading {
   padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: normal;
+  font: tokens.$coral-heading-m;
+  color: inherit;
+  text-transform: none;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: tokens.$coral-border-s-solid currentColor;
+    opacity: tokens.$coral-opacity-l;
+  }
 
   button[data-action="collapse-root"] {
     align-items: center;
-    padding-left: 18px;
+    // padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xxs tokens.$coral-spacing-xxs 18px;
     margin-left: 0;
+    height: tokens.$coral-sizing-m;
 
-    > span:first-child {
-      margin-left: tokens.$coral-spacing-xxs;
-      color: tokens.$coral-color-neutral-text;
+    > span:first-of-type {
+      margin-left: 7px;
+      margin-right: tokens.$coral-spacing-xs;
     }
+  }
+
+  .sidebar-subheading-action {
+    margin-right: tokens.$coral-spacing-xxs;
+    filter: contrast(10);
   }
 }
 
@@ -53,27 +65,12 @@ button.sidebar-item.sidebar-item {
     margin: 0 tokens.$coral-spacing-xxs 0 0;
   }
 
-  > span:first-child {
-    margin-left: tokens.$coral-spacing-xxs;
-    color: tokens.$coral-color-neutral-text;
+  > span:first-of-type {
+    margin-left: 7px;
+    margin-right: tokens.$coral-spacing-xs;
   }
 
   svg {
-    color: tokens.$coral-color-neutral-text;
-  }
-
-  &[data-selected="true"],
-  &[data-selected="true"]:focus {
-    background: tokens.$coral-color-accent-background;
-    color: tokens.$coral-color-accent-text-strong;
-
-    svg {
-      color: tokens.$coral-color-accent-icon;
-    }
-
-    &:hover {
-      background: tokens.$coral-color-accent-background-hover;
-      color: tokens.$coral-color-accent-text-strong-hover;
-    }
+    display: none;
   }
 }

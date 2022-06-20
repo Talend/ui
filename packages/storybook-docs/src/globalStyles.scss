@@ -44,7 +44,6 @@ html {
   // Docs mode wrapper
   &.sbdocs-wrapper {
     padding: 0;
-    background: tokens.$coral-color-neutral-background;
     border-radius: 0;
     box-shadow: none;
   }
@@ -259,12 +258,8 @@ html {
     border-collapse: collapse;
     overflow: hidden;
 
-    tr:nth-of-type(2n) {
-      background: tokens.$coral-color-neutral-background-medium;
-    }
-
     th, td {
-      padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
+      padding: tokens.$coral-spacing-xs tokens.$coral-spacing-s;
       border: none;
     }
 
@@ -273,16 +268,11 @@ html {
       color: tokens.$coral-color-neutral-text-weak;
       text-align: start;
       font-size: 1.2rem;
-      font: tokens.$coral-paragraph-s-bold;
+      font: tokens.$coral-heading-s;
       background: tokens.$coral-color-neutral-background-medium;
       border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 
-      &:first-child {
-        border-radius: tokens.$coral-radius-s 0 0 0;
-      }
-
       &:last-child {
-        border-radius: 0 tokens.$coral-radius-s 0 0;
         border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
       }
     }
