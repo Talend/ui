@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 7.1.2
+
+### Patch Changes
+
+- b6b13031f: fix: move scripts to dedicated package to avoid circular deps
+
 ## 7.1.1
 
 ### Patch Changes
