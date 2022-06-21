@@ -7,7 +7,7 @@
     "access": "public"
   },
   "bin": {
-    "cmf-settings": "./scripts/cmf-settings.js"
+    "cmf-settings": "./cmf-settings.js"
   },
   "repository": {
     "type": "git",
