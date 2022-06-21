@@ -7,11 +7,11 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/babel/plugin-import-from-index#readme",
   "bugs": {
-    "url": "https://github.com/Talend/ui-scripts/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/ui-scripts.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
     "test": "jest"

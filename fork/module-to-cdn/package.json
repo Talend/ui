@@ -3,7 +3,7 @@
   "version": "9.8.2",
   "description": "Get cdn config from npm module name",
   "license": "MIT",
-  "repository": "https://github.com/Talend/ui-scripts/tree/master/packages/module-to-cdn",
+  "repository": "https://github.com/Talend/ui/tree/master/packages/module-to-cdn",
   "author": {
     "name": "Thomas Sileghem",
     "email": "th.sileghem@gmail.com",
