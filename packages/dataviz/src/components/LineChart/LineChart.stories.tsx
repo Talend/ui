@@ -36,7 +36,9 @@ export const FullyCustomisedLineChart = {
 			},
 			xAxisOptions: {
 				interval: 2,
-				horizontalOffset: 0,
+				horizontalOffset: 10,
+				verticalOffset: 10,
+				clipDomain: true,
 				formatter: (date: Date) => `${date.getMonth()}/${date.getDate()}`,
 				tooltipFormatter: (date: Date) => date.toLocaleString(),
 			},
@@ -44,11 +46,15 @@ export const FullyCustomisedLineChart = {
 				unit: '%',
 				type: 'number',
 				domain: [0, 100],
+				horizontalOffset: 0,
+				verticalOffset: 10,
 			},
 			rightYAxisOptions: {
 				hide: false,
 				type: 'number',
 				domain: [0, 5],
+				horizontalOffset: 0,
+				verticalOffset: -10,
 				unit: '/5',
 				hideUnitInAxis: true,
 			},
@@ -73,6 +79,11 @@ export const FullyCustomisedLineChart = {
 			},
 		],
 		data: [
+			{
+				xLabel: new Date(2021, 2, 2),
+				trustScore: 2.2,
+				validity: 50,
+			},
 			{
 				xLabel: new Date(2022, 2, 2),
 				trustScore: 2.2,
@@ -231,6 +242,49 @@ export const MultiCurveLineChart = {
 				xLabel: '2/30',
 				trustScore: 4.2,
 				globalScore: 4,
+			},
+		],
+	},
+};
+
+export const CustomXAxisDomainLineChart = {
+	args: {
+		chartOptions: {
+			leftYAxisOptions: {
+				type: 'number',
+				domain: [0, 5],
+			},
+			xAxisOptions: {
+				type: 'number',
+				domain: [new Date('2022-06-10').getTime(), new Date('2022-06-18').getTime()],
+				formatter: (value: any) => new Date(value).toLocaleDateString(),
+			},
+		},
+		lines: [
+			{
+				key: 'trustScore',
+				color: '#1667DF',
+			},
+		],
+		data: [
+			{
+				xLabel: new Date('2022-06-12').getTime(),
+				trustScore: 2.2,
+			},
+
+			{
+				xLabel: new Date('2022-06-13').getTime(),
+				trustScore: 3.4,
+			},
+
+			{
+				xLabel: new Date('2022-06-14').getTime(),
+				trustScore: 3.5,
+			},
+
+			{
+				xLabel: new Date('2022-06-15').getTime(),
+				trustScore: 4.2,
 			},
 		],
 	},

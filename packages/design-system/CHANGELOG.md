@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 3.4.0
+
+### Minor Changes
+
+- 21189557e: feat(design-system): add TagBeta to the Tag familly
+
 ## 3.3.0
 
 ### Minor Changes

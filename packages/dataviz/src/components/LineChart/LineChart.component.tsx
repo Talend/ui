@@ -48,26 +48,26 @@ function LineChart({
 	} = chartOptions;
 
 	const getLineStyleFromStatus = (status: LineStatus) => {
-		if (status === 'inactive') {
-			return {
+		const styleByStatus = {
+			active: {
+				strokeWidth: 3,
+				strokeOpacity: 1,
+				activeDot: { r: 5, strokeWidth: 0 },
+			},
+			inactive: {
 				strokeWidth: 2.5,
 				strokeOpacity: 0.25,
-				dot: { r: 0 },
 				activeDot: { r: 0, strokeWidth: 0 },
-			};
-		} else if (status === 'highlighted') {
-			return {
+			},
+			highlighted: {
 				strokeWidth: 4,
 				strokeOpacity: 1,
-				dot: { r: 0 },
 				activeDot: { r: 6, strokeWidth: 0 },
-			};
-		}
+			},
+		};
 		return {
-			strokeWidth: 3,
-			strokeOpacity: 1,
 			dot: { r: 0 },
-			activeDot: { r: 5, strokeWidth: 0 },
+			...styleByStatus[status],
 		};
 	};
 
@@ -86,9 +86,13 @@ function LineChart({
 						dataKey="xLabel"
 						interval={xAxisOptions?.interval}
 						dx={xAxisOptions?.horizontalOffset}
+						dy={xAxisOptions?.verticalOffset}
+						allowDataOverflow={xAxisOptions?.clipDomain}
 						ticks={xAxisOptions?.manualTicks}
 						tickLine={false}
 						tickFormatter={xAxisOptions?.formatter}
+						domain={xAxisOptions?.domain}
+						type={xAxisOptions?.type}
 					/>
 					<YAxis
 						yAxisId="left"
@@ -96,6 +100,8 @@ function LineChart({
 						domain={leftYAxisOptions?.domain}
 						unit={leftYAxisOptions?.hideUnitInAxis ? '' : leftYAxisOptions?.unit}
 						interval={leftYAxisOptions?.manualTicks ? 0 : 'preserveEnd'}
+						dx={leftYAxisOptions?.horizontalOffset}
+						dy={leftYAxisOptions?.verticalOffset}
 						minTickGap={2}
 						tickCount={6}
 						ticks={leftYAxisOptions?.manualTicks}
@@ -110,6 +116,8 @@ function LineChart({
 						domain={rightYAxisOptions?.domain}
 						unit={rightYAxisOptions?.hideUnitInAxis ? '' : rightYAxisOptions?.unit}
 						interval={rightYAxisOptions?.manualTicks ? 0 : 'preserveEnd'}
+						dx={rightYAxisOptions?.horizontalOffset}
+						dy={rightYAxisOptions?.verticalOffset}
 						minTickGap={2}
 						tickCount={6}
 						ticks={rightYAxisOptions?.manualTicks}

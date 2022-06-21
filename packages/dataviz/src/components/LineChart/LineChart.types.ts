@@ -36,9 +36,13 @@ export type LineChartOptions = {
 		showInactives?: boolean;
 	};
 	xAxisOptions?: {
+		domain?: number[];
+		clipDomain?: boolean;
+		type?: 'number' | 'category';
 		interval: number | 'preserveStart' | 'preserveEnd' | 'preserveStartEnd';
 		manualTicks?: Array<string | number>;
-		horizontalOffset: number;
+		horizontalOffset?: number;
+		verticalOffset?: number;
 		formatter?: (value: any) => string;
 		tooltipFormatter?: (value: any) => string;
 	};
@@ -48,6 +52,8 @@ export type LineChartOptions = {
 		unit?: string | number;
 		hideUnitInAxis?: boolean;
 		manualTicks?: Array<string | number>;
+		horizontalOffset?: number;
+		verticalOffset?: number;
 		formatter?: (value: any) => string;
 	};
 	rightYAxisOptions?: {
@@ -57,6 +63,8 @@ export type LineChartOptions = {
 		unit?: string | number;
 		hideUnitInAxis?: boolean;
 		manualTicks?: Array<string | number>;
+		horizontalOffset?: number;
+		verticalOffset?: number;
 		formatter?: (value: any) => string;
 	};
 	showGridLines?: boolean;
