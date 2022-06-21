@@ -18,7 +18,7 @@ import { SizedIcon } from '@talend/design-system';
 const LEFT = 'left';
 const RIGHT = 'right';
 
-function getIcon({ icon, sizedIconName, sizedIconSize = 'M', iconTransform, inProgress, loading }) {
+function getIcon({ icon, sizedIconName, iconTransform, inProgress, loading }) {
 	if (inProgress) {
 		return <CircularProgress size="small" key="icon" />;
 	}
@@ -38,9 +38,7 @@ function getIcon({ icon, sizedIconName, sizedIconSize = 'M', iconTransform, inPr
 	}
 
 	if (sizedIconName) {
-		return (
-			<SizedIcon name={sizedIconName} transform={iconTransform} key="icon" size={sizedIconSize} />
-		);
+		return <SizedIcon name={sizedIconName} transform={iconTransform} key="icon" size="M" />;
 	}
 
 	if (icon) {
