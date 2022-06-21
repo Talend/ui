@@ -76,6 +76,16 @@ export const Default = () => (
 		<h3>Bootstrap style :</h3>
 		<ActionButton id="bsStyle" {...myAction} bsStyle="primary" />
 		<ActionButton id="bsStyle" {...myAction} className="btn-primary btn-inverse" />
+		<h3>With new icons</h3>
+		<ActionButton id="newIcon" {...myAction} sizedIconName="badge-star" className="btn-primary" />
+		<ActionButton
+			id="newIconBig"
+			{...myAction}
+			sizedIconName="badge-star"
+			sizedIconSize="L"
+			className="btn-primary btn-inverse"
+		/>
+
 		<h3>With hideLabel option</h3>
 		<ActionButton id="hidelabel" {...myAction} hideLabel />
 		<h3>In progress</h3>

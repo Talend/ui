@@ -13,11 +13,12 @@ import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
+import { SizedIcon } from '@talend/design-system';
 
 const LEFT = 'left';
 const RIGHT = 'right';
 
-function getIcon({ icon, iconTransform, inProgress, loading }) {
+function getIcon({ icon, sizedIconName, sizedIconSize = 'M', iconTransform, inProgress, loading }) {
 	if (inProgress) {
 		return <CircularProgress size="small" key="icon" />;
 	}
@@ -33,6 +34,12 @@ function getIcon({ icon, iconTransform, inProgress, loading }) {
 					'tc-action-button-skeleton-circle',
 				)}
 			/>
+		);
+	}
+
+	if (sizedIconName) {
+		return (
+			<SizedIcon name={sizedIconName} transform={iconTransform} key="icon" size={sizedIconSize} />
 		);
 	}
 
@@ -242,6 +249,8 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
+	sizedIconName: PropTypes.string,
+	sizedIconSize: PropTypes.string,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
