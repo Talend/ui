@@ -46,6 +46,7 @@ html {
     padding: 0;
     border-radius: 0;
     box-shadow: none;
+    background-color: tokens.$coral-color-neutral-background;
   }
 
   // Docs mode content
@@ -281,6 +282,10 @@ html {
       font: tokens.$coral-paragraph-m;
       color: tokens.$coral-color-neutral-text;
       border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+    }
+
+    tr:nth-of-type(2n) {
+      background-color: tokens.$coral-color-neutral-background-medium;
     }
   }
 
