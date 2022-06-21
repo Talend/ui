@@ -26,7 +26,7 @@ export function formatDateTime(value: number): string {
 export function formatNumber(value: number, precision?: number): string {
 	return value > 1e10
 		? value.toFixed(0)
-		: value.toLocaleString(i18next.language || 'en-EN', {
+		: value.toLocaleString(i18next.language, {
 				maximumFractionDigits: precision,
 		  });
 }

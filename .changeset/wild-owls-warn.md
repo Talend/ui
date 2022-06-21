@@ -1,5 +1,5 @@
 ---
-'@talend/react-dataviz': patch
+'@talend/scripts-config-jest': patch
 ---
 
-fix: provide default language to formatNumber
+fix: add missing language attribute in i18next mock
