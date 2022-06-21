@@ -5,11 +5,11 @@
   "main": ".prettierrc.js",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
   "bugs": {
-    "url": "https://github.com/Talend/ui-scripts/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/ui-scripts.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
     "test": "echo \"Nothing to test\""
