@@ -248,7 +248,6 @@ ActionButton.propTypes = {
 	name: PropTypes.string,
 	onClick: PropTypes.func,
 	sizedIconName: PropTypes.string,
-	sizedIconSize: PropTypes.string,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
