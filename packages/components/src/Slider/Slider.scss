@@ -1,9 +1,9 @@
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+
 $tc-slider-thumb-shadow: 0 1px 2px 0 rgba(117, 132, 149, 0.5); //$slate-gray;
 $tc-slider-thumb-shadow-focused: 0 3px 4px 0.5px rgba(0, 0, 0, 0.25);
 $tc-slider-font-size: $font-size-base;
 $tc-slider-line-height: 24px;
-
-
 
 .tc-slider {
 	padding: 0 calc(#{$tc-slider-line-height} / 2);
@@ -18,8 +18,8 @@ $tc-slider-line-height: 24px;
 	&__value {
 		position: absolute;
 		top: -25px;
-		color: $brand-primary;
-		font-size: $tc-slider-font-size;
+		color: tokens.$coral-color-accent-text-strong;
+		font: tokens.$coral-paragraph-m-bold;
 		box-shadow: none;
 	}
 
