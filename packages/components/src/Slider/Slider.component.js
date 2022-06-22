@@ -187,8 +187,8 @@ function getCaption(
 function getHandle(captionsFormat) {
 	function renderHandler(node, props) {
 		return (
-			<div className={theme['tc-handler__container']}>
-				<div className={theme['tc-handler__value']} style={node.props.style}>
+			<div className={theme['tc-slider__handler']}>
+				<div className={theme['tc-slider__value']} style={node.props.style}>
 					{captionsFormat(props?.value)}
 				</div>
 				{node}

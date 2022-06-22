@@ -3,16 +3,7 @@ $tc-slider-thumb-shadow-focused: 0 3px 4px 0.5px rgba(0, 0, 0, 0.25);
 $tc-slider-font-size: $font-size-base;
 $tc-slider-line-height: 24px;
 
-.tc-handler__container {
-	position: relative;
-}
-.tc-handler__value {
-	position: absolute;
-	top: -25px;
-	color: $brand-primary;
-	font-size: $tc-slider-font-size;
-	box-shadow: none;
-}
+
 
 .tc-slider {
 	padding: 0 calc(#{$tc-slider-line-height} / 2);
@@ -20,6 +11,16 @@ $tc-slider-line-height: 24px;
 	:global(.rc-slider-disabled) {
 		background-color: transparent;
 		opacity: 0.4;
+	}
+	&__handler {
+		position: relative;
+	}
+	&__value {
+		position: absolute;
+		top: -25px;
+		color: $brand-primary;
+		font-size: $tc-slider-font-size;
+		box-shadow: none;
 	}
 
 	&-captions {
