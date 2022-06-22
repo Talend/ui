@@ -43,3 +43,4 @@ build/
 dist/
 
 docs
+src/Figma.ts
