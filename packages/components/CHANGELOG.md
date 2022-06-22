@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.2.0
+
+### Minor Changes
+
+- 3422f271f: feat(components): allow to use new icons in legacy buttons
+
 ## 7.1.0
 
 ### Minor Changes
