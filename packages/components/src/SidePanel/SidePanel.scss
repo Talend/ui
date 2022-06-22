@@ -66,6 +66,8 @@ $large-docked-width: 7rem;
 			.tc-svg-icon {
 				width: $tc-side-panel-icons-size;
 				height: $tc-side-panel-icons-size;
+			}
+			:global(svg){
 				margin-left: $padding-smaller;
 			}
 

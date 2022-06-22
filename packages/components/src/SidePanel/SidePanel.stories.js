@@ -14,7 +14,7 @@ const actions = [
 	},
 	{
 		label: 'Datasets',
-		icon: 'talend-download',
+		iconName: 'dataset',
 		onClick: action('Datasets clicked'),
 	},
 	{
