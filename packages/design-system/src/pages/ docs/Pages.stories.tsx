@@ -6,7 +6,7 @@ import * as Page from '..';
 import { ButtonPrimary, ButtonSecondary } from '../../components/Button';
 import Form from '../../components/Form';
 import Link from '../../components/Link';
-import Drawer from '../../components/Drawer';
+import { FloatingDrawer } from '../../components/Drawer';
 
 export default {
 	title: 'Pages/Pages',
@@ -97,22 +97,20 @@ const ItemWithDetails = ({
 
 	return (
 		<>
-			<Drawer
-				toggleButton={
-					<ButtonPrimary
-						onClick={(event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) =>
-							onClick(event, itemId)
-						}
-					>
-						Item {itemId + 1}
-					</ButtonPrimary>
+			<ButtonPrimary
+				onClick={(event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) =>
+					onClick(event, itemId)
 				}
-				heading={<h3>Item {itemId + 1}</h3>}
+			>
+				Item {itemId + 1}
+			</ButtonPrimary>
+			<FloatingDrawer
+				header={<h3>Item {itemId + 1}</h3>}
 				footer={<ButtonSecondary onClick={() => setVisible(false)}>Close</ButtonSecondary>}
 				visible={visible}
 			>
 				Item {itemId + 1} details
-			</Drawer>
+			</FloatingDrawer>
 		</>
 	);
 };

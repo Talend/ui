@@ -259,5 +259,16 @@ describe('date', () => {
 			// then
 			expect(formatedDate).toEqual('mai 2020');
 		});
+
+		it('should format date without year', () => {
+			// given
+			const dateObj = new Date('2020-05-13, 20:00');
+
+			// then
+			expect(format(dateObj, FORMAT.MD, 'fr')).toEqual('13/05');
+
+			// and
+			expect(format(dateObj, FORMAT.MD, 'en')).toEqual('5/13');
+		});
 	});
 });

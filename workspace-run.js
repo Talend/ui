@@ -62,7 +62,7 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 				const { location } = packageInfo;
 
 				const packageJson = require(path.resolve(path.join('.', location, 'package.json')));
-				if (packageJson.scripts[script]) {
+				if (packageJson.scripts && packageJson.scripts[script]) {
 					return {
 						name: 'yarn',
 						args: ['workspace', packageName, 'run', script].concat(scriptArgs),

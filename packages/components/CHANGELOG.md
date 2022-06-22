@@ -1,5 +1,22 @@
 # @talend/react-components
 
+## 7.1.0
+
+### Minor Changes
+
+- 252e346b1: feat(components/sidepanel): allow beta tag
+
+### Patch Changes
+
+- Updated dependencies [21189557e]
+  - @talend/design-system@3.4.0
+
+## 7.0.5
+
+### Patch Changes
+
+- cc9b1083f: fix(AMG-202): VList with single column crash
+
 ## 7.0.4
 
 ### Patch Changes

@@ -1,17 +1,18 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaIframe } from '~docs';
 
-import Drawer from '../';
+import { FloatingDrawer } from '../';
 
-import * as Stories from '../Drawer.stories';
+import * as Stories from '../variants/FloatingDrawer/FloatingDrawer.stories';
 
 import tokens from '../../../tokens';
 
 <Meta
-	title="Components/Drawer"
-	component={Drawer}
+	title="[WIP] Components/Drawer"
+	component={FloatingDrawer}
 	parameters={{
-		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/x0RxG7E0CzVWDycXtNgq7H/Drawer',
 	}}
 	decorators={[
 		storyFn => (
@@ -56,7 +57,11 @@ It aims to display extra information while keeping the navigation enabled on the
 </Canvas>
 
 <Canvas withSource="none">
-	<Story story={Stories.WithToggleButton} height="500px" />
+	<Story story={Stories.WithDisclosure} height="500px" />
+</Canvas>
+
+<Canvas withSource="none">
+	<Story story={Stories.WithControlledVisibility} height="500px" />
 </Canvas>
 
 ## States
@@ -84,41 +89,5 @@ When Drawer is visible, disclosure has `aria-expanded` set to `true`. When Drawe
 ## Usage
 
 <Canvas>
-	<Story
-		name="usage"
-		height="500px"
-		args={{
-			visible: true,
-			heading: 'Heading',
-			children: 'Body',
-		}}
-		argTypes={{
-			visible: {
-				name: 'Drawer visibility',
-				control: {
-					type: 'boolean',
-				},
-			},
-			heading: {
-				name: 'Drawer heading',
-			},
-			children: {
-				name: 'Drawer body',
-			},
-		}}
-		parameters={{
-			docs: {
-				source: {
-					type: 'dynamic',
-					excludeDecorators: true,
-				},
-			},
-		}}
-	>
-		{args => <Drawer {...args} />}
-	</Story>
+	<Story story={Stories.Usage} height="500px" />
 </Canvas>
-
-<ArgsTable story="usage" />
-
-`toggleButton` should always be one of the buttons provided by the Design System.
