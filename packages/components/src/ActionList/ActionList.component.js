@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+
+import { TagBeta } from '@talend/design-system';
+
 import { Action } from '../Actions';
 import Inject from '../Inject';
 import theme from './ActionList.scss';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 /**
  * return the formatted action id
@@ -21,6 +26,7 @@ function getActionId(id, action) {
 }
 
 function ActionListItem({ getComponent, id, onSelect, action, isSelected, isNav, itemClassName }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const a11y = {
 		role: 'presentation',
 	};
@@ -57,7 +63,9 @@ function ActionListItem({ getComponent, id, onSelect, action, isSelected, isNav,
 			})}
 			{...a11y}
 		>
-			<Renderers.Action {...actionProps} />
+			<Renderers.Action {...actionProps}>
+				{action.beta && <TagBeta>{t('BETA', 'Beta')}</TagBeta>}
+			</Renderers.Action>
 		</li>
 	);
 }
@@ -108,6 +116,7 @@ if (process.env.NODE_ENV !== 'production') {
 		icon: PropTypes.string,
 		key: PropTypes.string,
 		label: PropTypes.string,
+		beta: PropTypes.bool,
 		onClick: PropTypes.func,
 	});
 

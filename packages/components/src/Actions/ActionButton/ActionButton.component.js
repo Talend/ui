@@ -105,6 +105,7 @@ function ActionButton(props) {
 	const {
 		bsStyle,
 		buttonRef,
+		children,
 		inProgress,
 		disabled,
 		hideLabel,
@@ -186,6 +187,7 @@ function ActionButton(props) {
 			{...buttonProps}
 		>
 			{buttonContent}
+			{children}
 		</Button>
 	);
 	if (hasPopup) {

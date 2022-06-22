@@ -10,10 +10,11 @@ const actions = [
 		onClick: action('Recent clicked'),
 	},
 	{
-		label: 'Favorite datasets',
+		label: 'Favorite datasets of the year 2019',
 		icon: 'talend-star',
 		'data-feature': 'actionlist.item',
 		onClick: action('Favorite clicked'),
+		beta: true,
 		active: true,
 	},
 	{

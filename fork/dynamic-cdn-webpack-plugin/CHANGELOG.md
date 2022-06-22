@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 11.1.1
+
+### Patch Changes
+
+-   9bfa5e88f: fix: resolvePkg use find first and fallback to require.resolve
+
 ## 11.1.0
 
 ### Minor Changes

@@ -18,7 +18,7 @@ import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/B
 import Card from './components/Card';
 import Combobox from './components/Combobox';
 import Divider from './components/Divider';
-import Drawer from './components/Drawer';
+import { FloatingDrawer } from './components/Drawer';
 import Dropdown from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
@@ -65,6 +65,7 @@ import Stepper from './components/Stepper';
 import Tabs from './components/Tabs';
 import {
 	Tag,
+	TagBeta,
 	TagDefault,
 	TagInformation,
 	TagSuccess,
@@ -100,7 +101,7 @@ export {
 	Card,
 	Combobox,
 	Divider,
-	Drawer,
+	FloatingDrawer,
 	Dropdown,
 	EmptyState,
 	EmptyStateMedium,
@@ -141,6 +142,7 @@ export {
 	Switch,
 	Tabs,
 	Tag,
+	TagBeta,
 	TagDefault,
 	TagDestructive,
 	TagInformation,

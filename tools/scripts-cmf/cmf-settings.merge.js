@@ -123,10 +123,7 @@ function merge(options, errorCallback) {
 		const languages =
 			cmfconfig.settings.i18n['source-languages'] || cmfconfig.settings.i18n.languages;
 
-		const i18next = getI18Next(
-			languages,
-			cmfconfig.settings.i18n['namespace-paths'],
-		);
+		const i18next = getI18Next(languages, cmfconfig.settings.i18n['namespace-paths']);
 
 		if (i18next) {
 			languages.forEach(locale => {
