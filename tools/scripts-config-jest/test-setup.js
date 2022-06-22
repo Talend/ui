@@ -68,6 +68,7 @@ jest.mock('i18next', () => {
 	}
 	const i18nextMock = jest.genMockFromModule('i18next');
 	i18nextMock.t = tMock;
+	i18nextMock.language = 'en';
 	i18nextMock.getFixedT = () => tMock;
 	i18nextMock.use = () => i18nextMock;
 	i18nextMock.addResources = () => {};
