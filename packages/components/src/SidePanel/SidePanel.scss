@@ -1,3 +1,5 @@
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+
 ////
 /// Side panel
 /// @group Custom widgets
@@ -11,7 +13,7 @@ $list-item-reverse-color: $brand-primary !default;
 $toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
-$tc-side-panel-icons-size: $svg-md-size;
+$tc-side-panel-icons-size: tokens.$coral-sizing-xxxs;
 $toggle-button-padding: $padding-small;
 
 $docked-width: 6rem;
