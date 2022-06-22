@@ -2198,6 +2198,20 @@ const dictionary = [
         id: 'S:4a469b9d512c8d4b89bd6f9cf8c40fc2a40b921d,:shadow:0'
     },
     {
+        name: 'coralElevationShadowNeutralS',
+        type: 'shadow',
+        description: ``,
+        value: '0rem 0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.5)',
+        id: 'S:c248e5315e126cc17860b114f6516a07a7832de1,:shadow:0'
+    },
+    {
+        name: 'coralElevationShadowNeutralInvertedS',
+        type: 'shadow',
+        description: ``,
+        value: '0rem -0.1rem 0.2rem 0rem hsla(0, 0%, 2%, 0.5)',
+        id: 'S:87123d2a6072733369a2eff12b6c5ddfbe208320,:shadow:0'
+    },
+    {
         name: 'coralHeadingL',
         type: 'typography',
         description: ``,
