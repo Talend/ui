@@ -19,7 +19,13 @@ const SizedIcon = React.forwardRef(
 		const numericSize = getNumericSize(size);
 		const fullName = size ? `${name}:${size}` : name;
 		return (
-			<svg {...rest} style={{ width: numericSize, height: numericSize }} aria-hidden ref={ref}>
+			<svg
+				{...rest}
+				style={{ width: numericSize, height: numericSize }}
+				aria-hidden
+				ref={ref}
+				shapeRendering="geometricPrecision"
+			>
 				<use xlinkHref={`#${fullName}`} />
 			</svg>
 		);

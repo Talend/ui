@@ -191,6 +191,7 @@ export const Icon = React.forwardRef(
 				className={classnames('tc-svg-icon', classname)}
 				border={border}
 				ref={safeRef}
+				shape-rendering="geometricPrecision"
 			/>
 		);
 	},

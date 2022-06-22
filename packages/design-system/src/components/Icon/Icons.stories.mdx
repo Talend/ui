@@ -1,0 +1,60 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { SizedIcon } from './SizedIcon';
+import { StackHorizontal } from '../Stack';
+import { Icon } from './Icon';
+
+<Meta title="Components/Icon/About" />
+
+# About Icons
+
+http://localhost:3002/?path=/docs/components-icon-icon-legacy--page&globals=theme:light
+
+To date, Coral provides two `Icon` components. A legacy one and a new one. Eventually, the newer one will remain, alone.
+
+**Why two components?**
+
+- The original one was built around a philosophy of "everything goes". It's a component library approach.
+
+- The newer one does not follow the same principles. It enforces a strict ruleset that is the same for designers and for developers.
+
+The original `Icon` component can take any size we want, support any color etc...whereas the newer `SizedIcon` does not.
+
+## SizedIcon (use this)
+
+Icons are now strictly defined by size.
+
+`SizedIcon` takes two props `size` and `name`. The available `name`s will be dependent on the chosen `size`!
+
+[Checkout the SizedIcon docs here.](/docs/components-icon-sizedIcon)
+
+<Canvas>
+	<Story name="SizedIconExample">
+		<StackHorizontal gap="XS">
+			<SizedIcon size="S" name="note-pencil" />
+			<SizedIcon size="M" name="note-pencil" />
+			<SizedIcon size="L" name="note-pencil" />
+		</StackHorizontal>
+	</Story>
+</Canvas>
+
+Calling `<SizedIcon size="XS" name="note-pencil" />` would not compile in TS because `note-pencil` does not exist at this size.
+
+This is true both for developers and designers.
+
+## Icon (deprecated)
+
+Because a Big Bang Change is not possible, we have chosen to keep the legacy `Icon` component alive. For now.
+
+[Checkout the Icon docs here.](/docs/components-icon-icon-legacy--page)
+
+<Canvas>
+	<Story name="IconExample">
+		<StackHorizontal gap="XS">
+			<Icon name="talend-cross" style={{ width: '1.2rem', height: '1.2rem' }} />
+			<Icon name="talend-cross" />
+			<Icon name="talend-cross" style={{ width: '2.4rem', height: '2.4rem' }} />
+		</StackHorizontal>
+	</Story>
+</Canvas>
+
+These icons are lawless. Some even have their own colorset. They are impossible to homogenize as part of a design language.
