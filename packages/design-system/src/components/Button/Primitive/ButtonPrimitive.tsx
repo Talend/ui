@@ -1,6 +1,6 @@
 import React, { forwardRef, Ref } from 'react';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/Figma';
+import { IconName } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 import Clickable, { ClickableProps } from '../../Clickable';
 

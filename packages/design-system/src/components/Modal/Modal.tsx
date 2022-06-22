@@ -2,7 +2,7 @@ import React, { HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } fro
 import i18n from 'i18next';
 import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/Figma';
+import { IconName } from '@talend/icons/dist/typeUtils';
 
 import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
 import { Icon } from '../Icon';

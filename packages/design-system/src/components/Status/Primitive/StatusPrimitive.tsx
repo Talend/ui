@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
-// eslint-disable-next-line @talend/import-depth
-import { IconNameWithSize } from '@talend/icons/dist/Figma';
+import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import Tooltip from '../../Tooltip';
 import Loading from '../../Loading';

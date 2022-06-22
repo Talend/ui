@@ -24,7 +24,7 @@ fs.readdirSync(iconSrcFolder)
 	});
 
 fs.writeFileSync(
-	path.join(srcFolder, 'Figma.ts'),
+	path.join(srcFolder, 'typeUtils.ts'),
 	prettier.format(
 		`
 export declare type IconName =

@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react';
 import { MenuItem, MenuItemProps } from 'reakit';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/Figma';
+import { IconName } from '@talend/icons/dist/typeUtils';
 import Clickable, { ClickableProps } from '../../Clickable';
 
 import styles from './DropdownEntry.module.scss';

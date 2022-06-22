@@ -1,7 +1,7 @@
 import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
 import { Menu, MenuButton, useMenuState } from 'reakit';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/Figma';
+import { IconName } from '@talend/icons/dist/typeUtils';
 import DropdownButton from './Primitive/DropdownButton';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';

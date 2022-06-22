@@ -9,7 +9,7 @@ import React, {
 	useMemo,
 } from 'react';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/Figma';
+import { IconName } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 import { Icon } from '../Icon/Icon';
 import style from './LinkableStyles.module.scss';
