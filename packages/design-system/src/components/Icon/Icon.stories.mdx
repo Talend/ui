@@ -1,8 +1,9 @@
-import { Meta } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { IconItem } from '@storybook/components';
 import { Icons } from '~docs';
 import { Icon } from '.';
 import { InlineMessageWarning } from '../InlineMessage';
+import { StackVertical } from '../Stack';
 
 <Meta
 	title="Components/Icon/Icon (legacy)"
@@ -16,11 +17,23 @@ import { InlineMessageWarning } from '../InlineMessage';
 
 All icons can be found below and you can apply transformations on them.
 
-<InlineMessageWarning
-	title="Deprecated"
-	description="This is now a legacy component. It is still provided by this
-package for now for legacy reasons. No new icon will be supported by this component"
-/>
+<StackVertical
+	gap="XS"
+	margin={{
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 'M',
+	}}
+>
+	<InlineMessageWarning
+		title="Deprecated"
+		withBackground
+		description="This is now a legacy component. No new icon will be supported by this component."
+	/>
+</StackVertical>
+
+## All icons
 
 <Icons />
 
