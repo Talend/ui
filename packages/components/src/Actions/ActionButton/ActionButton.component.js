@@ -18,7 +18,7 @@ import { SizedIcon } from '@talend/design-system';
 const LEFT = 'left';
 const RIGHT = 'right';
 
-function getIcon({ icon, sizedIconName, iconTransform, inProgress, loading }) {
+function getIcon({ icon, iconName, iconTransform, inProgress, loading }) {
 	if (inProgress) {
 		return <CircularProgress size="small" key="icon" />;
 	}
@@ -37,8 +37,8 @@ function getIcon({ icon, sizedIconName, iconTransform, inProgress, loading }) {
 		);
 	}
 
-	if (sizedIconName) {
-		return <SizedIcon name={sizedIconName} transform={iconTransform} key="icon" size="M" />;
+	if (iconName) {
+		return <SizedIcon name={iconName} transform={iconTransform} key="icon" size="M" />;
 	}
 
 	if (icon) {
@@ -247,7 +247,7 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
-	sizedIconName: PropTypes.string,
+	iconName: PropTypes.string,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,

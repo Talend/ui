@@ -11,7 +11,7 @@ const actions = [
 	},
 	{
 		label: 'Favorite datasets of the year 2019',
-		sizedIconName: 'star',
+		iconName: 'star',
 		'data-feature': 'actionlist.item',
 		onClick: action('Favorite clicked'),
 		beta: true,
