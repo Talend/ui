@@ -1,5 +1,6 @@
 import React from 'react';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/Figma';
 import { Icon } from '../../Icon/Icon';
 import * as S from './Step.style';
 import Tooltip from '../../Tooltip';

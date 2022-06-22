@@ -1,5 +1,6 @@
 import React, { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/Figma';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import Linkable, { LinkableType, isBlank as targetCheck } from '../Linkable';

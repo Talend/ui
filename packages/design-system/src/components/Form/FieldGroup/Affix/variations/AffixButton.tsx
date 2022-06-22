@@ -1,5 +1,6 @@
 import React, { forwardRef, Ref } from 'react';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/Figma';
 import classnames from 'classnames';
 
 import { Icon } from '../../../../Icon/Icon';

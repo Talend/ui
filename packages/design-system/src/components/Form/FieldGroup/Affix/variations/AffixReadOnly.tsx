@@ -1,5 +1,6 @@
 import React, { forwardRef, Ref, HTMLAttributes } from 'react';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/Figma';
 
 import { Icon } from '../../../../Icon/Icon';
 import { StackHorizontal } from '../../../../Stack';
