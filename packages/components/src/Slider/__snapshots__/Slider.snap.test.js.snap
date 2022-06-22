@@ -7,7 +7,6 @@ exports[`Slider component snaps renderers should render Slider 1`] = `
   >
     <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-      defaultValue={0}
       emptyValueLabel="no label"
       id="selectable"
       max={100}
@@ -26,6 +25,7 @@ exports[`Slider component snaps renderers should render Slider disabled 1`] = `
   >
     <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      defaultValue={0}
       disabled={true}
       handleRender={[Function]}
       max={100}
@@ -82,6 +82,7 @@ exports[`Slider component snaps renderers should render Slider with captionActio
   >
     <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      defaultValue={0}
       handleRender={[Function]}
       max={100}
       min={0}
@@ -134,6 +135,7 @@ exports[`Slider component snaps renderers should render Slider with captionTextS
   >
     <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      defaultValue={0}
       handleRender={[Function]}
       id="selectable"
       label="Heeey"
@@ -183,6 +185,7 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
   >
     <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      defaultValue={0}
       handleRender={[Function]}
       id="selectable"
       label="Heeey"
@@ -247,6 +250,7 @@ exports[`Slider component snaps renderers should render a range 1`] = `
   >
     <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      defaultValue={0}
       handleRender={[Function]}
       id="selectable"
       max={100}
