@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import RcSlider from 'rc-slider';
-import { Tooltip } from '@talend/design-system';
 import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
@@ -188,9 +187,12 @@ function getCaption(
 function getHandle(captionsFormat) {
 	function renderHandler(node, props) {
 		return (
-			<Tooltip title={captionsFormat(props?.value)} placement="top">
+			<div className={theme['tc-handler__container']}>
+				<div className={theme['tc-handler__value']} style={node.props.style}>
+					{captionsFormat(props?.value)}
+				</div>
 				{node}
-			</Tooltip>
+			</div>
 		);
 	}
 
@@ -198,7 +200,7 @@ function getHandle(captionsFormat) {
 }
 
 const Slider = React.forwardRef((props, ref) => {
-	const handleRender = getHandle(props.captionsFormat);
+	const handleRender = getHandle(props.captionsFormat, ref);
 
 	const {
 		id,
