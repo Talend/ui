@@ -1,7 +1,8 @@
-$icon-text-size: 0.8rem !default;
-$circle-text-size: 1.6rem !default;
+@use '~@talend/design-tokens/lib/tokens';
+
 $faceted-advanced-search-height: 3.5rem;
-$error-color: #BA4D51;
+$custom-icon-vertical-offset: 1rem;
+$custom-icon-horizontal-offset: 2rem;
 
 .adv-search {
 	position: relative;
@@ -10,35 +11,30 @@ $error-color: #BA4D51;
 
 	.adv-search-filter-icon {
 		position: absolute;
-		color: $dark-silver;
-		top: $padding-large;
-		left: $padding-large;
+		color: tokens.$coral-color-neutral-icon-weak;
+		top: $custom-icon-vertical-offset;
+		left: 1.8rem;
 	}
 
 	&-error {
 		margin-left: $padding-small;
-		color: $error-color;
+		color: tokens.$coral-color-danger-text;
 	}
 
 	.adv-search-input {
-		border-radius: $border-radius-base;
-		border: 0.1rem solid $silver;
+		border-radius: tokens.$coral-radius-s;
+		border: 0.1rem solid tokens.$coral-color-neutral-border-weak;
 		box-shadow: none;
-		color: $dove-gray;
-		font-size: $font-size-base;
+		color: tokens.$coral-color-neutral-text-weak;
 		height: $faceted-advanced-search-height;
 		line-height: $faceted-advanced-search-height;
-		margin: $padding-small $padding-small;
-		padding-left: $faceted-advanced-search-height;
+		margin: tokens.$coral-spacing-xs tokens.$coral-spacing-xs;
+		padding-left: 3.2rem;
 		padding-right: 6rem;
 		width: calc(100% - 2rem);
 
 		&.has-error {
-			box-shadow: inset 0 -0.2rem 0 $chestnut-rose;
-		}
-
-		&::placeholder {
-			color: $dark-silver;
+			box-shadow: inset 0 -0.2rem 0 tokens.$coral-color-danger-border;
 		}
 
 		// sass-lint:disable-next-line no-vendor-prefixes
@@ -48,58 +44,8 @@ $error-color: #BA4D51;
 	}
 
 	&-buttons {
-		display: flex;
 		position: absolute;
-		right: 2.5rem;
-		align-items: center;
-		justify-content: center;
-		height: $faceted-advanced-search-height;
-		top: $padding-small;
-
-		&-icon {
-			border: 0.1rem solid $dark-silver;
-			color: $dark-silver;
-			width: $circle-text-size;
-			height: $circle-text-size;
-			min-height: auto;
-			display: flex;
-			border-radius: 50%;
-			padding: 0;
-			justify-content: center;
-			align-items: center;
-
-			> :global(.tc-svg-icon) {
-				width: $icon-text-size;
-				height: $icon-text-size;
-			}
-
-			&:last-child {
-				margin-left: $padding-small;
-			}
-		}
-
-		&-cancel {
-			&:hover,
-			&:focus {
-				border: 0.1rem solid $scooter;
-				color: $scooter;
-			}
-		}
-
-		&-submit {
-			border-color: $rio-grande;
-			background: $rio-grande;
-			fill: white;
-
-			&:hover,
-			&:focus {
-				border: 0.1rem solid $scooter;
-				background: $scooter;
-			}
-
-			> svg {
-				color: white;
-			}
-		}
+		top: tokens.$coral-spacing-xxs;
+		right: tokens.$coral-spacing-m;
 	}
 }

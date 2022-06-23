@@ -216,6 +216,12 @@ export const Initialized = () => (
 	</FacetedSearch.Faceted>
 );
 
+export const AdvancedSearch = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+	</FacetedSearch.Faceted>
+);
+
 export const InitializedWithABadgeWhichIsNotVisibleInTheList = () => (
 	<FacetedSearch.Faceted id="my-faceted-search">
 		{currentFacetedMode =>

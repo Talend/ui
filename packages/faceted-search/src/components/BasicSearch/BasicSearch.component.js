@@ -167,9 +167,6 @@ const BasicSearch = ({
 							</Popover>
 						</Overlay>
 					</>
-					// 	hideLabel
-					// 	hasAddButton
-					// </BadgeOverlay>
 				)}
 			</div>
 

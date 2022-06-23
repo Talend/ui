@@ -1,16 +1,15 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
-import { Action } from '@talend/react-components/lib/Actions';
-import Icon from '@talend/react-components/lib/Icon';
-import CircularProgress from '@talend/react-components/lib/CircularProgress';
 import { FormControl } from '@talend/react-bootstrap';
+
+import { Icon, ButtonIcon } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
-
-import theme from './AdvancedSearch.scss';
 import { USAGE_TRACKING_TAGS } from '../../constants';
+import theme from './AdvancedSearch.scss';
 
 const css = getTheme(theme);
 
@@ -25,13 +24,12 @@ AdvancedSearchError.propTypes = {
 	id: PropTypes.string.isRequired,
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export function AdvancedSearch({
 	initialQuery = '',
+	placeholder,
 	onCancel,
 	onChange,
 	onKeyDown,
-	placeholder,
 	onSubmit,
 }) {
 	const [query, setQuery] = useState(initialQuery);
@@ -73,20 +71,16 @@ export function AdvancedSearch({
 	return (
 		<div id={advSearchId} className={css('adv-search')}>
 			<form id={`${advSearchId}-form`} onSubmit={formSubmit}>
-				<Icon name="talend-filter" className={css('adv-search-filter-icon')} />
+				<Icon name="talend-filter" size="M" className={css('adv-search-filter-icon')} />
 				<FormControl
 					id={`${id}-form`}
 					name="advanced-search-faceted"
 					type="search"
 					value={query}
-					placeholder={
-						placeholder || t('ADV_SEARCH_FACETED_PLACEHOLDER', { defaultValue: 'Enter your query' })
-					}
+					placeholder={placeholder || t('ADV_SEARCH_FACETED_PLACEHOLDER', 'Enter your query')}
 					autoComplete="off"
 					className={css('adv-search-input', { 'has-error': error })}
-					aria-label={
-						placeholder || t('ADV_SEARCH_FACETED_ARIA', { defaultValue: 'Advanced Faceted Search' })
-					}
+					aria-label={placeholder || t('ADV_SEARCH_FACETED_ARIA', 'Advanced Faceted Search')}
 					autoFocus
 					role="search"
 					onKeyDown={onKeyDownHandler}
@@ -94,31 +88,26 @@ export function AdvancedSearch({
 				/>
 
 				<div className={css('adv-search-buttons')}>
-					{inProgress && <CircularProgress size="small" />}
-					{!inProgress && (
-						<React.Fragment>
-							<Action
-								bsStyle="link"
-								className={css('adv-search-buttons-icon', 'adv-search-buttons-cancel')}
-								data-feature={USAGE_TRACKING_TAGS.ADVANCED_CLEAR}
-								hideLabel
-								icon="talend-cross"
-								label={t('CANCEL_TOOLTIP', { defaultValue: 'Cancel' })}
-								name="action-cancel-title"
-								onClick={onCancelHandler}
-							/>
-							<Action
-								bsStyle="link"
-								className={css('adv-search-buttons-icon', 'adv-search-buttons-submit')}
-								data-feature={USAGE_TRACKING_TAGS.ADVANCED_APPLY}
-								hideLabel
-								icon="talend-check"
-								label={t('SUBMIT_TOOLTIP', { defaultValue: 'Submit' })}
-								name="action-submit-title"
-								type="submit"
-							/>
-						</React.Fragment>
-					)}
+					<ButtonIcon
+						name="action-cancel-title"
+						icon="talend-cross-circle"
+						size="S"
+						isLoading={inProgress}
+						onClick={onCancelHandler}
+						data-feature={USAGE_TRACKING_TAGS.ADVANCED_CLEAR}
+					>
+						{t('CANCEL_TOOLTIP', 'Cancel')}
+					</ButtonIcon>
+					<ButtonIcon
+						name="action-submit-title"
+						icon="talend-check-circle"
+						size="S"
+						isLoading={inProgress}
+						type="submit"
+						data-feature={USAGE_TRACKING_TAGS.ADVANCED_APPLY}
+					>
+						{t('SUBMIT_TOOLTIP', 'Submit')}
+					</ButtonIcon>
 				</div>
 			</form>
 			{error && <AdvancedSearchError id={advSearchId} label={error} />}
