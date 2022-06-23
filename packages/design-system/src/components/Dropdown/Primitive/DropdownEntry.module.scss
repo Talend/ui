@@ -18,18 +18,6 @@ $iconAlignmentOffsetM: -0.3rem;
 		min-width: 0;
 	}
 
-	.buttonIcon {
-		height: tokens.$coral-sizing-xxxs;
-		width: tokens.$coral-sizing-xxxs;
-		margin-right: tokens.$coral-spacing-xxs;
-		flex-shrink: 0;
-		margin-bottom: $iconAlignmentOffsetM;
-	}
-
-	.buttonContent {
-		min-width: 0;
-	}
-
 	&:hover,
 	&:focus {
 		background: tokens.$coral-color-accent-background-weak-hover;
@@ -45,4 +33,16 @@ $iconAlignmentOffsetM: -0.3rem;
 		background: tokens.$coral-color-neutral-background;
 		color: tokens.$coral-color-neutral-text-disabled;
 	}
+}
+
+.buttonIcon {
+	height: tokens.$coral-sizing-xxxs;
+	width: tokens.$coral-sizing-xxxs;
+	margin-right: tokens.$coral-spacing-xxs;
+	flex-shrink: 0;
+	margin-bottom: $iconAlignmentOffsetM;
+}
+
+.buttonContent {
+	min-width: 0;
 }
