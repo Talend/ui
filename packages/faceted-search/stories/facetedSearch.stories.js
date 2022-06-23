@@ -8,7 +8,6 @@ import cloneDeep from 'lodash/cloneDeep';
 import times from 'lodash/times';
 
 import FacetedSearch from '../src';
-import { FacetedSearchIcon } from '../src/components';
 import { BadgeFacetedProvider } from '../src/components/context/badgeFaceted.context';
 import { BadgesGenerator } from '../src/components/BadgesGenerator';
 import { createBadgesDict, getBadgesFromDict } from '../src/dictionary/badge.dictionary';
@@ -197,20 +196,6 @@ export const Default = () => (
 			))
 		}
 	</FacetedSearch.Faceted>
-);
-
-export const IconDefaultActiveAndLoading = () => (
-	<div style={{ display: 'flex', gap: '1rem' }}>
-		<div>
-			<FacetedSearchIcon loading onClick={action('onClick')} />
-		</div>
-		<div>
-			<FacetedSearchIcon active onClick={action('onClick')} />
-		</div>
-		<div>
-			<FacetedSearchIcon onClick={action('onClick')} />
-		</div>
-	</div>
 );
 
 export const Initialized = () => (
@@ -504,7 +489,9 @@ export const WithQuickSearchFilter = () => (
 		<p>Quick search will only suggest facets matching input (Connection name, Author)</p>
 		<br />
 		<FacetedSearch.BasicSearch
-			quickSearchFacetsFilter={(term, facets) => facets.filter(facet => facet.properties.label.includes(term))}
+			quickSearchFacetsFilter={(term, facets) =>
+				facets.filter(facet => facet.properties.label.includes(term))
+			}
 			badgesDefinitions={[badgeAuthor, badgeName, badgeConnectionName]}
 			onSubmit={action('onSubmit')}
 			callbacks={callbacks}
