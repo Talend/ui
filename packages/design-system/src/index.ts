@@ -1,5 +1,4 @@
 import Accordion from './components/Accordion';
-import { AffixButton, AffixReadOnly } from './components/Form/FieldGroup/Affix';
 import {
 	ButtonPrimary,
 	ButtonSecondary,
@@ -26,6 +25,7 @@ import EmptyState, {
 	EmptyStateSmall,
 } from './components/EmptyState';
 import Form from './components/Form';
+import { AffixButton, AffixReadOnly } from './components/Form/FieldGroup/Affix';
 import HeaderBar from './components/HeaderBar';
 import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
@@ -60,8 +60,8 @@ import {
 	StatusFailed,
 	Status,
 } from './components/Status';
-import Switch from './components/Switch';
 import Stepper from './components/Stepper';
+import Switch from './components/Switch';
 import Tabs from './components/Tabs';
 import {
 	Tag,
@@ -73,9 +73,8 @@ import {
 	TagDestructive,
 } from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
-import Tooltip from './components/Tooltip';
+import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
-
 import * as themes from './themes';
 import tokens from './tokens';
 
@@ -154,3 +153,5 @@ export {
 	themes,
 	tokens,
 };
+
+export type { TooltipPlacement };
