@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.45.0
+
+### Minor Changes
+
+- 40d5d3fe0: Types and utils are exported outside of main entrypoint
+
 ## 6.44.1
 
 ### Patch Changes

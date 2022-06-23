@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.6.0
+
+### Minor Changes
+
+- 3ee7c04a9: New shadow tokens
+
 ## 2.5.0
 
 ### Minor Changes

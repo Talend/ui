@@ -1,5 +1,18 @@
 # @talend/design-system
 
+## 3.5.0
+
+### Minor Changes
+
+- 984c9c22b: feat(Dropdown): set a z-index value
+- da844538c: Expose `TooltipPlacement` type
+
+### Patch Changes
+
+- 2e06262d7: Move style to CSS module file
+- Updated dependencies [3ee7c04a9]
+  - @talend/design-tokens@2.6.0
+
 ## 3.4.0
 
 ### Minor Changes
