@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Popover, Button, Overlay } from '@talend/react-bootstrap';
-import Icon from '@talend/react-components/lib/Icon';
-import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
-import FormatValue from '@talend/react-components/lib/FormatValue';
-import { getTheme } from '@talend/react-components/lib/theme';
+import { Icon, TooltipTrigger, FormatValue, getTheme } from '@talend/react-components/lib/Icon';
 import cssModule from './BadgeOverlay.scss';
 
 const theme = getTheme(cssModule);
@@ -41,7 +38,6 @@ const BadgeOverlay = ({
 	children,
 	className,
 	dataFeature,
-	hasAddButton = false,
 	iconName,
 	id,
 	initialOpened = false,
@@ -49,9 +45,7 @@ const BadgeOverlay = ({
 	onChange,
 	onHide,
 	opened = false,
-	placement = 'bottom',
 	readOnly,
-	rootClose = true,
 	showSpecialChars = false,
 	t,
 }) => {
@@ -84,14 +78,13 @@ const BadgeOverlay = ({
 			ref={target => setButtonRef(target)}
 			onClick={changeOpened}
 			disabled={readOnly}
-			className={theme({ 'tc-badge-link-plus': hasAddButton })}
 			data-feature={dataFeature}
 		>
-			{iconName && (
+			{iconName ? (
 				<Icon name={`talend-${iconName}`} key="icon" className={theme('tc-badge-link-plus-icon')} />
+			) : (
+				getLabel(label, showSpecialChars)
 			)}
-			{hasAddButton && <span>{t('BASIC_SEARCH_ADD_FILTER', { defaultValue: 'Add filter' })}</span>}
-			{!iconName && getLabel(label, showSpecialChars)}
 		</Button>
 	);
 
@@ -110,8 +103,8 @@ const BadgeOverlay = ({
 			<Overlay
 				id={`${id}-overlay`}
 				onHide={onHideOverlay}
-				placement={placement}
-				rootClose={rootClose}
+				placement="bottom"
+				rootClose={true}
 				show={currentOpened}
 				target={buttonRef}
 			>
@@ -127,21 +120,18 @@ BadgeOverlay.propTypes = {
 		PropTypes.arrayOf(PropTypes.element),
 		PropTypes.func,
 	]).isRequired,
-	t: PropTypes.func.isRequired,
-	className: PropTypes.string,
-	dataFeature: PropTypes.string,
-	iconName: PropTypes.string,
-	initialOpened: PropTypes.bool,
 	id: PropTypes.string.isRequired,
 	label: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
+	readOnly: PropTypes.bool,
+	initialOpened: PropTypes.bool,
+	opened: PropTypes.bool,
+	className: PropTypes.string,
+	iconName: PropTypes.string,
+	showSpecialChars: PropTypes.bool,
+	dataFeature: PropTypes.string,
+	t: PropTypes.func.isRequired,
 	onChange: PropTypes.func,
 	onHide: PropTypes.func,
-	opened: PropTypes.bool,
-	placement: PropTypes.string,
-	rootClose: PropTypes.bool,
-	hasAddButton: PropTypes.bool,
-	readOnly: PropTypes.bool,
-	showSpecialChars: PropTypes.bool,
 };
 
 // eslint-disable-next-line import/prefer-default-export

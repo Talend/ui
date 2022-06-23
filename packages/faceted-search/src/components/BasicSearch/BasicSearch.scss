@@ -1,18 +1,20 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 .tc-basic-search {
 	align-items: center;
 	display: flex;
 	height: inherit;
 	overflow: visible;
-	padding-left: $padding-large;
-	width: 100%;
 	position: relative;
-	margin-right: 1.5rem;
+	width: 100%;
+	margin-left: tokens.$coral-spacing-s;
+	margin-right: tokens.$coral-spacing-s;
 
 	&::after {
 		content: '';
-		height: 2.5rem;
+		height: tokens.$coral-sizing-xs;
 		width: 0;
-		border-right: 1px solid $gallery;
+		border-right: 1px solid tokens.$coral-color-neutral-border-weak;
 		position: absolute;
 		top: 50%;
 		right: 0;
@@ -20,7 +22,7 @@
 	}
 
 	&-quicksearch {
-		margin-right: $padding-small;
+		margin-right: tokens.$coral-spacing-xs;
 	}
 
 	&-content {
@@ -31,7 +33,7 @@
 		flex-grow: 1;
 	}
 
-	&-clear-button {
-		padding: 0 0.5rem;
+	&-clear-content {
+		margin-right: tokens.$coral-spacing-xs;
 	}
 }

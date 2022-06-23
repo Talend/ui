@@ -50,7 +50,6 @@ const BadgeOperatorOverlay = ({
 		>
 			<BadgeOverlay
 				className={theme('tc-badge-operator-button')}
-				hideLabel
 				iconName={operatorIconName}
 				id={`${id}-operator`}
 				label={operatorLabel}

@@ -1,6 +1,8 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 // stylelint-disable scss/selector-no-redundant-nesting-selector
 .tc-badge-faceted {
-	padding: $padding-smaller $padding-small $padding-smaller $padding-small;
+	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
 	max-width: 35em;
 
 	:global(.tc-badge-button) {
