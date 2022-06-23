@@ -56,3 +56,8 @@ eslint-report.json
 i18next-scanner.config.js
 stylelint-report.json
 talend-scripts.json
+tsconfig.build.json
+tsconfig.json
+webpack.ace.config.js
+build-utils.js
+talend-i18n.json
