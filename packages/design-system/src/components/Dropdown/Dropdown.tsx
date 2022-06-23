@@ -51,14 +51,7 @@ const Dropdown = forwardRef(
 				<MenuButton {...menu} data-test="dropdown.button">
 					{disclosureProps => cloneElement(children, disclosureProps)}
 				</MenuButton>
-				<Menu
-					{...menu}
-					as={DropdownShell}
-					{...rest}
-					ref={ref}
-					data-test="dropdown.menu"
-					style={{ zIndex: tokens.coralElevationLayerInteractiveFront }}
-				>
+				<Menu {...menu} as={DropdownShell} {...rest} ref={ref} data-test="dropdown.menu">
 					{items.map((entry, index) => {
 						if (entry.type === 'button') {
 							const { label, ...entryRest } = entry;
