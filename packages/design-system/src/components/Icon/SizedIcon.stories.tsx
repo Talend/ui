@@ -1,5 +1,6 @@
 import React from 'react';
-import { IconNameWithSize, icons } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconNameWithSize, icons } from '@talend/icons/dist/typeUtils';
 
 import { SizedIcon } from './SizedIcon';
 
@@ -30,7 +31,7 @@ IconXS.argTypes = {
 
 IconS.argTypes = {
 	name: {
-		options: ['pencil'],
+		options: icons.S,
 		control: { type: 'select' },
 		defaultValue: 'pencil',
 	},
@@ -38,7 +39,7 @@ IconS.argTypes = {
 
 IconM.argTypes = {
 	name: {
-		options: ['pencil'],
+		options: icons.M,
 		control: { type: 'select' },
 		defaultValue: 'pencil',
 	},
@@ -46,7 +47,7 @@ IconM.argTypes = {
 
 IconL.argTypes = {
 	name: {
-		options: ['pencil'],
+		options: icons.L,
 		control: { type: 'select' },
 		defaultValue: 'pencil',
 	},
