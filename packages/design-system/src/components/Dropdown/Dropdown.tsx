@@ -9,6 +9,7 @@ import DropdownTitle from './Primitive/DropdownTitle';
 import DropdownDivider from './Primitive/DropdownDivider';
 import Clickable, { ClickableProps } from '../Clickable';
 import { LinkableType } from '../Linkable';
+import tokens from '@talend/design-tokens';
 
 type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 	label: string;
@@ -50,7 +51,14 @@ const Dropdown = forwardRef(
 				<MenuButton {...menu} data-test="dropdown.button">
 					{disclosureProps => cloneElement(children, disclosureProps)}
 				</MenuButton>
-				<Menu {...menu} as={DropdownShell} {...rest} ref={ref} data-test="dropdown.menu">
+				<Menu
+					{...menu}
+					as={DropdownShell}
+					{...rest}
+					ref={ref}
+					data-test="dropdown.menu"
+					style={{ zIndex: tokens.coralElevationLayerInteractiveFront }}
+				>
 					{items.map((entry, index) => {
 						if (entry.type === 'button') {
 							const { label, ...entryRest } = entry;
