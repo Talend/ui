@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-import FormSwitcher from './FormSwitcher.component';
+import FormSwitcher from './FormSwitcher';
 import { data } from '../__mocks__/data';
 
 describe('FormSwitcher', () => {

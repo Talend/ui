@@ -4,7 +4,7 @@ import { SkeletonInput, SkeletonButton } from '@talend/design-system';
 
 import { ActionProps, DisplayMode } from './types';
 
-import theme from './FormSkeleton.component.scss';
+import theme from './FormSkeleton.module.scss';
 
 export interface FormSkeletonProps {
 	displayMode?: DisplayMode;

@@ -1,5 +1,5 @@
-import FormSkeleton from './FormSkeleton.component';
-import FormSwitcher from './FormSwitcher.component';
+import FormSkeleton from './FormSkeleton';
+import FormSwitcher from './FormSwitcher';
 import UIForm from './UIForm';
 import { I18N_DOMAIN_FORMS } from './constants';
 import rhf from './rhf';

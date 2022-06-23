@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-import FormSkeleton from './FormSkeleton.component';
+import FormSkeleton from './FormSkeleton';
 
 describe('FormSkeleton', () => {
 	it('should render skeleton', () => {
