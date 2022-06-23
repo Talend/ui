@@ -1,11 +1,13 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/typeUtils';
 
 import tokens from '../../tokens';
 import { IconsProvider } from '../IconsProvider';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export enum SVG_TRANSFORMS {
 	Spin = 'spin',
 	Rotate45 = 'rotate-45',
@@ -83,11 +85,13 @@ const accessibility = {
 	'aria-hidden': 'true',
 };
 
+// eslint-disable-next-line react/display-name
 export const Icon = React.forwardRef(
 	(
 		{ className, name = 'talend-empty-space', transform, border, ...rest }: IconProps,
 		ref: React.Ref<SVGSVGElement>,
 	) => {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		const safeRef = React.createRef<SVGSVGElement>(ref);
 		const [content, setContent] = React.useState<string>();
@@ -142,7 +146,7 @@ export const Icon = React.forwardRef(
 					if (svg) {
 						const { x, y, width, height }: DOMRect = svg.viewBox.baseVal;
 						const factor: number = height;
-						const strokeWidth: number = 1;
+						const strokeWidth = 1;
 						const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
 						circle.setAttribute('class', 'ti-border');
 						circle.setAttribute('cx', ((width + factor) / 2).toString());

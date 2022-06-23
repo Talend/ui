@@ -1,13 +1,9 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const mkdirp = require('mkdirp');
 const prettier = require('prettier');
 
 const src = require('../src');
-
-const dist = path.join(__dirname, '../dist/');
-mkdirp.sync(dist);
 
 const files = {};
 
@@ -28,11 +24,9 @@ fs.readdirSync(iconSrcFolder)
 	});
 
 fs.writeFileSync(
-	path.join(dist, 'index.d.ts'),
+	path.join(srcFolder, 'typeUtils.ts'),
 	prettier.format(
 		`
-/// <reference types="typescript" />
-
 export declare type IconName =
 ${icons}
     | string;
