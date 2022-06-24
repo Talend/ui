@@ -53,13 +53,15 @@ html {
   &.sbdocs-content {
     padding: tokens.$coral-spacing-l tokens.$coral-spacing-xl;
     background: transparent;
-    max-width: 100%;
+    max-width: 120rem;
   }
 
   // Code previews
   &.sbdocs-preview pre.prismjs {
     background-color: tokens.$coral-color-assistive-background;
     border: 0;
+    color: inherit;
+    line-height: inherit;
   }
 
   // Story canvas blocks
@@ -77,6 +79,7 @@ html {
     }
   }
 
+  // Embedded components
   .docs-story {
     &:before {
       content: "Embedded component";
@@ -119,6 +122,33 @@ html {
         &:hover {
           color: tokens.$coral-color-accent-text-weak-hover;
           background-color: tokens.$coral-color-accent-background-strong-hover;
+        }
+      }
+    }
+  }
+
+  // Args tables
+  .docblock-argstable {
+    color: tokens.$coral-color-neutral-text;
+
+    .docblock-argstable-head th {
+      font: tokens.$coral-heading-s;
+      color: tokens.$coral-color-neutral-text;
+    }
+
+    .docblock-argstable-body {
+      box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+      border-radius: tokens.$coral-radius-m;
+
+      tr:not(:first-child) {
+        border-top-color: tokens.$coral-color-neutral-border-weak;
+      }
+
+      td {
+        background: tokens.$coral-color-neutral-background-medium;
+
+        span, div {
+          color: tokens.$coral-color-neutral-text;
         }
       }
     }

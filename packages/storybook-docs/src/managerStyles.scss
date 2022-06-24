@@ -36,9 +36,9 @@ html {
 
   button[data-action="collapse-root"] {
     align-items: center;
-    // padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xxs tokens.$coral-spacing-xxs 18px;
     margin-left: 0;
-    height: tokens.$coral-sizing-m;
+    min-height: tokens.$coral-sizing-m;
+    padding: tokens.$coral-spacing-xs tokens.$coral-spacing-m tokens.$coral-spacing-xs 0;
 
     > span:first-of-type {
       margin-left: 7px;
@@ -47,7 +47,8 @@ html {
   }
 
   .sidebar-subheading-action {
-    margin-right: tokens.$coral-spacing-xxs;
+    margin-right: tokens.$coral-spacing-m;
+    opacity: tokens.$coral-opacity-s;
     filter: contrast(10);
   }
 }
