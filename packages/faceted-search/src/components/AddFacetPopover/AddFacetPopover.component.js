@@ -9,7 +9,7 @@ import times from 'lodash/times';
 import constant from 'lodash/constant';
 import uniq from 'lodash/uniq';
 
-import { ButtonTertiary, ButtonIcon, Icon } from '@talend/design-system';
+import { ButtonTertiary, ButtonIcon, SizedIcon } from '@talend/design-system';
 import { getTheme, Rich, FilterBar, TooltipTrigger } from '@talend/react-components';
 
 import cssModule from './AddFacetPopover.scss';
@@ -40,7 +40,7 @@ const OpenCategoryRow = ({ label, onClick, isFocusable }) => (
 			tabIndex={getTabIndex(isFocusable)}
 		>
 			<div className={theme('tc-add-facet-popover-row-text')}>{label}</div>
-			<Icon className={theme('tc-add-facet-popover-row-icon')} name="talend-chevron-left" />
+			<SizedIcon name="chevron-right" size="S"></SizedIcon>
 		</ButtonTertiary>
 	</div>
 );
@@ -71,20 +71,28 @@ const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges,
 		defaultValue_plural: 'You can only apply the {{badgeLabel}} filter {{count}} times',
 	});
 
-	return (
-		<TooltipTrigger label={isDisabled ? disabledLabel : label} tooltipPlacement="top">
-			<div className={theme('tc-add-facet-popover-row')}>
-				<ButtonTertiary
-					id={`${id}-row-button-${label}`}
-					onClick={onClickRow}
-					tabIndex={getTabIndex(isFocusable)}
-					disabled={isDisabled}
-				>
-					{label}
-				</ButtonTertiary>
-			</div>
-		</TooltipTrigger>
+	const row = (
+		<div className={theme('tc-add-facet-popover-row')}>
+			<ButtonTertiary
+				id={`${id}-row-button-${label}`}
+				onClick={onClickRow}
+				tabIndex={getTabIndex(isFocusable)}
+				disabled={isDisabled}
+			>
+				{label}
+			</ButtonTertiary>
+		</div>
 	);
+
+	if (isDisabled) {
+		return (
+			<TooltipTrigger label={disabledLabel} tooltipPlacement="top">
+				{row}
+			</TooltipTrigger>
+		);
+	}
+
+	return row;
 };
 
 AddFacetRow.propTypes = {
@@ -112,6 +120,7 @@ const AddFacetPopoverHeader = ({
 			<div className={theme('tc-add-facet-popover-category')}>
 				<ButtonIcon
 					icon="talend-arrow-left"
+					size="S"
 					onClick={() => onCategoryChange(null)}
 					tabIndex={getTabIndex(isFocusable)}
 				>

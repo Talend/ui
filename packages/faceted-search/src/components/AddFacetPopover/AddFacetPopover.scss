@@ -47,6 +47,7 @@ $popover-screen-width: 30rem;
 	}
 
 	&-category-title {
+		padding-left: tokens.$coral-spacing-xxs;
 		text-transform: none;
 		letter-spacing: normal;
 		text-decoration: none;
@@ -109,30 +110,19 @@ $popover-screen-width: 30rem;
 
 	&-row {
 		display: flex;
-		text-align: left;
-		font-weight: 500;
-		text-transform: none;
 		width: 100%;
 		justify-content: flex-start;
 		align-content: center;
 
 		button {
 			width: 100%;
+			overflow-wrap: anywhere;
+			text-align: left;
 		}
 
 		&-text {
 			max-width: 25rem;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
 			flex-grow: 1;
-		}
-
-		&-icon {
-			width: tokens.$coral-sizing-minimal !important;
-			height: tokens.$coral-sizing-minimal !important;
-			justify-content: flex-end;
-			transform: rotate(180deg);
 		}
 	}
 }
