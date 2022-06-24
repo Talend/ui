@@ -1,6 +1,7 @@
 // stylelint-disable declaration-no-important
+@use '~@talend/design-tokens/lib/tokens';
+
 $popover-screen-width: 30rem;
-$animation-duration: 400ms;
 
 .tc-add-facet-popover {
 	display: flex;
@@ -8,8 +9,8 @@ $animation-duration: 400ms;
 	overflow: hidden;
 
 	&-container {
-		width: 60rem;
-		min-width: 60rem;
+		width: $popover-screen-width * 2;
+		min-width: $popover-screen-width * 2;
 		position: relative;
 	}
 
@@ -33,7 +34,7 @@ $animation-duration: 400ms;
 	}
 
 	&-category {
-		margin-bottom: 1.4rem;
+		margin-bottom: tokens.$coral-spacing-s;
 		display: flex;
 		align-items: center;
 	}
@@ -82,7 +83,7 @@ $animation-duration: 400ms;
 		flex-shrink: 0;
 		overflow: hidden;
 		width: $popover-screen-width;
-		transition: transform $animation-duration ease;
+		transition: transform 400ms ease;
 	}
 
 	.screen-category {
@@ -96,8 +97,7 @@ $animation-duration: 400ms;
 	}
 
 	&-filter-empty {
-		font-size: $font-size-base;
-		padding: $padding-large $padding-small;
+		padding: tokens.$coral-spacing-s;
 		display: block;
 		text-align: center;
 		font-style: italic;
@@ -116,9 +116,8 @@ $animation-duration: 400ms;
 		justify-content: flex-start;
 		align-content: center;
 
-		&:hover {
-			background: $concrete;
-			text-decoration: none;
+		button {
+			width: 100%;
 		}
 
 		&-text {
@@ -130,8 +129,8 @@ $animation-duration: 400ms;
 		}
 
 		&-icon {
-			width: 1.2rem !important;
-			height: 1.2rem !important;
+			width: tokens.$coral-sizing-minimal !important;
+			height: tokens.$coral-sizing-minimal !important;
 			justify-content: flex-end;
 			transform: rotate(180deg);
 		}

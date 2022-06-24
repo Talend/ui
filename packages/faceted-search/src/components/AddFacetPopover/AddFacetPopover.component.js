@@ -1,18 +1,16 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState, useRef, createRef, useEffect, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@talend/react-bootstrap';
-import isNaN from 'lodash/isNaN';
 import classNames from 'classnames';
-import { getTheme } from '@talend/react-components/lib/theme';
-import { Rich } from '@talend/react-components';
-import FilterBar from '@talend/react-components/lib/FilterBar';
-import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
-import Icon from '@talend/react-components/lib/Icon';
+import isNaN from 'lodash/isNaN';
 import isString from 'lodash/isString';
 import isNull from 'lodash/isNull';
 import times from 'lodash/times';
 import constant from 'lodash/constant';
 import uniq from 'lodash/uniq';
+
+import { ButtonTertiary, ButtonIcon, Icon } from '@talend/design-system';
+import { getTheme, Rich, FilterBar, TooltipTrigger } from '@talend/react-components';
 
 import cssModule from './AddFacetPopover.scss';
 import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.propTypes';
@@ -35,21 +33,16 @@ const isButtonDisabled = (badges, badgeDefinition, occurrences) => {
 const getTabIndex = isFocusable => (isFocusable ? 0 : -1);
 
 const OpenCategoryRow = ({ label, onClick, isFocusable }) => (
-	<TooltipTrigger label={label} tooltipPlacement="top">
-		<Button
-			aria-label={label}
-			bsStyle="link"
-			className={theme('tc-add-facet-popover-row')}
+	<div className={theme('tc-add-facet-popover-row')}>
+		<ButtonTertiary
 			id={`$row-button-${label}`}
-			label={label}
 			onClick={() => onClick(label)}
-			role="button"
 			tabIndex={getTabIndex(isFocusable)}
 		>
 			<div className={theme('tc-add-facet-popover-row-text')}>{label}</div>
 			<Icon className={theme('tc-add-facet-popover-row-icon')} name="talend-chevron-left" />
-		</Button>
-	</TooltipTrigger>
+		</ButtonTertiary>
+	</div>
 );
 
 OpenCategoryRow.propTypes = {
@@ -59,15 +52,14 @@ OpenCategoryRow.propTypes = {
 };
 
 const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges, t }) => {
-	const occurrences = useMemo(() => badges.filter(filterByAttribute(badgeDefinition)).length, [
-		badges,
-		badgeDefinition,
-	]);
-	const isDisabled = useMemo(() => isButtonDisabled(badges, badgeDefinition, occurrences), [
-		badges,
-		badgeDefinition,
-		occurrences,
-	]);
+	const occurrences = useMemo(
+		() => badges.filter(filterByAttribute(badgeDefinition)).length,
+		[badges, badgeDefinition],
+	);
+	const isDisabled = useMemo(
+		() => isButtonDisabled(badges, badgeDefinition, occurrences),
+		[badges, badgeDefinition, occurrences],
+	);
 	const onClickRow = event => {
 		onClick(event, badgeDefinition);
 	};
@@ -81,19 +73,16 @@ const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges,
 
 	return (
 		<TooltipTrigger label={isDisabled ? disabledLabel : label} tooltipPlacement="top">
-			<Button
-				aria-label={label}
-				bsStyle="link"
-				className={theme('tc-add-facet-popover-row')}
-				id={`${id}-row-button-${label}`}
-				label={label}
-				onClick={onClickRow}
-				role="button"
-				tabIndex={getTabIndex(isFocusable)}
-				disabled={isDisabled}
-			>
-				<div className={theme('tc-add-facet-popover-row-text')}>{label}</div>
-			</Button>
+			<div className={theme('tc-add-facet-popover-row')}>
+				<ButtonTertiary
+					id={`${id}-row-button-${label}`}
+					onClick={onClickRow}
+					tabIndex={getTabIndex(isFocusable)}
+					disabled={isDisabled}
+				>
+					{label}
+				</ButtonTertiary>
+			</div>
 		</TooltipTrigger>
 	);
 };
@@ -121,15 +110,13 @@ const AddFacetPopoverHeader = ({
 	<Rich.Layout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
 		{!isNull(category) && (
 			<div className={theme('tc-add-facet-popover-category')}>
-				<Button
-					bsStyle="link"
+				<ButtonIcon
+					icon="talend-arrow-left"
 					onClick={() => onCategoryChange(null)}
-					role="button"
-					className={theme('tc-add-facet-popover-category-btn')}
 					tabIndex={getTabIndex(isFocusable)}
 				>
-					<Icon name="talend-arrow-left" />
-				</Button>
+					{t('ADD_FACET_FILTER_BACK', 'Back')}
+				</ButtonIcon>
 				<span className={theme('tc-add-facet-popover-category-title')}>{category}</span>
 			</div>
 		)}
@@ -140,9 +127,7 @@ const AddFacetPopoverHeader = ({
 			docked={false}
 			iconAlwaysVisible
 			id={`${id}-filter`}
-			placeholder={t('ADD_FACET_FILTER_PLACEHOLDER', {
-				defaultValue: 'Find a filter',
-			})}
+			placeholder={t('ADD_FACET_FILTER_PLACEHOLDER', 'Find a filter')}
 			onToggle={resetFilter}
 			onFilter={onFilter}
 			value={filterValue}
@@ -299,9 +284,7 @@ const AddFacetPopover = ({
 							<div className={theme('tc-add-facet-popover-row-container')}>
 								{filterValue !== '' && !screen.rows.length && (
 									<span className={theme('tc-add-facet-popover-filter-empty')}>
-										{t('ADD_FACET_FILTER_NO_RESULT', {
-											defaultValue: 'No result found',
-										})}
+										{t('ADD_FACET_FILTER_NO_RESULT', 'No result found')}
 									</span>
 								)}
 								{screen.rows.map(rowItem =>
@@ -345,5 +328,4 @@ AddFacetPopover.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export { AddFacetPopover };

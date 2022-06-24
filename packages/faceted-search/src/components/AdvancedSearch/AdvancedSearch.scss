@@ -12,7 +12,7 @@ $custom-icon-horizontal-offset: 2rem;
 	.adv-search-filter-icon {
 		position: absolute;
 		color: tokens.$coral-color-neutral-icon-weak;
-		top: $custom-icon-vertical-offset;
+		top: tokens.$coral-spacing-m;
 		left: 1.8rem;
 	}
 
@@ -45,7 +45,7 @@ $custom-icon-horizontal-offset: 2rem;
 
 	&-buttons {
 		position: absolute;
-		top: tokens.$coral-spacing-xxs;
+		top: tokens.$coral-spacing-s;
 		right: tokens.$coral-spacing-m;
 	}
 }
