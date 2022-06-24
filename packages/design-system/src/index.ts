@@ -14,10 +14,10 @@ import {
 	ButtonTertiaryAsLink,
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
-import Card from './components/Card';
-import Combobox from './components/Combobox';
+import Card from './components/WIP/Card';
+import Combobox from './components/WIP/Combobox';
 import Divider from './components/Divider';
-import { FloatingDrawer } from './components/Drawer';
+import { FloatingDrawer } from './components/WIP/Drawer';
 import Dropdown from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
@@ -26,7 +26,7 @@ import EmptyState, {
 } from './components/EmptyState';
 import Form from './components/Form';
 import { AffixButton, AffixReadOnly } from './components/Form/FieldGroup/Affix';
-import HeaderBar from './components/HeaderBar';
+import HeaderBar from './components/WIP/HeaderBar';
 import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
@@ -42,9 +42,9 @@ import Layout from './components/Layout';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
-import Menu from './components/Menu';
+import Menu from './components/WIP/Menu';
 import Modal from './components/Modal';
-import Popover from './components/Popover';
+import Popover from './components/WIP/Popover';
 import Skeleton, {
 	SkeletonParagraph,
 	SkeletonHeading,
@@ -62,7 +62,7 @@ import {
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import Tabs from './components/Tabs';
+import Tabs from './components/WIP/Tabs';
 import {
 	Tag,
 	TagBeta,

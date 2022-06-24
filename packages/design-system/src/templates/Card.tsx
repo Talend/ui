@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 
-import Card from '../components/Card';
+import Card from '../components/WIP/Card';
 import { Icon } from '../components/Icon';
 import Layout from '../components/Layout';
 import { StackVertical } from '../components/Stack';

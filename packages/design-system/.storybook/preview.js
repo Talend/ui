@@ -81,7 +81,7 @@ let statusByPage = {};
 channel.once(SET_STORIES, eventData => {
 	statusByPage = Object.entries(eventData.stories).reduce(
 		(acc, [name, { title, componentId, parameters }]) => {
-			['components', 'templates', 'pages'].forEach(prefix => {
+			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {
 				if (name.toLocaleLowerCase().startsWith(prefix)) {
 					if (!acc[componentId]) {
 						acc[componentId] = {
@@ -149,9 +149,14 @@ export const parameters = {
 					.join('/')
 					.replace('/docs', '');
 
-			const isDesignSystemElementPage = ['components/', 'templates/', 'pages/'].find(term =>
-				title?.toLocaleLowerCase().startsWith(term),
-			);
+			const isDesignSystemElementPage = [
+				'components/',
+				'templates/',
+				'pages/',
+				'[wip] components/',
+			].find(term => {
+				return title?.toLocaleLowerCase().startsWith(term);
+			});
 
 			return (
 				<>
@@ -246,6 +251,7 @@ export const parameters = {
 	},
 	options: {
 		storySort: {
+			method: 'alphabetical',
 			order: [
 				'Welcome',
 				'Getting Started',
