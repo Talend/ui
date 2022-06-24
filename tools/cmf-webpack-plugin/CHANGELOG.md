@@ -1,5 +1,11 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.36.8
+
+### Patch Changes
+
+- 040b0b3ea: fix: move scripts to dedicated package to avoid circular deps
+
 ## 6.36.7
 
 ### Patch Changes
