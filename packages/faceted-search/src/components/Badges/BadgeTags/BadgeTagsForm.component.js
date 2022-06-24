@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -50,9 +51,7 @@ const getVisibleTags = (tags, filterValue, showAll) => {
 	const formatFilterValue = filterValue.trim().toLocaleLowerCase();
 
 	return tags
-		.filter(checkbox =>
-			get(checkbox, 'label', '').toLocaleLowerCase().includes(formatFilterValue),
-		)
+		.filter(checkbox => get(checkbox, 'label', '').toLocaleLowerCase().includes(formatFilterValue))
 		.filter(tag => (showAll ? true : tag.checked));
 };
 
@@ -63,11 +62,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 	const badgeTagsFormId = `${id}-tags-form`;
 
 	const tags = useMemo(() => getTags(tagsValues, value), [tagsValues, value]);
-	const visibleTags = useMemo(() => getVisibleTags(tags, filter, showAll), [
-		tags,
-		filter,
-		showAll,
-	]);
+	const visibleTags = useMemo(() => getVisibleTags(tags, filter, showAll), [tags, filter, showAll]);
 
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
@@ -113,10 +108,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 					id={`${badgeTagsFormId}-form`}
 					onSubmit={onSubmit}
 				>
-					<Rich.Layout.Body
-						id={badgeTagsFormId}
-						className={theme('fs-badge-tags-form-body')}
-					>
+					<Rich.Layout.Body id={badgeTagsFormId} className={theme('fs-badge-tags-form-body')}>
 						{!visibleTags.length && (
 							<span className={theme('fs-badge-tags-form-empty')}>
 								{t('FIND_TAG_NO_RESULT', {

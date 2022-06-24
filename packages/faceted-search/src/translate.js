@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import i18next, { createInstance } from 'i18next';
 import { setI18n, getI18n } from 'react-i18next';
 
