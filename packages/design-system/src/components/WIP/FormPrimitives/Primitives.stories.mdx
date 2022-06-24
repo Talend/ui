@@ -1,0 +1,85 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+// import { FigmaImage, Use } from '~docs';
+
+import { InlineMessageInformation, InlineMessageWarning } from '../../InlineMessage';
+import * as Stories from './Primitives.stories';
+import { StackVertical } from '../../Stack';
+
+<Meta
+	title="[WIP] Components/Form/Primitives (unexported)"
+	parameters={{
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'wip' },
+		figmaLink: 'https://www.figma.com/file/6XBBCBVOhyX6yTaNcZQiti/Empty-States',
+	}}
+/>
+
+# Form Primitives
+
+<StackVertical gap="XS" padding={{ x: '0', y: 'M' }}>
+	<InlineMessageWarning
+		withBackground
+		title="Work in progress"
+		description="None of these primitives are used so far. They wil soon help rebuild the /Form part of this documentation."
+	/>
+	<InlineMessageInformation
+		withBackground
+		description="Primitives are unexported components used within
+    the design system. They are composed together to create the public components."
+	/>
+</StackVertical>
+
+## Textarea
+
+<Canvas>
+	<Story story={Stories.TextareaPrimitive} />
+</Canvas>
+
+## Input
+
+<Canvas>
+	<Story story={Stories.InputPrimitive} />
+</Canvas>
+
+### Password input
+
+<Canvas>
+	<Story story={Stories.InputPrimitivePassword} />
+</Canvas>
+
+## Select
+
+<Canvas>
+	<Story story={Stories.SelectPrimitive} />
+</Canvas>
+
+## Checkbox
+
+<Canvas>
+	<Story story={Stories.CheckboxPrimitive} />
+</Canvas>
+
+## Radio
+
+<Canvas>
+	<Story story={Stories.RadioPrimitive} />
+</Canvas>
+
+## Field
+
+<Canvas>
+	<Story story={Stories.FieldStory} />
+</Canvas>
+
+## Advanced affixes
+
+<Canvas>
+	<Story story={Stories.InputPrimitiveWithDropdown} height={'20rem'} />
+</Canvas>
+
+## Fake form
+
+This story is just here to provide contextual size comparison. It is not indicative of production code.
+
+<Canvas>
+	<Story story={Stories.FakeForm} />
+</Canvas>
