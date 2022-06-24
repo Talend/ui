@@ -1,106 +1,134 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdvancedSearch should render by default 1`] = `
-<div id="some-id-adv-search"
-     class="adv-search theme-adv-search"
->
-  <form id="some-id-adv-search-form">
-    <span name="talend-filter"
-          class="CoralIcon adv-search-filter-icon theme-adv-search-filter-icon"
-    >
-    </span>
-    <input name="advanced-search-faceted"
-           placeholder="Enter your query"
-           autocomplete="off"
-           aria-label="Advanced Faceted Search"
-           role="search"
-           type="search"
-           id="some-id-form"
-           class="adv-search-input theme-adv-search-input form-control"
-           value
-    >
-    <div class="adv-search-buttons theme-adv-search-buttons">
-      <button aria-label="Cancel"
+<span class="CoralThemeProvider">
+  <div id="some-id-adv-search"
+       class="adv-search theme-adv-search"
+  >
+    <form id="some-id-adv-search-form">
+      <span name="talend-filter"
+            class="CoralIcon adv-search-filter-icon theme-adv-search-filter-icon"
+      >
+      </span>
+      <input name="advanced-search-faceted"
+             placeholder="Enter your query"
+             autocomplete="off"
+             aria-label="Advanced Faceted Search"
+             role="search"
+             type="search"
+             id="some-id-form"
+             class="adv-search-input theme-adv-search-input form-control"
+             value
+      >
+      <div class="adv-search-buttons theme-adv-search-buttons">
+        <span name="action-cancel-title"
+              icon="talend-cross-circle"
               data-feature="filter.advanced.clear"
-              name="action-cancel-title"
-              aria-describedby="42"
-              type="button"
-              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
-      >
-        <span name="talend-cross"
-              class="CoralIcon"
+              class="CoralButtonIcon"
         >
+          Cancel
         </span>
-      </button>
-      <button aria-label="Submit"
-              data-feature="filter.advanced.apply"
-              name="action-submit-title"
+        <span name="action-submit-title"
+              icon="talend-check-circle"
               type="submit"
-              aria-describedby="42"
-              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
-      >
-        <span name="talend-check"
-              class="CoralIcon"
+              data-feature="filter.advanced.apply"
+              class="CoralButtonIcon"
         >
+          Submit
         </span>
-      </button>
-    </div>
-  </form>
-</div>
+      </div>
+    </form>
+  </div>
+</span>
+`;
+
+exports[`AdvancedSearch should render in progress mode when inProgress is truthy 1`] = `
+<span class="CoralThemeProvider">
+  <div id="some-id-adv-search"
+       class="adv-search theme-adv-search"
+  >
+    <form id="some-id-adv-search-form">
+      <span name="talend-filter"
+            class="CoralIcon adv-search-filter-icon theme-adv-search-filter-icon"
+      >
+      </span>
+      <input name="advanced-search-faceted"
+             placeholder="Enter your query"
+             autocomplete="off"
+             aria-label="Advanced Faceted Search"
+             role="search"
+             type="search"
+             id="some-id-form"
+             class="adv-search-input theme-adv-search-input form-control"
+             value
+      >
+      <div class="adv-search-buttons theme-adv-search-buttons">
+        <span name="action-cancel-title"
+              icon="talend-cross-circle"
+              data-feature="filter.advanced.clear"
+              class="CoralButtonIcon"
+        >
+          Cancel
+        </span>
+        <span name="action-submit-title"
+              icon="talend-check-circle"
+              type="submit"
+              data-feature="filter.advanced.apply"
+              class="CoralButtonIcon"
+        >
+          Submit
+        </span>
+      </div>
+    </form>
+  </div>
+</span>
 `;
 
 exports[`AdvancedSearch should render with an explicit error 1`] = `
-<div id="some-id-adv-search"
-     class="adv-search theme-adv-search"
->
-  <form id="some-id-adv-search-form">
-    <span name="talend-filter"
-          class="CoralIcon adv-search-filter-icon theme-adv-search-filter-icon"
-    >
-    </span>
-    <input name="advanced-search-faceted"
-           placeholder="Enter your query"
-           autocomplete="off"
-           aria-label="Advanced Faceted Search"
-           role="search"
-           type="search"
-           id="some-id-form"
-           class="adv-search-input theme-adv-search-input has-error theme-has-error form-control"
-           value
-    >
-    <div class="adv-search-buttons theme-adv-search-buttons">
-      <button aria-label="Cancel"
-              data-feature="filter.advanced.clear"
-              name="action-cancel-title"
-              aria-describedby="42"
-              type="button"
-              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
-      >
-        <span name="talend-cross"
-              class="CoralIcon"
-        >
-        </span>
-      </button>
-      <button aria-label="Submit"
-              data-feature="filter.advanced.apply"
-              name="action-submit-title"
-              type="submit"
-              aria-describedby="42"
-              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
-      >
-        <span name="talend-check"
-              class="CoralIcon"
-        >
-        </span>
-      </button>
-    </div>
-  </form>
-  <p aria-live="assertive"
-     class="adv-search-error theme-adv-search-error"
-     id="some-id-adv-search-error"
-     role="status"
+<span class="CoralThemeProvider">
+  <div id="some-id-adv-search"
+       class="adv-search theme-adv-search"
   >
-    my Explicit Error
-  </p>
-</div>
+    <form id="some-id-adv-search-form">
+      <span name="talend-filter"
+            class="CoralIcon adv-search-filter-icon theme-adv-search-filter-icon"
+      >
+      </span>
+      <input name="advanced-search-faceted"
+             placeholder="Enter your query"
+             autocomplete="off"
+             aria-label="Advanced Faceted Search"
+             role="search"
+             type="search"
+             id="some-id-form"
+             class="adv-search-input theme-adv-search-input has-error theme-has-error form-control"
+             value
+      >
+      <div class="adv-search-buttons theme-adv-search-buttons">
+        <span name="action-cancel-title"
+              icon="talend-cross-circle"
+              data-feature="filter.advanced.clear"
+              class="CoralButtonIcon"
+        >
+          Cancel
+        </span>
+        <span name="action-submit-title"
+              icon="talend-check-circle"
+              type="submit"
+              data-feature="filter.advanced.apply"
+              class="CoralButtonIcon"
+        >
+          Submit
+        </span>
+      </div>
+    </form>
+    <p aria-live="assertive"
+       class="adv-search-error theme-adv-search-error"
+       id="some-id-adv-search-error"
+       role="status"
+    >
+      my Explicit Error
+    </p>
+  </div>
+</span>
 `;

@@ -1,11 +1,10 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import keycode from 'keycode';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { mount } from 'enzyme';
 
 import { FacetedManager } from '../FacetedManager';
 import { AdvancedSearch } from './AdvancedSearch.component';
+import { mountWithTheme } from '../../../jest.utils';
 
 describe('AdvancedSearch', () => {
 	const id = 'some-id';
@@ -14,7 +13,7 @@ describe('AdvancedSearch', () => {
 	it('should render by default', () => {
 		// given nothing
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id={id} t={t}>
 				<AdvancedSearch onSubmit={onSubmit} />
 			</FacetedManager>,
@@ -26,7 +25,7 @@ describe('AdvancedSearch', () => {
 		// given
 		const initialQuery = 'my initial query';
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id={id} t={t}>
 				<AdvancedSearch initialQuery={initialQuery} onSubmit={onSubmit} />
 			</FacetedManager>,
@@ -38,7 +37,7 @@ describe('AdvancedSearch', () => {
 		// given
 		const query = 'my new query';
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id={id} t={t}>
 				<AdvancedSearch onSubmit={onSubmit} />
 			</FacetedManager>,
@@ -55,7 +54,7 @@ describe('AdvancedSearch', () => {
 		const onChange = jest.fn();
 		const query = 'my new query';
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id={id} t={t}>
 				<AdvancedSearch onChange={onChange} onSubmit={onSubmit} />
 			</FacetedManager>,
@@ -71,7 +70,7 @@ describe('AdvancedSearch', () => {
 	it('should call the onSubmit when pressing Enter in input', () => {
 		// given nothing
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id={id} t={t}>
 				<AdvancedSearch onSubmit={onSubmit} />
 			</FacetedManager>,
@@ -87,7 +86,7 @@ describe('AdvancedSearch', () => {
 		// given
 		const onKeyDown = jest.fn();
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id={id} t={t}>
 				<AdvancedSearch onKeyDown={onKeyDown} onSubmit={onSubmit} />
 			</FacetedManager>,
@@ -103,7 +102,7 @@ describe('AdvancedSearch', () => {
 		// given
 		const error = 'my Explicit Error';
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id={id} error={error} t={t}>
 				<AdvancedSearch onSubmit={onSubmit} />
 			</FacetedManager>,
@@ -115,14 +114,13 @@ describe('AdvancedSearch', () => {
 		// given
 		const inProgress = true;
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id={id} inProgress={inProgress} t={t}>
 				<AdvancedSearch onSubmit={onSubmit} />
 			</FacetedManager>,
 		);
 		// then
-		expect(wrapper.find('svg[aria-busy="true"]').prop('className')).toEqual(
-			'tc-circular-progress theme-loader theme-animate theme-small',
-		);
+		expect(wrapper.html()).toMatchSnapshot();
+		expect(wrapper.find('button[aria-busy="true"]').length).toBe(2);
 	});
 });

@@ -140,7 +140,7 @@ const BasicSearch = ({
 						<ButtonSecondary
 							size="S"
 							isDropdown
-							dataFeature={USAGE_TRACKING_TAGS.BASIC_ADD}
+							data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}
 							onClick={() => setFilterOverlayDisplay(true)}
 							ref={addFilterButtonRef}
 						>
@@ -175,6 +175,7 @@ const BasicSearch = ({
 					<ButtonIcon
 						icon="talend-trash"
 						size="S"
+						data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
 						onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}
 					>
 						{t('FACETED_SEARCH_BASIC_CLEAR', 'Remove all filters')}

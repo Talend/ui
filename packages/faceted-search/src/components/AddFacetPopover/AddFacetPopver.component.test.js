@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { AddFacetPopover } from './AddFacetPopover.component';
 import getDefaultT from '../../translate';
+import { mountWithTheme } from '../../../jest.utils';
 
 const t = getDefaultT();
 
@@ -74,7 +74,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		// Then
 		expect(wrapper.html()).toMatchSnapshot();
 	});
@@ -88,7 +88,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
 			wrapper
@@ -98,7 +98,7 @@ describe('AddFacetPopover', () => {
 		});
 		wrapper.update();
 		expect(wrapper.find('input').first().prop('value')).toBe('connection');
-		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
+		expect(wrapper.find('button').find('Connection name')).toHaveLength(1);
 	});
 	it('should reset the badge rows when the filter is reset', () => {
 		// Given
@@ -111,7 +111,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
 			wrapper.find('button[aria-label="Remove filter"]').first().simulate('mouseDown');
@@ -132,7 +132,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		wrapper.find('button[aria-label="Name"]').simulate('click');
 		// Then
 		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[0]);
@@ -147,7 +147,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		// Then
 		expect(wrapper.find('button[aria-label="Custom attributes"]')).toHaveLength(1);
 		expect(wrapper.find('.tc-add-facet-popover-screen')).toHaveLength(2);
@@ -164,7 +164,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		wrapper.find('button[aria-label="Custom attributes"]').simulate('click');
 		// Then
 		expect(wrapper.find('.screen-move')).toHaveLength(2);
@@ -179,7 +179,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
 			wrapper
@@ -222,7 +222,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		// Then
 		expect(wrapper.find('button[aria-label="Connection name"]').prop('disabled')).toBe(true);
 	});
@@ -254,7 +254,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 		// Then
 		expect(wrapper.find('button[aria-label=""]')).toHaveLength(0);
 	});
@@ -268,7 +268,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 
 		// Then
 		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Connection name');
@@ -288,7 +288,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mount(<AddFacetPopover {...props} />);
+		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
 
 		// Then
 		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Name');

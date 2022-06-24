@@ -1,11 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { mount } from 'enzyme';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
+import { mountWithTheme } from '../../../jest.utils';
 
 describe('BasicSearch', () => {
 	const badgeText = {
@@ -73,7 +72,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -89,7 +88,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -112,7 +111,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -129,7 +128,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -145,7 +144,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch
 					{...props}
@@ -179,7 +178,7 @@ describe('BasicSearch', () => {
 			onSubmit,
 		};
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -207,7 +206,7 @@ describe('BasicSearch', () => {
 			onSubmit,
 		};
 		// when
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -228,7 +227,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -241,7 +240,7 @@ describe('BasicSearch', () => {
 		);
 	});
 
-	it('should not show remove all button when no badge can be removed', () => {
+	it('should not show remove all buttons when no badge can be removed', () => {
 		// Given
 		const props = {
 			badgesDefinitions,
@@ -249,7 +248,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -270,7 +269,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mount(
+		const wrapper = mountWithTheme(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,

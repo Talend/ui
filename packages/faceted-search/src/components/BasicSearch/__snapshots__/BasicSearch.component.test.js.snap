@@ -1,43 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BasicSearch should render the default html output with initial badges 1`] = `
+exports[`BasicSearch should not show add filter button when no badge definitions provided 1`] = `
 <div id="manager-id-basic-search"
      class="tc-basic-search theme-tc-basic-search"
 >
-  <div role="combobox"
-       aria-haspopup="listbox"
-       aria-owns="react-autowhatever-42"
-       aria-expanded="false"
-       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
-  >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
-      <label for="react-autowhatever-42-input"
-             class="control-label sr-only"
-      >
-        Search
-      </label>
-      <div class="icon-cls theme-icon-cls">
-        <span name="talend-search"
-              class="CoralIcon"
-        >
-        </span>
-      </div>
-      <input autocomplete="off"
-             aria-autocomplete="list"
-             aria-controls="react-autowhatever-42"
-             aria-activedescendant="react-autowhatever-42-section-0-item-0"
-             placeholder="Find in a column..."
-             role="searchbox"
-             type="text"
-             id="42"
-             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-             value
-      >
-    </div>
-  </div>
   <div class="tc-basic-search-content theme-tc-basic-search-content">
     <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
-      <div id="tc-badge-select-name-42-badge-text"
+      <div id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
            class="tc-badge-button theme-tc-badge-button"
       >
         <span aria-label="Name"
@@ -48,13 +17,13 @@ exports[`BasicSearch should render the default html output with initial badges 1
         </span>
         <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
           <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-            <button id="name-42-badge-text-operator-action-overlay"
-                    aria-label="Contains"
+            <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
+                    aria-label="Equals"
                     type="button"
                     aria-describedby="42"
                     class="btn btn-link"
             >
-              <span name="talend-contains"
+              <span name="talend-equal"
                     class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
               >
               </span>
@@ -62,7 +31,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
           </div>
         </div>
         <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-          <button id="name-42-badge-text-action-overlay"
+          <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
                   aria-label="hello"
                   type="button"
                   class="btn btn-link"
@@ -74,7 +43,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
         </div>
         <button role="button"
                 aria-label="Remove filter"
-                id="tc-badge-delete-name-42-badge-text"
+                id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
                 data-feature="filter.remove"
                 aria-describedby="42"
                 type="button"
@@ -87,338 +56,379 @@ exports[`BasicSearch should render the default html output with initial badges 1
         </button>
       </div>
     </div>
-    <div>
-      <button id="manager-id-basic-search-action-overlay"
-              aria-label="Add filter"
-              type="button"
-              data-feature="filter.basic.add"
-              aria-describedby="42"
-              class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
-      >
-        <span name="talend-plus-circle"
-              class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+  </div>
+  <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
+    <span icon="talend-trash"
+          data-feature="filter.basic.clear"
+          class="CoralButtonIcon"
+    >
+      Remove all filters
+    </span>
+  </div>
+</div>
+`;
+
+exports[`BasicSearch should render the default html output with initial badges 1`] = `
+<span class="CoralThemeProvider">
+  <div id="manager-id-basic-search"
+       class="tc-basic-search theme-tc-basic-search"
+  >
+    <div role="combobox"
+         aria-haspopup="listbox"
+         aria-owns="react-autowhatever-42"
+         aria-expanded="false"
+         class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+    >
+      <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
+        <label for="react-autowhatever-42-input"
+               class="control-label sr-only"
         >
-        </span>
-        <span>
-          Add filter
-        </span>
-      </button>
+          Search
+        </label>
+        <div class="icon-cls theme-icon-cls">
+          <span name="talend-search"
+                class="CoralIcon"
+          >
+          </span>
+        </div>
+        <input autocomplete="off"
+               aria-autocomplete="list"
+               aria-controls="react-autowhatever-42"
+               aria-activedescendant="react-autowhatever-42-section-0-item-0"
+               placeholder="Find in a column..."
+               role="searchbox"
+               type="text"
+               id="42"
+               class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+               value
+        >
+      </div>
+    </div>
+    <div class="tc-basic-search-content theme-tc-basic-search-content">
+      <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
+        <div id="tc-badge-select-name-42-badge-text"
+             class="tc-badge-button theme-tc-badge-button"
+        >
+          <span aria-label="Name"
+                class="tc-badge-category theme-tc-badge-category"
+                aria-describedby="42"
+          >
+            Name
+          </span>
+          <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
+            <div class="tc-badge-operator-button theme-tc-badge-operator-button">
+              <button id="name-42-badge-text-operator-action-overlay"
+                      aria-label="Contains"
+                      type="button"
+                      aria-describedby="42"
+                      class="btn btn-link"
+              >
+                <span name="talend-contains"
+                      class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+                >
+                </span>
+              </button>
+            </div>
+          </div>
+          <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
+            <button id="name-42-badge-text-action-overlay"
+                    aria-label="hello"
+                    type="button"
+                    class="btn btn-link"
+            >
+              <span>
+                hello
+              </span>
+            </button>
+          </div>
+          <button role="button"
+                  aria-label="Remove filter"
+                  id="tc-badge-delete-name-42-badge-text"
+                  data-feature="filter.remove"
+                  aria-describedby="42"
+                  type="button"
+                  class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+          >
+            <span name="talend-cross"
+                  class="CoralIcon"
+            >
+            </span>
+          </button>
+        </div>
+      </div>
+      <span data-feature="filter.basic.add"
+            class="CoralButtonSecondary"
+      >
+        Add filter
+      </span>
+    </div>
+    <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
+      <span icon="talend-trash"
+            data-feature="filter.basic.clear"
+            class="CoralButtonIcon"
+      >
+        Remove all filters
+      </span>
     </div>
   </div>
-  <button role="link"
-          aria-label="Remove all filters"
-          data-feature="filter.basic.clear"
-          aria-describedby="42"
-          type="button"
-          class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
-  >
-    <span name="talend-trash"
-          class="CoralIcon"
-    >
-    </span>
-    <span>
-    </span>
-  </button>
-</div>
+</span>
 `;
 
 exports[`BasicSearch should render the default html output with no badges 1`] = `
-<div id="manager-id-basic-search"
-     class="tc-basic-search theme-tc-basic-search"
->
-  <div role="combobox"
-       aria-haspopup="listbox"
-       aria-owns="react-autowhatever-42"
-       aria-expanded="false"
-       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+<span class="CoralThemeProvider">
+  <div id="manager-id-basic-search"
+       class="tc-basic-search theme-tc-basic-search"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
-      <label for="react-autowhatever-42-input"
-             class="control-label sr-only"
-      >
-        Search
-      </label>
-      <div class="icon-cls theme-icon-cls">
-        <span name="talend-search"
-              class="CoralIcon"
+    <div role="combobox"
+         aria-haspopup="listbox"
+         aria-owns="react-autowhatever-42"
+         aria-expanded="false"
+         class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+    >
+      <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
+        <label for="react-autowhatever-42-input"
+               class="control-label sr-only"
         >
-        </span>
+          Search
+        </label>
+        <div class="icon-cls theme-icon-cls">
+          <span name="talend-search"
+                class="CoralIcon"
+          >
+          </span>
+        </div>
+        <input autocomplete="off"
+               aria-autocomplete="list"
+               aria-controls="react-autowhatever-42"
+               aria-activedescendant="react-autowhatever-42-section-0-item-0"
+               placeholder="Find in a column..."
+               role="searchbox"
+               type="text"
+               id="42"
+               class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+               value
+        >
       </div>
-      <input autocomplete="off"
-             aria-autocomplete="list"
-             aria-controls="react-autowhatever-42"
-             aria-activedescendant="react-autowhatever-42-section-0-item-0"
-             placeholder="Find in a column..."
-             role="searchbox"
-             type="text"
-             id="42"
-             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-             value
+    </div>
+    <div class="tc-basic-search-content theme-tc-basic-search-content">
+      <span data-feature="filter.basic.add"
+            class="CoralButtonSecondary"
       >
+        Add filter
+      </span>
     </div>
   </div>
-  <div class="tc-basic-search-content theme-tc-basic-search-content">
-    <div>
-      <button id="manager-id-basic-search-action-overlay"
-              aria-label="Add filter"
-              type="button"
-              data-feature="filter.basic.add"
-              aria-describedby="42"
-              class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
-      >
-        <span name="talend-plus-circle"
-              class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-        >
-        </span>
-        <span>
-          Add filter
-        </span>
-      </button>
-    </div>
-  </div>
-</div>
+</span>
 `;
 
 exports[`BasicSearch should render the default html output with some badges 1`] = `
-<div id="manager-id-basic-search"
-     class="tc-basic-search theme-tc-basic-search"
->
-  <div role="combobox"
-       aria-haspopup="listbox"
-       aria-owns="react-autowhatever-42"
-       aria-expanded="false"
-       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+<span class="CoralThemeProvider">
+  <div id="manager-id-basic-search"
+       class="tc-basic-search theme-tc-basic-search"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
-      <label for="react-autowhatever-42-input"
-             class="control-label sr-only"
-      >
-        Search
-      </label>
-      <div class="icon-cls theme-icon-cls">
-        <span name="talend-search"
-              class="CoralIcon"
+    <div role="combobox"
+         aria-haspopup="listbox"
+         aria-owns="react-autowhatever-42"
+         aria-expanded="false"
+         class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+    >
+      <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
+        <label for="react-autowhatever-42-input"
+               class="control-label sr-only"
         >
-        </span>
-      </div>
-      <input autocomplete="off"
-             aria-autocomplete="list"
-             aria-controls="react-autowhatever-42"
-             aria-activedescendant="react-autowhatever-42-section-0-item-0"
-             placeholder="Find in a column..."
-             role="searchbox"
-             type="text"
-             id="42"
-             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-             value
-      >
-    </div>
-  </div>
-  <div class="tc-basic-search-content theme-tc-basic-search-content">
-    <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
-      <div id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
-           class="tc-badge-button theme-tc-badge-button"
-      >
-        <span aria-label="Name"
-              class="tc-badge-category theme-tc-badge-category"
-              aria-describedby="42"
-        >
-          Name
-        </span>
-        <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
-          <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-            <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
-                    aria-label="Equals"
-                    type="button"
-                    aria-describedby="42"
-                    class="btn btn-link"
-            >
-              <span name="talend-equal"
-                    class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-              >
-              </span>
-            </button>
-          </div>
-        </div>
-        <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-          <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
-                  aria-label="hello"
-                  type="button"
-                  class="btn btn-link"
-          >
-            <span>
-              hello
-            </span>
-          </button>
-        </div>
-        <button role="button"
-                aria-label="Remove filter"
-                id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
-                data-feature="filter.remove"
-                aria-describedby="42"
-                type="button"
-                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
-        >
-          <span name="talend-cross"
+          Search
+        </label>
+        <div class="icon-cls theme-icon-cls">
+          <span name="talend-search"
                 class="CoralIcon"
           >
           </span>
-        </button>
+        </div>
+        <input autocomplete="off"
+               aria-autocomplete="list"
+               aria-controls="react-autowhatever-42"
+               aria-activedescendant="react-autowhatever-42-section-0-item-0"
+               placeholder="Find in a column..."
+               role="searchbox"
+               type="text"
+               id="42"
+               class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+               value
+        >
       </div>
     </div>
-    <div>
-      <button id="manager-id-basic-search-action-overlay"
-              aria-label="Add filter"
-              type="button"
-              data-feature="filter.basic.add"
-              aria-describedby="42"
-              class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
-      >
-        <span name="talend-plus-circle"
-              class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+    <div class="tc-basic-search-content theme-tc-basic-search-content">
+      <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
+        <div id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+             class="tc-badge-button theme-tc-badge-button"
         >
-        </span>
-        <span>
-          Add filter
-        </span>
-      </button>
+          <span aria-label="Name"
+                class="tc-badge-category theme-tc-badge-category"
+                aria-describedby="42"
+          >
+            Name
+          </span>
+          <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
+            <div class="tc-badge-operator-button theme-tc-badge-operator-button">
+              <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
+                      aria-label="Equals"
+                      type="button"
+                      aria-describedby="42"
+                      class="btn btn-link"
+              >
+                <span name="talend-equal"
+                      class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+                >
+                </span>
+              </button>
+            </div>
+          </div>
+          <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
+            <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
+                    aria-label="hello"
+                    type="button"
+                    class="btn btn-link"
+            >
+              <span>
+                hello
+              </span>
+            </button>
+          </div>
+          <button role="button"
+                  aria-label="Remove filter"
+                  id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+                  data-feature="filter.remove"
+                  aria-describedby="42"
+                  type="button"
+                  class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+          >
+            <span name="talend-cross"
+                  class="CoralIcon"
+            >
+            </span>
+          </button>
+        </div>
+      </div>
+      <span data-feature="filter.basic.add"
+            class="CoralButtonSecondary"
+      >
+        Add filter
+      </span>
+    </div>
+    <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
+      <span icon="talend-trash"
+            data-feature="filter.basic.clear"
+            class="CoralButtonIcon"
+      >
+        Remove all filters
+      </span>
     </div>
   </div>
-  <button role="link"
-          aria-label="Remove all filters"
-          data-feature="filter.basic.clear"
-          aria-describedby="42"
-          type="button"
-          class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
-  >
-    <span name="talend-trash"
-          class="CoralIcon"
-    >
-    </span>
-    <span>
-    </span>
-  </button>
-</div>
+</span>
 `;
 
 exports[`BasicSearch should render the default html output with some badges and the quick search input 1`] = `
-<div id="manager-id-basic-search"
-     class="tc-basic-search theme-tc-basic-search"
->
-  <div role="combobox"
-       aria-haspopup="listbox"
-       aria-owns="react-autowhatever-42"
-       aria-expanded="false"
-       class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+<span class="CoralThemeProvider">
+  <div id="manager-id-basic-search"
+       class="tc-basic-search theme-tc-basic-search"
   >
-    <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
-      <label for="react-autowhatever-42-input"
-             class="control-label sr-only"
-      >
-        Search
-      </label>
-      <div class="icon-cls theme-icon-cls">
-        <span name="talend-search"
-              class="CoralIcon"
+    <div role="combobox"
+         aria-haspopup="listbox"
+         aria-owns="react-autowhatever-42"
+         aria-expanded="false"
+         class="theme-tc-typeahead-container tc-typeahead-container tc-basic-search-quicksearch theme-tc-basic-search-quicksearch"
+    >
+      <div class="tc-typeahead-typeahead-input-icon theme-typeahead-input-container theme-typeahead-input-icon">
+        <label for="react-autowhatever-42-input"
+               class="control-label sr-only"
         >
-        </span>
-      </div>
-      <input autocomplete="off"
-             aria-autocomplete="list"
-             aria-controls="react-autowhatever-42"
-             aria-activedescendant="react-autowhatever-42-section-0-item-0"
-             placeholder="Find in a column..."
-             role="searchbox"
-             type="text"
-             id="42"
-             class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-             value
-      >
-    </div>
-  </div>
-  <div class="tc-basic-search-content theme-tc-basic-search-content">
-    <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
-      <div id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
-           class="tc-badge-button theme-tc-badge-button"
-      >
-        <span aria-label="Name"
-              class="tc-badge-category theme-tc-badge-category"
-              aria-describedby="42"
-        >
-          Name
-        </span>
-        <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
-          <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-            <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
-                    aria-label="Equals"
-                    type="button"
-                    aria-describedby="42"
-                    class="btn btn-link"
-            >
-              <span name="talend-equal"
-                    class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
-              >
-              </span>
-            </button>
-          </div>
-        </div>
-        <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-          <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
-                  aria-label="hello"
-                  type="button"
-                  class="btn btn-link"
-          >
-            <span>
-              hello
-            </span>
-          </button>
-        </div>
-        <button role="button"
-                aria-label="Remove filter"
-                id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
-                data-feature="filter.remove"
-                aria-describedby="42"
-                type="button"
-                class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
-        >
-          <span name="talend-cross"
+          Search
+        </label>
+        <div class="icon-cls theme-icon-cls">
+          <span name="talend-search"
                 class="CoralIcon"
           >
           </span>
-        </button>
+        </div>
+        <input autocomplete="off"
+               aria-autocomplete="list"
+               aria-controls="react-autowhatever-42"
+               aria-activedescendant="react-autowhatever-42-section-0-item-0"
+               placeholder="Find in a column..."
+               role="searchbox"
+               type="text"
+               id="42"
+               class="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+               value
+        >
       </div>
     </div>
-    <div>
-      <button id="manager-id-basic-search-action-overlay"
-              aria-label="Add filter"
-              type="button"
-              data-feature="filter.basic.add"
-              aria-describedby="42"
-              class="tc-badge-link-plus theme-tc-badge-link-plus btn btn-link"
-      >
-        <span name="talend-plus-circle"
-              class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+    <div class="tc-basic-search-content theme-tc-basic-search-content">
+      <div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted theme-tc-badge-faceted tc-badge-readonly theme-tc-badge-readonly">
+        <div id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+             class="tc-badge-button theme-tc-badge-button"
         >
-        </span>
-        <span>
-          Add filter
-        </span>
-      </button>
+          <span aria-label="Name"
+                class="tc-badge-category theme-tc-badge-category"
+                aria-describedby="42"
+          >
+            Name
+          </span>
+          <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
+            <div class="tc-badge-operator-button theme-tc-badge-operator-button">
+              <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
+                      aria-label="Equals"
+                      type="button"
+                      aria-describedby="42"
+                      class="btn btn-link"
+              >
+                <span name="talend-equal"
+                      class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+                >
+                </span>
+              </button>
+            </div>
+          </div>
+          <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
+            <button id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
+                    aria-label="hello"
+                    type="button"
+                    class="btn btn-link"
+            >
+              <span>
+                hello
+              </span>
+            </button>
+          </div>
+          <button role="button"
+                  aria-label="Remove filter"
+                  id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+                  data-feature="filter.remove"
+                  aria-describedby="42"
+                  type="button"
+                  class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+          >
+            <span name="talend-cross"
+                  class="CoralIcon"
+            >
+            </span>
+          </button>
+        </div>
+      </div>
+      <span data-feature="filter.basic.add"
+            class="CoralButtonSecondary"
+      >
+        Add filter
+      </span>
+    </div>
+    <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
+      <span icon="talend-trash"
+            data-feature="filter.basic.clear"
+            class="CoralButtonIcon"
+      >
+        Remove all filters
+      </span>
     </div>
   </div>
-  <button role="link"
-          aria-label="Remove all filters"
-          data-feature="filter.basic.clear"
-          aria-describedby="42"
-          type="button"
-          class="tc-basic-search-clear-button theme-tc-basic-search-clear-button btn-icon-only btn btn-link"
-  >
-    <span name="talend-trash"
-          class="CoralIcon"
-    >
-    </span>
-    <span>
-    </span>
-  </button>
-</div>
+</span>
 `;
