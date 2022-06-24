@@ -1,5 +1,5 @@
 import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
-import { Menu, MenuButton, useMenuState } from 'reakit';
+import { Menu, MenuButton, useMenuState, unstable_useId as useId } from 'reakit';
 // eslint-disable-next-line @talend/import-depth
 import { IconName } from '@talend/icons/dist/typeUtils';
 import DropdownButton from './Primitive/DropdownButton';
@@ -9,7 +9,6 @@ import DropdownTitle from './Primitive/DropdownTitle';
 import DropdownDivider from './Primitive/DropdownDivider';
 import Clickable, { ClickableProps } from '../Clickable';
 import { LinkableType } from '../Linkable';
-import tokens from '@talend/design-tokens';
 
 type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 	label: string;
@@ -44,6 +43,7 @@ const Dropdown = forwardRef(
 			animated: 250,
 			gutter: 4,
 			loop: true,
+			baseId: useId().id,
 		});
 
 		return (
