@@ -17,14 +17,18 @@ function emphasiseAll(text, value) {
 	if (!value) {
 		return text;
 	}
-	const strText = `${text}`;
-	const strValue = `${value}`;
 
-	return strText
-		.split(new RegExp(`(${escapeRegexCharacters(strValue)})`, 'gi'))
+	if (!Array.isArray(value)) {
+		value = [value];
+	}
+
+	const valuesUC = value.map(e => `${e}`.toLocaleUpperCase());
+
+	return `${text}`
+		.split(new RegExp(`(${valuesUC.map(e => escapeRegexCharacters(e)).join('|')})`, 'gi'))
 		.filter(isNotEmpty)
 		.map((part, index) => {
-			if (part.toLocaleUpperCase() === strValue.toLocaleUpperCase()) {
+			if (valuesUC.includes(part.toLocaleUpperCase())) {
 				return (
 					<em key={index} className={theme.highlight}>
 						{part}

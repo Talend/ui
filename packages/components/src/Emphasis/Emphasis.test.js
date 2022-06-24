@@ -66,4 +66,20 @@ describe('Emphasis', () => {
 		// then
 		expect(wrapper.find('em').length).toBe(1);
 	});
+
+	it('should emphasize multiple words', () => {
+		// given
+		const wrapper = shallow(<Emphasis {...props} value={['lazy', 'fox', 'dog']} />);
+
+		// then
+		expect(wrapper.find('em').length).toBe(4);
+	});
+
+	it('should emphasize multiple substrings', () => {
+		// given
+		const wrapper = shallow(<Emphasis {...props} value={['quick brown fox', 'lazy dog']} />);
+
+		// then
+		expect(wrapper.find('em').length).toBe(2);
+	});
 });
