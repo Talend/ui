@@ -1,12 +1,17 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-
 import { SkeletonInput, SkeletonButton } from '@talend/design-system';
 
-import theme from './FormSkeleton.scss';
+import { ActionProps, DisplayMode } from './types';
 
-export default function FormSkeleton({ displayMode, actions }) {
+import theme from './FormSkeleton.module.scss';
+
+export interface FormSkeletonProps {
+	displayMode?: DisplayMode;
+	actions?: ActionProps[];
+}
+
+export default function FormSkeleton({ displayMode, actions }: FormSkeletonProps) {
 	// null/undefined actions prop will display default buttons
 	const hasButtons = displayMode !== 'text' && actions?.length !== 0;
 	return (
@@ -30,8 +35,3 @@ export default function FormSkeleton({ displayMode, actions }) {
 		</div>
 	);
 }
-
-FormSkeleton.propTypes = {
-	displayMode: PropTypes.string,
-	actions: PropTypes.array,
-};
