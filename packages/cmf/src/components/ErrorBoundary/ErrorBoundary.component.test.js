@@ -19,6 +19,7 @@ TestChildren.propTypes = {
 describe('Component ErrorBoundary', () => {
 	beforeEach(() => {
 		global.window.URL.createObjectURL = jest.fn();
+		global.window.Sentry = { withScope: jest.fn() };
 		global.console = {
 			log: jest.fn(),
 			error: jest.fn(),
@@ -41,5 +42,6 @@ describe('Component ErrorBoundary', () => {
 		expect(screen.getByText('Error: Bad')).toBeInTheDocument();
 		expect(() => screen.getByText('hello world')).toThrow();
 		expect(global.console.error).toHaveBeenCalled();
+		expect(global.window.Sentry.withScope).toHaveBeenCalled();
 	});
 });
