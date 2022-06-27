@@ -120,7 +120,9 @@ describe('AdvancedSearch', () => {
 			</FacetedManager>,
 		);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
-		expect(wrapper.find('button[aria-busy="true"]').length).toBe(2);
+		const buttons = wrapper.find('button');
+		expect(buttons.length).toBe(2);
+		expect(buttons.at(0).props().disabled).toBeTruthy();
+		expect(buttons.at(1).props().disabled).toBeTruthy();
 	});
 });

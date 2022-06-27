@@ -277,7 +277,10 @@ describe('BasicSearch', () => {
 
 		// Then
 		expect(wrapper.find('.tc-badge').length).toBe(1);
-		wrapper.find('.tc-basic-search-clear-button').at(0).simulate('click');
+		wrapper
+			.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`)
+			.at(0)
+			.simulate('click');
 		expect(wrapper.find('.tc-badge').length).toBe(0);
 	});
 });
