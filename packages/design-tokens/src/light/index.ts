@@ -249,6 +249,8 @@ const tokens = {
   coralElevationShadowNeutralInvertedM: `var(--coral-elevation-shadow-neutral-inverted-m, 0rem -0.2rem 0.6rem 0rem hsla(0, 0%, 0%, 0.3))`,
   coralElevationShadowNeutralInvertedL: `var(--coral-elevation-shadow-neutral-inverted-l, 0rem -0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.3))`,
   coralElevationShadowNeutralL: `var(--coral-elevation-shadow-neutral-l, 0rem 0.4rem 0.8rem 0rem hsla(0, 0%, 0%, 0.3))`,
+  coralElevationShadowNeutralS: `var(--coral-elevation-shadow-neutral-s, 0rem 0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.5))`,
+  coralElevationShadowNeutralInvertedS: `var(--coral-elevation-shadow-neutral-inverted-s, 0rem -0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.3))`,
   coralHeadingL: `var(--coral-heading-l, 600 1.8rem/140% 'Source Sans Pro')`,
   coralParagraphM: `var(--coral-paragraph-m, 400 1.4rem/140% 'Source Sans Pro')`,
   coralParagraphMBold: `var(--coral-paragraph-m-bold, 600 1.4rem/140% 'Source Sans Pro')`,

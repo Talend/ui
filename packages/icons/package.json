@@ -2,14 +2,15 @@
   "name": "@talend/icons",
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
   "main": "dist/TalendIcons.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/typeUtils.d.ts",
   "style": "build/octicons.css",
   "license": "Apache-2.0",
   "scripts": {
     "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env production",
+    "build-ts": "tsc",
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
-    "build:lib": "npm run ts:types && npm run build-react && npm run build-webfont && npm run build-umd",
+    "build:lib": "npm run ts:types && npm run build-ts && npm run build-react && npm run build-webfont && npm run build-umd",
     "ts:types": "node scripts/typescript.js",
     "test": "echo no test",
     "test:cov": "echo no test",
@@ -63,5 +64,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.44.0"
+  "version": "6.45.0"
 }

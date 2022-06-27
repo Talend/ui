@@ -14,7 +14,10 @@ export const Icons = () => {
 	const [border, setBorder] = React.useState<boolean>();
 
 	React.useEffect(() => {
-		IconsProvider.getAllIconIds().then((ids: (string | null)[]) => setIds(ids));
+		IconsProvider.getAllIconIds().then((ids: (string | null)[]) => {
+			const cleanIds = ids.filter(id => id && !id.includes(':'));
+			setIds(cleanIds);
+		});
 	}, []);
 
 	const onChangeQuery = (event: ChangeEvent<HTMLInputElement>) => {

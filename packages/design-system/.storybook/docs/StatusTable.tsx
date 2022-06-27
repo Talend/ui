@@ -106,7 +106,7 @@ const getComputedHTMLStatus = (status?: ComponentStatus) => {
 	return '';
 };
 
-const StatusTable = (props: FunctionComponent) => {
+const StatusTable = (props: FunctionComponent & { filter?: string }) => {
 	const [statuses, setStatuses] = useState<PageWithStatus>();
 
 	useEffect(() => {
@@ -149,6 +149,11 @@ const StatusTable = (props: FunctionComponent) => {
 								const { componentId, title, parameters } = pageDetails || {};
 								const { status } = parameters || {};
 								const { figma, react, storybook, i18n } = status || {};
+								if (props.filter) {
+									if (!componentId.includes(props.filter)) {
+										return null;
+									}
+								}
 								return (
 									<tr key={key}>
 										<td>

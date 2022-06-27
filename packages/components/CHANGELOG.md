@@ -1,5 +1,38 @@
 # @talend/react-components
 
+## 7.2.1
+
+### Patch Changes
+
+- eeda8a18a: feat(components): align new and old icons in the sidepanel
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+  - @talend/icons@6.44.1
+
+## 7.2.0
+
+### Minor Changes
+
+- 3422f271f: feat(components): allow to use new icons in legacy buttons
+
 ## 7.1.0
 
 ### Minor Changes

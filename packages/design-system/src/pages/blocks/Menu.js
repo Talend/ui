@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from '../../components/Menu';
+import Menu from '../../components/WIP/Menu';
 
 export default function MenuExample() {
 	return (

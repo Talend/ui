@@ -6,7 +6,7 @@ import * as Page from '..';
 import { ButtonPrimary, ButtonSecondary } from '../../components/Button';
 import Form from '../../components/Form';
 import Link from '../../components/Link';
-import { FloatingDrawer } from '../../components/Drawer';
+import { FloatingDrawer } from '../../components/WIP/Drawer';
 
 export default {
 	title: 'Pages/Pages',

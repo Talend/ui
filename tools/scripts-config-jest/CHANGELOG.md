@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 10.2.1
+
+### Patch Changes
+
+- 479b94f82: fix: add missing language attribute in i18next mock
+
 ## 10.2.0
 
 ### Minor Changes

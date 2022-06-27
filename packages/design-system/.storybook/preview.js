@@ -81,7 +81,7 @@ let statusByPage = {};
 channel.once(SET_STORIES, eventData => {
 	statusByPage = Object.entries(eventData.stories).reduce(
 		(acc, [name, { title, componentId, parameters }]) => {
-			['components', 'templates', 'pages'].forEach(prefix => {
+			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {
 				if (name.toLocaleLowerCase().startsWith(prefix)) {
 					if (!acc[componentId]) {
 						acc[componentId] = {
@@ -149,9 +149,14 @@ export const parameters = {
 					.join('/')
 					.replace('/docs', '');
 
-			const isDesignSystemElementPage = ['components/', 'templates/', 'pages/'].find(term =>
-				title?.toLocaleLowerCase().startsWith(term),
-			);
+			const isDesignSystemElementPage = [
+				'components/',
+				'templates/',
+				'pages/',
+				'[wip] components/',
+			].find(term => {
+				return title?.toLocaleLowerCase().startsWith(term);
+			});
 
 			return (
 				<>
@@ -233,15 +238,11 @@ export const parameters = {
 				// if wrapped into an arrow function
 				if (input?.trim().startsWith('(')) {
 					const body = input.replace(/\((.*)\) => {?((.|\n)*)?}?/gm, '$2');
-					return format(body)
-						.trim()
-						.replace(/;$/, '');
+					return format(body).trim().replace(/;$/, '');
 				}
 				// try to format JSX
 				// remove last semicolon added by Prettier
-				return format(input)
-					.trim()
-					.replace(/;$/, '');
+				return format(input).trim().replace(/;$/, '');
 			} catch (e) {
 				// otherwise, return the same string
 				return input;
@@ -250,6 +251,7 @@ export const parameters = {
 	},
 	options: {
 		storySort: {
+			method: 'alphabetical',
 			order: [
 				'Welcome',
 				'Getting Started',
@@ -271,6 +273,7 @@ export const parameters = {
 					['Form', 'Form Fieldset', 'Form Field', 'Form Field Group', 'Fields', 'Form Buttons'],
 					'HeaderBar',
 					'Icon',
+					['About', 'Icon (legacy)', 'SizedIcon'],
 					'Inline Editing',
 					'Inline Message',
 					'Layout',

@@ -3,6 +3,7 @@
   "description": "React forms library based on json schema form.",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
+  "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
     "build:ace": "webpack --config=./webpack.ace.config.js",
@@ -10,7 +11,7 @@
     "build:prod": "talend-scripts build:lib:umd --prod",
     "build-storybook": "talend-scripts build-storybook",
     "pre-release": "yarn build:dev && yarn build:prod && yarn build:ace",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build:ts:lib",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
@@ -19,7 +20,7 @@
     "lint:style": "talend-scripts lint:style",
     "lint": "yarn run lint:es && yarn run lint:style",
     "start": "talend-scripts start-storybook -p 6008",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
   "keywords": [
     "react",
@@ -71,6 +72,7 @@
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "i18next": "^20.6.1",
+    "i18next-scanner-typescript": "^1.0.6",
     "jest-in-case": "^1.0.2",
     "json-loader": "^0.5.7",
     "mutationobserver-shim": "^0.3.7",

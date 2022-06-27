@@ -1,6 +1,8 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .dropdownShell {
+	z-index: tokens.$coral-elevation-layer-interactive-front;
+
 	.animatedZone {
 		background: tokens.$coral-color-neutral-background;
 		border-radius: tokens.$coral-radius-s;
@@ -13,6 +15,7 @@
 		opacity: 0;
 		transform: translateY(-10%);
 	}
+
 	&[data-enter] {
 		.animatedZone {
 			opacity: 1;
