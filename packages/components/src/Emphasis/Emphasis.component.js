@@ -22,13 +22,13 @@ function emphasiseAll(text, value) {
 		value = [value];
 	}
 
-	const valuesUC = value.map(e => `${e}`.toLocaleUpperCase());
+	const valuesInUpperCase = value.map(e => `${e}`.toLocaleUpperCase());
 
 	return `${text}`
-		.split(new RegExp(`(${valuesUC.map(e => escapeRegexCharacters(e)).join('|')})`, 'gi'))
+		.split(new RegExp(`(${valuesInUpperCase.map(e => escapeRegexCharacters(e)).join('|')})`, 'gi'))
 		.filter(isNotEmpty)
 		.map((part, index) => {
-			if (valuesUC.includes(part.toLocaleUpperCase())) {
+			if (valuesInUpperCase.includes(part.toLocaleUpperCase())) {
 				return (
 					<em key={index} className={theme.highlight}>
 						{part}
