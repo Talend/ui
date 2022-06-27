@@ -50,8 +50,8 @@ function getModule(...args) {
 
 	// router is renderer after the store is created so we refer to routerHistory
 	const UIRouter = getRouter(history, basename);
-	function CMFRouter({ children }) {
-		return <UIRouter>{children}</UIRouter>;
+	function CMFRouter(props) {
+		return <UIRouter {...props} />;
 	}
 	CMFRouter.displayName = 'CMFRouter';
 	CMFRouter.propTypes = {
