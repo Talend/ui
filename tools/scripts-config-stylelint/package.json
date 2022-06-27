@@ -7,14 +7,14 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
   "bugs": {
-    "url": "https://github.com/Talend/ui-scripts/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
     "test": "echo \"Nothing to test\""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/ui-scripts.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
     "stylelint": "^13.13.1",
