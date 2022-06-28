@@ -92,6 +92,7 @@ module.exports = options => {
 					analyzerMode: 'static',
 					openAnalyzer: false,
 					logLevel: 'error',
+					defaultSizes: 'stat',
 					reportFilename: isEnvProd ? `${name}.min.js.report.html` : `${name}.js.report.html`,
 				}),
 				new MiniCssExtractPlugin({
