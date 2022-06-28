@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+
 import Emphasis from './Emphasis.component';
 
 describe('Emphasis', () => {
@@ -9,61 +10,86 @@ describe('Emphasis', () => {
 
 	it('should return a span containing the emphatised text', () => {
 		// given
-		const wrapper = shallow(<Emphasis {...props} value="brown" />);
+		render(<Emphasis {...props} value="brown" />);
 
 		// then
-		expect(wrapper.html()).toBe(
-			'<span>The lazy quick <em class="theme-highlight">brown</em> fox jumps over the lazy dog</span>',
-		);
+		expect(screen.getByText('brown')).toHaveClass('theme-highlight');
 	});
 
 	it('should be case insensitive', () => {
 		// given
-		const wrapper = shallow(<Emphasis {...props} value="bRoWn" />);
+		render(<Emphasis {...props} value="bRoWn" />);
 
 		// then
-		expect(wrapper.find('em').text()).toBe('brown');
+		expect(screen.getByText('brown')).toHaveClass('theme-highlight');
 	});
 
 	it('should support special chars', () => {
 		// given
-		const wrapper = shallow(<Emphasis text="aze.*+?^${}()|[]\wxc" value=".*+?^${}()|[]\" />);
+		render(<Emphasis text="aze.*+?^${}()|[]\wxc" value=".*+?^${}()|[]\" />);
 
 		// then
-		expect(wrapper.find('em').text()).toBe('.*+?^${}()|[]\\');
+		expect(screen.getByText('.*+?^${}()|[]\\')).toHaveClass('theme-highlight');
 	});
 
 	it('should wrap the original text in a span if no value is provided', () => {
 		// when
-		const wrapper = shallow(<Emphasis {...props} />);
+		render(<Emphasis {...props} />);
 
 		// then
-		expect(wrapper.html()).toBe(`<span>${props.text}</span>`);
+		expect(screen.getByText(props.text)).not.toHaveClass('theme-highlight');
 	});
 
 	it('should not emphasise anything if the value is not part of the text', () => {
 		// given
-		const wrapper = shallow(<Emphasis {...props} value="nopnopnop" />);
+		render(<Emphasis {...props} value="nopnopnop" />);
 
 		// then
-		expect(wrapper.text()).toBe(props.text);
-		expect(wrapper.find('em').length).toBe(0);
+		expect(screen.getByText(props.text)).not.toHaveClass('theme-highlight');
 	});
 
 	it('should emphasise every occurences', () => {
 		// given
-		const wrapper = shallow(<Emphasis {...props} value="lazy" />);
+		render(<Emphasis {...props} value="lazy" />);
 
 		// then
-		expect(wrapper.find('em').length).toBe(2);
+		const nodes = screen.getAllByText('lazy');
+		for (const node of nodes) {
+			expect(node).toHaveClass('theme-highlight');
+		}
+		expect(nodes.length).toBe(2);
 	});
 
 	it('should emphasize if value is not string', () => {
 		const text = 85;
 		// given
-		const wrapper = shallow(<Emphasis text={text} value={8} />);
+		render(<Emphasis text={85} value={8} />);
 
 		// then
-		expect(wrapper.find('em').length).toBe(1);
+		expect(screen.getByText('8')).toHaveClass('theme-highlight');
+	});
+
+	it('should emphasize multiple words', () => {
+		// given
+		render(<Emphasis {...props} value={['lazy', 'fox', 'dog']} />);
+
+		// then
+		const nodes = screen.getAllByText(/lazy|fox|dog/);
+		for (const node of nodes) {
+			expect(node).toHaveClass('theme-highlight');
+		}
+		expect(nodes.length).toBe(4);
+	});
+
+	it('should emphasize multiple substrings', () => {
+		// given
+		render(<Emphasis {...props} value={['quick brown fox', 'lazy dog']} />);
+
+		// then
+		const nodes = screen.getAllByText(/quick brown fox|lazy dog/);
+		for (const node of nodes) {
+			expect(node).toHaveClass('theme-highlight');
+		}
+		expect(nodes.length).toBe(2);
 	});
 });
