@@ -1,5 +1,13 @@
 # @talend/scripts-core
 
+## 11.7.2
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+- Updated dependencies [3f4ad5e30]
+  - @talend/upgrade-deps@1.4.2
+
 ## 11.7.1
 
 ### Patch Changes

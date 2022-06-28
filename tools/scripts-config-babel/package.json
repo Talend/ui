@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-babel",
   "description": "Babel configuration for @talend/scripts-core",
-  "version": "9.9.0",
+  "version": "9.9.1",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -28,7 +28,7 @@
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
     "@talend/babel-plugin-assets-api": "^1.1.0",
-    "@talend/babel-plugin-import-from-index": "^1.5.0",
+    "@talend/babel-plugin-import-from-index": "^1.5.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-angularjs-annotate": "^0.10.0"
   },

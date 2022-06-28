@@ -1,5 +1,11 @@
 # @talend/upgrade-deps
 
+## 1.4.2
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+
 ## 1.4.1
 
 ### Patch Changes

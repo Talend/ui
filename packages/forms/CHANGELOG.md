@@ -1,5 +1,18 @@
 # @talend/react-forms
 
+## 8.0.0
+
+### Major Changes
+
+- a64664410: Start typescript migration
+  Breaking Change: Drop deprecated FORM_MOZ mode
+
+### Patch Changes
+
+- Updated dependencies [8f396f7d5]
+- Updated dependencies [f8a5555eb]
+  - @talend/react-components@7.3.0
+
 ## 7.3.3
 
 ### Patch Changes
