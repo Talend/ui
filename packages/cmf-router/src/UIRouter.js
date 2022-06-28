@@ -118,6 +118,15 @@ export function getRouter(history, basename) {
 		if (props.loading) {
 			return <Inject component={props.loading} />;
 		}
+
+		if (Object.keys(props.routes).length === 0) {
+			return (
+				<Router basename={basename} location={location} navigationType={action} navigator={history}>
+					{props.children}
+				</Router>
+			);
+		}
+
 		return <div className="is-loading">loading</div>;
 	}
 
@@ -126,6 +135,7 @@ export function getRouter(history, basename) {
 		routes: PropTypes.object,
 		loading: PropTypes.node,
 		action: PropTypes.string,
+		children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
 		location: PropTypes.shape({
 			key: PropTypes.string,
 		}),
