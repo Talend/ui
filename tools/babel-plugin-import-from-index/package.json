@@ -1,6 +1,6 @@
 {
   "name": "@talend/babel-plugin-import-from-index",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Transform default imports from specific path to named import from index",
   "main": "src/index.js",
   "license": "Apache-2.0",

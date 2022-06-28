@@ -1,5 +1,14 @@
 # @talend/scripts-build-cdn
 
+## 10.0.1
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+- Updated dependencies [3f4ad5e30]
+  - @talend/module-to-cdn@9.8.3
+  - @talend/babel-plugin-import-d3@0.2.1
+
 ## 10.0.0
 
 ### Major Changes

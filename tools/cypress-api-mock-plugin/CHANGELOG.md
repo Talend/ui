@@ -1,5 +1,11 @@
 # @talend/cypress-api-mock-plugin
 
+## 1.1.5
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+
 ## 1.1.4
 
 ### Patch Changes

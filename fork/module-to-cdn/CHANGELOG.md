@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.8.3
+
+### Patch Changes
+
+-   3f4ad5e30: fix: url of repository in package.json
+
 ## 9.8.2
 
 ### Patch Changes

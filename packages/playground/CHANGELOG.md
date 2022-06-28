@@ -1,5 +1,20 @@
 # @talend/ui-playground
 
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies [8f396f7d5]
+- Updated dependencies [3be0e2d22]
+- Updated dependencies [a64664410]
+- Updated dependencies [f8a5555eb]
+- Updated dependencies [6daf0e5dc]
+  - @talend/react-components@7.3.0
+  - @talend/react-cmf-router@5.2.0
+  - @talend/react-forms@8.0.0
+  - @talend/react-cmf@7.1.3
+  - @talend/react-containers@7.2.4
+
 ## 1.1.2
 
 ### Patch Changes
