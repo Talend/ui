@@ -1,14 +1,13 @@
 import React, { forwardRef, Ref } from 'react';
-// eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 
+import { DeprecatedIconNames } from '../../../../../types';
 import { Icon } from '../../../../Icon/Icon';
 import Tooltip from '../../../../Tooltip';
 import { StackHorizontal } from '../../../../Stack';
+import Clickable, { ClickableProps } from '../../../../Clickable';
 
 import styles from '../AffixStyles.module.scss';
-import Clickable, { ClickableProps } from '../../../../Clickable';
 
 type CommonAffixButtonPropsType = {
 	children: string;
@@ -18,12 +17,12 @@ type CommonAffixButtonPropsType = {
 
 type AffixButtonHideTextProps = {
 	hideText?: true;
-	icon: IconName;
+	icon: DeprecatedIconNames;
 };
 
 type AffixButtonShowTextProps = {
 	hideText?: false;
-	icon?: IconName;
+	icon?: DeprecatedIconNames;
 };
 
 export type AffixButtonPropsType = Omit<ClickableProps, 'className' | 'children'> &

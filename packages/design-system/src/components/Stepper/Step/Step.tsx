@@ -1,6 +1,5 @@
 import React from 'react';
-// eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
+import { DeprecatedIconNames } from '../../../types';
 import { Icon } from '../../Icon/Icon';
 import * as S from './Step.style';
 import Tooltip from '../../Tooltip';
@@ -13,7 +12,7 @@ export type StepProps = React.PropsWithRef<any> & {
 	/** The optional class name */
 	className?: string;
 	/** The icon element to display */
-	icon?: IconName;
+	icon?: DeprecatedIconNames;
 };
 
 /**

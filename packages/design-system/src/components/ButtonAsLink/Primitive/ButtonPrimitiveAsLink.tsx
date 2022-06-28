@@ -5,13 +5,13 @@ import Linkable, { LinkableType } from '../../Linkable';
 import { StackHorizontal } from '../../Stack';
 import { Icon } from '../../Icon/Icon';
 
-import { SharedButtonTypes } from '../../Button/Primitive/ButtonPrimitive';
+import { AvailableSizes, SharedButtonTypes } from '../../Button/Primitive/ButtonPrimitive';
 
 import sharedStyles from '../../Button/Primitive/ButtonStyles.module.scss';
 import linkStyles from './ButtonPrimitiveAsLink.module.scss';
 
 export type BaseButtonPropsAsLink = LinkableType &
-	Omit<SharedButtonTypes, 'isDropdown' | 'isLoading'>;
+	Omit<SharedButtonTypes<AvailableSizes>, 'isDropdown' | 'isLoading'>;
 
 const ButtonPrimitiveAsLink = forwardRef(
 	(

@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import Skeleton from '../Skeleton';
 import Tooltip from '../Tooltip';
-import { BaseButtonProps } from './Primitive/ButtonPrimitive';
+import { AvailableSizes, BaseButtonProps } from './Primitive/ButtonPrimitive';
 import ButtonPrimary from './variations/ButtonPrimary';
 import ButtonSecondary from './variations/ButtonSecondary';
 import ButtonDestructive from './variations/ButtonDestructive';
@@ -98,8 +98,10 @@ export const PrimaryVariations = () => (
 	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Default</h3>
-			<ButtonPrimary onClick={action('Clicked')}>Primary M</ButtonPrimary>
-			<ButtonPrimary onClick={action('Clicked')} size="S">
+			<ButtonPrimary onClick={action('Clicked')} icon="pencil">
+				Primary M
+			</ButtonPrimary>
+			<ButtonPrimary onClick={action('Clicked')} size="S" icon="badge-star">
 				Primary S
 			</ButtonPrimary>
 		</StackVertical>
@@ -325,7 +327,7 @@ export const SkeletonButton = () => {
 	);
 };
 
-export const TooltipButton = (props: Story<BaseButtonProps>) => (
+export const TooltipButton = (props: Story<BaseButtonProps<AvailableSizes>>) => (
 	<Tooltip title="Relevant information about contacting the support">
 		<ButtonPrimary onClick={action('I have been clicked')} icon="talend-bubbles" {...props}>
 			Contact support
@@ -334,7 +336,8 @@ export const TooltipButton = (props: Story<BaseButtonProps>) => (
 );
 
 export const Loading = {
-	render: (props: Story<BaseButtonProps>) => {
+	render: (props: Story<BaseButtonProps<AvailableSizes>>) => {
+		// eslint-disable-next-line react-hooks/rules-of-hooks
 		const [loading, isLoading] = React.useState(false);
 		return (
 			<Tooltip title="Relevant description of the basic button">

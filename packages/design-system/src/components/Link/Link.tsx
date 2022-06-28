@@ -1,15 +1,15 @@
 import React, { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
-// eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
+
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { DeprecatedIconNames } from '../../types';
 import Linkable, { LinkableType, isBlank as targetCheck } from '../Linkable';
 
 import style from './Link.module.scss';
 
 export type LinkComponentProps = {
 	/** The icon to display before */
-	icon?: IconName | ReactElement;
+	icon?: DeprecatedIconNames | ReactElement;
 	/** if the link is disabled */
 	disabled?: boolean;
 };

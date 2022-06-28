@@ -2,8 +2,8 @@ import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
 
+import { DeprecatedIconNames } from '../../types';
 import tokens from '../../tokens';
 import { IconsProvider } from '../IconsProvider';
 
@@ -22,7 +22,7 @@ export enum SVG_TRANSFORMS {
 }
 
 export type IconProps = PropsWithChildren<any> & {
-	name: IconName;
+	name: DeprecatedIconNames;
 	transform: SVG_TRANSFORMS;
 	preserveColor: boolean;
 	border: boolean;

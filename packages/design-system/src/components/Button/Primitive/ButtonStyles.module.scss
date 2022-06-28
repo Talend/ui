@@ -36,6 +36,13 @@
 	&.size-S {
 		height: tokens.$coral-sizing-s;
 		padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
+
+		.button__icon {
+			display: inline-flex;
+			width: tokens.$coral-sizing-minimal;
+			height: tokens.$coral-sizing-minimal;
+			align-items: center;
+		}
 	}
 
 	&:disabled,

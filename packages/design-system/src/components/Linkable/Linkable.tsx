@@ -2,22 +2,21 @@ import React, {
 	forwardRef,
 	Ref,
 	ReactElement,
-	ReactNodeArray,
 	ReactNode,
 	AnchorHTMLAttributes,
 	cloneElement,
 	useMemo,
 } from 'react';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
+import { DeprecatedIconNames } from '../../types';
 import { Icon } from '../Icon/Icon';
 import style from './LinkableStyles.module.scss';
 
 export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'> & {
 	as?: 'a' | ReactElement;
-	children: ReactNode | ReactNodeArray;
-	icon?: IconName | ReactElement;
+	children: ReactNode | ReactNode[];
+	icon?: DeprecatedIconNames | ReactElement;
 	hideExternalIcon?: boolean;
 	isNaturallyAligned?: boolean;
 	withEllipsis?: boolean;

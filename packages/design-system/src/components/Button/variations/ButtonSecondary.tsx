@@ -1,9 +1,9 @@
 import React, { forwardRef, Ref } from 'react';
-import ButtonPrimitive, { BaseButtonProps } from '../Primitive/ButtonPrimitive';
+import ButtonPrimitive, { AvailableSizes, BaseButtonProps } from '../Primitive/ButtonPrimitive';
 
 import styles from './ButtonSecondary.module.scss';
 
-export type ButtonSecondaryPropsType = Omit<BaseButtonProps, 'className'>;
+export type ButtonSecondaryPropsType = Omit<BaseButtonProps<AvailableSizes>, 'className'>;
 
 const ButtonSecondary = forwardRef(
 	(props: ButtonSecondaryPropsType, ref: Ref<HTMLButtonElement>) => {

@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref, ButtonHTMLAttributes } from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
+import { DeprecatedIconNames } from '../../../types';
 import Button from '../../Clickable';
 import Tooltip, { TooltipPlacement } from '../../Tooltip';
 import { Icon } from '../../Icon/Icon';
@@ -12,7 +12,7 @@ import styles from './ButtonIcon.module.scss';
 export type PossibleVariants = 'toggle' | 'floating' | 'default';
 
 type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'style'> & {
-	icon: IconName;
+	icon: DeprecatedIconNames;
 	children: string;
 	isLoading?: boolean;
 	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;

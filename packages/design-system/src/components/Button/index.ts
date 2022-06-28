@@ -4,7 +4,7 @@ import ButtonTertiary from './variations/ButtonTertiary';
 import ButtonDestructive from './variations/ButtonDestructive';
 import Button from './Button';
 
-import { BaseButtonProps } from './Primitive/ButtonPrimitive';
+import { AvailableSizes, BaseButtonProps } from './Primitive/ButtonPrimitive';
 
 export type ButtonComponentTypes =
 	| typeof ButtonPrimary
@@ -12,6 +12,6 @@ export type ButtonComponentTypes =
 	| typeof ButtonTertiary
 	| typeof ButtonDestructive;
 
-export type SharedButtonComponentProps = Omit<BaseButtonProps, 'className'>;
+export type SharedButtonComponentProps = Omit<BaseButtonProps<AvailableSizes>, 'className'>;
 
 export { Button, ButtonPrimary, ButtonSecondary, ButtonTertiary, ButtonDestructive };

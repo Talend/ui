@@ -1,9 +1,8 @@
 import React, { HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
 import i18n from 'i18next';
 import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog';
-// eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
 
+import { DeprecatedIconNames } from '../../types';
 import { ButtonDestructive, ButtonPrimary, ButtonSecondary } from '../Button';
 import { Icon } from '../Icon';
 import { StackHorizontal, StackVertical } from '../Stack';
@@ -13,7 +12,7 @@ import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructi
 
 import styles from './Modal.scss';
 
-type IconProp = IconName | ReactElement;
+type IconProp = DeprecatedIconNames | ReactElement;
 
 function ModalIcon(props: { icon: IconProp; 'data-test'?: string }): ReactElement {
 	const { icon, 'data-test': dataTest } = props;
