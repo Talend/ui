@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 1.2.3
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+
 ## 1.2.2
 
 ### Patch Changes
