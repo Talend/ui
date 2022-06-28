@@ -21,8 +21,8 @@ export type ButtonVariantType<T extends AvailableVariantsTypes, P extends object
 export type SharedButtonTypes<S extends AvailableSizes> = {
 	isLoading?: boolean;
 	isDropdown?: boolean;
-	size: S;
-	icon?: S extends 'S'
+	size?: S;
+	icon?: S extends 'XS'
 		? IconNameWithSize<'S'>
 		: DeprecatedIconNames | React.ReactElement | IconNameWithSize<'M'>;
 };
@@ -33,7 +33,7 @@ export type BaseButtonProps<S extends AvailableSizes> = Omit<ClickableProps, 'st
 
 function ButtonPrimitiveInner<S extends AvailableSizes>(
 	props: BaseButtonProps<S>,
-	ref: Ref<HTMLButtonElement>,
+	ref?: Ref<HTMLButtonElement>,
 ) {
 	function parsedIcon() {
 		const { icon, size } = props;
@@ -93,7 +93,7 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 }
 
 const ButtonPrimitive = forwardRef(ButtonPrimitiveInner) as <S extends AvailableSizes>(
-	props: BaseButtonProps<S> & { ref: Ref<HTMLButtonElement> },
+	props: BaseButtonProps<S> & { ref?: Ref<HTMLButtonElement> },
 ) => ReturnType<typeof ButtonPrimitiveInner>;
 
 export default ButtonPrimitive;

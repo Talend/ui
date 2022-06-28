@@ -24,8 +24,8 @@ function ModalIcon(props: { icon: IconProp; 'data-test'?: string }): ReactElemen
 }
 
 type PrimaryActionPropsType =
-	| ButtonPrimaryPropsType
-	| ({ destructive: true } & ButtonDestructivePropsType);
+	| Omit<ButtonPrimaryPropsType<'M'>, 'size'>
+	| ({ destructive: true } & Omit<ButtonDestructivePropsType<'M'>, 'size'>);
 
 export type ModalPropsType = {
 	header: {
@@ -36,19 +36,19 @@ export type ModalPropsType = {
 	onClose?: () => void;
 	disclosure?: ReactElement;
 	primaryAction?: PrimaryActionPropsType;
-	secondaryAction?: ButtonSecondaryPropsType;
+	secondaryAction?: ButtonSecondaryPropsType<'M'>;
 	preventEscaping?: boolean;
 	children: ReactNode | ReactNode[];
 } & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'>;
 
 function PrimaryAction(props: PrimaryActionPropsType) {
 	if (!('destructive' in props) || !props.destructive) {
-		return <ButtonPrimary {...(props as ButtonPrimaryPropsType)} />;
+		return <ButtonPrimary {...(props as ButtonPrimaryPropsType<'M'>)} />;
 	}
 
 	const { destructive, ...buttonProps } = props;
 
-	return <ButtonDestructive {...(buttonProps as ButtonDestructivePropsType)} />;
+	return <ButtonDestructive {...(buttonProps as ButtonDestructivePropsType<'M'>)} />;
 }
 
 function Modal(props: ModalPropsType): ReactElement {

@@ -3,12 +3,23 @@ import ButtonPrimitive, { AvailableSizes, BaseButtonProps } from '../Primitive/B
 
 import styles from './ButtonDestructive.module.scss';
 
-export type ButtonDestructivePropsType = Omit<BaseButtonProps<AvailableSizes>, 'className'>;
+export type ButtonDestructivePropsType<S extends AvailableSizes> = Omit<
+	BaseButtonProps<S>,
+	'className' | 'size'
+> & {
+	size?: S;
+};
 
-const ButtonDestructive = forwardRef(
-	(props: ButtonDestructivePropsType, ref: Ref<HTMLButtonElement>) => {
-		return <ButtonPrimitive {...props} ref={ref} className={styles.destructive} />;
-	},
-);
+function Destructive<S extends AvailableSizes>(
+	props: ButtonDestructivePropsType<S>,
+	ref: Ref<HTMLButtonElement>,
+) {
+	const { size = 'M', ...rest } = props;
+	return <ButtonPrimitive size={size} {...rest} ref={ref} className={styles.destructive} />;
+}
+
+const ButtonDestructive = forwardRef(Destructive) as <S extends AvailableSizes>(
+	props: ButtonDestructivePropsType<S> & { ref?: Ref<HTMLButtonElement> },
+) => ReturnType<typeof Destructive>;
 
 export default ButtonDestructive;

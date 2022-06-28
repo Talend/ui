@@ -9,11 +9,25 @@ const { Loading } = composeStories(Stories);
 context('<Button />', () => {
 	describe('default', () => {
 		it('should be focusable', () => {
-			cy.mount(<ButtonPrimitive onClick={() => {}}>button</ButtonPrimitive>);
+			cy.mount(
+				<ButtonPrimitive size="M" onClick={() => {}}>
+					button
+				</ButtonPrimitive>,
+			);
 			cy.get('button').focus();
 		});
 		it('should accept data-feature', () => {
-			cy.mount(<ButtonPrimitive data-testid="my.button" data-feature="my.feature" onClick={() => {}}>button</ButtonPrimitive>);
+			cy.mount(
+				<ButtonPrimitive
+					size="M"
+					data-testid="my.button"
+					data-feature="my.feature"
+					onClick={() => {}}
+				>
+					button
+				</ButtonPrimitive>,
+			);
+			// eslint-disable-next-line testing-library/prefer-screen-queries
 			cy.getByTestId('my.button').should('have.attr', 'data-feature', 'my.feature');
 		});
 	});
@@ -21,6 +35,7 @@ context('<Button />', () => {
 	describe('loading state', () => {
 		it('should load', () => {
 			cy.mount(<Loading data-testid="my.button" />);
+			// eslint-disable-next-line testing-library/prefer-screen-queries
 			cy.getByTestId('my.button')
 				.should('have.attr', 'aria-busy', 'false')
 				.click()
@@ -30,6 +45,7 @@ context('<Button />', () => {
 
 		it('should have a tooltip', () => {
 			cy.mount(<Loading data-testid="my.button" />);
+			// eslint-disable-next-line testing-library/prefer-screen-queries
 			cy.getByTestId('my.button')
 				.focus()
 				.should('have.attr', 'aria-describedby')
