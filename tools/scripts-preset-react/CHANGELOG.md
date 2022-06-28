@@ -1,5 +1,20 @@
 # @talend/scripts-preset-react
 
+## 12.0.4
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+- Updated dependencies [3f4ad5e30]
+  - @talend/scripts-config-babel@9.9.1
+  - @talend/scripts-config-eslint@9.9.2
+  - @talend/scripts-config-jest@10.2.2
+  - @talend/scripts-config-prettier@9.7.1
+  - @talend/scripts-config-react-webpack@12.1.3
+  - @talend/scripts-config-storybook-lib@1.2.3
+  - @talend/scripts-config-stylelint@1.0.2
+  - @talend/scripts-config-typescript@9.11.2
+
 ## 12.0.3
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 7.3.0
+
+### Minor Changes
+
+- 8f396f7d5: feat(TDC-6337): allow multiple values in Emphasis
+
+### Patch Changes
+
+- f8a5555eb: fix(TDC-6368): no ellipsis on long subheaderbar titles
+
 ## 7.2.1
 
 ### Patch Changes
