@@ -3,7 +3,6 @@ const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver'
 const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
 
 const babelConfig = getBabelConfig();
-const sourceMap = true;
 
 function getSassData(userSassData) {
 	let sassData = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;\n";
@@ -24,6 +23,7 @@ function getSassData(userSassData) {
 }
 
 function getCommonStyleLoaders(enableModules, mode) {
+	const sourceMap = mode === 'production';
 	let cssOptions = {
 		sourceMap,
 	};
@@ -64,11 +64,12 @@ function getJSAndTSLoader(env, useTypescript) {
 }
 
 function getSassLoaders(enableModules, sassData, mode) {
+	const sourceMap = mode === 'production';
 	return getCommonStyleLoaders(enableModules, mode).concat(
-		{ loader: 'resolve-url-loader', options: { sourceMap: true } },
+		{ loader: 'resolve-url-loader', options: { sourceMap } },
 		{
 			loader: 'sass-loader',
-			options: { sourceMap: true, additionalData: sassData },
+			options: { sourceMap, additionalData: sassData },
 		},
 	);
 }
