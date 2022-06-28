@@ -21,14 +21,18 @@
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
     "@talend/dynamic-cdn-webpack-plugin": "^11.0.3",
+    "assert": "^2.0.0",
     "fs-extra": "^10.1.0",
     "i18next-http-backend": "^1.4.1",
     "lodash": "^4.17.21",
     "msw": "^0.38.2",
-    "msw-storybook-addon": "^1.6.3"
+    "msw-storybook-addon": "^1.6.3",
+    "util": "^0.12.4"
   },
   "peerDependencies": {
     "@talend/design-system": "*",

@@ -6,8 +6,8 @@
   "style": "build/octicons.css",
   "license": "Apache-2.0",
   "scripts": {
+    "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env production",
     "build-ts": "tsc",
-    "build-umd": "webpack --config webpack.umd.js && webpack --config webpack.umd.js --env.production",
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack",
     "build:lib": "npm run ts:types && npm run build-ts && npm run build-react && npm run build-webfont && npm run build-umd",
@@ -47,9 +47,9 @@
     "@talend/scripts-core": "^11.7.1",
     "@talend/scripts-preset-react-lib": "^11.0.3",
     "babel-loader": "^8.2.5",
-    "copy-webpack-plugin": "^6.4.1",
-    "css-loader": "^3.6.0",
-    "mini-css-extract-plugin": "^1.6.2",
+    "copy-webpack-plugin": "^10.2.4",
+    "css-loader": "^4.3.0",
+    "mini-css-extract-plugin": "^2.6.0",
     "mkdirp": "^1.0.4",
     "prettier": "^2.6.2",
     "react": "^17.0.2",
@@ -58,8 +58,8 @@
     "style-loader": "^1.3.0",
     "svgo": "^1.3.2",
     "webfonts-loader": "^7.5.2",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   },
   "publishConfig": {
     "access": "public"

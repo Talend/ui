@@ -33,6 +33,16 @@
     "prepare": "husky install"
   },
   "resolutions": {
+    "webpack": "^5.72.0",
+    "@storybook/react/webpack": "^5.72.0",
+    "@storybook/core-common/webpack": "^5.72.0",
+    "@storybook/core-server/webpack": "^5.72.0",
+    "@storybook/builder-webpack4/webpack": "^5.72.0",
+    "@storybook/manager-webpack4/webpack": "^5.72.0",
+    "@storybook/builder-webpack4/terser-webpack-plugin": "^5.3.3",
+    "@storybook/manager-webpack4/terser-webpack-plugin": "^5.3.3",
+    "@storybook/builder-webpack4/webpack-dev-middleware": "^5.3.3",
+    "@storybook/manager-webpack4/webpack-dev-middleware": "^5.3.3",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.2",
     "typescript": ">=4.6.3"

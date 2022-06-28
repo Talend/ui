@@ -64,9 +64,6 @@
         ]
       }
     },
-    "Redirect#default": {
-      "path": "/ComponentForm"
-    },
     "HeaderBar#default": {
       "keepComponentState": true,
       "logo": {
@@ -121,7 +118,7 @@
     "path": "/",
     "component": "AppLoader",
     "indexRoute": {
-      "component": "Redirect"
+      "component": "LeaguesList"
     },
     "childRoutes": [
       {
@@ -143,10 +140,6 @@
       {
         "path": "DataGrid",
         "component": "DataGrid"
-      },
-      {
-        "path": "*",
-        "component": "Redirect"
       }
     ]
   }

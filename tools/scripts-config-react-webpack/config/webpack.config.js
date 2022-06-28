@@ -4,11 +4,10 @@ const childProcess = require('child_process');
 const tmp = require('tmp');
 
 const yarnlock = require('@yarnpkg/lockfile');
-const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const webpack = require('webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -16,14 +15,18 @@ const { DuplicatesPlugin } = require('inspectpack/plugin');
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
-const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
 const cdn = require('@talend/scripts-config-cdn');
 const exists = require('@talend/scripts-utils/fs');
-const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
 const icons = require('./icons');
+const {
+	getCommonStyleLoaders,
+	getSassLoaders,
+	getJSAndTSLoader,
+	getSassData,
+} = require('./webpack.config.common');
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
 const cdnMode = !!process.env.INITIATOR_URL;
@@ -31,7 +34,8 @@ const cdnMode = !!process.env.INITIATOR_URL;
 const DEFAULT_INDEX_TEMPLATE_PATH = 'src/app/index.html';
 const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
 const ICON_DIST = icons.getIconsDistPath();
-const getFileNameForExtension = (extension, prefix) => `${prefix || ''}[name]-[hash].${extension}`;
+const getFileNameForExtension = (extension, prefix) =>
+	`${prefix || ''}[name]-[contenthash].${extension}`;
 
 const TALEND_LIB_PREFIX = '@talend/';
 
@@ -42,62 +46,6 @@ cdn.configureTalendModules();
 
 // Check if Typescript is setup
 const useTypescript = exists.tsConfig();
-
-const babelConfig = getBabelConfig();
-
-function getSassData(userSassData) {
-	let sassData = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;\n";
-
-	if (userSassData && userSassData.data) {
-		console.warn(
-			'DEPRECATION Usage of sass.data in talend-script.json file is deprecated. Variables are considered as constants since Talend/UI 6.0',
-		);
-		const sassDataWith = Object.keys(userSassData.data)
-			.map(key => `${key}: ${userSassData.data[key]};`)
-			.join('\n');
-		sassData += sassDataWith;
-	}
-
-	// eslint-disable-next-line no-console
-	console.log('sassData', sassData);
-	return sassData;
-}
-
-function getCommonStyleLoaders(enableModules, mode) {
-	let cssOptions = {
-		sourceMap: true,
-	};
-	if (enableModules) {
-		cssOptions = {
-			sourceMap: true,
-			modules: {
-				localIdentName: '[name]__[local]___[hash:base64:5]',
-			},
-			importLoaders: 1,
-		};
-	}
-	return [
-		mode === 'development'
-			? { loader: 'style-loader' }
-			: { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
-		{ loader: 'css-loader', options: cssOptions },
-		{
-			loader: 'postcss-loader',
-			options: {
-				plugins: () => [autoprefixer()],
-				sourceMap: true,
-			},
-		},
-		{ loader: 'resolve-url-loader', options: { sourceMap: true } },
-	];
-}
-
-function getSassLoaders(enableModules, sassData, mode) {
-	return getCommonStyleLoaders(enableModules, mode).concat({
-		loader: 'sass-loader',
-		options: { sourceMap: true, prependData: sassData },
-	});
-}
 
 function getGitRevision() {
 	let revision = process.env.GIT_COMMIT;
@@ -301,18 +249,8 @@ module.exports = ({ getUserConfig, mode }) => {
 		meta['app-id'] = userHtmlConfig.appId || theme;
 
 		return {
-			entry: {
-				polyfills: [
-					'regenerator-runtime',
-					'core-js-bundle',
-					isEnvDevelopment && path.join(__dirname, 'wdyr.js'),
-				].filter(Boolean),
-				theme: [
-					'@talend/bootstrap-theme',
-					theme && `@talend/bootstrap-theme/src/theme/variations/_${theme}.scss`,
-				].filter(Boolean),
-				app: [`${process.cwd()}/src/app/index`],
-			},
+			mode,
+			entry: `${process.cwd()}/src/app/index`,
 			output: {
 				filename: getFileNameForExtension('js', jsPrefix),
 				chunkFilename: getFileNameForExtension('js', jsPrefix),
@@ -322,6 +260,9 @@ module.exports = ({ getUserConfig, mode }) => {
 			devtool: 'source-map',
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
+				fallback: {
+					url: false,
+				},
 			},
 			module: {
 				rules: [
@@ -334,12 +275,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
-						use: [
-							{
-								loader: 'babel-loader',
-								options: getBabelLoaderOptions(babelConfig),
-							},
-						].filter(Boolean),
+						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
 						test: /\.html$/,
@@ -379,39 +315,50 @@ module.exports = ({ getUserConfig, mode }) => {
 					},
 					{
 						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
-						loader: 'url-loader',
-						options: {
-							name: './fonts/[name].[ext]',
-							limit: 10000,
-							mimetype: 'application/font-woff',
-						},
+						type: 'asset/resource',
+						use: [
+							{
+								loader: 'url-loader',
+								options: {
+									name: './fonts/[name].[ext]',
+									limit: 10000,
+									mimetype: 'application/font-woff',
+								},
+							},
+						],
 					},
 					{
 						test: /\.svg$/,
-						loader: 'url-loader',
-						options: {
-							name: 'assets/svg/[name].[ext]',
-							limit: 10000,
-							mimetype: 'image/svg+xml',
-						},
+						type: 'asset/resource',
+						use: [
+							{
+								loader: 'url-loader',
+								options: {
+									name: 'assets/svg/[name].[ext]',
+									limit: 10000,
+									mimetype: 'image/svg+xml',
+								},
+							},
+						],
 					},
 					{
 						test: /\.(png|jpg|jpeg|gif)$/,
-						loader: 'url-loader',
-						options: {
-							name: 'assets/img/[name].[ext]',
-							limit: 10000,
-							mimetype: 'image/png',
-						},
+						type: 'asset/resource',
+						use: [
+							{
+								loader: 'url-loader',
+								options: {
+									name: 'assets/img/[name].[ext]',
+									limit: 10000,
+									mimetype: 'image/png',
+								},
+							},
+						],
 					},
 				].filter(Boolean),
 			},
 			plugins: [
 				isEnvDevelopment && new DuplicatesPlugin(),
-				new CleanWebpackPlugin({
-					verbose: true,
-					cleanOnceBeforeBuildPatterns: [path.join(process.cwd(), 'dist')],
-				}),
 				new webpack.DefinePlugin({
 					BUILD_TIMESTAMP: Date.now(),
 					TALEND_APP_INFO: JSON.stringify(getTalendVersions()),
@@ -444,7 +391,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				}),
 				cdn.getWebpackPlugin(env, dcwpConfig),
 				new CopyWebpackPlugin({ patterns: getCopyConfig(env, userCopyConfig) }),
-				new webpack.BannerPlugin({ banner: LICENSE_BANNER }),
+				new webpack.BannerPlugin({ banner: LICENSE_BANNER, entryOnly: true }),
 				cmf && new ReactCMFWebpackPlugin({ watch: isEnvDevelopment }),
 				useTypescript && new ForkTsCheckerWebpackPlugin(),
 			].filter(Boolean),
@@ -461,6 +408,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				// Keep the runtime chunk separated to enable long term caching
 				// https://twitter.com/wSokra/status/969679223278505985
 				runtimeChunk: true,
+				moduleIds: 'named',
 			},
 			watchOptions: {
 				aggregateTimeout: 300,
