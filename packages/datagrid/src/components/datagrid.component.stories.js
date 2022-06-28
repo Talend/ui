@@ -1,18 +1,16 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, react/prop-types */
 
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { IconsProvider } from '@talend/react-components';
 
-import DataGrid from '.';
+import DataGrid, { PlaygroundCellEditor } from '.';
 import DynamicDataGrid from '../../stories/DynamicDataGrid.component';
 import FasterDatagridComponent from '../../stories/FasterDatagrid.component';
-import ImmutableDataGrid from '../../stories/ImmutableDatagrid.component';
 import sample from '../../stories/sample.json';
 import sample2 from '../../stories/sample2.json';
 import sample3 from '../../stories/sample3.json';
 import sampleWithoutQuality from '../../stories/sampleWithoutQuality.json';
-import getComponent from '../../stories/getComponent';
+import { getColumnDefs } from './DatasetSerializer/datasetSerializer';
 
 // eslint-disable-next-line no-irregular-whitespace
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
@@ -24,81 +22,74 @@ very loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
+sample.data[3].value.field0.value = 'multiple       spaces';
+
 export default {
 	title: 'Datagrid/Component',
-	decorators: [story => <div style={{ height: '90vh' }}>{story()}</div>],
+	decorators: [
+		story => <div style={{ height: '90vh', backgroundColor: 'lightGrey' }}>{story()}</div>,
+	],
 };
 
-export const Default = () => (
+const defaultGridProps = {
+	data: sample,
+	onFocusedCell: action('onFocusedCell'),
+	onFocusedColumn: action('onFocusedColumn'),
+	onVerticalScroll: event => console.log(event),
+	rowSelection: 'multiple',
+};
+
+export const Default = () => <DataGrid {...defaultGridProps} enableColResize={false} />;
+
+Default.parameters = {
+	chromatic: { disableSnapshot: false },
+};
+
+export const CustomRenderer = () => (
 	<DataGrid
 		data={sample}
-		getComponent={getComponent}
-		onFocusedCell={action('onFocusedCell')}
-		onFocusedColumn={action('onFocusedColumn')}
-		onVerticalScroll={event => console.log(event)}
-		rowSelection="multiple"
-		enableColResize={false}
+		cellRenderer={props => <div>{`${props.value.value}`}&#128570;</div>}
+		headerRenderer={props => <div>{props.displayName} &#128126;</div>}
+		pinHeaderRenderer={() => <div>&#129302;</div>}
 	/>
 );
 
-export const NoSubtype = () => (
+export const WithSelection = () => (
 	<DataGrid
-		columnsConf={{ hideSubType: true }}
 		data={sample}
-		getComponent={getComponent}
 		onFocusedCell={action('onFocusedCell')}
 		onFocusedColumn={action('onFocusedColumn')}
-		onVerticalScroll={event => console.log(event)}
-		rowSelection="multiple"
+		focusedColumnId="data.field2"
+	/>
+);
+WithSelection.parameters = {
+	chromatic: { disableSnapshot: false },
+};
+
+export const OnlyColumnName = () => (
+	<DataGrid
+		{...defaultGridProps}
+		data={sampleWithoutQuality}
+		headerHeight={45}
 		enableColResize={false}
 	/>
 );
 
 export const NoQuality = () => (
 	<DataGrid
+		{...defaultGridProps}
 		data={sampleWithoutQuality}
-		getComponent={getComponent}
-		onFocusedCell={action('onFocusedCell')}
-		onFocusedColumn={action('onFocusedColumn')}
-		onVerticalScroll={event => console.log(event)}
-		rowSelection="multiple"
+		headerHeight={55}
 		enableColResize={false}
 	/>
 );
 
-export const ColumnsResizables = () => (
-	<DataGrid
-		data={sample}
-		getComponent={getComponent}
-		onFocusedCell={action('onFocusedCell')}
-		onFocusedColumn={action('onFocusedColumn')}
-		onVerticalScroll={event => console.log(event)}
-		rowSelection="multiple"
-	/>
-);
+export const ColumnsResizables = () => <DataGrid {...defaultGridProps} />; // Same as default 🤔
 
-export const StartIndexTo1 = () => (
-	<DataGrid
-		data={sample}
-		getComponent={getComponent}
-		startIndex={1}
-		onFocusedCell={action('onFocusedCell')}
-		onFocusedColumn={action('onFocusedColumn')}
-		onVerticalScroll={event => console.log(event)}
-		rowSelection="multiple"
-	/>
-);
+export const StartIndexTo1 = () => <DataGrid {...defaultGridProps} startIndex={1} />;
 
 export const NoRowSpecificMessage = () => (
-	<DataGrid
-		data={[]}
-		getComponent={getComponent}
-		overlayNoRowsTemplate="Custom message"
-		onFocusedCell={action('onFocusedCell')}
-		onFocusedColumn={action('onFocusedColumn')}
-		onVerticalScroll={event => console.log(event)}
-		rowSelection="multiple"
-	/>
+	<DataGrid {...defaultGridProps} data={[]} overlayNoRowsTemplate="Custom message" />
 );
 
 export const LoadingDatagrid = () => <DataGrid data={sample} loading />;
@@ -125,20 +116,8 @@ export const DynamicChangeSchema = () => {
 				<div>
 					<input type="button" value="changestatus" onClick={this.changeState} />
 					Number of fields : {currentSample.schema.fields.length}
-					<IconsProvider
-						bundles={[
-							'https://statics-dev.cloud.talend.com/@talend/icons/6.1.4/dist/svg-bundle/all.svg',
-						]}
-					/>
 					<div style={{ height: '200px' }}>
-						<DataGrid
-							data={currentSample}
-							getComponent={getComponent}
-							onFocusedCell={action('onFocusedCell')}
-							onFocusedColumn={action('onFocusedColumn')}
-							onVerticalScroll={event => console.log(event)}
-							rowSelection="multiple"
-						/>
+						<DataGrid {...defaultGridProps} data={currentSample} />
 					</div>
 				</div>
 			);
@@ -147,15 +126,9 @@ export const DynamicChangeSchema = () => {
 	return <WithLayout />;
 };
 
-export const DynamicChangeDataWithForceRedrawRows = () => <DynamicDataGrid forceRedraw />;
-DynamicChangeDataWithForceRedrawRows.storyName =
-	'@deprecated - dynamic change data with forceRedrawRows';
-
 export const DynamicChangeData = () => <DynamicDataGrid />;
 
 export const FasterDatagrid = () => <FasterDatagridComponent />;
-
-export const ImmutableData = () => <ImmutableDataGrid />;
 
 export const ControlledFocusedColumn = () => {
 	const [focusedColumnId, setFocusedColumnId] = useState('data.field2');
@@ -175,8 +148,7 @@ export const ControlledFocusedColumn = () => {
 			<input type="button" value="Unselect" onClick={() => setFocusedColumnId(null)} />
 			<input type="button" value={locked ? 'Unlock' : 'Lock'} onClick={() => setLocked(!locked)} />
 			<DataGrid
-				data={sample}
-				getComponent={getComponent}
+				{...defaultGridProps}
 				focusedColumnId={focusedColumnId}
 				onFocusedCell={cell => {
 					if (!locked) {
@@ -191,9 +163,68 @@ export const ControlledFocusedColumn = () => {
 					}
 					action('onFocusedColumn')(col);
 				}}
-				onVerticalScroll={event => console.log(event)}
-				rowSelection="multiple"
 			/>
 		</div>
+	);
+};
+
+export const EditablePlaygroundCell = () => {
+	const sleep = () => new Promise(resolve => setTimeout(resolve, 1000));
+	// const sleep = () => new Promise(() => {});
+	const semanticTypeFields = [
+		'Nom de la gare',
+		'Code postal',
+		"volume total d'usagers 2014 (voyageurs+ non voyageurs)",
+	];
+	const searchSampleValues = (search, avroName) => {
+		return sample.data
+			.reduce((values, row) => {
+				const { value } = row.value[avroName];
+				return value &&
+					value.toLowerCase().includes(search.toLowerCase()) &&
+					!values.includes(value)
+					? [...values, value]
+					: values;
+			}, [])
+			.sort((a, b) => {
+				if (a?.startsWith(search) ^ b?.startsWith(search)) {
+					if (a?.startsWith(search)) {
+						return -1;
+					}
+					if (b?.startsWith(search)) {
+						return -1;
+					}
+				}
+
+				return a?.localeCompare(b);
+			});
+	};
+
+	return (
+		<DataGrid
+			{...defaultGridProps}
+			editable
+			getColumnDefsFn={(...args) =>
+				getColumnDefs(...args).map(column => ({
+					...column,
+					domain: column.headerName,
+					editable: true,
+					cellEditor: PlaygroundCellEditor,
+					cellEditorParams: {
+						getSemanticType: async semanticType => {
+							await sleep();
+							const type = semanticTypeFields.includes(semanticType) ? 'DICT' : 'NOT DICT';
+							return { type };
+						},
+						getSemanticTypeSuggestions: async (_, search) => {
+							await sleep();
+							return searchSampleValues(search, column.avro.name);
+						},
+						onSubmit: action('onSubmit'),
+					},
+					cellEditorPopup: true,
+				}))
+			}
+		/>
 	);
 };

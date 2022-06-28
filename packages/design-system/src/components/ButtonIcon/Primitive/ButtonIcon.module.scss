@@ -20,6 +20,10 @@
 		align-items: center;
 		width: tokens.$coral-sizing-xxxs;
 		height: tokens.$coral-sizing-xxxs;
+
+		svg {
+			pointer-events: none;
+		}
 	}
 
 	&.size_S {

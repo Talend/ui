@@ -1,0 +1,9 @@
+{*
+
+This only work for strings. They must be defined within Supernova.
+
+*}
+{[ const designSystem = ds.currentDesignSystem() /]}
+{[ inject "css-reference-wrapper" context context ]}
+{{ baseWrap(context.text, designSystem.name) }}
+{[/]}

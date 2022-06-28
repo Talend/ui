@@ -1,8 +1,9 @@
 import React, { forwardRef, Ref, ButtonHTMLAttributes } from 'react';
 import classnames from 'classnames';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/typeUtils';
 import Button from '../../Clickable';
-import Tooltip from '../../Tooltip';
+import Tooltip, { TooltipPlacement } from '../../Tooltip';
 import { Icon } from '../../Icon/Icon';
 import Loading from '../../Loading';
 
@@ -15,6 +16,7 @@ type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | '
 	children: string;
 	isLoading?: boolean;
 	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
+	tooltipPlacement?: TooltipPlacement;
 };
 
 export type ToggleTypes = CommonTypes & {
@@ -37,10 +39,10 @@ export type ButtonIconProps = ToggleTypes | FloatingTypes | DefaultTypes;
 
 const ButtonIconPrimitive = forwardRef((props: ButtonIconProps, ref: Ref<HTMLButtonElement>) => {
 	const activeButtonIconPrimitive = props.variant === 'toggle' ? props.isActive : false;
-	const { children, variant, size, isLoading, icon, disabled, ...rest } = props;
+	const { children, variant, size, isLoading, icon, disabled, tooltipPlacement, ...rest } = props;
 
 	return (
-		<Tooltip title={children} placement="top">
+		<Tooltip title={children} placement={tooltipPlacement || 'top'}>
 			<Button
 				{...rest}
 				className={classnames(styles.buttonIcon, {

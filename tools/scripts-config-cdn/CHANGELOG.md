@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## 10.5.0
+
+### Minor Changes
+
+- 66fa02548: feat: add @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [aa2ffc733]
+  - @talend/dynamic-cdn-webpack-plugin@11.0.3
+
+## 10.4.1
+
+### Patch Changes
+
+- 5c0fa88aa: fix(cdn): DS and assets-api available cdn versions
+
+## 10.4.0
+
+### Minor Changes
+
+- 9222aa7fc: @talend/assets-api is now distributed as UMD file
+
 ## 10.3.2
 
 ### Patch Changes

@@ -81,7 +81,7 @@ let statusByPage = {};
 channel.once(SET_STORIES, eventData => {
 	statusByPage = Object.entries(eventData.stories).reduce(
 		(acc, [name, { title, componentId, parameters }]) => {
-			['components', 'templates', 'pages'].forEach(prefix => {
+			['components', 'templates', 'pages', 'wip-components'].forEach(prefix => {
 				if (name.toLocaleLowerCase().startsWith(prefix)) {
 					if (!acc[componentId]) {
 						acc[componentId] = {
@@ -149,9 +149,14 @@ export const parameters = {
 					.join('/')
 					.replace('/docs', '');
 
-			const isDesignSystemElementPage = ['components/', 'templates/', 'pages/'].find(term =>
-				title?.toLocaleLowerCase().startsWith(term),
-			);
+			const isDesignSystemElementPage = [
+				'components/',
+				'templates/',
+				'pages/',
+				'[wip] components/',
+			].find(term => {
+				return title?.toLocaleLowerCase().startsWith(term);
+			});
 
 			return (
 				<>
@@ -167,7 +172,7 @@ export const parameters = {
 						{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
 					</Helmet>
 
-					<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+					<IconsProvider />
 					<TableOfContents>
 						{isDesignSystemElementPage && (
 							<ThemeProvider theme={light}>
@@ -246,6 +251,7 @@ export const parameters = {
 	},
 	options: {
 		storySort: {
+			method: 'alphabetical',
 			order: [
 				'Welcome',
 				'Getting Started',
@@ -267,6 +273,7 @@ export const parameters = {
 					['Form', 'Form Fieldset', 'Form Field', 'Form Field Group', 'Fields', 'Form Buttons'],
 					'HeaderBar',
 					'Icon',
+					['About', 'Icon (legacy)', 'SizedIcon'],
 					'Inline Editing',
 					'Inline Message',
 					'Layout',
@@ -279,6 +286,8 @@ export const parameters = {
 					'Stepper',
 					['Stepper', 'Step'],
 				],
+				'[WIP] Components',
+				'[WIP] Templates',
 				'[Deprecated] Design Tokens',
 			],
 		} /**/,
@@ -304,7 +313,7 @@ export const decorators = [
 			themedStory
 		) : (
 			<I18nextProvider i18n={i18n}>
-				<IconsProvider bundles={['https://unpkg.com/@talend/icons/dist/svg-bundle/all.svg']} />
+				<IconsProvider />
 				{themedStory}
 			</I18nextProvider>
 		);

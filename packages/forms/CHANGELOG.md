@@ -1,5 +1,117 @@
 # @talend/react-forms
 
+## 8.0.0
+
+### Major Changes
+
+- a64664410: Start typescript migration
+  Breaking Change: Drop deprecated FORM_MOZ mode
+
+### Patch Changes
+
+- Updated dependencies [8f396f7d5]
+- Updated dependencies [f8a5555eb]
+  - @talend/react-components@7.3.0
+
+## 7.3.3
+
+### Patch Changes
+
+- ac9286be3: fix: build ace (code widget) modes, theme and snippets.
+  Add tools to configure the copy of modes in your apps.
+- Updated dependencies [a2ebce94c]
+  - @talend/react-bootstrap@1.35.1
+
+## 7.3.2
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-components@7.0.1
+  - @talend/design-system@3.0.1
+
+## 7.3.1
+
+### Patch Changes
+
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/design-system@3.0.0
+
+## 7.3.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/react-bootstrap@1.35.0
+  - @talend/assets-api@1.2.0
+  - @talend/design-system@2.7.0
+  - @talend/json-schema-form-core@1.1.0
+  - @talend/utils@2.3.0
+
+## 7.2.0
+
+### Minor Changes
+
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [7d1f9f509]
+- Updated dependencies [66fa02548]
+- Updated dependencies [66fa02548]
+  - @talend/react-components@6.47.0
+  - @talend/react-bootstrap@1.34.0
+
+## 7.1.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+- Updated dependencies [9222aa7fc]
+  - @talend/design-system@2.5.1
+  - @talend/assets-api@1.1.0
+
+## 7.1.0
+
+### Minor Changes
+
+- d1815c0af: Use @talend/assets-api to load aceeditor
+
+### Patch Changes
+
+- Updated dependencies [8e95aab34]
+- Updated dependencies [0d18d5d03]
+- Updated dependencies [d1815c0af]
+  - @talend/design-system@2.5.0
+
+## 7.0.9
+
+### Patch Changes
+
+- 7373fd30a: chore(ARCH-482/MultiSelectTag): remove deprecated lifecycle and use RTL for test
+- ce7950623: fix(Fieldset): nested conditional fieldset are broken
+- Updated dependencies [9522692fa]
+- Updated dependencies [59a16bfa7]
+  - @talend/react-components@6.45.0
+  - @talend/design-system@2.4.0
+
 ## 7.0.8
 
 ### Patch Changes

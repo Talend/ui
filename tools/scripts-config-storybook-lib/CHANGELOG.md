@@ -1,5 +1,29 @@
 # @talend/scripts-config-storybook-lib
 
+## 1.2.3
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+
+## 1.2.2
+
+### Patch Changes
+
+- 2f40e092e: fix: remove bundles props of IconsProvider
+
+## 1.2.1
+
+### Patch Changes
+
+- 29302bc1f: chore(storybook): without i18n config
+
+## 1.2.0
+
+### Minor Changes
+
+- a20e7673d: Add design-system providers if available
+
 ## 1.1.0
 
 ### Minor Changes

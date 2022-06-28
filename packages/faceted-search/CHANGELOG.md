@@ -1,5 +1,56 @@
 # Changelog
 
+## 5.0.2
+
+### Patch Changes
+
+- d3dc12c14: fix: use caret syntax for react-bootstrap
+- Updated dependencies [a2ebce94c]
+  - @talend/react-bootstrap@1.35.1
+
+## 5.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/design-system@3.0.0
+
+## 4.3.0
+
+### Minor Changes
+
+- 092f11bcd: feat(FacetedSearch): enable checkbox badge filter placeholder customization
+
+## 4.2.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [47b758112]
+  - @talend/react-bootstrap@1.35.0
+
+## 4.1.0
+
+### Minor Changes
+
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [66fa02548]
+  - @talend/react-bootstrap@1.34.0
+
 ## 4.0.2
 
 ### Patch Changes

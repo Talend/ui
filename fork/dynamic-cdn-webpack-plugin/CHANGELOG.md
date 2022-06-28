@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 11.1.1
+
+### Patch Changes
+
+-   9bfa5e88f: fix: resolvePkg use find first and fallback to require.resolve
+
+## 11.1.0
+
+### Minor Changes
+
+-   1770e701b: feat: add support for peerDependencies
+
+## 11.0.3
+
+### Patch Changes
+
+-   aa2ffc733: fix: findPackage follow symlink in monorepo
+
+## 11.0.2
+
+### Patch Changes
+
+-   5aaa1e9fc: use findPackage to ensure the version is compatible during dependency resolution from manifest
+
+## 11.0.1
+
+### Patch Changes
+
+-   28df3ee1b: fix: handle package without varName
+
 ## 11.0.0
 
 ### Major Changes

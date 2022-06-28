@@ -1,5 +1,23 @@
 # Changelog
 
+## 5.2.0
+
+### Minor Changes
+
+- d9dc0701c: Add double click to nodes
+
+## 5.1.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+## 5.0.4
+
+### Patch Changes
+
+- 70f2f3ca2: fix(FlowDesigner): node position
+
 ## 5.0.3
 
 ### Patch Changes

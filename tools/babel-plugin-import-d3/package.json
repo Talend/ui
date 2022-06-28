@@ -1,24 +1,24 @@
 {
   "name": "@talend/babel-plugin-import-d3",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Transform import d3-xx to d3",
   "main": "src/index.js",
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/babel/plugin-import-from-index#readme",
   "bugs": {
-    "url": "https://github.com/Talend/ui-scripts/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/ui-scripts.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
     "babel-jest": "^28.0.0",
     "babel-plugin-tester": "^10.1.0",
     "jest": "^28.0.0"

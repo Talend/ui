@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import HorizontalBarChart, { HorizontalBarChartProps } from './index';
 import { ChartEntry } from '../barChart.types';
 import { getHorizontalBarChartTooltip, ValueType } from '../barChart.tooltip';
-import TooltipContent from '../../TooltipContent/TooltipContent.component';
+import KeyValueTooltip from '../../KeyValueTooltip/KeyValueTooltip.component';
 import { ChartStyle } from '../../../types';
 
 const data: ChartEntry<string>[] = [
@@ -41,7 +41,7 @@ export default {
 		dataFeature: 'on.bar.click',
 		onBarClick: action('onClick'),
 		getTooltipContent: entry => (
-			<TooltipContent entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
+			<KeyValueTooltip entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
 		),
 	},
 } as Meta<HorizontalBarChartProps>;
@@ -57,7 +57,7 @@ PatternChart.args = {
 	data,
 	chartStyle: HorizontalBarChart.ChartStyle.PATTERN,
 	getTooltipContent: entry => (
-		<TooltipContent
+		<KeyValueTooltip
 			entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)}
 			chartStyle={ChartStyle.PATTERN}
 		/>

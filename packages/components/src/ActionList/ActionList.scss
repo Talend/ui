@@ -1,10 +1,12 @@
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+
 ////
 /// Action list
 /// @group Custom widgets
 ////
 
 $tc-action-list-item-width: 20rem !default;
-$tc-action-list-item-icons-size: 2rem !default;
+$tc-action-list-item-icons-size: tokens.$coral-sizing-xxxs !default;
 $tc-action-list-item-border-size: 0.2rem !default;
 
 .tc-action-list {

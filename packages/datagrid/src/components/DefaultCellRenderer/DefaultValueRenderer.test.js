@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import DefaultValueRenderer from './DefaultValueRenderer.component';
 
@@ -29,7 +29,7 @@ describe('#DefaultValueRenderer', () => {
 	});
 
 	it('should render empty when the value is undefined', () => {
-		const wrapper = shallow(<DefaultValueRenderer value={undefined} />);
+		const wrapper = mount(<DefaultValueRenderer value={undefined} />);
 
 		expect(wrapper.find('div').text()).toBe('');
 	});
@@ -49,10 +49,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 
@@ -65,10 +62,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 		// should remove the tooltip
@@ -84,10 +78,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 
@@ -100,10 +91,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 		// should remove the tooltip
@@ -119,10 +107,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 
@@ -135,10 +120,7 @@ describe('#DefaultValueRenderer', () => {
 			clientHeight: 10,
 		});
 
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('focus');
+		wrapper.find('div').at(0).simulate('focus');
 
 		wrapper.update();
 		// should remove the tooltip

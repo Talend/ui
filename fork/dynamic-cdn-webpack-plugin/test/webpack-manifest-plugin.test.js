@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 const DynamicCdnWebpackPlugin = require('../src').default;
 
@@ -27,7 +27,7 @@ describe('webpack-manifest-plugin integration', () => {
 			},
 
 			plugins: [
-				new ManifestPlugin({
+				new WebpackManifestPlugin({
 					fileName: 'manifest.json',
 				}),
 				new DynamicCdnWebpackPlugin(),
@@ -48,9 +48,7 @@ describe('webpack-manifest-plugin integration', () => {
 		});
 
 		const output = fs
-			.readFileSync(
-				path.resolve(__dirname, './fixtures/output/webpack-manifest-plugin/app.js'),
-			)
+			.readFileSync(path.resolve(__dirname, './fixtures/output/webpack-manifest-plugin/app.js'))
 			.toString();
 		expect(output).not.toContain('THIS IS REACT!');
 	});

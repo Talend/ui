@@ -1,3 +1,3 @@
 module.exports = {
-	addons: ['@storybook/addon-knobs'],
+	addons: ['@storybook/addon-controls'],
 };

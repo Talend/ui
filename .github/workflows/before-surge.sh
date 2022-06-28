@@ -14,9 +14,9 @@ mkdir .static/forms
 mkdir .static/icons
 mkdir .static/theme
 mkdir .static/datagrid
+mkdir .static/storybook-docs
 cp .surge/index.html .static
 cp -R packages/cmf/jsdoc .static/cmf
-cp -R packages/cmf/website/build/cmf-doc/* .static/cmf
 cp -R packages/components/storybook-static/* .static/components
 cp -R packages/containers/storybook-static/* .static/containers
 cp -R packages/datagrid/storybook-static/* .static/datagrid
@@ -25,9 +25,10 @@ cp -R packages/design-system/storybook-static/* .static/design-system
 cp -R packages/design-tokens/storybook-static/* .static/design-tokens
 cp -R packages/faceted-search/storybook-static/* .static/faceted-search
 cp -R packages/forms/storybook-static/* .static/forms
-cp -R packages/icons/docs/index.html .static/icons
+cp -R packages/icons/storybook-static/* .static/icons
 cp -R packages/icons/dist .static/icons
 cp -R packages/theme/dist/* .static/theme
 cp -R packages/theme/dist .static/theme
+cp -R packages/storybook-docs/storybook-static/* .static/storybook-docs
 echo Size of demo:
 du -d 1 -h .static

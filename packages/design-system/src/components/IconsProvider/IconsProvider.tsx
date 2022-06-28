@@ -1,7 +1,16 @@
 import React, { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
+import assetsAPI from '@talend/assets-api';
 
-const DEFAULT_BUNDLES = ['/all.svg'];
+const DEFAULT_BUNDLES = [
+	assetsAPI.getURL('/dist/svg-bundle/all.svg', '@talend/icons'),
+	assetsAPI.getURL('/dist/svg-bundle/XS.svg', '@talend/icons'),
+	assetsAPI.getURL('/dist/svg-bundle/S.svg', '@talend/icons'),
+	assetsAPI.getURL('/dist/svg-bundle/M.svg', '@talend/icons'),
+	assetsAPI.getURL('/dist/svg-bundle/L.svg', '@talend/icons'),
+];
+
 const FETCHING_BUNDLES: { [url: string]: Promise<Response> } = {};
+
 const ICONS_PROVIDER_CLASS = '.tc-iconsprovider';
 
 function hasBundle(url: string) {
@@ -56,8 +65,10 @@ function injectIcon(id: string, container: Element) {
 	const element = document.querySelector(`${ICONS_PROVIDER_CLASS} #${id}`);
 	if (element) {
 		while (container.hasChildNodes()) {
-			// @ts-ignores
-			container.removeChild(container.lastChild);
+			const lastChild = container.lastChild;
+			if (lastChild) {
+				container.removeChild(lastChild);
+			}
 		}
 		container.appendChild(element.children[0].cloneNode(true));
 	} else if (Object.keys(FETCHING_BUNDLES).length) {
@@ -111,9 +122,9 @@ export function IconsProvider({
 	defaultIcons = {},
 	icons = {},
 }: {
-	bundles: string[] | [];
-	defaultIcons?: {};
-	icons?: {};
+	bundles?: string[] | [];
+	defaultIcons?: Record<string, ReactElement>;
+	icons?: Record<string, ReactElement>;
 }) {
 	const iconset: IconSet = { ...defaultIcons, ...icons };
 	const ref = useRef<SVGSVGElement>(null);

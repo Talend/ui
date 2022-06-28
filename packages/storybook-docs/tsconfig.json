@@ -1,0 +1,8 @@
+{
+  "extends": "@talend/scripts-config-typescript/tsconfig.json",
+  "include": ["src/**/*", "custom.d.ts"],
+  "files": [],
+  "compilerOptions": {
+    "declaration": true,
+  }
+}

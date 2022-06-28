@@ -2,10 +2,25 @@ require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
-const configure = require('enzyme').configure;
-const Adapter = require('enzyme-adapter-react-16');
 
-configure({ adapter: new Adapter() });
+// enzyme adapter configuration
+let React;
+try {
+	React = require('react');
+} catch (e) {}
+
+try {
+	const version = React && React.version;
+	if (version && version.startsWith('16.')) {
+		const configure = require('enzyme').configure;
+		const Adapter = require('enzyme-adapter-react-16');
+		configure({ adapter: new Adapter() });
+	} else if (version && version.startsWith('17.')) {
+		const configure = require('enzyme').configure;
+		const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
+		configure({ adapter: new Adapter() });
+	}
+} catch (e) {}
 
 // Mock fetch
 const fetch = jest.fn(
@@ -55,6 +70,7 @@ jest.mock('i18next', () => {
 	}
 	const i18nextMock = jest.genMockFromModule('i18next');
 	i18nextMock.t = tMock;
+	i18nextMock.language = 'en';
 	i18nextMock.getFixedT = () => tMock;
 	i18nextMock.use = () => i18nextMock;
 	i18nextMock.addResources = () => {};

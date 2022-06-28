@@ -13,7 +13,7 @@
     "cross-spawn": "^7.0.3",
     "generate-password": "^1.7.0",
     "rimraf": "^3.0.2",
-    "verdaccio": "^5.9.0"
+    "verdaccio": "^5.11.0"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",

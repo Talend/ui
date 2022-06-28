@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#AvroRenderer should mount DummyComponent 1`] = `
+exports[`#AvroRenderer should mount stringCellRenderer 1`] = `
 <AvroRenderer
   avroRenderer={
     Object {
-      "stringCellRenderer": "stringCellRenderer",
+      "stringCellRenderer": [Function],
     }
   }
   colDef={
@@ -21,12 +21,11 @@ exports[`#AvroRenderer should mount DummyComponent 1`] = `
       "value": "value",
     }
   }
-  getComponent={[Function]}
 />
 `;
 
 exports[`#AvroRenderer should render AvroRenderer and load Injected Component stringCellRenderer 1`] = `
-<DummyComponent
+<StringDummyComponent
   colDef={
     Object {
       "avro": Object {

@@ -1,5 +1,224 @@
 # @talend/react-components
 
+## 7.3.0
+
+### Minor Changes
+
+- 8f396f7d5: feat(TDC-6337): allow multiple values in Emphasis
+
+### Patch Changes
+
+- f8a5555eb: fix(TDC-6368): no ellipsis on long subheaderbar titles
+
+## 7.2.1
+
+### Patch Changes
+
+- eeda8a18a: feat(components): align new and old icons in the sidepanel
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+  - @talend/icons@6.44.1
+
+## 7.2.0
+
+### Minor Changes
+
+- 3422f271f: feat(components): allow to use new icons in legacy buttons
+
+## 7.1.0
+
+### Minor Changes
+
+- 252e346b1: feat(components/sidepanel): allow beta tag
+
+### Patch Changes
+
+- Updated dependencies [21189557e]
+  - @talend/design-system@3.4.0
+
+## 7.0.5
+
+### Patch Changes
+
+- cc9b1083f: fix(AMG-202): VList with single column crash
+
+## 7.0.4
+
+### Patch Changes
+
+- 4fb50ba78: FormatValue: `key` attribute can be duplicated
+- Updated dependencies [a90ec3748]
+- Updated dependencies [a90ec3748]
+  - @talend/design-system@3.2.0
+
+## 7.0.3
+
+### Patch Changes
+
+- 85b73cb64: fix(TDC-6341): improve RatioBarComposition accessibility
+
+## 7.0.2
+
+### Patch Changes
+
+- d4b21e191: fix(TDC-6341): quality bars should use Tooltip from DS
+- Updated dependencies [8b9a8b5da]
+  - @talend/design-system@3.1.0
+
+## 7.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/design-system@3.0.1
+
+## 7.0.0
+
+### Major Changes
+
+- 1160ec1f6: InlineMessage component is now only coming from design system. No more classnames. No more Link as components.
+  Breaking changes:
+  - No more `as`, `className` nor `style` props
+  - `link` prop now is an object (based on the `Link` component props)
+
+### Minor Changes
+
+- c8fbf0130: feat(TDC-6235): pass input reference to datalist rendering function
+
+### Patch Changes
+
+- 9a581a4bc: Datalist: keep user filter when suggestion changes
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/design-system@3.0.0
+
+## 6.49.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- 6562e397f: fix(components): datalist selection by id should allow all types
+- Updated dependencies [47b758112]
+  - @talend/react-bootstrap@1.35.0
+  - @talend/design-system@2.7.0
+  - @talend/icons@6.42.0
+  - @talend/bootstrap-theme@6.39.0
+  - @talend/utils@2.3.0
+
+## 6.48.0
+
+### Minor Changes
+
+- bdf23018f: Add a tooltip to the tag
+
+## 6.47.0
+
+### Minor Changes
+
+- 7d1f9f509: Add a Feature tag on drawer subtitle
+- 66fa02548: move from react-bootstrap to @talend/react-bootstrap
+
+### Patch Changes
+
+- Updated dependencies [66fa02548]
+  - @talend/react-bootstrap@1.34.0
+
+## 6.46.7
+
+### Patch Changes
+
+- ecd3b81ae: fix(components): datalist should show selected item by id
+
+## 6.46.6
+
+### Patch Changes
+
+- 0332ed371: Datalist : Blur should persist value only if the filter value is different from the selected one
+
+## 6.46.5
+
+### Patch Changes
+
+- c834a7ec6: fix(Notification): remove this in functional component
+- Updated dependencies [453802c72]
+- Updated dependencies [6f68d11f4]
+  - @talend/design-system@2.6.0
+  - @talend/icons@6.41.0
+
+## 6.46.4
+
+### Patch Changes
+
+- 344a7551f: fix: proptypes of VList
+
+## 6.46.3
+
+### Patch Changes
+
+- 3be3e132d: Datalist should update its value when the titleMap changes
+
+## 6.46.2
+
+### Patch Changes
+
+- e04e3910f: feat(components/QualityBar): rework quality bar with design tokens
+
+## 6.46.1
+
+### Patch Changes
+
+- bcc5e70ed: fix(VList): handle VList without columns
+
+## 6.46.0
+
+### Minor Changes
+
+- b375a5ba7: feat(List): add column chooser for VList and change toolbar buttons aspect
+
+### Patch Changes
+
+- d514bd8ea: fix DataList component error when int type
+
+## 6.45.1
+
+### Patch Changes
+
+- f5e8188f1: FormatValue: Handle string without whitespaces
+
+## 6.45.0
+
+### Minor Changes
+
+- 9522692fa: chore(Datalist): Allow reset to empty in restricted mode
+
+### Patch Changes
+
+- Updated dependencies [59a16bfa7]
+  - @talend/design-system@2.4.0
+
 ## 6.44.14
 
 ### Patch Changes

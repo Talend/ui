@@ -1,5 +1,74 @@
 # @talend/icons
 
+## 6.45.0
+
+### Minor Changes
+
+- 40d5d3fe0: Types and utils are exported outside of main entrypoint
+
+## 6.44.1
+
+### Patch Changes
+
+- 4219dd686: changed icon `between` in size `M`
+- 4219dd686: changed icon `between` in size `S`
+- 4219dd686: changed icon `contains` in size `M`
+- 4219dd686: changed icon `contains` in size `S`
+- 4219dd686: changed icon `does-not-contains` in size `M`
+- 4219dd686: changed icon `does-not-contains` in size `S`
+- 4219dd686: changed icon `ends-with` in size `M`
+- 4219dd686: changed icon `ends-with` in size `S`
+- 4219dd686: changed icon `equal` in size `M`
+- 4219dd686: changed icon `equal` in size `S`
+- 4219dd686: changed icon `greater-than` in size `M`
+- 4219dd686: changed icon `greater-than` in size `S`
+- 4219dd686: changed icon `less-than` in size `M`
+- 4219dd686: changed icon `less-than` in size `S`
+- 4219dd686: changed icon `not-equal` in size `M`
+- 4219dd686: changed icon `not-equal` in size `S`
+- 4219dd686: changed icon `regex` in size `M`
+- 4219dd686: changed icon `regex` in size `S`
+- 4219dd686: changed icon `starts-with` in size `M`
+- 4219dd686: changed icon `starts-with` in size `S`
+
+## 6.44.0
+
+### Minor Changes
+
+- 6887f0fcf: added icon `lightbulb` in size `L`
+- 6887f0fcf: added icon `lightbulb` in size `M`
+
+## 6.43.0
+
+### Minor Changes
+
+- ffb05ebb8: added icon `exclamation-stroke` in size `L`
+- ffb05ebb8: added icon `exclamation-stroke` in size `M`
+- ffb05ebb8: added icon `exclamation-stroke` in size `S`
+
+### Patch Changes
+
+- ffb05ebb8: changed icon `less-than` in size `M`
+- ffb05ebb8: changed icon `less-than` in size `S`
+
+## 6.42.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+## 6.41.1
+
+### Patch Changes
+
+- 293a4ebd9: feat(icons): expose icons from figma as extra svg sprites
+
+## 6.41.0
+
+### Minor Changes
+
+- 6f68d11f4: Added map icon
+
 ## 6.40.0
 
 ### Minor Changes

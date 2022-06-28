@@ -6,7 +6,7 @@ const { getPreset } = require('../utils/preset');
  * so they are well resolved in the webpack-copy-plugin configuration
  */
 module.exports = function postInstall(env, presetApi, options) {
-	const presetName = presetApi.getUserConfig(['preset'], 'talend');
+	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
 	return preset.postInstall(options);
 };

@@ -1,5 +1,19 @@
 # @talend/scripts-config-ng-webpack
 
+## 9.8.2
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+- Updated dependencies [3f4ad5e30]
+  - @talend/scripts-config-babel@9.9.1
+
+## 9.8.1
+
+### Patch Changes
+
+- 07e270241: fix: use yarn.lock content hash as cache key
+
 ## 9.8.0
 
 ### Minor Changes

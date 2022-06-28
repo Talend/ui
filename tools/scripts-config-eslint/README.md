@@ -7,10 +7,8 @@ To use the eslint configuration in your IDE, or to add custom rules
 
 ```json
 {
-  "extends": "./node_modules/@talend/scripts-config-eslint/.eslintrc",
-  "rules": {
-    
-  }
+	"extends": "./node_modules/@talend/scripts-config-eslint/.eslintrc.js",
+	"rules": {}
 }
 ```
 

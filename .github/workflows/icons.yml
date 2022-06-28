@@ -1,0 +1,62 @@
+name: Download icons from Figma
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    name: Download icons from Figma
+    environment: main
+    defaults:
+      run:
+        working-directory: ./packages/icons
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+        with:
+          # Required when using a PAT for opening the PR
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          check-latest: true
+          cache: "yarn"
+
+      - name: Download icons
+        run: npx @talend/figma-icons-downloader
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.STORYBOOK_FIGMA_ACCESS_TOKEN }}
+
+      - name: Generate changeset & PR body
+        id: get-pr-body
+        run: |
+          cd ../..
+          git add ./packages/icons/src
+          while read STATUS ADDR
+          do
+            icon=`basename $ADDR .svg`
+            size=`basename $(dirname $ADDR)`
+            semver=`sed 's/A/minor/;s/D/major/;s/M/patch/' <<< $STATUS`
+            verb=`sed 's/A/added/;s/D/removed/;s/M/changed/' <<< $STATUS`
+            echo -e "---\n'@talend/icons': $semver\n---\n\n$verb icon \`$icon\` in size \`$size\`" > .changeset/$icon-$size-$semver.md
+          done < <(git diff --name-status HEAD ./packages/icons/src/icon/**/*.svg)
+          git add .changeset
+          body=$(git diff --name-only HEAD .changeset/*.md | xargs -L1 sed -n '5p')
+          body="${body//$'\n'/'%0A'}"
+          echo ::set-output name=body::$body
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "chore(icons): from Figma"
+          title: "chore(icons): from Figma"
+          body: ${{ steps.get-pr-body.outputs.body }}
+          branch: ci/icons
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Opening a PR with default token would not start build & test action
+          GITHUB_TOKEN: ${{ secrets.CHANGESET_GITHUB_TOKEN }}

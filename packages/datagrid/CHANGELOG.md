@@ -1,5 +1,168 @@
 # @talend/react-datagrid
 
+## 11.0.0
+
+### Major Changes
+
+- df3460428: Rewrite header cell renderer to include all projects use cases + cleanup its API:
+
+  - Custom properties (type, column description, style...) are now provided in `colDef.headerComponentParams` field.
+    - See `HeaderComponentParams`for available fields
+  - Quality information is simplified (see: `HeaderComponentParams`)
+
+  Please remove custom renderers from projects
+
+### Patch Changes
+
+- Updated dependencies [6887f0fcf]
+- Updated dependencies [6887f0fcf]
+  - @talend/icons@6.44.0
+
+## 10.0.1
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-components@7.0.1
+
+## 10.0.0
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [5a30f1f0e]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [051dfd9fb]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+  - @talend/design-system@3.0.0
+
+## 9.3.1
+
+### Patch Changes
+
+- 07e270241: fix: use assets-api back to lazy load aggrid assets
+- Updated dependencies [eec63a996]
+  - @talend/assets-api@1.2.1
+
+## 9.3.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/assets-api@1.2.0
+  - @talend/icons@6.42.0
+
+## 9.2.3
+
+### Patch Changes
+
+- f1c69c2e3: Translations not loaded in storybook & not configured for typescript
+- Updated dependencies [293a4ebd9]
+  - @talend/icons@6.41.1
+
+## 9.2.2
+
+### Patch Changes
+
+- 5475efd58: Cleanup internal renderer API: remove usage of `frameworkComponents` to stick to ag-grid API & documentation
+- Updated dependencies [7d1f9f509]
+- Updated dependencies [66fa02548]
+  - @talend/react-components@6.47.0
+
+## 9.2.1
+
+### Patch Changes
+
+- d1273605b: int cell doesn't display text align right
+- Updated dependencies [ecd3b81ae]
+  - @talend/react-components@6.46.7
+
+## 9.2.0
+
+### Minor Changes
+
+- 4119033fd: - Boot rtl config
+  - Rewrite QualityIndicator in typescript
+
+### Patch Changes
+
+- Updated dependencies [c834a7ec6]
+- Updated dependencies [6f68d11f4]
+  - @talend/react-components@6.46.5
+  - @talend/icons@6.41.0
+
+## 9.1.1
+
+### Patch Changes
+
+- d6d8cd78d: Broken selection since v9.1.0
+
+## 9.1.0
+
+### Minor Changes
+
+- ea6f0874a: - Bump ag-grid to v27
+  - Drop assets-api as it's too painful to use ATM
+
+### Patch Changes
+
+- Updated dependencies [344a7551f]
+  - @talend/react-components@6.46.4
+
+## 9.0.1
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+  - @talend/assets-api@1.1.0
+
+## 9.0.0
+
+### Major Changes
+
+- 9f84c4ad7: - Remove cmf module
+
+  - Immutable data support is no longer tested & documented
+
+  Migration: renderer are no longer provided through CMF registry using their id, they have to be provided as props;
+
+  ```
+  BEFORE
+  <Datagrid headerRenderer="myComponentIdInRegistry" />
+  AFTER
+  <Datagrid headerRenderer={MyComponent} />
+  ```
+
+- 65599e1a5: chore(datagrid): Drop deprecated `forceRedrawRows` prop
+- e04e3910f: feat(datagrid): replace internal quality bar with react-component one
+  Breaking change: previous internal datagrid/QualityBar export has been removed
+
+### Patch Changes
+
+- Updated dependencies [e04e3910f]
+  - @talend/react-components@6.46.2
+
+## 8.0.0
+
+### Major Changes
+
+- 4605d2ce4: Design-system migration + add typescript config
+
+  Migration: @talend/design-system is added as peer dep + `ThemeProvider` is required
+
+### Minor Changes
+
+- d1815c0af: feat: use @talend/assets-api to load datagrid umds on demand
+
 ## 7.0.3
 
 ### Patch Changes

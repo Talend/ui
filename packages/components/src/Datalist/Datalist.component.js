@@ -67,7 +67,7 @@ function findEntry(titleMap, attributeName, attributeValue = '') {
 			}
 		} else if (
 			!entry.disabled &&
-			entry[attributeName].toLowerCase() === attributeValue.toLowerCase()
+			String(entry[attributeName]).toLowerCase() === String(attributeValue).toLowerCase()
 		) {
 			// entry is {name, value}
 			return entry;
@@ -78,6 +78,10 @@ function findEntry(titleMap, attributeName, attributeValue = '') {
 }
 
 function getEntryFromName(titleMap, name, restricted) {
+	if (name === '') {
+		return { name, value: '' };
+	}
+
 	const entry = findEntry(titleMap, 'name', name);
 	if (entry) {
 		return entry;
@@ -107,9 +111,8 @@ function getEntry(titleMap, nameOrValue, restricted) {
 
 function Datalist(props) {
 	// Current persisted value
-	// In case of simple values, this is a string
-	// In case of titleMap, it's an object { name: "display value", value: "technical value" }
-	const [value, setValue] = useState();
+	// It's the object value key { name: "display value", value: "technical value" }
+	const [{ name, value }, setEntry] = useState({});
 
 	// suggestions: filter value, display flag, current hover selection
 	const [filterValue, setFilterValue] = useState('');
@@ -141,13 +144,14 @@ function Datalist(props) {
 		}
 
 		if (entry.value !== value) {
-			setValue(entry.value);
+			setEntry(entry);
 		}
-		if (entry.name !== filterValue) {
+		// Update the input value only if user did not change it
+		if (!name || name === filterValue) {
 			setFilterValue(entry.name);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [props.value]);
+	}, [props.value, props.titleMap]);
 
 	// Suggestion display syntaxic sugar
 	const resetSelection = () =>
@@ -181,7 +185,7 @@ function Datalist(props) {
 		setFilterValue(newFilter);
 
 		if (persist) {
-			setValue(entry.value);
+			setEntry(entry);
 			props.onChange(event, { value: entry.value });
 		} else if (props.onLiveChange) {
 			props.onLiveChange(event, entry.value);
@@ -221,11 +225,17 @@ function Datalist(props) {
 	 */
 	function persistValue(event) {
 		hideSuggestions();
-		const entry = getEntryFromName(props.titleMap, filterValue, props.restricted);
-		if (entry && entry.value !== value) {
-			updateValue(event, entry, true);
-		} else {
-			resetFilter();
+		const selectedEntry = getEntryFromValue(props.titleMap, value, props.restricted);
+
+		// If the filterValue is different from the selected entry
+		if (!selectedEntry || selectedEntry.name !== filterValue) {
+			const entry = getEntryFromName(props.titleMap, filterValue, props.restricted);
+
+			if (entry && entry.value !== value) {
+				updateValue(event, entry, true);
+			} else {
+				resetFilter();
+			}
 		}
 	}
 
@@ -402,6 +412,7 @@ function Datalist(props) {
 					itemsList: theme.items,
 				}}
 				value={filterValue}
+				valueId={value}
 				caret
 			/>
 		</FocusManager>

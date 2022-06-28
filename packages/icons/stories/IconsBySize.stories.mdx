@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs';
+
+import { realIconSizes, Grid, IconGallery, IconItem } from './Icon';
+import { infoFromFigma as icons } from '../dist/info';
+
+<Meta title="Icons by size" />
+
+# Icons
+
+This page helps you figure out how many icons are available per size.
+
+<IconGallery>
+	{realIconSizes.map((realIconSize, i) => (
+		<section key={i}>
+			<h2>{realIconSize}</h2>
+			<Grid columns={4}>
+				{Object.entries(icons)
+					.filter(([, size]) => size === realIconSize)
+					.map(([name, size], j) => (
+						<IconItem key={j} name={name.split(':')[0]} size={size} />
+					))}
+			</Grid>
+		</section>
+	))}
+</IconGallery>

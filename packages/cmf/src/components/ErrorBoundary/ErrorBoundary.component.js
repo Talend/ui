@@ -8,8 +8,14 @@ export default class ErrorBoundary extends React.Component {
 		this.state = { errors: [] };
 	}
 
-	componentDidCatch(error) {
+	componentDidCatch(error, errorInfo) {
 		this.setState(state => ({ errors: state.errors.concat(error) }));
+		if (window.Sentry) {
+			window.Sentry.withScope(scope => {
+				scope.setExtras(errorInfo);
+				window.Sentry.captureException(error);
+			});
+		}
 	}
 
 	render() {

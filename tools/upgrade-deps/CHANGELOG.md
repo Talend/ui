@@ -1,5 +1,29 @@
 # @talend/upgrade-deps
 
+## 1.4.2
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+
+## 1.4.1
+
+### Patch Changes
+
+- 2814f3a5c: fix: remove useless log
+
+## 1.4.0
+
+### Minor Changes
+
+- 013c801ff: add --next option to get beta release of packages
+
+## 1.3.3
+
+### Patch Changes
+
+- b82096450: Fix npm view command on Windows
+
 ## 1.3.2
 
 ### Patch Changes

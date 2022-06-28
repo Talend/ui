@@ -1,6 +1,7 @@
-import React, { cloneElement, forwardRef, ReactElement, Ref } from 'react';
+import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
 import { Menu, MenuButton, useMenuState } from 'reakit';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/typeUtils';
 import DropdownButton from './Primitive/DropdownButton';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
@@ -8,6 +9,7 @@ import DropdownTitle from './Primitive/DropdownTitle';
 import DropdownDivider from './Primitive/DropdownDivider';
 import Clickable, { ClickableProps } from '../Clickable';
 import { LinkableType } from '../Linkable';
+import tokens from '@talend/design-tokens';
 
 type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 	label: string;
@@ -57,6 +59,10 @@ const Dropdown = forwardRef(
 								<DropdownButton
 									{...entryRest}
 									{...menu}
+									onClick={(event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
+										menu.hide();
+										entry.onClick(event);
+									}}
 									key={`${label}-${index}`}
 									id={`${label}-${index}`}
 									data-test="dropdown.menuitem"
@@ -89,6 +95,12 @@ const Dropdown = forwardRef(
 								{...menu}
 								key={`${label}-${index}`}
 								id={`${label}-${index}`}
+								onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+									menu.hide();
+									if (entry.onClick) {
+										entry.onClick(event);
+									}
+								}}
 								data-test="dropdown.menuitem"
 							>
 								{label}
@@ -100,5 +112,7 @@ const Dropdown = forwardRef(
 		);
 	},
 );
+
+Dropdown.displayName = 'Dropdown';
 
 export default Dropdown;

@@ -1,0 +1,16 @@
+{
+  "name": "@talend/scripts-cmf",
+  "description": "@talend/react-cmf scripts to manage CMF settings",
+  "version": "1.0.1",
+  "main": "cmf-settings.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "cmf-settings": "./cmf-settings.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  }
+}

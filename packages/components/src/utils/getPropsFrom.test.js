@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+import { Button } from '@talend/react-bootstrap';
 import getPropsFrom from './getPropsFrom';
 
 describe('Action', () => {

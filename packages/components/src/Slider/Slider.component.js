@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import RcSlider, { Range } from 'rc-slider';
-import Tooltip from 'rc-tooltip';
+import RcSlider from 'rc-slider';
 import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
@@ -185,122 +184,104 @@ function getCaption(
  * Function to set the tooltip
  * @param {function} captionsFormat the function to format the caption
  */
-function getHandle(captionsFormat, getTooltipContainer, hideTooltip) {
-	// https://github.com/react-component/slider/issues/502
-	function Handle({ dragging, ...rest }) {
+function getHandle(captionsFormat) {
+	function renderHandler(node, props) {
 		return (
-			<Tooltip
-				prefixCls="rc-slider-tooltip"
-				overlay={captionsFormat(rest.value)}
-				getTooltipContainer={getTooltipContainer}
-				visible={!hideTooltip}
-				placement="top"
-				key={rest.index}
-			>
-				<RcSlider.Handle dragging={dragging.toString()} {...rest} />
-			</Tooltip>
-		);
-	}
-
-	Handle.propTypes = {
-		dragging: PropTypes.bool,
-		value: PropTypes.number.isRequired,
-		index: PropTypes.number.isRequired,
-	};
-
-	return Handle;
-}
-
-// eslint-disable-next-line react/prefer-stateless-function
-class Slider extends React.Component {
-	static displayName = 'Slider';
-
-	static propTypes = {
-		id: PropTypes.string,
-		value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
-		onChange: PropTypes.func.isRequired,
-		getTooltipContainer: PropTypes.func,
-		onAfterChange: PropTypes.func,
-		captionActions: PropTypes.array,
-		captionIcons: PropTypes.array,
-		captionTextStepNumber: PropTypes.number,
-		min: PropTypes.number,
-		max: PropTypes.number,
-		step: PropTypes.number,
-		mode: PropTypes.string,
-		captionsFormat: PropTypes.func,
-		disabled: PropTypes.bool,
-		hideTooltip: PropTypes.bool,
-	};
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			handle: getHandle(props.captionsFormat, props.getTooltipContainer, props.hideTooltip),
-		};
-	}
-
-	render() {
-		const {
-			id,
-			value,
-			captionActions,
-			captionIcons,
-			captionTextStepNumber,
-			captionsFormat,
-			min,
-			max,
-			step,
-			mode,
-			onChange,
-			disabled,
-			...rest
-		} = this.props;
-		const noValue = value === null || value === undefined;
-		const Component = Array.isArray(value) ? Range : RcSlider;
-		return (
-			<div>
-				<div className={classnames(theme['tc-slider'], 'tc-slider')} key="slider">
-					<Component
-						id={id}
-						value={value}
-						min={min}
-						max={max}
-						step={step}
-						handle={noValue ? undefined : this.state.handle}
-						className={classnames(
-							theme['tc-slider-rc-slider'],
-							{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
-							{ [theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE },
-							{
-								[theme['tc-slider-rc-slider--track-greater-than']]:
-									mode === SLIDER_MODE.GREATER_THAN,
-							},
-							'tc-slider-rc-slider',
-							{ 'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS },
-							{ 'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE },
-							{ 'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN },
-						)}
-						onChange={onChange}
-						disabled={disabled}
-						{...rest}
-					/>
+			<div className={theme['tc-slider__handler']}>
+				<div className={theme['tc-slider__value']} style={node.props.style}>
+					{captionsFormat(props?.value)}
 				</div>
-				{getCaption(
-					captionActions,
-					captionIcons,
-					captionTextStepNumber,
-					captionsFormat,
-					value,
-					min,
-					max,
-					onChange,
-					disabled,
-				)}
+				{node}
 			</div>
 		);
 	}
+
+	return renderHandler;
 }
+
+const Slider = React.forwardRef((props, ref) => {
+	const handleRender = getHandle(props.captionsFormat, ref);
+
+	const {
+		id,
+		value,
+		captionActions,
+		captionIcons,
+		captionTextStepNumber,
+		captionsFormat,
+		min,
+		max,
+		step,
+		mode,
+		onChange,
+		disabled,
+		hideTooltip,
+		...rest
+	} = props;
+	const noValue = value === null || value === undefined;
+	return (
+		<div>
+			<div className={classnames(theme['tc-slider'], 'tc-slider')}>
+				<RcSlider
+					range={Array.isArray(value)}
+					id={id}
+					defaultValue={noValue ? undefined : 0}
+					value={value}
+					min={min}
+					max={max}
+					step={step}
+					handleRender={noValue || hideTooltip ? undefined : handleRender}
+					className={classnames(
+						theme['tc-slider-rc-slider'],
+						{ [theme['tc-slider-rc-slider--track-equals']]: mode === SLIDER_MODE.EQUALS },
+						{ [theme['tc-slider-rc-slider--track-exclusive']]: mode === SLIDER_MODE.EXCLUSIVE },
+						{
+							[theme['tc-slider-rc-slider--track-greater-than']]: mode === SLIDER_MODE.GREATER_THAN,
+						},
+						'tc-slider-rc-slider',
+						{ 'tc-slider-rc-slider--track-equals': mode === SLIDER_MODE.EQUALS },
+						{ 'tc-slider-rc-slider--track-exclusive': mode === SLIDER_MODE.EXCLUSIVE },
+						{ 'tc-slider-rc-slider--track-greater-than': mode === SLIDER_MODE.GREATER_THAN },
+					)}
+					onChange={onChange}
+					disabled={disabled}
+					ref={ref}
+					{...rest}
+				/>
+			</div>
+			{getCaption(
+				captionActions,
+				captionIcons,
+				captionTextStepNumber,
+				captionsFormat,
+				value,
+				min,
+				max,
+				onChange,
+				disabled,
+			)}
+		</div>
+	);
+});
+
+Slider.propTypes = {
+	id: PropTypes.string,
+	value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
+	onChange: PropTypes.func.isRequired,
+	getTooltipContainer: PropTypes.func,
+	onAfterChange: PropTypes.func,
+	captionActions: PropTypes.array,
+	captionIcons: PropTypes.array,
+	captionTextStepNumber: PropTypes.number,
+	min: PropTypes.number,
+	max: PropTypes.number,
+	step: PropTypes.number,
+	mode: PropTypes.string,
+	captionsFormat: PropTypes.func,
+	disabled: PropTypes.bool,
+	hideTooltip: PropTypes.bool,
+};
+Slider.displayName = 'Slider';
 
 Slider.defaultProps = {
 	min: 0,

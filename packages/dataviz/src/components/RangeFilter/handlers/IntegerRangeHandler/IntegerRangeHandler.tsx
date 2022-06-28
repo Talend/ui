@@ -5,5 +5,5 @@ export const IntegerRangeHandler: RangeHandler = {
 	...NumberRangeHandler,
 	getStep: () => 1,
 	getMinValue: Math.floor,
-	getMaxValue: Math.ceil
+	getMaxValue: Math.ceil,
 };

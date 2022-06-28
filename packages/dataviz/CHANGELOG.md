@@ -1,5 +1,74 @@
 # Changelog
 
+## 2.3.0
+
+### Minor Changes
+
+- 434d17039: feat(TDC-6345): add LineChart customization (tick padding, xAxis domain and single point)
+
+## 2.2.2
+
+### Patch Changes
+
+- 1770e701b: fix: include peerDependencies in UMD manifest
+- Updated dependencies [1770e701b]
+  - @talend/react-components@7.0.1
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies [9a581a4bc]
+- Updated dependencies [c8fbf0130]
+- Updated dependencies [1160ec1f6]
+  - @talend/react-components@7.0.0
+
+## 2.2.0
+
+### Minor Changes
+
+- 47b758112: feat(ARCH-482): use React 17 internally and extend react peer dep version
+
+### Patch Changes
+
+- Updated dependencies [6562e397f]
+- Updated dependencies [47b758112]
+  - @talend/react-components@6.49.0
+  - @talend/assets-api@1.2.0
+  - @talend/design-tokens@2.4.0
+
+## 2.1.2
+
+### Patch Changes
+
+- 9222aa7fc: fix: use assets-api from CDN
+- Updated dependencies [9222aa7fc]
+  - @talend/assets-api@1.1.0
+
+## 2.1.1
+
+### Patch Changes
+
+- 20e907887: formating to comply with lint
+- Updated dependencies [82bb8c1c8]
+- Updated dependencies [e04e3910f]
+  - @talend/design-tokens@2.2.0
+  - @talend/react-components@6.46.2
+
+## 2.1.0
+
+### Minor Changes
+
+- d1815c0af: feat: Use @talend/assets-api to load topologies.
+
+## 2.0.0
+
+### Major Changes
+
+- 9f3cad9bd: feat(TAD-6145): add a LineChart component in dataviz
+
+  Migration: TooltipContent(Props) is renamed to KeyValueTooltip(Props)
+
 ## 1.0.6
 
 ### Patch Changes

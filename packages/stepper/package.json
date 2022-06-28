@@ -9,11 +9,11 @@
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
-    "test": "cross-env TZ=Europe/Paris talend-scripts test --silent",
+    "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
+    "lint:es": "talend-scripts lint:es",
     "lint": "npm run lint:es",
     "start": "echo nothing to start"
   },
@@ -32,31 +32,32 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-components": "^6.44.13",
+    "@talend/react-components": "^7.0.1",
     "classnames": "^2.3.1",
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/icons": "^6.40.0",
-    "@talend/scripts-core": "^11.6.0",
-    "@talend/scripts-preset-react-lib": "^11.0.2",
+    "@talend/icons": "^6.42.0",
+    "@talend/scripts-core": "^11.7.1",
+    "@talend/scripts-preset-react-lib": "^11.0.3",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
     "immutable": "^3.8.2",
     "jsdom": "^16.7.0",
     "prop-types": "^15.8.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-i18next": "^11.16.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.17.0",
     "react-redux": "^7.2.8",
     "react-transition-group": "^2.9.0"
   },
   "peerDependencies": {
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
+    "react": ">= 16.14.0 < 18.0.0",
+    "react-dom": ">= 16.14.0 < 18.0.0",
     "react-i18next": "^11.8.13",
     "react-redux": "^7.2.2",
     "react-transition-group": "^2.3.1"
@@ -64,5 +65,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.2"
+  "version": "7.1.2"
 }
