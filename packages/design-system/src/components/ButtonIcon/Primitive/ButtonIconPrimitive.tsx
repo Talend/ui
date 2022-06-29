@@ -1,23 +1,20 @@
 import React, { forwardRef, Ref, ButtonHTMLAttributes, ReactElement } from 'react';
 import classnames from 'classnames';
-import { IconNameWithSize, IconName } from '@talend/icons/dist/typeUtils';
+// eslint-disable-next-line @talend/import-depth
+import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
+import { DeprecatedIconNames } from '../../../types';
 import Button from '../../Clickable';
 import Tooltip, { TooltipPlacement } from '../../Tooltip';
-import { Icon } from '../../Icon/Icon';
 import Loading from '../../Loading';
+import { parseDeprecatedIcon } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './ButtonIcon.module.scss';
-import { SizedIcon } from '../../Icon';
 
 export type AvailableSizes = 'M' | 'S' | 'XS';
 export type PossibleVariants = 'toggle' | 'floating' | 'default';
-type IconType<S extends AvailableSizes> =
-	| React.ReactElement
-	| IconNameWithSize<S extends 'XS' ? 'S' : 'M'>
-	| IconName;
 
-type CommonTypes<S extends AvailableSizes> = Omit<
+type CommonTypes<S extends Partial<AvailableSizes>> = Omit<
 	ButtonHTMLAttributes<HTMLButtonElement>,
 	'className' | 'style'
 > & {
@@ -26,15 +23,15 @@ type CommonTypes<S extends AvailableSizes> = Omit<
 	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 	tooltipPlacement?: TooltipPlacement;
 	size?: S;
-	icon: IconType<S>;
+	icon: ReactElement | IconNameWithSize<S extends 'XS' ? 'S' : 'M'> | DeprecatedIconNames;
 };
 
-export type ToggleTypes<S extends AvailableSizes> = CommonTypes<S> & {
+export type ToggleTypes<S extends Partial<AvailableSizes>> = CommonTypes<S> & {
 	variant: 'toggle';
 	isActive: boolean;
 };
 
-export type FloatingTypes<S extends AvailableSizes> = CommonTypes<S> & {
+export type FloatingTypes<S extends Partial<AvailableSizes>> = CommonTypes<S> & {
 	variant: 'floating';
 };
 
@@ -51,24 +48,6 @@ function Primitive<S extends AvailableSizes>(
 	props: ButtonIconProps<S>,
 	ref: Ref<HTMLButtonElement>,
 ) {
-	function parsedIcon(iconSrc: string | ReactElement) {
-		const { icon, size } = props;
-
-		if (typeof iconSrc === 'string') {
-			if (iconSrc.includes('talend-') || iconSrc.includes('remote-') || iconSrc.includes('src-')) {
-				return <Icon name={icon} />;
-			}
-			return (
-				<SizedIcon
-					size={size === 'XS' ? 'S' : 'M'}
-					name={size === 'M' ? (icon as IconNameWithSize<'M'>) : (icon as IconNameWithSize<'S'>)}
-				/>
-			);
-		}
-
-		return React.cloneElement(iconSrc, {});
-	}
-
 	const {
 		children,
 		variant,
@@ -96,7 +75,7 @@ function Primitive<S extends AvailableSizes>(
 				{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
 			>
 				<span className={styles.buttonIcon__icon} aria-hidden>
-					{!isLoading && parsedIcon()}
+					{!isLoading && parseDeprecatedIcon({ iconSrc: icon, size: size === 'XS' ? 'S' : 'M' })}
 					{isLoading && <Loading />}
 				</span>
 			</Button>

@@ -1,16 +1,16 @@
-import React, { forwardRef, Ref } from 'react';
+import React, { forwardRef, Ref, ReactElement } from 'react';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 import Clickable, { ClickableProps } from '../../Clickable';
 
+import { DataAttributes, DeprecatedIconNames } from '../../../types';
 import { StackHorizontal } from '../../Stack';
 import Loading from '../../Loading';
-import { Icon } from '../../Icon/Icon';
-import { DataAttributes, DeprecatedIconNames } from '../../../types';
-import { SizedIcon } from '../../Icon';
+import { parseDeprecatedIcon } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './ButtonStyles.module.scss';
+import { SizedIcon } from '../../Icon';
 
 export type AvailableVariantsTypes = 'primary' | 'destructive' | 'secondary' | 'tertiary';
 export type AvailableSizes = 'M' | 'S';
@@ -22,9 +22,9 @@ export type SharedButtonTypes<S extends AvailableSizes> = {
 	isLoading?: boolean;
 	isDropdown?: boolean;
 	size?: S;
-	icon?: S extends 'XS'
+	icon?: S extends 'S'
 		? IconNameWithSize<'S'>
-		: DeprecatedIconNames | React.ReactElement | IconNameWithSize<'M'>;
+		: DeprecatedIconNames | ReactElement | IconNameWithSize<'M'>;
 };
 
 export type BaseButtonProps<S extends AvailableSizes> = Omit<ClickableProps, 'style'> &
@@ -35,25 +35,6 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 	props: BaseButtonProps<S>,
 	ref?: Ref<HTMLButtonElement>,
 ) {
-	function parsedIcon() {
-		const { icon, size } = props;
-		if (!icon) {
-			return null;
-		}
-		if (typeof icon === 'string') {
-			if (icon.includes('talend-')) {
-				return <Icon name={icon} />;
-			}
-			return (
-				<SizedIcon
-					size={size ? size : 'M'}
-					name={size === 'M' ? (icon as IconNameWithSize<'M'>) : (icon as IconNameWithSize<'S'>)}
-				/>
-			);
-		}
-
-		return React.cloneElement(icon, {});
-	}
 	const {
 		className,
 		children,
@@ -80,11 +61,15 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 						<Loading data-test="button.loading" aria-hidden />
 					</span>
 				)}
-				{!isLoading && icon && <span className={styles.button__icon}>{parsedIcon()}</span>}
+				{!isLoading && icon && (
+					<span className={styles.button__icon}>
+						{parseDeprecatedIcon({ iconSrc: icon, size: size === 'S' ? 'S' : 'M' })}
+					</span>
+				)}
 				{children}
 				{isDropdown && (
 					<span className={styles.button__caret}>
-						<Icon name="talend-caret-down" />
+						<SizedIcon size="S" name="chevron-down" />
 					</span>
 				)}
 			</StackHorizontal>

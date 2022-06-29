@@ -26,7 +26,8 @@ const commonArgTypes = {
 	icon: {
 		control: { type: 'text' },
 		defaultValue: 'talend-plus',
-		description: 'optional',
+		description:
+			'optional. In regular size, it supports both Icon (legacy) and SizedIcon<"M"> names. In small size, it only supports SizedIcon<"S"> names.',
 	},
 	isLoading: {
 		control: { type: 'boolean' },
