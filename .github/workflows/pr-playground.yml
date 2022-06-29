@@ -23,6 +23,13 @@ jobs:
           scope: "@talend"
           cache: "yarn"
 
+      - uses: actions/cache@v3
+        name: node_modules dot cache
+        id: node-cache
+        with:
+          path: **/node_modules/.cache
+          key: ${{ runner.os }}-node-cache-${{ hashFiles('yarn.lock') }}
+
       - name: Install and build playground
         id: build
         run: |
