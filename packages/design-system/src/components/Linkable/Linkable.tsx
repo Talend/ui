@@ -8,7 +8,8 @@ import React, {
 	cloneElement,
 	useMemo,
 } from 'react';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 import { Icon } from '../Icon/Icon';
 import style from './LinkableStyles.module.scss';

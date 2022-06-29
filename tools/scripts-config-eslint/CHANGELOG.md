@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 9.9.2
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+
 ## 9.9.1
 
 ### Patch Changes

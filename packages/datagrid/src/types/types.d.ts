@@ -4,3 +4,4 @@ declare module '*.scss' {
 }
 
 declare module '@talend/react-components';
+declare module '@talend/react-bootstrap';

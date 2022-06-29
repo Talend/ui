@@ -1,5 +1,17 @@
 # @talend/react-cmf
 
+## 7.1.3
+
+### Patch Changes
+
+- 6daf0e5dc: Sentry: capture exceptions caught by ErrorBoundary
+
+## 7.1.2
+
+### Patch Changes
+
+- b6b13031f: fix: move scripts to dedicated package to avoid circular deps
+
 ## 7.1.1
 
 ### Patch Changes

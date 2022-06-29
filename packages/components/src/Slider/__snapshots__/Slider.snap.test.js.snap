@@ -5,37 +5,14 @@ exports[`Slider component snaps renderers should render Slider 1`] = `
   <div
     className="theme-tc-slider tc-slider"
   >
-    <ComponentEnhancer(undefined)
-      activeDotStyle={Object {}}
+    <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-      disabled={false}
-      dotStyle={Object {}}
-      dots={false}
       emptyValueLabel="no label"
-      handle={[Function]}
-      handleStyle={
-        Array [
-          Object {},
-        ]
-      }
       id="selectable"
-      included={true}
-      marks={Object {}}
       max={100}
       min={0}
-      onAfterChange={[Function]}
-      onBeforeChange={[Function]}
-      onChange={[Function]}
-      prefixCls="rc-slider"
-      railStyle={Object {}}
-      reverse={false}
+      range={false}
       step={1}
-      trackStyle={
-        Array [
-          Object {},
-        ]
-      }
-      vertical={false}
     />
   </div>
 </div>
@@ -46,36 +23,16 @@ exports[`Slider component snaps renderers should render Slider disabled 1`] = `
   <div
     className="theme-tc-slider tc-slider"
   >
-    <ComponentEnhancer(undefined)
-      activeDotStyle={Object {}}
+    <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      defaultValue={0}
       disabled={true}
-      dotStyle={Object {}}
-      dots={false}
-      handle={[Function]}
-      handleStyle={
-        Array [
-          Object {},
-        ]
-      }
-      included={true}
-      marks={Object {}}
+      handleRender={[Function]}
       max={100}
       min={0}
-      onAfterChange={[Function]}
-      onBeforeChange={[Function]}
-      onChange={[Function]}
-      prefixCls="rc-slider"
-      railStyle={Object {}}
-      reverse={false}
+      range={false}
       step={1}
-      trackStyle={
-        Array [
-          Object {},
-        ]
-      }
       value={76}
-      vertical={false}
     />
   </div>
   <div
@@ -123,36 +80,15 @@ exports[`Slider component snaps renderers should render Slider with captionActio
   <div
     className="theme-tc-slider tc-slider"
   >
-    <ComponentEnhancer(undefined)
-      activeDotStyle={Object {}}
+    <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-      disabled={false}
-      dotStyle={Object {}}
-      dots={false}
-      handle={[Function]}
-      handleStyle={
-        Array [
-          Object {},
-        ]
-      }
-      included={true}
-      marks={Object {}}
+      defaultValue={0}
+      handleRender={[Function]}
       max={100}
       min={0}
-      onAfterChange={[Function]}
-      onBeforeChange={[Function]}
-      onChange={[Function]}
-      prefixCls="rc-slider"
-      railStyle={Object {}}
-      reverse={false}
+      range={false}
       step={1}
-      trackStyle={
-        Array [
-          Object {},
-        ]
-      }
       value={76}
-      vertical={false}
     />
   </div>
   <div
@@ -197,38 +133,17 @@ exports[`Slider component snaps renderers should render Slider with captionTextS
   <div
     className="theme-tc-slider tc-slider"
   >
-    <ComponentEnhancer(undefined)
-      activeDotStyle={Object {}}
+    <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-      disabled={false}
-      dotStyle={Object {}}
-      dots={false}
-      handle={[Function]}
-      handleStyle={
-        Array [
-          Object {},
-        ]
-      }
+      defaultValue={0}
+      handleRender={[Function]}
       id="selectable"
-      included={true}
       label="Heeey"
-      marks={Object {}}
       max={100}
       min={0}
-      onAfterChange={[Function]}
-      onBeforeChange={[Function]}
-      onChange={[Function]}
-      prefixCls="rc-slider"
-      railStyle={Object {}}
-      reverse={false}
+      range={false}
       step={1}
-      trackStyle={
-        Array [
-          Object {},
-        ]
-      }
       value={45}
-      vertical={false}
     />
   </div>
   <div
@@ -268,38 +183,17 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
   <div
     className="theme-tc-slider tc-slider"
   >
-    <ComponentEnhancer(undefined)
-      activeDotStyle={Object {}}
+    <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-      disabled={false}
-      dotStyle={Object {}}
-      dots={false}
-      handle={[Function]}
-      handleStyle={
-        Array [
-          Object {},
-        ]
-      }
+      defaultValue={0}
+      handleRender={[Function]}
       id="selectable"
-      included={true}
       label="Heeey"
-      marks={Object {}}
       max={100}
       min={0}
-      onAfterChange={[Function]}
-      onBeforeChange={[Function]}
-      onChange={[Function]}
-      prefixCls="rc-slider"
-      railStyle={Object {}}
-      reverse={false}
+      range={false}
       step={1}
-      trackStyle={
-        Array [
-          Object {},
-        ]
-      }
       value={45}
-      vertical={false}
     />
   </div>
   <div
@@ -354,46 +248,21 @@ exports[`Slider component snaps renderers should render a range 1`] = `
   <div
     className="theme-tc-slider tc-slider"
   >
-    <ComponentEnhancer(Range)
-      activeDotStyle={Object {}}
-      allowCross={true}
+    <Slider
       className="theme-tc-slider-rc-slider tc-slider-rc-slider"
-      count={1}
-      disabled={false}
-      dotStyle={Object {}}
-      dots={false}
-      handle={[Function]}
-      handleStyle={
-        Array [
-          Object {},
-        ]
-      }
+      defaultValue={0}
+      handleRender={[Function]}
       id="selectable"
-      included={true}
-      marks={Object {}}
       max={100}
       min={0}
-      onAfterChange={[Function]}
-      onBeforeChange={[Function]}
-      onChange={[Function]}
-      prefixCls="rc-slider"
-      pushable={false}
-      railStyle={Object {}}
-      reverse={false}
+      range={true}
       step={1}
-      tabIndex={Array []}
-      trackStyle={
-        Array [
-          Object {},
-        ]
-      }
       value={
         Array [
           10,
           25,
         ]
       }
-      vertical={false}
     />
   </div>
 </div>

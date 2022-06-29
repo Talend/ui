@@ -11,6 +11,9 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
          style="flex-basis: 10%;"
          role="button"
     >
+      <span class="sr-only">
+        1 invalid value (10%)
+      </span>
     </div>
   </span>
   <span title="2 empty value (20%)"
@@ -22,6 +25,9 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
          style="flex-basis: 20%;"
          role="button"
     >
+      <span class="sr-only">
+        2 empty value (20%)
+      </span>
     </div>
   </span>
   <span title="4 not applicable value (40%)"
@@ -33,6 +39,9 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
          style="flex-basis: 40%;"
          role="button"
     >
+      <span class="sr-only">
+        4 not applicable value (40%)
+      </span>
     </div>
   </span>
   <span title="3 valid value (30%)"
@@ -44,6 +53,9 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
          style="flex-basis: 30%;"
          role="button"
     >
+      <span class="sr-only">
+        3 valid value (30%)
+      </span>
     </div>
   </span>
 </div>

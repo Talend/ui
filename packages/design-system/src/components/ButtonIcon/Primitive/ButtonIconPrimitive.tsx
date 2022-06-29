@@ -1,6 +1,7 @@
 import React, { forwardRef, Ref, ButtonHTMLAttributes } from 'react';
 import classnames from 'classnames';
-import { IconName } from '@talend/icons';
+// eslint-disable-next-line @talend/import-depth
+import { IconName } from '@talend/icons/dist/typeUtils';
 import Button from '../../Clickable';
 import Tooltip, { TooltipPlacement } from '../../Tooltip';
 import { Icon } from '../../Icon/Icon';

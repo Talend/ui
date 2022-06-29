@@ -1,13 +1,13 @@
 {
   "name": "@talend/cypress-api-mock-plugin",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Cypress plugin to record/serve api calls",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
-  "homepage": "https://github.com/Talend/ui-scripts/tree/master/cypress/cypress-api-mock-plugin#readme",
+  "homepage": "https://github.com/Talend/ui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/ui-scripts.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "license": "Apache-2.0",
   "keywords": [

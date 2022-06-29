@@ -1,17 +1,17 @@
 {
   "name": "@talend/scripts-config-eslint",
   "description": "Eslint configuration for @talend/scripts-core",
-  "version": "9.9.1",
+  "version": "9.9.2",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
   "bugs": {
-    "url": "https://github.com/Talend/ui-scripts/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/ui-scripts.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
     "test": "echo \"Nothing to test\""

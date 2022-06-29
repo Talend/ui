@@ -68,6 +68,7 @@ jobs:
         if: matrix.package == 'design-system'
         run: |
           yarn workspace @talend/assets-api run build:lib
+          yarn workspace @talend/icons run build:lib
           yarn workspace @talend/design-tokens run build:lib
 
       - name: Build @talend/icons

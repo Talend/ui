@@ -1,5 +1,23 @@
 # @talend/react-datagrid
 
+## 11.0.0
+
+### Major Changes
+
+- df3460428: Rewrite header cell renderer to include all projects use cases + cleanup its API:
+
+  - Custom properties (type, column description, style...) are now provided in `colDef.headerComponentParams` field.
+    - See `HeaderComponentParams`for available fields
+  - Quality information is simplified (see: `HeaderComponentParams`)
+
+  Please remove custom renderers from projects
+
+### Patch Changes
+
+- Updated dependencies [6887f0fcf]
+- Updated dependencies [6887f0fcf]
+  - @talend/icons@6.44.0
+
 ## 10.0.1
 
 ### Patch Changes

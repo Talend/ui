@@ -1,5 +1,80 @@
 # @talend/react-components
 
+## 7.3.0
+
+### Minor Changes
+
+- 8f396f7d5: feat(TDC-6337): allow multiple values in Emphasis
+
+### Patch Changes
+
+- f8a5555eb: fix(TDC-6368): no ellipsis on long subheaderbar titles
+
+## 7.2.1
+
+### Patch Changes
+
+- eeda8a18a: feat(components): align new and old icons in the sidepanel
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+- Updated dependencies [4219dd686]
+  - @talend/icons@6.44.1
+
+## 7.2.0
+
+### Minor Changes
+
+- 3422f271f: feat(components): allow to use new icons in legacy buttons
+
+## 7.1.0
+
+### Minor Changes
+
+- 252e346b1: feat(components/sidepanel): allow beta tag
+
+### Patch Changes
+
+- Updated dependencies [21189557e]
+  - @talend/design-system@3.4.0
+
+## 7.0.5
+
+### Patch Changes
+
+- cc9b1083f: fix(AMG-202): VList with single column crash
+
+## 7.0.4
+
+### Patch Changes
+
+- 4fb50ba78: FormatValue: `key` attribute can be duplicated
+- Updated dependencies [a90ec3748]
+- Updated dependencies [a90ec3748]
+  - @talend/design-system@3.2.0
+
+## 7.0.3
+
+### Patch Changes
+
+- 85b73cb64: fix(TDC-6341): improve RatioBarComposition accessibility
+
 ## 7.0.2
 
 ### Patch Changes

@@ -1,5 +1,4 @@
 import Accordion from './components/Accordion';
-import { AffixButton, AffixReadOnly } from './components/Form/FieldGroup/Affix';
 import {
 	ButtonPrimary,
 	ButtonSecondary,
@@ -15,10 +14,10 @@ import {
 	ButtonTertiaryAsLink,
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
-import Card from './components/Card';
-import Combobox from './components/Combobox';
+import Card from './components/WIP/Card';
+import Combobox from './components/WIP/Combobox';
 import Divider from './components/Divider';
-import Drawer from './components/Drawer';
+import { FloatingDrawer } from './components/WIP/Drawer';
 import Dropdown from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
@@ -26,7 +25,8 @@ import EmptyState, {
 	EmptyStateSmall,
 } from './components/EmptyState';
 import Form from './components/Form';
-import HeaderBar from './components/HeaderBar';
+import { AffixButton, AffixReadOnly } from './components/Form/FieldGroup/Affix';
+import HeaderBar from './components/WIP/HeaderBar';
 import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
@@ -42,9 +42,9 @@ import Layout from './components/Layout';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
-import Menu from './components/Menu';
+import Menu from './components/WIP/Menu';
 import Modal from './components/Modal';
-import Popover from './components/Popover';
+import Popover from './components/WIP/Popover';
 import Skeleton, {
 	SkeletonParagraph,
 	SkeletonHeading,
@@ -60,11 +60,12 @@ import {
 	StatusFailed,
 	Status,
 } from './components/Status';
-import Switch from './components/Switch';
 import Stepper from './components/Stepper';
-import Tabs from './components/Tabs';
+import Switch from './components/Switch';
+import Tabs from './components/WIP/Tabs';
 import {
 	Tag,
+	TagBeta,
 	TagDefault,
 	TagInformation,
 	TagSuccess,
@@ -72,9 +73,8 @@ import {
 	TagDestructive,
 } from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
-import Tooltip from './components/Tooltip';
+import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
-
 import * as themes from './themes';
 import tokens from './tokens';
 
@@ -100,7 +100,7 @@ export {
 	Card,
 	Combobox,
 	Divider,
-	Drawer,
+	FloatingDrawer,
 	Dropdown,
 	EmptyState,
 	EmptyStateMedium,
@@ -141,6 +141,7 @@ export {
 	Switch,
 	Tabs,
 	Tag,
+	TagBeta,
 	TagDefault,
 	TagDestructive,
 	TagInformation,
@@ -152,3 +153,5 @@ export {
 	themes,
 	tokens,
 };
+
+export type { TooltipPlacement };

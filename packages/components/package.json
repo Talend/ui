@@ -37,8 +37,8 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "@talend/bootstrap-theme": "^6.39.0",
-    "@talend/design-system": "^3.1.0",
-    "@talend/icons": "^6.42.0",
+    "@talend/design-system": "^3.4.0",
+    "@talend/icons": "^6.44.1",
     "@talend/utils": "^2.3.0",
     "ally.js": "^1.4.1",
     "classnames": "^2.3.1",
@@ -50,8 +50,7 @@
     "keycode": "^2.2.1",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
-    "rc-slider": "8.7.1",
-    "rc-tooltip": "3.7.3",
+    "rc-slider": "^10.0.0",
     "react-autowhatever": "10.2.0",
     "@talend/react-bootstrap": "^1.35.0",
     "react-debounce-input": "^3.3.0",
@@ -71,13 +70,13 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.7",
+    "@storybook/addon-actions": "^6.5.9",
     "@talend/bootstrap-theme": "^6.39.0",
-    "@talend/icons": "^6.42.0",
+    "@talend/icons": "^6.44.1",
     "@talend/locales-design-system": "^1.12.2",
     "@talend/locales-tui-components": "^6.44.11",
-    "@talend/scripts-core": "^11.7.1",
-    "@talend/scripts-preset-react-lib": "^11.0.3",
+    "@talend/scripts-core": "^11.7.2",
+    "@talend/scripts-preset-react-lib": "^11.0.4",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
@@ -108,5 +107,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.2"
+  "version": "7.3.0"
 }

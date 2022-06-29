@@ -1,5 +1,13 @@
 # @talend/scripts-config-babel
 
+## 9.9.1
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+- Updated dependencies [3f4ad5e30]
+  - @talend/babel-plugin-import-from-index@1.5.1
+
 ## 9.9.0
 
 ### Minor Changes

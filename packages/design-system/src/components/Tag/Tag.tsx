@@ -1,7 +1,14 @@
 import React, { forwardRef, Ref } from 'react';
 
 import { TagProps as PrimitiveTagProps } from './primitive';
-import { TagDefault, TagInformation, TagSuccess, TagWarning, TagDestructive } from './variations';
+import {
+	TagDefault,
+	TagInformation,
+	TagSuccess,
+	TagWarning,
+	TagDestructive,
+	TagBeta,
+} from './variations';
 
 enum TagVariant {
 	default = 'default',
@@ -9,6 +16,7 @@ enum TagVariant {
 	success = 'success',
 	warning = 'warning',
 	destructive = 'destructive',
+	beta = 'beta',
 }
 
 type TagProps = Omit<PrimitiveTagProps, 'className'> & {
@@ -28,6 +36,8 @@ const Tag = forwardRef(({ variant, ...rest }: TagProps, ref: Ref<HTMLSpanElement
 			return <TagWarning {...rest} ref={ref} />;
 		case TagVariant.destructive:
 			return <TagDestructive {...rest} ref={ref} />;
+		case TagVariant.beta:
+			return <TagBeta {...rest} ref={ref} />;
 		default:
 			return <TagDefault {...rest} ref={ref} />;
 	}

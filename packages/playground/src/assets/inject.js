@@ -30,8 +30,8 @@
 		if (['@talend/react-dataviz', '@talend/icons'].includes(pkg.name)) {
 			const baseTag = document.querySelector('base');
 			if (baseTag) {
-				const root = baseTag.getAttribute('href') || '';
-				return `${root}/cdn/${pkg.name}/${pkg.version}${pkg.path}`;
+				const root = baseTag.getAttribute('href') || '/';
+				return `${root === '/' ? '' : root}/cdn/${pkg.name}/${pkg.version}${pkg.path}`;
 			}
 			return `/cdn/${pkg.name}/${pkg.version}${pkg.path}`;
 		}

@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 2.4.0
+
+### Minor Changes
+
+- 4961b509d: feat(TDC-6345): add MD date formatter
+
 ## 2.3.0
 
 ### Minor Changes

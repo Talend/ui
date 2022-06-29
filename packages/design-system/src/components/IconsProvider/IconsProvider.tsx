@@ -122,9 +122,9 @@ export function IconsProvider({
 	defaultIcons = {},
 	icons = {},
 }: {
-	bundles: string[] | [];
-	defaultIcons?: {};
-	icons?: {};
+	bundles?: string[] | [];
+	defaultIcons?: Record<string, ReactElement>;
+	icons?: Record<string, ReactElement>;
 }) {
 	const iconset: IconSet = { ...defaultIcons, ...icons };
 	const ref = useRef<SVGSVGElement>(null);
