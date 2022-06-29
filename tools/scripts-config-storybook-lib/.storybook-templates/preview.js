@@ -1,6 +1,6 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { IconsProvider } from '@talend/design-system';
+import { IconsProvider, ThemeProvider } from '@talend/design-system';
 import { merge } from 'lodash';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 
