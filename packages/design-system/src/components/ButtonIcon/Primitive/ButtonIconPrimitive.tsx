@@ -1,45 +1,85 @@
-import React, { forwardRef, Ref, ButtonHTMLAttributes } from 'react';
+import React, { forwardRef, Ref, ButtonHTMLAttributes, ReactElement } from 'react';
 import classnames from 'classnames';
-// eslint-disable-next-line @talend/import-depth
-import { DeprecatedIconNames } from '../../../types';
+import { IconNameWithSize, IconName } from '@talend/icons/dist/typeUtils';
+
 import Button from '../../Clickable';
 import Tooltip, { TooltipPlacement } from '../../Tooltip';
 import { Icon } from '../../Icon/Icon';
 import Loading from '../../Loading';
 
 import styles from './ButtonIcon.module.scss';
+import { SizedIcon } from '../../Icon';
 
+export type AvailableSizes = 'M' | 'S' | 'XS';
 export type PossibleVariants = 'toggle' | 'floating' | 'default';
+type IconType<S extends AvailableSizes> =
+	| React.ReactElement
+	| IconNameWithSize<S extends 'XS' ? 'S' : 'M'>
+	| IconName;
 
-type CommonTypes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'style'> & {
-	icon: DeprecatedIconNames;
+type CommonTypes<S extends AvailableSizes> = Omit<
+	ButtonHTMLAttributes<HTMLButtonElement>,
+	'className' | 'style'
+> & {
 	children: string;
 	isLoading?: boolean;
 	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 	tooltipPlacement?: TooltipPlacement;
+	size?: S;
+	icon: IconType<S>;
 };
 
-export type ToggleTypes = CommonTypes & {
+export type ToggleTypes<S extends AvailableSizes> = CommonTypes<S> & {
 	variant: 'toggle';
 	isActive: boolean;
-	size?: 'M' | 'S';
 };
 
-export type FloatingTypes = CommonTypes & {
+export type FloatingTypes<S extends AvailableSizes> = CommonTypes<S> & {
 	variant: 'floating';
-	size?: 'M' | 'S';
 };
 
-export type DefaultTypes = CommonTypes & {
+export type DefaultTypes<S extends AvailableSizes> = CommonTypes<S> & {
 	variant: 'default';
-	size?: 'M' | 'S' | 'XS';
 };
 
-export type ButtonIconProps = ToggleTypes | FloatingTypes | DefaultTypes;
+export type ButtonIconProps<S extends AvailableSizes> =
+	| ToggleTypes<S>
+	| FloatingTypes<S>
+	| DefaultTypes<S>;
 
-const ButtonIconPrimitive = forwardRef((props: ButtonIconProps, ref: Ref<HTMLButtonElement>) => {
+function Primitive<S extends AvailableSizes>(
+	props: ButtonIconProps<S>,
+	ref: Ref<HTMLButtonElement>,
+) {
+	function parsedIcon(iconSrc: string | ReactElement) {
+		const { icon, size } = props;
+
+		if (typeof iconSrc === 'string') {
+			if (iconSrc.includes('talend-') || iconSrc.includes('remote-') || iconSrc.includes('src-')) {
+				return <Icon name={icon} />;
+			}
+			return (
+				<SizedIcon
+					size={size === 'XS' ? 'S' : 'M'}
+					name={size === 'M' ? (icon as IconNameWithSize<'M'>) : (icon as IconNameWithSize<'S'>)}
+				/>
+			);
+		}
+
+		return React.cloneElement(iconSrc, {});
+	}
+
+	const {
+		children,
+		variant,
+		size = 'M',
+		isLoading,
+		icon,
+		disabled,
+		tooltipPlacement,
+		...rest
+	} = props;
 	const activeButtonIconPrimitive = props.variant === 'toggle' ? props.isActive : false;
-	const { children, variant, size, isLoading, icon, disabled, tooltipPlacement, ...rest } = props;
 
 	return (
 		<Tooltip title={children} placement={tooltipPlacement || 'top'}>
@@ -56,12 +96,16 @@ const ButtonIconPrimitive = forwardRef((props: ButtonIconProps, ref: Ref<HTMLBut
 				{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
 			>
 				<span className={styles.buttonIcon__icon} aria-hidden>
-					{!isLoading && icon && <Icon name={icon} />}
+					{!isLoading && parsedIcon()}
 					{isLoading && <Loading />}
 				</span>
 			</Button>
 		</Tooltip>
 	);
-});
+}
+
+const ButtonIconPrimitive = forwardRef(Primitive) as <S extends AvailableSizes>(
+	props: ButtonIconProps<S> & { ref?: Ref<HTMLButtonElement> },
+) => ReturnType<typeof Primitive>;
 
 export default ButtonIconPrimitive;

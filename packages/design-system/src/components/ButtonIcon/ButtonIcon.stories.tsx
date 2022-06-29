@@ -162,7 +162,7 @@ export const Variations = () => (
 			<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="S">
 				Size S
 			</ButtonIcon>
-			<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="XS">
+			<ButtonIcon size="XS" icon="pouet" onClick={action('Clicked')}>
 				Size XS
 			</ButtonIcon>
 		</StackVertical>
@@ -204,7 +204,7 @@ export const DefaultButtonIcon = () => (
 		<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="S">
 			Size S
 		</ButtonIcon>
-		<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="XS">
+		<ButtonIcon icon="plus" onClick={action('Clicked')} size="XS">
 			Size XS
 		</ButtonIcon>
 	</StackHorizontal>
