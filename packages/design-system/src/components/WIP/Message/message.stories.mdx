@@ -1,0 +1,108 @@
+import { Meta } from '@storybook/addon-docs';
+
+import { FigmaImage } from '~docs';
+
+<Meta
+	title="Components/Message"
+	parameters={{
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/?node-id=122%3A42331',
+	}}
+/>
+
+# Message
+
+Use Message when information needs to be displayed in a single context (such as a notification center, or a list of warnings etc...).
+
+Messages have one of these semantic values: informative, success, warning or error.
+
+Its core text content is mandatory. Other elements are optional. The hyperlink element is only available on the Message, never on MessageCollection.
+
+<FigmaImage
+	src="https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=252%3A45189"
+	alt="Message"
+/>
+
+## Variants
+
+### MessageError
+
+_add story_
+
+### MessageWarning
+
+_add story_
+
+### MessageSuccess
+
+_add story_
+
+### MessageInformative
+
+_add story_
+
+## MessageCollection
+
+Use MessageCollection when multiple messages about the same event happens. It can be informative, success, warning or error.
+
+Title, Text and MainAction are mandatory elements.
+
+Only one “MainAction” is available. All other actions must be in a dropdown. This is true for collections and regular messages.
+
+Decorative elements in the background do not count in the Message’s box size. Use absolute elements or shadows to replicate.
+
+<FigmaImage
+	src="https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=252%3A44927"
+	alt="MessageCollection"
+/>
+
+## Variants
+
+### MessageCollectionError
+
+_add story_
+
+### MessageCollectionWarning
+
+_add story_
+
+### MessageCollectionSuccess
+
+_add story_
+
+### MessageCollectionInfo
+
+_add story_
+
+## Style
+
+Coral support 2 styles of Message: Collection & Message.
+
+### Variations
+
+<FigmaImage
+	src="https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=261%3A45804"
+	alt="MessageCollection"
+/>
+
+## States
+
+### Message action behavior
+
+<FigmaImage
+	src="https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=243%3A45449"
+	alt="MessageActionBehavior"
+/>
+
+### MessageCollection action behavior
+
+<FigmaImage
+	src="https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=243%3A44883"
+	alt="MessageCollectionActionBehavior"
+/>
+
+## Content
+
+## Usage
+
+## Accessibility
