@@ -23,6 +23,9 @@ export function formatPath(path, parentPath) {
  * @param {string} parentPath
  */
 export function buildMapFromRoutes(routes, mapRoutes, parentPath) {
+	if (!routes || !routes.path) {
+		return mapRoutes;
+	}
 	const path = formatPath(routes.path, parentPath);
 	if (routes.documentTitle) {
 		mapRoutes.set(path, routes.documentTitle);
@@ -69,7 +72,6 @@ export function* handleDocumentTitle({ settings }) {
 	const mapRoutes = buildMapFromRoutes(settings.routes, new Map());
 	const defaultDocTitle = mapRoutes.get('/');
 	assignDocTitle(defaultDocTitle);
-
 	for (;;) {
 		const router = yield take('@@router/LOCATION_CHANGE');
 		const docTitle = getTitleFromRoutes(mapRoutes, router.payload.pathname, defaultDocTitle);
