@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import cmf from '@talend/react-cmf';
-import { fork, takeLatest } from 'redux-saga/effects';
+import { spawn, takeLatest } from 'redux-saga/effects';
 import { create as createBrowserHistory } from './history';
 import { getRouter } from './UIRouter';
 import expressions from './expressions';
@@ -32,17 +32,17 @@ function getModule(...args) {
 
 	function* saga() {
 		let routerStarted = false;
-		yield fork(documentTitle);
+		yield spawn(documentTitle);
 		if (options.sagaRouterConfig) {
 			if (options.startOnAction) {
 				yield takeLatest(options.startOnAction, function* startRouter() {
 					if (!routerStarted) {
-						yield fork(sagaRouter, history, options.sagaRouterConfig);
+						yield spawn(sagaRouter, history, options.sagaRouterConfig);
 						routerStarted = true;
 					}
 				});
 			} else {
-				yield fork(sagaRouter, history, options.sagaRouterConfig);
+				yield spawn(sagaRouter, history, options.sagaRouterConfig);
 			}
 		}
 	}
