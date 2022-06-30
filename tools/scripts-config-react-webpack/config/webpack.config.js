@@ -12,6 +12,7 @@ const webpack = require('webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { DuplicatesPlugin } = require('inspectpack/plugin');
+const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
@@ -231,6 +232,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		const userCopyConfig = getUserConfig('copy', []);
 		const cmf = getUserConfig('cmf');
 		const dcwpConfig = getUserConfig('dynamic-cdn-webpack-plugin');
+		const sentryConfig = getUserConfig('sentry');
 		const { theme } = userSassData;
 
 		const appLoaderIcon = icons.getAppLoaderIconUrl(theme) || userHtmlConfig.appLoaderIcon;
@@ -379,6 +381,18 @@ module.exports = ({ getUserConfig, mode }) => {
 						filename: getFileNameForExtension('css', cssPrefix),
 						chunkFilename: getFileNameForExtension('css', cssPrefix),
 					}),
+				isEnvProduction &&
+					!!sentryConfig &&
+					new SentryWebpackPlugin({
+						// see https://docs.sentry.io/product/cli/configuration/ for details
+						org: 'talend-0u',
+						project: sentryConfig.project || process.env.SENTRY_PROJECT,
+						release: VERSIONS.version,
+						authToken: sentryConfig.authToken || process.env.SENTRY_AUTH_TOKEN,
+						include: sentryConfig.include || ['dist/'],
+						ignore: sentryConfig.ignore || ['cdn/'],
+					}),
+				,
 				new HtmlWebpackPlugin({
 					filename: './index.html',
 					appLoader: AppLoader.APP_LOADER,

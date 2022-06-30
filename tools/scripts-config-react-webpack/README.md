@@ -52,6 +52,12 @@ Your folder hierarchy should follow
 			"development": "./webpack.config.dev.js",
 			"production": "./webpack.config.prod.js"
 		}
+	},
+	"sentry": {
+		"project": "tmc",
+		"authToken": "xxxxxx",
+		"include": ["dist"],
+		"ignore": ["dist/cdn"]
 	}
 }
 ```
@@ -64,6 +70,7 @@ Your folder hierarchy should follow
 | css             | `css-loader` customisation.                               |
 | js              | `js` customisation.                                       |
 | webpack         | `webpack` and `devServer` customisation.                  |
+| sentry          | `sentry` release config.                                  |
 
 ## HTML
 
@@ -308,3 +315,48 @@ If you want to serve the app under a basename, set a `BASENAME` environment vari
 	}
 }
 ```
+
+## Sentry
+
+Sentry config are only used for build script in production mode. If you add this config it will:
+
+1. Create a new release for your project on Sentry. Release version will be taken from `package.json`'s version.
+2. Upload sourcemaps to Sentry.
+
+```json
+{
+	"sentry": {
+		"project": "tmc",
+		"authToken": "xxxxxx",
+		"include": ["dist"],
+		"ignore": ["dist/cdn"]
+	}
+}
+```
+
+| sentry options | type                | description                                                                                                                                                                                                                                  |
+| -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| project        | string              | The slug of the Sentry project associated with the app.                                                                                                                                                                                      |
+| authToken      | string              | The authentication token to use for all communication with Sentry. Can be obtained from https://sentry.io/settings/account/api/auth-tokens/. Required scopes: project:releases (and org:read if setCommits option is used).                  |
+| include        | string/array/object | One or more paths that Sentry CLI should scan recursively for sources. It will upload all `.map` files and match associated .js files. Defaults to `["dist"]`. More info [here].(https://github.com/getsentry/sentry-webpack-plugin#options) |
+| ignore         | string/array        | One or more paths to ignore during upload, defaults to ['cdn'], so sourcemaps inside `dist/cdn` won't be uploaded as default.                                                                                                                |
+
+There're several ways to configure `authToken` and `project` other than `talend.json`. You can choose a convient way to configure them for CI. Sentry CLI will pick up these configurations automatically.
+
+1. Environment variables:
+
+```shell
+> cross-env SENTRY_AUTH_TOKEN=[yourToken] SENTRY_PROJECT=[yourProjectId(eg. tmc)] talend-scripts build
+```
+
+2. Config file: provide a `.sentryclirc` in the root of your app, with your auth token and project ID.
+
+```shell
+[defaults]
+project=[yourProjectId(eg. tmc)]
+
+[auth]
+token=[yourToken]
+```
+
+For more information, see [Sentry CLI configuration values](https://docs.sentry.io/product/cli/configuration/#configuration-values)
