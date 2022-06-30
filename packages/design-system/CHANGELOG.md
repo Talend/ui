@@ -1,5 +1,57 @@
 # @talend/design-system
 
+## 3.5.0
+
+### Minor Changes
+
+- 984c9c22b: feat(Dropdown): set a z-index value
+- da844538c: Expose `TooltipPlacement` type
+
+### Patch Changes
+
+- 2e06262d7: Move style to CSS module file
+- Updated dependencies [3ee7c04a9]
+  - @talend/design-tokens@2.6.0
+
+## 3.4.0
+
+### Minor Changes
+
+- 21189557e: feat(design-system): add TagBeta to the Tag familly
+
+## 3.3.0
+
+### Minor Changes
+
+- 57ea150e8: feat(design-system): FloatingDrawer component
+
+## 3.2.0
+
+### Minor Changes
+
+- a90ec3748: feat(design-system): Allow children as function for popover component in order to access the popover state
+
+### Patch Changes
+
+- a90ec3748: fix(design-system): add z-index to popover
+
+## 3.1.1
+
+### Patch Changes
+
+- 79f7127a7: fix(design-system): add white background to popover component
+
+## 3.1.0
+
+### Minor Changes
+
+- 8b9a8b5da: chore(design-system/Popover): Refactor Popover
+
+### Patch Changes
+
+- Updated dependencies [f489c4b4f]
+  - @talend/design-tokens@2.5.0
+
 ## 3.0.1
 
 ### Patch Changes

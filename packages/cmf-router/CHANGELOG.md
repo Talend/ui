@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.2.0
+
+### Minor Changes
+
+- 3be0e2d22: feat(cmf-router): allow to have children when no cmf routes are defined
+
+### Patch Changes
+
+- Updated dependencies [6daf0e5dc]
+  - @talend/react-cmf@7.1.3
+
 ## 5.1.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-bootstrap",
-  "version": "1.35.0",
+  "version": "1.35.1",
   "description": "Bootstrap 3 components built with React",
   "repository": {
     "type": "git",
@@ -48,7 +48,6 @@
     "@testing-library/user-event": "^13.5.0",
     "chai": "^4.3.6",
     "chalk": "^2.4.2",
-    "colors": "^1.4.0",
     "create-react-class": "^15.7.0",
     "cross-env": "^7.0.3",
     "lodash": "^4.17.21",
@@ -69,5 +68,8 @@
     "react-transition-group": "^2.9.0",
     "uncontrollable": "^7.2.1",
     "warning": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

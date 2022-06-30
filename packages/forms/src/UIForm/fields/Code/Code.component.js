@@ -1,14 +1,13 @@
 /* eslint-disable react/jsx-no-bind */
 import PropTypes from 'prop-types';
 import React, { Suspense, useEffect } from 'react';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import keyCode from 'keycode';
 import assetsApi from '@talend/assets-api';
 import { Skeleton } from '@talend/react-components';
 import FieldTemplate from '../FieldTemplate';
 
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 const ReactAce = React.lazy(() =>
@@ -34,7 +33,8 @@ const DEFAULT_SET_OPTIONS = {
 };
 
 function Code(props) {
-	const { id, isValid, errorMessage, schema, value, valueIsUpdating, t } = props;
+	const { t } = useTranslation(I18N_DOMAIN_FORMS);
+	const { id, isValid, errorMessage, schema, value, valueIsUpdating } = props;
 	const { autoFocus, description, options, readOnly = false, title, labelProps } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
@@ -152,7 +152,6 @@ Code.propTypes = {
 		labelProps: PropTypes.object,
 		type: PropTypes.string,
 	}),
-	t: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	valueIsUpdating: PropTypes.bool,
 };
@@ -160,7 +159,6 @@ Code.propTypes = {
 Code.defaultProps = {
 	isValid: true,
 	schema: {},
-	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_FORMS)(Code);
+export default Code;

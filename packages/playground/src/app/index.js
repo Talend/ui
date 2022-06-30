@@ -3,6 +3,7 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
+import '@talend/bootstrap-theme';
 import getRouter from '@talend/react-cmf-router';
 import React from 'react';
 import cmf from '@talend/react-cmf';
@@ -54,6 +55,8 @@ const app = {
 	AppLoader,
 };
 
+// eslint-disable-next-line no-console
+console.log('app bootstrap should happens only once');
 /**
  * Initialize CMF
  * This will:

@@ -21,11 +21,11 @@ module.exports = {
 		config.plugins.map(plugin => {
 			if (plugin.constructor.name.includes('HtmlWebpackPlugin')) {
 				const htmlPlugin = plugin;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteAll;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteXS;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteS;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteM;
-				htmlPlugin.options.templateParameters.bodyHtmlSnippet += spriteL;
+				htmlPlugin.userOptions.templateParameters.bodyHtmlSnippet += spriteAll;
+				htmlPlugin.userOptions.templateParameters.bodyHtmlSnippet += spriteXS;
+				htmlPlugin.userOptions.templateParameters.bodyHtmlSnippet += spriteS;
+				htmlPlugin.userOptions.templateParameters.bodyHtmlSnippet += spriteM;
+				htmlPlugin.userOptions.templateParameters.bodyHtmlSnippet += spriteL;
 				return htmlPlugin;
 			}
 			return plugin;

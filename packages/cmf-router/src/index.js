@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 import cmf from '@talend/react-cmf';
 import { fork, takeLatest } from 'redux-saga/effects';
@@ -49,10 +50,13 @@ function getModule(...args) {
 
 	// router is renderer after the store is created so we refer to routerHistory
 	const UIRouter = getRouter(history, basename);
-	function CMFRouter() {
-		return <UIRouter />;
+	function CMFRouter(props) {
+		return <UIRouter {...props} />;
 	}
 	CMFRouter.displayName = 'CMFRouter';
+	CMFRouter.propTypes = {
+		children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
+	};
 
 	return {
 		cmfModule: {

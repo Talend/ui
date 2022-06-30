@@ -2414,6 +2414,22 @@ Use on "second layer" of elevation - something that need to be "above" anything 
         id: 'S:a2f6e4c6b17f0f6fcf8525d14fbd34f992350375,:shadow:0'
     },
     {
+        name: 'coralElevationShadowNeutralS',
+        type: 'shadow',
+        description: `Small shadow.
+
+Use for small elements such as accordion.`,
+        value: '0rem 0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.5)',
+        id: 'S:c1c3ef7a3bd771214c8c2dbaa2991e62a9f42f60,:shadow:0'
+    },
+    {
+        name: 'coralElevationShadowNeutralInvertedS',
+        type: 'shadow',
+        description: ``,
+        value: '0rem -0.1rem 0.2rem 0rem hsla(0, 0%, 0%, 0.3)',
+        id: 'S:42035c14a5e1e8cc9bf3ce9173099f5df7f59780,:shadow:0'
+    },
+    {
         name: 'coralHeadingL',
         type: 'typography',
         description: `Heading text - Use for highest level headings.`,

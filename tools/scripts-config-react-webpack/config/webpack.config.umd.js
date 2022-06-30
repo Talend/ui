@@ -1,16 +1,19 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
 
 const cdn = require('@talend/scripts-config-cdn');
 
-const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
 const exists = require('@talend/scripts-utils/fs');
 
-const babelConfig = getBabelConfig();
+const {
+	getCommonStyleLoaders,
+	getSassLoaders,
+	getJSAndTSLoader,
+	getSassData,
+} = require('./webpack.config.common');
+
 cdn.configureTalendModules();
 
 module.exports = options => {
@@ -18,6 +21,8 @@ module.exports = options => {
 	const cssModulesEnabled = options.getUserConfig(['css', 'modules'], true);
 	const userCopyConfig = options.getUserConfig('copy', []);
 	const useTypescript = exists.tsConfig();
+	const userSassData = options.getUserConfig('sass', {});
+	const sassData = getSassData(userSassData);
 	const isEnvProd = options.mode === 'production';
 	return (env = {}) => {
 		const name = (env && env.umd) || 'Talend';
@@ -37,62 +42,24 @@ module.exports = options => {
 			devtool: 'source-map',
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
+				fallback: {
+					url: false,
+				},
 			},
 			module: {
 				rules: [
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
-						use: [
-							{
-								loader: 'babel-loader',
-								options: getBabelLoaderOptions(babelConfig),
-							},
-						].filter(Boolean),
+						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
 						test: /\.scss$/,
-						use: [
-							{ loader: MiniCssExtractPlugin.loader },
-							{
-								loader: 'css-loader',
-								options: {
-									sourceMap: isEnvProd,
-									...(cssModulesEnabled
-										? {
-												modules: {
-													localIdentName: '[name]__[local]___[hash:base64:5]',
-												},
-												importLoaders: 1,
-										  }
-										: {}),
-								},
-							},
-							{
-								loader: 'postcss-loader',
-								options: {
-									sourceMap: isEnvProd,
-									plugins: () => [autoprefixer()],
-								},
-							},
-							{ loader: 'resolve-url-loader' },
-							{
-								loader: 'sass-loader',
-								options: {
-									sourceMap: isEnvProd,
-									prependData: "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;",
-								},
-							},
-						],
+						use: getSassLoaders(cssModulesEnabled, sassData, options.mode),
 					},
 					{
 						test: /\.css$/,
-						use: [
-							{ loader: MiniCssExtractPlugin.loader },
-							{ loader: 'css-loader' },
-							{ loader: 'postcss-loader', options: { plugins: () => [autoprefixer()] } },
-							{ loader: 'resolve-url-loader' },
-						],
+						use: getCommonStyleLoaders(false, options.mode),
 					},
 					{
 						test: /\.svg$/,
@@ -103,10 +70,21 @@ module.exports = options => {
 							mimetype: 'image/svg+xml',
 						},
 					},
+					{
+						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
+						type: 'asset/resource',
+						use: [
+							{
+								loader: 'url-loader',
+								options: {
+									name: './fonts/[name].[ext]',
+									limit: 10000,
+									mimetype: 'application/font-woff',
+								},
+							},
+						],
+					},
 				],
-			},
-			node: {
-				fs: 'empty',
 			},
 			stats: { children: false }, // remove warnings of all plugins ...
 			plugins: [
@@ -114,6 +92,7 @@ module.exports = options => {
 					analyzerMode: 'static',
 					openAnalyzer: false,
 					logLevel: 'error',
+					defaultSizes: 'stat',
 					reportFilename: isEnvProd ? `${name}.min.js.report.html` : `${name}.js.report.html`,
 				}),
 				new MiniCssExtractPlugin({

@@ -1,5 +1,19 @@
 # @talend/scripts-config-jest
 
+## 10.2.2
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+- Updated dependencies [3f4ad5e30]
+  - @talend/scripts-config-babel@9.9.1
+
+## 10.2.1
+
+### Patch Changes
+
+- 479b94f82: fix: add missing language attribute in i18next mock
+
 ## 10.2.0
 
 ### Minor Changes

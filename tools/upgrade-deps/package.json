@@ -1,6 +1,6 @@
 {
   "name": "@talend/upgrade-deps",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "CLI to help management of dependencies",
   "bin": {
     "talend-upgrade-deps": "./bin/cli.js"
@@ -17,13 +17,13 @@
     "jest": "^26.6.3"
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/Talend/ui-scripts#readme",
+  "homepage": "https://github.com/Talend/ui",
   "bugs": {
-    "url": "https://github.com/Talend/ui-scripts/issues"
+    "url": "https://github.com/Talend/ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talend/ui-scripts.git"
+    "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
     "test": "jest"

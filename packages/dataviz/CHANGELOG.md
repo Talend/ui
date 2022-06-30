@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.0
+
+### Minor Changes
+
+- 434d17039: feat(TDC-6345): add LineChart customization (tick padding, xAxis domain and single point)
+
 ## 2.2.2
 
 ### Patch Changes

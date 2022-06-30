@@ -7,11 +7,9 @@
 
 > Dynamically get your dependencies from a cdn rather than bundling them in your app
 
-
 Warning: This module is a fork from https://github.com/mastilver/dynamic-cdn-webpack-plugin. We start to fork after month without update and because we need to ship our libs and project over CDN leverage UMD builds.
 
 The underlying module-to-cdn for the same reason has also been forked https://npmjs.org/package/@talend/module-to-cdn.
-
 
 ## Install
 
@@ -30,6 +28,7 @@ $ npm install --save-dev dynamic-cdn-webpack-plugin@3.4.1 module-to-cdn
 ## Usage with HtmlWebpackPlugin
 
 `webpack.config.js`<br>
+
 ```js
 const path = require('path');
 
@@ -53,6 +52,7 @@ module.exports = {
 ```
 
 `app.js`<br>
+
 ```js
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -81,22 +81,29 @@ import { BrowserRouter } from 'react-router-dom';
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Webpack App</title>
-  </head>
-  <body>
-    <script type="text/javascript" src="https://unpkg.com/react@15.5.3/dist/react.min.js"></script><script type="text/javascript" src="https://unpkg.com/react-router-dom@4.1.1/umd/react-router-dom.min.js"></script><script src="build/app.js"></script></body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Webpack App</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="https://unpkg.com/react@15.5.3/dist/react.min.js"></script>
+		<script
+			type="text/javascript"
+			src="https://unpkg.com/react-router-dom@4.1.1/umd/react-router-dom.min.js"
+		></script>
+		<script src="build/app.js"></script>
+	</body>
 </html>
 ```
 
 ## Usage with ManifestPlugin
 
 `webpack.config.js`<br>
+
 ```js
 const path = require('path');
 
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const DynamicCdnWebpackPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 
 module.exports = {
@@ -109,7 +116,7 @@ module.exports = {
     },
 
     plugins: [
-        new ManifestPlugin({
+        new WebpackManifestPlugin({
             fileName: 'manifest.json'
         }),
         new DynamicCdnWebpackPlugin()
@@ -118,6 +125,7 @@ module.exports = {
 ```
 
 `app.js`<br>
+
 ```js
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -145,27 +153,25 @@ import { BrowserRouter } from 'react-router-dom';
 
 ```json
 {
-    "app.js": "app.js",
-    "react.js": "https://unpkg.com/react@15.5.3/dist/react.min.js",
-    "react-router-dom.js": "https://unpkg.com/react-router-dom@4.1.1/umd/react-router-dom.min.js"
+	"app.js": "app.js",
+	"react.js": "https://unpkg.com/react@15.5.3/dist/react.min.js",
+	"react-router-dom.js": "https://unpkg.com/react-router-dom@4.1.1/umd/react-router-dom.min.js"
 }
 ```
-
 
 ## API
 
 ### DynamicCdnWebpackPlugin(options)
 
 `webpack.config.js`<br>
+
 ```js
 const DynamicCdnWebpackPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
-    plugins: [
-        new DynamicCdnWebpackPlugin(options)
-    ]
-}
+	mode: 'production',
+	plugins: [new DynamicCdnWebpackPlugin(options)],
+};
 ```
 
 #### options.disable
@@ -204,17 +210,20 @@ Default: `ERROR`
 Options: ERROR, INFO, DEBUG
 
 ERROR:
-* module XX could not be loaded because peerDependency YY is not loaded
+
+- module XX could not be loaded because peerDependency YY is not loaded
 
 INFO:
-* module XX already loaded in another version
+
+- module XX already loaded in another version
 
 DEBUG:
-* module XX could not be found in cdn config
-* module XX will be served http://mycdn.com/XX/version/xx.min.js
 
+- module XX could not be found in cdn config
+- module XX will be served http://mycdn.com/XX/version/xx.min.js
 
 #### options.resolver
+
 Type: `string`, `function`<br>
 Default: `'@talend/module-to-cdn'`
 
@@ -222,6 +231,7 @@ Allow you to define a custom module resolver, it can either be a `function` or a
 The resolver should return (or resolve as a Promise) either `null` or an `object` with the keys: `name`, `var`, `url`, `version`.
 
 #### options.addURL
+
 Type: `function`<br>
 
 This function should be aligned with the resolver to support dependencies manifest. It take builted info from it and add cdn url to the info structure to have align values.
@@ -229,8 +239,7 @@ This function should be aligned with the resolver to support dependencies manife
 ## Related
 
 - [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
-- [@talend/module-to-cdn](https://github.com/toutpt/module-to-cdn)
-
+- [@talend/module-to-cdn](https://github.com/talend/ui/tree/master/fork/module-to-cdn)
 
 ## Contributors
 
@@ -254,7 +263,6 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
-
 
 ## License
 

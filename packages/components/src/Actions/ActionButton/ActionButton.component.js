@@ -13,11 +13,12 @@ import theme from './ActionButton.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
+import { SizedIcon } from '@talend/design-system';
 
 const LEFT = 'left';
 const RIGHT = 'right';
 
-function getIcon({ icon, iconTransform, inProgress, loading }) {
+function getIcon({ icon, iconName, iconTransform, inProgress, loading }) {
 	if (inProgress) {
 		return <CircularProgress size="small" key="icon" />;
 	}
@@ -34,6 +35,10 @@ function getIcon({ icon, iconTransform, inProgress, loading }) {
 				)}
 			/>
 		);
+	}
+
+	if (iconName) {
+		return <SizedIcon name={iconName} transform={iconTransform} key="icon" size="M" />;
 	}
 
 	if (icon) {
@@ -105,6 +110,7 @@ function ActionButton(props) {
 	const {
 		bsStyle,
 		buttonRef,
+		children,
 		inProgress,
 		disabled,
 		hideLabel,
@@ -186,6 +192,7 @@ function ActionButton(props) {
 			{...buttonProps}
 		>
 			{buttonContent}
+			{children}
 		</Button>
 	);
 	if (hasPopup) {
@@ -240,6 +247,7 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
+	iconName: PropTypes.string,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,

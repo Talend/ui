@@ -40,7 +40,6 @@ function CellTitleSelector(props) {
 		return (
 			<Action
 				{...columnData}
-				{...rowData}
 				id={id && `${id}-btn`}
 				icon={undefined}
 				className={className}

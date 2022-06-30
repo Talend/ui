@@ -5,7 +5,8 @@ import Tag from '../Tag';
 import SubHeaderBar from './SubHeaderBar.component';
 
 const viewProps = {
-	title: 'My Long Title is Long Long Lé Long La La La Lé Long Long Long Long',
+	title:
+		'My Long Title is Long Long Lé Long La La La Lé Long Long Long Long archi Long Lé Long La La La Lé Long Long Long Long Lé Long La La La Lé Long Long Long Long Long Lé Long La La La Lé Long Long Long Long Lé Long La La La Lé Long Long Long Long Long Lé Long La La La Lé Long Long Long Long Lé Long La La La Lé Long Long Long Long',
 	onEdit: action('onEdit'),
 	onSubmit: action('onSubmit'),
 	onCancel: action('onCancel'),

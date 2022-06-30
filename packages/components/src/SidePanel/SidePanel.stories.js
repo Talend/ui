@@ -14,12 +14,13 @@ const actions = [
 	},
 	{
 		label: 'Datasets',
-		icon: 'talend-download',
+		iconName: 'dataset',
 		onClick: action('Datasets clicked'),
 	},
 	{
 		label: 'Favorites',
 		icon: 'talend-star',
+		beta: true,
 		onClick: action('Favorites clicked'),
 	},
 ];
@@ -30,11 +31,13 @@ const actionsLinks = [
 		icon: 'talend-dataprep',
 		href: '/preparations',
 		active: true,
+		beta: true,
 	},
 	{
 		label: 'Datasets',
 		icon: 'talend-download',
 		href: '/datasets',
+		beta: true,
 	},
 	{
 		label: 'Favorites',
@@ -47,6 +50,7 @@ const items = [
 	{
 		key: 'preparations',
 		label: 'Preparations',
+		beta: true,
 		icon: 'talend-dataprep',
 	},
 	{
@@ -71,6 +75,7 @@ const other = [
 		key: 'groups',
 		label: 'Groups',
 		icon: 'talend-group-circle',
+		beta: true,
 	},
 	{
 		key: 'roles',

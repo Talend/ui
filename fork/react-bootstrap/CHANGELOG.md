@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 1.35.1
+
+### Patch Changes
+
+- a2ebce94c: fix: add publishConfig with access public
+
 ## 1.35.0
 
 ### Minor Changes

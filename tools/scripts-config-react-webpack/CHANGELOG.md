@@ -1,5 +1,13 @@
 # @talend/scripts-config-react-webpack
 
+## 12.1.3
+
+### Patch Changes
+
+- 3f4ad5e30: fix: url of repository in package.json
+- Updated dependencies [3f4ad5e30]
+  - @talend/scripts-config-babel@9.9.1
+
 ## 12.1.2
 
 ### Patch Changes

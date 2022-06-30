@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-tokens",
-  "version": "2.4.0",
+  "version": "2.6.0",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

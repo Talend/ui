@@ -1,58 +1,70 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { FormatValueComponent, hasWhiteSpaceCharacters } from './FormatValue.component';
+
+import { render } from '@testing-library/react';
+
+import { FormatValueComponent } from './FormatValue.component';
 
 describe('FormatValue', () => {
-	it('should replace the leading/trainling white space and the line feeding', () => {
+	it('should replace the leading/trailing white space and the line feeding', () => {
 		// eslint-disable-next-line no-irregular-whitespace
 		const value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 		psum	 	 `;
-		const wrapper = shallow(<FormatValueComponent value={value} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const wrapper = render(<FormatValueComponent value={value} />);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('should return true when there is leading empty space in the string', () => {
-		// eslint-disable-next-line no-irregular-whitespace
-		expect(hasWhiteSpaceCharacters('﻿l')).toBe(true);
+	it('should handle leading empty space in the string', () => {
+		const wrapper = render(<FormatValueComponent value={'﻿l'} />);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('should return true when there is trailing empty space in the string', () => {
-		expect(hasWhiteSpaceCharacters('l﻿')).toBe(true);
+	it('should handle trailing empty space in the string', () => {
+		const wrapper = render(<FormatValueComponent value={'l﻿'} />);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('should return true when there is line feeding in the string', () => {
-		expect(
-			hasWhiteSpaceCharacters(`loreum
-lopsum`),
-		).toBe(true);
-
-		expect(
-			hasWhiteSpaceCharacters(`loreum
-lopsum`),
-		).toBe(true);
+	it('should handle line feeding in the string', () => {
+		const wrapper = render(
+			<FormatValueComponent
+				value={`loreum
+lopsum`}
+			/>,
+		);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('should return false when there is no white space', () => {
-		expect(hasWhiteSpaceCharacters('loreum lopsum')).toBe(false);
+	it('should handle single line feed', () => {
+		const wrapper = render(
+			<FormatValueComponent
+				value={`
+`}
+			/>,
+		);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('should return false where the string is empty', () => {
-		expect(hasWhiteSpaceCharacters('')).toBe(false);
+	it('should handle white space', () => {
+		const wrapper = render(<FormatValueComponent value="loreum lopsum" />);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('test return false when the string has only with alpha', () => {
-		expect(hasWhiteSpaceCharacters('a')).toBe(false);
+	it('should handle empty string', () => {
+		const wrapper = render(<FormatValueComponent value="" />);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('test return true when the string has only white characters', () => {
-		expect(hasWhiteSpaceCharacters(' ')).toBe(true);
+	it('should handle string with only alpha', () => {
+		const wrapper = render(<FormatValueComponent value="a" />);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('test return false when the string is empty', () => {
-		expect(hasWhiteSpaceCharacters()).toBe(false);
+	it('should handle string with only white characters', () => {
+		const wrapper = render(<FormatValueComponent value=" " />);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 
-	it('test return false when the string is not a string', () => {
-		expect(hasWhiteSpaceCharacters(1)).toBe(false);
+	it('should handle non string param', () => {
+		const wrapper = render(<FormatValueComponent value={2} />);
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 });

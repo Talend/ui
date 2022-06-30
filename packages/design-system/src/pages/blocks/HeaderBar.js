@@ -4,7 +4,7 @@ import { VisuallyHidden } from 'reakit';
 
 import Clickable from '../../components/Clickable';
 import Dropdown from '../../components/Dropdown';
-import HeaderBar from '../../components/HeaderBar';
+import HeaderBar from '../../components/WIP/HeaderBar';
 import Modal from '../../components/Modal';
 import Link from '../../components/Link';
 import { Icon } from '../../components/Icon';

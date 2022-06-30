@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import keycode from 'keycode';
 import assetsApi from '@talend/assets-api';
 import { Icon } from '@talend/design-system';
-import DefaultHeaderRenderer from '../DefaultHeaderRenderer';
+import DefaultHeaderRenderer from '../HeaderCellRenderer';
 import DefaultCellRenderer from '../DefaultCellRenderer';
 import DefaultPinHeaderRenderer from '../PinHeaderRenderer';
 import DefaultIntCellRenderer from '../DefaultIntCellRenderer';
@@ -241,7 +241,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
-		const columnDefs = this.props.getColumnDefsFn(this.props.data, this.props.columnsConf);
+		const columnDefs = this.props.getColumnDefsFn(this.props.data);
 
 		let adaptedColumnDefs = [];
 

@@ -1,5 +1,27 @@
 # @talend/react-forms
 
+## 8.0.0
+
+### Major Changes
+
+- a64664410: Start typescript migration
+  Breaking Change: Drop deprecated FORM_MOZ mode
+
+### Patch Changes
+
+- Updated dependencies [8f396f7d5]
+- Updated dependencies [f8a5555eb]
+  - @talend/react-components@7.3.0
+
+## 7.3.3
+
+### Patch Changes
+
+- ac9286be3: fix: build ace (code widget) modes, theme and snippets.
+  Add tools to configure the copy of modes in your apps.
+- Updated dependencies [a2ebce94c]
+  - @talend/react-bootstrap@1.35.1
+
 ## 7.3.2
 
 ### Patch Changes

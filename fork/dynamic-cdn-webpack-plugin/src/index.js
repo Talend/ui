@@ -69,10 +69,13 @@ function getDeps(cdnConfig) {
 	}, {});
 }
 
-function getPackageRootPath(name, contextPath) {
-	const main = resolvePkg(name, { cwd: contextPath });
-
-	const depPath = path.normalize(path.join(path.sep, name, path.sep));
+function getPackageRootPath(cdnConfig, cwd) {
+	const opts = { cwd, ...cdnConfig };
+	const main = resolvePkg(cdnConfig.name, opts);
+	if (!main) {
+		console.error(`DynamicCdnWebpackPlugin package ${cdnConfig.name} not found in ${cwd}`);
+	}
+	const depPath = path.normalize(path.join(path.sep, cdnConfig.name, path.sep));
 	const index = main.indexOf(depPath);
 	// index may equal -1:
 	// name = @talend/react-cmf
@@ -180,6 +183,8 @@ class DynamicCdnWebpackPlugin {
 				env: this.env || getEnvironment(compiler.options.mode),
 			});
 		}
+		// Make the external modules available to other plugins
+		this.applyWebpackCore(compiler);
 
 		const isUsingHtmlWebpackPlugin =
 			HtmlWebpackPlugin != null &&
@@ -188,33 +193,28 @@ class DynamicCdnWebpackPlugin {
 		this.publicPath = compiler.options.output.publicPath;
 		if (isUsingHtmlWebpackPlugin) {
 			this.applyHtmlWebpackPlugin(compiler);
-		} else {
-			this.applyWebpackCore(compiler);
 		}
 	}
 
 	execute(compiler, { env }) {
 		compiler.hooks.normalModuleFactory.tap(pluginName, nmf => {
-			nmf.hooks.factory.tap(pluginName, factory => async (data, cb) => {
+			nmf.hooks.resolve.tapPromise(pluginName, async data => {
 				const modulePath = data.dependencies[0].request;
 				const contextPath = data.context;
 
 				const isModulePath = moduleRegex.test(modulePath);
+
 				if (!isModulePath) {
-					return factory(data, cb);
+					return undefined;
 				}
 
 				const varName = await this.addModule(contextPath, modulePath, {
 					env,
 				});
-
-				if (varName === false) {
-					factory(data, cb);
-				} else if (varName == null) {
-					cb(null, new ExternalModule('{}', 'var', modulePath));
-				} else {
-					cb(null, new ExternalModule(varName, 'var', modulePath));
-				}
+				// varname is either string or True for module without global variable like polyfills
+				return typeof varName === 'string'
+					? new ExternalModule(varName, 'var', modulePath)
+					: undefined;
 			});
 		});
 	}
@@ -261,8 +261,7 @@ class DynamicCdnWebpackPlugin {
 				}
 				continue;
 			}
-			const contextModulePath =
-				getPackageRootPath(cdnConfig.name, contextPath) || contextPath;
+			const contextModulePath = getPackageRootPath(cdnConfig, contextPath) || contextPath;
 			const depPath = `${path.join(contextModulePath, cdnConfig.path)}.dependencies.json`;
 			if (fs.existsSync(depPath)) {
 				this.addDependencies(contextModulePath, require(depPath), {
@@ -277,10 +276,7 @@ class DynamicCdnWebpackPlugin {
 				`dependency will be served by ${cdnConfig.url}, requester: ${requester}`,
 			);
 			this.modulesFromCdn[dependencyName] = cdnConfig;
-			this.modulesFromCdn[dependencyName].local = path.join(
-				contextModulePath,
-				cdnConfig.path,
-			);
+			this.modulesFromCdn[dependencyName].local = path.join(contextModulePath, cdnConfig.path);
 		}
 	}
 
@@ -295,7 +291,11 @@ class DynamicCdnWebpackPlugin {
 		const moduleName = modulePath.match(moduleRegex)[1];
 		const cwd = resolvePkg(modulePath, { cwd: contextPath });
 		if (!cwd) {
-			if (!isOptional && MODULE_WITHOUT_MAIN.indexOf(moduleName) === -1) {
+			if (
+				!isOptional &&
+				!modulePath.startsWith('data:text/javascript') && // ignore inline content
+				MODULE_WITHOUT_MAIN.indexOf(moduleName) === -1
+			) {
 				this.error(
 					'\n❌',
 					modulePath,
@@ -359,7 +359,7 @@ class DynamicCdnWebpackPlugin {
 		}
 
 		// Try to get the manifest
-		const contextModulePath = getPackageRootPath(cdnConfig.name, contextPath) || contextPath;
+		const contextModulePath = getPackageRootPath(cdnConfig, contextPath) || contextPath;
 		const depPath = `${path.join(contextModulePath, cdnConfig.path)}.dependencies.json`;
 		cdnConfig.local = path.join(contextModulePath, cdnConfig.path);
 
@@ -383,8 +383,7 @@ class DynamicCdnWebpackPlugin {
 				const arePeerDependenciesLoaded = (
 					await Promise.all(
 						Object.keys(enhancedPeer).map(peerDependencyName => {
-							const peerMeta =
-								peerDependenciesMeta && peerDependenciesMeta[peerDependencyName];
+							const peerMeta = peerDependenciesMeta && peerDependenciesMeta[peerDependencyName];
 							const peerIsOptional = peerMeta && peerMeta.optional;
 							const result = this.addModule(contextPath, peerDependencyName, {
 								env,
@@ -421,23 +420,25 @@ class DynamicCdnWebpackPlugin {
 	}
 
 	applyWebpackCore(compiler) {
-		compiler.hooks.afterCompile.tapAsync(pluginName, (compilation, cb) => {
-			for (const [name, cdnConfig] of Object.entries(this.modulesFromCdn)) {
-				compilation.addChunkInGroup(name);
-				const chunk = compilation.addChunk(name);
-				chunk.files.push(cdnConfig.url);
-			}
-
-			cb();
+		compiler.hooks.compilation.tap(pluginName, compilation => {
+			compilation.hooks.beforeModuleAssets.tap(pluginName, () => {
+				for (const [name, cdnConfig] of Object.entries(this.modulesFromCdn)) {
+					compilation.addChunkInGroup(name);
+					const chunk = compilation.addChunk(name);
+					chunk.files.add(cdnConfig.url);
+				}
+			});
 		});
-		compiler.hooks.emit.tapAsync(pluginName, (compilation, cb) => {
-			if (!compiler.options.output.filename.includes('[')) {
-				const depName = `${compiler.options.output.filename}.dependencies.json`;
-				compilation.assets[depName] = new RawSource(
-					JSON.stringify(getDeps(this.directDependencies)),
-				);
-			}
-			cb();
+
+		compiler.hooks.compilation.tap(pluginName, compilation => {
+			compilation.hooks.processAssets.tap(pluginName, () => {
+				if (!compiler.options.output.filename.includes('[')) {
+					const depName = `${compiler.options.output.filename}.dependencies.json`;
+					compilation.assets[depName] = new RawSource(
+						JSON.stringify(getDeps(this.directDependencies)),
+					);
+				}
+			});
 		});
 	}
 
@@ -487,24 +488,10 @@ class DynamicCdnWebpackPlugin {
 				return data;
 			};
 
-			if (HtmlWebpackPlugin.getHooks) {
-				HtmlWebpackPlugin.getHooks(compilation).beforeAssetTagGeneration.tapAsync(
-					pluginName,
-					alterAssets,
-				);
-			} else if (
-				compilation.hooks &&
-				compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration
-			) {
-				compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tapAsync(
-					pluginName,
-					alterAssets,
-				);
-			} else {
-				throw new Error(
-					'@talend/dynamic-cdn-webpack-plugin support only webpack-html-plugin 3.2 and 4.x',
-				);
-			}
+			HtmlWebpackPlugin.getHooks(compilation).beforeAssetTagGeneration.tapAsync(
+				pluginName,
+				alterAssets,
+			);
 		});
 	}
 }

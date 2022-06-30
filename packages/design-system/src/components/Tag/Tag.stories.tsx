@@ -1,7 +1,15 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
 
-import { Tag, TagDefault, TagDestructive, TagInformation, TagSuccess, TagWarning } from '.';
+import {
+	Tag,
+	TagDefault,
+	TagDestructive,
+	TagInformation,
+	TagSuccess,
+	TagWarning,
+	TagBeta,
+} from '.';
 import tagDestructive from './variations/TagDestructive';
 
 export default {
@@ -26,6 +34,10 @@ export const Warning: ComponentStory<typeof TagWarning> = props => (
 
 export const Destructive: ComponentStory<typeof tagDestructive> = props => (
 	<TagDestructive {...props}>Example</TagDestructive>
+);
+
+export const Beta: ComponentStory<typeof tagDestructive> = props => (
+	<TagBeta {...props}>Example</TagBeta>
 );
 
 export const VariantDefault: ComponentStory<typeof Tag> = props => (
@@ -54,6 +66,12 @@ export const VariantWarning: ComponentStory<typeof Tag> = props => (
 
 export const VariantDestructive: ComponentStory<typeof Tag> = props => (
 	<Tag {...props} variant="destructive">
+		Example
+	</Tag>
+);
+
+export const VariantBeta: ComponentStory<typeof Tag> = props => (
+	<Tag {...props} variant="beta">
 		Example
 	</Tag>
 );

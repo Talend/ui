@@ -1,60 +1,180 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormatValue should replace the leading/trainling white space and the line feeding 1`] = `
-<span>
-  <Icon
-    aria-label="white space character"
-    className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
-    name="talend-empty-char"
-  />
-  <Icon
-    aria-label="space character"
-    className="theme-td-white-space-character td-white-space-character"
-    name="talend-empty-space"
-  />
-  <Icon
-    aria-label="space character"
-    className="theme-td-white-space-character td-white-space-character"
-    name="talend-empty-space"
-  />
-  <span
-    className="theme-td-value td-value"
-  >
-    loreum lo
-  </span>
-  <span>
-    <Icon
-      aria-label="line feeding character"
-      className="theme-td-white-space-character td-white-space-character"
-      name="talend-carriage-return"
-    />
-    
+exports[`FormatValue should handle empty string 1`] = `
+<DocumentFragment>
+  <span />
+</DocumentFragment>
+`;
 
+exports[`FormatValue should handle leading empty space in the string 1`] = `
+<DocumentFragment>
+  <span>
+    <span
+      aria-label="white space character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      class="theme-td-value td-value"
+    >
+      l
+    </span>
   </span>
-  <Icon
-    aria-label="white space character"
-    className="theme-td-white-space-character theme-td-other-characters td-white-space-character"
-    name="talend-empty-char"
-  />
-  <Icon
-    aria-label="tab character"
-    className="theme-td-white-space-character theme-td-tab-character td-white-space-character"
-    name="talend-empty-cell"
-  />
-  <Icon
-    aria-label="space character"
-    className="theme-td-white-space-character td-white-space-character"
-    name="talend-empty-space"
-  />
-  <Icon
-    aria-label="tab character"
-    className="theme-td-white-space-character theme-td-tab-character td-white-space-character"
-    name="talend-empty-cell"
-  />
-  <Icon
-    aria-label="space character"
-    className="theme-td-white-space-character td-white-space-character"
-    name="talend-empty-space"
-  />
-</span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue should handle line feeding in the string 1`] = `
+<DocumentFragment>
+  <span>
+    <span
+      class="theme-td-value td-value"
+    >
+      loreum
+    </span>
+    <span>
+      <span
+        aria-label="line feeding character"
+        class="CoralIcon theme-td-white-space-character td-white-space-character"
+        name="talend-carriage-return"
+      />
+      
+
+    </span>
+    <span
+      class="theme-td-value td-value"
+    >
+      lopsum
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue should handle non string param 1`] = `
+<DocumentFragment>
+  <span>
+    2
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue should handle single line feed 1`] = `
+<DocumentFragment>
+  <span>
+    <span>
+      <span
+        aria-label="line feeding character"
+        class="CoralIcon theme-td-white-space-character td-white-space-character"
+        name="talend-carriage-return"
+      />
+      
+
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue should handle string with only alpha 1`] = `
+<DocumentFragment>
+  <span>
+    a
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue should handle string with only white characters 1`] = `
+<DocumentFragment>
+  <span>
+    <span
+      aria-label="space character"
+      class="CoralIcon theme-td-white-space-character td-white-space-character"
+      name="talend-empty-space"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue should handle trailing empty space in the string 1`] = `
+<DocumentFragment>
+  <span>
+    <span
+      class="theme-td-value td-value"
+    >
+      l
+    </span>
+    <span
+      aria-label="white space character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue should handle white space 1`] = `
+<DocumentFragment>
+  <span>
+    loreum lopsum
+  </span>
+</DocumentFragment>
+`;
+
+exports[`FormatValue should replace the leading/trailing white space and the line feeding 1`] = `
+<DocumentFragment>
+  <span>
+    <span
+      aria-label="white space character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      aria-label="space character"
+      class="CoralIcon theme-td-white-space-character td-white-space-character"
+      name="talend-empty-space"
+    />
+    <span
+      aria-label="space character"
+      class="CoralIcon theme-td-white-space-character td-white-space-character"
+      name="talend-empty-space"
+    />
+    <span
+      class="theme-td-value td-value"
+    >
+      loreum lo
+    </span>
+    <span>
+      <span
+        aria-label="line feeding character"
+        class="CoralIcon theme-td-white-space-character td-white-space-character"
+        name="talend-carriage-return"
+      />
+      
+
+    </span>
+    <span
+      aria-label="white space character"
+      class="CoralIcon theme-td-white-space-character theme-td-other-characters td-white-space-character"
+      name="talend-empty-char"
+    />
+    <span
+      aria-label="tab character"
+      class="CoralIcon theme-td-white-space-character theme-td-tab-character td-white-space-character"
+      name="talend-empty-cell"
+    />
+    <span
+      aria-label="space character"
+      class="CoralIcon theme-td-white-space-character td-white-space-character"
+      name="talend-empty-space"
+    />
+    <span
+      aria-label="tab character"
+      class="CoralIcon theme-td-white-space-character theme-td-tab-character td-white-space-character"
+      name="talend-empty-cell"
+    />
+    <span
+      aria-label="space character"
+      class="CoralIcon theme-td-white-space-character td-white-space-character"
+      name="talend-empty-space"
+    />
+  </span>
+</DocumentFragment>
 `;
