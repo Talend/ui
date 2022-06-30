@@ -5,7 +5,7 @@ import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { DeprecatedIconNames } from '../../../types';
 import Clickable, { ClickableProps } from '../../Clickable';
-import { parseDeprecatedIcon } from '../../Icon/DeprecatedIconHelper';
+import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './DropdownEntry.module.scss';
 
@@ -18,7 +18,11 @@ const DropdownButton = forwardRef(
 			<MenuItem {...props} as={Clickable} className={styles.dropdownEntry} ref={ref}>
 				{icon && (
 					<span className={styles.buttonIcon}>
-						{parseDeprecatedIcon({ iconSrc: icon, size: 'M', ['data-test']: 'button.icon.before' })}
+						{getIconWithDeprecatedSupport({
+							iconSrc: icon,
+							size: 'M',
+							['data-test']: 'button.icon.before',
+						})}
 					</span>
 				)}
 				<span className={styles.buttonContent}>{children}</span>

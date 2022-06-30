@@ -7,7 +7,7 @@ import Clickable, { ClickableProps } from '../../Clickable';
 import { DataAttributes, DeprecatedIconNames } from '../../../types';
 import { StackHorizontal } from '../../Stack';
 import Loading from '../../Loading';
-import { parseDeprecatedIcon } from '../../Icon/DeprecatedIconHelper';
+import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './ButtonStyles.module.scss';
 import { SizedIcon } from '../../Icon';
@@ -63,7 +63,7 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 				)}
 				{!isLoading && icon && (
 					<span className={styles.button__icon}>
-						{parseDeprecatedIcon({ iconSrc: icon, size: size === 'S' ? 'S' : 'M' })}
+						{getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'S' ? 'S' : 'M' })}
 					</span>
 				)}
 				{children}

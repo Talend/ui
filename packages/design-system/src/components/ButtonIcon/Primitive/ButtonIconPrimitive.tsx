@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, ButtonHTMLAttributes, ReactElement } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, ReactElement, Ref } from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
@@ -7,7 +7,7 @@ import { DeprecatedIconNames } from '../../../types';
 import Button from '../../Clickable';
 import Tooltip, { TooltipPlacement } from '../../Tooltip';
 import Loading from '../../Loading';
-import { parseDeprecatedIcon } from '../../Icon/DeprecatedIconHelper';
+import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 import styles from './ButtonIcon.module.scss';
 
@@ -75,7 +75,8 @@ function Primitive<S extends AvailableSizes>(
 				{...(variant === 'toggle' && { 'aria-pressed': activeButtonIconPrimitive })}
 			>
 				<span className={styles.buttonIcon__icon} aria-hidden>
-					{!isLoading && parseDeprecatedIcon({ iconSrc: icon, size: size === 'XS' ? 'S' : 'M' })}
+					{!isLoading &&
+						getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'XS' ? 'S' : 'M' })}
 					{isLoading && <Loading />}
 				</span>
 			</Button>

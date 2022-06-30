@@ -4,7 +4,7 @@ import { DataAttributes } from '../../types';
 import { Icon } from './Icon';
 import { SizedIcon } from './SizedIcon';
 
-export function parseDeprecatedIcon({
+export function getIconWithDeprecatedSupport({
 	iconSrc,
 	size,
 	...rest

@@ -14,8 +14,7 @@ function Primary<S extends AvailableSizes>(
 	props: ButtonPrimaryPropsType<S>,
 	ref: Ref<HTMLButtonElement>,
 ) {
-	const { size = 'M', ...rest } = props;
-	return <ButtonPrimitive size={size} {...rest} ref={ref} className={styles.primary} />;
+	return <ButtonPrimitive {...props} ref={ref} className={styles.primary} />;
 }
 
 const ButtonPrimary = forwardRef(Primary) as <S extends AvailableSizes>(

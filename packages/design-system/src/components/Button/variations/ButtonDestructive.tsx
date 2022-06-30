@@ -14,8 +14,7 @@ function Destructive<S extends AvailableSizes>(
 	props: ButtonDestructivePropsType<S>,
 	ref: Ref<HTMLButtonElement>,
 ) {
-	const { size = 'M', ...rest } = props;
-	return <ButtonPrimitive size={size} {...rest} ref={ref} className={styles.destructive} />;
+	return <ButtonPrimitive {...props} ref={ref} className={styles.destructive} />;
 }
 
 const ButtonDestructive = forwardRef(Destructive) as <S extends AvailableSizes>(

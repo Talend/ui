@@ -14,7 +14,7 @@ import { DeprecatedIconNames } from '../../types';
 import { SizedIcon } from '../Icon';
 
 import style from './LinkableStyles.module.scss';
-import { parseDeprecatedIcon } from '../Icon/DeprecatedIconHelper';
+import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
 
 export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'> & {
 	as?: 'a' | ReactElement;
@@ -57,7 +57,11 @@ const Linkable = forwardRef(
 			icon &&
 			(typeof icon === 'string' ? (
 				<span className={style.link__icon}>
-					{parseDeprecatedIcon({ iconSrc: icon, size: 'M', ['data-test']: 'link.icon.before' })}
+					{getIconWithDeprecatedSupport({
+						iconSrc: icon,
+						size: 'M',
+						['data-test']: 'link.icon.before',
+					})}
 				</span>
 			) : (
 				cloneElement(icon, {

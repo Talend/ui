@@ -8,7 +8,7 @@ import { AvailableSizes, SharedButtonTypes } from '../../Button/Primitive/Button
 
 import sharedStyles from '../../Button/Primitive/ButtonStyles.module.scss';
 import linkStyles from './ButtonPrimitiveAsLink.module.scss';
-import { parseDeprecatedIcon } from '../../Icon/DeprecatedIconHelper';
+import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 
 export type BaseButtonPropsAsLink<S extends AvailableSizes> = LinkableType &
 	Omit<SharedButtonTypes<S>, 'isDropdown' | 'isLoading'>;
@@ -29,7 +29,7 @@ function PrimitiveAsLink<S extends AvailableSizes>(
 			<StackHorizontal gap="XXS" as="span" align="center">
 				{icon && (
 					<span className={sharedStyles.button__icon}>
-						{parseDeprecatedIcon({ iconSrc: icon, size: size === 'S' ? 'S' : 'M' })}
+						{getIconWithDeprecatedSupport({ iconSrc: icon, size: size === 'S' ? 'S' : 'M' })}
 					</span>
 				)}
 				{children}
