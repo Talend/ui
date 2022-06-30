@@ -17,23 +17,17 @@
       }
     }
   },
-  "targetDependencies": {
+  "targetDefaults": {
     "build:lib": [
       {
-        "target": "build:lib",
-        "projects": "dependencies"
+        "dependsOn": ["^build:lib"],
+        "outputs": ["./lib"]
       }
     ],
     "pre-release": [
       {
-        "target": "pre-release",
-        "projects": "dependencies"
-      }
-    ],
-    "package": [
-      {
-        "target": "package",
-        "projects": "dependencies"
+        "dependsOn": ["^build:lib", "^pre-release"],
+        "outputs": ["./dist"]
       }
     ]
   },

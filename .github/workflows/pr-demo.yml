@@ -28,7 +28,7 @@ jobs:
         id: node-cache
         with:
           path: **/node_modules/.cache
-          key: ${{ runner.os }}-node-cache-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-node-cache-up-${{ hashFiles('yarn.lock') }}
 
       - name: cache for storybook
         uses: actions/cache@v3

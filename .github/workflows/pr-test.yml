@@ -28,10 +28,10 @@ jobs:
         id: node-cache
         with:
           path: **/node_modules/.cache
-          key: ${{ runner.os }}-node-cache-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-node-cache-up-${{ hashFiles('yarn.lock') }}
 
       - name: Install
         run: yarn install --frozen-lockfile
 
       - name: Test
-        run: yarn test
+        run: npx nx affected --target=test
