@@ -7,7 +7,7 @@
     "husky": "^7.0.4",
     "i18next-scanner": "^3.1.0",
     "lint-staged": "^12.5.0",
-    "nx": "^14.2.4",
+    "nx": "^14.3.6",
     "prettier": "^2.6.2"
   },
   "scripts": {
