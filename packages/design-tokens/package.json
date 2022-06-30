@@ -47,12 +47,6 @@
         "outputs": [
           "lib",
           "dist"
-        ],
-        "dependsOn": [
-          {
-            "projects": "dependencies",
-            "target": "build:lib"
-          }
         ]
       }
     }

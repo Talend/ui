@@ -24,6 +24,12 @@
         "outputs": ["./lib"]
       }
     ],
+    "test": [
+      {
+        "dependsOn": ["^build:lib"],
+        "outputs": []
+      }
+    ],
     "pre-release": [
       {
         "dependsOn": ["^build:lib", "^pre-release"],
