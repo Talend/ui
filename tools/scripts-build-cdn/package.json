@@ -7,8 +7,7 @@
     "talend-cdn": "./index.js"
   },
   "scripts": {
-    "start": "node index.js --debug --exclude ';@angular;' 2> error.log",
-    "test": "echo \"Nothing to test\""
+    "start": "node index.js --debug --exclude ';@angular;' 2> error.log"
   },
   "repository": {
     "type": "git",

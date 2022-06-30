@@ -13,9 +13,7 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "scripts": {
-    "test": "echo \"Nothing to test\""
-  },
+  "scripts": {},
   "dependencies": {
     "@talend/scripts-config-babel": "^9.9.1",
     "@talend/scripts-config-cdn": "^10.5.0",

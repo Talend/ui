@@ -7,8 +7,6 @@
   "scripts": {
     "build:lib": "rimraf ./dist && webpack",
     "start": "webpack serve --mode=development",
-    "test": "echo no test for @talend/bootstrap-theme",
-    "test:cov": "echo no test for @talend/bootstrap-theme",
     "lint:style": "talend-scripts lint:style",
     "lint": "yarn lint:style"
   },
@@ -44,6 +42,21 @@
   "peerDependencies": {},
   "publishConfig": {
     "access": "public"
+  },
+  "nx": {
+    "targets": {
+      "build:lib": {
+        "outputs": [
+          "dist"
+        ],
+        "dependsOn": [
+          {
+            "projects": "dependencies",
+            "target": "build:lib"
+          }
+        ]
+      }
+    }
   },
   "version": "6.39.0"
 }

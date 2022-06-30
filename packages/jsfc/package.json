@@ -8,8 +8,7 @@
     "build:lib": "rimraf dist && talend-scripts build:lib:umd",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
-    "test:cov": "npm run test",
-    "test": "echo need to fix all tests before"
+    "test:cov": "npm run test"
   },
   "author": "json-schema-form",
   "contributors": [

@@ -3,9 +3,7 @@
   "version": "10.5.0",
   "description": "Provide a simple API to inject CDN config into existing webpack configuration",
   "main": "cdn.js",
-  "scripts": {
-    "test": "echo \"Nothing to test\""
-  },
+  "scripts": {},
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "dependencies": {

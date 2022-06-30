@@ -14,9 +14,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "test": "echo Nothing to test"
-  },
+  "scripts": {},
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "dependencies": {

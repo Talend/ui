@@ -6,12 +6,9 @@
   "types": "lib/index.d.ts",
   "mainSrc": "src/index.ts",
   "scripts": {
-    "pre-release": "echo nothing",
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
     "build:lib": "talend-scripts build:ts:lib && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
-    "test": "echo no test for @talend/design-tokens",
-    "test:cov": "echo no test for @talend/design-tokens",
     "test:demo": "yarn build-storybook",
     "test:umd": "jest scripts/umd.test.js",
     "start": "yarn storybook",
@@ -43,5 +40,21 @@
     "react": "^17.0.2",
     "typeface-source-sans-pro": "^1.1.13"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "nx": {
+    "targets": {
+      "build:lib": {
+        "outputs": [
+          "lib",
+          "dist"
+        ],
+        "dependsOn": [
+          {
+            "projects": "dependencies",
+            "target": "build:lib"
+          }
+        ]
+      }
+    }
+  }
 }

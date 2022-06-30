@@ -8,7 +8,6 @@
     "build:lib": "talend-scripts build:ts:lib",
     "pre-release": "npm run build:lib",
     "start": "npm run storybook",
-    "test": "echo no test",
     "test:demo": "npm run build-storybook",
     "storybook": "cross-env BROWSER=none npm run build:lib && talend-scripts start-storybook -p 6106",
     "build-storybook": "talend-scripts build-storybook --docs"

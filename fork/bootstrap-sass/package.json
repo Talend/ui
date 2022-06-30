@@ -5,11 +5,7 @@
   "main": "assets/javascripts/bootstrap.js",
   "style": "assets/stylesheets/_bootstrap.scss",
   "sass": "assets/stylesheets/_bootstrap.scss",
-  "scripts": {
-    "test": "echo nothing to test in bootsrap-sass",
-    "test:update": "echo nothing to test in bootsrap-sass",
-    "test:cov": "echo nothing to test in bootsrap-sass"
-  },
+  "scripts": {},
   "files": [
     "assets",
     "CHANGELOG.md",

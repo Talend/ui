@@ -15,9 +15,7 @@
     "mock",
     "api"
   ],
-  "scripts": {
-    "test": "echo \"Nothing to test\""
-  },
+  "scripts": {},
   "publishConfig": {
     "access": "public"
   },

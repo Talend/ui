@@ -12,12 +12,9 @@
     "build-webfont": "webpack",
     "build:lib": "npm run ts:types && npm run build-ts && npm run build-react && npm run build-webfont && npm run build-umd",
     "ts:types": "node scripts/typescript.js",
-    "test": "echo no test",
-    "test:cov": "echo no test",
     "test:demo": "yarn build-storybook",
     "build-storybook": "yarn build:lib && talend-scripts build-storybook --docs",
     "start": "yarn build:lib && talend-scripts start-storybook -p 6010",
-    "lint": "echo nothing to lint",
     "svgo": "svgo -f src/svg --config=.svgo-icons.yml && svgo -f src/filters --config=.svgo-filters.yml"
   },
   "files": [

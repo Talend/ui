@@ -3,13 +3,7 @@
   "description": "@talend/react-cmf webpack plugin for merging CMF settings",
   "main": "src/index.js",
   "mainSrc": "src/index.js",
-  "scripts": {
-    "build:lib": "echo nothing to build",
-    "start": "echo nothing to start",
-    "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
-    "test:cov": "npm run test",
-    "lint:es": "echo nothing to lint"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
