@@ -12,7 +12,7 @@ import styles from './EmptyStatePrimitive.module.scss';
 
 type CallbackTypes =
 	| (Omit<ButtonPrimaryPropsType<'M'>, 'size'> & { actionType: 'button' })
-	| (ButtonPrimaryAsLinkPropsType & { actionType: 'link' });
+	| (Omit<ButtonPrimaryAsLinkPropsType<'M'>, 'size'> & { actionType: 'link' });
 
 export type EmptyStatePrimitiveProps = Omit<
 	HTMLAttributes<HTMLElement>,
