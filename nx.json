@@ -1,18 +1,11 @@
 {
   "extends": "nx/presets/npm.json",
-  "npmScope": "undetermined",
+  "npmScope": "@talend",
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build:lib",
-          "test",
-          "lint:es",
-          "lint:style",
-          "package",
-          "test:demo"
-        ],
+        "cacheableOperations": ["build:lib", "test", "pre-release"],
         "runtimeCacheInputs": ["node -v", "yarn -v", "cat yarn.lock | sha512sum"]
       }
     }
