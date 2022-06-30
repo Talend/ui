@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 // eslint-disable-next-line @talend/import-depth
-import { Icon, IconSize, icons } from '@talend/icons/dist/typeUtils';
+import { Icon, icons, IconSize } from '@talend/icons/dist/typeUtils';
 
 const getNumericSize = (size: IconSize) => {
 	return {
@@ -30,6 +30,7 @@ const SizedIcon = React.forwardRef(
 				aria-hidden
 				ref={ref}
 				shapeRendering="geometricPrecision"
+				pointerEvents="none"
 			>
 				<use xlinkHref={`#${fullName}`} />
 			</svg>

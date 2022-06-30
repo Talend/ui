@@ -69,7 +69,7 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 				{children}
 				{isDropdown && (
 					<span className={styles.button__caret}>
-						<SizedIcon size="XS" name="chevron-down" />
+						<SizedIcon size="S" name="chevron-down" />
 					</span>
 				)}
 			</StackHorizontal>

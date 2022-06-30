@@ -2,7 +2,6 @@ import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
-
 import { DeprecatedIconNames } from '../../types';
 import tokens from '../../tokens';
 import { IconsProvider } from '../IconsProvider';
@@ -191,6 +190,7 @@ export const Icon = React.forwardRef(
 				className={classnames('tc-svg-icon', classname)}
 				border={border}
 				ref={safeRef}
+				pointerEvents="none"
 				shape-rendering="geometricPrecision"
 			/>
 		);
