@@ -19,8 +19,6 @@
 
 	&__caret {
 		display: inline-flex;
-		width: tokens.$coral-sizing-minimal;
-		height: tokens.$coral-sizing-minimal;
 		align-items: center;
 		transition: transform tokens.$coral-transition-fast;
 	}
@@ -36,13 +34,6 @@
 	&.size-S {
 		height: tokens.$coral-sizing-s;
 		padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
-
-		.button__icon {
-			display: inline-flex;
-			width: tokens.$coral-sizing-minimal;
-			height: tokens.$coral-sizing-minimal;
-			align-items: center;
-		}
 	}
 
 	&:disabled,
@@ -57,4 +48,11 @@
 			transform: rotate(-180deg);
 		}
 	}
+}
+
+.button.size-S .button__icon {
+	display: inline-flex;
+	width: tokens.$coral-sizing-minimal;
+	height: tokens.$coral-sizing-minimal;
+	align-items: center;
 }

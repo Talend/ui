@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Link as RouterLink, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 import Dropdown from './Dropdown';
 import { ButtonPrimary, ButtonSecondary, ButtonTertiary } from '../Button';
 import { ButtonIcon } from '../ButtonIcon';
@@ -128,7 +128,7 @@ export const WithRouterLinks = () => (
 				},
 			]}
 		>
-			<ButtonIcon icon="talend-caret-down" onClick={() => {}}>
+			<ButtonIcon icon="chevron-down" onClick={() => {}}>
 				Dropdown
 			</ButtonIcon>
 		</Dropdown>
@@ -206,14 +206,14 @@ export const Basic = () => (
 					{
 						label: 'Button with icon',
 						type: 'button',
-						icon: 'talend-zoomin',
+						icon: 'zoom-plus',
 						onClick: () => {
 							action('clicked');
 						},
 					},
 					{
 						label: 'Button with too much copy to create an overflow',
-						icon: 'talend-plus-circle',
+						icon: 'plus-stroke',
 						type: 'button',
 						onClick: () => {
 							action('clicked');
@@ -234,18 +234,18 @@ export const Basic = () => (
 						label: 'Link with icon',
 						type: 'link',
 						href: '/doc',
-						icon: 'talend-plus-circle',
+						icon: 'plus-stroke',
 					},
 					{
 						label: 'Router link with too much copy to create an overflow',
 						type: 'link',
-						icon: 'talend-plus-circle',
+						icon: 'plus-stroke',
 						as: <RouterLink to="/documentation" />,
 					},
 					{
 						label: 'External link with too much copy to create an overflow',
 						type: 'link',
-						icon: 'talend-plus-circle',
+						icon: 'plus-stroke',
 						target: '_blank',
 						href: 'https://talend.com',
 					},

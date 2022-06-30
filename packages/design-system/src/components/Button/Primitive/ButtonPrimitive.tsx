@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, ReactElement } from 'react';
+import React, { forwardRef, ReactElement, Ref } from 'react';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
@@ -69,7 +69,7 @@ function ButtonPrimitiveInner<S extends AvailableSizes>(
 				{children}
 				{isDropdown && (
 					<span className={styles.button__caret}>
-						<SizedIcon size="S" name="chevron-down" />
+						<SizedIcon size="XS" name="chevron-down" />
 					</span>
 				)}
 			</StackHorizontal>

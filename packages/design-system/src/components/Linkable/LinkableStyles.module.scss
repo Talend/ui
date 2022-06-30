@@ -1,22 +1,24 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 $iconAlignmentOffsetM: -0.3rem;
-$iconAlignmentOffsetS: -0.1rem;
+$iconAlignmentOffsetS: 0.1rem;
 
 .linkable {
 	cursor: pointer;
 }
 
-svg.link__icon {
-	margin-bottom: $iconAlignmentOffsetM;
+.link__icon {
+	position: relative;
+	bottom: $iconAlignmentOffsetM;
 	height: tokens.$coral-sizing-xxxs;
 	width: tokens.$coral-sizing-xxxs;
 	margin-right: tokens.$coral-spacing-xxs;
 	flex-shrink: 0;
 }
 
-svg.link__iconExternal {
-	margin-bottom: $iconAlignmentOffsetS;
+.link__iconExternal {
+	position: relative;
+	top: $iconAlignmentOffsetS;
 	height: tokens.$coral-sizing-minimal;
 	width: tokens.$coral-sizing-minimal;
 	margin-left: tokens.$coral-spacing-xxs;

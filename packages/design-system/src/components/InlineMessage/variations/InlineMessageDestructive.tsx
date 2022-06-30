@@ -16,7 +16,7 @@ const InlineMessageDestructive = forwardRef(
 		return (
 			<InlineMessagePrimitive
 				{...props}
-				icon="talend-error"
+				icon="square-cross"
 				withBackgroundClassname={styles.destructive_withBackground}
 				iconClassname={styles.destructive__icon}
 				ref={ref}

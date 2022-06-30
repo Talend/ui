@@ -99,9 +99,7 @@ export const PrimaryVariations = () => (
 	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Default</h3>
-			<ButtonPrimary onClick={action('Clicked')} icon="pencil">
-				Primary M
-			</ButtonPrimary>
+			<ButtonPrimary onClick={action('Clicked')}>Primary M</ButtonPrimary>
 			<ButtonPrimary onClick={action('Clicked')} size="S">
 				Primary S
 			</ButtonPrimary>
