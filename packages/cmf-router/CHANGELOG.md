@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.1
+
+### Patch Changes
+
+- 6efe2d8e5: fix: saga documentTitle do not fail if no routes from config
+
 ## 5.2.0
 
 ### Minor Changes

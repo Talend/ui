@@ -1,5 +1,24 @@
 # @talend/scripts-core
 
+## 12.0.0
+
+### Major Changes
+
+- 202b4daf2: Webpack major upgrade (4 to 5).
+
+  ## Breaking changes
+
+  @talend/bootstrap-theme is not imported anymore for you. You have to import it first in your project
+
+  ```diff
+  +import '@talend/bootstrap-theme';
+  ```
+
+  No more polyfills loaded for you. We have removed the folliwng packages:
+
+  - `regenerator-runtime`
+  - `core-js-bundle`
+
 ## 11.7.2
 
 ### Patch Changes

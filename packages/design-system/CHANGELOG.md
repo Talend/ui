@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 3.5.1
+
+### Patch Changes
+
+- 03010b19b: SVGs in ButtonIcon should not register clicks
+
 ## 3.5.0
 
 ### Minor Changes
