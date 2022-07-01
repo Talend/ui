@@ -384,7 +384,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				isEnvProduction &&
 					process.env.SENTRY_AUTH_TOKEN &&
 					new SentryWebpackPlugin({
-						// see https://docs.sentry.io/product/cli/configuration/ for details
+						// see https://docs.sentry.io/platforms/node/guides/aws-lambda/sourcemaps/uploading/webpack/
 						org: sentryConfig.org || process.env.SENTRY_ORG || 'talend-0u',
 						project: sentryConfig.project || process.env.SENTRY_PROJECT,
 						release: VERSIONS.version,
