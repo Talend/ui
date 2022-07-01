@@ -232,7 +232,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		const userCopyConfig = getUserConfig('copy', []);
 		const cmf = getUserConfig('cmf');
 		const dcwpConfig = getUserConfig('dynamic-cdn-webpack-plugin');
-		const sentryConfig = getUserConfig('sentry');
+		const sentryConfig = getUserConfig('sentry', {});
 		const { theme } = userSassData;
 
 		const appLoaderIcon = icons.getAppLoaderIconUrl(theme) || userHtmlConfig.appLoaderIcon;
@@ -382,7 +382,7 @@ module.exports = ({ getUserConfig, mode }) => {
 						chunkFilename: getFileNameForExtension('css', cssPrefix),
 					}),
 				isEnvProduction &&
-					!!sentryConfig &&
+					process.env.SENTRY_UPLOAD_SOURCEMAPS &&
 					new SentryWebpackPlugin({
 						// see https://docs.sentry.io/product/cli/configuration/ for details
 						org: sentryConfig.org || process.env.SENTRY_ORG || 'talend-0u',

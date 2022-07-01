@@ -323,6 +323,8 @@ Sentry config is only used for build script in production mode. If you add this 
 1. Create a new release for your project on Sentry. Release version will be taken from `package.json`'s version.
 2. Upload sourcemaps to Sentry.
 
+Environment variable SENTRY_UPLOAD_SOURCEMAPS have to be set to true.
+
 ```json
 {
 	"sentry": {
@@ -347,7 +349,7 @@ There're several ways to configure `authToken`. You can choose a convient one to
 1. Environment variables:
 
 ```shell
-> cross-env SENTRY_ORG=[yourOrg] SENTRY_PROJECT=[yourProjectId(eg. tmc)] SENTRY_AUTH_TOKEN=[yourToken] talend-scripts build
+> SENTRY_UPLOAD_SOURCEMAPS=true SENTRY_ORG=[yourOrg] SENTRY_PROJECT=[yourProjectId(eg. tmc)] SENTRY_AUTH_TOKEN=[yourToken] talend-scripts build
 ```
 
 2. Config file: provide a `.sentryclirc` in the root of your app, with your token and other info.
