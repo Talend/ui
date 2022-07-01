@@ -50,7 +50,7 @@ class EnumerationForm extends React.Component {
 	}
 
 	static parseStringValueToArray(values) {
-		return values.split(',').map(value => value.trim());
+		return values.match(/(\\.|[^,])+/g).map(value => value.trim());
 	}
 
 	static updateItemValidateDisabled(value, valueExist) {
