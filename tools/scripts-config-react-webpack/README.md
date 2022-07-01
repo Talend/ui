@@ -52,6 +52,12 @@ Your folder hierarchy should follow
 			"development": "./webpack.config.dev.js",
 			"production": "./webpack.config.prod.js"
 		}
+	},
+	"sentry": {
+		"org": "talend",
+		"project": "tmc",
+		"include": ["dist"],
+		"ignore": ["dist/cdn"]
 	}
 }
 ```
@@ -64,6 +70,7 @@ Your folder hierarchy should follow
 | css             | `css-loader` customisation.                               |
 | js              | `js` customisation.                                       |
 | webpack         | `webpack` and `devServer` customisation.                  |
+| sentry          | `sentry` release config.                                  |
 
 ## HTML
 
@@ -308,3 +315,50 @@ If you want to serve the app under a basename, set a `BASENAME` environment vari
 	}
 }
 ```
+
+## Sentry
+
+Sentry config is only used for build script in production mode. If you add this config it will:
+
+1. Create a new release for your project on Sentry. Release version will be taken from `package.json`'s version.
+2. Upload sourcemaps to Sentry.
+
+```json
+{
+	"sentry": {
+		"org": "talend-0u",
+		"project": "tmc",
+		"include": ["dist"],
+		"ignore": ["dist/cdn"]
+	}
+}
+```
+
+| sentry options | type                | description                                                                                                                                                                                                                                            |
+| -------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| org            | string              | Optional. The slug of the organization to use for a command. Defaults to 'talend-0u'. It also can be configured by environment variable `SENTRY_ORG`.                                                                                                  |
+| project        | string              | Required. The slug of the Sentry project associated with the app. It also can be configured by environment variable `SENTRY_PROJECT`.                                                                                                                  |
+| include        | string/array/object | Optional. One or more paths that Sentry CLI should scan recursively for sources. It will upload all `.map` files and match associated .js files. Defaults to `["dist"]`. More info [here](https://github.com/getsentry/sentry-webpack-plugin#options). |
+| ignore         | string/array        | Optional. One or more paths to ignore during upload, defaults to `["cdn"]`, so sourcemaps inside `dist/cdn` won't be uploaded as default.                                                                                                              |
+
+Sentry authToken is also required. It's the authentication token to use for all communication with Sentry. Can be obtained from https://sentry.io/settings/account/api/auth-tokens/. Required scopes: project:releases (and org:read if setCommits option is used).
+There're several ways to configure `authToken`. You can choose a convient one to configure it for CI. Sentry CLI will pick up these configurations automatically.
+
+1. Environment variables:
+
+```shell
+> SENTRY_AUTH_TOKEN=[yourToken] talend-scripts build
+```
+
+2. Config file: provide a `.sentryclirc` in the root of your app, with your token and other info.
+
+```shell
+[defaults]
+org=[yourOrg]
+project=[yourProjectId(eg. tmc)]
+
+[auth]
+token=[yourToken]
+```
+
+For more information, see [Sentry CLI configuration values](https://docs.sentry.io/product/cli/configuration/#configuration-values)

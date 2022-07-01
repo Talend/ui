@@ -17,6 +17,7 @@
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
+    "@sentry/webpack-plugin": "^1.18.9",
     "@talend/react-cmf-webpack-plugin": "^6.36.7",
     "@talend/scripts-config-babel": "^9.9.1",
     "@talend/scripts-config-cdn": "^10.5.0",
