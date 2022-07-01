@@ -318,7 +318,7 @@ If you want to serve the app under a basename, set a `BASENAME` environment vari
 
 ## Sentry
 
-Sentry config are only used for build script in production mode. If you add this config it will:
+Sentry config is only used for build script in production mode. If you add this config it will:
 
 1. Create a new release for your project on Sentry. Release version will be taken from `package.json`'s version.
 2. Upload sourcemaps to Sentry.
@@ -326,8 +326,8 @@ Sentry config are only used for build script in production mode. If you add this
 ```json
 {
 	"sentry": {
+		"org": "talend-0u",
 		"project": "tmc",
-		"authToken": "xxxxxx",
 		"include": ["dist"],
 		"ignore": ["dist/cdn"]
 	}
@@ -336,23 +336,25 @@ Sentry config are only used for build script in production mode. If you add this
 
 | sentry options | type                | description                                                                                                                                                                                                                                            |
 | -------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| project        | string              | Required. The slug of the Sentry project associated with the app.                                                                                                                                                                                      |
-| authToken      | string              | Required. The authentication token to use for all communication with Sentry. Can be obtained from https://sentry.io/settings/account/api/auth-tokens/. Required scopes: project:releases (and org:read if setCommits option is used).                  |
+| org            | string              | Optional. The slug of the organization to use for a command. Defaults to 'talend-0u'. It also can be configured by environment variable `SENTRY_ORG`.                                                                                                  |
+| project        | string              | Required. The slug of the Sentry project associated with the app. It also can be configured by environment variable `SENTRY_PROJECT`.                                                                                                                  |
 | include        | string/array/object | Optional. One or more paths that Sentry CLI should scan recursively for sources. It will upload all `.map` files and match associated .js files. Defaults to `["dist"]`. More info [here](https://github.com/getsentry/sentry-webpack-plugin#options). |
 | ignore         | string/array        | Optional. One or more paths to ignore during upload, defaults to `["cdn"]`, so sourcemaps inside `dist/cdn` won't be uploaded as default.                                                                                                              |
 
-There're several ways to configure `authToken` and `project` other than `talend.json`. You can choose a convient way to configure them for CI. Sentry CLI will pick up these configurations automatically.
+Sentry authToken is also required. It's the authentication token to use for all communication with Sentry. Can be obtained from https://sentry.io/settings/account/api/auth-tokens/. Required scopes: project:releases (and org:read if setCommits option is used).
+There're several ways to configure `authToken`. You can choose a convient one to configure it for CI. Sentry CLI will pick up these configurations automatically.
 
 1. Environment variables:
 
 ```shell
-> cross-env SENTRY_AUTH_TOKEN=[yourToken] SENTRY_PROJECT=[yourProjectId(eg. tmc)] talend-scripts build
+> cross-env SENTRY_ORG=[yourOrg] SENTRY_PROJECT=[yourProjectId(eg. tmc)] SENTRY_AUTH_TOKEN=[yourToken] talend-scripts build
 ```
 
-2. Config file: provide a `.sentryclirc` in the root of your app, with your auth token and project ID.
+2. Config file: provide a `.sentryclirc` in the root of your app, with your token and other info.
 
 ```shell
 [defaults]
+org=[yourOrg]
 project=[yourProjectId(eg. tmc)]
 
 [auth]
