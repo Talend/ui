@@ -71,8 +71,8 @@ const Linkable = forwardRef(
 			));
 
 		const MaybeExternal = isExternal && !hideExternalIcon && (
-			<span className={style.link__iconExternal}>
-				<SizedIcon size="S" name="external-link" data-test="link.icon.external" />
+			<span className={style.link__iconExternal} data-test="link.icon.external">
+				<SizedIcon size="S" name="external-link" />
 			</span>
 		);
 

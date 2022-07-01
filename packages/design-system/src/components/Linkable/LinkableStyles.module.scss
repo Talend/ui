@@ -23,6 +23,7 @@ $iconAlignmentOffsetS: 0.1rem;
 	width: tokens.$coral-sizing-minimal;
 	margin-left: tokens.$coral-spacing-xxs;
 	flex-shrink: 0;
+	display: inline-flex;
 }
 
 .naturally_aligned {
