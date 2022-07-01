@@ -382,13 +382,12 @@ module.exports = ({ getUserConfig, mode }) => {
 						chunkFilename: getFileNameForExtension('css', cssPrefix),
 					}),
 				isEnvProduction &&
-					process.env.SENTRY_UPLOAD_SOURCEMAPS &&
+					process.env.SENTRY_AUTH_TOKEN &&
 					new SentryWebpackPlugin({
 						// see https://docs.sentry.io/product/cli/configuration/ for details
 						org: sentryConfig.org || process.env.SENTRY_ORG || 'talend-0u',
 						project: sentryConfig.project || process.env.SENTRY_PROJECT,
 						release: VERSIONS.version,
-						authToken: process.env.SENTRY_AUTH_TOKEN,
 						include: sentryConfig.include || ['dist/'],
 						ignore: sentryConfig.ignore || ['cdn/'],
 					}),
