@@ -3430,5 +3430,41 @@
     "name": "icon/L/exclamation-stroke",
     "description": "",
     "documentationLinks": []
+  },
+  {
+    "key": "7b78837a5a1b643d95c36acfc7d3498c4bb7c00e",
+    "name": "icon/M/smiley-neutral",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "6420844106829898c65d83c1f7cedde9672bf106",
+    "name": "icon/L/smiley-neutral",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "fee736fd3a84f070c09e874b8f59cf9fa22813e6",
+    "name": "icon/M/smiley-sad",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "2fbb5005c4defcc7577353dd0895c88c8937d415",
+    "name": "icon/L/smiley-sad",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "f3756fe12f4ac0c61a948784aa67b9c547b77f8e",
+    "name": "icon/M/smiley-satisfied",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "a12abb693a1e8908b39c7279b129eb299aeec725",
+    "name": "icon/L/smiley-satisfied",
+    "description": "",
+    "documentationLinks": []
   }
 ]

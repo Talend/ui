@@ -128,6 +128,15 @@ describe('assignDocTitle', () => {
 });
 
 describe('buildMapFromRoutes', () => {
+	it('should handle empty path', () => {
+		// Given
+		const data = { documentTitle: 'docTitleRoot' };
+		// When
+		const testMap = buildMapFromRoutes(data, new Map());
+		// Then
+		const myMap = new Map();
+		expect(testMap).toEqual(myMap);
+	});
 	it('should return a map (path: docTitle) from an object', () => {
 		// Given
 		const child2 = { documentTitle: 'child2', path: 'child2' };
