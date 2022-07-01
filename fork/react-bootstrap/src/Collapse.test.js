@@ -1,9 +1,14 @@
+/* eslint-disable arrow-parens */
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import Collapse from './Collapse';
 
 describe('<Collapse>', () => {
+  // eslint-disable-next-line react/prop-types
   const Component = ({ children, ...props }) => (
     <Collapse getDimensionValue={() => 15} {...props}>
       <div>{children}</div>
@@ -39,16 +44,20 @@ describe('<Collapse>', () => {
     });
 
     afterAll(() => {
-      Object.defineProperty(
-        HTMLElement.prototype,
-        'scrollHeight',
-        originalOffsetHeight
-      );
-      Object.defineProperty(
-        HTMLElement.prototype,
-        'scrollWidth',
-        originalOffsetWidth
-      );
+      if (originalOffsetHeight) {
+        Object.defineProperty(
+          HTMLElement.prototype,
+          'scrollHeight',
+          originalOffsetHeight
+        );
+      }
+      if (originalOffsetWidth) {
+        Object.defineProperty(
+          HTMLElement.prototype,
+          'scrollWidth',
+          originalOffsetWidth
+        );
+      }
     });
 
     it('Should have collapsing class', () => {
@@ -129,7 +138,7 @@ describe('<Collapse>', () => {
     it('Should clear height after transition complete', (done) => {
       // given
       const onEntered = () => {
-        expect(screen.getByText('Panel content')).toHaveAttribute('style', '');
+        expect(screen.getByText('Panel content')).toHaveStyle('');
         done();
       };
 
