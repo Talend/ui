@@ -54,8 +54,8 @@ Your folder hierarchy should follow
 		}
 	},
 	"sentry": {
+		"org": "talend",
 		"project": "tmc",
-		"authToken": "xxxxxx",
 		"include": ["dist"],
 		"ignore": ["dist/cdn"]
 	}
