@@ -172,7 +172,11 @@ describe('Dropup', () => {
 		wrapper.find('button').first().simulate('click');
 
 		// then
-		expect(container.firstChild).not.toHaveClass('dropup');
+		if (!isDropupExpected) {
+			expect(container.firstChild).not.toHaveClass('dropup');
+		} else {
+			expect(container.firstChild).toHaveClass('dropup');
+		}
 	}
 
 	cases('dropdown/dropup switch', testSwitch, [
