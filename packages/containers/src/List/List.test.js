@@ -126,7 +126,7 @@ describe('Container List', () => {
 		expect(props.list.cellDictionary).toEqual({
 			custom: { cellRenderer: 'my custom component' },
 			title: {
-				cellRenderer: jasmine.any(Function),
+				cellRenderer: jest.any(Function),
 				cellType: 'title',
 				className: 'tc-list-title-cell',
 			},
