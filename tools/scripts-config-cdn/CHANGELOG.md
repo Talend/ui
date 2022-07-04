@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 10.5.1
+
+### Patch Changes
+
+- Updated dependencies [202b4daf2]
+  - @talend/dynamic-cdn-webpack-plugin@12.0.0
+
 ## 10.5.0
 
 ### Minor Changes

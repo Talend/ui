@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-core",
   "description": "Set of scripts",
-  "version": "11.7.2",
+  "version": "12.0.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "bin": {
