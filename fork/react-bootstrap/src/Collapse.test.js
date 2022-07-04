@@ -138,7 +138,8 @@ describe('<Collapse>', () => {
     it('Should clear height after transition complete', (done) => {
       // given
       const onEntered = () => {
-        expect(screen.getByText('Panel content')).toHaveStyle('');
+        // eslint-disable-next-line jest-dom/prefer-to-have-style
+        expect(screen.getByText('Panel content')).toHaveAttribute('style', '');
         done();
       };
 
