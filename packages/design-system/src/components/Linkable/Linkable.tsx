@@ -1,23 +1,25 @@
 import React, {
-	forwardRef,
-	Ref,
-	ReactElement,
-	ReactNodeArray,
-	ReactNode,
 	AnchorHTMLAttributes,
 	cloneElement,
+	forwardRef,
+	ReactElement,
+	ReactNode,
+	Ref,
 	useMemo,
 } from 'react';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
+import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
-import { Icon } from '../Icon/Icon';
+import { DeprecatedIconNames } from '../../types';
+import { SizedIcon } from '../Icon';
+
 import style from './LinkableStyles.module.scss';
+import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
 
 export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'> & {
 	as?: 'a' | ReactElement;
-	children: ReactNode | ReactNodeArray;
-	icon?: IconName | ReactElement;
+	children: ReactNode | ReactNode[];
+	icon?: DeprecatedIconNames | ReactElement | IconNameWithSize<'M'>;
 	hideExternalIcon?: boolean;
 	isNaturallyAligned?: boolean;
 	withEllipsis?: boolean;
@@ -54,7 +56,13 @@ const Linkable = forwardRef(
 		const MaybeIcon =
 			icon &&
 			(typeof icon === 'string' ? (
-				<Icon className={style.link__icon} name={icon} data-test="link.icon.before" />
+				<span className={style.link__icon}>
+					{getIconWithDeprecatedSupport({
+						iconSrc: icon,
+						size: 'M',
+						['data-test']: 'link.icon.before',
+					})}
+				</span>
 			) : (
 				cloneElement(icon, {
 					'data-test': 'link.icon.before',
@@ -63,11 +71,9 @@ const Linkable = forwardRef(
 			));
 
 		const MaybeExternal = isExternal && !hideExternalIcon && (
-			<Icon
-				className={style.link__iconExternal}
-				data-test="link.icon.external"
-				name="talend-link"
-			/>
+			<span className={style.link__iconExternal} data-test="link.icon.external">
+				<SizedIcon size="S" name="external-link" />
+			</span>
 		);
 
 		const Element = (

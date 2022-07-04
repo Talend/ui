@@ -16,7 +16,7 @@ const InlineMessageWarning = forwardRef(
 		return (
 			<InlineMessagePrimitive
 				{...props}
-				icon="talend-warning"
+				icon="exclamation"
 				withBackgroundClassname={styles.warning_withBackground}
 				iconClassname={styles.warning__icon}
 				ref={ref}

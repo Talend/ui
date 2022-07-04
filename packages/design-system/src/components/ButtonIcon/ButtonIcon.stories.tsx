@@ -16,7 +16,9 @@ const commonArgTypes = {
 	},
 	icon: {
 		control: { type: 'text' },
-		defaultValue: 'talend-plus',
+		defaultValue: 'plus',
+		description:
+			'In regular size, it supports both Icon (legacy) and SizedIcon<"M"> names. In size "XS", it supports the legacy icon name still, and the SizedIcon<"S"> names.',
 	},
 	onClick: {
 		disabled: true,
@@ -156,40 +158,40 @@ export const Variations = () => (
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Default</h3>
-			<ButtonIcon icon="talend-plus" onClick={action('Clicked')}>
+			<ButtonIcon icon="plus" onClick={action('Clicked')}>
 				Size M
 			</ButtonIcon>
-			<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="S">
+			<ButtonIcon icon="plus" onClick={action('Clicked')} size="S">
 				Size S
 			</ButtonIcon>
-			<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="XS">
+			<ButtonIcon size="XS" icon="plus" onClick={action('Clicked')}>
 				Size XS
 			</ButtonIcon>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Floating</h3>
-			<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')}>
+			<ButtonIconFloating icon="plus" onClick={action('Clicked')}>
 				Size M
 			</ButtonIconFloating>
-			<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')} size="S">
+			<ButtonIconFloating icon="plus" onClick={action('Clicked')} size="S">
 				Size S
 			</ButtonIconFloating>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Toggle-ON</h3>
-			<ButtonIconToggle isActive icon="talend-plus" onClick={action('Clicked')}>
+			<ButtonIconToggle isActive icon="plus" onClick={action('Clicked')}>
 				Size M + Active
 			</ButtonIconToggle>
-			<ButtonIconToggle isActive icon="talend-plus" onClick={action('Clicked')} size="S">
+			<ButtonIconToggle isActive icon="plus" onClick={action('Clicked')} size="S">
 				Size S + Active
 			</ButtonIconToggle>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Toggle-OFF</h3>
-			<ButtonIconToggle isActive={false} icon="talend-plus" onClick={action('Clicked')}>
+			<ButtonIconToggle isActive={false} icon="plus" onClick={action('Clicked')}>
 				Size M + Inactive
 			</ButtonIconToggle>
-			<ButtonIconToggle isActive={false} icon="talend-plus" onClick={action('Clicked')} size="S">
+			<ButtonIconToggle isActive={false} icon="plus" onClick={action('Clicked')} size="S">
 				Size S + Inactive
 			</ButtonIconToggle>
 		</StackVertical>
@@ -198,13 +200,13 @@ export const Variations = () => (
 
 export const DefaultButtonIcon = () => (
 	<StackHorizontal gap="XS" justify="center" align="center">
-		<ButtonIcon icon="talend-plus" onClick={action('Clicked')}>
+		<ButtonIcon icon="plus" onClick={action('Clicked')}>
 			Size M
 		</ButtonIcon>
-		<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="S">
+		<ButtonIcon icon="plus" onClick={action('Clicked')} size="S">
 			Size S
 		</ButtonIcon>
-		<ButtonIcon icon="talend-plus" onClick={action('Clicked')} size="XS">
+		<ButtonIcon icon="plus" onClick={action('Clicked')} size="XS">
 			Size XS
 		</ButtonIcon>
 	</StackHorizontal>
@@ -212,17 +214,17 @@ export const DefaultButtonIcon = () => (
 
 export const DefaultButtonIconToggle = () => (
 	<StackHorizontal gap="XS" justify="center" align="center">
-		<ButtonIconToggle isActive={false} icon="talend-plus" onClick={action('Clicked')}>
+		<ButtonIconToggle isActive={false} icon="plus" onClick={action('Clicked')}>
 			Size M + Inactive
 		</ButtonIconToggle>
-		<ButtonIconToggle isActive={false} icon="talend-plus" onClick={action('Clicked')} size="S">
+		<ButtonIconToggle isActive={false} icon="plus" onClick={action('Clicked')} size="S">
 			Size S + Inactive
 		</ButtonIconToggle>
 
-		<ButtonIconToggle isActive icon="talend-plus" onClick={action('Clicked')}>
+		<ButtonIconToggle isActive icon="plus" onClick={action('Clicked')}>
 			Size M + Active
 		</ButtonIconToggle>
-		<ButtonIconToggle isActive icon="talend-plus" onClick={action('Clicked')} size="S">
+		<ButtonIconToggle isActive icon="plus" onClick={action('Clicked')} size="S">
 			Size S + Active
 		</ButtonIconToggle>
 	</StackHorizontal>
@@ -230,10 +232,10 @@ export const DefaultButtonIconToggle = () => (
 
 export const DefaultButtonIconFloating = () => (
 	<StackHorizontal gap="XS" justify="center" align="center">
-		<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')}>
+		<ButtonIconFloating icon="plus" onClick={action('Clicked')}>
 			Size M
 		</ButtonIconFloating>
-		<ButtonIconFloating icon="talend-plus" onClick={action('Clicked')} size="S">
+		<ButtonIconFloating icon="plus" onClick={action('Clicked')} size="S">
 			Size S
 		</ButtonIconFloating>
 	</StackHorizontal>

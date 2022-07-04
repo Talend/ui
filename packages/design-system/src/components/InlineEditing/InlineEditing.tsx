@@ -39,7 +39,7 @@ export type InlineEditingProps = PropsWithChildren<any> &
 
 export type StyledInlineEditing = {
 	renderAs?: React.ComponentType<any> | string;
-} & React.PropsWithRef<InlineEditingProps>;
+} & InlineEditingProps;
 
 const InlineEditing = React.forwardRef(
 	(
@@ -126,7 +126,7 @@ const InlineEditing = React.forwardRef(
 								>
 									<ButtonIcon
 										onClick={handleCancel}
-										icon="talend-cross-circle"
+										icon="cross-filled"
 										data-test="inlineediting.button.cancel"
 										size="XS"
 									>
@@ -134,7 +134,7 @@ const InlineEditing = React.forwardRef(
 									</ButtonIcon>
 									<ButtonIcon
 										onClick={handleSubmit}
-										icon="talend-check-circle"
+										icon="check-filled"
 										data-test="inlineediting.button.submit"
 										size="XS"
 									>
@@ -162,7 +162,7 @@ const InlineEditing = React.forwardRef(
 								data-test="inlineediting.button.edit"
 								onClick={() => setEditMode(true)}
 								aria-label={ariaLabel}
-								icon="talend-pencil"
+								icon="pencil"
 								disabled={loading}
 								size="XS"
 							>

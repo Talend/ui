@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 // eslint-disable-next-line @talend/import-depth
-import { Icon, IconSize } from '@talend/icons/dist/typeUtils';
+import { Icon, icons, IconSize } from '@talend/icons/dist/typeUtils';
 
 const getNumericSize = (size: IconSize) => {
 	return {
@@ -18,6 +18,11 @@ const SizedIcon = React.forwardRef(
 	) => {
 		const numericSize = getNumericSize(size);
 		const fullName = size ? `${name}:${size}` : name;
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		if (!icons[size].includes(name)) {
+			console.error(`Icon ${name} does not exist. Check sizes other than ${size}.`);
+		}
 		return (
 			<svg
 				{...rest}
@@ -25,6 +30,7 @@ const SizedIcon = React.forwardRef(
 				aria-hidden
 				ref={ref}
 				shapeRendering="geometricPrecision"
+				pointerEvents="none"
 			>
 				<use xlinkHref={`#${fullName}`} />
 			</svg>

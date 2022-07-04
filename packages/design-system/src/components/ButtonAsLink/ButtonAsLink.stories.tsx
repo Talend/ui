@@ -10,11 +10,6 @@ import ButtonDestructiveAsLink from './variations/ButtonDestructiveAsLink';
 import ButtonAsLink from './ButtonAsLink';
 
 import { StackHorizontal, StackVertical } from '../Stack';
-import ButtonPrimary from '../Button/variations/ButtonPrimary';
-import { action } from '@storybook/addon-actions';
-import ButtonDestructive from '../Button/variations/ButtonDestructive';
-import ButtonSecondary from '../Button/variations/ButtonSecondary';
-import ButtonTertiary from '../Button/variations/ButtonTertiary';
 
 const commonLinkArgTypes = {
 	children: {
@@ -124,37 +119,37 @@ export const Variations = () => (
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Primary</h3>
-			<ButtonPrimaryAsLink icon="talend-upload" href="/">
+			<ButtonPrimaryAsLink icon="upload" href="/">
 				Label
 			</ButtonPrimaryAsLink>
-			<ButtonPrimaryAsLink icon="talend-upload" href="/" size="S">
+			<ButtonPrimaryAsLink icon="upload" href="/" size="S">
 				Label
 			</ButtonPrimaryAsLink>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Destructive</h3>
-			<ButtonDestructiveAsLink icon="talend-upload" href="/">
+			<ButtonDestructiveAsLink icon="upload" href="/">
 				Label
 			</ButtonDestructiveAsLink>
-			<ButtonDestructiveAsLink icon="talend-upload" href="/" size="S">
+			<ButtonDestructiveAsLink icon="upload" href="/" size="S">
 				Label
 			</ButtonDestructiveAsLink>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Secondary</h3>
-			<ButtonSecondaryAsLink icon="talend-upload" href="/">
+			<ButtonSecondaryAsLink icon="upload" href="/">
 				Label
 			</ButtonSecondaryAsLink>
-			<ButtonSecondaryAsLink icon="talend-upload" href="/" size="S">
+			<ButtonSecondaryAsLink icon="upload" href="/" size="S">
 				Label
 			</ButtonSecondaryAsLink>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Tertiary</h3>
-			<ButtonTertiaryAsLink icon="talend-upload" href="/">
+			<ButtonTertiaryAsLink icon="upload" href="/">
 				Label
 			</ButtonTertiaryAsLink>
-			<ButtonTertiaryAsLink icon="talend-upload" href="/" size="S">
+			<ButtonTertiaryAsLink icon="upload" href="/" size="S">
 				Label
 			</ButtonTertiaryAsLink>
 		</StackVertical>

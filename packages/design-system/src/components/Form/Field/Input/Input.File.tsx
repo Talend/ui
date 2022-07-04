@@ -141,7 +141,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 	const [drag, setDrag] = React.useState(false);
 	const [files, setFiles] = React.useState<FileList | null>(props.files);
 
-	const inputRef = React.useRef<HTMLInputElement>();
+	const inputRef = React.useRef<HTMLInputElement | null>(null);
 	const { t } = useTranslation();
 
 	function handleChange() {
@@ -215,7 +215,6 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 						{...props}
 						type="file"
 						className={`input-file__input input ${files ? 'input--filled' : ''}`}
-						// @ts-ignore
 						ref={inputRef}
 					/>
 					{!files ? (
@@ -249,7 +248,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 									))}
 							</ol>
 							<div className="preview__button">
-								<ButtonIcon icon="talend-cross-circle" onClick={() => clear()} size="S">
+								<ButtonIcon icon="cross-filled" onClick={() => clear()} size="S">
 									{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
 								</ButtonIcon>
 							</div>
