@@ -1120,6 +1120,14 @@
     "@babel/helper-create-regexp-features-plugin" "^7.16.7"
     "@babel/helper-plugin-utils" "^7.16.7"
 
+"@babel/polyfill@^7.4.4":
+  version "7.12.1"
+  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.12.1.tgz#1f2d6371d1261bbd961f3c5d5909150e12d0bd96"
+  integrity sha512-X0pi0V6gxLi6lFZpGmeNa4zxtwEmCs42isWLNjZZDE0Y8yVfgu0T2OAHlzBbdYlqbW/YXVvoBHpATEM+goCj8g==
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.4"
+
 "@babel/preset-env@^7.12.1", "@babel/preset-env@^7.12.11", "@babel/preset-env@^7.18.2":
   version "7.18.2"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.18.2.tgz#f47d3000a098617926e674c945d95a28cb90977a"
@@ -7142,7 +7150,7 @@ core-js-pure@^3.20.2, core-js-pure@^3.8.1:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.22.8.tgz#f2157793b58719196ccf9673cc14f3683adc0957"
   integrity sha512-bOxbZIy9S5n4OVH63XaLVXZ49QKicjowDx/UELyJ68vxfCRpYsbyh/WNZNfEfAk+ekA8vSjt+gCDpvh672bc3w==
 
-core-js@^2.4.0:
+core-js@^2.4.0, core-js@^2.6.5:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
@@ -16592,16 +16600,17 @@ react-a11y@^0.3.4:
   dependencies:
     object.assign "^4.0.3"
 
-react-ace@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/react-ace/-/react-ace-6.2.0.tgz#9ab0fd88cd1ef6712fec4b243b61431964481c11"
-  integrity sha512-Cr27xFNZV2wlQi+mFjgUWfd3yPZV84Sf7XVrEXkDBZmQ5I/oY3x4KvtBjX6ImN7SCWu3sU6z9F3Zh6jH3/jtzw==
+react-ace@^6.2.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/react-ace/-/react-ace-6.6.0.tgz#a79457ef03c3b1f8d4fc598a003b1d6ad464f1a0"
+  integrity sha512-Jehhp8bxa8kqiXk07Jzy+uD5qZMBwo43O+raniGHjdX7Qk93xFkKaAz8LxtUVZPJGlRnV5ODMNj0qHwDSN+PBw==
   dependencies:
+    "@babel/polyfill" "^7.4.4"
     brace "^0.11.1"
     diff-match-patch "^1.0.4"
     lodash.get "^4.4.2"
     lodash.isequal "^4.5.0"
-    prop-types "^15.6.2"
+    prop-types "^15.7.2"
 
 react-autowhatever@10.2.0:
   version "10.2.0"
