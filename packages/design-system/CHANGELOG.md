@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 3.6.0
+
+### Minor Changes
+
+- 70f4b05c9: Buttons can handle the new iconset
+
 ## 3.5.1
 
 ### Patch Changes
