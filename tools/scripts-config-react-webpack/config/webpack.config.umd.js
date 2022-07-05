@@ -63,26 +63,17 @@ module.exports = options => {
 					},
 					{
 						test: /\.svg$/,
-						loader: 'url-loader',
-						options: {
-							esModule: false,
-							name: 'assets/svg/[name].[ext]',
-							mimetype: 'image/svg+xml',
+						type: 'asset/resource',
+						generator: {
+							filename: 'assets/svg/[name][ext]',
 						},
 					},
 					{
 						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
 						type: 'asset/resource',
-						use: [
-							{
-								loader: 'url-loader',
-								options: {
-									name: './fonts/[name].[ext]',
-									limit: 10000,
-									mimetype: 'application/font-woff',
-								},
-							},
-						],
+						generator: {
+							filename: 'fonts/[name][ext]',
+						},
 					},
 				],
 			},
