@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { mount } from 'enzyme';
 import { AddFacetPopover } from './AddFacetPopover.component';
 import getDefaultT from '../../translate';
-import { mountWithTheme } from '../../../jest.utils';
 
 const t = getDefaultT();
 
@@ -74,7 +73,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		expect(wrapper.html()).toMatchSnapshot();
 	});
@@ -88,7 +87,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
 			wrapper
@@ -111,7 +110,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
 			wrapper.find('button[aria-label="Remove filter"]').first().simulate('mouseDown');
@@ -132,7 +131,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		wrapper.find('button[aria-label="Name"]').simulate('click');
 		// Then
 		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[0]);
@@ -147,7 +146,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		expect(wrapper.find('button[aria-label="Custom attributes"]')).toHaveLength(1);
 		expect(wrapper.find('.tc-add-facet-popover-screen')).toHaveLength(2);
@@ -164,7 +163,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		wrapper.find('button[aria-label="Custom attributes"]').simulate('click');
 		// Then
 		expect(wrapper.find('.screen-move')).toHaveLength(2);
@@ -179,7 +178,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
 			wrapper
@@ -222,7 +221,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		expect(wrapper.find('button[aria-label="Connection name"]').prop('disabled')).toBe(true);
 	});
@@ -254,7 +253,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		expect(wrapper.find('button[aria-label=""]')).toHaveLength(0);
 	});
@@ -268,7 +267,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 
 		// Then
 		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Connection name');
@@ -288,7 +287,7 @@ describe('AddFacetPopover', () => {
 			t,
 		};
 		// When
-		const wrapper = mountWithTheme(<AddFacetPopover {...props} />);
+		const wrapper = mount(<AddFacetPopover {...props} />);
 
 		// Then
 		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Name');

@@ -21,6 +21,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
              focusable="false"
              aria-hidden="true"
              class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-search"
+             pointer-events="none"
         >
         </svg>
       </div>
@@ -60,6 +61,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
                    focusable="false"
                    aria-hidden="true"
                    class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-contains"
+                   pointer-events="none"
               >
               </svg>
             </button>
@@ -88,6 +90,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
                focusable="false"
                aria-hidden="true"
                class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               pointer-events="none"
           >
           </svg>
         </button>
@@ -101,11 +104,13 @@ exports[`BasicSearch should render the default html output with initial badges 1
       <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
         Add filter
         <span class="theme-button__caret">
-          <svg name="talend-caret-down"
-               focusable="false"
+          <svg style="width: 1.2rem; height: 1.2rem;"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-caret-down"
+               shape-rendering="geometricPrecision"
+               pointer-events="none"
           >
+            <use xlink:href="#chevron-down:S">
+            </use>
           </svg>
         </span>
       </span>
@@ -125,6 +130,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
              focusable="false"
              aria-hidden="true"
              class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-trash"
+             pointer-events="none"
         >
         </svg>
       </span>
@@ -154,6 +160,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
              focusable="false"
              aria-hidden="true"
              class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-search"
+             pointer-events="none"
         >
         </svg>
       </div>
@@ -179,11 +186,13 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
       <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
         Add filter
         <span class="theme-button__caret">
-          <svg name="talend-caret-down"
-               focusable="false"
+          <svg style="width: 1.2rem; height: 1.2rem;"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-caret-down"
+               shape-rendering="geometricPrecision"
+               pointer-events="none"
           >
+            <use xlink:href="#chevron-down:S">
+            </use>
           </svg>
         </span>
       </span>
@@ -213,6 +222,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
              focusable="false"
              aria-hidden="true"
              class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-search"
+             pointer-events="none"
         >
         </svg>
       </div>
@@ -252,6 +262,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                    focusable="false"
                    aria-hidden="true"
                    class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+                   pointer-events="none"
               >
               </svg>
             </button>
@@ -280,6 +291,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                focusable="false"
                aria-hidden="true"
                class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               pointer-events="none"
           >
           </svg>
         </button>
@@ -293,11 +305,13 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
       <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
         Add filter
         <span class="theme-button__caret">
-          <svg name="talend-caret-down"
-               focusable="false"
+          <svg style="width: 1.2rem; height: 1.2rem;"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-caret-down"
+               shape-rendering="geometricPrecision"
+               pointer-events="none"
           >
+            <use xlink:href="#chevron-down:S">
+            </use>
           </svg>
         </span>
       </span>
@@ -317,6 +331,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
              focusable="false"
              aria-hidden="true"
              class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-trash"
+             pointer-events="none"
         >
         </svg>
       </span>
@@ -346,6 +361,7 @@ exports[`BasicSearch should render the default html output with some badges and 
              focusable="false"
              aria-hidden="true"
              class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-search"
+             pointer-events="none"
         >
         </svg>
       </div>
@@ -385,6 +401,7 @@ exports[`BasicSearch should render the default html output with some badges and 
                    focusable="false"
                    aria-hidden="true"
                    class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+                   pointer-events="none"
               >
               </svg>
             </button>
@@ -413,6 +430,7 @@ exports[`BasicSearch should render the default html output with some badges and 
                focusable="false"
                aria-hidden="true"
                class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               pointer-events="none"
           >
           </svg>
         </button>
@@ -426,11 +444,13 @@ exports[`BasicSearch should render the default html output with some badges and 
       <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
         Add filter
         <span class="theme-button__caret">
-          <svg name="talend-caret-down"
-               focusable="false"
+          <svg style="width: 1.2rem; height: 1.2rem;"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-caret-down"
+               shape-rendering="geometricPrecision"
+               pointer-events="none"
           >
+            <use xlink:href="#chevron-down:S">
+            </use>
           </svg>
         </span>
       </span>
@@ -450,6 +470,7 @@ exports[`BasicSearch should render the default html output with some badges and 
              focusable="false"
              aria-hidden="true"
              class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-trash"
+             pointer-events="none"
         >
         </svg>
       </span>

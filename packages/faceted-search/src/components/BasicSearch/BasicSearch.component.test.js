@@ -1,10 +1,10 @@
 import React from 'react';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
+import { mount } from 'enzyme';
 import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
-import { mountWithTheme } from '../../../jest.utils';
 
 describe('BasicSearch', () => {
 	const badgeText = {
@@ -72,7 +72,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -88,7 +88,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -111,7 +111,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -128,7 +128,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -144,7 +144,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch
 					{...props}
@@ -178,7 +178,7 @@ describe('BasicSearch', () => {
 			onSubmit,
 		};
 		// when
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -206,7 +206,7 @@ describe('BasicSearch', () => {
 			onSubmit,
 		};
 		// when
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -227,7 +227,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -248,7 +248,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,
@@ -269,7 +269,7 @@ describe('BasicSearch', () => {
 			onSubmit: jest.fn(),
 		};
 		// When
-		const wrapper = mountWithTheme(
+		const wrapper = mount(
 			<FacetedManager id="manager-id">
 				<BasicSearch {...props} />
 			</FacetedManager>,

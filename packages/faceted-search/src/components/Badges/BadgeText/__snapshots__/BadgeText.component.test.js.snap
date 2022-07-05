@@ -23,6 +23,7 @@ exports[`BadgeText should mount a default badge 1`] = `
                focusable="false"
                aria-hidden="true"
                class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-not-equal"
+               pointer-events="none"
           >
           </svg>
         </button>
@@ -51,6 +52,7 @@ exports[`BadgeText should mount a default badge 1`] = `
            focusable="false"
            aria-hidden="true"
            class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross"
+           pointer-events="none"
       >
       </svg>
     </button>
