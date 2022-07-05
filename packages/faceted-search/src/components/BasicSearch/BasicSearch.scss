@@ -14,7 +14,7 @@
 		content: '';
 		height: tokens.$coral-sizing-xs;
 		width: 0;
-		border-right: 1px solid tokens.$coral-color-neutral-border-weak;
+		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 		position: absolute;
 		top: 50%;
 		right: 0;

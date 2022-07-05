@@ -1,5 +1,176 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AddFacetPopover should display the hidden category screen when click on a category row 1`] = `
+<div id="my-id-add-facet-popover"
+     class="tc-add-facet-popover theme-tc-add-facet-popover"
+>
+  <div id="my-id-add-facet-popover"
+       class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+       style="height: 0px;"
+  >
+    <div class="tc-add-facet-popover-screen theme-tc-add-facet-popover-screen screen-move theme-screen-move">
+      <header id="my-id-add-facet-popover-Custom attributes-header"
+              class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
+      >
+        <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+              role="search"
+        >
+          <div class="form-group">
+            <svg name="talend-search"
+                 focusable="false"
+                 aria-hidden="true"
+                 class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                 pointer-events="none"
+            >
+            </svg>
+            <input name="search"
+                   placeholder="Find a filter"
+                   autocomplete="off"
+                   aria-label="Find a filter"
+                   role="searchbox"
+                   type="search"
+                   id="my-id-add-facet-popover-Custom attributes-filter-input"
+                   class="theme-search form-control"
+                   value
+                   disabled
+            >
+          </div>
+        </form>
+      </header>
+      <div id="my-id-add-facet-popover-Custom attributes-body"
+           class="theme-body tc-tooltip-body"
+      >
+        <div id="my-id-add-facet-popover-Custom attributes-body-content"
+             class="theme-content tc-tooltip-content"
+        >
+          <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+            <div class="tc-add-facet-popover-row theme-tc-add-facet-popover-row">
+              <button tabindex="-1"
+                      id="my-id-add-facet-popover-row-button-Connection name"
+                      aria-busy="false"
+                      class="theme-clickable theme-button theme-tertiary"
+                      type="button"
+              >
+                <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
+                  Connection name
+                </span>
+              </button>
+            </div>
+            <div class="tc-add-facet-popover-row theme-tc-add-facet-popover-row">
+              <button tabindex="-1"
+                      id="$row-button-Custom attributes"
+                      aria-busy="false"
+                      class="theme-clickable theme-button theme-tertiary"
+                      type="button"
+              >
+                <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
+                  <div class="tc-add-facet-popover-row-text theme-tc-add-facet-popover-row-text">
+                    Custom attributes
+                  </div>
+                  <svg style="width: 1.2rem; height: 1.2rem;"
+                       aria-hidden="true"
+                       shape-rendering="geometricPrecision"
+                       pointer-events="none"
+                  >
+                    <use xlink:href="#chevron-right:S">
+                    </use>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div class="tc-add-facet-popover-row theme-tc-add-facet-popover-row">
+              <button tabindex="-1"
+                      id="my-id-add-facet-popover-row-button-Name"
+                      aria-busy="false"
+                      class="theme-clickable theme-button theme-tertiary"
+                      type="button"
+              >
+                <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
+                  Name
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tc-add-facet-popover-screen theme-tc-add-facet-popover-screen screen-category theme-screen-category screen-move theme-screen-move">
+      <header id="my-id-add-facet-popover-Custom attributes-header"
+              class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
+      >
+        <div class="tc-add-facet-popover-category theme-tc-add-facet-popover-category">
+          <button tabindex="0"
+                  aria-describedby="42"
+                  class="theme-clickable theme-buttonIcon theme-size_S"
+                  type="button"
+          >
+            <span class="theme-buttonIcon__icon"
+                  aria-hidden="true"
+            >
+              <svg name="talend-arrow-left"
+                   focusable="false"
+                   aria-hidden="true"
+                   class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-arrow-left"
+                   pointer-events="none"
+              >
+              </svg>
+            </span>
+          </button>
+          <span class="tc-add-facet-popover-category-title theme-tc-add-facet-popover-category-title">
+            Custom attributes
+          </span>
+        </div>
+        <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+              role="search"
+        >
+          <div class="form-group">
+            <svg name="talend-search"
+                 focusable="false"
+                 aria-hidden="true"
+                 class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                 pointer-events="none"
+            >
+            </svg>
+            <input name="search"
+                   placeholder="Find a filter"
+                   autocomplete="off"
+                   aria-label="Find a filter"
+                   role="searchbox"
+                   type="search"
+                   id="my-id-add-facet-popover-Custom attributes-filter-input"
+                   class="theme-search form-control"
+                   value
+            >
+          </div>
+        </form>
+      </header>
+      <div id="my-id-add-facet-popover-Custom attributes-body"
+           class="theme-body tc-tooltip-body"
+      >
+        <div id="my-id-add-facet-popover-Custom attributes-body-content"
+             class="theme-content tc-tooltip-content"
+        >
+          <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+            <div class="tc-add-facet-popover-row theme-tc-add-facet-popover-row">
+              <button tabindex="0"
+                      id="my-id-add-facet-popover-row-button-Target"
+                      aria-busy="false"
+                      class="theme-clickable theme-button theme-tertiary"
+                      type="button"
+              >
+                <span class="theme-stack theme-justify-start theme-align-center theme-nowrap theme-row theme-block theme-gap-x-XS theme-gap-y-XS">
+                  Target
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`AddFacetPopover should render the html output 1`] = `
 <div id="my id-add-facet-popover"
      class="tc-add-facet-popover theme-tc-add-facet-popover"

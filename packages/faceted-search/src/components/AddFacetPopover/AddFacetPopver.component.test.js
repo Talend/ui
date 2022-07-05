@@ -64,6 +64,13 @@ describe('AddFacetPopover', () => {
 			},
 		},
 	];
+
+	const getRowButtons = wrapper =>
+		wrapper
+			.find('div.tc-add-facet-popover-screen:not(.screen-category)')
+			.find('div.tc-add-facet-popover-row-container')
+			.find('button');
+
 	it('should render the html output', () => {
 		// Given
 		const props = {
@@ -97,7 +104,9 @@ describe('AddFacetPopover', () => {
 		});
 		wrapper.update();
 		expect(wrapper.find('input').first().prop('value')).toBe('connection');
-		expect(wrapper.find('button').find('Connection name')).toHaveLength(1);
+		const rowButton = getRowButtons(wrapper);
+		expect(rowButton).toHaveLength(1);
+		expect(rowButton.text()).toBe('Connection name');
 	});
 	it('should reset the badge rows when the filter is reset', () => {
 		// Given
@@ -111,14 +120,14 @@ describe('AddFacetPopover', () => {
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
+		expect(getRowButtons(wrapper)).toHaveLength(2);
 		// Then
 		act(() => {
 			wrapper.find('button[aria-label="Remove filter"]').first().simulate('mouseDown');
 		});
 		wrapper.update();
 		expect(wrapper.find('input').first().prop('value')).toBe('');
-		expect(wrapper.find('button[aria-label="Name"]')).toHaveLength(1);
-		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
+		expect(getRowButtons(wrapper)).toHaveLength(3);
 	});
 	it('should return the badge definition when click on a row', () => {
 		// Given
@@ -132,9 +141,9 @@ describe('AddFacetPopover', () => {
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
-		wrapper.find('button[aria-label="Name"]').simulate('click');
+		getRowButtons(wrapper).first().simulate('click');
 		// Then
-		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[0]);
+		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[1]);
 	});
 	it('should render the category row', () => {
 		// Given
@@ -148,12 +157,11 @@ describe('AddFacetPopover', () => {
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		expect(wrapper.find('button[aria-label="Custom attributes"]')).toHaveLength(1);
 		expect(wrapper.find('.tc-add-facet-popover-screen')).toHaveLength(2);
 		expect(wrapper.find('.screen-category')).toHaveLength(1);
 		expect(wrapper.find('.screen-move')).toHaveLength(0);
 	});
-	it('should display the hidding category screen when click on a category row', () => {
+	it('should display the hidden category screen when click on a category row', () => {
 		// Given
 		const props = {
 			badges,
@@ -164,7 +172,7 @@ describe('AddFacetPopover', () => {
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
-		wrapper.find('button[aria-label="Custom attributes"]').simulate('click');
+		getRowButtons(wrapper).at(1).simulate('click'); // click on "Custom attributes"
 		// Then
 		expect(wrapper.find('.screen-move')).toHaveLength(2);
 	});
@@ -223,7 +231,7 @@ describe('AddFacetPopover', () => {
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		expect(wrapper.find('button[aria-label="Connection name"]').prop('disabled')).toBe(true);
+		expect(getRowButtons(wrapper).first().prop('disabled')).toBe(true);
 	});
 	it('should not render an empty label badge', () => {
 		// Given
@@ -270,11 +278,10 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 
 		// Then
-		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Connection name');
-		expect(wrapper.find('.tc-add-facet-popover-row-text').at(1).text()).toEqual(
-			'Custom attributes',
-		);
-		expect(wrapper.find('.tc-add-facet-popover-row-text').at(2).text()).toEqual('Name');
+		const rowButtons = getRowButtons(wrapper);
+		expect(rowButtons.at(0).text()).toEqual('Connection name');
+		expect(rowButtons.at(1).text()).toEqual('Custom attributes');
+		expect(rowButtons.at(2).text()).toEqual('Name');
 	});
 	it('should not sort if null is provided as comparator', () => {
 		// Given
@@ -290,10 +297,9 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 
 		// Then
-		expect(wrapper.find('.tc-add-facet-popover-row-text').at(0).text()).toEqual('Name');
-		expect(wrapper.find('.tc-add-facet-popover-row-text').at(1).text()).toEqual('Connection name');
-		expect(wrapper.find('.tc-add-facet-popover-row-text').at(2).text()).toEqual(
-			'Custom attributes',
-		);
+		const rowButtons = getRowButtons(wrapper);
+		expect(rowButtons.at(0).text()).toEqual('Name');
+		expect(rowButtons.at(1).text()).toEqual('Connection name');
+		expect(rowButtons.at(2).text()).toEqual('Custom attributes');
 	});
 });
