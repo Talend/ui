@@ -2,9 +2,9 @@
 '@talend/scripts-config-react-webpack': patch
 ---
 
-fix: do not generate both hashed and non hashed assets for fonts, images and svgs.
-
-chore: put assets config in common so app and umd configuration are aligned.
+* fix: do not generate both hashed and non hashed assets for fonts, images and svgs.
+* fix: do not copy icons into app root folder
+* chore: put assets config in common so app and umd configuration are aligned.
 
 Note: path has been changed this way:
 
