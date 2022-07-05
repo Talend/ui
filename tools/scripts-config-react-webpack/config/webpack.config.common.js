@@ -74,9 +74,37 @@ function getSassLoaders(enableModules, sassData, mode) {
 	);
 }
 
+function getAssetsRules(hashed = true) {
+	const name = `[name]${hashed ? '-[hash]' : ''}[ext]`;
+	return [
+		{
+			test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
+			type: 'asset/resource',
+			generator: {
+				filename: `assets/fonts/${name}`,
+			},
+		},
+		{
+			test: /\.svg$/,
+			type: 'asset/resource',
+			generator: {
+				filename: `assets/svg/${name}`,
+			},
+		},
+		{
+			test: /\.(png|jpg|jpeg|gif)$/,
+			type: 'asset/resource',
+			generator: {
+				filename: `assets/img/${name}`,
+			},
+		},
+	];
+}
+
 module.exports = {
 	getSassData,
 	getCommonStyleLoaders,
 	getSassLoaders,
 	getJSAndTSLoader,
+	getAssetsRules,
 };
