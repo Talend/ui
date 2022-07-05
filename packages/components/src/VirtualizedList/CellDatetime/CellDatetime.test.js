@@ -40,7 +40,6 @@ describe('CellDatetime', () => {
 		jest.unmock('../../i18n/DateFnsLocale/locale');
 		jest.unmock('date-fns/distance_in_words_to_now');
 		jest.unmock('date-fns/format');
-		jest.unmock('../../utils/date');
 	});
 
 	it('should render CellDatetime', () => {
