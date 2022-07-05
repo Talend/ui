@@ -12,6 +12,7 @@ const {
 	getSassLoaders,
 	getJSAndTSLoader,
 	getSassData,
+	getAssetsRules,
 } = require('./webpack.config.common');
 
 cdn.configureTalendModules();
@@ -61,20 +62,7 @@ module.exports = options => {
 						test: /\.css$/,
 						use: getCommonStyleLoaders(false, options.mode),
 					},
-					{
-						test: /\.svg$/,
-						type: 'asset/resource',
-						generator: {
-							filename: 'assets/svg/[name][ext]',
-						},
-					},
-					{
-						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
-						type: 'asset/resource',
-						generator: {
-							filename: 'fonts/[name][ext]',
-						},
-					},
+					...getAssetsRules(false),
 				],
 			},
 			stats: { children: false }, // remove warnings of all plugins ...

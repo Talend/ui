@@ -14,6 +14,7 @@ import { initI18n } from './i18n';
 import ComponentFormSandbox from './components/ComponentFormSandbox';
 import { FacetedSearchPlayground } from './components/FacetedSearch';
 import { DataGridPlayground } from './components/DataGrid';
+import { Icons } from './components/Icons';
 
 import { LeaguesList } from './components/List';
 import { Dataviz } from './components/Dataviz';
@@ -46,6 +47,7 @@ const app = {
 		LeaguesList,
 		IconsProvider,
 		Dataviz,
+		Icons,
 	},
 	settingsURL: `${basename || ''}/settings.json`,
 	actionCreators: actions,
