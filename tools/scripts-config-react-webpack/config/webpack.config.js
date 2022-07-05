@@ -156,7 +156,6 @@ function getCopyConfig(env, userCopyConfig = []) {
 	if (!assetsOverridden && fs.existsSync(path.join(process.cwd(), 'src/assets'))) {
 		config.push({ from: 'src/assets' });
 	}
-	// config.push({ from: path.join(ICON_DIST, 'svg-bundle') });
 	if (!cdnMode) {
 		cdn.getCopyConfig().forEach(c => config.push(c));
 	}
