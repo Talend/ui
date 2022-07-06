@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 const fs = require('fs');

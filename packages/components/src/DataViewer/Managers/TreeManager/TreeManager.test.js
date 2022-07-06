@@ -11,7 +11,7 @@ describe('addPathsToCollection', () => {
 		const myMap = Immutable.Map();
 		const myList = Immutable.List();
 		const newMap = addPathsToCollection(0, myMap, myList, 'jsonpath');
-		expect(newMap.get(0)).toEqual(Immutable.List(['jsonpath']));
+		expect(newMap.get(0).toJS()).toEqual(['jsonpath']);
 	});
 });
 
@@ -20,7 +20,7 @@ describe('removePathsFromCollection', () => {
 		const myList = Immutable.List(['jsonpath', 'somestuff']);
 		const myMap = Immutable.Map({ 0: myList });
 		const newCollection = removePathsFromCollection(0, myMap, myList, 'jsonpath');
-		expect(newCollection.get(0)).toEqual(Immutable.List(['somestuff']));
+		expect(newCollection.get(0).toJS()).toEqual(['somestuff']);
 	});
 });
 

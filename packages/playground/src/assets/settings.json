@@ -49,6 +49,16 @@
           "routerPush": "/DataGrid"
         }
       }
+    },
+    "menu:Icons": {
+      "icon": "talend-datagrid",
+      "label": "Icons",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/Icons"
+        }
+      }
     }
   },
   "props": {
@@ -98,7 +108,8 @@
         "menu:List",
         "menu:Dataviz",
         "menu:DataGrid",
-        "menu:FacetedSearch"
+        "menu:FacetedSearch",
+        "menu:Icons"
       ]
     },
     "Layout#default": {
@@ -140,6 +151,10 @@
       {
         "path": "DataGrid",
         "component": "DataGrid"
+      },
+      {
+        "path": "Icons",
+        "component": "Icons"
       }
     ]
   }
