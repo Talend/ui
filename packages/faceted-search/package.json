@@ -48,7 +48,7 @@
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
     "@talend/bootstrap-theme": "^6.39.0",
-    "@talend/design-system": "^3.5.1",
+    "@talend/design-system": "^3.6.0",
     "@talend/icons": "^6.46.0",
     "@talend/locales-tui-components": "^6.44.11",
     "@talend/locales-tui-faceted-search": "^4.0.2",
@@ -63,7 +63,7 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.17.0"
+    "react-i18next": "^11.18.0"
   },
   "peerDependencies": {
     "@talend/design-system": "^3.0.0",

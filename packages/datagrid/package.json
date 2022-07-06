@@ -37,18 +37,18 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.1",
-    "@talend/design-tokens": "^2.4.0",
+    "@talend/design-tokens": "^2.6.0",
     "@talend/icons": "^6.46.0",
     "ag-grid-community": "^27.3.0",
     "ag-grid-react": "^27.3.0",
     "@talend/react-components": "^7.3.1",
     "classnames": "^2.3.1",
-    "focus-trap-react": "^8.11.1",
+    "focus-trap-react": "^8.11.3",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@talend/design-system": "^3.5.1",
+    "@talend/design-system": "^3.6.0",
     "@talend/icons": "^6.46.0",
     "@talend/locales-tui-datagrid": "^6.36.5",
     "@talend/scripts-core": "^12.0.0",
@@ -62,7 +62,7 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.17.0"
+    "react-i18next": "^11.18.0"
   },
   "peerDependencies": {
     "@talend/design-system": "^3.0.0",

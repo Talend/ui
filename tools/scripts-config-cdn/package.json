@@ -10,7 +10,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@talend/dynamic-cdn-webpack-plugin": "^12.0.0",
-    "@talend/module-to-cdn": "^9.8.2",
+    "@talend/module-to-cdn": "^9.8.3",
     "@yarnpkg/lockfile": "^1.1.0",
     "read-pkg-up": "^7.0.1"
   },
