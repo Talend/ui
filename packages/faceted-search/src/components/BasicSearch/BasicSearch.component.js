@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
@@ -15,11 +15,11 @@ import { BadgeFacetedProvider } from '../context/badgeFaceted.context';
 
 import {
 	createBadgesDict,
-	getBadgesFromDict,
 	filterBadgeDefinitionsWithDictionary,
+	getBadgesFromDict,
 } from '../../dictionary/badge.dictionary';
 import { createOperatorsDict, getOperatorsFromDict } from '../../dictionary/operator.dictionary';
-import { useFacetedBadges, BADGES_ACTIONS } from '../../hooks/facetedBadges.hook';
+import { BADGES_ACTIONS, useFacetedBadges } from '../../hooks/facetedBadges.hook';
 import {
 	badgesFacetedPropTypes,
 	callbacksPropTypes,
@@ -173,7 +173,7 @@ const BasicSearch = ({
 			{hasRemovableBadge && (
 				<div className={css('tc-basic-search-clear-content')}>
 					<ButtonIcon
-						icon="talend-trash"
+						icon="trash"
 						size="S"
 						data-feature={USAGE_TRACKING_TAGS.BASIC_CLEAR}
 						onClick={() => dispatch(BADGES_ACTIONS.deleteAll())}

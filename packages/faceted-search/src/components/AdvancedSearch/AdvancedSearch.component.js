@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import { FormControl } from '@talend/react-bootstrap';
 
-import { Icon, ButtonIcon } from '@talend/design-system';
+import { ButtonIcon, Icon } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
@@ -90,7 +90,7 @@ export function AdvancedSearch({
 				<div className={css('adv-search-buttons')}>
 					<ButtonIcon
 						name="action-cancel-title"
-						icon="talend-cross-circle"
+						icon="cross-filled"
 						size="S"
 						isLoading={inProgress}
 						onClick={onCancelHandler}
@@ -100,7 +100,7 @@ export function AdvancedSearch({
 					</ButtonIcon>
 					<ButtonIcon
 						name="action-submit-title"
-						icon="talend-check-circle"
+						icon="check-filled"
 						size="S"
 						isLoading={inProgress}
 						type="submit"

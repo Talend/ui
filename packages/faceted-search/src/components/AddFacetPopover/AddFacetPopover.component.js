@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useState, useRef, createRef, useEffect, useCallback, useMemo } from 'react';
+import React, { createRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isNaN from 'lodash/isNaN';
@@ -9,11 +9,11 @@ import times from 'lodash/times';
 import constant from 'lodash/constant';
 import uniq from 'lodash/uniq';
 
-import { ButtonTertiary, ButtonIcon, SizedIcon } from '@talend/design-system';
-import { getTheme, Rich, FilterBar, TooltipTrigger } from '@talend/react-components';
+import { ButtonIcon, ButtonTertiary, SizedIcon } from '@talend/design-system';
+import { FilterBar, getTheme, Rich, TooltipTrigger } from '@talend/react-components';
 
 import cssModule from './AddFacetPopover.scss';
-import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.propTypes';
+import { badgeFacetedPropTypes, badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 
 const theme = getTheme(cssModule);
 
@@ -119,7 +119,7 @@ const AddFacetPopoverHeader = ({
 		{!isNull(category) && (
 			<div className={theme('tc-add-facet-popover-category')}>
 				<ButtonIcon
-					icon="talend-arrow-left"
+					icon="arrow-left"
 					size="S"
 					onClick={() => onCategoryChange(null)}
 					tabIndex={getTabIndex(isFocusable)}
