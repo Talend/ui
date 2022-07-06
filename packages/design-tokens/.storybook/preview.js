@@ -1,5 +1,6 @@
 import React from 'react';
 import { DocsContainer } from '@storybook/addon-docs';
+import '@talend/storybook-docs/dist/globalStyles.min.css';
 
 import 'typeface-source-sans-pro';
 import './preview.scss';
