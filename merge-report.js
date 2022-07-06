@@ -35,8 +35,10 @@ const diff = run({ name: 'git', args: ['diff', '--name-only'] }).then(out =>
 	out.split('\n').map(str => str.trim()),
 );
 
-Promise.all([info, diff]).then(results => {
-	const [infos, files] = results;
+const [, , ...files] = process.argv;
+
+Promise.all([info]).then(results => {
+	const [infos] = results;
 	// eslint-disable-next-line no-console
 	console.log({ files });
 	function onlyIfInDiff(lint) {

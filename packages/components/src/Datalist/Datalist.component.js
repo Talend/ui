@@ -414,6 +414,7 @@ function Datalist(props) {
 				value={filterValue}
 				valueId={value}
 				caret
+				autoFocus
 			/>
 		</FocusManager>
 	);
