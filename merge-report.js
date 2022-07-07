@@ -31,10 +31,6 @@ const info = run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] }).the
 	JSON.parse(info),
 );
 
-const diff = run({ name: 'git', args: ['diff', '--name-only'] }).then(out =>
-	out.split('\n').map(str => str.trim()),
-);
-
 const [, , ...files] = process.argv;
 
 Promise.all([info]).then(results => {
