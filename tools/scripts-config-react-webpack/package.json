@@ -22,7 +22,7 @@
     "@talend/scripts-config-babel": "^9.9.1",
     "@talend/scripts-config-cdn": "^10.5.2",
     "@talend/scripts-utils": "^1.0.0",
-    "@welldone-software/why-did-you-render": "^6.2.3",
+    "@welldone-software/why-did-you-render": "^7.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
