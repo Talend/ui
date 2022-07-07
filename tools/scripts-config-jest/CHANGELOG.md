@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 11.0.0
+
+### Major Changes
+
+- b16efa779: Major upgrade to jest 28 with adapter config
+
 ## 10.2.2
 
 ### Patch Changes
