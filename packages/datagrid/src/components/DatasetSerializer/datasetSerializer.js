@@ -100,24 +100,28 @@ export function getColumnDefs(sample) {
 	});
 }
 
-export function getRowData(sample, startIndex = 0) {
-	return (sample?.data ?? []).map((row, index) =>
-		Object.keys(row.value).reduce(
-			(rowData, key) => ({
-				...rowData,
-				[`${NAMESPACE_DATA}${key}`]: {
-					value: row.value[key].value,
-					quality: row.value[key].quality,
-					comments: [],
-					avro: {},
-				},
-			}),
-			{
-				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
-				loaded: row.loaded,
+export function parseRow(row, index, startIndex = 1) {
+	const value = row && row.value ? row.value : {};
+
+	return Object.keys(value).reduce(
+		(rowData, key) => ({
+			...rowData,
+			[`${NAMESPACE_DATA}${key}`]: {
+				value: value[key].value,
+				quality: value[key].quality,
+				comments: [],
+				avro: {},
 			},
-		),
+		}),
+		{
+			[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
+			loaded: row?.loaded,
+		},
 	);
+}
+
+export function getRowData(sample, startIndex = 0) {
+	return (sample?.data ?? []).map((data, index) => parseRow(data, index, startIndex));
 }
 
 export function getPinnedColumnDefs(sample) {
