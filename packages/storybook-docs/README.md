@@ -53,7 +53,6 @@ addons.setConfig({
 ### preview.js
 
 ```js
-import { addons } from '@storybook/addons';
 import '@talend/storybook-docs/dist/globalStyles.min.css';
 ```
 
