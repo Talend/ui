@@ -38,7 +38,7 @@
   "dependencies": {
     "@talend/assets-api": "^1.2.1",
     "@talend/design-tokens": "^2.4.0",
-    "@talend/icons": "^6.46.0",
+    "@talend/icons": "^6.47.0",
     "ag-grid-community": "^27.3.0",
     "ag-grid-react": "^27.3.0",
     "@talend/react-components": "^7.3.1",
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@talend/design-system": "^3.5.1",
-    "@talend/icons": "^6.46.0",
+    "@talend/icons": "^6.47.0",
     "@talend/locales-tui-datagrid": "^6.36.5",
     "@talend/scripts-core": "^12.0.0",
     "@talend/scripts-preset-react-lib": "^12.0.0",
@@ -74,5 +74,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "11.0.0"
+  "version": "11.0.1"
 }
