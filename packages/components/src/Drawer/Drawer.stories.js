@@ -569,3 +569,28 @@ export const _Interactive = () => {
 		</Layout>
 	);
 };
+
+export const WithSubtitleComponent = () => (
+	<Layout
+		header={header}
+		mode="OneColumn"
+		drawers={[
+			<Drawer>
+				<Drawer.Title
+					title="Im drawer 1"
+					subtitle="Drawer subtitle"
+					subtitleTagLabel="Preview"
+					subtitleTagTooltip="This is a preview"
+					renderTitleActions={titleActions}
+					onCancelAction={onCancelAction}
+					editable
+				/>
+				<h1>Hello drawer 1</h1>
+				<p>You should not being able to read this because I'm first</p>
+			</Drawer>,
+		]}
+	>
+		<span>zone with drawer</span>
+		{twentyRows}
+	</Layout>
+);
