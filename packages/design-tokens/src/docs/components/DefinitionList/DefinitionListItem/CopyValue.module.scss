@@ -1,0 +1,25 @@
+@use "../../../../tokens";
+
+.copyButton {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  font: tokens.$coral-data-m;
+  color: tokens.$coral-color-accent-text;
+  cursor: pointer;
+  display: inline-flex;
+  flex-flow: row wrap;
+  gap: tokens.$coral-spacing-xs;
+
+  &:hover {
+    color: tokens.$coral-color-accent-text-hover;
+  }
+
+  &:active {
+    color: tokens.$coral-color-accent-text-active;
+  }
+}
+
+.validIcon {
+  color: tokens.$coral-color-success-icon;
+}

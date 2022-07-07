@@ -1,4 +1,4 @@
-import { Tokens } from '../types';
+import { Token, Tokens } from '../types';
 
 const tShirtSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
 
@@ -41,13 +41,14 @@ export const getDisplayName = (name: string) => {
 
 export const getScssName = (name?: string) => {
 	if (!name) return '';
-	return `$${name}`;
+	return `tokens.$${name}`;
 };
 
-export const getCssName = (name?: string) => {
-	if (!name) return '';
+export const getCssName = (token: Token) => {
+	if (!token.name) return '';
+	const { name, value } = token;
 	const nameArray = name.split(/(?=[A-Z])/);
-	return `--${nameArray
+	return `var(--${nameArray
 		.map((word: string, index: number, words: string[]) => {
 			let adapted = word.toLocaleLowerCase();
 			if (index < words.length - 1) {
@@ -55,5 +56,5 @@ export const getCssName = (name?: string) => {
 			}
 			return adapted;
 		})
-		.join('')}`;
+		.join('')}, ${value})`;
 };

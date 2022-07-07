@@ -36,7 +36,7 @@ const TokensDefinitionList = ({ tokens, children }: TokensProps) => {
 							token.name,
 							token.description,
 							getDisplayName(token.name),
-							getCssName(token.name),
+							getCssName(token),
 							getScssName(token.name),
 							'hex' in token ? (token as ColorToken).hex : token.value,
 						].some(value => value?.toLocaleLowerCase().includes(filterInLowerCase));

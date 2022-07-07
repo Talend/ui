@@ -1,0 +1,48 @@
+@use '../../../../tokens';
+
+.listItem {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: tokens.$coral-spacing-l;
+
+  &__description {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: tokens.$coral-spacing-s;
+    flex-grow: 1;
+  }
+}
+
+.tokenDemo {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.tokenName {
+  font: tokens.$coral-heading-m;
+  color: tokens.$coral-color-neutral-text;
+}
+
+.tokenDescription {
+  font: tokens.$coral-paragraph-m;
+  color: tokens.$coral-color-neutral-text-weak;
+}
+
+.tokenValue {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: tokens.$coral-spacing-xxs;
+  flex-grow: 1;
+  flex-shrink: 0;
+  color: tokens.$coral-color-neutral-text-weak;
+
+  > code {
+    font: tokens.$coral-data-m;
+  }
+}

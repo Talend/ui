@@ -4,9 +4,8 @@ import { ColorToken, Token, TokenType } from '../types';
 import { PropsWithToken, TokensProps } from './TokensTypes';
 
 import TokensDefinitionList from './TokensDefinitionList';
-
-import S from './Tokens.scss';
 import { getDisplayName } from './TokenFormatter';
+import CardColor from './components/Card/CardColor';
 
 const colorOrder = [
 	'neutral',
@@ -30,14 +29,7 @@ const TokensColor = ({ tokens }: TokensProps) => (
 				return colorOrder.indexOf(tokenAColor) - colorOrder.indexOf(tokenBColor);
 			})}
 	>
-		{({ token }: PropsWithToken) => (
-			<div
-				className={S.color}
-				style={{
-					background: token.value,
-				}}
-			/>
-		)}
+		{({ token }: PropsWithToken) => <CardColor color={token.value} />}
 	</TokensDefinitionList>
 );
 
