@@ -179,11 +179,16 @@ const titleActions = () => (
 );
 
 const drawers = [
-	<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
+	<Drawer
+		stacked
+		title="Im stacked drawer 1"
+		footerActions={{ ...basicProps, selected: 0 }}
+		key="drawer-1"
+	>
 		<h1>Hello drawer 1</h1>
 		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
-	<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
+	<Drawer title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }} key="drawer-2">
 		<h1>Hello drawer 2</h1>
 		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
@@ -192,7 +197,12 @@ const drawers = [
 ];
 
 const editableDrawers = [
-	<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
+	<Drawer
+		stacked
+		title="Im stacked drawer 1"
+		footerActions={{ ...basicProps, selected: 0 }}
+		key="drawer-1"
+	>
 		<h1>Hello drawer 1</h1>
 		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
@@ -201,6 +211,7 @@ const editableDrawers = [
 		editableTitle
 		title="Im drawer 20"
 		footerActions={{ ...basicProps, selected: 0 }}
+		key="drawer-2"
 	>
 		<h1>Hello drawer 2</h1>
 		<p>The scroll is defined by the content</p>
@@ -210,7 +221,12 @@ const editableDrawers = [
 ];
 
 const longEditableDrawers = [
-	<Drawer stacked title="Im stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
+	<Drawer
+		stacked
+		title="Im stacked drawer 1"
+		footerActions={{ ...basicProps, selected: 0 }}
+		key="drawer-1"
+	>
 		<h1>Hello drawer 1</h1>
 		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
@@ -220,6 +236,7 @@ const longEditableDrawers = [
 		title="Im drawer 20 here in the long title header header header"
 		footerActions={{ ...basicProps, selected: 0 }}
 		onCancelAction={onCancelAction}
+		key="drawer-2"
 	>
 		<h1>Hello drawer 2</h1>
 		<p>The scroll is defined by the content</p>
@@ -234,11 +251,17 @@ const drawersNoTransition = [
 		stacked
 		title="Im stacked drawer 1"
 		footerActions={{ ...basicProps, selected: 0 }}
+		key="drawer-1"
 	>
 		<h1>Hello drawer 1</h1>
 		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
-	<Drawer withTransition={false} title="Im drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
+	<Drawer
+		withTransition={false}
+		title="Im drawer 2"
+		footerActions={{ ...basicProps, selected: 0 }}
+		key="drawer-2"
+	>
 		<h1>Hello drawer 2</h1>
 		<p>The scroll is defined by the content</p>
 		<h1>Hello drawer 3</h1>
@@ -293,16 +316,31 @@ export const DefaultWithNoTransition = () => (
 
 export const StackedDrawers = () => {
 	const stackedDrawers = [
-		<Drawer stacked title="I'm stacked drawer 1" footerActions={{ ...basicProps, selected: 0 }}>
+		<Drawer
+			stacked
+			title="I'm stacked drawer 1"
+			footerActions={{ ...basicProps, selected: 0 }}
+			key="drawer-1"
+		>
 			<h1>Hello drawer 1</h1>
 			<p>You should not being able to read this because I'm first</p>
 		</Drawer>,
-		<Drawer stacked title="I'm drawer 2" footerActions={{ ...basicProps, selected: 0 }}>
+		<Drawer
+			stacked
+			title="I'm drawer 2"
+			footerActions={{ ...basicProps, selected: 0 }}
+			key="drawer-2"
+		>
 			<h1>Hello drawer 2</h1>
 			<p>The scroll is defined by the content</p>
 			{scrollableContent()}
 		</Drawer>,
-		<Drawer stacked title="I'm drawer 3" footerActions={{ ...basicProps, selected: 0 }}>
+		<Drawer
+			stacked
+			title="I'm drawer 3"
+			footerActions={{ ...basicProps, selected: 0 }}
+			key="drawer-3"
+		>
 			<h1>Hello drawer 3</h1>
 			<p>The scroll is defined by the content</p>
 			{scrollableContent()}
@@ -322,10 +360,16 @@ export const StackedDrawers = () => {
 
 export const WithTabs = () => {
 	const drawersWithTabs = [
-		<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
+		<Drawer
+			stacked
+			title="I'm a stacked drawer with tabs"
+			footerActions={basicProps}
+			tabs={tabs}
+			key="drawer-1"
+		>
 			<p>The content</p>
 		</Drawer>,
-		<Drawer title="I'm a drawer with tabs" footerActions={basicProps} tabs={tabs}>
+		<Drawer title="I'm a drawer with tabs" footerActions={basicProps} tabs={tabs} key="drawer-2">
 			<p>The content</p>
 		</Drawer>,
 	];
@@ -343,6 +387,7 @@ export const WithTabsWithSpecificFooters = () => {
 			title="I'm a stacked drawer with tabs"
 			selectedTabKey="info"
 			tabs={tabsActionFooter}
+			key="drawer-1"
 		>
 			<p>This tab contain specific actions in left, center and right parts of the footer.</p>
 			<p>
@@ -350,7 +395,12 @@ export const WithTabsWithSpecificFooters = () => {
 				the tab "navigator" but not visible in the tab "info".
 			</p>
 		</Drawer>,
-		<Drawer title="I'm a drawer with tabs" selectedTabKey="info" tabs={tabsActionFooter}>
+		<Drawer
+			title="I'm a drawer with tabs"
+			selectedTabKey="info"
+			tabs={tabsActionFooter}
+			key="drawer-2"
+		>
 			<p>This tab contain specific actions in left, center and right parts of the footer.</p>
 			<p>
 				An other specific action with the label "Action not visible in the tab 'info'" is define in
@@ -444,7 +494,12 @@ export const CustomStacked = () => {
 		);
 	}
 	return (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={sidePanel}
+			drawers={[<CustomDrawer key="drawer-1" />]}
+		>
 			<span>zone with drawer</span>
 		</Layout>
 	);
@@ -575,7 +630,7 @@ export const WithSubtitleComponent = () => (
 		header={header}
 		mode="OneColumn"
 		drawers={[
-			<Drawer>
+			<Drawer key="drawer-1">
 				<Drawer.Title
 					title="Im drawer 1"
 					subtitle="Drawer subtitle"
