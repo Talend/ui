@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 3.6.2
+
+### Patch Changes
+
+- 71a736784: fix(design-system): Allow additional bundles for IconsProvider
+
 ## 3.6.1
 
 ### Patch Changes
