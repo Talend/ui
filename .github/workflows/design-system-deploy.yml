@@ -32,7 +32,7 @@ jobs:
           yarn workspace @talend/assets-api run build:lib
           yarn workspace @talend/icons run build:lib
           yarn workspace @talend/design-tokens run build:lib
-          yarn workspace @talend/design-tokens run build-storybook
+          yarn workspace @talend/design-tokens run test:demo
 
       - name: Build Storybook of the design system
         run: yarn workspace @talend/design-system run build-storybook
