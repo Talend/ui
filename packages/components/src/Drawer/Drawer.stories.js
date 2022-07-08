@@ -464,7 +464,12 @@ export const Custom = () => {
 		);
 	}
 	return (
-		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={[<CustomDrawer />]}>
+		<Layout
+			header={header}
+			mode="TwoColumns"
+			one={sidePanel}
+			drawers={[<CustomDrawer key="drawer-1" />]}
+		>
 			<span>zone with drawer</span>
 		</Layout>
 	);
