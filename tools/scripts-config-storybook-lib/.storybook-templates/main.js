@@ -1,7 +1,6 @@
 const fs = require('fs');
 const { merge } = require('lodash');
 const path = require('path');
-const getTalendWebpackConfig = require('@talend/scripts-core/config/webpack.config');
 const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getAllModules } = require('@talend/module-to-cdn');
