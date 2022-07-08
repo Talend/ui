@@ -68,7 +68,7 @@ const defaultMain = {
 					.filter(rule => !rule.test.toString().match(/\.(s\[ca\]ss|scss|css)/))
 					// remove svg rule if handled by preset webpack rules
 					.map(rule => {
-						if (true && rule.test && rule.test.toString().match(/svg/)) {
+						if (rule.test && rule.test.toString().match(/svg/)) {
 							return {
 								...rule,
 								// remove extra slashes surrounding the regex.toString() /regex/, then remove the "svg" from test
