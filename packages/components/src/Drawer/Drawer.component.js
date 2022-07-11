@@ -27,7 +27,7 @@ const STYLES = {
 
 function DrawerAnimation(props) {
 	const { children, withTransition, ...rest } = props;
-	const timeout = withTransition ? DEFAULT_TRANSITION_DURATION : 1;
+	const timeout = withTransition ? DEFAULT_TRANSITION_DURATION : 0;
 
 	return (
 		<Transition in appear timeout={withTransition ? 500 : 0} {...rest}>
