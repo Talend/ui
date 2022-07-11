@@ -1,5 +1,6 @@
 import React from 'react';
-import { DocsContainer } from '@storybook/addon-docs';
+import {DocsContainer} from '@storybook/addon-docs';
+import {IconsProvider} from '@talend/design-system';
 import '@talend/storybook-docs/dist/globalStyles.min.css';
 
 import 'typeface-source-sans-pro';
@@ -37,7 +38,8 @@ export const parameters = {
 			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
 			return (
 				<div id="playground" data-theme={hasDarkTheme ? 'dark' : 'light'}>
-					<DocsContainer {...props} />;
+					<IconsProvider />
+					<DocsContainer {...props} />
 				</div>
 			);
 		},

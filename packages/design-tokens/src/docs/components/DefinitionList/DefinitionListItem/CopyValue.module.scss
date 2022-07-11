@@ -9,7 +9,10 @@
   cursor: pointer;
   display: inline-flex;
   flex-flow: row wrap;
-  gap: tokens.$coral-spacing-xs;
+  gap: tokens.$coral-spacing-xxs;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
 
   &:hover {
     color: tokens.$coral-color-accent-text-hover;
@@ -21,5 +24,16 @@
 }
 
 .validIcon {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateX(calc(100% + #{tokens.$coral-spacing-xxs})) translateY(-40%);
   color: tokens.$coral-color-success-icon;
+  transition: all tokens.$coral-transition-fast;
+
+  &_visible {
+    opacity: 1;
+    transform: translateX(calc(100% + #{tokens.$coral-spacing-xxs})) translateY(-48%);
+  }
 }

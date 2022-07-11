@@ -7,20 +7,38 @@
   align-items: flex-start;
   gap: tokens.$coral-spacing-l;
 
+  &__demo {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
   &__description {
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: tokens.$coral-spacing-s;
+    gap: tokens.$coral-spacing-xxs;
+    width: 42%;
+  }
+
+  &__values {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: tokens.$coral-spacing-xxs;
     flex-grow: 1;
+    flex-shrink: 1;
+    color: tokens.$coral-color-neutral-text-weak;
+    width: 58%;
+
+    > code {
+      font: tokens.$coral-data-m;
+    }
   }
 }
 
-.tokenDemo {
-  flex-grow: 0;
-  flex-shrink: 0;
-}
+
 
 .tokenName {
   font: tokens.$coral-heading-m;
@@ -30,19 +48,4 @@
 .tokenDescription {
   font: tokens.$coral-paragraph-m;
   color: tokens.$coral-color-neutral-text-weak;
-}
-
-.tokenValue {
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: tokens.$coral-spacing-xxs;
-  flex-grow: 1;
-  flex-shrink: 0;
-  color: tokens.$coral-color-neutral-text-weak;
-
-  > code {
-    font: tokens.$coral-data-m;
-  }
 }

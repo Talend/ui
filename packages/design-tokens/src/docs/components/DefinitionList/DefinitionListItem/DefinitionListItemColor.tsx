@@ -13,7 +13,7 @@ function DefinitionListItemColor({ token }: { token: Token }) {
 
 	return (
 		<div className={styles.listItem}>
-			<dd className={styles.tokenDemo}>
+			<dd className={styles.listItem__demo}>
 				<CardColor color={token.value} />
 			</dd>
 
@@ -26,7 +26,7 @@ function DefinitionListItemColor({ token }: { token: Token }) {
 				</dd>
 			</div>
 
-			<dd className={styles.tokenValue}>
+			<dd className={styles.listItem__values}>
 				<CopyValue>{getScssName(token?.name)}</CopyValue>
 				<code>{getCssName(token)}</code>
 				<code>{'hex' in token ? (token as ColorToken)?.hex : token?.value}</code>
