@@ -50,7 +50,9 @@ class EnumerationForm extends React.Component {
 	}
 
 	static parseStringValueToArray(values) {
-		return values.match(/(\\.|[^,])+/g).map(value => value.trim());
+		console.log("value " + values)
+
+		return values.match(/(,,.|[^,])+/g).map(value => value.trim());
 	}
 
 	static updateItemValidateDisabled(value, valueExist) {
@@ -423,9 +425,12 @@ class EnumerationForm extends React.Component {
 		event.preventDefault();
 		event.stopPropagation();
 
+		console.log("onSubmitItem " + value.value)
 		const { schema } = this.props;
 
 		if (this.isConnectedMode()) {
+			console.log("onSubmitItem connected " + value.value)
+
 			this.setState(prevState => ({
 				itemsProp: {
 					...prevState.itemsProp,
@@ -467,6 +472,8 @@ class EnumerationForm extends React.Component {
 			}
 			item.displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			const valueExist = this.valueAlreadyExist(value.value, this.state);
+			console.log("onSubmitItem else " + value.value)
+
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
 				item.values = EnumerationForm.parseStringValueToArray(value.value);
@@ -698,6 +705,8 @@ class EnumerationForm extends React.Component {
 			this.setState({
 				headerInput: this.loadingInputsActions,
 			});
+			console.log("onAddHandler " + value.value)
+
 			this.props
 				.onTrigger(event, {
 					trigger: {
@@ -721,6 +730,8 @@ class EnumerationForm extends React.Component {
 					},
 				);
 		} else if (!this.valueAlreadyExist(value.value, this.state)) {
+			console.log("onAddHandler else if " + value.value)
+
 			const payload = {
 				schema,
 				value: this.state.items.concat([
