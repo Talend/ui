@@ -72,21 +72,20 @@ describe('Container SelectObject', () => {
 		const item1 = new Immutable.Map({ id: '1', name: 'foo' });
 		const item2 = new Immutable.Map({ id: '2', name: 'bar' });
 		const sourceData = new Immutable.List([item1, item2]);
-		const filteredData = new Immutable.List([item1.set('currentPosition', 'root')]);
 
 		const wrapper = shallow(<Container tree={tree} sourceData={sourceData} query="f" />, {
 			context,
 		});
 
 		const props = wrapper.props();
-		expect(props).toEqual({
+		expect(props).toMatchObject({
 			breadCrumbsRootLabel: 'root',
 			idAttr: 'id',
 			nameAttr: 'name',
 			query: 'f',
 			selected: item1.toJS(),
 			sourceData,
-			filteredData,
+			filteredData: expect.any(Immutable.List),
 			results: {
 				idAttr: 'id',
 				nameAttr: 'name',
@@ -94,6 +93,7 @@ describe('Container SelectObject', () => {
 				selectedId: '1',
 			},
 		});
+		expect(props.filteredData.toJS()).toEqual([item1.set('currentPosition', 'root').toJS()]);
 	});
 	it('should call props.setState when onTreeClick is called', () => {
 		const props = { idAttr: 'id', setState: jest.fn() };

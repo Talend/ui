@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-eslint",
   "description": "Eslint configuration for @talend/scripts-core",
-  "version": "9.9.2",
+  "version": "9.9.3",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.18.2",
-    "@talend/eslint-plugin": "^0.5.5",
+    "@talend/eslint-plugin": "^1.0.0",
     "@typescript-eslint/parser": "^5.27.1",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "eslint": "^7.32.0",

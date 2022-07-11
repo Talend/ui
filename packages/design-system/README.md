@@ -69,4 +69,4 @@ To launch non the tests you first need to have cypress installed on your environ
 
 ## License
 
-[Apache 2.0](https://github.com/Talend/design-system/blob/master/LICENSE)
+[Apache 2.0](https://github.com/Talend/ui/blob/master/packages/design-system/LICENSE)
