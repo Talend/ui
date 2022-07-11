@@ -2,4 +2,4 @@
 '@talend/react-cmf-webpack-plugin': patch
 ---
 
-fix: try to get outputPath from devServer.static
+fix: fallback to default output.path if not found

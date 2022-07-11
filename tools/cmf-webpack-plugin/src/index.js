@@ -1,7 +1,6 @@
 /* eslint-disable global-require */
 const path = require('path');
 const mergeSettings = require('@talend/scripts-cmf/cmf-settings.merge');
-const get = require('lodash/get');
 
 /**
  * React CMF Webpack Plugin
@@ -37,10 +36,7 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 	this.log('apply');
 
 	// adapt cmf settings result to output to /settings.json by default
-	const outputPath =
-		compiler.options?.devServer?.outputPath ||
-		compiler.options?.devServer?.static?.directory ||
-		compiler.options.output.path;
+	const outputPath = compiler.options.output.path || path.join(process.cwd(), 'dist');
 	const cmfconfigPath = path.join(process.cwd(), 'cmf.json');
 	const cmfconfig = getCmfconfig(cmfconfigPath);
 	const destination = cmfconfig.settings.destination;
