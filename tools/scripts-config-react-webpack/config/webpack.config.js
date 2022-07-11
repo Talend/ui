@@ -27,6 +27,7 @@ const {
 	getSassLoaders,
 	getJSAndTSLoader,
 	getSassData,
+	getAssetsRules,
 } = require('./webpack.config.common');
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
@@ -155,7 +156,6 @@ function getCopyConfig(env, userCopyConfig = []) {
 	if (!assetsOverridden && fs.existsSync(path.join(process.cwd(), 'src/assets'))) {
 		config.push({ from: 'src/assets' });
 	}
-	config.push({ from: path.join(ICON_DIST, 'svg-bundle') });
 	if (!cdnMode) {
 		cdn.getCopyConfig().forEach(c => config.push(c));
 	}
@@ -315,48 +315,7 @@ module.exports = ({ getUserConfig, mode }) => {
 						use: getSassLoaders(cssModulesEnabled, sassData, mode),
 						exclude: /@talend/,
 					},
-					{
-						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
-						type: 'asset/resource',
-						use: [
-							{
-								loader: 'url-loader',
-								options: {
-									name: './fonts/[name].[ext]',
-									limit: 10000,
-									mimetype: 'application/font-woff',
-								},
-							},
-						],
-					},
-					{
-						test: /\.svg$/,
-						type: 'asset/resource',
-						use: [
-							{
-								loader: 'url-loader',
-								options: {
-									name: 'assets/svg/[name].[ext]',
-									limit: 10000,
-									mimetype: 'image/svg+xml',
-								},
-							},
-						],
-					},
-					{
-						test: /\.(png|jpg|jpeg|gif)$/,
-						type: 'asset/resource',
-						use: [
-							{
-								loader: 'url-loader',
-								options: {
-									name: 'assets/img/[name].[ext]',
-									limit: 10000,
-									mimetype: 'image/png',
-								},
-							},
-						],
-					},
+					...getAssetsRules(true),
 				].filter(Boolean),
 			},
 			plugins: [

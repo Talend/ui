@@ -3466,5 +3466,17 @@
     "name": "icon/L/smiley-satisfied",
     "description": "",
     "documentationLinks": []
+  },
+  {
+    "key": "0e40c39969b61952e99044524dc4a0e97bbc76b9",
+    "name": "icon/M/user-group",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "ddd0ce82f6dc1b1458b71834487fb8d016a2b9f2",
+    "name": "icon/L/user-group",
+    "description": "",
+    "documentationLinks": []
   }
 ]

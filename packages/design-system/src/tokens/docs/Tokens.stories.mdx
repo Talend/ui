@@ -1,13 +1,12 @@
 import { Meta } from '@storybook/addon-docs';
-import { ColorPalette, ColorItem, Typeset } from '@storybook/components';
-import { Table, ColorSwatches } from '~docs';
+import { ColorItem, ColorPalette, Typeset } from '@storybook/components';
+import { ColorSwatches, Table } from '~docs';
 import tokens from './../index';
-import colors, { brand, palette, gradients, swatches } from './../colors.tokens';
+import colors, { brand, gradients, palette, swatches } from './../colors.tokens';
 import InlineMessageDestructive from '../../components/InlineMessage/variations/InlineMessageDestructive';
-import Link from '../../components/Link';
 import { StackVertical } from '../../components/Stack';
 
-<Meta title="[Deprecated] Design Tokens/Design Tokens" />
+<Meta title="[Deprecated]/Design Tokens" />
 
 # Design Tokens (deprecated)
 
@@ -17,9 +16,10 @@ import { StackVertical } from '../../components/Stack';
 		title="This page is deprecated"
 		description="Design tokens are now a separate package and rely on CSS custom properties."
 		link={{
-            href:"https://talend.surge.sh/design-tokens/?path=/docs/welcome--page",
-            target:"_blank",
-            children: "Get the new doc"}}
+			href: 'https://talend.surge.sh/design-tokens/?path=/docs/welcome--page',
+			target: '_blank',
+			children: 'Get the new doc',
+		}}
 	/>
 </StackVertical>
 

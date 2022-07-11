@@ -33,12 +33,10 @@ const info = run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] }).the
 	JSON.parse(info),
 );
 
-const diff = run({ name: 'git', args: ['diff', '--name-only'] }).then(out =>
-	out.split('\n').map(str => str.trim()),
-);
+const [, , ...files] = process.argv;
 
-Promise.all([info, diff]).then(results => {
-	const [infos, files] = results;
+Promise.all([info]).then(results => {
+	const [infos] = results;
 	// eslint-disable-next-line no-console
 	console.log({ files });
 	function onlyIfInDiff(lint) {

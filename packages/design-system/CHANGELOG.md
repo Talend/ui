@@ -1,5 +1,17 @@
 # @talend/design-system
 
+## 3.6.2
+
+### Patch Changes
+
+- 71a736784: fix(design-system): Allow additional bundles for IconsProvider
+
+## 3.6.1
+
+### Patch Changes
+
+- 2a8de8a55: fix: trigger a new release to get ride of hashed assets in the package.
+
 ## 3.6.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @talend/react-datagrid
 
+## 11.0.1
+
+### Patch Changes
+
+- cb1e06f2f: fix(datagrid): export parseRow from serializer
+- Updated dependencies [6944f72fc]
+- Updated dependencies [6944f72fc]
+- Updated dependencies [6944f72fc]
+- Updated dependencies [6944f72fc]
+- Updated dependencies [6944f72fc]
+  - @talend/icons@6.47.0
+
 ## 11.0.0
 
 ### Major Changes

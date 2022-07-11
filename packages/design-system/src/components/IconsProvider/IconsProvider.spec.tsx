@@ -56,4 +56,12 @@ context('<IconsProvider />', () => {
 		);
 		cy.getByTestId('wrapper').find('symbol').should('have.length', 2);
 	});
+	it('should support additionalBundles props', () => {
+		const additionalBundles = ['/some/other/icons', '/more/icons/is/better'];
+		cy.intercept('/some/other/icons', '<svg data-test="other-icons"></svg>').as('getOtherBundle');
+		cy.intercept('/more/icons/is/better', '<svg data-test="more-icons"></svg>').as('getMoreBundle');
+		cy.mount(<IconsProvider bundles={[]} additionalBundles={additionalBundles} />);
+		cy.getByTest('other-icons').should('to.exist');
+		cy.getByTest('more-icons').should('to.exist');
+	});
 });

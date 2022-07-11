@@ -12,16 +12,14 @@ module.exports = {
 	},
 	rootDir: process.cwd(),
 	setupFilesAfterEnv: [path.join(__dirname, 'test-setup.js')],
-	testEnvironment: 'jest-environment-jsdom-global',
+	testEnvironment: 'jsdom',
 	testRegex: 'src/.*\\.test.(js|ts|tsx)$',
 	transform: {
 		...tsjestPreset.transform, // https://kulshekhar.github.io/ts-jest/user/config/#advanced
 		'^.+\\.jsx?$': ['babel-jest', { configFile: getBabelConfigPath() }],
 	},
 	snapshotSerializers: ['jest-serializer-html'],
-	modulePathIgnorePatterns: [
-		'<rootDir>/dist/cdn'
-	],
+	modulePathIgnorePatterns: ['<rootDir>/dist/cdn'],
 	globals: {
 		'ts-jest': {
 			// https://kulshekhar.github.io/ts-jest/user/config/babelConfig
