@@ -25,13 +25,14 @@ export const Default = () => (
 	<div>
 		<h1>Column chooser tooltip</h1>
 		<p>Default mode with minimal props</p>
-
-		<ColumnChooser
-			columnsFromList={columns}
-			nbLockedLeftItems={2}
-			id="default-column-chooser"
-			onSubmit={action('submit')}
-		/>
+		<div style={{ width: '400px', height: '400px' }}>
+			<ColumnChooser
+				columnsFromList={columns}
+				nbLockedLeftItems={2}
+				id="default-column-chooser"
+				onSubmit={action('submit')}
+			/>
+		</div>
 	</div>
 );
 
