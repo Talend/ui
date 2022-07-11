@@ -1,5 +1,18 @@
 # @talend/scripts-config-react-webpack
 
+## 13.1.0
+
+### Minor Changes
+
+- 904bd2040: feat: upgrade why-did-you-render-deps to support react 18
+
+### Patch Changes
+
+- Updated dependencies [d7a69e765]
+- Updated dependencies [0fd9f4c3b]
+  - @talend/react-cmf-webpack-plugin@6.36.9
+  - @talend/scripts-config-cdn@10.5.3
+
 ## 13.0.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/react-cmf-webpack-plugin
 
+## 6.36.9
+
+### Patch Changes
+
+- d7a69e765: fix: fallback to default output.path if not found
+
 ## 6.36.8
 
 ### Patch Changes

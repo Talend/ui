@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 3.7.0
+
+### Minor Changes
+
+- b8c67b7c0: fix(APIC-827): reset inputCopy state when input value changes
+
 ## 3.6.2
 
 ### Patch Changes
