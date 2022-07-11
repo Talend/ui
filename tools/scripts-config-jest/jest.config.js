@@ -17,6 +17,7 @@ module.exports = {
 	transform: {
 		...tsjestPreset.transform, // https://kulshekhar.github.io/ts-jest/user/config/#advanced
 		'^.+\\.jsx?$': ['babel-jest', { configFile: getBabelConfigPath() }],
+		'^.+\\.mjs?$': ['babel-jest', { configFile: getBabelConfigPath() }],
 	},
 	snapshotSerializers: ['jest-serializer-html'],
 	modulePathIgnorePatterns: ['<rootDir>/dist/cdn'],
