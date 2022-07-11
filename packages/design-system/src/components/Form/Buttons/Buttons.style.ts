@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 
 export const Buttons = styled.div`
 	display: flex;

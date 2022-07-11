@@ -11,7 +11,7 @@ import Link from '../../../Link';
 import { Icon } from '../../../Icon';
 import VisuallyHidden from '../../../VisuallyHidden';
 import Input, { InputProps } from './Input';
-import tokens from '../../../../tokens';
+import tokens from '../../../../deprecatedTokens';
 import Field from '../Field';
 
 const FileField = styled.div`

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { unstable_useId as useId, Checkbox as ReakitCheckbox } from 'reakit';
+import { Checkbox as ReakitCheckbox, unstable_useId as useId } from 'reakit';
 
 import useCheckboxState from './hooks/useCheckboxState';
 import { CheckboxProps } from './Input.Checkbox';
 
-import tokens from '../../../../tokens';
+import tokens from '../../../../deprecatedTokens';
 
 import { InlineStyle } from '../Field.style';
 

@@ -76,7 +76,7 @@ import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 import * as themes from './themes';
-import tokens from './tokens';
+import deprecatedTokens from './deprecatedTokens';
 
 export * from './components/Stack';
 export {
@@ -152,7 +152,7 @@ export {
 	Tooltip,
 	VisuallyHidden,
 	themes,
-	tokens,
+	deprecatedTokens,
 };
 
 export type { TooltipPlacement };
