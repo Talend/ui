@@ -41,7 +41,9 @@ function addToCopyConfig(info, config) {
 			to += '/';
 		}
 		if (fs.existsSync(from)) {
-			config.push({ from, to, info: { minimized: true } });
+			if (!config.find(c => c.from === from)) {
+				config.push({ from, to, info: { minimized: true } });
+			}
 		} else {
 			const found = findPackage(info);
 			if (!found) {
@@ -49,7 +51,9 @@ function addToCopyConfig(info, config) {
 			} else {
 				from = path.resolve(`${found}${info.path}`, '..');
 				if (fs.existsSync(from)) {
-					config.push({ from, to, info: { minimized: true } });
+					if (!config.find(c => c.from === from)) {
+						config.push({ from, to, info: { minimized: true } });
+					}
 				} else {
 					console.error(`cdn: ${from} path not found`);
 				}
