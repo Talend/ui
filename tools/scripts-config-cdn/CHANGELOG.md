@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.5.3
+
+### Patch Changes
+
+- 0fd9f4c3b: fix: do not copy the same lib multiple times
+
 ## 10.5.2
 
 ### Patch Changes
