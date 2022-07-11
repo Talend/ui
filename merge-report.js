@@ -25,6 +25,8 @@ function transform(item) {
 		item.warningCount += item.errorCount;
 		item.errorCount = 0;
 	}
+	// eslint-disable-next-line no-console
+	console.log({ item });
 	return item;
 }
 const info = run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] }).then(info =>
