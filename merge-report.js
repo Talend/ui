@@ -25,8 +25,13 @@ function transform(item) {
 		item.warningCount += item.errorCount;
 		item.errorCount = 0;
 	}
-	// eslint-disable-next-line no-console
-	console.log({ item });
+	if (
+		item.filePath === '/home/runner/work/ui/ui/packages/components/src/Drawer/Drawer.component.js'
+	) {
+		// eslint-disable-next-line no-console
+		console.log(item, item.messages);
+	}
+
 	return item;
 }
 const info = run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] }).then(info =>
