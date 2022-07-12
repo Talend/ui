@@ -21,6 +21,23 @@ import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
 
 import { dark, light } from '../src/themes';
 
+const TokenOrder = [
+	'Colors',
+	'Color Compositions',
+	'Color Charts',
+	'Branding',
+	'Gradients',
+	'Typography',
+	'Measures',
+	'Opacity',
+	'Radius',
+	'Borders',
+	'Shadows',
+	'Transitions',
+	'Elevations',
+	'Breakpoints',
+];
+
 export const globalTypes = {
 	theme: {
 		name: 'Theme',
@@ -299,7 +316,7 @@ export const parameters = {
 					['Stepper', 'Step'],
 				],
 				'Design Tokens',
-				['About tokens', 'Light', 'Dark'],
+				['About tokens', 'Light', TokenOrder, 'Dark', TokenOrder],
 				'[WIP] Components',
 				'[WIP] Templates',
 				'[Deprecated] Design Tokens',
