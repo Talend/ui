@@ -45,16 +45,16 @@ exports[`ColumnChooser should render with default props 1`] = `
       <div class="tc-column-chooser-body theme-tc-column-chooser-body">
         <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
           <div class="checkbox tc-checkbox">
-            <label for="my-id-body-checkbox-Select-All"
+            <label for="my-id-body-checkbox-Select-all"
                    data-feature="column-chooser.select.all.enable"
             >
               <input type="checkbox"
-                     id="my-id-body-checkbox-Select-All"
-                     data-checked="0"
+                     id="my-id-body-checkbox-Select-all"
+                     data-checked="1"
                      aria-describedby="my-id-body-display all the columns"
               >
               <span>
-                Select All
+                Select all
               </span>
             </label>
           </div>
