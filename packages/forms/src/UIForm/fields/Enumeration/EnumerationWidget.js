@@ -49,8 +49,8 @@ class EnumerationForm extends React.Component {
 		return ITEMS_DEFAULT_HEIGHT;
 	}
 
-	static parseStringValueToArray(values) {
-		if (this.enableSkip) {
+	static parseStringValueToArray(values, enableSkip) {
+		if (enableSkip) {
 			return values
 				.match(/(\\.|[^,])+/g)
 				.map(value => value.trim().replace(/\\,/g, ',').replace(/\\./g, '\\'));
@@ -438,7 +438,7 @@ class EnumerationForm extends React.Component {
 					actionsEdit: this.loadingInputsActions,
 				},
 			}));
-			const formattedValue = EnumerationForm.parseStringValueToArray(value.value);
+			const formattedValue = EnumerationForm.parseStringValueToArray(value.value, this.enableSkip);
 			this.props
 				.onTrigger(event, {
 					trigger: {
@@ -476,7 +476,7 @@ class EnumerationForm extends React.Component {
 
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				item.values = EnumerationForm.parseStringValueToArray(value.value);
+				item.values = EnumerationForm.parseStringValueToArray(value.value, this.enableSkip);
 			}
 			if (valueExist) {
 				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -709,7 +709,7 @@ class EnumerationForm extends React.Component {
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: EnumerationForm.parseStringValueToArray(value.value),
+						value: EnumerationForm.parseStringValueToArray(value.value, this.enableSkip),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
@@ -733,7 +733,7 @@ class EnumerationForm extends React.Component {
 				schema,
 				value: this.state.items.concat([
 					{
-						values: EnumerationForm.parseStringValueToArray(value.value),
+						values: EnumerationForm.parseStringValueToArray(value.value, this.enableSkip),
 					},
 				]),
 			};
