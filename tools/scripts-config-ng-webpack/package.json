@@ -10,9 +10,6 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
-    "pre-release": "echo nothing to pre-release",
-    "build": "echo nothing to build",
-    "test:demo": "echo nothing to test-demo",
     "test": "jest"
   },
   "repository": {
