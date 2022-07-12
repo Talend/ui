@@ -9,8 +9,10 @@ const { exec } = require('child_process');
 const semver = require('semver');
 const stripAnsi = require('strip-ansi');
 const colors = require('./colors');
+const { execPath } = require('process');
 
 const execProm = util.promisify(exec);
+const CWD = process.cwd();
 
 /**
  * Singleton used to update
@@ -116,6 +118,11 @@ async function checkVersionsOf(pkgJson, opts) {
 	for (const dependency of allDependencies) {
 		const [depName, requestedVersion] = dependency;
 
+		if (requestedVersion.startsWith('npm:') || requestedVersion.startsWith('github:')) {
+			console.log('unable to parse version', depName, requestedVersion);
+			continue;
+		}
+
 		let semantic = requestedVersion[0];
 		if (isNumeric(semantic)) {
 			semantic = '';
@@ -195,8 +202,40 @@ async function checkPackageJson(filePath, opts) {
 	return changed;
 }
 
+/** @returns function to filter */
+function getFilterInLockFile(opts) {
+	return key =>
+		(opts.scope && key.contains(`${opts.scope}/`)) ||
+		(opts.package && key.endsWith(`${opts.package}"`)) ||
+		(opts.startsWith && key.contains(opts.startsWith));
+}
+
+async function removeFromLockFile(opts) {
+	let content;
+	try {
+		content = await fs.readFile(`${CWD}/package-lock.json`);
+	} catch (e) {
+		console.error(e);
+		return;
+	}
+	const pkgLock = JSON.parse(content);
+	console.log(pkgLock);
+	Object.keys(pkgLock.packages)
+		.filter(getFilterInLockFile(opts))
+		.forEach(key => {
+			delete pkgLock.packages[key];
+			console.log(`remove ${key} from package-lock.json`);
+		});
+	try {
+		await fs.writeFile(`${CWD}/package-lock.json`, JSON.stringify(pkgLock, null, 2));
+	} catch (e) {
+		console.error(e);
+	}
+}
+
 module.exports = {
 	checkPackageJson,
 	getUpdate,
 	createPackageJsonManager,
+	removeFromLockFile,
 };
