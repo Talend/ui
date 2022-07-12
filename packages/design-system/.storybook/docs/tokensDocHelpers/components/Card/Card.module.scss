@@ -1,0 +1,12 @@
+@use '@talend/design-tokens/lib/tokens';
+
+.previewBox {
+  display: inline-flex;
+  border-radius: tokens.$coral-radius-m;
+  min-width: tokens.$coral-sizing-xxxl;
+  height: 8.4rem;
+
+  &__color {
+    box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+  }
+}

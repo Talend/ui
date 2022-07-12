@@ -17,6 +17,7 @@ module.exports = {
 		'../src/DesignSystem.stories.@(js|tsx|mdx)',
 		'../src/Status.stories.@(js|tsx|mdx)',
 		'../src/Catalog.stories.@(js|tsx|mdx)',
+		'../src/tokens/**/*.stories.@(js|tsx|mdx)',
 		'../src/deprecatedTokens/docs/*.stories.@(js|tsx|mdx)',
 		'../src/content/docs/VoiceAndTone.stories.@(js|tsx|mdx)',
 		'../src/content/docs/Internationalization.stories.@(js|tsx|mdx)',
