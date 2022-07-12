@@ -9,10 +9,20 @@ import { useCollectionSort } from './hooks/useCollectionSort.hook';
 import { useCollectionFilter } from './hooks/useCollectionFilter.hook';
 import theme from '../List.scss';
 
+const visibleColumnsStorageManager = {
+	get: persistanceKey => {
+		const item = persistanceKey && localStorage.getItem(persistanceKey);
+		return item ? JSON.parse(item) : undefined;
+	},
+	set: (persistanceKey, columns) => {
+		if (persistanceKey) localStorage.setItem(persistanceKey, JSON.stringify(columns));
+	},
+};
 function Manager({
 	initialDisplayMode,
 	initialSortParams,
 	initialVisibleColumns,
+	visibleColumnsStorageKey,
 	children,
 	t,
 	...rest
@@ -21,7 +31,15 @@ function Manager({
 
 	const [displayMode, setDisplayMode] = useState(initialDisplayMode || displayModesOptions[0]);
 	const [columns, setColumns] = useState([]);
-	const [visibleColumns, setVisibleColumns] = useState(initialVisibleColumns);
+
+	const [visibleColumns, setVisibleColumns] = useState(
+		visibleColumnsStorageManager.get(visibleColumnsStorageKey) || initialVisibleColumns,
+	);
+
+	const setPersistedVisibleColumns = columns => {
+		setVisibleColumns(columns);
+		visibleColumnsStorageManager.set(visibleColumnsStorageKey, columns);
+	};
 
 	// Sort items
 	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(
@@ -31,13 +49,8 @@ function Manager({
 	collection = sortedCollection;
 
 	// Filter by text
-	const {
-		filteredCollection,
-		textFilter,
-		setTextFilter,
-		filteredColumns,
-		setFilteredColumns,
-	} = useCollectionFilter(collection, undefined, undefined, visibleColumns);
+	const { filteredCollection, textFilter, setTextFilter, filteredColumns, setFilteredColumns } =
+		useCollectionFilter(collection, undefined, undefined, visibleColumns);
 	collection = filteredCollection;
 
 	const contextValues = {
@@ -50,7 +63,7 @@ function Manager({
 		setSortParams,
 		setTextFilter,
 		setColumns,
-		setVisibleColumns,
+		setVisibleColumns: setPersistedVisibleColumns,
 		setFilteredColumns,
 		sortParams,
 		t,
@@ -76,6 +89,7 @@ Manager.propTypes = {
 		sortBy: PropTypes.string,
 		isDescending: PropTypes.bool,
 	}),
+	visibleColumnsStorageKey: PropTypes.string,
 	t: PropTypes.func,
 };
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(Manager);
