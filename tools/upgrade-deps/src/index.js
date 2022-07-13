@@ -126,7 +126,7 @@ async function upgradeYarnProject(program) {
 				commands.unshift('yarn install');
 			}
 		} else {
-			yarn.removeFromLockFile(opts);
+			await yarn.removeFromLockFile(opts);
 			commands.unshift('yarn install');
 		}
 		spawnSync(yarn.getYarnDedupBin());
@@ -139,7 +139,7 @@ async function upgradeYarnProject(program) {
 async function upgradeNpmProject(program) {
 	const commands = [];
 	const opts = getOptions(program);
-	const changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
+	let changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
 	if (!opts.dry) {
 		if (!opts.scope && !opts.package && !opts.startsWith) {
 			commands.unshift('npm update');
@@ -147,7 +147,7 @@ async function upgradeNpmProject(program) {
 				commands.unshift('npm install');
 			}
 		} else {
-			npm.removeFromLockFile(opts);
+			await npm.removeFromLockFile(opts);
 			commands.unshift('npm install');
 		}
 		commands.push('npm prune');

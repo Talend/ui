@@ -2,6 +2,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-await-in-loop, no-restricted-syntax */
 const fs = require('fs');
+const fsprom = require('fs/promises');
 const os = require('os');
 const util = require('util');
 const path = require('path');
@@ -114,7 +115,7 @@ async function checkVersionsOf(pkgJson, opts) {
 		return false;
 	}
 
-	let changed = false;
+	const changed = false;
 	for (const dependency of allDependencies) {
 		const [depName, requestedVersion] = dependency;
 
@@ -203,17 +204,23 @@ async function checkPackageJson(filePath, opts) {
 }
 
 /** @returns function to filter */
-function getFilterInLockFile(opts) {
+function getFilterInLockFile(opts, exact) {
+	if (!exact) {
+		return key =>
+			(opts.scope && key.includes(`${opts.scope}/`)) ||
+			(opts.package && key.endsWith(`${opts.package}"`)) ||
+			(opts.startsWith && key.includes(opts.startsWith));
+	}
 	return key =>
-		(opts.scope && key.contains(`${opts.scope}/`)) ||
-		(opts.package && key.endsWith(`${opts.package}"`)) ||
-		(opts.startsWith && key.contains(opts.startsWith));
+		(opts.scope && key.startsWith(`${opts.scope}/`)) ||
+		(opts.package && key === opts.package) ||
+		(opts.startsWith && key.startsWith(opts.startsWith));
 }
 
 async function removeFromLockFile(opts) {
 	let content;
 	try {
-		content = await fs.readFile(`${CWD}/package-lock.json`);
+		content = await fsprom.readFile(`${CWD}/package-lock.json`);
 	} catch (e) {
 		console.error(e);
 		return;
@@ -226,8 +233,14 @@ async function removeFromLockFile(opts) {
 			delete pkgLock.packages[key];
 			console.log(`remove ${key} from package-lock.json`);
 		});
+	Object.keys(pkgLock.dependencies)
+		.filter(getFilterInLockFile(opts, true))
+		.forEach(key => {
+			delete pkgLock.dependencies[key];
+			console.log(`remove ${key} from package-lock.json`);
+		});
 	try {
-		await fs.writeFile(`${CWD}/package-lock.json`, JSON.stringify(pkgLock, null, 2));
+		await fsprom.writeFile(`${CWD}/package-lock.json`, JSON.stringify(pkgLock, null, 2));
 	} catch (e) {
 		console.error(e);
 	}
