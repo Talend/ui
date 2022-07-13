@@ -2,11 +2,9 @@ import React from 'react';
 
 import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
 import { PropsWithToken, TokensProps } from './TokensTypes';
-
-import TokensDefinitionList from './TokensDefinitionList';
 import { getDisplayName } from './TokenFormatter';
 import CardColor from './components/Card/CardColor';
-import DefinitionListItemColor from './components/DefinitionList/DefinitionListItem/DefinitionListItemColor';
+import DefinitionListColors from './components/DefinitionList/DefinitionListColors';
 
 const colorOrder = [
 	'neutral',
@@ -22,8 +20,7 @@ const colorOrder = [
 
 const TokensColor = ({ tokens }: TokensProps) => (
 	<>
-		<DefinitionListItemColor token={tokens[0]} />
-		<TokensDefinitionList
+		<DefinitionListColors
 			tokens={tokens
 				.filter((t: Token) => t.type === TokenType.COLOR)
 				.sort((tokenA: ColorToken, tokenB: ColorToken) => {
@@ -33,7 +30,7 @@ const TokensColor = ({ tokens }: TokensProps) => (
 				})}
 		>
 			{({ token }: PropsWithToken) => <CardColor color={token.value} />}
-		</TokensDefinitionList>
+		</DefinitionListColors>
 	</>
 );
 
