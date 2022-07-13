@@ -10,7 +10,6 @@ const { exec } = require('child_process');
 const semver = require('semver');
 const stripAnsi = require('strip-ansi');
 const colors = require('./colors');
-const { execPath } = require('process');
 
 const execProm = util.promisify(exec);
 const CWD = process.cwd();
