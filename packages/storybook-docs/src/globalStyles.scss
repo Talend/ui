@@ -53,7 +53,7 @@ html {
   &.sbdocs-content {
     padding: tokens.$coral-spacing-l tokens.$coral-spacing-xl;
     background: transparent;
-    max-width: 120rem;
+    max-width: 100rem;
   }
 
   // Code previews
@@ -271,6 +271,13 @@ html {
       background: tokens.$coral-color-neutral-background-medium;
       border: none;
     }
+  }
+
+  code {
+    font: tokens.$coral-data-m;
+    color: tokens.$coral-color-neutral-text;
+    border: none;
+    background: tokens.$coral-color-neutral-background-medium;
   }
 
   .sbdocs-a {

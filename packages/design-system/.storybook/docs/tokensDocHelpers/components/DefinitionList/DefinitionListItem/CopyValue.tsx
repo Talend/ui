@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { SizedIcon } from 'lib';
+import { SizedIcon } from '../../../../../../src/components/Icon';
 import classnames from 'classnames';
 
 import styles from './CopyValue.module.scss';

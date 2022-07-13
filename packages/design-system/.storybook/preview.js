@@ -11,6 +11,7 @@ import { addons } from '@storybook/addons';
 import { DocsContainer } from '@storybook/addon-docs';
 import { SET_STORIES, UPDATE_GLOBALS } from '@storybook/core-events';
 import { BackToTop, TableOfContents } from 'storybook-docs-toc';
+import '@talend/storybook-docs/dist/globalStyles.min.css';
 
 import 'focus-outline-manager';
 
@@ -68,30 +69,6 @@ export const globalTypes = {
 
 const getTheme = themeKey => (themeKey === 'dark' ? dark : light);
 
-const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
-	({ theme, hasFigmaIframe }) =>
-		`
-	.sb-show-main.sb-main-padded {
-		padding: 0;
-	}
-
-	.sbdocs.sbdocs-preview {
-		color: ${theme?.colors.textColor};
-		background: ${theme?.colors.backgroundColor};
-	}
-
-	.sbdocs .figma-iframe--light {
-		position: ${theme?.id === 'light' && hasFigmaIframe ? 'relative' : 'absolute'};
-		left:  ${theme?.id === 'light' && hasFigmaIframe ? 'auto' : '-9999rem'};
-	}
-
-	.sbdocs .figma-iframe--dark {
-		position: ${theme?.id === 'dark' && hasFigmaIframe ? 'relative' : 'absolute'};
-		left:  ${theme?.id === 'dark' && hasFigmaIframe ? 'auto' : '-9999rem'};
-	}
-	`,
-);
-
 const channel = addons.getChannel();
 
 let statusByPage = {};
@@ -118,7 +95,6 @@ channel.once(SET_STORIES, eventData => {
 export const parameters = {
 	docs: {
 		container: props => {
-			const [hasFigmaIframe, setFigmaIframe] = useLocalStorage('coral--has-figma-iframe', false);
 			const [hasDarkMode, setDarkMode] = useLocalStorage('coral--has-dark-mode', false);
 			const [hasBootstrapStylesheet, setBootstrapStylesheet] = useLocalStorage(
 				'coral--has-bootstrap-stylesheet',
@@ -240,7 +216,6 @@ export const parameters = {
 						<I18nextProvider i18n={i18n}>
 							<ThemeProvider theme={hasDarkMode ? dark : light}>
 								<ThemeProvider.GlobalStyle />
-								<StorybookGlobalStyle hasFigmaIframe={hasFigmaIframe} />
 								<DocsContainer {...props} />
 							</ThemeProvider>
 						</I18nextProvider>
