@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Import theme.
  * Being the first import is important, so that it is the default style
@@ -20,7 +21,10 @@ import { LeaguesList } from './components/List';
 import { Dataviz } from './components/Dataviz';
 
 import actions from './actions';
+// this is just to test html-loader config
+import foo from './foo.html';
 
+console.log('html-loader test is ok, output is a simple string', foo);
 // thanks ui-scripts
 let basename = window.basename;
 if (basename === '/') {

@@ -286,9 +286,10 @@ module.exports = ({ getUserConfig, mode }) => {
 							{
 								loader: 'html-loader',
 								options: {
-									minimize: true,
-									removeComments: true,
-									collapseWhitespace: true,
+									minimize: {
+										removeComments: true,
+										collapseWhitespace: true,
+									},
 								},
 							},
 						].filter(Boolean),
