@@ -1,18 +1,43 @@
+/* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const fs = require('fs');
 const cpx = require('cpx2');
 const semver = require('semver');
+const yarnpkg = require('@yarnpkg/lockfile');
+const rimraf = require('rimraf');
 
-function getTmpDirectory(prefix, fixturePath) {
+function getTmpDirectory(prefix, fixturePath, lock) {
 	const date = new Date();
 	const tmp = path.join(
 		__dirname,
 		`tmp-${prefix}-${date.toLocaleDateString().replace(/\//g, '-')}`,
 	);
 	cpx.copySync(path.join(fixturePath, '**'), tmp);
-	fs.renameSync(path.join(tmp, 'yarn-template.lock'), path.join(tmp, 'yarn.lock'));
+	if (lock === 'yarn.lock') {
+		fs.renameSync(path.join(tmp, 'yarn-template.lock'), path.join(tmp, 'yarn.lock'));
+		rimraf.sync(path.join(tmp, 'package-lock.json.tpl'));
+	} else {
+		fs.renameSync(path.join(tmp, 'package-lock.json.tpl'), path.join(tmp, 'package-lock.json'));
+		rimraf.sync(path.join(tmp, 'yarn-template.lock'));
+	}
 	return tmp;
+}
+
+function getLockContent(folder, lockFilename) {
+	let lockPath;
+	if (lockFilename === 'yarn.lock') {
+		lockPath = path.join(folder, 'yarn.lock');
+		if (!fs.existsSync(lockPath)) {
+			lockPath = path.join(folder, 'yarn-template.lock');
+		}
+		return yarnpkg.parse(fs.readFileSync(lockPath).toString());
+	}
+	lockPath = path.join(folder, 'package-lock.json');
+	if (!fs.existsSync(lockPath)) {
+		lockPath = path.join(folder, 'package-lock.json.tpl');
+	}
+	return JSON.parse(fs.readFileSync(lockPath).toString());
 }
 
 function getVersionFromRequirement(req) {
@@ -20,8 +45,13 @@ function getVersionFromRequirement(req) {
 }
 
 function getVersionFromLock(pkg, lock) {
-	const key = Object.keys(lock.object).find(nextKey => nextKey.startsWith(`${pkg}@`));
-	return lock.object[key].version;
+	if (lock.object) {
+		//yarn.lock
+		const key = Object.keys(lock.object).find(nextKey => nextKey.startsWith(`${pkg}@`));
+		return lock.object[key].version;
+	}
+	const key = Object.keys(lock.packages).find(nextKey => nextKey.includes(pkg));
+	return lock.packages[key].version;
 }
 
 function isMajorGT(pkg, pkgJsona, pkgJsonb) {
@@ -51,7 +81,13 @@ function isSameLockVersion(pkg, locka, lockb) {
 	return getVersionFromLock(pkg, locka) === getVersionFromLock(pkg, lockb);
 }
 function isMinorLockGT(pkg, locka, lockb) {
-	return semver.gt(getVersionFromLock(pkg, locka), getVersionFromLock(pkg, lockb));
+	const va = getVersionFromLock(pkg, locka);
+	const vb = getVersionFromLock(pkg, lockb);
+	const ok = semver.gt(va, vb);
+	if (!ok) {
+		console.log(`${pkg} ${va} !semver.gt ${vb}`);
+	}
+	return ok;
 }
 function isMajorLockGT(pkg, locka, lockb) {
 	return (
@@ -60,6 +96,7 @@ function isMajorLockGT(pkg, locka, lockb) {
 }
 
 module.exports = {
+	getLockContent,
 	getTmpDirectory,
 	getVersionFromRequirement,
 	getVersionFromLock,
