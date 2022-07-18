@@ -1,5 +1,15 @@
 # @talend/scripts-config-react-webpack
 
+## 13.2.0
+
+### Minor Changes
+
+- 99186eee4: feat: upgrade html-loader to 4.1
+
+### Patch Changes
+
+- 99186eee4: fix: configuration of minimize
+
 ## 13.1.0
 
 ### Minor Changes
