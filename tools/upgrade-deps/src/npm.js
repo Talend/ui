@@ -114,7 +114,7 @@ async function checkVersionsOf(pkgJson, opts) {
 		return false;
 	}
 
-	const changed = false;
+	let changed = false;
 	for (const dependency of allDependencies) {
 		const [depName, requestedVersion] = dependency;
 
