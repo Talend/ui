@@ -84,7 +84,7 @@ $popover-screen-width: 30rem;
 		flex-shrink: 0;
 		overflow: hidden;
 		width: $popover-screen-width;
-		transition: transform 400ms ease;
+		transition: transform tokens.$coral-transition-slow;
 	}
 
 	.screen-category {

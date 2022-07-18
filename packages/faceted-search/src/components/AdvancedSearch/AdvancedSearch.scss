@@ -17,13 +17,13 @@ $custom-icon-horizontal-offset: 2rem;
 	}
 
 	&-error {
-		margin-left: $padding-small;
+		margin-left: tokens.$coral-spacing-xs;
 		color: tokens.$coral-color-danger-text;
 	}
 
 	.adv-search-input {
 		border-radius: tokens.$coral-radius-s;
-		border: 0.1rem solid tokens.$coral-color-neutral-border-weak;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 		box-shadow: none;
 		color: tokens.$coral-color-neutral-text-weak;
 		height: $faceted-advanced-search-height;
