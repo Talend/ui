@@ -1,5 +1,17 @@
 # @talend/scripts-config-jest
 
+## 11.1.0
+
+### Minor Changes
+
+- 6fcd6e9f4: feat: Support .mjs files transform
+
+## 11.0.0
+
+### Major Changes
+
+- b16efa779: Major upgrade to jest 28 with adapter config
+
 ## 10.2.2
 
 ### Patch Changes

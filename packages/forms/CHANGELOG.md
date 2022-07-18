@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 8.0.1
+
+### Patch Changes
+
+- a9d70b1a8: Revert change in .npmignore about build-utils.js
+- c47d27218: deps(forms): add react-ace as dep
+- Updated dependencies [2a8de8a55]
+  - @talend/design-system@3.6.1
+
 ## 8.0.0
 
 ### Major Changes

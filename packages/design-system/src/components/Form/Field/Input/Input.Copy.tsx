@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCopyToClipboard } from 'react-use';
 import { useTranslation } from 'react-i18next';
 import FieldGroup from '../../FieldGroup';
@@ -11,10 +11,28 @@ const InputCopy = React.forwardRef(
 		{ label, disabled, readOnly, value, defaultValue, prefix, ...rest }: InputProps,
 		ref: React.Ref<HTMLInputElement | null>,
 	) => {
-		const [{ value: copiedValue, error: copyError }, copyToClipboard] = useCopyToClipboard();
+		const [copiedValue, setCopiedValue] = useState('');
+		const [copyError, setCopyError] = useState<Error | undefined | null>(null);
+		const [{ value: clipboardValue, error: clipboardError }, copyToClipboard] =
+			useCopyToClipboard();
 		const inputRef = React.useRef<HTMLInputElement | null>(null);
 		const { t } = useTranslation();
 		const inputValue = value || defaultValue;
+
+		useEffect(() => {
+			if (inputValue !== copiedValue) {
+				setCopiedValue('');
+				setCopyError(null);
+			}
+		}, [inputValue, copiedValue]);
+
+		useEffect(() => {
+			setCopiedValue(clipboardValue as string);
+		}, [clipboardValue]);
+
+		useEffect(() => {
+			setCopyError(clipboardError);
+		}, [clipboardError]);
 
 		React.useImperativeHandle(ref, () => inputRef.current);
 

@@ -119,10 +119,12 @@ function isRootProvider(ref: RefObject<any>) {
  */
 export function IconsProvider({
 	bundles = DEFAULT_BUNDLES,
+	additionalBundles = [],
 	defaultIcons = {},
 	icons = {},
 }: {
-	bundles?: string[] | [];
+	bundles?: string[];
+	additionalBundles?: string[];
 	defaultIcons?: Record<string, ReactElement>;
 	icons?: Record<string, ReactElement>;
 }) {
@@ -131,10 +133,12 @@ export function IconsProvider({
 	const [shouldRender, setShouldRender] = useState(true);
 
 	useEffect(() => {
-		if (!Array.isArray(bundles)) {
+		if (!Array.isArray(bundles) || !Array.isArray(additionalBundles)) {
 			return;
 		}
+
 		bundles
+			.concat(additionalBundles)
 			.filter(url => !hasBundle(url))
 			.forEach(url => {
 				FETCHING_BUNDLES[url] = fetch(url)
@@ -143,7 +147,7 @@ export function IconsProvider({
 						delete FETCHING_BUNDLES[url];
 					});
 			});
-	}, [bundles]);
+	}, [bundles, additionalBundles]);
 
 	useEffect(() => {
 		if (!isRootProvider(ref)) {

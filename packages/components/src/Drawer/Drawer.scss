@@ -87,7 +87,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		}
 	}
 
-	&-title {
+	&-menu {
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -95,14 +95,33 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		height: $tc-drawer-header-height;
 		padding: $tc-drawer-padding;
 
-		h1 {
+		.tc-drawer-header-title {
+			display: flex;
 			flex: 1;
-			margin: 0;
-			font-size: $font-size-h2;
-			color: $tc-drawer-header-color;
+			flex-direction: column;
+			justify-content: center;
+
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
+			
+			h1 {
+				flex: 1;
+				margin: 0;
+				font-size: $font-size-h2;
+				color: $tc-drawer-header-color;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+
+			:global(.tc-editable-text) {
+				flex: 1;
+			}
+
+			> .tc-editable-text {
+				width: unset;
+			}
 		}
 
 		.tc-drawer-close-action {
@@ -111,19 +130,15 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			color: $tc-drawer-header-color;
 		}
 
-		:global(.tc-editable-text) {
-			flex: 1;
-		}
-
 		.drawer-close-action-tooltip {
 			position: absolute;
 			right: 0;
 			bottom: calc(#{$tc-drawer-padding} / 2);
 		}
+	}
 
-		> .tc-editable-text {
-			width: unset;
-		}
+	&-subtitle {
+		padding-top: $padding-smaller;
 	}
 }
 

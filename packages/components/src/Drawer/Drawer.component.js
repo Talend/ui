@@ -120,10 +120,12 @@ export function SubtitleComponent({ subtitle, ...rest }) {
 
 	const { subtitleTagLabel, subtitleTagTooltip } = rest;
 	return (
-		<StackHorizontal gap="XXS">
-			<h2 title={subtitle}>{subtitle}</h2>
-			{subtitleTagLabel && renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip)}
-		</StackHorizontal>
+		<div className={css('tc-drawer-header-subtitle')}>
+			<StackHorizontal gap="XS" align="center">
+				<h2 title={subtitle}>{subtitle}</h2>
+				{subtitleTagLabel && renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip)}
+			</StackHorizontal>
+		</div>
 	);
 }
 
@@ -180,32 +182,37 @@ function DrawerTitle({
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div className={css('tc-drawer-header')}>
-			<div className={css('tc-drawer-header-title')}>
-				{!editable ? (
-					<h1 title={title}>{title}</h1>
-				) : (
-					<InjectedEditableText
-						text={title}
-						inProgress={inProgress}
-						feature="drawertitle.rename"
-						componentClass="h1"
-						onEdit={handleEdit}
-						onCancel={handleCancel}
-						onSubmit={handleSubmit}
-						editMode={isEditMode}
-						{...props}
-					/>
-				)}
-				{!isEditMode ? (
-					<SubtitleComponent
-						subtitle={subtitle}
-						subtitleTagLabel={subtitleTagLabel}
-						subtitleTagTooltip={subtitleTagTooltip}
-					/>
-				) : null}
+			<div className={css('tc-drawer-header-menu')}>
+				<div className={css('tc-drawer-header-title')}>
+					{!editable ? (
+						<h1 title={title}>{title}</h1>
+					) : (
+						<InjectedEditableText
+							text={title}
+							inProgress={inProgress}
+							feature="drawertitle.rename"
+							componentClass="h1"
+							onEdit={handleEdit}
+							onCancel={handleCancel}
+							onSubmit={handleSubmit}
+							editMode={isEditMode}
+							{...props}
+						/>
+					)}
+
+					{!isEditMode ? (
+						<SubtitleComponent
+							subtitle={subtitle}
+							subtitleTagLabel={subtitleTagLabel}
+							subtitleTagTooltip={subtitleTagTooltip}
+						/>
+					) : null}
+				</div>
+
 				{renderTitleActions()}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
+
 			<div className={css('tc-drawer-header-with-tabs')}>{children}</div>
 		</div>
 	);
