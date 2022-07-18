@@ -1,0 +1,64 @@
+@use '@talend/design-tokens/lib/tokens';
+
+.tab {
+  font: tokens.$coral-heading-s;
+  height: tokens.$coral-sizing-xs;
+  color: tokens.$coral-color-neutral-text-weak;
+  position: relative;
+  display: inline-flex;
+  justify-content: start;
+  align-items: start;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  &__copy {
+    max-width: tokens.$coral-sizing-xxxl;
+    text-overflow: ellipsis;
+    min-width: 0;
+    overflow: hidden;
+    text-align: left;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  > svg {
+    color: tokens.$coral-color-neutral-icon-weak;
+  }
+
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: tokens.$coral-border-m-solid tokens.$coral-color-accent-border;
+    opacity: 0;
+    transition: tokens.$coral-transition-fast;
+    transform: translateY(100%);
+  }
+
+  &[aria-selected="true"] {
+    color: tokens.$coral-color-accent-text;
+
+    > svg {
+      color: tokens.$coral-color-accent-icon;
+    }
+
+    &:after {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  &_large {
+    font: tokens.$coral-heading-l;
+    height: tokens.$coral-sizing-s;
+
+    &:not(:last-of-type){
+      margin-right: tokens.$coral-spacing-s;
+    }
+  }
+}

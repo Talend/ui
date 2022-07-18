@@ -1,7 +1,8 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, Use } from '~docs';
 import InlineMessageWarning from '../../../InlineMessage/variations/InlineMessageWarning';
 import { StackVertical } from '../../../Stack';
+import * as Stories from '../Tabs.stories';
 
 import Tabs from '../index';
 import { Icon } from '../../../Icon';
@@ -50,6 +51,16 @@ Tabs are used for switching between different views, functional aspects or categ
 	light="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A201"
 	dark="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=311%3A179"
 />
+
+<Canvas>
+	<Story story={Stories.TabStandalone} />
+	<Story story={Stories.TabStandaloneLarge} />
+</Canvas>
+
+<Canvas>
+	<Story story={Stories.TabsWithComposition} />
+	<Story story={Stories.TabsWithCompositionLarge} />
+</Canvas>
 
 <Canvas>
 	<Story name="default">
