@@ -4,22 +4,18 @@ import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import { DataAttributes } from '../../../../types';
-import { TagVariant } from '../../../Tag/Tag';
 import { StackHorizontal } from '../../../Stack';
 import { SizedIcon } from '../../../Icon';
-import { Tag } from '../../../Tag';
 
 import styles from './TabStyles.module.scss';
 import Tooltip, { TooltipPlacement } from '../../../Tooltip';
+import { TagDefault } from '../../../Tag';
 
 type TabChildren =
 	| {
 			title: string;
 			icon?: IconNameWithSize<'S'>;
-			tag?: {
-				value: string | number;
-				variant: keyof typeof TagVariant;
-			};
+			tag?: string | number;
 	  }
 	| { children: string };
 
@@ -66,7 +62,7 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 				<StackHorizontal gap="XXS" align="center" display="inline">
 					{icon && <SizedIcon size="S" name={icon} />}
 					<span className={styles.tab__copy}>{title}</span>
-					{tag && <Tag variant={tag.variant}>{tag.value}</Tag>}
+					{tag && <TagDefault>{tag}</TagDefault>}
 				</StackHorizontal>
 			</ReakitTab>
 		);

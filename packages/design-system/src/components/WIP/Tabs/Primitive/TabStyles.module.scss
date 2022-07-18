@@ -12,6 +12,7 @@
   border: 0;
   padding: 0;
   margin: 0;
+  transition: all tokens.$coral-transition-fast;
 
   &__copy {
     max-width: tokens.$coral-sizing-xxxl;
@@ -36,7 +37,7 @@
     width: 100%;
     border-top: tokens.$coral-border-m-solid tokens.$coral-color-accent-border;
     opacity: 0;
-    transition: tokens.$coral-transition-fast;
+    transition: all tokens.$coral-transition-fast;
     transform: translateY(100%);
   }
 
@@ -52,6 +53,23 @@
       transform: translateY(0%);
     }
   }
+
+  &:hover {
+    color: tokens.$coral-color-accent-text-hover;
+
+    > svg {
+      color: tokens.$coral-color-accent-icon-hover;
+    }
+  }
+
+  &:active {
+    color: tokens.$coral-color-accent-text-active;
+
+    > svg {
+      color: tokens.$coral-color-accent-icon-active;
+    }
+  }
+
 
   &_large {
     font: tokens.$coral-heading-l;
