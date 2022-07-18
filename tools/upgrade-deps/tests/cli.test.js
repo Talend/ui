@@ -43,15 +43,15 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		}
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
 		const pkgSub = JSON.parse(readFileSync(path.join(tmp, 'packages', 'suba', 'package.json')));
-		expect(pkg.devDependencies.chokidar).not.toBe(origin.devDependencies.chokidar);
-		expect(pkg.devDependencies.chokidar).toBe('^2.1.8');
-		expect(isMinorGt('chokidar', pkg, origin)).toBe(true);
+		expect(pkg.devDependencies.chokidar).toBe(origin.devDependencies.chokidar);
+		expect(pkg.devDependencies.chokidar).toBe('2.1.8');
+		expect(isMinorGt('chokidar', pkg, origin)).toBe(false);
+		expect(isMinorGt('react', pkg, origin)).toBe(true);
 		expect(isMinorGt('react-dom', pkg, origin)).toBe(true);
 		// no update on this old version installed
-		expect(isMinorLockGT('chokidar', tmpLock, originLock)).toBe(false);
+		expect(isMinorLockGT('react', tmpLock, originLock)).toBe(true);
 		expect(isMinorLockGT('react-dom', tmpLock, originLock)).toBe(true);
 		// sub package should be also updated
-		console.error(pkgSub, originSub);
 		expect(isMinorGt('react', pkgSub, originSub)).toBe(true);
 	});
 
@@ -66,7 +66,6 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 			console.error(err);
 		}
 		expect(logs).toContain('package.json using same requirements');
-		expect(logs).toContain('"chokidar": "^2.1.0" => "^2.1.8"');
 		expect(logs).toContain('check versions of');
 		expect(output.error).toBeUndefined();
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
@@ -84,10 +83,8 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		const tmpLock = getLockContent(tmp, lock);
 		const logs = output.stdout.toString();
 		expect(logs).toContain('package.json using latest');
-		expect(logs).toContain('"chokidar": "^2.1.0" => "');
-		expect(logs).toContain('"react-dom": "^16.0.0" => "');
-		expect(logs).toContain('"react": "16.0.0" => "');
-		expect(logs).toContain('"react": "16.0.0" => "');
+		expect(logs).toContain('"react-dom": "^16.6.0" => "');
+		expect(logs).toContain('"react": "^16.6.0" => "');
 		expect(logs).toContain('update all packages versions of');
 		expect(output.error).toBeUndefined();
 

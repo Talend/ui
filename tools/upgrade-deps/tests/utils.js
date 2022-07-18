@@ -11,7 +11,7 @@ function getTmpDirectory(prefix, fixturePath, lock) {
 	const date = new Date();
 	const tmp = path.join(
 		__dirname,
-		`tmp-${prefix}-${date.toLocaleDateString().replace(/\//g, '-')}`,
+		`tmp-${prefix}-${lock}-${date.toLocaleDateString().replace(/\//g, '-')}`,
 	);
 	cpx.copySync(path.join(fixturePath, '**'), tmp);
 	if (lock === 'yarn.lock') {
@@ -84,9 +84,6 @@ function isMinorLockGT(pkg, locka, lockb) {
 	const va = getVersionFromLock(pkg, locka);
 	const vb = getVersionFromLock(pkg, lockb);
 	const ok = semver.gt(va, vb);
-	if (!ok) {
-		console.log(`${pkg} ${va} !semver.gt ${vb}`);
-	}
 	return ok;
 }
 function isMajorLockGT(pkg, locka, lockb) {
