@@ -6,7 +6,7 @@
     "eslint": "^7.32.0",
     "husky": "^7.0.4",
     "i18next-scanner": "^3.3.0",
-    "lint-staged": "^12.5.0",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   },
   "scripts": {
@@ -33,7 +33,7 @@
     "prepare": "husky install"
   },
   "resolutions": {
-    "webpack": "^5.72.0",
+    "webpack": "^5.73.0",
     "@storybook/react/webpack": "^5.72.0",
     "@storybook/core-common/webpack": "^5.72.0",
     "@storybook/core-server/webpack": "^5.72.0",
@@ -67,7 +67,7 @@
     ]
   },
   "dependencies": {
-    "typescript": ">=4.6.3",
-    "webpack": "^5.72.0"
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0"
   }
 }

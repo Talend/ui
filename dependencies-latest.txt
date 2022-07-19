@@ -15,7 +15,6 @@ check versions of /home/runner/work/ui/ui/package.json using latest
 "eslint": "^7.32.0" => "^8.19.0"
 "husky": "^7.0.4" => "^8.0.1"
 "i18next-scanner": "^3.3.0" => "^4.0.0"
-"lint-staged": "^12.5.0" => "^13.0.3"
 
 check versions of packages/assets-api/package.json using latest
 "read-pkg-up": "^7.0.1" => "^9.1.0"
@@ -112,7 +111,6 @@ check versions of packages/faceted-search/package.json using latest
 "uuid": "^3.4.0" => "^8.3.2"
 "husky": "^4.3.8" => "^8.0.1"
 "i18next": "^20.6.1" => "^21.8.13"
-"lint-staged": "^12.5.0" => "^13.0.3"
 "react": "^17.0.2" => "^18.2.0"
 "react-dom": "^17.0.2" => "^18.2.0"
 
