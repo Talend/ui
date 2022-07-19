@@ -12,7 +12,7 @@ module.exports = {
 	},
 	rootDir: process.cwd(),
 	setupFilesAfterEnv: [path.join(__dirname, 'test-setup.js')],
-	testEnvironment: 'jsdom',
+	testEnvironment: 'jest-environment-jsdom-global',
 	testRegex: 'src/.*\\.test.(js|ts|tsx)$',
 	transform: {
 		...tsjestPreset.transform, // https://kulshekhar.github.io/ts-jest/user/config/#advanced
