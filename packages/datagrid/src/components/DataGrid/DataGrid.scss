@@ -4,12 +4,12 @@ $td-datagrid-skeleton-width: 9.6rem !default;
 $td-datagrid-skeleton-height: 9.6rem !default;
 
 .td-grid {
-	--ag-borders: var(--coral-border-s-solid);
-	--ag-borders-row: var(--coral-border-s-solid);
-	--ag-borders-critical: var(--coral-border-s-solid);
-	--ag-border-color: var(--coral-color-neutral-border-weak);
-	--ag-row-border-color: var(--coral-color-neutral-border-weak);
-	--ag-cell-horizontal-border: var(--coral-border-s-solid) var(--coral-color-neutral-border-weak);
+	--ag-borders: #{tokens.$coral-border-s-solid};
+	--ag-borders-row: #{tokens.$coral-border-s-solid};
+	--ag-borders-critical: #{tokens.$coral-border-s-solid};
+	--ag-border-color: #{tokens.$coral-color-neutral-border-weak};
+	--ag-row-border-color: #{tokens.$coral-color-neutral-border-weak};
+	--ag-cell-horizontal-border: #{tokens.$coral-border-s-solid} #{tokens.$coral-color-neutral-border-weak};
 	--ag-data-color: tokens.$coral-color-neutral-text;
 	background-color: tokens.$coral-color-neutral-background;
 	height: 100%;
@@ -41,9 +41,19 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		padding: 1rem;
 	}
 
-	:global(.ag-header-cell), :global(.ag-pinned-left-cols-container) {
+	:global(.ag-header-cell),
+	:global(.ag-pinned-left-cols-container) {
 		border-right: var(--ag-cell-horizontal-border);
 	}
+
+	:global(.ag-header-cell-comp-wrapper) {
+		height: 100%;
+	}
+
+	:global(.ag-cell) {
+		border: none;
+	}
+
 
 	/* ==== COLUMN ====  */
 
@@ -74,7 +84,7 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 
 	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
 		background-color: tokens.$coral-color-neutral-background;
-		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border !important;;
-		outline-offset: -2px
+		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border !important;
+		outline-offset: -2px;
 	}
 }
