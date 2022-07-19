@@ -2,9 +2,9 @@
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { readFileSync } = require('fs');
-const yarnpkg = require('@yarnpkg/lockfile');
 const rimraf = require('rimraf');
 const {
+	getLockContent,
 	getTmpDirectory,
 	isMinorGt,
 	isMinorLockGT,
@@ -17,22 +17,24 @@ const {
 const fixturePath = path.join(__dirname, 'fixture', 'basic');
 const bin = path.resolve(__dirname, '..', 'bin', 'cli.js');
 const origin = JSON.parse(readFileSync(path.join(fixturePath, 'package.json')));
-const originLock = yarnpkg.parse(
-	readFileSync(path.join(fixturePath, 'yarn-template.lock')).toString(),
-);
+let originLock;
+
 const originSub = JSON.parse(
 	readFileSync(path.join(fixturePath, 'packages', 'suba', 'package.json')),
 );
 
-describe('talend-upgrade-deps', () => {
+describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock => {
+	beforeEach(() => {
+		originLock = getLockContent(fixturePath, lock);
+	});
 	afterAll(() => {
 		rimraf.sync(path.join(__dirname, 'tmp-basic-*'));
 	});
 
-	it('should by default only do safe upgrade', () => {
-		const tmp = getTmpDirectory('basic-default', fixturePath);
+	it('should by default only do safe upgrade', async () => {
+		const tmp = await getTmpDirectory('basic-default', fixturePath, lock);
 		const output = spawnSync('node', [bin, '-v'], { cwd: tmp });
-		const tmpLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString());
+		const tmpLock = getLockContent(tmp, lock);
 		expect(output.error).toBeUndefined();
 		const err = output.stderr.toString();
 		if (err) {
@@ -40,22 +42,22 @@ describe('talend-upgrade-deps', () => {
 		}
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
 		const pkgSub = JSON.parse(readFileSync(path.join(tmp, 'packages', 'suba', 'package.json')));
-		expect(pkg.devDependencies.chokidar).not.toBe(origin.devDependencies.chokidar);
-		expect(pkg.devDependencies.chokidar).toBe('^2.1.8');
-		expect(isMinorGt('chokidar', pkg, origin)).toBe(true);
+		expect(pkg.devDependencies.chokidar).toBe(origin.devDependencies.chokidar);
+		expect(pkg.devDependencies.chokidar).toBe('2.1.8');
+		expect(isMinorGt('chokidar', pkg, origin)).toBe(false);
+		expect(isMinorGt('react', pkg, origin)).toBe(true);
 		expect(isMinorGt('react-dom', pkg, origin)).toBe(true);
 		// no update on this old version installed
-		expect(isMinorLockGT('chokidar', tmpLock, originLock)).toBe(false);
+		expect(isMinorLockGT('react', tmpLock, originLock)).toBe(true);
 		expect(isMinorLockGT('react-dom', tmpLock, originLock)).toBe(true);
 		// sub package should be also updated
-		console.error(pkgSub, originSub);
 		expect(isMinorGt('react', pkgSub, originSub)).toBe(true);
 	});
 
-	it('should support a --dry option where files are not updated', () => {
-		const tmp = getTmpDirectory('basic-dry', fixturePath);
+	it('should support a --dry option where files are not updated', async () => {
+		const tmp = await getTmpDirectory('basic-dry', fixturePath, lock);
 		const output = spawnSync('node', [bin, '--dry'], { cwd: tmp });
-		const tmpLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString());
+		const tmpLock = getLockContent(tmp, lock);
 		// the logs should show the need to update chokidar
 		const logs = output.stdout.toString();
 		const err = output.stderr.toString();
@@ -63,7 +65,6 @@ describe('talend-upgrade-deps', () => {
 			console.error(err);
 		}
 		expect(logs).toContain('package.json using same requirements');
-		expect(logs).toContain('"chokidar": "^2.1.0" => "^2.1.8"');
 		expect(logs).toContain('check versions of');
 		expect(output.error).toBeUndefined();
 		const pkg = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
@@ -71,20 +72,18 @@ describe('talend-upgrade-deps', () => {
 		expect(tmpLock).toMatchObject(originLock);
 	});
 
-	it('should support a --latest option', () => {
-		const tmp = getTmpDirectory('basic-latest', fixturePath);
+	it('should support a --latest option', async () => {
+		const tmp = await getTmpDirectory('basic-latest', fixturePath, lock);
 		const output = spawnSync('node', [bin, '--latest'], { cwd: tmp });
 		const err = output.stderr.toString();
 		if (err) {
 			console.error(err);
 		}
-		const tmpLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString());
+		const tmpLock = getLockContent(tmp, lock);
 		const logs = output.stdout.toString();
 		expect(logs).toContain('package.json using latest');
-		expect(logs).toContain('"chokidar": "^2.1.0" => "');
-		expect(logs).toContain('"react-dom": "^16.0.0" => "');
-		expect(logs).toContain('"react": "16.0.0" => "');
-		expect(logs).toContain('"react": "16.0.0" => "');
+		expect(logs).toContain('"react-dom": "^16.6.0" => "');
+		expect(logs).toContain('"react": "^16.6.0" => "');
 		expect(logs).toContain('update all packages versions of');
 		expect(output.error).toBeUndefined();
 
@@ -97,8 +96,8 @@ describe('talend-upgrade-deps', () => {
 		expect(isMajorLockGT('react', tmpLock, originLock)).toBe(true);
 	});
 
-	it('should support a --scope option', () => {
-		const tmp = getTmpDirectory('basic-scope', fixturePath);
+	it('should support a --scope option', async () => {
+		const tmp = await getTmpDirectory('basic-scope', fixturePath, lock);
 		const output = spawnSync('node', [bin, '--scope=@talend'], { cwd: tmp });
 		const err = output.stderr.toString();
 		if (err) {
@@ -114,13 +113,13 @@ describe('talend-upgrade-deps', () => {
 		expect(isSameVersion('chokidar', pkg, origin)).toBe(true);
 		expect(isSameVersion('react-dom', pkg, origin)).toBe(true);
 
-		const tmpLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString());
+		const tmpLock = getLockContent(tmp, lock);
 		expect(isSameLockVersion('chokidar', tmpLock, originLock)).toBe(true);
 		expect(isSameLockVersion('react-dom', tmpLock, originLock)).toBe(true);
 	});
 
-	it('should support a --starts-with option', () => {
-		const tmp = getTmpDirectory('basic-startsWith', fixturePath);
+	it('should support a --starts-with option', async () => {
+		const tmp = await getTmpDirectory('basic-startsWith', fixturePath, lock);
 		const output = spawnSync('node', [bin, '--starts-with=@talend/scripts'], { cwd: tmp });
 		const err = output.stderr.toString();
 		if (err) {
@@ -136,7 +135,7 @@ describe('talend-upgrade-deps', () => {
 		expect(isSameVersion('chokidar', pkg, origin)).toBe(true);
 		expect(isSameVersion('react', pkg, origin)).toBe(true);
 
-		const tmpLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString());
+		const tmpLock = getLockContent(tmp, lock);
 		expect(isSameLockVersion('chokidar', tmpLock, originLock)).toBe(true);
 		expect(isSameLockVersion('react', tmpLock, originLock)).toBe(true);
 	});
