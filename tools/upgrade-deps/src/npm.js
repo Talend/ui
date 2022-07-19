@@ -249,7 +249,6 @@ async function removeFromLockFile(opts) {
 		return;
 	}
 	const pkgLock = JSON.parse(content);
-	console.log(pkgLock);
 	Object.keys(pkgLock.packages)
 		.filter(getFilterInLockFile(opts))
 		.forEach(key => {

@@ -151,7 +151,6 @@ async function upgradeNpmProject(program) {
 			commands.unshift('npm install');
 		}
 		commands.push('npm prune');
-		spawnSync(yarn.getYarnDedupBin());
 		return executeAll(commands);
 	}
 }
