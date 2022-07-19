@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount, shallow } from 'enzyme';
-import toJsonWithoutI18n from '../../test/props-without-i18n';
+import { render, screen } from '@testing-library/react';
 
 import Drawer, { cancelActionComponent, combinedFooterActions } from './Drawer.component';
 
@@ -61,11 +60,12 @@ describe('Drawer', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 	it('should render cancelActionComponent', () => {
-		const wrapper = mount(cancelActionComponent({ id: 'test' }));
-		expect(wrapper.find('button')).toBeTruthy();
+		render(cancelActionComponent({ id: 'test' }));
+		expect(screen.getByRole('link')).toBeInTheDocument();
 	});
 	it('should not render cancelActionComponent', () => {
-		expect(cancelActionComponent()).toBe(null);
+		render(cancelActionComponent());
+		expect(screen.queryByRole('link')).not.toBeInTheDocument();
 	});
 	it('should render with tabs', () => {
 		const tabs = {
@@ -159,14 +159,21 @@ describe('Drawer', () => {
 			],
 			onSelect: jest.fn(),
 		};
-		const wrapper = mount(
+		render(
 			<Drawer tabs={tabs} selectedTabKey="2">
 				<h1>Hello world</h1>
 			</Drawer>,
 		);
 
-		expect(wrapper.find('ActionBar')).toHaveLength(1);
-		expect(toJsonWithoutI18n(wrapper.find('ActionBar'))).toMatchSnapshot();
+		expect(screen.getByText('Tab 1')).toBeInTheDocument();
+		expect(screen.getByText('Tab 2')).toBeInTheDocument();
+		expect(screen.getByText('Tab 3')).toBeInTheDocument();
+
+		expect(screen.getByText('Hello world')).toBeInTheDocument();
+		expect(screen.getByText('ActionCenter-tab-2')).toBeInTheDocument();
+
+		expect(screen.queryByText('ActionLeft-tab-1')).not.toBeInTheDocument();
+		expect(screen.queryByText('ActionCenter-tab-3')).not.toBeInTheDocument();
 	});
 
 	it('render drawer content without extra className', () => {
@@ -213,23 +220,29 @@ describe('Drawer', () => {
 			footerActions: { actions: { left: [] } },
 		};
 
-		const wrapper = shallow(
+		render(
 			<Drawer {...props}>
 				<p>simple drawer</p>
 			</Drawer>,
 		);
 
-		expect(wrapper.find('TabBar')).toHaveLength(0);
-		expect(wrapper.find('CustomTabBar')).toHaveLength(1);
-		expect(wrapper.find('DrawerTitle').dive().find('Action')).toHaveLength(0);
-		expect(wrapper.find('DrawerTitle').dive().find('CustomAction')).toHaveLength(1);
+		expect(screen.getByText('injected tabbar')).toBeInTheDocument();
+		expect(screen.getByText('custom')).toBeInTheDocument();
 	});
 
-	it('render children event if there is no title', () => {
+	it('render children even if there is no title', () => {
 		function getComponent(name) {
 			if (name === 'EditableText') {
 				return function EditableText() {
 					return <input />;
+				};
+			} else if (name === 'TabBar') {
+				return function CustomTabBar() {
+					return <p className="custom">injected tabbar</p>;
+				};
+			} else if (name === 'Action') {
+				return function CustomAction() {
+					return <button>custom</button>;
 				};
 			}
 			return null;
@@ -240,13 +253,13 @@ describe('Drawer', () => {
 			tabs: { items: [{ item: { key: 'tab1', label: 'tab1' }, onClick: jest.fn() }] },
 		};
 
-		const wrapper = shallow(
+		render(
 			<Drawer {...props}>
 				<p>simple drawer</p>
 			</Drawer>,
 		);
 
-		expect(wrapper.find('DrawerTitle')).toHaveLength(1);
+		expect(screen.getByText('simple drawer')).toBeInTheDocument();
 	});
 
 	it('test combinedFooterActions with existing actions left and onCancelAction', () => {
@@ -364,13 +377,6 @@ describe('Drawer', () => {
 		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
 		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
 	});
-
-	it('should render cancelActionComponent with passed in className', () => {
-		const wrapper = mount(cancelActionComponent({ className: 'btn-inverse' }));
-		expect(wrapper.find('Action').prop('className')).toEqual(
-			'tc-drawer-close-action theme-tc-drawer-close-action btn-inverse theme-btn-inverse',
-		);
-	});
 });
 
 function getComponent(name) {
@@ -391,8 +397,8 @@ const tagTitleProps = {
 
 describe('Drawer title', () => {
 	it('should render drawer title with a tag', () => {
-		const wrapper = mount(<Drawer.Title {...tagTitleProps} />);
-		expect(wrapper.find('TagDefault')).toHaveLength(1);
+		render(<Drawer.Title {...tagTitleProps} />);
+		expect(screen.getByText('test')).toBeInTheDocument();
 	});
 	it('should render drawer title with a tag and a tooltip', () => {
 		const tooltipAndTagTitleProps = {
@@ -400,9 +406,9 @@ describe('Drawer title', () => {
 			subtitleTagTooltip: 'It might work :D',
 		};
 
-		const wrapper = mount(<Drawer.Title {...tooltipAndTagTitleProps} />);
+		render(<Drawer.Title {...tooltipAndTagTitleProps} />);
 
-		expect(wrapper.find('Tooltip')).toHaveLength(1);
-		expect(wrapper.find('TagDefault')).toHaveLength(1);
+		expect(screen.getByText('test')).toBeInTheDocument();
+		expect(screen.getByText('BETA')).toBeInTheDocument();
 	});
 });
