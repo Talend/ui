@@ -16,9 +16,12 @@ class ResizeObserver {
 	}
 }
 if (!global.ResizeObserver) {
+	// add this for react-resize-detector major update
 	global.ResizeObserver = ResizeObserver;
 }
+
 if (!global.TextEncoder) {
+	// add this for whatwg-url use in jsdom
 	global.TextEncoder = require('util').TextEncoder;
 	global.TextDecoder = require('util').TextDecoder;
 }
