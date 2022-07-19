@@ -85,7 +85,7 @@
     "enzyme-to-json": "^3.6.2",
     "i18next": "^20.6.1",
     "jest-in-case": "^1.0.2",
-    "jsdom": "^16.7.0",
+    "jsdom": "^19.0.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-a11y": "^0.3.4",
