@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
+import dsTokens from '@talend/design-tokens';
 
 import tokens from '../../tokens';
 
@@ -19,14 +20,14 @@ export const SwitchIndicator = styled.span`
 export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 	div {
 		position: relative;
-    	display: inline-flex;
+		display: inline-flex;
 		background: ${({ theme }) => theme.colors.inputRadioBackgroundColor};
 		border-radius: 10rem;
-		box-shadow: inset 0 .1rem .3rem 0 rgba(0, 0, 0, .25);
+		box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 		overflow: hidden;
-    	${({ disabled }) => (disabled ? `opacity: ${tokens.opacity.disabled};` : '')}
+		${({ disabled }) => (disabled ? `opacity: ${tokens.opacity.disabled};` : '')}
 	}
-	
+
 	button {
 		position: relative;
 		display: flex;
@@ -34,46 +35,46 @@ export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 		justify-content: space-around;
 		margin: 0;
 		padding: 0 1rem;
-		color: ${({ theme }) => theme.colors.textColor}
-		font-size: ${tokens.fontSizes.small};
-    	opacity: ${tokens.opacity.disabled};
-		user-select: none; 		
+		color: ${({ theme }) => theme.colors.textColor};
+		font: ${dsTokens.coralParagraphMBold};
+		opacity: ${tokens.opacity.disabled};
+		user-select: none;
 		cursor: pointer;
 		background: none;
 		border: none;
 		z-index: ${tokens.zIndices.onTop};
 	}
-	
+
 	${SwitchIndicator} em {
-  		position: absolute;
-  		top: .2rem;
-		right: .2rem;
-  		bottom: .2rem;
-  		left: .2rem;
-		transition: background .3s;
-		background: ${({ theme }) => theme.colors.activeColor[500]};    
-    	border-radius: 100px;
-  	}
+		position: absolute;
+		top: 0.2rem;
+		right: 0.2rem;
+		bottom: 0.2rem;
+		left: 0.2rem;
+		transition: background 0.3s;
+		background: ${({ theme }) => theme.colors.activeColor[500]};
+		border-radius: 100px;
+	}
 
 	div:hover ${SwitchIndicator} em {
 		background: ${({ readOnly, theme }) =>
 			!readOnly ? shade(0.25, theme.colors.activeColor[500]) : 'none'};
 	}
-  
+
 	[aria-selected] {
 		transition: color ${tokens.transitions.normal};
 	}
-	
-	[aria-selected="true"] {
+
+	[aria-selected='true'] {
 		color: ${({ theme }) => theme.colors.inputBackgroundColor};
 		opacity: ${tokens.opacity.opaque};
 	}
-		
+
 	[aria-selected] ~ ${SwitchIndicator} {
 		visibility: hidden;
 	}
-	
-	[aria-selected="true"] ~ ${SwitchIndicator} {
+
+	[aria-selected='true'] ~ ${SwitchIndicator} {
 		visibility: visible;
 	}
 `;
