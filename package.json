@@ -5,7 +5,7 @@
     "cross-spawn": "^7.0.3",
     "eslint": "^7.32.0",
     "husky": "^7.0.4",
-    "i18next-scanner": "^3.3.0",
+    "i18next-scanner": "^4.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
   },
