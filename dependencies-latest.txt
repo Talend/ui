@@ -67,8 +67,6 @@ check versions of packages/containers/package.json using latest
 "react-test-renderer": "^17.0.2" => "^18.2.0"
 
 check versions of packages/datagrid/package.json using latest
-"ag-grid-community": "^27.3.0" => "^28.0.2"
-"ag-grid-react": "^27.3.0" => "^28.0.0"
 "focus-trap-react": "^8.11.3" => "^9.0.2"
 "@testing-library/react": "^12.1.5" => "^13.3.0"
 "i18next": "^20.6.1" => "^21.8.13"
