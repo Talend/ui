@@ -3,6 +3,28 @@ require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
 
+// add missing ResizeObserver
+class ResizeObserver {
+	observe() {
+		// do nothing
+	}
+	unobserve() {
+		// do nothing
+	}
+	disconnect() {
+		// do nothing
+	}
+}
+if (!global.ResizeObserver) {
+	// add this for react-resize-detector major update
+	global.ResizeObserver = ResizeObserver;
+}
+
+if (!global.TextEncoder) {
+	// add this for whatwg-url use in jsdom
+	global.TextEncoder = require('util').TextEncoder;
+	global.TextDecoder = require('util').TextDecoder;
+}
 // enzyme adapter configuration
 let React;
 try {
