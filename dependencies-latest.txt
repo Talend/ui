@@ -14,14 +14,12 @@ check versions of /home/runner/work/ui/ui/package.json using latest
 "webpack": "^5.72.0" => "^5.73.0"
 "eslint": "^7.32.0" => "^8.19.0"
 "husky": "^7.0.4" => "^8.0.1"
-"i18next-scanner": "^3.3.0" => "^4.0.0"
 
 check versions of packages/assets-api/package.json using latest
 "read-pkg-up": "^7.0.1" => "^9.1.0"
 
 check versions of packages/cmf-cqrs/package.json using latest
 "immutable": "^3.8.2" => "^4.1.0"
-"@testing-library/react-hooks": "^3.7.0" => "^8.0.1"
 "react": "^17.0.2" => "^18.2.0"
 "react-dom": "^17.0.2" => "^18.2.0"
 

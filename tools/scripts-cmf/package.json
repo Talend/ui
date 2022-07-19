@@ -9,6 +9,12 @@
   "bin": {
     "cmf-settings": "./cmf-settings.js"
   },
+  "dependencies": {
+    "deepmerge": "^1.5.2",
+    "jsonpath": "^1.1.1",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
