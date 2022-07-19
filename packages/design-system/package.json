@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@algolia/autocomplete-js": "^1.7.1",
-    "@babel/core": "^7.18.6",
+    "@babel/core": "^7.18.9",
     "@changesets/cli": "^2.23.1",
     "@cypress/react": "^5.12.5",
     "@cypress/webpack-dev-server": "^1.8.4",
