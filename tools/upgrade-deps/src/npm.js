@@ -167,6 +167,11 @@ async function checkPackageJson(filePath, opts) {
 	);
 
 	const pkgJson = createPackageJsonManager(filePath);
+	// npm ls command works only before any changes
+	let npmLs;
+	if (pkgJson.content.workspaces && fs.existsSync(`${path.dirname(filePath)}/package-lock.json`)) {
+		npmLs = await execProm('npm ls --json');
+	}
 	let changed = await checkVersionsOf(pkgJson, opts);
 
 	if (!opts.dry && changed) {
@@ -193,6 +198,25 @@ async function checkPackageJson(filePath, opts) {
 				for (const pkgInfo of Object.values(objInfo)) {
 					const result = await checkPackageJson(path.join(pkgInfo.location, 'package.json'), opts);
 					changed = changed || result;
+				}
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	} else if (
+		pkgJson.content.workspaces &&
+		fs.existsSync(`${path.dirname(filePath)}/package-lock.json`)
+	) {
+		try {
+			if (npmLs.stdout) {
+				const objInfo = JSON.parse(stripAnsi(npmLs.stdout));
+				for (const pkgName of Object.keys(objInfo.dependencies)) {
+					const info = { name: pkgName, ...objInfo.dependencies[pkgName] };
+					if (info.resolved && info.resolved.startsWith('file:')) {
+						const resolved = info.resolved.replace('file:', '').replace(/\.\.\//g, '');
+						const result = await checkPackageJson(path.join(resolved, 'package.json'), opts);
+						changed = changed || result;
+					}
 				}
 			}
 		} catch (error) {

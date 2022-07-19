@@ -2,24 +2,35 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const fs = require('fs');
+const fsProm = require('fs/promises');
+const { exec } = require('child_process');
 const cpx = require('cpx2');
 const semver = require('semver');
 const yarnpkg = require('@yarnpkg/lockfile');
 const rimraf = require('rimraf');
+const util = require('util');
 
-function getTmpDirectory(prefix, fixturePath, lock) {
+const execProm = util.promisify(exec);
+const cpxProm = util.promisify(cpx.copy);
+const removeProm = util.promisify(rimraf);
+
+async function getTmpDirectory(prefix, fixturePath, lock = 'yarn.lock') {
 	const date = new Date();
 	const tmp = path.join(
 		__dirname,
 		`tmp-${prefix}-${lock}-${date.toLocaleDateString().replace(/\//g, '-')}`,
 	);
-	cpx.copySync(path.join(fixturePath, '**'), tmp);
+	await cpxProm(path.join(fixturePath, '**'), tmp);
 	if (lock === 'yarn.lock') {
-		fs.renameSync(path.join(tmp, 'yarn-template.lock'), path.join(tmp, 'yarn.lock'));
-		rimraf.sync(path.join(tmp, 'package-lock.json.tpl'));
+		await fsProm.rename(path.join(tmp, 'yarn-template.lock'), path.join(tmp, 'yarn.lock'));
+		await removeProm(path.join(tmp, 'package-lock.json.tpl'));
 	} else {
-		fs.renameSync(path.join(tmp, 'package-lock.json.tpl'), path.join(tmp, 'package-lock.json'));
-		rimraf.sync(path.join(tmp, 'yarn-template.lock'));
+		await fsProm.rename(
+			path.join(tmp, 'package-lock.json.tpl'),
+			path.join(tmp, 'package-lock.json'),
+		);
+		await removeProm(path.join(tmp, 'yarn-template.lock'));
+		await execProm('npm i', { cwd: tmp });
 	}
 	return tmp;
 }

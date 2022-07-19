@@ -12,7 +12,6 @@ const {
 	isMajorLockGT,
 	isSameVersion,
 	isSameLockVersion,
-	getVersionFromLock,
 } = require('./utils');
 
 const fixturePath = path.join(__dirname, 'fixture', 'basic');
@@ -32,8 +31,8 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		rimraf.sync(path.join(__dirname, 'tmp-basic-*'));
 	});
 
-	it('should by default only do safe upgrade', () => {
-		const tmp = getTmpDirectory('basic-default', fixturePath, lock);
+	it('should by default only do safe upgrade', async () => {
+		const tmp = await getTmpDirectory('basic-default', fixturePath, lock);
 		const output = spawnSync('node', [bin, '-v'], { cwd: tmp });
 		const tmpLock = getLockContent(tmp, lock);
 		expect(output.error).toBeUndefined();
@@ -55,8 +54,8 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		expect(isMinorGt('react', pkgSub, originSub)).toBe(true);
 	});
 
-	it('should support a --dry option where files are not updated', () => {
-		const tmp = getTmpDirectory('basic-dry', fixturePath, lock);
+	it('should support a --dry option where files are not updated', async () => {
+		const tmp = await getTmpDirectory('basic-dry', fixturePath, lock);
 		const output = spawnSync('node', [bin, '--dry'], { cwd: tmp });
 		const tmpLock = getLockContent(tmp, lock);
 		// the logs should show the need to update chokidar
@@ -73,8 +72,8 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		expect(tmpLock).toMatchObject(originLock);
 	});
 
-	it('should support a --latest option', () => {
-		const tmp = getTmpDirectory('basic-latest', fixturePath, lock);
+	it('should support a --latest option', async () => {
+		const tmp = await getTmpDirectory('basic-latest', fixturePath, lock);
 		const output = spawnSync('node', [bin, '--latest'], { cwd: tmp });
 		const err = output.stderr.toString();
 		if (err) {
@@ -97,8 +96,8 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		expect(isMajorLockGT('react', tmpLock, originLock)).toBe(true);
 	});
 
-	it('should support a --scope option', () => {
-		const tmp = getTmpDirectory('basic-scope', fixturePath, lock);
+	it('should support a --scope option', async () => {
+		const tmp = await getTmpDirectory('basic-scope', fixturePath, lock);
 		const output = spawnSync('node', [bin, '--scope=@talend'], { cwd: tmp });
 		const err = output.stderr.toString();
 		if (err) {
@@ -119,8 +118,8 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 		expect(isSameLockVersion('react-dom', tmpLock, originLock)).toBe(true);
 	});
 
-	it('should support a --starts-with option', () => {
-		const tmp = getTmpDirectory('basic-startsWith', fixturePath, lock);
+	it('should support a --starts-with option', async () => {
+		const tmp = await getTmpDirectory('basic-startsWith', fixturePath, lock);
 		const output = spawnSync('node', [bin, '--starts-with=@talend/scripts'], { cwd: tmp });
 		const err = output.stderr.toString();
 		if (err) {
