@@ -43,7 +43,7 @@
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.53.0",
     "sass-loader": "^12.6.0",
-    "source-map-loader": "^3.0.1",
+    "source-map-loader": "^4.0.0",
     "style-loader": "^3.3.1",
     "svg64": "^1.1.0",
     "terser": "^5.14.1",
