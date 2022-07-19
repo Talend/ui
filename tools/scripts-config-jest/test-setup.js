@@ -3,7 +3,7 @@ require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
 
-// mock ResizeObserver
+// add missing ResizeObserver
 class ResizeObserver {
 	observe() {
 		// do nothing
@@ -15,8 +15,13 @@ class ResizeObserver {
 		// do nothing
 	}
 }
-global.ResizeObserver = ResizeObserver;
-
+if (!global.ResizeObserver) {
+	global.ResizeObserver = ResizeObserver;
+}
+if (!global.TextEncoder) {
+	global.TextEncoder = require('util').TextEncoder;
+	global.TextDecoder = require('util').TextDecoder;
+}
 // enzyme adapter configuration
 let React;
 try {
