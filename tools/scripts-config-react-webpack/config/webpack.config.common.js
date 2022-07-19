@@ -37,9 +37,7 @@ function getCommonStyleLoaders(enableModules, mode) {
 		};
 	}
 	return [
-		mode === 'development'
-			? { loader: 'style-loader' }
-			: { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
+		{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
