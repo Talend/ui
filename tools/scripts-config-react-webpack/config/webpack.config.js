@@ -336,11 +336,10 @@ module.exports = ({ getUserConfig, mode }) => {
 						openAnalyzer: !!env.analyze,
 						logLevel: 'error',
 					}),
-				isEnvProduction &&
-					new MiniCssExtractPlugin({
-						filename: getFileNameForExtension('css', cssPrefix),
-						chunkFilename: getFileNameForExtension('css', cssPrefix),
-					}),
+				new MiniCssExtractPlugin({
+					filename: getFileNameForExtension('css', cssPrefix),
+					chunkFilename: getFileNameForExtension('css', cssPrefix),
+				}),
 				isEnvProduction &&
 					process.env.SENTRY_AUTH_TOKEN &&
 					new SentryWebpackPlugin({
