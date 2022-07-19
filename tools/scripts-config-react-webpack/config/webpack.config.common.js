@@ -23,7 +23,7 @@ function getSassData(userSassData) {
 }
 
 function getCommonStyleLoaders(enableModules, mode) {
-	const sourceMap = mode === 'production';
+	const sourceMap = true;
 	let cssOptions = {
 		sourceMap,
 	};
@@ -64,7 +64,7 @@ function getJSAndTSLoader(env, useTypescript) {
 }
 
 function getSassLoaders(enableModules, sassData, mode) {
-	const sourceMap = mode === 'production';
+	const sourceMap = true;
 	return getCommonStyleLoaders(enableModules, mode).concat(
 		{ loader: 'resolve-url-loader', options: { sourceMap } },
 		{
