@@ -3,9 +3,53 @@ import Tabs from './variants/Tabs';
 import TabsKit from './variants/TabsKit';
 import { InlineMessage } from '../../InlineMessage';
 import Divider from '../../Divider';
-import { StackVertical } from '../../Stack';
+import { StackHorizontal, StackVertical } from '../../Stack';
 
 export default { component: Tabs };
+
+export const Styles = () => (
+	<StackHorizontal gap="M" justify="spaceBetween">
+		<StackVertical gap="S" align="center">
+			<h2>Default</h2>
+			<Tabs
+				tabs={[
+					{
+						tabTitle: 'Tabs 1',
+						tabContent: <></>,
+					},
+					{
+						tabTitle: 'Tabs 2',
+						tabContent: <></>,
+					},
+					{
+						tabTitle: 'Tabs 3',
+						tabContent: <></>,
+					},
+				]}
+			/>
+		</StackVertical>
+		<StackVertical gap="S" align="center">
+			<h2>Large</h2>
+			<Tabs
+				size="L"
+				tabs={[
+					{
+						tabTitle: 'Tabs 1',
+						tabContent: <></>,
+					},
+					{
+						tabTitle: 'Tabs 2',
+						tabContent: <></>,
+					},
+					{
+						tabTitle: 'Tabs 3',
+						tabContent: <></>,
+					},
+				]}
+			/>
+		</StackVertical>
+	</StackHorizontal>
+);
 
 export const TabsWithIcon = () => (
 	<Tabs
@@ -13,16 +57,23 @@ export const TabsWithIcon = () => (
 			{
 				tabTitle: {
 					icon: 'user',
-					title: 'Users',
+					title: 'User',
 				},
 				tabContent: <h2>Users tab content</h2>,
 			},
 			{
 				tabTitle: {
-					icon: 'information-stroke',
-					title: 'About',
+					icon: 'calendar',
+					title: 'Calendar',
 				},
-				tabContent: <h2>About tab content</h2>,
+				tabContent: <h2>Calendar tab content</h2>,
+			},
+			{
+				tabTitle: {
+					icon: 'star',
+					title: 'Favorite',
+				},
+				tabContent: <h2>Favorite tab content</h2>,
 			},
 		]}
 	/>
@@ -33,20 +84,25 @@ export const TabsWithTag = () => (
 		tabs={[
 			{
 				tabTitle: {
-					icon: 'user',
-					title: 'Users',
-					tag: 123,
+					title: 'User',
+					tag: 13,
 				},
 				tabContent: <h2>Users tab content</h2>,
 			},
 			{
 				tabTitle: {
-					icon: 'information-stroke',
-					title: 'Notifications',
-					tag: '999+',
-					tooltip: '1239 notifications',
+					title: 'Calendar',
+					tag: 54,
 				},
-				tabContent: <h2>About tab content</h2>,
+				tabContent: <h2>Calendar tab content</h2>,
+			},
+			{
+				tabTitle: {
+					title: 'Favorite',
+					tag: '999+',
+					tooltip: '1534 Favorite items',
+				},
+				tabContent: <h2>Favorite tab content</h2>,
 			},
 		]}
 	/>
