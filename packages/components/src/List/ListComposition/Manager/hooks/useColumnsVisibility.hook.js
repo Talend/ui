@@ -1,58 +1,50 @@
 import { useMemo, useState } from 'react';
 
-const isVisible = (dataKey, nextVisibleColumns, columnsVisibility, initialVisibleColumns) => {
-	let visible = false;
-	if (nextVisibleColumns) {
-		visible = nextVisibleColumns.includes(dataKey);
-	} else {
-		if (columnsVisibility) {
-			const columnInCV = columnsVisibility.find(({ key }) => key === dataKey);
-			if (!!columnInCV) {
-				visible = columnInCV.visible;
-			} else {
-				visible = true;
-			}
-		} else {
-			if (initialVisibleColumns.length) {
-				visible = initialVisibleColumns.includes(dataKey);
-			} else {
-				visible = true;
-			}
-		}
-	}
-	return visible;
+const isVisible = (dataKey, columnsVisibility, initialVisibleColumns) => {
+	if (columnsVisibility) {
+		const column = columnsVisibility.find(col => col.dataKey === dataKey);
+		return column ? column.visible : true;
+	} else if (initialVisibleColumns.length) return initialVisibleColumns.includes(dataKey);
+	return true;
 };
 
 export function useColumnsVisibility(storageKey, initialVisibleColumns = []) {
-	const [columnsVisibility, _setColumnsVisibility] = useState(() => {
-		let visibleColumns = null;
+	const [columnsVisibility, setColumnsVisibility] = useState(() => {
+		let visibleColumns;
 		if (storageKey) {
-			const columnsVisibility = localStorage.getItem(storageKey);
-			visibleColumns = columnsVisibility && JSON.parse(columnsVisibility);
+			const nextColumnsVisibility = localStorage.getItem(storageKey);
+			visibleColumns = nextColumnsVisibility && JSON.parse(nextColumnsVisibility);
 		}
 		return visibleColumns;
 	});
 
 	const visibleColumns = useMemo(
-		() => columnsVisibility?.filter(({ visible }) => !!visible).map(({ key }) => key),
+		() => columnsVisibility?.filter(({ visible }) => !!visible).map(({ dataKey }) => dataKey),
 		[columnsVisibility],
 	);
 
 	const setVisibleColumns = (columns, nextVisibleColumns) => {
 		if (columns.length) {
-			const nextColumnsVisibility = columns.map(({ dataKey }) => {
-				return {
-					key: dataKey,
-					visible: isVisible(dataKey, nextVisibleColumns, columnsVisibility, initialVisibleColumns),
-				};
-			});
+			const nextColumnsVisibility = columns.map(({ dataKey }) => ({
+				dataKey,
+				visible: nextVisibleColumns.includes(dataKey),
+			}));
 			if (storageKey) localStorage.setItem(storageKey, JSON.stringify(nextColumnsVisibility));
-			_setColumnsVisibility(nextColumnsVisibility);
+			setColumnsVisibility(nextColumnsVisibility);
 		}
 	};
+
+	const updateColumns = columns =>
+		setVisibleColumns(
+			columns,
+			columns
+				.filter(({ dataKey }) => isVisible(dataKey, columnsVisibility, initialVisibleColumns))
+				.map(({ dataKey }) => dataKey),
+		);
 
 	return {
 		visibleColumns,
 		setVisibleColumns,
+		updateColumns,
 	};
 }
