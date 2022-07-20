@@ -732,7 +732,7 @@ class EnumerationForm extends React.Component {
 				schema,
 				value: this.state.items.concat([
 					{
-						values: EnumerationForm.parseStringValueToArray(value.value, this.enableSkip),
+						values: EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip),
 					},
 				]),
 			};
