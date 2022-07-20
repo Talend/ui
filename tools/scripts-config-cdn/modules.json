@@ -11,13 +11,13 @@
   "@talend/bootstrap-theme": {
     "var": "TalendBootstrapTheme",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/bootstrap.js",
         "production": "/dist/bootstrap.js"
       }
     },
     "style-versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/bootstrap.css",
         "production": "/dist/bootstrap.css"
       }
@@ -32,9 +32,13 @@
       }
     },
     "style-versions": {
-      ">= 1.0.0": {
+      ">= 1.0.0 <= 2.6.0": {
         "development": "/dist/TalendDesignTokens.css",
         "production": "/dist/TalendDesignTokens.css"
+      },
+      "> 2.6.0": {
+        "development": "/dist/TalendDesignTokens.css",
+        "production": "/dist/TalendDesignTokens.min.css"
       }
     }
   },
@@ -47,9 +51,13 @@
       }
     },
     "style-versions": {
-      "> 1.1.0": {
+      "> 1.1.0 <= 3.7.0": {
         "development": "/dist/TalendDesignSystem.css",
         "production": "/dist/TalendDesignSystem.css"
+      },
+      "> 3.7.0": {
+        "development": "/dist/TalendDesignSystem.css",
+        "production": "/dist/TalendDesignSystem.min.css"
       }
     }
   },
@@ -65,37 +73,45 @@
   "@talend/react-components": {
     "var": "TalendReactComponents",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendReactComponents.js",
         "production": "/dist/TalendReactComponents.min.js"
       }
     },
     "style-versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0 <= 7.4.0": {
         "development": "/dist/TalendReactComponents.css",
         "production": "/dist/TalendReactComponents.css"
+      },
+      ">= 7.4.0": {
+        "development": "/dist/TalendReactComponents.css",
+        "production": "/dist/TalendReactComponents.min.css"
       }
     }
   },
   "@talend/react-forms": {
     "var": "TalendReactForms",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendReactForms.js",
         "production": "/dist/TalendReactForms.min.js"
       }
     },
     "style-versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0 <= 8.0.1": {
         "development": "/dist/TalendReactForms.css",
         "production": "/dist/TalendReactForms.css"
+      },
+      "> 8.0.1": {
+        "development": "/dist/TalendReactForms.css",
+        "production": "/dist/TalendReactForms.min.css"
       }
     }
   },
   "@talend/react-cmf": {
     "var": "TalendReactCmf",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendReactCmf.js",
         "production": "/dist/TalendReactCmf.min.js"
       }
@@ -113,30 +129,38 @@
   "@talend/react-containers": {
     "var": "TalendReactContainers",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendReactContainers.js",
         "production": "/dist/TalendReactContainers.min.js"
       }
     },
     "style-versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0 <= 7.2.4": {
         "development": "/dist/TalendReactContainers.css",
         "production": "/dist/TalendReactContainers.css"
+      },
+      "> 7.2.4": {
+        "development": "/dist/TalendReactContainers.css",
+        "production": "/dist/TalendReactContainers.min.css"
       }
     }
   },
   "@talend/react-datagrid": {
     "var": "TalendReactDatagrid",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendReactDatagrid.js",
         "production": "/dist/TalendReactDatagrid.min.js"
       }
     },
     "style-versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0 <= 11.0.1": {
         "development": "/dist/TalendReactDatagrid.css",
         "production": "/dist/TalendReactDatagrid.css"
+      },
+      "> 11.0.1": {
+        "development": "/dist/TalendReactDatagrid.css",
+        "production": "/dist/TalendReactDatagrid.min.css"
       }
     }
   },
@@ -149,16 +173,20 @@
       }
     },
     "style-versions": {
-      ">= 0.0.4": {
+      ">= 0.0.4 <= 2.3.0": {
         "development": "/dist/TalendReactDataviz.css",
         "production": "/dist/TalendReactDataviz.css"
+      },
+      "> 2.3.0": {
+        "development": "/dist/TalendReactDataviz.css",
+        "production": "/dist/TalendReactDataviz.min.css"
       }
     }
   },
   "@talend/icons": {
     "var": "TalendIcons",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendIcons.js",
         "production": "/dist/TalendIcons.min.js"
       }
@@ -167,7 +195,7 @@
   "@talend/react-cmf-cqrs": {
     "var": "TalendReactCmfCqrs",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendReactCmfCqrs.js",
         "production": "/dist/TalendReactCmfCqrs.min.js"
       }
@@ -176,7 +204,7 @@
   "@talend/react-sagas": {
     "var": "TalendReactSagas",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendReactSagas.js",
         "production": "/dist/TalendReactSagas.min.js"
       }
@@ -185,7 +213,7 @@
   "@talend/react-stepper": {
     "var": "TalendReactStepper",
     "versions": {
-      ">= 5.27.0 || >= 6.0.0-alpha.10": {
+      ">= 5.27.0": {
         "development": "/dist/TalendReactStepper.js",
         "production": "/dist/TalendReactStepper.min.js"
       }
@@ -193,7 +221,7 @@
     "style-versions": {
       ">= 5.27.0 < 5.31.0": {
         "development": "/dist/TalendReactStepper.css",
-        "production": "/dist/TalendReactStepper.css"
+        "production": "/dist/TalendReactStepper.min.css"
       }
     }
   },
@@ -206,9 +234,13 @@
       }
     },
     "style-versions": {
-      ">= 1.0.0": {
+      ">= 1.0.0 <= 5.0.2": {
         "development": "/dist/TalendReactFacetedSearch.css",
         "production": "/dist/TalendReactFacetedSearch.css"
+      },
+      "> 5.0.2": {
+        "development": "/dist/TalendReactFacetedSearch.css",
+        "production": "/dist/TalendReactFacetedSearch.min.css"
       }
     }
   },
