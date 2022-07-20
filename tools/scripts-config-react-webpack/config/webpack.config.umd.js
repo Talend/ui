@@ -75,8 +75,8 @@ module.exports = options => {
 					reportFilename: isEnvProd ? `${name}.min.js.report.html` : `${name}.js.report.html`,
 				}),
 				new MiniCssExtractPlugin({
-					filename: `${name}.css`,
-					chunkFilename: `${name}.css`,
+					filename: isEnvProd ? `${name}.min.css` : `${name}.css`,
+					chunkFilename: isEnvProd ? `${name}.min.css` : `${name}.css`,
 				}),
 				cdn.getWebpackPlugin(env, dcwpConfig),
 				userCopyConfig.length > 0 && new CopyWebpackPlugin({ patterns: userCopyConfig }),
