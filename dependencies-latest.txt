@@ -48,7 +48,6 @@ check versions of packages/components/package.json using latest
 "@testing-library/react": "^12.1.5" => "^13.3.0"
 "@testing-library/user-event": "^13.5.0" => "^14.3.0"
 "i18next": "^20.6.1" => "^21.8.14"
-"jsdom": "^19.0.0" => "^20.0.0"
 "react": "^17.0.2" => "^18.2.0"
 "react-a11y": "^0.3.4" => "^1.1.0"
 "react-dom": "^17.0.2" => "^18.2.0"
@@ -67,7 +66,6 @@ check versions of packages/datagrid/package.json using latest
 "focus-trap-react": "^8.11.3" => "^9.0.2"
 "@testing-library/react": "^12.1.5" => "^13.3.0"
 "i18next": "^20.6.1" => "^21.8.14"
-"jsdom": "^19.0.0" => "^20.0.0"
 "react": "^17.0.2" => "^18.2.0"
 "react-dom": "^17.0.2" => "^18.2.0"
 
@@ -90,7 +88,6 @@ check versions of packages/design-system/package.json using latest
 "babel-plugin-styled-components": "^1.13.3" => "^2.0.7"
 "cypress": "^9.7.0" => "^10.3.1"
 "i18next": "^20.6.1" => "^21.8.14"
-"i18next-scanner": "^3.3.0" => "^4.0.0"
 "mdx-embed": "^0.0.22" => "^1.0.0"
 "react": "^17.0.2" => "^18.2.0"
 "react-dom": "^17.0.2" => "^18.2.0"
@@ -171,7 +168,6 @@ check versions of packages/sagas/package.json using latest
 check versions of packages/stepper/package.json using latest
 "i18next": "^20.6.1" => "^21.8.14"
 "immutable": "^3.8.2" => "^4.1.0"
-"jsdom": "^19.0.0" => "^20.0.0"
 "react": "^17.0.2" => "^18.2.0"
 "react-dom": "^17.0.2" => "^18.2.0"
 "react-redux": "^7.2.8" => "^8.0.2"
