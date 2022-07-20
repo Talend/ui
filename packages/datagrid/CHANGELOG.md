@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 11.1.0
+
+### Minor Changes
+
+- 2b1ff2f48: Bump ag-grid to v28
+
 ## 11.0.1
 
 ### Patch Changes

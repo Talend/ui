@@ -1,5 +1,15 @@
 # @talend/scripts-config-react-webpack
 
+## 13.3.0
+
+### Minor Changes
+
+- 104d3ed50: upgrade source-map-loader
+
+### Patch Changes
+
+- 104d3ed50: fix: activate sourceMap in dev
+
 ## 13.2.0
 
 ### Minor Changes
