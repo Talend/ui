@@ -11,7 +11,6 @@ RUN ----------------------------------------------------------------------------
 
 check versions of /home/runner/work/ui/ui/package.json using latest
 "eslint": "^7.32.0" => "^8.20.0"
-"husky": "^7.0.4" => "^8.0.1"
 
 check versions of packages/assets-api/package.json using latest
 "read-pkg-up": "^7.0.1" => "^9.1.0"
