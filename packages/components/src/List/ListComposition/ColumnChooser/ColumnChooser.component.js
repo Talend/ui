@@ -4,8 +4,7 @@ import { useListContext } from '../context';
 import ColumnChooserButton from '../../Toolbar/ColumnChooserButton';
 
 function ColumnChooser(props) {
-	const { columns, visibleColumns, setVisibleColumns } = useListContext();
-
+	const { columns, visibleColumns, setVisibleColumns, columnsVisibility } = useListContext();
 	return (
 		<ColumnChooserButton
 			columns={columns.map(({ dataKey, label }, i) => ({
@@ -13,6 +12,9 @@ function ColumnChooser(props) {
 				label,
 				hidden: !visibleColumns?.includes(dataKey),
 				order: i + 1,
+				hiddenNew: columnsVisibility
+					? !columnsVisibility.find(column => column.key === dataKey)
+					: false,
 			}))}
 			{...props}
 			onSubmit={(_, changes) => {

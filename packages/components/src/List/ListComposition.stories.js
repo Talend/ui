@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { simpleCollection } from './ListComposition/collection';
@@ -42,6 +42,7 @@ function CustomList(props) {
 			<List.VList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} disableSort />
 			<List.VList.Text label="Description" dataKey="description" disableSort />
 			<List.VList.Text label="Author" dataKey="author" />
+			<List.VList.Text label="creator" dataKey="creator" />
 			<List.VList.Datetime label="Created" dataKey="created" columnData={{ mode: 'format' }} />
 			<List.VList.Datetime label="Modified" dataKey="modified" columnData={{ mode: 'format' }} />
 		</List.VList>
@@ -891,3 +892,33 @@ export const TableWithColumnChooserAndLockedColumns = () => (
 		</section>
 	</div>
 );
+
+export const TableWithColumnChooserPersisted = () => {
+	return (
+		<div className="virtualized-list">
+			<h1>List with Column chooser and persisted visibility in local storage</h1>
+			<p>You only have to provide the storage key to List manager to enable persistance</p>
+			<pre>
+				{`<List.Manager
+	id="my-list"
+	collection={collection}
+	columnsVisibilityStorageKey="my-list-column-visibility"
+>
+	<List.VList id="my-vlist" columnChooser>
+		...
+	</List.VList>
+</List.Manager>
+`}
+			</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager
+					id="my-list"
+					collection={simpleCollection}
+					columnsVisibilityStorageKey="my-list-column-visibility"
+				>
+					<CustomList columnChooser />
+				</List.Manager>
+			</section>
+		</div>
+	);
+};

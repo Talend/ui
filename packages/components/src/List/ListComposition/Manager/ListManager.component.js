@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { displayModesOptions } from '../DisplayMode/ListDisplayMode.component';
@@ -8,21 +8,13 @@ import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import { useCollectionSort } from './hooks/useCollectionSort.hook';
 import { useCollectionFilter } from './hooks/useCollectionFilter.hook';
 import theme from '../List.scss';
+import { useColumnsVisibility } from './hooks/useColumnsVisibility.hook';
 
-const visibleColumnsStorageManager = {
-	get: persistanceKey => {
-		const item = persistanceKey && localStorage.getItem(persistanceKey);
-		return item ? JSON.parse(item) : undefined;
-	},
-	set: (persistanceKey, columns) => {
-		if (persistanceKey) localStorage.setItem(persistanceKey, JSON.stringify(columns));
-	},
-};
 function Manager({
 	initialDisplayMode,
 	initialSortParams,
 	initialVisibleColumns,
-	visibleColumnsStorageKey,
+	columnsVisibilityStorageKey,
 	children,
 	t,
 	...rest
@@ -32,13 +24,19 @@ function Manager({
 	const [displayMode, setDisplayMode] = useState(initialDisplayMode || displayModesOptions[0]);
 	const [columns, setColumns] = useState([]);
 
-	const [visibleColumns, setVisibleColumns] = useState(
-		visibleColumnsStorageManager.get(visibleColumnsStorageKey) || initialVisibleColumns,
+	const { columnsVisibility, setColumnsVisibility } = useColumnsVisibility(
+		columnsVisibilityStorageKey,
 	);
 
-	const setPersistedVisibleColumns = columns => {
-		setVisibleColumns(columns);
-		visibleColumnsStorageManager.set(visibleColumnsStorageKey, columns);
+	const [visibleColumns, _setVisibleColumns] = useState(() => {
+		return columnsVisibility
+			? columnsVisibility.filter(({ visible }) => !!visible).map(({ key }) => key)
+			: initialVisibleColumns;
+	});
+
+	const setVisibleColumns = visibleColumns => {
+		_setVisibleColumns(visibleColumns);
+		setColumnsVisibility(columns, visibleColumns);
 	};
 
 	// Sort items
@@ -63,11 +61,12 @@ function Manager({
 		setSortParams,
 		setTextFilter,
 		setColumns,
-		setVisibleColumns: setPersistedVisibleColumns,
+		setVisibleColumns,
 		setFilteredColumns,
 		sortParams,
 		t,
 		textFilter,
+		columnsVisibility,
 	};
 
 	return (
@@ -89,7 +88,7 @@ Manager.propTypes = {
 		sortBy: PropTypes.string,
 		isDescending: PropTypes.bool,
 	}),
-	visibleColumnsStorageKey: PropTypes.string,
+	columnsVisibilityStorageKey: PropTypes.string,
 	t: PropTypes.func,
 };
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(Manager);
