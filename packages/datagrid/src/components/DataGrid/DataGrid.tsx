@@ -61,7 +61,7 @@ export default function DataGrid({
 				gridRef.current?.api.clearFocusedCell();
 			}
 			const colId = event.column.getColId();
-			const allColIds = gridRef.current!.columnApi.getAllColumns()!.map(col => col.getColId());
+			const allColIds = gridRef.current!.columnApi.getColumns()!.map(col => col.getColId());
 
 			const update =
 				columnSelection === 'multiple'
