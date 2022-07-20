@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.23.1",
+    "@changesets/cli": "^2.23.2",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
     "eslint": "^7.32.0",
