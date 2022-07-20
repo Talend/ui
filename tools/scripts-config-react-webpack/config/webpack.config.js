@@ -12,6 +12,7 @@ const webpack = require('webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { DuplicatesPlugin } = require('inspectpack/plugin');
+const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
@@ -26,6 +27,7 @@ const {
 	getSassLoaders,
 	getJSAndTSLoader,
 	getSassData,
+	getAssetsRules,
 } = require('./webpack.config.common');
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
@@ -154,7 +156,6 @@ function getCopyConfig(env, userCopyConfig = []) {
 	if (!assetsOverridden && fs.existsSync(path.join(process.cwd(), 'src/assets'))) {
 		config.push({ from: 'src/assets' });
 	}
-	config.push({ from: path.join(ICON_DIST, 'svg-bundle') });
 	if (!cdnMode) {
 		cdn.getCopyConfig().forEach(c => config.push(c));
 	}
@@ -231,6 +232,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		const userCopyConfig = getUserConfig('copy', []);
 		const cmf = getUserConfig('cmf');
 		const dcwpConfig = getUserConfig('dynamic-cdn-webpack-plugin');
+		const sentryConfig = getUserConfig('sentry', {});
 		const { theme } = userSassData;
 
 		const appLoaderIcon = icons.getAppLoaderIconUrl(theme) || userHtmlConfig.appLoaderIcon;
@@ -284,9 +286,10 @@ module.exports = ({ getUserConfig, mode }) => {
 							{
 								loader: 'html-loader',
 								options: {
-									minimize: true,
-									removeComments: true,
-									collapseWhitespace: true,
+									minimize: {
+										removeComments: true,
+										collapseWhitespace: true,
+									},
 								},
 							},
 						].filter(Boolean),
@@ -313,48 +316,7 @@ module.exports = ({ getUserConfig, mode }) => {
 						use: getSassLoaders(cssModulesEnabled, sassData, mode),
 						exclude: /@talend/,
 					},
-					{
-						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
-						type: 'asset/resource',
-						use: [
-							{
-								loader: 'url-loader',
-								options: {
-									name: './fonts/[name].[ext]',
-									limit: 10000,
-									mimetype: 'application/font-woff',
-								},
-							},
-						],
-					},
-					{
-						test: /\.svg$/,
-						type: 'asset/resource',
-						use: [
-							{
-								loader: 'url-loader',
-								options: {
-									name: 'assets/svg/[name].[ext]',
-									limit: 10000,
-									mimetype: 'image/svg+xml',
-								},
-							},
-						],
-					},
-					{
-						test: /\.(png|jpg|jpeg|gif)$/,
-						type: 'asset/resource',
-						use: [
-							{
-								loader: 'url-loader',
-								options: {
-									name: 'assets/img/[name].[ext]',
-									limit: 10000,
-									mimetype: 'image/png',
-								},
-							},
-						],
-					},
+					...getAssetsRules(true),
 				].filter(Boolean),
 			},
 			plugins: [
@@ -374,11 +336,21 @@ module.exports = ({ getUserConfig, mode }) => {
 						openAnalyzer: !!env.analyze,
 						logLevel: 'error',
 					}),
+				new MiniCssExtractPlugin({
+					filename: getFileNameForExtension('css', cssPrefix),
+					chunkFilename: getFileNameForExtension('css', cssPrefix),
+				}),
 				isEnvProduction &&
-					new MiniCssExtractPlugin({
-						filename: getFileNameForExtension('css', cssPrefix),
-						chunkFilename: getFileNameForExtension('css', cssPrefix),
+					process.env.SENTRY_AUTH_TOKEN &&
+					new SentryWebpackPlugin({
+						// see https://docs.sentry.io/platforms/node/guides/aws-lambda/sourcemaps/uploading/webpack/
+						org: sentryConfig.org || process.env.SENTRY_ORG || 'talend-0u',
+						project: sentryConfig.project || process.env.SENTRY_PROJECT,
+						release: VERSIONS.version,
+						include: sentryConfig.include || ['dist/'],
+						ignore: sentryConfig.ignore || ['cdn/'],
 					}),
+				,
 				new HtmlWebpackPlugin({
 					filename: './index.html',
 					appLoader: AppLoader.APP_LOADER,

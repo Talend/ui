@@ -1,5 +1,99 @@
 # @talend/scripts-config-react-webpack
 
+## 13.2.0
+
+### Minor Changes
+
+- 99186eee4: feat: upgrade html-loader to 4.1
+
+### Patch Changes
+
+- 99186eee4: fix: configuration of minimize
+
+## 13.1.0
+
+### Minor Changes
+
+- 904bd2040: feat: upgrade why-did-you-render-deps to support react 18
+
+### Patch Changes
+
+- Updated dependencies [d7a69e765]
+- Updated dependencies [0fd9f4c3b]
+  - @talend/react-cmf-webpack-plugin@6.36.9
+  - @talend/scripts-config-cdn@10.5.3
+
+## 13.0.1
+
+### Patch Changes
+
+- 2a8de8a55: \* fix: do not generate both hashed and non hashed assets for fonts, images and svgs.
+
+  - fix: do not copy icons into app root folder
+  - chore: put assets config in common so app and umd configuration are aligned.
+
+  Note: path has been changed this way:
+
+  ```diff
+  # case of woff in lib
+  - mylib/dist/[hash].woff
+  - mylib/dist/fonts/[name].woff
+  + mylib/dist/assets/fonts/[name].woff
+
+  # case if woff in app
+  - myapp/dist/[hash].woff
+  - myapp/dist/fonts/[name].woff
+  + myapp/dist/assets/fonts/[name]-[hash].woff
+
+  # case of img in lib
+  - not supported
+  + mylib/dist/assets/img/[name].woff
+
+  # case of img in app
+  - myapp/dist/[hash].png
+  - myapp/dist/assets/img/[name].png
+  + myapp/dist/assets/img/[name]-[hash].png
+
+  # case of svg in app
+  - myapp/dist/[hash].svg
+  - myapp/dist/assets/svg/[name].svg
+  + myapp/dist/assets/svg/[name]-[hash].svg
+
+  # case of svg in lib
+  - mylib/dist/[hash].svg
+  - mylib/dist/assets/svg/[name].svg
+  + mylib/dist/assets/svg/[name]-[hash].svg
+  ```
+
+  - @talend/scripts-config-cdn@10.5.2
+
+## 13.0.0
+
+### Major Changes
+
+- 202b4daf2: Webpack major upgrade (4 to 5).
+
+  ## Breaking changes
+
+  @talend/bootstrap-theme is not imported anymore for you. You have to import it first in your project
+
+  ```diff
+  +import '@talend/bootstrap-theme';
+  ```
+
+  No more polyfills loaded for you. We have removed the folliwng packages:
+
+  - `regenerator-runtime`
+  - `core-js-bundle`
+
+### Minor Changes
+
+- 823242adf: feat(scripts/build): add Sentry release support
+
+### Patch Changes
+
+- @talend/scripts-config-cdn@10.5.1
+
 ## 12.1.3
 
 ### Patch Changes

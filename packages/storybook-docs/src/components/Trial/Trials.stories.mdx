@@ -1,12 +1,55 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import * as Stories from './Trial.stories';
+import Trial from './Trial';
 
-<Meta
-    title="Trial"
-/>
+<Meta title="Components/Trial" component={Trial} />
 
 # Trial
 
+Nulla semper turpis vel sem ullamcorper condimentum `<LoremIpsum prop="value" />`. Etiam vitae sollicitudin massa. Nulla facilisi. Duis sit amet vestibulum erat, ut rutrum eros.
+
+## Header 2
+
+Duis **sit amet** vestibulum erat, ut _rutrum eros_. Nam [pharetra felis](https://google.com) tristique ipsum ultricies semper.
+
+```sh
+npm i -S react react-dom react-is classnames styled-components @talend/design-system
+```
+
+```tsx
+import { Component } from '@package/lib';
+
+function Component() {
+	return <div>Component</div>;
+}
+```
+
+### Header 3
+
+- Mauris quis enim urna.
+- Interdum et malesuada fames ac ante ipsum primis in faucibus.
+- Suspendisse luctus odio nunc, congue placerat urna dignissim non.
+
+> Nulla semper turpis vel sem ullamcorper condimentum.
+
+#### Header 4
+
+Nulla semper turpis vel sem ullamcorper condimentum.
+
+| Tables   |      Are      |  Cool |
+| -------- | :-----------: | ----: |
+| col 1 is | left-aligned  | $1600 |
+| col 2 is |   centered    |   $12 |
+| col 3 is | right-aligned |    $1 |
+
+#### Header 5
+
+Etiam vitae sollicitudin massa. Nulla facilisi. Duis sit amet vestibulum erat, ut rutrum eros.
+
+##### Header 6
+
+Duis sit amet vestibulum erat, ut rutrum eros.
+
 <Canvas withSource="closed">
-    <Story story={Stories.Story} />
+	<Story story={Stories.Story} />
 </Canvas>

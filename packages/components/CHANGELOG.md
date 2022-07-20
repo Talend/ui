@@ -1,5 +1,26 @@
 # @talend/react-components
 
+## 7.4.0
+
+### Minor Changes
+
+- 0ff3ba098: Update Drawer's subtitle placement
+
+## 7.3.1
+
+### Patch Changes
+
+- 70e6d1c9a: fix(component): don't spread row data to cellTitle action
+- Updated dependencies [03010b19b]
+- Updated dependencies [c584eaaeb]
+- Updated dependencies [c584eaaeb]
+- Updated dependencies [c584eaaeb]
+- Updated dependencies [c584eaaeb]
+- Updated dependencies [c584eaaeb]
+- Updated dependencies [c584eaaeb]
+  - @talend/design-system@3.5.1
+  - @talend/icons@6.46.0
+
 ## 7.3.0
 
 ### Minor Changes

@@ -40,10 +40,10 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.1",
-    "@talend/design-system": "^3.0.1",
+    "@talend/design-system": "^3.7.0",
     "@talend/json-schema-form-core": "1.1.0",
-    "@talend/react-components": "^7.3.0",
-    "@talend/utils": "^2.3.0",
+    "@talend/react-components": "^7.3.1",
+    "@talend/utils": "^2.4.0",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
     "json-logic-js": "^2.0.2",
@@ -52,6 +52,7 @@
     "memoize-one": "^6.0.0",
     "react-autowhatever": "10.2.0",
     "@talend/react-bootstrap": "^1.35.1",
+    "react-ace": "^6.6.0",
     "react-hook-form": "^6.15.8",
     "react-jsonschema-form": "0.51.0",
     "tv4": "^1.3.0",
@@ -61,11 +62,11 @@
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-controls": "^6.5.9",
     "@talend/bootstrap-theme": "^6.39.0",
-    "@talend/icons": "^6.42.0",
+    "@talend/icons": "^6.47.0",
     "@talend/locales-tui-forms": "^6.41.3",
-    "@talend/react-components": "^7.3.0",
-    "@talend/scripts-core": "^11.7.2",
-    "@talend/scripts-preset-react-lib": "^11.0.4",
+    "@talend/react-components": "^7.3.1",
+    "@talend/scripts-core": "^12.0.0",
+    "@talend/scripts-preset-react-lib": "^12.0.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
@@ -78,26 +79,19 @@
     "mutationobserver-shim": "^0.3.7",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
-    "react-ace": "6.2.0",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.17.0",
+    "react-i18next": "^11.18.0",
     "react-test-renderer": "^17.0.2"
   },
   "peerDependencies": {
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
-    "react-ace": "6.2.0",
     "react-dom": ">= 16.14.0 < 18.0.0",
     "react-i18next": "^11.8.13"
-  },
-  "peerDependenciesMeta": {
-    "react-ace": {
-      "optional": true
-    }
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.0.0"
+  "version": "8.0.1"
 }

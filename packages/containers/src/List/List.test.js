@@ -126,7 +126,7 @@ describe('Container List', () => {
 		expect(props.list.cellDictionary).toEqual({
 			custom: { cellRenderer: 'my custom component' },
 			title: {
-				cellRenderer: jasmine.any(Function),
+				cellRenderer: expect.any(Function),
 				cellType: 'title',
 				className: 'tc-list-title-cell',
 			},
@@ -427,8 +427,8 @@ describe('Container List', () => {
 			// when
 			wrapper.find('List').props().list.itemProps.onToggle({}, { id: 1 });
 			// then
-			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
-				selectedItems: new ImmutableList([1]),
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toMatchObject({
+				selectedItems: expect.any(ImmutableList),
 			});
 		});
 

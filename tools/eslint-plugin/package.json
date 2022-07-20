@@ -1,6 +1,6 @@
 {
   "name": "@talend/eslint-plugin",
-  "version": "0.5.5",
+  "version": "1.0.0",
   "description": "Contains internal rules used at Talend",
   "keywords": [
     "eslint",
@@ -14,16 +14,16 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.18.2",
-    "@talend/scripts-config-cdn": "^10.5.0",
+    "@talend/scripts-config-cdn": "^10.5.3",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
-    "@talend/scripts-config-babel": "^9.9.0",
+    "@talend/scripts-config-babel": "^9.9.1",
     "eslint": "^7.32.0",
     "mocha": "^7.2.0"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=14"
   },
   "license": "Apache-2.0",
   "publishConfig": {

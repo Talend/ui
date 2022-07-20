@@ -4,7 +4,13 @@ $td-datagrid-skeleton-width: 9.6rem !default;
 $td-datagrid-skeleton-height: 9.6rem !default;
 
 .td-grid {
-	color: tokens.$coral-color-neutral-text;
+	--ag-borders: #{tokens.$coral-border-s-solid};
+	--ag-borders-row: #{tokens.$coral-border-s-solid};
+	--ag-borders-critical: #{tokens.$coral-border-s-solid};
+	--ag-border-color: #{tokens.$coral-color-neutral-border-weak};
+	--ag-row-border-color: #{tokens.$coral-color-neutral-border-weak};
+	--ag-cell-horizontal-border: #{tokens.$coral-border-s-solid} #{tokens.$coral-color-neutral-border-weak};
+	--ag-data-color: tokens.$coral-color-neutral-text;
 	background-color: tokens.$coral-color-neutral-background;
 	height: 100%;
 	width: 100%;
@@ -22,10 +28,6 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		justify-content: center;
 	}
 
-	:global(.ag-root) {
-		border: tokens.$coral-color-neutral-border-weak tokens.$coral-border-s-solid;
-	}
-
 	/* ==== HEADER ==== */
 	:global(.ag-header-cell-resize) {
 		cursor: col-resize;
@@ -38,6 +40,20 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	:global(.ag-cell.ag-cell-last-left-pinned) {
 		padding: 1rem;
 	}
+
+	:global(.ag-header-cell),
+	:global(.ag-pinned-left-cols-container) {
+		border-right: var(--ag-cell-horizontal-border);
+	}
+
+	:global(.ag-header-cell-comp-wrapper) {
+		height: 100%;
+	}
+
+	:global(.ag-cell) {
+		border: none;
+	}
+
 
 	/* ==== COLUMN ====  */
 
@@ -66,17 +82,9 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		font: tokens.$coral-data-m;
 	}
 
-	:global(.ag-cell), :global(.ag-header-cell) {
-		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-	}
-
-	:global(.ag-cell), :global(.ag-header) {
-		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-	}
-
 	:global(.ag-cell.ag-cell-focus:not(.ag-cell-last-left-pinned)) {
 		background-color: tokens.$coral-color-neutral-background;
-		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border;
+		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border !important;
 		outline-offset: -2px;
 	}
 }

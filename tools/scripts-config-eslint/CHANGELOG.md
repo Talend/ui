@@ -1,5 +1,12 @@
 # @talend/scripts-config-eslint
 
+## 9.9.3
+
+### Patch Changes
+
+- Updated dependencies [b16efa779]
+  - @talend/eslint-plugin@1.0.0
+
 ## 9.9.2
 
 ### Patch Changes

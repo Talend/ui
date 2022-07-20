@@ -11,8 +11,8 @@ import { ButtonPrimaryAsLinkPropsType } from '../../ButtonAsLink/variations/Butt
 import styles from './EmptyStatePrimitive.module.scss';
 
 type CallbackTypes =
-	| (ButtonPrimaryPropsType & { actionType: 'button' })
-	| (ButtonPrimaryAsLinkPropsType & { actionType: 'link' });
+	| (Omit<ButtonPrimaryPropsType<'M'>, 'size'> & { actionType: 'button' })
+	| (Omit<ButtonPrimaryAsLinkPropsType<'M'>, 'size'> & { actionType: 'link' });
 
 export type EmptyStatePrimitiveProps = Omit<
 	HTMLAttributes<HTMLElement>,

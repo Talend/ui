@@ -1,5 +1,45 @@
 # @talend/scripts-preset-react-lib
 
+## 12.0.1
+
+### Patch Changes
+
+- Updated dependencies [2a8de8a55]
+- Updated dependencies [b16efa779]
+  - @talend/scripts-config-react-webpack@13.0.1
+  - @talend/scripts-config-jest@11.0.0
+  - @talend/scripts-config-cdn@10.5.2
+  - @talend/scripts-config-storybook-lib@2.0.1
+  - @talend/scripts-config-eslint@9.9.3
+
+## 12.0.0
+
+### Major Changes
+
+- 202b4daf2: Webpack major upgrade (4 to 5).
+
+  ## Breaking changes
+
+  @talend/bootstrap-theme is not imported anymore for you. You have to import it first in your project
+
+  ```diff
+  +import '@talend/bootstrap-theme';
+  ```
+
+  No more polyfills loaded for you. We have removed the folliwng packages:
+
+  - `regenerator-runtime`
+  - `core-js-bundle`
+
+### Patch Changes
+
+- Updated dependencies [4776213b0]
+- Updated dependencies [823242adf]
+- Updated dependencies [202b4daf2]
+  - @talend/scripts-config-storybook-lib@2.0.0
+  - @talend/scripts-config-react-webpack@13.0.0
+  - @talend/scripts-config-cdn@10.5.1
+
 ## 11.0.4
 
 ### Patch Changes

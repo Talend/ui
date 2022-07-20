@@ -12,16 +12,32 @@ import ButtonTertiaryAsLink, {
 import ButtonDestructiveAsLink, {
 	ButtonDestructiveAsLinkPropsType,
 } from './variations/ButtonDestructiveAsLink';
-import { ButtonVariantType } from '../Button/Primitive/ButtonPrimitive';
+import { AvailableSizes, ButtonVariantType } from '../Button/Primitive/ButtonPrimitive';
 
-type Primary = ButtonVariantType<'primary', ButtonPrimaryAsLinkPropsType>;
-type Secondary = ButtonVariantType<'secondary', ButtonSecondaryAsLinkPropsType>;
-type Tertiary = ButtonVariantType<'tertiary', ButtonTertiaryAsLinkPropsType>;
-type Destructive = ButtonVariantType<'destructive', ButtonDestructiveAsLinkPropsType>;
+type Primary<S extends AvailableSizes> = ButtonVariantType<
+	'primary',
+	ButtonPrimaryAsLinkPropsType<S>
+>;
+type Secondary<S extends AvailableSizes> = ButtonVariantType<
+	'secondary',
+	ButtonSecondaryAsLinkPropsType<S>
+>;
+type Tertiary<S extends AvailableSizes> = ButtonVariantType<
+	'tertiary',
+	ButtonTertiaryAsLinkPropsType<S>
+>;
+type Destructive<S extends AvailableSizes> = ButtonVariantType<
+	'destructive',
+	ButtonDestructiveAsLinkPropsType<S>
+>;
 
-type ButtonType = Primary | Secondary | Tertiary | Destructive;
+type ButtonType<S extends AvailableSizes> =
+	| Primary<S>
+	| Secondary<S>
+	| Tertiary<S>
+	| Destructive<S>;
 
-const ButtonAsLink = forwardRef((props: ButtonType, ref: Ref<any>) => {
+function ButtonPlatform<S extends AvailableSizes>(props: ButtonType<S>, ref: Ref<any>) {
 	switch (props.variant) {
 		case 'primary': {
 			const { variant, ...rest } = props;
@@ -47,6 +63,10 @@ const ButtonAsLink = forwardRef((props: ButtonType, ref: Ref<any>) => {
 			return null;
 		}
 	}
-});
+}
+
+const ButtonAsLink = forwardRef(ButtonPlatform) as <S extends AvailableSizes>(
+	props: ButtonType<S> & { ref?: Ref<HTMLButtonElement> },
+) => ReturnType<typeof ButtonPlatform>;
 
 export default ButtonAsLink;

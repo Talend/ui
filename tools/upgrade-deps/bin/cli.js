@@ -4,7 +4,7 @@ const fs = require('fs');
 const mod = require('../src');
 
 const CWD = process.cwd();
-const { upgradeYarnProject } = mod;
+const { upgradeYarnProject, upgradeNpmProject } = mod;
 
 const HELP_MSG = `talend-scripts upgrade [options]
 
@@ -51,6 +51,8 @@ function upgradeDeps(options) {
 
 	if (fs.existsSync(`${CWD}/yarn.lock`)) {
 		upgradeYarnProject(program).then(() => process.exit(0));
+	} else if (fs.existsSync(`${CWD}/package-lock.json`)) {
+		upgradeNpmProject(program).then(() => process.exit(0));
 	} else {
 		throw new Error('Update project without yarn.lock is not supported');
 	}

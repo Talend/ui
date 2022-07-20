@@ -101,7 +101,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	componentDidMount() {
-		const href = assetsApi.getURL('/dist/styles/ag-grid.css', 'ag-grid-community');
+		const href = assetsApi.getURL('/styles/ag-grid.css', 'ag-grid-community');
 		assetsApi.addStyle({ href });
 	}
 

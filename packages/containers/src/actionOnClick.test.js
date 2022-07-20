@@ -6,7 +6,7 @@ describe('#getOnClick', () => {
 			actionCreator: 'menu:link',
 		});
 
-		expect(actionOnClick.onClick).toEqual(jasmine.any(Function));
+		expect(actionOnClick.onClick).toEqual(expect.any(Function));
 	});
 
 	it('should generate onClick with dispatch', () => {
@@ -16,7 +16,7 @@ describe('#getOnClick', () => {
 			},
 		});
 
-		expect(actionOnClick.onClick).toEqual(jasmine.any(Function));
+		expect(actionOnClick.onClick).toEqual(expect.any(Function));
 	});
 
 	it('should not generate onClick when there is href', () => {

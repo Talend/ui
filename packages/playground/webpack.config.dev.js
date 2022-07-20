@@ -13,6 +13,9 @@ const mockBackend = require('./mockBackend/server');
 
 function getPath(pkg) {
 	const pkgPath = resolve(pkg, { cwd: process.cwd() });
+	if (!pkgPath) {
+		console.error(`ValueError: can t find pkg of ${pkg}`);
+	}
 	return pkgPath
 		.replace('main.js', '')
 		.replace('lib/index.js', '')

@@ -1,5 +1,29 @@
 # @talend/icons
 
+## 6.47.0
+
+### Minor Changes
+
+- 6944f72fc: added icon `user-group` in size `L`
+- 6944f72fc: added icon `user-group` in size `M`
+
+### Patch Changes
+
+- 6944f72fc: changed icon `triangle-circle` in size `L`
+- 6944f72fc: changed icon `triangle-circle` in size `M`
+- 6944f72fc: changed icon `triangle-circle` in size `S`
+
+## 6.46.0
+
+### Minor Changes
+
+- c584eaaeb: added icon `smiley-neutral` in size `L`
+- c584eaaeb: added icon `smiley-neutral` in size `M`
+- c584eaaeb: added icon `smiley-sad` in size `L`
+- c584eaaeb: added icon `smiley-sad` in size `M`
+- c584eaaeb: added icon `smiley-satisfied` in size `L`
+- c584eaaeb: added icon `smiley-satisfied` in size `M`
+
 ## 6.45.0
 
 ### Minor Changes

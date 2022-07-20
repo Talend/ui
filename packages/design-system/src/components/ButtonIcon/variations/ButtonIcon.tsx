@@ -1,10 +1,17 @@
 import React, { forwardRef, Ref } from 'react';
-import ButtonIconPrimitive, { DefaultTypes } from '../Primitive/ButtonIconPrimitive';
+import ButtonIconPrimitive, {
+	AvailableSizes,
+	DefaultTypes,
+} from '../Primitive/ButtonIconPrimitive';
 
-export type ButtonIconType = Omit<DefaultTypes, 'variant'>;
+export type ButtonIconType<S extends AvailableSizes> = Omit<DefaultTypes<S>, 'variant'>;
 
-const ButtonIcon = forwardRef((props: ButtonIconType, ref: Ref<HTMLButtonElement>) => {
+function Button<S extends AvailableSizes>(props: ButtonIconType<S>, ref: Ref<HTMLButtonElement>) {
 	return <ButtonIconPrimitive {...props} variant="default" ref={ref} />;
-});
+}
+
+const ButtonIcon = forwardRef(Button) as <S extends AvailableSizes>(
+	props: ButtonIconType<S> & { ref?: Ref<HTMLButtonElement> },
+) => ReturnType<typeof Button>;
 
 export default ButtonIcon;

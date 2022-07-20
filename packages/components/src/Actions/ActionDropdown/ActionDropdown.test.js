@@ -59,7 +59,7 @@ describe('ActionDropdown', () => {
 		menuItems.at(0).find('SafeAnchor').simulate('click');
 
 		// then
-		expect(onSelectClick).toBeCalledWith(jasmine.anything(), props.items[0]);
+		expect(onSelectClick).toBeCalledWith(expect.anything(), props.items[0]);
 		expect(onItemClick.mock.calls[0][1]).toEqual({
 			action: { id: 'item1', label: 'Item 1' },
 			model: 'model',
@@ -70,7 +70,7 @@ describe('ActionDropdown', () => {
 		menuItems.at(1).find('SafeAnchor').simulate('click');
 
 		// then
-		expect(onSelectClick).toBeCalledWith(jasmine.anything(), props.items[1]);
+		expect(onSelectClick).toBeCalledWith(expect.anything(), props.items[1]);
 		expect(onItemClick.mock.calls[1][1]).toEqual({
 			action: { id: 'item2', label: 'Item 2' },
 			model: 'model',
@@ -172,7 +172,11 @@ describe('Dropup', () => {
 		wrapper.find('button').first().simulate('click');
 
 		// then
-		expect(container.firstChild.classList.contains('dropup')).toBe(isDropupExpected);
+		if (!isDropupExpected) {
+			expect(container.firstChild).not.toHaveClass('dropup');
+		} else {
+			expect(container.firstChild).toHaveClass('dropup');
+		}
 	}
 
 	cases('dropdown/dropup switch', testSwitch, [
