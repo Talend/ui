@@ -4,7 +4,7 @@ import {
 	getGeoChartConfig,
 	getHorizontalBarChartTooltip,
 	HorizontalBarChart,
-	TooltipContent,
+	KeyValueTooltip,
 	ValueType,
 } from '@talend/react-dataviz';
 import { ErrorBoundary } from '@talend/react-cmf';
@@ -55,7 +55,7 @@ export function Dataviz() {
 				<HorizontalBarChart
 					data={data}
 					getTooltipContent={entry => (
-						<TooltipContent entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
+						<KeyValueTooltip entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)} />
 					)}
 				/>
 			</div>
@@ -66,7 +66,7 @@ export function Dataviz() {
 						columnName="Geo key"
 						chartConfig={chartsConfig}
 						getTooltipContent={entry => (
-							<TooltipContent
+							<KeyValueTooltip
 								entries={getHorizontalBarChartTooltip(entry, ValueType.OCCURRENCES)}
 							/>
 						)}
