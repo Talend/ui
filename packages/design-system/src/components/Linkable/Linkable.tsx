@@ -102,7 +102,7 @@ const Linkable = forwardRef(
 			);
 		}
 
-		return React.cloneElement(
+		return cloneElement(
 			as,
 			{
 				...rest,

@@ -1,9 +1,11 @@
 import React from 'react';
+import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 import Tabs from './variants/Tabs';
 import TabsKit from './variants/TabsKit';
 import { InlineMessage } from '../../InlineMessage';
 import Divider from '../../Divider';
 import { StackHorizontal, StackVertical } from '../../Stack';
+import TabsAsLinkList from './variants/TabsAsLinkList';
 
 export default { component: Tabs };
 
@@ -377,4 +379,57 @@ export const TabsWithCompositionControlled = () => (
 			</TabsKit.TabPanel>
 		</StackVertical>
 	</TabsKit>
+);
+
+export const TabsAsLinks = () => (
+	<BrowserRouter>
+		<TabsAsLinkList
+			tabs={[
+				{
+					href: '/test',
+					title: 'Tab 1',
+					icon: 'user',
+					tag: 12,
+				},
+				{
+					href: '/test',
+					title: 'Tab 2',
+					icon: 'calendar',
+					tag: 9,
+				},
+				{
+					title: 'Tab 3',
+					icon: 'star',
+					tag: '999+',
+					tooltip: '1234',
+					isActive: true,
+				},
+			]}
+		/>
+
+		<TabsAsLinkList
+			size="L"
+			tabs={[
+				{
+					href: '/test',
+					title: 'Tab 1',
+					icon: 'user',
+					tag: 12,
+				},
+				{
+					href: '/test',
+					title: 'Tab 2',
+					icon: 'calendar',
+					tag: 9,
+				},
+				{
+					title: 'Tab 3',
+					icon: 'star',
+					tag: '120',
+					isActive: true,
+					as: <RouterLink to="/home" />, // Be careful, polymorphism and tooltips are not compatible.
+				},
+			]}
+		/>
+	</BrowserRouter>
 );

@@ -8,7 +8,7 @@ import { StackHorizontal } from '../../../Stack';
 import { SizedIcon } from '../../../Icon';
 
 import styles from './TabStyles.module.scss';
-import Tooltip, { TooltipPlacement } from '../../../Tooltip';
+import Tooltip from '../../../Tooltip';
 import { TagDefault } from '../../../Tag';
 
 type TabChildren =
@@ -31,7 +31,7 @@ export type TabPropsTypesWithoutState = DataAttributes &
 	HTMLAttributes<HTMLButtonElement> &
 	TabSize &
 	TabTooltip &
-	TabChildren & { tooltip?: string | { title: string; placement: TooltipPlacement } };
+	TabChildren;
 
 type TabPropsTypes = TabPropsTypesWithoutState & TabState;
 

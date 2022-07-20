@@ -13,6 +13,7 @@
   padding: 0;
   margin: 0;
   transition: all tokens.$coral-transition-fast;
+  text-decoration: none;
 
   &__copy {
     max-width: tokens.$coral-sizing-xxxl;
@@ -56,6 +57,7 @@
 
   &:hover {
     color: tokens.$coral-color-accent-text-hover;
+    text-decoration: none;
 
     > svg {
       color: tokens.$coral-color-accent-icon-hover;
