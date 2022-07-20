@@ -24,19 +24,14 @@ function Manager({
 	const [displayMode, setDisplayMode] = useState(initialDisplayMode || displayModesOptions[0]);
 	const [columns, setColumns] = useState([]);
 
-	const { columnsVisibility, setColumnsVisibility } = useColumnsVisibility(
+	const { visibleColumns, setVisibleColumns } = useColumnsVisibility(
 		columnsVisibilityStorageKey,
+		initialVisibleColumns,
 	);
 
-	const [visibleColumns, setVisibleColumns] = useState(() => {
-		return columnsVisibility
-			? columnsVisibility.filter(({ visible }) => !!visible).map(({ key }) => key)
-			: initialVisibleColumns;
-	});
-
 	useEffect(() => {
-		setColumnsVisibility(columns, visibleColumns);
-	}, [columns, visibleColumns]);
+		setVisibleColumns(columns);
+	}, [columns]);
 
 	// Sort items
 	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(
@@ -60,7 +55,7 @@ function Manager({
 		setSortParams,
 		setTextFilter,
 		setColumns,
-		setVisibleColumns,
+		setVisibleColumns: visibleColumns => setVisibleColumns(columns, visibleColumns),
 		setFilteredColumns,
 		sortParams,
 		t,
