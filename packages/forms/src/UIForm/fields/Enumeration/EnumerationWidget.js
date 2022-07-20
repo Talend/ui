@@ -77,7 +77,6 @@ class EnumerationForm extends React.Component {
 		this.allowImport = false;
 		const disabledAction = props.schema ? props.schema.disabled : false;
 		this.importFileHandler = this.importFileHandler.bind(this);
-		this.enableSkip = props.enableSkip;
 
 		if (props.schema) {
 			this.allowDuplicate = !!props.schema.allowDuplicates;
