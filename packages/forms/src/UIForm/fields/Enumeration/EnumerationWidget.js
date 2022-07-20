@@ -475,7 +475,7 @@ class EnumerationForm extends React.Component {
 
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				item.values = EnumerationForm.parseStringValueToArray(value.value, this.enableSkip);
+				item.values = EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip);
 			}
 			if (valueExist) {
 				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
