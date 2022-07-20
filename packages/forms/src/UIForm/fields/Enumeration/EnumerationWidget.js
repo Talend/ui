@@ -437,7 +437,7 @@ class EnumerationForm extends React.Component {
 					actionsEdit: this.loadingInputsActions,
 				},
 			}));
-			const formattedValue = EnumerationForm.parseStringValueToArray(value.value, this.enableSkip);
+			const formattedValue = EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip);
 			this.props
 				.onTrigger(event, {
 					trigger: {
