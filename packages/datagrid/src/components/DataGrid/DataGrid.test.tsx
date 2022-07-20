@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import all stories from the stories file
 import { composeStories } from '@storybook/testing-react';
 import { render, screen } from '@testing-library/react';
 import ReactDOM from 'react-dom';
@@ -48,5 +47,28 @@ describe('DataGrid', () => {
 	it('should add class on selected columns', async () => {
 		const wrapper = render(<Selection />);
 		await Selection.play({ canvasElement: wrapper.baseElement });
+	});
+	it('should use persisted column sizes', async () => {
+		const LOCAL_STORAGE_KEY = 'key';
+		window.localStorage.setItem(
+			LOCAL_STORAGE_KEY,
+			JSON.stringify({
+				[sample.schema.fields[0].name]: 789,
+			}),
+		);
+
+		render(
+			<DataGrid
+				sizesLocalStorageKey={LOCAL_STORAGE_KEY}
+				columnDefs={getColumnDefs(sample)}
+				rowData={sample.data}
+			/>,
+		);
+
+		const cell = await screen.findByText('Nom de la gare', undefined, {
+			timeout: 10000,
+		});
+
+		expect(getComputedStyle(cell.closest('.ag-header-cell')!).width).toEqual('789px');
 	});
 });

@@ -21,16 +21,17 @@ import DataGrid from '@talend/react-datagrid';
 The dataGrid component is used to show datagrid on all Talend projects. This library uses [Ag-Grid](http://ag-grid.com) to show the grid.
 Grid is composed like this :
 
-| colDef[0].headerComponent | colDef[1].headerComponent   | colDef[2].headerComponent |
-|---------------------------|-----------------------------|---------------------------|
-| raw ag-grid renderer      | colDef[1].cellRenderer      | colDef[2].cellRenderer   |
-| raw ag-grid renderer      | colDef[1].cellRenderer      | colDef[2].cellRenderer    |
-| raw ag-grid renderer      | colDef[1].cellRenderer      | colDef[2].cellRenderer    |
-| raw ag-grid renderer      | colDef[1].cellRenderer      | colDef[2].cellRenderer    |
+| colDef[0].headerComponent | colDef[1].headerComponent | colDef[2].headerComponent |
+| ------------------------- | ------------------------- | ------------------------- |
+| raw ag-grid renderer      | colDef[1].cellRenderer    | colDef[2].cellRenderer    |
+| raw ag-grid renderer      | colDef[1].cellRenderer    | colDef[2].cellRenderer    |
+| raw ag-grid renderer      | colDef[1].cellRenderer    | colDef[2].cellRenderer    |
+| raw ag-grid renderer      | colDef[1].cellRenderer    | colDef[2].cellRenderer    |
 
 ## Data sources
 
 A serializer is provided to handle dataset sample format:
+
 ```
 import { DatasetSerializer } from '@talend/react-datagrid`;
 const columnDefs = DatasetSerializer.getColumnDefs(sample);
@@ -41,23 +42,23 @@ const columnDefs = DatasetSerializer.getColumnDefs(sample);
 All ag-grid props can be provided (https://www.ag-grid.com/react-data-grid/grid-options/).
 Here are the main ones:
 
-| property        | description                                    | type          | default |
-|-----------------|------------------------------------------------|---------------|---------|
-| headerHeight    | height of the header                           | int           | 69      |
-| onCellFocused   | callback when one cell is focused              | function      |         |
-| rowSelection    | set the type of selection (single or multiple) | string        | single  |
-| rowData         | pass the row data straight right to ag-grid    | Array         |         |
-| columnsDef      | definition of the columns                      | Array<ColDef> |         |
+| property      | description                                    | type          | default |
+| ------------- | ---------------------------------------------- | ------------- | ------- |
+| headerHeight  | height of the header                           | int           | 69      |
+| onCellFocused | callback when one cell is focused              | function      |         |
+| rowSelection  | set the type of selection (single or multiple) | string        | single  |
+| rowData       | pass the row data straight right to ag-grid    | Array         |         |
+| columnsDef    | definition of the columns                      | Array<ColDef> |         |
 
 To support new use cases, new props were added:
 
-| property                 | description                                    | type                      | default |
-|--------------------------|------------------------------------------------|---------------------------|---------|
-| columnSelection          | set the type of selection (single or multiple) | string                    | single  |
-| onColumnSelectionChanged | callback selected column(s) changed            | function                  |         |
-| loading                  |                                                | boolean                   | false   |
-| selection                | controlled selection                           | { rowIndexes, columnIds } |         |
-
+| property                 | description                                       | type                      | default |
+| ------------------------ | ------------------------------------------------- | ------------------------- | ------- |
+| columnSelection          | set the type of selection (single or multiple)    | string                    | single  |
+| onColumnSelectionChanged | callback selected column(s) changed               | function                  |         |
+| loading                  |                                                   | boolean                   | false   |
+| selection                | controlled selection                              | { rowIndexes, columnIds } |         |
+| sizesLocalStorageKey     | Key to use when persisting sizes to local storage | string                    |         |
 
 ## Issue solved with ag-grid
 

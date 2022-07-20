@@ -50,6 +50,7 @@ export default {
 } as Meta;
 
 const defaultGridProps = {
+	sizesLocalStorageKey: 'sb-grid-sizes',
 	columnSelection: 'multiple' as DataGridProps['columnSelection'],
 	rowData: sample.data,
 	columnDefs: getColumnDefs(sample),

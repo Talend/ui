@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GridApi, NavigateToNextCellParams, TabToNextCellParams } from 'ag-grid-community';
+import { Column, GridApi, NavigateToNextCellParams, TabToNextCellParams } from 'ag-grid-community';
 
 import { SELECTED_CELL_CLASS_NAME } from '../../constants';
 
@@ -55,4 +55,29 @@ export function refreshHeader(
 			?.classList.toggle(SELECTED_CELL_CLASS_NAME, selection.includes(colId));
 	});
 	// END QUICKFIX
+}
+
+/**
+ * Return column sizes saved in local storage
+ */
+export function getColumnSizes(localStorageKey?: string) {
+	try {
+		const sizesStr = localStorageKey ? localStorage.getItem(localStorageKey) : null;
+		if (sizesStr) {
+			return JSON.parse(sizesStr);
+		}
+	} catch (e) {
+		console.error('local storage seems corrupted', e);
+	}
+	return null;
+}
+
+/*
+ * Save column size to local storage
+ */
+export function saveColumnSizes(localStorageKey: string, columns: Column[] | null) {
+	if (columns) {
+		const sizes = columns.map(col => [col.getColId(), col.getActualWidth()]);
+		localStorage.setItem(localStorageKey, JSON.stringify(Object.fromEntries(sizes)));
+	}
 }
