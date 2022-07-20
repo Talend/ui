@@ -708,7 +708,7 @@ class EnumerationForm extends React.Component {
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: EnumerationForm.parseStringValueToArray(value.value, this.enableSkip),
+						value: EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
