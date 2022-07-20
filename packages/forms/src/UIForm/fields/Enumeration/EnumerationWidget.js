@@ -77,7 +77,6 @@ class EnumerationForm extends React.Component {
 		this.allowImport = false;
 		const disabledAction = props.schema ? props.schema.disabled : false;
 		this.importFileHandler = this.importFileHandler.bind(this);
-		this.enableSkip = props.enableSkip;
 
 		if (props.schema) {
 			this.allowDuplicate = !!props.schema.allowDuplicates;
@@ -438,7 +437,7 @@ class EnumerationForm extends React.Component {
 					actionsEdit: this.loadingInputsActions,
 				},
 			}));
-			const formattedValue = EnumerationForm.parseStringValueToArray(value.value, this.enableSkip);
+			const formattedValue = EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip);
 			this.props
 				.onTrigger(event, {
 					trigger: {
@@ -476,7 +475,7 @@ class EnumerationForm extends React.Component {
 
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				item.values = EnumerationForm.parseStringValueToArray(value.value, this.enableSkip);
+				item.values = EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip);
 			}
 			if (valueExist) {
 				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -709,7 +708,7 @@ class EnumerationForm extends React.Component {
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: EnumerationForm.parseStringValueToArray(value.value, this.enableSkip),
+						value: EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
@@ -733,7 +732,7 @@ class EnumerationForm extends React.Component {
 				schema,
 				value: this.state.items.concat([
 					{
-						values: EnumerationForm.parseStringValueToArray(value.value, this.enableSkip),
+						values: EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip),
 					},
 				]),
 			};
