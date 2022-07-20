@@ -1,3 +1,4 @@
+import { difference } from 'lodash';
 import { useState } from 'react';
 
 export function useColumnsVisibility(storageKey) {
@@ -12,12 +13,13 @@ export function useColumnsVisibility(storageKey) {
 
 	const setColumnsVisibility = (columns, visibleColumns) => {
 		if (storageKey && columns.length) {
-			const columnsVisibility = columns.map(({ dataKey }) => ({
+			const nextColumnsVisibility = columns.map(({ dataKey }) => ({
 				key: dataKey,
-				visible: visibleColumns.includes(dataKey),
+				visible:
+					visibleColumns.includes(dataKey) || !columnsVisibility.find(({ key }) => key === dataKey),
 			}));
-			localStorage.setItem(storageKey, JSON.stringify(columnsVisibility));
-			_setColumnsVisibility(columnsVisibility);
+			localStorage.setItem(storageKey, JSON.stringify(nextColumnsVisibility));
+			_setColumnsVisibility(nextColumnsVisibility);
 		}
 	};
 

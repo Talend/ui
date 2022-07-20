@@ -28,16 +28,15 @@ function Manager({
 		columnsVisibilityStorageKey,
 	);
 
-	const [visibleColumns, _setVisibleColumns] = useState(() => {
+	const [visibleColumns, setVisibleColumns] = useState(() => {
 		return columnsVisibility
 			? columnsVisibility.filter(({ visible }) => !!visible).map(({ key }) => key)
 			: initialVisibleColumns;
 	});
 
-	const setVisibleColumns = visibleColumns => {
-		_setVisibleColumns(visibleColumns);
+	useEffect(() => {
 		setColumnsVisibility(columns, visibleColumns);
-	};
+	}, [columns, visibleColumns]);
 
 	// Sort items
 	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(
@@ -66,7 +65,6 @@ function Manager({
 		sortParams,
 		t,
 		textFilter,
-		columnsVisibility,
 	};
 
 	return (

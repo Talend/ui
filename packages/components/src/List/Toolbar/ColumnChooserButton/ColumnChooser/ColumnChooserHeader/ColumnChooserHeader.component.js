@@ -16,10 +16,6 @@ const Default = () => {
 		total: columns.length,
 		defaultValue: '{{count}}/{{total}} selected',
 	});
-	const hiddenNewColumns = columns.filter(({ hiddenNew }) => !!hiddenNew);
-	const newColumnsMessage = hiddenNewColumns.length ? (
-		<div>{hiddenNewColumns.length} new column is hidden</div>
-	) : null;
 
 	return (
 		<div>
@@ -29,7 +25,6 @@ const Default = () => {
 				})}
 			</div>
 			<div id="selected-columns-text">{selectedColumns}</div>
-			{newColumnsMessage}
 		</div>
 	);
 };
