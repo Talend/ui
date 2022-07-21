@@ -1,12 +1,14 @@
 import React from 'react';
 
 import { action } from '@storybook/addon-actions';
+import { expect } from '@storybook/jest';
 import { Meta, ComponentStory } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { ColDef, ICellRendererParams, IHeaderParams } from 'ag-grid-community';
 import cloneDeep from 'lodash/cloneDeep';
 
 import sourceSample from '../../../mocks/sample.json';
+import { SELECTED_CELL_CLASS_NAME } from '../../constants';
 import { getColumnDefs } from '../../serializers/datasetSerializer';
 import DataGrid, { DataGridProps } from './DataGrid';
 
@@ -77,6 +79,9 @@ Selection.play = async ({ canvasElement }) => {
 	await userEvent.click(await canvas.findByText('Segmentation'), {
 		ctrlKey: true,
 	});
+	await expect(canvas.getByText('voyageurs 2016').closest('.ag-header-cell')).toHaveClass(
+		SELECTED_CELL_CLASS_NAME,
+	);
 };
 
 export const CustomRenderer = () => (
