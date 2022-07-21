@@ -51,11 +51,11 @@
       }
     },
     "style-versions": {
-      "> 1.1.0 <= 3.7.0": {
+      "> 1.1.0 <= 3.8.0": {
         "development": "/dist/TalendDesignSystem.css",
         "production": "/dist/TalendDesignSystem.css"
       },
-      "> 3.7.0": {
+      "> 3.8.0": {
         "development": "/dist/TalendDesignSystem.css",
         "production": "/dist/TalendDesignSystem.min.css"
       }
@@ -98,11 +98,11 @@
       }
     },
     "style-versions": {
-      ">= 5.27.0 <= 8.0.1": {
+      ">= 5.27.0 <= 8.0.2": {
         "development": "/dist/TalendReactForms.css",
         "production": "/dist/TalendReactForms.css"
       },
-      "> 8.0.1": {
+      "> 8.0.2": {
         "development": "/dist/TalendReactForms.css",
         "production": "/dist/TalendReactForms.min.css"
       }
