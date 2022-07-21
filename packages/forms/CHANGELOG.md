@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 8.0.2
+
+### Patch Changes
+
+- a85993977: fix(UIForm): keep defaultProps created by withTranslation
+- Updated dependencies [06bee44bf]
+  - @talend/design-system@3.8.0
+
 ## 8.0.1
 
 ### Patch Changes

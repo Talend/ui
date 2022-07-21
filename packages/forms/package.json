@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.1",
-    "@talend/design-system": "^3.7.0",
+    "@talend/design-system": "^3.8.0",
     "@talend/json-schema-form-core": "1.1.0",
     "@talend/react-components": "^7.3.1",
     "@talend/utils": "^2.4.0",
@@ -93,5 +93,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.0.1"
+  "version": "8.0.2"
 }

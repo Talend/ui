@@ -1,5 +1,15 @@
 # @talend/scripts-config-jest
 
+## 11.2.0
+
+### Minor Changes
+
+- ab1a6e983: feat: mock ResizeObserver
+
+### Patch Changes
+
+- 4d8636214: expose jsdom as global variable in jest environment
+
 ## 11.1.0
 
 ### Minor Changes

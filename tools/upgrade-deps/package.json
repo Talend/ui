@@ -1,6 +1,6 @@
 {
   "name": "@talend/upgrade-deps",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "CLI to help management of dependencies",
   "bin": {
     "talend-upgrade-deps": "./bin/cli.js"
