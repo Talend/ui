@@ -9,20 +9,12 @@ const theme = getTheme(cssModule);
 const getLabels = (checked, t) => {
 	return checked
 		? {
-				label: t('TC_COLUMN_CHOOSER_UNSELECT_ALL', {
-					defaultValue: 'Unselect all',
-				}),
-				description: t('CHECKBOX_DESELECT_ALL_COLUMNS_DESCRIPTION', {
-					defaultValue: 'hide all the columns',
-				}),
+				label: t('TC_COLUMN_CHOOSER_UNSELECT_ALL', 'Unselect all'),
+				description: t('CHECKBOX_DESELECT_ALL_COLUMNS_DESCRIPTION', 'hide all the columns'),
 		  }
 		: {
-				label: t('TC_COLUMN_CHOOSER_SELECT_ALL', {
-					defaultValue: 'Select all',
-				}),
-				description: t('CHECKBOX_SELECT_ALL_COLUMNS_DESCRIPTION', {
-					defaultValue: 'display all the columns',
-				}),
+				label: t('TC_COLUMN_CHOOSER_SELECT_ALL', 'Select all'),
+				description: t('CHECKBOX_SELECT_ALL_COLUMNS_DESCRIPTION', 'display all the columns'),
 		  };
 };
 
