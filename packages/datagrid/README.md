@@ -70,4 +70,4 @@ The component HeaderCell is enhanced by a method onFocusedColumn to detect when 
 
 ### Current Row selected
 
-Ag-grid set the current cell selected by a click. If we navigate with the keyboard, ag-grid sent a new event onCellFocused but the cell isn't selected. AgGrid allows to change this behavior by adding a method _navigateToNextCell_ on theses options. Each times that we move to a next cell, this cell is selected. The current selected rows is hightlight by the class _.ag-row-focus_. This class can be overrided by the class _.ag-row-selected_ is many row is selected.
+Ag-grid sets the current cell selected by a click. If we navigate with the keyboard, ag-grid sends a new event onCellFocused but the cell isn't selected. AgGrid allows to change this behavior by adding a method _navigateToNextCell_ on these options. Each time that we move to a next cell, this cell is selected. The current selected rows is highlighted by the class _.ag-row-focus_. This class can be overridden by the class _.ag-row-selected_ if many row are selected.
