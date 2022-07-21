@@ -221,7 +221,7 @@
     "style-versions": {
       ">= 5.27.0 < 5.31.0": {
         "development": "/dist/TalendReactStepper.css",
-        "production": "/dist/TalendReactStepper.min.css"
+        "production": "/dist/TalendReactStepper.css"
       }
     }
   },
