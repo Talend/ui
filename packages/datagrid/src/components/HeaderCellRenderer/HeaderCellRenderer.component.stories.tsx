@@ -14,9 +14,9 @@ const defaultArgs = {
 	typeLabel: 'My type',
 	semanticTypeLabel: 'Semantic type',
 	quality: {
-		[-1]: 10,
-		0: 0,
-		1: 38,
+		invalid: 10,
+		empty: 0,
+		valid: 38,
 	},
 };
 const longContent = {

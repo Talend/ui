@@ -9,9 +9,9 @@ describe('DataGrid utils', () => {
 			metaKey: false,
 			ctrlKey: false,
 		};
-		expect(handleMultiSelection(allCols, '1', [], modifiers)).toEqual(['1']);
-		expect(handleMultiSelection(allCols, '3', ['1'], modifiers)).toEqual(['1', '2', '3']);
-		expect(handleMultiSelection(allCols, '1', ['3'], modifiers)).toEqual(['1', '2', '3']);
+		expect(handleMultiSelection('1', allCols, [], modifiers)).toEqual(['1']);
+		expect(handleMultiSelection('3', allCols, ['1'], modifiers)).toEqual(['1', '2', '3']);
+		expect(handleMultiSelection('1', allCols, ['3'], modifiers)).toEqual(['1', '2', '3']);
 	});
 	it('should handle column selection with ctrl modifier', () => {
 		const modifiers = {
@@ -19,8 +19,8 @@ describe('DataGrid utils', () => {
 			metaKey: true,
 			ctrlKey: false,
 		};
-		expect(handleMultiSelection(allCols, '1', [], modifiers)).toEqual(['1']);
-		expect(handleMultiSelection(allCols, '1', ['1'], modifiers)).toEqual([]);
-		expect(handleMultiSelection(allCols, '1', ['3'], modifiers)).toEqual(['3', '1']);
+		expect(handleMultiSelection('1', allCols, [], modifiers)).toEqual(['1']);
+		expect(handleMultiSelection('1', allCols, ['1'], modifiers)).toEqual([]);
+		expect(handleMultiSelection('1', allCols, ['3'], modifiers)).toEqual(['3', '1']);
 	});
 });

@@ -1,6 +1,11 @@
 import { ColDef } from 'ag-grid-community';
 
-import { QUALITY_KEY } from '../constants';
+import {
+	QUALITY_EMPTY_KEY,
+	QUALITY_INVALID_KEY,
+	QUALITY_KEY,
+	QUALITY_VALID_KEY,
+} from '../constants';
 import { DefaultColDef, DefaultPinnedColDef } from '../constants/column-definition.constants';
 import { AvroField, Sample } from '../types';
 
@@ -82,6 +87,7 @@ export function getColumnDefs(sample: Sample): ColDef[] {
 		DefaultPinnedColDef,
 		...sample.schema.fields.map(avroField => {
 			const type = sanitizeAvro(avroField);
+			const quality = avroField.type && getQualityValue(avroField.type);
 			return {
 				...DefaultColDef,
 				valueGetter: `data.value.${avroField.name}`,
@@ -97,7 +103,11 @@ export function getColumnDefs(sample: Sample): ColDef[] {
 					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 					// @ts-ignore
 					required: !Array.isArray(avroField.type) || !avroField.type.find(isNull),
-					quality: avroField.type && getQualityValue(avroField.type),
+					quality: quality && {
+						invalid: quality[QUALITY_INVALID_KEY],
+						empty: quality[QUALITY_EMPTY_KEY],
+						valid: quality[QUALITY_VALID_KEY],
+					},
 				},
 			};
 		}),

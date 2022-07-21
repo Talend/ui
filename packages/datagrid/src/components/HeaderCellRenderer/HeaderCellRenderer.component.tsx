@@ -8,7 +8,6 @@ import truncate from 'lodash/truncate';
 import { Icon, Tooltip, ButtonIcon, StackHorizontal } from '@talend/design-system';
 import { QualityBar } from '@talend/react-components';
 
-import { QUALITY_INVALID_KEY, QUALITY_EMPTY_KEY, QUALITY_VALID_KEY } from '../../constants';
 import { HeaderComponentParams } from '../../types';
 
 import theme from './HeaderCellRenderer.scss';
@@ -88,14 +87,7 @@ export default function HeaderCellRenderer({
 					</div>
 				)}
 			</StackHorizontal>
-			{quality && (
-				<QualityBar
-					invalid={quality[QUALITY_INVALID_KEY]}
-					empty={quality[QUALITY_EMPTY_KEY]}
-					valid={quality[QUALITY_VALID_KEY]}
-					{...qualityBarProps}
-				/>
-			)}
+			{quality && <QualityBar {...quality} {...qualityBarProps} />}
 		</div>
 	);
 }

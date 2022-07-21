@@ -19,10 +19,15 @@ export type AvroField = {
 };
 
 export interface Quality {
-	[QUALITY_INVALID_KEY]: number;
-	[QUALITY_EMPTY_KEY]: number;
-	[QUALITY_VALID_KEY]: number;
+	empty: number;
+	invalid: number;
+	valid: number;
 }
+
+export type QualityIndex =
+	| typeof QUALITY_INVALID_KEY
+	| typeof QUALITY_EMPTY_KEY
+	| typeof QUALITY_VALID_KEY;
 
 export interface TypeInfo {
 	type: string;
