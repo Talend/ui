@@ -54,8 +54,8 @@ export default function DataGrid({
 		(event: HeaderClickParams) => {
 			// Unselect rows if needed
 			if (gridRef.current?.api.getSelectedRows().length) {
-				gridRef.current?.api.deselectAll();
-				gridRef.current?.api.clearFocusedCell();
+				gridRef.current.api.deselectAll();
+				gridRef.current.api.clearFocusedCell();
 			}
 			const colId = event.column.getColId();
 			const allColIds = gridRef.current!.columnApi.getColumns()!.map(col => col.getColId());
