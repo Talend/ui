@@ -18,7 +18,7 @@ import DataGrid from '@talend/react-datagrid';
 
 ## Component
 
-The dataGrid component used to show datagrid on all talend projects. This library uses [Ag-Grid](http://ag-grid.com) to show the grid.
+The dataGrid component is used to show datagrid on all Talend projects. This library uses [Ag-Grid](http://ag-grid.com) to show the grid.
 Grid is composed like this :
 
 | colDef[0].headerComponent | colDef[1].headerComponent   | colDef[2].headerComponent |
