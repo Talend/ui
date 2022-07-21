@@ -83,6 +83,9 @@ Selection.play = async ({ canvasElement }) => {
 		SELECTED_CELL_CLASS_NAME,
 	);
 };
+Selection.parameters = {
+	chromatic: { disableSnapshot: true },
+};
 
 export const CustomRenderer = () => (
 	<DataGrid

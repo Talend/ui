@@ -60,11 +60,13 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 
 	:global(.column-focus),
 	:global(.ag-row-selected) :global(.ag-cell) {
+		// stylelint-disable-next-line
 		background-color: tokens.$coral-color-accent-background-selected !important;
 	}
 
 	:global(.ag-row-selected) :global(.column-focus) {
 		background-color: tokens.$coral-color-neutral-background;
+		// stylelint-disable-next-line
 		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border !important;
 		outline-offset: -2px;
 	}

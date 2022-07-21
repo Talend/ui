@@ -36,9 +36,6 @@ const menu = {
 export default {
 	component: HeaderCellRenderer,
 	title: 'Components/HeaderCellRenderer',
-	parameters: {
-		chromatic: { disableSnapshot: false },
-	},
 	args: { ...defaultArgs },
 };
 
