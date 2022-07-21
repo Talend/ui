@@ -7,3 +7,4 @@ export const COLUMN_MIN_WIDTH = 30;
 export const ROW_HEIGHT = 39;
 export const CELL_WIDTH = 150;
 export const SELECTED_CELL_CLASS_NAME = 'column-focus';
+export const HIGHLIGHTED_CELL_CLASS_NAME = 'highlighted';
