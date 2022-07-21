@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 
 import { CellFocusedEvent, GridOptions, ColDef } from 'ag-grid-community';
-import { AgGridReact } from 'ag-grid-react';
+import { AgGridReact as AgGridReactType } from 'ag-grid-react';
 import classNames from 'classnames';
 
+import assetsApi from '@talend/assets-api';
 import { Icon } from '@talend/design-system';
 
 import { HEADER_HEIGHT, ROW_HEIGHT } from '../../constants';
@@ -23,13 +24,20 @@ export type DataGridProps = GridOptions &
 		};
 	};
 
+const AgGridReact = React.lazy(() =>
+	assetsApi
+		.getUMD('ag-grid-community')
+		.then(() => assetsApi.getUMD('ag-grid-react'))
+		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact)),
+);
+
 export default function DataGrid({
 	loading,
 	columnDefs,
 	selection,
 	...props
 }: DataGridProps): JSX.Element {
-	const gridRef = useRef<AgGridReact>(null);
+	const gridRef = useRef<AgGridReactType>(null);
 	const { selectedColumns, updateSelectionOnCellFocus, onHeaderFocus, setSelectedColumns } =
 		useColumnSelection(gridRef, props);
 	const context = useRef<GridContext>({ selectedColumns });
