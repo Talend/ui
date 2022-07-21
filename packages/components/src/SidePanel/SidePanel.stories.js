@@ -1,6 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import assetsApi from '@talend/assets-api';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
 import appStyle from '../../stories/config/themes.scss';
@@ -119,6 +120,7 @@ export const Controlled = () => (
 		onSelect={action('onItemSelect')}
 		onToggleDock={action('onToggleDock')}
 		tooltipPlacement="top"
+		backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
 	/>
 );
 
