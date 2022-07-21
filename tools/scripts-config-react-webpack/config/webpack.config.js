@@ -35,7 +35,6 @@ const cdnMode = !!process.env.INITIATOR_URL;
 
 const DEFAULT_INDEX_TEMPLATE_PATH = 'src/app/index.html';
 const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
-const ICON_DIST = icons.getIconsDistPath();
 const getFileNameForExtension = (extension, prefix) =>
 	`${prefix || ''}[name]-[contenthash].${extension}`;
 
