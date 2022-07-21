@@ -120,8 +120,32 @@ export const Controlled = () => (
 		onSelect={action('onItemSelect')}
 		onToggleDock={action('onToggleDock')}
 		tooltipPlacement="top"
-		backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
 	/>
+);
+
+export const WithBackGroundIcon = () => (
+	<Layout
+		mode="TwoColumns"
+		one={
+			<SidePanel
+				id="context"
+				actions={actions}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				tooltipPlacement="top"
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			/>
+		}
+	>
+		<article style={{ padding: 10 }}>
+			The props <strong>backgroundIcon</strong> let you support product icons. It is used as{' '}
+			<pre>mask-image: url(backgroundIcon)</pre> so you have to provide URL. For this example we
+			have used assetsApi this way:
+			<pre>
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			</pre>
+		</article>
+	</Layout>
 );
 
 export const Links = () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />;
