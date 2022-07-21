@@ -25,12 +25,12 @@
     ]
   },
   "devDependencies": {
-    "jest": "^28.1.2"
+    "jest": "^28.1.3"
   },
   "dependencies": {
     "@talend/upgrade-deps": "^1.4.2",
-    "@babel/cli": "^7.18.6",
-    "@babel/core": "^7.18.6",
+    "@babel/cli": "^7.18.9",
+    "@babel/core": "^7.18.9",
     "cpx2": "^3.0.2",
     "cross-spawn": "^7.0.3",
     "lodash.get": "^4.4.2",

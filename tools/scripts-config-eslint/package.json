@@ -17,10 +17,10 @@
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.9",
     "@talend/eslint-plugin": "^1.0.0",
-    "@typescript-eslint/parser": "^5.30.6",
-    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.7",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^6.15.0",

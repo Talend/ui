@@ -1,5 +1,11 @@
 # @talend/upgrade-deps
 
+## 1.5.0
+
+### Minor Changes
+
+- f162ec2fa: feat: add support for package-lock.json
+
 ## 1.4.2
 
 ### Patch Changes

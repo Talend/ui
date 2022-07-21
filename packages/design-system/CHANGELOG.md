@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 3.8.0
+
+### Minor Changes
+
+- 06bee44bf: feat(design-system): set switch font to prevent inheritance
+
 ## 3.7.0
 
 ### Minor Changes

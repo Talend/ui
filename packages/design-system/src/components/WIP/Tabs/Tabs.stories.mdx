@@ -1,0 +1,196 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+import InlineMessageWarning from '../../InlineMessage/variations/InlineMessageWarning';
+import { StackVertical } from '../../Stack';
+import * as Stories from './Tabs.stories';
+
+import Tabs from './index';
+
+<Meta
+	title="[WIP] Components/Tabs"
+	components={Tabs}
+	parameters={{
+		status: { figma: 'ok', storybook: 'wip', react: 'wip', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs',
+	}}
+/>
+
+# Tabs
+
+<StackVertical
+	gap="XS"
+	margin={{
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 'M',
+	}}
+>
+	<InlineMessageWarning
+		title="Overflow"
+		withBackground
+		description="This component does not yet handle overflow properly. Use for wide spaces only"
+	/>
+</StackVertical>
+
+Tabs are used for switching between different views, functional aspects or categorized data sets.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=46%3A63"
+	alt="zoning for tabs"
+/>
+
+## Style
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=1750%3A22158"
+	alt="image for tabs"
+/>
+
+<Canvas>
+	<Story story={Stories.Styles} />
+</Canvas>
+
+### Variations
+
+#### Sizes
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=1750%3A22158"
+	alt="image for tabs"
+/>
+
+As you have seen above, Tabs can exist in regular ("M") or Large ("L") sizes.
+
+Only use the large size when tabs act as a second level of navigation on page-wide basis. Do not use in nested elements (drawers, modals etc...).
+
+#### Tabs with icons
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A145"
+	alt="image for tabs with icons"
+/>
+
+Icons can be used with tabs to help users differentiate among them. Tabs with icons has the same behaviours.
+
+<Canvas>
+	<Story story={Stories.TabsWithIcon} />
+</Canvas>
+
+#### Tabs with tags
+
+<FigmaImage
+	src="https://www.figma.com/file/bSesPlHPWLPA66wySm8VYV/Tabs?node-id=0%3A156"
+	alt="image for tabs with tags"
+/>
+
+Labels can be used with tabs to indicate the number of items inside a category. Please refer to the labels guideline for more information.
+
+The default max value of an item is 999. When the value to display is greater than 999, display a + after.
+
+Mouse over the label will display the exact number item.
+
+<Canvas>
+	<Story story={Stories.TabsWithTag} />
+</Canvas>
+
+## States
+
+**Super long item names are truncated.**
+
+Please display a tooltip on hover that contains the full name.
+
+Max width item: 22rem (token: $coral-sizing-xxl).
+
+<Canvas>
+	<Story story={Stories.TabsWithLongTitles} />
+</Canvas>
+
+## Content
+
+The word/words on tabs should be accurate, specific, and explicit to help users smoothly switching to the right view or functional aspect. A good tab label should clearly describe the content contained within it.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use sentence case in tab labels.</li>
+			<li>Use labels which clearly describe the content behind the tab.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don’t use more than 3 words on a tab: keep it short and simple.</li>
+			<li>Don't use title case or all caps in tab labels (except for acronyms).</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interaction
+
+NA
+
+## Accessibility
+
+## Usage
+
+### API vs Composition
+
+Tabs can be used either as a standalone block component, or split into two parts: a list of tab buttons and, somewhere else (nearby) the contents.
+
+To accommodate these two options, we provide two ways to implement Tabs in your project.
+
+#### API
+
+This is the standard, most straightforward way to use Tabs.
+
+<Canvas>
+	<Story story={Stories.TabStandalone} />
+</Canvas>
+
+It also works for large Tabs if needed:
+
+<Canvas withSource="closed">
+	<Story story={Stories.TabStandaloneLarge} />
+</Canvas>
+
+#### Composition
+
+This is the "I know what I am doing" mode. It lets you build the Tabs through composition, thus letting you split the Tabs list and the Tab panels.
+
+This is also the implementation that is most likely to break. Use only when necessary!
+
+<Canvas>
+	<Story story={Stories.TabsWithComposition} />
+</Canvas>
+
+This method supports the same features as the API one:
+
+<Canvas withSource="closed">
+	<Story story={Stories.TabsWithCompositionLarge} />
+</Canvas>
+
+### Default tab mode
+
+You may need to set a default opened tab from the outside. You can:
+
+<Canvas>
+	<Story story={Stories.TabStandaloneControlled} />
+</Canvas>
+
+or in composition mode:
+
+<Canvas withSource="closed">
+	<Story story={Stories.TabsWithCompositionControlled} />
+</Canvas>
+
+### Use Tabs as router links
+
+You may need something that looks like tabs but is actually a navigation pattern.
+
+For this we have a dedicated component that gives you a list of links and make them look like tabs:
+
+<Canvas>
+	<Story story={Stories.TabsAsLinks} />
+</Canvas>
