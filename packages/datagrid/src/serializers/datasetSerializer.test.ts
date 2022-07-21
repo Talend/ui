@@ -1,4 +1,4 @@
-import sample from '../sample.json';
+import sample from '../../mocks/sample.json';
 import { getColumnDefs } from './datasetSerializer';
 
 describe('#getColumnDefs', () => {

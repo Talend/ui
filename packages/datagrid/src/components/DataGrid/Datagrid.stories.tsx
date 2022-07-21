@@ -6,7 +6,7 @@ import { within, userEvent } from '@storybook/testing-library';
 import { ColDef, ICellRendererParams, IHeaderParams } from 'ag-grid-community';
 import cloneDeep from 'lodash/cloneDeep';
 
-import sourceSample from '../../sample.json';
+import sourceSample from '../../../mocks/sample.json';
 import { getColumnDefs } from '../../serializers/datasetSerializer';
 import DataGrid, { DataGridProps } from './DataGrid';
 

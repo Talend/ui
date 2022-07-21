@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-import sample from '../../sample.json';
+import sample from '../../../mocks/sample.json';
 import { getColumnDefs } from '../../serializers/datasetSerializer';
 import DataGrid from './DataGrid';
 
