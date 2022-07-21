@@ -14,7 +14,7 @@ const TabsAsLinkList = forwardRef(
 	({ tabs, size = 'M', ...props }: TabsAsLinkListProps, ref: Ref<HTMLUListElement>) => {
 		return (
 			<div className={styles.tabList}>
-				<StackHorizontal gap={size} as={'ul'} {...props} ref={ref}>
+				<StackHorizontal gap={size} as="ul" {...props} ref={ref}>
 					{tabs.map((tab, index) => {
 						return (
 							<li key={`${index}-tab`}>

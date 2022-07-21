@@ -12,7 +12,7 @@ const TabsContext = createContext<TabState | null>(null);
 
 const Tabs = ({ children, ...initialState }: TabsProps) => {
 	const tab = useTabState(initialState);
-	const value = useMemo(() => tab, Object.values(tab));
+	const value = useMemo(() => tab, [tab]);
 	return <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 };
 
