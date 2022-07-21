@@ -36,22 +36,19 @@ export default function DataGrid({
 	const [selectedColumns, setSelectedColumns] = useState<string[]>([]);
 	const context = useRef<GridContext>({ selectedColumns });
 
-	const onCellFocused = useCallback(
-		(event: CellFocusedEvent) => {
-			// filter event triggered by clearFocusedCell
-			if (event.column instanceof Column) {
-				const update = event.column.isPinned() ? [] : [event.column.getColId()];
-				setSelectedColumns(prev => {
-					// don't update when focusing a cell on the same column
-					return prev.length > 1 || prev[0] !== update[0] ? update : prev;
-				});
+	function onCellFocused(event: CellFocusedEvent) {
+		// filter event triggered by clearFocusedCell
+		if (event.column instanceof Column) {
+			const update = event.column.isPinned() ? [] : [event.column.getColId()];
+			// Column selection changed
+			if (selectedColumns.length > 1 || selectedColumns[0] !== update[0]) {
+				setSelectedColumns(update);
 			}
-			if (props.onCellFocused) {
-				props.onCellFocused(event);
-			}
-		},
-		[props.onCellFocused, setSelectedColumns],
-	);
+		}
+		if (props.onCellFocused) {
+			props.onCellFocused(event);
+		}
+	}
 
 	const onHeaderFocus = useCallback(
 		(event: HeaderClickParams) => {

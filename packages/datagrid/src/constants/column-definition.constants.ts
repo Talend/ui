@@ -23,6 +23,7 @@ export const DefaultPinnedColDef: Partial<ColDef> = {
 export const DefaultColDef: Partial<ColDef> = {
 	minWidth: COLUMN_MIN_WIDTH,
 	width: CELL_WIDTH,
+	resizable: true,
 	cellRenderer: DefaultCellRenderer,
 	headerComponent: DefaultHeaderRenderer,
 	cellEditor: PlaygroundCellEditor,
