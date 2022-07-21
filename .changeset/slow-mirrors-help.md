@@ -13,7 +13,7 @@ Lots of breaking changes on this one, to have a cleaner API and a faster grid.
 
 __API changes:__
 1. [Props] `columnSelection`: defaults to single
-2. [Props] `onColumnSelectionChanged`: triggered when selection column(s) changed
+2. [Props] `onColumnSelectionChanged`: triggered when selected column(s) changed
 3. [Props] `selection.columnIds`: controlled column selection
 
 __API breaking changes:__
