@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-	useTooltipState as useReakitTooltipState,
 	Tooltip as ReakitTooltip,
-	TooltipProps as ReakitTooltipProps,
 	TooltipArrow as ReakitTooltipArrow,
+	TooltipProps as ReakitTooltipProps,
 	TooltipReference as ReakitTooltipReference,
 	unstable_useId as useId,
+	useTooltipState as useReakitTooltipState,
 } from 'reakit';
 
 import styles from './Tooltip.module.scss';
