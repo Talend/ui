@@ -24,13 +24,11 @@ function Manager({
 	const [displayMode, setDisplayMode] = useState(initialDisplayMode || displayModesOptions[0]);
 	const [columns, setColumns] = useState([]);
 
-	const { visibleColumns, setVisibleColumns, updateColumns } = useColumnsVisibility(
-		columnsVisibilityStorageKey,
+	const { visibleColumns, setVisibleColumns } = useColumnsVisibility(
+		columns,
 		initialVisibleColumns,
+		columnsVisibilityStorageKey,
 	);
-
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	useEffect(() => updateColumns(columns), [columns]);
 
 	// Sort items
 	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(
@@ -54,7 +52,7 @@ function Manager({
 		setSortParams,
 		setTextFilter,
 		setColumns,
-		setVisibleColumns: nextVisibleColumns => setVisibleColumns(columns, nextVisibleColumns),
+		setVisibleColumns,
 		setFilteredColumns,
 		sortParams,
 		t,

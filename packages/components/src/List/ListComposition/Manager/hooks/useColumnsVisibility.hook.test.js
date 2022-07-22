@@ -11,19 +11,24 @@ describe('useColumnsVisibility', () => {
 		expect(result.current.visibleColumns).toBeUndefined();
 	});
 
-	it('should have initial visible columns after columns set', () => {
-		const initialVisibleColumns = ['id', 'name'];
-		const { result } = renderHook(() => useColumnsVisibility(undefined, initialVisibleColumns));
-		act(() =>
-			result.current.updateColumns([{ dataKey: 'id' }, { dataKey: 'name' }, { dataKey: 'city' }]),
-		);
-		expect(result.current.visibleColumns).toEqual(initialVisibleColumns);
+	it('should set new columns visible by default', () => {
+		let columns = [{ dataKey: 'id' }, { dataKey: 'name' }];
+		const { result, rerender } = renderHook(() => useColumnsVisibility(columns));
+
+		rerender();
+		expect(result.current.visibleColumns).toEqual(['id', 'name']);
 	});
 
-	it('should set new columns visible by default', () => {
-		const { result } = renderHook(() => useColumnsVisibility());
-		act(() => result.current.updateColumns([{ dataKey: 'id' }, { dataKey: 'name' }]));
-		expect(result.current.visibleColumns).toEqual(['id', 'name']);
+	it('should have initial visible columns after columns set', () => {
+		let columns;
+		const initialVisibleColumns = ['id', 'name'];
+		const { result, rerender } = renderHook(() =>
+			useColumnsVisibility(columns, initialVisibleColumns),
+		);
+		expect(result.current.visibleColumns).toBeUndefined();
+		columns = [{ dataKey: 'id' }, { dataKey: 'name' }, { dataKey: 'city' }];
+		rerender();
+		expect(result.current.visibleColumns).toEqual(initialVisibleColumns);
 	});
 
 	it('should not set visible columns if empty argument', () => {
@@ -33,29 +38,30 @@ describe('useColumnsVisibility', () => {
 	});
 
 	it('should not update columns if empty argument', () => {
-		const { result } = renderHook(() => useColumnsVisibility());
-		act(() => result.current.updateColumns([]));
-		expect(result.current.visibleColumns).toBeUndefined();
+		let columns = [{ dataKey: 'id' }, { dataKey: 'name' }];
+		const { result, rerender } = renderHook(() => useColumnsVisibility(columns));
+		columns = [];
+		rerender();
+		expect(result.current.visibleColumns).toEqual(['id', 'name']);
 	});
 
 	it('should set visible columns when none', () => {
+		let columns;
 		const visibleColumns = ['id', 'name'];
-		const { result } = renderHook(() => useColumnsVisibility());
-		act(() =>
-			result.current.setVisibleColumns([{ dataKey: 'id' }, { dataKey: 'name' }], visibleColumns),
-		);
+		const { result, rerender } = renderHook(() => useColumnsVisibility(columns));
+		columns = [{ dataKey: 'id' }, { dataKey: 'name' }, { dataKey: 'city' }];
+		rerender();
+		act(() => result.current.setVisibleColumns(visibleColumns));
 		expect(result.current.visibleColumns).toEqual(visibleColumns);
 	});
 
 	it('should update initial visible columns', () => {
-		const { result } = renderHook(() => useColumnsVisibility(undefined, ['id', 'name']));
+		let columns;
+		const { result, rerender } = renderHook(() => useColumnsVisibility(columns, ['id', 'name']));
 		const nextVisibleColumns = ['id', 'name', 'city'];
-		act(() =>
-			result.current.setVisibleColumns(
-				[{ dataKey: 'id' }, { dataKey: 'name' }, { dataKey: 'city' }],
-				nextVisibleColumns,
-			),
-		);
+		columns = [{ dataKey: 'id' }, { dataKey: 'name' }, { dataKey: 'city' }];
+		rerender();
+		act(() => result.current.setVisibleColumns(nextVisibleColumns));
 		expect(result.current.visibleColumns).toEqual(nextVisibleColumns);
 	});
 
@@ -69,9 +75,9 @@ describe('useColumnsVisibility', () => {
 			storageMock.clearAll();
 		});
 
-		it('should have undefined visible columns if not stored config', () => {
+		it('should have undefined visible columns if no stored config', () => {
 			const mock = storageMock.mockGet(jest.fn());
-			const { result } = renderHook(() => useColumnsVisibility(STORAGE_KEY));
+			const { result } = renderHook(() => useColumnsVisibility(undefined, undefined, STORAGE_KEY));
 			expect(result.current.visibleColumns).toBeUndefined();
 			expect(mock).toHaveBeenCalledWith(STORAGE_KEY);
 		});
@@ -84,7 +90,7 @@ describe('useColumnsVisibility', () => {
 					{ dataKey: 'city', visible: false },
 				]),
 			);
-			const { result } = renderHook(() => useColumnsVisibility(STORAGE_KEY));
+			const { result } = renderHook(() => useColumnsVisibility(undefined, undefined, STORAGE_KEY));
 			expect(result.current.visibleColumns).toEqual(['id', 'name']);
 		});
 
@@ -97,15 +103,14 @@ describe('useColumnsVisibility', () => {
 				]),
 			);
 			const setItemMock = storageMock.mockSet(jest.fn());
-			const { result } = renderHook(() => useColumnsVisibility(STORAGE_KEY));
-			act(() =>
-				result.current.updateColumns([
-					{ dataKey: 'id' },
-					{ dataKey: 'name' },
-					{ dataKey: 'city' },
-					{ dataKey: 'country' },
-				]),
-			);
+			let columns = [
+				{ dataKey: 'id' },
+				{ dataKey: 'name' },
+				{ dataKey: 'city' },
+				{ dataKey: 'country' },
+			];
+			const { result } = renderHook(() => useColumnsVisibility(columns, undefined, STORAGE_KEY));
+
 			expect(result.current.visibleColumns).toEqual(['id', 'name', 'country']);
 			expect(setItemMock).toHaveBeenCalledWith(
 				STORAGE_KEY,

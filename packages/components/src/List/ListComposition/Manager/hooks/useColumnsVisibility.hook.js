@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const isVisible = (dataKey, columnsVisibility, initialVisibleColumns) => {
 	if (columnsVisibility) {
@@ -8,7 +8,7 @@ const isVisible = (dataKey, columnsVisibility, initialVisibleColumns) => {
 	return true;
 };
 
-export function useColumnsVisibility(storageKey, initialVisibleColumns = []) {
+export function useColumnsVisibility(columns = [], initialVisibleColumns = [], storageKey) {
 	const [columnsVisibility, setColumnsVisibility] = useState(() => {
 		let visibleColumns;
 		if (storageKey) {
@@ -34,17 +34,17 @@ export function useColumnsVisibility(storageKey, initialVisibleColumns = []) {
 		}
 	};
 
-	const updateColumns = columns =>
+	useEffect(() => {
 		setVisibleColumns(
 			columns,
 			columns
 				.filter(({ dataKey }) => isVisible(dataKey, columnsVisibility, initialVisibleColumns))
 				.map(({ dataKey }) => dataKey),
 		);
+	}, [columns]);
 
 	return {
 		visibleColumns,
-		setVisibleColumns,
-		updateColumns,
+		setVisibleColumns: nextVisibleColumns => setVisibleColumns(columns, nextVisibleColumns),
 	};
 }
