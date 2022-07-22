@@ -31,6 +31,14 @@ const AgGridReact = React.lazy(() =>
 		.then(mod => assetsApi.toDefaultModule(mod.AgGridReact)),
 );
 
+function DataGridSkeleton() {
+	return (
+		<div className={theme['td-grid-loader']}>
+			<Icon name="talend-table" />
+		</div>
+	);
+}
+
 export default function DataGrid({
 	loading,
 	columnDefs,
@@ -75,25 +83,25 @@ export default function DataGrid({
 			})}
 		>
 			{loading ? (
-				<div className={theme['td-grid-loader']}>
-					<Icon name="talend-table" />
-				</div>
+				<DataGridSkeleton />
 			) : (
-				<AgGridReact
-					ref={gridRef}
-					headerHeight={HEADER_HEIGHT}
-					rowHeight={ROW_HEIGHT}
-					/* By default, ag-grid deletes a column when we drag an column outside the grid.*/
-					suppressDragLeaveHidesColumns={false}
-					suppressPropertyNamesCheck
-					tabToNextCell={handleKeyboard}
-					navigateToNextCell={handleKeyboard}
-					rowSelection="single"
-					columnDefs={enrichedColumnDefs}
-					{...props}
-					onCellFocused={onCellFocused}
-					context={context.current}
-				/>
+				<React.Suspense fallback={<DataGridSkeleton />}>
+					<AgGridReact
+						ref={gridRef}
+						headerHeight={HEADER_HEIGHT}
+						rowHeight={ROW_HEIGHT}
+						/* By default, ag-grid deletes a column when we drag an column outside the grid.*/
+						suppressDragLeaveHidesColumns={false}
+						suppressPropertyNamesCheck
+						tabToNextCell={handleKeyboard}
+						navigateToNextCell={handleKeyboard}
+						rowSelection="single"
+						columnDefs={enrichedColumnDefs}
+						{...props}
+						onCellFocused={onCellFocused}
+						context={context.current}
+					/>
+				</React.Suspense>
 			)}
 		</div>
 	);
