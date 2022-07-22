@@ -29,9 +29,3 @@ export class StorageMock {
 		Object.values(this.mocks).forEach(m => m.mockClear());
 	}
 }
-
-export function mockLocalStorage({ getItem, setItem, removeItem }) {
-	if (getItem) jest.fn(getItem);
-	if (setItem) global.Storage.prototype.setItem = jest.fn(setItem);
-	if (removeItem) global.Storage.prototype.removeItem = jest.fn(removeItem);
-}

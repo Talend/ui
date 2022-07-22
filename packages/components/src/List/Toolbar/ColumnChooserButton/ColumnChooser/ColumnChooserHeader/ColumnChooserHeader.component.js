@@ -16,7 +16,6 @@ const Default = () => {
 		total: columns.length,
 		defaultValue: '{{count}}/{{total}} selected',
 	});
-
 	return (
 		<div>
 			<div className={theme('tc-column-chooser-header-title')}>

@@ -29,6 +29,7 @@ function Manager({
 		initialVisibleColumns,
 	);
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => updateColumns(columns), [columns]);
 
 	// Sort items

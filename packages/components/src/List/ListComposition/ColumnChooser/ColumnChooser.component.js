@@ -5,6 +5,7 @@ import ColumnChooserButton from '../../Toolbar/ColumnChooserButton';
 
 function ColumnChooser(props) {
 	const { columns, visibleColumns, setVisibleColumns } = useListContext();
+
 	return (
 		<ColumnChooserButton
 			columns={columns.map(({ dataKey, label }, i) => ({

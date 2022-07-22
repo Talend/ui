@@ -2,10 +2,11 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import ColumnChooser from './ColumnChooser.component';
 import { Card } from '@talend/design-system';
+import PropTypes from '../../../../VirtualizedList/PropTypes';
 
 const columns = [
 	{ key: 'id', label: 'Id', order: 1 },
-	{ key: 'name', label: 'Name', order: 2, hiddenNew: true },
+	{ key: 'name', label: 'Name', order: 2 },
 	{ key: 'author', label: 'Author', order: 3 },
 	{ key: 'created', label: 'Created', order: 6 },
 	{
@@ -18,11 +19,18 @@ const columns = [
 	{ key: 'icon', label: 'Icon', hidden: true, order: 5, locked: true },
 ];
 
-const Layout = ({ children }) => (
-	<div style={{ width: '50rem', height: '50rem' }}>
-		<Card>{children}</Card>
-	</div>
-);
+function Layout({ children }) {
+	return (
+		<div style={{ width: '50rem', height: '50rem' }}>
+			<Card>{children}</Card>
+		</div>
+	);
+}
+
+Layout.displayName = 'Layout';
+Layout.propTypes = {
+	children: PropTypes.any,
+};
 
 export default {
 	title: 'Data/List/Column Chooser',
