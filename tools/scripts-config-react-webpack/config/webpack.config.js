@@ -394,10 +394,9 @@ module.exports = ({ getUserConfig, mode }) => {
 				},
 				static: {
 					directory: path.join(process.cwd(), 'dist'),
-					watch: true,
 				},
 				compress: true,
-				watchFiles: ['src/**/*', 'dist/**/*'],
+				watchFiles: ['src/**/*'],
 			},
 		};
 	};
