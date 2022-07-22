@@ -1,6 +1,7 @@
 const modules = require('./modules.json');
 const fn = require('.');
 const {parseToSemverIfPossible} = require('./version');
+const helpers = require('@talend/module-to-cdn/test-helpers');
 
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
@@ -34,7 +35,9 @@ describe('module-to-cdn', () => {
             styleUrl: undefined
         });
     });
-
+    it('should respect style patterns', () => {
+        helpers.assertStyleVersionPatterns(modules);
+    });
     it('getAllModules', () => {
         t.deepEqual(fn.getAllModules(), modules);
     });
