@@ -2,7 +2,6 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import ColumnChooser from './ColumnChooser.component';
 import { Card } from '@talend/design-system';
-import PropTypes from '../../../../VirtualizedList/PropTypes';
 
 const columns = [
 	{ key: 'id', label: 'Id', order: 1 },
@@ -19,49 +18,53 @@ const columns = [
 	{ key: 'icon', label: 'Icon', hidden: true, order: 5, locked: true },
 ];
 
-function Layout({ children }) {
-	return (
-		<div style={{ width: '50rem', height: '50rem' }}>
-			<Card>{children}</Card>
-		</div>
-	);
-}
-
-Layout.displayName = 'Layout';
-Layout.propTypes = {
-	children: PropTypes.any,
+const defaultProps = {
+	columnsFromList: columns,
+	nbLockedLeftItems: 2,
+	id: 'default-column-chooser',
+	onSubmit: action('submit'),
 };
 
 export default {
 	title: 'Data/List/Column Chooser',
+	render: props => (
+		<ColumnChooser
+			{...{
+				...defaultProps,
+				...props,
+			}}
+		/>
+	),
+	decorators: [
+		(Story, { parameters }) => (
+			<div>
+				<h1>{parameters?.title}</h1>
+				<p>{parameters?.description}</p>
+				<div style={{ width: '50rem', height: '50rem' }}>
+					<Card>
+						<Story />
+					</Card>
+				</div>
+			</div>
+		),
+	],
 };
 
-export const Default = () => (
-	<div>
-		<h1>Column chooser tooltip</h1>
-		<p>Default mode with minimal props</p>
-		<Layout>
-			<ColumnChooser
-				columnsFromList={columns}
-				nbLockedLeftItems={2}
-				id="default-column-chooser"
-				onSubmit={action('submit')}
-			/>
-		</Layout>
-	</div>
-);
+export const Default = {
+	parameters: {
+		title: 'Column chooser tooltip',
+		description: 'Default mode with minimal props',
+	},
+};
 
-export const CustomizeColumnChooser = () => (
-	<div>
-		<h1>Column chooser tooltip</h1>
-		<p>You can provide and compose some of the column chooser part.</p>
-
-		<Layout>
-			<ColumnChooser
-				columnsFromList={columns}
-				id="default-column-chooser"
-				onSubmit={action('submit')}
-			>
+export const CustomizeColumnChooser = {
+	parameters: {
+		title: 'Column chooser tooltip',
+		description: 'You can provide and compose some of the column chooser part.',
+	},
+	args: {
+		children: (
+			<>
 				<ColumnChooser.Header>
 					<span>Hello world</span>
 					<button style={{ marginLeft: '200px' }}>My Button</button>
@@ -84,7 +87,7 @@ export const CustomizeColumnChooser = () => (
 					}
 				</ColumnChooser.Body>
 				<ColumnChooser.Footer />
-			</ColumnChooser>
-		</Layout>
-	</div>
-);
+			</>
+		),
+	},
+};
