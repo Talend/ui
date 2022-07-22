@@ -13,6 +13,7 @@ import { groupBy } from '../TokenFormatter';
 import TokenName from '../TokenName';
 
 import S from './ColorCompositions.scss';
+import CardComposition from '../components/Card/CardComposition';
 
 type ColorComposition = {
 	icon?: string;
@@ -61,12 +62,12 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 									const bg = colorTokens[background];
 									const border = colorTokens[t.border];
 									return (
-										<ColorComposition
+										<CardComposition
 											key={i}
-											icon={icon}
-											color={color}
-											background={bg}
-											border={border}
+											textColor={color}
+											backgroundColor={bg}
+											borderColor={border}
+											iconColor={icon}
 										/>
 									);
 								})}
@@ -74,6 +75,7 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 						</div>
 					);
 				})}
+
 				{semanticColors.map(
 					(
 						{
@@ -135,22 +137,25 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 												}}
 											>
 												<TokenName token={backgroundColor} />
-												<ColorComposition
-													icon={iconColor}
-													color={textColor}
-													background={backgroundColor}
+												<CardComposition
+													textColor={textColor || backgroundColor}
+													backgroundColor={backgroundColor}
+													borderColor={borderColor}
+													iconColor={iconColor}
 												/>
 												{hasSemanticColor && !hasSemanticBackground && (
 													<>
-														<ColorComposition
-															icon={colorTokens[`${iconK}Hover`]}
-															color={colorTokens[`${colorK}Hover`]}
-															background={backgroundColor}
+														<CardComposition
+															textColor={colorTokens[`${colorK}Hover`]}
+															backgroundColor={backgroundColor}
+															borderColor={colorTokens[`${borderK}Hover`]}
+															iconColor={colorTokens[`${iconK}Hover`]}
 														/>
-														<ColorComposition
-															icon={colorTokens[`${iconK}Active`]}
-															color={colorTokens[`${colorK}Active`]}
-															background={backgroundColor}
+														<CardComposition
+															textColor={colorTokens[`${colorK}Active`]}
+															backgroundColor={backgroundColor}
+															borderColor={colorTokens[`${borderK}Active`]}
+															iconColor={colorTokens[`${iconK}Active`]}
 														/>
 													</>
 												)}{' '}

@@ -3,7 +3,8 @@ import React from 'react';
 import { Token } from '../../../../../src/tokens/types';
 import { TokensProps } from '../../TokensTypes';
 import DefinitionListItemColor from './DefinitionListItem/DefinitionListItemColor';
-import Tabs from '../../../../../src/components/WIP/Tabs';
+import { TabsKit as Tabs } from '../../../../../src/components/WIP/Tabs';
+import { StackVertical } from '../../../../../src';
 
 const TokensDefinitionList = ({ tokens, children }: TokensProps) => {
 	const filteredTokens = {
@@ -23,19 +24,21 @@ const TokensDefinitionList = ({ tokens, children }: TokensProps) => {
 		<Tabs>
 			<Tabs.TabList>
 				{Object.keys(filteredTokens).map((entry: string) => (
-					<Tabs.Tab>{entry}</Tabs.Tab>
+					<Tabs.Tab size="L">{entry}</Tabs.Tab>
 				))}
 			</Tabs.TabList>
 
-			{Object.values(filteredTokens).map((entries: Token[]) => (
-				<Tabs.TabPanel>
-					<dl>
-						{entries.map((token, index) => (
-							<DefinitionListItemColor key={index} token={token} />
-						))}
-					</dl>
-				</Tabs.TabPanel>
-			))}
+			<StackVertical gap="L" padding={{ x: 0, y: 'L' }}>
+				{Object.values(filteredTokens).map((entries: Token[]) => (
+					<Tabs.TabPanel>
+						<StackVertical as="dl" gap="S">
+							{entries.map((token, index) => (
+								<DefinitionListItemColor key={index} token={token} />
+							))}
+						</StackVertical>
+					</Tabs.TabPanel>
+				))}
+			</StackVertical>
 		</Tabs>
 	);
 };

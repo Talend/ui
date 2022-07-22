@@ -3,10 +3,36 @@
 .previewBox {
   display: inline-flex;
   border-radius: tokens.$coral-radius-m;
-  min-width: tokens.$coral-sizing-xxxl;
+  width: tokens.$coral-sizing-xxxl;
   height: 8.4rem;
 
   &__color {
     box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+  }
+
+  &__composition {
+    justify-content: center;
+    align-items: center;
+    border-width: tokens.$coral-border-s-solid;
+    border-style: solid;
+    position: relative;
+
+    &_copy {
+      display: inline-flex;
+      justify-content: center;
+      gap: tokens.$coral-spacing-xxs;
+      align-items: center;
+
+      > span {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    &_checker {
+      position: absolute;
+      top: tokens.$coral-spacing-xs;
+      left: tokens.$coral-spacing-xs;
+    }
   }
 }

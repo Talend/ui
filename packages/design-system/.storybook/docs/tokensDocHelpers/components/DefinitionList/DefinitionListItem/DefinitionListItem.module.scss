@@ -1,15 +1,14 @@
 @use '@talend/design-tokens/lib/tokens';
 
 .listItem {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: tokens.$coral-spacing-l;
+  display: grid;
+  grid-template-columns: tokens.$coral-sizing-xxxl 1fr 1fr;
+  column-gap: tokens.$coral-spacing-l;
 
   &__demo {
     flex-grow: 0;
     flex-shrink: 0;
+    grid-column: 1 / span 1;
   }
 
   &__description {
@@ -18,7 +17,9 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: tokens.$coral-spacing-xxs;
-    width: 42%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    grid-column: 2 / span 1;
   }
 
   &__values {
@@ -27,13 +28,14 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: tokens.$coral-spacing-xxs;
-    flex-grow: 1;
-    flex-shrink: 1;
     color: tokens.$coral-color-neutral-text-weak;
-    width: 58%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    grid-column: 3 / span 1;
 
     > code {
       font: tokens.$coral-data-m;
+      background: transparent;
     }
   }
 }
