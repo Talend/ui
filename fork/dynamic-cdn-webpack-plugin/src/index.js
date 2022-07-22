@@ -274,6 +274,7 @@ class DynamicCdnWebpackPlugin {
 				cdnConfig.name,
 				cdnConfig.version,
 				`dependency will be served by ${cdnConfig.url}, requester: ${requester}`,
+				{ contextPath },
 			);
 			this.modulesFromCdn[dependencyName] = cdnConfig;
 			this.modulesFromCdn[dependencyName].local = path.join(contextModulePath, cdnConfig.path);
@@ -415,7 +416,7 @@ class DynamicCdnWebpackPlugin {
 
 		this.modulesFromCdn[modulePath] = cdnConfig;
 		this.directDependencies[modulePath] = cdnConfig;
-		this.debug('\n✅', modulePath, version, `will be served by ${cdnConfig.url}`);
+		this.debug('\n✅', modulePath, version, `will be served by ${cdnConfig.url}`, contextPath);
 		return cdnConfig.var || true;
 	}
 

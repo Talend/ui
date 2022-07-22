@@ -1,4 +1,4 @@
-import { CellClassParams, ColDef, HeaderClassParams, ValueGetterFunc } from 'ag-grid-community';
+import { CellClassParams, ColDef, HeaderClassParams } from 'ag-grid-community';
 import classNames from 'classnames';
 
 import DefaultCellRenderer from '../components/DefaultCellRenderer';

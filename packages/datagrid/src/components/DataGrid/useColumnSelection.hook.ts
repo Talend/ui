@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect, useState } from 'react';
 
-import { CellFocusedEvent, Column } from 'ag-grid-community';
+import { CellFocusedEvent } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 
 import { HeaderClickParams } from '../../types';
@@ -20,7 +20,7 @@ export function useColumnSelection(
 
 	function updateSelectionOnCellFocus(event: CellFocusedEvent) {
 		// filter event triggered by clearFocusedCell
-		if (event.column instanceof Column && event.rowIndex !== null) {
+		if (event.column && typeof event.column !== 'string' && event.rowIndex !== null) {
 			const update = event.column.isPinned() ? [] : [event.column.getColId()];
 			// Column selection changed
 			if (selectedColumns.length > 1 || selectedColumns[0] !== update[0]) {
