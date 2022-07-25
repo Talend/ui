@@ -1,4 +1,4 @@
-import { ColDef } from 'ag-grid-community';
+import { ColDef, GetRowIdFunc, ValueGetterFunc } from 'ag-grid-community';
 
 import {
 	QUALITY_EMPTY_KEY,
@@ -7,7 +7,7 @@ import {
 	QUALITY_VALID_KEY,
 } from '../constants';
 import { DefaultColDef, DefaultPinnedColDef } from '../constants/column-definition.constants';
-import { AvroField, Sample } from '../types';
+import { AvroField, Schema } from '../types';
 
 /**
  * check if the type is null
@@ -78,19 +78,34 @@ export function getQualityValue(type: AvroField['type']) {
 	return type?.[QUALITY_KEY];
 }
 
+const valueGetter: ValueGetterFunc = ({ data, colDef }) => data.value?.[colDef.field!];
+
+/**
+ * Return row identifier, used when updating data
+ */
+export const getRowId: GetRowIdFunc = params => params.data.id;
+
+/**
+ * Add a row identifier
+ */
+export const parseRow = (data: any, index: number) => ({
+	...data,
+	// getRowId needs a string
+	id: index.toString(),
+});
+
 /**
  * Return column definitions for a dataset sample
- * @param sample
  */
-export function getColumnDefs(sample: Sample): ColDef[] {
+export function getColumnDefs(schema: Schema): ColDef[] {
 	return [
 		DefaultPinnedColDef,
-		...sample.schema.fields.map(avroField => {
+		...schema.fields.map(avroField => {
 			const type = sanitizeAvro(avroField);
 			const quality = avroField.type && getQualityValue(avroField.type);
 			return {
 				...DefaultColDef,
-				valueGetter: `data.value.${avroField.name}`,
+				valueGetter: valueGetter,
 				field: avroField.name,
 				headerName: avroField.doc || avroField.name,
 				cellRendererParams: {

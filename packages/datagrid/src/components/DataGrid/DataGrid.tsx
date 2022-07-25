@@ -1,6 +1,12 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 
-import { CellFocusedEvent, GridOptions, ColDef, DragStoppedEvent } from 'ag-grid-community';
+import {
+	CellFocusedEvent,
+	GridOptions,
+	ColDef,
+	DragStoppedEvent,
+	BodyScrollEvent,
+} from 'ag-grid-community';
 import { AgGridReact as AgGridReactType } from 'ag-grid-react';
 import classNames from 'classnames';
 
@@ -24,6 +30,10 @@ export type DataGridProps = GridOptions &
 		};
 		/* Key to use when persisting sizes to local storage */
 		sizesLocalStorageKey?: string;
+		onVerticalScroll?(
+			event: BodyScrollEvent,
+			indexes: { firstDisplayedRowIndex: number; lastDisplayedRowIndex: number },
+		): void;
 	};
 
 const AgGridReact = React.lazy(() =>
@@ -46,6 +56,7 @@ export default function DataGrid({
 	columnDefs,
 	selection,
 	sizesLocalStorageKey,
+	onVerticalScroll,
 	...props
 }: DataGridProps): JSX.Element {
 	const gridRef = useRef<AgGridReactType>(null);
@@ -91,6 +102,18 @@ export default function DataGrid({
 		}
 	}
 
+	function onBodyScroll(event: BodyScrollEvent) {
+		if (event.direction === 'vertical' && onVerticalScroll) {
+			onVerticalScroll(event, {
+				firstDisplayedRowIndex: event.api.getFirstDisplayedRow(),
+				lastDisplayedRowIndex: event.api.getLastDisplayedRow(),
+			});
+		}
+		if (props.onBodyScroll) {
+			props.onBodyScroll(event);
+		}
+	}
+
 	return (
 		<div className={classNames(theme['td-grid'])}>
 			{loading ? (
@@ -112,6 +135,7 @@ export default function DataGrid({
 						onCellFocused={onCellFocused}
 						context={context.current}
 						onDragStopped={onDragStopped}
+						onBodyScroll={onBodyScroll}
 					/>
 				</React.Suspense>
 			)}

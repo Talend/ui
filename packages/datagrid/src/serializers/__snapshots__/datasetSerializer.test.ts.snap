@@ -59,7 +59,7 @@ Array [
     "headerName": "Nom de la gare",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field0",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -96,7 +96,7 @@ Array [
     "headerName": "field1",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field1",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -149,7 +149,7 @@ Array [
     "headerName": "Code postal",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field2",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -202,7 +202,7 @@ Array [
     "headerName": "Segmentation",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field3",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -255,7 +255,7 @@ Array [
     "headerName": "voyageurs 2016",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field4",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -308,7 +308,7 @@ Array [
     "headerName": "volume total d'usagers 2016 (voyageurs+ non voyageurs)",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field5",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -345,7 +345,7 @@ Array [
     "headerName": "voyageurs 2015",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field6",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -398,7 +398,7 @@ Array [
     "headerName": "volume total d'usagers 2015 (voyageurs+ non voyageurs)",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field7",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -451,7 +451,7 @@ Array [
     "headerName": "voyageurs 2014",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field8",
+    "valueGetter": [Function],
     "width": 150,
   },
   Object {
@@ -504,7 +504,7 @@ Array [
     "headerName": "volume total d'usagers 2014 (voyageurs+ non voyageurs)",
     "minWidth": 30,
     "resizable": true,
-    "valueGetter": "data.value.field9",
+    "valueGetter": [Function],
     "width": 150,
   },
 ]

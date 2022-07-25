@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { expect } from '@storybook/jest';
@@ -9,7 +9,7 @@ import cloneDeep from 'lodash/cloneDeep';
 
 import sourceSample from '../../../mocks/sample.json';
 import { SELECTED_CELL_CLASS_NAME } from '../../constants';
-import { getColumnDefs } from '../../serializers/datasetSerializer';
+import { getColumnDefs, getRowId, parseRow } from '../../serializers/datasetSerializer';
 import DataGrid, { DataGridProps } from './DataGrid';
 
 // eslint-disable-next-line no-irregular-whitespace
@@ -52,8 +52,8 @@ export default {
 const defaultGridProps = {
 	sizesLocalStorageKey: 'sb-grid-sizes',
 	columnSelection: 'multiple' as DataGridProps['columnSelection'],
-	rowData: sample.data,
-	columnDefs: getColumnDefs(sample),
+	rowData: sample.data.map(parseRow),
+	columnDefs: getColumnDefs(sample.schema),
 	onCellFocused: action('onCellFocused'),
 	onSelectionChanged: action('onSelectionChanged'),
 	onColumnSelectionChanged: action('onColumnSelectionChanged'),
@@ -118,6 +118,43 @@ export const NoQuality = () => (
 		headerHeight={55}
 	/>
 );
+
+export const LazyLoading = () => {
+	const [state, setState] = useState(defaultGridProps.rowData.slice(0, 50));
+
+	function updateLoadedRow(i: number) {
+		setState(prev => {
+			const updated = [...prev];
+			updated[i] = parseRow({ ...defaultGridProps.rowData[0] }, i);
+			return updated;
+		});
+	}
+
+	return (
+		<DataGrid
+			{...defaultGridProps}
+			rowData={state}
+			getRowId={getRowId}
+			onVerticalScroll={(event, { firstDisplayedRowIndex, lastDisplayedRowIndex }) => {
+				setState(prev => {
+					const updated = [...prev];
+					for (let i = firstDisplayedRowIndex; i < lastDisplayedRowIndex + 9; i++) {
+						if (!updated[i]) {
+							updated[i] = parseRow(
+								{
+									loaded: false,
+								},
+								i,
+							);
+							setTimeout(() => updateLoadedRow(i), 1000);
+						}
+					}
+					return updated;
+				});
+			}}
+		/>
+	);
+};
 
 export const NoRowSpecificMessage = () => (
 	<DataGrid {...defaultGridProps} rowData={[]} overlayNoRowsTemplate="Custom message" />

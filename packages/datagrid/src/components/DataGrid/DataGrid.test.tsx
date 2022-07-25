@@ -40,7 +40,7 @@ describe('DataGrid', () => {
 		delete window.AgGridReact;
 	});
 	it('should render a sample', async () => {
-		render(<DataGrid columnDefs={getColumnDefs(sample)} rowData={sample.data} />);
+		render(<DataGrid columnDefs={getColumnDefs(sample.schema)} rowData={sample.data} />);
 		expect(
 			await screen.findByText('Code postal', undefined, {
 				timeout: 10000,
@@ -52,7 +52,7 @@ describe('DataGrid', () => {
 		await Selection.play({ canvasElement: wrapper.baseElement });
 	});
 	it('should highlight cell with the same values', async () => {
-		render(<DataGrid columnDefs={getColumnDefs(sample)} rowData={sample.data} />);
+		render(<DataGrid columnDefs={getColumnDefs(sample.schema)} rowData={sample.data} />);
 		await screen.findByText('Segmentation', undefined, {
 			timeout: 10000,
 		});
@@ -75,7 +75,7 @@ describe('DataGrid', () => {
 		render(
 			<DataGrid
 				sizesLocalStorageKey={LOCAL_STORAGE_KEY}
-				columnDefs={getColumnDefs(sample)}
+				columnDefs={getColumnDefs(sample.schema)}
 				rowData={sample.data}
 			/>,
 		);

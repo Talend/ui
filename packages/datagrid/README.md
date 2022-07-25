@@ -49,6 +49,7 @@ Here are the main ones:
 | rowSelection  | set the type of selection (single or multiple) | string        | single  |
 | rowData       | pass the row data straight right to ag-grid    | Array         |         |
 | columnsDef    | definition of the columns                      | Array<ColDef> |         |
+| getRowId      | return row identifier, used when updating rows | function      |         |
 
 To support new use cases, new props were added:
 
@@ -59,6 +60,7 @@ To support new use cases, new props were added:
 | loading                  |                                                   | boolean                   | false   |
 | selection                | controlled selection                              | { rowIndexes, columnIds } |         |
 | sizesLocalStorageKey     | Key to use when persisting sizes to local storage | string                    |         |
+| onVerticalScroll         | callback when the grid scroll vertical            | function                  |         |
 
 ## Issue solved with ag-grid
 
