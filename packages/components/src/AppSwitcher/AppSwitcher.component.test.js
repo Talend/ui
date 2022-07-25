@@ -69,7 +69,7 @@ describe('AppSwitcher', () => {
 			id: 'brand',
 			label: 'My App',
 			onClick: jest.fn(),
-			icon: 'test.jpg',
+			iconUrl: 'test.jpg',
 		};
 		const wrapper = mount(<AppSwitcher {...brand} />);
 

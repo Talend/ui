@@ -12,7 +12,7 @@
 	height: 100%;
 	white-space: nowrap;
 
-	&.separated:not(:last-child):after {
+	&.separated:not(:last-child)::after {
 		content: ' ';
 		display: block;
 		width: 1px;
@@ -26,10 +26,10 @@
 				display: inline-flex;
 				align-items: center;
 
-				&:before {
+				&::before {
 					display: block;
 					content: '';
-					margin-right: $padding-small;
+					margin-right: $padding-smaller;
 					height: $navbar-brand-logo-height;
 					width: $navbar-brand-logo-height;
 					background-repeat: no-repeat;
@@ -38,7 +38,7 @@
 			}
 
 			svg + span:first-child {
-				&:before {
+				&::before {
 					display: none;
 				}
 			}

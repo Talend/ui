@@ -147,16 +147,35 @@ WithoutProducts.story = {
 	parameters: { info: { styles: infoStyle } },
 };
 
-export const WithAppSwitcherIcon = () => {
+export const WithBrandIcon = () => {
 	const headerProps = Immutable.fromJS({
 		...props,
-		appSwitcherIcon: assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons'),
+		brand: {
+			...props.brand,
+			icon: 'talend-tmc-positive',
+		},
 	}).toJS();
 	return <HeaderBar {...headerProps} />;
 };
 
-WithAppSwitcherIcon.story = {
-	name: 'with app switcher icon',
+WithBrandIcon.story = {
+	name: 'with brand icon',
+	parameters: { info: { styles: infoStyle } },
+};
+
+export const WithBrandIconUrl = () => {
+	const headerProps = Immutable.fromJS({
+		...props,
+		brand: {
+			...props.brand,
+			iconUrl: assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons'),
+		},
+	}).toJS();
+	return <HeaderBar {...headerProps} />;
+};
+
+WithBrandIconUrl.story = {
+	name: 'with brand icon url',
 	parameters: { info: { styles: infoStyle } },
 };
 
