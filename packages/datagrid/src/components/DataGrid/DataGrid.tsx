@@ -77,11 +77,7 @@ export default function DataGrid({
 	}, [controlledColumnIds]);
 
 	return (
-		<div
-			className={classNames(theme['td-grid'], {
-				[theme['td-grid--loading']]: loading,
-			})}
-		>
+		<div className={classNames(theme['td-grid'])}>
 			{loading ? (
 				<DataGridSkeleton />
 			) : (

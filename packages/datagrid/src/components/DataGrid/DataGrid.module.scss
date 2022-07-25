@@ -15,17 +15,18 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	height: 100%;
 	width: 100%;
 
-	&-loader svg {
-		color: tokens.$coral-color-neutral-background-strong;
-		animation: tokens.$coral-animation-heartbeat;
-		width: $td-datagrid-skeleton-width;
-		height: $td-datagrid-skeleton-height;
-	}
-
-	&--loading {
+	&-loader {
 		display: flex;
-		align-items: center;
 		justify-content: center;
+		align-items: center;
+		height: 100%;
+
+		svg {
+			color: tokens.$coral-color-neutral-background-strong;
+			animation: tokens.$coral-animation-heartbeat;
+			width: $td-datagrid-skeleton-width;
+			height: $td-datagrid-skeleton-height;
+		}
 	}
 
 	/* ==== HEADER ==== */
@@ -65,7 +66,8 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	:global(.ag-row-selected) :global(.column-focus) {
-		background-color: tokens.$coral-color-neutral-background;
+		// stylelint-disable-next-line
+		background-color: tokens.$coral-color-neutral-background !important;
 		// stylelint-disable-next-line
 		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border !important;
 		outline-offset: -2px;
