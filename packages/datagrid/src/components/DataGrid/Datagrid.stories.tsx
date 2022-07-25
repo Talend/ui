@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { expect } from '@storybook/jest';
@@ -6,7 +6,6 @@ import { Meta, ComponentStory } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { ColDef, ICellRendererParams, IHeaderParams } from 'ag-grid-community';
 import cloneDeep from 'lodash/cloneDeep';
-import debounce from 'lodash/debounce';
 
 import sourceSample from '../../../mocks/sample.json';
 import { SELECTED_CELL_CLASS_NAME } from '../../constants';
