@@ -7,7 +7,7 @@ import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-d
 import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
 import AppSwitcher from '../AppSwitcher';
-import Layout from '../Layout';
+import assetsApi from '@talend/assets-api';
 
 const props = {
 	brand: {
@@ -144,6 +144,19 @@ export const WithoutProducts = () => {
 
 WithoutProducts.story = {
 	name: 'without products',
+	parameters: { info: { styles: infoStyle } },
+};
+
+export const WithAppSwitcherIcon = () => {
+	const headerProps = Immutable.fromJS({
+		...props,
+		appSwitcherIcon: assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons'),
+	}).toJS();
+	return <HeaderBar {...headerProps} />;
+};
+
+WithAppSwitcherIcon.story = {
+	name: 'with app switcher icon',
 	parameters: { info: { styles: infoStyle } },
 };
 

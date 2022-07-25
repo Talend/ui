@@ -12,13 +12,14 @@ import { getTheme } from '../theme';
 
 const theme = getTheme(AppSwitcherCSSModule);
 
-export default function AppSwitcher({ label, isSeparated, onClick, getComponent, ...props }) {
+export default function AppSwitcher({ label, isSeparated, onClick, getComponent, icon, ...props }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	const Renderers = Inject.getAll(getComponent, { Action, ActionDropdown });
 
 	const className = theme('tc-app-switcher-action', {
 		separated: isSeparated,
+		hasIcon: !!icon,
 	});
 
 	let ActionComponent;
@@ -37,7 +38,15 @@ export default function AppSwitcher({ label, isSeparated, onClick, getComponent,
 
 	return (
 		<li role="presentation" className={className}>
-			<span role="heading">
+			{icon && (
+				<style>
+					{`.tc-app-switcher-action [role='heading'] span:first-child:before {
+						-webkit-mask-image: url('${icon}');
+						mask-image: url('${icon}');
+				}`}
+				</style>
+			)}
+			<span role="heading" aria-level="1">
 				<ActionComponent
 					bsStyle="link"
 					className={theme('tc-app-switcher')}
@@ -56,6 +65,7 @@ AppSwitcher.propTypes = {
 	label: PropTypes.string,
 	isSeparated: PropTypes.bool,
 	items: PropTypes.arrayOf(PropTypes.object),
+	icon: PropTypes.string,
 	onClick: PropTypes.func,
 	getComponent: PropTypes.func,
 };

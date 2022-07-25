@@ -249,7 +249,12 @@ function HeaderBar(props) {
 				{props.logo && (
 					<Components.Logo getComponent={props.getComponent} {...props.logo} t={props.t} />
 				)}
-				<AppSwitcherComponent {...props.brand} {...props.products} isSeparated={!!props.env} />
+				<AppSwitcherComponent
+					{...props.brand}
+					{...props.products}
+					icon={props.appSwitcherIcon}
+					isSeparated={!!props.env}
+				/>
 				{props.env && <Components.Environment getComponent={props.getComponent} {...props.env} />}
 			</ul>
 			<ul className={theme('tc-header-bar-actions', 'navbar-nav', 'right')}>
@@ -391,6 +396,7 @@ if (process.env.NODE_ENV !== 'production') {
 				Action: PropTypes.func,
 			}),
 		}),
+		appSwitcherIcon: PropTypes.string,
 		env: PropTypes.shape(Environment.propTypes),
 		callToAction: PropTypes.shape(CallToAction.propTypes),
 		search: PropTypes.shape(Search.propTypes),

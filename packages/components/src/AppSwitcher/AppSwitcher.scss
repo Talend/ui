@@ -19,4 +19,29 @@
 		height: $font-size-large;
 		background-color: $white;
 	}
+
+	&.hasIcon {
+		[role='heading'] {
+			span:first-child {
+				display: inline-flex;
+				align-items: center;
+
+				&:before {
+					display: block;
+					content: '';
+					margin-right: $padding-small;
+					height: $navbar-brand-logo-height;
+					width: $navbar-brand-logo-height;
+					background-repeat: no-repeat;
+					background-color: white;
+				}
+			}
+
+			svg + span:first-child {
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
 }
