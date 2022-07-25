@@ -22,7 +22,6 @@ declare global {
 	}
 }
 
-jest.mock('ally.js');
 const { Selection } = composeStories(stories);
 
 jest.mock('ally.js');
