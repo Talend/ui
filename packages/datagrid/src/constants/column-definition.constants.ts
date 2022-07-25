@@ -5,7 +5,12 @@ import DefaultCellRenderer from '../components/DefaultCellRenderer';
 import DefaultHeaderRenderer from '../components/HeaderCellRenderer';
 import DefaultPinHeaderRenderer from '../components/PinHeaderRenderer';
 import PlaygroundCellEditor from '../components/PlaygroundCellEditor';
-import { COLUMN_MIN_WIDTH, CELL_WIDTH, SELECTED_CELL_CLASS_NAME } from './datagrid.constants';
+import {
+	COLUMN_MIN_WIDTH,
+	CELL_WIDTH,
+	SELECTED_CELL_CLASS_NAME,
+	HIGHLIGHTED_CELL_CLASS_NAME,
+} from './datagrid.constants';
 
 function isSelectedColumn(params: CellClassParams | HeaderClassParams) {
 	return params.context.selectedColumns?.includes((params.colDef as ColDef).field);
@@ -34,5 +39,15 @@ export const DefaultColDef: Partial<ColDef> = {
 		}),
 	cellClassRules: {
 		[SELECTED_CELL_CLASS_NAME]: isSelectedColumn,
+		[HIGHLIGHTED_CELL_CLASS_NAME]: ({ api, colDef, value }: CellClassParams) => {
+			const focusedCell = api.getFocusedCell();
+			if (focusedCell) {
+				// For each cell, check if it's the same value as the focused cell
+				const focusedRow = api.getDisplayedRowAtIndex(focusedCell.rowIndex);
+				const focusedValue = api.getValue(focusedCell.column, focusedRow!)?.value;
+				return value?.value === focusedValue && colDef === focusedCell.column.getColDef();
+			}
+			return false;
+		},
 	},
 };

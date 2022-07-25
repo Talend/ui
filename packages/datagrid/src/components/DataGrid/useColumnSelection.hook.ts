@@ -25,6 +25,11 @@ export function useColumnSelection(
 			// Column selection changed
 			if (selectedColumns.length > 1 || selectedColumns[0] !== update[0]) {
 				setSelectedColumns(update);
+			} else {
+				// Only row changed
+				event.api.refreshCells({
+					columns: [event.column],
+				});
 			}
 		}
 	}
