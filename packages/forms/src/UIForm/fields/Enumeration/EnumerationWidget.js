@@ -49,8 +49,8 @@ class EnumerationForm extends React.Component {
 		return ITEMS_DEFAULT_HEIGHT;
 	}
 
-	static parseStringValueToArray(values, enableSkip) {
-		if (enableSkip) {
+	static parseStringValueToArray(values, skipCommas) {
+		if (skipCommas) {
 			return values
 				.match(/(\\.|[^,])+/g)
 				.map(value => value.trim().replace(/\\,/g, ',').replace(/\\./g, '\\'));
@@ -437,7 +437,10 @@ class EnumerationForm extends React.Component {
 					actionsEdit: this.loadingInputsActions,
 				},
 			}));
-			const formattedValue = EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip);
+			const formattedValue = EnumerationForm.parseStringValueToArray(
+				value.value,
+				this.props.skipCommas,
+			);
 			this.props
 				.onTrigger(event, {
 					trigger: {
@@ -475,7 +478,7 @@ class EnumerationForm extends React.Component {
 
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				item.values = EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip);
+				item.values = EnumerationForm.parseStringValueToArray(value.value, this.props.skipCommas);
 			}
 			if (valueExist) {
 				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -708,7 +711,7 @@ class EnumerationForm extends React.Component {
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip),
+						value: EnumerationForm.parseStringValueToArray(value.value, this.props.skipCommas),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
@@ -732,7 +735,7 @@ class EnumerationForm extends React.Component {
 				schema,
 				value: this.state.items.concat([
 					{
-						values: EnumerationForm.parseStringValueToArray(value.value, this.props.enableSkip),
+						values: EnumerationForm.parseStringValueToArray(value.value, this.props.skipCommas),
 					},
 				]),
 			};
@@ -1057,7 +1060,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
 		schema: PropTypes.object,
-		enableSkip: PropTypes.bool,
+		skipCommas: PropTypes.bool,
 		t: PropTypes.func,
 		value: PropTypes.arrayOf(
 			PropTypes.shape({
