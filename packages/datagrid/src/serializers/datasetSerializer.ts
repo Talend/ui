@@ -90,7 +90,8 @@ export const getRowId: GetRowIdFunc = params => params.data.id;
  */
 export const parseRow = (data: any, index: number) => ({
 	...data,
-	id: index,
+	// getRowId needs a string
+	id: index.toString(),
 });
 
 /**
