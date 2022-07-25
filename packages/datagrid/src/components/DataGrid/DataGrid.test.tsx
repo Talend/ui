@@ -62,7 +62,7 @@ describe('DataGrid', () => {
 				HIGHLIGHTED_CELL_CLASS_NAME,
 			);
 		});
-
+	});
 	it('should use persisted column sizes', async () => {
 		const LOCAL_STORAGE_KEY = 'key';
 		window.localStorage.setItem(

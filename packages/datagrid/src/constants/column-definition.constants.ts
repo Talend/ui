@@ -44,8 +44,8 @@ export const DefaultColDef: Partial<ColDef> = {
 			if (focusedCell) {
 				// For each cell, check if it's the same value as the focused cell
 				const focusedRow = api.getDisplayedRowAtIndex(focusedCell.rowIndex);
-				const focusedValue = api.getValue(focusedCell.column, focusedRow!).value;
-				return value.value === focusedValue && colDef === focusedCell.column.getColDef();
+				const focusedValue = api.getValue(focusedCell.column, focusedRow!)?.value;
+				return value?.value === focusedValue && colDef === focusedCell.column.getColDef();
 			}
 			return false;
 		},
