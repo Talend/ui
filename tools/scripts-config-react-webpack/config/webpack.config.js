@@ -384,6 +384,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			watchOptions: {
 				aggregateTimeout: 300,
 				poll: 1000,
+				ignored: ['**/src/assets', '**/node_modules'],
 			},
 			devServer: {
 				port: 3000,
