@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 
-import { CellFocusedEvent, GridOptions, ColDef } from 'ag-grid-community';
+import { CellFocusedEvent, GridOptions, ColDef, DragStoppedEvent } from 'ag-grid-community';
 import { AgGridReact as AgGridReactType } from 'ag-grid-react';
 import classNames from 'classnames';
 
@@ -9,7 +9,7 @@ import { Icon } from '@talend/design-system';
 
 import { HEADER_HEIGHT, ROW_HEIGHT } from '../../constants';
 import { GridContext } from '../../types';
-import { handleKeyboard } from './DataGrid.utils';
+import { getColumnSizes, handleKeyboard, saveColumnSizes } from './DataGrid.utils';
 import { GridColumnSelectionProps, useColumnSelection } from './useColumnSelection.hook';
 
 import theme from './DataGrid.module.scss';
@@ -22,6 +22,8 @@ export type DataGridProps = GridOptions &
 		selection?: {
 			columnIds?: string[];
 		};
+		/* Key to use when persisting sizes to local storage */
+		sizesLocalStorageKey?: string;
 	};
 
 const AgGridReact = React.lazy(() =>
@@ -43,6 +45,7 @@ export default function DataGrid({
 	loading,
 	columnDefs,
 	selection,
+	sizesLocalStorageKey,
 	...props
 }: DataGridProps): JSX.Element {
 	const gridRef = useRef<AgGridReactType>(null);
@@ -59,14 +62,16 @@ export default function DataGrid({
 
 	// Ag-grid doesn't provide click listener on header cell, create one
 	const enrichedColumnDefs = useMemo(() => {
+		const savedSizes = getColumnSizes(sizesLocalStorageKey);
 		return columnDefs?.map((colDef: ColDef) => ({
 			...colDef,
+			width: savedSizes?.[colDef.field!] || colDef.width,
 			headerComponentParams: {
 				...colDef.headerComponentParams,
 				onFocus: onHeaderFocus,
 			},
 		}));
-	}, [columnDefs, onHeaderFocus]);
+	}, [columnDefs, onHeaderFocus, sizesLocalStorageKey]);
 
 	// Handle controlled selection
 	const controlledColumnIds = selection?.columnIds;
@@ -75,6 +80,16 @@ export default function DataGrid({
 			setSelectedColumns(controlledColumnIds);
 		}
 	}, [controlledColumnIds]);
+
+	// Add size persistence support
+	function onDragStopped(event: DragStoppedEvent) {
+		if (sizesLocalStorageKey) {
+			saveColumnSizes(sizesLocalStorageKey, event.columnApi.getColumns());
+		}
+		if (props.onDragStopped) {
+			props.onDragStopped(event);
+		}
+	}
 
 	return (
 		<div className={classNames(theme['td-grid'])}>
@@ -96,6 +111,7 @@ export default function DataGrid({
 						{...props}
 						onCellFocused={onCellFocused}
 						context={context.current}
+						onDragStopped={onDragStopped}
 					/>
 				</React.Suspense>
 			)}

@@ -63,5 +63,28 @@ describe('DataGrid', () => {
 				HIGHLIGHTED_CELL_CLASS_NAME,
 			);
 		});
+
+	it('should use persisted column sizes', async () => {
+		const LOCAL_STORAGE_KEY = 'key';
+		window.localStorage.setItem(
+			LOCAL_STORAGE_KEY,
+			JSON.stringify({
+				[sample.schema.fields[0].name]: 789,
+			}),
+		);
+
+		render(
+			<DataGrid
+				sizesLocalStorageKey={LOCAL_STORAGE_KEY}
+				columnDefs={getColumnDefs(sample)}
+				rowData={sample.data}
+			/>,
+		);
+
+		const cell = await screen.findByText('Nom de la gare', undefined, {
+			timeout: 10000,
+		});
+
+		expect(getComputedStyle(cell.closest('.ag-header-cell')!).width).toEqual('789px');
 	});
 });
