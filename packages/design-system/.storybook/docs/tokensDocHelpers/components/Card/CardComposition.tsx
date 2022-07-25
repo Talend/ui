@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 import { SizedIcon } from '../../../../../src';
-import { ColorToken } from '../../../../../src/tokens/types';
+import { ColorToken, GradientToken } from '../../../../../src/tokens/types';
 import ColorChecker from '../../ColorChecker';
 
 import styles from './Card.module.scss';
@@ -12,17 +12,25 @@ function CardComposition({
 	textColor,
 	borderColor,
 	iconColor,
+	isActive = false,
+	isHover = false,
 }: {
 	textColor: ColorToken;
-	backgroundColor: ColorToken;
+	backgroundColor: ColorToken | GradientToken;
 	borderColor: ColorToken;
 	iconColor?: ColorToken;
+	isActive?: boolean;
+	isHover?: boolean;
 }) {
 	return (
 		<div
-			className={classnames(styles.previewBox, styles.previewBox__composition)}
+			className={classnames(styles.previewBox, styles.previewBox__composition, {
+				[styles.previewBox__composition__isActive]: isActive,
+				[styles.previewBox__composition__isHover]: isHover,
+			})}
 			style={{
-				backgroundColor: backgroundColor.hsla,
+				background:
+					backgroundColor?.type === 'gradient' ? backgroundColor.value : backgroundColor.hsla,
 				borderColor: borderColor.hsla,
 				color: textColor.hsla,
 			}}
@@ -31,7 +39,9 @@ function CardComposition({
 				<span style={{ color: iconColor?.hsla || textColor.hsla }}>
 					<SizedIcon size="S" name="overview" />
 				</span>
-				<span>Lorem ipsum</span>
+				{isHover && <span>On hover</span>}
+				{isActive && <span>While clicked</span>}
+				{!isHover && !isActive && <span>Lorem ipsum</span>}
 			</p>
 			{textColor && backgroundColor && (
 				<span className={styles.previewBox__composition_checker}>

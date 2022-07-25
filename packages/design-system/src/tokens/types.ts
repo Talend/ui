@@ -26,6 +26,11 @@ export interface ColorToken extends Token {
 	hex: string;
 }
 
+export interface GradientToken extends Token {
+	type: TokenType.GRADIENT;
+	value: string;
+}
+
 export interface TypographyToken extends Token {
 	type: TokenType.TYPOGRAPHY;
 	fontStyle: string;

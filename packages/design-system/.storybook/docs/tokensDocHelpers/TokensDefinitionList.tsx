@@ -41,11 +41,11 @@ const TokensDefinitionList = ({ tokens, children }: TokensProps) => {
 							'hex' in token ? (token as ColorToken).hex : token.value,
 						].some(value => value?.toLocaleLowerCase().includes(filterInLowerCase));
 					return isShown ? (
-						<TokensDefinitionListItem key={index} token={token}>
+						<TokensDefinitionListItem key={`${token.name}-${index}`} token={token}>
 							{typeof children === 'function' ? children({ token }) : children}
 						</TokensDefinitionListItem>
 					) : (
-						<TokenSkeleton />
+						<TokenSkeleton key={`${token.name}-${index}`} />
 					);
 				})}
 			</dl>

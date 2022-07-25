@@ -24,16 +24,18 @@ const TokensDefinitionList = ({ tokens, children }: TokensProps) => {
 		<Tabs>
 			<Tabs.TabList>
 				{Object.keys(filteredTokens).map((entry: string) => (
-					<Tabs.Tab size="L">{entry}</Tabs.Tab>
+					<Tabs.Tab size="L" key={entry}>
+						{entry}
+					</Tabs.Tab>
 				))}
 			</Tabs.TabList>
 
 			<StackVertical gap="L" padding={{ x: 0, y: 'L' }}>
-				{Object.values(filteredTokens).map((entries: Token[]) => (
-					<Tabs.TabPanel>
+				{Object.values(filteredTokens).map((entries: Token[], index) => (
+					<Tabs.TabPanel key={index}>
 						<StackVertical as="dl" gap="S">
 							{entries.map((token, index) => (
-								<DefinitionListItemColor key={index} token={token} />
+								<DefinitionListItemColor key={`${token.name}-${index}`} token={token} />
 							))}
 						</StackVertical>
 					</Tabs.TabPanel>

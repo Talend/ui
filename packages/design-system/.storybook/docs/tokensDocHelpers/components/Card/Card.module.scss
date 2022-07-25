@@ -13,9 +13,15 @@
   &__composition {
     justify-content: center;
     align-items: center;
-    border-width: tokens.$coral-border-s-solid;
-    border-style: solid;
+    border: tokens.$coral-border-s-solid transparent;
     position: relative;
+
+    &__isActive,
+    &__isHover {
+      width: calc(#{tokens.$coral-sizing-xxxl} - #{tokens.$coral-spacing-xl});
+      margin-left: tokens.$coral-spacing-xl;
+      height: 7.4rem;
+    }
 
     &_copy {
       display: inline-flex;

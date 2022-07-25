@@ -1,164 +1,164 @@
 [
   {
+    "background": "NeutralBackground",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "NeutralBackground",
     "border": "NeutralBorder"
   },
   {
+    "background": "NeutralBackgroundMedium",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "NeutralBackgroundMedium",
     "border": "NeutralBorder"
   },
   {
+    "background": "NeutralBackgroundStrong",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "NeutralBackgroundStrong",
     "border": "NeutralBorder"
   },
   {
+    "background": "NeutralBackgroundHeavy",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "NeutralBackgroundHeavy",
     "border": "NeutralBorder"
   },
   {
-    "icon": "NeutralIconWeak",
-    "color": "NeutralTextWeak",
     "background": "NeutralBackground",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
     "border": "NeutralBorderWeak"
   },
   {
-    "icon": "NeutralIconWeak",
-    "color": "NeutralTextWeak",
     "background": "NeutralBackgroundMedium",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
     "border": "NeutralBorderWeak"
   },
   {
-    "icon": "NeutralIconWeak",
-    "color": "NeutralTextWeak",
     "background": "NeutralBackgroundStrong",
-    "border": "NeutralBorderWeak"
-  },
-  {
     "icon": "NeutralIconWeak",
     "color": "NeutralTextWeak",
-    "background": "NeutralBackgroundHeavy",
     "border": "NeutralBorderWeak"
   },
   {
-    "icon": "NeutralIcon",
-    "color": "NeutralText",
+    "background": "NeutralBackgroundHeavy",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
+    "border": "NeutralBorderWeak"
+  },
+  {
     "background": "NeutralBackground",
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
     "border": "NeutralBorderStrong"
   },
   {
-    "icon": "NeutralIcon",
-    "color": "NeutralText",
     "background": "NeutralBackgroundMedium",
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
     "border": "NeutralBorderStrong"
   },
   {
-    "icon": "NeutralIcon",
-    "color": "NeutralText",
     "background": "NeutralBackgroundStrong",
-    "border": "NeutralBorderStrong"
-  },
-  {
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "NeutralBackgroundHeavy",
     "border": "NeutralBorderStrong"
   },
   {
-    "icon": "NeutralIconDisabled",
-    "color": "NeutralTextDisabled",
+    "background": "NeutralBackgroundHeavy",
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "border": "NeutralBorderStrong"
+  },
+  {
     "background": "NeutralBackground",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextDisabled",
     "border": "NeutralBorderDisabled"
   },
   {
-    "icon": "NeutralIconDisabled",
-    "color": "NeutralTextDisabled",
     "background": "NeutralBackgroundMedium",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextDisabled",
     "border": "NeutralBorderDisabled"
   },
   {
-    "icon": "NeutralIconDisabled",
-    "color": "NeutralTextDisabled",
     "background": "NeutralBackgroundStrong",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextDisabled",
     "border": "NeutralBorderDisabled"
   },
   {
-    "icon": "NeutralIconDisabled",
-    "color": "NeutralTextDisabled",
     "background": "NeutralBackgroundHeavy",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextDisabled",
     "border": "NeutralBorderDisabled"
   },
   {
-    "icon": "NeutralIconDisabled",
-    "color": "NeutralTextDisabled",
     "background": "NeutralBackgroundDisabled",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextDisabled",
     "border": "NeutralBorderDisabled"
   },
   {
-    "icon": "AccentIcon",
-    "color": "AccentText",
     "background": "NeutralBackground",
-    "border": "AccentBorder"
-  },
-  {
     "icon": "AccentIcon",
     "color": "AccentText",
-    "background": "NeutralBackgroundMedium",
     "border": "AccentBorder"
   },
   {
-    "icon": "AccentIconStrong",
+    "background": "NeutralBackgroundMedium",
+    "icon": "AccentIcon",
+    "color": "AccentText",
+    "border": "AccentBorder"
+  },
+  {
+    "background": "NeutralBackgroundStrong",
+    "icon": "AccentIcon",
     "color": "AccentTextStrong",
-    "background": "NeutralBackgroundStrong",
     "border": "AccentBorder"
   },
   {
-    "icon": "DangerIcon",
-    "color": "DangerText",
     "background": "NeutralBackground",
-    "border": "DangerBorder"
-  },
-  {
     "icon": "DangerIcon",
     "color": "DangerText",
-    "background": "NeutralBackgroundMedium",
     "border": "DangerBorder"
   },
   {
-    "icon": "DangerIconStrong",
+    "background": "NeutralBackgroundMedium",
+    "icon": "DangerIcon",
+    "color": "DangerText",
+    "border": "DangerBorder"
+  },
+  {
+    "background": "NeutralBackgroundStrong",
+    "icon": "DangerIcon",
     "color": "DangerTextStrong",
-    "background": "NeutralBackgroundStrong",
     "border": "DangerBorder"
   },
   {
-    "icon": "WarningIcon",
-    "color": "WarningText",
     "background": "NeutralBackground",
-    "border": "WarningBorder"
-  },
-  {
     "icon": "WarningIcon",
     "color": "WarningText",
-    "background": "NeutralBackgroundMedium",
     "border": "WarningBorder"
   },
   {
-    "icon": "WarningIconStrong",
-    "color": "WarningTextStrong",
+    "background": "NeutralBackgroundMedium",
+    "icon": "WarningIcon",
+    "color": "WarningText",
+    "border": "WarningBorder"
+  },
+  {
     "background": "NeutralBackgroundStrong",
+    "icon": "WarningIcon",
+    "color": "WarningTextStrong",
     "border": "WarningBorder"
   },
   {
+    "background": "NeutralBackground",
     "icon": "SuccessIcon",
     "color": "SuccessText",
-    "background": "NeutralBackground",
     "border": "SuccessBorder"
   },
   {
@@ -168,206 +168,225 @@
     "border": "SuccessBorder"
   },
   {
-    "icon": "SuccessIconStrong",
+    "icon": "SuccessIcon",
     "color": "SuccessTextStrong",
     "background": "NeutralBackgroundStrong",
     "border": "SuccessBorder"
   },
   {
-    "icon": "BetaIcon",
-    "color": "BetaText",
     "background": "NeutralBackground",
-    "border": "BetaBorder"
-  },
-  {
     "icon": "BetaIcon",
     "color": "BetaText",
+    "border": "BetaBorder"
+  },
+  {
     "background": "NeutralBackgroundMedium",
+    "icon": "BetaIcon",
+    "color": "BetaText",
     "border": "BetaBorder"
   },
   {
-    "icon": "BetaIconStrong",
-    "color": "BetaTextStrong",
     "background": "NeutralBackgroundStrong",
+    "icon": "BetaIcon",
+    "color": "BetaTextStrong",
     "border": "BetaBorder"
   },
   {
-    "icon": "AccentIconStrong",
-    "color": "AccentTextStrong",
     "background": "AccentBackground",
+    "icon": "AccentIcon",
+    "color": "AccentTextStrong",
     "border": "AccentBorder"
   },
   {
-    "icon": "AccentIconWeak",
-    "color": "AccentTextWeak",
     "background": "AccentBackgroundStrong",
+    "icon": "AccentTextWeak",
+    "color": "AccentTextWeak",
     "border": "AccentBorder"
   },
   {
+    "background": "AccentBackgroundWeak",
     "icon": "AccentIcon",
     "color": "AccentText",
-    "background": "AccentBackgroundWeak",
     "border": "AccentBorder"
   },
   {
+    "background": "AccentBackgroundSelected",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "AccentBackground",
     "border": "AccentBorder"
   },
   {
-    "icon": "NeutralIcon",
-    "color": "NeutralText",
-    "background": "AccentBackground",
-    "border": "AccentBorder"
-  },
-  {
+    "background": "AccentBackgroundSelected",
     "icon": "NeutralIconWeak",
     "color": "NeutralTextWeak",
-    "background": "AccentBackground",
     "border": "AccentBorder"
   },
   {
-    "icon": "DangerIconStrong",
-    "color": "DangerTextStrong",
+    "background": "AccentBackground",
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "border": "AccentBorder"
+  },
+  {
+    "background": "AccentBackground",
+    "icon": "NeutralIcon",
+    "color": "NeutralText",
+    "border": "AccentBorder"
+  },
+  {
+    "background": "AccentBackground",
+    "icon": "NeutralIconWeak",
+    "color": "NeutralTextWeak",
+    "border": "AccentBorder"
+  },
+  {
     "background": "DangerBackground",
+    "icon": "DangerIcon",
+    "color": "DangerTextStrong",
     "border": "DangerBorder"
   },
   {
+    "background": "DangerBackgroundStrong",
     "icon": "DangerIconWeak",
     "color": "DangerTextWeak",
-    "background": "DangerBackgroundStrong",
     "border": "DangerBorder"
   },
   {
+    "background": "DangerBackgroundWeak",
     "icon": "DangerIcon",
     "color": "DangerText",
-    "background": "DangerBackgroundWeak",
     "border": "DangerBorder"
   },
   {
+    "background": "DangerBackground",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "DangerBackground",
     "border": "DangerBorder"
   },
   {
+    "background": "DangerBackground",
     "icon": "NeutralIconWeak",
     "color": "NeutralTextWeak",
-    "background": "DangerBackground",
     "border": "DangerBorder"
   },
   {
-    "icon": "SuccessIconStrong",
-    "color": "SuccessTextStrong",
     "background": "SuccessBackground",
+    "icon": "SuccessIcon",
+    "color": "SuccessTextStrong",
     "border": "SuccessBorder"
   },
   {
+    "background": "SuccessBackgroundStrong",
     "icon": "SuccessIconWeak",
     "color": "SuccessTextWeak",
-    "background": "SuccessBackgroundStrong",
     "border": "SuccessBorder"
   },
   {
+    "background": "SuccessBackgroundWeak",
     "icon": "SuccessIcon",
     "color": "SuccessText",
-    "background": "SuccessBackgroundWeak",
     "border": "SuccessBorder"
   },
   {
+    "background": "SuccessBackground",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "SuccessBackground",
     "border": "SuccessBorder"
   },
   {
+    "background": "SuccessBackground",
     "icon": "NeutralIconWeak",
     "color": "NeutralTextWeak",
-    "background": "SuccessBackground",
     "border": "SuccessBorder"
   },
   {
-    "icon": "WarningIconStrong",
-    "color": "WarningTextStrong",
     "background": "WarningBackground",
+    "icon": "WarningIcon",
+    "color": "WarningTextStrong",
     "border": "WarningBorder"
   },
   {
+    "background": "WarningBackgroundStrong",
     "icon": "WarningIconWeak",
     "color": "WarningTextWeak",
-    "background": "WarningBackgroundStrong",
     "border": "WarningBorder"
   },
   {
+    "background": "WarningBackgroundWeak",
     "icon": "WarningIcon",
     "color": "WarningText",
-    "background": "WarningBackgroundWeak",
     "border": "WarningBorder"
   },
   {
+    "background": "WarningBackground",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "WarningBackground",
     "border": "WarningBorder"
   },
   {
+    "background": "WarningBackground",
     "icon": "NeutralIconWeak",
     "color": "NeutralTextWeak",
-    "background": "WarningBackground",
     "border": "WarningBorder"
   },
   {
-    "icon": "BetaIconStrong",
-    "color": "BetaTextStrong",
     "background": "BetaBackground",
+    "icon": "BetaIcon",
+    "color": "BetaTextStrong",
     "border": "BetaBorder"
   },
   {
+    "background": "BetaBackgroundStrong",
     "icon": "BetaIconWeak",
     "color": "BetaTextWeak",
-    "background": "BetaBackgroundStrong",
     "border": "BetaBorder"
   },
   {
+    "background": "BetaBackgroundWeak",
     "icon": "BetaIcon",
     "color": "BetaText",
-    "background": "BetaBackgroundWeak",
     "border": "BetaBorder"
   },
   {
+    "background": "BetaBackground",
     "icon": "NeutralIcon",
     "color": "NeutralText",
-    "background": "BetaBackground",
     "border": "BetaBorder"
   },
   {
+    "background": "BetaBackground",
     "icon": "NeutralIconWeak",
     "color": "NeutralTextWeak",
-    "background": "BetaBackground",
     "border": "BetaBorder"
   },
   {
-    "color": "NeutralTextInverted",
     "background": "BrandingNavigation",
+    "color": "NeutralTextInverted",
+    "icon": "NeutralIconInverted",
     "border": "NeutralBorderWeak"
   },
   {
-    "icon": "AssistiveIcon",
-    "color": "AssistiveText",
     "background": "AssistiveBackground",
+    "icon": "AssistiveText",
+    "color": "AssistiveText",
     "border": "AssistiveBorder"
   },
   {
     "background": "NeutralBackground",
-    "border": "AssistiveBorderFocus"
+    "border": "AssistiveBorderFocus",
+    "color": "NeutralText",
+    "icon": "NeutralIcon"
   },
   {
     "background": "NeutralBackgroundMedium",
-    "border": "AssistiveBorderFocus"
+    "border": "AssistiveBorderFocus",
+    "color": "NeutralText",
+    "icon": "NeutralIcon"
   },
   {
     "background": "NeutralBackgroundStrong",
-    "border": "AssistiveBorderFocus"
+    "border": "AssistiveBorderFocus",
+    "color": "NeutralText",
+    "icon": "NeutralIcon"
   }
 ]

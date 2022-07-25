@@ -1,19 +1,15 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react';
 
+import { StackVertical, TabsKit } from '../../../../src';
 import { ColorToken, Token, TokenType } from '../../../../src/tokens/types';
 import { TokensProps } from '../TokensTypes';
 
 import ColorCompositions from './data/ColorCompositions.json';
 
 import ColorComposition from './ColorComposition';
-
 import { groupBy } from '../TokenFormatter';
-
-import TokenName from '../TokenName';
-
-import S from './ColorCompositions.scss';
-import CardComposition from '../components/Card/CardComposition';
+import CompositionListItem from '../components/CompositionList/CompositionListItem';
 
 type ColorComposition = {
 	icon?: string;
@@ -32,143 +28,123 @@ const ColorTokens = ({ tokens, ...rest }: React.HTMLAttributes<HTMLDivElement> &
 			return acc;
 		}, {});
 
-	const neutralColorsGroupedByBackground = groupBy(
-		ColorCompositions.filter((t: ColorComposition) =>
-			t.border?.toLocaleLowerCase().startsWith('neutral'),
+	const neutralBackgroundsGroup = groupBy(
+		ColorCompositions.filter(
+			(t: ColorComposition) =>
+				t.background?.toLocaleLowerCase().startsWith('neutral') ||
+				t.background?.toLocaleLowerCase().startsWith('branding'),
 		),
 		'background',
 	);
 
-	const semanticColors = ColorCompositions.filter(
-		(t: ColorComposition) => !t.border?.toLocaleLowerCase().startsWith('neutral'),
+	const accentBackgroundsGroup = groupBy(
+		ColorCompositions.filter((t: ColorComposition) =>
+			t.background?.toLocaleLowerCase().startsWith('accent'),
+		),
+		'background',
 	);
+
+	const successBackgroundsGroup = groupBy(
+		ColorCompositions.filter((t: ColorComposition) =>
+			t.background?.toLocaleLowerCase().startsWith('success'),
+		),
+		'background',
+	);
+
+	const dangerBackgroundsGroup = groupBy(
+		ColorCompositions.filter((t: ColorComposition) =>
+			t.background?.toLocaleLowerCase().startsWith('danger'),
+		),
+		'background',
+	);
+
+	const warningBackgroundsGroup = groupBy(
+		ColorCompositions.filter((t: ColorComposition) =>
+			t.background?.toLocaleLowerCase().startsWith('warning'),
+		),
+		'background',
+	);
+
+	const betaBackgroundsGroup = groupBy(
+		ColorCompositions.filter((t: ColorComposition) =>
+			t.background?.toLocaleLowerCase().startsWith('beta'),
+		),
+		'background',
+	);
+
+	const assistiveBackgroundsGroup = groupBy(
+		ColorCompositions.filter((t: ColorComposition) =>
+			t.background?.toLocaleLowerCase().startsWith('assistive'),
+		),
+		'background',
+	);
+
+	const semanticColors = {
+		Neutral: neutralBackgroundsGroup,
+		Accent: accentBackgroundsGroup,
+		Success: successBackgroundsGroup,
+		Danger: dangerBackgroundsGroup,
+		Warning: warningBackgroundsGroup,
+		Beta: betaBackgroundsGroup,
+		Assistive: assistiveBackgroundsGroup,
+	};
 
 	return (
 		<div {...rest}>
-			<div className={S.colorGrid}>
-				{Object.entries(neutralColorsGroupedByBackground).map(([background, tks], key) => {
-					return (
-						<div className={S.colorComposition} key={key}>
-							<dl
-								className={S.colorBackground}
-								style={{
-									background: `${colorTokens[background].value}`,
-								}}
-							>
-								<TokenName token={colorTokens[background]} />
-								{tks.map((t, i) => {
-									const icon = colorTokens[t.icon || ''];
-									const color = colorTokens[t.color || ''];
-									const bg = colorTokens[background];
-									const border = colorTokens[t.border];
-									return (
-										<CardComposition
-											key={i}
-											textColor={color}
-											backgroundColor={bg}
-											borderColor={border}
-											iconColor={icon}
-										/>
-									);
-								})}
-							</dl>
-						</div>
-					);
-				})}
+			<TabsKit>
+				<StackVertical gap="L" justify="stretch" align="stretch">
+					<TabsKit.TabList>
+						<>
+							{Object.keys(semanticColors).map(keyTitle => {
+								return (
+									<TabsKit.Tab size="L" key={keyTitle}>
+										{keyTitle}
+									</TabsKit.Tab>
+								);
+							})}
+						</>
+					</TabsKit.TabList>
 
-				{semanticColors.map(
-					(
-						{
-							icon: iconK = '',
-							color: colorK = '',
-							background: backgroundK = '',
-							border: borderK = '',
-						},
-						key,
-					) => {
-						const hasSemanticColor = SemanticColors.some(semanticColor =>
-							colorK?.includes(semanticColor),
-						);
-						const hasSemanticBackground = SemanticColors.some(semanticColor =>
-							backgroundK?.includes(semanticColor),
-						);
-						const isNewBackgroundColor =
-							backgroundK.split(/(?=[A-Z])/)[0] !==
-							semanticColors[key - 1]?.background.split(/(?=[A-Z])/)[0];
-
+					{Object.values(semanticColors).map(group => {
 						return (
-							<div
-								key={key}
-								className={S.colorComposition}
-								style={isNewBackgroundColor ? { gridColumnStart: 1 } : {}}
-							>
-								{(hasSemanticBackground ? ['DEFAULT', 'HOVER', 'ACTIVE'] : ['DEFAULT']).map(
-									(state, appendix) => {
-										let iconColor = colorTokens[iconK];
-										let textColor = colorTokens[colorK];
-										let backgroundColor = colorTokens[backgroundK];
-										let borderColor = colorTokens[borderK];
-
-										switch (state) {
-											case 'HOVER':
-												iconColor = colorTokens[`${iconK}Hover`] || colorTokens[iconK];
-												textColor = colorTokens[`${colorK}Hover`] || colorTokens[colorK];
-												backgroundColor = colorTokens[`${backgroundK}Hover`];
-												borderColor = colorTokens[`${borderK}Hover`];
-												break;
-											case 'ACTIVE':
-												iconColor = colorTokens[`${iconK}Active`] || colorTokens[iconK];
-												textColor = colorTokens[`${colorK}Active`] || colorTokens[colorK];
-												backgroundColor = colorTokens[`${backgroundK}Active`];
-												borderColor = colorTokens[`${borderK}Active`];
-												break;
-											default:
-												break;
-										}
-
+							<TabsKit.TabPanel key={Object.keys(group)[0]}>
+								<StackVertical gap="M" align="stretch" justify="stretch">
+									{Object.entries(group).map(([background, tks], key) => {
 										return (
-											<dl
-												key={`${key}${appendix}`}
-												className={S.colorBackground}
-												style={{
-													color: `${textColor?.value}`,
-													background: `${backgroundColor?.value}`,
-													borderColor: `${borderColor?.value}`,
-												}}
+											<StackVertical
+												gap="M"
+												align="stretch"
+												justify="stretch"
+												key={`${background}-${key}`}
 											>
-												<TokenName token={backgroundColor} />
-												<CardComposition
-													textColor={textColor || backgroundColor}
-													backgroundColor={backgroundColor}
-													borderColor={borderColor}
-													iconColor={iconColor}
+												<CompositionListItem
+													background={background}
+													tokens={tks}
+													tokenCodex={colorTokens}
 												/>
-												{hasSemanticColor && !hasSemanticBackground && (
-													<>
-														<CardComposition
-															textColor={colorTokens[`${colorK}Hover`]}
-															backgroundColor={backgroundColor}
-															borderColor={colorTokens[`${borderK}Hover`]}
-															iconColor={colorTokens[`${iconK}Hover`]}
-														/>
-														<CardComposition
-															textColor={colorTokens[`${colorK}Active`]}
-															backgroundColor={backgroundColor}
-															borderColor={colorTokens[`${borderK}Active`]}
-															iconColor={colorTokens[`${iconK}Active`]}
-														/>
-													</>
-												)}{' '}
-												<TokenName token={borderColor} />
-											</dl>
+												{colorTokens[`${background}Hover`] && (
+													<CompositionListItem
+														background={`${background}Hover`}
+														tokens={tks}
+														tokenCodex={colorTokens}
+													/>
+												)}
+												{colorTokens[`${background}Active`] && (
+													<CompositionListItem
+														background={`${background}Active`}
+														tokens={tks}
+														tokenCodex={colorTokens}
+													/>
+												)}
+											</StackVertical>
 										);
-									},
-								)}
-							</div>
+									})}
+								</StackVertical>
+							</TabsKit.TabPanel>
 						);
-					},
-				)}
-			</div>
+					})}
+				</StackVertical>
+			</TabsKit>
 		</div>
 	);
 };
