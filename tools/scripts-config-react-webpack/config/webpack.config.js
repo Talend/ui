@@ -393,7 +393,6 @@ module.exports = ({ getUserConfig, mode }) => {
 					overlay: { errors: true, warnings: false },
 				},
 				compress: true,
-				watchFiles: ['src/**/*'],
 			},
 		};
 	};
