@@ -1,6 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line @talend/import-depth
-import data from '@talend/react-datagrid/stories/sample.json';
+import data from '@talend/react-datagrid/mocks/sample.json';
 import DataGrid from '@talend/react-datagrid';
 import Layout from '@talend/react-components/lib/Layout';
 import SidePanel from '@talend/react-containers/lib/SidePanel';

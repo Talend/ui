@@ -13,10 +13,3 @@ export const i18n = {
 		'design-system': 'https://unpkg.com/@talend/locales-design-system/locales/{{lng}}/{{ns}}.json',
 	},
 };
-
-export const parameters = {
-	chromatic: {
-		// Disable by default and enable only on some stories
-		disableSnapshot: true,
-	},
-};

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, fireEvent, screen } from '@testing-library/react';
 
-import { WithMenus, All } from './HeaderCellRenderer.component.stories';
+import { WithMenus } from './HeaderCellRenderer.component.stories';
 
 describe('HeaderCellRenderer', () => {
 	it('should open menu', () => {

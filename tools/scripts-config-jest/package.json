@@ -33,8 +33,7 @@
     "jest-environment-jsdom-global": "^3.1.2",
     "jest-serializer-html": "^7.1.0",
     "raf": "^3.4.1",
-    "regenerator-runtime": "^0.13.9",
-    "ts-jest": "^28.0.7"
+    "regenerator-runtime": "^0.13.9"
   },
   "publishConfig": {
     "access": "public"

@@ -44,7 +44,6 @@
     "@talend/react-components": "^7.4.0",
     "classnames": "^2.3.1",
     "focus-trap-react": "^8.11.3",
-    "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -55,10 +54,8 @@
     "@talend/scripts-preset-react-lib": "^12.0.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
-    "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
     "i18next-scanner-typescript": "^1.0.6",
-    "jsdom": "^20.0.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

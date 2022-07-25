@@ -10,12 +10,13 @@ import HeaderCellRenderer, { HeaderRendererProps } from './HeaderCellRenderer.co
 
 const defaultArgs = {
 	displayName: 'My column',
+	type: 'string',
 	typeLabel: 'My type',
 	semanticTypeLabel: 'Semantic type',
 	quality: {
-		[-1]: 10,
-		0: 0,
-		1: 38,
+		invalid: 10,
+		empty: 0,
+		valid: 38,
 	},
 };
 const longContent = {
@@ -35,9 +36,6 @@ const menu = {
 export default {
 	component: HeaderCellRenderer,
 	title: 'Components/HeaderCellRenderer',
-	parameters: {
-		chromatic: { disableSnapshot: false },
-	},
 	args: { ...defaultArgs },
 };
 
@@ -45,8 +43,6 @@ const Template = (props: HeaderComponentParams) => (
 	<div style={{ border: '1px solid var(--coral-color-neutral-border-weak)', width: 150 }}>
 		<HeaderCellRenderer
 			{...(props as HeaderRendererProps)}
-			onFocusedColumn={action('onFocusedColumn')}
-			onKeyDown={action('onKeyDown')}
 			column={
 				{
 					getColId: () => 'colId',

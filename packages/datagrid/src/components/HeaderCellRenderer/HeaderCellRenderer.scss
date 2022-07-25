@@ -23,8 +23,8 @@
 	}
 
 	&__title {
-		font: tokens.$coral-paragraph-m;
 		@include ellipsis;
+		font: tokens.$coral-paragraph-m;
 
 		abbr {
 			text-decoration: none;
@@ -32,9 +32,9 @@
 	}
 
 	&__type {
+		@include ellipsis;
 		color: tokens.$coral-color-neutral-text-weak;
 		font: tokens.$coral-paragraph-s;
-		@include ellipsis;
 
 		&::first-letter {
 			text-transform: uppercase;
@@ -64,6 +64,7 @@
 		#{$self}__type {
 			color: tokens.$coral-color-accent-text-strong;
 		}
+
 		:global(.tc-ratio-bar) {
 			opacity: 0.5;
 		}
