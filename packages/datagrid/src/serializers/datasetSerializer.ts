@@ -1,4 +1,4 @@
-import { ColDef } from 'ag-grid-community';
+import { ColDef, GetRowIdFunc, ValueGetterFunc } from 'ag-grid-community';
 
 import {
 	QUALITY_EMPTY_KEY,
@@ -78,9 +78,23 @@ export function getQualityValue(type: AvroField['type']) {
 	return type?.[QUALITY_KEY];
 }
 
+const valueGetter: ValueGetterFunc = ({ data, colDef }) => data.value?.[colDef.field!];
+
+/**
+ * Return row identifier, used when updating data
+ */
+export const getRowId: GetRowIdFunc = params => params.data.id;
+
+/**
+ * Add a row identifier
+ */
+export const parseRow = (data: any, index: number) => ({
+	...data,
+	id: index,
+});
+
 /**
  * Return column definitions for a dataset sample
- * @param sample
  */
 export function getColumnDefs(sample: Sample): ColDef[] {
 	return [
@@ -90,7 +104,7 @@ export function getColumnDefs(sample: Sample): ColDef[] {
 			const quality = avroField.type && getQualityValue(avroField.type);
 			return {
 				...DefaultColDef,
-				valueGetter: `data.value.${avroField.name}`,
+				valueGetter: valueGetter,
 				field: avroField.name,
 				headerName: avroField.doc || avroField.name,
 				cellRendererParams: {
