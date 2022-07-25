@@ -1,5 +1,23 @@
 # @talend/ui-playground
 
+## 1.1.4
+
+### Patch Changes
+
+- de6f9f80c: Handle datagrid breaking changes
+- Updated dependencies [2a7278a95]
+- Updated dependencies [c02aeb6ae]
+- Updated dependencies [1df17ebbc]
+- Updated dependencies [a99154a7d]
+- Updated dependencies [c815ba11f]
+- Updated dependencies [262e60063]
+  - @talend/react-datagrid@12.0.0
+  - @talend/react-forms@8.1.0
+  - @talend/react-components@7.5.0
+  - @talend/react-containers@7.3.0
+  - @talend/react-dataviz@2.4.0
+  - @talend/react-faceted-search@6.0.0
+
 ## 1.1.3
 
 ### Patch Changes

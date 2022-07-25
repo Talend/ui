@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 11.2.1
+
+### Patch Changes
+
+- c815ba11f: fix: use babel to transpile ts[x] tests
+
 ## 11.2.0
 
 ### Minor Changes

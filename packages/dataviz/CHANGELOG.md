@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.4.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [a99154a7d]
+  - @talend/react-components@7.5.0
+  - @talend/design-tokens@2.7.0
+
 ## 2.3.0
 
 ### Minor Changes
