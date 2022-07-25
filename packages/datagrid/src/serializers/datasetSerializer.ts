@@ -7,7 +7,7 @@ import {
 	QUALITY_VALID_KEY,
 } from '../constants';
 import { DefaultColDef, DefaultPinnedColDef } from '../constants/column-definition.constants';
-import { AvroField, Sample } from '../types';
+import { AvroField, Schema } from '../types';
 
 /**
  * check if the type is null
@@ -97,10 +97,10 @@ export const parseRow = (data: any, index: number) => ({
 /**
  * Return column definitions for a dataset sample
  */
-export function getColumnDefs(sample: Sample): ColDef[] {
+export function getColumnDefs(schema: Schema): ColDef[] {
 	return [
 		DefaultPinnedColDef,
-		...sample.schema.fields.map(avroField => {
+		...schema.fields.map(avroField => {
 			const type = sanitizeAvro(avroField);
 			const quality = avroField.type && getQualityValue(avroField.type);
 			return {

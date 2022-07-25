@@ -53,7 +53,7 @@ const defaultGridProps = {
 	sizesLocalStorageKey: 'sb-grid-sizes',
 	columnSelection: 'multiple' as DataGridProps['columnSelection'],
 	rowData: sample.data.map(parseRow),
-	columnDefs: getColumnDefs(sample),
+	columnDefs: getColumnDefs(sample.schema),
 	onCellFocused: action('onCellFocused'),
 	onSelectionChanged: action('onSelectionChanged'),
 	onColumnSelectionChanged: action('onColumnSelectionChanged'),

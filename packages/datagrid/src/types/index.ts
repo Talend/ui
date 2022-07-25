@@ -6,11 +6,14 @@ import { ButtonIcon } from '@talend/design-system';
 
 import { QUALITY_EMPTY_KEY, QUALITY_INVALID_KEY, QUALITY_VALID_KEY } from '../constants';
 
-// Yeah, I know
+// Will get typed later on?
+
+export type Schema = {
+	fields: any[];
+};
+
 export type Sample = {
-	schema: {
-		fields: any[];
-	};
+	schema: Schema;
 	data: any[];
 };
 
