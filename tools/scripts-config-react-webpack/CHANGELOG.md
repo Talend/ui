@@ -1,5 +1,13 @@
 # @talend/scripts-config-react-webpack
 
+## 13.3.1
+
+### Patch Changes
+
+- 547b11df4: fix: css generated in build:lib:umd are not with a dot min in name
+- Updated dependencies [a99154a7d]
+  - @talend/scripts-config-cdn@10.5.4
+
 ## 13.3.0
 
 ### Minor Changes
