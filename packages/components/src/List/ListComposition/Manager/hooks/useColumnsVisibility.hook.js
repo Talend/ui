@@ -13,7 +13,9 @@ export function useColumnsVisibility(columns = [], initialVisibleColumns = [], s
 		let visibleColumns;
 		if (storageKey) {
 			const nextColumnsVisibility = localStorage.getItem(storageKey);
-			visibleColumns = nextColumnsVisibility && JSON.parse(nextColumnsVisibility);
+			try {
+				visibleColumns = nextColumnsVisibility && JSON.parse(nextColumnsVisibility);
+			} catch (e) {}
 		}
 		return visibleColumns;
 	});
