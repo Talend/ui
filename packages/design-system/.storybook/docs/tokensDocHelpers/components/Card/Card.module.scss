@@ -10,6 +10,10 @@
     box-shadow: tokens.$coral-elevation-shadow-neutral-m;
   }
 
+  &__border {
+    background: tokens.$coral-color-accent-background;
+  }
+
   &__composition {
     justify-content: center;
     align-items: center;

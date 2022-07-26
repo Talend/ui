@@ -1,6 +1,7 @@
 @use '@talend/design-tokens/lib/tokens';
 
 .listItem {
+  width: 100%;
   display: grid;
   grid-template-columns: tokens.$coral-sizing-xxxl 1fr 1.2fr;
   column-gap: tokens.$coral-spacing-l;
