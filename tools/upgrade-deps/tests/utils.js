@@ -65,26 +65,26 @@ function getVersionFromLock(pkg, lock) {
 	return lock.packages[key].version;
 }
 
-function isMajorGT(pkg, pkgJsona, pkgJsonb) {
-	const reqa = pkgJsona.dependencies[pkg] || pkgJsona.devDependencies[pkg];
-	const reqb = pkgJsonb.dependencies[pkg] || pkgJsonb.devDependencies[pkg];
+function isMajorGT(pkg, pkgJsona, pkgJsonb, attr = 'dependencies') {
+	const reqa = pkgJsona[attr][pkg];
+	const reqb = pkgJsonb[attr][pkg];
 	return (
 		semver.major(getVersionFromRequirement(reqa)) > semver.major(getVersionFromRequirement(reqb))
 	);
 }
 
-function isMinorGt(pkg, pkgJsona, pkgJsonb) {
-	const reqa = pkgJsona.dependencies[pkg] || pkgJsona.devDependencies[pkg];
-	const reqb = pkgJsonb.dependencies[pkg] || pkgJsonb.devDependencies[pkg];
+function isMinorGt(pkg, pkgJsona, pkgJsonb, attr = 'dependencies') {
+	const reqa = pkgJsona[attr][pkg];
+	const reqb = pkgJsonb[attr][pkg];
 	return (
 		semver.gt(getVersionFromRequirement(reqa), getVersionFromRequirement(reqb)) &&
 		!isMajorGT(pkg, pkgJsona, pkgJsonb)
 	);
 }
 
-function isSameVersion(pkg, pkgJsona, pkgJsonb) {
-	const reqa = pkgJsona.dependencies[pkg] || pkgJsona.devDependencies[pkg];
-	const reqb = pkgJsonb.dependencies[pkg] || pkgJsonb.devDependencies[pkg];
+function isSameVersion(pkg, pkgJsona, pkgJsonb, attr = 'dependencies') {
+	const reqa = pkgJsona[attr][pkg];
+	const reqb = pkgJsonb[attr][pkg];
 	return getVersionFromRequirement(reqa) === getVersionFromRequirement(reqb);
 }
 
