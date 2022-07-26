@@ -1,5 +1,28 @@
 # @talend/react-forms
 
+## 8.1.0
+
+### Minor Changes
+
+- c02aeb6ae: add the capability to skip commas with backslash char
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- 262e60063: fix: move exported values of UIForm into the class as static values
+- Updated dependencies [617ec14f0]
+- Updated dependencies [a99154a7d]
+  - @talend/design-system@4.0.0
+  - @talend/react-components@7.5.0
+
+## 8.0.2
+
+### Patch Changes
+
+- a85993977: fix(UIForm): keep defaultProps created by withTranslation
+- Updated dependencies [06bee44bf]
+  - @talend/design-system@3.8.0
+
 ## 8.0.1
 
 ### Patch Changes

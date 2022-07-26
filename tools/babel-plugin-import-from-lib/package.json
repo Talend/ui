@@ -12,10 +12,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/types": "^7.18.8"
+    "@babel/types": "^7.18.9"
   },
   "devDependencies": {
     "babel-plugin-tester": "^10.1.0",
-    "jest": "^28.1.2"
+    "jest": "^28.1.3"
   }
 }

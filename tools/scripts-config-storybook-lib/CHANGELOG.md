@@ -1,5 +1,12 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.1.0
+
+### Minor Changes
+
+- e6fb534c2: Disable bundle-analyze-plugin to speed up build
+- 55e65015a: Add @storybook/jest dependency
+
 ## 2.0.1
 
 ### Patch Changes

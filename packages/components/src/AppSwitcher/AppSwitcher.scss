@@ -12,11 +12,36 @@
 	height: 100%;
 	white-space: nowrap;
 
-	&.separated:not(:last-child):after {
+	&.separated:not(:last-child)::after {
 		content: ' ';
 		display: block;
 		width: 1px;
 		height: $font-size-large;
 		background-color: $white;
+	}
+
+	&.hasIcon {
+		[role='heading'] {
+			span:first-child {
+				display: inline-flex;
+				align-items: center;
+
+				&::before {
+					display: block;
+					content: '';
+					margin-right: $padding-smaller;
+					height: $navbar-brand-logo-height;
+					width: $navbar-brand-logo-height;
+					background-repeat: no-repeat;
+					background-color: white;
+				}
+			}
+
+			svg + span:first-child {
+				&::before {
+					display: none;
+				}
+			}
+		}
 	}
 }

@@ -207,6 +207,65 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
+	it('should call add trigger with multiple values', () => {
+		// given
+		const onTrigger = jest.fn(() => Promise.resolve([]));
+		render(
+			<EnumerationWidget
+				value={[{ id: '112', values: ['titi'] }]}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={onTrigger}
+				schema={{}}
+				properties={{ connectedMode: true }}
+			/>,
+		);
+
+		// when
+		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
+		userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo, tata');
+		userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
+
+		// then
+		expect(onTrigger).toBeCalledWith(expect.anything(), {
+			schema: {},
+			trigger: {
+				action: 'ENUMERATION_ADD_ACTION',
+				value: ['foo', 'tata'],
+			},
+		});
+	});
+
+	it('should call add trigger with skip commas', () => {
+		// given
+		const onTrigger = jest.fn(() => Promise.resolve([]));
+		render(
+			<EnumerationWidget
+				value={[{ id: '112', values: ['titi'] }]}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={onTrigger}
+				schema={{}}
+				properties={{ connectedMode: true }}
+				skipCommas
+			/>,
+		);
+
+		// when
+		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
+		userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo\\, tata');
+		userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
+
+		// then
+		expect(onTrigger).toBeCalledWith(expect.anything(), {
+			schema: {},
+			trigger: {
+				action: 'ENUMERATION_ADD_ACTION',
+				value: ['foo, tata'],
+			},
+		});
+	});
+
 	it('should call delete trigger', () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve({}));

@@ -1,5 +1,23 @@
 # @talend/scripts-config-react-webpack
 
+## 13.3.1
+
+### Patch Changes
+
+- 547b11df4: fix: css generated in build:lib:umd are not with a dot min in name
+- Updated dependencies [a99154a7d]
+  - @talend/scripts-config-cdn@10.5.4
+
+## 13.3.0
+
+### Minor Changes
+
+- 104d3ed50: upgrade source-map-loader
+
+### Patch Changes
+
+- 104d3ed50: fix: activate sourceMap in dev
+
 ## 13.2.0
 
 ### Minor Changes

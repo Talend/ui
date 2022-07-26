@@ -1,5 +1,26 @@
 # @talend/design-system
 
+## 4.0.0
+
+### Major Changes
+
+- 617ec14f0: Tabs: Removed className possibilities. Composition mode is not the default anymore.
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [a99154a7d]
+  - @talend/design-tokens@2.7.0
+
+## 3.8.0
+
+### Minor Changes
+
+- 06bee44bf: feat(design-system): set switch font to prevent inheritance
+
 ## 3.7.0
 
 ### Minor Changes
