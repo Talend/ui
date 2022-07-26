@@ -10,7 +10,8 @@
     box-shadow: tokens.$coral-elevation-shadow-neutral-m;
   }
 
-  &__border {
+  &__border,
+  &__shadow {
     background: tokens.$coral-color-accent-background;
   }
 

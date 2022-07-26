@@ -1,23 +1,12 @@
 import React from 'react';
 
 import { Token, TokenType } from '../../../src/tokens/types';
-import { PropsWithToken, TokensProps } from './TokensTypes';
+import { TokensProps } from './TokensTypes';
 
-import TokensDefinitionList from './TokensDefinitionList';
-
-import S from './Tokens.scss';
+import DefinitionListShadow from './components/DefinitionList/DefinitionListShadow';
 
 const TokensShadow = ({ tokens }: TokensProps) => (
-	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.SHADOW)}>
-		{({ token }: PropsWithToken) => (
-			<div
-				className={S.shadow}
-				style={{
-					boxShadow: token.value,
-				}}
-			/>
-		)}
-	</TokensDefinitionList>
+	<DefinitionListShadow tokens={tokens.filter((t: Token) => t.type === TokenType.SHADOW)} />
 );
 
 export default TokensShadow;
