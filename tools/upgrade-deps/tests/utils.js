@@ -78,7 +78,7 @@ function isMinorGt(pkg, pkgJsona, pkgJsonb, attr = 'dependencies') {
 	const reqb = pkgJsonb[attr][pkg];
 	return (
 		semver.gt(getVersionFromRequirement(reqa), getVersionFromRequirement(reqb)) &&
-		!isMajorGT(pkg, pkgJsona, pkgJsonb)
+		!isMajorGT(pkg, pkgJsona, pkgJsonb, attr)
 	);
 }
 
