@@ -62,7 +62,7 @@
     "react-i18next": "^11.18.1"
   },
   "peerDependencies": {
-    "@talend/design-system": "^4.0.0",
+    "@talend/design-system": ">= 3.0.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
