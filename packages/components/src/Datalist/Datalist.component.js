@@ -146,7 +146,6 @@ function Datalist(props) {
 		if (entry.value !== value || entry.name !== name) {
 			setEntry(entry);
 		}
-
 		// Update the input value only if user did not change it
 		if (!name || name === filterValue) {
 			setFilterValue(entry.name);
