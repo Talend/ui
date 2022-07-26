@@ -1,160 +1,20 @@
-/* eslint-disable jsx-a11y/no-autofocus */
-import React, { createRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { createRef, useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import isNaN from 'lodash/isNaN';
 import isString from 'lodash/isString';
 import isNull from 'lodash/isNull';
 import times from 'lodash/times';
 import constant from 'lodash/constant';
 import uniq from 'lodash/uniq';
 
-import { ButtonIcon, ButtonTertiary, SizedIcon } from '@talend/design-system';
-import { FilterBar, getTheme, Rich, TooltipTrigger } from '@talend/react-components';
+import { getTheme, Rich } from '@talend/react-components';
 
 import cssModule from './AddFacetPopover.scss';
-import { badgeFacetedPropTypes, badgesFacetedPropTypes } from '../facetedSearch.propTypes';
+import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
+import { AddFacetPopoverHeader } from './AddFacetPopoverHeader';
+import { AddFacetPopoverRowItem, AddFacetPopoverRowItemCategory } from './AddFacetPopoverRow';
 
 const theme = getTheme(cssModule);
-
-const filterByAttribute = badgeDefinition => badge =>
-	badge.properties.attribute === badgeDefinition.properties.attribute;
-
-const isButtonDisabled = (badges, badgeDefinition, occurrences) => {
-	const badgePerFacet = parseInt(badgeDefinition.metadata.badgePerFacet, 10);
-
-	if (isNaN(badgePerFacet)) {
-		return false;
-	}
-
-	return occurrences >= badgePerFacet;
-};
-
-const getTabIndex = isFocusable => (isFocusable ? 0 : -1);
-
-const OpenCategoryRow = ({ label, onClick, isFocusable }) => (
-	<div className={theme('tc-add-facet-popover-row')}>
-		<ButtonTertiary
-			id={`$row-button-${label}`}
-			onClick={() => onClick(label)}
-			tabIndex={getTabIndex(isFocusable)}
-		>
-			<div className={theme('tc-add-facet-popover-row-text')}>{label}</div>
-			<SizedIcon name="chevron-right" size="S"></SizedIcon>
-		</ButtonTertiary>
-	</div>
-);
-
-OpenCategoryRow.propTypes = {
-	label: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
-	isFocusable: PropTypes.bool.isRequired,
-};
-
-const AddFacetRow = ({ badgeDefinition, id, label, onClick, isFocusable, badges, t }) => {
-	const occurrences = useMemo(
-		() => badges.filter(filterByAttribute(badgeDefinition)).length,
-		[badges, badgeDefinition],
-	);
-	const isDisabled = useMemo(
-		() => isButtonDisabled(badges, badgeDefinition, occurrences),
-		[badges, badgeDefinition, occurrences],
-	);
-	const onClickRow = event => {
-		onClick(event, badgeDefinition);
-	};
-
-	const disabledLabel = t('ADD_FACET_ROW_DISABLED_LABEL', {
-		count: occurrences,
-		badgeLabel: label,
-		defaultValue: 'You can only apply the {{badgeLabel}} filter once',
-		defaultValue_plural: 'You can only apply the {{badgeLabel}} filter {{count}} times',
-	});
-
-	const row = (
-		<div className={theme('tc-add-facet-popover-row')}>
-			<ButtonTertiary
-				id={`${id}-row-button-${label}`}
-				onClick={onClickRow}
-				tabIndex={getTabIndex(isFocusable)}
-				disabled={isDisabled}
-			>
-				{label}
-			</ButtonTertiary>
-		</div>
-	);
-
-	if (isDisabled) {
-		return (
-			<TooltipTrigger label={disabledLabel} tooltipPlacement="top">
-				{row}
-			</TooltipTrigger>
-		);
-	}
-
-	return row;
-};
-
-AddFacetRow.propTypes = {
-	id: PropTypes.string.isRequired,
-	badgeDefinition: badgeFacetedPropTypes.isRequired,
-	label: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
-	isFocusable: PropTypes.bool.isRequired,
-	badges: PropTypes.array.isRequired,
-	t: PropTypes.func.isRequired,
-};
-
-const AddFacetPopoverHeader = ({
-	category,
-	onCategoryChange,
-	id,
-	resetFilter,
-	onFilter,
-	filterValue,
-	t,
-	isFocusable,
-}) => (
-	<Rich.Layout.Header className={theme('tc-add-facet-popover-header')} id={`${id}-header`}>
-		{!isNull(category) && (
-			<div className={theme('tc-add-facet-popover-category')}>
-				<ButtonIcon
-					icon="arrow-left"
-					size="S"
-					onClick={() => onCategoryChange(null)}
-					tabIndex={getTabIndex(isFocusable)}
-				>
-					{t('ADD_FACET_FILTER_BACK', 'Back')}
-				</ButtonIcon>
-				<span className={theme('tc-add-facet-popover-category-title')}>{category}</span>
-			</div>
-		)}
-		<FilterBar
-			autoFocus={false}
-			className={theme('tc-add-facet-popover-filter')}
-			dockable={false}
-			docked={false}
-			iconAlwaysVisible
-			id={`${id}-filter`}
-			placeholder={t('ADD_FACET_FILTER_PLACEHOLDER', 'Find a filter')}
-			onToggle={resetFilter}
-			onFilter={onFilter}
-			value={filterValue}
-			disabled={!isFocusable}
-		/>
-	</Rich.Layout.Header>
-);
-
-AddFacetPopoverHeader.propTypes = {
-	category: PropTypes.string,
-	onCategoryChange: PropTypes.func.isRequired,
-	id: PropTypes.string.isRequired,
-	resetFilter: PropTypes.func.isRequired,
-	onFilter: PropTypes.func.isRequired,
-	filterValue: PropTypes.string.isRequired,
-	isFocusable: PropTypes.bool.isRequired,
-	t: PropTypes.func.isRequired,
-};
 
 const filterByLabel = label => row => {
 	const rowLabel = isString(row) ? row : row.properties.label;
@@ -219,7 +79,7 @@ const getScreens = (badgesDefinitions, filterValue, comparator = sortByLabel) =>
 	return screens;
 };
 
-const AddFacetPopover = ({
+export const AddFacetPopover = ({
 	badgesDefinitions = [],
 	badgesDefinitionsSort,
 	badges,
@@ -298,7 +158,7 @@ const AddFacetPopover = ({
 								)}
 								{screen.rows.map(rowItem =>
 									isString(rowItem) ? (
-										<OpenCategoryRow
+										<AddFacetPopoverRowItemCategory
 											id="open-category-row"
 											key={rowItem}
 											label={rowItem}
@@ -306,7 +166,7 @@ const AddFacetPopover = ({
 											isFocusable={screen.category === category}
 										/>
 									) : (
-										<AddFacetRow
+										<AddFacetPopoverRowItem
 											badgeDefinition={rowItem}
 											id={addFacetId}
 											key={rowItem.properties.label}
@@ -336,5 +196,3 @@ AddFacetPopover.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
-
-export { AddFacetPopover };
