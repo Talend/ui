@@ -16,6 +16,7 @@ const RowCheckbox = ({
 	locked = false,
 	onChange,
 	checked = false,
+	intermediate = false,
 }) => {
 	const onChangeCheckbox = event => {
 		onChange(event.target.checked, label);
@@ -35,6 +36,7 @@ const RowCheckbox = ({
 				id={`${id}-checkbox-${label.replace(/\s+/g, '-')}`}
 				label={label}
 				onChange={onChangeCheckbox}
+				intermediate={intermediate}
 			/>
 			<div id={describedby} className="sr-only">
 				{description}
@@ -51,6 +53,7 @@ RowCheckbox.propTypes = {
 	locked: PropTypes.bool,
 	onChange: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
+	intermediate: PropTypes.bool,
 };
 
 export default RowCheckbox;
