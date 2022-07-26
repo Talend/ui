@@ -67,3 +67,19 @@ AddFacetPopoverRowItem.propTypes = {
 	badges: PropTypes.array.isRequired,
 	t: PropTypes.func.isRequired,
 };
+
+export const AddFacetPopoverRowItemCategory = ({ label, onClick, isFocusable }) => (
+	<AddFacetPopoverRowButton
+		id={`$row-button-${label}`}
+		label={label}
+		onClick={() => onClick(label)}
+		tabIndex={getTabIndex(isFocusable)}
+		isCategory
+	/>
+);
+
+AddFacetPopoverRowItemCategory.propTypes = {
+	label: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+	isFocusable: PropTypes.bool.isRequired,
+};
