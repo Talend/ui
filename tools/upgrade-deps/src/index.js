@@ -13,10 +13,6 @@ const { upgradeSecurityVersion } = require('./security');
 
 const CWD = process.cwd();
 
-const CMD = {
-	safe: ['yarn install'],
-};
-
 async function executeAll(cmds) {
 	console.log('EXECUTE ALL:', cmds);
 	for (const cmd of cmds) {
@@ -69,7 +65,7 @@ function getOptions(program) {
 }
 
 async function upgradeYarnProject(program) {
-	const commands = CMD.safe;
+	const commands = [];
 	const opts = getOptions(program);
 
 	if (program.changeset && changeset.isSetup()) {
@@ -121,13 +117,13 @@ async function upgradeYarnProject(program) {
 	const changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
 	if (!opts.dry) {
 		if (!opts.scope && !opts.package && !opts.startsWith) {
-			commands.unshift('yarn upgrade');
+			commands.unshift('yarn upgrade --ignore-scripts');
 			if (changed) {
-				commands.unshift('yarn install');
+				commands.unshift('yarn install --ignore-scripts');
 			}
 		} else {
 			await yarn.removeFromLockFile(opts);
-			commands.unshift('yarn install');
+			commands.unshift('yarn install --ignore-scripts');
 		}
 		spawnSync(yarn.getYarnDedupBin());
 		return executeAll(commands);
@@ -142,13 +138,13 @@ async function upgradeNpmProject(program) {
 	let changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
 	if (!opts.dry) {
 		if (!opts.scope && !opts.package && !opts.startsWith) {
-			commands.unshift('npm update');
+			commands.unshift('npm update --ignore-scripts');
 			if (changed) {
-				commands.unshift('npm install');
+				commands.unshift('npm install --ignore-scripts');
 			}
 		} else {
 			await npm.removeFromLockFile(opts);
-			commands.unshift('npm install');
+			commands.unshift('npm install --ignore-scripts');
 		}
 		commands.push('npm prune');
 		return executeAll(commands);
