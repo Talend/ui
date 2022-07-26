@@ -35,7 +35,6 @@ const cdnMode = !!process.env.INITIATOR_URL;
 
 const DEFAULT_INDEX_TEMPLATE_PATH = 'src/app/index.html';
 const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
-const ICON_DIST = icons.getIconsDistPath();
 const getFileNameForExtension = (extension, prefix) =>
 	`${prefix || ''}[name]-[contenthash].${extension}`;
 
@@ -336,11 +335,10 @@ module.exports = ({ getUserConfig, mode }) => {
 						openAnalyzer: !!env.analyze,
 						logLevel: 'error',
 					}),
-				isEnvProduction &&
-					new MiniCssExtractPlugin({
-						filename: getFileNameForExtension('css', cssPrefix),
-						chunkFilename: getFileNameForExtension('css', cssPrefix),
-					}),
+				new MiniCssExtractPlugin({
+					filename: getFileNameForExtension('css', cssPrefix),
+					chunkFilename: getFileNameForExtension('css', cssPrefix),
+				}),
 				isEnvProduction &&
 					process.env.SENTRY_AUTH_TOKEN &&
 					new SentryWebpackPlugin({

@@ -15,9 +15,9 @@ describe('talend-upgrade-deps --security', () => {
 		rimraf.sync(path.join(__dirname, 'tmp-security-*'));
 	});
 
-	it('should fail when used with another option', () => {
+	it('should fail when used with another option', async () => {
 		// given
-		const tmp = getTmpDirectory('security-error', fixturePath);
+		const tmp = await getTmpDirectory('security-error', fixturePath);
 
 		// when
 		let output = spawnSync(
@@ -70,9 +70,9 @@ describe('talend-upgrade-deps --security', () => {
 		expect(err).toContain('Deps security fix mode is incompatible with "latest" option.');
 	});
 
-	it('direct dep: should change compatible version in package.json', () => {
+	it('direct dep: should change compatible version in package.json', async () => {
 		// given
-		const tmp = getTmpDirectory('security-direct', fixturePath);
+		const tmp = await getTmpDirectory('security-direct', fixturePath);
 		let pkgJson = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
 		let yarnLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString()).object;
 
@@ -99,9 +99,9 @@ describe('talend-upgrade-deps --security', () => {
 		expect(axiosReport.fixVersion).toBe('0.21.2');
 	});
 
-	xit('transitive dep: should remove it from yarn.lock with compatible version', () => {
+	xit('transitive dep: should remove it from yarn.lock with compatible version', async () => {
 		// given
-		const tmp = getTmpDirectory('security-transitive-compatible', fixturePath);
+		const tmp = await getTmpDirectory('security-transitive-compatible', fixturePath);
 		let pkgJson = JSON.parse(readFileSync(path.join(tmp, 'package.json')));
 		let yarnLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString()).object;
 
@@ -128,9 +128,9 @@ describe('talend-upgrade-deps --security', () => {
 		expect(promptsReport.fixVersion).toBe('2.4.2');
 	});
 
-	xit('transitive dep: should upgrade direct dep which is the top ancester in vulnerable hierarchy', () => {
+	xit('transitive dep: should upgrade direct dep which is the top ancester in vulnerable hierarchy', async () => {
 		// given
-		const tmp = getTmpDirectory('security-transitive-ancester', fixturePath);
+		const tmp = await getTmpDirectory('security-transitive-ancester', fixturePath);
 		let yarnLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString()).object;
 
 		expect(yarnLock['css-what@^3.2.1'].version).toBe('3.4.2');
@@ -162,9 +162,9 @@ describe('talend-upgrade-deps --security', () => {
 		expect(cssWhatReport.resolved.length).toBeGreaterThan(0);
 	});
 
-	it('transitive dep: not resolved for some hierarchies', () => {
+	it('transitive dep: not resolved for some hierarchies', async () => {
 		// given
-		const tmp = getTmpDirectory('security-transitive-unresolved', fixturePath);
+		const tmp = await getTmpDirectory('security-transitive-unresolved', fixturePath);
 		let yarnLock = yarnpkg.parse(readFileSync(path.join(tmp, 'yarn.lock')).toString()).object;
 		expect(yarnLock['glob-parent@^5.0.0']).toBeDefined();
 		expect(yarnLock['glob-parent@^5.0.0'].version).toBe('5.1.2');

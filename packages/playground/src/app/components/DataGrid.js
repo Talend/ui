@@ -1,16 +1,17 @@
 import React from 'react';
-// eslint-disable-next-line @talend/import-depth
-import data from '@talend/react-datagrid/stories/sample.json';
-import DataGrid from '@talend/react-datagrid';
+
 import Layout from '@talend/react-components/lib/Layout';
-import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
+import SidePanel from '@talend/react-containers/lib/SidePanel';
+import DataGrid, { DatasetSerializer } from '@talend/react-datagrid';
+// eslint-disable-next-line @talend/import-depth
+import sample from '@talend/react-datagrid/mocks/sample.json';
 
 export function DataGridPlayground() {
 	return (
 		<Layout mode="TwoColumns" one={<SidePanel />} header={<HeaderBar />}>
 			<div style={{ height: '100%' }}>
-				<DataGrid data={data} />
+				<DataGrid columnDefs={DatasetSerializer.getColumnDefs(sample)} rowData={sample.data} />
 			</div>
 		</Layout>
 	);

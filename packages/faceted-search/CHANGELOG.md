@@ -1,5 +1,17 @@
 # Changelog
 
+## 6.0.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [617ec14f0]
+- Updated dependencies [a99154a7d]
+  - @talend/design-system@4.0.0
+
 ## 5.0.2
 
 ### Patch Changes

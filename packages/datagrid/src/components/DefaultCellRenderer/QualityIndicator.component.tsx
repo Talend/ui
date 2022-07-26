@@ -1,14 +1,15 @@
 import React from 'react';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
+import classNames from 'classnames';
+
 import { QUALITY_INVALID_KEY } from '../../constants';
+import { QualityIndex } from '../../types';
 
 import theme from './QualityIndicator.scss';
-import { Quality } from '../../types';
 
 export interface QualityIndicatorProps {
-	qualityIndex: keyof Quality;
+	qualityIndex: QualityIndex;
 }
 
 function QualityIndicator({ qualityIndex }: QualityIndicatorProps): JSX.Element | null {
