@@ -7,7 +7,6 @@ import { TokensProps } from '../TokensTypes';
 
 import ColorCompositions from './data/ColorCompositions.json';
 
-import ColorComposition from './ColorComposition';
 import { groupBy } from '../TokenFormatter';
 import CompositionListItem from '../components/CompositionList/CompositionListItem';
 

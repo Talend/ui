@@ -247,7 +247,7 @@
   },
   {
     "background": "DangerBackgroundStrong",
-    "icon": "DangerIconWeak",
+    "icon": "DangerTextWeak",
     "color": "DangerTextWeak",
     "border": "DangerBorder"
   },
@@ -277,7 +277,7 @@
   },
   {
     "background": "SuccessBackgroundStrong",
-    "icon": "SuccessIconWeak",
+    "icon": "SuccessTextWeak",
     "color": "SuccessTextWeak",
     "border": "SuccessBorder"
   },
@@ -307,7 +307,7 @@
   },
   {
     "background": "WarningBackgroundStrong",
-    "icon": "WarningIconWeak",
+    "icon": "WarningTextWeak",
     "color": "WarningTextWeak",
     "border": "WarningBorder"
   },
@@ -337,7 +337,7 @@
   },
   {
     "background": "BetaBackgroundStrong",
-    "icon": "BetaIconWeak",
+    "icon": "BetaTextWeak",
     "color": "BetaTextWeak",
     "border": "BetaBorder"
   },

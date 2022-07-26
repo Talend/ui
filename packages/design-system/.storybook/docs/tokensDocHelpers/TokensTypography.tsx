@@ -1,22 +1,22 @@
 import React from 'react';
 
-import { Token, TokenType } from '../../../src/tokens/types';
-import { PropsWithToken, TokensProps } from './TokensTypes';
+import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
+import { TokensProps } from './TokensTypes';
+import { getDisplayName } from './TokenFormatter';
+import DefinitionListTypography from './components/DefinitionList/DefinitionListTypography';
 
-import TokensDefinitionList from './TokensDefinitionList';
+const colorOrder = ['heading', 'paragraph', 'data'];
 
 const TokensTypography = ({ tokens }: TokensProps) => (
-	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.TYPOGRAPHY)}>
-		{({ token }: PropsWithToken) => (
-			<div
-				style={{
-					font: token.value,
-				}}
-			>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			</div>
-		)}
-	</TokensDefinitionList>
+	<DefinitionListTypography
+		tokens={tokens
+			.filter((t: Token) => t.type === TokenType.TYPOGRAPHY)
+			.sort((tokenA: ColorToken, tokenB: ColorToken) => {
+				const tokenAColor = getDisplayName(tokenA.name).split('/')[0];
+				const tokenBColor = getDisplayName(tokenB.name).split('/')[0];
+				return colorOrder.indexOf(tokenAColor) - colorOrder.indexOf(tokenBColor);
+			})}
+	/>
 );
 
 export default TokensTypography;

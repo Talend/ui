@@ -1,0 +1,6 @@
+@use '@talend/design-tokens/lib/tokens';
+
+.title {
+  color: tokens.$coral-color-neutral-text;
+  font: tokens.$coral-heading-m;
+}

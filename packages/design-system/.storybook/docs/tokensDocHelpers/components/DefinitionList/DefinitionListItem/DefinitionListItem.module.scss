@@ -2,7 +2,7 @@
 
 .listItem {
   display: grid;
-  grid-template-columns: tokens.$coral-sizing-xxxl 1fr 1fr;
+  grid-template-columns: tokens.$coral-sizing-xxxl 1fr 1.2fr;
   column-gap: tokens.$coral-spacing-l;
 
   &__demo {

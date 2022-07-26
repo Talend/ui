@@ -6,7 +6,7 @@ import DefinitionListItemColor from './DefinitionListItem/DefinitionListItemColo
 import { TabsKit as Tabs } from '../../../../../src/components/WIP/Tabs';
 import { StackVertical } from '../../../../../src';
 
-const TokensDefinitionList = ({ tokens, children }: TokensProps) => {
+const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	const filteredTokens = {
 		neutral: tokens.filter((token: Token) => token.name.includes('ColorNeutral')),
 		accent: tokens.filter((token: Token) => token.name.includes('ColorAccent')),

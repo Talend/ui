@@ -41,7 +41,16 @@ export const getDisplayName = (name: string) => {
 
 export const getScssName = (name?: string) => {
 	if (!name) return '';
-	return `tokens.$${name}`;
+	const nameArray = name.split(/(?=[A-Z])/);
+	return `tokens.$${nameArray
+		.map((word: string, index: number, words: string[]) => {
+			let adapted = word.toLocaleLowerCase();
+			if (index < words.length - 1) {
+				adapted += '-';
+			}
+			return adapted;
+		})
+		.join('')}`;
 };
 
 export const getCssName = (token: Token) => {

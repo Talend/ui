@@ -30,10 +30,16 @@ function CopyValue({ children }: { children: string }) {
 
 	return (
 		<button onClick={handleCopy} className={styles.copyButton}>
-			<SizedIcon size="S" name="copy" /> {children}{' '}
-			<span className={classnames(styles.validIcon, { [styles.validIcon_visible]: isCopied })}>
-				<SizedIcon size="S" name="check-filled" />
+			<span className={styles.icons}>
+				<span className={classnames(styles.copyIcon, { [styles.copyIcon_hidden]: isCopied })}>
+					<SizedIcon size="S" name="copy" />
+				</span>
+
+				<span className={classnames(styles.validIcon, { [styles.validIcon_visible]: isCopied })}>
+					<SizedIcon size="S" name="check-filled" />
+				</span>
 			</span>
+			<span className={styles.copy}>{children}</span>
 		</button>
 	);
 }

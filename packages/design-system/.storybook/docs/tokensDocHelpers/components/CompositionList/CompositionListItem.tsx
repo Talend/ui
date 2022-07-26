@@ -22,7 +22,7 @@ const CompositionListItem = forwardRef(
 		const { background, tokens, tokenCodex } = props;
 		return (
 			<StackVertical gap="M" as="dl" padding={{ top: 0, left: 0, right: 0, bottom: 'M' }} ref={ref}>
-				<dt>
+				<dt className={styles.title}>
 					<TokenName token={tokenCodex[background]} />
 				</dt>
 				<div className={styles.grid}>

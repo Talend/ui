@@ -16,3 +16,8 @@
   gap: tokens.$coral-spacing-m;
   align-items: start;
 }
+
+.title {
+  color: tokens.$coral-color-neutral-text;
+  font: tokens.$coral-heading-m;
+}

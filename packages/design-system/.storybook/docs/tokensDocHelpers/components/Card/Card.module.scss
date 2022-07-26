@@ -4,7 +4,7 @@
   display: inline-flex;
   border-radius: tokens.$coral-radius-m;
   width: tokens.$coral-sizing-xxxl;
-  height: 8.4rem;
+  min-height: 8.4rem;
 
   &__color {
     box-shadow: tokens.$coral-elevation-shadow-neutral-m;
@@ -40,5 +40,14 @@
       top: tokens.$coral-spacing-xs;
       left: tokens.$coral-spacing-xs;
     }
+  }
+
+  &__typography {
+    justify-content: center;
+    align-items: center;
+    box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+    color: tokens.$coral-color-neutral-text;
+    text-align: center;
+    padding: tokens.$coral-spacing-s;
   }
 }
