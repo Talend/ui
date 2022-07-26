@@ -26,7 +26,12 @@ export const AddFacetPopoverRowButton = ({
 	if (disabledLabel) {
 		return (
 			<TooltipTrigger label={disabledLabel} tooltipPlacement="top">
-				<div className={`${theme('row-button')} ${theme('row-disabled')}`} tabIndex={tabIndex}>
+				<div
+					className={`${theme('tc-add-facet-popover-row-button')} ${theme(
+						'tc-add-facet-popover-row-disabled',
+					)}`}
+					tabIndex={tabIndex}
+				>
 					{body}
 				</div>
 			</TooltipTrigger>
@@ -34,7 +39,12 @@ export const AddFacetPopoverRowButton = ({
 	}
 
 	return (
-		<button id={id} className={theme('row-button')} onClick={onClick} tabIndex={tabIndex}>
+		<button
+			id={id}
+			className={theme('tc-add-facet-popover-row-button')}
+			onClick={onClick}
+			tabIndex={tabIndex}
+		>
 			{body}
 		</button>
 	);

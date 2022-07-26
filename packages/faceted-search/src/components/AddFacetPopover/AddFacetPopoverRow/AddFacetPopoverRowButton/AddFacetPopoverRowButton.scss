@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-.row-button {
+.tc-add-facet-popover-row-button {
 	font: tokens.$coral-paragraph-m-bold;
 	color: tokens.$coral-color-accent-text;
 	background-color: tokens.$coral-color-accent-text-weak;
@@ -19,7 +19,7 @@
 	}
 }
 
-.row-disabled {
+.tc-add-facet-popover-row-disabled {
 	color: tokens.$coral-color-neutral-text-disabled;
 	line-height: tokens.$coral-sizing-s;
 

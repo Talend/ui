@@ -33,12 +33,13 @@ exports[`AdvancedSearch should render by default 1`] = `
         <span class="theme-buttonIcon__icon"
               aria-hidden="true"
         >
-          <svg name="talend-cross-circle"
-               focusable="false"
+          <svg style="width: 1.6rem; height: 1.6rem;"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross-circle"
+               shape-rendering="geometricPrecision"
                pointer-events="none"
           >
+            <use xlink:href="#cross-filled:M">
+            </use>
           </svg>
         </span>
       </button>
@@ -52,12 +53,13 @@ exports[`AdvancedSearch should render by default 1`] = `
         <span class="theme-buttonIcon__icon"
               aria-hidden="true"
         >
-          <svg name="talend-check-circle"
-               focusable="false"
+          <svg style="width: 1.6rem; height: 1.6rem;"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-check-circle"
+               shape-rendering="geometricPrecision"
                pointer-events="none"
           >
+            <use xlink:href="#check-filled:M">
+            </use>
           </svg>
         </span>
       </button>
@@ -99,12 +101,13 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
         <span class="theme-buttonIcon__icon"
               aria-hidden="true"
         >
-          <svg name="talend-cross-circle"
-               focusable="false"
+          <svg style="width: 1.6rem; height: 1.6rem;"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross-circle"
+               shape-rendering="geometricPrecision"
                pointer-events="none"
           >
+            <use xlink:href="#cross-filled:M">
+            </use>
           </svg>
         </span>
       </button>
@@ -118,12 +121,13 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
         <span class="theme-buttonIcon__icon"
               aria-hidden="true"
         >
-          <svg name="talend-check-circle"
-               focusable="false"
+          <svg style="width: 1.6rem; height: 1.6rem;"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-check-circle"
+               shape-rendering="geometricPrecision"
                pointer-events="none"
           >
+            <use xlink:href="#check-filled:M">
+            </use>
           </svg>
         </span>
       </button>

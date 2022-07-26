@@ -195,13 +195,13 @@ describe('AddFacetPopover', () => {
 				.simulate('change', { target: { value: 'aaaaaaaaaa' } });
 		});
 		wrapper.update();
-		expect(wrapper.find('button.tc-add-facet-popover-row')).toHaveLength(0);
+		expect(wrapper.find('button.tc-add-facet-popover-row-button')).toHaveLength(0);
 		expect(wrapper.find('span.tc-add-facet-popover-filter-empty').first()).toHaveLength(1);
 		expect(wrapper.find('span.tc-add-facet-popover-filter-empty').first().text()).toBe(
 			'No result found',
 		);
 	});
-	it('should render an disabled row if badgePerFacet is exceeded', () => {
+	it('should render a disabled row if badgePerFacet is exceeded', () => {
 		// Given
 		const props = {
 			badges: [
@@ -231,7 +231,8 @@ describe('AddFacetPopover', () => {
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		expect(getRowButtons(wrapper).first().prop('disabled')).toBe(true);
+		expect(wrapper.find('button.tc-add-facet-popover-row-button')).toHaveLength(3);
+		expect(wrapper.find('div.tc-add-facet-popover-row-disabled')).toHaveLength(1);
 	});
 	it('should not render an empty label badge', () => {
 		// Given

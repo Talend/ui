@@ -126,12 +126,13 @@ exports[`BasicSearch should render the default html output with initial badges 1
       <span class="theme-buttonIcon__icon"
             aria-hidden="true"
       >
-        <svg name="talend-trash"
-             focusable="false"
+        <svg style="width: 1.6rem; height: 1.6rem;"
              aria-hidden="true"
-             class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-trash"
+             shape-rendering="geometricPrecision"
              pointer-events="none"
         >
+          <use xlink:href="#trash:M">
+          </use>
         </svg>
       </span>
     </button>
@@ -327,12 +328,13 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
       <span class="theme-buttonIcon__icon"
             aria-hidden="true"
       >
-        <svg name="talend-trash"
-             focusable="false"
+        <svg style="width: 1.6rem; height: 1.6rem;"
              aria-hidden="true"
-             class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-trash"
+             shape-rendering="geometricPrecision"
              pointer-events="none"
         >
+          <use xlink:href="#trash:M">
+          </use>
         </svg>
       </span>
     </button>
@@ -466,12 +468,13 @@ exports[`BasicSearch should render the default html output with some badges and 
       <span class="theme-buttonIcon__icon"
             aria-hidden="true"
       >
-        <svg name="talend-trash"
-             focusable="false"
+        <svg style="width: 1.6rem; height: 1.6rem;"
              aria-hidden="true"
-             class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-trash"
+             shape-rendering="geometricPrecision"
              pointer-events="none"
         >
+          <use xlink:href="#trash:M">
+          </use>
         </svg>
       </span>
     </button>
