@@ -17,8 +17,13 @@
 		color: tokens.$coral-color-accent-text-strong-active;
 		background: tokens.$coral-color-accent-background-weak-active;
 	}
+}
 
-	&:disabled {
+.row-disabled {
+	color: tokens.$coral-color-neutral-text-disabled;
+	line-height: tokens.$coral-sizing-s;
+
+	&:hover {
 		color: tokens.$coral-color-neutral-text-disabled;
 		background: transparent;
 	}

@@ -2,14 +2,9 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import isNaN from 'lodash/isNaN';
 
-import { getTheme, TooltipTrigger } from '@talend/react-components';
-
 import { badgeFacetedPropTypes } from '../../../facetedSearch.propTypes';
 import { getTabIndex } from '../../addFacetPopover.utils';
 import { AddFacetPopoverRowButton } from '../AddFacetPopoverRowButton';
-import cssModule from './AddFacetPopoverRowItem.scss';
-
-const theme = getTheme(cssModule);
 
 const filterByAttribute = badgeDefinition => badge =>
 	badge.properties.attribute === badgeDefinition.properties.attribute;
@@ -52,28 +47,15 @@ export const AddFacetPopoverRowItem = ({
 		defaultValue_plural: 'You can only apply the {{badgeLabel}} filter {{count}} times',
 	});
 
-	const row = (
-		<div className={theme('tc-add-facet-popover-row')}>
-			<AddFacetPopoverRowButton
-				id={`${id}-row-button-${label}`}
-				onClick={onClickRow}
-				tabIndex={getTabIndex(isFocusable)}
-				disabled={isDisabled}
-			>
-				{label}
-			</AddFacetPopoverRowButton>
-		</div>
+	return (
+		<AddFacetPopoverRowButton
+			id={`${id}-row-button-${label}`}
+			label={label}
+			onClick={onClickRow}
+			tabIndex={getTabIndex(isFocusable)}
+			disabledLabel={isDisabled ? disabledLabel : ''}
+		/>
 	);
-
-	if (isDisabled) {
-		return (
-			<TooltipTrigger label={disabledLabel} tooltipPlacement="top">
-				{row}
-			</TooltipTrigger>
-		);
-	}
-
-	return row;
 };
 
 AddFacetPopoverRowItem.propTypes = {

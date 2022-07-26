@@ -58,5 +58,11 @@ $popover-screen-width: 30rem;
 
 	&-row-container {
 		overflow-y: auto;
+
+		button {
+			width: 100%;
+			overflow-wrap: anywhere;
+			text-align: left;
+		}
 	}
 }
