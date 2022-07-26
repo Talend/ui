@@ -1,18 +1,18 @@
 import React from 'react';
 import { Token } from '../../../../../../src/tokens/types';
-import CardBorder from '../../Card/CardBorder';
 import DefinitionListItem from './DefinitionListItem';
+import CardRadius from '../../Card/CardRadius';
 
-function DefinitionListItemBorder({ token }: { token: Token }) {
+function DefinitionListItemShadow({ token }: { token: Token }) {
 	if (!token) {
 		return null;
 	}
 
 	return (
 		<DefinitionListItem token={token}>
-			<CardBorder borderStyle={token.value} />
+			<CardRadius value={token.value} />
 		</DefinitionListItem>
 	);
 }
 
-export default DefinitionListItemBorder;
+export default DefinitionListItemShadow;

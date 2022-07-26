@@ -11,7 +11,8 @@
   }
 
   &__border,
-  &__shadow {
+  &__shadow,
+  &__radius {
     background: tokens.$coral-color-accent-background;
   }
 
