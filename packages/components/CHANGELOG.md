@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.6.0
+
+### Minor Changes
+
+- eba1ac047: feat: add HeaderBar and AppSwitcher icon props
+
 ## 7.5.0
 
 ### Minor Changes
