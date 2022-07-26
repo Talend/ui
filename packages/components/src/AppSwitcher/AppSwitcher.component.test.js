@@ -63,4 +63,16 @@ describe('AppSwitcher', () => {
 
 		expect(wrapper.find('li').prop('className').includes('separated')).toBeTruthy();
 	});
+
+	it('should render an icon', () => {
+		const brand = {
+			id: 'brand',
+			label: 'My App',
+			onClick: jest.fn(),
+			iconUrl: 'test.jpg',
+		};
+		const wrapper = mount(<AppSwitcher {...brand} />);
+
+		expect(wrapper.find('li').prop('className').includes('hasIcon')).toBeTruthy();
+	});
 });
