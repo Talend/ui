@@ -316,9 +316,7 @@ describe('Datalist component', () => {
 		];
 
 		// when data list is rendered with new title map and value from old title map
-		rerender(
-			<Datalist {...testProps} titleMap={newTitleMap} />,
-		);
+		rerender(<Datalist {...testProps} titleMap={newTitleMap} />);
 
 		// then filter value is entry value from old title map
 		expect(screen.getByRole('textbox')).toHaveValue(testProps.value);
