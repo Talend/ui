@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Column } from 'ag-grid-community';
+import { Column, ICellEditorParams } from 'ag-grid-community';
 
 import { ButtonIcon } from '@talend/design-system';
 
@@ -52,7 +52,11 @@ export type SemanticType = {
 export type CellEditorParams = {
 	getSemanticType(semanticType: string): Promise<SemanticType>;
 	getSemanticTypeSuggestions(event: Event, search: string): Promise<string[]>;
-	onSubmit(value: string, applyToAll: boolean): void;
+	onSubmit(
+		value: string,
+		applyToAll: boolean,
+		cellParams: Pick<ICellEditorParams, 'data' | 'rowIndex' | 'column' | 'value'>,
+	): void;
 };
 
 export type HeaderClickParams = {
