@@ -270,7 +270,7 @@ Immutable.Map {
 exports[`FLOWDESIGNER_PAN_TO set a calculated transformation into transformToApply  1`] = `
 Immutable.Map {
   "in": Immutable.Map {},
-  "transformToApply": Jx {
+  "transformToApply": Transform {
     "k": 1,
     "x": -400,
     "y": -400,
