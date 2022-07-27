@@ -12,6 +12,7 @@
 
   &__border,
   &__shadow,
+  &__transition,
   &__radius {
     background: tokens.$coral-color-accent-background;
   }
@@ -49,6 +50,7 @@
   }
 
   &__typography,
+  &__transition,
   &__opacity {
     justify-content: center;
     align-items: center;
@@ -56,6 +58,37 @@
     color: tokens.$coral-color-neutral-text;
     text-align: center;
     padding: tokens.$coral-spacing-s;
+  }
+
+  &__transition {
+    box-shadow: 0 0 0 transparent;
+    cursor: pointer;
+    position: relative;
+    color: tokens.$coral-color-accent-text;
+
+    &:after {
+      content: "hover me";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: tokens.$coral-spacing-xxs;
+      font: tokens.$coral-paragraph-s;
+      width: 100%;
+    }
+
+    p {
+      transform: scale(1);
+      font-size: 1.8rem;
+    }
+
+    &:hover {
+      background: tokens.$coral-color-accent-background-hover;
+      color: tokens.$coral-color-accent-text-hover;
+
+      p {
+        transform: scale(2);
+      }
+    }
   }
 
   &__opacity {

@@ -1,23 +1,11 @@
 import React from 'react';
 
 import { Token, TokenType } from '../../../src/tokens/types';
-import { PropsWithToken, TokensProps } from './TokensTypes';
-
-import TokensDefinitionList from './TokensDefinitionList';
-
-import S from './Tokens.scss';
+import { TokensProps } from './TokensTypes';
+import DefinitionListTransition from './components/DefinitionList/DefinitionListTransition';
 
 const TokensTransition = ({ tokens }: TokensProps) => (
-	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.TRANSITION)}>
-		{({ token }: PropsWithToken) => (
-			<div
-				className={S.transition}
-				style={{
-					transition: token.value,
-				}}
-			/>
-		)}
-	</TokensDefinitionList>
+	<DefinitionListTransition tokens={tokens.filter((t: Token) => t.type === TokenType.TRANSITION)} />
 );
 
 export default TokensTransition;
