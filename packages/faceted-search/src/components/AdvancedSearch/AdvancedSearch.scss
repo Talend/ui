@@ -1,9 +1,5 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$faceted-advanced-search-height: 3.5rem;
-$custom-icon-vertical-offset: 1rem;
-$custom-icon-horizontal-offset: 2rem;
-
 .adv-search {
 	position: relative;
 	width: inherit;
@@ -26,8 +22,8 @@ $custom-icon-horizontal-offset: 2rem;
 		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 		box-shadow: none;
 		color: tokens.$coral-color-neutral-text-weak;
-		height: $faceted-advanced-search-height;
-		line-height: $faceted-advanced-search-height;
+		height: tokens.$coral-sizing-m;
+		line-height: tokens.$coral-sizing-m;
 		margin: tokens.$coral-spacing-xs tokens.$coral-spacing-xs;
 		padding-left: 3.2rem;
 		padding-right: 6rem;

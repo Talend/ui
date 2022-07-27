@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import { StackHorizontal, StackItem, SizedIcon } from '@talend/design-system';
-import { getTheme, TooltipTrigger } from '@talend/react-components';
+import { StackHorizontal, StackItem, SizedIcon, Tooltip } from '@talend/design-system';
+import { getTheme } from '@talend/react-components';
 
 import cssModule from './AddFacetPopoverRowButton.scss';
 
@@ -25,23 +26,27 @@ export const AddFacetPopoverRowButton = ({
 
 	if (disabledLabel) {
 		return (
-			<TooltipTrigger label={disabledLabel} tooltipPlacement="top">
+			<Tooltip title={disabledLabel} placement="left">
 				<div
-					className={`${theme('tc-add-facet-popover-row-button')} ${theme(
-						'tc-add-facet-popover-row-disabled',
-					)}`}
+					className={classNames(
+						theme('tc-add-facet-popover-row-button'),
+						theme('tc-add-facet-popover-row-disabled'),
+					)}
 					tabIndex={tabIndex}
 				>
 					{body}
 				</div>
-			</TooltipTrigger>
+			</Tooltip>
 		);
 	}
 
 	return (
 		<button
 			id={id}
-			className={theme('tc-add-facet-popover-row-button')}
+			className={classNames(
+				theme('tc-add-facet-popover-row-button'),
+				isCategory && theme('tc-add-facet-popover-row-button-category'),
+			)}
 			onClick={onClick}
 			tabIndex={tabIndex}
 		>

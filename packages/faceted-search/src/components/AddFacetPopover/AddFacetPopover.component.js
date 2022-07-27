@@ -1,10 +1,7 @@
 import React, { createRef, useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import isString from 'lodash/isString';
-import isNull from 'lodash/isNull';
 import times from 'lodash/times';
-import constant from 'lodash/constant';
 import uniq from 'lodash/uniq';
 
 import { getTheme, Rich } from '@talend/react-components';
@@ -97,16 +94,7 @@ export const AddFacetPopover = ({
 		[badgesDefinitions, filterValue, badgesDefinitionsSort],
 	);
 	const screens = getScreensMemo();
-	const currentCategoryScreenIndex = screens.findIndex(screen => screen.category === category);
-
-	const [screensHeight, setScreensHeight] = useState(times(screens.length, constant(0)));
 	const screensRef = useRef(times(screens.length, createRef));
-
-	useEffect(() => {
-		setScreensHeight(
-			times(screens.length, index => screensRef.current[index].current.clientHeight),
-		);
-	}, [screens.length]);
 
 	const onFilter = (_, value) => {
 		setFilterValue(value);
@@ -118,70 +106,62 @@ export const AddFacetPopover = ({
 		resetFilter();
 	};
 
+	const onRowClick = (...args) => {
+		setCategory(null);
+		onClick(...args);
+	};
+
 	return (
 		<div id={addFacetId} className={theme('tc-add-facet-popover')}>
-			<div
-				id={addFacetId}
-				className={theme('tc-add-facet-popover-container')}
-				style={{
-					height: screensHeight[currentCategoryScreenIndex],
-				}}
-			>
-				{screens.map((screen, index) => (
-					<div
-						key={`screen-${screen.category}`}
-						ref={screensRef.current[index]}
-						className={classNames(theme('tc-add-facet-popover-screen'), {
-							[theme('screen-category')]: !isNull(screen.category),
-							[theme('screen-move')]:
-								(!!category && isNull(screen.category)) ||
-								(category && screen.category === category),
-						})}
-					>
-						<AddFacetPopoverHeader
-							id={`${addFacetId}-${category}`}
-							category={screen.category}
-							onCategoryChange={onCategoryChange}
-							resetFilter={resetFilter}
-							onFilter={onFilter}
-							filterValue={filterValue}
-							isFocusable={screen.category === category}
-							t={t}
-						/>
+			<div id={addFacetId} className={theme('tc-add-facet-popover-container')}>
+				{screens.map((screen, index) =>
+					category === screen.category ? (
+						<div key={`screen-${screen.category}`} ref={screensRef.current[index]}>
+							<AddFacetPopoverHeader
+								id={`${addFacetId}-${category}`}
+								category={screen.category}
+								onCategoryChange={onCategoryChange}
+								resetFilter={resetFilter}
+								onFilter={onFilter}
+								filterValue={filterValue}
+								isFocusable={screen.category === category}
+								t={t}
+							/>
 
-						<Rich.Layout.Body id={`${addFacetId}-${category}-body`}>
-							<div className={theme('tc-add-facet-popover-row-container')}>
-								{filterValue !== '' && !screen.rows.length && (
-									<span className={theme('tc-add-facet-popover-filter-empty')}>
-										{t('ADD_FACET_FILTER_NO_RESULT', 'No result found')}
-									</span>
-								)}
-								{screen.rows.map(rowItem =>
-									isString(rowItem) ? (
-										<AddFacetPopoverRowItemCategory
-											id="open-category-row"
-											key={rowItem}
-											label={rowItem}
-											onClick={onCategoryChange}
-											isFocusable={screen.category === category}
-										/>
-									) : (
-										<AddFacetPopoverRowItem
-											badgeDefinition={rowItem}
-											id={addFacetId}
-											key={rowItem.properties.label}
-											label={rowItem.properties.label}
-											onClick={onClick}
-											isFocusable={screen.category === category}
-											badges={badges}
-											t={t}
-										/>
-									),
-								)}
-							</div>
-						</Rich.Layout.Body>
-					</div>
-				))}
+							<Rich.Layout.Body id={`${addFacetId}-${category}-body`}>
+								<div className={theme('tc-add-facet-popover-row-container')}>
+									{filterValue !== '' && !screen.rows.length && (
+										<span className={theme('tc-add-facet-popover-filter-empty')}>
+											{t('ADD_FACET_FILTER_NO_RESULT', 'No result found')}
+										</span>
+									)}
+									{screen.rows.map(rowItem =>
+										isString(rowItem) ? (
+											<AddFacetPopoverRowItemCategory
+												id="open-category-row"
+												key={rowItem}
+												label={rowItem}
+												onClick={onCategoryChange}
+												isFocusable={screen.category === category}
+											/>
+										) : (
+											<AddFacetPopoverRowItem
+												badgeDefinition={rowItem}
+												id={addFacetId}
+												key={rowItem.properties.label}
+												label={rowItem.properties.label}
+												onClick={onRowClick}
+												isFocusable={screen.category === category}
+												badges={badges}
+												t={t}
+											/>
+										),
+									)}
+								</div>
+							</Rich.Layout.Body>
+						</div>
+					) : null,
+				)}
 			</div>
 		</div>
 	);

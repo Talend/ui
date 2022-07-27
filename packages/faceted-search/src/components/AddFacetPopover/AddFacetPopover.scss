@@ -1,20 +1,14 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$popover-screen-width: 30rem;
+$popover-screen-width: tokens.$coral-sizing-maximal;
 
 .tc-add-facet-popover {
 	display: flex;
 	width: $popover-screen-width;
 	overflow: hidden;
 
-	&-container {
-		width: $popover-screen-width * 2;
-		min-width: $popover-screen-width * 2;
-		position: relative;
-	}
-
 	:global(.tc-tooltip-header) {
-		width: 100%;
+		width: $popover-screen-width;
 		align-items: center;
 		font-weight: 800;
 		min-width: auto;
@@ -30,23 +24,6 @@ $popover-screen-width: 30rem;
 			min-height: 0;
 			padding: 1rem 0;
 		}
-	}
-
-	&-screen {
-		flex-shrink: 0;
-		overflow: hidden;
-		width: $popover-screen-width;
-		transition: transform tokens.$coral-transition-slow;
-	}
-
-	.screen-category {
-		position: absolute;
-		top: 0;
-		right: 0;
-	}
-
-	.screen-move {
-		transform: translateX(-100%);
 	}
 
 	&-filter-empty {

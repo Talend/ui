@@ -155,14 +155,14 @@ describe('BasicSearch', () => {
 			</FacetedManager>,
 		);
 		// Then
-		wrapper.find('input[role="searchbox"]').simulate('change', {
+		wrapper.find('input.tc-typeahead-typeahead-input').simulate('change', {
 			target: {
 				value: 'Name',
 			},
 		});
 		expect(wrapper.find('[role="option"]')).toHaveLength(1);
 
-		wrapper.find('input[role="searchbox"]').simulate('change', {
+		wrapper.find('input.tc-typeahead-typeahead-input').simulate('change', {
 			target: {
 				value: 'NotName',
 			},

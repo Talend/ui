@@ -66,10 +66,7 @@ describe('AddFacetPopover', () => {
 	];
 
 	const getRowButtons = wrapper =>
-		wrapper
-			.find('div.tc-add-facet-popover-screen:not(.screen-category)')
-			.find('div.tc-add-facet-popover-row-container')
-			.find('button');
+		wrapper.find('div.tc-add-facet-popover-row-container').find('button');
 
 	it('should render the html output', () => {
 		// Given
@@ -157,9 +154,8 @@ describe('AddFacetPopover', () => {
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		expect(wrapper.find('.tc-add-facet-popover-screen')).toHaveLength(2);
-		expect(wrapper.find('.screen-category')).toHaveLength(1);
-		expect(wrapper.find('.screen-move')).toHaveLength(0);
+		expect(wrapper.find('.tc-add-facet-popover-row-button')).toHaveLength(3);
+		expect(wrapper.find('.tc-add-facet-popover-row-button-category')).toHaveLength(1);
 	});
 	it('should display the hidden category screen when click on a category row', () => {
 		// Given
@@ -174,7 +170,7 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		getRowButtons(wrapper).at(1).simulate('click'); // click on "Custom attributes"
 		// Then
-		expect(wrapper.find('.screen-move')).toHaveLength(2);
+		expect(wrapper.find('.tc-add-facet-popover-header-category')).toHaveLength(1);
 	});
 	it('should render an empty state when filter return no result', () => {
 		// Given
@@ -231,7 +227,7 @@ describe('AddFacetPopover', () => {
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		expect(wrapper.find('button.tc-add-facet-popover-row-button')).toHaveLength(3);
+		expect(wrapper.find('button.tc-add-facet-popover-row-button')).toHaveLength(2);
 		expect(wrapper.find('div.tc-add-facet-popover-row-disabled')).toHaveLength(1);
 	});
 	it('should not render an empty label badge', () => {

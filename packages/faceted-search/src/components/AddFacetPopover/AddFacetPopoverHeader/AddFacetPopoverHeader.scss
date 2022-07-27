@@ -4,7 +4,7 @@
 	height: auto;
 	flex-direction: column;
 	align-items: stretch;
-	padding: 2rem 1.5rem;
+	padding: tokens.$coral-spacing-m tokens.$coral-spacing-s;
 }
 
 .tc-add-facet-popover-header {

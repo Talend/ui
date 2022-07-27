@@ -2,8 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
-import { ButtonIcon, ButtonSecondary } from '@talend/design-system';
-import { Overlay, Popover } from '@talend/react-bootstrap';
+import { ButtonIcon, ButtonSecondary, Popover } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { AddFacetPopover } from '../AddFacetPopover';
@@ -66,8 +65,6 @@ const BasicSearch = ({
 		() => badgesDefinitions.filter(({ metadata = {} }) => metadata.isAvailableForQuickSearch),
 		[badgesDefinitions],
 	);
-	const addFilterButtonRef = useRef();
-	const [shouldShowFilterOverlay, setFilterOverlayDisplay] = useState(false);
 
 	useEffect(() => {
 		if (!state.badges.some(isInCreation)) {
@@ -89,13 +86,12 @@ const BasicSearch = ({
 		});
 	}, []);
 
-	const onClickOverlayRow = setOverlayOpened => (_, badgeDefinition) => {
+	const onClickOverlayRow = (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(
 			operatorsDictionary,
 			get(badgeDefinition, 'metadata.operators'),
 		);
 		dispatch(BADGES_ACTIONS.add(generateBadge(operators)(badgeDefinition)));
-		setOverlayOpened(false);
 	};
 	const basicSearchId = `${id}-basic-search`;
 	const badgeFacetedContextValue = { state, dispatch, onSubmit };
@@ -136,37 +132,31 @@ const BasicSearch = ({
 					/>
 				</BadgeFacetedProvider>
 				{badgesDefinitions.length > 0 && (
-					<>
-						<ButtonSecondary
-							size="S"
-							isDropdown
-							data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}
-							onClick={() => setFilterOverlayDisplay(true)}
-							ref={addFilterButtonRef}
+					<div className={css('tc-basic-search-content-popover')}>
+						<Popover
+							position="bottom"
+							disclosure={
+								<ButtonSecondary size="S" isDropdown data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}>
+									{t('BASIC_SEARCH_ADD_FILTER', 'Add filter')}
+								</ButtonSecondary>
+							}
 						>
-							{t('BASIC_SEARCH_ADD_FILTER', { defaultValue: 'Add filter' })}
-						</ButtonSecondary>
-						<Overlay
-							id={`${basicSearchId}-overlay`}
-							onHide={() => setFilterOverlayDisplay(false)}
-							placement="bottom"
-							rootClose={true}
-							show={shouldShowFilterOverlay}
-							target={addFilterButtonRef.current}
-						>
-							<Popover id={`${basicSearchId}-popover`}>
+							{popover => (
 								<AddFacetPopover
 									badges={state.badges}
 									badgesDefinitions={badges}
 									badgesDefinitionsSort={badgesDefinitionsSort}
 									id={basicSearchId}
 									initialFilterValue={initialFilterValue}
-									onClick={onClickOverlayRow(setFilterOverlayDisplay)}
+									onClick={(...args) => {
+										onClickOverlayRow(...args);
+										popover?.hide();
+									}}
 									t={t}
 								/>
-							</Popover>
-						</Overlay>
-					</>
+							)}
+						</Popover>
+					</div>
 				)}
 			</div>
 
