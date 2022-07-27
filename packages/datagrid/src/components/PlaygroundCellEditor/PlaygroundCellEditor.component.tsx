@@ -123,7 +123,12 @@ function PlaygroundCellEditor(
 							onCancel={onCancel}
 							onSubmit={(applyToValues: boolean) => {
 								stopEditing();
-								onSubmit(state, applyToValues);
+								onSubmit(state, applyToValues, {
+									rowIndex: props.rowIndex,
+									data: props.data,
+									column: props.column,
+									value,
+								});
 							}}
 						/>
 					</div>
