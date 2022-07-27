@@ -64,14 +64,23 @@ const Template: ComponentStory<typeof DataGrid> = args => <DataGrid {...args} />
 export const Default = () => <DataGrid {...defaultGridProps} />;
 
 export const Selection = Template.bind({});
-Selection.args = defaultGridProps;
+Selection.args = {
+	...defaultGridProps,
+	selection: {
+		columnIds: [sample.schema.fields[0].name],
+	},
+};
 Selection.play = async ({ canvasElement }) => {
 	const canvas = within(canvasElement);
-	await userEvent.click(
-		await canvas.findByText('field1', undefined, {
-			timeout: 10000,
-		}),
-	);
+	await expect(
+		(
+			await canvas.findByText('Nom de la gare', undefined, {
+				timeout: 10000,
+			})
+		).closest('.ag-header-cell'),
+	).toHaveClass(SELECTED_CELL_CLASS_NAME);
+	await sleep();
+	await userEvent.click(canvas.getByText('field1'));
 	await sleep();
 	await userEvent.click(await canvas.findByText('voyageurs 2016'), {
 		shiftKey: true,

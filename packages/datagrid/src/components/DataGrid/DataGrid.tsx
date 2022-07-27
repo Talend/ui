@@ -24,10 +24,6 @@ export type DataGridProps = GridOptions &
 	GridColumnSelectionProps & {
 		/* Shows loader icons instead of grid */
 		loading?: boolean;
-		/* Controlled selection, handling only columns for now */
-		selection?: {
-			columnIds?: string[];
-		};
 		/* Key to use when persisting sizes to local storage */
 		sizesLocalStorageKey?: string;
 		onVerticalScroll?(
@@ -54,7 +50,6 @@ function DataGridSkeleton() {
 export default function DataGrid({
 	loading,
 	columnDefs,
-	selection,
 	sizesLocalStorageKey,
 	onVerticalScroll,
 	...props
@@ -83,14 +78,6 @@ export default function DataGrid({
 			},
 		}));
 	}, [columnDefs, onHeaderFocus, sizesLocalStorageKey]);
-
-	// Handle controlled selection
-	const controlledColumnIds = selection?.columnIds;
-	useEffect(() => {
-		if (controlledColumnIds) {
-			setSelectedColumns(controlledColumnIds);
-		}
-	}, [controlledColumnIds]);
 
 	// Add size persistence support
 	function onDragStopped(event: DragStoppedEvent) {

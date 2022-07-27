@@ -10,13 +10,17 @@ export interface GridColumnSelectionProps {
 	/* Enable ctrl/shift modifier on column header, default: 'single' */
 	columnSelection?: 'single' | 'multiple';
 	onColumnSelectionChanged?(params: { columnIds: string[] }): void;
+	/* Controlled selection, handling only columns for now */
+	selection?: {
+		columnIds?: string[];
+	};
 }
 
 export function useColumnSelection(
 	gridRef: RefObject<AgGridReact>,
-	{ columnSelection = 'single', onColumnSelectionChanged }: GridColumnSelectionProps,
+	{ columnSelection = 'single', onColumnSelectionChanged, selection }: GridColumnSelectionProps,
 ) {
-	const [selectedColumns, setSelectedColumns] = useState<string[]>([]);
+	const [selectedColumns, setSelectedColumns] = useState<string[]>(selection?.columnIds ?? []);
 
 	function updateSelectionOnCellFocus(event: CellFocusedEvent) {
 		// filter event triggered by clearFocusedCell
@@ -54,9 +58,17 @@ export function useColumnSelection(
 		[setSelectedColumns, columnSelection],
 	);
 
+	// Handle controlled selection
+	const controlledColumnIds = selection?.columnIds;
+	useEffect(() => {
+		if (controlledColumnIds) {
+			setSelectedColumns(controlledColumnIds);
+		}
+	}, [controlledColumnIds]);
+
 	// Force style update when selection changed
 	useEffect(() => {
-		if (gridRef.current) {
+		if (gridRef.current?.api) {
 			const previousSelection = gridRef.current.props.context.selectedColumns;
 			gridRef.current.props.context.selectedColumns = selectedColumns;
 
