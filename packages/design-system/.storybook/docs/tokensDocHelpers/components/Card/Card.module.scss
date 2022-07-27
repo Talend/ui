@@ -48,12 +48,32 @@
     }
   }
 
-  &__typography {
+  &__typography,
+  &__opacity {
     justify-content: center;
     align-items: center;
     box-shadow: tokens.$coral-elevation-shadow-neutral-m;
     color: tokens.$coral-color-neutral-text;
     text-align: center;
     padding: tokens.$coral-spacing-s;
+  }
+
+  &__opacity {
+    background: tokens.$coral-color-accent-background;
+    position: relative;
+
+    p {
+      font-size: 2.8rem;
+    }
+
+    &_overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: tokens.$coral-color-assistive-background;
+      border-radius: tokens.$coral-radius-m;
+    }
   }
 }

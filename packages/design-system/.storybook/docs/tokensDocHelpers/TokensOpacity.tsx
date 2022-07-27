@@ -1,25 +1,22 @@
 import React from 'react';
 
 import { Token, TokenType } from '../../../src/tokens/types';
-import { PropsWithToken, TokensProps } from './TokensTypes';
+import { TokensProps } from './TokensTypes';
+import DefinitionListOpacity from './components/DefinitionList/DefinitionListOpacity';
+import { getDisplayName } from './TokenFormatter';
 
-import TokensDefinitionList from './TokensDefinitionList';
-
-import S from './Tokens.scss';
+const order = ['s', 'm', 'l'];
 
 const TokensOpacity = ({ tokens }: TokensProps) => (
-	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.OPACITY)}>
-		{({ token }: PropsWithToken) => (
-			<div className={S.opacity}>
-				<div
-					className={S.opacityLayer}
-					style={{
-						opacity: token.value,
-					}}
-				/>
-			</div>
-		)}
-	</TokensDefinitionList>
+	<DefinitionListOpacity
+		tokens={tokens
+			.filter((t: Token) => t.type === TokenType.OPACITY)
+			.sort((tokenA: Token, tokenB: Token) => {
+				const tokenAName = getDisplayName(tokenA.name).split('/')[1].toLowerCase();
+				const tokenBName = getDisplayName(tokenB.name).split('/')[1].toLowerCase();
+				return order.indexOf(tokenAName) - order.indexOf(tokenBName);
+			})}
+	/>
 );
 
 export default TokensOpacity;

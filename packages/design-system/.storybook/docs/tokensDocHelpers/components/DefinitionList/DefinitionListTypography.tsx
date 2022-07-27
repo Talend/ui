@@ -14,9 +14,6 @@ const DefinitionListTypography = ({ tokens }: TokensProps) => {
 		Data: tokens.filter((token: Token) => token.name.includes('Data')),
 	};
 
-	console.log(filteredTokens);
-	console.log(tokens);
-
 	return (
 		<StackVertical gap="L" padding={{ x: 0, y: 'L' }}>
 			{Object.values(filteredTokens).map((entries: Token[], index) => (
