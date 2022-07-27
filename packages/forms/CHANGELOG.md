@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 8.1.1
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+- Updated dependencies [f4ba0ef47]
+- Updated dependencies [4248c2e69]
+  - @talend/react-components@7.7.0
+
 ## 8.1.0
 
 ### Minor Changes
