@@ -245,9 +245,8 @@ describe('EnumerationWidget', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={onTrigger}
-				schema={{}}
+				schema={{ skipCommas: true }}
 				properties={{ connectedMode: true }}
-				skipCommas
 			/>,
 		);
 
@@ -258,7 +257,9 @@ describe('EnumerationWidget', () => {
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
-			schema: {},
+			schema: {
+				skipCommas: true,
+			},
 			trigger: {
 				action: 'ENUMERATION_ADD_ACTION',
 				value: ['foo, tata'],
