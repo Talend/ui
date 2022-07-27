@@ -294,6 +294,44 @@ describe('Datalist component', () => {
 		expect(screen.getByRole('textbox')).toHaveValue('a');
 	});
 
+	it('should update entry if value or name in new entry are not the same as in selected entry', () => {
+		// given
+		const testProps = {
+			id: 'my-datalist',
+			value: 'foo',
+			onChange: jest.fn(),
+			...props,
+		};
+
+		// when
+		const { rerender } = render(<Datalist {...testProps} />);
+
+		// then
+		expect(screen.getByRole('textbox')).toHaveValue('My foo');
+
+		const newTitleMap = [
+			{ name: 'Entry one', value: 'entry_one' },
+			{ name: 'Entry two', value: 'entry_two' },
+			{ name: 'Entry three', value: 'entry_three' },
+		];
+
+		// when data list is rendered with new title map and value from old title map
+		rerender(
+			<Datalist {...testProps} titleMap={newTitleMap} />,
+		);
+
+		// then filter value is entry value from old title map
+		expect(screen.getByRole('textbox')).toHaveValue(testProps.value);
+
+		// when data list is rendered one more time with value from new title map
+		rerender(
+			<Datalist {...testProps} titleMap={newTitleMap} value={newTitleMap[0].value} />,
+		);
+
+		// then entry is updated and filter value is new entry name
+		expect(screen.getByRole('textbox')).toHaveValue(newTitleMap[0].name);
+	});
+
 	it('should set highlight on current value suggestion', () => {
 		// given
 		render(<Datalist id="my-datalist" onChange={jest.fn()} {...props} value="foo" />);
