@@ -1,5 +1,19 @@
 # @talend/scripts-config-jest
 
+## 11.2.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @talend/scripts-config-babel@11.0.0
+
+## 11.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @talend/scripts-config-babel@10.0.0
+
 ## 11.2.1
 
 ### Patch Changes

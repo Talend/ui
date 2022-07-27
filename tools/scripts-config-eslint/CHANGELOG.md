@@ -1,5 +1,17 @@
 # @talend/scripts-config-eslint
 
+## 11.0.0
+
+### Major Changes
+
+- second bump
+
+## 10.0.0
+
+### Major Changes
+
+- fix: double bump to escape from old 10.x release
+
 ## 9.9.3
 
 ### Patch Changes

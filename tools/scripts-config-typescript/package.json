@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-typescript",
   "description": "Typescript configuration for @talend/scripts-core",
-  "version": "9.11.2",
+  "version": "11.0.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
