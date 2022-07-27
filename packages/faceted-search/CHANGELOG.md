@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.0.1
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+
 ## 6.0.0
 
 ### Minor Changes

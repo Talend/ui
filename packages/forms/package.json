@@ -40,9 +40,8 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.1",
-    "@talend/design-system": "^4.0.0",
     "@talend/json-schema-form-core": "1.1.0",
-    "@talend/react-components": "^7.5.0",
+    "@talend/react-components": "^7.7.0",
     "@talend/utils": "^2.4.0",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
@@ -62,9 +61,10 @@
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-controls": "^6.5.9",
     "@talend/bootstrap-theme": "^6.39.0",
+    "@talend/design-system": "^4.0.0",
     "@talend/icons": "^6.47.0",
     "@talend/locales-tui-forms": "^6.41.3",
-    "@talend/react-components": "^7.5.0",
+    "@talend/react-components": "^7.7.0",
     "@talend/scripts-core": "^12.0.0",
     "@talend/scripts-preset-react-lib": "^12.0.1",
     "@testing-library/jest-dom": "^5.16.4",
@@ -84,6 +84,7 @@
     "react-test-renderer": "^17.0.2"
   },
   "peerDependencies": {
+    "@talend/design-system": ">= 3.0.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
@@ -93,5 +94,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.1.0"
+  "version": "8.1.1"
 }
