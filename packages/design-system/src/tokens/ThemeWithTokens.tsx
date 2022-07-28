@@ -23,7 +23,7 @@ export default function ThemeWithTokens() {
 				<p>
 					When you implement a component using tokens, you are guaranteed that this component will
 					support any theme. To get different themes to take effect, simply load the correct
-					stylesheet and you’re done.
+					stylesheet and update the <code>data-theme</code> attribute and you’re done.
 				</p>
 			</StackVertical>
 			<StackHorizontal gap="M" align="center" justify="center">
