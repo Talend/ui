@@ -745,7 +745,6 @@ class EnumerationForm extends React.Component {
 							value.value,
 							this.props.schema.skipCommas,
 						),
-						values: EnumerationForm.parseStringValueToArray(value.value, this.props.skipCommas),
 					},
 				]),
 			};
@@ -1070,7 +1069,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
 		schema: PropTypes.object,
-		skipCommas: PropTypes.bool,
 		t: PropTypes.func,
 		value: PropTypes.arrayOf(
 			PropTypes.shape({
