@@ -1,5 +1,5 @@
 ---
-'@talend/upgrade-deps': patch
+'@talend/upgrade-deps': minor
 ---
 
-fix: add --ignore-scripts on all commands
+feat: add --ignore-scripts on all commands
