@@ -22,15 +22,21 @@ export type PopoverPropsType = HTMLAttributes<HTMLDivElement> & {
 	children: PopoverChildren | PopoverChildren[];
 	position?: Placement;
 	zIndex?: string | number;
+	fixed?: boolean;
 } & DataAttributes;
 
 function Popover({
 	disclosure,
 	position = 'auto',
 	zIndex = tokens.coralElevationLayerStandardFront,
+	fixed = false,
 	...props
 }: PopoverPropsType) {
-	const popover = usePopoverState({ animated: ANIMATION_DURATION, placement: position });
+	const popover = usePopoverState({
+		animated: ANIMATION_DURATION,
+		placement: position,
+		unstable_fixed: fixed,
+	});
 	const children = Array.isArray(props.children) ? props.children : [props.children];
 
 	return (

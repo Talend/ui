@@ -135,6 +135,7 @@ const BasicSearch = ({
 					<div className={css('tc-basic-search-content-popover')}>
 						<Popover
 							position="bottom"
+							fixed={true}
 							disclosure={
 								<ButtonSecondary size="S" isDropdown data-feature={USAGE_TRACKING_TAGS.BASIC_ADD}>
 									{t('BASIC_SEARCH_ADD_FILTER', 'Add filter')}

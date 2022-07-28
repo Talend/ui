@@ -26,7 +26,7 @@ exports[`AdvancedSearch should render by default 1`] = `
       <button tabindex="0"
               name="action-cancel-title"
               data-feature="filter.advanced.clear"
-              aria-describedby="42"
+              aria-describedby="a-42"
               class="theme-clickable theme-buttonIcon theme-size_S"
               type="button"
       >
@@ -46,7 +46,7 @@ exports[`AdvancedSearch should render by default 1`] = `
       <button tabindex="0"
               name="action-submit-title"
               data-feature="filter.advanced.apply"
-              aria-describedby="42"
+              aria-describedby="a-42"
               class="theme-clickable theme-buttonIcon theme-size_S"
               type="submit"
       >
@@ -94,7 +94,7 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
       <button tabindex="0"
               name="action-cancel-title"
               data-feature="filter.advanced.clear"
-              aria-describedby="42"
+              aria-describedby="a-42"
               class="theme-clickable theme-buttonIcon theme-size_S"
               type="button"
       >
@@ -114,7 +114,7 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
       <button tabindex="0"
               name="action-submit-title"
               data-feature="filter.advanced.apply"
-              aria-describedby="42"
+              aria-describedby="a-42"
               class="theme-clickable theme-buttonIcon theme-size_S"
               type="submit"
       >

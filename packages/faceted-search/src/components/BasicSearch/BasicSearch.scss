@@ -32,13 +32,14 @@
 		flex-wrap: wrap;
 		flex-grow: 1;
 
-		&-popover > div {
-			position: fixed !important;
+		// TODO fixme
+		//:global(.popover__animated) {
+		//	padding: 0;
+		//}
 
-			> div {
-				padding: 0;
-			}
-		}
+		//&-popover > div > div {
+		//	padding: 0;
+		//}
 	}
 
 	&-clear-content {

@@ -99,7 +99,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
     <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
       <button data-feature="filter.basic.add"
               aria-expanded="false"
-              aria-controls="id-m75h7m"
+              aria-controls="a-42"
               aria-haspopup="dialog"
               aria-busy="false"
               class="theme-clickable theme-button theme-secondary theme-size-S"
@@ -119,7 +119,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
           </span>
         </span>
       </button>
-      <div id="id-m75h7m"
+      <div id="a-42"
            hidden
            style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
@@ -207,7 +207,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
   <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
     <button tabindex="0"
             data-feature="filter.basic.clear"
-            aria-describedby="42"
+            aria-describedby="a-42"
             class="theme-clickable theme-buttonIcon theme-size_S"
             type="button"
     >
@@ -270,7 +270,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
       <button data-feature="filter.basic.add"
               aria-expanded="false"
-              aria-controls="id-fnq272"
+              aria-controls="a-42"
               aria-haspopup="dialog"
               aria-busy="false"
               class="theme-clickable theme-button theme-secondary theme-size-S"
@@ -290,7 +290,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
           </span>
         </span>
       </button>
-      <div id="id-fnq272"
+      <div id="a-42"
            hidden
            style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
@@ -477,7 +477,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
     <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
       <button data-feature="filter.basic.add"
               aria-expanded="false"
-              aria-controls="id-ccq8ug"
+              aria-controls="a-42"
               aria-haspopup="dialog"
               aria-busy="false"
               class="theme-clickable theme-button theme-secondary theme-size-S"
@@ -497,7 +497,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
           </span>
         </span>
       </button>
-      <div id="id-ccq8ug"
+      <div id="a-42"
            hidden
            style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
@@ -585,7 +585,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
   <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
     <button tabindex="0"
             data-feature="filter.basic.clear"
-            aria-describedby="42"
+            aria-describedby="a-42"
             class="theme-clickable theme-buttonIcon theme-size_S"
             type="button"
     >
@@ -705,7 +705,7 @@ exports[`BasicSearch should render the default html output with some badges and 
     <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
       <button data-feature="filter.basic.add"
               aria-expanded="false"
-              aria-controls="id-auji62"
+              aria-controls="a-42"
               aria-haspopup="dialog"
               aria-busy="false"
               class="theme-clickable theme-button theme-secondary theme-size-S"
@@ -725,7 +725,7 @@ exports[`BasicSearch should render the default html output with some badges and 
           </span>
         </span>
       </button>
-      <div id="id-auji62"
+      <div id="a-42"
            hidden
            style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
@@ -813,7 +813,7 @@ exports[`BasicSearch should render the default html output with some badges and 
   <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
     <button tabindex="0"
             data-feature="filter.basic.clear"
-            aria-describedby="42"
+            aria-describedby="a-42"
             class="theme-clickable theme-buttonIcon theme-size_S"
             type="button"
     >

@@ -1,5 +1,9 @@
 @use '~@talend/design-tokens/lib/tokens';
 
+$searchIconOffset: 1.8rem;
+$searchInputLeftOffset: 3.2rem;
+$searchInputRightOffset: 6rem;
+
 .adv-search {
 	position: relative;
 	width: inherit;
@@ -9,7 +13,7 @@
 		position: absolute;
 		color: tokens.$coral-color-neutral-icon-weak;
 		top: tokens.$coral-spacing-m;
-		left: 1.8rem;
+		left: $searchIconOffset;
 	}
 
 	&-error {
@@ -25,8 +29,8 @@
 		height: tokens.$coral-sizing-m;
 		line-height: tokens.$coral-sizing-m;
 		margin: tokens.$coral-spacing-xs tokens.$coral-spacing-xs;
-		padding-left: 3.2rem;
-		padding-right: 6rem;
+		padding-left: $searchInputLeftOffset;
+		padding-right: $searchInputRightOffset;
 		width: calc(100% - 2rem);
 
 		&.has-error {
