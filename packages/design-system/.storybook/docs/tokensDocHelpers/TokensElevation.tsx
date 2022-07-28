@@ -1,24 +1,11 @@
 import React from 'react';
 
 import { Token, TokenType } from '../../../src/tokens/types';
-import { PropsWithToken, TokensProps } from './TokensTypes';
-
-import TokensDefinitionList from './TokensDefinitionList';
-
-import S from './Tokens.scss';
+import { TokensProps } from './TokensTypes';
+import DefinitionListElevation from './components/DefinitionList/DefinitionListElevation';
 
 const ElevationTokens = ({ tokens }: TokensProps) => (
-	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.ELEVATION)}>
-		{({ token }: PropsWithToken) => (
-			<div
-				className={S.elevation}
-				style={{
-					boxShadow: `${token.value}px ${token.value}px 0 0`,
-					zIndex: token.value,
-				}}
-			/>
-		)}
-	</TokensDefinitionList>
+	<DefinitionListElevation tokens={tokens.filter((t: Token) => t.type === TokenType.ELEVATION)} />
 );
 
 export default ElevationTokens;
