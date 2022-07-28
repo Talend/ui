@@ -1,5 +1,6 @@
-import { Canvas, Meta } from '@storybook/addon-docs';
-import tokens from '@talend/design-tokens';
+import { Meta } from '@storybook/addon-docs';
+import WhatAreTokens from './WhatAreTokens';
+import ThemeWithTokens from './ThemeWithTokens';
 
 <Meta title="Design Tokens/About tokens" />
 
@@ -10,106 +11,25 @@ They are exported from Figma using [Supernova](https://www.supernova.io/).
 
 ## What are design tokens?
 
+<WhatAreTokens />
+
 ## Theming with design tokens
+
+<ThemeWithTokens />
 
 ## Coral design tokens
 
-<Canvas
-	withSource="none"
-	additionalActions={[
-		{
-			title: 'Switch mode',
-			onClick: () => {
-				const playground = document.getElementById('playground');
-				const currentTheme = playground.dataset.theme;
-				if (currentTheme === 'dark') {
-					playground.dataset.theme = 'light';
-				} else {
-					playground.dataset.theme = 'dark';
-				}
-			},
-		},
-	]}
->
-	<div>
-		<div
-			style={{
-				display: 'flex',
-				alignItems: 'center',
-				gap: 10,
-				height: 48,
-				paddingInline: 10,
-				background: tokens.coralColorBrandingNavigation,
-			}}
-		>
-			<div
-				style={{
-					height: 15,
-					width: 15,
-					borderRadius: tokens.coralRadiusRound,
-					background: tokens.coralBrandingLogo,
-					backgroundSize: 'contain',
-				}}
-			></div>
-			<div
-				style={{
-					height: 15,
-					width: 100,
-					borderRadius: tokens.coralRadiusS,
-					background: tokens.coralColorNeutralBackground,
-					opacity: tokens.coralOpacityS,
-				}}
-			></div>
-			<div
-				style={{
-					height: 15,
-					width: 100,
-					marginLeft: 'auto',
-					borderRadius: tokens.coralRadiusS,
-					background: tokens.coralColorNeutralBackground,
-					opacity: tokens.coralOpacityS,
-				}}
-			></div>
-		</div>
-		<div
-			style={{
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'center',
-				gap: 10,
-				paddingBlock: 20,
-				height: 300,
-				width: 150,
-				background: tokens.coralColorBrandingNavigation,
-			}}
-		>
-			<div
-				style={{
-					height: 15,
-					width: '80%',
-					borderRadius: tokens.coralRadiusS,
-					background: tokens.coralColorNeutralBackground,
-					opacity: tokens.coralOpacityS,
-				}}
-			></div>
-			<div
-				style={{
-					height: 15,
-					width: '80%',
-					borderRadius: tokens.coralRadiusS,
-					background: tokens.coralColorNeutralBackground,
-					opacity: tokens.coralOpacityS,
-				}}
-			></div>
-			<div
-				style={{
-					height: 15,
-					width: '80%',
-					borderRadius: tokens.coralRadiusS,
-					background: tokens.coralColorNeutralBackground,
-					opacity: tokens.coralOpacityS,
-				}}
-			></div>
-		</div>
-	</div>
-</Canvas>
+- [Borders](/docs/design-tokens-light-borders--page)
+- [Branding](/docs/design-tokens-light-branding--page)
+- [Breakpoints](/docs/design-tokens-light-breakpoints--page)
+- [Colors](/docs/design-tokens-light-colors--page)
+- [Color Compositions](/docs/design-tokens-light-color-compositions--page)
+- [Color Charts](/docs/design-tokens-light-color-charts--page)
+- [Elevations](/docs/design-tokens-light-elevations--page)
+- [Gradients](/docs/design-tokens-light-gradients--page)
+- [Opacity](/docs/design-tokens-light-opacity--page)
+- [Radius](/docs/design-tokens-light-radius--page)
+- [Shadows](/docs/design-tokens-light-shadows--page)
+- [Measures](/docs/design-tokens-light-measures--page)
+- [Typography](/docs/design-tokens-light-typography--page)
+- [Transitions](/docs/design-tokens-light-transitions--page)
