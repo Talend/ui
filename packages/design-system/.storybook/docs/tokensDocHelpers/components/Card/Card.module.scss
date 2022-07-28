@@ -121,4 +121,10 @@
       width: 100%;
     }
   }
+
+  &__branding {
+    background-color: tokens.$coral-color-neutral-background-medium;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
 }

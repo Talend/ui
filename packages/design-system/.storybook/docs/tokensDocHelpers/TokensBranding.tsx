@@ -1,22 +1,10 @@
 import React from 'react';
 
 import { Token, TokenType } from '../../../src/tokens/types';
-import { PropsWithToken, TokensProps } from './TokensTypes';
-
-import TokensDefinitionList from './TokensDefinitionList';
-
-import S from './Tokens.scss';
+import { TokensProps } from './TokensTypes';
+import DefinitionListBranding from './components/DefinitionList/DefinitionListBranding';
 
 const BrandingTokens = ({ tokens }: TokensProps) => (
-	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.BRANDING)}>
-		{({ token }: PropsWithToken) => (
-			<div
-				className={S.branding}
-				style={{
-					backgroundImage: token.value,
-				}}
-			/>
-		)}
-	</TokensDefinitionList>
+	<DefinitionListBranding tokens={tokens.filter((t: Token) => t.type === TokenType.BRANDING)} />
 );
 export default BrandingTokens;
