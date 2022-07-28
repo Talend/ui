@@ -1,5 +1,25 @@
 # @talend/react-components
 
+## 7.8.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
+### Patch Changes
+
+- 5e0148797: fix(Datalist/TDOPS-2632): update data list entry if name is not the same
+
+## 7.7.0
+
+### Minor Changes
+
+- 4248c2e69: feat(TDC-6290): add List visible columns persistance and columns chooser UX improvements
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+
 ## 7.6.0
 
 ### Minor Changes

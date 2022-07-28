@@ -1,5 +1,13 @@
 # @talend/scripts-preset-react
 
+## 13.0.2
+
+### Patch Changes
+
+- fix: ugprade deps
+- Updated dependencies
+  - @talend/scripts-config-prettier@11.0.0
+
 ## 13.0.1
 
 ### Patch Changes

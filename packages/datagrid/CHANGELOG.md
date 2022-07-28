@@ -1,5 +1,26 @@
 # @talend/react-datagrid
 
+## 12.1.0
+
+### Minor Changes
+
+- 240340d94: Add cell context to editor onSubmit callback
+
+### Patch Changes
+
+- Updated dependencies [b02eb9ef4]
+- Updated dependencies [5e0148797]
+  - @talend/react-components@7.8.0
+
+## 12.0.1
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+- Updated dependencies [f4ba0ef47]
+- Updated dependencies [4248c2e69]
+  - @talend/react-components@7.7.0
+
 ## 12.0.0
 
 ### Major Changes

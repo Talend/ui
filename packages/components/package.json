@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-components",
-  "description": "Set of react widgets.",
+  "description": "Set of react components.",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
@@ -41,7 +41,7 @@
     "@talend/utils": "^2.4.0",
     "ally.js": "^1.4.1",
     "classnames": "^2.3.1",
-    "d3": "^6.7.0",
+    "d3": "^7.4.4",
     "date-fns": "^1.30.1",
     "focus-outline-manager": "^1.0.2",
     "immutable": "^3.8.2",
@@ -62,7 +62,7 @@
     "react-use": "^17.4.0",
     "react-virtualized": "^9.22.3",
     "reactour": "^1.18.7",
-    "recharts": "^2.1.12",
+    "recharts": "^2.1.13",
     "simplebar": "^5.3.8",
     "simplebar-react": "^2.4.1",
     "styled-components": "^5.3.5",
@@ -108,5 +108,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.6.0"
+  "version": "7.8.0"
 }

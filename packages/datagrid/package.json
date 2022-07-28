@@ -41,7 +41,7 @@
     "@talend/icons": "^6.47.0",
     "ag-grid-community": "^28.0.2",
     "ag-grid-react": "^28.0.0",
-    "@talend/react-components": "^7.5.0",
+    "@talend/react-components": "^7.8.0",
     "classnames": "^2.3.1",
     "focus-trap-react": "^8.11.3",
     "lodash": "^4.17.21"
@@ -71,5 +71,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "12.0.0"
+  "version": "12.1.0"
 }

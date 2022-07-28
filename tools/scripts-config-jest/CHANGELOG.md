@@ -1,5 +1,27 @@
 # @talend/scripts-config-jest
 
+## 11.3.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: transpile node_modules
+
+  Since d3 7.x and its dependencies use es6 as main entry in package.json, we need this because jest support of [ECMAPScriptModules](https://github.com/facebook/jest/blob/64de4d7361367fd711a231d25c37f3be89564264/docs/ECMAScriptModules.md) is experiemental
+
+## 11.2.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @talend/scripts-config-babel@11.0.0
+
+## 11.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @talend/scripts-config-babel@10.0.0
+
 ## 11.2.1
 
 ### Patch Changes

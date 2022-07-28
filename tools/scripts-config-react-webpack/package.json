@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-react-webpack",
   "description": "Webpack configuration for @talend/scripts-core",
-  "version": "13.3.1",
+  "version": "13.3.3",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@sentry/webpack-plugin": "^1.18.9",
     "@talend/react-cmf-webpack-plugin": "^6.36.9",
-    "@talend/scripts-config-babel": "^9.9.1",
+    "@talend/scripts-config-babel": "^11.0.0",
     "@talend/scripts-config-cdn": "^10.5.4",
     "@talend/scripts-utils": "^1.0.0",
     "@welldone-software/why-did-you-render": "^7.0.1",
