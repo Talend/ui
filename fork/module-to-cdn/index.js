@@ -25,25 +25,25 @@ function add(config) {
     if (typeof config !== 'object' || config === null || Array.isArray(config)) {
         throw new Error('ValueError: not an object', config);
     }
-
-    Object.keys(config).forEach(key => {
-        if (key === '_allow-list') {
-            allowList(config[key]);
-        } else {
-            modules[key] = config[key];
-        }
+    if (config['_allow-list']) {
+        allowList(config['_allow-list']);
+        delete config['_allow-list'];
+    }
+    delete Object.keys(config).forEach(key => {
+        modules[key] = config[key];
     });
 }
 
 function allowList(list) {
-    Object.keys(config).forEach(key => {
+    Object.keys(modules).forEach(key => {
         function allowed(element) {
             if (typeof element === 'string') {
-                return key !== 'element';
+                return key === element;
             }
             return;
         }
-        if (!list.every(allowed)) {
+        if (!list.some(allowed)) {
+            console.log('#### delete', key);
             delete modules[key];
         }
     });
