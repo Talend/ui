@@ -12,7 +12,6 @@ import { Placement } from '../../Tooltip/Tooltip';
 import { DataAttributes } from '../../../types';
 
 import style from './Popover.module.scss';
-import styles from '../FormPrimitives/InputWrapper/InputWrapper.module.scss';
 
 const ANIMATION_DURATION = 150; // Sync with @talend/design-token animations duration
 
