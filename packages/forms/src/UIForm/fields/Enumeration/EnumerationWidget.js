@@ -439,7 +439,7 @@ class EnumerationForm extends React.Component {
 			}));
 			const formattedValue = EnumerationForm.parseStringValueToArray(
 				value.value,
-				this.props.schema.skipCommas,
+				this.props.schema?.skipCommas || false,
 			);
 			this.props
 				.onTrigger(event, {
@@ -480,7 +480,7 @@ class EnumerationForm extends React.Component {
 			if (value.value && !valueExist) {
 				item.values = EnumerationForm.parseStringValueToArray(
 					value.value,
-					this.props.schema.skipCommas,
+					this.props.schema?.skipCommas || false,
 				);
 			}
 			if (valueExist) {
@@ -716,7 +716,7 @@ class EnumerationForm extends React.Component {
 					trigger: {
 						value: EnumerationForm.parseStringValueToArray(
 							value.value,
-							this.props.schema.skipCommas,
+							this.props.schema?.skipCommas || false,
 						),
 						action: ENUMERATION_ADD_ACTION,
 					},
@@ -743,7 +743,7 @@ class EnumerationForm extends React.Component {
 					{
 						values: EnumerationForm.parseStringValueToArray(
 							value.value,
-							this.props.schema.skipCommas,
+							this.props.schema?.skipCommas || false,
 						),
 					},
 				]),
