@@ -1,5 +1,5 @@
 ---
-'@talend/react-forms': minor
+'@talend/react-forms': patch
 ---
 
 add the capability to skip commas with backslash char
