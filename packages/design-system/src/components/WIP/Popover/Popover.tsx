@@ -1,5 +1,4 @@
 import React, { HTMLAttributes, ReactElement, ReactNode, cloneElement } from 'react';
-import classnames from 'classnames';
 import tokens from '@talend/design-tokens';
 import {
 	usePopoverState,
