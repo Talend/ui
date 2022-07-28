@@ -1,5 +1,47 @@
 # @talend/scripts-config-jest
 
+## 11.2.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @talend/scripts-config-babel@11.0.0
+
+## 11.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @talend/scripts-config-babel@10.0.0
+
+## 11.2.1
+
+### Patch Changes
+
+- c815ba11f: fix: use babel to transpile ts[x] tests
+
+## 11.2.0
+
+### Minor Changes
+
+- ab1a6e983: feat: mock ResizeObserver
+
+### Patch Changes
+
+- 4d8636214: expose jsdom as global variable in jest environment
+
+## 11.1.0
+
+### Minor Changes
+
+- 6fcd6e9f4: feat: Support .mjs files transform
+
+## 11.0.0
+
+### Major Changes
+
+- b16efa779: Major upgrade to jest 28 with adapter config
+
 ## 10.2.2
 
 ### Patch Changes

@@ -15,7 +15,7 @@ const InlineMessageBeta = forwardRef((props: InlineMessageBetaProps, ref: Ref<HT
 	return (
 		<InlineMessagePrimitive
 			{...props}
-			icon="talend-info-circle"
+			icon="information-filled"
 			withBackgroundClassname={styles.beta_withBackground}
 			iconClassname={styles.beta__icon}
 			ref={ref}

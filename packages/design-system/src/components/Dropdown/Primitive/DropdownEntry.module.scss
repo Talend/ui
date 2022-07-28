@@ -23,7 +23,8 @@ $iconAlignmentOffsetM: -0.3rem;
 		width: tokens.$coral-sizing-xxxs;
 		margin-right: tokens.$coral-spacing-xxs;
 		flex-shrink: 0;
-		margin-bottom: $iconAlignmentOffsetM;
+		position: relative;
+		bottom: $iconAlignmentOffsetM;
 	}
 
 	.buttonContent {

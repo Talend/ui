@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 13.0.0
+
+### Major Changes
+
+- b16efa779: Drop support for nodejs under 14
+
 ## 12.0.0
 
 ### Major Changes

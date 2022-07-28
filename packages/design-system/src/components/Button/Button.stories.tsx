@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import Skeleton from '../Skeleton';
 import Tooltip from '../Tooltip';
-import { BaseButtonProps } from './Primitive/ButtonPrimitive';
+import { AvailableSizes, BaseButtonProps } from './Primitive/ButtonPrimitive';
 import ButtonPrimary from './variations/ButtonPrimary';
 import ButtonSecondary from './variations/ButtonSecondary';
 import ButtonDestructive from './variations/ButtonDestructive';
@@ -26,7 +26,8 @@ const commonArgTypes = {
 	icon: {
 		control: { type: 'text' },
 		defaultValue: 'talend-plus',
-		description: 'optional',
+		description:
+			'optional. In regular size, it supports both Icon (legacy) and SizedIcon<"M"> names. In small size, it only supports SizedIcon<"S"> names.',
 	},
 	isLoading: {
 		control: { type: 'boolean' },
@@ -105,37 +106,37 @@ export const PrimaryVariations = () => (
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>With icon</h3>
-			<ButtonPrimary icon="talend-upload" onClick={action('Clicked')}>
+			<ButtonPrimary icon="upload" onClick={action('Clicked')}>
 				Primary M
 			</ButtonPrimary>
-			<ButtonPrimary icon="talend-upload" onClick={action('Clicked')} size="S">
+			<ButtonPrimary onClick={action('Clicked')} size="S" icon="upload">
 				Primary S
 			</ButtonPrimary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>With dropdown indicator</h3>
-			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')}>
+			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')}>
 				Primary M
 			</ButtonPrimary>
-			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S">
+			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S">
 				Primary S
 			</ButtonPrimary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Disabled</h3>
-			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} disabled>
+			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} disabled>
 				Primary M
 			</ButtonPrimary>
-			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S" disabled>
+			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S" disabled>
 				Primary S
 			</ButtonPrimary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Loading</h3>
-			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} isLoading>
+			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} isLoading>
 				Primary M
 			</ButtonPrimary>
-			<ButtonPrimary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S" isLoading>
+			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S" isLoading>
 				Primary S
 			</ButtonPrimary>
 		</StackVertical>
@@ -153,49 +154,37 @@ export const DestructiveVariations = () => (
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>With icon</h3>
-			<ButtonDestructive icon="talend-upload" onClick={action('Clicked')}>
+			<ButtonDestructive icon="upload" onClick={action('Clicked')}>
 				Primary M
 			</ButtonDestructive>
-			<ButtonDestructive icon="talend-upload" onClick={action('Clicked')} size="S">
+			<ButtonDestructive icon="upload" onClick={action('Clicked')} size="S">
 				Primary S
 			</ButtonDestructive>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>With dropdown indicator</h3>
-			<ButtonDestructive icon="talend-upload" isDropdown onClick={action('Clicked')}>
+			<ButtonDestructive icon="upload" isDropdown onClick={action('Clicked')}>
 				Destructive M
 			</ButtonDestructive>
-			<ButtonDestructive icon="talend-upload" isDropdown onClick={action('Clicked')} size="S">
+			<ButtonDestructive icon="upload" isDropdown onClick={action('Clicked')} size="S">
 				Destructive S
 			</ButtonDestructive>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Disabled</h3>
-			<ButtonDestructive icon="talend-upload" isDropdown onClick={action('Clicked')} disabled>
+			<ButtonDestructive icon="upload" isDropdown onClick={action('Clicked')} disabled>
 				Destructive M
 			</ButtonDestructive>
-			<ButtonDestructive
-				icon="talend-upload"
-				isDropdown
-				onClick={action('Clicked')}
-				size="S"
-				disabled
-			>
+			<ButtonDestructive icon="upload" isDropdown onClick={action('Clicked')} size="S" disabled>
 				Destructive S
 			</ButtonDestructive>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Loading</h3>
-			<ButtonDestructive icon="talend-upload" isDropdown onClick={action('Clicked')} isLoading>
+			<ButtonDestructive icon="upload" isDropdown onClick={action('Clicked')} isLoading>
 				Destructive M
 			</ButtonDestructive>
-			<ButtonDestructive
-				icon="talend-upload"
-				isDropdown
-				onClick={action('Clicked')}
-				size="S"
-				isLoading
-			>
+			<ButtonDestructive icon="upload" isDropdown onClick={action('Clicked')} size="S" isLoading>
 				Destructive S
 			</ButtonDestructive>
 		</StackVertical>
@@ -213,49 +202,37 @@ export const SecondaryVariations = () => (
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>With icon</h3>
-			<ButtonSecondary icon="talend-upload" onClick={action('Clicked')}>
+			<ButtonSecondary icon="upload" onClick={action('Clicked')}>
 				Primary M
 			</ButtonSecondary>
-			<ButtonSecondary icon="talend-upload" onClick={action('Clicked')} size="S">
+			<ButtonSecondary icon="upload" onClick={action('Clicked')} size="S">
 				Primary S
 			</ButtonSecondary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>With dropdown indicator</h3>
-			<ButtonSecondary icon="talend-upload" isDropdown onClick={action('Clicked')}>
+			<ButtonSecondary icon="upload" isDropdown onClick={action('Clicked')}>
 				Secondary M
 			</ButtonSecondary>
-			<ButtonSecondary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S">
+			<ButtonSecondary icon="upload" isDropdown onClick={action('Clicked')} size="S">
 				Secondary S
 			</ButtonSecondary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Disabled</h3>
-			<ButtonSecondary icon="talend-upload" isDropdown onClick={action('Clicked')} disabled>
+			<ButtonSecondary icon="upload" isDropdown onClick={action('Clicked')} disabled>
 				Secondary M
 			</ButtonSecondary>
-			<ButtonSecondary
-				icon="talend-upload"
-				isDropdown
-				onClick={action('Clicked')}
-				size="S"
-				disabled
-			>
+			<ButtonSecondary icon="upload" isDropdown onClick={action('Clicked')} size="S" disabled>
 				Secondary S
 			</ButtonSecondary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Loading</h3>
-			<ButtonSecondary icon="talend-upload" isDropdown onClick={action('Clicked')} isLoading>
+			<ButtonSecondary icon="upload" isDropdown onClick={action('Clicked')} isLoading>
 				Secondary M
 			</ButtonSecondary>
-			<ButtonSecondary
-				icon="talend-upload"
-				isDropdown
-				onClick={action('Clicked')}
-				size="S"
-				isLoading
-			>
+			<ButtonSecondary icon="upload" isDropdown onClick={action('Clicked')} size="S" isLoading>
 				Secondary S
 			</ButtonSecondary>
 		</StackVertical>
@@ -273,43 +250,37 @@ export const TertiaryVariations = () => (
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>With icon</h3>
-			<ButtonTertiary icon="talend-upload" onClick={action('Clicked')}>
+			<ButtonTertiary icon="upload" onClick={action('Clicked')}>
 				Primary M
 			</ButtonTertiary>
-			<ButtonTertiary icon="talend-upload" onClick={action('Clicked')} size="S">
+			<ButtonTertiary icon="upload" onClick={action('Clicked')} size="S">
 				Primary S
 			</ButtonTertiary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>With dropdown indicator</h3>
-			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')}>
+			<ButtonTertiary icon="upload" isDropdown onClick={action('Clicked')}>
 				Tertiary M
 			</ButtonTertiary>
-			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S">
+			<ButtonTertiary icon="upload" isDropdown onClick={action('Clicked')} size="S">
 				Tertiary S
 			</ButtonTertiary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Disabled</h3>
-			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')} disabled>
+			<ButtonTertiary icon="upload" isDropdown onClick={action('Clicked')} disabled>
 				Tertiary M
 			</ButtonTertiary>
-			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')} size="S" disabled>
+			<ButtonTertiary icon="upload" isDropdown onClick={action('Clicked')} size="S" disabled>
 				Tertiary S
 			</ButtonTertiary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Loading</h3>
-			<ButtonTertiary icon="talend-upload" isDropdown onClick={action('Clicked')} isLoading>
+			<ButtonTertiary icon="upload" isDropdown onClick={action('Clicked')} isLoading>
 				Tertiary M
 			</ButtonTertiary>
-			<ButtonTertiary
-				icon="talend-upload"
-				isDropdown
-				onClick={action('Clicked')}
-				size="S"
-				isLoading
-			>
+			<ButtonTertiary icon="upload" isDropdown onClick={action('Clicked')} size="S" isLoading>
 				Tertiary S
 			</ButtonTertiary>
 		</StackVertical>
@@ -325,7 +296,7 @@ export const SkeletonButton = () => {
 	);
 };
 
-export const TooltipButton = (props: Story<BaseButtonProps>) => (
+export const TooltipButton = (props: Story<BaseButtonProps<AvailableSizes>>) => (
 	<Tooltip title="Relevant information about contacting the support">
 		<ButtonPrimary onClick={action('I have been clicked')} icon="talend-bubbles" {...props}>
 			Contact support
@@ -334,7 +305,8 @@ export const TooltipButton = (props: Story<BaseButtonProps>) => (
 );
 
 export const Loading = {
-	render: (props: Story<BaseButtonProps>) => {
+	render: (props: Story<BaseButtonProps<AvailableSizes>>) => {
+		// eslint-disable-next-line react-hooks/rules-of-hooks
 		const [loading, isLoading] = React.useState(false);
 		return (
 			<Tooltip title="Relevant description of the basic button">
@@ -363,37 +335,37 @@ export const Variations = () => (
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Primary</h3>
-			<ButtonPrimary icon="talend-upload" onClick={action('Clicked')} isDropdown>
+			<ButtonPrimary icon="upload" onClick={action('Clicked')} isDropdown>
 				Label
 			</ButtonPrimary>
-			<ButtonPrimary icon="talend-upload" onClick={action('Clicked')} size="S" isDropdown>
+			<ButtonPrimary icon="upload" onClick={action('Clicked')} size="S" isDropdown>
 				Label
 			</ButtonPrimary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Destructive</h3>
-			<ButtonDestructive icon="talend-upload" onClick={action('Clicked')} isDropdown>
+			<ButtonDestructive icon="upload" onClick={action('Clicked')} isDropdown>
 				Label
 			</ButtonDestructive>
-			<ButtonDestructive icon="talend-upload" onClick={action('Clicked')} size="S" isDropdown>
+			<ButtonDestructive icon="upload" onClick={action('Clicked')} size="S" isDropdown>
 				Label
 			</ButtonDestructive>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Secondary</h3>
-			<ButtonSecondary icon="talend-upload" onClick={action('Clicked')} isDropdown>
+			<ButtonSecondary icon="upload" onClick={action('Clicked')} isDropdown>
 				Label
 			</ButtonSecondary>
-			<ButtonSecondary icon="talend-upload" onClick={action('Clicked')} size="S" isDropdown>
+			<ButtonSecondary icon="upload" onClick={action('Clicked')} size="S" isDropdown>
 				Label
 			</ButtonSecondary>
 		</StackVertical>
 		<StackVertical gap="S" justify="start" align="center">
 			<h3>Tertiary</h3>
-			<ButtonTertiary icon="talend-upload" onClick={action('Clicked')} isDropdown>
+			<ButtonTertiary icon="upload" onClick={action('Clicked')} isDropdown>
 				Label
 			</ButtonTertiary>
-			<ButtonTertiary icon="talend-upload" onClick={action('Clicked')} size="S" isDropdown>
+			<ButtonTertiary icon="upload" onClick={action('Clicked')} size="S" isDropdown>
 				Label
 			</ButtonTertiary>
 		</StackVertical>

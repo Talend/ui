@@ -1,5 +1,20 @@
 # @talend/storybook-docs
 
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [617ec14f0]
+- Updated dependencies [a99154a7d]
+  - @talend/design-system@4.0.0
+  - @talend/design-tokens@2.7.0
+
+## 1.1.0
+
+### Minor Changes
+
+- fe220b308: Stylesheets are ready
+
 ## 1.0.1
 
 ### Patch Changes

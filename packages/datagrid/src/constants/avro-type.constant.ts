@@ -13,7 +13,7 @@ export const AVRO_TYPES = [
 ];
 export const TIMESTAMP_MILLIS_LOGICAL_TYPES = 'timestamp-millis';
 export const LOGICAL_TYPES = [TIMESTAMP_MILLIS_LOGICAL_TYPES];
-export const PRIMITIVES_MAPPING = {
+export const PRIMITIVES_MAPPING: Record<string, string> = {
 	double: 'int',
 	float: 'int',
 	int: 'int',

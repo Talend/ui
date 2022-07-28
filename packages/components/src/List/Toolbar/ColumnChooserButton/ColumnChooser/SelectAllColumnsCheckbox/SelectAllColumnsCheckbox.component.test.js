@@ -28,12 +28,12 @@ describe('SelectAllColumnsCheckbox', () => {
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
-		expect(wrapper.find('input#select-all-id-checkbox-Select-All').prop('checked')).toBe(true);
+		expect(wrapper.find('input#select-all-id-checkbox-Unselect-all').prop('checked')).toBe(true);
 		act(() => {
-			wrapper.find('input#select-all-id-checkbox-Select-All').simulate('change');
+			wrapper.find('input#select-all-id-checkbox-Unselect-all').simulate('change');
 		});
 		wrapper.update();
 		// Then
-		expect(onChange).toHaveBeenNthCalledWith(1, true, 'Select All');
+		expect(onChange).toHaveBeenNthCalledWith(1, true, 'Unselect all');
 	});
 });

@@ -1,16 +1,23 @@
 import React, { forwardRef, Ref } from 'react';
-import ButtonPrimitiveAsLink, {
-	BaseButtonPropsAsLink,
-} from '../Primitive/ButtonPrimitiveAsLink';
+import ButtonPrimitiveAsLink, { BaseButtonPropsAsLink } from '../Primitive/ButtonPrimitiveAsLink';
+import { AvailableSizes } from '../../Button/Primitive/ButtonPrimitive';
 
 import styles from '../../Button/variations/ButtonDestructive.module.scss';
 
-export type ButtonDestructiveAsLinkPropsType = Omit<BaseButtonPropsAsLink, 'className'>;
+export type ButtonDestructiveAsLinkPropsType<S extends AvailableSizes> = Omit<
+	BaseButtonPropsAsLink<S>,
+	'className'
+>;
 
-const ButtonDestructiveAsLink = forwardRef(
-	(props: ButtonDestructiveAsLinkPropsType, ref: Ref<HTMLAnchorElement>) => {
-		return <ButtonPrimitiveAsLink {...props} ref={ref} className={styles.destructive} />;
-	},
-);
+function DestructiveAsLink<S extends AvailableSizes>(
+	props: ButtonDestructiveAsLinkPropsType<S>,
+	ref: Ref<HTMLAnchorElement>,
+) {
+	return <ButtonPrimitiveAsLink {...props} ref={ref} className={styles.destructive} />;
+}
+
+const ButtonDestructiveAsLink = forwardRef(DestructiveAsLink) as <S extends AvailableSizes>(
+	props: ButtonDestructiveAsLinkPropsType<S> & { ref?: Ref<HTMLAnchorElement> },
+) => ReturnType<typeof DestructiveAsLink>;
 
 export default ButtonDestructiveAsLink;

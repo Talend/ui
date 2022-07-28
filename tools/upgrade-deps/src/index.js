@@ -46,8 +46,7 @@ async function executeAll(cmds) {
 	}
 }
 
-async function upgradeYarnProject(program) {
-	const commands = CMD.safe;
+function getOptions(program) {
 	const opts = {
 		scope: program.scope,
 		package: program.package,
@@ -58,6 +57,20 @@ async function upgradeYarnProject(program) {
 		security: program.security,
 		message: program.message,
 	};
+	if (program['talend-major']) {
+		opts.scope = '@talend';
+		opts.latest = true;
+	}
+	if (program.check) {
+		opts.latest = true;
+		opts.dry = true;
+	}
+	return opts;
+}
+
+async function upgradeYarnProject(program) {
+	const commands = CMD.safe;
+	const opts = getOptions(program);
 
 	if (program.changeset && changeset.isSetup()) {
 		changeset.add(opts);
@@ -105,15 +118,6 @@ async function upgradeYarnProject(program) {
 		return changed ? executeAll(['yarn install', reportLog]) : executeAll([reportLog]);
 	}
 
-	if (program['talend-major']) {
-		opts.scope = '@talend';
-		opts.latest = true;
-	}
-	if (program.check) {
-		opts.latest = true;
-		opts.dry = true;
-	}
-
 	const changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
 	if (!opts.dry) {
 		if (!opts.scope && !opts.package && !opts.startsWith) {
@@ -122,7 +126,7 @@ async function upgradeYarnProject(program) {
 				commands.unshift('yarn install');
 			}
 		} else {
-			yarn.removeFromLockFile(opts);
+			await yarn.removeFromLockFile(opts);
 			commands.unshift('yarn install');
 		}
 		spawnSync(yarn.getYarnDedupBin());
@@ -132,6 +136,26 @@ async function upgradeYarnProject(program) {
 	return true;
 }
 
+async function upgradeNpmProject(program) {
+	const commands = [];
+	const opts = getOptions(program);
+	let changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
+	if (!opts.dry) {
+		if (!opts.scope && !opts.package && !opts.startsWith) {
+			commands.unshift('npm update');
+			if (changed) {
+				commands.unshift('npm install');
+			}
+		} else {
+			await npm.removeFromLockFile(opts);
+			commands.unshift('npm install');
+		}
+		commands.push('npm prune');
+		return executeAll(commands);
+	}
+}
+
 module.exports = {
 	upgradeYarnProject,
+	upgradeNpmProject,
 };

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import Clickable from '../../../../Clickable';
 import Tooltip from '../../../../Tooltip';
-import { Icon } from '../../../../Icon/Icon';
+import { SizedIcon } from '../../../../Icon';
 
 export default function useRevealPassword() {
 	const [revealed, setRevealed] = useState(false);
@@ -37,7 +37,7 @@ export default function useRevealPassword() {
 					data-testid="form.password.reveal"
 					{...props}
 				>
-					<Icon name={revealed ? 'talend-eye-slash' : 'talend-eye'} />
+					<SizedIcon size="M" name={revealed ? 'eye-slash' : 'eye'} />
 				</Clickable>
 			</Tooltip>
 		);

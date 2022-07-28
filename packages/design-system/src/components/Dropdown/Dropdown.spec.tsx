@@ -32,7 +32,8 @@ context('<Dropdown />', () => {
 		cy.mount(<WithIcons />);
 		cy.getByTest('dropdown.button').click();
 		cy.getByTest('dropdown.menu').should('be.visible');
-		cy.get('a[data-test="dropdown.menuitem"]').eq(0).invoke('removeAttr', 'href').click();
+		cy.get('a[data-test="dropdown.menuitem"]').eq(0).invoke('removeAttr', 'href');
+		cy.get('a[data-test="dropdown.menuitem"]').click();
 		cy.getByTest('dropdown.menu').should('not.be.visible');
 	});
 

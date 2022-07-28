@@ -344,7 +344,7 @@ const Icon = ({ name, size }: { name: string; size?: keyof typeof iconSizes }) =
 	const fullName = size ? name.split(':')[0] + ':' + size : name;
 	return (
 		<div className={className} style={style}>
-			<svg style={styleWithSize}>
+			<svg style={styleWithSize} shapeRendering="geometricPrecision">
 				<use xlinkHref={'#' + fullName} />
 			</svg>
 		</div>

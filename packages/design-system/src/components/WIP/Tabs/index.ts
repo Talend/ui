@@ -1,3 +1,6 @@
-import Tabs from './Tabs';
+import Tabs from './variants/Tabs';
+import TabsKit from './variants/TabsKit';
 
-export default Tabs;
+export { Tabs, TabsKit };
+
+export default TabsKit;

@@ -1,5 +1,25 @@
 # @talend/scripts-preset-react
 
+## 13.0.2
+
+### Patch Changes
+
+- fix: ugprade deps
+- Updated dependencies
+  - @talend/scripts-config-prettier@11.0.0
+
+## 13.0.1
+
+### Patch Changes
+
+- Updated dependencies [2a8de8a55]
+- Updated dependencies [b16efa779]
+  - @talend/scripts-config-react-webpack@13.0.1
+  - @talend/scripts-config-jest@11.0.0
+  - @talend/scripts-config-cdn@10.5.2
+  - @talend/scripts-config-storybook-lib@2.0.1
+  - @talend/scripts-config-eslint@9.9.3
+
 ## 13.0.0
 
 ### Major Changes

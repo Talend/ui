@@ -23,7 +23,7 @@ function getSassData(userSassData) {
 }
 
 function getCommonStyleLoaders(enableModules, mode) {
-	const sourceMap = mode === 'production';
+	const sourceMap = true;
 	let cssOptions = {
 		sourceMap,
 	};
@@ -37,9 +37,7 @@ function getCommonStyleLoaders(enableModules, mode) {
 		};
 	}
 	return [
-		mode === 'development'
-			? { loader: 'style-loader' }
-			: { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
+		{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
@@ -64,7 +62,7 @@ function getJSAndTSLoader(env, useTypescript) {
 }
 
 function getSassLoaders(enableModules, sassData, mode) {
-	const sourceMap = mode === 'production';
+	const sourceMap = true;
 	return getCommonStyleLoaders(enableModules, mode).concat(
 		{ loader: 'resolve-url-loader', options: { sourceMap } },
 		{
@@ -74,9 +72,37 @@ function getSassLoaders(enableModules, sassData, mode) {
 	);
 }
 
+function getAssetsRules(hashed = true) {
+	const name = `[name]${hashed ? '-[hash]' : ''}[ext]`;
+	return [
+		{
+			test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
+			type: 'asset/resource',
+			generator: {
+				filename: `assets/fonts/${name}`,
+			},
+		},
+		{
+			test: /\.svg$/,
+			type: 'asset/resource',
+			generator: {
+				filename: `assets/svg/${name}`,
+			},
+		},
+		{
+			test: /\.(png|jpg|jpeg|gif)$/,
+			type: 'asset/resource',
+			generator: {
+				filename: `assets/img/${name}`,
+			},
+		},
+	];
+}
+
 module.exports = {
 	getSassData,
 	getCommonStyleLoaders,
 	getSassLoaders,
 	getJSAndTSLoader,
+	getAssetsRules,
 };

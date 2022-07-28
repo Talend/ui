@@ -16,7 +16,7 @@ const InlineMessageInformation = forwardRef(
 		return (
 			<InlineMessagePrimitive
 				{...props}
-				icon="talend-info-circle"
+				icon="information-filled"
 				withBackgroundClassname={styles.information_withBackground}
 				iconClassname={styles.information__icon}
 				ref={ref}

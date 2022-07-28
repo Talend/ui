@@ -1,5 +1,17 @@
 # @talend/scripts-config-babel
 
+## 11.0.0
+
+### Major Changes
+
+- second bump
+
+## 10.0.0
+
+### Major Changes
+
+- fix: double bump to escape from old 10.x release
+
 ## 9.9.1
 
 ### Patch Changes

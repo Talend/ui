@@ -1,5 +1,15 @@
 # @talend/eslint-plugin
 
+## 1.0.0
+
+### Major Changes
+
+- b16efa779: Drop support for nodejs under 14
+
+### Patch Changes
+
+- @talend/scripts-config-cdn@10.5.2
+
 ## 0.5.5
 
 ### Patch Changes

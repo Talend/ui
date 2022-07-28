@@ -1,12 +1,11 @@
 import React, { forwardRef, HTMLAttributes, Ref } from 'react';
 // eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
+import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
-
-import { Icon } from '../../Icon/Icon';
 
 import styles from './InlineMessagePrimitive.module.scss';
 import Link, { LinkProps } from '../../Link/Link';
+import { SizedIcon } from '../../Icon';
 
 export type AvailableVariantsTypes = 'destructive' | 'success' | 'information' | 'warning' | 'beta';
 export type InlineMessageVariantType<T extends AvailableVariantsTypes, P extends object> = {
@@ -18,7 +17,7 @@ export type SharedInlineMessageTypes = {
 	link?: LinkProps;
 	title?: string;
 	description: string;
-	icon: IconName;
+	icon: IconNameWithSize<'M'>;
 	iconClassname: string;
 	withBackgroundClassname: string;
 };
@@ -53,7 +52,7 @@ const InlineMessagePrimitive = forwardRef(
 				ref={ref}
 			>
 				<span className={classnames(styles.icon, iconClassname)}>
-					<Icon name={icon} />
+					<SizedIcon size="M" name={icon} />
 				</span>
 				<p className={styles.inlineMessage__contents}>
 					{title && <strong>{title}</strong>}

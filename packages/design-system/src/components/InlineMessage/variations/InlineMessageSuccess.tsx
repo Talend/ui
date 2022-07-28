@@ -16,7 +16,7 @@ const InlineMessageSuccess = forwardRef(
 		return (
 			<InlineMessagePrimitive
 				{...props}
-				icon="talend-check-circle"
+				icon="check-filled"
 				withBackgroundClassname={styles.success_withBackground}
 				iconClassname={styles.success__icon}
 				ref={ref}

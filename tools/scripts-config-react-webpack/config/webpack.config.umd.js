@@ -12,6 +12,7 @@ const {
 	getSassLoaders,
 	getJSAndTSLoader,
 	getSassData,
+	getAssetsRules,
 } = require('./webpack.config.common');
 
 cdn.configureTalendModules();
@@ -61,29 +62,7 @@ module.exports = options => {
 						test: /\.css$/,
 						use: getCommonStyleLoaders(false, options.mode),
 					},
-					{
-						test: /\.svg$/,
-						loader: 'url-loader',
-						options: {
-							esModule: false,
-							name: 'assets/svg/[name].[ext]',
-							mimetype: 'image/svg+xml',
-						},
-					},
-					{
-						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
-						type: 'asset/resource',
-						use: [
-							{
-								loader: 'url-loader',
-								options: {
-									name: './fonts/[name].[ext]',
-									limit: 10000,
-									mimetype: 'application/font-woff',
-								},
-							},
-						],
-					},
+					...getAssetsRules(false),
 				],
 			},
 			stats: { children: false }, // remove warnings of all plugins ...
@@ -96,8 +75,8 @@ module.exports = options => {
 					reportFilename: isEnvProd ? `${name}.min.js.report.html` : `${name}.js.report.html`,
 				}),
 				new MiniCssExtractPlugin({
-					filename: `${name}.css`,
-					chunkFilename: `${name}.css`,
+					filename: isEnvProd ? `${name}.min.css` : `${name}.css`,
+					chunkFilename: isEnvProd ? `${name}.min.css` : `${name}.css`,
 				}),
 				cdn.getWebpackPlugin(env, dcwpConfig),
 				userCopyConfig.length > 0 && new CopyWebpackPlugin({ patterns: userCopyConfig }),

@@ -425,6 +425,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 I18NUIForm.defaultProps = {
+	...I18NUIForm.defaultProps,
 	noHtml5Validate: true,
 	buttonBlockClass: 'form-actions',
 	properties: {},

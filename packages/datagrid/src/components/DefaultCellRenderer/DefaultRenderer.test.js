@@ -1,15 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 
-import DefaultRenderer from './DefaultRenderer.component';
+import { render } from '@testing-library/react';
+
+import DefaultValueRenderer from './DefaultValueRenderer.component';
 
 describe('#DefaultRenderer', () => {
 	it('should render DefaultRenderer with a advanced tooltip', () => {
 		// eslint-disable-next-line no-irregular-whitespace
 		const value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 		psum	 	 `;
-		const wrapper = shallow(<DefaultRenderer data={{ value }} />);
+		const wrapper = render(<DefaultValueRenderer value={{ value }} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 });

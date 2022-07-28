@@ -1,5 +1,19 @@
 # @talend/react-containers
 
+## 7.3.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [c02aeb6ae]
+- Updated dependencies [a99154a7d]
+- Updated dependencies [262e60063]
+  - @talend/react-forms@8.1.0
+  - @talend/react-components@7.5.0
+
 ## 7.2.4
 
 ### Patch Changes

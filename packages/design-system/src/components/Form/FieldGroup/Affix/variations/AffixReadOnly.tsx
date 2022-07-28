@@ -1,7 +1,6 @@
 import React, { forwardRef, Ref, HTMLAttributes } from 'react';
-// eslint-disable-next-line @talend/import-depth
-import { IconName } from '@talend/icons/dist/typeUtils';
 
+import { DeprecatedIconNames } from '../../../../../types';
 import { Icon } from '../../../../Icon/Icon';
 import { StackHorizontal } from '../../../../Stack';
 import VisuallyHidden from '../../../../VisuallyHidden';
@@ -14,12 +13,12 @@ type CommonAffixReadOnlyPropsType = {
 
 type AffixReadOnlyHideTextProps = {
 	hideText?: true;
-	icon: IconName;
+	icon: DeprecatedIconNames;
 };
 
 type AffixReadOnlyShowTextProps = {
 	hideText?: false;
-	icon?: IconName;
+	icon?: DeprecatedIconNames;
 };
 
 export type AffixReadOnlyPropsType = Omit<HTMLAttributes<HTMLSpanElement>, 'className' | 'style'> &
