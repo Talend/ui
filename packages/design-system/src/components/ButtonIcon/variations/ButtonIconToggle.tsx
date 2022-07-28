@@ -1,10 +1,20 @@
 import React, { forwardRef, Ref } from 'react';
-import ButtonIconPrimitive, { ToggleTypes } from '../Primitive/ButtonIconPrimitive';
+import ButtonIconPrimitive, { AvailableSizes, ToggleTypes } from '../Primitive/ButtonIconPrimitive';
 
-export type ButtonToggleType = Omit<ToggleTypes, 'variant'>;
+export type ButtonToggleType<S extends Partial<AvailableSizes>> = Omit<
+	ToggleTypes<S>,
+	'variant' | 'size'
+> & { size?: 'M' | 'S' };
 
-const ButtonIconToggle = forwardRef((props: ButtonToggleType, ref: Ref<HTMLButtonElement>) => {
+function Toggle<S extends Partial<AvailableSizes>>(
+	props: ButtonToggleType<S>,
+	ref: Ref<HTMLButtonElement>,
+) {
 	return <ButtonIconPrimitive {...props} variant="toggle" ref={ref} />;
-});
+}
+
+const ButtonIconToggle = forwardRef(Toggle) as <S extends Partial<AvailableSizes>>(
+	props: ButtonToggleType<S> & { ref?: Ref<HTMLButtonElement> },
+) => ReturnType<typeof Toggle>;
 
 export default ButtonIconToggle;

@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import classNames from 'classnames';
 import css from 'dom-helpers/style';
 import React from 'react';
@@ -20,7 +21,8 @@ const MARGINS = {
 // reading a dimension prop will cause the browser to recalculate,
 // which will let our animations work
 function triggerBrowserReflow(node) {
-  node.offsetHeight; // eslint-disable-line no-unused-expressions
+  // eslint-disable-next-line mdx/no-unused-expressions
+  node.offsetHeight;
 }
 
 function getDimensionValue(dimension, elem) {
@@ -42,6 +44,8 @@ const collapseStyles = {
 };
 
 const propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
   /**
    * Show the component; triggers the expand or collapse animation
    */

@@ -3,22 +3,46 @@ require('core-js/stable');
 require('regenerator-runtime/runtime');
 require('raf/polyfill');
 
+// add missing ResizeObserver
+class ResizeObserver {
+	observe() {
+		// do nothing
+	}
+	unobserve() {
+		// do nothing
+	}
+	disconnect() {
+		// do nothing
+	}
+}
+if (!global.ResizeObserver) {
+	// add this for react-resize-detector major update
+	global.ResizeObserver = ResizeObserver;
+}
+
+if (!global.TextEncoder) {
+	// add this for whatwg-url use in jsdom
+	global.TextEncoder = require('util').TextEncoder;
+	global.TextDecoder = require('util').TextDecoder;
+}
 // enzyme adapter configuration
 let React;
 try {
 	React = require('react');
 } catch (e) {}
 
-const version = React && React.version;
-if (version && version.startsWith('16.')) {
-	const configure = require('enzyme').configure;
-	const Adapter = require('enzyme-adapter-react-16');
-	configure({ adapter: new Adapter() });
-} else if (version && version.startsWith('17.')) {
-	const configure = require('enzyme').configure;
-	const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
-	configure({ adapter: new Adapter() });
-}
+try {
+	const version = React && React.version;
+	if (version && version.startsWith('16.')) {
+		const configure = require('enzyme').configure;
+		const Adapter = require('enzyme-adapter-react-16');
+		configure({ adapter: new Adapter() });
+	} else if (version && version.startsWith('17.')) {
+		const configure = require('enzyme').configure;
+		const Adapter = require('@wojtekmaj/enzyme-adapter-react-17');
+		configure({ adapter: new Adapter() });
+	}
+} catch (e) {}
 
 // Mock fetch
 const fetch = jest.fn(

@@ -1,9 +1,20 @@
-import DataGrid, * as components from './components';
+import * as components from './components';
 import * as constants from './constants';
+import { DatasetSerializer } from './serializers';
 
+// New named exports
 export * from './components';
+export * from './constants';
+export * from './types';
+export * from './serializers';
 
-export default Object.assign(DataGrid, {
+// Legacy cmf module format
+const module = Object.assign(components.DataGrid, {
+	components: {
+		...components,
+		DatasetSerializer,
+	},
 	constants,
-	components,
 });
+
+export default module;

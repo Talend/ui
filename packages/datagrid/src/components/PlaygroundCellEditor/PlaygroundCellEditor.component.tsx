@@ -1,23 +1,33 @@
 import React, { useEffect, useImperativeHandle, useRef, useState, forwardRef } from 'react';
+
+import { ICellEditorParams } from 'ag-grid-community';
 import FocusTrap from 'focus-trap-react';
 
-import { AgCellEditorRendererPropTypes, AgGridCellValue } from '../../types';
+import { AgGridCellValue, CellEditorParams, SemanticType } from '../../types';
 import RichCellEditorComponent from '../RichCellEditor';
-
 import ApplyToValues from './ApplyToIdenticalValues.component';
-
-type SemanticType = {
-	type: string;
-};
 
 function formatSuggestions(values: string[]): AgGridCellValue[] {
 	return values && values.length ? values.map(v => ({ name: v, value: v })) : [];
 }
 
-function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.Ref<HTMLElement>) {
-	const { eGridCell, value, colDef, stopEditing } = props;
-	const { domain, cellEditorPopup, cellEditorParams } = colDef;
-	const { getSemanticType, getSemanticTypeSuggestions, onSubmit } = cellEditorParams || {};
+function PlaygroundCellEditor(
+	props: ICellEditorParams & CellEditorParams,
+	ref: React.Ref<HTMLElement>,
+) {
+	const {
+		eGridCell,
+		value,
+		colDef,
+		stopEditing,
+		getSemanticType,
+		getSemanticTypeSuggestions,
+		onSubmit,
+	} = props;
+	const {
+		cellEditorPopup,
+		cellRendererParams: { semanticTypeId },
+	} = colDef;
 
 	const [state, setState] = useState(value.value);
 	const currentRef = useRef<HTMLDivElement>(null);
@@ -55,9 +65,9 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 			}
 		});
 
-		if (domain) {
+		if (semanticTypeId) {
 			setIsLoading(true);
-			getSemanticType(domain)
+			getSemanticType(semanticTypeId)
 				.then(setSemanticType)
 				.finally(() => {
 					setIsLoading(false);
@@ -91,7 +101,7 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 		<FocusTrap paused={!showApplyTo}>
 			<div ref={currentRef}>
 				<RichCellEditorComponent
-					eGridCell={eGridCell}
+					eGridCell={eGridCell as HTMLDivElement}
 					initialValue={value.value}
 					hasSuggestions={hasSuggestions}
 					isLoading={isLoading}
@@ -103,7 +113,7 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 					onFilter={
 						hasSuggestions
 							? (search: string) =>
-									getSemanticTypeSuggestions(domain, search).then(formatSuggestions)
+									getSemanticTypeSuggestions(semanticTypeId, search).then(formatSuggestions)
 							: undefined
 					}
 				/>
@@ -113,7 +123,12 @@ function PlaygroundCellEditor(props: AgCellEditorRendererPropTypes, ref: React.R
 							onCancel={onCancel}
 							onSubmit={(applyToValues: boolean) => {
 								stopEditing();
-								onSubmit(state, applyToValues);
+								onSubmit(state, applyToValues, {
+									rowIndex: props.rowIndex,
+									data: props.data,
+									column: props.column,
+									value,
+								});
 							}}
 						/>
 					</div>

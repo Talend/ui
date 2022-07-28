@@ -1,8 +1,8 @@
 {
-    "name": "@talend/test-workspace",
-    "private": true,
-    "version": "0.0.0",
-    "dependencies": {
-        "react": "^17.0.0"
-    }
+  "name": "@talend/test-suba",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "react": "^17.0.0"
+  }
 }

@@ -44,7 +44,7 @@ export const Active = {
 
 export const WithIcon = {
 	render: (props: Story<LinkProps>) => (
-		<Link href="#" icon="talend-info-circle" {...props}>
+		<Link href="#" icon="information-filled" {...props}>
 			Link example
 		</Link>
 	),
@@ -52,7 +52,7 @@ export const WithIcon = {
 
 export const MultiLines = {
 	render: (props: Story<LinkProps>) => (
-		<Link href="https://www.talend.com" target="_blank" icon="talend-info-circle" {...props}>
+		<Link href="https://www.talend.com" target="_blank" icon="information-filled" {...props}>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac facilisis massa. Morbi et
 			massa nulla. Nulla vitae hendrerit diam. Aenean eu sem libero. Integer vitae quam rutrum orci
 			maximus imperdiet non sed lacus. Suspendisse ac est ac turpis luctus viverra. Proin tristique
@@ -67,7 +67,7 @@ export const MultiLines = {
 export const Disabled = {
 	render(props: Story<LinkProps>) {
 		return (
-			<Link href="#" icon="talend-info-circle" disabled {...props}>
+			<Link href="#" icon="information-filled" disabled {...props}>
 				Link example
 			</Link>
 		);
@@ -96,7 +96,7 @@ export const TargetBlank = {
 
 export const RouterLinkStory = () => (
 	<BrowserRouter>
-		<Link as={<RouterLink to="/documentation" />} icon="talend-info-circle">
+		<Link as={<RouterLink to="/documentation" />} icon="information-filled">
 			Documentation
 		</Link>
 	</BrowserRouter>

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Import theme.
  * Being the first import is important, so that it is the default style
@@ -14,12 +15,16 @@ import { initI18n } from './i18n';
 import ComponentFormSandbox from './components/ComponentFormSandbox';
 import { FacetedSearchPlayground } from './components/FacetedSearch';
 import { DataGridPlayground } from './components/DataGrid';
+import { Icons } from './components/Icons';
 
 import { LeaguesList } from './components/List';
 import { Dataviz } from './components/Dataviz';
 
 import actions from './actions';
+// this is just to test html-loader config
+import foo from './foo.html';
 
+console.log('html-loader test is ok, output is a simple string', foo);
 // thanks ui-scripts
 let basename = window.basename;
 if (basename === '/') {
@@ -46,6 +51,7 @@ const app = {
 		LeaguesList,
 		IconsProvider,
 		Dataviz,
+		Icons,
 	},
 	settingsURL: `${basename || ''}/settings.json`,
 	actionCreators: actions,

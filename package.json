@@ -1,13 +1,13 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.22.0",
+    "@changesets/cli": "^2.23.2",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
     "eslint": "^7.32.0",
-    "husky": "^7.0.4",
-    "i18next-scanner": "^3.1.0",
-    "lint-staged": "^12.5.0",
-    "prettier": "^2.6.2"
+    "husky": "^8.0.1",
+    "i18next-scanner": "^4.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
   },
   "scripts": {
     "postinstall": "node workspace-run.js build:lib",
@@ -33,19 +33,12 @@
     "prepare": "husky install"
   },
   "resolutions": {
-    "webpack": "^5.72.0",
-    "@storybook/react/webpack": "^5.72.0",
-    "@storybook/core-common/webpack": "^5.72.0",
-    "@storybook/core-server/webpack": "^5.72.0",
-    "@storybook/builder-webpack4/webpack": "^5.72.0",
-    "@storybook/manager-webpack4/webpack": "^5.72.0",
-    "@storybook/builder-webpack4/terser-webpack-plugin": "^5.3.3",
-    "@storybook/manager-webpack4/terser-webpack-plugin": "^5.3.3",
-    "@storybook/builder-webpack4/webpack-dev-middleware": "^5.3.3",
-    "@storybook/manager-webpack4/webpack-dev-middleware": "^5.3.3",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
-    "typescript": ">=4.6.3"
+    "**/webpack": "^5.73.0",
+    "**/terser-webpack-plugin": "^5.3.3",
+    "**/webpack-dev-middleware": "^5.3.3",
+    "**/@types/react": "^17.0.2",
+    "**/@types/react-dom": "^17.0.2",
+    "**/typescript": ">=4.6.3"
   },
   "repository": {
     "type": "git",
@@ -67,6 +60,7 @@
     ]
   },
   "dependencies": {
-    "typescript": ">=4.6.3"
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0"
   }
 }

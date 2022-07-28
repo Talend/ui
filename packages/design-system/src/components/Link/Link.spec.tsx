@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/prefer-screen-queries */
 import React from 'react';
 import { composeStories } from '@storybook/testing-react';
 
@@ -14,12 +15,12 @@ context('<Link />', () => {
 
 	it('should render icon before', () => {
 		cy.mount(<WithIcon />);
-		cy.getByTest('link.icon.before').should('have.attr', 'name', 'talend-info-circle');
+		cy.getByTest('link.icon.before').should('be.visible');
 	});
 
 	it('should render external', () => {
 		cy.mount(<External />);
-		cy.getByTest('link.icon.external').should('have.attr', 'name', 'talend-link');
+		cy.getByTest('link.icon.external').should('be.visible');
 	});
 
 	it('should render disabled', () => {

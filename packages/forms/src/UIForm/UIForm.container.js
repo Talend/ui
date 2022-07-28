@@ -4,6 +4,16 @@ import React from 'react';
 
 import UIFormTranslatedComponent from './UIForm.component';
 import { formPropTypes } from './utils/propTypes';
+import * as FormTemplate from './FormTemplate';
+import FieldTemplate, { TextModeTemplate } from './fields/FieldTemplate';
+import Message from './Message';
+import callTrigger from './trigger';
+import utils from './utils';
+import Widget from './Widget';
+
+import customFormats from './customFormats';
+import lang from './lang';
+import merge from './merge';
 
 /**
  * add error object on a formSchema if it doesn't exist
@@ -73,6 +83,26 @@ const setInitialStateAsLiveState = prevState => ({
 
 export default class UIForm extends React.Component {
 	static displayName = 'Container(UIForm)';
+
+	static FormTemplate = FormTemplate;
+
+	static TextModeTemplate = TextModeTemplate;
+
+	static FieldTemplate = FieldTemplate;
+
+	static Message = Message;
+
+	static callTrigger = callTrigger;
+
+	static utils = utils;
+
+	static Widget = Widget;
+
+	static customFormats = customFormats;
+
+	static lang = lang;
+
+	static merge = merge;
 
 	constructor(props) {
 		super(props);

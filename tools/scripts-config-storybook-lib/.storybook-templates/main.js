@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getAllModules } = require('@talend/module-to-cdn');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DuplicatesPlugin } = require('inspectpack/plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const cwd = process.cwd();
 
@@ -24,11 +25,12 @@ function getStoriesFolders() {
 }
 
 const excludedPlugins = [
-	CDNPlugin, // will be overrided without @talend modules
-	DuplicatesPlugin, // slow
+	CDNPlugin, // will be overridden without @talend modules
+	DuplicatesPlugin, BundleAnalyzerPlugin, // slow
 	MiniCssExtractPlugin, // blocker for optimization
 	HtmlWebpackPlugin, // use SB index.html, not app's
 ]
+
 
 const defaultMain = {
 	features: {

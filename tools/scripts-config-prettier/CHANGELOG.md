@@ -1,5 +1,17 @@
 # @talend/scripts-config-prettier
 
+## 11.0.0
+
+### Major Changes
+
+- double bump
+
+## 10.0.0
+
+### Major Changes
+
+- second bump
+
 ## 9.7.1
 
 ### Patch Changes

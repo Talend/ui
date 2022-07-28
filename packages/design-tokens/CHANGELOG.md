@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.7.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
 ## 2.6.0
 
 ### Minor Changes

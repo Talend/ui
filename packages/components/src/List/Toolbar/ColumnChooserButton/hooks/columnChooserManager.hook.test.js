@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { renderHook, act } from '@testing-library/react-hooks';
 import { useColumnChooserManager } from './columnChooserManager.hook';
 
 const initialColumns = [
@@ -20,39 +19,16 @@ const initialColumns = [
 
 const lockedLeftItems = 2;
 
-const TestHook = ({ hook }) => {
-	hook();
-	return null;
-};
-
-const testHook = hook => {
-	mount(<TestHook hook={hook} />);
-};
-
 describe('useColumnChooserManager', () => {
-	let columnChooserHook;
-
-	beforeEach(() =>
-		testHook(() => {
-			columnChooserHook = useColumnChooserManager(initialColumns, lockedLeftItems);
-		}),
-	);
-
 	it('should have no columns defined', () => {
-		// given nothing
-		let hookWithNoValue;
-		// when mounting component
-		testHook(() => {
-			hookWithNoValue = useColumnChooserManager();
-		});
-		expect(hookWithNoValue.columns).toEqual([]);
+		const { result } = renderHook(() => useColumnChooserManager());
+		expect(result.current.columns).toEqual([]);
 	});
 
 	it('should have some columns with the first two & icon column locked', () => {
-		// given before each
-		// when mounting before each
-		// then
-		expect(columnChooserHook.columns).toEqual([
+		const { result } = renderHook(() => useColumnChooserManager(initialColumns, lockedLeftItems));
+
+		expect(result.current.columns).toEqual([
 			{ key: 'id', label: 'Id', locked: true, order: 1, visible: true },
 			{ key: 'name', label: 'Name', locked: true, order: 2, visible: true },
 			{ key: 'author', label: 'Author', order: 3, visible: true, locked: false },
@@ -63,79 +39,96 @@ describe('useColumnChooserManager', () => {
 	});
 
 	it('should change the visible property of the third column', () => {
-		// given before each
+		const { result } = renderHook(() => useColumnChooserManager(initialColumns, lockedLeftItems));
+
 		// when
-		expect(columnChooserHook.columns[2].visible).toBe(true);
-		act(() => columnChooserHook.onChangeVisibility(false, 'Author'));
+		expect(result.current.columns[2].visible).toBe(true);
+		act(() => result.current.onChangeVisibility(false, 'Author'));
 		// then
-		expect(columnChooserHook.columns[2].visible).toBe(false);
+		expect(result.current.columns[2].visible).toBe(false);
 	});
 
 	it('should not change the visible property of the second column which is locked', () => {
-		// given before each
+		const { result } = renderHook(() => useColumnChooserManager(initialColumns, lockedLeftItems));
+
 		// when
-		expect(columnChooserHook.columns[1].visible).toBe(true);
-		act(() => columnChooserHook.onChangeVisibility(false, 'Name'));
+		expect(result.current.columns[1].visible).toBe(true);
+		act(() => result.current.onChangeVisibility(false, 'Name'));
 		// then
-		expect(columnChooserHook.columns[1].visible).toBe(true);
+		expect(result.current.columns[1].visible).toBe(true);
 	});
 
 	it('should change the visible value of every column except the locked ones', () => {
-		// given before each
+		const { result } = renderHook(() => useColumnChooserManager(initialColumns, lockedLeftItems));
+
 		// when
-		expect(columnChooserHook.columns[0].visible).toBe(true);
-		expect(columnChooserHook.columns[1].visible).toBe(true);
-		expect(columnChooserHook.columns[2].visible).toBe(true);
-		expect(columnChooserHook.columns[3].visible).toBe(true);
-		expect(columnChooserHook.columns[4].visible).toBe(true);
-		act(() => columnChooserHook.onSelectAll(false));
+		expect(result.current.columns[0].visible).toBe(true);
+		expect(result.current.columns[1].visible).toBe(true);
+		expect(result.current.columns[2].visible).toBe(true);
+		expect(result.current.columns[3].visible).toBe(true);
+		expect(result.current.columns[4].visible).toBe(true);
+		act(() => result.current.onSelectAll(false));
 		// then
-		expect(columnChooserHook.columns[0].visible).toBe(true);
-		expect(columnChooserHook.columns[1].visible).toBe(true);
-		expect(columnChooserHook.columns[2].visible).toBe(false);
-		expect(columnChooserHook.columns[3].visible).toBe(false);
-		expect(columnChooserHook.columns[4].visible).toBe(true);
+		expect(result.current.columns[0].visible).toBe(true);
+		expect(result.current.columns[1].visible).toBe(true);
+		expect(result.current.columns[2].visible).toBe(false);
+		expect(result.current.columns[3].visible).toBe(false);
+		expect(result.current.columns[4].visible).toBe(true);
 	});
 
 	it('should filter the list of columns', () => {
-		// given before each
+		const { result } = renderHook(() => useColumnChooserManager(initialColumns, lockedLeftItems));
 		// when
-		act(() => columnChooserHook.setTextFilter('d'));
+		act(() => result.current.setTextFilter('d'));
 
 		// then
-		expect(columnChooserHook.filteredColumns).toHaveLength(3);
-		expect(columnChooserHook.filteredColumns[0].label).toEqual('Id');
-		expect(columnChooserHook.filteredColumns[1].label).toEqual('Modified');
-		expect(columnChooserHook.filteredColumns[2].label).toEqual('Created');
+		expect(result.current.filteredColumns).toHaveLength(3);
+		expect(result.current.filteredColumns[0].label).toEqual('Id');
+		expect(result.current.filteredColumns[1].label).toEqual('Modified');
+		expect(result.current.filteredColumns[2].label).toEqual('Created');
 	});
 
 	it('should set selectAll value according the shown columns in the chooser', () => {
-		// given before each
+		const { result } = renderHook(() => useColumnChooserManager(initialColumns, lockedLeftItems));
+
 		// Uncheck every column
-		act(() => columnChooserHook.onSelectAll(false));
+		act(() => result.current.onSelectAll(false));
 		// Check "Modified" and "Created"
-		act(() => columnChooserHook.onChangeVisibility(true, 'Modified'));
-		act(() => columnChooserHook.onChangeVisibility(true, 'Created'));
+		act(() => result.current.onChangeVisibility(true, 'Modified'));
+		act(() => result.current.onChangeVisibility(true, 'Created'));
 		// Filter columns to only have previously checked ones
-		act(() => columnChooserHook.setTextFilter('d'));
+		act(() => result.current.setTextFilter('d'));
 
 		// then
-		expect(columnChooserHook.selectAll).toBe(true);
+		expect(result.current.selectAll).toBe(true);
+	});
+
+	it('should `selectAll` be undefined if only some columns are shown', () => {
+		const { result } = renderHook(() => useColumnChooserManager(initialColumns, lockedLeftItems));
+
+		// Uncheck every column
+		act(() => result.current.onSelectAll(false));
+		// Check "Modified" and "Created"
+		act(() => result.current.onChangeVisibility(true, 'Modified'));
+		act(() => result.current.onChangeVisibility(true, 'Created'));
+		// then
+		expect(result.current.selectAll).toBeUndefined();
 	});
 
 	it('should only toggle the filtered items visibilities when using select all', () => {
-		// given before each
+		const { result } = renderHook(() => useColumnChooserManager(initialColumns, lockedLeftItems));
+
 		// when
-		act(() => columnChooserHook.onSelectAll(true));
-		act(() => columnChooserHook.setTextFilter('d'));
-		act(() => columnChooserHook.onSelectAll(false));
+		act(() => result.current.onSelectAll(true));
+		act(() => result.current.setTextFilter('d'));
+		act(() => result.current.onSelectAll(false));
 
 		// then
-		expect(columnChooserHook.columns[0].visible).toBe(true);
-		expect(columnChooserHook.columns[1].visible).toBe(true);
-		expect(columnChooserHook.columns[2].visible).toBe(true);
-		expect(columnChooserHook.columns[3].visible).toBe(false);
-		expect(columnChooserHook.columns[4].visible).toBe(true);
-		expect(columnChooserHook.columns[5].visible).toBe(false);
+		expect(result.current.columns[0].visible).toBe(true);
+		expect(result.current.columns[1].visible).toBe(true);
+		expect(result.current.columns[2].visible).toBe(true);
+		expect(result.current.columns[3].visible).toBe(false);
+		expect(result.current.columns[4].visible).toBe(true);
+		expect(result.current.columns[5].visible).toBe(false);
 	});
 });

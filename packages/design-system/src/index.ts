@@ -1,16 +1,16 @@
 import Accordion from './components/Accordion';
 import {
+	Button,
+	ButtonDestructive,
 	ButtonPrimary,
 	ButtonSecondary,
-	ButtonDestructive,
 	ButtonTertiary,
-	Button,
 } from './components/Button';
 import {
 	ButtonAsLink,
+	ButtonDestructiveAsLink,
 	ButtonPrimaryAsLink,
 	ButtonSecondaryAsLink,
-	ButtonDestructiveAsLink,
 	ButtonTertiaryAsLink,
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
@@ -32,11 +32,11 @@ import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
 import {
 	InlineMessage,
+	InlineMessageBeta,
+	InlineMessageDestructive,
 	InlineMessageInformation,
 	InlineMessageSuccess,
 	InlineMessageWarning,
-	InlineMessageDestructive,
-	InlineMessageBeta,
 } from './components/InlineMessage';
 import Layout from './components/Layout';
 import Link from './components/Link';
@@ -46,31 +46,31 @@ import Menu from './components/WIP/Menu';
 import Modal from './components/Modal';
 import Popover from './components/WIP/Popover';
 import Skeleton, {
-	SkeletonParagraph,
-	SkeletonHeading,
 	SkeletonButton,
 	SkeletonButtonIcon,
+	SkeletonHeading,
 	SkeletonInput,
+	SkeletonParagraph,
 } from './components/Skeleton';
 import {
-	StatusCanceled,
-	StatusInProgress,
-	StatusWarning,
-	StatusSuccessful,
-	StatusFailed,
 	Status,
+	StatusCanceled,
+	StatusFailed,
+	StatusInProgress,
+	StatusSuccessful,
+	StatusWarning,
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import Tabs from './components/WIP/Tabs';
+import { Tabs, TabsKit } from './components/WIP/Tabs';
 import {
 	Tag,
 	TagBeta,
 	TagDefault,
+	TagDestructive,
 	TagInformation,
 	TagSuccess,
 	TagWarning,
-	TagDestructive,
 } from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
@@ -140,6 +140,7 @@ export {
 	Stepper,
 	Switch,
 	Tabs,
+	TabsKit,
 	Tag,
 	TagBeta,
 	TagDefault,

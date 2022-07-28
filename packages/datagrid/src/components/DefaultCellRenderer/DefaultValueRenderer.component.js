@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
-import has from 'lodash/has';
+import PropTypes from 'prop-types';
+
 import { Tooltip } from '@talend/design-system';
 import { FormatValue } from '@talend/react-components';
 
@@ -51,17 +52,8 @@ export default class DefaultValueRenderer extends React.Component {
 	}
 
 	render() {
-		let stringValue;
-
-		if (this.props.value === null || this.props.value === undefined) {
-			stringValue = '';
-		} else if (has(this.props.value, 'bytes')) {
-			stringValue = this.props.value.bytes;
-		} else {
-			stringValue = String(this.props.value);
-		}
-
-		const formattedContent = <FormatValue value={stringValue} />;
+		const stringValue = this.props.value?.bytes ?? this.props.value ?? '';
+		const formattedContent = <FormatValue value={String(stringValue)} />;
 
 		const content = (
 			// eslint-disable-next-line jsx-a11y/mouse-events-have-key-events

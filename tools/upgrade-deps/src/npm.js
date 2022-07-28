@@ -2,6 +2,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-await-in-loop, no-restricted-syntax */
 const fs = require('fs');
+const fsprom = require('fs/promises');
 const os = require('os');
 const util = require('util');
 const path = require('path');
@@ -11,6 +12,7 @@ const stripAnsi = require('strip-ansi');
 const colors = require('./colors');
 
 const execProm = util.promisify(exec);
+const CWD = process.cwd();
 
 /**
  * Singleton used to update
@@ -116,6 +118,11 @@ async function checkVersionsOf(pkgJson, opts) {
 	for (const dependency of allDependencies) {
 		const [depName, requestedVersion] = dependency;
 
+		if (requestedVersion.startsWith('npm:') || requestedVersion.startsWith('github:')) {
+			console.log('unable to parse version', depName, requestedVersion);
+			continue;
+		}
+
 		let semantic = requestedVersion[0];
 		if (isNumeric(semantic)) {
 			semantic = '';
@@ -160,6 +167,11 @@ async function checkPackageJson(filePath, opts) {
 	);
 
 	const pkgJson = createPackageJsonManager(filePath);
+	// npm ls command works only before any changes
+	let npmLs;
+	if (pkgJson.content.workspaces && fs.existsSync(`${path.dirname(filePath)}/package-lock.json`)) {
+		npmLs = await execProm('npm ls --json');
+	}
 	let changed = await checkVersionsOf(pkgJson, opts);
 
 	if (!opts.dry && changed) {
@@ -191,12 +203,74 @@ async function checkPackageJson(filePath, opts) {
 		} catch (error) {
 			console.error(error);
 		}
+	} else if (
+		pkgJson.content.workspaces &&
+		fs.existsSync(`${path.dirname(filePath)}/package-lock.json`)
+	) {
+		try {
+			if (npmLs.stdout) {
+				const objInfo = JSON.parse(stripAnsi(npmLs.stdout));
+				for (const pkgName of Object.keys(objInfo.dependencies)) {
+					const info = { name: pkgName, ...objInfo.dependencies[pkgName] };
+					if (info.resolved && info.resolved.startsWith('file:')) {
+						const resolved = info.resolved.replace('file:', '').replace(/\.\.\//g, '');
+						const result = await checkPackageJson(path.join(resolved, 'package.json'), opts);
+						changed = changed || result;
+					}
+				}
+			}
+		} catch (error) {
+			console.error(error);
+		}
 	}
 	return changed;
+}
+
+/** @returns function to filter */
+function getFilterInLockFile(opts, exact) {
+	if (!exact) {
+		return key =>
+			(opts.scope && key.includes(`${opts.scope}/`)) ||
+			(opts.package && key.endsWith(`${opts.package}"`)) ||
+			(opts.startsWith && key.includes(opts.startsWith));
+	}
+	return key =>
+		(opts.scope && key.startsWith(`${opts.scope}/`)) ||
+		(opts.package && key === opts.package) ||
+		(opts.startsWith && key.startsWith(opts.startsWith));
+}
+
+async function removeFromLockFile(opts) {
+	let content;
+	try {
+		content = await fsprom.readFile(`${CWD}/package-lock.json`);
+	} catch (e) {
+		console.error(e);
+		return;
+	}
+	const pkgLock = JSON.parse(content);
+	Object.keys(pkgLock.packages)
+		.filter(getFilterInLockFile(opts))
+		.forEach(key => {
+			delete pkgLock.packages[key];
+			console.log(`remove ${key} from package-lock.json`);
+		});
+	Object.keys(pkgLock.dependencies)
+		.filter(getFilterInLockFile(opts, true))
+		.forEach(key => {
+			delete pkgLock.dependencies[key];
+			console.log(`remove ${key} from package-lock.json`);
+		});
+	try {
+		await fsprom.writeFile(`${CWD}/package-lock.json`, JSON.stringify(pkgLock, null, 2));
+	} catch (e) {
+		console.error(e);
+	}
 }
 
 module.exports = {
 	checkPackageJson,
 	getUpdate,
 	createPackageJsonManager,
+	removeFromLockFile,
 };

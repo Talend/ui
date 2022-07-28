@@ -390,6 +390,8 @@ if (process.env.NODE_ENV !== 'production') {
 			renderers: PropTypes.shape({
 				Action: PropTypes.func,
 			}),
+			icon: PropTypes.string,
+			iconUrl: PropTypes.string,
 		}),
 		env: PropTypes.shape(Environment.propTypes),
 		callToAction: PropTypes.shape(CallToAction.propTypes),

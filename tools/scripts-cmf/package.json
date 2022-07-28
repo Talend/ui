@@ -1,13 +1,19 @@
 {
   "name": "@talend/scripts-cmf",
   "description": "@talend/react-cmf scripts to manage CMF settings",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "cmf-settings.js",
   "publishConfig": {
     "access": "public"
   },
   "bin": {
     "cmf-settings": "./cmf-settings.js"
+  },
+  "dependencies": {
+    "deepmerge": "^1.5.2",
+    "jsonpath": "^1.1.1",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4"
   },
   "repository": {
     "type": "git",

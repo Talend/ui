@@ -2,15 +2,15 @@ import React, { forwardRef, Ref } from 'react';
 
 import { TagProps as PrimitiveTagProps } from './primitive';
 import {
+	TagBeta,
 	TagDefault,
+	TagDestructive,
 	TagInformation,
 	TagSuccess,
 	TagWarning,
-	TagDestructive,
-	TagBeta,
 } from './variations';
 
-enum TagVariant {
+export enum TagVariant {
 	default = 'default',
 	information = 'information',
 	success = 'success',

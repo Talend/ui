@@ -1,5 +1,39 @@
 # @talend/react-components
 
+## 7.7.0
+
+### Minor Changes
+
+- 4248c2e69: feat(TDC-6290): add List visible columns persistance and columns chooser UX improvements
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+
+## 7.6.0
+
+### Minor Changes
+
+- eba1ac047: feat: add HeaderBar and AppSwitcher icon props
+
+## 7.5.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [617ec14f0]
+- Updated dependencies [a99154a7d]
+  - @talend/design-system@4.0.0
+
+## 7.4.0
+
+### Minor Changes
+
+- 0ff3ba098: Update Drawer's subtitle placement
+
 ## 7.3.1
 
 ### Patch Changes

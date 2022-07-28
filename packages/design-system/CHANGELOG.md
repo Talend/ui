@@ -1,5 +1,50 @@
 # @talend/design-system
 
+## 4.0.0
+
+### Major Changes
+
+- 617ec14f0: Tabs: Removed className possibilities. Composition mode is not the default anymore.
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [a99154a7d]
+  - @talend/design-tokens@2.7.0
+
+## 3.8.0
+
+### Minor Changes
+
+- 06bee44bf: feat(design-system): set switch font to prevent inheritance
+
+## 3.7.0
+
+### Minor Changes
+
+- b8c67b7c0: fix(APIC-827): reset inputCopy state when input value changes
+
+## 3.6.2
+
+### Patch Changes
+
+- 71a736784: fix(design-system): Allow additional bundles for IconsProvider
+
+## 3.6.1
+
+### Patch Changes
+
+- 2a8de8a55: fix: trigger a new release to get ride of hashed assets in the package.
+
+## 3.6.0
+
+### Minor Changes
+
+- 70f4b05c9: Buttons can handle the new iconset
+
 ## 3.5.1
 
 ### Patch Changes
