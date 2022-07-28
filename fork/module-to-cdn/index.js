@@ -27,7 +27,25 @@ function add(config) {
     }
 
     Object.keys(config).forEach(key => {
-        modules[key] = config[key];
+        if (key === '_allow-list') {
+            allowList(config[key]);
+        } else {
+            modules[key] = config[key];
+        }
+    });
+}
+
+function allowList(list) {
+    Object.keys(config).forEach(key => {
+        function allowed(element) {
+            if (typeof element === 'string') {
+                return key !== 'element';
+            }
+            return;
+        }
+        if (!list.every(allowed)) {
+            delete modules[key];
+        }
     });
 }
 
