@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 8.1.2
+
+### Patch Changes
+
+- 73c84e692: fix: move skipCommas options to schema object instead of component api
+
 ## 8.1.1
 
 ### Patch Changes
