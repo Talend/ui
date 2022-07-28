@@ -15,7 +15,7 @@ function CopyValue({ children }: { children: string }) {
 				})
 				.catch(err => {
 					// eslint-disable-next-line no-console
-					console.log('Something went wrong', err);
+					console.error('Something went wrong', err);
 				});
 		}
 	}, [children]);

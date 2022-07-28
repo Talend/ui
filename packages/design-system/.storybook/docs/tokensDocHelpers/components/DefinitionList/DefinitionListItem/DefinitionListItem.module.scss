@@ -6,6 +6,18 @@
   grid-template-columns: tokens.$coral-sizing-xxxl 1fr 1.2fr;
   column-gap: tokens.$coral-spacing-l;
 
+  &__noCard {
+    grid-template-columns: 1.2fr 1fr;
+
+    .listItem__description {
+      grid-column: 1 / span 1;
+    }
+
+    .listItem__values {
+      grid-column: 2 / span 1;
+    }
+  }
+
   &__demo {
     flex-grow: 0;
     flex-shrink: 0;

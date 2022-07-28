@@ -13,7 +13,8 @@
   &__border,
   &__shadow,
   &__transition,
-  &__radius {
+  &__radius,
+  &__spacing {
     background: tokens.$coral-color-accent-background;
   }
 
@@ -107,6 +108,17 @@
       height: 100%;
       background: tokens.$coral-color-assistive-background;
       border-radius: tokens.$coral-radius-m;
+    }
+  }
+
+  &__spacing {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+
+    &_element {
+      border: tokens.$coral-border-s-dashed tokens.$coral-color-accent-border;
+      background: tokens.$coral-color-neutral-background;
+      border-radius: tokens.$coral-radius-m;
+      width: 100%;
     }
   }
 }
