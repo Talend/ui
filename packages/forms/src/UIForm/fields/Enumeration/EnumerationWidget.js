@@ -439,7 +439,7 @@ class EnumerationForm extends React.Component {
 			}));
 			const formattedValue = EnumerationForm.parseStringValueToArray(
 				value.value,
-				this.props.skipCommas,
+				this.props.schema?.skipCommas || false,
 			);
 			this.props
 				.onTrigger(event, {
@@ -478,7 +478,10 @@ class EnumerationForm extends React.Component {
 
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				item.values = EnumerationForm.parseStringValueToArray(value.value, this.props.skipCommas);
+				item.values = EnumerationForm.parseStringValueToArray(
+					value.value,
+					this.props.schema?.skipCommas || false,
+				);
 			}
 			if (valueExist) {
 				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -711,7 +714,10 @@ class EnumerationForm extends React.Component {
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: EnumerationForm.parseStringValueToArray(value.value, this.props.skipCommas),
+						value: EnumerationForm.parseStringValueToArray(
+							value.value,
+							this.props.schema?.skipCommas || false,
+						),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
@@ -735,7 +741,10 @@ class EnumerationForm extends React.Component {
 				schema,
 				value: this.state.items.concat([
 					{
-						values: EnumerationForm.parseStringValueToArray(value.value, this.props.skipCommas),
+						values: EnumerationForm.parseStringValueToArray(
+							value.value,
+							this.props.schema?.skipCommas || false,
+						),
 					},
 				]),
 			};
@@ -1060,7 +1069,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
 		schema: PropTypes.object,
-		skipCommas: PropTypes.bool,
 		t: PropTypes.func,
 		value: PropTypes.arrayOf(
 			PropTypes.shape({
