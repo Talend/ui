@@ -2,4 +2,4 @@
 '@talend/react-forms': patch
 ---
 
-add the capability to skip commas with backslash char
+fix: move skipCommas options to schema object instead of component api
