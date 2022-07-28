@@ -26,8 +26,8 @@ jobs:
       - name: Upgrade dependencies
         run: |
           yarn --frozen-lockfile --ignore-scripts
-          yarn talend-scripts upgrade:deps
-          yarn talend-scripts upgrade:deps --scope=@talend --latest
+          yarn talend-scripts upgrade:deps --ignore-scripts
+          yarn talend-scripts upgrade:deps --scope=@talend --latest --ignore-scripts
           yarn talend-scripts upgrade:deps --latest --dry > dependencies-latest.txt
           git add dependencies-latest.txt
 
