@@ -1,4 +1,5 @@
 import React, { HTMLAttributes, ReactElement, ReactNode, cloneElement } from 'react';
+import classnames from 'classnames';
 import tokens from '@talend/design-tokens';
 import {
 	usePopoverState,
@@ -12,6 +13,7 @@ import { Placement } from '../../Tooltip/Tooltip';
 import { DataAttributes } from '../../../types';
 
 import style from './Popover.module.scss';
+import styles from '../FormPrimitives/InputWrapper/InputWrapper.module.scss';
 
 const ANIMATION_DURATION = 150; // Sync with @talend/design-token animations duration
 
@@ -22,20 +24,22 @@ export type PopoverPropsType = HTMLAttributes<HTMLDivElement> & {
 	children: PopoverChildren | PopoverChildren[];
 	position?: Placement;
 	zIndex?: string | number;
-	fixed?: boolean;
+	isFixed?: boolean;
+	hasPadding?: boolean;
 } & DataAttributes;
 
 function Popover({
 	disclosure,
 	position = 'auto',
 	zIndex = tokens.coralElevationLayerStandardFront,
-	fixed = false,
+	isFixed = false,
+	hasPadding = true,
 	...props
 }: PopoverPropsType) {
 	const popover = usePopoverState({
 		animated: ANIMATION_DURATION,
 		placement: position,
-		unstable_fixed: fixed,
+		unstable_fixed: isFixed,
 	});
 	const children = Array.isArray(props.children) ? props.children : [props.children];
 
@@ -44,7 +48,14 @@ function Popover({
 			<ReakitPopoverDisclosure {...popover}>
 				{disclosureProps => cloneElement(disclosure, disclosureProps)}
 			</ReakitPopoverDisclosure>
-			<ReakitPopover {...popover} {...props} style={{ zIndex }}>
+			<ReakitPopover
+				{...popover}
+				{...props}
+				style={{
+					zIndex,
+					padding: hasPadding ? tokens.coralSpacingM : 0,
+				}}
+			>
 				<div className={style.popover__animated}>
 					<ReakitPopoverArrow {...popover} className={style.popover__arrow} />
 					{children.map(child => {

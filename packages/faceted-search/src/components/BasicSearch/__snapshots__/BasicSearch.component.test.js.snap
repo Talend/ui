@@ -121,7 +121,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
       </button>
       <div id="a-42"
            hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
+           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4); padding: 0px;"
            role="dialog"
            tabindex="-1"
            data-dialog="true"
@@ -292,7 +292,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
       </button>
       <div id="a-42"
            hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
+           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4); padding: 0px;"
            role="dialog"
            tabindex="-1"
            data-dialog="true"
@@ -499,7 +499,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
       </button>
       <div id="a-42"
            hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
+           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4); padding: 0px;"
            role="dialog"
            tabindex="-1"
            data-dialog="true"
@@ -727,7 +727,7 @@ exports[`BasicSearch should render the default html output with some badges and 
       </button>
       <div id="a-42"
            hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
+           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4); padding: 0px;"
            role="dialog"
            tabindex="-1"
            data-dialog="true"
