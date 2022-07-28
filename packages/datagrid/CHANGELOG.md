@@ -1,5 +1,17 @@
 # @talend/react-datagrid
 
+## 12.1.0
+
+### Minor Changes
+
+- 240340d94: Add cell context to editor onSubmit callback
+
+### Patch Changes
+
+- Updated dependencies [b02eb9ef4]
+- Updated dependencies [5e0148797]
+  - @talend/react-components@7.8.0
+
 ## 12.0.1
 
 ### Patch Changes

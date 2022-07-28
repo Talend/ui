@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.3.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
 ## 5.2.0
 
 ### Minor Changes
