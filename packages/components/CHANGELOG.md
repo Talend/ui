@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 7.8.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
+### Patch Changes
+
+- 5e0148797: fix(Datalist/TDOPS-2632): update data list entry if name is not the same
+
 ## 7.7.0
 
 ### Minor Changes

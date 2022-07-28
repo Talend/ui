@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.5.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
+### Patch Changes
+
+- Updated dependencies [b02eb9ef4]
+- Updated dependencies [5e0148797]
+  - @talend/react-components@7.8.0
+
 ## 2.4.0
 
 ### Minor Changes
