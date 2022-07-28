@@ -15,7 +15,7 @@ const DefinitionListTypography = ({ tokens }: TokensProps) => {
 	};
 
 	return (
-		<StackVertical gap="L" padding={{ x: 0, y: 'L' }}>
+		<StackVertical gap="L">
 			{Object.values(filteredTokens).map((entries: Token[], index) => (
 				<StackVertical gap="M" key={index} as="dl">
 					<dt className={styles.title}>{Object.keys(filteredTokens)[index]}</dt>

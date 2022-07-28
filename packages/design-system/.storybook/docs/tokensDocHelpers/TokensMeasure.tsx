@@ -16,7 +16,7 @@ const TokensMeasure = ({ tokens }: TokensProps) => {
 	);
 
 	return (
-		<StackVertical gap="L" padding={{ x: 0, y: 'L' }} align="stretch" justify="stretch">
+		<StackVertical gap="L" align="stretch" justify="stretch">
 			<TabsKit>
 				<TabsKit.TabList>
 					<TabsKit.Tab size="L">Spacing</TabsKit.Tab>

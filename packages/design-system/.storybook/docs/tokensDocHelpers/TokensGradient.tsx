@@ -1,23 +1,11 @@
 import React from 'react';
 
 import { Token, TokenType } from '../../../src/tokens/types';
-import { PropsWithToken, TokensProps } from './TokensTypes';
-
-import TokensDefinitionList from './TokensDefinitionList';
-
-import S from './Tokens.scss';
+import { TokensProps } from './TokensTypes';
+import DefinitionListGradient from './components/DefinitionList/DefinitionListGradient';
 
 const TokensGradient = ({ tokens }: TokensProps) => (
-	<TokensDefinitionList tokens={tokens.filter((t: Token) => t.type === TokenType.GRADIENT)}>
-		{({ token }: PropsWithToken) => (
-			<div
-				className={S.gradient}
-				style={{
-					background: token.value,
-				}}
-			/>
-		)}
-	</TokensDefinitionList>
+	<DefinitionListGradient tokens={tokens.filter((t: Token) => t.type === TokenType.GRADIENT)} />
 );
 
 export default TokensGradient;

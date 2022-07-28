@@ -7,7 +7,7 @@ import DefinitionListItemOpacity from './DefinitionListItem/DefinitionListItemOp
 
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
-		<StackVertical gap="L" padding={{ x: 0, y: 'L' }}>
+		<StackVertical gap="L">
 			<StackVertical as="dl" gap="L">
 				{tokens.map((token: Token, index: number) => (
 					<DefinitionListItemOpacity key={`${token.name}-${index}`} token={token} />

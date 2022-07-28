@@ -7,7 +7,7 @@ import DefinitionListItemTransition from './DefinitionListItem/DefinitionListIte
 
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
-		<StackVertical gap="L" padding={{ x: 0, y: 'L' }}>
+		<StackVertical gap="L">
 			<StackVertical as="dl" gap="L">
 				{tokens.map((token: Token, index: number) => (
 					<DefinitionListItemTransition key={`${token.name}-${index}`} token={token} />
