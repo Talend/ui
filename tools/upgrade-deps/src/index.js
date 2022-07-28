@@ -52,6 +52,7 @@ function getOptions(program) {
 		next: program.next,
 		security: program.security,
 		message: program.message,
+		ignoreScripts: program['ignore-scripts'],
 	};
 	if (program['talend-major']) {
 		opts.scope = '@talend';
@@ -115,15 +116,16 @@ async function upgradeYarnProject(program) {
 	}
 
 	const changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
+	let yarnOpts = opts.ignoreScripts ? '--ignore-scripts' : '';
 	if (!opts.dry) {
 		if (!opts.scope && !opts.package && !opts.startsWith) {
-			commands.unshift('yarn upgrade --ignore-scripts');
+			commands.unshift(`yarn upgrade ${yarnOpts}`);
 			if (changed) {
-				commands.unshift('yarn install --ignore-scripts');
+				commands.unshift(`yarn install ${yarnOpts}`);
 			}
 		} else {
 			await yarn.removeFromLockFile(opts);
-			commands.unshift('yarn install --ignore-scripts');
+			commands.unshift(`yarn install ${yarnOpts}`);
 		}
 		spawnSync(yarn.getYarnDedupBin());
 		return executeAll(commands);
@@ -136,15 +138,16 @@ async function upgradeNpmProject(program) {
 	const commands = [];
 	const opts = getOptions(program);
 	let changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
+	let npmOpts = opts.ignoreScripts ? '--ignore-scripts' : '';
 	if (!opts.dry) {
 		if (!opts.scope && !opts.package && !opts.startsWith) {
-			commands.unshift('npm update --ignore-scripts');
+			commands.unshift(`npm update ${npmOpts}`);
 			if (changed) {
-				commands.unshift('npm install --ignore-scripts');
+				commands.unshift(`npm install ${npmOpts}`);
 			}
 		} else {
 			await npm.removeFromLockFile(opts);
-			commands.unshift('npm install --ignore-scripts');
+			commands.unshift(`npm install ${npmOpts}`);
 		}
 		commands.push('npm prune');
 		return executeAll(commands);

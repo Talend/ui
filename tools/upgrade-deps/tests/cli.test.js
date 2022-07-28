@@ -33,7 +33,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 
 	it('should by default only do safe upgrade', async () => {
 		const tmp = await getTmpDirectory('basic-default', fixturePath, lock);
-		const output = spawnSync('node', [bin, '-v'], { cwd: tmp });
+		const output = spawnSync('node', [bin, '-v', '--ignore-scripts'], { cwd: tmp });
 		const tmpLock = getLockContent(tmp, lock);
 		expect(output.error).toBeUndefined();
 		const err = output.stderr.toString();
