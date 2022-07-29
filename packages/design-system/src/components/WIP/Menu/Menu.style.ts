@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { transparentize } from 'polished';
 import DSTokens from '@talend/design-tokens';
 
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 import Linkable, { LinkableType } from '../../Linkable';
 
 export const Nav = styled.nav.attrs({

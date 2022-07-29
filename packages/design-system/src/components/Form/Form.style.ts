@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-
-import tokens from '../../tokens';
+import tokens from '@talend/design-tokens';
 
 export const Form = styled.form`
 	margin: 0 auto;
 	width: 100%;
-	font-family: ${tokens.fonts.sansSerif};
+	font: ${tokens.coralParagraphM};
 
 	fieldset {
 		padding: 0;
@@ -15,6 +14,6 @@ export const Form = styled.form`
 	.c-field,
 	.c-field-group,
 	.c-inline-message {
-		margin-bottom: ${tokens.space.s};
+		margin-bottom: ${tokens.coralSpacingS};
 	}
 `;

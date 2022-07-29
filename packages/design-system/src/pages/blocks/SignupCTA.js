@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import tokens from '@talend/design-tokens';
 
 import { ButtonSecondary } from '../../components/Button';
-
-import tokens from '../../tokens';
 
 const SSignupCTA = styled.div`
 	display: flex;
@@ -13,7 +12,7 @@ const SSignupCTA = styled.div`
 
 	.signup-cta__text {
 		margin-bottom: 2rem;
-		font-weight: ${tokens.fontWeights.semiBold};
+		font: ${tokens.coralHeadingS};
 		color: ${({ theme }) => theme.colors.textColor};
 	}
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 
 export const Label = styled.label<{ disabled: boolean }>`
 	font-size: ${tokens.fontSizes.small};

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import tokens from '../../tokens';
+import tokens from '@talend/design-tokens';
 
 export type LayoutProps = {
 	hasScreenHeight?: boolean;
@@ -13,7 +12,7 @@ export const Layout = styled.div<LayoutProps>`
 	min-height: 100vh;
 	flex-basis: 100%;
 	${({ hasScreenHeight }) => (hasScreenHeight ? 'height: 100vh;' : '')}
-	font-family: ${tokens.fonts.sansSerif};
+	font: ${tokens.coralParagraphM};
 	${({ hasScreenHeight, hasOverflow }) =>
 		!hasScreenHeight || !hasOverflow ? 'overflow: hidden;' : ''}
 `;
@@ -50,13 +49,13 @@ export const Main = styled.main.attrs({
 	flex-basis: 100%;
 	display: flex;
 	color: ${({ theme }) => theme.colors.textColor};
-	background: ${tokens.colors.deepBlue[100]};
+	background: ${tokens.coralColorAccentBackground};
 	overflow: hidden;
 	${({ hasScreenHeight, hasOverflow }) =>
 		!hasScreenHeight || !hasOverflow
 			? `
-		flex-grow: 1; 
-		min-height: 0; 
+		flex-grow: 1;
+		min-height: 0;
     `
 			: ''};
 `;

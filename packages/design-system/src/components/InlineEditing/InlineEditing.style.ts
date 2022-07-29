@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import DStokens from '@talend/design-tokens';
-import tokens from '../../tokens';
+import tokens from '@talend/design-tokens';
 
 export const InlineEditing = styled.div`
 	.c-inline-editing--editing {
@@ -30,7 +29,7 @@ export const InlineEditing = styled.div`
 
 	.c-inline-editing--static {
 		&.loading {
-			animation: ${tokens.animations.heartbeat};
+			animation: ${tokens.coralAnimationHeartbeat};
 		}
 	}
 
@@ -53,8 +52,8 @@ export const InlineEditing = styled.div`
 		.c-inline-editing__action {
 			flex: 0 0 auto;
 			opacity: 0;
-			margin-left: ${DStokens.coralSpacingXxs};
-			transition: opacity ${DStokens.coralTransitionFast};
+			margin-left: ${tokens.coralSpacingXxs};
+			transition: opacity ${tokens.coralTransitionFast};
 
 			> * {
 				position: relative;
