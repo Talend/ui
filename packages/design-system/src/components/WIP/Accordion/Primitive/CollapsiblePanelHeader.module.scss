@@ -1,0 +1,42 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.headerWrapper {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: tokens.$coral-spacing-xxs;
+
+	min-height: 4.4rem; // no token for this one : switch to sizing-l ?
+	padding: tokens.$coral-spacing-xs;
+	// border-radius: inherit;
+
+	& .headerTitle {
+		flex-grow: 1;
+	}
+
+	background-color: tokens.$coral-color-accent-background-weak;
+
+	&__clickable {
+		cursor: pointer;
+		&:hover {
+			background-color: tokens.$coral-color-accent-background-weak-hover;
+		}
+
+		&:active {
+			background-color: tokens.$coral-color-accent-background-weak-active;
+		}
+	}
+}
+
+.headerTitle {
+	font: tokens.$coral-heading-m;
+}
+
+.iconWrapper {
+	width: tokens.$coral-sizing-s;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+}
