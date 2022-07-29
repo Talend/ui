@@ -279,22 +279,6 @@ module.exports = ({ getUserConfig, mode }) => {
 						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
-						test: /\.html$/,
-						use: [
-							!process.env.NO_CACHE_LOADER && { loader: 'cache-loader' },
-							{
-								loader: 'html-loader',
-								options: {
-									minimize: {
-										removeComments: true,
-										collapseWhitespace: true,
-									},
-								},
-							},
-						].filter(Boolean),
-						exclude: indexTemplatePath,
-					},
-					{
 						test: /\.css$/,
 						use: getCommonStyleLoaders(false, mode),
 						exclude: /@talend/,
