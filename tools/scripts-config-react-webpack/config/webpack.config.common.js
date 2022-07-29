@@ -36,6 +36,15 @@ function getCommonStyleLoaders(enableModules, mode) {
 			importLoaders: 1,
 		};
 	}
+	// Don't handle images under root
+	//https://webpack.js.org/loaders/css-loader/#url
+	cssOptions.url = (url, resourcePath) => {
+		if (resourcePath.startsWith('/')) {
+			return false;
+		}
+
+		return true;
+	};
 	return [
 		{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
 		{ loader: 'css-loader', options: cssOptions },
