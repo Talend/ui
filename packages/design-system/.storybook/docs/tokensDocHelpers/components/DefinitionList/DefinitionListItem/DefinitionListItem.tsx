@@ -13,7 +13,7 @@ function DefinitionListItem({ token, children }: { token: Token; children?: Reac
 
 	return (
 		<div className={classnames(styles.listItem, { [styles.listItem__noCard]: !children })}>
-			{children && <dd className={styles.listItem__demo}>{children}</dd>}
+			{children && <div className={styles.listItem__demo}>{children}</div>}
 
 			<dl className={styles.listItem__description}>
 				<dt className={styles.tokenName}>
