@@ -2,4 +2,4 @@
 '@talend/scripts-config-jest': minor
 ---
 
-feat: addToIgnorePatterns to extend the config
+feat: add applyBabelTransformOn support to extend the jest config

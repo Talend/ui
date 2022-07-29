@@ -1,4 +1,4 @@
-function addToIgnorePatterns(config, pkgs) {
+function applyBabelTransformOn(config, pkgs) {
 	config.transformIgnorePatterns[0] = config.transformIgnorePatterns[0].replace(
 		')',
 		`|${pkgs.join('|')})`,
@@ -6,5 +6,5 @@ function addToIgnorePatterns(config, pkgs) {
 }
 
 module.exports = {
-	addToIgnorePatterns,
+	applyBabelTransformOn,
 };
