@@ -8,7 +8,7 @@ import DefinitionListItemRadius from './DefinitionListItem/DefinitionListItemRad
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
 		<StackVertical gap="L">
-			<StackVertical as="dl" gap="S">
+			<StackVertical gap="S">
 				{tokens.map((token: Token, index: number) => (
 					<DefinitionListItemRadius key={`${token.name}-${index}`} token={token} />
 				))}

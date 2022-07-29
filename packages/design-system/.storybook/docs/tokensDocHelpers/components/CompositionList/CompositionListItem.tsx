@@ -21,10 +21,10 @@ const CompositionListItem = forwardRef(
 	(props: CompositionListItemPropTypes, ref: Ref<HTMLDListElement>) => {
 		const { background, tokens, tokenCodex } = props;
 		return (
-			<StackVertical gap="M" as="dl" padding={{ top: 0, left: 0, right: 0, bottom: 'M' }} ref={ref}>
-				<dt className={styles.title}>
+			<StackVertical gap="M" padding={{ top: 0, left: 0, right: 0, bottom: 'M' }} ref={ref}>
+				<h2 className={styles.title}>
 					<TokenName token={tokenCodex[background]} />
-				</dt>
+				</h2>
 				<div className={styles.grid}>
 					{tokens.map((t, i) => {
 						const icon = tokenCodex[t.icon || ''];
@@ -44,9 +44,9 @@ const CompositionListItem = forwardRef(
 										borderColor={border}
 										iconColor={icon}
 									/>
-									<div>
+									<ul className={styles.list}>
 										{t.icon && (
-											<dd>
+											<li>
 												<StackHorizontal gap="XS" align="center">
 													<span
 														style={{
@@ -56,10 +56,10 @@ const CompositionListItem = forwardRef(
 													/>
 													<TokenName token={tokenCodex[t.icon]} />
 												</StackHorizontal>
-											</dd>
+											</li>
 										)}
 										{t.color && (
-											<dd>
+											<li>
 												<StackHorizontal gap="XS" align="center">
 													<span
 														style={{
@@ -69,10 +69,10 @@ const CompositionListItem = forwardRef(
 													/>
 													<TokenName token={tokenCodex[t.color]} />
 												</StackHorizontal>
-											</dd>
+											</li>
 										)}
 										{t.border && (
-											<dd>
+											<li>
 												<StackHorizontal gap="XS" align="center">
 													<span
 														style={{
@@ -82,9 +82,9 @@ const CompositionListItem = forwardRef(
 													/>
 													<TokenName token={tokenCodex[t.border]} />
 												</StackHorizontal>
-											</dd>
+											</li>
 										)}
-									</div>
+									</ul>
 								</StackHorizontal>
 								{isSemantic && (
 									<>
@@ -97,9 +97,9 @@ const CompositionListItem = forwardRef(
 												iconColor={tokenCodex[`${t.icon}Hover`]}
 												isHover
 											/>
-											<div>
+											<ul className={styles.list}>
 												{t.icon && (
-													<dd>
+													<li>
 														<StackHorizontal gap="XS" align="center">
 															<span
 																style={{
@@ -111,10 +111,10 @@ const CompositionListItem = forwardRef(
 															/>
 															<TokenName token={tokenCodex[`${t.icon}Hover`]} />
 														</StackHorizontal>
-													</dd>
+													</li>
 												)}
 												{t.color && (
-													<dd>
+													<li>
 														<StackHorizontal gap="XS" align="center">
 															<span
 																style={{
@@ -126,10 +126,10 @@ const CompositionListItem = forwardRef(
 															/>
 															<TokenName token={tokenCodex[`${t.color}Hover`]} />
 														</StackHorizontal>
-													</dd>
+													</li>
 												)}
 												{t.border && (
-													<dd>
+													<li>
 														<StackHorizontal gap="XS" align="center">
 															<span
 																style={{
@@ -141,9 +141,9 @@ const CompositionListItem = forwardRef(
 															/>
 															<TokenName token={tokenCodex[`${t.border}Hover`]} />
 														</StackHorizontal>
-													</dd>
+													</li>
 												)}
-											</div>
+											</ul>
 										</StackHorizontal>
 										<StackHorizontal gap="L" justify="start" align="center">
 											<CardComposition
@@ -154,9 +154,9 @@ const CompositionListItem = forwardRef(
 												iconColor={tokenCodex[`${t.icon}Active`]}
 												isActive
 											/>
-											<div>
+											<ul className={styles.list}>
 												{t.icon && (
-													<dd>
+													<li>
 														<StackHorizontal gap="XS" align="center">
 															<span
 																style={{
@@ -168,10 +168,10 @@ const CompositionListItem = forwardRef(
 															/>
 															<TokenName token={tokenCodex[`${t.icon}Active`]} />
 														</StackHorizontal>
-													</dd>
+													</li>
 												)}
 												{t.color && (
-													<dd>
+													<li>
 														<StackHorizontal gap="XS" align="center">
 															<span
 																style={{
@@ -183,10 +183,10 @@ const CompositionListItem = forwardRef(
 															/>
 															<TokenName token={tokenCodex[`${t.color}Active`]} />
 														</StackHorizontal>
-													</dd>
+													</li>
 												)}
 												{t.border && (
-													<dd>
+													<li>
 														<StackHorizontal gap="XS" align="center">
 															<span
 																style={{
@@ -198,9 +198,9 @@ const CompositionListItem = forwardRef(
 															/>
 															<TokenName token={tokenCodex[`${t.border}Active`]} />
 														</StackHorizontal>
-													</dd>
+													</li>
 												)}
-											</div>
+											</ul>
 										</StackHorizontal>
 									</>
 								)}

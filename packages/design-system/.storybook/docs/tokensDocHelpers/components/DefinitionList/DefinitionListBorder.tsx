@@ -8,7 +8,7 @@ import DefinitionListItemBorder from './DefinitionListItem/DefinitionListItemBor
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
 		<StackVertical gap="L">
-			<StackVertical as="dl" gap="S">
+			<StackVertical gap="S">
 				{tokens.map((token: Token, index: number) => (
 					<DefinitionListItemBorder key={`${token.name}-${index}`} token={token} />
 				))}

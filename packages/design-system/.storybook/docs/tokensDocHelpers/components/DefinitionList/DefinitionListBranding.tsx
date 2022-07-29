@@ -8,7 +8,7 @@ import DefinitionListItemBranding from './DefinitionListItem/DefinitionListItemB
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
 		<StackVertical gap="L">
-			<StackVertical as="dl" gap="L">
+			<StackVertical gap="L">
 				{tokens.map((token: Token, index: number) => (
 					<DefinitionListItemBranding key={`${token.name}-${index}`} token={token} />
 				))}

@@ -15,20 +15,20 @@ function DefinitionListItem({ token, children }: { token: Token; children?: Reac
 		<div className={classnames(styles.listItem, { [styles.listItem__noCard]: !children })}>
 			{children && <dd className={styles.listItem__demo}>{children}</dd>}
 
-			<div className={styles.listItem__description}>
+			<dl className={styles.listItem__description}>
 				<dt className={styles.tokenName}>
 					<TokenName token={token} />
 				</dt>
 				<dd className={styles.tokenDescription}>
 					<p>{token?.description}</p>
 				</dd>
-			</div>
+			</dl>
 
-			<dd className={styles.listItem__values}>
+			<div className={styles.listItem__values}>
 				<CopyValue>{getScssName(token?.name)}</CopyValue>
 				<code>{getCssName(token)}</code>
 				<code>{token?.value}</code>
-			</dd>
+			</div>
 		</div>
 	);
 }

@@ -8,7 +8,7 @@ import DefinitionListItemColor from './DefinitionListItem/DefinitionListItemColo
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
 		<StackVertical gap="L">
-			<StackVertical as="dl" gap="L">
+			<StackVertical gap="L">
 				{tokens.map((token: Token, index: number) => (
 					<DefinitionListItemColor key={`${token.name}-${index}`} token={token} />
 				))}

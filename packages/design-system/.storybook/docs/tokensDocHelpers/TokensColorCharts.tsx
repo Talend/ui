@@ -37,7 +37,6 @@ const TokensColorCharts = ({ tokens }: TokensProps) => {
 		<StackVertical gap="XL" align="stretch">
 			{[DefaultCharts, SemanticCharts, OrderedCharts].map(charts =>
 				charts.map((name, key) => {
-					if (name.length === 0) return <div />;
 					const chartColorWeak = colorTokens[`Charts${name}Weak`];
 					const chartColorStrong = colorTokens[`Charts${name}Strong`];
 					const chartColor = colorTokens[`Charts${name}`];

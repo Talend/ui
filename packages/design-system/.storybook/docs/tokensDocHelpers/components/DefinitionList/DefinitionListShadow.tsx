@@ -8,7 +8,7 @@ import DefinitionListItemShadow from './DefinitionListItem/DefinitionListItemSha
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
 		<StackVertical gap="L">
-			<StackVertical as="dl" gap="S">
+			<StackVertical gap="S">
 				{tokens.map((token: Token, index: number) => (
 					<DefinitionListItemShadow key={`${token.name}-${index}`} token={token} />
 				))}

@@ -7,7 +7,7 @@ import DefinitionListItemCharts from './DefinitionListItem/DefinitionListItemCha
 
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
-		<StackVertical as="dl" gap="S">
+		<StackVertical gap="S">
 			{tokens.map((token: Token, index: number) => (
 				<DefinitionListItemCharts key={`${token.name}-${index}`} token={token} />
 			))}

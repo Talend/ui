@@ -8,7 +8,7 @@ import DefinitionListItemSizing from './DefinitionListItem/DefinitionListItemSiz
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	return (
 		<StackVertical gap="L" align="stretch" justify="stretch">
-			<StackVertical as="dl" gap="S">
+			<StackVertical gap="S">
 				{tokens.map((token: Token, index: number) => (
 					<DefinitionListItemSizing key={`${token.name}-${index}`} token={token} />
 				))}
