@@ -21,7 +21,10 @@ because jest support of [ECMAPScriptModules](https://github.com/facebook/jest/bl
 Since d3 7.x library use ECMAPScriptModules in it's package.json as main entry point it break jest with this kind of errors:
 
 ```
-
+node_modules/d3-scale/src/index.js:1
+export {
+^
+ParseError: 'import' and 'export' may appear only with 'sourceType: module'
 ```
 
 You may encounter in your project the need to add other modules than just d3. To do so we provide to you the following API:
