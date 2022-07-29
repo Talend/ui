@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import classnames from 'classnames';
 import { useOverflow } from 'use-overflow';
 
@@ -7,34 +7,12 @@ import { getScssName } from '../../../TokenFormatter';
 import { SizedIcon, Tooltip } from '../../../../../../src';
 
 import styles from './BreakpointScale.module.scss';
+import useCopyValue from '../DefinitionListItem/useCopyValue';
 
 function BreakpointBlock({ token }: { token: Token }) {
-	const [isCopied, setIsCopied] = useState(false);
+	const { copy, isCopied } = useCopyValue();
 	const horizontalRef = useRef(null);
 	const { refXOverflowing, refXScrollBegin, refXScrollEnd } = useOverflow(horizontalRef);
-	console.log({ refXOverflowing, refXScrollBegin, refXScrollEnd });
-
-	const handleCopy = useCallback(() => {
-		if (navigator.clipboard) {
-			navigator.clipboard
-				.writeText(getScssName(token?.name))
-				.then(() => {
-					setIsCopied(true);
-				})
-				.catch(err => {
-					// eslint-disable-next-line no-console
-					console.log('Something went wrong', err);
-				});
-		}
-	}, [getScssName(token?.name)]);
-
-	useEffect(() => {
-		if (isCopied) {
-			setTimeout(() => {
-				setIsCopied(false);
-			}, 5000);
-		}
-	}, [isCopied]);
 
 	return (
 		<>
@@ -45,7 +23,7 @@ function BreakpointBlock({ token }: { token: Token }) {
 				}
 			>
 				<button
-					onClick={handleCopy}
+					onClick={() => copy(getScssName(token?.name))}
 					className={classnames(styles.breakpointScale_element, {
 						[styles.breakpointScale_element__overflowRight]: refXOverflowing && !refXScrollEnd,
 						[styles.breakpointScale_element__overflowLeft]: refXOverflowing && !refXScrollBegin,
