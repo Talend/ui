@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 
 export const Fieldset = styled.fieldset`
 	padding: ${tokens.space.none};

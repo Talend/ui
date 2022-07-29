@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Step from '../Step';
-import tokens from '../../../../tokens';
+import tokens from '../../../../deprecatedTokens';
 
 const StepValidated = styled(Step).attrs({
 	className: 'step--validated',

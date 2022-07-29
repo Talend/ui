@@ -5,7 +5,7 @@ import { Icon } from '../components/Icon';
 import Layout from '../components/Layout';
 import { StackVertical } from '../components/Stack';
 
-import tokens from '../tokens';
+import tokens from '../deprecatedTokens';
 
 import theme from './Card.scss';
 
