@@ -263,6 +263,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
 				fallback: {
 					url: false,
+					path: false,
 				},
 			},
 			module: {
@@ -277,22 +278,6 @@ module.exports = ({ getUserConfig, mode }) => {
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
 						use: getJSAndTSLoader(env, useTypescript),
-					},
-					{
-						test: /\.html$/,
-						use: [
-							!process.env.NO_CACHE_LOADER && { loader: 'cache-loader' },
-							{
-								loader: 'html-loader',
-								options: {
-									minimize: {
-										removeComments: true,
-										collapseWhitespace: true,
-									},
-								},
-							},
-						].filter(Boolean),
-						exclude: indexTemplatePath,
 					},
 					{
 						test: /\.css$/,

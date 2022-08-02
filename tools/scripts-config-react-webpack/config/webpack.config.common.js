@@ -39,15 +39,6 @@ function getCommonStyleLoaders(enableModules, mode) {
 	return [
 		{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
 		{ loader: 'css-loader', options: cssOptions },
-		{
-			loader: 'postcss-loader',
-			options: {
-				postcssOptions: {
-					plugins: ['autoprefixer'],
-				},
-				sourceMap,
-			},
-		},
 	];
 }
 
