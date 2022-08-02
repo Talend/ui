@@ -177,8 +177,6 @@ if (!window.Talend) {
 	window.Talend = {};
 }
 if (!window.Talend.getCDNUrl) {
-	// eslint-disable-next-line no-console
-	console.log('assets.api add window.Talend.getCDNUrl');
 	window.Talend.getCDNUrl = (info: Asset) => {
 		const CDN_URL = window.Talend.CDN_URL;
 		if (CDN_URL) {
