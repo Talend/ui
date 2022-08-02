@@ -21,8 +21,6 @@ import { LeaguesList } from './components/List';
 import { Dataviz } from './components/Dataviz';
 
 import actions from './actions';
-// this is just to test html-loader config
-import foo from './foo.html';
 
 console.log('html-loader test is ok, output is a simple string', foo);
 // thanks ui-scripts
