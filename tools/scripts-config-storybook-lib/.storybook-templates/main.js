@@ -95,7 +95,7 @@ const defaultMain = {
 					.filter(plugin => !excludedPlugins.some(excludedPlugin => plugin instanceof excludedPlugin)),
 				// use dynamic-cdn-webpack-plugin with default modules
 				new CDNPlugin({
-					exclude: Object.keys(getAllModules()).filter(name => name.startsWith('@talend/'))
+					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/))
 				}),
 				new MiniCssExtractPlugin({
 					filename: `[name].css`,
