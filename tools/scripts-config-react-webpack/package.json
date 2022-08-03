@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-react-webpack",
   "description": "Webpack configuration for @talend/scripts-core",
-  "version": "13.3.3",
+  "version": "13.3.4",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",

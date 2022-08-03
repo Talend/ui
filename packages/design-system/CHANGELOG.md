@@ -1,5 +1,23 @@
 # @talend/design-system
 
+## 4.0.1
+
+### Patch Changes
+
+- ae9897897: Using design tokens instead of style components plus fixes in the following components:
+
+  - ThemeProvider
+  - Switch
+  - Layout
+  - InlineEditing
+  - Divider
+  - ButtonIcon
+  - Accordion
+  - Icon
+
+- Updated dependencies [56e0a9629]
+  - @talend/assets-api@1.2.2
+
 ## 4.0.0
 
 ### Major Changes
