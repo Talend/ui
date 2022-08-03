@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 13.3.4
+
+### Patch Changes
+
+- eff548cdb: fix(scripts/sentry): fix inconsistent sentry release version
+
 ## 13.3.3
 
 ### Patch Changes

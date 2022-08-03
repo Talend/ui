@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.2
+
+### Patch Changes
+
+- 76c0caf5e: fix(cmf-router): wrong convertion from settings to routes for simple parent routes
+
 ## 5.2.1
 
 ### Patch Changes
