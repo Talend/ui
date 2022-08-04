@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Column, ICellEditorParams } from 'ag-grid-community';
+import { Column, ColumnApi, GridApi, ICellEditorParams } from 'ag-grid-community';
 
 import { ButtonIcon } from '@talend/design-system';
 
@@ -84,6 +84,12 @@ export interface AgGridCellValue {
 
 export type GridContext = {
 	selectedColumns: string[];
+};
+
+export type GridRef = {
+	api: GridApi;
+	columnApi: ColumnApi;
+	context: GridContext;
 };
 
 export type { ColDef } from 'ag-grid-community';
