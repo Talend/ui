@@ -1,5 +1,12 @@
 # @talend/react-datagrid
 
+## 12.1.1
+
+### Patch Changes
+
+- 091ad376d: Unnecessary css important rule used
+- 84f293882: Incorrect typings for getSemanticTypeSuggestions
+
 ## 12.1.0
 
 ### Minor Changes

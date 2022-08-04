@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.3
+
+### Patch Changes
+
+- 09dfb1a54: fix(cmf-router): no history listener unregister on new action
+
 ## 5.2.2
 
 ### Patch Changes
