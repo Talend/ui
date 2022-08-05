@@ -93,7 +93,7 @@ export function getRouter(history, basename) {
 	function CMFRouter({ action, location, ...props }) {
 		// sync from history to redux
 		React.useEffect(() => {
-			return history.listen((location, action, isFirstRendering = false) => {
+			return history.listen(({ location, action, isFirstRendering = false }) => {
 				props.dispatch(onLocationChanged(location, action, isFirstRendering));
 			});
 		}, []);
