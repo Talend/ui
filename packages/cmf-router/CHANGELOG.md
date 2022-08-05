@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.4
+
+### Patch Changes
+
+- 3996a544b: fix(cmf-router): history listener
+
 ## 5.2.3
 
 ### Patch Changes
