@@ -55,7 +55,11 @@ export default function HeaderCellRenderer({
 			<StackHorizontal gap="XXS" justify="spaceBetween" align="center">
 				<div className={theme['header-cell__first-line']}>
 					<StackHorizontal gap="XXS">
-						<div className={theme['header-cell__title']} title={displayName}>
+						<div
+							data-testId="column.header.title"
+							className={theme['header-cell__title']}
+							title={displayName}
+						>
 							{displayName}
 							{required && <abbr title={t('REQUIRED_FIELD', 'Required')}>*</abbr>}
 						</div>
@@ -69,6 +73,7 @@ export default function HeaderCellRenderer({
 					</StackHorizontal>
 					<div
 						className={theme['header-cell__type']}
+						data-testId="column.header.type"
 						title={draftType ?? `${semanticTypeLabel} (${typeLabel})`}
 					>
 						{semanticTypeLabel && !draftType ? (
