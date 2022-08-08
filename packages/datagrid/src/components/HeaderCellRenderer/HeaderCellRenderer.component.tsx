@@ -56,7 +56,7 @@ export default function HeaderCellRenderer({
 				<div className={theme['header-cell__first-line']}>
 					<StackHorizontal gap="XXS">
 						<div
-							data-testId="column.header.title"
+							data-testid="column.header.title"
 							className={theme['header-cell__title']}
 							title={displayName}
 						>
@@ -73,7 +73,7 @@ export default function HeaderCellRenderer({
 					</StackHorizontal>
 					<div
 						className={theme['header-cell__type']}
-						data-testId="column.header.type"
+						data-testid="column.header.type"
 						title={draftType ?? `${semanticTypeLabel} (${typeLabel})`}
 					>
 						{semanticTypeLabel && !draftType ? (
