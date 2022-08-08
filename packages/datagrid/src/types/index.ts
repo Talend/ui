@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Column, ICellEditorParams } from 'ag-grid-community';
+import { Column, ICellEditorParams, ColDef } from 'ag-grid-community';
 
 import { ButtonIcon } from '@talend/design-system';
 
@@ -41,7 +41,7 @@ export interface TypeInfo {
 }
 
 export type CellRendererParams = TypeInfo & {
-	avroRenderer: Record<string, any>;
+	avroRenderer?: Record<string, any>;
 	avro: TypeInfo;
 };
 
@@ -86,4 +86,14 @@ export type GridContext = {
 	selectedColumns: string[];
 };
 
-export type { ColDef } from 'ag-grid-community';
+export type TalendColDef<TData = any> =
+	// Index column
+	| (ColDef<TData> & {
+			pinned: 'left';
+	  })
+	// Data column, *Params properties have an any type by default
+	| (Omit<ColDef<TData>, 'headerComponentParams' | 'cellEditorParams' | 'cellRendererParams'> & {
+			headerComponentParams: HeaderComponentParams;
+			cellEditorParams?: CellEditorParams;
+			cellRendererParams: CellRendererParams;
+	  });

@@ -5,6 +5,7 @@ import DefaultCellRenderer from '../components/DefaultCellRenderer';
 import DefaultHeaderRenderer from '../components/HeaderCellRenderer';
 import DefaultPinHeaderRenderer from '../components/PinHeaderRenderer';
 import PlaygroundCellEditor from '../components/PlaygroundCellEditor';
+import { TalendColDef } from '../types';
 import {
 	COLUMN_MIN_WIDTH,
 	CELL_WIDTH,
@@ -16,7 +17,7 @@ function isSelectedColumn(params: CellClassParams | HeaderClassParams) {
 	return params.context.selectedColumns?.includes((params.colDef as ColDef).field);
 }
 
-export const DefaultPinnedColDef: Partial<ColDef> = {
+export const DefaultPinnedColDef: TalendColDef = {
 	/* Avoid to drag a no pinned column before the pinned columns */
 	lockPosition: true,
 	pinned: 'left',
@@ -25,7 +26,7 @@ export const DefaultPinnedColDef: Partial<ColDef> = {
 	headerComponent: DefaultPinHeaderRenderer,
 };
 
-export const DefaultColDef: Partial<ColDef> = {
+export const DefaultColDef: Omit<TalendColDef, 'headerComponentParams'> = {
 	minWidth: COLUMN_MIN_WIDTH,
 	width: CELL_WIDTH,
 	resizable: true,

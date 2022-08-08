@@ -14,14 +14,15 @@ import assetsApi from '@talend/assets-api';
 import { Icon } from '@talend/design-system';
 
 import { HEADER_HEIGHT, ROW_HEIGHT } from '../../constants';
-import { GridContext } from '../../types';
+import { GridContext, TalendColDef } from '../../types';
 import { getColumnSizes, handleKeyboard, saveColumnSizes } from './DataGrid.utils';
 import { GridColumnSelectionProps, useColumnSelection } from './useColumnSelection.hook';
 
 import theme from './DataGrid.module.scss';
 
-export type DataGridProps = GridOptions &
+export type DataGridProps = Omit<GridOptions, 'columnDefs'> &
 	GridColumnSelectionProps & {
+		columnDefs?: TalendColDef[];
 		/* Shows loader icons instead of grid */
 		loading?: boolean;
 		/* Controlled selection, handling only columns for now */
@@ -74,7 +75,7 @@ export default function DataGrid({
 	// Ag-grid doesn't provide click listener on header cell, create one
 	const enrichedColumnDefs = useMemo(() => {
 		const savedSizes = getColumnSizes(sizesLocalStorageKey);
-		return columnDefs?.map((colDef: ColDef) => ({
+		return columnDefs?.map((colDef: TalendColDef) => ({
 			...colDef,
 			width: savedSizes?.[colDef.field!] || colDef.width,
 			headerComponentParams: {

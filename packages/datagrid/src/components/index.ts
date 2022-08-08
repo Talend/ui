@@ -1,6 +1,6 @@
 import DataGrid from './DataGrid/DataGrid';
 import * as DefaultCellRenderer from './DefaultCellRenderer';
-import HeaderCellRenderer from './HeaderCellRenderer';
+import { default as HeaderCellRenderer, HeaderRendererProps } from './HeaderCellRenderer';
 import PinHeaderRenderer from './PinHeaderRenderer';
 import PlaygroundCellEditor from './PlaygroundCellEditor';
 
@@ -11,4 +11,5 @@ export {
 	PlaygroundCellEditor,
 	PinHeaderRenderer,
 };
+export type { HeaderRendererProps };
 export default DataGrid;

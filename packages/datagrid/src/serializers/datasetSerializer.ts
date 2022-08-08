@@ -1,13 +1,14 @@
-import { ColDef, GetRowIdFunc, ValueGetterFunc } from 'ag-grid-community';
+import { GetRowIdFunc, ValueGetterFunc } from 'ag-grid-community';
 
 import {
 	QUALITY_EMPTY_KEY,
 	QUALITY_INVALID_KEY,
 	QUALITY_KEY,
 	QUALITY_VALID_KEY,
+	DefaultColDef,
+	DefaultPinnedColDef,
 } from '../constants';
-import { DefaultColDef, DefaultPinnedColDef } from '../constants/column-definition.constants';
-import { AvroField, Schema } from '../types';
+import { AvroField, Schema, TalendColDef } from '../types';
 
 /**
  * check if the type is null
@@ -97,7 +98,7 @@ export const parseRow = (data: any, index: number) => ({
 /**
  * Return column definitions for a dataset sample
  */
-export function getColumnDefs(schema: Schema): ColDef[] {
+export function getColumnDefs(schema: Schema): TalendColDef[] {
 	return [
 		DefaultPinnedColDef,
 		...schema.fields.map(avroField => {
