@@ -121,6 +121,7 @@ function PlaygroundCellEditor(
 					<div ref={applyToRef} style={applyToStyles}>
 						<ApplyToValues
 							onCancel={onCancel}
+							editorType={hasSuggestions ? 'datalist' : 'textarea'}
 							onSubmit={(applyToValues: boolean) => {
 								stopEditing();
 								onSubmit(state, applyToValues, {

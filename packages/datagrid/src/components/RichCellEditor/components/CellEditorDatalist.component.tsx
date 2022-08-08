@@ -35,6 +35,7 @@ function CellDatalist(props: CellEditorDatalistPropTypes) {
 	return (
 		<div
 			className={theme['cell-editor-datalist']}
+			data-testid="cell.edition.datalist"
 			style={{ height: `${eGridCell.scrollHeight}px`, width: `${eGridCell.scrollWidth}px` }}
 		>
 			<Datalist
