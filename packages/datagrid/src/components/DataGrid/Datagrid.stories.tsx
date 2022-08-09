@@ -59,12 +59,13 @@ const defaultGridProps = {
 	onColumnSelectionChanged: action('onColumnSelectionChanged'),
 };
 
-const Template: ComponentStory<typeof DataGrid> = args => <DataGrid {...args} />;
+const Template: ComponentStory<typeof DataGrid> = args => (
+	<DataGrid {...defaultGridProps} {...args} />
+);
 
 export const Default = () => <DataGrid {...defaultGridProps} />;
 
 export const Selection = Template.bind({});
-Selection.args = defaultGridProps;
 Selection.play = async ({ canvasElement }) => {
 	const canvas = within(canvasElement);
 	await userEvent.click(
@@ -86,6 +87,13 @@ Selection.play = async ({ canvasElement }) => {
 };
 Selection.parameters = {
 	chromatic: { disableSnapshot: true },
+};
+
+export const ControlledSelection = Template.bind({});
+ControlledSelection.args = {
+	selection: {
+		columnIds: ['field10'],
+	},
 };
 
 export const CustomRenderer = () => (
