@@ -1,5 +1,19 @@
 # @talend/react-datagrid
 
+## 12.2.1
+
+### Patch Changes
+
+- 62750d002: Cell value is persisted when canceling edition
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+  - @talend/icons@6.48.0
+
 ## 12.2.0
 
 ### Minor Changes
