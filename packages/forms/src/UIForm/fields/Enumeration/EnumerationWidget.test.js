@@ -258,7 +258,7 @@ describe('EnumerationWidget', () => {
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
 			schema: {
-				skipCommas: true,
+				disableSplit: true,
 			},
 			trigger: {
 				action: 'ENUMERATION_ADD_ACTION',
