@@ -1,5 +1,15 @@
 # @talend/react-datagrid
 
+## 12.2.0
+
+### Minor Changes
+
+- 9d5f37b8e: Add data-testid on column header
+
+### Patch Changes
+
+- a84469e6a: Wait for grid to be initialized before handling controlled selection
+
 ## 12.1.1
 
 ### Patch Changes
