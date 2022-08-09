@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 11.4.0
+
+### Minor Changes
+
+- abf0bdc89: feat: add applyBabelTransformOn support to extend the jest config
+
 ## 11.3.0
 
 ### Minor Changes
