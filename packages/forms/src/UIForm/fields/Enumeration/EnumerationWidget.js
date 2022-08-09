@@ -49,11 +49,9 @@ class EnumerationForm extends React.Component {
 		return ITEMS_DEFAULT_HEIGHT;
 	}
 
-	static parseStringValueToArray(values, skipCommas) {
-		if (skipCommas) {
-			return values
-				.match(/(\\.|[^,])+/g)
-				.map(value => value.trim().replace(/\\,/g, ',').replace(/\\./g, '\\'));
+	static parseStringValueToArray(values, disableSplit) {
+		if (disableSplit) {
+			return [values];
 		}
 		return values.split(',').map(value => value.trim());
 	}
@@ -439,7 +437,7 @@ class EnumerationForm extends React.Component {
 			}));
 			const formattedValue = EnumerationForm.parseStringValueToArray(
 				value.value,
-				this.props.schema?.skipCommas || false,
+				this.props.schema?.disableSplit || false,
 			);
 			this.props
 				.onTrigger(event, {
@@ -480,7 +478,7 @@ class EnumerationForm extends React.Component {
 			if (value.value && !valueExist) {
 				item.values = EnumerationForm.parseStringValueToArray(
 					value.value,
-					this.props.schema?.skipCommas || false,
+					this.props.schema?.disableSplit || false,
 				);
 			}
 			if (valueExist) {
@@ -716,7 +714,7 @@ class EnumerationForm extends React.Component {
 					trigger: {
 						value: EnumerationForm.parseStringValueToArray(
 							value.value,
-							this.props.schema?.skipCommas || false,
+							this.props.schema?.disableSplit || false,
 						),
 						action: ENUMERATION_ADD_ACTION,
 					},
@@ -743,7 +741,7 @@ class EnumerationForm extends React.Component {
 					{
 						values: EnumerationForm.parseStringValueToArray(
 							value.value,
-							this.props.schema?.skipCommas || false,
+							this.props.schema?.disableSplit || false,
 						),
 					},
 				]),
@@ -1069,6 +1067,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
 		schema: PropTypes.object,
+		disableSplit: PropTypes.bool,
 		t: PropTypes.func,
 		value: PropTypes.arrayOf(
 			PropTypes.shape({
