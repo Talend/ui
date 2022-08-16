@@ -262,6 +262,10 @@ class EnumerationForm extends React.Component {
 		}
 	}
 
+	getDisableSplit() {
+		return this.props.schema?.disableSplit || false;
+	}
+
 	onBlur(event) {
 		const { schema, onFinish } = this.props;
 		onFinish(event, { schema });
@@ -437,7 +441,7 @@ class EnumerationForm extends React.Component {
 			}));
 			const formattedValue = EnumerationForm.parseStringValueToArray(
 				value.value,
-				this.props.schema?.disableSplit || false,
+				this.getDisableSplit(),
 			);
 			this.props
 				.onTrigger(event, {
@@ -476,10 +480,7 @@ class EnumerationForm extends React.Component {
 
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				item.values = EnumerationForm.parseStringValueToArray(
-					value.value,
-					this.props.schema?.disableSplit || false,
-				);
+				item.values = EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit());
 			}
 			if (valueExist) {
 				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -712,10 +713,7 @@ class EnumerationForm extends React.Component {
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: EnumerationForm.parseStringValueToArray(
-							value.value,
-							this.props.schema?.disableSplit || false,
-						),
+						value: EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit()),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
@@ -739,10 +737,7 @@ class EnumerationForm extends React.Component {
 				schema,
 				value: this.state.items.concat([
 					{
-						values: EnumerationForm.parseStringValueToArray(
-							value.value,
-							this.props.schema?.disableSplit || false,
-						),
+						values: EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit()),
 					},
 				]),
 			};
@@ -1067,7 +1062,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
 		schema: PropTypes.object,
-		disableSplit: PropTypes.bool,
 		t: PropTypes.func,
 		value: PropTypes.arrayOf(
 			PropTypes.shape({
