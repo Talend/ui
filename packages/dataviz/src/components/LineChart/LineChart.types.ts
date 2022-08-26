@@ -3,7 +3,7 @@ export type LineChartEntry = {
 	[key: string]: string | number | Date;
 };
 
-export type LineStatus = 'active' | 'inactive' | 'highlighted';
+export type LineStatus = 'active' | 'inactive' | 'highlighted' | 'light';
 
 export type LineOptions = {
 	key: string;
