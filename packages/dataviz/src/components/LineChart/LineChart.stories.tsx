@@ -1,5 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
+import tokens from '@talend/design-tokens';
 import LineChart, { LineChartProps } from './LineChart.component';
 
 export default {
@@ -62,7 +63,7 @@ export const FullyCustomisedLineChart = {
 		lines: [
 			{
 				key: 'trustScore',
-				color: '#1667DF',
+				color: tokens.coralColorChartsDefault,
 				tooltipLabel: 'Trust Score™',
 				legendLabel: 'Talend Trust Score™',
 				axis: 'right',
@@ -70,7 +71,7 @@ export const FullyCustomisedLineChart = {
 			},
 			{
 				key: 'validity',
-				color: '#D2AD15',
+				color: tokens.coralColorChartsColor00Strong,
 				tooltipLabel: 'Validity',
 				legendLabel: 'Validity',
 				axis: 'left',
@@ -78,7 +79,7 @@ export const FullyCustomisedLineChart = {
 			},
 			{
 				key: 'threshold',
-				color: '#D2AD15',
+				color: tokens.coralColorChartsColor00Strong,
 				tooltipLabel: 'Axis threshold',
 				legendLabel: 'Axis threshold',
 				axis: 'left',
@@ -198,7 +199,7 @@ export const SimpleLineChart = {
 		lines: [
 			{
 				key: 'trustScore',
-				color: '#1667DF',
+				color: tokens.coralColorChartsDefault,
 			},
 		],
 		data: [
@@ -236,11 +237,11 @@ export const MultiCurveLineChart = {
 		lines: [
 			{
 				key: 'trustScore',
-				color: '#1667DF',
+				color: tokens.coralColorChartsDefault,
 			},
 			{
 				key: 'globalScore',
-				color: '#4DD832',
+				color: tokens.coralColorChartsColor04,
 			},
 		],
 		data: [
@@ -287,7 +288,7 @@ export const CustomXAxisDomainLineChart = {
 		lines: [
 			{
 				key: 'trustScore',
-				color: '#1667DF',
+				color: tokens.coralColorChartsDefault,
 			},
 		],
 		data: [
