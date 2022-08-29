@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 12.2.2
+
+### Patch Changes
+
+- 93ec9fcd3: Improve ColDef typings
+
 ## 12.2.1
 
 ### Patch Changes
