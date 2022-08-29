@@ -9,6 +9,7 @@ import HeaderBar from '../HeaderBar';
 import Layout from '../Layout';
 import SidePanel from '../SidePanel';
 import { ActionButton } from '../Actions';
+import { TagWarning } from '@talend/design-system';
 
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
@@ -639,8 +640,11 @@ export const WithSubtitleComponent = () => (
 				<Drawer.Title
 					title="Im drawer 1"
 					subtitle="Drawer subtitle"
-					subtitleTagLabel="Preview"
-					subtitleTagTooltip="This is a preview"
+					subtitleTag={{
+						label: 'Preview',
+						tooltip: 'This is a preview',
+						component: TagWarning,
+					}}
 					renderTitleActions={titleActions}
 					onCancelAction={onCancelAction}
 					editable
