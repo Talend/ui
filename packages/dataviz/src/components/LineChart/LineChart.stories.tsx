@@ -7,7 +7,6 @@ import {
 	StackHorizontal,
 	StackItem,
 	Tooltip,
-	StackVertical,
 } from '@talend/design-system';
 import LineChart, { LineChartProps } from './LineChart.component';
 
