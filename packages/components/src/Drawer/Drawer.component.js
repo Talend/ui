@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 import noop from 'lodash/noop';
 import { Transition } from 'react-transition-group';
 import classnames from 'classnames';
-import { StackHorizontal, Tag, TagDefault, Tooltip } from '@talend/design-system';
+import { StackHorizontal, Tag, Tooltip } from '@talend/design-system';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
@@ -24,6 +24,15 @@ const STYLES = {
 	exiting: { transform: 'translateX(100%)' },
 	exited: { transform: 'translateX(100%)' },
 };
+
+export const SubtitleTagVariants = [
+	'default',
+	'information',
+	'success',
+	'warning',
+	'destructive',
+	'beta',
+];
 
 function DrawerAnimation(props) {
 	const { children, withTransition, ...rest } = props;
@@ -102,15 +111,11 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 	);
 }
 
-function renderSubtitleTag(
-	subtitleTagLabel,
-	subtitleTagTooltip,
-	subtitleTagComponent = TagDefault,
-) {
+function renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip, subtitleTagVariant = 'default') {
 	if (subtitleTagTooltip) {
 		return (
 			<Tooltip placement="top" title={subtitleTagTooltip}>
-				{React.createElement(subtitleTagComponent, null, subtitleTagLabel)}
+				<Tag variant={subtitleTagVariant}>{subtitleTagLabel}</Tag>
 			</Tooltip>
 		);
 	}
@@ -130,7 +135,7 @@ export function SubtitleComponent({ subtitle, ...rest }) {
 				<h2 title={subtitle}>{subtitle}</h2>
 				{subtitleTag &&
 					subtitleTag.label &&
-					renderSubtitleTag(subtitleTag.label, subtitleTag.tooltip, subtitleTag.component)}
+					renderSubtitleTag(subtitleTag.label, subtitleTag.tooltip, subtitleTag.variant)}
 			</StackHorizontal>
 		</div>
 	);
@@ -141,7 +146,7 @@ SubtitleComponent.propTypes = {
 	subtitleTag: PropTypes.shape({
 		label: PropTypes.string,
 		tooltip: PropTypes.string,
-		component: PropTypes.element,
+		variant: PropTypes.oneOf(SubtitleTagVariants),
 	}),
 };
 
@@ -233,7 +238,7 @@ DrawerTitle.propTypes = {
 	subtitleTag: PropTypes.shape({
 		label: PropTypes.string,
 		tooltip: PropTypes.string,
-		component: PropTypes.element,
+		variant: PropTypes.oneOf(SubtitleTagVariants),
 	}),
 	onEdit: PropTypes.func,
 	onSubmit: PropTypes.func,

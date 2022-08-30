@@ -2,14 +2,13 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Nav, NavItem, Tab } from '@talend/react-bootstrap';
 
-import Drawer from './Drawer.component';
+import Drawer, { SubtitleTagVariants } from './Drawer.component';
 
 import ActionBar from '../ActionBar';
 import HeaderBar from '../HeaderBar';
 import Layout from '../Layout';
 import SidePanel from '../SidePanel';
 import { ActionButton } from '../Actions';
-import { TagWarning } from '@talend/design-system';
 
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
@@ -631,30 +630,40 @@ export const _Interactive = () => {
 	);
 };
 
-export const WithSubtitleComponent = () => (
-	<Layout
-		header={header}
-		mode="OneColumn"
-		drawers={[
-			<Drawer key="drawer-1">
-				<Drawer.Title
-					title="Im drawer 1"
-					subtitle="Drawer subtitle"
-					subtitleTag={{
-						label: 'Preview',
-						tooltip: 'This is a preview',
-						component: TagWarning,
-					}}
-					renderTitleActions={titleActions}
-					onCancelAction={onCancelAction}
-					editable
-				/>
-				<h1>Hello drawer 1</h1>
-				<p>You should not being able to read this because I'm first</p>
-			</Drawer>,
-		]}
-	>
-		<span>zone with drawer</span>
-		{twentyRows}
-	</Layout>
-);
+export const WithSubtitleComponent = () => {
+	const [variant, setVariant] = React.useState('default');
+
+	return (
+		<Layout
+			header={header}
+			mode="OneColumn"
+			drawers={[
+				<Drawer key="drawer-1">
+					<Drawer.Title
+						title="Im drawer 1"
+						subtitle="Drawer subtitle"
+						subtitleTag={{
+							label: 'Preview',
+							tooltip: 'This is a preview',
+							variant,
+						}}
+						renderTitleActions={titleActions}
+						onCancelAction={onCancelAction}
+						editable
+					/>
+					<h1>Hello drawer 1</h1>
+					<p>You should not being able to read this because I'm first</p>
+				</Drawer>,
+			]}
+		>
+			<span>Select subtitle tag variants</span>
+			<select onChange={ev => setVariant(ev.target.value)} style={{ width: '250px' }}>
+				{SubtitleTagVariants.map(variant => (
+					<option key={variant} value={variant}>
+						{variant}
+					</option>
+				))}
+			</select>
+		</Layout>
+	);
+};
