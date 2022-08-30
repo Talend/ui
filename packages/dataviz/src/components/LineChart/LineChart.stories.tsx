@@ -1,6 +1,14 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import tokens from '@talend/design-tokens';
+import {
+	TagInformation,
+	SizedIcon,
+	StackHorizontal,
+	StackItem,
+	Tooltip,
+	StackVertical,
+} from '@talend/design-system';
 import LineChart, { LineChartProps } from './LineChart.component';
 
 export default {
@@ -72,8 +80,18 @@ export const FullyCustomisedLineChart = {
 			{
 				key: 'validity',
 				color: tokens.coralColorChartsColor00Strong,
+				legendLabel: (
+					<StackHorizontal gap="XS" align="center">
+						<StackItem>Validity</StackItem>
+						<Tooltip title="Validity refer to your sample quality">
+							<StackHorizontal gap={0}>
+								<SizedIcon name="information-stroke" size="S" />
+							</StackHorizontal>
+						</Tooltip>
+						<TagInformation>Well</TagInformation>
+					</StackHorizontal>
+				),
 				tooltipLabel: 'Validity',
-				legendLabel: 'Validity',
 				axis: 'left',
 				status: 'highlighted',
 			},
