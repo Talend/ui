@@ -49,18 +49,23 @@ function LineChart({
 
 	const getLineStyleFromStatus = (status: LineStatus) => {
 		const styleByStatus = {
+			light: {
+				strokeWidth: 1,
+				strokeOpacity: 1,
+				activeDot: { r: 3, strokeWidth: 0 },
+			},
 			active: {
-				strokeWidth: 3,
+				strokeWidth: 2,
 				strokeOpacity: 1,
 				activeDot: { r: 5, strokeWidth: 0 },
 			},
 			inactive: {
-				strokeWidth: 2.5,
+				strokeWidth: 2,
 				strokeOpacity: 0.25,
 				activeDot: { r: 0, strokeWidth: 0 },
 			},
 			highlighted: {
-				strokeWidth: 4,
+				strokeWidth: 3,
 				strokeOpacity: 1,
 				activeDot: { r: 6, strokeWidth: 0 },
 			},
