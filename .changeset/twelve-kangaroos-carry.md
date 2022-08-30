@@ -12,6 +12,6 @@ Props `subtitleTag` has following shape :
 {
     label: PropTypes.string,
     tooltip: PropTypes.string,
-    component: PropTypes.element,
+    variant: PropTypes.oneOf(SubtitleTagVariants),
 }
 ```
