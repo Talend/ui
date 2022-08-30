@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.6.0
+
+### Minor Changes
+
+- 644bc1718: feat(dataviz): alter lines in line chart
+
 ## 2.5.0
 
 ### Minor Changes
