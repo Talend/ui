@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.7.0
+
+### Minor Changes
+
+- 6e850c486: feat(dataviz): allow to build custom legend for linechart
+
 ## 2.6.0
 
 ### Minor Changes
