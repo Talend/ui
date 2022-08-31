@@ -9,7 +9,7 @@ export type LineOptions = {
 	key: string;
 	color: string;
 	tooltipLabel?: string;
-	legendLabel?: string;
+	legendLabel?: string | React.ReactElement;
 	axis?: 'left' | 'right';
 	dashed?: boolean;
 	tooltipFormatter?: (value: any) => string;
