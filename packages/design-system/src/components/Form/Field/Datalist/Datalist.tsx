@@ -1,30 +1,75 @@
-import React from 'react';
+import React, { forwardRef, Key, Ref } from 'react';
 import { unstable_useId as useId } from 'reakit';
-import Field from '../Field';
-import { InputProps } from '../Input/Input';
+import {
+	FieldPrimitive,
+	FieldPropsPrimitive,
+	InputPrimitive,
+	InputPrimitiveProps,
+} from '../../../WIP/FormPrimitives';
 
-export type DatalistProps = InputProps & {
+export type DatalistProps = {
 	values: string[];
-};
+	value?: string;
+	defaultValue?: string;
+	disabled?: boolean;
+	readOnly?: boolean;
+} & FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'type' | 'className' | 'style'>;
 
-const Datalist = React.forwardRef(
-	({ id, values = [], ...rest }: DatalistProps, ref: React.Ref<HTMLInputElement> | undefined) => {
+const Datalist = forwardRef(
+	(
+		{
+			id,
+			values = [],
+			value,
+			defaultValue,
+			disabled,
+			readOnly,
+			label,
+			hasError = false,
+			link,
+			description,
+			name,
+			hideLabel,
+			...rest
+		}: DatalistProps,
+		ref: Ref<HTMLInputElement> | undefined,
+	) => {
 		const { id: reakitId } = useId();
 		const datalistId = id || `datalist--${reakitId}`;
 		const datalistListId = `datalist__list--${reakitId}`;
 
 		return (
-			<div className="c-field c-field--datalist">
-				<Field {...rest} id={datalistId} list={datalistListId} ref={ref} />
+			<>
+				<FieldPrimitive
+					id={datalistId}
+					label={label}
+					hasError={hasError || false}
+					link={link}
+					description={description}
+					name={name}
+					hideLabel={hideLabel}
+				>
+					<InputPrimitive
+						{...rest}
+						list={datalistListId}
+						disabled={!!disabled}
+						readOnly={!!readOnly}
+						value={value}
+						defaultValue={defaultValue}
+						ref={ref}
+					/>
+				</FieldPrimitive>
 				<datalist id={datalistListId}>
-					{values.map((value: string, index: React.Key) => (
-						// eslint-disable-next-line jsx-a11y/control-has-associated-label
-						<option key={index} value={value} />
+					{values.map((currValue: string, index: Key) => (
+						<option key={index} value={currValue} />
 					))}
 				</datalist>
-			</div>
+			</>
 		);
 	},
 );
+
+Datalist.displayName = 'Datalist';
 
 export default Datalist;

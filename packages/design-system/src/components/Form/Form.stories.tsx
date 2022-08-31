@@ -61,9 +61,16 @@ export const Default = () => (
 			</Form.Select>
 			<Form.Password label="Password" />
 			<Form.Password label="Repeat password" />
-			<Form.Checkbox checked required>
-				I have read and accept the <Link href="#">terms of use</Link>
-			</Form.Checkbox>
+			<Form.Checkbox
+				checked
+				required
+				id="test-checkbox"
+				label={
+					<>
+						I have read and accept the <Link href="#">terms of use</Link>
+					</>
+				}
+			/>
 			<Form.Buttons>
 				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
 			</Form.Buttons>
@@ -120,9 +127,15 @@ export const Disabled = () => (
 			</Form.Select>
 			<Form.Password label="Password" />
 			<Form.Password label="Repeat password" />
-			<Form.Checkbox checked required>
-				I have read and accept the <Link href="#">terms of use</Link>
-			</Form.Checkbox>
+			<Form.Checkbox
+				checked
+				required
+				label={
+					<>
+						I have read and accept the <Link href="#">terms of use</Link>
+					</>
+				}
+			/>
 			<Form.Buttons>
 				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
 			</Form.Buttons>
@@ -159,9 +172,15 @@ export const ReadOnly = () => (
 			</Form.Select>
 			<Form.Password label="Password" />
 			<Form.Password label="Repeat password" />
-			<Form.Checkbox checked required>
-				I have read and accept the <Link href="#">terms of use</Link>
-			</Form.Checkbox>
+			<Form.Checkbox
+				checked
+				required
+				label={
+					<>
+						I have read and accept the <Link href="#">terms of use</Link>
+					</>
+				}
+			/>
 			<Form.Buttons>
 				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
 			</Form.Buttons>

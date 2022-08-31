@@ -73,6 +73,7 @@ export const Icons = () => {
 								}
 								value={currentColor}
 								disabled={!useCurrentColor}
+								name="color"
 							/>
 						</div>
 						<Form.Switch

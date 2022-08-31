@@ -1,7 +1,7 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useForm } from 'react-hook-form';
-import { WithSelector, FigmaImage } from '~docs';
-import { ButtonTertiary, ButtonPrimary } from '../../Button';
+import { FigmaImage, WithSelector } from '~docs';
+import { ButtonPrimary, ButtonTertiary } from '../../Button';
 import Form from '../';
 import { InlineMessageInformation } from '../../InlineMessage';
 
@@ -31,7 +31,7 @@ It's used to let the user copy a generated text to clipboard.
 
 <Canvas>
 	<Story name="default">
-		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+		<Form.Copy name="copy" label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
 	</Story>
 </Canvas>
 
@@ -39,7 +39,12 @@ It's used to let the user copy a generated text to clipboard.
 
 <Canvas>
 	<Story name="With prefix">
-		<Form.Copy label="Copy" prefix="URL" value="https://exemple.com" />
+		<Form.Copy
+			name="copy"
+			label="Copy"
+			prefix={{ type: 'text', children: 'URL' }}
+			value="https://exemple.com"
+		/>
 	</Story>
 </Canvas>
 
@@ -50,7 +55,7 @@ It's used to let the user copy a generated text to clipboard.
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+		<Form.Copy name="copy" label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
 	</Story>
 </Canvas>
 
@@ -61,7 +66,7 @@ It's used to let the user copy a generated text to clipboard.
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
+		<Form.Copy name="copy" label="Copy" value="23e4567-e89b-12d3-a456-426614174000" />
 	</Story>
 </Canvas>
 
@@ -69,7 +74,7 @@ It's used to let the user copy a generated text to clipboard.
 
 <Canvas>
 	<Story name="empty">
-		<Form.Copy label="Copy" />
+		<Form.Copy name="copy" label="Copy" />
 	</Story>
 </Canvas>
 
@@ -77,7 +82,7 @@ It's used to let the user copy a generated text to clipboard.
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" disabled />
+		<Form.Copy name="copy" label="Copy" value="23e4567-e89b-12d3-a456-426614174000" disabled />
 	</Story>
 </Canvas>
 
@@ -85,7 +90,7 @@ It's used to let the user copy a generated text to clipboard.
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Copy label="Copy" value="23e4567-e89b-12d3-a456-426614174000" readOnly />
+		<Form.Copy name="copy" label="Copy" value="23e4567-e89b-12d3-a456-426614174000" readOnly />
 	</Story>
 </Canvas>
 
@@ -115,6 +120,7 @@ When using Rhf, if you want the confirmation message to disappear in case of inp
 					)}
 					<Form.Row>
 						<Form.Copy
+							hideLabel
 							label={'Key'}
 							defaultValue="10ca0868-1010-4b4a-a2cc-ff737527a7b5"
 							description={'This information is displayed only once.'}

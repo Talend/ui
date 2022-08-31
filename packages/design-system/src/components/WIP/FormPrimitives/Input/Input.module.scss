@@ -4,6 +4,10 @@
 .input {
   @include Form.baseInput();
   height: Form.$standardInputHeight;
+
+  &[type="color"] {
+    padding: tokens.$coral-spacing-xxs;
+  }
 }
 
 .button {

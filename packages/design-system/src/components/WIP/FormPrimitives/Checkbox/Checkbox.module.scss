@@ -5,7 +5,7 @@ $checkmark-image-indeterminate: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iO
 $checkbox-size: tokens.$coral-sizing-xxxs;
 
 .checkbox {
-  display: inline-flex;
+  display: flex;
   gap: tokens.$coral-spacing-xs;
   justify-content: start;
   align-items: center;
@@ -155,6 +155,10 @@ $checkbox-size: tokens.$coral-sizing-xxxs;
       background-color: tokens.$coral-color-neutral-icon-weak;
       opacity: tokens.$coral-opacity-m;
     }
+  }
+
+  &_isInline {
+    display: inline-flex;
   }
 
   &_readOnly {

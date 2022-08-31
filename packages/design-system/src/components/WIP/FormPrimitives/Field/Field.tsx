@@ -1,9 +1,10 @@
-import React, { forwardRef, ReactElement, Ref, cloneElement } from 'react';
+import React, { cloneElement, forwardRef, ReactElement, Ref } from 'react';
 import Link, { LinkProps } from '../../../Link/Link';
 import { StackVertical } from '../../../Stack';
 import Label, { LabelProps } from '../Label/Label';
 import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
 import VisuallyHidden from '../../../VisuallyHidden';
+import { unstable_useId as useId } from 'reakit';
 
 export type FieldStatusProps =
 	| {
@@ -11,22 +12,22 @@ export type FieldStatusProps =
 			description: string;
 	  }
 	| {
-			hasError?: false;
+			hasError?: boolean;
 			description?: string;
 	  };
 
-type FieldProps = {
+export type FieldPropsPrimitive = {
 	link?: LinkProps;
 	hideLabel?: boolean;
-	label: LabelProps;
-	id: string;
+	label: LabelProps | string;
+	id?: string;
 	name: string;
 } & FieldStatusProps;
 
-type FieldPropsWithChildren = FieldProps & { children: ReactElement };
+type FieldPropsPrimitiveWithChildren = FieldPropsPrimitive & { children: ReactElement };
 
 const Field = forwardRef(
-	(props: FieldPropsWithChildren, ref: Ref<HTMLInputElement | HTMLTextAreaElement>) => {
+	(props: FieldPropsPrimitiveWithChildren, ref: Ref<HTMLInputElement | HTMLTextAreaElement>) => {
 		const {
 			children,
 			link,
@@ -39,12 +40,17 @@ const Field = forwardRef(
 			...rest
 		} = props;
 
+		const { id: reakitId } = useId();
+		const fieldID = id || `field--${reakitId}`;
+
+		const labelProps = typeof label === 'string' ? { children: label } : { ...label };
+
 		const LabelComponent = hideLabel ? (
 			<VisuallyHidden>
-				<Label {...label} htmlFor={id} />
+				<Label {...labelProps} htmlFor={fieldID} />
 			</VisuallyHidden>
 		) : (
-			<Label {...label} htmlFor={id} />
+			<Label {...labelProps} htmlFor={fieldID} />
 		);
 
 		const Description = () => {
@@ -61,7 +67,7 @@ const Field = forwardRef(
 		return (
 			<StackVertical gap="XXS" align="stretch" justify="start">
 				{LabelComponent}
-				{cloneElement(children, { id, hasError, name, rest }, ref)}
+				{cloneElement(children, { fieldID, hasError, name, ...rest }, ref)}
 				{link && <Link {...link} />}
 				{description && <Description />}
 			</StackVertical>

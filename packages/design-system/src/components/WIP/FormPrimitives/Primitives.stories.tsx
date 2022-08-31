@@ -204,8 +204,8 @@ export const FieldStory = () => {
 				label={{ children: 'Test Textarea' }}
 				id="testId2"
 				description={isError ? 'This is the error message' : 'This is a description for a textarea'}
-				name="test"
 				hasError={isError}
+				name="test"
 			>
 				<Textarea />
 			</Field>

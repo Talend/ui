@@ -1,7 +1,6 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { FigmaIframe, FigmaImage } from '~docs';
+import { FigmaImage } from '~docs';
 import * as FormButtonsStories from '../Buttons/Buttons.stories';
-
 import Form from '..';
 
 <Meta
@@ -15,7 +14,7 @@ import Form from '..';
 
 # Form buttons
 
-A Form has always buttons in order to be cancelled or validated.
+A Form always displays buttons in order to be cancelled or validated.
 
 ## Zoning
 
@@ -32,9 +31,9 @@ _to do_
 
 ### Skeleton
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A0"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A330"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A0"
+	alt="Button zone with skeletons"
 />
 
 <Canvas>
@@ -43,9 +42,9 @@ _to do_
 
 ### Default
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A27"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A333"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A27"
+	alt="Default button zone"
 />
 
 <Canvas>
@@ -54,9 +53,9 @@ _to do_
 
 ### Loading
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A1191"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A360"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=310%3A1191"
+	alt="Button zone with loading buttons"
 />
 
 <Canvas>
@@ -67,32 +66,36 @@ _to do_
 
 ### Buttons order
 
-Sort the buttons from the less to the more important.
+Sort the buttons from the least to the most important.
 
 - The main action button is placed on the right
-- Avoid to use more than one primary button per form
+- Avoid using more than one primary button per form
 - Other form buttons should be secondary buttons
 - Depending on the context, consider using a back or cancel button. This button should always be placed at the very left.
 - The other action buttons are placed on the right side.
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=57%3A81"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A215"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=57%3A81"
+	alt="Button zone order demonstration"
 />
 
 <Canvas>
 	<Story story={FormButtonsStories.FormButtonsOrder} />
 </Canvas>
 
+<Canvas>
+	<Story story={FormButtonsStories.FormButtonsSingle} />
+</Canvas>
+
 ### Buttons with icons
 
-Consider using Buttons with icons only for the main action when the label isn't enough understable.
+Consider using icons only for the main action button when its label isn't understandable enough.
 
 ## Interactions
 
-The buttons related to the form are part of a **sticky footer**
+The buttons related to the form are part of a **sticky footer**.
 
-The footer containing the buttons will be stick to the screen bottom once the user starts scrolling down.
+The footer containing the buttons should stick to the screen bottom once the user starts scrolling down.
 
 ## Usage
 

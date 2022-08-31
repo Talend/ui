@@ -1,28 +1,28 @@
 import React, {
-	forwardRef,
-	Ref,
-	InputHTMLAttributes,
-	useState,
 	FocusEvent,
-	useRef,
+	forwardRef,
+	InputHTMLAttributes,
+	Ref,
 	useImperativeHandle,
+	useRef,
+	useState,
 } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 import { FieldStatusProps } from '../Field/Field';
 import Tooltip from '../../../Tooltip';
 import Clickable from '../../../Clickable';
 import { Icon } from '../../../Icon/Icon';
 
-type InputProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
+export type InputPrimitiveProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
 	AffixesProps &
 	Omit<FieldStatusProps, 'errorMessage'>;
 
 import styles from './Input.module.scss';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 
-const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) => {
+const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement | null>) => {
 	const {
 		className,
 		prefix,
