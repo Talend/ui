@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import tokens from '../../../../tokens';
+import tokens from '../../../../deprecatedTokens';
 
 export const FieldWrapper = styled.div.attrs({
 	className: 'c-field c-field--select',

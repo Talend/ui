@@ -3,7 +3,7 @@ import { tint } from 'polished';
 
 import Menu from '../Menu';
 
-import tokens from '../../../../tokens';
+import tokens from '../../../../deprecatedTokens';
 
 import * as S from '../Menu.style';
 

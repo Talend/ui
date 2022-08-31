@@ -1,4 +1,4 @@
-import { CellClassParams, ColDef, HeaderClassParams } from 'ag-grid-community';
+import { CellClassParams, ColDef, HeaderClassParams, ValueGetterParams } from 'ag-grid-community';
 import classNames from 'classnames';
 
 import DefaultCellRenderer from '../components/DefaultCellRenderer';
@@ -16,16 +16,16 @@ function isSelectedColumn(params: CellClassParams | HeaderClassParams) {
 	return params.context.selectedColumns?.includes((params.colDef as ColDef).field);
 }
 
-export const DefaultPinnedColDef: Partial<ColDef> = {
+export const DefaultPinnedColDef = {
 	/* Avoid to drag a no pinned column before the pinned columns */
 	lockPosition: true,
-	pinned: 'left',
-	valueGetter: params => (params?.node?.rowIndex ?? 0) + 1,
+	pinned: 'left' as ColDef['pinned'],
+	valueGetter: (params: ValueGetterParams) => (params?.node?.rowIndex ?? 0) + 1,
 	width: 100,
 	headerComponent: DefaultPinHeaderRenderer,
 };
 
-export const DefaultColDef: Partial<ColDef> = {
+export const DefaultColDef = {
 	minWidth: COLUMN_MIN_WIDTH,
 	width: CELL_WIDTH,
 	resizable: true,

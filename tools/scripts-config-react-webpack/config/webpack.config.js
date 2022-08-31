@@ -345,7 +345,7 @@ module.exports = ({ getUserConfig, mode }) => {
 						// see https://docs.sentry.io/platforms/node/guides/aws-lambda/sourcemaps/uploading/webpack/
 						org: sentryConfig.org || process.env.SENTRY_ORG || 'talend-0u',
 						project: sentryConfig.project || process.env.SENTRY_PROJECT,
-						release: VERSIONS.version,
+						release: `${meta['app-id']}@${VERSIONS.version}`,
 						include: sentryConfig.include || ['dist/'],
 						ignore: sentryConfig.ignore || ['cdn/'],
 					}),

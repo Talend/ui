@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Label from '../Label';
 
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 
 export type FieldControlProps = { as: string; type: string; multiple: boolean };
 
@@ -37,7 +37,7 @@ export const FieldControl = styled.input`
 	&:focus {
 		border-width: 2px;
 		border-color: ${({ theme }) => theme.colors.inputFocusBorderColor};
-		outline:none;
+		outline: none;
 	}
 
 	&:disabled {

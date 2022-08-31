@@ -1,4 +1,4 @@
-@use '@talend/design-tokens/lib/tokens';
+@use '~@talend/design-tokens/lib/tokens';
 
 .tab {
   font: tokens.$coral-heading-s;
@@ -23,6 +23,7 @@
     text-align: left;
     display: inline-block;
     white-space: nowrap;
+    text-transform: capitalize;
   }
 
   > svg {

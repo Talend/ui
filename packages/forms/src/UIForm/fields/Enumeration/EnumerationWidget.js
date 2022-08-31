@@ -49,11 +49,9 @@ class EnumerationForm extends React.Component {
 		return ITEMS_DEFAULT_HEIGHT;
 	}
 
-	static parseStringValueToArray(values, skipCommas) {
-		if (skipCommas) {
-			return values
-				.match(/(\\.|[^,])+/g)
-				.map(value => value.trim().replace(/\\,/g, ',').replace(/\\./g, '\\'));
+	static parseStringValueToArray(values, disableSplit) {
+		if (disableSplit) {
+			return [values];
 		}
 		return values.split(',').map(value => value.trim());
 	}
@@ -264,6 +262,10 @@ class EnumerationForm extends React.Component {
 		}
 	}
 
+	getDisableSplit() {
+		return this.props.schema?.disableSplit || false;
+	}
+
 	onBlur(event) {
 		const { schema, onFinish } = this.props;
 		onFinish(event, { schema });
@@ -439,7 +441,7 @@ class EnumerationForm extends React.Component {
 			}));
 			const formattedValue = EnumerationForm.parseStringValueToArray(
 				value.value,
-				this.props.schema?.skipCommas || false,
+				this.getDisableSplit(),
 			);
 			this.props
 				.onTrigger(event, {
@@ -478,10 +480,7 @@ class EnumerationForm extends React.Component {
 
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				item.values = EnumerationForm.parseStringValueToArray(
-					value.value,
-					this.props.schema?.skipCommas || false,
-				);
+				item.values = EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit());
 			}
 			if (valueExist) {
 				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -714,10 +713,7 @@ class EnumerationForm extends React.Component {
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: EnumerationForm.parseStringValueToArray(
-							value.value,
-							this.props.schema?.skipCommas || false,
-						),
+						value: EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit()),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
@@ -741,10 +737,7 @@ class EnumerationForm extends React.Component {
 				schema,
 				value: this.state.items.concat([
 					{
-						values: EnumerationForm.parseStringValueToArray(
-							value.value,
-							this.props.schema?.skipCommas || false,
-						),
+						values: EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit()),
 					},
 				]),
 			};

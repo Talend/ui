@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 import dsTokens from '@talend/design-tokens';
 
-import tokens from '../../tokens';
+import tokens from '@talend/design-tokens';
 
 export const SwitchIndicator = styled.span`
 	position: absolute;
@@ -10,10 +10,10 @@ export const SwitchIndicator = styled.span`
 	left: 0;
 	width: 0;
 	bottom: 0;
-	z-index: ${tokens.zIndices.above};
+	z-index: ${tokens.coralElevationLayerStandardFront};
 
 	&[data-animated='true'] {
-		transition: ${tokens.transitions.fast};
+		transition: ${tokens.coralTransitionFast};
 	}
 `;
 
@@ -25,7 +25,7 @@ export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 		border-radius: 10rem;
 		box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 		overflow: hidden;
-		${({ disabled }) => (disabled ? `opacity: ${tokens.opacity.disabled};` : '')}
+		${({ disabled }) => (disabled ? `opacity: ${tokens.coralOpacityM};` : '')}
 	}
 
 	button {
@@ -35,14 +35,14 @@ export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 		justify-content: space-around;
 		margin: 0;
 		padding: 0 1rem;
-		color: ${({ theme }) => theme.colors.textColor};
-		font: ${dsTokens.coralParagraphMBold};
-		opacity: ${tokens.opacity.disabled};
+		color: ${({ theme }) => theme.colors.textColor}
+		font: ${tokens.coralParagraphS};
+    	opacity: ${tokens.coralOpacityM};
 		user-select: none;
 		cursor: pointer;
 		background: none;
 		border: none;
-		z-index: ${tokens.zIndices.onTop};
+		z-index: ${tokens.coralElevationLayerInteractiveFront};
 	}
 
 	${SwitchIndicator} em {
@@ -62,12 +62,12 @@ export const Switch = styled.div<{ disabled: boolean; readOnly: boolean }>`
 	}
 
 	[aria-selected] {
-		transition: color ${tokens.transitions.normal};
+		transition: color ${tokens.coralTransitionNormal};
 	}
 
 	[aria-selected='true'] {
 		color: ${({ theme }) => theme.colors.inputBackgroundColor};
-		opacity: ${tokens.opacity.opaque};
+		opacity: 1;
 	}
 
 	[aria-selected] ~ ${SwitchIndicator} {

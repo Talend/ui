@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import DSTokens from '@talend/design-tokens';
 import { hideVisually, transparentize } from 'polished';
 import Clickable from '../../Clickable';
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 
 const borderLeft = () => `
 	position: relative;

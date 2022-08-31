@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Skeleton from '../../../Skeleton';
-import tokens from '../../../../tokens';
+import tokens from '../../../../deprecatedTokens';
 import { StepProps } from '../Step';
 
 const StepSkeletonWrapper = styled.span.attrs({ className: 'step--skeleton' })`

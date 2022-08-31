@@ -53,7 +53,7 @@ html {
   &.sbdocs-content {
     padding: tokens.$coral-spacing-l tokens.$coral-spacing-xl;
     background: transparent;
-    max-width: 120rem;
+    max-width: 100rem;
   }
 
   // Code previews
@@ -219,6 +219,11 @@ html {
     max-width: 100%;
   }
 
+  .sbdocs-hr {
+    border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+    margin: 0 0 tokens.$coral-spacing-m 0;
+  }
+
   .sbdocs-h1,
   .sbdocs-h2,
   .sbdocs-h3,
@@ -226,8 +231,16 @@ html {
   .sbdocs-h5,
   .sbdocs-h6 {
     border: none;
-    margin: 0 0 tokens.$coral-spacing-m 0;
+    margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
     color: tokens.$coral-color-neutral-text;
+
+    &:first-of-type {
+      margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   .sbdocs-h1 {
@@ -235,8 +248,21 @@ html {
     font-size: 3.2rem;
     margin-bottom: tokens.$coral-spacing-xs;
 
+    &:first-of-type {
+      margin-top: 0;
+    }
+
     + * {
       margin-top: tokens.$coral-spacing-l;
+    }
+
+    + .sbdocs-p {
+      font: tokens.$coral-heading-m;
+      color: tokens.$coral-color-neutral-text-weak;
+
+      > a {
+        font-size: inherit;
+      }
     }
   }
 
@@ -263,7 +289,11 @@ html {
   }
 
   .sbdocs-p {
-    margin-bottom: tokens.$coral-spacing-xs;
+    margin-bottom: tokens.$coral-spacing-m;
+
+    + .sbdocs-p {
+      margin-top: calc(#{tokens.$coral-spacing-xs} * -1);
+    }
 
     code {
       font: tokens.$coral-data-m;
@@ -271,6 +301,13 @@ html {
       background: tokens.$coral-color-neutral-background-medium;
       border: none;
     }
+  }
+
+  code {
+    font: tokens.$coral-data-m;
+    color: tokens.$coral-color-neutral-text;
+    border: none;
+    background: tokens.$coral-color-neutral-background-medium;
   }
 
   .sbdocs-a {

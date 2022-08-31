@@ -4336,9 +4336,9 @@
     "@types/react" "^17"
 
 "@types/react@*", "@types/react@>=16.9.11", "@types/react@^16", "@types/react@^17", "@types/react@^17.0.2", "@types/react@^17.0.47":
-  version "17.0.47"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.47.tgz#4ee71aaf4c5a9e290e03aa4d0d313c5d666b3b78"
-  integrity sha512-mk0BL8zBinf2ozNr3qPnlu1oyVTYq+4V7WA76RgxUAtf0Em/Wbid38KN6n4abEkvO4xMTBWmnP1FtQzgkEiJoA==
+  version "17.0.48"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.48.tgz#a4532a8b91d7b27b8768b6fc0c3bccb760d15a6c"
+  integrity sha512-zJ6IYlJ8cYYxiJfUaZOQee4lh99mFihBoqkOSEGV+dFi9leROW6+PgstzQ+w3gWTnUfskALtQPGHK6dYmPj+2A==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -20338,6 +20338,11 @@ use-callback-ref@^1.2.5:
   integrity sha512-3FT9PRuRdbB9HfXhEq35u4oZkvpJ5kuYbpqhCfmiZyReuRgpnhDlbr2ZEnnuS0RrJAPn6l23xjFg9kpDM+Ms7w==
   dependencies:
     tslib "^2.0.0"
+
+use-overflow@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/use-overflow/-/use-overflow-1.1.0.tgz#1e7e0acd732cb4123f486cd9c97a535eb864026a"
+  integrity sha512-NHGE8vTpMWKuh3V2JxHoUHu55/KiN5LVntAdMVwu2QkVxWWt1nTDjzTwDKUEetvmdqMSA1vpj37mqqFa+mPyzg==
 
 use-sidecar@^1.0.5:
   version "1.1.2"

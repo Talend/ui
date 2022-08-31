@@ -39,7 +39,11 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath, isIndex) {
-	const injectProps = { ...props };
+	// Outlet is the children renderer of react-router v6
+	let element = <Outlet key="outlet" />;
+	if (props.component) {
+		element = <Inject {...props}>{childRoutes ? [<Outlet key="outlet" />] : null}</Inject>;
+	}
 	let absPath;
 	// some route has no path (indexRoute for example)
 	if (path) {
@@ -51,15 +55,11 @@ function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath,
 			absPath = `${currentpath === '/' ? '' : currentpath}/${path}`;
 		}
 	}
-	if (childRoutes) {
-		// Outlet is the children renderer of react-router v6
-		injectProps.children = [<Outlet key="outlet" />];
-	}
 
 	const routeProps = {
 		path,
 		key: absPath || `${currentpath}index`,
-		element: <Inject {...injectProps} />,
+		element,
 		children: [indexRoute && <Route {...getRouteProps(indexRoute, currentpath, true)} />]
 			.filter(Boolean)
 			.concat(
@@ -93,12 +93,10 @@ export function getRouter(history, basename) {
 	function CMFRouter({ action, location, ...props }) {
 		// sync from history to redux
 		React.useEffect(() => {
-			return history.listen(opts => {
-				if (isDifferent(opts, { action, location })) {
-					props.dispatch(onLocationChanged(opts.location, opts.action));
-				}
+			return history.listen(({ location, action, isFirstRendering = false }) => {
+				props.dispatch(onLocationChanged(location, action, isFirstRendering));
 			});
-		}, [location, action]);
+		}, []);
 
 		if (props.routes.path && props.routes.component) {
 			const routeProps = getRouteProps(props.routes, props.routes.path);

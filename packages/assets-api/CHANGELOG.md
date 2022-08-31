@@ -1,5 +1,11 @@
 # @talend/assets-api
 
+## 1.2.2
+
+### Patch Changes
+
+- 56e0a9629: remove annoying console log
+
 ## 1.2.1
 
 ### Patch Changes

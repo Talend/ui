@@ -9,17 +9,35 @@ import prettierBabel from 'prettier/parser-babel';
 import { addons } from '@storybook/addons';
 
 import { DocsContainer } from '@storybook/addon-docs';
-import { UPDATE_GLOBALS, SET_STORIES } from '@storybook/core-events';
-import { TableOfContents, BackToTop } from 'storybook-docs-toc';
+import { SET_STORIES, UPDATE_GLOBALS } from '@storybook/core-events';
+import { BackToTop, TableOfContents } from 'storybook-docs-toc';
+import '@talend/storybook-docs/dist/globalStyles.min.css';
 
 import 'focus-outline-manager';
 
 import i18n from './i18n';
 
-import { BadgeFigma, BadgeStorybook, BadgeReact, BadgeI18n, Badges } from './docs';
+import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
 import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
 
-import { light, dark } from '../src/themes';
+import { dark, light } from '../src/themes';
+
+const TokenOrder = [
+	'Colors',
+	'Color Compositions',
+	'Color Charts',
+	'Branding',
+	'Gradients',
+	'Typography',
+	'Measures',
+	'Opacity',
+	'Radius',
+	'Borders',
+	'Shadows',
+	'Transitions',
+	'Elevations',
+	'Breakpoints',
+];
 
 export const globalTypes = {
 	theme: {
@@ -51,30 +69,6 @@ export const globalTypes = {
 
 const getTheme = themeKey => (themeKey === 'dark' ? dark : light);
 
-const StorybookGlobalStyle = ThemeProvider.createGlobalStyle(
-	({ theme, hasFigmaIframe }) =>
-		`
-	.sb-show-main.sb-main-padded {
-		padding: 0;
-	}
-
-	.sbdocs.sbdocs-preview {
-		color: ${theme?.colors.textColor};
-		background: ${theme?.colors.backgroundColor};
-	}
-
-	.sbdocs .figma-iframe--light {
-		position: ${theme?.id === 'light' && hasFigmaIframe ? 'relative' : 'absolute'};
-		left:  ${theme?.id === 'light' && hasFigmaIframe ? 'auto' : '-9999rem'};
-	}
-
-	.sbdocs .figma-iframe--dark {
-		position: ${theme?.id === 'dark' && hasFigmaIframe ? 'relative' : 'absolute'};
-		left:  ${theme?.id === 'dark' && hasFigmaIframe ? 'auto' : '-9999rem'};
-	}
-	`,
-);
-
 const channel = addons.getChannel();
 
 let statusByPage = {};
@@ -101,7 +95,6 @@ channel.once(SET_STORIES, eventData => {
 export const parameters = {
 	docs: {
 		container: props => {
-			const [hasFigmaIframe, setFigmaIframe] = useLocalStorage('coral--has-figma-iframe', false);
 			const [hasDarkMode, setDarkMode] = useLocalStorage('coral--has-dark-mode', false);
 			const [hasBootstrapStylesheet, setBootstrapStylesheet] = useLocalStorage(
 				'coral--has-bootstrap-stylesheet',
@@ -109,6 +102,8 @@ export const parameters = {
 			);
 
 			const { id, parameters, globals, title } = props.context;
+
+			const hasDarkTheme = title.toLocaleLowerCase().includes('dark');
 
 			React.useEffect(() => {
 				channel.emit(UPDATE_GLOBALS, {
@@ -158,66 +153,75 @@ export const parameters = {
 				return title?.toLocaleLowerCase().startsWith(term);
 			});
 
+			function DarkThemeWrapper({ children }) {
+				if (hasDarkTheme) {
+					return <div data-theme="dark">{children}</div>;
+				}
+
+				return <>{children}</>;
+			}
+
 			return (
 				<>
-					<Helmet>
-						<title>{docsTitle}</title>
-						<meta property="og:title" content={titleArray[titleArray.length - 1]} />
-						<meta property="og:type" content="article" />
-						<meta property="og:url" content={`https://design.talend.com/?path=/docs/${id}`} />
-						<meta
-							property="og:image"
-							content={`https://via.placeholder.com/1000x500/F3F3F3/FF6D70?text=${docsTitle}`}
-						/>
-						{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
-					</Helmet>
+					<DarkThemeWrapper>
+						<Helmet>
+							<title>{docsTitle}</title>
+							<meta property="og:title" content={titleArray[titleArray.length - 1]} />
+							<meta property="og:type" content="article" />
+							<meta property="og:url" content={`https://design.talend.com/?path=/docs/${id}`} />
+							<meta
+								property="og:image"
+								content={`https://via.placeholder.com/1000x500/F3F3F3/FF6D70?text=${docsTitle}`}
+							/>
+							{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
+						</Helmet>
 
-					<IconsProvider />
-					<TableOfContents>
-						{isDesignSystemElementPage && (
-							<ThemeProvider theme={light}>
-								<Divider />
-								<Form.Switch
-									label={'Dark mode'}
-									onChange={() => {
-										setDarkMode(!hasDarkMode);
-									}}
-									checked={hasDarkMode}
-								/>
-								<Form.Switch
-									label={'Bootstrap stylesheet'}
-									onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
-									checked={!!hasBootstrapStylesheet}
-								/>
-								{/*
-								<Form.Switch
-									label={'Figma iframes'}
-									onChange={() => setFigmaIframe(!hasFigmaIframe)}
-									checked={!!hasFigmaIframe}
-								/>
-								*/}
-							</ThemeProvider>
+						<IconsProvider />
+						<TableOfContents>
+							{isDesignSystemElementPage && (
+								<ThemeProvider theme={light}>
+									<Divider />
+									<Form.Switch
+										label={'Dark mode'}
+										onChange={() => {
+											setDarkMode(!hasDarkMode);
+										}}
+										checked={hasDarkMode}
+									/>
+									<Form.Switch
+										label={'Bootstrap stylesheet'}
+										onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
+										checked={!!hasBootstrapStylesheet}
+									/>
+									{/*
+									<Form.Switch
+										label={'Figma iframes'}
+										onChange={() => setFigmaIframe(!hasFigmaIframe)}
+										checked={!!hasFigmaIframe}
+									/>
+									*/}
+								</ThemeProvider>
+							)}
+						</TableOfContents>
+
+						{isDesignSystemElementPage && status && (
+							<Badges>
+								<BadgeFigma status={status.figma} href={figmaLink} />
+								<BadgeStorybook status={status.storybook} />
+								<BadgeReact status={status.react} href={githubLink} />
+								<BadgeI18n status={status.i18n} />
+							</Badges>
 						)}
-					</TableOfContents>
 
-					{isDesignSystemElementPage && status && (
-						<Badges>
-							<BadgeFigma status={status.figma} href={figmaLink} />
-							<BadgeStorybook status={status.storybook} />
-							<BadgeReact status={status.react} href={githubLink} />
-							<BadgeI18n status={status.i18n} />
-						</Badges>
-					)}
+						<I18nextProvider i18n={i18n}>
+							<ThemeProvider theme={hasDarkMode ? dark : light}>
+								<ThemeProvider.GlobalStyle />
+								<DocsContainer {...props} />
+							</ThemeProvider>
+						</I18nextProvider>
 
-					<I18nextProvider i18n={i18n}>
-						<ThemeProvider theme={hasDarkMode ? dark : light}>
-							<ThemeProvider.GlobalStyle />
-							<StorybookGlobalStyle hasFigmaIframe={hasFigmaIframe} />
-							<DocsContainer {...props} />
-						</ThemeProvider>
-					</I18nextProvider>
-
-					<BackToTop />
+						<BackToTop />
+					</DarkThemeWrapper>
 				</>
 			);
 		},
@@ -286,6 +290,8 @@ export const parameters = {
 					'Stepper',
 					['Stepper', 'Step'],
 				],
+				'Design Tokens',
+				['About tokens', 'Light', TokenOrder, 'Dark', TokenOrder],
 				'[WIP] Components',
 				'[WIP] Templates',
 				'[Deprecated] Design Tokens',
