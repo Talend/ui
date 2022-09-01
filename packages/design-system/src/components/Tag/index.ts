@@ -1,4 +1,4 @@
-import Tag, { TagVariants } from './Tag';
+import Tag, { TagVariantsNames } from './Tag';
 
 import {
 	TagDefault,
