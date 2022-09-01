@@ -20,7 +20,7 @@ export enum TagVariant {
 }
 
 // This const allows JS component to type props with restricted list of tag variations
-export const TagVariants = Object.values(TagVariant);
+export const TagVariantsNames = Object.values(TagVariant);
 
 type TagProps = Omit<PrimitiveTagProps, 'className'> & {
 	/**
