@@ -11,7 +11,17 @@ const Accordion = React.forwardRef(
 	({ selectedId, children, ...rest }: AccordionProps, ref: React.Ref<ReakitCompositeProps>) => {
 		const composite = useCompositeState({});
 
-		return null;
+		return (
+			<S.Accordion {...composite} ref={ref} {...rest}>
+				{children.map((child: React.ReactElement, key: number) =>
+					React.cloneElement(child, {
+						id: `${composite.baseId}-${key + 1}`,
+						...composite,
+						...child.props,
+					}),
+				)}
+			</S.Accordion>
+		);
 	},
 );
 
