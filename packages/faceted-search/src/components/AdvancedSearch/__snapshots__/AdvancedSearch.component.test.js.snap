@@ -8,7 +8,7 @@ exports[`AdvancedSearch should render by default 1`] = `
     <svg name="talend-filter"
          focusable="false"
          aria-hidden="true"
-         class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+         class="sc-jSMfEi klaSdu tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
          pointer-events="none"
     >
     </svg>
@@ -76,7 +76,7 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
     <svg name="talend-filter"
          focusable="false"
          aria-hidden="true"
-         class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+         class="sc-jSMfEi klaSdu tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
          pointer-events="none"
     >
     </svg>

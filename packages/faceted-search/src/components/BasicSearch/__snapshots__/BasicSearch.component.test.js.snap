@@ -20,7 +20,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
         <svg name="talend-search"
              focusable="false"
              aria-hidden="true"
-             class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-search"
+             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-search"
              pointer-events="none"
         >
         </svg>
@@ -60,7 +60,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
               <svg name="talend-contains"
                    focusable="false"
                    aria-hidden="true"
-                   class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-contains"
+                   class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-contains"
                    pointer-events="none"
               >
               </svg>
@@ -89,7 +89,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
           <svg name="talend-cross"
                focusable="false"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-cross"
                pointer-events="none"
           >
           </svg>
@@ -160,7 +160,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
                       <svg name="talend-search"
                            focusable="false"
                            aria-hidden="true"
-                           class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
                            pointer-events="none"
                       >
                       </svg>
@@ -248,7 +248,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
         <svg name="talend-search"
              focusable="false"
              aria-hidden="true"
-             class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-search"
+             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-search"
              pointer-events="none"
         >
         </svg>
@@ -331,7 +331,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
                       <svg name="talend-search"
                            focusable="false"
                            aria-hidden="true"
-                           class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
                            pointer-events="none"
                       >
                       </svg>
@@ -398,7 +398,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
         <svg name="talend-search"
              focusable="false"
              aria-hidden="true"
-             class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-search"
+             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-search"
              pointer-events="none"
         >
         </svg>
@@ -438,7 +438,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
               <svg name="talend-equal"
                    focusable="false"
                    aria-hidden="true"
-                   class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+                   class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
                    pointer-events="none"
               >
               </svg>
@@ -467,7 +467,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
           <svg name="talend-cross"
                focusable="false"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-cross"
                pointer-events="none"
           >
           </svg>
@@ -538,7 +538,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                       <svg name="talend-search"
                            focusable="false"
                            aria-hidden="true"
-                           class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
                            pointer-events="none"
                       >
                       </svg>
@@ -626,7 +626,7 @@ exports[`BasicSearch should render the default html output with some badges and 
         <svg name="talend-search"
              focusable="false"
              aria-hidden="true"
-             class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-search"
+             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-search"
              pointer-events="none"
         >
         </svg>
@@ -666,7 +666,7 @@ exports[`BasicSearch should render the default html output with some badges and 
               <svg name="talend-equal"
                    focusable="false"
                    aria-hidden="true"
-                   class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+                   class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
                    pointer-events="none"
               >
               </svg>
@@ -695,7 +695,7 @@ exports[`BasicSearch should render the default html output with some badges and 
           <svg name="talend-cross"
                focusable="false"
                aria-hidden="true"
-               class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-cross"
                pointer-events="none"
           >
           </svg>
@@ -766,7 +766,7 @@ exports[`BasicSearch should render the default html output with some badges and 
                       <svg name="talend-search"
                            focusable="false"
                            aria-hidden="true"
-                           class="sc-jSMfEi ifGbCq tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
                            pointer-events="none"
                       >
                       </svg>
