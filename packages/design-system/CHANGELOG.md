@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 4.1.0
+
+### Minor Changes
+
+- 79239025d: Add const to export Tag variations through string array
+- e5aa63ef6: feat(Popover): add `isFixed` and `hasPadding` props
+
 ## 4.0.2
 
 ### Patch Changes
