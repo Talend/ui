@@ -5,10 +5,13 @@ exports[`AdvancedSearch should render by default 1`] = `
      class="adv-search theme-adv-search"
 >
   <form id="some-id-adv-search-form">
-    <span name="talend-filter"
-          class="CoralIcon adv-search-filter-icon theme-adv-search-filter-icon"
+    <svg name="talend-filter"
+         focusable="false"
+         aria-hidden="true"
+         class="sc-jSMfEi klaSdu tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+         pointer-events="none"
     >
-    </span>
+    </svg>
     <input name="advanced-search-faceted"
            placeholder="Enter your query"
            autocomplete="off"
@@ -20,28 +23,44 @@ exports[`AdvancedSearch should render by default 1`] = `
            value
     >
     <div class="adv-search-buttons theme-adv-search-buttons">
-      <button aria-label="Cancel"
-              data-feature="filter.advanced.clear"
+      <button tabindex="0"
               name="action-cancel-title"
-              aria-describedby="42"
+              data-feature="filter.advanced.clear"
+              aria-describedby="a-42"
+              class="theme-clickable theme-buttonIcon theme-size_S"
               type="button"
-              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
       >
-        <span name="talend-cross"
-              class="CoralIcon"
+        <span class="theme-buttonIcon__icon"
+              aria-hidden="true"
         >
+          <svg style="width: 1.6rem; height: 1.6rem;"
+               aria-hidden="true"
+               shape-rendering="geometricPrecision"
+               pointer-events="none"
+          >
+            <use xlink:href="#cross-filled:M">
+            </use>
+          </svg>
         </span>
       </button>
-      <button aria-label="Submit"
-              data-feature="filter.advanced.apply"
+      <button tabindex="0"
               name="action-submit-title"
+              data-feature="filter.advanced.apply"
+              aria-describedby="a-42"
+              class="theme-clickable theme-buttonIcon theme-size_S"
               type="submit"
-              aria-describedby="42"
-              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
       >
-        <span name="talend-check"
-              class="CoralIcon"
+        <span class="theme-buttonIcon__icon"
+              aria-hidden="true"
         >
+          <svg style="width: 1.6rem; height: 1.6rem;"
+               aria-hidden="true"
+               shape-rendering="geometricPrecision"
+               pointer-events="none"
+          >
+            <use xlink:href="#check-filled:M">
+            </use>
+          </svg>
         </span>
       </button>
     </div>
@@ -54,10 +73,13 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
      class="adv-search theme-adv-search"
 >
   <form id="some-id-adv-search-form">
-    <span name="talend-filter"
-          class="CoralIcon adv-search-filter-icon theme-adv-search-filter-icon"
+    <svg name="talend-filter"
+         focusable="false"
+         aria-hidden="true"
+         class="sc-jSMfEi klaSdu tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+         pointer-events="none"
     >
-    </span>
+    </svg>
     <input name="advanced-search-faceted"
            placeholder="Enter your query"
            autocomplete="off"
@@ -69,28 +91,44 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
            value
     >
     <div class="adv-search-buttons theme-adv-search-buttons">
-      <button aria-label="Cancel"
-              data-feature="filter.advanced.clear"
+      <button tabindex="0"
               name="action-cancel-title"
-              aria-describedby="42"
+              data-feature="filter.advanced.clear"
+              aria-describedby="a-42"
+              class="theme-clickable theme-buttonIcon theme-size_S"
               type="button"
-              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
       >
-        <span name="talend-cross"
-              class="CoralIcon"
+        <span class="theme-buttonIcon__icon"
+              aria-hidden="true"
         >
+          <svg style="width: 1.6rem; height: 1.6rem;"
+               aria-hidden="true"
+               shape-rendering="geometricPrecision"
+               pointer-events="none"
+          >
+            <use xlink:href="#cross-filled:M">
+            </use>
+          </svg>
         </span>
       </button>
-      <button aria-label="Submit"
-              data-feature="filter.advanced.apply"
+      <button tabindex="0"
               name="action-submit-title"
+              data-feature="filter.advanced.apply"
+              aria-describedby="a-42"
+              class="theme-clickable theme-buttonIcon theme-size_S"
               type="submit"
-              aria-describedby="42"
-              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
       >
-        <span name="talend-check"
-              class="CoralIcon"
+        <span class="theme-buttonIcon__icon"
+              aria-hidden="true"
         >
+          <svg style="width: 1.6rem; height: 1.6rem;"
+               aria-hidden="true"
+               shape-rendering="geometricPrecision"
+               pointer-events="none"
+          >
+            <use xlink:href="#check-filled:M">
+            </use>
+          </svg>
         </span>
       </button>
     </div>

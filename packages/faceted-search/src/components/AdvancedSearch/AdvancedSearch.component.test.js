@@ -1,8 +1,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import keycode from 'keycode';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from 'enzyme';
+import keycode from 'keycode';
 
 import { FacetedManager } from '../FacetedManager';
 import { AdvancedSearch } from './AdvancedSearch.component';
@@ -121,8 +120,9 @@ describe('AdvancedSearch', () => {
 			</FacetedManager>,
 		);
 		// then
-		expect(wrapper.find('svg[aria-busy="true"]').prop('className')).toEqual(
-			'tc-circular-progress theme-loader theme-animate theme-small',
-		);
+		const buttons = wrapper.find('button');
+		expect(buttons.length).toBe(2);
+		expect(buttons.at(0).props().disabled).toBeTruthy();
+		expect(buttons.at(1).props().disabled).toBeTruthy();
 	});
 });

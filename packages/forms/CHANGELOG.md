@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 8.1.3
+
+### Patch Changes
+
+- bd7b58230: chore(TDS-6666): disabled split
+
 ## 8.1.2
 
 ### Patch Changes

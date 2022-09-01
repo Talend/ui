@@ -1,20 +1,14 @@
-// stylelint-disable declaration-no-important
-$popover-screen-width: 30rem;
-$animation-duration: 400ms;
+@use '~@talend/design-tokens/lib/tokens';
+
+$popover-screen-width: tokens.$coral-sizing-maximal;
 
 .tc-add-facet-popover {
 	display: flex;
 	width: $popover-screen-width;
 	overflow: hidden;
 
-	&-container {
-		width: 60rem;
-		min-width: 60rem;
-		position: relative;
-	}
-
 	:global(.tc-tooltip-header) {
-		width: 100%;
+		width: $popover-screen-width;
 		align-items: center;
 		font-weight: 800;
 		min-width: auto;
@@ -32,72 +26,8 @@ $animation-duration: 400ms;
 		}
 	}
 
-	&-category {
-		margin-bottom: 1.4rem;
-		display: flex;
-		align-items: center;
-	}
-
-	&-category-btn {
-		padding: 0;
-		margin: 0 1rem 0 0 !important;
-		line-height: 2rem;
-		min-height: 2rem;
-	}
-
-	&-category-title {
-		text-transform: none;
-		letter-spacing: normal;
-		text-decoration: none;
-		font-size: 1.6rem;
-		font-weight: 600;
-		max-width: 25rem;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-
-	&-header:not(:empty) {
-		height: auto;
-		flex-direction: column;
-		align-items: stretch;
-		padding: 2rem 1.5rem;
-
-		.tc-add-facet-popover-filter {
-			margin: 0;
-			padding: 0;
-			flex-grow: 1;
-
-			:global(input[type='search']) {
-				margin: 0;
-			}
-
-			:global(.btn) {
-				margin: 0;
-			}
-		}
-	}
-
-	&-screen {
-		flex-shrink: 0;
-		overflow: hidden;
-		width: $popover-screen-width;
-		transition: transform $animation-duration ease;
-	}
-
-	.screen-category {
-		position: absolute;
-		top: 0;
-		right: 0;
-	}
-
-	.screen-move {
-		transform: translateX(-100%);
-	}
-
 	&-filter-empty {
-		font-size: $font-size-base;
-		padding: $padding-large $padding-small;
+		padding: tokens.$coral-spacing-s;
 		display: block;
 		text-align: center;
 		font-style: italic;
@@ -105,35 +35,11 @@ $animation-duration: 400ms;
 
 	&-row-container {
 		overflow-y: auto;
-	}
 
-	&-row {
-		display: flex;
-		text-align: left;
-		font-weight: 500;
-		text-transform: none;
-		width: 100%;
-		justify-content: flex-start;
-		align-content: center;
-
-		&:hover {
-			background: $concrete;
-			text-decoration: none;
-		}
-
-		&-text {
-			max-width: 25rem;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			flex-grow: 1;
-		}
-
-		&-icon {
-			width: 1.2rem !important;
-			height: 1.2rem !important;
-			justify-content: flex-end;
-			transform: rotate(180deg);
+		button {
+			width: 100%;
+			overflow-wrap: anywhere;
+			text-align: left;
 		}
 	}
 }

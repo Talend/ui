@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { ButtonPrimary, ButtonSecondary, Form, StackHorizontal } from '@talend/design-system';
 
 import theme from './ApplyToIdenticalValues.scss';
@@ -19,19 +20,28 @@ function ApplyToIdenticalValues({
 	const [checked, setChecked] = useState(false);
 
 	const nextStatus = checked ? 'uncheck' : 'check';
-	const dataFeature = `cell.edition.${editorType}.checkbox.${nextStatus}`;
 
 	return (
 		<div className={theme['apply-to-identical-values']}>
 			<Form.Checkbox
 				label={t('APPLY_TO_ALL_CELLS', 'Apply to identical values')}
 				onClick={() => setChecked(!checked)}
-				data-feature={dataFeature}
+				data-feature={`cell.edition.${editorType}.checkbox.${nextStatus}`}
 			/>
 
 			<StackHorizontal gap={0} justify="spaceBetween">
-				<ButtonSecondary onClick={() => onCancel(checked)}>{t('CANCEL', 'Cancel')}</ButtonSecondary>
-				<ButtonPrimary onClick={() => onSubmit(checked)}>{t('SUBMIT', 'SUBMIT')}</ButtonPrimary>
+				<ButtonSecondary
+					data-feature={`cell.edition.${editorType}.cancel`}
+					onClick={() => onCancel(checked)}
+				>
+					{t('CANCEL', 'Cancel')}
+				</ButtonSecondary>
+				<ButtonPrimary
+					data-feature={`cell.edition.${editorType}.submit`}
+					onClick={() => onSubmit(checked)}
+				>
+					{t('SUBMIT', 'SUBMIT')}
+				</ButtonPrimary>
 			</StackHorizontal>
 		</div>
 	);

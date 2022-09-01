@@ -14,3 +14,27 @@ module.exports = {
 	// add/change default config here
 };
 ```
+
+## how stop ignore transform over packages in node_modules
+
+because jest support of [ECMAPScriptModules](https://github.com/facebook/jest/blob/64de4d7361367fd711a231d25c37f3be89564264/docs/ECMAScriptModules.md) is experiemental we have added possibilities to apply transforms on modules.
+Since d3 7.x library use ECMAPScriptModules in it's package.json as main entry point it break jest with this kind of errors:
+
+```
+node_modules/d3-scale/src/index.js:1
+export {
+^
+ParseError: 'import' and 'export' may appear only with 'sourceType: module'
+```
+
+You may encounter in your project the need to add other modules than just d3. To do so we provide to you the following API:
+
+```javascript
+// your project's jest.config.js
+const config = require('@talend/scripts-config-jest/jest.config.js');
+const testUtils = require('@talend/scripts-config-jest/utils');
+
+testUtils.applyBabelTransformOn(config, ['dexie']);
+
+module.exports = config;
+```

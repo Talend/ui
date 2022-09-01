@@ -22,15 +22,23 @@ export type PopoverPropsType = HTMLAttributes<HTMLDivElement> & {
 	children: PopoverChildren | PopoverChildren[];
 	position?: Placement;
 	zIndex?: string | number;
+	isFixed?: boolean;
+	hasPadding?: boolean;
 } & DataAttributes;
 
 function Popover({
 	disclosure,
 	position = 'auto',
 	zIndex = tokens.coralElevationLayerStandardFront,
+	isFixed = false,
+	hasPadding = true,
 	...props
 }: PopoverPropsType) {
-	const popover = usePopoverState({ animated: ANIMATION_DURATION, placement: position });
+	const popover = usePopoverState({
+		animated: ANIMATION_DURATION,
+		placement: position,
+		unstable_fixed: isFixed,
+	});
 	const children = Array.isArray(props.children) ? props.children : [props.children];
 
 	return (
@@ -38,7 +46,14 @@ function Popover({
 			<ReakitPopoverDisclosure {...popover}>
 				{disclosureProps => cloneElement(disclosure, disclosureProps)}
 			</ReakitPopoverDisclosure>
-			<ReakitPopover {...popover} {...props} style={{ zIndex }}>
+			<ReakitPopover
+				{...popover}
+				{...props}
+				style={{
+					zIndex,
+					padding: hasPadding ? tokens.coralSpacingM : 0,
+				}}
+			>
 				<div className={style.popover__animated}>
 					<ReakitPopoverArrow {...popover} className={style.popover__arrow} />
 					{children.map(child => {
