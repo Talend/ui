@@ -17,5 +17,5 @@ export {
 	TagWarning,
 	TagDestructive,
 	TagBeta,
-	TagVariants,
+	TagVariantsNames,
 };
