@@ -333,7 +333,7 @@ export const badgeTextAsCategory = {
 		placeholder: 'Enter a category name',
 	},
 	metadata: {
-		category: 'Very long long long long long long category',
+		category: 'Very long long long long long long long category',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'equals'],

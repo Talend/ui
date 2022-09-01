@@ -10,9 +10,10 @@ export default {
 	component: Popover,
 };
 
-function EasyPopover() {
-	return <StackVertical gap="S">Hello hello</StackVertical>;
-}
+const EasyPopover = () => <StackVertical gap="S">Hello hello</StackVertical>;
+const OpenPopover = () => (
+	<ButtonPrimary onClick={action('Clicked disclosure')}>Open popover</ButtonPrimary>
+);
 
 function ChildrenAsFunctionPopoverContent({ popover }: { popover?: PopoverStateReturn }) {
 	return (
@@ -25,25 +26,23 @@ function ChildrenAsFunctionPopoverContent({ popover }: { popover?: PopoverStateR
 
 export const DefaultStory = () => (
 	<div style={{ padding: '1.2rem' }}>
-		<Popover
-			aria-label="Custom popover"
-			disclosure={
-				<ButtonPrimary onClick={action('Clicked disclosure')}>Open popover</ButtonPrimary>
-			}
-		>
+		<Popover aria-label="Custom popover" disclosure={<OpenPopover />}>
 			Text Content
+		</Popover>
+	</div>
+);
+
+export const WithoutPaddingStory = () => (
+	<div style={{ padding: '1.2rem' }}>
+		<Popover aria-label="Custom popover" disclosure={<OpenPopover />} isFixed hasPadding={false}>
+			Text Content without padding
 		</Popover>
 	</div>
 );
 
 export const WithFunctionAsChildren = () => (
 	<div style={{ padding: '1.2rem' }}>
-		<Popover
-			aria-label="Custom popover"
-			disclosure={
-				<ButtonPrimary onClick={action('Clicked disclosure')}>Open popover</ButtonPrimary>
-			}
-		>
+		<Popover aria-label="Custom popover" disclosure={<OpenPopover />}>
 			{(popover: PopoverStateReturn) => <ChildrenAsFunctionPopoverContent popover={popover} />}
 			<EasyPopover />
 		</Popover>

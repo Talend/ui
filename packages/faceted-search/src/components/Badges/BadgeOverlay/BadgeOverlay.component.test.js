@@ -17,12 +17,7 @@ describe('BadgeOverlay', () => {
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
 		// Then
-		expect(
-			wrapper
-				.find('Overlay')
-				.at(0)
-				.prop('show'),
-		).toBe(false);
+		expect(wrapper.find('Overlay').at(0).prop('show')).toBe(false);
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 	it('should render the html output with children as function', () => {
@@ -47,23 +42,13 @@ describe('BadgeOverlay', () => {
 		};
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
-		expect(
-			wrapper
-				.find('Overlay')
-				.at(0)
-				.prop('show'),
-		).toBe(false);
+		expect(wrapper.find('Overlay').at(0).prop('show')).toBe(false);
 		act(() => {
 			wrapper.find('button').simulate('click');
 		});
 		wrapper.update();
 		// Then
-		expect(
-			wrapper
-				.find('Overlay')
-				.at(0)
-				.prop('show'),
-		).toBe(true);
+		expect(wrapper.find('Overlay').at(0).prop('show')).toBe(true);
 	});
 	it('should trigger a callback when button clicked', () => {
 		// Given
@@ -76,12 +61,7 @@ describe('BadgeOverlay', () => {
 		};
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
-		expect(
-			wrapper
-				.find('Overlay')
-				.at(0)
-				.prop('show'),
-		).toBe(false);
+		expect(wrapper.find('Overlay').at(0).prop('show')).toBe(false);
 		wrapper.find('button').simulate('click');
 		// Then
 		expect(onChange.mock.calls.length).toBe(1);
@@ -98,11 +78,6 @@ describe('BadgeOverlay', () => {
 		// When
 		const wrapper = mount(<BadgeOverlay {...props}>children</BadgeOverlay>);
 		// Then
-		expect(
-			wrapper
-				.find('Overlay')
-				.at(0)
-				.prop('show'),
-		).toBe(true);
+		expect(wrapper.find('Overlay').at(0).prop('show')).toBe(true);
 	});
 });

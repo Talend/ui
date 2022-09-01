@@ -45,11 +45,8 @@ describe('BadgeText', () => {
 			</BadgeFacetedProvider>,
 		);
 		// Then
-		expect(
-			wrapper
-				.find('#potatoId-badge-text-action-overlay')
-				.first()
-				.text(),
-		).toEqual('init value');
+		expect(wrapper.find('#potatoId-badge-text-action-overlay').first().text()).toEqual(
+			'init value',
+		);
 	});
 });

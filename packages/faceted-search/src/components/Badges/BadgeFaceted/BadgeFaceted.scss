@@ -1,7 +1,9 @@
+@use '~@talend/design-tokens/lib/tokens';
+
 // stylelint-disable scss/selector-no-redundant-nesting-selector
 .tc-badge-faceted {
-	padding: $padding-smaller $padding-small $padding-smaller $padding-small;
-	max-width: 35em;
+	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
+	max-width: tokens.$coral-sizing-maximal;
 
 	:global(.tc-badge-button) {
 		max-width: none;
@@ -19,7 +21,7 @@
 
 	:global(.tc-badge-delete-icon) {
 		align-self: center;
-		padding-left: $padding-small;
+		padding-left: tokens.$coral-spacing-xs;
 	}
 
 	&-overlay {
@@ -47,8 +49,8 @@
 				content: '|';
 				position: relative;
 				top: -1px;
-				opacity: 0.5;
-				padding: 0 $padding-smaller;
+				opacity: tokens.$coral-opacity-m;
+				padding: 0 tokens.$coral-spacing-xxs;
 			}
 		}
 	}
