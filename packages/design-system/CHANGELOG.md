@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 4.1.1
+
+### Patch Changes
+
+- b5d12a791: Export TagVariantsNames from DS module
+
 ## 4.1.0
 
 ### Minor Changes
