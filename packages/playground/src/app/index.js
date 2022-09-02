@@ -22,7 +22,6 @@ import { Dataviz } from './components/Dataviz';
 
 import actions from './actions';
 
-console.log('html-loader test is ok, output is a simple string', foo);
 // thanks ui-scripts
 let basename = window.basename;
 if (basename === '/') {
