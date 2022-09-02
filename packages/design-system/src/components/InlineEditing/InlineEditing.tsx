@@ -103,6 +103,7 @@ const InlineEditing = React.forwardRef(
 					<div className="c-inline-editing--editing">
 						<form>
 							<Input
+								name={label.replace(/\s/g, '')}
 								hideLabel
 								label={label}
 								value={value}

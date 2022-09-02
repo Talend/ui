@@ -31,6 +31,7 @@ const Datalist = forwardRef(
 			description,
 			name,
 			hideLabel,
+			required,
 			...rest
 		}: DatalistProps,
 		ref: Ref<HTMLInputElement> | undefined,
@@ -49,6 +50,7 @@ const Datalist = forwardRef(
 					description={description}
 					name={name}
 					hideLabel={hideLabel}
+					required={required}
 				>
 					<InputPrimitive
 						{...rest}

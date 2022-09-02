@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
 import styled from 'styled-components';
 import { shade } from 'polished';
-import Input, { InputProps } from './Input';
+import Input from './Input';
 import tokens from '../../../../deprecatedTokens';
+import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives';
 
 const SRange = styled.div`
 	input[type='range'] {
@@ -107,12 +108,16 @@ const SRange = styled.div`
 	}
 `;
 
-const Range = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
-	return (
-		<SRange>
-			<Input {...props} type="range" ref={ref} />
-		</SRange>
-	);
-});
+const Range = forwardRef(
+	(props: InputPrimitiveProps & FieldPropsPrimitive, ref: Ref<HTMLInputElement>) => {
+		return (
+			<SRange>
+				<Input {...props} type="range" ref={ref} />
+			</SRange>
+		);
+	},
+);
+
+Range.displayName = 'Range';
 
 export default Range;

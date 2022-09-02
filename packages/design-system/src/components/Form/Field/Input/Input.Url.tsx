@@ -1,8 +1,14 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
+import Input from './Input';
 
-const Url = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+type InputUrlProps = FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
+
+const Url = forwardRef((props: InputUrlProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="url" ref={ref} />;
 });
+
+Url.displayName = 'Url';
 
 export default Url;

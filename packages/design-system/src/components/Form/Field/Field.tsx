@@ -5,10 +5,10 @@ import { unstable_useId as useId } from 'reakit';
 import Loading from '../../Loading';
 import VisuallyHidden from '../../VisuallyHidden';
 import {
-	InlineMessageWarning,
 	InlineMessageDestructive,
 	InlineMessageInformation,
 	InlineMessageSuccess,
+	InlineMessageWarning,
 } from '../../InlineMessage';
 import Link from '../../Link';
 

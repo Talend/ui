@@ -1,8 +1,14 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
+import Input from './Input';
 
-const Text = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+type InputTextProps = FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
+
+const Text = forwardRef((props: InputTextProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="text" ref={ref} />;
 });
+
+Text.displayName = 'Text';
 
 export default Text;

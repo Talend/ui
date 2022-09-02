@@ -22,6 +22,7 @@ export type FieldPropsPrimitive = {
 	label: LabelProps | string;
 	id?: string;
 	name: string;
+	required?: boolean;
 } & FieldStatusProps;
 
 type FieldPropsPrimitiveWithChildren = FieldPropsPrimitive & { children: ReactElement };
@@ -36,6 +37,7 @@ const Field = forwardRef(
 			name,
 			hasError = false,
 			hideLabel = false,
+			required = false,
 			description,
 			...rest
 		} = props;
@@ -47,10 +49,10 @@ const Field = forwardRef(
 
 		const LabelComponent = hideLabel ? (
 			<VisuallyHidden>
-				<Label {...labelProps} htmlFor={fieldID} />
+				<Label {...labelProps} htmlFor={fieldID} required={required} />
 			</VisuallyHidden>
 		) : (
-			<Label {...labelProps} htmlFor={fieldID} />
+			<Label {...labelProps} htmlFor={fieldID} required={required} />
 		);
 
 		const Description = () => {
@@ -67,7 +69,7 @@ const Field = forwardRef(
 		return (
 			<StackVertical gap="XXS" align="stretch" justify="start">
 				{LabelComponent}
-				{cloneElement(children, { fieldID, hasError, name, ...rest }, ref)}
+				{cloneElement(children, { id: fieldID, hasError, name, required, ...rest }, ref)}
 				{link && <Link {...link} />}
 				{description && <Description />}
 			</StackVertical>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Form from '..';
-import Link from '../../Link';
 
 export default {
 	component: Form.Text,
@@ -10,6 +9,7 @@ export default {
 export const FormFieldError = () => (
 	<Form.Text
 		label="Label"
+		name="field"
 		required
 		hasError
 		placeholder="Placeholder"
@@ -18,20 +18,9 @@ export const FormFieldError = () => (
 );
 FormFieldError.parameters = {};
 
-export const FormFieldWarning = () => (
-	<Form.Text
-		label="Label"
-		required
-		hasWarning
-		placeholder="Placeholder"
-		description="Warning message"
-	/>
-);
-FormFieldWarning.parameters = {};
-
 export const FormFieldRequired = () => (
 	<Form>
-		<Form.Text label="Name" required value="Job using JDBC connection" />
+		<Form.Text label="Name" name="name" required value="Job using JDBC connection" />
 		<Form.Textarea label="Description" placeholder="Describe the job" />
 	</Form>
 );
@@ -40,6 +29,7 @@ FormFieldRequired.parameters = {};
 export const FormFieldInformation = () => (
 	<Form.Text
 		label="Label"
+		name="field"
 		required
 		placeholder="Placeholder"
 		description="Log level settings are taken into account in Remote Engine version 2.8.3 or above."
@@ -52,7 +42,9 @@ export const FormFieldPassword = () => (
 		label="Label"
 		required
 		placeholder="Placeholder"
-		link={<Link href="#">Forget?</Link>}
+		link={{ href: '#', children: 'Forgot your password?' }}
+		id="password"
+		name="password"
 	/>
 );
 FormFieldPassword.parameters = {};

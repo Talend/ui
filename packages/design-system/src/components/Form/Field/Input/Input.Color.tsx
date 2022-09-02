@@ -1,28 +1,12 @@
 import React, { forwardRef, Ref } from 'react';
-import {
-	FieldPrimitive,
-	FieldPropsPrimitive,
-	InputPrimitive,
-	InputPrimitiveProps,
-} from '../../../WIP/FormPrimitives/index';
+import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
+import Input from './Input';
 
-type InputColorProps = FieldPropsPrimitive & Omit<InputPrimitiveProps, 'className' | 'styles'>;
+type InputColorProps = FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
 
 const Color = forwardRef((props: InputColorProps, ref: Ref<HTMLInputElement>) => {
-	const { label, hasError = false, link, description, id, name, hideLabel, ...rest } = props;
-	return (
-		<FieldPrimitive
-			label={label}
-			hasError={hasError || false}
-			link={link}
-			description={description}
-			id={id}
-			name={name}
-			hideLabel={hideLabel}
-		>
-			<InputPrimitive {...rest} type="color" ref={ref} />
-		</FieldPrimitive>
-	);
+	return <Input {...props} type="color" ref={ref} />;
 });
 
 Color.displayName = 'Color';

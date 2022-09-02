@@ -1,29 +1,19 @@
-import React, {
-	FocusEvent,
-	forwardRef,
-	InputHTMLAttributes,
-	Ref,
-	useImperativeHandle,
-	useRef,
-	useState,
-} from 'react';
+import React, { forwardRef, InputHTMLAttributes, Ref, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import { useTranslation } from 'react-i18next';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 import { FieldStatusProps } from '../Field/Field';
-import Tooltip from '../../../Tooltip';
-import Clickable from '../../../Clickable';
-import { Icon } from '../../../Icon/Icon';
+import useRevealPassword from '../../../Form/Field/Input/hooks/useRevealPassword';
+import { SizedIcon } from '../../../Icon';
+
+import styles from './Input.module.scss';
 
 export type InputPrimitiveProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
 	AffixesProps &
 	Omit<FieldStatusProps, 'errorMessage'>;
 
-import styles from './Input.module.scss';
-
 const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement | null>) => {
 	const {
+		id,
 		className,
 		prefix,
 		suffix,
@@ -36,21 +26,17 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 	} = props;
 
 	// Password type management
-	const [isClear, setClear] = useState<boolean>(type !== 'password');
-	const inputType = type === 'password' && isClear ? 'text' : type;
 	const inputRef = useRef<HTMLInputElement | null>(null);
-	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
-	const showMsg = t('FORM_PASSWORD_SHOW', 'Show password');
-	const hideMsg = t('FORM_PASSWORD_HIDE', 'Hide password');
-
 	useImperativeHandle(ref, () => inputRef.current);
-
-	function handleBlur(event: FocusEvent<HTMLInputElement, HTMLInputElement>) {
-		setClear(false);
-		if (onBlur) {
-			onBlur(event);
+	function handleClick() {
+		if (inputRef.current) {
+			inputRef.current.focus();
+			const valueLength = inputRef.current.value.length || 0;
+			inputRef.current.setSelectionRange(valueLength, valueLength);
 		}
 	}
+
+	const { currentType, onReset, RevealPasswordButton } = useRevealPassword();
 
 	return (
 		<InputWrapper
@@ -61,44 +47,26 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 			hasError={hasError}
 		>
 			<>
+				{type === 'search' && (
+					<span
+						className={classnames(styles.icon, {
+							[styles.icon_disabled]: disabled,
+							[styles.icon_readOnly]: readOnly,
+						})}
+					>
+						<SizedIcon size="S" name="magnifying-glass" />
+					</span>
+				)}
 				<input
 					{...rest}
-					type={inputType}
+					type={type === 'password' ? currentType : type}
 					ref={inputRef}
 					disabled={disabled}
 					readOnly={readOnly}
-					onBlur={handleBlur}
+					onBlur={onReset}
 					className={classnames(styles.input, { [styles.input_readOnly]: readOnly }, className)}
 				/>
-				{type === 'password' && (
-					<Tooltip title={isClear ? hideMsg : showMsg}>
-						<Clickable
-							onClick={() => {
-								setClear(!isClear);
-								if (inputRef.current) {
-									inputRef.current.focus();
-									const valueLength = inputRef.current.value.length || 0;
-									inputRef.current.setSelectionRange(valueLength, valueLength);
-								}
-							}}
-							disabled={disabled}
-							aria-pressed={isClear}
-							tabIndex={-1}
-							aria-hidden
-							data-test="form.password.reveal"
-							className={classnames(
-								styles.button,
-								{ [styles.button_readOnly]: readOnly },
-								className,
-							)}
-						>
-							<Icon
-								name={isClear ? 'talend-eye-slash' : 'talend-eye'}
-								className={styles.button__icon}
-							/>
-						</Clickable>
-					</Tooltip>
-				)}
+				{type === 'password' && <RevealPasswordButton onClick={handleClick} disabled={disabled} />}
 			</>
 		</InputWrapper>
 	);

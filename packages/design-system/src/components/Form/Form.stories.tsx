@@ -37,10 +37,10 @@ export const Default = () => (
 	<Form>
 		<Form.Fieldset legend="Complete your registration">
 			<Form.Row>
-				<Form.Text label="First Name" required />
-				<Form.Text label="Last Name" required />
+				<Form.Text label="First Name" name="firstname" required />
+				<Form.Text label="Last Name" name="lastname" required />
 			</Form.Row>
-			<Form.Text label="Company" value="Talend" required />
+			<Form.Text label="Company" value="Talend" name="company" required />
 			<Form.FieldGroup
 				label="Phone"
 				prefix={
@@ -54,17 +54,18 @@ export const Default = () => (
 				description="Phone number is invalid"
 				required
 			>
-				<Form.Tel label="Phone number" value="6121314k" />
+				<Form.Tel label="Phone number" name="tel" value="6121314k" />
 			</Form.FieldGroup>
 			<Form.Select label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
-			<Form.Password label="Password" />
-			<Form.Password label="Repeat password" />
+			<Form.Password label="Password" name="password" />
+			<Form.Password label="Repeat password" name="password-repeat" />
 			<Form.Checkbox
 				checked
 				required
 				id="test-checkbox"
+				name="test-checkbox"
 				label={
 					<>
 						I have read and accept the <Link href="#">terms of use</Link>
@@ -88,8 +89,8 @@ export const Error = () => (
 					description="Please verify your email and password."
 					withBackground
 				/>
-				<Form.Text label="Email" required value="name@company.com" />
-				<Form.Password label="Password" required value="password" />
+				<Form.Text label="Email" name="email" required value="name@company.com" />
+				<Form.Password label="Password" required value="password" name="password" />
 			</Form.Fieldset>
 			<Form.Buttons style={{ justifyContent: 'center' }}>
 				<ButtonPrimary onClick={action('clicked')}>Login</ButtonPrimary>
@@ -103,10 +104,10 @@ export const Disabled = () => (
 	<Form disabled>
 		<Form.Fieldset legend="Complete your registration">
 			<Form.Row>
-				<Form.Text label="First Name" required />
-				<Form.Text label="Last Name" required />
+				<Form.Text label="First Name" name="firstname" required />
+				<Form.Text label="Last Name" name="lastname" required />
 			</Form.Row>
-			<Form.Text label="Company" value="Talend" required />
+			<Form.Text label="Company" name="company" value="Talend" required />
 			<Form.FieldGroup
 				label="Phone"
 				prefix={
@@ -120,16 +121,17 @@ export const Disabled = () => (
 				description="Phone number is invalid"
 				required
 			>
-				<Form.Tel label="Phone number" value="6121314k" />
+				<Form.Tel label="Phone number" name="tel" value="6121314k" />
 			</Form.FieldGroup>
 			<Form.Select label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
-			<Form.Password label="Password" />
-			<Form.Password label="Repeat password" />
+			<Form.Password label="Password" name="password" />
+			<Form.Password label="Repeat password" name="repeat-password" />
 			<Form.Checkbox
 				checked
 				required
+				name="checkbox"
 				label={
 					<>
 						I have read and accept the <Link href="#">terms of use</Link>
@@ -148,10 +150,10 @@ export const ReadOnly = () => (
 	<Form readOnly>
 		<Form.Fieldset legend="Complete your registration">
 			<Form.Row>
-				<Form.Text label="First Name" required />
-				<Form.Text label="Last Name" required />
+				<Form.Text label="First Name" name="firsname" required />
+				<Form.Text label="Last Name" name="lastname" required />
 			</Form.Row>
-			<Form.Text label="Company" value="Talend" required />
+			<Form.Text label="Company" name="company" value="Talend" required />
 			<Form.FieldGroup
 				label="Phone"
 				prefix={
@@ -165,16 +167,17 @@ export const ReadOnly = () => (
 				description="Phone number is invalid"
 				required
 			>
-				<Form.Tel label="Phone number" value="6121314k" />
+				<Form.Tel name="tel" label="Phone number" value="6121314k" />
 			</Form.FieldGroup>
 			<Form.Select label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
-			<Form.Password label="Password" />
-			<Form.Password label="Repeat password" />
+			<Form.Password label="Password" name="password" />
+			<Form.Password label="Repeat password" name="password-repeat" />
 			<Form.Checkbox
 				checked
 				required
+				name="checkbox"
 				label={
 					<>
 						I have read and accept the <Link href="#">terms of use</Link>
@@ -197,8 +200,8 @@ export const InlineHelp = () => (
 					description="You can reset the password for your account by  completing this form"
 					withBackground
 				/>
-				<Form.Password label="New password" required value="password" />
-				<Form.Password label="Re-enter new password" required />
+				<Form.Password label="New password" required value="password" name="password" />
+				<Form.Password label="Re-enter new password" required name="repeat" />
 			</Form.Fieldset>
 			<Form.Buttons>
 				<ButtonSecondary onClick={action('clicked')}>Cancel</ButtonSecondary>
@@ -213,7 +216,7 @@ export const Loading = () => (
 	<div style={{ margin: '0 auto', width: '60rem' }}>
 		<Form disabled>
 			<Form.Fieldset legend="Run job">
-				<Form.Text label="Name" required placeholder="Job using JDBC connection" />
+				<Form.Text label="Name" name="text" required placeholder="Job using JDBC connection" />
 				<Form.Textarea label="Description" placeholder="Describe the job" />
 			</Form.Fieldset>
 			<Form.Buttons>

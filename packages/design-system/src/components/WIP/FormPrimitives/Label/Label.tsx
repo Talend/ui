@@ -7,10 +7,11 @@ export type LabelProps =
 	| LabelHTMLAttributes<any> & {
 			children: string | ReactElement | ReactI18NextChild;
 			inline?: boolean;
+			required?: boolean;
 	  };
 
 const Label = forwardRef((props: LabelProps, ref: Ref<HTMLLabelElement>) => {
-	const { children, inline = false, className, ...rest } = props;
+	const { children, inline = false, required = false, className, ...rest } = props;
 
 	return (
 		<label
@@ -19,6 +20,7 @@ const Label = forwardRef((props: LabelProps, ref: Ref<HTMLLabelElement>) => {
 			ref={ref}
 		>
 			{children}
+			{required && '*'}
 		</label>
 	);
 });

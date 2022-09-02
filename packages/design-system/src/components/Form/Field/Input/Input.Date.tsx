@@ -1,8 +1,14 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
+import Input from './Input';
 
-const Date = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+type InputDateProps = FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
+
+const Date = forwardRef((props: InputDateProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="date" ref={ref} />;
 });
+
+Date.displayName = 'Date';
 
 export default Date;

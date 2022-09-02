@@ -25,6 +25,7 @@ const InputCopy = forwardRef(
 			defaultValue,
 			disabled,
 			readOnly,
+			required,
 			...rest
 		}: InputCopyProps,
 		ref: Ref<HTMLInputElement | null>,
@@ -69,6 +70,7 @@ const InputCopy = forwardRef(
 				description={getDescriptionMessage()}
 				hasError={!!copyError}
 				hideLabel={hideLabel}
+				required={required}
 				name={name}
 			>
 				<InputPrimitive

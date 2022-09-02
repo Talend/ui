@@ -70,20 +70,39 @@ export const InputPrimitivePassword = () => (
 
 export const CheckboxPrimitive = () => (
 	<StackVertical gap="XS" padding="XS" align="stretch" justify="start">
-		<Checkbox label="Test checkbox" id="checkbox-1" />
-		<Checkbox label="Test checkbox selected" id="checkbox-2" defaultChecked />
-		<Checkbox label="Test checkbox indeterminate" id="checkbox-3" indeterminate />
-		<Checkbox label="Test checkbox read-only unselected" id="checkbox-4" readOnly />
-		<Checkbox label="Test checkbox read-only" id="checkbox-5" readOnly defaultChecked />
+		<Checkbox name="checkbox" label="Test checkbox" id="checkbox-1" />
+		<Checkbox name="checkbox" label="Test checkbox selected" id="checkbox-2" defaultChecked />
+		<Checkbox name="checkbox" label="Test checkbox indeterminate" id="checkbox-3" indeterminate />
+		<Checkbox name="checkbox" label="Test checkbox read-only unselected" id="checkbox-4" readOnly />
 		<Checkbox
+			name="checkbox"
+			label="Test checkbox read-only"
+			id="checkbox-5"
+			readOnly
+			defaultChecked
+		/>
+		<Checkbox
+			name="checkbox"
 			label="Test checkbox indeterminate read-only"
 			id="checkbox-6"
 			indeterminate
 			readOnly
 		/>
-		<Checkbox label="Test checkbox disabled unselected" id="checkbox-7" disabled />
-		<Checkbox label="Test checkbox disabled" id="checkbox-8" disabled defaultChecked />
-		<Checkbox label="Test checkbox indeterminate disabled" id="checkbox-9" indeterminate disabled />
+		<Checkbox name="checkbox" label="Test checkbox disabled unselected" id="checkbox-7" disabled />
+		<Checkbox
+			name="checkbox"
+			label="Test checkbox disabled"
+			id="checkbox-8"
+			disabled
+			defaultChecked
+		/>
+		<Checkbox
+			name="checkbox"
+			label="Test checkbox indeterminate disabled"
+			id="checkbox-9"
+			indeterminate
+			disabled
+		/>
 	</StackVertical>
 );
 
@@ -233,7 +252,7 @@ export const FakeForm = () => {
 				</StackHorizontal>
 				<StackVertical gap="XXS" align="stretch" justify="start">
 					<Label>Send me emails</Label>
-					<Checkbox id="emails" label="Yes I love emails" />
+					<Checkbox name="checkbox" id="emails" label="Yes I love emails" />
 				</StackVertical>
 				<StackVertical gap="XXS" align="stretch" justify="start">
 					<Label>Pick a thing</Label>

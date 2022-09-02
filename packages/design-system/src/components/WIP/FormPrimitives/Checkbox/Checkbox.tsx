@@ -13,6 +13,7 @@ export type CheckboxPrimitiveType = Omit<CheckboxProps, 'type' | 'prefix'> & {
 	indeterminate?: boolean;
 	label: string | ReactElement | ReactI18NextChild;
 	isInline?: boolean;
+	name: string;
 };
 
 const Checkbox = forwardRef((props: CheckboxPrimitiveType, ref: Ref<HTMLInputElement>) => {

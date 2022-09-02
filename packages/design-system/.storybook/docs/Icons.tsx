@@ -40,7 +40,7 @@ export const Icons = () => {
 			<ThemeProvider>
 				<ThemeProvider.GlobalStyle />
 				<Form>
-					<Form.Search label="Search" onChange={onChangeQuery} />
+					<Form.Search name="search" label="Search" onChange={onChangeQuery} />
 					<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 						<Form.Select label="Size" onChange={onChangeSize}>
 							<option value="1">S</option>
@@ -63,6 +63,7 @@ export const Icons = () => {
 						<div>
 							<Form.Switch
 								label="Use color"
+								name="color"
 								onChange={() => setUseCurrentColor(!useCurrentColor)}
 								checked={!!useCurrentColor}
 							/>
@@ -78,10 +79,12 @@ export const Icons = () => {
 						</div>
 						<Form.Switch
 							label="Use border"
+							name="border"
 							onChange={() => setBorder(!border)}
 							checked={!!border}
 						/>
 						<Form.Switch
+							name="grayscale"
 							label="Use grayscale filter"
 							onChange={() => setFilter(!filter)}
 							checked={!!filter}

@@ -1,18 +1,14 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
+import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
+import Input from './Input';
 
-import Input, { InputProps } from './Input';
-import { Icon } from '../../../Icon';
+type InputSearchProps = FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
 
-const Search = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
-	return (
-		<Input
-			{...props}
-			type="search"
-			// @ts-ignore
-			before={<Icon name="talend-search" />}
-			ref={ref}
-		/>
-	);
+const Search = forwardRef((props: InputSearchProps, ref: Ref<HTMLInputElement>) => {
+	return <Input {...props} type="search" ref={ref} />;
 });
+
+Search.displayName = 'Search';
 
 export default Search;

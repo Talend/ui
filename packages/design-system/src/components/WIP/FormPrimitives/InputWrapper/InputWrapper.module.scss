@@ -9,4 +9,10 @@
   gap: 0;
   justify-content: stretch;
   align-items: stretch;
+  position: relative;
+  overflow: hidden;
+
+  &_noBorder {
+    border: none;
+  }
 }

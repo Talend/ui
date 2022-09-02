@@ -1,8 +1,14 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
+import Input from './Input';
 
-const Tel = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+type InputTelProps = FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
+
+const Tel = forwardRef((props: InputTelProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="tel" ref={ref} />;
 });
+
+Tel.displayName = 'Tel';
 
 export default Tel;

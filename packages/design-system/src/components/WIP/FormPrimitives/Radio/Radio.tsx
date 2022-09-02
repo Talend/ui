@@ -1,17 +1,20 @@
-import React, { forwardRef, Ref, ReactElement, InputHTMLAttributes } from 'react';
+import React, { forwardRef, InputHTMLAttributes, Ref } from 'react';
+import { unstable_useId as useId } from 'reakit';
 import classnames from 'classnames';
 import Label from '../Label/Label';
 import useReadOnly from '../../../Form/Field/Input/hooks/useReadOnly';
 
 import styles from './Radio.module.scss';
 
-type RadioType = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'prefix'> & {
+export type RadioPrimitiveType = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'prefix'> & {
 	label: string;
-	id: string;
+	id?: string;
 };
 
-const Radio = forwardRef((props: RadioType, ref: Ref<HTMLInputElement>) => {
+const Radio = forwardRef((props: RadioPrimitiveType, ref: Ref<HTMLInputElement>) => {
 	const { id, label, readOnly, disabled, defaultChecked, checked, ...rest } = props;
+	const { id: reakitId } = useId();
+	const radioId = id || `checkbox--${reakitId}`;
 	const readOnlyRadioProps = useReadOnly(defaultChecked || checked);
 
 	return (
@@ -25,9 +28,9 @@ const Radio = forwardRef((props: RadioType, ref: Ref<HTMLInputElement>) => {
 				readOnly={readOnly}
 				checked={checked}
 				ref={ref}
-				id={id}
+				id={radioId}
 			/>
-			<Label htmlFor={id} inline>
+			<Label htmlFor={radioId} inline>
 				{label}
 			</Label>
 		</span>
