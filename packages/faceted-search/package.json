@@ -48,7 +48,7 @@
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
     "@talend/bootstrap-theme": "^6.39.0",
-    "@talend/design-system": "^4.1.0",
+    "@talend/design-system": "^4.1.1",
     "@talend/icons": "^6.47.0",
     "@talend/locales-tui-components": "^6.44.11",
     "@talend/locales-tui-faceted-search": "^4.0.2",
