@@ -28,7 +28,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/design-system": "^4.0.0",
+    "@talend/design-system": "^4.1.1",
     "@talend/design-tokens": "^2.7.0"
   },
   "devDependencies": {

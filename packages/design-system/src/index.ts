@@ -70,6 +70,7 @@ import {
 	TagDestructive,
 	TagInformation,
 	TagSuccess,
+	TagVariantsNames,
 	TagWarning,
 } from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
@@ -147,6 +148,7 @@ export {
 	TagDestructive,
 	TagInformation,
 	TagSuccess,
+	TagVariantsNames,
 	TagWarning,
 	ThemeProvider,
 	Tooltip,
