@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 12.2.3
+
+### Patch Changes
+
+- 2da0e0190: Header menu icon not rendering on firefox
+
 ## 12.2.2
 
 ### Patch Changes
