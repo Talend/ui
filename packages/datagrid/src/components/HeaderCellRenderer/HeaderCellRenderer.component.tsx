@@ -87,9 +87,7 @@ export default function HeaderCellRenderer({
 					</div>
 				</div>
 				{menuProps && (
-					<div className={theme['header-cell__menu-button']}>
-						<ButtonIcon icon="talend-ellipsis" size="XS" disabled={isLoading} {...menuProps} />
-					</div>
+					<ButtonIcon icon="dots-vertical" size="XS" disabled={isLoading} {...menuProps} />
 				)}
 			</StackHorizontal>
 			{quality && <QualityBar {...quality} {...qualityBarProps} />}
