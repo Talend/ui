@@ -1,11 +1,7 @@
 import React, { forwardRef, Ref } from 'react';
-import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
-import Input from './Input';
+import Input, { TypedInputFieldProps } from './Input';
 
-type InputDatetimeLocalProps = FieldPropsPrimitive &
-	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
-
-const DatetimeLocal = forwardRef((props: InputDatetimeLocalProps, ref: Ref<HTMLInputElement>) => {
+const DatetimeLocal = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="datetime-local" ref={ref} />;
 });
 

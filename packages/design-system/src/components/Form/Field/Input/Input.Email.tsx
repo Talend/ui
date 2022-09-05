@@ -1,11 +1,7 @@
 import React, { forwardRef, Ref } from 'react';
-import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
-import Input from './Input';
+import Input, { TypedInputFieldProps } from './Input';
 
-type InputEmailProps = FieldPropsPrimitive &
-	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
-
-const Email = forwardRef((props: InputEmailProps, ref: Ref<HTMLInputElement>) => {
+const Email = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="email" ref={ref} />;
 });
 

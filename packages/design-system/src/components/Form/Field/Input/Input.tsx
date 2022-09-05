@@ -6,7 +6,10 @@ import {
 	InputPrimitiveProps,
 } from '../../../WIP/FormPrimitives/index';
 
-type InputFieldProps = FieldPropsPrimitive & Omit<InputPrimitiveProps, 'className' | 'styles'>;
+export type InputFieldProps = FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'className' | 'styles'>;
+
+export type TypedInputFieldProps = Omit<InputFieldProps, 'type'>;
 
 const Field = forwardRef((props: InputFieldProps, ref: Ref<HTMLInputElement>) => {
 	const {

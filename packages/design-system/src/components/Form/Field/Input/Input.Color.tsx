@@ -1,11 +1,7 @@
 import React, { forwardRef, Ref } from 'react';
-import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
-import Input from './Input';
+import Input, { TypedInputFieldProps } from './Input';
 
-type InputColorProps = FieldPropsPrimitive &
-	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
-
-const Color = forwardRef((props: InputColorProps, ref: Ref<HTMLInputElement>) => {
+const Color = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="color" ref={ref} />;
 });
 

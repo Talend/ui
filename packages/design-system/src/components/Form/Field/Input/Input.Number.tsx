@@ -1,11 +1,7 @@
 import React, { forwardRef, Ref } from 'react';
-import { FieldPropsPrimitive, InputPrimitiveProps } from '../../../WIP/FormPrimitives/index';
-import Input from './Input';
+import Input, { TypedInputFieldProps } from './Input';
 
-type InputNumberProps = FieldPropsPrimitive &
-	Omit<InputPrimitiveProps, 'className' | 'styles' | 'type'>;
-
-const Number = forwardRef((props: InputNumberProps, ref: Ref<HTMLInputElement>) => {
+const Number = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="number" ref={ref} />;
 });
 
