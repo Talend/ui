@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaIframe, FigmaImage, Use } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaIframe, FigmaImage } from '~docs';
 import Form from '../';
 
 <Meta
@@ -30,7 +30,7 @@ The textarea is a control that allows the user to enter multiple lines of text.
 
 <Canvas>
 	<Story name="default">
-		<Form.Textarea label="Textarea" placeholder="Placeholder" />
+		<Form.Textarea name="textarea" label="Textarea" placeholder="Placeholder" />
 	</Story>
 </Canvas>
 
@@ -38,7 +38,9 @@ The textarea is a control that allows the user to enter multiple lines of text.
 
 <Canvas>
 	<Story name="filled">
-		<Form.Textarea label="Textarea">Lorem ipsum</Form.Textarea>
+		<Form.Textarea name="textarea" label="Textarea">
+			Lorem ipsum
+		</Form.Textarea>
 	</Story>
 </Canvas>
 
@@ -46,7 +48,7 @@ The textarea is a control that allows the user to enter multiple lines of text.
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Textarea label="Disabled Textarea" disabled>
+		<Form.Textarea name="textarea" label="Disabled Textarea" disabled>
 			Lorem ipsum
 		</Form.Textarea>
 	</Story>
@@ -56,7 +58,7 @@ The textarea is a control that allows the user to enter multiple lines of text.
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Textarea label="Read-only Textarea" readOnly>
+		<Form.Textarea name="textarea" label="Read-only Textarea" readOnly>
 			Lorem ipsum
 		</Form.Textarea>
 	</Story>

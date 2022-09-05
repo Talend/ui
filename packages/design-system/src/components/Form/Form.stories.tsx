@@ -217,7 +217,7 @@ export const Loading = () => (
 		<Form disabled>
 			<Form.Fieldset legend="Run job">
 				<Form.Text label="Name" name="text" required placeholder="Job using JDBC connection" />
-				<Form.Textarea label="Description" placeholder="Describe the job" />
+				<Form.Textarea name="description" label="Description" placeholder="Describe the job" />
 			</Form.Fieldset>
 			<Form.Buttons>
 				<ButtonSecondary onClick={action('clicked')}>Previous</ButtonSecondary>

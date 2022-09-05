@@ -53,7 +53,7 @@ export const FormButtonsOrder = () => (
 	<Form>
 		<Form.Fieldset legend="Run job">
 			<Form.Text name="name" label="Name" required placeholder="Job using JDBC connection" />
-			<Form.Textarea label="Description" placeholder="Describe the job" />
+			<Form.Textarea name="textarea" label="Description" placeholder="Describe the job" />
 		</Form.Fieldset>
 		<Form.Buttons>
 			<ButtonSecondary onClick={action('Clicked Previous')}>Previous</ButtonSecondary>
@@ -70,7 +70,7 @@ export const FormButtonsSingle = () => (
 	<Form>
 		<Form.Fieldset legend="Run job">
 			<Form.Text name="name" label="Name" required placeholder="Job using JDBC connection" />
-			<Form.Textarea label="Description" placeholder="Describe the job" />
+			<Form.Textarea name="textarea" label="Description" placeholder="Describe the job" />
 		</Form.Fieldset>
 		<Form.Buttons>
 			<ButtonPrimary onClick={action('Clicked Submit')} icon="triangle-circle">

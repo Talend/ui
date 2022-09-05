@@ -1,11 +1,10 @@
 import React, { forwardRef, Ref, TextareaHTMLAttributes } from 'react';
 import classnames from 'classnames';
-
-type TextareaProps = TextareaHTMLAttributes<any> & { hasError?: boolean };
-
 import styles from './Textarea.module.scss';
 
-const Textarea = forwardRef((props: TextareaProps, ref: Ref<HTMLTextAreaElement>) => {
+export type TextareaPrimitiveProps = TextareaHTMLAttributes<any> & { hasError?: boolean };
+
+const Textarea = forwardRef((props: TextareaPrimitiveProps, ref: Ref<HTMLTextAreaElement>) => {
 	const { className, readOnly = false, disabled = false, hasError = false, ...rest } = props;
 	return (
 		<textarea

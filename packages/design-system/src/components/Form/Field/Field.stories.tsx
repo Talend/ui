@@ -21,7 +21,7 @@ FormFieldError.parameters = {};
 export const FormFieldRequired = () => (
 	<Form>
 		<Form.Text label="Name" name="name" required value="Job using JDBC connection" />
-		<Form.Textarea label="Description" placeholder="Describe the job" />
+		<Form.Textarea name="textarea" label="Description" placeholder="Describe the job" />
 	</Form>
 );
 FormFieldRequired.parameters = {};
