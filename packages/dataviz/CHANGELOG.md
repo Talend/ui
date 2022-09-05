@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.7.1
+
+### Patch Changes
+
+- 94a6bf759: Range filter marks are overflowing
+
 ## 2.7.0
 
 ### Minor Changes
