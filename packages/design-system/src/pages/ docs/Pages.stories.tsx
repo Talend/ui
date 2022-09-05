@@ -42,7 +42,7 @@ export const Disclaimer = () => (
 export const Login = () => (
 	<LoginPageWith>
 		<Form className="login-form">
-			<Form.Select label="Region">
+			<Form.Select label="Region" name="Region">
 				<optgroup label="Amazon Web Services (AWS)">
 					<option>Asia Pacific AWS</option>
 					<option>Europe AWS</option>

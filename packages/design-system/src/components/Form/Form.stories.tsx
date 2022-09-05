@@ -44,7 +44,7 @@ export const Default = () => (
 			<Form.FieldGroup
 				label="Phone"
 				prefix={
-					<Form.Select label="Phone prefix" value="France (+33)">
+					<Form.Select name="select" label="Phone prefix" value="France (+33)">
 						{getCountryCodes().map((countryCode, key) => (
 							<option key={key}>{countryCode}</option>
 						))}
@@ -56,7 +56,7 @@ export const Default = () => (
 			>
 				<Form.Tel label="Phone number" name="tel" value="6121314k" />
 			</Form.FieldGroup>
-			<Form.Select label="Industry">
+			<Form.Select name="select" label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
 			<Form.Password label="Password" name="password" />
@@ -111,7 +111,7 @@ export const Disabled = () => (
 			<Form.FieldGroup
 				label="Phone"
 				prefix={
-					<Form.Select label="Phone prefix" value="France (+33)">
+					<Form.Select name="select" label="Phone prefix" value="France (+33)">
 						{getCountryCodes().map((countryCode, key) => (
 							<option key={key}>{countryCode}</option>
 						))}
@@ -123,7 +123,7 @@ export const Disabled = () => (
 			>
 				<Form.Tel label="Phone number" name="tel" value="6121314k" />
 			</Form.FieldGroup>
-			<Form.Select label="Industry">
+			<Form.Select name="select" label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
 			<Form.Password label="Password" name="password" />
@@ -157,7 +157,7 @@ export const ReadOnly = () => (
 			<Form.FieldGroup
 				label="Phone"
 				prefix={
-					<Form.Select label="Phone prefix" value="France (+33)">
+					<Form.Select name="select" label="Phone prefix" value="France (+33)">
 						{getCountryCodes().map((countryCode, key) => (
 							<option key={key}>{countryCode}</option>
 						))}
@@ -169,7 +169,7 @@ export const ReadOnly = () => (
 			>
 				<Form.Tel name="tel" label="Phone number" value="6121314k" />
 			</Form.FieldGroup>
-			<Form.Select label="Industry">
+			<Form.Select name="select" label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
 			<Form.Password label="Password" name="password" />

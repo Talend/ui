@@ -27,7 +27,6 @@ export const FormComponent = Form as typeof Form & {
 	Number: typeof Input.Number;
 	Password: typeof Input.Password;
 	Radio: typeof Input.Radio;
-	Range: typeof Input.Range;
 	Search: typeof Input.Search;
 	Select: typeof Select;
 	Switch: typeof Input.Switch;
@@ -58,7 +57,6 @@ FormComponent.Month = Input.Month;
 FormComponent.Number = Input.Number;
 FormComponent.Password = Input.Password;
 FormComponent.Radio = Input.Radio;
-FormComponent.Range = Input.Range;
 FormComponent.Search = Input.Search;
 FormComponent.Select = Select;
 FormComponent.Switch = Input.Switch;

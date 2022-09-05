@@ -12,7 +12,7 @@
   position: relative;
   overflow: hidden;
 
-  &_noBorder {
-    border: none;
+  &_freeHeight {
+    height: auto;
   }
 }

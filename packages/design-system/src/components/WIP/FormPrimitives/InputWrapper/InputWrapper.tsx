@@ -22,6 +22,7 @@ type InputWrapperProps = {
 	children: ReactElement;
 	disabled?: boolean;
 	readOnly?: boolean;
+	hasFreeHeight?: boolean;
 } & AffixesProps &
 	Omit<FieldStatusProps, 'errorMessage'>;
 
@@ -51,6 +52,7 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 		disabled = false,
 		readOnly = false,
 		hasError = false,
+		hasFreeHeight = false,
 		...rest
 	} = props;
 	return (
@@ -61,6 +63,7 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 				[styles.inputShell_disabled]: disabled,
 				[styles.inputShell_readOnly]: readOnly,
 				[styles.inputShell_borderError]: hasError,
+				[styles.inputShell_freeHeight]: hasFreeHeight,
 			})}
 		>
 			{prefix && buildAffix(prefix)}

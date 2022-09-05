@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaIframe, FigmaImage, Use } from '~docs';
 
 import Form from '../';
@@ -34,7 +34,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="default">
-		<Form.Select label="Default select" placeholder="Placeholder">
+		<Form.Select name="select" label="Default select" placeholder="Placeholder">
 			<option>Foo</option>
 			<option>Bar</option>
 		</Form.Select>
@@ -45,7 +45,25 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="filled">
-		<Form.Select label="Filled select" placeholder="Placeholder">
+		<Form.Select name="select" label="Filled select" placeholder="Placeholder">
+			<option>Foo</option>
+			<option selected>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Error
+
+<Canvas>
+	<Story name="Error">
+		<Form.Select
+			name="select"
+			label="Filled select"
+			placeholder="Placeholder"
+			hasError
+			description="This field is required"
+			required
+		>
 			<option>Foo</option>
 			<option selected>Bar</option>
 		</Form.Select>
@@ -56,7 +74,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Select label="Disabled Select" disabled>
+		<Form.Select name="select" label="Disabled Select" disabled>
 			<option>Foo</option>
 			<option selected>Bar</option>
 		</Form.Select>
@@ -67,7 +85,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Select label="Read-Only Select" readOnly>
+		<Form.Select name="select" label="Read-Only Select" readOnly>
 			<option>Foo</option>
 			<option selected>Bar</option>
 		</Form.Select>
@@ -78,9 +96,27 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="default multiple">
-		<Form.Select label="Multiple Select" multiple>
+		<Form.Select name="select" label="Multiple Select" multiple>
 			<option selected>Foo</option>
 			<option selected>Bar</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+### Multiple Error
+
+<Canvas>
+	<Story name="error multiple">
+		<Form.Select
+			name="select"
+			label="Multiple Select"
+			multiple
+			hasError
+			description="This is required"
+			required
+		>
+			<option>Foo</option>
+			<option>Bar</option>
 		</Form.Select>
 	</Story>
 </Canvas>
@@ -89,7 +125,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="disabled multiple">
-		<Form.Select label="Disabled Multiple Select" multiple disabled>
+		<Form.Select name="select" label="Disabled Multiple Select" multiple disabled>
 			<option selected>Foo</option>
 			<option selected>Bar</option>
 		</Form.Select>
@@ -100,7 +136,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="read-only multiple">
-		<Form.Select label="Read-Only Multiple Select" multiple readOnly>
+		<Form.Select name="select" label="Read-Only Multiple Select" multiple readOnly>
 			<option selected>Foo</option>
 			<option selected>Bar</option>
 		</Form.Select>
@@ -111,7 +147,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="default object">
-		<Form.Select label="Select">
+		<Form.Select name="select" label="Select">
 			<optgroup label="Foo">
 				<option>Foo-Foo</option>
 				<option selected>Foo-Bar</option>
@@ -128,7 +164,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="disabled object">
-		<Form.Select label="Disabled Select" disabled>
+		<Form.Select name="select" label="Disabled Select" disabled>
 			<optgroup label="Foo">
 				<option>Foo-Foo</option>
 				<option selected>Foo-Bar</option>
@@ -145,7 +181,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="read-only object">
-		<Form.Select label="Read-Only Select" readOnly>
+		<Form.Select name="select" label="Read-Only Select" readOnly>
 			<optgroup label="Foo">
 				<option>Foo-Foo</option>
 				<option selected>Foo-Bar</option>
@@ -162,7 +198,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="default multiple object">
-		<Form.Select label="Select" multiple>
+		<Form.Select name="select" label="Select" multiple>
 			<optgroup label="Foo">
 				<option>Foo-Foo</option>
 				<option selected>Foo-Bar</option>
@@ -179,7 +215,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="disabled multiple object">
-		<Form.Select label="Disabled Select" multiple disabled>
+		<Form.Select name="select" label="Disabled Select" multiple disabled>
 			<optgroup label="Foo">
 				<option>Foo-Foo</option>
 				<option selected>Foo-Bar</option>
@@ -196,7 +232,7 @@ Select lets the user choose one option or multiple options from an options menu.
 
 <Canvas>
 	<Story name="read-only multiple object">
-		<Form.Select label="Read-Only Select" multiple readOnly>
+		<Form.Select name="select" label="Read-Only Select" multiple readOnly>
 			<optgroup label="Foo">
 				<option>Foo-Foo</option>
 				<option selected>Foo-Bar</option>

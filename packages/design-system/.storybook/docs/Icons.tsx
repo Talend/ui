@@ -42,13 +42,13 @@ export const Icons = () => {
 				<Form>
 					<Form.Search name="search" label="Search" onChange={onChangeQuery} />
 					<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-						<Form.Select label="Size" onChange={onChangeSize}>
+						<Form.Select name="Size" label="Size" onChange={onChangeSize}>
 							<option value="1">S</option>
 							<option value="2">M</option>
 							<option value="3">L</option>
 							<option value="4">XL</option>
 						</Form.Select>
-						<Form.Select label="Transform" onChange={onChangeTransform}>
+						<Form.Select name="Transform" label="Transform" onChange={onChangeTransform}>
 							<option>spin</option>
 							<option>rotate-45</option>
 							<option>rotate-90</option>

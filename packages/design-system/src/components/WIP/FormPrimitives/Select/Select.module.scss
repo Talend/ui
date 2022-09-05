@@ -11,6 +11,12 @@
       color: tokens.$coral-color-neutral-text-weak;
       opacity: tokens.$coral-opacity-s;
   }
+
+  &_multiple {
+    + .select__icon {
+      display: none;
+    }
+  }
 }
 
 .select__wrapper {
@@ -21,14 +27,17 @@
 }
 
 .select__icon {
-  width: tokens.$coral-sizing-xxxs;
-  height: tokens.$coral-sizing-xxxs;
+  width: tokens.$coral-sizing-minimal;
+  height: tokens.$coral-sizing-minimal;
   position: absolute;
   right: tokens.$coral-spacing-xs;
   top: 50%;
   transform: translateY(-50%);
   color: tokens.$coral-color-neutral-icon;
   pointer-events: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .select:disabled + .select__icon {
