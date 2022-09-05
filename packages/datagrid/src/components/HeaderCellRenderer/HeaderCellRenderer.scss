@@ -51,10 +51,6 @@
 		height: tokens.$coral-sizing-minimal;
 	}
 
-	&__menu-button svg {
-		transform: rotate(90deg);
-	}
-
 	&--loading {
 		animation: tokens.$coral-animation-heartbeat;
 	}
