@@ -1,4 +1,5 @@
 import React, { cloneElement, HTMLAttributes, ReactElement, ReactNode } from 'react';
+import classnames from 'classnames';
 import tokens from '@talend/design-tokens';
 import {
 	Popover as ReakitPopover,
@@ -13,7 +14,6 @@ import { Placement } from '../../Tooltip/Tooltip';
 import { DataAttributes } from '../../../types';
 
 import style from './Popover.module.scss';
-import classnames from 'classnames';
 
 const ANIMATION_DURATION = 150; // Sync with @talend/design-token animations duration
 
