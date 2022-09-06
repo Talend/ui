@@ -121,7 +121,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
       </button>
       <div id="a-42"
            hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4); padding: 0px;"
+           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
            tabindex="-1"
            data-dialog="true"
@@ -143,57 +143,59 @@ exports[`BasicSearch should render the default html output with initial badges 1
               </path>
             </svg>
           </div>
-          <div id="manager-id-basic-search-add-facet-popover"
-               class="tc-add-facet-popover theme-tc-add-facet-popover"
-          >
+          <div>
             <div id="manager-id-basic-search-add-facet-popover"
-                 class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+                 class="tc-add-facet-popover theme-tc-add-facet-popover"
             >
-              <div>
-                <header id="manager-id-basic-search-add-facet-popover-null-header"
-                        class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-                >
-                  <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                        role="search"
+              <div id="manager-id-basic-search-add-facet-popover"
+                   class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+              >
+                <div>
+                  <header id="manager-id-basic-search-add-facet-popover-null-header"
+                          class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
                   >
-                    <div class="form-group">
-                      <svg name="talend-search"
-                           focusable="false"
-                           aria-hidden="true"
-                           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
-                           pointer-events="none"
-                      >
-                      </svg>
-                      <input name="search"
-                             placeholder="Find a filter"
-                             autocomplete="off"
-                             aria-label="Find a filter"
-                             role="searchbox"
-                             type="search"
-                             id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                             class="theme-search form-control"
-                             value
-                      >
-                    </div>
-                  </form>
-                </header>
-                <div id="manager-id-basic-search-add-facet-popover-null-body"
-                     class="theme-body tc-tooltip-body"
-                >
-                  <div id="manager-id-basic-search-add-facet-popover-null-body-content"
-                       class="theme-content tc-tooltip-content"
+                    <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+                          role="search"
+                    >
+                      <div class="form-group">
+                        <svg name="talend-search"
+                             focusable="false"
+                             aria-hidden="true"
+                             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                             pointer-events="none"
+                        >
+                        </svg>
+                        <input name="search"
+                               placeholder="Find a filter"
+                               autocomplete="off"
+                               aria-label="Find a filter"
+                               role="searchbox"
+                               type="search"
+                               id="manager-id-basic-search-add-facet-popover-null-filter-input"
+                               class="theme-search form-control"
+                               value
+                        >
+                      </div>
+                    </form>
+                  </header>
+                  <div id="manager-id-basic-search-add-facet-popover-null-body"
+                       class="theme-body tc-tooltip-body"
                   >
-                    <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
-                      <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                              tabindex="0"
-                      >
-                        <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
-                          <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
-                            Name
+                    <div id="manager-id-basic-search-add-facet-popover-null-body-content"
+                         class="theme-content tc-tooltip-content"
+                    >
+                      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+                        <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
+                                class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
+                                tabindex="0"
+                        >
+                          <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
+                            <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
+                              Name
+                            </div>
                           </div>
-                        </div>
-                      </button>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -292,7 +294,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
       </button>
       <div id="a-42"
            hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4); padding: 0px;"
+           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
            tabindex="-1"
            data-dialog="true"
@@ -314,57 +316,59 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
               </path>
             </svg>
           </div>
-          <div id="manager-id-basic-search-add-facet-popover"
-               class="tc-add-facet-popover theme-tc-add-facet-popover"
-          >
+          <div>
             <div id="manager-id-basic-search-add-facet-popover"
-                 class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+                 class="tc-add-facet-popover theme-tc-add-facet-popover"
             >
-              <div>
-                <header id="manager-id-basic-search-add-facet-popover-null-header"
-                        class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-                >
-                  <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                        role="search"
+              <div id="manager-id-basic-search-add-facet-popover"
+                   class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+              >
+                <div>
+                  <header id="manager-id-basic-search-add-facet-popover-null-header"
+                          class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
                   >
-                    <div class="form-group">
-                      <svg name="talend-search"
-                           focusable="false"
-                           aria-hidden="true"
-                           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
-                           pointer-events="none"
-                      >
-                      </svg>
-                      <input name="search"
-                             placeholder="Find a filter"
-                             autocomplete="off"
-                             aria-label="Find a filter"
-                             role="searchbox"
-                             type="search"
-                             id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                             class="theme-search form-control"
-                             value
-                      >
-                    </div>
-                  </form>
-                </header>
-                <div id="manager-id-basic-search-add-facet-popover-null-body"
-                     class="theme-body tc-tooltip-body"
-                >
-                  <div id="manager-id-basic-search-add-facet-popover-null-body-content"
-                       class="theme-content tc-tooltip-content"
+                    <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+                          role="search"
+                    >
+                      <div class="form-group">
+                        <svg name="talend-search"
+                             focusable="false"
+                             aria-hidden="true"
+                             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                             pointer-events="none"
+                        >
+                        </svg>
+                        <input name="search"
+                               placeholder="Find a filter"
+                               autocomplete="off"
+                               aria-label="Find a filter"
+                               role="searchbox"
+                               type="search"
+                               id="manager-id-basic-search-add-facet-popover-null-filter-input"
+                               class="theme-search form-control"
+                               value
+                        >
+                      </div>
+                    </form>
+                  </header>
+                  <div id="manager-id-basic-search-add-facet-popover-null-body"
+                       class="theme-body tc-tooltip-body"
                   >
-                    <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
-                      <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                              tabindex="0"
-                      >
-                        <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
-                          <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
-                            Name
+                    <div id="manager-id-basic-search-add-facet-popover-null-body-content"
+                         class="theme-content tc-tooltip-content"
+                    >
+                      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+                        <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
+                                class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
+                                tabindex="0"
+                        >
+                          <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
+                            <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
+                              Name
+                            </div>
                           </div>
-                        </div>
-                      </button>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -499,7 +503,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
       </button>
       <div id="a-42"
            hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4); padding: 0px;"
+           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
            tabindex="-1"
            data-dialog="true"
@@ -521,57 +525,59 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
               </path>
             </svg>
           </div>
-          <div id="manager-id-basic-search-add-facet-popover"
-               class="tc-add-facet-popover theme-tc-add-facet-popover"
-          >
+          <div>
             <div id="manager-id-basic-search-add-facet-popover"
-                 class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+                 class="tc-add-facet-popover theme-tc-add-facet-popover"
             >
-              <div>
-                <header id="manager-id-basic-search-add-facet-popover-null-header"
-                        class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-                >
-                  <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                        role="search"
+              <div id="manager-id-basic-search-add-facet-popover"
+                   class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+              >
+                <div>
+                  <header id="manager-id-basic-search-add-facet-popover-null-header"
+                          class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
                   >
-                    <div class="form-group">
-                      <svg name="talend-search"
-                           focusable="false"
-                           aria-hidden="true"
-                           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
-                           pointer-events="none"
-                      >
-                      </svg>
-                      <input name="search"
-                             placeholder="Find a filter"
-                             autocomplete="off"
-                             aria-label="Find a filter"
-                             role="searchbox"
-                             type="search"
-                             id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                             class="theme-search form-control"
-                             value
-                      >
-                    </div>
-                  </form>
-                </header>
-                <div id="manager-id-basic-search-add-facet-popover-null-body"
-                     class="theme-body tc-tooltip-body"
-                >
-                  <div id="manager-id-basic-search-add-facet-popover-null-body-content"
-                       class="theme-content tc-tooltip-content"
+                    <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+                          role="search"
+                    >
+                      <div class="form-group">
+                        <svg name="talend-search"
+                             focusable="false"
+                             aria-hidden="true"
+                             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                             pointer-events="none"
+                        >
+                        </svg>
+                        <input name="search"
+                               placeholder="Find a filter"
+                               autocomplete="off"
+                               aria-label="Find a filter"
+                               role="searchbox"
+                               type="search"
+                               id="manager-id-basic-search-add-facet-popover-null-filter-input"
+                               class="theme-search form-control"
+                               value
+                        >
+                      </div>
+                    </form>
+                  </header>
+                  <div id="manager-id-basic-search-add-facet-popover-null-body"
+                       class="theme-body tc-tooltip-body"
                   >
-                    <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
-                      <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                              tabindex="0"
-                      >
-                        <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
-                          <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
-                            Name
+                    <div id="manager-id-basic-search-add-facet-popover-null-body-content"
+                         class="theme-content tc-tooltip-content"
+                    >
+                      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+                        <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
+                                class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
+                                tabindex="0"
+                        >
+                          <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
+                            <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
+                              Name
+                            </div>
                           </div>
-                        </div>
-                      </button>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -727,7 +733,7 @@ exports[`BasicSearch should render the default html output with some badges and 
       </button>
       <div id="a-42"
            hidden
-           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4); padding: 0px;"
+           style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
            tabindex="-1"
            data-dialog="true"
@@ -749,57 +755,59 @@ exports[`BasicSearch should render the default html output with some badges and 
               </path>
             </svg>
           </div>
-          <div id="manager-id-basic-search-add-facet-popover"
-               class="tc-add-facet-popover theme-tc-add-facet-popover"
-          >
+          <div>
             <div id="manager-id-basic-search-add-facet-popover"
-                 class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+                 class="tc-add-facet-popover theme-tc-add-facet-popover"
             >
-              <div>
-                <header id="manager-id-basic-search-add-facet-popover-null-header"
-                        class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
-                >
-                  <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
-                        role="search"
+              <div id="manager-id-basic-search-add-facet-popover"
+                   class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
+              >
+                <div>
+                  <header id="manager-id-basic-search-add-facet-popover-null-header"
+                          class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
                   >
-                    <div class="form-group">
-                      <svg name="talend-search"
-                           focusable="false"
-                           aria-hidden="true"
-                           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
-                           pointer-events="none"
-                      >
-                      </svg>
-                      <input name="search"
-                             placeholder="Find a filter"
-                             autocomplete="off"
-                             aria-label="Find a filter"
-                             role="searchbox"
-                             type="search"
-                             id="manager-id-basic-search-add-facet-popover-null-filter-input"
-                             class="theme-search form-control"
-                             value
-                      >
-                    </div>
-                  </form>
-                </header>
-                <div id="manager-id-basic-search-add-facet-popover-null-body"
-                     class="theme-body tc-tooltip-body"
-                >
-                  <div id="manager-id-basic-search-add-facet-popover-null-body-content"
-                       class="theme-content tc-tooltip-content"
+                    <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+                          role="search"
+                    >
+                      <div class="form-group">
+                        <svg name="talend-search"
+                             focusable="false"
+                             aria-hidden="true"
+                             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                             pointer-events="none"
+                        >
+                        </svg>
+                        <input name="search"
+                               placeholder="Find a filter"
+                               autocomplete="off"
+                               aria-label="Find a filter"
+                               role="searchbox"
+                               type="search"
+                               id="manager-id-basic-search-add-facet-popover-null-filter-input"
+                               class="theme-search form-control"
+                               value
+                        >
+                      </div>
+                    </form>
+                  </header>
+                  <div id="manager-id-basic-search-add-facet-popover-null-body"
+                       class="theme-body tc-tooltip-body"
                   >
-                    <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
-                      <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
-                              class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
-                              tabindex="0"
-                      >
-                        <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
-                          <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
-                            Name
+                    <div id="manager-id-basic-search-add-facet-popover-null-body-content"
+                         class="theme-content tc-tooltip-content"
+                    >
+                      <div class="tc-add-facet-popover-row-container theme-tc-add-facet-popover-row-container">
+                        <button id="manager-id-basic-search-add-facet-popover-row-button-Name"
+                                class="tc-add-facet-popover-row-button theme-tc-add-facet-popover-row-button"
+                                tabindex="0"
+                        >
+                          <div class="theme-stack theme-justify-start theme-align-start theme-nowrap theme-row theme-block theme-align-content-baseline theme-gap-x-S theme-gap-y-S">
+                            <div class="theme-item theme-align-auto theme-overflow-auto theme-grow theme-shrink">
+                              Name
+                            </div>
                           </div>
-                        </div>
-                      </button>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
