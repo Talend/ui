@@ -51,7 +51,7 @@
     "@talend/icons": "^6.48.0",
     "@talend/locales-tui-datagrid": "^6.36.5",
     "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^12.0.1",
+    "@talend/scripts-preset-react-lib": "^13.0.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "i18next": "^20.6.1",
