@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 4.2.0
+
+### Minor Changes
+
+- f54db324c: StackVertical: add height prop
+
+### Patch Changes
+
+- 95e37c3b2: Padding style of popover should apply to contents, not parent.
+
 ## 4.1.1
 
 ### Patch Changes
