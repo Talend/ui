@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.1.2
+
+### Patch Changes
+
+- e22e3c952: chore(deps): bump storybook deps
+
 ## 2.1.1
 
 ### Patch Changes

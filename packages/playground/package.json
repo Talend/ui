@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react": "^13.0.1",
+    "@talend/scripts-preset-react": "^14.0.0",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.18.1",

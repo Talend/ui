@@ -1,5 +1,22 @@
 # @talend/scripts-preset-react
 
+## 14.0.0
+
+### Major Changes
+
+- 6fbd20305: fix(talend-scripts): update common webpack config for ng config compatibility and bump to postcss v8
+
+  Breaking: html-loader has been removed and its webpack config too which means no automatic support of html import in webapp
+
+### Patch Changes
+
+- Updated dependencies [e22e3c952]
+- Updated dependencies [e22e3c952]
+- Updated dependencies [e22e3c952]
+  - @talend/scripts-config-react-webpack@14.0.0
+  - @talend/scripts-config-storybook-lib@2.1.2
+  - @talend/scripts-config-stylelint@2.0.0
+
 ## 13.0.2
 
 ### Patch Changes
