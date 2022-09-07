@@ -84,7 +84,9 @@ const BasicSearch = ({
 				),
 			);
 		});
-	}, [badges, dispatch, initialBadges, operatorsDictionary]);
+		// This is intended
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	const onClickOverlayRow = (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(
