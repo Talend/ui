@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.0.1
+
+### Patch Changes
+
+- 907ec1f86: fix(faceted-search): infinite loop with initial badges
+
 ## 7.0.0
 
 ### Major Changes
