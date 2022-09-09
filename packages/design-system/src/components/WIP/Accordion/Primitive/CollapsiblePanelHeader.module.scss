@@ -11,8 +11,12 @@
 	padding: tokens.$coral-spacing-xs;
 	// border-radius: inherit;
 
-	& .headerTitle {
+	> .headerTitle {
 		flex-grow: 1;
+	}
+
+	> *:not(.headerTitle) {
+		flex-shrink: 0;
 	}
 
 	background-color: tokens.$coral-color-accent-background-weak;

@@ -2,11 +2,10 @@ import React, {
 	cloneElement,
 	forwardRef,
 	MouseEvent,
-	ReactElement,
+	ReactChild,
 	Ref,
 	useState,
 	useEffect,
-	ReactChild,
 } from 'react';
 import classNames from 'classnames';
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
@@ -21,7 +20,7 @@ type CollapsiblePanelPropsType = {
 	title: string;
 	action?: any;
 	size?: 'S' | 'M';
-	metadata?: ReactElement[];
+	metadata?: ReactChild[];
 	isFirst?: boolean;
 	isLast?: boolean;
 	onToggleExpanded?: (index: number) => void;
