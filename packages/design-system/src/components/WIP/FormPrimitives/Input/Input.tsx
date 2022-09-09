@@ -59,6 +59,7 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 				)}
 				<input
 					{...rest}
+					id={id}
 					type={type === 'password' ? currentType : type}
 					ref={inputRef}
 					disabled={disabled}

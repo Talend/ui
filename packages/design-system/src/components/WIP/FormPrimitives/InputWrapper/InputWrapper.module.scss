@@ -14,5 +14,35 @@
 
   &_freeHeight {
     height: auto;
+
+    // Ensure elements in auto height stretch according to flex model.
+    > div:first-child,
+    > div:last-child {
+      height: unset;
+    }
+  }
+
+  &_noStyles {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+
+    &:hover, &:active, &:focus, &:focus-within {
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: 0 0 0 transparent;
+    }
+
+    &:focus {
+      border: none;
+    }
   }
 }

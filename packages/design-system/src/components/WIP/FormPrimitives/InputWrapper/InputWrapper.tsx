@@ -1,17 +1,22 @@
 import React, { forwardRef, ReactElement, Ref } from 'react';
 import { isElement } from 'react-is';
+import classnames from 'classnames';
 import { AffixButtonPropsType } from '../../../Form/FieldGroup/Affix/variations/AffixButton';
 import { AffixReadOnlyPropsType } from '../../../Form/FieldGroup/Affix/variations/AffixReadOnly';
 import { AffixButton, AffixReadOnly } from '../../../Form/FieldGroup/Affix';
+import { FieldPropsPrimitive, FieldStatusProps } from '../Field/Field';
+import Select, { SelectPrimitiveProps } from '../Select/Select';
+import { FieldPrimitive } from '../index';
 
 import styles from './InputWrapper.module.scss';
-import classnames from 'classnames';
-import { FieldStatusProps } from '../Field/Field';
 
 type AffixProps =
 	| ({ type: 'button' } & AffixButtonPropsType)
 	| ({ type: 'text' } & AffixReadOnlyPropsType)
-	| ReactElement;
+	| ({ type: 'select' } & Omit<FieldPropsPrimitive, 'hasError' | 'description'> &
+			Omit<SelectPrimitiveProps, 'prefix' | 'suffix' | 'isAffix' | 'className' | 'style'>)
+	| ReactElement
+	| string;
 
 export type AffixesProps = {
 	prefix?: AffixProps;
@@ -23,6 +28,7 @@ type InputWrapperProps = {
 	disabled?: boolean;
 	readOnly?: boolean;
 	hasFreeHeight?: boolean;
+	noStyles?: boolean;
 } & AffixesProps &
 	Omit<FieldStatusProps, 'errorMessage'>;
 
@@ -31,14 +37,34 @@ function buildAffix(affixProps: AffixProps) {
 		return affixProps;
 	}
 
-	if (affixProps.type === 'button') {
-		const { type, children, ...rest } = affixProps;
-		return <AffixButton {...rest}>{children}</AffixButton>;
+	if (typeof affixProps === 'string') {
+		return <AffixReadOnly>{affixProps}</AffixReadOnly>;
 	}
 
 	if (affixProps.type === 'text') {
 		const { type, children, ...rest } = affixProps;
 		return <AffixReadOnly {...rest}>{children}</AffixReadOnly>;
+	}
+
+	if (affixProps.type === 'button') {
+		const { type, children, ...rest } = affixProps;
+		return <AffixButton {...rest}>{children}</AffixButton>;
+	}
+
+	if (affixProps.type === 'select') {
+		const { type, label, children, name, id, ...rest } = affixProps;
+		function AffixSelect() {
+			return (
+				<Select {...rest} isAffix>
+					{children}
+				</Select>
+			);
+		}
+		return (
+			<FieldPrimitive label={label} name={name} id={id} hideLabel>
+				<AffixSelect />
+			</FieldPrimitive>
+		);
 	}
 
 	return <></>;
@@ -52,6 +78,7 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 		disabled = false,
 		readOnly = false,
 		hasError = false,
+		noStyles = false,
 		hasFreeHeight = false,
 		...rest
 	} = props;
@@ -64,6 +91,7 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 				[styles.inputShell_readOnly]: readOnly,
 				[styles.inputShell_borderError]: hasError,
 				[styles.inputShell_freeHeight]: hasFreeHeight,
+				[styles.inputShell_noStyles]: noStyles,
 			})}
 		>
 			{prefix && buildAffix(prefix)}

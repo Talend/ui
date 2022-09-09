@@ -1,11 +1,10 @@
-import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useForm } from 'react-hook-form';
-import { FigmaImage, FigmaIframe, WithSelector } from '~docs';
-import Form from '../';
-import { ButtonPrimary } from '../../Button';
+import { FigmaImage } from '~docs';
 import { InlineMessageInformation } from '../../InlineMessage';
-import Button from '../../Clickable';
-import { AffixButton } from '../FieldGroup/Affix';
+import { ButtonPrimary } from '../../Button';
+import { action } from '@storybook/addon-actions';
+import Form from '../';
 
 <Meta
 	title="Components/Form/Form Field Group"
@@ -14,9 +13,11 @@ import { AffixButton } from '../FieldGroup/Affix';
 	}}
 />
 
-# Field group
+# Field groups
 
-A field group allows to extend the form controls by adding simple text, select or buttons on either side of the default field.
+A field group extends the form controls by adding simple text, select or buttons on either side of the default field.
+
+All the current inputs are potential field groups. Fill in their `prefix` or `suffix` prop and the deed is done.
 
 ## Zoning
 
@@ -29,95 +30,150 @@ A field group allows to extend the form controls by adding simple text, select o
 
 ### Variations
 
-#### Prefix
+#### Affixes
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A18"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1"
+	alt="An input group demo"
 />
+
+Affixes are either `prefix` or `suffix`. Use one of the following object types to fill them in.
+
+Both `prefix` and `affix` accept the same objects.
 
 <Canvas>
 	<Story name="select">
-		<Form.FieldGroup
+		<Form.Url
+			name="URL"
 			label="Input"
-			prefix={
-				<Form.Select label="Protocol">
-					<option selected>http://</option>
-					<option>https://</option>
-					<option>ftp://</option>
-					<option>pop3://</option>
-					<option>imap://</option>
-					<option>smtp://</option>
-				</Form.Select>
-			}
-		>
-			<Form.Url label="Domain" placeholder="www.talend.com" />
-		</Form.FieldGroup>
+			placeholder="www.talend.com"
+			suffix={{
+				type: 'text',
+				children: '.com',
+			}}
+			prefix={{
+				type: 'select',
+				label: 'Protocol',
+				name: 'protocol',
+				required: true,
+				defaultValue: 'https://',
+				children: (
+					<>
+						<option>http://</option>
+						<option>https://</option>
+						<option>ftp://</option>
+						<option>pop3://</option>
+						<option>imap://</option>
+						<option>smtp://</option>
+					</>
+				),
+			}}
+		/>
 	</Story>
 </Canvas>
-
-#### Suffix
-
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A50"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A84"
-/>
 
 <Canvas>
 	<Story name="button">
-		<Form.FieldGroup label="Input" suffix={<AffixButton onClick={() => {}}>Button</AffixButton>}>
-			<Form.Text />
-		</Form.FieldGroup>
+		<Form.Url
+			name="URL"
+			label="Input"
+			placeholder="www.talend.com"
+			suffix={{
+				type: 'text',
+				children: '.com',
+			}}
+			prefix={{
+				type: 'button',
+				icon: 'upload',
+				onClick: () => action('Clicked'),
+				children: 'A button',
+			}}
+		/>
 	</Story>
 </Canvas>
 
-#### Icon
-
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A112"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A354"
-/>
-
 <Canvas>
-	<Story name="button--icon">
-		<Form.FieldGroup
-			label="Expression builder"
-			suffix={
-				<AffixButton onClick={() => {}} icon={'talend-wrench'} hideText>
-					Open expression builder
-				</AffixButton>
-			}
-		>
-			<Form.Text placeholder="Write your expression or drag element" />
-		</Form.FieldGroup>
+	<Story name="button icon">
+		<Form.Url
+			name="URL"
+			label="Input"
+			placeholder="www.talend.com"
+			suffix={{
+				type: 'text',
+				children: '.com',
+			}}
+			prefix={{
+				type: 'button',
+				icon: 'upload',
+				onClick: () => action('Clicked'),
+				children: 'A button',
+				hideText: true,
+			}}
+		/>
 	</Story>
 </Canvas>
 
 #### Select
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1010"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1040"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1010"
+	alt="An input group demo"
 />
+
+Affixes are not limited to text inputs. `Form.Select`, `Form.Datalist` also work with the same ruleset.
 
 <Canvas>
 	<Story name="select--select">
-		<Form.FieldGroup
+		<Form.Select
+			name="column"
 			label="Input"
-			prefix={
-				<Form.Select label="Type">
-					<option>Value</option>
-					<option selected>Column</option>
-				</Form.Select>
-			}
+			prefix={{
+				type: 'select',
+				label: 'type',
+				name: 'type',
+				defaultValue: 'Column',
+				children: (
+					<>
+						<option>Value</option>
+						<option>Column</option>
+					</>
+				),
+			}}
 		>
-			<Form.Select label="Column">
-				<option>Id</option>
-				<option>Name</option>
-				<option selected>Country</option>
-				<option>Age</option>
-			</Form.Select>
-		</Form.FieldGroup>
+			<option>Id</option>
+			<option>Name</option>
+			<option selected>Country</option>
+			<option>Age</option>
+		</Form.Select>
+	</Story>
+</Canvas>
+
+Even multiple selects can be grouped with affixes.
+
+<Canvas>
+	<Story name="select--multiple-select">
+		<Form.Select
+			name="column"
+			label="Input"
+			multiple
+			prefix={{
+				type: 'select',
+				label: 'type',
+				name: 'type',
+				defaultValue: 'Column',
+				children: (
+					<>
+						<option>Value</option>
+						<option>Column</option>
+					</>
+				),
+			}}
+		>
+			<option>Id</option>
+			<option>Name</option>
+			<option selected>Country</option>
+			<option>Age</option>
+		</Form.Select>
 	</Story>
 </Canvas>
 
@@ -125,91 +181,53 @@ A field group allows to extend the form controls by adding simple text, select o
 
 ### Default
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A406"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A699"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A406"
+	alt="An input group demo"
 />
 
 <Canvas>
 	<Story name="default">
-		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
-			<Form.Text />
-		</Form.FieldGroup>
-	</Story>
-</Canvas>
-
-### Hover
-
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A449"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A701"
-/>
-
-<Canvas withSource="none">
-	<Story name="hover" decorators={[WithSelector.decorator(':hover')]}>
-		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
-			<Form.Text />
-		</Form.FieldGroup>
-	</Story>
-</Canvas>
-
-### Focus
-
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A501"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A703"
-/>
-
-<Canvas withSource="none">
-	<Story name="focus" decorators={[WithSelector.decorator(':focus-within')]}>
-		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
-			<Form.Text />
-		</Form.FieldGroup>
+		<Form.Number name="input" label="Input" prefix="$" suffix=".00" />
 	</Story>
 </Canvas>
 
 ### Filled
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A553"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A705"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A553"
+	alt="An input group demo"
 />
 
 <Canvas>
 	<Story name="filled">
-		<Form.FieldGroup label="Input" prefix="$" suffix=".00">
-			<Form.Number value="100" />
-		</Form.FieldGroup>
+		<Form.Number defaultValue="100" label="Input" prefix="$" suffix=".00" name="input" />
 	</Story>
 </Canvas>
 
 ### Disabled
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A605"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A707"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A605"
+	alt="An input group demo"
 />
 
 <Canvas>
 	<Story name="disabled">
-		<Form.FieldGroup label="Input" prefix="$" suffix=".00" disabled>
-			<Form.Number value="100" />
-		</Form.FieldGroup>
+		<Form.Number defaultValue="100" label="Input" prefix="$" suffix=".00" name="input" disabled />
 	</Story>
 </Canvas>
 
 ### Read only
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A657"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A709"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A657"
+	alt="An input group demo"
 />
 
 <Canvas>
 	<Story name="read-only">
-		<Form.FieldGroup label="Input" prefix="$" suffix=".00" readOnly>
-			<Form.Number value="100" />
-		</Form.FieldGroup>
+		<Form.Number defaultValue="100" label="Input" prefix="$" suffix=".00" name="input" readOnly />
 	</Story>
 </Canvas>
 
@@ -221,10 +239,16 @@ Use lower case on prefix and suffix except if it's an interactive element.
 
 - The visible label will be linked to the principal field, click on it to access to the field (:focus)
 
+## Usage
+
+### Use with RHF
+
+Here's an example using a `select` type affix with React Hooks Form
+
 <Canvas>
 	<Story name="react-hook-form">
 		{() => {
-			const { register, handleSubmit } = useForm();
+			const { register, handleSubmit, watch } = useForm();
 			const [formData, setFormData] = React.useState();
 			return (
 				<Form onSubmit={handleSubmit(setFormData)}>
@@ -235,20 +259,37 @@ Use lower case on prefix and suffix except if it's an interactive element.
 							withBackground
 						/>
 					)}
-					<Form.FieldGroup
+					<Form.Text
 						label="API Key"
-						suffix={
-							<AffixButton onClick={() => {}} icon="talend-files-o" hideText>
-								Copy
-							</AffixButton>
-						}
+						prefix={{
+							...register('prefix'),
+							type: 'select',
+							label: 'Type',
+							children: (
+								<>
+									<option value="Public">Public</option>
+									<option value="Private">Private</option>
+								</>
+							),
+							defaultValue: 'Public',
+						}}
+						suffix={{
+							type: 'button',
+							onClick: () => {},
+							icon: 'talend-files-o',
+							hideText: true,
+							children: 'Do something',
+						}}
 						description="The input seems readonly and the value is not displayed while submitting the form"
-					>
-						<Form.Text label="API Key" defaultValue={42} {...register('apiKey')} />
-					</Form.FieldGroup>
+						defaultValue={42}
+						{...register('apiKey')}
+					/>
+					<Form.Select label="test" {...register('test')}>
+						<option>Test</option>
+						<option>Test 2</option>
+					</Form.Select>
 					<Form.Buttons>
 						<ButtonPrimary type="submit" onClick={() => {}}>
-							{' '}
 							Submit
 						</ButtonPrimary>
 					</Form.Buttons>
@@ -257,90 +298,6 @@ Use lower case on prefix and suffix except if it's an interactive element.
 		}}
 	</Story>
 </Canvas>
-
-## Usage
-
-<Canvas>
-	<Story
-		name="usage"
-		args={{
-			label: 'Repeat',
-			prefix: 'until',
-			field: 'Date',
-			suffix: 'Button',
-			required: false,
-			disabled: false,
-			readOnly: false,
-		}}
-		argTypes={{
-			prefix: {
-				description: 'Prefix',
-				control: {
-					type: 'select',
-					options: ['', 'until', 'Select'],
-				},
-			},
-			field: {
-				description: 'Field',
-				control: {
-					type: 'select',
-					options: ['Text', 'Number', 'Date', 'Select', 'Datalist', 'Textarea'],
-				},
-			},
-			suffix: {
-				description: 'Suffix',
-				control: {
-					type: 'select',
-					options: ['', 'each day at 8:00', 'Button'],
-				},
-			},
-			required: {
-				description: 'Field is required or not',
-				control: {
-					type: 'boolean',
-				},
-			},
-			disabled: {
-				description: 'Field is disabled or not',
-				control: {
-					type: 'boolean',
-				},
-			},
-			readOnly: {
-				description: 'Field is read only or not',
-				control: {
-					type: 'boolean',
-				},
-			},
-		}}
-	>
-		{({ prefix, field, suffix, ...rest }) => {
-			const getComponent = name => {
-				switch (name) {
-					case 'Select':
-						return (
-							<Form.Select>
-								<option>Before</option>
-								<option>After</option>
-							</Form.Select>
-						);
-					case 'Button':
-						return <AffixButton onClick={() => {}}>Next week</AffixButton>;
-					default:
-						return name;
-				}
-			};
-			const Component = Form[field];
-			return (
-				<Form.FieldGroup prefix={getComponent(prefix)} suffix={getComponent(suffix)} {...rest}>
-					<Component />
-				</Form.FieldGroup>
-			);
-		}}
-	</Story>
-</Canvas>
-
-<ArgsTable story="usage" />
 
 ## Accessibility
 

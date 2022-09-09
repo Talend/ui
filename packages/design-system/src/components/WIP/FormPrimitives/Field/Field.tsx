@@ -67,7 +67,7 @@ const Field = forwardRef(
 		};
 
 		return (
-			<StackVertical gap="XXS" align="stretch" justify="start">
+			<StackVertical gap="XXS" align="stretch" justify="start" height="100%" noShrink>
 				{LabelComponent}
 				{cloneElement(children, { id: fieldID, hasError, name, required, ...rest }, ref)}
 				{link && <Link {...link} />}

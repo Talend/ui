@@ -7,18 +7,21 @@ import { SizedIcon } from '../../../Icon';
 export type SelectPrimitiveProps = Omit<SelectHTMLAttributes<any>, 'prefix'> & {
 	children: ReactElement | ReactElement[];
 	hasError?: boolean;
+	isAffix?: boolean;
 } & AffixesProps;
 
 const Select = forwardRef((props: SelectPrimitiveProps, ref: Ref<HTMLSelectElement>) => {
 	const {
 		children,
 		className,
-		prefix,
-		suffix,
 		placeholder,
 		hasError,
 		required,
 		disabled = false,
+		isAffix = false,
+		prefix,
+		suffix,
+		id,
 		...rest
 	} = props;
 	return (
@@ -27,16 +30,19 @@ const Select = forwardRef((props: SelectPrimitiveProps, ref: Ref<HTMLSelectEleme
 			suffix={suffix}
 			disabled={disabled}
 			hasError={hasError}
-			hasFreeHeight={true}
+			hasFreeHeight={rest.multiple}
+			noStyles={isAffix}
 		>
 			<div className={styles.select__wrapper}>
 				<select
 					{...rest}
 					disabled={disabled}
 					ref={ref}
+					id={id}
 					className={classnames(
 						styles.select,
 						{ [styles.select_multiple]: props.multiple },
+						{ [styles.select_isAffix]: isAffix },
 						className,
 					)}
 				>

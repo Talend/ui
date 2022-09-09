@@ -41,21 +41,23 @@ export const Default = () => (
 				<Form.Text label="Last Name" name="lastname" required />
 			</Form.Row>
 			<Form.Text label="Company" value="Talend" name="company" required />
-			<Form.FieldGroup
-				label="Phone"
-				prefix={
-					<Form.Select name="select" label="Phone prefix" value="France (+33)">
-						{getCountryCodes().map((countryCode, key) => (
-							<option key={key}>{countryCode}</option>
-						))}
-					</Form.Select>
-				}
-				hasError
-				description="Phone number is invalid"
+			<Form.Tel
+				label="Phone number"
+				name="tel"
+				value="6121314k"
 				required
-			>
-				<Form.Tel label="Phone number" name="tel" value="6121314k" />
-			</Form.FieldGroup>
+				hasError
+				description="This field is required"
+				prefix={{
+					required: true,
+					type: 'select',
+					label: 'phone',
+					name: ' phone',
+					children: getCountryCodes().map((countryCode, key) => (
+						<option key={key}>{countryCode}</option>
+					)),
+				}}
+			/>
 			<Form.Select name="select" label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
@@ -108,21 +110,21 @@ export const Disabled = () => (
 				<Form.Text label="Last Name" name="lastname" required />
 			</Form.Row>
 			<Form.Text label="Company" name="company" value="Talend" required />
-			<Form.FieldGroup
-				label="Phone"
-				prefix={
-					<Form.Select name="select" label="Phone prefix" value="France (+33)">
-						{getCountryCodes().map((countryCode, key) => (
-							<option key={key}>{countryCode}</option>
-						))}
-					</Form.Select>
-				}
-				hasError
-				description="Phone number is invalid"
+			<Form.Tel
+				label="Phone number"
+				name="tel"
+				value="6121314k"
 				required
-			>
-				<Form.Tel label="Phone number" name="tel" value="6121314k" />
-			</Form.FieldGroup>
+				prefix={{
+					required: true,
+					type: 'select',
+					label: 'phone',
+					name: ' phone',
+					children: getCountryCodes().map((countryCode, key) => (
+						<option key={key}>{countryCode}</option>
+					)),
+				}}
+			/>
 			<Form.Select name="select" label="Industry">
 				<option selected>IT</option>
 			</Form.Select>
@@ -150,25 +152,27 @@ export const ReadOnly = () => (
 	<Form readOnly>
 		<Form.Fieldset legend="Complete your registration">
 			<Form.Row>
-				<Form.Text label="First Name" name="firsname" required />
+				<Form.Text label="First Name" name="firstname" required />
 				<Form.Text label="Last Name" name="lastname" required />
 			</Form.Row>
 			<Form.Text label="Company" name="company" value="Talend" required />
-			<Form.FieldGroup
-				label="Phone"
-				prefix={
-					<Form.Select name="select" label="Phone prefix" value="France (+33)">
-						{getCountryCodes().map((countryCode, key) => (
-							<option key={key}>{countryCode}</option>
-						))}
-					</Form.Select>
-				}
-				hasError
-				description="Phone number is invalid"
+			<Form.Tel
+				label="Phone number"
+				name="tel"
+				value="6121314k"
 				required
-			>
-				<Form.Tel name="tel" label="Phone number" value="6121314k" />
-			</Form.FieldGroup>
+				hasError
+				description="This is required"
+				prefix={{
+					required: true,
+					type: 'select',
+					label: 'phone',
+					name: ' phone',
+					children: getCountryCodes().map((countryCode, key) => (
+						<option key={key}>{countryCode}</option>
+					)),
+				}}
+			/>
 			<Form.Select name="select" label="Industry">
 				<option selected>IT</option>
 			</Form.Select>

@@ -1,6 +1,28 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-.affix.affix {
+@mixin ButtonAffixStyles() {
+	color: tokens.$coral-color-accent-text;
+	background: tokens.$coral-color-accent-background;
+	cursor: pointer;
+
+	&:hover {
+		color: tokens.$coral-color-accent-text-hover;
+		background: tokens.$coral-color-accent-background-hover;
+	}
+
+	&:active {
+		color: tokens.$coral-color-accent-text-active;
+		background: tokens.$coral-color-accent-background-active;
+	}
+
+	&:disabled {
+		color: tokens.$coral-color-neutral-text-weak;
+		background: tokens.$coral-color-neutral-background-strong;
+		cursor: not-allowed;
+	}
+}
+
+@mixin BaseAffixStyles() {
 	display: inline-flex;
 	flex-grow: 1;
 	flex-shrink: 0;
@@ -18,41 +40,48 @@
 
 	&:first-child {
 		border-radius: 2px 0 0 2px;
+		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 
 	&:last-child {
 		border-radius: 0 2px 2px 0;
+		border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 
 	&__icon {
-		width: tokens.$coral-sizing-xxxs;
-		height: tokens.$coral-sizing-xxxs;
+		width: tokens.$coral-sizing-minimal;
+		height: tokens.$coral-sizing-minimal;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		// Force legacy icon sizes
+		> svg {
+			width: tokens.$coral-sizing-minimal;
+			height: tokens.$coral-sizing-minimal;
+		}
 	}
 
 	&__caret {
 		width: tokens.$coral-sizing-minimal;
 		height: tokens.$coral-sizing-minimal;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		// Force legacy icon sizes
+		> svg {
+			width: tokens.$coral-sizing-minimal;
+			height: tokens.$coral-sizing-minimal;
+		}
 	}
+}
+
+.affix {
+	@include BaseAffixStyles();
+
 
 	&.button {
-		color: tokens.$coral-color-accent-text;
-		background: tokens.$coral-color-accent-background;
-		cursor: pointer;
-
-		&:hover {
-			color: tokens.$coral-color-accent-text-hover;
-			background: tokens.$coral-color-accent-background-hover;
-		}
-
-		&:active {
-			color: tokens.$coral-color-accent-text-active;
-			background: tokens.$coral-color-accent-background-active;
-		}
-
-		&:disabled {
-			color: tokens.$coral-color-neutral-text-weak;
-			background: tokens.$coral-color-neutral-background-strong;
-			cursor: not-allowed;
-		}
+		@include ButtonAffixStyles();
 	}
 }

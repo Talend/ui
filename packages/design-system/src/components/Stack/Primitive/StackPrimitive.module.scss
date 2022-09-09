@@ -4,6 +4,7 @@
 	display: flex;
 	flex-flow: row;
 	flex-grow: 1;
+	flex-shrink: 1;
 
 	&.column {
 		flex-flow: column;
@@ -16,6 +17,14 @@
 
 	&.relative {
 		position: relative;
+	}
+
+	&.noShrink {
+		flex-shrink: 0;
+	}
+
+	&.noGrow {
+		flex-grow: 0;
 	}
 
 	&.justify {

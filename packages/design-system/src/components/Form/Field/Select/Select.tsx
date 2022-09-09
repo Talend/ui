@@ -9,7 +9,7 @@ import {
 } from '../../../WIP/FormPrimitives';
 
 export type SelectProps = FieldPropsPrimitive &
-	Omit<SelectPrimitiveProps, 'className' | 'style'> & { readOnly?: boolean };
+	Omit<SelectPrimitiveProps, 'className' | 'style' | 'isAffix'> & { readOnly?: boolean };
 
 const Select = forwardRef(
 	(props: SelectProps, ref: React.Ref<HTMLSelectElement | HTMLInputElement>) => {
@@ -63,9 +63,15 @@ const Select = forwardRef(
 			);
 		}
 
-		function SelectField() {
+		function SelectField(
+			fieldProps: Omit<SelectProps, 'hasError' | 'name' | 'children' | 'label'>,
+		) {
 			return (
-				<SelectPrimitive hasError={hasError || false} {...rest} ref={ref as Ref<HTMLSelectElement>}>
+				<SelectPrimitive
+					hasError={hasError || false}
+					{...fieldProps}
+					ref={ref as Ref<HTMLSelectElement>}
+				>
 					{children}
 				</SelectPrimitive>
 			);
@@ -82,7 +88,7 @@ const Select = forwardRef(
 				hideLabel={hideLabel}
 				required={required}
 			>
-				<SelectField />
+				<SelectField {...rest} />
 			</FieldPrimitive>
 		);
 	},

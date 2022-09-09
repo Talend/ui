@@ -1,13 +1,16 @@
 import React, { forwardRef, Ref } from 'react';
 import classnames from 'classnames';
+// eslint-disable-next-line @talend/import-depth
+import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { DeprecatedIconNames } from '../../../../../types';
-import { Icon } from '../../../../Icon/Icon';
 import Tooltip from '../../../../Tooltip';
 import { StackHorizontal } from '../../../../Stack';
 import Clickable, { ClickableProps } from '../../../../Clickable';
 
 import styles from '../AffixStyles.module.scss';
+import { getIconWithDeprecatedSupport } from '../../../../Icon/DeprecatedIconHelper';
+import { SizedIcon } from '../../../../Icon';
 
 type CommonAffixButtonPropsType = {
 	children: string;
@@ -17,7 +20,7 @@ type CommonAffixButtonPropsType = {
 
 type AffixButtonHideTextProps = {
 	hideText?: true;
-	icon: DeprecatedIconNames;
+	icon: DeprecatedIconNames | IconNameWithSize<'S'>;
 };
 
 type AffixButtonShowTextProps = {
@@ -49,16 +52,16 @@ const AffixButton = forwardRef(
 				{...rest}
 				className={classnames(styles.affix, styles.button)}
 			>
-				<StackHorizontal gap="XXS" as="span">
+				<StackHorizontal gap="XXS" as="span" justify="center" align="center">
 					{icon && (
 						<span className={styles.affix__icon}>
-							<Icon name={icon} />
+							{getIconWithDeprecatedSupport({ iconSrc: icon, size: 'S' })}
 						</span>
 					)}
 					{!hideText && children}
 					{isDropdown && (
 						<span className={styles.affix__caret}>
-							<Icon name="talend-caret-down" />
+							<SizedIcon size="S" name="chevron-down" />
 						</span>
 					)}
 				</StackHorizontal>
