@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getTheme } from '../theme';
-import qualityBarTheme from './QualityRatioBar.scss';
+
 import RatioBar from '../RatioBar';
+import { getTheme } from '../theme';
+
+import qualityBarTheme from './QualityRatioBar.scss';
 
 const theme = getTheme(qualityBarTheme);
 
@@ -48,7 +50,7 @@ export function QualityInvalidLine(props) {
 				percentage,
 				value: formatNumber(value),
 			})}
-			className={theme('tc-ratio-bar-line-quality-invalid')}
+			className={theme('quality-ratio-bar', 'quality-ratio-bar--invalid')}
 		/>
 	);
 }
@@ -68,7 +70,7 @@ export function QualityValidLine(props) {
 				percentage,
 				value: formatNumber(value),
 			})}
-			className={theme('tc-ratio-bar-line-quality-valid')}
+			className={theme('quality-ratio-bar', 'quality-ratio-bar--valid')}
 		/>
 	);
 }
@@ -88,7 +90,7 @@ export function QualityEmptyLine(props) {
 				percentage,
 				value: formatNumber(value),
 			})}
-			className={theme('tc-ratio-bar-line-quality-empty')}
+			className={theme('quality-ratio-bar', 'quality-ratio-bar--empty')}
 		/>
 	);
 }
@@ -108,7 +110,7 @@ export function QualityNotApplicableLine(props) {
 				percentage,
 				value: formatNumber(value),
 			})}
-			className={theme('tc-ratio-bar-line-quality-na')}
+			className={theme('quality-ratio-bar', 'quality-ratio-bar--na')}
 		/>
 	);
 }
@@ -116,7 +118,12 @@ export function QualityNotApplicableLine(props) {
 QualityNotApplicableLine.propTypes = qualityBarLinePropTypes;
 
 export function QualityPlaceholderLine(props) {
-	return <RatioBar.Line {...props} className={theme('tc-ratio-bar-line-quality-placeholder')} />;
+	return (
+		<RatioBar.Line
+			{...props}
+			className={theme('quality-ratio-bar', 'quality-ratio-bar--placeholder')}
+		/>
+	);
 }
 
 QualityPlaceholderLine.propTypes = {
