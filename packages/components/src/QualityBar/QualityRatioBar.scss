@@ -5,7 +5,7 @@ $custom-quality-bar-placeholder-line-hover-height: 0.4rem;
 .quality-ratio-bar {
 	width: 100%;
 	height: 100%;
-	border-radius: 1px;
+	border-radius: tokens.$coral-radius-l;
 
 	&--empty {
 		background-color: tokens.$coral-color-charts-neutral;
