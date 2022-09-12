@@ -1,6 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { QualityBar, SplitQualityBar } from './QualityBar.component';
+import { at } from 'lodash';
 
 export default {
 	title: 'Data/Dataviz/QualityBar',
@@ -47,13 +48,18 @@ export const _QualityBar = () => (
 				valid={88}
 				empty={3}
 				onClick={action('onClickAction')}
-				getDataFeature={qualityType => {
-					return `data-feature.${qualityType}`;
-				}}
-			/>
+				getDataFeature={qualityType => `data-feature.${qualityType}`}
+				/>
 
 			<div>Split quality bar</div>
-			<QualityBar invalid={10} valid={30} empty={30} split />
+			<QualityBar
+				invalid={10}
+				valid={30}
+				empty={30}
+				onClick={action('onSplitQualityBarAction')}
+				getDataFeature={qualityType => `data-feature.${qualityType}`}
+				split
+			/>
 		</div>
 	</section>
 );

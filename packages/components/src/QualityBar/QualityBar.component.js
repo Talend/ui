@@ -11,6 +11,7 @@ import {
 	QualityType,
 } from './QualityRatioBar.component';
 import { StackHorizontal } from '@talend/design-system';
+import { omit } from 'lodash';
 
 function QualityBarRatioBars({
 	valid,
@@ -92,19 +93,10 @@ function getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, di
 	return output;
 }
 
-function SplitQualityBar({
-	digits,
-	empty,
-	getDataFeature,
-	invalid,
-	na,
-	onClick,
-	valid,
-	percentages,
-}) {
+function SplitQualityBar({ empty, getDataFeature, invalid, na, onClick, valid, percentages }) {
 	const totalValues = empty + invalid + na + valid;
 	const usedValues = { empty, invalid, na, valid };
-	const fwd = { digits, getDataFeature, onClick };
+	const fwd = { getDataFeature, onClick };
 
 	return (
 		<StackHorizontal gap="M">
@@ -131,19 +123,7 @@ function SplitQualityBar({
 }
 
 SplitQualityBar.propTypes = {
-	valid: PropTypes.number,
-	invalid: PropTypes.number,
-	empty: PropTypes.number,
-	na: PropTypes.number,
-	percentages: {
-		valid: PropTypes.number,
-		invalid: PropTypes.number,
-		empty: PropTypes.number,
-		na: PropTypes.number,
-	},
-	digits: PropTypes.number,
-	onClick: PropTypes.func,
-	getDataFeature: PropTypes.func,
+	...omit(QualityBarRatioBars.propTypes, ['placeholder']),
 };
 
 export function QualityBar(props) {
@@ -158,14 +138,8 @@ export function QualityBar(props) {
 }
 
 QualityBar.propTypes = {
-	valid: PropTypes.number,
-	invalid: PropTypes.number,
-	empty: PropTypes.number,
-	na: PropTypes.number,
-	placeholder: PropTypes.number,
+	...omit(QualityBarRatioBars.propTypes, ['percentages']),
 	digits: PropTypes.number,
-	onClick: PropTypes.func,
-	getDataFeature: PropTypes.func,
 	split: PropTypes.bool,
 };
 
@@ -176,4 +150,5 @@ QualityBar.defaultProps = {
 	na: 0,
 	placeholder: 0,
 	valid: 0,
+	split: false,
 };
