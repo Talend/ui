@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
+
 import RatioBar from '../RatioBar';
 import {
 	QualityEmptyLine,
 	QualityInvalidLine,
 	QualityNotApplicableLine,
 	QualityPlaceholderLine,
-	QualityType,
 	QualityValidLine,
 } from './QualityRatioBar.component';
-import I18N_DOMAIN_COMPONENTS from '../constants';
 
 /**
  * This function round up the percentages to make it to 100%
@@ -60,24 +58,19 @@ export function QualityBar({
 	onClick,
 	valid = 0,
 }) {
-	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-
+	console.log('[SG]', 'from qb', onClick);
 	const [invalidPercentage, emptyPercentage, validPercentage, naPercentage, placeholderPercentage] =
 		getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
 
-	const commonProps = { onClick, getDataFeature, t };
+	const common = { onClick, getDataFeature };
 
 	return (
 		<RatioBar.Composition>
-			<QualityInvalidLine percentage={invalidPercentage} value={invalid} {...commonProps} />
-			<QualityEmptyLine percentage={emptyPercentage} value={empty} {...commonProps} />
-			<QualityNotApplicableLine percentage={naPercentage} value={na} {...commonProps} />
-			<QualityValidLine value={valid} percentage={validPercentage} {...commonProps} />
-			<QualityPlaceholderLine
-				percentage={placeholderPercentage}
-				value={placeholder}
-				{...commonProps}
-			/>
+			<QualityInvalidLine {...common} percentage={invalidPercentage} value={invalid} />
+			<QualityEmptyLine {...common} percentage={emptyPercentage} value={empty} />
+			<QualityNotApplicableLine {...common} percentage={naPercentage} value={na} />
+			<QualityValidLine {...common} value={valid} percentage={validPercentage} />
+			<QualityPlaceholderLine {...common} percentage={placeholderPercentage} value={placeholder} />
 		</RatioBar.Composition>
 	);
 }

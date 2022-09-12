@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 
+import I18N_DOMAIN_COMPONENTS from '../constants';
 import RatioBar from '../RatioBar';
 import { getTheme } from '../theme';
 
@@ -30,19 +32,20 @@ export const QualityType = {
 	NA: 'na',
 };
 
-function QualityRatioBar({ onClick, getDataFeature, type, ...props }) {
+function QualityRatioBar({ onClick, type, getDataFeature, ...props }) {
 	const specificProps = {
+		className: theme('quality-ratio-bar', `quality-ratio-bar--${type}`),
 		onClick: onClick ? e => onClick(e, { type }) : null,
 		dataFeature: getDataFeature ? getDataFeature(type) : null,
-		className: theme('quality-ratio-bar', `quality-ratio-bar--${type}`),
 	};
 
 	return <RatioBar.Line {...props} {...specificProps} />;
 }
 
 QualityRatioBar.propTypes = {
-	...omit(RatioBar.Line.propTypes, ['onClick', 'dataFeature', 'className']),
-	type: PropTypes.oneOf([...Object.values(QualityType), 'placeholder']),
+	...omit(RatioBar.Line.propTypes, ['dataFeature', 'className']),
+	type: PropTypes.oneOf([...Object.values(QualityType), 'placeholder']).isRequired,
+	getDataFeature: PropTypes.func,
 };
 
 const SpecificQualityBarPropTypes = {
@@ -50,7 +53,8 @@ const SpecificQualityBarPropTypes = {
 };
 
 export function QualityInvalidLine(props) {
-	const { percentage, value, t } = props;
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const { percentage, value } = props;
 
 	return (
 		<QualityRatioBar
@@ -70,7 +74,8 @@ export function QualityInvalidLine(props) {
 QualityInvalidLine.propTypes = SpecificQualityBarPropTypes;
 
 export function QualityValidLine(props) {
-	const { percentage, value, t } = props;
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const { percentage, value } = props;
 
 	return (
 		<QualityRatioBar
@@ -90,7 +95,8 @@ export function QualityValidLine(props) {
 QualityValidLine.propTypes = SpecificQualityBarPropTypes;
 
 export function QualityEmptyLine(props) {
-	const { percentage, value, t } = props;
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const { percentage, value } = props;
 
 	return (
 		<QualityRatioBar
@@ -110,7 +116,8 @@ export function QualityEmptyLine(props) {
 QualityEmptyLine.propTypes = SpecificQualityBarPropTypes;
 
 export function QualityNotApplicableLine(props) {
-	const { percentage, value, t } = props;
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const { percentage, value } = props;
 
 	return (
 		<QualityRatioBar
@@ -133,4 +140,6 @@ export function QualityPlaceholderLine(props) {
 	return <QualityRatioBar {...props} type="placeholder" />;
 }
 
-QualityPlaceholderLine.propTypes = SpecificQualityBarPropTypes;
+QualityPlaceholderLine.propTypes = {
+	...omit(SpecificQualityBarPropTypes, ['onClick']),
+};
