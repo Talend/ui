@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { omit } from 'lodash';
 
-import RatioBar from '../RatioBar';
+import { StackHorizontal } from '@talend/design-system';
+
 import {
 	QualityEmptyLine,
 	QualityInvalidLine,
@@ -10,8 +12,7 @@ import {
 	QualityValidLine,
 	QualityType,
 } from './QualityRatioBar.component';
-import { StackHorizontal } from '@talend/design-system';
-import { omit } from 'lodash';
+import RatioBar from '../RatioBar';
 
 function QualityBarRatioBars({
 	valid,
@@ -108,6 +109,7 @@ function SplitQualityBar({ empty, getDataFeature, invalid, na, onClick, valid, p
 					return currentTypePercentage ? (
 						<StackHorizontal gap="XXS" key={type}>
 							<span>{currentTypePercentage}%</span>
+
 							<QualityBarRatioBars
 								{...fwd}
 								{...{ [type]: currentTypeValue }} // Spread needed for the dynamic "type" key
