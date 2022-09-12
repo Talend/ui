@@ -65,65 +65,19 @@ export function QualityBar({
 	const [invalidPercentage, emptyPercentage, validPercentage, naPercentage, placeholderPercentage] =
 		getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
 
+	const commonProps = { onClick, getDataFeature, t };
+
 	return (
 		<RatioBar.Composition>
-			<QualityInvalidLine
-				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
-				onClick={
-					onClick
-						? e =>
-								onClick(e, {
-									type: QualityType.INVALID,
-								})
-						: null
-				}
-				percentage={invalidPercentage}
-				t={t}
-				value={invalid}
+			<QualityInvalidLine percentage={invalidPercentage} value={invalid} {...commonProps} />
+			<QualityEmptyLine percentage={emptyPercentage} value={empty} {...commonProps} />
+			<QualityNotApplicableLine percentage={naPercentage} value={na} {...commonProps} />
+			<QualityValidLine value={valid} percentage={validPercentage} {...commonProps} />
+			<QualityPlaceholderLine
+				percentage={placeholderPercentage}
+				value={placeholder}
+				{...commonProps}
 			/>
-			<QualityEmptyLine
-				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
-				onClick={
-					onClick
-						? e =>
-								onClick(e, {
-									type: QualityType.EMPTY,
-								})
-						: null
-				}
-				percentage={emptyPercentage}
-				t={t}
-				value={empty}
-			/>
-			<QualityNotApplicableLine
-				dataFeature={getDataFeature ? getDataFeature(QualityType.NA) : null}
-				onClick={
-					onClick
-						? e =>
-								onClick(e, {
-									type: QualityType.NA,
-								})
-						: null
-				}
-				percentage={naPercentage}
-				t={t}
-				value={na}
-			/>
-			<QualityValidLine
-				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
-				onClick={
-					onClick
-						? e =>
-								onClick(e, {
-									type: QualityType.VALID,
-								})
-						: null
-				}
-				value={valid}
-				percentage={validPercentage}
-				t={t}
-			/>
-			<QualityPlaceholderLine percentage={placeholderPercentage} t={t} value={placeholder} />
 		</RatioBar.Composition>
 	);
 }

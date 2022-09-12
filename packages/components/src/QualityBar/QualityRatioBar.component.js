@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 
 import RatioBar from '../RatioBar';
 import { getTheme } from '../theme';
@@ -7,14 +8,6 @@ import { getTheme } from '../theme';
 import qualityBarTheme from './QualityRatioBar.scss';
 
 const theme = getTheme(qualityBarTheme);
-
-const qualityBarLinePropTypes = {
-	dataFeature: PropTypes.string,
-	onClick: PropTypes.func,
-	percentage: PropTypes.number.isRequired,
-	t: PropTypes.func.isRequired,
-	value: PropTypes.number.isRequired,
-};
 
 /**
  * formatNumber - format a number with a space for the thousand separator
@@ -37,12 +30,32 @@ export const QualityType = {
 	NA: 'na',
 };
 
+function QualityRatioBar({ onClick, getDataFeature, type, ...props }) {
+	const specificProps = {
+		onClick: onClick ? e => onClick(e, { type }) : null,
+		dataFeature: getDataFeature ? getDataFeature(type) : null,
+		className: theme('quality-ratio-bar', `quality-ratio-bar--${type}`),
+	};
+
+	return <RatioBar.Line {...props} {...specificProps} />;
+}
+
+QualityRatioBar.propTypes = {
+	...omit(RatioBar.Line.propTypes, ['onClick', 'dataFeature', 'className']),
+	type: PropTypes.oneOf([...Object.values(QualityType), 'placeholder']),
+};
+
+const SpecificQualityBarPropTypes = {
+	...omit(QualityRatioBar.propTypes, ['type', 'tooltipLabel']),
+};
+
 export function QualityInvalidLine(props) {
 	const { percentage, value, t } = props;
 
 	return (
-		<RatioBar.Line
+		<QualityRatioBar
 			{...props}
+			type={QualityType.INVALID}
 			tooltipLabel={t('INVALID_VALUES', {
 				defaultValue: '{{value}} invalid value ({{percentage}}%)',
 				defaultValue_plural: '{{value}} invalid values ({{percentage}}%)',
@@ -50,19 +63,19 @@ export function QualityInvalidLine(props) {
 				percentage,
 				value: formatNumber(value),
 			})}
-			className={theme('quality-ratio-bar', 'quality-ratio-bar--invalid')}
 		/>
 	);
 }
 
-QualityInvalidLine.propTypes = qualityBarLinePropTypes;
+QualityInvalidLine.propTypes = SpecificQualityBarPropTypes;
 
 export function QualityValidLine(props) {
 	const { percentage, value, t } = props;
 
 	return (
-		<RatioBar.Line
+		<QualityRatioBar
 			{...props}
+			type={QualityType.VALID}
 			tooltipLabel={t('VALID_VALUES', {
 				defaultValue: '{{value}} valid value ({{percentage}}%)',
 				defaultValue_plural: '{{value}} valid values ({{percentage}}%)',
@@ -70,19 +83,19 @@ export function QualityValidLine(props) {
 				percentage,
 				value: formatNumber(value),
 			})}
-			className={theme('quality-ratio-bar', 'quality-ratio-bar--valid')}
 		/>
 	);
 }
 
-QualityValidLine.propTypes = qualityBarLinePropTypes;
+QualityValidLine.propTypes = SpecificQualityBarPropTypes;
 
 export function QualityEmptyLine(props) {
 	const { percentage, value, t } = props;
 
 	return (
-		<RatioBar.Line
+		<QualityRatioBar
 			{...props}
+			type={QualityType.EMPTY}
 			tooltipLabel={t('EMPTY_VALUES', {
 				defaultValue: '{{value}} empty value ({{percentage}}%)',
 				defaultValue_plural: '{{value}} empty values ({{percentage}}%)',
@@ -90,19 +103,19 @@ export function QualityEmptyLine(props) {
 				percentage,
 				value: formatNumber(value),
 			})}
-			className={theme('quality-ratio-bar', 'quality-ratio-bar--empty')}
 		/>
 	);
 }
 
-QualityEmptyLine.propTypes = qualityBarLinePropTypes;
+QualityEmptyLine.propTypes = SpecificQualityBarPropTypes;
 
 export function QualityNotApplicableLine(props) {
 	const { percentage, value, t } = props;
 
 	return (
-		<RatioBar.Line
+		<QualityRatioBar
 			{...props}
+			type={QualityType.NA}
 			tooltipLabel={t('NOT_APPLICABLE_VALUES', {
 				defaultValue: '{{value}} not applicable value ({{percentage}}%)',
 				defaultValue_plural: '{{value}} not applicable values ({{percentage}}%)',
@@ -110,24 +123,14 @@ export function QualityNotApplicableLine(props) {
 				percentage,
 				value: formatNumber(value),
 			})}
-			className={theme('quality-ratio-bar', 'quality-ratio-bar--na')}
 		/>
 	);
 }
 
-QualityNotApplicableLine.propTypes = qualityBarLinePropTypes;
+QualityNotApplicableLine.propTypes = SpecificQualityBarPropTypes;
 
 export function QualityPlaceholderLine(props) {
-	return (
-		<RatioBar.Line
-			{...props}
-			className={theme('quality-ratio-bar', 'quality-ratio-bar--placeholder')}
-		/>
-	);
+	return <QualityRatioBar {...props} type="placeholder" />;
 }
 
-QualityPlaceholderLine.propTypes = {
-	onClick: PropTypes.func,
-	percentage: PropTypes.number.isRequired,
-	value: PropTypes.number.isRequired,
-};
+QualityPlaceholderLine.propTypes = SpecificQualityBarPropTypes;
