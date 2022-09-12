@@ -265,12 +265,10 @@ Here's an example using a `select` type affix with React Hooks Form
 							...register('prefix'),
 							type: 'select',
 							label: 'Type',
-							children: (
-								<>
-									<option value="Public">Public</option>
-									<option value="Private">Private</option>
-								</>
-							),
+							children: [
+								<option value="Public">Public</option>,
+								<option value="Private">Private</option>,
+							],
 							defaultValue: 'Public',
 						}}
 						suffix={{
@@ -284,10 +282,6 @@ Here's an example using a `select` type affix with React Hooks Form
 						defaultValue={42}
 						{...register('apiKey')}
 					/>
-					<Form.Select label="test" {...register('test')}>
-						<option>Test</option>
-						<option>Test 2</option>
-					</Form.Select>
 					<Form.Buttons>
 						<ButtonPrimary type="submit" onClick={() => {}}>
 							Submit

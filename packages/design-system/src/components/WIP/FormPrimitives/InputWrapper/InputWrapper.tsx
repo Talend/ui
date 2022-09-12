@@ -3,10 +3,9 @@ import { isElement } from 'react-is';
 import classnames from 'classnames';
 import { AffixButtonPropsType } from '../../../Form/FieldGroup/Affix/variations/AffixButton';
 import { AffixReadOnlyPropsType } from '../../../Form/FieldGroup/Affix/variations/AffixReadOnly';
-import { AffixButton, AffixReadOnly } from '../../../Form/FieldGroup/Affix';
+import { AffixButton, AffixReadOnly, AffixSelect } from '../../../Form/FieldGroup/Affix';
 import { FieldPropsPrimitive, FieldStatusProps } from '../Field/Field';
-import Select, { SelectPrimitiveProps } from '../Select/Select';
-import { FieldPrimitive } from '../index';
+import { SelectPrimitiveProps } from '../Select/Select';
 
 import styles from './InputWrapper.module.scss';
 
@@ -52,19 +51,9 @@ function buildAffix(affixProps: AffixProps) {
 	}
 
 	if (affixProps.type === 'select') {
-		const { type, label, children, name, id, ...rest } = affixProps;
-		function AffixSelect() {
-			return (
-				<Select {...rest} isAffix>
-					{children}
-				</Select>
-			);
-		}
-		return (
-			<FieldPrimitive label={label} name={name} id={id} hideLabel>
-				<AffixSelect />
-			</FieldPrimitive>
-		);
+		const { type, children, ...rest } = affixProps;
+
+		return <AffixSelect {...rest}>{children}</AffixSelect>;
 	}
 
 	return <></>;
