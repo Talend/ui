@@ -62,13 +62,8 @@ export function QualityBar({
 }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
-	const [
-		invalidPercentage,
-		emptyPercentage,
-		validPercentage,
-		naPercentage,
-		placeholderPercentage,
-	] = getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
+	const [invalidPercentage, emptyPercentage, validPercentage, naPercentage, placeholderPercentage] =
+		getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
 
 	return (
 		<RatioBar.Composition>
