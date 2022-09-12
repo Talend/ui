@@ -6,6 +6,7 @@ $custom-quality-bar-placeholder-line-hover-height: 0.4rem;
 	width: 100%;
 	height: 100%;
 	border-radius: tokens.$coral-radius-l;
+	border-radius: 1px;
 
 	&--empty {
 		background-color: tokens.$coral-color-charts-neutral;
