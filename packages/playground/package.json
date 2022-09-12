@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-playground",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Showcase Talend/UI",
   "private": true,
   "main": "app/index.js",
@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react": "^13.0.1",
+    "@talend/scripts-preset-react": "^14.0.0",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.18.1",
@@ -39,7 +39,7 @@
     "@talend/react-containers": "^7.3.0",
     "@talend/react-datagrid": "^12.0.0",
     "@talend/react-dataviz": "^2.4.0",
-    "@talend/react-faceted-search": "^6.0.0",
+    "@talend/react-faceted-search": "^7.0.0",
     "@talend/react-forms": "^8.1.0",
     "history": "^5.3.0",
     "i18next": "^20.6.1",

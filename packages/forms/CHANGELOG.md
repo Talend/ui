@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 8.1.3
+
+### Patch Changes
+
+- bd7b58230: chore(TDS-6666): disabled split
+
+## 8.1.2
+
+### Patch Changes
+
+- 73c84e692: fix: move skipCommas options to schema object instead of component api
+
 ## 8.1.1
 
 ### Patch Changes

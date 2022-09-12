@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import * as S from './Menu.style';
 
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 import Tooltip from '../../Tooltip';
 import { Icon } from '../../Icon/Icon';
 

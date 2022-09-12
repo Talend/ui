@@ -70,13 +70,14 @@ import {
 	TagDestructive,
 	TagInformation,
 	TagSuccess,
+	TagVariantsNames,
 	TagWarning,
 } from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 import * as themes from './themes';
-import tokens from './tokens';
+import deprecatedTokens from './deprecatedTokens';
 
 export * from './components/Stack';
 export {
@@ -147,12 +148,13 @@ export {
 	TagDestructive,
 	TagInformation,
 	TagSuccess,
+	TagVariantsNames,
 	TagWarning,
 	ThemeProvider,
 	Tooltip,
 	VisuallyHidden,
 	themes,
-	tokens,
+	deprecatedTokens,
 };
 
 export type { TooltipPlacement };

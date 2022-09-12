@@ -1,5 +1,52 @@
 # @talend/design-system
 
+## 4.2.0
+
+### Minor Changes
+
+- f54db324c: StackVertical: add height prop
+
+### Patch Changes
+
+- 95e37c3b2: Padding style of popover should apply to contents, not parent.
+
+## 4.1.1
+
+### Patch Changes
+
+- b5d12a791: Export TagVariantsNames from DS module
+
+## 4.1.0
+
+### Minor Changes
+
+- 79239025d: Add const to export Tag variations through string array
+- e5aa63ef6: feat(Popover): add `isFixed` and `hasPadding` props
+
+## 4.0.2
+
+### Patch Changes
+
+- e6b185e51: fix(TDP-11258): get back tilde character for sass imports for compatibility"
+
+## 4.0.1
+
+### Patch Changes
+
+- ae9897897: Using design tokens instead of style components plus fixes in the following components:
+
+  - ThemeProvider
+  - Switch
+  - Layout
+  - InlineEditing
+  - Divider
+  - ButtonIcon
+  - Accordion
+  - Icon
+
+- Updated dependencies [56e0a9629]
+  - @talend/assets-api@1.2.2
+
 ## 4.0.0
 
 ### Major Changes

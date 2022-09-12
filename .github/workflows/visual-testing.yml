@@ -70,16 +70,12 @@ jobs:
           yarn workspace @talend/assets-api run build:lib
           yarn workspace @talend/icons run build:lib
           yarn workspace @talend/design-tokens run build:lib
-
-      - name: Build @talend/icons
-        if: matrix.package == 'design-system'
-        run: |
-          yarn workspace @talend/icons run build:lib
+          yarn workspace @talend/storybook-docs run build:lib
 
       - name: Build @talend/*
         if: matrix.package != 'design-system'
         run: |
-          # We need to build all dependencies (cmf, coponents...)
+          # We need to build all dependencies (cmf, components...)
           yarn postinstall
 
       - name: Publish PR to DS Chromatic

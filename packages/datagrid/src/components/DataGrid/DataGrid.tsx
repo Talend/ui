@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 
 import {
 	CellFocusedEvent,
@@ -6,15 +6,14 @@ import {
 	ColDef,
 	DragStoppedEvent,
 	BodyScrollEvent,
+	GridReadyEvent,
 } from 'ag-grid-community';
-import { AgGridReact as AgGridReactType } from 'ag-grid-react';
-import classNames from 'classnames';
 
 import assetsApi from '@talend/assets-api';
 import { Icon } from '@talend/design-system';
 
 import { HEADER_HEIGHT, ROW_HEIGHT } from '../../constants';
-import { GridContext } from '../../types';
+import { GridContext, GridRef } from '../../types';
 import { getColumnSizes, handleKeyboard, saveColumnSizes } from './DataGrid.utils';
 import { GridColumnSelectionProps, useColumnSelection } from './useColumnSelection.hook';
 
@@ -24,10 +23,6 @@ export type DataGridProps = GridOptions &
 	GridColumnSelectionProps & {
 		/* Shows loader icons instead of grid */
 		loading?: boolean;
-		/* Controlled selection, handling only columns for now */
-		selection?: {
-			columnIds?: string[];
-		};
 		/* Key to use when persisting sizes to local storage */
 		sizesLocalStorageKey?: string;
 		onVerticalScroll?(
@@ -54,14 +49,15 @@ function DataGridSkeleton() {
 export default function DataGrid({
 	loading,
 	columnDefs,
-	selection,
 	sizesLocalStorageKey,
 	onVerticalScroll,
 	...props
 }: DataGridProps): JSX.Element {
-	const gridRef = useRef<AgGridReactType>(null);
-	const { selectedColumns, updateSelectionOnCellFocus, onHeaderFocus, setSelectedColumns } =
-		useColumnSelection(gridRef, props);
+	const [agGridRef, setAgGridRef] = useState<GridRef | null>(null);
+	const { updateSelectionOnCellFocus, onHeaderFocus, selectedColumns } = useColumnSelection(
+		agGridRef,
+		props,
+	);
 	const context = useRef<GridContext>({ selectedColumns });
 
 	function onCellFocused(event: CellFocusedEvent) {
@@ -83,14 +79,6 @@ export default function DataGrid({
 			},
 		}));
 	}, [columnDefs, onHeaderFocus, sizesLocalStorageKey]);
-
-	// Handle controlled selection
-	const controlledColumnIds = selection?.columnIds;
-	useEffect(() => {
-		if (controlledColumnIds) {
-			setSelectedColumns(controlledColumnIds);
-		}
-	}, [controlledColumnIds]);
 
 	// Add size persistence support
 	function onDragStopped(event: DragStoppedEvent) {
@@ -115,13 +103,22 @@ export default function DataGrid({
 	}
 
 	return (
-		<div className={classNames(theme['td-grid'])}>
+		<div className={theme['td-grid']}>
 			{loading ? (
 				<DataGridSkeleton />
 			) : (
 				<React.Suspense fallback={<DataGridSkeleton />}>
 					<AgGridReact
-						ref={gridRef}
+						onGridReady={(params: GridReadyEvent) => {
+							const refObj = {
+								...params,
+								context: context.current,
+							};
+							setAgGridRef(refObj);
+							if (props.onGridReady) {
+								props.onGridReady(refObj);
+							}
+						}}
 						headerHeight={HEADER_HEIGHT}
 						rowHeight={ROW_HEIGHT}
 						/* By default, ag-grid deletes a column when we drag an column outside the grid.*/

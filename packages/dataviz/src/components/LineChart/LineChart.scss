@@ -26,6 +26,11 @@ $module: line-chart;
 		gap: tokens.$coral-spacing-m;
 		list-style: none;
 
+		&-item {
+			display: flex;
+			align-items: center;
+		}
+
 		&--align-left {
 			justify-content: flex-start;
 		}

@@ -1,5 +1,20 @@
 # @talend/icons
 
+## 6.48.0
+
+### Minor Changes
+
+- 8b6f3989d: added icon `code` in size `L`
+- 8b6f3989d: added icon `code` in size `M`
+
+### Patch Changes
+
+- 8b6f3989d: changed icon `cross` in size `M`
+- 8b6f3989d: changed icon `cross` in size `S`
+- 8b6f3989d: changed icon `cross` in size `XS`
+- 8b6f3989d: changed icon `law-hammer` in size `L`
+- 8b6f3989d: changed icon `law-hammer` in size `M`
+
 ## 6.47.0
 
 ### Minor Changes

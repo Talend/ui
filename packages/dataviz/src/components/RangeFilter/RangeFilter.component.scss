@@ -6,20 +6,20 @@ $module: range-filter;
 	}
 
 	&__slider-mark {
-		position: absolute;
+		position: relative;
+		display: block;
 		width: 100%;
 		white-space: nowrap;
 
 		&--top {
-			transform: translateX(-50%);
 			top: -36px;
 		}
 		&--bottom-left {
+			position: absolute;
 			text-align: left;
 		}
 		&--bottom-right {
-			right: 0;
-			text-align: right;
+			transform: translateX(50%);
 		}
 	}
 

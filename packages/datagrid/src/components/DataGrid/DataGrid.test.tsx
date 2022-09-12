@@ -8,7 +8,7 @@ import { Grid as agGrid } from 'ag-grid-community';
 import { AgGridReact, AgGridColumn } from 'ag-grid-react';
 
 import sample from '../../../mocks/sample.json';
-import { HIGHLIGHTED_CELL_CLASS_NAME } from '../../constants';
+import { HIGHLIGHTED_CELL_CLASS_NAME, SELECTED_CELL_CLASS_NAME } from '../../constants';
 import { getColumnDefs } from '../../serializers/datasetSerializer';
 import DataGrid from './DataGrid';
 import * as stories from './Datagrid.stories';
@@ -22,7 +22,7 @@ declare global {
 	}
 }
 
-const { Selection } = composeStories(stories);
+const { Selection, ControlledSelection } = composeStories(stories);
 
 jest.mock('ally.js');
 
@@ -85,5 +85,34 @@ describe('DataGrid', () => {
 		});
 
 		expect(getComputedStyle(cell.closest('.ag-header-cell')!).width).toEqual('789px');
+	});
+	it('should set controlled column selection', async () => {
+		const onColumnSelectionChanged = jest.fn();
+		const wrapper = render(
+			<ControlledSelection onColumnSelectionChanged={onColumnSelectionChanged} />,
+		);
+
+		await waitFor(() => {
+			expect(screen.getByText('field10').closest('.ag-header-cell')).toHaveClass(
+				SELECTED_CELL_CLASS_NAME,
+			);
+		});
+
+		wrapper.rerender(
+			<ControlledSelection
+				onColumnSelectionChanged={onColumnSelectionChanged}
+				selection={{
+					columnIds: ['field0'],
+				}}
+			/>,
+		);
+
+		await waitFor(() => {
+			expect(screen.getByText('Nom de la gare').closest('.ag-header-cell')).toHaveClass(
+				SELECTED_CELL_CLASS_NAME,
+			);
+		});
+
+		expect(onColumnSelectionChanged).not.toHaveBeenCalled();
 	});
 });

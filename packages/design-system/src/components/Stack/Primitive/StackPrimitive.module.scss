@@ -390,4 +390,31 @@
 			}
 		}
 	}
+
+	&.height {
+		&-100 {
+			height: 100%;
+		}
+		&-XXXS {
+			height: tokens.$coral-sizing-xxxs;
+		}
+		&-XXS {
+			height: tokens.$coral-sizing-xxs;
+		}
+		&-XS {
+			height: tokens.$coral-sizing-xs;
+		}
+		&-S {
+			height: tokens.$coral-sizing-s;
+		}
+		&-M {
+			height: tokens.$coral-sizing-m;
+		}
+		&-L {
+			height: tokens.$coral-sizing-l;
+		}
+		&-XXXL {
+			height: tokens.$coral-sizing-xxxl;
+		}
+	}
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { DeprecatedIconNames } from '../../types';
-import tokens from '../../tokens';
+import tokens from '@talend/design-tokens';
 import { IconsProvider } from '../IconsProvider';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -29,8 +29,8 @@ export type IconProps = PropsWithChildren<any> & {
 
 const SVG = styled.svg<IconProps>`
 	fill: currentColor;
-	width: ${tokens.sizes.l};
-	height: ${tokens.sizes.l};
+	width: ${tokens.coralSizingXxs};
+	height: ${tokens.coralSizingXxs};
 	transform-origin: center;
 
 	circle,

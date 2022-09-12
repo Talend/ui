@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import * as Stories from './Popover.stories';
 import { StackVertical } from '../../Stack';
 import InlineMessageWarning from '../../InlineMessage/variations/InlineMessageWarning';
@@ -34,12 +34,24 @@ Popover displays floating informative and actionable content in relation to its 
 
 ## Style
 
+### Default
+
 <Canvas>
 	<Story height="12rem" story={Stories.DefaultStory} />
 </Canvas>
 
+### Disable padding in popover contents
+
 <Canvas>
-	<Story height="12rem" story={Stories.WithFunctionAsChildren} />
+	<Story height="12rem" story={Stories.WithoutPaddingStory} />
+</Canvas>
+
+### Disclosure
+
+You can use any of the design system's "Clickable" as a disclosure.
+
+<Canvas>
+	<Story height="12rem" story={Stories.DisclosureStory} />
 </Canvas>
 
 ## States
@@ -54,8 +66,16 @@ _Not applicable_
 
 ## Usage
 
-## Changelog
+### Close popover from the inside
 
-| Date       | Author           | Description |
-| ---------- | ---------------- | ----------- |
-| 11/11/2020 | Fabien Rassinier | Init page   |
+You may need to programmatically close the popover with an interaction from its content.
+
+Such would be the case when submitting a setting or simply clicking on a "close" button.
+
+You can do just so by using the "function as children" pattern:
+
+<Canvas>
+	<Story height="12rem" story={Stories.WithFunctionAsChildren} />
+</Canvas>
+
+As you can see, the button inside that popover consumes the popover's state and its methods.

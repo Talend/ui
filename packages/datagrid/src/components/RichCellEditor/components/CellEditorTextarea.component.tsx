@@ -40,6 +40,7 @@ function CellEditorTextarea({ eGridCell, value, onChange }: CellEditorTextareaPr
 	return (
 		<textarea
 			ref={ref}
+			data-testid="cell.edition.textarea"
 			className={classNames(theme['cell-editor-textarea'], 'form-control')}
 			rows={rows}
 			value={value}

@@ -61,14 +61,16 @@ const formatValue = value => {
 /**
  * Evaluating the correct query method with the help of the dictionary and the operator.
  */
-const fromBadgeToTql = badgesLength => (query, [category, operator, value], index) => {
-	const queryFunction = getTqlClassOperatorsDictionary(query)[operator];
-	const tqlQuery = queryFunction(category, formatValue(value));
-	if (index === badgesLength - 1) {
-		return tqlQuery;
-	}
-	return tqlQuery.and();
-};
+const fromBadgeToTql =
+	badgesLength =>
+	(query, [category, operator, value], index) => {
+		const queryFunction = getTqlClassOperatorsDictionary(query)[operator];
+		const tqlQuery = queryFunction(category, formatValue(value));
+		if (index === badgesLength - 1) {
+			return tqlQuery;
+		}
+		return tqlQuery.and();
+	};
 
 /**
  * Create a proper tql query either from a collection of badgesFacetedPropTypes or a string

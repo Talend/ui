@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Progress from '../Progress';
-import tokens from '../../../../tokens';
+import tokens from '../../../../deprecatedTokens';
 
 const ProgressVertical = styled(Progress).attrs({
 	className: 'c-stepper__progress-bar--vertical',

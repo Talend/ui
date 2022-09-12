@@ -42,7 +42,7 @@ export const CustomLegend = ({
 					<li key={config.key}>
 						<div
 							data-testid={`legend_item_${config.key}`}
-							className={classNames({
+							className={classNames(styles['line-chart-custom-legend-item'], {
 								[styles['line-chart-custom-legend__button--inactive']]:
 									config?.status === 'inactive',
 							})}

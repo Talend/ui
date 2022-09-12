@@ -1,5 +1,60 @@
 # @talend/react-datagrid
 
+## 12.2.3
+
+### Patch Changes
+
+- 2da0e0190: Header menu icon not rendering on firefox
+
+## 12.2.2
+
+### Patch Changes
+
+- 93ec9fcd3: Improve ColDef typings
+
+## 12.2.1
+
+### Patch Changes
+
+- 62750d002: Cell value is persisted when canceling edition
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+  - @talend/icons@6.48.0
+
+## 12.2.0
+
+### Minor Changes
+
+- 9d5f37b8e: Add data-testid on column header
+
+### Patch Changes
+
+- a84469e6a: Wait for grid to be initialized before handling controlled selection
+
+## 12.1.1
+
+### Patch Changes
+
+- 091ad376d: Unnecessary css important rule used
+- 84f293882: Incorrect typings for getSemanticTypeSuggestions
+
+## 12.1.0
+
+### Minor Changes
+
+- 240340d94: Add cell context to editor onSubmit callback
+
+### Patch Changes
+
+- Updated dependencies [b02eb9ef4]
+- Updated dependencies [5e0148797]
+  - @talend/react-components@7.8.0
+
 ## 12.0.1
 
 ### Patch Changes
