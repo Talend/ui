@@ -58,7 +58,6 @@ export function QualityBar({
 	onClick,
 	valid = 0,
 }) {
-	console.log('[SG]', 'from qb', onClick);
 	const [invalidPercentage, emptyPercentage, validPercentage, naPercentage, placeholderPercentage] =
 		getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
 
