@@ -28,11 +28,11 @@ function QualityBarRatioBars({
 
 	return (
 		<RatioBar.Composition>
-			<QualityInvalidLine {...fwd} percentage={percentages.invalid} value={invalid} />
-			<QualityEmptyLine {...fwd} percentage={percentages.empty} value={empty} />
-			<QualityNotApplicableLine {...fwd} percentage={percentages.na} value={na} />
-			<QualityValidLine {...fwd} percentage={percentages.valid} value={valid} />
-			<QualityPlaceholderLine {...fwd} percentage={percentages.placeholder} value={placeholder} />
+			<QualityInvalidLine {...fwd} value={invalid} percentage={percentages.invalid} />
+			<QualityEmptyLine {...fwd} value={empty} percentage={percentages.empty} />
+			<QualityNotApplicableLine {...fwd} value={na} percentage={percentages.na} />
+			<QualityValidLine {...fwd} value={valid} percentage={percentages.valid} />
+			<QualityPlaceholderLine {...fwd} value={placeholder} percentage={percentages.placeholder} />
 		</RatioBar.Composition>
 	);
 }
@@ -43,13 +43,13 @@ QualityBarRatioBars.propTypes = {
 	empty: PropTypes.number,
 	na: PropTypes.number,
 	placeholder: PropTypes.number,
-	percentages: {
+	percentages: PropTypes.shape({
 		valid: PropTypes.number,
 		invalid: PropTypes.number,
 		empty: PropTypes.number,
 		na: PropTypes.number,
 		placeholder: PropTypes.number,
-	},
+	}),
 	onClick: PropTypes.func,
 	getDataFeature: PropTypes.func,
 };
