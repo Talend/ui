@@ -1,9 +1,9 @@
 import React, { forwardRef, ReactElement, Ref } from 'react';
 import { isElement } from 'react-is';
 import classnames from 'classnames';
-import { AffixButtonPropsType } from '../../../Form/FieldGroup/Affix/variations/AffixButton';
-import { AffixReadOnlyPropsType } from '../../../Form/FieldGroup/Affix/variations/AffixReadOnly';
-import { AffixButton, AffixReadOnly, AffixSelect } from '../../../Form/FieldGroup/Affix';
+import { AffixButtonPropsType } from '../../../Form/Affix/variations/AffixButton';
+import { AffixReadOnlyPropsType } from '../../../Form/Affix/variations/AffixReadOnly';
+import { AffixButton, AffixReadOnly, AffixSelect } from '../../../Form/Affix';
 import { FieldPropsPrimitive, FieldStatusProps } from '../Field/Field';
 import { SelectPrimitiveProps } from '../Select/Select';
 

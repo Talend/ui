@@ -3,14 +3,14 @@ import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
-import { DeprecatedIconNames } from '../../../../../types';
-import Tooltip from '../../../../Tooltip';
-import { StackHorizontal } from '../../../../Stack';
-import Clickable, { ClickableProps } from '../../../../Clickable';
+import { DeprecatedIconNames } from '../../../../types';
+import Tooltip from '../../../Tooltip';
+import { StackHorizontal } from '../../../Stack';
+import Clickable, { ClickableProps } from '../../../Clickable';
+import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
+import { SizedIcon } from '../../../Icon';
 
 import styles from '../AffixStyles.module.scss';
-import { getIconWithDeprecatedSupport } from '../../../../Icon/DeprecatedIconHelper';
-import { SizedIcon } from '../../../../Icon';
 
 type CommonAffixButtonPropsType = {
 	children: string;

@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -28,7 +28,7 @@ It's used to let the user enter and edit a URL.
 
 <Canvas>
 	<Story name="default">
-		<Form.Url label="Url" placeholder="https://example.com" pattern="https://.*" />
+		<Form.Url name="url" label="Url" placeholder="https://example.com" pattern="https://.*" />
 	</Story>
 </Canvas>
 
@@ -39,7 +39,7 @@ It's used to let the user enter and edit a URL.
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Url label="Url" placeholder="https://example.com" />
+		<Form.Url name="url" label="Url" placeholder="https://example.com" />
 	</Story>
 </Canvas>
 
@@ -50,7 +50,7 @@ It's used to let the user enter and edit a URL.
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Url label="Url" placeholder="https://example.com" />
+		<Form.Url name="url" label="Url" placeholder="https://example.com" />
 	</Story>
 </Canvas>
 
@@ -58,7 +58,7 @@ It's used to let the user enter and edit a URL.
 
 <Canvas>
 	<Story name="filled">
-		<Form.Url label="Url" value="https://talend.com" />
+		<Form.Url name="url" label="Url" value="https://talend.com" />
 	</Story>
 </Canvas>
 
@@ -66,7 +66,7 @@ It's used to let the user enter and edit a URL.
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Url label="Url" value="https://talend.com" disabled />
+		<Form.Url name="url" label="Url" value="https://talend.com" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ It's used to let the user enter and edit a URL.
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Url label="Url" value="https://talend.com" readOnly />
+		<Form.Url name="url" label="Url" value="https://talend.com" readOnly />
 	</Story>
 </Canvas>
 

@@ -1,7 +1,7 @@
 import CheckboxPrimitive, { CheckboxPrimitiveType } from './Checkbox/Checkbox';
 import FieldPrimitive, { FieldPropsPrimitive } from './Field/Field';
 import InputPrimitive, { InputPrimitiveProps } from './Input/Input';
-import LabelPrimitive from './Label/Label';
+import LabelPrimitive, { LabelPrimitiveProps } from './Label/Label';
 import RadioPrimitive, { RadioPrimitiveType } from './Radio/Radio';
 import SelectPrimitive, { SelectPrimitiveProps } from './Select/Select';
 import TextareaPrimitive, { TextareaPrimitiveProps } from './Textarea/Textarea';
@@ -23,4 +23,5 @@ export type {
 	RadioPrimitiveType,
 	TextareaPrimitiveProps,
 	SelectPrimitiveProps,
+	LabelPrimitiveProps,
 };

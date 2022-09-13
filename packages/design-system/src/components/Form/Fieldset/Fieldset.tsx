@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Children, cloneElement, forwardRef, Ref } from 'react';
 import { isElement } from 'react-is';
-import * as S from './Fieldset.style';
+
+import styles from './Fieldset.module.scss';
 
 export type FieldsetProps = React.FieldsetHTMLAttributes<HTMLFieldSetElement> & {
 	legend?: string;
@@ -9,29 +10,31 @@ export type FieldsetProps = React.FieldsetHTMLAttributes<HTMLFieldSetElement> & 
 	readOnly?: boolean;
 };
 
-const Fieldset = React.forwardRef(
+const Fieldset = forwardRef(
 	(
 		{ legend, children, disabled, readOnly, required, ...rest }: FieldsetProps,
-		ref: React.Ref<HTMLFieldSetElement>,
+		ref: Ref<HTMLFieldSetElement>,
 	) => {
 		const childrenProps: { disabled?: boolean; readOnly?: boolean } = {};
 		if (disabled) childrenProps.disabled = true;
 		if (readOnly) childrenProps.readOnly = true;
 
 		return (
-			<S.Fieldset className="c-fieldset" disabled={disabled} {...rest} ref={ref}>
+			<fieldset className={styles.fieldset} disabled={disabled} {...rest} ref={ref}>
 				{legend && (
-					<S.Legend className="c-fieldset__legend">
+					<legend className={styles.legend}>
 						{legend}
 						{required && '*'}
-					</S.Legend>
+					</legend>
 				)}
-				{React.Children.toArray(children).map(child =>
-					isElement(child) ? React.cloneElement(child, childrenProps) : child,
+				{Children.toArray(children).map(child =>
+					isElement(child) ? cloneElement(child, childrenProps) : child,
 				)}
-			</S.Fieldset>
+			</fieldset>
 		);
 	},
 );
+
+Fieldset.displayName = 'Fieldset';
 
 export default Fieldset;

@@ -27,7 +27,7 @@ export const FormComponent = Form as typeof Form & {
 	Radio: typeof Input.Radio;
 	Search: typeof Input.Search;
 	Select: typeof Select;
-	Switch: typeof Input.Switch;
+	ToggleSwitch: typeof Input.ToggleSwitch;
 	Tel: typeof Input.Tel;
 	Text: typeof Input.Text;
 	Textarea: typeof Textarea;
@@ -56,7 +56,7 @@ FormComponent.Password = Input.Password;
 FormComponent.Radio = Input.Radio;
 FormComponent.Search = Input.Search;
 FormComponent.Select = Select;
-FormComponent.Switch = Input.Switch;
+FormComponent.ToggleSwitch = Input.ToggleSwitch;
 FormComponent.Tel = Input.Tel;
 FormComponent.Text = Input.Text;
 FormComponent.Textarea = Textarea;

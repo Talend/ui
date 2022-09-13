@@ -59,6 +59,7 @@ const Datalist = forwardRef(
 						readOnly={!!readOnly}
 						value={value}
 						defaultValue={defaultValue}
+						type="datalist"
 						ref={ref}
 					/>
 				</FieldPrimitive>

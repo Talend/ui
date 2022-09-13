@@ -25,7 +25,7 @@ import EmptyState, {
 	EmptyStateSmall,
 } from './components/EmptyState';
 import Form from './components/Form';
-import { AffixButton, AffixReadOnly } from './components/Form/FieldGroup/Affix';
+import { AffixButton, AffixReadOnly, AffixSelect } from './components/Form/Affix';
 import HeaderBar from './components/WIP/HeaderBar';
 import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
@@ -84,6 +84,7 @@ export {
 	Accordion,
 	AffixButton,
 	AffixReadOnly,
+	AffixSelect,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,

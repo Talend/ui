@@ -3,10 +3,10 @@ import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	SelectPrimitiveProps,
-} from '../../../../WIP/FormPrimitives';
+} from '../../../WIP/FormPrimitives';
 import { unstable_useId as useId } from 'reakit';
-import Select from '../../../../WIP/FormPrimitives/Select/Select';
-import { SelectProps } from '../../../Field/Select/Select';
+import Select from '../../../WIP/FormPrimitives/Select/Select';
+import { SelectProps } from '../../Field/Select/Select';
 
 export type AffixSelectPropsType = Omit<FieldPropsPrimitive, 'hasError' | 'description'> &
 	Omit<SelectPrimitiveProps, 'prefix' | 'suffix' | 'isAffix' | 'className' | 'style'>;

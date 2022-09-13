@@ -1,9 +1,9 @@
-import React, { forwardRef, Ref, HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes, Ref } from 'react';
 
-import { DeprecatedIconNames } from '../../../../../types';
-import { Icon } from '../../../../Icon/Icon';
-import { StackHorizontal } from '../../../../Stack';
-import VisuallyHidden from '../../../../VisuallyHidden';
+import { DeprecatedIconNames } from '../../../../types';
+import { Icon } from '../../../Icon/Icon';
+import { StackHorizontal } from '../../../Stack';
+import VisuallyHidden from '../../../VisuallyHidden';
 
 import styles from '../AffixStyles.module.scss';
 

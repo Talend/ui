@@ -4,7 +4,7 @@ import Textarea from './Textarea/Textarea';
 import Select from './Select/Select';
 import { action } from '@storybook/addon-actions';
 import Dropdown from '../../Dropdown';
-import { AffixButton } from '../../Form/FieldGroup/Affix';
+import { AffixButton } from '../../Form/Affix';
 import { StackHorizontal, StackVertical } from '../../Stack';
 import Checkbox from './Checkbox/Checkbox';
 import Label from './Label/Label';

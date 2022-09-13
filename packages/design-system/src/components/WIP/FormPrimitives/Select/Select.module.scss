@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 @use '../mixins' as Form;
-@use '../../../Form/FieldGroup/Affix/AffixStyles.module' as Affix;
+@use 'src/components/Form/Affix/AffixStyles.module' as Affix;
 
 .select {
   @include Form.baseInput();

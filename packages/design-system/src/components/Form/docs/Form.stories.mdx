@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaIframe, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
 import Form from '../Form';
 import * as stories from '../Form.stories';
 
@@ -41,9 +41,9 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 
 ### Skeleton
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A25"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A206"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A25"
+	alt="Form mockup"
 />
 
 <Canvas>
@@ -52,9 +52,9 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 
 ### Default
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A699"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A717"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A699"
+	alt="Form mockup"
 />
 
 <Canvas>
@@ -63,9 +63,9 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 
 ### Error
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A704"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=340%3A1"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A704"
+	alt="Form mockup"
 />
 
 <Canvas>
@@ -90,9 +90,9 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 
 Consider using an [Inline message](/?path=/docs/components-inlinemessage--information) when help is needed to fill the form.
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A1028"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A683"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A1028"
+	alt="Form mockup"
 />
 
 <Canvas>
@@ -103,9 +103,9 @@ Consider using an [Inline message](/?path=/docs/components-inlinemessage--inform
 
 ### Synchronous action
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A9"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A46"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A9"
+	alt="Form mockup"
 />
 
 <Canvas>
@@ -116,10 +116,12 @@ Consider using an [Inline message](/?path=/docs/components-inlinemessage--inform
 
 When the user clicks on the cancel button or go back to the previous page, provide a confirm dialog.
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
+	alt="Form mockup"
 />
+
+You can easily build that dialog with the [Modal component.](/docs/components-modal--with-disclosure).
 
 ### Error focus
 
@@ -128,7 +130,7 @@ In case of error after submission, the focus on the screen should be on the firs
 ## Usage
 
 Choosing between `readonly` and `disabled` states is not really easy!
-A readonly element is just not editable, but gets sent when the according form submits.
+A readonly element is not editable, but gets sent when the form is submitted.
 A disabled element isn't editable and isn't sent on submit.
 Another difference is that readonly elements can be focused (and getting focused when "tabbing" through a form) while disabled elements can't.
 

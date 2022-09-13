@@ -1,7 +1,7 @@
 import React, { cloneElement, forwardRef, ReactElement, Ref } from 'react';
 import Link, { LinkProps } from '../../../Link/Link';
 import { StackVertical } from '../../../Stack';
-import Label, { LabelProps } from '../Label/Label';
+import Label, { LabelPrimitiveProps } from '../Label/Label';
 import { InlineMessageDestructive, InlineMessageInformation } from '../../../InlineMessage';
 import VisuallyHidden from '../../../VisuallyHidden';
 import { unstable_useId as useId } from 'reakit';
@@ -19,7 +19,7 @@ export type FieldStatusProps =
 export type FieldPropsPrimitive = {
 	link?: LinkProps;
 	hideLabel?: boolean;
-	label: LabelProps | string;
+	label: LabelPrimitiveProps | string;
 	id?: string;
 	name: string;
 	required?: boolean;

@@ -61,7 +61,7 @@ export const Icons = () => {
 							<option>flip-vertical</option>
 						</Form.Select>
 						<div>
-							<Form.Switch
+							<Form.ToggleSwitch
 								label="Use color"
 								name="color"
 								onChange={() => setUseCurrentColor(!useCurrentColor)}
@@ -77,13 +77,13 @@ export const Icons = () => {
 								name="color"
 							/>
 						</div>
-						<Form.Switch
+						<Form.ToggleSwitch
 							label="Use border"
 							name="border"
 							onChange={() => setBorder(!border)}
 							checked={!!border}
 						/>
-						<Form.Switch
+						<Form.ToggleSwitch
 							name="grayscale"
 							label="Use grayscale filter"
 							onChange={() => setFilter(!filter)}

@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -28,7 +28,12 @@ It's used to let the user enter and edit a telephone number.
 
 <Canvas>
 	<Story name="default">
-		<Form.Tel label="Tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" description="Format: 123-456-7890" />
+		<Form.Tel
+			name="tel"
+			label="Tel"
+			pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+			description="Format: 123-456-7890"
+		/>
 	</Story>
 </Canvas>
 
@@ -39,7 +44,7 @@ It's used to let the user enter and edit a telephone number.
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Tel label="Tel" />
+		<Form.Tel name="tel" label="Tel" />
 	</Story>
 </Canvas>
 
@@ -50,7 +55,7 @@ It's used to let the user enter and edit a telephone number.
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Tel label="Tel" />
+		<Form.Tel name="tel" label="Tel" />
 	</Story>
 </Canvas>
 
@@ -58,7 +63,7 @@ It's used to let the user enter and edit a telephone number.
 
 <Canvas>
 	<Story name="filled">
-		<Form.Tel label="Tel" value="123-456-7890" />
+		<Form.Tel name="tel" label="Tel" value="123-456-7890" />
 	</Story>
 </Canvas>
 
@@ -66,7 +71,7 @@ It's used to let the user enter and edit a telephone number.
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Tel label="Tel" value="123-456-7890" disabled />
+		<Form.Tel name="tel" label="Tel" value="123-456-7890" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +79,7 @@ It's used to let the user enter and edit a telephone number.
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Tel label="Tel" value="123-456-7890" readOnly />
+		<Form.Tel name="tel" label="Tel" value="123-456-7890" readOnly />
 	</Story>
 </Canvas>
 

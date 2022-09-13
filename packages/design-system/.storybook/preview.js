@@ -181,14 +181,14 @@ export const parameters = {
 							{isDesignSystemElementPage && (
 								<ThemeProvider theme={light}>
 									<Divider />
-									<Form.Switch
+									<Form.ToggleSwitch
 										label={'Dark mode'}
 										onChange={() => {
 											setDarkMode(!hasDarkMode);
 										}}
 										checked={hasDarkMode}
 									/>
-									<Form.Switch
+									<Form.ToggleSwitch
 										label={'Bootstrap stylesheet'}
 										onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
 										checked={!!hasBootstrapStylesheet}

@@ -52,7 +52,8 @@ export const Default = () => (
 					required: true,
 					type: 'select',
 					label: 'phone',
-					name: ' phone',
+					name: 'phone',
+					defaultValue: 'France (+33)',
 					children: getCountryCodes().map((countryCode, key) => (
 						<option key={key}>{countryCode}</option>
 					)),
@@ -119,7 +120,8 @@ export const Disabled = () => (
 					required: true,
 					type: 'select',
 					label: 'phone',
-					name: ' phone',
+					name: 'phone',
+					defaultValue: 'France (+33)',
 					children: getCountryCodes().map((countryCode, key) => (
 						<option key={key}>{countryCode}</option>
 					)),
@@ -167,7 +169,8 @@ export const ReadOnly = () => (
 					required: true,
 					type: 'select',
 					label: 'phone',
-					name: ' phone',
+					name: 'phone',
+					defaultValue: 'France (+33)',
 					children: getCountryCodes().map((countryCode, key) => (
 						<option key={key}>{countryCode}</option>
 					)),
