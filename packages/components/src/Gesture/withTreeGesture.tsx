@@ -1,41 +1,54 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import omit from 'lodash/omit';
+import { focusOn } from './focus';
 
-function focusOn(event, element) {
-	if (element) {
-		element.focus();
+function getAllItems(ref: HTMLElement) {
+	const nodes = ref.closest('ul[role="tree"]');
+	if (nodes) {
+		return nodes.querySelectorAll('li[role="treeitem"]');
 	}
+	return null;
 }
 
-function getAllItems(ref) {
-	return ref.closest('ul[role="tree"]').querySelectorAll('li[role="treeitem"]');
+function getFirstItem(ref: HTMLElement): HTMLElement | null {
+	const nodes = ref.closest('ul[role="tree"]');
+	if (nodes) {
+		return nodes.querySelector('li[role="treeitem"]');
+	}
+	return null;
 }
 
-function getFirstItem(ref) {
-	return ref.closest('ul[role="tree"]').querySelector('li[role="treeitem"]');
-}
-
-function getLastItem(ref) {
+function getLastItem(ref: HTMLElement): HTMLElement | null {
 	const nodes = getAllItems(ref);
-	return nodes.item(nodes.length - 1);
+	if (nodes && nodes.length > 0) {
+		return nodes.item(nodes.length - 1) as HTMLElement;
+	}
+	return null;
 }
 
-function getParentItem(ref) {
-	return ref.parentElement.closest('li[role="treeitem"]');
+function getParentItem(ref: HTMLElement): HTMLElement | null {
+	const parentElement = ref.parentElement;
+	if (parentElement) {
+		return parentElement.closest('li[role="treeitem"]');
+	}
+	return null;
 }
 
-function getFirstChildItem(ref) {
+function getFirstChildItem(ref: HTMLElement): HTMLElement | null {
 	return ref.querySelector('li[role="treeitem"]');
 }
 
-function getNextItem(ref) {
-	let nextElement;
+function getNextItem(ref: HTMLElement): HTMLElement | null {
+	let nextElement = null;
 	let currentFound;
 	let hasNext;
 
-	const nodes = getAllItems(ref).values();
+	const nodes = getAllItems(ref)?.values();
+	if (!nodes) {
+		return nextElement;
+	}
 
 	do {
 		const { value, done } = nodes.next();
@@ -52,11 +65,14 @@ function getNextItem(ref) {
 	return nextElement;
 }
 
-function getPreviousItem(ref) {
-	let previousElement;
+function getPreviousItem(ref: HTMLElement) {
+	let previousElement = null;
 	let hasNext;
 
-	const nodes = getAllItems(ref).values();
+	const nodes = getAllItems(ref)?.values();
+	if (!nodes) {
+		return previousElement;
+	}
 
 	do {
 		const { value, done } = nodes.next();
@@ -73,22 +89,25 @@ function getPreviousItem(ref) {
 	return previousElement;
 }
 
-export default function withTreeGesture(WrappedComponent): any {
-	class TreeGesture extends React.Component {
-		static displayName = `TreeGesture(${WrappedComponent.displayName})`;
-		static propTypes = {
-			...omit(WrappedComponent.propTypes, 'onKeyDown'),
-			onSelect: PropTypes.func.isRequired,
-			onToggle: PropTypes.func.isRequired,
-			onToggleAllSiblings: PropTypes.func.isRequired,
-		};
+interface GestureProps {
+	onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>, ref: any, item: any) => void;
+	onSelect: (e: React.KeyboardEvent<HTMLInputElement>, item: any) => void;
+	onToggle: (e: React.KeyboardEvent<HTMLInputElement>, item: any) => void;
+	onToggleAllSiblings: (e: React.KeyboardEvent<HTMLInputElement>, siblings: any) => void;
+}
 
-		constructor(props) {
+export default function withTreeGesture<T extends GestureProps = GestureProps>(
+	WrappedComponent: React.ComponentType<T>,
+) {
+	return class TreeGesture extends React.Component<T> {
+		static displayName = `TreeGesture(${WrappedComponent.displayName})`;
+
+		constructor(props: T) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
 		}
 
-		onKeyDown(event: any, ref: any, item: any) {
+		onKeyDown(event: React.KeyboardEvent<HTMLInputElement>, ref: any, item: any) {
 			const { hasChildren, isOpened, siblings } = item;
 			switch (event.keyCode) {
 				case keycode.codes.enter:
@@ -102,7 +121,7 @@ export default function withTreeGesture(WrappedComponent): any {
 						this.props.onToggle(event, item);
 					} else if (!hasChildren || !isOpened) {
 						event.stopPropagation();
-						focusOn(event, getParentItem(ref));
+						focusOn(getParentItem(ref));
 					}
 					break;
 				case keycode.codes.right:
@@ -111,24 +130,24 @@ export default function withTreeGesture(WrappedComponent): any {
 						this.props.onToggle(event, item);
 					} else if (hasChildren && isOpened) {
 						event.stopPropagation();
-						focusOn(event, getFirstChildItem(ref));
+						focusOn(getFirstChildItem(ref));
 					}
 					break;
 				case keycode.codes.down:
 					event.stopPropagation();
-					focusOn(event, getNextItem(ref));
+					focusOn(getNextItem(ref));
 					break;
 				case keycode.codes.up:
 					event.stopPropagation();
-					focusOn(event, getPreviousItem(ref));
+					focusOn(getPreviousItem(ref));
 					break;
 				case keycode.codes.home:
 					event.stopPropagation();
-					focusOn(event, getFirstItem(ref));
+					focusOn(getFirstItem(ref));
 					break;
 				case keycode.codes.end:
 					event.stopPropagation();
-					focusOn(event, getLastItem(ref));
+					focusOn(getLastItem(ref));
 					break;
 				default:
 					break;
@@ -140,9 +159,9 @@ export default function withTreeGesture(WrappedComponent): any {
 		}
 
 		render() {
-			return <WrappedComponent {...this.props} onKeyDown={this.onKeyDown} />;
+			const props = { ...(this.props as T) };
+			props.onKeyDown = this.onKeyDown;
+			return <WrappedComponent {...props} />;
 		}
-	}
-
-	return TreeGesture;
+	};
 }

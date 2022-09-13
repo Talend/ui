@@ -9,7 +9,7 @@ import { Action } from '../../Actions';
 import TooltipTrigger from '../../TooltipTrigger';
 import theme from './JSONLike.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import withTreeGesture from '../../Gesture/withTreeGesture';
+import Gesture from '../../Gesture';
 import getDefaultT from '../../translate';
 
 function noop() {}
@@ -593,4 +593,4 @@ JSONLike.propTypes = {
 	tupleLabel: PropTypes.string,
 };
 
-export default withTreeGesture(JSONLike);
+export default Gesture.withTreeGesture(JSONLike);
