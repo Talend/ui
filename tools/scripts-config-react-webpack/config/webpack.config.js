@@ -19,6 +19,7 @@ const AppLoader = require('@talend/react-components/lib/AppLoader/constant').def
 
 const cdn = require('@talend/scripts-config-cdn');
 const exists = require('@talend/scripts-utils/fs');
+const externals = require('./externals');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
 const icons = require('./icons');
@@ -191,9 +192,10 @@ async function getIndexTemplate(env, mode, indexTemplatePath) {
 			};
 			window.basename = '${BASENAME}';
 			window.TALEND_INITIATOR_URL = '${INITIATOR_URL}';
+			// TODO inject jsFIles and cssFiles from external first using moduleToCdn
 			window.jsFiles = [<%= htmlWebpackPlugin.files.js.map(href => '"'+href+'"').join(',') %>];
 			window.cssFiles = [<%= htmlWebpackPlugin.files.css.map(href => '"'+href+'"').join(',') %>];
-			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata)%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata)%> };
+			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata || [])%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata || [])%> };
 			${await inject.getMinified()}
 		</script>
 		<base href="${BASENAME}" />
@@ -323,11 +325,6 @@ module.exports = ({ getUserConfig, mode }) => {
 				new webpack.DefinePlugin({
 					BUILD_TIMESTAMP: Date.now(),
 					TALEND_APP_INFO: JSON.stringify(getTalendVersions()),
-					'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
-					'process.env.FORM_MOZ': JSON.stringify(process.env.FORM_MOZ),
-					'process.env.DISABLE_JS_ERROR_NOTIFICATION': JSON.stringify(
-						process.env.DISABLE_JS_ERROR_NOTIFICATION,
-					),
 				}),
 				(isEnvDevelopment || !!env.analyze) &&
 					new BundleAnalyzerPlugin({
@@ -356,11 +353,9 @@ module.exports = ({ getUserConfig, mode }) => {
 					appLoaderStyle: AppLoader.getLoaderStyle(appLoaderIcon),
 					...userHtmlConfig,
 					b64favicon,
-					inject: false,
 					template: indexTemplate,
 					meta: { ...meta, ...(userHtmlConfig.meta || {}) },
 				}),
-				cdn.getWebpackPlugin(env, dcwpConfig),
 				new CopyWebpackPlugin({ patterns: getCopyConfig(env, userCopyConfig) }),
 				new webpack.BannerPlugin({ banner: LICENSE_BANNER, entryOnly: true }),
 				cmf && new ReactCMFWebpackPlugin({ watch: isEnvDevelopment }),
@@ -381,6 +376,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				runtimeChunk: true,
 				moduleIds: 'named',
 			},
+			externals,
 			watchOptions: {
 				aggregateTimeout: 300,
 				poll: 1000,

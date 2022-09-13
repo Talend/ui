@@ -92,8 +92,15 @@ export function focusOnCalendar(containerRef) {
 	}
 }
 
-export function withCalendarGesture(WrappedComponent) {
+export function withCalendarGesture(WrappedComponent): any {
 	class CalendarGesture extends React.Component {
+		static propTypes = {
+			...omit(WrappedComponent.propTypes, 'onKeyDown'),
+			goToPreviousMonth: PropTypes.func.isRequired,
+			goToNextMonth: PropTypes.func.isRequired,
+		};
+		static displayName = `CalendarGesture(${WrappedComponent.displayName})`;
+
 		constructor(props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
@@ -174,13 +181,6 @@ export function withCalendarGesture(WrappedComponent) {
 			);
 		}
 	}
-
-	CalendarGesture.propTypes = {
-		...omit(WrappedComponent.propTypes, 'onKeyDown'),
-		goToPreviousMonth: PropTypes.func.isRequired,
-		goToNextMonth: PropTypes.func.isRequired,
-	};
-	CalendarGesture.displayName = `CalendarGesture(${WrappedComponent.displayName})`;
 
 	return CalendarGesture;
 }

@@ -7,6 +7,8 @@ const cdn = require('@talend/scripts-config-cdn');
 
 const exists = require('@talend/scripts-utils/fs');
 
+const externals = require('./externals');
+
 const {
 	getCommonStyleLoaders,
 	getSassLoaders,
@@ -47,6 +49,7 @@ module.exports = options => {
 					url: false,
 				},
 			},
+			externals,
 			module: {
 				rules: [
 					{
@@ -78,7 +81,7 @@ module.exports = options => {
 					filename: isEnvProd ? `${name}.min.css` : `${name}.css`,
 					chunkFilename: isEnvProd ? `${name}.min.css` : `${name}.css`,
 				}),
-				cdn.getWebpackPlugin(env, dcwpConfig),
+				// cdn.getWebpackPlugin(env, dcwpConfig),
 				userCopyConfig.length > 0 && new CopyWebpackPlugin({ patterns: userCopyConfig }),
 			].filter(Boolean),
 		};

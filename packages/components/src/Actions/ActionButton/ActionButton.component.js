@@ -254,6 +254,7 @@ ActionButton.propTypes = {
 	tooltipLabel: PropTypes.string,
 	tooltipClassName: PropTypes.string,
 	...overlayPropTypes,
+	overlay: PropTypes.node,
 };
 
 ActionButton.defaultProps = {

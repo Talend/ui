@@ -73,14 +73,22 @@ function getPreviousItem(ref) {
 	return previousElement;
 }
 
-export default function withTreeGesture(WrappedComponent) {
+export default function withTreeGesture(WrappedComponent): any {
 	class TreeGesture extends React.Component {
+		static displayName = `TreeGesture(${WrappedComponent.displayName})`;
+		static propTypes = {
+			...omit(WrappedComponent.propTypes, 'onKeyDown'),
+			onSelect: PropTypes.func.isRequired,
+			onToggle: PropTypes.func.isRequired,
+			onToggleAllSiblings: PropTypes.func.isRequired,
+		};
+
 		constructor(props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
 		}
 
-		onKeyDown(event, ref, item) {
+		onKeyDown(event: any, ref: any, item: any) {
 			const { hasChildren, isOpened, siblings } = item;
 			switch (event.keyCode) {
 				case keycode.codes.enter:
@@ -135,14 +143,6 @@ export default function withTreeGesture(WrappedComponent) {
 			return <WrappedComponent {...this.props} onKeyDown={this.onKeyDown} />;
 		}
 	}
-
-	TreeGesture.propTypes = {
-		...omit(WrappedComponent.propTypes, 'onKeyDown'),
-		onSelect: PropTypes.func.isRequired,
-		onToggle: PropTypes.func.isRequired,
-		onToggleAllSiblings: PropTypes.func.isRequired,
-	};
-	TreeGesture.displayName = `TreeGesture(${WrappedComponent.displayName})`;
 
 	return TreeGesture;
 }

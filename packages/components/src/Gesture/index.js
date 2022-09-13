@@ -6,4 +6,3 @@ import withTreeGesture from './withTreeGesture';
 const Gesture = { withListGesture, withTreeGesture };
 
 export default Gesture;
-export { withListGesture, withTreeGesture };

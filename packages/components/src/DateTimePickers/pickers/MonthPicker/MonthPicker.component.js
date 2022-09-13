@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { buildMonths } from '../../generator';
 
 import theme from './MonthPicker.scss';
-import { withMonthCalendarGesture } from '../../../Gesture/withCalendarGesture';
+import Gesture from '../../../Gesture';
 import getDefaultT from '../../../translate';
 
 const ROW_SIZE = 3;
@@ -89,4 +89,4 @@ MonthPicker.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withMonthCalendarGesture(MonthPicker, ROW_SIZE);
+export default Gesture.withMonthCalendarGesture(MonthPicker, ROW_SIZE);
