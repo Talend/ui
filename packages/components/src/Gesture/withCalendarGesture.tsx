@@ -8,8 +8,13 @@ import { focusOn } from './focus';
 const FIRST = 0;
 const LAST = Number.POSITIVE_INFINITY;
 interface CalendarGestureProps {
+	onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>, ref: any, item: any) => void;
 	goToPreviousMonth: (cb: () => void) => void;
 	goToNextMonth: (cb: () => void) => void;
+}
+
+interface KeyboardEventListener extends EventListener {
+	(evt: KeyboardEvent): void;
 }
 
 /**
@@ -165,7 +170,7 @@ export function withCalendarGesture<T extends CalendarGestureProps = CalendarGes
 			}
 		}
 
-		preventScroll = (evt: React.KeyboardEvent) => {
+		preventScroll = (evt: KeyboardEvent) => {
 			const arrows = [
 				keycode.codes.left,
 				keycode.codes.right,
@@ -203,7 +208,7 @@ export function withMonthCalendarGesture<T extends CalendarGestureProps = Calend
 		static displayName = `MonthCalendarGesture(${WrappedComponent.displayName})`;
 		ref = React.createRef<HTMLDivElement>();
 
-		constructor(props: T & CalendarGestureProps) {
+		constructor(props: T) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
 		}
@@ -255,7 +260,7 @@ export function withMonthCalendarGesture<T extends CalendarGestureProps = Calend
 			}
 		}
 
-		preventScroll = (evt: React.KeyboardEvent) => {
+		preventScroll = (evt: KeyboardEvent) => {
 			const arrows = [
 				keycode.codes.left,
 				keycode.codes.right,
