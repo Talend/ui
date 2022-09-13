@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { omit } from 'lodash';
 
 import { StackHorizontal } from '@talend/design-system';
 
@@ -124,9 +123,8 @@ function SplitQualityBar({ empty, getDataFeature, invalid, na, onClick, valid, p
 	);
 }
 
-SplitQualityBar.propTypes = {
-	...omit(QualityBarRatioBars.propTypes, ['placeholder']),
-};
+const { placeholder, ...SplitQualityBarPropTypes } = QualityBarRatioBars.propTypes;
+SplitQualityBar.propTypes = SplitQualityBarPropTypes;
 
 export function QualityBar(props) {
 	const { valid, invalid, empty, na, placeholder, digits, split } = props;
@@ -139,8 +137,9 @@ export function QualityBar(props) {
 	);
 }
 
+const { percentages, ...QualityBarPropTypes } = QualityBarRatioBars.propTypes;
 QualityBar.propTypes = {
-	...omit(QualityBarRatioBars.propTypes, ['percentages']),
+	...QualityBarPropTypes,
 	digits: PropTypes.number,
 	split: PropTypes.bool,
 };
