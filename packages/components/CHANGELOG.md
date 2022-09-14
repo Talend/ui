@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.10.0
+
+### Minor Changes
+
+- 0f4721375: feat(TDC-6381): QualityBar design adjustments
+
 ## 7.9.0
 
 ### Minor Changes
