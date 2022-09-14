@@ -10,6 +10,8 @@ import tokens from '@talend/design-tokens';
 import styles from './CollapsiblePanelHeader.module.scss';
 
 type CollapsiblePanelHeaderPropsType = {
+	headerId: string;
+	sectionId: string;
 	size?: 'S' | 'M';
 	expanded: boolean;
 	title: string;
@@ -24,7 +26,16 @@ type CollapsiblePanelHeaderPropsType = {
 
 const CollapsiblePanelHeader = forwardRef(
 	(
-		{ expanded, handleClick, action, metadata, title, size }: CollapsiblePanelHeaderPropsType,
+		{
+			headerId,
+			sectionId,
+			expanded,
+			handleClick,
+			action,
+			metadata,
+			title,
+			size,
+		}: CollapsiblePanelHeaderPropsType,
 		ref: Ref<HTMLDivElement>,
 	) => {
 		const listMetadata = metadata?.map((item, index) => {
@@ -40,13 +51,16 @@ const CollapsiblePanelHeader = forwardRef(
 			);
 		});
 
+		const iconSize = size === 'S' ? 'S' : 'M';
+		const buttonIconSize = size === 'S' ? 'XS' : 'S';
+
 		const getContent = () => (
 			<>
 				{action ? (
 					<ButtonIcon
 						icon={expanded ? 'chevron-up' : 'chevron-down'}
 						onClick={handleClick}
-						size="S"
+						size={buttonIconSize}
 					>
 						Toggle
 					</ButtonIcon>
@@ -55,19 +69,25 @@ const CollapsiblePanelHeader = forwardRef(
 						<SizedIcon
 							color={tokens.coralColorAccentIcon}
 							name={expanded ? 'chevron-up' : 'chevron-down'}
-							size="M"
+							size={iconSize}
 						/>
 					</div>
 				)}
 
-				<span className={styles.headerTitle}>{title}</span>
+				<span
+					className={classnames(styles.headerTitle, {
+						[styles['headerTitle__size-s']]: size === 'S',
+					})}
+				>
+					{title}
+				</span>
 				{metadata?.length && (
 					<StackHorizontal gap="S" align="center" justify="end">
 						{listMetadata}
 					</StackHorizontal>
 				)}
 				{action && (
-					<ButtonIcon icon={action.icon} onClick={action.callback}>
+					<ButtonIcon size={buttonIconSize} icon={action.icon} onClick={action.callback}>
 						Action
 					</ButtonIcon>
 				)}
@@ -75,14 +95,27 @@ const CollapsiblePanelHeader = forwardRef(
 		);
 
 		if (action) {
-			return <div className={styles.headerWrapper}>{getContent()}</div>;
+			return (
+				<div
+					className={classnames(styles.headerWrapper, {
+						[styles['headerWrapper__size-s']]: size === 'S',
+					})}
+				>
+					{getContent()}
+				</div>
+			);
 		}
 		return (
 			<Clickable
+				id={headerId}
+				aria-controls={sectionId}
+				aria-expanded={expanded}
 				as="div"
 				onClick={handleClick}
 				focusable
-				className={classnames(styles.headerWrapper, styles.headerWrapper__clickable)}
+				className={classnames(styles.headerWrapper, styles.headerWrapper__clickable, {
+					[styles['headerWrapper__size-s']]: size === 'S',
+				})}
 			>
 				{getContent()}
 			</Clickable>

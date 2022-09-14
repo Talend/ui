@@ -13,6 +13,7 @@ import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import styles from './CollapsiblePanel.module.scss';
 
 type CollapsiblePanelPropsType = {
+	a11yId: string;
 	children: ReactChild;
 	managed?: boolean;
 	expanded?: boolean;
@@ -29,6 +30,7 @@ type CollapsiblePanelPropsType = {
 const CollapsiblePanel = forwardRef(
 	(
 		{
+			a11yId,
 			children,
 			managed,
 			expanded,
@@ -44,6 +46,9 @@ const CollapsiblePanel = forwardRef(
 		ref: Ref<HTMLDivElement>,
 	) => {
 		const [localExpanded, setLocalExpanded] = useState(false);
+
+		const headerId = a11yId + '_header';
+		const sectionId = a11yId + '_section';
 
 		useEffect(() => {
 			if (managed && expanded != localExpanded) {
@@ -69,6 +74,8 @@ const CollapsiblePanel = forwardRef(
 				})}
 			>
 				<CollapsiblePanelHeader
+					headerId={headerId}
+					sectionId={sectionId}
 					expanded={localExpanded}
 					handleClick={handleToggleExpanded}
 					title={title}
@@ -76,7 +83,16 @@ const CollapsiblePanel = forwardRef(
 					metadata={metadata}
 					size={size}
 				/>
-				{localExpanded && <div className={styles.panelContent}>{children}</div>}
+				{localExpanded && (
+					<div
+						id={sectionId}
+						role="region"
+						aria-labelledby={headerId}
+						className={styles.panelContent}
+					>
+						{children}
+					</div>
+				)}
 			</div>
 		);
 	},

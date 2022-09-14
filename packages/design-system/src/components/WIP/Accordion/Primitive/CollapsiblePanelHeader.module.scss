@@ -31,10 +31,18 @@
 			background-color: tokens.$coral-color-accent-background-weak-active;
 		}
 	}
+
+	&__size-s {
+		min-height: tokens.$coral-sizing-s;
+	}
 }
 
 .headerTitle {
 	font: tokens.$coral-heading-m;
+
+	&__size-s {
+		font: tokens.$coral-heading-s;
+	}
 }
 
 .iconWrapper {
