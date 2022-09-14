@@ -89,16 +89,14 @@ function getPreviousItem(ref: HTMLElement) {
 	return previousElement;
 }
 
-interface GestureProps {
+export interface GestureProps {
 	onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>, ref: any, item: any) => void;
 	onSelect: (e: React.KeyboardEvent<HTMLInputElement>, item: any) => void;
 	onToggle: (e: React.KeyboardEvent<HTMLInputElement>, item: any) => void;
 	onToggleAllSiblings: (e: React.KeyboardEvent<HTMLInputElement>, siblings: any) => void;
 }
 
-export default function withTreeGesture<T extends GestureProps = GestureProps>(
-	WrappedComponent: React.ComponentType<T>,
-) {
+export function withTreeGesture<T>(WrappedComponent: React.ComponentType<T>) {
 	return class TreeGesture extends React.Component<T> {
 		static displayName = `TreeGesture(${WrappedComponent.displayName})`;
 

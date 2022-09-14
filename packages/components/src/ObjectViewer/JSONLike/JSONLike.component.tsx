@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useCallback } from 'react';
+import * as React from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -11,6 +11,7 @@ import theme from './JSONLike.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import Gesture from '../../Gesture';
 import getDefaultT from '../../translate';
+import { GestureProps } from '../../Gesture/withTreeGesture';
 
 function noop() {}
 
@@ -32,7 +33,15 @@ const dateRegexp = new RegExp(
 );
 const timeRegexp = new RegExp(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/);
 
-export function NativeValue({ data, edit, className, onChange, jsonpath, wrap, isValueOverflown }) {
+export function NativeValue({
+	data,
+	edit,
+	className = theme.value,
+	onChange,
+	jsonpath,
+	wrap,
+	isValueOverflown,
+}) {
 	const type = typeof data;
 	let display = data;
 	let inputType = 'number';
@@ -62,9 +71,6 @@ NativeValue.propTypes = {
 	jsonpath: PropTypes.string,
 	wrap: PropTypes.bool,
 	isValueOverflown: PropTypes.bool,
-};
-NativeValue.defaultProps = {
-	className: theme.value,
 };
 
 /**
@@ -421,10 +427,10 @@ export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedC
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
 
-	const [lineItemWidth, setLineItemWidth] = useState(false);
-	const [nativeValueWrap, setNativeValueWrap] = useState(false);
+	const [lineItemWidth, setLineItemWidth] = React.useState(false);
+	const [nativeValueWrap, setNativeValueWrap] = React.useState(false);
 
-	const lineItemRef = useCallback(node => {
+	const lineItemRef = React.useCallback(node => {
 		if (node) {
 			if (node.ref.offsetParent.offsetWidth < node.ref.scrollWidth) {
 				setLineItemWidth(true);
@@ -517,6 +523,17 @@ Item.defaultProps = {
 	onEdit: noop,
 };
 
+export interface JSONLikeProps extends GestureProps {
+	onSubmit: (evt: FormEvent<HTMLFormElement>) => void;
+	className: string;
+	style: any;
+	data: any;
+	id: string;
+	rootLabel?: string;
+	'aria-label': string;
+	tupleLabel: string;
+}
+
 /**
  * display a tree view json like.
  * this is an indented list of item where each item render 'id: type #items'
@@ -525,7 +542,7 @@ Item.defaultProps = {
  * @param {object} style User inline style, set to the container
  * @param {object} props Rest of react props
  */
-export function JSONLike({ onSubmit, className, style, ...props }) {
+export function JSONLike({ onSubmit, className, style, ...props }: JSONLikeProps) {
 	const rootIsObject = isObject(props.data);
 
 	let label = null;
@@ -582,15 +599,6 @@ export function JSONLike({ onSubmit, className, style, ...props }) {
 	return <div {...containerProps}>{objectTree}</div>;
 }
 JSONLike.displayName = 'JSONLike';
-JSONLike.propTypes = {
-	'aria-label': PropTypes.string,
-	id: PropTypes.string,
-	data: PropTypes.oneOfType([...VALIDE_TYPES, ...COMPLEX_TYPES].map(t => PropTypes[t])),
-	onSubmit: PropTypes.func,
-	className: PropTypes.string,
-	style: PropTypes.object,
-	rootLabel: PropTypes.string,
-	tupleLabel: PropTypes.string,
-};
 
-export default Gesture.withTreeGesture(JSONLike);
+const JSONLikeWithGesture = Gesture.withTreeGesture<JSONLikeProps>(JSONLike);
+export default JSONLikeWithGesture;

@@ -7,14 +7,11 @@ import { focusOn } from './focus';
 
 const FIRST = 0;
 const LAST = Number.POSITIVE_INFINITY;
-interface CalendarGestureProps {
+
+export interface CalendarGestureProps {
 	onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>, ref: any, item: any) => void;
 	goToPreviousMonth: (cb: () => void) => void;
 	goToNextMonth: (cb: () => void) => void;
-}
-
-interface KeyboardEventListener extends EventListener {
-	(evt: KeyboardEvent): void;
 }
 
 /**
