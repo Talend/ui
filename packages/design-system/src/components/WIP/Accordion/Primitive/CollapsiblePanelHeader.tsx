@@ -22,6 +22,7 @@ type CollapsiblePanelHeaderPropsType = {
 		callback: () => unknown;
 	};
 	handleClick: () => unknown;
+	disabled?: boolean;
 };
 
 const CollapsiblePanelHeader = forwardRef(
@@ -35,11 +36,12 @@ const CollapsiblePanelHeader = forwardRef(
 			metadata,
 			title,
 			size,
+			disabled = false,
 		}: CollapsiblePanelHeaderPropsType,
 		ref: Ref<HTMLDivElement>,
 	) => {
 		const listMetadata = metadata?.map((item, index) => {
-			if (index === metadata.length - 1 && !action) {
+			if (index === metadata.length - 1 && (!action || disabled)) {
 				return item;
 			}
 
@@ -54,9 +56,9 @@ const CollapsiblePanelHeader = forwardRef(
 		const iconSize = size === 'S' ? 'S' : 'M';
 		const buttonIconSize = size === 'S' ? 'XS' : 'S';
 
-		const getContent = () => (
-			<>
-				{action ? (
+		const getChevron = () => {
+			if (action) {
+				return (
 					<ButtonIcon
 						icon={expanded ? 'chevron-up' : 'chevron-down'}
 						onClick={handleClick}
@@ -64,19 +66,28 @@ const CollapsiblePanelHeader = forwardRef(
 					>
 						Toggle
 					</ButtonIcon>
-				) : (
-					<div className={styles.iconWrapper}>
-						<SizedIcon
-							color={tokens.coralColorAccentIcon}
-							name={expanded ? 'chevron-up' : 'chevron-down'}
-							size={iconSize}
-						/>
-					</div>
-				)}
+				);
+			}
+
+			return (
+				<div className={styles.iconWrapper}>
+					<SizedIcon
+						color={tokens.coralColorAccentIcon}
+						name={expanded ? 'chevron-up' : 'chevron-down'}
+						size={iconSize}
+					/>
+				</div>
+			);
+		};
+
+		const getContent = () => (
+			<>
+				{!disabled && getChevron()}
 
 				<span
 					className={classnames(styles.headerTitle, {
 						[styles['headerTitle__size-s']]: size === 'S',
+						[styles.headerTitle__disabled]: disabled,
 					})}
 				>
 					{title}
@@ -86,8 +97,13 @@ const CollapsiblePanelHeader = forwardRef(
 						{listMetadata}
 					</StackHorizontal>
 				)}
-				{action && (
-					<ButtonIcon size={buttonIconSize} icon={action.icon} onClick={action.callback}>
+				{action && !disabled && (
+					<ButtonIcon
+						size={buttonIconSize}
+						icon={action.icon}
+						onClick={action.callback}
+						disabled={disabled}
+					>
 						Action
 					</ButtonIcon>
 				)}
@@ -116,6 +132,7 @@ const CollapsiblePanelHeader = forwardRef(
 				className={classnames(styles.headerWrapper, styles.headerWrapper__clickable, {
 					[styles['headerWrapper__size-s']]: size === 'S',
 				})}
+				disabled={disabled}
 			>
 				{getContent()}
 			</Clickable>

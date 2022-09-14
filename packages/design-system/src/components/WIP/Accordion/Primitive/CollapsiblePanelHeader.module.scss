@@ -43,6 +43,10 @@
 	&__size-s {
 		font: tokens.$coral-heading-s;
 	}
+
+	&__disabled {
+		color: tokens.$coral-color-neutral-text-disabled;
+	}
 }
 
 .iconWrapper {

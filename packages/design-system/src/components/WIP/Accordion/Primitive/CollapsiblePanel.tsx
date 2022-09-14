@@ -24,6 +24,7 @@ type CollapsiblePanelPropsType = {
 	metadata?: ReactChild[];
 	isFirst?: boolean;
 	isLast?: boolean;
+	disabled?: boolean;
 	onToggleExpanded?: (index: number) => void;
 };
 
@@ -42,6 +43,7 @@ const CollapsiblePanel = forwardRef(
 			metadata,
 			isFirst = false,
 			isLast = false,
+			disabled = false,
 		}: CollapsiblePanelPropsType,
 		ref: Ref<HTMLDivElement>,
 	) => {
@@ -76,12 +78,13 @@ const CollapsiblePanel = forwardRef(
 				<CollapsiblePanelHeader
 					headerId={headerId}
 					sectionId={sectionId}
-					expanded={localExpanded}
+					expanded={disabled ? false : localExpanded}
 					handleClick={handleToggleExpanded}
 					title={title}
 					action={action}
 					metadata={metadata}
 					size={size}
+					disabled={disabled}
 				/>
 				{localExpanded && (
 					<div
