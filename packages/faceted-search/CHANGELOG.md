@@ -1,5 +1,19 @@
 # Changelog
 
+## 7.0.1
+
+### Patch Changes
+
+- 907ec1f86: fix(faceted-search): infinite loop with initial badges
+
+## 7.0.0
+
+### Major Changes
+
+- e5aa63ef6: Refactor with design system components and design tokens
+
+  Breaking: removed `FacetedSearchIcon` component
+
 ## 6.0.1
 
 ### Patch Changes

@@ -1,5 +1,4 @@
 import {
-	FacetedSearchIcon as Icon,
 	FacetedSearch as Faceted,
 	AdvancedSearch,
 	BasicSearch,
@@ -16,7 +15,6 @@ import dictionaryHelpers from './dictionary/helpers.dictionary';
 import * as queryClient from './queryClient';
 
 const components = {
-	Icon,
 	Faceted,
 	AdvancedSearch,
 	BasicSearch,

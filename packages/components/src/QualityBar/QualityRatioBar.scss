@@ -2,37 +2,32 @@
 
 $custom-quality-bar-placeholder-line-hover-height: 0.4rem;
 
-%tc-ratio-bar-lines {
+.quality-ratio-bar {
 	width: 100%;
 	height: 100%;
 	border-radius: 1px;
-}
 
-.tc-ratio-bar-line-quality-empty {
-	@extend %tc-ratio-bar-lines;
-	background-color: tokens.$coral-color-charts-neutral;
-}
+	&--empty {
+		background-color: tokens.$coral-color-charts-neutral;
+	}
 
-.tc-ratio-bar-line-quality-valid {
-	@extend %tc-ratio-bar-lines;
-	background-color: tokens.$coral-color-charts-success;
-}
+	&--valid {
+		background-color: tokens.$coral-color-charts-success;
+	}
 
-.tc-ratio-bar-line-quality-invalid {
-	@extend %tc-ratio-bar-lines;
-	background-color: tokens.$coral-color-charts-danger;
-}
+	&--invalid {
+		background-color: tokens.$coral-color-charts-danger;
+	}
 
-.tc-ratio-bar-line-quality-na {
-	@extend %tc-ratio-bar-lines;
-	background-color: tokens.$coral-color-charts-neutral;
-}
+	&--na {
+		background-color: tokens.$coral-color-charts-neutral;
+	}
 
-.tc-ratio-bar-line-quality-placeholder {
-	@extend %tc-ratio-bar-lines;
-	background-color: tokens.$coral-color-charts-neutral-weak;
+	&--placeholder {
+		background-color: tokens.$coral-color-charts-neutral-weak;
 
-	:global(.tc-ratio-bar) &:hover {
-		height: $custom-quality-bar-placeholder-line-hover-height;
+		:global(.tc-ratio-bar) &:hover {
+			height: $custom-quality-bar-placeholder-line-hover-height;
+		}
 	}
 }

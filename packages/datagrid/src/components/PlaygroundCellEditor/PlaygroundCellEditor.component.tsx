@@ -15,15 +15,8 @@ function PlaygroundCellEditor(
 	props: ICellEditorParams & CellEditorParams,
 	ref: React.Ref<HTMLElement>,
 ) {
-	const {
-		eGridCell,
-		value,
-		colDef,
-		stopEditing,
-		getSemanticType,
-		getSemanticTypeSuggestions,
-		onSubmit,
-	} = props;
+	const { eGridCell, value, colDef, api, getSemanticType, getSemanticTypeSuggestions, onSubmit } =
+		props;
 	const {
 		cellEditorPopup,
 		cellRendererParams: { semanticTypeId },
@@ -94,7 +87,7 @@ function PlaygroundCellEditor(
 	const hasSuggestions = semanticType?.type === 'DICT';
 
 	const onCancel = () => {
-		stopEditing(true);
+		api.stopEditing(true);
 	};
 
 	return (
@@ -121,8 +114,9 @@ function PlaygroundCellEditor(
 					<div ref={applyToRef} style={applyToStyles}>
 						<ApplyToValues
 							onCancel={onCancel}
+							editorType={hasSuggestions ? 'datalist' : 'textarea'}
 							onSubmit={(applyToValues: boolean) => {
-								stopEditing();
+								api.stopEditing();
 								onSubmit(state, applyToValues, {
 									rowIndex: props.rowIndex,
 									data: props.data,

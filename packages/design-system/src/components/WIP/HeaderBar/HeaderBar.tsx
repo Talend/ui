@@ -1,11 +1,11 @@
 import React from 'react';
 import useMedia from 'react-use/lib/useMedia';
-import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit';
+import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit';
 import { useTranslation } from 'react-i18next';
 
 import * as S from './HeaderBar.style';
 
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 
 const HeaderBar = S.HeaderBar;
 

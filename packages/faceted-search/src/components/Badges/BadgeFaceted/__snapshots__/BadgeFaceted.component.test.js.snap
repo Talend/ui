@@ -19,10 +19,13 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
                 aria-describedby="42"
                 class="btn btn-link"
         >
-          <span name="talend-talend-my-icon-equal"
-                class="CoralIcon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon"
+          <svg name="talend-talend-my-icon-equal"
+               focusable="false"
+               aria-hidden="true"
+               class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-talend-my-icon-equal"
+               pointer-events="none"
           >
-          </span>
+          </svg>
         </button>
       </div>
     </div>
@@ -45,10 +48,13 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
             type="button"
             class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
     >
-      <span name="talend-cross"
-            class="CoralIcon"
+      <svg name="talend-cross"
+           focusable="false"
+           aria-hidden="true"
+           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-cross"
+           pointer-events="none"
       >
-      </span>
+      </svg>
     </button>
   </div>
 </div>

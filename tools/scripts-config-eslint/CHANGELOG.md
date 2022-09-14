@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 11.0.1
+
+### Patch Changes
+
+- aeb370786: fix(talend-scripts-eslint): force trim bump for better security
+
 ## 11.0.0
 
 ### Major Changes

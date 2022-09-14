@@ -1,0 +1,131 @@
+@use '@talend/design-tokens/lib/tokens';
+
+.previewBox {
+  display: inline-flex;
+  border-radius: tokens.$coral-radius-m;
+  width: tokens.$coral-sizing-xxxl;
+  min-height: 8.4rem;
+
+  &__color {
+    box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+  }
+
+  &__border,
+  &__shadow,
+  &__transition,
+  &__radius,
+  &__spacing,
+  &__elevation {
+    background: tokens.$coral-color-accent-background;
+  }
+
+  &__composition {
+    justify-content: center;
+    align-items: center;
+    border: tokens.$coral-border-s-solid transparent;
+    position: relative;
+
+    &__isActive,
+    &__isHover {
+      width: calc(#{tokens.$coral-sizing-xxxl} - #{tokens.$coral-spacing-xl});
+      margin-left: tokens.$coral-spacing-xl;
+      height: 7.4rem;
+    }
+
+    &_copy {
+      display: inline-flex;
+      justify-content: center;
+      gap: tokens.$coral-spacing-xxs;
+      align-items: center;
+
+      > span {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    &_checker {
+      position: absolute;
+      top: tokens.$coral-spacing-xs;
+      left: tokens.$coral-spacing-xs;
+    }
+  }
+
+  &__typography,
+  &__transition,
+  &__opacity {
+    justify-content: center;
+    align-items: center;
+    box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+    color: tokens.$coral-color-neutral-text;
+    text-align: center;
+    padding: tokens.$coral-spacing-s;
+  }
+
+  &__transition {
+    box-shadow: 0 0 0 transparent;
+    cursor: pointer;
+    position: relative;
+    color: tokens.$coral-color-accent-text;
+
+    &:after {
+      content: "hover me";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: tokens.$coral-spacing-xxs;
+      font: tokens.$coral-paragraph-s;
+      width: 100%;
+    }
+
+    p {
+      transform: scale(1);
+      font-size: 1.8rem;
+    }
+
+    &:hover {
+      background: tokens.$coral-color-accent-background-hover;
+      color: tokens.$coral-color-accent-text-hover;
+
+      p {
+        transform: scale(2);
+      }
+    }
+  }
+
+  &__opacity {
+    background: tokens.$coral-color-accent-background;
+    position: relative;
+
+    p {
+      font-size: 2.8rem;
+    }
+
+    &_overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: tokens.$coral-color-assistive-background;
+      border-radius: tokens.$coral-radius-m;
+    }
+  }
+
+  &__spacing {
+    border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+
+    &_element {
+      border: tokens.$coral-border-s-dashed tokens.$coral-color-accent-border;
+      background: tokens.$coral-color-neutral-background;
+      border-radius: tokens.$coral-radius-m;
+      width: 100%;
+    }
+  }
+
+  &__branding {
+    background-color: tokens.$coral-color-neutral-background-medium;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}

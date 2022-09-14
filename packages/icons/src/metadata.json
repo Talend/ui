@@ -3478,5 +3478,17 @@
     "name": "icon/L/user-group",
     "description": "",
     "documentationLinks": []
+  },
+  {
+    "key": "01c46de0fc40971aceaeda98a9754d959071115d",
+    "name": "icon/M/code",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "1f30120e18933c2b23d9a65e09e7e1c65babe759",
+    "name": "icon/L/code",
+    "description": "",
+    "documentationLinks": []
   }
 ]

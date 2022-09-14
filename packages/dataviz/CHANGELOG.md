@@ -1,5 +1,35 @@
 # Changelog
 
+## 2.7.1
+
+### Patch Changes
+
+- 94a6bf759: Range filter marks are overflowing
+
+## 2.7.0
+
+### Minor Changes
+
+- 6e850c486: feat(dataviz): allow to build custom legend for linechart
+
+## 2.6.0
+
+### Minor Changes
+
+- 644bc1718: feat(dataviz): alter lines in line chart
+
+## 2.5.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
+### Patch Changes
+
+- Updated dependencies [b02eb9ef4]
+- Updated dependencies [5e0148797]
+  - @talend/react-components@7.8.0
+
 ## 2.4.0
 
 ### Minor Changes

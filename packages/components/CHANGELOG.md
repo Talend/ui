@@ -1,5 +1,37 @@
 # @talend/react-components
 
+## 7.9.0
+
+### Minor Changes
+
+- 06915b812: Allow to customize drawer's subtitle tag
+
+  **Breaking change :**
+
+  Props `subtitleTagLabel` and `subtitleTagTooltip` are replaced by a props `subtitleTag`.
+
+  Props `subtitleTag` has following shape :
+
+  ```
+  {
+      label: PropTypes.string,
+      tooltip: PropTypes.string,
+      variant: PropTypes.oneOf(TagVariantsNames),
+  }
+  ```
+
+  _NOTE: While this props are only used by TPD this breaking change is passed as minor change to avoid waiting dataset release_
+
+## 7.8.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
+### Patch Changes
+
+- 5e0148797: fix(Datalist/TDOPS-2632): update data list entry if name is not the same
+
 ## 7.7.0
 
 ### Minor Changes
