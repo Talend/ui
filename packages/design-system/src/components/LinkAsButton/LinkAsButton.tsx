@@ -7,6 +7,7 @@ import { LinkComponentProps } from '../Link';
 
 import sharedLinkableStyles from '../Linkable/LinkableStyles.module.scss';
 import linkStyles from '../Link/Link.module.scss';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 
 type LinkAsButtonProps = Omit<ClickableProps, 'className'> &
 	Omit<LinkComponentProps, 'hideExternalIcon'>;
@@ -16,7 +17,7 @@ const LinkAsButton = forwardRef(
 		{ disabled, title, icon, children, ...rest }: LinkAsButtonProps,
 		ref: Ref<HTMLButtonElement>,
 	) => {
-		const { t } = useTranslation();
+		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 		const getTitle = () => {
 			if (disabled && title) {

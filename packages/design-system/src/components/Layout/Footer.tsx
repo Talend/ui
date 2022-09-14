@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 
 export type FooterProps = React.PropsWithChildren<any>;
 
@@ -10,7 +11,7 @@ const SFooter = styled.div`
 `;
 
 const Footer = React.forwardRef(({ children, ...rest }: FooterProps, ref: React.Ref<any>) => {
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	return (
 		<SFooter {...rest} ref={ref}>
 			<ul className="footer__links">

@@ -13,6 +13,7 @@ import VisuallyHidden from '../../../VisuallyHidden';
 import Input, { InputProps } from './Input';
 import tokens from '../../../../deprecatedTokens';
 import Field from '../Field';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 
 const FileField = styled.div`
 	width: 100%;
@@ -142,7 +143,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 	const [files, setFiles] = React.useState<FileList | null>(props.files);
 
 	const inputRef = React.useRef<HTMLInputElement | null>(null);
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 	function handleChange() {
 		const input = inputRef.current;
