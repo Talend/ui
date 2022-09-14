@@ -56,6 +56,12 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
     &:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
       background: tokens.$coral-color-accent-background-hover;
     }
+
+    &:focus-visible {
+      + .legend {
+        outline: tokens.$coral-border-s-solid tokens.$coral-color-assistive-border-focus;
+      }
+    }
   }
 
   &:not(.switch_disabled) input[type="checkbox"] {
