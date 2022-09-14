@@ -4,5 +4,5 @@
 .textarea {
   @include Form.baseInput();
   @include Form.borderStyles();
-  min-height: tokens.$coral-sizing-l;
+  min-height: calc(#{tokens.$coral-sizing-l} * 2);
 }
