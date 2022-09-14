@@ -10,7 +10,7 @@ import tokens from '@talend/design-tokens';
 import styles from './CollapsiblePanelHeader.module.scss';
 
 type CollapsiblePanelHeaderPropsType = {
-	headerId: string;
+	controlId: string;
 	sectionId: string;
 	size?: 'S' | 'M';
 	expanded: boolean;
@@ -28,7 +28,7 @@ type CollapsiblePanelHeaderPropsType = {
 const CollapsiblePanelHeader = forwardRef(
 	(
 		{
-			headerId,
+			controlId,
 			sectionId,
 			expanded,
 			handleClick,
@@ -38,7 +38,7 @@ const CollapsiblePanelHeader = forwardRef(
 			size,
 			disabled = false,
 		}: CollapsiblePanelHeaderPropsType,
-		ref: Ref<HTMLDivElement>,
+		ref: Ref<HTMLButtonElement>,
 	) => {
 		const listMetadata = metadata?.map((item, index) => {
 			if (index === metadata.length - 1 && (!action || disabled)) {
@@ -60,9 +60,13 @@ const CollapsiblePanelHeader = forwardRef(
 			if (action) {
 				return (
 					<ButtonIcon
+						id={controlId}
+						aria-controls={sectionId}
+						aria-expanded={expanded}
 						icon={expanded ? 'chevron-up' : 'chevron-down'}
 						onClick={handleClick}
 						size={buttonIconSize}
+						ref={ref}
 					>
 						Toggle
 					</ButtonIcon>
@@ -122,20 +126,20 @@ const CollapsiblePanelHeader = forwardRef(
 			);
 		}
 		return (
-			<Clickable
-				id={headerId}
+			<button
+				id={controlId}
 				aria-controls={sectionId}
 				aria-expanded={expanded}
-				as="div"
 				onClick={handleClick}
-				focusable
-				className={classnames(styles.headerWrapper, styles.headerWrapper__clickable, {
+				className={classnames(styles.headerWrapper, {
+					[styles.headerWrapper__clickable]: !disabled,
 					[styles['headerWrapper__size-s']]: size === 'S',
 				})}
 				disabled={disabled}
+				ref={ref}
 			>
 				{getContent()}
-			</Clickable>
+			</button>
 		);
 	},
 );

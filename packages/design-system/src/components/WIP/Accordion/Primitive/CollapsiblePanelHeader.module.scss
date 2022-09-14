@@ -7,9 +7,10 @@
 	align-items: center;
 	gap: tokens.$coral-spacing-xxs;
 
+	width: 100%;
+	border: none;
 	min-height: 4.4rem; // no token for this one : switch to sizing-l ?
 	padding: tokens.$coral-spacing-xs;
-	// border-radius: inherit;
 
 	> .headerTitle {
 		flex-grow: 1;
@@ -23,6 +24,7 @@
 
 	&__clickable {
 		cursor: pointer;
+
 		&:hover {
 			background-color: tokens.$coral-color-accent-background-weak-hover;
 		}
@@ -39,6 +41,7 @@
 
 .headerTitle {
 	font: tokens.$coral-heading-m;
+	text-align: left;
 
 	&__size-s {
 		font: tokens.$coral-heading-s;

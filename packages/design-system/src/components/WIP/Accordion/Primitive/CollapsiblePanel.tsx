@@ -45,11 +45,11 @@ const CollapsiblePanel = forwardRef(
 			isLast = false,
 			disabled = false,
 		}: CollapsiblePanelPropsType,
-		ref: Ref<HTMLDivElement>,
+		ref: Ref<HTMLButtonElement>,
 	) => {
 		const [localExpanded, setLocalExpanded] = useState(false);
 
-		const headerId = a11yId + '_header';
+		const controlId = a11yId + '_control';
 		const sectionId = a11yId + '_section';
 
 		useEffect(() => {
@@ -76,7 +76,7 @@ const CollapsiblePanel = forwardRef(
 				})}
 			>
 				<CollapsiblePanelHeader
-					headerId={headerId}
+					controlId={controlId}
 					sectionId={sectionId}
 					expanded={disabled ? false : localExpanded}
 					handleClick={handleToggleExpanded}
@@ -85,12 +85,13 @@ const CollapsiblePanel = forwardRef(
 					metadata={metadata}
 					size={size}
 					disabled={disabled}
+					ref={ref}
 				/>
 				{localExpanded && (
 					<div
 						id={sectionId}
 						role="region"
-						aria-labelledby={headerId}
+						aria-labelledby={controlId}
 						className={styles.panelContent}
 					>
 						{children}
