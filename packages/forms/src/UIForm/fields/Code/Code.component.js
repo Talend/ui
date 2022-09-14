@@ -10,6 +10,17 @@ import FieldTemplate from '../FieldTemplate';
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
+// JMA - TO REMOVE
+//
+// TEMP DOC LINKS
+//
+// https://github.com/securingsincity/react-ace/blob/main/README.md
+// https://github.com/ajaxorg/ace/issues/4597 -> ace.config.set('basePath', 'path') error
+// https://github.com/ajaxorg/ace/issues/4782 -> Using ace-builds with webpack
+// 		|-> https://github.com/securingsincity/react-ace/issues/766
+// https://github.com/ajaxorg/ace/blob/master/demo/webpack/demo.js#L12 -> Ace demo webpack
+//
+
 const ReactAce = React.lazy(() =>
 	assetsApi.getUMD('react-ace').then(mod => assetsApi.toDefaultModule(mod.default)),
 );
