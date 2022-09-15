@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref } from 'react';
-import { CheckboxPrimitive, CheckboxPrimitiveType } from '../../FormPrimitives/index';
+import { CheckboxPrimitive, CheckboxPrimitiveType } from '../../Primitives/index';
 
 export type CheckboxProps = Omit<CheckboxPrimitiveType, 'className' | 'style'>;
 

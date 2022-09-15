@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref } from 'react';
-import { RadioPrimitive, RadioPrimitiveType } from '../../FormPrimitives/index';
+import { RadioPrimitive, RadioPrimitiveType } from '../../Primitives/index';
 
 export type RadioProps = Omit<RadioPrimitiveType, 'className' | 'style'>;
 

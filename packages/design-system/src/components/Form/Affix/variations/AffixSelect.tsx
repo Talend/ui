@@ -1,11 +1,7 @@
 import React, { forwardRef, Ref } from 'react';
-import {
-	FieldPrimitive,
-	FieldPropsPrimitive,
-	SelectPrimitiveProps,
-} from '../../FormPrimitives/index';
+import { FieldPrimitive, FieldPropsPrimitive, SelectPrimitiveProps } from '../../Primitives/index';
 import { unstable_useId as useId } from 'reakit';
-import Select from '../../FormPrimitives/Select/Select';
+import Select from '../../Primitives/Select/Select';
 import { SelectProps } from '../../Field/Select/Select';
 
 export type AffixSelectPropsType = Omit<FieldPropsPrimitive, 'hasError' | 'description'> &

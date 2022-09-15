@@ -6,7 +6,7 @@ import {
 	FieldPropsPrimitive,
 	SelectPrimitive,
 	SelectPrimitiveProps,
-} from '../../FormPrimitives/index';
+} from '../../Primitives/index';
 
 export type SelectProps = FieldPropsPrimitive &
 	Omit<SelectPrimitiveProps, 'className' | 'style' | 'isAffix'> & { readOnly?: boolean };
