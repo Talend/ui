@@ -11,10 +11,11 @@ import React, {
 import useKey from 'react-use/lib/useKey';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import Form from '../../Form';
+import { StackHorizontal } from '../../Stack';
 import { ButtonIcon } from '../../ButtonIcon';
 
 import styles from './InlineEditingPrimitive.module.scss';
-import { Form, StackHorizontal } from '../../../index';
 
 type ErrorInEditing =
 	| {
