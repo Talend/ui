@@ -8,6 +8,7 @@ import Form from '../Form';
 
 import * as S from './InlineEditing.style';
 import { StackHorizontal } from '../Stack';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 
 export enum Mode {
 	Single,
@@ -60,7 +61,7 @@ const InlineEditing = React.forwardRef(
 		}: StyledInlineEditing,
 		ref,
 	) => {
-		const { t } = useTranslation();
+		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const [isEditing, setEditMode] = React.useState(false);
 		const [value, setValue] = React.useState(defaultValue);
 

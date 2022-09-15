@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import VisuallyHidden from '../../VisuallyHidden';
 
 import * as S from './Progress.style';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 type StepperOrientation = 'vertical' | 'horizontal';
 
@@ -15,7 +16,7 @@ export type ProgressProps = React.PropsWithChildren<any> & {
 };
 
 const Progress = ({ min = 1, value, max, orientation, children, ...rest }: ProgressProps) => {
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	const size = `${(value - 1) * (100 / (max - 1))}%`;
 	return (
 		<S.Progress

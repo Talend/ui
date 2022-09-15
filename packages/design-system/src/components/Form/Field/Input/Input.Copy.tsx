@@ -5,6 +5,7 @@ import FieldGroup from '../../FieldGroup';
 import Text from './Input.Text';
 import { InputProps } from './Input';
 import { AffixButton, AffixReadOnly } from '../../FieldGroup/Affix';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 
 const InputCopy = React.forwardRef(
 	(
@@ -16,7 +17,7 @@ const InputCopy = React.forwardRef(
 		const [{ value: clipboardValue, error: clipboardError }, copyToClipboard] =
 			useCopyToClipboard();
 		const inputRef = React.useRef<HTMLInputElement | null>(null);
-		const { t } = useTranslation();
+		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const inputValue = value || defaultValue;
 
 		useEffect(() => {

@@ -4,11 +4,12 @@ import { useTranslation } from 'react-i18next';
 import Clickable from '../../../../Clickable';
 import Tooltip from '../../../../Tooltip';
 import { SizedIcon } from '../../../../Icon';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
 
 export default function useRevealPassword() {
 	const [revealed, setRevealed] = useState(false);
 	const currentType = revealed ? 'text' : 'password';
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	const showMsg = t('FORM_PASSWORD_SHOW', { defaultValue: 'Show password' });
 	const hideMsg = t('FORM_PASSWORD_HIDE', { defaultValue: 'Hide password' });
 

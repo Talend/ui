@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Link from '../../Link';
 
 import * as S from './SkipLinks.style';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 export type SkipLinksProps = {
 	nav?: boolean;
@@ -11,7 +12,7 @@ export type SkipLinksProps = {
 };
 
 const SkipLinks = ({ nav, main }: SkipLinksProps) => {
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	return (
 		<S.SkipLinks className="skip-links">
 			{/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}

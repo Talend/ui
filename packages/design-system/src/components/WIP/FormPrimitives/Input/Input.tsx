@@ -20,6 +20,7 @@ type InputProps = Omit<InputHTMLAttributes<any>, 'prefix' | 'suffix'> &
 	Omit<FieldStatusProps, 'errorMessage'>;
 
 import styles from './Input.module.scss';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 
 const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) => {
 	const {
@@ -38,7 +39,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<HTMLInputElement | null>) 
 	const [isClear, setClear] = useState<boolean>(type !== 'password');
 	const inputType = type === 'password' && isClear ? 'text' : type;
 	const inputRef = useRef<HTMLInputElement | null>(null);
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	const showMsg = t('FORM_PASSWORD_SHOW', 'Show password');
 	const hideMsg = t('FORM_PASSWORD_HIDE', 'Hide password');
 
