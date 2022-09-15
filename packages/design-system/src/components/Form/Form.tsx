@@ -1,7 +1,7 @@
 import React from 'react';
 import { isElement } from 'react-is';
 
-import * as S from './Form.style';
+import styles from './Form.module.scss';
 
 type FormProps = React.FormHTMLAttributes<HTMLFormElement> & {
 	disabled?: boolean;
@@ -15,11 +15,11 @@ const Form = React.forwardRef(
 		if (readOnly) childrenProps.readOnly = true;
 
 		return (
-			<S.Form className="c-form" {...rest} ref={ref}>
+			<form className={styles.form} {...rest} ref={ref}>
 				{React.Children.toArray(children).map(child =>
 					isElement(child) ? React.cloneElement(child, childrenProps) : child,
 				)}
-			</S.Form>
+			</form>
 		);
 	},
 );
