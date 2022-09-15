@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref } from 'react';
-import { LabelPrimitive, LabelPrimitiveProps } from '../../WIP/FormPrimitives';
+import { LabelPrimitive, LabelPrimitiveProps } from '../FormPrimitives/index';
 
 const Label = forwardRef(
 	(props: Omit<LabelPrimitiveProps, 'className' | 'style'>, ref: Ref<HTMLLabelElement>) => {

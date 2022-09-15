@@ -5,7 +5,7 @@ import {
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../../WIP/FormPrimitives';
+} from '../../FormPrimitives/index';
 
 export type DatalistProps = {
 	values: string[];

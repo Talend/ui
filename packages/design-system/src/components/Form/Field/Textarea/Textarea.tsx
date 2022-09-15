@@ -4,7 +4,7 @@ import {
 	FieldPropsPrimitive,
 	TextareaPrimitive,
 	TextareaPrimitiveProps,
-} from '../../../WIP/FormPrimitives/index';
+} from '../../FormPrimitives/index';
 
 export type InputTextareaProps = FieldPropsPrimitive &
 	Omit<TextareaPrimitiveProps, 'className' | 'styles'> & { children?: string };

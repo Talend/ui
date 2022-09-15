@@ -12,7 +12,7 @@ import {
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../../WIP/FormPrimitives';
+} from '../../FormPrimitives/index';
 
 import styles from './Input.File.module.scss';
 

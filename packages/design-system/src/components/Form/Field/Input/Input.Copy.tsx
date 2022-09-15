@@ -1,13 +1,13 @@
 import React, { forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { useCopyToClipboard } from 'react-use';
 import { useTranslation } from 'react-i18next';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 import {
 	FieldPrimitive,
 	FieldPropsPrimitive,
 	InputPrimitive,
 	InputPrimitiveProps,
-} from '../../../WIP/FormPrimitives';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
+} from '../../FormPrimitives/index';
 
 type InputCopyProps = Omit<FieldPropsPrimitive, 'hasError'> &
 	Omit<InputPrimitiveProps, 'style' | 'className' | 'suffix'>;
