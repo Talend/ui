@@ -2,7 +2,6 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import InlineEditing from '.';
-import InlineEditingPrimitive from './Primitives/InlineEditingPrimitive';
 
 export default {
 	component: InlineEditing,
@@ -130,32 +129,3 @@ export const InUse = (props: Story) => {
 		</>
 	);
 };
-
-export const Primitive = (props: Story) => (
-	<>
-		<InlineEditingPrimitive
-			label="Edit the value"
-			mode="single"
-			placeholder="Description of field purpose"
-		/>
-		<InlineEditingPrimitive
-			label="Edit the value"
-			mode="single"
-			renderValueAs="h3"
-			defaultValue="Some big title"
-			placeholder="Description of field purpose"
-		/>
-		<InlineEditingPrimitive
-			label="Edit the value"
-			mode="single"
-			renderValueAs={<div style={{ border: '2px solid red' }}></div>}
-			defaultValue="Some bigger title"
-			placeholder="Description of field purpose"
-		/>
-		<InlineEditingPrimitive
-			label="Edit the value"
-			mode="multi"
-			placeholder="Description of field purpose"
-		/>
-	</>
-);

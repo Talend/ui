@@ -26,7 +26,7 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 
   &_readOnly {
     background: tokens.$coral-color-neutral-background-strong;
-    color: tokens.$coral-color-neutral-text-weak;
+    color: tokens.$coral-color-neutral-text;
   }
 
   &:focus {
