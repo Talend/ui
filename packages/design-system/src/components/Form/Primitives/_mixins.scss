@@ -7,6 +7,7 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
   color: tokens.$coral-color-neutral-text;
   padding: tokens.$coral-spacing-xs;
   font: tokens.$coral-paragraph-m;
+  line-height: 1;
   border: 0;
   margin: 0;
   transition: all tokens.$coral-transition-instant;
