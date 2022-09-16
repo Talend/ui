@@ -11,7 +11,10 @@ export function DataGridPlayground() {
 	return (
 		<Layout mode="TwoColumns" one={<SidePanel />} header={<HeaderBar />}>
 			<div style={{ height: '100%' }}>
-				<DataGrid columnDefs={DatasetSerializer.getColumnDefs(sample)} rowData={sample.data} />
+				<DataGrid
+					columnDefs={DatasetSerializer.getColumnDefs(sample.schema)}
+					rowData={sample.data}
+				/>
 			</div>
 		</Layout>
 	);
