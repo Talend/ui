@@ -1,10 +1,10 @@
-import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 type AccordionPropsType = {
 	children: ReactElement[];
 };
 
-const Accordion = forwardRef(({ children }: AccordionPropsType, ref: Ref<HTMLDivElement>) => {
+const Accordion = ({ children }: AccordionPropsType) => {
 	const panelCount = React.Children.count(children);
 	const [openedPanelIndex, setOpenedPanelIndex] = useState<number | null>(null);
 
@@ -33,7 +33,7 @@ const Accordion = forwardRef(({ children }: AccordionPropsType, ref: Ref<HTMLDiv
 	};
 
 	return <>{getItems()}</>;
-});
+};
 
 Accordion.displayName = 'Accordion';
 
