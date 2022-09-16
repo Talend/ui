@@ -59,4 +59,6 @@ const ToggleSwitch = React.forwardRef(
 	},
 );
 
+ToggleSwitch.displayName = 'ToggleSwitch';
+
 export default ToggleSwitch;

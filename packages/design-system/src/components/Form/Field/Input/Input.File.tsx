@@ -34,7 +34,7 @@ type FileProps = InputType & {
 
 const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 	const [drag, setDrag] = useState(false);
-	const [files, setFiles] = useState<FileList | null>(props.files || null);
+	const [files, setFiles] = useState(props.files || null);
 
 	const inputRef = useRef<HTMLInputElement | null>(null);
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);

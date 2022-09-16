@@ -33,4 +33,6 @@ const Buttons = React.forwardRef(
 	},
 );
 
+Buttons.displayName = 'Buttons';
+
 export default Buttons;

@@ -33,4 +33,6 @@ const AffixSelect = forwardRef((props: AffixSelectPropsType, ref: Ref<HTMLSelect
 	return <SelectAffixComponent affixId={id} />;
 });
 
+AffixSelect.displayName = 'AffixSelect';
+
 export default AffixSelect;

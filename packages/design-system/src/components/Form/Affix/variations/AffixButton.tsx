@@ -80,4 +80,6 @@ const AffixButton = forwardRef(
 	},
 );
 
+AffixButton.displayName = 'AffixButton';
+
 export default AffixButton;

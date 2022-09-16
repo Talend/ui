@@ -45,4 +45,6 @@ const AffixReadOnly = forwardRef(
 	},
 );
 
+AffixReadOnly.displayName = 'AffixReadOnly';
+
 export default AffixReadOnly;
