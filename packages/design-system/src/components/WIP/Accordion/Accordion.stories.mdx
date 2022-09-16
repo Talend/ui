@@ -1,4 +1,5 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Use } from '~docs';
 
 import * as Stories from './Accordion.stories';
 
@@ -39,14 +40,79 @@ Accordion is used to display expandable/collapsable cards whith a title and and 
 	<Story story={Stories.SimpleCollapsiblePanel} />
 </Canvas>
 
-## with metadata
+<Use>
+	<Use.Do>
+		<ul>
+			<li>
+				The prop <b>a11yId</b> is mandatory ! It is used to populate several aria attributes in the
+				panel sub-elements. It must be unique to the panel.
+			</li>
+		</ul>
+	</Use.Do>
+</Use>
+
+## Variations
+
+**Disabled**
+
+A disabled panel will hide it's chevron and action, not be clickable and will display it's title in light gray.
+
+<Canvas>
+	<Story story={Stories.DisabledPanel} />
+</Canvas>
+
+**Small size**
+
+Use the prop <b>size</b> to change the height, font size and icon size of the panel header.
+
+(currently there is only <b>M</b>(default) and <b>S</b> supported)
+
+<Canvas>
+	<Story story={Stories.SmallPanel} />
+</Canvas>
+
+**With action**
+
+The prop <b>action</b> takes a object with 3 atributes :
+
+- <b>icon</b> : a string containing a talend icon id
+- <b>title</b> : the content of the tooltip displayed on mouseOver
+- <b>callback</b> : a function called when the action is triggered
+
+<Canvas>
+	<Story story={Stories.WithAction} />
+</Canvas>
+
+**With metadata**
+
+The prop <b>metadata</b> takes an array of ReactElement or String, and display them between the panel title and action.
+
+A vertical divider is inserted between each metadata.
 
 <Canvas>
 	<Story story={Stories.WithMetadata} />
 </Canvas>
 
-## Simple Accordion
+## Accordion wrapper
+
+You can wrap a group of panels with an <b>Accordion</b> component.
+
+It will control the expand/collapse of each panel so that only one is open at the same time.
 
 <Canvas>
-	<Story story={Stories.SimpleAccordion} />
+	<Story story={Stories.AccordionWrapper} />
 </Canvas>
+
+## group of panels
+
+<Canvas>
+	<Story story={Stories.GroupOfSimplePanels} />
+</Canvas>
+
+## Accessibility
+
+- Press <kbd>Tabs</kbd> to focus on the item controling each panel and/or the action
+
+- Press <kbd>Space</kbd> or <kbd>Enter</kbd> to expand/collapse the panel or call the action
+
+- Allways use the `a11yId` prop to give a unique id to your panels, it will be use to populate several aria attributes
