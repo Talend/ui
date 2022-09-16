@@ -223,7 +223,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 							<Icon className="text__icon" name="talend-upload" />{' '}
 							<span className="text__span">
 								<Trans i18nKey="INPUT_FILE_DROP_OR_BROWSE_FILE">
-									Drop your files or {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+									Drop your files or
 									<span className="link">
 										<Link href="#">browse</Link>
 									</span>
@@ -260,9 +260,11 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 		</FileField>
 	);
 });
+InputFile.displayName = 'InputFile';
 
 const FieldFile = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => (
 	<Field as={InputFile} {...props} ref={ref} />
 ));
+FieldFile.displayName = 'FieldFile';
 
 export default FieldFile;
