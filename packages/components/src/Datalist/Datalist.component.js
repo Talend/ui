@@ -147,7 +147,7 @@ function Datalist(props) {
 			setEntry(entry);
 		}
 		// Update the input value only if user did not change it
-		if (!name || name === filterValue) {
+		if ((!name && !filterValue) || name === filterValue) {
 			setFilterValue(entry.name);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
