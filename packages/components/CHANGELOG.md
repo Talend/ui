@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.10.1
+
+### Patch Changes
+
+- e6efa126f: fix(TDP-11342): do not reset Datalist filter on titleMap change
+
 ## 7.10.0
 
 ### Minor Changes
