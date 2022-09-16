@@ -138,7 +138,7 @@ export const AddFacetPopover = ({
 									{screen.rows.map(rowItem =>
 										isString(rowItem) ? (
 											<AddFacetPopoverRowItemCategory
-												id="open-category-row"
+												id={`${id}-open-category`}
 												key={rowItem}
 												label={rowItem}
 												onClick={onCategoryChange}
