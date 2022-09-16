@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 4.3.0
+
+### Minor Changes
+
+- 65e75d6b3: Use DS namespace for DS translations
+
 ## 4.2.0
 
 ### Minor Changes

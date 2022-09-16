@@ -1,5 +1,11 @@
 # Changelog
 
+## 7.0.2
+
+### Patch Changes
+
+- 47dec5cb4: fix(TDC-6514): Faceted Search - locators
+
 ## 7.0.1
 
 ### Patch Changes
