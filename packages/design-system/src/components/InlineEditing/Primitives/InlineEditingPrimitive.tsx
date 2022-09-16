@@ -11,6 +11,7 @@ import React, {
 import useKey from 'react-use/lib/useKey';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import Form from '../../Form';
 import { StackHorizontal } from '../../Stack';
 import { ButtonIcon } from '../../ButtonIcon';
@@ -58,7 +59,7 @@ const InlineEditingPrimitive = forwardRef(
 			renderValueAs,
 			...rest
 		} = props;
-		const { t } = useTranslation();
+		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const [isEditing, setEditing] = useState<boolean>(false);
 		const [value, setValue] = React.useState<string | undefined>(defaultValue);
 
