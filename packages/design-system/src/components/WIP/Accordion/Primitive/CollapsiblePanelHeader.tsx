@@ -1,12 +1,14 @@
-import React, { cloneElement, forwardRef, MouseEvent, ReactChild, Ref } from 'react';
-import { Clickable } from 'reakit/Clickable';
+import React, { forwardRef, ReactChild, Ref } from 'react';
 import classnames from 'classnames';
+
 import { ButtonIcon } from '../../../ButtonIcon';
 import { SizedIcon } from '../../../Icon';
 import Divider from '../../../Divider';
 import { StackHorizontal } from '../../../Stack';
+
 import tokens from '@talend/design-tokens';
 
+import { PanelHeaderAction } from './types';
 import styles from './CollapsiblePanelHeader.module.scss';
 
 type CollapsiblePanelHeaderPropsType = {
@@ -16,11 +18,7 @@ type CollapsiblePanelHeaderPropsType = {
 	expanded: boolean;
 	title: string;
 	metadata?: ReactChild[];
-	action?: {
-		icon: string;
-		tooltip: string;
-		callback: () => unknown;
-	};
+	action?: PanelHeaderAction;
 	handleClick: () => unknown;
 	disabled?: boolean;
 };
@@ -107,8 +105,9 @@ const CollapsiblePanelHeader = forwardRef(
 						icon={action.icon}
 						onClick={action.callback}
 						disabled={disabled}
+						data-test="action.button"
 					>
-						Action
+						{action.tooltip}
 					</ButtonIcon>
 				)}
 			</>
@@ -120,6 +119,7 @@ const CollapsiblePanelHeader = forwardRef(
 					className={classnames(styles.headerWrapper, {
 						[styles['headerWrapper__size-s']]: size === 'S',
 					})}
+					data-test="panel.header"
 				>
 					{getContent()}
 				</div>
@@ -137,6 +137,7 @@ const CollapsiblePanelHeader = forwardRef(
 				})}
 				disabled={disabled}
 				ref={ref}
+				data-test="panel.header"
 			>
 				{getContent()}
 			</button>

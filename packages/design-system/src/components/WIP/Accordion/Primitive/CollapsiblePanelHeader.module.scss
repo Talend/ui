@@ -7,20 +7,16 @@
 	align-items: center;
 	gap: tokens.$coral-spacing-xxs;
 
+	background-color: tokens.$coral-color-accent-background-weak;
 	width: 100%;
 	border: none;
 	min-height: 4.4rem; // no token for this one : switch to sizing-l ?
 	padding: tokens.$coral-spacing-xs;
 
-	> .headerTitle {
-		flex-grow: 1;
+	&__size-s {
+		min-height: tokens.$coral-sizing-s;
+		padding: tokens.$coral-spacing-xxs;
 	}
-
-	> *:not(.headerTitle) {
-		flex-shrink: 0;
-	}
-
-	background-color: tokens.$coral-color-accent-background-weak;
 
 	&__clickable {
 		cursor: pointer;
@@ -34,8 +30,12 @@
 		}
 	}
 
-	&__size-s {
-		min-height: tokens.$coral-sizing-s;
+	> .headerTitle {
+		flex-grow: 1;
+	}
+
+	> *:not(.headerTitle) {
+		flex-shrink: 0;
 	}
 }
 

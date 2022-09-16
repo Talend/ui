@@ -1,14 +1,7 @@
-import React, {
-	cloneElement,
-	forwardRef,
-	MouseEvent,
-	ReactChild,
-	Ref,
-	useState,
-	useEffect,
-} from 'react';
+import React, { forwardRef, ReactChild, Ref, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
+import { PanelHeaderAction } from './types';
 
 import styles from './CollapsiblePanel.module.scss';
 
@@ -19,7 +12,7 @@ type CollapsiblePanelPropsType = {
 	expanded?: boolean;
 	index?: number;
 	title: string;
-	action?: any;
+	action?: PanelHeaderAction;
 	size?: 'S' | 'M';
 	metadata?: ReactChild[];
 	isFirst?: boolean;
@@ -93,6 +86,7 @@ const CollapsiblePanel = forwardRef(
 						role="region"
 						aria-labelledby={controlId}
 						className={styles.panelContent}
+						data-test="panel.section"
 					>
 						{children}
 					</div>
