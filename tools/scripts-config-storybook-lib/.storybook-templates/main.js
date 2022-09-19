@@ -55,6 +55,8 @@ const defaultMain = {
 	],
 	core: {
 		builder: 'webpack5',
+		disableTelemetry: true,
+		enableCrashReports: false,
 	},
 	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
