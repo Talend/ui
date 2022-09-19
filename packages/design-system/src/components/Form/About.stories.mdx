@@ -1,0 +1,50 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { AboutRowsDefault, AboutRowsStretch } from './Form.stories';
+
+<Meta title="Components/Form/About" />
+
+# About Form components
+
+The Design System provides a collection of elements built for web forms.
+
+## Layout elements
+
+### The `Form` component
+
+A very `low-opinion` component, `Form` can easily be replaced by the html `form` element with the attributes of your choice.
+
+Using `Form` will grant you a ready-made flex layout with a `spacing-s` gap for your fields.
+
+[Browse the Form documentation for examples.](/docs/components-form-form--form-skeleton)
+
+### The `Fieldset` component
+
+Neatly wrap together your fields with the `Fieldset` component.
+
+It provides an enforced gap between children fields but can also sport a `legend` prop for better contextualization.
+
+[Browse the Fieldset documentation for examples.](/docs/components-form-form-fieldset--default-story)
+
+### The `Row` component
+
+Used to wrap fields that must stand next to one another.
+
+By default, the fields will only take the space that they need to:
+
+<Canvas withSource="closed">
+	<Story story={AboutRowsDefault} />
+</Canvas>
+
+If necessary, `Row` can stretch to fill the form's width:
+
+<Canvas withSource="closed">
+	<Story story={AboutRowsStretch} />
+</Canvas>
+
+In both cases, a gap of `spacing-l` is enforced between the fields.
+
+### The `Buttons` component
+
+An opinionated layout component, `Button`'s mission is to enforce the placement of the form's actions.
+
+[Browse the Buttons documentation for examples.](/docs/components-form-form-buttons--form-buttons-skeleton)

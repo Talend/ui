@@ -6,7 +6,7 @@
 
 .inputFile {
   position: relative;
-  border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border-weak;
+  border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border;
   border-radius: tokens.$coral-radius-m;
   color: tokens.$coral-color-neutral-text;
   background: tokens.$coral-color-neutral-background;
@@ -84,7 +84,7 @@
   }
 
   &:hover:not(.inputFile_disabled) {
-    border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border;
+    border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border-strong-hover;
 
     .text {
       color: tokens.$coral-color-neutral-text;

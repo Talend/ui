@@ -237,3 +237,30 @@ export const Loading = () => (
 	</div>
 );
 Loading.parameters = {};
+
+export const AboutRowsDefault = () => {
+	return (
+		<Form>
+			<Form.Row>
+				<Form.Text label="Name" name="name" required placeholder="Ex: Jane" />
+				<Form.Text label="Surname" name="surname" required placeholder="Ex: Doe" />
+			</Form.Row>
+		</Form>
+	);
+};
+
+export const AboutRowsStretch = () => {
+	return (
+		<Form>
+			<Form.Row isStretched>
+				<Form.Text label="Name" name="name" required placeholder="What do your parents call you?" />
+				<Form.Text
+					label="Surname"
+					name="surname"
+					required
+					placeholder="What does your boss call you?"
+				/>
+			</Form.Row>
+		</Form>
+	);
+};

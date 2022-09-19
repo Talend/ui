@@ -53,13 +53,13 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 }
 
 @mixin borderStyles (){
-  border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+  border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
   box-shadow: 0 0 0 0 transparent;
   border-radius: tokens.$coral-radius-s;
   transition: all tokens.$coral-transition-instant;
 
   &:hover {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-strong-hover;
   }
 
   &_disabled {

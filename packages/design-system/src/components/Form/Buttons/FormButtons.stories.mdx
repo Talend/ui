@@ -25,7 +25,7 @@ A Form always displays buttons in order to be cancelled or validated.
 
 ## Style
 
-_to do_
+- The gap between buttons should be `spacing-m` ([read the tokens doc here](/docs/design-tokens-light-measures--page)).
 
 ## States
 
@@ -69,7 +69,7 @@ _to do_
 Sort the buttons from the least to the most important.
 
 - The main action button is placed on the right
-- Avoid using more than one primary button per form
+- Do not use more than one primary button per form
 - Other form buttons should be secondary buttons
 - Depending on the context, consider using a back or cancel button. This button should always be placed at the very left.
 - The other action buttons are placed on the right side.
@@ -83,7 +83,9 @@ Sort the buttons from the least to the most important.
 	<Story story={FormButtonsStories.FormButtonsOrder} />
 </Canvas>
 
-<Canvas>
+If there is only one button accompanying the form, then it should stick to the right.
+
+<Canvas withSource="closed">
 	<Story story={FormButtonsStories.FormButtonsSingle} />
 </Canvas>
 
@@ -97,9 +99,11 @@ The buttons related to the form are part of a **sticky footer**.
 
 The footer containing the buttons should stick to the screen bottom once the user starts scrolling down.
 
+**This behaviour is not implemented by `Form.Buttons`.**
+
 ## Usage
 
-_to do_
+_Non applicable_
 
 ## Accessibility
 

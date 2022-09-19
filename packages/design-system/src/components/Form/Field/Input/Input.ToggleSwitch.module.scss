@@ -8,6 +8,10 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
   position: relative;
   display: block;
 
+	label {
+		margin-bottom: 0; // Bootstrap override
+	}
+
   input[type="checkbox"] {
 	position: absolute;
 	margin-left: -9999px;
