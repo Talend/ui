@@ -1,16 +1,44 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
+import {
+	FieldPrimitive,
+	FieldPropsPrimitive,
+	TextareaPrimitive,
+	TextareaPrimitiveProps,
+} from '../../Primitives/index';
 
-import Field, { FieldProps } from '../Field';
+export type InputTextareaProps = FieldPropsPrimitive &
+	Omit<TextareaPrimitiveProps, 'className' | 'styles'> & { children?: string };
 
-import * as S from './Textarea.style';
+const Textarea = forwardRef((props: InputTextareaProps, ref: Ref<HTMLTextAreaElement>) => {
+	const {
+		label,
+		hasError = false,
+		link,
+		description,
+		id,
+		name,
+		hideLabel,
+		required,
+		defaultValue,
+		children,
+		...rest
+	} = props;
+	return (
+		<FieldPrimitive
+			label={label}
+			hasError={hasError || false}
+			link={link}
+			description={description}
+			id={id}
+			name={name}
+			hideLabel={hideLabel}
+			required={required}
+		>
+			<TextareaPrimitive defaultValue={defaultValue || children} {...rest} ref={ref} />
+		</FieldPrimitive>
+	);
+});
 
-const Textarea = React.forwardRef(
-	(
-		props: FieldProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-		ref: React.Ref<HTMLTextAreaElement>,
-	) => {
-		return <Field {...props} as={S.Textarea} ref={ref} />;
-	},
-);
+Textarea.displayName = 'Textarea';
 
 export default Textarea;

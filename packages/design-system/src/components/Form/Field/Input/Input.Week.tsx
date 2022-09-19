@@ -1,8 +1,10 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import Input, { TypedInputFieldProps } from './Input';
 
-const Week = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+const Week = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="week" ref={ref} />;
 });
+
+Week.displayName = 'Week';
 
 export default Week;

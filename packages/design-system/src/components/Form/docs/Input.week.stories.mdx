@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -28,7 +28,7 @@ It creates input fields allowing easy entry of a year plus the ISO 8601 week num
 
 <Canvas>
 	<Story name="default">
-		<Form.Week label="Week" min="2018-W18" max="2018-W26" />
+		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" />
 	</Story>
 </Canvas>
 
@@ -39,7 +39,7 @@ It creates input fields allowing easy entry of a year plus the ISO 8601 week num
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Week label="Week" />
+		<Form.Week name="week" label="Week" />
 	</Story>
 </Canvas>
 
@@ -50,7 +50,7 @@ It creates input fields allowing easy entry of a year plus the ISO 8601 week num
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Week label="Week" />
+		<Form.Week name="week" label="Week" />
 	</Story>
 </Canvas>
 
@@ -58,7 +58,7 @@ It creates input fields allowing easy entry of a year plus the ISO 8601 week num
 
 <Canvas>
 	<Story name="filled">
-		<Form.Week label="Week" min="2018-W18" max="2018-W26" value="2018-W25" />
+		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" />
 	</Story>
 </Canvas>
 
@@ -66,7 +66,7 @@ It creates input fields allowing easy entry of a year plus the ISO 8601 week num
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Week label="Week" min="2018-W18" max="2018-W26" value="2018-W25" disabled />
+		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ It creates input fields allowing easy entry of a year plus the ISO 8601 week num
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Week label="Week" min="2018-W18" max="2018-W26" value="2018-W25" readOnly />
+		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" readOnly />
 	</Story>
 </Canvas>
 

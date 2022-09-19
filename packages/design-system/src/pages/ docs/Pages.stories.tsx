@@ -42,7 +42,7 @@ export const Disclaimer = () => (
 export const Login = () => (
 	<LoginPageWith>
 		<Form className="login-form">
-			<Form.Select label="Region">
+			<Form.Select label="Region" name="Region">
 				<optgroup label="Amazon Web Services (AWS)">
 					<option>Asia Pacific AWS</option>
 					<option>Europe AWS</option>
@@ -52,8 +52,8 @@ export const Login = () => (
 					<option>West America Azure</option>
 				</optgroup>
 			</Form.Select>
-			<Form.Email label="Email" />
-			<Form.Password label="Password" />
+			<Form.Email name="email" label="Email" />
+			<Form.Password label="Password" name="password" />
 			<Form.Buttons className="form__buttons">
 				<ButtonPrimary onClick={action('Clicked login')} type="submit">
 					Login
@@ -69,7 +69,7 @@ export const PasswordRecovery = () => (
 			<h2>Log in help</h2>
 			<p>Please enter email used for your user account(s).</p>
 			<Form>
-				<Form.Email label="Email" />
+				<Form.Email name="email" label="Email" />
 				<Form.Buttons className="form__buttons">
 					<ButtonPrimary onClick={action('Clicked login')} type="submit">
 						Login

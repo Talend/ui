@@ -1,0 +1,151 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.wrapper {
+  width: 100%;
+}
+
+.inputFile {
+  position: relative;
+  border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border-weak;
+  border-radius: tokens.$coral-radius-m;
+  color: tokens.$coral-color-neutral-text;
+  background: tokens.$coral-color-neutral-background;
+  transition: all tokens.$coral-transition-fast;
+  min-height: tokens.$coral-sizing-m;
+  cursor: pointer;
+
+  .text {
+    display: flex;
+    gap: tokens.$coral-spacing-xs;
+    align-items: center;
+    justify-content: center;
+    color: tokens.$coral-color-neutral-text-weak;
+    transition: all tokens.$coral-transition-fast;
+
+    > svg {
+      color: tokens.$coral-color-neutral-icon;
+    }
+
+    &__fakeLink {
+      font: tokens.$coral-paragraph-m-bold;
+      color: tokens.$coral-color-accent-text;
+      transition: all tokens.$coral-transition-fast;
+    }
+  }
+
+  .input {
+    &,
+    &::-webkit-file-upload-button {
+      height: 100%;
+      width: 100%;
+      cursor: inherit;
+    }
+
+    &_filled {
+      pointer-events: none;
+    }
+
+    &:focus + .inputFile__text {
+      outline: tokens.$coral-border-m-solid tokens.$coral-color-assistive-border-focus;
+    }
+  }
+
+  .preview {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
+
+    &_single {
+      align-items: center;
+    }
+
+    &__button {
+      button {
+        position: static;
+
+        svg {
+          margin: 0;
+          fill: currentColor;
+        }
+      }
+    }
+
+    &__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      flex-grow: 1;
+
+      &__listItem {
+        color: tokens.$coral-color-neutral-text;
+      }
+    }
+  }
+
+  &:hover:not(.inputFile_disabled) {
+    border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border;
+
+    .text {
+      color: tokens.$coral-color-neutral-text;
+
+      &__fakeLink {
+        color: tokens.$coral-color-accent-text-hover;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &_dragging {
+    background: tokens.$coral-color-accent-background-selected;
+    border: tokens.$coral-border-s-dashed tokens.$coral-color-accent-border;
+
+    .text {
+      color: tokens.$coral-color-accent-text;
+    }
+  }
+
+  &_disabled {
+    border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border-disabled;
+    cursor: not-allowed;
+
+    .text {
+      color: tokens.$coral-color-neutral-text-disabled;
+      cursor: not-allowed;
+
+      svg {
+        color: tokens.$coral-color-neutral-icon-weak;
+      }
+
+      &__fakeLink {
+        color: tokens.$coral-color-neutral-text-disabled;
+      }
+    }
+  }
+
+  &_error {
+    border: tokens.$coral-border-s-dashed tokens.$coral-color-danger-border;
+
+    .text {
+      svg {
+        color: tokens.$coral-color-danger-icon;
+      }
+    }
+  }
+
+  &__text,
+  &__preview,
+  &__input {
+    min-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+  }
+}
+

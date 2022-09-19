@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { MouseEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
 import Clickable from '../../../../Clickable';
 import Tooltip from '../../../../Tooltip';
 import { SizedIcon } from '../../../../Icon';
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';
+import styles from './passwordButton.module.scss';
 
 export default function useRevealPassword() {
 	const [revealed, setRevealed] = useState(false);
@@ -22,21 +23,25 @@ export default function useRevealPassword() {
 		setRevealed(() => false);
 	}
 
-	function RevealPasswordButton(props: any) {
+	function RevealPasswordButton(props: {
+		onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+		disabled?: boolean;
+	}) {
+		const { onClick, disabled } = props;
 		return (
 			<Tooltip title={revealed ? hideMsg : showMsg} placement="top">
 				<Clickable
-					className="reveal__button"
+					className={styles.button}
 					onMouseDown={e => {
 						onReveal(e);
-						if (props.onClick) {
-							props.onClick(e);
+						if (onClick) {
+							onClick(e);
 						}
 					}}
 					tabIndex={-1}
 					aria-hidden
 					data-testid="form.password.reveal"
-					{...props}
+					disabled={disabled}
 				>
 					<SizedIcon size="M" name={revealed ? 'eye-slash' : 'eye'} />
 				</Clickable>

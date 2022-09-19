@@ -27,6 +27,7 @@ function ApplyToIdenticalValues({
 				label={t('APPLY_TO_ALL_CELLS', 'Apply to identical values')}
 				onClick={() => setChecked(!checked)}
 				data-feature={`cell.edition.${editorType}.checkbox.${nextStatus}`}
+				name="identical-values"
 			/>
 
 			<StackHorizontal gap={0} justify="spaceBetween">

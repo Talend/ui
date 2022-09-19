@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -30,7 +30,7 @@ The browser may opt to provide stepper arrows to let the user increase and decre
 
 <Canvas>
 	<Story name="default">
-		<Form.Number label="Number" min="10" max="100" />
+		<Form.Number name="number" label="Number" min="10" max="100" />
 	</Story>
 </Canvas>
 
@@ -41,7 +41,7 @@ The browser may opt to provide stepper arrows to let the user increase and decre
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Number label="Number" />
+		<Form.Number name="number" label="Number" />
 	</Story>
 </Canvas>
 
@@ -52,7 +52,7 @@ The browser may opt to provide stepper arrows to let the user increase and decre
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Number label="Number" />
+		<Form.Number name="number" label="Number" />
 	</Story>
 </Canvas>
 
@@ -60,7 +60,7 @@ The browser may opt to provide stepper arrows to let the user increase and decre
 
 <Canvas>
 	<Story name="filled">
-		<Form.Number label="Number" value="25" min="10" max="100" />
+		<Form.Number name="number" label="Number" value="25" min="10" max="100" />
 	</Story>
 </Canvas>
 
@@ -68,7 +68,7 @@ The browser may opt to provide stepper arrows to let the user increase and decre
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Number label="Number" value="25" min="10" max="100" disabled />
+		<Form.Number name="number" label="Number" value="25" min="10" max="100" disabled />
 	</Story>
 </Canvas>
 
@@ -76,7 +76,7 @@ The browser may opt to provide stepper arrows to let the user increase and decre
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Number label="Number" value="25" min="10" max="100" readOnly />
+		<Form.Number name="number" label="Number" value="25" min="10" max="100" readOnly />
 	</Story>
 </Canvas>
 

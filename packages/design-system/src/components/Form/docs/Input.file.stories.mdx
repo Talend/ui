@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
 
 import Form from '..';
@@ -36,7 +36,7 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 
 <Canvas>
 	<Story name="default">
-		<Form.File label="File" />
+		<Form.File name="file" label="File" />
 	</Story>
 </Canvas>
 
@@ -44,7 +44,7 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 
 <Canvas>
 	<Story name="multiple">
-		<Form.File label="Files" multiple />
+		<Form.File name="file" label="Files" multiple />
 	</Story>
 </Canvas>
 
@@ -52,7 +52,7 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 
 <Canvas>
 	<Story name="filled">
-		<Form.File label="File" files={['filename.xlsx']} />
+		<Form.File name="file" label="File" files={['filename.xlsx']} />
 	</Story>
 </Canvas>
 
@@ -60,7 +60,7 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 
 <Canvas>
 	<Story name="multiple-filled">
-		<Form.File label="File" files={['dataset_a.xlsx', 'dataset_b.csv']} />
+		<Form.File name="file" label="File" multiple files={['dataset_a.xlsx', 'dataset_b.csv']} />
 	</Story>
 </Canvas>
 
@@ -68,7 +68,7 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 
 <Canvas>
 	<Story name="disabled">
-		<Form.File label="File" disabled />
+		<Form.File name="file" label="File" disabled />
 	</Story>
 </Canvas>
 
@@ -76,7 +76,21 @@ File uploader allows the user to transfer a file by drag and drop or by clicking
 
 <Canvas>
 	<Story name="read-only">
-		<Form.File label="File" readOnly files={['filename.xlsx']} />
+		<Form.File name="file" label="File" readOnly files={['filename.xlsx', 'filename2.xlsx']} />
+	</Story>
+</Canvas>
+
+### Error
+
+<Canvas>
+	<Story name="error">
+		<Form.File
+			hasError
+			description="Description of the error"
+			name="file"
+			label="File"
+			files={['filename.xlsx']}
+		/>
 	</Story>
 </Canvas>
 

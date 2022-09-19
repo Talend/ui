@@ -106,6 +106,8 @@ export type StackPrimitiveProps = {
 	role?: string;
 	relative?: boolean;
 	height?: keyof typeof heightOptions;
+	noShrink?: boolean;
+	noGrow?: boolean;
 };
 
 const StackPrimitive = forwardRef(function StackPrimitive(
@@ -123,6 +125,8 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 		margin,
 		role,
 		height,
+		noShrink = false,
+		noGrow = false,
 		...props
 	}: StackPrimitiveProps,
 	ref: React.Ref<any>,
@@ -218,6 +222,8 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 				styles[display],
 				height && styles[`height-${heightOptions[height]}`],
 				{ [styles.relative]: relative },
+				{ [styles.noShrink]: noShrink },
+				{ [styles.noGrow]: noGrow },
 				getAlignContent(),
 				...getGap(),
 				...getPadding(),
