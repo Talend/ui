@@ -129,8 +129,7 @@ const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 							<SizedIcon size="S" name="upload" />{' '}
 							<span>
 								<Trans i18nKey="INPUT_FILE_DROP_OR_BROWSE_FILE">
-									Drop your files or
-									<span className={styles.text__fakeLink}>browse</span>
+									Drop your files or <span className={styles.text__fakeLink}>browse</span>
 								</Trans>
 							</span>
 						</div>

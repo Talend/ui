@@ -1,7 +1,8 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage } from '~docs';
 import Form from '../Form';
-import * as stories from '../Form.stories';
+import * as stories from './Form.stories.tsx';
+import { Tabs } from '../WIP/Tabs';
 
 <Meta
 	title="Components/Form/Form"
@@ -14,7 +15,7 @@ import * as stories from '../Form.stories';
 
 # Form
 
-A form allows a user to configure multiple options and set data across different form fields.
+The `Form` component is a slightly opinionated `<form>` tag with a flex layout and set vertical gap.
 
 ## Zoning
 
@@ -25,17 +26,10 @@ A form allows a user to configure multiple options and set data across different
 
 ## Style
 
-The form width depends on the form container size. The form is horizontally **centered** in its container.
+- The vertical gap between fields, unless specified otherwise, is `spacing-s`.
+- The horizontal gap between inlined elements in a form is `spacing-m`.
 
-| Container            | Width            |
-| -------------------- | ---------------- |
-| By default           | 100%             |
-| From $breakpoints.m  | 55%              |
-| From $breakpoints.xl | max-width: 78rem |
-
-## Variations
-
-Forms can be horizontal or vertical. They are vertical by default. For horizontal one, please refer to the [Inline form page](/?path=/docs/components-form-inline-form--page).
+[The spacing docs can be found here.](/docs/design-tokens-light-measures--page)
 
 ## States
 
@@ -50,11 +44,38 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 	<Story story={stories.FormSkeleton} />
 </Canvas>
 
-### Default
+### Field states
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A699"
-	alt="Form mockup"
+<Tabs
+	tabs={[
+		{
+			tabTitle: 'Default',
+			tabContent: (
+				<FigmaImage
+					src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A699"
+					alt="Form mockup"
+				/>
+			),
+		},
+		{
+			tabTitle: 'Disabled',
+			tabContent: (
+				<FigmaImage
+					src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=26978%3A137499"
+					alt="Form mockup disabled state"
+				/>
+			),
+		},
+		{
+			tabTitle: 'ReadOnly',
+			tabContent: (
+				<FigmaImage
+					src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=26980%3A128569"
+					alt="Form mockup readonly"
+				/>
+			),
+		},
+	]}
 />
 
 <Canvas>
@@ -62,6 +83,8 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 </Canvas>
 
 ### Error
+
+When an error occurs at a level that is not specific to one field, use `InlineMessage` to give the user feedback:
 
 <FigmaImage
 	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A704"
@@ -72,17 +95,7 @@ Forms can be horizontal or vertical. They are vertical by default. For horizonta
 	<Story story={stories.Error} />
 </Canvas>
 
-### Disabled
-
-<Canvas>
-	<Story story={stories.Disabled} />
-</Canvas>
-
-### Read-only
-
-<Canvas>
-	<Story story={stories.ReadOnly} />
-</Canvas>
+[The InlineMessage docs can be found here.](/docs/components-inline-message--default-demo)
 
 ## Content
 

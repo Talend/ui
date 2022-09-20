@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Form from '.';
 import { ButtonPrimary, ButtonSecondary } from '../Button';
 import { InlineMessageDestructive, InlineMessageInformation } from '../InlineMessage';
 import Skeleton from '../Skeleton';
-import Link from '../Link';
 
 import CountryCodes from './docs/data/CountryCodes.json';
-import { StackVertical } from '../Stack';
+import { StackHorizontal, StackVertical } from '../Stack';
+import Divider from '../Divider';
 
 export default {
 	component: Form,
@@ -20,10 +20,10 @@ function getCountryCodes() {
 
 export const FormSkeleton = () => (
 	<Form>
-		<StackVertical gap="S">
+		<StackVertical gap="S" justify="stretch" align="stretch">
 			<Skeleton variant="heading" />
-			<Skeleton variant="paragraph" />
-			<Skeleton variant="paragraph" />
+			<Skeleton variant="input" />
+			<Skeleton variant="input" />
 		</StackVertical>
 		<Form.Buttons>
 			<Skeleton variant="button" />
@@ -33,55 +33,88 @@ export const FormSkeleton = () => (
 );
 FormSkeleton.parameters = {};
 
-export const Default = () => (
-	<Form>
-		<Form.Fieldset legend="Complete your registration">
-			<Form.Row>
-				<Form.Text label="First Name" name="firstname" required />
-				<Form.Text label="Last Name" name="lastname" required />
-			</Form.Row>
-			<Form.Text label="Company" value="Talend" name="company" required />
-			<Form.Tel
-				label="Phone number"
-				name="tel"
-				value="6121314k"
-				required
-				hasError
-				description="This field is required"
-				prefix={{
-					required: true,
-					type: 'select',
-					label: 'phone',
-					name: 'phone',
-					defaultValue: 'France (+33)',
-					children: getCountryCodes().map((countryCode, key) => (
-						<option key={key}>{countryCode}</option>
-					)),
-				}}
-			/>
-			<Form.Select name="select" label="Industry">
-				<option selected>IT</option>
-			</Form.Select>
-			<Form.Password label="Password" name="password" />
-			<Form.Password label="Repeat password" name="password-repeat" />
-			<Form.Checkbox
-				checked
-				required
-				id="test-checkbox"
-				name="test-checkbox"
-				label={
-					<>
-						I have read and accept the <Link href="#">terms of use</Link>
-					</>
-				}
-			/>
-			<Form.Buttons>
-				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
-			</Form.Buttons>
-		</Form.Fieldset>
-	</Form>
-);
-Default.parameters = {};
+export const Default = () => {
+	const [formState, setFormState] = useState<'disabled' | 'readOnly' | null>(null);
+	return (
+		<Form disabled={formState === 'disabled'} readOnly={formState === 'readOnly'}>
+			<StackHorizontal gap="M" justify="spaceBetween" align="start">
+				<ButtonSecondary onClick={() => setFormState(null)}>
+					{!formState && '· '} Reset state
+				</ButtonSecondary>
+
+				<ButtonSecondary onClick={() => setFormState('disabled')}>
+					{formState === 'disabled' && '· '} Disabled fields
+				</ButtonSecondary>
+
+				<ButtonSecondary onClick={() => setFormState('readOnly')}>
+					{formState === 'readOnly' && '· '} ReadOnly fields
+				</ButtonSecondary>
+			</StackHorizontal>
+			<Divider />
+			<Form.Fieldset legend="Complete your registration">
+				<Form.Text label="Input" name="input" required />
+				<Form.Text
+					label="Input with error"
+					name="error-input"
+					required
+					hasError
+					description="Lorem ipsum dolor sit amet"
+				/>
+				<Form.Tel
+					label="Phone"
+					name="tel"
+					required
+					prefix={{
+						required: true,
+						type: 'select',
+						label: 'phone',
+						name: 'phone',
+						defaultValue: 'France (+33)',
+						children: getCountryCodes().map((countryCode, key) => (
+							<option key={key}>{countryCode}</option>
+						)),
+					}}
+				/>
+				<Form.Text
+					label="Column"
+					name="column"
+					required
+					suffix={{
+						required: true,
+						type: 'select',
+						label: 'column-type',
+						name: 'column-type',
+						defaultValue: 'Boolean',
+						children: [
+							<option key="bool">Boolean</option>,
+							<option key="string">String</option>,
+							<option key="numb">Number</option>,
+							<option key="obj">Object</option>,
+						],
+					}}
+				/>
+				<Form.Number label="Amount" name="amount" prefix="$" suffix=".00" />
+				<Form.File label="File" name="file" />
+				<Form.Password label="Password" name="password" />
+				<Form.Search label="Search" name="search" />
+				<Form.Textarea label="Textarea" name="textarea" />
+				<Form.Select label="Select" name="select">
+					<option>Foo</option>
+					<option>Bar</option>
+				</Form.Select>
+				<Form.Checkbox checked required id="test-checkbox" name="test-checkbox" label="Checkbox" />
+				<Form.Radio label="Radio" name="radio" checked />
+				<Form.ToggleSwitch label="Switch" checked name="Switch" />
+				<Form.Buttons>
+					<ButtonSecondary type="reset" onClick={action('cancel')}>
+						Reset
+					</ButtonSecondary>
+					<ButtonPrimary onClick={action('submit')}>Submit</ButtonPrimary>
+				</Form.Buttons>
+			</Form.Fieldset>
+		</Form>
+	);
+};
 
 export const Error = () => (
 	<div style={{ margin: '0 auto', width: '35rem' }}>
@@ -102,102 +135,6 @@ export const Error = () => (
 	</div>
 );
 Error.parameters = {};
-
-export const Disabled = () => (
-	<Form disabled>
-		<Form.Fieldset legend="Complete your registration">
-			<Form.Row>
-				<Form.Text label="First Name" name="firstname" required />
-				<Form.Text label="Last Name" name="lastname" required />
-			</Form.Row>
-			<Form.Text label="Company" name="company" value="Talend" required />
-			<Form.Tel
-				label="Phone number"
-				name="tel"
-				value="6121314k"
-				required
-				prefix={{
-					required: true,
-					type: 'select',
-					label: 'phone',
-					name: 'phone',
-					defaultValue: 'France (+33)',
-					children: getCountryCodes().map((countryCode, key) => (
-						<option key={key}>{countryCode}</option>
-					)),
-				}}
-			/>
-			<Form.Select name="select" label="Industry">
-				<option selected>IT</option>
-			</Form.Select>
-			<Form.Password label="Password" name="password" />
-			<Form.Password label="Repeat password" name="repeat-password" />
-			<Form.Checkbox
-				checked
-				required
-				name="checkbox"
-				label={
-					<>
-						I have read and accept the <Link href="#">terms of use</Link>
-					</>
-				}
-			/>
-			<Form.Buttons>
-				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
-			</Form.Buttons>
-		</Form.Fieldset>
-	</Form>
-);
-Disabled.parameters = {};
-
-export const ReadOnly = () => (
-	<Form readOnly>
-		<Form.Fieldset legend="Complete your registration">
-			<Form.Row>
-				<Form.Text label="First Name" name="firstname" required />
-				<Form.Text label="Last Name" name="lastname" required />
-			</Form.Row>
-			<Form.Text label="Company" name="company" value="Talend" required />
-			<Form.Tel
-				label="Phone number"
-				name="tel"
-				value="6121314k"
-				required
-				hasError
-				description="This is required"
-				prefix={{
-					required: true,
-					type: 'select',
-					label: 'phone',
-					name: 'phone',
-					defaultValue: 'France (+33)',
-					children: getCountryCodes().map((countryCode, key) => (
-						<option key={key}>{countryCode}</option>
-					)),
-				}}
-			/>
-			<Form.Select name="select" label="Industry">
-				<option selected>IT</option>
-			</Form.Select>
-			<Form.Password label="Password" name="password" />
-			<Form.Password label="Repeat password" name="password-repeat" />
-			<Form.Checkbox
-				checked
-				required
-				name="checkbox"
-				label={
-					<>
-						I have read and accept the <Link href="#">terms of use</Link>
-					</>
-				}
-			/>
-			<Form.Buttons>
-				<ButtonPrimary onClick={action('submit')}>Complete Registration</ButtonPrimary>
-			</Form.Buttons>
-		</Form.Fieldset>
-	</Form>
-);
-ReadOnly.parameters = {};
 
 export const InlineHelp = () => (
 	<div style={{ margin: '0 auto', width: '35rem' }}>
@@ -229,7 +166,7 @@ export const Loading = () => (
 			<Form.Buttons>
 				<ButtonSecondary onClick={action('clicked')}>Previous</ButtonSecondary>
 				<ButtonSecondary onClick={action('clicked')}>Save</ButtonSecondary>
-				<ButtonPrimary onClick={action('clicked')} icon="talend-launch" isLoading>
+				<ButtonPrimary onClick={action('clicked')} icon="triangle-circle" isLoading>
 					Run
 				</ButtonPrimary>
 			</Form.Buttons>
