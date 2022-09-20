@@ -725,7 +725,7 @@
         "development": "/umd/react-router.js",
         "production": "/umd/react-router.min.js"
       },
-      ">= 6.0.0 < 6.3.0": {
+      ">= 6.0.0 < 6.4.0": {
         "development": "/umd/react-router.development.js",
         "production": "/umd/react-router.production.min.js"
       },
