@@ -35,6 +35,13 @@
       color: tokens.$coral-color-accent-text-hover;
     }
   }
+
+  &_isSuffix,
+  &_isSuffix:first-child {
+    border-radius: 0 2px 2px 0;
+    border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+    border-right: 0;
+  }
 }
 
 .select__wrapper {

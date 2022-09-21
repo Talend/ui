@@ -13,118 +13,118 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 	}
 
   input[type="checkbox"] {
-	position: absolute;
-	margin-left: -9999px;
+		position: absolute;
+		margin-left: -9999px;
 
-	+ .legend {
-	  position: relative;
-	  padding: 0 0 0 $labelOffset;
-	  display: inline-block;
-	  font: tokens.$coral-paragraph-m;
-	  color: tokens.$coral-color-neutral-text
-	}
+		+ .legend {
+			position: relative;
+			padding: 0 0 0 $labelOffset;
+			display: inline-block;
+			font: tokens.$coral-paragraph-m;
+			color: tokens.$coral-color-neutral-text
+		}
 
-	+ .legend::before,
-	+ .legend::after {
-	  background-image: none;
-	  content: '';
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  border: none;
-	  transition: all 250ms ease-in-out;
-	  border-radius: tokens.$coral-radius-round;
-	  margin: 0; // bootstrap override
-	}
+		+ .legend::before,
+		+ .legend::after {
+			background-image: none;
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: none;
+			transition: all 250ms ease-in-out;
+			border-radius: tokens.$coral-radius-round;
+			margin: 0; // bootstrap override
+		}
 
-	+ .legend::before {
-	  width: $wrapperWidth;
-	  height: tokens.$coral-sizing-xxxs;
-	  background: tokens.$coral-color-accent-background;
-	  transform: translateY(0.15rem);
-	}
+		+ .legend::before {
+			width: $wrapperWidth;
+			height: tokens.$coral-sizing-xxxs;
+			background: tokens.$coral-color-accent-background;
+			transform: translateY(0.15rem);
+		}
 
-	+ .legend::after {
-	  transform: translateX(0.1rem) translateY(0.3rem);
-	  width: $markerSize;
-	  height: $markerSize;
-	  background-color: tokens.$coral-color-neutral-background;
-	}
+		+ .legend::after {
+			transform: translateX(0.1rem) translateY(0.3rem);
+			width: $markerSize;
+			height: $markerSize;
+			background-color: tokens.$coral-color-neutral-background;
+		}
 
-	&:not(:disabled):hover {
-	  + .legend::before {
-		background: tokens.$coral-color-accent-background-hover;
-	  }
-	}
+		&:not(:disabled):hover {
+			+ .legend::before {
+				background: tokens.$coral-color-accent-background-hover;
+			}
+		}
 
-	&:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
-	  background: tokens.$coral-color-accent-background-hover;
-	}
+		&:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
+			background: tokens.$coral-color-accent-background-hover;
+		}
 
-	&:focus-visible {
-	  + .legend {
-		outline: tokens.$coral-border-s-solid tokens.$coral-color-assistive-border-focus;
-	  }
-	}
+		&:focus-visible {
+			+ .legend {
+				outline: tokens.$coral-border-s-solid tokens.$coral-color-assistive-border-focus;
+			}
+		}
   }
 
   &:not(.switch_disabled) input[type="checkbox"] {
-	+ .legend {
-	  cursor: pointer;
-	}
+		+ .legend {
+			cursor: pointer;
+		}
   }
 
   &_inline {
-	display: inline-block;
+		display: inline-block;
   }
 
   &_checked {
-	&:not(.switch_disabled):not(.switch_readOnly) input[type="checkbox"] + .legend::before {
-	  background: tokens.$coral-color-accent-background-strong;
-	}
+		&:not(.switch_disabled):not(.switch_readOnly) input[type="checkbox"] + .legend::before {
+			background: tokens.$coral-color-accent-background-strong;
+		}
 
-	input[type="checkbox"] + .legend::after {
-	  transform: translateX(calc(#{$wrapperWidth} - #{$markerSize} - 0.1rem)) translateY(0.3rem);
-	}
+		input[type="checkbox"] + .legend::after {
+			transform: translateX(calc(#{$wrapperWidth} - #{$markerSize} - 0.1rem)) translateY(0.3rem);
+		}
 
-	&:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
-	  background: tokens.$coral-color-accent-background-strong-hover;
-	}
+		&:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
+			background: tokens.$coral-color-accent-background-strong-hover;
+		}
   }
 
   &_readOnly {
-	input[type="checkbox"] {
-	  + .legend::before {
-		background: tokens.$coral-color-neutral-background-heavy;
-	  }
+		input[type="checkbox"] {
+			+ .legend::before {
+				background: tokens.$coral-color-neutral-background-heavy;
+			}
 
-	  + .legend::after {
-		background: tokens.$coral-color-neutral-background;
-	  }
-	}
+			+ .legend::after {
+				background: tokens.$coral-color-neutral-background;
+			}
+		}
   }
 
   &_disabled {
-	cursor: not-allowed;
-
-	input[type="checkbox"],
-	input[type="checkbox"]:disabled,
-	input[type="checkbox"]:checked {
-	  + .legend::before {
-		background: tokens.$coral-color-neutral-background-disabled;
-	  }
-
-	  + .legend {
-		color: tokens.$coral-color-neutral-background-disabled;
-	  }
-	}
-
-	label {
-	  cursor: not-allowed;
-
-	  > * {
 		cursor: not-allowed;
-	  }
-	}
+
+		input[type="checkbox"],
+		input[type="checkbox"]:disabled,
+		input[type="checkbox"]:checked {
+			+ .legend::before {
+				background: tokens.$coral-color-neutral-background-disabled;
+			}
+
+			+ .legend {
+				color: tokens.$coral-color-neutral-text-disabled;
+			}
+		}
+
+		label {
+			cursor: not-allowed;
+
+			> * {
+				cursor: not-allowed;
+			}
+		}
   }
 }

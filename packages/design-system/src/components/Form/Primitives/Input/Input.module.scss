@@ -6,7 +6,11 @@
   height: Form.$standardInputHeight;
 
   &[type="color"] {
-	padding: tokens.$coral-spacing-xxs;
+	  padding: tokens.$coral-spacing-xxs;
+  }
+
+  &[type="password"] {
+    padding-right: calc(#{tokens.$coral-sizing-xs} + #{tokens.$coral-spacing-xxs}*2);
   }
 }
 
@@ -24,14 +28,14 @@
   align-items: center;
 
   &_disabled {
-	color: tokens.$coral-color-neutral-text-disabled;
+	  color: tokens.$coral-color-neutral-text-disabled;
   }
 
   &_readOnly {
-	color: tokens.$coral-color-neutral-text-weak;
+	  color: tokens.$coral-color-neutral-text-weak;
   }
 
   + input {
-	padding-left: tokens.$coral-spacing-l;
+	  padding-left: tokens.$coral-spacing-l;
   }
 }
