@@ -27,6 +27,7 @@ const Accordion = ({ children }: AccordionPropsType) => {
 				expanded: isExpanded,
 				isFirst,
 				isLast,
+				key: index,
 				onToggleExpanded: handleToggle,
 			});
 		});

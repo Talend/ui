@@ -46,7 +46,7 @@ const CollapsiblePanelHeader = forwardRef(
 			return (
 				<>
 					{item}
-					<Divider orientation="vertical" />
+					<Divider orientation="vertical" key={index} />
 				</>
 			);
 		});

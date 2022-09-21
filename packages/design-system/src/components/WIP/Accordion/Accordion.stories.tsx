@@ -35,6 +35,7 @@ export const DisabledPanel = {
 		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 			<CollapsiblePanel
 				{...props}
+				id="disabled-panel"
 				title="disabled panel"
 				action={{
 					icon: 'plus',
@@ -59,12 +60,28 @@ export const SmallPanel = () => (
 
 export const WithMetadata = () => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
-		<CollapsiblePanel
-			title="Simple panel with metadata"
-			metadata={['Duration : 3sec', <TagSuccess key="toto">Succes</TagSuccess>]}
-		>
-			<SampleParagraph />
-		</CollapsiblePanel>
+		<StackVertical gap={'S'} align="stretch">
+			<CollapsiblePanel
+				title="Simple panel with several metadata"
+				metadata={['Duration : 3sec', <TagSuccess key="successTag">Success</TagSuccess>]}
+			>
+				<SampleParagraph />
+			</CollapsiblePanel>
+			<CollapsiblePanel
+				title="Simple panel with several metadata and action"
+				metadata={['Duration : 3sec', <TagSuccess key="successTag">Succes</TagSuccess>]}
+				action={{
+					icon: 'plus',
+					tooltip: 'action tooltip',
+					callback: () => window.alert('action callback'),
+				}}
+			>
+				<SampleParagraph />
+			</CollapsiblePanel>
+			<CollapsiblePanel title="simple panel with one metadata" metadata={['Duration : 3sec']}>
+				<SampleParagraph />
+			</CollapsiblePanel>
+		</StackVertical>
 	</div>
 );
 
@@ -73,6 +90,7 @@ export const WithAction = {
 		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 			<CollapsiblePanel
 				{...props}
+				id="panel-with-action"
 				title="panel with action"
 				action={{
 					icon: 'plus',
@@ -90,13 +108,13 @@ export const AccordionWrapper = {
 	render: (props: Story) => (
 		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 			<Accordion {...props}>
-				<CollapsiblePanel title="first panel">
+				<CollapsiblePanel id="panel-a" title="first panel">
 					<SampleParagraph />
 				</CollapsiblePanel>
-				<CollapsiblePanel title="second panel">
+				<CollapsiblePanel id="panel-b" title="second panel">
 					<SampleParagraph />
 				</CollapsiblePanel>
-				<CollapsiblePanel title="third panel">
+				<CollapsiblePanel id="panel-c" title="third panel">
 					<SampleParagraph />
 				</CollapsiblePanel>
 			</Accordion>

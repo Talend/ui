@@ -1,9 +1,11 @@
-import React, { forwardRef, ReactChild, Ref, useState, useEffect } from 'react';
+import React, { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from 'react';
 import classNames from 'classnames';
 import { unstable_useId as useId } from 'reakit';
+
+import { DataAttributes } from 'src/types';
+
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';
-
 import styles from './CollapsiblePanel.module.scss';
 
 type CollapsiblePanelPropsType = {
@@ -19,11 +21,13 @@ type CollapsiblePanelPropsType = {
 	isLast?: boolean;
 	disabled?: boolean;
 	onToggleExpanded?: (index: number) => void;
-};
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'style'> &
+	DataAttributes;
 
 const CollapsiblePanel = forwardRef(
 	(
 		{
+			id,
 			children,
 			managed,
 			expanded,
@@ -36,14 +40,16 @@ const CollapsiblePanel = forwardRef(
 			isFirst = false,
 			isLast = false,
 			disabled = false,
+			...rest
 		}: CollapsiblePanelPropsType,
 		ref: Ref<HTMLButtonElement>,
 	) => {
 		const [localExpanded, setLocalExpanded] = useState(false);
 
 		const { id: reakitId } = useId();
-		const controlId = `CollapsiblePanel__header--${reakitId}`;
-		const sectionId = `CollapsiblePanel__content--${reakitId}`;
+		const componentId = id || reakitId;
+		const controlId = `CollapsiblePanel__control--${componentId}`;
+		const sectionId = `CollapsiblePanel__content--${componentId}`;
 
 		useEffect(() => {
 			if (managed && expanded != localExpanded) {
@@ -67,6 +73,7 @@ const CollapsiblePanel = forwardRef(
 					[styles.panelWrapper__last]: isLast,
 					[styles.panelWrapper__notLast]: managed && !isLast,
 				})}
+				{...rest}
 			>
 				<CollapsiblePanelHeader
 					controlId={controlId}

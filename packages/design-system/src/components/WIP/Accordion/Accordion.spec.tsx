@@ -14,16 +14,16 @@ context('<CollapsiblePanel />', () => {
 
 	it('should expand and collapse', () => {
 		cy.mount(<WithAction />);
-		cy.get('#actionCollapsible_control').click();
+		cy.get('#CollapsiblePanel__control--panel-with-action').click();
 		cy.getByTest('panel.section').should('be.visible');
-		cy.get('#actionCollapsible_control').click();
+		cy.get('#CollapsiblePanel__control--panel-with-action').click();
 		cy.getByTest('panel.section').should('not.exist');
 	});
 
 	it('should hide chevron and action when disabled', () => {
 		cy.mount(<DisabledPanel />);
-		cy.get('#actionCollapsible_control').should('not.exist');
-		cy.get('#actionCollapsible_control').should('not.exist');
+		cy.get('#CollapsiblePanel__control--disabled-panel').should('not.exist');
+		cy.getByTest('action.button').should('not.exist');
 	});
 
 	it('should display action toolip', () => {
@@ -36,8 +36,12 @@ context('<CollapsiblePanel />', () => {
 
 	it('should manage expanded state with accordion', () => {
 		cy.mount(<AccordionWrapper />);
-		cy.get('#SimpleAccordion-p1_control').click().should('have.attr', 'aria-expanded', 'true');
-		cy.get('#SimpleAccordion-p2_control').click().should('have.attr', 'aria-expanded', 'true');
-		cy.get('#SimpleAccordion-p1_control').should('have.attr', 'aria-expanded', 'false');
+		cy.get('#CollapsiblePanel__control--panel-a')
+			.click()
+			.should('have.attr', 'aria-expanded', 'true');
+		cy.get('#CollapsiblePanel__control--panel-b')
+			.click()
+			.should('have.attr', 'aria-expanded', 'true');
+		cy.get('#CollapsiblePanel__control--panel-a').should('have.attr', 'aria-expanded', 'false');
 	});
 });

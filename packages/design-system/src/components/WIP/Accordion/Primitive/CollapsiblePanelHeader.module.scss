@@ -10,7 +10,7 @@
 	background-color: tokens.$coral-color-accent-background-weak;
 	width: 100%;
 	border: none;
-	min-height: 4.4rem; // no token for this one : switch to sizing-l ?
+	min-height: tokens.$coral-sizing-l;
 	padding: tokens.$coral-spacing-xs;
 
 	&__size-s {
