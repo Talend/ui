@@ -1,12 +1,12 @@
 import React, { forwardRef, ReactChild, Ref, useState, useEffect } from 'react';
 import classNames from 'classnames';
+import { unstable_useId as useId } from 'reakit';
 import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';
 
 import styles from './CollapsiblePanel.module.scss';
 
 type CollapsiblePanelPropsType = {
-	a11yId: string;
 	children: ReactChild;
 	managed?: boolean;
 	expanded?: boolean;
@@ -24,7 +24,6 @@ type CollapsiblePanelPropsType = {
 const CollapsiblePanel = forwardRef(
 	(
 		{
-			a11yId,
 			children,
 			managed,
 			expanded,
@@ -42,8 +41,9 @@ const CollapsiblePanel = forwardRef(
 	) => {
 		const [localExpanded, setLocalExpanded] = useState(false);
 
-		const controlId = a11yId + '_control';
-		const sectionId = a11yId + '_section';
+		const { id: reakitId } = useId();
+		const controlId = `CollapsiblePanel__header--${reakitId}`;
+		const sectionId = `CollapsiblePanel__content--${reakitId}`;
 
 		useEffect(() => {
 			if (managed && expanded != localExpanded) {

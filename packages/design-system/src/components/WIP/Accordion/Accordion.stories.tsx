@@ -24,7 +24,7 @@ const SampleParagraph = () => (
 
 export const SimpleCollapsiblePanel = () => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
-		<CollapsiblePanel a11yId="simpleCollapsible" title="Simple panel">
+		<CollapsiblePanel title="Simple panel">
 			<SampleParagraph />
 		</CollapsiblePanel>
 	</div>
@@ -35,7 +35,6 @@ export const DisabledPanel = {
 		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 			<CollapsiblePanel
 				{...props}
-				a11yId="disabledCollapsible"
 				title="disabled panel"
 				action={{
 					icon: 'plus',
@@ -52,7 +51,7 @@ export const DisabledPanel = {
 
 export const SmallPanel = () => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
-		<CollapsiblePanel a11yId="smallCollapsible" title="small panel" size="S">
+		<CollapsiblePanel title="small panel" size="S">
 			<SampleParagraph />
 		</CollapsiblePanel>
 	</div>
@@ -61,7 +60,6 @@ export const SmallPanel = () => (
 export const WithMetadata = () => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 		<CollapsiblePanel
-			a11yId="WithMetadata"
 			title="Simple panel with metadata"
 			metadata={['Duration : 3sec', <TagSuccess key="toto">Succes</TagSuccess>]}
 		>
@@ -75,7 +73,6 @@ export const WithAction = {
 		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 			<CollapsiblePanel
 				{...props}
-				a11yId="actionCollapsible"
 				title="panel with action"
 				action={{
 					icon: 'plus',
@@ -93,13 +90,13 @@ export const AccordionWrapper = {
 	render: (props: Story) => (
 		<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 			<Accordion {...props}>
-				<CollapsiblePanel a11yId="SimpleAccordion-p1" title="first panel">
+				<CollapsiblePanel title="first panel">
 					<SampleParagraph />
 				</CollapsiblePanel>
-				<CollapsiblePanel a11yId="SimpleAccordion-p2" title="second panel">
+				<CollapsiblePanel title="second panel">
 					<SampleParagraph />
 				</CollapsiblePanel>
-				<CollapsiblePanel a11yId="SimpleAccordion-p3" title="third panel">
+				<CollapsiblePanel title="third panel">
 					<SampleParagraph />
 				</CollapsiblePanel>
 			</Accordion>
@@ -110,13 +107,13 @@ export const AccordionWrapper = {
 export const GroupOfSimplePanels = () => (
 	<div style={{ maxWidth: '80rem', marginLeft: 'auto', marginRight: 'auto', padding: '3rem' }}>
 		<StackVertical gap={'S'} align="stretch">
-			<CollapsiblePanel a11yId="SimplePanel-p1" title="first panel">
+			<CollapsiblePanel title="first panel">
 				<SampleParagraph />
 			</CollapsiblePanel>
-			<CollapsiblePanel a11yId="SimplePanel-p2" title="second panel">
+			<CollapsiblePanel title="second panel">
 				<SampleParagraph />
 			</CollapsiblePanel>
-			<CollapsiblePanel a11yId="SimplePanel-p3" title="third panel">
+			<CollapsiblePanel title="third panel">
 				<SampleParagraph />
 			</CollapsiblePanel>
 		</StackVertical>
