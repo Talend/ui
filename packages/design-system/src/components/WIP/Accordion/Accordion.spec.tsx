@@ -34,7 +34,7 @@ context('<CollapsiblePanel />', () => {
 			.then(describedBy => cy.get(`#${describedBy}`).should('have.text', 'action tooltip'));
 	});
 
-	it('should managed expanded state with accordion', () => {
+	it('should manage expanded state with accordion', () => {
 		cy.mount(<AccordionWrapper />);
 		cy.get('#SimpleAccordion-p1_control').click().should('have.attr', 'aria-expanded', 'true');
 		cy.get('#SimpleAccordion-p2_control').click().should('have.attr', 'aria-expanded', 'true');

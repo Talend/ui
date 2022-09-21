@@ -1,4 +1,3 @@
-// import Accordion from './components/Accordion';
 import {
 	Button,
 	ButtonDestructive,

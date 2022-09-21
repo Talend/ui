@@ -28,11 +28,11 @@ import Accordion from './index';
 	<InlineMessageWarning
 		title="Work in progress"
 		withBackground
-		description="This component is still in work in progress, it's not usable at the moment"
+		description="This component is still in work in progress, it's API can change in breaking ways in the coming weeks."
 	/>
 </StackVertical>
 
-Accordion is used to display expandable/collapsable cards whith a title and and a action.
+Accordion is used to display expandable/collapsable cards with a title.
 
 ## Collapsible panel
 
@@ -55,7 +55,7 @@ Accordion is used to display expandable/collapsable cards whith a title and and 
 
 **Disabled**
 
-A disabled panel will hide it's chevron and action, not be clickable and will display it's title in light gray.
+A disabled panel will hide its chevron and action, will not be clickable and will display its title in `neutral-text-disabled`.
 
 <Canvas>
 	<Story story={Stories.DisabledPanel} />
@@ -63,7 +63,7 @@ A disabled panel will hide it's chevron and action, not be clickable and will di
 
 **Small size**
 
-Use the prop <b>size</b> to change the height, font size and icon size of the panel header.
+Use the prop `size` to change the height, font size and icon size of the panel header.
 
 (currently there is only <b>M</b>(default) and <b>S</b> supported)
 
@@ -73,11 +73,11 @@ Use the prop <b>size</b> to change the height, font size and icon size of the pa
 
 **With action**
 
-The prop <b>action</b> takes a object with 3 atributes :
+The prop `action` takes an object with 3 attributes :
 
-- <b>icon</b> : a string containing a talend icon id
-- <b>title</b> : the content of the tooltip displayed on mouseOver
-- <b>callback</b> : a function called when the action is triggered
+- <b>icon</b>: a string containing a talend icon id
+- <b>title</b>: the content of the tooltip displayed on mouseOver
+- <b>callback</b>: a function called when the action is triggered
 
 <Canvas>
 	<Story story={Stories.WithAction} />
@@ -85,9 +85,11 @@ The prop <b>action</b> takes a object with 3 atributes :
 
 **With metadata**
 
-The prop <b>metadata</b> takes an array of ReactElement or String, and display them between the panel title and action.
+The prop `metadata` takes an array of ReactElement or String, and displays them between the panel title and action.
 
 A vertical divider is inserted between each metadata.
+
+Using Accordions that way is discouraged.
 
 <Canvas>
 	<Story story={Stories.WithMetadata} />
