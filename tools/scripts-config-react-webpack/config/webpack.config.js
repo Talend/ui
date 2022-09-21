@@ -17,7 +17,6 @@ const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
 
-const cdn = require('@talend/scripts-config-cdn');
 const exists = require('@talend/scripts-utils/fs');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
@@ -31,7 +30,6 @@ const {
 } = require('./webpack.config.common');
 
 const INITIATOR_URL = process.env.INITIATOR_URL || '@@INITIATOR_URL@@';
-const cdnMode = !!process.env.INITIATOR_URL;
 
 const DEFAULT_INDEX_TEMPLATE_PATH = 'src/app/index.html';
 const BASE_TEMPLATE_PATH = path.join(__dirname, 'index.tpl.html');
@@ -41,9 +39,6 @@ const getFileNameForExtension = (extension, prefix) =>
 const TALEND_LIB_PREFIX = '@talend/';
 
 const BASENAME = process.env.BASENAME || '/';
-
-// set @talend packages in module-to-cdn
-cdn.configureTalendModules();
 
 // Check if Typescript is setup
 const useTypescript = exists.tsConfig();
@@ -114,38 +109,28 @@ function getTalendVersions() {
 
 	return {
 		version: packageJson.version,
-		talendLibraries: Object.entries(talendLibraries).map(([name, version]) => ({ name, version })),
+		// talendLibraries: Object.entries(talendLibraries).map(([name, version]) => ({ name, version })),
 		revision,
 	};
 }
 
 function getVersions() {
-	const talendLibraries = cdn
-		.getModulesFromLockFile()
-		.filter(Boolean)
-		.map(info => ({ version: info.version, name: info.name }));
 	// eslint-disable-next-line
 	const packageJson = require(path.join(process.cwd(), 'package.json'));
 
 	return {
 		version: packageJson.version,
-		talendLibraries,
+		// talendLibraries,
 		revision: getGitRevision(),
 	};
 }
 
 const VERSIONS = getVersions();
 // meta for html webpack plugin
-const meta = VERSIONS.talendLibraries.reduce(
-	(acc, lib) => {
-		acc[lib.name] = lib.version;
-		return acc;
-	},
-	{
-		'app-version': VERSIONS.version,
-		'app-revision': VERSIONS.revision,
-	},
-);
+const meta = {
+	'app-version': VERSIONS.version,
+	'app-revision': VERSIONS.revision,
+};
 
 function getCopyConfig(env, userCopyConfig = []) {
 	const config = [...userCopyConfig];
@@ -155,9 +140,7 @@ function getCopyConfig(env, userCopyConfig = []) {
 	if (!assetsOverridden && fs.existsSync(path.join(process.cwd(), 'src/assets'))) {
 		config.push({ from: 'src/assets' });
 	}
-	if (!cdnMode) {
-		cdn.getCopyConfig().forEach(c => config.push(c));
-	}
+
 	return config;
 }
 
@@ -186,15 +169,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath) {
 		<style><%= htmlWebpackPlugin.options.appLoaderStyle %></style>
 		<script type="text/javascript">
 			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
-			var TALEND_CDN_VERSIONS = {
-				TUI: '@@TALEND_UI_VERSION@@', ${process.env.CUSTOM_VERSIONS || ''}
-			};
 			window.basename = '${BASENAME}';
-			window.TALEND_INITIATOR_URL = '${INITIATOR_URL}';
-			window.jsFiles = [<%= htmlWebpackPlugin.files.js.map(href => '"'+href+'"').join(',') %>];
-			window.cssFiles = [<%= htmlWebpackPlugin.files.css.map(href => '"'+href+'"').join(',') %>];
-			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata)%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata)%> };
-			${await inject.getMinified()}
 		</script>
 		<base href="${BASENAME}" />
 	</head>`;
@@ -230,7 +205,6 @@ module.exports = ({ getUserConfig, mode }) => {
 		const userSassData = getUserConfig('sass', {});
 		const userCopyConfig = getUserConfig('copy', []);
 		const cmf = getUserConfig('cmf');
-		const dcwpConfig = getUserConfig('dynamic-cdn-webpack-plugin');
 		const sentryConfig = getUserConfig('sentry', {});
 		const { theme } = userSassData;
 
@@ -306,7 +280,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				isEnvDevelopment && new DuplicatesPlugin(),
 				new webpack.DefinePlugin({
 					BUILD_TIMESTAMP: Date.now(),
-					TALEND_APP_INFO: JSON.stringify(getTalendVersions()),
+					// TALEND_APP_INFO: JSON.stringify(getTalendVersions()),
 					'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
 					'process.env.FORM_MOZ': JSON.stringify(process.env.FORM_MOZ),
 					'process.env.DISABLE_JS_ERROR_NOTIFICATION': JSON.stringify(
@@ -331,7 +305,7 @@ module.exports = ({ getUserConfig, mode }) => {
 						project: sentryConfig.project || process.env.SENTRY_PROJECT,
 						release: `${meta['app-id']}@${VERSIONS.version}`,
 						include: sentryConfig.include || ['dist/'],
-						ignore: sentryConfig.ignore || ['cdn/'],
+						ignore: sentryConfig.ignore,
 					}),
 				,
 				new HtmlWebpackPlugin({
@@ -340,17 +314,16 @@ module.exports = ({ getUserConfig, mode }) => {
 					appLoaderStyle: AppLoader.getLoaderStyle(appLoaderIcon),
 					...userHtmlConfig,
 					b64favicon,
-					inject: false,
 					template: indexTemplate,
 					meta: { ...meta, ...(userHtmlConfig.meta || {}) },
 				}),
-				cdn.getWebpackPlugin(env, dcwpConfig),
 				new CopyWebpackPlugin({ patterns: getCopyConfig(env, userCopyConfig) }),
 				new webpack.BannerPlugin({ banner: LICENSE_BANNER, entryOnly: true }),
 				cmf && new ReactCMFWebpackPlugin({ watch: isEnvDevelopment }),
 				useTypescript && new ForkTsCheckerWebpackPlugin(),
 			].filter(Boolean),
 			optimization: {
+				// TODO need a re-work here
 				// Automatically split vendor and commons
 				// https://twitter.com/wSokra/status/969633336732905474
 				// https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
