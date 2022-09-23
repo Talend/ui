@@ -1,5 +1,12 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.1.3
+
+### Patch Changes
+
+- 39f292531: fix: update setup of msw
+- 8796308e5: chore(talend-scripts): disable storybook telemetry
+
 ## 2.1.2
 
 ### Patch Changes
