@@ -7,6 +7,7 @@ import Skeleton from '../../../Skeleton';
 import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
 import theme from '../RecordsViewer.scss';
+import { Icon } from '@talend/design-system';
 
 /**
  * Used with the lazy loading to allow the render of the skeleton.
