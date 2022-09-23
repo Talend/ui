@@ -3490,5 +3490,17 @@
     "name": "icon/L/code",
     "description": "",
     "documentationLinks": []
+  },
+  {
+    "key": "f0853d0e3cbdd9a44505ffd2c7395a43f7debf18",
+    "name": "icon/M/slider-controls",
+    "description": "settings, cog, configuration",
+    "documentationLinks": []
+  },
+  {
+    "key": "6152475f697144ca46b8bbed3117a9a55b1dbc66",
+    "name": "icon/L/slider-controls",
+    "description": "settings, cog, configuration",
+    "documentationLinks": []
   }
 ]
