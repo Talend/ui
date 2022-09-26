@@ -8,7 +8,7 @@ import CollapsiblePanelHeader from './CollapsiblePanelHeader';
 import { PanelHeaderAction } from './types';
 import styles from './CollapsiblePanel.module.scss';
 
-type CollapsiblePanelPropsType = {
+export type CollapsiblePanelPropsType = {
 	children: ReactChild;
 	managed?: boolean;
 	expanded?: boolean;
@@ -52,7 +52,7 @@ const CollapsiblePanel = forwardRef(
 		const sectionId = `CollapsiblePanel__content--${componentId}`;
 
 		useEffect(() => {
-			if (managed && expanded != localExpanded) {
+			if (managed && expanded !== localExpanded) {
 				setLocalExpanded(!!expanded);
 			}
 		}, [expanded, managed, localExpanded]);

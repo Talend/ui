@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
 	children: ReactElement[];
 };
 

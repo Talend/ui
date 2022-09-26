@@ -11,7 +11,7 @@ import tokens from '@talend/design-tokens';
 import { PanelHeaderAction } from './types';
 import styles from './CollapsiblePanelHeader.module.scss';
 
-type CollapsiblePanelHeaderPropsType = {
+export type CollapsiblePanelHeaderPropsType = {
 	controlId: string;
 	sectionId: string;
 	size?: 'S' | 'M';
@@ -104,7 +104,6 @@ const CollapsiblePanelHeader = forwardRef(
 						size={buttonIconSize}
 						icon={action.icon}
 						onClick={action.callback}
-						disabled={disabled}
 						data-test="action.button"
 					>
 						{action.tooltip}
