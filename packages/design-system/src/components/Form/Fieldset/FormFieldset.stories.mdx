@@ -42,7 +42,7 @@ If the fields are even more closely related, display them on the same line using
 
 ### Error
 
-A fieldset itself does not carry error state. Only its individual fields do.
+A fieldset usually does not carry error state. Its individual fields do.
 
 <FigmaImage
 	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=224%3A13927"
@@ -72,8 +72,11 @@ Provide a legend to the fieldset to help contextualize its contents.
 
 ### Inline message
 
-By default, the inline message is displayed using the inline message component, it appears at the bottom of the field.
-When a fieldset or a field is bigger than 15rem, the [inline message](/?path=/docs/components-inlinemessage--information) (often error message) should appear on top instead of bottom.
+Field validation may sometime be more complex than on a single field.
+
+If the broken validation rule benefits from a single point of explanation, use an `InlineMessage` within the affected `Fieldset` instead.
+
+This is the only exception to the rule. Errors must otherwise be displayed under each field.
 
 <FigmaImage
 	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=141%3A11352"
@@ -82,17 +85,23 @@ When a fieldset or a field is bigger than 15rem, the [inline message](/?path=/do
 
 ## Interactions
 
-### Conditional field
+### Conditional fieldsets
 
-Conditional fields allow the user to access a fieldset only when conditions are met in a previous field.
+A conditional fieldset appears only when previous conditions are met.
 
-Conditional fields can appear following:
+The trigger can be any "on / off" interactions available in a form:
 
-- checkbox
-- radio button
-- switch
-- select
-- button
+- A checkbox has been activated
+- A radio button has been selected
+- A switch has been toggled
+- A select field has been set to a specific value
+- A button has been pressed
+
+Use sparingly as it makes a form harder to predict and understand at a glance.
+
+<Canvas>
+	<Story story={Stories.ConditionalFieldset} />
+</Canvas>
 
 ## Usage
 
