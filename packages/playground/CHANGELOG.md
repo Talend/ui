@@ -1,5 +1,12 @@
 # @talend/ui-playground
 
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies [d134a19e8]
+  - @talend/react-faceted-search@8.0.0
+
 ## 1.1.6
 
 ### Patch Changes
