@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.1.4
+
+### Patch Changes
+
+- 26777dbe7: deps: bump msw to 0.47.3
+
 ## 2.1.3
 
 ### Patch Changes
