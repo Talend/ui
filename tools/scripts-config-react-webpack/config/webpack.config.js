@@ -323,20 +323,28 @@ module.exports = ({ getUserConfig, mode }) => {
 				useTypescript && new ForkTsCheckerWebpackPlugin(),
 			].filter(Boolean),
 			optimization: {
-				// TODO need a re-work here
-				// Automatically split vendor and commons
-				// https://twitter.com/wSokra/status/969633336732905474
-				// https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+				runtimeChunk: 'single',
 				splitChunks: {
-					chunks(chunk) {
-						// exclude `polyfills` chunk as we want to only load it for old browsers
-						return chunk.name !== 'polyfills';
+					chunks: 'all',
+					maxInitialRequests: Infinity,
+					// minSize: 0,
+					cacheGroups: {
+						vendor: {
+							test: /[\\/]node_modules[\\/]/,
+							name(module) {
+								const match = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
+								if (match) {
+									// get the name. E.g. node_modules/packageName/not/this/part.js
+									// or node_modules/packageName
+									const packageName = match[1];
+									// npm package names are URL-safe, but some servers don't like @ symbols
+									return `npm.${packageName.replace('@', '')}`;
+								}
+								return `npm.rest`;
+							},
+						},
 					},
 				},
-				// Keep the runtime chunk separated to enable long term caching
-				// https://twitter.com/wSokra/status/969679223278505985
-				runtimeChunk: true,
-				moduleIds: 'named',
 			},
 			watchOptions: {
 				aggregateTimeout: 300,
