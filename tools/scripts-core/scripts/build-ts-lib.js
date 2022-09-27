@@ -10,6 +10,7 @@ const { getUserConfigFile } = require('../utils/env');
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const tsc = resolveBin('typescript', { executable: 'tsc' });
+const sass = resolveBin('@talend/babel-plugin-import-scss', { executable: 'talend-sass' });
 
 module.exports = function build(env, presetApi, options) {
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
@@ -55,9 +56,17 @@ module.exports = function build(env, presetApi, options) {
 				reject(new Error(status));
 			} else {
 				console.log('Copying assets...');
-				cpx.copySync(`${srcFolder}/**/*.{scss,json}`, targetFolder);
-
+				cpx.copySync(`${srcFolder}/**/*.{json}`, targetFolder);
 				console.log(`Babel exit: ${status}`);
+				const sassSpawn = spawn(sass, { stdio: 'inherit', env });
+				sassSpawn.on('exit', sassStatus => {
+					if (parseInt(sassStatus, 10) !== 0) {
+						console.error(`Babel exit error: ${sassStatus}`);
+						reject(new Error(sassStatus));
+					} else {
+						console.log(`sass exit: ${status}`);
+					}
+				});
 				resolve({ status });
 			}
 		});

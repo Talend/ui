@@ -1,0 +1,24 @@
+{
+  "name": "@talend/babel-plugin-import-scss",
+  "version": "1.0.0",
+  "description": "This plugin transform imports of lib using /lib path",
+  "main": "index.js",
+  "bin": {
+    "talend-scss": "./cli.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@babel/types": "^7.18.9"
+  },
+  "devDependencies": {
+    "babel-plugin-tester": "^10.1.0",
+    "jest": "^28.1.3"
+  }
+}
