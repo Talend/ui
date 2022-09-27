@@ -10,7 +10,7 @@ import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';
 import { ButtonSecondaryPropsType } from '../Button/variations/ButtonSecondary';
 import { ButtonDestructivePropsType } from '../Button/variations/ButtonDestructive';
 
-import styles from './Modal.scss';
+import styles from './Modal.module.scss';
 
 type IconProp = DeprecatedIconNames | ReactElement;
 

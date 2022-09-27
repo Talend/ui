@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import theme from './Tile.scss';
+import theme from './Tile.module.scss';
 import { TileContext } from './context';
 
 /**

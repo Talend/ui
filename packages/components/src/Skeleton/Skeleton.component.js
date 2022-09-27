@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../Icon';
-import skeletonCssModule from './Skeleton.scss';
+import skeletonCssModule from './Skeleton.module.scss';
 import { getTheme } from '../theme';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';

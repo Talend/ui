@@ -6,7 +6,7 @@ import DatePicker from '../../pickers/DatePicker';
 import TimePicker from '../../pickers/TimePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
-import theme from './DateTimeView.scss';
+import theme from './DateTimeView.module.scss';
 import getDefaultT from '../../../../translate';
 
 /**

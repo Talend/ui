@@ -25,7 +25,7 @@ import {
 	operatorsPropTypes,
 } from '../facetedSearch.propTypes';
 
-import theme from './BasicSearch.scss';
+import theme from './BasicSearch.module.scss';
 import { USAGE_TRACKING_TAGS } from '../../constants';
 import { DEFAULT_QUICKSEARCH_OPERATOR } from '../QuickSearchInput/QuickSearchInput.component';
 

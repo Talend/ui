@@ -7,8 +7,8 @@ import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import { resizeColumns, extractResizableProps } from './utils/resizable';
-import theme from './VirtualizedList.scss';
-import tableTheme from './ListTable/ListTable.scss';
+import theme from './VirtualizedList.module.scss';
+import tableTheme from './ListTable/ListTable.module.scss';
 
 import { virtualizedListContext } from './virtualizedListContext';
 

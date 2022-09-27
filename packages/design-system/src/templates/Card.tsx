@@ -7,7 +7,7 @@ import { StackVertical } from '../components/Stack';
 
 import tokens from '../deprecatedTokens';
 
-import theme from './Card.scss';
+import theme from './Card.module.scss';
 
 export type CardTemplateProps = PropsWithChildren<any> & {
 	title?: string;

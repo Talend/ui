@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { getTheme, Checkbox, Action, Rich, Loader, FilterBar } from '@talend/react-components';
-import cssModule from './BadgeTags.scss';
+import cssModule from './BadgeTags.module.scss';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);

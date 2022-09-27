@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { scaleLinear } from 'd3';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
-import styles from './NumberInputField.component.scss';
+import styles from './NumberInputField.component.module.scss';
 import { formatNumber, getFractionDigits } from '../../../../formatters/formatters';
 import { RangeHandler, Ticks } from '../range-handler.types';
 import { formatD3Ticks } from '../slider-ticks.utils';

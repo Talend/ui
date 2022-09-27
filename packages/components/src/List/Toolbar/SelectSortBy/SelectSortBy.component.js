@@ -5,7 +5,7 @@ import uuid from 'uuid';
 import classNames from 'classnames';
 
 import getDefaultT from '../../../translate';
-import theme from './SelectSortBy.scss';
+import theme from './SelectSortBy.module.scss';
 import Icon from '../../../Icon';
 
 function SortByItem({ option, index, id, t }) {

@@ -9,7 +9,7 @@ import CircularProgress from '../../CircularProgress';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
-import theme from './ActionButton.scss';
+import theme from './ActionButton.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';

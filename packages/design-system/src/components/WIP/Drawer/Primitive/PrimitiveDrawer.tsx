@@ -1,7 +1,7 @@
 import React from 'react';
 import { StackVertical } from '../../../Stack';
 
-import theme from './PrimitiveDrawer.scss';
+import theme from './PrimitiveDrawer.module.scss';
 
 export type DrawerProps = {
 	header?: React.ReactNode;

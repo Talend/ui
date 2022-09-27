@@ -7,7 +7,7 @@ import Action from '../../Actions/Action/Action.component';
 import Item from './Item/Item.component';
 import ItemEdit from './Item/ItemEdit.component';
 import ItemEditPropTypes from './Item/ItemEdit.propTypes';
-import theme from './Items.scss';
+import theme from './Items.module.scss';
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 

@@ -6,7 +6,7 @@ import { buildYears } from '../../generator';
 import WithDynamicListGesture from '../../../../Gesture/withDynamicListGesture';
 import getDefaultT from '../../../../translate';
 
-import theme from './YearPicker.scss';
+import theme from './YearPicker.module.scss';
 
 const YEAR_WINDOW_SIZE = 7;
 const YEAR_WINDOW_OVERFLOW_SIZE = 3;

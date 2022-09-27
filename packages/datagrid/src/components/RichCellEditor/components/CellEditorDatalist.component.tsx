@@ -5,7 +5,7 @@ import { Datalist } from '@talend/react-components';
 
 import { AgGridCellValue } from '../../../types';
 
-import theme from './CellEditorDatalist.component.scss';
+import theme from './CellEditorDatalist.component.module.scss';
 
 interface CellEditorDatalistPropTypes {
 	eGridCell: HTMLDivElement;

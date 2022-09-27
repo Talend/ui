@@ -13,7 +13,7 @@ import getDefaultT from '../translate';
 import { getTheme } from '../theme';
 import AppSwitcher from '../AppSwitcher';
 
-import headerBarCssModule from './HeaderBar.scss';
+import headerBarCssModule from './HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
 

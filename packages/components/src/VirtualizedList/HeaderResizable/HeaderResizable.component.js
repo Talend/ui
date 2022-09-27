@@ -5,7 +5,7 @@ import Draggable from 'react-draggable';
 import keycode from 'keycode';
 import { defaultTableHeaderRenderer } from 'react-virtualized';
 import { ConsumerVirtualizedList } from '../virtualizedListContext';
-import headerResizableCssModule from './HeaderResizable.scss';
+import headerResizableCssModule from './HeaderResizable.module.scss';
 import { getTheme } from '../../theme';
 import getDefaultT from '../../translate';
 

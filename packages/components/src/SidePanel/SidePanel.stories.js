@@ -3,7 +3,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
-import appStyle from '../../stories/config/themes.scss';
+import appStyle from '../../stories/config/themes.module.scss';
 
 const actions = [
 	{

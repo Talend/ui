@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import theme from './Emphasis.scss';
+import theme from './Emphasis.module.scss';
 
 function isNotEmpty(value) {
 	return value;

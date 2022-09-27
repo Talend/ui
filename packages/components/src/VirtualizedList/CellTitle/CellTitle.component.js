@@ -8,7 +8,7 @@ import CellTitleSelector from './CellTitleSelector.component';
 import CellTitleActions from './CellTitleActions.component';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
 
-import theme from './CellTitle.scss';
+import theme from './CellTitle.module.scss';
 
 const { LARGE } = listTypes;
 const { TITLE_MODE_TEXT } = cellTitleDisplayModes;

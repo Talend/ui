@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { buildMonths } from '../../generator';
 
-import theme from './MonthPicker.scss';
+import theme from './MonthPicker.module.scss';
 import { withMonthCalendarGesture } from '../../../../Gesture/withCalendarGesture';
 import getDefaultT from '../../../../translate';
 
