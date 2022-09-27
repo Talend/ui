@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next';
 import keycode from 'keycode';
 import memoizeOne from 'memoize-one';
 
-import theme from './MultiSelect.scss';
+import theme from './MultiSelect.module.scss';
 import VirtualizedList from '../VirtualizedList';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import { ItemOption } from './ItemOption.component';

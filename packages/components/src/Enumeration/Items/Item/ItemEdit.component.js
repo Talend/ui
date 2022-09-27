@@ -5,7 +5,7 @@ import keycode from 'keycode';
 import { withTranslation } from 'react-i18next';
 
 import Action from '../../../Actions/Action';
-import theme from './Item.scss';
+import theme from './Item.module.scss';
 import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';

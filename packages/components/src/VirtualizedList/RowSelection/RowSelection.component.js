@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import theme from './RowSelection.scss';
+import theme from './RowSelection.module.scss';
 
 /**
  * Higher order row-renderer that wrap the provided row renderer.

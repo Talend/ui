@@ -5,7 +5,7 @@ import words from 'lodash/words';
 import ModelViewer from './ModelViewer';
 import RecordsViewer from './RecordsViewer';
 import hierarchicSample from './sample.raw.json';
-import theme from './theme.scss';
+import theme from './theme.module.scss';
 
 /**
  * Transform the jsonpath $['pathParent']['pathChildren],

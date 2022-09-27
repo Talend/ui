@@ -9,7 +9,7 @@ import { getTheme } from '@talend/react-components/lib/theme';
 
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 import { USAGE_TRACKING_TAGS } from '../../constants';
-import theme from './AdvancedSearch.scss';
+import theme from './AdvancedSearch.module.scss';
 
 const css = getTheme(theme);
 

@@ -16,7 +16,7 @@ import getLanguage from './lang';
 import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
-import theme from './UIForm.scss';
+import theme from './UIForm.module.scss';
 import { WidgetContext } from './context';
 import widgets from './utils/widgets';
 

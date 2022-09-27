@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import theme from './CellCheckbox.scss';
+import theme from './CellCheckbox.module.scss';
 
 import { SELECTION_MODE } from '../utils/constants';
 

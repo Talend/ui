@@ -7,7 +7,7 @@ import OverlayTrigger from '@talend/react-components/lib/OverlayTrigger';
 import Icon from '@talend/react-components/lib/Icon';
 import Message from '../../Message';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import theme from './FieldTemplate.scss';
+import theme from './FieldTemplate.module.scss';
 
 function Label({ id, label, ...rest }) {
 	return (

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
 
-import theme from './TimeZone.scss';
+import theme from './TimeZone.module.scss';
 
 function TimeZone(props) {
 	return (

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { TreeHeader } from '../Headers';
 import { Tree } from '../Core';
 import getDefaultT from '../../translate';
-import theme from './ModelViewer.scss';
+import theme from './ModelViewer.module.scss';
 
 export function ModelViewer({ t, ...props }) {
 	return (

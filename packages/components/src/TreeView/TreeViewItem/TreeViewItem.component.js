@@ -7,7 +7,7 @@ import { Action } from '../../Actions';
 import Icon from '../../Icon';
 import Badge from '../../Badge';
 
-import css from './TreeViewItem.scss';
+import css from './TreeViewItem.module.scss';
 
 const BASE_PADDING = 30;
 const CARET_WIDTH = 12;

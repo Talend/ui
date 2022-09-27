@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import keycode from 'keycode';
 import { usePopper } from 'react-popper';
 
-import theme from './Typeahead.scss';
+import theme from './Typeahead.module.scss';
 import {
 	renderItemsContainerFactory,
 	renderInputComponent,

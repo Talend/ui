@@ -8,7 +8,7 @@ import { cellTitleDisplayModes, listTypes } from '../utils/constants';
 import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
-import theme from './CellTitleActions.scss';
+import theme from './CellTitleActions.module.scss';
 import Action from '../../Actions/Action/Action.component';
 
 const { TITLE_MODE_INPUT, TITLE_MODE_TEXT } = cellTitleDisplayModes;

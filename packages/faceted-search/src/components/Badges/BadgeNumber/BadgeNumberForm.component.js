@@ -5,7 +5,7 @@ import { getTheme } from '@talend/react-components/lib/theme';
 import { Rich } from '@talend/react-components';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-import cssModule from './BadgeNumber.scss';
+import cssModule from './BadgeNumber.module.scss';
 
 const theme = getTheme(cssModule);
 

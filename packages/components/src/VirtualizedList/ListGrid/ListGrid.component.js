@@ -4,7 +4,7 @@ import { List as VirtualizedList } from 'react-virtualized';
 
 import getRowSelectionRenderer from '../RowSelection';
 
-import theme from './ListGrid.scss';
+import theme from './ListGrid.module.scss';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 /**

@@ -6,7 +6,7 @@ import omit from 'lodash/omit';
 import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
-import theme from './Datalist.scss';
+import theme from './Datalist.module.scss';
 import FocusManager from '../FocusManager';
 import Icon from '../Icon';
 

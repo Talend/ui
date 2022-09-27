@@ -7,7 +7,7 @@ import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';
 import { useBadgeFacetedContext } from '../../context/badgeFaceted.context';
 
-import cssModule from './BadgeFaceted.scss';
+import cssModule from './BadgeFaceted.module.scss';
 
 import { useBadgeOverlayFlow, OVERLAY_FLOW_ACTIONS } from '../../../hooks/badgeOverlayFlow.hook';
 import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';

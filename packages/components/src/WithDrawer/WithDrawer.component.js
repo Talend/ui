@@ -5,7 +5,7 @@ import get from 'lodash/get';
 
 import Drawer from '../Drawer';
 
-import theme from './withDrawer.scss';
+import theme from './withDrawer.module.scss';
 
 /**
  * The Layout component is a container

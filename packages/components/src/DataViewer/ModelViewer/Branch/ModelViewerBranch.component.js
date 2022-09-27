@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SimpleTextKeyValue } from '../../Text';
 import { TreeBranchIcon } from '../../Icons';
-import theme from '../ModelViewer.scss';
+import theme from '../ModelViewer.module.scss';
 
 function getBranchDisplayKey(union, hasSemanticAwareness, getDisplayKey, value) {
 	if (union) {

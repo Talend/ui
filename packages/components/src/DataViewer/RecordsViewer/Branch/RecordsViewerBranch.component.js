@@ -6,7 +6,7 @@ import keycode from 'keycode';
 import Skeleton from '../../../Skeleton';
 import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
-import theme from '../RecordsViewer.scss';
+import theme from '../RecordsViewer.module.scss';
 import { Icon } from '@talend/design-system';
 
 /**

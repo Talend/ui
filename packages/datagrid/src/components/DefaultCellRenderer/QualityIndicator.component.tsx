@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { QUALITY_INVALID_KEY } from '../../constants';
 import { QualityIndex } from '../../types';
 
-import theme from './QualityIndicator.scss';
+import theme from './QualityIndicator.module.scss';
 
 export interface QualityIndicatorProps {
 	qualityIndex: QualityIndex;

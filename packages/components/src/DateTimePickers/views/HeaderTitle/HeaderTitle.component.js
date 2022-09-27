@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import setYear from 'date-fns/set_year';
 import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
-import theme from './HeaderTitle.scss';
+import theme from './HeaderTitle.module.scss';
 import { getPickerLocale } from '../../generator';
 import { ActionDropdown, Action } from '../../../Actions';
 import YearPicker from '../../pickers/YearPicker';
