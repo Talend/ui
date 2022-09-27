@@ -75,6 +75,7 @@ $border-size: 0.1rem;
 	&-branch {
 		flex-direction: column;
 		justify-content: center;
+		margin-left: 12px;
 
 		&-highlighted::before {
 			@include selection($background-highlight);
@@ -106,10 +107,6 @@ $border-size: 0.1rem;
 		}
 
 		&-icon {
-			position: absolute;
-			left: 0;
-			top: 50%;
-			transform: translate(-150%, -50%);
 			color: $brand-primary;
 			height: $svg-sm-size;
 			width: $svg-sm-size;

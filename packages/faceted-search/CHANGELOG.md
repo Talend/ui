@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.0.0
+
+### Major Changes
+
+- d134a19e8: fix(faceted-search): handle Design-System breaking changes
+
 ## 7.0.2
 
 ### Patch Changes
