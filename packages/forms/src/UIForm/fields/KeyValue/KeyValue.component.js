@@ -5,7 +5,7 @@ import last from 'lodash/last';
 import Widget from '../../Widget';
 import FieldTemplate from '../FieldTemplate';
 
-import theme from './KeyValue.scss';
+import theme from './KeyValue.module.scss';
 
 /**
  * Default part (key or value) schema

@@ -4,7 +4,7 @@ import uuid from 'uuid';
 import get from 'lodash/get';
 import { getTheme } from '../../theme';
 
-import css from './LabelToggle.scss';
+import css from './LabelToggle.module.scss';
 
 const theme = getTheme(css);
 

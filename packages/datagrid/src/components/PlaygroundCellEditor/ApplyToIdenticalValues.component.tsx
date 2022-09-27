@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ButtonPrimary, ButtonSecondary, Form, StackHorizontal } from '@talend/design-system';
 
-import theme from './ApplyToIdenticalValues.scss';
+import theme from './ApplyToIdenticalValues.module.scss';
 
 interface ApplyToIdenticalValuesPropTypes {
 	onSubmit: (checked: boolean) => void;

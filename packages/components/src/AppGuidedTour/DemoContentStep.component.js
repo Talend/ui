@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Stepper from '../Stepper';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-import theme from './DemoContentStep.scss';
+import theme from './DemoContentStep.module.scss';
 
 export default function DemoContentStep({ demoContentSteps }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);

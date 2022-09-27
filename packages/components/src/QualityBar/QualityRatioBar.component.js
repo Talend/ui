@@ -7,7 +7,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import RatioBar from '../RatioBar';
 import { getTheme } from '../theme';
 
-import qualityBarTheme from './QualityRatioBar.scss';
+import qualityBarTheme from './QualityRatioBar.module.scss';
 
 const theme = getTheme(qualityBarTheme);
 

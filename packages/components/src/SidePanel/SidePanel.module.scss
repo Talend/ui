@@ -52,7 +52,7 @@ $large-docked-width: 7rem;
 			.btn.btn-link {
 				display: flex;
 				align-items: center;
-				justify-content: start;
+				justify-content: flex-start;
 				font-size: 1.6rem;
 				height: $list-item-height;
 				margin: $padding-smaller $padding-small;

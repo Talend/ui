@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
-import theme from './CellTitle.scss';
+import theme from './CellTitle.module.scss';
 
 /**
  * Title input mode.

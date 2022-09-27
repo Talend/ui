@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
-import theme from './CircularProgress.scss';
+import theme from './CircularProgress.module.scss';
 import getDefaultT from '../translate';
 
 const RADIUS = 20;

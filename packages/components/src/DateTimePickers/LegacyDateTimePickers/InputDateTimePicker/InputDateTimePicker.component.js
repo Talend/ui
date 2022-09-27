@@ -11,7 +11,7 @@ import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 
-import theme from './InputDateTimePicker.scss';
+import theme from './InputDateTimePicker.module.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',

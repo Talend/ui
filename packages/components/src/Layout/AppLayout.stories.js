@@ -7,7 +7,7 @@ import Layout from '.';
 import SidePanel from '../SidePanel';
 import SubHeaderBar from '../SubHeaderBar';
 import List from '../List/ListComposition';
-import appStyle from '../../stories/config/themes.scss';
+import appStyle from '../../stories/config/themes.module.scss';
 
 const actions = [
 	{

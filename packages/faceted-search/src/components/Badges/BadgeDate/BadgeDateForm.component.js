@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Action, getTheme, Rich, DatePicker } from '@talend/react-components';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-import cssModule from './BadgeDate.scss';
+import cssModule from './BadgeDate.module.scss';
 
 const theme = getTheme(cssModule);
 

@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import Action from '../../Actions/Action';
-import theme from './Header.scss';
+import theme from './Header.module.scss';
 
 let inputRef;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { FormatValue } from '@talend/react-components';
 import { Tooltip } from '../Tooltip/Tooltip.component';
-import styles from './KeyValueTooltip.component.scss';
+import styles from './KeyValueTooltip.component.module.scss';
 import { ChartStyle } from '../../types';
 
 export interface KeyValueTooltipProps {

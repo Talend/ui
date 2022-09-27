@@ -13,7 +13,7 @@ import Inject from '../Inject';
 import EditableText from '../EditableText';
 import { getTheme } from '../theme';
 
-import theme from './Drawer.scss';
+import theme from './Drawer.module.scss';
 
 const css = getTheme(theme);
 const DEFAULT_TRANSITION_DURATION = 350;

@@ -5,7 +5,7 @@ import { Stepper as CoralStepper } from '@talend/design-system';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import { getTheme } from '../theme';
-import theme from './Stepper.component.scss';
+import theme from './Stepper.component.module.scss';
 import { DEFAULT_TRANSITION_DURATION, StepperTransition } from './StepperTransition.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 

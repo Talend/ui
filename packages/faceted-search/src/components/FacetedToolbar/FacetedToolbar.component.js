@@ -4,7 +4,7 @@ import { Form } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { FACETED_MODE, USAGE_TRACKING_TAGS } from '../../constants';
-import cssModule from './FacetedToolbar.scss';
+import cssModule from './FacetedToolbar.module.scss';
 
 const theme = getTheme(cssModule);
 

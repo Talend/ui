@@ -1,5 +1,5 @@
-import theme from './ListTable.scss';
-import cellActionsTheme from '../CellActions/RowTableCellActions.scss';
+import theme from './ListTable.module.scss';
+import cellActionsTheme from '../CellActions/RowTableCellActions.module.scss';
 
 export default [
 	theme.row,

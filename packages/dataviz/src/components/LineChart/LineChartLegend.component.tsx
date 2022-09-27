@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './LineChart.scss';
+import styles from './LineChart.module.scss';
 
 import { LineOptions } from './LineChart.types';
 import { LineIcon } from './LineChartLineIcon.component';

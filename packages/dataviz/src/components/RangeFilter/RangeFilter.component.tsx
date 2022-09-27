@@ -2,7 +2,7 @@ import React, { ReactNode, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { Slider } from '@talend/react-components';
-import styles from './RangeFilter.component.scss';
+import styles from './RangeFilter.component.module.scss';
 import { Range } from '../../types';
 import { I18N_DOMAIN_DATAVIZ } from '../../constants';
 import { RangeHandler, Ticks } from './handlers/range-handler.types';

@@ -8,7 +8,7 @@ import { INPUT_ERRORS, HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS } from '../co
 import { DateTimeContext } from '../Context';
 import Error from './Error.component';
 
-import theme from './Validation.scss';
+import theme from './Validation.module.scss';
 
 function Validation({ t }) {
 	const { errorManagement } = useContext(DateTimeContext);

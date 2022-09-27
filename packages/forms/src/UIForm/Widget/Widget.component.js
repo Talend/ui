@@ -7,7 +7,7 @@ import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 import shouldRender from '../utils/condition';
 
-import theme from './Widget.component.scss';
+import theme from './Widget.component.module.scss';
 import { useWidget } from '../context';
 
 function isUpdating(updatingKeys = [], key) {

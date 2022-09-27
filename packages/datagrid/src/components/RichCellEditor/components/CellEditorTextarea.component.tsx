@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import theme from './CellEditorTextarea.component.scss';
+import theme from './CellEditorTextarea.component.module.scss';
 
 interface CellEditorTextareaPropTypes {
 	eGridCell: HTMLDivElement;

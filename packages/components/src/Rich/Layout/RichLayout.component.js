@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Inject from '../../Inject';
-import theme from './RichLayout.scss';
+import theme from './RichLayout.module.scss';
 
 const TooltipPropTypes = {
 	id: PropTypes.string.isRequired,
