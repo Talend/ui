@@ -75,7 +75,6 @@ export class TreeBranchIcon extends React.PureComponent {
 					className={iconClassNames}
 					key="Icon"
 					name={icon.name}
-					onClick={this.onClick}
 					title={`${title} ${dataKey} (${jsonpath})`}
 				/>
 			</span>
