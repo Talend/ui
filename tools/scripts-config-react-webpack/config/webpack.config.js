@@ -262,6 +262,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			resolve: {
 				extensions: ['.js', useTypescript && '.ts', useTypescript && '.tsx'].filter(Boolean),
 				fallback: {
+					path: false,
 					url: false,
 				},
 			},
