@@ -7,7 +7,7 @@ $checkbox-size: tokens.$coral-sizing-xxxs;
 .checkbox {
   display: flex;
   gap: tokens.$coral-spacing-xs;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
 

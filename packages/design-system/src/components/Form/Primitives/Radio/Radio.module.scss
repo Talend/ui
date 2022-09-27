@@ -6,7 +6,7 @@ $mark-size: calc(#{tokens.$coral-sizing-xxs} / 2);
 .radio {
   display: inline-flex;
   gap: tokens.$coral-spacing-xs;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
 

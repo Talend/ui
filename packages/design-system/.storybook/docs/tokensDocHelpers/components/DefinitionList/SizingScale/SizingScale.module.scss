@@ -5,8 +5,8 @@
   flex-flow: row nowrap;
   overflow: auto;
   gap: tokens.$coral-spacing-m;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   list-style-type: none;
   max-width: 100%;
 
