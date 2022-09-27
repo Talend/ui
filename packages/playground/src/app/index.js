@@ -9,7 +9,7 @@ import '@talend/bootstrap-theme/dist/bootstrap.css';
 import getRouter from '@talend/react-cmf-router';
 import React from 'react';
 import cmf from '@talend/react-cmf';
-import { AppLoader, IconsProvider as BaseIconsProvider } from '@talend/react-components';
+import { AppLoader, IconsProvider } from '@talend/react-components';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import { initI18n } from './i18n';
@@ -32,13 +32,6 @@ if (basename === '/') {
 const router = getRouter({ basename });
 
 initI18n();
-const allsvg = `${basename || ''}/cdn/@talend/icons/${
-	process.env.ICONS_VERSION
-}/dist/svg-bundle/all.svg`;
-
-function IconsProvider() {
-	return <BaseIconsProvider bundles={[allsvg]} />;
-}
 
 const app = {
 	components: {
