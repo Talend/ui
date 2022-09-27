@@ -14,7 +14,7 @@
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
   gap: tokens.$coral-spacing-m;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .title {
