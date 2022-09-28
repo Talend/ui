@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-guidedtour-accent-color: $scooter !default;
 $tc-guidedtour-tooltip-padding: $padding-large !default;
 $tc-guidedtour-mask-opactiy: 0.25 !default;
