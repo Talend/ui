@@ -34,32 +34,40 @@ function getInfo(importPath) {
 }
 
 function transform(filename) {
-	console.log('transform', filename);
 	const scssFileDirectory = path.dirname(filename);
-	// https://sass-lang.com/documentation/js-api/interfaces/Options
-	const opts = {
-		sourceMap: true,
-		loadPaths: [nodeModulesPath, scssFileDirectory, CWD],
-		importers: [
-			{
-				findFileUrl(url) {
-					// Load paths only support relative URLs.
-					if (url.startsWith('~')) {
-						const info = getInfo(url.replace('~', ''));
-						// console.log(new URL(info.url, pathToFileURL(info.base)));
-						return new URL(info.url, pathToFileURL(info.base));
-					}
-					return new URL(url, pathToFileURL(loadPath));
+	let content;
+	if (!filename.match(/\/_.*\.scss/)) {
+		console.log('transform', filename);
+		//compile
+		// https://sass-lang.com/documentation/js-api/interfaces/Options
+		const opts = {
+			sourceMap: true,
+			loadPaths: [nodeModulesPath, scssFileDirectory, CWD],
+			importers: [
+				{
+					findFileUrl(url) {
+						// Load paths only support relative URLs.
+						if (url.startsWith('~')) {
+							const info = getInfo(url.replace('~', ''));
+							// console.log(new URL(info.url, pathToFileURL(info.base)));
+							return new URL(info.url, pathToFileURL(info.base));
+						}
+						return new URL(url, pathToFileURL(loadPath));
+					},
 				},
-			},
-		],
-	};
-	// TODO: better find target based on config or sth ?
-	const sassResult = sass.compile(filename, { ...opts });
+			],
+		};
+		// TODO: better find target based on config or sth ?
+		const sassResult = sass.compile(filename, { ...opts });
+		content = sassResult.css;
+	} else {
+		console.log('copy', filename);
+		content = fs.readFileSync(filename).toString();
+	}
 	const endPath = filename.replace(CWD, '').replace('src', 'lib');
 	const target = path.join(CWD, endPath).replace('.scss', '.css');
 	console.log(target);
-	fs.writeFileSync(target, sassResult.css);
+	fs.writeFileSync(target, content);
 }
 
 function findAllSrcFiles(current = srcPath, buff = []) {

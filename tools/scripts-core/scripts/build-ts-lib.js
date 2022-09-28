@@ -10,7 +10,7 @@ const { getUserConfigFile } = require('../utils/env');
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const tsc = resolveBin('typescript', { executable: 'tsc' });
-const sass = resolveBin('@talend/babel-plugin-import-scss', { executable: 'talend-sass' });
+const sass = resolveBin('@talend/babel-plugin-import-scss', { executable: 'talend-scss' });
 
 module.exports = function build(env, presetApi, options) {
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
