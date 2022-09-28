@@ -11,7 +11,7 @@ import '../translate';
 import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
-import theme from './SidePanel.scss';
+import theme from './SidePanel.module.scss';
 
 const DOCKED_MIN_WIDTH = '6rem';
 const LARGE_DOCKED_MIN_WIDTH = '7rem';

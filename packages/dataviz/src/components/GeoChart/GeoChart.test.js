@@ -11,7 +11,7 @@ import { render } from '@testing-library/react';
 
 import GeoChart from './GeoChart.component';
 import { getGeoChartConfig } from './GeoChart.utils';
-import styles from './GeoChart.scss';
+import styles from './GeoChart.module.scss';
 
 describe('GeoChart component', () => {
 	let defaultProps;

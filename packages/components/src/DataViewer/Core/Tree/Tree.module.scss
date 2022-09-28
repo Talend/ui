@@ -14,7 +14,7 @@
 
 	&-node-border {
 		border-left: 1px solid $alto;
-		margin-left: -12px;
+		margin-left: calc($svg-sm-size / 2);
 		&:hover {
 			border-left-color: $silver-chalice;
 		}

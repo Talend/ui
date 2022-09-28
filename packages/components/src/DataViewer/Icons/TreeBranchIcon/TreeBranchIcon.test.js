@@ -55,23 +55,4 @@ describe('TreeBranchIcon', () => {
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should trigger onClick', () => {
-		const event = {};
-		const index = 0;
-		const opened = true;
-		const jsonpath = 'myJsonPath';
-		const value = { value: 'myValue' };
-		const onToggle = jest.fn();
-		const wrapper = shallow(
-			<Component
-				index={index}
-				jsonpath={jsonpath}
-				onToggle={onToggle}
-				opened={opened}
-				value={value}
-			/>,
-		);
-		wrapper.find('Icon').simulate('click', event);
-		expect(onToggle).toHaveBeenCalledWith(event, { value, opened, jsonpath }, index);
-	});
 });

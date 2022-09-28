@@ -7,7 +7,7 @@ import get from 'lodash/get';
 import Widget from '../../Widget';
 import { generateDescriptionId } from '../../Message/generateId';
 
-import theme from './CollapsibleFieldset.scss';
+import theme from './CollapsibleFieldset.module.scss';
 
 /**
  * @return {Arary<string>} itemkey

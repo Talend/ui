@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import Action from '../Actions/Action';
 
-import css from './HttpError.scss';
+import css from './HttpError.module.scss';
 
 const className = 'http-error';
 

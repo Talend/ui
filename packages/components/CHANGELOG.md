@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.10.2
+
+### Patch Changes
+
+- 561018c26: fix(TFD-14580): Fix DataViewer click on icons
+
 ## 7.10.1
 
 ### Patch Changes

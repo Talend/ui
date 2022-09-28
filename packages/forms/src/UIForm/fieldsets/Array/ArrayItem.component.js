@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-import theme from './ArrayItem.scss';
-import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.scss';
+import theme from './ArrayItem.module.scss';
+import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.module.scss';
 
 export function ReorderButton(props) {
 	const { disabled, index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder } = props;

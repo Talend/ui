@@ -10,7 +10,7 @@ import { QualityBar } from '@talend/react-components';
 
 import { HeaderComponentParams } from '../../types';
 
-import theme from './HeaderCellRenderer.scss';
+import theme from './HeaderCellRenderer.module.scss';
 
 export type HeaderRendererProps = IHeaderParams & HeaderComponentParams;
 

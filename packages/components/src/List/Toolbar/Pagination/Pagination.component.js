@@ -5,7 +5,7 @@ import { Nav, NavItem, NavDropdown, MenuItem } from '@talend/react-bootstrap';
 
 import Icon from '../../../Icon';
 
-import theme from './Pagination.scss';
+import theme from './Pagination.module.scss';
 import getDefaultT from '../../../translate';
 
 const FIRST = 'first';

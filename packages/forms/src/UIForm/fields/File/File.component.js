@@ -10,7 +10,7 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import { extractDataAttributes } from '../../utils/properties';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import theme from './File.scss';
+import theme from './File.module.scss';
 
 export const PRESIGNED_URL_TRIGGER_ACTION = 'generatePresignedURL';
 

@@ -7,7 +7,7 @@ import { ButtonIcon } from '@talend/design-system';
 import { FilterBar, getTheme, Rich } from '@talend/react-components';
 
 import { getTabIndex } from '../addFacetPopover.utils';
-import cssModule from './AddFacetPopoverHeader.scss';
+import cssModule from './AddFacetPopoverHeader.module.scss';
 
 const theme = getTheme(cssModule);
 

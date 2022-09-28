@@ -6,7 +6,7 @@ import uniq from 'lodash/uniq';
 
 import { getTheme, Rich } from '@talend/react-components';
 
-import cssModule from './AddFacetPopover.scss';
+import cssModule from './AddFacetPopover.module.scss';
 import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 import { AddFacetPopoverHeader } from './AddFacetPopoverHeader';
 import { AddFacetPopoverRowItem, AddFacetPopoverRowItemCategory } from './AddFacetPopoverRow';

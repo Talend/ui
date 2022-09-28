@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Label from './RowLabel';
 import Checkbox from './RowCheckbox';
-import cssModule from '../ColumnChooser.scss';
+import cssModule from '../ColumnChooser.module.scss';
 import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
