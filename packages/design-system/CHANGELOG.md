@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 5.0.1
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- 6fd16be45: fix: use flex-start instead of start
+
 ## 5.0.0
 
 ### Major Changes

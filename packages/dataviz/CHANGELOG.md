@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.7.2
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
 ## 2.7.1
 
 ### Patch Changes

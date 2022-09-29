@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 8.1.4
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
 ## 8.1.3
 
 ### Patch Changes
