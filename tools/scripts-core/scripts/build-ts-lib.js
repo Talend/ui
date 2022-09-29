@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const spawn = require('cross-spawn');
@@ -58,16 +59,16 @@ module.exports = function build(env, presetApi, options) {
 				console.log('Copying assets...');
 				cpx.copySync(`${srcFolder}/**/*.{json}`, targetFolder);
 				console.log(`Babel exit: ${status}`);
-				const sassSpawn = spawn(sass, { stdio: 'inherit', env });
+				const sassSpawn = spawn(sass, [srcFolder, targetFolder], { stdio: 'inherit', env });
 				sassSpawn.on('exit', sassStatus => {
 					if (parseInt(sassStatus, 10) !== 0) {
 						console.error(`Babel exit error: ${sassStatus}`);
 						reject(new Error(sassStatus));
 					} else {
 						console.log(`sass exit: ${status}`);
+						resolve({ status });
 					}
 				});
-				resolve({ status });
 			}
 		});
 	});

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const path = require('path');
 const spawn = require('cross-spawn');
 const rimraf = require('rimraf');
@@ -7,6 +8,7 @@ const { getPreset } = require('../utils/preset');
 const { getUserConfigFile } = require('../utils/env');
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
+const sass = resolveBin('@talend/babel-plugin-import-scss', { executable: 'talend-scss' });
 
 module.exports = function build(env, presetApi, options) {
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
@@ -22,28 +24,44 @@ module.exports = function build(env, presetApi, options) {
 	rimraf.sync(targetFolder);
 
 	console.log('Compiling with babel...');
-	spawn.sync(
-		babel,
-		[
-			'--config-file',
-			babelConfigPath,
-			'-d',
-			targetFolder,
-			srcFolder,
-			'--source-maps',
-			'--ignore',
-			'**/*.test.js,**/*.stories.js',
-			...options,
-		],
-		{
-			stdio: 'inherit',
-			env,
-		},
-	);
-
-	console.log('Copying assets...');
-	cpx.copySync(`${srcFolder}/**/*.{scss,json}`, targetFolder);
-
-	console.log('🎉 Build complete');
-	return { status: 0 };
+	return new Promise((resolve, reject) => {
+		const babelSpawn = spawn(
+			babel,
+			[
+				'--config-file',
+				babelConfigPath,
+				'-d',
+				targetFolder,
+				srcFolder,
+				'--source-maps',
+				'--ignore',
+				'**/*.test.js,**/*.stories.js',
+				...options,
+			],
+			{
+				stdio: 'inherit',
+				env,
+			},
+		);
+		babelSpawn.on('exit', status => {
+			if (parseInt(status, 10) !== 0) {
+				console.error(`Babel exit error: ${status}`);
+				reject(new Error(status));
+			} else {
+				console.log('Copying assets...');
+				cpx.copySync(`${srcFolder}/**/*.{json}`, targetFolder);
+				const sassSpawn = spawn(sass, [srcFolder, targetFolder], { stdio: 'inherit', env });
+				sassSpawn.on('exit', sassStatus => {
+					if (parseInt(sassStatus, 10) !== 0) {
+						console.error(`Babel exit error: ${sassStatus}`);
+						reject(new Error(sassStatus));
+					} else {
+						console.log(`sass exit: ${sassStatus}`);
+						console.log('🎉 Build complete');
+						resolve({ status });
+					}
+				});
+			}
+		});
+	});
 };

@@ -7,7 +7,8 @@ const pathToFileURL = require('url').pathToFileURL;
 
 const CWD = process.cwd();
 const nodeModulesPath = path.join(CWD, 'node_modules');
-const srcPath = path.join(CWD, 'src');
+const SRC_PATH = process.argv[2]; // /home/user/project/src
+const TARGET_PATH = process.argv[3]; // /home/user/project/lib
 
 function getPkgRoot(filename) {
 	const dir = path.dirname(filename);
@@ -36,8 +37,8 @@ function getInfo(importPath) {
 function transform(filename) {
 	const scssFileDirectory = path.dirname(filename);
 	let content;
-	const endPath = filename.replace(CWD, '').replace('src', 'lib');
-	let target;
+	let target = filename.replace(SRC_PATH, TARGET_PATH);
+
 	if (filename.match(/\/_.*\.scss/) === null) {
 		//compile
 		// https://sass-lang.com/documentation/js-api/interfaces/Options
@@ -61,17 +62,17 @@ function transform(filename) {
 		// TODO: better find target based on config or sth ?
 		const sassResult = sass.compile(filename, { ...opts });
 		content = sassResult.css;
-		target = path.join(CWD, endPath).replace('.scss', '.css');
+		target = target.replace('.scss', '.css');
 		console.log('transform', filename, target);
 	} else {
 		content = fs.readFileSync(filename).toString();
-		target = path.join(CWD, endPath);
 		console.log('copy', filename, target);
 	}
 	fs.writeFileSync(target, content);
 }
 
-function findAllSrcFiles(current = srcPath, buff = []) {
+function findAllSrcFiles(current = SRC_PATH, buff = []) {
+	console.log('current', current);
 	return fs.readdirSync(current, { withFileTypes: true }).reduce((acc, info) => {
 		if (info.isDirectory()) {
 			return acc.concat(findAllSrcFiles(path.join(current, info.name)));
