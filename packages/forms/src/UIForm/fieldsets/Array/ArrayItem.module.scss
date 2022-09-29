@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .tf-array-item {
 	display: flex;
 	background: $wild-sand;
