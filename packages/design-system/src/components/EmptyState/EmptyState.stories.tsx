@@ -130,7 +130,7 @@ Usage.argTypes = {
 			actionType: 'button',
 			'data-feature': 'Feature name',
 		},
-		description: 'Optional for Large. Unavailable for Medium and Small',
+		description: 'Optional for Large and Medium. Unavailable for Small',
 	},
 	illustration: {
 		table: {
