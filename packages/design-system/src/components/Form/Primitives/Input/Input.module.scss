@@ -10,18 +10,15 @@
   }
 
   &[type="password"] {
-    padding-right: calc(#{tokens.$coral-sizing-xs} + #{tokens.$coral-spacing-xxs}*2);
+    // padding-right: calc(#{tokens.$coral-sizing-xs} + #{tokens.$coral-spacing-xxs}*2);
   }
 }
 
 .icon {
-  padding: 0 tokens.$coral-spacing-xs;
+  padding: 0 0 0 tokens.$coral-spacing-xs;
   background: transparent;
   color: tokens.$coral-color-neutral-icon-weak;
   transition: all tokens.$coral-transition-instant;
-  position: absolute;
-  left: 0;
-  top: 0;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -33,9 +30,5 @@
 
   &_readOnly {
 	  color: tokens.$coral-color-neutral-text-weak;
-  }
-
-  + input {
-	  padding-left: tokens.$coral-spacing-l;
   }
 }
