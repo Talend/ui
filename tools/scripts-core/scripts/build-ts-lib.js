@@ -41,6 +41,7 @@ module.exports = function build(env, presetApi, options) {
 				targetFolder,
 				srcFolder,
 				'--source-maps',
+				'--plugins=@talend/babel-plugin-import-scss',
 				'--ignore',
 				// @see https://github.com/babel/babel/issues/12008
 				'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',

@@ -34,6 +34,7 @@ module.exports = function build(env, presetApi, options) {
 				targetFolder,
 				srcFolder,
 				'--source-maps',
+				'--plugins=@talend/babel-plugin-import-scss',
 				'--ignore',
 				'**/*.test.js,**/*.stories.js',
 				...options,
