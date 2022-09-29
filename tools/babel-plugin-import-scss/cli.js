@@ -59,20 +59,21 @@ function transform(filename) {
 				},
 			],
 		};
-		// TODO: better find target based on config or sth ?
 		const sassResult = sass.compile(filename, { ...opts });
 		content = sassResult.css;
 		target = target.replace('.scss', '.css');
-		console.log('transform', filename, target);
+		// console.log('transform', filename, target);
 	} else {
 		content = fs.readFileSync(filename).toString();
-		console.log('copy', filename, target);
+		// console.log('copy', filename, target);
+	}
+	if (!fs.existsSync(path.dirname(target))) {
+		fs.mkdirSync(path.dirname(target), { recursive: true });
 	}
 	fs.writeFileSync(target, content);
 }
 
 function findAllSrcFiles(current = SRC_PATH, buff = []) {
-	console.log('current', current);
 	return fs.readdirSync(current, { withFileTypes: true }).reduce((acc, info) => {
 		if (info.isDirectory()) {
 			return acc.concat(findAllSrcFiles(path.join(current, info.name)));

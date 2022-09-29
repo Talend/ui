@@ -48,12 +48,14 @@ module.exports = function build(env, presetApi, options) {
 				console.error(`Babel exit error: ${status}`);
 				reject(new Error(status));
 			} else {
+				console.log(`babel exit: ${status}`);
 				console.log('Copying assets...');
 				cpx.copySync(`${srcFolder}/**/*.{json}`, targetFolder);
+				console.log('Compiling with sass...');
 				const sassSpawn = spawn(sass, [srcFolder, targetFolder], { stdio: 'inherit', env });
 				sassSpawn.on('exit', sassStatus => {
 					if (parseInt(sassStatus, 10) !== 0) {
-						console.error(`Babel exit error: ${sassStatus}`);
+						console.error(`sass exit error: ${sassStatus}`);
 						reject(new Error(sassStatus));
 					} else {
 						console.log(`sass exit: ${sassStatus}`);
