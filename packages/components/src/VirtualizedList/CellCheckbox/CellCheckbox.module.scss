@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .tc-list-checkbox {
 	:global(.checkbox) {
 		margin: 0;

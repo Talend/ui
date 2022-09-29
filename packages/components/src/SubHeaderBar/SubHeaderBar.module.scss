@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 @mixin input-icon($margin-left) {
 	margin-top: 1rem;
 	margin-left: $margin-left;

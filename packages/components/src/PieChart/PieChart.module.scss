@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 @import '~@talend/bootstrap-theme/src/theme/animation';
 $tc-pie-chart-font-size: $font-size-large !default;
 $tc-pie-chart-loading-min-height-no-label: 20px !default;

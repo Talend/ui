@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 // Large display specificities
 .row {
 	.tc-list-actions :global(.tc-actions) > button {

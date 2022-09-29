@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 @use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
 
 $tc-slider-thumb-shadow: 0 1px 2px 0 rgba(117, 132, 149, 0.5); //$slate-gray;

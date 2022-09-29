@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .tc-tile-container {
 	display: flex;
 	flex-direction: column;

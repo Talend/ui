@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-http-error-status-color: $scooter !default;
 $tc-http-error-title-color: $brand-primary !default;
 $tc-http-error-message-color: #888 !default;
