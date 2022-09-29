@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 const fs = require('fs');
 const sass = require('sass');
 const path = require('path');
@@ -29,15 +30,15 @@ function getInfo(importPath) {
 		base: getPkgRoot(mainPath),
 		url: rest.join('/'),
 	};
-	console.log(info);
 	return info;
 }
 
 function transform(filename) {
 	const scssFileDirectory = path.dirname(filename);
 	let content;
-	if (!filename.match(/\/_.*\.scss/)) {
-		console.log('transform', filename);
+	const endPath = filename.replace(CWD, '').replace('src', 'lib');
+	let target;
+	if (filename.match(/\/_.*\.scss/) === null) {
 		//compile
 		// https://sass-lang.com/documentation/js-api/interfaces/Options
 		const opts = {
@@ -60,13 +61,13 @@ function transform(filename) {
 		// TODO: better find target based on config or sth ?
 		const sassResult = sass.compile(filename, { ...opts });
 		content = sassResult.css;
+		target = path.join(CWD, endPath).replace('.scss', '.css');
+		console.log('transform', filename, target);
 	} else {
-		console.log('copy', filename);
 		content = fs.readFileSync(filename).toString();
+		target = path.join(CWD, endPath);
+		console.log('copy', filename, target);
 	}
-	const endPath = filename.replace(CWD, '').replace('src', 'lib');
-	const target = path.join(CWD, endPath).replace('.scss', '.css');
-	console.log(target);
 	fs.writeFileSync(target, content);
 }
 
