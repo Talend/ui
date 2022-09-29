@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react';
 
 import { ButtonPrimary } from '../../Button';
 import { ButtonPrimaryPropsType } from '../../Button/variations/ButtonPrimary';
+import Link from '../../Link';
+import { LinkProps } from '../../Link/Link';
 import { StackVertical } from '../../Stack';
 
 import ErrorIllustration from './illutstrations/ErrorIllustration';
@@ -12,7 +14,7 @@ type ErrorStatePropTypes = {
 	title: string;
 	description: string;
 	action?: Omit<ButtonPrimaryPropsType<'M'>, 'size'>;
-	link?: ReactElement | string;
+	link?: ReactElement | LinkProps;
 };
 
 function ErrorState({ title, description, action, link }: ErrorStatePropTypes) {
@@ -28,7 +30,7 @@ function ErrorState({ title, description, action, link }: ErrorStatePropTypes) {
 
 				{action && <ButtonPrimary {...action} />}
 
-				{link}
+				{link && (typeof link === 'object' ? <Link {...(link as LinkProps)} /> : link)}
 			</StackVertical>
 		</article>
 	);

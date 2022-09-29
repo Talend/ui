@@ -26,6 +26,17 @@ export const WithLink = () => (
 	/>
 );
 
+export const WithLinkProps = () => (
+	<ErrorState
+		title="Couldn't load your data"
+		description="We couldn't retrieve your data, you should try later"
+		link={{
+			href: 'https://www.talend.com',
+			children: 'Link built with props',
+		}}
+	/>
+);
+
 export const WithAction = () => (
 	<ErrorState
 		title="Couldn't load your data"
