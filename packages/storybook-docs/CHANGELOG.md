@@ -1,5 +1,14 @@
 # @talend/storybook-docs
 
+## 1.1.3
+
+### Patch Changes
+
+- 3c6f903af: fix(storybook-docs): Remove quotes from cmd arg
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/design-system@5.0.1
+
 ## 1.1.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @talend/react-components
 
+## 7.10.3
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- 6fd16be45: fix: use flex-start instead of start
+
 ## 7.10.2
 
 ### Patch Changes
