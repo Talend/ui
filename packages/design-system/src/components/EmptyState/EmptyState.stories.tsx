@@ -16,7 +16,7 @@ export const Large = () => (
 		action={{
 			children: 'Create a dataset',
 			onClick: () => sbAction('clicked'),
-			icon: 'talend-plus',
+			icon: 'plus',
 			actionType: 'button',
 		}}
 		link={{ href: 'https://talend.com' }}
@@ -30,7 +30,7 @@ export const LargeWithLinkButton = () => (
 			description="Add a preparation to clean, format, and transform data prior to processing."
 			action={{
 				children: 'Create a preparation',
-				icon: 'talend-plus',
+				icon: 'plus',
 				actionType: 'link',
 				as: <Link to="/preparation/new" />,
 				'data-feature': 'Preparation empty state clicked',
@@ -40,10 +40,16 @@ export const LargeWithLinkButton = () => (
 	</BrowserRouter>
 );
 
-export const Medium = () => (
+export const MediumWithAction = () => (
 	<EmptyStateMedium
-		title="No preparations yet"
+		title="No dataset yet"
 		description="Add a preparation to clean, format, and transform data prior to processing."
+		action={{
+			children: 'Create a dataset',
+			onClick: () => sbAction('clicked'),
+			icon: 'plus',
+			actionType: 'button',
+		}}
 		link={{ href: 'https://talend.com' }}
 	/>
 );
@@ -79,7 +85,7 @@ export const Usage = (args: EmptyStateProps) => {
 		}
 
 		case 'M': {
-			const { action, ...rest } = args;
+			const { ...rest } = args;
 			return <EmptyState {...rest} />;
 		}
 
