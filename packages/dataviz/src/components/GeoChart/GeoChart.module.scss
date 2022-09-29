@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 :export {
 	scaleMinColor: tint($regal-blue, 80%); /* stylelint-disable-line property-no-unknown */
 	scaleMaxColor: shade($regal-blue, 30%); /* stylelint-disable-line property-no-unknown */

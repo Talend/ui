@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $pattern-bar-primary-color: tint($jaffa, 70%);
 $pattern-bar-secondary-color: shade($jaffa, 30%);
 
