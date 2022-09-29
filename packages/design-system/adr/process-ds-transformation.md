@@ -3,14 +3,14 @@
 ## Current status of DS?
 
 - A dedicated team → 2 DS dev + 1 DS designer
-- <span style="background-color: #d4f3e6">In collaboration with products designers/content designers</spam>
-- <span style="background-color:#fbd7dd">Lack of collaboration from product developers</span>
-- <span style="background-color:#fbd7dd">Low usage in products</span>
+- In _collaboration_ with products designers/content designers
+- _Lack of collaboration_ from product developers
+- _Low usage_ in products
 - How can we move from the DS team to something?
 
 ## Org proposals
 
-- Have a composite team from the different projects (1 or 2 devs per team) and Designers => DS Champions 🎖
+- Have a composite team from the different domains (1 or 2 devs per domain) and Designers => `Design System Champions 🎖`
 
   - Goal : Bring the product teams inside the process of build the DS
 
@@ -22,19 +22,21 @@
     - TDOPS : TMC / Portal / IDAAS (7)
     - STITCH ?
 
-  - Placeholder DS in products <span style="background-color:#fbd7dd">(see TBD section)</span>
-    - Jira: Main topic on TUx and one on a product to do the link between DS roadmap and project activities?
+  - Timeslot Placeholder DS in domains capacity _(see TBD section)_
+    - Jira:
+      - "Main DS ticket" would stay on `TUx`
+      - Tickets would be created in the JIRA's products that take them and be linked to the TUx
 
 ## How to construct a roadmap
 
 Discuss the roadmap:
 
-- P1
+- Activity with priority 1
 
   - Create new components
   - Update existing components in DS (not those in TUI)
 
-- P2 (background tasks, less priority)
+- Activity with priority P2 (background tasks, less priority)
   - Integrate & migrate existing components (TUI) to the DS
   - Organise products migration
 
@@ -43,6 +45,7 @@ Discuss the roadmap:
 - 1 weekly meeting:
 
   - To discuss of subjects: 1 squad / subject with a small team composed with dev and UX designer (and Content designer when it's needed)
+  - The purpose of this meeting would be to get a quick round of synchronisation and to discuss about the next steps, but not going into details.
 
 - 1 monthly meeting
 
@@ -57,16 +60,14 @@ Discuss the roadmap:
     - How to define the agenda?
       > Agenda is construct with subject of previous meeting (see progress, make decision) and new needs (need to manage priority)
     - How will we share squad result?
-
       > Squad should share a quick status (ready or not, ask for help): like a daily
-
       > if too much question stop and redirect to off line meeting
 
 ## To be discussed and defined
 
 - How to manage deprecation?
 
-  - when the component is migrated to the DS, set the TUI component to deprecated <span style="background-color:#fbd7dd">for a time to define</span>
+  - when the component is migrated to the DS, set the TUI component to deprecated _for a time to define_
 
 - How to organise/plan work with projects?
 
