@@ -1,7 +1,7 @@
 import React from 'react';
 import { isElement } from 'react-is';
 
-import * as S from './Row.style';
+import styles from './Row.module.scss';
 
 type RowProps = React.HTMLAttributes<HTMLDivElement> & {
 	disabled?: boolean;
@@ -15,11 +15,11 @@ const Row = React.forwardRef(
 		if (readOnly) childrenProps.readOnly = true;
 
 		return (
-			<S.Row className="c-form__row" {...rest} ref={ref}>
+			<div className={styles.row} {...rest} ref={ref}>
 				{React.Children.toArray(children).map(child =>
 					isElement(child) ? React.cloneElement(child, childrenProps) : child,
 				)}
-			</S.Row>
+			</div>
 		);
 	},
 );

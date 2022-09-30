@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+
+import { render, screen } from '@testing-library/react';
 
 import AvroRenderer from './AvroRenderer.component';
 
@@ -14,131 +15,100 @@ function DateDummyComponent() {
 }
 
 describe('#AvroRenderer', () => {
-	it('should render AvroRenderer and load Injected Component stringCellRenderer', () => {
-		const wrapper = shallow(
-			<AvroRenderer
-				avroRenderer={{ stringCellRenderer: StringDummyComponent }}
-				colDef={{ avro: { type: { type: 'string' } } }}
-				data={{ value: 'value' }}
-			/>,
-		);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
 	it('should render AvroRenderer and load default component when no renderer', () => {
-		const wrapper = shallow(
-			<AvroRenderer
-				avroRenderer={{ stringCellRenderer: StringDummyComponent }}
-				colDef={{ avro: { type: { type: 'unknow' } } }}
-				data={{ value: 'value' }}
-			/>,
-		);
+		const wrapper = render(<AvroRenderer avro={{ type: 'any' }} value={'value'} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should mount stringCellRenderer', () => {
-		const wrapper = mount(
-			<AvroRenderer
-				avroRenderer={{ stringCellRenderer: StringDummyComponent }}
-				colDef={{ avro: { type: { type: 'string' } } }}
-				data={{ value: 'value' }}
-			/>,
-		);
-
-		expect(wrapper.find('StringDummyComponent').length).toBe(1);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.asFragment()).toMatchSnapshot();
 	});
 });
 
 describe('mapping cellRenderer', () => {
 	it('should use intCellRenderer when type is double', () => {
-		const wrapper = shallow(
+		render(
 			<AvroRenderer
 				avroRenderer={{
 					stringCellRenderer: StringDummyComponent,
 					intCellRenderer: IntDummyComponent,
 				}}
-				colDef={{ avro: { type: { type: 'double' } } }}
-				data={{ value: 'value' }}
+				avro={{ type: 'double' }}
+				value={'value'}
 			/>,
 		);
 
-		expect(wrapper.getElement().type).toEqual(IntDummyComponent);
+		expect(screen.getByText('int dummy component')).toBeInTheDocument();
 	});
 
 	it('should use intCellRenderer when type is float', () => {
-		const wrapper = shallow(
+		render(
 			<AvroRenderer
 				avroRenderer={{
 					stringCellRenderer: StringDummyComponent,
 					intCellRenderer: IntDummyComponent,
 				}}
-				colDef={{ avro: { type: { type: 'float' } } }}
-				data={{ value: 'value' }}
+				avro={{ type: 'float' }}
+				value={{ value: 'value' }}
 			/>,
 		);
 
-		expect(wrapper.getElement().type).toEqual(IntDummyComponent);
+		expect(screen.getByText('int dummy component')).toBeInTheDocument();
 	});
 
 	it('should use intCellRenderer when type is int', () => {
-		const wrapper = shallow(
+		render(
 			<AvroRenderer
 				avroRenderer={{
 					stringCellRenderer: StringDummyComponent,
 					intCellRenderer: IntDummyComponent,
 				}}
-				colDef={{ avro: { type: { type: 'int' } } }}
-				data={{ value: 'value' }}
+				avro={{ type: 'int' }}
+				value={'value'}
 			/>,
 		);
 
-		expect(wrapper.getElement().type).toEqual(IntDummyComponent);
+		expect(screen.getByText('int dummy component')).toBeInTheDocument();
 	});
 
 	it('should use intCellRenderer when type is long', () => {
-		const wrapper = shallow(
+		render(
 			<AvroRenderer
 				avroRenderer={{
 					stringCellRenderer: StringDummyComponent,
 					intCellRenderer: IntDummyComponent,
 				}}
-				colDef={{ avro: { type: { type: 'long' } } }}
-				data={{ value: 'value' }}
+				avro={{ type: 'long' }}
+				value={'value'}
 			/>,
 		);
 
-		expect(wrapper.getElement().type).toEqual(IntDummyComponent);
+		expect(screen.getByText('int dummy component')).toBeInTheDocument();
 	});
 
 	it('should use dateCellRenderer when type is long and logicalType is timestamp-millis', () => {
-		const wrapper = shallow(
+		render(
 			<AvroRenderer
 				avroRenderer={{
 					dateCellRenderer: DateDummyComponent,
 				}}
-				colDef={{ avro: { type: { type: 'long', logicalType: 'timestamp-millis' } } }}
-				data={{ value: 'value' }}
+				avro={{ type: 'long', logicalType: 'timestamp-millis' }}
+				value={'value'}
 			/>,
 		);
 
-		expect(wrapper.getElement().type).toEqual(DateDummyComponent);
+		expect(screen.getByText('date dummy component')).toBeInTheDocument();
 	});
 
 	it('should use intCellRenderer when type is int and logicalType is timestamp-millis', () => {
-		const wrapper = shallow(
+		render(
 			<AvroRenderer
 				avroRenderer={{
 					intCellRenderer: IntDummyComponent,
 					dateCellRenderer: DateDummyComponent,
 				}}
-				colDef={{ avro: { type: { type: 'int', logicalType: 'timestamp-millis' } } }}
-				data={{ value: 'value' }}
+				avro={{ type: 'int', logicalType: 'timestamp-millis' }}
+				value={'value'}
 			/>,
 		);
 
-		expect(wrapper.getElement().type).toEqual(IntDummyComponent);
+		expect(screen.getByText('int dummy component')).toBeInTheDocument();
 	});
 });

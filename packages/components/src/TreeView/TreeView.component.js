@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Action from '../Actions/Action';
 import TreeViewItem from './TreeViewItem';
 
-import theme from './TreeView.scss';
+import theme from './TreeView.module.scss';
 import withTreeGesture from '../Gesture/withTreeGesture';
 
 /**

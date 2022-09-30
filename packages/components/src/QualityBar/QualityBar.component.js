@@ -1,16 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import RatioBar from '../RatioBar';
+
+import { StackHorizontal } from '@talend/design-system';
+
 import {
 	QualityEmptyLine,
 	QualityInvalidLine,
 	QualityNotApplicableLine,
 	QualityPlaceholderLine,
-	QualityType,
 	QualityValidLine,
+	QualityType,
 } from './QualityRatioBar.component';
-import I18N_DOMAIN_COMPONENTS from '../constants';
+import RatioBar from '../RatioBar';
+
+function QualityBarRatioBars({
+	valid,
+	invalid,
+	empty,
+	na,
+	placeholder,
+	percentages,
+	getDataFeature,
+	onClick,
+}) {
+	const fwd = { onClick, getDataFeature };
+
+	return (
+		<RatioBar.Composition>
+			<QualityInvalidLine {...fwd} value={invalid} percentage={percentages.invalid} />
+			<QualityEmptyLine {...fwd} value={empty} percentage={percentages.empty} />
+			<QualityNotApplicableLine {...fwd} value={na} percentage={percentages.na} />
+			<QualityValidLine {...fwd} value={valid} percentage={percentages.valid} />
+			<QualityPlaceholderLine {...fwd} value={placeholder} percentage={percentages.placeholder} />
+		</RatioBar.Composition>
+	);
+}
+
+QualityBarRatioBars.propTypes = {
+	valid: PropTypes.number,
+	invalid: PropTypes.number,
+	empty: PropTypes.number,
+	na: PropTypes.number,
+	placeholder: PropTypes.number,
+	percentages: PropTypes.shape({
+		valid: PropTypes.number,
+		invalid: PropTypes.number,
+		empty: PropTypes.number,
+		na: PropTypes.number,
+		placeholder: PropTypes.number,
+	}),
+	onClick: PropTypes.func,
+	getDataFeature: PropTypes.func,
+};
 
 /**
  * This function round up the percentages to make it to 100%
@@ -21,7 +62,9 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
  * @param {number} naRaw number of not applicable raw
  * @param {number} digits number of digits we want to keep
  */
-export function getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits = 0) {
+function getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits) {
+	const output = {};
+
 	let sumValues = 0;
 	let sumRounded = 0;
 	const digitMultiplier = Math.pow(10, digits);
@@ -30,116 +73,83 @@ export function getQualityPercentagesRounded(invalid, empty, valid, na, placehol
 	const total = invalid + empty + valid + na + placeholder;
 
 	sumValues = (invalid * multiplier) / total;
-	const invalidRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+	output.invalid = Math.round(sumValues - sumRounded) / digitMultiplier;
 	sumRounded = Math.round(sumValues);
 
 	sumValues += (empty * multiplier) / total;
-	const emptyRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+	output.empty = Math.round(sumValues - sumRounded) / digitMultiplier;
 	sumRounded = Math.round(sumValues);
 
 	sumValues += (valid * multiplier) / total;
-	const validRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+	output.valid = Math.round(sumValues - sumRounded) / digitMultiplier;
 	sumRounded = Math.round(sumValues);
 
 	sumValues += (na * multiplier) / total;
-	const naRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+	output.na = Math.round(sumValues - sumRounded) / digitMultiplier;
 
 	sumValues += (placeholder * multiplier) / total;
-	const placeholderRounded = Math.round(sumValues - sumRounded) / digitMultiplier;
+	output.placeholder = Math.round(sumValues - sumRounded) / digitMultiplier;
 
-	return [invalidRounded, emptyRounded, validRounded, naRounded, placeholderRounded];
+	return output;
 }
 
-export function QualityBar({
-	digits = 1,
-	empty = 0,
-	getDataFeature,
-	invalid = 0,
-	na = 0,
-	placeholder = 0,
-	onClick,
-	valid = 0,
-}) {
-	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-
-	const [
-		invalidPercentage,
-		emptyPercentage,
-		validPercentage,
-		naPercentage,
-		placeholderPercentage,
-	] = getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
+function SplitQualityBar({ empty, getDataFeature, invalid, na, onClick, valid, percentages }) {
+	const totalValues = empty + invalid + na + valid;
+	const usedValues = { empty, invalid, na, valid };
+	const fwd = { getDataFeature, onClick };
 
 	return (
-		<RatioBar.Composition>
-			<QualityInvalidLine
-				dataFeature={getDataFeature ? getDataFeature(QualityType.INVALID) : null}
-				onClick={
-					onClick
-						? e =>
-								onClick(e, {
-									type: QualityType.INVALID,
-								})
-						: null
-				}
-				percentage={invalidPercentage}
-				t={t}
-				value={invalid}
-			/>
-			<QualityEmptyLine
-				dataFeature={getDataFeature ? getDataFeature(QualityType.EMPTY) : null}
-				onClick={
-					onClick
-						? e =>
-								onClick(e, {
-									type: QualityType.EMPTY,
-								})
-						: null
-				}
-				percentage={emptyPercentage}
-				t={t}
-				value={empty}
-			/>
-			<QualityNotApplicableLine
-				dataFeature={getDataFeature ? getDataFeature(QualityType.NA) : null}
-				onClick={
-					onClick
-						? e =>
-								onClick(e, {
-									type: QualityType.NA,
-								})
-						: null
-				}
-				percentage={naPercentage}
-				t={t}
-				value={na}
-			/>
-			<QualityValidLine
-				dataFeature={getDataFeature ? getDataFeature(QualityType.VALID) : null}
-				onClick={
-					onClick
-						? e =>
-								onClick(e, {
-									type: QualityType.VALID,
-								})
-						: null
-				}
-				value={valid}
-				percentage={validPercentage}
-				t={t}
-			/>
-			<QualityPlaceholderLine percentage={placeholderPercentage} t={t} value={placeholder} />
-		</RatioBar.Composition>
+		<StackHorizontal gap="M">
+			{[QualityType.INVALID, QualityType.EMPTY, QualityType.NOTAPPLICABLE, QualityType.VALID].map(
+				type => {
+					const currentTypePercentage = percentages[type];
+					const currentTypeValue = usedValues[type];
+
+					return currentTypePercentage ? (
+						<StackHorizontal gap="XXS" key={type}>
+							<span>{currentTypePercentage}%</span>
+
+							<QualityBarRatioBars
+								{...fwd}
+								{...{ [type]: currentTypeValue }} // Spread needed for the dynamic "type" key
+								placeholder={totalValues - currentTypeValue}
+								percentages={{ ...percentages, placeholder: 100 - currentTypePercentage }}
+							/>
+						</StackHorizontal>
+					) : null;
+				},
+			)}
+		</StackHorizontal>
 	);
 }
 
+const { placeholder, ...SplitQualityBarPropTypes } = QualityBarRatioBars.propTypes;
+SplitQualityBar.propTypes = SplitQualityBarPropTypes;
+
+export function QualityBar(props) {
+	const { valid, invalid, empty, na, placeholder, digits, split } = props;
+	const percentages = getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits);
+
+	return split ? (
+		<SplitQualityBar {...props} percentages={percentages} />
+	) : (
+		<QualityBarRatioBars {...props} percentages={percentages} />
+	);
+}
+
+const { percentages, ...QualityBarPropTypes } = QualityBarRatioBars.propTypes;
 QualityBar.propTypes = {
+	...QualityBarPropTypes,
 	digits: PropTypes.number,
-	empty: PropTypes.number,
-	getDataFeature: PropTypes.func,
-	invalid: PropTypes.number,
-	na: PropTypes.number,
-	placeholder: PropTypes.number,
-	onClick: PropTypes.func,
-	valid: PropTypes.number,
+	split: PropTypes.bool,
+};
+
+QualityBar.defaultProps = {
+	digits: 1,
+	empty: 0,
+	invalid: 0,
+	na: 0,
+	placeholder: 0,
+	valid: 0,
+	split: false,
 };

@@ -1,0 +1,16 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.fieldset {
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-flow: column;
+  gap: tokens.$coral-spacing-s;
+}
+
+.legend {
+  color: tokens.$coral-color-neutral-text;
+  padding: tokens.$coral-spacing-m 0;
+  font: tokens.$coral-paragraph-m-bold;
+  margin: 0;
+}

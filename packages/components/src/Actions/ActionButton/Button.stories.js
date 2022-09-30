@@ -4,7 +4,7 @@ import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
 import ActionButton from './ActionButton.component';
 
-import theme from './Button.stories.scss';
+import theme from './Button.stories.module.scss';
 
 const myAction = {
 	label: 'Click me',

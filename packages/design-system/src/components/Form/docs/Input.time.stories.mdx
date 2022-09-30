@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -28,7 +28,7 @@ It creates input fields designed to let the user easily enter a time (hours and 
 
 <Canvas>
 	<Story name="default">
-		<Form.Time label="Time" min="09:00" max="18:00" />
+		<Form.Time name="time" label="Time" min="09:00" max="18:00" />
 	</Story>
 </Canvas>
 
@@ -39,7 +39,7 @@ It creates input fields designed to let the user easily enter a time (hours and 
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Time label="Time" />
+		<Form.Time name="time" label="Time" />
 	</Story>
 </Canvas>
 
@@ -50,7 +50,7 @@ It creates input fields designed to let the user easily enter a time (hours and 
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Time label="Time" />
+		<Form.Time name="time" label="Time" />
 	</Story>
 </Canvas>
 
@@ -58,7 +58,7 @@ It creates input fields designed to let the user easily enter a time (hours and 
 
 <Canvas>
 	<Story name="filled">
-		<Form.Time label="Time" value="09:00" min="09:00" max="18:00" />
+		<Form.Time name="time" label="Time" value="09:00" min="09:00" max="18:00" />
 	</Story>
 </Canvas>
 
@@ -66,7 +66,7 @@ It creates input fields designed to let the user easily enter a time (hours and 
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Time label="Time" value="09:00" min="09:00" max="18:00" disabled />
+		<Form.Time name="time" label="Time" value="09:00" min="09:00" max="18:00" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ It creates input fields designed to let the user easily enter a time (hours and 
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Time label="Time" value="09:00" min="09:00" max="18:00" readOnly />
+		<Form.Time name="time" label="Time" value="09:00" min="09:00" max="18:00" readOnly />
 	</Story>
 </Canvas>
 

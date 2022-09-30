@@ -51,9 +51,7 @@ const BadgeDate = ({
 			initialValueOpened={initialValueOpened}
 			labelCategory={label}
 			labelValue={
-				value
-					? format(value, DATE_FORMAT)
-					: t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' })
+				value ? format(value, DATE_FORMAT) : t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' })
 			}
 			operator={currentOperator}
 			operators={currentOperators}

@@ -1,20 +1,20 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { useForm } from 'react-hook-form';
-import { FigmaIframe, FigmaImage, Use } from '~docs';
+import { FigmaImage, Use } from '~docs';
 import Form from '../';
 import { ButtonPrimary } from '../../Button';
 import { InlineMessageInformation } from '../../InlineMessage';
 
 <Meta
-	title="Components/Form/Fields/Switch"
+	title="Components/Form/Fields/ToggleSwitch"
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
 />
 
-# Switch
+# ToggleSwitch
 
-Switches are a quick way to view and switch between two states or on-off state instantly.
+ToggleSwitches are a quick way to view and switch between two states or on-off state instantly.
 
 ## Zoning
 
@@ -25,9 +25,9 @@ Switches are a quick way to view and switch between two states or on-off state i
 
 ## Style
 
-<FigmaIframe
-	light="https://www.figma.com/file/2crWpyiwuxt1wvjsTYwdB0/Switch?node-id=0%3A131"
-	dark="https://www.figma.com/file/2crWpyiwuxt1wvjsTYwdB0/Switch?node-id=2%3A462"
+<FigmaImage
+	src="https://www.figma.com/file/2crWpyiwuxt1wvjsTYwdB0/ToggleSwitch?node-id=0%3A131"
+	alt="Mockup of an input ToggleSwitch"
 />
 
 ## States
@@ -36,8 +36,8 @@ Switches are a quick way to view and switch between two states or on-off state i
 
 <Canvas>
 	<Story name="default">
-		<Form.Switch label="Switch off" />
-		<Form.Switch label="Switch on" checked />
+		<Form.ToggleSwitch label="ToggleSwitch off" />
+		<Form.ToggleSwitch label="ToggleSwitch on" checked />
 	</Story>
 </Canvas>
 
@@ -45,8 +45,8 @@ Switches are a quick way to view and switch between two states or on-off state i
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Switch label="Disabled Switch off" disabled />
-		<Form.Switch label="Disabled Switch on" checked disabled />
+		<Form.ToggleSwitch label="Disabled ToggleSwitch off" disabled />
+		<Form.ToggleSwitch label="Disabled ToggleSwitch on" checked disabled />
 	</Story>
 </Canvas>
 
@@ -54,14 +54,37 @@ Switches are a quick way to view and switch between two states or on-off state i
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Switch label="Read-only Switch off" readOnly />
-		<Form.Switch label="Read-only Switch on" checked readOnly />
+		<Form.ToggleSwitch label="Read-only ToggleSwitch off" readOnly />
+		<Form.ToggleSwitch label="Read-only ToggleSwitch on" checked readOnly />
+	</Story>
+</Canvas>
+
+### Inline
+
+<Canvas>
+	<Story name="inline">
+		<Form.ToggleSwitch label="ToggleSwitch off" isInline />
+		<span> </span>
+		<Form.ToggleSwitch label="ToggleSwitch on" checked isInline />
+	</Story>
+</Canvas>
+
+### Long content
+
+<Canvas>
+	<Story name="Long content">
+		<div style={{ width: '200px' }}>
+			<Form.ToggleSwitch
+				label="Label with a lot of content, too much probably, and most certainly enough to generate a line break in this small box."
+				isInline
+			/>
+		</div>
 	</Story>
 </Canvas>
 
 ## Content
 
-Labels for switches should give users a strong indication of what they are selecting. Start the label with a verb and say clearly what will happen when the switch is turned on. 
+Labels for switches should give users a strong indication of what they are selecting. Start the label with a verb and say clearly what will happen when the switch is turned on.
 
 <Use>
 	<Use.Do>
@@ -98,8 +121,8 @@ Labels for switches should give users a strong indication of what they are selec
 			return (
 				<Form onSubmit={handleSubmit(setFormData)}>
 					<Form.Fieldset legend="Control switch state" required>
-						<Form.Switch label="Toggle all" {...register('option-a')} />
-						<Form.Switch label="Controlled switch" checked={optionA} />
+						<Form.ToggleSwitch label="Toggle all" {...register('option-a')} />
+						<Form.ToggleSwitch label="Controlled switch" checked={optionA} />
 					</Form.Fieldset>
 					<Form.Buttons>
 						<ButtonPrimary onClick={() => {}} type="submit">
@@ -129,17 +152,21 @@ Labels for switches should give users a strong indication of what they are selec
 						/>
 					)}
 					<Form.Fieldset legend="Enabled">
-						<Form.Switch label="Option a" {...register('option-a')} />
-						<Form.Switch label="Option b" checked {...register('option-b')} />
+						<Form.ToggleSwitch label="Option a" {...register('option-a')} />
+						<Form.ToggleSwitch label="Option b" checked {...register('option-b')} />
 					</Form.Fieldset>
 					<Form.Fieldset legend="Read only" readOnly>
-						<Form.Switch label="Option c" {...register('option-c')} />
-						<Form.Switch label="Option d" checked {...register('option-d')} />
+						<Form.ToggleSwitch label="Option c" {...register('option-c')} />
+						<Form.ToggleSwitch label="Option d" checked {...register('option-d')} />
 					</Form.Fieldset>
 					<Form.Fieldset legend="Disabled" disabled>
 						{/* @see https://github.com/react-hook-form/react-hook-form/issues/6690 */}
-						<Form.Switch label="Option e" {...register('option-e', { disabled: true })} />
-						<Form.Switch label="Option f" checked {...register('option-f', { disabled: true })} />
+						<Form.ToggleSwitch label="Option e" {...register('option-e', { disabled: true })} />
+						<Form.ToggleSwitch
+							label="Option f"
+							checked
+							{...register('option-f', { disabled: true })}
+						/>
 					</Form.Fieldset>
 					<Form.Buttons>
 						<ButtonPrimary onClick={() => {}} type="submit">

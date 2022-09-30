@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes, ThemeProps } from 'styled-components';
 import Step from '../Step';
-import tokens from '../../../../tokens';
+import tokens from '../../../../deprecatedTokens';
 
 const pulse = ({ theme }: ThemeProps<any>) => keyframes`
 	0% {

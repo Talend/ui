@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import theme from './CellEditorTextarea.component.scss';
+import theme from './CellEditorTextarea.component.module.scss';
 
 interface CellEditorTextareaPropTypes {
 	eGridCell: HTMLDivElement;
@@ -40,6 +40,7 @@ function CellEditorTextarea({ eGridCell, value, onChange }: CellEditorTextareaPr
 	return (
 		<textarea
 			ref={ref}
+			data-testid="cell.edition.textarea"
 			className={classNames(theme['cell-editor-textarea'], 'form-control')}
 			rows={rows}
 			value={value}

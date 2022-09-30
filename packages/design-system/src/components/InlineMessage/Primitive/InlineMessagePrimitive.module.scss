@@ -43,8 +43,8 @@
     display: inline-flex;
     padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
     border-radius: tokens.$coral-radius-s;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     .icon {
       // Visually align icon in inline-flex mode

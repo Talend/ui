@@ -1,0 +1,8 @@
+@use '~@talend/design-tokens/lib/tokens';
+@use '../mixins' as Form;
+
+.textarea {
+  @include Form.baseInput();
+  @include Form.borderStyles();
+  min-height: calc(#{tokens.$coral-sizing-l} * 2);
+}

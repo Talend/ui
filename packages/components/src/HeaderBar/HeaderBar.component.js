@@ -13,7 +13,7 @@ import getDefaultT from '../translate';
 import { getTheme } from '../theme';
 import AppSwitcher from '../AppSwitcher';
 
-import headerBarCssModule from './HeaderBar.scss';
+import headerBarCssModule from './HeaderBar.module.scss';
 
 const theme = getTheme(headerBarCssModule);
 
@@ -390,6 +390,8 @@ if (process.env.NODE_ENV !== 'production') {
 			renderers: PropTypes.shape({
 				Action: PropTypes.func,
 			}),
+			icon: PropTypes.string,
+			iconUrl: PropTypes.string,
 		}),
 		env: PropTypes.shape(Environment.propTypes),
 		callToAction: PropTypes.shape(CallToAction.propTypes),

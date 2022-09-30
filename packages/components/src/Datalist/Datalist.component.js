@@ -6,7 +6,7 @@ import omit from 'lodash/omit';
 import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
-import theme from './Datalist.scss';
+import theme from './Datalist.module.scss';
 import FocusManager from '../FocusManager';
 import Icon from '../Icon';
 
@@ -143,11 +143,11 @@ function Datalist(props) {
 			return;
 		}
 
-		if (entry.value !== value) {
+		if (entry.value !== value || entry.name !== name) {
 			setEntry(entry);
 		}
 		// Update the input value only if user did not change it
-		if (!name || name === filterValue) {
+		if ((!name && !filterValue) || name === filterValue) {
 			setFilterValue(entry.name);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps

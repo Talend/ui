@@ -1,0 +1,100 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$td-datagrid-skeleton-width: 9.6rem !default;
+$td-datagrid-skeleton-height: 9.6rem !default;
+
+.td-grid {
+	--ag-borders: #{tokens.$coral-border-s-solid};
+	--ag-borders-row: #{tokens.$coral-border-s-solid};
+	--ag-borders-critical: #{tokens.$coral-border-s-solid};
+	--ag-border-color: #{tokens.$coral-color-neutral-border-weak};
+	--ag-row-border-color: #{tokens.$coral-color-neutral-border-weak};
+	--ag-cell-horizontal-border: #{tokens.$coral-border-s-solid} #{tokens.$coral-color-neutral-border-weak};
+	--ag-data-color: tokens.$coral-color-neutral-text;
+	background-color: tokens.$coral-color-neutral-background;
+	height: 100%;
+	width: 100%;
+
+	&-loader {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+
+		svg {
+			color: tokens.$coral-color-neutral-background-strong;
+			animation: tokens.$coral-animation-heartbeat;
+			width: $td-datagrid-skeleton-width;
+			height: $td-datagrid-skeleton-height;
+		}
+	}
+
+	:global(.ag-cell.highlighted) {
+		font: tokens.$coral-data-m-bold;
+	}
+
+	/* ==== HEADER ==== */
+	:global(.ag-header-cell-resize) {
+		cursor: col-resize;
+	}
+	/* ==== PIN ==== */
+	:global(.ag-pinned-left-header .ag-react-container) {
+		height: 100%;
+	}
+
+	:global(.ag-cell.ag-cell-last-left-pinned) {
+		padding: 1rem;
+	}
+
+	:global(.ag-header-cell),
+	:global(.ag-pinned-left-cols-container) {
+		border-right: var(--ag-cell-horizontal-border);
+	}
+
+	:global(.ag-header-cell-comp-wrapper) {
+		height: 100%;
+	}
+
+	:global(.ag-cell) {
+		border-top: none;
+		border-left: none;
+		border-bottom: none;
+	}
+
+	/* ==== COLUMN ====  */
+
+	:global(.column-focus),
+	:global(.ag-row-selected) :global(.ag-cell) {
+		--ag-header-cell-hover-background-color: #{tokens.$coral-color-accent-background-selected};
+		--ag-header-cell-moving-background-color: #{tokens.$coral-color-accent-background-selected};
+		background-color: tokens.$coral-color-accent-background-selected;
+	}
+
+	:global(.ag-row-selected) :global(.column-focus) {
+		background-color: tokens.$coral-color-neutral-background;
+		// stylelint-disable-next-line
+		outline: tokens.$coral-border-m-solid tokens.$coral-color-accent-border !important;
+		outline-offset: -2px;
+	}
+
+	/* ==== BODY ==== */
+	:global(.ag-root-wrapper-body) {
+		height: 100%;
+	}
+
+	:global(.ag-pinned-left-cols-viewport) {
+		font-family: inherit;
+	}
+
+	:global(.ag-horizontal-left-spacer) {
+		overflow-x: hidden;
+	}
+
+	:global(.ag-body-viewport) {
+		user-select: text;
+	}
+
+	:global(.ag-center-cols-clipper) {
+		font: tokens.$coral-data-m;
+	}
+}

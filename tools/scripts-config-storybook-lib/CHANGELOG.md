@@ -1,5 +1,30 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.1.4
+
+### Patch Changes
+
+- 26777dbe7: deps: bump msw to 0.47.3
+
+## 2.1.3
+
+### Patch Changes
+
+- 39f292531: fix: update setup of msw
+- 8796308e5: chore(talend-scripts): disable storybook telemetry
+
+## 2.1.2
+
+### Patch Changes
+
+- e22e3c952: chore(deps): bump storybook deps
+
+## 2.1.1
+
+### Patch Changes
+
+- 7856e6961: angular xlts packages can't be fetched from unpkg.com
+
 ## 2.1.0
 
 ### Minor Changes

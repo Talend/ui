@@ -1,0 +1,37 @@
+@use '~@talend/design-tokens/lib/tokens';
+@use '../mixins' as Form;
+
+.input {
+  @include Form.baseInput();
+  height: Form.$standardInputHeight;
+
+  &[type="color"] {
+	padding: tokens.$coral-spacing-xxs;
+  }
+}
+
+.icon {
+  padding: 0 tokens.$coral-spacing-xs;
+  background: transparent;
+  color: tokens.$coral-color-neutral-icon-weak;
+  transition: all tokens.$coral-transition-instant;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_disabled {
+	color: tokens.$coral-color-neutral-text-disabled;
+  }
+
+  &_readOnly {
+	color: tokens.$coral-color-neutral-text-weak;
+  }
+
+  + input {
+	padding-left: tokens.$coral-spacing-l;
+  }
+}

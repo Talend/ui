@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -28,7 +28,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 
 <Canvas>
 	<Story name="default">
-		<Form.Date label="Date" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+		<Form.Date name="date" label="Date" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
 	</Story>
 </Canvas>
 
@@ -39,7 +39,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Date label="Date" />
+		<Form.Date name="date" label="Date" />
 	</Story>
 </Canvas>
 
@@ -50,7 +50,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Date label="Date" />
+		<Form.Date name="date" label="Date" />
 	</Story>
 </Canvas>
 
@@ -58,7 +58,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 
 <Canvas>
 	<Story name="filled">
-		<Form.Date label="Date" value="09:00" />
+		<Form.Date name="date" label="Date" value="09:00" />
 	</Story>
 </Canvas>
 
@@ -66,7 +66,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Date label="Date" value="09:00" disabled />
+		<Form.Date name="date" label="Date" value="09:00" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Date label="Date" value="09:00" readOnly />
+		<Form.Date name="date" label="Date" value="09:00" readOnly />
 	</Story>
 </Canvas>
 

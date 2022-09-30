@@ -1,0 +1,45 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$popover-screen-width: tokens.$coral-sizing-maximal;
+
+.tc-add-facet-popover {
+	display: flex;
+	width: $popover-screen-width;
+	overflow: hidden;
+
+	:global(.tc-tooltip-header) {
+		width: $popover-screen-width;
+		align-items: center;
+		font-weight: 800;
+		min-width: auto;
+	}
+
+	:global(.tc-tooltip-body) {
+		margin-right: 0;
+		margin-left: 0;
+		padding: 0;
+
+		:global(.tc-tooltip-content) {
+			flex-direction: column;
+			min-height: 0;
+			padding: 1rem 0;
+		}
+	}
+
+	&-filter-empty {
+		padding: tokens.$coral-spacing-s;
+		display: block;
+		text-align: center;
+		font-style: italic;
+	}
+
+	&-row-container {
+		overflow-y: auto;
+
+		button {
+			width: 100%;
+			overflow-wrap: anywhere;
+			text-align: left;
+		}
+	}
+}

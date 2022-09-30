@@ -1,5 +1,124 @@
 # @talend/react-datagrid
 
+## 12.2.4
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
+## 12.2.3
+
+### Patch Changes
+
+- 2da0e0190: Header menu icon not rendering on firefox
+
+## 12.2.2
+
+### Patch Changes
+
+- 93ec9fcd3: Improve ColDef typings
+
+## 12.2.1
+
+### Patch Changes
+
+- 62750d002: Cell value is persisted when canceling edition
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+  - @talend/icons@6.48.0
+
+## 12.2.0
+
+### Minor Changes
+
+- 9d5f37b8e: Add data-testid on column header
+
+### Patch Changes
+
+- a84469e6a: Wait for grid to be initialized before handling controlled selection
+
+## 12.1.1
+
+### Patch Changes
+
+- 091ad376d: Unnecessary css important rule used
+- 84f293882: Incorrect typings for getSemanticTypeSuggestions
+
+## 12.1.0
+
+### Minor Changes
+
+- 240340d94: Add cell context to editor onSubmit callback
+
+### Patch Changes
+
+- Updated dependencies [b02eb9ef4]
+- Updated dependencies [5e0148797]
+  - @talend/react-components@7.8.0
+
+## 12.0.1
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+- Updated dependencies [f4ba0ef47]
+- Updated dependencies [4248c2e69]
+  - @talend/react-components@7.7.0
+
+## 12.0.0
+
+### Major Changes
+
+- c815ba11f: - Support multi column selection.
+
+  - The main components were migrated to typescript
+  - Better separation of concern between data mapping & grid rendering
+    - To render a dataset sample, use `DatasetSerializer.getColumnDefs`
+    - To render data from another source, build your own `columnDefs`
+  - Replaced enzyme by RTL
+
+  Lots of breaking changes on this one, to have a cleaner API and a faster grid.
+
+  **API changes:**
+
+  1. [Props] `columnSelection`: defaults to single
+  2. [Props] `onColumnSelectionChanged`: triggered when selected column(s) changed
+  3. [Props] `selection.columnIds`: controlled column selection
+
+  **API breaking changes:**
+
+  1. [Props] `avroRenderer` removed (not used)
+  2. [Props] `data` and `getRowDataFn` removed: use `rowData` instead (less parsing + cleaner API)
+  3. [Props] `cellRenderer`, `headerRenderer`, `pinHeaderRenderer` removed: set `columnDef.cellRenderer` and `columnDef.headerComponent` instead
+  4. [Props] `getPinnedColumnDefsFn`, `getColumnDefsFn`, `getValueByCellFn` removed: use `columnDefs` instead
+  5. [Export] `DatasetSerializer` is no longer export as `Datagrid.components.DatasetSerializer`, use `import { DatasetSerializer } from '@talend/react-datagrid'`
+
+  **Deprecations:**
+
+  1. Replace default cmfModule import (`Datagrid.components.MyComponent`) by named imports
+
+### Minor Changes
+
+- 2a7278a95: Allow column size persistence to local storage
+- 1df17ebbc: Highlight cells with same values
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [617ec14f0]
+- Updated dependencies [a99154a7d]
+  - @talend/design-system@4.0.0
+  - @talend/react-components@7.5.0
+  - @talend/design-tokens@2.7.0
+
 ## 11.1.0
 
 ### Minor Changes

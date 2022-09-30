@@ -3,7 +3,7 @@ import React, { cloneElement, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import uuid from 'uuid';
 import classNames from 'classnames';
-import theme from './TooltipTrigger.scss';
+import theme from './TooltipTrigger.module.scss';
 import useTooltipVisibility from './TooltipTrigger.hook';
 
 const DEFAULT_OFFSET_X = 300;

@@ -1,40 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import { SkeletonParagraph } from '@talend/design-system';
 
-import { AVRO_TYPES } from '../../constants';
-import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
-
-import QualityIndicator from './QualityIndicator.component';
+import { AVRO_TYPES } from '../../constants/avro-type.constant';
 import AvroRenderer from './AvroRenderer.component';
-import theme from './DefaultCell.scss';
+import QualityIndicator from './QualityIndicator.component';
 
-function convertValue(value) {
-	if (!value.toJS) {
-		return value;
-	}
+import theme from './DefaultCell.module.scss';
 
-	return value.toJS();
-}
-
-function DefaultCellRenderer({ avroRenderer, colDef, value, data }) {
-	let content;
-
-	const plainValue = convertValue(value);
-
-	if (data.loaded === false) {
-		content = <SkeletonParagraph size="M" />;
-	} else {
-		content = [
-			<QualityIndicator key="2" qualityIndex={plainValue.quality} />,
-			<AvroRenderer key="3" colDef={colDef} data={plainValue} avroRenderer={avroRenderer} />,
-		];
-	}
-
+function DefaultCellRenderer({ value, data, ...rest }) {
 	return (
-		<div aria-label={value.value} className={classNames(theme['td-cell'], 'td-cell')}>
-			{content}
+		<div aria-label={value?.value} className={classNames(theme['td-cell'], 'td-cell')}>
+			{data.loaded === false ? (
+				<SkeletonParagraph size="M" />
+			) : (
+				<>
+					<QualityIndicator qualityIndex={value.quality} />
+					<AvroRenderer value={value.value} {...rest} />
+				</>
+			)}
 		</div>
 	);
 }
@@ -45,7 +32,7 @@ DefaultCellRenderer.defaultProps = {
 };
 
 DefaultCellRenderer.propTypes = {
-	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
+	avroRenderer: PropTypes.object,
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
@@ -56,7 +43,5 @@ DefaultCellRenderer.propTypes = {
 	value: PropTypes.object,
 	data: PropTypes.object,
 };
-
-DefaultCellRenderer.theme = theme;
 
 export default DefaultCellRenderer;

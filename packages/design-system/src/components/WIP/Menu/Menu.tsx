@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import * as S from './Menu.style';
 
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
 import Tooltip from '../../Tooltip';
 import { Icon } from '../../Icon/Icon';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 export type MenuProps = React.PropsWithChildren<any> & {
 	/**
@@ -20,7 +21,7 @@ export type MenuProps = React.PropsWithChildren<any> & {
 const Menu = React.forwardRef(
 	({ children, hasToggle = true, ...rest }: MenuProps, ref: React.Ref<HTMLElement>) => {
 		const [isCollapsed, collapse] = React.useState(false);
-		const { t } = useTranslation();
+		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 		const isWide = useMedia(`(min-width: ${tokens.breakpoints.l})`);
 

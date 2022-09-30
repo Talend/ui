@@ -4,13 +4,13 @@ import { Form } from '@talend/design-system';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import { FACETED_MODE, USAGE_TRACKING_TAGS } from '../../constants';
-import cssModule from './FacetedToolbar.scss';
+import cssModule from './FacetedToolbar.module.scss';
 
 const theme = getTheme(cssModule);
 
 const SwitchFacetedMode = ({ facetedMode, onChange, t }) => (
 	<Form className={theme('tc-faceted-switch-mode')}>
-		<Form.Switch
+		<Form.ToggleSwitch
 			label={t('FACETED_SEARCH_QUERY', 'Query')}
 			onChange={() =>
 				onChange(facetedMode === FACETED_MODE.BASIC ? FACETED_MODE.ADVANCED : FACETED_MODE.BASIC)

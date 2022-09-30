@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import JSONLike from '../JSONLike';
-import theme from './List.scss';
+import theme from './List.module.scss';
 
 function List({ data, ...props }) {
 	if (!Array.isArray(data) && !Array.isArray(data.dataset)) {

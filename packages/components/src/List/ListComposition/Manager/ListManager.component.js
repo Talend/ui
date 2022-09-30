@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { displayModesOptions } from '../DisplayMode/ListDisplayMode.component';
@@ -7,12 +7,14 @@ import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import { useCollectionSort } from './hooks/useCollectionSort.hook';
 import { useCollectionFilter } from './hooks/useCollectionFilter.hook';
-import theme from '../List.scss';
+import theme from '../List.module.scss';
+import { useColumnsVisibility } from './hooks/useColumnsVisibility.hook';
 
 function Manager({
 	initialDisplayMode,
 	initialSortParams,
 	initialVisibleColumns,
+	columnsVisibilityStorageKey,
 	children,
 	t,
 	...rest
@@ -21,7 +23,12 @@ function Manager({
 
 	const [displayMode, setDisplayMode] = useState(initialDisplayMode || displayModesOptions[0]);
 	const [columns, setColumns] = useState([]);
-	const [visibleColumns, setVisibleColumns] = useState(initialVisibleColumns);
+
+	const { visibleColumns, setVisibleColumns } = useColumnsVisibility(
+		columns,
+		initialVisibleColumns,
+		columnsVisibilityStorageKey,
+	);
 
 	// Sort items
 	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(
@@ -31,13 +38,8 @@ function Manager({
 	collection = sortedCollection;
 
 	// Filter by text
-	const {
-		filteredCollection,
-		textFilter,
-		setTextFilter,
-		filteredColumns,
-		setFilteredColumns,
-	} = useCollectionFilter(collection, undefined, undefined, visibleColumns);
+	const { filteredCollection, textFilter, setTextFilter, filteredColumns, setFilteredColumns } =
+		useCollectionFilter(collection, undefined, undefined, visibleColumns);
 	collection = filteredCollection;
 
 	const contextValues = {
@@ -76,6 +78,7 @@ Manager.propTypes = {
 		sortBy: PropTypes.string,
 		isDescending: PropTypes.bool,
 	}),
+	columnsVisibilityStorageKey: PropTypes.string,
 	t: PropTypes.func,
 };
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(Manager);

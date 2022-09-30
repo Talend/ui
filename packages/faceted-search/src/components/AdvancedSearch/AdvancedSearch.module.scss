@@ -1,0 +1,51 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+$search-icon-offset: 1.8rem;
+$search-input-left-offset: 3.2rem;
+$search-input-right-offset: 6rem;
+
+.adv-search {
+	position: relative;
+	width: inherit;
+	height: inherit;
+
+	.adv-search-filter-icon {
+		position: absolute;
+		color: tokens.$coral-color-neutral-icon-weak;
+		top: tokens.$coral-spacing-m;
+		left: $search-icon-offset;
+	}
+
+	&-error {
+		margin-left: tokens.$coral-spacing-xs;
+		color: tokens.$coral-color-danger-text;
+	}
+
+	.adv-search-input {
+		border-radius: tokens.$coral-radius-s;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		box-shadow: none;
+		color: tokens.$coral-color-neutral-text-weak;
+		height: tokens.$coral-sizing-m;
+		line-height: tokens.$coral-sizing-m;
+		margin: tokens.$coral-spacing-xs tokens.$coral-spacing-xs;
+		padding-left: $search-input-left-offset;
+		padding-right: $search-input-right-offset;
+		width: calc(100% - 2rem);
+
+		&.has-error {
+			box-shadow: inset 0 -0.2rem 0 tokens.$coral-color-danger-border;
+		}
+
+		// sass-lint:disable-next-line no-vendor-prefixes
+		&::-ms-clear {
+			display: none;
+		}
+	}
+
+	&-buttons {
+		position: absolute;
+		top: tokens.$coral-spacing-s;
+		right: tokens.$coral-spacing-m;
+	}
+}

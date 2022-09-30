@@ -25,7 +25,7 @@ import EmptyState, {
 	EmptyStateSmall,
 } from './components/EmptyState';
 import Form from './components/Form';
-import { AffixButton, AffixReadOnly } from './components/Form/FieldGroup/Affix';
+import { AffixButton, AffixReadOnly, AffixSelect } from './components/Form/Affix';
 import HeaderBar from './components/WIP/HeaderBar';
 import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
@@ -70,19 +70,21 @@ import {
 	TagDestructive,
 	TagInformation,
 	TagSuccess,
+	TagVariantsNames,
 	TagWarning,
 } from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 import * as themes from './themes';
-import tokens from './tokens';
+import deprecatedTokens from './deprecatedTokens';
 
 export * from './components/Stack';
 export {
 	Accordion,
 	AffixButton,
 	AffixReadOnly,
+	AffixSelect,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,
@@ -147,12 +149,13 @@ export {
 	TagDestructive,
 	TagInformation,
 	TagSuccess,
+	TagVariantsNames,
 	TagWarning,
 	ThemeProvider,
 	Tooltip,
 	VisuallyHidden,
 	themes,
-	tokens,
+	deprecatedTokens,
 };
 
 export type { TooltipPlacement };

@@ -1,5 +1,56 @@
 # Changelog
 
+## 2.7.2
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
+## 2.7.1
+
+### Patch Changes
+
+- 94a6bf759: Range filter marks are overflowing
+
+## 2.7.0
+
+### Minor Changes
+
+- 6e850c486: feat(dataviz): allow to build custom legend for linechart
+
+## 2.6.0
+
+### Minor Changes
+
+- 644bc1718: feat(dataviz): alter lines in line chart
+
+## 2.5.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
+### Patch Changes
+
+- Updated dependencies [b02eb9ef4]
+- Updated dependencies [5e0148797]
+  - @talend/react-components@7.8.0
+
+## 2.4.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [a99154a7d]
+  - @talend/react-components@7.5.0
+  - @talend/design-tokens@2.7.0
+
 ## 2.3.0
 
 ### Minor Changes

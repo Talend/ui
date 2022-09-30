@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -28,7 +28,12 @@ It creates input controls that let the user easily enter both a date and a time,
 
 <Canvas>
 	<Story name="default">
-		<Form.DatetimeLocal label="Datetime Local" min="2018-06-07T00:00" max="2018-06-14T00:00" />
+		<Form.DatetimeLocal
+			name="datetime"
+			label="Datetime Local"
+			min="2018-06-07T00:00"
+			max="2018-06-14T00:00"
+		/>
 	</Story>
 </Canvas>
 
@@ -39,7 +44,7 @@ It creates input controls that let the user easily enter both a date and a time,
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.DatetimeLocal label="Datetime" />
+		<Form.DatetimeLocal name="datetime" label="Datetime" />
 	</Story>
 </Canvas>
 
@@ -50,7 +55,7 @@ It creates input controls that let the user easily enter both a date and a time,
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.DatetimeLocal label="Datetime " />
+		<Form.DatetimeLocal name="datetime" label="Datetime " />
 	</Story>
 </Canvas>
 

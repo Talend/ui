@@ -1,4 +1,4 @@
-import Tag from './Tag';
+import Tag, { TagVariantsNames } from './Tag';
 
 import {
 	TagDefault,
@@ -9,4 +9,13 @@ import {
 	TagBeta,
 } from './variations';
 
-export { Tag, TagDefault, TagInformation, TagSuccess, TagWarning, TagDestructive, TagBeta };
+export {
+	Tag,
+	TagDefault,
+	TagInformation,
+	TagSuccess,
+	TagWarning,
+	TagDestructive,
+	TagBeta,
+	TagVariantsNames,
+};

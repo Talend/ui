@@ -1,0 +1,69 @@
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+
+$module: line-chart;
+
+.#{$module} {
+	&-custom-tooltip {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		&__line-item--inactive {
+			opacity: tokens.$coral-opacity-s;
+		}
+
+		&__line-value {
+			font: tokens.$coral-paragraph-m-bold;
+			margin-left: tokens.$coral-spacing-xxs;
+		}
+	}
+
+	&-custom-legend {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		gap: tokens.$coral-spacing-m;
+		list-style: none;
+
+		&-item {
+			display: flex;
+			align-items: center;
+		}
+
+		&--align-left {
+			justify-content: flex-start;
+		}
+
+		&--align-center {
+			justify-content: center;
+		}
+
+		&--align-right {
+			justify-content: flex-end;
+		}
+
+		&--shift-left {
+			padding-right: 6rem;
+		}
+
+		&__button--inactive {
+			opacity: tokens.$coral-opacity-s;
+		}
+
+		&__line-label {
+			font: tokens.$coral-paragraph-s;
+			font-style: normal;
+			color: tokens.$coral-color-neutral-text-weak;
+		}
+	}
+
+	&-line-icon {
+		display: inline-block;
+		width: 16px;
+		height: 2px;
+		margin-right: 0.8rem;
+		margin-bottom: 0.3rem;
+		border-radius: 25px;
+	}
+}

@@ -1,11 +1,12 @@
 import React from 'react';
 import useMedia from 'react-use/lib/useMedia';
-import { useDisclosureState, Disclosure, DisclosureContent } from 'reakit';
+import { Disclosure, DisclosureContent, useDisclosureState } from 'reakit';
 import { useTranslation } from 'react-i18next';
 
 import * as S from './HeaderBar.style';
 
-import tokens from '../../../tokens';
+import tokens from '../../../deprecatedTokens';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 const HeaderBar = S.HeaderBar;
 
@@ -16,7 +17,7 @@ const Content: React.FC<ContentProps> = ({ children }: ContentProps) => {
 	const disclosure = useDisclosureState({
 		animated: 250,
 	});
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	return isWide ? (
 		children
 	) : (

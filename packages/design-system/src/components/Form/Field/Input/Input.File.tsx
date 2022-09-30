@@ -1,126 +1,20 @@
-import React from 'react';
-import { tint } from 'polished';
-import styled from 'styled-components';
+import React, { forwardRef, Key, Ref, useEffect, useRef, useState } from 'react';
 import { unstable_useId as useId } from 'reakit';
 import { Trans, useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 import classnames from 'classnames';
-import DSTokens from '@talend/design-tokens';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 import { ButtonIcon } from '../../../ButtonIcon';
-import Link from '../../../Link';
-import { Icon } from '../../../Icon';
+import { SizedIcon } from '../../../Icon';
 import VisuallyHidden from '../../../VisuallyHidden';
-import Input, { InputProps } from './Input';
-import tokens from '../../../../tokens';
-import Field from '../Field';
+import {
+	FieldPrimitive,
+	FieldPropsPrimitive,
+	InputPrimitive,
+	InputPrimitiveProps,
+} from '../../Primitives/index';
 
-const FileField = styled.div`
-	width: 100%;
-
-	.input {
-		&,
-		&::-webkit-file-upload-button {
-			height: 100%;
-			width: 100%;
-			cursor: pointer;
-		}
-
-		&--filled {
-			pointer-events: none;
-		}
-
-		&:focus + .input-file__text {
-			border: 2px solid ${({ theme }) => theme.colors.inputFocusBorderColor};
-			border-radius: ${tokens.radii.inputBorderRadius};
-			outline: 0.3rem solid ${({ theme }) => theme.colors.focusColor[500]};
-		}
-	}
-
-	.input-file {
-		position: relative;
-		border: 1px dashed ${({ theme }) => theme.colors.inputBorderColor};
-		border-radius: ${tokens.radii.inputBorderRadius};
-
-		&:hover {
-			border-color: ${({ theme }) => theme.colors.inputHoverBorderColor};
-
-			.text__icon {
-				fill: ${({ theme }) => theme.colors.inputHoverBorderColor};
-			}
-		}
-
-		&--dragging {
-			background: ${({ theme }) => tint(0.95, theme.colors.activeColor[500])};
-			border: 2px dashed ${({ theme }) => theme.colors.activeColor[500]};
-
-			.text__icon {
-				fill: ${({ theme }) => theme.colors.activeColor[500]};
-			}
-		}
-
-		&__text,
-		&__preview,
-		&__input {
-			min-height: ${tokens.sizes.xxl};
-		}
-
-		&__input {
-			position: absolute;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			opacity: ${tokens.opacity.transparent};
-		}
-	}
-
-	.text {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: ${({ theme }) => theme.colors.inputPlaceholderColor};
-
-		&__icon {
-			position: static;
-			margin: 0 1rem;
-			width: ${tokens.sizes.l};
-			color: ${({ theme }) => theme.colors.textColor};
-		}
-	}
-
-	.preview {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		padding: ${DSTokens.coralSpacingXxs} ${DSTokens.coralSpacingXs};
-
-		&.single-file {
-			align-items: center;
-		}
-
-		&__button {
-			button {
-				position: static;
-
-				svg {
-					margin: 0;
-					fill: currentColor;
-				}
-			}
-		}
-
-		&__list {
-			margin: 0;
-			padding: 0;
-			list-style: none;
-			flex-grow: 1;
-
-			&-item {
-				color: ${({ theme }) => theme.colors.inputColor};
-			}
-		}
-	}
-`;
+import styles from './Input.File.module.scss';
 
 function getFileSize(size: number, t: TFunction) {
 	if (size < 1024) {
@@ -133,16 +27,19 @@ function getFileSize(size: number, t: TFunction) {
 	return '';
 }
 
-type FileProps = InputProps & {
-	files: FileList | null;
+type InputType = Omit<InputPrimitiveProps, 'type' | 'className' | 'style' | 'prefix' | 'suffix'>;
+type FileProps = InputType & {
+	files?: FileList;
 };
 
-const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputElement>) => {
-	const [drag, setDrag] = React.useState(false);
-	const [files, setFiles] = React.useState<FileList | null>(props.files);
+const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
+	const [drag, setDrag] = useState(false);
+	const [files, setFiles] = useState(props.files || null);
 
-	const inputRef = React.useRef<HTMLInputElement | null>(null);
-	const { t } = useTranslation();
+	const inputRef = useRef<HTMLInputElement | null>(null);
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
+
+	const { hasError, ...rest } = props;
 
 	function handleChange() {
 		const input = inputRef.current;
@@ -173,7 +70,7 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 		setDrag(() => false);
 	}
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const input = inputRef.current;
 		if (input) {
 			input.addEventListener('dragenter', handleDragIn);
@@ -195,9 +92,10 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 	const fileInfoId = `info--${reakitId}`;
 
 	return (
-		<FileField aria-describedby={fileInfoId} ref={ref}>
+		<div aria-describedby={fileInfoId} ref={ref} className={styles.wrapper}>
 			{props.readOnly ? (
-				<Input
+				<InputPrimitive
+					type="text"
 					{...props}
 					value={
 						files
@@ -205,49 +103,56 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 									.map((file: File | string) =>
 										typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size, t)})`,
 									)
-									.join(';')
+									.join('; ')
 							: ''
 					}
 				/>
 			) : (
-				<div id={fileInfoId} className={`input-file ${drag ? 'input-file--dragging' : ''}`}>
+				<div
+					id={fileInfoId}
+					className={classnames(styles.inputFile, {
+						[styles.inputFile_dragging]: drag,
+						[styles.inputFile_disabled]: props.disabled,
+						[styles.inputFile_error]: hasError,
+					})}
+				>
 					<input
-						{...props}
+						{...rest}
 						type="file"
-						className={`input-file__input input ${files ? 'input--filled' : ''}`}
+						className={classnames(styles.inputFile__input, styles.input, {
+							[styles.input_filled]: files,
+						})}
 						ref={inputRef}
 					/>
 					{!files ? (
-						<div className="input-file__text text">
-							<Icon className="text__icon" name="talend-upload" />{' '}
-							<span className="text__span">
+						<div className={classnames(styles.inputFile__text, styles.text)}>
+							<SizedIcon size="S" name="upload" />{' '}
+							<span>
 								<Trans i18nKey="INPUT_FILE_DROP_OR_BROWSE_FILE">
-									Drop your files or {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-									<span className="link">
-										<Link href="#">browse</Link>
-									</span>
+									Drop your files or
+									<span className={styles.text__fakeLink}>browse</span>
 								</Trans>
 							</span>
 						</div>
 					) : (
 						<div
-							className={classnames('input-file__preview preview', {
-								'single-file': Array.from(files).length === 1,
+							className={classnames(styles.inputFile__preview, styles.preview, {
+								[styles.preview_single]: Array.from(files).length === 1,
 							})}
 						>
 							<VisuallyHidden>You have selected:</VisuallyHidden>
 							{/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-							<ol role="list" className="preview__list">
+							<ol role="list" className={styles.preview__list}>
 								{files &&
-									Array.from(files).map((file: File | string, index: React.Key) => (
-										<li key={index} className="preview__list-item">
+									Array.from(files).map((file: File | string, index: Key) => (
+										<li key={index} className={styles.preview__list__listItem}>
 											{typeof file === 'string'
 												? file
 												: `${file.name} (${getFileSize(file.size, t)})`}
 										</li>
 									))}
 							</ol>
-							<div className="preview__button">
+							<div className={styles.preview__button}>
 								<ButtonIcon icon="cross-filled" onClick={() => clear()} size="S">
 									{t('INPUT_FILE_CLEAR_SELECTION', 'Clear selection')}
 								</ButtonIcon>
@@ -256,12 +161,34 @@ const InputFile = React.forwardRef((props: FileProps, ref: React.Ref<HTMLInputEl
 					)}
 				</div>
 			)}
-		</FileField>
+		</div>
 	);
 });
+InputFile.displayName = 'InputFile';
 
-const FieldFile = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => (
-	<Field as={InputFile} {...props} ref={ref} />
-));
+const FieldFile = forwardRef(
+	(
+		props: FileProps & Omit<FieldPropsPrimitive, 'style' | 'className'>,
+		ref: Ref<HTMLInputElement>,
+	) => {
+		const { label, hasError, link, description, id, name, hideLabel, required, ...rest } = props;
+		return (
+			<FieldPrimitive
+				label={label}
+				hasError={hasError || false}
+				link={link}
+				description={description}
+				id={id}
+				name={name}
+				hideLabel={hideLabel}
+				required={required}
+			>
+				<InputFile {...rest} ref={ref} />
+			</FieldPrimitive>
+		);
+	},
+);
+
+FieldFile.displayName = 'FieldFile';
 
 export default FieldFile;

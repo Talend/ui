@@ -1,5 +1,155 @@
 # @talend/design-system
 
+## 5.0.1
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- 6fd16be45: fix: use flex-start instead of start
+
+## 5.0.0
+
+### Major Changes
+
+- eb1708093: Removing Styled Components from Form elements
+
+  ## Breaking changes
+
+  ### `Form` modules
+
+  - As always with these change, we lose StyledComponent's `as` props.
+  - No more `className` or `style` on Form elements.
+  - No more `Form.FieldGroup`. All the inputs (`Form.Text`, `Form.Select`, `Form.Number` etc...) have `prefix` and `suffix`props to handle this.
+  - `name` is required on all form elements.
+  - No more `Form.Range`. Though it was undocumented, it was exported. It was far from doing what we want `input type="range"` to do in our apps.
+  - Simpler `description` and `hasError` APIs. Fields can either have a (neutral) description or an error message.
+
+  ### `InlineEditing` modules
+
+  - As always with these change, we lose StyledComponent's `as` props.
+  - No more `className` or `style`.
+  - `placeholder` prop is now mandatory.
+
+  ## Other changes
+
+  ### `Form` modules
+
+  - Updated styles with design tokens.
+  - Height of input elements based in height of buttons.
+  - Focusing a field no longer changes the field's height.
+  - Affixes can now be either buttons, text or `select` fields through a props-based API.
+
+  ### `InlineEditing` modules
+
+  - `InlineEditing.Text` and `InlineEditing.Textarea` both have a `renderValueAs` props that can take React component.
+
+  ***
+
+  ## Reasons for changes
+
+  ### Removing StyledComponents
+
+  CSS-in-JS brings no value to the DS or Talend. No other project uses it but the DS forces it as a dependency.
+
+  We're removing it from all our components.
+
+  ### No `className` or `style` props on components
+
+  Design System components are _systemic_. They are not part of a customizable component library.
+
+  Removing those props from the component typing helps enforce that rule.
+
+  > What about positioning those components? How do I handle that?
+
+  We expect consumers to wrap library components into project-side positioning element.
+
+  That way your project-side CSS is never broken or misaligned with the library's and the concerns are clearly separated.
+
+  ### Removing `Form.FieldGroup`
+
+  Having a wrapper component around all the other inputs seems unnecessary.
+
+  Folding these types and props into the native primitive made more sense.
+
+  ### Enforcing `placeholder` in `InlineEditing`
+
+  Nothing prevents users from deleting the contents of an `InlineEditing` field.
+
+  Since the labels are hidden, placeholders are the only way to indicate what's the field for in these instances.
+
+### Patch Changes
+
+- Updated dependencies [ee45da0c5]
+  - @talend/design-tokens@2.7.1
+
+## 4.3.0
+
+### Minor Changes
+
+- 65e75d6b3: Use DS namespace for DS translations
+
+## 4.2.0
+
+### Minor Changes
+
+- f54db324c: StackVertical: add height prop
+
+### Patch Changes
+
+- 95e37c3b2: Padding style of popover should apply to contents, not parent.
+
+## 4.1.1
+
+### Patch Changes
+
+- b5d12a791: Export TagVariantsNames from DS module
+
+## 4.1.0
+
+### Minor Changes
+
+- 79239025d: Add const to export Tag variations through string array
+- e5aa63ef6: feat(Popover): add `isFixed` and `hasPadding` props
+
+## 4.0.2
+
+### Patch Changes
+
+- e6b185e51: fix(TDP-11258): get back tilde character for sass imports for compatibility"
+
+## 4.0.1
+
+### Patch Changes
+
+- ae9897897: Using design tokens instead of style components plus fixes in the following components:
+
+  - ThemeProvider
+  - Switch
+  - Layout
+  - InlineEditing
+  - Divider
+  - ButtonIcon
+  - Accordion
+  - Icon
+
+- Updated dependencies [56e0a9629]
+  - @talend/assets-api@1.2.2
+
+## 4.0.0
+
+### Major Changes
+
+- 617ec14f0: Tabs: Removed className possibilities. Composition mode is not the default anymore.
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [a99154a7d]
+  - @talend/design-tokens@2.7.0
+
 ## 3.8.0
 
 ### Minor Changes

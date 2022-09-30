@@ -1,5 +1,50 @@
 # @talend/react-forms
 
+## 8.1.4
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
+## 8.1.3
+
+### Patch Changes
+
+- bd7b58230: chore(TDS-6666): disabled split
+
+## 8.1.2
+
+### Patch Changes
+
+- 73c84e692: fix: move skipCommas options to schema object instead of component api
+
+## 8.1.1
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+- Updated dependencies [f4ba0ef47]
+- Updated dependencies [4248c2e69]
+  - @talend/react-components@7.7.0
+
+## 8.1.0
+
+### Minor Changes
+
+- c02aeb6ae: add the capability to skip commas with backslash char
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- 262e60063: fix: move exported values of UIForm into the class as static values
+- Updated dependencies [617ec14f0]
+- Updated dependencies [a99154a7d]
+  - @talend/design-system@4.0.0
+  - @talend/react-components@7.5.0
+
 ## 8.0.2
 
 ### Patch Changes

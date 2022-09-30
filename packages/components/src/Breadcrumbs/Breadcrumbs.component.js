@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import uuid from 'uuid';
 import { withTranslation } from 'react-i18next';
 
-import theme from './Breadcrumbs.scss';
+import theme from './Breadcrumbs.module.scss';
 import { Action, ActionDropdown } from '../Actions';
 import Skeleton from '../Skeleton/Skeleton.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';

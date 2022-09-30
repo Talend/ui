@@ -5,7 +5,7 @@ import has from 'lodash/has';
 import TooltipTrigger from '../../../TooltipTrigger';
 import FormatValue from '../../../FormatValue/FormatValue.component';
 
-import theme from './DefaultValueRenderer.scss';
+import theme from './DefaultValueRenderer.module.scss';
 
 export const DEFAULT_VALUE_PROP_TYPES = PropTypes.oneOfType([
 	PropTypes.string,

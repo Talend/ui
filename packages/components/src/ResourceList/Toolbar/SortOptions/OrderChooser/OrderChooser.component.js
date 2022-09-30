@@ -7,7 +7,7 @@ import TooltipTrigger from '../../../../TooltipTrigger';
 import OverlayTrigger from '../../../../OverlayTrigger';
 import getPropsFrom from '../../../../utils/getPropsFrom';
 
-import theme from './OrderChooser.scss';
+import theme from './OrderChooser.module.scss';
 
 function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) {
 	return (

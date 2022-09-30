@@ -111,8 +111,17 @@ export const useColumnChooserManager = (
 		setColumns(newColumns);
 	};
 
+	// Returns true if all columns are visible, false if none and undefined if some.
 	const selectAll = useMemo(() => {
-		return filteredColumns.length > 0 && filteredColumns.every(column => column.visible);
+		let value = false;
+		let selectableColumns = filteredColumns.filter(column => !column.locked);
+		if (selectableColumns.length) {
+			const visibleColumns = selectableColumns.filter(column => column.visible);
+			value =
+				visibleColumns.length === selectableColumns.length ||
+				(visibleColumns.length ? undefined : false);
+		}
+		return value;
 	}, [filteredColumns]);
 
 	return {

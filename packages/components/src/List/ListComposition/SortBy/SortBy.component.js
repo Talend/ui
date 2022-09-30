@@ -6,7 +6,7 @@ import Icon from '../../../Icon';
 
 import { useListContext } from '../context';
 
-import cssModule from './SortBy.scss';
+import cssModule from './SortBy.module.scss';
 import { getTheme } from '../../../theme';
 
 const theme = getTheme(cssModule);

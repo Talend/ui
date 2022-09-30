@@ -1,7 +1,7 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { FigmaImage, FigmaIframe } from '~docs';
+import { FigmaImage } from '~docs';
 import Form from '../.';
-import { ButtonSecondary, ButtonPrimary } from '../../Button';
+import { ButtonPrimary, ButtonSecondary } from '../../Button';
 
 <Meta
 	title="Components/Form/Form Fieldset"
@@ -25,22 +25,20 @@ The fieldset is a field group in a form.
 
 Group logical blocks into fieldset. If the fields are related, display them on the same row.
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=191%3A352"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=348%3A0"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=191%3A352"
+	alt="Fieldset mockup"
 />
 
 <Canvas>
 	<Story name="default">
 		<Form>
 			<Form.Fieldset legend="Frequency">
-				<Form.Select label="Repeat" />
+				<Form.Select name="repeat" label="Repeat" />
 				<Form.Row>
-					<Form.FieldGroup label="Minutes" suffix="minutes">
-						<Form.Number />
-					</Form.FieldGroup>
-					<Form.Time label="Repeat from" required />
-					<Form.Time label="Repeat to" required />
+					<Form.Number label="Minutes" suffix="minutes" name="minutes" />
+					<Form.Time name="repeat-from" label="Repeat from" required />
+					<Form.Time name="repeat-to" label="Repeat to" required />
 				</Form.Row>
 			</Form.Fieldset>
 			<Form.Buttons>
@@ -59,28 +57,27 @@ Group logical blocks into fieldset. If the fields are related, display them on t
 
 Only individual fields could be errored, not the full fieldset.
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=224%3A13927"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A497"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=224%3A13927"
+	alt="Fieldset mockup with state"
 />
 
 <Canvas>
 	<Story name="error">
 		<Form>
 			<Form.Fieldset legend="Frequency">
-				<Form.Select label="Repeat" />
+				<Form.Select name="repeat" label="Repeat" />
 				<Form.Row>
-					<Form.FieldGroup label="Minutes" suffix="minutes">
-						<Form.Number />
-					</Form.FieldGroup>
+					<Form.Number label="Minutes" suffix="minutes" name="minutes" />
 					<Form.Time
 						label="Repeat from"
+						name="repeat-from"
 						required
 						value="14:k"
 						hasError
 						description="Repeat from is invalid"
 					/>
-					<Form.Time label="Repeat to" required />
+					<Form.Time label="Repeat to" name="repeat-to" required />
 				</Form.Row>
 			</Form.Fieldset>
 			<Form.Buttons>
@@ -95,22 +92,21 @@ Only individual fields could be errored, not the full fieldset.
 
 In case of more than one error or a horizontal fieldset, display the errors under each other.
 
-<FigmaIframe
-	light="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A0"
-	dark="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=342%3A583"
+<FigmaImage
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A0"
+	alt="Fieldset mockup with state"
 />
 
 <Canvas>
 	<Story name="errors">
 		<Form>
 			<Form.Fieldset legend="Frequency">
-				<Form.Select label="Repeat" />
+				<Form.Select label="Repeat" name="repeat" />
 				<Form.Row>
-					<Form.FieldGroup label="Minutes" suffix="minutes">
-						<Form.Number />
-					</Form.FieldGroup>
+					<Form.Number label="Minutes" suffix="minutes" name="minutes" />
 					<Form.Time
 						label="Repeat from"
+						name="repeat-from"
 						required
 						value="14:k"
 						hasError
@@ -118,6 +114,7 @@ In case of more than one error or a horizontal fieldset, display the errors unde
 					/>
 					<Form.Time
 						label="Repeat to"
+						name="repeat-to"
 						required
 						value="k"
 						hasError

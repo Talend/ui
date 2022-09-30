@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -28,7 +28,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 
 <Canvas>
 	<Story name="default">
-		<Form.Month label="Month" min="2018-03" />
+		<Form.Month label="Month" name="month" min="2018-03" />
 	</Story>
 </Canvas>
 
@@ -39,7 +39,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Month label="Month" />
+		<Form.Month label="Month" name="month" />
 	</Story>
 </Canvas>
 
@@ -50,7 +50,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Month label="Month" />
+		<Form.Month label="Month" name="month" />
 	</Story>
 </Canvas>
 
@@ -58,7 +58,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 
 <Canvas>
 	<Story name="filled">
-		<Form.Month label="Month" value="2018-05" />
+		<Form.Month label="Month" name="month" value="2018-05" />
 	</Story>
 </Canvas>
 
@@ -66,7 +66,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Month label="Month" value="2018-05" disabled />
+		<Form.Month label="Month" name="month" value="2018-05" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Month label="Month" value="2018-05" readOnly />
+		<Form.Month label="Month" name="month" value="2018-05" readOnly />
 	</Story>
 </Canvas>
 

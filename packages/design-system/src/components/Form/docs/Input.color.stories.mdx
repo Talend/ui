@@ -1,5 +1,5 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { WithSelector, FigmaImage } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, WithSelector } from '~docs';
 import Form from '../';
 
 <Meta
@@ -28,7 +28,7 @@ It provides a user interface element that lets a user specify a color, either by
 
 <Canvas>
 	<Story name="default">
-		<Form.Color label="Color" />
+		<Form.Color name="color" label="Color" />
 	</Story>
 </Canvas>
 
@@ -39,7 +39,7 @@ It provides a user interface element that lets a user specify a color, either by
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Color label="Color" />
+		<Form.Color name="color" label="Color" />
 	</Story>
 </Canvas>
 
@@ -50,7 +50,7 @@ It provides a user interface element that lets a user specify a color, either by
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Color label="Color" />
+		<Form.Color name="color" label="Color" />
 	</Story>
 </Canvas>
 
@@ -58,7 +58,7 @@ It provides a user interface element that lets a user specify a color, either by
 
 <Canvas>
 	<Story name="filled">
-		<Form.Color label="Color" value="#FF6D70" />
+		<Form.Color name="color" label="Color" value="#FF6D70" />
 	</Story>
 </Canvas>
 
@@ -66,7 +66,7 @@ It provides a user interface element that lets a user specify a color, either by
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Color label="Color" value="#FF6D70" disabled />
+		<Form.Color name="color" label="Color" value="#FF6D70" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ It provides a user interface element that lets a user specify a color, either by
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Color label="Color" value="#FF6D70" readOnly />
+		<Form.Color name="color" label="Color" value="#FF6D70" readOnly />
 	</Story>
 </Canvas>
 

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { timeToStr, pad } from '../../Time/time-extraction';
 import withListGesture from '../../../Gesture/withListGesture';
 
-import theme from './TimePicker.scss';
+import theme from './TimePicker.module.scss';
 
 function isBefore(a, b) {
 	if (a.hours > b.hours) {

@@ -1,5 +1,224 @@
 # @talend/icons
 
+## 6.49.0
+
+### Minor Changes
+
+- 7c2a399eb: added icon `slider-controls` in size `L`
+- 7c2a399eb: added icon `slider-controls` in size `M`
+
+### Patch Changes
+
+- 7c2a399eb: changed icon `api` in size `L`
+- 7c2a399eb: changed icon `arrows-expand` in size `L`
+- 7c2a399eb: changed icon `asterisk` in size `M`
+- 7c2a399eb: changed icon `asterisk` in size `S`
+- 7c2a399eb: changed icon `bar-charts` in size `M`
+- 7c2a399eb: changed icon `blackboard` in size `L`
+- 7c2a399eb: changed icon `blackboard` in size `M`
+- 7c2a399eb: changed icon `blackboard` in size `S`
+- 7c2a399eb: changed icon `box` in size `L`
+- 7c2a399eb: changed icon `broom` in size `M`
+- 7c2a399eb: changed icon `bubbles` in size `M`
+- 7c2a399eb: changed icon `chat` in size `L`
+- 7c2a399eb: changed icon `chat` in size `M`
+- 7c2a399eb: changed icon `chat` in size `S`
+- 7c2a399eb: changed icon `check-filled` in size `L`
+- 7c2a399eb: changed icon `check-filled` in size `M`
+- 7c2a399eb: changed icon `check-stroke` in size `L`
+- 7c2a399eb: changed icon `check-stroke` in size `M`
+- 7c2a399eb: changed icon `check-stroke` in size `S`
+- 7c2a399eb: changed icon `chevron-double-left-filled` in size `L`
+- 7c2a399eb: changed icon `chevron-double-left-filled` in size `M`
+- 7c2a399eb: changed icon `chevron-double-left-stroke` in size `L`
+- 7c2a399eb: changed icon `chevron-double-left-stroke` in size `M`
+- 7c2a399eb: changed icon `chevron-double-right-filled` in size `L`
+- 7c2a399eb: changed icon `chevron-double-right-filled` in size `M`
+- 7c2a399eb: changed icon `chevron-double-right-stroke` in size `L`
+- 7c2a399eb: changed icon `chevron-double-right-stroke` in size `M`
+- 7c2a399eb: changed icon `chevron-down-filled` in size `L`
+- 7c2a399eb: changed icon `chevron-down-filled` in size `M`
+- 7c2a399eb: changed icon `chevron-down-stroke` in size `L`
+- 7c2a399eb: changed icon `chevron-down-stroke` in size `M`
+- 7c2a399eb: changed icon `chevron-down-stroke` in size `S`
+- 7c2a399eb: changed icon `chevron-left-filled` in size `L`
+- 7c2a399eb: changed icon `chevron-left-filled` in size `M`
+- 7c2a399eb: changed icon `chevron-left-stroke` in size `L`
+- 7c2a399eb: changed icon `chevron-left-stroke` in size `M`
+- 7c2a399eb: changed icon `chevron-left-stroke` in size `S`
+- 7c2a399eb: changed icon `chevron-right-filled` in size `L`
+- 7c2a399eb: changed icon `chevron-right-filled` in size `M`
+- 7c2a399eb: changed icon `chevron-right-stroke` in size `L`
+- 7c2a399eb: changed icon `chevron-right-stroke` in size `M`
+- 7c2a399eb: changed icon `chevron-right-stroke` in size `S`
+- 7c2a399eb: changed icon `chevron-up-filled` in size `L`
+- 7c2a399eb: changed icon `chevron-up-filled` in size `M`
+- 7c2a399eb: changed icon `chevron-up-stroke` in size `L`
+- 7c2a399eb: changed icon `chevron-up-stroke` in size `M`
+- 7c2a399eb: changed icon `chevron-up-stroke` in size `S`
+- 7c2a399eb: changed icon `circle-slash` in size `L`
+- 7c2a399eb: changed icon `circle-slash` in size `M`
+- 7c2a399eb: changed icon `circle-slash` in size `S`
+- 7c2a399eb: changed icon `clipperboard-chart` in size `S`
+- 7c2a399eb: changed icon `clipperboard-checklist` in size `S`
+- 7c2a399eb: changed icon `cloud-arrow-up` in size `M`
+- 7c2a399eb: changed icon `cluster` in size `M`
+- 7c2a399eb: changed icon `cluster` in size `S`
+- 7c2a399eb: changed icon `copy` in size `L`
+- 7c2a399eb: changed icon `cross-filled` in size `L`
+- 7c2a399eb: changed icon `cross-filled` in size `M`
+- 7c2a399eb: changed icon `cross-stroke` in size `L`
+- 7c2a399eb: changed icon `cross-stroke` in size `M`
+- 7c2a399eb: changed icon `cross-stroke` in size `S`
+- 7c2a399eb: changed icon `crosshairs` in size `L`
+- 7c2a399eb: changed icon `crosshairs` in size `M`
+- 7c2a399eb: changed icon `datagrid` in size `S`
+- 7c2a399eb: changed icon `diverge` in size `L`
+- 7c2a399eb: changed icon `double-arrows` in size `L`
+- 7c2a399eb: changed icon `empty-space` in size `L`
+- 7c2a399eb: changed icon `empty-space` in size `M`
+- 7c2a399eb: changed icon `erlenmeyer` in size `S`
+- 7c2a399eb: changed icon `exclamation-stroke` in size `L`
+- 7c2a399eb: changed icon `exclamation-stroke` in size `M`
+- 7c2a399eb: changed icon `exclamation-stroke` in size `S`
+- 7c2a399eb: changed icon `export` in size `L`
+- 7c2a399eb: changed icon `external-link` in size `L`
+- 7c2a399eb: changed icon `filter` in size `S`
+- 7c2a399eb: changed icon `flag` in size `S`
+- 7c2a399eb: changed icon `folder-closed` in size `L`
+- 7c2a399eb: changed icon `folder-closed` in size `M`
+- 7c2a399eb: changed icon `folder-closed` in size `S`
+- 7c2a399eb: changed icon `folder-opened` in size `M`
+- 7c2a399eb: changed icon `folder-shared` in size `L`
+- 7c2a399eb: changed icon `generator` in size `M`
+- 7c2a399eb: changed icon `group` in size `L`
+- 7c2a399eb: changed icon `group` in size `M`
+- 7c2a399eb: changed icon `group` in size `S`
+- 7c2a399eb: changed icon `hierchical-bottom` in size `L`
+- 7c2a399eb: changed icon `hierchical-bottom` in size `M`
+- 7c2a399eb: changed icon `hierchical-right` in size `L`
+- 7c2a399eb: changed icon `hierchical-right` in size `S`
+- 7c2a399eb: changed icon `import` in size `L`
+- 7c2a399eb: changed icon `import` in size `S`
+- 7c2a399eb: changed icon `information-filled` in size `L`
+- 7c2a399eb: changed icon `information-filled` in size `M`
+- 7c2a399eb: changed icon `information-stroke` in size `L`
+- 7c2a399eb: changed icon `information-stroke` in size `M`
+- 7c2a399eb: changed icon `information-stroke` in size `S`
+- 7c2a399eb: changed icon `law-hammer` in size `L`
+- 7c2a399eb: changed icon `line-chart` in size `L`
+- 7c2a399eb: changed icon `line-chart` in size `M`
+- 7c2a399eb: changed icon `magnifying-glass` in size `M`
+- 7c2a399eb: changed icon `mapper` in size `L`
+- 7c2a399eb: changed icon `mapper` in size `M`
+- 7c2a399eb: changed icon `micro-chip` in size `M`
+- 7c2a399eb: changed icon `minus-filled` in size `L`
+- 7c2a399eb: changed icon `minus-filled` in size `M`
+- 7c2a399eb: changed icon `minus-stroke` in size `L`
+- 7c2a399eb: changed icon `minus-stroke` in size `M`
+- 7c2a399eb: changed icon `minus-stroke` in size `S`
+- 7c2a399eb: changed icon `network` in size `L`
+- 7c2a399eb: changed icon `network` in size `M`
+- 7c2a399eb: changed icon `note-pencil` in size `L`
+- 7c2a399eb: changed icon `note-pencil` in size `M`
+- 7c2a399eb: changed icon `note-pencil` in size `S`
+- 7c2a399eb: changed icon `pencil` in size `M`
+- 7c2a399eb: changed icon `pencil` in size `S`
+- 7c2a399eb: changed icon `pencil` in size `XS`
+- 7c2a399eb: changed icon `plus` in size `M`
+- 7c2a399eb: changed icon `plus` in size `S`
+- 7c2a399eb: changed icon `plus` in size `XS`
+- 7c2a399eb: changed icon `plus-filled` in size `L`
+- 7c2a399eb: changed icon `plus-filled` in size `M`
+- 7c2a399eb: changed icon `plus-stroke` in size `L`
+- 7c2a399eb: changed icon `plus-stroke` in size `M`
+- 7c2a399eb: changed icon `plus-stroke` in size `S`
+- 7c2a399eb: changed icon `promote` in size `M`
+- 7c2a399eb: changed icon `puzzle-outline` in size `L`
+- 7c2a399eb: changed icon `question-filled` in size `L`
+- 7c2a399eb: changed icon `question-filled` in size `M`
+- 7c2a399eb: changed icon `question-stroke` in size `L`
+- 7c2a399eb: changed icon `question-stroke` in size `M`
+- 7c2a399eb: changed icon `refresh` in size `L`
+- 7c2a399eb: changed icon `refresh` in size `M`
+- 7c2a399eb: changed icon `rows` in size `L`
+- 7c2a399eb: changed icon `scissor` in size `M`
+- 7c2a399eb: changed icon `share-filled` in size `L`
+- 7c2a399eb: changed icon `share-filled` in size `S`
+- 7c2a399eb: changed icon `share-left-filled` in size `M`
+- 7c2a399eb: changed icon `share-left-filled` in size `S`
+- 7c2a399eb: changed icon `share-outline` in size `M`
+- 7c2a399eb: changed icon `share-outline` in size `S`
+- 7c2a399eb: changed icon `share-right-filled` in size `S`
+- 7c2a399eb: changed icon `smiley-angry` in size `L`
+- 7c2a399eb: changed icon `smiley-angry` in size `M`
+- 7c2a399eb: changed icon `smiley-happy` in size `L`
+- 7c2a399eb: changed icon `smiley-happy` in size `M`
+- 7c2a399eb: changed icon `smiley-neutral` in size `L`
+- 7c2a399eb: changed icon `smiley-neutral` in size `M`
+- 7c2a399eb: changed icon `smiley-sad` in size `L`
+- 7c2a399eb: changed icon `smiley-sad` in size `M`
+- 7c2a399eb: changed icon `smiley-satisfied` in size `L`
+- 7c2a399eb: changed icon `smiley-satisfied` in size `M`
+- 7c2a399eb: changed icon `sort-za` in size `M`
+- 7c2a399eb: changed icon `square-a` in size `L`
+- 7c2a399eb: changed icon `square-abc` in size `L`
+- 7c2a399eb: changed icon `square-backspace` in size `L`
+- 7c2a399eb: changed icon `square-circle` in size `L`
+- 7c2a399eb: changed icon `square-circle` in size `M`
+- 7c2a399eb: changed icon `square-circle` in size `S`
+- 7c2a399eb: changed icon `square-cross` in size `L`
+- 7c2a399eb: changed icon `square-curly-braces` in size `L`
+- 7c2a399eb: changed icon `stack` in size `M`
+- 7c2a399eb: changed icon `star` in size `M`
+- 7c2a399eb: changed icon `star` in size `S`
+- 7c2a399eb: changed icon `table` in size `S`
+- 7c2a399eb: changed icon `tag` in size `L`
+- 7c2a399eb: changed icon `test-tube` in size `L`
+- 7c2a399eb: changed icon `test-tube` in size `M`
+- 7c2a399eb: changed icon `test-tube` in size `S`
+- 7c2a399eb: changed icon `tiles` in size `L`
+- 7c2a399eb: changed icon `tokens` in size `M`
+- 7c2a399eb: changed icon `tokens` in size `S`
+- 7c2a399eb: changed icon `triangle-circle` in size `L`
+- 7c2a399eb: changed icon `triangle-circle` in size `M`
+- 7c2a399eb: changed icon `triangle-circle` in size `S`
+- 7c2a399eb: changed icon `ungroup` in size `S`
+- 7c2a399eb: changed icon `user` in size `L`
+- 7c2a399eb: changed icon `user` in size `M`
+- 7c2a399eb: changed icon `user` in size `S`
+- 7c2a399eb: changed icon `user` in size `XS`
+- 7c2a399eb: changed icon `user-circle` in size `L`
+- 7c2a399eb: changed icon `user-circle` in size `M`
+- 7c2a399eb: changed icon `user-circle` in size `S`
+- 7c2a399eb: changed icon `waves` in size `M`
+- 7c2a399eb: changed icon `wheel` in size `L`
+- 7c2a399eb: changed icon `wheel` in size `M`
+- 7c2a399eb: changed icon `wheel` in size `S`
+- 7c2a399eb: changed icon `wheel` in size `XS`
+- 7c2a399eb: changed icon `window-arrow` in size `L`
+- 7c2a399eb: changed icon `window-arrow` in size `M`
+- 7c2a399eb: changed icon `world` in size `L`
+- 7c2a399eb: changed icon `world` in size `M`
+- 7c2a399eb: changed icon `zoom-lines` in size `M`
+- 7c2a399eb: changed icon `zoom-minus` in size `M`
+- 7c2a399eb: changed icon `zoom-plus` in size `M`
+
+## 6.48.0
+
+### Minor Changes
+
+- 8b6f3989d: added icon `code` in size `L`
+- 8b6f3989d: added icon `code` in size `M`
+
+### Patch Changes
+
+- 8b6f3989d: changed icon `cross` in size `M`
+- 8b6f3989d: changed icon `cross` in size `S`
+- 8b6f3989d: changed icon `cross` in size `XS`
+- 8b6f3989d: changed icon `law-hammer` in size `L`
+- 8b6f3989d: changed icon `law-hammer` in size `M`
+
 ## 6.47.0
 
 ### Minor Changes

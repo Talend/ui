@@ -39,9 +39,9 @@ const dictionary = [
         name: 'coralColorNeutralBackground',
         type: 'color',
         description: ``,
-        hsla: 'hsla(207, 18%, 24%, 1)',
-        hex: '#323e48',
-        value: 'hsla(207, 18%, 24%, 1)',
+        hsla: 'hsla(206, 17%, 18%, 1)',
+        hex: '#262f36',
+        value: 'hsla(206, 17%, 18%, 1)',
         id: 'S:9ef16391a1cd63272e12e6e559a07e1bdde8d98c,'
     },
     {
@@ -192,27 +192,27 @@ const dictionary = [
         name: 'coralColorAccentBackground',
         type: 'color',
         description: ``,
-        hsla: 'hsla(199, 71%, 15%, 1)',
-        hex: '#0b3142',
-        value: 'hsla(199, 71%, 15%, 1)',
+        hsla: 'hsla(198, 72%, 25%, 1)',
+        hex: '#12516d',
+        value: 'hsla(198, 72%, 25%, 1)',
         id: 'S:d0bc41ad3ff985739cc159963538d13d49b68d3e,'
     },
     {
         name: 'coralColorAccentBackgroundHover',
         type: 'color',
         description: ``,
-        hsla: 'hsla(199, 73%, 10%, 1)',
-        hex: '#07202c',
-        value: 'hsla(199, 73%, 10%, 1)',
+        hsla: 'hsla(199, 78%, 20%, 1)',
+        hex: '#0b425b',
+        value: 'hsla(199, 78%, 20%, 1)',
         id: 'S:d207ec73a23f1ed631122c5586e13266a8445538,'
     },
     {
         name: 'coralColorAccentBackgroundActive',
         type: 'color',
         description: ``,
-        hsla: 'hsla(200, 69%, 5%, 1)',
-        hex: '#041016',
-        value: 'hsla(200, 69%, 5%, 1)',
+        hsla: 'hsla(199, 73%, 10%, 1)',
+        hex: '#07202c',
+        value: 'hsla(199, 73%, 10%, 1)',
         id: 'S:6417c23a879b7dbfd822c317ac052bac965cc359,'
     },
     {

@@ -1,5 +1,5 @@
-import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
-import { FigmaImage, Use } from '~docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
 
 import Form from '../';
 
@@ -30,7 +30,7 @@ Datalist is a set of options that represent the suggested values. It works like 
 
 <Canvas>
 	<Story name="default">
-		<Form.Datalist label="Datalist" values={['', 'foo', 'bar']} />
+		<Form.Datalist name="datalist" label="Datalist" values={['', 'foo', 'bar']} />
 	</Story>
 </Canvas>
 
@@ -38,7 +38,7 @@ Datalist is a set of options that represent the suggested values. It works like 
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Datalist label="Disabled Datalist" disabled values={['', 'foo', 'bar']} />
+		<Form.Datalist name="datalist" label="Disabled Datalist" disabled values={['', 'foo', 'bar']} />
 	</Story>
 </Canvas>
 
@@ -46,7 +46,13 @@ Datalist is a set of options that represent the suggested values. It works like 
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Datalist label="Read-Only Datalist" readOnly value="foo" values={['', 'foo', 'bar']} />
+		<Form.Datalist
+			name="datalist"
+			label="Read-Only Datalist"
+			readOnly
+			value="foo"
+			values={['', 'foo', 'bar']}
+		/>
 	</Story>
 </Canvas>
 

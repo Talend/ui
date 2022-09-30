@@ -1,0 +1,36 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.tc-add-facet-popover-header:not(:empty) {
+	height: auto;
+	flex-direction: column;
+	align-items: stretch;
+	padding: tokens.$coral-spacing-m tokens.$coral-spacing-s;
+}
+
+.tc-add-facet-popover-header {
+	&-category {
+		margin-bottom: tokens.$coral-spacing-s;
+		display: flex;
+		align-items: center;
+	}
+
+	&-category-title {
+		padding-left: tokens.$coral-spacing-xxs;
+		font: tokens.$coral-heading-m;
+		max-width: tokens.$coral-sizing-xxxl;
+	}
+
+	.tc-add-facet-popover-filter {
+		margin: 0;
+		padding: 0;
+		flex-grow: 1;
+
+		:global(input[type='search']) {
+			margin: 0;
+		}
+
+		:global(.btn) {
+			margin: 0;
+		}
+	}
+}

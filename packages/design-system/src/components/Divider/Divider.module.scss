@@ -5,6 +5,7 @@
 
 	&[aria-orientation='horizontal'] {
 		width: 100%;
+		margin: 0;
 		border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 
