@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 5.1.0
+
+### Minor Changes
+
+- 59509e0ba: feat(design-system): ErrorState (WIP)
+- dc361182d: Enabling `action` prop on EmptyState component size M.
+
 ## 5.0.1
 
 ### Patch Changes

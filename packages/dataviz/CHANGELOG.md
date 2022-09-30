@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.7.3
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+
 ## 2.7.2
 
 ### Patch Changes

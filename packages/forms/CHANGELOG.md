@@ -1,5 +1,14 @@
 # @talend/react-forms
 
+## 8.1.5
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+
 ## 8.1.4
 
 ### Patch Changes
