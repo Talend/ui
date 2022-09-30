@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 7.11.0
+
+### Minor Changes
+
+- c1bb5178f: feat: add SidePanel backgroundIcon props
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+
 ## 7.10.3
 
 ### Patch Changes
