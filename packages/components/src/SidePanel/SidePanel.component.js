@@ -123,6 +123,7 @@ function SidePanel({
 						background-repeat: no-repeat;
 						background-color: rgba(255, 255, 255, 0.1);
 						mask-image: url('${backgroundIcon}');
+						-webkit-mask-image: url('${backgroundIcon}');
 				}`}
 				</style>
 			)}
