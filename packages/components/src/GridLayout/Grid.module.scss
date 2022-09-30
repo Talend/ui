@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .layout	{
 	:global(.react-grid-item) {
 		display: flex;

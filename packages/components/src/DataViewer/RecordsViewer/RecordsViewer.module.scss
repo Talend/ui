@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $background-hover: rgba($dark-silver, 0.1) !default;
 $background-highlight: rgba($scooter, 0.1) !default;
 $hightlight-height: 2.2rem !default;

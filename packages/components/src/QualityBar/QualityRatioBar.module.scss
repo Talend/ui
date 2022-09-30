@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 @use '~@talend/design-tokens/lib/tokens';
 
 $custom-quality-bar-placeholder-line-hover-height: 0.4rem;

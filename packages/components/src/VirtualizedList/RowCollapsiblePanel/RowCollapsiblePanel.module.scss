@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 :global(.tc-collapsible-row) {
 	:global(.panel[class*='collapsible-panel']) {
 		margin-bottom: $padding-small;

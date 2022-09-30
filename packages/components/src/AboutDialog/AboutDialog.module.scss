@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .about-dialog {
 	:global(.modal-body) {
 		text-align: center;

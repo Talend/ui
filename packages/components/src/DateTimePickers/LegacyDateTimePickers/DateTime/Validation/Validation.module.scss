@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .validation {
 	display: flex;
 	padding: $padding-small $padding-normal;

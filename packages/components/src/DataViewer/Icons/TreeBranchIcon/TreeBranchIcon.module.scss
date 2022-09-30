@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .tc-tree-branch-icon {
 	display: flex;
 	margin-right: $padding-smaller;

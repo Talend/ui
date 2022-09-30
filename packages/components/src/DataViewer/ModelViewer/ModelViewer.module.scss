@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 $background-hover: rgba($dark-silver, 0.1) !default;

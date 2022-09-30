@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-popover-border-color: rgb(226, 226, 226) !default;
 $tc-popover-border-width: 0.1rem !default;
 $tc-icon-size: 1.2rem !default;

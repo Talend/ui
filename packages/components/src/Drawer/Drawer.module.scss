@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-drawer-initial-offset: 1000px !default;
 $tc-drawer-bgcolor: white !default;
 $tc-drawer-transition-duration: 230ms !default;

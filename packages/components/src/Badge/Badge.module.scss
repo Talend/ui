@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-badge-large-label-font-size: 1.4rem !default;
 $tc-badge-large-label-font-weight: normal !default;
 $tc-badge-large-label-with-categ-font-weight: $font-weight-semi-bold !default;

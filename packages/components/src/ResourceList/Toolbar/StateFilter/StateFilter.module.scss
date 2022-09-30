@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-resource-picker-toolbar-favorite-color: $lightning-yellow !default;
 $tc-resource-picker-toolbar-certified-color: $brand-primary !default;
 
