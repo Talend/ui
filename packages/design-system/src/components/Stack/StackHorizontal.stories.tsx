@@ -6,11 +6,11 @@ import { StackHorizontal } from '.';
 import {
 	alignContentOptions,
 	alignOptions,
-	heightOptions,
+	sizeOptions,
 	justifyOptions,
 	possibleAsTypes,
-	sizeOptions,
-	sizeOptionsWithAuto,
+	spacingOptions,
+	spacingOptionsWithAuto,
 } from './Primitive/StackPrimitive';
 
 export default {
@@ -27,18 +27,18 @@ export const manualStackArgs = {
 	},
 	align: { options: Object.keys(alignOptions), control: { type: 'select' }, defaultValue: 'start' },
 	gap: {
-		options: Object.keys(sizeOptions),
+		options: Object.keys(spacingOptions),
 		control: { type: 'select' },
 		description: 'MANDATORY. Can also be set as an object `{ x: SizeToken, y: SizeToken }`',
 	},
 	padding: {
-		options: Object.keys(sizeOptions),
+		options: Object.keys(spacingOptions),
 		control: { type: 'select' },
 		description:
 			'Can also be set as an object `{ x: SizeToken, y: SizeToken }` or `{top: SizeToken, left: SizeToken, right: SizeToken, bottom: SizeToken}`',
 	},
 	margin: {
-		options: Object.keys(sizeOptionsWithAuto),
+		options: Object.keys(spacingOptionsWithAuto),
 		control: { type: 'select' },
 		description:
 			'Can also be set as an object `{ x: SizeToken, y: SizeToken }` or `{top: SizeToken, left: SizeToken, right: SizeToken, bottom: SizeToken}`',
@@ -49,7 +49,11 @@ export const manualStackArgs = {
 		defaultValue: 'nowrap',
 	},
 	height: {
-		options: Object.keys(heightOptions),
+		options: Object.keys(sizeOptions),
+		control: { type: 'select' },
+	},
+	with: {
+		options: Object.keys(sizeOptions),
 		control: { type: 'select' },
 	},
 	alignContent: { options: Object.keys(alignContentOptions), control: { type: 'select' } },

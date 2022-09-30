@@ -28,7 +28,7 @@ export const alignContentOptions = {
 	baseline: 'align-content-baseline',
 };
 
-export const sizeOptions = {
+export const spacingOptions = {
 	0: 'NONE',
 	XXS: 'XXS',
 	XS: 'XS',
@@ -38,7 +38,7 @@ export const sizeOptions = {
 	XL: 'XL',
 };
 
-export const heightOptions = {
+export const sizeOptions = {
 	'100%': '100',
 	XXXS: 'XXXS',
 	XXS: 'XXS',
@@ -49,42 +49,42 @@ export const heightOptions = {
 	XXXL: 'XXXL',
 };
 
-export const sizeOptionsWithAuto = {
-	...sizeOptions,
+export const spacingOptionsWithAuto = {
+	...spacingOptions,
 	auto: 'auto',
 };
 
 type GapType =
-	| keyof typeof sizeOptions
+	| keyof typeof spacingOptions
 	| {
-			x: keyof typeof sizeOptions;
-			y: keyof typeof sizeOptions;
+			x: keyof typeof spacingOptions;
+			y: keyof typeof spacingOptions;
 	  };
 
 type SpacingType =
-	| keyof typeof sizeOptions
+	| keyof typeof spacingOptions
 	| {
-			x: keyof typeof sizeOptions;
-			y: keyof typeof sizeOptions;
+			x: keyof typeof spacingOptions;
+			y: keyof typeof spacingOptions;
 	  }
 	| {
-			top: keyof typeof sizeOptions;
-			left: keyof typeof sizeOptions;
-			right: keyof typeof sizeOptions;
-			bottom: keyof typeof sizeOptions;
+			top: keyof typeof spacingOptions;
+			left: keyof typeof spacingOptions;
+			right: keyof typeof spacingOptions;
+			bottom: keyof typeof spacingOptions;
 	  };
 
 type SpacingTypeWithAuto =
-	| keyof typeof sizeOptionsWithAuto
+	| keyof typeof spacingOptionsWithAuto
 	| {
-			x: keyof typeof sizeOptionsWithAuto;
-			y: keyof typeof sizeOptionsWithAuto;
+			x: keyof typeof spacingOptionsWithAuto;
+			y: keyof typeof spacingOptionsWithAuto;
 	  }
 	| {
-			top: keyof typeof sizeOptionsWithAuto;
-			left: keyof typeof sizeOptionsWithAuto;
-			right: keyof typeof sizeOptionsWithAuto;
-			bottom: keyof typeof sizeOptionsWithAuto;
+			top: keyof typeof spacingOptionsWithAuto;
+			left: keyof typeof spacingOptionsWithAuto;
+			right: keyof typeof spacingOptionsWithAuto;
+			bottom: keyof typeof spacingOptionsWithAuto;
 	  };
 
 export const possibleAsTypes = ['div', 'ul', 'ol', 'article', 'span', 'dl'] as const;
@@ -105,7 +105,8 @@ export type StackPrimitiveProps = {
 	display?: 'block' | 'inline';
 	role?: string;
 	relative?: boolean;
-	height?: keyof typeof heightOptions;
+	height?: keyof typeof sizeOptions;
+	width?: keyof typeof sizeOptions;
 	noShrink?: boolean;
 	noGrow?: boolean;
 };
@@ -125,6 +126,7 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 		margin,
 		role,
 		height,
+		width,
 		noShrink = false,
 		noGrow = false,
 		...props
@@ -220,7 +222,8 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 				styles[wrap],
 				styles[direction],
 				styles[display],
-				height && styles[`height-${heightOptions[height]}`],
+				height && styles[`height-${sizeOptions[height]}`],
+				width && styles[`width-${sizeOptions[width]}`],
 				{ [styles.relative]: relative },
 				{ [styles.noShrink]: noShrink },
 				{ [styles.noGrow]: noGrow },

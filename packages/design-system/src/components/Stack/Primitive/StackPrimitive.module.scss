@@ -426,4 +426,31 @@
 			height: tokens.$coral-sizing-xxxl;
 		}
 	}
+
+	&.width {
+		&-100 {
+			width: 100%;
+		}
+		&-XXXS {
+			width: tokens.$coral-sizing-xxxs;
+		}
+		&-XXS {
+			width: tokens.$coral-sizing-xxs;
+		}
+		&-XS {
+			width: tokens.$coral-sizing-xs;
+		}
+		&-S {
+			width: tokens.$coral-sizing-s;
+		}
+		&-M {
+			width: tokens.$coral-sizing-m;
+		}
+		&-L {
+			width: tokens.$coral-sizing-l;
+		}
+		&-XXXL {
+			width: tokens.$coral-sizing-xxxl;
+		}
+	}
 }
