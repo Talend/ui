@@ -30,7 +30,7 @@ function ErrorState({ title, description, action, link }: ErrorStatePropTypes) {
 
 				{action && <ButtonPrimary {...action} />}
 
-				{link && (typeof link === 'object' ? <Link {...(link as LinkProps)} /> : link)}
+				{link && (React.isValidElement(link) ? link : <Link {...(link as LinkProps)} />)}
 			</StackVertical>
 		</article>
 	);
