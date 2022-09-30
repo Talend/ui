@@ -5,7 +5,7 @@ const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
 const babelConfig = getBabelConfig();
 
 function getSassData(userSassData) {
-	let sassData = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;\n";
+	let sassData = '';
 
 	if (userSassData && userSassData.data) {
 		console.warn(
