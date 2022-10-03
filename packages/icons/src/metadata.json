@@ -3502,5 +3502,23 @@
     "name": "icon/L/slider-controls",
     "description": "settings, cog, configuration",
     "documentationLinks": []
+  },
+  {
+    "key": "71316a61e784de6b963277f68b4aedc5de002df0",
+    "name": "icon/S/application",
+    "description": "Application",
+    "documentationLinks": []
+  },
+  {
+    "key": "edd9384f8c4b61164d7e99221132a7f29fd87a3d",
+    "name": "icon/M/application",
+    "description": "Application",
+    "documentationLinks": []
+  },
+  {
+    "key": "f2c1778ca4b1a52e6107552239d0b99abe8bea8b",
+    "name": "icon/L/application",
+    "description": "Application",
+    "documentationLinks": []
   }
 ]
