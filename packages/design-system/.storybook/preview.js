@@ -273,6 +273,7 @@ export const parameters = {
 					'Drawer',
 					'Dropdown',
 					'EmptyState',
+					'ErrorState',
 					'Form',
 					['Form', 'Form Fieldset', 'Form Field', 'Form Field Group', 'Fields', 'Form Buttons'],
 					'HeaderBar',

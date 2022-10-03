@@ -1,10 +1,10 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, isValidElement } from 'react';
 
-import { ButtonPrimary } from '../../Button';
-import { ButtonPrimaryPropsType } from '../../Button/variations/ButtonPrimary';
-import Link from '../../Link';
-import { LinkProps } from '../../Link/Link';
-import { StackVertical } from '../../Stack';
+import { ButtonPrimary } from '../Button';
+import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';
+import Link from '../Link';
+import { LinkProps } from '../Link/Link';
+import { StackVertical } from '../Stack';
 
 import ErrorIllustration from './illutstrations/ErrorIllustration';
 
@@ -30,7 +30,7 @@ function ErrorState({ title, description, action, link }: ErrorStatePropTypes) {
 
 				{action && <ButtonPrimary {...action} />}
 
-				{link && (typeof link === 'object' ? <Link {...(link as LinkProps)} /> : link)}
+				{link && (isValidElement(link) ? link : <Link {...(link as LinkProps)} />)}
 			</StackVertical>
 		</article>
 	);
