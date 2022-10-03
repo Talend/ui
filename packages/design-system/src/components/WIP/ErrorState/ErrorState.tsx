@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, isValidElement } from 'react';
 
 import { ButtonPrimary } from '../../Button';
 import { ButtonPrimaryPropsType } from '../../Button/variations/ButtonPrimary';
@@ -30,7 +30,7 @@ function ErrorState({ title, description, action, link }: ErrorStatePropTypes) {
 
 				{action && <ButtonPrimary {...action} />}
 
-				{link && (typeof link === 'object' ? <Link {...(link as LinkProps)} /> : link)}
+				{link && (isValidElement(link) ? link : <Link {...(link as LinkProps)} />)}
 			</StackVertical>
 		</article>
 	);
