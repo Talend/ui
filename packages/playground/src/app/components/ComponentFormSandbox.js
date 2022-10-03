@@ -8,7 +8,8 @@ import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
 import { Alert } from '@talend/react-bootstrap';
-// eslint-disable-next-line @talend/import-depth
+// test new behavior on non css module files
+import './ComponentFormSandbox.scss';
 
 const example = require('../../../mockBackend/mock/kit/example.json');
 const { isComponentFormDirty } = ComponentForm.selectors;
