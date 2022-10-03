@@ -78,7 +78,7 @@ const CollapsiblePanel = forwardRef(
 				<CollapsiblePanelHeader
 					controlId={controlId}
 					sectionId={sectionId}
-					expanded={disabled ? false : localExpanded}
+					expanded={!disabled && localExpanded}
 					handleClick={handleToggleExpanded}
 					title={title}
 					action={action}
