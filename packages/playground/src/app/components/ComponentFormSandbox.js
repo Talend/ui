@@ -9,7 +9,6 @@ import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
 import { Alert } from '@talend/react-bootstrap';
 // eslint-disable-next-line @talend/import-depth
-import theme from '../example.scss';
 
 const example = require('../../../mockBackend/mock/kit/example.json');
 const { isComponentFormDirty } = ComponentForm.selectors;
@@ -84,7 +83,7 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 					window.location = '/';
 				}}
 			/>
-			<div id={theme.example}>
+			<div id="example">
 				{!hasAPI && (
 					<Alert>
 						You don t have backend API so we will use an ComponentForm as proxy to UIForm component

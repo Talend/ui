@@ -21,6 +21,8 @@ import { LeaguesList } from './components/List';
 import { Dataviz } from './components/Dataviz';
 
 import actions from './actions';
+// test new behavior on non css module files
+import './example.scss';
 
 // thanks ui-scripts
 let basename = window.basename;
