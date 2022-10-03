@@ -279,25 +279,20 @@ module.exports = ({ getUserConfig, mode }) => {
 						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
-						test: /\.css$/,
-						use: getCommonStyleLoaders(false, mode),
-						exclude: /@talend/,
+						test: /\.module\.css$/,
+						use: getCommonStyleLoaders(true, mode),
+					},
+					{
+						test: /\.module\.scss$/,
+						use: getSassLoaders(true, sassData, mode),
 					},
 					{
 						test: /\.scss$/,
 						use: getSassLoaders(false, sassData, mode),
-						include: /bootstrap-theme/,
 					},
 					{
-						test: /\.scss$/,
-						use: getSassLoaders(true, sassData, mode),
-						include: /@talend/,
-						exclude: /bootstrap-theme/,
-					},
-					{
-						test: /\.scss$/,
-						use: getSassLoaders(cssModulesEnabled, sassData, mode),
-						exclude: /@talend/,
+						test: /\.css$/,
+						use: getCommonStyleLoaders(false, mode),
 					},
 					...getAssetsRules(true),
 				].filter(Boolean),
