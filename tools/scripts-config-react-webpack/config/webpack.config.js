@@ -279,20 +279,22 @@ module.exports = ({ getUserConfig, mode }) => {
 						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
+						test: /\.css$/,
+						exclude: /\.module\.css$/,
+						use: getCommonStyleLoaders(false, mode),
+					},
+					{
 						test: /\.module\.css$/,
 						use: getCommonStyleLoaders(true, mode),
 					},
 					{
-						test: /\.module\.scss$/,
-						use: getSassLoaders(true, sassData, mode),
-					},
-					{
 						test: /\.scss$/,
+						exclude: /\.module\.scss$/,
 						use: getSassLoaders(false, sassData, mode),
 					},
 					{
-						test: /\.css$/,
-						use: getCommonStyleLoaders(false, mode),
+						test: /\.module\.scss$/,
+						use: getSassLoaders(true, sassData, mode),
 					},
 					...getAssetsRules(true),
 				].filter(Boolean),
