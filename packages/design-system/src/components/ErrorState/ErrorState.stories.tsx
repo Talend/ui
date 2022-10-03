@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import Link from '../../Link';
+import Link from '../Link';
 
 import ErrorState from './ErrorState';
 

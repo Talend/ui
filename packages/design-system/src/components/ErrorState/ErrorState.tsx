@@ -1,10 +1,10 @@
 import React, { ReactElement, isValidElement } from 'react';
 
-import { ButtonPrimary } from '../../Button';
-import { ButtonPrimaryPropsType } from '../../Button/variations/ButtonPrimary';
-import Link from '../../Link';
-import { LinkProps } from '../../Link/Link';
-import { StackVertical } from '../../Stack';
+import { ButtonPrimary } from '../Button';
+import { ButtonPrimaryPropsType } from '../Button/variations/ButtonPrimary';
+import Link from '../Link';
+import { LinkProps } from '../Link/Link';
+import { StackVertical } from '../Stack';
 
 import ErrorIllustration from './illutstrations/ErrorIllustration';
 
