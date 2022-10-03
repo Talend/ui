@@ -1,5 +1,28 @@
 # @talend/icons
 
+## 6.50.0
+
+### Minor Changes
+
+- 5cb57bbee: added icon `application` in size `L`
+- 5cb57bbee: added icon `application` in size `M`
+- 5cb57bbee: added icon `application` in size `S`
+
+### Patch Changes
+
+- 5cb57bbee: changed icon `arrow-bottom` in size `L`
+- 5cb57bbee: changed icon `arrow-bottom` in size `M`
+- 5cb57bbee: changed icon `arrow-bottom` in size `S`
+- 5cb57bbee: changed icon `asterisk` in size `M`
+- 5cb57bbee: changed icon `asterisk` in size `S`
+- 5cb57bbee: changed icon `book` in size `M`
+- 5cb57bbee: changed icon `book` in size `S`
+- 5cb57bbee: changed icon `chevron-double-left-stroke` in size `M`
+- 5cb57bbee: changed icon `copy` in size `L`
+- 5cb57bbee: changed icon `copy` in size `M`
+- 5cb57bbee: changed icon `copy` in size `S`
+- 5cb57bbee: changed icon `key` in size `S`
+
 ## 6.49.0
 
 ### Minor Changes
