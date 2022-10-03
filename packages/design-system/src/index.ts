@@ -24,6 +24,7 @@ import EmptyState, {
 	EmptyStateMedium,
 	EmptyStateSmall,
 } from './components/EmptyState';
+import ErrorState from './components/ErrorState';
 import Form from './components/Form';
 import { AffixButton, AffixReadOnly, AffixSelect } from './components/Form/Affix';
 import HeaderBar from './components/WIP/HeaderBar';
@@ -108,6 +109,7 @@ export {
 	EmptyStateMedium,
 	EmptyStateSmall,
 	EmptyStateLarge,
+	ErrorState,
 	Form,
 	HeaderBar,
 	Icon,

@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 @mixin radio-toolbar-input($color, $opacity) {
 	transition: 0.2s ease-out;
 	color: $color;

@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-tooltip-max-width: 30rem !default;
 $tc-tooltip-font-size: 1.2rem !default;
 $tc-tooltip-color: $white !default;

@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-progress-color: $brand-success !default;
 $infinite-indicator-ratio: 3;
 $infinite-indicator-width: calc(100% / $infinite-indicator-ratio);

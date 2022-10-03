@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .container {
 	padding: $padding-smaller 0;
 	background-color: $white;

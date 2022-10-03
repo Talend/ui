@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $drag-element-width: $padding-smaller;
 
 .tc-header-cell-resizable {

@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 // Filter styles
 $tc-filter-bar-highlight-color: rgba($lightning-yellow, 0.75) !default;
 $tc-filter-bar-width: 250px !default;

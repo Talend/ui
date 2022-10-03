@@ -1,11 +1,11 @@
 {
   "name": "@talend/storybook-docs",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Talend Storybook Docs component library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build:styles": "webpack --config webpack.custom.js --mode='production'",
+    "build:styles": "webpack --config webpack.custom.js --mode=production",
     "build:lib": "talend-scripts build:ts:lib && npm run build:styles",
     "pre-release": "npm run build:lib",
     "start": "npm run storybook",
@@ -28,7 +28,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/design-system": "^5.0.0",
+    "@talend/design-system": "^5.0.1",
     "@talend/design-tokens": "^2.7.1"
   },
   "devDependencies": {

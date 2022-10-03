@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 .tc-app-switcher {
 	:global(.tc-svg-icon:first-child) {
 		height: $svg-lg-size;

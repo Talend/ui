@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $tc-status-icon-size: $svg-md-size !default;
 $tc-status-action-min-size: 23px !default;
 $tc-status-space-btn-icon-label: 5px !default;

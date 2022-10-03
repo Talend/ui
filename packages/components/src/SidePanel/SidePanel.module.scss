@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 @use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
 
 ////
@@ -67,7 +69,7 @@ $large-docked-width: 7rem;
 				width: $tc-side-panel-icons-size;
 				height: $tc-side-panel-icons-size;
 			}
-			:global(svg){
+			:global(svg) {
 				margin-left: $padding-smaller;
 			}
 
@@ -207,7 +209,7 @@ $large-docked-width: 7rem;
 		}
 	}
 
-	&.reverse[role='navigation'][aria-expanded] {
+	&.reverse[role='navigation'] {
 		background: $wild-sand !important; // sass-lint:disable-line no-important
 
 		&:before {
