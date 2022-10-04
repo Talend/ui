@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^13.0.0",
+    "@talend/scripts-preset-react-lib": "^14.0.0",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}

@@ -1,5 +1,29 @@
 # @talend/react-components
 
+## 7.11.1
+
+### Patch Changes
+
+- be965094a: fix(components): sidepanel reversed color in gray
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [0260a77b8]
+- Updated dependencies [5cb57bbee]
+  - @talend/icons@6.50.0
+  - @talend/bootstrap-theme@6.39.1
+
 ## 7.11.0
 
 ### Minor Changes
