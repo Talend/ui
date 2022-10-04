@@ -18,8 +18,8 @@ type AffixProps =
 	| string;
 
 export type AffixesProps = {
-	prefix?: AffixProps;
-	suffix?: AffixProps;
+	prefix?: AffixProps & { isSuffix?: never };
+	suffix?: AffixProps & { isSuffix?: never };
 };
 
 type InputWrapperProps = {
@@ -31,29 +31,53 @@ type InputWrapperProps = {
 } & AffixesProps &
 	Omit<FieldStatusProps, 'errorMessage'>;
 
-function buildAffix(affixProps: AffixProps) {
+function buildAffix(affixProps: AffixProps, isReadOnly: boolean, isSuffix: boolean) {
 	if (isElement(affixProps)) {
 		return affixProps;
 	}
 
 	if (typeof affixProps === 'string') {
-		return <AffixReadOnly>{affixProps}</AffixReadOnly>;
+		return <AffixReadOnly isSuffix={isSuffix}>{affixProps}</AffixReadOnly>;
 	}
 
 	if (affixProps.type === 'text') {
 		const { type, children, ...rest } = affixProps;
-		return <AffixReadOnly {...rest}>{children}</AffixReadOnly>;
+		return (
+			<AffixReadOnly {...rest} isSuffix={isSuffix}>
+				{children}
+			</AffixReadOnly>
+		);
 	}
 
 	if (affixProps.type === 'button') {
 		const { type, children, ...rest } = affixProps;
-		return <AffixButton {...rest}>{children}</AffixButton>;
+		return (
+			<AffixButton {...rest} isSuffix={isSuffix}>
+				{children}
+			</AffixButton>
+		);
+	}
+
+	if (affixProps.type === 'select' && isReadOnly) {
+		const { type, children, value, defaultValue, required, ...rest } = affixProps;
+		return (
+			<>
+				<input type="hidden" value={value || defaultValue} {...rest} />
+				<AffixReadOnly isSuffix={isSuffix} {...rest}>
+					{value?.toString() || defaultValue?.toString() || ''}
+				</AffixReadOnly>
+			</>
+		);
 	}
 
 	if (affixProps.type === 'select') {
 		const { type, children, ...rest } = affixProps;
 
-		return <AffixSelect {...rest}>{children}</AffixSelect>;
+		return (
+			<AffixSelect {...rest} isSuffix={isSuffix}>
+				{children}
+			</AffixSelect>
+		);
 	}
 
 	return <></>;
@@ -83,9 +107,9 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 				[styles.inputShell_noStyles]: noStyles,
 			})}
 		>
-			{prefix && buildAffix(prefix)}
+			{prefix && buildAffix(prefix, readOnly, false)}
 			{children}
-			{suffix && buildAffix(suffix)}
+			{suffix && buildAffix(suffix, readOnly, false)}
 		</div>
 	);
 });
