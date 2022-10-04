@@ -62,5 +62,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "circular-dependency-plugin": "^5.2.2",
+    "circular-dependency-plugin-visualizer": "^1.2.3"
   }
 }
