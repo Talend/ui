@@ -3,12 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import elementType from 'prop-types-extra/lib/elementType';
 
-import Media from './Media';
 import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 
 const propTypes = {
@@ -17,11 +16,11 @@ const propTypes = {
    */
   align: PropTypes.oneOf(['top', 'middle', 'bottom']),
 
-  componentClass: elementType
+  componentClass: elementType,
 };
 
 const defaultProps = {
-  componentClass: 'div'
+  componentClass: 'div',
 };
 
 class MediaBody extends React.Component {
@@ -38,7 +37,7 @@ class MediaBody extends React.Component {
 
     if (align) {
       // The class is e.g. `media-top`, not `media-left-top`.
-      classes[prefix(Media.defaultProps, align)] = true;
+      classes[prefix({ bsClass: 'media' }, align)] = true;
     }
 
     return (
