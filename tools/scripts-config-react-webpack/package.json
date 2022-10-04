@@ -27,6 +27,8 @@
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
     "cache-loader": "^4.1.0",
+    "circular-dependency-plugin": "^5.2.2",
+    "circular-dependency-plugin-visualizer": "^1.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "core-js-bundle": "^3.23.5",
@@ -62,9 +64,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "circular-dependency-plugin": "^5.2.2",
-    "circular-dependency-plugin-visualizer": "^1.2.3"
   }
 }
