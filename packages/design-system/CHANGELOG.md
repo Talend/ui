@@ -1,5 +1,16 @@
 # @talend/design-system
 
+## 5.2.0
+
+### Minor Changes
+
+- 38619790a: feat(design-system): add isFullWidth to StackHorizontal
+- fceb4c2f9: chore(design-system): ErrorState no longer WIP
+
+### Patch Changes
+
+- 9e653a037: fix(design-system): Link from ReactElement in ErrorState
+
 ## 5.1.0
 
 ### Minor Changes
