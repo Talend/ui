@@ -26,7 +26,7 @@
 	display: inline-flex;
 	flex-grow: 1;
 	flex-shrink: 0;
-	color: tokens.$coral-color-neutral-text-weak;
+	color: tokens.$coral-color-neutral-text;
 	background: tokens.$coral-color-neutral-background-strong;
 	padding: 0 tokens.$coral-spacing-xs;
 	justify-content: center;
@@ -37,14 +37,13 @@
 	min-height: auto;
 	max-height: tokens.$coral-sizing-m;
 	transition: tokens.$coral-transition-fast;
+	border-radius: 2px 0 0 2px;
+	border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 
-	&:first-child {
-		border-radius: 2px 0 0 2px;
-		border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-	}
 
-	&:last-child {
+	&_isSuffix {
 		border-radius: 0 2px 2px 0;
+		border-right: 0;
 		border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	}
 

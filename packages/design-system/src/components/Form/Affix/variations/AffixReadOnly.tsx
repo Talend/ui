@@ -1,4 +1,5 @@
 import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import classnames from 'classnames';
 
 import { DeprecatedIconNames } from '../../../../types';
 import { Icon } from '../../../Icon/Icon';
@@ -9,6 +10,7 @@ import styles from '../AffixStyles.module.scss';
 
 type CommonAffixReadOnlyPropsType = {
 	children: string;
+	isSuffix?: boolean;
 };
 
 type AffixReadOnlyHideTextProps = {
@@ -27,11 +29,15 @@ export type AffixReadOnlyPropsType = Omit<HTMLAttributes<HTMLSpanElement>, 'clas
 
 const AffixReadOnly = forwardRef(
 	(
-		{ children, icon, hideText = false, ...rest }: AffixReadOnlyPropsType,
+		{ children, icon, hideText = false, isSuffix = false, ...rest }: AffixReadOnlyPropsType,
 		ref: Ref<HTMLSpanElement>,
 	) => {
 		return (
-			<span ref={ref} {...rest} className={styles.affix}>
+			<span
+				ref={ref}
+				{...rest}
+				className={classnames(styles.affix, { [styles.affix_isSuffix]: isSuffix })}
+			>
 				<StackHorizontal gap="XXS" as="span" display="inline" justify="center" align="center">
 					{icon && (
 						<span className={styles.affix__icon}>
