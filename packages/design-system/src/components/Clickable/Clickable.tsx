@@ -1,6 +1,9 @@
 import React, { forwardRef, MouseEvent, ReactNode, Ref } from 'react';
 import classnames from 'classnames';
-import { Clickable as ReakitClickable, ClickableProps as ReakitClickableProps } from 'reakit';
+import {
+	Clickable as ReakitClickable,
+	ClickableProps as ReakitClickableProps,
+} from 'reakit/Clickable';
 
 import styles from './Clickable.module.scss';
 
@@ -23,5 +26,5 @@ const Clickable = forwardRef(
 		);
 	},
 );
-
+Clickable.displayName = 'Clickable';
 export default Clickable;
