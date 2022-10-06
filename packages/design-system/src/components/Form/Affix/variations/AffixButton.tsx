@@ -21,7 +21,7 @@ type CommonAffixButtonPropsType = {
 
 type AffixButtonHideTextProps = {
 	hideText?: true;
-	icon: DeprecatedIconNames | IconNameWithSize<'S'>;
+	icon: DeprecatedIconNames | IconNameWithSize<'M'>;
 };
 
 type AffixButtonShowTextProps = {
@@ -57,7 +57,7 @@ const AffixButton = forwardRef(
 				<StackHorizontal gap="XXS" as="span" justify="center" align="center">
 					{icon && (
 						<span className={styles.affix__icon}>
-							{getIconWithDeprecatedSupport({ iconSrc: icon, size: 'S' })}
+							{getIconWithDeprecatedSupport({ iconSrc: icon, size: 'M' })}
 						</span>
 					)}
 					{!hideText && children}

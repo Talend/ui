@@ -1,10 +1,11 @@
 import React, { forwardRef, HTMLAttributes, Ref } from 'react';
 import classnames from 'classnames';
+import { IconNameWithSize } from '@talend/icons';
 
 import { DeprecatedIconNames } from '../../../../types';
-import { Icon } from '../../../Icon/Icon';
 import { StackHorizontal } from '../../../Stack';
 import VisuallyHidden from '../../../VisuallyHidden';
+import { getIconWithDeprecatedSupport } from '../../../Icon/DeprecatedIconHelper';
 
 import styles from '../AffixStyles.module.scss';
 
@@ -15,12 +16,12 @@ type CommonAffixReadOnlyPropsType = {
 
 type AffixReadOnlyHideTextProps = {
 	hideText?: true;
-	icon: DeprecatedIconNames;
+	icon: DeprecatedIconNames | IconNameWithSize<'M'>;
 };
 
 type AffixReadOnlyShowTextProps = {
 	hideText?: false;
-	icon?: DeprecatedIconNames;
+	icon?: DeprecatedIconNames | IconNameWithSize<'M'>;
 };
 
 export type AffixReadOnlyPropsType = Omit<HTMLAttributes<HTMLSpanElement>, 'className' | 'style'> &
@@ -41,7 +42,7 @@ const AffixReadOnly = forwardRef(
 				<StackHorizontal gap="XXS" as="span" display="inline" justify="center" align="center">
 					{icon && (
 						<span className={styles.affix__icon}>
-							<Icon name={icon} />
+							{getIconWithDeprecatedSupport({ iconSrc: icon, size: 'M' })}
 						</span>
 					)}
 					{!hideText ? children : <VisuallyHidden>{children}</VisuallyHidden>}

@@ -5,40 +5,34 @@ import Form from './../';
 import Input from './../Field/Input';
 
 <Meta
-	title="Components/Form/Form Field"
+	title="Components/Form/Form Fields/About"
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
 />
 
-# Form Field
+# Form Fields common rules
 
-The Form Field could be composed by a label, an input and a [small inline message](/?path=/docs/components-inlinemessage--information).
+A Form Field features a label, an input and an optional [small inline message](docs/components-inline-message--default-demo) for text-based inputs.
 
 ## Zoning
 
 <FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=349%3A206"
+	src="https://www.figma.com/file/hMYM9HGXajJpWdGwRb5ITR/Coral?node-id=5300%3A21659"
 	alt="zoning image for form field"
 />
 
-## Style
+## Validation rules
 
-## States
+The validation of a field should appear when it loses focus.
 
-## Interactions
+Any error should block the form validation. If it does not, why do we consider it to be an error?
 
-### Validation
-
-The validation of the field should appear when the field loses the focus.
-
-- error: which is blocking the form validation
-
-The user must correct the error within the field. Once the error is corrected, the message is disappearing.
+The user must correct the error within the field. Once the error is corrected, the message should be removed.
 
 <FigmaImage
 	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A229"
-	alt="Form Field mockup"
+	alt="Form Field mockup in error"
 />
 
 <Canvas>
@@ -52,7 +46,7 @@ The user must correct the error within the field. Once the error is corrected, t
 The default behavior is to highlight the mandatory fields by using the asterisk next to the label.
 
 <FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=227%3A98"
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=27034%3A144282"
 	alt="Form Field mockup"
 />
 
@@ -65,8 +59,8 @@ The default behavior is to highlight the mandatory fields by using the asterisk 
 A message can be displayed below the input to help the user by recommending appropriate content or suggesting an action.
 
 <FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A188"
-	alt="Form Field mockup"
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=27035%3A143333"
+	alt="Form Field mockup with inline message"
 />
 
 <Canvas>
@@ -75,11 +69,13 @@ A message can be displayed below the input to help the user by recommending appr
 
 ### Link
 
-For the [password input](/?path=/docs/components-form-fields-password--default-story), a link could be added at the top right of the input.
+For the [password input](/?path=/docs/components-form-fields-password--default-story), a link can be added under the input.
+
+If a description or an error is applied to the field, it must be displayed between the input and the link.
 
 <FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=230%3A404"
-	alt="Form Field mockup"
+	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=27041%3A144917"
+	alt="Form Password Field mockup with a link"
 />
 
 <Canvas>

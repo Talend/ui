@@ -51,6 +51,7 @@ export const Error = () => {
 						label="Repeat from"
 						required
 						description="Repeat from is invalid"
+						link={{ href: '#', children: 'pouet' }}
 					/>
 					<Form.Time name="repeat-to" label="Repeat to" required />
 				</Form.Row>
@@ -166,13 +167,6 @@ export const ConditionalFieldset = () => {
 						description={(!hasMultipleErrors && errors.accountName?.message) || undefined}
 						{...register('accountName', { required: 'This field is required' })}
 					/>
-					<Form.Password
-						label="Account name"
-						suffix=".info"
-						hasError={!!errors.accountName}
-						description={(!hasMultipleErrors && errors.accountName?.message) || undefined}
-						{...register('accountName', { required: 'This field is required' })}
-					/>
 					<Form.Number
 						label="Slots"
 						hasError={!!errors.numberOfSlots}
@@ -184,13 +178,6 @@ export const ConditionalFieldset = () => {
 			</Form.Fieldset>
 			{withUser && (
 				<Form.Fieldset legend="Invite admin for this account">
-					<Form.Password
-						label="Account name"
-						suffix=".info"
-						hasError={!!errors.accountName}
-						description={(!hasMultipleErrors && errors.accountName?.message) || undefined}
-						{...register('accountName', { required: 'This field is required' })}
-					/>
 					<Form.Text
 						label="Username"
 						hasError={'name' in errors && !!errors.name}
