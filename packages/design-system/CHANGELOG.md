@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 5.3.0
+
+### Minor Changes
+
+- 4ea6a7712: feat(TUX-1038): add new accordion component to design-system
+
+### Patch Changes
+
+- 8376814d2: fix: circular dependencies
+
 ## 5.2.0
 
 ### Minor Changes

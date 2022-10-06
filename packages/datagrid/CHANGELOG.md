@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 12.2.5
+
+### Patch Changes
+
+- 8376814d2: fix: circular dependencies
+
 ## 12.2.4
 
 ### Patch Changes
