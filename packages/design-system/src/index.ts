@@ -1,4 +1,3 @@
-import Accordion from './components/Accordion';
 import {
 	Button,
 	ButtonDestructive,
@@ -24,6 +23,7 @@ import EmptyState, {
 	EmptyStateMedium,
 	EmptyStateSmall,
 } from './components/EmptyState';
+import ErrorState from './components/ErrorState';
 import Form from './components/Form';
 import { AffixButton, AffixReadOnly, AffixSelect } from './components/Form/Affix';
 import HeaderBar from './components/WIP/HeaderBar';
@@ -63,6 +63,7 @@ import {
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
 import { Tabs, TabsKit } from './components/WIP/Tabs';
+import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
 import {
 	Tag,
 	TagBeta,
@@ -100,6 +101,7 @@ export {
 	ButtonTertiary,
 	ButtonTertiaryAsLink,
 	Card,
+	CollapsiblePanel,
 	Combobox,
 	Divider,
 	FloatingDrawer,
@@ -108,6 +110,7 @@ export {
 	EmptyStateMedium,
 	EmptyStateSmall,
 	EmptyStateLarge,
+	ErrorState,
 	Form,
 	HeaderBar,
 	Icon,

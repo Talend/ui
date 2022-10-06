@@ -1,5 +1,17 @@
 # Changelog
 
+## 8.0.2
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+
+## 8.0.1
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+
 ## 8.0.0
 
 ### Major Changes

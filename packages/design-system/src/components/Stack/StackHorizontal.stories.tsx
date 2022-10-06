@@ -48,6 +48,7 @@ export const manualStackArgs = {
 		control: { type: 'select' },
 		defaultValue: 'nowrap',
 	},
+	isFullWidth: { control: { type: 'boolean' }, defaultValue: false },
 	height: {
 		options: Object.keys(heightOptions),
 		control: { type: 'select' },
