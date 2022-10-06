@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 15.1.0
+
+### Minor Changes
+
+- 8376814d2: feat: add circular deps plugin
+
 ## 15.0.0
 
 ### Major Changes
