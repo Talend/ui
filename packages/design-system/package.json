@@ -91,7 +91,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.33.1",
     "react-i18next": "^11.18.1",
-    "react-is": "^17.0.2",
+    "react-is": "^16.7.2",
     "react-router-dom": "^6.3.0",
     "storybook-addon-mdx-embed": "^1.0.0",
     "storybook-docs-toc": "^1.7.0",
@@ -106,7 +106,7 @@
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0",
     "react-i18next": "^11.8.13",
-    "react-is": "^16.14.0 || ^17.0.0 || ^18.0.0",
+    "react-is": "^16.7.2 || ^17.0.0 || ^18.0.0",
     "styled-components": "^5.2.1"
   }
 }
