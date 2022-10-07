@@ -100,11 +100,11 @@
   },
   "peerDependencies": {
     "@talend/icons": "^6.42.0",
-    "@talend/locales-design-system": "^1.4.0",
+    "@talend/locales-design-system": "^4.0.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^20.1.0",
-    "react": ">= 16.14.0 < 18.0.0",
-    "react-dom": ">= 16.14.0 < 18.0.0",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0",
     "react-i18next": "^11.8.13",
     "react-is": "^16.13.1",
     "styled-components": "^5.2.1"
