@@ -4295,12 +4295,12 @@
   dependencies:
     "@types/react" "^17"
 
-"@types/react-is@^17.0.2":
-  version "17.0.3"
-  resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-17.0.3.tgz#2d855ba575f2fc8d17ef9861f084acc4b90a137a"
-  integrity sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==
+"@types/react-is@^16.7.2":
+  version "16.7.2"
+  resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-16.7.2.tgz#8c2862013d00d741be189ceb71da8e8d21e8fa7d"
+  integrity sha512-rdQUu9J+RUz4Vcr768UyTzv+fZGzKBy1/PPhaxTfzAfaHSW4+b0olA6czXLZv7PO7/ktbHu41kcpAG7Z46kvDQ==
   dependencies:
-    "@types/react" "*"
+    "@types/react" "^16"
 
 "@types/react-redux@^7.1.20", "@types/react-redux@^7.1.24":
   version "7.1.24"
@@ -4319,7 +4319,7 @@
   dependencies:
     "@types/react" "^17"
 
-"@types/react@*", "@types/react@>=16.9.11", "@types/react@^17", "@types/react@^17.0.2", "@types/react@^17.0.47":
+"@types/react@*", "@types/react@>=16.9.11", "@types/react@^16", "@types/react@^17", "@types/react@^17.0.2", "@types/react@^17.0.47":
   version "17.0.50"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.50.tgz#39abb4f7098f546cfcd6b51207c90c4295ee81fc"
   integrity sha512-ZCBHzpDb5skMnc1zFXAXnL3l1FAdi+xZvwxK+PkglMmBrwjpp9nKaWuEvrGnSifCJmBFGxZOOFuwC6KH/s0NuA==
@@ -16370,7 +16370,7 @@ react-is@17.0.2, react-is@^17.0.0, react-is@^17.0.1, react-is@^17.0.2:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-is@^16.10.2, react-is@^16.12.0, react-is@^16.13.1, react-is@^16.3.2, react-is@^16.7.0, react-is@^16.7.2, react-is@^16.8.1, react-is@^16.8.6:
+react-is@^16.10.2, react-is@^16.12.0, react-is@^16.13.1, react-is@^16.3.2, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
