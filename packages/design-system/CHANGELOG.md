@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 5.4.0
+
+### Minor Changes
+
+- 6d6520336: feat: add react-18 as possible peerDependency
+
 ## 5.3.0
 
 ### Minor Changes
