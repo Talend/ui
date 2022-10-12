@@ -1,10 +1,11 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage } from '~docs';
 
-import Form from '../';
+import Form from '../../';
 
 <Meta
-	title="Components/Form/Fields/Text"
+	title="Components/Form/Form Fields/Text"
+	component={Form.Text}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
@@ -30,35 +31,9 @@ An input enables the user to interact with and input short content and data.
 
 ## States
 
-### Default
-
 <Canvas>
 	<Story name="default">
 		<Form.Text name="default" label="Default input" placeholder="Lorem ipsum" />
-	</Story>
-</Canvas>
-
-### Filled
-
-<Canvas>
-	<Story name="filled">
-		<Form.Text name="filled" label="Filled input" value="Lorem ipsum" />
-	</Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-	<Story name="disabled">
-		<Form.Text name="disabled" label="Disabled input" disabled value="Lorem ipsum" />
-	</Story>
-</Canvas>
-
-### Read only
-
-<Canvas>
-	<Story name="read-only">
-		<Form.Text name="readonly" label="Read-only input" readOnly value="Lorem ipsum" />
 	</Story>
 </Canvas>
 
@@ -77,9 +52,3 @@ N/C
 ## Accessibility
 
 Press <kbd>TABS</kbd> to focus on an input
-
-## Changelog
-
-| Date       | Author     | Description |
-| ---------- | ---------- | ----------- |
-| 06/15/2020 | Monia Huet | Init page   |

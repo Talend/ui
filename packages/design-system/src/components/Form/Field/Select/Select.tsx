@@ -33,8 +33,8 @@ const Select = forwardRef(
 				if (!isElement(current)) {
 					return acc.concat(current.toString());
 				}
-				const { children: optChildren, originalType, selected } = current.props;
-				if (originalType === 'optgroup') {
+				const { children: optChildren, selected } = current.props;
+				if (current.type === 'optgroup') {
 					return acc.concat(
 						React.Children.toArray(optChildren)
 							.filter(option => isElement(option) && option.props.selected)

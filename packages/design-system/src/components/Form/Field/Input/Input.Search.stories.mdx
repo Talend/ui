@@ -1,10 +1,11 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
-
-import Form from '../';
+import Form from '../../';
+import * as Stories from './Input.Search.stories';
 
 <Meta
-	title="Components/Form/Fields/Search"
+	title="Components/Form/Form Fields/Search"
+	component={Form.Search}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
@@ -12,8 +13,7 @@ import Form from '../';
 
 # Search
 
-Input elements of type search are text fields designed for the user to enter search queries into.
-These are functionally identical to text inputs, but may be styled differently by the user agent.
+`Form.Search` is a text field designed for user queries. These are functionally identical to text inputs, but may be styled differently by the browser.
 
 ## Zoning
 
@@ -31,28 +31,8 @@ These are functionally identical to text inputs, but may be styled differently b
 
 ## States
 
-### Default
-
 <Canvas>
-	<Story name="default">
-		<Form.Search name="search" label="Search" />
-	</Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-	<Story name="disabled">
-		<Form.Search name="search" label="Disabled Search" disabled />
-	</Story>
-</Canvas>
-
-### Read only
-
-<Canvas>
-	<Story name="read-only">
-		<Form.Search name="search" label="Read-Only Search" readOnly />
-	</Story>
+	<Story story={Stories.Search} />
 </Canvas>
 
 ## Content
@@ -68,7 +48,7 @@ The placeholder in the search field should read as either of the below texts dep
 			</li>
 			<li>
 				Use "Find a/an XXX" when users are supposed to find something in a page or a list. It's more
-				about the object they want to find (e.g., Find a pipeline, Find a semnatic type).
+				about the object they want to find (e.g., Find a pipeline, Find a semantic type).
 			</li>
 		</ul>
 	</Use.Do>
@@ -85,9 +65,3 @@ N/C
 ## Accessibility
 
 - Press <kbd>ESC</kbd> to clear the search input
-
-## Changelog
-
-| Date       | Author     | Description |
-| ---------- | ---------- | ----------- |
-| 07/09/2020 | Monia Huet | Init page   |

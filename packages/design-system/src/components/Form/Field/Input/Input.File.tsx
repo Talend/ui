@@ -29,7 +29,7 @@ function getFileSize(size: number, t: TFunction) {
 
 type InputType = Omit<InputPrimitiveProps, 'type' | 'className' | 'style' | 'prefix' | 'suffix'>;
 type FileProps = InputType & {
-	files?: FileList;
+	files?: string[] | FileList;
 };
 
 const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
@@ -91,22 +91,27 @@ const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 	const { id: reakitId } = useId();
 	const fileInfoId = `info--${reakitId}`;
 
+	const filesValue = () => {
+		if (files) {
+			const isFileList = files[0].hasOwnProperty('name');
+			const iterable = isFileList ? [...files] : (files as string[]);
+
+			return iterable
+				.map((file: File | string) => {
+					if (typeof file === 'string') {
+						return file;
+					}
+					return `${file.name} (${getFileSize(file.size, t)})`;
+				})
+				.join('; ');
+		}
+		return '';
+	};
+
 	return (
 		<div aria-describedby={fileInfoId} ref={ref} className={styles.wrapper}>
 			{props.readOnly ? (
-				<InputPrimitive
-					type="text"
-					{...props}
-					value={
-						files
-							? Array.from(files)
-									.map((file: File | string) =>
-										typeof file === 'string' ? file : `${file.name} (${getFileSize(file.size, t)})`,
-									)
-									.join('; ')
-							: ''
-					}
-				/>
+				<InputPrimitive type="text" {...props} value={filesValue()} />
 			) : (
 				<div
 					id={fileInfoId}
@@ -136,14 +141,14 @@ const InputFile = forwardRef((props: FileProps, ref: Ref<HTMLInputElement>) => {
 					) : (
 						<div
 							className={classnames(styles.inputFile__preview, styles.preview, {
-								[styles.preview_single]: Array.from(files).length === 1,
+								[styles.preview_single]: [...files].length === 1,
 							})}
 						>
 							<VisuallyHidden>You have selected:</VisuallyHidden>
 							{/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
 							<ol role="list" className={styles.preview__list}>
 								{files &&
-									Array.from(files).map((file: File | string, index: Key) => (
+									[...files].map((file: File | string, index: Key) => (
 										<li key={index} className={styles.preview__list__listItem}>
 											{typeof file === 'string'
 												? file

@@ -1,19 +1,20 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage } from '~docs';
 import Form from '../../';
-import * as Stories from './Input.Date.stories';
+
+import * as Stories from './Input.Month.stories';
 
 <Meta
-	title="Components/Form/Form Fields/Date"
-	component={Form.Date}
+	title="Components/Form/Form Fields/Month"
+	component={Form.Month}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
 />
 
-# Date
+# Month
 
-It creates input fields that let the user enter a date, either with a textbox that validates the input or a special date picker interface.
+`Form.Month` lets users input a month and year. The value is a string formatted "YYYY-MM", where YYYY is the four-digit year and MM is the month number.
 
 ## Zoning
 
@@ -27,7 +28,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 ## States
 
 <Canvas>
-	<Story story={Stories.Date} />
+	<Story story={Stories.Month} />
 </Canvas>
 
 ## Interactions

@@ -1,19 +1,20 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage } from '~docs';
 import Form from '../../';
-import * as Stories from './Input.Date.stories';
+
+import * as Stories from './Input.Email.stories';
 
 <Meta
-	title="Components/Form/Form Fields/Date"
-	component={Form.Date}
+	title="Components/Form/Form Fields/Email"
+	component={Form.Email}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
 />
 
-# Date
+# Email
 
-It creates input fields that let the user enter a date, either with a textbox that validates the input or a special date picker interface.
+`Form.Email` is an alias for the HTML native email input. It's used to let the user enter and edit an email and will validate its format.
 
 ## Zoning
 
@@ -27,7 +28,7 @@ It creates input fields that let the user enter a date, either with a textbox th
 ## States
 
 <Canvas>
-	<Story story={Stories.Date} />
+	<Story story={Stories.Email} />
 </Canvas>
 
 ## Interactions

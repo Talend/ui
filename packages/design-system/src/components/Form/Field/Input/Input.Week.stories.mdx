@@ -1,17 +1,17 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, WithSelector } from '~docs';
-import Form from '../';
+import Form from '../../';
 
 <Meta
-	title="Components/Form/Fields/Month"
+	title="Components/Form/Fields/Week"
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
 />
 
-# Month
+# Week
 
-It creates input fields that let the user enter a month and year allowing a month and year to be easily entered. The value is a string whose value is in the format "YYYY-MM", where YYYY is the four-digit year and MM is the month number.
+It creates input fields allowing easy entry of a year plus the ISO 8601 week number during that year (i.e., week 1 to 52 or 53).
 
 ## Zoning
 
@@ -28,7 +28,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 
 <Canvas>
 	<Story name="default">
-		<Form.Month label="Month" name="month" min="2018-03" />
+		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" />
 	</Story>
 </Canvas>
 
@@ -39,7 +39,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Month label="Month" name="month" />
+		<Form.Week name="week" label="Week" />
 	</Story>
 </Canvas>
 
@@ -50,7 +50,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Month label="Month" name="month" />
+		<Form.Week name="week" label="Week" />
 	</Story>
 </Canvas>
 
@@ -58,7 +58,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 
 <Canvas>
 	<Story name="filled">
-		<Form.Month label="Month" name="month" value="2018-05" />
+		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" />
 	</Story>
 </Canvas>
 
@@ -66,7 +66,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Month label="Month" name="month" value="2018-05" disabled />
+		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ It creates input fields that let the user enter a month and year allowing a mont
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Month label="Month" name="month" value="2018-05" readOnly />
+		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" readOnly />
 	</Story>
 </Canvas>
 

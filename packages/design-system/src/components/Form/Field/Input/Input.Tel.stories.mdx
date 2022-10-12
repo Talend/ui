@@ -1,17 +1,17 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, WithSelector } from '~docs';
-import Form from '../';
+import Form from '../../';
 
 <Meta
-	title="Components/Form/Fields/Url"
+	title="Components/Form/Fields/Tel"
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
 />
 
-# Url
+# Tel
 
-It's used to let the user enter and edit a URL.
+It's used to let the user enter and edit a telephone number.
 
 ## Zoning
 
@@ -28,7 +28,12 @@ It's used to let the user enter and edit a URL.
 
 <Canvas>
 	<Story name="default">
-		<Form.Url name="url" label="Url" placeholder="https://example.com" pattern="https://.*" />
+		<Form.Tel
+			name="tel"
+			label="Tel"
+			pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+			description="Format: 123-456-7890"
+		/>
 	</Story>
 </Canvas>
 
@@ -39,7 +44,7 @@ It's used to let the user enter and edit a URL.
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Url name="url" label="Url" placeholder="https://example.com" />
+		<Form.Tel name="tel" label="Tel" />
 	</Story>
 </Canvas>
 
@@ -50,7 +55,7 @@ It's used to let the user enter and edit a URL.
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Url name="url" label="Url" placeholder="https://example.com" />
+		<Form.Tel name="tel" label="Tel" />
 	</Story>
 </Canvas>
 
@@ -58,7 +63,7 @@ It's used to let the user enter and edit a URL.
 
 <Canvas>
 	<Story name="filled">
-		<Form.Url name="url" label="Url" value="https://talend.com" />
+		<Form.Tel name="tel" label="Tel" value="123-456-7890" />
 	</Story>
 </Canvas>
 
@@ -66,7 +71,7 @@ It's used to let the user enter and edit a URL.
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Url name="url" label="Url" value="https://talend.com" disabled />
+		<Form.Tel name="tel" label="Tel" value="123-456-7890" disabled />
 	</Story>
 </Canvas>
 
@@ -74,7 +79,7 @@ It's used to let the user enter and edit a URL.
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Url name="url" label="Url" value="https://talend.com" readOnly />
+		<Form.Tel name="tel" label="Tel" value="123-456-7890" readOnly />
 	</Story>
 </Canvas>
 

@@ -1,17 +1,17 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, WithSelector } from '~docs';
-import Form from '../';
+import Form from '../../';
 
 <Meta
-	title="Components/Form/Fields/Tel"
+	title="Components/Form/Fields/Url"
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
 />
 
-# Tel
+# Url
 
-It's used to let the user enter and edit a telephone number.
+It's used to let the user enter and edit a URL.
 
 ## Zoning
 
@@ -28,12 +28,7 @@ It's used to let the user enter and edit a telephone number.
 
 <Canvas>
 	<Story name="default">
-		<Form.Tel
-			name="tel"
-			label="Tel"
-			pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-			description="Format: 123-456-7890"
-		/>
+		<Form.Url name="url" label="Url" placeholder="https://example.com" pattern="https://.*" />
 	</Story>
 </Canvas>
 
@@ -44,7 +39,7 @@ It's used to let the user enter and edit a telephone number.
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.Tel name="tel" label="Tel" />
+		<Form.Url name="url" label="Url" placeholder="https://example.com" />
 	</Story>
 </Canvas>
 
@@ -55,7 +50,7 @@ It's used to let the user enter and edit a telephone number.
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.Tel name="tel" label="Tel" />
+		<Form.Url name="url" label="Url" placeholder="https://example.com" />
 	</Story>
 </Canvas>
 
@@ -63,7 +58,7 @@ It's used to let the user enter and edit a telephone number.
 
 <Canvas>
 	<Story name="filled">
-		<Form.Tel name="tel" label="Tel" value="123-456-7890" />
+		<Form.Url name="url" label="Url" value="https://talend.com" />
 	</Story>
 </Canvas>
 
@@ -71,7 +66,7 @@ It's used to let the user enter and edit a telephone number.
 
 <Canvas>
 	<Story name="disabled">
-		<Form.Tel name="tel" label="Tel" value="123-456-7890" disabled />
+		<Form.Url name="url" label="Url" value="https://talend.com" disabled />
 	</Story>
 </Canvas>
 
@@ -79,7 +74,7 @@ It's used to let the user enter and edit a telephone number.
 
 <Canvas>
 	<Story name="read-only">
-		<Form.Tel name="tel" label="Tel" value="123-456-7890" readOnly />
+		<Form.Url name="url" label="Url" value="https://talend.com" readOnly />
 	</Story>
 </Canvas>
 

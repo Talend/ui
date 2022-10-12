@@ -1,17 +1,17 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, WithSelector } from '~docs';
-import Form from '../';
+import Form from '../../';
 
 <Meta
-	title="Components/Form/Fields/Datetime Local"
+	title="Components/Form/Fields/Time"
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
 />
 
-# Datetime Local
+# Time
 
-It creates input controls that let the user easily enter both a date and a time, including the year, month, and day as well as the time in hours and minutes.
+It creates input fields designed to let the user easily enter a time (hours and minutes, and optionally seconds).
 
 ## Zoning
 
@@ -28,12 +28,7 @@ It creates input controls that let the user easily enter both a date and a time,
 
 <Canvas>
 	<Story name="default">
-		<Form.DatetimeLocal
-			name="datetime"
-			label="Datetime Local"
-			min="2018-06-07T00:00"
-			max="2018-06-14T00:00"
-		/>
+		<Form.Time name="time" label="Time" min="09:00" max="18:00" />
 	</Story>
 </Canvas>
 
@@ -44,7 +39,7 @@ It creates input controls that let the user easily enter both a date and a time,
 		name="hover"
 		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
 	>
-		<Form.DatetimeLocal name="datetime" label="Datetime" />
+		<Form.Time name="time" label="Time" />
 	</Story>
 </Canvas>
 
@@ -55,7 +50,7 @@ It creates input controls that let the user easily enter both a date and a time,
 		name="focus"
 		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
 	>
-		<Form.DatetimeLocal name="datetime" label="Datetime " />
+		<Form.Time name="time" label="Time" />
 	</Story>
 </Canvas>
 
@@ -63,12 +58,7 @@ It creates input controls that let the user easily enter both a date and a time,
 
 <Canvas>
 	<Story name="filled">
-		<Form.DatetimeLocal
-			label="Datetime Local"
-			value="2018-06-12T19:30"
-			min="2018-06-07T00:00"
-			max="2018-06-14T00:00"
-		/>
+		<Form.Time name="time" label="Time" value="09:00" min="09:00" max="18:00" />
 	</Story>
 </Canvas>
 
@@ -76,13 +66,7 @@ It creates input controls that let the user easily enter both a date and a time,
 
 <Canvas>
 	<Story name="disabled">
-		<Form.DatetimeLocal
-			label="Datetime Local"
-			value="2018-06-12T19:30"
-			min="2018-06-07T00:00"
-			max="2018-06-14T00:00"
-			disabled
-		/>
+		<Form.Time name="time" label="Time" value="09:00" min="09:00" max="18:00" disabled />
 	</Story>
 </Canvas>
 
@@ -90,13 +74,7 @@ It creates input controls that let the user easily enter both a date and a time,
 
 <Canvas>
 	<Story name="read-only">
-		<Form.DatetimeLocal
-			label="Datetime Local"
-			value="2018-06-12T19:30"
-			min="2018-06-07T00:00"
-			max="2018-06-14T00:00"
-			readOnly
-		/>
+		<Form.Time name="time" label="Time" value="09:00" min="09:00" max="18:00" readOnly />
 	</Story>
 </Canvas>
 
