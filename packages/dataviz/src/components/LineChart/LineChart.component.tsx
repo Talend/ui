@@ -47,7 +47,9 @@ function LineChart({
 		tooltip,
 	} = chartOptions;
 
-	const getLineStyleFromStatus = (status: LineStatus) => {
+	const [activeLine, setActiveLine] = React.useState<string | null>(null);
+
+	const getLineStyleFromStatus = (status: LineStatus, key: string) => {
 		const styleByStatus = {
 			light: {
 				strokeWidth: 1,
@@ -70,10 +72,30 @@ function LineChart({
 				activeDot: { r: 6, strokeWidth: 0 },
 			},
 		};
+
+		if (activeLine !== null) {
+			return {
+				dot: { r: 0 },
+				...styleByStatus[status],
+				strokeOpacity: activeLine === key ? 1 : 0.25,
+			};
+		}
+
 		return {
 			dot: { r: 0 },
 			...styleByStatus[status],
 		};
+	};
+
+	const onLegendHovered = (key: string) => {
+		if (onLegendItemHovered) {
+			onLegendItemHovered(key);
+		}
+		if (key === '') {
+			setActiveLine(null);
+		} else {
+			setActiveLine(key);
+		}
 	};
 
 	return (
@@ -156,7 +178,7 @@ function LineChart({
 										isRightAxisDisplayed: rightYAxisOptions?.hide === false,
 									}}
 									onLegendClicked={onLegendItemClicked}
-									onLegendHovered={onLegendItemHovered}
+									onLegendHovered={onLegendHovered}
 								/>
 							}
 						/>
@@ -173,7 +195,7 @@ function LineChart({
 							strokeDasharray={options?.dashed ? '17 4' : ''}
 							connectNulls
 							animationDuration={300}
-							{...getLineStyleFromStatus(options?.status || 'active')}
+							{...getLineStyleFromStatus(options?.status || 'active', options.key)}
 							onClick={() => onLineClicked(options.key)}
 							onMouseEnter={() => onLineHovered(options.key)}
 							onMouseLeave={() => onLineHovered('')}
