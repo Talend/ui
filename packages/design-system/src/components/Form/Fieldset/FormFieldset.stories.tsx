@@ -51,7 +51,6 @@ export const Error = () => {
 						label="Repeat from"
 						required
 						description="Repeat from is invalid"
-						link={{ href: '#', children: 'pouet' }}
 					/>
 					<Form.Time name="repeat-to" label="Repeat to" required />
 				</Form.Row>
