@@ -6,8 +6,8 @@
 
 .inputFile {
   position: relative;
-  border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border-weak;
-  border-radius: tokens.$coral-radius-m;
+  border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border;
+  border-radius: tokens.$coral-radius-s;
   color: tokens.$coral-color-neutral-text;
   background: tokens.$coral-color-neutral-background;
   transition: all tokens.$coral-transition-fast;
@@ -26,7 +26,8 @@
       color: tokens.$coral-color-neutral-icon;
     }
 
-    &__fakeLink {
+    // Nested span for a fake "link" effect
+    > span > span {
       font: tokens.$coral-paragraph-m-bold;
       color: tokens.$coral-color-accent-text;
       transition: all tokens.$coral-transition-fast;
@@ -84,7 +85,7 @@
   }
 
   &:hover:not(.inputFile_disabled) {
-    border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border;
+    border: tokens.$coral-border-s-dashed tokens.$coral-color-neutral-border-strong-hover;
 
     .text {
       color: tokens.$coral-color-neutral-text;

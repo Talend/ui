@@ -42,7 +42,7 @@ export const FormFieldPassword = () => (
 		label="Label"
 		required
 		placeholder="Placeholder"
-		link={{ href: '#', children: 'Forgot your password?' }}
+		link={{ href: '#', children: 'Have you lost your password?' }}
 		id="password"
 		name="password"
 	/>

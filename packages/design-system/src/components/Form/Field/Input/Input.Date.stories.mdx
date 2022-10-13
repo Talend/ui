@@ -1,0 +1,41 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
+import Form from '../../';
+import * as Stories from './Input.Date.stories';
+
+<Meta
+	title="Components/Form/Form Fields/Date"
+	component={Form.Date}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
+
+# Date
+
+It creates input fields that let the user enter a date, either with a textbox that validates the input or a special date picker interface.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A219"
+	alt="zoning image for inputs"
+/>
+
+## Style
+
+## States
+
+<Canvas>
+	<Story story={Stories.Date} />
+</Canvas>
+
+## Interactions
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C
