@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Skeleton from '../../../Skeleton';
 import tokens from '../../../../deprecatedTokens';
-import { StepProps } from '../Step';
+import { StepProps } from '../Primitive/Step';
 
 const StepSkeletonWrapper = styled.span.attrs({ className: 'step--skeleton' })`
 	position: relative;

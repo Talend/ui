@@ -1,18 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import Step from '../Step';
-import tokens from '../../../../deprecatedTokens';
+import React, { forwardRef, Ref } from 'react';
+import Step, { StepPrimitiveProps } from '../Primitive/Step';
 
-const StepValidated = styled(Step).attrs({
-	className: 'step--validated',
-})`
-	.step__icon {
-		background: radial-gradient(
-			${tokens.sizes.s} ${tokens.sizes.s} at ${tokens.space.s} ${tokens.space.s},
-			${({ theme }) => theme.colors?.activeColor[500]} 50%,
-			transparent 50%
-		);
-	}
-`;
+type StepValidatedTypes = Omit<StepPrimitiveProps, 'status'>;
 
-export default React.memo(StepValidated);
+const StepValidated = forwardRef((props: StepValidatedTypes, ref: Ref<HTMLDivElement>) => (
+	<Step {...props} status="validated" ref={ref} />
+));
+
+StepValidated.displayName = 'StepValidated';
+
+export default StepValidated;
