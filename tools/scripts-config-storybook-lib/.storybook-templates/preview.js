@@ -6,7 +6,7 @@ import { initialize, mswDecorator } from 'msw-storybook-addon';
 
 import { initI18n } from './i18n';
 
-const { i18n: userI18n, cmf, ...userPreview } =  require(String.raw`C:/dev/ui/packages/datagrid/.storybook/preview.js`); 
+const { i18n: userI18n, cmf, ...userPreview } = <% if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
 // msw
 initialize();
