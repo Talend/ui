@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { FC, forwardRef, PropsWithRef } from 'react';
 import { DeprecatedIconNames } from '../../../types';
 import { Icon } from '../../Icon/Icon';
-import * as S from './Step.style';
 import Tooltip from '../../Tooltip';
 
-export type StepProps = React.PropsWithRef<any> & {
+import styles from './Step.module.scss';
+
+export type StepProps = PropsWithRef<any> & {
 	/** The title of the step */
 	title: string;
 	/** The title of the step */
 	tooltip?: string;
-	/** The optional class name */
-	className?: string;
 	/** The icon element to display */
 	icon?: DeprecatedIconNames;
 };
@@ -18,15 +17,15 @@ export type StepProps = React.PropsWithRef<any> & {
 /**
  * Steps are the main elements for the stepper.
  */
-const Step: React.FC<StepProps> = React.forwardRef(
-	({ icon, title, className = '', tooltip, children, ...rest }: StepProps, ref) => {
+const Step: FC<StepProps> = forwardRef(
+	({ icon, title, tooltip, children, ...rest }: StepProps, ref) => {
 		const step = (
-			<S.Step ref={ref} {...rest} className={`step ${className || ''}`}>
-				<span className="step__title">{children || title}</span>
-				<span className="step__icon" aria-hidden>
+			<div ref={ref} {...rest} className={styles.step}>
+				<span className={styles.step__title}>{children || title}</span>
+				<span className={styles.step__icon} aria-hidden>
 					{icon && <Icon name={icon} />}
 				</span>
-			</S.Step>
+			</div>
 		);
 		return tooltip ? <Tooltip title={tooltip}>{step}</Tooltip> : step;
 	},
