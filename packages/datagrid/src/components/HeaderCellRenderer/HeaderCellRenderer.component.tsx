@@ -5,7 +5,13 @@ import { IHeaderParams } from 'ag-grid-community';
 import classNames from 'classnames';
 import truncate from 'lodash/truncate';
 
-import { Icon, Tooltip, ButtonIcon, StackHorizontal } from '@talend/design-system';
+import {
+	ButtonIcon,
+	SizedIcon,
+	StackHorizontal,
+	StackVertical,
+	Tooltip,
+} from '@talend/design-system';
 import { QualityBar } from '@talend/react-components';
 
 import { HeaderComponentParams } from '../../types';
@@ -28,6 +34,7 @@ export default function HeaderCellRenderer({
 	isLoading,
 	draftType,
 	menuProps,
+	dqRule,
 	qualityBarProps,
 	displayName,
 	onFocus,
@@ -52,25 +59,35 @@ export default function HeaderCellRenderer({
 					: undefined
 			}
 		>
-			<StackHorizontal gap="XXS" justify="spaceBetween" align="center">
-				<div className={theme['header-cell__first-line']}>
-					<StackHorizontal gap="XXS">
-						<div
-							data-testid="column.header.title"
-							className={theme['header-cell__title']}
-							title={displayName}
-						>
-							{displayName}
-							{required && <abbr title={t('REQUIRED_FIELD', 'Required')}>*</abbr>}
-						</div>
-						{description && (
-							<Tooltip title={truncate(description, { length: 1000 })} placement="bottom">
-								<span className={theme['header-cell__description-tick']}>
-									<Icon name="talend-info-circle" />
-								</span>
-							</Tooltip>
-						)}
-					</StackHorizontal>
+			<StackVertical gap="XXS">
+				<StackHorizontal gap="XS" justify="spaceBetween" isFullWidth>
+					<div className={theme['header-cell__top-row']}>
+						<StackHorizontal gap="XXS">
+							<div
+								data-testid="column.header.title"
+								className={theme['header-cell__title']}
+								title={displayName}
+							>
+								{displayName}
+								{required && <abbr title={t('REQUIRED_FIELD', 'Required')}>*</abbr>}
+							</div>
+
+							{description && (
+								<Tooltip title={truncate(description, { length: 1000 })} placement="bottom">
+									<span className={theme['header-cell__description-tick']}>
+										<SizedIcon name="information-stroke" size="S" />
+									</span>
+								</Tooltip>
+							)}
+						</StackHorizontal>
+					</div>
+
+					{menuProps && (
+						<ButtonIcon icon="dots-vertical" size="XS" disabled={isLoading} {...menuProps} />
+					)}
+				</StackHorizontal>
+
+				<StackHorizontal gap="M" isFullWidth>
 					<div
 						className={theme['header-cell__type']}
 						data-testid="column.header.type"
@@ -85,12 +102,16 @@ export default function HeaderCellRenderer({
 							draftType ?? typeLabel
 						)}
 					</div>
-				</div>
-				{menuProps && (
-					<ButtonIcon icon="dots-vertical" size="XS" disabled={isLoading} {...menuProps} />
-				)}
-			</StackHorizontal>
-			{quality && <QualityBar {...quality} {...qualityBarProps} />}
+
+					{dqRule && (
+						<span className={theme['header-cell__dq-rule-icon']}>
+							<SizedIcon name="law-hammer" size="S" />
+						</span>
+					)}
+				</StackHorizontal>
+
+				{quality && <QualityBar {...quality} {...qualityBarProps} />}
+			</StackVertical>
 		</div>
 	);
 }
