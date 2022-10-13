@@ -1,8 +1,8 @@
 import React from 'react';
 import { Story } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
 
 import Form from '../../..';
+import { StackVertical } from '../../../../Stack';
 
 export default {
 	component: Form.Password,
@@ -14,64 +14,39 @@ export const Default = {
 	),
 };
 
-export const Placeholder = {
-	render: (props: Story) => (
-		<Form.Password
-			{...props}
-			label="Password"
-			placeholder="Type your password"
-			name="password"
-			id="password"
-		/>
-	),
-};
 export const Filled = {
 	render: (props: Story) => (
 		<Form.Password
-			{...props}
 			label="Password"
-			defaultValue="Passw0rd"
+			{...props}
 			name="password"
 			id="password"
+			defaultValue="defaultPassword"
 		/>
 	),
 };
-export const Revealed = {
-	parameters: { docs: { disable: true } },
-	play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
-		await userEvent.click(within(canvasElement).getByTestId('form.password.reveal'));
-	},
-	render: (props: Story) => (
+
+export const Password = () => (
+	<StackVertical gap="M" justify="stretch" align="stretch">
+		<Form.Password name="password" label="Password field" />
+		<Form.Password name="password" label="Password field disabled" disabled />
+		<Form.Password name="password" label="Password field" readOnly />
 		<Form.Password
-			{...props}
-			label="Password"
-			defaultValue="Passw0rd"
 			name="password"
-			id="password"
+			label="Password field filled"
+			defaultValue="TalendPassword2012"
 		/>
-	),
-};
-export const Disabled = {
-	render: (props: Story) => (
 		<Form.Password
-			{...props}
-			label="Password"
-			defaultValue="Passw0rd"
+			name="password"
+			label="Password field filled disabled"
 			disabled
-			name="password"
-			id="password"
+			defaultValue="TalendPassword2012"
 		/>
-	),
-};
-export const ReadOnly = {
-	render: (props: Story) => (
 		<Form.Password
-			{...props}
-			label="Password"
-			defaultValue="Passw0rd"
-			readOnly
 			name="password"
-			id="password"
+			label="Password field filled read-only"
+			readOnly
+			defaultValue="TalendPassword2012"
 		/>
-	),
-};
+	</StackVertical>
+);

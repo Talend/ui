@@ -1,9 +1,12 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { FigmaImage, WithSelector } from '~docs';
+import { FigmaImage } from '~docs';
 import Form from '../../';
 
+import * as Stories from './Input.Url.stories';
+
 <Meta
-	title="Components/Form/Fields/Url"
+	title="Components/Form/Form Fields/Url"
+	component={Form.Url}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
@@ -11,7 +14,7 @@ import Form from '../../';
 
 # Url
 
-It's used to let the user enter and edit a URL.
+`Form.Url` lets users enter and edit a URL. It's a semantic field with validation patterns owned by the browser.
 
 ## Zoning
 
@@ -22,63 +25,17 @@ It's used to let the user enter and edit a URL.
 
 ## Style
 
+N/C
+
 ## States
 
-### Default
-
 <Canvas>
-	<Story name="default">
-		<Form.Url name="url" label="Url" placeholder="https://example.com" pattern="https://.*" />
-	</Story>
-</Canvas>
-
-### Hover
-
-<Canvas withSource="none">
-	<Story
-		name="hover"
-		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
-	>
-		<Form.Url name="url" label="Url" placeholder="https://example.com" />
-	</Story>
-</Canvas>
-
-### Focus
-
-<Canvas withSource="none">
-	<Story
-		name="focus"
-		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
-	>
-		<Form.Url name="url" label="Url" placeholder="https://example.com" />
-	</Story>
-</Canvas>
-
-### Filled
-
-<Canvas>
-	<Story name="filled">
-		<Form.Url name="url" label="Url" value="https://talend.com" />
-	</Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-	<Story name="disabled">
-		<Form.Url name="url" label="Url" value="https://talend.com" disabled />
-	</Story>
-</Canvas>
-
-### Read only
-
-<Canvas>
-	<Story name="read-only">
-		<Form.Url name="url" label="Url" value="https://talend.com" readOnly />
-	</Story>
+	<Story story={Stories.Url} />
 </Canvas>
 
 ## Interactions
+
+N/C
 
 ## Usage
 

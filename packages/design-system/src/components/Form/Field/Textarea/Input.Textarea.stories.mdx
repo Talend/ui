@@ -2,8 +2,11 @@ import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage } from '~docs';
 import Form from '../../';
 
+import * as Stories from './Input.Textarea.stories';
+
 <Meta
-	title="Components/Form/Fields/Textarea"
+	title="Components/Form/Form Fields/Textarea"
+	component={Form.Textarea}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
@@ -11,7 +14,7 @@ import Form from '../../';
 
 # Text Area
 
-The textarea is a control that allows the user to enter multiple lines of text.
+`Form.Textarea` lets users enter multiple lines of text.
 
 ## Zoning
 
@@ -29,65 +32,19 @@ The textarea is a control that allows the user to enter multiple lines of text.
 
 ## States
 
-### Default
-
 <Canvas>
-	<Story name="default">
-		<Form.Textarea name="textarea" label="Textarea" placeholder="Placeholder" />
-	</Story>
-</Canvas>
-
-### Filled
-
-<Canvas>
-	<Story name="filled">
-		<Form.Textarea name="textarea" label="Textarea">
-			Lorem ipsum
-		</Form.Textarea>
-	</Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-	<Story name="disabled">
-		<Form.Textarea name="textarea" label="Disabled Textarea" disabled>
-			Lorem ipsum
-		</Form.Textarea>
-	</Story>
-</Canvas>
-
-### Error
-
-<Canvas>
-	<Story name="error">
-		<Form.Textarea
-			name="textarea"
-			label="Error Textarea"
-			hasError
-			required
-			description="This is required"
-		>
-			Lorem ipsum
-		</Form.Textarea>
-	</Story>
-</Canvas>
-
-### Read only
-
-<Canvas>
-	<Story name="read-only">
-		<Form.Textarea name="textarea" label="Read-only Textarea" readOnly>
-			Lorem ipsum
-		</Form.Textarea>
-	</Story>
+	<Story story={Stories.Textarea} />
 </Canvas>
 
 ## Interactions
 
-A vertical scrollbar appears when the content exceeds the available space, or the user can expand the height to accommodate the amount of text.
+A vertical scrollbar appears when the content exceeds the available space.
 
-// TO DO = Add demo
+<Canvas>
+	<Story story={Stories.TextareaMaxedOut} />
+</Canvas>
+
+Textarea fields can be resized vertically, up to a max-height described by the token `sizing-xxxl`.
 
 ## Usage
 
@@ -96,9 +53,3 @@ N/C
 ## Accessibility
 
 N/C
-
-## Changelog
-
-| Date       | Author     | Description |
-| ---------- | ---------- | ----------- |
-| 06/09/2020 | Monia Huet | Init page   |

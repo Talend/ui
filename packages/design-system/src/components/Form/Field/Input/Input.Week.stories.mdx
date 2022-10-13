@@ -1,9 +1,12 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { FigmaImage, WithSelector } from '~docs';
+import { FigmaImage } from '~docs';
 import Form from '../../';
 
+import * as Stories from './Input.Week.stories';
+
 <Meta
-	title="Components/Form/Fields/Week"
+	title="Components/Form/Form Fields/Week"
+	component={Form.Week}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
@@ -11,7 +14,9 @@ import Form from '../../';
 
 # Week
 
-It creates input fields allowing easy entry of a year plus the ISO 8601 week number during that year (i.e., week 1 to 52 or 53).
+`Form.Week` allows easy entry of a year plus the ISO 8601 week number during that year (i.e., week 1 to 52 or 53).
+
+It's a semantic input with browser-specific UI elements.
 
 ## Zoning
 
@@ -22,63 +27,17 @@ It creates input fields allowing easy entry of a year plus the ISO 8601 week num
 
 ## Style
 
+N/C
+
 ## States
 
-### Default
-
 <Canvas>
-	<Story name="default">
-		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" />
-	</Story>
-</Canvas>
-
-### Hover
-
-<Canvas withSource="none">
-	<Story
-		name="hover"
-		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
-	>
-		<Form.Week name="week" label="Week" />
-	</Story>
-</Canvas>
-
-### Focus
-
-<Canvas withSource="none">
-	<Story
-		name="focus"
-		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
-	>
-		<Form.Week name="week" label="Week" />
-	</Story>
-</Canvas>
-
-### Filled
-
-<Canvas>
-	<Story name="filled">
-		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" />
-	</Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-	<Story name="disabled">
-		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" disabled />
-	</Story>
-</Canvas>
-
-### Read only
-
-<Canvas>
-	<Story name="read-only">
-		<Form.Week name="week" label="Week" min="2018-W18" max="2018-W26" value="2018-W25" readOnly />
-	</Story>
+	<Story story={Stories.Week} />
 </Canvas>
 
 ## Interactions
+
+N/C
 
 ## Usage
 

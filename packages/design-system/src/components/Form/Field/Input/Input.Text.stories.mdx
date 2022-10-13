@@ -1,7 +1,7 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage } from '~docs';
-
 import Form from '../../';
+import * as Stories from './Input.Text.stories';
 
 <Meta
 	title="Components/Form/Form Fields/Text"
@@ -13,7 +13,7 @@ import Form from '../../';
 
 # Input text
 
-An input enables the user to interact with and input short content and data.
+`Form.Text` is a user input for short content and data.
 
 ## Zoning
 
@@ -32,9 +32,7 @@ An input enables the user to interact with and input short content and data.
 ## States
 
 <Canvas>
-	<Story name="default">
-		<Form.Text name="default" label="Default input" placeholder="Lorem ipsum" />
-	</Story>
+	<Story story={Stories.Text} />
 </Canvas>
 
 ## Content

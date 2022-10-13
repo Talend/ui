@@ -1,9 +1,11 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { FigmaImage, WithSelector } from '~docs';
+import { FigmaImage } from '~docs';
 import Form from '../../';
+import * as Stories from './Input.Tel.stories';
 
 <Meta
-	title="Components/Form/Fields/Tel"
+	title="Components/Form/Form Fields/Tel"
+	component={Form.Tel}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
@@ -11,7 +13,7 @@ import Form from '../../';
 
 # Tel
 
-It's used to let the user enter and edit a telephone number.
+`Form.Tel` lets users enter and edit a telephone number. It's a semantic field and its validation patterns are browser dependent.
 
 ## Zoning
 
@@ -27,63 +29,12 @@ It's used to let the user enter and edit a telephone number.
 ### Default
 
 <Canvas>
-	<Story name="default">
-		<Form.Tel
-			name="tel"
-			label="Tel"
-			pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-			description="Format: 123-456-7890"
-		/>
-	</Story>
-</Canvas>
-
-### Hover
-
-<Canvas withSource="none">
-	<Story
-		name="hover"
-		decorators={[storyFn => <WithSelector selector=":hover">{storyFn()}</WithSelector>]}
-	>
-		<Form.Tel name="tel" label="Tel" />
-	</Story>
-</Canvas>
-
-### Focus
-
-<Canvas withSource="none">
-	<Story
-		name="focus"
-		decorators={[storyFn => <WithSelector selector=":focus">{storyFn()}</WithSelector>]}
-	>
-		<Form.Tel name="tel" label="Tel" />
-	</Story>
-</Canvas>
-
-### Filled
-
-<Canvas>
-	<Story name="filled">
-		<Form.Tel name="tel" label="Tel" value="123-456-7890" />
-	</Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-	<Story name="disabled">
-		<Form.Tel name="tel" label="Tel" value="123-456-7890" disabled />
-	</Story>
-</Canvas>
-
-### Read only
-
-<Canvas>
-	<Story name="read-only">
-		<Form.Tel name="tel" label="Tel" value="123-456-7890" readOnly />
-	</Story>
+	<Story story={Stories.Tel} />
 </Canvas>
 
 ## Interactions
+
+N/C
 
 ## Usage
 

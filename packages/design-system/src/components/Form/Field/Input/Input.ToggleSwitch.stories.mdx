@@ -1,12 +1,12 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs';
-import { useForm } from 'react-hook-form';
 import { FigmaImage, Use } from '~docs';
 import Form from '../../';
-import { ButtonPrimary } from '../../../Button';
-import { InlineMessageInformation } from '../../../InlineMessage';
+
+import * as Stories from './Input.ToggleSwitch.stories';
 
 <Meta
-	title="Components/Form/Fields/ToggleSwitch"
+	title="Components/Form/Form Fields/ToggleSwitch"
+	component={Form.ToggleSwitch}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 	}}
@@ -32,54 +32,20 @@ ToggleSwitches are a quick way to view and switch between two states or on-off s
 
 ## States
 
-### Default
-
 <Canvas>
-	<Story name="default">
-		<Form.ToggleSwitch label="ToggleSwitch off" />
-		<Form.ToggleSwitch label="ToggleSwitch on" checked />
-	</Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-	<Story name="disabled">
-		<Form.ToggleSwitch label="Disabled ToggleSwitch off" disabled />
-		<Form.ToggleSwitch label="Disabled ToggleSwitch on" checked disabled />
-	</Story>
-</Canvas>
-
-### Read-only
-
-<Canvas>
-	<Story name="read-only">
-		<Form.ToggleSwitch label="Read-only ToggleSwitch off" readOnly />
-		<Form.ToggleSwitch label="Read-only ToggleSwitch on" checked readOnly />
-	</Story>
+	<Story story={Stories.ToggleSwitch} />
 </Canvas>
 
 ### Inline
 
 <Canvas>
-	<Story name="inline">
-		<Form.ToggleSwitch label="ToggleSwitch off" isInline />
-		<span> </span>
-		<Form.ToggleSwitch label="ToggleSwitch on" checked isInline />
-	</Story>
+	<Story story={Stories.ToggleSwitchInline} />
 </Canvas>
 
 ### Long content
 
 <Canvas>
-	<Story name="Long content">
-		<div style={{ width: '200px' }}>
-			<Form.ToggleSwitch
-				label="Label with a lot of content, too much probably, and most certainly enough to generate a line break in this small box."
-				isInline
-			/>
-		</div>
-	</Story>
+	<Story story={Stories.ToggleSwitchWithLongLabel} />
 </Canvas>
 
 ## Content
@@ -113,70 +79,13 @@ Labels for switches should give users a strong indication of what they are selec
 ### Controlled switch
 
 <Canvas>
-	<Story name="controlled">
-		{() => {
-			const { register, handleSubmit, watch } = useForm();
-			const [formData, setFormData] = React.useState();
-			const optionA = watch('option-a');
-			return (
-				<Form onSubmit={handleSubmit(setFormData)}>
-					<Form.Fieldset legend="Control switch state" required>
-						<Form.ToggleSwitch label="Toggle all" {...register('option-a')} />
-						<Form.ToggleSwitch label="Controlled switch" checked={optionA} />
-					</Form.Fieldset>
-					<Form.Buttons>
-						<ButtonPrimary onClick={() => {}} type="submit">
-							Submit
-						</ButtonPrimary>
-					</Form.Buttons>
-				</Form>
-			);
-		}}
-	</Story>
+	<Story story={Stories.Controlled} />
 </Canvas>
 
 ## Usage
 
 <Canvas>
-	<Story name="react-hook-form">
-		{() => {
-			const { register, handleSubmit } = useForm();
-			const [formData, setFormData] = React.useState();
-			return (
-				<Form onSubmit={handleSubmit(setFormData)}>
-					{formData && (
-						<InlineMessageInformation
-							title={'Form data'}
-							description={JSON.stringify(formData, null, 2)}
-							withBackground
-						/>
-					)}
-					<Form.Fieldset legend="Enabled">
-						<Form.ToggleSwitch label="Option a" {...register('option-a')} />
-						<Form.ToggleSwitch label="Option b" checked {...register('option-b')} />
-					</Form.Fieldset>
-					<Form.Fieldset legend="Read only" readOnly>
-						<Form.ToggleSwitch label="Option c" {...register('option-c')} />
-						<Form.ToggleSwitch label="Option d" checked {...register('option-d')} />
-					</Form.Fieldset>
-					<Form.Fieldset legend="Disabled" disabled>
-						{/* @see https://github.com/react-hook-form/react-hook-form/issues/6690 */}
-						<Form.ToggleSwitch label="Option e" {...register('option-e', { disabled: true })} />
-						<Form.ToggleSwitch
-							label="Option f"
-							checked
-							{...register('option-f', { disabled: true })}
-						/>
-					</Form.Fieldset>
-					<Form.Buttons>
-						<ButtonPrimary onClick={() => {}} type="submit">
-							Submit
-						</ButtonPrimary>
-					</Form.Buttons>
-				</Form>
-			);
-		}}
-	</Story>
+	<Story story={Stories.ReactHooksForm} />
 </Canvas>
 
 ## Accessibility
