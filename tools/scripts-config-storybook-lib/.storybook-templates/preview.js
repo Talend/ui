@@ -6,7 +6,7 @@ import { initialize, mswDecorator } from 'msw-storybook-addon';
 
 import { initI18n } from './i18n';
 
-const { i18n: userI18n, cmf, ...userPreview } = <% if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
+const { i18n: userI18n, cmf, ...userPreview } = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
 // msw
 initialize();
