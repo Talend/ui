@@ -3,7 +3,7 @@ import Step, { StepPrimitiveProps } from '../Primitive/Step';
 
 type StepDisabledTypes = Omit<StepPrimitiveProps, 'status'>;
 
-const StepDisabled = forwardRef((props: StepDisabledTypes, ref: Ref<HTMLDivElement>) => (
+const StepDisabled = forwardRef((props: StepDisabledTypes, ref: Ref<HTMLLIElement>) => (
 	<Step {...props} status="disabled" ref={ref} />
 ));
 

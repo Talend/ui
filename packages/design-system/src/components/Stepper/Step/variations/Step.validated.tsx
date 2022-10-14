@@ -3,7 +3,7 @@ import Step, { StepPrimitiveProps } from '../Primitive/Step';
 
 type StepValidatedTypes = Omit<StepPrimitiveProps, 'status'>;
 
-const StepValidated = forwardRef((props: StepValidatedTypes, ref: Ref<HTMLDivElement>) => (
+const StepValidated = forwardRef((props: StepValidatedTypes, ref: Ref<HTMLLIElement>) => (
 	<Step {...props} status="validated" ref={ref} />
 ));
 

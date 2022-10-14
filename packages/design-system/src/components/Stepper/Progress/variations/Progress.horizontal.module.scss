@@ -1,21 +1,23 @@
-import styled from 'styled-components';
+@use '~@talend/design-tokens/lib/tokens';
 
-import Progress from '../Progress';
+@keyframes progress {
+	0% {
+		width: 0;
+	}
+}
 
-const ProgressHorizontal = styled(Progress).attrs({
-	className: 'c-stepper__progress-bar--horizontal',
-	orientation: 'horizontal',
-})`
-	top: 0.9rem;
+.horizontal {
+	top: calc(#{tokens.$coral-sizing-xxxs} / 2 - 0.05rem);
 	right: 10rem;
 	left: 10rem;
 	height: 0.2rem;
+	transform: translateY(-50%);
 	background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cline x1='0' y1='0' x2='100%25' y2='0' fill='none' stroke='%23d2d2d2' stroke-width='4' stroke-dasharray='2%2c6'/%3e%3c/svg%3e");
+	z-index: 1;
 
 	div {
 		top: 0;
 		height: 0.2rem;
+		animation: progress 1s ease-in-out;
 	}
-`;
-
-export default ProgressHorizontal;
+}

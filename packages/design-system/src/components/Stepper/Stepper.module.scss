@@ -1,0 +1,29 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+
+.stepper {
+	position: relative;
+	display: inline-flex;
+
+	&_vertical {
+		justify-content: flex-end;
+		width: 20rem;
+
+		.stepper__steps {
+			display: flex;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			flex-direction: column;
+			gap: 5rem;
+		}
+	}
+
+	&_horizontal {
+		.stepper__steps {
+			display: flex;
+			flex-flow: row;
+		}
+	}
+
+}

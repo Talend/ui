@@ -3,7 +3,7 @@ import Step, { StepPrimitiveProps } from '../Primitive/Step';
 
 type StepErrorTypes = Omit<StepPrimitiveProps, 'status' | 'icon'>;
 
-const StepError = forwardRef((props: StepErrorTypes, ref: Ref<HTMLDivElement>) => (
+const StepError = forwardRef((props: StepErrorTypes, ref: Ref<HTMLLIElement>) => (
 	<Step {...props} status="error" icon="talend-cross-circle" ref={ref} />
 ));
 

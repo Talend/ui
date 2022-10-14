@@ -1,0 +1,10 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.skeleton {
+	position: relative;
+	width: 11.5rem;
+
+	&_vertical {
+		margin: 0 calc((20rem - 11.5rem) / 2);
+	}
+}
