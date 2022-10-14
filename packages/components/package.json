@@ -71,7 +71,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.9",
     "@talend/bootstrap-theme": "^6.39.1",
-    "@talend/design-system": "^5.2.0",
+    "@talend/design-system": "^5.4.1",
     "@talend/icons": "^6.50.0",
     "@talend/locales-design-system": "^1.12.2",
     "@talend/locales-tui-components": "^6.44.11",
@@ -108,5 +108,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.11.1"
+  "version": "7.11.2"
 }
