@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 5.4.1
+
+### Patch Changes
+
+- 3962569cc: DS Tabs button type should never be anything but "button"
+- aa0c76ae3: Updated documentation for from elements, adjusted code and style when necessary.
+
 ## 5.4.0
 
 ### Minor Changes
