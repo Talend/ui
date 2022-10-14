@@ -17,8 +17,9 @@ exports[`BadgeOperatorPopover should render the html output 1`] = `
         <svg name="talend-my-icon-equal"
              focusable="false"
              aria-hidden="true"
-             class="sc-bczRLJ bIYFPD tc-svg-icon tc-icon tc-icon-name-talend-my-icon-equal"
+             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-equal"
              pointer-events="none"
+             shape-rendering="geometricPrecision"
         >
         </svg>
         <span>
@@ -34,8 +35,9 @@ exports[`BadgeOperatorPopover should render the html output 1`] = `
         <svg name="talend-my-icon-not-equal"
              focusable="false"
              aria-hidden="true"
-             class="sc-bczRLJ bIYFPD tc-svg-icon tc-icon tc-icon-name-talend-my-icon-not-equal"
+             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-my-icon-not-equal"
              pointer-events="none"
+             shape-rendering="geometricPrecision"
         >
         </svg>
         <span>
