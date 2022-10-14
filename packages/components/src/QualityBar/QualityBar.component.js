@@ -62,7 +62,14 @@ QualityBarRatioBars.propTypes = {
  * @param {number} naRaw number of not applicable raw
  * @param {number} digits number of digits we want to keep
  */
-function getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, digits) {
+function getQualityPercentagesRounded(
+	invalid = 0,
+	empty = 0,
+	valid = 0,
+	na = 0,
+	placeholder = 0,
+	digits,
+) {
 	const output = {};
 
 	let sumValues = 0;
@@ -94,31 +101,29 @@ function getQualityPercentagesRounded(invalid, empty, valid, na, placeholder, di
 }
 
 function SplitQualityBar({ empty, getDataFeature, invalid, na, onClick, valid, percentages }) {
-	const totalValues = empty + invalid + na + valid;
+	const totalValues = (empty || 0) + (invalid || 0) + (na || 0) + (valid || 0);
 	const usedValues = { empty, invalid, na, valid };
 	const fwd = { getDataFeature, onClick };
 
 	return (
 		<StackHorizontal gap="M">
-			{[QualityType.INVALID, QualityType.EMPTY, QualityType.NOTAPPLICABLE, QualityType.VALID].map(
-				type => {
-					const currentTypePercentage = percentages[type];
-					const currentTypeValue = usedValues[type];
+			{[QualityType.INVALID, QualityType.EMPTY, QualityType.NA, QualityType.VALID].map(type => {
+				const currentTypePercentage = percentages[type];
+				const currentTypeValue = usedValues[type];
 
-					return currentTypePercentage ? (
-						<StackHorizontal gap="XXS" key={type}>
-							<span>{currentTypePercentage}%</span>
+				return currentTypeValue !== undefined ? (
+					<StackHorizontal gap="XXS" key={type}>
+						<span>{currentTypePercentage}%</span>
 
-							<QualityBarRatioBars
-								{...fwd}
-								{...{ [type]: currentTypeValue }} // Spread needed for the dynamic "type" key
-								placeholder={totalValues - currentTypeValue}
-								percentages={{ ...percentages, placeholder: 100 - currentTypePercentage }}
-							/>
-						</StackHorizontal>
-					) : null;
-				},
-			)}
+						<QualityBarRatioBars
+							{...fwd}
+							{...{ [type]: currentTypeValue }} // Spread needed for the dynamic "type" key
+							placeholder={totalValues - currentTypeValue}
+							percentages={{ ...percentages, placeholder: 100 - currentTypePercentage }}
+						/>
+					</StackHorizontal>
+				) : null;
+			})}
 		</StackHorizontal>
 	);
 }
@@ -146,10 +151,5 @@ QualityBar.propTypes = {
 
 QualityBar.defaultProps = {
 	digits: 1,
-	empty: 0,
-	invalid: 0,
-	na: 0,
-	placeholder: 0,
-	valid: 0,
 	split: false,
 };

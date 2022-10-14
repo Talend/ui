@@ -24,7 +24,7 @@ export const FormButtonsDefault = () => (
 		<Form.Buttons>
 			<ButtonSecondary onClick={action('Clicked Previous')}>Previous</ButtonSecondary>
 			<ButtonSecondary onClick={action('Clicked Save')}>Save</ButtonSecondary>
-			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch">
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="triangle-circle">
 				Run
 			</ButtonPrimary>
 		</Form.Buttons>
@@ -41,7 +41,7 @@ export const FormButtonsLoading = () => (
 			<ButtonSecondary onClick={action('Clicked Save')} disabled>
 				Save
 			</ButtonSecondary>
-			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch" isLoading>
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="triangle-circle" isLoading>
 				Run
 			</ButtonPrimary>
 		</Form.Buttons>
@@ -58,7 +58,7 @@ export const FormButtonsOrder = () => (
 		<Form.Buttons>
 			<ButtonSecondary onClick={action('Clicked Previous')}>Previous</ButtonSecondary>
 			<ButtonSecondary onClick={action('Clicked Save')}>Save</ButtonSecondary>
-			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch">
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="triangle-circle">
 				Run
 			</ButtonPrimary>
 		</Form.Buttons>

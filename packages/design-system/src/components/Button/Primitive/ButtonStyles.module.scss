@@ -29,6 +29,12 @@
 		height: tokens.$coral-sizing-xxxs;
 		align-items: center;
 		color: tokens.$coral-color-accent-icon;
+
+		> svg {
+			// Safari fix
+			width: tokens.$coral-sizing-xxxs;
+			height: tokens.$coral-sizing-xxxs;
+		}
 	}
 
 	&.size-S {
