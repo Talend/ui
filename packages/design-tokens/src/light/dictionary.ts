@@ -2,7 +2,7 @@ const dictionary = [
     {
         name: 'coralColorNeutralText',
         type: 'color',
-        description: `Default text color. if you don't know which color to pick for text, then this is the safest bet.`,
+        description: `Default text colour. if you don't know which colour to pick for text, then this is the safest bet.`,
         hsla: 'hsla(0, 0%, 13%, 1)',
         hex: '#202020',
         value: 'hsla(0, 0%, 13%, 1)',
