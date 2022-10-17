@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 12.3.0
+
+### Minor Changes
+
+- 813f7e16e: feat(TDC-6507): Datagrid header cell dqRule icon
+
 ## 12.2.5
 
 ### Patch Changes
