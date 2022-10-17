@@ -2,9 +2,19 @@
 
 .skeleton {
 	position: relative;
-	width: 11.5rem;
+	flex-grow: 1;
+	width: 100%;
+	max-width: tokens.$coral-sizing-xxxl;
+	display: flex;
+	justify-content: flex-end;
+
+	> span {
+		max-width: 11.5rem;
+	}
 
 	&_vertical {
-		margin: 0 calc((20rem - 11.5rem) / 2);
+		margin: 0 auto;
+		width: 20rem;
+		justify-content: center;
 	}
 }

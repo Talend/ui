@@ -16,6 +16,7 @@
 			padding: 0;
 			flex-direction: column;
 			gap: 5rem;
+			width: 100%;
 		}
 	}
 
@@ -23,6 +24,7 @@
 		.stepper__steps {
 			display: flex;
 			flex-flow: row;
+			width: 100%;
 		}
 	}
 

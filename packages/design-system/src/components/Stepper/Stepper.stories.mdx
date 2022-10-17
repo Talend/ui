@@ -1,6 +1,8 @@
-import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, Use } from '~docs';
-import Stepper from '../';
+import Stepper from './index';
+
+import * as Stories from './Stepper.stories';
 
 <Meta
 	title="Components/Stepper/Stepper"
@@ -13,7 +15,7 @@ import Stepper from '../';
 
 # Stepper
 
-Stepper is used to display the different steps to take to complete an action.
+`Stepper` is used to display the different steps needed to complete an action.
 
 It helps users avoid frustration and successfully complete a primary task.
 
@@ -22,7 +24,7 @@ The stepper displays progress through a sequence split into multiple logical and
 ## Zoning
 
 <FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=345%3A135"
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=952%3A230"
 	alt="zoning image for the stepper"
 />
 
@@ -36,33 +38,28 @@ A Stepper is **vertical by default** but can be horizontal.
 
 Consider using a vertical stepper when there are workflows greater than 3 steps.
 
+<FigmaImage
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=1809%3A47231"
+	alt="Mockup of a vertical stepper"
+/>
+
 <Canvas>
-	<Story name="Vertical">
-		<Stepper>
-			<Stepper.Step.Validated title="Lorem ipsum" />
-			<Stepper.Step.InProgress title="Lorem ipsum" />
-			<Stepper.Step.Enabled title="Enabled state" />
-			<Stepper.Step.Enabled title="Enabled state" />
-		</Stepper>
-	</Story>
+	<Story story={Stories.Vertical} />
 </Canvas>
 
 **Horizontal**
 
 Consider using a horizontal stepper when full page components are used (such as Data grid or List)
 
-A horizontal stepper cannot have more than 3 steps.
+A horizontal stepper should not have more than 3 steps.
 
-The sub-steps option is not available with the horizontal stepper.
+<FigmaImage
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=1809%3A47229"
+	alt="Mockup of a horizontal stepper"
+/>
 
 <Canvas>
-	<Story name="Horizontal">
-		<Stepper.Horizontal>
-			<Stepper.Step.Validated>Lorem ipsum</Stepper.Step.Validated>
-			<Stepper.Step.InProgress>Lorem ipsum</Stepper.Step.InProgress>
-			<Stepper.Step.Enabled>Enabled state</Stepper.Step.Enabled>
-		</Stepper.Horizontal>
-	</Story>
+	<Story story={Stories.Horizontal} />
 </Canvas>
 
 ## States
@@ -72,32 +69,30 @@ The sub-steps option is not available with the horizontal stepper.
 **Vertical**
 
 <Canvas>
-	<Story name="Loading vertical">
-		<Stepper.Vertical>
-			<Stepper.Step.Skeleton />
-			<Stepper.Step.Skeleton />
-			<Stepper.Step.Skeleton />
-		</Stepper.Vertical>
-	</Story>
+	<Story story={Stories.VerticalLoading} />
 </Canvas>
 
 **Horizontal**
 
 <Canvas>
-	<Story name="Loading horizontal">
-		<Stepper.Horizontal>
-			<Stepper.Step.Skeleton />
-			<Stepper.Step.Skeleton />
-			<Stepper.Step.Skeleton />
-		</Stepper.Horizontal>
-	</Story>
+	<Story story={Stories.HorizontalLoading} />
+</Canvas>
+
+### Overflowing steps
+
+The space dedicated to step is limited. No reflow strategy has been put in place, so text overflow is truncated with an ellipsis.
+
+<Canvas>
+	<Story story={Stories.Overflows} />
 </Canvas>
 
 ## Content
 
-Use nouns to create one-word labels for steps. Go for 2-word step labels when necessary. Step labels should describe the purpose of each step and let users know where they are in their setup.
+Use nouns to create one-word labels for steps. Go for 2-word step labels when necessary.
 
-**In vertical steppers**, each step opens a section to the right of the stepper. Start the section title with a verb and tell users what to do and why. For example, a step label "Engine" could have a section title "Add the engine on which to process data".
+Step labels should describe the purpose of each step and let users know where they are in their setup.
+
+**In vertical steppers**, each step describes a section to the right of the stepper. Start the section title with a verb and tell users what to do and why. For example, a step label "Engine" could have a section title "Add the engine on which to process data".
 Step sections can also have subtitles, if necessary, to provide users with extra important information—as in complicated steps for example.
 
 **In horizontal steppers**, no sections are used. Once a step is selected, user input shows below. Avoid using long nouns in horizontal steppers
@@ -117,9 +112,9 @@ Step sections can also have subtitles, if necessary, to provide users with extra
 	</Use.Dont>
 </Use>
 
-### Buttons
+### Buttons in forms that use a Stepper
 
-In case of multi-step form, we should always have at least 2 buttons:
+In case of multi-step form, we should always provide at least 2 buttons:
 
 1. Cancel or Back button
 2. Continue or Next button
@@ -131,18 +126,18 @@ Use a **cancel button** for the first step as the user can't step back. Use a **
 	alt="buttons mutli step form example"
 />
 
-The back button can also be used in addition of the cancel button. In that case, the button order is the following one:
+The back button can also be used in addition of the cancel button. In that case, the cancel button is still the first available:
 
 <FigmaImage
-	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=408%3A5876"
+	src="https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/Stepper?node-id=1808%3A47056"
 	alt="cancel and back buttons for multi step form"
 />
 
 ## Interactions
 
-**Error**
+**Error in the form**
 
-In case of an error in the current step, please inform the user by using an inline message. Do not disable the next button.
+In case of an error in the current step, please inform the user by using an inline message on that screen.
 
 ## Usage
 

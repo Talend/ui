@@ -17,8 +17,6 @@
 
 .step {
 	display: flex;
-	width: 100%;
-	flex-grow: 1;
 	max-width: tokens.$coral-sizing-xxxl;
 	align-items: center;
 	justify-content: flex-end;
@@ -124,7 +122,8 @@
 }
 
 .stepWrapper {
+	max-width: tokens.$coral-sizing-xxxl;
 	display: flex;
-	justify-content: stretch;
+	justify-content: flex-end;
 	align-items: stretch;
 }
