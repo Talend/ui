@@ -220,7 +220,6 @@ export const parameters = {
 
 						<I18nextProvider i18n={i18n}>
 							<ThemeProvider theme={hasDarkMode ? dark : light}>
-								<ThemeProvider.GlobalStyle />
 								<DocsContainer {...props} />
 							</ThemeProvider>
 						</I18nextProvider>
@@ -325,7 +324,6 @@ export const decorators = [
 
 		const themedStory = (
 			<ThemeProvider theme={theme}>
-				<ThemeProvider.GlobalStyle />
 				<Story {...context} />
 			</ThemeProvider>
 		);
