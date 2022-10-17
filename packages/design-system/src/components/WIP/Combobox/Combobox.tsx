@@ -1,4 +1,7 @@
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import styles from './Combobox.module.scss';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
 	unstable_useComboboxState as useReakitComboboxState,
 	unstable_Combobox as ReakitCombobox,
@@ -6,14 +9,14 @@ import {
 	unstable_ComboboxOption as ReakitComboboxOption,
 } from 'reakit';
 
-import * as S from './Combobox.style';
-
 export type ComboboxProps = {
 	values?: string[];
 	initialValue?: string;
 };
 
 const Combobox = ({ values, ...rest }: ComboboxProps) => {
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
+
 	const combobox = useReakitComboboxState({
 		autoSelect: true,
 		inline: true,
@@ -23,16 +26,16 @@ const Combobox = ({ values, ...rest }: ComboboxProps) => {
 	});
 
 	return (
-		<S.Combobox>
-			<ReakitCombobox {...combobox} {...rest} />
+		<div className={styles.combobox}>
+			<ReakitCombobox {...combobox} {...rest} className={styles.combobox__input} />
 			<ReakitComboboxPopover {...combobox}>
 				{combobox.matches.length
 					? combobox.matches.map(match => (
 							<ReakitComboboxOption {...combobox} key={match} value={match} />
 					  ))
-					: 'No results found'}
+					: t('COMBOBOX_NOT_RESULT', 'No results found')}
 			</ReakitComboboxPopover>
-		</S.Combobox>
+		</div>
 	);
 };
 
