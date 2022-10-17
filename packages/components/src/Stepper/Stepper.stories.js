@@ -74,7 +74,6 @@ export const StepperSuccessfulWithoutTransition = () => (
 export const FormStepper = () => (
 	<Stepper.Form>
 		<Stepper.Form.Step.Validated title="I'm ok" />
-		<Stepper.Form.Step.Error title="I'm not ok" />
 		<Stepper.Form.Step.Validated title="Hey" />
 		<Stepper.Form.Step.Validated title="Yup" />
 		<Stepper.Form.Step.InProgress title="Hey, I'm in progress" />

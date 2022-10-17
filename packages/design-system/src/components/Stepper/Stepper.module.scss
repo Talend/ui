@@ -5,6 +5,10 @@
 	position: relative;
 	display: inline-flex;
 
+	.stepper__steps {
+		padding: 0;
+	}
+
 	&_vertical {
 		justify-content: flex-end;
 		width: 20rem;
