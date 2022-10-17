@@ -32,6 +32,10 @@ const menu = {
 	onClick: action('onMenuClick'),
 	children: 'My menu label',
 };
+const withDqRule = {
+	...defaultArgs,
+	dqRule: true,
+};
 
 export default {
 	component: HeaderCellRenderer,
@@ -103,15 +107,17 @@ export const All = () => (
 				{[undefined, 'My description'].map(description => (
 					<StackHorizontal gap="S" key={description}>
 						<b style={{ width: 100 }}>{description ? 'With' : 'Without'} description</b>
-						{[defaultArgs, longContent, withoutQuality].map(props => (
-							<Template key={null} {...props} menuProps={menuProps} />
+						{[defaultArgs, longContent, withDqRule, withoutQuality].map(props => (
+							<Template key={null} {...props} menuProps={menuProps} description={description} />
 						))}
 					</StackHorizontal>
 				))}
+
 				<StackHorizontal gap="S">
 					<b style={{ width: 100 }}>Loading (from TDC/no specs)</b>
 					<Template {...defaultArgs} isLoading menuProps={menuProps} />
 				</StackHorizontal>
+
 				<StackHorizontal gap="S">
 					<b style={{ width: 100 }}>Semantic type draft (from TDC/no specs)</b>
 					<Template {...defaultArgs} draftType="Draft type" menuProps={menuProps} />
