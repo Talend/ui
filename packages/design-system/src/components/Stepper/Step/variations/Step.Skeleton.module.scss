@@ -1,0 +1,20 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.skeleton {
+	position: relative;
+	flex-grow: 1;
+	width: 100%;
+	max-width: tokens.$coral-sizing-xxxl;
+	display: flex;
+	justify-content: flex-end;
+
+	> span {
+		max-width: 11.5rem;
+	}
+
+	&_vertical {
+		margin: 0 auto;
+		width: 20rem;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,12 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+
+.progress {
+	position: absolute;
+
+	div {
+		position: absolute;
+		top: 0;
+		background: tokens.$coral-color-accent-background-strong;
+	}
+}
