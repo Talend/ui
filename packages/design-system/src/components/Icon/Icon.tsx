@@ -135,7 +135,7 @@ export const Icon = React.forwardRef(
 				{...rest}
 				name={!(isImg || isRemote) ? name : null}
 				{...accessibility}
-				className={classnames('tc-svg-icon', classname, {})}
+				className={classnames('tc-svg-icon', classname)}
 				ref={safeRef}
 				pointerEvents="none"
 				shapeRendering="geometricPrecision"
