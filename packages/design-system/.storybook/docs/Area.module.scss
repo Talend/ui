@@ -1,0 +1,17 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.area {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	justify-content: center;
+	margin: tokens.$coral-spacing-xs tokens.$coral-spacing-m;
+	padding: tokens.$coral-spacing-xs;
+	min-height: 0;
+	font-weight: bold;
+	font-size: 2rem;
+	color: coral;
+	background: cornsilk;
+	border: 1px dashed coral;
+	border-radius: tokens.$coral-radius-s;
+}
