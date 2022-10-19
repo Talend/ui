@@ -1,11 +1,8 @@
 import React from 'react';
-import styled, { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
+import classnames from 'classnames';
 
-const Iframe = styled.iframe`
-	border-radius: 0.4rem;
-	box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-`;
+import styles from './FigmaIframe.module.scss';
 
 const iframeProps = {
 	height: 600,
@@ -16,19 +13,19 @@ const iframeProps = {
 const FigmaIframe = ({ light, dark, ...rest }: { light?: DefaultTheme; dark?: DefaultTheme }) => (
 	<>
 		{light && (
-			<Iframe
+			<iframe
 				{...iframeProps}
 				{...rest}
-				className="figma-iframe figma-iframe--light"
+				className={classnames(styles.iframe, 'figma-iframe figma-iframe--light')}
 				src={`https://www.figma.com/embed?embed_host=storybook&url=\
                   ${light}`}
 			/>
 		)}
 		{dark && (
-			<Iframe
+			<iframe
 				{...iframeProps}
 				{...rest}
-				className="figma-iframe figma-iframe--dark"
+				className={classnames(styles.iframe, 'figma-iframe figma-iframe--dark')}
 				src={`https://www.figma.com/embed?embed_host=storybook&url=\
 				  ${dark}`}
 			/>

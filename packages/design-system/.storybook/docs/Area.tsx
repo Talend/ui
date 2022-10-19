@@ -1,20 +1,14 @@
-import styled from 'styled-components';
-import tokens from '@talend/design-tokens';
+import React, { HTMLAttributes } from 'react';
+import classnames from 'classnames';
+import styles from './Area.module.scss';
 
-const Area = styled.div`
-	display: flex;
-	flex-basis: 100%;
-	align-items: center;
-	justify-content: center;
-	margin: ${tokens.coralSpacingXs} ${tokens.coralSpacingM};
-	padding: ${tokens.coralSpacingXs};
-	min-height: 0;
-	font-weight: bold;
-	font-size: 2rem;
-	color: coral;
-	background: cornsilk;
-	border: 1px dashed coral;
-	border-radius: ${tokens.coralRadiusS};
-`;
+const Area = (props: HTMLAttributes<HTMLDivElement>) => {
+	const { children, className, ...rest } = props;
+	return (
+		<div {...rest} className={classnames(styles.area, className)}>
+			{children}
+		</div>
+	);
+};
 
 export default Area;

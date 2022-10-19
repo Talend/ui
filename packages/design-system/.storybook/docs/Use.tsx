@@ -1,49 +1,44 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { HTMLAttributes, ReactElement } from 'react';
+import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
+import classnames from 'classnames';
 
-import tokens from '@talend/design-tokens';
-import { Icon } from '../../src';
-
+import { SizedIcon } from '../../src';
 import Grid from './Grid';
 
-const Block = styled(({ title, icon, children, ...rest }) => (
-	<div {...rest}>
-		<strong>
-			<Icon name={icon} /> {title}
-		</strong>
-		{children}
-	</div>
-))`
-	strong {
-		display: flex;
-		align-items: center;
-	}
+import styles from './Use.module.scss';
 
-	svg {
-		margin: 0 ${tokens.coralSpacingXs};
-	}
+type BlockTypes = {
+	title: string;
+	icon: IconNameWithSize<'M'>;
+	children: ReactElement | ReactElement[] | HTMLCollection;
+} & HTMLAttributes<HTMLDivElement>;
 
-	padding: 1rem;
-	border-radius: ${tokens.coralRadiusS};
-`;
+const Block = ({ title, icon, children, className, ...rest }: BlockTypes) => {
+	return (
+		<div className={classnames(styles.block, className)} {...rest}>
+			<strong className={styles.block__title}>
+				<SizedIcon size="M" name={icon} /> {title}
+			</strong>
+			{children}
+		</div>
+	);
+};
 
-const Do = styled(props => <Block title="Do" icon="talend-check" {...props} />)`
-	background: ${tokens.coralColorSuccessBackgroundWeak};
-	box-shadow: 0 0 0.1rem 0.1rem ${tokens.coralColorSuccessBorder};
+const Do = ({ children, ...rest }: Omit<BlockTypes, 'icon' | 'title'>) => {
+	return (
+		<Block className={styles.block_do} title="Do" icon="check-filled" {...rest}>
+			{children}
+		</Block>
+	);
+};
 
-	svg {
-		fill: ${tokens.coralColorSuccessIcon};
-	}
-`;
-
-const Dont = styled(props => <Block title="Don't" icon="talend-block" {...props} />)`
-	background: ${tokens.coralColorDangerBackgroundWeak};
-	box-shadow: 0 0 0.1rem 0.1rem ${tokens.coralColorDangerBorder};
-
-	svg {
-		fill: ${tokens.coralColorDangerIcon};
-	}
-`;
+const Dont = ({ children, ...rest }: Omit<BlockTypes, 'icon' | 'title'>) => {
+	return (
+		<Block className={styles.block_dont} title="Don't" icon="square-cross" {...rest}>
+			{children}
+		</Block>
+	);
+};
 
 export const Use = ({ children }: React.PropsWithChildren<HTMLDivElement>) => (
 	<Grid columns={2}>{children}</Grid>
