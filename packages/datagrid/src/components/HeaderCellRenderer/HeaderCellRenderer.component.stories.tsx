@@ -34,7 +34,7 @@ const menu = {
 };
 const withDqRule = {
 	...defaultArgs,
-	dqRule: true,
+	nbAppliedDqRules: 2,
 };
 
 export default {
