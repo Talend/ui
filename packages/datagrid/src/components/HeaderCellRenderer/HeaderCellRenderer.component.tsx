@@ -12,8 +12,8 @@ import {
 	StackVertical,
 	Tooltip,
 } from '@talend/design-system';
-import { QualityBar } from '@talend/react-components';
 import { IconNameWithSize } from '@talend/icons';
+import { QualityBar } from '@talend/react-components';
 
 import { HeaderComponentParams } from '../../types';
 
