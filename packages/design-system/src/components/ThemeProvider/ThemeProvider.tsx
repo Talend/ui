@@ -4,20 +4,26 @@ import './ThemeProvider.module.scss';
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
 import React, { useContext, useState } from 'react';
 
-const ThemeProvider = ({ theme = light, children }: ThemeProviderProps<any>) => {
+export interface ThemeProviderProps {
+	theme: string;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	children: any;
+}
+
+const ThemeProvider = ({ theme = 'light', children }: ThemeProviderProps) => {
 	const [selectedTheme, setSelectedTheme] = useState(theme);
 	// Handle nested Providers: parent Provider doesn't have context, child does
 	const context = useContext(ThemeContext);
 
 	React.useEffect(() => {
-		document.body.dataset.theme = selectedTheme === light ? 'light' : 'dark';
+		document.body.dataset.theme = selectedTheme === 'light' ? 'light' : 'dark';
 	}, [selectedTheme]);
 
 	React.useEffect(() => {
 		setSelectedTheme(theme);
 	}, [theme]);
 
-	const switchTheme = (newTheme: DefaultTheme) => setSelectedTheme(newTheme);
+	const switchTheme = (newTheme: string) => setSelectedTheme(newTheme);
 	return (
 		<ThemeContext.Provider value={context.theme ? context : { switchTheme, theme: selectedTheme }}>
 			{children}

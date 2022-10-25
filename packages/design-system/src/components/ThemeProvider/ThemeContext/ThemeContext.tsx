@@ -2,8 +2,8 @@
 import React from 'react';
 
 export type ThemeContextProps = {
-	theme?: any;
-	switchTheme?: (theme: any) => void;
+	theme?: string;
+	switchTheme?: (theme: string) => void;
 };
 
 const ThemeContext = React.createContext<ThemeContextProps>({});

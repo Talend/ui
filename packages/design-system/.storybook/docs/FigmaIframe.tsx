@@ -9,7 +9,7 @@ const iframeProps = {
 	allowFullScreen: true,
 };
 
-const FigmaIframe = ({ light, dark, ...rest }: { light?: DefaultTheme; dark?: DefaultTheme }) => (
+const FigmaIframe = ({ light, dark, ...rest }: { light?: string; dark?: string }) => (
 	<>
 		{light && (
 			<iframe
