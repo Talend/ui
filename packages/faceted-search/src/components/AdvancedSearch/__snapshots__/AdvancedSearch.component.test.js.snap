@@ -8,8 +8,9 @@ exports[`AdvancedSearch should render by default 1`] = `
     <svg name="talend-filter"
          focusable="false"
          aria-hidden="true"
-         class="sc-bczRLJ bIYFPD tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+         class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
          pointer-events="none"
+         shape-rendering="geometricPrecision"
     >
     </svg>
     <input name="advanced-search-faceted"
@@ -76,8 +77,9 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
     <svg name="talend-filter"
          focusable="false"
          aria-hidden="true"
-         class="sc-bczRLJ bIYFPD tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+         class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
          pointer-events="none"
+         shape-rendering="geometricPrecision"
     >
     </svg>
     <input name="advanced-search-faceted"
