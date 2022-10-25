@@ -24,8 +24,6 @@ module.exports = {
 		'../src/content/docs/Capitalization.stories.@(js|tsx|mdx)',
 		'../src/content/docs/Wording.stories.@(js|tsx|mdx)',
 		'../src/components/**/*.stories.mdx',
-		'../src/templates/**/*.stories.@(js|tsx|mdx)',
-		'../src/pages/**/*.stories.@(js|tsx|mdx)',
 	],
 	staticDirs: ['../static'],
 	addons: [

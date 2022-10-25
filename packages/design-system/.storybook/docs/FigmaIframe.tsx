@@ -1,5 +1,4 @@
 import React from 'react';
-import { DefaultTheme } from 'styled-components';
 import classnames from 'classnames';
 
 import styles from './FigmaIframe.module.scss';
@@ -10,7 +9,7 @@ const iframeProps = {
 	allowFullScreen: true,
 };
 
-const FigmaIframe = ({ light, dark, ...rest }: { light?: DefaultTheme; dark?: DefaultTheme }) => (
+const FigmaIframe = ({ light, dark, ...rest }: { light?: string; dark?: string }) => (
 	<>
 		{light && (
 			<iframe
