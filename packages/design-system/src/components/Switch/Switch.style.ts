@@ -1,8 +1,4 @@
-import styled from 'styled-components';
 import { shade } from 'polished';
-import dsTokens from '@talend/design-tokens';
-
-import tokens from '@talend/design-tokens';
 
 export const SwitchIndicator = styled.span`
 	position: absolute;

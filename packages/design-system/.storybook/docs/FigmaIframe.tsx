@@ -1,5 +1,4 @@
 import React from 'react';
-import { DefaultTheme } from 'styled-components';
 import classnames from 'classnames';
 
 import styles from './FigmaIframe.module.scss';

@@ -1,0 +1,78 @@
+@use '~@talend/design-tokens/lib/tokens' as tokens;
+
+.switchIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    bottom: 0;
+    z-index: tokens.$coral-elevation-layer-standard-front;
+    
+    &[data-animated='true'] {
+        transition: tokens.$coral-transition-fast;
+    }
+}
+
+.switch {
+    div {
+        position: relative;
+        display: inline-flex;
+        background: tokens.$coral-color-neutral-background-medium;
+        border-radius: 10rem;
+        box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        &.disabled {
+            opacity: tokens.$coral-opacity-m;
+        }
+    }
+
+    button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0 1rem;
+        color: tokens.$coral-color-neutral-text;
+        font: tokens.$coral-paragraph-s;
+        opacity: tokens.$coral-opacity-m;
+        user-select: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        z-index: tokens.$coral-elevation-layer-interactive-front;
+    }
+
+    .switchIndicator em {
+        position: absolute;
+        top: 0.2rem;
+        right: 0.2rem;
+        bottom: 0.2rem;
+        left: 0.2rem;
+        transition: background 0.3s;
+        background: tokens.$coral-color-accent-background-active;
+        border-radius: 100px;
+    }
+
+    div:hover .switchIndicator em {
+        // background: ${({ readOnly, theme }) =>
+        //     !readOnly ? shade(0.25, theme.colors.activeColor[500]) : 'none'};
+    }
+
+    [aria-selected] {
+        transition: color tokens.$coral-transition-normal;
+    }
+
+    [aria-selected='true'] {
+        color: ${({ theme }) => theme.colors.inputBackgroundColor};
+        opacity: 1;
+    }
+
+    [aria-selected] ~ ${SwitchIndicator} {
+        visibility: hidden;
+    }
+
+    [aria-selected='true'] ~ ${SwitchIndicator} {
+        visibility: visible;
+    }
+}
