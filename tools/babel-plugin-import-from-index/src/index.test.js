@@ -29,13 +29,11 @@ pluginTester({
 		},
 		{
 			code: `
-				 import _ from 'lodash';
-
-				 _.toUpper('foo');`,
+				import _ from 'lodash';
+				_.toUpper('foo');`,
 			output: `
-				 import _ from 'lodash';
-
-				 _.toUpper('foo');`,
+				import _ from 'lodash';
+				_.toUpper('foo');`,
 		},
 		{
 			code: `
