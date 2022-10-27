@@ -20,17 +20,41 @@ That repository was created in an effort to simplify the development of Talend's
 
 ## Tools (dev environment)
 
-:warning: If you've used `lerna bootstrap` in the past, please start by running `lerna clean` or you will have bad behavior with the following tools.
+This repository works with yarn workspaces. So for example if you want to launch test, you can just do
 
-We have quick access from the root to the following npm scripts:
+    yarn test
 
-* prepublishOnly
-* test
-* lint
+If you want you can also just run any scripts on a dedicated package:
 
-In each packages you will also find a start command to play with the package.
+    yarn workspace @talend/design-system run start
 
-The CI will ensure on each PR that test and lint are OK before you can merge your pull request. It will also provide you a demo so reviewers can play with your change and try to find impact of your PR on other packages.
+`start` script exists on each package and run a dedicated demo of the corresponding package. Most of them are done using storybook.
+
+The build of each packages is done is two steps:
+
+- build:lib is done at postinstall and will create lib folder output from babel + scss files copied into it.
+- pre-release will launch webpack to build the UMD output of the pacakge.
+
+### workspace-run.js
+
+A script `workspace-run.js` exists with options to extends the capacities of yarn workspace.
+
+| env                | value example | description                                                                       |
+| ------------------ | ------------- | --------------------------------------------------------------------------------- |
+| LOCATION           | tools         | execute npm scripts only for packages in a given location, packages, fork, tools. |
+| EXECUTE_PARALLEL   | 1             | Speed up run by execute stuff in //                                               |
+| WORKSPACE_RUN_FAIL | no-bail       | continue even if failed                                                           |
+| VERBOSE            | true          | display all outputs of commands                                                   |
+
+Example : run all tests of tools in //:
+
+    EXECUTE_PARALLEL=1 LOCATION=tools node workspace-run.js test.
+
+## CI
+
+The CI is done in the `.github` folder so github actions.
+
+When you open a PR the CI will ensure test and lint are OK before you can merge your pull request. It will also provide you a demo so reviewers can play with your change and try to find impact of your PR on other packages.
 
 ## Versions and breaking changes
 

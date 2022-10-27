@@ -10,6 +10,7 @@ const scriptArgs = process.argv.slice(3);
 
 const options = {
 	verbose: process.env.VERBOSE,
+	filter: process.env.LOCATION,
 };
 
 function consume(cmds) {
@@ -45,6 +46,11 @@ run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
 		function add(acc, pkg) {
 			if (acc.indexOf(pkg) !== -1) {
 				return acc;
+			}
+			if (options.filter) {
+				if (workspaceInfo[pkg].location.match(options.filter) === null) {
+					return acc;
+				}
 			}
 			const wd = workspaceInfo[pkg].workspaceDependencies;
 
