@@ -4,7 +4,7 @@
 	div {
 		position: relative;
 		display: inline-flex;
-		background: tokens.$coral-color-neutral-background-medium;
+		background: tokens.$coral-color-neutral-background-strong;
 		border-radius: 10rem;
 		box-shadow: inset 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.25);
 		overflow: hidden;
@@ -46,7 +46,7 @@
 		bottom: 0.2rem;
 		left: 0.2rem;
 		transition: background 0.3s;
-		background: tokens.$coral-color-accent-background-active;
+		background: tokens.$coral-color-accent-background-strong;
 		border-radius: 100px;
 	}
 
