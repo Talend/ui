@@ -289,6 +289,62 @@ export const MultiCurveLineChart = {
 	},
 };
 
+export const WithLineSelection = {
+	args: {
+		hasLineSelection: true,
+		initialSelectedLines: ['trustScore'],
+		chartOptions: {
+			leftYAxisOptions: {
+				type: 'number',
+				domain: [0, 5],
+			},
+		},
+		lines: [
+			{
+				key: 'trustScore',
+				color: tokens.coralColorChartsDefault,
+			},
+			{
+				key: 'globalScore',
+				color: tokens.coralColorChartsColor04,
+			},
+			{
+				key: 'localScore',
+				color: tokens.coralColorChartsColor00,
+			},
+		],
+		data: [
+			{
+				xLabel: '2/2',
+				trustScore: 2.2,
+				globalScore: 3,
+				localScore: 1.5,
+			},
+
+			{
+				xLabel: '2/16',
+				trustScore: 3.4,
+				globalScore: 3.2,
+				localScore: 1.8,
+			},
+
+			{
+				xLabel: '2/24',
+				trustScore: 3.5,
+				globalScore: 3.2,
+				localScore: 2.8,
+			},
+
+			{
+				xLabel: '2/30',
+				trustScore: 4.2,
+				globalScore: 4,
+				localScore: 3.5,
+			},
+		],
+	},
+};
+
 export const CustomXAxisDomainLineChart = {
 	args: {
 		chartOptions: {

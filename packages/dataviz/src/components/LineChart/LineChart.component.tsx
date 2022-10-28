@@ -20,6 +20,8 @@ export interface LineChartProps {
 	data: LineChartEntry[];
 	lines: LineOptions[];
 	chartOptions: LineChartOptions;
+	hasLineSelection?: boolean;
+	initialSelectedLines?: string[];
 	onLineClicked?: (key: string) => void;
 	onLineHovered?: (key: string) => void;
 	onLegendItemClicked?: (key: string) => void;
@@ -30,6 +32,8 @@ function LineChart({
 	data,
 	lines,
 	chartOptions,
+	hasLineSelection,
+	initialSelectedLines = [],
 	onLineClicked = () => {},
 	onLineHovered = () => {},
 	onLegendItemClicked = () => {},
@@ -48,6 +52,7 @@ function LineChart({
 	} = chartOptions;
 
 	const [activeLine, setActiveLine] = React.useState<string | null>(null);
+	const [selectedLines, setSelectedLines] = React.useState<string[]>(initialSelectedLines);
 
 	const getLineStyleFromStatus = (status: LineStatus, key: string) => {
 		const styleByStatus = {
@@ -73,6 +78,14 @@ function LineChart({
 			},
 		};
 
+		if (hasLineSelection && selectedLines.length > 0) {
+			return {
+				dot: { r: 0 },
+				...styleByStatus[status],
+				strokeOpacity: selectedLines.includes(key) ? 1 : 0.25,
+			};
+		}
+
 		if (activeLine !== null) {
 			return {
 				dot: { r: 0 },
@@ -85,6 +98,17 @@ function LineChart({
 			dot: { r: 0 },
 			...styleByStatus[status],
 		};
+	};
+
+	const onLegendClicked = (key: string) => {
+		if (hasLineSelection) {
+			const isSelected = selectedLines.includes(key);
+			const newSelectedLines = isSelected
+				? selectedLines.filter(lineKey => lineKey !== key)
+				: [...selectedLines, key];
+			setSelectedLines(newSelectedLines.length === lines.length ? [] : newSelectedLines);
+		}
+		onLegendItemClicked(key);
 	};
 
 	const onLegendHovered = (key: string) => {
@@ -177,7 +201,9 @@ function LineChart({
 										showInactives: legend?.showInactives,
 										isRightAxisDisplayed: rightYAxisOptions?.hide === false,
 									}}
-									onLegendClicked={onLegendItemClicked}
+									selection={selectedLines}
+									hasLineSelection={hasLineSelection}
+									onLegendClicked={onLegendClicked}
 									onLegendHovered={onLegendHovered}
 								/>
 							}
