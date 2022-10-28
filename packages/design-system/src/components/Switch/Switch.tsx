@@ -81,14 +81,14 @@ const Switch = ({
 						</Radio>
 					);
 				})}
-				<div
+				<span
 					className={theme.switchIndicator}
 					ref={switchIndicator}
 					data-animated={false}
 					aria-hidden="true"
 				>
 					<em />
-				</div>
+				</span>
 			</RadioGroup>
 		</div>
 	);
