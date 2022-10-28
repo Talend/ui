@@ -11,6 +11,7 @@ import sourceSample from '../../../mocks/sample.json';
 import { SELECTED_CELL_CLASS_NAME } from '../../constants';
 import { getColumnDefs, getRowId, parseRow } from '../../serializers/datasetSerializer';
 import DataGrid, { DataGridProps } from './DataGrid';
+import PinHeaderRenderer from '../PinHeaderRenderer';
 
 // eslint-disable-next-line no-irregular-whitespace
 const sample = cloneDeep(sourceSample);
@@ -102,7 +103,9 @@ export const CustomRenderer = () => (
 		columnDefs={[
 			{
 				...defaultGridProps.columnDefs[0],
-				headerComponent: () => <div>&#129302;</div>,
+				headerComponent: () => (
+					<PinHeaderRenderer onClick={action('header clicked')}>Open Menu</PinHeaderRenderer>
+				),
 			},
 			...defaultGridProps.columnDefs.slice(1).map(colDef => ({
 				...colDef,

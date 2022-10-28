@@ -9,7 +9,7 @@ export type PinHeaderRendererProps = Omit<Parameters<typeof ButtonIcon>[0], 'siz
 export default function PinHeaderRenderer(props: PinHeaderRendererProps): JSX.Element {
 	return (
 		<div className={theme['td-pin-header']}>
-			{props.children && <ButtonIcon icon="talend-ellipsis" size="S" {...props} />}
+			{props.children && <ButtonIcon icon="dots-vertical" size="S" {...props} />}
 		</div>
 	);
 }
