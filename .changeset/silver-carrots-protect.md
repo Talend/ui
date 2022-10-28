@@ -2,4 +2,6 @@
 '@talend/design-system': major
 ---
 
-remove deprecated components
+* chore: remove dependency over styled-components
+* remove deprecated components
+
