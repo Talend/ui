@@ -12,6 +12,7 @@ import {
 	StackVertical,
 	Tooltip,
 } from '@talend/design-system';
+import { IconNameWithSize } from '@talend/icons';
 import { QualityBar } from '@talend/react-components';
 
 import { HeaderComponentParams } from '../../types';
@@ -19,6 +20,16 @@ import { HeaderComponentParams } from '../../types';
 import theme from './HeaderCellRenderer.module.scss';
 
 export type HeaderRendererProps = IHeaderParams & HeaderComponentParams;
+
+function IconWithTooltip({ icon, tooltip }: { icon: IconNameWithSize<'S'>; tooltip: string }) {
+	return (
+		<Tooltip title={tooltip} placement="top">
+			<span className={theme['header-cell__description-tick']}>
+				<SizedIcon name={icon} size="S" />
+			</span>
+		</Tooltip>
+	);
+}
 
 /**
  * Props are provided by column definition headerComponentParams
@@ -34,7 +45,7 @@ export default function HeaderCellRenderer({
 	isLoading,
 	draftType,
 	menuProps,
-	dqRule,
+	nbAppliedDqRules,
 	qualityBarProps,
 	displayName,
 	onFocus,
@@ -73,11 +84,10 @@ export default function HeaderCellRenderer({
 							</div>
 
 							{description && (
-								<Tooltip title={truncate(description, { length: 1000 })} placement="bottom">
-									<span className={theme['header-cell__description-tick']}>
-										<SizedIcon name="information-stroke" size="S" />
-									</span>
-								</Tooltip>
+								<IconWithTooltip
+									icon="information-stroke"
+									tooltip={truncate(description, { length: 1000 })}
+								/>
 							)}
 						</StackHorizontal>
 					</div>
@@ -103,10 +113,15 @@ export default function HeaderCellRenderer({
 						)}
 					</div>
 
-					{dqRule && (
-						<span className={theme['header-cell__dq-rule-icon']}>
-							<SizedIcon name="law-hammer" size="S" />
-						</span>
+					{nbAppliedDqRules && (
+						<IconWithTooltip
+							icon="law-hammer"
+							tooltip={t('HEADER_CELL_RENDERER_NB_APPLIED_DQ_RULES', {
+								defaultValue: '{{ count }} rule is applied to this dataset',
+								defaultValue_plural: '{{ count }} rules are applied to this dataset',
+								count: nbAppliedDqRules,
+							})}
+						/>
 					)}
 				</StackHorizontal>
 

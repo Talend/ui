@@ -73,7 +73,7 @@ export type HeaderComponentParams = TypeInfo & {
 	menuProps?: Omit<Parameters<typeof ButtonIcon>[0], 'icon' | 'size'> & {
 		'data-feature'?: string;
 	};
-	dqRule?: boolean;
+	nbAppliedDqRules?: number;
 	qualityBarProps?: any;
 	onFocus?(params: HeaderClickParams): void;
 };
