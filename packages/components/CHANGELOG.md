@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.11.2
+
+### Patch Changes
+
+- efc5c2d8e: fix(components): QualityBar in split mode
+
 ## 7.11.1
 
 ### Patch Changes

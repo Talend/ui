@@ -13,7 +13,6 @@ import Grid from './Grid';
 import SearchBar from './SearchBar';
 import StatusTable from './StatusTable';
 import Table from './Table';
-import Themes from './Themes';
 import Row from './Row';
 import { Use } from './Use';
 import { Icons } from './Icons';
@@ -37,7 +36,6 @@ export {
 	SearchBar,
 	StatusTable,
 	Table,
-	Themes,
 	Use,
 	WithSelector,
 };

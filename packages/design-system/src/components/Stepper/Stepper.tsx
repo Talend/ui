@@ -1,43 +1,75 @@
-import React, { PropsWithChildren } from 'react';
-import { isMemo, isElement } from 'react-is';
+import React, {
+	Children,
+	cloneElement,
+	forwardRef,
+	ReactElement,
+	Ref,
+	useEffect,
+	useRef,
+	useState,
+} from 'react';
+import classnames from 'classnames';
+import { isElement } from 'react-is';
 
-import * as S from './Stepper.style';
+import ProgressVertical from './Progress/variations/Progress.vertical';
+import ProgressHorizontal from './Progress/variations/Progress.horizontal';
+
+import styles from './Stepper.module.scss';
 
 export type StepperOrientation = 'horizontal' | 'vertical';
 
-export type StepperProps = PropsWithChildren<any> & {
-	orientation: StepperOrientation;
+export type StepperProps = {
+	orientation?: StepperOrientation;
+	children: ReactElement | ReactElement[];
 	loading?: boolean;
 };
 
-const Stepper: React.FC<StepperProps> = React.forwardRef(
-	({ children, orientation, loading, ...rest }: StepperProps, ref) => {
-		const isInProgress = (child: React.ReactNode) =>
-			// Use isMemo to be sure to only test React.ReactElement and its attrs
-			isMemo(child) && Array.isArray(child.type.type.attrs) && child.type.type.attrs[0].active;
-		const lastIndex = React.Children.toArray(children).map(isInProgress).lastIndexOf(true);
-		const value = lastIndex + 1;
-		const max = React.Children.count(children);
-		const ProgressBar =
-			orientation === 'vertical' ? S.StepperProgressBar.Vertical : S.StepperProgressBar.Horizontal;
+const Stepper = forwardRef(
+	(
+		{ children, orientation = 'vertical', loading, ...rest }: StepperProps,
+		ref: Ref<HTMLDivElement>,
+	) => {
+		const listRef = useRef<null | HTMLOListElement>(null);
+		const [progressIndex, setProgressIndex] = useState(0);
+
+		useEffect(() => {
+			// Find the last active step in the list and store its index
+			const listEntries = listRef.current ? Array.from(listRef.current.children) : [];
+			const indexOfProgress = listEntries.map(entry => entry.ariaCurrent).lastIndexOf('step');
+			setProgressIndex(indexOfProgress);
+		}, []);
+
+		const value = progressIndex + 1;
+		const max = Children.count(children);
+
 		return (
-			<S.Stepper {...rest} ref={ref}>
-				<ProgressBar value={value} max={max} />
-				<S.StepperSteps>
+			<div
+				className={classnames(styles.stepper, [styles[`stepper_${orientation}`]])}
+				{...rest}
+				ref={ref}
+			>
+				{orientation === 'vertical' && <ProgressVertical value={value} max={max} />}
+				{orientation === 'horizontal' && <ProgressHorizontal value={value} max={max} />}
+				<ol className={styles.stepper__steps} ref={listRef}>
 					{children &&
-						React.Children.map(
+						Children.map(
 							children,
 							(child, index) =>
 								isElement(child) && (
-									<S.StepperStep key={index} aria-current={isInProgress(child) ? 'step' : false}>
-										{React.cloneElement(child, { 'data-index': index + 1 })}
-									</S.StepperStep>
+									<>
+										{cloneElement(child, {
+											'data-index': index + 1,
+											orientation: orientation === 'horizontal' ? 'vertical' : 'horizontal',
+										})}
+									</>
 								),
 						)}
-				</S.StepperSteps>
-			</S.Stepper>
+				</ol>
+			</div>
 		);
 	},
 );
+
+Stepper.displayName = 'Stepper';
 
 export default Stepper;

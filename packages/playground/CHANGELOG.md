@@ -1,5 +1,41 @@
 # @talend/ui-playground
 
+## 1.1.8
+
+### Patch Changes
+
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [94435b8cd]
+  - @talend/icons@6.51.0
+  - @talend/react-datagrid@13.0.0
+
 ## 1.1.7
 
 ### Patch Changes

@@ -59,6 +59,31 @@ export const _QualityBar = () => (
 				getDataFeature={qualityType => `data-feature.${qualityType}`}
 				split
 			/>
+			<QualityBar
+				invalid={0}
+				valid={100}
+				empty={0}
+				onClick={action('onSplitQualityBarAction')}
+				getDataFeature={qualityType => `data-feature.${qualityType}`}
+				split
+			/>
+			<QualityBar
+				invalid={40}
+				valid={60}
+				empty={0}
+				onClick={action('onSplitQualityBarAction')}
+				getDataFeature={qualityType => `data-feature.${qualityType}`}
+				split
+			/>
+			<QualityBar
+				invalid={40}
+				valid={30}
+				empty={15}
+				na={15}
+				onClick={action('onSplitQualityBarAction')}
+				getDataFeature={qualityType => `data-feature.${qualityType}`}
+				split
+			/>
 		</div>
 	</section>
 );

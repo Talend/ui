@@ -1,5 +1,14 @@
 # @talend/storybook-docs
 
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies [e802df9c3]
+- Updated dependencies [69f09a921]
+- Updated dependencies [ac7bfe557]
+  - @talend/design-system@6.0.0
+
 ## 1.1.3
 
 ### Patch Changes

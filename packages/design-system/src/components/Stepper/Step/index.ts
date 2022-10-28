@@ -1,4 +1,4 @@
-import Step from './Step';
+import Step from './Primitive/Step';
 import StepValidated from './variations/Step.validated';
 import StepEnabled from './variations/Step.enabled';
 import StepDisabled from './variations/Step.disabled';

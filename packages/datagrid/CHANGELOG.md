@@ -1,5 +1,53 @@
 # @talend/react-datagrid
 
+## 13.0.0
+
+### Major Changes
+
+- 94435b8cd: feat(TDC-6443): HeaderCellRenderer DQ rules tooltip
+
+  ## Breaking change
+
+  Boolean "dqRule" prop becomes a number "nbAppliedDqRules"
+
+### Patch Changes
+
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+  - @talend/icons@6.51.0
+
+## 12.3.0
+
+### Minor Changes
+
+- 813f7e16e: feat(TDC-6507): Datagrid header cell dqRule icon
+
 ## 12.2.5
 
 ### Patch Changes

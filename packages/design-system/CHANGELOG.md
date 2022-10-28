@@ -1,5 +1,29 @@
 # @talend/design-system
 
+## 6.0.0
+
+### Major Changes
+
+- 69f09a921: ThemeProvider: Removed styled components global styles
+
+  BREAKING CHANGE:
+
+  - Now global style is applied by default
+  - createGlobalStyle is not exposed anymore and should not be needed
+  - ThemeProvider.GlobalStyle do not exists, it is now in the by default in the CSS
+
+### Minor Changes
+
+- e802df9c3: Stepper no longer uses StyledComponents
+- ac7bfe557: Combobox: Removing Styled Components
+
+## 5.4.1
+
+### Patch Changes
+
+- 3962569cc: DS Tabs button type should never be anything but "button"
+- aa0c76ae3: Updated documentation for from elements, adjusted code and style when necessary.
+
 ## 5.4.0
 
 ### Minor Changes
