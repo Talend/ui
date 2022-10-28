@@ -256,7 +256,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				filename: getFileNameForExtension('js', jsPrefix),
 				chunkFilename: getFileNameForExtension('js', jsPrefix),
 				publicPath: '/',
-				globalObject: 'this',
+				globalObject: 'self',
 			},
 			devtool: 'source-map',
 			resolve: {
