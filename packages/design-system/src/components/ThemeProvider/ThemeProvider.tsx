@@ -2,13 +2,11 @@ import ThemeContext from './ThemeContext';
 import './ThemeProvider.module.scss';
 // eslint-disable-next-line @talend/import-depth
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
-import React, { useContext, useState } from 'react';
+import React, { PropsWithChildren, useContext, useState } from 'react';
 
-export interface ThemeProviderProps {
+export type ThemeProviderProps = PropsWithChildren<{
 	theme: string;
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	children: any;
-}
+}>;
 
 const ThemeProvider = ({ theme = 'light', children }: ThemeProviderProps) => {
 	const [selectedTheme, setSelectedTheme] = useState(theme);
