@@ -1,0 +1,54 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+import * as Stories from './Message.stories';
+
+<Meta
+	title="Components/Message"
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=122%3A42331',
+	}}
+/>
+
+# Messages
+
+## Zoning
+
+## Style
+
+#### Primary
+
+<Canvas>
+	<Story story={Stories.DefaultDemo} />
+</Canvas>
+
+## Interactions
+
+TODO
+
+### Message skeletons
+
+Use `SkeletonMessage` to represent a placeholder for a button.
+
+[The Skeleton Documentation is over there!](/docs/components-skeleton--skeleton-button-story)
+
+## Content
+
+TODO
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>TODO</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>TODO</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Accessibility
+
+- Press <kbd>Tab</kbd> to focus on the the different elements

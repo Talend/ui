@@ -1,0 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.warning_border {
+	background: tokens.$coral-color-warning-icon;
+}

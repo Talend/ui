@@ -1,0 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.success_border {
+	background: tokens.$coral-color-success-icon;
+}

@@ -297,6 +297,7 @@ export const parameters = {
 					'Layout',
 					'Link',
 					'Loading',
+					'Messages',
 					'Menu',
 					'Modal',
 					'Popover',
