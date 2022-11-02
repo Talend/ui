@@ -4,6 +4,10 @@ import './ThemeProvider.module.scss';
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
 import React, { PropsWithChildren, useContext, useState } from 'react';
 
+import 'typeface-source-sans-pro/index.css';
+import 'typeface-inconsolata/index.css';
+import 'modern-css-reset/dist/reset.min.css';
+
 export type ThemeProviderProps = PropsWithChildren<{
 	theme: string;
 }>;
