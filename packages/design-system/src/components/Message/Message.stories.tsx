@@ -36,10 +36,9 @@ const defaultMessageCollectionProps: SharedMessageCollectionProps = {
 };
 
 const defaultMessageProps: SharedMessageProps = {
-	title: 'Lorem ipsum',
+	title: 'Type incompatibilities',
 	link: { href: 'https://talend.com', children: 'Learn more' },
-	description:
-		'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac.',
+	description: 'Maybe resolve this issue before doing anything else',
 	action: { children: 'Action', onClick: action('action clicked') },
 	children: (
 		<StackHorizontal gap="S">
@@ -59,10 +58,26 @@ export const DefaultMessageDemo = () => (
 
 export const DefaultMessageCollectionDemo = () => (
 	<StackHorizontal gap="M">
-		<MessageCollectionSuccess {...defaultMessageCollectionProps} />
-		<MessageCollectionDestructive {...defaultMessageCollectionProps} />
-		<MessageCollectionWarning {...defaultMessageCollectionProps} />
-		<MessageCollectionInformation {...defaultMessageCollectionProps} />
+		<MessageCollectionSuccess
+			{...defaultMessageCollectionProps}
+			description="Try resolving it this way or consult the documentation for more info."
+			title="Success"
+		/>
+		<MessageCollectionDestructive
+			{...defaultMessageCollectionProps}
+			title="Error"
+			description="(n) input fields have been automatically mapped to an output."
+		/>
+		<MessageCollectionWarning
+			{...defaultMessageCollectionProps}
+			title="Warning"
+			description="Try resolving it this way or consult the documentation for more info."
+		/>
+		<MessageCollectionInformation
+			{...defaultMessageCollectionProps}
+			description="(n) input fields have been automatically mapped to an output."
+			title="Information"
+		/>
 	</StackHorizontal>
 );
 
