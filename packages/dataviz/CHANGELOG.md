@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.8.0
+
+### Minor Changes
+
+- b6f109501: feat(dataviz): handle line selection use case
+- b6f109501: feat(dataviz): highlight line legend on hover
+
 ## 2.7.3
 
 ### Patch Changes
