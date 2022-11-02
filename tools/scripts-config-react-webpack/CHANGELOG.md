@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 15.1.1
+
+### Patch Changes
+
+- 635da2241: fix(TDOPS-2998): Replace globalObject value to self
+
 ## 15.1.0
 
 ### Minor Changes

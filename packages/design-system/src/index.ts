@@ -26,7 +26,6 @@ import EmptyState, {
 import ErrorState from './components/ErrorState';
 import Form from './components/Form';
 import { AffixButton, AffixReadOnly, AffixSelect } from './components/Form/Affix';
-import HeaderBar from './components/WIP/HeaderBar';
 import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
@@ -38,11 +37,9 @@ import {
 	InlineMessageSuccess,
 	InlineMessageWarning,
 } from './components/InlineMessage';
-import Layout from './components/Layout';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
-import Menu from './components/WIP/Menu';
 import {
 	MessageSuccess,
 	MessageDestructive,
@@ -83,8 +80,6 @@ import {
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
-import * as themes from './themes';
-import deprecatedTokens from './deprecatedTokens';
 
 export * from './components/Stack';
 export {
@@ -118,7 +113,6 @@ export {
 	EmptyStateLarge,
 	ErrorState,
 	Form,
-	HeaderBar,
 	Icon,
 	IconsProvider,
 	InlineEditing,
@@ -128,11 +122,9 @@ export {
 	InlineMessageWarning,
 	InlineMessageDestructive,
 	InlineMessageBeta,
-	Layout,
 	Link,
 	LinkAsButton,
 	Loading,
-	Menu,
 	MessageSuccess,
 	MessageDestructive,
 	MessageInformation,
@@ -167,8 +159,6 @@ export {
 	ThemeProvider,
 	Tooltip,
 	VisuallyHidden,
-	themes,
-	deprecatedTokens,
 };
 
 export type { TooltipPlacement };

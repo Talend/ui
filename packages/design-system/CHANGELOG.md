@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 6.0.1
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
 ## 6.0.0
 
 ### Major Changes
