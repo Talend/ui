@@ -8,14 +8,9 @@
 	height: 100%;
 	width: 28rem;
 
-	&__border {
-		border-top-left-radius: tokens.$coral-radius-s;
-		border-bottom-left-radius: tokens.$coral-radius-s;
-		width: 0.6rem;
-		height: 100%;
-		background-color: tokens.$coral-color-neutral-border-hover;
-		display: block;
-	}
+	border-top-left-radius: tokens.$coral-radius-s;
+	border-bottom-left-radius: tokens.$coral-radius-s;
+	border-left: 0.6rem solid tokens.$coral-color-neutral-border-hover;
 
 	&__title {
 		font: tokens.$coral-heading-m;

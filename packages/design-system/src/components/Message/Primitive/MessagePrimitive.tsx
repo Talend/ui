@@ -65,39 +65,36 @@ export const MessagePrimitive = forwardRef(
 				{...props}
 				role="status"
 				aria-live="polite"
-				className={classnames(styles.message, className)}
+				className={classnames(styles.message, className, borderClassname)}
 				ref={ref}
 			>
-				<StackHorizontal gap={0}>
-					<div className={classnames(styles.message__border, borderClassname)} />
-					<StackVertical gap="S" padding={{ top: 'S', bottom: 'S', left: 'M', right: 'M' }}>
-						<StackVertical gap="XXS">
-							{title && (
-								<header className={styles.message__title}>
-									<StackHorizontal gap="S" align="center">
-										{icon && (
-											<SizedIcon name={icon} size="M" color={tokens.coralColorNeutralIconWeak} />
-										)}
-										{title}
-									</StackHorizontal>
-								</header>
-							)}
-							<p className={styles.message__description}>{description}</p>
-							{link && <Link {...link} />}
-						</StackVertical>
-						{children}
-						<StackHorizontal gap={0} isFullWidth align="center" justify="spaceBetween">
-							{action && <ButtonTertiary {...action} />}
-							{additionalActions && (
-								<Dropdown {...additionalActions}>
-									<ButtonIcon size="XS" icon="dots-vertical" onClick={() => {}}>
-										{t('ADDITIONAL_ACTIONS', 'Additional actions')}
-									</ButtonIcon>
-								</Dropdown>
-							)}
-						</StackHorizontal>
+				<StackVertical gap="S" padding={{ top: 'S', bottom: 'S', left: 'M', right: 'M' }}>
+					<StackVertical gap="XXS">
+						{title && (
+							<header className={styles.message__title}>
+								<StackHorizontal gap="S" align="center">
+									{icon && (
+										<SizedIcon name={icon} size="M" color={tokens.coralColorNeutralIconWeak} />
+									)}
+									{title}
+								</StackHorizontal>
+							</header>
+						)}
+						<p className={styles.message__description}>{description}</p>
+						{link && <Link {...link} />}
 					</StackVertical>
-				</StackHorizontal>
+					{children}
+					<StackHorizontal gap={0} isFullWidth align="center" justify="spaceBetween">
+						{action && <ButtonTertiary {...action} />}
+						{additionalActions && (
+							<Dropdown {...additionalActions}>
+								<ButtonIcon size="XS" icon="dots-vertical" onClick={() => {}}>
+									{t('ADDITIONAL_ACTIONS', 'Additional actions')}
+								</ButtonIcon>
+							</Dropdown>
+						)}
+					</StackHorizontal>
+				</StackVertical>
 			</div>
 		);
 	},
