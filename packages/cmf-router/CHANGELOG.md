@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.5
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
 ## 5.2.4
 
 ### Patch Changes

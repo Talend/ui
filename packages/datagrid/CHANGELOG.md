@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 13.0.1
+
+### Patch Changes
+
+- 2ed49e0e7: fix(TDP-11557): invisible pin header button in FFX
+
 ## 13.0.0
 
 ### Major Changes
