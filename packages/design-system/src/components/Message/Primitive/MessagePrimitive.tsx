@@ -1,29 +1,43 @@
 import React, { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
+import tokens from '@talend/design-tokens';
 import classnames from 'classnames';
 
-import styles from './MessageStyles.module.scss';
-import { LinkProps } from '../../Link/Link';
 import { SizedIcon } from '../../Icon';
+import Link, { LinkProps } from '../../Link/Link';
 import { StackHorizontal, StackVertical } from '../../Stack';
-export type AvailableVariantsTypes = 'error' | 'success' | 'information' | 'warning';
-export type MessageVariantType<T extends AvailableVariantsTypes, P extends object> = {
-	variant: T;
-} & P;
+import { ButtonTertiaryPropsType } from '../../Button/variations/ButtonTertiary';
+import { ButtonTertiary } from '../../Button';
+import Dropdown from '../../Dropdown';
+import { ButtonIcon } from '../../ButtonIcon';
+import { DropdownPropsType } from '../../Dropdown/Dropdown';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
-export type SharedMessageTypes = {
-	borderClassname: string;
-	link?: LinkProps;
-	title: string;
+import styles from './MessageStyles.module.scss';
+
+export type SharedMessageCollectionProps = Omit<HTMLAttributes<HTMLDivElement>, 'style'> & {
+	action: ButtonTertiaryPropsType<'S'>;
+	additionalActions?: Omit<DropdownPropsType, 'children'>;
 	description: string;
-	icon?: IconNameWithSize<'M'>;
-	children?: ReactNode | ReactNode[];
+	title: string;
 };
 
-export type BaseInlineMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style'> &
-	SharedMessageTypes;
+export type SharedMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style'> & {
+	action?: ButtonTertiaryPropsType<'S'>;
+	children?: ReactNode | ReactNode[];
+	description: string;
+	link?: LinkProps;
+	title?: string;
+};
+
+export type BaseMessageProps = Omit<SharedMessageCollectionProps, 'action' | 'title'> &
+	SharedMessageProps & {
+		borderClassname: string;
+		icon?: IconNameWithSize<'M'>;
+	};
 
 export const MessagePrimitive = forwardRef(
 	(
@@ -35,10 +49,14 @@ export const MessagePrimitive = forwardRef(
 			link,
 			icon,
 			children,
+			action,
+			additionalActions,
 			...props
-		}: BaseInlineMessageProps,
+		}: BaseMessageProps,
 		ref: Ref<HTMLDivElement>,
 	) => {
+		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
+
 		return (
 			<div
 				{...props}
@@ -50,14 +68,31 @@ export const MessagePrimitive = forwardRef(
 				<StackHorizontal gap={0}>
 					<div className={classnames(styles.message__border, borderClassname)} />
 					<StackVertical gap="S" padding={{ top: 'S', bottom: 'S', left: 'M', right: 'M' }}>
-						<header className={styles.message__title}>
-							<StackHorizontal gap="S">
-								{icon && <SizedIcon name={icon} size="M" />}
-								{title}
-							</StackHorizontal>
-						</header>
-						<p className={styles.message__description}>{description}</p>
+						<StackVertical gap="XXS">
+							{title && (
+								<header className={styles.message__title}>
+									<StackHorizontal gap="S" align="center">
+										{icon && (
+											<SizedIcon name={icon} size="M" color={tokens.coralColorNeutralIconWeak} />
+										)}
+										{title}
+									</StackHorizontal>
+								</header>
+							)}
+							<p className={styles.message__description}>{description}</p>
+							{link && <Link {...link} />}
+						</StackVertical>
 						{children}
+						<StackHorizontal gap={0} isFullWidth align="center" justify="spaceBetween">
+							{action && <ButtonTertiary {...action} />}
+							{additionalActions && (
+								<Dropdown {...additionalActions}>
+									<ButtonIcon size="XS" icon="dots-vertical" onClick={() => {}}>
+										{t('ADDITIONAL_ACTIONS', 'Additional actions')}
+									</ButtonIcon>
+								</Dropdown>
+							)}
+						</StackHorizontal>
 					</StackVertical>
 				</StackHorizontal>
 			</div>

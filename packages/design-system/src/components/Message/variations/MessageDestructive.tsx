@@ -1,14 +1,21 @@
 import React, { forwardRef, Ref } from 'react';
 
-import { MessagePrimitive, BaseInlineMessageProps } from '../Primitive/MessagePrimitive';
+import { MessagePrimitive, SharedMessageProps } from '../Primitive/MessagePrimitive';
 
 import styles from './MessageDestructive.module.scss';
 
-export type MessageDestructiveProps = Omit<BaseInlineMessageProps, 'className' | 'borderClassname'>;
+export type MessageDestructiveProps = Omit<SharedMessageProps, 'className'>;
 
 export const MessageDestructive = forwardRef(
-	(props: MessageDestructiveProps, ref: Ref<HTMLDivElement>) => {
-		return <MessagePrimitive {...props} ref={ref} borderClassname={styles.destructive_border} />;
+	(props: SharedMessageProps, ref: Ref<HTMLDivElement>) => {
+		return (
+			<MessagePrimitive
+				{...props}
+				ref={ref}
+				borderClassname={styles.destructive_border}
+				icon={undefined}
+			/>
+		);
 	},
 );
 
