@@ -18,7 +18,10 @@ import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 import styles from './MessageStyles.module.scss';
 
-export type SharedMessageCollectionProps = Omit<HTMLAttributes<HTMLDivElement>, 'style'> & {
+export type SharedMessageCollectionProps = Omit<
+	HTMLAttributes<HTMLDivElement>,
+	'style' | 'children'
+> & {
 	action: ButtonTertiaryPropsType<'S'>;
 	additionalActions?: Omit<DropdownPropsType, 'children'>;
 	description: string;

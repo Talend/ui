@@ -1,16 +1,39 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 
-import { MessagePrimitive, SharedMessageProps } from './Primitive/MessagePrimitive';
+import {
+	MessagePrimitive,
+	SharedMessageCollectionProps,
+	SharedMessageProps,
+} from './Primitive/MessagePrimitive';
 
 import { StackHorizontal } from '../Stack';
+import { TagBeta, TagDefault } from '../Tag';
 import { MessageSuccess } from './variations/MessageSuccess';
 import { MessageDestructive } from './variations/MessageDestructive';
 import { MessageWarning } from './variations/MessageWarning';
 import { MessageInformation } from './variations/MessageInformation';
-import { TagBeta, TagDefault } from '../Tag';
-import { action } from '@storybook/addon-actions';
+import { MessageCollectionSuccess } from './variations/MessageCollectionSuccess';
+import { MessageCollectionDestructive } from './variations/MessageCollectionDestructive';
+import { MessageCollectionWarning } from './variations/MessageCollectionWarning';
+import { MessageCollectionInformation } from './variations/MessageCollectionInformation';
 
 export default { component: MessagePrimitive };
+
+const defaultMessageCollectionProps: SharedMessageCollectionProps = {
+	title: 'Lorem ipsum',
+	description:
+		'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim tposuere ac.',
+	action: { children: 'See all (3)', onClick: action('action clicked') },
+	additionalActions: {
+		'aria-label': 'Additional actions',
+		items: [
+			{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+			{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+			{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+		],
+	},
+};
 
 const defaultMessageProps: SharedMessageProps = {
 	title: 'Lorem ipsum',
@@ -31,6 +54,15 @@ export const DefaultMessageDemo = () => (
 		<MessageDestructive {...defaultMessageProps} />
 		<MessageWarning {...defaultMessageProps} />
 		<MessageInformation {...defaultMessageProps} />
+	</StackHorizontal>
+);
+
+export const DefaultMessageCollectionDemo = () => (
+	<StackHorizontal gap="M">
+		<MessageCollectionSuccess {...defaultMessageCollectionProps} />
+		<MessageCollectionDestructive {...defaultMessageCollectionProps} />
+		<MessageCollectionWarning {...defaultMessageCollectionProps} />
+		<MessageCollectionInformation {...defaultMessageCollectionProps} />
 	</StackHorizontal>
 );
 
