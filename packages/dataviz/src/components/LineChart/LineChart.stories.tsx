@@ -387,3 +387,43 @@ export const CustomXAxisDomainLineChart = {
 		],
 	},
 };
+
+export const WithOnlyOneDot = {
+	args: {
+		hasLineSelection: true,
+		chartOptions: {
+			showGridLines: true,
+			xAxisOptions: '{verticalOffset: 5}',
+			leftYAxisOptions: {
+				horizontalOffset: 4,
+				manualTicks: [22378905872, 22382505872, 22386105872, 22389705872],
+				// formatter: 'ƒ tickFormatter() {}',
+			},
+		},
+		lines: [
+			{
+				key: 'S Romain',
+				color: tokens.coralColorChartsColor01,
+				// tooltipFormatter: 'ƒ labelFormatter() {}',
+			},
+			{
+				key: 'Sébastien Romain',
+				color: tokens.coralColorChartsColor02,
+				// tooltipFormatter: 'ƒ labelFormatter() {}',
+			},
+			{
+				key: 'Sebastien Semanji',
+				color: tokens.coralColorChartsColor04,
+				// tooltipFormatter: 'ƒ labelFormatter() {}',
+			},
+		],
+		data: [
+			{
+				xLabel: 'W41 2022',
+				'S Romain': 22378905872,
+				'Sébastien Romain': 22379612230,
+				'Sebastien Semanji': 22379081790,
+			},
+		],
+	},
+};
