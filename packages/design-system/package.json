@@ -4,6 +4,7 @@
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "build:lib": "talend-scripts build:ts:lib",
     "build:lib:umd": "talend-scripts build:lib:umd --dev",
