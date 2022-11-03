@@ -408,24 +408,24 @@ export const WithOnlyOneDot = {
 		},
 		lines: [
 			{
-				key: 'S Romain',
+				key: 'User1',
 				color: tokens.coralColorChartsColor01,
 			},
 			{
-				key: 'Sébastien Romain',
+				key: 'User2',
 				color: tokens.coralColorChartsColor02,
 			},
 			{
-				key: 'Sebastien Semanji',
+				key: 'User3',
 				color: tokens.coralColorChartsColor04,
 			},
 		],
 		data: [
 			{
 				xLabel: 'W41 2022',
-				'S Romain': 3024000000,
-				'Sébastien Romain': 5702400000,
-				'Sebastien Semanji': 8380800000,
+				User1: 3024000000,
+				User2: 5702400000,
+				User3: 8380800000,
 			},
 		],
 	},
