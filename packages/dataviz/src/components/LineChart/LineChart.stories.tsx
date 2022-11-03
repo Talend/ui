@@ -388,6 +388,12 @@ export const CustomXAxisDomainLineChart = {
 	},
 };
 
+const tickFormatter = (value: number) => {
+	const durationByMonth = value / 2678400000;
+	const months = Math.floor(durationByMonth);
+	return `${months} months`;
+};
+
 export const WithOnlyOneDot = {
 	args: {
 		hasLineSelection: true,
@@ -396,33 +402,30 @@ export const WithOnlyOneDot = {
 			xAxisOptions: '{verticalOffset: 5}',
 			leftYAxisOptions: {
 				horizontalOffset: 4,
-				manualTicks: [22378905872, 22382505872, 22386105872, 22389705872],
-				// formatter: 'ƒ tickFormatter() {}',
+				manualTicks: [3024000000, 5702400000, 8380800000, 11059200000],
+				formatter: tickFormatter,
 			},
 		},
 		lines: [
 			{
 				key: 'S Romain',
 				color: tokens.coralColorChartsColor01,
-				// tooltipFormatter: 'ƒ labelFormatter() {}',
 			},
 			{
 				key: 'Sébastien Romain',
 				color: tokens.coralColorChartsColor02,
-				// tooltipFormatter: 'ƒ labelFormatter() {}',
 			},
 			{
 				key: 'Sebastien Semanji',
 				color: tokens.coralColorChartsColor04,
-				// tooltipFormatter: 'ƒ labelFormatter() {}',
 			},
 		],
 		data: [
 			{
 				xLabel: 'W41 2022',
-				'S Romain': 22378905872,
-				'Sébastien Romain': 22379612230,
-				'Sebastien Semanji': 22379081790,
+				'S Romain': 3024000000,
+				'Sébastien Romain': 5702400000,
+				'Sebastien Semanji': 8380800000,
 			},
 		],
 	},
