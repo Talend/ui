@@ -39,7 +39,7 @@ export type SharedMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style'> &
 export type BaseMessageProps = Omit<SharedMessageCollectionProps, 'action' | 'title'> &
 	SharedMessageProps & {
 		borderClassname: string;
-		icon?: IconNameWithSize<'M'>;
+		icon?: IconNameWithSize<'S'>;
 	};
 
 export const MessagePrimitive = forwardRef(
