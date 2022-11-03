@@ -45,6 +45,10 @@ import {
 	MessageDestructive,
 	MessageInformation,
 	MessageWarning,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
 } from './components/Message';
 import Modal from './components/Modal';
 import Popover from './components/WIP/Popover';
@@ -125,6 +129,10 @@ export {
 	Link,
 	LinkAsButton,
 	Loading,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
 	MessageSuccess,
 	MessageDestructive,
 	MessageInformation,

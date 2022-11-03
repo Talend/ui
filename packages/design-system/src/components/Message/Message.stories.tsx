@@ -2,14 +2,10 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { ComponentStory } from '@storybook/react';
 
-import {
-	MessagePrimitive,
-	SharedMessageCollectionProps,
-	SharedMessageProps,
-} from './Primitive/MessagePrimitive';
+import { MessagePrimitive } from './Primitive/MessagePrimitive';
 
 import { StackHorizontal } from '../Stack';
-import { TagBeta, TagDefault } from '../Tag';
+import { TagBeta, TagDefault, TagDestructive, TagSuccess, TagWarning } from '../Tag';
 import { MessageSuccess } from './variations/MessageSuccess';
 import { MessageDestructive } from './variations/MessageDestructive';
 import { MessageWarning } from './variations/MessageWarning';
@@ -21,41 +17,65 @@ import { MessageCollectionInformation } from './variations/MessageCollectionInfo
 
 export default { component: MessagePrimitive };
 
-const defaultMessageProps: SharedMessageProps = {
-	title: 'Type incompatibilities',
-	link: { href: 'https://talend.com', children: 'Learn more' },
-	description: 'Maybe resolve this issue before doing anything else',
-	action: { children: 'Action', onClick: action('action clicked') },
-	children: (
-		<StackHorizontal gap="S">
-			<TagBeta>Beta</TagBeta> <TagDefault>Default</TagDefault>
-		</StackHorizontal>
-	),
-};
-
 export const DefaultMessageDemo = () => (
 	<StackHorizontal gap="M">
-		<MessageSuccess {...defaultMessageProps} />
-		<MessageDestructive {...defaultMessageProps} />
-		<MessageWarning {...defaultMessageProps} />
-		<MessageInformation {...defaultMessageProps} />
+		<MessageSuccess
+			title="All good"
+			description="This component is well configured"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			action={{ children: 'See', onClick: action('action clicked') }}
+		>
+			<StackHorizontal gap="S">
+				<TagSuccess>Good</TagSuccess> <TagDefault>Default</TagDefault>
+			</StackHorizontal>
+		</MessageSuccess>
+		<MessageDestructive
+			title="Something went wrong"
+			description="There is an issue with the component configuration"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			action={{ children: 'See', onClick: action('action clicked') }}
+		>
+			<StackHorizontal gap="S">
+				<TagDestructive>Error</TagDestructive> <TagDefault>Default</TagDefault>
+			</StackHorizontal>
+		</MessageDestructive>
+		<MessageWarning
+			title="Type incompatibilities"
+			description="Maybe resolve this issue before doing anything else"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			action={{ children: 'See', onClick: action('action clicked') }}
+		>
+			<StackHorizontal gap="S">
+				<TagWarning>Bindings</TagWarning> <TagDefault>Default</TagDefault>
+			</StackHorizontal>
+		</MessageWarning>
+		<MessageInformation
+			title="Auto mapping"
+			description="Some fields has been auto mapped"
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			action={{ children: 'Dismiss', onClick: action('action clicked') }}
+		>
+			<StackHorizontal gap="S">
+				<TagDefault>Default</TagDefault>
+			</StackHorizontal>
+		</MessageInformation>
 	</StackHorizontal>
 );
 
 export const WithPropVariation = () => (
 	<StackHorizontal gap="M">
-		<MessageSuccess link={defaultMessageProps.link} description={defaultMessageProps.description}>
+		<MessageSuccess
+			link={{ href: 'https://talend.com', children: 'Learn more' }}
+			description="This component is well configured"
+		>
 			<TagBeta>Beta</TagBeta>
 		</MessageSuccess>
 		<MessageDestructive
-			description={defaultMessageProps.description}
-			action={defaultMessageProps.action}
+			description="There is an issue with the component configuration"
+			action={{ children: 'See', onClick: action('action clicked') }}
 		/>
-		<MessageWarning link={defaultMessageProps.link} description={defaultMessageProps.description} />
-		<MessageInformation
-			title={defaultMessageProps.title}
-			description={defaultMessageProps.description}
-		/>
+		<MessageWarning description="Maybe resolve this issue before doing anything else" />
+		<MessageInformation title="Auto mapping" description="Some fields has been auto mapped" />
 	</StackHorizontal>
 );
 
@@ -90,41 +110,59 @@ MessageInformationTemplateStory.argTypes = {
 
 // Message Collection
 
-const defaultMessageCollectionProps: SharedMessageCollectionProps = {
-	title: 'Lorem ipsum',
-	description: 'Try resolving it this way or consult the documentation for more info.',
-	action: { children: 'See all (3)', onClick: action('action clicked') },
-	additionalActions: {
-		'aria-label': 'Additional actions',
-		items: [
-			{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
-			{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
-			{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
-		],
-	},
-};
-
 export const DefaultMessageCollectionDemo = () => (
 	<StackHorizontal gap="M">
 		<MessageCollectionSuccess
-			{...defaultMessageCollectionProps}
 			description="Try resolving it this way or consult the documentation for more info."
 			title="Success"
+			action={{ children: 'See all (3)', onClick: action('action clicked') }}
+			additionalActions={{
+				'aria-label': 'Additional actions',
+				items: [
+					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+					{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+					{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+				],
+			}}
 		/>
 		<MessageCollectionDestructive
-			{...defaultMessageCollectionProps}
 			title="Error"
 			description="(n) input fields have been automatically mapped to an output."
+			action={{ children: 'See all (3)', onClick: action('action clicked') }}
+			additionalActions={{
+				'aria-label': 'Additional actions',
+				items: [
+					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+					{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+					{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+				],
+			}}
 		/>
 		<MessageCollectionWarning
-			{...defaultMessageCollectionProps}
 			title="Warning"
 			description="Try resolving it this way or consult the documentation for more info."
+			action={{ children: 'See all (3)', onClick: action('action clicked') }}
+			additionalActions={{
+				'aria-label': 'Additional actions',
+				items: [
+					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+					{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+					{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+				],
+			}}
 		/>
 		<MessageCollectionInformation
-			{...defaultMessageCollectionProps}
 			description="(n) input fields have been automatically mapped to an output."
 			title="Information"
+			action={{ children: 'See all (3)', onClick: action('action clicked') }}
+			additionalActions={{
+				'aria-label': 'Additional actions',
+				items: [
+					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+					{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+					{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+				],
+			}}
 		/>
 	</StackHorizontal>
 );
@@ -132,15 +170,22 @@ export const DefaultMessageCollectionDemo = () => (
 export const MessageCollectionWithPropVariation = () => (
 	<StackHorizontal gap="M">
 		<MessageCollectionSuccess
-			action={defaultMessageCollectionProps.action}
+			action={{ children: 'See all (3)', onClick: action('action clicked') }}
 			title="Success"
-			description={defaultMessageCollectionProps.description}
+			description="(n) input fields have been automatically mapped to an output."
 		/>
 		<MessageCollectionWarning
 			title="Warning"
-			description={defaultMessageCollectionProps.description}
-			action={defaultMessageCollectionProps.action}
-			additionalActions={defaultMessageCollectionProps.additionalActions}
+			description="Try resolving it this way or consult the documentation for more info."
+			action={{ children: 'See all (3)', onClick: action('action clicked') }}
+			additionalActions={{
+				'aria-label': 'Additional actions',
+				items: [
+					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+					{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+					{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+				],
+			}}
 		/>
 	</StackHorizontal>
 );
