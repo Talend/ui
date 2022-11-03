@@ -25,7 +25,7 @@ import {
 	operatorsPropTypes,
 } from '../facetedSearch.propTypes';
 
-import theme from './BasicSearch.scss';
+import theme from './BasicSearch.module.scss';
 import { USAGE_TRACKING_TAGS } from '../../constants';
 import { DEFAULT_QUICKSEARCH_OPERATOR } from '../QuickSearchInput/QuickSearchInput.component';
 
@@ -84,7 +84,9 @@ const BasicSearch = ({
 				),
 			);
 		});
-	}, [badges, dispatch, initialBadges, operatorsDictionary]);
+		// This is intended
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	const onClickOverlayRow = (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(

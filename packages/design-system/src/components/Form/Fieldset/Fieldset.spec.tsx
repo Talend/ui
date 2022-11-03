@@ -13,7 +13,7 @@ context('<Fieldset />', () => {
 		const Wrapper = () => {
 			const [hasError, setHasError] = useState(false);
 			return (
-				<ThemeProvider theme={undefined}>
+				<ThemeProvider theme="light">
 					<Fieldset>
 						{hasError ? <span>Error message</span> : null}
 						<TestComponentWithState />

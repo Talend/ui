@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { Action } from '../Actions';
 import Icon from '../Icon';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import theme from './FilterBar.scss';
+import theme from './FilterBar.module.scss';
 
 function forceBlur(event) {
 	event.target.blur();

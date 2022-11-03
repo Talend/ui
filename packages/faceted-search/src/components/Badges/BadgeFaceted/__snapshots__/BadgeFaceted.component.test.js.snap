@@ -22,8 +22,9 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
           <svg name="talend-talend-my-icon-equal"
                focusable="false"
                aria-hidden="true"
-               class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-talend-my-icon-equal"
+               class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-talend-my-icon-equal"
                pointer-events="none"
+               shape-rendering="geometricPrecision"
           >
           </svg>
         </button>
@@ -51,8 +52,9 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
       <svg name="talend-cross"
            focusable="false"
            aria-hidden="true"
-           class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-cross"
+           class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
            pointer-events="none"
+           shape-rendering="geometricPrecision"
       >
       </svg>
     </button>

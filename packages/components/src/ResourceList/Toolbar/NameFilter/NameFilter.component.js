@@ -8,7 +8,7 @@ import useKey from 'react-use/lib/useKey';
 import { Action } from '../../../Actions';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
-import theme from './NameFilter.scss';
+import theme from './NameFilter.module.scss';
 
 function NameFilter({ label, value, onChange }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import getDefaultT from '../../../translate';
 import { SimpleTextKeyValue } from '../../Text';
-import theme from '../ModelViewer.scss';
+import theme from '../ModelViewer.module.scss';
 
 /**
  * Union with only two type and one null, are represent as leaf.

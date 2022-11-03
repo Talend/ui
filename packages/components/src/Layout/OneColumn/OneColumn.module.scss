@@ -1,0 +1,11 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+// OneColumn styles
+
+.main {
+	flex-grow: 1;
+	min-height: 0;
+	overflow: auto;
+	height: 100vh;
+	position: relative;
+}

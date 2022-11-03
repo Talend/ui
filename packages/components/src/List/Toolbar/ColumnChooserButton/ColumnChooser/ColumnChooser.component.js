@@ -6,7 +6,7 @@ import FilterBar from '../../../../FilterBar';
 import { getTheme } from '../../../../theme';
 import { useColumnChooserManager } from '../hooks';
 import { ColumnChooserProvider } from './columnChooser.context';
-import cssModule from './ColumnChooser.scss';
+import cssModule from './ColumnChooser.module.scss';
 import ColumnChooserBody from './ColumnChooserBody';
 import ColumnChooserFooter from './ColumnChooserFooter';
 import ColumnChooserHeader from './ColumnChooserHeader';

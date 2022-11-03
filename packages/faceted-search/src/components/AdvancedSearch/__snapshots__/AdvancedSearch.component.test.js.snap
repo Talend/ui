@@ -8,8 +8,9 @@ exports[`AdvancedSearch should render by default 1`] = `
     <svg name="talend-filter"
          focusable="false"
          aria-hidden="true"
-         class="sc-jSMfEi klaSdu tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+         class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
          pointer-events="none"
+         shape-rendering="geometricPrecision"
     >
     </svg>
     <input name="advanced-search-faceted"
@@ -26,7 +27,7 @@ exports[`AdvancedSearch should render by default 1`] = `
       <button tabindex="0"
               name="action-cancel-title"
               data-feature="filter.advanced.clear"
-              aria-describedby="a-42"
+              aria-describedby="id-42"
               class="theme-clickable theme-buttonIcon theme-size_S"
               type="button"
       >
@@ -46,7 +47,7 @@ exports[`AdvancedSearch should render by default 1`] = `
       <button tabindex="0"
               name="action-submit-title"
               data-feature="filter.advanced.apply"
-              aria-describedby="a-42"
+              aria-describedby="id-42"
               class="theme-clickable theme-buttonIcon theme-size_S"
               type="submit"
       >
@@ -76,8 +77,9 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
     <svg name="talend-filter"
          focusable="false"
          aria-hidden="true"
-         class="sc-jSMfEi klaSdu tc-svg-icon tc-icon adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
+         class="tc-svg-icon tc-icon theme-svg adv-search-filter-icon theme-adv-search-filter-icon tc-icon-name-talend-filter"
          pointer-events="none"
+         shape-rendering="geometricPrecision"
     >
     </svg>
     <input name="advanced-search-faceted"
@@ -94,7 +96,7 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
       <button tabindex="0"
               name="action-cancel-title"
               data-feature="filter.advanced.clear"
-              aria-describedby="a-42"
+              aria-describedby="id-42"
               class="theme-clickable theme-buttonIcon theme-size_S"
               type="button"
       >
@@ -114,7 +116,7 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
       <button tabindex="0"
               name="action-submit-title"
               data-feature="filter.advanced.apply"
-              aria-describedby="a-42"
+              aria-describedby="id-42"
               class="theme-clickable theme-buttonIcon theme-size_S"
               type="submit"
       >

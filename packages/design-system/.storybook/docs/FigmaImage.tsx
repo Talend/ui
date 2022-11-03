@@ -1,19 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import { FileImageResponse } from 'figma-js';
 
+import styles from './FigmaImage.module.scss';
+
 import FigmaContext from './FigmaContext';
-
-const Figure = styled.figure`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0;
-`;
-
-const Img = styled.img<{ full?: boolean }>`
-	width: ${props => (props.full ? '100%' : 'auto')};
-`;
 
 function getMetadata(url: string) {
 	const parsedUrl = new URL(url);
@@ -47,8 +37,9 @@ const FigmaImagePlaceholder = React.memo(() => {
 const FigmaImage = ({
 	src,
 	alt = '',
+	full = false,
 	...rest
-}: React.ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string }) => {
+}: React.ImgHTMLAttributes<HTMLImageElement> & { src: string; alt: string; full?: boolean }) => {
 	const figma = React.useContext(FigmaContext);
 
 	const [fileImageResponse, setFileImageResponse] = React.useState<FileImageResponse>();
@@ -101,9 +92,16 @@ const FigmaImage = ({
 	}
 
 	return Object.values(fileImageResponse.images).map((image: string, index: number) => (
-		<Figure key={index}>
-			<Img src={image} alt={alt} {...rest} />
-		</Figure>
+		<figure className={styles.image} key={index}>
+			<img
+				style={{
+					width: full ? '100%' : 'auto',
+				}}
+				src={image}
+				alt={alt}
+				{...rest}
+			/>
+		</figure>
 	));
 };
 

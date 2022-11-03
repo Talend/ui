@@ -1,0 +1,9 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.enum-with-class {
+	:global(.tc-enumeration-items) {
+		button.inactive > span {
+			opacity: 0.4;
+		}
+	}
+}

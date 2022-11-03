@@ -1,5 +1,59 @@
 # @talend/ui-playground
 
+## 1.1.8
+
+### Patch Changes
+
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [94435b8cd]
+  - @talend/icons@6.51.0
+  - @talend/react-datagrid@13.0.0
+
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies [d134a19e8]
+  - @talend/react-faceted-search@8.0.0
+
+## 1.1.6
+
+### Patch Changes
+
+- 6f333498f: fix datagrid page
+- a3c65c4fe: fix(playground): display playground icons
+- Updated dependencies [47dec5cb4]
+- Updated dependencies [e6efa126f]
+  - @talend/react-faceted-search@7.0.2
+  - @talend/react-components@7.10.1
+
 ## 1.1.5
 
 ### Patch Changes

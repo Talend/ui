@@ -9,7 +9,7 @@ import { AVRO_TYPES } from '../../constants/avro-type.constant';
 import AvroRenderer from './AvroRenderer.component';
 import QualityIndicator from './QualityIndicator.component';
 
-import theme from './DefaultCell.scss';
+import theme from './DefaultCell.module.scss';
 
 function DefaultCellRenderer({ value, data, ...rest }) {
 	return (

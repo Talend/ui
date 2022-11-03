@@ -9,10 +9,11 @@ exports[`#DefaultValueRenderer should render the leading/trailing special charac
       <svg
         aria-hidden="true"
         aria-label="space character"
-        class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-td-white-space-character td-white-space-character tc-icon-name-talend-empty-space"
+        class="tc-svg-icon tc-icon theme-svg theme-td-white-space-character td-white-space-character tc-icon-name-talend-empty-space"
         focusable="false"
         name="talend-empty-space"
         pointer-events="none"
+        shape-rendering="geometricPrecision"
       />
       <span
         class="theme-td-value td-value"
@@ -22,10 +23,11 @@ exports[`#DefaultValueRenderer should render the leading/trailing special charac
       <svg
         aria-hidden="true"
         aria-label="space character"
-        class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-td-white-space-character td-white-space-character tc-icon-name-talend-empty-space"
+        class="tc-svg-icon tc-icon theme-svg theme-td-white-space-character td-white-space-character tc-icon-name-talend-empty-space"
         focusable="false"
         name="talend-empty-space"
         pointer-events="none"
+        shape-rendering="geometricPrecision"
       />
     </span>
   </div>

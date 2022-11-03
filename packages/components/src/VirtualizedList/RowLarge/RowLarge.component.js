@@ -20,7 +20,7 @@ import getDefaultT from '../../translate';
 import { listTypes } from '../utils/constants';
 import withListGesture from '../../Gesture/withListGesture';
 import rowThemes from './RowThemes';
-import theme from './RowLarge.scss';
+import theme from './RowLarge.module.scss';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 

@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.7.3
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+
+## 2.7.2
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
 ## 2.7.1
 
 ### Patch Changes

@@ -6,7 +6,7 @@ import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 import { SimpleTextKeyValue } from '../../Text';
 import { ActionButton } from '../../../Actions';
-import theme from '../RecordsViewer.scss';
+import theme from '../RecordsViewer.module.scss';
 
 export function RecordsViewerLeaf({
 	dataKey,

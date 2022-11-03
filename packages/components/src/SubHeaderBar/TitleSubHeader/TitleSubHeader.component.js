@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Skeleton from '../../Skeleton';
 import EditableText from '../../EditableText';
-import titleSubHeaderCssModule from './TitleSubHeader.scss';
+import titleSubHeaderCssModule from './TitleSubHeader.module.scss';
 import Icon from '../../Icon';
 import Inject from '../../Inject';
 import getDefaultT from '../../translate';

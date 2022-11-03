@@ -6,7 +6,7 @@ import {
 	scaleLinear,
 	format as d3format,
 } from 'd3';
-import styles from './BoxPlot.component.scss';
+import styles from './BoxPlot.component.module.scss';
 
 const formatNumber = d3format(',');
 

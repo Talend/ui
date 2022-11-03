@@ -12,7 +12,7 @@ import DatePicker from '../Date';
 import TimeZone from '../TimeZone';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
-import theme from './InputDatePicker.scss';
+import theme from './InputDatePicker.module.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	't',

@@ -6,6 +6,7 @@ import { StackHorizontal } from '.';
 import {
 	alignContentOptions,
 	alignOptions,
+	heightOptions,
 	justifyOptions,
 	possibleAsTypes,
 	sizeOptions,
@@ -46,6 +47,11 @@ export const manualStackArgs = {
 		options: ['nowrap', 'wrap', 'wrapReverse'],
 		control: { type: 'select' },
 		defaultValue: 'nowrap',
+	},
+	isFullWidth: { control: { type: 'boolean' }, defaultValue: false },
+	height: {
+		options: Object.keys(heightOptions),
+		control: { type: 'select' },
 	},
 	alignContent: { options: Object.keys(alignContentOptions), control: { type: 'select' } },
 	display: { options: ['block', 'inline'], control: { type: 'select' }, defaultValue: 'block' },

@@ -11,7 +11,7 @@ import '../translate';
 import Action from '../Actions/Action';
 import ActionList from '../ActionList';
 import Inject from '../Inject';
-import theme from './SidePanel.scss';
+import theme from './SidePanel.module.scss';
 
 const DOCKED_MIN_WIDTH = '6rem';
 const LARGE_DOCKED_MIN_WIDTH = '7rem';
@@ -45,6 +45,7 @@ function getInitialWidth(docked, large) {
  *
  */
 function SidePanel({
+	backgroundIcon,
 	id,
 	selected,
 	onSelect,
@@ -109,14 +110,23 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav
-			id={id}
-			className={navCSS}
-			role="navigation"
-			aria-expanded={!((dockable && docked) || minimised)}
-			ref={ref}
-			style={{ width }}
-		>
+		<nav id={id} className={navCSS} role="navigation" ref={ref} style={{ width }}>
+			{backgroundIcon && (
+				<style>
+					{`#${id}::before {
+						content: '';
+						position: absolute;
+						left: 0;
+						bottom: -50px;
+						height: 31rem;
+						width: 31rem;
+						background-repeat: no-repeat;
+						background-color: rgba(255, 255, 255, 0.1);
+						mask-image: url('${backgroundIcon}');
+						-webkit-mask-image: url('${backgroundIcon}');
+				}`}
+				</style>
+			)}
 			{dockable && !minimised && (
 				<div className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}>
 					<Components.Action
@@ -177,6 +187,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 	SidePanel.propTypes = {
 		id: PropTypes.string,
+		backgroundIcon: PropTypes.string,
 		actions: PropTypes.arrayOf(actionPropType),
 		components: PropTypes.object,
 		getComponent: PropTypes.func,

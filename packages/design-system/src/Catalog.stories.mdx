@@ -1,26 +1,25 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import {
+	ButtonDestructive,
+	ButtonIcon,
+	ButtonIconFloating,
+	ButtonIconToggle,
 	ButtonPrimary,
 	ButtonSecondary,
 	ButtonTertiary,
-	ButtonDestructive,
 	Dropdown,
 	Form,
-	Icon,
-	InlineMessageInformation,
-	InlineMessageWarning,
-	InlineMessageSuccess,
 	InlineMessageDestructive,
+	InlineMessageInformation,
+	InlineMessageSuccess,
+	InlineMessageWarning,
 	Link,
 	Popover,
 	Tag,
+	TagDestructive,
 	TagInformation,
 	TagSuccess,
 	TagWarning,
-	TagDestructive,
-	ButtonIconToggle,
-	ButtonIcon,
-	ButtonIconFloating,
 	Toggle,
 } from './';
 
@@ -242,26 +241,31 @@ import {
 	<Story name="Forms">
 		<Form>
 			<Form.Fieldset legend="Form fields">
-				<Form.Text label="Input" />
-				<Form.FieldGroup label="Amount" prefix="$" suffix=".00">
-					<Form.Number label="Amount without decimal" min="1" step="1" />
-				</Form.FieldGroup>
-				<Form.File label="File" />
-				<Form.Password label="Password" />
-				<Form.Datalist label="Datalist" values={['foo', 'bar']} />
-				<Form.Search label="Search" />
-				<Form.Textarea label="Textarea" />
-				<Form.Select label="Select">
+				<Form.Text name="text" label="Input" />
+				<Form.Number
+					name="amount"
+					label="Amount without decimal"
+					min="1"
+					step="1"
+					prefix="$"
+					suffix=".00"
+				/>
+				<Form.File label="File" name="file" />
+				<Form.Password label="Password" name="password" />
+				<Form.Datalist label="Datalist" values={['foo', 'bar']} name="datalist" />
+				<Form.Search label="Search" name="search" />
+				<Form.Textarea label="Textarea" name="textarea" />
+				<Form.Select label="Select" name="select">
 					<option selected>Foo</option>
 					<option>Bar</option>
 				</Form.Select>
-				<Form.Select label="Select multiple" multiple>
+				<Form.Select label="Select multiple" multiple name="select-multiple">
 					<option selected>Foo</option>
 					<option selected>Bar</option>
 				</Form.Select>
-				<Form.Checkbox label="Checkbox" checked />
-				<Form.Radio label="Radio" checked />
-				<Form.Switch label="Switch" checked />
+				<Form.Checkbox label="Checkbox" checked name="checkbox" />
+				<Form.Radio label="Radio" checked name="radio" />
+				<Form.ToggleSwitch label="Switch" checked name="switch" />
 			</Form.Fieldset>
 			<Form.Buttons>
 				<ButtonSecondary onClick={() => {}} type="reset">
@@ -296,7 +300,7 @@ import {
 			description={
 				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
 			}
-			link={{ href: "#", children: "See more"}}
+			link={{ href: '#', children: 'See more' }}
 			withBackground
 		/>
 		<InlineMessageSuccess
@@ -304,7 +308,7 @@ import {
 			description={
 				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
 			}
-			link={{ href: "#", children: "See more"}}
+			link={{ href: '#', children: 'See more' }}
 			withBackground
 		/>
 		<InlineMessageWarning
@@ -312,7 +316,7 @@ import {
 			description={
 				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
 			}
-			link={{ href: "#", children: "See more"}}
+			link={{ href: '#', children: 'See more' }}
 			withBackground
 		/>
 		<InlineMessageDestructive
@@ -320,7 +324,7 @@ import {
 			description={
 				'dolor sit amet, consectetur adipiscing elit. Integer gravida orci lacus, vel convallis enim posuere ac.'
 			}
-			link={{ href: "#", children: "See more"}}
+			link={{ href: '#', children: 'See more' }}
 			withBackground
 		/>
 	</Story>

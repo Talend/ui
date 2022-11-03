@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ButtonPrimary, ButtonSecondary, Form, StackHorizontal } from '@talend/design-system';
 
-import theme from './ApplyToIdenticalValues.scss';
+import theme from './ApplyToIdenticalValues.module.scss';
 
 interface ApplyToIdenticalValuesPropTypes {
 	onSubmit: (checked: boolean) => void;
@@ -27,6 +27,7 @@ function ApplyToIdenticalValues({
 				label={t('APPLY_TO_ALL_CELLS', 'Apply to identical values')}
 				onClick={() => setChecked(!checked)}
 				data-feature={`cell.edition.${editorType}.checkbox.${nextStatus}`}
+				name="identical-values"
 			/>
 
 			<StackHorizontal gap={0} justify="spaceBetween">

@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 
 import { removeDuplicates, allIndexOf } from './utils';
 import Action from '../../../Actions/Action';
-import theme from './Item.scss';
+import theme from './Item.module.scss';
 import Checkbox from '../../../Checkbox';
 import ItemPropTypes from './Item.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';

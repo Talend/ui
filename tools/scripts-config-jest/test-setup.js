@@ -196,3 +196,11 @@ try {
 		return mocks;
 	});
 } catch {}
+
+try {
+	// in the case we unmock design-system we don't want id to be random
+	jest.mock('reakit/lib/Id/IdProvider', () => ({
+		...jest.requireActual('reakit/lib/Id/IdProvider'),
+		unstable_IdContext: jest.requireActual('react').createContext(() => 'id-42'),
+	}));
+} catch {}

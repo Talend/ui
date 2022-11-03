@@ -1,5 +1,167 @@
 # @talend/design-system
 
+## 6.0.1
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
+## 6.0.0
+
+### Major Changes
+
+- 69f09a921: ThemeProvider: Removed styled components global styles
+
+  BREAKING CHANGE:
+
+  - Now global style is applied by default
+  - createGlobalStyle is not exposed anymore and should not be needed
+  - ThemeProvider.GlobalStyle do not exists, it is now in the by default in the CSS
+
+### Minor Changes
+
+- e802df9c3: Stepper no longer uses StyledComponents
+- ac7bfe557: Combobox: Removing Styled Components
+
+## 5.4.1
+
+### Patch Changes
+
+- 3962569cc: DS Tabs button type should never be anything but "button"
+- aa0c76ae3: Updated documentation for from elements, adjusted code and style when necessary.
+
+## 5.4.0
+
+### Minor Changes
+
+- 6d6520336: feat: add react-18 as possible peerDependency
+
+## 5.3.0
+
+### Minor Changes
+
+- 4ea6a7712: feat(TUX-1038): add new accordion component to design-system
+
+### Patch Changes
+
+- 8376814d2: fix: circular dependencies
+
+## 5.2.0
+
+### Minor Changes
+
+- 38619790a: feat(design-system): add isFullWidth to StackHorizontal
+- fceb4c2f9: chore(design-system): ErrorState no longer WIP
+
+### Patch Changes
+
+- 9e653a037: fix(design-system): Link from ReactElement in ErrorState
+
+## 5.1.0
+
+### Minor Changes
+
+- 59509e0ba: feat(design-system): ErrorState (WIP)
+- dc361182d: Enabling `action` prop on EmptyState component size M.
+
+## 5.0.1
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- 6fd16be45: fix: use flex-start instead of start
+
+## 5.0.0
+
+### Major Changes
+
+- eb1708093: Removing Styled Components from Form elements
+
+  ## Breaking changes
+
+  ### `Form` modules
+
+  - As always with these change, we lose StyledComponent's `as` props.
+  - No more `className` or `style` on Form elements.
+  - No more `Form.FieldGroup`. All the inputs (`Form.Text`, `Form.Select`, `Form.Number` etc...) have `prefix` and `suffix`props to handle this.
+  - `name` is required on all form elements.
+  - No more `Form.Range`. Though it was undocumented, it was exported. It was far from doing what we want `input type="range"` to do in our apps.
+  - Simpler `description` and `hasError` APIs. Fields can either have a (neutral) description or an error message.
+
+  ### `InlineEditing` modules
+
+  - As always with these change, we lose StyledComponent's `as` props.
+  - No more `className` or `style`.
+  - `placeholder` prop is now mandatory.
+
+  ## Other changes
+
+  ### `Form` modules
+
+  - Updated styles with design tokens.
+  - Height of input elements based in height of buttons.
+  - Focusing a field no longer changes the field's height.
+  - Affixes can now be either buttons, text or `select` fields through a props-based API.
+
+  ### `InlineEditing` modules
+
+  - `InlineEditing.Text` and `InlineEditing.Textarea` both have a `renderValueAs` props that can take React component.
+
+  ***
+
+  ## Reasons for changes
+
+  ### Removing StyledComponents
+
+  CSS-in-JS brings no value to the DS or Talend. No other project uses it but the DS forces it as a dependency.
+
+  We're removing it from all our components.
+
+  ### No `className` or `style` props on components
+
+  Design System components are _systemic_. They are not part of a customizable component library.
+
+  Removing those props from the component typing helps enforce that rule.
+
+  > What about positioning those components? How do I handle that?
+
+  We expect consumers to wrap library components into project-side positioning element.
+
+  That way your project-side CSS is never broken or misaligned with the library's and the concerns are clearly separated.
+
+  ### Removing `Form.FieldGroup`
+
+  Having a wrapper component around all the other inputs seems unnecessary.
+
+  Folding these types and props into the native primitive made more sense.
+
+  ### Enforcing `placeholder` in `InlineEditing`
+
+  Nothing prevents users from deleting the contents of an `InlineEditing` field.
+
+  Since the labels are hidden, placeholders are the only way to indicate what's the field for in these instances.
+
+### Patch Changes
+
+- Updated dependencies [ee45da0c5]
+  - @talend/design-tokens@2.7.1
+
+## 4.3.0
+
+### Minor Changes
+
+- 65e75d6b3: Use DS namespace for DS translations
+
+## 4.2.0
+
+### Minor Changes
+
+- f54db324c: StackVertical: add height prop
+
+### Patch Changes
+
+- 95e37c3b2: Padding style of popover should apply to contents, not parent.
+
 ## 4.1.1
 
 ### Patch Changes

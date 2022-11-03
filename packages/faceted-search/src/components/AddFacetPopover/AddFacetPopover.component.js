@@ -6,7 +6,7 @@ import uniq from 'lodash/uniq';
 
 import { getTheme, Rich } from '@talend/react-components';
 
-import cssModule from './AddFacetPopover.scss';
+import cssModule from './AddFacetPopover.module.scss';
 import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 import { AddFacetPopoverHeader } from './AddFacetPopoverHeader';
 import { AddFacetPopoverRowItem, AddFacetPopoverRowItemCategory } from './AddFacetPopoverRow';
@@ -138,7 +138,7 @@ export const AddFacetPopover = ({
 									{screen.rows.map(rowItem =>
 										isString(rowItem) ? (
 											<AddFacetPopoverRowItemCategory
-												id="open-category-row"
+												id={`${id}-open-category`}
 												key={rowItem}
 												label={rowItem}
 												onClick={onCategoryChange}

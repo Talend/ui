@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Widget from '../../Widget';
-import theme from './Columns.scss';
+import theme from './Columns.module.scss';
 
 export default function Columns(props) {
 	const { schema, ...restProps } = props;

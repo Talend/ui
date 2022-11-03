@@ -7,7 +7,7 @@ import { AgGridCellValue } from '../../types';
 import CellEditorDatalist from './components/CellEditorDatalist.component';
 import CellEditorTextarea from './components/CellEditorTextarea.component';
 
-import theme from './RichCellEditor.component.scss';
+import theme from './RichCellEditor.component.module.scss';
 
 type CellValue = string;
 

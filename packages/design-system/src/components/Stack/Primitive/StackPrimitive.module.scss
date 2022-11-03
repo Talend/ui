@@ -4,6 +4,7 @@
 	display: flex;
 	flex-flow: row;
 	flex-grow: 1;
+	flex-shrink: 1;
 
 	&.column {
 		flex-flow: column;
@@ -16,6 +17,14 @@
 
 	&.relative {
 		position: relative;
+	}
+
+	&.noShrink {
+		flex-shrink: 0;
+	}
+
+	&.noGrow {
+		flex-grow: 0;
 	}
 
 	&.justify {
@@ -388,6 +397,37 @@
 			&-XL {
 				margin-left: tokens.$coral-spacing-xl;
 			}
+		}
+	}
+
+	&.fullWidth {
+		width: 100%;
+	}
+
+	&.height {
+		&-100 {
+			height: 100%;
+		}
+		&-XXXS {
+			height: tokens.$coral-sizing-xxxs;
+		}
+		&-XXS {
+			height: tokens.$coral-sizing-xxs;
+		}
+		&-XS {
+			height: tokens.$coral-sizing-xs;
+		}
+		&-S {
+			height: tokens.$coral-sizing-s;
+		}
+		&-M {
+			height: tokens.$coral-sizing-m;
+		}
+		&-L {
+			height: tokens.$coral-sizing-l;
+		}
+		&-XXXL {
+			height: tokens.$coral-sizing-xxxl;
 		}
 	}
 }

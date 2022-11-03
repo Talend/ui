@@ -18,6 +18,10 @@
 		border-radius: tokens.$coral-radius-s;
 		opacity: 0;
 
+		&_withPadding {
+			padding: tokens.$coral-spacing-m;
+		}
+
 		[data-enter] & {
 			opacity: 1;
 		}

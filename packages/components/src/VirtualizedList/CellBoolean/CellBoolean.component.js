@@ -7,7 +7,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import { getTheme } from '../../theme';
 
-import theme from './CellBoolean.scss';
+import theme from './CellBoolean.module.scss';
 
 const css = getTheme(theme);
 export const DISPLAY_MODE = {

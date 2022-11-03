@@ -1,8 +1,10 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import Input, { TypedInputFieldProps } from './Input';
 
-const Tel = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+const Tel = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="tel" ref={ref} />;
 });
+
+Tel.displayName = 'Tel';
 
 export default Tel;

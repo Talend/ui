@@ -7,7 +7,7 @@ import Action from '../Actions/Action';
 import ActionDropdown from '../Actions/ActionDropdown';
 import Inject from '../Inject';
 
-import AppSwitcherCSSModule from './AppSwitcher.scss';
+import AppSwitcherCSSModule from './AppSwitcher.module.scss';
 import { getTheme } from '../theme';
 
 const theme = getTheme(AppSwitcherCSSModule);

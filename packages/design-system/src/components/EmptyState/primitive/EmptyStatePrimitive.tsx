@@ -9,6 +9,7 @@ import { ButtonPrimaryPropsType } from '../../Button/variations/ButtonPrimary';
 import { ButtonPrimaryAsLinkPropsType } from '../../ButtonAsLink/variations/ButtonPrimaryAsLink';
 
 import styles from './EmptyStatePrimitive.module.scss';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 type CallbackTypes =
 	| (Omit<ButtonPrimaryPropsType<'M'>, 'size'> & { actionType: 'button' })
@@ -40,7 +41,7 @@ function buildAction(action: CallbackTypes) {
 
 const EmptyStatePrimitive = forwardRef((props: EmptyStatePrimitiveProps, ref: Ref<HTMLElement>) => {
 	const { title, description, link, illustration, action, ...commonProps } = props;
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 	return (
 		<article {...commonProps} ref={ref} className={styles.emptyState}>

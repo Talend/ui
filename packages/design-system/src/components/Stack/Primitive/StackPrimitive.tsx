@@ -1,6 +1,6 @@
-import React, { forwardRef, ReactNode } from 'react';
-import classnames from 'classnames';
 import styles from './StackPrimitive.module.scss';
+import classnames from 'classnames';
+import React, { forwardRef, ReactNode } from 'react';
 
 export const justifyOptions = {
 	start: 'justify-start',
@@ -36,6 +36,17 @@ export const sizeOptions = {
 	M: 'M',
 	L: 'L',
 	XL: 'XL',
+};
+
+export const heightOptions = {
+	'100%': '100',
+	XXXS: 'XXXS',
+	XXS: 'XXS',
+	XS: 'XS',
+	S: 'S',
+	M: 'M',
+	L: 'L',
+	XXXL: 'XXXL',
 };
 
 export const sizeOptionsWithAuto = {
@@ -94,6 +105,10 @@ export type StackPrimitiveProps = {
 	display?: 'block' | 'inline';
 	role?: string;
 	relative?: boolean;
+	height?: keyof typeof heightOptions;
+	isFullWidth?: boolean;
+	noShrink?: boolean;
+	noGrow?: boolean;
 };
 
 const StackPrimitive = forwardRef(function StackPrimitive(
@@ -110,6 +125,10 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 		padding,
 		margin,
 		role,
+		height,
+		noShrink = false,
+		noGrow = false,
+		isFullWidth,
 		...props
 	}: StackPrimitiveProps,
 	ref: React.Ref<any>,
@@ -203,7 +222,11 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 				styles[wrap],
 				styles[direction],
 				styles[display],
+				height && styles[`height-${heightOptions[height]}`],
+				isFullWidth && styles.fullWidth,
 				{ [styles.relative]: relative },
+				{ [styles.noShrink]: noShrink },
+				{ [styles.noGrow]: noGrow },
 				getAlignContent(),
 				...getGap(),
 				...getPadding(),

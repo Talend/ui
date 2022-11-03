@@ -1,0 +1,107 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Use } from '~docs';
+
+import * as Stories from './Accordion.stories';
+
+import Accordion from './index';
+
+<Meta
+	title="[WIP] Components/Accordion"
+	component={Accordion}
+	parameters={{
+		status: { figma: 'OK', storybook: 'wip', react: 'wip', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/CDfr4jLz1m6Ud2RNi4qpQJ/Accordion',
+	}}
+/>
+
+# Accordion
+
+<StackVertical
+	gap="XS"
+	margin={{
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 'M',
+	}}
+>
+	<InlineMessageWarning
+		title="Work in progress"
+		withBackground
+		description="This component is still in work in progress, it's API can change in breaking ways in the coming weeks."
+	/>
+</StackVertical>
+
+Accordion is used to display expandable/collapsable cards with a title.
+
+## Collapsible panel
+
+<Canvas>
+	<Story story={Stories.SimpleCollapsiblePanel} />
+</Canvas>
+
+## Variations
+
+**Disabled**
+
+A disabled panel will hide its chevron and action, will not be clickable and will display its title in `neutral-text-disabled`.
+
+<Canvas>
+	<Story story={Stories.DisabledPanel} />
+</Canvas>
+
+**Small size**
+
+Use the prop `size` to change the height, font size and icon size of the panel header.
+
+(currently there is only <b>M</b>(default) and <b>S</b> supported)
+
+<Canvas>
+	<Story story={Stories.SmallPanel} />
+</Canvas>
+
+**With action**
+
+The prop `action` takes an object with 3 attributes :
+
+- <b>icon</b>: a string containing a talend icon id
+- <b>title</b>: the content of the tooltip displayed on mouseOver
+- <b>callback</b>: a function called when the action is triggered
+
+<Canvas>
+	<Story story={Stories.WithAction} />
+</Canvas>
+
+**With metadata**
+
+The prop `metadata` takes an array of ReactElement or String, and displays them between the panel title and action.
+
+A vertical divider is inserted between each metadata.
+
+Using Accordions that way is discouraged.
+
+<Canvas>
+	<Story story={Stories.WithMetadata} />
+</Canvas>
+
+## Accordion wrapper
+
+You can wrap a group of panels with an <b>Accordion</b> component.
+
+It will control the expand/collapse of each panel so that only one is open at the same time.
+
+<Canvas>
+	<Story story={Stories.AccordionWrapper} />
+</Canvas>
+
+## group of panels
+
+<Canvas>
+	<Story story={Stories.GroupOfSimplePanels} />
+</Canvas>
+
+## Accessibility
+
+- Press <kbd>Tabs</kbd> to focus on the item controling each panel and/or the action
+
+- Press <kbd>Space</kbd> or <kbd>Enter</kbd> to expand/collapse the panel or call the action

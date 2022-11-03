@@ -7,7 +7,7 @@ import { getTheme } from '@talend/react-components/lib/theme';
 import { Rich } from '@talend/react-components';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-import cssModule from './BadgeSlider.scss';
+import cssModule from './BadgeSlider.module.scss';
 
 const theme = getTheme(cssModule);
 
