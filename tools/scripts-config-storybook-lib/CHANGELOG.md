@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.2.0
+
+### Minor Changes
+
+- a23396460: feat: add id on bootstrap.css link tag
+
 ## 2.1.4
 
 ### Patch Changes
