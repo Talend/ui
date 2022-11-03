@@ -392,7 +392,11 @@ const tagTitleProps = {
 	getComponent,
 	title: 'test',
 	subtitle: 'subtitle test',
-	subtitleTagLabel: 'BETA',
+	subtitleTag: {
+		label: 'BETA',
+		tooltip: 'This is a BETA tag',
+		variant: 'beta',
+	},
 };
 
 describe('Drawer title', () => {

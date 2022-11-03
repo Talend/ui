@@ -7,7 +7,7 @@ import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
 import OverlayTrigger from '../../OverlayTrigger';
 import Icon from '../../Icon';
-import theme from './ActionFile.scss';
+import theme from './ActionFile.module.scss';
 
 const LEFT = 'left';
 const RIGHT = 'right';

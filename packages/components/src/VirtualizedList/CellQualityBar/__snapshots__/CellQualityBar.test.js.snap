@@ -6,7 +6,7 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
         placement="bottom"
         class="CoralTooltip"
   >
-    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow tc-ratio-bar-line-quality-invalid theme-tc-ratio-bar-line-quality-invalid theme-tc-ratio-bar-line-quality-invalid theme-tc-ratio-bar-line-quality-invalid"
+    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--invalid theme-quality-ratio-bar--invalid theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--invalid theme-quality-ratio-bar--invalid"
          tabindex="0"
          style="flex-basis: 10%;"
          role="button"
@@ -20,7 +20,7 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
         placement="bottom"
         class="CoralTooltip"
   >
-    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow tc-ratio-bar-line-quality-empty theme-tc-ratio-bar-line-quality-empty theme-tc-ratio-bar-line-quality-empty theme-tc-ratio-bar-line-quality-empty"
+    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--empty theme-quality-ratio-bar--empty theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--empty theme-quality-ratio-bar--empty"
          tabindex="0"
          style="flex-basis: 20%;"
          role="button"
@@ -34,7 +34,7 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
         placement="bottom"
         class="CoralTooltip"
   >
-    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow tc-ratio-bar-line-quality-na theme-tc-ratio-bar-line-quality-na theme-tc-ratio-bar-line-quality-na theme-tc-ratio-bar-line-quality-na"
+    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--na theme-quality-ratio-bar--na theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--na theme-quality-ratio-bar--na"
          tabindex="0"
          style="flex-basis: 40%;"
          role="button"
@@ -48,7 +48,7 @@ exports[`CellQualityBar should render a valid quality bar 1`] = `
         placement="bottom"
         class="CoralTooltip"
   >
-    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow tc-ratio-bar-line-quality-valid theme-tc-ratio-bar-line-quality-valid theme-tc-ratio-bar-line-quality-valid theme-tc-ratio-bar-line-quality-valid"
+    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--valid theme-quality-ratio-bar--valid theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--valid theme-quality-ratio-bar--valid"
          tabindex="0"
          style="flex-basis: 30%;"
          role="button"

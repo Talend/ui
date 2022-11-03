@@ -5,7 +5,7 @@ import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
-import theme from './DateView.scss';
+import theme from './DateView.module.scss';
 import getDefaultT from '../../../translate';
 
 /**

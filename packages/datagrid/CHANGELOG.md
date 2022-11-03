@@ -1,5 +1,110 @@
 # @talend/react-datagrid
 
+## 13.0.1
+
+### Patch Changes
+
+- 2ed49e0e7: fix(TDP-11557): invisible pin header button in FFX
+
+## 13.0.0
+
+### Major Changes
+
+- 94435b8cd: feat(TDC-6443): HeaderCellRenderer DQ rules tooltip
+
+  ## Breaking change
+
+  Boolean "dqRule" prop becomes a number "nbAppliedDqRules"
+
+### Patch Changes
+
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+  - @talend/icons@6.51.0
+
+## 12.3.0
+
+### Minor Changes
+
+- 813f7e16e: feat(TDC-6507): Datagrid header cell dqRule icon
+
+## 12.2.5
+
+### Patch Changes
+
+- 8376814d2: fix: circular dependencies
+
+## 12.2.4
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
+## 12.2.3
+
+### Patch Changes
+
+- 2da0e0190: Header menu icon not rendering on firefox
+
+## 12.2.2
+
+### Patch Changes
+
+- 93ec9fcd3: Improve ColDef typings
+
+## 12.2.1
+
+### Patch Changes
+
+- 62750d002: Cell value is persisted when canceling edition
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+- Updated dependencies [8b6f3989d]
+  - @talend/icons@6.48.0
+
+## 12.2.0
+
+### Minor Changes
+
+- 9d5f37b8e: Add data-testid on column header
+
+### Patch Changes
+
+- a84469e6a: Wait for grid to be initialized before handling controlled selection
+
 ## 12.1.1
 
 ### Patch Changes

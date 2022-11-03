@@ -2,6 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { DuplicatesPlugin } = require('inspectpack/plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const cdn = require('@talend/scripts-config-cdn');
 
@@ -67,6 +69,12 @@ module.exports = options => {
 			},
 			stats: { children: false }, // remove warnings of all plugins ...
 			plugins: [
+				new DuplicatesPlugin(),
+				new CircularDependencyPlugin({
+					exclude: /node_modules/,
+					cwd: process.cwd(),
+					failOnError: true,
+				}),
 				new BundleAnalyzerPlugin({
 					analyzerMode: 'static',
 					openAnalyzer: false,

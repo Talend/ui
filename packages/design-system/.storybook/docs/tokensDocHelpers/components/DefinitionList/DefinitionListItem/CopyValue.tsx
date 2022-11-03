@@ -1,35 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { SizedIcon } from '../../../../../../src/components/Icon';
 import classnames from 'classnames';
 
 import styles from './CopyValue.module.scss';
+import useCopyValue from './useCopyValue';
 
 function CopyValue({ children }: { children: string }) {
-	const [isCopied, setIsCopied] = useState(false);
-	const handleCopy = useCallback(() => {
-		if (navigator.clipboard) {
-			navigator.clipboard
-				.writeText(children)
-				.then(() => {
-					setIsCopied(true);
-				})
-				.catch(err => {
-					// eslint-disable-next-line no-console
-					console.error('Something went wrong', err);
-				});
-		}
-	}, [children]);
-
-	useEffect(() => {
-		if (isCopied) {
-			setTimeout(() => {
-				setIsCopied(false);
-			}, 5000);
-		}
-	}, [isCopied]);
+	const { copy, isCopied } = useCopyValue();
 
 	return (
-		<button onClick={handleCopy} className={styles.copyButton}>
+		<button onClick={() => copy(children)} className={styles.copyButton}>
 			<span className={styles.icons}>
 				<span className={classnames(styles.copyIcon, { [styles.copyIcon_hidden]: isCopied })}>
 					<SizedIcon size="S" name="copy" />

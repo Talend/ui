@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Column, ICellEditorParams } from 'ag-grid-community';
+import { Column, ColumnApi, GridApi, ICellEditorParams } from 'ag-grid-community';
 
 import { ButtonIcon } from '@talend/design-system';
 
@@ -73,6 +73,7 @@ export type HeaderComponentParams = TypeInfo & {
 	menuProps?: Omit<Parameters<typeof ButtonIcon>[0], 'icon' | 'size'> & {
 		'data-feature'?: string;
 	};
+	nbAppliedDqRules?: number;
 	qualityBarProps?: any;
 	onFocus?(params: HeaderClickParams): void;
 };
@@ -84,6 +85,12 @@ export interface AgGridCellValue {
 
 export type GridContext = {
 	selectedColumns: string[];
+};
+
+export type GridRef = {
+	api: GridApi;
+	columnApi: ColumnApi;
+	context: GridContext;
 };
 
 export type { ColDef } from 'ag-grid-community';

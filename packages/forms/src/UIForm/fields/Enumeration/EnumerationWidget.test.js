@@ -236,7 +236,7 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
-	it('should call add trigger with skip commas', () => {
+	it('should call add trigger with disableSplit', () => {
 		// given
 		const onTrigger = jest.fn(() => Promise.resolve([]));
 		render(
@@ -245,20 +245,20 @@ describe('EnumerationWidget', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={onTrigger}
-				schema={{ skipCommas: true }}
+				schema={{ disableSplit: true }}
 				properties={{ connectedMode: true }}
 			/>,
 		);
 
 		// when
 		userEvent.click(screen.queryByRole('link', { name: 'Add item' }));
-		userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo\\, tata');
+		userEvent.type(screen.queryByRole('textbox', { name: 'Enter new entry name' }), 'foo, tata');
 		userEvent.click(screen.queryByRole('link', { name: 'Validate' }));
 
 		// then
 		expect(onTrigger).toBeCalledWith(expect.anything(), {
 			schema: {
-				skipCommas: true,
+				disableSplit: true,
 			},
 			trigger: {
 				action: 'ENUMERATION_ADD_ACTION',

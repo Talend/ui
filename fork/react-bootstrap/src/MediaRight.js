@@ -2,19 +2,18 @@ import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Media from './Media';
 import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 
 const propTypes = {
   /**
    * Align the media to the top, middle, or bottom of the media object.
    */
-  align: PropTypes.oneOf(['top', 'middle', 'bottom'])
+  align: PropTypes.oneOf(['top', 'middle', 'bottom']),
 };
 
 class MediaRight extends React.Component {
@@ -26,7 +25,7 @@ class MediaRight extends React.Component {
 
     if (align) {
       // The class is e.g. `media-top`, not `media-right-top`.
-      classes[prefix(Media.defaultProps, align)] = true;
+      classes[prefix({ bsClass: 'media' }, align)] = true;
     }
 
     return <div {...elementProps} className={classNames(className, classes)} />;

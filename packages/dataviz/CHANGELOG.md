@@ -1,5 +1,48 @@
 # Changelog
 
+## 2.8.0
+
+### Minor Changes
+
+- b6f109501: feat(dataviz): handle line selection use case
+- b6f109501: feat(dataviz): highlight line legend on hover
+
+## 2.7.3
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+
+## 2.7.2
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
+## 2.7.1
+
+### Patch Changes
+
+- 94a6bf759: Range filter marks are overflowing
+
+## 2.7.0
+
+### Minor Changes
+
+- 6e850c486: feat(dataviz): allow to build custom legend for linechart
+
+## 2.6.0
+
+### Minor Changes
+
+- 644bc1718: feat(dataviz): alter lines in line chart
+
 ## 2.5.0
 
 ### Minor Changes

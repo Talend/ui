@@ -1,0 +1,25 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.panelWrapper {
+	box-shadow: tokens.$coral-elevation-shadow-neutral-s;
+	overflow: hidden;
+	&__alone {
+		border-radius: tokens.$coral-radius-s;
+	}
+
+	&__first {
+		border-radius: tokens.$coral-radius-s tokens.$coral-radius-s 0 0;
+	}
+
+	&__last {
+		border-radius: 0 0 tokens.$coral-radius-s tokens.$coral-radius-s;
+	}
+
+	&__notLast {
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	}
+}
+
+.panelContent {
+	padding: tokens.$coral-spacing-xs;
+}

@@ -1,8 +1,10 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import Input, { TypedInputFieldProps } from './Input';
 
-const Number = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+const Number = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="number" ref={ref} />;
 });
+
+Number.displayName = 'Number';
 
 export default Number;

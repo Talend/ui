@@ -5,7 +5,7 @@ import RcSlider from 'rc-slider';
 import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
-import theme from './Slider.scss';
+import theme from './Slider.module.scss';
 import Action from '../Actions/Action';
 
 const noFormat = value => value;

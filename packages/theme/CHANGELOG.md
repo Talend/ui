@@ -1,5 +1,27 @@
 # @talend/bootstrap-theme
 
+## 6.39.1
+
+### Patch Changes
+
+- 0260a77b8: fix: add sassdata to variations
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+  - @talend/icons@6.50.0
+
 ## 6.39.0
 
 ### Minor Changes

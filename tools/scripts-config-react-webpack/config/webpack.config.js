@@ -256,7 +256,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				filename: getFileNameForExtension('js', jsPrefix),
 				chunkFilename: getFileNameForExtension('js', jsPrefix),
 				publicPath: '/',
-				globalObject: 'this',
+				globalObject: 'self',
 			},
 			devtool: 'source-map',
 			resolve: {
@@ -279,41 +279,22 @@ module.exports = ({ getUserConfig, mode }) => {
 						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
-						test: /\.html$/,
-						use: [
-							!process.env.NO_CACHE_LOADER && { loader: 'cache-loader' },
-							{
-								loader: 'html-loader',
-								options: {
-									minimize: {
-										removeComments: true,
-										collapseWhitespace: true,
-									},
-								},
-							},
-						].filter(Boolean),
-						exclude: indexTemplatePath,
-					},
-					{
 						test: /\.css$/,
+						exclude: /\.module\.css$/,
 						use: getCommonStyleLoaders(false, mode),
-						exclude: /@talend/,
+					},
+					{
+						test: /\.module\.css$/,
+						use: getCommonStyleLoaders(true, mode),
 					},
 					{
 						test: /\.scss$/,
+						exclude: /\.module\.scss$/,
 						use: getSassLoaders(false, sassData, mode),
-						include: /bootstrap-theme/,
 					},
 					{
-						test: /\.scss$/,
+						test: /\.module\.scss$/,
 						use: getSassLoaders(true, sassData, mode),
-						include: /@talend/,
-						exclude: /bootstrap-theme/,
-					},
-					{
-						test: /\.scss$/,
-						use: getSassLoaders(cssModulesEnabled, sassData, mode),
-						exclude: /@talend/,
 					},
 					...getAssetsRules(true),
 				].filter(Boolean),

@@ -7,7 +7,7 @@ import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';
 import { useBadgeFacetedContext } from '../../context/badgeFaceted.context';
 
-import cssModule from './BadgeFaceted.scss';
+import cssModule from './BadgeFaceted.module.scss';
 
 import { useBadgeOverlayFlow, OVERLAY_FLOW_ACTIONS } from '../../../hooks/badgeOverlayFlow.hook';
 import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';
@@ -37,15 +37,11 @@ const BadgeFaceted = ({
 	t,
 }) => {
 	const openValueJustAfterSelectionOfType = operators.length < 2 && initialOperatorOpened;
-	const [
-		overlayState,
-		overlayDispatch,
-		onChangeOperatorOverlay,
-		onChangeValueOverlay,
-	] = useBadgeOverlayFlow(
-		openValueJustAfterSelectionOfType ? false : initialOperatorOpened,
-		openValueJustAfterSelectionOfType ? true : initialValueOpened,
-	);
+	const [overlayState, overlayDispatch, onChangeOperatorOverlay, onChangeValueOverlay] =
+		useBadgeOverlayFlow(
+			openValueJustAfterSelectionOfType ? false : initialOperatorOpened,
+			openValueJustAfterSelectionOfType ? true : initialValueOpened,
+		);
 
 	const { dispatch } = useBadgeFacetedContext();
 	const [badgeOperator, setBadgeOperator] = useState(operator);
@@ -123,7 +119,6 @@ const BadgeFaceted = ({
 			<BadgeOverlay
 				id={id}
 				className={theme('tc-badge-faceted-overlay')}
-				hideLabel={false}
 				showSpecialChars={!!displayType}
 				label={labelValue}
 				onHide={onHideSubmitBadge}

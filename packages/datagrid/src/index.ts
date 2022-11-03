@@ -5,6 +5,7 @@ import { DatasetSerializer } from './serializers';
 // New named exports
 export * from './components';
 export * from './constants';
+export * from './constants/column-definition.constants';
 export * from './types';
 export * from './serializers';
 

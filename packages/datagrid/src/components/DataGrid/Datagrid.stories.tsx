@@ -11,6 +11,7 @@ import sourceSample from '../../../mocks/sample.json';
 import { SELECTED_CELL_CLASS_NAME } from '../../constants';
 import { getColumnDefs, getRowId, parseRow } from '../../serializers/datasetSerializer';
 import DataGrid, { DataGridProps } from './DataGrid';
+import PinHeaderRenderer from '../PinHeaderRenderer';
 
 // eslint-disable-next-line no-irregular-whitespace
 const sample = cloneDeep(sourceSample);
@@ -59,12 +60,13 @@ const defaultGridProps = {
 	onColumnSelectionChanged: action('onColumnSelectionChanged'),
 };
 
-const Template: ComponentStory<typeof DataGrid> = args => <DataGrid {...args} />;
+const Template: ComponentStory<typeof DataGrid> = args => (
+	<DataGrid {...defaultGridProps} {...args} />
+);
 
 export const Default = () => <DataGrid {...defaultGridProps} />;
 
 export const Selection = Template.bind({});
-Selection.args = defaultGridProps;
 Selection.play = async ({ canvasElement }) => {
 	const canvas = within(canvasElement);
 	await userEvent.click(
@@ -88,13 +90,22 @@ Selection.parameters = {
 	chromatic: { disableSnapshot: true },
 };
 
+export const ControlledSelection = Template.bind({});
+ControlledSelection.args = {
+	selection: {
+		columnIds: ['field10'],
+	},
+};
+
 export const CustomRenderer = () => (
 	<DataGrid
 		{...defaultGridProps}
 		columnDefs={[
 			{
 				...defaultGridProps.columnDefs[0],
-				headerComponent: () => <div>&#129302;</div>,
+				headerComponent: () => (
+					<PinHeaderRenderer onClick={action('header clicked')}>Open Menu</PinHeaderRenderer>
+				),
 			},
 			...defaultGridProps.columnDefs.slice(1).map(colDef => ({
 				...colDef,

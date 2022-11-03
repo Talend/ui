@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import DefaultValueRenderer from '../DefaultCellRenderer/DefaultValueRenderer.component';
 
-import theme from './DefaultIntCell.scss';
+import theme from './DefaultIntCell.module.scss';
 
 export default function DefaultIntCellRenderer({ value }) {
 	return <DefaultValueRenderer value={value} className={theme['td-cell-int']} />;

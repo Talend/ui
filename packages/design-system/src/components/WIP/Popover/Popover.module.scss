@@ -17,7 +17,10 @@
 		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
 		border-radius: tokens.$coral-radius-s;
 		opacity: 0;
-		padding: tokens.$coral-spacing-m;
+
+		&_withPadding {
+			padding: tokens.$coral-spacing-m;
+		}
 
 		[data-enter] & {
 			opacity: 1;

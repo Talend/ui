@@ -1,0 +1,25 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.tc-tree-branch-icon {
+	display: flex;
+	margin-right: $padding-smaller;
+
+	&-caret {
+		height: $svg-sm-size;
+		width: $svg-sm-size;
+		&-right {
+			transform: rotate(180deg);
+		}
+	}
+	:global(.tc-svg-anchor) {
+		background: transparent;
+		border: none;
+		padding: 0;
+		color: $brand-primary;
+		display: flex;
+		&:focus,
+		&:hover {
+			color: $scooter;
+		}
+	}
+}

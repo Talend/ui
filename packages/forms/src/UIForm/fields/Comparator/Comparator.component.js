@@ -8,7 +8,7 @@ import { ActionDropdown } from '@talend/react-components/lib/Actions';
 import Text from '../Text';
 import Widget from '../../Widget';
 
-import theme from './Comparator.scss';
+import theme from './Comparator.module.scss';
 
 export const ICONS_MAPPING = {
 	equals: 'talend-equal',

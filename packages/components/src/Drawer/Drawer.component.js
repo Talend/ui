@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 import noop from 'lodash/noop';
 import { Transition } from 'react-transition-group';
 import classnames from 'classnames';
-import { TagDefault, StackHorizontal, Tooltip } from '@talend/design-system';
+import { StackHorizontal, Tag, TagVariantsNames, Tooltip } from '@talend/design-system';
 import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
@@ -13,7 +13,7 @@ import Inject from '../Inject';
 import EditableText from '../EditableText';
 import { getTheme } from '../theme';
 
-import theme from './Drawer.scss';
+import theme from './Drawer.module.scss';
 
 const css = getTheme(theme);
 const DEFAULT_TRANSITION_DURATION = 350;
@@ -102,28 +102,31 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 	);
 }
 
-function renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip) {
+function renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip, subtitleTagVariant = 'default') {
 	if (subtitleTagTooltip) {
 		return (
 			<Tooltip placement="top" title={subtitleTagTooltip}>
-				<TagDefault>{subtitleTagLabel}</TagDefault>
+				<Tag variant={subtitleTagVariant}>{subtitleTagLabel}</Tag>
 			</Tooltip>
 		);
 	}
 
-	return <TagDefault>{subtitleTagLabel}</TagDefault>;
+	return <Tag>{subtitleTagLabel}</Tag>;
 }
 export function SubtitleComponent({ subtitle, ...rest }) {
 	if (!subtitle || !subtitle.length) {
 		return null;
 	}
 
-	const { subtitleTagLabel, subtitleTagTooltip } = rest;
+	const { subtitleTag } = rest;
+
 	return (
 		<div className={css('tc-drawer-header-subtitle')}>
 			<StackHorizontal gap="XS" align="center">
 				<h2 title={subtitle}>{subtitle}</h2>
-				{subtitleTagLabel && renderSubtitleTag(subtitleTagLabel, subtitleTagTooltip)}
+				{subtitleTag &&
+					subtitleTag.label &&
+					renderSubtitleTag(subtitleTag.label, subtitleTag.tooltip, subtitleTag.variant)}
 			</StackHorizontal>
 		</div>
 	);
@@ -131,8 +134,11 @@ export function SubtitleComponent({ subtitle, ...rest }) {
 
 SubtitleComponent.propTypes = {
 	subtitle: PropTypes.string,
-	subtitleTagLabel: PropTypes.string,
-	subtitleTagTooltip: PropTypes.string,
+	subtitleTag: PropTypes.shape({
+		label: PropTypes.string,
+		tooltip: PropTypes.string,
+		variant: PropTypes.oneOf(TagVariantsNames),
+	}),
 };
 
 export function subtitleComponent(subtitle) {
@@ -148,8 +154,7 @@ function DrawerTitle({
 	getComponent,
 	editable,
 	inProgress,
-	subtitleTagLabel,
-	subtitleTagTooltip,
+	subtitleTag,
 	onEdit,
 	onSubmit,
 	onCancel,
@@ -200,13 +205,7 @@ function DrawerTitle({
 						/>
 					)}
 
-					{!isEditMode ? (
-						<SubtitleComponent
-							subtitle={subtitle}
-							subtitleTagLabel={subtitleTagLabel}
-							subtitleTagTooltip={subtitleTagTooltip}
-						/>
-					) : null}
+					{!isEditMode ? <SubtitleComponent subtitle={subtitle} subtitleTag={subtitleTag} /> : null}
 				</div>
 
 				{renderTitleActions()}
@@ -227,8 +226,11 @@ DrawerTitle.propTypes = {
 	renderTitleActions: PropTypes.func,
 	editable: PropTypes.bool,
 	inProgress: PropTypes.bool,
-	subtitleTagLabel: PropTypes.string,
-	subtitleTagTooltip: PropTypes.string,
+	subtitleTag: PropTypes.shape({
+		label: PropTypes.string,
+		tooltip: PropTypes.string,
+		variant: PropTypes.oneOf(TagVariantsNames),
+	}),
 	onEdit: PropTypes.func,
 	onSubmit: PropTypes.func,
 	onCancel: PropTypes.func,

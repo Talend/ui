@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { getRowData } from '../VirtualizedList/utils/gridrow';
-import theme from './ItemOption.scss';
+import theme from './ItemOption.module.scss';
 import Emphasis from '../Emphasis/Emphasis.component';
 
 class ItemOptionRow extends React.Component {

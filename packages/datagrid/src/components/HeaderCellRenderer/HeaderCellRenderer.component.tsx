@@ -5,14 +5,31 @@ import { IHeaderParams } from 'ag-grid-community';
 import classNames from 'classnames';
 import truncate from 'lodash/truncate';
 
-import { Icon, Tooltip, ButtonIcon, StackHorizontal } from '@talend/design-system';
+import {
+	ButtonIcon,
+	SizedIcon,
+	StackHorizontal,
+	StackVertical,
+	Tooltip,
+} from '@talend/design-system';
+import { IconNameWithSize } from '@talend/icons';
 import { QualityBar } from '@talend/react-components';
 
 import { HeaderComponentParams } from '../../types';
 
-import theme from './HeaderCellRenderer.scss';
+import theme from './HeaderCellRenderer.module.scss';
 
 export type HeaderRendererProps = IHeaderParams & HeaderComponentParams;
+
+function IconWithTooltip({ icon, tooltip }: { icon: IconNameWithSize<'S'>; tooltip: string }) {
+	return (
+		<Tooltip title={tooltip} placement="top">
+			<span className={theme['header-cell__description-tick']}>
+				<SizedIcon name={icon} size="S" />
+			</span>
+		</Tooltip>
+	);
+}
 
 /**
  * Props are provided by column definition headerComponentParams
@@ -28,6 +45,7 @@ export default function HeaderCellRenderer({
 	isLoading,
 	draftType,
 	menuProps,
+	nbAppliedDqRules,
 	qualityBarProps,
 	displayName,
 	onFocus,
@@ -52,23 +70,37 @@ export default function HeaderCellRenderer({
 					: undefined
 			}
 		>
-			<StackHorizontal gap="XXS" justify="spaceBetween" align="center">
-				<div className={theme['header-cell__first-line']}>
-					<StackHorizontal gap="XXS">
-						<div className={theme['header-cell__title']} title={displayName}>
-							{displayName}
-							{required && <abbr title={t('REQUIRED_FIELD', 'Required')}>*</abbr>}
-						</div>
-						{description && (
-							<Tooltip title={truncate(description, { length: 1000 })} placement="bottom">
-								<span className={theme['header-cell__description-tick']}>
-									<Icon name="talend-info-circle" />
-								</span>
-							</Tooltip>
-						)}
-					</StackHorizontal>
+			<StackVertical gap="XXS">
+				<StackHorizontal gap="XS" justify="spaceBetween" isFullWidth>
+					<div className={theme['header-cell__top-row']}>
+						<StackHorizontal gap="XXS">
+							<div
+								data-testid="column.header.title"
+								className={theme['header-cell__title']}
+								title={displayName}
+							>
+								{displayName}
+								{required && <abbr title={t('REQUIRED_FIELD', 'Required')}>*</abbr>}
+							</div>
+
+							{description && (
+								<IconWithTooltip
+									icon="information-stroke"
+									tooltip={truncate(description, { length: 1000 })}
+								/>
+							)}
+						</StackHorizontal>
+					</div>
+
+					{menuProps && (
+						<ButtonIcon icon="dots-vertical" size="XS" disabled={isLoading} {...menuProps} />
+					)}
+				</StackHorizontal>
+
+				<StackHorizontal gap="M" isFullWidth>
 					<div
 						className={theme['header-cell__type']}
+						data-testid="column.header.type"
 						title={draftType ?? `${semanticTypeLabel} (${typeLabel})`}
 					>
 						{semanticTypeLabel && !draftType ? (
@@ -80,14 +112,21 @@ export default function HeaderCellRenderer({
 							draftType ?? typeLabel
 						)}
 					</div>
-				</div>
-				{menuProps && (
-					<div className={theme['header-cell__menu-button']}>
-						<ButtonIcon icon="talend-ellipsis" size="XS" disabled={isLoading} {...menuProps} />
-					</div>
-				)}
-			</StackHorizontal>
-			{quality && <QualityBar {...quality} {...qualityBarProps} />}
+
+					{nbAppliedDqRules && (
+						<IconWithTooltip
+							icon="law-hammer"
+							tooltip={t('HEADER_CELL_RENDERER_NB_APPLIED_DQ_RULES', {
+								defaultValue: '{{ count }} rule is applied to this dataset',
+								defaultValue_plural: '{{ count }} rules are applied to this dataset',
+								count: nbAppliedDqRules,
+							})}
+						/>
+					)}
+				</StackHorizontal>
+
+				{quality && <QualityBar {...quality} {...qualityBarProps} />}
+			</StackVertical>
 		</div>
 	);
 }

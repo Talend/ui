@@ -1,13 +1,16 @@
-import React, { forwardRef, ReactNode, ReactNodeArray, Ref, MouseEvent } from 'react';
+import React, { forwardRef, MouseEvent, ReactNode, Ref } from 'react';
 import classnames from 'classnames';
-import { Clickable as ReakitClickable, ClickableProps as ReakitClickableProps } from 'reakit';
+import {
+	Clickable as ReakitClickable,
+	ClickableProps as ReakitClickableProps,
+} from 'reakit/Clickable';
 
 import styles from './Clickable.module.scss';
 
 export type ClickableProps = Omit<ReakitClickableProps, 'style'> & {
 	type?: 'button' | 'submit' | 'reset';
-	children: ReactNode | ReactNodeArray;
-	onClick: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
+	children: ReactNode | ReactNode[];
+	onClick?: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 };
 
 const Clickable = forwardRef(
@@ -23,5 +26,5 @@ const Clickable = forwardRef(
 		);
 	},
 );
-
+Clickable.displayName = 'Clickable';
 export default Clickable;

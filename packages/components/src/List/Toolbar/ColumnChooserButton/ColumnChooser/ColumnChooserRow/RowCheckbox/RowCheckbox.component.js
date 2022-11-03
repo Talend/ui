@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
-import cssModule from '../../ColumnChooser.scss';
+import cssModule from '../../ColumnChooser.module.scss';
 import { getTheme } from '../../../../../../theme';
 import Checkbox from '../../../../../../Checkbox';
 

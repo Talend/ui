@@ -3478,5 +3478,119 @@
     "name": "icon/L/user-group",
     "description": "",
     "documentationLinks": []
+  },
+  {
+    "key": "01c46de0fc40971aceaeda98a9754d959071115d",
+    "name": "icon/M/code",
+    "description": "code",
+    "documentationLinks": []
+  },
+  {
+    "key": "1f30120e18933c2b23d9a65e09e7e1c65babe759",
+    "name": "icon/L/code",
+    "description": "code",
+    "documentationLinks": []
+  },
+  {
+    "key": "2d25424b527ca1a334611889ab01b18d8ed53c6f",
+    "name": "icon/S/code",
+    "description": "code",
+    "documentationLinks": []
+  },
+  {
+    "key": "f0853d0e3cbdd9a44505ffd2c7395a43f7debf18",
+    "name": "icon/M/slider-controls",
+    "description": "settings, cog, configuration",
+    "documentationLinks": []
+  },
+  {
+    "key": "6152475f697144ca46b8bbed3117a9a55b1dbc66",
+    "name": "icon/L/slider-controls",
+    "description": "settings, cog, configuration",
+    "documentationLinks": []
+  },
+  {
+    "key": "71316a61e784de6b963277f68b4aedc5de002df0",
+    "name": "icon/S/application",
+    "description": "application",
+    "documentationLinks": []
+  },
+  {
+    "key": "edd9384f8c4b61164d7e99221132a7f29fd87a3d",
+    "name": "icon/M/application",
+    "description": "application",
+    "documentationLinks": []
+  },
+  {
+    "key": "f2c1778ca4b1a52e6107552239d0b99abe8bea8b",
+    "name": "icon/L/application",
+    "description": "application",
+    "documentationLinks": []
+  },
+  {
+    "key": "61e992dfa86849765995b96bc6485ff495608a27",
+    "name": "icon/M/detect-jobs",
+    "description": "search",
+    "documentationLinks": []
+  },
+  {
+    "key": "72e4f7e7e038ba7974fb70fddb30da9469f6359f",
+    "name": "icon/S/job",
+    "description": "job",
+    "documentationLinks": []
+  },
+  {
+    "key": "0685ec6bec656aa08e6af08fa37ca47ed3e845aa",
+    "name": "icon/M/job",
+    "description": "job",
+    "documentationLinks": []
+  },
+  {
+    "key": "f89cdedd0f1ebf87db4b2bc83efc8bfa3fc9889f",
+    "name": "icon/S/SQL-templates",
+    "description": "SQL Templates / Nunito font",
+    "documentationLinks": []
+  },
+  {
+    "key": "ee958c99f5c62453ad0448282d81351c80276ab5",
+    "name": "icon/L/detect-jobs",
+    "description": "search",
+    "documentationLinks": []
+  },
+  {
+    "key": "47ea607cc796ad770c8f45879463808dbd74ceed",
+    "name": "icon/M/SQL-templates",
+    "description": "SQL Templates / Nunito font",
+    "documentationLinks": []
+  },
+  {
+    "key": "968552d425d01bbe97f86b23997ec743c79c94e5",
+    "name": "icon/L/job",
+    "description": "job",
+    "documentationLinks": []
+  },
+  {
+    "key": "36439766a200a927ef4800413aca0b23c44636b9",
+    "name": "icon/L/SQL-templates",
+    "description": "SQL Templates / Nunito font",
+    "documentationLinks": []
+  },
+  {
+    "key": "6a1b1b6eff9f81aeefbb67cd34ef51c89ba964cc",
+    "name": "icon/S/drag-and-drop",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "83981b8eb550a8999b9bb5938fb56827b40fe24c",
+    "name": "icon/M/drag-and-drop",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "f782fb5b73903bbf41257c4a0679ab81561cc274",
+    "name": "icon/L/drag-and-drop",
+    "description": "",
+    "documentationLinks": []
   }
 ]

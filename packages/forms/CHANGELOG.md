@@ -1,5 +1,29 @@
 # @talend/react-forms
 
+## 8.1.5
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+
+## 8.1.4
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
+## 8.1.3
+
+### Patch Changes
+
+- bd7b58230: chore(TDS-6666): disabled split
+
 ## 8.1.2
 
 ### Patch Changes

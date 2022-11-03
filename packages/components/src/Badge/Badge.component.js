@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import badgeCssModule from './Badge.scss';
+import badgeCssModule from './Badge.module.scss';
 import { getTheme } from '../theme';
 
 import BadgeLib from './BadgeComposition';

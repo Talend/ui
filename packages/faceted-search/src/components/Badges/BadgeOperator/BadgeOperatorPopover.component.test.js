@@ -39,30 +39,10 @@ describe('BadgeOperatorPopover', () => {
 		// When
 		const wrapper = mount(<BadgeOperatorPopover {...props} />);
 		// Then
-		expect(
-			wrapper
-				.find('button')
-				.at(0)
-				.prop('aria-label'),
-		).toEqual('My icon operator equal');
-		expect(
-			wrapper
-				.find('Icon')
-				.at(0)
-				.prop('name'),
-		).toEqual('talend-my-icon-equal');
-		expect(
-			wrapper
-				.find('button')
-				.at(1)
-				.prop('aria-label'),
-		).toEqual('My icon operator not equal');
-		expect(
-			wrapper
-				.find('Icon')
-				.at(1)
-				.prop('name'),
-		).toEqual('talend-my-icon-not-equal');
+		expect(wrapper.find('button').at(0).prop('aria-label')).toEqual('My icon operator equal');
+		expect(wrapper.find('Icon').at(0).prop('name')).toEqual('talend-my-icon-equal');
+		expect(wrapper.find('button').at(1).prop('aria-label')).toEqual('My icon operator not equal');
+		expect(wrapper.find('Icon').at(1).prop('name')).toEqual('talend-my-icon-not-equal');
 		expect(wrapper.find('button')).toHaveLength(2);
 		expect(wrapper.find('Icon')).toHaveLength(2);
 	});
@@ -81,12 +61,7 @@ describe('BadgeOperatorPopover', () => {
 		// When
 		const wrapper = mount(<BadgeOperatorPopover {...props} />);
 		// Then
-		expect(
-			wrapper
-				.find('button')
-				.at(0)
-				.prop('aria-label'),
-		).toEqual('Label');
+		expect(wrapper.find('button').at(0).prop('aria-label')).toEqual('Label');
 		expect(wrapper.find('button')).toHaveLength(1);
 	});
 	it('should trigger on click', () => {
@@ -99,10 +74,7 @@ describe('BadgeOperatorPopover', () => {
 		};
 		// When
 		const wrapper = mount(<BadgeOperatorPopover {...props} />);
-		wrapper
-			.find('button')
-			.at(0)
-			.simulate('click');
+		wrapper.find('button').at(0).simulate('click');
 		// Then
 		expect(onClick.mock.calls.length).toBe(1);
 		expect(onClick.mock.calls[0][1]).toBe('operatorIconEqual');

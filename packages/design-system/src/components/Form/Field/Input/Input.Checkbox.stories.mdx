@@ -1,0 +1,159 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+import Form from '../../';
+import * as Stories from './Input.Checkbox.stories';
+
+<Meta
+	title="Components/Form/Form Fields/Checkbox"
+	component={Form.Checkbox}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=0%3A1',
+	}}
+/>
+
+# Checkbox
+
+Checkbox should be used for item/option selection and only when more than one item can be selected at the same time.
+
+If there is only two options (on/off), consider using a SwitchToggle. If the user should select only one option among many, use Radio inputs instead.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=44%3A59"
+	alt="zoning image for checkbox"
+/>
+
+## States
+
+<FigmaImage
+	src="https://www.figma.com/file/9q3dOyrI7zRR7dHDe2jRpz/Checkbox?node-id=1%3A78"
+	alt="Checkbox inputs for form in various states"
+/>
+
+### Default
+
+<Canvas>
+	<Story story={Stories.CheckboxFillStates} />
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story story={Stories.CheckboxFillStatesDisabled} />
+</Canvas>
+
+### Read only
+
+<Canvas>
+	<Story story={Stories.CheckboxFillStatesReadonly} />
+</Canvas>
+
+### Multiple checkboxes
+
+<Canvas>
+	<Story story={Stories.ReactHooksForm} />
+</Canvas>
+
+### Controlled checkbox
+
+<Canvas>
+	<Story story={Stories.Controlled} />
+</Canvas>
+
+## Content
+
+Checkboxes appear as a list in UIs, it's therefore important to make their labels as parallel as possible without twisting the language too much.
+
+Aim for parallelism but not at the expense of comprehension.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Use positive and active wording for checkbox labels.</li>
+			<li>
+				Aim for parallel checkbox labels to ease reading flow and help users make the right choices.
+				For example, use "Search profile, Delete profile, Create profile, Edit profile" and don't
+				use "Search in profile, Delete profiles, Create a new profile, Edit existing profile".
+			</li>
+			<li>Start each label with capital letter.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Don’t use vague or misleading labels that are difficult to understand by average users.
+			</li>
+			<li>Don’t use punctuations at the end of labels.</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interactions
+
+- The label must always be clickable to check or uncheck.
+
+## Usage
+
+export const Template = args => {
+	const Component = Form.Checkbox;
+	Component.displayName = 'Form.Checkbox';
+	return <Component {...args} />;
+};
+
+<Canvas>
+	<Story
+		name="basic"
+		args={{
+			label: 'Checkbox',
+			indeterminate: false,
+			readOnly: false,
+			disabled: false,
+		}}
+		argTypes={{
+			label: {
+				description: 'Checkbox label',
+				control: {
+					type: 'text',
+				},
+			},
+			indeterminate: {
+				description: 'Checkbox is indeterminate or  not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			checked: {
+				description: 'Checkbox is checked or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			readOnly: {
+				description: 'Checkbox is read only or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+			disabled: {
+				description: 'Checkbox is disabled or not',
+				control: {
+					type: 'boolean',
+				},
+			},
+		}}
+	>
+		{Template.bind({})}
+	</Story>
+</Canvas>
+
+<ArgsTable story="basic" />
+
+## Accessibility
+
+Press <kbd>Tab</kbd> to focus on a checkbox.
+
+Press <kbd>Tab</kbd> or <kbd>Shift</kbd> + <kbd>Tab</kbd> to navigate between checkboxes.
+
+Press <kbd>Space</kbd> to toggle the checkbox between selected and not selected.

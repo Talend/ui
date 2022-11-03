@@ -221,6 +221,7 @@ html {
 
   .sbdocs-hr {
     border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+    margin: 0 0 tokens.$coral-spacing-m 0;
   }
 
   .sbdocs-h1,
@@ -288,7 +289,11 @@ html {
   }
 
   .sbdocs-p {
-    margin-bottom: tokens.$coral-spacing-xs;
+    margin-bottom: tokens.$coral-spacing-m;
+
+    + .sbdocs-p {
+      margin-top: calc(#{tokens.$coral-spacing-xs} * -1);
+    }
 
     code {
       font: tokens.$coral-data-m;

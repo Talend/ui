@@ -8,7 +8,7 @@ import { BadgeOperatorPopover } from './BadgeOperatorPopover.component';
 
 import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 
-import cssModule from './BadgeOperator.scss';
+import cssModule from './BadgeOperator.module.scss';
 
 const theme = getTheme(cssModule);
 
@@ -50,7 +50,6 @@ const BadgeOperatorOverlay = ({
 		>
 			<BadgeOverlay
 				className={theme('tc-badge-operator-button')}
-				hideLabel
 				iconName={operatorIconName}
 				id={`${id}-operator`}
 				label={operatorLabel}

@@ -20,7 +20,7 @@ import { feature } from 'topojson-client';
 import { Icon } from '@talend/react-components';
 
 import KeyValueTooltip, { TooltipEntry } from '../KeyValueTooltip/KeyValueTooltip.component';
-import styles from './GeoChart.scss';
+import styles from './GeoChart.module.scss';
 
 // Rename ugly d3 types
 type ColorScale = ScaleLinear<RGBColor, RGBColor>;

@@ -2,7 +2,6 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import InlineEditing from '.';
-import { InlineMessageDestructive } from '../InlineMessage';
 
 export default {
 	component: InlineEditing,
@@ -10,18 +9,24 @@ export default {
 
 export const Text = {
 	render: (props: Story) => (
-		<InlineEditing.Text ariaLabel="Edit the value" defaultValue="Lorem Ipsum" {...props} />
+		<InlineEditing.Text
+			label="Edit the value"
+			placeholder="What is your Lorem Ipsum?"
+			defaultValue="Lorem Ipsum"
+			{...props}
+		/>
 	),
 };
 export const EmptyTextWithPlaceholder = {
 	render: (props: Story) => (
-		<InlineEditing.Text ariaLabel="Edit the value" placeholder="This is a placeholder" {...props} />
+		<InlineEditing.Text label="Edit the value" placeholder="This is a placeholder" {...props} />
 	),
 };
 export const Textarea = {
 	render: (props: Story) => (
 		<InlineEditing.Textarea
-			ariaLabel="Edit the value"
+			label="Edit the value"
+			placeholder="What is your Lorem Ipsum?"
 			defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in massa velit. Duis vestibulum lectus id lacinia aliquam. Aliquam erat volutpat. Donec dignissim augue eu eros blandit faucibus eu quis nulla. In hac habitasse platea dictumst. Ut egestas viverra sem, et dictum elit lacinia interdum. Vivamus accumsan pulvinar faucibus. Donec vestibulum mauris vitae sem lacinia, eget fringilla leo efficitur. In hac habitasse platea dictumst. Nullam consectetur nunc quis tortor congue imperdiet. Ut lobortis suscipit enim, in aliquet sem viverra ut. Sed finibus ex elit, quis ultricies nulla tincidunt sit amet. Maecenas gravida diam ex, vel aliquam tortor elementum et. Duis vitae ligula tristique est iaculis consequat. Nullam in ipsum turpis. Cras aliquam tellus quis turpis convallis, ut faucibus quam tincidunt."
 			{...props}
 		/>
@@ -30,8 +35,8 @@ export const Textarea = {
 export const Default = {
 	render: (props: Story) => (
 		<InlineEditing
-			ariaLabel="Edit the value"
-			label="Crawler name"
+			label="Edit the value"
+			placeholder="What is your Lorem Ipsum?"
 			defaultValue="Lorem ipsum dolor sit amet"
 			{...props}
 		/>
@@ -40,7 +45,7 @@ export const Default = {
 export const WithEllipsis = {
 	render: (props: Story) => (
 		<InlineEditing.Text
-			ariaLabel="Edit the value"
+			placeholder="Input a crawler name"
 			label="Crawler name"
 			defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla augue, fermentum ac scelerisque quis, aliquet et arcu. Nullam quis sem pulvinar, venenatis nunc vel, lobortis libero"
 			{...props}
@@ -50,7 +55,7 @@ export const WithEllipsis = {
 export const WithTextarea = {
 	render: (props: Story) => (
 		<InlineEditing.Textarea
-			ariaLabel="Edit the value"
+			placeholder="Input a crawler name"
 			label="Crawler name"
 			defaultValue="Lorem ipsum dolor sit amet"
 			{...props}
@@ -60,7 +65,6 @@ export const WithTextarea = {
 export const LongTextInTextarea = {
 	render: (props: Story) => (
 		<InlineEditing.Textarea
-			ariaLabel="Edit the value"
 			label="Crawler name"
 			defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla augue, fermentum ac scelerisque quis, aliquet et arcu. Nullam quis sem pulvinar, venenatis nunc vel, lobortis libero"
 			placeholder="Enter a description"
@@ -71,10 +75,9 @@ export const LongTextInTextarea = {
 export const AsHeading = {
 	render: (props: Story) => (
 		<InlineEditing.Text
-			ariaLabel="Edit the value"
+			placeholder="Input a crawler name"
 			label="AS H3 Crawler name"
 			defaultValue="Lorem ipsum dolor sit amet"
-			placeholder="This is a placeholder"
 			renderValueAs="h3"
 			{...props}
 		/>
@@ -83,7 +86,7 @@ export const AsHeading = {
 export const LoadingMode = {
 	render: (props: Story) => (
 		<InlineEditing.Text
-			ariaLabel="Edit the value"
+			placeholder="Input a crawler name"
 			label="Crawler name"
 			defaultValue="Lorem ipsum dolor sit amet"
 			loading
@@ -112,7 +115,7 @@ export const InUse = (props: Story) => {
 	return (
 		<>
 			<InlineEditing.Text
-				ariaLabel="Edit the value"
+				placeholder="Input a crawler name"
 				label="Crawler name"
 				loading={loading}
 				defaultValue={data}
@@ -120,16 +123,9 @@ export const InUse = (props: Story) => {
 				onEdit={onEdit}
 				onCancel={onCancel}
 				aria-describedby="inlinemessage-id"
+				description={error ? 'An error occurred' : undefined}
 				{...props}
 			/>
-			{error && (
-				<InlineMessageDestructive
-					id="inlinemessage-id"
-					title="Oops"
-					description="An error occured"
-					withBackground
-				/>
-			)}
 		</>
 	);
 };

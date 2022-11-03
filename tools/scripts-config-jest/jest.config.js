@@ -36,10 +36,10 @@ const d3Pkgs = [
 ];
 
 // option 1 map module to an bundled version of the package which is es5
-const moduleNameMapper = d3Pkgs.reduce((acc, pkg) => {
-	acc[`^${pkg}$`] = path.join(require.resolve(pkg), `../../dist/${pkg}.min.js`);
-	return acc;
-}, {});
+// const moduleNameMapper = d3Pkgs.reduce((acc, pkg) => {
+// 	acc[`^${pkg}$`] = path.join(require.resolve(pkg), `../../dist/${pkg}.min.js`);
+// 	return acc;
+// }, {});
 
 module.exports = {
 	moduleNameMapper: {
@@ -59,7 +59,12 @@ module.exports = {
 	// stop ignore node_modules transform since d3 and others start to put es6 as main of packages
 	transformIgnorePatterns: [
 		// option 2, stop ignore transform on es6 packages
-		`/node_modules/(?!${d3Pkgs.join('|')}|internmap|d3-delaunay|delaunator|robust-predicates)`,
+		`/node_modules/(?!${d3Pkgs.join(
+			'|',
+		)}|internmap|d3-delaunay|delaunator|robust-predicates|@talend/tql/index)`,
+		// we can't have it twice (double negative patterns cancel each other),
+		// so you can import addToIgnorePatterns from './utils' to add more pkgs
+
 		// option 3, stop ignore transform on all node_modules
 		// `/node_modules/(?!.*)`,
 	],

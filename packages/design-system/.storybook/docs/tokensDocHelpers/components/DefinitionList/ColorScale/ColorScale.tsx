@@ -1,35 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import { ColorToken, Token } from '../../../../../../src/tokens/types';
 import { getScssName } from '../../../TokenFormatter';
 import { SizedIcon, Tooltip } from '../../../../../../src';
 
 import styles from './ColorScale.module.scss';
+import useCopyValue from '../DefinitionListItem/useCopyValue';
 
 function ColorBlock({ token }: { token: Token }) {
-	const [isCopied, setIsCopied] = useState(false);
-
-	const handleCopy = useCallback(() => {
-		if (navigator.clipboard) {
-			navigator.clipboard
-				.writeText(getScssName(token?.name))
-				.then(() => {
-					setIsCopied(true);
-				})
-				.catch(err => {
-					// eslint-disable-next-line no-console
-					console.log('Something went wrong', err);
-				});
-		}
-	}, [getScssName(token?.name)]);
-
-	useEffect(() => {
-		if (isCopied) {
-			setTimeout(() => {
-				setIsCopied(false);
-			}, 5000);
-		}
-	}, [isCopied]);
+	const { copy, isCopied } = useCopyValue();
 
 	return (
 		<>
@@ -38,7 +17,7 @@ function ColorBlock({ token }: { token: Token }) {
 				title={<span className={styles.colorScale_tooltip}>Copy {getScssName(token?.name)}</span>}
 			>
 				<button
-					onClick={handleCopy}
+					onClick={() => copy(getScssName(token?.name))}
 					className={styles.colorScale_element}
 					style={{ backgroundColor: token.value }}
 				>
