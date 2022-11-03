@@ -68,21 +68,19 @@ export const MessagePrimitive = forwardRef(
 				className={classnames(styles.message, className, borderClassname)}
 				ref={ref}
 			>
-				<StackVertical gap="S" padding={{ top: 'S', bottom: 'S', left: 'M', right: 'M' }}>
-					<StackVertical gap="XXS">
-						{title && (
-							<header className={styles.message__title}>
-								<StackHorizontal gap="S" align="center">
-									{icon && (
-										<SizedIcon name={icon} size="M" color={tokens.coralColorNeutralIconWeak} />
-									)}
-									{title}
-								</StackHorizontal>
-							</header>
-						)}
-						<p className={styles.message__description}>{description}</p>
-						{link && <Link {...link} />}
-					</StackVertical>
+				<StackVertical gap="XS" padding={{ top: 'S', bottom: 'S', left: 'M', right: 'M' }}>
+					{title && (
+						<header className={styles.message__title}>
+							<StackHorizontal gap="XS" align="center">
+								{icon && (
+									<SizedIcon name={icon} size="S" color={tokens.coralColorNeutralIconWeak} />
+								)}
+								{title}
+							</StackHorizontal>
+						</header>
+					)}
+					<p className={styles.message__description}>{description}</p>
+					{link && <Link {...link} />}
 					{children}
 					<StackHorizontal gap={0} isFullWidth align="center" justify="spaceBetween">
 						{action && <ButtonTertiary {...action} />}
