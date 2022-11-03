@@ -1,5 +1,16 @@
 # @talend/design-system
 
+## 7.0.0
+
+### Major Changes
+
+- ee9b1daf6: \* chore: remove dependency over styled-components
+  - remove deprecated components
+
+### Patch Changes
+
+- a23396460: fix: missing fonts in exported bundle
+
 ## 6.0.1
 
 ### Patch Changes
