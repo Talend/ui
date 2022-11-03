@@ -97,10 +97,10 @@ export interface GestureProps {
 }
 
 export function withTreeGesture<T>(WrappedComponent: React.ComponentType<T>) {
-	return class TreeGesture extends React.Component<T> {
+	return class TreeGesture extends React.Component<T & GestureProps> {
 		static displayName = `TreeGesture(${WrappedComponent.displayName})`;
 
-		constructor(props: T) {
+		constructor(props: T & GestureProps) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
 		}
@@ -157,7 +157,7 @@ export function withTreeGesture<T>(WrappedComponent: React.ComponentType<T>) {
 		}
 
 		render() {
-			const props = { ...(this.props as T) };
+			const props = { ...(this.props as T & GestureProps) };
 			props.onKeyDown = this.onKeyDown;
 			return <WrappedComponent {...props} />;
 		}

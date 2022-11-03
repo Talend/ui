@@ -34,6 +34,7 @@
   },
   "resolutions": {
     "**/webpack": "^5.73.0",
+    "**/@types/webpack": "^5.28.0",
     "**/terser-webpack-plugin": "^5.3.3",
     "**/webpack-dev-middleware": "^5.3.3",
     "**/@types/react": "^17.0.2",
