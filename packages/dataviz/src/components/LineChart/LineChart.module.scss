@@ -31,6 +31,8 @@ $module: line-chart;
 		&-item {
 			display: flex;
 			align-items: center;
+			padding: tokens.$coral-spacing-xxs;
+			border-radius: tokens.$coral-radius-s;
 		}
 
 		&--align-left {
@@ -47,6 +49,16 @@ $module: line-chart;
 
 		&--shift-left {
 			padding-right: 6rem;
+		}
+
+		&__button--selection-enabled:hover {
+			background-color: tokens.$coral-color-accent-background-hover;
+		}
+		&__button--selected {
+			background-color: tokens.$coral-color-accent-background-selected;
+			&:hover {
+				background-color: tokens.$coral-color-accent-background-selected;
+			}
 		}
 
 		&__button--inactive {
