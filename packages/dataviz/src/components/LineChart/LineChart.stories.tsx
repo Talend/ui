@@ -387,3 +387,46 @@ export const CustomXAxisDomainLineChart = {
 		],
 	},
 };
+
+const tickFormatter = (value: number) => {
+	const durationByMonth = value / 2678400000;
+	const months = Math.floor(durationByMonth);
+	return `${months} months`;
+};
+
+export const WithOnlyOneDot = {
+	args: {
+		hasLineSelection: true,
+		chartOptions: {
+			showGridLines: true,
+			xAxisOptions: '{verticalOffset: 5}',
+			leftYAxisOptions: {
+				horizontalOffset: 4,
+				manualTicks: [3024000000, 5702400000, 8380800000, 11059200000],
+				formatter: tickFormatter,
+			},
+		},
+		lines: [
+			{
+				key: 'User1',
+				color: tokens.coralColorChartsColor01,
+			},
+			{
+				key: 'User2',
+				color: tokens.coralColorChartsColor02,
+			},
+			{
+				key: 'User3',
+				color: tokens.coralColorChartsColor04,
+			},
+		],
+		data: [
+			{
+				xLabel: 'W41 2022',
+				User1: 3024000000,
+				User2: 5702400000,
+				User3: 8380800000,
+			},
+		],
+	},
+};
