@@ -20,7 +20,7 @@ import styles from './MessageStyles.module.scss';
 
 export type SharedMessageCollectionProps = Omit<
 	HTMLAttributes<HTMLDivElement>,
-	'style' | 'children'
+	'style' | 'children' | 'className'
 > & {
 	action: ButtonTertiaryPropsType<'S'>;
 	additionalActions?: Omit<DropdownPropsType, 'children'>;
@@ -28,7 +28,7 @@ export type SharedMessageCollectionProps = Omit<
 	title: string;
 };
 
-export type SharedMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style'> & {
+export type SharedMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style' | 'className'> & {
 	action?: ButtonTertiaryPropsType<'S'>;
 	children?: ReactNode | ReactNode[];
 	description: string;
@@ -46,7 +46,6 @@ export const MessagePrimitive = forwardRef(
 	(
 		{
 			borderClassname,
-			className,
 			description,
 			title,
 			link,
@@ -65,7 +64,7 @@ export const MessagePrimitive = forwardRef(
 				{...props}
 				role="status"
 				aria-live="polite"
-				className={classnames(styles.message, className, borderClassname)}
+				className={classnames(styles.message, borderClassname)}
 				ref={ref}
 			>
 				<StackVertical gap="XS" padding={{ top: 'S', bottom: 'S', left: 'M', right: 'M' }}>

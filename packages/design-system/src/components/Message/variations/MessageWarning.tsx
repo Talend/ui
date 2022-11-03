@@ -4,9 +4,7 @@ import { MessagePrimitive, SharedMessageProps } from '../Primitive/MessagePrimit
 
 import styles from './MessageWarning.module.scss';
 
-export type MessageWarningProps = Omit<SharedMessageProps, 'className'>;
-
-export const MessageWarning = forwardRef((props: MessageWarningProps, ref: Ref<HTMLDivElement>) => {
+export const MessageWarning = forwardRef((props: SharedMessageProps, ref: Ref<HTMLDivElement>) => {
 	return (
 		<MessagePrimitive
 			{...props}

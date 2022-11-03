@@ -4,8 +4,6 @@ import { MessagePrimitive, SharedMessageProps } from '../Primitive/MessagePrimit
 
 import styles from './MessageDestructive.module.scss';
 
-export type MessageDestructiveProps = Omit<SharedMessageProps, 'className'>;
-
 export const MessageDestructive = forwardRef(
 	(props: SharedMessageProps, ref: Ref<HTMLDivElement>) => {
 		return (

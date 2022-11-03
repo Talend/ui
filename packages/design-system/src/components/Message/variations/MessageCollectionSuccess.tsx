@@ -4,10 +4,8 @@ import { MessagePrimitive, SharedMessageCollectionProps } from '../Primitive/Mes
 
 import styles from './MessageSuccess.module.scss';
 
-export type MessageCollectionSuccessProps = Omit<SharedMessageCollectionProps, 'className'>;
-
 export const MessageCollectionSuccess = forwardRef(
-	(props: MessageCollectionSuccessProps, ref: Ref<HTMLDivElement>) => {
+	(props: SharedMessageCollectionProps, ref: Ref<HTMLDivElement>) => {
 		return (
 			<MessagePrimitive
 				{...props}
