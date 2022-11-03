@@ -9,7 +9,7 @@ import 'typeface-inconsolata/index.css';
 import 'modern-css-reset/dist/reset.min.css';
 
 export type ThemeProviderProps = PropsWithChildren<{
-	theme: string;
+	theme?: string;
 }>;
 
 const ThemeProvider = ({ theme = 'light', children }: ThemeProviderProps) => {
