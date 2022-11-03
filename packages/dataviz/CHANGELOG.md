@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.8.1
+
+### Patch Changes
+
+- cae4e6f34: fix(dataviz): render dot in LineChart when there is only one value
+
 ## 2.8.0
 
 ### Minor Changes
