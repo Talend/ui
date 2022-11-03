@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 /*
 This function will search all i18n call expressions and replaces the default values with the provided translation file
 
@@ -117,7 +118,7 @@ function getLocales(ref) {
 	const files = fs.readdirSync(ref);
 	files.forEach(filePath => {
 		if (filePath.endsWith('.json')) {
-			const localeData = require(`${ref}/${filePath}`);
+			const localeData = require(`${path.join(ref, filePath)}`);
 			Object.assign(en, en, localeData);
 		}
 	});

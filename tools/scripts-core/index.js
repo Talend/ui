@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 const { getEnv } = require('./utils/env');
 const { getPresetApi } = require('./utils/preset');
@@ -91,6 +92,7 @@ switch (command) {
 	case 'extends':
 	case 'start-storybook':
 	case 'build-storybook':
+	case 'locales:codeshift':
 		runScript(command, options);
 		break;
 	default:
