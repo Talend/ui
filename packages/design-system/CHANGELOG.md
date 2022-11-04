@@ -1,5 +1,12 @@
 # @talend/design-system
 
+## 7.0.1
+
+### Patch Changes
+
+- e76a4db6b: fix: ThemeProvider optional theme property
+- 60a00f152: fix: apply transform style from props
+
 ## 7.0.0
 
 ### Major Changes

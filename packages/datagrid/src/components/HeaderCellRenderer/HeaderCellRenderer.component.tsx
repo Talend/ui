@@ -113,7 +113,7 @@ export default function HeaderCellRenderer({
 						)}
 					</div>
 
-					{nbAppliedDqRules && (
+					{!!nbAppliedDqRules && (
 						<IconWithTooltip
 							icon="law-hammer"
 							tooltip={t('HEADER_CELL_RENDERER_NB_APPLIED_DQ_RULES', {

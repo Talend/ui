@@ -53,8 +53,12 @@ function LineChart({
 
 	const [activeLine, setActiveLine] = React.useState<string | null>(null);
 	const [selectedLines, setSelectedLines] = React.useState<string[]>(initialSelectedLines);
+	const hasOnlyOneValue = data?.length === 1;
 
 	const getLineStyleFromStatus = (status: LineStatus, key: string) => {
+		const defaultDotSize = hasOnlyOneValue ? 2 : 0;
+		const defaultDotStrokeWidth = hasOnlyOneValue ? 4 : 0;
+
 		const styleByStatus = {
 			light: {
 				strokeWidth: 1,
@@ -80,7 +84,7 @@ function LineChart({
 
 		if (hasLineSelection && selectedLines.length > 0) {
 			return {
-				dot: { r: 0 },
+				dot: { r: defaultDotSize, strokeWidth: defaultDotStrokeWidth },
 				...styleByStatus[status],
 				strokeOpacity: selectedLines.includes(key) ? 1 : 0.25,
 			};
@@ -88,14 +92,14 @@ function LineChart({
 
 		if (activeLine !== null) {
 			return {
-				dot: { r: 0 },
+				dot: { r: defaultDotSize, strokeWidth: defaultDotStrokeWidth },
 				...styleByStatus[status],
 				strokeOpacity: activeLine === key ? 1 : 0.25,
 			};
 		}
 
 		return {
-			dot: { r: 0 },
+			dot: { r: defaultDotSize, strokeWidth: defaultDotStrokeWidth },
 			...styleByStatus[status],
 		};
 	};
