@@ -1,5 +1,24 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.2.0
+
+### Minor Changes
+
+- a23396460: feat: add id on bootstrap.css link tag
+
+## 2.1.4
+
+### Patch Changes
+
+- 26777dbe7: deps: bump msw to 0.47.3
+
+## 2.1.3
+
+### Patch Changes
+
+- 39f292531: fix: update setup of msw
+- 8796308e5: chore(talend-scripts): disable storybook telemetry
+
 ## 2.1.2
 
 ### Patch Changes

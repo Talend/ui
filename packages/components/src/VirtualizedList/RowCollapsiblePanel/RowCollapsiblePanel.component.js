@@ -10,7 +10,7 @@ import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component'
 import { getId, getRowData } from '../utils/gridrow';
 
 import withListGesture from '../../Gesture/withListGesture';
-import theme from './RowCollapsiblePanel.scss';
+import theme from './RowCollapsiblePanel.module.scss';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
 const options = {

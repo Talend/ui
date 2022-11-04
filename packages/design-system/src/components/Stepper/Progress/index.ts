@@ -1,4 +1,4 @@
-import Progress from './Progress';
+import Progress from './Primitive/Progress';
 import ProgressVertical from './variations/Progress.vertical';
 import ProgressHorizontal from './variations/Progress.horizontal';
 

@@ -1,0 +1,6 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.tooltip-cursor {
+	pointer-events: all;
+	cursor: pointer;
+}

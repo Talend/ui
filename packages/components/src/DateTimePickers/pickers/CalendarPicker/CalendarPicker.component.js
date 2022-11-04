@@ -5,7 +5,7 @@ import getYear from 'date-fns/get_year';
 import startOfDay from 'date-fns/start_of_day';
 import classNames from 'classnames';
 
-import theme from './CalendarPicker.scss';
+import theme from './CalendarPicker.module.scss';
 import DateView from '../../views/DateView';
 import MonthYearView from '../../views/MonthYearView';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';

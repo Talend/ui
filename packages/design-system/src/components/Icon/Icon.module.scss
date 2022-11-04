@@ -1,0 +1,57 @@
+@use '~@talend/design-tokens/lib/tokens' as tokens;
+
+.border {
+	circle,
+	path,
+	polygon,
+	polyline {
+        // only if border
+	    transform: translate(25%, 25%);;
+	}
+    :global(.ti-border) {
+        stroke: currentColor; fill: none; transform: none;
+    }
+}
+
+.svg {
+    fill: currentColor;
+	width: tokens.$coral-sizing-xxs;
+	height: tokens.$coral-sizing-xxs;
+	transform-origin: center;
+
+
+
+	&.spin {
+		animation-name: svg-spin;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	&.rotate-45 {
+		transform: rotate(45deg);
+	}
+	&.rotate-90 {
+		transform: rotate(90deg);
+	}
+	&.rotate-180 {
+		transform: rotate(180deg);
+	}
+	&.rotate-270 {
+		transform: rotate(270deg);
+	}
+	&.flip-vertical {
+		transform: scaleY(-1);
+	}
+	&.flip-horizontal {
+		transform: scaleX(-1);
+	}
+	@keyframes svg-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}

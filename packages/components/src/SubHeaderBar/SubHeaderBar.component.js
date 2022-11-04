@@ -10,7 +10,7 @@ import ActionBar from '../ActionBar';
 import TitleSubHeader from './TitleSubHeader';
 import Inject from '../Inject';
 import Skeleton from '../Skeleton';
-import theme from './SubHeaderBar.scss';
+import theme from './SubHeaderBar.module.scss';
 
 function SubHeaderBarActions({ children, tag, left, right, center, hasRight }) {
 	const className = classNames({

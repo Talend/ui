@@ -1,0 +1,9 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.tc-length-badge {
+	background-color: $gallery;
+	color: $dark-silver;
+	font-size: 10px;
+	padding: 2px 10px;
+	top: 0;
+}

@@ -54,7 +54,7 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 							[styles.icon_readOnly]: readOnly,
 						})}
 					>
-						<SizedIcon size="S" name="magnifying-glass" />
+						<SizedIcon size="M" name="magnifying-glass" />
 					</span>
 				)}
 				<input

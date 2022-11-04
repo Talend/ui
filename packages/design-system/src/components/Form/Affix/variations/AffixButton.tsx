@@ -16,11 +16,12 @@ type CommonAffixButtonPropsType = {
 	children: string;
 	isDropdown?: boolean;
 	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
+	isSuffix?: boolean;
 };
 
 type AffixButtonHideTextProps = {
 	hideText?: true;
-	icon: DeprecatedIconNames | IconNameWithSize<'S'>;
+	icon: DeprecatedIconNames | IconNameWithSize<'M'>;
 };
 
 type AffixButtonShowTextProps = {
@@ -40,6 +41,7 @@ const AffixButton = forwardRef(
 			icon,
 			onClick,
 			hideText = false,
+			isSuffix = false,
 			...rest
 		}: AffixButtonPropsType,
 		ref: Ref<HTMLButtonElement>,
@@ -50,12 +52,12 @@ const AffixButton = forwardRef(
 				onClick={onClick}
 				ref={ref}
 				{...rest}
-				className={classnames(styles.affix, styles.button)}
+				className={classnames(styles.affix, styles.button, { [styles.affix_isSuffix]: isSuffix })}
 			>
 				<StackHorizontal gap="XXS" as="span" justify="center" align="center">
 					{icon && (
 						<span className={styles.affix__icon}>
-							{getIconWithDeprecatedSupport({ iconSrc: icon, size: 'S' })}
+							{getIconWithDeprecatedSupport({ iconSrc: icon, size: 'M' })}
 						</span>
 					)}
 					{!hideText && children}

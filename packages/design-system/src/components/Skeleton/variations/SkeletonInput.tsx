@@ -17,4 +17,6 @@ const SkeletonInput = forwardRef((props: SkeletonInputProps, ref: Ref<HTMLSpanEl
 	);
 });
 
+SkeletonInput.displayName = 'SkeletonInput';
+
 export default SkeletonInput;

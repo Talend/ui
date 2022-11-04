@@ -4,9 +4,10 @@ import {
 	TooltipArrow as ReakitTooltipArrow,
 	TooltipProps as ReakitTooltipProps,
 	TooltipReference as ReakitTooltipReference,
-	unstable_useId as useId,
 	useTooltipState as useReakitTooltipState,
-} from 'reakit';
+} from 'reakit/Tooltip';
+
+import { unstable_useId as useId } from 'reakit/Id';
 
 import styles from './Tooltip.module.scss';
 

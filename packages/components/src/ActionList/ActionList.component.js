@@ -7,7 +7,7 @@ import { TagBeta } from '@talend/design-system';
 
 import { Action } from '../Actions';
 import Inject from '../Inject';
-import theme from './ActionList.scss';
+import theme from './ActionList.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 /**

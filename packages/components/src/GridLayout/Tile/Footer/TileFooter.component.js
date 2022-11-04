@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import theme from './TileFooter.scss';
+import theme from './TileFooter.module.scss';
 
 function Footer(props) {
 	return (

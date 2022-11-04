@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
-import theme from './Items.scss';
+import theme from './Items.module.scss';
 
 const listClasses = classNames(theme['tc-list-items'], 'tc-list-items');
 const itemsClasses = classNames(theme['tc-listview-items'], 'tc-listview-items');

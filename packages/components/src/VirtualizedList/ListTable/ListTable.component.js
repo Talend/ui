@@ -12,7 +12,7 @@ import Skeleton from '../../Skeleton';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import { getTheme } from '../../theme';
-import theme from './ListTable.scss';
+import theme from './ListTable.module.scss';
 import rowThemes from './RowThemes';
 
 const css = getTheme(theme);

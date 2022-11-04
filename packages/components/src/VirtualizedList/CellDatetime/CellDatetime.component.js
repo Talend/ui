@@ -13,7 +13,7 @@ import { date as dateUtils } from '@talend/utils';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
-import styles from './CellDatetime.scss';
+import styles from './CellDatetime.module.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';

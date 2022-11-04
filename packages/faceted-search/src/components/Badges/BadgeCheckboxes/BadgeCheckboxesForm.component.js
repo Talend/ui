@@ -7,7 +7,7 @@ import FilterBar from '@talend/react-components/lib/FilterBar';
 import { Rich } from '@talend/react-components';
 import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
-import cssModule from './BadgeCheckboxes.scss';
+import cssModule from './BadgeCheckboxes.module.scss';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);

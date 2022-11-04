@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Tooltip } from '@talend/design-system';
 import { FormatValue } from '@talend/react-components';
 
-import theme from './DefaultValueRenderer.scss';
+import theme from './DefaultValueRenderer.module.scss';
 
 export const DEFAULT_VALUE_PROP_TYPES = PropTypes.oneOfType([
 	PropTypes.string,

@@ -8,7 +8,7 @@ import {
 	PolarAngleAxis,
 } from 'recharts';
 import PropTypes from 'prop-types';
-import radarChartCssModule from './RadarChart.scss';
+import radarChartCssModule from './RadarChart.module.scss';
 import { getTheme } from '../theme';
 
 const theme = getTheme(radarChartCssModule);

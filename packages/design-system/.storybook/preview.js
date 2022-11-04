@@ -18,7 +18,7 @@ import 'focus-outline-manager';
 import i18n from './i18n';
 
 import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
-import { Divider, Form, IconsProvider, ThemeProvider } from '../src';
+import { Divider, Form, IconsProvider, StackVertical, ThemeProvider } from '../src';
 
 import { dark, light } from '../src/themes';
 
@@ -180,26 +180,31 @@ export const parameters = {
 						<TableOfContents>
 							{isDesignSystemElementPage && (
 								<ThemeProvider theme={light}>
-									<Divider />
-									<Form.ToggleSwitch
-										label={'Dark mode'}
-										onChange={() => {
-											setDarkMode(!hasDarkMode);
-										}}
-										checked={hasDarkMode}
-									/>
-									<Form.ToggleSwitch
-										label={'Bootstrap stylesheet'}
-										onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
-										checked={!!hasBootstrapStylesheet}
-									/>
-									{/*
-									<Form.Switch
-										label={'Figma iframes'}
-										onChange={() => setFigmaIframe(!hasFigmaIframe)}
-										checked={!!hasFigmaIframe}
-									/>
-									*/}
+									<StackVertical
+										gap="XXS"
+										padding={{ top: 'XS', left: '0', right: '0', bottom: '0' }}
+									>
+										<Divider />
+										<Form.ToggleSwitch
+											label={'Dark mode'}
+											onChange={() => {
+												setDarkMode(!hasDarkMode);
+											}}
+											checked={hasDarkMode}
+										/>
+										<Form.ToggleSwitch
+											label={'Bootstrap stylesheet'}
+											onChange={() => setBootstrapStylesheet(!hasBootstrapStylesheet)}
+											checked={!!hasBootstrapStylesheet}
+										/>
+										{/*
+										<Form.Switch
+											label={'Figma iframes'}
+											onChange={() => setFigmaIframe(!hasFigmaIframe)}
+											checked={!!hasFigmaIframe}
+										/>
+										*/}
+									</StackVertical>
 								</ThemeProvider>
 							)}
 						</TableOfContents>
@@ -215,7 +220,6 @@ export const parameters = {
 
 						<I18nextProvider i18n={i18n}>
 							<ThemeProvider theme={hasDarkMode ? dark : light}>
-								<ThemeProvider.GlobalStyle />
 								<DocsContainer {...props} />
 							</ThemeProvider>
 						</I18nextProvider>
@@ -273,8 +277,18 @@ export const parameters = {
 					'Drawer',
 					'Dropdown',
 					'EmptyState',
+					'ErrorState',
 					'Form',
-					['Form', 'Form Fieldset', 'Form Field', 'Form Field Group', 'Fields', 'Form Buttons'],
+					[
+						'About',
+						'Form',
+						'Form Fieldset',
+						'Form Fields',
+						['About', 'Prefix, Suffix'],
+						'Form Field Group',
+						'Fields',
+						'Form Buttons',
+					],
 					'HeaderBar',
 					'Icon',
 					['About', 'Icon (legacy)', 'SizedIcon'],
@@ -310,7 +324,6 @@ export const decorators = [
 
 		const themedStory = (
 			<ThemeProvider theme={theme}>
-				<ThemeProvider.GlobalStyle />
 				<Story {...context} />
 			</ThemeProvider>
 		);

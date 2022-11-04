@@ -1,5 +1,11 @@
 # @talend/router-bridge
 
+## 1.2.2
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
 ## 1.2.1
 
 ### Patch Changes

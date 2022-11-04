@@ -36,10 +36,10 @@ const d3Pkgs = [
 ];
 
 // option 1 map module to an bundled version of the package which is es5
-const moduleNameMapper = d3Pkgs.reduce((acc, pkg) => {
-	acc[`^${pkg}$`] = path.join(require.resolve(pkg), `../../dist/${pkg}.min.js`);
-	return acc;
-}, {});
+// const moduleNameMapper = d3Pkgs.reduce((acc, pkg) => {
+// 	acc[`^${pkg}$`] = path.join(require.resolve(pkg), `../../dist/${pkg}.min.js`);
+// 	return acc;
+// }, {});
 
 module.exports = {
 	moduleNameMapper: {

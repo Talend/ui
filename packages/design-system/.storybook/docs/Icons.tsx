@@ -38,7 +38,6 @@ export const Icons = () => {
 			// Temporary fix, will be removed with CSS Modules conversion
 			// @ts-ignore */}
 			<ThemeProvider>
-				<ThemeProvider.GlobalStyle />
 				<Form>
 					<Form.Search name="search" label="Search" onChange={onChangeQuery} />
 					<div style={{ display: 'flex', justifyContent: 'space-between' }}>

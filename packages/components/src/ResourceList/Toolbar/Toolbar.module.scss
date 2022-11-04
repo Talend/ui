@@ -1,0 +1,14 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.tc-resource-list-toolbar {
+	display: flex;
+	background: $white;
+
+	> * {
+		margin: 0 $padding-normal;
+	}
+
+	&-filter {
+		width: 100%;
+	}
+}

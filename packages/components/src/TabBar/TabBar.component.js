@@ -17,7 +17,7 @@ import OverlayTrigger from '../OverlayTrigger';
 import { ActionDropdown } from '../Actions';
 import getTabBarBadgeLabel from '../utils/getTabBarBadgeLabel';
 
-import theme from './TabBar.scss';
+import theme from './TabBar.module.scss';
 
 function TabBar(props) {
 	const tabBarContainerRef = useRef();

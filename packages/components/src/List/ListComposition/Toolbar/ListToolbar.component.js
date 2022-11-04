@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar } from '@talend/react-bootstrap';
 
-import cssModule from './ListToolbar.scss';
+import cssModule from './ListToolbar.module.scss';
 import { getTheme } from '../../../theme';
 
 const theme = getTheme(cssModule);

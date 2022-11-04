@@ -18,8 +18,9 @@ exports[`AddFacetPopover should render the html output 1`] = `
             <svg name="talend-search"
                  focusable="false"
                  aria-hidden="true"
-                 class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                 class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
                  pointer-events="none"
+                 shape-rendering="geometricPrecision"
             >
             </svg>
             <input name="search"

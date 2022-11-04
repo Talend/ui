@@ -1,0 +1,9 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.error-state {
+	font: tokens.$coral-paragraph-m;
+
+	&__title {
+		font: tokens.$coral-heading-m;
+	}
+}
