@@ -73,6 +73,14 @@ export const WithPropVariation = () => (
 		<MessageDestructive
 			description="There is an issue with the component configuration"
 			action={{ children: 'See', onClick: action('action clicked') }}
+			additionalActions={{
+				'aria-label': 'Additional actions',
+				items: [
+					{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+					{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+					{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+				],
+			}}
 		/>
 		<MessageWarning description="Maybe resolve this issue before doing anything else" />
 		<MessageInformation title="Auto mapping" description="Some fields has been auto mapped" />
@@ -88,6 +96,17 @@ MessageInformationTemplateStory.argTypes = {
 	action: {
 		control: { type: 'object' },
 		defaultValue: { children: 'See', onClick: () => {} },
+	},
+	additionalActions: {
+		control: { type: 'object' },
+		defaultValue: {
+			'aria-label': 'Additional actions',
+			items: [
+				{ label: 'Select all', type: 'button', onClick: action('select all clicked') },
+				{ label: 'Dismiss', type: 'button', onClick: action('dismiss clicked') },
+				{ label: 'Delete', type: 'button', onClick: action('delete clicked') },
+			],
+		},
 	},
 	title: {
 		control: { type: 'text' },

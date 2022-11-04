@@ -30,6 +30,7 @@ export type SharedMessageCollectionProps = Omit<
 
 export type SharedMessageProps = Omit<HTMLAttributes<HTMLDivElement>, 'style' | 'className'> & {
 	action?: ButtonTertiaryPropsType<'S'>;
+	additionalActions?: Omit<DropdownPropsType, 'children'>;
 	children?: ReactNode | ReactNode[];
 	description: string;
 	link?: LinkProps;
