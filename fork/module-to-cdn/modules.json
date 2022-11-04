@@ -725,9 +725,13 @@
         "development": "/umd/react-router.js",
         "production": "/umd/react-router.min.js"
       },
-      ">= 6.0.0": {
+      ">= 6.0.0 < 6.4.0": {
         "development": "/umd/react-router.development.js",
         "production": "/umd/react-router.production.min.js"
+      },
+      ">= 6.4.0": {
+        "development": "/dist/umd/react-router.development.js",
+        "production": "/dist/umd/react-router.production.min.js"
       }
     }
   },
@@ -738,9 +742,13 @@
         "development": "/umd/react-router-dom.js",
         "production": "/umd/react-router-dom.min.js"
       },
-      ">= 6.0.0": {
+      ">= 6.0.0 < 6.4.0": {
         "development": "/umd/react-router-dom.development.js",
         "production": "/umd/react-router-dom.production.min.js"
+      },
+      ">= 6.4.0": {
+        "development": "/dist/umd/react-router-dom.development.js",
+        "production": "/dist/umd/react-router-dom.production.min.js"
       }
     }
   },
