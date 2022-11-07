@@ -10,18 +10,8 @@ import { DateTimeContext } from '../DateTime/Context';
 
 import theme from './InputDateTimePicker.module.scss';
 
-function InputDateTimePicker({
-	id,
-	value,
-	selectedDateTime,
-	useSeconds,
-	useUTC,
-	timezone,
-	onChange,
-	defaultTimeValue,
-	...props
-}) {
-	if (selectedDateTime) {
+function InputDateTimePicker(props) {
+	if (props.selectedDateTime) {
 		// eslint-disable-next-line no-console
 		console.warn(
 			'Warning: "selectedDateTime" is deprecated and will be removed in the next major version. Use "value" instead please.',
@@ -29,19 +19,19 @@ function InputDateTimePicker({
 	}
 	return (
 		<DateTime.Manager
-			id={id}
-			value={value || selectedDateTime}
-			useSeconds={useSeconds}
-			useUTC={useUTC}
-			timezone={timezone}
-			onChange={onChange}
-			defaultTimeValue={defaultTimeValue}
+			id={props.id}
+			value={props.value || props.selectedDateTime}
+			useSeconds={props.useSeconds}
+			useUTC={props.useUTC}
+			timezone={props.timezone}
+			onChange={props.onChange}
+			defaultTimeValue={props.defaultTimeValue}
 		>
 			<DateTimeContext.Consumer>
 				{({ date, time, onDateChange, onTimeChange }) => (
 					<div className={theme['date-time-picker']}>
 						<InputDatePicker
-							id={`${id}-date-picker`}
+							id={`${props.id}-date-picker`}
 							readOnly={props.readOnly}
 							disabled={props.disabled}
 							onBlur={props.onBlur}
@@ -54,14 +44,14 @@ function InputDateTimePicker({
 							isDisabledChecker={props.isDisabledChecker}
 						/>
 						<InputTimePicker
-							id={`${id}-time-picker`}
+							id={`${props.id}-time-picker`}
 							readOnly={props.readOnly}
 							disabled={props.disabled}
 							onBlur={props.onBlur}
 							onChange={onTimeChange}
 							value={time}
-							useSeconds={useSeconds}
-							timezone={timezone}
+							useSeconds={props.useSeconds}
+							timezone={props.timezone}
 							minWidth={props.minWidthTime}
 						/>
 					</div>
