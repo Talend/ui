@@ -154,13 +154,13 @@ function LineChart({
 						type={leftYAxisOptions?.type}
 						domain={leftYAxisOptions?.domain}
 						unit={leftYAxisOptions?.hideUnitInAxis ? '' : leftYAxisOptions?.unit}
-						interval={leftYAxisOptions?.manualTicks ? 0 : 'preserveEnd'}
+						interval={leftYAxisOptions?.manualTicks ? undefined : 'preserveEnd'}
 						dx={leftYAxisOptions?.horizontalOffset}
 						dy={leftYAxisOptions?.verticalOffset}
 						minTickGap={2}
-						tickCount={6}
+						tickCount={leftYAxisOptions?.manualTicks ? undefined : 6}
 						ticks={leftYAxisOptions?.manualTicks}
-						tickLine={false}
+						tickLine={!!leftYAxisOptions?.tickLine}
 						tickFormatter={leftYAxisOptions?.formatter}
 					/>
 					<YAxis
@@ -170,13 +170,13 @@ function LineChart({
 						type={rightYAxisOptions?.type}
 						domain={rightYAxisOptions?.domain}
 						unit={rightYAxisOptions?.hideUnitInAxis ? '' : rightYAxisOptions?.unit}
-						interval={rightYAxisOptions?.manualTicks ? 0 : 'preserveEnd'}
+						interval={rightYAxisOptions?.manualTicks ? undefined : 'preserveEnd'}
 						dx={rightYAxisOptions?.horizontalOffset}
 						dy={rightYAxisOptions?.verticalOffset}
 						minTickGap={2}
-						tickCount={6}
+						tickCount={rightYAxisOptions?.manualTicks ? undefined : 6}
 						ticks={rightYAxisOptions?.manualTicks}
-						tickLine={false}
+						tickLine={!!rightYAxisOptions?.tickLine}
 						tickFormatter={rightYAxisOptions?.formatter}
 					/>
 					{!tooltip?.hide && (
