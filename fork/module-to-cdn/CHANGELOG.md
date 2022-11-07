@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.8.4
+
+### Patch Changes
+
+-   4b7bbf794: Update config of react-router in modules.json
+
 ## 9.8.3
 
 ### Patch Changes
