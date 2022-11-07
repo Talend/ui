@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.8.2
+
+### Patch Changes
+
+- 5e3712511: fix(dataviz): Yaxis legend on some edge cases
+
 ## 2.8.1
 
 ### Patch Changes

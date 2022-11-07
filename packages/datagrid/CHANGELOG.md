@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 13.0.2
+
+### Patch Changes
+
+- be982c07f: fix(datagrid/HeaderCellRenderer): DQ icon and 0 rules
+
 ## 13.0.1
 
 ### Patch Changes
