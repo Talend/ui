@@ -20,16 +20,16 @@ import classNames from 'classnames';
  * // This will output -> <div class="error test error_X341DZ"/>
  * }
  */
-export function getTheme(...cssThemes) {
-	return function applyTheme(...params) {
-		const classnamesParams = params.reduce((acc, param) => {
+export function getTheme(...cssThemes: string[]) {
+	return function applyTheme(...params: any) {
+		const classnamesParams = params.reduce((acc: any, param: any) => {
 			if (Array.isArray(param)) {
 				acc.push(...param.map(element => applyTheme(element)));
 			} else if (typeof param === 'object') {
-				const newObj = Object.entries(param).reduce((objAcc, [key, value]) => {
+				const newObj = Object.entries(param).reduce((objAcc: any, [key, value]: [string, any]) => {
 					// eslint-disable-next-line no-param-reassign
 					objAcc[key] = value;
-					cssThemes.forEach(cssTheme => {
+					cssThemes.forEach((cssTheme: any) => {
 						if (cssTheme[key]) {
 							// eslint-disable-next-line no-param-reassign
 							objAcc[cssTheme[key]] = value;
@@ -40,7 +40,7 @@ export function getTheme(...cssThemes) {
 				acc.push(newObj);
 			} else if (typeof param === 'string') {
 				acc.push(param);
-				cssThemes.forEach(cssTheme => {
+				cssThemes.forEach((cssTheme: any) => {
 					if (cssTheme[param]) {
 						acc.push(cssTheme[param]);
 					}

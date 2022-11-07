@@ -65,7 +65,14 @@ module.exports = function build(env, presetApi, options) {
 	const tscPromise = new Promise((resolve, reject) => {
 		const tscSpawn = spawn(
 			tsc,
-			['--emitDeclarationOnly', '--project', tscConfigPath, '--outDir', targetFolder, ...options],
+			[
+				'--emitDeclarationOnly',
+				'--project',
+				path.relative(process.cwd(), tscConfigPath),
+				'--outDir',
+				path.relative(process.cwd(), targetFolder),
+				...options,
+			],
 			{ stdio: 'inherit', env },
 		);
 
