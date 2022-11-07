@@ -41,7 +41,7 @@ function InputDateTimePicker({
 				{({ date, time, onDateChange, onTimeChange }) => (
 					<div className={theme['date-time-picker']}>
 						<InputDatePicker
-							id={`${props.id}-date-picker`}
+							id={`${id}-date-picker`}
 							readOnly={props.readOnly}
 							disabled={props.disabled}
 							onBlur={props.onBlur}
