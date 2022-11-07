@@ -67,7 +67,7 @@ exports[`DateTime.Validation should render 1`] = `
       aria-label="Validate the date picker value"
       className="btn btn-primary"
       name="action-datepicker-validate"
-      type="submit"
+      onClick={[MockFunction]}
     >
       Done
     </button>
