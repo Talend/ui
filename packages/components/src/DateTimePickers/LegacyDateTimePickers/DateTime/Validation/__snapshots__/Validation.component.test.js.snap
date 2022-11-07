@@ -68,6 +68,7 @@ exports[`DateTime.Validation should render 1`] = `
       className="btn btn-primary"
       name="action-datepicker-validate"
       onClick={[MockFunction]}
+      type="button"
     >
       Done
     </button>
