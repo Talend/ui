@@ -70,7 +70,7 @@ class DateView extends React.PureComponent {
 			leftElement: (
 				<ButtonIcon
 					size="S"
-					aria-label={t('DATEPICKER_MONTH_PREVIOUS', { defaultValue: 'Go to previous month' })}
+					aria-label={t('DATEPICKER_MONTH_PREVIOUS', 'Go to previous month')}
 					icon="arrow-left"
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
@@ -92,7 +92,7 @@ class DateView extends React.PureComponent {
 			rightElement: (
 				<ButtonIcon
 					size="S"
-					aria-label={t('DATEPICKER_MONTH_NEXT', { defaultValue: 'Go to next month' })}
+					aria-label={t('DATEPICKER_MONTH_NEXT', 'Go to next month')}
 					icon="arrow-right"
 					onClick={() => this.goToNextMonth()}
 					tabIndex="-1"
