@@ -105,6 +105,7 @@ function InputDateTimePickerSwitch(props) {
 }
 InputDateTimePickerSwitch.propTypes = {
 	formMode: PropTypes.bool,
+	...InputDatePicker.propTypes,
 };
 
 export default InputDateTimePickerSwitch;
