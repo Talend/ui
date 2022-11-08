@@ -94,7 +94,6 @@ class DateTimeView extends React.PureComponent {
 					icon="arrow-left"
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
-					className={classNames('btn-tertiary', 'btn-info')}
 				></ButtonIcon>
 			),
 			middleElement: (
@@ -118,7 +117,6 @@ class DateTimeView extends React.PureComponent {
 					label=""
 					onClick={() => this.goToNextMonth()}
 					tabIndex="-1"
-					className="btn-tertiary btn-info"
 				></ButtonIcon>
 			),
 		};

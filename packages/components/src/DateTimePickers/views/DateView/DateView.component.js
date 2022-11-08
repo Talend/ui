@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { ButtonIcon } from '@talend/design-system';
+
 import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
 import ViewLayout from '../ViewLayout';
@@ -66,14 +68,13 @@ class DateView extends React.PureComponent {
 		const { t } = this.props;
 		const header = {
 			leftElement: (
-				<Action
+				<ButtonIcon
+					size="S"
 					aria-label={t('DATEPICKER_MONTH_PREVIOUS', { defaultValue: 'Go to previous month' })}
-					icon="talend-arrow-left"
-					label=""
+					icon="arrow-left"
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
-					className={classNames('btn-tertiary', 'btn-info')}
-				/>
+				></ButtonIcon>
 			),
 			middleElement: (
 				<HeaderTitle
@@ -89,15 +90,13 @@ class DateView extends React.PureComponent {
 				/>
 			),
 			rightElement: (
-				<Action
+				<ButtonIcon
+					size="S"
 					aria-label={t('DATEPICKER_MONTH_NEXT', { defaultValue: 'Go to next month' })}
-					icon="talend-arrow-left"
-					iconTransform="rotate-180"
-					label=""
+					icon="arrow-right"
 					onClick={() => this.goToNextMonth()}
 					tabIndex="-1"
-					className="btn-tertiary btn-info"
-				/>
+				></ButtonIcon>
 			),
 		};
 
