@@ -1,26 +1,20 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
+import { ButtonIcon } from '@talend/design-system';
 
 import DateView from './DateView.component';
 
 function getActions(wrapper) {
-	return wrapper
-		.find('ViewLayout')
-		.shallow()
-		.find('Action');
+	return wrapper.find('ViewLayout').shallow().find(ButtonIcon);
 }
 
 function clickOnPreviousMonth(wrapper) {
-	getActions(wrapper)
-		.first()
-		.simulate('click');
+	getActions(wrapper).first().simulate('click');
 }
 
 function clickOnNextMonth(wrapper) {
-	getActions(wrapper)
-		.last()
-		.simulate('click');
+	getActions(wrapper).last().simulate('click');
 }
 
 describe('DateView', () => {
@@ -84,10 +78,7 @@ describe('DateView', () => {
 		expect(onTitleClick).not.toBeCalled();
 
 		// when
-		const titleAction = wrapper
-			.find('ViewLayout')
-			.find('HeaderTitle')
-			.find('button');
+		const titleAction = wrapper.find('ViewLayout').find('HeaderTitle').find('button');
 		titleAction.simulate('click');
 
 		// then
@@ -109,25 +100,13 @@ describe('DateView', () => {
 			/>,
 		);
 
-		expect(
-			wrapper
-				.find('ViewLayout')
-				.find('HeaderTitle')
-				.find('button')
-				.prop('tabIndex'),
-		).toBe(-1);
+		expect(wrapper.find('ViewLayout').find('HeaderTitle').find('button').prop('tabIndex')).toBe(-1);
 
 		// when
 		wrapper.setProps({ allowFocus: true });
 
 		// then
-		expect(
-			wrapper
-				.find('ViewLayout')
-				.find('HeaderTitle')
-				.find('button')
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(wrapper.find('ViewLayout').find('HeaderTitle').find('button').prop('tabIndex')).toBe(0);
 	});
 
 	cases(
