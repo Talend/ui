@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.8.3
+
+### Patch Changes
+
+- 2be2c3f47: fix: do not pass t props to FormatValue
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+
 ## 2.8.2
 
 ### Patch Changes

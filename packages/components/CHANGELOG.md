@@ -1,5 +1,25 @@
 # @talend/react-components
 
+## 8.0.0
+
+### Major Changes
+
+- 105990b24: feat(SubHeaderBar): replace `EditableText` legacy component by `InlineEditing` Coral component.
+
+  Breaking:
+
+  - `onEdit` and `onCancel` props has been removed. They are now directly handled by the `InlineEditing` component.
+  - `onSubmit` callback signature changed from `onSubmit(event: JSEvent, { value: string })` to `onSubmit(event: JSEvent, value: string)` the returned value from the `InlineEditing` component is not wrapped within an object containing only one `value` property. You now have the `value` directly.
+
+### Minor Changes
+
+- 2be2c3f47: feat: add typings
+
+### Patch Changes
+
+- ef3977697: fix(List): separator alignment for persistent actions
+- c0ed60ee5: chore(TDS-6840): use DS ButtonIcon in collapsible and legacy datepicker
+
 ## 7.11.3
 
 ### Patch Changes
