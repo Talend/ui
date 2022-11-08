@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import InlineEditing from '.';
 
@@ -120,6 +121,7 @@ export const InUse = (props: Story) => {
 				loading={loading}
 				defaultValue={data}
 				hasError={error}
+				onToggle={action('onToggle')}
 				onEdit={onEdit}
 				onCancel={onCancel}
 				aria-describedby="inlinemessage-id"
