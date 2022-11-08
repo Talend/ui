@@ -1,17 +1,16 @@
 import React from 'react';
 import keycode from 'keycode';
+import { focusOn } from './focus';
 
-function focusOn(event, element) {
-	if (element) {
-		element.focus();
+function getAllItems(ref: HTMLElement) {
+	const closest = ref.closest('[role="list"]');
+	if (!closest) {
+		return [];
 	}
+	return closest.querySelectorAll('[role="listitem"]');
 }
 
-function getAllItems(ref) {
-	return ref.closest('[role="list"]').querySelectorAll('[role="listitem"]');
-}
-
-function getNextItem(ref, loop) {
+function getNextItem(ref: HTMLElement, loop: boolean) {
 	let nextElement;
 	let currentFound;
 	let hasNext;
@@ -38,7 +37,7 @@ function getNextItem(ref, loop) {
 	return nextElement;
 }
 
-function getPreviousItem(ref, loop) {
+function getPreviousItem(ref: HTMLElement, loop: boolean) {
 	let previousElement;
 	let hasNext;
 
@@ -64,26 +63,31 @@ function getPreviousItem(ref, loop) {
 	return previousElement;
 }
 
-function onKeyDown(event, ref, loop) {
+function onKeyDown(event: KeyboardEvent, ref: HTMLElement, loop: boolean) {
 	switch (event.keyCode) {
 		case keycode.codes.down:
 			event.stopPropagation();
 			event.preventDefault();
-			focusOn(event, getNextItem(ref, loop));
+			focusOn(getNextItem(ref, loop));
 			break;
 		case keycode.codes.up:
 			event.stopPropagation();
 			event.preventDefault();
-			focusOn(event, getPreviousItem(ref, loop));
+			focusOn(getPreviousItem(ref, loop));
 			break;
 		default:
 			break;
 	}
 }
 
-export default function withListGesture(WrappedComponent, loop = false) {
-	function ListGesture(props) {
-		return <WrappedComponent {...props} onKeyDown={(...args) => onKeyDown(...args, loop)} />;
+export default function withListGesture<T>(WrappedComponent: React.ComponentType<T>, loop = false) {
+	function ListGesture(props: T) {
+		return (
+			<WrappedComponent
+				{...props}
+				onKeyDown={(event: KeyboardEvent, ref: HTMLElement) => onKeyDown(event, ref, loop)}
+			/>
+		);
 	}
 
 	ListGesture.displayName = `ListGesture(${WrappedComponent.displayName})`;
