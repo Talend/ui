@@ -10,6 +10,7 @@
 
 $tc-input-subheader-size-large: 2.4rem !default;
 $tc-input-subheader-size-medium: 1.4rem !default;
+$header-title-max-width: 90rem;
 
 :global(.tc-subheader-details-blink) {
 	@include heartbeat(object-blink);
@@ -35,13 +36,18 @@ $tc-input-subheader-size-medium: 1.4rem !default;
 		overflow: hidden;
 		flex: 1 auto;
 		margin-right: 110px;
-		max-width: 90rem;
+		max-width: $header-title-max-width;
 		align-items: flex-start;
 
 		&-title {
 			display: inline-flex;
 			align-items: center;
 			width: 100%;
+
+			// force InlineEditing max space to allow ellipsis
+			> * {
+				max-width: $header-title-max-width;
+			}
 
 			&-wording,
 			&-wording-button {

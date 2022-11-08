@@ -78,7 +78,7 @@ function TitleSubHeader({
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
 
-	const InjectedInlineEditingText = Inject.get(getComponent, 'InlineEditing', InlineEditing);
+	const InjectedInlineEditingText = Inject.get(getComponent, 'InlineEditing', InlineEditing.Text);
 
 	return (
 		<div
@@ -94,6 +94,7 @@ function TitleSubHeader({
 							required={true}
 							renderValueAs="h1"
 							label=""
+							placeholder=""
 							defaultValue={title}
 							loading={loading}
 							onToggle={setIsEditMode}
