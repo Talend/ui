@@ -32,6 +32,7 @@ export type InlineEditingPrimitiveProps = {
 	loading?: boolean;
 	onEdit?: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent, newValue: string) => void;
 	onCancel?: () => void;
+	onToggle?: (isEditionMode: boolean) => void;
 	defaultValue?: string;
 	label: string;
 	required?: boolean;
@@ -50,6 +51,7 @@ const InlineEditingPrimitive = forwardRef(
 			mode,
 			onEdit = () => {},
 			onCancel = () => {},
+			onToggle = () => {},
 			required = false,
 			defaultValue,
 			label,
@@ -62,11 +64,15 @@ const InlineEditingPrimitive = forwardRef(
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const [isEditing, setEditing] = useState<boolean>(false);
 		const [value, setValue] = React.useState<string | undefined>(defaultValue);
+		const toggleEditionMode = (isEditionMode: boolean) => {
+			setEditing(isEditionMode);
+			onToggle(isEditionMode);
+		};
 
 		// Errors should set InlineEditing into editing mode
 		useEffect(() => {
 			if (hasError) {
-				setEditing(hasError);
+				toggleEditionMode(hasError);
 			}
 		}, [hasError]);
 
@@ -76,14 +82,14 @@ const InlineEditingPrimitive = forwardRef(
 				const sentValue = value || '';
 				onEdit(event, sentValue);
 			}
-			setEditing(false);
+			toggleEditionMode(false);
 		};
 
 		const handleCancel = () => {
 			if (isEditing) {
 				setValue(defaultValue);
 			}
-			setEditing(false);
+			toggleEditionMode(false);
 			onCancel();
 		};
 
@@ -186,7 +192,7 @@ const InlineEditingPrimitive = forwardRef(
 						})}
 						onDoubleClick={() => {
 							if (!loading) {
-								setEditing(true);
+								toggleEditionMode(true);
 							}
 						}}
 					>
@@ -194,7 +200,7 @@ const InlineEditingPrimitive = forwardRef(
 						<span className={styles.inlineEditor__content__button}>
 							<ButtonIcon
 								data-test="inlineediting.button.edit"
-								onClick={() => setEditing(true)}
+								onClick={() => toggleEditionMode(true)}
 								aria-label={ariaLabel || label}
 								icon="pencil"
 								disabled={loading}
