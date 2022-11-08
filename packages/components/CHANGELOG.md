@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 7.11.3
+
+### Patch Changes
+
+- 5d36d7e6c: fix(TDS-6837): not using submit type button in legacy date picker
+
 ## 7.11.2
 
 ### Patch Changes
