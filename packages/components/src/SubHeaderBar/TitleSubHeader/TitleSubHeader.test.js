@@ -1,10 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+
+import { InlineEditing } from '@talend/design-system';
+
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import Action from '../../Actions/Action';
 import Tag from '../../Tag';
-import EditableText from '../../EditableText';
 import TitleSubHeader, { SubTitle } from './TitleSubHeader.component';
 
 describe('TitleSubHeader', () => {
@@ -13,7 +15,6 @@ describe('TitleSubHeader', () => {
 	beforeEach(() => {
 		defaultProps = {
 			title: 'myTitle',
-			onEdit: jest.fn(),
 			onSubmit: jest.fn(),
 		};
 	});
@@ -49,10 +50,10 @@ describe('TitleSubHeader', () => {
 		expect(wrapper.find('h1')).toHaveLength(1);
 	});
 
-	it('should render EditableText', () => {
+	it('should render InlineEditing', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
-		expect(wrapper.find(EditableText)).toHaveLength(1);
-		expect(wrapper.find(EditableText).get(0).props.feature).toBe('subheaderbar.rename');
+		expect(wrapper.find(InlineEditing)).toHaveLength(1);
+		expect(wrapper.find(InlineEditing).get(0).props['data-feature']).toBe('subheaderbar.rename');
 		expect(wrapper.find('h1')).toHaveLength(0);
 	});
 
@@ -66,19 +67,6 @@ describe('TitleSubHeader', () => {
 		expect(wrapper.props().className).toEqual(
 			'tc-subheader-details theme-tc-subheader-details tc-subheader-details-blink theme-tc-subheader-details-blink',
 		);
-	});
-
-	it('should go in edit mode', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
-		const findEditableText = () => wrapper.find('[feature="subheaderbar.rename"]');
-
-		findEditableText().props().onEdit();
-
-		expect(findEditableText().props().editMode).toEqual(true);
-
-		findEditableText().props().onCancel();
-
-		expect(findEditableText().props().editMode).toEqual(false);
 	});
 
 	it('should render pass extra props to the title', () => {
@@ -130,6 +118,6 @@ describe('SubTitle', () => {
 		const wrapper = mount(<SubTitle {...defaultProps} subTitleProps={subTitleProps} />);
 
 		// then
-		expect(wrapper.find(('[data-test="345"]'))).toHaveLength(1);
+		expect(wrapper.find('[data-test="345"]')).toHaveLength(1);
 	});
 });
