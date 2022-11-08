@@ -52,8 +52,10 @@ describe('TitleSubHeader', () => {
 
 	it('should render InlineEditing', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
-		expect(wrapper.find(InlineEditing)).toHaveLength(1);
-		expect(wrapper.find(InlineEditing).get(0).props['data-feature']).toBe('subheaderbar.rename');
+		expect(wrapper.find(InlineEditing.Text)).toHaveLength(1);
+		expect(wrapper.find(InlineEditing.Text).get(0).props['data-feature']).toBe(
+			'subheaderbar.rename',
+		);
 		expect(wrapper.find('h1')).toHaveLength(0);
 	});
 
