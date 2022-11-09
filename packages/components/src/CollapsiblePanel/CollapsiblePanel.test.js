@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@talend/react-bootstrap';
+import { ButtonIcon } from '@talend/design-system';
 import { mount } from 'enzyme';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
@@ -89,7 +90,7 @@ describe('CollapsiblePanel', () => {
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper.find(Button).at(0).simulate('click');
+		wrapper.find(ButtonIcon).at(0).simulate('click');
 
 		// then
 		expect(propsPanelWithActions.onToggle).toBeCalled();
@@ -129,7 +130,7 @@ describe('CollapsiblePanel', () => {
 		const wrapper = mount(panelInstance);
 
 		// then
-		expect(wrapper.find(TooltipTrigger).length).toBe(3);
+		expect(wrapper.find(TooltipTrigger).length).toBe(2);
 		expect(wrapper.find('h3').getElement().props.children).toEqual('Custom label');
 	});
 
@@ -152,6 +153,6 @@ describe('CollapsiblePanel', () => {
 		const wrapper = mount(panelInstance);
 
 		// then
-		expect(wrapper.find(TooltipTrigger).length).toBe(2);
+		expect(wrapper.find(TooltipTrigger).length).toBe(1);
 	});
 });

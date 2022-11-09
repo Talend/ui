@@ -427,37 +427,37 @@ Datalist.defaultProps = {
 	titleMap: [],
 };
 
-if (process.env.NODE_ENV !== 'production') {
-	Datalist.propTypes = {
-		className: PropTypes.string,
-		onBlur: PropTypes.func,
-		onChange: PropTypes.func.isRequired,
-		onFocus: PropTypes.func,
-		onClick: PropTypes.func,
-		onLiveChange: PropTypes.func,
-		disabled: PropTypes.bool,
-		multiSection: PropTypes.bool,
-		readOnly: PropTypes.bool,
-		restricted: PropTypes.bool,
-		titleMap: PropTypes.arrayOf(
-			PropTypes.oneOfType([
-				PropTypes.shape({
-					name: PropTypes.string.isRequired,
-					value: PropTypes.string.isRequired,
-				}),
-				PropTypes.shape({
-					title: PropTypes.string,
-					suggestions: PropTypes.arrayOf(
-						PropTypes.shape({
-							name: PropTypes.string,
-							value: PropTypes.string,
-						}),
-					),
-				}),
-			]),
-		),
-		value: PropTypes.string,
-	};
-}
+Datalist.propTypes = {
+	autoFocus: PropTypes.bool,
+	isLoading: PropTypes.bool,
+	className: PropTypes.string,
+	onBlur: PropTypes.func,
+	onChange: PropTypes.func.isRequired,
+	onFocus: PropTypes.func,
+	onClick: PropTypes.func,
+	onLiveChange: PropTypes.func,
+	disabled: PropTypes.bool,
+	multiSection: PropTypes.bool,
+	readOnly: PropTypes.bool,
+	restricted: PropTypes.bool,
+	titleMap: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				value: PropTypes.string.isRequired,
+			}),
+			PropTypes.shape({
+				title: PropTypes.string,
+				suggestions: PropTypes.arrayOf(
+					PropTypes.shape({
+						name: PropTypes.string,
+						value: PropTypes.string,
+					}),
+				),
+			}),
+		]),
+	),
+	value: PropTypes.string,
+};
 
 export default Datalist;

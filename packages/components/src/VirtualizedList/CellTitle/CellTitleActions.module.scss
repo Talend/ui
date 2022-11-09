@@ -24,6 +24,7 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 		&:not(:last-child):after {
 			content: '|';
 			color: $dark-silver;
+			padding-top: $padding-smaller;
 		}
 	}
 
