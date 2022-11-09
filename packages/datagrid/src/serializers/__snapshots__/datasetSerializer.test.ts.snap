@@ -252,7 +252,7 @@ Array [
       "type": "date",
       "typeLabel": "date",
     },
-    "headerName": "voyageurs 2016",
+    "headerName": "Planned date",
     "minWidth": 30,
     "resizable": true,
     "valueGetter": [Function],
