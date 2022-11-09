@@ -1,20 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
-import { focusOn } from './focus';
+import { focusOn, WithFocus } from './focus';
 
-function getAllItems(ref: HTMLElement) {
+function getAllItems(ref: HTMLElement): NodeListOf<HTMLButtonElement> {
 	return ref.querySelectorAll('li > button');
 }
 
-function focusOnListItem(ref: HTMLElement, index) {
-	const listItem = getAllItems(ref)[index];
+function focusOnListItem(ref: HTMLElement, index: number) {
+	const listItem = getAllItems(ref)[index] as WithFocus;
 	focusOn(listItem);
 }
 
-function focusOnPreviousItem(ref: HTMLElement, { index, size }, goToPreviousPage: () => void) {
+export type FocusOnOption = {
+	index: number;
+	size?: number;
+};
+
+function focusOnPreviousItem(
+	ref: HTMLElement,
+	{ index, size }: FocusOnOption,
+	goToPreviousPage: (fn?: () => void) => void,
+) {
 	const nextIndex = index - 1;
-	if (nextIndex < 0) {
+	if (nextIndex < 0 && size) {
 		goToPreviousPage(() => {
 			focusOnListItem(ref, size - 1);
 		});
@@ -22,9 +31,13 @@ function focusOnPreviousItem(ref: HTMLElement, { index, size }, goToPreviousPage
 	focusOnListItem(ref, nextIndex);
 }
 
-function focusOnNextItem(ref: HTMLElement, { index, size }, goToNextPage: () => void) {
+function focusOnNextItem(
+	ref: HTMLElement,
+	{ index, size }: FocusOnOption,
+	goToNextPage: (fn?: () => void) => void,
+) {
 	const nextIndex = index + 1;
-	if (nextIndex >= size) {
+	if (size && nextIndex >= size) {
 		goToNextPage(() => {
 			focusOnListItem(ref, 0);
 		});
@@ -32,11 +45,19 @@ function focusOnNextItem(ref: HTMLElement, { index, size }, goToNextPage: () => 
 	focusOnListItem(ref, nextIndex);
 }
 
-function focusOnNextPage(ref: HTMLElement, { index }, goToNextPage: () => void) {
+function focusOnNextPage(
+	ref: HTMLElement,
+	{ index }: FocusOnOption,
+	goToNextPage: (fn?: () => void) => void,
+) {
 	goToNextPage(() => focusOnListItem(ref, index));
 }
 
-function focusOnPreviousPage(ref: HTMLElement, { index }, goToPreviousPage: () => void) {
+function focusOnPreviousPage(
+	ref: HTMLElement,
+	{ index }: FocusOnOption,
+	goToPreviousPage: (fn?: () => void) => void,
+) {
 	goToPreviousPage(() => focusOnListItem(ref, index));
 }
 
@@ -44,18 +65,18 @@ type WithDynamicListGestureProps = {
 	className: string;
 	goToPreviousPage: () => void;
 	goToNextPage: () => void;
-	children: (fn: () => void) => React.Element;
+	children: (fn: (event: KeyboardEvent, options: FocusOnOption) => void) => JSX.Element;
 };
 
 export default class WithDynamicListGesture extends React.Component<WithDynamicListGestureProps> {
 	myRef = React.createRef<HTMLDivElement>();
 
-	constructor(props) {
+	constructor(props: WithDynamicListGestureProps) {
 		super(props);
 		this.onKeyDown = this.onKeyDown.bind(this);
 	}
 
-	onKeyDown(event: KeyboardEvent, options) {
+	onKeyDown(event: KeyboardEvent, options: FocusOnOption) {
 		switch (event.keyCode) {
 			case keycode.codes.up:
 				event.preventDefault();

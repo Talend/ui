@@ -1,4 +1,8 @@
-export function focusOn(element?: HTMLElement | null) {
+export interface WithFocus {
+	focus: HTMLElement['focus'];
+}
+
+export function focusOn(element?: WithFocus | null) {
 	if (element) {
 		element.focus();
 	}

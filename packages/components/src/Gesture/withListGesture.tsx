@@ -2,10 +2,10 @@ import React from 'react';
 import keycode from 'keycode';
 import { focusOn } from './focus';
 
-function getAllItems(ref: HTMLElement) {
+function getAllItems(ref: HTMLElement): NodeList {
 	const closest = ref.closest('[role="list"]');
 	if (!closest) {
-		return [];
+		return new NodeList();
 	}
 	return closest.querySelectorAll('[role="listitem"]');
 }
