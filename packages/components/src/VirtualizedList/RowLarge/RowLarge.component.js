@@ -18,7 +18,7 @@ import {
 
 import getDefaultT from '../../translate';
 import { listTypes } from '../utils/constants';
-import withListGesture from '../../Gesture/withListGesture';
+import Gesture from '../../Gesture';
 import rowThemes from './RowThemes';
 import theme from './RowLarge.module.scss';
 
@@ -113,7 +113,7 @@ class RowLarge extends React.Component {
 		}
 
 		return (
-			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions
 			<div
 				className={classNames(
 					'tc-list-item',
@@ -177,4 +177,4 @@ RowLarge.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withListGesture(withTranslation(I18N_DOMAIN_COMPONENTS)(RowLarge));
+export default Gesture.withListGesture(withTranslation(I18N_DOMAIN_COMPONENTS)(RowLarge));

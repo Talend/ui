@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import keycode from 'keycode';
 import cases from 'jest-in-case';
-import withListGesture from './withListGesture';
+import { withListGesture } from './withListGesture';
 import List from '../../__mocks__/list';
 
 function getComponentWithGesture(loop) {

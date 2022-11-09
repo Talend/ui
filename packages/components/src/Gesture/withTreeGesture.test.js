@@ -3,7 +3,7 @@ import React from 'react';
 import keycode from 'keycode';
 import { mount } from 'enzyme';
 import cases from 'jest-in-case';
-import withTreeGesture from './withTreeGesture';
+import { withTreeGesture } from './withTreeGesture';
 import Tree from '../../__mocks__/tree';
 
 // Legend : the comments indicates 2 numbers, level and index

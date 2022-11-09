@@ -17,7 +17,7 @@ import startOfMonth from 'date-fns/start_of_month';
 
 import theme from './DatePicker.module.scss';
 import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
-import { withCalendarGesture } from '../../../Gesture/withCalendarGesture';
+import Gesture from '../../../Gesture';
 import getDefaultT from '../../../translate';
 
 const getDayNames = memoize(buildDayNames);
@@ -274,4 +274,4 @@ DatePicker.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withCalendarGesture(DatePicker);
+export default Gesture.withCalendarGesture(DatePicker);

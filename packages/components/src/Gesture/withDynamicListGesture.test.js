@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import keycode from 'keycode';
 import cases from 'jest-in-case';
-import WithDynamicListGesture from './withDynamicListGesture';
+import { WithDynamicListGesture } from './withDynamicListGesture';
 
 const LIST_SIZE = 5;
 

@@ -80,7 +80,7 @@ function onKeyDown(event: KeyboardEvent, ref: HTMLElement, loop: boolean) {
 	}
 }
 
-export default function withListGesture<T>(WrappedComponent: React.ComponentType<T>, loop = false) {
+export function withListGesture<T>(WrappedComponent: React.ComponentType<T>, loop = false) {
 	function ListGesture(props: T) {
 		return (
 			<WrappedComponent

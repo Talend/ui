@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { timeToStr, pad } from '../../Time/time-extraction';
-import withListGesture from '../../../Gesture/withListGesture';
+import Gesture from '../../../Gesture';
 
 import theme from './TimePicker.module.scss';
 
@@ -148,4 +148,4 @@ export class TimePicker extends React.Component {
 	}
 }
 
-export default withListGesture(TimePicker, true);
+export default Gesture.withListGesture(TimePicker, true);

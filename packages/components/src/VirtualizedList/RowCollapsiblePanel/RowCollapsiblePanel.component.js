@@ -9,7 +9,7 @@ import Skeleton from '../../Skeleton';
 import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
-import withListGesture from '../../Gesture/withListGesture';
+import Gesture from '../../Gesture';
 import theme from './RowCollapsiblePanel.module.scss';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
@@ -113,7 +113,7 @@ RowCollapsiblePanel.propTypes = {
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-const RowCollapsiblePanelWrapper = withListGesture(RowCollapsiblePanel);
+const RowCollapsiblePanelWrapper = Gesture.withListGesture(RowCollapsiblePanel);
 RowCollapsiblePanelWrapper.options = options;
 
 export default RowCollapsiblePanelWrapper;

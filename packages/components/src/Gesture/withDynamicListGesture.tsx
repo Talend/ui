@@ -61,14 +61,14 @@ function focusOnPreviousPage(
 	goToPreviousPage(() => focusOnListItem(ref, index));
 }
 
-type WithDynamicListGestureProps = {
+export interface WithDynamicListGestureProps {
 	className: string;
 	goToPreviousPage: () => void;
 	goToNextPage: () => void;
 	children: (fn: (event: KeyboardEvent, options: FocusOnOption) => void) => JSX.Element;
-};
+}
 
-export default class WithDynamicListGesture extends React.Component<WithDynamicListGestureProps> {
+export class WithDynamicListGesture extends React.Component<WithDynamicListGestureProps> {
 	myRef = React.createRef<HTMLDivElement>();
 
 	constructor(props: WithDynamicListGestureProps) {
