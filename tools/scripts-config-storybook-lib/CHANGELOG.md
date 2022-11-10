@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.2.1
+
+### Patch Changes
+
+- 0f05e9b1e: fix: add missing dependency on @storybook/preset-scss
+
 ## 2.2.0
 
 ### Minor Changes
