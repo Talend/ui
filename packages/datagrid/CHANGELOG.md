@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 13.0.4
+
+### Patch Changes
+
+- 457ef487d: fix(TDC-6571): DateCellRenderer is not used for date type
+
 ## 13.0.3
 
 ### Patch Changes

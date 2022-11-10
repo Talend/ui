@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.1.0
+
+### Minor Changes
+
+- 3815dabd3: feat(design-system): add Message component
+
 ## 7.0.2
 
 ### Patch Changes
