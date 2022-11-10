@@ -1,5 +1,5 @@
 ---
-'@talend/react-components': patch
+'@talend/react-components': major
 ---
 
 fix: put types in a /types folder
