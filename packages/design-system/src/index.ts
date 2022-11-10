@@ -40,6 +40,16 @@ import {
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
+import {
+	MessageSuccess,
+	MessageDestructive,
+	MessageInformation,
+	MessageWarning,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
+} from './components/Message';
 import Modal from './components/Modal';
 import Popover from './components/WIP/Popover';
 import Skeleton, {
@@ -119,6 +129,14 @@ export {
 	Link,
 	LinkAsButton,
 	Loading,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
+	MessageSuccess,
+	MessageDestructive,
+	MessageInformation,
+	MessageWarning,
 	Modal,
 	Popover,
 	SizedIcon,
