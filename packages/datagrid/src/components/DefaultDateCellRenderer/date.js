@@ -5,7 +5,7 @@ export function dateToString(value) {
 	}
 
 	try {
-		return new Date(value).toISOString();
+		return new Date(parseInt(value, 10)).toISOString();
 	} catch (e) {
 		return value;
 	}

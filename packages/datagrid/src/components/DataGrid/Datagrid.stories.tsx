@@ -75,14 +75,14 @@ Selection.play = async ({ canvasElement }) => {
 		}),
 	);
 	await sleep();
-	await userEvent.click(await canvas.findByText('voyageurs 2016'), {
+	await userEvent.click(await canvas.findByText('Planned date'), {
 		shiftKey: true,
 	});
 	await sleep();
 	await userEvent.click(await canvas.findByText('Segmentation'), {
 		ctrlKey: true,
 	});
-	await expect(canvas.getByText('voyageurs 2016').closest('.ag-header-cell')).toHaveClass(
+	await expect(canvas.getByText('Planned date').closest('.ag-header-cell')).toHaveClass(
 		SELECTED_CELL_CLASS_NAME,
 	);
 };
