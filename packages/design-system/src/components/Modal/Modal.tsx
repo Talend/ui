@@ -14,10 +14,10 @@ import styles from './Modal.module.scss';
 
 type IconProp = DeprecatedIconNames | ReactElement;
 
-function ModalIcon(props: { icon: IconProp; 'data-test'?: string }): ReactElement {
-	const { icon, 'data-test': dataTest } = props;
+function ModalIcon(props: { icon: IconProp; 'data-testid'?: string }): ReactElement {
+	const { icon, 'data-testid': dataTest } = props;
 	return (
-		<div className={styles['modal-icon']} data-test={dataTest}>
+		<div className={styles['modal-icon']} data-testid={dataTest}>
 			{typeof icon === 'string' ? <Icon name={icon} /> : icon}
 		</div>
 	);
@@ -83,30 +83,34 @@ function Modal(props: ModalPropsType): ReactElement {
 				</DialogDisclosure>
 			)}
 			{dialog.visible && (
-				<DialogBackdrop {...dialog} className={styles['modal-backdrop']} data-test="modal.backdrop">
+				<DialogBackdrop
+					{...dialog}
+					className={styles['modal-backdrop']}
+					data-testid="modal.backdrop"
+				>
 					<div className={styles['modal-container']}>
 						<Dialog
 							{...dialog}
 							{...rest}
-							data-test="modal"
+							data-testid="modal"
 							className={styles.modal}
 							hide={preventEscaping ? undefined : () => onCloseHandler()}
 							ref={ref}
 						>
 							<StackVertical gap={0}>
 								<div className={styles.modal__header}>
-									{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
+									{header.icon && <ModalIcon icon={header.icon} data-testid="modal.header.icon" />}
 									<div className={styles['modal-header-text']}>
 										<span
 											className={styles['modal-header-text__title']}
-											data-test="modal.header.title"
+											data-testid="modal.header.title"
 										>
 											{header.title}
 										</span>
 										{header.description && (
 											<span
 												className={styles['modal-header-text__description']}
-												data-test="modal.header.description"
+												data-testid="modal.header.description"
 											>
 												{header.description}
 											</span>
@@ -114,11 +118,11 @@ function Modal(props: ModalPropsType): ReactElement {
 									</div>
 								</div>
 
-								<div className={styles.modal__content} data-test="modal.content">
+								<div className={styles.modal__content} data-testid="modal.content">
 									{children}
 								</div>
 
-								<div className={styles.modal__buttons} data-test="modal.buttons">
+								<div className={styles.modal__buttons} data-testid="modal.buttons">
 									<StackHorizontal gap="XS" justify="end">
 										<span className={styles['close-button']}>
 											<ButtonSecondary

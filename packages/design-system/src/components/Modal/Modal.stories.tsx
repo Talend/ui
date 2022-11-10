@@ -14,20 +14,21 @@ function ModalStory(props: Partial<ModalPropsType>) {
 
 	return (
 		<>
-			<ButtonPrimary onClick={() => setModalOpen(true)} data-test="open-modal">
+			<ButtonPrimary onClick={() => setModalOpen(true)} data-testid="open-modal">
 				See
 			</ButtonPrimary>
 
 			{modalOpen && (
 				<Modal
 					header={{ title: '(Default story title)' }}
-					children="(Default story child)"
 					onClose={() => {
 						action('onClose');
 						setModalOpen(false);
 					}}
 					{...props}
-				/>
+				>
+					(Default story child)
+				</Modal>
 			)}
 		</>
 	);
@@ -146,7 +147,7 @@ export const WithDisclosure: ComponentStory<typeof Modal> = props => (
 		{...props}
 		header={{ title: 'With disclosure' }}
 		disclosure={
-			<ButtonPrimary data-test="modal-disclosure" onClick={() => {}}>
+			<ButtonPrimary data-testid="modal-disclosure" onClick={() => {}}>
 				Open the modal
 			</ButtonPrimary>
 		}
