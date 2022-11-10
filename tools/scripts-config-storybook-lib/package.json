@@ -25,6 +25,7 @@
     "@storybook/builder-webpack5": "^6.5.10",
     "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/preset-scss": "^6.5.10",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "@talend/dynamic-cdn-webpack-plugin": "^13.0.0",
