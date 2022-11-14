@@ -1,0 +1,51 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
+import { Form } from '@talend/design-system';
+
+import * as Stories from './Input.Datalist.stories';
+
+<Meta
+	title="Components/Form/Form Fields/Datalist"
+	component={Form.Datalist}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
+
+# Datalist
+
+`Form.Datalist` binds a set of options to an input you can fill with a custom value.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=252%3A0"
+	alt="zoning image for datalist"
+/>
+
+## Style
+
+## States
+
+<Canvas>
+	<Story story={Stories.Datalist} />
+</Canvas>
+
+## Content
+
+N/C
+
+## Interactions
+
+N/C
+
+## Code
+
+N/C
+
+## Accessibility
+
+The keyboard gestures are the default ones, such as:
+
+- Press arrows keys to display and navigate into the menu.
+- Press <kbd>ENTER</kbd> or <kbd>SPACE</kbd> to select the option.

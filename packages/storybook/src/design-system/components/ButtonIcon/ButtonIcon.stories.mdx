@@ -1,0 +1,150 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Links } from '~docs';
+import { ButtonIconPrimitive } from '@talend/design-system';
+import * as Stories from './ButtonIcon.stories';
+
+<Meta
+	title="Components/Clickable (Buttons)/ButtonIcon"
+	component={ButtonIconPrimitive}
+	parameters={{
+		figmaLink: 'https://www.figma.com/file/KuJ1PlP77uyXlfOhdniqsZ/ButtonIcon?node-id=1%3A75',
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
+
+# ButtonIcon
+
+This component should be used when icons are meant to be clicked on.
+
+It handles the two largest usecases we have for clickable icons: actions and toggles.
+
+- Always try use when an icon is meant to be clicked on.
+- Always provide developers with copy for the tooltip.
+- If the button holds the ON / OFF state of something, then use the Toggle variants.
+- If the button is floating on top of something else, use the Floating variant.
+- Only use size XS when absolutely unavoidable.
+- Spacing between buttons should be at least 4px (XXS), 8px is best (XS).
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=1049%3A415"
+	alt="zoning image for ButtonIcons"
+/>
+
+## Style
+
+### Variations
+
+<FigmaImage
+	src="https://www.figma.com/file/KuJ1PlP77uyXlfOhdniqsZ/ButtonIcon?node-id=3232%3A34023"
+	alt="variations image for ButtonIcon"
+/>
+
+<Canvas withSource="closed">
+	<Story story={Stories.Variations} name="Variations" />
+</Canvas>
+
+#### Default
+
+This is the go-to ButtonIcon for most generic actions.
+
+<Canvas>
+	<Story story={Stories.DefaultButtonIcon} name="ButtonIcon" />
+</Canvas>
+
+#### Toggle
+
+If the button needs to hold an active / inactive state, then it is a Toggle.
+
+Don’t use Toggles in series, opt for badge dropdowns instead.
+
+<Canvas>
+	<Story story={Stories.DefaultButtonIconToggle} name="ButtonIconToggle" />
+</Canvas>
+
+#### Floating
+
+This variant is only used when the button floats on top of content.
+
+It could be it's sitting on top of a line connecting two nodes, or sticky on top of a draggable scene for instance.
+
+<Canvas>
+	<Story story={Stories.DefaultButtonIconFloating} name="ButtonIconFloating" />
+</Canvas>
+
+## States
+
+ButtonIcons can display a "loading" state for asynchronous actions.
+
+### Loading
+
+Only use when necessary to avoid multiple clicks when the action is not instant.
+
+<Canvas>
+	<Story story={Stories.Loading} />
+</Canvas>
+
+### Skeleton
+
+Skeletons are placeholders for UIs that are not yet ready but will feature a ButtonIcon.
+
+The Loading state is for asynchronous tasks where the Button (and the button only) represents a pending state.
+
+Skeleton needs are handled by the Skeleton component. Use `SkeletonButtonIcon` or the right `variant` prop on `Skeleton`.
+
+<Canvas>
+	<Story story={Stories.ButtonIconSkeletons} />
+</Canvas>
+
+[The Skeleton Documentation is over there!](/docs/components-skeleton--skeleton-button-story)
+
+## Interaction
+
+All buttons have interactive states for "hover", "active" and "disabled". A focus ring should also be displayed on keyboard navigation.
+
+## Content
+
+All ButtonIcons carry a tooltip on hover. The content of that tooltip should be short ("do something") and effective.
+
+## Usage
+
+You have access to three components with curated props for each.
+
+### ButtonIcon
+
+<Canvas>
+	<Story story={Stories.Default} name="ButtonIcon usage" />
+</Canvas>
+
+<ArgsTable story="ButtonIcon usage" />
+
+### ButtonIconToggle
+
+<Canvas>
+	<Story story={Stories.Toggle} name="ButtonIconToggle usage" />
+</Canvas>
+
+<ArgsTable story="ButtonIconToggle usage" />
+
+### ButtonIconFloating
+
+<Canvas>
+	<Story story={Stories.Floating} name="ButtonIconFloating usage" />
+</Canvas>
+
+<ArgsTable story="ButtonIconFloating usage" />
+
+### Button props
+
+Of course all buttons can also use natural `<button>` attributes (but not `classNames` nor `style`).
+
+<Canvas>
+	<Story story={Stories.NaturalButtonProps} />
+</Canvas>
+
+## Accessibility
+
+In order to be semantically correct, `ButtonIconToggle`'s active state is dependent on the `aria-pressed` attribute being set to `true`.
+
+This attribute is transparent to consumers of the component and providing the mandatory `isActive` prop will actually assign the correct `aria-pressed` value.

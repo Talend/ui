@@ -1,0 +1,181 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+
+import { EmptyStatePrimitive } from '@talend/design-system';
+
+import * as Stories from './EmptyState.stories';
+
+<Meta
+	title="Components/EmptyState"
+	component={EmptyStatePrimitive}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'wip' },
+		figmaLink: 'https://www.figma.com/file/6XBBCBVOhyX6yTaNcZQiti/Empty-States',
+	}}
+/>
+
+# EmptyState
+
+They describe the “empty” screens in an application when a system does not have anything to show.
+
+Use empty states to communicate about the current state of the system or to tell users what they can do next to get started.
+
+## Zoning
+
+<FigmaImage src="" alt="zoning image for EmptyState" />
+
+## Style
+
+<FigmaImage
+	src="https://www.figma.com/file/6XBBCBVOhyX6yTaNcZQiti/Empty-States?node-id=87%3A4165"
+	alt="Three different styles of empty states"
+/>
+
+<Canvas withSource="closed">
+	<Story story={Stories.Demo} />
+</Canvas>
+
+### Purposes
+
+Two goals are identified:
+
+- **Informative empty states**: No data is shown yet because there are things to be done first, but with no direct action from the user.
+- **Actionable empty states**:
+  - No data is shown yet because there is an action the user must take first
+  - No data is shown because the system can't find any results, ex. filter or search results
+
+### Variations
+
+Empty states come in different sizes to accommodate to empty state types and page layout.
+
+#### EmptyStateLarge (with Spot illustration)
+
+<Canvas>
+	<Story story={Stories.Large} />
+</Canvas>
+
+**Content guidelines**
+
+Use large empty states when the empty content area on screen takes up at least 50% of the view.
+
+- Use a spot illustration which supports your empty state message
+- Include an informative title
+- Use body text to:
+  - (Informative empty states) tell users what will display here, with no direct actions from them
+  - (Actionable empty states) guide users towards taking the next step when there's an action they can take
+- (Only actionable empty states) Give a call-to-action (CTA) button when users can resolve the empty state
+- (Optional but preferred) Include a "Learn more" link to the documentation if the feature is documented
+
+#### EmptyStateMedium (with Icon illustration)
+
+<Canvas>
+	<Story story={Stories.MediumWithAction} />
+</Canvas>
+
+**Content guidelines**
+
+Use medium empty states when the empty content area on screen takes up less than 50% of the view.
+
+- Use an icon which supports your empty state message
+- Include an informative title
+- Use body text to:
+  - (Informative empty states) tell users what will display here, with no direct actions from them
+  - (Actionable empty states) guide users towards taking the next step when there's an action the user can take
+- (Only actionable empty states) Give a call-to-action (CTA) button when users can resolve the empty state
+- (Optional but preferred) Include a "Learn more" link to the documentation if the feature is documented
+
+#### EmptyStateSmall (with no Icon illustration)
+
+<Canvas>
+	<Story story={Stories.Small} />
+</Canvas>
+
+**Content guidelines**
+
+Use small empty states when the inline space is extremely limited.
+
+- Include text to tell user what to do when there's an action they can take. Use the body text guidelines.
+
+## States
+
+N/A
+
+## Content
+
+Use empty states to engage and educate users and let the product voice shine through illustrations and text.
+
+### Title
+
+Template: No `<name>` yet
+
+Example: No preparations yet
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Include an informative scannable title</li>
+			<li>Keep it short and concise</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don't use a period at the end of the title</li>
+			<li>Don't use phrases like “Oops!”</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+### Body
+
+**Direct action from users**
+
+Template: `<Do something>` to `<get something>`. CTA button (only large empty states). Learn more
+
+Example: Add a preparation to clean, format, and transform data prior to processing. Add preparation. Learn more.
+
+**No direct action from users**
+
+Template: `<This page lets you>` `<do something>`. Learn more.
+
+Example: This page lets you monitor the plans and tasks created from the Studio or Pipeline Designer. Learn more.
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Guide the user towards taking the next step</li>
+			<li>If there’s nothing for the user to do, tell them what they can explore here</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>Don't repeat content from the title</li>
+			<li>Don't write more than 2 sentences</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Interactions
+
+## Accessibility
+
+N/A
+
+## Usage
+
+### Components props
+
+<Canvas withSource="closed">
+	<Story story={Stories.Usage} name="Variant component" />
+</Canvas>
+
+<ArgsTable story="Variant component" />
+
+### Button as Link
+
+You may need your CTA to redirect to a page. The `action` props is tailored to mimic either `ButtonPrimary` or `ButtonPrimaryAsLink`.
+
+You can therefore easily set-up a button that's actually a link:
+
+<Canvas>
+	<Story story={Stories.LargeWithLinkButton} />
+</Canvas>

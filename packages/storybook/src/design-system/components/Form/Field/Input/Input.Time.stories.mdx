@@ -1,0 +1,44 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { FigmaImage } from '~docs';
+import { Form } from '@talend/design-system';
+
+import * as Stories from './Input.Time.stories';
+
+<Meta
+	title="Components/Form/Form Fields/Time"
+	component={Form.Time}
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+	}}
+/>
+
+# Time
+
+`Form.Time` fields are designed to let users input a time value (hours and minutes, and optionally seconds).
+
+It is a semantic field where the validation and display may be browser-specific.
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=245%3A219"
+	alt="zoning image for inputs"
+/>
+
+## Style
+
+## States
+
+<Canvas>
+	<Story story={Stories.Time} />
+</Canvas>
+
+## Interactions
+
+## Usage
+
+N/C
+
+## Accessibility
+
+N/C
