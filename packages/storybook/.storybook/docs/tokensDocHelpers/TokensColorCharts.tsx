@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ColorToken, Token, TokenType } from '../../../src/tokens/types';
 import { TokensProps } from './TokensTypes';
-import { StackVertical } from '../../../src';
+import { StackVertical } from '@talend/design-system';
 
 import ColorScale from './components/DefinitionList/ColorScale/ColorScale';
 import DefinitionListCharts from './components/DefinitionList/DefinitionListCharts';

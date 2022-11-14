@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from 'react';
 import TokenName from '../../TokenName';
 import { ColorToken } from '../../../../../src/tokens/types';
-import { StackHorizontal, StackVertical } from '../../../../../src';
+import { StackHorizontal, StackVertical } from '@talend/design-system';
 import CardComposition from '../Card/CardComposition';
 
 import styles from './CompositionListItem.module.scss';

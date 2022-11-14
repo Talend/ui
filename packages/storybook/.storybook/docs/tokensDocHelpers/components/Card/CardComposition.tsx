@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { SizedIcon } from '../../../../../src';
+import { SizedIcon } from '@talend/design-system';
 import { ColorToken, GradientToken } from '../../../../../src/tokens/types';
 import ColorChecker from '../../ColorChecker';
 

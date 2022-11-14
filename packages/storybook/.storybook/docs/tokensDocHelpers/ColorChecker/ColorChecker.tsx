@@ -3,7 +3,7 @@ import React from 'react';
 // @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ColorContrastChecker from 'color-contrast-checker';
-import { Tag } from '../../../../src';
+import { Tag } from '@talend/design-system';
 
 import { ColorToken, GradientToken } from '../../../../src/tokens/types';
 

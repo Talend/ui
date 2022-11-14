@@ -4,7 +4,7 @@ import { useOverflow } from 'use-overflow';
 
 import { ColorToken, Token } from '../../../../../../src/tokens/types';
 import { getScssName } from '../../../TokenFormatter';
-import { SizedIcon, Tooltip } from '../../../../../../src';
+import { SizedIcon, Tooltip } from '@talend/design-system';
 
 import styles from './BreakpointScale.module.scss';
 import useCopyValue from '../DefinitionListItem/useCopyValue';

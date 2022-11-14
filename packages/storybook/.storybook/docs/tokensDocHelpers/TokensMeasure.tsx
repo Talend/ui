@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Token, TokenType } from '../../../src/tokens/types';
 import { TokensProps } from './TokensTypes';
-import { StackVertical, TabsKit } from '../../../src';
+import { StackVertical, TabsKit } from '@talend/design-system';
 import DefinitionListSpacing from './components/DefinitionList/DefinitionListSpacing';
 import SizingScale from './components/DefinitionList/SizingScale/SizingScale';
 import DefinitionListSizing from './components/DefinitionList/DefinitionListSizing';

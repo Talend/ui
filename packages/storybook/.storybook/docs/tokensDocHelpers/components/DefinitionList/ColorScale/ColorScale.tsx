@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { ColorToken, Token } from '../../../../../../src/tokens/types';
 import { getScssName } from '../../../TokenFormatter';
-import { SizedIcon, Tooltip } from '../../../../../../src';
+import { SizedIcon, Tooltip } from '@talend/design-system';
 
 import styles from './ColorScale.module.scss';
 import useCopyValue from '../DefinitionListItem/useCopyValue';

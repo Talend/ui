@@ -4,7 +4,7 @@ import { Token } from '../../../../../../src/tokens/types';
 import styles from './SizingScale.module.scss';
 import { getScssName } from '../../../TokenFormatter';
 import classnames from 'classnames';
-import { SizedIcon, Tooltip } from '../../../../../../src';
+import { SizedIcon, Tooltip } from '@talend/design-system';
 import useCopyValue from '../DefinitionListItem/useCopyValue';
 
 function SizeBlock({ token }: { token: Token }) {

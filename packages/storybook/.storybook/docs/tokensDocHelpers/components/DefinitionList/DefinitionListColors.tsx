@@ -4,7 +4,7 @@ import { Token } from '../../../../../src/tokens/types';
 import { TokensProps } from '../../TokensTypes';
 import DefinitionListItemColor from './DefinitionListItem/DefinitionListItemColor';
 import { TabsKit as Tabs } from '../../../../../src/components/WIP/Tabs';
-import { StackVertical } from '../../../../../src';
+import { StackVertical } from '@talend/design-system';
 
 const TokensDefinitionList = ({ tokens }: TokensProps) => {
 	const filteredTokens = {

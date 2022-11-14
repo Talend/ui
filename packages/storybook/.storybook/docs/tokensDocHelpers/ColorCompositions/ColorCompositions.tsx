@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react';
 
-import { StackVertical, TabsKit } from '../../../../src';
+import { StackVertical, TabsKit } from '@talend/design-system';
 import { ColorToken, Token, TokenType } from '../../../../src/tokens/types';
 import { TokensProps } from '../TokensTypes';
 
