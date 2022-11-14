@@ -1,3 +1,4 @@
+import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
 	ButtonDestructive,
@@ -91,6 +92,7 @@ export {
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
+	Breadcrumbs,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,

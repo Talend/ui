@@ -3,6 +3,8 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const groupBy = require('./mdx/groupBy');
 
+const rootPath = require.resolve('@talend/ui-storybook').replace('src/index.js', '');
+
 module.exports = {
 	features: {
 		buildStoriesJson: true,
@@ -23,7 +25,7 @@ module.exports = {
 		// '../src/content/docs/Conventions.stories.@(js|tsx|mdx)',
 		// '../src/content/docs/Capitalization.stories.@(js|tsx|mdx)',
 		// '../src/content/docs/Wording.stories.@(js|tsx|mdx)',
-		'../src/**/*.stories.mdx',
+		`${rootPath}src/**/*.stories.mdx`,
 	],
 	staticDirs: ['../static'],
 	addons: [
