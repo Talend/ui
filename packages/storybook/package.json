@@ -17,6 +17,7 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "dependencies": {
+    "@talend/design-tokens": "^2.7.1",
     "@talend/design-system": "^7.1.0"
   },
   "devDependencies": {
