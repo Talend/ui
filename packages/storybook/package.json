@@ -1,0 +1,44 @@
+{
+  "name": "@talend/ui-storybook",
+  "version": "1.0.0",
+  "description": "Package containing all stories from talend/ui repository",
+  "homepage": "https://github.com/Talend/ui#readme",
+  "main": "src/index.js",
+  "scripts": {
+    "test:demo": "talend-scripts storybook-build",
+    "start": "talend-scripts start-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talend/ui.git"
+  },
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "dependencies": {
+    "@talend/design-system": "^7.1.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.5.9",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/addons": "^6.5.9",
+    "@storybook/core-events": "^6.5.9",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "@storybook/testing-react": "^1.3.0",
+    "@storybook/theming": "^6.5.9",
+    "@talend/scripts-core": "^12.0.0",
+    "@talend/scripts-preset-react-lib": "^14.0.0",
+    "@types/react": "^17.0.47",
+    "react": "^17.0.2",
+    "react-router-dom": "~6.3.0",
+    "storybook-addon-mdx-embed": "^1.0.0",
+    "storybook-docs-toc": "^1.7.0"
+  },
+  "private": true
+}
