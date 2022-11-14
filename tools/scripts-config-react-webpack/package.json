@@ -37,6 +37,7 @@
     "html-webpack-plugin": "^5.5.0",
     "inspectpack": "^4.7.1",
     "mini-css-extract-plugin": "^2.6.1",
+    "postcss": "^8.4.19",
     "postcss-loader": "^7.0.1",
     "postcss-safe-parser": "^6.0.0",
     "regenerator-runtime": "^0.13.9",
