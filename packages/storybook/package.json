@@ -5,7 +5,7 @@
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.js",
   "scripts": {
-    "test:demo": "talend-scripts storybook-build",
+    "test:demo": "talend-scripts build-storybook",
     "start": "talend-scripts start-storybook"
   },
   "repository": {

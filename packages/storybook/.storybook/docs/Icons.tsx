@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import { IconGallery, IconItem } from '@storybook/components';
 
-import { Form, Icon, IconsProvider, ThemeProvider } from '../../src';
+import { Form, Icon, IconsProvider, ThemeProvider } from '@talend/design-system';
 
 export const Icons = () => {
 	const [icons, setIds] = React.useState<(string | null)[]>([]);

@@ -2,7 +2,7 @@ import React, { HTMLAttributes, ReactElement } from 'react';
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 
-import { SizedIcon } from '../../src';
+import { SizedIcon } from '@talend/design-system';
 import Grid from './Grid';
 
 import styles from './Use.module.scss';

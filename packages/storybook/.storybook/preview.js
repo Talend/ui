@@ -18,9 +18,9 @@ import 'focus-outline-manager';
 import i18n from './i18n';
 
 import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
-import { Divider, Form, IconsProvider, StackVertical, ThemeProvider } from '../src';
+import { Divider, Form, IconsProvider, StackVertical, ThemeProvider } from '@talend/design-system';
 
-import { dark, light } from '../src/themes';
+import { dark, light } from '@talend/design-system';
 
 const TokenOrder = [
 	'Colors',
