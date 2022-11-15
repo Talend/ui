@@ -5,7 +5,7 @@
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
   "scripts": {
-    "test:demo": "talend-scripts build-storybook",
+    "test:demo": "talend-scripts build-storybook --docs && node ./scripts/sitemap.js",
     "start": "cross-env BROWSER=none talend-scripts start-storybook -p 6006"
   },
   "repository": {
@@ -36,6 +36,7 @@
     "@talend/scripts-core": "^12.0.0",
     "@talend/scripts-preset-react-lib": "^14.0.0",
     "@types/react": "^17.0.47",
+    "mdx-embed": "^1.1.2",
     "react": "^17.0.2",
     "react-router-dom": "~6.3.0",
     "storybook-addon-mdx-embed": "^1.0.0",

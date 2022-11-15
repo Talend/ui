@@ -3,7 +3,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const groupBy = require('./mdx/groupBy');
 
-const rootPath = require.resolve('@talend/ui-storybook').replace('src/index.js', '');
+const rootPath = require.resolve('@talend/ui-storybook').replace('src/index.ts', '');
 
 module.exports = {
 	features: {
@@ -25,9 +25,9 @@ module.exports = {
 		// '../src/content/docs/Conventions.stories.@(js|tsx|mdx)',
 		// '../src/content/docs/Capitalization.stories.@(js|tsx|mdx)',
 		// '../src/content/docs/Wording.stories.@(js|tsx|mdx)',
-		`${rootPath}src/**/*.stories.mdx`,
+		// `${rootPath}src/**/*.stories.mdx`,
 	],
-	staticDirs: ['../static'],
+	staticDirs: [`${rootPath}static`],
 	addons: [
 		// '@storybook/addon-a11y',
 		// '@storybook/addon-essentials',
@@ -55,26 +55,26 @@ module.exports = {
 		},
 	},
 	webpackFinal: async config => {
-		config.plugins.push(
-			new BrowserSyncPlugin({
-				host: 'localhost',
-				port: 3002,
-				proxy: 'http://localhost:6006/',
-				notify: false,
-				codeSync: false,
-			}),
-		);
-		config.module.rules.map(rule => {
-			if (rule.use?.some(use => use.loader?.includes('@mdx-js'))) {
-				return rule.use.map(use => {
-					if (use.options?.remarkPlugins) {
-						use.options.remarkPlugins.push(groupBy);
-					}
-					return use;
-				});
-			}
-			return rule;
-		});
+		// config.plugins.push(
+		// 	new BrowserSyncPlugin({
+		// 		host: 'localhost',
+		// 		port: 3002,
+		// 		proxy: 'http://localhost:6006/',
+		// 		notify: false,
+		// 		codeSync: false,
+		// 	}),
+		// );
+		// config.module.rules.map(rule => {
+		// 	if (rule.use?.some(use => use.loader?.includes('@mdx-js'))) {
+		// 		return rule.use.map(use => {
+		// 			if (use.options?.remarkPlugins) {
+		// 				use.options.remarkPlugins.push(groupBy);
+		// 			}
+		// 			return use;
+		// 		});
+		// 	}
+		// 	return rule;
+		// });
 		const existingAlias = config.resolve.alias || {};
 		config.resolve.alias = {
 			...existingAlias,
