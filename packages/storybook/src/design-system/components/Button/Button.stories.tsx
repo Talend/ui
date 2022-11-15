@@ -2,7 +2,22 @@ import React from 'react';
 import { ComponentStory, Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { AvailableSizes, BaseButtonProps, ButtonPrimary, ButtonSecondary, ButtonDestructive, ButtonTertiary, Button, Skeleton, StackHorizontal, StackVertical, Tooltip } from '@talend/design-system';
+import {
+	ButtonPrimary,
+	ButtonSecondary,
+	ButtonDestructive,
+	ButtonTertiary,
+	Button,
+	Skeleton,
+	StackHorizontal,
+	StackVertical,
+	Tooltip,
+} from '@talend/design-system';
+
+import {
+	BaseButtonProps,
+	AvailableSizes,
+} from '@talend/design-system/lib/components/Button/Primitive/ButtonPrimitive';
 
 const commonArgTypes = {
 	children: {

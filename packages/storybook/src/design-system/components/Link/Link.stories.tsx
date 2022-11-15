@@ -3,7 +3,8 @@ import { Story } from '@storybook/react';
 import { WithSelector } from '~docs';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
 
-import { Link, LinkProps } from '@talend/design-system';
+import { Link } from '@talend/design-system';
+import { LinkProps } from '@talend/design-system/lib/components/Link';
 
 export default {
 	component: Link,

@@ -8,10 +8,11 @@ import {
 	SkeletonHeading,
 	SkeletonInput,
 	SkeletonParagraph,
-	SkeletonPrimitive,
 	StackHorizontal,
-	StackVertical
+	StackVertical,
 } from '@talend/design-system';
+
+import SkeletonPrimitive from '@talend/design-system/lib/components/Skeleton/Primitive/Skeleton.Primitive';
 
 export default {
 	component: SkeletonPrimitive,

@@ -2,10 +2,26 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { ComponentStory } from '@storybook/react';
 
-import { MessageCollectionDestructive, MessageCollectionInformation, MessageCollectionSuccess, MessageCollectionWarning, MessageDestructive, MessageInformation, MessagePrimitive, MessageSuccess, MessageWarning, StackHorizontal, TagBeta, TagDefault, TagDestructive, TagSuccess, TagWarning } from '@talend/design-system';
+import {
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionSuccess,
+	MessageCollectionWarning,
+	MessageDestructive,
+	MessageInformation,
+	MessageSuccess,
+	MessageWarning,
+	StackHorizontal,
+	TagBeta,
+	TagDefault,
+	TagDestructive,
+	TagSuccess,
+	TagWarning,
+} from '@talend/design-system';
+
+import { MessagePrimitive } from '@talend/design-system/lib/components/Message/Primitive/MessagePrimitive';
 
 export default { component: MessagePrimitive };
-
 export const DefaultMessageDemo = () => (
 	<StackHorizontal gap="M">
 		<MessageSuccess

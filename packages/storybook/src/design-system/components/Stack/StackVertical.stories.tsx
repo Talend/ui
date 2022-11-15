@@ -2,7 +2,20 @@ import React from 'react';
 import tokens from '@talend/design-tokens';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ButtonPrimary, Divider, StackHorizontal, StackVertical, StackItem, alignOptions, overflowOptions, possibleAsTypes } from '@talend/design-system';
+import {
+	ButtonPrimary,
+	Divider,
+	StackHorizontal,
+	StackVertical,
+	StackItem,
+} from '@talend/design-system';
+
+import {
+	alignOptions,
+	possibleAsTypes,
+} from '@talend/design-system/lib/components/Stack/Primitive/StackPrimitive';
+
+import { overflowOptions } from '@talend/design-system/lib/components/Stack/StackItem';
 
 import { manualStackArgs } from './StackHorizontal.stories';
 
