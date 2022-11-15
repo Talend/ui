@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { StackHorizontal, StackVertical } from '../components/Stack';
+import {
+	EmptyStateLarge,
+	InlineMessageInformation,
+	ButtonIconFloating,
+	StackHorizontal,
+	StackVertical,
+} from '@talend/design-system';
 
 import styles from './ThemeWithTokens.module.scss';
-import ButtonIconFloating from '../components/ButtonIcon/variations/ButtonIconFloating';
-import { InlineMessageInformation } from '../components/InlineMessage';
-import { EmptyStateLarge } from '../components/EmptyState';
 
 export default function ThemeWithTokens() {
 	const [isDark, setDark] = useState(false);

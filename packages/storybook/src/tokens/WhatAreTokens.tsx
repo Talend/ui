@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackHorizontal, StackVertical } from '../components/Stack';
+import { StackHorizontal, StackVertical } from '@talend/design-system';
 import TokenDefinition from './Tokens-definition.png';
 
 export default function WhatAreTokens() {

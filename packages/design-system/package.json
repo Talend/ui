@@ -9,11 +9,8 @@
     "build:lib:umd": "talend-scripts build:lib:umd --dev",
     "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
     "pre-release": "npm run build:lib:umd && npm run build:lib:umd:min",
-    "start": "npm run storybook",
     "test": "echo Tests are managed by Cypress using yarn test:cy",
     "test:cy": "cypress run-ct",
-    "storybook": "cross-env BROWSER=none npm run build:lib && start-storybook -p 6006",
-    "build-storybook": "build-storybook --docs && node ./scripts/sitemap.js",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint:es": "talend-scripts lint:es"
   },
