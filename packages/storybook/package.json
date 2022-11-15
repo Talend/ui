@@ -6,7 +6,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test:demo": "talend-scripts build-storybook --docs && node ./scripts/sitemap.js",
-    "start": "cross-env BROWSER=none talend-scripts start-storybook -p 6006"
+    "start": "cross-env BROWSER=none talend-scripts start-storybook -p 6006 --docs"
   },
   "repository": {
     "type": "git",
