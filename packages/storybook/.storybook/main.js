@@ -5,44 +5,26 @@ const groupBy = require('./mdx/groupBy');
 
 const rootPath = require.resolve('@talend/ui-storybook').replace('src/index.ts', '');
 
+const STORIES = [
+	`${rootPath}src/Welcome.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/GettingStarted.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/DesignSystem.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/Status.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/Catalog.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/tokens/**/*.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/content/docs/VoiceAndTone.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/content/docs/Internationalization.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/content/docs/Conventions.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/content/docs/Capitalization.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/content/docs/Wording.stories.@(js|tsx|mdx)`,
+	`${rootPath}src/atoms/**/*.stories.mdx`,
+];
+
 module.exports = {
-	features: {
-		buildStoriesJson: true,
-		modernInlineRender: true,
-		previewCsfV3: true,
-		// storyStoreV7: true, // will break all work related to aggregated status in the next major version of Storybook
-	},
 	framework: '@storybook/react',
-	stories: [
-		// '../src/Welcome.stories.@(js|tsx|mdx)',
-		// '../src/GettingStarted.stories.@(js|tsx|mdx)',
-		// '../src/DesignSystem.stories.@(js|tsx|mdx)',
-		// '../src/Status.stories.@(js|tsx|mdx)',
-		// '../src/Catalog.stories.@(js|tsx|mdx)',
-		// '../src/tokens/**/*.stories.@(js|tsx|mdx)',
-		// '../src/content/docs/VoiceAndTone.stories.@(js|tsx|mdx)',
-		// '../src/content/docs/Internationalization.stories.@(js|tsx|mdx)',
-		// '../src/content/docs/Conventions.stories.@(js|tsx|mdx)',
-		// '../src/content/docs/Capitalization.stories.@(js|tsx|mdx)',
-		// '../src/content/docs/Wording.stories.@(js|tsx|mdx)',
-		// `${rootPath}src/**/*.stories.mdx`,
-	],
+	stories: STORIES,
 	staticDirs: [`${rootPath}static`],
-	addons: [
-		// '@storybook/addon-a11y',
-		// '@storybook/addon-essentials',
-		// '@storybook/addon-links',
-		// '@storybook/addon-interactions',
-		// {
-		// 	name: '@storybook/preset-scss',
-		// 	options: {
-		// 		cssLoaderOptions: {
-		// 			modules: true,
-		// 		},
-		// 	},
-		// },
-		'storybook-addon-mdx-embed',
-	],
+	addons: ['storybook-addon-mdx-embed'],
 	typescript: {
 		reactDocgen: false,
 		check: true,

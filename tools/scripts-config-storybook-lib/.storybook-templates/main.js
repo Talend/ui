@@ -78,7 +78,7 @@ function fixWindowsPath(paths){
 module.exports = {
 	...defaultMain,
 	features: merge(defaultMain.features, userMain.features),
-	stories: fixWindowsPath([...defaultMain.stories, ...(userMain.stories || [])]),
+	stories: fixWindowsPath([...(userMain.stories || defaultMain.stories)]),
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
 	staticDirs: fixWindowsPath([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),

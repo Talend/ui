@@ -144,12 +144,7 @@ export const parameters = {
 					.join('/')
 					.replace('/docs', '');
 
-			const isDesignSystemElementPage = [
-				'components/',
-				'templates/',
-				'pages/',
-				'[wip] components/',
-			].find(term => {
+			const isDesignSystemElementPage = ['design system'].find(term => {
 				return title?.toLocaleLowerCase().startsWith(term);
 			});
 
@@ -264,9 +259,10 @@ export const parameters = {
 				'Welcome',
 				'Getting Started',
 				'Component catalog',
-				'Themes',
 				'Content',
-				'Components',
+				'Design Tokens',
+				['About tokens', 'Light', TokenOrder, 'Dark', TokenOrder],
+				'Design System',
 				[
 					'Accordion',
 					'Breadcrumbs',
@@ -305,11 +301,6 @@ export const parameters = {
 					'Stepper',
 					['Stepper', 'Step'],
 				],
-				'Design Tokens',
-				['About tokens', 'Light', TokenOrder, 'Dark', TokenOrder],
-				'[WIP] Components',
-				'[WIP] Templates',
-				'[Deprecated] Design Tokens',
 			],
 		} /**/,
 	},
