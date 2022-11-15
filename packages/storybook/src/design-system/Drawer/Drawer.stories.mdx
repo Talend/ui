@@ -1,15 +1,12 @@
 import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaIframe } from '~docs';
 
-import { FloatingDrawer } from '../index';
+import { FloatingDrawer, StackVertical, InlineMessageWarning } from '@talend/design-system';
 
-import * as Stories from '../variants/FloatingDrawer/FloatingDrawer.stories';
-
-import { StackVertical } from '../../../Stack';
-import { InlineMessageWarning } from '../../../InlineMessage';
+import * as Stories from './FloatingDrawer.stories';
 
 <Meta
-	title="[WIP] Components/Drawer"
+	title="Design System/Drawer"
 	component={FloatingDrawer}
 	parameters={{
 		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
