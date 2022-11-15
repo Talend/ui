@@ -17,7 +17,7 @@ const STORIES = [
 	`${rootPath}src/content/docs/Conventions.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Capitalization.stories.@(js|tsx|mdx)`,
 	`${rootPath}src/content/docs/Wording.stories.@(js|tsx|mdx)`,
-	`${rootPath}src/atoms/**/*.stories.mdx`,
+	`${rootPath}src/design-system/**/*.stories.mdx`,
 ];
 
 module.exports = {
