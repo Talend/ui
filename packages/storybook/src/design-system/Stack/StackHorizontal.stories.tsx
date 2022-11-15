@@ -2,6 +2,8 @@ import React from 'react';
 import tokens from '@talend/design-tokens';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { StackHorizontal } from '@talend/design-system';
+
 import {
 	alignContentOptions,
 	alignOptions,
@@ -10,8 +12,7 @@ import {
 	possibleAsTypes,
 	sizeOptions,
 	sizeOptionsWithAuto,
-	StackHorizontal
-} from '@talend/design-system';
+} from '@talend/design-system/lib/components/Stack/Primitive/StackPrimitive';
 
 export default {
 	component: StackHorizontal,

@@ -1,7 +1,15 @@
 import React from 'react';
 import { action as sbAction } from '@storybook/addon-actions';
 import { BrowserRouter, Link } from 'react-router-dom';
-import { EmptyState, EmptyStateProps, EmptyStateLarge, EmptyStateMedium, EmptyStateSmall, StackHorizontal } from '@talend/design-system';
+import {
+	EmptyState,
+	EmptyStateLarge,
+	EmptyStateMedium,
+	EmptyStateSmall,
+	StackHorizontal,
+} from '@talend/design-system';
+
+import { EmptyStateProps } from '@talend/design-system/lib/components/EmptyState';
 
 export default {
 	component: EmptyStateLarge,
