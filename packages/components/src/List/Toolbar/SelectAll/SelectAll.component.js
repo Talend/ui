@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import getDefaultT from '../../../translate';
-import theme from './SelectAll.scss';
+import theme from './SelectAll.module.scss';
 
 function SelectAll({ id, items, isSelected, onToggleAll, t }) {
 	const isAllSelected = () => items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;

@@ -1,5 +1,17 @@
 # @talend/scripts-config-typescript
 
+## 11.0.0
+
+### Major Changes
+
+- second bump
+
+## 10.0.0
+
+### Major Changes
+
+- fix: double bump to escape from old 10.x release
+
 ## 9.11.2
 
 ### Patch Changes

@@ -1,5 +1,74 @@
 # @talend/scripts-config-react-webpack
 
+## 15.1.1
+
+### Patch Changes
+
+- 635da2241: fix(TDOPS-2998): Replace globalObject value to self
+
+## 15.1.0
+
+### Minor Changes
+
+- 8376814d2: feat: add circular deps plugin
+
+## 15.0.0
+
+### Major Changes
+
+- 0260a77b8: fix: No more implicit sass data injected in scss files
+
+  This is BREAKING CHANGE:
+
+  ```diff
+  +++@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+  ```
+
+  You have to
+
+  - use `addSassData.js` from https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
+  - rewrite your sass using @talend/design-tokens on the long and remove this bootstrap-theme guidelines from all your scss
+
+- f4db1eeb1: feat: apply css module on module with filename .module.[scss,css]
+
+  BREAKING CHANGE: In the context of talend package you now have to rename your file using the pattern `.module.scss`. A script has been built at this occasion for you on gist: https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
+
+## 14.0.0
+
+### Major Changes
+
+- e22e3c952: fix(talend-scripts): update common webpack config for ng config compatibility and bump to postcss v8
+
+  Breaking: html-loader has been removed and its webpack config too which means no automatic support of html import in webapp
+
+## 13.3.4
+
+### Patch Changes
+
+- eff548cdb: fix(scripts/sentry): fix inconsistent sentry release version
+
+## 13.3.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @talend/scripts-config-babel@11.0.0
+
+## 13.3.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @talend/scripts-config-babel@10.0.0
+
+## 13.3.1
+
+### Patch Changes
+
+- 547b11df4: fix: css generated in build:lib:umd are not with a dot min in name
+- Updated dependencies [a99154a7d]
+  - @talend/scripts-config-cdn@10.5.4
+
 ## 13.3.0
 
 ### Minor Changes

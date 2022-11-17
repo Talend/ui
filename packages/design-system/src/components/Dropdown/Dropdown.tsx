@@ -31,7 +31,7 @@ type DropdownDividerType = {
 	type: 'divider';
 };
 
-type DropdownPropsType = {
+export type DropdownPropsType = {
 	children: ReactElement<typeof Clickable>;
 	items: (DropdownButtonType | DropdownLinkType | DropdownLabelType | DropdownDividerType)[];
 	'aria-label': string;

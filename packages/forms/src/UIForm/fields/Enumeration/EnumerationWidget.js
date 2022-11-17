@@ -49,7 +49,10 @@ class EnumerationForm extends React.Component {
 		return ITEMS_DEFAULT_HEIGHT;
 	}
 
-	static parseStringValueToArray(values) {
+	static parseStringValueToArray(values, disableSplit) {
+		if (disableSplit) {
+			return [values];
+		}
 		return values.split(',').map(value => value.trim());
 	}
 
@@ -259,6 +262,10 @@ class EnumerationForm extends React.Component {
 		}
 	}
 
+	getDisableSplit() {
+		return this.props.schema?.disableSplit || false;
+	}
+
 	onBlur(event) {
 		const { schema, onFinish } = this.props;
 		onFinish(event, { schema });
@@ -432,7 +439,10 @@ class EnumerationForm extends React.Component {
 					actionsEdit: this.loadingInputsActions,
 				},
 			}));
-			const formattedValue = EnumerationForm.parseStringValueToArray(value.value);
+			const formattedValue = EnumerationForm.parseStringValueToArray(
+				value.value,
+				this.getDisableSplit(),
+			);
 			this.props
 				.onTrigger(event, {
 					trigger: {
@@ -467,9 +477,10 @@ class EnumerationForm extends React.Component {
 			}
 			item.displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			const valueExist = this.valueAlreadyExist(value.value, this.state);
+
 			// if the value is empty, no value update is done
 			if (value.value && !valueExist) {
-				item.values = EnumerationForm.parseStringValueToArray(value.value);
+				item.values = EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit());
 			}
 			if (valueExist) {
 				item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
@@ -698,10 +709,11 @@ class EnumerationForm extends React.Component {
 			this.setState({
 				headerInput: this.loadingInputsActions,
 			});
+
 			this.props
 				.onTrigger(event, {
 					trigger: {
-						value: EnumerationForm.parseStringValueToArray(value.value),
+						value: EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit()),
 						action: ENUMERATION_ADD_ACTION,
 					},
 					schema,
@@ -725,7 +737,7 @@ class EnumerationForm extends React.Component {
 				schema,
 				value: this.state.items.concat([
 					{
-						values: EnumerationForm.parseStringValueToArray(value.value),
+						values: EnumerationForm.parseStringValueToArray(value.value, this.getDisableSplit()),
 					},
 				]),
 			};

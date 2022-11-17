@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import Icon from '../../../Icon';
-import theme from './TreeBranchIcon.scss';
+import theme from './TreeBranchIcon.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 
@@ -75,7 +75,6 @@ export class TreeBranchIcon extends React.PureComponent {
 					className={iconClassNames}
 					key="Icon"
 					name={icon.name}
-					onClick={this.onClick}
 					title={`${title} ${dataKey} (${jsonpath})`}
 				/>
 			</span>

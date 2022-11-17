@@ -4,7 +4,9 @@ exports[`AppSwitcher should render the products 1`] = `
 <li role="presentation"
     class="tc-app-switcher-action theme-tc-app-switcher-action"
 >
-  <span role="heading">
+  <span role="heading"
+        aria-level="1"
+  >
     <div class="dropdown btn-group btn-group-link">
       <button aria-label="Switch to another application. Current application: My App"
               id="brand"

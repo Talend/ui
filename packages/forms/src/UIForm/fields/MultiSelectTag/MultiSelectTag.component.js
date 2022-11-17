@@ -8,7 +8,7 @@ import FocusManager from '@talend/react-components/lib/FocusManager';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-import theme from './MultiSelectTag.scss';
+import theme from './MultiSelectTag.module.scss';
 import callTrigger from '../../trigger';
 
 function escapeRegexCharacters(str) {

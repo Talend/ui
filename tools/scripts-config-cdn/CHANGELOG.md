@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.5.4
+
+### Patch Changes
+
+- a99154a7d: fix: use min.css in cdn config
+
 ## 10.5.3
 
 ### Patch Changes

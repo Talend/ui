@@ -10,12 +10,13 @@ import HeaderCellRenderer, { HeaderRendererProps } from './HeaderCellRenderer.co
 
 const defaultArgs = {
 	displayName: 'My column',
+	type: 'string',
 	typeLabel: 'My type',
 	semanticTypeLabel: 'Semantic type',
 	quality: {
-		[-1]: 10,
-		0: 0,
-		1: 38,
+		invalid: 10,
+		empty: 0,
+		valid: 38,
 	},
 };
 const longContent = {
@@ -31,13 +32,14 @@ const menu = {
 	onClick: action('onMenuClick'),
 	children: 'My menu label',
 };
+const withDqRule = {
+	...defaultArgs,
+	nbAppliedDqRules: 2,
+};
 
 export default {
 	component: HeaderCellRenderer,
 	title: 'Components/HeaderCellRenderer',
-	parameters: {
-		chromatic: { disableSnapshot: false },
-	},
 	args: { ...defaultArgs },
 };
 
@@ -45,8 +47,6 @@ const Template = (props: HeaderComponentParams) => (
 	<div style={{ border: '1px solid var(--coral-color-neutral-border-weak)', width: 150 }}>
 		<HeaderCellRenderer
 			{...(props as HeaderRendererProps)}
-			onFocusedColumn={action('onFocusedColumn')}
-			onKeyDown={action('onKeyDown')}
 			column={
 				{
 					getColId: () => 'colId',
@@ -107,15 +107,17 @@ export const All = () => (
 				{[undefined, 'My description'].map(description => (
 					<StackHorizontal gap="S" key={description}>
 						<b style={{ width: 100 }}>{description ? 'With' : 'Without'} description</b>
-						{[defaultArgs, longContent, withoutQuality].map(props => (
-							<Template key={null} {...props} menuProps={menuProps} />
+						{[defaultArgs, longContent, withDqRule, withoutQuality].map(props => (
+							<Template key={null} {...props} menuProps={menuProps} description={description} />
 						))}
 					</StackHorizontal>
 				))}
+
 				<StackHorizontal gap="S">
 					<b style={{ width: 100 }}>Loading (from TDC/no specs)</b>
 					<Template {...defaultArgs} isLoading menuProps={menuProps} />
 				</StackHorizontal>
+
 				<StackHorizontal gap="S">
 					<b style={{ width: 100 }}>Semantic type draft (from TDC/no specs)</b>
 					<Template {...defaultArgs} draftType="Draft type" menuProps={menuProps} />

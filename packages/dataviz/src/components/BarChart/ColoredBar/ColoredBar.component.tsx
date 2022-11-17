@@ -3,7 +3,7 @@ import { Customized, Rectangle, RectangleProps } from 'recharts';
 import { FormatValue } from '@talend/react-components';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import styles from './ColoredBar.component.scss';
+import styles from './ColoredBar.component.module.scss';
 import { ChartStyle } from '../../../types';
 
 type BarRenderProps = RectangleProps & {
@@ -72,7 +72,6 @@ function ColoredBarLabel({ focusedBarIndex, payload, chartStyle, ...props }: Col
 							styles['colored-bar__label'],
 						)}
 						value={payload?.value || t('EMPTY', 'Empty')}
-						t={t}
 					/>
 				</foreignObject>
 			)}

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Action, getTheme, Rich, DatePicker } from '@talend/react-components';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
-import cssModule from './BadgeDate.scss';
+import cssModule from './BadgeDate.module.scss';
 
 const theme = getTheme(cssModule);
 
@@ -25,10 +25,7 @@ const BadgeDateForm = ({ id, onChange, onSubmit, value, feature, t, dateFormat }
 					}}
 				>
 					<div className={theme('tc-badge-date-form-input-container')}>
-						<label
-							className={theme('tc-badge-date-form-label')}
-							htmlFor={`${id}-date-input`}
-						>
+						<label className={theme('tc-badge-date-form-label')} htmlFor={`${id}-date-input`}>
 							{t('SELECT_A_DATE', 'Select a date')}
 						</label>
 						<DatePicker.Input

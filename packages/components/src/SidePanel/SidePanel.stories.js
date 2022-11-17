@@ -1,9 +1,10 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import assetsApi from '@talend/assets-api';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
-import appStyle from '../../stories/config/themes.scss';
+import appStyle from '../../stories/config/themes.module.scss';
 
 const actions = [
 	{
@@ -120,6 +121,31 @@ export const Controlled = () => (
 		onToggleDock={action('onToggleDock')}
 		tooltipPlacement="top"
 	/>
+);
+
+export const WithBackGroundIcon = () => (
+	<Layout
+		mode="TwoColumns"
+		one={
+			<SidePanel
+				id="context"
+				actions={actions}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				tooltipPlacement="top"
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			/>
+		}
+	>
+		<article style={{ padding: 10 }}>
+			The props <strong>backgroundIcon</strong> let you support product icons. It is used as{' '}
+			<pre>mask-image: url(backgroundIcon)</pre> so you have to provide URL. For this example we
+			have used assetsApi this way:
+			<pre>
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			</pre>
+		</article>
+	</Layout>
 );
 
 export const Links = () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />;

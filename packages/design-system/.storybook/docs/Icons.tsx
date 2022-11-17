@@ -38,17 +38,16 @@ export const Icons = () => {
 			// Temporary fix, will be removed with CSS Modules conversion
 			// @ts-ignore */}
 			<ThemeProvider>
-				<ThemeProvider.GlobalStyle />
 				<Form>
-					<Form.Search label="Search" onChange={onChangeQuery} />
+					<Form.Search name="search" label="Search" onChange={onChangeQuery} />
 					<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-						<Form.Select label="Size" onChange={onChangeSize}>
+						<Form.Select name="Size" label="Size" onChange={onChangeSize}>
 							<option value="1">S</option>
 							<option value="2">M</option>
 							<option value="3">L</option>
 							<option value="4">XL</option>
 						</Form.Select>
-						<Form.Select label="Transform" onChange={onChangeTransform}>
+						<Form.Select name="Transform" label="Transform" onChange={onChangeTransform}>
 							<option>spin</option>
 							<option>rotate-45</option>
 							<option>rotate-90</option>
@@ -61,8 +60,9 @@ export const Icons = () => {
 							<option>flip-vertical</option>
 						</Form.Select>
 						<div>
-							<Form.Switch
+							<Form.ToggleSwitch
 								label="Use color"
+								name="color"
 								onChange={() => setUseCurrentColor(!useCurrentColor)}
 								checked={!!useCurrentColor}
 							/>
@@ -73,14 +73,17 @@ export const Icons = () => {
 								}
 								value={currentColor}
 								disabled={!useCurrentColor}
+								name="color"
 							/>
 						</div>
-						<Form.Switch
+						<Form.ToggleSwitch
 							label="Use border"
+							name="border"
 							onChange={() => setBorder(!border)}
 							checked={!!border}
 						/>
-						<Form.Switch
+						<Form.ToggleSwitch
+							name="grayscale"
 							label="Use grayscale filter"
 							onChange={() => setFilter(!filter)}
 							checked={!!filter}

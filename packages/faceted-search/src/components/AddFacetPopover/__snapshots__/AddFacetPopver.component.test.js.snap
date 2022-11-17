@@ -6,9 +6,8 @@ exports[`AddFacetPopover should render the html output 1`] = `
 >
   <div id="my id-add-facet-popover"
        class="tc-add-facet-popover-container theme-tc-add-facet-popover-container"
-       style="height: 0px;"
   >
-    <div class="tc-add-facet-popover-screen theme-tc-add-facet-popover-screen">
+    <div>
       <header id="my id-add-facet-popover-null-header"
               class="theme-header tc-tooltip-header tc-add-facet-popover-header theme-tc-add-facet-popover-header"
       >
@@ -16,10 +15,14 @@ exports[`AddFacetPopover should render the html output 1`] = `
               role="search"
         >
           <div class="form-group">
-            <span name="talend-search"
-                  class="CoralIcon theme-search-icon"
+            <svg name="talend-search"
+                 focusable="false"
+                 aria-hidden="true"
+                 class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
+                 pointer-events="none"
+                 shape-rendering="geometricPrecision"
             >
-            </span>
+            </svg>
             <input name="search"
                    placeholder="Find a filter"
                    autocomplete="off"

@@ -3,5 +3,7 @@ declare module '*.scss' {
 	export default content;
 }
 
-declare module '@talend/react-components';
 declare module '@talend/react-bootstrap';
+declare module '@talend/react-components' {
+	export * from '@talend/react-components/types';
+}

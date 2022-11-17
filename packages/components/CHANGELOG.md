@@ -1,5 +1,170 @@
 # @talend/react-components
 
+## 8.0.1
+
+### Patch Changes
+
+- 8b4502c98: fix: put types in a /types folder
+
+  If you want to give a try on generated types you can use the following configuration in a `types.d.ts` file:
+
+  ```
+  declare module '@talend/react-components' {
+  	export * from '@talend/react-components/types';
+  }
+  ```
+
+## 8.0.0
+
+### Major Changes
+
+- 105990b24: feat(SubHeaderBar): replace `EditableText` legacy component by `InlineEditing` Coral component.
+
+  Breaking:
+
+  - `onEdit` and `onCancel` props has been removed. They are now directly handled by the `InlineEditing` component.
+  - `onSubmit` callback signature changed from `onSubmit(event: JSEvent, { value: string })` to `onSubmit(event: JSEvent, value: string)` the returned value from the `InlineEditing` component is not wrapped within an object containing only one `value` property. You now have the `value` directly.
+
+### Minor Changes
+
+- 2be2c3f47: feat: add typings
+
+### Patch Changes
+
+- ef3977697: fix(List): separator alignment for persistent actions
+- c0ed60ee5: chore(TDS-6840): use DS ButtonIcon in collapsible and legacy datepicker
+
+## 7.11.3
+
+### Patch Changes
+
+- 5d36d7e6c: fix(TDS-6837): not using submit type button in legacy date picker
+
+## 7.11.2
+
+### Patch Changes
+
+- efc5c2d8e: fix(components): QualityBar in split mode
+
+## 7.11.1
+
+### Patch Changes
+
+- be965094a: fix(components): sidepanel reversed color in gray
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [0260a77b8]
+- Updated dependencies [5cb57bbee]
+  - @talend/icons@6.50.0
+  - @talend/bootstrap-theme@6.39.1
+
+## 7.11.0
+
+### Minor Changes
+
+- c1bb5178f: feat: add SidePanel backgroundIcon props
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+
+## 7.10.3
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- 6fd16be45: fix: use flex-start instead of start
+
+## 7.10.2
+
+### Patch Changes
+
+- 561018c26: fix(TFD-14580): Fix DataViewer click on icons
+
+## 7.10.1
+
+### Patch Changes
+
+- e6efa126f: fix(TDP-11342): do not reset Datalist filter on titleMap change
+
+## 7.10.0
+
+### Minor Changes
+
+- 0f4721375: feat(TDC-6381): QualityBar design adjustments
+
+## 7.9.0
+
+### Minor Changes
+
+- 06915b812: Allow to customize drawer's subtitle tag
+
+  **Breaking change :**
+
+  Props `subtitleTagLabel` and `subtitleTagTooltip` are replaced by a props `subtitleTag`.
+
+  Props `subtitleTag` has following shape :
+
+  ```
+  {
+      label: PropTypes.string,
+      tooltip: PropTypes.string,
+      variant: PropTypes.oneOf(TagVariantsNames),
+  }
+  ```
+
+  _NOTE: While this props are only used by TPD this breaking change is passed as minor change to avoid waiting dataset release_
+
+## 7.8.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
+### Patch Changes
+
+- 5e0148797: fix(Datalist/TDOPS-2632): update data list entry if name is not the same
+
+## 7.7.0
+
+### Minor Changes
+
+- 4248c2e69: feat(TDC-6290): add List visible columns persistance and columns chooser UX improvements
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+
+## 7.6.0
+
+### Minor Changes
+
+- eba1ac047: feat: add HeaderBar and AppSwitcher icon props
+
+## 7.5.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [617ec14f0]
+- Updated dependencies [a99154a7d]
+  - @talend/design-system@4.0.0
+
 ## 7.4.0
 
 ### Minor Changes

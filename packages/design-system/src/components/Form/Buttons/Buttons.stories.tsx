@@ -24,7 +24,7 @@ export const FormButtonsDefault = () => (
 		<Form.Buttons>
 			<ButtonSecondary onClick={action('Clicked Previous')}>Previous</ButtonSecondary>
 			<ButtonSecondary onClick={action('Clicked Save')}>Save</ButtonSecondary>
-			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch">
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="triangle-circle">
 				Run
 			</ButtonPrimary>
 		</Form.Buttons>
@@ -41,7 +41,7 @@ export const FormButtonsLoading = () => (
 			<ButtonSecondary onClick={action('Clicked Save')} disabled>
 				Save
 			</ButtonSecondary>
-			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch" isLoading>
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="triangle-circle" isLoading>
 				Run
 			</ButtonPrimary>
 		</Form.Buttons>
@@ -52,16 +52,31 @@ FormButtonsLoading.parameters = {};
 export const FormButtonsOrder = () => (
 	<Form>
 		<Form.Fieldset legend="Run job">
-			<Form.Text label="Name" required placeholder="Job using JDBC connection" />
-			<Form.Textarea label="Description" placeholder="Describe the job" />
+			<Form.Text name="name" label="Name" required placeholder="Job using JDBC connection" />
+			<Form.Textarea name="textarea" label="Description" placeholder="Describe the job" />
 		</Form.Fieldset>
 		<Form.Buttons>
 			<ButtonSecondary onClick={action('Clicked Previous')}>Previous</ButtonSecondary>
 			<ButtonSecondary onClick={action('Clicked Save')}>Save</ButtonSecondary>
-			<ButtonPrimary onClick={action('Clicked Submit')} icon="talend-launch">
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="triangle-circle">
 				Run
 			</ButtonPrimary>
 		</Form.Buttons>
 	</Form>
 );
 FormButtonsOrder.parameters = {};
+
+export const FormButtonsSingle = () => (
+	<Form>
+		<Form.Fieldset legend="Run job">
+			<Form.Text name="name" label="Name" required placeholder="Job using JDBC connection" />
+			<Form.Textarea name="textarea" label="Description" placeholder="Describe the job" />
+		</Form.Fieldset>
+		<Form.Buttons>
+			<ButtonPrimary onClick={action('Clicked Submit')} icon="triangle-circle">
+				Run
+			</ButtonPrimary>
+		</Form.Buttons>
+	</Form>
+);
+FormButtonsSingle.parameters = {};

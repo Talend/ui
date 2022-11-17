@@ -1,4 +1,3 @@
-import Accordion from './components/Accordion';
 import {
 	Button,
 	ButtonDestructive,
@@ -24,9 +23,9 @@ import EmptyState, {
 	EmptyStateMedium,
 	EmptyStateSmall,
 } from './components/EmptyState';
+import ErrorState from './components/ErrorState';
 import Form from './components/Form';
-import { AffixButton, AffixReadOnly } from './components/Form/FieldGroup/Affix';
-import HeaderBar from './components/WIP/HeaderBar';
+import { AffixButton, AffixReadOnly, AffixSelect } from './components/Form/Affix';
 import { Icon, SizedIcon } from './components/Icon';
 import { IconsProvider } from './components/IconsProvider';
 import InlineEditing from './components/InlineEditing';
@@ -38,11 +37,19 @@ import {
 	InlineMessageSuccess,
 	InlineMessageWarning,
 } from './components/InlineMessage';
-import Layout from './components/Layout';
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
-import Menu from './components/WIP/Menu';
+import {
+	MessageSuccess,
+	MessageDestructive,
+	MessageInformation,
+	MessageWarning,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
+} from './components/Message';
 import Modal from './components/Modal';
 import Popover from './components/WIP/Popover';
 import Skeleton, {
@@ -63,6 +70,7 @@ import {
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
 import { Tabs, TabsKit } from './components/WIP/Tabs';
+import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
 import {
 	Tag,
 	TagBeta,
@@ -70,19 +78,19 @@ import {
 	TagDestructive,
 	TagInformation,
 	TagSuccess,
+	TagVariantsNames,
 	TagWarning,
 } from './components/Tag';
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
-import * as themes from './themes';
-import tokens from './tokens';
 
 export * from './components/Stack';
 export {
 	Accordion,
 	AffixButton,
 	AffixReadOnly,
+	AffixSelect,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,
@@ -98,6 +106,7 @@ export {
 	ButtonTertiary,
 	ButtonTertiaryAsLink,
 	Card,
+	CollapsiblePanel,
 	Combobox,
 	Divider,
 	FloatingDrawer,
@@ -106,8 +115,8 @@ export {
 	EmptyStateMedium,
 	EmptyStateSmall,
 	EmptyStateLarge,
+	ErrorState,
 	Form,
-	HeaderBar,
 	Icon,
 	IconsProvider,
 	InlineEditing,
@@ -117,11 +126,17 @@ export {
 	InlineMessageWarning,
 	InlineMessageDestructive,
 	InlineMessageBeta,
-	Layout,
 	Link,
 	LinkAsButton,
 	Loading,
-	Menu,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
+	MessageSuccess,
+	MessageDestructive,
+	MessageInformation,
+	MessageWarning,
 	Modal,
 	Popover,
 	SizedIcon,
@@ -147,12 +162,11 @@ export {
 	TagDestructive,
 	TagInformation,
 	TagSuccess,
+	TagVariantsNames,
 	TagWarning,
 	ThemeProvider,
 	Tooltip,
 	VisuallyHidden,
-	themes,
-	tokens,
 };
 
 export type { TooltipPlacement };

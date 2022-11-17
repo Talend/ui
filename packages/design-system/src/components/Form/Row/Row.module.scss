@@ -1,0 +1,12 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.row {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: tokens.$coral-spacing-l;
+  align-self: start;
+
+  &_stretched {
+    align-self: stretch;
+  }
+}

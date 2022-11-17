@@ -1,12 +1,28 @@
-import styled from 'styled-components';
+import React, { HTMLAttributes, ReactElement } from 'react';
+import classnames from 'classnames';
+import styles from './Grid.module.scss';
 
-const Grid = styled.div<{ columns?: number }>`
-	display: grid;
-	grid-template-columns: repeat(
-		auto-fit,
-		minmax(${({ columns = 3 }) => Math.floor(100 / columns) - 10}rem, 1fr)
+const Grid = (
+	props: {
+		columns?: number;
+		children: ReactElement | ReactElement[] | HTMLCollection;
+	} & HTMLAttributes<HTMLDivElement>,
+) => {
+	const { children, columns = 3, className, ...rest } = props;
+	return (
+		<div
+			className={classnames(styles.grid, className)}
+			{...rest}
+			style={{
+				gridTemplateColumns: `repeat(
+            auto-fit,
+            minmax(${Math.floor(100 / columns) - 10}rem, 1fr)
+        )`,
+			}}
+		>
+			{children}
+		</div>
 	);
-	gap: 2.5rem 5rem;
-`;
+};
 
 export default Grid;

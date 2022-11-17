@@ -8,8 +8,7 @@
    c. [BasicSearch](#BasicSearch)
    d. [FacetedManager](#FacetedManager)
    e. [FacetedSearch](#FacetedSearch)
-   f. [FacetedSearchIcon](#FacetedSearchIcon)
-   g. [FacetedToolbar](#FacetedToolbar)
+   f. [FacetedToolbar](#FacetedToolbar)
 2. Badges
    a. [BadgeText](#BadgeText)
    b. [BadgeNumber](#BadgeNumber)
@@ -108,18 +107,6 @@ Use childrenAsProps pattern to pass the current display mode.
 | facetedMode    | string | mode display at first render                                    |
 | inProgress     | bool   | indicates query progress                                        |
 | setFacetedMode | func   | function to set the faceted mode if it's a controlled component |
-
----
-
-### FacetedSearchIcon
-
-Simple **button icon** switch.
-
-| Props   | Type     | Info                            |
-| ------- | -------- | ------------------------------- |
-| active  | boolean  | icon is activated or not        |
-| loading | boolean  | display skeleton if true        |
-| onClick | function | Callback when button is clicked |
 
 ---
 

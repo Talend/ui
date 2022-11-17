@@ -15,7 +15,7 @@ import {
 	getJSONPath,
 	getObjectBranchDatakey,
 } from './RecordsViewer.parser';
-import theme from './RecordsViewer.scss';
+import theme from './RecordsViewer.module.scss';
 
 /**
  * Used in the branch to get the icon.

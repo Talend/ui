@@ -2,22 +2,28 @@ import cloneDeep from 'lodash/cloneDeep';
 import flow from 'lodash/flow';
 import get from 'lodash/get';
 
-const findByMetadataBadgeId = badgeId => ({ metadata }) => get(metadata, 'badgeId') === badgeId;
+const findByMetadataBadgeId =
+	badgeId =>
+	({ metadata }) =>
+		get(metadata, 'badgeId') === badgeId;
 
+// eslint-disable-next-line testing-library/await-async-query
 const getBadgeIndexFromId = badgeId => badges => badges.findIndex(findByMetadataBadgeId(badgeId));
 
 const getBadge = index => badges => badges[index];
 
-const setBadgeValue = ({ properties, metadata }) => badge => ({
-	properties: {
-		...badge.properties,
-		...properties,
-	},
-	metadata: {
-		...badge.metadata,
-		...metadata,
-	},
-});
+const setBadgeValue =
+	({ properties, metadata }) =>
+	badge => ({
+		properties: {
+			...badge.properties,
+			...properties,
+		},
+		metadata: {
+			...badge.metadata,
+			...metadata,
+		},
+	});
 
 const setBadge = (newProperties, newMetadata) => getIndexFn => badges => {
 	const index = getIndexFn(badges);

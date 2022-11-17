@@ -6,7 +6,7 @@ import omit from 'lodash/omit';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import Skeleton from '../Skeleton';
-import pieChartCssModule from './PieChart.scss';
+import pieChartCssModule from './PieChart.module.scss';
 import { getTheme } from '../theme';
 
 const theme = getTheme(pieChartCssModule);

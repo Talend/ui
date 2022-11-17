@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React, { useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -6,7 +7,7 @@ import FilterBar from '@talend/react-components/lib/FilterBar';
 import { Rich } from '@talend/react-components';
 import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
-import cssModule from './BadgeCheckboxes.scss';
+import cssModule from './BadgeCheckboxes.module.scss';
 import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);
@@ -56,7 +57,16 @@ const getCheckboxes = (checkboxes, value, filterValue) => {
 		.map(createCheckboxEntity(value));
 };
 
-const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, feature, filterBarPlaceholder, t }) => {
+const BadgeCheckboxesForm = ({
+	checkboxValues,
+	id,
+	onChange,
+	onSubmit,
+	value,
+	feature,
+	filterBarPlaceholder,
+	t,
+}) => {
 	const [filter, setFilter] = useState('');
 
 	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
@@ -84,9 +94,12 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, fe
 				docked={false}
 				iconAlwaysVisible
 				id={`${badgeCheckBoxesFormId}-filter`}
-				placeholder={filterBarPlaceholder || t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-					defaultValue: 'Find an entity',
-				})}
+				placeholder={
+					filterBarPlaceholder ||
+					t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+						defaultValue: 'Find an entity',
+					})
+				}
 				onToggle={() => setFilter('')}
 				onFilter={(_, filterValue) => setFilter(filterValue)}
 				value={filter}

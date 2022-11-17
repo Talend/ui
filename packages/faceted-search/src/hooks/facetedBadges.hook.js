@@ -47,20 +47,12 @@ const reducer = (state, { type, payload }) => {
 		case BADGES_ACTIONS_KEYS.UPDATE_BADGE:
 			return {
 				...state,
-				badges: updateBadge(
-					payload.badgeId,
-					payload.properties,
-					payload.metadata,
-				)(state.badges),
+				badges: updateBadge(payload.badgeId, payload.properties, payload.metadata)(state.badges),
 			};
 		case BADGES_ACTIONS_KEYS.ADD_BADGE_WITH_VALUE:
 			return {
 				...state,
-				badges: createBadgeWithValue(
-					payload.badge,
-					payload.operator,
-					payload.value,
-				)(state.badges),
+				badges: createBadgeWithValue(payload.badge, payload.operator, payload.value)(state.badges),
 			};
 		case BADGES_ACTIONS_KEYS.DELETE_BADGE:
 			return { ...state, badges: deleteBadge(payload.badgeId)(state.badges) };

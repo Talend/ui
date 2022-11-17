@@ -1,5 +1,99 @@
 # @talend/ui-playground
 
+## 1.1.9
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+  - @talend/react-dataviz@2.8.3
+  - @talend/react-containers@7.3.2
+  - @talend/react-datagrid@13.0.3
+  - @talend/react-forms@8.1.6
+
+## 1.1.8
+
+### Patch Changes
+
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [94435b8cd]
+  - @talend/icons@6.51.0
+  - @talend/react-datagrid@13.0.0
+
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies [d134a19e8]
+  - @talend/react-faceted-search@8.0.0
+
+## 1.1.6
+
+### Patch Changes
+
+- 6f333498f: fix datagrid page
+- a3c65c4fe: fix(playground): display playground icons
+- Updated dependencies [47dec5cb4]
+- Updated dependencies [e6efa126f]
+  - @talend/react-faceted-search@7.0.2
+  - @talend/react-components@7.10.1
+
+## 1.1.5
+
+### Patch Changes
+
+- Updated dependencies [e5aa63ef6]
+  - @talend/react-faceted-search@7.0.0
+
+## 1.1.4
+
+### Patch Changes
+
+- de6f9f80c: Handle datagrid breaking changes
+- Updated dependencies [2a7278a95]
+- Updated dependencies [c02aeb6ae]
+- Updated dependencies [1df17ebbc]
+- Updated dependencies [a99154a7d]
+- Updated dependencies [c815ba11f]
+- Updated dependencies [262e60063]
+  - @talend/react-datagrid@12.0.0
+  - @talend/react-forms@8.1.0
+  - @talend/react-components@7.5.0
+  - @talend/react-containers@7.3.0
+  - @talend/react-dataviz@2.4.0
+  - @talend/react-faceted-search@6.0.0
+
 ## 1.1.3
 
 ### Patch Changes

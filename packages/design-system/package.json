@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "3.8.0",
+  "version": "7.1.0",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -15,7 +15,7 @@
     "test:demo": "npm run build-storybook",
     "storybook": "cross-env BROWSER=none npm run build:lib && start-storybook -p 6006",
     "build-storybook": "build-storybook --docs && node ./scripts/sitemap.js",
-    "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner --config i18next-scanner.config.js && rm -rf tmp",
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "lint:es": "talend-scripts lint:es"
   },
   "repository": {
@@ -33,8 +33,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/assets-api": "^1.2.1",
-    "@talend/design-tokens": "^2.6.0",
+    "@talend/assets-api": "^1.2.2",
+    "@talend/design-tokens": "^2.7.1",
     "classnames": "^2.3.1",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.2.2",
@@ -62,27 +62,27 @@
     "@storybook/testing-react": "^1.3.0",
     "@storybook/theming": "^6.5.9",
     "@svgr/webpack": "^5.5.0",
-    "@talend/bootstrap-theme": "^6.39.0",
-    "@talend/icons": "^6.47.0",
+    "@talend/bootstrap-theme": "^6.39.1",
+    "@talend/icons": "^6.51.0",
     "@talend/locales-design-system": "^1.12.2",
     "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^12.0.1",
+    "@talend/scripts-preset-react-lib": "^14.0.0",
     "@types/classnames": "^2.3.1",
     "@types/react": "^17.0.47",
     "@types/react-dom": "^17.0.17",
     "@types/react-is": "^16.7.2",
-    "@types/styled-components": "^5.1.25",
     "algoliasearch": "^4.14.0",
-    "babel-plugin-styled-components": "^1.13.3",
     "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.3.0",
     "chromatic": "^6.7.0",
+    "color-contrast-checker": "^2.1.0",
     "core-js": "^3.23.5",
     "cypress": "^9.7.0",
     "figma-js": "^1.15.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^20.6.1",
     "i18next-scanner": "^4.0.0",
+    "i18next-scanner-typescript": "^1.0.6",
     "mdx-embed": "^0.0.22",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -90,20 +90,19 @@
     "react-hook-form": "^7.33.1",
     "react-i18next": "^11.18.1",
     "react-is": "^16.13.1",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "~6.3.0",
     "storybook-addon-mdx-embed": "^1.0.0",
     "storybook-docs-toc": "^1.7.0",
-    "styled-components": "^5.3.5"
+    "use-overflow": "^1.1.0"
   },
   "peerDependencies": {
     "@talend/icons": "^6.42.0",
-    "@talend/locales-design-system": "^1.4.0",
+    "@talend/locales-design-system": "^4.0.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^20.1.0",
-    "react": ">= 16.14.0 < 18.0.0",
-    "react-dom": ">= 16.14.0 < 18.0.0",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0",
     "react-i18next": "^11.8.13",
-    "react-is": "^16.13.1",
-    "styled-components": "^5.2.1"
+    "react-is": "^16.13.1"
   }
 }

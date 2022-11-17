@@ -35,7 +35,10 @@ describe('BadgeDateForm', () => {
 		wrapper.find('button[data-value=18]').simulate('click');
 		wrapper.find('button[type="submit"]').simulate('submit');
 
-		expect(onChange).toHaveBeenCalledWith(expect.anything(), new Date('2011-11-18T00:00:00').getTime());
+		expect(onChange).toHaveBeenCalledWith(
+			expect.anything(),
+			new Date('2011-11-18T00:00:00').getTime(),
+		);
 		expect(onSubmit).toHaveBeenCalled();
 	});
 });

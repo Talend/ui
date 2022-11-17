@@ -1,5 +1,40 @@
 # @talend/react-containers
 
+## 7.3.2
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+  - @talend/react-forms@8.1.6
+
+## 7.3.1
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+  - @talend/react-forms@8.1.5
+
+## 7.3.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [c02aeb6ae]
+- Updated dependencies [a99154a7d]
+- Updated dependencies [262e60063]
+  - @talend/react-forms@8.1.0
+  - @talend/react-components@7.5.0
+
 ## 7.2.4
 
 ### Patch Changes

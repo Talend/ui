@@ -1,5 +1,11 @@
 # @talend/scripts-config-stylelint
 
+## 2.0.0
+
+### Major Changes
+
+- e22e3c952: chore(deps): major bump for stylelint deps
+
 ## 1.0.2
 
 ### Patch Changes

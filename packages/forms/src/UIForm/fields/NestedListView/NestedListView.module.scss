@@ -1,0 +1,9 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.nested-list-view {
+	// Temporary hide list count with CSS, should be done properly
+	// once ListView UX/UI specifications have been finished
+	header > small {
+		display: none;
+	}
+}

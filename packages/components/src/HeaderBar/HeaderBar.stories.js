@@ -7,7 +7,7 @@ import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-d
 import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
 import AppSwitcher from '../AppSwitcher';
-import Layout from '../Layout';
+import assetsApi from '@talend/assets-api';
 
 const props = {
 	brand: {
@@ -144,6 +144,38 @@ export const WithoutProducts = () => {
 
 WithoutProducts.story = {
 	name: 'without products',
+	parameters: { info: { styles: infoStyle } },
+};
+
+export const WithBrandIcon = () => {
+	const headerProps = Immutable.fromJS({
+		...props,
+		brand: {
+			...props.brand,
+			icon: 'talend-tmc-positive',
+		},
+	}).toJS();
+	return <HeaderBar {...headerProps} />;
+};
+
+WithBrandIcon.story = {
+	name: 'with brand icon',
+	parameters: { info: { styles: infoStyle } },
+};
+
+export const WithBrandIconUrl = () => {
+	const headerProps = Immutable.fromJS({
+		...props,
+		brand: {
+			...props.brand,
+			iconUrl: assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons'),
+		},
+	}).toJS();
+	return <HeaderBar {...headerProps} />;
+};
+
+WithBrandIconUrl.story = {
+	name: 'with brand icon url',
 	parameters: { info: { styles: infoStyle } },
 };
 

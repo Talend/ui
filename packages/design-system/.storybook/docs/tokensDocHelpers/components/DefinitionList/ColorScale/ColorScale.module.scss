@@ -1,0 +1,86 @@
+@use '@talend/design-tokens/lib/tokens';
+
+.colorScale {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: auto;
+  gap: tokens.$coral-spacing-m;
+  justify-content: space-between;
+  align-items: flex-start;
+  list-style-type: none;
+  max-width: 100%;
+
+  > li {
+    flex-grow: 1;
+  }
+
+  &_tooltip {
+    font: tokens.$coral-data-m;
+    text-align: center;
+  }
+
+  &_element {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: tokens.$coral-radius-m;
+    background: tokens.$coral-color-accent-background;
+    border: tokens.$coral-border-s-solid transparent;
+    height: tokens.$coral-sizing-l;
+    color: tokens.$coral-color-accent-text-strong;
+
+    .icons {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: tokens.$coral-color-accent-background-weak;
+      border-radius: tokens.$coral-radius-round;
+      width: tokens.$coral-sizing-s;
+      height: tokens.$coral-sizing-s;
+      transition: all tokens.$coral-transition-fast;
+
+      .copyIcon {
+        opacity: 1;
+        position: relative;
+        transition: all tokens.$coral-transition-fast;
+        line-height: 0;
+
+        &_hidden {
+          opacity: 0;
+          top: -25%;
+        }
+      }
+
+      .validIcon {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        top: 70%;
+        transform: translateY(-50%) translateX(-50%);
+        transition: all tokens.$coral-transition-fast;
+        line-height: 0;
+
+        &_visible {
+          opacity: 1;
+          top: 50%;
+        }
+      }
+    }
+
+    &:hover {
+      .icons {
+        color: tokens.$coral-color-accent-text-strong-hover;
+        background: tokens.$coral-color-accent-background-weak-hover;
+      }
+    }
+    &:active {
+      .icons {
+        color: tokens.$coral-color-accent-text-strong-active;
+        background: tokens.$coral-color-accent-background-weak-active;
+      }
+    }
+  }
+}

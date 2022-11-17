@@ -1,5 +1,13 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
+import tokens from '@talend/design-tokens';
+import {
+	TagInformation,
+	SizedIcon,
+	StackHorizontal,
+	StackItem,
+	Tooltip,
+} from '@talend/design-system';
 import LineChart, { LineChartProps } from './LineChart.component';
 
 export default {
@@ -62,20 +70,38 @@ export const FullyCustomisedLineChart = {
 		lines: [
 			{
 				key: 'trustScore',
-				color: '#1667DF',
-				dashed: true,
+				color: tokens.coralColorChartsDefault,
 				tooltipLabel: 'Trust Score™',
 				legendLabel: 'Talend Trust Score™',
 				axis: 'right',
-				status: 'active',
+				status: 'light',
 			},
 			{
 				key: 'validity',
-				color: '#B045E5',
+				color: tokens.coralColorChartsColor00Strong,
+				legendLabel: (
+					<StackHorizontal gap="XS" align="center">
+						<StackItem>Validity</StackItem>
+						<Tooltip title="Validity refer to your sample quality">
+							<StackHorizontal gap={0}>
+								<SizedIcon name="information-stroke" size="S" />
+							</StackHorizontal>
+						</Tooltip>
+						<TagInformation>Well</TagInformation>
+					</StackHorizontal>
+				),
 				tooltipLabel: 'Validity',
-				legendLabel: 'Validity',
 				axis: 'left',
 				status: 'highlighted',
+			},
+			{
+				key: 'threshold',
+				color: tokens.coralColorChartsColor00Strong,
+				tooltipLabel: 'Axis threshold',
+				legendLabel: 'Axis threshold',
+				axis: 'left',
+				status: 'light',
+				dashed: true,
 			},
 		],
 		data: [
@@ -83,81 +109,97 @@ export const FullyCustomisedLineChart = {
 				xLabel: new Date(2021, 2, 2),
 				trustScore: 2.2,
 				validity: 50,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 2),
 				trustScore: 2.2,
 				validity: 50,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 4),
 				trustScore: 2.2,
 				validity: 50,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 6),
 				trustScore: 2.6,
 				validity: 50,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 8),
 				trustScore: 3,
 				validity: 50,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 10),
 				trustScore: 2.9,
 				validity: 50,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 12),
 				trustScore: 3.1,
 				validity: 50,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 14),
 				trustScore: 3.4,
 				validity: 65,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 16),
 				trustScore: 3.4,
 				validity: 65,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 18),
 				trustScore: 3,
 				validity: 65,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 20),
 				trustScore: 3.1,
 				validity: 65,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 22),
 				trustScore: 3.9,
 				validity: 55,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 24),
 				trustScore: 3.5,
 				validity: 55,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 26),
 				trustScore: 3.5,
 				validity: 55,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 28),
 				trustScore: 3.9,
 				validity: 55,
+				threshold: 30,
 			},
 			{
 				xLabel: new Date(2022, 2, 30),
 				trustScore: 4.2,
 				validity: 75,
+				threshold: 30,
 			},
 		],
 	},
@@ -174,7 +216,7 @@ export const SimpleLineChart = {
 		lines: [
 			{
 				key: 'trustScore',
-				color: '#1667DF',
+				color: tokens.coralColorChartsDefault,
 			},
 		],
 		data: [
@@ -212,11 +254,11 @@ export const MultiCurveLineChart = {
 		lines: [
 			{
 				key: 'trustScore',
-				color: '#1667DF',
+				color: tokens.coralColorChartsDefault,
 			},
 			{
 				key: 'globalScore',
-				color: '#4DD832',
+				color: tokens.coralColorChartsColor04,
 			},
 		],
 		data: [
@@ -247,6 +289,62 @@ export const MultiCurveLineChart = {
 	},
 };
 
+export const WithLineSelection = {
+	args: {
+		hasLineSelection: true,
+		initialSelectedLines: ['trustScore'],
+		chartOptions: {
+			leftYAxisOptions: {
+				type: 'number',
+				domain: [0, 5],
+			},
+		},
+		lines: [
+			{
+				key: 'trustScore',
+				color: tokens.coralColorChartsDefault,
+			},
+			{
+				key: 'globalScore',
+				color: tokens.coralColorChartsColor04,
+			},
+			{
+				key: 'localScore',
+				color: tokens.coralColorChartsColor00,
+			},
+		],
+		data: [
+			{
+				xLabel: '2/2',
+				trustScore: 2.2,
+				globalScore: 3,
+				localScore: 1.5,
+			},
+
+			{
+				xLabel: '2/16',
+				trustScore: 3.4,
+				globalScore: 3.2,
+				localScore: 1.8,
+			},
+
+			{
+				xLabel: '2/24',
+				trustScore: 3.5,
+				globalScore: 3.2,
+				localScore: 2.8,
+			},
+
+			{
+				xLabel: '2/30',
+				trustScore: 4.2,
+				globalScore: 4,
+				localScore: 3.5,
+			},
+		],
+	},
+};
+
 export const CustomXAxisDomainLineChart = {
 	args: {
 		chartOptions: {
@@ -263,7 +361,7 @@ export const CustomXAxisDomainLineChart = {
 		lines: [
 			{
 				key: 'trustScore',
-				color: '#1667DF',
+				color: tokens.coralColorChartsDefault,
 			},
 		],
 		data: [
@@ -285,6 +383,93 @@ export const CustomXAxisDomainLineChart = {
 			{
 				xLabel: new Date('2022-06-15').getTime(),
 				trustScore: 4.2,
+			},
+		],
+	},
+};
+
+const tickFormatterByMonth = (value: number) => {
+	const durationByMonth = value / 2678400000;
+	const months = Math.floor(durationByMonth);
+	return `${months} months`;
+};
+
+const tickFormatterByHour = (value: number) => {
+	const durationByHour = value / 3600000;
+	const hours = Math.floor(durationByHour);
+	return `${hours} hours`;
+};
+
+export const WithOnlyOneDot = {
+	args: {
+		hasLineSelection: true,
+		chartOptions: {
+			showGridLines: true,
+			xAxisOptions: '{verticalOffset: 5}',
+			leftYAxisOptions: {
+				horizontalOffset: 4,
+				manualTicks: [3024000000, 5702400000, 8380800000, 11059200000],
+				formatter: tickFormatterByMonth,
+			},
+		},
+		lines: [
+			{
+				key: 'User1',
+				color: tokens.coralColorChartsColor01,
+			},
+			{
+				key: 'User2',
+				color: tokens.coralColorChartsColor02,
+			},
+			{
+				key: 'User3',
+				color: tokens.coralColorChartsColor04,
+			},
+		],
+		data: [
+			{
+				xLabel: 'W41 2022',
+				User1: 3024000000,
+				User2: 5702400000,
+				User3: 8380800000,
+			},
+		],
+	},
+};
+
+export const WithOnlyOneDotOnTheTop = {
+	args: {
+		hasLineSelection: true,
+		chartOptions: {
+			margin: { top: 10, right: 20, bottom: 5, left: 5 },
+			showGridLines: true,
+			xAxisOptions: { verticalOffset: 5 },
+			leftYAxisOptions: {
+				horizontalOffset: 4,
+				manualTicks: [22378905872, 22382505872, 22386105872, 22389705872],
+				formatter: tickFormatterByHour,
+			},
+		},
+		lines: [
+			{
+				key: 'User1',
+				color: tokens.coralColorChartsColor01,
+			},
+			{
+				key: 'User2',
+				color: tokens.coralColorChartsColor02,
+			},
+			{
+				key: 'User3',
+				color: tokens.coralColorChartsColor04,
+			},
+		],
+		data: [
+			{
+				xLabel: 'W41 2022',
+				User1: 22379081790,
+				User2: 22378905872,
+				User3: 22379612230,
 			},
 		],
 	},

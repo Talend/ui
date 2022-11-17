@@ -1,5 +1,61 @@
 # Changelog
 
+## 8.0.2
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+
+## 8.0.1
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+
+## 8.0.0
+
+### Major Changes
+
+- d134a19e8: fix(faceted-search): handle Design-System breaking changes
+
+## 7.0.2
+
+### Patch Changes
+
+- 47dec5cb4: fix(TDC-6514): Faceted Search - locators
+
+## 7.0.1
+
+### Patch Changes
+
+- 907ec1f86: fix(faceted-search): infinite loop with initial badges
+
+## 7.0.0
+
+### Major Changes
+
+- e5aa63ef6: Refactor with design system components and design tokens
+
+  Breaking: removed `FacetedSearchIcon` component
+
+## 6.0.1
+
+### Patch Changes
+
+- f4ba0ef47: fix: move ds as peerDependencies
+
+## 6.0.0
+
+### Minor Changes
+
+- a99154a7d: generate minified css using dot min in the name of it
+
+### Patch Changes
+
+- Updated dependencies [617ec14f0]
+- Updated dependencies [a99154a7d]
+  - @talend/design-system@4.0.0
+
 ## 5.0.2
 
 ### Patch Changes

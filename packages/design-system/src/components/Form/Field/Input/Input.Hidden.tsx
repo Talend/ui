@@ -1,8 +1,12 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import Input, { TypedInputFieldProps } from './Input';
 
-const Hidden = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+type InputHiddenProps = Omit<TypedInputFieldProps, 'required'>;
+
+const Hidden = forwardRef((props: InputHiddenProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="hidden" ref={ref} />;
 });
+
+Hidden.displayName = 'Hidden';
 
 export default Hidden;

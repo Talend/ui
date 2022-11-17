@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StackVertical } from '../../Stack';
 
-import theme from './Card.scss';
+import theme from './Card.module.scss';
 
 interface CardPropsType {
 	header?: React.ReactNode;

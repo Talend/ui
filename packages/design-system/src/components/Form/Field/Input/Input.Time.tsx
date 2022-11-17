@@ -1,8 +1,10 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import Input, { TypedInputFieldProps } from './Input';
 
-const Time = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+const Time = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="time" ref={ref} />;
 });
+
+Time.displayName = 'Time';
 
 export default Time;
