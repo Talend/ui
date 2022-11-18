@@ -56,6 +56,11 @@ const fetch = jest.fn(
 );
 global.fetch = fetch;
 
+global.crypto = {
+	...global.crypto,
+	randomUUID: () => '42',
+};
+
 // Mock session storage
 delete window.sessionStorage;
 Object.defineProperty(window, 'sessionStorage', {

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import uuid from 'uuid';
 import { withTranslation } from 'react-i18next';
 
 import theme from './Breadcrumbs.module.scss';
@@ -164,7 +163,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 BreadcrumbsComponent.defaultProps = {
-	id: uuid.v4(),
+	id: crypto.randomUUID(),
 	items: [],
 	maxItems: DEFAULT_MAX_ITEMS,
 	t: getDefaultT(),
