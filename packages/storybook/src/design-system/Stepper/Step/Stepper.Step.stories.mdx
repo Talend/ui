@@ -1,12 +1,12 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage } from '~docs';
-import { Step } from '@talend/design-system';
+import { Stepper } from '@talend/design-system';
 
 import * as Stories from './Stepper.Step.stories';
 
 <Meta
 	title="Design System/Stepper/Step"
-	component={Step}
+	component={Stepper.Step}
 	parameters={{
 		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
 		figmaLink: 'https://www.figma.com/file/WUVKJmcDHfR7K1q1lYhaHk/?node-id=1%3A4',
@@ -86,7 +86,7 @@ N/C
 		}}
 	>
 		{({ variant, index, title }) => {
-			const StepComponent = Step[variant];
+			const StepComponent = Stepper.Step[variant];
 			StepComponent.displayName = `Step.${variant}`;
 			return <StepComponent data-index={index} title={title} />;
 		}}
