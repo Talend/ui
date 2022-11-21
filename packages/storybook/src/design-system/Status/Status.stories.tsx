@@ -1,5 +1,11 @@
 import React from 'react';
-import { StatusFailed, StatusCanceled, StatusInProgress, StatusSuccessful, StatusWarning } from '@talend/design-system';
+import {
+	StatusFailed,
+	StatusCanceled,
+	StatusInProgress,
+	StatusSuccessful,
+	StatusWarning,
+} from '@talend/design-system';
 
 export default {
 	component: StatusInProgress,

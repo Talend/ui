@@ -8,7 +8,7 @@ const StatusFailed = React.forwardRef(
 	(props: StatusFailedProps, ref: React.Ref<HTMLSpanElement>) => {
 		return (
 			<StatusPrimitive icon="square-cross" variant="failed" {...props} ref={ref}>
-				{props.children || i18n.t('FAILED', 'Failed')}
+				{props.children || i18n.t('design-system:FAILED', 'Failed')}
 			</StatusPrimitive>
 		);
 	},

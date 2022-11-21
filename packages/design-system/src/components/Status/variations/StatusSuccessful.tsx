@@ -8,7 +8,7 @@ const StatusSuccessful = React.forwardRef(
 	(props: StatusSuccessfulProps, ref: React.Ref<HTMLSpanElement>) => {
 		return (
 			<StatusPrimitive icon="check-filled" variant="successful" {...props} ref={ref}>
-				{props.children || i18n.t('SUCCESSFUL', 'Successful')}
+				{props.children || i18n.t('design-system:SUCCESSFUL', 'Successful')}
 			</StatusPrimitive>
 		);
 	},

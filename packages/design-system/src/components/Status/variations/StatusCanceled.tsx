@@ -8,7 +8,7 @@ const StatusCanceled = React.forwardRef(
 	(props: StatusCanceledProps, ref: React.Ref<HTMLSpanElement>) => {
 		return (
 			<StatusPrimitive icon="circle-slash" variant="canceled" {...props} ref={ref}>
-				{props.children || i18n.t('CANCELED', 'Canceled')}
+				{props.children || i18n.t('design-system:CANCELED', 'Canceled')}
 			</StatusPrimitive>
 		);
 	},
