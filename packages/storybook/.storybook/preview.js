@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { I18nextProvider } from 'react-i18next';
 import { useLocalStorage } from 'react-use';
 
 import prettier from 'prettier/standalone';
@@ -16,6 +15,7 @@ import '@talend/storybook-docs/dist/globalStyles.min.css';
 import 'focus-outline-manager';
 
 import i18n from './i18n';
+import i18next from 'i18next';
 
 import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
 import { Divider, Form, IconsProvider, StackVertical, ThemeProvider } from '@talend/design-system';
@@ -38,6 +38,8 @@ const TokenOrder = [
 	'Elevations',
 	'Breakpoints',
 ];
+
+export { i18n };
 
 export const globalTypes = {
 	theme: {
@@ -213,11 +215,9 @@ export const parameters = {
 							</Badges>
 						)}
 
-						<I18nextProvider i18n={i18n}>
-							<ThemeProvider theme={hasDarkMode ? dark : light}>
-								<DocsContainer {...props} />
-							</ThemeProvider>
-						</I18nextProvider>
+						<ThemeProvider theme={hasDarkMode ? dark : light}>
+							<DocsContainer {...props} />
+						</ThemeProvider>
 
 						<BackToTop />
 					</DarkThemeWrapper>
@@ -314,7 +314,7 @@ export const decorators = [
 		const { globals = {}, viewMode } = context;
 
 		const { locale: localeKey, theme: themeKey } = globals;
-		if (localeKey) i18n.changeLanguage(localeKey);
+		if (localeKey) i18next.changeLanguage(localeKey);
 		const theme = getTheme(themeKey);
 
 		const themedStory = (
@@ -326,10 +326,10 @@ export const decorators = [
 		return viewMode === 'docs' ? (
 			themedStory
 		) : (
-			<I18nextProvider i18n={i18n}>
+			<>
 				<IconsProvider />
 				{themedStory}
-			</I18nextProvider>
+			</>
 		);
 	},
 ];
