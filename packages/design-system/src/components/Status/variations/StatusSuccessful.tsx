@@ -14,4 +14,5 @@ const StatusSuccessful = React.forwardRef(
 	},
 );
 
+StatusSuccessful.displayName = 'StatusSuccessful';
 export default StatusSuccessful;

@@ -14,4 +14,5 @@ const StatusFailed = React.forwardRef(
 	},
 );
 
+StatusFailed.displayName = 'StatusFailed';
 export default StatusFailed;

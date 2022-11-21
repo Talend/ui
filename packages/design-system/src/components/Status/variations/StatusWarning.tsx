@@ -14,4 +14,5 @@ const StatusWarning = React.forwardRef(
 	},
 );
 
+StatusWarning.displayName = 'StatusWarning';
 export default StatusWarning;

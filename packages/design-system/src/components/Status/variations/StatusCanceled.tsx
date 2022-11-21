@@ -14,4 +14,5 @@ const StatusCanceled = React.forwardRef(
 	},
 );
 
+StatusCanceled.displayName = 'StatusCanceled';
 export default StatusCanceled;

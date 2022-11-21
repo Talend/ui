@@ -14,4 +14,5 @@ const StatusInProgress = React.forwardRef(
 	},
 );
 
+StatusInProgress.displayName = 'StatusInProgress';
 export default StatusInProgress;
