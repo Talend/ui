@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import uuid from 'uuid';
 import classnames from 'classnames';
 import { usePopper } from 'react-popper';
 
@@ -34,7 +33,7 @@ function onMouseDown(event) {
 }
 
 export default function InputDatePicker(props) {
-	const popoverId = `date-picker-${props.id || uuid.v4()}`;
+	const popoverId = `date-picker-${props.id || crypto.randomUUID()}`;
 
 	const [referenceElement, setReferenceElement] = useState(null);
 	const [popperElement, setPopperElement] = useState(null);

@@ -4,6 +4,8 @@ const path = require('path');
 const CDNPlugin = require('@talend/dynamic-cdn-webpack-plugin');
 const { getAllModules } = require('@talend/module-to-cdn');
 
+const { fixWindowsPaths } = require('./utils');
+
 const cwd = process.cwd();
 
 function getFolderGlob(folderName) {
@@ -67,21 +69,13 @@ const defaultMain = {
 
 const userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %>`); <% } else { %> {}; <% } %>
 
-// Temporary fix until Storybook handles well Windows path
-// Waiting for a release https://github.com/storybookjs/storybook/pull/17641
-function fixWindowsPath(paths){
-	return process.platform === 'win32'
-		? paths.map(p => p.replace(/\\/g, '/'))
-		: paths;
-}
-
 module.exports = {
 	...defaultMain,
 	features: merge(defaultMain.features, userMain.features),
 	stories: fixWindowsPath([...(userMain.stories || defaultMain.stories)]),
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
-	staticDirs: fixWindowsPath([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
+	staticDirs: fixWindowsPaths([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),
 	webpackFinal: async (config) => {
 		let finalConfig = await defaultMain.webpackFinal(config);
 		if(userMain.webpackFinal) {

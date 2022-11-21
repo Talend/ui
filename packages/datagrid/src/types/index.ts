@@ -4,7 +4,12 @@ import { Column, ColumnApi, GridApi, ICellEditorParams } from 'ag-grid-community
 
 import { ButtonIcon } from '@talend/design-system';
 
-import { QUALITY_EMPTY_KEY, QUALITY_INVALID_KEY, QUALITY_VALID_KEY } from '../constants';
+import {
+	CUSTOM_FIELD_DISPLAY_NAME,
+	QUALITY_EMPTY_KEY,
+	QUALITY_INVALID_KEY,
+	QUALITY_VALID_KEY,
+} from '../constants';
 
 // Will get typed later on?
 
@@ -18,7 +23,11 @@ export type Sample = {
 };
 
 export type AvroField = {
+	name: string;
+	doc: string;
+	[CUSTOM_FIELD_DISPLAY_NAME]?: string;
 	type: any;
+	[otherProp: string]: unknown;
 };
 
 export interface Quality {

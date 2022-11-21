@@ -6,6 +6,7 @@
       {
         "name": "field0",
         "doc": "Nom de la gare",
+        "talend.component.label": "Le nom de la gare",
         "type": [
           {
             "type": "null",
@@ -32,6 +33,7 @@
       {
         "name": "field2",
         "doc": "Code postal",
+        "talend.component.label": "Le code postal",
         "type": {
           "type": "string",
           "dqType": "FR Postal Code",
