@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
-import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog';
 
 import { DeprecatedIconNames } from '../../types';
@@ -63,7 +63,7 @@ function Modal(props: ModalPropsType): ReactElement {
 		...rest
 	} = props;
 	const hasDisclosure = 'disclosure' in props;
-
+	const { t } = useTranslation('design-system');
 	const dialog = useDialogState({ visible: !hasDisclosure });
 	const ref = useRef(null);
 
@@ -127,8 +127,8 @@ function Modal(props: ModalPropsType): ReactElement {
 												data-feature="modal.buttons.close"
 											>
 												{primaryAction || secondaryAction
-													? i18n.t('design-system:CANCEL', 'Cancel')
-													: i18n.t('design-system:CLOSE', 'Close')}
+													? t('CANCEL', 'Cancel')
+													: t('CLOSE', 'Close')}
 											</ButtonSecondary>
 										</span>
 
