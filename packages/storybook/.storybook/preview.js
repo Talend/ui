@@ -18,7 +18,7 @@ import i18n from './i18n';
 import i18next from 'i18next';
 
 import { BadgeFigma, BadgeI18n, BadgeReact, Badges, BadgeStorybook } from './docs';
-import { Divider, Form, IconsProvider, StackVertical, ThemeProvider } from '@talend/design-system';
+import { Divider, Form, StackVertical, ThemeProvider } from '@talend/design-system';
 
 import { dark, light } from '@talend/design-system';
 
@@ -68,8 +68,6 @@ export const globalTypes = {
 		},
 	},
 };
-
-const getTheme = themeKey => (themeKey === 'dark' ? dark : light);
 
 const channel = addons.getChannel();
 
@@ -173,7 +171,6 @@ export const parameters = {
 							{titleArray.length > 1 && <meta property="article:section" content={docsCategory} />}
 						</Helmet>
 
-						<IconsProvider />
 						<TableOfContents>
 							{isDesignSystemElementPage && (
 								<ThemeProvider theme={light}>
@@ -311,25 +308,16 @@ export const parameters = {
 
 export const decorators = [
 	(Story, context) => {
-		const { globals = {}, viewMode } = context;
+		const { globals = {} } = context;
 
 		const { locale: localeKey, theme: themeKey } = globals;
 		if (localeKey) i18next.changeLanguage(localeKey);
-		const theme = getTheme(themeKey);
 
-		const themedStory = (
-			<ThemeProvider theme={theme}>
+		//TODO: backport theme switcher to scripts-config-storybook and remove this
+		return (
+			<ThemeProvider theme={themeKey}>
 				<Story {...context} />
 			</ThemeProvider>
-		);
-
-		return viewMode === 'docs' ? (
-			themedStory
-		) : (
-			<>
-				<IconsProvider />
-				{themedStory}
-			</>
 		);
 	},
 ];
