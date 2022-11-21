@@ -35,15 +35,15 @@ module.exports = {
 		},
 	},
 	webpackFinal: async config => {
-		// config.plugins.push(
-		// 	new BrowserSyncPlugin({
-		// 		host: 'localhost',
-		// 		port: 3002,
-		// 		proxy: 'http://localhost:6006/',
-		// 		notify: false,
-		// 		codeSync: false,
-		// 	}),
-		// );
+		config.plugins.push(
+			new BrowserSyncPlugin({
+				host: 'localhost',
+				port: 3002,
+				proxy: 'http://localhost:6006/',
+				notify: false,
+				codeSync: false,
+			}),
+		);
 
 		const existingAlias = config.resolve.alias || {};
 		config.resolve.alias = {

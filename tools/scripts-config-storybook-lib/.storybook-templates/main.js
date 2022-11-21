@@ -72,7 +72,7 @@ const userMain = <%  if(userFilePath) { %> require(String.raw`<%= userFilePath %
 module.exports = {
 	...defaultMain,
 	features: merge(defaultMain.features, userMain.features),
-	stories: fixWindowsPath([...(userMain.stories || defaultMain.stories)]),
+	stories: fixWindowsPaths([...(userMain.stories || defaultMain.stories)]),
 	addons: [...defaultMain.addons, ...(userMain.addons || [])],
 	core: merge(defaultMain.core, userMain.core),
 	staticDirs: fixWindowsPaths([...(defaultMain.staticDirs|| []), ...(userMain.staticDirs || [])]),

@@ -87,6 +87,7 @@ import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 
 export * from './components/Stack';
+export * from './themes';
 export {
 	Accordion,
 	AffixButton,
