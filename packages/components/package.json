@@ -66,8 +66,7 @@
     "recharts": "^2.1.13",
     "simplebar": "^5.3.8",
     "simplebar-react": "^2.4.1",
-    "styled-components": "^5.3.6",
-    "uuid": "^3.4.0"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.9",

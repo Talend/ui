@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, MenuItem, NavDropdown, Nav, Button } from '@talend/react-bootstrap';
-import uuid from 'uuid';
 import Icon from '../../../Icon';
 
 import { useListContext } from '../context';
@@ -121,7 +120,7 @@ function SortBy({ id, options, onChange, value }) {
 }
 
 SortBy.defaultProps = {
-	id: uuid.v4(),
+	id: crypto.randomUUID(),
 	value: {},
 };
 

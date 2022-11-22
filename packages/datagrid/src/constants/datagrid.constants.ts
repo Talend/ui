@@ -8,3 +8,4 @@ export const ROW_HEIGHT = 39;
 export const CELL_WIDTH = 150;
 export const SELECTED_CELL_CLASS_NAME = 'column-focus';
 export const HIGHLIGHTED_CELL_CLASS_NAME = 'highlighted';
+export const CUSTOM_FIELD_DISPLAY_NAME = 'talend.component.label';

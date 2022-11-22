@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
-import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
@@ -281,7 +280,7 @@ Typeahead.displayName = 'Typeahead';
 Typeahead.defaultProps = {
 	autoFocus: false,
 	disabled: false,
-	id: uuid.v4().toString(),
+	id: crypto.randomUUID(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	position: 'left',

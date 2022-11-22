@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid';
 import get from 'lodash/get';
 import { getTheme } from '../../theme';
 
@@ -26,7 +25,7 @@ const getAutoFocusValue = (autoFocus, values, value) => {
  * @param {function} onChange - callback that handle the state change
  */
 function LabelToggle({ id, values, name, value, onChange, disabled, autoFocus = false }) {
-	const localId = id || uuid.v4();
+	const localId = id || crypto.randomUUID();
 	const handleChange = e => {
 		onChange(e.target.value);
 	};

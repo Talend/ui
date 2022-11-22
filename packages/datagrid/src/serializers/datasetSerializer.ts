@@ -1,6 +1,7 @@
 import { ColDef, GetRowIdFunc, ValueGetterFunc } from 'ag-grid-community';
 
 import {
+	CUSTOM_FIELD_DISPLAY_NAME,
 	QUALITY_EMPTY_KEY,
 	QUALITY_INVALID_KEY,
 	QUALITY_KEY,
@@ -26,8 +27,8 @@ function isNull(type: AvroField['type']) {
 /**
  * remove the optional type
  *
- * @param  {object} 	avro field
- * @return {object}   return the shallow avro
+ * @param avroField field
+ * @return return the shallow avro
  * @example
  * 	sanitizeAvro({
  *		 "name": "field0",
@@ -53,18 +54,26 @@ export function sanitizeAvro(avroField: AvroField) {
 		? avroField.type.find(it => !isNull(it))
 		: avroField.type;
 
-	return typeof rawType === 'string'
-		? {
-				type: rawType,
-				typeLabel: rawType,
-		  }
-		: {
-				type: rawType.type,
-				typeLabel: rawType.type,
-				semanticTypeId: rawType.dqTypeKey,
-				semanticTypeLabel: rawType.dqType,
-				logicalType: rawType.logicalType,
-		  };
+	const avroTypePart =
+		typeof rawType === 'string'
+			? {
+					type: rawType,
+					typeLabel: rawType,
+			  }
+			: {
+					type: rawType.type,
+					typeLabel: rawType.type,
+					semanticTypeId: rawType.dqTypeKey,
+					semanticTypeLabel: rawType.dqType,
+					logicalType: rawType.logicalType,
+			  };
+
+	return {
+		name: avroField.name,
+		doc: avroField.doc,
+		[CUSTOM_FIELD_DISPLAY_NAME]: avroField[CUSTOM_FIELD_DISPLAY_NAME],
+		...avroTypePart,
+	};
 }
 
 /**
@@ -107,7 +116,7 @@ export function getColumnDefs(schema: Schema): ColDef[] {
 				...DefaultColDef,
 				valueGetter: valueGetter,
 				field: avroField.name,
-				headerName: avroField.doc || avroField.name,
+				headerName: avroField.doc || avroField[CUSTOM_FIELD_DISPLAY_NAME] || avroField.name,
 				cellRendererParams: {
 					...type,
 					avro: type,
@@ -115,8 +124,6 @@ export function getColumnDefs(schema: Schema): ColDef[] {
 				headerComponentParams: {
 					avro: type,
 					...type,
-					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-					// @ts-ignore
 					required: !Array.isArray(avroField.type) || !avroField.type.find(isNull),
 					quality: quality && {
 						invalid: quality[QUALITY_INVALID_KEY],
