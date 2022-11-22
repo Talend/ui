@@ -33,7 +33,7 @@ jobs:
         id: filter
         with:
           filters: |
-            design-system:
+            storybook:
              - 'packages/design-tokens/**'
              - 'packages/design-system/**'
             datagrid: packages/datagrid/**
@@ -89,6 +89,7 @@ jobs:
           # Handle monorepos https://www.chromatic.com/docs/monorepos
           preserveMissing: true
           forceRebuild: true
+          buildScriptName: 'test:demo'
 
       - name: Publish Master to DS Chromatic
         if: github.ref == 'refs/heads/master'
@@ -100,3 +101,4 @@ jobs:
           autoAcceptChanges: true # Option to accept any change for this baseline refresh
           preserveMissing: true
           forceRebuild: true
+          buildScriptName: 'test:demo'
