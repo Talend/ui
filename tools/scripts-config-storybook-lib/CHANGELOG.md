@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.3.1
+
+### Patch Changes
+
+- aeb1245b6: chore(storybook-lib): Broken Windows filepath
+
 ## 2.3.0
 
 ### Minor Changes

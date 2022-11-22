@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 12.1.0
+
+### Minor Changes
+
+- 280088381: add support for --watch option on build:lib and build:ts:lib command
+
 ## 12.0.0
 
 ### Major Changes

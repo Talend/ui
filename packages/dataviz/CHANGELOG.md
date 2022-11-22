@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.8.4
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+
 ## 2.8.3
 
 ### Patch Changes
