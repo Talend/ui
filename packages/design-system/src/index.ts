@@ -70,7 +70,7 @@ import {
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import { Tabs, TabsKit } from './components/WIP/Tabs';
+import { Tabs, TabsAsLinkList, TabsKit } from './components/WIP/Tabs';
 import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
 import {
 	Tag,
@@ -158,6 +158,7 @@ export {
 	Stepper,
 	Switch,
 	Tabs,
+	TabsAsLinkList,
 	TabsKit,
 	Tag,
 	TagBeta,
