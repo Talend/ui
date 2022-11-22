@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
@@ -57,7 +58,7 @@ $header-title-max-width: 90rem;
 			}
 
 			input {
-				width: $coral-sizing-maximal;
+				width: tokens.$coral-sizing-maximal;
 			}
 
 		}
