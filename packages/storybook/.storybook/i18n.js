@@ -1,8 +1,6 @@
 import { namespaces as designSystemNamespaces } from '@talend/locales-design-system/namespaces';
 import { locales as designSystemLocales } from '@talend/locales-design-system/locales';
 
-console.log('### ns', designSystemNamespaces);
-
 export default {
 	suspense: false,
 	debug: false,
