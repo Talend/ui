@@ -64,16 +64,7 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lock --ignore-scripts
 
-      - name: Build @talend/design-tokens
-        if: matrix.package == 'design-system'
-        run: |
-          yarn workspace @talend/assets-api run build:lib
-          yarn workspace @talend/icons run build:lib
-          yarn workspace @talend/design-tokens run build:lib
-          yarn workspace @talend/storybook-docs run build:lib
-
       - name: Build @talend/*
-        if: matrix.package != 'design-system'
         run: |
           # We need to build all dependencies (cmf, components...)
           yarn postinstall
@@ -89,7 +80,6 @@ jobs:
           # Handle monorepos https://www.chromatic.com/docs/monorepos
           preserveMissing: true
           forceRebuild: true
-          buildScriptName: 'test:demo'
 
       - name: Publish Master to DS Chromatic
         if: github.ref == 'refs/heads/master'
@@ -101,4 +91,3 @@ jobs:
           autoAcceptChanges: true # Option to accept any change for this baseline refresh
           preserveMissing: true
           forceRebuild: true
-          buildScriptName: 'test:demo'
