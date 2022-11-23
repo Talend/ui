@@ -1,35 +1,39 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import React from 'react';
-import { composeStories } from '@storybook/testing-react';
 
-import Link from '.';
-import * as Stories from './Link.stories';
-
-const { Default, Disabled, WithIcon, External, TargetBlank } = composeStories(Stories);
+import Link from './';
 
 context('<Link />', () => {
 	it('should render', () => {
-		cy.mount(<Default data-testid="my.link" />);
+		cy.mount(
+			<Link href="#" data-testid="my.link">
+				Link example
+			</Link>,
+		);
 		cy.getByTestId('my.link').should('have.text', 'Link example');
 	});
 
 	it('should render icon before', () => {
-		cy.mount(<WithIcon />);
+		cy.mount(<Link href="#" icon="information-filled" />);
 		cy.getByTest('link.icon.before').should('be.visible');
 	});
 
 	it('should render external', () => {
-		cy.mount(<External />);
+		cy.mount(<Link href="https://www.talend.com" />);
 		cy.getByTest('link.icon.external').should('be.visible');
 	});
 
 	it('should render disabled', () => {
-		cy.mount(<Disabled data-testid="my.link" />);
+		cy.mount(<Link href="#" icon="information-filled" disabled data-testid="my.link" />);
 		cy.getByTestId('my.link').should('have.attr', 'aria-disabled');
 	});
 
 	it('should deal with target blank', () => {
-		cy.mount(<TargetBlank data-testid="my.link" />);
+		cy.mount(
+			<Link href="#" target="_blank" data-testid="my.link">
+				Link example
+			</Link>,
+		);
 		cy.getByTestId('my.link')
 			.should('have.attr', 'title', 'Open in a new tab')
 			.should('have.attr', 'target', '_blank')
@@ -58,7 +62,7 @@ context('<Link />', () => {
 	});
 
 	it('should have data-feature', () => {
-		cy.mount(<Default data-testid="my.link" data-feature="my.feature" />);
+		cy.mount(<Link href="#" data-testid="my.link" data-feature="my.feature" />);
 		cy.getByTestId('my.link').should('have.attr', 'data-feature', 'my.feature');
 	});
 });
