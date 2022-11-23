@@ -1,5 +1,27 @@
 # @talend/react-datagrid
 
+## 14.0.0
+
+### Major Changes
+
+- 70677664b: **Breaking change**
+  Update `getColumnDefs` function from `datasetSerializer` : attribute `headerName` in returned object is now valued by display name (prop named `talend.component.label` in avro schema) in prior to technical name (prop named `name`).
+
+  So priority to value attribute `headerName` is now :
+
+  1. `doc`
+  2. `talend.component.label`
+  3. `name`
+
+  To allow each project to customize headerName, props `doc`, `talend.component.label` and `name` are now returned in object returned by function `getColumnDefs`.
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+
 ## 13.0.4
 
 ### Patch Changes
