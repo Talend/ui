@@ -1,10 +1,27 @@
 import React from 'react';
-import { composeStories } from '@storybook/testing-react';
 
 import ButtonPrimitive from './Primitive/ButtonPrimitive';
-import * as Stories from './Button.stories';
+import { ButtonPrimary, Tooltip } from '../..';
 
-const { Loading } = composeStories(Stories);
+const Loading = ({ 'data-testid': dataTestId }: { 'data-testid': string }) => {
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	const [loading, isLoading] = React.useState(false);
+	return (
+		<Tooltip title="Relevant description of the basic button">
+			<ButtonPrimary
+				data-testid={dataTestId}
+				icon="talend-check"
+				isLoading={loading}
+				onClick={() => {
+					isLoading(true);
+					setTimeout(() => isLoading(false), 3000);
+				}}
+			>
+				Async call to action
+			</ButtonPrimary>
+		</Tooltip>
+	);
+};
 
 context('<Button />', () => {
 	describe('default', () => {
