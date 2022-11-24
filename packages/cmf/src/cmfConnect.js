@@ -26,7 +26,6 @@ import React from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect, useStore } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
@@ -235,7 +234,7 @@ export default function cmfConnect({
 		}
 
 		function CMFContainer(props, ref) {
-			const [instanceId] = React.useState(uuidv4());
+			const [instanceId] = React.useState(crypto.randomUUID());
 			const registry = React.useContext(RegistryContext);
 			const store = useStore();
 

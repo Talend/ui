@@ -1,8 +1,11 @@
 import { useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
 import { start, stop } from '../../actions/saga';
+
+function v4() {
+	return crypto.randomUUID();
+}
 
 export function CmfRegisteredSagaComponent({
 	sagaId,

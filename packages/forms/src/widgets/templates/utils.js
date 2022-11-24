@@ -1,10 +1,8 @@
-import uuid from 'uuid';
-
 export function generateId(id, suffix) {
 	if (id) {
 		return `${id}-${suffix}`;
 	}
-	return uuid.v4();
+	return crypto.randomUUID();
 }
 
 export function generateDescriptionId(id) {

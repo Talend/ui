@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import uuid from 'uuid';
 import { action } from '@storybook/addon-actions';
 
 import Form from '../../src';
@@ -177,7 +176,7 @@ function createCommonProps() {
 							resolve({
 								properties: properties => ({
 									...properties,
-									[key]: `${uuid.v4()}.${stringToB64(name)}`,
+									[key]: `${crypto.randomUUID()}.${stringToB64(name)}`,
 								}),
 							}),
 						3000,

@@ -1,6 +1,9 @@
 import get from 'lodash/get';
-import uuid from 'uuid';
 import Immutable from 'immutable';
+
+function v4() {
+	return crypto.randomUUID();
+}
 
 /**
  * transform the APP state to push notification into the Notification component state slot on redux
@@ -16,7 +19,7 @@ export default function pushNotification(state, notification) {
 	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path, new Immutable.List());
 	notifs = notifs.push({
-		id: uuid.v4(),
+		id: v4(),
 		...notification,
 	});
 	const newState = { ...state };

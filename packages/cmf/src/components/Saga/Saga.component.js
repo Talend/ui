@@ -1,8 +1,11 @@
 import { useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
 import { actions } from './Saga.saga';
+
+function v4() {
+	return crypto.randomUUID();
+}
 
 export function SagaComponent({ startSaga, stopSaga, saga, sagaAttributes, children = null }) {
 	const id = useMemo(v4, []);

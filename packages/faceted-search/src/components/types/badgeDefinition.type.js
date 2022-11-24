@@ -1,9 +1,8 @@
 import get from 'lodash/get';
-import uuid from 'uuid';
 import flow from 'lodash/flow';
 
 const getAttribute = badgeDefinitionRaw => get(badgeDefinitionRaw, 'attribute');
-const createBadgeId = attribute => `${attribute}-${uuid.v4()}`;
+const createBadgeId = attribute => `${attribute}-${crypto.randomUUID()}`;
 const getOperators = badgeDefinitionRaw => get(badgeDefinitionRaw, 'operators');
 const getType = badgeDefinitionRaw => get(badgeDefinitionRaw, 'type');
 const getTypeProperties = badgeDefinitionRaw => get(badgeDefinitionRaw, 'typeProperties');
