@@ -41,19 +41,20 @@ function CellDatalist(props: CellEditorDatalistPropTypes) {
 			<Datalist
 				// Using autoFocus because <Datalist /> does not forward ref, so no manual focus possible
 				autoFocus // eslint-disable-line jsx-a11y/no-autofocus
+				disabled={false}
+				readOnly={false}
+				restricted={false}
+				multiSection={false}
 				titleMap={options}
 				isLoading={isLoading}
 				onFocus={(event: React.ChangeEvent<HTMLInputElement>) => {
-					event.preventDefault();
 					handleUserInput(event.target?.value);
 				}}
 				onLiveChange={(event: React.ChangeEvent<HTMLInputElement>, changedValue: string) => {
-					event.preventDefault();
-					setValue(changedValue);
 					debouncedHandleUserInput(changedValue);
 				}}
 				onChange={(event: React.ChangeEvent<HTMLInputElement>, state: { value: string }) => {
-					event.preventDefault();
+					setValue(state.value);
 					setIsLoading(false);
 					onChange(event, state.value);
 				}}

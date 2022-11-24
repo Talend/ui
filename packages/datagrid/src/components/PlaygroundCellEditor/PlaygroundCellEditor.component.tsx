@@ -1,4 +1,11 @@
-import React, { useEffect, useImperativeHandle, useRef, useState, forwardRef } from 'react';
+import React, {
+	useEffect,
+	useImperativeHandle,
+	useRef,
+	useState,
+	forwardRef,
+	useMemo,
+} from 'react';
 
 import { ICellEditorParams } from 'ag-grid-community';
 import FocusTrap from 'focus-trap-react';
@@ -53,7 +60,7 @@ function PlaygroundCellEditor(
 
 		// Block "Tab keydown" event propagation when "Apply to ..." element is visible
 		currentRef.current?.addEventListener('keydown', (e: KeyboardEvent) => {
-			if (e.key === 'Enter' || (e.key === 'Tab' && showApplyToRef.current)) {
+			if (e.key === 'Tab' && showApplyToRef.current) {
 				e.stopPropagation();
 			}
 		});
@@ -99,11 +106,19 @@ function PlaygroundCellEditor(
 					hasSuggestions={hasSuggestions}
 					isLoading={isLoading}
 					onChange={newValue => {
+						console.log('[GNI]-- PlaygroundCellEditor onchange');
 						setShowApplyTo(newValue !== value.value);
 						setState(newValue);
 					}}
 					onCancel={onCancel}
 					onFilter={
+						// () =>
+						// 	Promise.resolve([
+						// 		{ name: 'My foo', value: 'foo', description: 'foo description' },
+						// 		{ name: 'My bar', value: 'bar' },
+						// 		{ name: 'My foobar', value: 'foobar', description: 'foobar description' },
+						// 		{ name: 'My lol', value: 'lol' },
+						// 	])
 						hasSuggestions
 							? (search: string) =>
 									getSemanticTypeSuggestions(semanticTypeId, search).then(formatSuggestions)

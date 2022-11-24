@@ -12,6 +12,9 @@ import { SELECTED_CELL_CLASS_NAME } from '../../constants';
 import { getColumnDefs, getRowId, parseRow } from '../../serializers/datasetSerializer';
 import DataGrid, { DataGridProps } from './DataGrid';
 import PinHeaderRenderer from '../PinHeaderRenderer';
+import CellEditorDatalist from '../RichCellEditor/components/CellEditorDatalist.component';
+import RichCellEditor from '../RichCellEditor/RichCellEditor.component';
+import { Datalist } from '@talend/react-components';
 
 // eslint-disable-next-line no-irregular-whitespace
 const sample = cloneDeep(sourceSample);
@@ -55,7 +58,10 @@ const defaultGridProps = {
 	columnSelection: 'multiple' as DataGridProps['columnSelection'],
 	rowData: sample.data.map(parseRow),
 	columnDefs: getColumnDefs(sample.schema),
-	onCellFocused: action('onCellFocused'),
+	onCellFocused: () => {
+		console.log('[GNI]-- oncellfocused');
+		action('onCellFocused');
+	},
 	onSelectionChanged: action('onSelectionChanged'),
 	onColumnSelectionChanged: action('onColumnSelectionChanged'),
 };
@@ -228,6 +234,69 @@ export const EditablePlaygroundCell = () => {
 				},
 				cellEditorPopup: true,
 			}))}
+		/>
+	);
+};
+
+export const DatalistCell = () => {
+	return (
+		<CellEditorDatalist
+			eGridCell={{ scrollHeight: 100, scrollWidth: 100 }}
+			onFilter={() => {
+				action('onFilter')();
+				return Promise.resolve([
+					{ name: 'My foo', value: 'foo', description: 'foo description' },
+					{ name: 'My bar', value: 'bar' },
+					{ name: 'My foobar', value: 'foobar', description: 'foobar description' },
+					{ name: 'My lol', value: 'lol' },
+				]);
+			}}
+			onChange={action('onChange')}
+		/>
+	);
+	// return (
+	// 	<Datalist
+	// 		{...{
+	// 			onChange: action('onChange'),
+	// 			disabled: false,
+	// 			readOnly: false,
+	// 			placeholder: 'search for something...',
+	// 			titleMap: [
+	// 				{ name: 'My foo', value: 'foo', description: 'foo description' },
+	// 				{ name: 'My bar', value: 'bar' },
+	// 				{ name: 'My foobar', value: 'foobar', description: 'foobar description' },
+	// 				{ name: 'My lol', value: 'lol' },
+	// 			],
+	// 			multiSection: false,
+	// 		}}
+	// 	/>
+	// );
+};
+
+export const RichCellEditorStory = () => {
+	return (
+		<RichCellEditor
+			{...{
+				onChange: action('onChange'),
+				onFilter: () => {
+					action('onFilter')();
+					return Promise.resolve([
+						{ name: 'My foo', value: 'foo', description: 'foo description' },
+						{ name: 'My bar', value: 'bar' },
+						{ name: 'My foobar', value: 'foobar', description: 'foobar description' },
+						{ name: 'My lol', value: 'lol' },
+					]);
+				},
+				onCancel: action('onCancel'),
+				initialValue: 'toto',
+				hasSuggestions: true,
+				isLoading: false,
+				eGridCell: {
+					scrollHeight: 100,
+					scrollWidth: 100,
+					classList: { add: () => {}, remove: () => {} },
+				},
+			}}
 		/>
 	);
 };

@@ -224,6 +224,7 @@ function Datalist(props) {
 	 * @param {*} event
 	 */
 	function persistValue(event) {
+		console.log('[GNI]-- coucou');
 		hideSuggestions();
 		const selectedEntry = getEntryFromValue(props.titleMap, value, props.restricted);
 
