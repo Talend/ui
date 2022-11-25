@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import classnames from 'classnames';
 import { usePopper } from 'react-popper';
+import { randomUUID } from '@talend/utils';
 
 import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
@@ -33,7 +34,7 @@ function onMouseDown(event) {
 }
 
 export default function InputDatePicker(props) {
-	const popoverId = `date-picker-${props.id || crypto.randomUUID()}`;
+	const popoverId = `date-picker-${props.id || randomUUID()}`;
 
 	const [referenceElement, setReferenceElement] = useState(null);
 	const [popperElement, setPopperElement] = useState(null);

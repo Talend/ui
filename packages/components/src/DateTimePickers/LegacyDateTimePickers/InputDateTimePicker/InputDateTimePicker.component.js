@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import keycode from 'keycode';
 import { usePopper } from 'react-popper';
+import { randomUUID } from '@talend/utils';
 
 import FocusManager from '../../../FocusManager';
 import { DateTimeContext } from '../DateTime/Context';
@@ -48,7 +49,7 @@ function InputDateTimePicker(props) {
 		placement: getPopperPlacement(),
 	});
 
-	const popoverId = `date-time-picker-${props.id || crypto.randomUUID()}`;
+	const popoverId = `date-time-picker-${props.id || randomUUID()}`;
 	// eslint-disable-next-line @typescript-eslint/no-use-before-define
 	const openPicker = isPicked => setPickerVisibility(true, isPicked);
 	// eslint-disable-next-line @typescript-eslint/no-use-before-define

@@ -5,6 +5,7 @@ import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
 import keycode from 'keycode';
 import { usePopper } from 'react-popper';
+import { randomUUID } from '@talend/utils';
 
 import theme from './Typeahead.module.scss';
 import {
@@ -280,7 +281,7 @@ Typeahead.displayName = 'Typeahead';
 Typeahead.defaultProps = {
 	autoFocus: false,
 	disabled: false,
-	id: crypto.randomUUID(),
+	id: randomUUID(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	position: 'left',

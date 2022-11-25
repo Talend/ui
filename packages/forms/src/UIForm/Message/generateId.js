@@ -1,8 +1,10 @@
+import { randomUUID } from '@talend/utils';
+
 export function generateId(id, suffix) {
 	if (id) {
 		return `${id}-${suffix}`;
 	}
-	return crypto.randomUUID();
+	return randomUUID();
 }
 
 export function generateDescriptionId(id) {

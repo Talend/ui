@@ -1,8 +1,9 @@
 import get from 'lodash/get';
 import flow from 'lodash/flow';
+import { randomUUID } from '@talend/utils';
 
 const getAttribute = badgeDefinitionRaw => get(badgeDefinitionRaw, 'attribute');
-const createBadgeId = attribute => `${attribute}-${crypto.randomUUID()}`;
+const createBadgeId = attribute => `${attribute}-${randomUUID()}`;
 const getOperators = badgeDefinitionRaw => get(badgeDefinitionRaw, 'operators');
 const getType = badgeDefinitionRaw => get(badgeDefinitionRaw, 'type');
 const getTypeProperties = badgeDefinitionRaw => get(badgeDefinitionRaw, 'typeProperties');

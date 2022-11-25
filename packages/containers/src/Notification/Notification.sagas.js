@@ -1,11 +1,12 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
+import { randomUUID } from '@talend/utils';
 import Notification from './Notification.connect';
 import Constants from './Notification.constants';
 import { pushError } from './Notification.actions';
 
 function objectId() {
-	return crypto.randomUUID();
+	return randomUUID();
 }
 
 const CMF_CONST = cmf.constants;

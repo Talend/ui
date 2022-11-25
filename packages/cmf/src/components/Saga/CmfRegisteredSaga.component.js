@@ -1,11 +1,8 @@
 import { useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { randomUUID } from '@talend/utils';
 import { start, stop } from '../../actions/saga';
-
-function v4() {
-	return crypto.randomUUID();
-}
 
 export function CmfRegisteredSagaComponent({
 	sagaId,
@@ -15,7 +12,7 @@ export function CmfRegisteredSagaComponent({
 	componentId = 'default',
 	children = null,
 }) {
-	const id = useMemo(v4, []);
+	const id = useMemo(randomUUID, []);
 	// If we pass the sagaId, we use the cmf registry
 	useEffect(() => {
 		if (sagaId) {

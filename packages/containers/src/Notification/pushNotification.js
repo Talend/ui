@@ -1,8 +1,9 @@
 import get from 'lodash/get';
 import Immutable from 'immutable';
+import { randomUUID } from '@talend/utils';
 
 function v4() {
-	return crypto.randomUUID();
+	return randomUUID();
 }
 
 /**
