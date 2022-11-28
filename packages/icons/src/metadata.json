@@ -3592,5 +3592,17 @@
     "name": "icon/L/drag-and-drop",
     "description": "",
     "documentationLinks": []
+  },
+  {
+    "key": "f40a95bf6fb9c05dc81a73c120ebf6ac52e435d3",
+    "name": "icon/M/platform",
+    "description": "",
+    "documentationLinks": []
+  },
+  {
+    "key": "9a38a2a8dbfa5a528900c6fc9392c20fbe81e8a7",
+    "name": "icon/L/platform",
+    "description": "",
+    "documentationLinks": []
   }
 ]
