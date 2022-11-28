@@ -9,6 +9,7 @@
 .header-cell {
 	$self: &;
 	padding: tokens.$coral-spacing-xs;
+	width: 100%;
 
 	&__top-row {
 		overflow: hidden;
