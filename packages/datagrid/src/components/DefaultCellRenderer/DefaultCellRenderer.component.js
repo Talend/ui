@@ -26,13 +26,13 @@ function DefaultCellQualityIndicator({ value }) {
 		quality === -1
 			? {
 					constraintLabel: t(
-						'INVALID_CELL_CONSTAINT_LABEL_INVALID',
+						'INVALID_CELL_CONSTRAINT_LABEL_INVALID',
 						'The value does not comply with the column semantic type or rule',
 					),
 					constraintStatus: 'INVALID',
 			  }
 			: {
-					constraintLabel: t('INVALID_CELL_CONSTAINT_LABEL_EMPTY', '@todo TBD The value is empty'),
+					constraintLabel: t('INVALID_CELL_CONSTRAINT_LABEL_EMPTY', 'A value is required'),
 					constraintStatus: 'EMPTY',
 			  };
 
@@ -40,7 +40,7 @@ function DefaultCellQualityIndicator({ value }) {
 		<QualityDetailsIndicator
 			placement="bottom"
 			qualityIndex={quality}
-			indicatorLabel="@todo TBD"
+			indicatorLabel={t('INVALID_CELL_INDICATOR_LABEL', 'See more')}
 			invalidConstraint={[constraint]}
 		/>
 	);
