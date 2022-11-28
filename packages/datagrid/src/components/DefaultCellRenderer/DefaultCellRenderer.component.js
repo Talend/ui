@@ -59,17 +59,7 @@ function DefaultCellRenderer({ value, data, ...rest }) {
 				<SkeletonParagraph size="M" />
 			) : (
 				<>
-					<QualityDetailsIndicator
-						placement="bottom"
-						qualityIndex={value.quality}
-						indicatorLabel=""
-						invalidConstraint={[
-							{
-								constraintLabel: 'string',
-								constraintStatus: value.quality === 0 ? 'EMPTY' : 'INVALID',
-							},
-						]}
-					/>
+					<DefaultCellQualityIndicator value={value} />
 					<AvroRenderer value={value.value} {...rest} />
 				</>
 			)}
