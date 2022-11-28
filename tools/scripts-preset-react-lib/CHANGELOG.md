@@ -1,5 +1,13 @@
 # @talend/scripts-preset-react-lib
 
+## 14.0.1
+
+### Patch Changes
+
+- Updated dependencies [784fe3919]
+- Updated dependencies [fe430c316]
+  - @talend/scripts-config-storybook-lib@3.0.0
+
 ## 14.0.0
 
 ### Major Changes
