@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { randomUUID } from '@talend/utils';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -89,7 +90,7 @@ class ActionFile extends React.Component {
 		if (!available) {
 			return null;
 		}
-		const localId = id || crypto.randomUUID();
+		const localId = id || randomUUID();
 		const iconInstance = inProgress ? (
 			<CircularProgress size="small" key="icon" />
 		) : (
