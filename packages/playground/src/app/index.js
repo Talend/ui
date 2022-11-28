@@ -4,8 +4,7 @@
  * Being the first import is important, so that it is the default style
  * and other style can override it
  */
-// eslint-disable-next-line @talend/import-depth
-import '@talend/bootstrap-theme/dist/bootstrap.css';
+import '@talend/bootstrap-theme';
 import getRouter from '@talend/react-cmf-router';
 import React from 'react';
 import cmf from '@talend/react-cmf';
