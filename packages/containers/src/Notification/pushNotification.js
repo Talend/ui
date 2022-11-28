@@ -2,10 +2,6 @@ import get from 'lodash/get';
 import Immutable from 'immutable';
 import { randomUUID } from '@talend/utils';
 
-function v4() {
-	return randomUUID();
-}
-
 /**
  * transform the APP state to push notification into the Notification component state slot on redux
  * even if this component is not already mounted.
@@ -20,7 +16,7 @@ export default function pushNotification(state, notification) {
 	const path = ['Container(Notification)', 'Notification', 'notifications'];
 	let notifs = state.cmf.components.getIn(path, new Immutable.List());
 	notifs = notifs.push({
-		id: v4(),
+		id: randomUUID(),
 		...notification,
 	});
 	const newState = { ...state };

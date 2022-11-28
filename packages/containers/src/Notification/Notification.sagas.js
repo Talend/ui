@@ -5,10 +5,6 @@ import Notification from './Notification.connect';
 import Constants from './Notification.constants';
 import { pushError } from './Notification.actions';
 
-function objectId() {
-	return randomUUID();
-}
-
 const CMF_CONST = cmf.constants;
 const onError = cmf.onError;
 
@@ -18,7 +14,7 @@ export function* onPushNotification(action) {
 	const componentState = yield select(state => Notification.getState(state, DEFAULT_COMPONENT_ID));
 	const newComponentState = componentState.updateIn(['notifications'], notifications =>
 		notifications.push({
-			id: objectId(),
+			id: randomUUID(),
 			...action.notification,
 		}),
 	);
