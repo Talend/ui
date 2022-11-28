@@ -3,13 +3,13 @@
   "description": "Set of react components.",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
-  "types": "lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:lib": "talend-scripts build:lib && yarn run tsc",
+    "tsc": "tsc --emitDeclarationOnly --project ./tsconfig.json --outDir ./types",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
-    "@talend/bootstrap-theme": "^6.39.1",
+    "@talend/bootstrap-theme": "^7.0.0",
     "@talend/icons": "^6.51.0",
     "@talend/utils": "^2.4.0",
     "ally.js": "^1.4.1",
@@ -66,17 +66,16 @@
     "recharts": "^2.1.13",
     "simplebar": "^5.3.8",
     "simplebar-react": "^2.4.1",
-    "styled-components": "^5.3.6",
-    "uuid": "^3.4.0"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.9",
-    "@talend/bootstrap-theme": "^6.39.1",
-    "@talend/design-system": "^7.0.0",
+    "@talend/bootstrap-theme": "^7.0.0",
+    "@talend/design-system": "^7.0.2",
     "@talend/icons": "^6.51.0",
     "@talend/locales-design-system": "^1.12.2",
     "@talend/locales-tui-components": "^6.44.11",
-    "@talend/scripts-core": "^12.0.0",
+    "@talend/scripts-core": "^12.1.0",
     "@talend/scripts-preset-react-lib": "^14.0.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
@@ -117,5 +116,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.11.3"
+  "version": "9.0.0"
 }

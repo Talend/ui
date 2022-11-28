@@ -1,5 +1,17 @@
 # @talend/design-system
 
+## 7.1.0
+
+### Minor Changes
+
+- 3815dabd3: feat(design-system): add Message component
+
+## 7.0.2
+
+### Patch Changes
+
+- 105990b24: feat(InlineEditing): add new `onToggle` optional props to get notify from edition mode changes
+
 ## 7.0.1
 
 ### Patch Changes

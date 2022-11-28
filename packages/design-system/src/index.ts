@@ -1,3 +1,4 @@
+import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
 	ButtonDestructive,
@@ -40,6 +41,16 @@ import {
 import Link from './components/Link';
 import { LinkAsButton } from './components/LinkAsButton';
 import Loading from './components/Loading';
+import {
+	MessageSuccess,
+	MessageDestructive,
+	MessageInformation,
+	MessageWarning,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
+} from './components/Message';
 import Modal from './components/Modal';
 import Popover from './components/WIP/Popover';
 import Skeleton, {
@@ -59,7 +70,7 @@ import {
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import { Tabs, TabsKit } from './components/WIP/Tabs';
+import { Tabs, TabsAsLinkList, TabsKit } from './components/WIP/Tabs';
 import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
 import {
 	Tag,
@@ -76,11 +87,13 @@ import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 
 export * from './components/Stack';
+export * from './themes';
 export {
 	Accordion,
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
+	Breadcrumbs,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,
@@ -119,6 +132,14 @@ export {
 	Link,
 	LinkAsButton,
 	Loading,
+	MessageCollectionSuccess,
+	MessageCollectionDestructive,
+	MessageCollectionInformation,
+	MessageCollectionWarning,
+	MessageSuccess,
+	MessageDestructive,
+	MessageInformation,
+	MessageWarning,
 	Modal,
 	Popover,
 	SizedIcon,
@@ -137,6 +158,7 @@ export {
 	Stepper,
 	Switch,
 	Tabs,
+	TabsAsLinkList,
 	TabsKit,
 	Tag,
 	TagBeta,

@@ -1,5 +1,25 @@
 # @talend/scripts-config-storybook-lib
 
+## 2.3.1
+
+### Patch Changes
+
+- aeb1245b6: chore(storybook-lib): Broken Windows filepath
+
+## 2.3.0
+
+### Minor Changes
+
+- e66ecb955: feat: simplify configuration as part of the current changes in all talend-scripts.
+
+  Now talend-scripts only work with mainstream approach of file names.
+
+## 2.2.1
+
+### Patch Changes
+
+- 0f05e9b1e: fix: add missing dependency on @storybook/preset-scss
+
 ## 2.2.0
 
 ### Minor Changes

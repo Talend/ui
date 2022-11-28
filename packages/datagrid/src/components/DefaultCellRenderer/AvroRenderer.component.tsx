@@ -10,6 +10,7 @@ import {
 } from '../../constants/avro-type.constant';
 import { CellRendererParams, TypeInfo } from '../../types';
 import DefaultIntCellRenderer from '../DefaultIntCellRenderer';
+import DefaultDateCellRenderer from '../DefaultDateCellRenderer';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
 
 export function getTypeRenderer(schemaType: TypeInfo) {
@@ -24,11 +25,13 @@ export default function AvroRenderer({
 	avroRenderer = {
 		intCellRenderer: DefaultIntCellRenderer,
 		stringCellRenderer: DefaultValueRenderer,
+		dateCellRenderer: DefaultDateCellRenderer,
 	},
 	avro,
 	...rest
 }: ICellRendererParams & CellRendererParams) {
 	const typeRenderer = getTypeRenderer(avro);
+
 	const Component = avroRenderer?.[`${typeRenderer}CellRenderer`] ?? DefaultValueRenderer;
 
 	return <Component {...rest} />;

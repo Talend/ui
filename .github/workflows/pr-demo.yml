@@ -35,12 +35,6 @@ jobs:
           yarn global add surge
           echo "$(yarn global bin)" >> $GITHUB_PATH
 
-      - name: Build Storybook of the design tokens
-        run: |
-          cd packages/design-tokens
-          yarn install --frozen-lock
-          yarn run build:lib
-          yarn run pre-release
 
       - name: Build
         run: |

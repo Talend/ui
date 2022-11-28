@@ -3,6 +3,8 @@ const fse = require('fs-extra');
 const path = require('path');
 const { template } = require('lodash');
 
+const { fixWindowsPath } = require('./.storybook-templates/utils');
+
 const CWD = process.cwd();
 const TMP_PATH = path.join(CWD, 'node_modules', '.cache', '.talend-storybook');
 const TEMPLATE_SB_PATH = path.join(__dirname, '.storybook-templates');
@@ -29,7 +31,7 @@ function copyFile(fileName) {
 			const fileAsString = fs.readFileSync(defaultFilePath).toString();
 			const compiledTemplate = template(fileAsString);
 			const content = compiledTemplate({
-				userFilePath: userFileExists ? userFilePath : undefined,
+				userFilePath: userFileExists ? fixWindowsPath(userFilePath) : undefined,
 				userFileContent: userFileExists ? fs.readFileSync(userFilePath) : '',
 			});
 			fs.writeFileSync(targetPath, content);

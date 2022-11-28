@@ -3,8 +3,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import uuid from 'uuid';
 import { action } from '@storybook/addon-actions';
+import { randomUUID } from '@talend/utils';
 
 import Form from '../../src';
 import { PRESIGNED_URL_TRIGGER_ACTION } from '../../src/UIForm/fields/File/File.component';
@@ -177,7 +177,7 @@ function createCommonProps() {
 							resolve({
 								properties: properties => ({
 									...properties,
-									[key]: `${uuid.v4()}.${stringToB64(name)}`,
+									[key]: `${randomUUID()}.${stringToB64(name)}`,
 								}),
 							}),
 						3000,

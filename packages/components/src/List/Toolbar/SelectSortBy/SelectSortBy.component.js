@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Nav, NavDropdown, MenuItem, Button } from '@talend/react-bootstrap';
-import uuid from 'uuid';
+import { randomUUID } from '@talend/utils';
 import classNames from 'classnames';
 
 import getDefaultT from '../../../translate';
@@ -57,7 +57,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 				<li className="navbar-text">{options[0].name}</li>
 			) : (
 				<NavDropdown
-					id={id ? `${id}-by` : uuid.v4()}
+					id={id ? `${id}-by` : randomUUID()}
 					title={currentSortByLabel}
 					onSelect={onChangeField}
 					className={theme['sort-by-items']}

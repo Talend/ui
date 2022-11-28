@@ -50,3 +50,4 @@ dist/
 eslint-report.json
 stylelint-report.json
 i18n-extract
+.test-cache

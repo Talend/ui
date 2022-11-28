@@ -1,5 +1,24 @@
 # @talend/react-forms
 
+## 8.1.7
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+
+## 8.1.6
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+
 ## 8.1.5
 
 ### Patch Changes
