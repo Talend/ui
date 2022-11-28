@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { randomUUID } from '@talend/utils';
 import DisplayModeToggle, {
 	displayModesOptions as options,
 } from '../../Toolbar/DisplayModeToggle/DisplayModeToggle.component';
@@ -35,7 +36,7 @@ function ListDisplayMode({ children, displayModesOptions, id, onChange, selected
 }
 
 ListDisplayMode.defaultProps = {
-	id: crypto.randomUUID(),
+	id: randomUUID(),
 	displayModesOptions: options,
 };
 ListDisplayMode.propTypes = {
