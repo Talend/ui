@@ -1,5 +1,15 @@
 # @talend/react-forms
 
+## 8.1.8
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+  - @talend/react-components@9.0.1
+  - @talend/utils@2.5.0
+
 ## 8.1.7
 
 ### Patch Changes
