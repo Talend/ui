@@ -4391,9 +4391,9 @@
   integrity sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==
 
 "@types/react-dom@<18.0.0", "@types/react-dom@^17.0.17", "@types/react-dom@^17.0.2":
-  version "17.0.17"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.17.tgz#2e3743277a793a96a99f1bf87614598289da68a1"
-  integrity sha512-VjnqEmqGnasQKV0CWLevqMTXBYG9GbwuE6x3VetERLh0cq2LTptFE73MrQi2S7GkKXCf2GgwItB/melLnxfnsg==
+  version "17.0.18"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.18.tgz#8f7af38f5d9b42f79162eea7492e5a1caff70dc2"
+  integrity sha512-rLVtIfbwyur2iFKykP2w0pl/1unw26b5td16d5xMgp7/yjTHomkyxPYChFoCr/FtEX1lN9wY6lFj1qvKdS5kDw==
   dependencies:
     "@types/react" "^17"
 
@@ -4422,9 +4422,9 @@
     "@types/react" "^17"
 
 "@types/react@*", "@types/react@>=16.9.11", "@types/react@^16", "@types/react@^17", "@types/react@^17.0.2", "@types/react@^17.0.47":
-  version "17.0.50"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.50.tgz#39abb4f7098f546cfcd6b51207c90c4295ee81fc"
-  integrity sha512-ZCBHzpDb5skMnc1zFXAXnL3l1FAdi+xZvwxK+PkglMmBrwjpp9nKaWuEvrGnSifCJmBFGxZOOFuwC6KH/s0NuA==
+  version "17.0.52"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.52.tgz#10d8b907b5c563ac014a541f289ae8eaa9bf2e9b"
+  integrity sha512-vwk8QqVODi0VaZZpDXQCmEmiOuyjEFPY7Ttaw5vjM112LOq37yz1CDJGrRJwA1fYEq4Iitd5rnjd1yWAc/bT+A==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -5093,10 +5093,10 @@ ag-grid-community@^28.0.2:
   resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-28.0.2.tgz#72ec5e47793f5fcb657be2c79bd94be57a75bd87"
   integrity sha512-yMcDf6QhoKsuUBNklVOS2pAPzG697aNwffaCYr6HKCqEDBqhW7fTtX2iQPD4SZ7/fk/sNX8RSFAI+nTrrjDKFw==
 
-ag-grid-react@^28.0.0:
-  version "28.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-28.0.0.tgz#f8774cbc8aeb20abbc507bc23fbdaaa987a52175"
-  integrity sha512-voKc4Q44YAVRZXUQeOPXfO049ak67t5AOy8RTjf1sIv9eZ9O6liVZzNjkWY3pel1cGgTMTqNPWSpQYxBhOe0UA==
+ag-grid-react@^28.2.1:
+  version "28.2.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-28.2.1.tgz#c38585b8f165a5cf9343eab6994c06855f5b2caf"
+  integrity sha512-3vbw+B77uWwAyiOJxQA5U+PQFRCCccUx7L5PIwrnA4Y7c1yAu8sB65hAZdBc9kuW26iltwv7asq0UzP7UAQUpg==
   dependencies:
     prop-types "^15.8.1"
 
@@ -19571,9 +19571,9 @@ typescript-tuple@^2.2.1:
     typescript-compare "^0.0.2"
 
 typescript@>=4.6.3, typescript@^3.0.0, typescript@^4.6.2, typescript@^4.6.4, typescript@^4.7.4:
-  version "4.8.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
-  integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
+  integrity sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==
 
 ua-parser-js@1.0.2:
   version "1.0.2"

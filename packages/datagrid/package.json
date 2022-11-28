@@ -40,7 +40,7 @@
     "@talend/design-tokens": "^2.7.1",
     "@talend/icons": "^6.51.1",
     "ag-grid-community": "^28.0.2",
-    "ag-grid-react": "^28.0.0",
+    "ag-grid-react": "^28.2.1",
     "@talend/react-components": "^9.0.1",
     "classnames": "^2.3.1",
     "focus-trap-react": "^8.11.3",
