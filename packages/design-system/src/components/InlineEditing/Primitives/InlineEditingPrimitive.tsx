@@ -182,7 +182,6 @@ const InlineEditingPrimitive = forwardRef(
 										{t('INLINE_EDITING_CANCEL', 'Cancel')}
 									</ButtonIcon>
 									<ButtonIcon
-										type="submit"
 										onClick={handleSubmit}
 										icon="check-filled"
 										data-test="inlineediting.button.submit"
