@@ -143,7 +143,7 @@ const InlineEditingPrimitive = forwardRef(
 			): void => setValue(event.target.value),
 			// Keyboard shortcuts
 			onKeyDown: (event: React.KeyboardEvent) => {
-				if (event.keyCode === 13) {
+				if (event.keyCode === 13 && mode !== 'multi') {
 					// Enter
 					handleSubmit(event);
 				}
@@ -182,7 +182,6 @@ const InlineEditingPrimitive = forwardRef(
 										{t('INLINE_EDITING_CANCEL', 'Cancel')}
 									</ButtonIcon>
 									<ButtonIcon
-										type="submit"
 										onClick={handleSubmit}
 										icon="check-filled"
 										data-test="inlineediting.button.submit"
