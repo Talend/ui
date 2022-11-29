@@ -2,4 +2,6 @@
 '@talend/design-system': patch
 ---
 
-InlineEditing : don't handle enter key when not in edition
+InlineEditing : handle keyboard shortcut only when element has the focus
+
+remove usekey which bind by default on document.
