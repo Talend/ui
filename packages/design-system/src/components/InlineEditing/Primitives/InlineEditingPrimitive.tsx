@@ -8,7 +8,6 @@ import React, {
 	useEffect,
 	useState,
 } from 'react';
-import useKey from 'react-use/lib/useKey';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
@@ -31,7 +30,11 @@ type ErrorInEditing =
 export type InlineEditingPrimitiveProps = {
 	loading?: boolean;
 	onEdit?: (
-		event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent | React.FormEvent<HTMLFormElement>,
+		event:
+			| React.MouseEvent<HTMLButtonElement>
+			| KeyboardEvent
+			| React.FormEvent<HTMLFormElement>
+			| React.KeyboardEvent,
 		newValue: string,
 	) => void;
 	onCancel?: () => void;
@@ -80,7 +83,11 @@ const InlineEditingPrimitive = forwardRef(
 		}, [hasError]);
 
 		const handleSubmit = (
-			event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent | React.FormEvent<HTMLFormElement>,
+			event:
+				| React.MouseEvent<HTMLButtonElement>
+				| KeyboardEvent
+				| React.FormEvent<HTMLFormElement>
+				| React.KeyboardEvent,
 		) => {
 			event.stopPropagation();
 			if (onEdit) {
@@ -97,9 +104,6 @@ const InlineEditingPrimitive = forwardRef(
 			toggleEditionMode(false);
 			onCancel();
 		};
-
-		// Keyboard shortcuts
-		useKey('Escape', handleCancel, {}, [isEditing]);
 
 		const testId = `inlineediting.${mode === 'multi' ? 'textarea' : 'input'}`;
 
@@ -137,12 +141,21 @@ const InlineEditingPrimitive = forwardRef(
 			onChange: (
 				event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
 			): void => setValue(event.target.value),
+			// Keyboard shortcuts
+			onKeyDown: (event: React.KeyboardEvent) => {
+				if (event.keyCode === 13) {
+					// Enter
+					handleSubmit(event);
+				}
+				if (event.keyCode === 27) {
+					handleCancel();
+				}
+			},
 		};
-
 		return (
 			<div {...rest} data-test="inlineediting" className={styles.inlineEditor} ref={ref}>
 				{isEditing ? (
-					<form onSubmit={e => handleSubmit(e)}>
+					<>
 						<div className={styles.inlineEditor__editor}>
 							{mode === 'multi' && <Form.Textarea {...sharedInputProps}>{value}</Form.Textarea>}
 							{mode === 'single' && (
@@ -180,7 +193,7 @@ const InlineEditingPrimitive = forwardRef(
 								</StackHorizontal>
 							</div>
 						</div>
-					</form>
+					</>
 				) : (
 					<div
 						className={classnames(styles.inlineEditor__content, {
