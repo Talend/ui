@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 9.0.1
+
+### Patch Changes
+
+- f0a97113e: fix: use randomUUID from talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [784fe3919]
+  - @talend/utils@2.5.0
+  - @talend/icons@6.51.1
+
 ## 9.0.0
 
 ### Major Changes

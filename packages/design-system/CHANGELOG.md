@@ -1,5 +1,20 @@
 # @talend/design-system
 
+## 7.1.1
+
+### Patch Changes
+
+- fe430c316: fix: add missing export on the root
+
+  - Input on Form component (so Form.Input)
+  - Breadcrumbs
+  - theme tokens
+  - TabsAsLinkList
+
+  ```
+  import { dark, light, Breadcrumbs } from '@talend/design-system';
+  ```
+
 ## 7.1.0
 
 ### Minor Changes

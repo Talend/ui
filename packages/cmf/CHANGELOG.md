@@ -1,5 +1,13 @@
 # @talend/react-cmf
 
+## 7.1.4
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+  - @talend/utils@2.5.0
+
 ## 7.1.3
 
 ### Patch Changes
