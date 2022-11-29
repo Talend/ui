@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.1.3
+
+### Patch Changes
+
+- c8ea668ee: InlineEditing : don't handle enter key when not in edition
+
 ## 7.1.2
 
 ### Patch Changes
