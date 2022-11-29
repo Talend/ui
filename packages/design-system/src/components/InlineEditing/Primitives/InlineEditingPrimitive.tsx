@@ -30,7 +30,10 @@ type ErrorInEditing =
 
 export type InlineEditingPrimitiveProps = {
 	loading?: boolean;
-	onEdit?: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent, newValue: string) => void;
+	onEdit?: (
+		event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent | React.FormEvent<HTMLFormElement>,
+		newValue: string,
+	) => void;
 	onCancel?: () => void;
 	onToggle?: (isEditionMode: boolean) => void;
 	defaultValue?: string;
@@ -76,7 +79,9 @@ const InlineEditingPrimitive = forwardRef(
 			}
 		}, [hasError]);
 
-		const handleSubmit = (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
+		const handleSubmit = (
+			event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent | React.FormEvent<HTMLFormElement>,
+		) => {
 			event.stopPropagation();
 			if (onEdit) {
 				const sentValue = value || '';
@@ -95,16 +100,6 @@ const InlineEditingPrimitive = forwardRef(
 
 		// Keyboard shortcuts
 		useKey('Escape', handleCancel, {}, [isEditing]);
-		useKey(
-			'Enter',
-			(event: KeyboardEvent): void => {
-				if (isEditing && mode !== 'multi') {
-					handleSubmit(event);
-				}
-			},
-			{},
-			[isEditing, value],
-		);
 
 		const testId = `inlineediting.${mode === 'multi' ? 'textarea' : 'input'}`;
 
@@ -147,7 +142,7 @@ const InlineEditingPrimitive = forwardRef(
 		return (
 			<div {...rest} data-test="inlineediting" className={styles.inlineEditor} ref={ref}>
 				{isEditing ? (
-					<>
+					<form onSubmit={e => handleSubmit(e)}>
 						<div className={styles.inlineEditor__editor}>
 							{mode === 'multi' && <Form.Textarea {...sharedInputProps}>{value}</Form.Textarea>}
 							{mode === 'single' && (
@@ -174,6 +169,7 @@ const InlineEditingPrimitive = forwardRef(
 										{t('INLINE_EDITING_CANCEL', 'Cancel')}
 									</ButtonIcon>
 									<ButtonIcon
+										type="submit"
 										onClick={handleSubmit}
 										icon="check-filled"
 										data-test="inlineediting.button.submit"
@@ -184,7 +180,7 @@ const InlineEditingPrimitive = forwardRef(
 								</StackHorizontal>
 							</div>
 						</div>
-					</>
+					</form>
 				) : (
 					<div
 						className={classnames(styles.inlineEditor__content, {
