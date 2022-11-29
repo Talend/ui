@@ -1,5 +1,11 @@
 # @talend/react-datagrid
 
+## 14.0.2
+
+### Patch Changes
+
+- 51004d566: fix(datagrid): header cell width
+
 ## 14.0.1
 
 ### Patch Changes
