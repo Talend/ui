@@ -1,6 +1,6 @@
-import React, { forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { useCopyToClipboard } from 'react-use';
+import React, { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useCopyToClipboard } from '@talend/react-hooks';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
 import {
 	FieldPrimitive,
@@ -30,35 +30,15 @@ const InputCopy = forwardRef(
 		}: InputCopyProps,
 		ref: Ref<HTMLInputElement | null>,
 	) => {
-		const [copiedValue, setCopiedValue] = useState('');
-		const [copyError, setCopyError] = useState<Error | undefined | null>(null);
-		const [{ value: clipboardValue, error: clipboardError }, copyToClipboard] =
-			useCopyToClipboard();
+		const [copiedValue, copyToClipboard] = useCopyToClipboard();
 		const inputRef = useRef<HTMLInputElement | null>(null);
 		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const inputValue = value || defaultValue;
 
-		useEffect(() => {
-			if (inputValue !== copiedValue) {
-				setCopiedValue('');
-				setCopyError(null);
-			}
-		}, [inputValue, copiedValue]);
-
-		useEffect(() => {
-			setCopiedValue(clipboardValue as string);
-		}, [clipboardValue]);
-
-		useEffect(() => {
-			setCopyError(clipboardError);
-		}, [clipboardError]);
-
 		useImperativeHandle(ref, () => inputRef.current);
 
 		const getDescriptionMessage = () => {
-			if (copyError) {
-				return copyError.message;
-			} else if (copiedValue && copiedValue === inputValue) {
+			if (copiedValue && copiedValue === inputValue) {
 				return t('FORM_COPY_COPIED_TO_CLIPBOARD', 'Copied to clipboard');
 			}
 			return '';
@@ -68,7 +48,6 @@ const InputCopy = forwardRef(
 			<FieldPrimitive
 				label={label}
 				description={getDescriptionMessage()}
-				hasError={!!copyError}
 				hideLabel={hideLabel}
 				required={required}
 				name={name}
