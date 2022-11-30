@@ -13,6 +13,7 @@
     "postinstall": "node workspace-run.js build:lib",
     "pre-release": "node workspace-run.js pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
+    "start-storybook": "yarn workspace @talend/ui-storybook run start-storybook",
     "release": "yarn pre-release && yarn changeset publish",
     "lint-staged": "lint-staged",
     "lint:es": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:es",
