@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and test
+    name: Build
 
     steps:
       - name: Checkout sources
@@ -26,5 +26,39 @@ jobs:
       - name: Install
         run: yarn install --frozen-lockfile
 
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Run unittest
+    steps:
       - name: Test
         run: yarn test
+
+  test-cypress:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Run cypress test
+    steps:
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - name: Cypress Component Testing
+        uses: cypress-io/github-action@v3
+        with:
+          browser: ${{ matrix.browser }}
+          command: yarn run test:cy
+
+      - name: Cypress screenshots upload
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-component-testing-${{ matrix.browser }}-screenshots
+          path: packages/design-system/cypress/screenshots/**/*
+
+      - name: Cypress videos upload
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-component-testing-${{ matrix.browser }}-videos
+          path: packages/design-system/cypress/videos/**/*
