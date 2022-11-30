@@ -28,16 +28,15 @@ type ErrorInEditing =
 			description?: string;
 	  };
 
+export type OnEditEvent =
+	| React.MouseEvent<HTMLButtonElement>
+	| KeyboardEvent
+	| React.FormEvent<HTMLFormElement>
+	| React.KeyboardEvent;
+
 export type InlineEditingPrimitiveProps = {
 	loading?: boolean;
-	onEdit?: (
-		event:
-			| React.MouseEvent<HTMLButtonElement>
-			| KeyboardEvent
-			| React.FormEvent<HTMLFormElement>
-			| React.KeyboardEvent,
-		newValue: string,
-	) => void;
+	onEdit?: (event: OnEditEvent, newValue: string) => void;
 	onCancel?: () => void;
 	onToggle?: (isEditionMode: boolean) => void;
 	defaultValue?: string;
@@ -83,13 +82,7 @@ const InlineEditingPrimitive = forwardRef(
 			}
 		}, [hasError]);
 
-		const handleSubmit = (
-			event:
-				| React.MouseEvent<HTMLButtonElement>
-				| KeyboardEvent
-				| React.FormEvent<HTMLFormElement>
-				| React.KeyboardEvent,
-		) => {
+		const handleSubmit = (event: OnEditEvent) => {
 			event.stopPropagation();
 			if (onEdit) {
 				const sentValue = value || '';
