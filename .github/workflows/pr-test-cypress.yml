@@ -3,10 +3,13 @@ name: PR tests cypress
 on:
   pull_request:
   push:
-    branches: [master, maintenance/*]
+    paths:
+      - ".github/workflows/design-system-*"
+      - "packages/design-tokens/**"
+      - "packages/design-system/**"
 
 jobs:
-  build:
+  cypress-run:
     runs-on: ubuntu-latest
     name: Build
     strategy:
