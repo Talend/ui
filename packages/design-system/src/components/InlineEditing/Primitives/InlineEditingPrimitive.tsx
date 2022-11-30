@@ -9,6 +9,7 @@ import React, {
 	useState,
 } from 'react';
 import classnames from 'classnames';
+import keycode from 'keycode';
 import { useTranslation } from 'react-i18next';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import Form from '../../Form';
@@ -143,11 +144,11 @@ const InlineEditingPrimitive = forwardRef(
 			): void => setValue(event.target.value),
 			// Keyboard shortcuts
 			onKeyDown: (event: React.KeyboardEvent) => {
-				if (event.keyCode === 13 && mode !== 'multi') {
+				if (event.keyCode === keycode.code.enter && mode !== 'multi') {
 					// Enter
 					handleSubmit(event);
 				}
-				if (event.keyCode === 27) {
+				if (event.keyCode === keycode.code.esc) {
 					handleCancel();
 				}
 			},
