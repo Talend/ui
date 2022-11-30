@@ -19,6 +19,7 @@
     "lint:style": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:style",
     "build": "yarn workspaces run build",
     "test": "cross-env TZ=Europe/Paris node workspace-run.js test --silent",
+    "test:cy": "cross-env TZ=Europe/Paris node workspace-run.js test:cy",
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris yarn workspaces run test:cov",
     "test:demo": "node workspace-run.js test:demo",

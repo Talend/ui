@@ -1,4 +1,4 @@
-name: Design System component testing
+name: Cypress component testing
 
 on:
   push:
@@ -32,20 +32,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn --frozen-lock --ignore-scripts
-          yarn cypress install
-
-      - name: Build @talend/design-tokens
-        run: |
-          yarn workspace @talend/assets-api run build:lib
-          yarn workspace @talend/icons run build:lib
-          yarn workspace @talend/design-tokens run build:lib
+          yarn --frozen-lock
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@v3
         with:
           browser: ${{ matrix.browser }}
-          command: yarn workspace @talend/design-system run test:cy
+          command: yarn run test:cy
 
       - name: Cypress screenshots upload
         uses: actions/upload-artifact@v3
@@ -56,7 +49,7 @@ jobs:
 
       - name: Cypress videos upload
         uses: actions/upload-artifact@v3
-        if: always()
+        if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos
           path: packages/design-system/cypress/videos/**/*
