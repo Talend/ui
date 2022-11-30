@@ -33,6 +33,7 @@
     "@talend/assets-api": "^1.2.2",
     "@talend/design-tokens": "^2.7.1",
     "classnames": "^2.3.1",
+    "keycode": "^2.2.1",
     "modern-css-reset": "^1.4.0",
     "polished": "^4.2.2",
     "react-use": "^17.4.0",
