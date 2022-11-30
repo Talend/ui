@@ -1,0 +1,56 @@
+name: PR tests cypress
+
+on:
+  pull_request:
+  push:
+    branches: [master, maintenance/*]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: ["chrome", "firefox"]
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          check-latest: true
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@talend"
+          cache: "yarn"
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Cypress Component Testing
+        uses: cypress-io/github-action@v3
+        with:
+          browser: ${{ matrix.browser }}
+          command: yarn run test:cy
+
+      - name: Cypress screenshots upload
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-component-testing-${{ matrix.browser }}-screenshots
+          path: packages/design-system/cypress/screenshots/**/*
+
+      - name: Cypress videos upload
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-component-testing-${{ matrix.browser }}-videos
+          path: packages/design-system/cypress/videos/**/*
