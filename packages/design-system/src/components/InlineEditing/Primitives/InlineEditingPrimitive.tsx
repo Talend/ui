@@ -144,11 +144,11 @@ const InlineEditingPrimitive = forwardRef(
 			): void => setValue(event.target.value),
 			// Keyboard shortcuts
 			onKeyDown: (event: React.KeyboardEvent) => {
-				if (event.keyCode === keycode.code.enter && mode !== 'multi') {
+				if (event.keyCode === keycode.codes.enter && mode !== 'multi') {
 					// Enter
 					handleSubmit(event);
 				}
-				if (event.keyCode === keycode.code.esc) {
+				if (event.keyCode === keycode.codes.esc) {
 					handleCancel();
 				}
 			},
