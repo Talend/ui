@@ -98,7 +98,7 @@ const InlineEditingPrimitive = forwardRef(
 		useKey(
 			'Enter',
 			(event: KeyboardEvent): void => {
-				if (mode !== 'multi') {
+				if (isEditing && mode !== 'multi') {
 					handleSubmit(event);
 				}
 			},

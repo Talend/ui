@@ -1,5 +1,32 @@
 # @talend/design-system
 
+## 7.1.3
+
+### Patch Changes
+
+- c8ea668ee: InlineEditing : don't handle enter key when not in edition
+
+## 7.1.2
+
+### Patch Changes
+
+- 5aeff7b47: TDOPS-3267 - Fixed support for `onBlur` property passed to primitive input
+
+## 7.1.1
+
+### Patch Changes
+
+- fe430c316: fix: add missing export on the root
+
+  - Input on Form component (so Form.Input)
+  - Breadcrumbs
+  - theme tokens
+  - TabsAsLinkList
+
+  ```
+  import { dark, light, Breadcrumbs } from '@talend/design-system';
+  ```
+
 ## 7.1.0
 
 ### Minor Changes

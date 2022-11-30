@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
+import { randomUUID } from '@talend/utils';
 import getDefaultT from '../../../../translate';
 import { DateTimeContext } from '../../DateTime/Context';
 import { FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from '../../DateTime/constants';
@@ -29,7 +30,7 @@ class TimePicker extends React.PureComponent {
 
 	constructor(props) {
 		super(props);
-		const id = crypto.randomUUID();
+		const id = randomUUID();
 		this.hourId = `${id}-hour`;
 		this.minuteId = `${id}-minute`;
 		this.secondId = `${id}-second`;

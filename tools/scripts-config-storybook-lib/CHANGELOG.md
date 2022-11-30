@@ -1,5 +1,20 @@
 # @talend/scripts-config-storybook-lib
 
+## 3.0.0
+
+### Major Changes
+
+- fe430c316: fix: stories override default stories
+
+  Breaking Change: stories is supposed to give blob to get all the story you need.
+  If the user specify this it is to be able to override it.
+
+  This is a fix to be able to use this configuration to document @talend/design-system package.
+
+### Patch Changes
+
+- 784fe3919: fix: update msw for security reason
+
 ## 2.3.1
 
 ### Patch Changes

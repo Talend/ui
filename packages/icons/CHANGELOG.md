@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.51.1
+
+### Patch Changes
+
+- 784fe3919: fix: upgrade webfont-loader
+
 ## 6.51.0
 
 ### Minor Changes

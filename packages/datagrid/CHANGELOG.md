@@ -1,5 +1,21 @@
 # @talend/react-datagrid
 
+## 14.0.2
+
+### Patch Changes
+
+- 51004d566: fix(datagrid): header cell width
+
+## 14.0.1
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [784fe3919]
+  - @talend/react-components@9.0.1
+  - @talend/icons@6.51.1
+
 ## 14.0.0
 
 ### Major Changes
