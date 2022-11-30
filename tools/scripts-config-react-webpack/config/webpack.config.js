@@ -243,7 +243,12 @@ module.exports = ({ getUserConfig, mode }) => {
 			process.cwd(),
 			userHtmlConfig.template || DEFAULT_INDEX_TEMPLATE_PATH,
 		);
-		const indexTemplate = await getIndexTemplate(env, mode, indexTemplatePath, !!dcwpConfig);
+		const indexTemplate = await getIndexTemplate(
+			env,
+			mode,
+			indexTemplatePath,
+			dcwpConfig !== false,
+		);
 
 		const isEnvDevelopment = mode === 'development';
 		const isEnvProduction = mode === 'production';
@@ -339,7 +344,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					appLoaderStyle: AppLoader.getLoaderStyle(appLoaderIcon),
 					...userHtmlConfig,
 					b64favicon,
-					inject: !dcwpConfig,
+					inject: dcwpConfig === false,
 					template: indexTemplate,
 					meta: { ...meta, ...(userHtmlConfig.meta || {}) },
 				}),
