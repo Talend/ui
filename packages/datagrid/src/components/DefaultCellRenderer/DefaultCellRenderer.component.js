@@ -1,56 +1,15 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import { SkeletonParagraph } from '@talend/design-system';
-import * as RuleCore from '@talend/rule-core';
 
 import { AVRO_TYPES } from '../../constants/avro-type.constant';
 import AvroRenderer from './AvroRenderer.component';
+import DefaultCellQualityIndicator from './DefaultCellQualityIndicator.component';
 
 import theme from './DefaultCell.module.scss';
-
-const { QualityDetailsIndicator } = RuleCore.components;
-
-function DefaultCellQualityIndicator({ value }) {
-	const { t } = useTranslation();
-	const { quality } = value;
-
-	if (quality === 1) {
-		return null;
-	}
-
-	const constraint =
-		quality === -1
-			? {
-					constraintLabel: t(
-						'INVALID_CELL_CONSTRAINT_LABEL_INVALID',
-						'The value does not comply with the column semantic type or rule',
-					),
-					constraintStatus: 'INVALID',
-			  }
-			: {
-					constraintLabel: t('INVALID_CELL_CONSTRAINT_LABEL_EMPTY', 'A value is required'),
-					constraintStatus: 'EMPTY',
-			  };
-
-	return (
-		<QualityDetailsIndicator
-			placement="bottom"
-			qualityIndex={quality}
-			indicatorLabel={t('INVALID_CELL_INDICATOR_LABEL', 'See more')}
-			invalidConstraint={[constraint]}
-		/>
-	);
-}
-
-DefaultCellQualityIndicator.propTypes = {
-	value: PropTypes.shape({
-		quality: PropTypes.oneOf([-1, 0, 1]),
-	}),
-};
 
 function DefaultCellRenderer({ value, data, ...rest }) {
 	return (
