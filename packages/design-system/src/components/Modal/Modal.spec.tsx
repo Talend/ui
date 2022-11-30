@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable testing-library/prefer-screen-queries */
 import React, { useState } from 'react';
-import { ButtonPrimary, Modal, ButtonIcon } from '../..';
+import { ButtonPrimary, Modal } from '../..';
 import { ModalPropsType } from './Modal';
 
 function ModalStory(props: Partial<ModalPropsType>) {
@@ -101,19 +101,5 @@ context('<Modal />', () => {
 				// then
 				cy.getByTest('modal').should('exist');
 			});
-	});
-
-	it('should not overlap other overlay components', () => {
-		// when
-		cy.mount(
-			<ModalStory header={{ title: 'With overlay components' }} preventEscaping>
-				<ButtonIcon data-test="modal-button-icon-overlay" icon="plus" onClick={() => {}}>
-					Size M
-				</ButtonIcon>
-			</ModalStory>,
-		);
-		cy.getByTest('open-modal').click();
-		cy.getByTest('modal-button-icon-overlay').trigger('mouseenter'); // mouseover
-		cy.get('.__reakit-portal').should('contain', 'Size M');
 	});
 });
