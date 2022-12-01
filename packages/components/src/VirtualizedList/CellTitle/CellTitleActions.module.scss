@@ -21,7 +21,7 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 		width: 0;
 		overflow: hidden;
 
-		&:not(:last-child):after {
+		&:not(:last-child)::after {
 			content: '|';
 			color: $dark-silver;
 			padding-top: $padding-smaller;
@@ -33,6 +33,7 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 		.tc-action-button-positionned {
 			> .btn-link {
 				padding: 0 $padding-smaller;
+
 				.tc-svg-icon[name='talend-caret-down'] {
 					display: none;
 				}
