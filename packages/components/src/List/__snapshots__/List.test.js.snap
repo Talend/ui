@@ -953,7 +953,7 @@ exports[`List should render 1`] = `
                           </NavItem>
                           <li
                             className="theme-page-index"
-                            key=".1:2"
+                            key=".1:$page-index"
                             onSelect={[Function]}
                           >
                             2
@@ -1971,7 +1971,7 @@ exports[`List should render id if provided 1`] = `
                           </NavItem>
                           <li
                             className="theme-page-index"
-                            key=".1:2"
+                            key=".1:$page-index"
                             onSelect={[Function]}
                           >
                             2

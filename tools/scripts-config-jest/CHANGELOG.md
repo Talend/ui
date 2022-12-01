@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 11.6.0
+
+### Minor Changes
+
+- 1200c70f8: mock crypto.randomUUID
+
 ## 11.5.0
 
 ### Minor Changes

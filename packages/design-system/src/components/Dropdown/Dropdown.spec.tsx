@@ -1,9 +1,72 @@
+/* eslint-disable no-console */
 import React from 'react';
-import { composeStories } from '@storybook/testing-react';
+import Dropdown from './';
 
-import * as Stories from './Dropdown.stories';
+import { ButtonTertiary } from '../..';
 
-const { WithIcons, WithDividers } = composeStories(Stories);
+const WithIcons = (props: any) => (
+	<Dropdown
+		{...props}
+		aria-label="Switch between Talend applications"
+		items={[
+			{
+				icon: 'talend-tdp-colored',
+				label: 'Link with icon',
+				href: 'https://tdp.cloud.talend.com',
+				type: 'link',
+			},
+			{
+				icon: 'talend-tmc-colored',
+				label: 'Button with icon',
+				onClick: () => console.log('fou'),
+				type: 'button',
+			},
+		]}
+	>
+		<ButtonTertiary isDropdown onClick={() => {}}>
+			App switcher
+		</ButtonTertiary>
+	</Dropdown>
+);
+
+const WithDividers = () => (
+	<Dropdown
+		aria-label="Custom menu"
+		items={[
+			{
+				label: 'External link',
+				href: 'https://community.talend.com/s/?language=en_US',
+				target: '_blank',
+				type: 'link',
+			},
+			{
+				type: 'divider',
+			},
+			{
+				label: 'Link',
+				href: '/download',
+				type: 'link',
+			},
+			{
+				label: 'Another link',
+				href: '/user',
+				type: 'link',
+			},
+			{
+				type: 'divider',
+			},
+			{
+				label: 'Button',
+				onClick: () => console.log('click'),
+				type: 'button',
+			},
+		]}
+	>
+		<ButtonTertiary isDropdown onClick={() => {}}>
+			Dropdown
+		</ButtonTertiary>
+	</Dropdown>
+);
 
 context('<Dropdown />', () => {
 	it('should render', () => {

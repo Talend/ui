@@ -12,11 +12,7 @@
     "build:lib": "talend-scripts build:ts:lib && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
-    "test:demo": "yarn build-storybook",
-    "test:umd": "jest scripts/umd.test.js",
-    "start": "yarn storybook",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --docs"
+    "test:umd": "jest scripts/umd.test.js"
   },
   "keywords": [
     "talend",

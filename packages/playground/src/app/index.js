@@ -14,7 +14,6 @@ import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import { initI18n } from './i18n';
 import ComponentFormSandbox from './components/ComponentFormSandbox';
 import { FacetedSearchPlayground } from './components/FacetedSearch';
-import { DataGridPlayground } from './components/DataGrid';
 import { Icons } from './components/Icons';
 
 import { LeaguesList } from './components/List';
@@ -44,7 +43,6 @@ const app = {
 		ComponentForm,
 		ComponentFormSandbox,
 		FacetedSearch: FacetedSearchPlayground,
-		DataGrid: DataGridPlayground,
 		LeaguesList,
 		IconsProvider,
 		Dataviz,

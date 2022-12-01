@@ -33,10 +33,9 @@ jobs:
         id: filter
         with:
           filters: |
-            design-system:
+            storybook:
              - 'packages/design-tokens/**'
              - 'packages/design-system/**'
-            datagrid: packages/datagrid/**
             dataviz: packages/dataviz/**
             forms: packages/forms/**
 
@@ -64,16 +63,7 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lock --ignore-scripts
 
-      - name: Build @talend/design-tokens
-        if: matrix.package == 'design-system'
-        run: |
-          yarn workspace @talend/assets-api run build:lib
-          yarn workspace @talend/icons run build:lib
-          yarn workspace @talend/design-tokens run build:lib
-          yarn workspace @talend/storybook-docs run build:lib
-
       - name: Build @talend/*
-        if: matrix.package != 'design-system'
         run: |
           # We need to build all dependencies (cmf, components...)
           yarn postinstall

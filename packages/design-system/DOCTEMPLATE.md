@@ -7,7 +7,7 @@ import { Meta, Story } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '~docs';
 
 <Meta
-    title="Components/Title"
+    title="Design System/Components/Title"
     parameters={{
 		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
 		figmaLink: 'https://www.figma.com/file/????',

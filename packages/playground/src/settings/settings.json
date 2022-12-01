@@ -39,26 +39,6 @@
           "routerPush": "/FacetedSearch"
         }
       }
-    },
-    "menu:DataGrid": {
-      "icon": "talend-datagrid",
-      "label": "DataGrid",
-      "onClickDispatch": {
-        "type": "MENU_LIST_CLICKED",
-        "cmf": {
-          "routerPush": "/DataGrid"
-        }
-      }
-    },
-    "menu:Icons": {
-      "icon": "talend-datagrid",
-      "label": "Icons",
-      "onClickDispatch": {
-        "type": "MENU_LIST_CLICKED",
-        "cmf": {
-          "routerPush": "/Icons"
-        }
-      }
     }
   },
   "props": {
@@ -107,7 +87,6 @@
         "menu:ComponentForm",
         "menu:List",
         "menu:Dataviz",
-        "menu:DataGrid",
         "menu:FacetedSearch",
         "menu:Icons"
       ]
@@ -147,10 +126,6 @@
       {
         "path": "FacetedSearch",
         "component": "FacetedSearch"
-      },
-      {
-        "path": "DataGrid",
-        "component": "DataGrid"
       },
       {
         "path": "Icons",
