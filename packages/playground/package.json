@@ -37,7 +37,6 @@
     "@talend/react-cmf-router": "^5.2.1",
     "@talend/react-components": "^9.0.0",
     "@talend/react-containers": "^8.0.0",
-    "@talend/react-datagrid": "^14.0.0",
     "@talend/react-dataviz": "^2.8.4",
     "@talend/react-faceted-search": "^8.0.0",
     "@talend/react-forms": "^8.1.7",
