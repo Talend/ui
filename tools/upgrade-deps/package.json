@@ -26,7 +26,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "test": "jest"
+    "test:cron": "jest"
   },
   "publishConfig": {
     "access": "public"
