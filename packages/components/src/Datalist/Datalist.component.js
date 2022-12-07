@@ -155,9 +155,7 @@ function Datalist(props) {
 		filterValue,
 		multiSection: props.multiSection,
 		allowAddNewElements: props.allowAddNewElements,
-		allowAddNewElementsSuffix: props.allowAddNewElementsSuffix
-			? props.allowAddNewElementsSuffix
-			: t('NEW', { defaultValue: '(new)' }),
+		allowAddNewElementsSuffix: props.allowAddNewElementsSuffix ?? t('NEW', '(new)'),
 	});
 
 	// in uncontrolled mode, props.value acts as an initial value, then Datalist handles state, props.value never changes.
