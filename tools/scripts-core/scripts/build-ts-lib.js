@@ -44,7 +44,7 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 			if (!useBabel) {
 				resolve({ status: 0 });
 			}
-			console.log('Building with babel, generating definition types with tsc...');
+			console.log('Building with babel');
 			const babelSpawn = spawn(
 				babel,
 				[
@@ -78,7 +78,7 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 	const tscPromise = () =>
 		new Promise((resolve, reject) => {
 			let args = ['--project', tscConfigPath, '--outDir', targetFolder, ...options];
-			if (!useBabel) {
+			if (useBabel) {
 				args = ['--emitDeclarationOnly'].concat(args);
 			}
 			const tscSpawn = spawn(tsc, args, { stdio: 'inherit', env });
