@@ -33,8 +33,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^14.0.0",
+    "@talend/scripts-core": "^12.1.0",
+    "@talend/scripts-preset-react-lib": "^14.0.1",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}

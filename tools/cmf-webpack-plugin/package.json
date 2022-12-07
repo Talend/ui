@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/scripts-cmf": "^1.0.1",
+    "@talend/scripts-cmf": "^1.0.2",
     "lodash": "^4.17.21"
   },
   "devDependencies": {},

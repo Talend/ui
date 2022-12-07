@@ -18,11 +18,11 @@
   },
   "dependencies": {
     "@talend/scripts-config-babel": "^11.0.0",
-    "@talend/scripts-config-cdn": "^10.5.3",
-    "@talend/scripts-config-eslint": "^11.0.0",
-    "@talend/scripts-config-jest": "^11.1.0",
+    "@talend/scripts-config-cdn": "^10.5.4",
+    "@talend/scripts-config-eslint": "^11.0.1",
+    "@talend/scripts-config-jest": "^11.6.0",
     "@talend/scripts-config-prettier": "^11.0.0",
-    "@talend/scripts-config-react-webpack": "^15.0.0",
+    "@talend/scripts-config-react-webpack": "^15.1.2",
     "@talend/scripts-config-storybook-lib": "^3.0.0",
     "@talend/scripts-config-stylelint": "^2.0.0",
     "@talend/scripts-config-typescript": "^11.0.0"
