@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 7.1.4
+
+### Patch Changes
+
+- f36e7f7c3: InlineEditing : handle keyboard shortcut only when element has the focus
+
+  remove usekey which bind by default on document.
+
 ## 7.1.3
 
 ### Patch Changes
