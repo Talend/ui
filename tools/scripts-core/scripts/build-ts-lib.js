@@ -12,7 +12,15 @@ const { getUserConfigFile } = require('../utils/env');
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const tsc = resolveBin('typescript', { executable: 'tsc' });
 
-module.exports = function build(env, presetApi, options) {
+module.exports = function build(env, presetApi, unsafeOptions) {
+	let useBabel = true;
+	const options = unsafeOptions.filter(f => {
+		if (f === '--tsc') {
+			useBabel = false;
+			return false;
+		}
+		return true;
+	});
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
 
@@ -33,6 +41,9 @@ module.exports = function build(env, presetApi, options) {
 
 	const babelPromise = () =>
 		new Promise((resolve, reject) => {
+			if (!useBabel) {
+				resolve({ status: 0 });
+			}
 			console.log('Building with babel, generating definition types with tsc...');
 			const babelSpawn = spawn(
 				babel,
@@ -66,11 +77,11 @@ module.exports = function build(env, presetApi, options) {
 
 	const tscPromise = () =>
 		new Promise((resolve, reject) => {
-			const tscSpawn = spawn(
-				tsc,
-				['--emitDeclarationOnly', '--project', tscConfigPath, '--outDir', targetFolder, ...options],
-				{ stdio: 'inherit', env },
-			);
+			let args = ['--project', tscConfigPath, '--outDir', targetFolder, ...options];
+			if (!useBabel) {
+				args = ['--emitDeclarationOnly'].concat(args);
+			}
+			const tscSpawn = spawn(tsc, args, { stdio: 'inherit', env });
 
 			tscSpawn.on('exit', status => {
 				if (parseInt(status, 10) !== 0) {
