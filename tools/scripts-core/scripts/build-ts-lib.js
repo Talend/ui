@@ -43,26 +43,24 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 		new Promise((resolve, reject) => {
 			if (!useBabel) {
 				resolve({ status: 0 });
+				return;
 			}
+			const args = [
+				'--config-file',
+				babelConfigPath,
+				'-d',
+				targetFolder,
+				srcFolder,
+				'--source-maps',
+				'--ignore',
+				// @see https://github.com/babel/babel/issues/12008
+				'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
+				'--extensions',
+				'.js,.ts,.tsx,.jsx',
+				...options,
+			];
 			console.log('Building with babel');
-			const babelSpawn = spawn(
-				babel,
-				[
-					'--config-file',
-					babelConfigPath,
-					'-d',
-					targetFolder,
-					srcFolder,
-					'--source-maps',
-					'--ignore',
-					// @see https://github.com/babel/babel/issues/12008
-					'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
-					'--extensions',
-					'.js,.ts,.tsx,.jsx',
-					...options,
-				],
-				{ stdio: 'inherit', env },
-			);
+			const babelSpawn = spawn(babel, args, { stdio: 'inherit', env });
 
 			babelSpawn.on('exit', status => {
 				if (parseInt(status, 10) !== 0) {
@@ -81,6 +79,7 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 			if (useBabel) {
 				args = ['--emitDeclarationOnly'].concat(args);
 			}
+			console.log('Building with tsc');
 			const tscSpawn = spawn(tsc, args, { stdio: 'inherit', env });
 
 			tscSpawn.on('exit', status => {
