@@ -8,8 +8,8 @@ import React, {
 	useEffect,
 	useState,
 } from 'react';
-import useKey from 'react-use/lib/useKey';
 import classnames from 'classnames';
+import keycode from 'keycode';
 import { useTranslation } from 'react-i18next';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import Form from '../../Form';
@@ -28,9 +28,15 @@ type ErrorInEditing =
 			description?: string;
 	  };
 
+export type OnEditEvent =
+	| React.MouseEvent<HTMLButtonElement>
+	| KeyboardEvent
+	| React.FormEvent<HTMLFormElement>
+	| React.KeyboardEvent;
+
 export type InlineEditingPrimitiveProps = {
 	loading?: boolean;
-	onEdit?: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent, newValue: string) => void;
+	onEdit?: (event: OnEditEvent, newValue: string) => void;
 	onCancel?: () => void;
 	onToggle?: (isEditionMode: boolean) => void;
 	defaultValue?: string;
@@ -76,7 +82,7 @@ const InlineEditingPrimitive = forwardRef(
 			}
 		}, [hasError]);
 
-		const handleSubmit = (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
+		const handleSubmit = (event: OnEditEvent) => {
 			event.stopPropagation();
 			if (onEdit) {
 				const sentValue = value || '';
@@ -92,19 +98,6 @@ const InlineEditingPrimitive = forwardRef(
 			toggleEditionMode(false);
 			onCancel();
 		};
-
-		// Keyboard shortcuts
-		useKey('Escape', handleCancel, {}, [isEditing]);
-		useKey(
-			'Enter',
-			(event: KeyboardEvent): void => {
-				if (mode !== 'multi') {
-					handleSubmit(event);
-				}
-			},
-			{},
-			[isEditing, value],
-		);
 
 		const testId = `inlineediting.${mode === 'multi' ? 'textarea' : 'input'}`;
 
@@ -142,8 +135,17 @@ const InlineEditingPrimitive = forwardRef(
 			onChange: (
 				event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
 			): void => setValue(event.target.value),
+			// Keyboard shortcuts
+			onKeyDown: (event: React.KeyboardEvent) => {
+				if (event.keyCode === keycode.codes.enter && mode !== 'multi') {
+					// Enter
+					handleSubmit(event);
+				}
+				if (event.keyCode === keycode.codes.esc) {
+					handleCancel();
+				}
+			},
 		};
-
 		return (
 			<div {...rest} data-test="inlineediting" className={styles.inlineEditor} ref={ref}>
 				{isEditing ? (

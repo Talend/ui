@@ -12,13 +12,11 @@ mkdir .static/faceted-search
 mkdir .static/forms
 mkdir .static/icons
 mkdir .static/theme
-mkdir .static/datagrid
 mkdir .static/storybook-docs
 cp .surge/index.html .static
 cp -R packages/cmf/jsdoc .static/cmf
 cp -R packages/components/storybook-static/* .static/components
 cp -R packages/containers/storybook-static/* .static/containers
-cp -R packages/datagrid/storybook-static/* .static/datagrid
 cp -R packages/dataviz/storybook-static/* .static/dataviz
 cp -R packages/storybook/storybook-static/* .static/design-system
 cp -R packages/faceted-search/storybook-static/* .static/faceted-search
