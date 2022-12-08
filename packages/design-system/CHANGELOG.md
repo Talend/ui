@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.1.5
+
+### Patch Changes
+
+- 1aa89365a: TDOPS-3299 - design system modal z-index to use tokens convention
+
 ## 7.1.4
 
 ### Patch Changes
