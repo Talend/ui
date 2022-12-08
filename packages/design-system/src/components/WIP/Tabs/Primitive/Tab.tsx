@@ -28,7 +28,7 @@ type TabTooltip = {
 };
 
 export type TabPropsTypesWithoutState = DataAttributes &
-	HTMLAttributes<HTMLButtonElement> &
+	Omit<HTMLAttributes<HTMLButtonElement>, 'className' | 'style' | 'type'> &
 	TabSize &
 	TabTooltip &
 	TabChildren;
@@ -44,6 +44,7 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 			return (
 				<ReakitTab
 					{...rest}
+					type="button"
 					ref={ref}
 					className={classnames(styles.tab, { [styles.tab_large]: size === 'L' })}
 				>
@@ -56,6 +57,7 @@ const Tab = forwardRef((props: TabPropsTypes, ref: Ref<HTMLButtonElement>) => {
 		return (
 			<ReakitTab
 				{...rest}
+				type="button"
 				ref={ref}
 				className={classnames(styles.tab, { [styles.tab_large]: size === 'L' })}
 			>

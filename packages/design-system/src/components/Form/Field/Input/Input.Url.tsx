@@ -1,8 +1,10 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import Input, { TypedInputFieldProps } from './Input';
 
-const Url = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+const Url = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="url" ref={ref} />;
 });
+
+Url.displayName = 'Url';
 
 export default Url;

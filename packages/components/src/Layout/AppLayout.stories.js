@@ -7,7 +7,6 @@ import Layout from '.';
 import SidePanel from '../SidePanel';
 import SubHeaderBar from '../SubHeaderBar';
 import List from '../List/ListComposition';
-import appStyle from '../../stories/config/themes.scss';
 
 const actions = [
 	{
@@ -168,22 +167,3 @@ export const TwoColumnsWithDrawers = () => (
 );
 
 export const OnlySubheader = () => <Layout subHeader={subHeader} children={content} />;
-
-function AppSpecificLayoutStory({ app }) {
-	return (
-		<div className={appStyle[app]}>
-			<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
-				<Layout mode="TwoColumns" header={header} one={sidePanel}>
-					{content}
-				</Layout>
-			</div>
-		</div>
-	);
-}
-
-export const MasterDataManagement = () => <AppSpecificLayoutStory app="mdm" />;
-export const DataInventory = () => <AppSpecificLayoutStory app="tdc" />;
-export const DataPreparation = () => <AppSpecificLayoutStory app="tdp" />;
-export const DataStewardship = () => <AppSpecificLayoutStory app="tds" />;
-export const ManagementConsole = () => <AppSpecificLayoutStory app="tmc" />;
-export const PipelineDesigner = () => <AppSpecificLayoutStory app="tfd" />;

@@ -1,5 +1,71 @@
 # @talend/scripts-config-storybook-lib
 
+## 3.0.0
+
+### Major Changes
+
+- fe430c316: fix: stories override default stories
+
+  Breaking Change: stories is supposed to give blob to get all the story you need.
+  If the user specify this it is to be able to override it.
+
+  This is a fix to be able to use this configuration to document @talend/design-system package.
+
+### Patch Changes
+
+- 784fe3919: fix: update msw for security reason
+
+## 2.3.1
+
+### Patch Changes
+
+- aeb1245b6: chore(storybook-lib): Broken Windows filepath
+
+## 2.3.0
+
+### Minor Changes
+
+- e66ecb955: feat: simplify configuration as part of the current changes in all talend-scripts.
+
+  Now talend-scripts only work with mainstream approach of file names.
+
+## 2.2.1
+
+### Patch Changes
+
+- 0f05e9b1e: fix: add missing dependency on @storybook/preset-scss
+
+## 2.2.0
+
+### Minor Changes
+
+- a23396460: feat: add id on bootstrap.css link tag
+
+## 2.1.4
+
+### Patch Changes
+
+- 26777dbe7: deps: bump msw to 0.47.3
+
+## 2.1.3
+
+### Patch Changes
+
+- 39f292531: fix: update setup of msw
+- 8796308e5: chore(talend-scripts): disable storybook telemetry
+
+## 2.1.2
+
+### Patch Changes
+
+- e22e3c952: chore(deps): bump storybook deps
+
+## 2.1.1
+
+### Patch Changes
+
+- 7856e6961: angular xlts packages can't be fetched from unpkg.com
+
 ## 2.1.0
 
 ### Minor Changes

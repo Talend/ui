@@ -1,373 +1,408 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
+	font-size: 62.5%;
+	scroll-behavior: smooth;
 
-  body {
-    font-size: 1rem;
-  }
+	body {
+		font-size: 1rem;
+	}
 }
 
 #docs-root {
-  margin-top: 0;
-  font: tokens.$coral-paragraph-m;
-  color: tokens.$coral-color-neutral-text;
+	margin-top: 0;
+	font: tokens.$coral-paragraph-m;
+	color: tokens.$coral-color-neutral-text;
+	position: relative;
 }
 
 .sbdocs {
-  // Table of content plugin style overrides
-  &.sbdocs-toc {
-    --toc-color: tokens.$coral-color-neutral-text;
-    --toc-background: tokens.$coral-color-neutral-background;
-    --toc-indicator-color: tokens.$coral-color-neutral-background;
-    --toc-indicator-color--active: tokens.$coral-color-accent-background-strong;
-    box-shadow: tokens.$coral-elevation-shadow-neutral-m;
-    border-radius: tokens.$coral-radius-m;
-  }
+	// Table of content plugin style overrides
+	&.sbdocs-toc {
+		--toc-color: tokens.$coral-color-neutral-text;
+		--toc-background: tokens.$coral-color-neutral-background;
+		--toc-indicator-color: tokens.$coral-color-neutral-background;
+		--toc-indicator-color--active: tokens.$coral-color-accent-background-strong;
+		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+		border-radius: tokens.$coral-radius-m;
+	}
 
-  // Back to top button for Table of content plugin
-  &.sbdocs-top {
-    --toc-button-color: tokens.$coral-color-accent-text;
-    --toc-button-background: transparent;
-    --toc-button-background--hover: tokens.$coral-color-accent-background-weak;
-    --toc-button-background--active: tokens.$coral-color-accent-background-weak-hover;
-    border-radius: tokens.$coral-radius-m;
-  }
+	// Back to top button for Table of content plugin
+	&.sbdocs-top {
+		--toc-button-color: tokens.$coral-color-accent-text;
+		--toc-button-background: transparent;
+		--toc-button-background--hover: tokens.$coral-color-accent-background-weak;
+		--toc-button-background--active: tokens.$coral-color-accent-background-weak-hover;
+		border-radius: tokens.$coral-radius-m;
+	}
 
-  // Docs mode wrapper
-  &.sbdocs-wrapper {
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: tokens.$coral-color-neutral-background;
-  }
+	// Docs mode wrapper
+	&.sbdocs-wrapper {
+		padding: 0;
+		border-radius: 0;
+		box-shadow: none;
+		background-color: tokens.$coral-color-neutral-background;
+	}
 
-  // Docs mode content
-  &.sbdocs-content {
-    padding: tokens.$coral-spacing-l tokens.$coral-spacing-xl;
-    background: transparent;
-    max-width: 120rem;
-  }
+	// Docs mode content
+	&.sbdocs-content {
+		padding: tokens.$coral-spacing-l tokens.$coral-spacing-xl;
+		background: transparent;
+		max-width: 100rem;
+	}
 
-  // Code previews
-  &.sbdocs-preview pre.prismjs {
-    background-color: tokens.$coral-color-assistive-background;
-    border: 0;
-    color: inherit;
-    line-height: inherit;
-  }
+	// Code previews
+	&.sbdocs-preview pre.prismjs {
+		background-color: tokens.$coral-color-assistive-background;
+		border: 0;
+		color: inherit;
+		line-height: inherit;
+	}
 
-  // Story canvas blocks
-  .sbdocs-preview {
-    border-radius: 0;
-    box-shadow: none;
-    border: 0;
-    background: transparent;
+	// Story canvas blocks
+	.sbdocs-preview {
+		border-radius: 0;
+		box-shadow: none;
+		border: 0;
+		background: transparent;
 
-    > .docs-story {
-      background: tokens.$coral-color-neutral-background;
-      border-radius: tokens.$coral-radius-s;
-      box-shadow: none;
-      border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-    }
-  }
+		> .docs-story {
+			background: tokens.$coral-color-neutral-background;
+			border-radius: tokens.$coral-radius-s;
+			box-shadow: none;
+			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		}
+	}
 
-  // Embedded components
-  .docs-story {
-    &:before {
-      content: "Embedded component";
-      font: tokens.$coral-paragraph-m-bold;
-      color: tokens.$coral-color-neutral-text-weak;
-      padding: 0 tokens.$coral-spacing-xxs;
-      border-radius: tokens.$coral-radius-s;
-      background: tokens.$coral-color-neutral-background-medium;
-      border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-      margin-left: tokens.$coral-spacing-m;
-      position: relative;
-      top: tokens.$coral-spacing-m;
-    }
+	// Embedded components
+	.docs-story {
+		&:before {
+			content: 'Embedded component';
+			font: tokens.$coral-paragraph-m-bold;
+			color: tokens.$coral-color-neutral-text-weak;
+			padding: 0 tokens.$coral-spacing-xxs;
+			border-radius: tokens.$coral-radius-s;
+			background: tokens.$coral-color-neutral-background-medium;
+			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+			margin-left: tokens.$coral-spacing-m;
+			position: relative;
+			top: tokens.$coral-spacing-m;
+		}
 
-    .docblock-code-toggle {
-      border: 0;
-      font: tokens.$coral-paragraph-m-bold;
-      color: tokens.$coral-color-accent-text;
-      background-color: tokens.$coral-color-accent-background-weak;
-      transition: all tokens.$coral-transition-fast;
+		.docblock-code-toggle {
+			border: 0;
+			font: tokens.$coral-paragraph-m-bold;
+			color: tokens.$coral-color-accent-text;
+			background-color: tokens.$coral-color-accent-background-weak;
+			transition: all tokens.$coral-transition-fast;
 
-      &:focus {
-        box-shadow: none;
-      }
+			&:focus {
+				box-shadow: none;
+			}
 
-      &:focus-visible {
-        outline: tokens.$coral-border-s-solid tokens.$coral-color-assistive-border-focus;
-        outline-offset: 0.1rem;
-      }
+			&:focus-visible {
+				outline: tokens.$coral-border-s-solid tokens.$coral-color-assistive-border-focus;
+				outline-offset: 0.1rem;
+			}
 
-      &:hover {
-        color: tokens.$coral-color-accent-text-hover;
-        background-color: tokens.$coral-color-accent-background-weak-hover;
-      }
+			&:hover {
+				color: tokens.$coral-color-accent-text-hover;
+				background-color: tokens.$coral-color-accent-background-weak-hover;
+			}
 
-      &--expanded {
-        color: tokens.$coral-color-accent-text-weak;
-        background-color: tokens.$coral-color-accent-background-strong;
+			&--expanded {
+				color: tokens.$coral-color-accent-text-weak;
+				background-color: tokens.$coral-color-accent-background-strong;
 
-        &:hover {
-          color: tokens.$coral-color-accent-text-weak-hover;
-          background-color: tokens.$coral-color-accent-background-strong-hover;
-        }
-      }
-    }
-  }
+				&:hover {
+					color: tokens.$coral-color-accent-text-weak-hover;
+					background-color: tokens.$coral-color-accent-background-strong-hover;
+				}
+			}
+		}
+	}
 
-  // Args tables
-  .docblock-argstable {
-    color: tokens.$coral-color-neutral-text;
+	// Args tables
+	.docblock-argstable {
+		color: tokens.$coral-color-neutral-text;
 
-    .docblock-argstable-head th {
-      font: tokens.$coral-heading-s;
-      color: tokens.$coral-color-neutral-text;
-    }
+		.docblock-argstable-head th {
+			font: tokens.$coral-heading-s;
+			color: tokens.$coral-color-neutral-text;
+		}
 
-    .docblock-argstable-body {
-      box-shadow: tokens.$coral-elevation-shadow-neutral-m;
-      border-radius: tokens.$coral-radius-m;
+		.docblock-argstable-body {
+			box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+			border-radius: tokens.$coral-radius-m;
 
-      tr:not(:first-child) {
-        border-top-color: tokens.$coral-color-neutral-border-weak;
-      }
+			tr:not(:first-child) {
+				border-top-color: tokens.$coral-color-neutral-border-weak;
+			}
 
-      td {
-        background: tokens.$coral-color-neutral-background-medium;
+			td {
+				background: tokens.$coral-color-neutral-background-medium;
 
-        span, div {
-          color: tokens.$coral-color-neutral-text;
-        }
-      }
-    }
-  }
+				span,
+				div {
+					color: tokens.$coral-color-neutral-text;
+				}
+			}
+		}
+	}
 
-  // Code blocks in doc
-  .docblock-source {
-    background: hsl(0deg, 0%, 97%); // Should not be theme-sensitive
-    color: hsl(0deg, 0%, 13%); // Should not be theme-sensitive
-    border-radius: tokens.$coral-radius-s;
-    box-shadow: none;
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-    margin: 0 0 tokens.$coral-spacing-m 0;
+	// Code blocks in doc
+	.docblock-source {
+		background: hsl(0deg, 0%, 97%); // Should not be theme-sensitive
+		color: hsl(0deg, 0%, 13%); // Should not be theme-sensitive
+		border-radius: tokens.$coral-radius-s;
+		box-shadow: none;
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		margin: 0 0 tokens.$coral-spacing-m 0;
 
-    .prismjs {
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      font: tokens.$coral-data-m;
+		.prismjs {
+			background: transparent;
+			border: 0;
+			box-shadow: none;
+			font: tokens.$coral-data-m;
 
-      .token {
-        font: tokens.$coral-data-m;
+			.token {
+				font: tokens.$coral-data-m;
 
-        &.plain-text {
-          color: hsl(204deg, 96%, 18%); // Should not be theme-sensitive
-        }
-      }
-    }
-  }
+				&.plain-text {
+					color: hsl(204deg, 96%, 18%); // Should not be theme-sensitive
+				}
+			}
+		}
+	}
 
-  // Formatting
-  abbr {
-    color: tokens.$coral-color-beta-text;
-    font: tokens.$coral-data-m;
-  }
+	// Formatting
+	abbr {
+		color: tokens.$coral-color-beta-text;
+		font: tokens.$coral-data-m;
+	}
 
-  .sbdocs-content,
-  .sbdocs-div,
-  .sbdocs-p,
-  .sbdocs-ul,
-  .sbdocs-ol {
-    margin-top: 0;
-    font: tokens.$coral-paragraph-m;
-    color: tokens.$coral-color-neutral-text;
-  }
+	.sbdocs-content,
+	.sbdocs-div,
+	.sbdocs-p,
+	.sbdocs-ul,
+	.sbdocs-ol {
+		margin-top: 0;
+		font: tokens.$coral-paragraph-m;
+		color: tokens.$coral-color-neutral-text;
+	}
 
-  .sbdocs-li {
-    font: tokens.$coral-paragraph-m;
-    color: tokens.$coral-color-neutral-text;
-  }
+	.sbdocs-li {
+		font: tokens.$coral-paragraph-m;
+		color: tokens.$coral-color-neutral-text;
+	}
 
-  .sbdocs-blockquote {
-    border-left: 4px solid tokens.$coral-color-accent-icon;
+	.sbdocs-blockquote {
+		border-left: 4px solid tokens.$coral-color-accent-icon;
 
-    .sbdocs-p {
-      font: tokens.$coral-paragraph-m;
-      color: tokens.$coral-color-neutral-text-weak;
-      font-size: 1.6rem;
-    }
-  }
+		.sbdocs-p {
+			font: tokens.$coral-paragraph-m;
+			color: tokens.$coral-color-neutral-text-weak;
+			font-size: 1.6rem;
+		}
+	}
 
-  #diveinto {
-    margin-bottom: 2rem;
-  }
+	#diveinto {
+		margin-bottom: 2rem;
+	}
 
-  img {
-    display: block;
-    max-width: 100%;
-  }
+	img {
+		display: block;
+		max-width: 100%;
+	}
 
-  .sbdocs-h1,
-  .sbdocs-h2,
-  .sbdocs-h3,
-  .sbdocs-h4,
-  .sbdocs-h5,
-  .sbdocs-h6 {
-    border: none;
-    margin: 0 0 tokens.$coral-spacing-m 0;
-    color: tokens.$coral-color-neutral-text;
-  }
+	.sbdocs-hr {
+		border-top: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		margin: 0 0 tokens.$coral-spacing-m 0;
+	}
 
-  .sbdocs-h1 {
-    font: tokens.$coral-heading-l;
-    font-size: 3.2rem;
-    margin-bottom: tokens.$coral-spacing-xs;
+	.sbdocs-h1,
+	.sbdocs-h2,
+	.sbdocs-h3,
+	.sbdocs-h4,
+	.sbdocs-h5,
+	.sbdocs-h6 {
+		border: none;
+		margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
+		color: tokens.$coral-color-neutral-text;
 
-    + * {
-      margin-top: tokens.$coral-spacing-l;
-    }
-  }
+		&:first-of-type {
+			margin: tokens.$coral-spacing-l 0 tokens.$coral-spacing-m 0;
+		}
 
-  .sbdocs-h2 {
-    font: tokens.$coral-heading-l;
-    font-size: 2rem;
-    border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-  }
+		&:first-child {
+			margin-top: 0;
+		}
+	}
 
-  .sbdocs-h3 {
-    font: tokens.$coral-heading-m;
-  }
+	.sbdocs-h1 {
+		font: tokens.$coral-heading-l;
+		font-size: 3.2rem;
+		margin-bottom: tokens.$coral-spacing-xs;
 
-  .sbdocs-h4 {
-    font: tokens.$coral-heading-s;
-  }
+		&:first-of-type {
+			margin-top: 0;
+		}
 
-  .sbdocs-h5 {
-    font: tokens.$coral-heading-s;
-  }
+		+ * {
+			margin-top: tokens.$coral-spacing-l;
+		}
 
-  .sbdocs-h6 {
-    font: tokens.$coral-heading-s;
-  }
+		+ .sbdocs-p {
+			font: tokens.$coral-heading-m;
+			color: tokens.$coral-color-neutral-text-weak;
 
-  .sbdocs-p {
-    margin-bottom: tokens.$coral-spacing-xs;
+			> a {
+				font-size: inherit;
+			}
+		}
+	}
 
-    code {
-      font: tokens.$coral-data-m;
-      color: tokens.$coral-color-neutral-text;
-      background: tokens.$coral-color-neutral-background-medium;
-      border: none;
-    }
-  }
+	.sbdocs-h2 {
+		font: tokens.$coral-heading-l;
+		font-size: 2rem;
+		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	}
 
-  .sbdocs-a {
-    font: tokens.$coral-paragraph-m-bold;
-    color: tokens.$coral-color-accent-text;
-    transition:  all tokens.$coral-transition-fast;
+	.sbdocs-h3 {
+		font: tokens.$coral-heading-m;
+	}
 
-    &:hover {
-      color: tokens.$coral-color-accent-text-hover;
-      text-decoration: underline;
-    }
-  }
+	.sbdocs-h4 {
+		font: tokens.$coral-heading-s;
+	}
 
-  .sbdocs-table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow: hidden;
+	.sbdocs-h5 {
+		font: tokens.$coral-heading-s;
+	}
 
-    th, td {
-      padding: tokens.$coral-spacing-xs tokens.$coral-spacing-s;
-      border: none;
-    }
+	.sbdocs-h6 {
+		font: tokens.$coral-heading-s;
+	}
 
-    th {
-      width: 50%;
-      color: tokens.$coral-color-neutral-text-weak;
-      text-align: start;
-      font-size: 1.2rem;
-      font: tokens.$coral-heading-s;
-      background: tokens.$coral-color-neutral-background-medium;
-      border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	.sbdocs-p {
+		margin-bottom: tokens.$coral-spacing-m;
 
-      &:last-child {
-        border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-      }
-    }
+		+ .sbdocs-p {
+			margin-top: calc(#{tokens.$coral-spacing-xs} * -1);
+		}
 
-    td {
-      font: tokens.$coral-paragraph-m;
-      color: tokens.$coral-color-neutral-text;
-      border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-    }
+		code {
+			font: tokens.$coral-data-m;
+			color: tokens.$coral-color-neutral-text;
+			background: tokens.$coral-color-neutral-background-medium;
+			border: none;
+		}
+	}
 
-    tr:nth-of-type(2n) {
-      background-color: tokens.$coral-color-neutral-background-medium;
-    }
-  }
+	code {
+		font: tokens.$coral-data-m;
+		color: tokens.$coral-color-neutral-text;
+		border: none;
+		background: tokens.$coral-color-neutral-background-medium;
+	}
 
+	.sbdocs-a {
+		font: tokens.$coral-paragraph-m-bold;
+		color: tokens.$coral-color-accent-text;
+		transition: all tokens.$coral-transition-fast;
 
-  &.sbdocs-preview pre.prismjs {
-    background: #022e4d;
-  }
+		&:hover {
+			color: tokens.$coral-color-accent-text-hover;
+			text-decoration: underline;
+		}
+	}
 
-  kbd {
-    padding: 0.25rem 0.5rem;
-    color: #202020;
-    background-color: #eeeeee;
-    border-radius: 0.4rem;
-    border: 1px solid #606060;
-    font-size: 1.2rem;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
-  }
+	.sbdocs-table {
+		width: 100%;
+		border-collapse: collapse;
+		overflow: hidden;
 
-  footer {
-    text-align: center;
-  }
+		th,
+		td {
+			padding: tokens.$coral-spacing-xs tokens.$coral-spacing-s;
+			border: none;
+		}
+
+		th {
+			width: 50%;
+			color: tokens.$coral-color-neutral-text-weak;
+			text-align: start;
+			font-size: 1.2rem;
+			font: tokens.$coral-heading-s;
+			background: tokens.$coral-color-neutral-background-medium;
+			border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+
+			&:last-child {
+				border-right: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+			}
+		}
+
+		td {
+			font: tokens.$coral-paragraph-m;
+			color: tokens.$coral-color-neutral-text;
+			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		}
+
+		tr:nth-of-type(2n) {
+			background-color: tokens.$coral-color-neutral-background-medium;
+		}
+	}
+
+	&.sbdocs-preview pre.prismjs {
+		background: #022e4d;
+	}
+
+	kbd {
+		padding: 0.25rem 0.5rem;
+		color: #202020;
+		background-color: #eeeeee;
+		border-radius: 0.4rem;
+		border: 1px solid #606060;
+		font-size: 1.2rem;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+	}
+
+	footer {
+		text-align: center;
+	}
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
 }
-
 
 .sbdocs-div {
-  & > dt {
-    font-size: 1.6rem;
-    font-weight: 600;
-  }
+	& > dt {
+		font-size: 1.6rem;
+		font-weight: 600;
+	}
 
-  & > dt:before {
-    content: '#';
-    color: #ff6d70;
-    padding-right: 1ch;
-  }
+	& > dt:before {
+		content: '#';
+		color: #ff6d70;
+		padding-right: 1ch;
+	}
 
-  & > dd {
-    margin: 0.5rem 0;
-    font-size: 1.4rem;
-  }
+	& > dd {
+		margin: 0.5rem 0;
+		font-size: 1.4rem;
+	}
 }
-
-
-

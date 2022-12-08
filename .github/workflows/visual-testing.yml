@@ -28,15 +28,14 @@ jobs:
     outputs:
       packages: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
-            design-system:
+            storybook:
              - 'packages/design-tokens/**'
              - 'packages/design-system/**'
-            datagrid: packages/datagrid/**
             dataviz: packages/dataviz/**
             forms: packages/forms/**
 
@@ -52,7 +51,7 @@ jobs:
     environment: pull_request_unsafe
     if: needs.changes.outputs.packages != '[]'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -64,22 +63,9 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lock --ignore-scripts
 
-      - name: Build @talend/design-tokens
-        if: matrix.package == 'design-system'
-        run: |
-          yarn workspace @talend/assets-api run build:lib
-          yarn workspace @talend/icons run build:lib
-          yarn workspace @talend/design-tokens run build:lib
-
-      - name: Build @talend/icons
-        if: matrix.package == 'design-system'
-        run: |
-          yarn workspace @talend/icons run build:lib
-
       - name: Build @talend/*
-        if: matrix.package != 'design-system'
         run: |
-          # We need to build all dependencies (cmf, coponents...)
+          # We need to build all dependencies (cmf, components...)
           yarn postinstall
 
       - name: Publish PR to DS Chromatic

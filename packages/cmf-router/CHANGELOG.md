@@ -1,5 +1,29 @@
 # Changelog
 
+## 5.2.5
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
+## 5.2.4
+
+### Patch Changes
+
+- 3996a544b: fix(cmf-router): history listener
+
+## 5.2.3
+
+### Patch Changes
+
+- 09dfb1a54: fix(cmf-router): no history listener unregister on new action
+
+## 5.2.2
+
+### Patch Changes
+
+- 76c0caf5e: fix(cmf-router): wrong convertion from settings to routes for simple parent routes
+
 ## 5.2.1
 
 ### Patch Changes

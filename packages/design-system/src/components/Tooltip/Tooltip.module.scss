@@ -1,6 +1,8 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .tooltip {
+	z-index: tokens.$coral-elevation-layer-overlay;
+
 	.container {
 		padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
 		max-width: tokens.$coral-sizing-maximal;
@@ -8,7 +10,6 @@
 		color: tokens.$coral-color-assistive-text;
 		background: tokens.$coral-color-assistive-background;
 		border-radius: tokens.$coral-radius-s;
-		z-index: tokens.$coral-elevation-layer-overlay;
 		transition: opacity tokens.$coral-transition-fast;
 		opacity: 0;
 	}
@@ -18,6 +19,7 @@
 	}
 
 	.arrow {
+		fill: tokens.$coral-color-assistive-background;
 		:global(.stroke) {
 			display: none;
 		}

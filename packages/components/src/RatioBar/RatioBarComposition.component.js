@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import { Tooltip } from '@talend/design-system';
 import { getTheme } from '../theme';
-import ratioBarTheme from './RatioBar.scss';
+import ratioBarTheme from './RatioBar.module.scss';
 
 const theme = getTheme(ratioBarTheme);
 const minPercentage = 5;

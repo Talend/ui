@@ -1,5 +1,92 @@
 # Changelog
 
+## 2.8.4
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+
+## 2.8.3
+
+### Patch Changes
+
+- 2be2c3f47: fix: do not pass t props to FormatValue
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+
+## 2.8.2
+
+### Patch Changes
+
+- 5e3712511: fix(dataviz): Yaxis legend on some edge cases
+
+## 2.8.1
+
+### Patch Changes
+
+- cae4e6f34: fix(dataviz): render dot in LineChart when there is only one value
+
+## 2.8.0
+
+### Minor Changes
+
+- b6f109501: feat(dataviz): handle line selection use case
+- b6f109501: feat(dataviz): highlight line legend on hover
+
+## 2.7.3
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+
+## 2.7.2
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
+## 2.7.1
+
+### Patch Changes
+
+- 94a6bf759: Range filter marks are overflowing
+
+## 2.7.0
+
+### Minor Changes
+
+- 6e850c486: feat(dataviz): allow to build custom legend for linechart
+
+## 2.6.0
+
+### Minor Changes
+
+- 644bc1718: feat(dataviz): alter lines in line chart
+
+## 2.5.0
+
+### Minor Changes
+
+- b02eb9ef4: feat: upgrade d3 to 7
+
+### Patch Changes
+
+- Updated dependencies [b02eb9ef4]
+- Updated dependencies [5e0148797]
+  - @talend/react-components@7.8.0
+
 ## 2.4.0
 
 ### Minor Changes

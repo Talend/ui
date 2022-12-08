@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import uuid from 'uuid';
 import { withTranslation } from 'react-i18next';
+import { randomUUID } from '@talend/utils';
 
-import theme from './Breadcrumbs.scss';
+import theme from './Breadcrumbs.module.scss';
 import { Action, ActionDropdown } from '../Actions';
 import Skeleton from '../Skeleton/Skeleton.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -164,7 +164,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 BreadcrumbsComponent.defaultProps = {
-	id: uuid.v4(),
+	id: randomUUID(),
 	items: [],
 	maxItems: DEFAULT_MAX_ITEMS,
 	t: getDefaultT(),

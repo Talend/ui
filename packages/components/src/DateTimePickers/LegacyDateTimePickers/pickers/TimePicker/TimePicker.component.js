@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import uuid from 'uuid';
 import DebounceInput from 'react-debounce-input';
+import { randomUUID } from '@talend/utils';
 import getDefaultT from '../../../../translate';
 import { DateTimeContext } from '../../DateTime/Context';
 import { FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from '../../DateTime/constants';
 
-import theme from './TimePicker.scss';
+import theme from './TimePicker.module.scss';
 
 class TimePicker extends React.PureComponent {
 	static defaultProps = {
@@ -30,7 +30,7 @@ class TimePicker extends React.PureComponent {
 
 	constructor(props) {
 		super(props);
-		const id = uuid.v4();
+		const id = randomUUID();
 		this.hourId = `${id}-hour`;
 		this.minuteId = `${id}-minute`;
 		this.secondId = `${id}-second`;
@@ -57,14 +57,8 @@ class TimePicker extends React.PureComponent {
 		return (
 			<DateTimeContext.Consumer>
 				{({ errorManagement }) => {
-					const {
-						onInputFocus,
-						hasError,
-						formMode,
-						hoursErrorId,
-						minutesErrorId,
-						secondsErrorId,
-					} = errorManagement;
+					const { onInputFocus, hasError, formMode, hoursErrorId, minutesErrorId, secondsErrorId } =
+						errorManagement;
 
 					return (
 						<div className={classNames('tc-date-picker-time', theme['time-picker'])}>

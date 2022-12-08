@@ -8,18 +8,12 @@ import { INPUT_ERRORS, HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS } from '../co
 import { DateTimeContext } from '../Context';
 import Error from './Error.component';
 
-import theme from './Validation.scss';
+import theme from './Validation.module.scss';
 
 function Validation({ t }) {
-	const { errorManagement } = useContext(DateTimeContext);
-	const {
-		errors,
-		focusedInput,
-		hoursErrorId,
-		minutesErrorId,
-		secondsErrorId,
-		inputErrorId,
-	} = errorManagement;
+	const { errorManagement, formManagement } = useContext(DateTimeContext);
+	const { errors, focusedInput, hoursErrorId, minutesErrorId, secondsErrorId, inputErrorId } =
+		errorManagement;
 
 	const errorsOrder = [inputErrorId, hoursErrorId, minutesErrorId, secondsErrorId];
 	const errorsMapping = {
@@ -66,10 +60,11 @@ function Validation({ t }) {
 			<button
 				name="action-datepicker-validate"
 				className="btn btn-primary"
-				type="submit"
+				type="button"
 				aria-label={t('DATEPICKER_VALIDATE_DESC', {
 					defaultValue: 'Validate the date picker value',
 				})}
+				onClick={formManagement.onSubmit}
 			>
 				{t('DATEPICKER_VALIDATE', { defaultValue: 'Done' })}
 			</button>

@@ -10,7 +10,7 @@ import { getTheme } from '../theme';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
-import theme from './Typeahead.scss';
+import theme from './Typeahead.module.scss';
 
 const css = getTheme(theme);
 

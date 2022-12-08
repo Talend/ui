@@ -15,7 +15,7 @@ import setMonth from 'date-fns/set_month';
 import startOfDay from 'date-fns/start_of_day';
 import startOfMonth from 'date-fns/start_of_month';
 
-import theme from './DatePicker.scss';
+import theme from './DatePicker.module.scss';
 import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
 import { withCalendarGesture } from '../../../Gesture/withCalendarGesture';
 import getDefaultT from '../../../translate';

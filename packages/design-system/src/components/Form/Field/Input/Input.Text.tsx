@@ -1,8 +1,10 @@
-import React from 'react';
-import Input, { InputProps } from './Input';
+import React, { forwardRef, Ref } from 'react';
+import Input, { TypedInputFieldProps } from './Input';
 
-const Text = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
+const Text = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
 	return <Input {...props} type="text" ref={ref} />;
 });
+
+Text.displayName = 'Text';
 
 export default Text;

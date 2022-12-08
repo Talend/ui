@@ -1,22 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import React, { forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { useCopyToClipboard } from 'react-use';
 import { useTranslation } from 'react-i18next';
-import FieldGroup from '../../FieldGroup';
-import Text from './Input.Text';
-import { InputProps } from './Input';
-import { AffixButton, AffixReadOnly } from '../../FieldGroup/Affix';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../constants';
+import {
+	FieldPrimitive,
+	FieldPropsPrimitive,
+	InputPrimitive,
+	InputPrimitiveProps,
+} from '../../Primitives/index';
 
-const InputCopy = React.forwardRef(
+type InputCopyProps = Omit<FieldPropsPrimitive, 'hasError'> &
+	Omit<InputPrimitiveProps, 'style' | 'className' | 'suffix'>;
+
+const InputCopy = forwardRef(
 	(
-		{ label, disabled, readOnly, value, defaultValue, prefix, ...rest }: InputProps,
-		ref: React.Ref<HTMLInputElement | null>,
+		{
+			label,
+			link,
+			description,
+			id,
+			name,
+			hideLabel,
+			value,
+			defaultValue,
+			disabled,
+			readOnly,
+			required,
+			...rest
+		}: InputCopyProps,
+		ref: Ref<HTMLInputElement | null>,
 	) => {
 		const [copiedValue, setCopiedValue] = useState('');
 		const [copyError, setCopyError] = useState<Error | undefined | null>(null);
 		const [{ value: clipboardValue, error: clipboardError }, copyToClipboard] =
 			useCopyToClipboard();
-		const inputRef = React.useRef<HTMLInputElement | null>(null);
-		const { t } = useTranslation();
+		const inputRef = useRef<HTMLInputElement | null>(null);
+		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const inputValue = value || defaultValue;
 
 		useEffect(() => {
@@ -34,7 +53,7 @@ const InputCopy = React.forwardRef(
 			setCopyError(clipboardError);
 		}, [clipboardError]);
 
-		React.useImperativeHandle(ref, () => inputRef.current);
+		useImperativeHandle(ref, () => inputRef.current);
 
 		const getDescriptionMessage = () => {
 			if (copyError) {
@@ -46,43 +65,35 @@ const InputCopy = React.forwardRef(
 		};
 
 		return (
-			<FieldGroup
+			<FieldPrimitive
 				label={label}
-				prefix={prefix}
-				suffix={
-					!readOnly || disabled ? (
-						<AffixButton
-							icon="talend-files-o"
-							onClick={() => copyToClipboard(inputRef.current?.value || '')}
-							hideText
-							disabled={disabled}
-						>
-							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
-						</AffixButton>
-					) : (
-						<AffixReadOnly icon="talend-files-o" hideText>
-							{t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
-						</AffixReadOnly>
-					)
-				}
-				readOnly={!disabled}
-				disabled={!!disabled}
-				hasError={!!copyError}
-				hasSuccess={!!copiedValue}
 				description={getDescriptionMessage()}
+				hasError={!!copyError}
+				hideLabel={hideLabel}
+				required={required}
+				name={name}
 			>
-				{/*
-				// @ts-ignore */}
-				<Text
+				<InputPrimitive
 					{...rest}
+					ref={inputRef}
 					value={value}
 					defaultValue={defaultValue}
-					label={t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard')}
-					ref={inputRef}
+					readOnly={!disabled}
+					disabled={!!disabled}
+					suffix={{
+						type: 'button',
+						icon: 'talend-files-o',
+						onClick: () => copyToClipboard(inputRef.current?.value || ''),
+						disabled: !!disabled || !!readOnly,
+						children: t('FORM_COPY_COPY_TO_CLIPBOARD', 'Copy to clipboard'),
+						hideText: true,
+					}}
 				/>
-			</FieldGroup>
+			</FieldPrimitive>
 		);
 	},
 );
+
+InputCopy.displayName = 'InputCopy';
 
 export default InputCopy;

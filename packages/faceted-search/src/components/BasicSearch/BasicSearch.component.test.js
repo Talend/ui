@@ -1,8 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { mount } from 'enzyme';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
+import { mount } from 'enzyme';
 import { BasicSearch } from './BasicSearch.component';
 import { FacetedManager } from '../FacetedManager';
 import { USAGE_TRACKING_TAGS } from '../../constants';
@@ -156,14 +155,14 @@ describe('BasicSearch', () => {
 			</FacetedManager>,
 		);
 		// Then
-		wrapper.find('input[role="searchbox"]').simulate('change', {
+		wrapper.find('input.tc-typeahead-typeahead-input').simulate('change', {
 			target: {
 				value: 'Name',
 			},
 		});
 		expect(wrapper.find('[role="option"]')).toHaveLength(1);
 
-		wrapper.find('input[role="searchbox"]').simulate('change', {
+		wrapper.find('input.tc-typeahead-typeahead-input').simulate('change', {
 			target: {
 				value: 'NotName',
 			},
@@ -241,7 +240,7 @@ describe('BasicSearch', () => {
 		);
 	});
 
-	it('should not show remove all button when no badge can be removed', () => {
+	it('should not show remove all buttons when no badge can be removed', () => {
 		// Given
 		const props = {
 			badgesDefinitions,
@@ -278,7 +277,10 @@ describe('BasicSearch', () => {
 
 		// Then
 		expect(wrapper.find('.tc-badge').length).toBe(1);
-		wrapper.find('.tc-basic-search-clear-button').at(0).simulate('click');
+		wrapper
+			.find(`button[data-feature="${USAGE_TRACKING_TAGS.BASIC_CLEAR}"]`)
+			.at(0)
+			.simulate('click');
 		expect(wrapper.find('.tc-badge').length).toBe(0);
 	});
 });

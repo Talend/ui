@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import { CmfRegisteredSagaComponent } from './CmfRegisteredSaga.component';
 
 const defaultMockUuid = '42';
-jest.mock('uuid', () => ({ v4: () => defaultMockUuid }));
 
 describe('CmfRegisteredSagaComponent', () => {
 	it('should dispatch actions', () => {

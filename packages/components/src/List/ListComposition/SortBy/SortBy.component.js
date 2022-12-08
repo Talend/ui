@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, MenuItem, NavDropdown, Nav, Button } from '@talend/react-bootstrap';
-import uuid from 'uuid';
+import { randomUUID } from '@talend/utils';
 import Icon from '../../../Icon';
 
 import { useListContext } from '../context';
 
-import cssModule from './SortBy.scss';
+import cssModule from './SortBy.module.scss';
 import { getTheme } from '../../../theme';
 
 const theme = getTheme(cssModule);
@@ -121,7 +121,7 @@ function SortBy({ id, options, onChange, value }) {
 }
 
 SortBy.defaultProps = {
-	id: uuid.v4(),
+	id: randomUUID(),
 	value: {},
 };
 

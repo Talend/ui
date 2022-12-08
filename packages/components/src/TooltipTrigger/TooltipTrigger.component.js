@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { cloneElement, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import uuid from 'uuid';
 import classNames from 'classnames';
-import theme from './TooltipTrigger.scss';
+import { randomUUID } from '@talend/utils';
+import theme from './TooltipTrigger.module.scss';
 import useTooltipVisibility from './TooltipTrigger.hook';
 
 const DEFAULT_OFFSET_X = 300;
@@ -112,7 +112,7 @@ function TooltipTrigger({
 
 	const [visible, show, hide] = useTooltipVisibility(tooltipDelay);
 
-	const [id] = useState(uuid.v4());
+	const [id] = useState(randomUUID());
 
 	const { props: childrenProps } = children;
 

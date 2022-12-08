@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
-import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
 import { useTranslation } from 'react-i18next';
 import keycode from 'keycode';
 import { usePopper } from 'react-popper';
+import { randomUUID } from '@talend/utils';
 
-import theme from './Typeahead.scss';
+import theme from './Typeahead.module.scss';
 import {
 	renderItemsContainerFactory,
 	renderInputComponent,
@@ -281,7 +281,7 @@ Typeahead.displayName = 'Typeahead';
 Typeahead.defaultProps = {
 	autoFocus: false,
 	disabled: false,
-	id: uuid.v4().toString(),
+	id: randomUUID(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
 	position: 'left',

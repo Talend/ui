@@ -1,5 +1,65 @@
 # @talend/scripts-preset-react
 
+## 15.0.1
+
+### Patch Changes
+
+- Updated dependencies [784fe3919]
+- Updated dependencies [fe430c316]
+  - @talend/scripts-config-storybook-lib@3.0.0
+
+## 15.0.0
+
+### Major Changes
+
+- 0260a77b8: fix: No more implicit sass data injected in scss files
+
+  This is BREAKING CHANGE:
+
+  ```diff
+  +++@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+  ```
+
+  You have to
+
+  - use `addSassData.js` from https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
+  - rewrite your sass using @talend/design-tokens on the long and remove this bootstrap-theme guidelines from all your scss
+
+- f4db1eeb1: feat: upgrade webpack configuration
+
+  BREAKING CHANGE: In the context of talend package you now have to rename your file using the pattern `.module.scss`. A script has been built at this occasion for you on gist: https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
+
+### Patch Changes
+
+- Updated dependencies [0260a77b8]
+- Updated dependencies [f4db1eeb1]
+  - @talend/scripts-config-react-webpack@15.0.0
+
+## 14.0.0
+
+### Major Changes
+
+- 6fbd20305: fix(talend-scripts): update common webpack config for ng config compatibility and bump to postcss v8
+
+  Breaking: html-loader has been removed and its webpack config too which means no automatic support of html import in webapp
+
+### Patch Changes
+
+- Updated dependencies [e22e3c952]
+- Updated dependencies [e22e3c952]
+- Updated dependencies [e22e3c952]
+  - @talend/scripts-config-react-webpack@14.0.0
+  - @talend/scripts-config-storybook-lib@2.1.2
+  - @talend/scripts-config-stylelint@2.0.0
+
+## 13.0.2
+
+### Patch Changes
+
+- fix: ugprade deps
+- Updated dependencies
+  - @talend/scripts-config-prettier@11.0.0
+
 ## 13.0.1
 
 ### Patch Changes

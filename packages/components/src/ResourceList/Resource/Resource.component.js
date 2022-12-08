@@ -9,7 +9,7 @@ import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
 import Icon from '../../Icon';
 
-import theme from './Resource.scss';
+import theme from './Resource.module.scss';
 
 const FLAGS = {
 	CERTIFIED: 'talend-badge',

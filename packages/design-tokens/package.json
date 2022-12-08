@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-tokens",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -12,11 +12,7 @@
     "build:lib": "talend-scripts build:ts:lib && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
-    "test:demo": "yarn build-storybook",
-    "test:umd": "jest scripts/umd.test.js",
-    "start": "yarn storybook",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --docs"
+    "test:umd": "jest scripts/umd.test.js"
   },
   "keywords": [
     "talend",
@@ -38,9 +34,7 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^12.0.1",
-    "color-contrast-checker": "^2.1.0",
-    "react": "^17.0.2",
+    "@talend/scripts-preset-react-lib": "^14.0.0",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}

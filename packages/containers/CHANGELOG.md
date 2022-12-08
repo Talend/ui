@@ -1,5 +1,86 @@
 # @talend/react-containers
 
+## 8.0.1
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+  - @talend/react-components@9.0.1
+  - @talend/utils@2.5.0
+  - @talend/react-cmf@7.1.4
+  - @talend/react-forms@8.1.8
+
+## 8.0.0
+
+### Major Changes
+
+- 9c44d724f: ## Breaking changes :
+  Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
+
+  - SidePanel icon is no more handled by the application theme
+  - HeaderBar icon is no more handled by the application theme
+
+  ### HeaderBar
+
+  Use either `icon` or `iconUrl` in the header `brand` property
+
+  ```diff
+  <HeaderBar
+      ...
+  	brand={{
+  		...props.brand,
+  +       icon: 'talend-tmc-positive',
+  	}}
+      ...
+  };
+  ```
+
+  ### SidePanel
+
+  Use `backgroundIcon` in the sidepanel properties
+
+  ```diff
+  +import assetsApi from '@talend/assets-api';
+
+  <SidePanel
+      ...
+  +    backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+      ...
+  />
+  ```
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+  - @talend/react-forms@8.1.7
+
+## 7.3.2
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+  - @talend/react-forms@8.1.6
+
+## 7.3.1
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+  - @talend/react-forms@8.1.5
+
 ## 7.3.0
 
 ### Minor Changes

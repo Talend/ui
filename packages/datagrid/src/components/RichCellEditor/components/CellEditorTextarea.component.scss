@@ -1,9 +1,0 @@
-@use '~@talend/design-tokens/lib/tokens' as tokens;
-
-// stylelint-disable-next-line
-textarea.cell-editor-textarea {
-	margin: 0;
-	padding: tokens.$coral-spacing-xs;
-	font: tokens.$coral-data-m;
-	outline: 0;
-}

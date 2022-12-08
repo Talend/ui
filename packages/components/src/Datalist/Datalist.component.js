@@ -6,9 +6,11 @@ import omit from 'lodash/omit';
 import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
-import theme from './Datalist.scss';
+import theme from './Datalist.module.scss';
 import FocusManager from '../FocusManager';
 import Icon from '../Icon';
+import { useTranslation } from 'react-i18next';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -21,7 +23,22 @@ const DISPLAY = {
 	NONE: 'none',
 };
 
-function buildSuggestions({ displayMode, titleMap, filterValue, multiSection }) {
+function isValuePresentInSuggestions(titleMap, filterValue, multiSection) {
+	return !!multiSection
+		? titleMap.find(group =>
+				group.suggestions.find(item => filterValue.toLowerCase() === item.name.toLowerCase()),
+		  )
+		: titleMap.find(itemValue => filterValue.toLowerCase() === itemValue.name.toLowerCase());
+}
+
+function buildSuggestions({
+	displayMode,
+	titleMap,
+	filterValue,
+	multiSection,
+	allowAddNewElements,
+	allowAddNewElementsSuffix,
+}) {
 	if (displayMode === DISPLAY.NONE) {
 		return undefined;
 	}
@@ -33,19 +50,26 @@ function buildSuggestions({ displayMode, titleMap, filterValue, multiSection }) 
 	// building multiSection items or single section items
 	const escapedValue = escapeRegexCharacters(filterValue.trim());
 	const regex = new RegExp(escapedValue, 'i');
-	if (multiSection) {
-		return titleMap
-			.map(group => ({
-				...group,
-				suggestions: filterValue
-					? group.suggestions.filter(item => regex.test(item.name))
-					: group.suggestions,
-			}))
-			.filter(group => group.suggestions.length > 0);
+	const result = multiSection
+		? titleMap
+				.map(group => ({
+					...group,
+					suggestions: filterValue
+						? group.suggestions.filter(item => regex.test(item.name))
+						: group.suggestions,
+				}))
+				.filter(group => group.suggestions.length > 0)
+		: titleMap.filter(itemValue => regex.test(itemValue.name));
+
+	if (allowAddNewElements && !isValuePresentInSuggestions(titleMap, filterValue, multiSection)) {
+		result.unshift({
+			title: `${filterValue} ${allowAddNewElementsSuffix}`,
+			name: filterValue,
+			value: filterValue,
+		});
 	}
 
-	// only one group so items are inline
-	return titleMap.filter(itemValue => regex.test(itemValue.name));
+	return result;
 }
 
 function findEntry(titleMap, attributeName, attributeValue = '') {
@@ -113,6 +137,7 @@ function Datalist(props) {
 	// Current persisted value
 	// It's the object value key { name: "display value", value: "technical value" }
 	const [{ name, value }, setEntry] = useState({});
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	// suggestions: filter value, display flag, current hover selection
 	const [filterValue, setFilterValue] = useState('');
@@ -129,6 +154,9 @@ function Datalist(props) {
 		titleMap: props.titleMap,
 		filterValue,
 		multiSection: props.multiSection,
+		allowAddNewElements: props.allowAddNewElements,
+		allowAddNewElementsSuffix:
+			props.allowAddNewElementsSuffix ?? t('NEW_WITH_PARENTHESIS', '(new)'),
 	});
 
 	// in uncontrolled mode, props.value acts as an initial value, then Datalist handles state, props.value never changes.
@@ -143,11 +171,11 @@ function Datalist(props) {
 			return;
 		}
 
-		if (entry.value !== value) {
+		if (entry.value !== value || entry.name !== name) {
 			setEntry(entry);
 		}
 		// Update the input value only if user did not change it
-		if (!name || name === filterValue) {
+		if ((!name && !filterValue) || name === filterValue) {
 			setFilterValue(entry.name);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -427,37 +455,39 @@ Datalist.defaultProps = {
 	titleMap: [],
 };
 
-if (process.env.NODE_ENV !== 'production') {
-	Datalist.propTypes = {
-		className: PropTypes.string,
-		onBlur: PropTypes.func,
-		onChange: PropTypes.func.isRequired,
-		onFocus: PropTypes.func,
-		onClick: PropTypes.func,
-		onLiveChange: PropTypes.func,
-		disabled: PropTypes.bool,
-		multiSection: PropTypes.bool,
-		readOnly: PropTypes.bool,
-		restricted: PropTypes.bool,
-		titleMap: PropTypes.arrayOf(
-			PropTypes.oneOfType([
-				PropTypes.shape({
-					name: PropTypes.string.isRequired,
-					value: PropTypes.string.isRequired,
-				}),
-				PropTypes.shape({
-					title: PropTypes.string,
-					suggestions: PropTypes.arrayOf(
-						PropTypes.shape({
-							name: PropTypes.string,
-							value: PropTypes.string,
-						}),
-					),
-				}),
-			]),
-		),
-		value: PropTypes.string,
-	};
-}
+Datalist.propTypes = {
+	autoFocus: PropTypes.bool,
+	allowAddNewElements: PropTypes.bool,
+	allowAddNewElementsSuffix: PropTypes.string,
+	isLoading: PropTypes.bool,
+	className: PropTypes.string,
+	onBlur: PropTypes.func,
+	onChange: PropTypes.func.isRequired,
+	onFocus: PropTypes.func,
+	onClick: PropTypes.func,
+	onLiveChange: PropTypes.func,
+	disabled: PropTypes.bool,
+	multiSection: PropTypes.bool,
+	readOnly: PropTypes.bool,
+	restricted: PropTypes.bool,
+	titleMap: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.shape({
+				name: PropTypes.string.isRequired,
+				value: PropTypes.string.isRequired,
+			}),
+			PropTypes.shape({
+				title: PropTypes.string,
+				suggestions: PropTypes.arrayOf(
+					PropTypes.shape({
+						name: PropTypes.string,
+						value: PropTypes.string,
+					}),
+				),
+			}),
+		]),
+	),
+	value: PropTypes.string,
+};
 
 export default Datalist;

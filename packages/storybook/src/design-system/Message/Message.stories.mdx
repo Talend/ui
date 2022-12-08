@@ -1,0 +1,194 @@
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+import { FigmaImage, Use } from '~docs';
+import * as Stories from './Message.stories';
+
+<Meta
+	title="Design System/Message"
+	parameters={{
+		status: { figma: 'ok', storybook: 'ok', react: 'ok', i18n: 'na' },
+		figmaLink: 'https://www.figma.com/file/MSrfT0wzGwQSL8GuyG3UE7/Messages?node-id=122%3A42331',
+	}}
+/>
+
+# Message
+
+Message is a component that displays some information to the user and provide actions to interact with it.
+
+## Zoning
+
+TODO : FIGMA TO LINK
+
+## Style
+
+### Text
+
+The text should adapt to the surrounding layout. Depending on the context, if the text is too long it should automatically wrap to the next line.
+It's still advise to keep the text short and concise.
+
+### Variations
+
+**Default**
+
+<Canvas>
+	<Story story={Stories.DefaultMessageDemo} />
+</Canvas>
+
+**With optional props**
+
+<Canvas>
+	<Story story={Stories.WithPropVariation} />
+</Canvas>
+
+## Interactions
+
+The message can have :
+
+- A link to go to the documentation or a specific page
+- A button linked to the message to allow the user to go further in the message resolution
+
+## Content
+
+Title:
+
+<ul>
+	<li>The title should contains 2 to 3 word maximum</li>
+	<li>
+		Ideally it should stay in 1 line. Users must be able to zoom in a lot on the text size without
+		losing content, so the title should be able to reflow nearly at will.
+	</li>
+	<li>Title is a short description of the content (error, warning, info …)</li>
+</ul>
+
+Text:
+
+<ul>
+	<li>The content should be display on maximum 5 lines</li>
+	<li>
+		Content is a short description of the event which have occured on the page (error, warning, info
+		…)
+	</li>
+	<li>It should explain briefly the type of error/info etc. contained in the collection</li>
+</ul>
+
+Main action :
+
+<ul>
+	<li>Main action possible could be "see/select"</li>
+	<li>Main action can also be "delete/dismiss/apply" relying on the context</li>
+</ul>
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Titles should be kept short, but to be accessible we understand they can reflow.</li>
+			<li>Description text should also be kept short, but should also reflow at will.</li>
+			<li>Only one dock link per message.</li>
+			<li>Only one main action per message.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Avoid negative words. For example, say "You need to have enough rights to publish pipelines"
+				instead of "You don't have enough rights to publish pipelines".
+			</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Usage
+
+<Canvas>
+	<Story story={Stories.MessageInformationTemplateStory} name="MessageInformation" />
+</Canvas>
+
+<ArgsTable story="MessageInformation" />
+
+# Message Collection
+
+MessageCollection is used for multiple messages about the same purpose
+
+### Variations
+
+**Default**
+
+<Canvas>
+	<Story story={Stories.DefaultMessageCollectionDemo} />
+</Canvas>
+
+**With optional props**
+
+<Canvas>
+	<Story story={Stories.MessageCollectionWithPropVariation} />
+</Canvas>
+
+## Interactions
+
+The message can have :
+
+- A dropdown button to access more actions
+
+## Content
+
+Title:
+
+<ul>
+	<li>The title should contains 2 to 3 words maximum</li>
+	<li>
+		Ideally it should stay in 1 line. Users must be able to zoom in a lot on the text size without
+		losing content, so the title should be able to reflow nearly at will.
+	</li>
+	<li>Title is a short description of the content (error, warning, info …)</li>
+</ul>
+
+Text:
+
+<ul>
+	<li>The content should be display on maximum 5 lines</li>
+	<li>
+		Content is a short description of the event which have occured on the page (error, warning, info
+		…)
+	</li>
+	<li>It should explain briefly the type of error/info etc. contains in the collection</li>
+</ul>
+
+Action :
+
+<ul>
+	<li>Main action possible could be "See all" or "Select all"</li>
+	<li>Other actions can be delete/dismiss/select all/see all</li>
+</ul>
+
+<Use>
+	<Use.Do>
+		<ul>
+			<li>Titles should be kept short, but to be accessible we understand they can reflow.</li>
+			<li>Description text should also be kept short, but should also reflow at will.</li>
+			<li>A main action is required per message collection.</li>
+		</ul>
+	</Use.Do>
+	<Use.Dont>
+		<ul>
+			<li>
+				Avoid negative words. For example, say "You need to have enough rights to publish pipelines"
+				instead of "You don't have enough rights to publish pipelines".
+			</li>
+			<li>A link to the documentation cannot be provided on this component</li>
+		</ul>
+	</Use.Dont>
+</Use>
+
+## Usage
+
+<Canvas>
+	<Story
+		story={Stories.MessageCollectionInformationTemplateStory}
+		name="MessageCollectionInformation"
+	/>
+</Canvas>
+
+<ArgsTable story="MessageCollectionInformation" />
+
+## Accessibility
+
+- Press <kbd>Tab</kbd> to focus on the the different elements

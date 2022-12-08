@@ -13,6 +13,7 @@
 	color: tokens.$coral-color-accent-icon;
 	border-radius: tokens.$coral-radius-round;
 	transition: all tokens.$coral-transition-fast;
+	flex-shrink: 0;
 
 	&__icon {
 		display: inline-flex;

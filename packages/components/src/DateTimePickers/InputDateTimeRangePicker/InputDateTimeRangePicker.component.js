@@ -12,7 +12,7 @@ import { DateTimeRangeContext } from '../DateTimeRange/Context';
 
 import getDefaultT from '../../translate';
 
-import theme from './InputDateTimeRangePicker.scss';
+import theme from './InputDateTimeRangePicker.module.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',

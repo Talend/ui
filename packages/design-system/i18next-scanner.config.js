@@ -1,10 +1,13 @@
+// eslint-disable-next-line
+const typescriptTransform = require('i18next-scanner-typescript');
+
 module.exports = {
-	input: ['tmp/**/*.{js,jsx}'],
+	input: ['src/**/*.{ts,tsx}'],
 	options: {
 		debug: true,
 		func: {
-			list: ['t'],
-			extensions: ['.js', '.jsx'],
+			list: ['t', 'i18next.t'],
+			extensions: ['.js'],
 		},
 		lngs: ['en'],
 		defaultNs: 'design-system',
@@ -13,4 +16,5 @@ module.exports = {
 			savePath: 'i18n-extract/{{ns}}.json',
 		},
 	},
+	transform: typescriptTransform(),
 };

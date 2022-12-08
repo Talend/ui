@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import InlineEditing, { InlineEditingProps, Mode } from '../InlineEditing';
+import React, { forwardRef, Ref } from 'react';
+import InlineEditingPrimitive, {
+	InlineEditingPrimitiveProps,
+} from '../Primitives/InlineEditingPrimitive';
 
+const InlineEditingText = forwardRef(
+	(props: Omit<InlineEditingPrimitiveProps, 'mode'>, ref: Ref<HTMLDivElement>) => {
+		return <InlineEditingPrimitive {...props} ref={ref} mode="single" />;
+	},
+);
 
-const InlineEditingSingle: React.FC<InlineEditingProps> = styled(InlineEditing).attrs({
-	className: 'c-inline-editing--text',
-	renderAs: 'span',
-	mode: Mode.Single,
-})``;
+InlineEditingText.displayName = 'InlineEditing.Text';
 
-InlineEditingSingle.displayName = 'InlineEditing.Text';
-
-export default InlineEditingSingle;
+export default InlineEditingText;

@@ -14,17 +14,13 @@ import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import { initI18n } from './i18n';
 import ComponentFormSandbox from './components/ComponentFormSandbox';
 import { FacetedSearchPlayground } from './components/FacetedSearch';
-import { DataGridPlayground } from './components/DataGrid';
 import { Icons } from './components/Icons';
 
 import { LeaguesList } from './components/List';
 import { Dataviz } from './components/Dataviz';
 
 import actions from './actions';
-// this is just to test html-loader config
-import foo from './foo.html';
 
-console.log('html-loader test is ok, output is a simple string', foo);
 // thanks ui-scripts
 let basename = window.basename;
 if (basename === '/') {
@@ -47,7 +43,6 @@ const app = {
 		ComponentForm,
 		ComponentFormSandbox,
 		FacetedSearch: FacetedSearchPlayground,
-		DataGrid: DataGridPlayground,
 		LeaguesList,
 		IconsProvider,
 		Dataviz,

@@ -4,7 +4,6 @@ import Form from './Form';
 import Row from './Row';
 import Buttons from './Buttons';
 import Input from './Field/Input';
-import FieldGroup from './FieldGroup';
 import Label from './Label';
 import Select from './Field/Select';
 import Textarea from './Field/Textarea';
@@ -21,16 +20,14 @@ export const FormComponent = Form as typeof Form & {
 	File: typeof Input.File;
 	Hidden: typeof Input.Hidden;
 	Copy: typeof Input.Copy;
-	FieldGroup: typeof FieldGroup;
 	Label: typeof Label;
 	Month: typeof Input.Month;
 	Number: typeof Input.Number;
 	Password: typeof Input.Password;
 	Radio: typeof Input.Radio;
-	Range: typeof Input.Range;
 	Search: typeof Input.Search;
 	Select: typeof Select;
-	Switch: typeof Input.Switch;
+	ToggleSwitch: typeof Input.ToggleSwitch;
 	Tel: typeof Input.Tel;
 	Text: typeof Input.Text;
 	Textarea: typeof Textarea;
@@ -38,6 +35,7 @@ export const FormComponent = Form as typeof Form & {
 	Url: typeof Input.Url;
 	Week: typeof Input.Week;
 	Buttons: typeof Buttons;
+	Input: typeof Input;
 };
 
 FormComponent.Row = Row;
@@ -52,22 +50,21 @@ FormComponent.Fieldset = Fieldset;
 FormComponent.File = Input.File;
 FormComponent.Hidden = Input.Hidden;
 FormComponent.Copy = Input.Copy;
-FormComponent.FieldGroup = FieldGroup;
 FormComponent.Label = Label;
 FormComponent.Month = Input.Month;
 FormComponent.Number = Input.Number;
 FormComponent.Password = Input.Password;
 FormComponent.Radio = Input.Radio;
-FormComponent.Range = Input.Range;
 FormComponent.Search = Input.Search;
 FormComponent.Select = Select;
-FormComponent.Switch = Input.Switch;
+FormComponent.ToggleSwitch = Input.ToggleSwitch;
 FormComponent.Tel = Input.Tel;
 FormComponent.Text = Input.Text;
 FormComponent.Textarea = Textarea;
 FormComponent.Time = Input.Time;
 FormComponent.Url = Input.Url;
 FormComponent.Week = Input.Week;
+FormComponent.Input = Input;
 
 FormComponent.Buttons = Buttons;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
-import cssModule from '../../ColumnChooser.scss';
+import cssModule from '../../ColumnChooser.module.scss';
 import { getTheme } from '../../../../../../theme';
 import Checkbox from '../../../../../../Checkbox';
 
@@ -16,6 +16,7 @@ const RowCheckbox = ({
 	locked = false,
 	onChange,
 	checked = false,
+	intermediate = false,
 }) => {
 	const onChangeCheckbox = event => {
 		onChange(event.target.checked, label);
@@ -35,6 +36,7 @@ const RowCheckbox = ({
 				id={`${id}-checkbox-${label.replace(/\s+/g, '-')}`}
 				label={label}
 				onChange={onChangeCheckbox}
+				intermediate={intermediate}
 			/>
 			<div id={describedby} className="sr-only">
 				{description}
@@ -51,6 +53,7 @@ RowCheckbox.propTypes = {
 	locked: PropTypes.bool,
 	onChange: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
+	intermediate: PropTypes.bool,
 };
 
 export default RowCheckbox;

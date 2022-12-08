@@ -3,8 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import { Actions } from '../../Actions';
 
-import largeTheme from './RowLargeCellActions.scss';
-import tableTheme from './RowTableCellActions.scss';
+import largeTheme from './RowLargeCellActions.module.scss';
+import tableTheme from './RowTableCellActions.module.scss';
 
 const LIST_ACTION_CLASS_NAME = 'tc-list-actions';
 
