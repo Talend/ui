@@ -11,6 +11,9 @@ const { getUserConfigFile } = require('../utils/env');
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const tsc = resolveBin('typescript', { executable: 'tsc' });
+const pkgPath = path.join(process.cwd(), 'package.json');
+const types = JSON.parse(fs.readFileSync(pkgPath))?.types;
+const isTSLib = !!types;
 
 module.exports = function build(env, presetApi, unsafeOptions) {
 	let useTsc = false;
@@ -80,15 +83,17 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 
 	const tscPromise = () =>
 		new Promise((resolve, reject) => {
-			if (!tscConfigPath) {
+			if (!isTSLib) {
 				resolve({ status: 0 });
 				return;
 			}
 			let args = ['--project', tscConfigPath, '--outDir', targetFolder, ...options];
 			if (!useTsc) {
 				args = ['--emitDeclarationOnly'].concat(args);
+				console.log('Building types with tsc --emitDeclarationOnly');
+			} else {
+				console.log('Building with tsc');
 			}
-			console.log('Building with tsc');
 			const tscSpawn = spawn(tsc, args, { stdio: 'inherit', env });
 
 			tscSpawn.on('exit', status => {
@@ -97,8 +102,6 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 					reject(new Error(status));
 				} else {
 					console.log(`TSC exit: ${status}`);
-					const pkgPath = path.join(process.cwd(), 'package.json');
-					const types = JSON.parse(fs.readFileSync(pkgPath))?.types;
 					if (!types) {
 						const msg = `Entry "types", referencing your declaration file (index.d.ts), must be defined in ${pkgPath}`;
 						console.error(msg);
