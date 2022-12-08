@@ -25,7 +25,7 @@ Your folder hierarchy should follow
 
 ```json
 {
-	"preset": "talend",
+	"preset": "@talend/scritps-preset-react",
 	"cmf": true,
 	"html": {
 		"title": "Talend Data Preparation",
@@ -52,6 +52,9 @@ Your folder hierarchy should follow
 			"development": "./webpack.config.dev.js",
 			"production": "./webpack.config.prod.js"
 		}
+	},
+	"dynamic-cdn-webpack-plugin": {
+		"exclude": ["react-router-dom"]
 	},
 	"sentry": {
 		"org": "talend",
@@ -362,3 +365,15 @@ token=[yourToken]
 ```
 
 For more information, see [Sentry CLI configuration values](https://docs.sentry.io/product/cli/configuration/#configuration-values)
+
+## dynamic-cdn-webpack-plugin
+
+This entry let you pass options to the plugin `@talend/dynamic-cdn-webpack-plugin`.
+If you want you can also pass false to desactivate it.
+
+```json
+{
+	"preset": "@talend/scritps-preset-react",
+	"dynamic-cdn-webpack-plugin": false
+}
+```
