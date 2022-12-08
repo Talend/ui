@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { ButtonPrimary, Modal } from '@talend/design-system';
+import { Tooltip, ButtonPrimary, Modal } from '@talend/design-system';
 import { ModalPropsType } from '@talend/design-system/lib/components/Modal';
 
 export default {
