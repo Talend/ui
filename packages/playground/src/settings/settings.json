@@ -39,6 +39,16 @@
           "routerPush": "/FacetedSearch"
         }
       }
+    },
+    "menu:Icons": {
+      "icon": "talend-datagrid",
+      "label": "Icons",
+      "onClickDispatch": {
+        "type": "MENU_LIST_CLICKED",
+        "cmf": {
+          "routerPush": "/Icons"
+        }
+      }
     }
   },
   "props": {
