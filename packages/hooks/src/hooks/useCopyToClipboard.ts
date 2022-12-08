@@ -14,11 +14,15 @@ export function useCopyToClipboard(): [CopiedValue, CopyFn] {
 
 		try {
 			await navigator.clipboard.writeText(text);
-			setCopiedText(text);
+			if (text !== copiedText) {
+				setCopiedText(text);
+			}
 			return true;
 		} catch (error) {
 			console.error('Copy failed', error);
-			setCopiedText(null);
+			if (copiedText !== null) {
+				setCopiedText(null);
+			}
 			return false;
 		}
 	};
