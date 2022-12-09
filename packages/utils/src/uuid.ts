@@ -1,6 +1,6 @@
 export function randomUUID() {
 	// works only on https so need  backport if the app is run on unsecure env
-	if (crypto && crypto.randomUUID) {
+	if (typeof crypto != 'undefined' && crypto && crypto.randomUUID) {
 		return crypto.randomUUID();
 	}
 	function h(n: number) {
