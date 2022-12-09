@@ -3654,11 +3654,6 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-containers/-/locales-tui-containers-6.38.1.tgz#c7069f2916b36a319801eac105d21df6e945455e"
   integrity sha512-m4Pryp5TZjqW7n4nxV2+sa3ACt58uyFxOx0kRU7tLlmQrqvnSxZaRiByHatrUqUdrjHan4zwVzQVpMyhqRpDKw==
 
-"@talend/locales-tui-datagrid@^6.36.5":
-  version "6.36.5"
-  resolved "https://registry.yarnpkg.com/@talend/locales-tui-datagrid/-/locales-tui-datagrid-6.36.5.tgz#97c14864f7513ae6616425f7f3d3f44b9203ffb1"
-  integrity sha512-YJOuZjMkVlbodoqR/O2xk0YrqXKhC+zai17Egu+JBVZu+Y+qlkC6bc7VtU+ZV/5NxLr5IA2RclSzPiGZn3MHnw==
-
 "@talend/locales-tui-dataviz@^0.4.6":
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-dataviz/-/locales-tui-dataviz-0.4.6.tgz#fe51013b25b9c2eaae362d50729449d641627de2"
@@ -5087,18 +5082,6 @@ adjust-sourcemap-loader@^4.0.0:
   dependencies:
     loader-utils "^2.0.0"
     regex-parser "^2.2.11"
-
-ag-grid-community@^28.0.2:
-  version "28.0.2"
-  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-28.0.2.tgz#72ec5e47793f5fcb657be2c79bd94be57a75bd87"
-  integrity sha512-yMcDf6QhoKsuUBNklVOS2pAPzG697aNwffaCYr6HKCqEDBqhW7fTtX2iQPD4SZ7/fk/sNX8RSFAI+nTrrjDKFw==
-
-ag-grid-react@^28.0.0:
-  version "28.0.0"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-28.0.0.tgz#f8774cbc8aeb20abbc507bc23fbdaaa987a52175"
-  integrity sha512-voKc4Q44YAVRZXUQeOPXfO049ak67t5AOy8RTjf1sIv9eZ9O6liVZzNjkWY3pel1cGgTMTqNPWSpQYxBhOe0UA==
-  dependencies:
-    prop-types "^15.8.1"
 
 agent-base@6, agent-base@^6.0.2:
   version "6.0.2"
@@ -9923,20 +9906,6 @@ focus-outline-manager@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/focus-outline-manager/-/focus-outline-manager-1.0.2.tgz#7bf3658865341fb6b08d042a037b9d2868b119b5"
   integrity sha512-bHWEmjLsTjGP9gVs7P3Hyl+oY5NlMW8aTSPdTJ+X2GKt6glDctt9fUCLbRV+d/l8NDC40+FxMjp9WlTQXaQALw==
-
-focus-trap-react@^8.11.3:
-  version "8.11.3"
-  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-8.11.3.tgz#aa0ba3b17676abf8faf78c5e51d8cd8df83eec41"
-  integrity sha512-y126gMYuB1aVYiEZSP6/v9bAfVmAIUVixanhcoMelkz7bOh+l0c3h05CEHC8S63ztxdRI2AAPS9AsTat6jlDeQ==
-  dependencies:
-    focus-trap "^6.9.4"
-
-focus-trap@^6.9.4:
-  version "6.9.4"
-  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.9.4.tgz#436da1a1d935c48b97da63cd8f361c6f3aa16444"
-  integrity sha512-v2NTsZe2FF59Y+sDykKY+XjqZ0cPfhq/hikWVL88BqLivnNiEffAsac6rP6H45ff9wG9LL5ToiDqrLEP9GX9mw==
-  dependencies:
-    tabbable "^5.3.3"
 
 follow-redirects@^1.0.0, follow-redirects@^1.14.0:
   version "1.15.1"
@@ -18982,11 +18951,6 @@ synckit@^0.4.1:
   dependencies:
     tslib "^2.3.1"
     uuid "^8.3.2"
-
-tabbable@^5.3.3:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-5.3.3.tgz#aac0ff88c73b22d6c3c5a50b1586310006b47fbf"
-  integrity sha512-QD9qKY3StfbZqWOPLp0++pOrAVb/HbUi5xCc8cUo4XjP19808oaMiDzn0leBY5mCespIBM0CIZePzZjgzR83kA==
 
 table@^6.0.9, table@^6.8.0:
   version "6.8.0"

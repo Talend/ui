@@ -1,20 +1,39 @@
 /* eslint-disable no-console */
+const fs = require('fs');
 const path = require('path');
 const spawn = require('cross-spawn');
 const rimraf = require('rimraf');
 const cpx = require('cpx2');
+
 const { resolveBin } = require('../utils/path-resolver');
 const { getPreset } = require('../utils/preset');
 const { getUserConfigFile } = require('../utils/env');
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
+const tsc = resolveBin('typescript', { executable: 'tsc' });
+const pkgPath = path.join(process.cwd(), 'package.json');
+const types = JSON.parse(fs.readFileSync(pkgPath))?.types;
+const isTSLib = !!types;
 
-module.exports = function build(env, presetApi, options) {
+module.exports = function build(env, presetApi, unsafeOptions) {
+	let useTsc = false;
+	const options = unsafeOptions.filter(o => {
+		if (o === '--tsc') {
+			useTsc = true;
+			// do not keep this option
+			return false;
+		}
+		return true;
+	});
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
+
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
 		preset.getBabelConfigurationPath(presetApi);
+	const tscConfigPath =
+		getUserConfigFile(['tsconfig.build.json', 'tsconfig.json']) ||
+		preset.getTypescriptConfigurationPath(presetApi);
 
 	const srcFolder = path.join(process.cwd(), 'src');
 	const targetFolder = path.join(process.cwd(), 'lib');
@@ -25,6 +44,10 @@ module.exports = function build(env, presetApi, options) {
 	}
 	const babelPromise = () =>
 		new Promise((resolve, reject) => {
+			if (useTsc) {
+				resolve({ status: 0 });
+				return;
+			}
 			console.log('Compiling with babel...');
 			const babelSpawn = spawn(
 				babel,
@@ -36,7 +59,10 @@ module.exports = function build(env, presetApi, options) {
 					srcFolder,
 					'--source-maps',
 					'--ignore',
-					'**/*.test.js,**/*.stories.js',
+					// @see https://github.com/babel/babel/issues/12008
+					'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
+					'--extensions',
+					'.js,.ts,.tsx,.jsx',
 					...options,
 				],
 				{
@@ -51,6 +77,45 @@ module.exports = function build(env, presetApi, options) {
 				} else {
 					console.log(`Babel exit: ${status}`);
 					resolve({ status });
+				}
+			});
+		});
+
+	const tscPromise = () =>
+		new Promise((resolve, reject) => {
+			if (!isTSLib) {
+				resolve({ status: 0 });
+				return;
+			}
+			let args = ['--project', tscConfigPath, '--outDir', targetFolder, ...options];
+			if (!useTsc) {
+				args = ['--emitDeclarationOnly'].concat(args);
+				console.log('Building types with tsc --emitDeclarationOnly');
+			} else {
+				console.log('Building with tsc');
+			}
+			const tscSpawn = spawn(tsc, args, { stdio: 'inherit', env });
+
+			tscSpawn.on('exit', status => {
+				if (parseInt(status, 10) !== 0) {
+					console.error(`TSC exit error: ${status}`);
+					reject(new Error(status));
+				} else {
+					console.log(`TSC exit: ${status}`);
+					if (!types) {
+						const msg = `Entry "types", referencing your declaration file (index.d.ts), must be defined in ${pkgPath}`;
+						console.error(msg);
+						reject(new Error(msg));
+					} else {
+						const absoluteTypes = path.join(process.cwd(), types);
+						if (!fs.existsSync(absoluteTypes)) {
+							const msg = `Declaration file, referenced in package.json, not found ${absoluteTypes}`;
+							console.error(msg);
+							reject(new Error(msg));
+						} else {
+							resolve({ status });
+						}
+					}
 				}
 			});
 		});
@@ -78,7 +143,11 @@ module.exports = function build(env, presetApi, options) {
 			}
 		});
 
-	return Promise.all([babelPromise(), copyPromise()]).then(() => {
-		console.log('🎉 Build complete');
-	});
+	return Promise.all([babelPromise(), tscPromise(), copyPromise()])
+		.then(() => {
+			console.log('🎉 Build complete');
+		})
+		.catch(e => {
+			console.error(e);
+		});
 };

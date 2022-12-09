@@ -21,7 +21,7 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 		width: 0;
 		overflow: hidden;
 
-		&:not(:last-child):after {
+		&:not(:last-child)::after {
 			content: '|';
 			color: $dark-silver;
 			padding-top: $padding-smaller;
@@ -29,16 +29,20 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 	}
 
 	:global {
-		.btn-link {
-			padding: 0 $padding-smaller;
-			.tc-svg-icon[name='talend-caret-down'] {
-				display: none;
-			}
+		.btn-group,
+		.tc-action-button-positionned {
+			> .btn-link {
+				padding: 0 $padding-smaller;
 
-			.tc-svg-icon {
-				margin: 0;
-				height: 2rem;
-				width: 2rem;
+				.tc-svg-icon[name='talend-caret-down'] {
+					display: none;
+				}
+
+				.tc-svg-icon {
+					margin: 0;
+					height: 2rem;
+					width: 2rem;
+				}
 			}
 		}
 
