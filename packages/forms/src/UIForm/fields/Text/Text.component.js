@@ -59,7 +59,7 @@ export default function Text(props) {
 				aria-invalid={!isValid}
 				aria-required={get(schema, 'required')}
 				aria-describedby={`${descriptionId} ${errorId}`}
-				link={link && omit(link, ['label'])}
+				link={link}
 			/>
 		);
 	}
