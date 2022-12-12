@@ -3,10 +3,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { get, omit } from 'lodash';
-import { Link } from '@talend/design-system';
+import { Link, Form } from '@talend/design-system';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import PasswordWidget from './PasswordWidget';
 
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 
@@ -48,7 +47,22 @@ export default function Text(props) {
 		step: get(schema, 'schema.step'),
 		...extractDataAttributes(rest),
 	};
-
+	if (type === 'password') {
+		return (
+			<Form.Password
+				{...fieldProps}
+				id={id}
+				label={title}
+				required={schema.required}
+				hasError={!!errorMessage}
+				description={description}
+				aria-invalid={!isValid}
+				aria-required={get(schema, 'required')}
+				aria-describedby={`${descriptionId} ${errorId}`}
+				link={link && <Link {...omit(link, ['label'])}> {link.label} </Link>}
+			/>
+		);
+	}
 	return (
 		<FieldTemplate
 			hint={schema.hint}
@@ -64,22 +78,12 @@ export default function Text(props) {
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			{type === 'password' ? (
-				<PasswordWidget
-					{...fieldProps}
-					aria-invalid={!isValid}
-					aria-required={get(schema, 'required')}
-					aria-describedby={`${descriptionId} ${errorId}`}
-					link={link && <Link {...omit(link, ['label'])}> {link.label} </Link>}
-				/>
-			) : (
-				<input
-					{...fieldProps}
-					aria-invalid={!isValid}
-					aria-required={get(schema, 'required')}
-					aria-describedby={`${descriptionId} ${errorId}`}
-				/>
-			)}
+			<input
+				{...fieldProps}
+				aria-invalid={!isValid}
+				aria-required={get(schema, 'required')}
+				aria-describedby={`${descriptionId} ${errorId}`}
+			/>
 		</FieldTemplate>
 	);
 }
