@@ -2,8 +2,8 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { get, omit } from 'lodash';
-import { Link, Form } from '@talend/design-system';
+import { get } from 'lodash';
+import { Form } from '@talend/design-system';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
