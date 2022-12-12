@@ -4,6 +4,7 @@ import Form from './Form';
 import Row from './Row';
 import Buttons from './Buttons';
 import Input from './Field/Input';
+import { InputPrimitive } from './Primitives';
 import Label from './Label';
 import Select from './Field/Select';
 import Textarea from './Field/Textarea';
@@ -36,6 +37,7 @@ export const FormComponent = Form as typeof Form & {
 	Week: typeof Input.Week;
 	Buttons: typeof Buttons;
 	Input: typeof Input;
+	InputPrimitive: typeof InputPrimitive;
 };
 
 FormComponent.Row = Row;
@@ -54,6 +56,7 @@ FormComponent.Label = Label;
 FormComponent.Month = Input.Month;
 FormComponent.Number = Input.Number;
 FormComponent.Password = Input.Password;
+FormComponent.InputPrimitive = InputPrimitive;
 FormComponent.Radio = Input.Radio;
 FormComponent.Search = Input.Search;
 FormComponent.Select = Select;
