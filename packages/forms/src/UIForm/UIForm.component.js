@@ -128,13 +128,19 @@ export class UIFormComponent extends React.Component {
 			this.props.properties,
 			this.props.customValidation,
 			deepValidation,
+			event,
 		);
 		const hasErrors = Object.values(widgetErrors).find(Boolean);
 
+		const { t } = this.props;
 		// update errors map
 		let errors = Object.entries(widgetErrors).reduce((accu, [errorKey, errorValue]) => {
 			const errorSchema = { key: errorKey };
-			return errorValue ? addError(accu, errorSchema, errorValue) : removeError(accu, errorSchema);
+			let errorMsg = errorValue;
+			if (errorValue && errorValue.startsWith('CUSTOM_ERROR')) {
+				errorMsg = t(errorValue, { defaultValue: getLanguage(t)[errorValue] });
+			}
+			return errorMsg ? addError(accu, errorSchema, errorMsg) : removeError(accu, errorSchema);
 		}, this.props.errors);
 
 		// widget error modifier
