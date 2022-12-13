@@ -125,6 +125,7 @@ const InlineEditingPrimitive = forwardRef(
 
 		const sharedInputProps = {
 			'data-test': testId,
+			'data-testid': testId,
 			hideLabel: true,
 			hasError,
 			description,
@@ -147,7 +148,13 @@ const InlineEditingPrimitive = forwardRef(
 			},
 		};
 		return (
-			<div {...rest} data-test="inlineediting" className={styles.inlineEditor} ref={ref}>
+			<div
+				{...rest}
+				data-test="inlineediting"
+				data-testid="inlineediting"
+				className={styles.inlineEditor}
+				ref={ref}
+			>
 				{isEditing ? (
 					<>
 						<div className={styles.inlineEditor__editor}>
@@ -170,6 +177,7 @@ const InlineEditingPrimitive = forwardRef(
 									<ButtonIcon
 										onClick={handleCancel}
 										icon="cross-filled"
+										data-testid="inlineediting.button.cancel"
 										data-test="inlineediting.button.cancel"
 										size="XS"
 									>
@@ -178,6 +186,7 @@ const InlineEditingPrimitive = forwardRef(
 									<ButtonIcon
 										onClick={handleSubmit}
 										icon="check-filled"
+										data-testid="inlineediting.button.submit"
 										data-test="inlineediting.button.submit"
 										size="XS"
 									>
@@ -201,6 +210,7 @@ const InlineEditingPrimitive = forwardRef(
 						<ValueComponent />
 						<span className={styles.inlineEditor__content__button}>
 							<ButtonIcon
+								data-testid="inlineediting.button.edit"
 								data-test="inlineediting.button.edit"
 								onClick={() => toggleEditionMode(true)}
 								aria-label={ariaLabel || label}
