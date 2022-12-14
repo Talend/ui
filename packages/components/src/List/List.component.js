@@ -7,6 +7,8 @@ import Toolbar from './Toolbar';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.module.scss';
 import Inject from '../Inject';
+import { useTranslation } from 'react-i18next';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const SelectAll = Toolbar.SelectAll;
 
@@ -136,6 +138,7 @@ function List({
 }) {
 	const classnames = classNames('tc-list', theme.list);
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	let selectAllCheckbox;
 	if (
 		displayMode !== 'table' &&
@@ -165,7 +168,7 @@ function List({
 				components={components}
 			/>
 			{injected('after-toolbar')}
-			{selectAllCheckbox && <SelectAll {...selectAllCheckbox} />}
+			{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
 			{injected('before-list-wrapper')}
 			<div className="tc-list-display-virtualized">
 				{injected('before-list')}
