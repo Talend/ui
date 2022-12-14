@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const fs = require('fs');
 const path = require('path');
 const spawn = require('cross-spawn');
 const rimraf = require('rimraf');
@@ -53,7 +54,7 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 					reject(new Error(sassStatus));
 				} else {
 					console.log(`sass exit: ${sassStatus}`);
-					resolve({ status });
+					resolve({ status: sassStatus });
 				}
 			});
 		});
