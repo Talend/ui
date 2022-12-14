@@ -16,8 +16,6 @@ import cmfConnect, {
 } from '../src/cmfConnect';
 import component from '../src/component';
 
-jest.mock('uuid', () => ({ v4: () => '42' }));
-
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
 		it('should return displayName', () => {

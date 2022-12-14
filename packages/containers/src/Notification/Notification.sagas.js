@@ -1,6 +1,6 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
-import objectId from 'uuid/v4';
 import cmf from '@talend/react-cmf';
+import { randomUUID } from '@talend/utils';
 import Notification from './Notification.connect';
 import Constants from './Notification.constants';
 import { pushError } from './Notification.actions';
@@ -14,7 +14,7 @@ export function* onPushNotification(action) {
 	const componentState = yield select(state => Notification.getState(state, DEFAULT_COMPONENT_ID));
 	const newComponentState = componentState.updateIn(['notifications'], notifications =>
 		notifications.push({
-			id: objectId(),
+			id: randomUUID(),
 			...action.notification,
 		}),
 	);

@@ -95,6 +95,12 @@ export const WithSubtitle = () => (
 	</div>
 );
 
+export const WithEditableSubtitle = () => (
+	<div>
+		<SubHeaderBar {...viewProps} onGoBack={backAction} editable subTitle="mySubTitle" />
+	</div>
+);
+
 export const WithLoadingSubtitle = () => (
 	<div>
 		<SubHeaderBar {...viewProps} subTitleLoading onGoBack={backAction} />

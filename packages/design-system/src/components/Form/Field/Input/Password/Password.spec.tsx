@@ -1,9 +1,10 @@
 import React from 'react';
-import { composeStories } from '@storybook/testing-react';
+import Password from './';
 
-import * as Stories from './Password.stories';
-
-const { Default, Filled } = composeStories(Stories);
+const Default = () => <Password label="Password" name="password" id="password" />;
+const Filled = () => (
+	<Password label="Password" name="password" id="password" defaultValue="defaultPassword" />
+);
 
 context('<Form.Password />', () => {
 	it('should render', () => {

@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 1.35.2
+
+### Patch Changes
+
+- 8376814d2: fix: circular dependencies in Media
+
 ## 1.35.1
 
 ### Patch Changes

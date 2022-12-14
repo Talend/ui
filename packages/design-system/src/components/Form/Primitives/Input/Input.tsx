@@ -1,4 +1,11 @@
-import React, { forwardRef, InputHTMLAttributes, Ref, useImperativeHandle, useRef } from 'react';
+import React, {
+	forwardRef,
+	InputHTMLAttributes,
+	Ref,
+	useImperativeHandle,
+	useRef,
+	FocusEvent,
+} from 'react';
 import classnames from 'classnames';
 import InputWrapper, { AffixesProps } from '../InputWrapper/InputWrapper';
 import { FieldStatusProps } from '../Field/Field';
@@ -38,6 +45,15 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 
 	const { currentType, onReset, RevealPasswordButton } = useRevealPassword();
 
+	const handleBlur = (event: FocusEvent<HTMLInputElement, HTMLInputElement>) => {
+		if (!!onBlur) {
+			onBlur(event);
+		}
+		if (type === 'password') {
+			onReset();
+		}
+	};
+
 	return (
 		<InputWrapper
 			prefix={prefix}
@@ -54,7 +70,7 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 							[styles.icon_readOnly]: readOnly,
 						})}
 					>
-						<SizedIcon size="S" name="magnifying-glass" />
+						<SizedIcon size="M" name="magnifying-glass" />
 					</span>
 				)}
 				<input
@@ -64,7 +80,7 @@ const Input = forwardRef((props: InputPrimitiveProps, ref: Ref<HTMLInputElement 
 					ref={inputRef}
 					disabled={disabled}
 					readOnly={readOnly}
-					onBlur={onReset}
+					onBlur={handleBlur}
 					className={classnames(styles.input, { [styles.input_readOnly]: readOnly }, className)}
 				/>
 				{type === 'password' && <RevealPasswordButton onClick={handleClick} disabled={disabled} />}

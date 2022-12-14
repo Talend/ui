@@ -1,5 +1,47 @@
 # @talend/icons
 
+## 6.51.1
+
+### Patch Changes
+
+- 784fe3919: fix: upgrade webfont-loader
+
+## 6.51.0
+
+### Minor Changes
+
+- 25f96d364: added icon `SQL-templates` in size `L`
+- 25f96d364: added icon `SQL-templates` in size `M`
+- 25f96d364: added icon `SQL-templates` in size `S`
+- 25f96d364: added icon `code` in size `S`
+- 25f96d364: added icon `detect-jobs` in size `L`
+- 25f96d364: added icon `detect-jobs` in size `M`
+- 25f96d364: added icon `drag-and-drop` in size `L`
+- 25f96d364: added icon `drag-and-drop` in size `M`
+- 25f96d364: added icon `drag-and-drop` in size `S`
+- 25f96d364: added icon `job` in size `L`
+- 25f96d364: added icon `job` in size `M`
+- 25f96d364: added icon `job` in size `S`
+
+### Patch Changes
+
+- 25f96d364: changed icon `api` in size `L`
+- 25f96d364: changed icon `api` in size `M`
+- 25f96d364: changed icon `application` in size `M`
+- 25f96d364: changed icon `application` in size `S`
+- 25f96d364: changed icon `arrow-left` in size `L`
+- 25f96d364: changed icon `arrow-left` in size `S`
+- 25f96d364: changed icon `arrow-left` in size `XS`
+- 25f96d364: changed icon `blackboard` in size `M`
+- 25f96d364: changed icon `blackboard` in size `S`
+- 25f96d364: changed icon `chevron-double-left-filled` in size `L`
+- 25f96d364: changed icon `chevron-double-left-filled` in size `M`
+- 25f96d364: changed icon `conversion` in size `M`
+- 25f96d364: changed icon `import` in size `L`
+- 25f96d364: changed icon `information-filled` in size `L`
+- 25f96d364: changed icon `information-filled` in size `M`
+- 25f96d364: changed icon `information-stroke` in size `M`
+
 ## 6.50.0
 
 ### Minor Changes

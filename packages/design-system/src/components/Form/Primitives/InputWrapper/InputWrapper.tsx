@@ -111,7 +111,7 @@ const InputWrapper = forwardRef((props: InputWrapperProps, ref: Ref<HTMLDivEleme
 		>
 			{prefix && buildAffix(prefix, readOnly, false)}
 			{children}
-			{suffix && buildAffix(suffix, readOnly, false)}
+			{suffix && buildAffix(suffix, readOnly, true)}
 		</div>
 	);
 });

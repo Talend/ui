@@ -147,7 +147,7 @@ const meta = VERSIONS.talendLibraries.reduce(
 	},
 );
 
-function getCopyConfig(env, userCopyConfig = []) {
+function getCopyConfig(env, userCopyConfig = [], dcwpConfig) {
 	const config = [...userCopyConfig];
 	const assetsOverridden = config.some(nextAsset =>
 		typeof nextAsset === 'object' ? nextAsset.from === 'src/assets' : nextAsset === 'src/assets',
@@ -155,13 +155,13 @@ function getCopyConfig(env, userCopyConfig = []) {
 	if (!assetsOverridden && fs.existsSync(path.join(process.cwd(), 'src/assets'))) {
 		config.push({ from: 'src/assets' });
 	}
-	if (!cdnMode) {
+	if (!cdnMode && !dcwpConfig) {
 		cdn.getCopyConfig().forEach(c => config.push(c));
 	}
 	return config;
 }
 
-async function getIndexTemplate(env, mode, indexTemplatePath) {
+async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = true) {
 	const headPath = path.join(process.cwd(), '.talend', 'head.html');
 	const headExists = await exists.isFile(headPath);
 
@@ -190,11 +190,13 @@ async function getIndexTemplate(env, mode, indexTemplatePath) {
 				TUI: '@@TALEND_UI_VERSION@@', ${process.env.CUSTOM_VERSIONS || ''}
 			};
 			window.basename = '${BASENAME}';
-			window.TALEND_INITIATOR_URL = '${INITIATOR_URL}';
-			window.jsFiles = [<%= htmlWebpackPlugin.files.js.map(href => '"'+href+'"').join(',') %>];
-			window.cssFiles = [<%= htmlWebpackPlugin.files.css.map(href => '"'+href+'"').join(',') %>];
-			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata)%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata)%> };
-			${await inject.getMinified()}
+			if (${useInitiator}) {
+				window.TALEND_INITIATOR_URL = '${INITIATOR_URL}';
+				window.jsFiles = [<%= htmlWebpackPlugin.files.js.map(href => '"'+href+'"').join(',') %>];
+				window.cssFiles = [<%= htmlWebpackPlugin.files.css.map(href => '"'+href+'"').join(',') %>];
+				window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata || [])%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata || [])%> };
+				${await inject.getMinified()}
+			}
 		</script>
 		<base href="${BASENAME}" />
 	</head>`;
@@ -241,7 +243,12 @@ module.exports = ({ getUserConfig, mode }) => {
 			process.cwd(),
 			userHtmlConfig.template || DEFAULT_INDEX_TEMPLATE_PATH,
 		);
-		const indexTemplate = await getIndexTemplate(env, mode, indexTemplatePath);
+		const indexTemplate = await getIndexTemplate(
+			env,
+			mode,
+			indexTemplatePath,
+			dcwpConfig !== false,
+		);
 
 		const isEnvDevelopment = mode === 'development';
 		const isEnvProduction = mode === 'production';
@@ -256,7 +263,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				filename: getFileNameForExtension('js', jsPrefix),
 				chunkFilename: getFileNameForExtension('js', jsPrefix),
 				publicPath: '/',
-				globalObject: 'this',
+				globalObject: 'self',
 			},
 			devtool: 'source-map',
 			resolve: {
@@ -337,12 +344,12 @@ module.exports = ({ getUserConfig, mode }) => {
 					appLoaderStyle: AppLoader.getLoaderStyle(appLoaderIcon),
 					...userHtmlConfig,
 					b64favicon,
-					inject: false,
+					inject: dcwpConfig === false,
 					template: indexTemplate,
 					meta: { ...meta, ...(userHtmlConfig.meta || {}) },
 				}),
 				cdn.getWebpackPlugin(env, dcwpConfig),
-				new CopyWebpackPlugin({ patterns: getCopyConfig(env, userCopyConfig) }),
+				new CopyWebpackPlugin({ patterns: getCopyConfig(env, userCopyConfig, dcwpConfig) }),
 				new webpack.BannerPlugin({ banner: LICENSE_BANNER, entryOnly: true }),
 				cmf && new ReactCMFWebpackPlugin({ watch: isEnvDevelopment }),
 				useTypescript && new ForkTsCheckerWebpackPlugin(),

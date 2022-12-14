@@ -1,14 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import Step from '../Step';
+import React, { forwardRef, Ref } from 'react';
+import Step, { StepPrimitiveProps } from '../Primitive/Step';
 
-const StepError = styled(Step).attrs({
-	icon: 'talend-cross-circle',
-	className: 'step--error',
-})`
-	.step__icon > .tc-svg-icon {
-		fill: ${({ theme }) => theme.colors?.destructiveColor[500]};
-	}
-`;
+type StepErrorTypes = Omit<StepPrimitiveProps, 'status'>;
 
-export default React.memo(StepError);
+const StepError = forwardRef((props: StepErrorTypes, ref: Ref<HTMLLIElement>) => (
+	<Step {...props} status="error" ref={ref} />
+));
+
+StepError.displayName = 'StepError';
+
+export default StepError;

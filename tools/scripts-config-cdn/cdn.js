@@ -249,6 +249,9 @@ function resolver(importPath, version, options) {
 }
 
 function getWebpackPlugin(env, dcwpConfig = {}) {
+	if (dcwpConfig === false) {
+		return null;
+	}
 	let defaultExclude = ['react-popper', 'react-css-transition', 'timezone-support'];
 	if (env.talendumds) {
 		moduleToCdn.add(umds);

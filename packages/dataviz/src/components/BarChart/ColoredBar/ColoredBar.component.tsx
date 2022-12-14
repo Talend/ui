@@ -72,7 +72,6 @@ function ColoredBarLabel({ focusedBarIndex, payload, chartStyle, ...props }: Col
 							styles['colored-bar__label'],
 						)}
 						value={payload?.value || t('EMPTY', 'Empty')}
-						t={t}
 					/>
 				</foreignObject>
 			)}

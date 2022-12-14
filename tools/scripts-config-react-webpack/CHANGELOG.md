@@ -1,5 +1,37 @@
 # @talend/scripts-config-react-webpack
 
+## 15.2.0
+
+### Minor Changes
+
+- 925cec02b: feat: add toggle to activate or not dynamic-cdn-plugin
+
+### Patch Changes
+
+- Updated dependencies [925cec02b]
+  - @talend/scripts-config-cdn@10.6.0
+
+## 15.1.2
+
+### Patch Changes
+
+- e83d88f83: fix: force postcss8 to avoid issue at build
+
+  we use autoprefixer 10 in this preset which require postcss8.
+  To avoid error where we could have postcss 7 let's force it to 8.
+
+## 15.1.1
+
+### Patch Changes
+
+- 635da2241: fix(TDOPS-2998): Replace globalObject value to self
+
+## 15.1.0
+
+### Minor Changes
+
+- 8376814d2: feat: add circular deps plugin
+
 ## 15.0.0
 
 ### Major Changes

@@ -1,5 +1,126 @@
 # @talend/react-components
 
+## 9.1.0
+
+### Minor Changes
+
+- 898ffafc2: fix(TDP-11600): allow the datalist to create new value with a better ux
+
+  On the datalist, new props called
+
+  - `allowAddNewElements` can be passed to let the user create new value with a hint to tell him that the value was not existing in the current titlemap.
+  - `allowAddNewElementsSuffix` allow to override the "(new)" suffix by another one.
+
+### Patch Changes
+
+- 0110ae76f: TDOPS-2650 - Datalist icon size should be restricted to inline buttons
+
+## 9.0.1
+
+### Patch Changes
+
+- f0a97113e: fix: use randomUUID from talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [784fe3919]
+  - @talend/utils@2.5.0
+  - @talend/icons@6.51.1
+
+## 9.0.0
+
+### Major Changes
+
+- 9c44d724f: ## Breaking changes :
+  Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
+
+  - SidePanel icon is no more handled by the application theme
+  - HeaderBar icon is no more handled by the application theme
+
+  ### HeaderBar
+
+  Use either `icon` or `iconUrl` in the header `brand` property
+
+  ```diff
+  <HeaderBar
+      ...
+  	brand={{
+  		...props.brand,
+  +       icon: 'talend-tmc-positive',
+  	}}
+      ...
+  };
+  ```
+
+  ### SidePanel
+
+  Use `backgroundIcon` in the sidepanel properties
+
+  ```diff
+  +import assetsApi from '@talend/assets-api';
+
+  <SidePanel
+      ...
+  +    backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+      ...
+  />
+  ```
+
+### Minor Changes
+
+- 1200c70f8: feat: remove uuid dependencies
+
+### Patch Changes
+
+- 14b462534: fix(SubHeader): editable text size
+- Updated dependencies [9c44d724f]
+- Updated dependencies [e83d88f83]
+  - @talend/bootstrap-theme@7.0.0
+
+## 8.0.1
+
+### Patch Changes
+
+- 8b4502c98: fix: put types in a /types folder
+
+  If you want to give a try on generated types you can use the following configuration in a `types.d.ts` file:
+
+  ```
+  declare module '@talend/react-components' {
+  	export * from '@talend/react-components/types';
+  }
+  ```
+
+## 8.0.0
+
+### Major Changes
+
+- 105990b24: feat(SubHeaderBar): replace `EditableText` legacy component by `InlineEditing` Coral component.
+
+  Breaking:
+
+  - `onEdit` and `onCancel` props has been removed. They are now directly handled by the `InlineEditing` component.
+  - `onSubmit` callback signature changed from `onSubmit(event: JSEvent, { value: string })` to `onSubmit(event: JSEvent, value: string)` the returned value from the `InlineEditing` component is not wrapped within an object containing only one `value` property. You now have the `value` directly.
+
+### Minor Changes
+
+- 2be2c3f47: feat: add typings
+
+### Patch Changes
+
+- ef3977697: fix(List): separator alignment for persistent actions
+- c0ed60ee5: chore(TDS-6840): use DS ButtonIcon in collapsible and legacy datepicker
+
+## 7.11.3
+
+### Patch Changes
+
+- 5d36d7e6c: fix(TDS-6837): not using submit type button in legacy date picker
+
+## 7.11.2
+
+### Patch Changes
+
+- efc5c2d8e: fix(components): QualityBar in split mode
+
 ## 7.11.1
 
 ### Patch Changes

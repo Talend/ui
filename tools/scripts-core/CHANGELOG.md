@@ -1,5 +1,21 @@
 # @talend/scripts-core
 
+## 12.2.0
+
+### Minor Changes
+
+- 1cff07b01: feat: build:lib now accept --tsc option to use typescript to build it.
+
+  build:lib detect if the project is a typescript project by looking at the package.json and look for "type" property.
+
+  `build:ts:lib` is now deprecated.
+
+## 12.1.0
+
+### Minor Changes
+
+- 280088381: add support for --watch option on build:lib and build:ts:lib command
+
 ## 12.0.0
 
 ### Major Changes

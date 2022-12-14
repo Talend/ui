@@ -3,68 +3,168 @@ const path = require('path');
 const spawn = require('cross-spawn');
 const rimraf = require('rimraf');
 const cpx = require('cpx2');
+
 const { resolveBin } = require('../utils/path-resolver');
 const { getPreset } = require('../utils/preset');
 const { getUserConfigFile } = require('../utils/env');
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const sass = resolveBin('@talend/babel-plugin-import-scss', { executable: 'talend-scss' });
+const tsc = resolveBin('typescript', { executable: 'tsc' });
+const pkgPath = path.join(process.cwd(), 'package.json');
+const types = JSON.parse(fs.readFileSync(pkgPath))?.types;
+const isTSLib = !!types;
 
-module.exports = function build(env, presetApi, options) {
+module.exports = function build(env, presetApi, unsafeOptions) {
+	let useTsc = false;
+	const options = unsafeOptions.filter(o => {
+		if (o === '--tsc') {
+			useTsc = true;
+			// do not keep this option
+			return false;
+		}
+		return true;
+	});
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
 	const preset = getPreset(presetName);
+
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
 		preset.getBabelConfigurationPath(presetApi);
+	const tscConfigPath =
+		getUserConfigFile(['tsconfig.build.json', 'tsconfig.json']) ||
+		preset.getTypescriptConfigurationPath(presetApi);
 
 	const srcFolder = path.join(process.cwd(), 'src');
 	const targetFolder = path.join(process.cwd(), 'lib');
 
-	console.log(`Removing target folder (${targetFolder})...`);
-	rimraf.sync(targetFolder);
+	if (!options.includes('--watch')) {
+		console.log(`Removing target folder (${targetFolder})...`);
+		rimraf.sync(targetFolder);
+	}
 
-	console.log('Compiling with babel...');
-	return new Promise((resolve, reject) => {
-		const babelSpawn = spawn(
-			babel,
-			[
-				'--config-file',
-				babelConfigPath,
-				'-d',
-				targetFolder,
-				srcFolder,
-				'--source-maps',
-				'--plugins=@talend/babel-plugin-import-scss',
-				'--ignore',
-				'**/*.test.js,**/*.stories.js',
-				...options,
-			],
-			{
-				stdio: 'inherit',
-				env,
-			},
-		);
-		babelSpawn.on('exit', status => {
-			if (parseInt(status, 10) !== 0) {
-				console.error(`Babel exit error: ${status}`);
-				reject(new Error(status));
+	const sassProm = () =>
+		new Promise((resolve, reject) => {
+			console.log('Compiling with sass...');
+			const sassSpawn = spawn(sass, [srcFolder, targetFolder], { stdio: 'inherit', env });
+			sassSpawn.on('exit', sassStatus => {
+				if (parseInt(sassStatus, 10) !== 0) {
+					console.error(`sass exit error: ${sassStatus}`);
+					reject(new Error(sassStatus));
+				} else {
+					console.log(`sass exit: ${sassStatus}`);
+					resolve({ status });
+				}
+			});
+		});
+	const babelPromise = () =>
+		new Promise((resolve, reject) => {
+			if (useTsc) {
+				resolve({ status: 0 });
+				return;
+			}
+			console.log('Compiling with babel...');
+			const babelSpawn = spawn(
+				babel,
+				[
+					'--config-file',
+					babelConfigPath,
+					'-d',
+					targetFolder,
+					srcFolder,
+					'--source-maps',
+					'--ignore',
+					// @see https://github.com/babel/babel/issues/12008
+					'**/*.test.js,**/*.test.ts,**/*.test.tsx,**/*.spec.js,**/*.spec.ts,**/*.spec.tsx,**/*.stories.js,**/*.stories.ts,**/*.stories.tsx',
+					'--extensions',
+					'.js,.ts,.tsx,.jsx',
+					...options,
+				],
+				{
+					stdio: 'inherit',
+					env,
+				},
+			);
+			babelSpawn.on('exit', status => {
+				if (parseInt(status, 10) !== 0) {
+					console.error(`Babel exit error: ${status}`);
+					reject(new Error(status));
+				} else {
+					console.log(`Babel exit: ${status}`);
+					resolve({ status });
+				}
+			});
+		});
+
+	const tscPromise = () =>
+		new Promise((resolve, reject) => {
+			if (!isTSLib) {
+				resolve({ status: 0 });
+				return;
+			}
+			let args = ['--project', tscConfigPath, '--outDir', targetFolder, ...options];
+			if (!useTsc) {
+				args = ['--emitDeclarationOnly'].concat(args);
+				console.log('Building types with tsc --emitDeclarationOnly');
 			} else {
-				console.log(`babel exit: ${status}`);
-				console.log('Copying assets...');
-				cpx.copySync(`${srcFolder}/**/*.{json}`, targetFolder);
-				console.log('Compiling with sass...');
-				const sassSpawn = spawn(sass, [srcFolder, targetFolder], { stdio: 'inherit', env });
-				sassSpawn.on('exit', sassStatus => {
-					if (parseInt(sassStatus, 10) !== 0) {
-						console.error(`sass exit error: ${sassStatus}`);
-						reject(new Error(sassStatus));
+				console.log('Building with tsc');
+			}
+			const tscSpawn = spawn(tsc, args, { stdio: 'inherit', env });
+
+			tscSpawn.on('exit', status => {
+				if (parseInt(status, 10) !== 0) {
+					console.error(`TSC exit error: ${status}`);
+					reject(new Error(status));
+				} else {
+					console.log(`TSC exit: ${status}`);
+					if (!types) {
+						const msg = `Entry "types", referencing your declaration file (index.d.ts), must be defined in ${pkgPath}`;
+						console.error(msg);
+						reject(new Error(msg));
 					} else {
-						console.log(`sass exit: ${sassStatus}`);
-						console.log('🎉 Build complete');
-						resolve({ status });
+						const absoluteTypes = path.join(process.cwd(), types);
+						if (!fs.existsSync(absoluteTypes)) {
+							const msg = `Declaration file, referenced in package.json, not found ${absoluteTypes}`;
+							console.error(msg);
+							reject(new Error(msg));
+						} else {
+							resolve({ status });
+						}
+					}
+				}
+			});
+		});
+
+	const copyPromise = () =>
+		new Promise((resolve, reject) => {
+			if (options.includes('--watch')) {
+				const evtEmitter = cpx.watch(`${srcFolder}/**/*.{json}`, targetFolder);
+				evtEmitter.on('watch-error', err => {
+					reject(err);
+				});
+				evtEmitter.on('copy', e => {
+					console.log('copy', e.srcPath, e.dstPath);
+				});
+			} else {
+				console.log('Copying assets...');
+				cpx.copy(`${srcFolder}/**/*.{json}`, targetFolder, err => {
+					if (err) {
+						console.error(err);
+						reject(error);
+					} else {
+						resolve();
 					}
 				});
 			}
 		});
-	});
+
+	return Promise.all([babelPromise(), tscPromise()])
+		.then(() => {
+			return Promise.all([sassProm(), copyPromise()]).then(() => {
+				console.log('🎉 Build complete');
+			});
+		})
+		.catch(e => {
+			console.error(e);
+		});
 };

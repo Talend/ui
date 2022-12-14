@@ -24,6 +24,7 @@ const Select = forwardRef(
 			readOnly,
 			required,
 			children,
+			defaultValue,
 			...rest
 		} = props;
 
@@ -32,8 +33,8 @@ const Select = forwardRef(
 				if (!isElement(current)) {
 					return acc.concat(current.toString());
 				}
-				const { children: optChildren, originalType, selected } = current.props;
-				if (originalType === 'optgroup') {
+				const { children: optChildren, selected } = current.props;
+				if (current.type === 'optgroup') {
 					return acc.concat(
 						React.Children.toArray(optChildren)
 							.filter(option => isElement(option) && option.props.selected)
@@ -45,11 +46,13 @@ const Select = forwardRef(
 				}
 				return acc;
 			}, []);
+			const displayedValues = values.length > 0 ? values.join('; ') : undefined;
 			return (
 				<Input
 					{...rest}
 					readOnly
-					value={values.join('; ')}
+					value={displayedValues}
+					defaultValue={defaultValue}
 					label={label}
 					hasError={hasError || false}
 					link={link}
@@ -88,7 +91,7 @@ const Select = forwardRef(
 				hideLabel={hideLabel}
 				required={required}
 			>
-				<SelectField {...rest} />
+				<SelectField defaultValue={defaultValue} {...rest} />
 			</FieldPrimitive>
 		);
 	},

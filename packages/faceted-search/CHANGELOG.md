@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.0.3
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+  - @talend/utils@2.5.0
+
 ## 8.0.2
 
 ### Patch Changes

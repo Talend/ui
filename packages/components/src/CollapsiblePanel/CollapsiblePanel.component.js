@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Panel, Button } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import { ButtonIcon } from '@talend/design-system';
 
 import OverlayTrigger from '../OverlayTrigger';
 import Action from '../Actions/Action';
-import ActionIconToggle from '../Actions/ActionIconToggle';
 import Status from '../Status';
 import Tag from '../Tag';
 import TooltipTrigger from '../TooltipTrigger';
@@ -158,19 +158,20 @@ function CollapsiblePanelHeader(props) {
 			: t('COLLAPSIBLE_PANEL_EXPAND', { defaultValue: 'Expand panel' });
 
 		const defaultCaret = (
-			<ActionIconToggle
+			<ButtonIcon
+				size="M"
 				key={`collapse_header_${id}`}
 				aria-expanded={expanded}
 				className={classNames(css.toggle, 'toggle')}
 				onClick={onToggle}
 				id={id && `${id}__collapse`}
-				label={caretText}
 				type="button"
 				active={expanded}
-				icon="talend-caret-down"
-				iconTransform={expanded ? 'flip-vertical' : null}
+				icon={expanded ? 'chevron-down-stroke' : 'chevron-up-filled'}
 				data-feature={dataFeature}
-			/>
+			>
+				{caretText}
+			</ButtonIcon>
 		);
 		wrappedHeader.push(defaultCaret);
 	}

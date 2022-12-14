@@ -1,5 +1,27 @@
 # @talend/scripts-config-jest
 
+## 11.6.1
+
+### Patch Changes
+
+- 7b08afa04: fix(jest): try/catch some mocks that are not safely mocked
+
+## 11.6.0
+
+### Minor Changes
+
+- 1200c70f8: mock crypto.randomUUID
+
+## 11.5.0
+
+### Minor Changes
+
+- 4ea6a7712: feat: add the mock of reakit useId
+
+### Patch Changes
+
+- 4af3b2873: fix: do not use option1 which fails if d3 is not installed
+
 ## 11.4.0
 
 ### Minor Changes

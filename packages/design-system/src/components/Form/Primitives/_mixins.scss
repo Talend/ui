@@ -26,7 +26,6 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
   }
 
   &_readOnly {
-    background: tokens.$coral-color-neutral-background-strong;
     color: tokens.$coral-color-neutral-text;
   }
 
@@ -53,13 +52,14 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 }
 
 @mixin borderStyles (){
-  border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+  border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
   box-shadow: 0 0 0 0 transparent;
   border-radius: tokens.$coral-radius-s;
   transition: all tokens.$coral-transition-instant;
+  background: tokens.$coral-color-neutral-background;
 
   &:hover {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-strong-hover;
   }
 
   &_disabled {
@@ -68,6 +68,7 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 
   &_readOnly {
     border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+    background: tokens.$coral-color-neutral-background-strong;
   }
 
   &_disabled:hover {

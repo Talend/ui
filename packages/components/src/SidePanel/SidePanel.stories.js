@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 import assetsApi from '@talend/assets-api';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
-import appStyle from '../../stories/config/themes.module.scss';
 
 const actions = [
 	{
@@ -250,15 +249,3 @@ export const ReverseWithLayout = () => {
 		</Layout>
 	);
 };
-
-export const PortalReverse = () => (
-	<div className={appStyle.portal}>
-		<h1>SidePanel</h1>
-		<p>
-			Keep sidePanel reverse style even if <em>t7</em> styles are applied.
-		</p>
-		<div className={Layout.TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
-			<SidePanel id="context" actions={actions} tooltipPlacement="top" reverse />
-		</div>
-	</div>
-);

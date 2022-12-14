@@ -1,5 +1,122 @@
 # @talend/design-system
 
+## 7.1.5
+
+### Patch Changes
+
+- 1aa89365a: TDOPS-3299 - design system modal z-index to use tokens convention
+
+## 7.1.4
+
+### Patch Changes
+
+- f36e7f7c3: InlineEditing : handle keyboard shortcut only when element has the focus
+
+  remove usekey which bind by default on document.
+
+## 7.1.3
+
+### Patch Changes
+
+- c8ea668ee: InlineEditing : don't handle enter key when not in edition
+
+## 7.1.2
+
+### Patch Changes
+
+- 5aeff7b47: TDOPS-3267 - Fixed support for `onBlur` property passed to primitive input
+
+## 7.1.1
+
+### Patch Changes
+
+- fe430c316: fix: add missing export on the root
+
+  - Input on Form component (so Form.Input)
+  - Breadcrumbs
+  - theme tokens
+  - TabsAsLinkList
+
+  ```
+  import { dark, light, Breadcrumbs } from '@talend/design-system';
+  ```
+
+## 7.1.0
+
+### Minor Changes
+
+- 3815dabd3: feat(design-system): add Message component
+
+## 7.0.2
+
+### Patch Changes
+
+- 105990b24: feat(InlineEditing): add new `onToggle` optional props to get notify from edition mode changes
+
+## 7.0.1
+
+### Patch Changes
+
+- e76a4db6b: fix: ThemeProvider optional theme property
+- 60a00f152: fix: apply transform style from props
+
+## 7.0.0
+
+### Major Changes
+
+- ee9b1daf6: \* chore: remove dependency over styled-components
+  - remove deprecated components
+
+### Patch Changes
+
+- a23396460: fix: missing fonts in exported bundle
+
+## 6.0.1
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
+## 6.0.0
+
+### Major Changes
+
+- 69f09a921: ThemeProvider: Removed styled components global styles
+
+  BREAKING CHANGE:
+
+  - Now global style is applied by default
+  - createGlobalStyle is not exposed anymore and should not be needed
+  - ThemeProvider.GlobalStyle do not exists, it is now in the by default in the CSS
+
+### Minor Changes
+
+- e802df9c3: Stepper no longer uses StyledComponents
+- ac7bfe557: Combobox: Removing Styled Components
+
+## 5.4.1
+
+### Patch Changes
+
+- 3962569cc: DS Tabs button type should never be anything but "button"
+- aa0c76ae3: Updated documentation for from elements, adjusted code and style when necessary.
+
+## 5.4.0
+
+### Minor Changes
+
+- 6d6520336: feat: add react-18 as possible peerDependency
+
+## 5.3.0
+
+### Minor Changes
+
+- 4ea6a7712: feat(TUX-1038): add new accordion component to design-system
+
+### Patch Changes
+
+- 8376814d2: fix: circular dependencies
+
 ## 5.2.0
 
 ### Minor Changes

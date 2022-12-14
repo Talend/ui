@@ -26,7 +26,7 @@ With npm, peerDependencies management depends on the version used:
 
 The documentation of npm only covers the behavior of npm, not the definition and actual usage of these peer dependencies.
 
-We know our project can't use npm > 7.0 because we have some issues in our peerDependencies definitions! 
+We know our project can't use npm > 7.0 because we have some issues in our peerDependencies definitions!
 npm > 7 requires all peer dependencies to be at the same level, the same version. That needs to be fixed on our end.
 
 ## Solutions
@@ -58,7 +58,6 @@ import { LibType } from 'some-js-library';
 export myLibType = LibType & { isActive: boolean };
 ```
 
-
 **`"dependencies"`**
 
 Add **a-dependency** under `dependencies` only if it is used by the code and does not fall under peerDependencies.
@@ -69,7 +68,6 @@ examples:
 - @talend/router-bridge
 - @talend/react-components
 - @talend/react-containers
-- @talend/react-datagrid
 - @talend/react-dataviz
 - classnames
 - keycode

@@ -48,4 +48,5 @@ const Status = React.forwardRef(
 	},
 );
 
+Status.displayName = 'StatusPrimitive';
 export default Status;
