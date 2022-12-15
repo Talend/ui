@@ -3,19 +3,17 @@ import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive
 
 export type BadgeTagProps = Omit<
 	BadgePrimitiveProps,
-	'isDropdown' | 'isReadOnly' | 'semanticIcon' | 'value' | 'valueLayout' | 'withOperator'
+	'isReadOnly' | 'semanticIcon' | 'withDivider' | 'withOperator'
 >;
 
 const BadgeTag = forwardRef((props: BadgeTagProps, ref: Ref<HTMLSpanElement>) => {
 	return (
 		<BadgePrimitive
 			{...props}
-			isDropdown={false}
 			isReadOnly={true}
 			ref={ref}
 			semanticIcon={'none'}
-			value={undefined}
-			valueLayout={'off'}
+			withDivider={false}
 			withOperator={false}
 		/>
 	);

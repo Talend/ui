@@ -1,18 +1,8 @@
-// TODO JMA : to rework
+// TODO BADGE - to rework
+
 .badge {
 	/* Badge/Simple */
-
-	box-sizing: border-box;
-
-	/* Auto layout */
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 0px 8px;
-	gap: 4px;
-
-	width: 69px;
-	height: 28px;
+	display: inline-block;
 
 	/* neutral/background
 
@@ -27,9 +17,22 @@ Ex: Dividers
 */
 	border: 1px solid #d2d2d2;
 	border-radius: 4px;
+}
 
-	/* Inside auto layout */
-	flex: none;
-	order: 0;
-	flex-grow: 0;
+.badge__layout {
+	/* Auto layout */
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+
+	gap: 4px;
+	padding: 0px 8px;
+}
+
+.badge__layout__divider {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+
+	padding: 0 8px;
 }

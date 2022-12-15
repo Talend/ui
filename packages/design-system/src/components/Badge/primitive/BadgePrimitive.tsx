@@ -2,18 +2,9 @@ import React, { Ref } from 'react';
 
 import classnames from 'classnames';
 
-import { ButtonTertiary } from '../../Button';
 import Divider from '../../Divider';
-import Dropdown, { DropdownItemType } from '../../Dropdown/Dropdown';
 
 import styles from './BadgePrimitive.module.scss';
-
-const noOp = () => {};
-
-/**
- * Possible ways to display or not the value.
- */
-type ValueLayout = 'off' | 'single' | 'multi';
 
 /**
  * Possible semantic values.
@@ -25,49 +16,80 @@ type SemanticIcon = 'valid' | 'invalid' | 'empty' | 'none';
  */
 type Variants = 'badge' | 'tag' | 'dropdown' | 'popover';
 
+/**
+ * Describe item used for BadgeDropdown.
+ */
+export interface BadgeDropdownItem {
+	id: string;
+	label: string;
+}
+
+/**
+ * Describe item used for BadgePopover.
+ */
+export interface BadgePopoverItem {
+	id: string;
+	label: string;
+	onClick: () => void;
+}
+
 export type BadgeVariantType<T extends Variants, P extends BadgePrimitiveProps> = {
 	variant: T;
 } & P;
 
+// --------------------------------------------------
+// Badge Divider
+// --------------------------------------------------
+
+interface BadgeDividerProps {
+	withOperator: boolean;
+}
+
+function BadgeDivider({ withOperator }: BadgeDividerProps) {
+	// TODO BADGE - create operator component
+	return withOperator ? (
+		<></>
+	) : (
+		<span className={classnames(styles.badge__layout__divider)}>
+			<Divider orientation="vertical" />
+		</span>
+	);
+}
+
+// --------------------------------------------------
+// Badge Primitive
+// --------------------------------------------------
+
 export interface BadgePrimitiveProps {
-	isDropdown?: boolean;
+	children?: JSX.Element | string;
 	isReadOnly?: boolean;
 	name: string;
 	onClose?: () => void;
 	ref: Ref<HTMLSpanElement>;
 	semanticIcon?: SemanticIcon;
-	value?: string | DropdownItemType[];
-	valueLayout?: ValueLayout;
+	withDivider?: boolean;
 	withOperator?: boolean;
 }
 
 function BadgePrimitive({
-	isDropdown = false,
+	children,
 	isReadOnly = false,
 	name,
 	onClose,
 	ref,
 	semanticIcon = 'none',
-	value,
-	valueLayout = 'off',
+	withDivider = false,
 	withOperator = false,
 }: BadgePrimitiveProps) {
 	return (
 		<span className={classnames(styles.badge)} ref={ref}>
-			{name}
+			<span className={classnames(styles.badge__layout)}>
+				{name}
 
-			{valueLayout !== 'off' && <Divider orientation="vertical" />}
+				{withDivider && <BadgeDivider withOperator={withOperator} />}
 
-			{Array.isArray(value) ? (
-				// TODO JMA : replace & translate Open
-				<Dropdown aria-label="Open" items={value}>
-					<ButtonTertiary isDropdown onClick={noOp}>
-						Dropdown
-					</ButtonTertiary>
-				</Dropdown>
-			) : (
-				value
-			)}
+				{children}
+			</span>
 		</span>
 	);
 }

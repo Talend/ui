@@ -1,14 +1,12 @@
 import React, { forwardRef, Ref } from 'react';
-import { DropdownItemType } from '../../Dropdown/Dropdown';
-import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
+import BadgePrimitive, { BadgePopoverItem, BadgePrimitiveProps } from '../primitive/BadgePrimitive';
 
-export type BadgePopoverProps = Omit<
-	BadgePrimitiveProps,
-	'isDropdown' | 'value' | 'valueLayout'
-> & { value: DropdownItemType[] };
+export type BadgePopoverProps = Omit<BadgePrimitiveProps, 'withDivider'> & {
+	value: BadgePopoverItem[];
+};
 
 const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElement>) => {
-	return <BadgePrimitive {...props} isDropdown={true} ref={ref} valueLayout={'multi'} />;
+	return <BadgePrimitive {...props} ref={ref} withDivider />;
 });
 
 BadgePopover.displayName = 'BadgePopover';
