@@ -35,6 +35,7 @@ export const FormComponent = Form as typeof Form & {
 	Url: typeof Input.Url;
 	Week: typeof Input.Week;
 	Buttons: typeof Buttons;
+	Input: typeof Input;
 };
 
 FormComponent.Row = Row;
@@ -63,6 +64,7 @@ FormComponent.Textarea = Textarea;
 FormComponent.Time = Input.Time;
 FormComponent.Url = Input.Url;
 FormComponent.Week = Input.Week;
+FormComponent.Input = Input;
 
 FormComponent.Buttons = Buttons;
 

@@ -1,3 +1,4 @@
+import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
 	ButtonDestructive,
@@ -69,7 +70,7 @@ import {
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import { Tabs, TabsKit } from './components/WIP/Tabs';
+import { Tabs, TabsAsLinkList, TabsKit } from './components/WIP/Tabs';
 import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
 import {
 	Tag,
@@ -86,11 +87,13 @@ import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
 
 export * from './components/Stack';
+export * from './themes';
 export {
 	Accordion,
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
+	Breadcrumbs,
 	Button,
 	ButtonAsLink,
 	ButtonDestructive,
@@ -155,6 +158,7 @@ export {
 	Stepper,
 	Switch,
 	Tabs,
+	TabsAsLinkList,
 	TabsKit,
 	Tag,
 	TagBeta,

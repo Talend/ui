@@ -1,5 +1,17 @@
 # @talend/scripts-config-jest
 
+## 11.6.1
+
+### Patch Changes
+
+- 7b08afa04: fix(jest): try/catch some mocks that are not safely mocked
+
+## 11.6.0
+
+### Minor Changes
+
+- 1200c70f8: mock crypto.randomUUID
+
 ## 11.5.0
 
 ### Minor Changes
