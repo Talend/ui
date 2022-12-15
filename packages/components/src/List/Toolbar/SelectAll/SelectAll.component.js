@@ -2,12 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import getDefaultT from '../../../translate';
 import theme from './SelectAll.module.scss';
+import { useTranslation } from 'react-i18next';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
-function SelectAll({ id, items, isSelected, onToggleAll, t }) {
+function SelectAll({ id, items, isSelected, onToggleAll }) {
 	const isAllSelected = () => items.length > 0 && items.findIndex(item => !isSelected(item)) < 0;
 	const checkboxId = id && `${id}-check-all`;
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	return (
 		<form className={classNames(theme.container, 'navbar-form navbar-left')}>
 			<div
@@ -35,11 +37,6 @@ SelectAll.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.object).isRequired,
 	isSelected: PropTypes.func.isRequired,
 	onToggleAll: PropTypes.func.isRequired,
-	t: PropTypes.func,
-};
-
-SelectAll.defaultProps = {
-	t: getDefaultT(),
 };
 
 export default SelectAll;
