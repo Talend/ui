@@ -380,12 +380,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					logging: 'error',
 					overlay: { errors: true, warnings: false },
 				},
-				static: {
-					directory: path.join(process.cwd(), 'dist'),
-					watch: true,
-				},
 				compress: true,
-				watchFiles: ['src/**/*', 'dist/**/*'],
 			},
 		};
 	};
