@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.1.6
+
+### Patch Changes
+
+- 890eee0b5: fix(design-system): add data-testid to InlineEditing
+
 ## 7.1.5
 
 ### Patch Changes
