@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 9.2.0
+
+### Minor Changes
+
+- a3ac5792b: fix not translated "select all" in list component
+
 ## 9.1.0
 
 ### Minor Changes
