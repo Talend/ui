@@ -10,7 +10,7 @@ const BadgeTag = forwardRef((props: BadgeTagProps, ref: Ref<HTMLSpanElement>) =>
 	return (
 		<BadgePrimitive
 			{...props}
-			isReadOnly={true}
+			isReadOnly
 			ref={ref}
 			semanticIcon={'none'}
 			withDivider={false}

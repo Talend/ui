@@ -1,9 +1,8 @@
 import React, { Ref } from 'react';
 
-import classnames from 'classnames';
-
 import Divider from '../../Divider';
 
+import classnames from 'classnames';
 import styles from './BadgePrimitive.module.scss';
 
 /**
@@ -81,10 +80,16 @@ function BadgePrimitive({
 	withDivider = false,
 	withOperator = false,
 }: BadgePrimitiveProps) {
+	// TODO BADGE - handle isReadOnly to allow read only mode (may impact variant component to handle w/ children)
+
+	// TODO BADGE - handle onClose to manage close button
+
+	// TODO BADGE - handle semanticIcon to display semantic icon
+
 	return (
 		<span className={classnames(styles.badge)} ref={ref}>
 			<span className={classnames(styles.badge__layout)}>
-				{name}
+				<span className={classnames(styles.badge__layout__name)}>{name}</span>
 
 				{withDivider && <BadgeDivider withOperator={withOperator} />}
 

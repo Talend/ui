@@ -1,22 +1,11 @@
-// TODO BADGE - to rework
+@use '~@talend/design-tokens/lib/tokens';
 
 .badge {
-	/* Badge/Simple */
 	display: inline-block;
 
-	/* neutral/background
-
-Default background color. If there's no reason for a semantic background, then that is the one to use.
-*/
-	background: #ffffff;
-	/* neutral/border-weak
-
-Weaker border color, for discreet separators
-
-Ex: Dividers
-*/
-	border: 1px solid #d2d2d2;
-	border-radius: 4px;
+	background: tokens.$coral-color-neutral-background;
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	border-radius: tokens.$coral-radius-s;
 }
 
 .badge__layout {
@@ -25,8 +14,12 @@ Ex: Dividers
 	display: flex;
 	flex-direction: row;
 
-	gap: 4px;
-	padding: 0px 8px;
+	gap: tokens.$coral-spacing-xxs;
+	padding: 0 tokens.$coral-spacing-xs;
+}
+
+.badge__layout__name {
+	padding: tokens.$coral-spacing-xxs 0;
 }
 
 .badge__layout__divider {
@@ -34,5 +27,5 @@ Ex: Dividers
 	display: flex;
 	flex-direction: row;
 
-	padding: 0 8px;
+	padding: 0 tokens.$coral-spacing-xs;
 }

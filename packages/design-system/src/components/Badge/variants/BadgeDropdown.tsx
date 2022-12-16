@@ -1,5 +1,7 @@
 import React, { forwardRef, Ref, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ButtonTertiary } from '../../Button';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import Dropdown from '../../Dropdown';
 import { DropdownItemType } from '../../Dropdown/Dropdown';
 import BadgePrimitive, {
@@ -30,7 +32,9 @@ export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children' | 'withDiv
 };
 
 const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanElement>) => {
-	const { selectedId, value } = props;
+	const { isReadOnly, selectedId, value } = props;
+
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 	const [selectedValue, setSelectedValue] = useState(
 		selectedId ? value?.find(v => v.id === selectedId) : value?.[0],
@@ -38,9 +42,11 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 
 	return (
 		<BadgePrimitive {...props} ref={ref} withDivider>
-			{/* TODO BADGE - replace & translate Open */}
-			<Dropdown aria-label="Open" items={value.map(mapBadgeItemToDropdownItem(setSelectedValue))}>
-				<ButtonTertiary isDropdown onClick={noop} size="S">
+			<Dropdown
+				aria-label={t('BADGE_ARIA_lABEL_SELECT_ITEM', 'Select item')}
+				items={value.map(mapBadgeItemToDropdownItem(setSelectedValue))}
+			>
+				<ButtonTertiary disabled={isReadOnly} isDropdown onClick={noop} size="S">
 					{selectedValue?.label}
 				</ButtonTertiary>
 			</Dropdown>

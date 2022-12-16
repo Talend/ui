@@ -1,16 +1,25 @@
 import React, { forwardRef, Ref } from 'react';
 import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
 
-export type BadgeValueProps = Omit<BadgePrimitiveProps, 'isReadOnly' | 'withDivider'> & {
+import classnames from 'classnames';
+import styles from './BadgeValue.module.scss';
+
+export type BadgeValueProps = Omit<BadgePrimitiveProps, 'withDivider'> & {
 	value: string;
 };
 
 const BadgeValue = forwardRef((props: BadgeValueProps, ref: Ref<HTMLSpanElement>) => {
-	const { value } = props;
+	const { isReadOnly, value } = props;
 
 	return (
-		<BadgePrimitive {...props} isReadOnly ref={ref} withDivider>
-			{value}
+		<BadgePrimitive {...props} ref={ref} withDivider>
+			<span
+				className={classnames(styles.badge__layout__children, {
+					[styles.readonly]: isReadOnly,
+				})}
+			>
+				{value}
+			</span>
 		</BadgePrimitive>
 	);
 });

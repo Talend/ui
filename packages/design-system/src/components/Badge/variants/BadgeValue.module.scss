@@ -1,0 +1,10 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.badge__layout__children {
+	color: tokens.$coral-color-accent-text;
+	font: tokens.$coral-heading-s;
+
+	&.readonly {
+		color: tokens.$coral-color-neutral-text;
+	}
+}
