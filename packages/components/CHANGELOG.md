@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 9.2.1
+
+### Patch Changes
+
+- 8a3537827: TDOPS-3399 - Fix HeaderBar button style on hover
+
 ## 9.2.0
 
 ### Minor Changes
