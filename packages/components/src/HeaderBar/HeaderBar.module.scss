@@ -49,7 +49,7 @@ $background-color-on-hover: rgba(255, 255, 255, 0.2);
 			margin-left: auto;
 		}
 
-		button {
+		:global(.btn) {
 			&:hover,
 			&:focus {
 				box-shadow: 0 0 0 200px rgba(255, 255, 255, 0.12) inset;
