@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 7.2.0
+
+### Minor Changes
+
+- 1ce5a1f8c: feat(TUX-1221) add openInNewTab option for LinkAsButton
+
+### Patch Changes
+
+- f855fcae0: fix(design-system/Modal): sync header x padding with spec
+
 ## 7.1.6
 
 ### Patch Changes
