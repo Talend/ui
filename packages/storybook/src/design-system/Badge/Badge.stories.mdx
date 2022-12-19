@@ -1,0 +1,175 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { FigmaImage, FigmaLink, Use } from '~docs';
+import * as Stories from './Badge.stories';
+
+<Meta
+	title="Design System/Badge"
+	parameters={{
+		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'wip' },
+		figmaLink: 'https://www.figma.com/file/3YWRmMgPIjAABxJl9X9B3W/Badge',
+	}}
+/>
+
+# Title
+
+A wonderful Badge
+
+## Zoning
+
+<FigmaImage
+	src="https://www.figma.com/file/3YWRmMgPIjAABxJl9X9B3W/Badge?node-id=303%3A22&t=SwcPTmTNvunmMZJh-0"
+	alt="zoning image"
+/>
+
+## Style
+
+<FigmaImage
+	src="https://www.figma.com/file/3YWRmMgPIjAABxJl9X9B3W/Badge?node-id=303%3A144&t=l0MyIsUaO4fb7MjP-0"
+	alt="zoning image"
+/>
+
+### Variations
+
+#### Badge
+
+<Canvas>
+	<Story story={Stories.StoryBadgeValue} />
+</Canvas>
+
+#### BadgeTag
+
+<Canvas>
+	<Story story={Stories.StoryBadgeTag} />
+</Canvas>
+
+#### BadgeDropdown
+
+<Canvas>
+	<Story story={Stories.StoryBadgeDropdown} />
+</Canvas>
+
+#### BadgePopover
+
+<Canvas>
+	<Story story={Stories.StoryBadgePopover} />
+</Canvas>
+
+## States
+
+<table>
+	<thead>
+		<tr>
+			<td>
+				<b>Name</b>
+			</td>
+			<td>
+				<b>Props</b>
+			</td>
+			<td>
+				<b>Type</b>
+			</td>
+			<td>
+				<b>Description</b>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Value</td>
+			<td>valueLayout</td>
+			<td>
+				<ul>
+					<li>Off</li>
+					<li>Single</li>
+					<li>Multi</li>
+				</ul>
+			</td>
+			<td>
+				Set how to show value ("Single" for one value only ; "Multi" to show all possible values at
+				same time) or if it is hidden.
+			</td>
+		</tr>
+		<tr>
+			<td>Read-only</td>
+			<td>readOnly</td>
+			<td>boolean</td>
+			<td>Set if it is only readable (true) or not (false).</td>
+		</tr>
+		<tr>
+			<td>Dropdown</td>
+			<td>isDropdown</td>
+			<td>boolean</td>
+			<td>
+				With Value set to "Single", set if value part allow to change value through a dropdown
+				component (true) or not (false).
+				<br />
+				With Value set to "Multi", set if value part allow to open a popover on click (true) or not
+				(false).
+			</td>
+		</tr>
+		<tr>
+			<td>Close</td>
+			<td>onClose</td>
+			<td>
+				<i>function handler</i>
+			</td>
+			<td>Provide it to display a close icon on right side.</td>
+		</tr>
+		<tr>
+			<td>Operator</td>
+			<td>showOperator</td>
+			<td>boolean</td>
+			<td>
+				Set if couple label / value is separated with an operator icon (true) or a vertical bar
+				(false).
+			</td>
+		</tr>
+		<tr>
+			<td>Semantic</td>
+			<td>semanticIcon</td>
+			<td>
+				<ul>
+					<li>Valid</li>
+					<li>Invalid</li>
+					<li>Empty</li>
+					<li>None</li>
+				</ul>
+			</td>
+			<td>
+				Set how to show semantic information (Valid, Invalid, Empty) or if it is hidden (None).
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+## Interactions
+
+### With Operator (Operator = true)
+
+When Operator is true, clicking on Operator button show a dropdown with several operators to choose one.
+
+### With Dropdown (Value = Single ; Dropdown = true)
+
+When Dropdown is true and Value is set to "Single", clicking on the value part show a list of choice to select one.
+
+When done, chosen value is displayed in the value part.
+
+### With Popover (Value = Multi ; Dropdown = true)
+
+When Dropdown is true and Value is set to "Multi", clicking on one value in values part show a popover displaying whatever you want.
+
+### With Close button (OnClose = _function_)
+
+When OnClose is provided, clicking on close button call OnClose handler.
+
+## Content
+
+TODO
+
+## Usage
+
+TODO
+
+## Accessibility
+
+TODO

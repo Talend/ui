@@ -1,3 +1,4 @@
+import { Badge, BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
@@ -93,6 +94,11 @@ export {
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
+	Badge,
+	BadgeValue,
+	BadgeTag,
+	BadgeDropdown,
+	BadgePopover,
 	Breadcrumbs,
 	Button,
 	ButtonAsLink,
