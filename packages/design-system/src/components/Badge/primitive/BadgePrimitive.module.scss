@@ -1,31 +1,19 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .badge {
-	display: inline-block;
+	display: flex;
+	align-items: center;
 
 	background: tokens.$coral-color-neutral-background;
 	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 	border-radius: tokens.$coral-radius-s;
 }
 
-.badge__layout {
-	/* Auto layout */
-	align-items: center;
-	display: flex;
-	flex-direction: row;
-
-	gap: tokens.$coral-spacing-xxs;
-	padding: 0 tokens.$coral-spacing-xs;
-}
-
-.badge__layout__name {
+.badge__name {
 	padding: tokens.$coral-spacing-xxs 0;
 }
 
-.badge__layout__divider {
-	align-items: center;
+.badge__divider {
 	display: flex;
-	flex-direction: row;
-
-	padding: 0 tokens.$coral-spacing-xs;
+	align-items: center;
 }
