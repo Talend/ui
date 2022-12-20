@@ -18,21 +18,26 @@ const noop = () => {};
  */
 function mapBadgeItemToDropdownItem(
 	setSelectedValue: React.Dispatch<React.SetStateAction<BadgeDropdownItem | undefined>>,
+	onChange: (selectedId: string) => void,
 ) {
 	return (item: BadgeDropdownItem): DropdownItemType => ({
 		type: 'button',
 		label: item.label,
-		onClick: () => setSelectedValue(item),
+		onClick: () => {
+			setSelectedValue(item);
+			onChange(item.id);
+		},
 	});
 }
 
 export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children' | 'withDivider'> & {
 	selectedId?: string;
 	value: BadgeDropdownItem[];
+	onChange: (selectedId: string) => void;
 };
 
 const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanElement>) => {
-	const { isReadOnly, selectedId, value } = props;
+	const { isReadOnly, onChange, selectedId, value } = props;
 
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
@@ -44,7 +49,7 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 		<BadgePrimitive {...props} ref={ref} withDivider>
 			<Dropdown
 				aria-label={t('BADGE_ARIA_lABEL_SELECT_ITEM', 'Select item')}
-				items={value.map(mapBadgeItemToDropdownItem(setSelectedValue))}
+				items={value.map(mapBadgeItemToDropdownItem(setSelectedValue, onChange))}
 			>
 				<ButtonTertiary disabled={isReadOnly} isDropdown onClick={noop} size="S">
 					{selectedValue?.label}
