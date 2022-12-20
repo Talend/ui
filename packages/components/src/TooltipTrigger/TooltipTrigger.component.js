@@ -101,7 +101,7 @@ const props = {
  */
 function TooltipTrigger({
 	children,
-	dataTest,
+	'data-test': dataTest,
 	label,
 	className,
 	tooltipDelay,
