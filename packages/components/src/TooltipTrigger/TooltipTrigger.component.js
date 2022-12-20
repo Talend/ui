@@ -249,7 +249,7 @@ function TooltipTrigger({
 TooltipTrigger.displayName = 'TooltipTrigger';
 
 TooltipTrigger.propTypes = {
-	dataTest: PropTypes.string,
+	'data-test': PropTypes.string,
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 	tooltipHeight: PropTypes.number,
