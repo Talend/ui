@@ -4,7 +4,6 @@ import Divider from '../../Divider';
 
 import classnames from 'classnames';
 import styles from './BadgePrimitive.module.scss';
-import { StackHorizontal } from '../../Stack';
 
 /**
  * Possible semantic values.
@@ -50,7 +49,7 @@ function BadgeDivider({ withOperator }: BadgeDividerProps) {
 	return withOperator ? (
 		<></>
 	) : (
-		<span className={classnames(styles.badge__divider)}>
+		<span className={classnames(styles.badge__layout__divider)}>
 			<Divider orientation="vertical" />
 		</span>
 	);
@@ -89,18 +88,13 @@ function BadgePrimitive({
 
 	return (
 		<span className={classnames(styles.badge)} ref={ref}>
-			<StackHorizontal
-				gap="XS"
-				padding={{ top: 0, right: 'XS', bottom: 0, left: 'XS' }}
-				align="center"
-				display="inline"
-			>
-				<span className={classnames(styles.badge__name)}>{name}</span>
+			<span className={classnames(styles.badge__layout)}>
+				<span className={classnames(styles.badge__layout__name)}>{name}</span>
 
 				{withDivider && <BadgeDivider withOperator={withOperator} />}
 
 				{children}
-			</StackHorizontal>
+			</span>
 		</span>
 	);
 }
