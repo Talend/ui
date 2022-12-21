@@ -10,6 +10,10 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
  * Header renderer that displays a "Select All" checkbox on header
  */
 function HeaderCheckbox({ columnData }) {
+	if (!columnData.onToggleAll) {
+		return null;
+	}
+
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	const { id, onToggleAll, collection, isSelected } = columnData;
@@ -24,10 +28,6 @@ function HeaderCheckbox({ columnData }) {
 		const selected = collection.filter(isSelected);
 		return selected.length && selected.length < collection.length;
 	}, [collection, isSelected]);
-
-	if (!columnData.onToggleAll) {
-		return null;
-	}
 
 	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select All' });
 	return (
