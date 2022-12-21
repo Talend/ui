@@ -279,7 +279,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                           disableSort={true}
                           label=""
                           sortDirection="ASC"
-                          t={[Function]}
                         >
                           <form
                             className="tc-list-checkbox theme-tc-list-checkbox"
@@ -1285,7 +1284,6 @@ exports[`List should render 1`] = `
                           disableSort={true}
                           label=""
                           sortDirection="ASC"
-                          t={[Function]}
                         >
                           <form
                             className="tc-list-checkbox theme-tc-list-checkbox"
@@ -2315,7 +2313,6 @@ exports[`List should render id if provided 1`] = `
                           disableSort={true}
                           label=""
                           sortDirection="ASC"
-                          t={[Function]}
                         >
                           <form
                             className="tc-list-checkbox theme-tc-list-checkbox"
