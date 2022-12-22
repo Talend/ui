@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react';
-import { ButtonPrimary, ButtonTertiary, Form, InlineMessageInformation, StackVertical } from '@talend/design-system';
+import {
+	ButtonPrimary,
+	ButtonTertiary,
+	Form,
+	InlineMessageInformation,
+	StackVertical,
+} from '@talend/design-system';
 import { useForm } from 'react-hook-form';
 
 export default {
@@ -42,7 +48,7 @@ export const CopyWithPrefix = () => (
 );
 
 type CopyFormData = {
-	apiKey: string;
+	apiKey?: string;
 };
 
 export const ReactHookForm = () => {
@@ -77,7 +83,9 @@ export const ReactHookForm = () => {
 					label={'Key'}
 					defaultValue="10ca0868-1010-4b4a-a2cc-ff737527a7b5"
 					description={'This information is displayed only once.'}
-					{...register('apiKey')}
+					name="apiKey"
+					value={inputValue}
+					ref={register()}
 				/>
 				<ButtonTertiary icon="talend-refresh" onClick={() => setValue('apiKey', getUUID())}>
 					Regenerate

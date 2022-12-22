@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-config-cdn",
-  "version": "10.5.4",
+  "version": "10.6.0",
   "description": "Provide a simple API to inject CDN config into existing webpack configuration",
   "main": "cdn.js",
   "scripts": {

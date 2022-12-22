@@ -36,7 +36,6 @@ jobs:
             storybook:
              - 'packages/design-tokens/**'
              - 'packages/design-system/**'
-            datagrid: packages/datagrid/**
             dataviz: packages/dataviz/**
             forms: packages/forms/**
 

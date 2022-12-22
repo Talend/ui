@@ -1,5 +1,32 @@
 # @talend/react-components
 
+## 9.2.1
+
+### Patch Changes
+
+- 8a3537827: TDOPS-3399 - Fix HeaderBar button style on hover
+
+## 9.2.0
+
+### Minor Changes
+
+- a3ac5792b: fix not translated "select all" in list component
+
+## 9.1.0
+
+### Minor Changes
+
+- 898ffafc2: fix(TDP-11600): allow the datalist to create new value with a better ux
+
+  On the datalist, new props called
+
+  - `allowAddNewElements` can be passed to let the user create new value with a hint to tell him that the value was not existing in the current titlemap.
+  - `allowAddNewElementsSuffix` allow to override the "(new)" suffix by another one.
+
+### Patch Changes
+
+- 0110ae76f: TDOPS-2650 - Datalist icon size should be restricted to inline buttons
+
 ## 9.0.1
 
 ### Patch Changes

@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@talend/design-tokens": "^2.7.1",
-    "@talend/design-system": "^7.1.0"
+    "@talend/design-system": "^7.1.0",
+    "react-hook-form": "^6.15.8"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^6.5.9",
