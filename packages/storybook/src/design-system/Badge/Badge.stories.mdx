@@ -32,29 +32,31 @@ A wonderful Badge
 
 #### Badge
 
-<Canvas>
+<Canvas isColumn>
 	<Story story={Stories.StoryBadgeValue} />
 </Canvas>
 
 #### BadgeTag
 
-<Canvas>
+<Canvas isColumn>
 	<Story story={Stories.StoryBadgeTag} />
 </Canvas>
 
 #### BadgeDropdown
 
-<Canvas>
+<Canvas isColumn>
 	<Story story={Stories.StoryBadgeDropdown} />
 </Canvas>
 
 #### BadgePopover
 
-<Canvas>
+<Canvas isColumn>
 	<Story story={Stories.StoryBadgePopover} />
 </Canvas>
 
 ## States
+
+#### Badge
 
 <table>
 	<thead>
@@ -75,37 +77,10 @@ A wonderful Badge
 	</thead>
 	<tbody>
 		<tr>
-			<td>Value</td>
-			<td>valueLayout</td>
-			<td>
-				<ul>
-					<li>Off</li>
-					<li>Single</li>
-					<li>Multi</li>
-				</ul>
-			</td>
-			<td>
-				Set how to show value ("Single" for one value only ; "Multi" to show all possible values at
-				same time) or if it is hidden.
-			</td>
-		</tr>
-		<tr>
-			<td>Read-only</td>
-			<td>readOnly</td>
-			<td>boolean</td>
-			<td>Set if it is only readable (true) or not (false).</td>
-		</tr>
-		<tr>
-			<td>Dropdown</td>
-			<td>isDropdown</td>
-			<td>boolean</td>
-			<td>
-				With Value set to "Single", set if value part allow to change value through a dropdown
-				component (true) or not (false).
-				<br />
-				With Value set to "Multi", set if value part allow to open a popover on click (true) or not
-				(false).
-			</td>
+			<td>Badge label*</td>
+			<td>label</td>
+			<td>string</td>
+			<td>Set badge's label displayed in left part of component.</td>
 		</tr>
 		<tr>
 			<td>Close</td>
@@ -113,15 +88,131 @@ A wonderful Badge
 			<td>
 				<i>function handler</i>
 			</td>
-			<td>Provide it to display a close icon on right side.</td>
+			<td>(Optional) Provide it to display a close icon on right side.</td>
+		</tr>
+		<tr>
+			<td>Semantic</td>
+			<td>semanticIcon</td>
+			<td>
+				<ul>
+					<li>Valid</li>
+					<li>Invalid</li>
+					<li>Empty</li>
+					<li>None</li>
+				</ul>
+			</td>
+			<td>
+				(Optional) Set how to show semantic information (Valid, Invalid, Empty) or if it is hidden
+				(None).
+			</td>
 		</tr>
 		<tr>
 			<td>Operator</td>
-			<td>showOperator</td>
+			<td>withOperator</td>
 			<td>boolean</td>
 			<td>
-				Set if couple label / value is separated with an operator icon (true) or a vertical bar
-				(false).
+				(Optional) Set if couple label / value is separated with an operator icon (true) or a
+				vertical bar (false).
+			</td>
+		</tr>
+		<tr>
+			<td>Value*</td>
+			<td>value</td>
+			<td>list of string</td>
+			<td>Values displayed in right part of component.</td>
+		</tr>
+	</tbody>
+</table>
+
+\* Mandatory fields
+
+#### BadgeTag
+
+<table>
+	<thead>
+		<tr>
+			<td>
+				<b>Name</b>
+			</td>
+			<td>
+				<b>Props</b>
+			</td>
+			<td>
+				<b>Type</b>
+			</td>
+			<td>
+				<b>Description</b>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Badge label*</td>
+			<td>label</td>
+			<td>string</td>
+			<td>Set badge's label</td>
+		</tr>
+		<tr>
+			<td>Close</td>
+			<td>onClose</td>
+			<td>
+				<i>function handler</i>
+			</td>
+			<td>(Optional) Provide it to display a close icon on right side.</td>
+		</tr>
+	</tbody>
+</table>
+
+\* Mandatory fields
+
+#### BadgeDropdown
+
+<table>
+	<thead>
+		<tr>
+			<td>
+				<b>Name</b>
+			</td>
+			<td>
+				<b>Props</b>
+			</td>
+			<td>
+				<b>Type</b>
+			</td>
+			<td>
+				<b>Description</b>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Badge label*</td>
+			<td>label</td>
+			<td>string</td>
+			<td>Set badge's label displayed in left part of component.</td>
+		</tr>
+		<tr>
+			<td>Change selected item</td>
+			<td>onChange</td>
+			<td>
+				<i>function handler</i>
+			</td>
+			<td>(Optional) Provide it to listen at item selection.</td>
+		</tr>
+		<tr>
+			<td>Close</td>
+			<td>onClose</td>
+			<td>
+				<i>function handler</i>
+			</td>
+			<td>(Optional) Provide it to display a close icon on right side.</td>
+		</tr>
+		<tr>
+			<td>Default selected value</td>
+			<td>selectedId</td>
+			<td>string</td>
+			<td>
+				(Optional) ID of value selected by default. It must match one value's ID in value list.
 			</td>
 		</tr>
 		<tr>
@@ -136,11 +227,99 @@ A wonderful Badge
 				</ul>
 			</td>
 			<td>
-				Set how to show semantic information (Valid, Invalid, Empty) or if it is hidden (None).
+				(Optional) Set how to show semantic information (Valid, Invalid, Empty) or if it is hidden
+				(None).
+			</td>
+		</tr>
+		<tr>
+			<td>Value*</td>
+			<td>value</td>
+			<td>list of objects with id, name and onClick handler</td>
+			<td>Values available in dropdown menu.</td>
+		</tr>
+		<tr>
+			<td>Operator</td>
+			<td>withOperator</td>
+			<td>boolean</td>
+			<td>
+				(Optional) Set if couple label / value is separated with an operator icon (true) or a
+				vertical bar (false).
 			</td>
 		</tr>
 	</tbody>
 </table>
+
+\* Mandatory fields
+
+#### BadgePopover
+
+<table>
+	<thead>
+		<tr>
+			<td>
+				<b>Name</b>
+			</td>
+			<td>
+				<b>Props</b>
+			</td>
+			<td>
+				<b>Type</b>
+			</td>
+			<td>
+				<b>Description</b>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Badge label*</td>
+			<td>label</td>
+			<td>string</td>
+			<td>Set badge's label displayed in left part of component.</td>
+		</tr>
+		<tr>
+			<td>Close</td>
+			<td>onClose</td>
+			<td>
+				<i>function handler</i>
+			</td>
+			<td>(Optional) Provide it to display a close icon on right side.</td>
+		</tr>
+		<tr>
+			<td>Semantic</td>
+			<td>semanticIcon</td>
+			<td>
+				<ul>
+					<li>Valid</li>
+					<li>Invalid</li>
+					<li>Empty</li>
+					<li>None</li>
+				</ul>
+			</td>
+			<td>
+				(Optional) Set how to show semantic information (Valid, Invalid, Empty) or if it is hidden
+				(None).
+			</td>
+		</tr>
+		<tr>
+			<td>Operator</td>
+			<td>withOperator</td>
+			<td>boolean</td>
+			<td>
+				(Optional) Set if couple label / value is separated with an operator icon (true) or a
+				vertical bar (false).
+			</td>
+		</tr>
+		<tr>
+			<td>Value*</td>
+			<td>value</td>
+			<td>list of objects with id, name and onClick handler</td>
+			<td>Values displayed as button in right part of component.</td>
+		</tr>
+	</tbody>
+</table>
+
+\* Mandatory fields
 
 ## Interactions
 
@@ -148,17 +327,17 @@ A wonderful Badge
 
 When Operator is true, clicking on Operator button show a dropdown with several operators to choose one.
 
-### With Dropdown (Value = Single ; Dropdown = true)
+### With Dropdown (variant = 'dropdown')
 
 When Dropdown is true and Value is set to "Single", clicking on the value part show a list of choice to select one.
 
 When done, chosen value is displayed in the value part.
 
-### With Popover (Value = Multi ; Dropdown = true)
+### With Popover (variant = 'popover')
 
 When Dropdown is true and Value is set to "Multi", clicking on one value in values part show a popover displaying whatever you want.
 
-### With Close button (OnClose = _function_)
+### With Close button (onClose = _function_)
 
 When OnClose is provided, clicking on close button call OnClose handler.
 
