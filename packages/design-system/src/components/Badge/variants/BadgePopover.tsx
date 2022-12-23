@@ -1,29 +1,54 @@
 import React, { forwardRef, Ref } from 'react';
-import { ButtonTertiary } from '../../Button';
+
+import Clickable from '../../Clickable';
 import Divider from '../../Divider';
+import { StackHorizontal } from '../../Stack';
 import BadgePrimitive, { BadgePopoverItem, BadgePrimitiveProps } from '../primitive/BadgePrimitive';
 
-export type BadgePopoverProps = Omit<BadgePrimitiveProps, 'withDivider'> & {
+import classnames from 'classnames';
+import styles from './BadgePopover.module.scss';
+
+// --------------------------------------------------
+// Badge Popover button
+// --------------------------------------------------
+
+interface BadgePopoverButtonProps {
+	children?: string;
+	onClick?: () => void;
+}
+
+function BadgePopoverButton({ children, onClick }: BadgePopoverButtonProps) {
+	return (
+		<Clickable className={classnames(styles['badge-popover__button'])} onClick={onClick}>
+			{children}
+		</Clickable>
+	);
+}
+
+// --------------------------------------------------
+// Badge Dropdown
+// --------------------------------------------------
+
+export type BadgePopoverProps = BadgePrimitiveProps & {
 	value: BadgePopoverItem[];
 };
 
 const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElement>) => {
-	const { isReadOnly, value } = props;
+	const { value } = props;
 
 	return (
 		<BadgePrimitive {...props} ref={ref} withDivider>
 			{
-				// TODO BADGE - to improve style
-				<span>
+				<StackHorizontal gap="XXS" as="span" align="center">
 					{value.map((item: BadgePopoverItem, idx: number) => (
-						<span key={item.id}>
-							{idx > 0 && <Divider orientation="vertical" />}
-							<ButtonTertiary disabled={isReadOnly} onClick={item.onClick} size="S">
+						<React.Fragment key={`fragment-${item.id}`}>
+							{idx > 0 && <Divider key={`divider-${item.id}`} orientation="vertical" />}
+							<BadgePopoverButton key={`button-${item.id}`} onClick={item.onClick}>
 								{item.label}
-							</ButtonTertiary>
-						</span>
+							</BadgePopoverButton>
+						</React.Fragment>
 					))}
-				</span>
+				</StackHorizontal>
 			}
 		</BadgePrimitive>
 	);

@@ -1,0 +1,37 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.badge-popover__button {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	position: relative;
+
+	border-radius: tokens.$coral-radius-s;
+	font: tokens.$coral-paragraph-m-bold;
+	height: tokens.$coral-sizing-xs;
+	padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-xs;
+
+	color: tokens.$coral-color-accent-text;
+
+	&:hover {
+		background: tokens.$coral-color-accent-background-weak-hover;
+		color: tokens.$coral-color-accent-text-strong-hover;
+	}
+
+	&:active {
+		background: tokens.$coral-color-accent-background-weak-active;
+		color: tokens.$coral-color-accent-text-strong-active;
+	}
+
+	&__caret {
+		align-items: center;
+		display: inline-flex;
+		transition: transform tokens.$coral-transition-fast;
+	}
+
+	&[aria-expanded='true'] {
+		.badge-popover__button__caret {
+			transform: rotate(-180deg);
+		}
+	}
+}

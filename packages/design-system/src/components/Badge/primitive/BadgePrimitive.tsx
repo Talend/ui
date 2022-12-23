@@ -1,9 +1,10 @@
-import React, { Ref } from 'react';
+import React, { PropsWithChildren, Ref } from 'react';
 
 import Divider from '../../Divider';
 
 import classnames from 'classnames';
 import styles from './BadgePrimitive.module.scss';
+import { StackHorizontal } from '../../Stack';
 
 /**
  * Possible semantic values.
@@ -49,7 +50,7 @@ function BadgeDivider({ withOperator }: BadgeDividerProps) {
 	return withOperator ? (
 		<></>
 	) : (
-		<span className={classnames(styles.badge__layout__divider)}>
+		<span className={classnames(styles.badge__divider)}>
 			<Divider orientation="vertical" />
 		</span>
 	);
@@ -59,42 +60,45 @@ function BadgeDivider({ withOperator }: BadgeDividerProps) {
 // Badge Primitive
 // --------------------------------------------------
 
+interface BadgeInternalProps {
+	withDivider?: boolean;
+}
+
 export interface BadgePrimitiveProps {
-	children?: JSX.Element | string;
-	isReadOnly?: boolean;
-	name: string;
+	label: string;
 	onClose?: () => void;
 	ref: Ref<HTMLSpanElement>;
 	semanticIcon?: SemanticIcon;
-	withDivider?: boolean;
 	withOperator?: boolean;
 }
 
 function BadgePrimitive({
 	children,
-	isReadOnly = false,
-	name,
+	label,
 	onClose,
 	ref,
 	semanticIcon = 'none',
 	withDivider = false,
 	withOperator = false,
-}: BadgePrimitiveProps) {
-	// TODO BADGE - handle isReadOnly to allow read only mode (may impact variant component to handle w/ children)
-
+}: PropsWithChildren<BadgePrimitiveProps & BadgeInternalProps>) {
 	// TODO BADGE - handle onClose to manage close button
 
 	// TODO BADGE - handle semanticIcon to display semantic icon
 
 	return (
 		<span className={classnames(styles.badge)} ref={ref}>
-			<span className={classnames(styles.badge__layout)}>
-				<span className={classnames(styles.badge__layout__name)}>{name}</span>
+			<StackHorizontal
+				gap="XXS"
+				padding={{ top: 0, right: 'XXS', bottom: 0, left: 'XXS' }}
+				align="center"
+				display="inline"
+			>
+				<span className={classnames(styles.badge__name)}>{label}</span>
 
 				{withDivider && <BadgeDivider withOperator={withOperator} />}
 
 				{children}
-			</span>
+			</StackHorizontal>
 		</span>
 	);
 }

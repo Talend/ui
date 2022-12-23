@@ -19,11 +19,6 @@ const Badge = forwardRef((props: BadgeType, ref: Ref<HTMLSpanElement>) => {
 			return <BadgeValue {...rest} ref={ref} />;
 		}
 
-		case 'tag': {
-			const { variant, ...rest } = props;
-			return <BadgeTag {...rest} ref={ref} />;
-		}
-
 		case 'dropdown': {
 			const { variant, ...rest } = props;
 			return <BadgeDropdown {...rest} ref={ref} />;
@@ -32,6 +27,12 @@ const Badge = forwardRef((props: BadgeType, ref: Ref<HTMLSpanElement>) => {
 		case 'popover': {
 			const { variant, ...rest } = props;
 			return <BadgePopover {...rest} ref={ref} />;
+		}
+
+		case 'tag':
+		default: {
+			const { variant, ...rest } = props;
+			return <BadgeTag {...rest} ref={ref} />;
 		}
 	}
 });

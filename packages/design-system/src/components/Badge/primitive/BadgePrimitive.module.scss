@@ -8,24 +8,12 @@
 	border-radius: tokens.$coral-radius-s;
 }
 
-.badge__layout {
-	/* Auto layout */
+.badge__name {
+	padding: tokens.$coral-spacing-xxs;
+}
+
+.badge__divider {
 	align-items: center;
 	display: flex;
 	flex-direction: row;
-
-	gap: tokens.$coral-spacing-xxs;
-	padding: 0 tokens.$coral-spacing-xs;
-}
-
-.badge__layout__name {
-	padding: tokens.$coral-spacing-xxs 0;
-}
-
-.badge__layout__divider {
-	align-items: center;
-	display: flex;
-	flex-direction: row;
-
-	padding: 0 tokens.$coral-spacing-xs;
 }
