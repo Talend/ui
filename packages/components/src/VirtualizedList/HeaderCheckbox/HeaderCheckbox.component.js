@@ -10,11 +10,11 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
  * Header renderer that displays a "Select All" checkbox on header
  */
 function HeaderCheckbox({ columnData }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+
 	if (!columnData.onToggleAll) {
 		return null;
 	}
-
-	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	const { id, onToggleAll, collection, isSelected } = columnData;
 	const checked = useMemo(
