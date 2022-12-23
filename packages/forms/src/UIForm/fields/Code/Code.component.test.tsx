@@ -4,10 +4,16 @@ import ReactDOM from 'react-dom';
 import { render, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ReactAce from 'react-ace';
-import Code from './Code.component';
+import Code, { CodeProps } from './Code.component';
 
 // fix cannot read appendChild of null;
 jest.mock('ally.js');
+
+declare global {
+	interface Window {
+		ReactAce: { default: typeof ReactAce };
+	}
+}
 
 describe('Code field', () => {
 	const schema = {
@@ -25,7 +31,7 @@ describe('Code field', () => {
 		value: 'toto',
 	};
 
-	async function initWith(dprops) {
+	async function initWith(dprops: CodeProps) {
 		window.React = React;
 		window.ReactDOM = ReactDOM;
 		window.ReactAce = { default: ReactAce };

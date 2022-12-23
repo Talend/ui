@@ -1,0 +1,13 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.code-widget__loading {
+	display: grid;
+	gap: tokens.$coral-spacing-s;
+	padding: tokens.$coral-spacing-m;
+
+	&__lines {
+		display: grid;
+		gap: tokens.$coral-spacing-s;
+		padding-left: tokens.$coral-spacing-l;
+	}
+}

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Code text display mode should render textarea 1`] = `
+<body>
+  <div>
+    <div
+      class="form-group"
+    >
+      <dt>
+        <label
+          class="control-label"
+          for="myForm"
+        >
+          My input title
+        </label>
+      </dt>
+      <dd
+        id="myForm"
+      >
+        <pre>
+          toto
+        </pre>
+      </dd>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Code text display mode should render with provided style options 1`] = `
+<body>
+  <div>
+    <div
+      class="form-group"
+    >
+      <dt>
+        <label
+          class="control-label"
+          for="myForm"
+        >
+          My input title
+        </label>
+      </dt>
+      <dd
+        id="myForm"
+      >
+        <pre
+          style="height: 20px;"
+        >
+          toto
+        </pre>
+      </dd>
+    </div>
+  </div>
+</body>
+`;
