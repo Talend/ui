@@ -1,7 +1,7 @@
 {
   "name": "@talend/recharts",
   "description": "",
-  "main": "dist/TalendRecharts.min.js",
+  "main": "lib/index.js",
   "mainSrc": "src/index.ts",
   "types": "./lib/index.d.ts",
   "license": "Apache-2.0",
@@ -26,13 +26,34 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/d3-interpolate": "^3.0.0",
+    "@types/d3-scale": "^4.0.0",
+    "@types/d3-shape": "^3.0.0",
+    "classnames": "^2.2.5",
+    "d3-interpolate": "^3.0.0",
+    "d3-scale": "^4.0.0",
+    "d3-shape": "^3.0.0",
+    "eventemitter3": "^4.0.1",
+    "lodash": "^4.17.19",
+    "react-is": "^17.0.0",
+    "react-resize-detector": "^7.1.2",
+    "react-smooth": "^2.0.1",
+    "recharts-scale": "^0.4.4",
+    "reduce-css-calc": "^2.1.8"
+  },
   "devDependencies": {
     "@talend/scripts-core": "^12.1.0",
     "@talend/scripts-preset-react-lib": "^14.0.1",
-    "recharts": "^2.2.0"
+    "prop-types": "^15.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": ">= 16.14.0 < 18.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0"
+  },
   "publishConfig": {
     "access": "public"
   },
