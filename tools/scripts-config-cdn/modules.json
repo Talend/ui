@@ -78,6 +78,15 @@
       }
     }
   },
+  "@talend/recharts": {
+    "var": "TalendRecharts",
+    "versions": {
+      ">= 2.0.0": {
+        "development": "/dist/TalendRecharts.min.js",
+        "production": "/dist/TalendRecharts.min.js"
+      }
+    }
+  },
   "@talend/react-components": {
     "var": "TalendReactComponents",
     "versions": {

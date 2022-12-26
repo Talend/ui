@@ -1,0 +1,43 @@
+{
+  "name": "@talend/recharts",
+  "description": "",
+  "main": "dist/TalendRecharts.min.js",
+  "mainSrc": "src/index.ts",
+  "types": "./lib/index.d.ts",
+  "license": "Apache-2.0",
+  "scripts": {
+    "pre-release": "yarn build:prod",
+    "build:prod": "talend-scripts build:lib:umd --prod",
+    "build:lib": "talend-scripts build:lib"
+  },
+  "keywords": [
+    "react",
+    "talend",
+    "forms",
+    "json",
+    "schema"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/forms#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "@talend/assets-api": "^1.2.1",
+    "@talend/json-schema-form-core": "1.1.1",
+    "@talend/react-components": "^9.2.0",
+    "@talend/utils": "^2.5.0"
+  },
+  "devDependencies": {
+    "recharts": "^2.2.0"
+  },
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "2.2.0"
+}
