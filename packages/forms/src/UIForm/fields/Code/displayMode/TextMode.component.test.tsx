@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import TextMode from './TextMode.component';
 
@@ -9,12 +9,15 @@ describe('Code text display mode', () => {
 		title: 'My input title',
 	};
 
-	it('should render textarea', () => {
+	it('should render with value', () => {
+		// given
+		const value = 'a-value';
+
 		// when
-		const { baseElement } = render(<TextMode id="myForm" schema={schema} value="toto" />);
+		render(<TextMode id="myForm" schema={schema} value={value} />);
 
 		// then
-		expect(baseElement).toMatchSnapshot();
+		expect(screen.getByText(value)).toBeInTheDocument();
 	});
 
 	it('should render with provided style options', () => {
@@ -24,12 +27,13 @@ describe('Code text display mode', () => {
 			rows: 10,
 		};
 
+		const style = { height: '20px' };
+		const value = 'a-value';
+
 		// when
-		const { baseElement } = render(
-			<TextMode id="myForm" schema={schemaWithRows} value="toto" options={{ height: '20px' }} />,
-		);
+		render(<TextMode id="myForm" schema={schemaWithRows} value={value} options={style} />);
 
 		// then
-		expect(baseElement).toMatchSnapshot();
+		expect(screen.getByText(value).style.height).toStrictEqual(style.height);
 	});
 });
