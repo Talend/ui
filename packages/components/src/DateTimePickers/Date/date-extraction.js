@@ -1,7 +1,7 @@
 import format from 'date-fns/format';
-import getDate from 'date-fns/get_date';
-import lastDayOfMonth from 'date-fns/last_day_of_month';
-import setDate from 'date-fns/set_date';
+import getDate from 'date-fns/getDate';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
+import setDate from 'date-fns/setDate';
 import { date as dateUtils } from '@talend/utils';
 
 import getErrorMessage from '../shared/error-messages';

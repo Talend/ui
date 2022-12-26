@@ -1,9 +1,9 @@
 import { date } from '@talend/utils';
 import chunk from 'lodash/chunk';
-import addMonths from 'date-fns/add_months';
+import addMonths from 'date-fns/addMonths';
 import format from 'date-fns/format';
-import getYear from 'date-fns/get_year';
-import setDay from 'date-fns/set_day';
+import getYear from 'date-fns/getYear';
+import setDay from 'date-fns/setDay';
 import memoize from 'lodash/memoize';
 import getLocale from '../i18n/DateFnsLocale/locale';
 import getDefaultT from '../translate';

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import getDate from 'date-fns/get_date';
-import getMonth from 'date-fns/get_month';
+import getDate from 'date-fns/getDate';
+import getMonth from 'date-fns/getMonth';
 import { buildWeeks } from '../src/DateTimePickers/generator';
 
 class DayCalendar extends Component {

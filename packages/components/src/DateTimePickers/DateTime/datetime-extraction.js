@@ -1,5 +1,5 @@
 import format from 'date-fns/format';
-import setSeconds from 'date-fns/set_seconds';
+import setSeconds from 'date-fns/setSeconds';
 import { date as dateUtils } from '@talend/utils';
 
 import getErrorMessage from '../shared/error-messages';

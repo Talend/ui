@@ -1,9 +1,9 @@
 import format from 'date-fns/format';
-import getDate from 'date-fns/get_date';
-import lastDayOfMonth from 'date-fns/last_day_of_month';
-import setSeconds from 'date-fns/set_seconds';
-import setDate from 'date-fns/set_date';
-import startOfSecond from 'date-fns/start_of_second';
+import getDate from 'date-fns/getDate';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
+import setSeconds from 'date-fns/setSeconds';
+import setDate from 'date-fns/setDate';
+import startOfSecond from 'date-fns/startOfSecond';
 import { date as dateUtils } from '@talend/utils';
 
 import getErrorMessage from './error-messages';

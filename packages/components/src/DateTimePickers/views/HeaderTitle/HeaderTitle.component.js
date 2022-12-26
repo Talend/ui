@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import setYear from 'date-fns/set_year';
-import setMonth from 'date-fns/set_month';
+import setYear from 'date-fns/setYear';
+import setMonth from 'date-fns/setMonth';
 import format from 'date-fns/format';
 import theme from './HeaderTitle.module.scss';
 import { getPickerLocale } from '../../generator';
