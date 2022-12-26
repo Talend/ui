@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 10.6.0
+
+### Minor Changes
+
+- 925cec02b: feat: add toggle to activate or not dynamic-cdn-plugin
+
 ## 10.5.4
 
 ### Patch Changes

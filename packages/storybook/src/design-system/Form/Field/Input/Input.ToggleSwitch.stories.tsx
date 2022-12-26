@@ -1,5 +1,10 @@
 import React from 'react';
-import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '@talend/design-system';
+import {
+	ButtonPrimary,
+	Form,
+	InlineMessageInformation,
+	StackVertical,
+} from '@talend/design-system';
 import { useForm } from 'react-hook-form';
 
 export default {
@@ -66,8 +71,13 @@ export const Controlled = () => {
 	return (
 		<Form>
 			<Form.Fieldset legend="Control switch state" required>
-				<Form.ToggleSwitch label="Toggle all" {...register('option-a')} />
-				<Form.ToggleSwitch label="Controlled switch" {...register('option-b')} checked={optionA} />
+				<Form.ToggleSwitch label="Toggle all" name="option-a" ref={register()} />
+				<Form.ToggleSwitch
+					label="Controlled switch"
+					name="option-b"
+					ref={register()}
+					checked={optionA}
+				/>
 			</Form.Fieldset>
 			<Form.Buttons>
 				<ButtonPrimary onClick={() => {}} type="submit">
@@ -91,17 +101,16 @@ export const ReactHooksForm = () => {
 				/>
 			)}
 			<Form.Fieldset legend="Enabled">
-				<Form.ToggleSwitch label="Option a" {...register('option-a')} />
-				<Form.ToggleSwitch label="Option b" checked {...register('option-b')} />
+				<Form.ToggleSwitch label="Option a" name="option-a" ref={register()} />
+				<Form.ToggleSwitch label="Option b" checked name="option-b" ref={register()} />
 			</Form.Fieldset>
 			<Form.Fieldset legend="Read only" readOnly>
-				<Form.ToggleSwitch label="Option c" {...register('option-c')} />
-				<Form.ToggleSwitch label="Option d" checked {...register('option-d')} />
+				<Form.ToggleSwitch label="Option c" name="option-c" ref={register()} />
+				<Form.ToggleSwitch label="Option d" checked name="option-d" ref={register()} />
 			</Form.Fieldset>
 			<Form.Fieldset legend="Disabled" disabled>
-				{/* @see https://github.com/react-hook-form/react-hook-form/issues/6690 */}
-				<Form.ToggleSwitch label="Option e" {...register('option-e', { disabled: true })} />
-				<Form.ToggleSwitch label="Option f" checked {...register('option-f', { disabled: true })} />
+				<Form.ToggleSwitch label="Option e" disabled name="option-e" ref={register()} />
+				<Form.ToggleSwitch label="Option f" checked disabled name="option-f" ref={register()} />
 			</Form.Fieldset>
 			<Form.Buttons>
 				<ButtonPrimary onClick={() => {}} type="submit">

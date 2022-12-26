@@ -1,5 +1,24 @@
 # @talend/scripts-config-react-webpack
 
+## 15.2.1
+
+### Patch Changes
+
+- 1b1e74e6c: chore: remove not needed static option of devServer webpack configuration
+
+  doc: https://webpack.js.org/configuration/dev-server/#devserverstatic
+
+## 15.2.0
+
+### Minor Changes
+
+- 925cec02b: feat: add toggle to activate or not dynamic-cdn-plugin
+
+### Patch Changes
+
+- Updated dependencies [925cec02b]
+  - @talend/scripts-config-cdn@10.6.0
+
 ## 15.1.2
 
 ### Patch Changes

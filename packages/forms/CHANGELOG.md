@@ -1,5 +1,15 @@
 # @talend/react-forms
 
+## 8.1.9
+
+### Patch Changes
+
+- f77b6a9b7: TDOPS-3372 - validate input value for integer fields
+- Updated dependencies [a3ac5792b]
+- Updated dependencies [f77b6a9b7]
+  - @talend/react-components@9.2.0
+  - @talend/json-schema-form-core@1.1.1
+
 ## 8.1.8
 
 ### Patch Changes
