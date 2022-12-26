@@ -10,9 +10,6 @@ describe('useCopyToClipboard', () => {
 			},
 		});
 	});
-	afterEach(() => {
-		// global.navigator.clipboard.writeText = oldClipboard;
-	});
 	it('should be defined ', () => {
 		expect(useCopyToClipboard).toBeDefined();
 	});
