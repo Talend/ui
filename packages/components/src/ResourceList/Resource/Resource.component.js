@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { withTranslation } from 'react-i18next';
 import { getRowData } from '../../VirtualizedList/utils/gridrow';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -17,7 +17,7 @@ const FLAGS = {
 };
 
 function getDateLabel(t, date) {
-	return distanceInWordsToNow(date, {
+	return formatDistanceToNow(date, {
 		addSuffix: true,
 		locale: getLocale(t),
 	});

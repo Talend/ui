@@ -3,9 +3,9 @@ import { Component } from 'react';
 import classnames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import format from 'date-fns/format';
-import isValid from 'date-fns/is_valid';
+import isValid from 'date-fns/isValid';
 import parse from 'date-fns/parse';
 import { withTranslation } from 'react-i18next';
 import { date as dateUtils } from '@talend/utils';
@@ -23,7 +23,7 @@ export function computeValue(cellData, columnData, t) {
 
 	if (isDateValid) {
 		if (cellData && columnData.mode === 'ago') {
-			return distanceInWordsToNow(cellData, {
+			return formatDistanceToNow(cellData, {
 				addSuffix: true,
 				locale: getLocale(t),
 			});

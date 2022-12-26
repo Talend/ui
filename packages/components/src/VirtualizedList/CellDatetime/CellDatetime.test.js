@@ -1,17 +1,19 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/display-name */
 import { render, screen } from '@testing-library/react';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import format from 'date-fns/format';
+import distanceInWordsToNow from 'date-fns/formatDistanceToNow';
+
 import { date as dateUtils } from '@talend/utils';
 
-import { computeValue, CellDatetimeComponent } from './CellDatetime.component';
-import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
+import getDefaultT from '../../translate';
+import { CellDatetimeComponent, computeValue } from './CellDatetime.component';
 
 jest.mock('../../i18n/DateFnsLocale/locale');
 
-jest.mock('date-fns/distance_in_words_to_now', () => ({
+jest.mock('date-fns/formatDistanceToNow', () => ({
 	__esModule: true,
 	default: jest.fn(() => 'about 1 month ago'),
 }));
@@ -49,7 +51,7 @@ describe('CellDatetime', () => {
 
 	afterAll(() => {
 		jest.unmock('../../i18n/DateFnsLocale/locale');
-		jest.unmock('date-fns/distance_in_words_to_now');
+		jest.unmock('date-fns/formatDistanceToNow');
 		jest.unmock('date-fns/format');
 	});
 
@@ -125,7 +127,7 @@ describe('CellDatetime', () => {
 		const cellData = 1474495200000 + 3600 * 11 * 1000;
 		const timezoneOffset = new Date(cellData).getTimezoneOffset();
 		const cellDataWithOffset = cellData + timezoneOffset * 60 * 1000;
-		const hours = 11 + timezoneOffset / 60;
+
 		const expectedStrDate = '2016-09-22 09:00:00';
 		const computedStrOffset = computeValue(cellDataWithOffset, columnData, t);
 		// then

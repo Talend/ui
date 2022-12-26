@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import isSameSecond from 'date-fns/is_same_second';
+import isSameSecond from 'date-fns/isSameSecond';
 
 import { DateTimeContext } from '../Context';
 import {
