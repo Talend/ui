@@ -41,7 +41,13 @@
     "**/typescript": ">=4.6.3",
     "**/vinyl-fs/glob-parent": "^5.1.2",
     "**/fast-glob/glob-parent": "^5.1.2",
-    "**/trim": "^1.0.1"
+    "**/trim": "^1.0.1",
+    "**/recharts/@types/d3-interpolate": "^3.0.0",
+    "**/recharts/@types/d3-scale": "^4.0.0",
+    "**/recharts/@types/d3-shape": "^3.0.0",
+    "**/recharts/d3-interpolate": "^3.0.0",
+    "**/recharts/d3-scale": "^4.0.0",
+    "**/recharts/d3-shape": "^3.0.0"
   },
   "repository": {
     "type": "git",

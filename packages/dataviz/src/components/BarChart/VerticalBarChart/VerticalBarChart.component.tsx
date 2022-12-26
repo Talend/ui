@@ -1,6 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import {
+	Bar,
+	BarChart,
+	CartesianGrid,
+	ResponsiveContainer,
+	Tooltip,
+	XAxis,
+	YAxis,
+} from '@talend/recharts';
 import styles from './VerticalBarChart.component.module.scss';
 import { ChartEntry } from '../barChart.types';
 import {

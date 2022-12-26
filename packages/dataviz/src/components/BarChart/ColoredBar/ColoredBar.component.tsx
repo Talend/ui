@@ -1,5 +1,5 @@
 import React from 'react';
-import { Customized, Rectangle, RectangleProps } from 'recharts';
+import { Customized, Rectangle, RectangleProps } from '@talend/recharts';
 import { FormatValue } from '@talend/react-components';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';

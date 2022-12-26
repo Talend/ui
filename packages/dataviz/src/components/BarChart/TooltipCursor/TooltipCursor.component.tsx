@@ -1,5 +1,5 @@
 import React, { SVGProps } from 'react';
-import { Customized } from 'recharts';
+import { Customized } from '@talend/recharts';
 import styles from './TooltipCursor.component.module.scss';
 
 export type TooltipCursorProps = SVGProps<SVGElement> & {

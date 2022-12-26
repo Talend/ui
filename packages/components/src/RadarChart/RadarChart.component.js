@@ -6,7 +6,7 @@ import {
 	Dot as RechartsDot,
 	Radar,
 	PolarAngleAxis,
-} from 'recharts';
+} from '@talend/recharts';
 import PropTypes from 'prop-types';
 import radarChartCssModule from './RadarChart.module.scss';
 import { getTheme } from '../theme';

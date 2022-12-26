@@ -8,7 +8,7 @@ import {
 	XAxis,
 	YAxis,
 	Legend,
-} from 'recharts';
+} from '@talend/recharts';
 
 import tokens from '@talend/design-tokens';
 import { LineChartEntry, LineChartOptions, LineOptions, LineStatus } from './LineChart.types';
