@@ -47,6 +47,11 @@ class PackageJson {
 		) {
 			this.content.devDependencies[pkgName] = cleanVersion;
 			this.hasChanged = true;
+			const peer = this.content.peerDependencies?.[pkgName];
+			if (peer && !semver.satisfies(version, peer)) {
+				this.content.peerDependencies[pkgName] = cleanVersion;
+				return `Upgraded package.json dev dependencies and peer with ${pkgName}@${cleanVersion}`;
+			}
 			return `Upgraded package.json dev dependencies with ${pkgName}@${cleanVersion}`;
 		}
 		return '';

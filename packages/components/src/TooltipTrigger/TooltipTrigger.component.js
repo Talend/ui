@@ -101,6 +101,7 @@ const props = {
  */
 function TooltipTrigger({
 	children,
+	'data-test': dataTest,
 	label,
 	className,
 	tooltipDelay,
@@ -234,6 +235,7 @@ function TooltipTrigger({
 								'tc-tooltip-body',
 								`tc-tooltip-${placement}`,
 							)}
+							data-test={dataTest}
 						>
 							{label}
 						</div>
@@ -247,6 +249,7 @@ function TooltipTrigger({
 TooltipTrigger.displayName = 'TooltipTrigger';
 
 TooltipTrigger.propTypes = {
+	'data-test': PropTypes.string,
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 	tooltipHeight: PropTypes.number,

@@ -3,30 +3,31 @@ import React, { useMemo } from 'react';
 import classnames from 'classnames';
 import Checkbox from '../../Checkbox';
 import theme from './HeaderCheckbox.module.scss';
-import getDefaultT from '../../translate';
+import { useTranslation } from 'react-i18next';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 /**
  * Header renderer that displays a "Select All" checkbox on header
  */
-function HeaderCheckbox({ columnData, t }) {
+function HeaderCheckbox({ columnData }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+
 	if (!columnData.onToggleAll) {
 		return null;
 	}
 
 	const { id, onToggleAll, collection, isSelected } = columnData;
-	const checked = useMemo(() => collection.length > 0 && collection.every(isSelected), [
-		collection,
-		isSelected,
-	]);
-	const partial = useMemo(
-		() => {
-			if (!collection.length) {
-				return false;
-			}
-			const selected = collection.filter(isSelected);
-			return selected.length && selected.length < collection.length;
-		}, [collection, isSelected],
+	const checked = useMemo(
+		() => collection.length > 0 && collection.every(isSelected),
+		[collection, isSelected],
 	);
+	const partial = useMemo(() => {
+		if (!collection.length) {
+			return false;
+		}
+		const selected = collection.filter(isSelected);
+		return selected.length && selected.length < collection.length;
+	}, [collection, isSelected]);
 
 	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select All' });
 	return (
@@ -62,10 +63,6 @@ HeaderCheckbox.propTypes = {
 		// The onToggleAll callback triggered on header checkbox toggle.
 		onToggleAll: PropTypes.func.isRequired,
 	}),
-	t: PropTypes.func,
-};
-HeaderCheckbox.defaultProps = {
-	t: getDefaultT(),
 };
 
 export default HeaderCheckbox;

@@ -15,6 +15,7 @@ const HELP_MSG = `talend-scripts upgrade [options]
 --latest to force update regardeless of the package.json
 --security=* the dependency security configuration. This mode is not compatible with any other option. For example --security=./security-conf.json
 --message=* the message you want in the changeset
+--ignore-scripts Do not run script on yarn/npm install and upgrade commands
 
 ALIASES:
 --talend-major: equal to --filter=@talend --latest
