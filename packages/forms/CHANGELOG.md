@@ -1,5 +1,17 @@
 # @talend/react-forms
 
+## 8.2.0
+
+### Minor Changes
+
+- c3923dc5c: feat(CDM-307): new code field skeleton and typescript migration
+
+### Patch Changes
+
+- Updated dependencies [bb92ff4bd]
+- Updated dependencies [012d6fe31]
+  - @talend/react-components@9.3.0
+
 ## 8.1.9
 
 ### Patch Changes

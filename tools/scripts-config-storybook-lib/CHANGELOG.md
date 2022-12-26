@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 3.0.1
+
+### Patch Changes
+
+- 5e72003aa: fix: make storybook config when there is no cmf package installed
+
 ## 3.0.0
 
 ### Major Changes
