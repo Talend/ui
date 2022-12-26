@@ -1,5 +1,15 @@
 # @talend/react-components
 
+## 9.3.0
+
+### Minor Changes
+
+- 012d6fe31: Add data-test attribute
+
+### Patch Changes
+
+- bb92ff4bd: fix not translated "select all" in list component
+
 ## 9.2.1
 
 ### Patch Changes
