@@ -26,13 +26,10 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "dependencies": {
-    "@talend/assets-api": "^1.2.1",
-    "@talend/json-schema-form-core": "1.1.1",
-    "@talend/react-components": "^9.2.0",
-    "@talend/utils": "^2.5.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@talend/scripts-core": "^12.1.0",
+    "@talend/scripts-preset-react-lib": "^14.0.1",
     "recharts": "^2.2.0"
   },
   "peerDependencies": {},
