@@ -15,12 +15,15 @@ const BadgeValue = forwardRef((props: BadgeValueProps, ref: Ref<HTMLSpanElement>
 
 	return (
 		<BadgePrimitive {...props} ref={ref} withDivider>
-			<span className={classnames(styles['badge-value__children'])}>
+			<span className={classnames(styles['badge-value__children'])} data-testid="badge-value">
 				<StackHorizontal gap="XS" as="span" align="center">
 					{value.map((item: string, idx: number) => (
-						<React.Fragment key={`fragment-${item}`}>
-							{idx > 0 && <Divider key={`divider-${item}`} orientation="vertical" />}
-							{item}
+						<React.Fragment key={`badgevalue-fragment-${item}`}>
+							{idx > 0 && <Divider key={`badgevalue-divider-${item}`} orientation="vertical" />}
+
+							<span data-testid={`badgevalue-${item}`} key={`badgevalue-value-${item}`}>
+								{item}
+							</span>
 						</React.Fragment>
 					))}
 				</StackHorizontal>

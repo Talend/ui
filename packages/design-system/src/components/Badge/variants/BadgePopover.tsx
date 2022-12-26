@@ -13,13 +13,19 @@ import styles from './BadgePopover.module.scss';
 // --------------------------------------------------
 
 interface BadgePopoverButtonProps {
+	componentId?: string;
 	children?: string;
 	onClick?: () => void;
 }
 
-function BadgePopoverButton({ children, onClick }: BadgePopoverButtonProps) {
+function BadgePopoverButton({ componentId, children, onClick }: BadgePopoverButtonProps) {
 	return (
-		<Clickable className={classnames(styles['badge-popover__button'])} onClick={onClick}>
+		<Clickable
+			className={classnames(styles['badge-popover__button'])}
+			data-testid={componentId}
+			key={componentId}
+			onClick={onClick}
+		>
 			{children}
 		</Clickable>
 	);
@@ -41,9 +47,15 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 			{
 				<StackHorizontal gap="XXS" as="span" align="center">
 					{value.map((item: BadgePopoverItem, idx: number) => (
-						<React.Fragment key={`fragment-${item.id}`}>
-							{idx > 0 && <Divider key={`divider-${item.id}`} orientation="vertical" />}
-							<BadgePopoverButton key={`button-${item.id}`} onClick={item.onClick}>
+						<React.Fragment key={`badgepopover-fragment-${item.id}`}>
+							{idx > 0 && (
+								<Divider key={`badgepopover-divider-${item.id}`} orientation="vertical" />
+							)}
+
+							<BadgePopoverButton
+								componentId={`badgepopover-button-${item.id}`}
+								onClick={item.onClick}
+							>
 								{item.label}
 							</BadgePopoverButton>
 						</React.Fragment>

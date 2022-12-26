@@ -46,11 +46,11 @@ interface BadgeDividerProps {
 }
 
 function BadgeDivider({ withOperator }: BadgeDividerProps) {
-	// TODO BADGE - create operator component
+	// TODO BADGE - create operator component (data-testid="badge-operator")
 	return withOperator ? (
 		<></>
 	) : (
-		<span className={classnames(styles.badge__divider)}>
+		<span className={classnames(styles.badge__divider)} data-testid="badge-divider">
 			<Divider orientation="vertical" />
 		</span>
 	);
@@ -93,7 +93,9 @@ function BadgePrimitive({
 				align="center"
 				display="inline"
 			>
-				<span className={classnames(styles.badge__name)}>{label}</span>
+				<span className={classnames(styles.badge__name)} data-testid="badge-label">
+					{label}
+				</span>
 
 				{withDivider && <BadgeDivider withOperator={withOperator} />}
 

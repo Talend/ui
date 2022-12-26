@@ -28,7 +28,12 @@ interface BadgeDropdownButtonProps {
 const BadgeDropdownButton = forwardRef(
 	({ children, ...rest }: BadgeDropdownButtonProps, ref: Ref<HTMLButtonElement>) => {
 		return (
-			<Clickable className={classnames(styles['badge-dropdown__button'])} ref={ref} {...rest}>
+			<Clickable
+				className={classnames(styles['badge-dropdown__button'])}
+				data-testid="badgedropdown-button"
+				ref={ref}
+				{...rest}
+			>
 				<StackHorizontal gap="XS" as="span" align="center">
 					{children}
 
