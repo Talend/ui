@@ -12,7 +12,7 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:lib": "talend-scripts build:lib",
     "watch": "talend-scripts build:ts:lib --watch",
     "lint:es": "talend-scripts lint:es",
     "test": "talend-scripts test"
