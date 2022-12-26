@@ -13,6 +13,20 @@
   },
   "uiSchema": [
     {
+      "key": "codeWidget",
+      "widget": "code",
+      "title": "Code with gutter and style",
+      "options": {
+        "showGutter": true,
+        "style": {
+          "border": 0,
+          "font": "400 1.4rem/140% 'Inconsolata', monospace",
+          "marginBottom": 0
+        },
+        "height": "15rem"
+      }
+    },
+    {
       "key": "codeWidgetSmall",
       "widget": "code",
       "description": "This widget with custom prop 'height: 100px'",

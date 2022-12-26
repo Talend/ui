@@ -11,7 +11,7 @@
     "build:prod": "talend-scripts build:lib:umd --prod",
     "build-storybook": "talend-scripts build-storybook",
     "pre-release": "yarn build:dev && yarn build:prod && yarn build:ace",
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:lib": "talend-scripts build:lib",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
@@ -42,6 +42,7 @@
     "@talend/assets-api": "^1.2.1",
     "@talend/json-schema-form-core": "1.1.1",
     "@talend/react-components": "^9.2.0",
+    "@talend/design-system": "^7.1.6",
     "@talend/utils": "^2.5.0",
     "ajv": "^6.12.6",
     "classnames": "^2.3.1",
@@ -60,7 +61,6 @@
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-controls": "^6.5.9",
     "@talend/bootstrap-theme": "^7.0.0",
-    "@talend/design-system": "^7.1.6",
     "@talend/icons": "^6.51.1",
     "@talend/locales-tui-forms": "^6.41.3",
     "@talend/react-components": "^9.2.0",
@@ -83,7 +83,6 @@
     "react-test-renderer": "^17.0.2"
   },
   "peerDependencies": {
-    "@talend/design-system": ">= 3.0.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
