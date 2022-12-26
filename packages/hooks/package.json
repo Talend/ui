@@ -13,7 +13,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib": "talend-scripts build:lib",
-    "watch": "talend-scripts build:ts:lib --watch",
+    "watch": "talend-scripts build:lib --watch",
     "lint:es": "talend-scripts lint:es",
     "test": "talend-scripts test"
   },
