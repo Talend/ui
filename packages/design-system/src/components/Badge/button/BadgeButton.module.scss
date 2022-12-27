@@ -1,6 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-.badge-popover__button {
+.badge__button {
 	align-items: center;
 	display: inline-flex;
 	justify-content: center;
@@ -21,17 +21,5 @@
 	&:active {
 		background: tokens.$coral-color-accent-background-weak-active;
 		color: tokens.$coral-color-accent-text-strong-active;
-	}
-
-	&__caret {
-		align-items: center;
-		display: inline-flex;
-		transition: transform tokens.$coral-transition-fast;
-	}
-
-	&[aria-expanded='true'] {
-		.badge-popover__button__caret {
-			transform: rotate(-180deg);
-		}
 	}
 }

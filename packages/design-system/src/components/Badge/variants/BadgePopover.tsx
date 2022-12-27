@@ -1,39 +1,9 @@
 import React, { forwardRef, Ref } from 'react';
 
-import Clickable from '../../Clickable';
 import Divider from '../../Divider';
 import { StackHorizontal } from '../../Stack';
+import BadgeButton from '../button/BadgeButton';
 import BadgePrimitive, { BadgePopoverItem, BadgePrimitiveProps } from '../primitive/BadgePrimitive';
-
-import classnames from 'classnames';
-import styles from './BadgePopover.module.scss';
-
-// --------------------------------------------------
-// Badge Popover button
-// --------------------------------------------------
-
-interface BadgePopoverButtonProps {
-	componentId?: string;
-	children?: string;
-	onClick?: () => void;
-}
-
-function BadgePopoverButton({ componentId, children, onClick }: BadgePopoverButtonProps) {
-	return (
-		<Clickable
-			className={classnames(styles['badge-popover__button'])}
-			data-testid={componentId}
-			key={componentId}
-			onClick={onClick}
-		>
-			{children}
-		</Clickable>
-	);
-}
-
-// --------------------------------------------------
-// Badge Dropdown
-// --------------------------------------------------
 
 export type BadgePopoverProps = BadgePrimitiveProps & {
 	value: BadgePopoverItem[];
@@ -52,12 +22,9 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 								<Divider key={`badgepopover-divider-${item.id}`} orientation="vertical" />
 							)}
 
-							<BadgePopoverButton
-								componentId={`badgepopover-button-${item.id}`}
-								onClick={item.onClick}
-							>
+							<BadgeButton componentId={`badgepopover-button-${item.id}`} onClick={item.onClick}>
 								{item.label}
-							</BadgePopoverButton>
+							</BadgeButton>
 						</React.Fragment>
 					))}
 				</StackHorizontal>

@@ -4,7 +4,7 @@ import { BadgeDropdown, BadgePopover, BadgeTag, BadgeValue } from '.';
 
 /* eslint-disable testing-library/prefer-screen-queries */
 
-context('<Tag />', () => {
+context('<Badge />', () => {
 	const label = 'Delightful';
 	const items = [
 		{ id: '1', label: 'Component', onClick: () => {} },

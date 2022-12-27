@@ -1,7 +1,6 @@
 import React, { forwardRef, Ref, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Clickable from '../../Clickable';
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import Dropdown from '../../Dropdown';
 import { DropdownItemType } from '../../Dropdown/Dropdown';
@@ -15,6 +14,7 @@ import BadgePrimitive, {
 
 import classnames from 'classnames';
 import styles from './BadgeDropdown.module.scss';
+import BadgeButton from '../button/BadgeButton';
 
 // --------------------------------------------------
 // Badge Dropdown button
@@ -28,20 +28,15 @@ interface BadgeDropdownButtonProps {
 const BadgeDropdownButton = forwardRef(
 	({ children, ...rest }: BadgeDropdownButtonProps, ref: Ref<HTMLButtonElement>) => {
 		return (
-			<Clickable
-				className={classnames(styles['badge-dropdown__button'])}
-				data-testid="badgedropdown-button"
-				ref={ref}
-				{...rest}
-			>
+			<BadgeButton componentId="badgedropdown-button" ref={ref} {...rest}>
 				<StackHorizontal gap="XS" as="span" align="center">
 					{children}
 
-					<span className={styles['badge-dropdown__button__caret']}>
+					<span className={classnames(styles['badge-dropdown__button__caret'])}>
 						<SizedIcon size="S" name="chevron-down" />
 					</span>
 				</StackHorizontal>
-			</Clickable>
+			</BadgeButton>
 		);
 	},
 );

@@ -66,7 +66,6 @@ export const StoryBadgeDropdown = () => (
 			Variant component BadgeDropdown
 			<BadgeDropdown
 				label="Awesome"
-				selectedId="3"
 				value={[
 					{ id: '1', label: 'Feature' },
 					{ id: '2', label: 'Item' },
