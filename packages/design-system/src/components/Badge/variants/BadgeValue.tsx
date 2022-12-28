@@ -7,6 +7,9 @@ import { StackHorizontal } from '../../Stack';
 import Divider from '../../Divider';
 
 export type BadgeValueProps = BadgePrimitiveProps & {
+	/**
+	 * List of label to display in Badge's right part.
+	 */
 	value: string[];
 };
 
@@ -14,7 +17,7 @@ const BadgeValue = forwardRef((props: BadgeValueProps, ref: Ref<HTMLSpanElement>
 	const { value } = props;
 
 	return (
-		<BadgePrimitive {...props} ref={ref} withDivider>
+		<BadgePrimitive {...props} ref={ref}>
 			<span className={classnames(styles['badge-value__children'])} data-testid="badge-value">
 				<StackHorizontal gap="XS" as="span" align="center">
 					{value.map((item: string, idx: number) => (

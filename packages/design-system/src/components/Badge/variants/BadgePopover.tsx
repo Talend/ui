@@ -6,6 +6,9 @@ import BadgeButton from '../button/BadgeButton';
 import BadgePrimitive, { BadgePopoverItem, BadgePrimitiveProps } from '../primitive/BadgePrimitive';
 
 export type BadgePopoverProps = BadgePrimitiveProps & {
+	/**
+	 * List of items displayed as buttons in Badge's right part.
+	 */
 	value: BadgePopoverItem[];
 };
 
@@ -13,7 +16,7 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 	const { value } = props;
 
 	return (
-		<BadgePrimitive {...props} ref={ref} withDivider>
+		<BadgePrimitive {...props} ref={ref}>
 			{
 				<StackHorizontal gap="XXS" as="span" align="center">
 					{value.map((item: BadgePopoverItem, idx: number) => (

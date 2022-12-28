@@ -18,16 +18,16 @@ context('<Badge />', () => {
 	});
 
 	it('should render BadgeValue', () => {
-		cy.mount(<BadgeValue label={label} value={items.map(v => v.label)} withOperator={false} />);
+		cy.mount(<BadgeValue label={label} value={items.map(v => v.label)} />);
 
 		cy.getByTestId('badge-label').should('have.text', label);
 		cy.getByTestId('badge-divider');
 
-		items.map(v => v.label).map(v => cy.getByTestId(`badgevalue-${v}`).should('have.text', v));
+		items.map(v => v.label).forEach(v => cy.getByTestId(`badgevalue-${v}`).should('have.text', v));
 	});
 
 	it('should render BadgeDropdown', () => {
-		cy.mount(<BadgeDropdown label={label} selectedId="2" value={items} withOperator={false} />);
+		cy.mount(<BadgeDropdown label={label} selectedId="2" value={items} />);
 
 		cy.getByTestId('badge-label').should('have.text', label);
 		cy.getByTestId('badge-divider');
@@ -36,11 +36,11 @@ context('<Badge />', () => {
 	});
 
 	it('should render BadgePopover', () => {
-		cy.mount(<BadgePopover label={label} value={items} withOperator={false} />);
+		cy.mount(<BadgePopover label={label} value={items} />);
 
 		cy.getByTestId('badge-label').should('have.text', label);
 		cy.getByTestId('badge-divider');
 
-		items.map(v => cy.getByTestId(`badgepopover-button-${v.id}`).should('have.text', v.label));
+		items.forEach(v => cy.getByTestId(`badgepopover-button-${v.id}`).should('have.text', v.label));
 	});
 });

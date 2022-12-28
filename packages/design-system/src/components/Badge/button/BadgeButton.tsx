@@ -5,8 +5,19 @@ import styles from './BadgeButton.module.scss';
 import Clickable from '../../Clickable';
 
 interface BadgeButtonProps {
+	/**
+	 * Component ID used as key and for data-testid.
+	 */
 	componentId?: string;
+
+	/**
+	 * (optional) Element to display in button.
+	 */
 	children?: JSX.Element | string;
+
+	/**
+	 * (optional) Button click handler.
+	 */
 	onClick?: () => void;
 }
 

@@ -41,15 +41,9 @@ export type BadgeVariantType<T extends Variants, P extends BadgePrimitiveProps> 
 // Badge Divider
 // --------------------------------------------------
 
-interface BadgeDividerProps {
-	withOperator: boolean;
-}
-
-function BadgeDivider({ withOperator }: BadgeDividerProps) {
+function BadgeDivider() {
 	// TODO BADGE - create operator component (data-testid="badge-operator")
-	return withOperator ? (
-		<></>
-	) : (
+	return (
 		<span className={classnames(styles.badge__divider)} data-testid="badge-divider">
 			<Divider orientation="vertical" />
 		</span>
@@ -60,16 +54,11 @@ function BadgeDivider({ withOperator }: BadgeDividerProps) {
 // Badge Primitive
 // --------------------------------------------------
 
-interface BadgeInternalProps {
-	withDivider?: boolean;
-}
-
 export interface BadgePrimitiveProps {
 	label: string;
 	onClose?: () => void;
 	ref: Ref<HTMLSpanElement>;
 	semanticIcon?: SemanticIcon;
-	withOperator?: boolean;
 }
 
 function BadgePrimitive({
@@ -78,12 +67,12 @@ function BadgePrimitive({
 	onClose,
 	ref,
 	semanticIcon = 'none',
-	withDivider = false,
-	withOperator = false,
-}: PropsWithChildren<BadgePrimitiveProps & BadgeInternalProps>) {
+}: PropsWithChildren<BadgePrimitiveProps>) {
 	// TODO BADGE - handle onClose to manage close button
 
 	// TODO BADGE - handle semanticIcon to display semantic icon
+
+	// TODO BADGE - implement withOperator props
 
 	return (
 		<span className={classnames(styles.badge)} ref={ref}>
@@ -97,7 +86,7 @@ function BadgePrimitive({
 					{label}
 				</span>
 
-				{withDivider && <BadgeDivider withOperator={withOperator} />}
+				{React.Children.count(children) > 0 && <BadgeDivider />}
 
 				{children}
 			</StackHorizontal>

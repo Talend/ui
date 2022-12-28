@@ -70,8 +70,19 @@ function mapBadgeItemToDropdownItem(
 }
 
 export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children'> & {
+	/**
+	 * (optional) Listener for item selection.
+	 */
 	onChange?: (selectedId: string) => void;
+
+	/**
+	 * (optional) ID of item to select by default. If not filled, first one is selected.
+	 */
 	selectedId?: string;
+
+	/**
+	 * List of items available in dropdown menu.
+	 */
 	value: BadgeDropdownItem[];
 };
 
@@ -81,11 +92,11 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 	const [selectedValue, setSelectedValue] = useState(
-		selectedId ? value?.find(v => v.id === selectedId) : value?.[0],
+		selectedId ? value.find(v => v.id === selectedId) : value[0],
 	);
 
 	return (
-		<BadgePrimitive {...props} ref={ref} withDivider>
+		<BadgePrimitive {...props} ref={ref}>
 			<Dropdown
 				aria-label={t('BADGE_ARIA_lABEL_SELECT_ITEM', 'Select item')}
 				items={value.map(mapBadgeItemToDropdownItem(setSelectedValue, onChange))}
