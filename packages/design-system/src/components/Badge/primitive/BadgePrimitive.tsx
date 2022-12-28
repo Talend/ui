@@ -82,7 +82,7 @@ function BadgePrimitive({
 				align="center"
 				display="inline"
 			>
-				<span className={classnames(styles.badge__name)} data-testid="badge-label">
+				<span className={classnames(styles.badge__label)} data-testid="badge-label">
 					{label}
 				</span>
 

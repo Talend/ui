@@ -8,7 +8,8 @@
 	border-radius: tokens.$coral-radius-s;
 }
 
-.badge__name {
+.badge__label {
+	font: tokens.$coral-paragraph-m;
 	padding: tokens.$coral-spacing-xxs;
 }
 
