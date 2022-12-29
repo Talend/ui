@@ -293,6 +293,7 @@ for (let i = 0; i < 100; i += 1) {
 		created: 1474495200,
 		modified: 1474495200,
 		description: `Simple row with icon and actions${[' (crème brûlée)', ''][random(1)]}`,
+		loadingField: { isLoading: true, value: '' },
 		author: 'Jean-Pierre DUPONT',
 		icon: 'talend-file-xls-o',
 		display: 'text',

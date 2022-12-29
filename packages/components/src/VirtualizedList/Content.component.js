@@ -2,6 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
 import TooltipTrigger from '../TooltipTrigger';
+import Skeleton from '../Skeleton';
+
+function renderDefaultCell(cellData) {
+	return typeof cellData === 'object' && cellData.isLoading ? (
+		<Skeleton />
+	) : (
+		<div className="tc-virtualizedlist-default-cell">{cellData}</div>
+	);
+}
 
 function DefaultRenderer({ cellData, columnData, rowData }) {
 	const { getTooltipLabel } = columnData;
@@ -10,14 +19,11 @@ function DefaultRenderer({ cellData, columnData, rowData }) {
 		tooltipLabel = getTooltipLabel(rowData);
 	}
 	return tooltipLabel ? (
-		<TooltipTrigger
-			label={tooltipLabel}
-			tooltipPlacement={columnData.tooltipPlacement || 'top'}
-		>
-			<div className="tc-virtualizedlist-default-cell">{cellData}</div>
+		<TooltipTrigger label={tooltipLabel} tooltipPlacement={columnData.tooltipPlacement || 'top'}>
+			{renderDefaultCell(cellData)}
 		</TooltipTrigger>
 	) : (
-		<div className="tc-virtualizedlist-default-cell">{cellData}</div>
+		renderDefaultCell(cellData)
 	);
 }
 DefaultRenderer.propTypes = {

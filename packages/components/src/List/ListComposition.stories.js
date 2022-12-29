@@ -41,6 +41,7 @@ function CustomList(props) {
 			<List.VList.Label label="TagLabel" dataKey="tagLabel" />
 			<List.VList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} disableSort />
 			<List.VList.Text label="Description" dataKey="description" disableSort />
+			<List.VList.Text label="Loading field" dataKey="loadingField" disableSort />
 			<List.VList.Text label="Author" dataKey="author" />
 			<List.VList.Datetime label="Created" dataKey="created" columnData={{ mode: 'format' }} />
 			<List.VList.Datetime label="Modified" dataKey="modified" columnData={{ mode: 'format' }} />
