@@ -289,6 +289,10 @@ const TALEND_APP_INFO = {
 
 This package bundles automatically for dev only [whyDidYouRender](https://github.com/welldone-software/why-did-you-render) library to help you investigate React rendering issues.
 
+## webpack-bundle-analyzer and inspectpack/plugin
+
+You can add these plugin by passing `--env analyze` option to your start / build webpack command.
+
 ### How to use?
 
 ```javascript
@@ -369,7 +373,8 @@ For more information, see [Sentry CLI configuration values](https://docs.sentry.
 ## dynamic-cdn-webpack-plugin
 
 This entry let you pass options to the plugin `@talend/dynamic-cdn-webpack-plugin`.
-If you want you can also pass false to desactivate it.
+
+If you want you can also pass `false` to desactivate the plugin.
 
 ```json
 {
