@@ -5,10 +5,11 @@ import TooltipTrigger from '../TooltipTrigger';
 import Skeleton from '../Skeleton';
 
 function renderDefaultCell(cellData) {
-	return typeof cellData === 'object' && cellData.isLoading ? (
+	const value = typeof cellData === 'object' ? cellData.value : cellData;
+	return cellData?.isLoading ? (
 		<Skeleton />
 	) : (
-		<div className="tc-virtualizedlist-default-cell">{cellData}</div>
+		<div className="tc-virtualizedlist-default-cell">{value}</div>
 	);
 }
 
@@ -27,7 +28,10 @@ function DefaultRenderer({ cellData, columnData, rowData }) {
 	);
 }
 DefaultRenderer.propTypes = {
-	cellData: PropTypes.string,
+	cellData: PropTypes.oneOfType(PropTypes.string, {
+		isLoading: PropTypes.bool,
+		value: PropTypes.string,
+	}),
 	rowData: PropTypes.object,
 	columnData: PropTypes.shape({
 		tooltipLabel: PropTypes.string,
