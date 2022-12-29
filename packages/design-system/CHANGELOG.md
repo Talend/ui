@@ -1,5 +1,15 @@
 # @talend/design-system
 
+## 7.3.0
+
+### Minor Changes
+
+- 4c5598a5a: Add new Badge component in DS
+
+### Patch Changes
+
+- ed4014653: fix: Collapsible state is init by expaneded props
+
 ## 7.2.0
 
 ### Minor Changes
