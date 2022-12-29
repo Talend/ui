@@ -1,5 +1,12 @@
 # @talend/upgrade-deps
 
+## 1.6.0
+
+### Minor Changes
+
+- e9c4a4801: feat: add support for peerDependencies
+- e9c4a4801: feat: add --ignore-scripts on all commands
+
 ## 1.5.0
 
 ### Minor Changes
