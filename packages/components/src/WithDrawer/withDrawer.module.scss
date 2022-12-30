@@ -3,7 +3,6 @@
 .tc-with-drawer {
 	height: 100%;
 	position: initial;
-	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	// Need to go above the Switcher buttons https://github.com/Talend/ui/blob/master/packages/design-system/src/components/Switch/Switch.style.ts#L12
