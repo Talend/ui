@@ -5,8 +5,8 @@ const config = {
 
 if (process.argv.join(' ').includes('.ts')) {
 	// switch to ts config which is the .eslintrc.js
-	(config.extends = ['./node_modules/@talend/scripts-config-eslint/.eslintrc.js']),
-		(config.parser = '@typescript-eslint/parser');
+	config.extends = ['./node_modules/@talend/scripts-config-eslint/.eslintrc.js'];
+	config.parser = '@typescript-eslint/parser';
 	config.parserOptions = {
 		tsconfigRootDir: __dirname,
 		project: 'tsconfig.json',
