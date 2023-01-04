@@ -1,7 +1,10 @@
 import { useMemo } from 'react';
-import startOfDay from 'date-fns/start_of_day';
+
+import startOfDay from 'date-fns/startOfDay';
 import PropTypes from 'prop-types';
-import { Action, getTheme, Rich, DatePicker } from '@talend/react-components';
+
+import { Action, DatePicker, getTheme, Rich } from '@talend/react-components';
+
 import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeDate.module.scss';
