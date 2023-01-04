@@ -75,7 +75,7 @@ module.exports = function getStorybookConfiguration() {
 	files.forEach(copyFile);
 
 	try {
-		require('@talend/react-cmf');
+		require.resolve('@talend/react-cmf');
 	} catch (e) {
 		fse.removeSync(path.join(TMP_PATH, 'cmf.js'));
 	}
