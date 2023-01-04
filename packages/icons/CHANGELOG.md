@@ -1,5 +1,12 @@
 # @talend/icons
 
+## 6.52.0
+
+### Minor Changes
+
+- 76c15bf5e: added icon `platform` in size `L`
+- 76c15bf5e: added icon `platform` in size `M`
+
 ## 6.51.1
 
 ### Patch Changes

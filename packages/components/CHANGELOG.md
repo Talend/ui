@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 9.4.0
+
+### Minor Changes
+
+- 703133e82: feat(Datalist): add new value available directly in the datalist while been in the add new value mode
+
+### Patch Changes
+
+- ce84cd6ad: fix(TDP-11750): WithDrawer content hidden on safari due to hidden overflow
+- Updated dependencies [76c15bf5e]
+- Updated dependencies [76c15bf5e]
+  - @talend/icons@6.52.0
+
 ## 9.3.0
 
 ### Minor Changes
