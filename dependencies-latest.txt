@@ -1,6 +1,7 @@
 yarn run v1.22.19
 $ /home/runner/work/ui/ui/node_modules/.bin/talend-scripts upgrade:deps --latest --dry
 
+
 CONFIGURATION -------------------------------------------------------------------------------------
 Running command: upgrade:deps With options: --latest,--dry
 
