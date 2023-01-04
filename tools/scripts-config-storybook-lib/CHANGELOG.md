@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 3.0.2
+
+### Patch Changes
+
+- d474e873f: fix: storybook crash trying to load react-cmf module
+
 ## 3.0.1
 
 ### Patch Changes
