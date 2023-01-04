@@ -29,14 +29,14 @@
   },
   "dependencies": {
     "@talend/bootstrap-sass": "^3.4.8",
-    "@talend/icons": "^6.50.0"
+    "@talend/icons": "^6.51.1"
   },
   "devDependencies": {
-    "@talend/icons": "^6.50.0",
-    "@talend/scripts-core": "^12.1.0",
-    "@talend/scripts-preset-react-lib": "^14.0.0",
+    "@talend/icons": "^6.51.1",
+    "@talend/scripts-core": "^12.2.0",
+    "@talend/scripts-preset-react-lib": "^14.0.1",
     "copy-webpack-plugin": "^10.2.4",
-    "css-minimizer-webpack-plugin": "^4.1.0",
+    "css-minimizer-webpack-plugin": "^4.2.2",
     "html-webpack-plugin": "^5.5.0",
     "postcss-preset-env": "^7.8.3",
     "rimraf": "^3.0.2"

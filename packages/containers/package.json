@@ -34,26 +34,26 @@
   },
   "dependencies": {
     "@talend/react-cmf": "^7.1.4",
-    "@talend/react-components": "^9.0.1",
-    "@talend/react-forms": "^8.1.8",
+    "@talend/react-components": "^9.3.0",
+    "@talend/react-forms": "^8.2.0",
     "@talend/utils": "^2.5.0",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
     "react-immutable-proptypes": "^2.2.0",
-    "redux-saga": "^1.1.3",
+    "redux-saga": "^1.2.2",
     "reselect": "^2.5.4"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-actions": "^6.5.15",
     "@talend/bootstrap-theme": "^7.0.0",
     "@talend/icons": "^6.51.1",
     "@talend/locales-tui-containers": "^6.38.1",
     "@talend/react-storybook-cmf": "^7.1.0",
-    "@talend/scripts-core": "^12.1.0",
+    "@talend/scripts-core": "^12.2.0",
     "@talend/scripts-preset-react-lib": "^14.0.1",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
@@ -61,7 +61,7 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.18.1",
+    "react-i18next": "^11.18.6",
     "react-test-renderer": "^17.0.2",
     "redux-saga-tester": "^1.0.874"
   },
@@ -70,7 +70,7 @@
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
     "react-dom": ">= 16.14.0 < 18.0.0",
-    "react-i18next": "^11.8.13"
+    "react-i18next": "^11.18.6"
   },
   "publishConfig": {
     "access": "public"

@@ -13,8 +13,8 @@
     "test": "mocha tests --recursive"
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.18.9",
-    "@talend/scripts-config-cdn": "^10.5.3",
+    "@babel/eslint-parser": "^7.19.1",
+    "@talend/scripts-config-cdn": "^10.6.0",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
