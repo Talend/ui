@@ -56,10 +56,10 @@
   ],
   "lint-staged": {
     "*.{js,jsx}": [
-      "talend-scripts lint:es --quiet --fix"
+      "eslint --config ./node_modules/@talend/scripts-config-eslint/.eslintrc --quiet --fix"
     ],
     "*.{ts,tsx}": [
-      "talend-scripts lint:es --quiet --fix"
+      "eslint --quiet --fix"
     ],
     "*.{json,md,mdx,html,js,jsx,ts,tsx}": [
       "prettier --write"
