@@ -64,8 +64,8 @@ async function runScript() {
 
 	const commandFileName = command.replace(/:/g, '-');
 	const script = await import(`./scripts/${commandFileName}.js`);
-	console.log('###', script.default);
 	const result = script.default(env, presetApi, restOptions);
+
 	if (result.then) {
 		result
 			.then(() => {
