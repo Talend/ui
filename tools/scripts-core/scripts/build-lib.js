@@ -1,13 +1,15 @@
+/* eslint-disable import/extensions */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */
-const fs = require('fs');
-const path = require('path');
-const spawn = require('cross-spawn');
-const rimraf = require('rimraf');
-const cpx = require('cpx2');
+import fs from 'fs';
+import path from 'path';
+import spawn from 'cross-spawn';
+import rimraf from 'rimraf';
+import cpx from 'cpx2';
 
-const { resolveBin } = require('../utils/path-resolver.cjs');
-const { getPreset } = require('../utils/preset.cjs');
-const { getUserConfigFile } = require('../utils/env.cjs');
+import { resolveBin } from '../utils/path-resolver.js';
+import { getPreset } from '../utils/preset.js';
+import { getUserConfigFile } from '../utils/env.js';
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const tsc = resolveBin('typescript', { executable: 'tsc' });
@@ -15,7 +17,7 @@ const pkgPath = path.join(process.cwd(), 'package.json');
 const types = JSON.parse(fs.readFileSync(pkgPath))?.types;
 const isTSLib = !!types;
 
-module.exports = function build(env, presetApi, unsafeOptions) {
+export default async function build(env, presetApi, unsafeOptions) {
 	let useTsc = false;
 	const options = unsafeOptions.filter(o => {
 		if (o === '--tsc') {
@@ -26,7 +28,7 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 		return true;
 	});
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = getPreset(presetName);
+	const preset = await getPreset(presetName);
 
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
@@ -150,4 +152,4 @@ module.exports = function build(env, presetApi, unsafeOptions) {
 		.catch(e => {
 			console.error(e);
 		});
-};
+}

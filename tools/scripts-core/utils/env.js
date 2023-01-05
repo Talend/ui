@@ -1,6 +1,6 @@
-const fs = require('fs');
-const get = require('lodash.get');
-const path = require('path');
+import fs from 'fs';
+import get from 'lodash.get';
+import path from 'path';
 
 /**
  * Get talend-scripts configuration
@@ -25,7 +25,7 @@ function getScriptsConfig(options = []) {
 
 	if (configFilePath) {
 		// Load and return first config file found
-		return require(configFilePath);
+		return JSON.parse(fs.readFileSync(configFilePath));
 	}
 
 	// No config file found
@@ -37,7 +37,7 @@ function getScriptsConfig(options = []) {
  * and the serialized talend-scripts configuration
  * @returns {process.env} The env object
  */
-function getEnv(options) {
+export function getEnv(options) {
 	const env = Object.create(process.env);
 
 	const userConfig = getScriptsConfig(options);
@@ -63,7 +63,7 @@ function getTalendScriptsConfig({ TALEND_SCRIPTS_CONFIG }) {
  * Create a user configuration getter
  * @returns {getUserConfig} The user configuration getter
  */
-function createUserConfigGetter(env = process.env) {
+export function createUserConfigGetter(env = process.env) {
 	const talendScriptsConfig = getTalendScriptsConfig(env);
 	return function getUserConfig(configObjectPath, defaultValue) {
 		return get(talendScriptsConfig, configObjectPath, defaultValue);
@@ -75,15 +75,9 @@ function createUserConfigGetter(env = process.env) {
  * @param userPossibleConfigFiles	The possible file names
  * @returns {string | undefined}	The existing user config file
  */
-function getUserConfigFile(userPossibleConfigFiles) {
+export function getUserConfigFile(userPossibleConfigFiles) {
 	return []
 		.concat(userPossibleConfigFiles)
 		.map(fileName => path.join(process.cwd(), fileName))
 		.find(fs.existsSync);
 }
-
-module.exports = {
-	createUserConfigGetter,
-	getEnv,
-	getUserConfigFile,
-};

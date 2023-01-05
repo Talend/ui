@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-console */
-const { merge } = require('webpack-merge');
-const { getAbsolutePath } = require('../utils/path-resolver.cjs');
-const { getPreset, getPresetApi } = require('../utils/preset.cjs');
+import { merge } from 'webpack-merge';
+import { getAbsolutePath } from '../utils/path-resolver.js';
+import { getPreset, getPresetApi } from '../utils/preset.js';
 
 function getPluginInfo(a) {
 	return {
@@ -15,10 +16,10 @@ function getPluginInfo(a) {
 	};
 }
 
-module.exports = async (env = {}) => {
+export default async (env = {}) => {
 	const presetApi = getPresetApi();
 	const presetName = presetApi.getUserConfig(['preset'], 'talend');
-	const preset = getPreset(presetName);
+	const preset = await getPreset(presetName);
 
 	// Preset default configuration file
 	let webpackConfigurations = [];
@@ -31,7 +32,8 @@ module.exports = async (env = {}) => {
 		console.log(
 			`Merge ${presetApi.mode} webpack config with custom one (${userConfigAbsolutePath})`,
 		);
-		webpackConfigurations.push(require(userConfigAbsolutePath));
+		const config = await import(userConfigAbsolutePath);
+		webpackConfigurations.push(config.default);
 	}
 
 	webpackConfigurations = await Promise.all(

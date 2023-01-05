@@ -1,12 +1,13 @@
-const { getPreset } = require('../utils/preset.cjs');
+/* eslint-disable import/extensions */
+import { getPreset } from '../utils/preset.js';
 
 /**
  * This function downloads custom talend-build on the CDN to
  * put them inside your node_modules
  * so they are well resolved in the webpack-copy-plugin configuration
  */
-module.exports = function postInstall(env, presetApi, options) {
+export default async function postInstall(env, presetApi, options) {
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = getPreset(presetName);
+	const preset = await getPreset(presetName);
 	return preset.postInstall(options);
-};
+}

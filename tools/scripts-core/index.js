@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+/* eslint-disable import/extensions */
+/* eslint-disable no-console */
 
-import { getEnv } from './utils/env.cjs';
-import { getPresetApi } from './utils/preset.cjs';
-import { printSeparator } from './utils/log.cjs';
+import { getEnv } from './utils/env.js';
+import { getPresetApi } from './utils/preset.js';
+import { printSeparator } from './utils/log.js';
 
 const command = process.argv[2];
 const options = process.argv.slice(3);
@@ -61,7 +63,7 @@ async function runScript() {
 	printSeparator('RUN');
 
 	const commandFileName = command.replace(/:/g, '-');
-	const script = await import(`./scripts/${commandFileName}.cjs`);
+	const script = await import(`./scripts/${commandFileName}.js`);
 	console.log('###', script.default);
 	const result = script.default(env, presetApi, restOptions);
 	if (result.then) {

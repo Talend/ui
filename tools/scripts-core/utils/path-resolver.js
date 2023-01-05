@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const which = require('which');
+import fs from 'fs';
+import path from 'path';
+import which from 'which';
 
 /**
  * Resolve the bin module executable path.
@@ -10,7 +10,7 @@ const which = require('which');
  * @param cwd The execution path
  * @returns {*} The executable path
  */
-function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {}) {
+export function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {}) {
 	let systemCommandPath;
 	try {
 		systemCommandPath = fs.realpathSync(which.sync(executable));
@@ -20,7 +20,8 @@ function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {})
 	try {
 		const modPkgPath = require.resolve(`${modName}/package.json`);
 		const modPkgDir = path.dirname(modPkgPath);
-		const { bin } = require(modPkgPath);
+		const mod = JSON.parse(fs.readFileSync(modPkgPath));
+		const { bin } = mod.bin;
 		const binPath = typeof bin === 'string' ? bin : bin[executable];
 		const fullPathToBin = path.join(modPkgDir, binPath);
 		if (fullPathToBin === systemCommandPath) {
@@ -40,7 +41,7 @@ function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {})
  * @param userPath The path to resolve
  * @returns {*} The absolute path
  */
-function getAbsolutePath(userPath) {
+export function getAbsolutePath(userPath) {
 	if (userPath.startsWith('/')) {
 		return userPath;
 	}
@@ -53,12 +54,6 @@ function getAbsolutePath(userPath) {
  * @param filePath The path
  * @returns {string} The relative path from cwd
  */
-function hereRelative(dirname, filePath) {
+export function hereRelative(dirname, filePath) {
 	return path.join(dirname, filePath).replace(process.cwd(), '.');
 }
-
-module.exports = {
-	getAbsolutePath,
-	hereRelative,
-	resolveBin,
-};

@@ -1,13 +1,14 @@
-const spawn = require('cross-spawn');
-const { resolveBin } = require('../utils/path-resolver.cjs');
-const { getPreset } = require('../utils/preset.cjs');
-const { getUserConfigFile } = require('../utils/env.cjs');
+/* eslint-disable import/extensions */
+import spawn from 'cross-spawn';
+import { resolveBin } from '../utils/path-resolver.js';
+import { getPreset } from '../utils/preset.js';
+import { getUserConfigFile } from '../utils/env.js';
 
 const stylelint = resolveBin('stylelint');
 
-module.exports = function lintCss(env, presetApi, options) {
+export default async function lintCss(env, presetApi, options) {
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = getPreset(presetName);
+	const preset = await getPreset(presetName);
 	const stylelintConfigPath =
 		getUserConfigFile([
 			'.stylelintrc.js',
@@ -32,4 +33,4 @@ module.exports = function lintCss(env, presetApi, options) {
 		stdio: 'inherit',
 		env,
 	});
-};
+}

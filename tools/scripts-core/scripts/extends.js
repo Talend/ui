@@ -1,8 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const template = require('lodash.template');
-const { getPreset } = require('../utils/preset.cjs');
-const { getUserConfigFile } = require('../utils/env.cjs');
+/* eslint-disable import/extensions */
+import fs from 'fs';
+import path from 'path';
+import template from 'lodash.template';
+import { getPreset } from '../utils/preset.js';
+import { getUserConfigFile } from '../utils/env.js';
 
 const jestExtendsTemplate = template(`const defaults = require('<%= presetConfigRelativePath %>');
 
@@ -67,9 +68,9 @@ function generateConfigFile({ configFileNames, defaultConfigFilePath, generateCo
 	console.log(`✅ ${fileName} created.`);
 }
 
-module.exports = function extend(env, presetApi) {
+export default async function extend(env, presetApi) {
 	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = getPreset(presetName);
+	const preset = await getPreset(presetName);
 	const rootPath = process.cwd();
 	const nodeModulesPath = path.join(rootPath, 'node_modules');
 
@@ -147,4 +148,4 @@ module.exports = function extend(env, presetApi) {
 	});
 
 	return { status: 0 };
-};
+}

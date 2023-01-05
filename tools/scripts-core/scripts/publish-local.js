@@ -1,11 +1,12 @@
-const spawn = require('cross-spawn');
-const { resolveBin } = require('../utils/path-resolver.cjs');
+/* eslint-disable import/extensions */
+import spawn from 'cross-spawn';
+import { resolveBin } from '../utils/path-resolver.js';
 
 const publishLocal = resolveBin('@talend/scripts-publish-local', {
 	executable: 'talend-publish-local',
 });
 
-module.exports = function spawnPublishLocal() {
+export default function spawnPublishLocal() {
 	try {
 		return spawn.sync(
 			publishLocal,
@@ -16,4 +17,4 @@ module.exports = function spawnPublishLocal() {
 		console.error(error);
 	}
 	return undefined;
-};
+}

@@ -5,7 +5,7 @@ const fs = require('fs');
 const rimraf = require('rimraf');
 
 const fixture = path.join(__dirname, 'fixture');
-const bin = path.resolve(__dirname, 'index.mjs');
+const bin = path.resolve(__dirname, 'index.js');
 
 function getTmpDirectory(prefix) {
 	const date = new Date();
