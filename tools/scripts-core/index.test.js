@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-console */
 const path = require('path');
 const cpx = require('cpx2');
 const { spawnSync } = require('child_process');
@@ -44,7 +46,6 @@ describe('talend-scripts', () => {
 			const output = spawnSync('node', [bin, 'build:lib'], { cwd: tmp });
 			const logs = output.stdout.toString();
 			expect(output.error).toBeUndefined();
-			console.log(logs, tmp);
 			expect(logs).toContain('CONFIGURATION -----');
 			expect(logs).toContain('Running command: build:lib With options: ');
 			expect(logs).toContain('Talend scripts mode : production');
