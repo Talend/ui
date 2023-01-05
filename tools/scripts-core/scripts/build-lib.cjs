@@ -5,9 +5,9 @@ const spawn = require('cross-spawn');
 const rimraf = require('rimraf');
 const cpx = require('cpx2');
 
-const { resolveBin } = require('../utils/path-resolver');
-const { getPreset } = require('../utils/preset');
-const { getUserConfigFile } = require('../utils/env');
+const { resolveBin } = require('../utils/path-resolver.cjs');
+const { getPreset } = require('../utils/preset.cjs');
+const { getUserConfigFile } = require('../utils/env.cjs');
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const tsc = resolveBin('typescript', { executable: 'tsc' });

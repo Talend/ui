@@ -5,7 +5,7 @@ const fs = require('fs');
 const rimraf = require('rimraf');
 
 const fixture = path.join(__dirname, 'fixture');
-const bin = path.resolve(__dirname, 'index.js');
+const bin = path.resolve(__dirname, 'index.mjs');
 
 function getTmpDirectory(prefix) {
 	const date = new Date();
@@ -44,6 +44,7 @@ describe('talend-scripts', () => {
 			const output = spawnSync('node', [bin, 'build:lib'], { cwd: tmp });
 			const logs = output.stdout.toString();
 			expect(output.error).toBeUndefined();
+			console.log(logs, tmp);
 			expect(logs).toContain('CONFIGURATION -----');
 			expect(logs).toContain('Running command: build:lib With options: ');
 			expect(logs).toContain('Talend scripts mode : production');

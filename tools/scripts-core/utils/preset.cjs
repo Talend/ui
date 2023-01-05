@@ -1,4 +1,4 @@
-const { createUserConfigGetter } = require('./env');
+const { createUserConfigGetter } = require('./env.cjs');
 
 /**
  * Get the preset arguments

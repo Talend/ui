@@ -3,9 +3,10 @@
   "description": "Set of scripts",
   "version": "12.2.0",
   "license": "Apache-2.0",
-  "main": "index.js",
+  "exports": "./index.mjs",
+  "type": "module",
   "bin": {
-    "talend-scripts": "./index.js"
+    "talend-scripts": "./index.mjs"
   },
   "author": "Talend Frontend <frontend@talend.com>",
   "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",

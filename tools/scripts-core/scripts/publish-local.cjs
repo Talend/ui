@@ -1,7 +1,9 @@
 const spawn = require('cross-spawn');
-const { resolveBin } = require('../utils/path-resolver');
+const { resolveBin } = require('../utils/path-resolver.cjs');
 
-const publishLocal = resolveBin('@talend/scripts-publish-local', { executable: 'talend-publish-local' });
+const publishLocal = resolveBin('@talend/scripts-publish-local', {
+	executable: 'talend-publish-local',
+});
 
 module.exports = function spawnPublishLocal() {
 	try {
@@ -10,7 +12,7 @@ module.exports = function spawnPublishLocal() {
 			process.argv.filter(a => a.startsWith('-')),
 			{ stdio: 'inherit' },
 		);
-	} catch(error) {
+	} catch (error) {
 		console.error(error);
 	}
 	return undefined;

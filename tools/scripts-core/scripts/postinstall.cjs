@@ -1,4 +1,4 @@
-const { getPreset } = require('../utils/preset');
+const { getPreset } = require('../utils/preset.cjs');
 
 /**
  * This function downloads custom talend-build on the CDN to

@@ -1,5 +1,5 @@
 const spawn = require('cross-spawn');
-const { hereRelative, resolveBin } = require('../utils/path-resolver');
+const { hereRelative, resolveBin } = require('../utils/path-resolver.cjs');
 
 const webpack = resolveBin('webpack');
 
@@ -9,7 +9,7 @@ module.exports = function start(env, _, options) {
 		[
 			'serve',
 			'--config',
-			hereRelative(__dirname, '../config/webpack.config.js'),
+			hereRelative(__dirname, '../config/webpack.config.cjs'),
 			'--progress',
 			...options,
 		],

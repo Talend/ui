@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const template = require('lodash.template');
-const { getPreset } = require('../utils/preset');
-const { getUserConfigFile } = require('../utils/env');
+const { getPreset } = require('../utils/preset.cjs');
+const { getUserConfigFile } = require('../utils/env.cjs');
 
 const jestExtendsTemplate = template(`const defaults = require('<%= presetConfigRelativePath %>');
 

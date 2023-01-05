@@ -1,13 +1,13 @@
 const spawn = require('cross-spawn');
-const { resolveBin, hereRelative } = require('../utils/path-resolver');
-const { getUserConfigFile } = require('../utils/env');
+const { resolveBin, hereRelative } = require('../utils/path-resolver.cjs');
+const { getUserConfigFile } = require('../utils/env.cjs');
 
 const webpack = resolveBin('webpack');
 
 function buildUMD(env, presetApi, options = []) {
 	return spawn.sync(
 		webpack,
-		['--config', hereRelative(__dirname, '../config/webpack.config.js')].concat(options),
+		['--config', hereRelative(__dirname, '../config/webpack.config.cjs')].concat(options),
 		{ stdio: 'inherit', env },
 	);
 }

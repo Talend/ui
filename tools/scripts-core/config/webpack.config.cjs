@@ -2,8 +2,8 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-console */
 const { merge } = require('webpack-merge');
-const { getAbsolutePath } = require('../utils/path-resolver');
-const { getPreset, getPresetApi } = require('../utils/preset');
+const { getAbsolutePath } = require('../utils/path-resolver.cjs');
+const { getPreset, getPresetApi } = require('../utils/preset.cjs');
 
 function getPluginInfo(a) {
 	return {

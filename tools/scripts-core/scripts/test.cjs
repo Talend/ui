@@ -1,7 +1,7 @@
 const spawn = require('cross-spawn');
-const { resolveBin } = require('../utils/path-resolver');
-const { getPreset } = require('../utils/preset');
-const { getUserConfigFile } = require('../utils/env');
+const { resolveBin } = require('../utils/path-resolver.cjs');
+const { getPreset } = require('../utils/preset.cjs');
+const { getUserConfigFile } = require('../utils/env.cjs');
 
 const jest = resolveBin('jest');
 

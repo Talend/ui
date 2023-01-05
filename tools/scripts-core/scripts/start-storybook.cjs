@@ -1,6 +1,6 @@
 const spawn = require('cross-spawn');
-const { resolveBin } = require('../utils/path-resolver');
-const { getPreset } = require('../utils/preset');
+const { resolveBin } = require('../utils/path-resolver.cjs');
+const { getPreset } = require('../utils/preset.cjs');
 
 const startStorybook = resolveBin('start-storybook');
 

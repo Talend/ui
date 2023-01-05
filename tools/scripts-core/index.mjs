@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const { getEnv } = require('./utils/env');
-const { getPresetApi } = require('./utils/preset');
-const { printSeparator } = require('./utils/log');
+import { getEnv } from './utils/env.cjs';
+import { getPresetApi } from './utils/preset.cjs';
+import { printSeparator } from './utils/log.cjs';
 
 const command = process.argv[2];
 const options = process.argv.slice(3);
@@ -40,7 +40,7 @@ function getMode() {
 	return command === 'start' ? 'development' : 'production';
 }
 
-function runScript() {
+async function runScript() {
 	printSeparator('CONFIGURATION');
 
 	const restOptions = options.filter(
@@ -61,7 +61,9 @@ function runScript() {
 	printSeparator('RUN');
 
 	const commandFileName = command.replace(/:/g, '-');
-	const result = require(`./scripts/${commandFileName}`)(env, presetApi, restOptions);
+	const script = await import(`./scripts/${commandFileName}.cjs`);
+	console.log('###', script.default);
+	const result = script.default(env, presetApi, restOptions);
 	if (result.then) {
 		result
 			.then(() => {
