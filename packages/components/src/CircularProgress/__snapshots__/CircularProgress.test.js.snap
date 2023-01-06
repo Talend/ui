@@ -15,7 +15,7 @@ exports[`CircularProgress should render as light if set 1`] = `
     fill="none"
     r={20}
     style={
-      Object {
+      {
         "strokeDasharray": 12.566370614359172,
         "strokeDashoffset": 0,
       }
@@ -39,7 +39,7 @@ exports[`CircularProgress should render at large size if set 1`] = `
     fill="none"
     r={20}
     style={
-      Object {
+      {
         "strokeDasharray": 12.566370614359172,
         "strokeDashoffset": 0,
       }
@@ -63,7 +63,7 @@ exports[`CircularProgress should render at small size if set 1`] = `
     fill="none"
     r={20}
     style={
-      Object {
+      {
         "strokeDasharray": 12.566370614359172,
         "strokeDashoffset": 0,
       }
@@ -87,7 +87,7 @@ exports[`CircularProgress should render by default at default size 1`] = `
     fill="none"
     r={20}
     style={
-      Object {
+      {
         "strokeDasharray": 12.566370614359172,
         "strokeDashoffset": 0,
       }
@@ -111,7 +111,7 @@ exports[`CircularProgress should render with percent if set 1`] = `
     fill="none"
     r={20}
     style={
-      Object {
+      {
         "strokeDasharray": 125.66370614359172,
         "strokeDashoffset": 87.96459430051421,
       }

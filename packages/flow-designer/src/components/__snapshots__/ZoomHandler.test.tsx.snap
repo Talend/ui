@@ -10,7 +10,7 @@ exports[`ZoomHandler renders correctly <ZoomHandler /> renders correctly <ZoomHa
   <rect
     height="100%"
     style={
-      Object {
+      {
         "fill": "none",
         "pointerEvents": "all",
       }
@@ -22,7 +22,7 @@ exports[`ZoomHandler renders correctly <ZoomHandler /> renders correctly <ZoomHa
   <rect
     transform="translate(0, 0) scale(1)"
     transformData={
-      Object {
+      {
         "k": 1,
         "x": 0,
         "y": 0,
@@ -32,7 +32,7 @@ exports[`ZoomHandler renders correctly <ZoomHandler /> renders correctly <ZoomHa
   <rect
     transform="translate(0, 0) scale(1)"
     transformData={
-      Object {
+      {
         "k": 1,
         "x": 0,
         "y": 0,

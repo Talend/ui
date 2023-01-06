@@ -3,11 +3,11 @@
 exports[`Container DeleteResource should render with proper resourceInfo params 1`] = `
 <ConfirmDialog
   cancelAction={
-    Object {
+    {
       "className": "btn-inverse",
       "componentId": "dialog:delete:cancel",
       "label": "CANCEL",
-      "model": Object {
+      "model": {
         "collectionId": undefined,
         "found": true,
         "id": undefined,
@@ -28,11 +28,11 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   onHide={[Function]}
   show={true}
   validateAction={
-    Object {
+    {
       "bsStyle": "danger",
       "componentId": "dialog:delete:validate",
       "label": "REMOVE",
-      "model": Object {
+      "model": {
         "collectionId": undefined,
         "found": true,
         "id": undefined,
@@ -53,18 +53,18 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   <Trans
     i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE"
     tOptions={
-      Object {
+      {
         "context": "female",
       }
     }
   >
     Are you sure you want to remove the 
-    Object {
+    {
       "resourceTypeLabel": "resourceLabel",
     }
      
     <strong>
-      Object {
+      {
         "label": "myLabel",
       }
     </strong>
@@ -76,11 +76,11 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
 exports[`Container DeleteResource should render with wrong resourceInfo params 1`] = `
 <ConfirmDialog
   cancelAction={
-    Object {
+    {
       "className": "btn-inverse",
       "componentId": "dialog:delete:cancel",
       "label": "CANCEL",
-      "model": Object {
+      "model": {
         "collectionId": undefined,
         "found": false,
         "id": undefined,
@@ -99,11 +99,11 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
   onHide={[Function]}
   show={true}
   validateAction={
-    Object {
+    {
       "bsStyle": "danger",
       "componentId": "dialog:delete:validate",
       "label": "REMOVE",
-      "model": Object {
+      "model": {
         "collectionId": undefined,
         "found": false,
         "id": undefined,
@@ -123,12 +123,12 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
     i18nKey="tui-containers:DELETE_RESOURCE_MESSAGE"
   >
     Are you sure you want to remove the 
-    Object {
+    {
       "resourceTypeLabel": "unknownResourceType",
     }
      
     <strong>
-      Object {
+      {
         "label": "",
       }
     </strong>

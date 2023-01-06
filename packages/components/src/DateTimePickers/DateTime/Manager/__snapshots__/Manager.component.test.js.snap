@@ -3,7 +3,7 @@
 exports[`DateTime.Manager should render its children 1`] = `
 <Context.Provider
   value={
-    Object {
+    {
       "date": undefined,
       "onDateChange": [Function],
       "onTimeChange": [Function],

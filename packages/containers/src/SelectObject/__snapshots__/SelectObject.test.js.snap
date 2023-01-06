@@ -29,9 +29,9 @@ exports[`Component SelectObject should render 1`] = `
     <JSONSchemaRenderer
       className="theme-preview"
       schema={
-        Object {
-          "jsonSchema": Object {},
-          "properties": Object {
+        {
+          "jsonSchema": {},
+          "properties": {
             "id": "1",
             "name": "foo",
           },

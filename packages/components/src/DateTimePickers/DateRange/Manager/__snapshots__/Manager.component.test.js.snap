@@ -3,21 +3,21 @@
 exports[`DateRange.Manager should render its children 1`] = `
 <Context.Provider
   value={
-    Object {
-      "endDate": Object {
+    {
+      "endDate": {
         "textInput": "2017-04-10",
         "value": 2017-04-09T22:00:00.000Z,
       },
-      "inputManagement": Object {
+      "inputManagement": {
         "onEndChange": [Function],
         "onStartChange": [Function],
         "placeholder": "YYYY-MM-DD",
       },
-      "pickerManagement": Object {
+      "pickerManagement": {
         "onEndChange": [Function],
         "onStartChange": [Function],
       },
-      "startDate": Object {
+      "startDate": {
         "textInput": "2017-04-04",
         "value": 2017-04-03T22:00:00.000Z,
       },

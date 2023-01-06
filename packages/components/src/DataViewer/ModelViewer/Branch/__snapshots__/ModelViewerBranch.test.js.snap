@@ -20,7 +20,7 @@ exports[`ModelViewerBranch render ModelViewerBranch 1`] = `
       opened={false}
       t={[Function]}
       useCustomIcon={false}
-      value={Object {}}
+      value={{}}
     />
     <SimpleTextKeyValue
       displayTypes={false}
@@ -53,7 +53,7 @@ exports[`ModelViewerBranch render ModelViewerBranch as a union 1`] = `
       opened={true}
       t={[Function]}
       useCustomIcon={false}
-      value={Object {}}
+      value={{}}
     />
     <SimpleTextKeyValue
       displayTypes={false}

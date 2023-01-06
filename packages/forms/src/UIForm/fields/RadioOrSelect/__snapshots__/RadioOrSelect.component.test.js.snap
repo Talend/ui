@@ -8,11 +8,11 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
   onChange={[MockFunction]}
   onFinish={[MockFunction]}
   schema={
-    Object {
+    {
       "description": "Select me",
       "placeholder": "Please select a value",
-      "schema": Object {
-        "enum": Array [
+      "schema": {
+        "enum": [
           "foo",
           "bar",
           "lol",
@@ -20,12 +20,12 @@ exports[`RadioOrSelect field should render select when titleMap has less than 2 
         "type": "string",
       },
       "title": "My Select title",
-      "titleMap": Array [
-        Object {
+      "titleMap": [
+        {
           "name": "My foo title",
           "value": "foo",
         },
-        Object {
+        {
           "name": "My bar title",
           "value": "bar",
         },
@@ -44,11 +44,11 @@ exports[`RadioOrSelect field should render select when titleMap has more than 2 
   onChange={[MockFunction]}
   onFinish={[MockFunction]}
   schema={
-    Object {
+    {
       "description": "Select me",
       "placeholder": "Please select a value",
-      "schema": Object {
-        "enum": Array [
+      "schema": {
+        "enum": [
           "foo",
           "bar",
           "lol",
@@ -56,16 +56,16 @@ exports[`RadioOrSelect field should render select when titleMap has more than 2 
         "type": "string",
       },
       "title": "My Select title",
-      "titleMap": Array [
-        Object {
+      "titleMap": [
+        {
           "name": "My foo title",
           "value": "foo",
         },
-        Object {
+        {
           "name": "My bar title",
           "value": "bar",
         },
-        Object {
+        {
           "name": "My lol title",
           "value": "lol",
         },

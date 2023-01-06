@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`state should getStateAccessors return accessors 1`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "name",
       "initialComponentState": Immutable.Map {
         "foo": "bar",
@@ -18,11 +18,11 @@ Object {
 `;
 
 exports[`state should getStateAccessors return accessors 2`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "name",
-      "componentState": Object {
+      "componentState": {
         "foo": "baz",
       },
       "key": "id",
@@ -35,9 +35,9 @@ Object {
 `;
 
 exports[`state should getStateAccessors return accessors 3`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "name",
       "key": "id",
       "type": "REACT_CMF.COMPONENT_REMOVE_STATE",
@@ -49,9 +49,9 @@ Object {
 `;
 
 exports[`state should getStateAccessors should support no DEFAULT_STATE 1`] = `
-Object {
-  "cmf": Object {
-    "componentState": Object {
+{
+  "cmf": {
+    "componentState": {
       "componentName": "name",
       "componentState": undefined,
       "key": "id",
