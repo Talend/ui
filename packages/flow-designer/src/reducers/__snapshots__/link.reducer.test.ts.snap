@@ -17,7 +17,7 @@ Immutable.Map {
     },
     "id3": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -298,7 +298,7 @@ Immutable.Map {
       "id2": "id2",
     },
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -584,7 +584,7 @@ Immutable.Map {
     "id2": Immutable.Map {},
     "id3": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -816,7 +816,7 @@ Immutable.Map {
     },
     "id3": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -1065,7 +1065,7 @@ Immutable.Map {
     },
     "id3": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -1312,7 +1312,7 @@ Immutable.Map {
     },
     "id3": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -1562,7 +1562,7 @@ Immutable.Map {
     },
     "id3": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -1812,7 +1812,7 @@ Immutable.Map {
     },
     "id3": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -2073,7 +2073,7 @@ Immutable.Map {
     },
     "id3": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,

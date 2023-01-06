@@ -3,20 +3,20 @@
 exports[`CellMappedData should render checked mapped data cell for a collection of values 1`] = `
 <DefaultRenderer
   cellData="2, not_mapped, One, Value 1"
-  columnData={Object {}}
+  columnData={{}}
 />
 `;
 
 exports[`CellMappedData should render checked mapped data cell for a collection of values 2`] = `
 <DefaultRenderer
   cellData="Value 1 / Value 2"
-  columnData={Object {}}
+  columnData={{}}
 />
 `;
 
 exports[`CellMappedData should render checked mapped data cell for a string value 1`] = `
 <DefaultRenderer
   cellData="Value 1"
-  columnData={Object {}}
+  columnData={{}}
 />
 `;

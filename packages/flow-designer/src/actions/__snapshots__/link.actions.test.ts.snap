@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Check that link action creators generate proper action objects and perform checking addLink 1`] = `
-Array [
-  Object {
-    "data": Object {},
-    "graphicalAttributes": Object {
+[
+  {
+    "data": {},
+    "graphicalAttributes": {
       "selected": true,
     },
     "linkId": "linkId",
@@ -16,8 +16,8 @@ Array [
 `;
 
 exports[`Check that link action creators generate proper action objects and perform checking removeLink 1`] = `
-Array [
-  Object {
+[
+  {
     "linkId": "id",
     "type": "FLOWDESIGNER_LINK_REMOVE",
   },
@@ -25,8 +25,8 @@ Array [
 `;
 
 exports[`Check that link action creators generate proper action objects and perform checking removeLinkData 1`] = `
-Array [
-  Object {
+[
+  {
     "dataKey": "type",
     "linkId": "id",
     "type": "FLOWDESIGNER_LINK_REMOVE_DATA",
@@ -35,8 +35,8 @@ Array [
 `;
 
 exports[`Check that link action creators generate proper action objects and perform checking removeLinkGrahicalAttribute 1`] = `
-Array [
-  Object {
+[
+  {
     "graphicalAttributesKey": "selected",
     "linkId": "id",
     "type": "FLOWDESIGNER_LINK_REMOVE_GRAPHICAL_ATTRIBUTES",
@@ -45,9 +45,9 @@ Array [
 `;
 
 exports[`Check that link action creators generate proper action objects and perform checking setLinkData 1`] = `
-Array [
-  Object {
-    "data": Object {
+[
+  {
+    "data": {
       "type": "test",
     },
     "linkId": "id",
@@ -57,9 +57,9 @@ Array [
 `;
 
 exports[`Check that link action creators generate proper action objects and perform checking setLinkGraphicalAttributes 1`] = `
-Array [
-  Object {
-    "graphicalAttributes": Object {
+[
+  {
+    "graphicalAttributes": {
       "selected": true,
     },
     "linkId": "id",
@@ -69,8 +69,8 @@ Array [
 `;
 
 exports[`Check that link action creators generate proper action objects and perform checking setLinkSource 1`] = `
-Array [
-  Object {
+[
+  {
     "linkId": "linkId",
     "sourceId": "portId",
     "type": "FLOWDESIGNER_LINK_SET_SOURCE",
@@ -79,8 +79,8 @@ Array [
 `;
 
 exports[`Check that link action creators generate proper action objects and perform checking setLinkTarget 1`] = `
-Array [
-  Object {
+[
+  {
     "linkId": "linkId",
     "targetId": "portId",
     "type": "FLOWDESIGNER_LINK_SET_TARGET",

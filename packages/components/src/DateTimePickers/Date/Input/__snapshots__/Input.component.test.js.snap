@@ -18,7 +18,7 @@ exports[`Date.Input should render 1`] = `
       minLength={0}
       placeholder="YYYY-MM-DD"
       style={
-        Object {
+        {
           "width": 47,
         }
       }
@@ -34,7 +34,7 @@ exports[`Date.Input should render 1`] = `
         onKeyDown={[Function]}
         placeholder="YYYY-MM-DD"
         style={
-          Object {
+          {
             "width": 47,
           }
         }
@@ -44,7 +44,7 @@ exports[`Date.Input should render 1`] = `
     </DebounceInput>
     <span
       style={
-        Object {
+        {
           "fontSize": "1.4rem",
           "padding": "0 1rem",
           "position": "absolute",

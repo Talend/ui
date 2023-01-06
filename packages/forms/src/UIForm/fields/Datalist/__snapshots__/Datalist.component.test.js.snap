@@ -16,7 +16,7 @@ exports[`Datalist component should render 1`] = `
     className="form-control-container"
     id="my-datalist"
     inputProps={
-      Object {
+      {
         "aria-describedby": "my-datalist-description my-datalist-error",
         "aria-invalid": false,
         "aria-required": true,
@@ -31,16 +31,16 @@ exports[`Datalist component should render 1`] = `
     restricted={false}
     t={[Function]}
     titleMap={
-      Array [
-        Object {
+      [
+        {
           "name": "Foo",
           "value": "foo",
         },
-        Object {
+        {
           "name": "Bar",
           "value": "bar",
         },
-        Object {
+        {
           "name": "Lol",
           "value": "lol",
         },
@@ -67,7 +67,7 @@ exports[`Datalist component should render with multisection 1`] = `
     className="form-control-container"
     id="my-datalist"
     inputProps={
-      Object {
+      {
         "aria-describedby": "my-datalist-description my-datalist-error",
         "aria-invalid": false,
         "aria-required": true,
@@ -82,27 +82,27 @@ exports[`Datalist component should render with multisection 1`] = `
     restricted={false}
     t={[Function]}
     titleMap={
-      Array [
-        Object {
-          "suggestions": Array [
-            Object {
+      [
+        {
+          "suggestions": [
+            {
               "name": "Foo2",
               "value": "foo2",
             },
-            Object {
+            {
               "name": "Lol",
               "value": "lol",
             },
           ],
           "title": "test1",
         },
-        Object {
-          "suggestions": Array [
-            Object {
+        {
+          "suggestions": [
+            {
               "name": "Foo",
               "value": "foo",
             },
-            Object {
+            {
               "name": "Bar",
               "value": "bar",
             },

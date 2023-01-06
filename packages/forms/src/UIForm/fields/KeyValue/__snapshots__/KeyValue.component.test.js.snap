@@ -16,23 +16,23 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": true,
             "disabled": undefined,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "key",
             ],
             "readOnly": undefined,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="lol"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dt>
     <dd>
@@ -40,23 +40,23 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": true,
             "disabled": undefined,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "value",
             ],
             "readOnly": undefined,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="mdr"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dd>
   </dl>
@@ -79,24 +79,24 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": true,
             "disabled": undefined,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "key",
             ],
             "readOnly": true,
             "required": true,
-            "schema": Object {
+            "schema": {
               "type": "number",
             },
             "type": "number",
           }
         }
         value="lol"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dt>
     <dd>
@@ -104,23 +104,23 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": undefined,
             "disabled": undefined,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "value",
             ],
             "readOnly": undefined,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="mdr"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dd>
   </dl>
@@ -143,23 +143,23 @@ exports[`KeyValue field should render default KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": undefined,
             "disabled": undefined,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "key",
             ],
             "readOnly": undefined,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="lol"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dt>
     <dd>
@@ -167,23 +167,23 @@ exports[`KeyValue field should render default KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": undefined,
             "disabled": undefined,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "value",
             ],
             "readOnly": undefined,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="mdr"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dd>
   </dl>
@@ -206,23 +206,23 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": undefined,
             "disabled": true,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "key",
             ],
             "readOnly": undefined,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="lol"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dt>
     <dd>
@@ -230,23 +230,23 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": undefined,
             "disabled": true,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "value",
             ],
             "readOnly": undefined,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="mdr"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dd>
   </dl>
@@ -269,23 +269,23 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": undefined,
             "disabled": undefined,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "key",
             ],
             "readOnly": true,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="lol"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dt>
     <dd>
@@ -293,23 +293,23 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
         onChange={[MockFunction]}
         onFinish={[MockFunction]}
         schema={
-          Object {
+          {
             "autoFocus": undefined,
             "disabled": undefined,
-            "key": Array [
+            "key": [
               "infos",
               "variable",
               "value",
             ],
             "readOnly": true,
-            "schema": Object {
+            "schema": {
               "type": "string",
             },
             "type": "text",
           }
         }
         value="mdr"
-        widgets={Object {}}
+        widgets={{}}
       />
     </dd>
   </dl>

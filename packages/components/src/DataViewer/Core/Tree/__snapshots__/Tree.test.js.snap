@@ -12,7 +12,7 @@ exports[`Tree should return a TreeNode 1`] = `
   leaf={[MockFunction]}
   level={0}
   recursive={[Function]}
-  value={Object {}}
+  value={{}}
 />
 `;
 
@@ -26,7 +26,7 @@ exports[`Tree should return a TreeNodeList 1`] = `
   level={0}
   recursive={[Function]}
   treeClassName="theme-tc-tree tc-tree"
-  value={Array []}
+  value={[]}
 />
 `;
 
@@ -41,7 +41,7 @@ exports[`Tree should return a TreeNodeList with a level > 0 1`] = `
   nodeClassName="theme-tc-tree-node-border tc-tree-node-border"
   recursive={[Function]}
   treeClassName="theme-tc-tree-list tc-tree-list"
-  value={Array []}
+  value={[]}
 />
 `;
 
@@ -56,7 +56,7 @@ exports[`Tree should return a TreeNodeList with a level > 0 and no node border 1
   nodeClassName=""
   recursive={[Function]}
   treeClassName="theme-tc-tree-list tc-tree-list"
-  value={Array []}
+  value={[]}
 />
 `;
 
@@ -70,6 +70,6 @@ exports[`Tree should return a TreeNodeList with custom className 1`] = `
   level={0}
   recursive={[Function]}
   treeClassName="theme-tc-tree tc-tree myCustomClass"
-  value={Array []}
+  value={[]}
 />
 `;
