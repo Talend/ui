@@ -53,7 +53,6 @@
     "@talend/locales-tui-dataviz": "^0.4.6",
     "@talend/react-components": "^9.3.0",
     "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
     "@testing-library/react": "^12.1.5",
     "@types/classnames": "^2.3.1",
     "@types/d3": "^7.4.0",

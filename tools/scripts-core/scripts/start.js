@@ -3,12 +3,13 @@ import spawn from 'cross-spawn';
 import { getDirName } from '../utils/dirname.js';
 import { hereRelative, resolveBin } from '../utils/path-resolver.js';
 import { getPresetEnv } from '../utils/preset.js';
-import startStorybook from './start-storybook';
+import startStorybook from './start-storybook.js';
 
 const webpack = resolveBin('webpack');
 
 export default function start(env, _, options) {
 	const packageType = getPresetEnv();
+	console.log('###', packageType);
 	if (packageType.isApp) {
 		return spawn.sync(
 			webpack,

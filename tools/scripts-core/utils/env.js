@@ -1,7 +1,8 @@
 import fs from 'fs';
-import get from 'lodash.get';
+import _ from 'lodash';
 import path from 'path';
 
+const { get } = _;
 /**
  * Get talend-scripts configuration
  * (either talend-scripts.js or talend-scripts.json in current working dir)

@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
     "@testing-library/react-hooks": "^8.0.1",
     "enzyme": "^3.11.0",
     "mock-socket": "^9.1.5",

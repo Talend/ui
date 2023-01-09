@@ -1,3 +1,6 @@
+/**
+ * deprecated: this script has been moved to scripts-core
+ */
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');

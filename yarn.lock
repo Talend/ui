@@ -3760,36 +3760,6 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-6.41.4.tgz#3a4fbcffa2fc1489021c915ede6d38d08023aaa0"
   integrity sha512-merVbYZ6FfcV48b/XJbNdPPHqYt1MToRO1t1jnNCUfK5++9VlKzeC6hgRVPTUmb2WX5fo8vi/GMGNAfNuGAj8Q==
 
-"@talend/scripts-preset-react-lib@^14.0.1":
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-14.0.1.tgz#d20c54ddcfdb1ef31a316f2341b17828f34edf76"
-  integrity sha512-PugFBgvd7LIDuTa/uthY1IgmlhheOmU7h/Y3SrbHY1uQ2SGBlNVKNzS2zo+YJuXyRSceXpWxHu8wxm4IuLab9A==
-  dependencies:
-    "@talend/scripts-config-babel" "^11.0.0"
-    "@talend/scripts-config-cdn" "^10.5.3"
-    "@talend/scripts-config-eslint" "^11.0.0"
-    "@talend/scripts-config-jest" "^11.1.0"
-    "@talend/scripts-config-prettier" "^11.0.0"
-    "@talend/scripts-config-react-webpack" "^15.0.0"
-    "@talend/scripts-config-storybook-lib" "^3.0.0"
-    "@talend/scripts-config-stylelint" "^2.0.0"
-    "@talend/scripts-config-typescript" "^11.0.0"
-
-"@talend/scripts-preset-react@^15.0.1":
-  version "15.0.1"
-  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react/-/scripts-preset-react-15.0.1.tgz#449b9c7d58164fa1f33ffab961b35e38d2df3d7a"
-  integrity sha512-bzx1HM1P6+f0SQgDks/HEKnv35VnY6nnkmfvqAy4zZt9vvmfFfzBN1d4BZ9XnKhsrubWfJsnkvYogeIeFDtskw==
-  dependencies:
-    "@talend/scripts-config-babel" "^11.0.0"
-    "@talend/scripts-config-cdn" "^10.5.3"
-    "@talend/scripts-config-eslint" "^11.0.0"
-    "@talend/scripts-config-jest" "^11.1.0"
-    "@talend/scripts-config-prettier" "^11.0.0"
-    "@talend/scripts-config-react-webpack" "^15.0.0"
-    "@talend/scripts-config-storybook-lib" "^3.0.0"
-    "@talend/scripts-config-stylelint" "^2.0.0"
-    "@talend/scripts-config-typescript" "^11.0.0"
-
 "@testing-library/dom@^8.0.0", "@testing-library/dom@^8.11.1", "@testing-library/dom@^8.3.0":
   version "8.19.1"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.19.1.tgz#0e2dafd281dedb930bb235eac1045470b4129d0e"
@@ -13563,11 +13533,6 @@ lockfile@1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
-lodash._reinterpolate@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
-  integrity sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==
-
 lodash.clone@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clone/-/lodash.clone-4.5.0.tgz#195870450f5a13192478df4bc3d23d2dea1907b6"
@@ -13722,21 +13687,6 @@ lodash.startcase@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.startcase/-/lodash.startcase-4.4.0.tgz#9436e34ed26093ed7ffae1936144350915d9add8"
   integrity sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==
-
-lodash.template@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
-  integrity sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==
-  dependencies:
-    lodash._reinterpolate "^3.0.0"
-    lodash.templatesettings "^4.0.0"
-
-lodash.templatesettings@^4.0.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz#e481310f049d3cf6d47e912ad09313b154f0fb33"
-  integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
-  dependencies:
-    lodash._reinterpolate "^3.0.0"
 
 lodash.throttle@^4.1.1:
   version "4.1.1"
