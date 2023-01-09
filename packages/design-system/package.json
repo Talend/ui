@@ -5,11 +5,11 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:lib": "talend-scripts build:lib",
     "build:lib:umd": "talend-scripts build:lib:umd --dev",
     "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
     "pre-release": "npm run build:lib:umd && npm run build:lib:umd:min",
-    "watch": "talend-scripts build:ts:lib --watch",
+    "watch": "talend-scripts build:lib --watch",
     "test": "echo Tests are managed by Cypress using yarn test:cy",
     "test:cy": "cypress run-ct",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",

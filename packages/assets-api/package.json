@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "pre-release": "talend-scripts build:lib:umd && talend-scripts build:lib:umd --dev",
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:lib": "talend-scripts build:lib",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",

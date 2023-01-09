@@ -15,18 +15,13 @@ if (command === '--help' || command === '-h' || command === 'help') {
 * build
 * build:lib
 * build:lib:umd
-* lint:es
-* lint:style
 * test
-* test:ng
 * extends
 * start-storybook
 * build-storybook
 `);
 	process.exit(0);
 }
-
-printSeparator('CONFIGURATION');
 console.log(`Running command: ${command}`, `With options: ${options}`);
 
 function getMode() {
@@ -84,7 +79,6 @@ switch (command) {
 	case 'lint:style':
 	case 'test':
 	case 'test:ng':
-	case 'extends':
 	case 'start-storybook':
 	case 'build-storybook':
 		runScript(command, options);

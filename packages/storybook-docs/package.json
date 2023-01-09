@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build:styles": "webpack --config webpack.custom.js --mode=production",
-    "build:lib": "talend-scripts build:ts:lib && npm run build:styles",
+    "build:lib": "talend-scripts build:lib && npm run build:styles",
     "pre-release": "npm run build:lib",
     "start": "npm run storybook",
     "test": "echo no test",

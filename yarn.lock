@@ -3760,6 +3760,36 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-6.41.4.tgz#3a4fbcffa2fc1489021c915ede6d38d08023aaa0"
   integrity sha512-merVbYZ6FfcV48b/XJbNdPPHqYt1MToRO1t1jnNCUfK5++9VlKzeC6hgRVPTUmb2WX5fo8vi/GMGNAfNuGAj8Q==
 
+"@talend/scripts-preset-react-lib@^14.0.1":
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react-lib/-/scripts-preset-react-lib-14.0.1.tgz#d20c54ddcfdb1ef31a316f2341b17828f34edf76"
+  integrity sha512-PugFBgvd7LIDuTa/uthY1IgmlhheOmU7h/Y3SrbHY1uQ2SGBlNVKNzS2zo+YJuXyRSceXpWxHu8wxm4IuLab9A==
+  dependencies:
+    "@talend/scripts-config-babel" "^11.0.0"
+    "@talend/scripts-config-cdn" "^10.5.3"
+    "@talend/scripts-config-eslint" "^11.0.0"
+    "@talend/scripts-config-jest" "^11.1.0"
+    "@talend/scripts-config-prettier" "^11.0.0"
+    "@talend/scripts-config-react-webpack" "^15.0.0"
+    "@talend/scripts-config-storybook-lib" "^3.0.0"
+    "@talend/scripts-config-stylelint" "^2.0.0"
+    "@talend/scripts-config-typescript" "^11.0.0"
+
+"@talend/scripts-preset-react@^15.0.1":
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-preset-react/-/scripts-preset-react-15.0.1.tgz#449b9c7d58164fa1f33ffab961b35e38d2df3d7a"
+  integrity sha512-bzx1HM1P6+f0SQgDks/HEKnv35VnY6nnkmfvqAy4zZt9vvmfFfzBN1d4BZ9XnKhsrubWfJsnkvYogeIeFDtskw==
+  dependencies:
+    "@talend/scripts-config-babel" "^11.0.0"
+    "@talend/scripts-config-cdn" "^10.5.3"
+    "@talend/scripts-config-eslint" "^11.0.0"
+    "@talend/scripts-config-jest" "^11.1.0"
+    "@talend/scripts-config-prettier" "^11.0.0"
+    "@talend/scripts-config-react-webpack" "^15.0.0"
+    "@talend/scripts-config-storybook-lib" "^3.0.0"
+    "@talend/scripts-config-stylelint" "^2.0.0"
+    "@talend/scripts-config-typescript" "^11.0.0"
+
 "@testing-library/dom@^8.0.0", "@testing-library/dom@^8.11.1", "@testing-library/dom@^8.3.0":
   version "8.19.1"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.19.1.tgz#0e2dafd281dedb930bb235eac1045470b4129d0e"

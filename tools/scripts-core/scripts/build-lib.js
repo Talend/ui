@@ -7,8 +7,7 @@ import spawn from 'cross-spawn';
 import rimraf from 'rimraf';
 import cpx from 'cpx2';
 
-import { resolveBin } from '../utils/path-resolver.js';
-import { getPreset } from '../utils/preset.js';
+import { getPkgRootPath, resolveBin } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
@@ -27,15 +26,14 @@ export default async function build(env, presetApi, unsafeOptions) {
 		}
 		return true;
 	});
-	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = await getPreset(presetName);
-
+	const babelRootPath = getPkgRootPath('@talend/scripts-config-babel');
+	const tsRootPath = getPkgRootPath('@talend/scripts-config-typescript');
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
-		preset.getBabelConfigurationPath(presetApi);
+		path.join(babelRootPath, '.babelrc.json');
 	const tscConfigPath =
 		getUserConfigFile(['tsconfig.build.json', 'tsconfig.json']) ||
-		preset.getTypescriptConfigurationPath(presetApi);
+		path.join(tsRootPath, 'tsconfig.json');
 
 	const srcFolder = path.join(process.cwd(), 'src');
 	const targetFolder = path.join(process.cwd(), 'lib');

@@ -18,7 +18,7 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
   "scripts": {
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:lib": "talend-scripts build:lib",
     "build:dev": "talend-scripts build:lib:umd --dev",
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",

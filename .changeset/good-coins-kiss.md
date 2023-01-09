@@ -17,3 +17,4 @@ chore: remove `talend-scripts postinstall` subcommand.
 Never used as it breaks the reproductability of an install.
 
 chore: remove `talend-scripts publish:local` scripts. You can use the dedicated `talend-publish-local` bin by adding it (`@talend/scripts-publish-local`) to your dev dependencies.
+

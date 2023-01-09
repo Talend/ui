@@ -10,7 +10,7 @@
     "pre-release": "yarn build:umd:dev && yarn build:umd:prod",
     "build:umd:dev": "talend-scripts build:lib:umd --dev",
     "build:umd:prod": "talend-scripts build:lib:umd",
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:lib": "talend-scripts build:lib",
     "build-storybook": "talend-scripts build-storybook",
     "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner && rm -rf tmp",
     "lint": "yarn lint:es && yarn lint:style",

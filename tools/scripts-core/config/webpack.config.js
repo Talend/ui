@@ -4,7 +4,7 @@
 /* eslint-disable no-console */
 import { merge } from 'webpack-merge';
 import { getAbsolutePath } from '../utils/path-resolver.js';
-import { getPreset, getPresetApi } from '../utils/preset.js';
+import { getPresetEnv, getPresetApi } from '../utils/preset.js';
 
 function getPluginInfo(a) {
 	return {
@@ -18,8 +18,6 @@ function getPluginInfo(a) {
 
 export default async (env = {}) => {
 	const presetApi = getPresetApi();
-	const presetName = presetApi.getUserConfig(['preset'], 'talend');
-	const preset = await getPreset(presetName);
 
 	// Preset default configuration file
 	let webpackConfigurations = [];

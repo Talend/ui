@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import which from 'which';
+import { createRequire } from 'module';
 
+const require = createRequire(import.meta.url);
 /**
  * Resolve the bin module executable path.
  * This is from kcd-scripts (https://github.com/kentcdodds/kcd-scripts/blob/master/src/utils.js#L21)
@@ -56,4 +58,23 @@ export function getAbsolutePath(userPath) {
  */
 export function hereRelative(dirname, filePath) {
 	return path.join(dirname, filePath).replace(process.cwd(), '.');
+}
+
+export function getPkgRootPath(name) {
+	let rootPath;
+	try {
+		const indexPath = require.resolve(name);
+		let currentPath = indexPath;
+		let found = false;
+		while (!found) {
+			currentPath = path.dirname(currentPath);
+			found = fs.existsSync(path.join(currentPath, 'package.json'));
+			if (found) {
+				rootPath = currentPath;
+			}
+		}
+	} catch (e) {
+		console.error(e);
+	}
+	return rootPath;
 }
