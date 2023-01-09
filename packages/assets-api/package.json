@@ -7,12 +7,11 @@
   "license": "Apache-2.0",
   "scripts": {
     "pre-release": "talend-scripts build:lib:umd && talend-scripts build:lib:umd --dev",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "test:demo": "echo nothing to demo",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
     "lint": "talend-scripts lint"
   },

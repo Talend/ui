@@ -13,7 +13,6 @@ if (command === '--help' || command === '-h' || command === 'help') {
 	console.log(`Please use one of the following commands:
 * start
 * build
-* build:lib
 * build:lib:umd
 * test
 * extends
@@ -71,13 +70,13 @@ async function runScript() {
 }
 
 switch (command) {
-	case 'start':
 	case 'build':
 	case 'build:lib:umd':
-	case 'lint':
-	case 'test':
-	case 'start-storybook':
 	case 'build-storybook':
+	case 'lint':
+	case 'start':
+	case 'start-storybook':
+	case 'test':
 		runScript(command, options);
 		break;
 	default:

@@ -17,7 +17,7 @@
     "addon"
   ],
   "scripts": {
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build",
     "test": "talend-scripts test",
     "lint": "talend-scripts lint"
   },

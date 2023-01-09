@@ -11,7 +11,7 @@
     "build:prod": "talend-scripts build:lib:umd --prod",
     "build-storybook": "talend-scripts build-storybook",
     "pre-release": "yarn build:dev && yarn build:prod && yarn build:ace",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
