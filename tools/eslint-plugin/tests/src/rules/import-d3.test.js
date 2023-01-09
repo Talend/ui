@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * @fileoverview Check if the import of d3 is not on d3-*
  * @author Jean-Michel FRANCOIS
@@ -9,10 +10,10 @@
 
 const rule = require('../../../src/rules/import-d3');
 const RuleTester = require('eslint').RuleTester;
-const parser = require.resolve('@babel/eslint-parser')
+const parser = require.resolve('@babel/eslint-parser');
 const parserOptions = {
 	babelOptions: {
-		configFile: require('@talend/scripts-config-babel')(),
+		configFile: require.resolve('@talend/scripts-config-babel'),
 	},
 };
 
@@ -20,6 +21,7 @@ const parserOptions = {
 // Tests
 //------------------------------------------------------------------------------
 
+describe('test', () => {});
 const ruleTester = new RuleTester();
 ruleTester.run('talend-import-d3', rule, {
 	valid: [
@@ -47,8 +49,7 @@ ruleTester.run('talend-import-d3', rule, {
 			parserOptions,
 			errors: [
 				{
-					message:
-						"'d3-shape' import detected. You should use d3 main package to be cdn compliant",
+					message: "'d3-shape' import detected. You should use d3 main package to be cdn compliant",
 					type: 'ImportDeclaration',
 				},
 			],
