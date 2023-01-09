@@ -5,8 +5,6 @@ import path from 'path';
 import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
 
-const eslint = resolveBin('eslint');
-
 async function lintEs(env, presetApi, options) {
 	const configRootPath = getPkgRootPath('@talend/scripts-config-eslint');
 
@@ -29,6 +27,9 @@ async function lintEs(env, presetApi, options) {
 			args.push('--format', 'json');
 		}
 	}
+
+	const eslint = resolveBin('eslint');
+
 	return spawn.sync(eslint, args, {
 		stdio: 'inherit',
 		env,
@@ -57,6 +58,9 @@ async function lintStyle(env, presetApi, options) {
 			args.push('-f', 'json');
 		}
 	}
+
+	const stylelint = resolveBin('stylelint');
+
 	return spawn.sync(stylelint, args, {
 		stdio: 'inherit',
 		env,
