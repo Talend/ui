@@ -5,15 +5,12 @@ function printIfNotTTY(txt) {
 	return txt;
 }
 
-function red(txt) {
+export function red(txt) {
 	return printIfNotTTY(txt) || `\x1B[31m${txt}\x1B[39m`;
 }
 
-function bold(txt) {
+export function bold(txt) {
 	return printIfNotTTY(txt) || `\x1B[1m${txt}\x1B[22m`;
 }
 
-module.exports = {
-	red,
-	bold,
-};
+export default { red, bold };
