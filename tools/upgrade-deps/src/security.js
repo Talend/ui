@@ -1,10 +1,10 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-const path = require('path');
-const semver = require('semver');
-const yarn = require('./yarn');
-const npm = require('./npm');
-const https = require('./https');
+import path from 'path';
+import semver from 'semver';
+import yarn from './yarn';
+import npm from './npm';
+import https from './https';
 
 function checkVulnerability(vulnerableVersions, version) {
 	return vulnerableVersions.find(({ range }) =>
@@ -14,7 +14,7 @@ function checkVulnerability(vulnerableVersions, version) {
 	);
 }
 
-async function upgradeSecurityVersion(packageMetadata) {
+export async function upgradeSecurityVersion(packageMetadata) {
 	// yarn.lock management
 	const yarnLock = yarn.createYarnLockManager(path.join(process.cwd(), 'yarn.lock'));
 
@@ -154,5 +154,3 @@ async function upgradeSecurityVersion(packageMetadata) {
 
 	return { changed: pkgJson.hasChanged || yarnLock.hasChanged, reports };
 }
-
-module.exports = { upgradeSecurityVersion };

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const mod = require('../src');
+import fs from 'fs';
+import mod from '../src';
 
 const CWD = process.cwd();
 const { upgradeYarnProject, upgradeNpmProject } = mod;

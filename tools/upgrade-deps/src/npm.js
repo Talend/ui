@@ -1,15 +1,15 @@
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-await-in-loop, no-restricted-syntax */
-const fs = require('fs');
-const fsprom = require('fs/promises');
-const os = require('os');
-const util = require('util');
-const path = require('path');
-const { exec } = require('child_process');
-const semver = require('semver');
-const stripAnsi = require('strip-ansi');
-const colors = require('./colors');
+import fs from 'fs';
+import fsprom from 'fs/promises';
+import os from 'os';
+import util from 'util';
+import path from 'path';
+import { exec } from 'child_process';
+import semver from 'semver';
+import stripAnsi from 'strip-ansi';
+import colors from './colors';
 
 const execProm = util.promisify(exec);
 const CWD = process.cwd();
@@ -64,7 +64,7 @@ class PackageJson {
 	}
 }
 
-function createPackageJsonManager(filePath) {
+export function createPackageJsonManager(filePath) {
 	return new PackageJson(filePath);
 }
 
@@ -87,7 +87,7 @@ async function getLatest(dependency) {
 	return CACHE[dependency];
 }
 
-async function getUpdate(dependency, requirement) {
+export async function getUpdate(dependency, requirement) {
 	const cachekey = `${dependency}@${requirement}`;
 	if (!CACHE[cachekey]) {
 		const latest = await execProm(`npm view ${dependency}@"${requirement}" version --json`);
@@ -162,7 +162,7 @@ async function checkVersionsOf(pkgJson, opts) {
 	return changed;
 }
 
-async function checkPackageJson(filePath, opts) {
+export async function checkPackageJson(filePath, opts) {
 	console.log(
 		`\n${
 			opts.dry ? 'check' : `update ${opts.scope || opts.package || 'all'} packages`
@@ -245,7 +245,7 @@ function getFilterInLockFile(opts, exact) {
 		(opts.startsWith && key.startsWith(opts.startsWith));
 }
 
-async function removeFromLockFile(opts) {
+export async function removeFromLockFile(opts) {
 	let content;
 	try {
 		content = await fsprom.readFile(`${CWD}/package-lock.json`);
@@ -272,10 +272,3 @@ async function removeFromLockFile(opts) {
 		console.error(e);
 	}
 }
-
-module.exports = {
-	checkPackageJson,
-	getUpdate,
-	createPackageJsonManager,
-	removeFromLockFile,
-};

@@ -1,14 +1,14 @@
 /* eslint-disable no-param-reassign */
-const { execSync } = require('child_process');
-const os = require('os');
-const path = require('path');
-const semver = require('semver');
-const fs = require('fs');
-const uuid = require('uuid');
+import { execSync } from 'child_process';
+import os from 'os';
+import path from 'path';
+import semver from 'semver';
+import fs from 'fs';
+import uuid from 'uuid';
 
 const reDiff = new RegExp(/^[+,-] {4}"/);
 
-function isSetup() {
+export function isSetup() {
 	return fs.existsSync(path.join(process.cwd(), '.changeset'));
 }
 
@@ -27,7 +27,7 @@ function getModifiedPackage() {
 				.map(l => l.split(' ').pop())
 				// filter
 				.map(p => {
-					const def = require(path.join(process.cwd(), p));
+					const def = JSON.parse(fs.readFileSync(path.join(process.cwd(), p)));
 					def.talend = { path: p };
 					return def;
 				})
@@ -74,7 +74,7 @@ function getModifiedPackage() {
 	return [];
 }
 
-function add(opts) {
+export function add(opts) {
 	const pkgs = getModifiedPackage();
 	pkgs.forEach(pkg => {
 		const diffContent = Object.entries(pkg.talend.diff)
@@ -100,8 +100,3 @@ ${diffContent}
 		);
 	});
 }
-
-module.exports = {
-	add,
-	isSetup,
-};
