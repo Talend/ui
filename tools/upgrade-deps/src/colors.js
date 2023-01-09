@@ -12,3 +12,5 @@ export function red(txt) {
 export function bold(txt) {
 	return printIfNotTTY(txt) || `\x1B[1m${txt}\x1B[22m`;
 }
+
+export default { red, bold };

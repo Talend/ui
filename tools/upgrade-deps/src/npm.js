@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-await-in-loop, no-restricted-syntax */
@@ -9,7 +10,7 @@ import path from 'path';
 import { exec } from 'child_process';
 import semver from 'semver';
 import stripAnsi from 'strip-ansi';
-import colors from './colors';
+import colors from './colors.js';
 
 const execProm = util.promisify(exec);
 const CWD = process.cwd();
@@ -64,7 +65,7 @@ class PackageJson {
 	}
 }
 
-export function createPackageJsonManager(filePath) {
+function createPackageJsonManager(filePath) {
 	return new PackageJson(filePath);
 }
 
@@ -87,7 +88,7 @@ async function getLatest(dependency) {
 	return CACHE[dependency];
 }
 
-export async function getUpdate(dependency, requirement) {
+async function getUpdate(dependency, requirement) {
 	const cachekey = `${dependency}@${requirement}`;
 	if (!CACHE[cachekey]) {
 		const latest = await execProm(`npm view ${dependency}@"${requirement}" version --json`);
@@ -162,7 +163,7 @@ async function checkVersionsOf(pkgJson, opts) {
 	return changed;
 }
 
-export async function checkPackageJson(filePath, opts) {
+async function checkPackageJson(filePath, opts) {
 	console.log(
 		`\n${
 			opts.dry ? 'check' : `update ${opts.scope || opts.package || 'all'} packages`
@@ -245,7 +246,7 @@ function getFilterInLockFile(opts, exact) {
 		(opts.startsWith && key.startsWith(opts.startsWith));
 }
 
-export async function removeFromLockFile(opts) {
+async function removeFromLockFile(opts) {
 	let content;
 	try {
 		content = await fsprom.readFile(`${CWD}/package-lock.json`);
@@ -272,3 +273,9 @@ export async function removeFromLockFile(opts) {
 		console.error(e);
 	}
 }
+export default {
+	checkPackageJson,
+	getUpdate,
+	createPackageJsonManager,
+	removeFromLockFile,
+};

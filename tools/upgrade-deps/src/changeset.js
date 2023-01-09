@@ -4,11 +4,11 @@ import os from 'os';
 import path from 'path';
 import semver from 'semver';
 import fs from 'fs';
-import uuid from 'uuid';
+import crypto from 'crypto';
 
 const reDiff = new RegExp(/^[+,-] {4}"/);
 
-export function isSetup() {
+function isSetup() {
 	return fs.existsSync(path.join(process.cwd(), '.changeset'));
 }
 
@@ -74,7 +74,7 @@ function getModifiedPackage() {
 	return [];
 }
 
-export function add(opts) {
+function add(opts) {
 	const pkgs = getModifiedPackage();
 	pkgs.forEach(pkg => {
 		const diffContent = Object.entries(pkg.talend.diff)
@@ -95,8 +95,17 @@ ${diffContent}
 \`\`\`
 `;
 		fs.writeFileSync(
-			path.join(process.cwd(), '.changeset', `ci-dependencies-${uuid.v4().split('-')[0]}.md`),
+			path.join(
+				process.cwd(),
+				'.changeset',
+				`ci-dependencies-${crypto.randomUUID().split('-')[0]}.md`,
+			),
 			content,
 		);
 	});
 }
+
+export default {
+	add,
+	isSetup,
+};

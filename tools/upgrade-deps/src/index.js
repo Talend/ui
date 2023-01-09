@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 /* eslint no-console: 0 */
@@ -5,11 +6,11 @@ import { exec, spawnSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-import colors from './colors';
-import npm from './npm';
-import yarn from './yarn';
-import changeset from './changeset';
-import { upgradeSecurityVersion } from './security';
+import colors from './colors.js';
+import npm from './npm.js';
+import yarn from './yarn.js';
+import changeset from './changeset.js';
+import { upgradeSecurityVersion } from './security.js';
 
 const CWD = process.cwd();
 

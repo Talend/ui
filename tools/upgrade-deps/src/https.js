@@ -1,6 +1,6 @@
 import https from 'https';
 
-export function get(url) {
+function get(url) {
 	return new Promise((resolve, reject) => {
 		https
 			.get(url, response => {
@@ -21,3 +21,5 @@ export function get(url) {
 			});
 	});
 }
+
+export default { get };

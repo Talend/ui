@@ -105,7 +105,7 @@ function getYarnDedupBin() {
 	return path.join(nodeModules, 'yarn-deduplicate', pkgJson.bin);
 }
 
-module.exports = {
+export default {
 	removeFromLockFile,
 	getYarnDedupBin,
 	parseKey,

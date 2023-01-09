@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+/* eslint-disable import/extensions */
 
 import fs from 'fs';
-import mod from '../src';
+import { upgradeYarnProject, upgradeNpmProject } from '../src/index.js';
 
 const CWD = process.cwd();
-const { upgradeYarnProject, upgradeNpmProject } = mod;
 
 const HELP_MSG = `talend-scripts upgrade [options]
 

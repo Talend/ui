@@ -1,10 +1,11 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 import path from 'path';
 import semver from 'semver';
-import yarn from './yarn';
-import npm from './npm';
-import https from './https';
+import yarn from './yarn.js';
+import npm from './npm.js';
+import https from './https.js';
 
 function checkVulnerability(vulnerableVersions, version) {
 	return vulnerableVersions.find(({ range }) =>
