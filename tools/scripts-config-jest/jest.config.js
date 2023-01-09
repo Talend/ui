@@ -51,10 +51,10 @@ module.exports = {
 	rootDir: process.cwd(),
 	setupFilesAfterEnv: [path.join(__dirname, 'test-setup.js')],
 	testEnvironment: 'jest-environment-jsdom-global',
-	testRegex: 'src/.*\\.test.(js|ts|tsx)$',
+	testRegex: 'src/.*\\.test.(js|ejs|cjs|ts|tsx)$',
 	transform: {
 		// match mjs js jsx ts tsx
-		'^.+\\.m?[jt]sx?$': ['babel-jest', { configFile: getBabelConfigPath() }],
+		'^.+\\.[me]?[jt]sx?$': ['babel-jest', { configFile: getBabelConfigPath() }],
 	},
 	// stop ignore node_modules transform since d3 and others start to put es6 as main of packages
 	transformIgnorePatterns: [

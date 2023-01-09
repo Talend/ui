@@ -2,7 +2,9 @@
 import fs from 'fs';
 import path from 'path';
 import yarnpkg from '@yarnpkg/lockfile';
+import { createRequire } from 'module';
 
+const require = createRequire(import.meta.url);
 const CWD = process.cwd();
 
 function parseKey(key) {
