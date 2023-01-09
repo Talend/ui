@@ -6,7 +6,7 @@ import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
 
 async function lintEs(env, presetApi, options) {
-	const configRootPath = getPkgRootPath('@talend/scripts-config-eslint');
+	const configRootPath = getPkgRootPath('@talend/eslint-config');
 
 	const eslintConfigPath =
 		getUserConfigFile([

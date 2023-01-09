@@ -55,7 +55,7 @@
   ],
   "lint-staged": {
     "*.{js,jsx}": [
-      "eslint --config ./node_modules/@talend/scripts-config-eslint/.eslintrc --quiet --fix"
+      "eslint --quiet --fix"
     ],
     "*.{ts,tsx}": [
       "eslint --quiet --fix"

@@ -1,6 +1,6 @@
 const config = {
 	root: true,
-	extends: ['@talend/scripts-config-eslint'],
+	extends: ['@talend'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		tsconfigRootDir: __dirname,

@@ -1,5 +1,5 @@
 {
-  "name": "@talend/scripts-config-eslint",
+  "name": "@talend/eslint-config",
   "description": "Eslint configuration for @talend/scripts-core",
   "version": "11.0.1",
   "license": "Apache-2.0",

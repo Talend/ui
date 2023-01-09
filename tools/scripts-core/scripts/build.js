@@ -2,7 +2,7 @@
 import spawn from 'cross-spawn';
 import { getDirName } from '../utils/dirname.js';
 import { hereRelative, resolveBin } from '../utils/path-resolver.js';
-import { getPresetEnv } from '../utils/preset.js';
+import { check, getPresetEnv } from '../utils/preset.js';
 import buildLib from './build-lib.js';
 import buildUMD from './build-lib-umd.js';
 
@@ -25,7 +25,7 @@ export default function build(env, _, options) {
 	if (packageType.isLib) {
 		// detect UMD here
 		if (options.includes('--umd')) {
-			check();
+			check('@talend/scripts-config-react-webpack');
 			return buildUMD(
 				env,
 				_,

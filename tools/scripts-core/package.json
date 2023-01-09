@@ -31,8 +31,8 @@
   "dependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.7",
+    "@talend/eslint-config": "^11.0.1",
     "@talend/scripts-config-babel": "^11.0.0",
-    "@talend/scripts-config-eslint": "^11.0.1",
     "@talend/scripts-config-jest": "^11.6.1",
     "@talend/scripts-config-stylelint": "^2.0.0",
     "@talend/scripts-config-typescript": "^11.0.0",
