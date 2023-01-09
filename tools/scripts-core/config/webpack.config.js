@@ -22,7 +22,9 @@ export default async (env = {}) => {
 	let webpackConfigurations = [];
 	// eslint-disable-next-line import/no-extraneous-dependencies
 	const defaultConfig = await import('@talend/scripts-config-react-webpack');
-	webpackConfigurations = webpackConfigurations.concat(defaultConfig.default(presetApi));
+	webpackConfigurations = webpackConfigurations.concat(
+		defaultConfig.default(presetApi, { umd: env.umd }),
+	);
 
 	// User configuration file
 	const userConfigPath = presetApi.getUserConfig(['webpack', 'config', presetApi.mode]);
