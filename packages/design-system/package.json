@@ -13,7 +13,7 @@
     "test": "echo Tests are managed by Cypress using yarn test:cy",
     "test:cy": "cypress run-ct",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "lint:es": "talend-scripts lint:es",
+    "lint": "talend-scripts lint",
     "start": "concurrently \"yarn watch\" \"cd .. && yarn start-storybook\""
   },
   "repository": {

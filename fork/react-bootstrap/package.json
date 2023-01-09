@@ -14,7 +14,7 @@
     "build:prod": "talend-scripts build:lib:umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build:lib",
-    "lint:es": "talend-scripts lint:es",
+    "lint": "talend-scripts lint",
     "test": "talend-scripts test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

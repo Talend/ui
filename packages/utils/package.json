@@ -12,7 +12,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:lib": "talend-scripts build:lib",
-    "lint:es": "talend-scripts lint:es",
+    "lint": "talend-scripts lint",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",

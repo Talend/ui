@@ -1,14 +1,13 @@
 /* eslint-disable import/extensions */
 import spawn from 'cross-spawn';
-import { resolveBin } from '../utils/path-resolver.js';
-import { getPreset } from '../utils/preset.js';
+import path from 'path';
+import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
 
 const stylelint = resolveBin('stylelint');
 
 export default async function lintCss(env, presetApi, options) {
-	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = await getPreset(presetName);
+	const configRootPath = getPkgRootPath('@talend/scripts-config-stylelint');
 	const stylelintConfigPath =
 		getUserConfigFile([
 			'.stylelintrc.js',
@@ -17,7 +16,7 @@ export default async function lintCss(env, presetApi, options) {
 			'.stylelintrc.json',
 			'stylelint.config.js',
 			'.stylelintrc',
-		]) || preset.getStylelintConfigurationPath(presetApi);
+		]) || path.join(configRootPath, '.stylelintrc.js');
 	const args = ['--config', stylelintConfigPath, './src/**/*.*css', ...options];
 
 	// https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables

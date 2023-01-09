@@ -75,6 +75,7 @@ switch (command) {
 	case 'build':
 	case 'build:lib':
 	case 'build:lib:umd':
+	case 'lint':
 	case 'lint:es':
 	case 'lint:style':
 	case 'test':

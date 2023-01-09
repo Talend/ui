@@ -13,8 +13,7 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "lint": "yarn lint:es",
-    "lint:es": "talend-scripts lint:es"
+    "lint": "talend-scripts lint"
   },
   "keywords": [
     "react",

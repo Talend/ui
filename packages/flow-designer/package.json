@@ -7,8 +7,7 @@
   "mainSrc": "src/index.js",
   "scripts": {
     "build:lib": "talend-scripts build:lib",
-    "lint:es": "talend-scripts lint:es",
-    "lint": "talend-scripts lint:es",
+    "lint": "talend-scripts lint",
     "test": "talend-scripts test",
     "pre-release": "talend-scripts build:lib:umd"
   },

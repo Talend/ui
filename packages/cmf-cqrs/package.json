@@ -13,7 +13,7 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "lint:es": "talend-scripts lint:es"
+    "lint": "talend-scripts lint"
   },
   "repository": {
     "type": "git",

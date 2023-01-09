@@ -19,7 +19,7 @@
   "scripts": {
     "build:lib": "talend-scripts build:lib",
     "test": "talend-scripts test",
-    "lint:es": "talend-scripts lint:es"
+    "lint": "talend-scripts lint"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",

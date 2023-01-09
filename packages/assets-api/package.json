@@ -14,7 +14,7 @@
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "echo nothing to demo",
     "lint:es": "talend-scripts lint:es --format json -o eslint-report.json",
-    "lint": "talend-scripts lint:es --format json -o eslint-report.json"
+    "lint": "talend-scripts lint"
   },
   "keywords": [
     "talend"

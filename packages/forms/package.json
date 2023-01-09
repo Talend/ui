@@ -16,9 +16,7 @@
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
-    "lint:es": "talend-scripts lint:es --format json -o eslint-report.json --ignore-pattern deprecated",
-    "lint:style": "talend-scripts lint:style",
-    "lint": "yarn run lint:es && yarn run lint:style",
+    "lint": "yarn run lint",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
   },
