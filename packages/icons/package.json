@@ -15,8 +15,8 @@
     "test": "echo no test",
     "test:cov": "echo no test",
     "test:demo": "yarn build-storybook",
-    "build-storybook": "yarn build:lib && talend-scripts build-storybook --docs",
-    "start": "yarn build:lib && talend-scripts start-storybook -p 6010",
+    "build-storybook": "talend-scripts build-storybook --docs",
+    "start": "talend-scripts start-storybook -p 6010",
     "lint": "echo nothing to lint",
     "svgo": "svgo -f src/svg --config=.svgo-icons.yml && svgo -f src/filters --config=.svgo-filters.yml"
   },

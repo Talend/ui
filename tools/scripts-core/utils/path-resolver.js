@@ -82,9 +82,5 @@ export function getPkgRootPath(name) {
 // Temporary fixes until Storybook handles well Windows path
 // Waiting for a release https://github.com/storybookjs/storybook/pull/17641
 export function fixWindowsPath(pathStr) {
-	return process.platform === 'win32' ? pathStr.replace(/\\/g, '/') : path;
-}
-
-export function fixWindowsPaths(paths) {
-	return paths.map(fixWindowsPath);
+	return process.platform === 'win32' ? pathStr.replace(/\\/g, '/') : pathStr;
 }
