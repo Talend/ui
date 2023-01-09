@@ -34,3 +34,15 @@ in your package.json you have to update all the scripts you are using
 - "test:ng": "talend-scripts test:ng"
 + "test": "talend-scripts test"
 ```
+
+## config now expose as main
+
+if you were used to extends using the complete path, this is not anymore needed for :
+
+- eslint
+- prettier
+- stylelint
+- babel
+- typescript
+
+I let you look at dedicated package which own and document the change
