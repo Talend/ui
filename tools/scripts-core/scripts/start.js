@@ -9,7 +9,7 @@ const webpack = resolveBin('webpack');
 
 export default function start(env, _, options) {
 	const packageType = getPresetEnv();
-	console.log('###', packageType);
+
 	if (packageType.isApp) {
 		return spawn.sync(
 			webpack,
