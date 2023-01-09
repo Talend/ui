@@ -4,6 +4,7 @@ import { TextMode as FieldTemplate } from '../../FieldTemplate';
 import { getFileName } from '../File.component';
 
 export default function FileTextMode(props) {
+	const foo = 'foo';
 	const { id, schema, value } = props;
 	const { title, labelProps } = schema;
 
