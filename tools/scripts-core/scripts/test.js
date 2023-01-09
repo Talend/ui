@@ -4,14 +4,21 @@ import path from 'path';
 import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
 import { getPresetEnv } from '../utils/preset.js';
-import testNg from './test-ng.js';
 
 const jest = resolveBin('jest');
+const karma = resolveBin('karma');
+
+async function testKarma(env, presetApi, options) {
+	const configPath = getPkgRootPath('@talend/scripts-config-karma');
+	const karmaConfigPath = path.join(configPath, 'karma.conf.js');
+
+	return spawn.sync(karma, ['start', karmaConfigPath].concat(options), { stdio: 'inherit', env });
+}
 
 export default async function test(env, presetApi, options) {
 	const packageType = getPresetEnv();
 	if (packageType.isAngular) {
-		return testNg(env, presetApi, options);
+		return testKarma(env, presetApi, options);
 	}
 	const configPath = getPkgRootPath('@talend/scripts-config-jest');
 	const jestConfigPath =
