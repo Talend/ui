@@ -18,16 +18,16 @@ By default no configuration is needed but you can at any time create a configura
 - **app**: if you have src/app folder
 - **lib**: if not an app
 - **angular**: if there is a dependencies on angularjs
-- **react**: if there is a dependencies onreact
 - **public** project: you have a publishConfig: { access : 'public' } in your package.json
 
 Depending on this the sub command will use a real command like `webpack` and apply either custom configuration or default configuration.
 
-| command | app                | lib                | angular | react |
-| ------- | ------------------ | ------------------ | ------- | ----- |
-| build   | webpack            | babel/tsc          |         |       |
-| lint    | eslint + stylelint | eslint + stylelint |         |       |
-| test    | jest               | jest               | karma   | jest  |
+| command | app                | lib                | angular |
+| ------- | ------------------ | ------------------ | ------- |
+| build   | webpack            | babel              |         |
+| lint    | eslint + stylelint | eslint + stylelint |         |
+| test    | jest               | jest               | karma   |
+| start   | webpack            | start-storybook    |         |
 
 ## Table of content
 
