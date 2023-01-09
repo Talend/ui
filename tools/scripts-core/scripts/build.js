@@ -4,6 +4,7 @@ import { getDirName } from '../utils/dirname.js';
 import { hereRelative, resolveBin } from '../utils/path-resolver.js';
 import { getPresetEnv } from '../utils/preset.js';
 import buildLib from './build-lib.js';
+import buildUMD from './build-lib-umd.js';
 
 const webpack = resolveBin('webpack');
 
@@ -22,6 +23,14 @@ export default function build(env, _, options) {
 		);
 	}
 	if (packageType.isLib) {
+		// detect UMD here
+		if (options.includes('--umd')) {
+			return buildUMD(
+				env,
+				_,
+				options.filter(o => o !== '--umd'),
+			);
+		}
 		return buildLib(env, _, options);
 	}
 }

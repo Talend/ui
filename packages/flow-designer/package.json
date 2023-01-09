@@ -9,7 +9,7 @@
     "build:lib": "talend-scripts build",
     "lint": "talend-scripts lint",
     "test": "talend-scripts test",
-    "pre-release": "talend-scripts build:lib:umd"
+    "pre-release": "talend-scripts build --umd"
   },
   "repository": {
     "type": "git",

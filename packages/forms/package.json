@@ -7,8 +7,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:ace": "webpack --config=./webpack.ace.config.js",
-    "build:dev": "talend-scripts build:lib:umd --dev",
-    "build:prod": "talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build --umd --dev",
+    "build:prod": "talend-scripts build --umd --prod",
     "build-storybook": "talend-scripts build-storybook",
     "pre-release": "yarn build:dev && yarn build:prod && yarn build:ace",
     "build:lib": "talend-scripts build",

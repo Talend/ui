@@ -31,3 +31,5 @@ chore: **remove** `talend-scripts test:ng` use `test` script instead.
 feat: `talend-scripts build` now detect if the project is a library. in this case it trigger babel/typescripts.
 
 chore: **remove** `talend-scripts build:lib` use `build` script instead.
+
+chore: **remove** `talend-scripts build:lib:umd` use `build --umd` script instead.

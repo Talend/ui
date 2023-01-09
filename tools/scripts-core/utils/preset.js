@@ -42,7 +42,6 @@ export function getPresetEnv() {
 		isReact,
 		isAngular,
 		isPublic,
-		hasDep,
 	};
 }
 

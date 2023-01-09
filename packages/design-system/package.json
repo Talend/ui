@@ -6,8 +6,8 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build:lib": "talend-scripts build",
-    "build:lib:umd": "talend-scripts build:lib:umd --dev",
-    "build:lib:umd:min": "talend-scripts build:lib:umd --prod",
+    "build:lib:umd": "talend-scripts build --umd --dev",
+    "build:lib:umd:min": "talend-scripts build --umd --prod",
     "pre-release": "npm run build:lib:umd && npm run build:lib:umd:min",
     "watch": "talend-scripts build --watch",
     "test": "echo Tests are managed by Cypress using yarn test:cy",

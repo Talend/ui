@@ -71,7 +71,6 @@ async function runScript() {
 
 switch (command) {
 	case 'build':
-	case 'build:lib:umd':
 	case 'build-storybook':
 	case 'lint':
 	case 'start':

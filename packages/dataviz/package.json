@@ -8,8 +8,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "pre-release": "yarn build:umd:dev && yarn build:umd:prod",
-    "build:umd:dev": "talend-scripts build:lib:umd --dev",
-    "build:umd:prod": "talend-scripts build:lib:umd",
+    "build:umd:dev": "talend-scripts build --umd --dev",
+    "build:umd:prod": "talend-scripts build --umd",
     "build:lib": "talend-scripts build",
     "build-storybook": "talend-scripts build-storybook",
     "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner && rm -rf tmp",

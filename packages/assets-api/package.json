@@ -6,7 +6,7 @@
   "mainSrc": "src/index.ts",
   "license": "Apache-2.0",
   "scripts": {
-    "pre-release": "talend-scripts build:lib:umd && talend-scripts build:lib:umd --dev",
+    "pre-release": "talend-scripts build --umd && talend-scripts build --umd --dev",
     "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
