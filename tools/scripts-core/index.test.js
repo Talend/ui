@@ -40,14 +40,14 @@ describe('talend-scripts', () => {
 			fs.existsSync(path.join(tmp, 'dist', 'TalendTestScriptsCore.min.js.map'));
 		});
 	});
-	describe('build:lib', () => {
+	describe('build', () => {
 		it('should by default put build output in lib folder', () => {
 			const tmp = getTmpDirectory('build-lib');
-			const output = spawnSync('node', [bin, 'build:lib'], { cwd: tmp });
+			const output = spawnSync('node', [bin, 'build'], { cwd: tmp });
 			const logs = output.stdout.toString();
 			expect(output.error).toBeUndefined();
 			expect(logs).toContain('CONFIGURATION -----');
-			expect(logs).toContain('Running command: build:lib With options: ');
+			expect(logs).toContain('Running command: build With options: ');
 			expect(logs).toContain('Talend scripts mode : production');
 			expect(logs).toContain('Talend scripts configuration file found and loaded');
 			expect(logs).toContain('RUN ------------');

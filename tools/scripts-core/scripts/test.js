@@ -5,10 +5,8 @@ import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
 import { getPresetEnv } from '../utils/preset.js';
 
-const jest = resolveBin('jest');
-const karma = resolveBin('karma');
-
 async function testKarma(env, presetApi, options) {
+	const karma = resolveBin('karma');
 	const configPath = getPkgRootPath('@talend/scripts-config-karma');
 	const karmaConfigPath = path.join(configPath, 'karma.conf.js');
 
@@ -24,5 +22,6 @@ export default async function test(env, presetApi, options) {
 	const jestConfigPath =
 		getUserConfigFile('jest.config.js') || path.join(configPath, 'jest.config.js');
 
+	const jest = resolveBin('jest');
 	return spawn.sync(jest, ['--config', jestConfigPath].concat(options), { stdio: 'inherit', env });
 }
