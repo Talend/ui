@@ -74,7 +74,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       onChange={[Function]}
                       placeholder="YYYY-MM-DD"
                       style={
-                        Object {
+                        {
                           "width": 47,
                         }
                       }
@@ -90,7 +90,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         onKeyDown={[Function]}
                         placeholder="YYYY-MM-DD"
                         style={
-                          Object {
+                          {
                             "width": 47,
                           }
                         }
@@ -100,7 +100,7 @@ exports[`InputDateTimePicker should render 1`] = `
                     </DebounceInput>
                     <span
                       style={
-                        Object {
+                        {
                           "fontSize": "1.4rem",
                           "padding": "0 1rem",
                           "position": "absolute",
@@ -121,7 +121,7 @@ exports[`InputDateTimePicker should render 1`] = `
           onChange={[Function]}
           useSeconds={true}
           value={
-            Object {
+            {
               "hours": "15",
               "minutes": "27",
               "seconds": "00",
@@ -132,7 +132,7 @@ exports[`InputDateTimePicker should render 1`] = `
             onChange={[Function]}
             useSeconds={true}
             value={
-              Object {
+              {
                 "hours": "15",
                 "minutes": "27",
                 "seconds": "00",
@@ -142,7 +142,7 @@ exports[`InputDateTimePicker should render 1`] = `
             <FocusManager
               className="theme-time-picker time-picker"
               divRef={
-                Object {
+                {
                   "current": <div
                     class="theme-time-picker time-picker"
                     tabindex="-1"
@@ -200,7 +200,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       onChange={[Function]}
                       placeholder="HH:mm:ss"
                       style={
-                        Object {
+                        {
                           "width": 47,
                         }
                       }
@@ -217,7 +217,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         onKeyDown={[Function]}
                         placeholder="HH:mm:ss"
                         style={
-                          Object {
+                          {
                             "width": 47,
                           }
                         }
@@ -227,7 +227,7 @@ exports[`InputDateTimePicker should render 1`] = `
                     </DebounceInput>
                     <span
                       style={
-                        Object {
+                        {
                           "fontSize": "1.4rem",
                           "padding": "0 1rem",
                           "position": "absolute",

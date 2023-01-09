@@ -258,7 +258,7 @@ exports[`Slider component snaps renderers should render a range 1`] = `
       range={true}
       step={1}
       value={
-        Array [
+        [
           10,
           25,
         ]

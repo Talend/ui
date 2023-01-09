@@ -18,7 +18,7 @@ exports[`Loader should render a default loader 1`] = `
       fill="none"
       r={20}
       style={
-        Object {
+        {
           "strokeDasharray": 12.566370614359172,
           "strokeDashoffset": 0,
         }
@@ -46,7 +46,7 @@ exports[`Loader should render a default loader if size is not specified 1`] = `
       fill="none"
       r={20}
       style={
-        Object {
+        {
           "strokeDasharray": 12.566370614359172,
           "strokeDashoffset": 0,
         }
@@ -74,7 +74,7 @@ exports[`Loader should render a large loader 1`] = `
       fill="none"
       r={20}
       style={
-        Object {
+        {
           "strokeDasharray": 12.566370614359172,
           "strokeDashoffset": 0,
         }
@@ -102,7 +102,7 @@ exports[`Loader should render a small loader 1`] = `
       fill="none"
       r={20}
       style={
-        Object {
+        {
           "strokeDasharray": 12.566370614359172,
           "strokeDashoffset": 0,
         }

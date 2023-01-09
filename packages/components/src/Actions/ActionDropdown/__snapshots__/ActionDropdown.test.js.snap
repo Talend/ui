@@ -49,7 +49,7 @@ exports[`getMenuItem should return a MenuItem with icon and label 1`] = `
   disabled={false}
   divider={false}
   eventKey={
-    Object {
+    {
       "data-feature": "action.feature",
       "icon": "talend-bell",
       "label": "Toto",
@@ -76,7 +76,7 @@ exports[`getMenuItem should return a MenuItem with label 1`] = `
   disabled={false}
   divider={false}
   eventKey={
-    Object {
+    {
       "data-feature": "action.feature",
       "label": "Toto",
     }

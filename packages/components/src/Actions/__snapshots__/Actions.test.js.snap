@@ -29,12 +29,12 @@ exports[`Actions should render actions 1`] = `
     icon="fa fa-file-excel-o"
     id="dropdown-id"
     items={
-      Array [
-        Object {
+      [
+        {
           "label": "document 1",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "label": "document 2",
           "onClick": [MockFunction],
         },
@@ -46,12 +46,12 @@ exports[`Actions should render actions 1`] = `
     displayMode="splitDropdown"
     id="split-dropdown-id"
     items={
-      Array [
-        Object {
+      [
+        {
           "label": "file 1",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "label": "file 2",
           "onClick": [MockFunction],
         },
@@ -95,12 +95,12 @@ exports[`Actions should render actions with "link" theme 1`] = `
     icon="fa fa-file-excel-o"
     id="dropdown-id"
     items={
-      Array [
-        Object {
+      [
+        {
           "label": "document 1",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "label": "document 2",
           "onClick": [MockFunction],
         },
@@ -113,12 +113,12 @@ exports[`Actions should render actions with "link" theme 1`] = `
     displayMode="splitDropdown"
     id="split-dropdown-id"
     items={
-      Array [
-        Object {
+      [
+        {
           "label": "file 1",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "label": "file 2",
           "onClick": [MockFunction],
         },
@@ -170,12 +170,12 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     icon="fa fa-file-excel-o"
     id="dropdown-id"
     items={
-      Array [
-        Object {
+      [
+        {
           "label": "document 1",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "label": "document 2",
           "onClick": [MockFunction],
         },
@@ -190,12 +190,12 @@ exports[`Actions should render actions with defined tooltip placement 1`] = `
     hideLabel={true}
     id="split-dropdown-id"
     items={
-      Array [
-        Object {
+      [
+        {
           "label": "file 1",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "label": "file 2",
           "onClick": [MockFunction],
         },
@@ -242,12 +242,12 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     icon="fa fa-file-excel-o"
     id="dropdown-id"
     items={
-      Array [
-        Object {
+      [
+        {
           "label": "document 1",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "label": "document 2",
           "onClick": [MockFunction],
         },
@@ -260,12 +260,12 @@ exports[`Actions should render actions with hidden labels and tooltips 1`] = `
     hideLabel={true}
     id="split-dropdown-id"
     items={
-      Array [
-        Object {
+      [
+        {
           "label": "file 1",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "label": "file 2",
           "onClick": [MockFunction],
         },

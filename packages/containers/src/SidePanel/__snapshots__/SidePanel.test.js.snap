@@ -2,7 +2,7 @@
 
 exports[`SidePanel should render 1`] = `
 <withI18nextTranslation(SidePanel)
-  actions={Array []}
+  actions={[]}
   dockable={true}
   docked={false}
   large={false}
@@ -16,7 +16,7 @@ exports[`SidePanel should render 1`] = `
 exports[`SidePanel should render provided actions as string 1`] = `
 <withI18nextTranslation(SidePanel)
   actions={
-    Array [
+    [
       "menu:article",
       "menu:demo",
     ]

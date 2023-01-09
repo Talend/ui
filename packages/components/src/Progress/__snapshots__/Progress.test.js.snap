@@ -20,7 +20,7 @@ exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
-      Object {
+      {
         "width": "0%",
       }
     }
@@ -48,7 +48,7 @@ exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
-      Object {
+      {
         "width": "100%",
       }
     }
@@ -76,7 +76,7 @@ exports[`Progress should render a contained progress 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
-      Object {
+      {
         "width": "60%",
       }
     }
@@ -102,7 +102,7 @@ exports[`Progress should render an infinite progress 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
-      Object {
+      {
         "width": "100%",
       }
     }
@@ -134,7 +134,7 @@ exports[`Progress should render hidden progress at 0% 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
-      Object {
+      {
         "width": "0%",
       }
     }
@@ -162,7 +162,7 @@ exports[`Progress should render progress with given percentage 1`] = `
     onMouseOut={[Function]}
     onMouseOver={[Function]}
     style={
-      Object {
+      {
         "width": "60%",
       }
     }

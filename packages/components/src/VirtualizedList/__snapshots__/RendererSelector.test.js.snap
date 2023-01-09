@@ -3,13 +3,13 @@
 exports[`RendererSelector should render table list by default 1`] = `
 <VirtualizedList(ListTable)
   collection={
-    Array [
-      Object {
+    [
+      {
         "description": "Simple row with icon and actions",
         "id": 0,
         "name": "Title with icon and actions",
       },
-      Object {
+      {
         "description": "Simple row without actions",
         "id": 1,
         "name": "Title without actions",
@@ -40,7 +40,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     flexShrink={0}
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />
   <Content
@@ -52,7 +52,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     flexShrink={0}
     headerRenderer={[Function]}
     label="Name"
-    style={Object {}}
+    style={{}}
     width={350}
   />
   <Content
@@ -64,7 +64,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     flexShrink={0}
     headerRenderer={[Function]}
     label="Description"
-    style={Object {}}
+    style={{}}
     width={350}
   />
 </VirtualizedList(ListTable)>
@@ -73,13 +73,13 @@ exports[`RendererSelector should render table list by default 1`] = `
 exports[`RendererSelector should render table list when requested 1`] = `
 <VirtualizedList(ListTable)
   collection={
-    Array [
-      Object {
+    [
+      {
         "description": "Simple row with icon and actions",
         "id": 0,
         "name": "Title with icon and actions",
       },
-      Object {
+      {
         "description": "Simple row without actions",
         "id": 1,
         "name": "Title without actions",
@@ -110,7 +110,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     flexShrink={0}
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />
   <Content
@@ -122,7 +122,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     flexShrink={0}
     headerRenderer={[Function]}
     label="Name"
-    style={Object {}}
+    style={{}}
     width={350}
   />
   <Content
@@ -134,7 +134,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     flexShrink={0}
     headerRenderer={[Function]}
     label="Description"
-    style={Object {}}
+    style={{}}
     width={350}
   />
 </VirtualizedList(ListTable)>

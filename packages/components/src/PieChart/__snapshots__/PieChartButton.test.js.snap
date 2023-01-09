@@ -17,24 +17,24 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
     labelIndex={0}
     minimumPercentage={5}
     model={
-      Array [
-        Object {
+      [
+        {
           "color": "rio-grande",
           "percentage": 50,
         },
-        Object {
+        {
           "color": "chestnut-rose",
           "percentage": 12,
         },
-        Object {
+        {
           "color": "lightning-yellow",
           "percentage": 1,
         },
-        Object {
+        {
           "color": "dove-gray",
           "percentage": 4,
         },
-        Object {
+        {
           "color": "silver-chalice",
           "percentage": 3,
         },
@@ -80,24 +80,24 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
         labelIndex={2}
         minimumPercentage={5}
         model={
-          Array [
-            Object {
+          [
+            {
               "color": "rio-grande",
               "percentage": 50,
             },
-            Object {
+            {
               "color": "chestnut-rose",
               "percentage": 12,
             },
-            Object {
+            {
               "color": "lightning-yellow",
               "percentage": 1,
             },
-            Object {
+            {
               "color": "dove-gray",
               "percentage": 4,
             },
-            Object {
+            {
               "color": "silver-chalice",
               "percentage": 3,
             },

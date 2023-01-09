@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const { spawnSync } = require('child_process');
@@ -12,7 +13,7 @@ const {
 	isMajorLockGT,
 	isSameVersion,
 	isSameLockVersion,
-} = require('./utils');
+} = require('./utils.js');
 
 const fixturePath = path.join(__dirname, 'fixture', 'basic');
 const bin = path.resolve(__dirname, '..', 'bin', 'cli.js');

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
@@ -8,22 +11,24 @@ class ResizeObserver {
 	observe() {
 		// do nothing
 	}
+
 	unobserve() {
 		// do nothing
 	}
+
 	disconnect() {
 		// do nothing
 	}
 }
-if (!global.ResizeObserver) {
+if (!global.self.ResizeObserver) {
 	// add this for react-resize-detector major update
-	global.ResizeObserver = ResizeObserver;
+	global.self.ResizeObserver = ResizeObserver;
 }
 
-if (!global.TextEncoder) {
+if (!global.self.TextEncoder) {
 	// add this for whatwg-url use in jsdom
-	global.TextEncoder = require('util').TextEncoder;
-	global.TextDecoder = require('util').TextDecoder;
+	global.self.TextEncoder = require('util').TextEncoder;
+	global.self.TextDecoder = require('util').TextDecoder;
 }
 // enzyme adapter configuration
 let React;
@@ -55,15 +60,18 @@ try {
 				return resolve();
 			}),
 	);
-	global.fetch = fetch;
+	global.self.fetch = fetch;
 } catch (e) {}
 
 try {
-	global.crypto = {
-		...global.crypto,
-		randomUUID: () => '42',
-	};
-} catch (e) {}
+	Object.defineProperty(global.self, 'crypto', {
+		value: {
+			randomUUID: () => '42',
+		},
+	});
+} catch (e) {
+	console.error(e);
+}
 
 try {
 	// Mock session storage

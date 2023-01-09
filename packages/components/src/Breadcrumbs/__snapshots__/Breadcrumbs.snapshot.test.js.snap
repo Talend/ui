@@ -89,14 +89,14 @@ exports[`Breadcrumbs should render items with a dropdown menu if default max ite
         aria-label="Open first links menu"
         id="42-ellipsis"
         items={
-          Array [
-            Object {
+          [
+            {
               "id": "42-item-1",
               "label": "Text B",
               "onClick": [Function],
               "title": "Go to Page Text B",
             },
-            Object {
+            {
               "id": "42-item-2",
               "label": "Text C",
               "onClick": [Function],

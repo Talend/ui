@@ -1,4 +1,4 @@
-const https = require('https');
+import https from 'https';
 
 function get(url) {
 	return new Promise((resolve, reject) => {
@@ -22,6 +22,4 @@ function get(url) {
 	});
 }
 
-module.exports = {
-	get,
-};
+export default { get };
