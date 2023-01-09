@@ -34,11 +34,12 @@ export function getPresetEnv() {
 	const isApp = fs.existsSync(path.join(process.cwd(), 'src/app'));
 	const pkgJSON = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json')));
 	const isAngular = hasDep(pkgJSON, 'angular');
+	const isReact = hasDep(pkgJSON, 'react');
 	const isPublic = pkgJSON?.publishConfig?.access === 'public';
 	return {
 		isLib: !isApp,
 		isApp,
-		isReact: !isAngular,
+		isReact,
 		isAngular,
 		isPublic,
 	};

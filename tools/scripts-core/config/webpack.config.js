@@ -4,7 +4,7 @@
 /* eslint-disable no-console */
 import { merge } from 'webpack-merge';
 import { getAbsolutePath } from '../utils/path-resolver.js';
-import { getPresetEnv, getPresetApi } from '../utils/preset.js';
+import { getPresetApi } from '../utils/preset.js';
 
 function getPluginInfo(a) {
 	return {
@@ -19,9 +19,10 @@ function getPluginInfo(a) {
 export default async (env = {}) => {
 	const presetApi = getPresetApi();
 
-	// Preset default configuration file
 	let webpackConfigurations = [];
-	webpackConfigurations = webpackConfigurations.concat(preset.getWebpackConfiguration(presetApi));
+	// eslint-disable-next-line import/no-extraneous-dependencies
+	const defaultConfig = await import('@talend/scripts-config-react-webpack');
+	webpackConfigurations = webpackConfigurations.concat(defaultConfig.default(presetApi));
 
 	// User configuration file
 	const userConfigPath = presetApi.getUserConfig(['webpack', 'config', presetApi.mode]);
