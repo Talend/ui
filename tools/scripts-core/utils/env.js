@@ -7,22 +7,10 @@ const { get } = _;
  * Get talend-scripts configuration
  * (either talend-scripts.js or talend-scripts.json in current working dir)
  */
-function getScriptsConfig(options = []) {
-	const optionConfigFile = options.find(opt => opt.startsWith('--config='));
-	let configFilePath;
-
-	if (optionConfigFile) {
-		configFilePath = path.join(process.cwd(), optionConfigFile.split('=')[1]);
-		if (!fs.existsSync(configFilePath)) {
-			console.error(`Config file ${configFilePath} not found.`);
-			process.exit(1);
-		}
-	} else {
-		configFilePath = [
-			path.join(process.cwd(), 'talend-scripts.config.js'),
-			path.join(process.cwd(), 'talend-scripts.json'),
-		].find(file => fs.existsSync(file));
-	}
+function getScriptsConfig() {
+	const configFilePath = [path.join(process.cwd(), 'talend-scripts.json')].find(file =>
+		fs.existsSync(file),
+	);
 
 	if (configFilePath) {
 		// Load and return first config file found
@@ -30,7 +18,7 @@ function getScriptsConfig(options = []) {
 	}
 
 	// No config file found
-	return null;
+	return {};
 }
 
 /**
@@ -38,10 +26,10 @@ function getScriptsConfig(options = []) {
  * and the serialized talend-scripts configuration
  * @returns {process.env} The env object
  */
-export function getEnv(options) {
+export function getEnv() {
 	const env = Object.create(process.env);
 
-	const userConfig = getScriptsConfig(options);
+	const userConfig = getScriptsConfig();
 	if (userConfig) {
 		env.TALEND_SCRIPTS_CONFIG = JSON.stringify(userConfig);
 	}

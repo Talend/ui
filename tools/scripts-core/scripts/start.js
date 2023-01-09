@@ -5,12 +5,12 @@ import { hereRelative, resolveBin } from '../utils/path-resolver.js';
 import { getPresetEnv } from '../utils/preset.js';
 import startStorybook from './start-storybook.js';
 
-const webpack = resolveBin('webpack');
-
 export default function start(env, _, options) {
 	const packageType = getPresetEnv();
 
 	if (packageType.isApp) {
+		check('@talend/scripts-config-react-webpack');
+		const webpack = resolveBin('webpack');
 		return spawn.sync(
 			webpack,
 			[
