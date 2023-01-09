@@ -54,11 +54,8 @@
     "fork/*"
   ],
   "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --quiet --fix"
-    ],
-    "*.{ts,tsx}": [
-      "eslint --quiet --fix"
+    "*.{js,jsx,ts,tsx}": [
+      "talend-scripts lint --quiet --fix"
     ],
     "*.{json,md,mdx,html,js,jsx,ts,tsx}": [
       "prettier --write"
