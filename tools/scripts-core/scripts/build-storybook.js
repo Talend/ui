@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import spawn from 'cross-spawn';
 import { resolveBin } from '../utils/path-resolver.js';
-import { getStorybookConfiguration } from './start-storybook.js';
+import { getStorybookConfiguration } from '../utils/storybook.js';
 
 const buildStorybook = resolveBin('build-storybook');
 
