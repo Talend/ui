@@ -15,14 +15,10 @@ if (command === '--help' || command === '-h' || command === 'help') {
 * build
 * build:lib
 * build:lib:umd
-* build:ts:lib
 * lint:es
 * lint:style
-* postinstall
 * test
 * test:ng
-* upgrade:deps
-* publish:local
 * extends
 * start-storybook
 * build-storybook
@@ -84,14 +80,10 @@ switch (command) {
 	case 'build':
 	case 'build:lib':
 	case 'build:lib:umd':
-	case 'build:ts:lib':
 	case 'lint:es':
 	case 'lint:style':
-	case 'postinstall':
-	case 'publish:local':
 	case 'test':
 	case 'test:ng':
-	case 'upgrade:deps':
 	case 'extends':
 	case 'start-storybook':
 	case 'build-storybook':
