@@ -4,6 +4,7 @@ import fs from 'fs';
 import { resolveBin, hereRelative } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
 import { getDirName } from '../utils/dirname.js';
+import { check } from '../utils/preset.js';
 
 const webpack = resolveBin('webpack');
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -18,6 +19,7 @@ function buildUMD(env, presetApi, options = []) {
 }
 
 export default function build(env, presetApi, options) {
+	check('@talend/scripts-config-react-webpack');
 	const packageJSON = JSON.parse(fs.readFileSync(getUserConfigFile(['package.json'])));
 	const UMDName = packageJSON.name
 		.replace(/[^a-zA-Z0-9]/g, ' ')

@@ -33,3 +33,6 @@ feat: `talend-scripts build` now detect if the project is a library. in this cas
 chore: **remove** `talend-scripts build:lib` use `build` script instead.
 
 chore: **remove** `talend-scripts build:lib:umd` use `build --umd` script instead.
+
+
+To migrate your project please refer to the [migration-guide](./doc/migration-13-preset.md)

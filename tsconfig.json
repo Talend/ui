@@ -1,5 +1,5 @@
 {
-  "extends": "@talend/scripts-config-typescript/tsconfig.json",
+  "extends": "@talend/scripts-config-typescript",
   "include": ["**/*"],
   "compilerOptions": {
     "allowJs": true,

@@ -6,11 +6,11 @@ import { getPresetEnv } from '../utils/preset.js';
 import buildLib from './build-lib.js';
 import buildUMD from './build-lib-umd.js';
 
-const webpack = resolveBin('webpack');
-
 export default function build(env, _, options) {
 	const packageType = getPresetEnv();
 	if (packageType.isApp) {
+		check('@talend/scripts-config-react-webpack');
+		const webpack = resolveBin('webpack');
 		return spawn.sync(
 			webpack,
 			[
@@ -25,6 +25,7 @@ export default function build(env, _, options) {
 	if (packageType.isLib) {
 		// detect UMD here
 		if (options.includes('--umd')) {
+			check();
 			return buildUMD(
 				env,
 				_,

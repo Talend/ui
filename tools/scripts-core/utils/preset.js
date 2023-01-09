@@ -1,7 +1,10 @@
 /* eslint-disable import/extensions */
 import fs from 'fs';
 import path from 'path';
+import { createRequire } from 'module';
 import { createUserConfigGetter } from './env.js';
+
+const require = createRequire(import.meta.url);
 
 /**
  * Get the preset arguments
@@ -28,6 +31,21 @@ function hasDep(pkg, name) {
 		found = found || !!pkg.peerDependencies[name];
 	}
 	return found;
+}
+
+export function hasPackageInstalled(name) {
+	try {
+		require(name);
+		return true;
+	} catch (e) {}
+}
+
+export function check(name) {
+	if (!hasPackageInstalled(name)) {
+		throw new Error(
+			`Package ${name} is missing for the needed scripts. Please install it in your devDependencies`,
+		);
+	}
 }
 
 export function getPresetEnv() {
