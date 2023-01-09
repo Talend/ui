@@ -1,16 +1,21 @@
 /* eslint-disable import/extensions */
 import spawn from 'cross-spawn';
-import { resolveBin } from '../utils/path-resolver.js';
-import { getPreset } from '../utils/preset.js';
+import path from 'path';
+import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
+import { getPresetEnv } from '../utils/preset.js';
+import testNg from './test-ng.js';
 
 const jest = resolveBin('jest');
 
 export default async function test(env, presetApi, options) {
-	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = await getPreset(presetName);
+	const packageType = getPresetEnv();
+	if (packageType.isAngular) {
+		return testNg(env, presetApi, options);
+	}
+	const configPath = getPkgRootPath('@talend/scripts-config-jest');
 	const jestConfigPath =
-		getUserConfigFile('jest.config.js') || preset.getJestConfigurationPath(presetApi);
+		getUserConfigFile('jest.config.js') || path.join(configPath, 'jest.config.js');
 
 	return spawn.sync(jest, ['--config', jestConfigPath].concat(options), { stdio: 'inherit', env });
 }
