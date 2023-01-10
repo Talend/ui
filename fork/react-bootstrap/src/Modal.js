@@ -6,8 +6,8 @@ import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import BaseModal from 'react-overlays/lib/Modal';
-import isOverflowing from 'react-overlays/lib/utils/isOverflowing';
+import BaseModal from 'react-overlays/cjs/Modal';
+import isOverflowing from 'react-overlays/cjs/isOverflowing';
 import elementType from 'prop-types-extra/lib/elementType';
 
 import Fade from './Fade';
@@ -119,19 +119,19 @@ const propTypes = {
   /**
    * @private
    */
-  container: BaseModal.propTypes.container
+  container: BaseModal.propTypes.container,
 };
 
 const defaultProps = {
   ...BaseModal.defaultProps,
   animation: true,
-  dialogComponentClass: ModalDialog
+  dialogComponentClass: ModalDialog,
 };
 
 const childContextTypes = {
   $bs_modal: PropTypes.shape({
-    onHide: PropTypes.func
-  })
+    onHide: PropTypes.func,
+  }),
 };
 
 /* eslint-disable no-use-before-define, react/no-multi-comp */
@@ -156,15 +156,15 @@ class Modal extends React.Component {
     this.setModalRef = this.setModalRef.bind(this);
 
     this.state = {
-      style: {}
+      style: {},
     };
   }
 
   getChildContext() {
     return {
       $bs_modal: {
-        onHide: this.props.onHide
-      }
+        onHide: this.props.onHide,
+      },
     };
   }
 
@@ -225,8 +225,8 @@ class Modal extends React.Component {
         paddingLeft:
           !bodyIsOverflowing && modalIsOverflowing
             ? getScrollbarSize()
-            : undefined
-      }
+            : undefined,
+      },
     });
   }
 
@@ -234,7 +234,7 @@ class Modal extends React.Component {
     this._waitingForMouseUp = true;
   };
 
-  handleMouseUp = ev => {
+  handleMouseUp = (ev) => {
     const dialogNode = this._modal.getDialogElement();
     if (this._waitingForMouseUp && ev.target === dialogNode) {
       this._ignoreBackdropClick = true;

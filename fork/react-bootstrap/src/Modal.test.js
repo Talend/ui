@@ -2,7 +2,7 @@ import events from 'dom-helpers/events';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
-import BaseModal from 'react-overlays/lib/Modal';
+import BaseModal from 'react-overlays/cjs/Modal';
 
 import Modal from '../src/Modal';
 
