@@ -1,17 +1,17 @@
 /* eslint-disable import/extensions */
-import spawn from 'cross-spawn';
 import { getDirName } from '../utils/dirname.js';
 import { hereRelative, resolveBin } from '../utils/path-resolver.js';
 import { check, getPresetEnv } from '../utils/preset.js';
 import buildLib from './build-lib.js';
 import buildUMD from './build-lib-umd.js';
+import { mySpawn } from '../utils/spawn.js';
 
-export default function build(env, _, options) {
+export default async function build(env, _, options) {
 	const packageType = getPresetEnv();
 	if (packageType.isApp) {
 		check('@talend/scripts-config-react-webpack');
 		const webpack = resolveBin('webpack');
-		return spawn.sync(
+		return mySpawn(
 			webpack,
 			[
 				'--config',

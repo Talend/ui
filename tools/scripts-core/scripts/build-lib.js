@@ -3,12 +3,12 @@
 /* eslint-disable no-console */
 import fs from 'fs';
 import path from 'path';
-import spawn from 'cross-spawn';
 import rimraf from 'rimraf';
 import cpx from 'cpx2';
 
 import { getPkgRootPath, resolveBin } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
+import { mySpawn } from '../utils/spawn.js';
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 const tsc = resolveBin('typescript', { executable: 'tsc' });
@@ -43,13 +43,13 @@ export default async function build(env, presetApi, unsafeOptions) {
 		rimraf.sync(targetFolder);
 	}
 	const babelPromise = () =>
-		new Promise((resolve, reject) => {
+		new Promise(async (resolve, reject) => {
 			if (useTsc) {
 				resolve({ status: 0 });
 				return;
 			}
 			console.log('Compiling with babel...');
-			const babelSpawn = spawn(
+			const babelSpawn = await mySpawn(
 				babel,
 				[
 					'--config-file',
@@ -82,7 +82,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 		});
 
 	const tscPromise = () =>
-		new Promise((resolve, reject) => {
+		new Promise(async (resolve, reject) => {
 			if (!isTSLib) {
 				resolve({ status: 0 });
 				return;
@@ -94,7 +94,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 			} else {
 				console.log('Building with tsc');
 			}
-			const tscSpawn = spawn(tsc, args, { stdio: 'inherit', env });
+			const tscSpawn = await mySpawn(tsc, args, { stdio: 'inherit', env });
 
 			tscSpawn.on('exit', status => {
 				if (parseInt(status, 10) !== 0) {

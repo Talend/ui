@@ -1,19 +1,23 @@
 import fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
+import { createRequire } from 'module';
 
+const require = createRequire(import.meta.url);
 const { get } = _;
 /**
  * Get talend-scripts configuration
  * (either talend-scripts.js or talend-scripts.json in current working dir)
  */
 function getScriptsConfig() {
-	const configFilePath = [path.join(process.cwd(), 'talend-scripts.json')].find(file =>
-		fs.existsSync(file),
-	);
+	let configFilePath = path.join(process.cwd(), 'talend-scripts.config.js');
 
-	if (configFilePath) {
+	if (fs.existsSync(configFilePath)) {
 		// Load and return first config file found
+		return require(configFilePath);
+	}
+	configFilePath = path.join(process.cwd(), 'talend-scripts.json');
+	if (fs.existsSync(configFilePath)) {
 		return JSON.parse(fs.readFileSync(configFilePath));
 	}
 
