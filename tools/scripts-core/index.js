@@ -78,6 +78,27 @@ switch (command) {
 	case 'test':
 		runScript(command, options);
 		break;
+	case 'build:lib':
+	case 'build:lib:umd':
+		console.log('This command do not exists anymore, please use just "build" command');
+		process.exit(-1);
+	case 'lint:es':
+	case 'lint:style':
+		console.log('This command do not exists anymore, please use just "lint" command');
+		process.exit(-1);
+	case 'test:ng':
+		console.log('This command do not exists anymore, please use just "test" command');
+		process.exit(-1);
+	case 'upgrade:deps':
+		console.log(
+			'This command do not exists anymore, please use just "talend-upgrade-deps" binary from "@talend/upgrade-deps" package',
+		);
+		process.exit(-1);
+	case 'publish:local':
+		console.log(
+			'This command do not exists anymore, please use just "talend-publish-local" bin from "@talend/scripts-publish-local" package',
+		);
+		process.exit(-1);
 	default:
 		console.log(`Command ${command} not found.`);
 		process.exit(-1);
