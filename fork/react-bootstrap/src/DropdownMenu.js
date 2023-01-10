@@ -3,13 +3,24 @@ import keycode from 'keycode';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import RootCloseWrapper from 'react-overlays/lib/RootCloseWrapper';
+import useRootClose from 'react-overlays/cjs/useRootClose';
+
+function RootCloseWrapper(props) {
+  /**  ref: React.RefObject<Element> | Element | null | undefined,
+  onRootClose: (e: Event) => void,
+  { disabled, clickTrigger = 'click' }: RootCloseOptions = {}, */
+  useRootClose(props.myRef, props.onRootClose, {
+    disabled: props.disabled,
+    clickTrigger: props.clickTrigger,
+  });
+  return props.children;
+}
 
 import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsPropsAndOmit
+  splitBsPropsAndOmit,
 } from './utils/bootstrapUtils';
 import createChainedFunction from './utils/createChainedFunction';
 import ValidComponentChildren from './utils/ValidComponentChildren';
@@ -20,12 +31,12 @@ const propTypes = {
   onClose: PropTypes.func,
   labelledBy: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onSelect: PropTypes.func,
-  rootCloseEvent: PropTypes.oneOf(['click', 'mousedown'])
+  rootCloseEvent: PropTypes.oneOf(['click', 'mousedown']),
 };
 
 const defaultProps = {
   bsRole: 'menu',
-  pullRight: false
+  pullRight: false,
 };
 
 class DropdownMenu extends React.Component {
@@ -34,6 +45,7 @@ class DropdownMenu extends React.Component {
 
     this.handleRootClose = this.handleRootClose.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.myRef = React.createRef();
   }
 
   getFocusableMenuItems() {
@@ -110,7 +122,7 @@ class DropdownMenu extends React.Component {
 
     const classes = {
       ...getClassSet(bsProps),
-      [prefix(bsProps, 'right')]: pullRight
+      [prefix(bsProps, 'right')]: pullRight,
     };
 
     return (
@@ -118,20 +130,22 @@ class DropdownMenu extends React.Component {
         disabled={!open}
         onRootClose={this.handleRootClose}
         event={rootCloseEvent}
+        myRef={this.myRef}
       >
         <ul
           {...elementProps}
           role="menu"
+          ref={this.myRef}
           className={classNames(className, classes)}
           aria-labelledby={labelledBy}
         >
-          {ValidComponentChildren.map(children, child =>
+          {ValidComponentChildren.map(children, (child) =>
             React.cloneElement(child, {
               onKeyDown: createChainedFunction(
                 child.props.onKeyDown,
                 this.handleKeyDown
               ),
-              onSelect: createChainedFunction(child.props.onSelect, onSelect)
+              onSelect: createChainedFunction(child.props.onSelect, onSelect),
             })
           )}
         </ul>

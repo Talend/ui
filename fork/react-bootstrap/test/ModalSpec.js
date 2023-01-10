@@ -2,7 +2,7 @@ import events from 'dom-helpers/events';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
-import BaseModal from 'react-overlays/lib/Modal';
+import BaseModal from 'react-overlays/cjs/Modal';
 
 import Modal from '../src/Modal';
 
@@ -33,7 +33,7 @@ describe('<Modal>', () => {
     assert.ok(instance._modal.getDialogElement().querySelector('strong'));
   });
 
-  it('Should close the modal when the modal dialog is clicked', done => {
+  it('Should close the modal when the modal dialog is clicked', (done) => {
     const doneOp = () => {
       done();
     };
@@ -66,7 +66,7 @@ describe('<Modal>', () => {
     expect(onHideSpy).to.not.have.been.called;
   });
 
-  it('Should close the modal when the modal close button is clicked', done => {
+  it('Should close the modal when the modal close button is clicked', (done) => {
     const doneOp = () => {
       done();
     };
@@ -205,7 +205,7 @@ describe('<Modal>', () => {
     assert.equal(instance._modal.getDialogElement().className, 'custom-dialog');
   });
 
-  it('Should pass transition callbacks to Transition', done => {
+  it('Should pass transition callbacks to Transition', (done) => {
     let count = 0;
     const increment = () => {
       ++count;
@@ -252,7 +252,7 @@ describe('<Modal>', () => {
           super(props, context);
 
           this.state = {
-            show: true
+            show: true,
           };
         }
 

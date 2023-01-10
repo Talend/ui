@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/no-find-dom-node */
 /* eslint-disable no-underscore-dangle */
-import contains from 'dom-helpers/query/contains';
+import contains from 'dom-helpers/cjs/contains';
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
