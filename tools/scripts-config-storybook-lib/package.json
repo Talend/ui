@@ -14,6 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "on-msw-upgrade": "msw init ./.storybook-templates/msw --save",
     "test": "echo \"Nothing to test\""
   },

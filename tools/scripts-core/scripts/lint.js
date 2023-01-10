@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
-
 import path from 'path';
 import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';

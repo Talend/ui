@@ -10,6 +10,7 @@
   "author": "Jean-Michel FRANCOIS",
   "main": "src/index.js",
   "scripts": {
+    "lint": "talend-scripts lint",
     "test": "jest"
   },
   "dependencies": {

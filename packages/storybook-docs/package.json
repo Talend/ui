@@ -9,6 +9,7 @@
     "build:lib": "talend-scripts build && npm run build:styles",
     "pre-release": "npm run build:lib",
     "start": "npm run storybook",
+    "lint": "talend-scripts lint",
     "test": "echo no test",
     "test:demo": "npm run build-storybook",
     "storybook": "npm run build:lib && talend-scripts start-storybook -p 6106",

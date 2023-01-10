@@ -9,6 +9,7 @@
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "build": "talend-scripts build",
+    "lint": "talend-scripts lint",
     "test": "talend-scripts test"
   },
   "repository": {

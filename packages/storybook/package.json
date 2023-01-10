@@ -8,6 +8,7 @@
     "test:demo": "talend-scripts build-storybook --docs && node ./scripts/sitemap.js",
     "build-storybook": "talend-scripts build-storybook",
     "start-storybook": "talend-scripts start-storybook",
+    "lint": "talend-scripts lint",
     "start": "cross-env BROWSER=none talend-scripts start-storybook -p 6006 --docs"
   },
   "repository": {

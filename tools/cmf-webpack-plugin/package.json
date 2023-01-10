@@ -4,6 +4,7 @@
   "main": "src/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
+    "lint": "talend-scripts lint",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin"
   },
   "repository": {
