@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import fs from 'fs';
 import path from 'path';
 import { createRequire } from 'module';

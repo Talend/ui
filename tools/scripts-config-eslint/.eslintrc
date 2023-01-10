@@ -36,6 +36,7 @@
 		"function-paren-newline": 0,
 		"implicit-arrow-linebreak": 0,
 		"import/prefer-default-export": 0,
+		"import/extensions": 0,
 		"import/no-named-as-default": "off",
 		"jsx-a11y/label-has-associated-control": 2,
 		"jsx-a11y/label-has-for": 0, // deprecated and buggy, replaced by jsx-a11y/label-has-associated-control

@@ -1,5 +1,3 @@
-/* eslint-disable import/extensions */
-
 import { resolveBin } from '../utils/path-resolver.js';
 import { check } from '../utils/preset.js';
 import { mySpawn } from '../utils/spawn.js';

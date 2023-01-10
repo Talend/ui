@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import path from 'path';
 import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';

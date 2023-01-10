@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable import/extensions */
 
 import { resolveBin } from '../utils/path-resolver.js';
 import { check } from '../utils/preset.js';

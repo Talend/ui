@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */
 import fs from 'fs';

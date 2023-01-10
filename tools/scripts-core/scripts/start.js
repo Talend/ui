@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { getDirName } from '../utils/dirname.js';
 import { hereRelative, resolveBin } from '../utils/path-resolver.js';
 import { check, getPresetEnv } from '../utils/preset.js';

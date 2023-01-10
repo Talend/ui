@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-throw-literal */
-/* eslint-disable import/extensions */
 
 import path from 'path';
 import { resolveBin, getPkgRootPath } from '../utils/path-resolver.js';

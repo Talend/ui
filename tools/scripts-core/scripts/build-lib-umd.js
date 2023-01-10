@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import fs from 'fs';
 import { resolveBin, hereRelative } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';

@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 /* eslint no-console: 0 */
