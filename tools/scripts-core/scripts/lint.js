@@ -7,6 +7,29 @@ import { mySpawn } from '../utils/spawn.js';
 import { check } from '../utils/preset.js';
 import { globMatch } from '../utils/glob.js';
 
+function getSmartOptions(opts, categories) {
+	return opts.reduce(
+		(acc, opt) => {
+			let added;
+			Object.keys(categories).forEach(cat => {
+				if (!acc[cat]) {
+					acc[cat] = [];
+				}
+				const found = categories[cat].find(ext => opt.endsWith(ext));
+				if (found && !added) {
+					added = true;
+					acc[cat].push(opt);
+				}
+			});
+			if (!added) {
+				acc.rest.push(opt);
+			}
+			return acc;
+		},
+		{ rest: [], js: [], css: [] },
+	);
+}
+
 async function lintEs(env, presetApi, options) {
 	const configRootPath = getPkgRootPath('@talend/eslint-config');
 
@@ -17,7 +40,7 @@ async function lintEs(env, presetApi, options) {
 			'.eslintrc.yml',
 			'.eslintrc.json',
 			'.eslintrc',
-		]) || path.join(configRootPath, '.eslintrc.js');
+		]) || path.join(configRootPath, 'index.js');
 	let args = ['--config', eslintConfigPath, '--ext', '.js,.ts,.tsx'];
 	if (options.length > 0) {
 		args = args.concat(options);
@@ -80,20 +103,30 @@ async function lintStyle(env, presetApi, options) {
 }
 
 export default async function lint(env, presetApi, options) {
+	const smartOpts = getSmartOptions(options, {
+		js: ['.js', '.ts', '.tsx'],
+		css: ['.css', '.scss'],
+	});
+
 	let errEs;
 	let errStyle;
 	let resEs;
 	let resStyle;
-	try {
-		resEs = await lintEs(env, presetApi, options);
-	} catch (e) {
-		errEs = e;
-		console.error(e);
+	if (smartOpts.js.length !== 0 || (smartOpts.js.length === 0 && smartOpts.css.length === 0)) {
+		try {
+			resEs = await lintEs(env, presetApi, smartOpts.js.concat(smartOpts.rest));
+		} catch (e) {
+			errEs = e;
+			console.error(e);
+		}
 	}
 	let hasStyle = await globMatch('./src/**/*.*css');
-	if (hasStyle) {
+	if (
+		smartOpts.css.length !== 0 ||
+		(smartOpts.js.length === 0 && smartOpts.css.length === 0 && hasStyle)
+	) {
 		try {
-			resStyle = await lintStyle(env, presetApi, options);
+			resStyle = await lintStyle(env, presetApi, smartOpts.css.concat(smartOpts.rest));
 		} catch (e) {
 			errStyle = e;
 			console.error(e);
