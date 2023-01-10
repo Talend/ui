@@ -31,9 +31,15 @@ type DropdownDividerType = {
 	type: 'divider';
 };
 
-type DropdownPropsType = {
+export type DropdownItemType =
+	| DropdownButtonType
+	| DropdownLinkType
+	| DropdownLabelType
+	| DropdownDividerType;
+
+export type DropdownPropsType = {
 	children: ReactElement<typeof Clickable>;
-	items: (DropdownButtonType | DropdownLinkType | DropdownLabelType | DropdownDividerType)[];
+	items: DropdownItemType[];
 	'aria-label': string;
 };
 

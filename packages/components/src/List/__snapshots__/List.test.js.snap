@@ -5,40 +5,40 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
   className="tc-list theme-list"
 >
   <ListToolbar
-    components={Object {}}
+    components={{}}
     displayMode="table"
     list={
-      Object {
-        "columns": Array [
-          Object {
+      {
+        "columns": [
+          {
             "key": "id",
             "label": "Id",
           },
-          Object {
+          {
             "key": "name",
             "label": "Name",
           },
         ],
-        "itemProps": Object {
+        "itemProps": {
           "isSelected": [Function],
           "onToggle": [MockFunction],
           "onToggleAll": [MockFunction],
         },
-        "items": Array [
-          Object {
+        "items": [
+          {
             "id": 1,
             "name": "Hello world",
           },
-          Object {
+          {
             "id": 2,
             "name": "Foo",
           },
-          Object {
+          {
             "id": 3,
             "name": "Bar",
           },
         ],
-        "titleProps": Object {
+        "titleProps": {
           "actionsKey": "actions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
@@ -51,12 +51,12 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
   >
     <ListToVirtualizedList
       columns={
-        Array [
-          Object {
+        [
+          {
             "key": "id",
             "label": "Id",
           },
-          Object {
+          {
             "key": "name",
             "label": "Name",
           },
@@ -64,30 +64,30 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
       }
       displayMode="table"
       itemProps={
-        Object {
+        {
           "isSelected": [Function],
           "onToggle": [MockFunction],
           "onToggleAll": [MockFunction],
         }
       }
       items={
-        Array [
-          Object {
+        [
+          {
             "id": 1,
             "name": "Hello world",
           },
-          Object {
+          {
             "id": 2,
             "name": "Foo",
           },
-          Object {
+          {
             "id": 3,
             "name": "Bar",
           },
         ]
       }
       titleProps={
-        Object {
+        {
           "actionsKey": "actions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
@@ -96,16 +96,16 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
     >
       <VirtualizedList
         collection={
-          Array [
-            Object {
+          [
+            {
               "id": 1,
               "name": "Hello world",
             },
-            Object {
+            {
               "id": 2,
               "name": "Foo",
             },
-            Object {
+            {
               "id": 3,
               "name": "Bar",
             },
@@ -125,11 +125,11 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
-          style={Object {}}
+          style={{}}
         >
           <div
             style={
-              Object {
+              {
                 "height": 0,
                 "overflow": "visible",
                 "width": 0,
@@ -138,16 +138,16 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
           >
             <VirtualizedList(RendererSelector)
               collection={
-                Array [
-                  Object {
+                [
+                  {
                     "id": 1,
                     "name": "Hello world",
                   },
-                  Object {
+                  {
                     "id": 2,
                     "name": "Foo",
                   },
-                  Object {
+                  {
                     "id": 3,
                     "name": "Bar",
                   },
@@ -164,16 +164,16 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
             >
               <VirtualizedList(ListTable)
                 collection={
-                  Array [
-                    Object {
+                  [
+                    {
                       "id": 1,
                       "name": "Hello world",
                     },
-                    Object {
+                    {
                       "id": 2,
                       "name": "Foo",
                     },
-                    Object {
+                    {
                       "id": 3,
                       "name": "Bar",
                     },
@@ -196,7 +196,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   gridClassName="theme-grid tc-dropdown-container"
                   headerHeight={40}
                   headerRowRenderer={[Function]}
-                  headerStyle={Object {}}
+                  headerStyle={{}}
                   height={250}
                   noRowsRenderer={[Function]}
                   onRowDoubleClick={[Function]}
@@ -209,12 +209,12 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   rowGetter={[Function]}
                   rowHeight={50}
                   rowRenderer={[Function]}
-                  rowStyle={Object {}}
+                  rowStyle={{}}
                   scrollToAlignment="auto"
                   scrollToIndex={-1}
                   sort={null}
                   sortDirection="ASC"
-                  style={Object {}}
+                  style={{}}
                   width={0}
                 >
                   <div
@@ -222,13 +222,13 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                     aria-rowcount={3}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     role="grid"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
                       role="row"
                       style={
-                        Object {
+                        {
                           "height": 40,
                           "overflow": "hidden",
                           "paddingRight": 0,
@@ -242,7 +242,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         key="Header-Col0"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 35px",
                             "flex": "0 0 35px",
                             "msFlex": "0 0 35px",
@@ -251,17 +251,17 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       >
                         <VirtualizedList(HeaderCheckbox)
                           columnData={
-                            Object {
-                              "collection": Array [
-                                Object {
+                            {
+                              "collection": [
+                                {
                                   "id": 1,
                                   "name": "Hello world",
                                 },
-                                Object {
+                                {
                                   "id": 2,
                                   "name": "Foo",
                                 },
-                                Object {
+                                {
                                   "id": 3,
                                   "name": "Bar",
                                 },
@@ -279,7 +279,6 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                           disableSort={true}
                           label=""
                           sortDirection="ASC"
-                          t={[Function]}
                         >
                           <form
                             className="tc-list-checkbox theme-tc-list-checkbox"
@@ -330,7 +329,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         key="Header-Col1"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 -1px",
                             "flex": "0 0 -1px",
                             "msFlex": "0 0 -1px",
@@ -350,7 +349,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         key="Header-Col2"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 -1px",
                             "flex": "0 0 -1px",
                             "msFlex": "0 0 -1px",
@@ -378,7 +377,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       columnCount={1}
                       columnWidth={0}
                       containerRole="rowgroup"
-                      containerStyle={Object {}}
+                      containerStyle={{}}
                       disableHeader={false}
                       estimatedColumnSize={100}
                       estimatedRowSize={30}
@@ -386,7 +385,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       gridClassName="theme-grid tc-dropdown-container"
                       headerHeight={40}
                       headerRowRenderer={[Function]}
-                      headerStyle={Object {}}
+                      headerStyle={{}}
                       height={210}
                       isScrollingOptOut={false}
                       noContentRenderer={[Function]}
@@ -405,7 +404,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       rowGetter={[Function]}
                       rowHeight={50}
                       rowRenderer={[Function]}
-                      rowStyle={Object {}}
+                      rowStyle={{}}
                       scrollToAlignment="auto"
                       scrollToColumn={-1}
                       scrollToIndex={-1}
@@ -415,7 +414,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       sort={null}
                       sortDirection="ASC"
                       style={
-                        Object {
+                        {
                           "overflowX": "hidden",
                         }
                       }
@@ -429,7 +428,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         onScroll={[Function]}
                         role="rowgroup"
                         style={
-                          Object {
+                          {
                             "WebkitOverflowScrolling": "touch",
                             "boxSizing": "border-box",
                             "direction": "ltr",
@@ -461,40 +460,40 @@ exports[`List should render 1`] = `
   className="tc-list theme-list"
 >
   <ListToolbar
-    components={Object {}}
+    components={{}}
     displayMode="table"
     list={
-      Object {
-        "columns": Array [
-          Object {
+      {
+        "columns": [
+          {
             "key": "id",
             "label": "Id",
           },
-          Object {
+          {
             "key": "name",
             "label": "Name",
           },
         ],
-        "itemProps": Object {
+        "itemProps": {
           "isSelected": [Function],
           "onToggle": [MockFunction],
           "onToggleAll": [MockFunction],
         },
-        "items": Array [
-          Object {
+        "items": [
+          {
             "id": 1,
             "name": "Hello world",
           },
-          Object {
+          {
             "id": 2,
             "name": "Foo",
           },
-          Object {
+          {
             "id": 3,
             "name": "Bar",
           },
         ],
-        "titleProps": Object {
+        "titleProps": {
           "actionsKey": "actions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
@@ -502,30 +501,30 @@ exports[`List should render 1`] = `
       }
     }
     toolbar={
-      Object {
-        "display": Object {
+      {
+        "display": {
           "mode": "table",
           "onChange": [MockFunction],
         },
-        "filter": Object {
+        "filter": {
           "onFilter": [MockFunction],
           "onToggle": [MockFunction],
         },
-        "pagination": Object {
+        "pagination": {
           "itemsPerPage": 5,
           "onChange": [MockFunction],
           "startIndex": 6,
           "totalResults": 13,
         },
-        "sort": Object {
+        "sort": {
           "field": "name",
           "onChange": [MockFunction],
-          "options": Array [
-            Object {
+          "options": [
+            {
               "id": "id",
               "name": "Id",
             },
-            Object {
+            {
               "id": "name",
               "name": "Name",
             },
@@ -535,21 +534,21 @@ exports[`List should render 1`] = `
     }
   >
     <withI18nextTranslation(Toolbar)
-      components={Object {}}
+      components={{}}
       display={
-        Object {
+        {
           "mode": "table",
           "onChange": [MockFunction],
         }
       }
       filter={
-        Object {
+        {
           "onFilter": [MockFunction],
           "onToggle": [MockFunction],
         }
       }
       pagination={
-        Object {
+        {
           "itemsPerPage": 5,
           "onChange": [MockFunction],
           "startIndex": 6,
@@ -623,7 +622,7 @@ exports[`List should render 1`] = `
                     <Pagination
                       itemsPerPage={5}
                       itemsPerPageOptions={
-                        Array [
+                        [
                           5,
                           10,
                           20,
@@ -953,7 +952,7 @@ exports[`List should render 1`] = `
                           </NavItem>
                           <li
                             className="theme-page-index"
-                            key=".1:2"
+                            key=".1:$page-index"
                             onSelect={[Function]}
                           >
                             2
@@ -1057,12 +1056,12 @@ exports[`List should render 1`] = `
   >
     <ListToVirtualizedList
       columns={
-        Array [
-          Object {
+        [
+          {
             "key": "id",
             "label": "Id",
           },
-          Object {
+          {
             "key": "name",
             "label": "Name",
           },
@@ -1070,30 +1069,30 @@ exports[`List should render 1`] = `
       }
       displayMode="table"
       itemProps={
-        Object {
+        {
           "isSelected": [Function],
           "onToggle": [MockFunction],
           "onToggleAll": [MockFunction],
         }
       }
       items={
-        Array [
-          Object {
+        [
+          {
             "id": 1,
             "name": "Hello world",
           },
-          Object {
+          {
             "id": 2,
             "name": "Foo",
           },
-          Object {
+          {
             "id": 3,
             "name": "Bar",
           },
         ]
       }
       titleProps={
-        Object {
+        {
           "actionsKey": "actions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
@@ -1102,16 +1101,16 @@ exports[`List should render 1`] = `
     >
       <VirtualizedList
         collection={
-          Array [
-            Object {
+          [
+            {
               "id": 1,
               "name": "Hello world",
             },
-            Object {
+            {
               "id": 2,
               "name": "Foo",
             },
-            Object {
+            {
               "id": 3,
               "name": "Bar",
             },
@@ -1131,11 +1130,11 @@ exports[`List should render 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
-          style={Object {}}
+          style={{}}
         >
           <div
             style={
-              Object {
+              {
                 "height": 0,
                 "overflow": "visible",
                 "width": 0,
@@ -1144,16 +1143,16 @@ exports[`List should render 1`] = `
           >
             <VirtualizedList(RendererSelector)
               collection={
-                Array [
-                  Object {
+                [
+                  {
                     "id": 1,
                     "name": "Hello world",
                   },
-                  Object {
+                  {
                     "id": 2,
                     "name": "Foo",
                   },
-                  Object {
+                  {
                     "id": 3,
                     "name": "Bar",
                   },
@@ -1170,16 +1169,16 @@ exports[`List should render 1`] = `
             >
               <VirtualizedList(ListTable)
                 collection={
-                  Array [
-                    Object {
+                  [
+                    {
                       "id": 1,
                       "name": "Hello world",
                     },
-                    Object {
+                    {
                       "id": 2,
                       "name": "Foo",
                     },
-                    Object {
+                    {
                       "id": 3,
                       "name": "Bar",
                     },
@@ -1202,7 +1201,7 @@ exports[`List should render 1`] = `
                   gridClassName="theme-grid tc-dropdown-container"
                   headerHeight={40}
                   headerRowRenderer={[Function]}
-                  headerStyle={Object {}}
+                  headerStyle={{}}
                   height={250}
                   noRowsRenderer={[Function]}
                   onRowDoubleClick={[Function]}
@@ -1215,12 +1214,12 @@ exports[`List should render 1`] = `
                   rowGetter={[Function]}
                   rowHeight={50}
                   rowRenderer={[Function]}
-                  rowStyle={Object {}}
+                  rowStyle={{}}
                   scrollToAlignment="auto"
                   scrollToIndex={-1}
                   sort={null}
                   sortDirection="ASC"
-                  style={Object {}}
+                  style={{}}
                   width={0}
                 >
                   <div
@@ -1228,13 +1227,13 @@ exports[`List should render 1`] = `
                     aria-rowcount={3}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     role="grid"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
                       role="row"
                       style={
-                        Object {
+                        {
                           "height": 40,
                           "overflow": "hidden",
                           "paddingRight": 0,
@@ -1248,7 +1247,7 @@ exports[`List should render 1`] = `
                         key="Header-Col0"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 35px",
                             "flex": "0 0 35px",
                             "msFlex": "0 0 35px",
@@ -1257,17 +1256,17 @@ exports[`List should render 1`] = `
                       >
                         <VirtualizedList(HeaderCheckbox)
                           columnData={
-                            Object {
-                              "collection": Array [
-                                Object {
+                            {
+                              "collection": [
+                                {
                                   "id": 1,
                                   "name": "Hello world",
                                 },
-                                Object {
+                                {
                                   "id": 2,
                                   "name": "Foo",
                                 },
-                                Object {
+                                {
                                   "id": 3,
                                   "name": "Bar",
                                 },
@@ -1285,7 +1284,6 @@ exports[`List should render 1`] = `
                           disableSort={true}
                           label=""
                           sortDirection="ASC"
-                          t={[Function]}
                         >
                           <form
                             className="tc-list-checkbox theme-tc-list-checkbox"
@@ -1336,7 +1334,7 @@ exports[`List should render 1`] = `
                         key="Header-Col1"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 -1px",
                             "flex": "0 0 -1px",
                             "msFlex": "0 0 -1px",
@@ -1356,7 +1354,7 @@ exports[`List should render 1`] = `
                         key="Header-Col2"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 -1px",
                             "flex": "0 0 -1px",
                             "msFlex": "0 0 -1px",
@@ -1384,7 +1382,7 @@ exports[`List should render 1`] = `
                       columnCount={1}
                       columnWidth={0}
                       containerRole="rowgroup"
-                      containerStyle={Object {}}
+                      containerStyle={{}}
                       disableHeader={false}
                       estimatedColumnSize={100}
                       estimatedRowSize={30}
@@ -1392,7 +1390,7 @@ exports[`List should render 1`] = `
                       gridClassName="theme-grid tc-dropdown-container"
                       headerHeight={40}
                       headerRowRenderer={[Function]}
-                      headerStyle={Object {}}
+                      headerStyle={{}}
                       height={210}
                       isScrollingOptOut={false}
                       noContentRenderer={[Function]}
@@ -1411,7 +1409,7 @@ exports[`List should render 1`] = `
                       rowGetter={[Function]}
                       rowHeight={50}
                       rowRenderer={[Function]}
-                      rowStyle={Object {}}
+                      rowStyle={{}}
                       scrollToAlignment="auto"
                       scrollToColumn={-1}
                       scrollToIndex={-1}
@@ -1421,7 +1419,7 @@ exports[`List should render 1`] = `
                       sort={null}
                       sortDirection="ASC"
                       style={
-                        Object {
+                        {
                           "overflowX": "hidden",
                         }
                       }
@@ -1435,7 +1433,7 @@ exports[`List should render 1`] = `
                         onScroll={[Function]}
                         role="rowgroup"
                         style={
-                          Object {
+                          {
                             "WebkitOverflowScrolling": "touch",
                             "boxSizing": "border-box",
                             "direction": "ltr",
@@ -1467,41 +1465,41 @@ exports[`List should render id if provided 1`] = `
   className="tc-list theme-list"
 >
   <ListToolbar
-    components={Object {}}
+    components={{}}
     displayMode="table"
     id="context"
     list={
-      Object {
-        "columns": Array [
-          Object {
+      {
+        "columns": [
+          {
             "key": "id",
             "label": "Id",
           },
-          Object {
+          {
             "key": "name",
             "label": "Name",
           },
         ],
-        "itemProps": Object {
+        "itemProps": {
           "isSelected": [Function],
           "onToggle": [MockFunction],
           "onToggleAll": [MockFunction],
         },
-        "items": Array [
-          Object {
+        "items": [
+          {
             "id": 1,
             "name": "Hello world",
           },
-          Object {
+          {
             "id": 2,
             "name": "Foo",
           },
-          Object {
+          {
             "id": 3,
             "name": "Bar",
           },
         ],
-        "titleProps": Object {
+        "titleProps": {
           "actionsKey": "actions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
@@ -1509,30 +1507,30 @@ exports[`List should render id if provided 1`] = `
       }
     }
     toolbar={
-      Object {
-        "display": Object {
+      {
+        "display": {
           "mode": "table",
           "onChange": [MockFunction],
         },
-        "filter": Object {
+        "filter": {
           "onFilter": [MockFunction],
           "onToggle": [MockFunction],
         },
-        "pagination": Object {
+        "pagination": {
           "itemsPerPage": 5,
           "onChange": [MockFunction],
           "startIndex": 6,
           "totalResults": 13,
         },
-        "sort": Object {
+        "sort": {
           "field": "name",
           "onChange": [MockFunction],
-          "options": Array [
-            Object {
+          "options": [
+            {
               "id": "id",
               "name": "Id",
             },
-            Object {
+            {
               "id": "name",
               "name": "Name",
             },
@@ -1542,22 +1540,22 @@ exports[`List should render id if provided 1`] = `
     }
   >
     <withI18nextTranslation(Toolbar)
-      components={Object {}}
+      components={{}}
       display={
-        Object {
+        {
           "mode": "table",
           "onChange": [MockFunction],
         }
       }
       filter={
-        Object {
+        {
           "onFilter": [MockFunction],
           "onToggle": [MockFunction],
         }
       }
       id="context"
       pagination={
-        Object {
+        {
           "itemsPerPage": 5,
           "onChange": [MockFunction],
           "startIndex": 6,
@@ -1635,7 +1633,7 @@ exports[`List should render id if provided 1`] = `
                       id="context-pagination"
                       itemsPerPage={5}
                       itemsPerPageOptions={
-                        Array [
+                        [
                           5,
                           10,
                           20,
@@ -1971,7 +1969,7 @@ exports[`List should render id if provided 1`] = `
                           </NavItem>
                           <li
                             className="theme-page-index"
-                            key=".1:2"
+                            key=".1:$page-index"
                             onSelect={[Function]}
                           >
                             2
@@ -2081,12 +2079,12 @@ exports[`List should render id if provided 1`] = `
   >
     <ListToVirtualizedList
       columns={
-        Array [
-          Object {
+        [
+          {
             "key": "id",
             "label": "Id",
           },
-          Object {
+          {
             "key": "name",
             "label": "Name",
           },
@@ -2095,30 +2093,30 @@ exports[`List should render id if provided 1`] = `
       displayMode="table"
       id="context"
       itemProps={
-        Object {
+        {
           "isSelected": [Function],
           "onToggle": [MockFunction],
           "onToggleAll": [MockFunction],
         }
       }
       items={
-        Array [
-          Object {
+        [
+          {
             "id": 1,
             "name": "Hello world",
           },
-          Object {
+          {
             "id": 2,
             "name": "Foo",
           },
-          Object {
+          {
             "id": 3,
             "name": "Bar",
           },
         ]
       }
       titleProps={
-        Object {
+        {
           "actionsKey": "actions",
           "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
@@ -2127,16 +2125,16 @@ exports[`List should render id if provided 1`] = `
     >
       <VirtualizedList
         collection={
-          Array [
-            Object {
+          [
+            {
               "id": 1,
               "name": "Hello world",
             },
-            Object {
+            {
               "id": 2,
               "name": "Foo",
             },
-            Object {
+            {
               "id": 3,
               "name": "Bar",
             },
@@ -2157,11 +2155,11 @@ exports[`List should render id if provided 1`] = `
           disableHeight={false}
           disableWidth={false}
           onResize={[Function]}
-          style={Object {}}
+          style={{}}
         >
           <div
             style={
-              Object {
+              {
                 "height": 0,
                 "overflow": "visible",
                 "width": 0,
@@ -2170,16 +2168,16 @@ exports[`List should render id if provided 1`] = `
           >
             <VirtualizedList(RendererSelector)
               collection={
-                Array [
-                  Object {
+                [
+                  {
                     "id": 1,
                     "name": "Hello world",
                   },
-                  Object {
+                  {
                     "id": 2,
                     "name": "Foo",
                   },
-                  Object {
+                  {
                     "id": 3,
                     "name": "Bar",
                   },
@@ -2197,16 +2195,16 @@ exports[`List should render id if provided 1`] = `
             >
               <VirtualizedList(ListTable)
                 collection={
-                  Array [
-                    Object {
+                  [
+                    {
                       "id": 1,
                       "name": "Hello world",
                     },
-                    Object {
+                    {
                       "id": 2,
                       "name": "Foo",
                     },
-                    Object {
+                    {
                       "id": 3,
                       "name": "Bar",
                     },
@@ -2230,7 +2228,7 @@ exports[`List should render id if provided 1`] = `
                   gridClassName="theme-grid tc-dropdown-container"
                   headerHeight={40}
                   headerRowRenderer={[Function]}
-                  headerStyle={Object {}}
+                  headerStyle={{}}
                   height={250}
                   id="context"
                   noRowsRenderer={[Function]}
@@ -2244,12 +2242,12 @@ exports[`List should render id if provided 1`] = `
                   rowGetter={[Function]}
                   rowHeight={50}
                   rowRenderer={[Function]}
-                  rowStyle={Object {}}
+                  rowStyle={{}}
                   scrollToAlignment="auto"
                   scrollToIndex={-1}
                   sort={null}
                   sortDirection="ASC"
-                  style={Object {}}
+                  style={{}}
                   width={0}
                 >
                   <div
@@ -2258,13 +2256,13 @@ exports[`List should render id if provided 1`] = `
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     id="context"
                     role="grid"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="tc-list-headerRow theme-tc-list-headerRow ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row theme-ReactVirtualized__Table__headerRow tc-list-item theme-tc-list-item theme-row theme-theme-row theme-row theme-theme-row"
                       role="row"
                       style={
-                        Object {
+                        {
                           "height": 40,
                           "overflow": "hidden",
                           "paddingRight": 0,
@@ -2278,7 +2276,7 @@ exports[`List should render id if provided 1`] = `
                         key="Header-Col0"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 35px",
                             "flex": "0 0 35px",
                             "msFlex": "0 0 35px",
@@ -2287,17 +2285,17 @@ exports[`List should render id if provided 1`] = `
                       >
                         <VirtualizedList(HeaderCheckbox)
                           columnData={
-                            Object {
-                              "collection": Array [
-                                Object {
+                            {
+                              "collection": [
+                                {
                                   "id": 1,
                                   "name": "Hello world",
                                 },
-                                Object {
+                                {
                                   "id": 2,
                                   "name": "Foo",
                                 },
-                                Object {
+                                {
                                   "id": 3,
                                   "name": "Bar",
                                 },
@@ -2315,7 +2313,6 @@ exports[`List should render id if provided 1`] = `
                           disableSort={true}
                           label=""
                           sortDirection="ASC"
-                          t={[Function]}
                         >
                           <form
                             className="tc-list-checkbox theme-tc-list-checkbox"
@@ -2371,7 +2368,7 @@ exports[`List should render id if provided 1`] = `
                         key="Header-Col1"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 -1px",
                             "flex": "0 0 -1px",
                             "msFlex": "0 0 -1px",
@@ -2391,7 +2388,7 @@ exports[`List should render id if provided 1`] = `
                         key="Header-Col2"
                         role="columnheader"
                         style={
-                          Object {
+                          {
                             "WebkitFlex": "0 0 -1px",
                             "flex": "0 0 -1px",
                             "msFlex": "0 0 -1px",
@@ -2419,7 +2416,7 @@ exports[`List should render id if provided 1`] = `
                       columnCount={1}
                       columnWidth={0}
                       containerRole="rowgroup"
-                      containerStyle={Object {}}
+                      containerStyle={{}}
                       disableHeader={false}
                       estimatedColumnSize={100}
                       estimatedRowSize={30}
@@ -2427,7 +2424,7 @@ exports[`List should render id if provided 1`] = `
                       gridClassName="theme-grid tc-dropdown-container"
                       headerHeight={40}
                       headerRowRenderer={[Function]}
-                      headerStyle={Object {}}
+                      headerStyle={{}}
                       height={210}
                       isScrollingOptOut={false}
                       noContentRenderer={[Function]}
@@ -2446,7 +2443,7 @@ exports[`List should render id if provided 1`] = `
                       rowGetter={[Function]}
                       rowHeight={50}
                       rowRenderer={[Function]}
-                      rowStyle={Object {}}
+                      rowStyle={{}}
                       scrollToAlignment="auto"
                       scrollToColumn={-1}
                       scrollToIndex={-1}
@@ -2456,7 +2453,7 @@ exports[`List should render id if provided 1`] = `
                       sort={null}
                       sortDirection="ASC"
                       style={
-                        Object {
+                        {
                           "overflowX": "hidden",
                         }
                       }
@@ -2470,7 +2467,7 @@ exports[`List should render id if provided 1`] = `
                         onScroll={[Function]}
                         role="rowgroup"
                         style={
-                          Object {
+                          {
                             "WebkitOverflowScrolling": "touch",
                             "boxSizing": "border-box",
                             "direction": "ltr",

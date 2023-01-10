@@ -107,9 +107,10 @@ export const Icon = React.forwardRef(
 			}
 		}, [border, safeRef]);
 
-		const classname = classnames('tc-icon', style.svg, className, transform, {
+		const classname = classnames('tc-icon', style.svg, className, {
 			[`tc-icon-name-${name}`]: !(isImg || isRemote),
 			[style.border]: border,
+			[style[transform]]: !!transform,
 		});
 
 		if (isImg) {

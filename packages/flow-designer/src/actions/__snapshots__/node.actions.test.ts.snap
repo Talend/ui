@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Check that node action creators generate proper action objects and perform checking addNode generate action with 0 configuration 1`] = `
-Array [
-  Object {
-    "data": Object {},
-    "graphicalAttributes": Object {
-      "nodePosition": Object {
+[
+  {
+    "data": {},
+    "graphicalAttributes": {
+      "nodePosition": {
         "x": 75,
         "y": 75,
       },
-      "nodeSize": Object {
+      "nodeSize": {
         "height": 50,
         "width": 50,
       },
@@ -23,10 +23,10 @@ Array [
 `;
 
 exports[`Check that node action creators generate proper action objects and perform checking moveNode generate a proper action object witch nodeId and nodePosition parameter 1`] = `
-Array [
-  Object {
+[
+  {
     "nodeId": "nodeId",
-    "nodePosition": Object {
+    "nodePosition": {
       "x": 10,
       "y": 20,
     },
@@ -36,8 +36,8 @@ Array [
 `;
 
 exports[`Check that node action creators generate proper action objects and perform checking removeNode 1`] = `
-Array [
-  Object {
+[
+  {
     "nodeId": "id",
     "type": "FLOWDESIGNER_NODE_REMOVE",
   },
@@ -45,8 +45,8 @@ Array [
 `;
 
 exports[`Check that node action creators generate proper action objects and perform checking removeNodeData 1`] = `
-Array [
-  Object {
+[
+  {
     "dataKey": "type",
     "nodeId": "id",
     "type": "FLOWDESIGNER_NODE_REMOVE_DATA",
@@ -55,8 +55,8 @@ Array [
 `;
 
 exports[`Check that node action creators generate proper action objects and perform checking removeNodeGraphicalAttribute 1`] = `
-Array [
-  Object {
+[
+  {
     "graphicalAttributesKey": "selected",
     "nodeId": "id",
     "type": "FLOWDESIGNER_NODE_REMOVE_GRAPHICAL_ATTRIBUTES",
@@ -65,10 +65,10 @@ Array [
 `;
 
 exports[`Check that node action creators generate proper action objects and perform checking setNodeData 1`] = `
-Array [
-  Object {
+[
+  {
     "bySubmit": false,
-    "data": Object {
+    "data": {
       "type": "test",
     },
     "nodeId": "id",
@@ -78,9 +78,9 @@ Array [
 `;
 
 exports[`Check that node action creators generate proper action objects and perform checking setNodeGraphicalAttributes 1`] = `
-Array [
-  Object {
-    "graphicalAttributes": Object {
+[
+  {
+    "graphicalAttributes": {
       "selected": true,
     },
     "nodeId": "id",
@@ -90,10 +90,10 @@ Array [
 `;
 
 exports[`Check that node action creators generate proper action objects and perform checking setNodeSize 1`] = `
-Array [
-  Object {
+[
+  {
     "nodeId": "nodeId",
-    "nodeSize": Object {
+    "nodeSize": {
       "height": 100,
       "width": 100,
     },
@@ -103,12 +103,12 @@ Array [
 `;
 
 exports[`applyMovementTo generate proper action 1`] = `
-Object {
-  "movement": Object {
+{
+  "movement": {
     "x": 10,
     "y": 5,
   },
-  "nodesId": Array [
+  "nodesId": [
     1,
     2,
     3,

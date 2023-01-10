@@ -3,15 +3,15 @@
 exports[`JSONSchemaRenderer should handle nested objects 1`] = `
 <JSONSchemaRenderer
   schema={
-    Object {
-      "jsonSchema": Object {
-        "properties": Object {
-          "a": Object {
-            "properties": Object {
-              "b": Object {
+    {
+      "jsonSchema": {
+        "properties": {
+          "a": {
+            "properties": {
+              "b": {
                 "type": "string",
               },
-              "c": Object {
+              "c": {
                 "type": "string",
               },
             },
@@ -19,13 +19,13 @@ exports[`JSONSchemaRenderer should handle nested objects 1`] = `
           },
         },
       },
-      "properties": Object {
-        "a": Object {
+      "properties": {
+        "a": {
           "b": "test",
           "c": "test 2",
         },
       },
-      "uiSchema": Object {},
+      "uiSchema": {},
     }
   }
 >
@@ -45,19 +45,19 @@ exports[`JSONSchemaRenderer should handle nested objects 1`] = `
       <JSONSchemaRenderer
         className="theme-nested"
         schema={
-          Object {
-            "jsonSchema": Object {
-              "properties": Object {
-                "b": Object {
+          {
+            "jsonSchema": {
+              "properties": {
+                "b": {
                   "type": "string",
                 },
-                "c": Object {
+                "c": {
                   "type": "string",
                 },
               },
               "type": "object",
             },
-            "properties": Object {
+            "properties": {
               "b": "test",
               "c": "test 2",
             },
@@ -98,12 +98,12 @@ exports[`JSONSchemaRenderer should handle nested objects 1`] = `
 exports[`JSONSchemaRenderer should render arrays 1`] = `
 <JSONSchemaRenderer
   schema={
-    Object {
-      "jsonSchema": Object {
-        "properties": Object {
-          "a": Object {
-            "items": Object {
-              "enum": Array [
+    {
+      "jsonSchema": {
+        "properties": {
+          "a": {
+            "items": {
+              "enum": [
                 "a",
                 "b",
                 "c",
@@ -117,8 +117,8 @@ exports[`JSONSchemaRenderer should render arrays 1`] = `
           },
         },
       },
-      "properties": Object {
-        "a": Array [
+      "properties": {
+        "a": [
           "b",
           "d",
           "f",
@@ -160,20 +160,20 @@ exports[`JSONSchemaRenderer should render arrays 1`] = `
 exports[`JSONSchemaRenderer should render strings and integers 1`] = `
 <JSONSchemaRenderer
   schema={
-    Object {
-      "jsonSchema": Object {
-        "properties": Object {
-          "a": Object {
+    {
+      "jsonSchema": {
+        "properties": {
+          "a": {
             "title": "test string",
             "type": "string",
           },
-          "b": Object {
+          "b": {
             "title": "test integer",
             "type": "integer",
           },
         },
       },
-      "properties": Object {
+      "properties": {
         "a": "A big a",
         "b": 42,
       },
@@ -210,9 +210,9 @@ exports[`JSONSchemaRenderer should render strings and integers 1`] = `
 exports[`JSONSchemaRenderer should render the empty properties list 1`] = `
 <JSONSchemaRenderer
   schema={
-    Object {
-      "jsonSchema": Object {},
-      "properties": Object {},
+    {
+      "jsonSchema": {},
+      "properties": {},
     }
   }
 >

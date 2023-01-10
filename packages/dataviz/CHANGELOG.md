@@ -1,5 +1,37 @@
 # Changelog
 
+## 2.8.4
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+
+## 2.8.3
+
+### Patch Changes
+
+- 2be2c3f47: fix: do not pass t props to FormatValue
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+
+## 2.8.2
+
+### Patch Changes
+
+- 5e3712511: fix(dataviz): Yaxis legend on some edge cases
+
+## 2.8.1
+
+### Patch Changes
+
+- cae4e6f34: fix(dataviz): render dot in LineChart when there is only one value
+
 ## 2.8.0
 
 ### Minor Changes

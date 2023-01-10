@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Check that port action creators generate proper action objects and perform checking addPort 1`] = `
-Array [
-  Object {
-    "data": Object {
+[
+  {
+    "data": {
       "flowType": "string",
     },
-    "graphicalAttributes": Object {
+    "graphicalAttributes": {
       "portType": "test",
-      "properties": Object {
+      "properties": {
         "type": "INCOMING",
       },
     },
@@ -20,8 +20,8 @@ Array [
 `;
 
 exports[`Check that port action creators generate proper action objects and perform checking removePort 1`] = `
-Array [
-  Object {
+[
+  {
     "portId": "portId",
     "type": "FLOWDESIGNER_PORT_REMOVE",
   },
@@ -29,8 +29,8 @@ Array [
 `;
 
 exports[`Check that port action creators generate proper action objects and perform checking removePortAttribute 1`] = `
-Array [
-  Object {
+[
+  {
     "graphicalAttributesKey": "selected",
     "portId": "id",
     "type": "FLOWDESIGNER_PORT_REMOVE_GRAPHICAL_ATTRIBUTES",
@@ -39,8 +39,8 @@ Array [
 `;
 
 exports[`Check that port action creators generate proper action objects and perform checking removePortData 1`] = `
-Array [
-  Object {
+[
+  {
     "dataKey": "type",
     "portId": "id",
     "type": "FLOWDESIGNER_PORT_REMOVE_DATA",
@@ -49,9 +49,9 @@ Array [
 `;
 
 exports[`Check that port action creators generate proper action objects and perform checking setPortData 1`] = `
-Array [
-  Object {
-    "data": Object {
+[
+  {
+    "data": {
       "type": "test",
     },
     "portId": "id",
@@ -61,9 +61,9 @@ Array [
 `;
 
 exports[`Check that port action creators generate proper action objects and perform checking setPortGraphicalAttribute 1`] = `
-Array [
-  Object {
-    "graphicalAttributes": Object {
+[
+  {
+    "graphicalAttributes": {
       "selected": true,
     },
     "portId": "id",

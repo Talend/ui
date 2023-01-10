@@ -16,7 +16,7 @@ exports[`JSONLike ComplexItem should render 1`] = `
       </sup>
     </TooltipTrigger>
   }
-  edited={Array []}
+  edited={[]}
   hasChildren={true}
   icon={
     <Action
@@ -30,14 +30,14 @@ exports[`JSONLike ComplexItem should render 1`] = `
       tabIndex="-1"
     />
   }
-  info={Object {}}
+  info={{}}
   isOpened={false}
   name="name"
   onKeyDown={[MockFunction]}
   onSelect={[MockFunction]}
   onToggle={[MockFunction]}
   onToggleAllSiblings={[MockFunction]}
-  opened={Array []}
+  opened={[]}
   t={[Function]}
   type={null}
 />
@@ -54,14 +54,14 @@ exports[`JSONLike should render 1`] = `
   >
     <Item
       data={
-        Object {
-          "bar": Object {
+        {
+          "bar": {
             "hello": "hello",
           },
           "foo": "foo",
         }
       }
-      edited={Array []}
+      edited={[]}
       id="my-object-root"
       index={1}
       jsonpath="$"
@@ -71,12 +71,12 @@ exports[`JSONLike should render 1`] = `
       onSelect={[MockFunction]}
       onToggle={[MockFunction]}
       onToggleAllSiblings={[MockFunction]}
-      opened={Array []}
+      opened={[]}
       siblings={
-        Array [
-          Object {
-            "data": Object {
-              "bar": Object {
+        [
+          {
+            "data": {
+              "bar": {
                 "hello": "hello",
               },
               "foo": "foo",

@@ -1,5 +1,36 @@
 # @talend/ui-playground
 
+## 1.1.10
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [e83d88f83]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+- Updated dependencies [70677664b]
+  - @talend/react-components@9.0.0
+  - @talend/react-containers@8.0.0
+  - @talend/bootstrap-theme@7.0.0
+  - @talend/react-datagrid@14.0.0
+  - @talend/react-dataviz@2.8.4
+  - @talend/react-forms@8.1.7
+
+## 1.1.9
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+  - @talend/react-dataviz@2.8.3
+  - @talend/react-containers@7.3.2
+  - @talend/react-datagrid@13.0.3
+  - @talend/react-forms@8.1.6
+
 ## 1.1.8
 
 ### Patch Changes

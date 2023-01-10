@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
 require('@testing-library/jest-dom');
 require('core-js/stable');
 require('regenerator-runtime/runtime');
@@ -8,22 +11,24 @@ class ResizeObserver {
 	observe() {
 		// do nothing
 	}
+
 	unobserve() {
 		// do nothing
 	}
+
 	disconnect() {
 		// do nothing
 	}
 }
-if (!global.ResizeObserver) {
+if (!global.self.ResizeObserver) {
 	// add this for react-resize-detector major update
-	global.ResizeObserver = ResizeObserver;
+	global.self.ResizeObserver = ResizeObserver;
 }
 
-if (!global.TextEncoder) {
+if (!global.self.TextEncoder) {
 	// add this for whatwg-url use in jsdom
-	global.TextEncoder = require('util').TextEncoder;
-	global.TextDecoder = require('util').TextDecoder;
+	global.self.TextEncoder = require('util').TextEncoder;
+	global.self.TextDecoder = require('util').TextDecoder;
 }
 // enzyme adapter configuration
 let React;
@@ -45,107 +50,127 @@ try {
 } catch (e) {}
 
 // Mock fetch
-const fetch = jest.fn(
-	(url, config) =>
-		new Promise(resolve => {
-			if (config.response) {
-				return resolve(config.response);
-			}
-			return resolve();
-		}),
-);
-global.fetch = fetch;
+try {
+	const fetch = jest.fn(
+		(url, config) =>
+			new Promise(resolve => {
+				if (config.response) {
+					return resolve(config.response);
+				}
+				return resolve();
+			}),
+	);
+	global.self.fetch = fetch;
+} catch (e) {}
 
-// Mock session storage
-delete window.sessionStorage;
-Object.defineProperty(window, 'sessionStorage', {
-	value: (function () {
-		let store = {};
-		return {
-			getItem(key) {
-				return store[key] || null;
-			},
-			setItem(key, value) {
-				store[key] = value.toString();
-			},
-			removeItem(key) {
-				delete store[key];
-			},
-			clear() {
-				store = {};
-			},
-		};
-	})(),
-	writable: true,
-});
-
-jest.mock('i18next', () => {
-	function tMock(key, options) {
-		if (typeof options === 'string') {
-			return options;
-		}
-		if (options && options.defaultValue) {
-			const getOptionValue = k => (options[k] === undefined ? '' : options[k]);
-			return (options.defaultValue || '').replace(/{{\s*(\w+)\s*}}/g, (_, k) => getOptionValue(k));
-		}
-		return key.split(':').reverse()[0];
-	}
-	const i18nextMock = jest.genMockFromModule('i18next');
-	i18nextMock.t = tMock;
-	i18nextMock.language = 'en';
-	i18nextMock.getFixedT = () => tMock;
-	i18nextMock.use = () => i18nextMock;
-	i18nextMock.addResources = () => {};
-	return i18nextMock;
-});
-
-jest.mock('react-i18next', () => {
-	// from https://github.com/i18next/react-i18next/blob/master/example/test-jest/__mocks__/react-i18next.js
-	const React = require('react');
-	const i18next = require('i18next');
-
-	const hasChildren = node => node && (node.children || (node.props && node.props.children));
-
-	const getChildren = node =>
-		node && node.children ? node.children : node.props && node.props.children;
-
-	const renderNodes = reactNodes => {
-		if (typeof reactNodes === 'string') {
-			return reactNodes;
-		}
-
-		return Object.keys(reactNodes).map((key, i) => {
-			const child = reactNodes[key];
-			const isElement = React.isValidElement(child);
-
-			if (typeof child === 'string') {
-				return child;
-			}
-			if (hasChildren(child)) {
-				const inner = renderNodes(getChildren(child));
-				return React.cloneElement(child, { ...child.props, key: i }, inner);
-			}
-			if (typeof child === 'object' && !isElement) {
-				return Object.keys(child).reduce((str, childKey) => `${str}${child[childKey]}`, '');
-			}
-
-			return child;
-		});
-	};
-	// this mock makes sure any components using the translate HoC receive the t function as a prop
-	return {
-		withTranslation: () => Component => {
-			Component.defaultProps = { ...Component.defaultProps, t: i18next.t };
-			Component.displayName = `withI18nextTranslation(${Component.displayName || Component.name})`;
-			return Component;
+try {
+	Object.defineProperty(global.self, 'crypto', {
+		value: {
+			randomUUID: () => '42',
 		},
-		useTranslation: () => ({ t: i18next.t }),
-		setI18n: () => {},
-		getI18n: () => i18next,
-		Trans: ({ children }) =>
-			Array.isArray(children) ? renderNodes(children) : renderNodes([children]),
-	};
-});
+	});
+} catch (e) {
+	console.error(e);
+}
+
+try {
+	// Mock session storage
+	delete window.sessionStorage;
+	Object.defineProperty(window, 'sessionStorage', {
+		value: (function () {
+			let store = {};
+			return {
+				getItem(key) {
+					return store[key] || null;
+				},
+				setItem(key, value) {
+					store[key] = value.toString();
+				},
+				removeItem(key) {
+					delete store[key];
+				},
+				clear() {
+					store = {};
+				},
+			};
+		})(),
+		writable: true,
+	});
+} catch (e) {}
+
+try {
+	jest.mock('i18next', () => {
+		function tMock(key, options) {
+			if (typeof options === 'string') {
+				return options;
+			}
+			if (options && options.defaultValue) {
+				const getOptionValue = k => (options[k] === undefined ? '' : options[k]);
+				return (options.defaultValue || '').replace(/{{\s*(\w+)\s*}}/g, (_, k) =>
+					getOptionValue(k),
+				);
+			}
+			return key.split(':').reverse()[0];
+		}
+		const i18nextMock = jest.genMockFromModule('i18next');
+		i18nextMock.t = tMock;
+		i18nextMock.language = 'en';
+		i18nextMock.getFixedT = () => tMock;
+		i18nextMock.use = () => i18nextMock;
+		i18nextMock.addResources = () => {};
+		return i18nextMock;
+	});
+
+	jest.mock('react-i18next', () => {
+		// from https://github.com/i18next/react-i18next/blob/master/example/test-jest/__mocks__/react-i18next.js
+		const React = require('react');
+		const i18next = require('i18next');
+
+		const hasChildren = node => node && (node.children || (node.props && node.props.children));
+
+		const getChildren = node =>
+			node && node.children ? node.children : node.props && node.props.children;
+
+		const renderNodes = reactNodes => {
+			if (typeof reactNodes === 'string') {
+				return reactNodes;
+			}
+
+			return Object.keys(reactNodes).map((key, i) => {
+				const child = reactNodes[key];
+				const isElement = React.isValidElement(child);
+
+				if (typeof child === 'string') {
+					return child;
+				}
+				if (hasChildren(child)) {
+					const inner = renderNodes(getChildren(child));
+					return React.cloneElement(child, { ...child.props, key: i }, inner);
+				}
+				if (typeof child === 'object' && !isElement) {
+					return Object.keys(child).reduce((str, childKey) => `${str}${child[childKey]}`, '');
+				}
+
+				return child;
+			});
+		};
+		// this mock makes sure any components using the translate HoC receive the t function as a prop
+		return {
+			withTranslation: () => Component => {
+				Component.defaultProps = { ...Component.defaultProps, t: i18next.t };
+				Component.displayName = `withI18nextTranslation(${
+					Component.displayName || Component.name
+				})`;
+				return Component;
+			},
+			useTranslation: () => ({ t: i18next.t }),
+			setI18n: () => {},
+			getI18n: () => i18next,
+			Trans: ({ children }) =>
+				Array.isArray(children) ? renderNodes(children) : renderNodes([children]),
+		};
+	});
+} catch (e) {}
 
 try {
 	jest.mock('@talend/design-system', () => {

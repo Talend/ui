@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
@@ -15,8 +19,6 @@ import cmfConnect, {
 	getMergeProps,
 } from '../src/cmfConnect';
 import component from '../src/component';
-
-jest.mock('uuid', () => ({ v4: () => '42' }));
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {

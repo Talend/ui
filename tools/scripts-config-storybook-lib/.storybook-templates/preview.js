@@ -17,10 +17,14 @@ const i18n = initI18n(userI18n);
 // cmf
 let cmfLoader;
 let cmfDecorator;
-if(cmf) {
-	const cmfPreview = require('./cmf').configureCmfModules(cmf.modules, cmf.settings);
-	cmfLoader = cmfPreview.loader;
-	cmfDecorator = cmfPreview.decorator;
+if (cmf) {
+	try {
+		const cmfPreview = require('./cmf').configureCmfModules(cmf.modules, cmf.settings);
+		cmfLoader = cmfPreview.loader;
+		cmfDecorator = cmfPreview.decorator;
+	} catch(e) {
+		console.error(e);
+	}
 }
 
 const defaultPreview = {

@@ -1,5 +1,50 @@
 # @talend/scripts-config-react-webpack
 
+## 15.2.2
+
+### Patch Changes
+
+- ed4014653: fix: remove duplicates of meta and simplify head script
+
+  - meta was their twice because they are passed to the html-webpack-plugin.
+
+  - the INITIATOR part of the script was still here even if we already have set `dynamic-cdn-webpack-plugin` to false.
+
+  fix: The copy of assets in a cdn folder should happens if and only if:
+
+  - INTIATOR_URL has not been given at compile time and
+  - dynamic-cdn-webpack-plugin is present
+
+  fix: DuplicatePlugins and BundleAnalyzer take times and slowdown the rebuild a lot. Use them only if option `--env analyze` is passed to the script.
+
+## 15.2.1
+
+### Patch Changes
+
+- 1b1e74e6c: chore: remove not needed static option of devServer webpack configuration
+
+  doc: https://webpack.js.org/configuration/dev-server/#devserverstatic
+
+## 15.2.0
+
+### Minor Changes
+
+- 925cec02b: feat: add toggle to activate or not dynamic-cdn-plugin
+
+### Patch Changes
+
+- Updated dependencies [925cec02b]
+  - @talend/scripts-config-cdn@10.6.0
+
+## 15.1.2
+
+### Patch Changes
+
+- e83d88f83: fix: force postcss8 to avoid issue at build
+
+  we use autoprefixer 10 in this preset which require postcss8.
+  To avoid error where we could have postcss 7 let's force it to 8.
+
 ## 15.1.1
 
 ### Patch Changes

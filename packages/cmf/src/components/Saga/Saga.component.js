@@ -1,11 +1,11 @@
 import { useEffect, useMemo } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
+import { randomUUID } from '@talend/utils';
 import { actions } from './Saga.saga';
 
 export function SagaComponent({ startSaga, stopSaga, saga, sagaAttributes, children = null }) {
-	const id = useMemo(v4, []);
+	const id = useMemo(randomUUID, []);
 
 	useEffect(() => {
 		startSaga(id, saga, sagaAttributes);

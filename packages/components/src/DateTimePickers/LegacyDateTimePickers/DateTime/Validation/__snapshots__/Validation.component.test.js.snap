@@ -12,8 +12,8 @@ exports[`DateTime.Validation should render 1`] = `
     >
       <ErrorMock
         errors={
-          Array [
-            Object {
+          [
+            {
               "code": "INVALID_DATE_FORMAT",
               "message": "INVALID_DATE_FORMAT",
             },
@@ -25,8 +25,8 @@ exports[`DateTime.Validation should render 1`] = `
       />
       <ErrorMock
         errors={
-          Array [
-            Object {
+          [
+            {
               "code": "INVALID_HOUR",
               "message": "INVALID_HOUR_EMPTY",
             },
@@ -38,8 +38,8 @@ exports[`DateTime.Validation should render 1`] = `
       />
       <ErrorMock
         errors={
-          Array [
-            Object {
+          [
+            {
               "code": "INVALID_MINUTES",
               "message": "INVALID_MINUTES_EMPTY",
             },
@@ -51,8 +51,8 @@ exports[`DateTime.Validation should render 1`] = `
       />
       <ErrorMock
         errors={
-          Array [
-            Object {
+          [
+            {
               "code": "INVALID_SECONDS",
               "message": "INVALID_SECONDS_EMPTY",
             },
@@ -67,7 +67,8 @@ exports[`DateTime.Validation should render 1`] = `
       aria-label="Validate the date picker value"
       className="btn btn-primary"
       name="action-datepicker-validate"
-      type="submit"
+      onClick={[MockFunction]}
+      type="button"
     >
       Done
     </button>

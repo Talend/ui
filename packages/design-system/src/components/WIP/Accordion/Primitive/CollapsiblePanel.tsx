@@ -44,7 +44,7 @@ const CollapsiblePanel = forwardRef(
 		}: CollapsiblePanelPropsType,
 		ref: Ref<HTMLButtonElement>,
 	) => {
-		const [localExpanded, setLocalExpanded] = useState(false);
+		const [localExpanded, setLocalExpanded] = useState(!!expanded);
 
 		const { id: reakitId } = useId();
 		const componentId = id || reakitId;

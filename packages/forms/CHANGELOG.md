@@ -1,5 +1,56 @@
 # @talend/react-forms
 
+## 8.2.0
+
+### Minor Changes
+
+- c3923dc5c: feat(CDM-307): new code field skeleton and typescript migration
+
+### Patch Changes
+
+- Updated dependencies [bb92ff4bd]
+- Updated dependencies [012d6fe31]
+  - @talend/react-components@9.3.0
+
+## 8.1.9
+
+### Patch Changes
+
+- f77b6a9b7: TDOPS-3372 - validate input value for integer fields
+- Updated dependencies [a3ac5792b]
+- Updated dependencies [f77b6a9b7]
+  - @talend/react-components@9.2.0
+  - @talend/json-schema-form-core@1.1.1
+
+## 8.1.8
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+  - @talend/react-components@9.0.1
+  - @talend/utils@2.5.0
+
+## 8.1.7
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+
+## 8.1.6
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+
 ## 8.1.5
 
 ### Patch Changes

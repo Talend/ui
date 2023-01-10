@@ -86,19 +86,13 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             </div>
           </div>
         </button>
-        <button aria-expanded="true"
-                type="button"
-                aria-label="Collapse panel"
-                aria-pressed="true"
-                aria-describedby="42"
-                class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
+        <span aria-expanded="true"
+              class="CoralButtonIcon theme-toggle toggle"
+              type="button"
+              icon="chevron-down-stroke"
         >
-          <span name="talend-caret-down"
-                transform="flip-vertical"
-                class="CoralIcon"
-          >
-          </span>
-        </button>
+          Collapse panel
+        </span>
       </div>
     </div>
   </div>
@@ -205,17 +199,12 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             </div>
           </div>
         </button>
-        <button type="button"
-                aria-label="Expand panel"
-                aria-pressed="false"
-                aria-describedby="42"
-                class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+        <span class="CoralButtonIcon theme-toggle toggle"
+              type="button"
+              icon="chevron-up-filled"
         >
-          <span name="talend-caret-down"
-                class="CoralIcon"
-          >
-          </span>
-        </button>
+          Expand panel
+        </span>
       </div>
     </div>
   </div>
@@ -406,17 +395,12 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             </div>
           </div>
         </button>
-        <button type="button"
-                aria-label="Expand panel"
-                aria-pressed="false"
-                aria-describedby="42"
-                class="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+        <span class="CoralButtonIcon theme-toggle toggle"
+              type="button"
+              icon="chevron-up-filled"
         >
-          <span name="talend-caret-down"
-                class="CoralIcon"
-          >
-          </span>
-        </button>
+          Expand panel
+        </span>
       </div>
     </div>
   </div>

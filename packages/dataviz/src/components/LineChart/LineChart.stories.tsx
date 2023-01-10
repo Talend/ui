@@ -387,3 +387,90 @@ export const CustomXAxisDomainLineChart = {
 		],
 	},
 };
+
+const tickFormatterByMonth = (value: number) => {
+	const durationByMonth = value / 2678400000;
+	const months = Math.floor(durationByMonth);
+	return `${months} months`;
+};
+
+const tickFormatterByHour = (value: number) => {
+	const durationByHour = value / 3600000;
+	const hours = Math.floor(durationByHour);
+	return `${hours} hours`;
+};
+
+export const WithOnlyOneDot = {
+	args: {
+		hasLineSelection: true,
+		chartOptions: {
+			showGridLines: true,
+			xAxisOptions: '{verticalOffset: 5}',
+			leftYAxisOptions: {
+				horizontalOffset: 4,
+				manualTicks: [3024000000, 5702400000, 8380800000, 11059200000],
+				formatter: tickFormatterByMonth,
+			},
+		},
+		lines: [
+			{
+				key: 'User1',
+				color: tokens.coralColorChartsColor01,
+			},
+			{
+				key: 'User2',
+				color: tokens.coralColorChartsColor02,
+			},
+			{
+				key: 'User3',
+				color: tokens.coralColorChartsColor04,
+			},
+		],
+		data: [
+			{
+				xLabel: 'W41 2022',
+				User1: 3024000000,
+				User2: 5702400000,
+				User3: 8380800000,
+			},
+		],
+	},
+};
+
+export const WithOnlyOneDotOnTheTop = {
+	args: {
+		hasLineSelection: true,
+		chartOptions: {
+			margin: { top: 10, right: 20, bottom: 5, left: 5 },
+			showGridLines: true,
+			xAxisOptions: { verticalOffset: 5 },
+			leftYAxisOptions: {
+				horizontalOffset: 4,
+				manualTicks: [22378905872, 22382505872, 22386105872, 22389705872],
+				formatter: tickFormatterByHour,
+			},
+		},
+		lines: [
+			{
+				key: 'User1',
+				color: tokens.coralColorChartsColor01,
+			},
+			{
+				key: 'User2',
+				color: tokens.coralColorChartsColor02,
+			},
+			{
+				key: 'User3',
+				color: tokens.coralColorChartsColor04,
+			},
+		],
+		data: [
+			{
+				xLabel: 'W41 2022',
+				User1: 22379081790,
+				User2: 22378905872,
+				User3: 22379612230,
+			},
+		],
+	},
+};

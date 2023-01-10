@@ -7,7 +7,7 @@ exports[`CellTitleInput should render the input 1`] = `
   onEditCancel={[MockFunction]}
   onEditSubmit={[MockFunction]}
   rowData={
-    Object {
+    {
       "id": 1,
     }
   }

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tablerow #insertSelectionConfiguration should NOT insert selection column when selection callback is NOT provided 1`] = `
-Array [
+[
   <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
@@ -11,7 +11,7 @@ Array [
     flexShrink={1}
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />,
   <Content
@@ -23,19 +23,19 @@ Array [
     flexShrink={1}
     headerRenderer={[Function]}
     label="Name"
-    style={Object {}}
+    style={{}}
     width={350}
   />,
 ]
 `;
 
 exports[`tablerow #insertSelectionConfiguration should insert selection column when selection callback is provided 1`] = `
-Array [
+[
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     columnData={
-      Object {
+      {
         "collection": undefined,
         "isSelected": [MockFunction],
         "label": "Select this element",
@@ -52,7 +52,7 @@ Array [
     headerRenderer={[Function]}
     id="tc-list-internal-row-selector"
     label=""
-    style={Object {}}
+    style={{}}
     width={35}
   />,
   <Content
@@ -64,7 +64,7 @@ Array [
     flexShrink={1}
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />,
   <Content
@@ -76,20 +76,20 @@ Array [
     flexShrink={1}
     headerRenderer={[Function]}
     label="Name"
-    style={Object {}}
+    style={{}}
     width={350}
   />,
 ]
 `;
 
 exports[`tablerow #toColumns should add id in columns data 1`] = `
-Array [
+[
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-      Object {
+      {
         "custom": "lol",
         "getRowState": undefined,
         "id": "my-id",
@@ -102,20 +102,20 @@ Array [
     headerClassName="tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />,
 ]
 `;
 
 exports[`tablerow #toColumns should create column with enhanced classname from theme 1`] = `
-Array [
+[
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     className="my-classname theme-classname tc-list-cell-id"
     columnData={
-      Object {
+      {
         "getRowState": undefined,
         "id": undefined,
       }
@@ -127,20 +127,20 @@ Array [
     headerClassName="tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />,
 ]
 `;
 
 exports[`tablerow #toColumns should create column with enhanced header classname from theme 1`] = `
-Array [
+[
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-      Object {
+      {
         "getRowState": undefined,
         "id": undefined,
       }
@@ -152,20 +152,20 @@ Array [
     headerClassName="my-header-classname theme-header-classname tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />,
 ]
 `;
 
 exports[`tablerow #toColumns should return a column with fixed width 1`] = `
-Array [
+[
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-      Object {
+      {
         "custom": "lol",
         "getRowState": undefined,
         "id": "my-id",
@@ -178,20 +178,20 @@ Array [
     headerClassName="tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />,
 ]
 `;
 
 exports[`tablerow #toColumns should return a column with resizable width and classname 1`] = `
-Array [
+[
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-      Object {
+      {
         "custom": "lol",
         "getRowState": undefined,
         "id": "my-id",
@@ -204,7 +204,7 @@ Array [
     headerClassName="tc-list-cell-id tc-header-resizable"
     headerRenderer={[Function]}
     label="Id"
-    style={Object {}}
+    style={{}}
     width={50}
   />,
 ]

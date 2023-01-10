@@ -51,11 +51,11 @@ exports[`Header "Select All" checkbox should render a checked checkbox on header
         label=""
         onChange={
           [MockFunction] {
-            "calls": Array [
-              Array [],
+            "calls": [
+              [],
             ],
-            "results": Array [
-              Object {
+            "results": [
+              {
                 "type": "return",
                 "value": undefined,
               },
@@ -94,11 +94,11 @@ exports[`Header "Select All" checkbox should render a partial checkbox on header
         label=""
         onChange={
           [MockFunction] {
-            "calls": Array [
-              Array [],
+            "calls": [
+              [],
             ],
-            "results": Array [
-              Object {
+            "results": [
+              {
                 "type": "return",
                 "value": undefined,
               },

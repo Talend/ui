@@ -1,0 +1,5 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.destructive_border {
+	border-left-color: tokens.$coral-color-danger-icon;
+}
