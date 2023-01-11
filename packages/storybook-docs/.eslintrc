@@ -1,3 +1,4 @@
 {
-  "extends": "@talend"
+	"root": true,
+	"extends": "@talend"
 }
