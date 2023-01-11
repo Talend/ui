@@ -1,8 +1,0 @@
-{
-  "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "compilerOptions": {
-    "noEmit": true
-  },
-  "exclude": ["**/node_modules", "**/.eslintrc.js"],
-  "include": ["packages/*/src", "tools/**/*.js"]
-}
