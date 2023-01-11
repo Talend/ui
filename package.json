@@ -54,7 +54,10 @@
     "fork/*"
   ],
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "packages/*/src/*.{js,jsx,ts,tsx}": [
+      "talend-scripts lint --quiet --fix"
+    ],
+    "tools/*/**/*.js": [
       "talend-scripts lint --quiet --fix"
     ],
     "*.{json,md,mdx,html,js,jsx,ts,tsx}": [

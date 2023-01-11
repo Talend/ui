@@ -121,7 +121,7 @@ export default async function extend(env, presetApi) {
 		],
 		defaultConfigFilePath: path.join(rootPath, '.eslintrc'),
 		generateContent() {
-			const configPath = getPkgRootPath('@talend/scripts-config-eslint');
+			const configPath = getPkgRootPath('@talend/eslint-config');
 			const presetConfigPath = path.join(configPath, '.eslintrc.js');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return eslintExtendsTemplate({ presetConfigRelativePath });

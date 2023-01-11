@@ -7,7 +7,7 @@ To use the eslint configuration in your IDE, or to add custom rules
 
 ```json
 {
-	"extends": "@talend/scripts-config-eslint",
+	"extends": "@talend",
 	"rules": {}
 }
 ```
