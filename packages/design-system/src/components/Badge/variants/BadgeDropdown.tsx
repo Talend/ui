@@ -95,6 +95,7 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 				aria-label={t('BADGE_ARIA_lABEL_SELECT_ITEM', 'Select item')}
 				items={value.map(mapBadgeItemToDropdownItem(onChange))}
 				data-testid={props['data-testid']}
+				data-test={props['data-test']}
 			>
 				<BadgeDropdownButton data-testid={props['data-testid']} data-test={props['data-test']}>
 					{selectedValue?.label}
