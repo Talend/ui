@@ -3,10 +3,9 @@ const path = require('path');
 const cwd = process.cwd();
 const isTS = fs.existsSync(path.join(cwd, 'tsconfig.json'));
 const commentsRegex = /\/\/.*/g;
-const content = fs
-	.readFileSync(path.join(__dirname, '.eslintrc'))
-	.toString()
-	.replace(commentsRegex, '');
+const content = JSON.parse(
+	fs.readFileSync(path.join(__dirname, '.eslintrc.json')).toString().replace(commentsRegex, ''),
+);
 const config = JSON.parse(content);
 
 if (isTS) {
