@@ -1,7 +1,5 @@
 ---
 '@talend/scripts-config-jest': major
-'@talend/scripts-preset-react-lib': major
-'@talend/scripts-preset-react': major
 ---
 
 feat: upgrade to jest 29
