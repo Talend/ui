@@ -51,7 +51,7 @@
     "@talend/locales-tui-components": "^6.44.11",
     "@talend/locales-tui-faceted-search": "^4.0.2",
     "@talend/react-components": "^9.3.0",
-    "@talend/scripts-core": "^12.2.0",
+    "@talend/scripts-core": "^13.0.0",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "cross-env": "^7.0.3",
     "i18next": "^20.6.1",
