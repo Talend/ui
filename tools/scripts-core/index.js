@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
-const { getEnv } = require('./utils/env');
-const { getPresetApi } = require('./utils/preset');
-const { printSeparator } = require('./utils/log');
+import { getEnv } from './utils/env.js';
+import { getPresetApi } from './utils/preset.js';
+import { printSeparator } from './utils/log.js';
 
 const command = process.argv[2];
 const options = process.argv.slice(3);
@@ -11,24 +12,14 @@ if (command === '--help' || command === '-h' || command === 'help') {
 	console.log(`Please use one of the following commands:
 * start
 * build
-* build:lib
 * build:lib:umd
-* build:ts:lib
-* lint:es
-* lint:style
-* postinstall
 * test
-* test:ng
-* upgrade:deps
-* publish:local
 * extends
 * start-storybook
 * build-storybook
 `);
 	process.exit(0);
 }
-
-printSeparator('CONFIGURATION');
 console.log(`Running command: ${command}`, `With options: ${options}`);
 
 function getMode() {
@@ -40,7 +31,7 @@ function getMode() {
 	return command === 'start' ? 'development' : 'production';
 }
 
-function runScript() {
+async function runScript() {
 	printSeparator('CONFIGURATION');
 
 	const restOptions = options.filter(
@@ -61,7 +52,9 @@ function runScript() {
 	printSeparator('RUN');
 
 	const commandFileName = command.replace(/:/g, '-');
-	const result = require(`./scripts/${commandFileName}`)(env, presetApi, restOptions);
+	const script = await import(`./scripts/${commandFileName}.js`);
+	const result = script.default(env, presetApi, restOptions);
+
 	if (result.then) {
 		result
 			.then(() => {
@@ -76,23 +69,35 @@ function runScript() {
 }
 
 switch (command) {
-	case 'start':
 	case 'build':
-	case 'build:lib':
-	case 'build:lib:umd':
-	case 'build:ts:lib':
-	case 'lint:es':
-	case 'lint:style':
-	case 'postinstall':
-	case 'publish:local':
-	case 'test':
-	case 'test:ng':
-	case 'upgrade:deps':
-	case 'extends':
-	case 'start-storybook':
 	case 'build-storybook':
+	case 'lint':
+	case 'start':
+	case 'start-storybook':
+	case 'test':
 		runScript(command, options);
 		break;
+	case 'build:lib':
+	case 'build:lib:umd':
+		console.log('This command do not exists anymore, please use just "build" command');
+		process.exit(-1);
+	case 'lint:es':
+	case 'lint:style':
+		console.log('This command do not exists anymore, please use just "lint" command');
+		process.exit(-1);
+	case 'test:ng':
+		console.log('This command do not exists anymore, please use just "test" command');
+		process.exit(-1);
+	case 'upgrade:deps':
+		console.log(
+			'This command do not exists anymore, please use just "talend-upgrade-deps" binary from "@talend/upgrade-deps" package',
+		);
+		process.exit(-1);
+	case 'publish:local':
+		console.log(
+			'This command do not exists anymore, please use just "talend-publish-local" bin from "@talend/scripts-publish-local" package',
+		);
+		process.exit(-1);
 	default:
 		console.log(`Command ${command} not found.`);
 		process.exit(-1);

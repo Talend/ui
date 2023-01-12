@@ -1,18 +1,28 @@
-const spawn = require('cross-spawn');
-const { hereRelative, resolveBin } = require('../utils/path-resolver');
+import { getDirName } from '../utils/dirname.js';
+import { hereRelative, resolveBin } from '../utils/path-resolver.js';
+import { check, getPresetEnv } from '../utils/preset.js';
+import { mySpawn } from '../utils/spawn.js';
+import startStorybook from './start-storybook.js';
 
-const webpack = resolveBin('webpack');
+export default async function start(env, _, options) {
+	const packageType = getPresetEnv();
 
-module.exports = function start(env, _, options) {
-	return spawn.sync(
-		webpack,
-		[
-			'serve',
-			'--config',
-			hereRelative(__dirname, '../config/webpack.config.js'),
-			'--progress',
-			...options,
-		],
-		{ stdio: 'inherit', env },
-	);
-};
+	if (packageType.isApp) {
+		check('@talend/scripts-config-react-webpack');
+		const webpack = resolveBin('webpack');
+		return mySpawn(
+			webpack,
+			[
+				'serve',
+				'--config',
+				hereRelative(getDirName(import.meta.url), '../config/webpack.config.js'),
+				'--progress',
+				...options,
+			],
+			{ stdio: 'inherit', env },
+		);
+	}
+	if (packageType.isLib) {
+		return startStorybook(env, _, options);
+	}
+}

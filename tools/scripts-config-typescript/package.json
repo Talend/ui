@@ -10,6 +10,7 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test": "echo \"Nothing to test\""
   },
   "repository": {

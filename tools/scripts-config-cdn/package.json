@@ -4,6 +4,7 @@
   "description": "Provide a simple API to inject CDN config into existing webpack configuration",
   "main": "cdn.js",
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test": "echo \"Nothing to test\""
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",

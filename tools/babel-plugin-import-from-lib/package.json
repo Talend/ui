@@ -4,6 +4,7 @@
   "description": "This plugin transform imports of lib using /lib path",
   "main": "index.js",
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test": "jest"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",

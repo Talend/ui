@@ -7,7 +7,6 @@
     "src/**/*",
     "custom.d.ts"
   ],
-  "files": [],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

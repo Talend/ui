@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "test": "jest",
-    "lint": "eslint lib/**"
+    "lint": "talend-scripts lint lib/**/*.js"
   },
   "keywords": [
     "webpack",

@@ -1,4 +1,3 @@
 {
-  "preset": "@talend/scripts-preset-react-lib",
   "copy": [{ "from": "assets/**" }]
 }

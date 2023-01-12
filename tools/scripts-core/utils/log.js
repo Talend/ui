@@ -1,9 +1,8 @@
+/* eslint-disable no-console */
 /**
  * Print a separator
  * @param title The title to print
  */
-function printSeparator(title) {
+export function printSeparator(title) {
 	console.log(`\n${title} `.padEnd(100, '-'));
 }
-
-module.exports = { printSeparator };

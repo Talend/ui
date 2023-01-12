@@ -11,8 +11,8 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib": "talend-scripts build:ts:lib",
-    "lint:es": "talend-scripts lint:es",
+    "build:lib": "talend-scripts build",
+    "lint": "talend-scripts lint",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
     "cross-env": "^7.0.3"
   },
   "dependencies": {

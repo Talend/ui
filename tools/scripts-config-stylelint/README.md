@@ -6,7 +6,7 @@ To use the jest configuration in your IDE, or to add customization
 2. Make it extend the one from talend preset
 
 ```javascript
-const defaults = require('@talend/scripts-config-stylelint/.stylelintrc.js');
+const defaults = require('@talend/scripts-config-stylelint');
 
 module.exports = {
 	...defaults,

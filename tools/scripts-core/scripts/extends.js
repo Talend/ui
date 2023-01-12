@@ -1,9 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const template = require('lodash.template');
-const { getPreset } = require('../utils/preset');
-const { getUserConfigFile } = require('../utils/env');
+/* eslint-disable no-console */
+import fs from 'fs';
+import path from 'path';
+import _ from 'lodash';
+import { getUserConfigFile } from '../utils/env.js';
 
+const { template } = _;
 const jestExtendsTemplate = template(`const defaults = require('<%= presetConfigRelativePath %>');
 
 module.exports = {
@@ -67,17 +68,15 @@ function generateConfigFile({ configFileNames, defaultConfigFilePath, generateCo
 	console.log(`✅ ${fileName} created.`);
 }
 
-module.exports = function extend(env, presetApi) {
-	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = getPreset(presetName);
+export default async function extend(env, presetApi) {
 	const rootPath = process.cwd();
 	const nodeModulesPath = path.join(rootPath, 'node_modules');
-
 	generateConfigFile({
 		configFileNames: ['jest.config.js'],
 		defaultConfigFilePath: path.join(rootPath, 'jest.config.js'),
 		generateContent() {
-			const presetConfigPath = preset.getJestConfigurationPath(presetApi);
+			const configPath = getPkgRootPath('@talend/scripts-config-jest');
+			const presetConfigPath = path.join(configPath, 'jest.config.js');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return jestExtendsTemplate({ presetConfigRelativePath });
 		},
@@ -87,7 +86,8 @@ module.exports = function extend(env, presetApi) {
 		configFileNames: ['.prettierrc.js'],
 		defaultConfigFilePath: path.join(rootPath, '.prettierrc.js'),
 		generateContent() {
-			const presetConfigPath = preset.getPrettierConfigurationPath(presetApi);
+			const configPath = getPkgRootPath('@talend/scripts-config-prettier');
+			const presetConfigPath = path.join(configPath, '.prettierrc.js');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return prettierExtendsTemplate({ presetConfigRelativePath });
 		},
@@ -104,8 +104,9 @@ module.exports = function extend(env, presetApi) {
 		],
 		defaultConfigFilePath: path.join(rootPath, '.stylelintrc'),
 		generateContent() {
-			const presetConfigPath = preset.getStylelintConfigurationPath(presetApi);
-			const presetConfigRelativePath = path.relative(rootPath, presetConfigPath);
+			const configPath = getPkgRootPath('@talend/scripts-config-stylelint');
+			const presetConfigPath = path.join(configPath, '.stylelintrc');
+			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return stylelintExtendsTemplate({ presetConfigRelativePath });
 		},
 	});
@@ -120,8 +121,9 @@ module.exports = function extend(env, presetApi) {
 		],
 		defaultConfigFilePath: path.join(rootPath, '.eslintrc'),
 		generateContent() {
-			const presetConfigPath = preset.getEslintConfigurationPath(presetApi);
-			const presetConfigRelativePath = path.relative(rootPath, presetConfigPath);
+			const configPath = getPkgRootPath('@talend/eslint-config');
+			const presetConfigPath = path.join(configPath, '.eslintrc.js');
+			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return eslintExtendsTemplate({ presetConfigRelativePath });
 		},
 	});
@@ -130,7 +132,8 @@ module.exports = function extend(env, presetApi) {
 		configFileNames: ['.babelrc', '.babelrc.json', 'babel.config.js'],
 		defaultConfigFilePath: path.join(rootPath, '.babelrc.json'),
 		generateContent() {
-			const presetConfigPath = preset.getBabelConfigurationPath(presetApi);
+			const configPath = getPkgRootPath('@talend/scripts-config-babel');
+			const presetConfigPath = path.join(configPath, '.babelrc.json');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return babelExtendsTemplate({ presetConfigRelativePath });
 		},
@@ -140,11 +143,12 @@ module.exports = function extend(env, presetApi) {
 		configFileNames: ['tsconfig.json'],
 		defaultConfigFilePath: path.join(rootPath, 'tsconfig.json'),
 		generateContent() {
-			const presetConfigPath = preset.getTypescriptConfigurationPath(presetApi);
+			const configPath = getPkgRootPath('@talend/scripts-config-typescript');
+			const presetConfigPath = path.join(configPath, 'tsconfig.json');
 			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
 			return typescriptExtendsTemplate({ presetConfigRelativePath });
 		},
 	});
 
 	return { status: 0 };
-};
+}
