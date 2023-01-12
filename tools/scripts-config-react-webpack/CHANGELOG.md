@@ -1,5 +1,12 @@
 # @talend/scripts-config-react-webpack
 
+## 15.2.3
+
+### Patch Changes
+
+- Updated dependencies [c18aabb97]
+  - @talend/scripts-config-babel@12.0.0
+
 ## 15.2.2
 
 ### Patch Changes

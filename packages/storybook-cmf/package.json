@@ -25,7 +25,7 @@
   "mainSrc": "src/index.js",
   "devDependencies": {
     "@talend/react-cmf": "^7.1.4",
-    "@talend/scripts-core": "^12.2.0",
+    "@talend/scripts-core": "^13.0.0",
     "enzyme": "^3.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
