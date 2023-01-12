@@ -64,11 +64,12 @@ export type BadgePrimitiveProps = {
 
 function BadgePrimitive({
 	children,
+	'data-testid': dataTestId,
+	'data-test': dataTest,
 	label,
 	onClose,
 	ref,
 	semanticIcon = 'none',
-	'data-testid': dataTestId,
 }: PropsWithChildren<BadgePrimitiveProps>) {
 	// TODO BADGE - handle onClose to manage close button
 
@@ -89,7 +90,7 @@ function BadgePrimitive({
 				<span
 					className={classnames(styles.badge__label)}
 					data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
-					data-test={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
+					data-test={dataTest ? `${dataTest}.${defaultTestId}` : defaultTestId}
 				>
 					{label}
 				</span>

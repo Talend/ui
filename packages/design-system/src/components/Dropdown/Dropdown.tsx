@@ -45,7 +45,13 @@ export type DropdownPropsType = {
 
 const Dropdown = forwardRef(
 	(
-		{ children, items, 'data-testid': dataTestId, ...rest }: DropdownPropsType,
+		{
+			children,
+			'data-test': dataTest,
+			'data-testid': dataTestId,
+			items,
+			...rest
+		}: DropdownPropsType,
 		ref: Ref<HTMLDivElement>,
 	) => {
 		const menu = useMenuState({
@@ -57,10 +63,13 @@ const Dropdown = forwardRef(
 		const menuButtonTestId = dataTestId ? `${dataTestId}.dropdown.button` : 'dropdown.button';
 		const menuTestId = dataTestId ? `${dataTestId}.dropdown.menu` : 'dropdown.menu';
 		const menuItemTestId = dataTestId ? `${dataTestId}.dropdown.menuitem` : 'dropdown.menuitem';
+		const menuButtonTest = dataTest ? `${dataTest}.dropdown.button` : 'dropdown.button';
+		const menuTest = dataTest ? `${dataTest}.dropdown.menu` : 'dropdown.menu';
+		const menuItemTest = dataTest ? `${dataTest}.dropdown.menuitem` : 'dropdown.menuitem';
 
 		return (
 			<>
-				<MenuButton {...menu} data-testid={menuButtonTestId} data-test={menuButtonTestId}>
+				<MenuButton {...menu} data-testid={menuButtonTestId} data-test={menuButtonTest}>
 					{disclosureProps => cloneElement(children, disclosureProps)}
 				</MenuButton>
 				<Menu
@@ -69,7 +78,7 @@ const Dropdown = forwardRef(
 					{...rest}
 					ref={ref}
 					data-testid={menuTestId}
-					data-test={menuTestId}
+					data-test={menuTest}
 				>
 					{items.map((entry, index) => {
 						if (entry.type === 'button') {
@@ -86,7 +95,7 @@ const Dropdown = forwardRef(
 									key={id}
 									id={id}
 									data-testid={`${menuItemTestId}.${id}`}
-									data-test={menuItemTestId}
+									data-test={`${menuItemTest}.${id}`}
 								>
 									{label}
 								</DropdownButton>
@@ -100,7 +109,7 @@ const Dropdown = forwardRef(
 								<DropdownTitle
 									key={id}
 									data-testid={`${menuItemTestId}.${id}`}
-									data-test={menuItemTestId}
+									data-test={`${menuItemTest}.${id}`}
 								>
 									{label}
 								</DropdownTitle>
@@ -114,7 +123,7 @@ const Dropdown = forwardRef(
 									{...menu}
 									key={id}
 									data-testid={`${menuItemTestId}.${id}`}
-									data-test={menuItemTestId}
+									data-test={`${menuItemTest}.${id}`}
 								/>
 							);
 						}
@@ -135,7 +144,7 @@ const Dropdown = forwardRef(
 									}
 								}}
 								data-testid={`${menuItemTestId}.${id}`}
-								data-test={menuItemTestId}
+								data-test={`${menuItemTest}.${id}`}
 							>
 								{label}
 							</DropdownLink>

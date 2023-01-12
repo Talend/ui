@@ -67,12 +67,12 @@ function mapBadgeItemToDropdownItem(onChange?: (selectedId: string) => void) {
 
 export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children'> & {
 	/**
-	 * (optional) Listener for item selection.
+	 * Listener for item selection.
 	 */
-	onChange?: (selectedId: string) => void;
+	onChange: (selectedId: string) => void;
 
 	/**
-	 * (optional) ID of item to select by default. If not filled, first one is selected.
+	 * (Optional) ID of selected item. If not filled, first one is selected.
 	 */
 	selectedId?: string;
 
@@ -96,7 +96,7 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 				items={value.map(mapBadgeItemToDropdownItem(onChange))}
 				data-testid={props['data-testid']}
 			>
-				<BadgeDropdownButton data-testid={props['data-testid']}>
+				<BadgeDropdownButton data-testid={props['data-testid']} data-test={props['data-test']}>
 					{selectedValue?.label}
 				</BadgeDropdownButton>
 			</Dropdown>

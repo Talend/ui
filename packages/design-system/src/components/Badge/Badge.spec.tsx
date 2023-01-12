@@ -32,7 +32,7 @@ context('<Badge />', () => {
 		cy.getByTestId('badge-label').should('have.text', label);
 		cy.getByTestId('badge-divider');
 
-		cy.getByTest('dropdown.button').should('have.text', 'Item');
+		cy.getByTest('dropdown.button.badge-button').should('have.text', 'Item');
 	});
 
 	it('should render BadgePopover', () => {

@@ -23,16 +23,24 @@ type BadgeButtonProps = {
 } & Partial<DataAttributes>;
 
 const BadgeButton = forwardRef(
-	({ componentId, children, onClick, ...rest }: BadgeButtonProps, ref: Ref<HTMLButtonElement>) => {
+	(
+		{
+			children,
+			componentId,
+			'data-testid': dataTestId,
+			'data-test': dataTest,
+			onClick,
+			...rest
+		}: BadgeButtonProps,
+		ref: Ref<HTMLButtonElement>,
+	) => {
 		const defaultTestId = 'badge-button';
 
 		return (
 			<Clickable
 				className={classnames(styles.badge__button)}
-				data-testid={
-					rest['data-testid'] ? `${rest['data-testid']}.${defaultTestId}` : defaultTestId
-				}
-				data-test={rest['data-testid'] ? `${rest['data-testid']}.${defaultTestId}` : defaultTestId}
+				data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
+				data-test={dataTest ? `${dataTest}.${defaultTestId}` : defaultTestId}
 				key={componentId}
 				onClick={onClick}
 				ref={ref}

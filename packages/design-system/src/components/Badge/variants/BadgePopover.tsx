@@ -19,26 +19,22 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 		<BadgePrimitive {...props} ref={ref}>
 			{
 				<StackHorizontal gap="XXS" as="span" align="center">
-					{value.map((item: BadgePopoverItem, idx: number) => {
-						const buttonTestId = props['data-testid']
-							? `${props['data-testid']}.${item.id}`
-							: item.id;
-						return (
-							<React.Fragment key={`badgepopover-fragment-${item.id}`}>
-								{idx > 0 && (
-									<Divider key={`badgepopover-divider-${item.id}`} orientation="vertical" />
-								)}
+					{value.map((item: BadgePopoverItem, idx: number) => (
+						<React.Fragment key={`badgepopover-fragment-${item.id}`}>
+							{idx > 0 && (
+								<Divider key={`badgepopover-divider-${item.id}`} orientation="vertical" />
+							)}
 
-								<BadgeButton
-									componentId={`badgepopover-button-${item.id}`}
-									onClick={item.onClick}
-									data-testid={buttonTestId}
-								>
-									{item.label}
-								</BadgeButton>
-							</React.Fragment>
-						);
-					})}
+							<BadgeButton
+								componentId={`badgepopover-button-${item.id}`}
+								onClick={item.onClick}
+								data-testid={props['data-testid'] ? `${props['data-testid']}.${item.id}` : item.id}
+								data-test={props['data-test'] ? `${props['data-test']}.${item.id}` : item.id}
+							>
+								{item.label}
+							</BadgeButton>
+						</React.Fragment>
+					))}
 				</StackHorizontal>
 			}
 		</BadgePrimitive>
