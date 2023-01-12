@@ -1,6 +1,7 @@
 @mixin label-variant($color) {
 	background-color: rgba($color, 0.2);
 	color: shade($color, 25%);
+
 	&[href] {
 		&:hover,
 		&:focus {

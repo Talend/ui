@@ -32,7 +32,7 @@
 
 		& + li {
 			// https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html
-			&:before {
+			&::before {
 				display: block;
 				content: '';
 				margin: 0 $padding-small $padding-smaller $padding-smaller;
