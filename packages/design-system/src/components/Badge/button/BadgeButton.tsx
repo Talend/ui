@@ -3,8 +3,9 @@ import React, { forwardRef, Ref } from 'react';
 import classnames from 'classnames';
 import styles from './BadgeButton.module.scss';
 import Clickable from '../../Clickable';
+import { DataAttributes } from 'src/types';
 
-interface BadgeButtonProps {
+type BadgeButtonProps = {
 	/**
 	 * Component ID used as key and for data-testid.
 	 */
@@ -19,14 +20,27 @@ interface BadgeButtonProps {
 	 * (optional) Button click handler.
 	 */
 	onClick?: () => void;
-}
+} & Partial<DataAttributes>;
 
 const BadgeButton = forwardRef(
-	({ componentId, children, onClick, ...rest }: BadgeButtonProps, ref: Ref<HTMLButtonElement>) => {
+	(
+		{
+			children,
+			componentId,
+			'data-testid': dataTestId,
+			'data-test': dataTest,
+			onClick,
+			...rest
+		}: BadgeButtonProps,
+		ref: Ref<HTMLButtonElement>,
+	) => {
+		const defaultTestId = 'badge-button';
+
 		return (
 			<Clickable
 				className={classnames(styles.badge__button)}
-				data-testid={componentId}
+				data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
+				data-test={dataTest ? `${dataTest}.${defaultTestId}` : defaultTestId}
 				key={componentId}
 				onClick={onClick}
 				ref={ref}
