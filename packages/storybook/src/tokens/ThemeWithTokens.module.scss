@@ -1,11 +1,11 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .card {
-  width: calc(#{tokens.$coral-sizing-maximal} * 1.5);
-  margin: 0 auto;
-  padding: tokens.$coral-spacing-m;
-  background: tokens.$coral-color-neutral-background;
-  border-radius: tokens.$coral-radius-m;
-  box-shadow: tokens.$coral-elevation-shadow-neutral-s;
-  color: tokens.$coral-color-neutral-text;
+	width: calc(#{tokens.$coral-sizing-maximal} * 1.5);
+	margin: 0 auto;
+	padding: tokens.$coral-spacing-m;
+	background: tokens.$coral-color-neutral-background;
+	border-radius: tokens.$coral-radius-m;
+	box-shadow: tokens.$coral-elevation-shadow-neutral-s;
+	color: tokens.$coral-color-neutral-text;
 }

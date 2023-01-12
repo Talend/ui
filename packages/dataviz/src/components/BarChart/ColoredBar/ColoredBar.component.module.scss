@@ -5,23 +5,10 @@
 $module: colored-bar;
 
 .#{$module} {
-	@mixin colored-bar($style, $primaryColor, $secondaryColor) {
-		&--#{$style}.colored-bar__primary-bar {
-			fill: $primaryColor;
-		}
 
-		&--#{$style}.colored-bar__label {
-			color: $secondaryColor;
-		}
+	@include colored-bar('value', $value-bar-primary-color, $value-bar-secondary-color);
 
-		&--#{$style}.colored-bar--hover {
-			fill: $secondaryColor;
-
-			&.colored-bar__label {
-				color: $primaryColor;
-			}
-		}
-	}
+	@include colored-bar('pattern', $pattern-bar-primary-color, $pattern-bar-secondary-color);
 
 	&__label-container {
 		pointer-events: none;
@@ -39,8 +26,21 @@ $module: colored-bar;
 	&__secondary-bar {
 		fill: $alto;
 	}
+	@mixin colored-bar($style, $primaryColor, $secondaryColor) {
+		&--#{$style}.colored-bar__primary-bar {
+			fill: $primaryColor;
+		}
 
-	@include colored-bar('value', $value-bar-primary-color, $value-bar-secondary-color);
+		&--#{$style}.colored-bar__label {
+			color: $secondaryColor;
+		}
 
-	@include colored-bar('pattern', $pattern-bar-primary-color, $pattern-bar-secondary-color);
+		&--#{$style}.colored-bar--hover {
+			fill: $secondaryColor;
+
+			&.colored-bar__label {
+				color: $primaryColor;
+			}
+		}
+	}
 }

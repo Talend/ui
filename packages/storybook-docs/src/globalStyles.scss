@@ -82,7 +82,7 @@ html {
 
 	// Embedded components
 	.docs-story {
-		&:before {
+		&::before {
 			content: 'Embedded component';
 			font: tokens.$coral-paragraph-m-bold;
 			color: tokens.$coral-color-neutral-text-weak;
@@ -360,13 +360,13 @@ html {
 	}
 
 	&.sbdocs-preview pre.prismjs {
-		background: #022e4d;
+		background: #022E4D;
 	}
 
 	kbd {
 		padding: 0.25rem 0.5rem;
 		color: #202020;
-		background-color: #eeeeee;
+		background-color: #EEE;
 		border-radius: 0.4rem;
 		border: 1px solid #606060;
 		font-size: 1.2rem;
@@ -395,9 +395,9 @@ html {
 		font-weight: 600;
 	}
 
-	& > dt:before {
+	& > dt::before {
 		content: '#';
-		color: #ff6d70;
+		color: #FF6D70;
 		padding-right: 1ch;
 	}
 
