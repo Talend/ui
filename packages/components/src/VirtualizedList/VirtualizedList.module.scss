@@ -15,6 +15,7 @@
 	&:hover {
 		cursor: pointer;
 	}
+
 	:global(.ReactVirtualized__Table__headerTruncatedText) {
 		align-self: center;
 		padding-left: $padding-small;

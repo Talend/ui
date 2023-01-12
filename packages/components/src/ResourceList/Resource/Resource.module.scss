@@ -34,6 +34,7 @@
 			color: $dove-gray;
 			margin: 0;
 		}
+
 		> .title {
 			font-weight: 600;
 		}
@@ -50,9 +51,11 @@
 			&.visible {
 				opacity: 1;
 			}
+
 			&[name='talend-star'] {
 				color: $lightning-yellow;
 			}
+
 			&[name='talend-badge'] {
 				color: $brand-primary;
 			}
@@ -66,6 +69,7 @@
 		:global(.tc-svg-icon) {
 			color: $brand-primary;
 		}
+
 		.flags-container {
 			opacity: 1;
 		}
@@ -102,6 +106,7 @@
 			text-overflow: ellipsis;
 			overflow: hidden;
 		}
+
 		dl {
 			padding-left: $padding-small;
 			margin-bottom: 0;

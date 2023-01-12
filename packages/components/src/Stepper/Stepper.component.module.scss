@@ -24,6 +24,7 @@ $stepper-icon-size: $svg-md-size !default;
 		&-infos {
 			display: flex;
 		}
+
 		&-message {
 			padding-left: 28px;
 			padding-top: $padding-smaller;
@@ -34,6 +35,7 @@ $stepper-icon-size: $svg-md-size !default;
 		&-aborted {
 			opacity: 0.5;
 		}
+
 		&-failure {
 			color: $chestnut-rose;
 			font-weight: $font-weight-bold;

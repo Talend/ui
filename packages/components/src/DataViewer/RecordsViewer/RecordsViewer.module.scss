@@ -31,12 +31,14 @@ $border-size: 0.1rem;
 		:global(.ReactVirtualized__Grid__innerScrollContainer) {
 			overflow: initial !important;
 		}
+
 		:global(.tc-svg-icon) {
 			height: 1.2rem;
 			width: 1.2rem;
 			margin: 0;
 			vertical-align: baseline;
 		}
+
 		&-border {
 			border-bottom: $border-size solid $alto;
 		}
@@ -59,13 +61,14 @@ $border-size: 0.1rem;
 	&-leaf {
 		justify-content: flex-start;
 		align-items: baseline;
+		min-height: $records-node-height;
 
 		&-highlighted {
 			&::before {
 				@include selection($background-highlight);
 			}
 		}
-		min-height: $records-node-height;
+
 		&-quality {
 			display: inline-flex;
 			margin-left: -$padding-larger;
@@ -74,6 +77,7 @@ $border-size: 0.1rem;
 			position: absolute;
 		}
 	}
+
 	&-branch {
 		flex-direction: column;
 		justify-content: center;
@@ -82,11 +86,13 @@ $border-size: 0.1rem;
 		&-highlighted::before {
 			@include selection($background-highlight);
 		}
+
 		&-content {
 			position: relative;
 			align-items: center;
 			display: inline-flex;
 			height: $records-node-height;
+
 			:global(.tc-length-badge) {
 				margin-left: 10px;
 			}
@@ -95,12 +101,15 @@ $border-size: 0.1rem;
 				&::before {
 					@include selection($background-hover);
 				}
+
 				:global(.tc-records-viewer-branch-icon) {
 					color: $scooter;
 				}
+
 				:global(.tc-tree-branch-icon-caret) {
 					color: $scooter;
 				}
+
 				:global(.tc-length-badge) {
 					color: $scooter;
 					background-color: $white;
@@ -118,6 +127,7 @@ $border-size: 0.1rem;
 			display: inline-flex;
 			margin-left: $padding-small;
 			z-index: 1;
+
 			&:focus,
 			&:hover {
 				&::before {
@@ -140,13 +150,16 @@ $border-size: 0.1rem;
 	position: absolute;
 	left: -1.7rem;
 	margin-right: $padding-smaller;
+
 	&-chevron {
 		padding: 0;
 		line-height: initial;
 		min-height: initial;
+
 		svg {
 			@include chevron($scooter);
 		}
+
 		&-filled {
 			svg {
 				@include chevron($white);
@@ -154,12 +167,14 @@ $border-size: 0.1rem;
 			}
 		}
 	}
+
 	:global(.tc-svg-anchor) {
 		background: transparent;
 		border: none;
 		padding: 0;
 		color: $brand-primary;
 		display: flex;
+
 		&:focus,
 		&:hover {
 			color: $scooter;

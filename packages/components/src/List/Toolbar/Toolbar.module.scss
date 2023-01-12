@@ -75,7 +75,7 @@ $tc-list-toolbar-height: 7rem !default;
 						padding-right: 0;
 					}
 
-					&:global(.separated):not(:first-child):before {
+					&:global(.separated):not(:first-child)::before {
 						content: '|';
 						color: $silver;
 					}

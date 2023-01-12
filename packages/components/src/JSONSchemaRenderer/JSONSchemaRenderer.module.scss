@@ -24,11 +24,11 @@
 		&.array-value {
 			display: inline;
 
-			&:after {
+			&::after {
 				content: ', ';
 			}
 
-			&:last-child:after {
+			&:last-child::after {
 				content: '';
 			}
 		}

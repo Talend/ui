@@ -15,13 +15,16 @@
 
 	&.tc-radio-disabled {
 		opacity: 0.54;
+
 		label:hover {
 			cursor: not-allowed;
+
 			&:not(.tc-radio-selected) {
 				background-color: $gallery;
 				color: $black;
 			}
 		}
+
 		input[type='radio'] {
 			cursor: not-allowed;
 		}
