@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test": "echo \"nothing to test\""
   },
   "repository": {

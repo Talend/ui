@@ -1,9 +1,9 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-console */
-const { merge } = require('webpack-merge');
-const { getAbsolutePath } = require('../utils/path-resolver');
-const { getPreset, getPresetApi } = require('../utils/preset');
+import { merge } from 'webpack-merge';
+import { getAbsolutePath } from '../utils/path-resolver.js';
+import { getPresetApi } from '../utils/preset.js';
 
 function getPluginInfo(a) {
 	return {
@@ -15,14 +15,15 @@ function getPluginInfo(a) {
 	};
 }
 
-module.exports = async (env = {}) => {
+export default async (env = {}) => {
 	const presetApi = getPresetApi();
-	const presetName = presetApi.getUserConfig(['preset'], 'talend');
-	const preset = getPreset(presetName);
 
-	// Preset default configuration file
 	let webpackConfigurations = [];
-	webpackConfigurations = webpackConfigurations.concat(preset.getWebpackConfiguration(presetApi));
+	// eslint-disable-next-line import/no-extraneous-dependencies
+	const defaultConfig = await import('@talend/scripts-config-react-webpack');
+	webpackConfigurations = webpackConfigurations.concat(
+		defaultConfig.default(presetApi, { umd: env.umd }),
+	);
 
 	// User configuration file
 	const userConfigPath = presetApi.getUserConfig(['webpack', 'config', presetApi.mode]);
@@ -31,7 +32,8 @@ module.exports = async (env = {}) => {
 		console.log(
 			`Merge ${presetApi.mode} webpack config with custom one (${userConfigAbsolutePath})`,
 		);
-		webpackConfigurations.push(require(userConfigAbsolutePath));
+		const config = await import(userConfigAbsolutePath);
+		webpackConfigurations.push(config.default);
 	}
 
 	webpackConfigurations = await Promise.all(

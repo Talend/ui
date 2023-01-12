@@ -15,8 +15,8 @@
     "test": "echo no test",
     "test:cov": "echo no test",
     "test:demo": "yarn build-storybook",
-    "build-storybook": "yarn build:lib && talend-scripts build-storybook --docs",
-    "start": "yarn build:lib && talend-scripts start-storybook -p 6010",
+    "build-storybook": "talend-scripts build-storybook --docs",
+    "start": "talend-scripts start-storybook -p 6010",
     "lint": "echo nothing to lint",
     "svgo": "svgo -f src/svg --config=.svgo-icons.yml && svgo -f src/filters --config=.svgo-filters.yml"
   },
@@ -45,7 +45,6 @@
     "@babel/preset-react": "^7.18.6",
     "@svgr/webpack": "^5.5.0",
     "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
     "babel-loader": "^8.3.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^4.3.0",

@@ -1,16 +1,15 @@
-const spawn = require('cross-spawn');
-const { resolveBin } = require('../utils/path-resolver');
-const { getPreset } = require('../utils/preset');
+import { resolveBin } from '../utils/path-resolver.js';
+import { check } from '../utils/preset.js';
+import { mySpawn } from '../utils/spawn.js';
+import { getStorybookConfiguration } from '../utils/storybook.js';
 
-const buildStorybook = resolveBin('storybook');
+export default async function build(env, presetApi, options) {
+	const sbConfigPath = getStorybookConfiguration(presetApi);
+	check('@talend/scripts-config-storybook-lib');
+	const buildStorybook = resolveBin('storybook');
 
-module.exports = function build(env, presetApi, options) {
-	const presetName = presetApi.getUserConfig(['preset'], '@talend/scripts-preset-react-lib');
-	const preset = getPreset(presetName);
-	const sbConfigPath = preset.getStorybookConfigurationPath(presetApi);
-
-	return spawn.sync(buildStorybook, ['build', '-c', sbConfigPath].concat(options), {
+	return mySpawn(buildStorybook, ['build', '-c', sbConfigPath].concat(options), {
 		stdio: 'inherit',
 		env,
 	});
-};
+}

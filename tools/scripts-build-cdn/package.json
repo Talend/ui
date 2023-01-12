@@ -7,6 +7,7 @@
     "talend-cdn": "./index.js"
   },
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "start": "node index.js --debug --exclude ';@angular;' 2> error.log",
     "test": "echo \"Nothing to test\""
   },

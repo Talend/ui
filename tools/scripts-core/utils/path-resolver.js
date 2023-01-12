@@ -1,7 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const which = require('which');
+import fs from 'fs';
+import path from 'path';
+import which from 'which';
+import { createRequire } from 'module';
 
+const require = createRequire(import.meta.url);
 /**
  * Resolve the bin module executable path.
  * This is from kcd-scripts (https://github.com/kentcdodds/kcd-scripts/blob/master/src/utils.js#L21)
@@ -10,7 +12,7 @@ const which = require('which');
  * @param cwd The execution path
  * @returns {*} The executable path
  */
-function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {}) {
+export function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {}) {
 	let systemCommandPath;
 	try {
 		systemCommandPath = fs.realpathSync(which.sync(executable));
@@ -20,7 +22,8 @@ function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {})
 	try {
 		const modPkgPath = require.resolve(`${modName}/package.json`);
 		const modPkgDir = path.dirname(modPkgPath);
-		const { bin } = require(modPkgPath);
+		const mod = JSON.parse(fs.readFileSync(modPkgPath));
+		const { bin } = mod.bin;
 		const binPath = typeof bin === 'string' ? bin : bin[executable];
 		const fullPathToBin = path.join(modPkgDir, binPath);
 		if (fullPathToBin === systemCommandPath) {
@@ -40,7 +43,7 @@ function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {})
  * @param userPath The path to resolve
  * @returns {*} The absolute path
  */
-function getAbsolutePath(userPath) {
+export function getAbsolutePath(userPath) {
 	if (userPath.startsWith('/')) {
 		return userPath;
 	}
@@ -53,12 +56,31 @@ function getAbsolutePath(userPath) {
  * @param filePath The path
  * @returns {string} The relative path from cwd
  */
-function hereRelative(dirname, filePath) {
+export function hereRelative(dirname, filePath) {
 	return path.join(dirname, filePath).replace(process.cwd(), '.');
 }
 
-module.exports = {
-	getAbsolutePath,
-	hereRelative,
-	resolveBin,
-};
+export function getPkgRootPath(name) {
+	let rootPath;
+	try {
+		const indexPath = require.resolve(name);
+		let currentPath = indexPath;
+		let found = false;
+		while (!found) {
+			currentPath = path.dirname(currentPath);
+			found = fs.existsSync(path.join(currentPath, 'package.json'));
+			if (found) {
+				rootPath = currentPath;
+			}
+		}
+	} catch (e) {
+		console.error(e);
+	}
+	return rootPath;
+}
+
+// Temporary fixes until Storybook handles well Windows path
+// Waiting for a release https://github.com/storybookjs/storybook/pull/17641
+export function fixWindowsPath(pathStr) {
+	return process.platform === 'win32' ? pathStr.replace(/\\/g, '/') : pathStr;
+}

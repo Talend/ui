@@ -1,35 +1,28 @@
-const fs = require('fs');
-const get = require('lodash.get');
-const path = require('path');
+import fs from 'fs';
+import _ from 'lodash';
+import path from 'path';
+import { createRequire } from 'module';
 
+const require = createRequire(import.meta.url);
+const { get } = _;
 /**
  * Get talend-scripts configuration
  * (either talend-scripts.js or talend-scripts.json in current working dir)
  */
-function getScriptsConfig(options = []) {
-	const optionConfigFile = options.find(opt => opt.startsWith('--config='));
-	let configFilePath;
+function getScriptsConfig() {
+	let configFilePath = path.join(process.cwd(), 'talend-scripts.config.js');
 
-	if (optionConfigFile) {
-		configFilePath = path.join(process.cwd(), optionConfigFile.split('=')[1]);
-		if (!fs.existsSync(configFilePath)) {
-			console.error(`Config file ${configFilePath} not found.`);
-			process.exit(1);
-		}
-	} else {
-		configFilePath = [
-			path.join(process.cwd(), 'talend-scripts.config.js'),
-			path.join(process.cwd(), 'talend-scripts.json'),
-		].find(file => fs.existsSync(file));
-	}
-
-	if (configFilePath) {
+	if (fs.existsSync(configFilePath)) {
 		// Load and return first config file found
 		return require(configFilePath);
 	}
+	configFilePath = path.join(process.cwd(), 'talend-scripts.json');
+	if (fs.existsSync(configFilePath)) {
+		return JSON.parse(fs.readFileSync(configFilePath));
+	}
 
 	// No config file found
-	return null;
+	return {};
 }
 
 /**
@@ -37,10 +30,10 @@ function getScriptsConfig(options = []) {
  * and the serialized talend-scripts configuration
  * @returns {process.env} The env object
  */
-function getEnv(options) {
+export function getEnv() {
 	const env = Object.create(process.env);
 
-	const userConfig = getScriptsConfig(options);
+	const userConfig = getScriptsConfig();
 	if (userConfig) {
 		env.TALEND_SCRIPTS_CONFIG = JSON.stringify(userConfig);
 	}
@@ -63,7 +56,7 @@ function getTalendScriptsConfig({ TALEND_SCRIPTS_CONFIG }) {
  * Create a user configuration getter
  * @returns {getUserConfig} The user configuration getter
  */
-function createUserConfigGetter(env = process.env) {
+export function createUserConfigGetter(env = process.env) {
 	const talendScriptsConfig = getTalendScriptsConfig(env);
 	return function getUserConfig(configObjectPath, defaultValue) {
 		return get(talendScriptsConfig, configObjectPath, defaultValue);
@@ -75,15 +68,9 @@ function createUserConfigGetter(env = process.env) {
  * @param userPossibleConfigFiles	The possible file names
  * @returns {string | undefined}	The existing user config file
  */
-function getUserConfigFile(userPossibleConfigFiles) {
+export function getUserConfigFile(userPossibleConfigFiles) {
 	return []
 		.concat(userPossibleConfigFiles)
 		.map(fileName => path.join(process.cwd(), fileName))
 		.find(fs.existsSync);
 }
-
-module.exports = {
-	createUserConfigGetter,
-	getEnv,
-	getUserConfigFile,
-};
