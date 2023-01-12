@@ -2,11 +2,11 @@
 
 .popover {
 	&__arrow {
-		[class="fill"] {
+		[class='fill'] {
 			fill: tokens.$coral-color-neutral-background;
 		}
 
-		[class="stroke"] {
+		[class='stroke'] {
 			fill: tokens.$coral-color-illustration-shadow;
 		}
 	}

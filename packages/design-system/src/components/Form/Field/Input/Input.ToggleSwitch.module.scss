@@ -5,14 +5,14 @@ $markerSize: 1.3rem;
 $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 
 .switch {
-  position: relative;
-  display: block;
+	position: relative;
+	display: block;
 
 	label {
 		margin-bottom: 0; // Bootstrap override
 	}
 
-  input[type="checkbox"] {
+	input[type='checkbox'] {
 		position: absolute;
 		margin-left: -9999px;
 
@@ -21,7 +21,7 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 			padding: 0 0 0 $labelOffset;
 			display: inline-block;
 			font: tokens.$coral-paragraph-m;
-			color: tokens.$coral-color-neutral-text
+			color: tokens.$coral-color-neutral-text;
 		}
 
 		+ .legend::before,
@@ -66,34 +66,34 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 				outline: tokens.$coral-border-s-solid tokens.$coral-color-assistive-border-focus;
 			}
 		}
-  }
+	}
 
-  &:not(.switch_disabled) input[type="checkbox"] {
+	&:not(.switch_disabled) input[type='checkbox'] {
 		+ .legend {
 			cursor: pointer;
 		}
-  }
+	}
 
-  &_inline {
+	&_inline {
 		display: inline-block;
-  }
+	}
 
-  &_checked {
-		&:not(.switch_disabled):not(.switch_readOnly) input[type="checkbox"] + .legend::before {
+	&_checked {
+		&:not(.switch_disabled):not(.switch_readOnly) input[type='checkbox'] + .legend::before {
 			background: tokens.$coral-color-accent-background-strong;
 		}
 
-		input[type="checkbox"] + .legend::after {
+		input[type='checkbox'] + .legend::after {
 			transform: translateX(calc(#{$wrapperWidth} - #{$markerSize} - 0.1rem)) translateY(0.3rem);
 		}
 
 		&:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
 			background: tokens.$coral-color-accent-background-strong-hover;
 		}
-  }
+	}
 
-  &_readOnly {
-		input[type="checkbox"] {
+	&_readOnly {
+		input[type='checkbox'] {
 			+ .legend::before {
 				background: tokens.$coral-color-neutral-background-heavy;
 			}
@@ -102,14 +102,14 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 				background: tokens.$coral-color-neutral-background;
 			}
 		}
-  }
+	}
 
-  &_disabled {
+	&_disabled {
 		cursor: not-allowed;
 
-		input[type="checkbox"],
-		input[type="checkbox"]:disabled,
-		input[type="checkbox"]:checked {
+		input[type='checkbox'],
+		input[type='checkbox']:disabled,
+		input[type='checkbox']:checked {
 			+ .legend::before {
 				background: tokens.$coral-color-neutral-background-disabled;
 			}
@@ -126,5 +126,5 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 				cursor: not-allowed;
 			}
 		}
-  }
+	}
 }

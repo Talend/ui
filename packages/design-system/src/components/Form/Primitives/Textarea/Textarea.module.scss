@@ -2,10 +2,10 @@
 @use '../mixins' as Form;
 
 .textarea {
-  @include Form.baseInput();
-  @include Form.borderStyles();
-  min-height: calc(#{tokens.$coral-sizing-l} * 2);
-  max-height: tokens.$coral-sizing-xxxl;
-  resize: vertical;
-  line-height: 140%;
+	@include Form.baseInput();
+	@include Form.borderStyles();
+	min-height: calc(#{tokens.$coral-sizing-l} * 2);
+	max-height: tokens.$coral-sizing-xxxl;
+	resize: vertical;
+	line-height: 140%;
 }

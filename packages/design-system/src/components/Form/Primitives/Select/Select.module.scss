@@ -3,70 +3,70 @@
 @use '../../../Form/Affix/AffixStyles.module' as Affix;
 
 .select {
-  @include Form.baseInput();
-  height: Form.$standardInputHeight;
-  appearance: none;
-  -webkit-appearance: none;
-  padding-right: calc(#{tokens.$coral-sizing-minimal} + #{tokens.$coral-sizing-xxs});
+	@include Form.baseInput();
+	height: Form.$standardInputHeight;
+	appearance: none;
+	appearance: none;
+	padding-right: calc(#{tokens.$coral-sizing-minimal} + #{tokens.$coral-sizing-xxs});
 
-  option:disabled {
-      color: tokens.$coral-color-neutral-text-weak;
-      opacity: tokens.$coral-opacity-s;
-  }
+	option:disabled {
+		color: tokens.$coral-color-neutral-text-weak;
+		opacity: tokens.$coral-opacity-s;
+	}
 
-  &_multiple {
-    + .select__icon {
-      display: none;
-    }
-  }
+	&_multiple {
+		+ .select__icon {
+			display: none;
+		}
+	}
 
-  &_isAffix {
-    @include Affix.BaseAffixStyles();
-    @include Affix.ButtonAffixStyles();
-    padding-right: calc(#{tokens.$coral-sizing-minimal} + #{tokens.$coral-sizing-xxxs});
-    flex-shrink: 0;
-    max-height: 100%;
+	&_isAffix {
+		@include Affix.BaseAffixStyles();
+		@include Affix.ButtonAffixStyles();
+		padding-right: calc(#{tokens.$coral-sizing-minimal} + #{tokens.$coral-sizing-xxxs});
+		flex-shrink: 0;
+		max-height: 100%;
 
-    + .select__icon {
-      color: tokens.$coral-color-accent-text;
-    }
+		+ .select__icon {
+			color: tokens.$coral-color-accent-text;
+		}
 
-    &:hover + .select__icon {
-      color: tokens.$coral-color-accent-text-hover;
-    }
-  }
+		&:hover + .select__icon {
+			color: tokens.$coral-color-accent-text-hover;
+		}
+	}
 
-  &_isSuffix,
-  &_isSuffix:first-child {
-    border-radius: 0 2px 2px 0;
-    border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-    border-right: 0;
-  }
+	&_isSuffix,
+	&_isSuffix:first-child {
+		border-radius: 0 2px 2px 0;
+		border-left: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		border-right: 0;
+	}
 }
 
 .select__wrapper {
-  display: block;
-  flex-grow: 1;
-  position: relative;
-  width: 100%;
-  height: 100%;
+	display: block;
+	flex-grow: 1;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 .select__icon {
-  width: tokens.$coral-sizing-minimal;
-  height: tokens.$coral-sizing-minimal;
-  position: absolute;
-  right: tokens.$coral-spacing-xs;
-  top: 50%;
-  transform: translateY(-50%);
-  color: tokens.$coral-color-neutral-icon;
-  pointer-events: none;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+	width: tokens.$coral-sizing-minimal;
+	height: tokens.$coral-sizing-minimal;
+	position: absolute;
+	right: tokens.$coral-spacing-xs;
+	top: 50%;
+	transform: translateY(-50%);
+	color: tokens.$coral-color-neutral-icon;
+	pointer-events: none;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .select:disabled + .select__icon {
-  color: tokens.$coral-color-neutral-text-disabled;
-  opacity: tokens.$coral-opacity-s;
+	color: tokens.$coral-color-neutral-text-disabled;
+	opacity: tokens.$coral-opacity-s;
 }

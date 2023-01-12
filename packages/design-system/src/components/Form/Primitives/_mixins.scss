@@ -2,99 +2,101 @@
 
 $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 
-@mixin baseInput (){
-  background: transparent;
-  color: tokens.$coral-color-neutral-text;
-  padding: tokens.$coral-spacing-xs;
-  font: tokens.$coral-paragraph-m;
-  line-height: 1;
-  border: 0;
-  margin: 0;
-  transition: all tokens.$coral-transition-instant;
-  display: block;
-  flex-grow: 1;
-  width: 100%;
+@mixin baseInput () {
+	background: transparent;
+	color: tokens.$coral-color-neutral-text;
+	padding: tokens.$coral-spacing-xs;
+	font: tokens.$coral-paragraph-m;
+	line-height: 1;
+	border: 0;
+	margin: 0;
+	transition: all tokens.$coral-transition-instant;
+	display: block;
+	flex-grow: 1;
+	width: 100%;
 
-  &:only-child {
-    border-radius: tokens.$coral-radius-s;
-  }
+	&:only-child {
+		border-radius: tokens.$coral-radius-s;
+	}
 
-  &:disabled,
-  &_disabled {
-    color: tokens.$coral-color-neutral-text-disabled;
-    cursor: not-allowed;
-  }
+	&:disabled,
+	&_disabled {
+		color: tokens.$coral-color-neutral-text-disabled;
+		cursor: not-allowed;
+	}
 
-  &_readOnly {
-    color: tokens.$coral-color-neutral-text;
-  }
+	&_readOnly {
+		color: tokens.$coral-color-neutral-text;
+	}
 
-  &:focus {
-    outline: 0;
-  }
+	&:focus {
+		outline: 0;
+	}
 
-  &:disabled {
-    color: tokens.$coral-color-neutral-text-disabled;
-  }
+	&:disabled {
+		color: tokens.$coral-color-neutral-text-disabled;
+	}
 
-  &::placeholder {
-    color: tokens.$coral-color-neutral-text-weak;
-    opacity: tokens.$coral-opacity-s;
-  }
+	&::placeholder {
+		color: tokens.$coral-color-neutral-text-weak;
+		opacity: tokens.$coral-opacity-s;
+	}
 
-  &[disabled] {
-    opacity: 1;
+	&[disabled] {
+		opacity: 1;
 
-     > option {
-      color: tokens.$coral-color-neutral-text;
-    }
-  }
+		> option {
+			color: tokens.$coral-color-neutral-text;
+		}
+	}
 }
 
-@mixin borderStyles (){
-  border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
-  box-shadow: 0 0 0 0 transparent;
-  border-radius: tokens.$coral-radius-s;
-  transition: all tokens.$coral-transition-instant;
-  background: tokens.$coral-color-neutral-background;
+@mixin borderStyles () {
+	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+	box-shadow: 0 0 0 0 transparent;
+	border-radius: tokens.$coral-radius-s;
+	transition: all tokens.$coral-transition-instant;
+	background: tokens.$coral-color-neutral-background;
 
-  &:hover {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-strong-hover;
-  }
+	&:hover {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-strong-hover;
+	}
 
-  &_disabled {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
-  }
+	&_disabled {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+	}
 
-  &_readOnly {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-    background: tokens.$coral-color-neutral-background-strong;
-  }
+	&_readOnly {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+		background: tokens.$coral-color-neutral-background-strong;
+	}
 
-  &_disabled:hover {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
-  }
+	&_disabled:hover {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+	}
 
-  &_readOnly:hover {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-  }
+	&_readOnly:hover {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+	}
 
-  &:focus-within, &:focus {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-    box-shadow: 0 0 0 0.1rem tokens.$coral-color-accent-border;
-  }
+	&:focus-within,
+	&:focus {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+		box-shadow: 0 0 0 0.1rem tokens.$coral-color-accent-border;
+	}
 
-  &_borderError {
-    border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
+	&_borderError {
+		border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
 
-    &:hover {
-      border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border-hover;
-    }
+		&:hover {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border-hover;
+		}
 
-    &:focus-within, &:focus {
-      border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
-      box-shadow: 0 0 0 0.1rem tokens.$coral-color-danger-border;
-    }
-  }
+		&:focus-within,
+		&:focus {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-danger-border;
+			box-shadow: 0 0 0 0.1rem tokens.$coral-color-danger-border;
+		}
+	}
 
 }

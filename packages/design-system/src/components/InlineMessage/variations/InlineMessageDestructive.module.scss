@@ -1,12 +1,12 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .destructive {
-  &_withBackground {
-    background-color: tokens.$coral-color-danger-background;
-    box-shadow: tokens.$coral-elevation-shadow-danger;
-  }
+	&_withBackground {
+		background-color: tokens.$coral-color-danger-background;
+		box-shadow: tokens.$coral-elevation-shadow-danger;
+	}
 
-  &__icon {
-    color: tokens.$coral-color-danger-icon;
-  }
+	&__icon {
+		color: tokens.$coral-color-danger-icon;
+	}
 }

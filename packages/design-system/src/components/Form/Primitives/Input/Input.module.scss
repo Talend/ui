@@ -2,33 +2,33 @@
 @use '../mixins' as Form;
 
 .input {
-  @include Form.baseInput();
-  height: Form.$standardInputHeight;
+	@include Form.baseInput();
+	height: Form.$standardInputHeight;
 
-  &[type="color"] {
-	  padding: tokens.$coral-spacing-xxs;
-  }
+	&[type='color'] {
+		padding: tokens.$coral-spacing-xxs;
+	}
 
-  &[type="password"] {
-    // padding-right: calc(#{tokens.$coral-sizing-xs} + #{tokens.$coral-spacing-xxs}*2);
-  }
+	&[type='password'] {
+		// padding-right: calc(#{tokens.$coral-sizing-xs} + #{tokens.$coral-spacing-xxs}*2);
+	}
 }
 
 .icon {
-  padding: 0 0 0 tokens.$coral-spacing-xs;
-  background: transparent;
-  color: tokens.$coral-color-neutral-icon-weak;
-  transition: all tokens.$coral-transition-instant;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	padding: 0 0 0 tokens.$coral-spacing-xs;
+	background: transparent;
+	color: tokens.$coral-color-neutral-icon-weak;
+	transition: all tokens.$coral-transition-instant;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-  &_disabled {
-	  color: tokens.$coral-color-neutral-text-disabled;
-  }
+	&_disabled {
+		color: tokens.$coral-color-neutral-text-disabled;
+	}
 
-  &_readOnly {
-	  color: tokens.$coral-color-neutral-text-weak;
-  }
+	&_readOnly {
+		color: tokens.$coral-color-neutral-text-weak;
+	}
 }
