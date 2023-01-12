@@ -5,6 +5,7 @@ import Divider from '../../Divider';
 import classnames from 'classnames';
 import styles from './BadgePrimitive.module.scss';
 import { StackHorizontal } from '../../Stack';
+import { DataAttributes } from 'src/types';
 
 /**
  * Possible semantic values.
@@ -54,12 +55,12 @@ function BadgeDivider() {
 // Badge Primitive
 // --------------------------------------------------
 
-export interface BadgePrimitiveProps {
+export type BadgePrimitiveProps = {
 	label: string;
 	onClose?: () => void;
 	ref: Ref<HTMLSpanElement>;
 	semanticIcon?: SemanticIcon;
-}
+} & Partial<DataAttributes>;
 
 function BadgePrimitive({
 	children,
@@ -67,12 +68,15 @@ function BadgePrimitive({
 	onClose,
 	ref,
 	semanticIcon = 'none',
+	'data-testid': dataTestId,
 }: PropsWithChildren<BadgePrimitiveProps>) {
 	// TODO BADGE - handle onClose to manage close button
 
 	// TODO BADGE - handle semanticIcon to display semantic icon
 
 	// TODO BADGE - implement withOperator props
+
+	const defaultTestId = 'badge-label';
 
 	return (
 		<span className={classnames(styles.badge)} ref={ref}>
@@ -82,7 +86,11 @@ function BadgePrimitive({
 				align="center"
 				display="inline"
 			>
-				<span className={classnames(styles.badge__label)} data-testid="badge-label">
+				<span
+					className={classnames(styles.badge__label)}
+					data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
+					data-test={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
+				>
 					{label}
 				</span>
 

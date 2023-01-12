@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, useState } from 'react';
+import React, { forwardRef, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
@@ -15,14 +15,15 @@ import BadgePrimitive, {
 import classnames from 'classnames';
 import styles from './BadgeDropdown.module.scss';
 import BadgeButton from '../button/BadgeButton';
+import { DataAttributes } from 'src/types';
 
 // --------------------------------------------------
 // Badge Dropdown button
 // --------------------------------------------------
 
-interface BadgeDropdownButtonProps {
+type BadgeDropdownButtonProps = {
 	children?: string;
-}
+} & Partial<DataAttributes>;
 
 // Note : need to use forwardRef and pass destructuring unknown parameters to be able using with dropdown component
 const BadgeDropdownButton = forwardRef(
@@ -52,16 +53,11 @@ BadgeDropdownButton.displayName = 'BadgeDropdownButton';
  * @param setSelectedValue React.Dispatch action called when click on one Dropdown item
  * @returns Dropdown compatible item
  */
-function mapBadgeItemToDropdownItem(
-	setSelectedValue: React.Dispatch<React.SetStateAction<BadgeDropdownItem | undefined>>,
-	onChange?: (selectedId: string) => void,
-) {
+function mapBadgeItemToDropdownItem(onChange?: (selectedId: string) => void) {
 	return (item: BadgeDropdownItem): DropdownItemType => ({
 		type: 'button',
 		label: item.label,
 		onClick: () => {
-			setSelectedValue(item);
-
 			if (onChange) {
 				onChange(item.id);
 			}
@@ -91,17 +87,18 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-	const [selectedValue, setSelectedValue] = useState(
-		selectedId ? value.find(v => v.id === selectedId) : value[0],
-	);
+	const selectedValue = value.find(v => v.id === selectedId) || value[0];
 
 	return (
 		<BadgePrimitive {...props} ref={ref}>
 			<Dropdown
 				aria-label={t('BADGE_ARIA_lABEL_SELECT_ITEM', 'Select item')}
-				items={value.map(mapBadgeItemToDropdownItem(setSelectedValue, onChange))}
+				items={value.map(mapBadgeItemToDropdownItem(onChange))}
+				data-testid={props['data-testid']}
 			>
-				<BadgeDropdownButton>{selectedValue?.label}</BadgeDropdownButton>
+				<BadgeDropdownButton data-testid={props['data-testid']}>
+					{selectedValue?.label}
+				</BadgeDropdownButton>
 			</Dropdown>
 		</BadgePrimitive>
 	);
