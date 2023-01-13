@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.4.0
+
+### Minor Changes
+
+- 79c2d5165: feat(TFD-14857): BadgeDropdown is now controlled
+
 ## 7.3.0
 
 ### Minor Changes

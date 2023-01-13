@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 12.0.1
+
+### Patch Changes
+
+- a5bbb6db5: fix: path for default config
+
 ## 12.0.0
 
 ### Major Changes
