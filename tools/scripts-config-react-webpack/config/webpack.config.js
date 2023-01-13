@@ -18,7 +18,7 @@ const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
 
 const cdn = require('@talend/scripts-config-cdn');
-const exists = require('@talend/scripts-utils/fs');
+const utils = require('@talend/scripts-utils');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
 const icons = require('./icons');
@@ -46,7 +46,7 @@ const BASENAME = process.env.BASENAME || '/';
 cdn.configureTalendModules();
 
 // Check if Typescript is setup
-const useTypescript = exists.tsConfig();
+const useTypescript = utils.fs.exists.tsConfig();
 
 function getGitRevision() {
 	let revision = process.env.GIT_COMMIT;

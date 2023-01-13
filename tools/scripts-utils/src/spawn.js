@@ -1,14 +1,13 @@
 /* eslint-disable no-console */
-import { spawn } from 'node:child_process';
+const processSpawn = require('child_process').spawn;
 
-export async function mySpawn(cmd, args, opts = {}) {
+async function spawn(cmd, args, opts = {}) {
 	return new Promise((resolve, reject) => {
-		const out = spawn(cmd, args, opts);
+		const out = processSpawn(cmd, args, opts);
 		out.on('error', error => {
 			console.error(error);
 		});
 		out.on('close', () => {
-			console.log('close');
 			resolve(out);
 		});
 		out.on('exit', code => {
@@ -20,3 +19,6 @@ export async function mySpawn(cmd, args, opts = {}) {
 		});
 	});
 }
+module.exports = {
+	spawn,
+};

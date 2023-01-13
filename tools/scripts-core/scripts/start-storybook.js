@@ -1,16 +1,14 @@
 /* eslint-disable no-console */
+import * as utils from '@talend/scripts-utils';
 
-import { resolveBin } from '../utils/path-resolver.js';
-import { check } from '../utils/preset.js';
-import { mySpawn } from '../utils/spawn.js';
 import { getStorybookConfiguration } from '../utils/storybook.js';
 
 export default async function start(env, presetApi, options) {
-	check('@talend/scripts-config-storybook-lib');
-	const startStorybook = resolveBin('start-storybook');
+	utils.pkg.checkPackageIsInstalled('@talend/scripts-config-storybook-lib');
+	const startStorybook = utils.path.resolveBin('start-storybook');
 	const sbConfigPath = getStorybookConfiguration(presetApi);
 
-	return mySpawn(startStorybook, ['-c', sbConfigPath].concat(options), {
+	return utils.process.spawn(startStorybook, ['-c', sbConfigPath].concat(options), {
 		stdio: 'inherit',
 		env,
 	});

@@ -1,14 +1,12 @@
-import { resolveBin } from '../utils/path-resolver.js';
-import { check } from '../utils/preset.js';
-import { mySpawn } from '../utils/spawn.js';
+import * as utils from '@talend/scripts-utils';
 import { getStorybookConfiguration } from '../utils/storybook.js';
 
 export default async function build(env, presetApi, options) {
 	const sbConfigPath = getStorybookConfiguration(presetApi);
-	check('@talend/scripts-config-storybook-lib');
-	const buildStorybook = resolveBin('build-storybook');
+	utils.pkg.checkPackageIsInstalled('@talend/scripts-config-storybook-lib');
+	const buildStorybook = utils.path.resolveBin('build-storybook');
 
-	return mySpawn(buildStorybook, ['-c', sbConfigPath].concat(options), {
+	return utils.process.spawn(buildStorybook, ['-c', sbConfigPath].concat(options), {
 		stdio: 'inherit',
 		env,
 	});

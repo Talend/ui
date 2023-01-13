@@ -4,12 +4,12 @@ import fs from 'fs';
 import fse from 'fs-extra';
 import _ from 'lodash';
 import { createRequire } from 'module';
-import { getPkgRootPath, fixWindowsPath } from '../utils/path-resolver.js';
+import * as utils from '@talend/scripts-utils';
 
 const require = createRequire(import.meta.url);
 const { template } = _;
 
-const configSBPath = getPkgRootPath('@talend/scripts-config-storybook-lib');
+const configSBPath = utils.path.getPkgRootPath('@talend/scripts-config-storybook-lib');
 const CWD = process.cwd();
 const TMP_PATH = path.join(CWD, 'node_modules', '.cache', '.talend-storybook');
 const TEMPLATE_SB_PATH = path.join(configSBPath, '.storybook-templates');
@@ -35,7 +35,7 @@ function copyFile(fileName) {
 			const fileAsString = fs.readFileSync(defaultFilePath).toString();
 			const compiledTemplate = template(fileAsString);
 			const content = compiledTemplate({
-				userFilePath: userFileExists ? fixWindowsPath(userFilePath) : undefined,
+				userFilePath: userFileExists ? utils.path.fixWindowsPath(userFilePath) : undefined,
 				userFileContent: userFileExists ? fs.readFileSync(userFilePath) : '',
 			});
 			fs.writeFileSync(targetPath, content);

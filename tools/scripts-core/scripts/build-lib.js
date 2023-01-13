@@ -4,13 +4,10 @@ import fs from 'fs';
 import path from 'path';
 import rimraf from 'rimraf';
 import cpx from 'cpx2';
+import * as utils from '@talend/scripts-utils';
 
-import { getPkgRootPath, resolveBin } from '../utils/path-resolver.js';
 import { getUserConfigFile } from '../utils/env.js';
-import { mySpawn } from '../utils/spawn.js';
 
-const babel = resolveBin('@babel/cli', { executable: 'babel' });
-const tsc = resolveBin('typescript', { executable: 'tsc' });
 const pkgPath = path.join(process.cwd(), 'package.json');
 const types = JSON.parse(fs.readFileSync(pkgPath))?.types;
 const isTSLib = !!types;
@@ -25,8 +22,11 @@ export default async function build(env, presetApi, unsafeOptions) {
 		}
 		return true;
 	});
-	const babelRootPath = getPkgRootPath('@talend/scripts-config-babel');
-	const tsRootPath = getPkgRootPath('@talend/scripts-config-typescript');
+	const babel = utils.path.resolveBin('@babel/cli', { executable: 'babel' });
+	const tsc = utils.path.resolveBin('typescript', { executable: 'tsc' });
+
+	const babelRootPath = utils.path.getPkgRootPath('@talend/scripts-config-babel');
+	const tsRootPath = utils.path.getPkgRootPath('@talend/scripts-config-typescript');
 	const babelConfigPath =
 		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
 		path.join(babelRootPath, '.babelrc.json');
@@ -48,7 +48,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 				return;
 			}
 			console.log('Compiling with babel...');
-			const babelSpawn = await mySpawn(
+			const babelSpawn = await utils.process.spawn(
 				babel,
 				[
 					'--config-file',
@@ -93,7 +93,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 			} else {
 				console.log('Building with tsc');
 			}
-			const tscSpawn = await mySpawn(tsc, args, { stdio: 'inherit', env });
+			const tscSpawn = await utils.process.spawn(tsc, args, { stdio: 'inherit', env });
 
 			tscSpawn.on('exit', status => {
 				if (parseInt(status, 10) !== 0) {

@@ -2,7 +2,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-console */
 import { merge } from 'webpack-merge';
-import { getAbsolutePath } from '../utils/path-resolver.js';
+import * as utils from '@talend/scripts-utils';
 import { getPresetApi } from '../utils/preset.js';
 
 function getPluginInfo(a) {
@@ -28,7 +28,7 @@ export default async (env = {}) => {
 	// User configuration file
 	const userConfigPath = presetApi.getUserConfig(['webpack', 'config', presetApi.mode]);
 	if (userConfigPath) {
-		const userConfigAbsolutePath = getAbsolutePath(userConfigPath);
+		const userConfigAbsolutePath = utils.path.getAbsolutePath(userConfigPath);
 		console.log(
 			`Merge ${presetApi.mode} webpack config with custom one (${userConfigAbsolutePath})`,
 		);

@@ -53,14 +53,22 @@ async function runScript() {
 
 	const commandFileName = command.replace(/:/g, '-');
 	const script = await import(`./scripts/${commandFileName}.js`);
-	const result = script.default(env, presetApi, restOptions);
+	let result = {
+		status: 'no status',
+	};
+	try {
+		result = script.default(env, presetApi, restOptions);
+	} catch (e) {
+		console.error(e);
+	}
 
 	if (result.then) {
 		result
 			.then(() => {
 				process.exit(0);
 			})
-			.catch(() => {
+			.catch(e => {
+				console.error(e);
 				process.exit(1);
 			});
 	} else {

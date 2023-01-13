@@ -18,7 +18,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "talend-scripts lint ./",
+    "lint": "talend-scripts lint ./scripts/",
     "test": "jest"
   },
   "jest": {
@@ -33,6 +33,7 @@
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.7",
     "@talend/eslint-config": "^12.0.0",
+    "@talend/scripts-utils": "^1.0.0",
     "@talend/scripts-config-babel": "^12.0.0",
     "@talend/scripts-config-jest": "^12.0.0",
     "@talend/scripts-config-typescript": "^11.0.0",

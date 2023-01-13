@@ -1,9 +1,13 @@
-import fs from 'fs';
-import path from 'path';
-import which from 'which';
-import { createRequire } from 'module';
+const { fileURLToPath } = require('url');
+const path = require('path');
+const fs = require('fs');
+const which = require('which');
 
-const require = createRequire(import.meta.url);
+function getDirName(url) {
+	const filename = fileURLToPath(url);
+	return path.dirname(filename);
+}
+
 /**
  * Resolve the bin module executable path.
  * This is from kcd-scripts (https://github.com/kentcdodds/kcd-scripts/blob/master/src/utils.js#L21)
@@ -12,7 +16,7 @@ const require = createRequire(import.meta.url);
  * @param cwd The execution path
  * @returns {*} The executable path
  */
-export function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {}) {
+function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {}) {
 	let systemCommandPath;
 	try {
 		systemCommandPath = fs.realpathSync(which.sync(executable));
@@ -43,7 +47,7 @@ export function resolveBin(modName, { executable = modName, cwd = process.cwd() 
  * @param userPath The path to resolve
  * @returns {*} The absolute path
  */
-export function getAbsolutePath(userPath) {
+function getAbsolutePath(userPath) {
 	if (userPath.startsWith('/')) {
 		return userPath;
 	}
@@ -56,11 +60,11 @@ export function getAbsolutePath(userPath) {
  * @param filePath The path
  * @returns {string} The relative path from cwd
  */
-export function hereRelative(dirname, filePath) {
+function hereRelative(dirname, filePath) {
 	return path.join(dirname, filePath).replace(process.cwd(), '.');
 }
 
-export function getPkgRootPath(name) {
+function getPkgRootPath(name) {
 	let rootPath;
 	try {
 		const indexPath = require.resolve(name);
@@ -81,6 +85,15 @@ export function getPkgRootPath(name) {
 
 // Temporary fixes until Storybook handles well Windows path
 // Waiting for a release https://github.com/storybookjs/storybook/pull/17641
-export function fixWindowsPath(pathStr) {
+function fixWindowsPath(pathStr) {
 	return process.platform === 'win32' ? pathStr.replace(/\\/g, '/') : pathStr;
 }
+
+module.exports = {
+	fixWindowsPath,
+	getPkgRootPath,
+	hereRelative,
+	getDirName,
+	getAbsolutePath,
+	resolveBin,
+};

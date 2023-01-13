@@ -45,8 +45,4 @@ function getBabelLoaderOptions(babelConfig) {
 	};
 }
 
-module.exports = {
-	getHash,
-	getLockHash,
-	getBabelLoaderOptions,
-};
+module.exports = { getHash, getLockHash, getBabelLoaderOptions };

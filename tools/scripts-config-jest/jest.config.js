@@ -51,7 +51,7 @@ module.exports = {
 	rootDir: process.cwd(),
 	setupFilesAfterEnv: [path.join(__dirname, 'test-setup.js')],
 	testEnvironment: 'jest-environment-jsdom-global',
-	testRegex: 'src/.*\\.test.(js|ts|tsx)$',
+	testRegex: '(/__tests__/.*|src/).*\\.test.(js|ts|tsx)$',
 	transform: {
 		// match mjs js jsx ts tsx
 		'^.+\\.m?[jt]sx?$': ['babel-jest', { configFile: getBabelConfigPath() }],

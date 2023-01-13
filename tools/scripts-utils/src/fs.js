@@ -17,7 +17,4 @@ async function isFile(p) {
 	return false;
 }
 
-module.exports = {
-	tsConfig,
-	isFile,
-};
+module.exports = { tsConfig, isFile };
