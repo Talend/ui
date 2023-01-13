@@ -46,7 +46,7 @@ const BASENAME = process.env.BASENAME || '/';
 cdn.configureTalendModules();
 
 // Check if Typescript is setup
-const useTypescript = utils.fs.exists.tsConfig();
+const useTypescript = utils.fs.tsConfig();
 
 function getGitRevision() {
 	let revision = process.env.GIT_COMMIT;
@@ -163,7 +163,7 @@ function getCopyConfig(env, userCopyConfig = [], noDynamicCdn) {
 
 async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = true) {
 	const headPath = path.join(process.cwd(), '.talend', 'head.html');
-	const headExists = await exists.isFile(headPath);
+	const headExists = await utils.fs.isFile(headPath);
 
 	let customHead = '';
 	if (headExists) {
@@ -202,7 +202,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 		<base href="${BASENAME}" />
 	</head>`;
 	// fs.exists is deprecated
-	const templateExists = await exists.isFile(indexTemplatePath);
+	const templateExists = await utils.fs.isFile(indexTemplatePath);
 	let indexTemplate;
 	if (templateExists) {
 		indexTemplate = await fs.promises.readFile(indexTemplatePath, 'utf8');
@@ -211,7 +211,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 	}
 
 	const bodyPath = path.join(process.cwd(), '.talend', 'body.html');
-	const customBodyExists = await exists.isFile(bodyPath);
+	const customBodyExists = await utils.fs.isFile(bodyPath);
 	let body = '</body>';
 	if (customBodyExists) {
 		body = await fs.promises.readFile(bodyPath);
