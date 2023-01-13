@@ -1,8 +1,4 @@
 import * as utils from '@talend/scripts-utils';
-
-// import { getDirName } from '../utils/dirname.js';
-// import { hereRelative, resolveBin } from '../utils/path-resolver.js';
-// import { check, getPresetEnv } from '../utils/preset.js';
 import startStorybook from './start-storybook.js';
 
 export default async function start(env, _, options) {
