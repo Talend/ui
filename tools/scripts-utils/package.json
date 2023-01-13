@@ -7,6 +7,11 @@
     "lint": "talend-scripts lint ./",
     "test": "talend-scripts test"
   },
+  "dependencies": {
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "which": "^2.0.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Talend/ui.git"

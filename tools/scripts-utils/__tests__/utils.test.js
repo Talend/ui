@@ -1,5 +1,5 @@
-const path = require('path');
-const utils = require('../src');
+import path from 'path';
+import utils from '../src';
 
 describe('utils', () => {
 	const globalProcessCwd = global.process.cwd;

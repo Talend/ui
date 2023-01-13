@@ -39,12 +39,10 @@
     "@talend/scripts-config-typescript": "^11.0.0",
     "cpx2": "^3.0.2",
     "fs-extra": "^10.1.0",
-    "glob": "^8.0.3",
     "lodash": "^4.17.21",
     "rimraf": "^3.0.2",
     "typescript": "^4.9.4",
     "webpack-merge": "^5.8.0",
-    "which": "^2.0.2",
     "yargs": "^15.4.1"
   },
   "publishConfig": {

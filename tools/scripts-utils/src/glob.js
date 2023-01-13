@@ -1,6 +1,6 @@
-import glob from 'glob';
+const glob = require('glob');
 
-export async function globMatch(pattern) {
+async function globMatch(pattern) {
 	return new Promise((resolve, reject) => {
 		glob(pattern, (error, files) => {
 			if (error) {
@@ -10,3 +10,6 @@ export async function globMatch(pattern) {
 		});
 	});
 }
+module.exports = {
+	globMatch,
+};

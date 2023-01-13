@@ -1,7 +1,6 @@
 import path from 'path';
 import * as utils from '@talend/scripts-utils';
 import { getUserConfigFile } from '../utils/env.js';
-// import { check } from '../utils/preset.js';
 import { globMatch } from '../utils/glob.js';
 
 function getSmartOptions(opts, categories) {

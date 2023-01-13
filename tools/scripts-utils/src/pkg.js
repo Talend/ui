@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { createRequire } = require('module');
 
 function hasDependencies(pkg, name) {
 	let found = false;
