@@ -1,7 +1,6 @@
 import path from 'path';
 import * as utils from '@talend/scripts-utils';
 import { getUserConfigFile } from '../utils/env.js';
-import { globMatch } from '../utils/glob.js';
 
 function getSmartOptions(opts, categories) {
 	return opts.reduce(
@@ -116,7 +115,7 @@ export default async function lint(env, presetApi, options) {
 			console.error(e);
 		}
 	}
-	let hasStyle = await globMatch('./src/**/*.*css');
+	let hasStyle = await utils.glob.globMatch('./src/**/*.*css');
 	if (
 		smartOpts.css.length !== 0 ||
 		(smartOpts.js.length === 0 && smartOpts.css.length === 0 && hasStyle)

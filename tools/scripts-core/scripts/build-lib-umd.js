@@ -3,7 +3,6 @@ import * as utils from '@talend/scripts-utils';
 import { getUserConfigFile } from '../utils/env.js';
 
 const webpack = utils.path.resolveBin('webpack');
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const dirname = utils.path.getDirName(import.meta.url);
 
 async function buildUMD(env, presetApi, options = []) {
