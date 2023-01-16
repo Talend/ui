@@ -15,7 +15,7 @@
   },
   "scripts": {
     "lint": "talend-scripts lint ./",
-    "test": "echo \"Nothing to test\""
+    "test": "talend-scripts test"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",

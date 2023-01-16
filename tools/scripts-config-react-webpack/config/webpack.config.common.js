@@ -1,6 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
-const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
+const utils = require('@talend/scripts-utils');
+
+const { getBabelLoaderOptions } = utils.babel;
 
 const babelConfig = getBabelConfig();
 
