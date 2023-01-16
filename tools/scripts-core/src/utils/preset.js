@@ -17,5 +17,3 @@ export function getPresetApi(env = process.env) {
 		getUserConfig,
 	};
 }
-
-export function getPresetEnv() {}

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-console */
 const path = require('path');
 const cpx = require('cpx2');
@@ -7,7 +6,7 @@ const fs = require('fs');
 const rimraf = require('rimraf');
 
 const fixture = path.join(__dirname, 'fixture');
-const bin = path.resolve(__dirname, 'index.js');
+const bin = path.resolve(__dirname, '../src/index.js');
 
 function getTmpDirectory(prefix) {
 	const date = new Date();
