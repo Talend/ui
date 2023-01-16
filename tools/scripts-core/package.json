@@ -21,11 +21,6 @@
     "lint": "talend-scripts lint",
     "test": "talend-scripts test"
   },
-  "jest": {
-    "testMatch": [
-      "**/*.test.js"
-    ]
-  },
   "devDependencies": {},
   "dependencies": {
     "@babel/cli": "^7.20.7",

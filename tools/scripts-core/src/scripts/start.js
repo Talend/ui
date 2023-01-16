@@ -5,7 +5,7 @@ export default async function start(env, _, options) {
 	const packageType = utils.pkg.getPackageType();
 
 	if (packageType.isApp) {
-		check('@talend/scripts-config-react-webpack');
+		utils.pkg.checkPackageIsInstalled('@talend/scripts-config-react-webpack');
 		const webpack = utils.path.resolveBin('webpack');
 		return utils.process.spawn(
 			webpack,
