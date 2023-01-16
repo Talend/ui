@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 12.0.2
+
+### Patch Changes
+
+- 65c8ad05c: fix: remove JSON.parse on object
+
 ## 12.0.1
 
 ### Patch Changes
