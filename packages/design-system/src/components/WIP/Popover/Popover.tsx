@@ -45,10 +45,10 @@ function Popover({
 		unstable_fixed: isFixed,
 	});
 	const children = Array.isArray(props.children) ? props.children : [props.children];
-
+	const disclosureElementProps = typeof disclosure !== 'function' ? disclosure.props : {};
 	return (
 		<>
-			<ReakitPopoverDisclosure {...popover}>
+			<ReakitPopoverDisclosure {...popover} {...disclosureElementProps}>
 				{disclosureProps => {
 					if (typeof disclosure === 'function') {
 						return disclosure(disclosureProps);

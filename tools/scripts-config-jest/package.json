@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-jest",
   "description": "Jest configuration for @talend/scripts-core",
-  "version": "12.0.0",
+  "version": "12.1.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "lint": "talend-scripts lint ./",
-    "test": "echo \"Nothing to test\""
+    "test": "talend-scripts test"
   },
   "peerDependencies": {
     "enzyme": "3",

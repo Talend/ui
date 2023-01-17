@@ -1,7 +1,0 @@
-{
-    "private": true,
-    "name": "@talend/test-scripts-core",
-    "dependencies": {
-        "react": "^16.4.0"
-    }
-}

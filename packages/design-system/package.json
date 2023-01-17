@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "7.3.0",
+  "version": "7.4.1",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
