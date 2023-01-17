@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.4.1
+
+### Patch Changes
+
+- 6c6133860: TDOPS-3536 - Fix passing props to popover disclosure on Design System
+
 ## 7.4.0
 
 ### Minor Changes
