@@ -26,6 +26,7 @@ context('<Popover />', () => {
 					title="panel"
 					metadata={[
 						<Popover
+							key="my.popover"
 							disclosure={
 								<ButtonPrimary onClick={event => event.stopPropagation()} data-test="my.button">
 									Open popover
