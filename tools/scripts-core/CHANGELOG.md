@@ -1,5 +1,22 @@
 # @talend/scripts-core
 
+## 13.1.0
+
+### Minor Changes
+
+- 65c8ad05c: chore: refactor using @talend/scripts-utils
+  feat: log error of the scripts if there is a JS error from the script itself
+  chore: re-organise files using src folder to use talend-script on talend-scripts
+
+### Patch Changes
+
+- Updated dependencies [65c8ad05c]
+- Updated dependencies [65c8ad05c]
+- Updated dependencies [65c8ad05c]
+  - @talend/eslint-config@12.0.2
+  - @talend/scripts-config-jest@12.1.0
+  - @talend/scripts-utils@2.0.0
+
 ## 13.0.0
 
 ### Major Changes
