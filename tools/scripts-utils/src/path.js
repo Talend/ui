@@ -23,6 +23,9 @@ function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {})
 	} catch (_error) {
 		// ignore _error
 	}
+	if (process.platform === 'win32' && systemCommandPath) {
+		return systemCommandPath;
+	}
 	try {
 		const modPkgPath = require.resolve(`${modName}/package.json`);
 		const modPkgDir = path.dirname(modPkgPath);
@@ -30,8 +33,7 @@ function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {})
 		const bin = mod.bin;
 		const binPath = typeof bin === 'string' ? bin : bin[executable];
 		const fullPathToBin = path.join(modPkgDir, binPath);
-		// this is always different on win32
-		if (fullPathToBin === systemCommandPath || process.platform === 'win32') {
+		if (fullPathToBin === systemCommandPath) {
 			return executable;
 		}
 		return fullPathToBin.replace(cwd, '.');

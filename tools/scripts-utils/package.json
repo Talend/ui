@@ -8,7 +8,6 @@
     "test": "talend-scripts test"
   },
   "dependencies": {
-    "cross-spawn": "^7.0.3",
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
     "which": "^2.0.2"
