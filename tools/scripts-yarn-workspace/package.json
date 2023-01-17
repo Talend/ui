@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-yarn-workspace",
   "version": "1.0.0",
-  "description": "extends yarn workspace commands",
+  "description": "yarn workspace commands but more friendly",
   "type": "module",
   "bin": {
     "talend-yarn-workspace": "./src/index.js"
@@ -10,8 +10,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "frontend@talend.com",
-  "dependencies": {
-    "@talend/scripts-utils": "^2.0.0"
+  "dependencies": {},
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
   },
-  "license": "Apache-2.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui"
+  }
 }

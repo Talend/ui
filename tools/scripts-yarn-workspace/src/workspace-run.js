@@ -3,7 +3,6 @@
 /* eslint-disable no-console */
 import fs from 'fs';
 import path from 'path';
-import * as utils from '@talend/scripts-utils';
 import { run } from './run.js';
 import { consume } from './consume.js';
 

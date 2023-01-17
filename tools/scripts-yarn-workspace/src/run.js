@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import * as utils from '@talend/scripts-utils';
 import { spawn } from 'child_process';
 
 export async function run(cmd, opts = {}) {
