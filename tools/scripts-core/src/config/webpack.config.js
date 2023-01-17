@@ -28,7 +28,6 @@ export default async (env = {}) => {
 	// User configuration file
 	const userConfigPath = presetApi.getUserConfig(['webpack', 'config', presetApi.mode]);
 	if (userConfigPath) {
-		const dirname = utils.path.getDirName(import.meta.url);
 		let userConfigAbsolutePath = utils.path.getAbsolutePath(userConfigPath);
 		if (process.platform === 'win32') {
 			userConfigAbsolutePath = `file:///${userConfigAbsolutePath}`;
