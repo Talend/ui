@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const processSpawn = require('child_process').spawn;
+const processSpawn = require('cross-spawn');
 
 async function spawn(cmd, args, opts = {}) {
 	return new Promise((resolve, reject) => {
