@@ -7,7 +7,7 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const cdn = require('@talend/scripts-config-cdn');
 
-const exists = require('@talend/scripts-utils/fs');
+const utils = require('@talend/scripts-utils');
 
 const {
 	getCommonStyleLoaders,
@@ -23,7 +23,7 @@ module.exports = options => {
 	const dcwpConfig = options.getUserConfig('dynamic-cdn-webpack-plugin');
 	const cssModulesEnabled = options.getUserConfig(['css', 'modules'], true);
 	const userCopyConfig = options.getUserConfig('copy', []);
-	const useTypescript = exists.tsConfig();
+	const useTypescript = utils.fs.tsConfig();
 	const userSassData = options.getUserConfig('sass', {});
 	const sassData = getSassData(userSassData);
 	const isEnvProd = options.mode === 'production';
