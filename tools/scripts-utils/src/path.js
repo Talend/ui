@@ -30,7 +30,8 @@ function resolveBin(modName, { executable = modName, cwd = process.cwd() } = {})
 		const bin = mod.bin;
 		const binPath = typeof bin === 'string' ? bin : bin[executable];
 		const fullPathToBin = path.join(modPkgDir, binPath);
-		if (fullPathToBin === systemCommandPath) {
+		// this is always different on win32
+		if (fullPathToBin === systemCommandPath || process.platform === 'win32') {
 			return executable;
 		}
 		return fullPathToBin.replace(cwd, '.');
