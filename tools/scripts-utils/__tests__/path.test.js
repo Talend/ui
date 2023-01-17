@@ -34,9 +34,13 @@ describe('utils.path', () => {
 		});
 	});
 	describe('resolveBin', () => {
-		it('should', () => {
+		it('should return the global executable if found', () => {
 			const jest = utils.path.resolveBin('jest');
-			expect(jest).toMatch(/\/node_modules\/jest\//);
+			expect(jest).toBe('jest');
+		});
+		it('should return the global executable if not found', () => {
+			const jest = utils.path.resolveBin('foobar');
+			expect(jest).toBe();
 		});
 	});
 });
