@@ -1,5 +1,11 @@
 # @talend/scripts-config-jest
 
+## 12.1.0
+
+### Minor Changes
+
+- 65c8ad05c: feat: add \***\*tests\*\*** folder in target (like the default jest config)
+
 ## 12.0.0
 
 ### Major Changes

@@ -1,7 +1,7 @@
 {
   "name": "@talend/eslint-config",
   "description": "Eslint configuration for @talend/scripts-core",
-  "version": "12.0.0",
+  "version": "12.0.2",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "lint": "talend-scripts lint ./",
-    "test": "echo \"Nothing to test\""
+    "test": "talend-scripts test"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",
