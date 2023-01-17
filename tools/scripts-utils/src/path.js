@@ -54,7 +54,7 @@ function getAbsolutePath(userPath) {
 	if (userPath.startsWith('/')) {
 		return userPath;
 	}
-	return `${process.cwd()}/${userPath}`;
+	return path.join(process.cwd(), userPath);
 }
 
 /**
