@@ -1,3 +1,4 @@
+import { ComponentStory } from '@storybook/react';
 import {
 	Badge,
 	BadgeDropdown,
@@ -17,20 +18,36 @@ export const StoryBadgeValue = () => (
 	<StackVertical gap="S" justify="spaceBetween">
 		<StackHorizontal align="center" gap="S" justify="spaceBetween">
 			Component Badge w/ variant "badge"
-			<Badge label="Wonderful" value={['Feature']} variant="badge" />
+			<Badge label="Runs on" value={['Cloud Engine']} variant="badge" />
 		</StackHorizontal>
 
 		<StackHorizontal align="center" gap="S" justify="spaceBetween">
 			Variant component BadgeValue
-			<BadgeValue label="Wonderful" value={['Feature']} />
+			<BadgeValue label="Runs on" value={['Remote Engine']} />
 		</StackHorizontal>
 
 		<StackHorizontal align="center" gap="S" justify="spaceBetween">
 			Variant component BadgeValue w/ multi value
-			<BadgeValue label="Wonderful" value={['Feature', 'Item', 'Component']} />
+			<BadgeValue label="Runs on" value={['Cloud Engine', 'Remote Engine', 'Cloud components']} />
 		</StackHorizontal>
 	</StackVertical>
 );
+
+export const StoryBadgeValueTemplate: ComponentStory<typeof BadgeValue> = args => {
+	return <BadgeValue {...args} />;
+};
+
+export const StoryBadgeValueTemplateStory = StoryBadgeValueTemplate.bind({});
+StoryBadgeValueTemplateStory.argTypes = {
+	label: {
+		control: { type: 'text' },
+		defaultValue: 'Runs on',
+	},
+	value: {
+		control: { type: 'array' },
+		defaultValue: ['Cloud Engine'],
+	},
+};
 
 export const StoryBadgeTag = () => (
 	<StackVertical gap="S" justify="spaceBetween">
