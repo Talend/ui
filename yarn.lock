@@ -3760,6 +3760,15 @@
   resolved "https://registry.yarnpkg.com/@talend/locales-tui-forms/-/locales-tui-forms-6.41.4.tgz#3a4fbcffa2fc1489021c915ede6d38d08023aaa0"
   integrity sha512-merVbYZ6FfcV48b/XJbNdPPHqYt1MToRO1t1jnNCUfK5++9VlKzeC6hgRVPTUmb2WX5fo8vi/GMGNAfNuGAj8Q==
 
+"@talend/scripts-utils@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@talend/scripts-utils/-/scripts-utils-2.0.1.tgz#293975b44be9b49adf5a2984615535f6b345f0e1"
+  integrity sha512-2klYzAC7nCQXYsoa3ChDK8xFwIXwnXmUG8hhK6Qf0a18l9YuicKK2dwFv8JJjG/KgH0NrRG34B3pIkk0W5SpuQ==
+  dependencies:
+    fs-extra "^10.1.0"
+    glob "^8.0.3"
+    which "^2.0.2"
+
 "@testing-library/dom@^8.0.0", "@testing-library/dom@^8.11.1", "@testing-library/dom@^8.3.0":
   version "8.19.1"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.19.1.tgz#0e2dafd281dedb930bb235eac1045470b4129d0e"
@@ -10802,6 +10811,17 @@ glob@^8.0.1:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/glob/-/glob-8.0.3.tgz#415c6eb2deed9e502c68fa44a272e6da6eeca42e"
   integrity sha512-ull455NHSHI/Y1FqGaaYFaLGkNMMJbavMrEGFXG/PGrg6y7sutWHUHrz6gy6WEBH6akM1M414dWKCNs+IhKdiQ==
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^5.0.1"
+    once "^1.3.0"
+
+glob@^8.0.3:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-8.1.0.tgz#d388f656593ef708ee3e34640fdfb99a9fd1c33e"
+  integrity sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"

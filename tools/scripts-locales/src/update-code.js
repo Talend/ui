@@ -1,17 +1,16 @@
-const spawn = require('cross-spawn');
-const path = require('path');
-const { hereRelative, resolveBin } = require('../utils/path-resolver');
+import spawn from 'cross-spawn';
+import path from 'path';
+import * as utils from '@talend/scripts-utils';
 
 // use npx so the user will be requried to install codeshift
-const npx = resolveBin('npx');
+const npx = utils.path.resolveBin('npx');
 const help = `You should provide the following option to this script:
-npx talend-scripts locales:codeshift --ref ./node_modules/@talend/locales-package/locales/en ./src
-
+npx talend-locales update-code --ref ./node_modules/@talend/locales-package/locales/en ./src
 --ref to get the translations source.
 latest option should be the path to the codesource
 `;
 
-module.exports = function start(env, _, options) {
+export function updateCode(options) {
 	// assert options or display help.
 	if (options.length < 3) {
 		// eslint-disable-next-line no-console
@@ -25,7 +24,12 @@ module.exports = function start(env, _, options) {
 	});
 	return spawn.sync(
 		npx,
-		['jscodeshift', '-t', hereRelative(__dirname, '../config/locales-codeshift.js'), ...newOpts],
+		[
+			'jscodeshift',
+			'-t',
+			utils.path.hereRelative(utils.path.getDirName(import.meta.url), '../codeshift/locales.js'),
+			...newOpts,
+		],
 		{ stdio: 'inherit', env },
 	);
-};
+}

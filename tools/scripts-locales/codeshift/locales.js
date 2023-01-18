@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+
 /*
 This function will search all i18n call expressions and replaces the default values with the provided translation file
-
 Finds all usage of: i18n.t(), props.t(), rest.t(), ownprops.t(), config.t(), t()
 */
 function updateDefaultValue(p, en) {
@@ -56,7 +56,6 @@ function searchAndUpdateI18nValues(j, root, en) {
 /*
 The goal is to find all <Trans> component in the source code. See TmcTutorial.container.js for example.
 And to replace the values with the content of portal-app.json
-
 /!\ there are still some indentation issues in the result of the codemod if the content of the trans component is not surrounded with some html tags.
 */
 

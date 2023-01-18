@@ -43,7 +43,6 @@ With the cli you have multiple commands:
 - **lint:style** execute stylelint on your project
 - **extends** generate configuration files which extend the talend-scripts ones
 - **upgrade** upgrade dependencies using [talend-upgrade-deps](https://www.npmjs.com/package/@talend/upgrade-deps)
-- **locales:codeshift** update hard coded string by using english translation
 
 5. Define the npm scripts you need.
 
