@@ -27,7 +27,6 @@ export function workspaceRun(scriptArgs) {
 					const packageInfo = workspaceInfo[packageName];
 					const { location } = packageInfo;
 
-					// const packageJson = require(path.resolve(path.join('.', location, 'package.json')));
 					const packageJson = JSON.parse(
 						fs.readFileSync(path.resolve(path.join('.', location, 'package.json'))),
 					);
