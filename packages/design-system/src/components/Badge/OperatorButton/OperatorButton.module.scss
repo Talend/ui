@@ -1,0 +1,26 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.operator__button {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	position: relative;
+
+	border-radius: tokens.$coral-radius-round;
+	font: tokens.$coral-paragraph-m-bold;
+	width: tokens.$coral-sizing-xxs;
+	height: tokens.$coral-sizing-xxs;
+
+	color: tokens.$coral-color-accent-text;
+	background: tokens.$coral-color-accent-background;
+
+	&:hover {
+		background: tokens.$coral-color-accent-background-hover;
+		color: tokens.$coral-color-accent-text-strong-hover;
+	}
+
+	&:active {
+		background: tokens.$coral-color-accent-background-active;
+		color: tokens.$coral-color-accent-text-strong-active;
+	}
+}

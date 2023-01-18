@@ -1,16 +1,25 @@
 import React, { PropsWithChildren, Ref } from 'react';
-
-import Divider from '../../Divider';
+import { useTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
-import styles from './BadgePrimitive.module.scss';
-import { StackHorizontal } from '../../Stack';
 import { DataAttributes } from 'src/types';
+
+import tokens from '@talend/design-tokens';
+import { IconNameWithSize } from '@talend/icons';
+
+import { ButtonIcon } from '../../ButtonIcon';
+import Divider from '../../Divider';
+import { SizedIcon } from '../../Icon';
+import { StackHorizontal } from '../../Stack';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import { BadgeOperator, OperatorButton } from '../OperatorButton/OperatorButton';
+
+import styles from './BadgePrimitive.module.scss';
 
 /**
  * Possible semantic values.
  */
-type SemanticIcon = 'valid' | 'invalid' | 'empty' | 'none';
+type SemanticIcon = 'valid' | 'invalid' | 'none';
 
 /**
  * Badge variants.
@@ -58,46 +67,82 @@ function BadgeDivider() {
 export type BadgePrimitiveProps = {
 	label: string;
 	onClose?: () => void;
+	closeButtonLabel?: string;
 	ref: Ref<HTMLSpanElement>;
 	semanticIcon?: SemanticIcon;
+	operator?: BadgeOperator;
+	operators?: BadgeOperator[];
+	onOperatorChange?: (operator: BadgeOperator) => void;
 } & Partial<DataAttributes>;
 
 function BadgePrimitive({
-	children,
-	'data-testid': dataTestId,
 	'data-test': dataTest,
+	'data-testid': dataTestId,
+	children,
+	closeButtonLabel,
 	label,
 	onClose,
+	operator,
+	operators,
+	onOperatorChange,
 	ref,
 	semanticIcon = 'none',
 }: PropsWithChildren<BadgePrimitiveProps>) {
-	// TODO BADGE - handle onClose to manage close button
-
-	// TODO BADGE - handle semanticIcon to display semantic icon
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
 	// TODO BADGE - implement withOperator props
 
 	const defaultTestId = 'badge-label';
+	const defaultCloseTestId = 'badge-label-close';
 
 	return (
 		<span className={classnames(styles.badge)} ref={ref}>
 			<StackHorizontal
 				gap="XXS"
-				padding={{ top: 0, right: 'XXS', bottom: 0, left: 'XXS' }}
+				padding={{ top: 0, right: 'XS', bottom: 0, left: 'XS' }}
 				align="center"
 				display="inline"
 			>
-				<span
-					className={classnames(styles.badge__label)}
-					data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
-					data-test={dataTest ? `${dataTest}.${defaultTestId}` : defaultTestId}
-				>
-					{label}
-				</span>
+				<StackHorizontal gap="XXS" align="center" display="inline">
+					{semanticIcon !== 'none' && (
+						<SizedIcon
+							size="S"
+							name={semanticIcon === 'valid' ? 'check-filled' : 'square-cross'}
+							color={
+								semanticIcon === 'valid'
+									? tokens.coralColorChartsColor04
+									: tokens.coralColorDangerIcon
+							}
+						/>
+					)}
 
-				{React.Children.count(children) > 0 && <BadgeDivider />}
+					<span
+						className={classnames(styles.badge__label)}
+						data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
+						data-test={dataTest ? `${dataTest}.${defaultTestId}` : defaultTestId}
+					>
+						{label}
+					</span>
+				</StackHorizontal>
+
+				{React.Children.count(children) > 0 && !operators && <BadgeDivider />}
+				{React.Children.count(children) > 0 && operators && onOperatorChange && (
+					<OperatorButton operators={operators} operator={operator} onChange={onOperatorChange} />
+				)}
 
 				{children}
+
+				{onClose && (
+					<ButtonIcon
+						icon="cross"
+						size="XS"
+						onClick={onClose}
+						data-testid={dataTestId ? `${dataTestId}.${defaultCloseTestId}` : defaultCloseTestId}
+						data-test={dataTest ? `${dataTest}.${defaultCloseTestId}` : defaultCloseTestId}
+					>
+						{closeButtonLabel || t<string>('CLOSE', 'Close')}
+					</ButtonIcon>
+				)}
 			</StackHorizontal>
 		</span>
 	);

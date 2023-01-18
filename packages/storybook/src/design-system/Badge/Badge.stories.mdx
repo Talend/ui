@@ -1,5 +1,6 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '~docs';
+
 import * as Stories from './Badge.stories';
 
 <Meta
@@ -32,6 +33,10 @@ A wonderful Badge
 ### Variations
 
 #### Badge
+
+<Canvas isColumn>
+	<Story story={Stories.StoryBadgeValue} />
+</Canvas>
 
 <Canvas isColumn>
 	<Story story={Stories.StoryBadgeValueTemplateStory} name="BadgeStory" />

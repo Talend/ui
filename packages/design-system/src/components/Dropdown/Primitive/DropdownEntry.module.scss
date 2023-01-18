@@ -1,10 +1,11 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 $iconAlignmentOffsetM: -0.3rem;
+$iconAlignmentOffsetS: -0.15rem;
 
 .dropdownEntry {
 	background: tokens.$coral-color-accent-background-weak;
-	display: block;
+	display: flex;
 	width: 100%;
 	min-width: 0;
 	color: tokens.$coral-color-neutral-text;
@@ -25,6 +26,10 @@ $iconAlignmentOffsetM: -0.3rem;
 		flex-shrink: 0;
 		position: relative;
 		bottom: $iconAlignmentOffsetM;
+	}
+
+	.buttonIconS {
+		bottom: $iconAlignmentOffsetS;
 	}
 
 	.buttonContent {

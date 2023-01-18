@@ -1,19 +1,22 @@
 import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
+
 import { Menu, MenuButton, useMenuState } from 'reakit';
+
+import { DataAttributes, DeprecatedIconNames } from '../../types';
+import Clickable, { ClickableProps } from '../Clickable';
+import { LinkableType } from '../Linkable';
 // eslint-disable-next-line @talend/import-depth
 import DropdownButton from './Primitive/DropdownButton';
+import DropdownDivider from './Primitive/DropdownDivider';
 import DropdownLink from './Primitive/DropdownLink';
 import DropdownShell from './Primitive/DropdownShell';
 import DropdownTitle from './Primitive/DropdownTitle';
-import DropdownDivider from './Primitive/DropdownDivider';
-import Clickable, { ClickableProps } from '../Clickable';
-import { LinkableType } from '../Linkable';
-import { DataAttributes, DeprecatedIconNames } from '../../types';
 
 type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 	label: string;
 	onClick: () => void;
 	icon?: DeprecatedIconNames;
+	size?: 'M' | 'S';
 	type: 'button';
 };
 
