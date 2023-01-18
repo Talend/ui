@@ -1,6 +1,6 @@
 # @talend/scripts-yarn-workspace
 
-This package expose a command line useful for mono repository managment.
+This package expose a command line useful for mono repository management.
 
 For example:
 
