@@ -78,7 +78,8 @@ context('<Dropdown />', () => {
 		cy.mount(<WithIcons />);
 		cy.getByTest('dropdown.button').click();
 		cy.getByTest('dropdown.menu').should('be.visible');
-		cy.getByTest('dropdown.menuitem').should('have.length', 2);
+		cy.getByTest('dropdown.menuitem.Link with icon-0').should('be.visible');
+		cy.getByTest('dropdown.menuitem.Button with icon-1').should('be.visible');
 		cy.clickOutside();
 		cy.getByTest('dropdown.menu').should('not.be.visible');
 	});
@@ -87,7 +88,7 @@ context('<Dropdown />', () => {
 		cy.mount(<WithIcons />);
 		cy.getByTest('dropdown.button').click();
 		cy.getByTest('dropdown.menu').should('be.visible');
-		cy.get('button[data-test="dropdown.menuitem"]').click();
+		cy.get('button[data-test="dropdown.menuitem.Button with icon-1"]').click();
 		cy.getByTest('dropdown.menu').should('not.be.visible');
 	});
 
@@ -95,8 +96,8 @@ context('<Dropdown />', () => {
 		cy.mount(<WithIcons />);
 		cy.getByTest('dropdown.button').click();
 		cy.getByTest('dropdown.menu').should('be.visible');
-		cy.get('a[data-test="dropdown.menuitem"]').eq(0).invoke('removeAttr', 'href');
-		cy.get('a[data-test="dropdown.menuitem"]').click();
+		cy.get('a[data-test="dropdown.menuitem.Link with icon-0"]').invoke('removeAttr', 'href');
+		cy.get('a[data-test="dropdown.menuitem.Link with icon-0"]').click();
 		cy.getByTest('dropdown.menu').should('not.be.visible');
 	});
 
@@ -115,7 +116,7 @@ context('<Dropdown />', () => {
 		// Let's highlight the second menu item
 		cy.get('body').type('{downArrow}{downArrow}');
 		// And verify that's focused
-		cy.getByTest('dropdown.menuitem').eq(1).should('be.attr', 'tabindex', 0);
+		cy.getByTest('dropdown.menuitem.Button with icon-1').should('be.attr', 'tabindex', 0);
 	});
 
 	it('should have separators', () => {
@@ -132,7 +133,7 @@ context('<Dropdown />', () => {
 	it('should have menu item with external links', () => {
 		cy.mount(<WithDividers />);
 		cy.getByTest('dropdown.button').click();
-		cy.getByTest('dropdown.menuitem')
+		cy.getByTest('dropdown.menuitem.External link-0')
 			.first()
 			.should('be.visible')
 			.within(() => {

@@ -16,6 +16,7 @@
     "api"
   ],
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test": "echo \"Nothing to test\""
   },
   "publishConfig": {

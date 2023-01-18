@@ -1,5 +1,20 @@
 # @talend/scripts-config-react-webpack
 
+## 15.2.4
+
+### Patch Changes
+
+- 65c8ad05c: fix: apply breaking changes on talend/scripts-utils
+- Updated dependencies [65c8ad05c]
+  - @talend/scripts-utils@2.0.0
+
+## 15.2.3
+
+### Patch Changes
+
+- Updated dependencies [c18aabb97]
+  - @talend/scripts-config-babel@12.0.0
+
 ## 15.2.2
 
 ### Patch Changes

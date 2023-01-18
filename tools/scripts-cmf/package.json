@@ -9,6 +9,9 @@
   "bin": {
     "cmf-settings": "./cmf-settings.js"
   },
+  "scripts": {
+    "lint": "talend-scripts lint ./"
+  },
   "dependencies": {
     "deepmerge": "^1.5.2",
     "jsonpath": "^1.1.1",

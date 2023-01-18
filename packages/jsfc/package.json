@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "build:lib": "rimraf dist && talend-scripts build:lib:umd",
+    "build:lib": "rimraf dist && talend-scripts build --umd",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
     "test:cov": "npm run test",
@@ -39,8 +39,7 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/scripts-core": "^13.0.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
     "json-refs": "^3.0.15",

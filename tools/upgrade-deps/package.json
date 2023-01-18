@@ -1,6 +1,6 @@
 {
   "name": "@talend/upgrade-deps",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "description": "CLI to help management of dependencies",
   "type": "module",
   "bin": {
@@ -26,6 +26,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test:cron": "jest"
   },
   "publishConfig": {

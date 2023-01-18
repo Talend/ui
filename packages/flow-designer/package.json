@@ -6,11 +6,10 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "build:lib": "talend-scripts build:ts:lib",
-    "lint:es": "talend-scripts lint:es",
-    "lint": "talend-scripts lint:es",
+    "build:lib": "talend-scripts build",
+    "lint": "talend-scripts lint",
     "test": "talend-scripts test",
-    "pre-release": "talend-scripts build:lib:umd"
+    "pre-release": "talend-scripts build --umd"
   },
   "repository": {
     "type": "git",
@@ -19,9 +18,8 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-config-jest": "^11.6.1",
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/scripts-config-jest": "^12.0.0",
+    "@talend/scripts-core": "^13.0.0",
     "@types/d3": "^7.4.0",
     "@types/enzyme": "^3.10.12",
     "@types/invariant": "^2.2.35",

@@ -9,7 +9,8 @@
     "test": "echo nothing to test in playground",
     "test:demo:umd": "cross-env BASENAME='/playground/' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
     "start": "cross-env BASENAME='/' INITIATOR_URL='/inject.js' talend-scripts start --open http://localhost:3000",
-    "start-dist": "talend-scripts build && node serve-dist"
+    "start-dist": "talend-scripts build && node serve-dist",
+    "lint": "talend-scripts lint"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,7 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react": "^15.0.1",
+    "@talend/scripts-core": "^13.0.0",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.18.2",
