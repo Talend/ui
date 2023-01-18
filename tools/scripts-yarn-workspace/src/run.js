@@ -48,7 +48,7 @@ export async function run(cmd, opts = {}) {
 		out.stderr.on('data', data => {
 			const datastr = data.toString();
 			if (data && datastr) {
-				stderr += dataStr;
+				stderr += datastr;
 			}
 		});
 	});
