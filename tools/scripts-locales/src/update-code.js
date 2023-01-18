@@ -30,6 +30,6 @@ export function updateCode(options) {
 			utils.path.hereRelative(utils.path.getDirName(import.meta.url), '../codeshift/locales.js'),
 			...newOpts,
 		],
-		{ stdio: 'inherit', env },
+		{ stdio: 'inherit', env: process.env },
 	);
 }
