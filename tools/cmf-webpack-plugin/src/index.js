@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 const path = require('path');
 const mergeSettings = require('@talend/scripts-cmf/cmf-settings.merge');
+const RawSource = require('webpack-sources').RawSource;
 
 /**
  * React CMF Webpack Plugin
@@ -60,7 +61,11 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 		this.lastRun = startTime;
 		this.canRun = false;
 
-		this.modifiedFiles = mergeSettings(this.options, callback);
+		this.mergedSettingsObjects = mergeSettings(this.options, callback, false);
+		console.log('#####', this.mergedSettingsObjects);
+		this.mergedSettingsObjects.forEach(obj => {
+			compilation.assets[path.basename(obj.path)] = new RawSource(JSON.stringify(obj.content));
+		});
 
 		const endTime = Date.now();
 		this.log(`Files merged in ${((endTime - startTime) % 60000) / 1000}s`);
