@@ -16,7 +16,6 @@ type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 	label: string;
 	onClick: () => void;
 	icon?: DeprecatedIconNames;
-	size?: 'M' | 'S';
 	type: 'button';
 };
 

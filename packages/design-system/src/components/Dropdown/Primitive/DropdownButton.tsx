@@ -13,17 +13,17 @@ import { getIconWithDeprecatedSupport } from '../../Icon/DeprecatedIconHelper';
 import styles from './DropdownEntry.module.scss';
 
 export type DropdownButtonType = Omit<ClickableProps, 'as'> &
-	MenuItemProps & { size?: 'M' | 'S'; icon?: DeprecatedIconNames | IconNameWithSize<'M' | 'S'> };
+	MenuItemProps & { icon?: DeprecatedIconNames | IconNameWithSize<'M'> };
 
 const DropdownButton = forwardRef(
-	({ children, icon, size = 'M', ...props }: DropdownButtonType, ref: Ref<HTMLButtonElement>) => {
+	({ children, icon, ...props }: DropdownButtonType, ref: Ref<HTMLButtonElement>) => {
 		return (
 			<MenuItem {...props} as={Clickable} className={styles.dropdownEntry} ref={ref}>
 				{icon && (
-					<span className={classNames(styles.buttonIcon, { [styles.buttonIconS]: size === 'S' })}>
+					<span className={classNames(styles.buttonIcon)}>
 						{getIconWithDeprecatedSupport({
 							iconSrc: icon,
-							size,
+							size: 'M',
 							['data-test']: 'button.icon.before',
 						})}
 					</span>

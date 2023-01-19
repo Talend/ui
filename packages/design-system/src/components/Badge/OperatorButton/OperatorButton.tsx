@@ -41,7 +41,6 @@ export const OperatorButton = forwardRef(
 		const items: DropdownItemType[] = operators.map(item => ({
 			...item,
 			type: 'button',
-			size: 'S',
 			onClick: () => onChange(item),
 		}));
 
