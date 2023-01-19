@@ -127,7 +127,7 @@ function merge(options, errorCallback, writeToFs = true) {
 
 		if (i18next) {
 			return {
-				sources: jsonfiles,
+				sources: jsonFiles,
 				destination: languages.map(locale =>
 					saveSettings(i18next, settings, locale, destination, writeToFs),
 				),
