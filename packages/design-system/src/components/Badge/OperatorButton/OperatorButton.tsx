@@ -18,7 +18,7 @@ export interface BadgeOperator {
 
 type OperatorButtonProps = {
 	componentId?: string;
-	operator?: BadgeOperator;
+	selectedOperator?: BadgeOperator;
 	operators: BadgeOperator[];
 	onChange: (operator: BadgeOperator) => void;
 } & Partial<DataAttributes>;
@@ -29,7 +29,7 @@ export const OperatorButton = forwardRef(
 			componentId,
 			'data-testid': dataTestId,
 			'data-test': dataTest,
-			operator,
+			selectedOperator,
 			operators,
 			onChange,
 			...rest
@@ -56,8 +56,8 @@ export const OperatorButton = forwardRef(
 					type="button"
 					{...rest}
 				>
-					{operator && <SizedIcon size="S" name={operator.icon} />}
-					{!operator && <SizedIcon size="S" name="between" />}
+					{selectedOperator && <SizedIcon size="S" name={selectedOperator.icon} />}
+					{!selectedOperator && <SizedIcon size="S" name="between" />}
 				</Clickable>
 			</Dropdown>
 		);

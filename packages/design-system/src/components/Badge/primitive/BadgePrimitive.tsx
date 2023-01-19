@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import { DataAttributes } from 'src/types';
 
 import tokens from '@talend/design-tokens';
-import { IconNameWithSize } from '@talend/icons';
 
 import { ButtonIcon } from '../../ButtonIcon';
 import Divider from '../../Divider';
@@ -20,11 +19,6 @@ import styles from './BadgePrimitive.module.scss';
  * Possible semantic values.
  */
 type SemanticIcon = 'valid' | 'invalid' | 'none';
-
-/**
- * Badge variants.
- */
-type Variants = 'badge' | 'tag' | 'dropdown' | 'popover';
 
 /**
  * Describe item used for BadgeDropdown.
@@ -43,10 +37,6 @@ export interface BadgePopoverItem {
 	onClick: () => void;
 }
 
-export type BadgeVariantType<T extends Variants, P extends BadgePrimitiveProps> = {
-	variant: T;
-} & P;
-
 // --------------------------------------------------
 // Badge Divider
 // --------------------------------------------------
@@ -64,15 +54,19 @@ function BadgeDivider() {
 // Badge Primitive
 // --------------------------------------------------
 
+export type BadgeOperators = {
+	selected?: BadgeOperator;
+	list: BadgeOperator[];
+	onChange: (operator: BadgeOperator) => void;
+};
+
 export type BadgePrimitiveProps = {
 	label: string;
 	onClose?: () => void;
 	closeButtonLabel?: string;
 	ref: Ref<HTMLSpanElement>;
 	semanticIcon?: SemanticIcon;
-	operator?: BadgeOperator;
-	operators?: BadgeOperator[];
-	onOperatorChange?: (operator: BadgeOperator) => void;
+	operators?: BadgeOperators;
 } & Partial<DataAttributes>;
 
 function BadgePrimitive({
@@ -82,15 +76,11 @@ function BadgePrimitive({
 	closeButtonLabel,
 	label,
 	onClose,
-	operator,
 	operators,
-	onOperatorChange,
 	ref,
 	semanticIcon = 'none',
 }: PropsWithChildren<BadgePrimitiveProps>) {
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
-
-	// TODO BADGE - implement withOperator props
 
 	const defaultTestId = 'badge-label';
 	const defaultCloseTestId = 'badge-label-close';
@@ -126,8 +116,12 @@ function BadgePrimitive({
 				</StackHorizontal>
 
 				{React.Children.count(children) > 0 && !operators && <BadgeDivider />}
-				{React.Children.count(children) > 0 && operators && onOperatorChange && (
-					<OperatorButton operators={operators} operator={operator} onChange={onOperatorChange} />
+				{React.Children.count(children) > 0 && operators && (
+					<OperatorButton
+						operators={operators.list}
+						selectedOperator={operators.selected}
+						onChange={operators.onChange}
+					/>
 				)}
 
 				{children}

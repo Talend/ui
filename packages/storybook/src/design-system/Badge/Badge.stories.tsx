@@ -47,14 +47,16 @@ export const StoryBadgeValue = () => (
 			BadgeValue with operators
 			<BadgeValue
 				semanticIcon="invalid"
-				label="Runs on"
-				value={['Cloud Engine', 'Remote Engine', 'Cloud components']}
-				operators={[
-					{ label: 'Less than', icon: 'less-than' },
-					{ label: 'Greater than', icon: 'greater-than' },
-					{ label: 'Equal to', icon: 'equal' },
-				]}
-				onOperatorChange={action('onOperatorChange')}
+				label="Trust score"
+				value={['3']}
+				operators={{
+					list: [
+						{ label: 'Less than', icon: 'less-than' },
+						{ label: 'Greater than', icon: 'greater-than' },
+						{ label: 'Equal to', icon: 'equal' },
+					],
+					onChange: action('onOperatorChange'),
+				}}
 				onClose={() => action('onClose')}
 			/>
 		</StackHorizontal>
@@ -62,16 +64,17 @@ export const StoryBadgeValue = () => (
 		<StackHorizontal align="center" gap="S" justify="spaceBetween">
 			BadgeValue with a selected operator
 			<BadgeValue
-				semanticIcon="invalid"
-				label="Runs on"
-				value={['Cloud Engine', 'Remote Engine', 'Cloud components']}
-				operators={[
-					{ label: 'Less than', icon: 'less-than' },
-					{ label: 'Greater than', icon: 'greater-than' },
-					{ label: 'Equal to', icon: 'equal' },
-				]}
-				operator={{ label: 'Greater than', icon: 'greater-than' }}
-				onOperatorChange={action('onOperatorChange')}
+				label="Trust score"
+				value={['4']}
+				operators={{
+					list: [
+						{ label: 'Less than', icon: 'less-than' },
+						{ label: 'Greater than', icon: 'greater-than' },
+						{ label: 'Equal to', icon: 'equal' },
+					],
+					selected: { label: 'Greater than', icon: 'greater-than' },
+					onChange: action('onOperatorChange'),
+				}}
 				onClose={() => action('onClose')}
 			/>
 		</StackHorizontal>
@@ -115,15 +118,22 @@ StoryBadgeValueTemplateStory.argTypes = {
 		defaultValue: 'valid',
 		options: ['valid', 'invalid', 'none'],
 	},
+	operators: {
+		control: { type: 'object' },
+		description: 'Operators to display on the left side of the badge',
+		defaultValue: {
+			list: [
+				{ label: 'Less than', icon: 'less-than' },
+				{ label: 'Greater than', icon: 'greater-than' },
+				{ label: 'Equal to', icon: 'equal' },
+			],
+			onChange: action('onOperatorChange'),
+		},
+	},
 };
 
 export const StoryBadgeTag = () => (
 	<StackVertical gap="S" justify="spaceBetween">
-		<StackHorizontal align="center" gap="S" justify="spaceBetween">
-			Component Badge w/ variant "tag"
-			<Badge label="Delightful" variant="tag" />
-		</StackHorizontal>
-
 		<StackHorizontal align="center" gap="S" justify="spaceBetween">
 			Variant component BadgeTag
 			<BadgeTag label="Delightful" />
@@ -136,21 +146,6 @@ export const StoryBadgeDropdown = () => {
 
 	return (
 		<StackVertical gap="S" justify="spaceBetween">
-			<StackHorizontal align="center" gap="S" justify="spaceBetween">
-				Component Badge w/ variant "dropdown"
-				<Badge
-					label="Awesome"
-					selectedId={selectedValue}
-					value={[
-						{ id: '1', label: 'Feature' },
-						{ id: '2', label: 'Item' },
-						{ id: '3', label: 'Component' },
-					]}
-					onChange={setSelectedValue}
-					variant="dropdown"
-				/>
-			</StackHorizontal>
-
 			<StackHorizontal align="center" gap="S" justify="spaceBetween">
 				Variant component BadgeDropdown
 				<BadgeDropdown
@@ -170,19 +165,6 @@ export const StoryBadgeDropdown = () => {
 
 export const StoryBadgePopover = () => (
 	<StackVertical gap="S" justify="spaceBetween">
-		<StackHorizontal align="center" gap="S" justify="spaceBetween">
-			Component Badge w/ variant "popover"
-			<Badge
-				label="Marvellous"
-				value={[
-					{ id: '1', label: 'Feature', onClick: () => {} },
-					{ id: '2', label: 'Item', onClick: () => {} },
-					{ id: '3', label: 'Component', onClick: () => {} },
-				]}
-				variant="popover"
-			/>
-		</StackHorizontal>
-
 		<StackHorizontal align="center" gap="S" justify="spaceBetween">
 			Variant component BadgePopover
 			<BadgePopover
