@@ -14,11 +14,12 @@ import styles from './OperatorButton.module.scss';
 export interface BadgeOperator {
 	icon: IconNameWithSize<'S'>;
 	label: string;
+	[x: string]: any;
 }
 
 type OperatorButtonProps = {
 	componentId?: string;
-	selectedOperator?: BadgeOperator;
+	selectedOperator: BadgeOperator;
 	operators: BadgeOperator[];
 	onChange: (operator: BadgeOperator) => void;
 } & Partial<DataAttributes>;
@@ -56,8 +57,7 @@ export const OperatorButton = forwardRef(
 					type="button"
 					{...rest}
 				>
-					{selectedOperator && <SizedIcon size="S" name={selectedOperator.icon} />}
-					{!selectedOperator && <SizedIcon size="S" name="between" />}
+					<SizedIcon size="S" name={selectedOperator.icon} />
 				</Clickable>
 			</Dropdown>
 		);

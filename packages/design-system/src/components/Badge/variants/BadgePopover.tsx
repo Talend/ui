@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import React from 'react';
 
 import Divider from '../../Divider';
 import { StackHorizontal } from '../../Stack';
@@ -12,11 +12,11 @@ export type BadgePopoverProps = BadgePrimitiveProps & {
 	value: BadgePopoverItem[];
 };
 
-const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElement>) => {
+const BadgePopover = (props: BadgePopoverProps) => {
 	const { value } = props;
 
 	return (
-		<BadgePrimitive {...props} ref={ref}>
+		<BadgePrimitive {...props}>
 			{
 				<StackHorizontal gap="XXS" as="span" align="center">
 					{value.map((item: BadgePopoverItem, idx: number) => (
@@ -39,7 +39,7 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 			}
 		</BadgePrimitive>
 	);
-});
+};
 
 BadgePopover.displayName = 'BadgePopover';
 

@@ -1,10 +1,12 @@
 import React, { forwardRef, Ref } from 'react';
-import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
 
 import classnames from 'classnames';
-import styles from './BadgeValue.module.scss';
-import { StackHorizontal } from '../../Stack';
+
 import Divider from '../../Divider';
+import { StackHorizontal } from '../../Stack';
+import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
+
+import styles from './BadgeValue.module.scss';
 
 export type BadgeValueProps = BadgePrimitiveProps & {
 	/**
@@ -13,11 +15,11 @@ export type BadgeValueProps = BadgePrimitiveProps & {
 	value: string[];
 };
 
-const BadgeValue = forwardRef((props: BadgeValueProps, ref: Ref<HTMLSpanElement>) => {
+const BadgeValue = forwardRef((props: BadgeValueProps) => {
 	const { value } = props;
 
 	return (
-		<BadgePrimitive {...props} ref={ref}>
+		<BadgePrimitive {...props}>
 			<span className={classnames(styles['badge-value__children'])} data-testid="badge-value">
 				<StackHorizontal gap="XS" as="span" align="center">
 					{value.map((item: string, idx: number) => (

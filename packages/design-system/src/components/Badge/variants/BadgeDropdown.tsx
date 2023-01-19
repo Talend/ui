@@ -1,21 +1,21 @@
 import React, { forwardRef, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import classnames from 'classnames';
+import { DataAttributes } from 'src/types';
+
 import Dropdown from '../../Dropdown';
 import { DropdownItemType } from '../../Dropdown/Dropdown';
 import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';
-
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
+import BadgeButton from '../button/BadgeButton';
 import BadgePrimitive, {
 	BadgeDropdownItem,
 	BadgePrimitiveProps,
 } from '../primitive/BadgePrimitive';
 
-import classnames from 'classnames';
 import styles from './BadgeDropdown.module.scss';
-import BadgeButton from '../button/BadgeButton';
-import { DataAttributes } from 'src/types';
 
 // --------------------------------------------------
 // Badge Dropdown button
@@ -82,7 +82,7 @@ export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children'> & {
 	value: BadgeDropdownItem[];
 };
 
-const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanElement>) => {
+const BadgeDropdown = (props: BadgeDropdownProps) => {
 	const { onChange, selectedId, value } = props;
 
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
@@ -90,7 +90,7 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 	const selectedValue = value.find(v => v.id === selectedId) || value[0];
 
 	return (
-		<BadgePrimitive {...props} ref={ref}>
+		<BadgePrimitive {...props}>
 			<Dropdown
 				aria-label={t('BADGE_ARIA_lABEL_SELECT_ITEM', 'Select item')}
 				items={value.map(mapBadgeItemToDropdownItem(onChange))}
@@ -103,7 +103,7 @@ const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanEl
 			</Dropdown>
 		</BadgePrimitive>
 	);
-});
+};
 
 BadgeDropdown.displayName = 'BadgeDropdown';
 

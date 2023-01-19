@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 import { ComponentStory } from '@storybook/react';
 
 import {
-	Badge,
 	BadgeDropdown,
 	BadgePopover,
 	BadgeTag,
@@ -14,7 +13,7 @@ import {
 } from '@talend/design-system';
 
 export default {
-	component: Badge,
+	component: BadgeValue,
 };
 
 export const StoryBadgeValue = () => (
@@ -127,7 +126,7 @@ StoryBadgeValueTemplateStory.argTypes = {
 				{ label: 'Greater than', icon: 'greater-than' },
 				{ label: 'Equal to', icon: 'equal' },
 			],
-			onChange: action('onOperatorChange'),
+			onChange: () => {},
 		},
 	},
 };
@@ -136,7 +135,7 @@ export const StoryBadgeTag = () => (
 	<StackVertical gap="S" justify="spaceBetween">
 		<StackHorizontal align="center" gap="S" justify="spaceBetween">
 			Variant component BadgeTag
-			<BadgeTag label="Delightful" />
+			<BadgeTag label="Hey" />
 		</StackHorizontal>
 	</StackVertical>
 );
@@ -149,12 +148,12 @@ export const StoryBadgeDropdown = () => {
 			<StackHorizontal align="center" gap="S" justify="spaceBetween">
 				Variant component BadgeDropdown
 				<BadgeDropdown
-					label="Awesome"
+					label="Display"
 					selectedId={selectedValue}
 					value={[
-						{ id: '1', label: 'Feature' },
-						{ id: '2', label: 'Item' },
-						{ id: '3', label: 'Component' },
+						{ id: '1', label: 'Flat' },
+						{ id: '2', label: 'Hierarchical' },
+						{ id: '3', label: 'Raw' },
 					]}
 					onChange={setSelectedValue}
 				/>

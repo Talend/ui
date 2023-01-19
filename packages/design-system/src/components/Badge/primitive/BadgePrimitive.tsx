@@ -1,11 +1,11 @@
-import React, { PropsWithChildren, Ref } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classnames from 'classnames';
-import { DataAttributes } from 'src/types';
 
 import tokens from '@talend/design-tokens';
 
+import { DataAttributes } from '../../../types';
 import { ButtonIcon } from '../../ButtonIcon';
 import Divider from '../../Divider';
 import { SizedIcon } from '../../Icon';
@@ -64,10 +64,9 @@ export type BadgePrimitiveProps = {
 	label: string;
 	onClose?: () => void;
 	closeButtonLabel?: string;
-	ref: Ref<HTMLSpanElement>;
 	semanticIcon?: SemanticIcon;
 	operators?: BadgeOperators;
-} & Partial<DataAttributes>;
+} & DataAttributes;
 
 function BadgePrimitive({
 	'data-test': dataTest,
@@ -77,7 +76,6 @@ function BadgePrimitive({
 	label,
 	onClose,
 	operators,
-	ref,
 	semanticIcon = 'none',
 }: PropsWithChildren<BadgePrimitiveProps>) {
 	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
@@ -86,7 +84,7 @@ function BadgePrimitive({
 	const defaultCloseTestId = 'badge-label-close';
 
 	return (
-		<span className={classnames(styles.badge)} ref={ref}>
+		<span className={classnames(styles.badge)}>
 			<StackHorizontal
 				gap="XXS"
 				padding={{ top: 0, right: 'XS', bottom: 0, left: 'XS' }}
@@ -119,7 +117,7 @@ function BadgePrimitive({
 				{React.Children.count(children) > 0 && operators && (
 					<OperatorButton
 						operators={operators.list}
-						selectedOperator={operators.selected}
+						selectedOperator={operators.selected ? operators.selected : operators.list[0]}
 						onChange={operators.onChange}
 					/>
 				)}
