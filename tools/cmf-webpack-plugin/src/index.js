@@ -62,7 +62,7 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 		this.canRun = false;
 
 		this.mergedSettingsObjects = mergeSettings(this.options, callback, false);
-		console.log('#####', this.mergedSettingsObjects);
+
 		this.mergedSettingsObjects.forEach(obj => {
 			compilation.assets[path.basename(obj.path)] = new RawSource(JSON.stringify(obj.content));
 		});
@@ -86,9 +86,6 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 			compilationFileDependencies = compilation.fileDependencies;
 		}
 
-		this.modifiedFiles
-			.filter(file => !compilationFileDependencies.has(file))
-			.forEach(file => compilation.fileDependencies.add(file));
 		if (!compilationFileDependencies.has(cmfconfigPath)) {
 			compilation.fileDependencies.add(cmfconfigPath);
 		}

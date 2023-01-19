@@ -126,9 +126,9 @@ function merge(options, errorCallback, writeToFs = true) {
 		const i18next = getI18Next(languages, cmfconfig.settings.i18n['namespace-paths']);
 
 		if (i18next) {
-			return languages.map(locale => {
-				saveSettings(i18next, settings, locale, destination, writeToFs);
-			});
+			return languages.map(locale =>
+				saveSettings(i18next, settings, locale, destination, writeToFs),
+			);
 		}
 	}
 
