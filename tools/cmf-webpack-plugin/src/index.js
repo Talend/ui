@@ -50,7 +50,7 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 	 * Runs at each webpack run.
 	 * Calls cmf merge function with the modified cmf config.
 	 */
-	function emit(compilation, callback) {
+	function generateCMFSettings(compilation, callback) {
 		this.log(
 			'emit',
 			JSON.stringify({ canRun: this.canRun, lastRun: this.lastRun, lastWatch: this.lastWatch }),
@@ -61,47 +61,22 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 		this.lastRun = startTime;
 		this.canRun = false;
 
-		this.mergedSettingsObjects = mergeSettings(this.options, callback, false);
+		this.mergedSettingsObjects = mergeSettings(this.options, () => {}, false);
 
-		this.mergedSettingsObjects.forEach(obj => {
-			compilation.assets[path.basename(obj.path)] = new RawSource(JSON.stringify(obj.content));
+		this.mergedSettingsObjects.destination.forEach(obj => {
+			compilation.emitAsset(path.basename(obj.path), new RawSource(JSON.stringify(obj.content)));
+		});
+		this.mergedSettingsObjects.sources.forEach(filename => {
+			compilation.fileDependencies.add(filename);
 		});
 
 		const endTime = Date.now();
 		this.log(`Files merged in ${((endTime - startTime) % 60000) / 1000}s`);
 		this.canRun = true;
-
-		callback();
-	}
-
-	/**
-	 * Register the cmf settings files in the watched files.
-	 * So every change will trigger a new webpack run.
-	 */
-	function afterEmit(compilation, callback) {
-		let compilationFileDependencies;
-		if (Array.isArray(compilation.fileDependencies)) {
-			compilationFileDependencies = new Set(compilation.fileDependencies);
-		} else {
-			compilationFileDependencies = compilation.fileDependencies;
-		}
-
-		this.mergedSettingsObjects
-			.map(obj => obj.path)
-			.filter(file => !compilationFileDependencies.has(file))
-			.forEach(file => compilation.fileDependencies.add(file));
-		if (!compilationFileDependencies.has(cmfconfigPath)) {
-			compilation.fileDependencies.add(cmfconfigPath);
-		}
-		callback();
 	}
 
 	const plugin = { name: 'ReactCMFPlugin' };
-	compiler.hooks.emit.tapAsync(plugin, emit.bind(this));
-
-	if (this.options.watch) {
-		compiler.hooks.afterEmit.tapAsync(plugin, afterEmit.bind(this));
-	}
+	compiler.hooks.thisCompilation.tap(plugin, generateCMFSettings.bind(this));
 };
 
 module.exports = ReactCMFWebpackPlugin;

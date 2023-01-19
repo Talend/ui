@@ -126,9 +126,12 @@ function merge(options, errorCallback, writeToFs = true) {
 		const i18next = getI18Next(languages, cmfconfig.settings.i18n['namespace-paths']);
 
 		if (i18next) {
-			return languages.map(locale =>
-				saveSettings(i18next, settings, locale, destination, writeToFs),
-			);
+			return {
+				sources: jsonfiles,
+				destination: languages.map(locale =>
+					saveSettings(i18next, settings, locale, destination, writeToFs),
+				),
+			};
 		}
 	}
 
@@ -150,7 +153,10 @@ function merge(options, errorCallback, writeToFs = true) {
 			logger('CMF settings has been merged');
 			return jsonFiles;
 		}
-		return [{ path: destination, content: settingWithoutI18n }];
+		return {
+			sources: jsonFiles,
+			destination: [{ path: destination, content: settingWithoutI18n }],
+		};
 	}
 }
 
