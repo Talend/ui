@@ -86,6 +86,10 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 			compilationFileDependencies = compilation.fileDependencies;
 		}
 
+		this.mergedSettingsObjects
+			.map(obj => obj.path)
+			.filter(file => !compilationFileDependencies.has(file))
+			.forEach(file => compilation.fileDependencies.add(file));
 		if (!compilationFileDependencies.has(cmfconfigPath)) {
 			compilation.fileDependencies.add(cmfconfigPath);
 		}
