@@ -4,7 +4,7 @@ $iconAlignmentOffsetM: -0.3rem;
 
 .dropdownEntry {
 	background: tokens.$coral-color-accent-background-weak;
-	display: flex;
+	display: block;
 	width: 100%;
 	min-width: 0;
 	color: tokens.$coral-color-neutral-text;

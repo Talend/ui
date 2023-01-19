@@ -1,6 +1,5 @@
 import React, { forwardRef, Ref } from 'react';
 
-import classNames from 'classnames';
 import { MenuItem, MenuItemProps } from 'reakit';
 
 // eslint-disable-next-line @talend/import-depth
@@ -20,7 +19,7 @@ const DropdownButton = forwardRef(
 		return (
 			<MenuItem {...props} as={Clickable} className={styles.dropdownEntry} ref={ref}>
 				{icon && (
-					<span className={classNames(styles.buttonIcon)}>
+					<span className={styles.buttonIcon}>
 						{getIconWithDeprecatedSupport({
 							iconSrc: icon,
 							size: 'M',
