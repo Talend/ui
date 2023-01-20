@@ -20,7 +20,7 @@ type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 type DropdownLinkType = Omit<LinkableType, 'children'> & {
 	label: string;
 	type: 'link';
-} & Partial<DataAttributes>;
+} & DataAttributes;
 
 type DropdownLabelType = {
 	type: 'title';
