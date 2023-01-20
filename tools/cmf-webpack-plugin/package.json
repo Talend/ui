@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/scripts-cmf": "^1.0.2",
+    "@talend/scripts-cmf": "^1.1.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.36.9"
+  "version": "6.37.0"
 }
