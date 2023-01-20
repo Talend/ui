@@ -1,0 +1,22 @@
+{
+  "name": "@talend/scripts-yarn-workspace",
+  "version": "1.0.0",
+  "description": "yarn workspace commands but more friendly",
+  "type": "module",
+  "bin": {
+    "talend-yarn-workspace": "./src/index.js"
+  },
+  "scripts": {
+    "lint": "talend-scripts lint"
+  },
+  "author": "frontend@talend.com",
+  "dependencies": {},
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui"
+  }
+}

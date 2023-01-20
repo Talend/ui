@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.0.1
+
+### Patch Changes
+
+- c21e5b699: fix: win32 platform
+
 ## 2.0.0
 
 ### Major Changes
