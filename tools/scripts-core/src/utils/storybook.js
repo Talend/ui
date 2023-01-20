@@ -18,7 +18,6 @@ function getTemplatePath() {
 	return path.join(configSBPath, '.storybook-templates');
 }
 
-
 function copyFile(fileName) {
 	const targetPath = path.join(TMP_PATH, fileName);
 
