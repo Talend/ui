@@ -9,16 +9,20 @@ import * as utils from '@talend/scripts-utils';
 const require = createRequire(import.meta.url);
 const { template } = _;
 
-const configSBPath = utils.path.getPkgRootPath('@talend/scripts-config-storybook-lib');
 const CWD = process.cwd();
 const TMP_PATH = path.join(CWD, 'node_modules', '.cache', '.talend-storybook');
-const TEMPLATE_SB_PATH = path.join(configSBPath, '.storybook-templates');
 const USER_SB_PATH = path.join(CWD, '.storybook');
+
+function getTemplatePath() {
+	const configSBPath = utils.path.getPkgRootPath('@talend/scripts-config-storybook-lib');
+	return path.join(configSBPath, '.storybook-templates');
+}
+
 
 function copyFile(fileName) {
 	const targetPath = path.join(TMP_PATH, fileName);
 
-	const defaultFilePath = path.join(TEMPLATE_SB_PATH, fileName);
+	const defaultFilePath = path.join(getTemplatePath(), fileName);
 	const defaultFileExists = fs.existsSync(defaultFilePath);
 
 	const userFilePath = path.join(USER_SB_PATH, fileName);
@@ -45,7 +49,7 @@ function copyFile(fileName) {
 
 export function getStorybookConfiguration() {
 	// get default files and directories
-	const defaultFilesAndFolders = fs.readdirSync(TEMPLATE_SB_PATH, { withFileTypes: true });
+	const defaultFilesAndFolders = fs.readdirSync(getTemplatePath(), { withFileTypes: true });
 	const defaultFiles = defaultFilesAndFolders.filter(next => next.isFile()).map(({ name }) => name);
 	const defaultDirectories = defaultFilesAndFolders
 		.filter(next => next.isDirectory())
@@ -68,7 +72,7 @@ export function getStorybookConfiguration() {
 
 	// copy all default and user folders
 	defaultDirectories.forEach(folder => {
-		fse.copySync(path.join(TEMPLATE_SB_PATH, folder), path.join(TMP_PATH, folder));
+		fse.copySync(path.join(getTemplatePath(), folder), path.join(TMP_PATH, folder));
 	});
 	userDirectories.forEach(folder => {
 		fse.copySync(path.join(USER_SB_PATH, folder), path.join(TMP_PATH, folder));
