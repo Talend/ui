@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-cmf",
   "description": "@talend/react-cmf scripts to manage CMF settings",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "cmf-settings.js",
   "publishConfig": {
     "access": "public"
