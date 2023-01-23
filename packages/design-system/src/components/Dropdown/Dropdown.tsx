@@ -15,12 +15,12 @@ type DropdownButtonType = Omit<ClickableProps, 'children' | 'as'> & {
 	onClick: () => void;
 	icon?: DeprecatedIconNames;
 	type: 'button';
-};
+} & DataAttributes;
 
 type DropdownLinkType = Omit<LinkableType, 'children'> & {
 	label: string;
 	type: 'link';
-};
+} & DataAttributes;
 
 type DropdownLabelType = {
 	type: 'title';
