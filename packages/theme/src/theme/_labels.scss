@@ -40,6 +40,7 @@
 }
 
 // Add hover effects, but only for links
+// stylelint-disable-next-line selector-no-qualifying-type
 a.label {
 	&:hover,
 	&:focus {
