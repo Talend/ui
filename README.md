@@ -38,5 +38,3 @@ To handle versions we rely on [**changeset**](https://github.com/atlassian/chang
 ## More
 
 If you want to know more (release, versions, etc ...) please take a look on [the wiki](https://github.com/Talend/ui/wiki)
-
-Try to see if it cancels it
