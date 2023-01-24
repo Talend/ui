@@ -1,5 +1,11 @@
 # @talend/scripts-cmf
 
+## 1.1.0
+
+### Minor Changes
+
+- c9f5964f6: feat: do not write settings to disk
+
 ## 1.0.2
 
 ### Patch Changes

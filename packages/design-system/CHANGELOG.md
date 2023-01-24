@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.5.0
+
+### Minor Changes
+
+- 4cfbf226b: feat(Tabs&Dropdown): add new data-feature & data-testid capabilities
+
 ## 7.4.1
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @talend/scripts-core
 
+## 13.1.2
+
+### Patch Changes
+
+- 007624821: fix: do not require storybook until function calls
+
+## 13.1.1
+
+### Patch Changes
+
+- c21e5b699: fix: win32 platform
+- Updated dependencies [c21e5b699]
+  - @talend/scripts-utils@2.0.1
+
 ## 13.1.0
 
 ### Minor Changes
