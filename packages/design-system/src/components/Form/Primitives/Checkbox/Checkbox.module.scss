@@ -32,7 +32,7 @@ $checkbox-size: tokens.$coral-sizing-xxxs;
 			width: $checkbox-size;
 			height: $checkbox-size;
 			border-radius: tokens.$coral-radius-s;
-			transition: all tokens.$coral-transition-fast;
+			transition: tokens.$coral-transition-fast;
 			display: block;
 			position: absolute;
 			left: 0;
@@ -51,7 +51,6 @@ $checkbox-size: tokens.$coral-sizing-xxxs;
 		&::after {
 			z-index: 2;
 			opacity: 0;
-			mask-image: $checkmark-image;
 			mask-image: $checkmark-image;
 			background-image: none;
 			background-color: tokens.$coral-color-neutral-background;
@@ -107,7 +106,6 @@ $checkbox-size: tokens.$coral-sizing-xxxs;
 		// Mark
 		&::after {
 			opacity: 1;
-			mask-image: $checkmark-image;
 			mask-image: $checkmark-image-indeterminate;
 		}
 	}

@@ -7,7 +7,7 @@
 	border: none;
 	line-height: 1;
 	background: transparent;
-	transition: all tokens.$coral-transition-fast;
+	transition: tokens.$coral-transition-fast;
 
 	&:disabled,
 	&[aria-disabled='true'],

@@ -31,7 +31,7 @@ $mark-size: calc(#{tokens.$coral-sizing-xxs} / 2);
 			width: $radio-size;
 			height: $radio-size;
 			border-radius: tokens.$coral-radius-round;
-			transition: all tokens.$coral-transition-fast;
+			transition: tokens.$coral-transition-fast;
 			display: block;
 			position: absolute;
 			left: 0;

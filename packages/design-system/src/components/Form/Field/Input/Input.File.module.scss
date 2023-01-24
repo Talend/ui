@@ -10,7 +10,7 @@
 	border-radius: tokens.$coral-radius-s;
 	color: tokens.$coral-color-neutral-text;
 	background: tokens.$coral-color-neutral-background;
-	transition: all tokens.$coral-transition-fast;
+	transition: tokens.$coral-transition-fast;
 	min-height: tokens.$coral-sizing-m;
 	cursor: pointer;
 
@@ -20,7 +20,7 @@
 		align-items: center;
 		justify-content: center;
 		color: tokens.$coral-color-neutral-text-weak;
-		transition: all tokens.$coral-transition-fast;
+		transition: tokens.$coral-transition-fast;
 
 		> svg {
 			color: tokens.$coral-color-neutral-icon;
@@ -30,7 +30,7 @@
 		> span > span {
 			font: tokens.$coral-paragraph-m-bold;
 			color: tokens.$coral-color-accent-text;
-			transition: all tokens.$coral-transition-fast;
+			transition: tokens.$coral-transition-fast;
 		}
 	}
 

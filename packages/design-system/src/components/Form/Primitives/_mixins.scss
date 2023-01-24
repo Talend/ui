@@ -1,8 +1,8 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
+$standard-input-height: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 
-@mixin baseInput () {
+@mixin base-input () {
 	background: transparent;
 	color: tokens.$coral-color-neutral-text;
 	padding: tokens.$coral-spacing-xs;
@@ -10,7 +10,7 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 	line-height: 1;
 	border: 0;
 	margin: 0;
-	transition: all tokens.$coral-transition-instant;
+	transition: tokens.$coral-transition-instant;
 	display: block;
 	flex-grow: 1;
 	width: 100%;
@@ -51,11 +51,11 @@ $standardInputHeight: calc(#{tokens.$coral-sizing-m} - 0.2rem);
 	}
 }
 
-@mixin borderStyles () {
+@mixin border-styles () {
 	border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
 	box-shadow: 0 0 0 0 transparent;
 	border-radius: tokens.$coral-radius-s;
-	transition: all tokens.$coral-transition-instant;
+	transition: tokens.$coral-transition-instant;
 	background: tokens.$coral-color-neutral-background;
 
 	&:hover {

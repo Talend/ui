@@ -2,8 +2,8 @@
 @use '../mixins' as Form;
 
 .input {
-	@include Form.baseInput();
-	height: Form.$standardInputHeight;
+	@include Form.base-input();
+	height: Form.$standard-input-height;
 
 	&[type='color'] {
 		padding: tokens.$coral-spacing-xxs;
@@ -18,7 +18,7 @@
 	padding: 0 0 0 tokens.$coral-spacing-xs;
 	background: transparent;
 	color: tokens.$coral-color-neutral-icon-weak;
-	transition: all tokens.$coral-transition-instant;
+	transition: tokens.$coral-transition-instant;
 	height: 100%;
 	display: flex;
 	justify-content: center;

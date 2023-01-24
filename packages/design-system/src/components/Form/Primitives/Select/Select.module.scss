@@ -3,9 +3,8 @@
 @use '../../../Form/Affix/AffixStyles.module' as Affix;
 
 .select {
-	@include Form.baseInput();
-	height: Form.$standardInputHeight;
-	appearance: none;
+	@include Form.base-input();
+	height: Form.$standard-input-height;
 	appearance: none;
 	padding-right: calc(#{tokens.$coral-sizing-minimal} + #{tokens.$coral-sizing-xxs});
 
@@ -21,8 +20,8 @@
 	}
 
 	&_isAffix {
-		@include Affix.BaseAffixStyles();
-		@include Affix.ButtonAffixStyles();
+		@include Affix.base-affix-styles();
+		@include Affix.button-affix-styles();
 		padding-right: calc(#{tokens.$coral-sizing-minimal} + #{tokens.$coral-sizing-xxxs});
 		flex-shrink: 0;
 		max-height: 100%;

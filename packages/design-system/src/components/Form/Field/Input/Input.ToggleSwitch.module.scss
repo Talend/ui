@@ -1,8 +1,8 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$wrapperWidth: 3.2rem;
-$markerSize: 1.3rem;
-$labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
+$wrapper-width: 3.2rem;
+$marker-size: 1.3rem;
+$label-offset: calc(#{$wrapper-width} + #{tokens.$coral-spacing-xxs});
 
 .switch {
 	position: relative;
@@ -18,7 +18,7 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 
 		+ .legend {
 			position: relative;
-			padding: 0 0 0 $labelOffset;
+			padding: 0 0 0 $label-offset;
 			display: inline-block;
 			font: tokens.$coral-paragraph-m;
 			color: tokens.$coral-color-neutral-text;
@@ -32,13 +32,13 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 			top: 0;
 			left: 0;
 			border: none;
-			transition: all 250ms ease-in-out;
+			transition: 250ms ease-in-out;
 			border-radius: tokens.$coral-radius-round;
 			margin: 0; // bootstrap override
 		}
 
 		+ .legend::before {
-			width: $wrapperWidth;
+			width: $wrapper-width;
 			height: tokens.$coral-sizing-xxxs;
 			background: tokens.$coral-color-accent-background;
 			transform: translateY(0.15rem);
@@ -46,8 +46,8 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 
 		+ .legend::after {
 			transform: translateX(0.1rem) translateY(0.3rem);
-			width: $markerSize;
-			height: $markerSize;
+			width: $marker-size;
+			height: $marker-size;
 			background-color: tokens.$coral-color-neutral-background;
 		}
 
@@ -84,7 +84,7 @@ $labelOffset: calc(#{$wrapperWidth} + #{tokens.$coral-spacing-xxs});
 		}
 
 		input[type='checkbox'] + .legend::after {
-			transform: translateX(calc(#{$wrapperWidth} - #{$markerSize} - 0.1rem)) translateY(0.3rem);
+			transform: translateX(calc(#{$wrapper-width} - #{$marker-size} - 0.1rem)) translateY(0.3rem);
 		}
 
 		&:not(.switch_disabled):not(.switch_readOnly) input:hover + .legend::before {
