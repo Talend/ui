@@ -1,0 +1,5 @@
+{
+  "name": "@talend/scripts-locales-codeshift",
+  "description": "hack to switch back to cjs as codeshift do not support esm",
+  "main": "./locales.js"
+}
