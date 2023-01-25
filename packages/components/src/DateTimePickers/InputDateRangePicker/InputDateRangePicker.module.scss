@@ -5,6 +5,7 @@
 .popper {
 	@include popper;
 }
+
 .date-picker {
 	@include date-picker;
 	align-items: flex-end;
@@ -19,6 +20,7 @@
 		}
 	}
 }
+
 .date-range-picker-inline {
 	@include range-picker-inline;
 }

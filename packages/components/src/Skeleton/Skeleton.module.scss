@@ -33,18 +33,22 @@ $tc-skeleton-color: $black !default;
 
 	&-circle {
 		border-radius: 50%;
+
 		&-small {
 			width: $tc-skeleton-circle-small-size;
 			height: $tc-skeleton-circle-small-size;
 		}
+
 		&-medium {
 			width: $tc-skeleton-circle-medium-size;
 			height: $tc-skeleton-circle-medium-size;
 		}
+
 		&-large {
 			width: $tc-skeleton-circle-large-size;
 			height: $tc-skeleton-circle-large-size;
 		}
+
 		&-xlarge {
 			width: $tc-skeleton-circle-xlarge-size;
 			height: $tc-skeleton-circle-xlarge-size;
@@ -54,15 +58,19 @@ $tc-skeleton-color: $black !default;
 	&-text {
 		border-radius: $tc-skeleton-border-radius;
 		height: $tc-skeleton-text-height;
+
 		&-small {
 			width: $tc-skeleton-text-width-small;
 		}
+
 		&-medium {
 			width: $tc-skeleton-text-width-medium;
 		}
+
 		&-large {
 			width: $tc-skeleton-text-width-large;
 		}
+
 		&-xlarge {
 			width: $tc-skeleton-text-width-extra-large;
 		}
