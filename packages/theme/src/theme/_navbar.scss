@@ -6,7 +6,7 @@
 		.navbar-brand {
 			font-size: 15px;
 
-			&:before {
+			&::before {
 				content: '';
 				float: left;
 				margin-right: $padding-small;
