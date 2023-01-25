@@ -26,6 +26,7 @@ function getSassData(userSassData) {
 
 function getCommonStyleLoaders(enableModules, mode) {
 	const sourceMap = true;
+	const styleLoader = mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader;
 	let cssOptions = {
 		sourceMap,
 	};
@@ -39,7 +40,7 @@ function getCommonStyleLoaders(enableModules, mode) {
 		};
 	}
 	return [
-		{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
+		{ loader: styleLoader, options: { esModule: false } },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
