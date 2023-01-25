@@ -2,7 +2,7 @@ import React from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { PopoverStateReturn } from 'reakit/ts';
-import { Popover, ButtonPrimary, ButtonIcon, StackVertical } from '@talend/design-system';
+import { Popover, ButtonPrimary, ButtonIcon, StackVertical, Form } from '@talend/design-system';
 import { PopoverDisclosureHTMLProps } from 'reakit';
 
 export default {
@@ -34,6 +34,18 @@ export const DisclosureStory = () => (
 					Open popover
 				</ButtonIcon>
 			}
+		>
+			Text Content
+		</Popover>
+	</div>
+);
+
+export const FormDisclosureStory = () => (
+	<div style={{ padding: '1.2rem' }}>
+		<Popover
+			aria-label="Custom popover"
+			focusOnDisclosure
+			disclosure={<Form.Text name="text" label="Text enabled" />}
 		>
 			Text Content
 		</Popover>
