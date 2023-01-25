@@ -253,6 +253,7 @@ module.exports = ({ getUserConfig, mode }) => {
 
 		const isEnvDevelopment = mode === 'development';
 		const isEnvProduction = mode === 'production';
+		const isEnvDevelopmentServe = isEnvDevelopment && process.env.WEBPACK_SERVE === 'true';
 		const b64favicon = icons.getFavicon(theme);
 
 		meta['app-id'] = userHtmlConfig.appId || theme;
@@ -298,11 +299,11 @@ module.exports = ({ getUserConfig, mode }) => {
 					{
 						test: /\.scss$/,
 						exclude: /\.module\.scss$/,
-						use: getSassLoaders(false, sassData, mode),
+						use: getSassLoaders(false, sassData, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.module\.scss$/,
-						use: getSassLoaders(true, sassData, mode),
+						use: getSassLoaders(true, sassData, isEnvDevelopmentServe),
 					},
 					...getAssetsRules(true),
 				].filter(Boolean),

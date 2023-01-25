@@ -24,9 +24,8 @@ function getSassData(userSassData) {
 	return sassData;
 }
 
-function getCommonStyleLoaders(enableModules, mode) {
+function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 	const sourceMap = true;
-	const styleLoader = mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader;
 	let cssOptions = {
 		sourceMap,
 	};
@@ -39,6 +38,7 @@ function getCommonStyleLoaders(enableModules, mode) {
 			importLoaders: 1,
 		};
 	}
+	const styleLoader = isEnvDevelopmentServe ? 'style-loader' : MiniCssExtractPlugin.loader;
 	return [
 		{ loader: styleLoader, options: { esModule: false } },
 		{ loader: 'css-loader', options: cssOptions },
@@ -64,9 +64,9 @@ function getJSAndTSLoader(env, useTypescript) {
 	].filter(Boolean);
 }
 
-function getSassLoaders(enableModules, sassData, mode) {
+function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 	const sourceMap = true;
-	return getCommonStyleLoaders(enableModules, mode).concat(
+	return getCommonStyleLoaders(enableModules, isEnvDevelopmentServe).concat(
 		{ loader: 'resolve-url-loader', options: { sourceMap } },
 		{
 			loader: 'sass-loader',
