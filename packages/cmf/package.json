@@ -32,7 +32,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/scripts-cmf": "^1.0.2",
+    "@talend/scripts-cmf": "^1.1.0",
     "@talend/utils": "^2.5.0",
     "hoist-non-react-statics": "^3.3.2",
     "immutable": "^3.8.2",
@@ -55,11 +55,11 @@
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.1.5",
-    "@talend/scripts-core": "^13.0.0",
+    "@talend/scripts-core": "^13.1.2",
     "@testing-library/react": "^12.1.5",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.11",
-    "node-fetch": "^2.6.7",
+    "node-fetch": "^2.6.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "redux-mock-store": "^1.5.4",

@@ -47,7 +47,7 @@
     "all-contributors-cli": "^6.24.0",
     "codecov": "^3.8.3",
     "html-webpack-plugin": "^5.5.0",
-    "jest": "^29.3.1",
+    "jest": "^29.4.0",
     "mz": "^2.7.0",
     "rimraf": "^3.0.2",
     "webpack": "^5.75.0",
