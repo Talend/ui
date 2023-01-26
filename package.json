@@ -39,7 +39,8 @@
     "**/typescript": ">=4.6.3",
     "**/vinyl-fs/glob-parent": "^5.1.2",
     "**/fast-glob/glob-parent": "^5.1.2",
-    "**/trim": "^1.0.1"
+    "**/trim": "^1.0.1",
+    "**/x-default-browser": "^0.5.2"
   },
   "repository": {
     "type": "git",
