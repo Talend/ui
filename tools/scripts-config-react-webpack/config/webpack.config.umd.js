@@ -27,6 +27,7 @@ module.exports = options => {
 	const userSassData = options.getUserConfig('sass', {});
 	const sassData = getSassData(userSassData);
 	const isEnvProd = options.mode === 'production';
+
 	return (env = {}) => {
 		const name = (env && env.umd) || 'Talend';
 		return {
@@ -58,11 +59,11 @@ module.exports = options => {
 					},
 					{
 						test: /\.scss$/,
-						use: getSassLoaders(cssModulesEnabled, sassData, options.mode),
+						use: getSassLoaders(cssModulesEnabled, sassData, false),
 					},
 					{
 						test: /\.css$/,
-						use: getCommonStyleLoaders(false, options.mode),
+						use: getCommonStyleLoaders(false, false),
 					},
 					...getAssetsRules(false),
 				],
