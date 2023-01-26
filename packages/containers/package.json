@@ -48,7 +48,7 @@
     "reselect": "^2.5.4"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-actions": "^7.0.0-beta.34",
     "@talend/bootstrap-theme": "^7.0.0",
     "@talend/icons": "^6.51.1",
     "@talend/locales-tui-containers": "^6.38.1",

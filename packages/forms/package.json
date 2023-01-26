@@ -56,8 +56,8 @@
     "tv4": "^1.3.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-controls": "^6.5.15",
+    "@storybook/addon-actions": "^7.0.0-beta.34",
+    "@storybook/addon-controls": "^7.0.0-beta.34",
     "@talend/bootstrap-theme": "^7.0.0",
     "@talend/icons": "^6.51.1",
     "@talend/locales-tui-forms": "^6.41.4",
