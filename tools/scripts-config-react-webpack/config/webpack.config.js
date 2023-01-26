@@ -290,11 +290,11 @@ module.exports = ({ getUserConfig, mode }) => {
 					{
 						test: /\.css$/,
 						exclude: /\.module\.css$/,
-						use: getCommonStyleLoaders(false, mode),
+						use: getCommonStyleLoaders(false, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.module\.css$/,
-						use: getCommonStyleLoaders(true, mode),
+						use: getCommonStyleLoaders(true, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.scss$/,

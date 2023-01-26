@@ -64,7 +64,7 @@ module.exports = options => {
 					},
 					{
 						test: /\.css$/,
-						use: getCommonStyleLoaders(false, options.mode),
+						use: getCommonStyleLoaders(false, isEnvDevelopmentServe),
 					},
 					...getAssetsRules(false),
 				],
