@@ -22,14 +22,17 @@ $model-node-height: 3rem !default;
 	height: 100%;
 	overflow: auto;
 	width: 100%;
+
 	&-leaf,
 	&-branch {
 		:global(.tc-simple-text-value) {
 			color: $dark-silver;
 		}
+
 		&-padding-left {
 			padding-left: $padding-larger;
 		}
+
 		&-button {
 			background: transparent;
 			border: none;
@@ -38,11 +41,13 @@ $model-node-height: 3rem !default;
 			position: absolute;
 			top: 0;
 			width: 100%;
+
 			&:hover {
 				&::before {
 					@include selection($background-hover);
 				}
 			}
+
 			&-highlighted {
 				&::before {
 					@include selection($background-highlight);
@@ -54,11 +59,13 @@ $model-node-height: 3rem !default;
 	&-branch {
 		display: flex;
 		flex-direction: column;
+
 		&-content {
 			align-items: center;
 			display: inline-flex;
 			height: $model-node-height;
 			position: relative;
+
 			&:focus,
 			&:hover {
 				:global(.tc-tree-branch-icon-caret) {
@@ -69,14 +76,16 @@ $model-node-height: 3rem !default;
 	}
 
 	&-leaf {
-		:global(.tc-pie-chart-loading-circle) {
-			margin: 0 5px 0 0;
-		}
 		align-items: center;
 		display: inline-flex;
 		height: $model-node-height;
 		position: relative;
 		width: 100%;
+
+		:global(.tc-pie-chart-loading-circle) {
+			margin: 0 5px 0 0;
+		}
+
 		&-options {
 			display: inline-flex;
 			margin-left: auto;
@@ -87,18 +96,22 @@ $model-node-height: 3rem !default;
 			&-burger {
 				padding: 0;
 				margin: 0 $padding-smaller;
+
 				:global(.tc-svg-icon) {
 					width: $btn-font-size;
 					height: $btn-font-size;
 					padding-bottom: 2px;
 				}
 			}
+
 			&-tooltip {
 				display: flex;
 			}
+
 			&-quality-circles {
 				display: inherit;
 				padding-top: 1.3rem;
+
 				&-blink {
 					@include heartbeat(object-blink);
 				}

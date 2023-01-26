@@ -1,6 +1,6 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 
-.layout	{
+.layout {
 	:global(.react-grid-item) {
 		display: flex;
 		flex-direction: column;

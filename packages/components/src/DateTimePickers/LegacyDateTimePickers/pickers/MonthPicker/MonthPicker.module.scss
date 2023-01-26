@@ -5,6 +5,7 @@
 
 .container {
 	width: 100%;
+
 	tbody {
 		border: $border-default;
 	}
@@ -12,6 +13,7 @@
 
 .calendar-row {
 	border-bottom: $border-default;
+
 	&:last-child {
 		border-bottom: none;
 	}
@@ -20,6 +22,7 @@
 .calendar-col {
 	border-right: $border-default;
 	width: 33.33%;
+
 	&:last-child {
 		border-right: none;
 	}

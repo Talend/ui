@@ -1,12 +1,12 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .success {
-  &_withBackground {
-    background-color: tokens.$coral-color-success-background;
-    box-shadow: tokens.$coral-elevation-shadow-success;
-  }
+	&_withBackground {
+		background-color: tokens.$coral-color-success-background;
+		box-shadow: tokens.$coral-elevation-shadow-success;
+	}
 
-  &__icon {
-    color: tokens.$coral-color-success-icon;
-  }
+	&__icon {
+		color: tokens.$coral-color-success-icon;
+	}
 }

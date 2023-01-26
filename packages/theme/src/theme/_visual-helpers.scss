@@ -94,11 +94,13 @@
 		padding: 0 $padding-small;
 		transition: background 0.2s ease-in;
 		color: $color;
+
 		&:hover,
 		&:focus {
 			color: $color;
 			background: tint($color, 90%);
 		}
+
 		&:active {
 			background: tint($color, 80%);
 		}

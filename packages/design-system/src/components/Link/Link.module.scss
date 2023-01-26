@@ -1,7 +1,7 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$iconAlignmentOffsetM: -0.3rem;
-$iconAlignmentOffsetS: -0.1rem;
+$icon-alignment-offset-m: -0.3rem;
+$icon-alignment-offset-s: -0.1rem;
 
 .link {
 	font: tokens.$coral-paragraph-m-bold;
