@@ -3,6 +3,11 @@ name: PR lint
 on:
   pull_request:
 
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,8 +45,7 @@ jobs:
         run: node merge-report.js ${{ steps.changed-files.outputs.all_changed_files }}
 
       - name: Annotate Code Linting Results
-        continue-on-error: true
-        uses: ataylorme/eslint-annotate-action@1.2.0
+        uses: ataylorme/eslint-annotate-action@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json

@@ -20,6 +20,7 @@
 
 	.arrow {
 		fill: tokens.$coral-color-assistive-background;
+
 		:global(.stroke) {
 			display: none;
 		}

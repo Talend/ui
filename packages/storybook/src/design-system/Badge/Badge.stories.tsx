@@ -7,7 +7,7 @@ import {
 	StackHorizontal,
 	StackVertical,
 } from '@talend/design-system';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default {
 	component: Badge,
@@ -46,35 +46,42 @@ export const StoryBadgeTag = () => (
 	</StackVertical>
 );
 
-export const StoryBadgeDropdown = () => (
-	<StackVertical gap="S" justify="spaceBetween">
-		<StackHorizontal align="center" gap="S" justify="spaceBetween">
-			Component Badge w/ variant "dropdown"
-			<Badge
-				label="Awesome"
-				selectedId="3"
-				value={[
-					{ id: '1', label: 'Feature' },
-					{ id: '2', label: 'Item' },
-					{ id: '3', label: 'Component' },
-				]}
-				variant="dropdown"
-			/>
-		</StackHorizontal>
+export const StoryBadgeDropdown = () => {
+	const [selectedValue, setSelectedValue] = useState('3');
 
-		<StackHorizontal align="center" gap="S" justify="spaceBetween">
-			Variant component BadgeDropdown
-			<BadgeDropdown
-				label="Awesome"
-				value={[
-					{ id: '1', label: 'Feature' },
-					{ id: '2', label: 'Item' },
-					{ id: '3', label: 'Component' },
-				]}
-			/>
-		</StackHorizontal>
-	</StackVertical>
-);
+	return (
+		<StackVertical gap="S" justify="spaceBetween">
+			<StackHorizontal align="center" gap="S" justify="spaceBetween">
+				Component Badge w/ variant "dropdown"
+				<Badge
+					label="Awesome"
+					selectedId={selectedValue}
+					value={[
+						{ id: '1', label: 'Feature' },
+						{ id: '2', label: 'Item' },
+						{ id: '3', label: 'Component' },
+					]}
+					onChange={setSelectedValue}
+					variant="dropdown"
+				/>
+			</StackHorizontal>
+
+			<StackHorizontal align="center" gap="S" justify="spaceBetween">
+				Variant component BadgeDropdown
+				<BadgeDropdown
+					label="Awesome"
+					selectedId={selectedValue}
+					value={[
+						{ id: '1', label: 'Feature' },
+						{ id: '2', label: 'Item' },
+						{ id: '3', label: 'Component' },
+					]}
+					onChange={setSelectedValue}
+				/>
+			</StackHorizontal>
+		</StackVertical>
+	);
+};
 
 export const StoryBadgePopover = () => (
 	<StackVertical gap="S" justify="spaceBetween">

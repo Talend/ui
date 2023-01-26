@@ -26,6 +26,7 @@
 		border: none;
 		z-index: tokens.$coral-elevation-layer-interactive-front;
 	}
+
 	.switchIndicator {
 		position: absolute;
 		top: 0;
@@ -70,6 +71,7 @@
 	[aria-selected='true'] ~ .switchIndicator {
 		visibility: visible;
 	}
+
 	&.disabled div {
 		opacity: tokens.$coral-opacity-m;
 	}

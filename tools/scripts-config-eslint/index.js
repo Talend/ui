@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const utils = require('@talend/scripts-utils');
 const cwd = process.cwd();
-const isTS = fs.existsSync(path.join(cwd, 'tsconfig.json'));
+const isTS = utils.fs.tsConfig();
 const commentsRegex = /\/\/.*/g;
 const content = fs
-	.readFileSync(path.join(__dirname, '.eslintrc'))
+	.readFileSync(path.join(__dirname, '.eslintrc.json'))
 	.toString()
 	.replace(commentsRegex, '');
 const config = JSON.parse(content);
