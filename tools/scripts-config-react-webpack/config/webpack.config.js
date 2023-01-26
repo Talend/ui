@@ -251,6 +251,9 @@ module.exports = ({ getUserConfig, mode }) => {
 			process.cwd(),
 			userHtmlConfig.template || DEFAULT_INDEX_TEMPLATE_PATH,
 		);
+
+		meta['app-id'] = userHtmlConfig.appId || theme;
+
 		const indexTemplate = await getIndexTemplate(
 			env,
 			mode,
@@ -261,8 +264,6 @@ module.exports = ({ getUserConfig, mode }) => {
 		const isEnvDevelopment = mode === 'development';
 		const isEnvProduction = mode === 'production';
 		const b64favicon = icons.getFavicon(theme);
-
-		meta['app-id'] = userHtmlConfig.appId || theme;
 
 		return {
 			mode,
