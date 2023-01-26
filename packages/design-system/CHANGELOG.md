@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.5.1
+
+### Patch Changes
+
+- 4c3495e12: chore: apply code style
+
 ## 7.5.0
 
 ### Minor Changes
