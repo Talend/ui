@@ -41,7 +41,7 @@
     "react-dom": ">=16.3.0"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^13.0.0",
+    "@talend/scripts-core": "^13.1.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
