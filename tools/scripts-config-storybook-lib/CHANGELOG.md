@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 4.0.1
+
+### Patch Changes
+
+- c7152471f: fix: msw is broken
+
 ## 4.0.0
 
 ### Major Changes

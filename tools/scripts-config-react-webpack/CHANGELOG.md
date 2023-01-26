@@ -1,5 +1,13 @@
 # @talend/scripts-config-react-webpack
 
+## 15.2.5
+
+### Patch Changes
+
+- 093ce8530: fix: add meta in head if inject is false
+- Updated dependencies [c7152471f]
+  - @talend/scripts-utils@2.0.2
+
 ## 15.2.4
 
 ### Patch Changes

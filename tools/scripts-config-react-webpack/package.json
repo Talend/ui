@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-react-webpack",
   "description": "Webpack configuration for @talend/scripts-core",
-  "version": "15.2.4",
+  "version": "15.2.5",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -22,7 +22,7 @@
     "@talend/react-cmf-webpack-plugin": "^6.37.0",
     "@talend/scripts-config-babel": "^12.0.0",
     "@talend/scripts-config-cdn": "^10.6.0",
-    "@talend/scripts-utils": "^2.0.0",
+    "@talend/scripts-utils": "^2.0.2",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
     "autoprefixer": "^10.4.13",

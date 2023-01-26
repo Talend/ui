@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 9.4.1
+
+### Patch Changes
+
+- 21d87a111: fix: apply code style
+- Updated dependencies [ab0bd21cf]
+  - @talend/bootstrap-theme@7.0.1
+
 ## 9.4.0
 
 ### Minor Changes
