@@ -27,8 +27,7 @@ module.exports = options => {
 	const userSassData = options.getUserConfig('sass', {});
 	const sassData = getSassData(userSassData);
 	const isEnvProd = options.mode === 'production';
-	const isEnvDevelopmentServe =
-		options.mode === 'development' && process.env.WEBPACK_SERVE === 'true';
+
 	return (env = {}) => {
 		const name = (env && env.umd) || 'Talend';
 		return {
@@ -60,11 +59,11 @@ module.exports = options => {
 					},
 					{
 						test: /\.scss$/,
-						use: getSassLoaders(cssModulesEnabled, sassData, isEnvDevelopmentServe),
+						use: getSassLoaders(cssModulesEnabled, sassData, false),
 					},
 					{
 						test: /\.css$/,
-						use: getCommonStyleLoaders(false, isEnvDevelopmentServe),
+						use: getCommonStyleLoaders(false, false),
 					},
 					...getAssetsRules(false),
 				],
