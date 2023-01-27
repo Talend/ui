@@ -1,5 +1,11 @@
 # @talend/scripts-config-react-webpack
 
+## 15.2.6
+
+### Patch Changes
+
+- 464f7207d: Webpack react config - Fix sass HMR on file change for dev mode
+
 ## 15.2.5
 
 ### Patch Changes
