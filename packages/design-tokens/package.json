@@ -34,7 +34,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^13.0.0",
+    "@talend/scripts-core": "^13.1.2",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}

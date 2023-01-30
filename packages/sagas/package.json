@@ -41,7 +41,7 @@
     "react-dom": ">= 16.14.0 < 18.0.0"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^13.0.0",
+    "@talend/scripts-core": "^13.1.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

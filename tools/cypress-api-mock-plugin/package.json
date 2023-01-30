@@ -23,6 +23,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@neuralegion/cypress-har-generator": "^5.3.4"
+    "@neuralegion/cypress-har-generator": "^5.13.0"
   }
 }
