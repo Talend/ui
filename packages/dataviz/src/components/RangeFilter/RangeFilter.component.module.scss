@@ -29,7 +29,7 @@ $module: range-filter;
 
 	:global {
 		.rc-slider-mark-text:last-child {
-			left: initial !important; // sass-lint:disable-line no-important
+			left: initial !important; // stylelint-disable declaration-no-important
 			right: 0;
 		}
 
