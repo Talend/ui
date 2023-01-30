@@ -8,13 +8,13 @@
 	line,
 	rect {
 		fill: #19426C;
-		stroke: #000;
+		stroke: black;
 		stroke-width: 1px;
 	}
 
 	&__whiskerPolyg {
 		fill: none;
-		stroke: #000;
+		stroke: black;
 		stroke-width: 2;
 	}
 
@@ -23,7 +23,7 @@
 	}
 
 	&__mean {
-		fill: #FFF;
+		fill: white;
 		opacity: 0.5;
 		stroke: #19426C;
 		shape-rendering: geometricPrecision;

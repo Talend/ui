@@ -1,5 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
+// stylelint-disable scss/selector-no-redundant-nesting-selector
 * {
 	margin: 0;
 	padding: 0;
@@ -58,6 +59,7 @@ html {
 	}
 
 	// Code previews
+	// stylelint-disable-next-line selector-no-qualifying-type
 	&.sbdocs-preview pre.prismjs {
 		background-color: tokens.$coral-color-assistive-background;
 		border: 0;
@@ -100,7 +102,7 @@ html {
 			font: tokens.$coral-paragraph-m-bold;
 			color: tokens.$coral-color-accent-text;
 			background-color: tokens.$coral-color-accent-background-weak;
-			transition: all tokens.$coral-transition-fast;
+			transition: tokens.$coral-transition-fast;
 
 			&:focus {
 				box-shadow: none;
@@ -315,7 +317,7 @@ html {
 	.sbdocs-a {
 		font: tokens.$coral-paragraph-m-bold;
 		color: tokens.$coral-color-accent-text;
-		transition: all tokens.$coral-transition-fast;
+		transition: tokens.$coral-transition-fast;
 
 		&:hover {
 			color: tokens.$coral-color-accent-text-hover;
@@ -359,6 +361,7 @@ html {
 		}
 	}
 
+	// stylelint-disable-next-line selector-no-qualifying-type
 	&.sbdocs-preview pre.prismjs {
 		background: #022E4D;
 	}

@@ -2,15 +2,15 @@
 	--coral-color-neutral-text: hsla(0, 0%, 13%, 1);
 	--coral-color-neutral-text-weak: hsla(0, 0%, 38%, 1);
 	--coral-color-neutral-text-disabled: hsla(0, 0%, 44%, 1);
-	--coral-color-neutral-text-inverted: hsla(0, 0%, 100%, 1);
-	--coral-color-neutral-background: hsla(0, 0%, 100%, 1);
+	--coral-color-neutral-text-inverted: white;
+	--coral-color-neutral-background: white;
 	--coral-color-neutral-background-medium: hsla(0, 0%, 97%, 1);
 	--coral-color-neutral-background-strong: hsla(0, 0%, 88%, 1);
 	--coral-color-neutral-background-disabled: hsla(0, 0%, 88%, 1);
 	--coral-color-neutral-border: hsla(0, 0%, 55%, 1);
 	--coral-color-neutral-border-weak: hsla(0, 0%, 82%, 1);
 	--coral-color-neutral-border-hover: hsla(0, 0%, 40%, 1);
-	--coral-color-accent-text-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-accent-text-weak: white;
 	--coral-color-accent-text-weak-hover: hsla(204, 59%, 88%, 1);
 	--coral-color-accent-text-weak-active: hsla(205, 60%, 75%, 1);
 	--coral-color-accent-text: hsla(204, 95%, 31%, 1);
@@ -19,7 +19,7 @@
 	--coral-color-accent-background: hsla(204, 59%, 88%, 1);
 	--coral-color-accent-background-hover: hsla(205, 60%, 75%, 1);
 	--coral-color-accent-background-active: hsla(204, 60%, 63%, 1);
-	--coral-color-accent-background-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-accent-background-weak: white;
 	--coral-color-accent-background-weak-hover: hsla(204, 59%, 88%, 1);
 	--coral-color-accent-background-weak-active: hsla(205, 60%, 75%, 1);
 	--coral-color-accent-background-strong: hsla(204, 95%, 31%, 1);
@@ -27,7 +27,7 @@
 	--coral-color-accent-background-strong-active: hsla(205, 95%, 15%, 1);
 	--coral-color-accent-border-hover: hsla(204, 95%, 23%, 1);
 	--coral-color-accent-border-active: hsla(205, 95%, 15%, 1);
-	--coral-color-danger-text-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-danger-text-weak: white;
 	--coral-color-danger-text-weak-hover: hsla(358, 100%, 94%, 1);
 	--coral-color-danger-text-weak-active: hsla(359, 100%, 88%, 1);
 	--coral-color-danger-text: hsla(359, 51%, 53%, 1);
@@ -36,10 +36,10 @@
 	--coral-color-danger-background: hsla(0, 100%, 96%, 1);
 	--coral-color-danger-background-hover: hsla(359, 100%, 88%, 1);
 	--coral-color-danger-background-active: hsla(359, 100%, 83%, 1);
-	--coral-color-danger-background-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-danger-background-weak: white;
 	--coral-color-danger-background-weak-hover: hsla(358, 100%, 94%, 1);
 	--coral-color-danger-background-weak-active: hsla(359, 100%, 88%, 1);
-	--coral-color-success-text-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-success-text-weak: white;
 	--coral-color-success-text-weak-hover: hsla(110, 49%, 90%, 1);
 	--coral-color-success-text-weak-active: hsla(110, 48%, 85%, 1);
 	--coral-color-success-text: hsla(111, 49%, 34%, 1);
@@ -54,13 +54,13 @@
 	--coral-color-danger-border-hover: hsla(359, 54%, 38%, 1);
 	--coral-color-success-background-active: hsla(110, 49%, 80%, 1);
 	--coral-color-danger-border-active: hsla(359, 54%, 33%, 1);
-	--coral-color-success-background-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-success-background-weak: white;
 	--coral-color-success-background-weak-hover: hsla(110, 49%, 90%, 1);
 	--coral-color-success-background-weak-active: hsla(110, 48%, 85%, 1);
 	--coral-color-success-background-strong: hsla(111, 49%, 34%, 1);
 	--coral-color-success-background-strong-hover: hsla(111, 49%, 29%, 1);
 	--coral-color-success-background-strong-active: hsla(111, 49%, 24%, 1);
-	--coral-color-warning-text-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-warning-text-weak: white;
 	--coral-color-warning-text-weak-hover: hsla(22, 85%, 92%, 1);
 	--coral-color-warning-text-weak-active: hsla(22, 85%, 82%, 1);
 	--coral-color-success-border: hsla(111, 49%, 34%, 1);
@@ -72,8 +72,8 @@
 	--coral-color-warning-background-hover: hsla(22, 85%, 82%, 1);
 	--coral-color-success-border-active: hsla(111, 49%, 24%, 1);
 	--coral-color-warning-background-active: hsla(22, 85%, 72%, 1);
-	--coral-color-warning-background-weak: hsla(0, 0%, 100%, 1);
-	--coral-color-assistive-text: hsla(0, 0%, 100%, 1);
+	--coral-color-warning-background-weak: white;
+	--coral-color-assistive-text: white;
 	--coral-color-warning-background-weak-hover: hsla(22, 85%, 92%, 1);
 	--coral-color-warning-background-weak-active: hsla(22, 85%, 82%, 1);
 	--coral-color-assistive-background: hsla(210, 62%, 5%, 1);
@@ -106,7 +106,7 @@
 	--coral-color-beta-icon: hsla(280, 80%, 54%, 1);
 	--coral-color-beta-icon-hover: hsla(280, 80%, 44%, 1);
 	--coral-color-beta-icon-active: hsla(280, 80%, 34%, 1);
-	--coral-color-beta-text-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-beta-text-weak: white;
 	--coral-color-beta-text-weak-hover: hsla(280, 56%, 83%, 1);
 	--coral-color-beta-text-weak-active: hsla(280, 57%, 73%, 1);
 	--coral-color-beta-text-strong: hsla(281, 58%, 29%, 1);
@@ -115,7 +115,7 @@
 	--coral-color-beta-background: hsla(279, 57%, 90%, 1);
 	--coral-color-beta-background-hover: hsla(279, 57%, 81%, 1);
 	--coral-color-beta-background-active: hsla(279, 57%, 71%, 1);
-	--coral-color-beta-background-weak: hsla(0, 0%, 100%, 1);
+	--coral-color-beta-background-weak: white;
 	--coral-color-beta-background-weak-hover: hsla(279, 57%, 90%, 1);
 	--coral-color-beta-background-weak-active: hsla(279, 57%, 80%, 1);
 	--coral-color-beta-background-strong: hsla(281, 58%, 29%, 1);
@@ -126,7 +126,7 @@
 	--coral-color-beta-border-active: hsla(282, 57%, 9%, 1);
 	--coral-color-neutral-border-strong: hsla(0, 0%, 25%, 1);
 	--coral-color-neutral-border-strong-hover: hsla(0, 0%, 15%, 1);
-	--coral-color-neutral-icon-inverted: hsla(0, 0%, 100%, 1);
+	--coral-color-neutral-icon-inverted: white;
 	--coral-color-neutral-icon: hsla(0, 0%, 13%, 1);
 	--coral-color-neutral-icon-weak: hsla(0, 0%, 38%, 1);
 	--coral-color-accent-icon: hsla(204, 88%, 40%, 1);
@@ -246,7 +246,7 @@
 	--coral-elevation-shadow-danger: 0 0.1rem 0.1rem 0 hsla(359, 51%, 53%, 0.3);
 	--coral-elevation-shadow-warning: 0 0.1rem 0.1rem 0 hsla(22, 93%, 41%, 0.3);
 	--coral-elevation-shadow-beta: 0 0.1rem 0.1rem 0 hsla(281, 58%, 29%, 0.3);
-	--coral-elevation-shadow-neutral-inverted-m: 0 -0.2rem 0.6rem 0 hsla(0, 0%, 0%, 0.3);
+	--coral-elevation-shadow-neutral-inverted-m: 0 -0.2rem 0.6rem 0 hsla(0, 0%, 0%, 0.3); // stylelint-disable scss/operator-no-unspaced
 	--coral-elevation-shadow-neutral-inverted-l: 0 -0.4rem 0.8rem 0 hsla(0, 0%, 0%, 0.3);
 	--coral-elevation-shadow-neutral-l: 0 0.4rem 0.8rem 0 hsla(0, 0%, 0%, 0.3);
 	--coral-elevation-shadow-neutral-s: 0 0.1rem 0.2rem 0 hsla(0, 0%, 0%, 0.5);
