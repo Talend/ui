@@ -1,12 +1,15 @@
+// stylelint-disable function-url-quotes
 .welcome {
 	:global {
 		@keyframes float {
 			0% {
 				transform: translateY(0);
 			}
+
 			50% {
 				transform: translateY(1rem);
 			}
+
 			to {
 				transform: translateY(0);
 			}
@@ -16,9 +19,11 @@
 			0% {
 				transform: skewX(0);
 			}
+
 			50% {
 				transform: skewX(1deg);
 			}
+
 			to {
 				transform: skewX(0);
 			}
@@ -28,9 +33,11 @@
 			0% {
 				transform: rotate(0deg);
 			}
+
 			50% {
 				transform: rotate(-2deg);
 			}
+
 			100% {
 				transform: rotate(0deg);
 			}
@@ -60,7 +67,7 @@
 		/**/
 
 		.cls-1 {
-			fill: #fff;
+			fill: white;
 		}
 
 		.cls-2 {
@@ -72,7 +79,7 @@
 		}
 
 		.cls-4 {
-			fill: #fb5460;
+			fill: #FB5460;
 		}
 
 		.cls-45,
@@ -82,7 +89,7 @@
 
 		.cls-31,
 		.cls-6 {
-			fill: #ff6d70;
+			fill: #FF6D70;
 		}
 
 		.cls-7 {
@@ -135,7 +142,7 @@
 		}
 
 		.cls-19 {
-			fill: #e1e5f0;
+			fill: #E1E5F0;
 		}
 
 		.cls-20 {
@@ -171,7 +178,7 @@
 		}
 
 		.cls-28 {
-			fill: #0075c7;
+			fill: #0075C7;
 		}
 
 		.cls-29 {
@@ -195,7 +202,7 @@
 		}
 
 		.cls-34 {
-			fill: #fdd3b5;
+			fill: #FDD3B5;
 		}
 
 		.cls-35 {
@@ -207,7 +214,7 @@
 		}
 
 		.cls-37 {
-			fill: #1a2e35;
+			fill: #1A2E35;
 		}
 
 		.cls-38 {
@@ -219,7 +226,7 @@
 		}
 
 		.cls-40 {
-			fill: #2b454e;
+			fill: #2B454E;
 		}
 
 		.cls-41 {
@@ -239,7 +246,7 @@
 		}
 
 		.cls-45 {
-			stroke: #000;
+			stroke: black;
 			stroke-linecap: round;
 			stroke-miterlimit: 10;
 			stroke-width: 1.5px;
@@ -286,7 +293,7 @@
 		}
 
 		.cls-56 {
-			fill: #e96065;
+			fill: #E96065;
 		}
 	}
 }
