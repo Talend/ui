@@ -29,7 +29,7 @@ function CloseButtonComponent(props) {
 				theme['tc-notification-close'],
 				'.tc-notification-close',
 			)}
-			aria-label={props.t('NOTIFICATION_CLOSE', { defaultValue: 'Close notification' })}
+			aria-label={props.t('NOTIFICATION_CLOSE', { defaultValue: 'Close notifications' })}
 		/>
 	);
 }

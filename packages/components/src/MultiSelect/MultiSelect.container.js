@@ -164,7 +164,7 @@ class MultiSelect extends React.Component {
 			filteredOptions.push({
 				value: CREATE_NEW_VALUE,
 				name: t('MULTI_SELECT_LABEL_CREATE_NEW', {
-					defaultValue: '{{name}} (Create new)',
+					defaultValue: '{{name}} (Create entry)',
 					name: searchTerm,
 				}),
 			});

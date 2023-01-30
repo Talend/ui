@@ -259,7 +259,7 @@ export function FilteredResourceList(props) {
 			toolbar={{
 				name: {
 					label: t('FILTER', {
-						defaultValue: 'Find a {{type, lowercase}}',
+						defaultValue: 'Filter:',
 						type: props?.renderAs?.name,
 					}),
 					value: filter,

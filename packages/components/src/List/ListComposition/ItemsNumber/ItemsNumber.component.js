@@ -10,13 +10,13 @@ function ItemsNumber(props) {
 			{selected
 				? labelSelected ||
 				  t('LIST_TOOLBAR_NUMBER_OF_SELECTED_ITEMS', {
-						defaultValue: '{{count}}/{{total}} items',
+						defaultValue: '{{count}}/{{total}} item',
 						count: selected,
 						total: totalItems,
 				  })
 				: label ||
 				  t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
-						defaultValue: '{{count}} items',
+						defaultValue: '﻿{{count}} item',
 						count: totalItems,
 				  })}
 		</div>

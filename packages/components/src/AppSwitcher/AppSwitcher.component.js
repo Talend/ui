@@ -35,7 +35,7 @@ export default function AppSwitcher({
 	if (props && props.items && props.items.length) {
 		ActionComponent = Renderers.ActionDropdown;
 		ariaLabel = t('APP_SWITCHER', {
-			defaultValue: 'Switch to another application. Current application: {{appName}}',
+			defaultValue: 'Switch to another application. Current application: {{appName}}.',
 			appName: label,
 		});
 	} else {

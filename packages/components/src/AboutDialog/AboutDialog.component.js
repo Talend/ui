@@ -72,7 +72,7 @@ function AboutDialog({
 							text={
 								copyrights ||
 								t('ABOUT_COPYRIGHTS', {
-									defaultValue: '© {{year}} Talend. All Rights Reserved',
+									defaultValue: '© {{year}} Talend. All rights reserved.',
 									year: new Date().getFullYear(),
 								})
 							}

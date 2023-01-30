@@ -136,7 +136,7 @@ function User({ name, firstName, lastName, getComponent, t, ...rest }) {
 
 	const displayName = getDisplayName({ name, firstName, lastName });
 	const ariaLabel = t('HEADERBAR_USER_MENU', {
-		defaultValue: 'Open user menu. Current user: {{name}}',
+		defaultValue: 'Open user menu. Current user: {{name}}.',
 		name: displayName,
 	});
 
@@ -167,7 +167,7 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 	} else {
 		icon = 'talend-bell';
 		label = t('HEADERBAR_NOTIFICATION', {
-			defaultValue: "Notifications (you don't have unread notifications)",
+			defaultValue: 'Notifications (you have no unread notifications)',
 		});
 	}
 

@@ -18,7 +18,7 @@ function listviewClasses() {
 
 function ListView(props) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const noResultLabel = t('NO_RESULT_FOUND', { defaultValue: 'No result found.' });
+	const noResultLabel = t('NO_RESULT_FOUND', { defaultValue: 'No results found' });
 	const emptyLabel = t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
 	const label = props.displayMode === DISPLAY_MODE_SEARCH ? noResultLabel : emptyLabel;
 	return (

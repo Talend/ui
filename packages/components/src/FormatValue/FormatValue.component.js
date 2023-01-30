@@ -64,7 +64,7 @@ function replaceCharacterByIcon(value, index, t) {
 					<Icon
 						key={index}
 						aria-label={t('FORMAT_VALUE_WHITE_SPACE_CHARACTER', {
-							defaultValue: 'white space character',
+							defaultValue: 'whitespace character',
 						})}
 						className={classNames(
 							theme['td-white-space-character'],
