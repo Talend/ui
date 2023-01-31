@@ -14,7 +14,7 @@ function ItemsNumber({ id, totalItems, selected, label, labelSelected, t }) {
 				  })
 				: label ||
 				  t('LIST_TOOLBAR_TOTAL_NUMBER_OF_ITEMS', {
-						defaultValue: '﻿{{count}} item',
+						defaultValue: '{{count}} item',
 						count: totalItems,
 				  })}
 		</div>
