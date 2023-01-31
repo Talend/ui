@@ -239,7 +239,7 @@ exports[`Action should render a button without an overlay component if inProgres
 exports[`Action should render a link button with loading state 1`] = `
 <Button
   active={false}
-  aria-label=" (loading)"
+  aria-label=" Loading..."
   block={false}
   bsClass="btn"
   bsStyle="link"

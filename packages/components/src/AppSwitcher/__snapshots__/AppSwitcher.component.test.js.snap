@@ -8,7 +8,7 @@ exports[`AppSwitcher should render the products 1`] = `
         aria-level="1"
   >
     <div class="dropdown btn-group btn-group-link">
-      <button aria-label="Switch to another application. Current application: My App"
+      <button aria-label="Switch to another application. Current application: My App."
               id="brand"
               role="button"
               aria-haspopup="true"
