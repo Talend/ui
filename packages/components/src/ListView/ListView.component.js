@@ -54,23 +54,6 @@ function HeaderListView(props) {
 	}
 }
 
-HeaderListView.defaultProps = {
-	displayMode: DISPLAY_MODE_DEFAULT,
-};
-
-HeaderListView.propTypes = {
-	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
-	headerDefault: PropTypes.arrayOf(PropTypes.object),
-	headerInput: PropTypes.arrayOf(PropTypes.object),
-	headerLabel: PropTypes.string,
-	labelProps: PropTypes.object,
-	items: ListView.propTypes.items,
-	onInputChange: PropTypes.func,
-	onAddKeyDown: PropTypes.func,
-	required: PropTypes.bool,
-	searchPlaceholder: PropTypes.string,
-};
-
 function ListView(props) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const noResultLabel = t('NO_RESULT_FOUND', { defaultValue: 'No results found' });
@@ -99,6 +82,23 @@ ListView.propTypes = {
 
 ListView.defaultProps = {
 	items: [],
+};
+
+HeaderListView.defaultProps = {
+	displayMode: DISPLAY_MODE_DEFAULT,
+};
+
+HeaderListView.propTypes = {
+	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
+	headerDefault: PropTypes.arrayOf(PropTypes.object),
+	headerInput: PropTypes.arrayOf(PropTypes.object),
+	headerLabel: PropTypes.string,
+	labelProps: PropTypes.object,
+	items: ListView.propTypes.items,
+	onInputChange: PropTypes.func,
+	onAddKeyDown: PropTypes.func,
+	required: PropTypes.bool,
+	searchPlaceholder: PropTypes.string,
 };
 
 export default ListView;
