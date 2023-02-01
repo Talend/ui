@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@talend/react-cmf": "^7.1.4",
-    "@talend/react-components": "^9.4.0",
+    "@talend/react-components": "^9.4.1",
     "@talend/react-forms": "^8.2.0",
     "@talend/utils": "^2.5.0",
     "classnames": "^2.3.2",
@@ -48,8 +48,8 @@
     "reselect": "^2.5.4"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.15",
-    "@talend/bootstrap-theme": "^7.0.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@talend/bootstrap-theme": "^7.0.1",
     "@talend/icons": "^6.52.0",
     "@talend/locales-tui-containers": "^6.38.1",
     "@talend/react-storybook-cmf": "^7.1.0",

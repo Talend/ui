@@ -30,12 +30,12 @@
     "i18next-http-backend": "^1.4.5"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "^7.0.0",
+    "@talend/bootstrap-theme": "^7.0.1",
     "@talend/react-bootstrap": "^1.35.2",
     "@talend/icons": "^6.52.0",
     "@talend/react-cmf": "^7.1.4",
     "@talend/react-cmf-router": "^5.2.5",
-    "@talend/react-components": "^9.4.0",
+    "@talend/react-components": "^9.4.1",
     "@talend/react-containers": "^8.0.1",
     "@talend/react-dataviz": "^2.8.4",
     "@talend/react-faceted-search": "^8.0.3",

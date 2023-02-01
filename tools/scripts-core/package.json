@@ -26,7 +26,7 @@
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
     "@talend/eslint-config": "^12.0.2",
-    "@talend/scripts-utils": "^2.0.1",
+    "@talend/scripts-utils": "^2.0.2",
     "@talend/scripts-config-babel": "^12.0.0",
     "@talend/scripts-config-jest": "^12.1.0",
     "@talend/scripts-config-typescript": "^11.0.0",
@@ -34,7 +34,7 @@
     "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",
     "rimraf": "^3.0.2",
-    "typescript": "^4.9.4",
+    "typescript": "^4.9.5",
     "webpack-merge": "^5.8.0",
     "yargs": "^15.4.1"
   },

@@ -10,7 +10,7 @@
     "lint": "talend-scripts lint"
   },
   "dependencies": {
-    "@talend/scripts-utils": "^2.0.1"
+    "@talend/scripts-utils": "^2.0.2"
   },
   "keywords": [
     "i18next",
