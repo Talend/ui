@@ -112,9 +112,9 @@ export function FormatValueComponent({ value, className }) {
 		) {
 			formattedValue = hiddenCharsRegExpMatch
 				.slice(1)
-				.flatMap((value, index) => value?.split(SPLIT_REGEX[index]))
+				.flatMap((flatMapValue, index) => flatMapValue?.split(SPLIT_REGEX[index]))
 				.filter(isEmptyCharacter)
-				.map((value, index) => replaceCharacterByIcon(value, index, t));
+				.map((mappedValue, index) => replaceCharacterByIcon(mappedValue, index, t));
 		}
 	}
 	return <span className={className}>{formattedValue}</span>;

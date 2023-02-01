@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { ButtonIcon } from '@talend/design-system';
 
-import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';

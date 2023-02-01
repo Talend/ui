@@ -260,7 +260,6 @@ export function FilteredResourceList(props) {
 				name: {
 					label: t('FILTER', {
 						defaultValue: 'Filter:',
-						type: props?.renderAs?.name,
 					}),
 					value: filter,
 					onChange: event => setFilter(event.target.value),
