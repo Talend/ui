@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import Message from '../../Message';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './FieldTemplate.module.scss';
 import { ButtonIcon, Popover } from '@talend/design-system';
 
@@ -24,7 +22,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function FieldTemplate(props) {
-	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const groupsClassNames = classNames('form-group', theme.template, props.className, {
 		'has-error': !props.isValid,
 		required: props.required,
