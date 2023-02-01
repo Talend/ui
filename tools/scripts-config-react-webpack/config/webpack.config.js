@@ -18,7 +18,7 @@ const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
 
 const cdn = require('@talend/scripts-config-cdn');
-const exists = require('@talend/scripts-utils/fs');
+const utils = require('@talend/scripts-utils');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
 const icons = require('./icons');
@@ -46,7 +46,7 @@ const BASENAME = process.env.BASENAME || '/';
 cdn.configureTalendModules();
 
 // Check if Typescript is setup
-const useTypescript = exists.tsConfig();
+const useTypescript = utils.fs.tsConfig();
 
 function getGitRevision() {
 	let revision = process.env.GIT_COMMIT;
@@ -147,6 +147,12 @@ const meta = VERSIONS.talendLibraries.reduce(
 	},
 );
 
+function renderMeta() {
+	return Object.keys(meta)
+		.map(key => `<meta name="${key}" content="${meta[key]}" />`)
+		.join('\n');
+}
+
 function getCopyConfig(env, userCopyConfig = [], noDynamicCdn) {
 	const config = [...userCopyConfig];
 	const assetsOverridden = config.some(nextAsset =>
@@ -163,7 +169,7 @@ function getCopyConfig(env, userCopyConfig = [], noDynamicCdn) {
 
 async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = true) {
 	const headPath = path.join(process.cwd(), '.talend', 'head.html');
-	const headExists = await exists.isFile(headPath);
+	const headExists = await utils.fs.isFile(headPath);
 
 	let customHead = '';
 	if (headExists) {
@@ -182,7 +188,8 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 		window.basename = '${BASENAME}';
 	</script>`;
 	if (useInitiator) {
-		headScript = `<script type="text/javascript">
+		// meta are not injected if inject is false
+		headScript = `${renderMeta()}<script type="text/javascript">
 			window.basename = '${BASENAME}';
 			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
 			var TALEND_CDN_VERSIONS = {
@@ -202,7 +209,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 		<base href="${BASENAME}" />
 	</head>`;
 	// fs.exists is deprecated
-	const templateExists = await exists.isFile(indexTemplatePath);
+	const templateExists = await utils.fs.isFile(indexTemplatePath);
 	let indexTemplate;
 	if (templateExists) {
 		indexTemplate = await fs.promises.readFile(indexTemplatePath, 'utf8');
@@ -211,7 +218,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = tru
 	}
 
 	const bodyPath = path.join(process.cwd(), '.talend', 'body.html');
-	const customBodyExists = await exists.isFile(bodyPath);
+	const customBodyExists = await utils.fs.isFile(bodyPath);
 	let body = '</body>';
 	if (customBodyExists) {
 		body = await fs.promises.readFile(bodyPath);
@@ -244,6 +251,9 @@ module.exports = ({ getUserConfig, mode }) => {
 			process.cwd(),
 			userHtmlConfig.template || DEFAULT_INDEX_TEMPLATE_PATH,
 		);
+
+		meta['app-id'] = userHtmlConfig.appId || theme;
+
 		const indexTemplate = await getIndexTemplate(
 			env,
 			mode,
@@ -253,9 +263,8 @@ module.exports = ({ getUserConfig, mode }) => {
 
 		const isEnvDevelopment = mode === 'development';
 		const isEnvProduction = mode === 'production';
+		const isEnvDevelopmentServe = isEnvDevelopment && process.env.WEBPACK_SERVE === 'true';
 		const b64favicon = icons.getFavicon(theme);
-
-		meta['app-id'] = userHtmlConfig.appId || theme;
 
 		return {
 			mode,
@@ -289,20 +298,20 @@ module.exports = ({ getUserConfig, mode }) => {
 					{
 						test: /\.css$/,
 						exclude: /\.module\.css$/,
-						use: getCommonStyleLoaders(false, mode),
+						use: getCommonStyleLoaders(false, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.module\.css$/,
-						use: getCommonStyleLoaders(true, mode),
+						use: getCommonStyleLoaders(true, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.scss$/,
 						exclude: /\.module\.scss$/,
-						use: getSassLoaders(false, sassData, mode),
+						use: getSassLoaders(false, sassData, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.module\.scss$/,
-						use: getSassLoaders(true, sassData, mode),
+						use: getSassLoaders(true, sassData, isEnvDevelopmentServe),
 					},
 					...getAssetsRules(true),
 				].filter(Boolean),

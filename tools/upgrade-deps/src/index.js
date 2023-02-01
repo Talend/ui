@@ -1,15 +1,15 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 /* eslint no-console: 0 */
-const { exec, spawnSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
+import { exec, spawnSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
 
-const colors = require('./colors');
-const npm = require('./npm');
-const yarn = require('./yarn');
-const changeset = require('./changeset');
-const { upgradeSecurityVersion } = require('./security');
+import colors from './colors.js';
+import npm from './npm.js';
+import yarn from './yarn.js';
+import changeset from './changeset.js';
+import { upgradeSecurityVersion } from './security.js';
 
 const CWD = process.cwd();
 
@@ -18,8 +18,9 @@ async function executeAll(cmds) {
 	for (const cmd of cmds) {
 		try {
 			console.log('\n##################\n', cmd, '\n##################\n');
+			// eslint-disable-next-line @typescript-eslint/no-loop-func
 			await new Promise((resolve, reject) => {
-				const child = exec(cmd, { cwd: CWD });
+				const child = exec(cmd, { cwd: process.cwd() });
 				child.stdout.on('data', data => {
 					console.log(data.toString());
 				});
@@ -65,7 +66,7 @@ function getOptions(program) {
 	return opts;
 }
 
-async function upgradeYarnProject(program) {
+export async function upgradeYarnProject(program) {
 	const commands = [];
 	const opts = getOptions(program);
 
@@ -100,7 +101,7 @@ async function upgradeYarnProject(program) {
 				`Deps security fix mode requires a configuration file. "${program.security}" does not exist. Check the following link to get the configuration file format: https://github.com/Talend/ui-scripts/tree/master/packages/upgrade//README.md#security-mode`,
 			);
 		}
-		const packageMetadata = require(securityConfPath);
+		const packageMetadata = JSON.parse(fs.readFileSync(securityConfPath));
 		console.log('Security configuration found', packageMetadata);
 
 		const reportFilePath = path.join(process.cwd(), 'talend-security-report.json');
@@ -134,7 +135,7 @@ async function upgradeYarnProject(program) {
 	return true;
 }
 
-async function upgradeNpmProject(program) {
+export async function upgradeNpmProject(program) {
 	const commands = [];
 	const opts = getOptions(program);
 	let changed = await npm.checkPackageJson(`${CWD}/package.json`, opts);
@@ -153,8 +154,3 @@ async function upgradeNpmProject(program) {
 		return executeAll(commands);
 	}
 }
-
-module.exports = {
-	upgradeYarnProject,
-	upgradeNpmProject,
-};

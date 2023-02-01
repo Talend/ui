@@ -1,5 +1,4 @@
 {
-  "preset": "@talend/scripts-preset-react",
   "cmf": true,
   "html": {},
   "webpack": {

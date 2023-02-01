@@ -5,17 +5,16 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build:lib:umd --dev",
-    "build:prod": "talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build --umd --dev",
+    "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "yarn jsdoc -c ./docs.json",
-    "lint:es": "talend-scripts lint:es",
-    "lint": "talend-scripts lint:es"
+    "lint": "talend-scripts lint"
   },
   "keywords": [
     "react",
@@ -33,7 +32,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/scripts-cmf": "^1.0.2",
+    "@talend/scripts-cmf": "^1.1.0",
     "@talend/utils": "^2.5.0",
     "hoist-non-react-statics": "^3.3.2",
     "immutable": "^3.8.2",
@@ -56,12 +55,11 @@
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.1.5",
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/scripts-core": "^13.1.2",
     "@testing-library/react": "^12.1.5",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.11",
-    "node-fetch": "^2.6.7",
+    "node-fetch": "^2.6.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "redux-mock-store": "^1.5.4",

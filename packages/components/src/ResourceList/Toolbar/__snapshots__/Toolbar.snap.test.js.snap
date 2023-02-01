@@ -14,14 +14,14 @@ exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = 
   />
   <withI18nextTranslation(SortOptions)
     orders={
-      Object {
+      {
         "date": "desc",
         "name": "desc",
       }
     }
     t={[Function]}
     types={
-      Array [
+      [
         "name",
         "date",
       ]
@@ -30,7 +30,7 @@ exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = 
   <withI18nextTranslation(StateFilter)
     t={[Function]}
     types={
-      Array [
+      [
         "selection",
         "favorites",
         "certified",
@@ -46,14 +46,14 @@ exports[`Toolbar component snaps should render Toolbar without name widget 1`] =
 >
   <withI18nextTranslation(SortOptions)
     orders={
-      Object {
+      {
         "date": "desc",
         "name": "desc",
       }
     }
     t={[Function]}
     types={
-      Array [
+      [
         "name",
         "date",
       ]
@@ -62,7 +62,7 @@ exports[`Toolbar component snaps should render Toolbar without name widget 1`] =
   <withI18nextTranslation(StateFilter)
     t={[Function]}
     types={
-      Array [
+      [
         "selection",
         "favorites",
         "certified",
@@ -87,7 +87,7 @@ exports[`Toolbar component snaps should render Toolbar without sort widgets 1`] 
   <withI18nextTranslation(StateFilter)
     t={[Function]}
     types={
-      Array [
+      [
         "selection",
         "favorites",
         "certified",
@@ -111,14 +111,14 @@ exports[`Toolbar component snaps should render Toolbar without state widgets 1`]
   />
   <withI18nextTranslation(SortOptions)
     orders={
-      Object {
+      {
         "date": "desc",
         "name": "desc",
       }
     }
     t={[Function]}
     types={
-      Array [
+      [
         "name",
         "date",
       ]

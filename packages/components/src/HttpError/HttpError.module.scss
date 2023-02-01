@@ -10,7 +10,7 @@ $tc-http-error-message-color: #888 !default;
 	align-items: center;
 	justify-content: center;
 
-	&:before {
+	&::before {
 		position: absolute;
 		top: 0;
 		left: 0;

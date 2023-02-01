@@ -6,7 +6,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
 >
   <ActionBar
     className="theme-tc-subheader-navbar tc-subheader-navbar"
-    components={Object {}}
+    components={{}}
   >
     <SubHeaderBarActions
       left={true}

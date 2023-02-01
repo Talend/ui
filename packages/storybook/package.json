@@ -8,6 +8,7 @@
     "test:demo": "talend-scripts build-storybook --docs && node ./scripts/sitemap.js",
     "build-storybook": "talend-scripts build-storybook",
     "start-storybook": "talend-scripts start-storybook",
+    "lint": "talend-scripts lint",
     "start": "cross-env BROWSER=none talend-scripts start-storybook -p 6006 --docs"
   },
   "repository": {
@@ -20,7 +21,7 @@
   },
   "dependencies": {
     "@talend/design-tokens": "^2.7.1",
-    "@talend/design-system": "^7.3.0",
+    "@talend/design-system": "^7.5.0",
     "react-hook-form": "^6.15.8"
   },
   "devDependencies": {
@@ -36,9 +37,8 @@
     "@storybook/testing-library": "^0.0.13",
     "@storybook/testing-react": "^1.3.0",
     "@storybook/theming": "^6.5.15",
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
-    "@types/react": "^17.0.52",
+    "@talend/scripts-core": "^13.1.2",
+    "@types/react": "^17.0.53",
     "mdx-embed": "^1.1.2",
     "react": "^17.0.2",
     "react-router-dom": "~6.3.0",

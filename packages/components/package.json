@@ -5,19 +5,17 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build:lib:umd --dev",
-    "build:prod": "talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build --umd --dev",
+    "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib && yarn run tsc",
+    "build:lib": "talend-scripts build && yarn run tsc",
     "tsc": "tsc --emitDeclarationOnly --project ./tsconfig.json --outDir ./types",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
-    "lint:style": "talend-scripts lint:style",
-    "lint:es": "talend-scripts lint:es",
-    "lint": "yarn lint:es && yarn lint:style",
-    "start": "talend-scripts start-storybook -p 6006",
+    "lint": "talend-scripts lint",
+    "start": "talend-scripts start -p 6006",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
@@ -37,12 +35,12 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "@talend/bootstrap-theme": "^7.0.0",
+    "@talend/bootstrap-theme": "^7.0.1",
     "@talend/icons": "^6.52.0",
     "@talend/utils": "^2.5.0",
     "ally.js": "^1.4.1",
     "classnames": "^2.3.2",
-    "d3": "^7.8.0",
+    "d3": "^7.8.2",
     "date-fns": "^1.30.1",
     "focus-outline-manager": "^1.0.2",
     "immutable": "^3.8.2",
@@ -63,20 +61,19 @@
     "react-use": "^17.4.0",
     "react-virtualized": "^9.22.3",
     "reactour": "^1.19.0",
-    "recharts": "^2.2.0",
+    "recharts": "^2.3.2",
     "simplebar": "^5.3.9",
     "simplebar-react": "^2.4.3",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.15",
-    "@talend/bootstrap-theme": "^7.0.0",
-    "@talend/design-system": "^7.3.0",
+    "@talend/bootstrap-theme": "^7.0.1",
+    "@talend/design-system": "^7.5.1",
     "@talend/icons": "^6.52.0",
-    "@talend/locales-design-system": "^4.2.0",
+    "@talend/locales-design-system": "^7.3.0",
     "@talend/locales-tui-components": "^6.44.11",
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/scripts-core": "^13.1.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
@@ -86,7 +83,7 @@
     "@types/enzyme": "^3.10.12",
     "@types/lodash": "^4.14.191",
     "@types/prop-types": "^15.7.5",
-    "@types/react": "^17.0.52",
+    "@types/react": "^17.0.53",
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
@@ -103,7 +100,7 @@
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "@talend/design-system": "^7.3.0",
+    "@talend/design-system": "^7.5.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
@@ -116,5 +113,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "9.4.0"
+  "version": "9.4.1"
 }

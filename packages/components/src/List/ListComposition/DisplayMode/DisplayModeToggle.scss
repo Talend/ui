@@ -7,6 +7,7 @@ $tc-display-button-icon-height: 2.4rem;
 
 	:global(.tc-icon-toggle) {
 		margin-left: $padding-normal;
+
 		&:first-child {
 			margin-left: 0;
 		}

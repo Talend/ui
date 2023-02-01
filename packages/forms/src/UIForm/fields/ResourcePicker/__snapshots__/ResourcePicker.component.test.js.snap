@@ -9,47 +9,47 @@ exports[`ResourcePicker field should render simple select 1`] = `
   onFinish={[MockFunction]}
   onTrigger={
     [MockFunction] {
-      "calls": Array [
-        Array [
+      "calls": [
+        [
           undefined,
-          Object {
+          {
             "errors": undefined,
-            "filters": Object {
+            "filters": {
               "certified": false,
               "favorites": false,
               "name": "",
-              "selected": Array [],
+              "selected": [],
               "selection": false,
             },
             "properties": undefined,
-            "schema": Object {
+            "schema": {
               "description": "ResourcePicker me",
               "placeholder": "Please select a value",
               "required": true,
-              "schema": Object {
+              "schema": {
                 "type": "object",
               },
               "title": "My ResourcePicker title",
-              "triggers": Array [
-                Object {
+              "triggers": [
+                {
                   "action": "resourcePickerSelected",
                   "onEvent": "change",
                 },
-                Object {
+                {
                   "action": "resourcePickerFiltered",
                   "onEvent": "filter",
                 },
               ],
             },
-            "trigger": Object {
+            "trigger": {
               "action": "resourcePickerFiltered",
               "onEvent": "filter",
             },
           },
         ],
       ],
-      "results": Array [
-        Object {
+      "results": [
+        {
           "type": "return",
           "value": Promise {},
         },
@@ -57,20 +57,20 @@ exports[`ResourcePicker field should render simple select 1`] = `
     }
   }
   schema={
-    Object {
+    {
       "description": "ResourcePicker me",
       "placeholder": "Please select a value",
       "required": true,
-      "schema": Object {
+      "schema": {
         "type": "object",
       },
       "title": "My ResourcePicker title",
-      "triggers": Array [
-        Object {
+      "triggers": [
+        {
           "action": "resourcePickerSelected",
           "onEvent": "change",
         },
-        Object {
+        {
           "action": "resourcePickerFiltered",
           "onEvent": "filter",
         },

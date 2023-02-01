@@ -5,16 +5,19 @@
 	path,
 	polygon,
 	polyline {
-        // only if border
-	    transform: translate(25%, 25%);;
+		// only if border
+		transform: translate(25%, 25%);;
 	}
-    :global(.ti-border) {
-        stroke: currentColor; fill: none; transform: none;
-    }
+
+	:global(.ti-border) {
+		stroke: currentColor;
+		fill: none;
+		transform: none;
+	}
 }
 
 .svg {
-    fill: currentColor;
+	fill: currentColor;
 	width: tokens.$coral-sizing-xxs;
 	height: tokens.$coral-sizing-xxs;
 	transform-origin: center;
@@ -27,21 +30,27 @@
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 	}
+
 	&.rotate-45 {
 		transform: rotate(45deg);
 	}
+
 	&.rotate-90 {
 		transform: rotate(90deg);
 	}
+
 	&.rotate-180 {
 		transform: rotate(180deg);
 	}
+
 	&.rotate-270 {
 		transform: rotate(270deg);
 	}
+
 	&.flip-vertical {
 		transform: scaleY(-1);
 	}
+
 	&.flip-horizontal {
 		transform: scaleX(-1);
 	}

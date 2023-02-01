@@ -6,15 +6,14 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build:lib:umd --dev",
-    "build:prod": "talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build --umd --dev",
+    "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "lint": "yarn lint:es",
-    "lint:es": "talend-scripts lint:es"
+    "lint": "talend-scripts lint"
   },
   "keywords": [
     "react",
@@ -42,8 +41,7 @@
     "react-dom": ">= 16.14.0 < 18.0.0"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/scripts-core": "^13.1.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

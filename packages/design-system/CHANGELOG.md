@@ -1,5 +1,29 @@
 # @talend/design-system
 
+## 7.5.1
+
+### Patch Changes
+
+- 4c3495e12: chore: apply code style
+
+## 7.5.0
+
+### Minor Changes
+
+- 4cfbf226b: feat(Tabs&Dropdown): add new data-feature & data-testid capabilities
+
+## 7.4.1
+
+### Patch Changes
+
+- 6c6133860: TDOPS-3536 - Fix passing props to popover disclosure on Design System
+
+## 7.4.0
+
+### Minor Changes
+
+- 79c2d5165: feat(TFD-14857): BadgeDropdown is now controlled
+
 ## 7.3.0
 
 ### Minor Changes

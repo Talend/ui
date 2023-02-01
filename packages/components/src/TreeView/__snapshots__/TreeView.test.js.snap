@@ -31,31 +31,31 @@ exports[`TreeView should render 1`] = `
       id="id-0"
       index={1}
       item={
-        Object {
-          "actions": Array [
-            Object {
+        {
+          "actions": [
+            {
               "action": [Function],
               "icon": "talend-trash",
               "label": "remove element",
             },
           ],
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
+          "children": [
+            {
+              "children": [
+                {
                   "name": "me",
                   "selected": true,
                 },
-                Object {
+                {
                   "name": "bro",
                 },
               ],
               "name": "mami",
               "toggled": true,
             },
-            Object {
-              "children": Array [
-                Object {
+            {
+              "children": [
+                {
                   "name": "cousin",
                 },
               ],
@@ -74,32 +74,32 @@ exports[`TreeView should render 1`] = `
       onSelect={[MockFunction]}
       onToggle={[MockFunction]}
       siblings={
-        Array [
-          Object {
-            "actions": Array [
-              Object {
+        [
+          {
+            "actions": [
+              {
                 "action": [Function],
                 "icon": "talend-trash",
                 "label": "remove element",
               },
             ],
-            "children": Array [
-              Object {
-                "children": Array [
-                  Object {
+            "children": [
+              {
+                "children": [
+                  {
                     "name": "me",
                     "selected": true,
                   },
-                  Object {
+                  {
                     "name": "bro",
                   },
                 ],
                 "name": "mami",
                 "toggled": true,
               },
-              Object {
-                "children": Array [
-                  Object {
+              {
+                "children": [
+                  {
                     "name": "cousin",
                   },
                 ],

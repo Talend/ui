@@ -25,7 +25,12 @@ const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElem
 								<Divider key={`badgepopover-divider-${item.id}`} orientation="vertical" />
 							)}
 
-							<BadgeButton componentId={`badgepopover-button-${item.id}`} onClick={item.onClick}>
+							<BadgeButton
+								componentId={`badgepopover-button-${item.id}`}
+								onClick={item.onClick}
+								data-testid={props['data-testid'] ? `${props['data-testid']}.${item.id}` : item.id}
+								data-test={props['data-test'] ? `${props['data-test']}.${item.id}` : item.id}
+							>
 								{item.label}
 							</BadgeButton>
 						</React.Fragment>

@@ -5,16 +5,16 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build:lib:umd --dev",
-    "build:prod": "talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build --umd --dev",
+    "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build",
     "start": "talend-scripts start-storybook -p 6007",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
-    "lint:es": "talend-scripts lint:es",
+    "lint": "talend-scripts lint",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@talend/react-cmf": "^7.1.4",
-    "@talend/react-components": "^9.3.0",
+    "@talend/react-components": "^9.4.0",
     "@talend/react-forms": "^8.2.0",
     "@talend/utils": "^2.5.0",
     "classnames": "^2.3.2",
@@ -50,11 +50,10 @@
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.15",
     "@talend/bootstrap-theme": "^7.0.0",
-    "@talend/icons": "^6.51.1",
+    "@talend/icons": "^6.52.0",
     "@talend/locales-tui-containers": "^6.38.1",
     "@talend/react-storybook-cmf": "^7.1.0",
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/scripts-core": "^13.1.2",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
     "jest-in-case": "^1.0.2",

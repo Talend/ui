@@ -12,7 +12,7 @@ const {
 	isMajorLockGT,
 	isSameVersion,
 	isSameLockVersion,
-} = require('./utils');
+} = require('./utils.js');
 
 const fixturePath = path.join(__dirname, 'fixture', 'basic');
 const bin = path.resolve(__dirname, '..', 'bin', 'cli.js');

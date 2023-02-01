@@ -3,7 +3,7 @@
 exports[`DatePicker should render a DatePicker 1`] = `
 <CalendarGesture(DatePicker)
   calendar={
-    Object {
+    {
       "monthIndex": 5,
       "year": 2018,
     }
@@ -17,7 +17,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
   <div>
     <DatePicker
       calendar={
-        Object {
+        {
           "monthIndex": 5,
           "year": 2018,
         }

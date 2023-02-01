@@ -17,16 +17,15 @@
     "addon"
   ],
   "scripts": {
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build",
     "test": "talend-scripts test",
-    "lint:es": "talend-scripts lint:es"
+    "lint": "talend-scripts lint"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "devDependencies": {
     "@talend/react-cmf": "^7.1.4",
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/scripts-core": "^13.1.2",
     "enzyme": "^3.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

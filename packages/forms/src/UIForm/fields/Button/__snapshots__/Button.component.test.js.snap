@@ -12,10 +12,10 @@ exports[`Button field should render button wrapped with field template 1`] = `
     id="myForm"
     onTrigger={[MockFunction]}
     schema={
-      Object {
+      {
         "description": "Click here to trigger a trigger",
         "title": "Boom !",
-        "triggers": Array [
+        "triggers": [
           "after",
         ],
         "widget": "button",

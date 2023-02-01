@@ -12,17 +12,17 @@ exports[`NestedListView component should render component 1`] = `
   >
     <ListView
       displayedItems={
-        Array [
-          Object {
+        [
+          {
             "checked": false,
-            "children": Array [
-              Object {
+            "children": [
+              {
                 "checked": false,
                 "label": "Bar 1",
                 "onChange": [Function],
                 "value": "bar_1",
               },
-              Object {
+              {
                 "checked": false,
                 "label": "Bar 2",
                 "onChange": [Function],
@@ -35,16 +35,16 @@ exports[`NestedListView component should render component 1`] = `
             "onChange": [Function],
             "onExpandToggle": [Function],
           },
-          Object {
+          {
             "checked": false,
-            "children": Array [
-              Object {
+            "children": [
+              {
                 "checked": false,
                 "label": "Foo 1",
                 "onChange": [Function],
                 "value": "foo_1",
               },
-              Object {
+              {
                 "checked": false,
                 "label": "Foo 2",
                 "onChange": [Function],
@@ -61,8 +61,8 @@ exports[`NestedListView component should render component 1`] = `
       }
       getItemHeight={[Function]}
       headerDefault={
-        Array [
-          Object {
+        [
+          {
             "icon": "talend-search",
             "id": "NestedListView-search",
             "label": "Search for specific values",
@@ -73,17 +73,17 @@ exports[`NestedListView component should render component 1`] = `
       headerLabel="Nested ListView"
       id="NestedListView"
       items={
-        Array [
-          Object {
+        [
+          {
             "checked": false,
-            "children": Array [
-              Object {
+            "children": [
+              {
                 "checked": false,
                 "label": "Bar 1",
                 "onChange": [Function],
                 "value": "bar_1",
               },
-              Object {
+              {
                 "checked": false,
                 "label": "Bar 2",
                 "onChange": [Function],
@@ -96,16 +96,16 @@ exports[`NestedListView component should render component 1`] = `
             "onChange": [Function],
             "onExpandToggle": [Function],
           },
-          Object {
+          {
             "checked": false,
-            "children": Array [
-              Object {
+            "children": [
+              {
                 "checked": false,
                 "label": "Foo 1",
                 "onChange": [Function],
                 "value": "foo_1",
               },
-              Object {
+              {
                 "checked": false,
                 "label": "Foo 2",
                 "onChange": [Function],

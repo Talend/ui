@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-react-webpack",
   "description": "Webpack configuration for @talend/scripts-core",
-  "version": "15.2.2",
+  "version": "15.2.6",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -14,14 +14,15 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
     "@sentry/webpack-plugin": "^1.20.0",
-    "@talend/react-cmf-webpack-plugin": "^6.36.9",
-    "@talend/scripts-config-babel": "^11.0.0",
+    "@talend/react-cmf-webpack-plugin": "^6.37.0",
+    "@talend/scripts-config-babel": "^12.0.0",
     "@talend/scripts-config-cdn": "^10.6.0",
-    "@talend/scripts-utils": "^1.0.0",
+    "@talend/scripts-utils": "^2.0.2",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
     "autoprefixer": "^10.4.13",
@@ -30,14 +31,14 @@
     "circular-dependency-plugin": "^5.2.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
-    "core-js-bundle": "^3.27.1",
+    "core-js-bundle": "^3.27.2",
     "css-loader": "^4.3.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.5.2",
     "html-webpack-plugin": "^5.5.0",
     "inspectpack": "^4.7.1",
     "mini-css-extract-plugin": "^2.7.2",
-    "postcss": "^8.4.20",
+    "postcss": "^8.4.21",
     "postcss-loader": "^7.0.2",
     "postcss-safe-parser": "^6.0.0",
     "regenerator-runtime": "^0.13.11",
@@ -54,7 +55,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.75.0",
     "webpack-bundle-analyzer": "^4.7.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
   },
   "peerDependencies": {
     "@talend/bootstrap-theme": "*",

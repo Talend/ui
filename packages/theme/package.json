@@ -9,8 +9,7 @@
     "start": "webpack serve --mode=development",
     "test": "echo no test for @talend/bootstrap-theme",
     "test:cov": "echo no test for @talend/bootstrap-theme",
-    "lint:style": "talend-scripts lint:style",
-    "lint": "yarn lint:style"
+    "lint": "talend-scripts lint"
   },
   "keywords": [
     "talend",
@@ -29,12 +28,11 @@
   },
   "dependencies": {
     "@talend/bootstrap-sass": "^3.4.8",
-    "@talend/icons": "^6.51.1"
+    "@talend/icons": "^6.52.0"
   },
   "devDependencies": {
-    "@talend/icons": "^6.51.1",
-    "@talend/scripts-core": "^12.2.0",
-    "@talend/scripts-preset-react-lib": "^14.0.1",
+    "@talend/icons": "^6.52.0",
+    "@talend/scripts-core": "^13.1.2",
     "copy-webpack-plugin": "^10.2.4",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "html-webpack-plugin": "^5.5.0",
@@ -45,5 +43,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.0"
+  "version": "7.0.1"
 }

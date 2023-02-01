@@ -4,11 +4,8 @@
   "main": "src/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "build:lib": "echo nothing to build",
-    "start": "echo nothing to start",
-    "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
-    "test:cov": "npm run test",
-    "lint:es": "echo nothing to lint"
+    "lint": "talend-scripts lint",
+    "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin"
   },
   "repository": {
     "type": "git",
@@ -28,12 +25,12 @@
   },
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
-    "@talend/scripts-cmf": "^1.0.2",
+    "@talend/scripts-cmf": "^1.1.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },
-  "version": "6.36.9"
+  "version": "6.37.0"
 }
