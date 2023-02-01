@@ -1,4 +1,5 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
 
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
@@ -34,13 +35,13 @@
 	align-items: center;
 
 	:global {
-		.btn {
-			padding: 0;
-			margin-left: 5px;
+		.control-label {
+			margin-bottom: 0;
+			margin-right: tokens.$coral-spacing-xxs;
 		}
 
 		.tc-svg-icon {
-			fill: #1476BE;
+			fill: tokens.$coral-color-accent-icon;
 		}
 	}
 }

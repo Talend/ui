@@ -1,5 +1,14 @@
 # @talend/react-containers
 
+## 8.0.2
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+- Updated dependencies [99398080f]
+- Updated dependencies [5e4aad637]
+  - @talend/react-forms@9.0.0
+
 ## 8.0.1
 
 ### Patch Changes
