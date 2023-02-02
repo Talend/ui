@@ -17,7 +17,7 @@ exports[`SubHeaderBar should render without i18n 1`] = `
         hideLabel={true}
         icon="talend-arrow-left"
         id="backArrow"
-        label="Go Back"
+        label="Go back"
         onClick={[MockFunction]}
       />
       <TitleSubHeader

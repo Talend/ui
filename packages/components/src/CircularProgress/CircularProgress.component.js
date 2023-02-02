@@ -53,7 +53,7 @@ function CircularProgress({ size, light, percent, className, t }) {
 			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
 			aria-busy="true"
 			aria-label={t('CIRCULAR_PROGRESS_LOADING', {
-				defaultValue: 'Loading {{percent}}',
+				defaultValue: 'Loading... {{percent}}',
 				percent: percentLabel,
 			})}
 		>

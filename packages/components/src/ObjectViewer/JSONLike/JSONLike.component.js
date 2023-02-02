@@ -361,7 +361,8 @@ function UntranslatedComplexItem(props) {
 						key="badge"
 						className={`${theme.badge} badge`}
 						aria-label={t('TC_OBJECT_VIEWER_NB_CHILD', {
-							defaultValue: 'Contains {{count}} child',
+							defaultValue: 'Contains {{count}} child object',
+							defaultValue_plural: 'Contains {{count}} child objects',
 							count: info.length,
 						})}
 					>

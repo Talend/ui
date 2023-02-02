@@ -120,7 +120,7 @@ export function BreadcrumbsComponent({ loading, id, items, maxItems, t }) {
 						id={`${id}-ellipsis`}
 						items={hiddenItems}
 						aria-label={t('BREADCRUMB_OPEN_FIRST_LINKS_MENU', {
-							defaultValue: 'Open first links menu',
+							defaultValue: 'Show breadcrumb links',
 						})}
 						label="…"
 						link

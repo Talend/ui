@@ -9,7 +9,7 @@ exports[`JSONLike ComplexItem should render 1`] = `
       tooltipPlacement="right"
     >
       <sup
-        aria-label="Contains  child"
+        aria-label="Contains  child object"
         className="theme-badge badge"
       >
         (undefined)

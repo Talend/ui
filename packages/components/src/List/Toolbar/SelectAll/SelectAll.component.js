@@ -25,7 +25,7 @@ function SelectAll({ id, items, isSelected, onToggleAll }) {
 						checked={isAllSelected()}
 						disabled={!items.length}
 					/>
-					<span>{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
+					<span>{t('LIST_SELECT_ALL', { defaultValue: 'Select all' })}</span>
 				</label>
 			</div>
 		</form>

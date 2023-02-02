@@ -848,10 +848,10 @@ exports[`Typeahead items should render typeahead without items 1`] = `
         <span
           className="CoralIcon"
           name="talend-fieldglass"
-          title="No result."
+          title="No results found"
         />
         <span>
-          No result.
+          No results found
         </span>
       </div>
     </div>
