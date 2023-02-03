@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.6.0
+
+### Minor Changes
+
+- 00869855d: Popover - Add `focusOnDisclosure` option to allow focus on disclosure when popover is opened
+
 ## 7.5.1
 
 ### Patch Changes
