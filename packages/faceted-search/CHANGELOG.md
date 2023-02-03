@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.0.4
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
 ## 8.0.3
 
 ### Patch Changes

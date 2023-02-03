@@ -1,5 +1,13 @@
 # @talend/react-forms
 
+## 9.0.1
+
+### Patch Changes
+
+- fd25b7d23: Forms - UI Form hint can now change position to fixed with a new **overlayIsFixed** parameter
+- Updated dependencies [e79dfc100]
+  - @talend/react-components@9.4.2
+
 ## 9.0.0
 
 ### Major Changes
