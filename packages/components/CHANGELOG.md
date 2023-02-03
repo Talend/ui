@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 9.4.2
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
 ## 9.4.1
 
 ### Patch Changes
