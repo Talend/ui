@@ -37,6 +37,7 @@ function FieldTemplate(props) {
 				<Popover
 					position={props.hint.overlayPlacement || 'auto'}
 					data-test={props.hint['data-test']}
+					isFixed={props.hint.overlayIsFixed}
 					disclosure={
 						<ButtonIcon
 							data-test={props.hint['icon-data-test']}
@@ -75,6 +76,7 @@ if (process.env.NODE_ENV !== 'production') {
 			icon: PropTypes.string,
 			overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 			overlayPlacement: PropTypes.string,
+			overlayIsFixed: PropTypes.bool,
 			'data-test': PropTypes.string,
 			'icon-data-test': PropTypes.string,
 		}),
