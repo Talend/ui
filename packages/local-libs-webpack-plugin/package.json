@@ -27,6 +27,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "jest-cli": "^29.4.0"
+    "jest-cli": "^29.4.1"
   }
 }
