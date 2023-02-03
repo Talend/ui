@@ -11,7 +11,7 @@
 		overflow: auto;
 		min-width: calc(#{tokens.$coral-sizing-maximal} / 2);
 		max-width: tokens.$coral-sizing-maximal;
-		transition: all tokens.$coral-transition-fast;
+		transition: tokens.$coral-transition-fast;
 		opacity: 0;
 		transform: translateY(-10%);
 	}

@@ -3,9 +3,9 @@
 
 .combobox {
 	&__input {
-		@include Form.baseInput();
-		@include Form.borderStyles();
-		height: Form.$standardInputHeight;
+		@include Form.base-input();
+		@include Form.border-styles();
+		height: Form.$standard-input-height;
 	}
 
 	[role='listbox'] {

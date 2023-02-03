@@ -8,9 +8,11 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 .tc-sort-by {
 	display: flex;
 	align-items: center;
+
 	:global(.navbar-text) {
 		margin: 0;
 	}
+
 	&-label {
 		margin: 0;
 		font-weight: normal;
@@ -27,6 +29,7 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		display: flex;
 		align-items: center;
 		padding: 0;
+
 		&:hover,
 		&:focus,
 		&:active {
@@ -44,10 +47,12 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		display: flex;
 		align-items: center;
 	}
+
 	&-items > a[role='button'] {
 		display: inline-block;
 		text-transform: lowercase;
 		white-space: nowrap;
+
 		&::first-letter {
 			text-transform: uppercase;
 		}

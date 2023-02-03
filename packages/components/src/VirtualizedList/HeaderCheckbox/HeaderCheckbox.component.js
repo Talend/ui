@@ -29,7 +29,7 @@ function HeaderCheckbox({ columnData }) {
 		return selected.length && selected.length < collection.length;
 	}, [collection, isSelected]);
 
-	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select All' });
+	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select all' });
 	return (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox" title={title}>

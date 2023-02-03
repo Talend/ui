@@ -1,5 +1,11 @@
 # @talend/scripts-utils
 
+## 2.0.2
+
+### Patch Changes
+
+- c7152471f: fix: make it public
+
 ## 2.0.1
 
 ### Patch Changes

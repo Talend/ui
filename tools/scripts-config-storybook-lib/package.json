@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-storybook-lib",
   "description": "Storybook configuration for @talend/scripts-core",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -33,8 +33,8 @@
     "assert": "^2.0.0",
     "i18next-http-backend": "^1.4.5",
     "lodash": "^4.17.21",
-    "msw": "0.49.2",
-    "msw-storybook-addon": "^1.6.3",
+    "msw": "^0.49.3",
+    "msw-storybook-addon": "^1.7.0",
     "util": "^0.12.5"
   },
   "peerDependencies": {

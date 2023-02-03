@@ -97,7 +97,7 @@ const BadgeCheckboxesForm = ({
 				placeholder={
 					filterBarPlaceholder ||
 					t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-						defaultValue: 'Find an entity',
+						defaultValue: 'Find a column',
 					})
 				}
 				onToggle={() => setFilter('')}

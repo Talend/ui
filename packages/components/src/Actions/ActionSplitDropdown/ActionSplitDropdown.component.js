@@ -49,7 +49,7 @@ export default function ActionSplitDropdown(props) {
 			id={randomUUID()}
 			className={classNames(className, theme['tc-split-dropdown'])}
 			aria-label={label}
-			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open "{{label}}" menu', label })}
+			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open {{label}} menu', label })}
 			{...rest}
 		>
 			{items.length ? (

@@ -65,7 +65,7 @@ function Skeleton({
 	);
 
 	const ariaLabel = t('SKELETON_LOADING', {
-		defaultValue: '{{type}} (loading)',
+		defaultValue: '{{type}} Loading...',
 		type: getTranslatedType(t, type),
 	});
 

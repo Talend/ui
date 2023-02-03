@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 import { ButtonIcon } from '@talend/design-system';
 
@@ -102,7 +101,7 @@ class DateTimeView extends React.PureComponent {
 					year={this.props.calendar.year}
 					button={{
 						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', {
-							defaultValue: 'Switch to month and year pickers view',
+							defaultValue: 'Switch to month-and-year view',
 						}),
 						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,

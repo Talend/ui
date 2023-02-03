@@ -12,7 +12,7 @@ describe('ItemsNumber', () => {
 		const wrapper = mount(<ItemsNumber {...props} />);
 
 		// then
-		expect(wrapper.find('div#list-items-number').text()).toEqual(`${props.totalItems} items`);
+		expect(wrapper.find('div#list-items-number').text()).toEqual(`${props.totalItems} item`);
 	});
 	it('should render total number of items + customized title', () => {
 		// given
@@ -39,7 +39,7 @@ describe('ItemsNumber', () => {
 
 		// then
 		expect(wrapper.find('div#list-items-number').text()).toEqual(
-			`${newProps.selected}/${newProps.totalItems} items`,
+			`${newProps.selected}/${newProps.totalItems} item`,
 		);
 	});
 
