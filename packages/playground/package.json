@@ -6,7 +6,6 @@
   "main": "app/index.js",
   "scripts": {
     "build": "cross-env BASENAME='/playground' talend-scripts build",
-    "cmf-settings": "cmf-settings",
     "test": "echo nothing to test in playground",
     "test:demo:umd": "cross-env BASENAME='/playground/' INITIATOR_URL='/playground/inject.js' talend-scripts build --prod",
     "start": "cross-env BASENAME='/' INITIATOR_URL='/inject.js' talend-scripts start --open http://localhost:3000",

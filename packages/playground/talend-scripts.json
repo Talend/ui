@@ -1,7 +1,6 @@
 {
   "cmf": true,
   "html": {},
-  "dynamic-cdn-webpack-plugin": false,
   "webpack": {
     "srcDirectories": ["../dataviz/src", "../containers/src", "../components/src"],
     "config": {
