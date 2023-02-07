@@ -286,14 +286,13 @@ module.exports = ({ getUserConfig, mode }) => {
 				rules: [
 					isEnvDevelopment && {
 						test: /\.js$/,
-						include: /@talend/,
+						include: /node_modules/,
 						use: ['source-map-loader'],
-						enforce: 'pre',
 					},
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
-						use: getJSAndTSLoader(env, useTypescript),
+						use: ['source-map-loader'].concat(getJSAndTSLoader(env, useTypescript)),
 					},
 					{
 						test: /\.css$/,

@@ -57,6 +57,7 @@ function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 function getJSAndTSLoader(env, useTypescript) {
 	return [
 		!env.nocache && { loader: 'cache-loader' },
+		'source-map-loader',
 		{
 			loader: 'babel-loader',
 			options: getBabelLoaderOptions(babelConfig),
