@@ -269,7 +269,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		const srcDirectories = (getUserConfig('webpack', {})?.srcDirectories || [])
 			.map(src => path.resolve(process.cwd(), src))
 			.concat([path.resolve(process.cwd(), './src/app')]);
-		console.log('####', srcDirectories);
+
 		return {
 			mode,
 			entry: `${process.cwd()}/src/app/index`,
