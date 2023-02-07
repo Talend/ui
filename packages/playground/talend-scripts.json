@@ -3,6 +3,7 @@
   "html": {},
   "dynamic-cdn-webpack-plugin": false,
   "webpack": {
+    "srcDirectories": ["../dataviz/src", "../containers/src", "../components/src"],
     "config": {
       "development": "./webpack.config.dev.js",
       "production": "./webpack.config.dev.js"
