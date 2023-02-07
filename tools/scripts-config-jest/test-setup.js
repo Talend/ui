@@ -187,14 +187,21 @@ try {
 
 		function getMock(name) {
 			const mockName = `Coral${name}`;
-			function Component(props) {
-				return React.createElement('span', {
-					...props,
-					className: classnames(mockName, props.className),
-				});
+			function Component({ disclosure, children, ...props }) {
+				return React.createElement(
+					'span',
+					{
+						...props,
+						className: classnames(mockName, props.className),
+					},
+					disclosure,
+					children,
+				);
 			}
 			Component.displayName = name;
 			Component.propTypes = {
+				disclosure: propTypes.element,
+				children: propTypes.element,
 				className: propTypes.string,
 			};
 			return Component;

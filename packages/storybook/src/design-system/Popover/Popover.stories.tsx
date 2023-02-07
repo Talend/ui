@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { PopoverStateReturn } from 'reakit/ts';
@@ -11,11 +11,14 @@ export default {
 
 const EasyPopover = () => <StackVertical gap="S">Hello hello</StackVertical>;
 
-const OpenPopover = (props: PopoverDisclosureHTMLProps) => (
-	<ButtonPrimary onClick={action('Clicked disclosure')} {...props}>
-		Open popover
-	</ButtonPrimary>
-);
+/* eslint-disable-next-line react/display-name */
+const OpenPopover = forwardRef((props: PopoverDisclosureHTMLProps, ref: Ref<HTMLButtonElement>) => {
+	return (
+		<ButtonPrimary onClick={action('Clicked disclosure')} {...props} ref={ref}>
+			Open popover
+		</ButtonPrimary>
+	);
+});
 
 export const DefaultStory = () => (
 	<div style={{ padding: '1.2rem' }}>
