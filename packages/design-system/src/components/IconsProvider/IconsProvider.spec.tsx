@@ -1,6 +1,7 @@
+/* eslint-disable testing-library/prefer-screen-queries */
 import React from 'react';
 
-import { IconsProvider } from '.';
+import { IconsProvider, Icon } from '.';
 
 context('<IconsProvider />', () => {
 	it('should render', () => {
@@ -63,5 +64,13 @@ context('<IconsProvider />', () => {
 		cy.mount(<IconsProvider bundles={[]} additionalBundles={additionalBundles} />);
 		cy.getByTest('other-icons').should('to.exist');
 		cy.getByTest('more-icons').should('to.exist');
+	});
+	it('should support additionalBundles props', () => {
+		cy.mount(
+			<>
+				<IconsProvider />
+				<Icon name="folder-closed:L" />
+			</>,
+		);
 	});
 });
