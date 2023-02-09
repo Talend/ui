@@ -69,6 +69,21 @@
       }
     }
   },
+  "@talend/login-page": {
+    "var": "LoginPage",
+    "versions": {
+      ">= 1.0.0": {
+        "development": "/dist/bundle.js",
+        "production": "/dist/bundle.min.js"
+      }
+    },
+    "style-versions": {
+      ">= 1.0.0": {
+        "development": "/dist/style.css",
+        "production": "/dist/style.min.css"
+      }
+    }
+  },
   "@talend/react-bootstrap": {
     "var": "TalendReactBootstrap",
     "versions": {
