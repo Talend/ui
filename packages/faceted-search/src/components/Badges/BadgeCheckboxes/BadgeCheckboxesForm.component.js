@@ -91,9 +91,9 @@ const BadgeCheckboxesForm = ({
 	};
 	const onToggleAll = event => {
 		const checked = event.target.checked;
-		checkboxes.forEach(entity => (entity.checked = checked));
 		if (checked) {
-			onChange(event, checkboxes);
+			const checkedCheckboxes = checkboxes.map(entity => ({ ...entity, checked: true }));
+			onChange(event, checkedCheckboxes);
 		} else {
 			onChange(event, []);
 		}
