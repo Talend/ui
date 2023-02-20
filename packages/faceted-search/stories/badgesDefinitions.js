@@ -14,7 +14,13 @@ export const badgeName = {
 		isAvailableForFacetList: true,
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		operators: [
+			'containsIgnoreCase',
+			'notContainsIgnoreCase',
+			'equals',
+			'notEquals',
+			'match a regexp',
+		],
 	},
 };
 
@@ -34,7 +40,13 @@ export const badgeConnectionName = {
 		isAvailableForFacetList: true,
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		operators: [
+			'containsIgnoreCase',
+			'notContainsIgnoreCase',
+			'equals',
+			'notEquals',
+			'match a regexp',
+		],
 	},
 };
 
@@ -54,7 +66,13 @@ export const badgeAuthor = {
 		isAvailableForFacetList: true,
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		operators: [
+			'containsIgnoreCase',
+			'notContainsIgnoreCase',
+			'equals',
+			'notEquals',
+			'match a regexp',
+		],
 	},
 };
 
@@ -72,7 +90,7 @@ export const badgeAll = {
 		isAvailableForFacetList: false,
 		badgePerFacet: '1',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase'],
+		operators: ['containsIgnoreCase', 'notContainsIgnoreCase'],
 	},
 };
 
@@ -98,7 +116,34 @@ export const badgeConnectionType = {
 			{ id: 'salesforce', label: 'Salesforce' },
 			{ id: 'aws_kinesis', label: 'AWS kinesis' },
 		],
-		operators: ['in'],
+		operators: ['in', 'notIn'],
+	},
+};
+
+export const badgeConnectionTypeAllSelector = {
+	properties: {
+		attribute: 'connection.type',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Connection type',
+		operator: {},
+		operators: [],
+		type: 'checkbox',
+		filterBarPlaceholder: 'Find a connection type',
+	},
+	metadata: {
+		badgePerFacet: '1',
+		entitiesPerBadge: 'N',
+		values: [
+			{ id: 'amazon_s3', label: 'Amazon S3' },
+			{ id: 'hdfs', label: 'HDFS' },
+			{ id: 'kafka', label: 'Kafka' },
+			{ id: 'localcon', label: 'Local connection' },
+			{ id: 'salesforce', label: 'Salesforce' },
+			{ id: 'aws_kinesis', label: 'AWS kinesis' },
+		],
+		operators: ['in', 'notIn'],
+		allSelector: true,
 	},
 };
 
@@ -207,7 +252,7 @@ export const badgeTags = {
 	metadata: {
 		badgePerFacet: '1',
 		entitiesPerBadge: 'N',
-		operators: ['in'],
+		operators: ['in', 'notIn'],
 	},
 };
 
@@ -275,7 +320,7 @@ export const badgeEnumWithLotOfValues = {
 			{ id: 'salesforce_classic', label: 'Salesforce Classic' },
 			{ id: 'aws_kinesis_classic', label: 'AWS kinesis Classic' },
 		],
-		operators: ['in'],
+		operators: ['in', 'notIn'],
 	},
 };
 
@@ -294,7 +339,13 @@ export const badgeTextAsCustomAttribute = {
 		category: 'Custom attributes',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals', 'notEquals', 'match a regexp'],
+		operators: [
+			'containsIgnoreCase',
+			'notContainsIgnoreCase',
+			'equals',
+			'notEquals',
+			'match a regexp',
+		],
 	},
 };
 
@@ -317,7 +368,7 @@ export const badgeEnumsAsCustomAttribute = {
 			{ id: 'internal', label: 'Internal' },
 			{ id: 'public', label: 'Public' },
 		],
-		operators: ['in'],
+		operators: ['in', 'notIn'],
 	},
 };
 
@@ -336,7 +387,7 @@ export const badgeTextAsCategory = {
 		category: 'Very long long long long long long long category',
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals'],
+		operators: ['containsIgnoreCase', 'notContainsIgnoreCase', 'equals'],
 	},
 };
 
@@ -353,7 +404,7 @@ export const badgeEmptyLabel = {
 	metadata: {
 		badgePerFacet: 'N',
 		entitiesPerBadge: '1',
-		operators: ['containsIgnoreCase', 'equals'],
+		operators: ['containsIgnoreCase', 'notContainsIgnoreCase', 'equals'],
 	},
 };
 
