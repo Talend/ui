@@ -266,6 +266,10 @@ module.exports = ({ getUserConfig, mode }) => {
 		const isEnvDevelopmentServe = isEnvDevelopment && process.env.WEBPACK_SERVE === 'true';
 		const b64favicon = icons.getFavicon(theme);
 
+		const srcDirectories = (getUserConfig('webpack', {})?.monoRepoFixSourceMap || [])
+			.map(src => path.resolve(process.cwd(), src))
+			.concat([path.resolve(process.cwd(), './src/app')]);
+
 		return {
 			mode,
 			entry: `${process.cwd()}/src/app/index`,
@@ -286,13 +290,14 @@ module.exports = ({ getUserConfig, mode }) => {
 				rules: [
 					isEnvDevelopment && {
 						test: /\.js$/,
-						include: /@talend/,
+						include: /node_modules/,
 						use: ['source-map-loader'],
 						enforce: 'pre',
 					},
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
+						include: srcDirectories,
 						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
