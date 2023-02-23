@@ -49,6 +49,31 @@ const defaultMain = {
 	},
 	typescript: { reactDocgen: false },
 	webpackFinal: async (config) => {
+		// by default storybook do not support scss without css module
+		// here we remove storybook scss config and replace it by our config
+		const rules = [
+			...config.module.rules.filter(rule => {
+				return !rule.test?.toString().includes('s[ca]ss');
+			}),
+			{
+				test: /\.html$/,
+				use: [
+					{ loader: 'cache-loader' },
+					{ loader: 'ngtemplate-loader' },
+					{ loader: 'html-loader', options: { esModule: false } },
+				],
+				exclude: path.resolve(process.cwd(), 'src', 'app', 'index.html'),
+			},
+			{
+				test: /\.scss$/,
+				exclude: /\.module\.scss$/,
+				use: getSassLoaders(false, '', true),
+			},
+			{
+				test: /\.module\.scss$/,
+				use: getSassLoaders(true, '', true),
+			},
+		];
 		const mergedConfig = {
 			...config,
 			plugins: [
@@ -58,6 +83,7 @@ const defaultMain = {
 					exclude: Object.keys(getAllModules()).filter(name => name.match(/^(@talend\/|angular)/))
 				}),
 			],
+			rules,
 			resolve: {
 				extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
 			},
