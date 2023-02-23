@@ -59,15 +59,6 @@ const defaultMain = {
 				return !rule.test?.toString().includes('s[ca]ss');
 			}),
 			{
-				test: /\.html$/,
-				use: [
-					{ loader: 'cache-loader' },
-					{ loader: 'ngtemplate-loader' },
-					{ loader: 'html-loader', options: { esModule: false } },
-				],
-				exclude: path.resolve(process.cwd(), 'src', 'app', 'index.html'),
-			},
-			{
 				test: /\.scss$/,
 				exclude: /\.module\.scss$/,
 				use: getSassLoaders(false, '', true),
