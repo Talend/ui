@@ -44,6 +44,30 @@ describe('JSONLike', () => {
 		expect(wrapper.props().className).toContain('extra-test');
 	});
 
+	it('should render with tooltip', () => {
+		const data = {
+			foo: 'foo',
+			bar: {
+				hello: 'hello',
+			},
+		};
+		const wrapper = shallow(<Component {...callbacksProps} data={data} rootLabel="Root" />);
+		expect(wrapper.dive().getElement()).toMatchSnapshot();
+	});
+
+	it('should render without tooltip', () => {
+		const data = {
+			foo: 'foo',
+			bar: {
+				hello: 'hello',
+			},
+		};
+		const wrapper = shallow(
+			<Component {...callbacksProps} data={data} rootLabel="Root" hideTooltip />,
+		);
+		expect(wrapper.dive().getElement()).toMatchSnapshot();
+	});
+
 	describe('abstracter', () => {
 		const TEST_STRING = 'test';
 
@@ -179,6 +203,22 @@ describe('JSONLike', () => {
 			// when
 			const wrapper = shallow(
 				<ComplexItem {...callbacksProps} name="name" opened={[]} edited={[]} info={{}} />,
+			);
+
+			// expect
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+		it('should render without tooltip', () => {
+			// when
+			const wrapper = shallow(
+				<ComplexItem
+					{...callbacksProps}
+					name="name"
+					opened={[]}
+					edited={[]}
+					info={{}}
+					hideTooltip
+				/>,
 			);
 
 			// expect

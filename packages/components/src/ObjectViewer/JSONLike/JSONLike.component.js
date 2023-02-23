@@ -351,12 +351,7 @@ function UntranslatedComplexItem(props) {
 				/>
 			}
 			badge={
-				<TooltipTrigger
-					key="badge-tooltip"
-					className="offset"
-					label={getDataAbstract(data)}
-					tooltipPlacement="right"
-				>
+				props.hideTooltip ? (
 					<sup
 						key="badge"
 						className={`${theme.badge} badge`}
@@ -368,7 +363,26 @@ function UntranslatedComplexItem(props) {
 					>
 						{decoratedLength}
 					</sup>
-				</TooltipTrigger>
+				) : (
+					<TooltipTrigger
+						key="badge-tooltip"
+						className="offset"
+						label={getDataAbstract(data)}
+						tooltipPlacement="right"
+					>
+						<sup
+							key="badge"
+							className={`${theme.badge} badge`}
+							aria-label={t('TC_OBJECT_VIEWER_NB_CHILD', {
+								defaultValue: 'Contains {{count}} child object',
+								defaultValue_plural: 'Contains {{count}} child objects',
+								count: info.length,
+							})}
+						>
+							{decoratedLength}
+						</sup>
+					</TooltipTrigger>
+				)
 			}
 			type={props.showType ? info.type : null}
 		>
@@ -401,6 +415,7 @@ UntranslatedComplexItem.propTypes = {
 	onToggle: PropTypes.func.isRequired,
 	opened: PropTypes.arrayOf(PropTypes.string).isRequired,
 	showType: PropTypes.bool,
+	hideTooltip: PropTypes.bool,
 	t: PropTypes.func,
 };
 
@@ -534,7 +549,9 @@ export function JSONLike({ onSubmit, className, style, ...props }) {
 	if (rootIsObject) {
 		if (props.rootLabel) {
 			labelId = (props.id && `${props.id}-label`) || 'tc-object-viewer-label';
-			label = (
+			label = props.hideTooltip ? (
+				<div className={theme['root-label-overflow']}>{props.rootLabel}</div>
+			) : (
 				<TooltipTrigger key="label" label={props.rootLabel} tooltipPlacement="right">
 					<div className={theme['root-label-overflow']}>{props.rootLabel}</div>
 				</TooltipTrigger>
@@ -592,6 +609,7 @@ JSONLike.propTypes = {
 	style: PropTypes.object,
 	rootLabel: PropTypes.string,
 	tupleLabel: PropTypes.string,
+	hideTooltip: PropTypes.bool,
 };
 
 export default withTreeGesture(JSONLike);
