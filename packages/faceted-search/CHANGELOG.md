@@ -1,5 +1,14 @@
 # Changelog
 
+## 8.1.0
+
+### Minor Changes
+
+- 705ff3066: Faceted search - Tags faceted should allow a list of flat tags or objects
+- 06e45a74c: Faceted search
+  - Add new `Not in` and `Not contains` operators
+  - On badge checkbox faceted, added an optional checkbox to select all items with the `metadata.allSelector` property
+
 ## 8.0.4
 
 ### Patch Changes
