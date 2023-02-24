@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 9.5.0
+
+### Minor Changes
+
+- 120d02173: Supports hiding tooltip for ObjectViewer(JSONLike)
+
 ## 9.4.2
 
 ### Patch Changes
