@@ -56,6 +56,7 @@ function focusOnDay(
 	props: CalendarGestureProps,
 ) {
 	const allItems = getAllItems(calendarRef);
+
 	if (indexToFocus < 0) {
 		props.goToPreviousMonth(() => {
 			focusOn(getDay(calendarRef, indexToFocus));
@@ -106,7 +107,9 @@ export function withCalendarGesture<T extends CalendarGestureProps = CalendarGes
 ) {
 	return class CalendarGesture extends React.Component<T> {
 		static displayName = `CalendarGesture(${WrappedComponent.displayName})`;
+
 		ref = React.createRef<HTMLDivElement>();
+
 		constructor(props: T) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
@@ -202,7 +205,9 @@ export function withMonthCalendarGesture<T extends CalendarGestureProps = Calend
 		static propTypes = {
 			...omit(WrappedComponent.propTypes, 'onKeyDown'),
 		};
+
 		static displayName = `MonthCalendarGesture(${WrappedComponent.displayName})`;
+
 		ref = React.createRef<HTMLDivElement>();
 
 		constructor(props: T) {
@@ -257,7 +262,7 @@ export function withMonthCalendarGesture<T extends CalendarGestureProps = Calend
 			}
 		}
 
-		preventScroll = (evt: KeyboardEvent) => {
+		preventScroll(evt: KeyboardEvent) {
 			const arrows = [
 				keycode.codes.left,
 				keycode.codes.right,
@@ -269,7 +274,7 @@ export function withMonthCalendarGesture<T extends CalendarGestureProps = Calend
 			if (arrows.includes(evt.keyCode)) {
 				evt.preventDefault();
 			}
-		};
+		}
 
 		render() {
 			const props = { ...(this.props as T) };

@@ -12,6 +12,7 @@ class DayCalendar extends React.Component {
 	render() {
 		const { year, month, onKeyDown } = this.props;
 		const weeks = buildWeeks(year, month);
+
 		return (
 			<table
 				ref={ref => {
@@ -28,7 +29,11 @@ class DayCalendar extends React.Component {
 								const day = getDate(date);
 								return (
 									<td key={dayIndex}>
-										<button data-value={this.isCurrentMonth(date) && day} onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}>
+										<button
+											data-test={this.isCurrentMonth(date) && day}
+											data-value={this.isCurrentMonth(date) && day}
+											onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}
+										>
 											{day}
 										</button>
 									</td>
