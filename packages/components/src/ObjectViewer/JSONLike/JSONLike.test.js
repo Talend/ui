@@ -1,5 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import Component, {
 	ARRAY_ABSTRACT,
 	OBJECT_ABSTRACT,
@@ -16,32 +18,100 @@ const callbacksProps = {
 	onToggle: jest.fn(),
 	onToggleAllSiblings: jest.fn(),
 };
+jest.mock('../../TooltipTrigger', () => {
+	const PropTypes = require('prop-types');
+	const TooltipTriggerMock = props => <div data-testid="tooltipTrigger">{props.label}</div>;
+	TooltipTriggerMock.displayName = 'TooltipTriggerMock';
+	TooltipTriggerMock.propTypes = {
+		label: PropTypes.string.isRequired,
+	};
+	return TooltipTriggerMock;
+});
 
+jest.mock('react', () => {
+	const realReact = jest.requireActual('react');
+	return {
+		...realReact,
+		useCallback: () => {},
+	};
+});
 describe('JSONLike', () => {
 	it('should have tree gestures', () => {
 		expect(Component.displayName).toBe('TreeGesture(JSONLike)');
 	});
 
-	it('should render', () => {
+	it('should render', async () => {
+		// GIVEN
 		const data = {
-			foo: 'foo',
+			foo: 'foo_1',
 			bar: {
-				hello: 'hello',
+				hello: 'hello_2',
 			},
 		};
-		const wrapper = shallow(<Component id="my-object" data={data} {...callbacksProps} />);
-		expect(wrapper.dive().getElement()).toMatchSnapshot();
+		const props = {
+			data,
+			id: 'my-object',
+			opened: ['$'],
+			...callbacksProps,
+		};
+		// WHEN
+		render(<Component {...props} />);
+		// THEN
+		expect(screen.getByRole('tree')).toBeVisible();
+		const treeItems = await screen.findAllByRole('treeitem');
+		// should has 3 nodes, root, foo and bar
+		expect(treeItems).toHaveLength(3);
+		expect(within(treeItems[1]).getByText('foo:')).toBeVisible();
+		expect(within(treeItems[1]).getByText('foo_1')).toBeVisible();
+		expect(within(treeItems[2]).getByText('bar:')).toBeVisible();
+		expect(within(treeItems[2]).getByText('hello_2')).toBeVisible();
+		// check the tooltips
+		const tooltips = screen.getAllByTestId('tooltipTrigger');
+		expect(tooltips).toHaveLength(2);
+		expect(tooltips[0]).toHaveTextContent('foo_1, {...}');
+		expect(tooltips[1]).toHaveTextContent('hello_2');
 	});
 
 	it('should support className', () => {
+		// GIVEN
 		const data = {
 			foo: 'foo',
 			bar: {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(<Component {...callbacksProps} data={data} className="extra-test" />);
-		expect(wrapper.props().className).toContain('extra-test');
+		const props = {
+			data,
+			id: 'my-object',
+			opened: ['$'],
+			...callbacksProps,
+		};
+		// WHEN
+		render(<Component {...props} className="extra-test" />);
+		// THEN
+		expect(screen.getByTestId('my-object-container')).toHaveClass('extra-test');
+	});
+
+	it('should render without tooltip', () => {
+		// GIVEN
+		const data = {
+			foo: 'foo',
+			bar: {
+				hello: 'hello',
+			},
+		};
+		const props = {
+			data,
+			id: 'my-object',
+			opened: ['$'],
+			...callbacksProps,
+			rootLabel: 'Root',
+			hideTooltip: true,
+		};
+		// WHEN
+		render(<Component {...props} />);
+		// THEN
+		expect(screen.queryByTestId('tooltipTrigger')).not.toBeInTheDocument();
 	});
 
 	describe('abstracter', () => {
@@ -176,24 +246,39 @@ describe('JSONLike', () => {
 
 	describe('ComplexItem', () => {
 		it('should render', () => {
-			// when
-			const wrapper = shallow(
-				<ComplexItem {...callbacksProps} name="name" opened={[]} edited={[]} info={{}} />,
+			// WHEN
+			render(<ComplexItem {...callbacksProps} name="name" opened={[]} edited={[]} info={{}} />);
+			// THEN
+			expect(screen.getByRole('treeitem')).toBeVisible();
+			expect(screen.getByText('name:')).toBeVisible();
+			expect(screen.getByTestId('tooltipTrigger')).toBeVisible();
+		});
+		it('should render without tooltip', () => {
+			// WHEN
+			render(
+				<ComplexItem
+					{...callbacksProps}
+					name="name"
+					opened={[]}
+					edited={[]}
+					info={{}}
+					hideTooltip
+				/>,
 			);
-
-			// expect
-			expect(wrapper.getElement()).toMatchSnapshot();
+			// THEN
+			expect(screen.queryByTestId('tooltipTrigger')).not.toBeInTheDocument();
 		});
 
 		it('should render injected elements next to name/sup', () => {
-			const wrapper = mount(
+			// WHEN
+			render(
 				<ComplexItem
 					{...callbacksProps}
 					name="name"
 					opened={['$']}
 					edited={[]}
 					tag={
-						<span id="injected" key="tag">
+						<span data-testid="injected" key="tag">
 							hello world
 						</span>
 					}
@@ -203,14 +288,16 @@ describe('JSONLike', () => {
 				/>,
 			);
 
-			expect(wrapper.find('TooltipTrigger+#injected').at(0).text()).toEqual('hello world');
+			// THEN
+			expect(screen.getByTestId('injected')).toHaveTextContent('hello world');
 		});
 
 		it("should toggle item but don't trigger form submit", () => {
-			// given
+			// GIVEN
 			const mockOnToggle = jest.fn();
 			const mockOnSubmitClick = jest.fn();
-			const wrapper = mount(
+			// WHEN
+			render(
 				<form onSubmit={mockOnSubmitClick}>
 					<ComplexItem
 						{...callbacksProps}
@@ -225,24 +312,25 @@ describe('JSONLike', () => {
 					</button>
 				</form>,
 			);
-
+			// THEN
 			expect(mockOnToggle).not.toBeCalled();
 			expect(mockOnSubmitClick).not.toBeCalled();
-			const event = { stopPropagation: jest.fn() };
-
-			// when
-			wrapper.find('button.tc-object-viewer-toggle').simulate('click', event);
-
-			// expect
-			expect(event.stopPropagation).toBeCalled();
+			// WHEN
+			userEvent.click(
+				screen.getByRole('link', {
+					hidden: true,
+				}),
+			);
+			// THEN
 			expect(mockOnToggle).toBeCalled();
 			expect(mockOnSubmitClick).not.toBeCalled();
 		});
 
 		it('should select item', () => {
-			// given
+			// GIVEN
 			const mockOnSelect = jest.fn();
-			const wrapper = mount(
+			// WHEN
+			render(
 				<ComplexItem
 					{...callbacksProps}
 					name="name"
@@ -252,15 +340,12 @@ describe('JSONLike', () => {
 					info={{}}
 				/>,
 			);
-
+			// THEN
 			expect(mockOnSelect).not.toBeCalled();
-			const event = { stopPropagation: jest.fn() };
 
-			// when
-			wrapper.find('li').simulate('click', event);
-
-			// expect
-			expect(event.stopPropagation).toBeCalled();
+			// WHEN
+			userEvent.click(screen.getByRole('treeitem'));
+			// THEN
 			expect(mockOnSelect).toBeCalled();
 		});
 	});
@@ -272,9 +357,11 @@ describe('JSONLike', () => {
 			expect(name).toBe(null);
 		});
 		it('should use colon translation in name label', () => {
-			const name = shallow(getName('spiderman', t));
+			// WHEN
+			render(getName('spiderman', t));
+			// THEN
 			expect(t).toHaveBeenCalledWith('COLON', { defaultValue: ':' });
-			expect(name.text()).toBe('spiderman :');
+			expect(screen.getByText('spiderman :')).toBeVisible();
 		});
 	});
 });
