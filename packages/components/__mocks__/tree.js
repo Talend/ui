@@ -16,7 +16,7 @@ class TreeItem extends React.Component {
 				aria-level={this.props.level}
 				aria-posinset={this.props.posinset}
 			>
-				{name}
+				{this.props.item.name}
 				{this.props.item.isOpened ? this.props.children : null}
 			</li>
 		);
