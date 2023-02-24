@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 4.0.2
+
+### Patch Changes
+
+- b1cb432e5: fix: support for import of scss file without css module
+
 ## 4.0.1
 
 ### Patch Changes

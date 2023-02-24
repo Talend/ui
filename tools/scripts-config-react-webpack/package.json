@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-react-webpack",
   "description": "Webpack configuration for @talend/scripts-core",
-  "version": "15.2.6",
+  "version": "15.3.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -34,7 +34,7 @@
     "core-js-bundle": "^3.27.2",
     "css-loader": "^4.3.0",
     "file-loader": "^6.2.0",
-    "fork-ts-checker-webpack-plugin": "^6.5.2",
+    "fork-ts-checker-webpack-plugin": "^7.3.0",
     "html-webpack-plugin": "^5.5.0",
     "inspectpack": "^4.7.1",
     "mini-css-extract-plugin": "^2.7.2",
