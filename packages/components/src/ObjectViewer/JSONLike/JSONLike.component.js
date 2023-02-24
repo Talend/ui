@@ -311,6 +311,7 @@ function UntranslatedComplexItem(props) {
 				{info.keys.map((key, i) => {
 					const childId = id && `${id}-${key}`;
 					return (
+						// eslint-disable-next-line @typescript-eslint/no-use-before-define
 						<Item
 							{...props}
 							key={childId || i}
