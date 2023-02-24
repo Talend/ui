@@ -2,23 +2,19 @@
  * @fileoverview Contains internal rules used at Talend
  * @author Jean-Michel FRANCOIS
  */
-"use strict";
+'use strict';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-var requireIndex = require("requireindex");
+var requireIndex = require('requireindex');
 
 //------------------------------------------------------------------------------
 // Plugin Definition
 //------------------------------------------------------------------------------
 
-
 // import all rules in lib/rules
 module.exports = {
-    rules: requireIndex(__dirname + "/rules"),
+	rules: requireIndex(__dirname + '/rules'),
 };
-
-
-

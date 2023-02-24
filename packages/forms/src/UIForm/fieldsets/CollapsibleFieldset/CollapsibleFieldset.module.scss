@@ -1,8 +1,8 @@
 @use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
 
 .collapsible-panel {
-  :global(.panel-heading) {
-    font-weight: 600;
-    font-size: 1.4rem;
-  }
+	:global(.panel-heading) {
+		font-weight: 600;
+		font-size: 1.4rem;
+	}
 }

@@ -3,7 +3,7 @@
 exports[`reducers.ack.ackReducer should reduce addContext 1`] = `
 Immutable.Map {
   "123": Immutable.Map {
-    "data": Object {
+    "data": {
       "foo": "bar",
     },
     "actionCreator": "my super action creator",
@@ -32,10 +32,10 @@ Immutable.Map {
 `;
 
 exports[`reducers.ackProcessed higher order reducer should reduce addContext 1`] = `
-Object {
+{
   "ack": Immutable.Map {
     "123": Immutable.Map {
-      "data": Object {
+      "data": {
         "foo": "bar",
       },
       "actionCreator": "my super action creator",
@@ -45,7 +45,7 @@ Object {
 `;
 
 exports[`reducers.ackProcessed higher order reducer should reduce deleteACK 1`] = `
-Object {
+{
   "ack": Immutable.Map {
     "456": Immutable.Map {
       "foo": "bar",
@@ -55,7 +55,7 @@ Object {
 `;
 
 exports[`reducers.ackProcessed higher order reducer should reduce receiveMessage 1`] = `
-Object {
+{
   "ack": Immutable.Map {
     "123": Immutable.Map {
       "foo": "bar",

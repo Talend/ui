@@ -96,6 +96,14 @@
       }
     },
     {
+      "key": "text",
+      "title": "Simple text with position:fixed hint",
+      "hint": {
+        "overlayComponent": "This content is displayed with fixed position instead of absolute",
+        "overlayIsFixed": true
+      }
+    },
+    {
       "key": "textarea",
       "widget": "textarea",
       "title": "Text area with hint",

@@ -1,86 +1,86 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .inlineEditor {
-  &__editor {
-    position: relative;
+	&__editor {
+		position: relative;
 
-    // Error management
-    [role='status'] {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-      background: tokens.$coral-color-neutral-background;
-      padding: tokens.$coral-spacing-xxs;
-      transform: translateY(100%);
-      box-shadow: tokens.$coral-elevation-shadow-neutral-s;
-    }
+		// Error management
+		[role='status'] {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			background: tokens.$coral-color-neutral-background;
+			padding: tokens.$coral-spacing-xxs;
+			transform: translateY(100%);
+			box-shadow: tokens.$coral-elevation-shadow-neutral-s;
+		}
 
-    input,
-    textarea {
-      padding-right: 4rem;
-    }
+		input,
+		textarea {
+			padding-right: 4rem;
+		}
 
-    &__actions {
-      position: absolute;
-      display: flex;
-      height: 100%;
-      bottom: 0;
-      right: 0;
-      top: 0;
+		&__actions {
+			position: absolute;
+			display: flex;
+			height: 100%;
+			bottom: 0;
+			right: 0;
+			top: 0;
 
-      &_sticky {
-        height: tokens.$coral-sizing-s;
-      }
-    }
-  }
+			&_sticky {
+				height: tokens.$coral-sizing-s;
+			}
+		}
+	}
 
-  &__content {
-    display: flex;
+	&__content {
+		display: flex;
 
-    &_loading {
-      animation: tokens.$coral-animation-heartbeat;
-    }
+		&_loading {
+			animation: tokens.$coral-animation-heartbeat;
+		}
 
-    &__value {
-      display: block;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      flex: 0 1 auto;
+		&__value {
+			display: block;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			flex: 0 1 auto;
 
-      &_multiline {
-        white-space: inherit;
-      }
+			&_multiline {
+				white-space: inherit;
+			}
 
-      &[data-placeholder]:empty::before {
-        content: attr(data-placeholder);
-        color: tokens.$coral-color-neutral-text-weak;
-      }
-    }
+			&[data-placeholder]:empty::before {
+				content: attr(data-placeholder);
+				color: tokens.$coral-color-neutral-text-weak;
+			}
+		}
 
-    &__button {
-      flex: 0 0 auto;
-      opacity: 0;
-      margin-left: tokens.$coral-spacing-xxs;
-      transition: opacity tokens.$coral-transition-fast;
+		&__button {
+			flex: 0 0 auto;
+			opacity: 0;
+			margin-left: tokens.$coral-spacing-xxs;
+			transition: opacity tokens.$coral-transition-fast;
 
-      > * {
-        position: relative;
-        top: 0.1rem;
-      }
+			> * {
+				position: relative;
+				top: 0.1rem;
+			}
 
-      &:hover,
-      &:active,
-      &:focus {
-        opacity: 1;
-      }
-    }
+			&:hover,
+			&:active,
+			&:focus {
+				opacity: 1;
+			}
+		}
 
-    &:hover .inlineEditor__content__button,
-    &:active .inlineEditor__content__button,
-    &:focus .inlineEditor__content__button {
-        opacity: 1;
-    }
-  }
+		&:hover .inlineEditor__content__button,
+		&:active .inlineEditor__content__button,
+		&:focus .inlineEditor__content__button {
+			opacity: 1;
+		}
+	}
 }

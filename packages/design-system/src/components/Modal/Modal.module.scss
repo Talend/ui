@@ -1,9 +1,6 @@
 @use '~@talend/design-tokens/lib/tokens';
 
-$modal-backdrop-z-index: 100000;
-$modal-z-index: $modal-backdrop-z-index + 1;
-
-.modal-backdrop:before,
+.modal-backdrop::before,
 .modal-container {
 	position: fixed;
 	top: 0;
@@ -13,8 +10,8 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 }
 
 .modal-backdrop {
-	&:before {
-		z-index: $modal-backdrop-z-index - 1;
+	&::before {
+		z-index: tokens.$coral-elevation-layer-standard-front;
 		content: '';
 		background-color: tokens.$coral-color-assistive-background;
 		opacity: tokens.$coral-opacity-l;
@@ -22,7 +19,7 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 }
 
 .modal-container {
-	z-index: $modal-z-index;
+	z-index: calc(tokens.$coral-elevation-layer-standard-front + 1);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -58,7 +55,7 @@ $modal-z-index: $modal-backdrop-z-index + 1;
 	&__header {
 		flex-shrink: 0;
 		height: 6rem;
-		padding: tokens.$coral-spacing-xs tokens.$coral-spacing-l;
+		padding: tokens.$coral-spacing-xs tokens.$coral-spacing-xl;
 		border-bottom: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
 
 		display: flex;

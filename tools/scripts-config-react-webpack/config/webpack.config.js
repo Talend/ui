@@ -18,7 +18,7 @@ const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
 
 const cdn = require('@talend/scripts-config-cdn');
-const exists = require('@talend/scripts-utils/fs');
+const utils = require('@talend/scripts-utils');
 const LICENSE_BANNER = require('./licence');
 const inject = require('./inject');
 const icons = require('./icons');
@@ -46,7 +46,7 @@ const BASENAME = process.env.BASENAME || '/';
 cdn.configureTalendModules();
 
 // Check if Typescript is setup
-const useTypescript = exists.tsConfig();
+const useTypescript = utils.fs.tsConfig();
 
 function getGitRevision() {
 	let revision = process.env.GIT_COMMIT;
@@ -147,7 +147,13 @@ const meta = VERSIONS.talendLibraries.reduce(
 	},
 );
 
-function getCopyConfig(env, userCopyConfig = []) {
+function renderMeta() {
+	return Object.keys(meta)
+		.map(key => `<meta name="${key}" content="${meta[key]}" />`)
+		.join('\n');
+}
+
+function getCopyConfig(env, userCopyConfig = [], noDynamicCdn) {
 	const config = [...userCopyConfig];
 	const assetsOverridden = config.some(nextAsset =>
 		typeof nextAsset === 'object' ? nextAsset.from === 'src/assets' : nextAsset === 'src/assets',
@@ -155,15 +161,15 @@ function getCopyConfig(env, userCopyConfig = []) {
 	if (!assetsOverridden && fs.existsSync(path.join(process.cwd(), 'src/assets'))) {
 		config.push({ from: 'src/assets' });
 	}
-	if (!cdnMode) {
+	if (!cdnMode && !noDynamicCdn) {
 		cdn.getCopyConfig().forEach(c => config.push(c));
 	}
 	return config;
 }
 
-async function getIndexTemplate(env, mode, indexTemplatePath) {
+async function getIndexTemplate(env, mode, indexTemplatePath, useInitiator = true) {
 	const headPath = path.join(process.cwd(), '.talend', 'head.html');
-	const headExists = await exists.isFile(headPath);
+	const headExists = await utils.fs.isFile(headPath);
 
 	let customHead = '';
 	if (headExists) {
@@ -177,29 +183,33 @@ async function getIndexTemplate(env, mode, indexTemplatePath) {
 	 * For example react-is index.js includes a test on process.env.NODE_ENV to require the min version or not.
 	 * Let's bypass this issue by setting a process.env.NODE_ENV
 	 */
-	const header = `${customHead}<% var meta = htmlWebpackPlugin.options.meta;
-		var metaKeys = Object.keys(meta);
-		for(var i = 0; i < metaKeys.length; ++i) {%>
-		<meta name="<%=metaKeys[i] %>" content="<%=meta[metaKeys[i]] %>" />
-		<% } %>
-		<link rel="icon" type="image/svg+xml" href="<%= htmlWebpackPlugin.options.favicon || htmlWebpackPlugin.options.b64favicon %>">
-		<style><%= htmlWebpackPlugin.options.appLoaderStyle %></style>
-		<script type="text/javascript">
+	let headScript = `
+	<script type="text/javascript">
+		window.basename = '${BASENAME}';
+	</script>`;
+	if (useInitiator) {
+		// meta are not injected if inject is false
+		headScript = `${renderMeta()}<script type="text/javascript">
+			window.basename = '${BASENAME}';
 			var process = { browser: true, env: { NODE_ENV: '${mode}' } };
 			var TALEND_CDN_VERSIONS = {
 				TUI: '@@TALEND_UI_VERSION@@', ${process.env.CUSTOM_VERSIONS || ''}
 			};
-			window.basename = '${BASENAME}';
 			window.TALEND_INITIATOR_URL = '${INITIATOR_URL}';
 			window.jsFiles = [<%= htmlWebpackPlugin.files.js.map(href => '"'+href+'"').join(',') %>];
 			window.cssFiles = [<%= htmlWebpackPlugin.files.css.map(href => '"'+href+'"').join(',') %>];
-			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata)%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata)%> };
+			window.Talend = { build: <%= JSON.stringify(htmlWebpackPlugin.files.jsMetadata || [])%>, cssBuild:  <%= JSON.stringify(htmlWebpackPlugin.files.cssMetadata || [])%> };
 			${await inject.getMinified()}
-		</script>
+		</script>`;
+	}
+	const header = `${customHead}
+		<link rel="icon" type="image/svg+xml" href="<%= htmlWebpackPlugin.options.favicon || htmlWebpackPlugin.options.b64favicon %>">
+		<style><%= htmlWebpackPlugin.options.appLoaderStyle %></style>
+		${headScript}
 		<base href="${BASENAME}" />
 	</head>`;
 	// fs.exists is deprecated
-	const templateExists = await exists.isFile(indexTemplatePath);
+	const templateExists = await utils.fs.isFile(indexTemplatePath);
 	let indexTemplate;
 	if (templateExists) {
 		indexTemplate = await fs.promises.readFile(indexTemplatePath, 'utf8');
@@ -208,7 +218,7 @@ async function getIndexTemplate(env, mode, indexTemplatePath) {
 	}
 
 	const bodyPath = path.join(process.cwd(), '.talend', 'body.html');
-	const customBodyExists = await exists.isFile(bodyPath);
+	const customBodyExists = await utils.fs.isFile(bodyPath);
 	let body = '</body>';
 	if (customBodyExists) {
 		body = await fs.promises.readFile(bodyPath);
@@ -241,13 +251,24 @@ module.exports = ({ getUserConfig, mode }) => {
 			process.cwd(),
 			userHtmlConfig.template || DEFAULT_INDEX_TEMPLATE_PATH,
 		);
-		const indexTemplate = await getIndexTemplate(env, mode, indexTemplatePath);
+
+		meta['app-id'] = userHtmlConfig.appId || theme;
+
+		const indexTemplate = await getIndexTemplate(
+			env,
+			mode,
+			indexTemplatePath,
+			dcwpConfig !== false,
+		);
 
 		const isEnvDevelopment = mode === 'development';
 		const isEnvProduction = mode === 'production';
+		const isEnvDevelopmentServe = isEnvDevelopment && process.env.WEBPACK_SERVE === 'true';
 		const b64favicon = icons.getFavicon(theme);
 
-		meta['app-id'] = userHtmlConfig.appId || theme;
+		const srcDirectories = (getUserConfig('webpack', {})?.monoRepoFixSourceMap || [])
+			.map(src => path.resolve(process.cwd(), src))
+			.concat([path.resolve(process.cwd(), './src/app')]);
 
 		return {
 			mode,
@@ -269,38 +290,39 @@ module.exports = ({ getUserConfig, mode }) => {
 				rules: [
 					isEnvDevelopment && {
 						test: /\.js$/,
-						include: /@talend/,
+						include: /node_modules/,
 						use: ['source-map-loader'],
 						enforce: 'pre',
 					},
 					{
 						test: useTypescript ? /\.(js|ts|tsx)$/ : /\.js$/,
 						exclude: /node_modules/,
+						include: srcDirectories,
 						use: getJSAndTSLoader(env, useTypescript),
 					},
 					{
 						test: /\.css$/,
 						exclude: /\.module\.css$/,
-						use: getCommonStyleLoaders(false, mode),
+						use: getCommonStyleLoaders(false, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.module\.css$/,
-						use: getCommonStyleLoaders(true, mode),
+						use: getCommonStyleLoaders(true, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.scss$/,
 						exclude: /\.module\.scss$/,
-						use: getSassLoaders(false, sassData, mode),
+						use: getSassLoaders(false, sassData, isEnvDevelopmentServe),
 					},
 					{
 						test: /\.module\.scss$/,
-						use: getSassLoaders(true, sassData, mode),
+						use: getSassLoaders(true, sassData, isEnvDevelopmentServe),
 					},
 					...getAssetsRules(true),
 				].filter(Boolean),
 			},
 			plugins: [
-				isEnvDevelopment && new DuplicatesPlugin(),
+				isEnvDevelopment && !!env.analyze && new DuplicatesPlugin(),
 				new webpack.DefinePlugin({
 					BUILD_TIMESTAMP: Date.now(),
 					TALEND_APP_INFO: JSON.stringify(getTalendVersions()),
@@ -310,10 +332,11 @@ module.exports = ({ getUserConfig, mode }) => {
 						process.env.DISABLE_JS_ERROR_NOTIFICATION,
 					),
 				}),
-				(isEnvDevelopment || !!env.analyze) &&
+				isEnvDevelopment &&
+					!!env.analyze &&
 					new BundleAnalyzerPlugin({
 						analyzerMode: 'static',
-						openAnalyzer: !!env.analyze,
+						openAnalyzer: false,
 						logLevel: 'error',
 					}),
 				new MiniCssExtractPlugin({
@@ -337,12 +360,14 @@ module.exports = ({ getUserConfig, mode }) => {
 					appLoaderStyle: AppLoader.getLoaderStyle(appLoaderIcon),
 					...userHtmlConfig,
 					b64favicon,
-					inject: false,
+					inject: dcwpConfig === false,
 					template: indexTemplate,
 					meta: { ...meta, ...(userHtmlConfig.meta || {}) },
 				}),
 				cdn.getWebpackPlugin(env, dcwpConfig),
-				new CopyWebpackPlugin({ patterns: getCopyConfig(env, userCopyConfig) }),
+				new CopyWebpackPlugin({
+					patterns: getCopyConfig(env, userCopyConfig, dcwpConfig === false),
+				}),
 				new webpack.BannerPlugin({ banner: LICENSE_BANNER, entryOnly: true }),
 				cmf && new ReactCMFWebpackPlugin({ watch: isEnvDevelopment }),
 				useTypescript && new ForkTsCheckerWebpackPlugin(),
@@ -373,12 +398,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					logging: 'error',
 					overlay: { errors: true, warnings: false },
 				},
-				static: {
-					directory: path.join(process.cwd(), 'dist'),
-					watch: true,
-				},
 				compress: true,
-				watchFiles: ['src/**/*', 'dist/**/*'],
 			},
 		};
 	};

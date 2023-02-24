@@ -1,5 +1,19 @@
 # @talend/scripts-config-stylelint
 
+## 3.0.0
+
+### Major Changes
+
+- c18aabb97: feat: expose config from main
+
+  Breaking change: this package can not be used by old talend-scripts preset. But now you can extends from it direclty.
+
+  ```diff
+  -const defaults = require('@talend/scripts-config-stylelint/.stylelintrc.js');
+  +const defaults = require('@talend/scripts-config-stylelint');
+
+  ```
+
 ## 2.0.0
 
 ### Major Changes

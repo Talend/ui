@@ -262,6 +262,7 @@ export const parameters = {
 				'Design System',
 				[
 					'Accordion',
+					'Badge',
 					'Breadcrumbs',
 					'Clickable (Buttons)',
 					['About', 'Button', 'ButtonAsLink', 'ButtonIcon'],

@@ -1,18 +1,19 @@
 {
   "name": "@talend/design-tokens",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "mainSrc": "src/index.ts",
   "scripts": {
     "pre-release": "echo nothing",
-    "build:umd:dev": "talend-scripts build:lib:umd --dev",
-    "build:umd:prod": "talend-scripts build:lib:umd",
-    "build:lib": "talend-scripts build:ts:lib && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
+    "build:umd:dev": "talend-scripts build --umd --dev",
+    "build:umd:prod": "talend-scripts build --umd",
+    "build:lib": "talend-scripts build && yarn build:umd:dev && yarn build:umd:prod && yarn test:umd",
     "test": "echo no test for @talend/design-tokens",
     "test:cov": "echo no test for @talend/design-tokens",
-    "test:umd": "jest scripts/umd.test.js"
+    "test:umd": "jest scripts/umd.test.js",
+    "lint": "talend-scripts lint ./src ./scripts"
   },
   "keywords": [
     "talend",
@@ -33,8 +34,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^14.0.0",
+    "@talend/scripts-core": "^13.1.2",
     "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}

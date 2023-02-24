@@ -18,6 +18,11 @@ on:
     branches:
       - master
 
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   changes:
     # Trigger on ready PRs or draft with label
@@ -36,7 +41,6 @@ jobs:
             storybook:
              - 'packages/design-tokens/**'
              - 'packages/design-system/**'
-            datagrid: packages/datagrid/**
             dataviz: packages/dataviz/**
             forms: packages/forms/**
 

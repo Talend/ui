@@ -1,5 +1,27 @@
 # @talend/react-containers
 
+## 8.0.2
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+- Updated dependencies [99398080f]
+- Updated dependencies [5e4aad637]
+  - @talend/react-forms@9.0.0
+
+## 8.0.1
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+  - @talend/react-components@9.0.1
+  - @talend/utils@2.5.0
+  - @talend/react-cmf@7.1.4
+  - @talend/react-forms@8.1.8
+
 ## 8.0.0
 
 ### Major Changes

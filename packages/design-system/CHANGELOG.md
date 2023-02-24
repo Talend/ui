@@ -1,5 +1,102 @@
 # @talend/design-system
 
+## 7.6.0
+
+### Minor Changes
+
+- 00869855d: Popover - Add `focusOnDisclosure` option to allow focus on disclosure when popover is opened
+
+## 7.5.1
+
+### Patch Changes
+
+- 4c3495e12: chore: apply code style
+
+## 7.5.0
+
+### Minor Changes
+
+- 4cfbf226b: feat(Tabs&Dropdown): add new data-feature & data-testid capabilities
+
+## 7.4.1
+
+### Patch Changes
+
+- 6c6133860: TDOPS-3536 - Fix passing props to popover disclosure on Design System
+
+## 7.4.0
+
+### Minor Changes
+
+- 79c2d5165: feat(TFD-14857): BadgeDropdown is now controlled
+
+## 7.3.0
+
+### Minor Changes
+
+- 4c5598a5a: Add new Badge component in DS
+
+### Patch Changes
+
+- ed4014653: fix: Collapsible state is init by expaneded props
+
+## 7.2.0
+
+### Minor Changes
+
+- 1ce5a1f8c: feat(TUX-1221) add openInNewTab option for LinkAsButton
+
+### Patch Changes
+
+- f855fcae0: fix(design-system/Modal): sync header x padding with spec
+
+## 7.1.6
+
+### Patch Changes
+
+- 890eee0b5: fix(design-system): add data-testid to InlineEditing
+
+## 7.1.5
+
+### Patch Changes
+
+- 1aa89365a: TDOPS-3299 - design system modal z-index to use tokens convention
+
+## 7.1.4
+
+### Patch Changes
+
+- f36e7f7c3: InlineEditing : handle keyboard shortcut only when element has the focus
+
+  remove usekey which bind by default on document.
+
+## 7.1.3
+
+### Patch Changes
+
+- c8ea668ee: InlineEditing : don't handle enter key when not in edition
+
+## 7.1.2
+
+### Patch Changes
+
+- 5aeff7b47: TDOPS-3267 - Fixed support for `onBlur` property passed to primitive input
+
+## 7.1.1
+
+### Patch Changes
+
+- fe430c316: fix: add missing export on the root
+
+  - Input on Form component (so Form.Input)
+  - Breadcrumbs
+  - theme tokens
+  - TabsAsLinkList
+
+  ```
+  import { dark, light, Breadcrumbs } from '@talend/design-system';
+  ```
+
 ## 7.1.0
 
 ### Minor Changes

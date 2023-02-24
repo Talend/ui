@@ -5,203 +5,201 @@ $checkmark-image-indeterminate: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iO
 $checkbox-size: tokens.$coral-sizing-xxxs;
 
 .checkbox {
-  display: flex;
-  gap: tokens.$coral-spacing-xs;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
+	display: flex;
+	gap: tokens.$coral-spacing-xs;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
 
-  input[type="checkbox"] {
-    margin: 0;
-    width: $checkbox-size;
-    height: $checkbox-size;
-    position: relative;
-    z-index: 3;
-    opacity: 0;
-    cursor: pointer;
+	input[type='checkbox'] {
+		margin: 0;
+		width: $checkbox-size;
+		height: $checkbox-size;
+		position: relative;
+		z-index: 3;
+		opacity: 0;
+		cursor: pointer;
 
-    &:disabled {
-      cursor: not-allowed;
-    }
-  }
+		&:disabled {
+			cursor: not-allowed;
+		}
+	}
 
-  input[type="checkbox"] + label {
-    &:before,
-    &:after {
-      content: "";
-      width: $checkbox-size;
-      height: $checkbox-size;
-      border-radius: tokens.$coral-radius-s;
-      transition: all tokens.$coral-transition-fast;
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      margin: 0;
-    }
-    // Checkbox
-    &:before {
-      z-index: 1;
-      border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
-      background: tokens.$coral-color-neutral-background-medium;
-    }
+	input[type='checkbox'] + label {
+		&::before,
+		&::after {
+			content: '';
+			width: $checkbox-size;
+			height: $checkbox-size;
+			border-radius: tokens.$coral-radius-s;
+			transition: tokens.$coral-transition-fast;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 0;
+		}
+		// Checkbox
+		&::before {
+			z-index: 1;
+			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border;
+			background: tokens.$coral-color-neutral-background-medium;
+		}
 
-    // Mark
-    &:after {
-      z-index: 2;
-      opacity: 0;
-      mask-image: $checkmark-image;
-      -webkit-mask-image: $checkmark-image;
-      background-image: none;
-      background-color: tokens.$coral-color-neutral-background;
-      width: calc(#{tokens.$coral-sizing-xxxs} / 2);
-      height: calc(#{tokens.$coral-sizing-xxxs} / 2);
-      left: calc(#{tokens.$coral-sizing-xxxs} / 2 - #{$checkbox-size} / 4)
-    }
-  }
+		// Mark
+		&::after {
+			z-index: 2;
+			opacity: 0;
+			mask-image: $checkmark-image;
+			background-image: none;
+			background-color: tokens.$coral-color-neutral-background;
+			width: calc(#{tokens.$coral-sizing-xxxs} / 2);
+			height: calc(#{tokens.$coral-sizing-xxxs} / 2);
+			left: calc(#{tokens.$coral-sizing-xxxs} / 2 - #{$checkbox-size} / 4);
+		}
+	}
 
-  input[type="checkbox"]:hover + label {
-    // Checkbox
-    &:before {
-      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-    }
-  }
+	input[type='checkbox']:hover + label {
+		// Checkbox
+		&::before {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+		}
+	}
 
-  input[type="checkbox"]:active + label {
-    // Checkbox
-    &:before {
-      background: tokens.$coral-color-accent-background-active;
-    }
-  }
+	input[type='checkbox']:active + label {
+		// Checkbox
+		&::before {
+			background: tokens.$coral-color-accent-background-active;
+		}
+	}
 
-  input[type="checkbox"]:checked + label {
-    // Checkbox
-    &:before {
-      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-      background: tokens.$coral-color-accent-background-strong;
-    }
+	input[type='checkbox']:checked + label {
+		// Checkbox
+		&::before {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+			background: tokens.$coral-color-accent-background-strong;
+		}
 
-    // Mark
-    &:after {
-      opacity: 1;
-    }
-  }
+		// Mark
+		&::after {
+			opacity: 1;
+		}
+	}
 
-  input[type="checkbox"]:focus-visible + label,
-  input[type="checkbox"]:global(.focus-visible) + label{
-    // Checkbox
-    &:before {
-      outline: tokens.$coral-border-m-solid tokens.$coral-color-assistive-border-focus;
-      outline-offset: 1px;
-    }
-  }
+	input[type='checkbox']:focus-visible + label,
+	input[type='checkbox']:global(.focus-visible) + label {
+		// Checkbox
+		&::before {
+			outline: tokens.$coral-border-m-solid tokens.$coral-color-assistive-border-focus;
+			outline-offset: 1px;
+		}
+	}
 
-  input[type="checkbox"][aria-checked="mixed"] + label {
-    // Checkbox
-    &:before {
-      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
-      background: tokens.$coral-color-accent-background-strong;
-    }
+	input[type='checkbox'][aria-checked='mixed'] + label {
+		// Checkbox
+		&::before {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border;
+			background: tokens.$coral-color-accent-background-strong;
+		}
 
-    // Mark
-    &:after {
-      opacity: 1;
-      mask-image: $checkmark-image;
-      -webkit-mask-image: $checkmark-image-indeterminate;
-    }
-  }
+		// Mark
+		&::after {
+			opacity: 1;
+			mask-image: $checkmark-image-indeterminate;
+		}
+	}
 
-  input[type="checkbox"]:checked:not(:disabled):hover + label,
-  input[type="checkbox"][aria-checked="mixed"]:not(:disabled):hover + label {
-    // Checkbox
-    &:before {
-      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
-      background: tokens.$coral-color-accent-background-strong-hover;
-    }
-  }
+	input[type='checkbox']:checked:not(:disabled):hover + label,
+	input[type='checkbox'][aria-checked='mixed']:not(:disabled):hover + label {
+		// Checkbox
+		&::before {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-hover;
+			background: tokens.$coral-color-accent-background-strong-hover;
+		}
+	}
 
-  input[type="checkbox"]:checked:not(:disabled):active + label,
-  input[type="checkbox"][aria-checked="mixed"]:not(:disabled):active + label {
-    // Checkbox
-    &:before {
-      border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-active;
-      background: tokens.$coral-color-accent-background-strong-active;
-    }
-  }
+	input[type='checkbox']:checked:not(:disabled):active + label,
+	input[type='checkbox'][aria-checked='mixed']:not(:disabled):active + label {
+		// Checkbox
+		&::before {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-accent-border-active;
+			background: tokens.$coral-color-accent-background-strong-active;
+		}
+	}
 
 
-  // Disabled and read-only cases
+	// Disabled and read-only cases
 
-  input[type="checkbox"]:disabled + label,
-  input[type="checkbox"]:checked:disabled + label,
-  input[type="checkbox"][aria-checked="mixed"]:disabled + label {
-    color: tokens.$coral-color-neutral-text-disabled;
-    cursor: not-allowed;
+	input[type='checkbox']:disabled + label,
+	input[type='checkbox']:checked:disabled + label,
+	input[type='checkbox'][aria-checked='mixed']:disabled + label {
+		color: tokens.$coral-color-neutral-text-disabled;
+		cursor: not-allowed;
 
-    // Checkbox
-    &:before {
-      border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
-      opacity: tokens.$coral-opacity-s;
-      cursor: not-allowed;
-      background: tokens.$coral-color-neutral-background-disabled;
-    }
-  }
+		// Checkbox
+		&::before {
+			border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-disabled;
+			opacity: tokens.$coral-opacity-s;
+			cursor: not-allowed;
+			background: tokens.$coral-color-neutral-background-disabled;
+		}
+	}
 
-  input[type="checkbox"]:checked:disabled + label,
-  input[type="checkbox"][aria-checked="mixed"]:disabled + label {
-    // Mark
-    &:after {
-      background-color: tokens.$coral-color-neutral-icon-weak;
-      opacity: tokens.$coral-opacity-m;
-    }
-  }
+	input[type='checkbox']:checked:disabled + label,
+	input[type='checkbox'][aria-checked='mixed']:disabled + label {
+		// Mark
+		&::after {
+			background-color: tokens.$coral-color-neutral-icon-weak;
+			opacity: tokens.$coral-opacity-m;
+		}
+	}
 
-  &_isInline {
-    display: inline-flex;
-  }
+	&_isInline {
+		display: inline-flex;
+	}
 
-  &_readOnly {
-    input[type="checkbox"] {
-      cursor: not-allowed;
-    }
+	&_readOnly {
+		input[type='checkbox'] {
+			cursor: not-allowed;
+		}
 
-    input[type="checkbox"]:not(:checked) + label,
-    input[type="checkbox"]:checked + label,
-    input[type="checkbox"][aria-checked="mixed"] + label {
-      color: tokens.$coral-color-neutral-text;
-      cursor: not-allowed;
+		input[type='checkbox']:not(:checked) + label,
+		input[type='checkbox']:checked + label,
+		input[type='checkbox'][aria-checked='mixed'] + label {
+			color: tokens.$coral-color-neutral-text;
+			cursor: not-allowed;
 
-      // Checkbox
-      &:before {
-        border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-        background: tokens.$coral-color-neutral-background-strong;
-        opacity: 1;
-      }
+			// Checkbox
+			&::before {
+				border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+				background: tokens.$coral-color-neutral-background-strong;
+				opacity: 1;
+			}
 
-      // Mark
-      &:after {
-        opacity: 0;
-      }
-    }
+			// Mark
+			&::after {
+				opacity: 0;
+			}
+		}
 
-    input[type="checkbox"]:checked + label,
-    input[type="checkbox"][aria-checked="mixed"] + label {
-      // Mark
-      &:after {
-        background-color: tokens.$coral-color-neutral-icon-weak;
-        opacity: 1;
-      }
-    }
+		input[type='checkbox']:checked + label,
+		input[type='checkbox'][aria-checked='mixed'] + label {
+			// Mark
+			&::after {
+				background-color: tokens.$coral-color-neutral-icon-weak;
+				opacity: 1;
+			}
+		}
 
-    input[type="checkbox"]:checked:not(:disabled):hover + label,
-    input[type="checkbox"]:not(:disabled):hover + label,
-    input[type="checkbox"][aria-checked="mixed"]:not(:disabled):hover + label {
-      // Checkbox
-      &:before {
-        border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
-        background: tokens.$coral-color-neutral-background-strong;
-      }
-    }
-  }
+		input[type='checkbox']:checked:not(:disabled):hover + label,
+		input[type='checkbox']:not(:disabled):hover + label,
+		input[type='checkbox'][aria-checked='mixed']:not(:disabled):hover + label {
+			// Checkbox
+			&::before {
+				border: tokens.$coral-border-s-solid tokens.$coral-color-neutral-border-weak;
+				background: tokens.$coral-color-neutral-background-strong;
+			}
+		}
+	}
 }

@@ -1,5 +1,79 @@
 # @talend/react-components
 
+## 9.4.2
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
+## 9.4.1
+
+### Patch Changes
+
+- 21d87a111: fix: apply code style
+- Updated dependencies [ab0bd21cf]
+  - @talend/bootstrap-theme@7.0.1
+
+## 9.4.0
+
+### Minor Changes
+
+- 703133e82: feat(Datalist): add new value available directly in the datalist while been in the add new value mode
+
+### Patch Changes
+
+- ce84cd6ad: fix(TDP-11750): WithDrawer content hidden on safari due to hidden overflow
+- Updated dependencies [76c15bf5e]
+- Updated dependencies [76c15bf5e]
+  - @talend/icons@6.52.0
+
+## 9.3.0
+
+### Minor Changes
+
+- 012d6fe31: Add data-test attribute
+
+### Patch Changes
+
+- bb92ff4bd: fix not translated "select all" in list component
+
+## 9.2.1
+
+### Patch Changes
+
+- 8a3537827: TDOPS-3399 - Fix HeaderBar button style on hover
+
+## 9.2.0
+
+### Minor Changes
+
+- a3ac5792b: fix not translated "select all" in list component
+
+## 9.1.0
+
+### Minor Changes
+
+- 898ffafc2: fix(TDP-11600): allow the datalist to create new value with a better ux
+
+  On the datalist, new props called
+
+  - `allowAddNewElements` can be passed to let the user create new value with a hint to tell him that the value was not existing in the current titlemap.
+  - `allowAddNewElementsSuffix` allow to override the "(new)" suffix by another one.
+
+### Patch Changes
+
+- 0110ae76f: TDOPS-2650 - Datalist icon size should be restricted to inline buttons
+
+## 9.0.1
+
+### Patch Changes
+
+- f0a97113e: fix: use randomUUID from talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [784fe3919]
+  - @talend/utils@2.5.0
+  - @talend/icons@6.51.1
+
 ## 9.0.0
 
 ### Major Changes

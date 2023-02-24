@@ -86,17 +86,17 @@ exports[`Breadcrumbs should render items with a dropdown menu if default max ite
       className="tc-breadcrumb-menu"
     >
       <withI18nextTranslation(ActionDropdown)
-        aria-label="Open first links menu"
+        aria-label="Show breadcrumb links"
         id="42-ellipsis"
         items={
-          Array [
-            Object {
+          [
+            {
               "id": "42-item-1",
               "label": "Text B",
               "onClick": [Function],
               "title": "Go to Page Text B",
             },
-            Object {
+            {
               "id": "42-item-2",
               "label": "Text C",
               "onClick": [Function],

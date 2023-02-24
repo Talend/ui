@@ -6,16 +6,16 @@ exports[`ActionBar should render a btn-group 1`] = `
 >
   <SwitchActions
     actions={
-      Array [
-        Object {
-          "actions": Array [
-            Object {
+      [
+        {
+          "actions": [
+            {
               "hideLabel": true,
               "icon": "talend-cog",
               "label": "hidden mean tooltips",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "hideLabel": true,
               "icon": "talend-badge",
               "label": "you are a super star",
@@ -30,12 +30,12 @@ exports[`ActionBar should render a btn-group 1`] = `
     left={true}
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     center={true}
     key="1"
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     key="2"
     right={true}
   />
@@ -48,28 +48,28 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
 >
   <SwitchActions
     actions={
-      Array [
-        Object {
+      [
+        {
           "bsStyle": "primary",
           "icon": "fa fa-asterisk",
           "label": "Primary",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "displayMode": "splitDropdown",
           "emptyDropdownLabel": "No option",
           "icon": "fa fa-plus",
-          "items": Array [
-            Object {
+          "items": [
+            {
               "label": "From Local",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "label": "From Remote",
               "onClick": [MockFunction],
             },
@@ -83,12 +83,12 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
     left={true}
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     center={true}
     key="1"
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     key="2"
     right={true}
   />
@@ -103,8 +103,8 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
 >
   <SwitchActions
     actions={
-      Array [
-        Object {
+      [
+        {
           "bsStyle": "primary",
           "icon": "fa fa-asterisk",
           "label": "Primary",
@@ -116,28 +116,28 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
     left={true}
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     center={true}
     key="1"
   />
   <SwitchActions
     actions={
-      Array [
-        Object {
+      [
+        {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "displayMode": "splitDropdown",
           "emptyDropdownLabel": "No option",
           "icon": "fa fa-plus",
-          "items": Array [
-            Object {
+          "items": [
+            {
               "label": "From Local",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "label": "From Remote",
               "onClick": [MockFunction],
             },
@@ -159,27 +159,27 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
 >
   <SwitchActions
     actions={
-      Array [
-        Object {
+      [
+        {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "displayMode": "splitDropdown",
           "emptyDropdownLabel": "No option",
           "icon": "fa fa-plus",
-          "items": Array [
-            Object {
+          "items": [
+            {
               "label": "From Local",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "label": "From Remote",
               "onClick": [MockFunction],
             },
@@ -190,7 +190,7 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
       ]
     }
     components={
-      Object {
+      {
         "before-actions": <Count
           selected={1}
         />,
@@ -200,12 +200,12 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     left={true}
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     center={true}
     key="1"
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     key="2"
     right={true}
   />
@@ -217,9 +217,9 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
   className="theme-tc-actionbar-container tc-actionbar-container nav"
 >
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     components={
-      Object {
+      {
         "before-actions": <Count
           selected={1}
         />,
@@ -229,33 +229,33 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
     left={true}
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     center={true}
     key="1"
   />
   <SwitchActions
     actions={
-      Array [
-        Object {
+      [
+        {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "displayMode": "splitDropdown",
           "emptyDropdownLabel": "No option",
           "icon": "fa fa-plus",
-          "items": Array [
-            Object {
+          "items": [
+            {
               "label": "From Local",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "label": "From Remote",
               "onClick": [MockFunction],
             },
@@ -277,8 +277,8 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
 >
   <SwitchActions
     actions={
-      Array [
-        Object {
+      [
+        {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [MockFunction],
@@ -286,7 +286,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
       ]
     }
     components={
-      Object {
+      {
         "before-actions": <Count
           selected={1}
         />,
@@ -296,28 +296,28 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
     left={true}
   />
   <SwitchActions
-    actions={Array []}
+    actions={[]}
     center={true}
     key="1"
   />
   <SwitchActions
     actions={
-      Array [
-        Object {
+      [
+        {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
           "onClick": [MockFunction],
         },
-        Object {
+        {
           "displayMode": "splitDropdown",
           "emptyDropdownLabel": "No option",
           "icon": "fa fa-plus",
-          "items": Array [
-            Object {
+          "items": [
+            {
               "label": "From Local",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "label": "From Remote",
               "onClick": [MockFunction],
             },

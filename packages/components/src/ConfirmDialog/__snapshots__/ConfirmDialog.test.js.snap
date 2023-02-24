@@ -124,7 +124,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
       style={
-        Object {
+        {
           "width": "25%",
         }
       }

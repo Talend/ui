@@ -31,6 +31,7 @@ import {
 	badgeEnumsAsCustomAttribute,
 	badgePriceAsCustomAttribute,
 	badgeEmptyLabel,
+	badgeConnectionTypeAllSelector,
 } from './badgesDefinitions';
 
 const badgesDefinitions = [
@@ -385,6 +386,16 @@ export const BasicSearchWithBadgeWithVeryLongName = {
 		await userEvent.type(within(canvasElement).getByRole('searchbox'), 'lorem ipsum');
 	},
 };
+
+export const BasicSearchWithBadgeWithAllSelector = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.BasicSearch
+			badgesDefinitions={[badgeConnectionTypeAllSelector]}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);
 
 export const BasicSearchInABadgeWithALotOfValues = () => (
 	<FacetedSearch.Faceted id="my-faceted-search">

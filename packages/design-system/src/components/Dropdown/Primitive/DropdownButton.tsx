@@ -31,4 +31,6 @@ const DropdownButton = forwardRef(
 	},
 );
 
+DropdownButton.displayName = 'DropdownButton';
+
 export default DropdownButton;

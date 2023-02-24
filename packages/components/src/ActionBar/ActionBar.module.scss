@@ -14,6 +14,7 @@ $tc-action-bar-margin: $padding-small $padding-large $padding-small 0 !default;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
 		> * {
 			margin: $tc-action-bar-margin;
 		}
@@ -58,7 +59,7 @@ $tc-action-bar-margin: $padding-small $padding-large $padding-small 0 !default;
 	:global(.btn-icon-text) {
 		margin: $padding-small $padding-normal $padding-small 0;
 
-		&:global(.separated):after {
+		&:global(.separated)::after {
 			content: '|';
 			color: $silver;
 			margin-left: $padding-large;
@@ -73,6 +74,7 @@ $tc-action-bar-margin: $padding-small $padding-large $padding-small 0 !default;
 
 :global(.modal-footer) .tc-actionbar-container {
 	background-color: $wild-sand;
+
 	.navbar-left > *,
 	.navbar-center > *,
 	.navbar-right > * {

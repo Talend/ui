@@ -7,7 +7,7 @@ exports[`TextArea field text display mode should render provided rows 1`] = `
 >
   <pre
     style={
-      Object {
+      {
         "fontSize": "inherit",
         "height": "20rem",
       }
@@ -25,7 +25,7 @@ exports[`TextArea field text display mode should render textarea 1`] = `
 >
   <pre
     style={
-      Object {
+      {
         "fontSize": "inherit",
         "height": "10rem",
       }

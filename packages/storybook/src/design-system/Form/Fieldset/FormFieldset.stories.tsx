@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { ButtonPrimary, ButtonSecondary, Form, InlineMessageDestructive, InlineMessageInformation } from '@talend/design-system';
+import {
+	ButtonPrimary,
+	ButtonSecondary,
+	Form,
+	InlineMessageDestructive,
+	InlineMessageInformation,
+} from '@talend/design-system';
 
 export default {
 	component: Form.Fieldset,
@@ -99,15 +105,12 @@ export const Errors = () => {
 	);
 };
 
-type FormData = {
+type FormDataWithUser = {
 	accountName: string;
 	numberOfSlots: number;
 	withUser: boolean;
-};
-
-type FormDataWithUser = FormData & {
-	name: string;
-	email: string;
+	name?: string;
+	email?: string;
 };
 
 export const ConditionalFieldset = () => {
@@ -119,7 +122,7 @@ export const ConditionalFieldset = () => {
 		handleSubmit,
 		unregister,
 		formState: { errors },
-	} = useForm<FormData | FormDataWithUser>();
+	} = useForm<FormDataWithUser>();
 	const withUserFormSelection = watch('withUser', false);
 	const hasMultipleErrors = Object.keys(errors).length > 1;
 
@@ -131,7 +134,7 @@ export const ConditionalFieldset = () => {
 		}
 	}, [withUserFormSelection]);
 
-	const onSubmit = (data: FormData | FormDataWithUser) => {
+	const onSubmit = (data: FormDataWithUser) => {
 		setFormData(JSON.stringify(data));
 	};
 
@@ -161,16 +164,18 @@ export const ConditionalFieldset = () => {
 						suffix=".info"
 						hasError={!!errors.accountName}
 						description={(!hasMultipleErrors && errors.accountName?.message) || undefined}
-						{...register('accountName', { required: 'This field is required' })}
+						name="accountName"
+						ref={register({ required: 'This field is required' })}
 					/>
 					<Form.Number
 						label="Slots"
 						hasError={!!errors.numberOfSlots}
 						description={(!hasMultipleErrors && errors.numberOfSlots?.message) || undefined}
-						{...register('numberOfSlots', { required: 'This field is required' })}
+						name="numberOfSlots"
+						ref={register({ required: 'This field is required' })}
 					/>
 				</Form.Row>
-				<Form.ToggleSwitch label="Send invite to admin user" {...register('withUser')} />
+				<Form.ToggleSwitch label="Send invite to admin user" name="withUser" ref={register()} />
 			</Form.Fieldset>
 			{withUser && (
 				<Form.Fieldset legend="Invite admin for this account">
@@ -180,7 +185,8 @@ export const ConditionalFieldset = () => {
 						description={
 							(!hasMultipleErrors && 'name' in errors && errors.name?.message) || undefined
 						}
-						{...register('name', { required: 'This field is required' })}
+						name="name"
+						ref={register({ required: 'This field is required' })}
 					/>
 					<Form.Email
 						label="User email"
@@ -188,7 +194,8 @@ export const ConditionalFieldset = () => {
 						description={
 							(!hasMultipleErrors && 'email' in errors && errors.email?.message) || undefined
 						}
-						{...register('email', { required: 'This field is required' })}
+						name="email"
+						ref={register({ required: 'This field is required' })}
 					/>
 				</Form.Fieldset>
 			)}

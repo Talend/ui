@@ -1,5 +1,85 @@
 # @talend/react-forms
 
+## 9.0.1
+
+### Patch Changes
+
+- fd25b7d23: Forms - UI Form hint can now change position to fixed with a new **overlayIsFixed** parameter
+- Updated dependencies [e79dfc100]
+  - @talend/react-components@9.4.2
+
+## 9.0.0
+
+### Major Changes
+
+- 5e4aad637: Forms - Change UI Form hint to use design system popover and **fix alignement**
+
+  ## Breaking changes :
+
+  UI Forms hint definition does not support some properties anymore
+
+  - **id** has been removed, you should rely on **data-test** attributes to target elements
+  - **className** has been removed because design system component should not be customized
+
+  ```diff
+  hint: {
+      overlayComponent: ...,
+  -   id: "id",
+  -   className: "class",
+  }
+  ```
+
+  ## New additions :
+
+  UI Forms hint definition can now handle some **data-test** attributes
+
+  - **data-test** has been added to target the hint popover content
+  - **icon-data-test** has been added to target the hint icon
+
+  ```diff
+  hint: {
+      overlayComponent: ...,
+  +   "data-test": "my-popover-content",
+  +   "icon-data-test": "my-popover-icon",
+  }
+  ```
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+
+## 8.2.0
+
+### Minor Changes
+
+- c3923dc5c: feat(CDM-307): new code field skeleton and typescript migration
+
+### Patch Changes
+
+- Updated dependencies [bb92ff4bd]
+- Updated dependencies [012d6fe31]
+  - @talend/react-components@9.3.0
+
+## 8.1.9
+
+### Patch Changes
+
+- f77b6a9b7: TDOPS-3372 - validate input value for integer fields
+- Updated dependencies [a3ac5792b]
+- Updated dependencies [f77b6a9b7]
+  - @talend/react-components@9.2.0
+  - @talend/json-schema-form-core@1.1.1
+
+## 8.1.8
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+  - @talend/react-components@9.0.1
+  - @talend/utils@2.5.0
+
 ## 8.1.7
 
 ### Patch Changes

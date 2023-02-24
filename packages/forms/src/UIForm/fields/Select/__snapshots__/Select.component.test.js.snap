@@ -119,7 +119,7 @@ exports[`Select field should render select multiple 1`] = `
     onChange={[Function]}
     readOnly={false}
     value={
-      Array [
+      [
         "foo",
         "lol",
       ]

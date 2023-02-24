@@ -1,5 +1,28 @@
 # Changelog
 
+## 8.1.0
+
+### Minor Changes
+
+- 705ff3066: Faceted search - Tags faceted should allow a list of flat tags or objects
+- 06e45a74c: Faceted search
+  - Add new `Not in` and `Not contains` operators
+  - On badge checkbox faceted, added an optional checkbox to select all items with the `metadata.allSelector` property
+
+## 8.0.4
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
+## 8.0.3
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+  - @talend/utils@2.5.0
+
 ## 8.0.2
 
 ### Patch Changes

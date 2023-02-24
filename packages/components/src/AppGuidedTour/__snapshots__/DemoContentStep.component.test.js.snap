@@ -10,8 +10,8 @@ Isn't it time for tea or coffee?
   </p>
   <Stepper
     steps={
-      Array [
-        Object {
+      [
+        {
           "label": "Importing dataset",
           "status": "failure",
         },

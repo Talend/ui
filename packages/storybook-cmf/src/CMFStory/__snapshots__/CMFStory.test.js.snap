@@ -3,7 +3,7 @@
 exports[`CMFStory should render its name 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -13,7 +13,7 @@ exports[`CMFStory should render its name 1`] = `
   }
 >
   <Context.Provider
-    value={Object {}}
+    value={{}}
   >
     <div>
       My Story

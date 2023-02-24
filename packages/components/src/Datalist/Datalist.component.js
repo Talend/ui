@@ -9,6 +9,8 @@ import Typeahead from '../Typeahead';
 import theme from './Datalist.module.scss';
 import FocusManager from '../FocusManager';
 import Icon from '../Icon';
+import { useTranslation } from 'react-i18next';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -21,9 +23,36 @@ const DISPLAY = {
 	NONE: 'none',
 };
 
-function buildSuggestions({ displayMode, titleMap, filterValue, multiSection }) {
+function isValuePresentInSuggestions(titleMap, filterValue, multiSection) {
+	return !!multiSection
+		? titleMap.find(group =>
+				group.suggestions.find(item => filterValue.toLowerCase() === item.name.toLowerCase()),
+		  )
+		: titleMap.find(itemValue => filterValue.toLowerCase() === itemValue.name.toLowerCase());
+}
+
+function buildSuggestions({
+	displayMode,
+	titleMap,
+	filterValue,
+	multiSection,
+	allowAddNewElements,
+	allowAddNewElementsSuffix,
+}) {
 	if (displayMode === DISPLAY.NONE) {
 		return undefined;
+	}
+
+	if (displayMode === DISPLAY.ALL && filterValue) {
+		const result = [...titleMap];
+		if (allowAddNewElements && !isValuePresentInSuggestions(titleMap, filterValue, multiSection)) {
+			result.unshift({
+				title: `${filterValue} ${allowAddNewElementsSuffix}`,
+				name: filterValue,
+				value: filterValue,
+			});
+		}
+		return result;
 	}
 
 	if (displayMode === DISPLAY.ALL || !filterValue) {
@@ -33,19 +62,26 @@ function buildSuggestions({ displayMode, titleMap, filterValue, multiSection }) 
 	// building multiSection items or single section items
 	const escapedValue = escapeRegexCharacters(filterValue.trim());
 	const regex = new RegExp(escapedValue, 'i');
-	if (multiSection) {
-		return titleMap
-			.map(group => ({
-				...group,
-				suggestions: filterValue
-					? group.suggestions.filter(item => regex.test(item.name))
-					: group.suggestions,
-			}))
-			.filter(group => group.suggestions.length > 0);
+	const result = multiSection
+		? titleMap
+				.map(group => ({
+					...group,
+					suggestions: filterValue
+						? group.suggestions.filter(item => regex.test(item.name))
+						: group.suggestions,
+				}))
+				.filter(group => group.suggestions.length > 0)
+		: titleMap.filter(itemValue => regex.test(itemValue.name));
+
+	if (allowAddNewElements && !isValuePresentInSuggestions(titleMap, filterValue, multiSection)) {
+		result.unshift({
+			title: `${filterValue} ${allowAddNewElementsSuffix}`,
+			name: filterValue,
+			value: filterValue,
+		});
 	}
 
-	// only one group so items are inline
-	return titleMap.filter(itemValue => regex.test(itemValue.name));
+	return result;
 }
 
 function findEntry(titleMap, attributeName, attributeValue = '') {
@@ -113,6 +149,7 @@ function Datalist(props) {
 	// Current persisted value
 	// It's the object value key { name: "display value", value: "technical value" }
 	const [{ name, value }, setEntry] = useState({});
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 
 	// suggestions: filter value, display flag, current hover selection
 	const [filterValue, setFilterValue] = useState('');
@@ -129,6 +166,9 @@ function Datalist(props) {
 		titleMap: props.titleMap,
 		filterValue,
 		multiSection: props.multiSection,
+		allowAddNewElements: props.allowAddNewElements,
+		allowAddNewElementsSuffix:
+			props.allowAddNewElementsSuffix ?? t('NEW_WITH_PARENTHESIS', '(new)'),
 	});
 
 	// in uncontrolled mode, props.value acts as an initial value, then Datalist handles state, props.value never changes.
@@ -429,6 +469,8 @@ Datalist.defaultProps = {
 
 Datalist.propTypes = {
 	autoFocus: PropTypes.bool,
+	allowAddNewElements: PropTypes.bool,
+	allowAddNewElementsSuffix: PropTypes.string,
 	isLoading: PropTypes.bool,
 	className: PropTypes.string,
 	onBlur: PropTypes.func,

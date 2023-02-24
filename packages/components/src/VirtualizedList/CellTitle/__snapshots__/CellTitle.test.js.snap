@@ -10,7 +10,7 @@ exports[`CellTitle actions should NOT render the actions when cell is disabled 1
       cellData="my awesome title"
       className="theme-main-title"
       columnData={
-        Object {
+        {
           "disabledKey": "nop",
           "nop": true,
         }
@@ -18,14 +18,14 @@ exports[`CellTitle actions should NOT render the actions when cell is disabled 1
       displayMode="text"
       id="my-title-1-title-cell"
       rowData={
-        Object {
-          "actions": Array [
-            Object {
+        {
+          "actions": [
+            {
               "icon": "talend-pencil",
               "label": "edit",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "icon": "talend-trash",
               "label": "delete",
               "onClick": [MockFunction],
@@ -41,14 +41,14 @@ exports[`CellTitle actions should NOT render the actions when cell is disabled 1
       getComponent={[MockFunction]}
       id="my-title-1-title-actions"
       rowData={
-        Object {
-          "actions": Array [
-            Object {
+        {
+          "actions": [
+            {
               "icon": "talend-pencil",
               "label": "edit",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "icon": "talend-trash",
               "label": "delete",
               "onClick": [MockFunction],
@@ -73,18 +73,18 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
     <CellTitleSelector
       cellData="my awesome title"
       className="theme-main-title"
-      columnData={Object {}}
+      columnData={{}}
       displayMode="text"
       id="my-title-1-title-cell"
       rowData={
-        Object {
-          "actions": Array [
-            Object {
+        {
+          "actions": [
+            {
               "icon": "talend-pencil",
               "label": "edit",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "icon": "talend-trash",
               "label": "delete",
               "onClick": [MockFunction],
@@ -100,14 +100,14 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
       getComponent={[MockFunction]}
       id="my-title-1-title-actions"
       rowData={
-        Object {
-          "actions": Array [
-            Object {
+        {
+          "actions": [
+            {
               "icon": "talend-pencil",
               "label": "edit",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "icon": "talend-trash",
               "label": "delete",
               "onClick": [MockFunction],
@@ -132,11 +132,11 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
     <CellTitleSelector
       cellData="my awesome title"
       className="theme-main-title"
-      columnData={Object {}}
+      columnData={{}}
       displayMode="text"
       id="my-title-1-title-cell"
       rowData={
-        Object {
+        {
           "actions": undefined,
           "id": 1,
           "title": "my awesome title",
@@ -149,7 +149,7 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
       getComponent={[MockFunction]}
       id="my-title-1-title-actions"
       rowData={
-        Object {
+        {
           "actions": undefined,
           "id": 1,
           "title": "my awesome title",
@@ -170,18 +170,18 @@ exports[`CellTitle actions should render the actions 1`] = `
     <CellTitleSelector
       cellData="my awesome title"
       className="theme-main-title"
-      columnData={Object {}}
+      columnData={{}}
       displayMode="text"
       id="my-title-1-title-cell"
       rowData={
-        Object {
-          "actions": Array [
-            Object {
+        {
+          "actions": [
+            {
               "icon": "talend-pencil",
               "label": "edit",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "icon": "talend-trash",
               "label": "delete",
               "onClick": [MockFunction],
@@ -198,14 +198,14 @@ exports[`CellTitle actions should render the actions 1`] = `
       getComponent={[MockFunction]}
       id="my-title-1-title-actions"
       rowData={
-        Object {
-          "actions": Array [
-            Object {
+        {
+          "actions": [
+            {
               "icon": "talend-pencil",
               "label": "edit",
               "onClick": [MockFunction],
             },
-            Object {
+            {
               "icon": "talend-trash",
               "label": "delete",
               "onClick": [MockFunction],
@@ -230,11 +230,11 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
     <CellTitleSelector
       cellData="my awesome title"
       className="theme-main-title"
-      columnData={Object {}}
+      columnData={{}}
       displayMode="text"
       id="my-title-1-title-cell"
       rowData={
-        Object {
+        {
           "icon": "talend-file-o",
           "id": 1,
           "title": "my awesome title",
@@ -246,7 +246,7 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
       getComponent={[MockFunction]}
       id="my-title-1-title-actions"
       rowData={
-        Object {
+        {
           "icon": "talend-file-o",
           "id": 1,
           "title": "my awesome title",
@@ -267,11 +267,11 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
     <CellTitleSelector
       cellData="my awesome title"
       className="theme-main-title"
-      columnData={Object {}}
+      columnData={{}}
       displayMode="text"
       id="my-title-1-title-cell"
       rowData={
-        Object {
+        {
           "icon": undefined,
           "id": 1,
           "title": "my awesome title",
@@ -283,7 +283,7 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
       getComponent={[MockFunction]}
       id="my-title-1-title-actions"
       rowData={
-        Object {
+        {
           "icon": undefined,
           "id": 1,
           "title": "my awesome title",
@@ -315,11 +315,11 @@ exports[`CellTitle icon should render icon with tooltip when iconLabelKey is pro
     <CellTitleSelector
       cellData="my awesome title"
       className="theme-main-title"
-      columnData={Object {}}
+      columnData={{}}
       displayMode="text"
       id="my-title-1-title-cell"
       rowData={
-        Object {
+        {
           "icon": "talend-file-o",
           "iconTooltipLabel": "My tooltip label",
           "id": 1,
@@ -332,7 +332,7 @@ exports[`CellTitle icon should render icon with tooltip when iconLabelKey is pro
       getComponent={[MockFunction]}
       id="my-title-1-title-actions"
       rowData={
-        Object {
+        {
           "icon": "talend-file-o",
           "iconTooltipLabel": "My tooltip label",
           "id": 1,
@@ -358,14 +358,14 @@ exports[`CellTitle should render title selector component 1`] = `
     <CellTitleSelector
       cellData="my awesome title"
       className="theme-main-title"
-      columnData={Object {}}
+      columnData={{}}
       displayMode="text"
       id="my-title-1-title-cell"
       onClick={[MockFunction]}
       onEditCancel={[MockFunction]}
       onEditSubmit={[MockFunction]}
       rowData={
-        Object {
+        {
           "displayMode": "text",
           "icon": "talend-file-o",
           "id": 1,
@@ -378,7 +378,7 @@ exports[`CellTitle should render title selector component 1`] = `
       getComponent={[MockFunction]}
       id="my-title-1-title-actions"
       rowData={
-        Object {
+        {
           "displayMode": "text",
           "icon": "talend-file-o",
           "id": 1,

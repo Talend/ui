@@ -416,6 +416,26 @@ describe('Datalist component', () => {
 		});
 	});
 
+	describe('allowAddNewElements mode', () => {
+		it('should persist new value on blur', () => {
+			// given
+			jest.useFakeTimers();
+			const onChange = jest.fn();
+			render(<Datalist id="my-datalist" allowAddNewElements onChange={onChange} {...props} />);
+			expect(onChange).not.toBeCalled();
+			const input = screen.getByRole('textbox');
+
+			// when
+			userEvent.type(input, 'not there');
+			expect(screen.getByTitle('not there (new)')).toBeInTheDocument();
+			fireEvent.blur(input);
+			jest.runAllTimers(); // focus manager
+
+			// // then
+			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not there' });
+		});
+	});
+
 	describe('restricted mode', () => {
 		it('should persist known value on blur', () => {
 			// given

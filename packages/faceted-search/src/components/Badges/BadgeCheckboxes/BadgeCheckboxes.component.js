@@ -39,6 +39,7 @@ export const BadgeCheckboxes = ({
 	values,
 	displayType,
 	filterBarPlaceholder,
+	allSelector,
 	t,
 }) => {
 	const currentOperators = useMemo(() => operators, [operators]);
@@ -71,6 +72,7 @@ export const BadgeCheckboxes = ({
 					checkboxValues={values}
 					feature={category || label}
 					filterBarPlaceholder={filterBarPlaceholder}
+					allSelector={allSelector}
 					t={t}
 				/>
 			)}
@@ -103,4 +105,5 @@ BadgeCheckboxes.propTypes = {
 	t: PropTypes.func.isRequired,
 	displayType: PropTypes.oneOf(Object.values(Badge.TYPES)),
 	filterBarPlaceholder: PropTypes.string,
+	allSelector: PropTypes.bool,
 };

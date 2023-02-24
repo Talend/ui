@@ -1,9 +1,12 @@
 const operatorNames = {
 	contains: 'contains',
 	containsIgnoreCase: 'containsIgnoreCase',
+	notContains: 'notContains',
+	notContainsIgnoreCase: 'notContainsIgnoreCase',
 	equals: 'equals',
 	notEquals: 'notEquals',
 	in: 'in',
+	notIn: 'notIn',
 	greaterThan: 'greaterThan',
 	greaterThanOrEquals: 'greaterThanOrEquals',
 	lessThan: 'lessThan',
@@ -41,11 +44,31 @@ const standardOperators = t => ({
 		name: 'containsIgnoreCase',
 		iconName: 'contains',
 	},
+	[operatorNames.notContains]: {
+		label: t('OPERATOR_NOT_CONTAINS_LABEL', {
+			defaultValue: 'Not contains',
+		}),
+		name: 'notContains',
+		iconName: 'not-contains',
+	},
+	[operatorNames.notContainsIgnoreCase]: {
+		label: t('OPERATOR_NOT_CONTAINS_LABEL', {
+			defaultValue: 'Not contains',
+		}),
+		name: 'notContainsIgnoreCase',
+		iconName: 'not-contains',
+	},
 	[operatorNames.in]: {
 		label: t('OPERATOR_IN_LABEL', {
 			defaultValue: 'In',
 		}),
 		name: 'in',
+	},
+	[operatorNames.notIn]: {
+		label: t('OPERATOR_NOT_IN_LABEL', {
+			defaultValue: 'Not in',
+		}),
+		name: 'notIn',
 	},
 	[operatorNames.greaterThan]: {
 		label: t('OPERATOR_GREATER_THAN_LABEL', {

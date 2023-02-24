@@ -7,14 +7,14 @@
 
 	line,
 	rect {
-		fill: #19426c;
-		stroke: #000;
+		fill: #19426C;
+		stroke: black;
 		stroke-width: 1px;
 	}
 
 	&__whiskerPolyg {
 		fill: none;
-		stroke: #000;
+		stroke: black;
 		stroke-width: 2;
 	}
 
@@ -23,15 +23,15 @@
 	}
 
 	&__mean {
-		fill: #fff;
+		fill: white;
 		opacity: 0.5;
-		stroke: #19426c;
+		stroke: #19426C;
 		shape-rendering: geometricPrecision;
 		stroke-width: 0.8;
 	}
 
 	&__max-min-labels {
-		fill: #0675c1;
+		fill: #0675C1;
 	}
 
 	&__low-quantile-labels {
@@ -39,7 +39,7 @@
 	}
 
 	&__up-quantile-labels {
-		fill: #ba4c50;
+		fill: #BA4C50;
 	}
 
 	&__mean-labels {

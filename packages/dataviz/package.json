@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-dataviz",
-  "version": "2.8.4",
+  "version": "2.8.5",
   "description": "Talend charts and visualization components",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
@@ -8,14 +8,12 @@
   "license": "Apache-2.0",
   "scripts": {
     "pre-release": "yarn build:umd:dev && yarn build:umd:prod",
-    "build:umd:dev": "talend-scripts build:lib:umd --dev",
-    "build:umd:prod": "talend-scripts build:lib:umd",
-    "build:lib": "talend-scripts build:ts:lib",
+    "build:umd:dev": "talend-scripts build --umd --dev",
+    "build:umd:prod": "talend-scripts build --umd",
+    "build:lib": "talend-scripts build",
     "build-storybook": "talend-scripts build-storybook",
     "extract-i18n": "tsc --jsx preserve --outDir tmp && i18next-scanner && rm -rf tmp",
-    "lint": "yarn lint:es && yarn lint:style",
-    "lint:es": "talend-scripts lint:es",
-    "lint:style": "talend-scripts lint:style",
+    "lint": "talend-scripts lint",
     "start": "talend-scripts start-storybook -p 6006",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:watch": "cross-env TZ=Europe/Paris talend-scripts test --watch",
@@ -37,32 +35,31 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/assets-api": "^1.2.1",
-    "@talend/react-components": "^9.0.0",
-    "@talend/design-tokens": "^2.7.0",
-    "classnames": "^2.3.1",
-    "d3": "^7.4.4",
-    "date-fns": "^2.28.0",
+    "@talend/assets-api": "^1.2.2",
+    "@talend/react-components": "^9.4.2",
+    "@talend/design-tokens": "^2.7.2",
+    "classnames": "^2.3.2",
+    "d3": "^7.8.2",
+    "date-fns": "^2.29.3",
     "geojson": "^0.5.0",
     "lodash": "^4.17.21",
-    "recharts": "^2.1.13",
+    "recharts": "^2.3.2",
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
-    "@talend/bootstrap-theme": "^7.0.0",
-    "@talend/icons": "^6.50.0",
+    "@talend/bootstrap-theme": "^7.0.1",
+    "@talend/icons": "^6.52.0",
     "@talend/locales-tui-components": "^6.44.11",
     "@talend/locales-tui-dataviz": "^0.4.6",
-    "@talend/react-components": "^9.0.0",
-    "@talend/scripts-core": "^12.1.0",
-    "@talend/scripts-preset-react-lib": "^14.0.0",
+    "@talend/react-components": "^9.4.2",
+    "@talend/scripts-core": "^13.1.2",
     "@testing-library/react": "^12.1.5",
     "@types/classnames": "^2.3.1",
     "@types/d3": "^7.4.0",
     "@types/enzyme": "^3.10.12",
     "@types/geojson": "^7946.0.10",
-    "@types/lodash": "^4.14.182",
-    "@types/react": "^17.0.47",
+    "@types/lodash": "^4.14.191",
+    "@types/react": "^17.0.53",
     "@types/topojson-client": "^3.1.1",
     "@types/topojson-specification": "^1.0.2",
     "cross-env": "^7.0.3",
@@ -70,12 +67,12 @@
     "i18next": "^20.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.18.1"
+    "react-i18next": "^11.18.6"
   },
   "peerDependencies": {
     "i18next": "^20.1.0",
     "react": ">= 16.14.0 < 18.0.0",
-    "react-i18next": "^11.8.13"
+    "react-i18next": "^11.18.6"
   },
   "publishConfig": {
     "access": "public"

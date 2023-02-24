@@ -395,7 +395,7 @@ exports[`ActionDropdown should render loader item 1`] = `
          class="tc-circular-progress theme-loader theme-animate theme-default"
          viewbox="0 0 50 50"
          aria-busy="true"
-         aria-label="Loading "
+         aria-label="Loading... "
     >
       <circle class="theme-path"
               r="20"
@@ -451,7 +451,7 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
          class="tc-circular-progress theme-loader theme-animate theme-default"
          viewbox="0 0 50 50"
          aria-busy="true"
-         aria-label="Loading "
+         aria-label="Loading... "
     >
       <circle class="theme-path"
               r="20"

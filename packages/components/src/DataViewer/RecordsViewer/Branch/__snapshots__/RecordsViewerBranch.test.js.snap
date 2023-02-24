@@ -21,9 +21,9 @@ exports[`RecordsViewerBranch should render the branch with additional value 1`] 
       t={[Function]}
       useCustomIcon={false}
       value={
-        Object {
-          "schema": Object {
-            "@talend-quality@": Object {
+        {
+          "schema": {
+            "@talend-quality@": {
               "-1": 346,
               "0": 33,
               "1": 655,
@@ -31,7 +31,7 @@ exports[`RecordsViewerBranch should render the branch with additional value 1`] 
             },
             "doc": "Id",
             "name": "id",
-            "type": Object {
+            "type": {
               "type": "integer",
             },
           },
@@ -45,11 +45,11 @@ exports[`RecordsViewerBranch should render the branch with additional value 1`] 
     </span>
     <div>
       Additional render for what you want, you can use the value : 
-      Object {
+      {
         "opened": false,
-        "value": Object {
-          "schema": Object {
-            "@talend-quality@": Object {
+        "value": {
+          "schema": {
+            "@talend-quality@": {
               "-1": 346,
               "0": 33,
               "1": 655,
@@ -57,7 +57,7 @@ exports[`RecordsViewerBranch should render the branch with additional value 1`] 
             },
             "doc": "Id",
             "name": "id",
-            "type": Object {
+            "type": {
               "type": "integer",
             },
           },
@@ -89,9 +89,9 @@ exports[`RecordsViewerBranch should render the branch with children 1`] = `
       t={[Function]}
       useCustomIcon={false}
       value={
-        Object {
-          "schema": Object {
-            "@talend-quality@": Object {
+        {
+          "schema": {
+            "@talend-quality@": {
               "-1": 346,
               "0": 33,
               "1": 655,
@@ -99,7 +99,7 @@ exports[`RecordsViewerBranch should render the branch with children 1`] = `
             },
             "doc": "Id",
             "name": "id",
-            "type": Object {
+            "type": {
               "type": "integer",
             },
           },
@@ -135,9 +135,9 @@ exports[`RecordsViewerBranch should render the branch with length badge 1`] = `
       t={[Function]}
       useCustomIcon={false}
       value={
-        Object {
-          "schema": Object {
-            "@talend-quality@": Object {
+        {
+          "schema": {
+            "@talend-quality@": {
               "-1": 346,
               "0": 33,
               "1": 655,
@@ -145,7 +145,7 @@ exports[`RecordsViewerBranch should render the branch with length badge 1`] = `
             },
             "doc": "Id",
             "name": "id",
-            "type": Object {
+            "type": {
               "type": "integer",
             },
           },

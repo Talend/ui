@@ -44,7 +44,7 @@ context('<InlineEditing />', () => {
 			.type('{selectall}{del}blah')
 			.should('have.value', 'blah')
 			.type('{enter}');
-		cy.getByTest('inlineediting').contains('blah');
+		cy.getByTest('inlineediting').should('have.text', 'blah');
 	});
 
 	it('should not validate on Enter when multiline', () => {
@@ -61,5 +61,18 @@ context('<InlineEditing />', () => {
 			.should('have.value', 'blah')
 			.type('{enter}');
 		cy.getByTest('inlineediting.textarea').should('exist');
+	});
+
+	it('should trigger cancel on Enter with focus on cancel button', () => {
+		const defaultValue =
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in massa velit. Duis vestibulum lectus id lacinia aliquam. Aliquam erat volutpat. Donec dignissim augue eu eros blandit faucibus eu quis nulla. In hac habitasse platea dictumst. Ut egestas viverra sem, et dictum elit lacinia interdum. Vivamus accumsan pulvinar faucibus. Donec vestibulum mauris vitae sem lacinia, eget fringilla leo efficitur. In hac habitasse platea dictumst. Nullam consectetur nunc quis tortor congue imperdiet. Ut lobortis suscipit enim, in aliquet sem viverra ut. Sed finibus ex elit, quis ultricies nulla tincidunt sit amet. Maecenas gravida diam ex, vel aliquam tortor elementum et. Duis vitae ligula tristique est iaculis consequat. Nullam in ipsum turpis. Cras aliquam tellus quis turpis convallis, ut faucibus quam tincidunt.';
+		cy.mount(<InlineEditing.Textarea label="Edit the value" defaultValue={defaultValue} />);
+		cy.getByTest('inlineediting.button.edit').click();
+		cy.getByTest('inlineediting.textarea')
+			.focus()
+			.type('{selectall}{del}blah')
+			.should('have.value', 'blah');
+		cy.getByTest('inlineediting.button.cancel').focus().type('{enter}');
+		cy.getByTest('inlineediting').should('have.text', defaultValue);
 	});
 });
