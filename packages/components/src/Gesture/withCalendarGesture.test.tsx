@@ -1,14 +1,10 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor, configure } from '@testing-library/react';
+import { render, screen, configure } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import keycode from 'keycode';
-import {
-	withCalendarGesture,
-	withMonthCalendarGesture,
-	CalendarGestureProps,
-} from './withCalendarGesture';
+import { withCalendarGesture, withMonthCalendarGesture } from './withCalendarGesture';
 import DayCalendar from '../../__mocks__/day-calendar';
 import MonthCalendar from '../../__mocks__/month-calendar';
+
 configure({ testIdAttribute: 'data-test' });
 /**
  * Mock on March 2018
