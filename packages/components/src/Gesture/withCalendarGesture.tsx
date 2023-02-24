@@ -24,7 +24,7 @@ function getAllItems(calendarRef: HTMLElement) {
  * Focus on the item within the current calendar.
  * If the day index is out of the calendar's limits, it focuses on the limits.
  */
-function focusWithinCurrentCalendar(calendarRef: HTMLElement, indexToFocus: number = 0) {
+function focusWithinCurrentCalendar(calendarRef: HTMLElement, indexToFocus = 0) {
 	const allItems = getAllItems(calendarRef);
 	if (indexToFocus === FIRST || indexToFocus < 0) {
 		focusOn(allItems[0] as HTMLElement);
@@ -49,11 +49,7 @@ function getDay(calendarRef: HTMLElement, offset: number): HTMLElement {
 /**
  * Focus on the day, managing the switch to previous/next month
  */
-function focusOnDay(
-	calendarRef: HTMLElement,
-	indexToFocus: number = 0,
-	props: CalendarGestureProps,
-) {
+function focusOnDay(calendarRef: HTMLElement, indexToFocus = 0, props: CalendarGestureProps) {
 	const allItems = getAllItems(calendarRef);
 
 	if (indexToFocus < 0) {
@@ -201,10 +197,6 @@ export function withMonthCalendarGesture<T extends CalendarGestureProps = Calend
 	rowSize: number,
 ) {
 	return class MonthCalendarGesture extends React.Component<T> {
-		static propTypes = {
-			...omit(WrappedComponent.propTypes, 'onKeyDown'),
-		};
-
 		static displayName = `MonthCalendarGesture(${WrappedComponent.displayName})`;
 
 		ref = React.createRef<HTMLDivElement>();

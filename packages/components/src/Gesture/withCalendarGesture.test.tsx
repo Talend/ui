@@ -21,7 +21,12 @@ type DayCalendarProps = {
 	goToNextMonth?: () => void;
 };
 
-class DayCalendarWithGesture extends React.Component<DayCalendarProps> {
+type DateCalendarState = {
+	month: number;
+	year: number;
+};
+
+class DayCalendarWithGesture extends React.Component<DayCalendarProps, DateCalendarState> {
 	constructor(props: DayCalendarProps) {
 		super(props);
 		// 0 jan, 1 feb
@@ -34,14 +39,14 @@ class DayCalendarWithGesture extends React.Component<DayCalendarProps> {
 	goToPreviousMonth(callback: () => void) {
 		this.setState({ month: this.state.month - 1 }, callback);
 		if (this.props.goToPreviousMonth) {
-			this.props.goToPreviousMonth(callback);
+			this.props.goToPreviousMonth();
 		}
 	}
 
 	goToNextMonth(callback: () => void) {
 		this.setState({ month: this.state.month + 1 }, callback);
 		if (this.props.goToNextMonth) {
-			this.props.goToNextMonth(callback);
+			this.props.goToNextMonth();
 		}
 	}
 
@@ -124,7 +129,6 @@ describe('withCalendarGesture', () => {
 			// then
 			expect(goToPreviousMonth).toBeCalled();
 			expect(screen.getByTestId('28')).toHaveFocus();
-			expect(document.activeElement.innerHTML).toBe('28'); // 2018-02-28
 		});
 	});
 
