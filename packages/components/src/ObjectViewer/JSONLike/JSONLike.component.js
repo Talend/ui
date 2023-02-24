@@ -327,7 +327,19 @@ function UntranslatedComplexItem(props) {
 			</ul>
 		);
 	}
-
+	const childCount = (
+		<sup
+			key="badge"
+			className={`${theme.badge} badge`}
+			aria-label={t('TC_OBJECT_VIEWER_NB_CHILD', {
+				defaultValue: 'Contains {{count}} child object',
+				defaultValue_plural: 'Contains {{count}} child objects',
+				count: info.length,
+			})}
+		>
+			{decoratedLength}
+		</sup>
+	);
 	return (
 		<LineItem
 			{...props}
@@ -352,17 +364,7 @@ function UntranslatedComplexItem(props) {
 			}
 			badge={
 				props.hideTooltip ? (
-					<sup
-						key="badge"
-						className={`${theme.badge} badge`}
-						aria-label={t('TC_OBJECT_VIEWER_NB_CHILD', {
-							defaultValue: 'Contains {{count}} child object',
-							defaultValue_plural: 'Contains {{count}} child objects',
-							count: info.length,
-						})}
-					>
-						{decoratedLength}
-					</sup>
+					childCount
 				) : (
 					<TooltipTrigger
 						key="badge-tooltip"
@@ -370,17 +372,7 @@ function UntranslatedComplexItem(props) {
 						label={getDataAbstract(data)}
 						tooltipPlacement="right"
 					>
-						<sup
-							key="badge"
-							className={`${theme.badge} badge`}
-							aria-label={t('TC_OBJECT_VIEWER_NB_CHILD', {
-								defaultValue: 'Contains {{count}} child object',
-								defaultValue_plural: 'Contains {{count}} child objects',
-								count: info.length,
-							})}
-						>
-							{decoratedLength}
-						</sup>
+						{childCount}
 					</TooltipTrigger>
 				)
 			}
@@ -560,6 +552,7 @@ export function JSONLike({ onSubmit, className, style, ...props }) {
 	}
 	const containerProps = {
 		id: props.id && `${props.id}-container`,
+		'data-testid': props.id && `${props.id}-container`,
 		className: classNames('tc-object-viewer', theme.container, className),
 		style,
 	};
