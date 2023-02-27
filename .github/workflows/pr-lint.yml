@@ -30,19 +30,16 @@ jobs:
           cache: "yarn"
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --ignore-scripts
 
       - name: eslint + stylelint
         continue-on-error: true
         id: eslint
         run: yarn lint
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v29.0.4
 
       - name: Merge lint
-        run: node merge-report.js ${{ steps.changed-files.outputs.all_changed_files }}
+        run: yarn lint-merge-report main ${GITHUB_HEAD_REF}
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@v2
