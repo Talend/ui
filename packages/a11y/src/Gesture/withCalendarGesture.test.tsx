@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 import { withCalendarGesture, withMonthCalendarGesture } from './withCalendarGesture';
 import DayCalendar from '../../__mocks__/day-calendar';
 import MonthCalendar from '../../__mocks__/month-calendar';
-
 configure({ testIdAttribute: 'data-test' });
 /**
  * Mock on March 2018

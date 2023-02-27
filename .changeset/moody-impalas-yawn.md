@@ -2,4 +2,4 @@
 '@talend/react-components': patch
 ---
 
-chore: Add typings for Gesture package
+chore: Move Gesture into a dedicated package written in typescript

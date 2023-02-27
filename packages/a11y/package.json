@@ -1,0 +1,48 @@
+{
+  "name": "@talend/react-a11y",
+  "description": "A set of React utility for a11y",
+  "main": "lib/index.js",
+  "mainSrc": "src/index.js",
+  "license": "Apache-2.0",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build:dev": "talend-scripts build --umd --dev",
+    "build:prod": "talend-scripts build --umd --prod",
+    "pre-release": "yarn build:dev && yarn build:prod",
+    "build:lib": "talend-scripts build",
+    "start": "echo nothing to start",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage",
+    "test:demo": "yarn jsdoc -c ./docs.json",
+    "lint": "talend-scripts lint"
+  },
+  "keywords": [
+    "react",
+    "talend"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/cmf#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@talend/scripts-core": "^13.1.2",
+    "@testing-library/react": "^12.1.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "peerDependencies": {
+    "react": ">= 16.14.0 < 18.0.0",
+    "react-dom": ">= 16.14.0 < 18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0"
+}
