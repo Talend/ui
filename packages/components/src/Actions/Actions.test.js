@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { render, screen } from '@testing-library/react';
 import Actions from './Actions.component';
 
