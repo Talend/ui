@@ -32,6 +32,7 @@ export function mergeReport(args) {
 	const info = run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] }).then(info =>
 		JSON.parse(info),
 	);
+	//https://stackoverflow.com/questions/65944700/how-to-run-git-diff-in-github-actions
 	const diff = run({
 		name: 'git',
 		args: ['diff', '--name-only', `origin/${args[0]}`, `origin/${args[1]}`],
