@@ -29,7 +29,6 @@ function transform(item) {
 }
 
 export function mergeReport(args) {
-	console.log('###', args);
 	const info = run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] }).then(info =>
 		JSON.parse(info),
 	);
