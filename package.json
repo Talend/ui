@@ -17,7 +17,7 @@
     "release": "yarn pre-release && yarn changeset publish",
     "lint-staged": "lint-staged",
     "lint": "cross-env WORKSPACE_RUN_FAIL=no-bail talend-yarn-workspace run lint",
-    "lint-merge-report": "talend-yarn-workspace merge-report",
+    "lint-merge-report": "talend-yarn-workspace lint-merge-report",
     "test": "cross-env TZ=Europe/Paris talend-yarn-workspace run test --silent",
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
     "test:cov": "cross-env TZ=Europe/Paris talend-yarn-workspace run test:cov",

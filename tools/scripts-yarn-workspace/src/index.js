@@ -6,7 +6,7 @@ const args = process.argv.slice(3);
 
 if (command === 'run') {
 	workspaceRun(args);
-} else if (command === 'merge-report') {
+} else if (command === 'lint-merge-report') {
 	mergeReport(args);
 } else {
 	console.error(`Command ${command} not found`);

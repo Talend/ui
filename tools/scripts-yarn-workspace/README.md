@@ -2,6 +2,9 @@
 
 This package expose a command line useful for mono repository management.
 
-For example:
+To use it as usual with scripts packages: `npx talend-yarn-workspace {command} {arguments}`
 
-`talend-yarn-workspace run test` will run test script on every package that has this script. The output will not be verbose by default.
+| command             | arguments      | description                                                                             |
+| ------------------- | -------------- | --------------------------------------------------------------------------------------- |
+| `run`               | scriptName     | run package.json script accross all packages inside your mono repository                |
+| `lint-merge-report` | main pr-branch | merge all eslint-report.json and stylelint-report.json and filter on only changed files |

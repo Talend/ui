@@ -35,7 +35,7 @@ export function mergeReport(args) {
 	);
 	const diff = run({
 		name: 'git',
-		args: ['diff', '--name-only', `origin/${process.argv[2]}`, `origin/${process.argv[3]}`],
+		args: ['diff', '--name-only', `origin/${args[0]}`, `origin/${args[1]}`],
 	})
 		.then(out =>
 			out
@@ -45,7 +45,7 @@ export function mergeReport(args) {
 		)
 		.catch(e => console.error(e));
 	Promise.all([info, diff]).then(results => {
-		const [infos, files] = results;
+		const [infos, files = []] = results;
 		// eslint-disable-next-line no-console
 		console.log({ files });
 		function onlyIfInDiff(lint) {
