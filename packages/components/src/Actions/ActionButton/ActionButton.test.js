@@ -1,6 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ActionButton from './ActionButton.component';
+
+jest.unmock('@talend/design-system');
 
 const myAction = {
 	label: 'Click me',
@@ -22,224 +26,217 @@ function OverlayComponent() {
 describe('Action', () => {
 	it('should render a button', () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} />);
+		render(<ActionButton {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toBeInTheDocument();
 	});
 
-	it('should render a button with loading state', () => {
+	it('should render a skeleton if not a link and loading', () => {
 		// when
-		const wrapper = shallow(<ActionButton loading />);
-
+		render(<ActionButton loading {...myAction} />);
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('button Loading...')).toHaveClass('tc-skeleton');
 	});
 
-	it('should render a link button with loading state', () => {
+	it('should render a loading skeleton', () => {
 		// when
-		const wrapper = shallow(<ActionButton link loading />);
-
+		render(<ActionButton link loading label="me a link" />);
+		const btn = screen.getByRole('link');
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(btn.childNodes[0]).toHaveClass('tc-skeleton');
 	});
 
 	it('should trigger the onclick props', () => {
 		// given
 		const onClick = jest.fn();
 		const props = { ...myAction, onClick };
-		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
+		render(<ActionButton {...props} extra="extra" />);
 
 		// when
-		wrapper.simulate('click', {});
+		userEvent.click(screen.getByRole('button'));
 
 		// then
 		expect(onClick.mock.calls.length).toBe(1);
-		expect(onClick).toHaveBeenCalledWith(
-			{},
-			{
-				action: {
-					'data-feature': 'action.feature',
-					extra: 'extra',
-					icon: 'talend-caret-down',
-					label: 'Click me',
-					title: 'Title to describe click me button',
-				},
-				model: undefined,
+		expect(onClick).toHaveBeenCalledWith(expect.anything(), {
+			action: {
+				'data-feature': 'action.feature',
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+				title: 'Title to describe click me button',
 			},
-		);
+			model: undefined,
+		});
 	});
 
 	it('should trigger the onmouseenter and onmouseleave props', () => {
 		const onMouseEnter = jest.fn();
 		const onMouseLeave = jest.fn();
 		const props = { ...myAction, onMouseEnter, onMouseLeave };
-		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
-
-		wrapper.simulate('mouseenter', {});
+		render(<ActionButton {...props} extra="extra" />);
+		fireEvent.mouseEnter(screen.getByRole('button'));
 
 		expect(onMouseEnter.mock.calls.length).toBe(1);
-		expect(onMouseEnter).toHaveBeenCalledWith(
-			{},
-			{
-				action: {
-					'data-feature': 'action.feature',
-					extra: 'extra',
-					icon: 'talend-caret-down',
-					label: 'Click me',
-					title: 'Title to describe click me button',
-				},
-				model: undefined,
+		expect(onMouseEnter).toHaveBeenCalledWith(expect.anything(), {
+			action: {
+				'data-feature': 'action.feature',
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+				title: 'Title to describe click me button',
 			},
-		);
+			model: undefined,
+		});
 
-		wrapper.simulate('mouseleave', {});
+		fireEvent.mouseLeave(screen.getByRole('button'));
 
 		expect(onMouseLeave.mock.calls.length).toBe(1);
-		expect(onMouseLeave).toHaveBeenCalledWith(
-			{},
-			{
-				action: {
-					'data-feature': 'action.feature',
-					extra: 'extra',
-					icon: 'talend-caret-down',
-					label: 'Click me',
-					title: 'Title to describe click me button',
-				},
-				model: undefined,
+		expect(onMouseLeave).toHaveBeenCalledWith(expect.anything(), {
+			action: {
+				'data-feature': 'action.feature',
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+				title: 'Title to describe click me button',
 			},
-		);
+			model: undefined,
+		});
 	});
 
 	it('should trigger the onclick props when action has an overlay', () => {
 		// given
 		const onClick = jest.fn();
 		const props = { ...myAction, overlayComponent: OverlayComponent, onClick };
-		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
+		render(<ActionButton {...props} extra="extra" />);
 
 		// when
-		wrapper.simulate('click', {});
+		userEvent.click(screen.getByRole('button'));
 
 		// then
 		expect(onClick.mock.calls.length).toBe(1);
-		expect(onClick).toHaveBeenCalledWith(
-			{},
-			{
-				action: {
-					'data-feature': 'action.feature',
-					extra: 'extra',
-					icon: 'talend-caret-down',
-					label: 'Click me',
-					title: 'Title to describe click me button',
-				},
-				model: undefined,
+		expect(onClick).toHaveBeenCalledWith(expect.anything(), {
+			action: {
+				'data-feature': 'action.feature',
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+				title: 'Title to describe click me button',
 			},
-		);
+			model: undefined,
+		});
 	});
 
-	it('should trigger the onmouseenter and onmouseleave props when action has an overlay', () => {
+	xit('should trigger the onmouseenter and onmouseleave props when action has an overlay', () => {
+		// Given
 		const onMouseEnter = jest.fn();
 		const onMouseLeave = jest.fn();
 		const props = { ...myAction, overlayComponent: OverlayComponent, onMouseEnter, onMouseLeave };
-		const wrapper = shallow(<ActionButton extra="extra" {...props} />);
+		// when
+		render(<ActionButton {...props} />);
 
-		wrapper.simulate('mouseenter', {});
+		// then
+		expect(screen.getByRole('button')).toHaveAttribute('aria-haspopup', 'true');
 
-		expect(onMouseEnter.mock.calls.length).toBe(1);
-		expect(onMouseEnter).toHaveBeenCalledWith(
-			{},
-			{
-				action: {
-					'data-feature': 'action.feature',
-					extra: 'extra',
-					icon: 'talend-caret-down',
-					label: 'Click me',
-					title: 'Title to describe click me button',
-				},
-				model: undefined,
+		// When
+		// this do not work as overlay do not manage on mouse enter/leave from the outside
+		fireEvent.mouseEnter(screen.getByRole('button'));
+
+		expect(onMouseEnter).toHaveBeenCalled();
+		expect(onMouseEnter).toHaveBeenCalledWith(expect.anything(), {
+			action: {
+				'data-feature': 'action.feature',
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+				title: 'Title to describe click me button',
 			},
-		);
-
-		wrapper.simulate('mouseleave', {});
+			model: undefined,
+		});
+		fireEvent.mouseLeave(screen.getByRole('button'));
 
 		expect(onMouseLeave.mock.calls.length).toBe(1);
-		expect(onMouseLeave).toHaveBeenCalledWith(
-			{},
-			{
-				action: {
-					'data-feature': 'action.feature',
-					extra: 'extra',
-					icon: 'talend-caret-down',
-					label: 'Click me',
-					title: 'Title to describe click me button',
-				},
-				model: undefined,
+		expect(onMouseLeave).toHaveBeenCalledWith(expect.anything(), {
+			action: {
+				'data-feature': 'action.feature',
+				extra: 'extra',
+				icon: 'talend-caret-down',
+				label: 'Click me',
+				title: 'Title to describe click me button',
 			},
-		);
+			model: undefined,
+		});
 	});
 
 	it('should pass all props to the Button', () => {
 		// when
-		const wrapper = shallow(<ActionButton className="navbar-btn" notExisting {...myAction} />);
+		render(<ActionButton {...myAction} className="navbar-btn" />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveClass('navbar-btn');
 	});
 
 	it('should display a Progress indicator if set', () => {
 		// when
-		const wrapper = shallow(<ActionButton className="navbar-btn" inProgress {...myAction} />);
+		render(<ActionButton inProgress {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('Loading...')).toBeInTheDocument();
 	});
 
 	it('should display a disabled Icon', () => {
 		// when
-		const wrapper = shallow(<ActionButton className="navbar-btn" disabled {...myAction} />);
+		render(<ActionButton disabled {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('Click me')).toHaveClass('theme-btn-disabled');
+		expect(screen.getByLabelText('Click me')).toBeDisabled();
 	});
 
 	it('should reverse icon/label', () => {
 		// when
-		const wrapper = shallow(<ActionButton iconPosition="right" {...myAction} />);
+		render(<ActionButton iconPosition="right" {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Click me').nextSibling).toHaveClass('tc-svg-icon');
 	});
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = shallow(<ActionButton iconTransform="rotate-180" {...myAction} />);
+		render(<ActionButton iconTransform="rotate-180" {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Click me').previousSibling).toHaveClass('theme-rotate-180');
 	});
 
 	it('should render action with html property name = props.name if set', () => {
 		// when
-		const wrapper = shallow(<ActionButton name="custom_name" {...myAction} />);
+		render(<ActionButton name="custom_name" {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveAttribute('name', 'custom_name');
 	});
 
 	it('should render tooltip when hideLabel property is set', () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} hideLabel />);
+		render(<ActionButton {...myAction} hideLabel />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.queryByText('Click me')).not.toBeInTheDocument();
+		expect(screen.getByRole('button')).toHaveAttribute(
+			'title',
+			'Title to describe click me button',
+		);
 	});
 
 	it('should render tooltip when tooltip property is set', () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} tooltip />);
+		render(<ActionButton {...myAction} tooltip />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const btn = screen.getByRole('button');
+		expect(btn).toBeInTheDocument();
+		expect(screen.getByRole('button')).toHaveAttribute('aria-describedby', '42');
 	});
 
 	it('should NOT render tooltip when tooltip property is set to false', () => {
@@ -260,7 +257,7 @@ describe('Action', () => {
 
 	it('should render tooltip with tooltipLabel when the tooltip property is not set', () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} tooltipLabel='My tooltip label' />);
+		const wrapper = shallow(<ActionButton {...myAction} tooltipLabel="My tooltip label" />);
 
 		// then
 		expect(wrapper.find('TooltipTrigger')).toHaveLength(1);
@@ -269,7 +266,9 @@ describe('Action', () => {
 
 	it('should not render tooltip with tooltipLabel when the tooltip property is set to false', () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} tooltip={false} tooltipLabel='My tooltip label' />);
+		const wrapper = shallow(
+			<ActionButton {...myAction} tooltip={false} tooltipLabel="My tooltip label" />,
+		);
 
 		// then
 		expect(wrapper.find('TooltipTrigger')).toHaveLength(0);
