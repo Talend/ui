@@ -4,7 +4,6 @@ exports[`Connected ActionFile should render 1`] = `
 <span>
   <input
     className="theme-action-file-input sr-only"
-    data-test="42"
     disabled={false}
     id="42"
     onChange={[Function]}

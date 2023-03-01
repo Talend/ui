@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ActionButton from './ActionButton.component';
 
@@ -217,85 +216,92 @@ describe('Action', () => {
 		expect(screen.getByRole('button')).toHaveAttribute('name', 'custom_name');
 	});
 
-	it('should render tooltip when hideLabel property is set', () => {
+	it('should render tooltip when hideLabel property is set', async () => {
 		// when
 		render(<ActionButton {...myAction} hideLabel />);
 
 		// then
 		expect(screen.queryByText('Click me')).not.toBeInTheDocument();
-		expect(screen.getByRole('button')).toHaveAttribute(
-			'title',
-			'Title to describe click me button',
-		);
+		await userEvent.hover(screen.getByRole('button'));
+		const tooltip = await screen.findByRole('tooltip');
+		expect(within(tooltip).getByText('Click me')).toBeInTheDocument();
 	});
 
-	it('should render tooltip when tooltip property is set', () => {
+	it('should render tooltip when tooltip property is set', async () => {
 		// when
 		render(<ActionButton {...myAction} tooltip />);
 
 		// then
-		const btn = screen.getByRole('button');
-		expect(btn).toBeInTheDocument();
-		expect(screen.getByRole('button')).toHaveAttribute('aria-describedby', '42');
+		expect(screen.getByText('Click me')).toBeInTheDocument();
+		await userEvent.hover(screen.getByRole('button'));
+		const tooltip = await screen.findByRole('tooltip');
+		expect(within(tooltip).getByText('Click me')).toBeInTheDocument();
 	});
 
-	it('should NOT render tooltip when tooltip property is set to false', () => {
+	it('should NOT render tooltip when tooltip property is set to false', async () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} tooltip={false} />);
+		render(<ActionButton {...myAction} tooltip={false} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Click me')).toBeInTheDocument();
+		await userEvent.hover(screen.getByRole('button'));
+		expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
 	});
 
-	it('should NOT render tooltip when tooltip property is set to false with hideLabel property', () => {
+	it('should NOT render tooltip when tooltip property is set to false with hideLabel property', async () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} hideLabel tooltip={false} />);
+		render(<ActionButton {...myAction} hideLabel tooltip={false} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.queryByText('Click me')).not.toBeInTheDocument();
+		await userEvent.hover(screen.getByRole('button'));
+		expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
 	});
 
-	it('should render tooltip with tooltipLabel when the tooltip property is not set', () => {
+	it('should render tooltip with tooltipLabel when the tooltip property is not set', async () => {
 		// when
-		const wrapper = shallow(<ActionButton {...myAction} tooltipLabel="My tooltip label" />);
+		render(<ActionButton {...myAction} tooltipLabel="My tooltip label" />);
+		await userEvent.hover(screen.getByRole('button'));
+		const tooltip = await screen.findByRole('tooltip');
 
 		// then
-		expect(wrapper.find('TooltipTrigger')).toHaveLength(1);
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('My tooltip label');
+		expect(tooltip).toHaveTextContent('My tooltip label');
 	});
 
-	it('should not render tooltip with tooltipLabel when the tooltip property is set to false', () => {
+	it('should not render tooltip with tooltipLabel when the tooltip property is set to false', async () => {
 		// when
-		const wrapper = shallow(
-			<ActionButton {...myAction} tooltip={false} tooltipLabel="My tooltip label" />,
-		);
+		render(<ActionButton {...myAction} tooltip={false} tooltipLabel="My tooltip label" />);
+		await userEvent.hover(screen.getByRole('button'));
 
 		// then
-		expect(wrapper.find('TooltipTrigger')).toHaveLength(0);
+		expect(screen.getByText('Click me')).toBeInTheDocument();
+		await userEvent.hover(screen.getByRole('button'));
+		expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
 	});
 
-	it('should trigger action if set up onMouseDown event', () => {
+	it('should trigger action if set up onMouseDown event', async () => {
 		// given
-		const wrapper = shallow(<ActionButton extra="extra" {...mouseDownAction} />);
+		render(<ActionButton {...mouseDownAction} extra="extra" />);
+		const button = screen.getByRole('button');
 
 		// when
-		wrapper.simulate('mouseDown');
+		await fireEvent.mouseDown(button);
 
 		// then
 		expect(mouseDownAction.onMouseDown).toHaveBeenCalled();
 		expect(mouseDownAction.onMouseDown.mock.calls.length).toBe(1);
 		const args = mouseDownAction.onMouseDown.mock.calls[0];
 		expect(args.length).toBe(2);
-		expect(args[0]).toBe();
+		expect(args[0]).toMatchObject({ type: 'mousedown' });
 		expect(args[1].action.extra).toBe('extra');
 	});
 
 	it('should not render action if props.available=false', () => {
-		const wrapper = shallow(<ActionButton available={false} />);
-		expect(wrapper.type()).toBe(null);
+		render(<ActionButton available={false} {...myAction} />);
+		expect(screen.queryByRole('button')).not.toBeInTheDocument();
 	});
 
-	it('should render a button without an overlay component if inProgress is true', () => {
+	it('should render a button without an overlay component if inProgress is true', async () => {
 		const props = {
 			...myAction,
 			inProgress: true,
@@ -304,14 +310,14 @@ describe('Action', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionButton {...props} />);
+		render(<ActionButton {...props} />);
+		await userEvent.click(screen.getByRole('button'));
 
 		// then
-		expect(wrapper.find('OverlayTrigger').length).toBe(0);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
 	});
 
-	it('should render a button with a overlay component', () => {
+	it('should render a button with a overlay component', async () => {
 		const props = {
 			...myAction,
 			overlayComponent: OverlayComponent,
@@ -320,11 +326,13 @@ describe('Action', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionButton {...props} />);
+		render(<ActionButton {...props} />);
+		await userEvent.click(screen.getByRole('button'));
+		const tooltip = await screen.findByRole('tooltip');
 
 		// then
-		expect(wrapper.find('OverlayTrigger').length).toBe(1);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(tooltip).toBeInTheDocument();
+		expect(tooltip).toHaveAttribute('id', 'myOverlayId');
 	});
 
 	it('should called ref method on overlay', () => {
@@ -338,7 +346,7 @@ describe('Action', () => {
 			overlayId: 'myOverlayId',
 		};
 		// when
-		mount(<ActionButton {...props} />);
+		render(<ActionButton {...props} />);
 
 		// then
 		expect(myRefFunc).toHaveBeenCalled();
@@ -348,7 +356,7 @@ describe('Action', () => {
 		// Given
 		const myRefFunc = jest.fn();
 		// when
-		mount(<ActionButton {...myAction} buttonRef={myRefFunc} />);
+		render(<ActionButton {...myAction} buttonRef={myRefFunc} />);
 
 		// then
 		expect(myRefFunc).toHaveBeenCalled();
