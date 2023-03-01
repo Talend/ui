@@ -6,7 +6,11 @@ import omit from 'lodash/omit';
 export default function Checkbox({ id, className, label, intermediate, ...props }) {
 	let dataFeature;
 	let dataChecked = 0;
-	const dataTracking = `${props['data-tracking']}-${props.checked ? 'on' : 'off'}`;
+	let dataTracking;
+
+	if (props['data-tracking']) {
+		dataTracking = `${props['data-tracking']}-${props.checked ? 'on' : 'off'}`;
+	}
 
 	if (!props.disabled && props['data-feature']) {
 		dataFeature = props['data-feature'];
