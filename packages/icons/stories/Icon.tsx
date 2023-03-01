@@ -3,8 +3,8 @@ import { useCopyToClipboard } from 'react-use';
 
 import tokens from '@talend/design-tokens';
 
-import metadata from '../src/metadata.json';
 import { infoFromFigma as icons } from '../dist/info';
+import metadata from '../src/metadata.json';
 
 const iconColorTokens = {
 	'neutral/icon': tokens.coralColorNeutralIcon,
@@ -225,10 +225,28 @@ export const IconItem = ({
 }) => {
 	const searchContext = React.useContext(SearchContext);
 	const [, copyToClipboard] = useCopyToClipboard();
-	const onClickHandler = () => {
+
+	const onTextClickHandler = () => {
 		const nameToCopy = name.split(':')[0];
 		copyToClipboard(nameToCopy);
 		alert(`"${nameToCopy}" has been copied to clipboard`);
+	};
+
+	const onIconClickHandler = () => {
+		var svgData = document.getElementById(`${name}:${size}`)?.getElementsByTagName('svg')[0];
+		if (svgData) {
+			svgData.removeAttribute('width');
+			svgData.removeAttribute('height');
+
+			var svgBlob = new Blob([svgData?.outerHTML], { type: 'image/svg+xml;charset=utf-8' });
+			var svgUrl = URL.createObjectURL(svgBlob);
+			var downloadLink = document.createElement('a');
+			downloadLink.href = svgUrl;
+			downloadLink.download = `${name}-${size}.svg`;
+			document.body.appendChild(downloadLink);
+			downloadLink.click();
+			document.body.removeChild(downloadLink);
+		}
 	};
 	const iconMetadata = metadata.find(data => data.name.endsWith(size + '/' + name));
 	const isFound = size
@@ -240,64 +258,73 @@ export const IconItem = ({
 	return (
 		<div {...rest}>
 			{isFound ? (
-				<div role="button" onClick={onClickHandler} onKeyPress={onClickHandler} tabIndex={0}>
+				<div
+					style={{
+						display: 'flex',
+						gap: tokens.coralSpacingM,
+						paddingBlock: tokens.coralSpacingXs,
+					}}
+				>
 					<div
 						style={{
 							display: 'flex',
-							gap: tokens.coralSpacingM,
-							paddingBlock: tokens.coralSpacingXs,
+							justifyContent: 'center',
+							alignItems: 'center',
+							width: tokens.coralSizingM,
+							height: tokens.coralSizingM,
+							border: `${tokens.coralBorderSSolid} ${tokens.coralColorNeutralBorderWeak}`,
+							boxShadow: tokens.coralElevationShadowAccent,
+							borderRadius: tokens.coralRadiusS,
 						}}
 					>
 						<div
-							style={{
-								display: 'flex',
-								justifyContent: 'center',
-								alignItems: 'center',
-								width: tokens.coralSizingM,
-								height: tokens.coralSizingM,
-								border: `${tokens.coralBorderSSolid} ${tokens.coralColorNeutralBorderWeak}`,
-								boxShadow: tokens.coralElevationShadowAccent,
-								borderRadius: tokens.coralRadiusS,
-							}}
+							role="button"
+							onClick={onIconClickHandler}
+							onKeyPress={onIconClickHandler}
+							tabIndex={0}
 						>
 							<Icon size={size} name={name} />
 						</div>
-						<div
-							style={{
-								flex: 1,
-								font: tokens.coralParagraphM,
-							}}
-						>
-							{size ? (
-								<dl
-									style={{
-										display: 'grid',
-										gridTemplateColumns: '1fr 3fr',
-									}}
-								>
-									<dt>Name</dt>
-									<dd>{name}</dd>
-									{size && (
+					</div>
+					<div
+						role="button"
+						onClick={onTextClickHandler}
+						onKeyPress={onTextClickHandler}
+						tabIndex={0}
+						style={{
+							flex: 1,
+							font: tokens.coralParagraphM,
+						}}
+					>
+						{size ? (
+							<dl
+								style={{
+									display: 'grid',
+									gridTemplateColumns: '1fr 3fr',
+								}}
+							>
+								<dt>Name</dt>
+								<dd>{name}</dd>
+								{size && (
+									<>
+										<dt>Size</dt>
+										<dd>{size}</dd>
+									</>
+								)}
+								{iconMetadata &&
+									'description' in iconMetadata &&
+									iconMetadata.description.length > 0 && (
 										<>
-											<dt>Size</dt>
-											<dd>{size}</dd>
+											<dt style={{ color: tokens.coralColorNeutralTextWeak }}>Desc</dt>
+											<dd style={{ color: tokens.coralColorNeutralTextWeak }}>
+												{iconMetadata.description}
+											</dd>
 										</>
 									)}
-									{iconMetadata &&
-										'description' in iconMetadata &&
-										iconMetadata.description.length > 0 && (
-											<>
-												<dt style={{ color: tokens.coralColorNeutralTextWeak }}>Desc</dt>
-												<dd style={{ color: tokens.coralColorNeutralTextWeak }}>
-													{iconMetadata.description}
-												</dd>
-											</>
-										)}
-								</dl>
-							) : (
-								<span>{name}</span>
-							)}
-						</div>
+							</dl>
+						) : (
+							<span>{name}</span>
+						)}
 					</div>
 				</div>
 			) : (
