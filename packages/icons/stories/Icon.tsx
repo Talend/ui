@@ -277,19 +277,13 @@ export const IconItem = ({
 							borderRadius: tokens.coralRadiusS,
 						}}
 					>
-						<div
-							role="button"
-							onClick={onIconClickHandler}
-							onKeyPress={onIconClickHandler}
-							tabIndex={0}
-						>
+						<div role="button" onClick={onIconClickHandler} tabIndex={0}>
 							<Icon size={size} name={name} />
 						</div>
 					</div>
 					<div
 						role="button"
 						onClick={onTextClickHandler}
-						onKeyPress={onTextClickHandler}
 						tabIndex={0}
 						style={{
 							flex: 1,
