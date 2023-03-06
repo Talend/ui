@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -6,12 +8,13 @@ import ActionDropdown, { InjectDropdownMenuItem, getMenuItem } from './ActionDro
 
 jest.unmock('@talend/design-system');
 
-function getComponent(key, options) {
-	if (options?.key) {
-		return options.key;
+function getComponent(key) {
+	let Fake = props => <div role={key} {...props} />;
+	if (key === 'Action') {
+		Fake = props => <button role={key} {...props} />;
+	} else if (key === 'MenuItem') {
+		Fake = props => <li role={props.divider ? 'separator' : key} {...props} />;
 	}
-	const Fake = props => <div role={key} {...props} />;
-	Fake.displayName = key;
 	return Fake;
 }
 
@@ -145,7 +148,7 @@ describe('InjectDropdownMenuItem', () => {
 				withMenuItem
 			/>,
 		);
-		expect(screen.getByRole('menuitem')).toBeInTheDocument();
+		expect(screen.getByRole('MenuItem')).toBeInTheDocument();
 	});
 	it('should render li with Inject', () => {
 		render(
@@ -156,7 +159,7 @@ describe('InjectDropdownMenuItem', () => {
 				liProps={{ stuff: 'MyLiProps' }}
 			/>,
 		);
-		expect(screen.getByRole('listitem')).toBeInTheDocument();
+		expect(screen.getByRole('presentation')).toBeInTheDocument();
 	});
 });
 
@@ -169,6 +172,8 @@ describe('Dropup', () => {
 		const { container } = render(
 			<div className="tc-dropdown-container">
 				<ActionDropdown
+					id="my-dropdown"
+					label="Dropdown"
 					items={[{ label: 'item 1' }, { label: 'item 2' }]}
 					dropup={isInitialDropup}
 				/>
