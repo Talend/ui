@@ -1,10 +1,16 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
 import ActionDropdown, { InjectDropdownMenuItem, getMenuItem } from './ActionDropdown.component';
 
-function getComponent(key) {
-	const Fake = props => <div {...props} />;
+jest.unmock('@talend/design-system');
+
+function getComponent(key, options) {
+	if (options?.key) {
+		return options.key;
+	}
+	const Fake = props => <div role={key} {...props} />;
 	Fake.displayName = key;
 	return Fake;
 }
@@ -23,17 +29,17 @@ describe('ActionDropdown', () => {
 			],
 		};
 
-		const actionDropdownInstance = mount(<ActionDropdown {...props} />);
-		const dropdownButton = actionDropdownInstance.find('DropdownToggle');
+		render(<ActionDropdown {...props} />);
+		const dropdownButton = screen.getByRole('button');
 
 		// when
-		dropdownButton.simulate('click');
+		userEvent.click(dropdownButton);
 
 		// then
 		expect(onToggle).toBeCalledWith(true);
 
 		// when
-		dropdownButton.simulate('click');
+		userEvent.click(dropdownButton);
 
 		// then
 		expect(onToggle).toBeCalledWith(false);
@@ -52,11 +58,10 @@ describe('ActionDropdown', () => {
 				{ id: 'item2', label: 'Item 2', onClick: onItemClick, model: 'model' },
 			],
 		};
-		const actionDropdownInstance = mount(<ActionDropdown {...props} />);
-		const menuItems = actionDropdownInstance.find('MenuItem');
+		render(<ActionDropdown {...props} />);
 
 		// when
-		menuItems.at(0).find('SafeAnchor').simulate('click');
+		userEvent.click(screen.getByRole('menuitem', { name: 'Item 1' }));
 
 		// then
 		expect(onSelectClick).toBeCalledWith(expect.anything(), props.items[0]);
@@ -67,7 +72,7 @@ describe('ActionDropdown', () => {
 		expect(onItemClick.mock.calls[0][0].type).toBe('click');
 
 		// when
-		menuItems.at(1).find('SafeAnchor').simulate('click');
+		userEvent.click(screen.getByRole('menuitem', { name: 'Item 2' }));
 
 		// then
 		expect(onSelectClick).toBeCalledWith(expect.anything(), props.items[1]);
@@ -88,32 +93,37 @@ describe('ActionDropdown', () => {
 		};
 
 		// when
-		const wrapper = mount(<ActionDropdown {...props} />)
-			.find('DropdownButton')
-			.find('Icon[transform="rotate-90"]');
+		render(<ActionDropdown {...props} />);
+		const icon = screen.getByRole('button').firstChild;
 
 		// then
-		expect(wrapper.exists()).toBeTruthy();
+		expect(icon).toHaveClass('theme-rotate-90');
+		expect(icon).toHaveClass('tc-icon');
 	});
 });
 
 describe('getMenuItem', () => {
 	it('should return a MenuItem with divider', () => {
-		expect(getMenuItem({ divider: true })).toMatchSnapshot();
+		render(getMenuItem({ divider: true }));
+		expect(screen.getByRole('separator')).toBeInTheDocument();
 	});
 	it('should return a MenuItem with icon and label', () => {
-		expect(
-			getMenuItem({ label: 'Toto', icon: 'talend-bell', 'data-feature': 'action.feature' }),
-		).toMatchSnapshot();
+		render(getMenuItem({ label: 'Toto', icon: 'talend-bell', 'data-feature': 'action.feature' }));
+		expect(screen.getByRole('menuitem')).toBeInTheDocument();
+		expect(screen.getByRole('menuitem')).toHaveTextContent('Toto');
+		expect(screen.getByRole('menuitem')).toHaveAttribute('data-feature', 'action.feature');
 	});
 	it('should return a MenuItem with label', () => {
-		expect(getMenuItem({ label: 'Toto', 'data-feature': 'action.feature' })).toMatchSnapshot();
+		render(getMenuItem({ label: 'Toto', 'data-feature': 'action.feature' }));
+		expect(screen.getByRole('menuitem')).toBeInTheDocument();
+		expect(screen.getByRole('menuitem')).toHaveTextContent('Toto');
+		expect(screen.getByRole('menuitem')).toHaveAttribute('data-feature', 'action.feature');
 	});
 });
 
 describe('InjectDropdownMenuItem', () => {
 	it('should render MenuItem with props divider', () => {
-		const wrapper = shallow(
+		render(
 			<InjectDropdownMenuItem
 				getComponent={getComponent}
 				key={0}
@@ -121,10 +131,10 @@ describe('InjectDropdownMenuItem', () => {
 				divider
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('separator')).toBeInTheDocument();
 	});
 	it('should render MenuItem with Inject', () => {
-		const wrapper = shallow(
+		render(
 			<InjectDropdownMenuItem
 				getComponent={getComponent}
 				component="Action"
@@ -135,10 +145,10 @@ describe('InjectDropdownMenuItem', () => {
 				withMenuItem
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('menuitem')).toBeInTheDocument();
 	});
 	it('should render li with Inject', () => {
-		const wrapper = shallow(
+		render(
 			<InjectDropdownMenuItem
 				getComponent={getComponent}
 				component="Action"
@@ -146,36 +156,37 @@ describe('InjectDropdownMenuItem', () => {
 				liProps={{ stuff: 'MyLiProps' }}
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('listitem')).toBeInTheDocument();
 	});
 });
 
 describe('Dropup', () => {
 	function testSwitch({ containerPosition, menuPosition, isInitialDropup, isDropupExpected }) {
 		// given
-		const container = document.createElement('div');
-		container.classList.add('tc-dropdown-container');
-		container.getBoundingClientRect = () => containerPosition;
-
-		const wrapper = mount(
-			<ActionDropdown
-				items={[{ label: 'item 1' }, { label: 'item 2' }]}
-				dropup={isInitialDropup}
-			/>,
-			{
-				attachTo: container,
-			},
+		// const container = screen.document.createElement('div');
+		// container.classList.add('tc-dropdown-container');
+		// container.getBoundingClientRect = () => containerPosition;
+		const { container } = render(
+			<div className="tc-dropdown-container">
+				<ActionDropdown
+					items={[{ label: 'item 1' }, { label: 'item 2' }]}
+					dropup={isInitialDropup}
+				/>
+				,
+			</div>,
 		);
+		container.firstChild.getBoundingClientRect = () => containerPosition;
+		// eslint-disable-next-line testing-library/no-container
 		container.querySelector('.dropdown-menu').getBoundingClientRect = () => menuPosition;
 
 		// when
-		wrapper.find('button').first().simulate('click');
+		userEvent.click(screen.getByRole('button'));
 
 		// then
 		if (!isDropupExpected) {
-			expect(container.firstChild).not.toHaveClass('dropup');
+			expect(container.firstChild.firstChild).not.toHaveClass('dropup');
 		} else {
-			expect(container.firstChild).toHaveClass('dropup');
+			expect(container.firstChild.firstChild).toHaveClass('dropup');
 		}
 	}
 
