@@ -1,9 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ActionIconToggle from './ActionIconToggle.component';
-import Icon from '../../Icon';
 
 jest.unmock('@talend/design-system');
 
