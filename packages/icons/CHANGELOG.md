@@ -1,5 +1,34 @@
 # @talend/icons
 
+## 6.53.0
+
+### Minor Changes
+
+- 672072887: added icon `folder-plus` in size `L`
+- 672072887: added icon `folder-plus` in size `M`
+- 672072887: added icon `two-vertical-lines-circle` in size `L`
+- 672072887: added icon `two-vertical-lines-circle` in size `M`
+
+### Patch Changes
+
+- 672072887: changed icon `chevron-double-left-filled` in size `M`
+- 672072887: changed icon `chevron-double-left-stroke` in size `M`
+- 672072887: changed icon `chevron-double-right` in size `L`
+- 672072887: changed icon `chevron-double-right-filled` in size `L`
+- 672072887: changed icon `chevron-double-right-filled` in size `M`
+- 672072887: changed icon `chevron-double-right-stroke` in size `L`
+- 672072887: changed icon `chevron-double-right-stroke` in size `M`
+- 672072887: changed icon `chevron-right` in size `L`
+- 672072887: changed icon `diverge` in size `M`
+- 672072887: changed icon `diverge` in size `S`
+- 672072887: changed icon `dots-vertical` in size `L`
+- 672072887: changed icon `dots-vertical` in size `M`
+- 672072887: changed icon `dots-vertical` in size `S`
+- 672072887: changed icon `home` in size `L`
+- 672072887: changed icon `home` in size `M`
+- 672072887: changed icon `home` in size `S`
+- 672072887: changed icon `slider-controls` in size `M`
+
 ## 6.52.0
 
 ### Minor Changes

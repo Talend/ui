@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.1.1
+
+### Patch Changes
+
+- 12d329322: TDOPS-421 - Fix faceted search submit at launch and badge sync on value and operator
+
 ## 8.1.0
 
 ### Minor Changes
