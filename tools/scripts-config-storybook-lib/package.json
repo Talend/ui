@@ -29,7 +29,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
-    "@talend/scripts-config-react-webpack": "^15.2.6",
+    "@talend/scripts-config-react-webpack": "^15.3.0",
     "@talend/dynamic-cdn-webpack-plugin": "^13.0.0",
     "assert": "^2.0.0",
     "i18next-http-backend": "^1.4.5",

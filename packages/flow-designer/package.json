@@ -18,7 +18,7 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts-config-jest": "^12.1.0",
+    "@talend/scripts-config-jest": "^12.1.1",
     "@talend/scripts-core": "^13.1.2",
     "@types/d3": "^7.4.0",
     "@types/enzyme": "^3.10.12",

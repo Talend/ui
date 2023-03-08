@@ -48,7 +48,7 @@
     "keycode": "^2.2.1",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
-    "rc-slider": "^10.1.0",
+    "rc-slider": "^10.1.1",
     "react-autowhatever": "10.2.0",
     "@talend/react-bootstrap": "^1.35.2",
     "react-debounce-input": "^3.3.0",
@@ -61,18 +61,18 @@
     "react-use": "^17.4.0",
     "react-virtualized": "^9.22.3",
     "reactour": "^1.19.0",
-    "recharts": "^2.3.2",
+    "recharts": "^2.4.3",
     "simplebar": "^5.3.9",
     "simplebar-react": "^2.4.3",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.8"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.16",
     "@talend/bootstrap-theme": "^7.0.1",
-    "@talend/design-system": "^7.5.1",
+    "@talend/design-system": "^7.6.0",
     "@talend/icons": "^6.52.0",
     "@talend/locales-design-system": "^7.3.0",
-    "@talend/locales-tui-components": "^6.44.11",
+    "@talend/locales-tui-components": "^9.5.0",
     "@talend/scripts-core": "^13.1.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
@@ -100,7 +100,7 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@talend/design-system": "^7.5.0",
+    "@talend/design-system": "^7.6.0",
     "i18next": "^20.1.0",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
