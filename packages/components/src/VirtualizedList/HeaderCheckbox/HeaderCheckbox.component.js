@@ -16,7 +16,7 @@ function HeaderCheckbox({ columnData }) {
 		return null;
 	}
 
-	const { id, onToggleAll, collection, isSelected } = columnData;
+	const { id, onToggleAll, collection, isToggleAllDisabled, isSelected } = columnData;
 	const checked = useMemo(
 		() => collection.length > 0 && collection.every(isSelected),
 		[collection, isSelected],
@@ -40,7 +40,9 @@ function HeaderCheckbox({ columnData }) {
 						onChange={onToggleAll}
 						checked={checked}
 						intermediate={partial}
-						disabled={!collection.length}
+						disabled={
+							!collection.length || (isToggleAllDisabled && isToggleAllDisabled(collection))
+						}
 						data-feature="list.select_all"
 					/>
 					<span className="sr-only">{title}</span>
@@ -58,6 +60,8 @@ HeaderCheckbox.propTypes = {
 		id: PropTypes.string,
 		// all items in list, used by onToggleAll callback.
 		collection: PropTypes.array.isRequired,
+		// The function is to check if toggle all is disabled.
+		isToggleAllDisabled: PropTypes.func,
 		// The function is to check if item is selected.
 		isSelected: PropTypes.func.isRequired,
 		// The onToggleAll callback triggered on header checkbox toggle.

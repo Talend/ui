@@ -28,6 +28,20 @@ describe('CellActions', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render disabled checkbox', () => {
+		// when
+		const wrapper = shallow(
+			<CellCheckbox
+				cellData={false}
+				columnData={{ ...columnData, getRowState: () => ({ disabled: true }) }}
+				rowIndex={25}
+			/>,
+		);
+
+		// then
+		expect(wrapper.find('input').prop('disabled')).toBe(true);
+	});
+
 	it('should render radio button', () => {
 		// when
 		const wrapper = shallow(

@@ -698,6 +698,45 @@ export const SelectableItems = () => {
 	);
 };
 
+export const SelectableItemsWithDisabledItems = () => {
+	const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
+		simpleCollection,
+		[],
+		'id',
+	);
+
+	const getRowState = item => (item.id === 1 ? { disabled: true } : {});
+	const isToggleAllDisabled = () => {
+		for (let i = 0; i < simpleCollection.length; i++) {
+			if (getRowState(simpleCollection[i]).disabled) {
+				return true;
+			}
+		}
+		return false;
+	};
+	return (
+		<div className="virtualized-list">
+			<h1>List with selection disabled items</h1>
+			<p>
+				You can pass <b>getRowState</b> for disable a certain row. <br />
+				<b>isToggleAllDisabled</b> is used for disable "Select all" checkbox
+			</p>
+
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<CustomList
+						isSelected={isSelected}
+						onToggleAll={onToggleAll}
+						selectionToggle={(_, group) => onToggleItem(group)}
+						getRowState={getRowState}
+						isToggleAllDisabled={isToggleAllDisabled}
+					/>
+				</List.Manager>
+			</section>
+		</div>
+	);
+};
+
 export const SelectableItemsActionBar = () => {
 	const { isSelected, onToggleAll, onToggleItem } = List.hooks.useCollectionSelection(
 		simpleCollection,

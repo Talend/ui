@@ -44,6 +44,17 @@ describe('Header "Select All" checkbox', () => {
 		expect(checkbox.prop('disabled')).toBe(true);
 	});
 
+	it('should render disabled checkbox when isToggleAllDisabled() is true', () => {
+		// when
+		const wrapper = shallow(
+			<HeaderCheckbox columnData={{ ...columnData, isToggleAllDisabled: () => true }} />,
+		);
+
+		// then
+		const checkbox = wrapper.find('#myList-header-check');
+		expect(checkbox.prop('disabled')).toBe(true);
+	});
+
 	it('should render a checked checkbox on header', () => {
 		// when
 		const wrapper = shallow(

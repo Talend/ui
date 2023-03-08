@@ -14,7 +14,11 @@ describe('tablerow', () => {
 			];
 
 			// when
-			const result = insertSelectionConfiguration({ isSelected, selectionToggle, children });
+			const result = insertSelectionConfiguration({
+				isSelected,
+				selectionToggle,
+				children,
+			});
 
 			// then
 			expect(result).toMatchSnapshot();
@@ -32,6 +36,30 @@ describe('tablerow', () => {
 
 			// then
 			expect(result).toMatchSnapshot();
+		});
+		it('should pass selection props to Column', () => {
+			// given
+			const isSelected = jest.fn();
+			const selectionToggle = jest.fn();
+			const getRowState = jest.fn();
+			const isToggleAllDisabled = jest.fn();
+			const children = [
+				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content label="Name" dataKey="name" width={350} />,
+			];
+
+			// when
+			const result = insertSelectionConfiguration({
+				getRowState,
+				isSelected,
+				isToggleAllDisabled,
+				selectionToggle,
+				children,
+			});
+
+			// then
+			expect(result[0].props.columnData.getRowState).toBe(getRowState);
+			expect(result[0].props.columnData.isToggleAllDisabled).toBe(isToggleAllDisabled);
 		});
 	});
 
