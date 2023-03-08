@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
@@ -28,6 +28,7 @@ import {
 import theme from './BasicSearch.module.scss';
 import { USAGE_TRACKING_TAGS } from '../../constants';
 import { DEFAULT_QUICKSEARCH_OPERATOR } from '../QuickSearchInput/QuickSearchInput.component';
+import { isEqual } from 'lodash';
 
 const css = getTheme(theme);
 
@@ -66,8 +67,11 @@ const BasicSearch = ({
 		[badgesDefinitions],
 	);
 
+	const [badgeState, setBadgeState] = useState(state.badges);
+
 	useEffect(() => {
-		if (!state.badges.some(isInCreation)) {
+		if (!state.badges.some(isInCreation) && !isEqual(badgeState, state.badges)) {
+			setBadgeState(state.badges);
 			onSubmit({}, state.badges);
 		}
 	}, [state.badges, onSubmit]);
