@@ -9,8 +9,8 @@ describe('tablerow', () => {
 			const isSelected = jest.fn();
 			const selectionToggle = jest.fn();
 			const children = [
-				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
-				<VirtualizedList.Content label="Name" dataKey="name" width={350} />,
+				<VirtualizedList.Content key={0} label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content key={1} label="Name" dataKey="name" width={350} />,
 			];
 
 			// when
@@ -27,8 +27,8 @@ describe('tablerow', () => {
 		it('should NOT insert selection column when selection callback is NOT provided', () => {
 			// given
 			const children = [
-				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
-				<VirtualizedList.Content label="Name" dataKey="name" width={350} />,
+				<VirtualizedList.Content key={0} label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content key={1} label="Name" dataKey="name" width={350} />,
 			];
 
 			// when
@@ -44,8 +44,8 @@ describe('tablerow', () => {
 			const getRowState = jest.fn();
 			const isToggleAllDisabled = jest.fn();
 			const children = [
-				<VirtualizedList.Content label="Id" dataKey="id" width={50} />,
-				<VirtualizedList.Content label="Name" dataKey="name" width={350} />,
+				<VirtualizedList.Content key={0} label="Id" dataKey="id" width={50} />,
+				<VirtualizedList.Content key={1} label="Name" dataKey="name" width={350} />,
 			];
 
 			// when
@@ -69,6 +69,7 @@ describe('tablerow', () => {
 			const theme = { header: 'theme-header-classname' };
 			const children = [
 				<VirtualizedList.Content
+					key={0}
 					label="Id"
 					dataKey="id"
 					headerClassName="my-header-classname"
@@ -87,7 +88,13 @@ describe('tablerow', () => {
 			// given
 			const theme = { cell: 'theme-classname' };
 			const children = [
-				<VirtualizedList.Content label="Id" dataKey="id" className="my-classname" width={50} />,
+				<VirtualizedList.Content
+					key={0}
+					label="Id"
+					dataKey="id"
+					className="my-classname"
+					width={50}
+				/>,
 			];
 
 			// when
@@ -102,6 +109,7 @@ describe('tablerow', () => {
 			const id = 'my-id';
 			const children = [
 				<VirtualizedList.Content
+					key={0}
 					label="Id"
 					dataKey="id"
 					columnData={{ custom: 'lol' }}
@@ -120,6 +128,7 @@ describe('tablerow', () => {
 			const id = 'my-id';
 			const children = [
 				<VirtualizedList.Content
+					key={0}
 					label="Id"
 					dataKey="id"
 					columnData={{ custom: 'lol' }}
@@ -141,6 +150,7 @@ describe('tablerow', () => {
 			const id = 'my-id';
 			const children = [
 				<VirtualizedList.Content
+					key={0}
 					label="Id"
 					dataKey="id"
 					columnData={{ custom: 'lol' }}
