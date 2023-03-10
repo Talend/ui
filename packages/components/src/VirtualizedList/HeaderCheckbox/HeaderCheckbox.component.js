@@ -11,12 +11,8 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
  */
 function HeaderCheckbox({ columnData }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-
-	if (!columnData.onToggleAll) {
-		return null;
-	}
-
 	const { id, onToggleAll, collection, isToggleAllDisabled, isSelected } = columnData;
+
 	const checked = useMemo(
 		() => collection.length > 0 && collection.every(isSelected),
 		[collection, isSelected],
@@ -30,6 +26,11 @@ function HeaderCheckbox({ columnData }) {
 	}, [collection, isSelected]);
 
 	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select all' });
+
+	if (!columnData.onToggleAll) {
+		return null;
+	}
+
 	return (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox" title={title}>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { simpleCollection } from './ListComposition/collection';
@@ -706,9 +706,9 @@ export const SelectableItemsWithDisabledItems = () => {
 	);
 
 	const getRowState = item => (item.id === 1 ? { disabled: true } : {});
-	const isToggleAllDisabled = () => {
-		for (let i = 0; i < simpleCollection.length; i++) {
-			if (getRowState(simpleCollection[i]).disabled) {
+	const isToggleAllDisabled = items => {
+		for (let i = 0; i < items.length; i++) {
+			if (getRowState(items[i]).disabled) {
 				return true;
 			}
 		}

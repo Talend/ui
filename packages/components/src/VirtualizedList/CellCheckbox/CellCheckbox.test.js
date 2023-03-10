@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import CellCheckbox from './CellCheckbox.component';
 
@@ -30,7 +31,7 @@ describe('CellActions', () => {
 
 	it('should render disabled checkbox', () => {
 		// when
-		const wrapper = shallow(
+		render(
 			<CellCheckbox
 				cellData={false}
 				columnData={{ ...columnData, getRowState: () => ({ disabled: true }) }}
@@ -39,7 +40,7 @@ describe('CellActions', () => {
 		);
 
 		// then
-		expect(wrapper.find('input').prop('disabled')).toBe(true);
+		expect(screen.getByRole('checkbox')).toBeDisabled();
 	});
 
 	it('should render radio button', () => {
