@@ -120,17 +120,19 @@ function Modal(props: ModalPropsType): ReactElement {
 
 								<div className={styles.modal__buttons} data-test="modal.buttons">
 									<StackHorizontal gap="XS" justify="end">
-										<span className={styles['close-button']}>
-											<ButtonSecondary
-												onClick={() => onCloseHandler()}
-												data-testid="modal.buttons.close"
-												data-feature="modal.buttons.close"
-											>
-												{primaryAction || secondaryAction
-													? t('CANCEL', 'Cancel')
-													: t('CLOSE', 'Close')}
-											</ButtonSecondary>
-										</span>
+										{!preventEscaping && (
+											<span className={styles['close-button']}>
+												<ButtonSecondary
+													onClick={() => onCloseHandler()}
+													data-testid="modal.buttons.close"
+													data-feature="modal.buttons.close"
+												>
+													{primaryAction || secondaryAction
+														? t('CANCEL', 'Cancel')
+														: t('CLOSE', 'Close')}
+												</ButtonSecondary>
+											</span>
+										)}
 
 										{secondaryAction && (
 											<ButtonSecondary
