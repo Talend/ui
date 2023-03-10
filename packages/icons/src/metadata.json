@@ -4233,5 +4233,40 @@
     "description": "",
     "remote": false,
     "documentationLinks": []
+  },
+  {
+    "key": "3ff9dcebb2b366ec5fa5a8a3d516a09ac786ab4d",
+    "name": "icon/S/dots-horizontal",
+    "description": "ellipsis",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "5e283c995b986780d5eceaa5112a8ff045f13f9f",
+    "name": "icon/M/dots-horizontal",
+    "description": "ellipsis",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "33ea425bbe3d312ac2544493906f2ad69f495e28",
+    "name": "icon/L/dots-horizontal",
+    "description": "ellipsis",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "f6bac46f6d17dde8241aec1afa1bf0d3b5fd7da6",
+    "name": "icon/M/triangle-restart",
+    "description": "replay, relaunch",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "2c5d7c4259e5da97dc3167f2d45b8b981119ce16",
+    "name": "icon/L/triangle-restart",
+    "description": "replay, relaunch",
+    "remote": false,
+    "documentationLinks": []
   }
 ]
