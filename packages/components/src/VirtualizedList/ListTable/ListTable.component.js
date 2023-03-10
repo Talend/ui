@@ -51,6 +51,7 @@ function ListTable(props) {
 		onRowDoubleClick,
 		rowCount,
 		headerAction,
+		headerHeight = 40,
 		...restProps
 	} = props;
 
@@ -77,7 +78,7 @@ function ListTable(props) {
 			<VirtualizedTable
 				className={css('tc-list-table', { 'right-action': !!headerAction })}
 				gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
-				headerHeight={40}
+				headerHeight={headerHeight}
 				id={id}
 				onRowClick={onRowClickCallback}
 				onRowDoubleClick={onRowDoubleClickCallback}
@@ -115,6 +116,7 @@ ListTable.propTypes = {
 	width: PropTypes.number,
 	rowCount: PropTypes.number,
 	headerAction: PropTypes.element,
+	headerHeight: PropTypes.number,
 };
 
 ListTable.defaultProps = {
