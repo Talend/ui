@@ -1,5 +1,23 @@
 # @talend/react-components
 
+## 9.6.0
+
+### Minor Changes
+
+- d2f5bd835: feat(TDP-11751): adding the possibility to set a specific height to the table and disable autosizer
+
+### Patch Changes
+
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+  - @talend/icons@6.54.0
+
 ## 9.5.0
 
 ### Minor Changes
