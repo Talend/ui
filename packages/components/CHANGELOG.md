@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 10.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
 ## 9.6.0
 
 ### Minor Changes
