@@ -27,6 +27,8 @@ function HeaderCheckbox({ columnData }) {
 
 	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select all' });
 
+	const disabled = !collection.length || (isToggleAllDisabled && isToggleAllDisabled(collection));
+
 	if (!columnData.onToggleAll) {
 		return null;
 	}
@@ -41,9 +43,7 @@ function HeaderCheckbox({ columnData }) {
 						onChange={onToggleAll}
 						checked={checked}
 						intermediate={partial}
-						disabled={
-							!collection.length || (isToggleAllDisabled && isToggleAllDisabled(collection))
-						}
+						disabled={disabled}
 						data-feature="list.select_all"
 					/>
 					<span className="sr-only">{title}</span>
