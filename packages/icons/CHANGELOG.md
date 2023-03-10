@@ -1,5 +1,21 @@
 # @talend/icons
 
+## 6.54.0
+
+### Minor Changes
+
+- 9d8506a82: added icon `dots-horizontal` in size `L`
+- 9d8506a82: added icon `dots-horizontal` in size `M`
+- 9d8506a82: added icon `dots-horizontal` in size `S`
+- 9d8506a82: added icon `triangle-restart` in size `L`
+- 9d8506a82: added icon `triangle-restart` in size `M`
+
+### Patch Changes
+
+- 9d8506a82: changed icon `dots-vertical` in size `L`
+- 9d8506a82: changed icon `dots-vertical` in size `M`
+- 9d8506a82: changed icon `dots-vertical` in size `S`
+
 ## 6.53.0
 
 ### Minor Changes

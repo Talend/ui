@@ -1,5 +1,0 @@
----
-'@talend/icons': minor
----
-
-added icon `triangle-restart` in size `L`
