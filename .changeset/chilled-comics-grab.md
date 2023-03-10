@@ -3,4 +3,4 @@
 '@talend/react-containers': major
 ---
 
-Generic action added in the HeaderBar
+feat(TDOPS-3849): add Generic action in HeaderBar component
