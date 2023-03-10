@@ -1,5 +1,18 @@
 # Changelog
 
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
+## 8.1.1
+
+### Patch Changes
+
+- 12d329322: TDOPS-421 - Fix faceted search submit at launch and badge sync on value and operator
+
 ## 8.1.0
 
 ### Minor Changes

@@ -71,6 +71,7 @@ class RendererSelector extends React.Component {
 			scrollToIndex,
 			scrollToAlignment,
 			headerAction,
+			headerHeight,
 		} = this.props;
 
 		const collection = inProgress ? [] : this.props.collection;
@@ -106,6 +107,7 @@ class RendererSelector extends React.Component {
 				sortBy,
 				sortDirection,
 				headerAction,
+				headerHeight,
 			};
 		} else {
 			ListRenderer = ListGrid;

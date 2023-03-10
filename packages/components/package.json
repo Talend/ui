@@ -36,7 +36,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@talend/bootstrap-theme": "^7.0.1",
-    "@talend/icons": "^6.52.0",
+    "@talend/icons": "^6.54.0",
     "@talend/utils": "^2.5.0",
     "ally.js": "^1.4.1",
     "classnames": "^2.3.2",
@@ -69,8 +69,8 @@
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.16",
     "@talend/bootstrap-theme": "^7.0.1",
-    "@talend/design-system": "^7.5.1",
-    "@talend/icons": "^6.52.0",
+    "@talend/design-system": "^7.7.0",
+    "@talend/icons": "^6.54.0",
     "@talend/locales-design-system": "^7.3.0",
     "@talend/locales-tui-components": "^6.44.11",
     "@talend/scripts-core": "^13.1.2",
@@ -113,5 +113,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "9.5.0"
+  "version": "10.0.0"
 }
