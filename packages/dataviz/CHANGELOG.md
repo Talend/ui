@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.8.6
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
 ## 2.8.5
 
 ### Patch Changes

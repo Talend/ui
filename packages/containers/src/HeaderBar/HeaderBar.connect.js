@@ -3,21 +3,29 @@ import get from 'lodash/get';
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Constants from './HeaderBar.constant';
 
-export function mapStateToProps(state, ownProps) {
-	const props = {
-		productsItems: cmf.selectors.collections.toJS(state, Constants.COLLECTION_ID),
-	};
-	const expression = get(ownProps, 'callToAction.renderIfExpression');
+const getHeaderActionProps = (actionName, ownProps, state) => {
+	const expression = get(ownProps, `${actionName}.renderIfExpression`);
+	const actionProps = null;
+
 	if (expression) {
-		props.callToAction = {
-			...ownProps.callToAction,
-			...cmf.expression.mapStateToProps(state, ownProps.callToAction),
+		actionProps = {
+			...ownProps[actionName],
+			...cmf.expression.mapStateToProps(state, ownProps[actionName]),
 		};
-		if (props.callToAction.renderIf === false) {
-			props.callToAction = null;
+		if (actionProps.renderIf === false) {
+			actionProps = null;
 		}
 	}
-	return props;
+
+	return actionProps;
+};
+
+export function mapStateToProps(state, ownProps) {
+	return {
+		productsItems: cmf.selectors.collections.toJS(state, Constants.COLLECTION_ID),
+		callToAction: getHeaderActionProps('callToAction', ownProps, state),
+		genericAction: getHeaderActionProps('genericAction', ownProps, state),
+	};
 }
 
 export default cmfConnect({

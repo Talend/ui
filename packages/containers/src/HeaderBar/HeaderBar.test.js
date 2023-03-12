@@ -133,7 +133,11 @@ describe('Connected HeaderBar', () => {
 
 		const props = mapStateToProps(state, ownProps);
 
-		expect(props).toEqual({});
+		expect(props).toEqual({
+			callToAction: null,
+			genericAction: null,
+			productsItems: undefined,
+		});
 	});
 
 	it('should mapStateToProps with a list of products', () => {
