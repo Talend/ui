@@ -240,6 +240,28 @@ describe('NestedListView component', () => {
 		});
 	});
 
+	describe('onComponentUpdate', () => {
+		it('should filter out the items not matching the search criteria', () => {
+			// given
+			const event = {};
+			const item = { key: 'foo' };
+
+			// when
+			const wrapper = shallow(<NestedListViewWidget {...props} />);
+			const beforeState = wrapper.state();
+			beforeState.searchCriteria = 'Bar';
+			wrapper.setState(beforeState);
+			wrapper.instance().onExpandToggle(event, item);
+
+			// then
+			const { displayedItems } = wrapper.state();
+			expect(beforeState.displayedItems.length).toEqual(2);
+			expect(displayedItems.length).toEqual(1);
+			expect(displayedItems[0].expanded).toBe(false);
+			expect(displayedItems[1]).toBeUndefined();
+		});
+	});
+
 	describe('onInputKeyDown', () => {
 		const event = { preventDefault: jest.fn() };
 
