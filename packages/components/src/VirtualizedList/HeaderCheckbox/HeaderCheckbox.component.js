@@ -11,12 +11,8 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
  */
 function HeaderCheckbox({ columnData }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const { id, onToggleAll, collection, isToggleAllDisabled, isSelected } = columnData;
 
-	if (!columnData.onToggleAll) {
-		return null;
-	}
-
-	const { id, onToggleAll, collection, isSelected } = columnData;
 	const checked = useMemo(
 		() => collection.length > 0 && collection.every(isSelected),
 		[collection, isSelected],
@@ -30,6 +26,13 @@ function HeaderCheckbox({ columnData }) {
 	}, [collection, isSelected]);
 
 	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select all' });
+
+	const disabled = !collection.length || (isToggleAllDisabled && isToggleAllDisabled(collection));
+
+	if (!columnData.onToggleAll) {
+		return null;
+	}
+
 	return (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox" title={title}>
@@ -40,7 +43,7 @@ function HeaderCheckbox({ columnData }) {
 						onChange={onToggleAll}
 						checked={checked}
 						intermediate={partial}
-						disabled={!collection.length}
+						disabled={disabled}
 						data-feature="list.select_all"
 					/>
 					<span className="sr-only">{title}</span>
@@ -58,6 +61,8 @@ HeaderCheckbox.propTypes = {
 		id: PropTypes.string,
 		// all items in list, used by onToggleAll callback.
 		collection: PropTypes.array.isRequired,
+		// The function is to check if toggle all is disabled.
+		isToggleAllDisabled: PropTypes.func,
 		// The function is to check if item is selected.
 		isSelected: PropTypes.func.isRequired,
 		// The onToggleAll callback triggered on header checkbox toggle.

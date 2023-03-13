@@ -12,7 +12,16 @@ import { internalIds } from './constants';
  * Insert a checkbox column configuration to select a row.
  */
 export function insertSelectionConfiguration(props) {
-	const { collection, children, isSelected, onToggleAll, selectionToggle, selectionMode } = props;
+	const {
+		collection,
+		children,
+		getRowState,
+		isSelected,
+		isToggleAllDisabled,
+		onToggleAll,
+		selectionMode,
+		selectionToggle,
+	} = props;
 	let contentsConfiguration = React.Children.toArray(children);
 	if (selectionToggle && isSelected) {
 		const toggleColumn = (
@@ -26,12 +35,14 @@ export function insertSelectionConfiguration(props) {
 				flexGrow={0}
 				cellDataGetter={({ rowData }) => isSelected(rowData)}
 				columnData={{
+					collection,
+					getRowState,
+					isSelected,
+					isToggleAllDisabled,
 					label: 'Select this element',
 					onChange: selectionToggle,
-					selectionMode,
 					onToggleAll,
-					collection,
-					isSelected,
+					selectionMode,
 				}}
 				{...CellCheckboxRenderer}
 				{...HeaderCheckboxRenderer}
