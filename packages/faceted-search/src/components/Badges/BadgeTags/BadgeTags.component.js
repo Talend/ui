@@ -44,6 +44,7 @@ export const BadgeTags = ({
 	removable,
 	displayType,
 	t,
+	...rest
 }) => {
 	const [tagsValues, setTagsValues] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -103,6 +104,7 @@ export const BadgeTags = ({
 					feature={category || label}
 					isLoading={isLoading}
 					t={t}
+					{...rest}
 				/>
 			)}
 		</BadgeFaceted>

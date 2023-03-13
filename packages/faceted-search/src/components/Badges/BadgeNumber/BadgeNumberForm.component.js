@@ -9,7 +9,7 @@ import cssModule from './BadgeNumber.module.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t }) => {
+const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t, dataAttributes }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const onChangeText = event => onChange(event, event.target.value);
 
@@ -32,6 +32,7 @@ const BadgeNumberForm = ({ id, onChange, onSubmit, value, feature, t }) => {
 					data-feature={applyDataFeature}
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
+					{...dataAttributes}
 				/>
 			</Rich.Layout.Footer>
 		</form>
@@ -45,6 +46,7 @@ BadgeNumberForm.propTypes = {
 	value: PropTypes.string,
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
+	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export

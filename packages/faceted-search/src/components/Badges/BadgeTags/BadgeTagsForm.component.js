@@ -55,7 +55,17 @@ const getVisibleTags = (tags, filterValue, showAll) => {
 		.filter(tag => (showAll ? true : tag.checked));
 };
 
-const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isLoading, t }) => {
+const BadgeTagsForm = ({
+	tagsValues,
+	id,
+	onChange,
+	onSubmit,
+	value,
+	feature,
+	isLoading,
+	t,
+	dataAttributes,
+}) => {
 	const [filter, setFilter] = useState('');
 	const [showAll, setShowAll] = useState(true);
 
@@ -148,6 +158,7 @@ const BadgeTagsForm = ({ tagsValues, id, onChange, onSubmit, value, feature, isL
 							label={t('APPLY', { defaultValue: 'Apply' })}
 							bsStyle="info"
 							disabled={value.length === 0}
+							{...dataAttributes}
 						/>
 					</Rich.Layout.Footer>
 				</form>
@@ -171,6 +182,7 @@ BadgeTagsForm.propTypes = {
 	feature: PropTypes.string.isRequired,
 	isLoading: PropTypes.bool.isRequired,
 	t: PropTypes.func.isRequired,
+	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export

@@ -55,6 +55,7 @@ const BadgeSliderForm = ({
 	step = 1,
 	value: initialValue = min,
 	defaultValue,
+	dataAttributes,
 }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const [value, setValue] = useState(initialValue);
@@ -141,6 +142,7 @@ const BadgeSliderForm = ({
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
 					disabled={!!error}
+					{...dataAttributes}
 				/>
 			</Rich.Layout.Footer>
 		</form>
@@ -168,6 +170,7 @@ BadgeSliderForm.propTypes = {
 	operator: PropTypes.shape({
 		name: PropTypes.string,
 	}),
+	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export

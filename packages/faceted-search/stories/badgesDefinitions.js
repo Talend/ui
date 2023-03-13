@@ -21,6 +21,7 @@ export const badgeName = {
 			'notEquals',
 			'match a regexp',
 		],
+		'data-test': 'faceted-badge-name',
 	},
 };
 
@@ -47,6 +48,7 @@ export const badgeConnectionName = {
 			'notEquals',
 			'match a regexp',
 		],
+		'data-test': 'faceted-badge-connection-name',
 	},
 };
 
@@ -73,6 +75,7 @@ export const badgeAuthor = {
 			'notEquals',
 			'match a regexp',
 		],
+		'data-test': 'faceted-badge-author',
 	},
 };
 
@@ -91,6 +94,7 @@ export const badgeAll = {
 		badgePerFacet: '1',
 		entitiesPerBadge: '1',
 		operators: ['containsIgnoreCase', 'notContainsIgnoreCase'],
+		'data-test': 'faceted-badge-all',
 	},
 };
 
@@ -117,6 +121,7 @@ export const badgeConnectionType = {
 			{ id: 'aws_kinesis', label: 'AWS kinesis' },
 		],
 		operators: ['in', 'notIn'],
+		'data-test': 'faceted-badge-connection-type',
 	},
 };
 
@@ -168,6 +173,7 @@ export const badgePrice = {
 			'lessThan',
 			'lessThanOrEquals',
 		],
+		'data-test': 'faceted-badge-price',
 	},
 };
 
@@ -253,6 +259,7 @@ export const badgeTags = {
 		badgePerFacet: '1',
 		entitiesPerBadge: 'N',
 		operators: ['in', 'notIn'],
+		'data-test': 'faceted-badge-tags',
 	},
 };
 
@@ -454,5 +461,6 @@ export const badgeCreationDate = {
 			'lessThan',
 			'lessThanOrEquals',
 		],
+		'data-test': 'faceted-badge-creation-date',
 	},
 };

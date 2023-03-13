@@ -69,6 +69,7 @@ const BadgeCheckboxesForm = ({
 	filterBarPlaceholder,
 	allSelector,
 	t,
+	dataAttributes,
 }) => {
 	const [filter, setFilter] = useState('');
 
@@ -157,6 +158,7 @@ const BadgeCheckboxesForm = ({
 						type="submit"
 						label={t('APPLY', { defaultValue: 'Apply' })}
 						bsStyle="info"
+						{...dataAttributes}
 					/>
 				</Rich.Layout.Footer>
 			</form>
@@ -180,6 +182,7 @@ BadgeCheckboxesForm.propTypes = {
 	filterBarPlaceholder: PropTypes.string,
 	allSelector: PropTypes.bool,
 	t: PropTypes.func.isRequired,
+	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export

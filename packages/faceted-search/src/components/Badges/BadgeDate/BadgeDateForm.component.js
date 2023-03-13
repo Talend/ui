@@ -8,7 +8,16 @@ import cssModule from './BadgeDate.module.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeDateForm = ({ id, onChange, onSubmit, value, feature, t, dateFormat }) => {
+const BadgeDateForm = ({
+	id,
+	onChange,
+	onSubmit,
+	value,
+	feature,
+	t,
+	dateFormat,
+	dataAttributes,
+}) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
 	return (
@@ -43,6 +52,7 @@ const BadgeDateForm = ({ id, onChange, onSubmit, value, feature, t, dateFormat }
 						type="submit"
 						label={t('APPLY', { defaultValue: 'Apply' })}
 						bsStyle="info"
+						{...dataAttributes}
 					/>
 				</DatePicker.Manager>
 			</Rich.Layout.Body>
@@ -58,6 +68,7 @@ BadgeDateForm.propTypes = {
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	dateFormat: PropTypes.string,
+	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export
