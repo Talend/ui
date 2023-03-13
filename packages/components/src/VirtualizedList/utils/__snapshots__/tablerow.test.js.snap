@@ -37,7 +37,9 @@ exports[`tablerow #insertSelectionConfiguration should insert selection column w
     columnData={
       {
         "collection": undefined,
+        "getRowState": undefined,
         "isSelected": [MockFunction],
+        "isToggleAllDisabled": undefined,
         "label": "Select this element",
         "onChange": [MockFunction],
         "onToggleAll": undefined,
