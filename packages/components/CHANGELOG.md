@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 10.1.0
+
+### Minor Changes
+
+- 44b408dc4: feat(components): List - disable item selection & disable "select all"
+
 ## 10.0.0
 
 ### Major Changes
