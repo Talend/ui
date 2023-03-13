@@ -2,8 +2,6 @@ name: PR tests
 
 on:
   pull_request:
-  push:
-    branches: [master, maintenance/*]
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
