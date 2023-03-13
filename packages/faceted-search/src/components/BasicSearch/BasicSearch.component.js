@@ -47,6 +47,7 @@ const BasicSearch = ({
 	badgesDefinitionsSort,
 	quickSearchPlaceholder,
 	quickSearchFacetsFilter,
+	quickSearchInputProps,
 }) => {
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(
@@ -125,6 +126,7 @@ const BasicSearch = ({
 						),
 					);
 				}}
+				inputProps={quickSearchInputProps}
 			/>
 			<div className={css('tc-basic-search-content')}>
 				<BadgeFacetedProvider value={badgeFacetedContextValue}>
@@ -206,6 +208,7 @@ BasicSearch.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	setBadgesFaceted: PropTypes.func,
 	callbacks: callbacksPropTypes,
+	quickSearchInputProps: PropTypes.object,
 };
 
 export { BasicSearch };
