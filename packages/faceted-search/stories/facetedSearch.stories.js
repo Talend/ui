@@ -193,6 +193,9 @@ export const Default = () => (
 					badgesDefinitions={badgesDefinitions}
 					callbacks={callbacks}
 					onSubmit={action('onSubmit')}
+					quickSearchInputProps={{
+						'data-feature': 'faceted-badge-name',
+					}}
 				/>
 			))
 		}

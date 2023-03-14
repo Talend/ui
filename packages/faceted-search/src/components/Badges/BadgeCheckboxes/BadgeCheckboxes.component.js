@@ -41,6 +41,7 @@ export const BadgeCheckboxes = ({
 	filterBarPlaceholder,
 	allSelector,
 	t,
+	...rest
 }) => {
 	const currentOperators = useMemo(() => operators, [operators]);
 	const currentOperator = operator || (currentOperators && currentOperators[0]);
@@ -74,6 +75,7 @@ export const BadgeCheckboxes = ({
 					filterBarPlaceholder={filterBarPlaceholder}
 					allSelector={allSelector}
 					t={t}
+					{...rest}
 				/>
 			)}
 		</BadgeFaceted>
