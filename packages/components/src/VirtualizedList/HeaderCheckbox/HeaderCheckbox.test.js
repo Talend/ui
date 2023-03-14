@@ -1,5 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+
 import toJson from 'enzyme-to-json';
 import HeaderCheckbox from './HeaderCheckbox.component';
 
@@ -42,6 +44,14 @@ describe('Header "Select All" checkbox', () => {
 		const checkbox = wrapper.find('#myList-header-check');
 		expect(checkbox.prop('checked')).toBe(false);
 		expect(checkbox.prop('disabled')).toBe(true);
+	});
+
+	it('should render disabled checkbox when isToggleAllDisabled() is true', () => {
+		// when
+		render(<HeaderCheckbox columnData={{ ...columnData, isToggleAllDisabled: () => true }} />);
+
+		// then
+		expect(screen.getByRole('checkbox')).toBeDisabled();
 	});
 
 	it('should render a checked checkbox on header', () => {
