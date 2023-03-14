@@ -3,22 +3,13 @@ import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
 import { getTheme } from '@talend/react-components/lib/theme';
 import { Rich } from '@talend/react-components';
-import { getApplyDataFeature } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeText.module.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeTextForm = ({
-	id,
-	onChange,
-	onSubmit,
-	value,
-	feature,
-	t,
-	placeholder,
-	dataAttributes,
-}) => {
+const BadgeTextForm = ({ id, onChange, onSubmit, value, feature, t, placeholder, ...rest }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
 	const onChangeText = event => {
@@ -44,7 +35,7 @@ const BadgeTextForm = ({
 					data-feature={applyDataFeature}
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
-					{...dataAttributes}
+					{...getDataAttributesFrom(rest)}
 				/>
 			</Rich.Layout.Footer>
 		</form>
@@ -59,7 +50,6 @@ BadgeTextForm.propTypes = {
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	placeholder: PropTypes.string,
-	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export

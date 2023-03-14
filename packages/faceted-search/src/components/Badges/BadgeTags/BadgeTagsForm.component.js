@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { getTheme, Checkbox, Action, Rich, Loader, FilterBar } from '@talend/react-components';
 import cssModule from './BadgeTags.module.scss';
-import { getApplyDataFeature } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);
 
@@ -64,7 +64,7 @@ const BadgeTagsForm = ({
 	feature,
 	isLoading,
 	t,
-	dataAttributes,
+	...rest
 }) => {
 	const [filter, setFilter] = useState('');
 	const [showAll, setShowAll] = useState(true);
@@ -158,7 +158,7 @@ const BadgeTagsForm = ({
 							label={t('APPLY', { defaultValue: 'Apply' })}
 							bsStyle="info"
 							disabled={value.length === 0}
-							{...dataAttributes}
+							{...getDataAttributesFrom(rest)}
 						/>
 					</Rich.Layout.Footer>
 				</form>
@@ -182,7 +182,6 @@ BadgeTagsForm.propTypes = {
 	feature: PropTypes.string.isRequired,
 	isLoading: PropTypes.bool.isRequired,
 	t: PropTypes.func.isRequired,
-	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export

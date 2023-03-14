@@ -2,22 +2,13 @@ import React, { useMemo } from 'react';
 import startOfDay from 'date-fns/start_of_day';
 import PropTypes from 'prop-types';
 import { Action, getTheme, Rich, DatePicker } from '@talend/react-components';
-import { getApplyDataFeature } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeDate.module.scss';
 
 const theme = getTheme(cssModule);
 
-const BadgeDateForm = ({
-	id,
-	onChange,
-	onSubmit,
-	value,
-	feature,
-	t,
-	dateFormat,
-	dataAttributes,
-}) => {
+const BadgeDateForm = ({ id, onChange, onSubmit, value, feature, t, dateFormat, ...rest }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 
 	return (
@@ -52,7 +43,7 @@ const BadgeDateForm = ({
 						type="submit"
 						label={t('APPLY', { defaultValue: 'Apply' })}
 						bsStyle="info"
-						{...dataAttributes}
+						{...getDataAttributesFrom(rest)}
 					/>
 				</DatePicker.Manager>
 			</Rich.Layout.Body>
@@ -68,7 +59,6 @@ BadgeDateForm.propTypes = {
 	feature: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	dateFormat: PropTypes.string,
-	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export

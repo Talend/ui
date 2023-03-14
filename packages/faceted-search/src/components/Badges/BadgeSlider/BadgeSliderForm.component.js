@@ -5,7 +5,7 @@ import Icon from '@talend/react-components/lib/Icon';
 import Slider from '@talend/react-components/lib/Slider';
 import { getTheme } from '@talend/react-components/lib/theme';
 import { Rich } from '@talend/react-components';
-import { getApplyDataFeature } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 import cssModule from './BadgeSlider.module.scss';
 
@@ -55,7 +55,7 @@ const BadgeSliderForm = ({
 	step = 1,
 	value: initialValue = min,
 	defaultValue,
-	dataAttributes,
+	...rest
 }) => {
 	const applyDataFeature = useMemo(() => getApplyDataFeature(feature), [feature]);
 	const [value, setValue] = useState(initialValue);
@@ -142,7 +142,7 @@ const BadgeSliderForm = ({
 					label={t('APPLY', { defaultValue: 'Apply' })}
 					bsStyle="info"
 					disabled={!!error}
-					{...dataAttributes}
+					{...getDataAttributesFrom(rest)}
 				/>
 			</Rich.Layout.Footer>
 		</form>
@@ -170,7 +170,6 @@ BadgeSliderForm.propTypes = {
 	operator: PropTypes.shape({
 		name: PropTypes.string,
 	}),
-	dataAttributes: PropTypes.objectOf(PropTypes.string),
 };
 
 // eslint-disable-next-line import/prefer-default-export
