@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-// rewrite thoses test with react-testing-library
 import { render, screen, configure, within } from '@testing-library/react';
 import ActionBar from './ActionBar.component';
 configure({ testIdAttribute: 'data-test' });
@@ -34,24 +33,6 @@ const splitAction = {
 		},
 	],
 	emptyDropdownLabel: 'No option',
-};
-
-const btnGroupAction = {
-	displayMode: 'btnGroup',
-	actions: [
-		{
-			label: 'hidden mean tooltips',
-			icon: 'talend-cog',
-			hideLabel: true,
-			onClick: jest.fn(),
-		},
-		{
-			label: 'you are a super star',
-			icon: 'talend-badge',
-			hideLabel: true,
-			onClick: jest.fn(),
-		},
-	],
 };
 
 describe('ActionBar', () => {
@@ -180,7 +161,6 @@ describe('ActionBar', () => {
 				right: [primaryAction, secondaryAction, splitAction],
 			},
 		};
-		// rewrite thoses test with react-testing-library
 		// when
 		render(<ActionBar {...props} />);
 		const right = document.getElementsByClassName('navbar-right')[0];

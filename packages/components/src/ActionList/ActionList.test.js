@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { render, screen, configure } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ActionList from './ActionList.component';
 
 describe('ActionList', () => {

@@ -28,19 +28,11 @@ const config = {
 };
 
 describe('Intercom button', () => {
-	let insertionElement;
-	let scriptElement;
 	beforeEach(() => {
 		jest.clearAllMocks();
-		insertionElement = document.createElement('div');
-		scriptElement = document.createElement('script');
-		document.body.appendChild(scriptElement);
-		document.body.appendChild(insertionElement);
 	});
 
 	afterEach(() => {
-		document.body.removeChild(scriptElement);
-		document.body.removeChild(insertionElement);
 		jest.clearAllMocks();
 	});
 

@@ -166,9 +166,6 @@ describe('InjectDropdownMenuItem', () => {
 describe('Dropup', () => {
 	function testSwitch({ containerPosition, menuPosition, isInitialDropup, isDropupExpected }) {
 		// given
-		// const container = screen.document.createElement('div');
-		// container.classList.add('tc-dropdown-container');
-		// container.getBoundingClientRect = () => containerPosition;
 		const { container } = render(
 			<div className="tc-dropdown-container">
 				<ActionDropdown
