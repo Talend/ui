@@ -212,9 +212,10 @@ export const WithDestructivePrimaryAction: ComponentStory<typeof Modal> = props 
 );
 
 export const WithNonClosingBackdrop: ComponentStory<typeof Modal> = props => (
-	<ModalStory {...props} header={{ title: 'With non closing backdrop' }} preventEscaping>
+	<ModalStory {...props} header={{ title: 'A blocking modal' }} preventEscaping>
 		<p>
-			A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked.
+			A modal that doesn't trigger <code>onClose</code> when the backdrop is clicked and without the
+			close button
 		</p>
 	</ModalStory>
 );
