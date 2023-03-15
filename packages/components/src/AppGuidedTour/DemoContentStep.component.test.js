@@ -1,26 +1,23 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import Stepper from '../Stepper';
 import DemoContentStep from './DemoContentStep.component';
 
 describe('DemOContentStep', () => {
 	it('should show the demo content step', () => {
-		const wrapper = shallow(
+		render(
 			<DemoContentStep
 				demoContentSteps={[
 					{ label: 'Importing dataset', status: Stepper.LOADING_STEP_STATUSES.FAILURE },
 				]}
 			/>,
 		);
-
-		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find('Stepper').length).toBe(1);
+		expect(screen.getByText('Importing dataset')).toBeInTheDocument();
 	});
 
 	it('should show nothing when no step', () => {
-		const wrapper = shallow(<DemoContentStep demoContentSteps={[]} />);
-
-		expect(wrapper.find('Stepper').length).toBe(0);
+		render(<DemoContentStep demoContentSteps={[]} />);
+		expect(screen.queryByText('Importing dataset')).not.toBeInTheDocument();
 	});
 });

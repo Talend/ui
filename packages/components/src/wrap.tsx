@@ -4,7 +4,11 @@ import omit from 'lodash/omit';
 
 import Inject from './Inject';
 
-export function toText(props) {
+type ToTextProps = {
+	text?: string | string[];
+};
+
+export function toText(props: ToTextProps) {
 	if (Array.isArray(props.text)) {
 		return props.text.map((sentence, index) => <p key={index}>{sentence}</p>);
 	}
@@ -36,8 +40,15 @@ function isNotBlackListedAttr(attr) {
 	return !BLACK_LISTED_ATTR.includes(attr);
 }
 
-export default function wrap(Component, key) {
-	const Wrapper = ({ getComponent, components, text, ...props }) => {
+type WrapperProps = {
+	getComponent: (key: string) => React.Component | React.PureComponent;
+	components: { [key: string]: React.Component | React.PureComponent };
+	text?: string | string[];
+	children: React.ReactNode;
+};
+
+export default function wrap(Component: React.Component | React.PureComponent, key: string) {
+	const Wrapper = ({ getComponent, components, text, ...props }: WrapperProps) => {
 		const injected = Inject.all(getComponent, components);
 		const newprops = { ...omit(props, OMIT_PROPS) };
 		if (COMPONENT_EXCEPTIONS[key] && COMPONENT_EXCEPTIONS[key](props)) {
@@ -57,18 +68,5 @@ export default function wrap(Component, key) {
 			Wrapper[attr] = Component[attr];
 		});
 	Wrapper.displayName = key;
-	Wrapper.propTypes = {
-		text: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-		children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
-		getComponent: PropTypes.func,
-		components: PropTypes.shape({
-			children: PropTypes.arrayOf(
-				PropTypes.shape({
-					component: PropTypes.string,
-					componentId: PropTypes.string,
-				}),
-			),
-		}),
-	};
 	return Wrapper;
 }

@@ -1,6 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import AppSwitcher from './AppSwitcher.component';
+
+jest.unmock('@talend/design-system');
 
 describe('AppSwitcher', () => {
 	it('should render the products', () => {
@@ -27,16 +30,12 @@ describe('AppSwitcher', () => {
 				},
 			],
 		};
-		const wrapper = mount(<AppSwitcher {...brand} />);
-		expect(wrapper.html()).toMatchSnapshot();
-
-		expect(wrapper.find('ActionDropdown')).not.toBeUndefined();
-
-		wrapper.find('a').at(0).simulate('click');
+		render(<AppSwitcher {...brand} />);
+		expect(screen.getByText('My App')).toBeInTheDocument();
+		expect(screen.getByText('Data Preparation')).toBeInTheDocument();
+		userEvent.click(screen.getByText('My App'));
+		userEvent.click(screen.getByText('Data Preparation'));
 		expect(brand.items[0].onClick).toHaveBeenCalled();
-
-		wrapper.find('Button').at(0).simulate('click');
-
 		expect(brand.onClick).not.toHaveBeenCalled();
 	});
 
@@ -46,9 +45,9 @@ describe('AppSwitcher', () => {
 			label: 'My App',
 			onClick: jest.fn(),
 		};
-		const wrapper = mount(<AppSwitcher {...brand} />);
-		expect(wrapper.find('Action')).not.toBeUndefined();
-		wrapper.find('Button').at(0).simulate('click');
+		render(<AppSwitcher {...brand} />);
+		expect(screen.getByText('My App')).toBeInTheDocument();
+		userEvent.click(screen.getByText('My App'));
 		expect(brand.onClick).toHaveBeenCalled();
 	});
 
@@ -59,9 +58,8 @@ describe('AppSwitcher', () => {
 			onClick: jest.fn(),
 			isSeparated: true,
 		};
-		const wrapper = mount(<AppSwitcher {...brand} />);
-
-		expect(wrapper.find('li').prop('className').includes('separated')).toBeTruthy();
+		render(<AppSwitcher {...brand} />);
+		expect(screen.getByRole('presentation')).toHaveClass('separated');
 	});
 
 	it('should render an icon', () => {
@@ -71,8 +69,7 @@ describe('AppSwitcher', () => {
 			onClick: jest.fn(),
 			iconUrl: 'test.jpg',
 		};
-		const wrapper = mount(<AppSwitcher {...brand} />);
-
-		expect(wrapper.find('li').prop('className').includes('hasIcon')).toBeTruthy();
+		render(<AppSwitcher {...brand} />);
+		expect(screen.getByRole('presentation')).toHaveClass('hasIcon');
 	});
 });

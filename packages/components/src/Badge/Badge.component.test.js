@@ -1,7 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
-
+import { screen, render, configure } from '@testing-library/react';
 import Badge from './Badge.component';
+
+configure({ testIdAttribute: 'data-test' });
 
 describe('Badge', () => {
 	it('should render by default', () => {
@@ -9,21 +10,21 @@ describe('Badge', () => {
 		const label = 'my label';
 
 		// when
-		const wrapper = mount(<Badge label={label} />);
+		render(<Badge label={label} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByText(label)).toBeInTheDocument();
 	});
 
 	it('should render the given children', () => {
 		// when
-		const wrapper = mount(
+		render(
 			<Badge>
-				<div test-id="testId">children</div>
+				<div data-test="testId">children</div>
 			</Badge>,
 		);
 
 		// then
-		expect(wrapper.find('div[test-id="testId"]').text()).toBe('children');
+		expect(screen.getByTestId('testId')).toBeInTheDocument();
 	});
 });
