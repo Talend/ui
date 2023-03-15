@@ -1,14 +1,15 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import BadgeIcon from './BadgeIcon.component';
+jest.unmock('@talend/design-system');
 
 describe('BadgeIcon', () => {
 	it('should default render', () => {
 		// given
 		const name = 'my icon name';
 		// when
-		const wrapper = mount(<BadgeIcon name={name} />);
+		render(<BadgeIcon name={name} />);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(document.querySelector(`[name="${name}"]`)).toBeInTheDocument();
 	});
 });

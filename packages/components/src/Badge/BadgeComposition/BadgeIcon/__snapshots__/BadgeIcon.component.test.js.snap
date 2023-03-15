@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`BadgeIcon should default render 1`] = `
-<span name="my icon name"
-      class="CoralIcon tc-badge-label-icon theme-tc-badge-label-icon"
->
-</span>
-`;

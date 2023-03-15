@@ -1,8 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { Button } from '@talend/react-bootstrap';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Breadcrumbs from './Breadcrumbs.component';
 
+jest.unmock('@talend/design-system');
 describe('Breadcrumbs', () => {
 	describe('render', () => {
 		const items = [
@@ -21,11 +22,9 @@ describe('Breadcrumbs', () => {
 				{ text: 'Text D' },
 				{ text: 'Text E' },
 			];
-			const breadcrumbs = mount(<Breadcrumbs items={customItems} maxItems={5} />);
-			const breadcrumbMenu = breadcrumbs.find('.tc-breadcrumb-menu');
-			expect(breadcrumbMenu).toHaveLength(0);
-			const breadcrumbItems = breadcrumbs.find('.tc-breadcrumb-item');
-			expect(breadcrumbItems).toHaveLength(5);
+			render(<Breadcrumbs items={customItems} maxItems={5} />);
+			expect(screen.getAllByRole('listitem')).toHaveLength(5);
+			expect(screen.queryByText('Show breadcrumb links')).not.toBeInTheDocument();
 		});
 
 		it('should render a dropdown menu containing 4 items by setting maxItems at 2', () => {
@@ -36,32 +35,27 @@ describe('Breadcrumbs', () => {
 				{ text: 'Text D' },
 				{ text: 'Text E' },
 			];
-			const breadcrumbs = mount(<Breadcrumbs items={customItems} maxItems={2} />);
-			const breadcrumbMenu = breadcrumbs.find('.tc-breadcrumb-menu');
-			expect(breadcrumbMenu).toHaveLength(1);
-			const breadcrumbMenuItems = breadcrumbMenu.find('a');
-			expect(breadcrumbMenuItems).toHaveLength(4);
+			render(<Breadcrumbs items={customItems} maxItems={2} />);
+			expect(screen.getAllByRole('listitem')).toHaveLength(2);
+			expect(screen.getByLabelText('Show breadcrumb links')).toBeInTheDocument();
+			expect(screen.getAllByRole('menuitem')).toHaveLength(4);
 		});
 
 		it('should compute id for each item when provided', () => {
-			const breadcrumbs = mount(<Breadcrumbs id="my-breadcrumb" items={items} />);
-			const breadcrumbMenu = breadcrumbs.find('.tc-breadcrumb-menu');
-			expect(breadcrumbMenu).toHaveLength(1);
-			const breadcrumbMenuItems = breadcrumbMenu.find('a');
+			render(<Breadcrumbs id="my-breadcrumb" items={items} />);
+			expect(screen.getByRole('list')).toBeInTheDocument(); // only 1
+			const breadcrumbMenuItems = screen.getAllByRole('menuitem');
 			expect(breadcrumbMenuItems).toHaveLength(2);
 			breadcrumbMenuItems.forEach((breadcrumbMenuItem, index) => {
-				expect(breadcrumbMenuItem.find(`a[id="my-breadcrumb-item-${index + 1}"]`)).toHaveLength(1);
+				expect(breadcrumbMenuItem).toHaveAttribute('id', `my-breadcrumb-item-${index + 1}`);
 			});
-			const breadcrumbItems = breadcrumbs.find('.tc-breadcrumb-item');
-			expect(breadcrumbItems).toHaveLength(3);
+			const breadcrumbItems = screen.getAllByRole('listitem');
+			expect(breadcrumbItems).toHaveLength(4);
 			breadcrumbItems.forEach((breadcrumbItem, index) => {
-				expect(
-					breadcrumbItem.find(
-						`span[id="my-breadcrumb-item-${
-							index === 0 ? index : index + breadcrumbMenuItems.length
-						}"]`,
-					),
-				).toHaveLength(1);
+				expect(screen.getByText(items[index].text)).toHaveAttribute(
+					'id',
+					`my-breadcrumb-item-${index}`,
+				);
 			});
 		});
 	});
@@ -82,12 +76,8 @@ describe('Breadcrumbs', () => {
 
 			// when
 			const breadcrumbs = <Breadcrumbs items={actions} />;
-			const wrapper = mount(breadcrumbs);
-			wrapper
-				.find('.tc-breadcrumb')
-				.find(Button)
-				.at(clickedElementIndex)
-				.simulate('click');
+			render(breadcrumbs);
+			userEvent.click(screen.getByText(actions[clickedElementIndex].text));
 
 			// then
 			expect(onTextAClick).not.toBeCalled();
