@@ -19,15 +19,14 @@
     "test": "echo \"Nothing to test\""
   },
   "dependencies": {
-    "@storybook/addon-a11y": "^7.0.0-beta.34",
-    "@storybook/addon-essentials": "^7.0.0-beta.34",
-    "@storybook/addon-interactions": "^7.0.0-beta.34",
-    "@storybook/addon-links": "^7.0.0-beta.34",
-    "@storybook/builder-webpack5": "^7.0.0-beta.34",
+    "@storybook/addon-a11y": "^7.0.0-rc.3",
+    "@storybook/addon-essentials": "^7.0.0-rc.3",
+    "@storybook/addon-interactions": "^7.0.0-rc.3",
+    "@storybook/addon-links": "^7.0.0-rc.3",
+    "@storybook/builder-webpack5": "^7.0.0-rc.3",
     "@storybook/jest": "^0.0.11-next.0",
-    "@storybook/manager-webpack5": "^7.0.0-alpha.10",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^7.0.0-beta.34",
+    "@storybook/react": "^7.0.0-rc.3",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@talend/scripts-config-react-webpack": "^15.2.6",
     "@talend/dynamic-cdn-webpack-plugin": "^13.0.0",
@@ -35,7 +34,7 @@
     "i18next-http-backend": "^1.4.5",
     "lodash": "^4.17.21",
     "msw": "^0.49.3",
-    "msw-storybook-addon": "^1.7.0",
+    "msw-storybook-addon": "^1.8.0",
     "util": "^0.12.5"
   },
   "peerDependencies": {
@@ -48,7 +47,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "storybook": "^7.0.0-beta.25"
+    "storybook": "^7.0.0-rc.3"
   },
   "msw": {
     "workerDirectory": ".storybook-templates/msw"

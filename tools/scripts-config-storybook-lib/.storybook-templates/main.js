@@ -25,6 +25,7 @@ function getStoriesFolders() {
 }
 
 const defaultMain = {
+	framework: '@storybook/react-webpack5',
 	features: {
 		buildStoriesJson: true,
 		previewCsfV3: true,
