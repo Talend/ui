@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-utils",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
-    "glob": "^8.0.3",
+    "glob": "^8.1.0",
     "which": "^2.0.2"
   },
   "repository": {

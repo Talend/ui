@@ -1,7 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, screen, fireEvent } from '@testing-library/react';
 import ActionFile from './ActionFile.component';
 
+jest.unmock('@talend/design-system');
 const myAction = {
 	label: 'Click me',
 	icon: 'talend-caret-down',
@@ -16,49 +17,49 @@ describe('ActionFile', () => {
 
 	it('should render a div with a input[type="file"] and a label to mimic a button', () => {
 		// when
-		const wrapper = shallow(<ActionFile {...myAction} />);
+		render(<ActionFile {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const input = screen.getByLabelText('Click me');
+		expect(input).toBeInTheDocument();
+		expect(input).toHaveAttribute('type', 'file');
 	});
 
 	it('should render a div with a input[type="file"] with some classname on it', () => {
 		// when
-		const wrapper = shallow(<ActionFile {...myAction} className="testClassName" />);
+		render(<ActionFile {...myAction} className="testClassName" />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const input = screen.getByLabelText('Click me');
+		expect(input).toHaveClass('sr-only');
 	});
 
 	it('should render with accept attribute passed to it', () => {
-		const wrapper = shallow(<ActionFile {...myAction} accept=".zip" />);
-		expect(wrapper.find('input').props().accept).toBe('.zip');
+		render(<ActionFile {...myAction} accept=".zip" />);
+		const input = screen.getByLabelText('Click me');
+		expect(input).toHaveAttribute('accept', '.zip');
 	});
 
 	it('change file value on the button trigger the onChange props', () => {
 		// given
-		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
-		const mockEvent = { preventDefault: jest.fn(), target: { files: [''] } };
+		render(<ActionFile {...myAction} />);
 
 		// when
-		// when
-		wrapper.find('input').first().simulate('change', mockEvent);
+		fireEvent.change(screen.getByLabelText('Click me'), { target: { files: ['file1'] } });
 
 		// then
 		expect(myAction.onChange).toHaveBeenCalled();
 		expect(myAction.onChange.mock.calls.length).toBe(1);
 		const args = myAction.onChange.mock.calls[0];
-		expect(args[0]).toBe(mockEvent);
+		expect(args[0].type).toBe('change');
 	});
 
 	it('props.change is not called if target has no files attached', () => {
 		// given
-		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
-		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
+		render(<ActionFile {...myAction} />);
 
 		// when
-		// when
-		wrapper.find('input').first().simulate('change', mockEvent);
+		fireEvent.change(screen.getByLabelText('Click me'), { target: { files: [] } });
 
 		// then
 		expect(myAction.onChange).not.toHaveBeenCalled();
@@ -66,67 +67,66 @@ describe('ActionFile', () => {
 
 	it('after change props being trigered, clear the input value', () => {
 		// given
-		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
-		const mockEvent = { preventDefault: jest.fn(), target: { files: [] } };
+		render(<ActionFile {...myAction} />);
 
 		// when
-		const input = wrapper.find('input').first();
-		input.simulate('change', mockEvent);
+		fireEvent.change(screen.getByLabelText('Click me'), { target: { files: [] } });
 
 		// then
-		expect(input.value).toEqual();
+		const input = screen.getByLabelText('Click me');
+		expect(input.value).toEqual('');
 	});
 
 	it('should pass all props to the Button', () => {
 		// when
-		const wrapper = shallow(<ActionFile className="navbar-btn" notExisting {...myAction} />);
+		render(<ActionFile {...myAction} className="navbar-btn" />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('Click me').parentElement).toHaveClass('navbar-btn');
 	});
 
 	it('should display a Progress indicator if set', () => {
 		// when
-		const wrapper = shallow(<ActionFile className="navbar-btn" inProgress {...myAction} />);
+		render(<ActionFile inProgress {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('Loading...')).toBeInTheDocument();
 	});
 
-	it('should display a disabled Icon', () => {
+	it('should display a disabled input', () => {
 		// when
-		const wrapper = shallow(<ActionFile className="navbar-btn" disabled {...myAction} />);
+		render(<ActionFile disabled {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('Click me')).toBeDisabled();
 	});
 
 	it('should reverse icon/label', () => {
 		// when
-		const wrapper = shallow(<ActionFile iconPosition="right" {...myAction} />);
+		render(<ActionFile iconPosition="right" {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Click me').nextSibling).toHaveClass('tc-icon-name-talend-caret-down');
 	});
 
 	it('should apply transformation on icon', () => {
 		// when
-		const wrapper = shallow(<ActionFile iconTransform="rotate-180" {...myAction} />);
+		render(<ActionFile iconTransform="rotate-180" {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Click me').previousSibling).toHaveClass('theme-rotate-180');
 	});
 
 	it('should render action with html property name = props.name if set', () => {
 		// when
-		const wrapper = shallow(<ActionFile name="custom_name" {...myAction} />);
+		render(<ActionFile name="custom_name" {...myAction} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByLabelText('Click me')).toHaveAttribute('name', 'custom_name');
 	});
 
 	it('should not render action if props.available=false', () => {
-		const wrapper = shallow(<ActionFile available={false} />);
-		expect(wrapper.type()).toBe(null);
+		render(<ActionFile available={false} {...myAction} />);
+		expect(screen.queryByLabelText('Click me')).not.toBeInTheDocument();
 	});
 });

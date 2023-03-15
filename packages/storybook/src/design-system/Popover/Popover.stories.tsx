@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { PopoverStateReturn } from 'reakit/ts';
-import { Popover, ButtonPrimary, ButtonIcon, StackVertical } from '@talend/design-system';
+import { Popover, ButtonPrimary, ButtonIcon, StackVertical, Form } from '@talend/design-system';
 import { PopoverDisclosureHTMLProps } from 'reakit';
 
 export default {
@@ -11,11 +11,14 @@ export default {
 
 const EasyPopover = () => <StackVertical gap="S">Hello hello</StackVertical>;
 
-const OpenPopover = (props: PopoverDisclosureHTMLProps) => (
-	<ButtonPrimary onClick={action('Clicked disclosure')} {...props}>
-		Open popover
-	</ButtonPrimary>
-);
+/* eslint-disable-next-line react/display-name */
+const OpenPopover = forwardRef((props: PopoverDisclosureHTMLProps, ref: Ref<HTMLButtonElement>) => {
+	return (
+		<ButtonPrimary onClick={action('Clicked disclosure')} {...props} ref={ref}>
+			Open popover
+		</ButtonPrimary>
+	);
+});
 
 export const DefaultStory = () => (
 	<div style={{ padding: '1.2rem' }}>
@@ -34,6 +37,18 @@ export const DisclosureStory = () => (
 					Open popover
 				</ButtonIcon>
 			}
+		>
+			Text Content
+		</Popover>
+	</div>
+);
+
+export const FormDisclosureStory = () => (
+	<div style={{ padding: '1.2rem' }}>
+		<Popover
+			aria-label="Custom popover"
+			focusOnDisclosure
+			disclosure={<Form.Text name="text" label="Text enabled" />}
 		>
 			Text Content
 		</Popover>

@@ -16,36 +16,6 @@ function listviewClasses() {
 	return classNames(theme['tc-listview'], 'tc-listview');
 }
 
-function ListView(props) {
-	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const noResultLabel = t('NO_RESULT_FOUND', { defaultValue: 'No result found.' });
-	const emptyLabel = t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
-	const label = props.displayMode === DISPLAY_MODE_SEARCH ? noResultLabel : emptyLabel;
-	return (
-		<div className={listviewClasses()}>
-			<HeaderListView {...props} />
-			{props.items.length ? (
-				<Items {...props} />
-			) : (
-				<span className={theme['empty-message']}>{label}</span>
-			)}
-		</div>
-	);
-}
-
-ListView.DISPLAY_MODES = { DISPLAY_MODE_DEFAULT, DISPLAY_MODE_SEARCH };
-
-ListView.displayName = 'ListView';
-
-ListView.propTypes = {
-	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
-	items: PropTypes.arrayOf(PropTypes.object),
-};
-
-ListView.defaultProps = {
-	items: [],
-};
-
 function HeaderListView(props) {
 	const {
 		displayMode,
@@ -83,6 +53,36 @@ function HeaderListView(props) {
 		}
 	}
 }
+
+function ListView(props) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const noResultLabel = t('NO_RESULT_FOUND', { defaultValue: 'No results found' });
+	const emptyLabel = t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
+	const label = props.displayMode === DISPLAY_MODE_SEARCH ? noResultLabel : emptyLabel;
+	return (
+		<div className={listviewClasses()}>
+			<HeaderListView {...props} />
+			{props.items.length ? (
+				<Items {...props} />
+			) : (
+				<span className={theme['empty-message']}>{label}</span>
+			)}
+		</div>
+	);
+}
+
+ListView.DISPLAY_MODES = { DISPLAY_MODE_DEFAULT, DISPLAY_MODE_SEARCH };
+
+ListView.displayName = 'ListView';
+
+ListView.propTypes = {
+	displayMode: PropTypes.oneOf(Object.values(ListView.DISPLAY_MODES)),
+	items: PropTypes.arrayOf(PropTypes.object),
+};
+
+ListView.defaultProps = {
+	items: [],
+};
 
 HeaderListView.defaultProps = {
 	displayMode: DISPLAY_MODE_DEFAULT,

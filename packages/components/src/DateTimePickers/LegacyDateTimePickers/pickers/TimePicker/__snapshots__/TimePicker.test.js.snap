@@ -11,7 +11,7 @@ exports[`TimePicker should render 1`] = `
     className="sr-only"
     htmlFor="42-hour"
   >
-    Hours
+    hours
   </label>
   <DebounceInput
     aria-describedby="error-hours"
@@ -36,7 +36,7 @@ exports[`TimePicker should render 1`] = `
     className="sr-only"
     htmlFor="42-minute"
   >
-    Minutes
+    minutes
   </label>
   <DebounceInput
     aria-describedby="error-minutes"
@@ -81,7 +81,7 @@ exports[`TimePicker should render with error 1`] = `
     className="sr-only"
     htmlFor="42-hour"
   >
-    Hours
+    hours
   </label>
   <DebounceInput
     aria-describedby="hoursErrorId"
@@ -105,7 +105,7 @@ exports[`TimePicker should render with error 1`] = `
     className="sr-only"
     htmlFor="42-minute"
   >
-    Minutes
+    minutes
   </label>
   <DebounceInput
     aria-describedby="minutesErrorId"

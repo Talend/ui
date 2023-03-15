@@ -1,5 +1,26 @@
 # @talend/ui-playground
 
+## 1.1.12
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+  - @talend/react-containers@9.0.0
+  - @talend/react-dataviz@2.8.6
+  - @talend/react-faceted-search@9.0.0
+  - @talend/react-forms@9.0.2
+
+## 1.1.11
+
+### Patch Changes
+
+- Updated dependencies [99398080f]
+- Updated dependencies [5e4aad637]
+  - @talend/react-containers@8.0.2
+  - @talend/react-dataviz@2.8.5
+  - @talend/react-forms@9.0.0
+
 ## 1.1.10
 
 ### Patch Changes

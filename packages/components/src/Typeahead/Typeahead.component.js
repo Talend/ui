@@ -228,7 +228,8 @@ function Typeahead({ onToggle, icon, position, docked, items, ...rest }) {
 		},
 	};
 
-	const noResultText = rest.noResultText || t('NO_RESULT_FOUND', { defaultValue: 'No result.' });
+	const noResultText =
+		rest.noResultText || t('NO_RESULT_FOUND', { defaultValue: 'No results found' });
 	const searchingText =
 		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
 	const isLoadingText =

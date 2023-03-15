@@ -1,5 +1,26 @@
 # @talend/scripts-config-react-webpack
 
+## 15.3.0
+
+### Minor Changes
+
+- 0bc6a9ee1: feat: add options to fix sourcemaps in mono repository.
+  chore: upgrade fork-ts-checker-webpack-plugin@^7.3.0
+
+## 15.2.6
+
+### Patch Changes
+
+- 464f7207d: Webpack react config - Fix sass HMR on file change for dev mode
+
+## 15.2.5
+
+### Patch Changes
+
+- 093ce8530: fix: add meta in head if inject is false
+- Updated dependencies [c7152471f]
+  - @talend/scripts-utils@2.0.2
+
 ## 15.2.4
 
 ### Patch Changes

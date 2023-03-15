@@ -6,7 +6,7 @@ exports[`ModelViewer should render the ModelViewer 1`] = `
 >
   <withI18nextTranslation(TreeHeader)
     t={[Function]}
-    title="Data Model"
+    title="Data model"
   />
   <Tree
     index={0}

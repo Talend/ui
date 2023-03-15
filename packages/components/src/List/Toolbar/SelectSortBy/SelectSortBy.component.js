@@ -62,7 +62,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					onSelect={onChangeField}
 					className={theme['sort-by-items']}
 					aria-label={t('LIST_CHANGE_SORT_BY', {
-						defaultValue: 'Change sort criteria. Current sort by {{sortBy}}.',
+						defaultValue: 'Change sort criteria. Current sort criteria: {{sortBy}}.',
 						sortBy: currentSortByLabel,
 					})}
 				>

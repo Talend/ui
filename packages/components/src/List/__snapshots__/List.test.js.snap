@@ -269,6 +269,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                               "getRowState": undefined,
                               "id": undefined,
                               "isSelected": [Function],
+                              "isToggleAllDisabled": undefined,
                               "label": "Select this element",
                               "onChange": [MockFunction],
                               "onToggleAll": [MockFunction],
@@ -285,7 +286,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                           >
                             <div
                               className="checkbox"
-                              title="Select All"
+                              title="Select all"
                             >
                               <label>
                                 <Checkbox
@@ -317,7 +318,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                                 <span
                                   className="sr-only"
                                 >
-                                  Select All
+                                  Select all
                                 </span>
                               </label>
                             </div>
@@ -1274,6 +1275,7 @@ exports[`List should render 1`] = `
                               "getRowState": undefined,
                               "id": undefined,
                               "isSelected": [Function],
+                              "isToggleAllDisabled": undefined,
                               "label": "Select this element",
                               "onChange": [MockFunction],
                               "onToggleAll": [MockFunction],
@@ -1290,7 +1292,7 @@ exports[`List should render 1`] = `
                           >
                             <div
                               className="checkbox"
-                              title="Select All"
+                              title="Select all"
                             >
                               <label>
                                 <Checkbox
@@ -1322,7 +1324,7 @@ exports[`List should render 1`] = `
                                 <span
                                   className="sr-only"
                                 >
-                                  Select All
+                                  Select all
                                 </span>
                               </label>
                             </div>
@@ -2303,6 +2305,7 @@ exports[`List should render id if provided 1`] = `
                               "getRowState": undefined,
                               "id": "context",
                               "isSelected": [Function],
+                              "isToggleAllDisabled": undefined,
                               "label": "Select this element",
                               "onChange": [MockFunction],
                               "onToggleAll": [MockFunction],
@@ -2319,7 +2322,7 @@ exports[`List should render id if provided 1`] = `
                           >
                             <div
                               className="checkbox"
-                              title="Select All"
+                              title="Select all"
                             >
                               <label
                                 htmlFor="context-header-check"
@@ -2356,7 +2359,7 @@ exports[`List should render id if provided 1`] = `
                                 <span
                                   className="sr-only"
                                 >
-                                  Select All
+                                  Select all
                                 </span>
                               </label>
                             </div>

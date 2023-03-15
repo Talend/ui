@@ -1,5 +1,55 @@
 # @talend/react-components
 
+## 10.1.0
+
+### Minor Changes
+
+- 44b408dc4: feat(components): List - disable item selection & disable "select all"
+
+## 10.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+## 9.6.0
+
+### Minor Changes
+
+- d2f5bd835: feat(TDP-11751): adding the possibility to set a specific height to the table and disable autosizer
+
+### Patch Changes
+
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+  - @talend/icons@6.54.0
+
+## 9.5.0
+
+### Minor Changes
+
+- 120d02173: Supports hiding tooltip for ObjectViewer(JSONLike)
+
+## 9.4.2
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
+## 9.4.1
+
+### Patch Changes
+
+- 21d87a111: fix: apply code style
+- Updated dependencies [ab0bd21cf]
+  - @talend/bootstrap-theme@7.0.1
+
 ## 9.4.0
 
 ### Minor Changes

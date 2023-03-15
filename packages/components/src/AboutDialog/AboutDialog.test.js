@@ -15,7 +15,7 @@ describe('AboutDialog', () => {
 
 		expect(screen.getByText('Version: Summer 18')).toBeInTheDocument();
 		expect(
-			screen.getByText(`© ${new Date().getFullYear()} Talend. All Rights Reserved`),
+			screen.getByText(`© ${new Date().getFullYear()} Talend. All rights reserved.`),
 		).toBeInTheDocument();
 	});
 

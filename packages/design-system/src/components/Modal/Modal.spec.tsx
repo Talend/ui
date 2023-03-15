@@ -69,6 +69,17 @@ context('<Modal />', () => {
 			});
 	});
 
+	it('should not have cancel/close action when preventEscaping is passed', () => {
+		// when
+		cy.mount(
+			<ModalStory header={{ title: 'No disclosure modal' }} preventEscaping>
+				<p>A basic modal with only a title and a text content.</p>
+			</ModalStory>,
+		);
+		cy.getByTest('open-modal').click();
+		cy.getByTestId('modal.buttons.close').should('not.exist');
+	});
+
 	it('should close the modal on ESC key', () => {
 		// when
 		cy.mount(

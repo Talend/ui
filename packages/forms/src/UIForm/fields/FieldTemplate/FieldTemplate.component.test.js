@@ -57,7 +57,7 @@ describe('FieldTemplate', () => {
 		);
 
 		// then
-		expect(wrapper.find('OverlayTrigger').getElement()).toMatchSnapshot();
+		expect(wrapper.find('Popover').getElement()).toMatchSnapshot();
 	});
 
 	it('should render invalid className', () => {

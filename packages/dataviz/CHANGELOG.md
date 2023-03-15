@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.8.6
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
+## 2.8.5
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+- Updated dependencies [99398080f]
+  - @talend/design-tokens@2.7.2
+
 ## 2.8.4
 
 ### Patch Changes

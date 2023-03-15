@@ -2,4 +2,4 @@
 '@talend/react-components': patch
 ---
 
-fix: apply code style
+test: rewrite using RTL

@@ -1,5 +1,39 @@
 # Changelog
 
+## 9.1.0
+
+### Minor Changes
+
+- b7f25227c: TDOPS-421 - Allow data attributes to be passed to faceted search components
+
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
+## 8.1.1
+
+### Patch Changes
+
+- 12d329322: TDOPS-421 - Fix faceted search submit at launch and badge sync on value and operator
+
+## 8.1.0
+
+### Minor Changes
+
+- 705ff3066: Faceted search - Tags faceted should allow a list of flat tags or objects
+- 06e45a74c: Faceted search
+  - Add new `Not in` and `Not contains` operators
+  - On badge checkbox faceted, added an optional checkbox to select all items with the `metadata.allSelector` property
+
+## 8.0.4
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
 ## 8.0.3
 
 ### Patch Changes

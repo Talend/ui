@@ -6,7 +6,7 @@ exports[`Header "Select All" checkbox should render a "Select All" checkbox on h
 >
   <div
     className="checkbox"
-    title="Select All"
+    title="Select all"
   >
     <label
       htmlFor="myList-header-check"
@@ -24,7 +24,7 @@ exports[`Header "Select All" checkbox should render a "Select All" checkbox on h
       <span
         className="sr-only"
       >
-        Select All
+        Select all
       </span>
     </label>
   </div>
@@ -37,7 +37,7 @@ exports[`Header "Select All" checkbox should render a checked checkbox on header
 >
   <div
     className="checkbox"
-    title="Select All"
+    title="Select all"
   >
     <label
       htmlFor="myList-header-check"
@@ -67,7 +67,7 @@ exports[`Header "Select All" checkbox should render a checked checkbox on header
       <span
         className="sr-only"
       >
-        Select All
+        Select all
       </span>
     </label>
   </div>
@@ -80,7 +80,7 @@ exports[`Header "Select All" checkbox should render a partial checkbox on header
 >
   <div
     className="checkbox"
-    title="Select All"
+    title="Select all"
   >
     <label
       htmlFor="myList-header-check"
@@ -110,7 +110,7 @@ exports[`Header "Select All" checkbox should render a partial checkbox on header
       <span
         className="sr-only"
       >
-        Select All
+        Select all
       </span>
     </label>
   </div>
