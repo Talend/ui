@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 
 import Inject from './Inject';
