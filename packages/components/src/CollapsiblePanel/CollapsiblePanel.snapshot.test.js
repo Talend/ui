@@ -1,6 +1,5 @@
 import React from 'react';
-import { screen, render, configure } from '@testing-library/react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 
