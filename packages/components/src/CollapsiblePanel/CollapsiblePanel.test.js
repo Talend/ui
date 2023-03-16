@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@talend/react-bootstrap';
 import { ButtonIcon } from '@talend/design-system';
 import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 import TooltipTrigger from '../TooltipTrigger';
@@ -22,35 +23,6 @@ const timeStamp = {
 	tooltipPlacement: 'top',
 };
 
-const propsDescriptivePanel = {
-	header: [[version1, readOnlyLabel], timeStamp],
-	content: {
-		head: [
-			{
-				label: '21 step',
-				bsStyle: 'default',
-				tooltipPlacement: 'top',
-			},
-			{
-				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
-				bsStyle: 'default',
-				tooltipPlacement: 'top',
-			},
-		],
-		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elit`,
-	},
-	theme: 'descriptive-panel',
-	onSelect: jest.fn(),
-};
-
 const propsPanelWithActions = {
 	header: [{ actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
 	content: [
@@ -66,14 +38,30 @@ const propsPanelWithActions = {
 	onToggle: jest.fn(),
 };
 
-const propsPanelWithCustomContent = {
-	header: [{ actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
-	onToggle: jest.fn(),
-};
-
 describe('CollapsiblePanel', () => {
 	it('should trigger onSelect callback on header click', () => {
 		// given
+		const propsDescriptivePanel = {
+			header: [[version1, readOnlyLabel], timeStamp],
+			content: {
+				head: [
+					{
+						label: '21 step',
+						bsStyle: 'default',
+						tooltipPlacement: 'top',
+					},
+					{
+						label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+						bsStyle: 'default',
+						tooltipPlacement: 'top',
+					},
+				],
+				description: 'Lorem ipsum dolor',
+			},
+			theme: 'descriptive-panel',
+			onSelect: jest.fn(),
+		};
+
 		const panelInstance = <CollapsiblePanel {...propsDescriptivePanel} />;
 
 		// when
@@ -98,6 +86,10 @@ describe('CollapsiblePanel', () => {
 
 	it('should render custom content in panel body', () => {
 		// given
+		const propsPanelWithCustomContent = {
+			header: [{ actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
+			onToggle: jest.fn(),
+		};
 		const customContent = <h2>custom title</h2>;
 		const panelInstance = (
 			<CollapsiblePanel {...propsPanelWithCustomContent}>{customContent}</CollapsiblePanel>

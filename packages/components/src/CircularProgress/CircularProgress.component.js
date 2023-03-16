@@ -51,6 +51,7 @@ function CircularProgress({ size, light, percent, className, t }) {
 			focusable="false"
 			className={classes}
 			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
+			data-test="circular-progress"
 			aria-busy="true"
 			aria-label={t('CIRCULAR_PROGRESS_LOADING', {
 				defaultValue: 'Loading... {{percent}}',

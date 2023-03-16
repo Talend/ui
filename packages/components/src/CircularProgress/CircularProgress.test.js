@@ -1,31 +1,35 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { screen, render, configure } from '@testing-library/react';
 
 import CircularProgress from './CircularProgress.component';
 
+configure({ testIdAttribute: 'data-test' });
+
 describe('CircularProgress', () => {
 	it('should render by default at default size', () => {
-		const wrapper = renderer.create(<CircularProgress />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(<CircularProgress />);
+		expect(screen.getByTestId('circular-progress')).toBeInTheDocument();
 	});
 
 	it('should render at small size if set', () => {
-		const wrapper = renderer.create(<CircularProgress size="small" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(<CircularProgress size="small" />);
+		expect(screen.getByTestId('circular-progress')).toBeInTheDocument();
 	});
 
 	it('should render at large size if set', () => {
-		const wrapper = renderer.create(<CircularProgress size="large" />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(<CircularProgress size="large" />);
+		expect(screen.getByTestId('circular-progress')).toBeInTheDocument();
+		expect(screen.getByTestId('circular-progress')).toHaveClass('theme-large');
 	});
 
 	it('should render as light if set', () => {
-		const wrapper = renderer.create(<CircularProgress light />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(<CircularProgress light />);
+		expect(screen.getByTestId('circular-progress')).toBeInTheDocument();
+		expect(screen.getByTestId('circular-progress')).toHaveClass('theme-loaderlight');
 	});
 
 	it('should render with percent if set', () => {
-		const wrapper = renderer.create(<CircularProgress percent={30} />).toJSON();
-		expect(wrapper).toMatchSnapshot();
+		render(<CircularProgress percent={30} />);
+		expect(screen.getByLabelText('Loading... 30%')).toBeInTheDocument();
 	});
 });
