@@ -5,7 +5,7 @@ import Constants from './HeaderBar.constant';
 
 const getHeaderActionProps = (actionName, ownProps, state) => {
 	const expression = get(ownProps, `${actionName}.renderIfExpression`);
-	let actionProps = null;
+	let actionProps = ownProps[actionName];
 
 	if (expression) {
 		actionProps = {
