@@ -39,6 +39,7 @@ const BadgeText = ({
 	removable,
 	displayType,
 	placeholder,
+	...rest
 }) => {
 	const currentOperators = useMemo(() => operators || createDefaultOperators(t), [operators, t]);
 	const currentOperator = operator || currentOperators[0];
@@ -69,6 +70,7 @@ const BadgeText = ({
 					feature={category || label}
 					t={t}
 					placeholder={placeholder}
+					{...rest}
 				/>
 			)}
 		</BadgeFaceted>

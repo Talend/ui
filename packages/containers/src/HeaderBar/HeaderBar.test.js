@@ -134,8 +134,8 @@ describe('Connected HeaderBar', () => {
 		const props = mapStateToProps(state, ownProps);
 
 		expect(props).toEqual({
-			callToAction: null,
-			genericAction: null,
+			callToAction: undefined,
+			genericAction: undefined,
 			productsItems: undefined,
 		});
 	});

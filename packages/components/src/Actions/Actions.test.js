@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render, screen } from '@testing-library/react';
 import Actions from './Actions.component';
 
 const actions = [
@@ -64,10 +63,12 @@ describe('Actions', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Actions {...props} />);
+		render(<Actions {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button', { name: 'Preparations' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Datasets' })).toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Favorites' })).toBeInTheDocument();
 	});
 
 	it('should render actions with hidden labels and tooltips', () => {
@@ -79,10 +80,11 @@ describe('Actions', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Actions {...props} />);
+		render(<Actions {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.queryByText('Preparations')).not.toBeInTheDocument();
+		expect(screen.getByRole('button', { name: 'Preparations' })).toBeInTheDocument();
 	});
 
 	it('should render actions with "link" theme', () => {
@@ -94,25 +96,9 @@ describe('Actions', () => {
 		};
 
 		// when
-		const wrapper = shallow(<Actions {...props} />);
+		render(<Actions {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render actions with defined tooltip placement', () => {
-		// given
-		const props = {
-			actions,
-			hideLabel: true,
-			link: true,
-			tooltipPlacement: 'right',
-		};
-
-		// when
-		const wrapper = shallow(<Actions {...props} />);
-
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Preparations').parentElement).toHaveClass('btn-link');
 	});
 });

@@ -2,8 +2,6 @@ name: PR tests
 
 on:
   pull_request:
-  push:
-    branches: [master, maintenance/*]
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -32,4 +30,24 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Test
-        run: yarn test
+        run: yarn test --coverage --coverageReporters json-summary
+
+      - name: Jest Coverage Comment
+        uses: MishaKav/jest-coverage-comment@c0e038bed569d269190b056a59b29e0593eccc0a #1.0.22
+        with:
+          multiple-files: |
+            assets-api, ./packages/assets-api/coverage/coverage-summary.json
+            cmf, ./packages/cmf/coverage/coverage-summary.json
+            cmf-cqrs, ./packages/cmf-cqrs/coverage/coverage-summary.json
+            cmf-router, ./packages/cmf-router/coverage/coverage-summary.json
+            components, ./packages/components/coverage/coverage-summary.json
+            containers, ./packages/containers/coverage/coverage-summary.json
+            dataviz, ./packages/dataviz/coverage/coverage-summary.json
+            design-system, ./packages/design-system/coverage/coverage-summary.json
+            faceted-search, ./packages/faceted-search/coverage/coverage-summary.json
+            flow-designer, ./packages/flow-designer/coverage/coverage-summary.json
+            forms, ./packages/forms/coverage/coverage-summary.json
+            http, ./packages/http/coverage/coverage-summary.json
+            sagas, ./packages/sagas/coverage/coverage-summary.json
+            stepper, ./packages/stepper/coverage/coverage-summary.json
+            utils, ./packages/utils/coverage/coverage-summary.json

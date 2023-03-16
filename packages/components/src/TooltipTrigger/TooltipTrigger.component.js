@@ -226,6 +226,7 @@ function TooltipTrigger({
 					<div
 						className={classNames(theme['tc-tooltip-container'], 'tc-tooltip-container', className)}
 						style={style}
+						role="tooltip"
 					>
 						<div
 							id={id}

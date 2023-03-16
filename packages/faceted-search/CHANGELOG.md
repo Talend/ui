@@ -1,5 +1,11 @@
 # Changelog
 
+## 9.1.0
+
+### Minor Changes
+
+- b7f25227c: TDOPS-421 - Allow data attributes to be passed to faceted search components
+
 ## 9.0.0
 
 ### Patch Changes

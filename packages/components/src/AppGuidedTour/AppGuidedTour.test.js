@@ -1,8 +1,12 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import AppGuidedTour, { DEFAULT_LOCAL_STORAGE_KEY } from './AppGuidedTour.component';
 import Stepper from '../Stepper';
+
+jest.unmock('@talend/design-system');
 
 const DEFAULT_PROPS = {
 	appName: 'app name',
@@ -19,18 +23,12 @@ describe('AppGuidedTour', () => {
 	beforeEach(() => {
 		localStorage.setItem(DEFAULT_LOCAL_STORAGE_KEY, null);
 	});
-	it('should not trigger import function if "load demo content" is not selected', () => {
+	it('should not trigger import function if "load demo content" is not selected', async () => {
 		const onImportDemoContentMock = jest.fn();
+		render(<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />);
 
-		const wrapper = mount(
-			<AppGuidedTour {...DEFAULT_PROPS} onImportDemoContent={onImportDemoContentMock} />,
-		);
-		act(() => {
-			wrapper.find('Toggle').prop('onChange')({ target: { checked: false } });
-		});
-		act(() => {
-			wrapper.find('button[data-tour-elem="right-arrow"]').simulate('click');
-		});
+		await userEvent.click(screen.getByLabelText('Import demo content'));
+		await userEvent.click(screen.getByText('Let me try'));
 		expect(onImportDemoContentMock).not.toHaveBeenCalled();
 	});
 	it('should trigger import function if "load demo content" is selected', () => {

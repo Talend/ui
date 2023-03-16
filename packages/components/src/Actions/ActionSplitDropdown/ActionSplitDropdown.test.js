@@ -1,7 +1,9 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
 
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ActionSplitDropdown from './ActionSplitDropdown.component';
+jest.unmock('@talend/design-system');
 
 const items = [
 	{
@@ -27,10 +29,10 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+		render(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Add File')).toBeInTheDocument();
 	});
 
 	it('should render a button with icon and label', () => {
@@ -44,10 +46,11 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+		render(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('Add File')).toBeInTheDocument();
+		expect(screen.getByText('Add File').previousSibling).toHaveAttribute('name', 'fa fa-plus');
 	});
 
 	it('should render items with icons', () => {
@@ -61,21 +64,24 @@ describe('ActionSplitDropdown', () => {
 				{
 					label: 'From Local',
 					onClick: jest.fn(),
-					icon: 'fa fa-plus',
+					icon: 'my-icon',
 				},
 				{
 					label: 'From Remote',
 					onClick: jest.fn(),
-					icon: 'fa fa-plus',
+					icon: 'my-other-icon',
 				},
 			],
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+		render(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('From Local')).toBeInTheDocument();
+		expect(screen.getByText('From Local').childNodes[0]).toHaveAttribute('name', 'my-icon');
+		expect(screen.getByText('From Remote')).toBeInTheDocument();
+		expect(screen.getByText('From Remote').childNodes[0]).toHaveAttribute('name', 'my-other-icon');
 	});
 
 	it('should render "no option" item when items array is empty', () => {
@@ -90,10 +96,10 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const wrapper = shallow(<ActionSplitDropdown {...props} />);
+		render(<ActionSplitDropdown {...props} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('No option')).toBeInTheDocument();
 	});
 
 	it('should render trigger event', () => {
@@ -119,32 +125,24 @@ describe('ActionSplitDropdown', () => {
 		};
 
 		// when
-		const actionSplitDropdownInstance = mount(<ActionSplitDropdown {...props} />);
-		const menuItems = actionSplitDropdownInstance.find('MenuItem');
-
-		menuItems
-			.at(0)
-			.find('SafeAnchor')
-			.simulate('click');
+		render(<ActionSplitDropdown {...props} />);
+		userEvent.click(screen.getByRole('menuitem', { name: 'Item 1' }));
 
 		// then
 		expect(onItemClick.mock.calls[0][1]).toEqual({
 			action: { id: 'item1', label: 'Item 1' },
 			model: 'model',
 		});
-		expect(onItemClick.mock.calls[0][0].type).toBe('click');
+		expect(onItemClick.mock.calls[0][0].type).toEqual('click');
 
 		// when
-		menuItems
-			.at(1)
-			.find('SafeAnchor')
-			.simulate('click');
+		userEvent.click(screen.getByRole('menuitem', { name: 'Item 2' }));
 
 		// then
 		expect(onItemClick.mock.calls[1][1]).toEqual({
 			action: { id: 'item2', label: 'Item 2' },
 			model: 'model',
 		});
-		expect(onItemClick.mock.calls[1][0].type).toBe('click');
+		expect(onItemClick.mock.calls[1][0].type).toEqual('click');
 	});
 });
