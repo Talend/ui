@@ -1,5 +1,13 @@
 # @talend/react-containers
 
+## 9.0.1
+
+### Patch Changes
+
+- 8c09dacd8: fix(HeaderBar): TypeError: Assignment to constant variable.
+- Updated dependencies [20f8526e9]
+  - @talend/react-components@10.1.1
+
 ## 9.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 10.1.1
+
+### Patch Changes
+
+- 20f8526e9: test: rewrite using RTL
+
 ## 10.1.0
 
 ### Minor Changes
