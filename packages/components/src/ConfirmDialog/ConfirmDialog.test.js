@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import classNames from 'classnames';
-import { mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ConfirmDialog from './ConfirmDialog.component';
 
 function mockFakeComponent(name, Component) {
@@ -64,12 +63,9 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
-
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeInTheDocument();
 	});
 
 	it('should render without header', () => {
@@ -81,12 +77,11 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.queryByText('Hello world')).not.toBeInTheDocument();
+		expect(document.querySelector('.modal-header')).toBeNull();
 	});
 
 	it('should render with a small container', () => {
@@ -100,12 +95,11 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeInTheDocument();
+		expect(document.querySelector('.modal-dialog')).toHaveClass('modal-sm');
 	});
 
 	it('should render with a large container', () => {
@@ -119,12 +113,10 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
-
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeInTheDocument();
+		expect(document.querySelector('.modal-dialog')).toHaveClass('modal-lg');
 	});
 
 	it('should render with a progress bar', () => {
@@ -140,12 +132,12 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeInTheDocument();
+		expect(screen.getByText('This is loading')).toBeInTheDocument();
+		expect(document.querySelector('.progress-bar')).toHaveStyle('width: 25%');
 	});
 
 	it('should render the body with overflow hidden if bodyOverflow is set to false', () => {
@@ -159,14 +151,14 @@ describe('ConfirmDialog', () => {
 		};
 		const noOp = () => {};
 		// when
-		const wrapper = mount(
-			<ConfirmDialog onHide={noOp} animation={false} {...properties}>
-				<p>Content</p>
+		render(
+			<ConfirmDialog onHide={noOp} {...properties}>
+				{children}
 			</ConfirmDialog>,
 		);
 
 		// then
-		expect(wrapper.find('ConfirmDialog').getElement().props.bodyOverflow).toBe(false);
+		expect(document.querySelector('.modal-body')).toHaveClass('modal-body-overflow-hidden');
 	});
 
 	it('should render with additional actions', () => {
@@ -186,11 +178,12 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeInTheDocument();
+		expect(screen.getByText('Keep on Github')).toBeInTheDocument();
+		userEvent.click(screen.getByText('Keep on Github'));
+		expect(properties.secondaryActions[0].onClick).toHaveBeenCalled();
 	});
 });

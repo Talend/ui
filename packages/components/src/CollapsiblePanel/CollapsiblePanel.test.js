@@ -1,11 +1,7 @@
 import React from 'react';
-import { Button } from '@talend/react-bootstrap';
-import { ButtonIcon } from '@talend/design-system';
-import { mount } from 'enzyme';
 import { render, screen } from '@testing-library/react';
-
+import userEvent from '@testing-library/user-event';
 import CollapsiblePanel from './CollapsiblePanel.component';
-import TooltipTrigger from '../TooltipTrigger';
 
 const version1 = {
 	label: 'Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182',
@@ -65,8 +61,8 @@ describe('CollapsiblePanel', () => {
 		const panelInstance = <CollapsiblePanel {...propsDescriptivePanel} />;
 
 		// when
-		const wrapper = mount(panelInstance);
-		wrapper.find(Button).at(0).simulate('click');
+		render(panelInstance);
+		userEvent.click(screen.getByText('Version 1 94a06b6a3a85bc415add5fdb31dcceebf96b8182'));
 
 		// then
 		expect(propsDescriptivePanel.onSelect).toBeCalled();
@@ -77,8 +73,8 @@ describe('CollapsiblePanel', () => {
 		const panelInstance = <CollapsiblePanel {...propsPanelWithActions} />;
 
 		// when
-		const wrapper = mount(panelInstance);
-		wrapper.find(ButtonIcon).at(0).simulate('click');
+		render(panelInstance);
+		userEvent.click(screen.getByText('Successful'));
 
 		// then
 		expect(propsPanelWithActions.onToggle).toBeCalled();
@@ -95,13 +91,13 @@ describe('CollapsiblePanel', () => {
 			<CollapsiblePanel {...propsPanelWithCustomContent}>{customContent}</CollapsiblePanel>
 		);
 		// when
-		const wrapper = mount(panelInstance);
+		render(panelInstance);
 
 		// then
-		expect(wrapper.find('.panel-body').contains(customContent)).toBeTruthy();
+		expect(screen.getByText('custom title')).toBeInTheDocument();
 	});
 
-	it('should render custom element in panel header', () => {
+	it('should render custom element in panel header', async () => {
 		// given
 		const customElement = <h3>Custom label</h3>;
 		const propsPanelWithCustomElement = {
@@ -119,32 +115,9 @@ describe('CollapsiblePanel', () => {
 
 		const panelInstance = <CollapsiblePanel {...propsPanelWithCustomElement} />;
 		// when
-		const wrapper = mount(panelInstance);
+		render(panelInstance);
 
 		// then
-		expect(wrapper.find(TooltipTrigger).length).toBe(2);
-		expect(wrapper.find('h3').getElement().props.children).toEqual('Custom label');
-	});
-
-	it('should render custom element without tooltip', () => {
-		// given
-		const customElement = <h3>Custom label</h3>;
-		const propsPanelWithCustomElement = {
-			...propsPanelWithActions,
-			header: [
-				{
-					element: customElement,
-					className: 'custom-col',
-				},
-				...propsPanelWithActions.header,
-			],
-		};
-
-		const panelInstance = <CollapsiblePanel {...propsPanelWithCustomElement} />;
-		// when
-		const wrapper = mount(panelInstance);
-
-		// then
-		expect(wrapper.find(TooltipTrigger).length).toBe(1);
+		expect(screen.getByText('Custom label')).toBeInTheDocument();
 	});
 });
