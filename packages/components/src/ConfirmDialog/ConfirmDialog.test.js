@@ -1,42 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ConfirmDialog from './ConfirmDialog.component';
-
-function mockFakeComponent(name, Component) {
-	const fakeComponent = ({ children, className, ...rest }) => {
-		const mergedClassName = classNames(className, name, 'mocked-component');
-		return React.createElement(
-			Component || 'div',
-			{ ...rest, className: mergedClassName },
-			children,
-		);
-	};
-	fakeComponent.propTypes = {
-		children: PropTypes.oneOfType([PropTypes.any]),
-		className: PropTypes.string,
-	};
-	return fakeComponent;
-}
-
-jest.mock('@talend/react-bootstrap', () => {
-	const Modal = mockFakeComponent('Modal');
-	Modal.Header = mockFakeComponent('Header');
-	Modal.Title = mockFakeComponent('Title');
-	Modal.Body = mockFakeComponent('Body');
-	Modal.Footer = mockFakeComponent('Footer');
-	const ProgressBar = mockFakeComponent('ProgressBar');
-	const Overlay = mockFakeComponent('Overlay');
-	const MenuItem = mockFakeComponent('MenuItem');
-	const ButtonGroup = mockFakeComponent('ButtonGroup');
-	const Button = mockFakeComponent('Button', 'button');
-	const utils = {
-		createChainedFunction: jest.fn(),
-	};
-	return { Modal, ProgressBar, Overlay, utils, Button, ButtonGroup, MenuItem };
-});
 
 const children = <div>BODY</div>;
 
@@ -136,29 +101,8 @@ describe('ConfirmDialog', () => {
 
 		// then
 		expect(screen.getByText('Hello world')).toBeInTheDocument();
-		expect(screen.getByText('This is loading')).toBeInTheDocument();
-		expect(document.querySelector('.progress-bar')).toHaveStyle('width: 25%');
-	});
-
-	it('should render the body with overflow hidden if bodyOverflow is set to false', () => {
-		// given
-		const properties = {
-			header: 'Hello world',
-			show: true,
-			validateAction,
-			cancelAction,
-			bodyOverflow: false,
-		};
-		const noOp = () => {};
-		// when
-		render(
-			<ConfirmDialog onHide={noOp} {...properties}>
-				{children}
-			</ConfirmDialog>,
-		);
-
-		// then
-		expect(document.querySelector('.modal-body')).toHaveClass('modal-body-overflow-hidden');
+		expect(screen.getByLabelText('This is loading')).toBeInTheDocument();
+		expect(screen.getByLabelText('This is loading')).toHaveAttribute('aria-valuenow', '25');
 	});
 
 	it('should render with additional actions', () => {
@@ -177,7 +121,7 @@ describe('ConfirmDialog', () => {
 			],
 		};
 
-		// when
+		// when.
 		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
