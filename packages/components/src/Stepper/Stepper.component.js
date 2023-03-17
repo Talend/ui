@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { Stepper as CoralStepper } from '@talend/design-system';
+import { ErrorState, StackVertical, Stepper as CoralStepper } from '@talend/design-system';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import { getTheme } from '../theme';
@@ -32,6 +32,8 @@ const LOADING_STEP_STATUSES = {
  * @param {array} steps array of steps
  */
 const isErrorInSteps = steps => steps.some(step => step.status === LOADING_STEP_STATUSES.FAILURE);
+
+const getStepInError = steps => steps.find(step => step.status === LOADING_STEP_STATUSES.FAILURE);
 
 /**
  * This function tells if all the steps are successful
@@ -169,6 +171,16 @@ function Stepper({ steps, title, renderActions, children }) {
 			transitionEmptyToLoading(setTransitionState);
 		}
 	}, [steps]);
+
+	if (isInError) {
+		const errorStep = getStepInError(steps);
+		return (
+			<StackVertical gap={0} align="center" justify="center">
+				<ErrorState title={errorStep.label} description={errorStep.message?.label} />
+				{renderActions && renderActions(isInError) ? <div>{renderActions(isInError)}</div> : null}
+			</StackVertical>
+		);
+	}
 
 	return (
 		<React.Fragment>
