@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 9.0.3
+
+### Patch Changes
+
+- df24c6210: fix(TDOPS-3373/NestedListView): include searchCriteria in component update
+
 ## 9.0.2
 
 ### Patch Changes
