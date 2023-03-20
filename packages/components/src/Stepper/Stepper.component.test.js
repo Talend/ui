@@ -2,6 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Stepper from './Stepper.component';
 
+jest.unmock('@talend/design-system');
+
 describe('Stepper Component', () => {
 	describe('render', () => {
 		it('should render when there is no errors in the steps', () => {
