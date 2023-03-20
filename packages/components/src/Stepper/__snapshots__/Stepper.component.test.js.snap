@@ -1,179 +1,181 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stepper Component render should render when there is an errors in the steps 1`] = `
-<React.Fragment>
-  <StepperTransition
-    active={true}
-  >
-    Import successfull
-  </StepperTransition>
-  <StepperTransition
-    active={false}
-  >
+<body>
+  <div>
     <div
-      className="stepper theme-stepper"
+      class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
     >
-      <div
-        className="loading-content-steps theme-loading-content-steps stepper-content-error theme-stepper-content-error"
+      <article
+        class="theme-error-state"
       >
-        <h2>
-          Test
-        </h2>
-        <ol
-          className="stepper-steps theme-stepper-steps"
+        <div
+          class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-M theme-gap-y-M"
         >
-          <li
-            className="stepper-step theme-stepper-step stepper-step-success theme-stepper-step-success"
+          <svg
+            fill="none"
+            height="40"
+            viewBox="0 0 40 40"
+            width="40"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <div
-              className="stepper-step-infos theme-stepper-step-infos"
-            >
-              <Icon
-                className="stepper-icon-success theme-stepper-icon-success stepper-icon theme-stepper-icon"
-                name="talend-check"
-              />
-              Fetch Sample
-            </div>
-          </li>
-          <li
-            aria-current={true}
-            className="stepper-step theme-stepper-step stepper-step-failure theme-stepper-step-failure"
+            <path
+              clip-rule="evenodd"
+              d="M22 38C30.8366 38 38 30.8366 38 22C38 13.1634 30.8366 6 22 6C13.1634 6 6 13.1634 6 22C6 30.8366 13.1634 38 22 38ZM23.446 12.5863C24.2529 11.8046 25.5588 11.8046 26.3657 12.5863L29.2854 15.4147C30.0923 16.1964 30.0923 17.4614 29.2854 18.2431L26.3657 21.0715L29.2854 23.9C30.0923 24.6817 30.0923 25.9467 29.2854 26.7284L26.3657 29.5568C25.5588 30.3385 24.2529 30.3385 23.446 29.5568L20.5264 26.7284L17.6067 29.5568C16.7998 30.3385 15.4939 30.3385 14.687 29.5568L11.7674 26.7284C10.9605 25.9467 10.9605 24.6817 11.7674 23.9L14.687 21.0715L11.7674 18.2431C11.4851 17.9697 11.3012 17.6368 11.2157 17.286C11.0603 16.6356 11.2427 15.9229 11.7674 15.4147L14.687 12.5863C15.4939 11.8046 16.7998 11.8046 17.6067 12.5863L20.5264 15.4147L23.446 12.5863Z"
+              fill="var(--coral-color-illustration-color-05, hsla(20,23%,97%,1))"
+              fill-rule="evenodd"
+            />
+            <path
+              d="M14.4148 21.0715L11.5863 23.9C10.8047 24.6817 10.8047 25.9467 11.5863 26.7284L14.4148 29.5568C15.1965 30.3385 16.4615 30.3385 17.2432 29.5568L20.0716 26.7284L22.9001 29.5568C23.6817 30.3385 24.9468 30.3385 25.7285 29.5568L28.5569 26.7284C29.3386 25.9467 29.3386 24.6817 28.5569 23.9L25.7285 21.0715L28.5569 18.2431C29.3386 17.4614 29.3386 16.1964 28.5569 15.4147L25.7285 12.5863C24.9468 11.8046 23.6817 11.8046 22.9001 12.5863L20.0716 15.4147L17.2432 12.5863C16.4615 11.8046 15.1965 11.8046 14.4148 12.5863L11.5863 15.4147C11.0781 15.9229 10.9013 16.6356 11.0519 17.286C11.1347 17.6368 11.3129 17.9697 11.5863 18.2431L12.3432 19"
+              stroke="var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M27.4888 6.43875C19.8361 2.02047 10.0506 4.64247 5.63235 12.2952C1.21407 19.9478 3.83607 29.7333 11.4888 34.1516C19.1414 38.5698 28.9269 35.9478 33.3452 28.2952C35.3741 24.781 35.9184 20.8171 35.1727 17.1297"
+              stroke="var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+            <path
+              d="M33.6806 14.8354C33.2023 14.5592 33.0384 13.9476 33.3146 13.4693C33.5907 12.9911 34.2023 12.8272 34.6806 13.1033C35.1589 13.3795 35.3228 13.9911 35.0466 14.4693C34.7705 14.9476 34.1589 15.1115 33.6806 14.8354Z"
+              fill="var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))"
+            />
+            <path
+              d="M31.9585 11.7008C31.4802 11.4247 31.3163 10.8131 31.5925 10.3348C31.8686 9.85653 32.4802 9.69265 32.9585 9.9688C33.4368 10.2449 33.6006 10.8565 33.3245 11.3348C33.0484 11.8131 32.4368 11.977 31.9585 11.7008Z"
+              fill="var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))"
+            />
+            <path
+              d="M29.5849 9.17131C29.1067 8.89516 28.9428 8.28357 29.2189 7.80528C29.4951 7.32699 30.1067 7.16311 30.5849 7.43926C31.0632 7.7154 31.2271 8.32699 30.951 8.80528C30.6748 9.28357 30.0632 9.44745 29.5849 9.17131Z"
+              fill="var(--coral-color-illustration-color-04, hsla(201,41%,64%,1))"
+            />
+          </svg>
+          <div
+            class="theme-stack theme-justify-center theme-align-center theme-nowrap theme-column theme-block theme-gap-x-0 theme-gap-y-0"
           >
-            <div
-              className="stepper-step-infos theme-stepper-step-infos"
+            <h3
+              class="theme-error-state__title"
             >
-              <Icon
-                className="stepper-icon-failure theme-stepper-icon-failure stepper-icon theme-stepper-icon"
-                name="talend-warning"
-              />
               Global Quality
-            </div>
-            <div
-              className="stepper-step-message theme-stepper-step-message"
-            >
-              <span
-                className="stepper-step-message-label theme-stepper-step-message-label"
-              >
-                We couldn't connect to the remote engine
-              </span>
-            </div>
-          </li>
-          <li
-            className="stepper-step theme-stepper-step stepper-step-aborted theme-stepper-step-aborted"
-          >
-            <div
-              className="stepper-step-infos theme-stepper-step-infos"
-            >
-              <Icon
-                className="stepper-icon-aborted theme-stepper-icon-aborted stepper-icon theme-stepper-icon"
-                name="talend-cross"
-              />
-              Flattening
-               (Aborted)
-            </div>
-          </li>
-          <li
-            className="stepper-step theme-stepper-step stepper-step-aborted theme-stepper-step-aborted"
-          >
-            <div
-              className="stepper-step-infos theme-stepper-step-infos"
-            >
-              <Icon
-                className="stepper-icon-aborted theme-stepper-icon-aborted stepper-icon theme-stepper-icon"
-                name="talend-cross"
-              />
-              Column Quality
-               (Aborted)
-            </div>
-          </li>
-        </ol>
-      </div>
+            </h3>
+            <p>
+              We couldn't connect to the remote engine
+            </p>
+          </div>
+        </div>
+      </article>
     </div>
-  </StepperTransition>
-</React.Fragment>
+  </div>
+</body>
 `;
 
 exports[`Stepper Component render should render when there is no errors in the steps 1`] = `
-<React.Fragment>
-  <StepperTransition
-    active={false}
-  />
-  <StepperTransition
-    active={true}
-  >
+<body>
+  <div>
     <div
-      className="stepper theme-stepper"
+      style="transition: opacity 300ms ease-in-out; opacity: 1; display: flex; overflow: auto; height: 100%; width: 100%;"
     >
       <div
-        className="loading-content-steps theme-loading-content-steps"
+        class="stepper theme-stepper"
       >
-        <h2>
-          Test
-        </h2>
-        <ol
-          className="stepper-steps theme-stepper-steps"
+        <div
+          class="loading-content-steps theme-loading-content-steps"
         >
-          <li
-            className="stepper-step theme-stepper-step stepper-step-success theme-stepper-step-success"
+          <h2>
+            Test
+          </h2>
+          <ol
+            class="stepper-steps theme-stepper-steps"
           >
-            <div
-              className="stepper-step-infos theme-stepper-step-infos"
+            <li
+              class="stepper-step theme-stepper-step stepper-step-success theme-stepper-step-success"
             >
-              <Icon
-                className="stepper-icon-success theme-stepper-icon-success stepper-icon theme-stepper-icon"
-                name="talend-check"
-              />
-              Fetch Sample
-            </div>
-          </li>
-          <li
-            aria-current={true}
-            className="stepper-step theme-stepper-step stepper-step-loading theme-stepper-step-loading"
-          >
-            <div
-              className="stepper-step-infos theme-stepper-step-infos"
-            >
-              <withI18nextTranslation(CircularProgress)
-                className="stepper-icon-loading theme-stepper-icon-loading stepper-icon theme-stepper-icon"
-                size="default"
-                t={[Function]}
-              />
-              Global Quality
-            </div>
-          </li>
-          <li
-            aria-current={true}
-            className="stepper-step theme-stepper-step stepper-step-loading theme-stepper-step-loading"
-          >
-            <div
-              className="stepper-step-infos theme-stepper-step-infos"
-            >
-              <withI18nextTranslation(CircularProgress)
-                className="stepper-icon-loading theme-stepper-icon-loading stepper-icon theme-stepper-icon"
-                size="default"
-                t={[Function]}
-              />
-              Flattening
-            </div>
-          </li>
-          <li
-            className="stepper-step theme-stepper-step stepper-step-pending theme-stepper-step-pending"
-          >
-            <div
-              className="stepper-step-infos theme-stepper-step-infos"
-            >
-              <span
-                className="stepper-icon-pending theme-stepper-icon-pending stepper-icon theme-stepper-icon"
+              <div
+                class="stepper-step-infos theme-stepper-step-infos"
               >
-                -
-              </span>
-              Column Quality
-               (Pending)
-            </div>
-          </li>
-        </ol>
+                <svg
+                  aria-hidden="true"
+                  class="tc-svg-icon tc-icon theme-svg stepper-icon-success theme-stepper-icon-success stepper-icon theme-stepper-icon tc-icon-name-talend-check"
+                  focusable="false"
+                  name="talend-check"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                />
+                Fetch Sample
+              </div>
+            </li>
+            <li
+              aria-current="true"
+              class="stepper-step theme-stepper-step stepper-step-loading theme-stepper-step-loading"
+            >
+              <div
+                class="stepper-step-infos theme-stepper-step-infos"
+              >
+                <svg
+                  aria-busy="true"
+                  aria-label="Loading... "
+                  class="tc-circular-progress stepper-icon-loading theme-stepper-icon-loading stepper-icon theme-stepper-icon theme-loader theme-animate theme-default"
+                  focusable="false"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="theme-path"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    style="stroke-dasharray: 12.566370614359172; stroke-dashoffset: 0;"
+                  />
+                </svg>
+                Global Quality
+              </div>
+            </li>
+            <li
+              aria-current="true"
+              class="stepper-step theme-stepper-step stepper-step-loading theme-stepper-step-loading"
+            >
+              <div
+                class="stepper-step-infos theme-stepper-step-infos"
+              >
+                <svg
+                  aria-busy="true"
+                  aria-label="Loading... "
+                  class="tc-circular-progress stepper-icon-loading theme-stepper-icon-loading stepper-icon theme-stepper-icon theme-loader theme-animate theme-default"
+                  focusable="false"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="theme-path"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    style="stroke-dasharray: 12.566370614359172; stroke-dashoffset: 0;"
+                  />
+                </svg>
+                Flattening
+              </div>
+            </li>
+            <li
+              class="stepper-step theme-stepper-step stepper-step-pending theme-stepper-step-pending"
+            >
+              <div
+                class="stepper-step-infos theme-stepper-step-infos"
+              >
+                <span
+                  class="stepper-icon-pending theme-stepper-icon-pending stepper-icon theme-stepper-icon"
+                >
+                  -
+                </span>
+                Column Quality
+                 (Pending)
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
-  </StepperTransition>
-</React.Fragment>
+  </div>
+</body>
 `;
