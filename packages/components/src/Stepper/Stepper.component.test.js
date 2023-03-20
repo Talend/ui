@@ -19,7 +19,7 @@ describe('Stepper Component', () => {
 				<Stepper steps={steps} title={title} renderActions={renderActions} />,
 			);
 			// then
-			expect(renderActions).toHaveBeenCalledWith(false);
+			expect(renderActions).not.toHaveBeenCalledWith();
 			expect(baseElement).toMatchSnapshot();
 		});
 
