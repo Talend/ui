@@ -151,7 +151,7 @@ const transitionEmptyToLoading = transition(TRANSITION_STATE.STEPS, DEFAULT_TRAN
 
 function Stepper({ steps, title, renderActions, children }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const isInError = isErrorInSteps(steps);
+	const errorStep = getStepInError(steps);
 	const [transitionState, setTransitionState] = useState(
 		isStepsLoading(steps) || !children ? TRANSITION_STATE.STEPS : TRANSITION_STATE.CHILD,
 	);
@@ -172,12 +172,13 @@ function Stepper({ steps, title, renderActions, children }) {
 		}
 	}, [steps]);
 
-	if (isInError) {
-		const errorStep = getStepInError(steps);
+	if (!!errorStep) {
 		return (
 			<StackVertical gap={0} align="center" justify="center">
 				<ErrorState title={errorStep.label} description={errorStep.message?.label} />
-				{renderActions && renderActions(isInError) ? <div>{renderActions(isInError)}</div> : null}
+				{renderActions && renderActions(!!errorStep) ? (
+					<div>{renderActions(!!errorStep)}</div>
+				) : null}
 			</StackVertical>
 		);
 	}
