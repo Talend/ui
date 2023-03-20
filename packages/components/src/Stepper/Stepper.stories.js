@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import Action from '../Actions/Action';
 import Stepper from './Stepper.component';
+import {
+	ButtonPrimary,
+	ButtonSecondary,
+	Link,
+	StackHorizontal,
+	StackVertical,
+} from '@talend/design-system';
 
 export default {
 	title: 'Messaging & Communication/Stepper',
@@ -13,11 +20,13 @@ function renderActions(isInError) {
 		return null;
 	}
 	return (
-		<React.Fragment>
-			<Action label="retry" bsStyle="info" className="btn-inverse button-padding" />
-			<Action label="edit dataset" bsStyle="info" className="button-padding" />
-			<Action label="edit connection" bsStyle="info" className="button-padding" />
-		</React.Fragment>
+		<StackVertical gap="S" padding="M" align="center">
+			<StackHorizontal gap="M">
+				<ButtonPrimary onClick={action('retry')}>Retry</ButtonPrimary>
+				<ButtonSecondary onClick={action('cancel')}>Cancel</ButtonSecondary>
+			</StackHorizontal>
+			<Link href="http://www.google.com">Get the documentation</Link>
+		</StackVertical>
 	);
 }
 

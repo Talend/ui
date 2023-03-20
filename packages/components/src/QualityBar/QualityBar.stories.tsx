@@ -6,7 +6,8 @@ export default {
 	title: 'Data/Dataviz/QualityBar',
 };
 
-export const _QualityBar = () => (
+export const Default = () => (
+	// @ts-ignore
 	<section style={{ 'max-width': 500, padding: 20 }}>
 		<header>Quality Bar</header>
 
@@ -41,6 +42,9 @@ export const _QualityBar = () => (
 			<div>With a placeholder</div>
 			<QualityBar invalid={30} valid={0} empty={0} placeholder={70} />
 
+			<div>Disabled</div>
+			<QualityBar invalid={30} valid={0} empty={0} placeholder={70} disabled />
+
 			<div>Classic look with action button</div>
 			<QualityBar
 				invalid={2}
@@ -49,7 +53,16 @@ export const _QualityBar = () => (
 				onClick={action('onClickAction')}
 				getDataFeature={qualityType => `data-feature.${qualityType}`}
 			/>
+		</div>
+	</section>
+);
 
+export const SplitBars = () => (
+	// @ts-ignore
+	<section style={{ 'max-width': 500, padding: 20 }}>
+		<header>Quality Bar</header>
+
+		<div>
 			<div>Split quality bar</div>
 			<QualityBar
 				invalid={10}
@@ -76,6 +89,18 @@ export const _QualityBar = () => (
 				split
 			/>
 			<QualityBar
+				invalid={40}
+				valid={30}
+				empty={15}
+				na={15}
+				onClick={action('onSplitQualityBarAction')}
+				getDataFeature={qualityType => `data-feature.${qualityType}`}
+				split
+			/>
+
+			<div>Disabled</div>
+			<QualityBar
+				disabled
 				invalid={40}
 				valid={30}
 				empty={15}

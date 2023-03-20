@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 10.2.0
+
+### Minor Changes
+
+- 3604ba4f6: feat(components): add disabled mode for the quality bar
+- 691e07a11: feat(components): use ErrorState in the Stepper
+- 3604ba4f6: feat(components): change the color for the non applicables elements in the quality bar
+
 ## 10.1.1
 
 ### Patch Changes
