@@ -10,6 +10,8 @@ import {
 } from './QualityBar.types';
 import { QualityBarRatioBars } from './QualityBarRatioBars.component';
 
+import theme from './QualityRatioBar.module.scss';
+
 type SplitQualityBarProps = QualityCommonProps & {
 	percentages: QualityBarPercentages;
 	disabled?: boolean;
@@ -31,10 +33,6 @@ export function SplitQualityBar({
 	const usedValues = { empty, invalid, na, valid };
 	const fwd = { getDataFeature, onClick };
 
-	if (disabled) {
-		return null;
-	}
-
 	return (
 		<StackHorizontal gap="M">
 			{[QualityType.INVALID, QualityType.EMPTY, QualityType.NA, QualityType.VALID].map(type => {
@@ -43,10 +41,13 @@ export function SplitQualityBar({
 
 				return currentTypeValue !== undefined ? (
 					<StackHorizontal gap="XXS" key={type}>
-						<span>{currentTypePercentage}%</span>
+						<div className={theme['split-ratio-bar-percentage']}>
+							{disabled ? '- ' : currentTypePercentage}%
+						</div>
 						<QualityBarRatioBars
 							{...fwd}
 							{...{ [type]: currentTypeValue }} // Spread needed for the dynamic "type" key
+							disabled={disabled}
 							placeholder={totalValues - currentTypeValue}
 							percentages={{ ...percentages, placeholder: 100 - currentTypePercentage }}
 						/>

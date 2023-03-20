@@ -98,7 +98,7 @@ export const SplitBars = () => (
 				split
 			/>
 
-			<div>Disabled (hidden)</div>
+			<div>Disabled</div>
 			<QualityBar
 				disabled
 				invalid={40}
