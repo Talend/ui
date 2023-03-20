@@ -189,18 +189,11 @@ function Stepper({ steps, title, renderActions, children }) {
 			</StepperTransition>
 			<StepperTransition active={transitionState === TRANSITION_STATE.STEPS}>
 				<div className={getClass('stepper')}>
-					<div
-						className={getClass('loading-content-steps', {
-							'stepper-content-error': isInError,
-						})}
-					>
+					<div className={getClass('loading-content-steps')}>
 						{title && <h2>{title}</h2>}
 						<ol className={getClass('stepper-steps')}>
 							{steps.map((step, index, array) => showStep(t, step, index, array))}
 						</ol>
-						{renderActions && renderActions(isInError) ? (
-							<div>{renderActions(isInError)}</div>
-						) : null}
 					</div>
 				</div>
 			</StepperTransition>

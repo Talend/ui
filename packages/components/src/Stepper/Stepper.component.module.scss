@@ -8,10 +8,6 @@ $stepper-icon-size: $svg-md-size !default;
 	justify-content: center;
 	padding-left: $padding-small;
 
-	&-content-error {
-		width: 75rem;
-	}
-
 	&-step {
 		padding: $padding-small 0;
 
