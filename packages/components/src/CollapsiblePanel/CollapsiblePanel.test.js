@@ -94,7 +94,7 @@ describe('CollapsiblePanel', () => {
 		render(panelInstance);
 
 		// then
-		expect(screen.getByText('custom title')).toBeInTheDocument();
+		expect(screen.getByText('custom title')).toBeVisible();
 	});
 
 	it('should render custom element in panel header', async () => {
@@ -118,6 +118,6 @@ describe('CollapsiblePanel', () => {
 		render(panelInstance);
 
 		// then
-		expect(screen.getByText('Custom label')).toBeInTheDocument();
+		expect(screen.getByText('Custom label')).toBeVisible();
 	});
 });

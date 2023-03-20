@@ -30,7 +30,7 @@ describe('ConfirmDialog', () => {
 		// when
 		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 		// then
-		expect(screen.getByText('Hello world')).toBeInTheDocument();
+		expect(screen.getByText('Hello world')).toBeVisible();
 	});
 
 	it('should render without header', () => {
@@ -63,7 +63,7 @@ describe('ConfirmDialog', () => {
 		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(screen.getByText('Hello world')).toBeInTheDocument();
+		expect(screen.getByText('Hello world')).toBeVisible();
 		expect(document.querySelector('.modal-dialog')).toHaveClass('modal-sm');
 	});
 
@@ -80,7 +80,7 @@ describe('ConfirmDialog', () => {
 		// when
 		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 		// then
-		expect(screen.getByText('Hello world')).toBeInTheDocument();
+		expect(screen.getByText('Hello world')).toBeVisible();
 		expect(document.querySelector('.modal-dialog')).toHaveClass('modal-lg');
 	});
 
@@ -100,8 +100,8 @@ describe('ConfirmDialog', () => {
 		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(screen.getByText('Hello world')).toBeInTheDocument();
-		expect(screen.getByLabelText('This is loading')).toBeInTheDocument();
+		expect(screen.getByText('Hello world')).toBeVisible();
+		expect(screen.getByLabelText('This is loading')).toBeVisible();
 		expect(screen.getByLabelText('This is loading')).toHaveAttribute('aria-valuenow', '25');
 	});
 
@@ -125,8 +125,8 @@ describe('ConfirmDialog', () => {
 		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(screen.getByText('Hello world')).toBeInTheDocument();
-		expect(screen.getByText('Keep on Github')).toBeInTheDocument();
+		expect(screen.getByText('Hello world')).toBeVisible();
+		expect(screen.getByText('Keep on Github')).toBeVisible();
 		userEvent.click(screen.getByText('Keep on Github'));
 		expect(properties.secondaryActions[0].onClick).toHaveBeenCalled();
 	});

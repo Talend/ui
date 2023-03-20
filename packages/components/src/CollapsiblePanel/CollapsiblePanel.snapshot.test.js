@@ -140,7 +140,7 @@ describe('CollapsiblePanel', () => {
 
 		// then
 		const content = screen.getByText(propsDescriptivePanel.content.description);
-		expect(content).toBeInTheDocument();
+		expect(content).toBeVisible();
 		expect(content).toHaveClass('content-description');
 	});
 
@@ -154,7 +154,7 @@ describe('CollapsiblePanel', () => {
 		render(<CollapsiblePanel {...propsPanelWithCustomElement} />);
 
 		// then
-		expect(screen.getByText('Custom element')).toBeInTheDocument();
+		expect(screen.getByText('Custom element')).toBeVisible();
 		expect(screen.getByText('Custom element')).toHaveClass('custom-element');
 		expect(screen.queryByText('Custom')).not.toBeInTheDocument();
 	});
