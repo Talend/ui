@@ -1,5 +1,11 @@
 # @talend/react-components
 
+## 10.2.1
+
+### Patch Changes
+
+- 6d2d52b79: fix(stepper): bring back a css selector and setup a width
+
 ## 10.2.0
 
 ### Minor Changes
