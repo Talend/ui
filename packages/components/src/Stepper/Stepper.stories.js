@@ -56,7 +56,10 @@ export const StepperWithError = () => {
 		{
 			label: 'Global Quality',
 			status: Stepper.LOADING_STEP_STATUSES.FAILURE,
-			message: { label: "We couldn't connect to the remote engine" },
+			message: {
+				label:
+					"We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine",
+			},
 		},
 		{ label: 'Flattening', status: Stepper.LOADING_STEP_STATUSES.ABORTED },
 		{

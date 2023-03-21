@@ -174,12 +174,14 @@ function Stepper({ steps, title, renderActions, children }) {
 
 	if (!!errorStep) {
 		return (
-			<StackVertical gap={0} align="center" justify="center">
-				<ErrorState title={errorStep.label} description={errorStep.message?.label} />
-				{renderActions && renderActions(!!errorStep) ? (
-					<div>{renderActions(!!errorStep)}</div>
-				) : null}
-			</StackVertical>
+			<div className={getClass('loading-content-steps', 'error')}>
+				<StackVertical gap={0} align="center" justify="center">
+					<ErrorState title={errorStep.label} description={errorStep.message?.label} />
+					{renderActions && renderActions(!!errorStep) ? (
+						<div>{renderActions(!!errorStep)}</div>
+					) : null}
+				</StackVertical>
+			</div>
 		);
 	}
 
