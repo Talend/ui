@@ -1,58 +1,22 @@
-const path = require('path');
-const webpack = require('webpack');
+/// <reference types="cypress" />
+// ***********************************************************
+// This example plugins/index.js can be used to load plugins
+//
+// You can change the location of this file or turn off loading
+// the plugins file with the 'pluginsFile' configuration option.
+//
+// You can read more here:
+// https://on.cypress.io/plugins-guide
+// ***********************************************************
 
+// This function is called when a project is opened or re-opened (e.g. due to
+// the project's config changing)
+
+/**
+ * @type {Cypress.PluginConfig}
+ */
+// eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
-	if (config.testingType === 'component') {
-		// eslint-disable-next-line global-require
-		const { startDevServer } = require('@cypress/webpack-dev-server');
-
-		const webpackConfig = {
-			entry: './src/index.js',
-			module: {
-				rules: [
-					{
-						test: /\.s[ac]ss$/i,
-						use: ['style-loader', 'css-loader', 'sass-loader'],
-					},
-					{
-						test: /\.css$/i,
-						use: ['style-loader', 'css-loader'],
-					},
-					{
-						test: /\.js|\.jsx|\.ts|\.tsx$/,
-						use: {
-							loader: 'babel-loader',
-						},
-						exclude: /node_modules/,
-					},
-					{
-						test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
-						loader: 'url-loader',
-						options: {
-							mimetype: 'application/font-woff',
-						},
-					},
-				],
-			},
-			resolve: {
-				extensions: ['.tsx', '.ts', '.js', '.jsx'],
-				alias: {
-					'~docs': path.resolve(__dirname, '../../.storybook/docs'),
-				},
-			},
-			output: {
-				filename: 'bundle.js',
-				path: path.resolve(__dirname, 'dist'),
-			},
-			plugins: [
-				new webpack.ProvidePlugin({
-					process: 'process/browser',
-				}),
-			],
-		};
-
-		on('dev-server:start', options => startDevServer({ options, webpackConfig }));
-	}
-
-	return config;
+	// `on` is used to hook into various events Cypress emits
+	// `config` is the resolved Cypress config
 };
