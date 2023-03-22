@@ -30,7 +30,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.9",
-    "redux-saga": "^1.2.2"
+    "redux-saga": "^1.2.3"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
@@ -40,6 +40,6 @@
     "react": ">= 16.14.0 < 18.0.0",
     "react-dom": ">= 16.14.0 < 18.0.0",
     "react-redux": "^7.2.9",
-    "redux-saga": "^1.2.2"
+    "redux-saga": "^1.2.3"
   }
 }

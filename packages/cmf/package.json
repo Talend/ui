@@ -46,7 +46,7 @@
     "redux": "^4.2.1",
     "redux-batched-actions": "^0.5.0",
     "redux-batched-subscribe": "^0.1.6",
-    "redux-saga": "^1.2.2",
+    "redux-saga": "^1.2.3",
     "redux-storage": "^4.1.2",
     "redux-storage-decorator-filter": "^1.1.8",
     "redux-storage-decorator-immutablejs": "^1.0.4",

@@ -26,7 +26,7 @@
     "react-redux": "^7.2.9",
     "react-router": "~6.3.0",
     "react-router-dom": "~6.3.0",
-    "redux-saga": "^1.2.2"
+    "redux-saga": "^1.2.3"
   },
   "peerDependencies": {
     "react": ">= 16.14.0 < 18.0.0",

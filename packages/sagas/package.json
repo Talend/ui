@@ -33,7 +33,7 @@
   "dependencies": {
     "@talend/react-cmf": "^7.1.4",
     "immutable": "^3.8.2",
-    "redux-saga": "^1.2.2"
+    "redux-saga": "^1.2.3"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
