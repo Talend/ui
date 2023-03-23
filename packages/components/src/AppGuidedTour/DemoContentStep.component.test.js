@@ -13,7 +13,7 @@ describe('DemOContentStep', () => {
 				]}
 			/>,
 		);
-		expect(screen.getByText('Importing dataset')).toBeInTheDocument();
+		expect(screen.getByText('Importing dataset')).toBeVisible();
 	});
 
 	it('should show nothing when no step', () => {
