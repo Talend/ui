@@ -116,6 +116,7 @@ exports[`Stepper Component render should render when there is no errors in the s
                   aria-busy="true"
                   aria-label="Loading... "
                   class="tc-circular-progress stepper-icon-loading theme-stepper-icon-loading stepper-icon theme-stepper-icon theme-loader theme-animate theme-default"
+                  data-test="circular-progress"
                   focusable="false"
                   viewBox="0 0 50 50"
                 >
@@ -142,6 +143,7 @@ exports[`Stepper Component render should render when there is no errors in the s
                   aria-busy="true"
                   aria-label="Loading... "
                   class="tc-circular-progress stepper-icon-loading theme-stepper-icon-loading stepper-icon theme-stepper-icon theme-loader theme-animate theme-default"
+                  data-test="circular-progress"
                   focusable="false"
                   viewBox="0 0 50 50"
                 >
