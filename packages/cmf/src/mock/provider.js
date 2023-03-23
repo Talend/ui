@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { RegistryProvider } from '../RegistryProvider';
+import bootstrap from '../bootstrap';
 import mock from './store';
 
 class ErrorBoundary extends React.Component {
