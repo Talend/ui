@@ -1,43 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import renderer from 'react-test-renderer';
-import classNames from 'classnames';
-import { mount } from 'enzyme';
-
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ConfirmDialog from './ConfirmDialog.component';
-
-function mockFakeComponent(name, Component) {
-	const fakeComponent = ({ children, className, ...rest }) => {
-		const mergedClassName = classNames(className, name, 'mocked-component');
-		return React.createElement(
-			Component || 'div',
-			{ ...rest, className: mergedClassName },
-			children,
-		);
-	};
-	fakeComponent.propTypes = {
-		children: PropTypes.oneOfType([PropTypes.any]),
-		className: PropTypes.string,
-	};
-	return fakeComponent;
-}
-
-jest.mock('@talend/react-bootstrap', () => {
-	const Modal = mockFakeComponent('Modal');
-	Modal.Header = mockFakeComponent('Header');
-	Modal.Title = mockFakeComponent('Title');
-	Modal.Body = mockFakeComponent('Body');
-	Modal.Footer = mockFakeComponent('Footer');
-	const ProgressBar = mockFakeComponent('ProgressBar');
-	const Overlay = mockFakeComponent('Overlay');
-	const MenuItem = mockFakeComponent('MenuItem');
-	const ButtonGroup = mockFakeComponent('ButtonGroup');
-	const Button = mockFakeComponent('Button', 'button');
-	const utils = {
-		createChainedFunction: jest.fn(),
-	};
-	return { Modal, ProgressBar, Overlay, utils, Button, ButtonGroup, MenuItem };
-});
 
 const children = <div>BODY</div>;
 
@@ -64,12 +28,9 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
-
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeVisible();
 	});
 
 	it('should render without header', () => {
@@ -81,12 +42,11 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.queryByText('Hello world')).not.toBeInTheDocument();
+		expect(document.querySelector('.modal-header')).toBeNull();
 	});
 
 	it('should render with a small container', () => {
@@ -100,12 +60,11 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeVisible();
+		expect(document.querySelector('.modal-dialog')).toHaveClass('modal-sm');
 	});
 
 	it('should render with a large container', () => {
@@ -119,12 +78,10 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
-
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeVisible();
+		expect(document.querySelector('.modal-dialog')).toHaveClass('modal-lg');
 	});
 
 	it('should render with a progress bar', () => {
@@ -140,33 +97,12 @@ describe('ConfirmDialog', () => {
 		};
 
 		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
-	});
-
-	it('should render the body with overflow hidden if bodyOverflow is set to false', () => {
-		// given
-		const properties = {
-			header: 'Hello world',
-			show: true,
-			validateAction,
-			cancelAction,
-			bodyOverflow: false,
-		};
-		const noOp = () => {};
-		// when
-		const wrapper = mount(
-			<ConfirmDialog onHide={noOp} animation={false} {...properties}>
-				<p>Content</p>
-			</ConfirmDialog>,
-		);
-
-		// then
-		expect(wrapper.find('ConfirmDialog').getElement().props.bodyOverflow).toBe(false);
+		expect(screen.getByText('Hello world')).toBeVisible();
+		expect(screen.getByLabelText('This is loading')).toBeVisible();
+		expect(screen.getByLabelText('This is loading')).toHaveAttribute('aria-valuenow', '25');
 	});
 
 	it('should render with additional actions', () => {
@@ -185,12 +121,13 @@ describe('ConfirmDialog', () => {
 			],
 		};
 
-		// when
-		const wrapper = renderer
-			.create(<ConfirmDialog {...properties}>{children}</ConfirmDialog>)
-			.toJSON();
+		// when.
+		render(<ConfirmDialog {...properties}>{children}</ConfirmDialog>);
 
 		// then
-		expect(wrapper).toMatchSnapshot();
+		expect(screen.getByText('Hello world')).toBeVisible();
+		expect(screen.getByText('Keep on Github')).toBeVisible();
+		userEvent.click(screen.getByText('Keep on Github'));
+		expect(properties.secondaryActions[0].onClick).toHaveBeenCalled();
 	});
 });
