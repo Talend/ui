@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import BadgeDelete from './BadgeDelete.component';
 import getDefaultT from '../../../translate';
 
@@ -13,9 +14,9 @@ describe('BadgeDelete', () => {
 			t: getDefaultT(),
 		};
 		// when
-		const wrapper = mount(<BadgeDelete {...props} />);
+		render(<BadgeDelete {...props} />);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByLabelText('Delete')).toBeInTheDocument();
 	});
 	it('should trigger on click function', () => {
 		// given
@@ -26,9 +27,9 @@ describe('BadgeDelete', () => {
 			t: getDefaultT(),
 		};
 		// when
-		const wrapper = mount(<BadgeDelete {...props} />);
+		render(<BadgeDelete {...props} />);
 		// then
-		wrapper.find('button').simulate('click');
+		userEvent.click(screen.getByLabelText('Delete'));
 		expect(onClick).toHaveBeenCalledTimes(1);
 	});
 	it('should pass the props label to the button', () => {
@@ -41,9 +42,9 @@ describe('BadgeDelete', () => {
 			t: getDefaultT(),
 		};
 		// when
-		const wrapper = mount(<BadgeDelete {...props} />);
+		render(<BadgeDelete {...props} />);
 		// then
-		expect(wrapper.find('button').prop('aria-label')).toBe('My custom label');
+		expect(screen.getByLabelText('My custom label')).toBeInTheDocument();
 	});
 	it('should pass the props dataFeature to the button', () => {
 		// given
@@ -55,8 +56,9 @@ describe('BadgeDelete', () => {
 			t: getDefaultT(),
 		};
 		// when
-		const wrapper = mount(<BadgeDelete {...props} />);
+		render(<BadgeDelete {...props} />);
 		// then
-		expect(wrapper.find('button').prop('data-feature')).toBe('feature-delete');
+		expect(screen.getByLabelText('Delete')).toBeInTheDocument();
+		expect(screen.getByLabelText('Delete')).toHaveAttribute('data-feature', 'feature-delete');
 	});
 });
