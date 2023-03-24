@@ -4,6 +4,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import Stepper from '../Stepper';
 import DemoContentStep from './DemoContentStep.component';
 
+jest.unmock('@talend/design-system');
+
 describe('DemOContentStep', () => {
 	it('should show the demo content step', async () => {
 		render(
