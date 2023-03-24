@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 import Stepper from '../Stepper';
 import DemoContentStep from './DemoContentStep.component';
 
 describe('DemOContentStep', () => {
-	it('should show the demo content step', () => {
+	it('should show the demo content step', async () => {
 		render(
 			<DemoContentStep
 				demoContentSteps={[
@@ -13,7 +13,9 @@ describe('DemOContentStep', () => {
 				]}
 			/>,
 		);
-		expect(screen.getByText('Importing dataset')).toBeVisible();
+		await waitFor(() => {
+			expect(screen.getByText('Importing dataset')).toBeVisible();
+		});
 	});
 
 	it('should show nothing when no step', () => {
