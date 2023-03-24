@@ -1,5 +1,4 @@
 import React from 'react';
-import { render as rtl } from '@testing-library/react';
 import bootstrap from '../bootstrap';
 import registry from '../registry';
 
