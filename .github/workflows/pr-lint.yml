@@ -4,7 +4,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
   deployments: read
   pull-requests: write # needed to annotate code
   statuses: write
