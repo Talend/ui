@@ -36,13 +36,20 @@ module.exports = {
 	},
 	webpackFinal: async config => {
 		config.plugins.push(
-			new BrowserSyncPlugin({
-				host: 'localhost',
-				port: 3002,
-				proxy: 'http://localhost:6006/',
-				notify: false,
-				codeSync: false,
-			}),
+			new BrowserSyncPlugin(
+				{
+					host: 'localhost',
+					port: 3002,
+					proxy: 'http://localhost:6006/',
+					notify: false,
+					codeSync: false,
+				},
+				{
+					// prevent BrowserSync from reloading the page
+					// and let Webpack Dev Server take care of this
+					reload: false,
+				},
+			),
 		);
 
 		const existingAlias = config.resolve.alias || {};
