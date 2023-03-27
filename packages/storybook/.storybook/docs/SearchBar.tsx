@@ -4,7 +4,7 @@ import { getAlgoliaResults } from '@algolia/autocomplete-js';
 
 import { Autocomplete } from './AlgoliaAutocomplete';
 
-import theme from './SearchBar.scss';
+import theme from './SearchBar.module.scss';
 
 const searchClient = algoliasearch(
 	process.env.STORYBOOK_ALGOLIA_SEARCH_APP_ID || '',
