@@ -8,6 +8,7 @@ permissions:
   deployments: read
   pull-requests: write # needed to annotate code
   statuses: write
+  checks: write
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
