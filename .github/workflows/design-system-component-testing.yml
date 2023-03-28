@@ -50,6 +50,7 @@ jobs:
       - name: Cypress Component Testing
         uses: cypress-io/github-action@c662a784116e1a26360c4e1fc0a90feedb4b5ed3 #v3.1.0
         with:
+          install: false
           browser: ${{ matrix.browser }}
           command: yarn workspace @talend/design-system run test:cy
 
@@ -62,7 +63,7 @@ jobs:
 
       - name: Cypress videos upload
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce #v3.1.2
-        if: always()
+        if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos
           path: packages/design-system/cypress/videos/**/*
