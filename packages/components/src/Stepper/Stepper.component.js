@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { Stepper as CoralStepper } from '@talend/design-system';
+import { ErrorState, StackVertical, Stepper as CoralStepper } from '@talend/design-system';
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import { getTheme } from '../theme';
@@ -32,6 +32,8 @@ const LOADING_STEP_STATUSES = {
  * @param {array} steps array of steps
  */
 const isErrorInSteps = steps => steps.some(step => step.status === LOADING_STEP_STATUSES.FAILURE);
+
+const getStepInError = steps => steps.find(step => step.status === LOADING_STEP_STATUSES.FAILURE);
 
 /**
  * This function tells if all the steps are successful
@@ -149,7 +151,7 @@ const transitionEmptyToLoading = transition(TRANSITION_STATE.STEPS, DEFAULT_TRAN
 
 function Stepper({ steps, title, renderActions, children }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const isInError = isErrorInSteps(steps);
+	const errorStep = getStepInError(steps);
 	const [transitionState, setTransitionState] = useState(
 		isStepsLoading(steps) || !children ? TRANSITION_STATE.STEPS : TRANSITION_STATE.CHILD,
 	);
@@ -170,6 +172,19 @@ function Stepper({ steps, title, renderActions, children }) {
 		}
 	}, [steps]);
 
+	if (!!errorStep) {
+		return (
+			<div className={getClass('loading-content-steps', 'error')}>
+				<StackVertical gap={0} align="center" justify="center">
+					<ErrorState title={errorStep.label} description={errorStep.message?.label} />
+					{renderActions && renderActions(!!errorStep) ? (
+						<div>{renderActions(!!errorStep)}</div>
+					) : null}
+				</StackVertical>
+			</div>
+		);
+	}
+
 	return (
 		<React.Fragment>
 			<StepperTransition active={transitionState === TRANSITION_STATE.CHILD}>
@@ -177,18 +192,11 @@ function Stepper({ steps, title, renderActions, children }) {
 			</StepperTransition>
 			<StepperTransition active={transitionState === TRANSITION_STATE.STEPS}>
 				<div className={getClass('stepper')}>
-					<div
-						className={getClass('loading-content-steps', {
-							'stepper-content-error': isInError,
-						})}
-					>
+					<div className={getClass('loading-content-steps')}>
 						{title && <h2>{title}</h2>}
 						<ol className={getClass('stepper-steps')}>
 							{steps.map((step, index, array) => showStep(t, step, index, array))}
 						</ol>
-						{renderActions && renderActions(isInError) ? (
-							<div>{renderActions(isInError)}</div>
-						) : null}
 					</div>
 				</div>
 			</StepperTransition>

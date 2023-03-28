@@ -8,7 +8,7 @@ import { Rich } from '@talend/react-components';
 import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
 import cssModule from './BadgeCheckboxes.module.scss';
-import { getApplyDataFeature } from '../../../helpers/usage.helpers';
+import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);
 
@@ -69,6 +69,7 @@ const BadgeCheckboxesForm = ({
 	filterBarPlaceholder,
 	allSelector,
 	t,
+	...rest
 }) => {
 	const [filter, setFilter] = useState('');
 
@@ -157,6 +158,7 @@ const BadgeCheckboxesForm = ({
 						type="submit"
 						label={t('APPLY', { defaultValue: 'Apply' })}
 						bsStyle="info"
+						{...getDataAttributesFrom(rest)}
 					/>
 				</Rich.Layout.Footer>
 			</form>

@@ -23,7 +23,7 @@ export default function Checkbox({ id, className, label, intermediate, ...props 
 			className={classNames(
 				'checkbox tc-checkbox',
 				{
-					'tc-checkbox-disabled': props.disabled,
+					disabled: props.disabled,
 				},
 				className,
 			)}

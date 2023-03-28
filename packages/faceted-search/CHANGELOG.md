@@ -1,5 +1,24 @@
 # Changelog
 
+## 9.1.0
+
+### Minor Changes
+
+- b7f25227c: TDOPS-421 - Allow data attributes to be passed to faceted search components
+
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
+## 8.1.1
+
+### Patch Changes
+
+- 12d329322: TDOPS-421 - Fix faceted search submit at launch and badge sync on value and operator
+
 ## 8.1.0
 
 ### Minor Changes

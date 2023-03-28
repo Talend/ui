@@ -100,9 +100,8 @@ exports[`Component HomeListView should render with object props 1`] = `
     ]
   }
   header={
-    <withI18nextTranslation(HeaderBar)
+    <HeaderBar
       app="hello app"
-      t={[Function]}
     />
   }
   mode="TwoColumns"

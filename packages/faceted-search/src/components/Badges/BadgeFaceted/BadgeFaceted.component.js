@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import { getTheme } from '@talend/react-components/lib/theme';
@@ -14,6 +14,7 @@ import { BADGES_ACTIONS } from '../../../hooks/facetedBadges.hook';
 
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 import { USAGE_TRACKING_TAGS } from '../../../constants';
+import { isEqual } from 'lodash';
 
 const theme = getTheme(cssModule);
 
@@ -46,6 +47,15 @@ const BadgeFaceted = ({
 	const { dispatch } = useBadgeFacetedContext();
 	const [badgeOperator, setBadgeOperator] = useState(operator);
 	const [badgeValue, setBadgeValue] = useState(value);
+
+	useEffect(() => {
+		if (!isEqual(value, badgeValue)) {
+			setBadgeValue(value);
+		}
+		if (!isEqual(operator, badgeOperator)) {
+			setBadgeOperator(operator);
+		}
+	}, [value, operator]);
 
 	const onChangeOperator = (_, operatorName) => {
 		const foundOperator = operators.find(findOperatorByName(operatorName));

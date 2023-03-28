@@ -68,7 +68,9 @@ class NestedListViewWidget extends React.Component {
 		if (!isEqual(prevProps.value, this.props.value) && !isEqual(this.value, this.props.value)) {
 			this.value = this.props.value;
 			// eslint-disable-next-line react/no-did-update-set-state
-			this.setState({ displayedItems: getDisplayedItems(this.items, this.value) });
+			this.setState({
+				displayedItems: getDisplayedItems(this.items, this.value, this.state.searchCriteria),
+			});
 		}
 	}
 

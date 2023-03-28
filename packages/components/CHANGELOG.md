@@ -1,5 +1,55 @@
 # @talend/react-components
 
+## 10.2.1
+
+### Patch Changes
+
+- 6d2d52b79: fix(stepper): bring back a css selector and setup a width
+
+## 10.2.0
+
+### Minor Changes
+
+- 3604ba4f6: feat(components): add disabled mode for the quality bar
+- 691e07a11: feat(components): use ErrorState in the Stepper
+- 3604ba4f6: feat(components): change the color for the non applicables elements in the quality bar
+
+## 10.1.1
+
+### Patch Changes
+
+- 20f8526e9: test: rewrite using RTL
+
+## 10.1.0
+
+### Minor Changes
+
+- 44b408dc4: feat(components): List - disable item selection & disable "select all"
+
+## 10.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+## 9.6.0
+
+### Minor Changes
+
+- d2f5bd835: feat(TDP-11751): adding the possibility to set a specific height to the table and disable autosizer
+
+### Patch Changes
+
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+  - @talend/icons@6.54.0
+
 ## 9.5.0
 
 ### Minor Changes

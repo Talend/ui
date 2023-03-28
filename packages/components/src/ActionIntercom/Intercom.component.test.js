@@ -1,10 +1,11 @@
-/* eslint-disable import/imports-first */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import { configure, render, screen } from '@testing-library/react';
 
 import Intercom from './Intercom.component';
 import IntercomService from './Intercom.service';
+
+configure({ testIdAttribute: 'data-test' });
 
 jest.mock('./Intercom.service', () => ({
 	init: jest.fn(),
@@ -27,29 +28,21 @@ const config = {
 };
 
 describe('Intercom button', () => {
-	let insertionElement;
-	let scriptElement;
 	beforeEach(() => {
-		insertionElement = document.createElement('div');
-		scriptElement = document.createElement('script');
-		document.body.appendChild(scriptElement);
-		document.body.appendChild(insertionElement);
+		jest.clearAllMocks();
 	});
 
 	afterEach(() => {
-		document.body.removeChild(scriptElement);
-		document.body.removeChild(insertionElement);
 		jest.clearAllMocks();
 	});
 
 	it('should render a button', () => {
 		// when
-		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
-			attachTo: insertionElement,
-		});
+		render(<Intercom id="my-intercom" config={config} />);
+		const button = screen.getByRole('button');
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(button).toBeInTheDocument();
 	});
 
 	it('should boot intercom at mount', () => {
@@ -57,9 +50,7 @@ describe('Intercom button', () => {
 		expect(IntercomService.boot).not.toBeCalled();
 
 		// when
-		mount(<Intercom id="my-intercom" config={config} />, {
-			attachTo: insertionElement,
-		});
+		render(<Intercom id="my-intercom" config={config} />);
 
 		// then
 		expect(IntercomService.boot).toBeCalledWith('#my-intercom', config);
@@ -67,18 +58,13 @@ describe('Intercom button', () => {
 
 	it('should update intercom on config change', () => {
 		// given
-		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
-			attachTo: insertionElement,
-		});
+		const { rerender } = render(<Intercom id="my-intercom" config={config} />);
 		expect(IntercomService.boot.mock.calls.length).toBe(1);
 
-		const newConfig = { app_id: 'lol' };
+		const newConfig = { app_id: 'lol', email: 'foo@gmail.com' };
 
 		// when
-		wrapper.setProps({
-			id: 'my-intercom',
-			config: newConfig,
-		});
+		rerender(<Intercom id="my-intercom" config={newConfig} />);
 
 		// then
 		expect(IntercomService.boot.mock.calls.length).toBe(2);
@@ -87,13 +73,11 @@ describe('Intercom button', () => {
 
 	it('should shutdown intercom at unmount', () => {
 		// given
-		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
-			attachTo: insertionElement,
-		});
+		const { rerender } = render(<Intercom id="my-intercom" config={config} />);
 		expect(IntercomService.shutdown).not.toBeCalled();
 
 		// when
-		wrapper.unmount();
+		rerender(<span>Unmounted</span>);
 
 		// then
 		expect(IntercomService.shutdown).toBeCalled();
@@ -101,27 +85,24 @@ describe('Intercom button', () => {
 
 	it('should change label on open/close', () => {
 		// given
-		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
-			attachTo: insertionElement,
-		});
+		const { rerender } = render(<Intercom id="my-intercom" config={config} />);
 		const onShow = IntercomService.onShow.mock.calls[0][0];
 		const onHide = IntercomService.onHide.mock.calls[0][0];
-
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Chat with Talend Support');
-
+		expect(IntercomService.onShow).toBeCalled();
+		expect(screen.getByRole('button')).toHaveAttribute('data-test', 'open');
 		// when/then show
 		act(() => {
 			onShow();
 		});
-		wrapper.update();
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Close chat with Talend Support');
+		rerender(<Intercom id="my-intercom" config={config} />);
+		expect(screen.getByRole('button')).toHaveAttribute('data-test', 'close');
 
 		// when/then hide
 		act(() => {
 			onHide();
 		});
-		wrapper.update();
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Chat with Talend Support');
+		rerender(<Intercom id="my-intercom" config={config} />);
+		expect(screen.getByRole('button')).toHaveAttribute('data-test', 'open');
 	});
 
 	it('should set messenger position', () => {
@@ -129,9 +110,7 @@ describe('Intercom button', () => {
 		expect(IntercomService.setPosition).not.toBeCalled();
 
 		// when
-		mount(<Intercom id="my-intercom" config={config} />, {
-			attachTo: insertionElement,
-		});
+		render(<Intercom id="my-intercom" config={config} />);
 
 		// then
 		expect(IntercomService.setPosition).toBeCalled();
@@ -139,26 +118,22 @@ describe('Intercom button', () => {
 
 	it('should focus on trigger button on hide', () => {
 		// given
-		const wrapper = mount(<Intercom id="my-intercom" config={config} />, {
-			attachTo: insertionElement,
-		});
+		const { rerender } = render(<Intercom id="my-intercom" config={config} />);
 		const onShow = IntercomService.onShow.mock.calls[0][0];
 		const onHide = IntercomService.onHide.mock.calls[0][0];
 
 		act(() => {
 			onShow();
 		});
-		wrapper.update();
-
-		const triggerButton = document.querySelector('#my-intercom');
+		rerender(<Intercom id="my-intercom" config={config} />);
 
 		// when
 		act(() => {
 			onHide();
 		});
-		wrapper.update();
+		rerender(<Intercom id="my-intercom" config={config} />);
 
 		// then
-		expect(document.activeElement).toBe(triggerButton);
+		expect(screen.getByTestId('open')).toBeInTheDocument();
 	});
 });

@@ -1,5 +1,11 @@
 # @talend/design-system
 
+## 7.7.0
+
+### Minor Changes
+
+- a01e81852: feat(design-system): Modal have no close button if preventEscaping is on
+
 ## 7.6.0
 
 ### Minor Changes

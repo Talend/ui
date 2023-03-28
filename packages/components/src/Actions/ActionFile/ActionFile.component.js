@@ -108,6 +108,7 @@ class ActionFile extends React.Component {
 				<input
 					onChange={this.handleChange}
 					type="file"
+					data-test={localId}
 					accept={accept}
 					name={name}
 					id={localId}

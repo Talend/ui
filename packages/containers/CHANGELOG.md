@@ -1,5 +1,25 @@
 # @talend/react-containers
 
+## 9.0.1
+
+### Patch Changes
+
+- 8c09dacd8: fix(HeaderBar): TypeError: Assignment to constant variable.
+- Updated dependencies [20f8526e9]
+  - @talend/react-components@10.1.1
+
+## 9.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+  - @talend/react-forms@9.0.2
+
 ## 8.0.2
 
 ### Patch Changes
