@@ -31,8 +31,8 @@ function ModalStory(props: Partial<ModalPropsType>) {
 context('<Modal />', () => {
 	it('should render and focus on the modal', () => {
 		cy.mount(<ModalStory header={{ title: 'No disclosure modal' }} />);
-		cy.findByTest('open-modal').click();
-		cy.findByTest('modal').should('be.visible');
+		cy.findByTestId('open-modal').click();
+		cy.findByTestId('modal').should('be.visible');
 		cy.focused().should('have.attr', 'data-test', 'modal');
 	});
 
@@ -49,8 +49,8 @@ context('<Modal />', () => {
 				<p>A basic modal with an associated disclosure button.</p>
 			</Modal>,
 		);
-		cy.findByTest('modal-disclosure').click();
-		cy.findByTest('modal').should('be.visible');
+		cy.findByTestId('modal-disclosure').click();
+		cy.findByTestId('modal').should('be.visible');
 	});
 
 	it('should close the modal on cancel/close action', () => {
@@ -60,12 +60,12 @@ context('<Modal />', () => {
 				<p>A basic modal with only a title and a text content.</p>
 			</ModalStory>,
 		);
-		cy.findByTest('open-modal').click();
+		cy.findByTestId('open-modal').click();
 		cy.findByTestId('modal.buttons.close')
 			.click()
 			.then(() => {
 				// then
-				cy.findByTest('modal').should('not.exist');
+				cy.findByTestId('modal').should('not.exist');
 			});
 	});
 
@@ -76,7 +76,7 @@ context('<Modal />', () => {
 				<p>A basic modal with only a title and a text content.</p>
 			</ModalStory>,
 		);
-		cy.findByTest('open-modal').click();
+		cy.findByTestId('open-modal').click();
 		cy.findByTestId('modal.buttons.close').should('not.exist');
 	});
 
@@ -87,12 +87,12 @@ context('<Modal />', () => {
 				<p>A basic modal with only a title and a text content.</p>
 			</ModalStory>,
 		);
-		cy.findByTest('open-modal').click();
-		cy.findByTest('modal')
+		cy.findByTestId('open-modal').click();
+		cy.findByTestId('modal')
 			.type('{esc}')
 			.then(() => {
 				// then
-				cy.findByTest('modal').should('not.exist');
+				cy.findByTestId('modal').should('not.exist');
 			});
 	});
 
@@ -105,12 +105,12 @@ context('<Modal />', () => {
 				</p>
 			</ModalStory>,
 		);
-		cy.findByTest('open-modal').click();
-		cy.findByTest('modal')
+		cy.findByTestId('open-modal').click();
+		cy.findByTestId('modal')
 			.type('{esc}')
 			.then(() => {
 				// then
-				cy.findByTest('modal').should('exist');
+				cy.findByTestId('modal').should('exist');
 			});
 	});
 });

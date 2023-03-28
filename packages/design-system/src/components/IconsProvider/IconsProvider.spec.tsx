@@ -61,7 +61,7 @@ context('<IconsProvider />', () => {
 		cy.intercept('/some/other/icons', '<svg data-test="other-icons"></svg>').as('getOtherBundle');
 		cy.intercept('/more/icons/is/better', '<svg data-test="more-icons"></svg>').as('getMoreBundle');
 		cy.mount(<IconsProvider bundles={[]} additionalBundles={additionalBundles} />);
-		cy.findByTest('other-icons').should('to.exist');
-		cy.findByTest('more-icons').should('to.exist');
+		cy.findByTestId('other-icons').should('to.exist');
+		cy.findByTestId('more-icons').should('to.exist');
 	});
 });

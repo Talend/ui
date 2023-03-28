@@ -12,7 +12,7 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-
+import React from 'react';
 // Import commands.js using ES2015 syntax:
 import './commands';
 
@@ -22,6 +22,7 @@ import '@testing-library/cypress/add-commands';
 import { mount } from 'cypress/react';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import IconsProvider from '../../src/components/IconsProvider';
 import { namespaces as designSystemNamespaces } from '@talend/locales-design-system/namespaces';
 import { locales as designSystemLocales } from '@talend/locales-design-system/locales';
 
@@ -50,7 +51,16 @@ i18n.use(initReactI18next).init({
 // Alternatively, can be defined in cypress/support/component.d.ts
 // with a <reference path="./component" /> at the top of your spec.
 
-Cypress.Commands.add('mount', mount);
+Cypress.Commands.add('mount', (component, options) => {
+	// const wrapped = (
+	// 	<React.Fragement>
+	// 		<IconsProvider />
+	// 		{component}
+	// 	</React.Fragement>
+	// );
+	const wrapper = component;
+	return mount(wrapper, options);
+});
 
 // Example use:
 // cy.mount(<MyComponent />)

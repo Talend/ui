@@ -11,11 +11,11 @@ context('<LinkAsButton />', () => {
 
 	it('should render icon before', () => {
 		cy.mount(<LinkAsButton icon="information-filled">Link example</LinkAsButton>);
-		cy.findByTest('link.icon.before').should('be.visible');
+		cy.findByTestId('link.icon.before').should('be.visible');
 	});
 
 	it('should render external', () => {
 		cy.mount(<LinkAsButton openInNewTab>Link example</LinkAsButton>);
-		cy.findByTest('link.icon.external').should('be.visible');
+		cy.findByTestId('link.icon.external').should('be.visible');
 	});
 });

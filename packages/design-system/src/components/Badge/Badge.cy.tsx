@@ -32,7 +32,7 @@ context('<Badge />', () => {
 		cy.findByTestId('badge-label').should('have.text', label);
 		cy.findByTestId('badge-divider');
 
-		cy.findByTest('dropdown.button.badge-button').should('have.text', 'Item');
+		cy.findByTestId('dropdown.button.badge-button').should('have.text', 'Item');
 	});
 
 	it('should render BadgePopover', () => {
@@ -41,6 +41,6 @@ context('<Badge />', () => {
 		cy.findByTestId('badge-label').should('have.text', label);
 		cy.findByTestId('badge-divider');
 
-		items.forEach(v => cy.findByTest(`${v.id}.badge-button`).should('have.text', v.label));
+		items.forEach(v => cy.findByTestId(`${v.id}.badge-button`).should('have.text', v.label));
 	});
 });

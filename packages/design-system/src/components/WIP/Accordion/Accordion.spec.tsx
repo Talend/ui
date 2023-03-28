@@ -32,16 +32,16 @@ const WithAction = () => (
 context('<CollapsiblePanel />', () => {
 	it('should render header', () => {
 		cy.mount(<WithAction />);
-		cy.findByTest('panel.header').should('be.visible');
-		cy.findByTest('panel.section').should('not.exist');
+		cy.findByTestId('panel.header').should('be.visible');
+		cy.findByTestId('panel.section').should('not.exist');
 	});
 
 	it('should expand and collapse', () => {
 		cy.mount(<WithAction />);
 		cy.get('#CollapsiblePanel__control--panel-with-action').click();
-		cy.findByTest('panel.section').should('be.visible');
+		cy.findByTestId('panel.section').should('be.visible');
 		cy.get('#CollapsiblePanel__control--panel-with-action').click();
-		cy.findByTest('panel.section').should('not.exist');
+		cy.findByTestId('panel.section').should('not.exist');
 	});
 
 	it('should hide chevron and action when disabled', () => {
@@ -62,12 +62,12 @@ context('<CollapsiblePanel />', () => {
 			</div>,
 		);
 		cy.get('#CollapsiblePanel__control--disabled-panel').should('not.exist');
-		cy.findByTest('action.button').should('not.exist');
+		cy.findByTestId('action.button').should('not.exist');
 	});
 
 	it('should display action toolip', () => {
 		cy.mount(<WithAction />);
-		cy.findByTest('action.button')
+		cy.findByTestId('action.button')
 			.focus()
 			.should('have.attr', 'aria-describedby')
 			.then(describedBy => cy.get(`#${describedBy}`).should('have.text', 'action tooltip'));

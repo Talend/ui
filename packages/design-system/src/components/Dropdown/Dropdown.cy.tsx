@@ -1,8 +1,11 @@
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/await-async-query */
 /* eslint-disable no-console */
 import React from 'react';
 import Dropdown from './';
 
-import { ButtonTertiary } from '../..';
+import { ButtonTertiary } from '../../components/Button';
+import { IconsProvider } from '../../components/IconsProvider';
 
 const WithIcons = (props: any) => (
 	<Dropdown
@@ -69,75 +72,83 @@ const WithDividers = () => (
 );
 
 context('<Dropdown />', () => {
+	beforeEach(() => {
+		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
+	});
 	it('should render', () => {
 		cy.mount(<WithIcons />);
-		cy.findByTest('dropdown.button').should('be.visible');
+		cy.findByTestId('dropdown.button').should('be.visible');
 	});
 
 	it('should display menu', () => {
 		cy.mount(<WithIcons />);
-		cy.findByTest('dropdown.button').click();
-		cy.findByTest('dropdown.menu').should('be.visible');
-		cy.findByTest('dropdown.menuitem.Link with icon-0').should('be.visible');
-		cy.findByTest('dropdown.menuitem.Button with icon-1').should('be.visible');
-		cy.clickOutside();
-		cy.findByTest('dropdown.menu').should('not.be.visible');
+		cy.findByTestId('dropdown.button').click();
+		cy.findByTestId('dropdown.menu').should('be.visible');
+		cy.findByTestId('dropdown.menuitem.Link with icon-0').should('be.visible');
+		cy.findByTestId('dropdown.menuitem.Button with icon-1').should('be.visible');
+		cy.get('body').click(0, 0);
+		cy.findByTestId('dropdown.menu').should('not.be.visible');
 	});
 
 	it('should hide the menu clicking on a button', () => {
 		cy.mount(<WithIcons />);
-		cy.findByTest('dropdown.button').click();
-		cy.findByTest('dropdown.menu').should('be.visible');
+		cy.findByTestId('dropdown.button').click();
+		cy.findByTestId('dropdown.menu').should('be.visible');
 		cy.get('button[data-test="dropdown.menuitem.Button with icon-1"]').click();
-		cy.findByTest('dropdown.menu').should('not.be.visible');
+		cy.findByTestId('dropdown.menu').should('not.be.visible');
 	});
 
 	it('should hide the menu clicking on a link', () => {
 		cy.mount(<WithIcons />);
-		cy.findByTest('dropdown.button').click();
-		cy.findByTest('dropdown.menu').should('be.visible');
+		cy.findByTestId('dropdown.button').click();
+		cy.findByTestId('dropdown.menu').should('be.visible');
 		cy.get('a[data-test="dropdown.menuitem.Link with icon-0"]').invoke('removeAttr', 'href');
 		cy.get('a[data-test="dropdown.menuitem.Link with icon-0"]').click();
-		cy.findByTest('dropdown.menu').should('not.be.visible');
+		cy.findByTestId('dropdown.menu').should('not.be.visible');
 	});
 
 	it('should display menu with keyboard', () => {
 		cy.mount(<WithIcons />);
-		cy.findByTest('dropdown.button').type(' ');
-		cy.findByTest('dropdown.menu').should('be.visible');
-		cy.findByTest('dropdown.button').type('{esc}');
-		cy.findByTest('dropdown.menu').should('not.be.visible');
+		cy.findByTestId('dropdown.button').type(' ');
+		cy.findByTestId('dropdown.menu').should('be.visible');
+		cy.findByTestId('dropdown.button').type('{esc}');
+		cy.findByTestId('dropdown.menu').should('not.be.visible');
 	});
 
 	it('should navigate through the menu with keyboard', () => {
 		cy.mount(<WithIcons />);
-		cy.findByTest('dropdown.button').click();
-		cy.findByTest('dropdown.menu').should('be.visible');
+		cy.findByTestId('dropdown.button').click();
+		cy.findByTestId('dropdown.menu').should('be.visible');
 		// Let's highlight the second menu item
 		cy.get('body').type('{downArrow}{downArrow}');
 		// And verify that's focused
-		cy.findByTest('dropdown.menuitem.Button with icon-1').should('be.attr', 'tabindex', 0);
+		cy.findByTestId('dropdown.menuitem.Button with icon-1').should('be.attr', 'tabindex', 0);
 	});
 
 	it('should have separators', () => {
 		cy.mount(<WithDividers />);
-		cy.findByTest('dropdown.button').click();
-		cy.findByTest('dropdown.menu')
+		cy.findByTestId('dropdown.button').click();
+		cy.findByTestId('dropdown.menu')
 			.should('be.visible')
 			.within(() => {
 				// eslint-disable-next-line testing-library/prefer-screen-queries
-				cy.getByRole('separator').should('have.length', 2);
+				cy.findAllByRole('separator').should('have.length', 2);
 			});
 	});
 
 	it('should have menu item with external links', () => {
-		cy.mount(<WithDividers />);
-		cy.findByTest('dropdown.button').click();
-		cy.findByTest('dropdown.menuitem.External link-0')
+		cy.mount(
+			<>
+				<IconsProvider />
+				<WithDividers />
+			</>,
+		);
+		cy.findByTestId('dropdown.button').click();
+		cy.findByTestId('dropdown.menuitem.External link-0')
 			.first()
 			.should('be.visible')
 			.within(() => {
-				cy.findByTest('link.icon.external').should('be.visible');
+				cy.findByTestId('link.icon.external').should('be.visible');
 			});
 	});
 });
