@@ -49,7 +49,7 @@ function getDay(calendarRef: HTMLElement, offset: number): HTMLElement {
 /**
  * Focus on the day, managing the switch to previous/next month
  */
-function focusOnDay(calendarRef: HTMLElement, indexToFocus, props: CalendarGestureProps) {
+function focusOnDay(calendarRef: HTMLElement, indexToFocus: number, props: CalendarGestureProps) {
 	const allItems = getAllItems(calendarRef);
 
 	if (indexToFocus < 0) {
