@@ -87,7 +87,7 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.18.6",
     "react-is": "^16.13.1",
-    "react-router-dom": "~6.3.0",
+    "react-router-dom": "~6.9.0",
     "storybook-addon-mdx-embed": "^1.1.1",
     "storybook-docs-toc": "^1.7.0",
     "use-overflow": "^1.1.0"
