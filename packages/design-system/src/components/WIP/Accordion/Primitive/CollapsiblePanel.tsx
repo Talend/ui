@@ -94,6 +94,7 @@ const CollapsiblePanel = forwardRef(
 						aria-labelledby={controlId}
 						className={styles.panelContent}
 						data-test="panel.section"
+						data-testid="panel.section"
 					>
 						{children}
 					</div>

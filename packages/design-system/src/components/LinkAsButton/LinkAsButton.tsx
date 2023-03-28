@@ -60,16 +60,22 @@ const LinkAsButton = forwardRef(
 							className={sharedLinkableStyles.link__icon}
 							name={icon}
 							data-test="link.icon.before"
+							data-testid="link.icon.before"
 						/>
 					) : (
 						cloneElement(icon, {
 							'data-test': 'link.icon.before',
+							'data-testid': 'link.icon.before',
 							className: classnames(icon.props?.className, sharedLinkableStyles.link__icon),
 						})
 					))}
 				<span className={linkStyles.link__text}>{children}</span>
 				{openInNewTab && (
-					<span className={sharedLinkableStyles.link__iconExternal} data-test="link.icon.external">
+					<span
+						className={sharedLinkableStyles.link__iconExternal}
+						data-test="link.icon.external"
+						data-testid="link.icon.external"
+					>
 						<SizedIcon size="S" name="external-link" />
 					</span>
 				)}

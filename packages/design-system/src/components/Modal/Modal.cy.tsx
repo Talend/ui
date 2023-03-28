@@ -10,7 +10,7 @@ function ModalStory(props: Partial<ModalPropsType>) {
 
 	return (
 		<>
-			<ButtonPrimary onClick={() => setModalOpen(true)} data-test="open-modal">
+			<ButtonPrimary onClick={() => setModalOpen(true)} data-testid="open-modal">
 				See
 			</ButtonPrimary>
 
@@ -30,14 +30,11 @@ function ModalStory(props: Partial<ModalPropsType>) {
 	);
 }
 context('<Modal />', () => {
-	beforeEach(() => {
-		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
-	});
 	it('should render and focus on the modal', () => {
 		cy.mount(<ModalStory header={{ title: 'No disclosure modal' }} />);
 		cy.findByTestId('open-modal').click();
 		cy.findByTestId('modal').should('be.visible');
-		cy.focused().should('have.attr', 'data-test', 'modal');
+		cy.focused().should('have.attr', 'data-testid', 'modal');
 	});
 
 	it('should support custom disclosure', () => {
@@ -45,7 +42,7 @@ context('<Modal />', () => {
 			<Modal
 				header={{ title: 'With disclosure' }}
 				disclosure={
-					<ButtonPrimary data-test="modal-disclosure" onClick={() => {}}>
+					<ButtonPrimary data-testid="modal-disclosure" onClick={() => {}}>
 						Open the modal
 					</ButtonPrimary>
 				}

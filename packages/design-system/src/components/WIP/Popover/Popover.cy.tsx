@@ -6,15 +6,12 @@ import { ButtonPrimary } from '../../Button';
 import { CollapsiblePanel } from '../Accordion';
 
 context('<Popover />', () => {
-	beforeEach(() => {
-		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
-	});
 	describe('default', () => {
 		it('should show a popover', () => {
 			cy.mount(
 				<Popover
-					disclosure={<ButtonPrimary data-test="my.button">Open popover</ButtonPrimary>}
-					data-test="my.popover"
+					disclosure={<ButtonPrimary data-testid="my.button">Open popover</ButtonPrimary>}
+					data-testid="my.popover"
 				>
 					Popover content
 				</Popover>,
@@ -34,11 +31,11 @@ context('<Popover />', () => {
 						<Popover
 							key="my.popover"
 							disclosure={
-								<ButtonPrimary onClick={event => event.stopPropagation()} data-test="my.button">
+								<ButtonPrimary onClick={event => event.stopPropagation()} data-testid="my.button">
 									Open popover
 								</ButtonPrimary>
 							}
-							data-test="my.popover"
+							data-testid="my.popover"
 						>
 							<p>Popover content</p>
 						</Popover>,

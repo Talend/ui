@@ -4,12 +4,9 @@ import React from 'react';
 
 import Link from './';
 context('<Link />', () => {
-	beforeEach(() => {
-		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
-	});
 	it('should render', () => {
 		cy.mount(
-			<Link href="#" data-test="my.link">
+			<Link href="#" data-testid="my.link">
 				Link example
 			</Link>,
 		);
@@ -27,13 +24,13 @@ context('<Link />', () => {
 	});
 
 	it('should render disabled', () => {
-		cy.mount(<Link href="#" icon="information-filled" disabled data-test="my.link" />);
+		cy.mount(<Link href="#" icon="information-filled" disabled data-testid="my.link" />);
 		cy.findByTestId('my.link').should('have.attr', 'aria-disabled');
 	});
 
 	it('should deal with target blank', () => {
 		cy.mount(
-			<Link href="#" target="_blank" data-test="my.link">
+			<Link href="#" target="_blank" data-testid="my.link">
 				Link example
 			</Link>,
 		);
@@ -45,7 +42,7 @@ context('<Link />', () => {
 
 	it('should deal with unknown target', () => {
 		cy.mount(
-			<Link data-test="my.link" target="unknown">
+			<Link data-testid="my.link" target="unknown">
 				Unknown target
 			</Link>,
 		);
@@ -56,7 +53,7 @@ context('<Link />', () => {
 
 	it('should deal with target self', () => {
 		cy.mount(
-			<Link data-test="my.link" target="_self">
+			<Link data-testid="my.link" target="_self">
 				Self target
 			</Link>,
 		);
@@ -65,7 +62,7 @@ context('<Link />', () => {
 	});
 
 	it('should have data-feature', () => {
-		cy.mount(<Link href="#" data-test="my.link" data-feature="my.feature" />);
+		cy.mount(<Link href="#" data-testid="my.link" data-feature="my.feature" />);
 		cy.findByTestId('my.link').should('have.attr', 'data-feature', 'my.feature');
 	});
 });

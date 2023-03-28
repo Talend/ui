@@ -4,9 +4,6 @@ import React from 'react';
 import InlineEditing from './';
 
 context('<InlineEditing />', () => {
-	beforeEach(() => {
-		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
-	});
 	it('should go to edit mode when clicking on the button', () => {
 		cy.mount(<InlineEditing label="Edit the value" defaultValue="Lorem Ipsum" />);
 		cy.findByTestId('inlineediting.button.edit').click();

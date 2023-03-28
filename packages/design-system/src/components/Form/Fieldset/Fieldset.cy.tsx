@@ -5,13 +5,10 @@ import Fieldset from './Fieldset';
 import { ButtonPrimary } from '../../Button';
 
 context('<Fieldset />', () => {
-	beforeEach(() => {
-		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
-	});
 	it('should preserve children component state between renders', () => {
 		const TestComponentWithState = () => {
 			const [value] = useState(Math.random());
-			return <div data-test="random-value-on-mount">{value}</div>;
+			return <div data-testid="random-value-on-mount">{value}</div>;
 		};
 
 		const Wrapper = () => {

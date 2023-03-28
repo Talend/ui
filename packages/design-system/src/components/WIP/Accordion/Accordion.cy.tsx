@@ -32,9 +32,6 @@ const WithAction = () => (
 );
 
 context('<CollapsiblePanel />', () => {
-	beforeEach(() => {
-		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
-	});
 	it('should render header', () => {
 		cy.mount(<WithAction />);
 		cy.findByTestId('panel.header').should('be.visible');

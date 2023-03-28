@@ -72,9 +72,6 @@ const WithDividers = () => (
 );
 
 context('<Dropdown />', () => {
-	beforeEach(() => {
-		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
-	});
 	it('should render', () => {
 		cy.mount(<WithIcons />);
 		cy.findByTestId('dropdown.button').should('be.visible');
@@ -94,7 +91,7 @@ context('<Dropdown />', () => {
 		cy.mount(<WithIcons />);
 		cy.findByTestId('dropdown.button').click();
 		cy.findByTestId('dropdown.menu').should('be.visible');
-		cy.get('button[data-test="dropdown.menuitem.Button with icon-1"]').click();
+		cy.findByTestId('dropdown.menuitem.Button with icon-1').click();
 		cy.findByTestId('dropdown.menu').should('not.be.visible');
 	});
 

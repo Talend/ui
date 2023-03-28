@@ -6,13 +6,13 @@ import ButtonPrimitive from './Primitive/ButtonPrimitive';
 import { ButtonPrimary } from './';
 import Tooltip from '../../components/Tooltip';
 
-const Loading = ({ 'data-test': dataTest }: { 'data-test': string }) => {
+const Loading = ({ 'data-testid': dataTestId }: { 'data-testid': string }) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [loading, isLoading] = React.useState(false);
 	return (
 		<Tooltip title="Relevant description of the basic button">
 			<ButtonPrimary
-				data-test={dataTest}
+				data-testid={dataTestId}
 				icon="talend-check"
 				isLoading={loading}
 				onClick={() => {
@@ -27,9 +27,6 @@ const Loading = ({ 'data-test': dataTest }: { 'data-test': string }) => {
 };
 
 context('<Button />', () => {
-	beforeEach(() => {
-		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
-	});
 	describe('default', () => {
 		it('should be focusable', () => {
 			cy.mount(
@@ -43,7 +40,7 @@ context('<Button />', () => {
 			cy.mount(
 				<ButtonPrimitive
 					size="M"
-					data-test="my.button"
+					data-testid="my.button"
 					data-feature="my.feature"
 					onClick={() => {}}
 				>
@@ -56,7 +53,7 @@ context('<Button />', () => {
 
 	describe('loading state', () => {
 		it('should load', () => {
-			cy.mount(<Loading data-test="my.button" />);
+			cy.mount(<Loading data-testid="my.button" />);
 			cy.findByTestId('my.button')
 				.should('have.attr', 'aria-busy', 'false')
 				.click()
@@ -65,7 +62,7 @@ context('<Button />', () => {
 		});
 
 		it('should have a tooltip', () => {
-			cy.mount(<Loading data-test="my.button" />);
+			cy.mount(<Loading data-testid="my.button" />);
 			cy.findByTestId('my.button')
 				.focus()
 				.should('have.attr', 'aria-describedby')
