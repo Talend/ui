@@ -45,7 +45,7 @@ context('<Button />', () => {
 				</ButtonPrimitive>,
 			);
 			// eslint-disable-next-line testing-library/prefer-screen-queries
-			cy.getByTestId('my.button').should('have.attr', 'data-feature', 'my.feature');
+			cy.findByTestId('my.button').should('have.attr', 'data-feature', 'my.feature');
 		});
 	});
 
@@ -53,7 +53,7 @@ context('<Button />', () => {
 		it('should load', () => {
 			cy.mount(<Loading data-testid="my.button" />);
 			// eslint-disable-next-line testing-library/prefer-screen-queries
-			cy.getByTestId('my.button')
+			cy.findByTestId('my.button')
 				.should('have.attr', 'aria-busy', 'false')
 				.click()
 				.should('have.attr', 'aria-busy', 'true');
@@ -63,7 +63,7 @@ context('<Button />', () => {
 		it('should have a tooltip', () => {
 			cy.mount(<Loading data-testid="my.button" />);
 			// eslint-disable-next-line testing-library/prefer-screen-queries
-			cy.getByTestId('my.button')
+			cy.findByTestId('my.button')
 				.focus()
 				.should('have.attr', 'aria-describedby')
 				.then(describedBy =>

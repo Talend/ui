@@ -14,10 +14,10 @@ context('<Popover />', () => {
 				</Popover>,
 			);
 
-			cy.getByTest('my.button').should('be.visible');
-			cy.getByTest('my.popover').should('not.be.visible');
-			cy.getByTest('my.button').click();
-			cy.getByTest('my.popover').should('be.visible');
+			cy.findByTest('my.button').should('be.visible');
+			cy.findByTest('my.popover').should('not.be.visible');
+			cy.findByTest('my.button').click();
+			cy.findByTest('my.popover').should('be.visible');
 		});
 
 		it('should be able to override disclosure click', () => {
@@ -43,9 +43,9 @@ context('<Popover />', () => {
 			);
 
 			// Disclosure onClick should stop propagation and not open the CollapsiblePanel container
-			cy.getByTest('panel.section').should('not.exist');
-			cy.getByTest('my.button').click();
-			cy.getByTest('panel.section').should('not.exist');
+			cy.findByTest('panel.section').should('not.exist');
+			cy.findByTest('my.button').click();
+			cy.findByTest('panel.section').should('not.exist');
 		});
 	});
 });

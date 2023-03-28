@@ -71,58 +71,58 @@ const WithDividers = () => (
 context('<Dropdown />', () => {
 	it('should render', () => {
 		cy.mount(<WithIcons />);
-		cy.getByTest('dropdown.button').should('be.visible');
+		cy.findByTest('dropdown.button').should('be.visible');
 	});
 
 	it('should display menu', () => {
 		cy.mount(<WithIcons />);
-		cy.getByTest('dropdown.button').click();
-		cy.getByTest('dropdown.menu').should('be.visible');
-		cy.getByTest('dropdown.menuitem.Link with icon-0').should('be.visible');
-		cy.getByTest('dropdown.menuitem.Button with icon-1').should('be.visible');
+		cy.findByTest('dropdown.button').click();
+		cy.findByTest('dropdown.menu').should('be.visible');
+		cy.findByTest('dropdown.menuitem.Link with icon-0').should('be.visible');
+		cy.findByTest('dropdown.menuitem.Button with icon-1').should('be.visible');
 		cy.clickOutside();
-		cy.getByTest('dropdown.menu').should('not.be.visible');
+		cy.findByTest('dropdown.menu').should('not.be.visible');
 	});
 
 	it('should hide the menu clicking on a button', () => {
 		cy.mount(<WithIcons />);
-		cy.getByTest('dropdown.button').click();
-		cy.getByTest('dropdown.menu').should('be.visible');
+		cy.findByTest('dropdown.button').click();
+		cy.findByTest('dropdown.menu').should('be.visible');
 		cy.get('button[data-test="dropdown.menuitem.Button with icon-1"]').click();
-		cy.getByTest('dropdown.menu').should('not.be.visible');
+		cy.findByTest('dropdown.menu').should('not.be.visible');
 	});
 
 	it('should hide the menu clicking on a link', () => {
 		cy.mount(<WithIcons />);
-		cy.getByTest('dropdown.button').click();
-		cy.getByTest('dropdown.menu').should('be.visible');
+		cy.findByTest('dropdown.button').click();
+		cy.findByTest('dropdown.menu').should('be.visible');
 		cy.get('a[data-test="dropdown.menuitem.Link with icon-0"]').invoke('removeAttr', 'href');
 		cy.get('a[data-test="dropdown.menuitem.Link with icon-0"]').click();
-		cy.getByTest('dropdown.menu').should('not.be.visible');
+		cy.findByTest('dropdown.menu').should('not.be.visible');
 	});
 
 	it('should display menu with keyboard', () => {
 		cy.mount(<WithIcons />);
-		cy.getByTest('dropdown.button').type(' ');
-		cy.getByTest('dropdown.menu').should('be.visible');
-		cy.getByTest('dropdown.button').type('{esc}');
-		cy.getByTest('dropdown.menu').should('not.be.visible');
+		cy.findByTest('dropdown.button').type(' ');
+		cy.findByTest('dropdown.menu').should('be.visible');
+		cy.findByTest('dropdown.button').type('{esc}');
+		cy.findByTest('dropdown.menu').should('not.be.visible');
 	});
 
 	it('should navigate through the menu with keyboard', () => {
 		cy.mount(<WithIcons />);
-		cy.getByTest('dropdown.button').click();
-		cy.getByTest('dropdown.menu').should('be.visible');
+		cy.findByTest('dropdown.button').click();
+		cy.findByTest('dropdown.menu').should('be.visible');
 		// Let's highlight the second menu item
 		cy.get('body').type('{downArrow}{downArrow}');
 		// And verify that's focused
-		cy.getByTest('dropdown.menuitem.Button with icon-1').should('be.attr', 'tabindex', 0);
+		cy.findByTest('dropdown.menuitem.Button with icon-1').should('be.attr', 'tabindex', 0);
 	});
 
 	it('should have separators', () => {
 		cy.mount(<WithDividers />);
-		cy.getByTest('dropdown.button').click();
-		cy.getByTest('dropdown.menu')
+		cy.findByTest('dropdown.button').click();
+		cy.findByTest('dropdown.menu')
 			.should('be.visible')
 			.within(() => {
 				// eslint-disable-next-line testing-library/prefer-screen-queries
@@ -132,12 +132,12 @@ context('<Dropdown />', () => {
 
 	it('should have menu item with external links', () => {
 		cy.mount(<WithDividers />);
-		cy.getByTest('dropdown.button').click();
-		cy.getByTest('dropdown.menuitem.External link-0')
+		cy.findByTest('dropdown.button').click();
+		cy.findByTest('dropdown.menuitem.External link-0')
 			.first()
 			.should('be.visible')
 			.within(() => {
-				cy.getByTest('link.icon.external').should('be.visible');
+				cy.findByTest('link.icon.external').should('be.visible');
 			});
 	});
 });

@@ -10,9 +10,9 @@ context('<Tooltip />', () => {
 				</Tooltip>,
 			);
 
-			cy.getByTest('my.tooltip').should('not.be.visible');
+			cy.findByTest('my.tooltip').should('not.be.visible');
 			cy.get('button').click();
-			cy.getByTest('my.tooltip').should('be.visible');
+			cy.findByTest('my.tooltip').should('be.visible');
 		});
 
 		it('Should be able to override baseId', () => {
@@ -23,7 +23,7 @@ context('<Tooltip />', () => {
 				</Tooltip>,
 			);
 
-			cy.getByTest('my.tooltip').invoke('attr', 'id').should('eq', tooltipBaseId);
+			cy.findByTest('my.tooltip').invoke('attr', 'id').should('eq', tooltipBaseId);
 		});
 	});
 });

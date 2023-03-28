@@ -14,33 +14,33 @@ context('<Badge />', () => {
 	it('should render BadgeTag', () => {
 		cy.mount(<BadgeTag label={label} />);
 
-		cy.getByTestId('badge-label').should('have.text', label);
+		cy.findByTestId('badge-label').should('have.text', label);
 	});
 
 	it('should render BadgeValue', () => {
 		cy.mount(<BadgeValue label={label} value={items.map(v => v.label)} />);
 
-		cy.getByTestId('badge-label').should('have.text', label);
-		cy.getByTestId('badge-divider');
+		cy.findByTestId('badge-label').should('have.text', label);
+		cy.findByTestId('badge-divider');
 
-		items.map(v => v.label).forEach(v => cy.getByTestId(`badgevalue-${v}`).should('have.text', v));
+		items.map(v => v.label).forEach(v => cy.findByTestId(`badgevalue-${v}`).should('have.text', v));
 	});
 
 	it('should render BadgeDropdown', () => {
 		cy.mount(<BadgeDropdown label={label} selectedId="2" value={items} />);
 
-		cy.getByTestId('badge-label').should('have.text', label);
-		cy.getByTestId('badge-divider');
+		cy.findByTestId('badge-label').should('have.text', label);
+		cy.findByTestId('badge-divider');
 
-		cy.getByTest('dropdown.button.badge-button').should('have.text', 'Item');
+		cy.findByTest('dropdown.button.badge-button').should('have.text', 'Item');
 	});
 
 	it('should render BadgePopover', () => {
 		cy.mount(<BadgePopover label={label} value={items} />);
 
-		cy.getByTestId('badge-label').should('have.text', label);
-		cy.getByTestId('badge-divider');
+		cy.findByTestId('badge-label').should('have.text', label);
+		cy.findByTestId('badge-divider');
 
-		items.forEach(v => cy.getByTest(`${v.id}.badge-button`).should('have.text', v.label));
+		items.forEach(v => cy.findByTest(`${v.id}.badge-button`).should('have.text', v.label));
 	});
 });
