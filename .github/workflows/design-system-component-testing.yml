@@ -7,6 +7,12 @@ on:
       - "packages/design-tokens/**"
       - "packages/design-system/**"
 
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: write
+  statuses: write
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -16,16 +22,16 @@ jobs:
         browser: ["chrome", "firefox"]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: 16
           registry-url: "https://registry.npmjs.org/"
           scope: "@talend"
           cache: "yarn"
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 #v3.3.1
         with:
           path: ~/.cache/Cypress
           key: my-cache-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
@@ -42,20 +48,20 @@ jobs:
           yarn workspace @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing
-        uses: cypress-io/github-action@v3
+        uses: cypress-io/github-action@c662a784116e1a26360c4e1fc0a90feedb4b5ed3 #v3.1.0
         with:
           browser: ${{ matrix.browser }}
           command: yarn workspace @talend/design-system run test:cy
 
       - name: Cypress screenshots upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce #v3.1.2
         if: failure()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-screenshots
           path: packages/design-system/cypress/screenshots/**/*
 
       - name: Cypress videos upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce #v3.1.2
         if: always()
         with:
           name: cypress-component-testing-${{ matrix.browser }}-videos
