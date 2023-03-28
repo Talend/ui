@@ -27,11 +27,11 @@ function getAllItems(calendarRef: HTMLElement) {
 function focusWithinCurrentCalendar(calendarRef: HTMLElement, indexToFocus = 0) {
 	const allItems = getAllItems(calendarRef);
 	if (indexToFocus === FIRST || indexToFocus < 0) {
-		focusOn(allItems[0] as HTMLElement);
+		focusOn(allItems[0]);
 	} else if (indexToFocus === LAST || indexToFocus > allItems.length - 1) {
-		focusOn(allItems[allItems.length - 1] as HTMLElement);
+		focusOn(allItems[allItems.length - 1]);
 	} else {
-		focusOn(allItems[indexToFocus] as HTMLElement);
+		focusOn(allItems[indexToFocus]);
 	}
 }
 
