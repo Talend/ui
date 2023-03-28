@@ -38,14 +38,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn --frozen-lock
+          yarn --frozen-lock --ignore-scripts
           yarn cypress install
-
-      # - name: Build @talend/design-tokens
-      #   run: |
-      #     yarn workspace @talend/assets-api run build:lib
-      #     yarn workspace @talend/icons run build:lib
-      #     yarn workspace @talend/design-tokens run build:lib
+          yarn workspace @talend/assets-api run build:lib
+          yarn workspace @talend/icons run build:lib
+          yarn workspace @talend/design-tokens run build:lib
 
       - name: Cypress Component Testing
         uses: cypress-io/github-action@c662a784116e1a26360c4e1fc0a90feedb4b5ed3 #v3.1.0
