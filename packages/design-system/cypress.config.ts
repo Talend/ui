@@ -3,6 +3,7 @@ import { defineConfig } from 'cypress';
 import path from 'path';
 import getWebpackConfiguration from '@talend/scripts-config-react-webpack';
 
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {
 	getCommonStyleLoaders,
 	getSassLoaders,
@@ -10,6 +11,9 @@ import {
 	getSassData,
 	getAssetsRules,
 } from '@talend/scripts-config-react-webpack/config/webpack.config.common';
+
+const getFileNameForExtension = (extension, prefix) =>
+	`${prefix || ''}[name]-[contenthash].${extension}`;
 
 const sassData = '';
 const webpackConfig = {
@@ -64,6 +68,12 @@ const webpackConfig = {
 			...getAssetsRules(true),
 		].filter(Boolean),
 	},
+	plugins: [
+		new MiniCssExtractPlugin({
+			filename: getFileNameForExtension('css'),
+			chunkFilename: getFileNameForExtension('css'),
+		}),
+	],
 };
 
 export default defineConfig({

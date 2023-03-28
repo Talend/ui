@@ -124,6 +124,7 @@ function Modal(props: ModalPropsType): ReactElement {
 											<span className={styles['close-button']}>
 												<ButtonSecondary
 													onClick={() => onCloseHandler()}
+													data-test="modal.buttons.close"
 													data-testid="modal.buttons.close"
 													data-feature="modal.buttons.close"
 												>
@@ -136,6 +137,7 @@ function Modal(props: ModalPropsType): ReactElement {
 
 										{secondaryAction && (
 											<ButtonSecondary
+												data-test="modal.buttons.secondary"
 												data-testid="modal.buttons.secondary"
 												data-feature="modal.buttons.secondary"
 												{...secondaryAction}
@@ -145,6 +147,7 @@ function Modal(props: ModalPropsType): ReactElement {
 										{primaryAction && (
 											<PrimaryAction
 												data-testid="modal.buttons.primary"
+												data-test="modal.buttons.primary"
 												data-feature="modal.buttons.primary"
 												{...primaryAction}
 											/>

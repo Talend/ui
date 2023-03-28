@@ -1,15 +1,18 @@
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/await-async-query */
 import React from 'react';
 
 import ButtonPrimitive from './Primitive/ButtonPrimitive';
-import { ButtonPrimary, Tooltip } from '../..';
+import { ButtonPrimary } from './';
+import Tooltip from '../../components/Tooltip';
 
-const Loading = ({ 'data-testid': dataTestId }: { 'data-testid': string }) => {
+const Loading = ({ 'data-test': dataTest }: { 'data-test': string }) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [loading, isLoading] = React.useState(false);
 	return (
 		<Tooltip title="Relevant description of the basic button">
 			<ButtonPrimary
-				data-testid={dataTestId}
+				data-test={dataTest}
 				icon="talend-check"
 				isLoading={loading}
 				onClick={() => {
@@ -24,6 +27,9 @@ const Loading = ({ 'data-testid': dataTestId }: { 'data-testid': string }) => {
 };
 
 context('<Button />', () => {
+	beforeEach(() => {
+		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
+	});
 	describe('default', () => {
 		it('should be focusable', () => {
 			cy.mount(
@@ -37,22 +43,20 @@ context('<Button />', () => {
 			cy.mount(
 				<ButtonPrimitive
 					size="M"
-					data-testid="my.button"
+					data-test="my.button"
 					data-feature="my.feature"
 					onClick={() => {}}
 				>
 					button
 				</ButtonPrimitive>,
 			);
-			// eslint-disable-next-line testing-library/prefer-screen-queries
 			cy.findByTestId('my.button').should('have.attr', 'data-feature', 'my.feature');
 		});
 	});
 
 	describe('loading state', () => {
 		it('should load', () => {
-			cy.mount(<Loading data-testid="my.button" />);
-			// eslint-disable-next-line testing-library/prefer-screen-queries
+			cy.mount(<Loading data-test="my.button" />);
 			cy.findByTestId('my.button')
 				.should('have.attr', 'aria-busy', 'false')
 				.click()
@@ -61,8 +65,7 @@ context('<Button />', () => {
 		});
 
 		it('should have a tooltip', () => {
-			cy.mount(<Loading data-testid="my.button" />);
-			// eslint-disable-next-line testing-library/prefer-screen-queries
+			cy.mount(<Loading data-test="my.button" />);
 			cy.findByTestId('my.button')
 				.focus()
 				.should('have.attr', 'aria-describedby')

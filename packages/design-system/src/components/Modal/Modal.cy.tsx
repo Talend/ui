@@ -1,8 +1,9 @@
+/* eslint-disable testing-library/await-async-query */
 /* eslint-disable no-console */
 /* eslint-disable testing-library/prefer-screen-queries */
 import React, { useState } from 'react';
-import { ButtonPrimary, Modal } from '../..';
-import { ModalPropsType } from './Modal';
+import { ButtonPrimary } from '../Button';
+import Modal, { ModalPropsType } from './Modal';
 
 function ModalStory(props: Partial<ModalPropsType>) {
 	const [modalOpen, setModalOpen] = useState(false);
@@ -29,6 +30,9 @@ function ModalStory(props: Partial<ModalPropsType>) {
 	);
 }
 context('<Modal />', () => {
+	beforeEach(() => {
+		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
+	});
 	it('should render and focus on the modal', () => {
 		cy.mount(<ModalStory header={{ title: 'No disclosure modal' }} />);
 		cy.findByTestId('open-modal').click();
