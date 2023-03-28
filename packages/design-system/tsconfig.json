@@ -15,7 +15,7 @@
     },
     "jsx": "react",
     "module": "CommonJs",
-    "rootDirs": [".storybook", "cypress", "src"],
+    "rootDirs": [".storybook", "cypress", "@testing-library/cypress", "src"],
     "types": ["cypress"]
   }
 }
