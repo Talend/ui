@@ -1,13 +1,13 @@
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
 import * as React from 'react';
 import keycode from 'keycode';
-import omit from 'lodash/omit';
 import { focusOn } from './focus';
 
 const FIRST = 0;
 const LAST = Number.POSITIVE_INFINITY;
 
 export interface CalendarGestureProps {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>, ref: any, item: any) => void;
 	goToPreviousMonth: (cb: () => void) => void;
 	goToNextMonth: (cb: () => void) => void;
@@ -49,7 +49,7 @@ function getDay(calendarRef: HTMLElement, offset: number): HTMLElement {
 /**
  * Focus on the day, managing the switch to previous/next month
  */
-function focusOnDay(calendarRef: HTMLElement, indexToFocus = 0, props: CalendarGestureProps) {
+function focusOnDay(calendarRef: HTMLElement, indexToFocus, props: CalendarGestureProps) {
 	const allItems = getAllItems(calendarRef);
 
 	if (indexToFocus < 0) {

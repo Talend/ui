@@ -1,7 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import keycode from 'keycode';
-import omit from 'lodash/omit';
 import { focusOn } from './focus';
 
 function getAllItems(ref: HTMLElement) {
