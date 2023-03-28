@@ -1,7 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
+
+jest.unmock('@talend/design-system');
 
 const props = {
 	header: [
@@ -78,101 +80,82 @@ const timeStamp = {
 };
 
 const customElement = {
-	element: <span>Custom element</span>,
+	element: <span className="custom-element">Custom element</span>,
 	label: 'Custom',
 	tooltipPlacement: 'top',
-};
-
-const propsDescriptivePanel = {
-	header: [[version1, readOnlyLabel], timeStamp],
-	content: {
-		head: [
-			{
-				label: '21 step',
-				bsStyle: 'default',
-				tooltipPlacement: 'top',
-			},
-			{
-				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
-				bsStyle: 'default',
-				tooltipPlacement: 'top',
-				className: 'text-right',
-			},
-		],
-		description: `Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-		 adipiscing elit`,
-	},
-	theme: 'descriptive-panel',
-	onSelect: jest.fn(),
-	onToggle: jest.fn(),
-};
-
-const propsDescriptivePanelWithoutContent = {
-	header: [[version1, readOnlyLabel], timeStamp],
-	onSelect: jest.fn(),
-	onToggle: jest.fn(),
-	selected: true,
-};
-
-const propsPanelWithCustomElement = {
-	header: [version1, customElement, timeStamp],
-	onSelect: jest.fn(),
-	onToggle: jest.fn(),
 };
 
 describe('CollapsiblePanel', () => {
 	it('should render default with key/value content', () => {
 		// when
-		const wrapper = mount(<CollapsiblePanel {...props} />);
+		render(<CollapsiblePanel {...props} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('term')).toHaveTextContent('Content');
+		expect(screen.getByRole('definition')).toHaveTextContent('Description3');
 	});
 
 	it('should render default with expanded key/value content', () => {
 		// when
-		const wrapper = mount(<CollapsiblePanel {...props} expanded />);
+		render(<CollapsiblePanel {...props} expanded />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByRole('term')).toHaveTextContent('Content');
+		expect(screen.getByRole('definition')).toHaveTextContent('Description3');
 	});
 
 	it('should render default without content', () => {
 		// when
-		const wrapper = mount(<CollapsiblePanel {...props} content={null} />);
+		render(<CollapsiblePanel {...props} content={null} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.queryByRole('term')).not.toBeInTheDocument();
 	});
 
 	it('should render themed with textual content', () => {
 		// when
-		const wrapper = mount(<CollapsiblePanel {...propsDescriptivePanel} />);
+		const propsDescriptivePanel = {
+			header: [[version1, readOnlyLabel], timeStamp],
+			content: {
+				head: [
+					{
+						label: '21 step',
+						bsStyle: 'default',
+						tooltipPlacement: 'top',
+					},
+					{
+						label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
+						bsStyle: 'default',
+						tooltipPlacement: 'top',
+						className: 'text-right',
+					},
+				],
+				description: 'Lorem ipsum',
+			},
+			theme: 'descriptive-panel',
+			onSelect: jest.fn(),
+			onToggle: jest.fn(),
+		};
+		render(<CollapsiblePanel {...propsDescriptivePanel} />);
 
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
-	});
-
-	it('should render themed without textual content', () => {
-		// when
-		const wrapper = mount(
-			<CollapsiblePanel {...propsDescriptivePanelWithoutContent} content={null} />,
-		);
-		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		const content = screen.getByText(propsDescriptivePanel.content.description);
+		expect(content).toBeVisible();
+		expect(content).toHaveClass('content-description');
 	});
 
 	it('should render panel with custom element', () => {
 		// when
-		const wrapper = mount(<CollapsiblePanel {...propsPanelWithCustomElement} content={null} />);
+		const propsPanelWithCustomElement = {
+			header: [version1, customElement, timeStamp],
+			onSelect: jest.fn(),
+			onToggle: jest.fn(),
+		};
+		render(<CollapsiblePanel {...propsPanelWithCustomElement} />);
+
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(screen.getByText('Custom element')).toBeVisible();
+		expect(screen.getByText('Custom element')).toHaveClass('custom-element');
+		expect(screen.queryByText('Custom')).not.toBeInTheDocument();
 	});
 });

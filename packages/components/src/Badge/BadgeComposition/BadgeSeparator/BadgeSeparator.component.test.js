@@ -1,23 +1,22 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import BadgeSeparator from './BadgeSeparator.component';
 
 describe('BadgeSeparator', () => {
 	it('should default render', () => {
-		// given nothing
 		// when
-		const wrapper = mount(<BadgeSeparator />);
+		const { baseElement } = render(<BadgeSeparator />);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(document.querySelector('.tc-badge-separator')).toBeInTheDocument();
+		expect(baseElement).toMatchSnapshot();
 	});
 	it('should render with icon separator class', () => {
 		// given
 		const iconSeparator = true;
 		// when
-		const wrapper = mount(<BadgeSeparator iconSeparator={iconSeparator} />);
+		const { baseElement } = render(<BadgeSeparator iconSeparator={iconSeparator} />);
 		// then
-		expect(wrapper.find('span').prop('className')).toEqual(
-			'tc-badge-separator theme-tc-badge-separator tc-badge-separator-icon theme-tc-badge-separator-icon',
-		);
+		expect(document.querySelector('.tc-badge-separator-icon')).toBeInTheDocument();
+		expect(baseElement).toMatchSnapshot();
 	});
 });
