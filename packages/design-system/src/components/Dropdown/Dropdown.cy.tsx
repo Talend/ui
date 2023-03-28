@@ -7,9 +7,8 @@ import Dropdown from './';
 import { ButtonTertiary } from '../../components/Button';
 import { IconsProvider } from '../../components/IconsProvider';
 
-const WithIcons = (props: any) => (
+const WithIcons = () => (
 	<Dropdown
-		{...props}
 		aria-label="Switch between Talend applications"
 		items={[
 			{
