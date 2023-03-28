@@ -41,7 +41,7 @@
     "@types/react": "^17.0.53",
     "mdx-embed": "^1.1.2",
     "react": "^17.0.2",
-    "react-router-dom": "~6.3.0",
+    "react-router-dom": "~6.9.0",
     "storybook-addon-mdx-embed": "^1.1.1",
     "storybook-docs-toc": "^1.7.0"
   },
