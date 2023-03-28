@@ -1,8 +1,13 @@
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/await-async-query */
 import React from 'react';
 
 import { IconsProvider } from '.';
 
 context('<IconsProvider />', () => {
+	beforeEach(() => {
+		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
+	});
 	it('should render', () => {
 		cy.mount(<IconsProvider bundles={[]} />);
 		cy.get('svg').should('to.exist').should('have.length', 1);
@@ -17,7 +22,7 @@ context('<IconsProvider />', () => {
 			custom: <svg />,
 		};
 		cy.mount(
-			<div data-testid="wrapper">
+			<div data-test="wrapper">
 				<IconsProvider bundles={[]} icons={customIcons} />
 			</div>,
 		);
@@ -32,7 +37,7 @@ context('<IconsProvider />', () => {
 			default: <svg id="OverrideDefaultIcon" />,
 		};
 		cy.mount(
-			<div data-testid="wrapper">
+			<div data-test="wrapper">
 				<IconsProvider bundles={[]} defaultIcons={defaultIcons} />
 			</div>,
 		);
@@ -50,7 +55,7 @@ context('<IconsProvider />', () => {
 			custom: <svg id="customIcon" />,
 		};
 		cy.mount(
-			<div data-testid="wrapper">
+			<div data-test="wrapper">
 				<IconsProvider bundles={[]} defaultIcons={defaultIcons} icons={customIcons} />
 			</div>,
 		);

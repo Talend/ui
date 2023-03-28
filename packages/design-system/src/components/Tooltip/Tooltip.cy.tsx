@@ -1,7 +1,12 @@
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/await-async-query */
 import React from 'react';
 import Tooltip from './Tooltip';
 
 context('<Tooltip />', () => {
+	beforeEach(() => {
+		cy.configureCypressTestingLibrary({ testIdAttribute: 'data-test' });
+	});
 	describe('default', () => {
 		it('should show a tooltip', () => {
 			cy.mount(
