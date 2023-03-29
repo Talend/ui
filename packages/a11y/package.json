@@ -31,6 +31,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/utils": "^2.5.0",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21"
   },

@@ -1,5 +1,6 @@
 import dateFnsFormat from 'date-fns/format';
 import parse from 'date-fns/parse';
+export * as generator from './generator';
 
 type DateFnsFormatInput = Date | number | string;
 

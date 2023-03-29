@@ -1,8 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
-import { buildWeeks } from '../src/DateTimePickers/generator';
+import { date } from '@talend/utils';
+
+const buildWeeks = date.generator.buildWeeks;
+// DayCalendar.propTypes = {
+// 	onKeyDown: PropTypes.func.isRequired,
+// 	month: PropTypes.number.isRequired,
+// 	year: PropTypes.number.isRequired,
+// };
 
 class DayCalendar extends React.Component {
 	isCurrentMonth(date) {
@@ -47,10 +53,5 @@ class DayCalendar extends React.Component {
 	}
 }
 DayCalendar.displayName = 'DayCalendar';
-DayCalendar.propTypes = {
-	onKeyDown: PropTypes.func.isRequired,
-	month: PropTypes.number.isRequired,
-	year: PropTypes.number.isRequired,
-};
 
 export default DayCalendar;
