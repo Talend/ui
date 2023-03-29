@@ -1,15 +1,16 @@
+/* eslint-disable testing-library/await-async-query */
 /* eslint-disable no-console */
 /* eslint-disable testing-library/prefer-screen-queries */
 import React, { useState } from 'react';
-import { ButtonPrimary, Modal } from '../..';
-import { ModalPropsType } from './Modal';
+import { ButtonPrimary } from '../Button';
+import Modal, { ModalPropsType } from './Modal';
 
 function ModalStory(props: Partial<ModalPropsType>) {
 	const [modalOpen, setModalOpen] = useState(false);
 
 	return (
 		<>
-			<ButtonPrimary onClick={() => setModalOpen(true)} data-test="open-modal">
+			<ButtonPrimary onClick={() => setModalOpen(true)} data-testid="open-modal">
 				See
 			</ButtonPrimary>
 
@@ -31,9 +32,9 @@ function ModalStory(props: Partial<ModalPropsType>) {
 context('<Modal />', () => {
 	it('should render and focus on the modal', () => {
 		cy.mount(<ModalStory header={{ title: 'No disclosure modal' }} />);
-		cy.getByTest('open-modal').click();
-		cy.getByTest('modal').should('be.visible');
-		cy.focused().should('have.attr', 'data-test', 'modal');
+		cy.findByTestId('open-modal').click();
+		cy.findByTestId('modal').should('be.visible');
+		cy.focused().should('have.attr', 'data-testid', 'modal');
 	});
 
 	it('should support custom disclosure', () => {
@@ -41,7 +42,7 @@ context('<Modal />', () => {
 			<Modal
 				header={{ title: 'With disclosure' }}
 				disclosure={
-					<ButtonPrimary data-test="modal-disclosure" onClick={() => {}}>
+					<ButtonPrimary data-testid="modal-disclosure" onClick={() => {}}>
 						Open the modal
 					</ButtonPrimary>
 				}
@@ -49,8 +50,8 @@ context('<Modal />', () => {
 				<p>A basic modal with an associated disclosure button.</p>
 			</Modal>,
 		);
-		cy.getByTest('modal-disclosure').click();
-		cy.getByTest('modal').should('be.visible');
+		cy.findByTestId('modal-disclosure').click();
+		cy.findByTestId('modal').should('be.visible');
 	});
 
 	it('should close the modal on cancel/close action', () => {
@@ -60,12 +61,12 @@ context('<Modal />', () => {
 				<p>A basic modal with only a title and a text content.</p>
 			</ModalStory>,
 		);
-		cy.getByTest('open-modal').click();
-		cy.getByTestId('modal.buttons.close')
+		cy.findByTestId('open-modal').click();
+		cy.findByTestId('modal.buttons.close')
 			.click()
 			.then(() => {
 				// then
-				cy.getByTest('modal').should('not.exist');
+				cy.findByTestId('modal').should('not.exist');
 			});
 	});
 
@@ -76,8 +77,8 @@ context('<Modal />', () => {
 				<p>A basic modal with only a title and a text content.</p>
 			</ModalStory>,
 		);
-		cy.getByTest('open-modal').click();
-		cy.getByTestId('modal.buttons.close').should('not.exist');
+		cy.findByTestId('open-modal').click();
+		cy.findByTestId('modal.buttons.close').should('not.exist');
 	});
 
 	it('should close the modal on ESC key', () => {
@@ -87,12 +88,12 @@ context('<Modal />', () => {
 				<p>A basic modal with only a title and a text content.</p>
 			</ModalStory>,
 		);
-		cy.getByTest('open-modal').click();
-		cy.getByTest('modal')
+		cy.findByTestId('open-modal').click();
+		cy.findByTestId('modal')
 			.type('{esc}')
 			.then(() => {
 				// then
-				cy.getByTest('modal').should('not.exist');
+				cy.findByTestId('modal').should('not.exist');
 			});
 	});
 
@@ -105,12 +106,12 @@ context('<Modal />', () => {
 				</p>
 			</ModalStory>,
 		);
-		cy.getByTest('open-modal').click();
-		cy.getByTest('modal')
+		cy.findByTestId('open-modal').click();
+		cy.findByTestId('modal')
 			.type('{esc}')
 			.then(() => {
 				// then
-				cy.getByTest('modal').should('exist');
+				cy.findByTestId('modal').should('exist');
 			});
 	});
 });

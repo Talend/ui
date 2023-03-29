@@ -20,3 +20,5 @@ jest.config.js
 talend-scripts.json
 test-utils.js
 tsconfig.json
+*.cy.js
+*.cy.js.map

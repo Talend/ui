@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/await-async-query */
 import React from 'react';
 
 import { IconsProvider } from '.';
@@ -21,7 +23,7 @@ context('<IconsProvider />', () => {
 				<IconsProvider bundles={[]} icons={customIcons} />
 			</div>,
 		);
-		cy.getByTestId('wrapper')
+		cy.findByTestId('wrapper')
 			.find('symbol')
 			.should('have.length', 1)
 			.first()
@@ -36,7 +38,7 @@ context('<IconsProvider />', () => {
 				<IconsProvider bundles={[]} defaultIcons={defaultIcons} />
 			</div>,
 		);
-		cy.getByTestId('wrapper')
+		cy.findByTestId('wrapper')
 			.find('symbol')
 			.should('have.length', 1)
 			.first()
@@ -54,14 +56,16 @@ context('<IconsProvider />', () => {
 				<IconsProvider bundles={[]} defaultIcons={defaultIcons} icons={customIcons} />
 			</div>,
 		);
-		cy.getByTestId('wrapper').find('symbol').should('have.length', 2);
+		cy.findByTestId('wrapper').find('symbol').should('have.length', 2);
 	});
 	it('should support additionalBundles props', () => {
 		const additionalBundles = ['/some/other/icons', '/more/icons/is/better'];
-		cy.intercept('/some/other/icons', '<svg data-test="other-icons"></svg>').as('getOtherBundle');
-		cy.intercept('/more/icons/is/better', '<svg data-test="more-icons"></svg>').as('getMoreBundle');
+		cy.intercept('/some/other/icons', '<svg data-testid="other-icons"></svg>').as('getOtherBundle');
+		cy.intercept('/more/icons/is/better', '<svg data-testid="more-icons"></svg>').as(
+			'getMoreBundle',
+		);
 		cy.mount(<IconsProvider bundles={[]} additionalBundles={additionalBundles} />);
-		cy.getByTest('other-icons').should('to.exist');
-		cy.getByTest('more-icons').should('to.exist');
+		cy.findByTestId('other-icons').should('to.exist');
+		cy.findByTestId('more-icons').should('to.exist');
 	});
 });

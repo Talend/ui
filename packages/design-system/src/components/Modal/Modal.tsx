@@ -83,19 +83,31 @@ function Modal(props: ModalPropsType): ReactElement {
 				</DialogDisclosure>
 			)}
 			{dialog.visible && (
-				<DialogBackdrop {...dialog} className={styles['modal-backdrop']} data-test="modal.backdrop">
+				<DialogBackdrop
+					{...dialog}
+					className={styles['modal-backdrop']}
+					data-test="modal.backdrop"
+					data-testid="modal.backdrop"
+				>
 					<div className={styles['modal-container']}>
 						<Dialog
 							{...dialog}
 							{...rest}
 							data-test="modal"
+							data-testid="modal"
 							className={styles.modal}
 							hide={preventEscaping ? undefined : () => onCloseHandler()}
 							ref={ref}
 						>
 							<StackVertical gap={0}>
 								<div className={styles.modal__header}>
-									{header.icon && <ModalIcon icon={header.icon} data-test="modal.header.icon" />}
+									{header.icon && (
+										<ModalIcon
+											icon={header.icon}
+											data-test="modal.header.icon"
+											data-testid="modal.header.icon"
+										/>
+									)}
 									<div className={styles['modal-header-text']}>
 										<span
 											className={styles['modal-header-text__title']}
@@ -124,6 +136,7 @@ function Modal(props: ModalPropsType): ReactElement {
 											<span className={styles['close-button']}>
 												<ButtonSecondary
 													onClick={() => onCloseHandler()}
+													data-test="modal.buttons.close"
 													data-testid="modal.buttons.close"
 													data-feature="modal.buttons.close"
 												>
@@ -136,6 +149,7 @@ function Modal(props: ModalPropsType): ReactElement {
 
 										{secondaryAction && (
 											<ButtonSecondary
+												data-test="modal.buttons.secondary"
 												data-testid="modal.buttons.secondary"
 												data-feature="modal.buttons.secondary"
 												{...secondaryAction}
@@ -145,6 +159,7 @@ function Modal(props: ModalPropsType): ReactElement {
 										{primaryAction && (
 											<PrimaryAction
 												data-testid="modal.buttons.primary"
+												data-test="modal.buttons.primary"
 												data-feature="modal.buttons.primary"
 												{...primaryAction}
 											/>

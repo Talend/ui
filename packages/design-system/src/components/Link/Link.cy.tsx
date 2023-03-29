@@ -1,8 +1,8 @@
+/* eslint-disable testing-library/await-async-query */
 /* eslint-disable testing-library/prefer-screen-queries */
 import React from 'react';
 
 import Link from './';
-
 context('<Link />', () => {
 	it('should render', () => {
 		cy.mount(
@@ -10,22 +10,22 @@ context('<Link />', () => {
 				Link example
 			</Link>,
 		);
-		cy.getByTestId('my.link').should('have.text', 'Link example');
+		cy.findByTestId('my.link').should('have.text', 'Link example');
 	});
 
 	it('should render icon before', () => {
 		cy.mount(<Link href="#" icon="information-filled" />);
-		cy.getByTest('link.icon.before').should('be.visible');
+		cy.findByTestId('link.icon.before').should('be.visible');
 	});
 
 	it('should render external', () => {
 		cy.mount(<Link href="https://www.talend.com" />);
-		cy.getByTest('link.icon.external').should('be.visible');
+		cy.findByTestId('link.icon.external').should('be.visible');
 	});
 
 	it('should render disabled', () => {
 		cy.mount(<Link href="#" icon="information-filled" disabled data-testid="my.link" />);
-		cy.getByTestId('my.link').should('have.attr', 'aria-disabled');
+		cy.findByTestId('my.link').should('have.attr', 'aria-disabled');
 	});
 
 	it('should deal with target blank', () => {
@@ -34,7 +34,7 @@ context('<Link />', () => {
 				Link example
 			</Link>,
 		);
-		cy.getByTestId('my.link')
+		cy.findByTestId('my.link')
 			.should('have.attr', 'title', 'Open in a new tab')
 			.should('have.attr', 'target', '_blank')
 			.should('have.attr', 'rel', 'noreferrer noopener');
@@ -46,7 +46,7 @@ context('<Link />', () => {
 				Unknown target
 			</Link>,
 		);
-		cy.getByTestId('my.link')
+		cy.findByTestId('my.link')
 			.should('have.attr', 'title', 'Open in a new tab')
 			.should('have.attr', 'rel', 'noreferrer noopener');
 	});
@@ -57,12 +57,12 @@ context('<Link />', () => {
 				Self target
 			</Link>,
 		);
-		cy.getByTestId('my.link').should('not.have.attr', 'title');
-		cy.getByTestId('my.link').should('not.have.attr', 'rel');
+		cy.findByTestId('my.link').should('not.have.attr', 'title');
+		cy.findByTestId('my.link').should('not.have.attr', 'rel');
 	});
 
 	it('should have data-feature', () => {
 		cy.mount(<Link href="#" data-testid="my.link" data-feature="my.feature" />);
-		cy.getByTestId('my.link').should('have.attr', 'data-feature', 'my.feature');
+		cy.findByTestId('my.link').should('have.attr', 'data-feature', 'my.feature');
 	});
 });

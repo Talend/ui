@@ -1,4 +1,21 @@
-import { mount } from '@cypress/react';
+/* eslint-disable @talend/import-depth */
+// ***********************************************************
+// This example support/component.ts is processed and
+// loaded automatically before your test files.
+//
+// This is a great place to put global configuration and
+// behavior that modifies Cypress.
+//
+// You can change the location of this file or turn off
+// automatically serving support files with the
+// 'supportFile' configuration option.
+//
+// You can read more here:
+// https://on.cypress.io/configuration
+// ***********************************************************
+
+import './commands';
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { namespaces as designSystemNamespaces } from '@talend/locales-design-system/namespaces';
@@ -23,24 +40,4 @@ i18n.use(initReactI18next).init({
 		{},
 	),
 	wait: true,
-});
-
-Cypress.Commands.add('mount', jsx => {
-	return mount(jsx);
-});
-
-Cypress.Commands.add('clickOutside', () => {
-	cy.get('body').click(0, 0);
-});
-
-Cypress.Commands.add('getByTestId', (selector, options) => {
-	return cy.get(`[data-testid="${selector}"]`, options);
-});
-
-Cypress.Commands.add('getByTest', (selector, options) => {
-	return cy.get(`[data-test="${selector}"]`, options);
-});
-
-Cypress.Commands.add('getByRole', (selector, options) => {
-	return cy.get(`[role="${selector}"]`, options);
 });
