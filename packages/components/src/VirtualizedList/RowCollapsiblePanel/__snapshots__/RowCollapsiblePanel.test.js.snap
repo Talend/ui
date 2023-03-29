@@ -19,10 +19,10 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
           type="circle"
         >
           <span
-            aria-label="circle (loading)"
+            aria-label="circle Loading..."
             className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
             style={
-              Object {
+              {
                 "height": undefined,
                 "width": undefined,
               }
@@ -34,10 +34,10 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
           type="text"
         >
           <span
-            aria-label="text (loading)"
+            aria-label="text Loading..."
             className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
             style={
-              Object {
+              {
                 "height": undefined,
                 "width": undefined,
               }
@@ -51,10 +51,10 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
           type="circle"
         >
           <span
-            aria-label="circle (loading)"
+            aria-label="circle Loading..."
             className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
             style={
-              Object {
+              {
                 "height": undefined,
                 "width": undefined,
               }
@@ -66,10 +66,10 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
           type="text"
         >
           <span
-            aria-label="text (loading)"
+            aria-label="text Loading..."
             className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
             style={
-              Object {
+              {
                 "height": undefined,
                 "width": undefined,
               }
@@ -83,10 +83,10 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
           type="text"
         >
           <span
-            aria-label="text (loading)"
+            aria-label="text Loading..."
             className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
             style={
-              Object {
+              {
                 "height": undefined,
                 "width": undefined,
               }
@@ -100,10 +100,10 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
           type="text"
         >
           <span
-            aria-label="text (loading)"
+            aria-label="text Loading..."
             className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
             style={
-              Object {
+              {
                 "height": undefined,
                 "width": undefined,
               }
@@ -125,7 +125,7 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
   onKeyDown={[Function]}
   role="listitem"
   style={
-    Object {
+    {
       "background": "red",
     }
   }
@@ -133,12 +133,12 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
 >
   <CollapsiblePanel
     content={
-      Array [
-        Object {
+      [
+        {
           "description": "Description1",
           "label": "Content1",
         },
-        Object {
+        {
           "description": "Description2",
           "label": "Content2",
         },
@@ -146,9 +146,9 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
     }
     expanded={true}
     header={
-      Array [
-        Object {
-          "actions": Array [],
+      [
+        {
+          "actions": [],
           "displayMode": "status",
           "icon": "talend-cross",
           "label": "Canceled",

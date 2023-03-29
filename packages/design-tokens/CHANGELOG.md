@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 2.7.2
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+
 ## 2.7.1
 
 ### Patch Changes

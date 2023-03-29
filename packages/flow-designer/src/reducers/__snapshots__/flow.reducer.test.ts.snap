@@ -11,7 +11,7 @@ Immutable.Map {
     "nodeId": Immutable.Map {},
     "node2": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -117,7 +117,7 @@ Immutable.Map {
   "parents": Immutable.Map {
     "nodeId": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -171,7 +171,7 @@ Immutable.Map {
     "nodeId": Immutable.Map {},
     "node2": Immutable.Map {},
   },
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,
@@ -276,7 +276,7 @@ Immutable.Map {
     "y": -400,
   },
   "parents": Immutable.Map {},
-  "transform": Object {
+  "transform": {
     "k": 1,
     "x": 0,
     "y": 0,

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 import ListView from './ListView.component';
 
-const NO_RESULT_MESSAGE = 'No result found.';
+const NO_RESULT_MESSAGE = 'No results found';
 
 describe('ListView field', () => {
 	let props;

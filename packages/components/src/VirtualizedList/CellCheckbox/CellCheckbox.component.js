@@ -26,7 +26,7 @@ class CellCheckbox extends React.Component {
 
 		return (
 			<div className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
-				<div className="checkbox">
+				<div className={classnames('checkbox', { disabled })}>
 					<label htmlFor={id && `${id}-${rowIndex}-check`}>
 						<input
 							id={id && `${id}-${rowIndex}-check`}

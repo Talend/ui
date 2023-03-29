@@ -1,29 +1,27 @@
 {
   "devDependencies": {
-    "@changesets/cli": "^2.23.2",
+    "@changesets/cli": "^2.26.0",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
     "eslint": "^7.32.0",
-    "husky": "^8.0.1",
-    "i18next-scanner": "^4.0.0",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "husky": "^8.0.3",
+    "i18next-scanner": "^4.1.1",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.3"
   },
   "scripts": {
-    "postinstall": "node workspace-run.js build:lib",
-    "pre-release": "node workspace-run.js pre-release",
+    "postinstall": "talend-yarn-workspace run build:lib",
+    "pre-release": "talend-yarn-workspace run pre-release",
     "start": "yarn workspace @talend/ui-playground run start",
-    "start-storybook": "yarn workspace @talend/ui-storybook run start-storybook",
+    "start-storybook": "yarn workspace @talend/ui-storybook run start",
     "release": "yarn pre-release && yarn changeset publish",
     "lint-staged": "lint-staged",
-    "lint:es": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:es",
-    "lint:style": "cross-env WORKSPACE_RUN_FAIL=no-bail node workspace-run.js lint:style",
-    "build": "yarn workspaces run build",
-    "test": "cross-env TZ=Europe/Paris node workspace-run.js test --silent",
+    "lint": "cross-env WORKSPACE_RUN_FAIL=no-bail talend-yarn-workspace run lint",
+    "test": "cross-env TZ=Europe/Paris talend-yarn-workspace run test --silent",
     "test:update": "cross-env TZ=Europe/Paris yarn workspaces run test --silent -u",
-    "test:cov": "cross-env TZ=Europe/Paris yarn workspaces run test:cov",
-    "test:demo": "node workspace-run.js test:demo",
-    "test:cron": "node workspace-run.js test:cron",
+    "test:cov": "cross-env TZ=Europe/Paris talend-yarn-workspace run test:cov",
+    "test:demo": "talend-yarn-workspace run test:demo",
+    "test:cron": "talend-yarn-workspace run test:cron",
     "start-components": "yarn workspace @talend/react-components run start",
     "start-containers": "yarn workspace  @talend/react-containers run start",
     "start-stepper": "yarn workspace  @talend/react-stepper run start",
@@ -38,10 +36,11 @@
     "**/webpack-dev-middleware": "^5.3.3",
     "**/@types/react": "^17.0.2",
     "**/@types/react-dom": "^17.0.2",
-    "**/typescript": ">=4.6.3",
+    "**/i18next-scanner-typescript/typescript": "^4.9.5",
     "**/vinyl-fs/glob-parent": "^5.1.2",
     "**/fast-glob/glob-parent": "^5.1.2",
-    "**/trim": "^1.0.1"
+    "**/trim": "^1.0.1",
+    "**/x-default-browser": "^0.5.2"
   },
   "repository": {
     "type": "git",
@@ -55,15 +54,15 @@
     "fork/*"
   ],
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --quiet --fix"
-    ],
     "*.{json,md,mdx,html,js,jsx,ts,tsx}": [
       "prettier --write"
     ]
   },
   "dependencies": {
-    "typescript": "^4.7.4",
-    "webpack": "^5.73.0"
+    "@types/react": "^17.0.53",
+    "@types/react-dom": "^17.0.18",
+    "terser-webpack-plugin": "^5.3.6",
+    "typescript": "^4.9.5",
+    "webpack": "^5.76.3"
   }
 }

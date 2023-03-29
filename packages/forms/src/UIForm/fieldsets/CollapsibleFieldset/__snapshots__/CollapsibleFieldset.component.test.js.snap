@@ -7,11 +7,11 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
   <CollapsiblePanel
     expanded={false}
     header={
-      Array [
-        Object {
+      [
+        {
           "label": "Jimmy, Somsanith",
         },
-        Array [],
+        [],
       ]
     }
     id="my-fieldset"
@@ -24,11 +24,11 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
     <Widget
       id="my-fieldset"
       schema={
-        Object {
-          "key": Array [
+        {
+          "key": [
             "firstname",
           ],
-          "schema": Object {
+          "schema": {
             "type": "string",
           },
           "title": "FirstName",
@@ -36,22 +36,22 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
         }
       }
       value={
-        Object {
+        {
           "firstname": "Jimmy",
           "isClosed": true,
           "lastname": "Somsanith",
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
     <Widget
       id="my-fieldset"
       schema={
-        Object {
-          "key": Array [
+        {
+          "key": [
             "lastname",
           ],
-          "schema": Object {
+          "schema": {
             "type": "string",
           },
           "title": "LastName",
@@ -59,13 +59,13 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
         }
       }
       value={
-        Object {
+        {
           "firstname": "Jimmy",
           "isClosed": true,
           "lastname": "Somsanith",
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
   </CollapsiblePanel>
 </fieldset>
@@ -78,11 +78,11 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
   <CollapsiblePanel
     expanded={true}
     header={
-      Array [
-        Object {
+      [
+        {
           "label": "Basic: Jimmy Somsanith",
         },
-        Array [],
+        [],
       ]
     }
     id="my-fieldset"
@@ -95,11 +95,11 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
     <Widget
       id="my-fieldset"
       schema={
-        Object {
-          "key": Array [
+        {
+          "key": [
             "firstname",
           ],
-          "schema": Object {
+          "schema": {
             "type": "string",
           },
           "title": "FirstName",
@@ -107,22 +107,22 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
         }
       }
       value={
-        Object {
+        {
           "firstname": "Jimmy",
           "isClosed": false,
           "lastname": "Somsanith",
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
     <Widget
       id="my-fieldset"
       schema={
-        Object {
-          "key": Array [
+        {
+          "key": [
             "lastname",
           ],
-          "schema": Object {
+          "schema": {
             "type": "string",
           },
           "title": "LastName",
@@ -130,13 +130,13 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
         }
       }
       value={
-        Object {
+        {
           "firstname": "Jimmy",
           "isClosed": false,
           "lastname": "Somsanith",
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
   </CollapsiblePanel>
 </fieldset>
@@ -149,11 +149,11 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
   <CollapsiblePanel
     expanded={true}
     header={
-      Array [
-        Object {
+      [
+        {
           "label": "Jimmy, Somsanith",
         },
-        Array [],
+        [],
       ]
     }
     id="my-fieldset"
@@ -166,11 +166,11 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
     <Widget
       id="my-fieldset"
       schema={
-        Object {
-          "key": Array [
+        {
+          "key": [
             "firstname",
           ],
-          "schema": Object {
+          "schema": {
             "type": "string",
           },
           "title": "FirstName",
@@ -178,22 +178,22 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
         }
       }
       value={
-        Object {
+        {
           "firstname": "Jimmy",
           "isClosed": false,
           "lastname": "Somsanith",
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
     <Widget
       id="my-fieldset"
       schema={
-        Object {
-          "key": Array [
+        {
+          "key": [
             "lastname",
           ],
-          "schema": Object {
+          "schema": {
             "type": "string",
           },
           "title": "LastName",
@@ -201,13 +201,13 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
         }
       }
       value={
-        Object {
+        {
           "firstname": "Jimmy",
           "isClosed": false,
           "lastname": "Somsanith",
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
   </CollapsiblePanel>
 </fieldset>
@@ -220,11 +220,11 @@ exports[`CollapsibleFieldset should render without value 1`] = `
   <CollapsiblePanel
     expanded={true}
     header={
-      Array [
-        Object {
+      [
+        {
           "label": "Basic",
         },
-        Array [],
+        [],
       ]
     }
     id="my-fieldset"
@@ -237,11 +237,11 @@ exports[`CollapsibleFieldset should render without value 1`] = `
     <Widget
       id="my-fieldset"
       schema={
-        Object {
-          "key": Array [
+        {
+          "key": [
             "firstname",
           ],
-          "schema": Object {
+          "schema": {
             "type": "string",
           },
           "title": "FirstName",
@@ -249,20 +249,20 @@ exports[`CollapsibleFieldset should render without value 1`] = `
         }
       }
       value={
-        Object {
+        {
           "isClosed": undefined,
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
     <Widget
       id="my-fieldset"
       schema={
-        Object {
-          "key": Array [
+        {
+          "key": [
             "lastname",
           ],
-          "schema": Object {
+          "schema": {
             "type": "string",
           },
           "title": "LastName",
@@ -270,11 +270,11 @@ exports[`CollapsibleFieldset should render without value 1`] = `
         }
       }
       value={
-        Object {
+        {
           "isClosed": undefined,
         }
       }
-      widgets={Object {}}
+      widgets={{}}
     />
   </CollapsiblePanel>
 </fieldset>

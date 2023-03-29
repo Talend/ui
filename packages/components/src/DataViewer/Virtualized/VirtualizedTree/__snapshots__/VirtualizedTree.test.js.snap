@@ -8,7 +8,7 @@ exports[`VirtualizedTree should render the autosize from react virtualized 1`] =
     disableHeight={false}
     disableWidth={false}
     onResize={[Function]}
-    style={Object {}}
+    style={{}}
   >
     [Function]
   </AutoSizer>

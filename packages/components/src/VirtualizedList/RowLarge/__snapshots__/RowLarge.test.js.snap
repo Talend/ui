@@ -6,9 +6,9 @@ exports[`RowLarge should render large row 1`] = `
   index={1}
   onKeyDown={[Function]}
   parent={
-    Object {
-      "props": Object {
-        "children": Array [
+    {
+      "props": {
+        "children": [
           <Content
             cellDataGetter={[Function]}
             cellRenderer={[Function]}
@@ -18,7 +18,7 @@ exports[`RowLarge should render large row 1`] = `
             flexShrink={0}
             headerRenderer={[Function]}
             label="Id"
-            style={Object {}}
+            style={{}}
             width={50}
           />,
           <Content
@@ -27,7 +27,7 @@ exports[`RowLarge should render large row 1`] = `
             cellType="title"
             className="tc-list-title-cell"
             columnData={
-              Object {
+              {
                 "actionsKey": "titleActions",
                 "displayModeKey": "display",
                 "iconKey": "icon",
@@ -39,7 +39,7 @@ exports[`RowLarge should render large row 1`] = `
             flexShrink={0}
             headerRenderer={[Function]}
             label="Name"
-            style={Object {}}
+            style={{}}
             width={350}
           />,
           <Content
@@ -51,39 +51,39 @@ exports[`RowLarge should render large row 1`] = `
             flexShrink={0}
             headerRenderer={[Function]}
             label="Description"
-            style={Object {}}
+            style={{}}
             width={350}
           />,
         ],
-        "collection": Array [
-          Object {
+        "collection": [
+          {
             "description": "This comes from first element in collection",
             "id": 0,
             "name": "Title from first item",
-            "titleActions": Array [
-              Object {
+            "titleActions": [
+              {
                 "icon": "talend-pencil",
                 "label": "edit",
                 "onClick": [MockFunction],
               },
-              Object {
+              {
                 "icon": "talend-trash",
                 "label": "delete",
                 "onClick": [MockFunction],
               },
             ],
           },
-          Object {
+          {
             "description": "This comes from second element in collection",
             "id": 1,
             "name": "Title from second item",
-            "titleActions": Array [
-              Object {
+            "titleActions": [
+              {
                 "icon": "talend-pencil",
                 "label": "edit",
                 "onClick": [MockFunction],
               },
-              Object {
+              {
                 "icon": "talend-trash",
                 "label": "delete",
                 "onClick": [MockFunction],
@@ -97,7 +97,7 @@ exports[`RowLarge should render large row 1`] = `
     }
   }
   style={
-    Object {
+    {
       "background": "red",
     }
   }

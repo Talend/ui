@@ -82,7 +82,7 @@ function SortBy({ id, options, onChange, value }) {
 			) : (
 				<NavDropdown
 					aria-label={t('LIST_CHANGE_SORT_BY', {
-						defaultValue: 'Change sort criteria. Current sort by {{sortBy}}.',
+						defaultValue: 'Change sort criteria. Current sort criteria: {{sortBy}}.',
 						sortBy: selectedLabel,
 					})}
 					className={theme('tc-sort-by-items')}

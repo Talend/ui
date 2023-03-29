@@ -54,8 +54,10 @@ $module: line-chart;
 		&__button--selection-enabled:hover {
 			background-color: tokens.$coral-color-accent-background-hover;
 		}
+
 		&__button--selected {
 			background-color: tokens.$coral-color-accent-background-selected;
+
 			&:hover {
 				background-color: tokens.$coral-color-accent-background-selected;
 			}

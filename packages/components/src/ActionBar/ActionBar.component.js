@@ -155,7 +155,10 @@ function Count({ selected }) {
 		return null;
 	}
 	return (
-		<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
+		<span
+			data-test="selected-count"
+			className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}
+		>
 			{t('ACTION_BAR_COUNT_SELECTED', { defaultValue: '{{selected}} selected', selected })}
 		</span>
 	);

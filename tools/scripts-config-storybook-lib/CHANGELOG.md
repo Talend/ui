@@ -1,5 +1,39 @@
 # @talend/scripts-config-storybook-lib
 
+## 4.0.2
+
+### Patch Changes
+
+- b1cb432e5: fix: support for import of scss file without css module
+
+## 4.0.1
+
+### Patch Changes
+
+- c7152471f: fix: msw is broken
+
+## 4.0.0
+
+### Major Changes
+
+- c18aabb97: chore: simplify it, it just hold the configuration
+
+  BREAKING CHANGE: it do not expose anything from outside.
+
+  This new version do not work with previous talend-scripts version
+
+## 3.0.2
+
+### Patch Changes
+
+- d474e873f: fix: storybook crash trying to load react-cmf module
+
+## 3.0.1
+
+### Patch Changes
+
+- 5e72003aa: fix: make storybook config when there is no cmf package installed
+
 ## 3.0.0
 
 ### Major Changes

@@ -9,7 +9,7 @@ exports[`Action Icon Toggle should render 1`] = `
   label="My awesome label"
   onClick={[Function]}
   payload={
-    Object {
+    {
       "type": "TOGGLE-MY-AWESOME-ACTION",
     }
   }

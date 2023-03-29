@@ -6,9 +6,10 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build:styles": "webpack --config webpack.custom.js --mode=production",
-    "build:lib": "talend-scripts build:ts:lib && npm run build:styles",
+    "build:lib": "talend-scripts build && npm run build:styles",
     "pre-release": "npm run build:lib",
     "start": "npm run storybook",
+    "lint": "talend-scripts lint",
     "test": "echo no test",
     "test:demo": "npm run build-storybook",
     "storybook": "npm run build:lib && talend-scripts start-storybook -p 6106",
@@ -28,12 +29,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@talend/design-system": "^7.0.0",
-    "@talend/design-tokens": "^2.7.1"
+    "@talend/design-system": "^7.5.1",
+    "@talend/design-tokens": "^2.7.2"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^14.0.0"
+    "@talend/scripts-core": "^13.1.2"
   },
   "peerDependencies": {
     "@talend/icons": "^6.42.0"

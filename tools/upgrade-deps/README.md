@@ -12,15 +12,16 @@ The binary installed in this package is `talend-upgrade-deps`.
 
 **Options**
 
-| Option    | Default   | Description                                                                      |
-| --------- | --------- | -------------------------------------------------------------------------------- |
-| package   | undefined | Used for single package upgrade. The name of the package.                        |
-| scope     | undefined | Used for single npm scope packages. (Example: `@talend`). The name of the scope. |
-| latest    | false     | If true, it forces the update to use **latest** tag on npm.                      |
-| next      | false     | If true, it forces the update to use **next** tag on npm.                        |
-| dry       | false     | Do not change anything, just look at what could be changed in your package.json. |
-| security  | undefined | Activates dependencies security mode, providing a configuration file path.       |
-| changeset | undefined | Create a changeset file based on git diff of each package.json.                  |
+| Option         | Default   | Description                                                                      |
+| -------------- | --------- | -------------------------------------------------------------------------------- |
+| package        | undefined | Used for single package upgrade. The name of the package.                        |
+| scope          | undefined | Used for single npm scope packages. (Example: `@talend`). The name of the scope. |
+| latest         | false     | If true, it forces the update to use **latest** tag on npm.                      |
+| next           | false     | If true, it forces the update to use **next** tag on npm.                        |
+| dry            | false     | Do not change anything, just look at what could be changed in your package.json. |
+| security       | undefined | Activates dependencies security mode, providing a configuration file path.       |
+| changeset      | undefined | Create a changeset file based on git diff of each package.json.                  |
+| ignore-scripts | undefined | force npm and yarn to not trigger scripts                                        |
 
 # Concepts
 

@@ -14,9 +14,11 @@ $tc-slider-line-height: 24px;
 		background-color: transparent;
 		opacity: 0.4;
 	}
+
 	&__handler {
 		position: relative;
 	}
+
 	&__value {
 		position: absolute;
 		top: -25px;

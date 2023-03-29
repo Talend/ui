@@ -244,13 +244,12 @@ export default class MultiSelectTag extends React.Component {
 						const label = getLabel(this.getTitleMap(), val, names[index]);
 						const badgeProps = {
 							label,
-							key: index,
 							dataTest: schema.dataTest && `${schema.dataTest}.${index}`,
 						};
 						if (!schema.readOnly && !schema.disabled) {
 							badgeProps.onDelete = event => this.onRemoveTag(event, index);
 						}
-						return <Badge {...badgeProps} />;
+						return <Badge key={index} {...badgeProps} />;
 					})}
 					<FocusManager onFocusOut={this.resetSuggestions} className={theme['focus-manager']}>
 						<Typeahead

@@ -12,7 +12,7 @@ function MonthYearView(props) {
 			<Action
 				label=""
 				aria-label={props.t('DATEPICKER_TO_DATE_VIEW', {
-					defaultValue: 'Switch back to date and time pickers view',
+					defaultValue: 'Switch to date-and-time view',
 				})}
 				icon="talend-arrow-left"
 				onClick={props.onBackClick}

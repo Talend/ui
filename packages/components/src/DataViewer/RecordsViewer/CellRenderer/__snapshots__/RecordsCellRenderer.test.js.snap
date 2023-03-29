@@ -10,7 +10,7 @@ exports[`RecordsCellRenderer should render 1`] = `
   onToggle={[Function]}
   type="object"
   value={
-    Object {
+    {
       "data": "myData",
     }
   }

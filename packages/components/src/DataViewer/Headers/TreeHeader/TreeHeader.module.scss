@@ -15,14 +15,17 @@ $default-height: 4rem !default;
 	&-actions {
 		display: flex;
 		justify-content: space-between;
+
 		&-icon {
+			color: $dark-silver;
+			text-transform: none;
+
 			:global(.tc-svg-icon) {
 				height: $svg-sm-size;
 				width: $svg-sm-size;
 			}
-			color: $dark-silver;
-			text-transform: none;
 		}
+
 		:global(.btn) {
 			&:focus,
 			&:hover {

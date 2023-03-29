@@ -29,6 +29,7 @@ function VirtualizedList(props) {
 		isSelected,
 		getRowState,
 		inProgress,
+		isToggleAllDisabled,
 		onRowClick,
 		onRowDoubleClick,
 		onRowsRendered,
@@ -49,11 +50,14 @@ function VirtualizedList(props) {
 		widthsOfColumns,
 		setWidthsOfColumns,
 		headerAction,
+		headerHeight,
+		disableHeight = false,
 	} = props;
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		children,
 		collection,
 		isSelected,
+		isToggleAllDisabled,
 		onToggleAll,
 		selectionToggle,
 		getRowState,
@@ -89,7 +93,7 @@ function VirtualizedList(props) {
 
 	return (
 		<virtualizedListContext.Provider value={{ resizeColumn }}>
-			<AutoSizer>
+			<AutoSizer disableHeight={disableHeight}>
 				{({ height, width }) => (
 					<RendererSelector
 						ref={rendererSelectorRef}
@@ -118,6 +122,7 @@ function VirtualizedList(props) {
 						scrollToIndex={scrollToIndex}
 						scrollToAlignment={scrollToAlignment}
 						headerAction={headerAction}
+						headerHeight={headerHeight}
 					>
 						{columnDefinitions}
 					</RendererSelector>

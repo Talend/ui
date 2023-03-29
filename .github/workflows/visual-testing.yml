@@ -18,6 +18,17 @@ on:
     branches:
       - master
 
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: write
+  statuses: write
+
 jobs:
   changes:
     # Trigger on ready PRs or draft with label
@@ -28,7 +39,7 @@ jobs:
     outputs:
       packages: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -51,26 +62,21 @@ jobs:
     environment: pull_request_unsafe
     if: needs.changes.outputs.packages != '[]'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: 16
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn --frozen-lock --ignore-scripts
-
-      - name: Build @talend/*
-        run: |
-          # We need to build all dependencies (cmf, components...)
-          yarn postinstall
+        run: yarn --frozen-lock
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
-        uses: chromaui/action@v1
+        uses: chromaui/action@641759d315cf9db33a150a70cb904b7853049ca6 #v6.17.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
@@ -82,7 +88,7 @@ jobs:
 
       - name: Publish Master to DS Chromatic
         if: github.ref == 'refs/heads/master'
-        uses: chromaui/action@v1
+        uses: chromaui/action@641759d315cf9db33a150a70cb904b7853049ca6 #v6.17.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

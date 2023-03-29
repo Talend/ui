@@ -17,6 +17,7 @@ export const QuickSearchInput = ({
 	className,
 	onSelect = () => {},
 	facetsFilter,
+	inputProps,
 }) => {
 	const defaultFacet = useMemo(() => getDefaultFacet(facets), [facets]);
 	const [opened, setOpened] = useState(false);
@@ -65,6 +66,7 @@ export const QuickSearchInput = ({
 			value={value}
 			role="searchbox"
 			className={className}
+			inputProps={inputProps}
 		/>
 	);
 };
@@ -76,4 +78,5 @@ QuickSearchInput.propTypes = {
 	onSelect: PropTypes.func,
 	facetsFilter: PropTypes.func,
 	t: PropTypes.func,
+	inputProps: PropTypes.object,
 };

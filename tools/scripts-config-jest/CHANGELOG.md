@@ -1,5 +1,47 @@
 # @talend/scripts-config-jest
 
+## 12.1.1
+
+### Patch Changes
+
+- 29e95e8f6: Add popover disclosure to rendered unit test
+
+## 12.1.0
+
+### Minor Changes
+
+- 65c8ad05c: feat: add \***\*tests\*\*** folder in target (like the default jest config)
+
+## 12.0.0
+
+### Major Changes
+
+- d73871906: feat: upgrade to jest 29
+
+  changelog blog https://jestjs.io/blog/2022/08/25/jest-29
+  changelog full: https://github.com/facebook/jest/blob/main/CHANGELOG.md#2900
+  upgrade guide: https://jestjs.io/docs/upgrading-to-jest29
+
+- c18aabb97: feat: export config from main
+
+  Breaking change: this package can not be used by old talend-scripts preset. But now you can extends from it direclty.
+
+  ```diff
+  - const defaults = require('@talend/scripts-config-jest/jest.config.js');
+  + const defaults = require('@talend/scripts-config-jest');
+  ```
+
+### Patch Changes
+
+- Updated dependencies [c18aabb97]
+  - @talend/scripts-config-babel@12.0.0
+
+## 11.6.1
+
+### Patch Changes
+
+- 7b08afa04: fix(jest): try/catch some mocks that are not safely mocked
+
 ## 11.6.0
 
 ### Minor Changes

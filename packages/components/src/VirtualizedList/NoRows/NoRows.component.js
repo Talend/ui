@@ -15,7 +15,7 @@ export function NoRowsComponent(props) {
 			role="status"
 			aria-live="polite"
 		>
-			{props.t('NO_RESULT_FOUND', { defaultValue: 'No result found' })}
+			{props.t('NO_RESULT_FOUND', { defaultValue: 'No results found' })}
 		</span>
 	);
 }

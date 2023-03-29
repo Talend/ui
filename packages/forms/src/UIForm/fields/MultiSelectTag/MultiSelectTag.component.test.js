@@ -66,7 +66,7 @@ describe('MultiSelectTag field', () => {
 
 		// then
 		expect(screen.getByRole('listbox')).toBeInTheDocument();
-		expect(screen.getByRole('option', { name: 'totomobile' })).toBeInTheDocument();
+		expect(screen.getByTitle('totomobile')).toBeInTheDocument();
 		expect(screen.queryByRole('option', { name: 'toto' })).not.toBeInTheDocument();
 	});
 

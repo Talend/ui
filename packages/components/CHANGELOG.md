@@ -1,5 +1,110 @@
 # @talend/react-components
 
+## 10.2.1
+
+### Patch Changes
+
+- 6d2d52b79: fix(stepper): bring back a css selector and setup a width
+
+## 10.2.0
+
+### Minor Changes
+
+- 3604ba4f6: feat(components): add disabled mode for the quality bar
+- 691e07a11: feat(components): use ErrorState in the Stepper
+- 3604ba4f6: feat(components): change the color for the non applicables elements in the quality bar
+
+## 10.1.1
+
+### Patch Changes
+
+- 20f8526e9: test: rewrite using RTL
+
+## 10.1.0
+
+### Minor Changes
+
+- 44b408dc4: feat(components): List - disable item selection & disable "select all"
+
+## 10.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+## 9.6.0
+
+### Minor Changes
+
+- d2f5bd835: feat(TDP-11751): adding the possibility to set a specific height to the table and disable autosizer
+
+### Patch Changes
+
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+  - @talend/icons@6.54.0
+
+## 9.5.0
+
+### Minor Changes
+
+- 120d02173: Supports hiding tooltip for ObjectViewer(JSONLike)
+
+## 9.4.2
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
+## 9.4.1
+
+### Patch Changes
+
+- 21d87a111: fix: apply code style
+- Updated dependencies [ab0bd21cf]
+  - @talend/bootstrap-theme@7.0.1
+
+## 9.4.0
+
+### Minor Changes
+
+- 703133e82: feat(Datalist): add new value available directly in the datalist while been in the add new value mode
+
+### Patch Changes
+
+- ce84cd6ad: fix(TDP-11750): WithDrawer content hidden on safari due to hidden overflow
+- Updated dependencies [76c15bf5e]
+- Updated dependencies [76c15bf5e]
+  - @talend/icons@6.52.0
+
+## 9.3.0
+
+### Minor Changes
+
+- 012d6fe31: Add data-test attribute
+
+### Patch Changes
+
+- bb92ff4bd: fix not translated "select all" in list component
+
+## 9.2.1
+
+### Patch Changes
+
+- 8a3537827: TDOPS-3399 - Fix HeaderBar button style on hover
+
+## 9.2.0
+
+### Minor Changes
+
+- a3ac5792b: fix not translated "select all" in list component
+
 ## 9.1.0
 
 ### Minor Changes

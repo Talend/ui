@@ -176,7 +176,7 @@ exports[`Table should render if data is empty 1`] = `
 exports[`Table should render null if data.datas is not an array 1`] = `null`;
 
 exports[`buildContentHeaders should return a jsx array with a type 1`] = `
-Array [
+[
   <th
     id="myHeader1Id"
   >
@@ -205,7 +205,7 @@ Array [
 `;
 
 exports[`buildContentHeaders should return a jsx array with no type 1`] = `
-Array [
+[
   <th
     id="myHeader1Id"
   >

@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-config-stylelint",
   "description": "Stylelint configuration for @talend/scripts-core",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -10,6 +10,7 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
+    "lint": "talend-scripts lint ./",
     "test": "echo \"Nothing to test\""
   },
   "repository": {
@@ -17,7 +18,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "stylelint": "^14.11.0",
+    "stylelint": "^14.16.1",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^28.0.0"
   },

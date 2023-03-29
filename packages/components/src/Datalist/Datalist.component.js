@@ -43,6 +43,18 @@ function buildSuggestions({
 		return undefined;
 	}
 
+	if (displayMode === DISPLAY.ALL && filterValue) {
+		const result = [...titleMap];
+		if (allowAddNewElements && !isValuePresentInSuggestions(titleMap, filterValue, multiSection)) {
+			result.unshift({
+				title: `${filterValue} ${allowAddNewElementsSuffix}`,
+				name: filterValue,
+				value: filterValue,
+			});
+		}
+		return result;
+	}
+
 	if (displayMode === DISPLAY.ALL || !filterValue) {
 		return titleMap;
 	}

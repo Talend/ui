@@ -1,4 +1,4 @@
-import React, { cloneElement, HTMLAttributes, ReactElement, ReactNode } from 'react';
+import React, { cloneElement, HTMLAttributes, ReactElement, ReactNode, RefObject } from 'react';
 import classnames from 'classnames';
 import tokens from '@talend/design-tokens';
 import {
@@ -6,6 +6,7 @@ import {
 	PopoverArrow as ReakitPopoverArrow,
 	PopoverDisclosure as ReakitPopoverDisclosure,
 	PopoverDisclosureHTMLProps,
+	PopoverProps,
 	PopoverStateReturn,
 	usePopoverState,
 } from 'reakit';
@@ -29,6 +30,7 @@ export type PopoverPropsType = HTMLAttributes<HTMLDivElement> & {
 	zIndex?: string | number;
 	isFixed?: boolean;
 	hasPadding?: boolean;
+	focusOnDisclosure?: boolean;
 } & DataAttributes;
 
 function Popover({
@@ -37,6 +39,7 @@ function Popover({
 	zIndex = tokens.coralElevationLayerStandardFront,
 	isFixed = false,
 	hasPadding = true,
+	focusOnDisclosure = false,
 	...props
 }: PopoverPropsType) {
 	const popover = usePopoverState({
@@ -45,10 +48,17 @@ function Popover({
 		unstable_fixed: isFixed,
 	});
 	const children = Array.isArray(props.children) ? props.children : [props.children];
+	const disclosureElementProps = typeof disclosure !== 'function' ? disclosure.props : {};
+	const basePopoverProps: Partial<PopoverProps> = {};
+	if (focusOnDisclosure) {
+		basePopoverProps.unstable_initialFocusRef =
+			popover.unstable_referenceRef as RefObject<HTMLElement>;
+		basePopoverProps.unstable_finalFocusRef = popover.unstable_popoverRef as RefObject<HTMLElement>;
+	}
 
 	return (
 		<>
-			<ReakitPopoverDisclosure {...popover}>
+			<ReakitPopoverDisclosure {...popover} {...disclosureElementProps}>
 				{disclosureProps => {
 					if (typeof disclosure === 'function') {
 						return disclosure(disclosureProps);
@@ -59,6 +69,7 @@ function Popover({
 			<ReakitPopover
 				{...popover}
 				{...props}
+				{...basePopoverProps}
 				style={{
 					zIndex,
 				}}

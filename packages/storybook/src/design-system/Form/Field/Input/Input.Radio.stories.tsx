@@ -1,5 +1,10 @@
 import React from 'react';
-import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '@talend/design-system';
+import {
+	ButtonPrimary,
+	Form,
+	InlineMessageInformation,
+	StackVertical,
+} from '@talend/design-system';
 import { useForm } from 'react-hook-form';
 
 export default {
@@ -28,9 +33,9 @@ export const RadioFillStatesReadonly = () => (
 );
 
 type Inputs = {
-	option: string;
-	'inline-option': string;
-	'readonly-option': string;
+	option?: string;
+	'inline-option'?: string;
+	'readonly-option'?: string;
 	'disabled-inline-option'?: string;
 };
 
@@ -47,36 +52,57 @@ export const ReactHooksForm = () => {
 				/>
 			)}
 			<Form.Fieldset legend="Pick one option" required>
-				<Form.Radio label="Option A" value="option-a" {...register('option')} />
-				<Form.Radio label="Option B" value="option-b" defaultChecked {...register('option')} />
+				<Form.Radio label="Option A" value="option-a" name="option" ref={register()} />
+				<Form.Radio
+					label="Option B"
+					value="option-b"
+					defaultChecked
+					name="option"
+					ref={register()}
+				/>
 			</Form.Fieldset>
 			<Form.Fieldset legend="Pick one inline option" required>
 				<Form.Row>
-					<Form.Radio label="Inline option A" value="option-a" {...register('inline-option')} />
+					<Form.Radio
+						label="Inline option A"
+						value="option-a"
+						name="inline-option"
+						ref={register()}
+					/>
 					<Form.Radio
 						label="Inline option B"
 						value="option-b"
 						defaultChecked
-						{...register('inline-option')}
+						name="inline-option"
+						ref={register()}
 					/>
 				</Form.Row>
 			</Form.Fieldset>
 			<Form.Fieldset legend="Read only are sent" required readOnly>
-				<Form.Radio label="Option C" value="option-c" {...register('readonly-option')} />
-				<Form.Radio label="Option D" value="option-d" checked {...register('readonly-option')} />
+				<Form.Radio label="Option C" value="option-c" name="readonly-option" ref={register()} />
+				<Form.Radio
+					label="Option D"
+					value="option-d"
+					checked
+					name="readonly-option"
+					ref={register()}
+				/>
 			</Form.Fieldset>
 			<Form.Fieldset legend="Disabled are not sent" required disabled>
-				{/* @see https://github.com/react-hook-form/react-hook-form/issues/6690 */}
 				<Form.Radio
 					label="Option E"
 					value="option-e"
-					{...register('disabled-inline-option', { disabled: true })}
+					name="disabled-inline-option"
+					disabled
+					ref={register()}
 				/>
 				<Form.Radio
 					label="Option F"
 					value="option-f"
 					checked
-					{...register('disabled-inline-option', { disabled: true })}
+					name="disabled-inline-option"
+					disabled
+					ref={register()}
 				/>
 			</Form.Fieldset>
 			<Form.Buttons>
