@@ -4,54 +4,56 @@ import getMonth from 'date-fns/get_month';
 import { date } from '@talend/utils';
 
 const buildWeeks = date.generator.buildWeeks;
-// DayCalendar.propTypes = {
-// 	onKeyDown: PropTypes.func.isRequired,
-// 	month: PropTypes.number.isRequired,
-// 	year: PropTypes.number.isRequired,
-// };
 
-class DayCalendar extends React.Component {
-	isCurrentMonth(date) {
-		return getMonth(date) === this.props.month;
+type DayCalendarProps = {
+	onKeyDown: (event: React.KeyboardEvent, calendarRef: HTMLElement, indexToFocus: number) => void;
+	month: number;
+	year: number;
+};
+
+function DayCalendar(props: DayCalendarProps) {
+	const calendarRef = React.useRef<HTMLTableElement>(null);
+
+	function isCurrentMonth(currentDate: Date) {
+		return getMonth(currentDate) === props.month;
 	}
 
-	render() {
-		const { year, month, onKeyDown } = this.props;
-		const weeks = buildWeeks(year, month);
+	const { year, month, onKeyDown } = props;
+	const weeks = buildWeeks(year, month);
 
-		return (
-			<table
-				ref={ref => {
-					this.calendarRef = ref;
-				}}
-			>
-				<tbody>
-					{weeks.map((week, weekIndex) => (
-						<tr key={weekIndex}>
-							{week.map((date, dayIndex) => {
-								if (getMonth(date) !== this.props.month) {
-									return <td key={dayIndex} />;
-								}
-								const day = getDate(date);
-								return (
-									<td key={dayIndex}>
-										<button
-											data-test={this.isCurrentMonth(date) && day}
-											data-value={this.isCurrentMonth(date) && day}
-											onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}
-										>
-											{day}
-										</button>
-									</td>
-								);
-							})}
-						</tr>
-					))}
-				</tbody>
-			</table>
-		);
-	}
+	return (
+		<table ref={calendarRef}>
+			<tbody>
+				{weeks.map((week, weekIndex) => (
+					<tr key={weekIndex}>
+						{week.map((dateOfTheWeek, dayIndex) => {
+							if (getMonth(dateOfTheWeek) !== props.month) {
+								return <td key={dayIndex} />;
+							}
+							const day = getDate(dateOfTheWeek);
+							return (
+								<td key={dayIndex}>
+									<button
+										data-test={isCurrentMonth(dateOfTheWeek) && day}
+										data-value={isCurrentMonth(dateOfTheWeek) && day}
+										onKeyDown={event => {
+											if (calendarRef.current) {
+												onKeyDown(event, calendarRef.current, day - 1);
+											}
+										}}
+									>
+										{day}
+									</button>
+								</td>
+							);
+						})}
+					</tr>
+				))}
+			</tbody>
+		</table>
+	);
 }
+
 DayCalendar.displayName = 'DayCalendar';
 
 export default DayCalendar;

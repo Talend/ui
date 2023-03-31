@@ -2,7 +2,8 @@
 import { withListGesture } from './withListGesture';
 import { withTreeGesture } from './withTreeGesture';
 import { WithDynamicListGesture } from './withDynamicListGesture';
-import { withCalendarGesture, withMonthCalendarGesture } from './withCalendarGesture';
+import { withCalendarGesture } from './withCalendarGesture';
+import { withMonthCalendarGesture } from './withMonthCalendarGesture';
 
 const Gesture = {
 	withMonthCalendarGesture,

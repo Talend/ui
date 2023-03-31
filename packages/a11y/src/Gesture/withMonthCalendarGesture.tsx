@@ -1,22 +1,9 @@
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
 import * as React from 'react';
 import keycode from 'keycode';
-import { focusOnDay, focusWithinCurrentCalendar } from './focus';
+import { focusWithinCurrentCalendar } from './focus';
 import { FIRST, LAST } from './constants';
 import { CalendarGestureProps } from './propTypes';
-
-/**
- * Switch month and focus on the same focused day or the month's limits if it's out of the limits
- */
-function switchMonth(
-	calendarRef: HTMLElement,
-	indexToFocus: number,
-	monthSwitcher: (cb?: () => void) => void,
-) {
-	monthSwitcher(() => {
-		focusWithinCurrentCalendar(calendarRef, indexToFocus);
-	});
-}
 
 type WithDisplayName = {
 	displayName: string;
@@ -26,15 +13,15 @@ type WithDisplayName = {
 // P is the props of the wrapped component that is inferred
 // C is the actual interface of the wrapped component (used to grab defaultProps from it)
 
-export function withCalendarGesture<T, P extends CalendarGestureProps, C extends WithDisplayName>(
-	WrappedComponent: React.JSXElementConstructor<P & CalendarGestureProps> & C & WithDisplayName,
+export function withMonthCalendarGesture<T, P extends CalendarGestureProps, C>(
+	WrappedComponent: React.JSXElementConstructor<P> & C & WithDisplayName,
+	rowSize: number,
 ) {
 	// the magic is here: JSX.LibraryManagedAttributes will take the type of WrapedComponent and resolve its default props
 	// against the props of WithData, which is just the original P type with 'data' removed from its requirements
 	type Props = JSX.LibraryManagedAttributes<C, Omit<P, 'data'>>;
-
-	return class CalendarGesture extends React.Component<Props> {
-		static displayName = `CalendarGesture(${WrappedComponent.displayName})`;
+	return class MonthCalendarGesture extends React.Component<Props> {
+		static displayName = `MonthCalendarGesture(${WrappedComponent.displayName})`;
 
 		ref = React.createRef<HTMLDivElement>();
 
@@ -58,24 +45,24 @@ export function withCalendarGesture<T, P extends CalendarGestureProps, C extends
 		onKeyDown(
 			event: React.KeyboardEvent<HTMLInputElement>,
 			calendarRef: HTMLElement,
-			dayIndex: number,
+			monthIndex: number,
 		) {
 			switch (event.keyCode) {
 				case keycode.codes.left:
 					event.stopPropagation();
-					focusOnDay(calendarRef, dayIndex - 1, this.props);
+					focusWithinCurrentCalendar(calendarRef, monthIndex - 1);
 					break;
 				case keycode.codes.right:
 					event.stopPropagation();
-					focusOnDay(calendarRef, dayIndex + 1, this.props);
+					focusWithinCurrentCalendar(calendarRef, monthIndex + 1);
 					break;
 				case keycode.codes.up:
 					event.stopPropagation();
-					focusOnDay(calendarRef, dayIndex - 7, this.props);
+					focusWithinCurrentCalendar(calendarRef, monthIndex - rowSize);
 					break;
 				case keycode.codes.down:
 					event.stopPropagation();
-					focusOnDay(calendarRef, dayIndex + 7, this.props);
+					focusWithinCurrentCalendar(calendarRef, monthIndex + rowSize);
 					break;
 				case keycode.codes.home:
 					event.stopPropagation();
@@ -85,33 +72,24 @@ export function withCalendarGesture<T, P extends CalendarGestureProps, C extends
 					event.stopPropagation();
 					focusWithinCurrentCalendar(calendarRef, LAST);
 					break;
-				case keycode.codes['page up']:
-					event.stopPropagation();
-					switchMonth(calendarRef, dayIndex, this.props.goToPreviousMonth);
-					break;
-				case keycode.codes['page down']:
-					event.stopPropagation();
-					switchMonth(calendarRef, dayIndex, this.props.goToNextMonth);
-					break;
 				default:
 					break;
 			}
 		}
 
-		preventScroll = (evt: KeyboardEvent) => {
+		preventScroll(evt: KeyboardEvent) {
 			const arrows = [
 				keycode.codes.left,
 				keycode.codes.right,
 				keycode.codes.up,
 				keycode.codes.down,
 				keycode.codes.home,
-				keycode.codes['page up'],
-				keycode.codes['page down'],
+				keycode.codes.end,
 			];
 			if (arrows.includes(evt.keyCode)) {
 				evt.preventDefault();
 			}
-		};
+		}
 
 		render() {
 			return (

@@ -2,9 +2,13 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import PropTypes from 'prop-types';
+type ListItemProps = {
+	index: number;
+	onKeyDown: (event: React.KeyboardEvent, ref: HTMLElement) => void;
+};
+class ListItem extends React.Component<ListItemProps> {
+	ref = React.createRef<HTMLDivElement>();
 
-class ListItem extends React.Component {
 	render() {
 		const { index, onKeyDown, ...props } = this.props;
 		return (
@@ -12,32 +16,26 @@ class ListItem extends React.Component {
 				{...props}
 				data-test={`item-${index}`}
 				id={`item-${index}`}
-				ref={ref => {
-					this.ref = ref;
-				}}
+				ref={this.ref}
 				role="listitem"
-				tabIndex="0"
-				onKeyDown={e => onKeyDown(e, this.ref)}
+				tabIndex={0}
+				onKeyDown={e => onKeyDown(e, this.ref.current)}
 			>
 				Item {index}
 			</div>
 		);
 	}
 }
-ListItem.propTypes = {
-	index: PropTypes.number,
-	onKeyDown: PropTypes.func.isRequired,
-};
 
-function List(props) {
+function List(props: ListItemProps) {
 	return (
 		<div role="list">
-			<ListItem index={0} {...props} />
+			<ListItem {...props} index={0} />
 			<div role="group">
-				<ListItem index={1} {...props} />
+				<ListItem {...props} index={1} />
 			</div>
-			<ListItem index={2} {...props} />
-			<ListItem index={3} {...props} />
+			<ListItem {...props} index={2} />
+			<ListItem {...props} index={3} />
 		</div>
 	);
 }

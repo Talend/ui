@@ -1,18 +1,26 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { CalendarGestureProps } from '../src/Gesture/propTypes';
+type TreeItemProps = {
+	children: any;
+	id: string;
+	isOpened: boolean;
+	item: any;
+	level: number;
+	onKeyDown: (event: React.KeyboardEvent, ref: HTMLElement, item: any) => void;
+	posinset: number;
+};
+class TreeItem extends React.Component<TreeItemProps> {
+	ref = React.createRef<HTMLLIElement>();
 
-class TreeItem extends React.Component {
 	render() {
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<li
 				id={this.props.item.id}
 				role="treeitem"
-				tabIndex="-1"
+				tabIndex={-1}
 				onKeyDown={e => this.props.onKeyDown(e, this.ref, this.props.item)}
-				ref={ref => {
-					this.ref = ref;
-				}}
+				ref={this.ref}
 				aria-level={this.props.level}
 				aria-posinset={this.props.posinset}
 			>
@@ -22,17 +30,14 @@ class TreeItem extends React.Component {
 		);
 	}
 }
-TreeItem.propTypes = {
-	children: PropTypes.node,
-	id: PropTypes.string,
-	isOpened: PropTypes.bool,
-	item: PropTypes.object,
-	level: PropTypes.number,
-	onKeyDown: PropTypes.func.isRequired,
-	posinset: PropTypes.number,
+
+type TreeProps = CalendarGestureProps & {
+	items: any[];
+	level: number;
+	onKeyDown: (event: React.KeyboardEvent, ref: HTMLElement, item: any) => void;
 };
 
-function Tree(props) {
+function Tree(props: TreeProps) {
 	return (
 		<ul role={props.level === 0 ? 'tree' : undefined}>
 			{props.items.map((item, index) => (
@@ -56,10 +61,6 @@ Tree.displayName = 'Tree';
 Tree.defaultProps = {
 	items: [],
 	level: 0,
-};
-Tree.propTypes = {
-	items: PropTypes.array,
-	level: PropTypes.number,
 };
 
 export default Tree;
