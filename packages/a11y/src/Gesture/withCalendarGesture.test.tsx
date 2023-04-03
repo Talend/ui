@@ -31,26 +31,27 @@ class DayCalendarWithGesture extends React.Component<CalendarGestureProps, DateC
 		this.goToNextMonth = this.goToNextMonth.bind(this);
 	}
 
-	goToPreviousMonth(callback: () => void) {
+	goToPreviousMonth(callback?: () => void) {
 		this.setState({ month: this.state.month - 1 }, callback);
 		if (this.props.goToPreviousMonth) {
-			this.props.goToPreviousMonth();
+			this.props.goToPreviousMonth(callback);
 		}
 	}
 
-	goToNextMonth(callback: () => void) {
+	goToNextMonth(callback?: () => void) {
 		this.setState({ month: this.state.month + 1 }, callback);
 		if (this.props.goToNextMonth) {
-			this.props.goToNextMonth();
+			this.props.goToNextMonth(callback);
 		}
 	}
 
 	render() {
+		const props = { ...this.state };
 		return (
 			<MockWithGesture
 				goToPreviousMonth={this.goToPreviousMonth}
 				goToNextMonth={this.goToNextMonth}
-				{...this.state}
+				{...props}
 			/>
 		);
 	}

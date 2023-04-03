@@ -2,11 +2,10 @@ import React from 'react';
 import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import { date } from '@talend/utils';
-
+import { CalendarGestureProps } from '../src/Gesture/propTypes';
 const buildWeeks = date.generator.buildWeeks;
 
-type DayCalendarProps = {
-	onKeyDown: (event: React.KeyboardEvent, calendarRef: HTMLElement, indexToFocus: number) => void;
+type DayCalendarProps = CalendarGestureProps & {
 	month: number;
 	year: number;
 };
