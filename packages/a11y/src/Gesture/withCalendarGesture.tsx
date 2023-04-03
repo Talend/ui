@@ -3,7 +3,7 @@ import * as React from 'react';
 import keycode from 'keycode';
 import { focusOnDay, focusWithinCurrentCalendar } from './focus';
 import { FIRST, LAST } from './constants';
-import { CalendarGestureProps } from './propTypes';
+import { WithCalendarGestureInjectedProps } from './propTypes';
 
 /**
  * Switch month and focus on the same focused day or the month's limits if it's out of the limits
@@ -18,20 +18,16 @@ function switchMonth(
 	});
 }
 
-type WithDisplayName = {
-	displayName: string;
-};
-
 // T is the type of data
 // P is the props of the wrapped component that is inferred
 // C is the actual interface of the wrapped component (used to grab defaultProps from it)
 
-export function withCalendarGesture<T, P extends CalendarGestureProps, C extends WithDisplayName>(
-	WrappedComponent: React.JSXElementConstructor<P & CalendarGestureProps> & C & WithDisplayName,
+export function withCalendarGesture<P extends WithCalendarGestureInjectedProps>(
+	WrappedComponent: React.ComponentType<P>,
 ) {
 	// the magic is here: JSX.LibraryManagedAttributes will take the type of WrapedComponent and resolve its default props
 	// against the props of WithData, which is just the original P type with 'data' removed from its requirements
-	type Props = JSX.LibraryManagedAttributes<C, Omit<P, 'data'>>;
+	type Props = Omit<WithCalendarGestureInjectedProps, 'onKeyDown'>;
 
 	return class CalendarGesture extends React.Component<Props> {
 		static displayName = `CalendarGesture(${WrappedComponent.displayName})`;
