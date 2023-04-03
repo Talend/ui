@@ -1,5 +1,5 @@
 import React from 'react';
-import { WithTreeInjectedProps } from '../src/Gesture/withTreeGesture';
+import { WithTreeInjectedProps } from '../Gesture/withTreeGesture';
 
 type TreeItemProps = Pick<WithTreeInjectedProps, 'onKeyDown'> & {
 	children: any;

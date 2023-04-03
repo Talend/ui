@@ -1,1 +1,3 @@
-export * as Gesture from './Gesture';
+import Gesture from './Gesture';
+
+export { Gesture };

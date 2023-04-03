@@ -2,7 +2,8 @@ import React from 'react';
 import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import { date } from '@talend/utils';
-import { WithCalendarGestureInjectedProps } from '../src/Gesture/propTypes';
+import { WithCalendarGestureInjectedProps } from '../Gesture/propTypes';
+
 const buildWeeks = date.generator.buildWeeks;
 
 type DayCalendarProps = WithCalendarGestureInjectedProps & {

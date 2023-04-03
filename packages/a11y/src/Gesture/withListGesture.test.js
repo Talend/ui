@@ -3,7 +3,7 @@ import { render, screen, configure } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
 import { withListGesture } from './withListGesture';
-import List from '../../__mocks__/list';
+import List from '../__mocks__/list';
 
 configure({ testIdAttribute: 'data-test' });
 

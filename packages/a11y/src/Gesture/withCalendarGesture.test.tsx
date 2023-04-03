@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, configure } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { withCalendarGesture } from './withCalendarGesture';
-import DayCalendar from '../../__mocks__/day-calendar';
+import DayCalendar from '../__mocks__/day-calendar';
 import { CalendarGestureProps } from './propTypes';
 configure({ testIdAttribute: 'data-test' });
 /**

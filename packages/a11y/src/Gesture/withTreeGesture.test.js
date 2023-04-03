@@ -4,7 +4,7 @@ import { render, screen, configure } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
 import { withTreeGesture } from './withTreeGesture';
-import Tree from '../../__mocks__/tree';
+import Tree from '../__mocks__/tree';
 
 configure({ testIdAttribute: 'data-test' });
 
