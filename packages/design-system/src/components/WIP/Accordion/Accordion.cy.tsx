@@ -1,6 +1,5 @@
 /* eslint-disable testing-library/await-async-query */
 /* eslint-disable testing-library/prefer-screen-queries */
-import React from 'react';
 import { Accordion, CollapsiblePanel } from './';
 
 const SampleParagraph = () => (

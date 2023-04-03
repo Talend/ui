@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import { mount } from 'enzyme';
 import keycode from 'keycode';
 import cases from 'jest-in-case';
@@ -6,7 +6,7 @@ import WithDynamicListGesture from './withDynamicListGesture';
 
 const LIST_SIZE = 5;
 
-class ComponentWithGesture extends React.Component {
+class ComponentWithGesture extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

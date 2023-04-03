@@ -1,4 +1,3 @@
-import React from 'react';
 import theme from '../UIForm.module.scss';
 
 export default function DefaultFormTemplate({ widgetsRenderer, buttonsRenderer, children }) {

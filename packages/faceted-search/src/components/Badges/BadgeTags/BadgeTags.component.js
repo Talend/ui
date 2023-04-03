@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import isObject from 'lodash/isObject';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';

@@ -1,5 +1,5 @@
 /* eslint-disable react/sort-comp */
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -33,7 +33,7 @@ function isIn(element, container) {
 	return true;
 }
 
-class MultiSelect extends React.Component {
+class MultiSelect extends Component {
 	static displayName = 'MultiSelect';
 
 	static theme = theme;

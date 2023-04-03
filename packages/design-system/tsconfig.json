@@ -13,7 +13,6 @@
     "paths": {
       "~docs": [".storybook/docs"]
     },
-    "jsx": "react",
     "module": "CommonJs",
     "rootDirs": [".storybook", "cypress", "@testing-library/cypress", "src"],
     "types": ["cypress"]

@@ -1,4 +1,3 @@
-import React from 'react';
 import Password from './Password';
 
 const Default = () => <Password label="Password" name="password" id="password" />;

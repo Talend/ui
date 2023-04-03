@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/await-async-query */
-import React from 'react';
+import { useState } from 'react';
 
 import ButtonPrimitive from './Primitive/ButtonPrimitive';
 import { ButtonPrimary } from './';
@@ -8,7 +8,7 @@ import Tooltip from '../../components/Tooltip';
 
 const Loading = ({ 'data-testid': dataTestId }: { 'data-testid': string }) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const [loading, isLoading] = React.useState(false);
+	const [loading, isLoading] = useState(false);
 	return (
 		<Tooltip title="Relevant description of the basic button">
 			<ButtonPrimary

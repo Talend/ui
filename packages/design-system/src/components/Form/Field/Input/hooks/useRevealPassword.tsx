@@ -1,4 +1,5 @@
-import React, { MouseEvent, useState } from 'react';
+import { MouseEvent, useState } from 'react';
+import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../../../constants';

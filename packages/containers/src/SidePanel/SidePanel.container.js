@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Component from '@talend/react-components/lib/SidePanel';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';

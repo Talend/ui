@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import ReactDOM from 'react-dom';
 import get from 'lodash/get';
 import { ControlLabel, FormControl } from '@talend/react-bootstrap';

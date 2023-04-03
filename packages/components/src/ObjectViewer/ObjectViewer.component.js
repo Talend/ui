@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
 import Table from './Table';
 import JSONLike from './JSONLike';

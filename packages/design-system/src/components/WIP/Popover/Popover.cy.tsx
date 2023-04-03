@@ -1,6 +1,5 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/await-async-query */
-import React from 'react';
 import Popover from './Popover';
 import { ButtonPrimary } from '../../Button';
 import { CollapsiblePanel } from '../Accordion';

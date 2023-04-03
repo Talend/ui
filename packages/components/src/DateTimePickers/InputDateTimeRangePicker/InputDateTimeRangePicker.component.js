@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useMemo, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import debounce from 'lodash/debounce';
@@ -41,7 +41,7 @@ function InputDateTimeRangePicker(props) {
 		[theme['date-time-range-picker-inline']]: isDisplayInline,
 	});
 
-	const showHorizontalAndTest = React.useMemo(() => {
+	const showHorizontalAndTest = useMemo(() => {
 		return function showHorizontal() {
 			if (vertical) {
 				setVertical(false);

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
+import { cloneElement, HTMLAttributes, ReactElement, ReactNode, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dialog, DialogBackdrop, DialogDisclosure, useDialogState } from 'reakit/Dialog';
 
@@ -79,7 +79,7 @@ function Modal(props: ModalPropsType): ReactElement {
 		<>
 			{disclosure && (
 				<DialogDisclosure {...dialog}>
-					{disclosureProps => React.cloneElement(disclosure, disclosureProps)}
+					{disclosureProps => cloneElement(disclosure, disclosureProps)}
 				</DialogDisclosure>
 			)}
 			{dialog.visible && (

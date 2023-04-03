@@ -1,4 +1,3 @@
-import React from 'react';
 import { Token } from '../../../../../../src/tokens/types';
 import CardOpacity from '../../Card/CardOpacity';
 import DefinitionListItem from './DefinitionListItem';

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import { getTheme } from '@talend/react-components/lib/theme';

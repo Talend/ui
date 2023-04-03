@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Typeahead } from '@talend/react-components/lib/Typeahead';

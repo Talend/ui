@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from 'react';
+import { forwardRef, ReactChild, Ref, useState, useEffect, HTMLAttributes } from 'react';
 import classNames from 'classnames';
 import { unstable_useId as useId } from 'reakit/Id';
 

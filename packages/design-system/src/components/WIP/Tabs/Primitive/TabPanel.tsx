@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
+import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { TabPanel as ReakitTabPanel, TabState } from 'reakit';
 import { DataAttributes } from '../../../../types';
 

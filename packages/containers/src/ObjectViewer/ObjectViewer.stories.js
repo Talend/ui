@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ObjectViewer from '.';
 
 const veryLongCafeName = "Betty's Cafe witha  veryyyyyyy veryyyyyyyyyy looong name";

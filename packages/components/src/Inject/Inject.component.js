@@ -1,4 +1,4 @@
-import React from 'react';
+import { isValidElement } from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -65,7 +65,7 @@ Inject.all = function injectAll(getComponent, components, CustomInject = Inject)
 
 		if (Array.isArray(component)) {
 			return Inject.map(getComponent, component, CustomInject);
-		} else if (React.isValidElement(component)) {
+		} else if (isValidElement(component)) {
 			return component;
 		} else if (typeof component === 'object') {
 			return <CustomInject getComponent={getComponent} {...props} {...component} />;
@@ -129,7 +129,7 @@ Inject.getReactElement = function getReactElement(
 			props.key = `${data}#default`;
 		}
 		return <CustomInject {...props} />;
-	} else if (React.isValidElement(data)) {
+	} else if (isValidElement(data)) {
 		return data;
 	} else if (typeof data === 'object') {
 		const props = { getComponent, ...data };

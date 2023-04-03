@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import isSameDay from 'date-fns/is_same_day';
@@ -65,12 +64,9 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(1)
-				.prop('className'),
-		).not.toContain('theme-today');
+		expect(wrapper.find('.tc-date-picker-day').at(1).prop('className')).not.toContain(
+			'theme-today',
+		);
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
@@ -96,12 +92,9 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('className'),
-		).not.toContain('theme-selected');
+		expect(wrapper.find('.tc-date-picker-day').at(0).prop('className')).not.toContain(
+			'theme-selected',
+		);
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
@@ -127,12 +120,7 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('disabled'),
-		).toBe(false);
+		expect(wrapper.find('.tc-date-picker-day').at(0).prop('disabled')).toBe(false);
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
@@ -175,29 +163,14 @@ describe('DatePicker', () => {
 				goToNextMonth={jest.fn()}
 			/>,
 		);
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
+		expect(wrapper.find('.tc-date-picker-day').at(0).prop('tabIndex')).toBe(-1);
 
 		// when
 		wrapper.setProps({ allowFocus: true });
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
-		expect(
-			wrapper
-				.find('.tc-date-picker-day[data-value]')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(wrapper.find('.tc-date-picker-day').at(0).prop('tabIndex')).toBe(-1);
+		expect(wrapper.find('.tc-date-picker-day[data-value]').at(0).prop('tabIndex')).toBe(0);
 	});
 
 	it('should have 6 weeks', () => {

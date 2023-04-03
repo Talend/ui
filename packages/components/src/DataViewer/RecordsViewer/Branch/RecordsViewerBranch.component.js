@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -17,7 +17,7 @@ export function isLoaded(value) {
 	return get(value, 'loaded') !== false;
 }
 
-export class RecordsViewerBranch extends React.Component {
+export class RecordsViewerBranch extends Component {
 	static propTypes = {
 		className: PropTypes.string,
 		dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

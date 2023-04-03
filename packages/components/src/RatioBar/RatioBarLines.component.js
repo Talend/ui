@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '../theme';
 import { RatioBarLine } from './RatioBarComposition.component';
@@ -33,7 +32,6 @@ export function EmptyLine({ value, percentage }) {
 }
 EmptyLine.propTypes = ratioBarLinePropTypes;
 
-
 export function ErrorLine({ value, percentage }) {
 	return (
 		<RatioBarLine
@@ -44,4 +42,3 @@ export function ErrorLine({ value, percentage }) {
 	);
 }
 ErrorLine.propTypes = ratioBarLinePropTypes;
-

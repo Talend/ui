@@ -1,4 +1,3 @@
-import React from 'react';
 import { SkeletonParagraph, SkeletonHeading } from '@talend/design-system';
 import theme from './CodeSkeleton.module.scss';
 

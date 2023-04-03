@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/await-async-query */
 /* eslint-disable testing-library/prefer-screen-queries */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Fieldset from './Fieldset';
 import { ButtonPrimary } from '../../Button';
 

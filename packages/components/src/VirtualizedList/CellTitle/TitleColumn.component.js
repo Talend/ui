@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultColumnConfiguration } from '../Content.component';
 import CellTitle from './CellTitle.component';
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TabBar from '@talend/react-components/lib/TabBar';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';

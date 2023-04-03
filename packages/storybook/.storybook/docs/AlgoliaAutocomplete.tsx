@@ -1,4 +1,5 @@
-import React, { createElement, Fragment, useEffect, useRef } from 'react';
+import { createElement, Fragment, useEffect, useRef } from 'react';
+import * as React from 'react';
 import { render } from 'react-dom';
 import { autocomplete } from '@algolia/autocomplete-js';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme/build';
 import { fromJS } from 'immutable';
 import Connect from './GuidedTour.connect';

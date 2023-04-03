@@ -1,5 +1,4 @@
 import { mount } from 'enzyme';
-import React from 'react';
 import { Map, fromJS, List as ImmutableList } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 import { mock } from '@talend/react-cmf';

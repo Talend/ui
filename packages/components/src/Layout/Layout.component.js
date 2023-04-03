@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classnames from 'classnames';
 import { ThemeProvider } from '@talend/design-system';
 import Inject from '../Inject';

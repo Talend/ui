@@ -1,4 +1,3 @@
-import React from 'react';
 import repeat from 'lodash/repeat';
 import cloneDeep from 'lodash/cloneDeep';
 import { action } from '@storybook/addon-actions';

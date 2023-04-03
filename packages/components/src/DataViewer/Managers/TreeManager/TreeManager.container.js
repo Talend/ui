@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 
@@ -34,7 +34,7 @@ export function updateCollection(index, collection, expandAll, paths, { opened, 
 /**
  * Helps to manage opened and highlight state of the viewer.
  */
-export default class TreeManager extends React.Component {
+export default class TreeManager extends Component {
 	static displayName = 'Container(TreeManager)';
 
 	static propTypes = {

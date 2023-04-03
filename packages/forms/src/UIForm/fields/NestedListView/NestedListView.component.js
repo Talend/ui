@@ -2,7 +2,7 @@ import ListView from '@talend/react-components/lib/ListView';
 import keycode from 'keycode';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -17,7 +17,7 @@ const DEFAULT_ITEM_HEIGHT = 33;
 
 const getItemHeight = () => DEFAULT_ITEM_HEIGHT;
 
-class NestedListViewWidget extends React.Component {
+class NestedListViewWidget extends Component {
 	constructor(props) {
 		super(props);
 

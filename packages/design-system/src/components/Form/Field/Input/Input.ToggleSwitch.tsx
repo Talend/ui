@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Checkbox as ReakitCheckbox, unstable_useId as useId } from 'reakit';
 import classnames from 'classnames';
 

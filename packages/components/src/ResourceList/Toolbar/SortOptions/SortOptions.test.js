@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '@talend/react-bootstrap';
 import { mount } from 'enzyme';
 import SortOptions, { TYPES, ORDERS } from './SortOptions.component';

@@ -1,4 +1,3 @@
-import React from 'react';
 import FacetedSearch from '@talend/react-faceted-search';
 import Layout from '@talend/react-components/lib/Layout';
 import SidePanel from '@talend/react-containers/lib/SidePanel';

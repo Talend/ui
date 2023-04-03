@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 import { tv4 } from '@talend/json-schema-form-core';
 import { withTranslation } from 'react-i18next';
@@ -20,7 +20,7 @@ import theme from './UIForm.module.scss';
 import { WidgetContext } from './context';
 import widgets from './utils/widgets';
 
-export class UIFormComponent extends React.Component {
+export class UIFormComponent extends Component {
 	static displayName = 'TalendUIForm';
 
 	constructor(props) {

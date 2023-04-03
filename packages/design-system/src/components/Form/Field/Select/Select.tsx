@@ -1,4 +1,5 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
+import * as React from 'react';
 import { isElement } from 'react-is';
 import Input from '../Input';
 import {

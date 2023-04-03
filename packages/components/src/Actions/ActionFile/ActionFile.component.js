@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 import { randomUUID } from '@talend/utils';
 
@@ -21,7 +21,7 @@ const RIGHT = 'right';
  * subsequently the field get emptied.
  * @param {Object} props
  */
-class ActionFile extends React.Component {
+class ActionFile extends Component {
 	static displayName = 'ActionFile';
 
 	static propTypes = {

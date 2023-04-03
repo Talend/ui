@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import {
 	ButtonPrimary,
 	Form,
@@ -41,7 +41,7 @@ type Inputs = {
 
 export const ReactHooksForm = () => {
 	const { register, handleSubmit } = useForm<Inputs>();
-	const [formData, setFormData] = React.useState<null | Inputs>();
+	const [formData, setFormData] = useState<null | Inputs>();
 	return (
 		<Form onSubmit={handleSubmit(setFormData)}>
 			{formData && (

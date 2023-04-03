@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ButtonIconToggle } from './index';
 
 context('<ButtonToggle />', () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import ActionButton from '../../../../../Actions/ActionButton';
 import { useColumnChooserContext } from '../columnChooser.context';

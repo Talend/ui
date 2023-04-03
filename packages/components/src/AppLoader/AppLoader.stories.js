@@ -1,7 +1,5 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
-import React from 'react';
-
 import AppLoader from './AppLoader.component';
 import APP_LOADER from './constant';
 

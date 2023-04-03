@@ -1,4 +1,3 @@
-import React from 'react';
 import { fromJS } from 'immutable';
 import Action from '../Action';
 import GuidedTour from '.';

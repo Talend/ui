@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, Ref } from 'react';
+import { cloneElement, forwardRef, Ref } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import Clickable, { ClickableProps } from '../Clickable';
