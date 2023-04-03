@@ -88,23 +88,30 @@ function getPreviousItem(ref: HTMLElement) {
 	return previousElement;
 }
 
-export interface GestureProps {
-	onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>, ref: any, item: any) => void;
-	onSelect: (e: React.KeyboardEvent<HTMLInputElement>, item: any) => void;
-	onToggle: (e: React.KeyboardEvent<HTMLInputElement>, item: any) => void;
-	onToggleAllSiblings: (e: React.KeyboardEvent<HTMLInputElement>, siblings: any) => void;
-}
+export type TreeGestureProps = {
+	onSelect: (e: React.KeyboardEvent<HTMLElement>, item: any) => void;
+	onToggle: (e: React.KeyboardEvent<HTMLElement>, item: any) => void;
+	onToggleAllSiblings: (e: React.KeyboardEvent<HTMLElement>, siblings: any) => void;
+};
 
-export function withTreeGesture<T>(WrappedComponent: React.ComponentType<T>) {
-	return class TreeGesture extends React.Component<T & GestureProps> {
+export type WithTreeInjectedProps = TreeGestureProps & {
+	onKeyDown: (e: React.KeyboardEvent<HTMLElement>, ref: any, item: any) => void;
+};
+
+export function withTreeGesture<T extends WithTreeInjectedProps>(
+	WrappedComponent: React.ComponentType<T>,
+) {
+	type Props = Omit<WithTreeInjectedProps, 'onKeyDown'>;
+
+	return class TreeGesture extends React.Component<Props> {
 		static displayName = `TreeGesture(${WrappedComponent.displayName})`;
 
-		constructor(props: T & GestureProps) {
+		constructor(props: Props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
 		}
 
-		onKeyDown(event: React.KeyboardEvent<HTMLInputElement>, ref: any, item: any) {
+		onKeyDown(event: React.KeyboardEvent<HTMLElement>, ref: any, item: any) {
 			const { hasChildren, isOpened, siblings } = item;
 			switch (event.keyCode) {
 				case keycode.codes.enter:
@@ -156,7 +163,7 @@ export function withTreeGesture<T>(WrappedComponent: React.ComponentType<T>) {
 		}
 
 		render() {
-			const props = { ...(this.props as T & GestureProps) };
+			const props = { ...(this.props as any) };
 			props.onKeyDown = this.onKeyDown;
 			return <WrappedComponent {...props} />;
 		}

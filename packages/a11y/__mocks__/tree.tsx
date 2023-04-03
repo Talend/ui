@@ -1,12 +1,10 @@
 import React from 'react';
-import { CalendarGestureProps } from '../src/Gesture/propTypes';
-type TreeItemProps = {
+import { WithTreeInjectedProps } from '../src/Gesture/withTreeGesture';
+
+type TreeItemProps = Pick<WithTreeInjectedProps, 'onKeyDown'> & {
 	children: any;
-	id: string;
-	isOpened: boolean;
 	item: any;
 	level: number;
-	onKeyDown: (event: React.KeyboardEvent, ref: HTMLElement, item: any) => void;
 	posinset: number;
 };
 class TreeItem extends React.Component<TreeItemProps> {
@@ -19,7 +17,11 @@ class TreeItem extends React.Component<TreeItemProps> {
 				id={this.props.item.id}
 				role="treeitem"
 				tabIndex={-1}
-				onKeyDown={e => this.props.onKeyDown(e, this.ref, this.props.item)}
+				onKeyDown={e => {
+					if (this.ref.current) {
+						this.props.onKeyDown(e, this.ref.current, this.props.item);
+					}
+				}}
 				ref={this.ref}
 				aria-level={this.props.level}
 				aria-posinset={this.props.posinset}
@@ -31,10 +33,9 @@ class TreeItem extends React.Component<TreeItemProps> {
 	}
 }
 
-type TreeProps = CalendarGestureProps & {
+type TreeProps = Pick<WithTreeInjectedProps, 'onKeyDown'> & {
 	items: any[];
 	level: number;
-	onKeyDown: (event: React.KeyboardEvent, ref: HTMLElement, item: any) => void;
 };
 
 function Tree(props: TreeProps) {
@@ -45,7 +46,7 @@ function Tree(props: TreeProps) {
 					key={`item-${props.level}-${index}`}
 					onKeyDown={props.onKeyDown}
 					item={item}
-					name={`Item ${props.level} ${index}`}
+					// name={`Item ${props.level} ${index}`}
 					level={props.level}
 					posinset={index}
 				>

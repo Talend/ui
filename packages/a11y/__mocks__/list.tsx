@@ -19,7 +19,11 @@ class ListItem extends React.Component<ListItemProps> {
 				ref={this.ref}
 				role="listitem"
 				tabIndex={0}
-				onKeyDown={e => onKeyDown(e, this.ref.current)}
+				onKeyDown={e => {
+					if (this.ref.current) {
+						onKeyDown(e, this.ref.current);
+					}
+				}}
 			>
 				Item {index}
 			</div>
