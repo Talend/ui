@@ -4268,5 +4268,40 @@
     "description": "replay, relaunch",
     "remote": false,
     "documentationLinks": []
+  },
+  {
+    "key": "d960e77088ada11b461ebb39907138ab53fbfa88",
+    "name": "icon/M/smiley-sleepy",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "27ca35cf45db9ce54aeb0e5b9fdaa689a587c157",
+    "name": "icon/L/smiley-sleepy",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "4ea16e6f6a93585ebc50b9f460220bb262af5def",
+    "name": "icon/S/curly-braces",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "ce1ca15ec01a013ec142d2b2479bf0a398221d7e",
+    "name": "icon/M/curly-braces",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
+  },
+  {
+    "key": "3fd319efb30a7546a433354860e63dd87dbe7ca3",
+    "name": "icon/L/curly-braces",
+    "description": "",
+    "remote": false,
+    "documentationLinks": []
   }
 ]
