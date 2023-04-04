@@ -6,15 +6,8 @@
   "license": "Apache-2.0",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build:dev": "talend-scripts build --umd --dev",
-    "build:prod": "talend-scripts build --umd --prod",
-    "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
-    "start": "echo nothing to start",
     "test": "talend-scripts test ./src",
-    "test:watch": "talend-scripts test --watch",
-    "test:cov": "talend-scripts test --coverage",
-    "test:demo": "yarn jsdoc -c ./docs.json",
     "lint": "talend-scripts lint"
   },
   "keywords": [

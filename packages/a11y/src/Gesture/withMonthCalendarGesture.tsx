@@ -5,16 +5,10 @@ import { focusWithinCurrentCalendar } from './focus';
 import { FIRST, LAST } from './constants';
 import { WithCalendarGestureInjectedProps } from './propTypes';
 
-// T is the type of data
-// P is the props of the wrapped component that is inferred
-// C is the actual interface of the wrapped component (used to grab defaultProps from it)
-
 export function withMonthCalendarGesture<P extends WithCalendarGestureInjectedProps>(
 	WrappedComponent: React.ComponentType<P>,
 	rowSize: number,
 ) {
-	// the magic is here: JSX.LibraryManagedAttributes will take the type of WrapedComponent and resolve its default props
-	// against the props of WithData, which is just the original P type with 'data' removed from its requirements
 	type Props = Omit<WithCalendarGestureInjectedProps, 'onKeyDown'>;
 
 	return class MonthCalendarGesture extends React.Component<Props> {
