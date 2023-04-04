@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from '@testing-library/react';
 import BadgeIcon from './BadgeIcon.component';
 import Icon from '../../../Icon';

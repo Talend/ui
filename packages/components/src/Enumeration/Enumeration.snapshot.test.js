@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Enumeration from './Enumeration.component';
@@ -471,7 +470,7 @@ describe('Enumeration', () => {
 			itemsProp: {
 				key: 'values',
 				getItemHeight: () => 42,
-				actionsDefault:[],
+				actionsDefault: [],
 				actionsDefaultPersistent: [
 					{
 						disabled: false,

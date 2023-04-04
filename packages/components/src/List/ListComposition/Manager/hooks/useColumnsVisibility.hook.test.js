@@ -1,4 +1,3 @@
-import React from 'react';
 import { useColumnsVisibility } from './useColumnsVisibility.hook';
 import { renderHook, act } from '@testing-library/react-hooks';
 import { StorageMock } from '../../../../../test/storageMock';

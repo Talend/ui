@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import Typeahead from './Typeahead.component';
 import { render, screen } from '@testing-library/react';

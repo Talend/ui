@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import getDefaultT from '../../../translate';
@@ -9,7 +8,10 @@ import SortBy from './SortBy.component';
 
 describe('SortBy', () => {
 	const defaultProps = {
-		options: [{ key: 'firstName', label: 'First Name' }, { key: 'lastName', label: 'Last Name' }],
+		options: [
+			{ key: 'firstName', label: 'First Name' },
+			{ key: 'lastName', label: 'Last Name' },
+		],
 	};
 
 	const defaultContext = {
@@ -81,10 +83,7 @@ describe('SortBy', () => {
 
 		// when
 		act(() => {
-			wrapper
-				.find('NavDropdown')
-				.at(0)
-				.prop('onSelect')('firstName');
+			wrapper.find('NavDropdown').at(0).prop('onSelect')('firstName');
 		});
 
 		// then
@@ -120,10 +119,7 @@ describe('SortBy', () => {
 		const event = { target: {} };
 
 		// when
-		wrapper
-			.find('NavDropdown')
-			.at(0)
-			.prop('onSelect')('firstName', event);
+		wrapper.find('NavDropdown').at(0).prop('onSelect')('firstName', event);
 
 		// then
 		expect(props.onChange).toHaveBeenCalledWith(event, {

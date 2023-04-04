@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 import SingleButton from './SingleButton.component';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import invariant from 'invariant';
 import get from 'lodash/get';
 import { LinkRecordMap, PortRecordMap, LinkRecord } from '../../customTypings/index.d';
@@ -9,7 +9,7 @@ type Props = {
 	linkTypeMap: Object;
 };
 
-class LinksRender extends React.Component<Props> {
+class LinksRender extends Component<Props> {
 	constructor(props: Props) {
 		super(props);
 		this.renderLink = this.renderLink.bind(this);

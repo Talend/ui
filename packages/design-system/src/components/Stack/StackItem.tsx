@@ -1,4 +1,5 @@
-import React, { forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 import styles from './StackItem.module.scss';
 
@@ -26,7 +27,7 @@ export type ItemProps = {
 	shrink?: boolean;
 	align?: keyof typeof alignOptions;
 	overflow?: keyof typeof overflowOptions;
-	as?: typeof possibleAsTypes[number];
+	as?: (typeof possibleAsTypes)[number];
 };
 
 export const StackItem = forwardRef(function StackItem(

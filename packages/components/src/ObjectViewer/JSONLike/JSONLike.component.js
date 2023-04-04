@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useCallback } from 'react';
+import { Component, useState, useCallback } from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
@@ -93,7 +93,7 @@ export function getName(name, t) {
 	);
 }
 
-export class LineItem extends React.Component {
+export class LineItem extends Component {
 	getTabIndex(isSelected) {
 		let shouldBeFocusable = false;
 		if (

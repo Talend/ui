@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, TextareaHTMLAttributes } from 'react';
+import { forwardRef, Ref, TextareaHTMLAttributes } from 'react';
 import classnames from 'classnames';
 import styles from './Textarea.module.scss';
 

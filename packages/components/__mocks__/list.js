@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ListItem extends React.Component {
+class ListItem extends Component {
 	render() {
 		const { index, onKeyDown, ...props } = this.props;
 		return (

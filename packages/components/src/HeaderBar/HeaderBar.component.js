@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { useMemo } from 'react';
 import omit from 'lodash/omit';
 import { useTranslation } from 'react-i18next';
 
@@ -192,7 +192,7 @@ function Intercom({ id, config, tooltipPlacement }) {
 		<ActionIntercom
 			className={theme('tc-header-bar-intercom-default-component', 'btn', 'btn-link')}
 			id={id}
-			config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
+			config={useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
 			tooltipPlacement={tooltipPlacement}
 		/>
 	);

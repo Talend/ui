@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 
 import MonthYearView from './MonthYearView.component';
@@ -32,27 +31,13 @@ describe('MonthYearView', () => {
 				selectedYear={2012}
 			/>,
 		);
-		expect(
-			wrapper
-				.find('ViewLayout')
-				.shallow()
-				.find('Action')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
+		expect(wrapper.find('ViewLayout').shallow().find('Action').at(0).prop('tabIndex')).toBe(-1);
 
 		// when
 		wrapper.setProps({ allowFocus: true });
 
 		// then
-		expect(
-			wrapper
-				.find('ViewLayout')
-				.shallow()
-				.find('Action')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(wrapper.find('ViewLayout').shallow().find('Action').at(0).prop('tabIndex')).toBe(0);
 	});
 
 	it('should trigger props.onBackClick', () => {
@@ -71,12 +56,7 @@ describe('MonthYearView', () => {
 		expect(onBackClick).not.toBeCalled();
 
 		// when
-		wrapper
-			.find('ViewLayout')
-			.shallow()
-			.find('Action')
-			.at(0)
-			.simulate('click', event);
+		wrapper.find('ViewLayout').shallow().find('Action').at(0).simulate('click', event);
 
 		// then
 		expect(onBackClick).toBeCalledWith(event);

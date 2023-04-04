@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
+import { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';

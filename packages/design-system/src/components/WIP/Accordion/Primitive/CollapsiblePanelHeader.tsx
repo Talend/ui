@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactChild, Ref } from 'react';
+import { forwardRef, ReactChild, Ref } from 'react';
 import classnames from 'classnames';
 
 import { ButtonIcon } from '../../../ButtonIcon';

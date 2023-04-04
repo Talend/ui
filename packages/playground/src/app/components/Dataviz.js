@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import {
 	GeoChart,
 	getGeoChartConfig,
@@ -36,8 +36,8 @@ const geo = [
 ];
 
 export function Dataviz() {
-	const [chartsConfig, setConfig] = React.useState();
-	React.useEffect(() => {
+	const [chartsConfig, setConfig] = useState();
+	useEffect(() => {
 		async function load() {
 			try {
 				const config = await getGeoChartConfig('CONTINENT');

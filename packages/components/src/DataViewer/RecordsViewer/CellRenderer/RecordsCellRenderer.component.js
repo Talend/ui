@@ -1,8 +1,8 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Tree } from '../../Core';
 
-export default class RecordsCellRenderer extends React.Component {
+export default class RecordsCellRenderer extends Component {
 	static propTypes = {
 		highlighted: PropTypes.array,
 		index: PropTypes.number.isRequired,

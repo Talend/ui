@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref } from 'react';
+import { forwardRef, ReactElement, Ref } from 'react';
 import { MenuItem, MenuItemProps } from 'reakit';
 import Linkable, { LinkableType } from '../../Linkable';
 

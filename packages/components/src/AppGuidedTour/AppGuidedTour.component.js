@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 import { useTranslation } from 'react-i18next';

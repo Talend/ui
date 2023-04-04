@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';

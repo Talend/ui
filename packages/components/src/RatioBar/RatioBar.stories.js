@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { RatioBar } from './RatioBar.component';
 
 export default {

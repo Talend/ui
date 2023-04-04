@@ -1,4 +1,3 @@
-import React from 'react';
 import { fromJS, Map } from 'immutable';
 import { mock } from '@talend/react-cmf';
 import { mount } from 'enzyme';

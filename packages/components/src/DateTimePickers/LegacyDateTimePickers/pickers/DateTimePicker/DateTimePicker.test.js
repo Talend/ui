@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount, shallow } from 'enzyme';
 import startOfDay from 'date-fns/start_of_day';
 import DateTimePicker from './DateTimePicker.component';

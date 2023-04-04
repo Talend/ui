@@ -1,4 +1,3 @@
-import React from 'react';
 import '../dist/talend-icons-webfont.css';
 import { info as icons } from '../dist/info';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Args, ReactFramework, StoryContext, StoryFn } from '@storybook/react';
 
 type Selector = ':hover' | ':focus' | ':active';

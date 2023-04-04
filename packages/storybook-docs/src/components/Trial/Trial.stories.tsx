@@ -1,4 +1,3 @@
-import React from 'react';
 import Trial from './Trial';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';

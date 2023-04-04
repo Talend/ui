@@ -1,6 +1,4 @@
 /* eslint-disable testing-library/await-async-query */
-import React from 'react';
-
 import { BadgeDropdown, BadgePopover, BadgeTag, BadgeValue } from '.';
 
 /* eslint-disable testing-library/prefer-screen-queries */

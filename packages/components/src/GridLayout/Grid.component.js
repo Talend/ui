@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-grid-layout/css/styles.css';
 import { Responsive, WidthProvider } from 'react-grid-layout';

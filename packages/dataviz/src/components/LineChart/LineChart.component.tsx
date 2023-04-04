@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import {
 	LineChart as RLineChart,
 	Line,
@@ -51,8 +51,8 @@ function LineChart({
 		tooltip,
 	} = chartOptions;
 
-	const [activeLine, setActiveLine] = React.useState<string | null>(null);
-	const [selectedLines, setSelectedLines] = React.useState<string[]>(initialSelectedLines);
+	const [activeLine, setActiveLine] = useState<string | null>(null);
+	const [selectedLines, setSelectedLines] = useState<string[]>(initialSelectedLines);
 	const hasOnlyOneValue = data?.length === 1;
 
 	const getLineStyleFromStatus = (status: LineStatus, key: string) => {

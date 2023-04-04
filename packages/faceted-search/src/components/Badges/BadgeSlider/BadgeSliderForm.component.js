@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '@talend/react-components/lib/Actions';
 import Icon from '@talend/react-components/lib/Icon';

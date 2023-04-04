@@ -1,4 +1,3 @@
-import React from 'react';
 import algoliasearch from 'algoliasearch';
 import { getAlgoliaResults } from '@algolia/autocomplete-js';
 

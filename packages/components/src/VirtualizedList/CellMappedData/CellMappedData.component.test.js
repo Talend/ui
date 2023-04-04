@@ -1,14 +1,13 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 
 import CellMappedData from './CellMappedData.component';
 
 describe('CellMappedData', () => {
 	const valuesMap = {
-		'value_1': 'Value 1',
-		'value_2': 'Value 2',
+		value_1: 'Value 1',
+		value_2: 'Value 2',
 		1: 'One',
-		'two': 2,
+		two: 2,
 	};
 
 	const defaultColumnData = { valuesMap };

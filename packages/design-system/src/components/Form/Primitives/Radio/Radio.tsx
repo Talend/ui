@@ -1,4 +1,4 @@
-import React, { forwardRef, InputHTMLAttributes, Ref } from 'react';
+import { forwardRef, InputHTMLAttributes, Ref } from 'react';
 import { unstable_useId as useId } from 'reakit';
 import classnames from 'classnames';
 import Label from '../Label/Label';

@@ -1,4 +1,5 @@
-import React, { Children, cloneElement, forwardRef, Ref } from 'react';
+import { Children, cloneElement, forwardRef, Ref } from 'react';
+import * as React from 'react';
 import { isElement } from 'react-is';
 
 import styles from './Fieldset.module.scss';

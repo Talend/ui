@@ -1,4 +1,3 @@
-import React from 'react';
 import { screen, render, configure } from '@testing-library/react';
 import Badge from './Badge.component';
 

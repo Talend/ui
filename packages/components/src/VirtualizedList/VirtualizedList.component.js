@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { Children, useEffect, useRef, useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import get from 'lodash/get';
 import { listTypes, SELECTION_MODE } from './utils/constants';
@@ -71,7 +71,7 @@ function VirtualizedList(props) {
 
 	// Settings the data for resizable columns only at mount.
 	useEffect(() => {
-		setWidths(extractResizableProps(React.Children.toArray(children)));
+		setWidths(extractResizableProps(Children.toArray(children)));
 	}, []);
 
 	const resizeColumn = (dataKey, deltaX) => {

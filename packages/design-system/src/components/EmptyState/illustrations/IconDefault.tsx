@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './IconDefault.module.scss';
 
 export default function IconDefault() {

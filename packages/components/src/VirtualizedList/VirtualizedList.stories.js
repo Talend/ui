@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 
 import { SortIndicator } from 'react-virtualized';
@@ -394,7 +394,7 @@ const sourceItems = [...new Array(50)].map(
 );
 
 function CollapsiblePanels(props) {
-	const [cpCollection, setCPCollection] = React.useState(props.sourceItems);
+	const [cpCollection, setCPCollection] = useState(props.sourceItems);
 	return (
 		<div>
 			<h1>Virtualized List with Collapsible Panels</h1>

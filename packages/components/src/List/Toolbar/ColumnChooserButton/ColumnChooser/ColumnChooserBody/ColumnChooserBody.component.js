@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ColumnChooserRow from '../ColumnChooserRow';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
@@ -14,7 +14,7 @@ const Default = () => {
 	const { columns, id, onChangeVisibility, onSelectAll, selectAll, t } = useColumnChooserContext();
 	const bodyId = `${id}-body`;
 	return (
-		<React.Fragment>
+		<Fragment>
 			<SelectAllColumnsCheckbox id={bodyId} onChange={onSelectAll} value={selectAll} t={t} />
 			<div className={theme('tc-column-chooser-columns-list')}>
 				<ColumnChooserTable
@@ -24,7 +24,7 @@ const Default = () => {
 					t={t}
 				/>
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

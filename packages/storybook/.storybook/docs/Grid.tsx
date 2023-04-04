@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactElement } from 'react';
+import { HTMLAttributes, ReactElement } from 'react';
 import classnames from 'classnames';
 import styles from './Grid.module.scss';
 

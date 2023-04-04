@@ -1,4 +1,4 @@
-import React, { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
+import { cloneElement, forwardRef, MouseEvent, ReactElement, Ref } from 'react';
 import { Menu, MenuButton, useMenuState } from 'reakit';
 // eslint-disable-next-line @talend/import-depth
 import DropdownButton from './Primitive/DropdownButton';

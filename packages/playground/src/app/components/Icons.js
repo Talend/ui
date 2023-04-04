@@ -1,4 +1,3 @@
-import React from 'react';
 import Layout from '@talend/react-components/lib/Layout';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';

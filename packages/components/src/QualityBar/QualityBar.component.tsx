@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { EnrichedQualityType, QualityBarPercentages, QualityCommonProps } from './QualityBar.types';
 import { QualityBarRatioBars } from './QualityBarRatioBars.component';

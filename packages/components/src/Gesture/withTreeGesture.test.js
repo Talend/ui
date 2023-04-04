@@ -1,5 +1,4 @@
 /* eslint-disable import/imports-first */
-import React from 'react';
 import keycode from 'keycode';
 import { mount } from 'enzyme';
 import cases from 'jest-in-case';

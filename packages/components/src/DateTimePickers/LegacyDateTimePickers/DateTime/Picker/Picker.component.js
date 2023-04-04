@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 import { DateTimeContext } from '../Context';
 import DateTimePicker from '../../pickers/DateTimePicker';

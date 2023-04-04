@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { Nav, NavDropdown, MenuItem, Button } from '@talend/react-bootstrap';
 import { randomUUID } from '@talend/utils';
 import classNames from 'classnames';

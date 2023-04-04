@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { withTranslation } from 'react-i18next';
 import Dialog from '../Dialog';
 import Icon from '../Icon';

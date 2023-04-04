@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
 
@@ -41,7 +41,7 @@ function focusOnPreviousPage(ref, { index }, goToPreviousPage) {
 	goToPreviousPage(() => focusOnListItem(ref, index));
 }
 
-export default class WithDynamicListGesture extends React.Component {
+export default class WithDynamicListGesture extends Component {
 	static propTypes = {
 		className: PropTypes.string,
 		children: PropTypes.func.isRequired,

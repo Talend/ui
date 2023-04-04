@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { line, curveBasis, interpolateBasis } from 'd3';
 

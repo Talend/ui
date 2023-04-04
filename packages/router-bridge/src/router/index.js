@@ -1,6 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
-import React from 'react';
-
 let reactRouter;
 let Switch = () => null;
 let Route = () => null;

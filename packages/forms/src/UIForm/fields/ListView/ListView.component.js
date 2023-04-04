@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
 import { withTranslation } from 'react-i18next';
@@ -14,7 +14,7 @@ const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
 const DEFAULT_ITEM_HEIGHT = 33;
 
-class ListViewWidget extends React.Component {
+class ListViewWidget extends Component {
 	constructor(props) {
 		super(props);
 
