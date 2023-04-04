@@ -1,5 +1,12 @@
 # @talend/scripts-config-react-webpack
 
+## 15.3.1
+
+### Patch Changes
+
+- 285efb74a: chore: minor upgrade of webpack-dev-server
+- b0193afbd: chore: upgrade webpack
+
 ## 15.3.0
 
 ### Minor Changes

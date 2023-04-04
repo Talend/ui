@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-system",
-  "version": "7.7.0",
+  "version": "7.7.1",
   "description": "Talend Design System",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.2",
-    "@talend/design-tokens": "^2.7.2",
+    "@talend/design-tokens": "^2.7.3",
     "classnames": "^2.3.2",
     "keycode": "^2.2.1",
     "modern-css-reset": "^1.4.0",
@@ -61,7 +61,7 @@
     "@storybook/theming": "^6.5.16",
     "@svgr/webpack": "^5.5.0",
     "@talend/bootstrap-theme": "^7.0.1",
-    "@talend/icons": "^6.52.0",
+    "@talend/icons": "^6.55.0",
     "@talend/locales-design-system": "^7.3.0",
     "@talend/scripts-core": "^13.1.2",
     "@testing-library/cypress": "^9.0.0",
