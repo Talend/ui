@@ -9,7 +9,7 @@ import Skeleton from '../../Skeleton';
 import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
-import Gesture from '../../Gesture';
+import { Gesture } from '@talend/react-a11y';
 import theme from './RowCollapsiblePanel.module.scss';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });

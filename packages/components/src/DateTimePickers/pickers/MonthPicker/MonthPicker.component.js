@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { buildMonths } from '../../generator';
 
 import theme from './MonthPicker.module.scss';
-import Gesture from '../../../Gesture';
+import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../../translate';
 
 const ROW_SIZE = 3;

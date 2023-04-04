@@ -1,9 +1,16 @@
 import React from 'react';
 import { WithTreeInjectedProps } from '../Gesture/withTreeGesture';
 
+type TreeItemType = {
+	id: string;
+	isOpened: boolean;
+	name: string;
+	children?: TreeItemType[];
+};
+
 type TreeItemProps = Pick<WithTreeInjectedProps, 'onKeyDown'> & {
 	children: any;
-	item: any;
+	item: TreeItemType;
 	level: number;
 	posinset: number;
 };
@@ -34,7 +41,7 @@ class TreeItem extends React.Component<TreeItemProps> {
 }
 
 type TreeProps = Pick<WithTreeInjectedProps, 'onKeyDown'> & {
-	items: any[];
+	items: TreeItemType[];
 	level: number;
 };
 

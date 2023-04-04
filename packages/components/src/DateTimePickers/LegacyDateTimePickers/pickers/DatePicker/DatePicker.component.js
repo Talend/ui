@@ -13,7 +13,7 @@ import startOfMonth from 'date-fns/start_of_month';
 
 import theme from './DatePicker.module.scss';
 import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
-import Gesture from '../../../../Gesture';
+import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../../../translate';
 
 const getDayNames = memoize(buildDayNames);

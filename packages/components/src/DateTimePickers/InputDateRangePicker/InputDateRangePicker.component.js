@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { usePopper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
-import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
+import { focus } from '@talend/react-a11y';
 import Icon from '../../Icon';
 
 import DateRange from '../DateRange';
@@ -39,7 +39,7 @@ export default function InputDateRangePicker(props) {
 	const handlers = useInputPickerHandlers({
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
-		handleKeyDown: () => focusOnCalendar(containerRef.current),
+		handleKeyDown: () => focus.focusOnCalendar(containerRef.current),
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);

@@ -5,7 +5,7 @@ import Action from '../Actions/Action';
 import TreeViewItem from './TreeViewItem';
 
 import theme from './TreeView.module.scss';
-import Gesture from '../Gesture';
+import { Gesture } from '@talend/react-a11y';
 
 /**
  * A view component to display any tree structure, like folders or categories.

@@ -9,7 +9,7 @@ import { Action } from '../../Actions';
 import TooltipTrigger from '../../TooltipTrigger';
 import theme from './JSONLike.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
-import Gesture from '../../Gesture';
+import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../translate';
 
 function noop() {}

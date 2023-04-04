@@ -4,6 +4,7 @@ import { withTreeGesture } from './withTreeGesture';
 import { WithDynamicListGesture } from './withDynamicListGesture';
 import { withCalendarGesture } from './withCalendarGesture';
 import { withMonthCalendarGesture } from './withMonthCalendarGesture';
+import * as focus from './focus';
 
 const Gesture = {
 	withMonthCalendarGesture,
@@ -13,4 +14,5 @@ const Gesture = {
 	withCalendarGesture,
 };
 
+export { focus };
 export default Gesture;

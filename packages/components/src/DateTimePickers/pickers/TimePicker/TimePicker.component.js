@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { timeToStr, pad } from '../../Time/time-extraction';
-import Gesture from '../../../Gesture';
+import { Gesture } from '@talend/react-a11y';
 
 import theme from './TimePicker.module.scss';
 

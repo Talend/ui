@@ -1,3 +1,3 @@
-import Gesture from './Gesture';
+import Gesture, { focus } from './Gesture';
 
-export { Gesture };
+export { Gesture, focus };

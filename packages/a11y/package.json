@@ -11,7 +11,7 @@
     "pre-release": "yarn build:dev && yarn build:prod",
     "build:lib": "talend-scripts build",
     "start": "echo nothing to start",
-    "test": "talend-scripts test",
+    "test": "talend-scripts test ./src",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "yarn jsdoc -c ./docs.json",

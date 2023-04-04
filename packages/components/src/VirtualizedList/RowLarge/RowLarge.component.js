@@ -18,7 +18,7 @@ import {
 
 import getDefaultT from '../../translate';
 import { listTypes } from '../utils/constants';
-import Gesture from '../../Gesture';
+import { Gesture } from '@talend/react-a11y';
 import rowThemes from './RowThemes';
 import theme from './RowLarge.module.scss';
 
