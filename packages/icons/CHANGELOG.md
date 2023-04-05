@@ -1,5 +1,26 @@
 # @talend/icons
 
+## 6.55.0
+
+### Minor Changes
+
+- 9db7ef2fe: added icon `curly-braces` in size `L`
+- 9db7ef2fe: added icon `curly-braces` in size `M`
+- 9db7ef2fe: added icon `curly-braces` in size `S`
+- 9db7ef2fe: added icon `smiley-sleepy` in size `L`
+- 9db7ef2fe: added icon `smiley-sleepy` in size `M`
+
+### Patch Changes
+
+- 9db7ef2fe: changed icon `hierchical-bottom` in size `M`
+- 9db7ef2fe: changed icon `hierchical-bottom` in size `S`
+- b0193afbd: chore: upgrade webpack
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
 ## 6.54.0
 
 ### Minor Changes

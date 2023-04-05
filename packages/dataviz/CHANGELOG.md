@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.8.7
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/design-tokens@2.7.3
+
 ## 2.8.6
 
 ### Patch Changes
