@@ -1,5 +1,6 @@
 {
   "eslint.workingDirectories": [
+    "packages/a11y",
     "packages/assets-api",
     "packages/cmf-cqrs",
     "packages/cmf-router",

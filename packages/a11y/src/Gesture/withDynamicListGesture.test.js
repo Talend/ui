@@ -1,8 +1,9 @@
 import { Component } from 'react';
-import { mount } from 'enzyme';
-import keycode from 'keycode';
+import { render, screen, configure } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
-import WithDynamicListGesture from './withDynamicListGesture';
+import { WithDynamicListGesture } from './withDynamicListGesture';
+configure({ testIdAttribute: 'data-test' });
 
 const LIST_SIZE = 5;
 
@@ -28,6 +29,7 @@ class ComponentWithGesture extends Component {
 			listItems.push(
 				<li key={num}>
 					<button
+						data-test={`item-${num}`}
 						id={`item-${num}`}
 						onKeyDown={event => onKeyDown(event, { index: i, size: LIST_SIZE })}
 					>
@@ -52,18 +54,17 @@ class ComponentWithGesture extends Component {
 }
 
 describe('List Gesture HOC', () => {
-	function testFocus({ elementIndex, expectedActiveIndex, keyCode }) {
+	async function testFocus({ elementIndex, expectedActiveIndex, keyCode }) {
 		// given
-		const wrapper = mount(<ComponentWithGesture />, { attachTo: document.body });
-		const event = { keyCode };
-		const element = wrapper.find(`#item-${elementIndex}`);
+		render(<ComponentWithGesture />);
+		const element = screen.getByTestId(`item-${elementIndex}`);
 
 		// when
-		element.simulate('keydown', event);
+		await userEvent.click(element);
+		await userEvent.keyboard(`[${keyCode}]`);
 
 		// then
-		expect(document.activeElement.getAttribute('id')).toBe(`item-${expectedActiveIndex}`);
-		wrapper.detach();
+		expect(screen.getByTestId(`item-${expectedActiveIndex}`)).toHaveFocus();
 	}
 
 	cases('focus', testFocus, [
@@ -71,37 +72,37 @@ describe('List Gesture HOC', () => {
 			name: 'should focus previous item on up keydown',
 			elementIndex: 22,
 			expectedActiveIndex: 21,
-			keyCode: keycode.codes.up,
+			keyCode: 'ArrowUp',
 		},
 		{
 			name: 'should focus next item on down keydown',
 			elementIndex: 22,
 			expectedActiveIndex: 23,
-			keyCode: keycode.codes.down,
+			keyCode: 'ArrowDown',
 		},
 		{
 			name: 'should go to previous page on up keydown',
 			elementIndex: 20,
 			expectedActiveIndex: 19,
-			keyCode: keycode.codes.up,
+			keyCode: 'ArrowUp',
 		},
 		{
 			name: 'should go to previous page on down keydown',
 			elementIndex: 24,
 			expectedActiveIndex: 25,
-			keyCode: keycode.codes.down,
+			keyCode: 'ArrowDown',
 		},
 		{
 			name: 'should go to previous page on pageUp keydown',
 			elementIndex: 22,
 			expectedActiveIndex: 17,
-			keyCode: keycode.codes['page up'],
+			keyCode: 'PageUp',
 		},
 		{
 			name: 'should go to previous page on pageDown keydown',
 			elementIndex: 22,
 			expectedActiveIndex: 27,
-			keyCode: keycode.codes['page down'],
+			keyCode: 'PageDown',
 		},
 	]);
 });
