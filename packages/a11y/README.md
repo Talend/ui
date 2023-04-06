@@ -22,9 +22,9 @@ function MyCalendar(props) {
 export default Gesture.withCalendarGesture(MyCalendar);
 ```
 
-## Contraints, props and html structure
+## props and html structure
 
-In the upper example the HOC will inject onKeyDown props. It manage the focus on the correct day and is able to call `props.goToPreviousMonth(cb)` or `goToNextMonth(cb)` if needed.
+In the upper example the HOC will inject onKeyDown props. It manage the focus on the correct day and is able to call `props.goToPreviousMonth(cb)` or `props.goToNextMonth(cb)` if needed.
 
 Lookup of item in the dom is based on the following selector: `td > button[data-value]`
 
@@ -42,17 +42,18 @@ function MyTree(props) {
 export default Gesture.withTreeGesture(MyTree);
 ```
 
-## Contraints, props and html structure
-
-root selector: `ref.closest('ul[role="tree"]')`
-
-node selector: `root.querySelector('li[role="treeitem"]')`
+## props and html structure
 
 props:
 
 - onSelect(event, item) [enter, space]
 - onToggle(event, item) [left, right]
 - onToggleAllSiblings(event, siblings) [*]
+
+selectors:
+
+- root selector: `ref.closest('ul[role="tree"]')`
+- node selector: `root.querySelector('li[role="treeitem"]')`
 
 # List
 
@@ -68,8 +69,9 @@ function MyList(props) {
 export default Gesture.withListGesture(MyList);
 ```
 
-## Contraints, props and html structure
+## props and html structure
 
-root selector: `ref.closest('ul[role="list"]')`
+No props on this one but the following selectors:
 
-node selector: `root.querySelector('li[role="listitem"]')`
+- root selector: `ref.closest('ul[role="list"]')`
+- node selector: `root.querySelector('li[role="listitem"]')`
