@@ -2,7 +2,7 @@ import noop from 'lodash/noop';
 import get from 'lodash/get';
 import head from 'lodash/head';
 import PropTypes from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';

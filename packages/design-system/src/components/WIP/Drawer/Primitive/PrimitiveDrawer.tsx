@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StackVertical } from '../../../Stack';
 
 import theme from './PrimitiveDrawer.module.scss';

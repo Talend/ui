@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref } from 'react';
+import { forwardRef, ReactElement, Ref } from 'react';
 import { Checkbox as ReakitCheckbox, CheckboxProps, unstable_useId as useId } from 'reakit';
 import { ReactI18NextChild } from 'react-i18next';
 import classnames from 'classnames';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import JSONSchemaRenderer from './JSONSchemaRenderer.component';
 
 const schema = {

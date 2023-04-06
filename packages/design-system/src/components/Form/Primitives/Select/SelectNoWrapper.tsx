@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref, SelectHTMLAttributes } from 'react';
+import { forwardRef, ReactElement, Ref, SelectHTMLAttributes } from 'react';
 import styles from './Select.module.scss';
 import classnames from 'classnames';
 import { SizedIcon } from '../../../Icon';

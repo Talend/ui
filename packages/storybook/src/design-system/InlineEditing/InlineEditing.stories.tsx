@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -110,9 +110,9 @@ export const LoadingMode = {
 };
 
 export const InUse = (props: Story) => {
-	const [data, setData] = React.useState('this is a default value');
-	const [error, setError] = React.useState(false);
-	const [loading, setLoading] = React.useState(false);
+	const [data, setData] = useState('this is a default value');
+	const [error, setError] = useState(false);
+	const [loading, setLoading] = useState(false);
 	const onCancel = () => {
 		setError(false);
 	};

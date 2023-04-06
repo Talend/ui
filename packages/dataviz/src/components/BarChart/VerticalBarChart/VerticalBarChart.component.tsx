@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styles from './VerticalBarChart.component.module.scss';

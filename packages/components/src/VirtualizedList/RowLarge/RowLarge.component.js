@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { memo, Component, Fragment } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import isEmpty from 'lodash/isEmpty';
@@ -58,12 +58,12 @@ LargeInnerRowLoading.propTypes = {
 	rows: PropTypes.number,
 };
 
-const MemoLargeInnerRowLoading = React.memo(LargeInnerRowLoading);
+const MemoLargeInnerRowLoading = memo(LargeInnerRowLoading);
 
 /**
  * Row renderer that displays a Large item
  */
-class RowLarge extends React.Component {
+class RowLarge extends Component {
 	constructor(props) {
 		super(props);
 		this.renderKeyValue = this.renderKeyValue.bind(this);
@@ -143,7 +143,7 @@ class RowLarge extends React.Component {
 							rows={Math.floor(otherFields.length / LOADING_ROW_COLUMNS_COUNT) + 1}
 						/>
 					) : (
-						<React.Fragment>
+						<Fragment>
 							<div className={theme.header} key="header">
 								{titleCell}
 								{selectionCell}
@@ -151,7 +151,7 @@ class RowLarge extends React.Component {
 							<dl className={`tc-list-large-content ${theme.content}`} key="content">
 								{otherFields.map(this.renderKeyValue)}
 							</dl>
-						</React.Fragment>
+						</Fragment>
 					)}
 				</div>
 			</div>

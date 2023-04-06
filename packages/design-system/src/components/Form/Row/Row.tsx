@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { isElement } from 'react-is';
 
 import styles from './Row.module.scss';

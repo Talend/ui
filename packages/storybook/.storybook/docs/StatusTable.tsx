@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Suspense, useEffect, useState } from 'react';
+import { FunctionComponent, Suspense, useEffect, useState } from 'react';
 import { addons } from '@storybook/addons';
 import tokens from '@talend/design-tokens';
 

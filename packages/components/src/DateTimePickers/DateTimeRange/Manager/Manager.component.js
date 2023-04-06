@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import isBefore from 'date-fns/is_before';
 import isEqual from 'date-fns/is_equal';

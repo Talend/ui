@@ -1,5 +1,6 @@
-import React from 'react';
-
+/* eslint-disable testing-library/await-async-query */
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/await-async-utils */
 import { Icon } from '.';
 
 describe('Icon', () => {
@@ -23,12 +24,12 @@ describe('Icon', () => {
 	});
 
 	it('should support remote svg', () => {
-		cy.intercept('/assets/icons/my-icon.svg', '<svg data-test="my.icon"></svg>').as(
+		cy.intercept('/assets/icons/my-icon.svg', '<svg data-testid="myicon"></svg>').as(
 			'getRemoteIcon',
 		);
 		cy.mount(<Icon name="remote-/assets/icons/my-icon.svg" />);
-		cy.getByTest('my.icon').should('not.to.exist');
+		cy.findByTestId('myicon').should('not.to.exist');
 		cy.wait('@getRemoteIcon');
-		cy.getByTest('my.icon').should('to.exist');
+		cy.findByTestId('myicon').should('to.exist');
 	});
 });

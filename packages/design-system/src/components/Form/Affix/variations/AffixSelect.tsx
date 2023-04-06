@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import { unstable_useId as useId } from 'reakit';
 import FieldPrimitive, { FieldPropsPrimitive } from '../../Primitives/Field/Field';
 import SelectNoWrapper, { SelectNoWrapperProps } from '../../Primitives/Select/SelectNoWrapper';

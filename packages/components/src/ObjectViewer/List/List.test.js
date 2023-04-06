@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import List from './List.component';
 import JSONLike from '../JSONLike';
@@ -33,12 +32,7 @@ describe('ObjectViewer.List', () => {
 		expect(wrapper.hasClass('tc-object-viewer')).toBe(true);
 		expect(wrapper.find('li').length).toBe(2);
 		expect(wrapper.find(JSONLike).length).toBe(2);
-		expect(
-			wrapper
-				.find(JSONLike)
-				.first()
-				.props(),
-		).toEqual({
+		expect(wrapper.find(JSONLike).first().props()).toEqual({
 			data: data[0],
 			jsonpath: '$[0]',
 		});

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import startOfDay from 'date-fns/start_of_day';
 import PropTypes from 'prop-types';
 import { Action, getTheme, Rich, DatePicker } from '@talend/react-components';

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import { useRef } from 'react';
 import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import { date } from '@talend/utils';
@@ -13,7 +13,7 @@ type DayCalendarProps = WithCalendarGestureInjectedProps & {
 };
 
 function DayCalendar(props: DayCalendarProps) {
-	const calendarRef = React.useRef<HTMLTableElement>(null);
+	const calendarRef = useRef<HTMLTableElement>(null);
 
 	function isCurrentMonth(currentDate: Date) {
 		return getMonth(currentDate) === props.month;

@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref } from 'react';
+import { forwardRef, ReactElement, Ref } from 'react';
 import classnames from 'classnames';
 import Tooltip from '../../../Tooltip';
 

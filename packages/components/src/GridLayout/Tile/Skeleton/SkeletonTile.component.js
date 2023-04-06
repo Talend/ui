@@ -1,4 +1,3 @@
-import React from 'react';
 import Skeleton from '../../../Skeleton';
 import Tile from '../Tile.component';
 import TileBody from '../Body/TileBody.component';

@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { fireEvent, render, screen } from '@testing-library/react';
@@ -633,7 +633,7 @@ describe('cmfConnect', () => {
 			FunctionComponent.displayName = 'FunctionComponent';
 
 			// eslint-disable-next-line react/prefer-stateless-function
-			class ClassComponent extends React.Component {
+			class ClassComponent extends Component {
 				static displayName = 'ClassComponent';
 			}
 

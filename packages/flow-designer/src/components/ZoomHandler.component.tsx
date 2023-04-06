@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children, cloneElement, Component } from 'react';
 import { select, zoom as d3ZoomFactory, ZoomBehavior } from 'd3';
 import { Transform } from '../customTypings/index.d';
 
@@ -21,7 +21,7 @@ type Props = {
 	transformToApply?: Transform;
 };
 
-class ZoomHandler extends React.Component<Props, State> {
+class ZoomHandler extends Component<Props, State> {
 	zoom: ZoomBehavior<Element, unknown>;
 
 	selection: any;
@@ -63,8 +63,8 @@ class ZoomHandler extends React.Component<Props, State> {
 
 	render() {
 		const { transform } = this.state;
-		const children = React.Children.map(this.props.children, children =>
-			React.cloneElement(children, {
+		const children = Children.map(this.props.children, children =>
+			cloneElement(children, {
 				transformData: transform,
 				transform: transformToString(transform),
 			}),

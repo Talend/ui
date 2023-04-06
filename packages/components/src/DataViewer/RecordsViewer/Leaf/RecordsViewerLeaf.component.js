@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { createRef, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -19,7 +19,7 @@ export function RecordsViewerLeaf({
 	measure,
 	t,
 }) {
-	const ref = React.createRef();
+	const ref = createRef();
 	const [isValueOverflown, setIsValueOverflown] = useState(false);
 	const [isLongValueExpanded, setIsLongValueExpanded] = useState(false);
 

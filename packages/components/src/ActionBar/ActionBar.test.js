@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { render, screen, configure, within } from '@testing-library/react';
 import ActionBar from './ActionBar.component';
 configure({ testIdAttribute: 'data-test' });

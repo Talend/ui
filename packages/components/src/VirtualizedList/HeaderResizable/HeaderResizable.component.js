@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Draggable from 'react-draggable';
@@ -20,7 +20,7 @@ const HeaderResizableContent = ({ customRender, ...rest }) => {
 	return null;
 };
 
-export class HeaderResizable extends React.Component {
+export class HeaderResizable extends Component {
 	state = {
 		resizing: false,
 	};

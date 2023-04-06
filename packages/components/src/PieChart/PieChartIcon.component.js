@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { arc } from 'd3';
 import { withTranslation } from 'react-i18next';

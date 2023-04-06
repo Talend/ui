@@ -1,8 +1,8 @@
-import React from 'react';
+import { useRef } from 'react';
 import { WithCalendarGestureInjectedProps } from '../Gesture/propTypes';
 
 function MonthCalendar(props: WithCalendarGestureInjectedProps) {
-	const calendarRef = React.useRef<HTMLTableElement>(null);
+	const calendarRef = useRef<HTMLTableElement>(null);
 	const { onKeyDown } = props;
 	return (
 		<table ref={calendarRef}>

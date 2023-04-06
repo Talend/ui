@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { buildMonths } from '../../generator';
@@ -9,7 +9,7 @@ import getDefaultT from '../../../../translate';
 
 const ROW_SIZE = 3;
 
-class MonthPicker extends React.PureComponent {
+class MonthPicker extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.months = buildMonths(ROW_SIZE, props.t);

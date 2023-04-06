@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import StatusFailed, { StatusFailedProps } from './variations/StatusFailed';
 import StatusWarning, { StatusWarningProps } from './variations/StatusWarning';
 import StatusSuccessful, { StatusSuccessfulProps } from './variations/StatusSuccessful';

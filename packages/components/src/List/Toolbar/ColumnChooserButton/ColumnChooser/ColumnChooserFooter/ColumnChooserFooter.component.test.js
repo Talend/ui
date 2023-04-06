@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import getDefaultT from '../../../../../translate';
 import Component from './ColumnChooserFooter.component';

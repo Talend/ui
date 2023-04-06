@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import keycode from 'keycode';
 import _isEmpty from 'lodash/isEmpty';
 import Enumeration from '@talend/react-components/lib/Enumeration';
@@ -44,7 +44,7 @@ Add, Remove, Edit, Submit, Search actions imply a computation on frontend side.
 This is the case for story book for example.
 There is a special method isConnectedMode() indicating in what mode we are
 */
-class EnumerationForm extends React.Component {
+class EnumerationForm extends Component {
 	static getItemHeight() {
 		return ITEMS_DEFAULT_HEIGHT;
 	}

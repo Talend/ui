@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 

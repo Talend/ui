@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
-import * as React from 'react';
+import { ComponentType, Component, createRef, KeyboardEvent } from 'react';
 import keycode from 'keycode';
 import { focusOnDay, focusWithinCurrentCalendar } from './focus';
 import { FIRST, LAST } from './constants';
@@ -23,16 +23,16 @@ function switchMonth(
 // C is the actual interface of the wrapped component (used to grab defaultProps from it)
 
 export function withCalendarGesture<P extends WithCalendarGestureInjectedProps>(
-	WrappedComponent: React.ComponentType<P>,
+	WrappedComponent: ComponentType<P>,
 ) {
 	// the magic is here: JSX.LibraryManagedAttributes will take the type of WrapedComponent and resolve its default props
 	// against the props of WithData, which is just the original P type with 'data' removed from its requirements
 	type Props = Omit<WithCalendarGestureInjectedProps, 'onKeyDown'>;
 
-	return class CalendarGesture extends React.Component<Props> {
+	return class CalendarGesture extends Component<Props> {
 		static displayName = `CalendarGesture(${WrappedComponent.displayName})`;
 
-		ref = React.createRef<HTMLDivElement>();
+		ref = createRef<HTMLDivElement>();
 
 		constructor(props: Props) {
 			super(props);
@@ -51,11 +51,7 @@ export function withCalendarGesture<P extends WithCalendarGestureInjectedProps>(
 			}
 		}
 
-		onKeyDown(
-			event: React.KeyboardEvent<HTMLInputElement>,
-			calendarRef: HTMLElement,
-			dayIndex: number,
-		) {
+		onKeyDown(event: KeyboardEvent<HTMLInputElement>, calendarRef: HTMLElement, dayIndex: number) {
 			switch (event.keyCode) {
 				case keycode.codes.left:
 					event.stopPropagation();

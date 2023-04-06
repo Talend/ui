@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SkeletonInput, SkeletonButton } from '@talend/design-system';
 
 import { ActionProps, DisplayMode } from './types';

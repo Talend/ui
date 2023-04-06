@@ -1,4 +1,3 @@
-import React from 'react';
 import bootstrap from '../bootstrap';
 import registry from '../registry';
 

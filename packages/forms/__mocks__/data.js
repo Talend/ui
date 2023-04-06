@@ -1,4 +1,3 @@
-import React from 'react';
 import { cloneDeep } from 'lodash';
 
 export const data = {

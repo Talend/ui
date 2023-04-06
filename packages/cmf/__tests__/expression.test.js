@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import cmf, { mock } from '../src';
 import expression from '../src/expression';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import { ItemsComponent } from './Items.component';
 import toJsonWithoutI18n from '../../../test/props-without-i18n';
@@ -15,7 +14,7 @@ describe('Items', () => {
 			{ label: 'Lorem ipsum dolor sit amet 1', checked: true },
 			{ label: 'Lorem ipsum dolor sit amet 2' },
 		],
-		dataTest:'item',
+		dataTest: 'item',
 		getItemHeight: () => 42,
 	};
 
@@ -24,7 +23,7 @@ describe('Items', () => {
 			{ label: 'Lorem ipsum dolor default' },
 			{ label: 'Lorem ipsum dolor Parent', checked: true, children: props.items },
 		],
-		dataTest:'item',
+		dataTest: 'item',
 		getItemHeight: () => 42,
 	};
 

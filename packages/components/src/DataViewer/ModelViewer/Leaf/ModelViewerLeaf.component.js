@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import noop from 'lodash/noop';
 import PropTypes from 'prop-types';
-import React from 'react';
 import getDefaultT from '../../../translate';
 import { SimpleTextKeyValue } from '../../Text';
 import theme from '../ModelViewer.module.scss';

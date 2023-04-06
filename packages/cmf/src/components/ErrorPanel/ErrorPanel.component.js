@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import onError from '../../onError';
 
@@ -10,7 +10,7 @@ function reload() {
 }
 
 function ErrorPanel({ error = {} }) {
-	const [url, setURL] = React.useState();
+	const [url, setURL] = useState();
 	useEffect(() => {
 		const newUrl = onError.createObjectURL(error);
 		setURL(newUrl);

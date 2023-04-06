@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { ButtonIconToggle } from '.';
+import { ButtonIconToggle } from './index';
 
 context('<ButtonToggle />', () => {
 	it('should not have aria-pressed if not active', () => {

@@ -1,5 +1,11 @@
 # @talend/scripts-publish-local
 
+## 1.2.0
+
+### Minor Changes
+
+- 20436ddf0: feat: use npx to execute verdaccio.
+
 ## 1.1.4
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useState, useCallback, useMemo } from 'react';
+import { Fragment, useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Action } from '@talend/react-components/lib/Actions';
@@ -18,7 +18,7 @@ const BadgeCheckbox = ({ checked, id, label, onChange }) => {
 		onChange(event, id);
 	};
 	return (
-		<React.Fragment>
+		<Fragment>
 			<Checkbox
 				onChange={onChangeCheckbox}
 				aria-describedby={describedby}
@@ -31,7 +31,7 @@ const BadgeCheckbox = ({ checked, id, label, onChange }) => {
 			<div id={describedby} className="sr-only">
 				{label}
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 
@@ -100,7 +100,7 @@ const BadgeCheckboxesForm = ({
 		}
 	};
 	return (
-		<React.Fragment>
+		<Fragment>
 			{allSelector ? (
 				<div className={theme('fs-badge-checkbox-all')}>
 					<BadgeCheckbox
@@ -162,7 +162,7 @@ const BadgeCheckboxesForm = ({
 					/>
 				</Rich.Layout.Footer>
 			</form>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import isBefore from 'date-fns/is_before';
 import startOfDay from 'date-fns/start_of_day';

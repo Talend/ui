@@ -5,7 +5,7 @@
  * - ...
  */
 
-import React from 'react';
+import { Children } from 'react';
 import { cellType as titleCellType } from '../CellTitle';
 import { internalIds } from './constants';
 
@@ -85,7 +85,7 @@ export function getCellData(field, parent, index) {
  * @param parent The row parent
  */
 export function extractSpecialFields(parent) {
-	const children = React.Children.toArray(parent.props.children);
+	const children = Children.toArray(parent.props.children);
 	const titleField = children.find(field => getCellType(field) === titleCellType);
 	const selectionField = children.find(field => field.props.id === internalIds.rowSelector);
 	const otherFields = children.filter(field => field !== titleField && field !== selectionField);

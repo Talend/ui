@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import FocusManager from './FocusManager.component';
 
@@ -14,14 +13,8 @@ describe('FocusManager', () => {
 			</FocusManager>,
 		);
 		// when
-		wrapper
-			.find('.inside')
-			.first()
-			.simulate('focus');
-		wrapper
-			.find('.inside')
-			.first()
-			.simulate('blur');
+		wrapper.find('.inside').first().simulate('focus');
+		wrapper.find('.inside').first().simulate('blur');
 		jest.runAllTimers();
 
 		// then
@@ -37,14 +30,8 @@ describe('FocusManager', () => {
 			</FocusManager>,
 		);
 		// when
-		wrapper
-			.find('.inside')
-			.first()
-			.simulate('blur');
-		wrapper
-			.find('.inside')
-			.first()
-			.simulate('focus');
+		wrapper.find('.inside').first().simulate('blur');
+		wrapper.find('.inside').first().simulate('focus');
 		jest.runAllTimers();
 
 		// then
@@ -61,10 +48,7 @@ describe('FocusManager', () => {
 		);
 
 		// when
-		wrapper
-			.find('.inside')
-			.first()
-			.simulate('focus');
+		wrapper.find('.inside').first().simulate('focus');
 
 		// then
 		expect(handler).toHaveBeenCalled();

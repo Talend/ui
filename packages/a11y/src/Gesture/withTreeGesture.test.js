@@ -1,5 +1,4 @@
 /* eslint-disable import/imports-first */
-import React from 'react';
 import { render, screen, configure } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';

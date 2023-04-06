@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 
 import CellBoolean, { DISPLAY_MODE } from './CellBoolean.component';

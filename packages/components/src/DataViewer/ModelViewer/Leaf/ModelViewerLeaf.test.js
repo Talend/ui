@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import Component from './ModelViewerLeaf.component';
 import { defaultGetDisplayValue, defaultGetDisplayKey } from '../ModelViewer.container';

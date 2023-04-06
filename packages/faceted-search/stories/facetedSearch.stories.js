@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useCallback } from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { action } from '@storybook/addon-actions';
 import { Badge } from '@talend/react-components';
@@ -320,8 +320,8 @@ export const ReadOnly = () => {
 };
 
 export const WithExternalState = () => {
-	const [state, setState] = React.useState(badgesFaceted);
-	const onSubmit = React.useCallback(
+	const [state, setState] = useState(badgesFaceted);
+	const onSubmit = useCallback(
 		(_, badges) => setState(previousState => ({ ...previousState, badges })),
 		[setState],
 	);

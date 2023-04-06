@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 
 import NameFilter from './NameFilter.component';
@@ -23,10 +22,7 @@ describe('NameFilter component snaps', () => {
 		};
 
 		const wrapper = shallow(<NameFilter {...props} />);
-		wrapper
-			.find('Action')
-			.props()
-			.onClick();
+		wrapper.find('Action').props().onClick();
 
 		expect(onChange).toHaveBeenLastCalledWith({ target: { value: '' } });
 	});

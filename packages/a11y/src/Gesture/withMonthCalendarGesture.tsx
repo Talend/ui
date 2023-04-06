@@ -1,20 +1,20 @@
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
-import * as React from 'react';
+import { ComponentType, createRef, Component, KeyboardEvent } from 'react';
 import keycode from 'keycode';
 import { focusWithinCurrentCalendar } from './focus';
 import { FIRST, LAST } from './constants';
 import { WithCalendarGestureInjectedProps } from './propTypes';
 
 export function withMonthCalendarGesture<P extends WithCalendarGestureInjectedProps>(
-	WrappedComponent: React.ComponentType<P>,
+	WrappedComponent: ComponentType<P>,
 	rowSize: number,
 ) {
 	type Props = Omit<WithCalendarGestureInjectedProps, 'onKeyDown'>;
 
-	return class MonthCalendarGesture extends React.Component<Props> {
+	return class MonthCalendarGesture extends Component<Props> {
 		static displayName = `MonthCalendarGesture(${WrappedComponent.displayName})`;
 
-		ref = React.createRef<HTMLDivElement>();
+		ref = createRef<HTMLDivElement>();
 
 		constructor(props: Props) {
 			super(props);
@@ -34,7 +34,7 @@ export function withMonthCalendarGesture<P extends WithCalendarGestureInjectedPr
 		}
 
 		onKeyDown(
-			event: React.KeyboardEvent<HTMLInputElement>,
+			event: KeyboardEvent<HTMLInputElement>,
 			calendarRef: HTMLElement,
 			monthIndex: number,
 		) {

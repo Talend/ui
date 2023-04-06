@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import * as React from 'react';
 import { Radio, RadioGroup, useRadioState } from 'reakit';
 import classnames from 'classnames';
 import theme from './Switch.module.scss';

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -45,7 +45,7 @@ function getOptions(interval = 60, useSeconds) {
 	return options;
 }
 
-export class TimePicker extends React.Component {
+export class TimePicker extends Component {
 	static propTypes = {
 		interval: PropTypes.number,
 		onChange: PropTypes.func.isRequired,

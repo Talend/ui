@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS, Map } from 'immutable';
 import addSchemaMock from './ComponentForm.test.schema.json';

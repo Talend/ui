@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { ErrorState, StackVertical, Stepper as CoralStepper } from '@talend/design-system';
@@ -186,7 +186,7 @@ function Stepper({ steps, title, renderActions, children }) {
 	}
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<StepperTransition active={transitionState === TRANSITION_STATE.CHILD}>
 				{children}
 			</StepperTransition>
@@ -200,7 +200,7 @@ function Stepper({ steps, title, renderActions, children }) {
 					</div>
 				</div>
 			</StepperTransition>
-		</React.Fragment>
+		</Fragment>
 	);
 }
 

@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import TokenName from '../../TokenName';
 import { ColorToken } from '../../../../../src/tokens/types';
 import { StackHorizontal, StackVertical } from '@talend/design-system';

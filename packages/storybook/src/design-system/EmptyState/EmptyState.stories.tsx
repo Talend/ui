@@ -1,4 +1,3 @@
-import React from 'react';
 import { action as sbAction } from '@storybook/addon-actions';
 import { BrowserRouter, Link } from 'react-router-dom';
 import {

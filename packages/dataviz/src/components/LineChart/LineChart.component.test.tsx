@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import LineChart from './LineChart.component';
 import { LineChartOptions, LineOptions } from './LineChart.types';

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component, createRef } from 'react';
 import { WithTreeInjectedProps } from '../Gesture/withTreeGesture';
 
 type TreeItemType = {
@@ -14,8 +14,8 @@ type TreeItemProps = Pick<WithTreeInjectedProps, 'onKeyDown'> & {
 	level: number;
 	posinset: number;
 };
-class TreeItem extends React.Component<TreeItemProps> {
-	ref = React.createRef<HTMLLIElement>();
+class TreeItem extends Component<TreeItemProps> {
+	ref = createRef<HTMLLIElement>();
 
 	render() {
 		return (

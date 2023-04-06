@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import { MenuItemProps, MenuSeparator } from 'reakit';
 
 import styles from './DropdownDivider.module.scss';

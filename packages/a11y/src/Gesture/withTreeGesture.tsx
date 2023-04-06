@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as React from 'react';
+import { KeyboardEvent, ComponentType, Component } from 'react';
 import keycode from 'keycode';
 import { focusOn } from './focus';
 
@@ -89,21 +89,21 @@ function getPreviousItem(ref: HTMLElement) {
 }
 
 export type TreeGestureProps = {
-	onSelect: (e: React.KeyboardEvent<HTMLElement>, item: any) => void;
-	onToggle: (e: React.KeyboardEvent<HTMLElement>, item: any) => void;
-	onToggleAllSiblings: (e: React.KeyboardEvent<HTMLElement>, siblings: any) => void;
+	onSelect: (e: KeyboardEvent<HTMLElement>, item: any) => void;
+	onToggle: (e: KeyboardEvent<HTMLElement>, item: any) => void;
+	onToggleAllSiblings: (e: KeyboardEvent<HTMLElement>, siblings: any) => void;
 };
 
 export type WithTreeInjectedProps = TreeGestureProps & {
-	onKeyDown: (e: React.KeyboardEvent<HTMLElement>, ref: any, item: any) => void;
+	onKeyDown: (e: KeyboardEvent<HTMLElement>, ref: any, item: any) => void;
 };
 
 export function withTreeGesture<T extends WithTreeInjectedProps>(
-	WrappedComponent: React.ComponentType<T>,
+	WrappedComponent: ComponentType<T>,
 ) {
 	type Props = Omit<WithTreeInjectedProps, 'onKeyDown'>;
 
-	return class TreeGesture extends React.Component<Props> {
+	return class TreeGesture extends Component<Props> {
 		static displayName = `TreeGesture(${WrappedComponent.displayName})`;
 
 		constructor(props: Props) {
@@ -111,7 +111,7 @@ export function withTreeGesture<T extends WithTreeInjectedProps>(
 			this.onKeyDown = this.onKeyDown.bind(this);
 		}
 
-		onKeyDown(event: React.KeyboardEvent<HTMLElement>, ref: any, item: any) {
+		onKeyDown(event: KeyboardEvent<HTMLElement>, ref: any, item: any) {
 			const { hasChildren, isOpened, siblings } = item;
 			switch (event.keyCode) {
 				case keycode.codes.enter:

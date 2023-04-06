@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component, createRef } from 'react';
 import keycode from 'keycode';
 import { focusOn, WithFocus } from './focus';
 
@@ -67,8 +67,8 @@ export interface WithDynamicListGestureProps {
 	children: (fn: (event: KeyboardEvent, options: FocusOnOption) => void) => JSX.Element;
 }
 
-export class WithDynamicListGesture extends React.Component<WithDynamicListGestureProps> {
-	myRef = React.createRef<HTMLDivElement>();
+export class WithDynamicListGesture extends Component<WithDynamicListGestureProps> {
+	myRef = createRef<HTMLDivElement>();
 
 	constructor(props: WithDynamicListGestureProps) {
 		super(props);

@@ -1,4 +1,3 @@
-import React from 'react';
 import classnames from 'classnames';
 import { ColorToken, Token } from '../../../../../../src/tokens/types';
 import { getScssName } from '../../../TokenFormatter';

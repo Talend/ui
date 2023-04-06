@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
@@ -9,7 +9,7 @@ import { FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from '../../DateTime/consta
 
 import theme from './TimePicker.module.scss';
 
-class TimePicker extends React.PureComponent {
+class TimePicker extends PureComponent {
 	static defaultProps = {
 		value: {},
 		t: getDefaultT(),

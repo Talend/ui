@@ -1,5 +1,4 @@
 /* eslint-disable no-plusplus */
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import ConfirmDialog from './ConfirmDialog.component';

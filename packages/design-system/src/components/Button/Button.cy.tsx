@@ -1,11 +1,14 @@
-import React from 'react';
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/await-async-query */
+import { useState } from 'react';
 
 import ButtonPrimitive from './Primitive/ButtonPrimitive';
-import { ButtonPrimary, Tooltip } from '../..';
+import { ButtonPrimary } from './';
+import Tooltip from '../../components/Tooltip';
 
 const Loading = ({ 'data-testid': dataTestId }: { 'data-testid': string }) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const [loading, isLoading] = React.useState(false);
+	const [loading, isLoading] = useState(false);
 	return (
 		<Tooltip title="Relevant description of the basic button">
 			<ButtonPrimary
@@ -44,16 +47,14 @@ context('<Button />', () => {
 					button
 				</ButtonPrimitive>,
 			);
-			// eslint-disable-next-line testing-library/prefer-screen-queries
-			cy.getByTestId('my.button').should('have.attr', 'data-feature', 'my.feature');
+			cy.findByTestId('my.button').should('have.attr', 'data-feature', 'my.feature');
 		});
 	});
 
 	describe('loading state', () => {
 		it('should load', () => {
 			cy.mount(<Loading data-testid="my.button" />);
-			// eslint-disable-next-line testing-library/prefer-screen-queries
-			cy.getByTestId('my.button')
+			cy.findByTestId('my.button')
 				.should('have.attr', 'aria-busy', 'false')
 				.click()
 				.should('have.attr', 'aria-busy', 'true');
@@ -62,8 +63,7 @@ context('<Button />', () => {
 
 		it('should have a tooltip', () => {
 			cy.mount(<Loading data-testid="my.button" />);
-			// eslint-disable-next-line testing-library/prefer-screen-queries
-			cy.getByTestId('my.button')
+			cy.findByTestId('my.button')
 				.focus()
 				.should('have.attr', 'aria-describedby')
 				.then(describedBy =>

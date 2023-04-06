@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react';
+import { Component, createRef, KeyboardEvent } from 'react';
 type ListItemProps = {
 	index: number;
-	onKeyDown: (event: React.KeyboardEvent, ref: HTMLElement) => void;
+	onKeyDown: (event: KeyboardEvent, ref: HTMLElement) => void;
 };
-class ListItem extends React.Component<ListItemProps> {
-	ref = React.createRef<HTMLDivElement>();
+class ListItem extends Component<ListItemProps> {
+	ref = createRef<HTMLDivElement>();
 
 	render() {
 		const { index, onKeyDown, ...props } = this.props;

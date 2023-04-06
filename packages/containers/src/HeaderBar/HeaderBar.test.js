@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { Map, List } from 'immutable';
 import { render, screen } from '@testing-library/react';

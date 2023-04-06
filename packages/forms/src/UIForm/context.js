@@ -1,6 +1,6 @@
-import React from 'react';
+import { createContext, useContext } from 'react';
 
-export const WidgetContext = React.createContext();
+export const WidgetContext = createContext();
 
 export function getWidget(widgets, widgetId, displayMode) {
 	if (!widgets) {
@@ -15,7 +15,7 @@ export function getWidget(widgets, widgetId, displayMode) {
 }
 
 export function useWidget(widgetId, displayMode) {
-	const widgets = React.useContext(WidgetContext);
+	const widgets = useContext(WidgetContext);
 	return {
 		widgets,
 		WidgetImpl: getWidget(widgets, widgetId, displayMode),

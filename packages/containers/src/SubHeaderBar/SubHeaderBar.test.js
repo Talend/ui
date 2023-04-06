@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { Map } from 'immutable';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './SubHeaderBar.container';
