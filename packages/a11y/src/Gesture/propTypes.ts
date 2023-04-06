@@ -8,7 +8,7 @@ export type CalendarGestureProps = {
 export type WithCalendarGestureInjectedProps = CalendarGestureProps & {
 	onKeyDown: (
 		e: React.KeyboardEvent<HTMLInputElement | HTMLButtonElement>,
-		ref: any,
-		item: any,
+		ref: HTMLElement | null,
+		dayIndex: number,
 	) => void;
 };

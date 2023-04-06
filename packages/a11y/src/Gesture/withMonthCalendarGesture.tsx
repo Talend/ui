@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
 import { ComponentType, createRef, Component, KeyboardEvent as ReactKeyboardEvent } from 'react';

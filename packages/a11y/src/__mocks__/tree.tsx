@@ -22,6 +22,7 @@ class TreeItem extends Component<TreeItemProps> {
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<li
 				id={this.props.item.id}
+				// eslint-disable-next-line jsx-a11y/role-has-required-aria-props
 				role="treeitem"
 				tabIndex={-1}
 				onKeyDown={e => {
@@ -53,7 +54,6 @@ function Tree(props: TreeProps) {
 					key={`item-${props.level}-${index}`}
 					onKeyDown={props.onKeyDown}
 					item={item}
-					// name={`Item ${props.level} ${index}`}
 					level={props.level}
 					posinset={index}
 				>
