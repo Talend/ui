@@ -4,6 +4,7 @@ import keycode from 'keycode';
 import { focusOnDay, focusWithinCurrentCalendar } from './focus';
 import { FIRST, LAST } from './constants';
 import { WithCalendarGestureInjectedProps } from './propTypes';
+import { preventScroll } from './preventScroll';
 
 /**
  * Switch month and focus on the same focused day or the month's limits if it's out of the limits
@@ -37,18 +38,6 @@ export function withCalendarGesture<P extends WithCalendarGestureInjectedProps>(
 		constructor(props: Props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
-		}
-
-		componentDidMount() {
-			if (this.ref.current) {
-				this.ref.current.addEventListener('keydown', this.preventScroll);
-			}
-		}
-
-		componentWillUnmount() {
-			if (this.ref.current) {
-				this.ref.current.removeEventListener('keydown', this.preventScroll);
-			}
 		}
 
 		onKeyDown(event: KeyboardEvent<HTMLInputElement>, calendarRef: HTMLElement, dayIndex: number) {
@@ -90,24 +79,9 @@ export function withCalendarGesture<P extends WithCalendarGestureInjectedProps>(
 			}
 		}
 
-		preventScroll = (evt: KeyboardEvent) => {
-			const arrows = [
-				keycode.codes.left,
-				keycode.codes.right,
-				keycode.codes.up,
-				keycode.codes.down,
-				keycode.codes.home,
-				keycode.codes['page up'],
-				keycode.codes['page down'],
-			];
-			if (arrows.includes(evt.keyCode)) {
-				evt.preventDefault();
-			}
-		};
-
 		render() {
 			return (
-				<div ref={this.ref}>
+				<div ref={this.ref} onKeyDown={preventScroll}>
 					<WrappedComponent {...(this.props as any)} onKeyDown={this.onKeyDown} />
 				</div>
 			);
