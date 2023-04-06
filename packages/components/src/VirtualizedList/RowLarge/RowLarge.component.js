@@ -3,6 +3,7 @@ import { memo, Component, Fragment } from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import isEmpty from 'lodash/isEmpty';
+import { Gesture } from '@talend/react-a11y';
 
 import Skeleton from '../../Skeleton';
 
@@ -18,7 +19,6 @@ import {
 
 import getDefaultT from '../../translate';
 import { listTypes } from '../utils/constants';
-import { Gesture } from '@talend/react-a11y';
 import rowThemes from './RowThemes';
 import theme from './RowLarge.module.scss';
 
