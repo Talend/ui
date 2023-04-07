@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 6.56.0
+
+### Minor Changes
+
+- 578d1807e: feat: Add some new svg icons
+
 ## 6.55.0
 
 ### Minor Changes
