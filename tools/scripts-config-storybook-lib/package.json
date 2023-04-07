@@ -27,6 +27,7 @@
     "@storybook/jest": "^0.1.0",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.0.2",
+    "@storybook/react-webpack5": "^7.0.2",
     "@storybook/testing-library": "^0.1.0",
     "@talend/scripts-config-react-webpack": "^15.2.6",
     "@talend/dynamic-cdn-webpack-plugin": "^13.0.0",
@@ -47,7 +48,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "storybook": "^7.0.0-rc.3"
+    "storybook": "^7.0.2"
   },
   "msw": {
     "workerDirectory": ".storybook-templates/msw"
