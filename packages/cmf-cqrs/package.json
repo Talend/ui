@@ -33,7 +33,7 @@
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
     "@talend/react-cmf": "^7.2.0",
-    "immutable": "^3.8.2",
+    "immutable": "^4.3.0",
     "redux-saga": "^1.2.2"
   },
   "devDependencies": {

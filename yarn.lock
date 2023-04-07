@@ -4529,9 +4529,9 @@
     "@types/react" "^17"
 
 "@types/react@*", "@types/react@>=16.9.11", "@types/react@^16", "@types/react@^17", "@types/react@^17.0.2", "@types/react@^17.0.53":
-  version "17.0.55"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.55.tgz#f94eac1a37929cd86d1cc084c239c08dcfd10e5f"
-  integrity sha512-kBcAhmT8RivFDYxHdy8QfPKu+WyfiiGjdPb9pIRtd6tj05j0zRHq5DBGW5Ogxv5cwSKd93BVgUk/HZ4I9p3zNg==
+  version "17.0.56"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.56.tgz#16f54a0b0a4820065b8296f1dd6da80791fcf964"
+  integrity sha512-Z13f9Qz7Hg8f2g2NsBjiJSVWmON2b3K8RIqFK8mMKCIgvD0CD0ZChTukz87H3lI28X3ukXoNFGzo3ZW1ICTtPA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -11187,15 +11187,15 @@ ignore@^5.1.9, ignore@^5.2.0, ignore@^5.2.1:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
   integrity sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==
 
-immutable@^3, immutable@^3.7.6, immutable@^3.8.2:
+immutable@^3, immutable@^3.7.6:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
   integrity sha512-15gZoQ38eYjEjxkorfbcgBKBL6R7T459OuK+CpcWt7O3KF4uPCx2tD0uFETlUDIyo+1789crbMhTvQBSR5yBMg==
 
-"immutable@^3.8.1 || ^4.0.0", immutable@^4.0.0:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.2.3.tgz#a203cdda37a5a30bc351b982a1794c1930198815"
-  integrity sha512-IHpmvaOIX4VLJwPOuQr1NpeBr2ZG6vpIj3blsLVxXRWJscLioaJRStqC+NcBsLeCDsnGlPpXd5/WZmnE7MbsKA==
+"immutable@^3.8.1 || ^4.0.0", immutable@^4.0.0, immutable@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.3.0.tgz#eb1738f14ffb39fd068b1dbe1296117484dd34be"
+  integrity sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==
 
 import-fresh@^3.0.0, import-fresh@^3.1.0, import-fresh@^3.2.1:
   version "3.3.0"
@@ -19911,9 +19911,9 @@ webpack-virtual-modules@^0.4.1:
   integrity sha512-5tyDlKLqPfMqjT3Q9TAqf2YqjwmnUleZwzJi1A5qXnlBCdj2AtOJ6wAWdglTIDOPgOiOrXeBeFcsQ8+aGQ6QbA==
 
 webpack@4, "webpack@>=4.43.0 <6.0.0", webpack@^5.73.0, webpack@^5.76.3, webpack@^5.9.0:
-  version "5.77.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.77.0.tgz#dea3ad16d7ea6b84aa55fa42f4eac9f30e7eb9b4"
-  integrity sha512-sbGNjBr5Ya5ss91yzjeJTLKyfiwo5C628AFjEa6WSXcZa4E+F57om3Cc8xLb1Jh0b243AWuSYRf3dn7HVeFQ9Q==
+  version "5.78.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.78.0.tgz#836452a12416af2a7beae906b31644cb2562f9e6"
+  integrity sha512-gT5DP72KInmE/3azEaQrISjTvLYlSM0j1Ezhht/KLVkrqtv10JoP/RXhwmX/frrutOPuSq3o5Vq0ehR/4Vmd1g==
   dependencies:
     "@types/eslint-scope" "^3.7.3"
     "@types/estree" "^0.0.51"
