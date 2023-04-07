@@ -1,5 +1,19 @@
 # @talend/design-system
 
+## 7.7.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 285efb74a: fix: add data-test to buttons in modal
+- Updated dependencies [616601fda]
+  - @talend/design-tokens@2.7.3
+
 ## 7.7.0
 
 ### Minor Changes

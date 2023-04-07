@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { scaleLinear, drag, select } from 'd3';
 import { Map } from 'immutable';
 

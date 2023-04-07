@@ -1,10 +1,10 @@
-import React from 'react';
+import { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
 import GuidedTour from '@talend/react-components/lib/GuidedTour';
 
-class GuidedTourContainer extends React.Component {
+class GuidedTourContainer extends Component {
 	static displayName = 'Container(GuidedTour)';
 
 	static propTypes = {
@@ -53,7 +53,7 @@ class GuidedTourContainer extends React.Component {
 	render() {
 		const steps = this.getSteps();
 		if (!steps || !steps.length) {
-			return <React.Fragment />;
+			return <Fragment />;
 		}
 
 		const { controls } = this.state;

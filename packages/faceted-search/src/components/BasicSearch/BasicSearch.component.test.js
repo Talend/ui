@@ -1,4 +1,3 @@
-import React from 'react';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 import { mount } from 'enzyme';

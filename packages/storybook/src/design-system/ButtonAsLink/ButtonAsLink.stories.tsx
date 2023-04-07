@@ -1,8 +1,16 @@
-import React from 'react';
 import { ComponentStory, Story } from '@storybook/react';
 import { BrowserRouter, Link } from 'react-router-dom';
 
-import { ButtonAsLink, ButtonDestructiveAsLink, ButtonPrimaryAsLink, ButtonSecondaryAsLink, ButtonTertiaryAsLink, StackHorizontal, StackVertical, Tooltip } from '@talend/design-system';
+import {
+	ButtonAsLink,
+	ButtonDestructiveAsLink,
+	ButtonPrimaryAsLink,
+	ButtonSecondaryAsLink,
+	ButtonTertiaryAsLink,
+	StackHorizontal,
+	StackVertical,
+	Tooltip,
+} from '@talend/design-system';
 
 const commonLinkArgTypes = {
 	children: {

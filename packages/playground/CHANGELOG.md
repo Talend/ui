@@ -1,5 +1,37 @@
 # @talend/ui-playground
 
+## 1.1.13
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [b0193afbd]
+- Updated dependencies [616601fda]
+- Updated dependencies [f47e34dd0]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [7a097213f]
+  - @talend/icons@6.55.0
+  - @talend/react-components@10.2.2
+  - @talend/react-faceted-search@9.1.1
+  - @talend/react-cmf-router@5.2.6
+  - @talend/react-containers@9.0.2
+  - @talend/react-dataviz@2.8.7
+  - @talend/react-forms@9.0.4
+  - @talend/react-cmf@7.2.0
+
 ## 1.1.12
 
 ### Patch Changes

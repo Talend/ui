@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import cases from 'jest-in-case';
@@ -432,7 +431,7 @@ describe('DateTime.Manager', () => {
 				expect(args[1].errors).toEqual([]);
 				expect(args[1].errorMessage).toBe(null);
 			});
-			it('shouldn\'t trigger props.onChange if the default datetime is valid', () => {
+			it("shouldn't trigger props.onChange if the default datetime is valid", () => {
 				const onChange = jest.fn();
 				const textInput = '2015-01-15 11:11';
 				const wrapper = mount(
@@ -458,7 +457,9 @@ describe('DateTime.Manager', () => {
 			it('should propagate error via props.onChange for invalid datetime text input', () => {
 				// given
 				let data = null;
-				const onChange = (event, payload) => { data = payload; };
+				const onChange = (event, payload) => {
+					data = payload;
+				};
 				const textInput = '2015-01-15';
 				mount(
 					<Manager id={DEFAULT_ID} onChange={onChange} value={textInput}>

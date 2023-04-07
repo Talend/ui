@@ -1,14 +1,25 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import BadgeIcon from './BadgeIcon.component';
+import Icon from '../../../Icon';
+jest.unmock('@talend/design-system');
 
+jest.mock('../../../Icon', () => {
+	return jest.fn(({ name, className }) => <span role="img" name={name} className={className} />);
+});
 describe('BadgeIcon', () => {
 	it('should default render', () => {
 		// given
 		const name = 'my icon name';
 		// when
-		const wrapper = mount(<BadgeIcon name={name} />);
+		const { baseElement } = render(<BadgeIcon name={name} />);
 		// then
-		expect(wrapper.html()).toMatchSnapshot();
+		expect(Icon).toHaveBeenCalledWith(
+			{
+				className: 'tc-badge-label-icon theme-tc-badge-label-icon',
+				name: 'my icon name',
+			},
+			expect.anything(),
+		);
+		expect(baseElement).toMatchSnapshot();
 	});
 });

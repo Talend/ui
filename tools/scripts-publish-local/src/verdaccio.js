@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const os = require('os');
 const rimraf = require('rimraf');
@@ -53,7 +54,7 @@ async function start() {
 	console.log('verdaccio.start');
 	return new Promise(resolve => {
 		generateConfig();
-		cmd.run(`verdaccio --config ${VERDACCIO_CONFIG_FILE}`, {
+		cmd.run(`npx --yes verdaccio --config ${VERDACCIO_CONFIG_FILE}`, {
 			interactive: verdaccio => {
 				verdaccio.stdout.on('data', data => {
 					if (data.includes('http address')) {

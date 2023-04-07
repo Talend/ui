@@ -6,7 +6,6 @@ jest.mock('@talend/assets-api', () => ({
 	getURL: jest.fn(() => '/url'),
 }));
 
-import React from 'react';
 import { render } from '@testing-library/react';
 
 import GeoChart from './GeoChart.component';

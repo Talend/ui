@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import cloneDeep from 'lodash/cloneDeep';
@@ -200,8 +202,7 @@ const props = {
 			},
 			{
 				id: 2,
-				name:
-					'Title with super super super super super super super super super super super super super super super super super super super super super super super super super super super super super super long title oh yeah',
+				name: 'Title with super super super super super super super super super super super super super super super super super super super super super super super super super super super super super super long title oh yeah',
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',

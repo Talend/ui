@@ -1,4 +1,3 @@
-import React from 'react';
 import Immutable from 'immutable';
 import { render, screen, within } from '@testing-library/react';
 import ActionDropdown from './ActionDropdown.component';

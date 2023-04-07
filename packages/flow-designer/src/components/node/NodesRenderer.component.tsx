@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import invariant from 'invariant';
 import get from 'lodash/get';
 import { NodeRecordMap, NodeRecord, Id, Position } from '../../customTypings/index.d';
@@ -12,7 +12,7 @@ type Props = {
 	snapToGrid: boolean;
 };
 
-class NodesRenderer extends React.Component<Props> {
+class NodesRenderer extends Component<Props> {
 	constructor(props: Props) {
 		super(props);
 		this.renderNode = this.renderNode.bind(this);

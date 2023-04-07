@@ -1,8 +1,9 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
+import * as React from 'react';
 
 import Badge from './Badge';
 
-import theme from './Badges.scss';
+import theme from './Badges.module.scss';
 
 const StatusList = ({ children }: React.PropsWithChildren<any>) => {
 	return (

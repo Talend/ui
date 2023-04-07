@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount, ReactWrapper, shallow } from 'enzyme';
 import RangeFilter from './RangeFilter.component';
 import { NumberRangeHandler } from './handlers';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import FormSkeleton from './FormSkeleton';
 import { UIForm } from './UIForm';
 import { ActionProps, DisplayMode, FormDefinition } from './types';

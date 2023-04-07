@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 
 import TreeViewItem, { getItemIcon } from './TreeViewItem.component';
@@ -158,7 +157,7 @@ describe('TreeView item', () => {
 		// when
 		const propsWithIconAndTooltip = {
 			...propsWithIcons,
-			item: { ...itemWithIcon, className: 'test-class'},
+			item: { ...itemWithIcon, className: 'test-class' },
 		};
 
 		const wrapper = shallow(<TreeViewItem {...propsWithIconAndTooltip} />);

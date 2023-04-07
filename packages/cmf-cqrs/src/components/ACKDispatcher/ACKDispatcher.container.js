@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import cmf, { cmfConnect } from '@talend/react-cmf';
@@ -20,7 +20,7 @@ export const DEFAULT_STATE = new Map({});
  }
 
  */
-class ACKDispatcher extends React.Component {
+class ACKDispatcher extends Component {
 	static displayName = 'Container(ACKDispatcher)';
 
 	static propTypes = {

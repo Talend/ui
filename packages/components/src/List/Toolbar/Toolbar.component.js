@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { Navbar } from '@talend/react-bootstrap';
 import omit from 'lodash/omit';
 import { withTranslation } from 'react-i18next';

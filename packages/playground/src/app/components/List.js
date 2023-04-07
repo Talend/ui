@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 
-import React from 'react';
 import { List, Layout, SubHeaderBar } from '@talend/react-components';
 import { SidePanel, HeaderBar } from '@talend/react-containers';
 

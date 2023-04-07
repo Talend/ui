@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Breadcrumbs } from '@talend/design-system';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import Layout from '@talend/react-components/lib/Layout';
@@ -50,7 +50,7 @@ const uiSchema = [
 
 function ComponentFormSandBox({ dirty, dispatch }) {
 	const hasAPI = process.env.NODE_ENV === 'development';
-	const [displayConfig, setConfig] = React.useState(false);
+	const [displayConfig, setConfig] = useState(false);
 	const defaultFormProps = {
 		definitionURL: '/api/v1/forms/example',
 		uiSpecPath: 'ui',
@@ -63,7 +63,7 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 		uiSchema,
 		properties: defaultFormProps,
 	};
-	const [formProps, setFormProps] = React.useState(defaultFormProps);
+	const [formProps, setFormProps] = useState(defaultFormProps);
 	const right = [
 		{
 			label: `Reset (dirty=${dirty.toString()})`,

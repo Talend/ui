@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import { forwardRef, HTMLAttributes, Ref } from 'react';
 import classnames from 'classnames';
 import { IconNameWithSize } from '@talend/icons';
 

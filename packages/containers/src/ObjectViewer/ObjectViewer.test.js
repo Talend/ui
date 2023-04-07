@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import Component from '@talend/react-components/lib/ObjectViewer';

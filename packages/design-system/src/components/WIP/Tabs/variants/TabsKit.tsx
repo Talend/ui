@@ -1,4 +1,4 @@
-import React, { createContext, forwardRef, ReactElement, Ref, useContext, useMemo } from 'react';
+import { createContext, forwardRef, ReactElement, Ref, useContext, useMemo } from 'react';
 import { TabInitialState, TabState, useTabState } from 'reakit';
 import TabList, { TabListPropsTypesWithoutState } from '../Primitive/TabList';
 import Tab, { TabPropsTypesWithoutState } from '../Primitive/Tab';

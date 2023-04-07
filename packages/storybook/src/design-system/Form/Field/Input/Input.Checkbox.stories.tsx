@@ -1,5 +1,10 @@
-import React from 'react';
-import { ButtonPrimary, Form, InlineMessageInformation, StackVertical } from '@talend/design-system';
+import { useState } from 'react';
+import {
+	ButtonPrimary,
+	Form,
+	InlineMessageInformation,
+	StackVertical,
+} from '@talend/design-system';
 import { useForm } from 'react-hook-form';
 
 export default {
@@ -43,7 +48,7 @@ type Inputs = {
 
 export const ReactHooksForm = () => {
 	const { register, handleSubmit } = useForm();
-	const [formData, setFormData] = React.useState<Inputs>();
+	const [formData, setFormData] = useState<Inputs>();
 	return (
 		<Form onSubmit={handleSubmit(setFormData)}>
 			{formData && (

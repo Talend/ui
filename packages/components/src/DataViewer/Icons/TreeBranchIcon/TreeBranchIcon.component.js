@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -23,7 +23,7 @@ export function getDefaultIcon({ useCustomIcon, getIcon, opened, ...props }) {
  * Render a standard caret icon.
  * Customizable with useCustomIcon and getIcon.
  */
-export class TreeBranchIcon extends React.PureComponent {
+export class TreeBranchIcon extends PureComponent {
 	static propTypes = {
 		className: PropTypes.string,
 		dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

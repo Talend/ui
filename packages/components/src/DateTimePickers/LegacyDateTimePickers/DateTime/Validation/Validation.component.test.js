@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import toJsonWithoutI18n from '../../../../../test/props-without-i18n';
 

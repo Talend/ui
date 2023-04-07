@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import isValid from 'date-fns/isValid';
 import startOfSecond from 'date-fns/startOfSecond';
 import endOfSecond from 'date-fns/endOfSecond';

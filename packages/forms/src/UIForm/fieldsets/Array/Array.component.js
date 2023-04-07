@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import { head, get } from 'lodash';
 import Widget from '../../Widget';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
@@ -20,7 +20,7 @@ function getRange(previousIndex, nextIndex) {
 	};
 }
 
-export default class ArrayWidget extends React.Component {
+export default class ArrayWidget extends Component {
 	constructor(props) {
 		super(props);
 

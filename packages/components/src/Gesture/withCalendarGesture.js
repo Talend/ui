@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp,class-methods-use-this */
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import omit from 'lodash/omit';
@@ -93,7 +93,7 @@ export function focusOnCalendar(containerRef) {
 }
 
 export function withCalendarGesture(WrappedComponent) {
-	class CalendarGesture extends React.Component {
+	class CalendarGesture extends Component {
 		constructor(props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
@@ -186,7 +186,7 @@ export function withCalendarGesture(WrappedComponent) {
 }
 
 export function withMonthCalendarGesture(WrappedComponent, rowSize) {
-	class MonthCalendarGesture extends React.Component {
+	class MonthCalendarGesture extends Component {
 		constructor(props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);

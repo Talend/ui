@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { I18N_DOMAIN_FACETED_SEARCH } from '../../constants';

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { Actions, Action } from '../../Actions';
@@ -28,10 +28,10 @@ const addInfo = {
 };
 
 const header = (
-	<React.Fragment>
+	<Fragment>
 		<HeaderTitle title="Pipelines" />
 		<Action {...addInfo} />
-	</React.Fragment>
+	</Fragment>
 );
 const headerWithActions = [
 	<HeaderTitle title="Pipelines" />,

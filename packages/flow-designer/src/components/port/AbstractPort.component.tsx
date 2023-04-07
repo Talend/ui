@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { select } from 'd3';
 
 import { Port, Position } from '../../api';
@@ -43,9 +43,9 @@ class AbstractPort extends React.Component<Props> {
 					ref={c => {
 						this.node = c;
 					}}
-					transform={`translate(${Position.getXCoordinate(
+					transform={`translate(${Position.getXCoordinate(position)},${Position.getYCoordinate(
 						position,
-					)},${Position.getYCoordinate(position)})`}
+					)})`}
 				>
 					{this.props.children}
 				</g>

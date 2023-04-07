@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	ButtonPrimary,
 	ButtonTertiary,
@@ -61,7 +61,7 @@ export const ReactHookForm = () => {
 			).toString(16);
 		});
 	const { register, handleSubmit, setValue, watch } = useForm<CopyFormData>();
-	const [formData, setFormData] = React.useState<null | CopyFormData>();
+	const [formData, setFormData] = useState<null | CopyFormData>();
 	const inputValue = watch('apiKey');
 
 	useEffect(() => {

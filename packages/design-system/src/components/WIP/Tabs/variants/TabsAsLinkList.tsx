@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import TabAsLink, { TabAsLinkProps } from '../Primitive/TabAsLink';
 import { StackHorizontal } from '../../../Stack';
 import { DataAttributes } from '../../../../types';

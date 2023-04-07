@@ -2,15 +2,18 @@
 
 $stepper-icon-size: $svg-md-size !default;
 
+.loading-content-steps {
+	&.error {
+		width: 70%;
+		margin: auto;
+	}
+}
+
 .stepper {
 	display: flex;
 	width: 100%;
 	justify-content: center;
 	padding-left: $padding-small;
-
-	&-content-error {
-		width: 75rem;
-	}
 
 	&-step {
 		padding: $padding-small 0;

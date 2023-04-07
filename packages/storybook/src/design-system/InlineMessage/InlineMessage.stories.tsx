@@ -1,4 +1,3 @@
-import React from 'react';
 import {
 	InlineMessage,
 	InlineMessageInformation,
@@ -6,7 +5,7 @@ import {
 	InlineMessageWarning,
 	InlineMessageSuccess,
 	StackVertical,
-	InlineMessageBeta
+	InlineMessageBeta,
 } from '@talend/design-system';
 import { ComponentStory } from '@storybook/react';
 import { BrowserRouter, Link as RouterLink } from 'react-router-dom';

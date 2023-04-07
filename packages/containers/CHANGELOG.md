@@ -1,5 +1,32 @@
 # @talend/react-containers
 
+## 9.0.2
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [f47e34dd0]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/react-forms@9.0.4
+  - @talend/react-cmf@7.2.0
+
+## 9.0.1
+
+### Patch Changes
+
+- 8c09dacd8: fix(HeaderBar): TypeError: Assignment to constant variable.
+- Updated dependencies [20f8526e9]
+  - @talend/react-components@10.1.1
+
 ## 9.0.0
 
 ### Major Changes

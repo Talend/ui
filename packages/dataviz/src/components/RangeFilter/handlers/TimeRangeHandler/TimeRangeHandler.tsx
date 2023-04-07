@@ -1,4 +1,3 @@
-import React from 'react';
 import isValid from 'date-fns/isValid';
 import { scaleTime } from 'd3';
 import { InputTimePicker } from '@talend/react-components';

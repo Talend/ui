@@ -1,4 +1,5 @@
-import React, { HTMLAttributes, ReactElement } from 'react';
+import { HTMLAttributes, ReactElement } from 'react';
+import * as React from 'react';
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import classnames from 'classnames';
 
