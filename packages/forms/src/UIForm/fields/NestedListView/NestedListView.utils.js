@@ -63,7 +63,7 @@ export function prepareItemsFromSchema(schema, callbacks) {
 
 		return {
 			label: item.title,
-			expanded: false,
+			expanded: item.checked || false,
 			key,
 			onExpandToggle,
 			onChange: onParentChange,

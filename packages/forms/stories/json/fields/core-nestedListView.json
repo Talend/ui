@@ -50,14 +50,17 @@
             "carot": "Carot",
             "lettuce": "Lettuce",
             "turnip": "Turnip"
-          }
+          },
+          "checked": true
         }
-      ]
+      ],
+      "options": {
+        "expandChecked": true
+      }
     }
   ],
   "properties": {
     "food": {
-      "fruits": ["orange"],
       "vegetables": ["lettuce", "carot"]
     }
   }

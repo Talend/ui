@@ -468,6 +468,7 @@ describe('NestedListView utils', () => {
 							{ label: 'Baz', value: 'baz' },
 							{ label: 'Boo', value: 'boo' },
 						],
+						checked: true,
 					},
 				],
 				required: true,
@@ -489,6 +490,7 @@ describe('NestedListView utils', () => {
 			expect(items[0].onChange).toBe(callbacks.onParentChange);
 			expect(items[0].children[0].onChange).toBe(callbacks.onCheck);
 			expect(items[0].children[1].onChange).toBe(callbacks.onCheck);
+			expect(items[0].expanded).toBeTruthy();
 		});
 	});
 
