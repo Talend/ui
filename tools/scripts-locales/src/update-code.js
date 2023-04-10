@@ -5,8 +5,9 @@ import * as utils from '@talend/scripts-utils';
 // use npx so the user will be requried to install codeshift
 const npx = utils.path.resolveBin('npx');
 const help = `You should provide the following option to this script:
-npx talend-locales update-code --ref ./node_modules/@talend/locales-package/locales/en ./src
+npx talend-locales update-code --ref ./node_modules/@talend/locales-package/locales/en --comp=i18n ./src
 --ref to get the translations source.
+--comp expressions to find and run the codemodes 'i18n' || 'trans' || 'i18n,trans' || 'all'
 latest option should be the path to the codesource
 `;
 

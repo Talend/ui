@@ -4,11 +4,13 @@ This package expose a command line useful to manage locales.
 
 Commands:
 
-- `npx talend-locales update-code --ref ./node_modules/@talend/locales-tui-components/locales/en ./packages/components/src/` will update default message inside source by using english translations (ref).
+- `npx talend-locales update-code --ref ./node_modules/@talend/locales-tui-components/locales/en --comp=i18n ./packages/components/src/` will update default message inside source by using english translations (ref).
 
 ```
 args[0] => reference -> locales_en.json or the folder with multiple locale json (for ex: settings.json, app.json etc.,)
-args[1] => target -> folder with application source (ex: ./packages)
+args[1] => i18n component to find -> can be any of ['i18n', 'trans', all] 
+        -- usage "--comp=i18n" || "--comp=trans"  || "--comp=i18n,trans" || "--comp=all"
+args[2] => target -> folder with application source (ex: ./packages)
 ```
 
 Steps to run the script:

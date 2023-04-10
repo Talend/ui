@@ -128,9 +128,15 @@ export default function transformer(fileInfo, api, options) {
 	try {
 		const en = getLocales(options.ref);
 		const j = api.jscodeshift;
-		const root = j(fileInfo.source);
-		let result = searchAndUpdateI18nValues(j, root, en);
-		if (result) {
+		options.comp = options.comp === 'all' ? ['i18n', 'trans'] : options.comp;
+
+		let result = j(fileInfo.source);
+		if (result && options.comp.includes('i18n')) {
+			// eslint-disable-next-line no-console
+			result = searchAndUpdateI18nValues(j, result, en);
+		}
+		if (result && options.comp.includes('trans')) {
+			// eslint-disable-next-line no-console
 			result = searchAllTransComponents(j, result, en);
 		}
 		// options: https://github.com/benjamn/recast/blob/master/lib/options.ts
@@ -139,7 +145,3 @@ export default function transformer(fileInfo, api, options) {
 		console.error(e.message);
 	}
 }
-
-// Use --ref to indicate the translation source.
-// jscodeshift --ref ./locales -t ./localesCodeshift.js ./assets
-// jscodeshift --ref ../../../platform-services-portal/node_modules/@talend/locales-tpsvc-portal/locales/en -t ./localesCodeshift.js ../../../platform-services-portal/src
