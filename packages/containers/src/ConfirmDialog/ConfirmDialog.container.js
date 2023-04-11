@@ -1,4 +1,3 @@
-import React from 'react';
 import { Map } from 'immutable';
 import omit from 'lodash/omit';
 import Component from '@talend/react-components/lib/ConfirmDialog';

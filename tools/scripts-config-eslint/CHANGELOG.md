@@ -1,5 +1,11 @@
 # @talend/scripts-config-eslint
 
+## 12.1.0
+
+### Minor Changes
+
+- 616601fda: feat: disable react import in jsx files mandatory rule
+
 ## 12.0.2
 
 ### Patch Changes

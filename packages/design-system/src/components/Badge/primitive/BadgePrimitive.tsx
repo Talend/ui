@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, Ref } from 'react';
+import { Children, PropsWithChildren, Ref } from 'react';
 
 import Divider from '../../Divider';
 
@@ -95,7 +95,7 @@ function BadgePrimitive({
 					{label}
 				</span>
 
-				{React.Children.count(children) > 0 && <BadgeDivider />}
+				{Children.count(children) > 0 && <BadgeDivider />}
 
 				{children}
 			</StackHorizontal>

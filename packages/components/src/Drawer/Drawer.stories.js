@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { TagVariantsNames } from '@talend/design-system';
 import { Nav, NavItem, Tab } from '@talend/react-bootstrap';
@@ -547,7 +547,7 @@ export const Interactive = () => {
 			</Drawer>
 		),
 	};
-	const [displayedDrawers, setDisplayedDrawers] = React.useState(allDrawers);
+	const [displayedDrawers, setDisplayedDrawers] = useState(allDrawers);
 
 	function remove(id) {
 		setDisplayedDrawers(oldDrawers =>
@@ -607,7 +607,7 @@ export const _Interactive = () => {
 			</Drawer>
 		),
 	};
-	const [displayedDrawers, setDisplayedDrawers] = React.useState(allDrawers);
+	const [displayedDrawers, setDisplayedDrawers] = useState(allDrawers);
 
 	function remove(id) {
 		setDisplayedDrawers(oldDrawers =>
@@ -632,7 +632,7 @@ export const _Interactive = () => {
 };
 
 export const WithSubtitleComponent = () => {
-	const [variant, setVariant] = React.useState('default');
+	const [variant, setVariant] = useState('default');
 
 	return (
 		<Layout

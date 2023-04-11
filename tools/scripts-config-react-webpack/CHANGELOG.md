@@ -1,5 +1,19 @@
 # @talend/scripts-config-react-webpack
 
+## 15.3.1
+
+### Patch Changes
+
+- 285efb74a: chore: minor upgrade of webpack-dev-server
+- b0193afbd: chore: upgrade webpack
+
+## 15.3.0
+
+### Minor Changes
+
+- 0bc6a9ee1: feat: add options to fix sourcemaps in mono repository.
+  chore: upgrade fork-ts-checker-webpack-plugin@^7.3.0
+
 ## 15.2.6
 
 ### Patch Changes

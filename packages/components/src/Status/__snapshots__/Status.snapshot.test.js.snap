@@ -170,8 +170,9 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
   >
     <svg
       aria-busy="true"
-      aria-label="Loading "
+      aria-label="Loading... "
       className="tc-circular-progress theme-loader theme-animate theme-small"
+      data-test="circular-progress"
       focusable="false"
       viewBox="0 0 50 50"
     >
@@ -253,8 +254,9 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
   >
     <svg
       aria-busy="true"
-      aria-label="Loading "
+      aria-label="Loading... "
       className="tc-circular-progress theme-loader theme-animate theme-small"
+      data-test="circular-progress"
       focusable="false"
       viewBox="0 0 50 50"
     >
@@ -335,7 +337,7 @@ exports[`Status should render a label with a skeleton 1`] = `
     className="theme-tc-status-icon tc-status-icon theme-skeleton"
   >
     <span
-      aria-label="circle (loading)"
+      aria-label="circle Loading..."
       className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small theme-tc-status-skeleton-item tc-status-skeleton-item theme-theme-tc-status-skeleton-item tc-status-skeleton-item tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         {
@@ -356,7 +358,7 @@ exports[`Status should render a label with a skeleton 1`] = `
     onMouseOver={[Function]}
   >
     <span
-      aria-label="text (loading)"
+      aria-label="text Loading..."
       className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-large theme-tc-skeleton-text-large theme-tc-status-skeleton-item tc-status-skeleton-item theme-theme-tc-status-skeleton-item tc-status-skeleton-item tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         {

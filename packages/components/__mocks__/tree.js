@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 
-class TreeItem extends React.Component {
+class TreeItem extends Component {
 	render() {
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions

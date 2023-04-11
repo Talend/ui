@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Token, Tokens } from '../../../src/tokens/types';
 
 export type TokensProps = React.PropsWithChildren<any> & {

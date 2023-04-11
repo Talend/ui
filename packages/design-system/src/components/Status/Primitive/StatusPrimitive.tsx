@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';

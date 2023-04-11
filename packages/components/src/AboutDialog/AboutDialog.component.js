@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { withTranslation } from 'react-i18next';
 import Dialog from '../Dialog';
 import Icon from '../Icon';
@@ -72,7 +71,7 @@ function AboutDialog({
 							text={
 								copyrights ||
 								t('ABOUT_COPYRIGHTS', {
-									defaultValue: '© {{year}} Talend. All Rights Reserved',
+									defaultValue: '© {{year}} Talend. All rights reserved.',
 									year: new Date().getFullYear(),
 								})
 							}

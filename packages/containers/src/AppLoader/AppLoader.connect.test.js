@@ -1,4 +1,3 @@
-import React from 'react';
 import Immutable from 'immutable';
 import { shallow } from 'enzyme';
 import AppLoader from '@talend/react-components/lib/AppLoader';

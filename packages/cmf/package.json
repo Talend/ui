@@ -43,7 +43,7 @@
     "prop-types": "^15.8.1",
     "react-immutable-proptypes": "^2.2.0",
     "react-redux": "^7.2.9",
-    "redux": "^4.2.0",
+    "redux": "^4.2.1",
     "redux-batched-actions": "^0.5.0",
     "redux-batched-subscribe": "^0.1.6",
     "redux-saga": "^1.2.2",
@@ -59,7 +59,7 @@
     "@testing-library/react": "^12.1.5",
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.6.11",
-    "node-fetch": "^2.6.8",
+    "node-fetch": "^2.6.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "redux-mock-store": "^1.5.4",
@@ -72,5 +72,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.1.4"
+  "version": "7.2.0"
 }

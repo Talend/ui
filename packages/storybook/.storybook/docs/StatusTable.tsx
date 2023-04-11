@@ -1,8 +1,8 @@
-import React, { FunctionComponent, Suspense, useEffect, useState } from 'react';
+import { FunctionComponent, Suspense, useEffect, useState } from 'react';
 import { addons } from '@storybook/addons';
 import tokens from '@talend/design-tokens';
 
-import theme from './StatusTable.scss';
+import theme from './StatusTable.module.scss';
 
 const channel = addons.getChannel();
 

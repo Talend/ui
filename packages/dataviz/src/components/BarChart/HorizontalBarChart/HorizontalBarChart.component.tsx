@@ -1,4 +1,3 @@
-import React from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import styles from './HorizontalBarChart.component.module.scss';
 import { ChartEntry } from '../barChart.types';

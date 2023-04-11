@@ -59,7 +59,7 @@ import ObjectViewer from './ObjectViewer';
 import OverlayTrigger from './OverlayTrigger';
 import PieChart from './PieChart';
 import Progress from './Progress';
-import QualityBar from './QualityBar';
+import { QualityBar, QualityType } from './QualityBar';
 import RadarChart from './RadarChart';
 import ResourceList from './ResourceList';
 import ResourcePicker from './ResourcePicker';
@@ -141,6 +141,7 @@ export {
 	PieChart,
 	Progress,
 	QualityBar,
+	QualityType,
 	RadarChart,
 	RatioBar,
 	ResourceList,

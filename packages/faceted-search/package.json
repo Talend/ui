@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-faceted-search",
-  "version": "8.0.3",
+  "version": "9.1.1",
   "description": "Faceted search",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -43,14 +43,14 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-actions": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
-    "@talend/bootstrap-theme": "^7.0.0",
-    "@talend/design-system": "^7.5.0",
-    "@talend/icons": "^6.52.0",
+    "@talend/bootstrap-theme": "^7.0.1",
+    "@talend/design-system": "^7.7.1",
+    "@talend/icons": "^6.55.0",
     "@talend/locales-tui-components": "^6.44.11",
     "@talend/locales-tui-faceted-search": "^4.0.2",
-    "@talend/react-components": "^9.4.0",
+    "@talend/react-components": "^10.2.2",
     "@talend/scripts-core": "^13.1.2",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "cross-env": "^7.0.3",
@@ -61,8 +61,8 @@
     "react-i18next": "^11.18.6"
   },
   "peerDependencies": {
-    "@talend/design-system": "^7.5.0",
-    "@talend/react-components": "^9.4.0",
+    "@talend/design-system": "^7.5.1",
+    "@talend/react-components": "^10.0.0",
     "i18next": "^20.6.1",
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import { randomUUID } from '@talend/utils';
@@ -120,7 +119,7 @@ export function BreadcrumbsComponent({ loading, id, items, maxItems, t }) {
 						id={`${id}-ellipsis`}
 						items={hiddenItems}
 						aria-label={t('BREADCRUMB_OPEN_FIRST_LINKS_MENU', {
-							defaultValue: 'Open first links menu',
+							defaultValue: 'Show breadcrumb links',
 						})}
 						label="…"
 						link

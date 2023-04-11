@@ -1,5 +1,86 @@
 # @talend/react-forms
 
+## 9.0.4
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [285efb74a]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/design-system@7.7.1
+
+## 9.0.3
+
+### Patch Changes
+
+- df24c6210: fix(TDOPS-3373/NestedListView): include searchCriteria in component update
+
+## 9.0.2
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+- Updated dependencies [a01e81852]
+  - @talend/react-components@10.0.0
+  - @talend/design-system@7.7.0
+
+## 9.0.1
+
+### Patch Changes
+
+- fd25b7d23: Forms - UI Form hint can now change position to fixed with a new **overlayIsFixed** parameter
+- Updated dependencies [e79dfc100]
+  - @talend/react-components@9.4.2
+
+## 9.0.0
+
+### Major Changes
+
+- 5e4aad637: Forms - Change UI Form hint to use design system popover and **fix alignement**
+
+  ## Breaking changes :
+
+  UI Forms hint definition does not support some properties anymore
+
+  - **id** has been removed, you should rely on **data-test** attributes to target elements
+  - **className** has been removed because design system component should not be customized
+
+  ```diff
+  hint: {
+      overlayComponent: ...,
+  -   id: "id",
+  -   className: "class",
+  }
+  ```
+
+  ## New additions :
+
+  UI Forms hint definition can now handle some **data-test** attributes
+
+  - **data-test** has been added to target the hint popover content
+  - **icon-data-test** has been added to target the hint icon
+
+  ```diff
+  hint: {
+      overlayComponent: ...,
+  +   "data-test": "my-popover-content",
+  +   "icon-data-test": "my-popover-icon",
+  }
+  ```
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+
 ## 8.2.0
 
 ### Minor Changes

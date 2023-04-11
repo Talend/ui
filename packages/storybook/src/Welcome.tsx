@@ -1,5 +1,5 @@
 import styles from './Welcome.module.scss';
-import React from 'react';
+import { memo } from 'react';
 
 function Welcome() {
 	return (
@@ -848,5 +848,5 @@ function Welcome() {
 	);
 }
 
-const MemoWelcome = React.memo(Welcome);
+const MemoWelcome = memo(Welcome);
 export default MemoWelcome;

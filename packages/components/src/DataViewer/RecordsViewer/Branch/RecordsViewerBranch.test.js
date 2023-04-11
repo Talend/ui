@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import keycode from 'keycode';
 import Component, { isLoaded } from './RecordsViewerBranch.component';

@@ -1,4 +1,4 @@
-import React, {
+import {
 	AnchorHTMLAttributes,
 	cloneElement,
 	forwardRef,
@@ -61,17 +61,23 @@ const Linkable = forwardRef(
 						iconSrc: icon,
 						size: 'M',
 						['data-test']: 'link.icon.before',
+						['data-testid']: 'link.icon.before',
 					})}
 				</span>
 			) : (
 				cloneElement(icon, {
 					'data-test': 'link.icon.before',
+					'data-testid': 'link.icon.before',
 					className: classnames(icon.props?.className, style.link__icon),
 				})
 			));
 
 		const MaybeExternal = isExternal && !hideExternalIcon && (
-			<span className={style.link__iconExternal} data-test="link.icon.external">
+			<span
+				className={style.link__iconExternal}
+				data-test="link.icon.external"
+				data-testid="link.icon.external"
+			>
 				<SizedIcon size="S" name="external-link" />
 			</span>
 		);
@@ -120,4 +126,5 @@ const Linkable = forwardRef(
 	},
 );
 
+Linkable.displayName = 'Linkable';
 export default Linkable;

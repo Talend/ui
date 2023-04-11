@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { Icon, Action, ActionBar } from '../index';
 import SubHeaderBar from './SubHeaderBar.component';

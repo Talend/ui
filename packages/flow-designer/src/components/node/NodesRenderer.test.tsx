@@ -1,9 +1,12 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
 import { List, Map } from 'immutable';
 
 import NodesRenderer from './NodesRenderer.component';
-import { NestedNodeRecord, NodeRecord, NodeGraphicalAttributes } from '../../constants/flowdesigner.model';
+import {
+	NestedNodeRecord,
+	NodeRecord,
+	NodeGraphicalAttributes,
+} from '../../constants/flowdesigner.model';
 import { NodeRecord as NodeRecordType } from '../../customTypings/index.d';
 
 const MockNode = () => <span>MockNodes</span>;

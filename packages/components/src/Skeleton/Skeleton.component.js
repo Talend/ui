@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import Icon from '../Icon';
@@ -65,7 +64,7 @@ function Skeleton({
 	);
 
 	const ariaLabel = t('SKELETON_LOADING', {
-		defaultValue: '{{type}} (loading)',
+		defaultValue: '{{type}} Loading...',
 		type: getTranslatedType(t, type),
 	});
 

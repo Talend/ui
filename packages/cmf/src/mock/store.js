@@ -1,4 +1,3 @@
-import React from 'react';
 import cloneDeep from 'lodash/cloneDeep';
 import settings from './settings';
 import collections from './collections';

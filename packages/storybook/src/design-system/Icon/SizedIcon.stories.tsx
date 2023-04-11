@@ -1,5 +1,3 @@
-import React from 'react';
-// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize, icons } from '@talend/icons/dist/typeUtils';
 
 import { SizedIcon } from '@talend/design-system';

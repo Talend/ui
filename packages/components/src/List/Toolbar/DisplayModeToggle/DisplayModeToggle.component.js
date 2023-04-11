@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonIconToggle, StackHorizontal } from '@talend/design-system';
 import getDefaultT from '../../../translate';
@@ -17,7 +17,7 @@ function getLabel(selected, t) {
 	}
 }
 
-export const DisplayModeActionIcon = React.memo(
+export const DisplayModeActionIcon = memo(
 	({ displayMode, displayModeOption, icon, id, label, onSelect }) => {
 		return (
 			<ButtonIconToggle

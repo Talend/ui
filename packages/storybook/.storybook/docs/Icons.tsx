@@ -1,4 +1,5 @@
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
+import * as React from 'react';
 import { IconGallery, IconItem } from '@storybook/components';
 
 import { Form, Icon, IconsProvider, ThemeProvider } from '@talend/design-system';

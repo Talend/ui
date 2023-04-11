@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 import TextModeArrayTemplate from '../../../fieldsets/Array/displayMode/TextModeArrayTemplate.component';
 

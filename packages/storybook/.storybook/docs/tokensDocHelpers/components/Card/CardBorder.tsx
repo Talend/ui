@@ -1,4 +1,3 @@
-import React from 'react';
 import classnames from 'classnames';
 import tokens from '@talend/design-tokens';
 

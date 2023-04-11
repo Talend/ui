@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './Trial.module.scss';
 
 function Trial({ children }: { children: string }) {

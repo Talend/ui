@@ -1,6 +1,5 @@
 import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 import styles from './Combobox.module.scss';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
 	unstable_useComboboxState as useReakitComboboxState,

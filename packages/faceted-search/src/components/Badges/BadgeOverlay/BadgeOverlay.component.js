@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Popover, Button, Overlay } from '@talend/react-bootstrap';
 import { Icon, TooltipTrigger, FormatValue, getTheme } from '@talend/react-components/lib/Icon';

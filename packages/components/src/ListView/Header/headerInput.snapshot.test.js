@@ -1,6 +1,4 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
-
 
 import HeaderInput from './HeaderInput.component';
 
@@ -29,10 +27,7 @@ describe('Header', () => {
 		const rendererOptions = { createNodeMock };
 
 		// when
-		const wrapper = renderer.create(
-			<HeaderInput {...props} />,
-			rendererOptions
-		).toJSON();
+		const wrapper = renderer.create(<HeaderInput {...props} />, rendererOptions).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

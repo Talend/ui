@@ -1,4 +1,3 @@
-import React from 'react';
 import CellActions from './CellActions.component';
 import { defaultColumnConfiguration } from '../Content.component';
 

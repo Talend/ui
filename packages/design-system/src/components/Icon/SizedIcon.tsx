@@ -1,4 +1,5 @@
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
+import * as React from 'react';
 // eslint-disable-next-line @talend/import-depth
 import { Icon, icons, IconSize } from '@talend/icons/dist/typeUtils';
 

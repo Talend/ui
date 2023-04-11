@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { Nav, NavDropdown, MenuItem, Button } from '@talend/react-bootstrap';
 import { randomUUID } from '@talend/utils';
 import classNames from 'classnames';
@@ -62,7 +61,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					onSelect={onChangeField}
 					className={theme['sort-by-items']}
 					aria-label={t('LIST_CHANGE_SORT_BY', {
-						defaultValue: 'Change sort criteria. Current sort by {{sortBy}}.',
+						defaultValue: 'Change sort criteria. Current sort criteria: {{sortBy}}.',
 						sortBy: currentSortByLabel,
 					})}
 				>

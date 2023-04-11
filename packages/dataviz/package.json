@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-dataviz",
-  "version": "2.8.4",
+  "version": "2.8.7",
   "description": "Talend charts and visualization components",
   "main": "lib/index.js",
   "mainSrc": "src/index.ts",
@@ -36,8 +36,8 @@
   },
   "dependencies": {
     "@talend/assets-api": "^1.2.2",
-    "@talend/react-components": "^9.4.0",
-    "@talend/design-tokens": "^2.7.1",
+    "@talend/react-components": "^10.2.2",
+    "@talend/design-tokens": "^2.7.3",
     "classnames": "^2.3.2",
     "d3": "^7.8.2",
     "date-fns": "^2.29.3",
@@ -47,11 +47,11 @@
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
-    "@talend/bootstrap-theme": "^7.0.0",
-    "@talend/icons": "^6.52.0",
+    "@talend/bootstrap-theme": "^7.0.1",
+    "@talend/icons": "^6.55.0",
     "@talend/locales-tui-components": "^6.44.11",
     "@talend/locales-tui-dataviz": "^0.4.6",
-    "@talend/react-components": "^9.4.0",
+    "@talend/react-components": "^10.2.2",
     "@talend/scripts-core": "^13.1.2",
     "@testing-library/react": "^12.1.5",
     "@types/classnames": "^2.3.1",

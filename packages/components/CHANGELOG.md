@@ -1,5 +1,91 @@
 # @talend/react-components
 
+## 10.2.2
+
+### Patch Changes
+
+- e7d785a6a: fix: rewrite wrap fn using typescript
+- 7a097213f: chore: add some data-test to rewrite test using RTL
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 7a097213f: test: add data-test to circular-progress
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [b0193afbd]
+- Updated dependencies [616601fda]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+  - @talend/icons@6.55.0
+
+## 10.2.1
+
+### Patch Changes
+
+- 6d2d52b79: fix(stepper): bring back a css selector and setup a width
+
+## 10.2.0
+
+### Minor Changes
+
+- 3604ba4f6: feat(components): add disabled mode for the quality bar
+- 691e07a11: feat(components): use ErrorState in the Stepper
+- 3604ba4f6: feat(components): change the color for the non applicables elements in the quality bar
+
+## 10.1.1
+
+### Patch Changes
+
+- 20f8526e9: test: rewrite using RTL
+
+## 10.1.0
+
+### Minor Changes
+
+- 44b408dc4: feat(components): List - disable item selection & disable "select all"
+
+## 10.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+## 9.6.0
+
+### Minor Changes
+
+- d2f5bd835: feat(TDP-11751): adding the possibility to set a specific height to the table and disable autosizer
+
+### Patch Changes
+
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+  - @talend/icons@6.54.0
+
+## 9.5.0
+
+### Minor Changes
+
+- 120d02173: Supports hiding tooltip for ObjectViewer(JSONLike)
+
+## 9.4.2
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
 ## 9.4.1
 
 ### Patch Changes

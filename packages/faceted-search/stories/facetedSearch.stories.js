@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useCallback } from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { action } from '@storybook/addon-actions';
 import { Badge } from '@talend/react-components';
@@ -31,6 +31,7 @@ import {
 	badgeEnumsAsCustomAttribute,
 	badgePriceAsCustomAttribute,
 	badgeEmptyLabel,
+	badgeConnectionTypeAllSelector,
 } from './badgesDefinitions';
 
 const badgesDefinitions = [
@@ -192,6 +193,9 @@ export const Default = () => (
 					badgesDefinitions={badgesDefinitions}
 					callbacks={callbacks}
 					onSubmit={action('onSubmit')}
+					quickSearchInputProps={{
+						'data-feature': 'faceted-badge-name',
+					}}
 				/>
 			))
 		}
@@ -316,8 +320,8 @@ export const ReadOnly = () => {
 };
 
 export const WithExternalState = () => {
-	const [state, setState] = React.useState(badgesFaceted);
-	const onSubmit = React.useCallback(
+	const [state, setState] = useState(badgesFaceted);
+	const onSubmit = useCallback(
 		(_, badges) => setState(previousState => ({ ...previousState, badges })),
 		[setState],
 	);
@@ -385,6 +389,16 @@ export const BasicSearchWithBadgeWithVeryLongName = {
 		await userEvent.type(within(canvasElement).getByRole('searchbox'), 'lorem ipsum');
 	},
 };
+
+export const BasicSearchWithBadgeWithAllSelector = () => (
+	<FacetedSearch.Faceted id="my-faceted-search">
+		<FacetedSearch.BasicSearch
+			badgesDefinitions={[badgeConnectionTypeAllSelector]}
+			onSubmit={action('onSubmit')}
+			callbacks={callbacks}
+		/>
+	</FacetedSearch.Faceted>
+);
 
 export const BasicSearchInABadgeWithALotOfValues = () => (
 	<FacetedSearch.Faceted id="my-faceted-search">

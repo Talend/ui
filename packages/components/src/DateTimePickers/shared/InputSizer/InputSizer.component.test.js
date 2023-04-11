@@ -1,4 +1,3 @@
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { shallow, mount } from 'enzyme';
 import InputSizer from './InputSizer.component';

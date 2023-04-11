@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 
 import theme from './SelectAll.module.scss';
@@ -25,7 +24,7 @@ function SelectAll({ id, items, isSelected, onToggleAll }) {
 						checked={isAllSelected()}
 						disabled={!items.length}
 					/>
-					<span>{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
+					<span>{t('LIST_SELECT_ALL', { defaultValue: 'Select all' })}</span>
 				</label>
 			</div>
 		</form>

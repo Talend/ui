@@ -1,6 +1,6 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/**/*"],
+  "include": ["custom.d.ts", "src/**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "allowJs": true,

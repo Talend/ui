@@ -1,62 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CellQualityBar should render a valid quality bar 1`] = `
-<div class="tc-ratio-bar theme-tc-ratio-bar">
-  <span title="1 invalid value (10%)"
-        placement="bottom"
-        class="CoralTooltip"
-  >
-    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--invalid theme-quality-ratio-bar--invalid theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--invalid theme-quality-ratio-bar--invalid"
-         tabindex="0"
-         style="flex-basis: 10%;"
-         role="button"
+<body>
+  <div>
+    <div
+      class="tc-ratio-bar theme-tc-ratio-bar"
     >
-      <span class="sr-only">
-        1 invalid value (10%)
+      <span
+        class="CoralTooltip"
+        placement="bottom"
+        title="1 invalid value (10%)"
+      >
+        <div
+          class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--invalid theme-quality-ratio-bar--invalid theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--invalid theme-quality-ratio-bar--invalid"
+          data-test="quality-bar-invalid"
+          data-testid="quality-bar-invalid"
+          role="button"
+          style="flex-basis: 10%;"
+          tabindex="0"
+        >
+          <span
+            class="sr-only"
+          >
+            1 invalid value (10%)
+          </span>
+        </div>
+      </span>
+      <span
+        class="CoralTooltip"
+        placement="bottom"
+        title="2 empty value (20%)"
+      >
+        <div
+          class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--empty theme-quality-ratio-bar--empty theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--empty theme-quality-ratio-bar--empty"
+          data-test="quality-bar-empty"
+          data-testid="quality-bar-empty"
+          role="button"
+          style="flex-basis: 20%;"
+          tabindex="0"
+        >
+          <span
+            class="sr-only"
+          >
+            2 empty value (20%)
+          </span>
+        </div>
+      </span>
+      <span
+        class="CoralTooltip"
+        placement="bottom"
+        title="4 not applicable value (40%)"
+      >
+        <div
+          class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--na theme-quality-ratio-bar--na theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--na theme-quality-ratio-bar--na"
+          data-test="quality-bar-na"
+          data-testid="quality-bar-na"
+          role="button"
+          style="flex-basis: 40%;"
+          tabindex="0"
+        >
+          <span
+            class="sr-only"
+          >
+            4 not applicable value (40%)
+          </span>
+        </div>
+      </span>
+      <span
+        class="CoralTooltip"
+        placement="bottom"
+        title="3 valid value (30%)"
+      >
+        <div
+          class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--valid theme-quality-ratio-bar--valid theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--valid theme-quality-ratio-bar--valid"
+          data-test="quality-bar-valid"
+          data-testid="quality-bar-valid"
+          role="button"
+          style="flex-basis: 30%;"
+          tabindex="0"
+        >
+          <span
+            class="sr-only"
+          >
+            3 valid value (30%)
+          </span>
+        </div>
       </span>
     </div>
-  </span>
-  <span title="2 empty value (20%)"
-        placement="bottom"
-        class="CoralTooltip"
-  >
-    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--empty theme-quality-ratio-bar--empty theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--empty theme-quality-ratio-bar--empty"
-         tabindex="0"
-         style="flex-basis: 20%;"
-         role="button"
-    >
-      <span class="sr-only">
-        2 empty value (20%)
-      </span>
-    </div>
-  </span>
-  <span title="4 not applicable value (40%)"
-        placement="bottom"
-        class="CoralTooltip"
-  >
-    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--na theme-quality-ratio-bar--na theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--na theme-quality-ratio-bar--na"
-         tabindex="0"
-         style="flex-basis: 40%;"
-         role="button"
-    >
-      <span class="sr-only">
-        4 not applicable value (40%)
-      </span>
-    </div>
-  </span>
-  <span title="3 valid value (30%)"
-        placement="bottom"
-        class="CoralTooltip"
-  >
-    <div class="tc-ratio-bar-line theme-tc-ratio-bar-line tc-ratio-bar-line-grow theme-tc-ratio-bar-line-grow quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--valid theme-quality-ratio-bar--valid theme-quality-ratio-bar theme-quality-ratio-bar quality-ratio-bar--valid theme-quality-ratio-bar--valid"
-         tabindex="0"
-         style="flex-basis: 30%;"
-         role="button"
-    >
-      <span class="sr-only">
-        3 valid value (30%)
-      </span>
-    </div>
-  </span>
-</div>
+  </div>
+</body>
+`;
+
+exports[`CellQualityBar should render an empty quality bar 1`] = `
+<body>
+  <div />
+</body>
 `;

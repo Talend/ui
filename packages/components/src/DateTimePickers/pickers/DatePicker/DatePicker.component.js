@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
@@ -22,7 +22,7 @@ import getDefaultT from '../../../translate';
 
 const getDayNames = memoize(buildDayNames);
 
-class DatePicker extends React.PureComponent {
+class DatePicker extends PureComponent {
 	constructor(props) {
 		super(props);
 

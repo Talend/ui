@@ -1,4 +1,4 @@
-import React, {
+import {
 	cloneElement,
 	ElementType,
 	forwardRef,
@@ -8,6 +8,8 @@ import React, {
 	useEffect,
 	useState,
 } from 'react';
+
+import * as React from 'react';
 import classnames from 'classnames';
 import keycode from 'keycode';
 import { useTranslation } from 'react-i18next';

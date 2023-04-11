@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import tokens from '@talend/design-tokens';
 
 import { Status } from './StatusTable';
 
-import theme from './Badge.scss';
+import theme from './Badge.module.scss';
 
 export const renderStatus = (status?: Status) => {
 	switch (status) {
