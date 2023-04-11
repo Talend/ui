@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/TreeView';
@@ -98,7 +98,7 @@ export function transform(items, props, parent) {
 /**
  * The TreeView React container
  */
-class TreeView extends React.Component {
+class TreeView extends RComponent {
 	static displayName = DISPLAY_NAME;
 
 	static propTypes = {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
@@ -122,7 +122,7 @@ export function filterAll(
 	return result;
 }
 
-class SelectObject extends React.Component {
+class SelectObject extends RComponent {
 	static displayName = DISPLAY_NAME;
 
 	static FILTER_MODE = {

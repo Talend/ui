@@ -1,5 +1,5 @@
-import { forwardRef, Ref } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
+import type { MouseEvent, Ref } from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
@@ -16,7 +16,7 @@ import styles from '../AffixStyles.module.scss';
 type CommonAffixButtonPropsType = {
 	children: string;
 	isDropdown?: boolean;
-	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
+	onClick: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 	isSuffix?: boolean;
 };
 
