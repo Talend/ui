@@ -1,11 +1,9 @@
 /* eslint-disable import/imports-first */
-import { render, screen, configure } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
 import { withTreeGesture } from './withTreeGesture';
 import Tree from '../__mocks__/tree';
-
-configure({ testIdAttribute: 'data-test' });
 
 // Legend : the comments indicates 2 numbers, level and index
 // Those are used in the following tests

@@ -11,7 +11,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="0"
-							data-test="0"
+							data-testid="0"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 0)}
 						>
 							JAN
@@ -20,7 +20,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="1"
-							data-test="1"
+							data-testid="1"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 1)}
 						>
 							FEB
@@ -29,7 +29,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="2"
-							data-test="2"
+							data-testid="2"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 2)}
 						>
 							MAR
@@ -40,7 +40,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="3"
-							data-test="3"
+							data-testid="3"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 3)}
 						>
 							APR
@@ -49,7 +49,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="4"
-							data-test="4"
+							data-testid="4"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 4)}
 						>
 							MAY
@@ -58,7 +58,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="5"
-							data-test="5"
+							data-testid="5"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 5)}
 						>
 							JUN
@@ -69,7 +69,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="6"
-							data-test="6"
+							data-testid="6"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 6)}
 						>
 							JULY
@@ -78,7 +78,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="7"
-							data-test="7"
+							data-testid="7"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 7)}
 						>
 							AUG
@@ -87,7 +87,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="8"
-							data-test="8"
+							data-testid="8"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 8)}
 						>
 							SEP
@@ -98,7 +98,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="9"
-							data-test="9"
+							data-testid="9"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 9)}
 						>
 							OCT
@@ -107,7 +107,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="10"
-							data-test="10"
+							data-testid="10"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 10)}
 						>
 							NOV
@@ -116,7 +116,7 @@ function MonthCalendar(props: WithCalendarGestureInjectedProps) {
 					<td>
 						<button
 							data-value="11"
-							data-test="11"
+							data-testid="11"
 							onKeyDown={event => onKeyDown(event, calendarRef.current, 11)}
 						>
 							DEC

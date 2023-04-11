@@ -35,7 +35,7 @@ function DayCalendar(props: DayCalendarProps) {
 							return (
 								<td key={dayIndex}>
 									<button
-										data-test={isCurrentMonth(dateOfTheWeek) && day}
+										data-testid={isCurrentMonth(dateOfTheWeek) && day}
 										data-value={isCurrentMonth(dateOfTheWeek) && day}
 										onKeyDown={event => {
 											if (calendarRef.current) {

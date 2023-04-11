@@ -1,9 +1,8 @@
 import { Component } from 'react';
-import { render, screen, configure } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import cases from 'jest-in-case';
 import { WithDynamicListGesture } from './withDynamicListGesture';
-configure({ testIdAttribute: 'data-test' });
 
 const LIST_SIZE = 5;
 
@@ -29,7 +28,7 @@ class ComponentWithGesture extends Component {
 			listItems.push(
 				<li key={num}>
 					<button
-						data-test={`item-${num}`}
+						data-testid={`item-${num}`}
 						id={`item-${num}`}
 						onKeyDown={event => onKeyDown(event, { index: i, size: LIST_SIZE })}
 					>

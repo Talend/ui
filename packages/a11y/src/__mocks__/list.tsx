@@ -14,7 +14,7 @@ class ListItem extends Component<ListItemProps> {
 		return (
 			<div
 				{...props}
-				data-test={`item-${index}`}
+				data-testid={`item-${index}`}
 				id={`item-${index}`}
 				ref={this.ref}
 				role="listitem"
