@@ -9,7 +9,7 @@ import { randomUUID } from '@talend/utils';
 import FocusManager from '../../../FocusManager';
 import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
-import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
+import { focus } from '@talend/react-a11y';
 
 import theme from './InputDateTimePicker.module.scss';
 
@@ -68,7 +68,7 @@ function InputDateTimePicker(props) {
 				}
 
 				if (showPicker) {
-					focusOnCalendar(containerRef.current);
+					focus.focusOnCalendar(containerRef.current);
 				} else {
 					openPicker();
 				}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Action } from '../../../Actions';
 import { buildYears } from '../../generator';
-import WithDynamicListGesture from '../../../Gesture/withDynamicListGesture';
+import { Gesture } from '@talend/react-a11y';
 import getDefaultT from '../../../translate';
 
 import theme from './YearPicker.module.scss';
@@ -78,7 +78,7 @@ class YearPicker extends Component {
 		const selectedIsInWindow = yearsWindow.includes(selectedYear);
 		const middleYear = this.getMiddleYear();
 		return (
-			<WithDynamicListGesture
+			<Gesture.WithDynamicListGesture
 				className={theme['year-picker']}
 				goToPreviousPage={this.goToPreviousPage}
 				goToNextPage={this.goToNextPage}
@@ -144,7 +144,7 @@ class YearPicker extends Component {
 						hideLabel
 					/>,
 				]}
-			</WithDynamicListGesture>
+			</Gesture.WithDynamicListGesture>
 		);
 	}
 }
