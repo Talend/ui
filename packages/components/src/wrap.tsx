@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as React from 'react';
+import type { ReactElement, Component as RComponent, ReactNode } from 'react';
 import omit from 'lodash/omit';
 
 import Inject from './Inject';
@@ -9,7 +9,7 @@ type ToTextProps = {
 };
 
 type Component = Record<string, any> & {
-	(props: any): React.ReactElement<any> | null;
+	(props: any): ReactElement<any> | null;
 	displayName?: string;
 	propTypes?: any;
 };
@@ -47,10 +47,10 @@ function isNotBlackListedAttr(attr: string) {
 }
 
 type WrapperProps = {
-	getComponent: (key: string) => React.Component | Component;
-	components: { [key: string]: React.Component | Component };
+	getComponent: (key: string) => RComponent | Component;
+	components: { [key: string]: RComponent | Component };
 	text?: string | string[];
-	children: React.ReactNode;
+	children: ReactNode;
 };
 
 export default function wrap(Component: Component, key: string) {

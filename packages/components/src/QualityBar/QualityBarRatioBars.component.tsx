@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { MouseEvent } from 'react';
 
 import {
 	QualityEmptyLine,
@@ -14,7 +14,7 @@ type QualityBarRatioBarsProps = QualityCommonProps & {
 	placeholder?: number;
 	disabled?: boolean;
 	percentages: QualityBarPercentages;
-	onClick?: (e: React.MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
+	onClick?: (e: MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
 	getDataFeature?: (type: string) => string;
 };
 
