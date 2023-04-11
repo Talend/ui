@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
+import { forwardRef, ReactElement, Ref, useCallback, useMemo } from 'react';
 
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +6,7 @@ import { DeprecatedIconNames } from '../../types';
 import Linkable, { LinkableType, isBlank as targetCheck } from '../Linkable';
 
 import style from './Link.module.scss';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 
 export type LinkComponentProps = {
 	/** The icon to display before */
@@ -21,7 +22,7 @@ const Link = forwardRef(
 		{ children, disabled, href, target, title, hideExternalIcon, ...rest }: LinkProps,
 		ref: Ref<HTMLAnchorElement>,
 	) => {
-		const { t } = useTranslation();
+		const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 		const isBlank: boolean = useMemo(() => targetCheck(target), [target]);
 
 		const getTitle = useCallback(() => {
@@ -65,5 +66,5 @@ const Link = forwardRef(
 		);
 	},
 );
-
+Link.displayName = 'Link';
 export default Link;

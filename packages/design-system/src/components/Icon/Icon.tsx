@@ -1,10 +1,10 @@
-import React, { PropsWithChildren } from 'react';
-import styled from 'styled-components';
+import { PropsWithChildren } from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { DeprecatedIconNames } from '../../types';
-import tokens from '@talend/design-tokens';
 import { IconsProvider } from '../IconsProvider';
+import style from './Icon.module.scss';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export enum SVG_TRANSFORMS {
@@ -26,58 +26,6 @@ export type IconProps = PropsWithChildren<any> & {
 	preserveColor: boolean;
 	border: boolean;
 };
-
-const SVG = styled.svg<IconProps>`
-	fill: currentColor;
-	width: ${tokens.coralSizingXxs};
-	height: ${tokens.coralSizingXxs};
-	transform-origin: center;
-
-	circle,
-	path,
-	polygon,
-	polyline {
-		${({ border }) => border && 'transform: translate(25%, 25%);'};
-	}
-
-	.ti-border {
-		${({ border }) => border && 'stroke: currentColor; fill: none; transform: none'};
-	}
-
-	&.spin {
-		animation-name: svg-spin;
-		animation-duration: 2s;
-		animation-iteration-count: infinite;
-		animation-timing-function: linear;
-	}
-	&.rotate-45 {
-		transform: rotate(45deg);
-	}
-	&.rotate-90 {
-		transform: rotate(90deg);
-	}
-	&.rotate-180 {
-		transform: rotate(180deg);
-	}
-	&.rotate-270 {
-		transform: rotate(270deg);
-	}
-	&.flip-vertical {
-		transform: scaleY(-1);
-	}
-	&.flip-horizontal {
-		transform: scaleX(-1);
-	}
-	@keyframes svg-spin {
-		0% {
-			transform: rotate(0deg);
-		}
-
-		100% {
-			transform: rotate(360deg);
-		}
-	}
-`;
 
 const accessibility = {
 	focusable: 'false',
@@ -160,8 +108,10 @@ export const Icon = React.forwardRef(
 			}
 		}, [border, safeRef]);
 
-		const classname = classnames('tc-icon', className, transform, {
+		const classname = classnames('tc-icon', style.svg, className, {
 			[`tc-icon-name-${name}`]: !(isImg || isRemote),
+			[style.border]: border,
+			[style[transform]]: !!transform,
 		});
 
 		if (isImg) {
@@ -183,15 +133,14 @@ export const Icon = React.forwardRef(
 		}
 
 		return (
-			<SVG
+			<svg
 				{...rest}
 				name={!(isImg || isRemote) ? name : null}
 				{...accessibility}
 				className={classnames('tc-svg-icon', classname)}
-				border={border}
 				ref={safeRef}
 				pointerEvents="none"
-				shape-rendering="geometricPrecision"
+				shapeRendering="geometricPrecision"
 			/>
 		);
 	},

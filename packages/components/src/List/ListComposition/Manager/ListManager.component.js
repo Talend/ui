@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { displayModesOptions } from '../DisplayMode/ListDisplayMode.component';
@@ -7,7 +7,7 @@ import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import { useCollectionSort } from './hooks/useCollectionSort.hook';
 import { useCollectionFilter } from './hooks/useCollectionFilter.hook';
-import theme from '../List.scss';
+import theme from '../List.module.scss';
 import { useColumnsVisibility } from './hooks/useColumnsVisibility.hook';
 
 function Manager({

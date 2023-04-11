@@ -1,9 +1,7 @@
-import React from 'react';
-
 import { action } from '@storybook/addon-actions';
 import isEqual from 'lodash/isEqual';
 
-import { FormDefinition } from '../lib';
+import { FormDefinition } from '../src/types';
 import Form from '../src/FormSwitcher';
 
 const DEFAULT_DATA = { jsonSchema: {}, uiSchema: [], properties: {} };

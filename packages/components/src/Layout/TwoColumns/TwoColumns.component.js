@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
 
 import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
 import Inject from '../../Inject';
-import theme from './TwoColumns.scss';
+import theme from './TwoColumns.module.scss';
 
 /**
  * @param {object} props react props

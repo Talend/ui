@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
 import { withTranslation } from 'react-i18next';
 
 import Action from '../../../Actions/Action';
-import theme from './Item.scss';
+import theme from './Item.module.scss';
 import ItemPropTypes from './Item.propTypes';
 import ItemEditPropTypes from './ItemEdit.propTypes';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
@@ -29,7 +29,7 @@ function itemEditActionsClasses() {
 	return classNames(theme['tc-enumeration-item-actions'], 'tc-enumeration-item-actions');
 }
 
-class ItemEdit extends React.Component {
+class ItemEdit extends Component {
 	constructor(props) {
 		super(props);
 		this.onKeyDown = this.onKeyDown.bind(this);

@@ -1,11 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { StackHorizontal, StackItem, SizedIcon, Tooltip } from '@talend/design-system';
 import { getTheme } from '@talend/react-components';
 
-import cssModule from './AddFacetPopoverRowButton.scss';
+import cssModule from './AddFacetPopoverRowButton.module.scss';
 
 const theme = getTheme(cssModule);
 

@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
+import { forwardRef, HTMLAttributes, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 
@@ -9,6 +9,7 @@ import { ButtonTertiary } from '../Button';
 import { StackHorizontal } from '../Stack';
 import Divider from '../Divider';
 import VisuallyHidden from '../VisuallyHidden';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../constants';
 
 type BreadcrumbsLink = {
 	label: string;
@@ -61,7 +62,7 @@ function BreadcrumbLink({
 }
 
 const Breadcrumbs = forwardRef(({ items, ...rest }: BreadCrumbsProps, ref: Ref<HTMLElement>) => {
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 	const buildEntries = () => {
 		if (items.length > maxBreadcrumbsItemLength) {
 			const origin = items[0];

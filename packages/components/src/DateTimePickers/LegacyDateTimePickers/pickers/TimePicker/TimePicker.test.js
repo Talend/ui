@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { FIELD_MINUTES, FIELD_HOURS } from '../../DateTime/constants';
 
@@ -43,12 +42,7 @@ describe('TimePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.dive()
-				.find('.tc-date-picker-time')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.dive().find('.tc-date-picker-time').getElement()).toMatchSnapshot();
 	});
 
 	it('should render with error', () => {
@@ -64,12 +58,7 @@ describe('TimePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.dive()
-				.find('.tc-date-picker-time')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.dive().find('.tc-date-picker-time').getElement()).toMatchSnapshot();
 	});
 
 	it('should render UTC legend', () => {
@@ -80,12 +69,7 @@ describe('TimePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.dive()
-				.find('legend')
-				.getElement(),
-		).toMatchSnapshot();
+		expect(wrapper.dive().find('legend').getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange on hours change', () => {
@@ -105,11 +89,7 @@ describe('TimePicker', () => {
 		expect(onChange).not.toBeCalled();
 
 		// when
-		wrapper
-			.dive()
-			.find('DebounceInput')
-			.at(0)
-			.simulate('change', event);
+		wrapper.dive().find('DebounceInput').at(0).simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { hours: '17', minutes: '38' }, FIELD_HOURS);
@@ -126,11 +106,7 @@ describe('TimePicker', () => {
 		expect(onChange).not.toBeCalled();
 
 		// when
-		wrapper
-			.dive()
-			.find('DebounceInput')
-			.at(1)
-			.simulate('change', event);
+		wrapper.dive().find('DebounceInput').at(1).simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { hours: '15', minutes: '17' }, FIELD_MINUTES);
@@ -140,38 +116,14 @@ describe('TimePicker', () => {
 		// given
 		const TimePicker = getTimePickerWithContext();
 		const wrapper = shallow(<TimePicker onChange={jest.fn()} />);
-		expect(
-			wrapper
-				.dive()
-				.find('DebounceInput')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(-1);
-		expect(
-			wrapper
-				.dive()
-				.find('DebounceInput')
-				.at(1)
-				.prop('tabIndex'),
-		).toBe(-1);
+		expect(wrapper.dive().find('DebounceInput').at(0).prop('tabIndex')).toBe(-1);
+		expect(wrapper.dive().find('DebounceInput').at(1).prop('tabIndex')).toBe(-1);
 
 		// when
 		wrapper.setProps({ allowFocus: true });
 
 		// then
-		expect(
-			wrapper
-				.dive()
-				.find('DebounceInput')
-				.at(0)
-				.prop('tabIndex'),
-		).toBe(0);
-		expect(
-			wrapper
-				.dive()
-				.find('DebounceInput')
-				.at(1)
-				.prop('tabIndex'),
-		).toBe(0);
+		expect(wrapper.dive().find('DebounceInput').at(0).prop('tabIndex')).toBe(0);
+		expect(wrapper.dive().find('DebounceInput').at(1).prop('tabIndex')).toBe(0);
 	});
 });

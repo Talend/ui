@@ -1,9 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { InlineMessageInformation, InlineMessageDestructive } from '@talend/design-system';
 
-import theme from './FieldTemplate.scss';
+import theme from './FieldTemplate.module.scss';
 
 function FieldTemplate(props) {
 	const groupsClassNames = classNames('form-group', {

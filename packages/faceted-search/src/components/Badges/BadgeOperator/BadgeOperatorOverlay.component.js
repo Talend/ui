@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import { getTheme } from '@talend/react-components/lib/theme';
@@ -8,7 +7,7 @@ import { BadgeOperatorPopover } from './BadgeOperatorPopover.component';
 
 import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 
-import cssModule from './BadgeOperator.scss';
+import cssModule from './BadgeOperator.module.scss';
 
 const theme = getTheme(cssModule);
 

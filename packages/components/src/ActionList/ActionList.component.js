@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
@@ -7,7 +6,7 @@ import { TagBeta } from '@talend/design-system';
 
 import { Action } from '../Actions';
 import Inject from '../Inject';
-import theme from './ActionList.scss';
+import theme from './ActionList.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 /**

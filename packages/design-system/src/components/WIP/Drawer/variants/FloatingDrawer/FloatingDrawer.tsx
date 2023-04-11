@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import * as React from 'react';
 import { Dialog, DialogDisclosure, DialogStateReturn, useDialogState } from 'reakit';
 import PrimitiveDrawer from '../../Primitive/PrimitiveDrawer';
 
-import theme from './FloatingDrawer.scss';
+import theme from './FloatingDrawer.module.scss';
 
 type WithDisclosure = {
 	disclosure: React.ReactElement;

@@ -1,17 +1,18 @@
-import React, { useContext, useState } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ButtonIconToggle } from '../../ButtonIcon';
 import ThemeContext from '../ThemeContext';
 
 import { dark, light } from '../../../themes';
+import { I18N_DOMAIN_DESIGN_SYSTEM } from '../../constants';
 
 const ThemeSwitcher = () => {
 	const { switchTheme, theme } = useContext(ThemeContext);
 	const [hasDarkMode, setDarkMode] = useState(false);
-	const { t } = useTranslation();
+	const { t } = useTranslation(I18N_DOMAIN_DESIGN_SYSTEM);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setDarkMode(theme === dark);
 	}, [theme]);
 

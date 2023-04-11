@@ -1,8 +1,8 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Inject from '../../Inject';
-import theme from './RichLayout.scss';
+import theme from './RichLayout.module.scss';
 
 const TooltipPropTypes = {
 	id: PropTypes.string.isRequired,
@@ -33,7 +33,7 @@ const Footer = ({ id, children, className }) => (
 );
 Footer.propTypes = TooltipPropTypes;
 
-const RichLayout = React.forwardRef((props, ref) => (
+const RichLayout = forwardRef((props, ref) => (
 	<div id={props.id} className={theme['rich-layout']} ref={ref} tabIndex="-1">
 		<Header id={`${props.id}-header`}>
 			{Inject.getReactElement(props.getComponent, props.Header)}

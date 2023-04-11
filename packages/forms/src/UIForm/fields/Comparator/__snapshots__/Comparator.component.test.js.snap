@@ -7,8 +7,8 @@ exports[`Comparator field should render default Comparator 1`] = `
   <withI18nextTranslation(ActionDropdown)
     hideLabel={false}
     items={
-      Array [
-        Object {
+      [
+        {
           "icon": "talend-greater-than",
           "id": "comparison-operator-0",
           "label": <OperatorListElement
@@ -20,7 +20,7 @@ exports[`Comparator field should render default Comparator 1`] = `
           "title": "greater_than",
           "value": "greater_than",
         },
-        Object {
+        {
           "icon": "talend-less-than",
           "id": "comparison-operator-1",
           "label": <OperatorListElement
@@ -32,7 +32,7 @@ exports[`Comparator field should render default Comparator 1`] = `
           "title": "less_than",
           "value": "less_than",
         },
-        Object {
+        {
           "icon": "talend-equal",
           "id": "comparison-operator-2",
           "label": <OperatorListElement
@@ -51,27 +51,27 @@ exports[`Comparator field should render default Comparator 1`] = `
     t={[Function]}
   />
   <Widget
-    errors={Object {}}
+    errors={{}}
     id="default"
     isValid={true}
     onChange={[Function]}
     onFinish={[Function]}
     schema={
-      Object {
-        "key": Array [
+      {
+        "key": [
           "default",
           "value",
         ],
         "required": true,
-        "schema": Object {
+        "schema": {
           "type": "string",
         },
         "title": "Default comparator",
         "type": "text",
       }
     }
-    value={Object {}}
-    widgets={Object {}}
+    value={{}}
+    widgets={{}}
   />
 </div>
 `;
@@ -84,8 +84,8 @@ exports[`Comparator field should render disabled Comparator 1`] = `
     disabled={true}
     hideLabel={false}
     items={
-      Array [
-        Object {
+      [
+        {
           "icon": "talend-greater-than",
           "id": "comparison-operator-0",
           "label": <OperatorListElement
@@ -97,7 +97,7 @@ exports[`Comparator field should render disabled Comparator 1`] = `
           "title": "greater_than",
           "value": "greater_than",
         },
-        Object {
+        {
           "icon": "talend-less-than",
           "id": "comparison-operator-1",
           "label": <OperatorListElement
@@ -109,7 +109,7 @@ exports[`Comparator field should render disabled Comparator 1`] = `
           "title": "less_than",
           "value": "less_than",
         },
-        Object {
+        {
           "icon": "talend-equal",
           "id": "comparison-operator-2",
           "label": <OperatorListElement
@@ -128,28 +128,28 @@ exports[`Comparator field should render disabled Comparator 1`] = `
     t={[Function]}
   />
   <Widget
-    errors={Object {}}
+    errors={{}}
     id="default"
     isValid={true}
     onChange={[Function]}
     onFinish={[Function]}
     schema={
-      Object {
+      {
         "disabled": true,
-        "key": Array [
+        "key": [
           "default",
           "value",
         ],
         "required": true,
-        "schema": Object {
+        "schema": {
           "type": "string",
         },
         "title": "Default comparator",
         "type": "text",
       }
     }
-    value={Object {}}
-    widgets={Object {}}
+    value={{}}
+    widgets={{}}
   />
 </div>
 `;

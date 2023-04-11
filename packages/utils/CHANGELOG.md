@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 2.5.0
+
+### Minor Changes
+
+- f0a97113e: feat: add randomUUID function based on crypto
+
 ## 2.4.0
 
 ### Minor Changes

@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 import ButtonIconPrimitive, { AvailableSizes, ToggleTypes } from '../Primitive/ButtonIconPrimitive';
 
 export type ButtonToggleType<S extends Partial<AvailableSizes>> = Omit<

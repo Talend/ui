@@ -1,41 +1,26 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
-import React from 'react';
-
 import AppLoader from './AppLoader.component';
 import APP_LOADER from './constant';
 
-export default {
-	title: 'Design Principles/Loading Feedback/AppLoader',
-};
-
-const AppSpecificLoader = ({ icon }) => (
+const AppSpecificLoader = ({ iconUrl }) => (
 	<div>
-		<style>
-			{APP_LOADER.getLoaderStyle(`url(${require(`@talend/icons/src/svg/products/${icon}.svg`)})`)}
-		</style>
+		<style>{APP_LOADER.getLoaderStyle(`url(${iconUrl})`)}</style>
 		<AppLoader />
 	</div>
 );
 
-export const Default = () => <AppSpecificLoader icon="logo-square" />;
+export default {
+	title: 'Design Principles/Loading Feedback/AppLoader',
+	component: AppSpecificLoader,
+};
 
-export const ApiDesigner = () => <AppSpecificLoader icon="api-designer-positive" />;
-
-export const ApiTester = () => <AppSpecificLoader icon="api-tester-positive" />;
-
-export const ComponentKit = () => <AppSpecificLoader icon="component-kit-positive" />;
-
-export const MasterDataManagement = () => <AppSpecificLoader icon="mdm-positive" />;
-
-export const DataCatalog = () => <AppSpecificLoader icon="datacatalog-positive" />;
-
-export const DataInventory = () => <AppSpecificLoader icon="tdc-positive" />;
-
-export const DataPreparation = () => <AppSpecificLoader icon="tdp-positive" />;
-
-export const DataStewardship = () => <AppSpecificLoader icon="tds-positive" />;
-
-export const ManagementConsole = () => <AppSpecificLoader icon="tmc-positive" />;
-
-export const PipelineDesigner = () => <AppSpecificLoader icon="datastreams-positive" />;
+export const Default = {
+	argTypes: {
+		iconUrl: {
+			name: 'iconUrl',
+			type: { name: 'string', required: true },
+			defaultValue: 'https://unpkg.com/@talend/icons@6.51.1/src/svg/products/logo-square.svg',
+		},
+	},
+};

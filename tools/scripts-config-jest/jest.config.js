@@ -36,10 +36,10 @@ const d3Pkgs = [
 ];
 
 // option 1 map module to an bundled version of the package which is es5
-const moduleNameMapper = d3Pkgs.reduce((acc, pkg) => {
-	acc[`^${pkg}$`] = path.join(require.resolve(pkg), `../../dist/${pkg}.min.js`);
-	return acc;
-}, {});
+// const moduleNameMapper = d3Pkgs.reduce((acc, pkg) => {
+// 	acc[`^${pkg}$`] = path.join(require.resolve(pkg), `../../dist/${pkg}.min.js`);
+// 	return acc;
+// }, {});
 
 module.exports = {
 	moduleNameMapper: {
@@ -51,7 +51,7 @@ module.exports = {
 	rootDir: process.cwd(),
 	setupFilesAfterEnv: [path.join(__dirname, 'test-setup.js')],
 	testEnvironment: 'jest-environment-jsdom-global',
-	testRegex: 'src/.*\\.test.(js|ts|tsx)$',
+	testRegex: '(/__tests__/.*|src/).*\\.test.(js|ts|tsx)$',
 	transform: {
 		// match mjs js jsx ts tsx
 		'^.+\\.m?[jt]sx?$': ['babel-jest', { configFile: getBabelConfigPath() }],

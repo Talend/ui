@@ -1,10 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Trans } from 'react-i18next';
 import { RatioBarComposition } from './RatioBarComposition.component';
 import { EmptyLine, FilledLine, ErrorLine } from './RatioBarLines.component';
 import { getTheme } from '../theme';
-import ratioBarTheme from './RatioBar.scss';
+import ratioBarTheme from './RatioBar.module.scss';
 
 const theme = getTheme(ratioBarTheme);
 

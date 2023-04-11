@@ -1,5 +1,134 @@
 # @talend/react-containers
 
+## 9.0.2
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [f47e34dd0]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/react-forms@9.0.4
+  - @talend/react-cmf@7.2.0
+
+## 9.0.1
+
+### Patch Changes
+
+- 8c09dacd8: fix(HeaderBar): TypeError: Assignment to constant variable.
+- Updated dependencies [20f8526e9]
+  - @talend/react-components@10.1.1
+
+## 9.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+  - @talend/react-forms@9.0.2
+
+## 8.0.2
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+- Updated dependencies [99398080f]
+- Updated dependencies [5e4aad637]
+  - @talend/react-forms@9.0.0
+
+## 8.0.1
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+- Updated dependencies [f0a97113e]
+  - @talend/react-components@9.0.1
+  - @talend/utils@2.5.0
+  - @talend/react-cmf@7.1.4
+  - @talend/react-forms@8.1.8
+
+## 8.0.0
+
+### Major Changes
+
+- 9c44d724f: ## Breaking changes :
+  Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
+
+  - SidePanel icon is no more handled by the application theme
+  - HeaderBar icon is no more handled by the application theme
+
+  ### HeaderBar
+
+  Use either `icon` or `iconUrl` in the header `brand` property
+
+  ```diff
+  <HeaderBar
+      ...
+  	brand={{
+  		...props.brand,
+  +       icon: 'talend-tmc-positive',
+  	}}
+      ...
+  };
+  ```
+
+  ### SidePanel
+
+  Use `backgroundIcon` in the sidepanel properties
+
+  ```diff
+  +import assetsApi from '@talend/assets-api';
+
+  <SidePanel
+      ...
+  +    backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+      ...
+  />
+  ```
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+  - @talend/react-forms@8.1.7
+
+## 7.3.2
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+  - @talend/react-forms@8.1.6
+
+## 7.3.1
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+  - @talend/react-forms@8.1.5
+
 ## 7.3.0
 
 ### Minor Changes

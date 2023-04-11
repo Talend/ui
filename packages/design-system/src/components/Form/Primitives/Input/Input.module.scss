@@ -1,0 +1,34 @@
+@use '~@talend/design-tokens/lib/tokens';
+@use '../mixins' as Form;
+
+.input {
+	@include Form.base-input();
+	height: Form.$standard-input-height;
+
+	&[type='color'] {
+		padding: tokens.$coral-spacing-xxs;
+	}
+
+	&[type='password'] {
+		// padding-right: calc(#{tokens.$coral-sizing-xs} + #{tokens.$coral-spacing-xxs}*2);
+	}
+}
+
+.icon {
+	padding: 0 0 0 tokens.$coral-spacing-xs;
+	background: transparent;
+	color: tokens.$coral-color-neutral-icon-weak;
+	transition: tokens.$coral-transition-instant;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&_disabled {
+		color: tokens.$coral-color-neutral-text-disabled;
+	}
+
+	&_readOnly {
+		color: tokens.$coral-color-neutral-text-weak;
+	}
+}

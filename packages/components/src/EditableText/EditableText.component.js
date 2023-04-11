@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -6,7 +5,7 @@ import Skeleton from '../Skeleton';
 import TooltipTrigger from '../TooltipTrigger';
 import { Action } from '../Actions';
 import InlineForm from './InlineForm.component';
-import theme from './EditableText.scss';
+import theme from './EditableText.module.scss';
 import getDefaultT from '../translate';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';

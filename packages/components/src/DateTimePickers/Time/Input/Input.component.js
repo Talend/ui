@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 
 import { TimeContext } from '../Context';
 import InputSizer from '../../shared/InputSizer';
-import theme from './Input.scss';
+import theme from './Input.module.scss';
 
 export default function Input(props) {
 	const { time, inputManagement } = useContext(TimeContext);

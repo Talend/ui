@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import { createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-export const virtualizedListContext = React.createContext();
+export const virtualizedListContext = createContext();
 
 export function useVirtualizedListContext() {
 	const context = useContext(virtualizedListContext);

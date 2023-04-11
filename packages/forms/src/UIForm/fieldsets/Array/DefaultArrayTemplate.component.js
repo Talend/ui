@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +7,7 @@ import Message from '../../Message';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-import theme from './DefaultArrayTemplate.scss';
+import theme from './DefaultArrayTemplate.module.scss';
 
 function DefaultArrayTemplate(props) {
 	const { t } = useTranslation(I18N_DOMAIN_FORMS);

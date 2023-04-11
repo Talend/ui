@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
 
-import theme from './OneColumn.scss';
+import theme from './OneColumn.module.scss';
 import TabBar from '../../TabBar';
 import WithDrawer from '../../WithDrawer';
 

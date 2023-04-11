@@ -1,12 +1,12 @@
 @use '~@talend/design-tokens/lib/tokens';
 
 .information {
-  &_withBackground {
-    background-color: tokens.$coral-color-accent-background;
-    box-shadow: tokens.$coral-elevation-shadow-accent;
-  }
+	&_withBackground {
+		background-color: tokens.$coral-color-accent-background;
+		box-shadow: tokens.$coral-elevation-shadow-accent;
+	}
 
-  &__icon {
-    color: tokens.$coral-color-accent-icon;
-  }
+	&__icon {
+		color: tokens.$coral-color-accent-icon;
+	}
 }

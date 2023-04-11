@@ -12,7 +12,7 @@ exports[`DateTimeView should render 1`] = `
         <withI18nextTranslation(CalendarGesture(DatePicker))
           allowFocus={true}
           calendar={
-            Object {
+            {
               "monthIndex": 5,
               "year": 2006,
             }
@@ -31,7 +31,7 @@ exports[`DateTimeView should render 1`] = `
           onChange={[MockFunction]}
           t={[Function]}
           value={
-            Object {
+            {
               "hours": "15",
               "minutes": "45",
             }
@@ -41,19 +41,18 @@ exports[`DateTimeView should render 1`] = `
     </div>
   }
   header={
-    Object {
-      "leftElement": <Action
+    {
+      "leftElement": <ButtonIcon
         aria-label="Go to previous month"
-        className="btn-tertiary btn-info"
-        icon="talend-arrow-left"
-        label=""
+        icon="arrow-left"
         onClick={[Function]}
+        size="S"
         tabIndex="-1"
       />,
       "middleElement": <HeaderTitle
         button={
-          Object {
-            "aria-label": "Switch to month and year pickers view",
+          {
+            "aria-label": "Switch to month-and-year view",
             "onClick": [MockFunction],
             "tabIndex": 0,
           }
@@ -61,13 +60,11 @@ exports[`DateTimeView should render 1`] = `
         monthIndex={5}
         year={2006}
       />,
-      "rightElement": <Action
+      "rightElement": <ButtonIcon
         aria-label="Go to next month"
-        className="btn-tertiary btn-info"
-        icon="talend-arrow-left"
-        iconTransform="rotate-180"
-        label=""
+        icon="arrow-right"
         onClick={[Function]}
+        size="S"
         tabIndex="-1"
       />,
     }
@@ -87,7 +84,7 @@ exports[`DateTimeView should render without timePicker 1`] = `
         <withI18nextTranslation(CalendarGesture(DatePicker))
           allowFocus={true}
           calendar={
-            Object {
+            {
               "monthIndex": 5,
               "year": 2006,
             }
@@ -101,19 +98,18 @@ exports[`DateTimeView should render without timePicker 1`] = `
     </div>
   }
   header={
-    Object {
-      "leftElement": <Action
+    {
+      "leftElement": <ButtonIcon
         aria-label="Go to previous month"
-        className="btn-tertiary btn-info"
-        icon="talend-arrow-left"
-        label=""
+        icon="arrow-left"
         onClick={[Function]}
+        size="S"
         tabIndex="-1"
       />,
       "middleElement": <HeaderTitle
         button={
-          Object {
-            "aria-label": "Switch to month and year pickers view",
+          {
+            "aria-label": "Switch to month-and-year view",
             "onClick": [MockFunction],
             "tabIndex": 0,
           }
@@ -121,13 +117,11 @@ exports[`DateTimeView should render without timePicker 1`] = `
         monthIndex={5}
         year={2006}
       />,
-      "rightElement": <Action
+      "rightElement": <ButtonIcon
         aria-label="Go to next month"
-        className="btn-tertiary btn-info"
-        icon="talend-arrow-left"
-        iconTransform="rotate-180"
-        label=""
+        icon="arrow-right"
         onClick={[Function]}
+        size="S"
         tabIndex="-1"
       />,
     }

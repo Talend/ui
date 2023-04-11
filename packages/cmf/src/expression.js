@@ -1,4 +1,3 @@
-import React from 'react';
 import invariant from 'invariant';
 import forIn from 'lodash/forIn';
 

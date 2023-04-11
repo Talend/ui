@@ -1,11 +1,11 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { timeToStr, pad } from '../../Time/time-extraction';
 import withListGesture from '../../../Gesture/withListGesture';
 
-import theme from './TimePicker.scss';
+import theme from './TimePicker.module.scss';
 
 function isBefore(a, b) {
 	if (a.hours > b.hours) {
@@ -45,7 +45,7 @@ function getOptions(interval = 60, useSeconds) {
 	return options;
 }
 
-export class TimePicker extends React.Component {
+export class TimePicker extends Component {
 	static propTypes = {
 		interval: PropTypes.number,
 		onChange: PropTypes.func.isRequired,

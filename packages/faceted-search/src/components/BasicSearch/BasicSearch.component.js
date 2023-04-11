@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
@@ -25,9 +25,10 @@ import {
 	operatorsPropTypes,
 } from '../facetedSearch.propTypes';
 
-import theme from './BasicSearch.scss';
+import theme from './BasicSearch.module.scss';
 import { USAGE_TRACKING_TAGS } from '../../constants';
 import { DEFAULT_QUICKSEARCH_OPERATOR } from '../QuickSearchInput/QuickSearchInput.component';
+import { isEqual } from 'lodash';
 
 const css = getTheme(theme);
 
@@ -46,6 +47,7 @@ const BasicSearch = ({
 	badgesDefinitionsSort,
 	quickSearchPlaceholder,
 	quickSearchFacetsFilter,
+	quickSearchInputProps,
 }) => {
 	const { id, t } = useFacetedSearchContext();
 	const operatorsDictionary = useMemo(
@@ -66,8 +68,11 @@ const BasicSearch = ({
 		[badgesDefinitions],
 	);
 
+	const [badgeState, setBadgeState] = useState(state.badges);
+
 	useEffect(() => {
-		if (!state.badges.some(isInCreation)) {
+		if (!state.badges.some(isInCreation) && !isEqual(badgeState, state.badges)) {
+			setBadgeState(state.badges);
 			onSubmit({}, state.badges);
 		}
 	}, [state.badges, onSubmit]);
@@ -121,6 +126,7 @@ const BasicSearch = ({
 						),
 					);
 				}}
+				inputProps={quickSearchInputProps}
 			/>
 			<div className={css('tc-basic-search-content')}>
 				<BadgeFacetedProvider value={badgeFacetedContextValue}>
@@ -202,6 +208,7 @@ BasicSearch.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	setBadgesFaceted: PropTypes.func,
 	callbacks: callbacksPropTypes,
+	quickSearchInputProps: PropTypes.object,
 };
 
 export { BasicSearch };

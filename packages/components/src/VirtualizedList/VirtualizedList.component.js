@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { Children, useEffect, useRef, useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import get from 'lodash/get';
 import { listTypes, SELECTION_MODE } from './utils/constants';
@@ -7,8 +7,8 @@ import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import { resizeColumns, extractResizableProps } from './utils/resizable';
-import theme from './VirtualizedList.scss';
-import tableTheme from './ListTable/ListTable.scss';
+import theme from './VirtualizedList.module.scss';
+import tableTheme from './ListTable/ListTable.module.scss';
 
 import { virtualizedListContext } from './virtualizedListContext';
 
@@ -29,6 +29,7 @@ function VirtualizedList(props) {
 		isSelected,
 		getRowState,
 		inProgress,
+		isToggleAllDisabled,
 		onRowClick,
 		onRowDoubleClick,
 		onRowsRendered,
@@ -49,11 +50,14 @@ function VirtualizedList(props) {
 		widthsOfColumns,
 		setWidthsOfColumns,
 		headerAction,
+		headerHeight,
+		disableHeight = false,
 	} = props;
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		children,
 		collection,
 		isSelected,
+		isToggleAllDisabled,
 		onToggleAll,
 		selectionToggle,
 		getRowState,
@@ -67,7 +71,7 @@ function VirtualizedList(props) {
 
 	// Settings the data for resizable columns only at mount.
 	useEffect(() => {
-		setWidths(extractResizableProps(React.Children.toArray(children)));
+		setWidths(extractResizableProps(Children.toArray(children)));
 	}, []);
 
 	const resizeColumn = (dataKey, deltaX) => {
@@ -89,7 +93,7 @@ function VirtualizedList(props) {
 
 	return (
 		<virtualizedListContext.Provider value={{ resizeColumn }}>
-			<AutoSizer>
+			<AutoSizer disableHeight={disableHeight}>
 				{({ height, width }) => (
 					<RendererSelector
 						ref={rendererSelectorRef}
@@ -118,6 +122,7 @@ function VirtualizedList(props) {
 						scrollToIndex={scrollToIndex}
 						scrollToAlignment={scrollToAlignment}
 						headerAction={headerAction}
+						headerHeight={headerHeight}
 					>
 						{columnDefinitions}
 					</RendererSelector>

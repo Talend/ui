@@ -8,12 +8,12 @@ exports[`TreeView should render the data 1`] = `
       Immutable.Map {
         "id": 1,
         "name": "foo",
-        "children": Array [],
+        "children": [],
       },
       Immutable.Map {
         "id": 2,
         "name": "bar",
-        "children": Array [],
+        "children": [],
       },
     ]
   }
@@ -24,16 +24,16 @@ exports[`TreeView should render the data 1`] = `
   onToggle={[Function]}
   onToggleAllSiblings={[Function]}
   structure={
-    Array [
-      Object {
-        "children": Array [],
+    [
+      {
+        "children": [],
         "id": 1,
         "isOpened": false,
         "name": "foo",
         "parent": undefined,
       },
-      Object {
-        "children": Array [],
+      {
+        "children": [],
         "id": 2,
         "isOpened": false,
         "name": "bar",

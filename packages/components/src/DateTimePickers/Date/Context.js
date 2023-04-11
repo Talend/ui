@@ -1,4 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-import React from 'react';
+import { createContext } from 'react';
 
-export const DateContext = React.createContext();
+export const DateContext = createContext();

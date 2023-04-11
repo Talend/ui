@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import { CellTitleActionsComponent } from './CellTitleActions.component';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
@@ -251,12 +250,9 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(
-			wrapperSimpleFirst
-				.find('.cell-title-actions')
-				.childAt(1)
-				.props().displayMode,
-		).toEqual('dropdown');
+		expect(wrapperSimpleFirst.find('.cell-title-actions').childAt(1).props().displayMode).toEqual(
+			'dropdown',
+		);
 
 		// -------------
 
@@ -273,12 +269,9 @@ describe('CellTitleActions', () => {
 		);
 
 		// then
-		expect(
-			wrapperDropdownFirst
-				.find('.cell-title-actions')
-				.childAt(0)
-				.props().displayMode,
-		).toEqual('dropdown');
+		expect(wrapperDropdownFirst.find('.cell-title-actions').childAt(0).props().displayMode).toEqual(
+			'dropdown',
+		);
 	});
 
 	it('should display all actions on LARGE display mode', () => {

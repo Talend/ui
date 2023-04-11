@@ -5,16 +5,16 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build:dev": "talend-scripts build:lib:umd --dev",
-    "build:prod": "talend-scripts build:lib:umd --prod",
+    "build:dev": "talend-scripts build --umd --dev",
+    "build:prod": "talend-scripts build --umd --prod",
     "pre-release": "yarn build:dev && yarn build:prod",
-    "build:lib": "talend-scripts build:lib",
+    "build:lib": "talend-scripts build",
     "start": "talend-scripts start-storybook -p 6007",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
-    "lint:es": "talend-scripts lint:es",
+    "lint": "talend-scripts lint",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
   },
   "keywords": [
@@ -33,35 +33,34 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^7.1.3",
-    "@talend/react-components": "^7.5.0",
-    "@talend/react-forms": "^8.1.0",
-    "classnames": "^2.3.1",
+    "@talend/react-cmf": "^7.2.0",
+    "@talend/react-components": "^10.2.2",
+    "@talend/react-forms": "^9.0.4",
+    "@talend/utils": "^2.5.0",
+    "classnames": "^2.3.2",
     "immutable": "^3.8.2",
     "invariant": "^2.2.4",
     "keycode": "^2.2.1",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
     "react-immutable-proptypes": "^2.2.0",
-    "redux-saga": "^1.1.3",
-    "reselect": "^2.5.4",
-    "uuid": "^3.4.0"
+    "redux-saga": "^1.2.2",
+    "reselect": "^2.5.4"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.9",
-    "@talend/bootstrap-theme": "^6.39.0",
-    "@talend/icons": "^6.47.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@talend/bootstrap-theme": "^7.0.1",
+    "@talend/icons": "^6.55.0",
     "@talend/locales-tui-containers": "^6.38.1",
-    "@talend/react-storybook-cmf": "^7.1.0",
-    "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^13.0.0",
+    "@talend/react-storybook-cmf": "^7.1.1",
+    "@talend/scripts-core": "^13.1.2",
     "enzyme": "^3.11.0",
     "i18next": "^20.6.1",
     "jest-in-case": "^1.0.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.18.1",
+    "react-i18next": "^11.18.6",
     "react-test-renderer": "^17.0.2",
     "redux-saga-tester": "^1.0.874"
   },
@@ -70,10 +69,10 @@
     "prop-types": "^15.5.10",
     "react": ">= 16.14.0 < 18.0.0",
     "react-dom": ">= 16.14.0 < 18.0.0",
-    "react-i18next": "^11.8.13"
+    "react-i18next": "^11.18.6"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.3.0"
+  "version": "9.0.2"
 }

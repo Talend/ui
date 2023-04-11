@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import 'react-grid-layout/css/styles.css';
 import { Responsive, WidthProvider } from 'react-grid-layout';
@@ -6,7 +5,7 @@ import { Responsive, WidthProvider } from 'react-grid-layout';
 import Tile from './Tile';
 import { SKELETON_TILE_CONF } from './Tile/Skeleton/SkeletonTile.component';
 
-import css from './Grid.scss';
+import css from './Grid.module.scss';
 import { getTheme } from '../theme';
 
 const theme = getTheme(css);

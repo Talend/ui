@@ -1,18 +1,18 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 import startOfDay from 'date-fns/start_of_day';
 import classNames from 'classnames';
 
-import theme from './CalendarPicker.scss';
+import theme from './CalendarPicker.module.scss';
 import DateView from '../../views/DateView';
 import MonthYearView from '../../views/MonthYearView';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 import Action from '../../../Actions/Action/Action.component';
 import getDefaultT from '../../../translate';
 
-class CalendarPicker extends React.Component {
+class CalendarPicker extends Component {
 	constructor(props) {
 		super(props);
 

@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import keycode from 'keycode';
-import theme from './CellTitle.scss';
+import theme from './CellTitle.module.scss';
 
 /**
  * Title input mode.
  * - It initializes the input value
  * - It adds handlers on form submit, ESC (cancel) and blur (submit) events
  */
-export default class CellTitleInput extends React.Component {
+export default class CellTitleInput extends Component {
 	constructor(props) {
 		super(props);
 		this.onBlur = this.onBlur.bind(this);

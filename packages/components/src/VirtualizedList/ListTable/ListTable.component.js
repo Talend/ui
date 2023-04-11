@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
@@ -12,7 +11,7 @@ import Skeleton from '../../Skeleton';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import { getTheme } from '../../theme';
-import theme from './ListTable.scss';
+import theme from './ListTable.module.scss';
 import rowThemes from './RowThemes';
 
 const css = getTheme(theme);
@@ -51,6 +50,7 @@ function ListTable(props) {
 		onRowDoubleClick,
 		rowCount,
 		headerAction,
+		headerHeight = 40,
 		...restProps
 	} = props;
 
@@ -77,7 +77,7 @@ function ListTable(props) {
 			<VirtualizedTable
 				className={css('tc-list-table', { 'right-action': !!headerAction })}
 				gridClassName={`${theme.grid} ${DROPDOWN_CONTAINER_CN}`}
-				headerHeight={40}
+				headerHeight={headerHeight}
 				id={id}
 				onRowClick={onRowClickCallback}
 				onRowDoubleClick={onRowDoubleClickCallback}
@@ -115,6 +115,7 @@ ListTable.propTypes = {
 	width: PropTypes.number,
 	rowCount: PropTypes.number,
 	headerAction: PropTypes.element,
+	headerHeight: PropTypes.number,
 };
 
 ListTable.defaultProps = {

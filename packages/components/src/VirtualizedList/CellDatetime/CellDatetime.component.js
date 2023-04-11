@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import classnames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import pick from 'lodash/pick';
@@ -13,7 +13,7 @@ import { date as dateUtils } from '@talend/utils';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
-import styles from './CellDatetime.scss';
+import styles from './CellDatetime.module.scss';
 import TooltipTrigger from '../../TooltipTrigger';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
@@ -53,7 +53,9 @@ export function getTooltipLabel(cellData, columnData, t) {
 				locale: getLocale(t),
 			});
 		} else {
-			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT, { locale: getLocale(t) });
+			tooltipLabel = format(cellData, columnData.pattern || DATE_TIME_FORMAT, {
+				locale: getLocale(t),
+			});
 		}
 		return tooltipLabel;
 	}
@@ -63,7 +65,7 @@ export function getTooltipLabel(cellData, columnData, t) {
 /**
  * Cell renderer that displays text + icon
  */
-export class CellDatetimeComponent extends React.Component {
+export class CellDatetimeComponent extends Component {
 	shouldComponentUpdate(nextProps) {
 		const watch = Object.keys(CellDatetimeComponent.propTypes.columnData);
 		return (

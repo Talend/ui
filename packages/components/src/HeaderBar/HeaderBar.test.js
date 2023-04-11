@@ -1,58 +1,83 @@
-import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import HeaderBarComponent from './HeaderBar.component';
 
 describe('HeaderBar', () => {
 	it('should render', () => {
-		const wrapper = mount(<HeaderBarComponent />);
-		expect(wrapper.find('HeaderBar')).toBeDefined();
+		render(<HeaderBarComponent />);
+		expect(screen.getByRole('navigation')).toBeInTheDocument();
 	});
 
 	it('should render logo', () => {
+		// GIVEN
 		const logo = {
 			id: 'logo',
 			label: 'My App',
 			onClick: jest.fn(),
 		};
-		const wrapper = mount(<HeaderBarComponent logo={logo} />);
-		const element = wrapper.find('Logo').at(0).find('Button').at(0);
-		expect(element).not.toBeUndefined();
-		element.simulate('click');
+		// WHEN
+		render(<HeaderBarComponent logo={logo} />);
+
+		// THEN get Logo element
+		const element = screen.getAllByRole('button')[0];
+		expect(element).toBeVisible();
+
+		// THEN check Logo label
+		expect(element).toHaveAttribute('aria-label', logo.label);
+
+		// THEN trigger onClick
+		userEvent.click(element);
 		expect(logo.onClick).toHaveBeenCalled();
 	});
 
 	it('should render AppSwitcher component', () => {
+		// GIVEN
 		const brand = {
 			id: 'brand',
 			label: 'My App',
 			onClick: jest.fn(),
 		};
-		const wrapper = mount(<HeaderBarComponent brand={brand} />);
-		const element = wrapper.find('AppSwitcher');
-		expect(element).not.toBeUndefined();
+		// WHEN
+		render(<HeaderBarComponent brand={brand} />);
+		// THEN find App switcher button
+		const element = screen.getAllByRole('button')[0];
+		expect(element).toBeVisible();
+		// THEN check App switcher content
+		expect(element).toHaveTextContent(brand.label);
 	});
 
 	it('should render custom AppSwitcher component', () => {
+		// GIVEN
+		const testid = 'custom-app-switcher';
 		function AppSwitcher() {
-			return null;
+			return <button data-testid={testid}>Custom App switcher</button>;
 		}
-
-		const wrapper = mount(<HeaderBarComponent AppSwitcher={AppSwitcher} />);
-		const element = wrapper.find(AppSwitcher);
-		expect(element).not.toBeUndefined();
+		// WHEN
+		render(<HeaderBarComponent AppSwitcher={AppSwitcher} />);
+		// THEN find App switcher button
+		const element = screen.getByTestId(testid);
+		expect(element).toBeVisible();
+		// THEN check App switcher content
+		expect(element).toHaveTextContent('Custom App switcher');
 	});
 
 	it('should render custom Intercom component', () => {
+		// GIVEN
+		const testid = 'intercom';
 		function Intercom() {
-			return null;
+			return <div data-testid={testid}>Intercom chat</div>;
 		}
-
-		const wrapper = mount(<HeaderBarComponent Intercom={Intercom} />);
-		const element = wrapper.find(Intercom);
-		expect(element).not.toBeUndefined();
+		// WHEN
+		render(<HeaderBarComponent Intercom={Intercom} />);
+		// THEN find Intercom component
+		const element = screen.getByTestId(testid);
+		expect(element).toBeVisible();
+		// THEN check Intercom content
+		expect(element).toHaveTextContent('Intercom chat');
 	});
 
 	it('should render search', () => {
+		// GIVEN
 		const search = {
 			id: 'search',
 			onToggle: jest.fn(),
@@ -64,27 +89,36 @@ describe('HeaderBar', () => {
 				tooltipPlacement: 'bottom',
 			},
 		};
-		const wrapper = mount(<HeaderBarComponent search={search} />);
-		const element = wrapper.find('Button[role="search"]');
-		expect(element).not.toBeUndefined();
-		element.simulate('click');
+		// WHEN
+		render(<HeaderBarComponent search={search} />);
+		// THEN get element with role "search"
+		const element = screen.getByRole('search');
+		expect(element).toBeVisible();
+
+		// THEN trigger onClick
+		userEvent.click(element);
 		expect(search.onToggle).toHaveBeenCalled();
 	});
 
 	it('should render help', () => {
+		// GIVEN
 		const help = {
 			id: 'help',
 			onClick: jest.fn(),
 			icon: 'talend-icon',
 		};
-		const wrapper = mount(<HeaderBarComponent help={help} />);
-		const element = wrapper.find('Action#help');
-		expect(element).not.toBeUndefined();
-		element.simulate('click');
+		// WHEN
+		render(<HeaderBarComponent help={help} />);
+		// THEN check Help element
+		const element = screen.getAllByRole('button')[1];
+		expect(element).toHaveAttribute('aria-label', 'Help');
+		// THEN trigger onClick
+		userEvent.click(element);
 		expect(help.onClick).toHaveBeenCalled();
 	});
 
 	it('should render user', () => {
+		// GIVEN
 		const user = {
 			id: 'user',
 			items: [
@@ -98,10 +132,22 @@ describe('HeaderBar', () => {
 			name: 'John Doe',
 			firstName: 'John',
 			lastName: 'Doe',
+			onClick: jest.fn(),
 		};
-		const wrapper = mount(<HeaderBarComponent user={user} />);
-		wrapper.find('button#user').simulate('click');
-		wrapper.find('a#settings').simulate('click');
+		// WHEN
+		render(<HeaderBarComponent user={user} />);
+		// THEN check user button
+		const userBtn = screen.getAllByRole('button').find(btn => btn.id === 'user');
+		expect(userBtn).toHaveTextContent(user.name);
+		expect(userBtn).toHaveAttribute('aria-expanded', 'false');
+		// THEN trigger user onClick
+		userEvent.click(userBtn);
+		expect(userBtn).toHaveAttribute('aria-expanded', 'true');
+		// THEN check user button
+		const settingsLink = screen.getAllByRole('menuitem')[0];
+		expect(settingsLink).toHaveTextContent(user.items[0].label);
+		// THEN check settings onClick
+		userEvent.click(settingsLink);
 		expect(user.items[0].onClick).toHaveBeenCalled();
 	});
 
@@ -113,6 +159,7 @@ describe('HeaderBar', () => {
 					key: 'tdp',
 					id: 'tdp',
 					label: 'Data Preparation',
+					onClick: jest.fn(),
 				},
 				{
 					icon: 'talend-tic-colored',
@@ -132,32 +179,38 @@ describe('HeaderBar', () => {
 			label: 'My App',
 			onClick: jest.fn(),
 		};
-		const wrapper = mount(<HeaderBarComponent brand={brand} products={products} />);
-		wrapper.find('button#brand').simulate('click');
-		wrapper.find('a#tdp').simulate('click');
-		expect(products.onSelect).toHaveBeenCalled();
+		// WHEN
+		render(<HeaderBarComponent brand={brand} products={products} />);
+		// THEN check brand button
+		const brandBtn = screen.getAllByRole('button').find(btn => btn.id === 'brand');
+		expect(brandBtn).toHaveTextContent(brand.label);
+		// THEN trigger brand onClick
+		userEvent.click(brandBtn);
+		expect(brandBtn).toHaveAttribute('aria-expanded', 'true');
+
+		// THEN check user button
+		const tdpLink = screen.getAllByRole('menuitem')[0];
+		expect(tdpLink).toHaveTextContent(products.items[0].label);
+		// THEN check TDP onClick
+		userEvent.click(tdpLink);
+		expect(products.items[0].onClick).toHaveBeenCalled();
 	});
 
-	it('should render intercom', () => {
-		// when
-		const wrapper = shallow(
-			<HeaderBarComponent
-				intercom={{ id: 'my-intercom', config: { app_id: 'e19c98d', email: 'lol@lol.com' } }}
-			/>,
-		);
-
-		// then
-		const intercomTrigger = wrapper
-			.find('Intercom')
-			.dive()
-			.find('withI18nextTranslation(Intercom)');
-		expect(intercomTrigger.length).toBe(1);
-		expect(intercomTrigger.prop('className')).toContain('tc-header-bar-intercom-default-component');
-		expect(intercomTrigger.prop('id')).toEqual('my-intercom');
-		expect(intercomTrigger.prop('config')).toEqual({
-			app_id: 'e19c98d',
-			email: 'lol@lol.com',
-			vertical_padding: 70,
-		});
+	it('should render genericAction', () => {
+		// GIVEN
+		const genericAction = {
+			id: 'generic-action',
+			icon: 'talend-info-circle',
+			label: 'Talend Experience',
+			onClick: jest.fn(),
+		};
+		// WHEN
+		render(<HeaderBarComponent genericAction={genericAction} />);
+		// THEN check generic action element
+		const element = screen.getAllByRole('button')[1];
+		expect(element).toHaveAttribute('aria-label', genericAction.label);
+		// THEN trigger onClick
+		userEvent.click(element);
+		expect(genericAction.onClick).toHaveBeenCalled();
 	});
 });

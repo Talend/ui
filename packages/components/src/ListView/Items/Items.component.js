@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { PureComponent } from 'react';
 import classNames from 'classnames';
 import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from 'react-virtualized';
 import { withTranslation } from 'react-i18next';
@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import Item from './Item/Item.component';
-import theme from './Items.scss';
+import theme from './Items.module.scss';
 
 const listClasses = classNames(theme['tc-list-items'], 'tc-list-items');
 const itemsClasses = classNames(theme['tc-listview-items'], 'tc-listview-items');
@@ -29,7 +29,7 @@ const ROW_HEIGHT = ROW_LINE_HEIGHT + ROW_VERTICAL_MARGIN;
 const ROW_NESTED_INNER_MARGINS =
 	pxToInt(theme['row-nested-inner-margin-top']) + pxToInt(theme['row-nested-inner-margin-bottom']);
 
-export class ItemsComponent extends React.PureComponent {
+export class ItemsComponent extends PureComponent {
 	constructor(props) {
 		super(props);
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import Tour from 'reactour';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -7,16 +7,16 @@ import { useTranslation } from 'react-i18next';
 import Action from '../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-import theme from './GuidedTour.scss';
+import theme from './GuidedTour.module.scss';
 
 function getTooltipContent({ header, body }) {
 	return reactourCallbacks => (
-		<React.Fragment>
+		<Fragment>
 			{header && <h2 className={classNames(theme.header, 'tc-guided-tour__header')}>{header}</h2>}
 			<div className={classNames(theme.body, 'tc-guided-tour__body')}>
 				{typeof body === 'function' ? body(reactourCallbacks) : <p>{body}</p>}
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 }
 

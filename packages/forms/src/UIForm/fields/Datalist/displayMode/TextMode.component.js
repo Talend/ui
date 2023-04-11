@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { withTranslation } from 'react-i18next';
@@ -7,9 +7,9 @@ import { DID_MOUNT, FOCUS } from '../constants';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 import { I18N_DOMAIN_FORMS } from '../../../../constants';
 import getDefaultT from '../../../../translate';
-import theme from './TextMode.scss';
+import theme from './TextMode.module.scss';
 
-class TextMode extends React.Component {
+class TextMode extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};

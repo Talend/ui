@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import FieldTemplate from '../../templates/FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../templates/utils';
 
-const Select = React.forwardRef((props, ref) => {
+const Select = forwardRef((props, ref) => {
 	const { className, description, error, label, inProgress, placeholder, ...rest } = props;
 	const { id, required, options } = rest;
 

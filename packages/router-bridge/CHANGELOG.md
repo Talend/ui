@@ -1,5 +1,21 @@
 # @talend/router-bridge
 
+## 1.2.3
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+## 1.2.2
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
 ## 1.2.1
 
 ### Patch Changes

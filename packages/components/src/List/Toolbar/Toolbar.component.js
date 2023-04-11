@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { Navbar } from '@talend/react-bootstrap';
 import omit from 'lodash/omit';
 import { withTranslation } from 'react-i18next';
@@ -13,7 +12,7 @@ import ActionBar from '../../ActionBar';
 import ColumnChooserButton from './ColumnChooserButton';
 import DisplayModeToggle from './DisplayModeToggle';
 
-import theme from './Toolbar.scss';
+import theme from './Toolbar.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import '../../translate';
 import Inject from '../../Inject';

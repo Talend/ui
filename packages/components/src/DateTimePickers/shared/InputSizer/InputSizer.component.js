@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { Fragment, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const EXTRA_SPACE = 5;
@@ -20,12 +20,12 @@ function InputSizer({ placeholder, inputText, children, minWidth }) {
 
 	const text = inputText || placeholder;
 	return (
-		<React.Fragment>
+		<Fragment>
 			{children(width + EXTRA_SPACE)}
 			<span style={inputTextSizerStyle} ref={sizerRef}>
 				{text}
 			</span>
-		</React.Fragment>
+		</Fragment>
 	);
 }
 

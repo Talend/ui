@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import theme from './HeaderTitle.scss';
+import theme from './HeaderTitle.module.scss';
 
 export default function HeaderTitle(props) {
 	return (

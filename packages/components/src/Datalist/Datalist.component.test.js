@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -43,9 +41,7 @@ describe('Datalist component', () => {
 
 	it('should show all suggestions on focus (even with a value)', () => {
 		// given
-		render(
-			<Datalist autoFocus id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />,
-		);
+		render(<Datalist id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />);
 
 		// when
 		fireEvent.click(screen.getByRole('textbox'));
@@ -60,9 +56,7 @@ describe('Datalist component', () => {
 
 	it('should show all suggestions on down press (even with a value)', () => {
 		// given
-		render(
-			<Datalist autoFocus id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />,
-		);
+		render(<Datalist id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />);
 
 		// when
 		userEvent.type(screen.getByRole('textbox'), '{down}');
@@ -77,9 +71,7 @@ describe('Datalist component', () => {
 
 	it('should show all suggestions on up press (even with a value)', () => {
 		// given
-		render(
-			<Datalist autoFocus id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />,
-		);
+		render(<Datalist id="my-datalist" isValid onChange={jest.fn()} {...props} value="foo" />);
 
 		// when
 		userEvent.type(screen.getByRole('textbox'), '{up}');
@@ -94,7 +86,7 @@ describe('Datalist component', () => {
 
 	it('should show suggestions that match filter', () => {
 		// given
-		render(<Datalist autoFocus id="my-datalist" isValid onChange={jest.fn()} {...props} />);
+		render(<Datalist id="my-datalist" isValid onChange={jest.fn()} {...props} />);
 
 		// when
 		userEvent.type(screen.getByRole('textbox'), 'foo');
@@ -276,11 +268,29 @@ describe('Datalist component', () => {
 		expect(screen.getByRole('textbox')).toHaveValue('My foo updated');
 	});
 
-	it('should keep filter when titleMap is updated', async () => {
+	it('should keep filter when titleMap is updated', () => {
 		// given
 		const testProps = {
 			id: 'my-datalist',
 			value: 'foo',
+			onChange: jest.fn(),
+			...props,
+		};
+		const { rerender } = render(<Datalist {...testProps} />);
+
+		// when
+		userEvent.type(screen.getByRole('textbox'), 'a');
+		rerender(<Datalist {...testProps} titleMap={[...props.titleMap]} />);
+
+		// then
+		expect(screen.getByRole('textbox')).toHaveValue('a');
+	});
+
+	it('should keep filter when titleMap is updated and value is empty', () => {
+		// given
+		const testProps = {
+			id: 'my-datalist',
+			value: '',
 			onChange: jest.fn(),
 			...props,
 		};
@@ -322,9 +332,7 @@ describe('Datalist component', () => {
 		expect(screen.getByRole('textbox')).toHaveValue(testProps.value);
 
 		// when data list is rendered one more time with value from new title map
-		rerender(
-			<Datalist {...testProps} titleMap={newTitleMap} value={newTitleMap[0].value} />,
-		);
+		rerender(<Datalist {...testProps} titleMap={newTitleMap} value={newTitleMap[0].value} />);
 
 		// then entry is updated and filter value is new entry name
 		expect(screen.getByRole('textbox')).toHaveValue(newTitleMap[0].name);
@@ -403,6 +411,26 @@ describe('Datalist component', () => {
 
 			// then
 			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not a known value' });
+		});
+	});
+
+	describe('allowAddNewElements mode', () => {
+		it('should persist new value on blur', () => {
+			// given
+			jest.useFakeTimers();
+			const onChange = jest.fn();
+			render(<Datalist id="my-datalist" allowAddNewElements onChange={onChange} {...props} />);
+			expect(onChange).not.toBeCalled();
+			const input = screen.getByRole('textbox');
+
+			// when
+			userEvent.type(input, 'not there');
+			expect(screen.getByTitle('not there (new)')).toBeInTheDocument();
+			fireEvent.blur(input);
+			jest.runAllTimers(); // focus manager
+
+			// // then
+			expect(onChange).toBeCalledWith(expect.anything(), { value: 'not there' });
 		});
 	});
 

@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import Action from '../Actions/Action';
 import Stepper from './Stepper.component';
+import {
+	ButtonPrimary,
+	ButtonSecondary,
+	Link,
+	StackHorizontal,
+	StackVertical,
+} from '@talend/design-system';
 
 export default {
 	title: 'Messaging & Communication/Stepper',
@@ -13,11 +20,13 @@ function renderActions(isInError) {
 		return null;
 	}
 	return (
-		<React.Fragment>
-			<Action label="retry" bsStyle="info" className="btn-inverse button-padding" />
-			<Action label="edit dataset" bsStyle="info" className="button-padding" />
-			<Action label="edit connection" bsStyle="info" className="button-padding" />
-		</React.Fragment>
+		<StackVertical gap="S" padding="M" align="center">
+			<StackHorizontal gap="M">
+				<ButtonPrimary onClick={action('retry')}>Retry</ButtonPrimary>
+				<ButtonSecondary onClick={action('cancel')}>Cancel</ButtonSecondary>
+			</StackHorizontal>
+			<Link href="http://www.google.com">Get the documentation</Link>
+		</StackVertical>
 	);
 }
 
@@ -47,7 +56,10 @@ export const StepperWithError = () => {
 		{
 			label: 'Global Quality',
 			status: Stepper.LOADING_STEP_STATUSES.FAILURE,
-			message: { label: "We couldn't connect to the remote engine" },
+			message: {
+				label:
+					"We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine - We couldn't connect to the remote engine",
+			},
 		},
 		{ label: 'Flattening', status: Stepper.LOADING_STEP_STATUSES.ABORTED },
 		{
@@ -74,7 +86,6 @@ export const StepperSuccessfulWithoutTransition = () => (
 export const FormStepper = () => (
 	<Stepper.Form>
 		<Stepper.Form.Step.Validated title="I'm ok" />
-		<Stepper.Form.Step.Error title="I'm not ok" />
 		<Stepper.Form.Step.Validated title="Hey" />
 		<Stepper.Form.Step.Validated title="Yup" />
 		<Stepper.Form.Step.InProgress title="Hey, I'm in progress" />

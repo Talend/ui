@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { mount } from 'enzyme';
 import keycode from 'keycode';
@@ -16,7 +16,7 @@ import MonthCalendar from '../../__mocks__/month-calendar';
  *	26	27	28	29	30	31
  */
 const MockWithGesture = withCalendarGesture(DayCalendar);
-class DayCalendarWithGesture extends React.Component {
+class DayCalendarWithGesture extends Component {
 	static propTypes = {
 		goToPreviousMonth: PropTypes.func,
 		goToNextMonth: PropTypes.func,

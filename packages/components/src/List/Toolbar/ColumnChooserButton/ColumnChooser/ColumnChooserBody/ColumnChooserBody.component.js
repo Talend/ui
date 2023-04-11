@@ -1,11 +1,11 @@
-import React from 'react';
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ColumnChooserRow from '../ColumnChooserRow';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import ColumnChooserTable from '../ColumnChooserTable';
 import { useColumnChooserContext } from '../columnChooser.context';
 import RichLayout from '../../../../../Rich/Layout';
-import cssModule from '../ColumnChooser.scss';
+import cssModule from '../ColumnChooser.module.scss';
 import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
@@ -14,7 +14,7 @@ const Default = () => {
 	const { columns, id, onChangeVisibility, onSelectAll, selectAll, t } = useColumnChooserContext();
 	const bodyId = `${id}-body`;
 	return (
-		<React.Fragment>
+		<Fragment>
 			<SelectAllColumnsCheckbox id={bodyId} onChange={onSelectAll} value={selectAll} t={t} />
 			<div className={theme('tc-column-chooser-columns-list')}>
 				<ColumnChooserTable
@@ -24,7 +24,7 @@ const Default = () => {
 					t={t}
 				/>
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

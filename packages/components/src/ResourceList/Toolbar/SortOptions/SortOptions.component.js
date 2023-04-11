@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -6,7 +5,7 @@ import OrderChooser from './OrderChooser';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 
-import theme from './SortOptions.scss';
+import theme from './SortOptions.module.scss';
 
 export const TYPES = {
 	NAME: 'name',

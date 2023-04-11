@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TabBar from '@talend/react-components/lib/TabBar';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import Widget from '../../Widget';
 import { isValid } from '../../utils/validation';
-import theme from './Tabs.scss';
+import theme from './Tabs.module.scss';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 function Tabs(props) {

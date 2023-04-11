@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
 
@@ -8,7 +7,7 @@ import TooltipTrigger from '../../TooltipTrigger';
 import getPropsFrom from '../../utils/getPropsFrom';
 import OverlayTrigger from '../../OverlayTrigger';
 
-import theme from './ActionIconToggle.scss';
+import theme from './ActionIconToggle.module.scss';
 
 function ActionIconToggle(props) {
 	const {

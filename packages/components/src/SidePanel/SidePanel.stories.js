@@ -1,9 +1,9 @@
 /* eslint-disable react/no-multi-comp */
-import React from 'react';
+import { Component } from 'react';
 import { action } from '@storybook/addon-actions';
+import assetsApi from '@talend/assets-api';
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
-import appStyle from '../../stories/config/themes.scss';
 
 const actions = [
 	{
@@ -122,6 +122,31 @@ export const Controlled = () => (
 	/>
 );
 
+export const WithBackGroundIcon = () => (
+	<Layout
+		mode="TwoColumns"
+		one={
+			<SidePanel
+				id="context"
+				actions={actions}
+				onSelect={action('onItemSelect')}
+				onToggleDock={action('onToggleDock')}
+				tooltipPlacement="top"
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			/>
+		}
+	>
+		<article style={{ padding: 10 }}>
+			The props <strong>backgroundIcon</strong> let you support product icons. It is used as{' '}
+			<pre>mask-image: url(backgroundIcon)</pre> so you have to provide URL. For this example we
+			have used assetsApi this way:
+			<pre>
+				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+			</pre>
+		</article>
+	</Layout>
+);
+
 export const Links = () => <SidePanel id="context" actions={actionsLinks} tooltipPlacement="top" />;
 
 export const Docked = () => <SidePanel actions={actions} docked tooltipPlacement="top" />;
@@ -168,7 +193,7 @@ export const ReverseLargeDocked = () => (
 );
 
 export const _WithLayout = () => {
-	class WithLayout extends React.Component {
+	class WithLayout extends Component {
 		constructor() {
 			super();
 			this.state = { docked: false };
@@ -224,15 +249,3 @@ export const ReverseWithLayout = () => {
 		</Layout>
 	);
 };
-
-export const PortalReverse = () => (
-	<div className={appStyle.portal}>
-		<h1>SidePanel</h1>
-		<p>
-			Keep sidePanel reverse style even if <em>t7</em> styles are applied.
-		</p>
-		<div className={Layout.TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
-			<SidePanel id="context" actions={actions} tooltipPlacement="top" reverse />
-		</div>
-	</div>
-);

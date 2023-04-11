@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import classnames from 'classnames';
@@ -14,7 +14,7 @@ import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import getDefaultT from '../../translate';
 
-import theme from './InputDateRangePicker.scss';
+import theme from './InputDateRangePicker.module.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = ['id', 'dateFormat', 'onBlur', 'onChange', 't'];
 

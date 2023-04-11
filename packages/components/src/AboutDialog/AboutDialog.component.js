@@ -1,13 +1,12 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { withTranslation } from 'react-i18next';
 import Dialog from '../Dialog';
 import Icon from '../Icon';
 import Skeleton from '../Skeleton';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
-import theme from './AboutDialog.scss';
+import theme from './AboutDialog.module.scss';
 import { AboutDialogTable, Text } from './AboutDialogTable.component';
 
 function AboutDialog({
@@ -72,7 +71,7 @@ function AboutDialog({
 							text={
 								copyrights ||
 								t('ABOUT_COPYRIGHTS', {
-									defaultValue: '© {{year}} Talend. All Rights Reserved',
+									defaultValue: '© {{year}} Talend. All rights reserved.',
 									year: new Date().getFullYear(),
 								})
 							}

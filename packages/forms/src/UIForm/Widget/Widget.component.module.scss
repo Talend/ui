@@ -1,0 +1,9 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.tooltip {
+	display: block;
+}
+
+:global(.tc-inline-message p) {
+	vertical-align: baseline;
+}

@@ -38,7 +38,7 @@ exports[`Typeahead injection should use render props to inject extra components 
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
-      Object {
+      {
         "left": "0",
         "position": "fixed",
         "top": "0",
@@ -49,7 +49,7 @@ exports[`Typeahead injection should use render props to inject extra components 
     <div
       className="theme-items-body"
       style={
-        Object {
+        {
           "maxHeight": undefined,
           "minHeight": undefined,
         }
@@ -79,7 +79,7 @@ exports[`Typeahead injection should use render props to inject extra components 
             id="react-autowhatever-my-search--item-0"
             onMouseDown={[Function]}
             role="option"
-            style={Object {}}
+            style={{}}
           >
             <div
               className="theme-item"
@@ -103,7 +103,7 @@ exports[`Typeahead injection should use render props to inject extra components 
             id="react-autowhatever-my-search--item-1"
             onMouseDown={[Function]}
             role="option"
-            style={Object {}}
+            style={{}}
           >
             <div
               className="theme-item"
@@ -171,7 +171,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
-      Object {
+      {
         "left": "0",
         "position": "fixed",
         "top": "0",
@@ -182,7 +182,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
     <div
       className="theme-items-body"
       style={
-        Object {
+        {
           "maxHeight": undefined,
           "minHeight": undefined,
         }
@@ -192,7 +192,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
         className="theme-section-container tc-typeahead-section-container"
       >
         <div
-          style={Object {}}
+          style={{}}
         >
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
@@ -266,7 +266,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             id="react-autowhatever-my-search-section-0-item-1"
             onMouseDown={[Function]}
             role="option"
-            style={Object {}}
+            style={{}}
           >
             <div
               className="theme-item theme-multiline"
@@ -327,7 +327,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
         className="theme-section-container tc-typeahead-section-container"
       >
         <div
-          style={Object {}}
+          style={{}}
         >
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
@@ -353,7 +353,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             id="react-autowhatever-my-search-section-1-item-0"
             onMouseDown={[Function]}
             role="option"
-            style={Object {}}
+            style={{}}
           >
             <div
               className="theme-item theme-multiline"
@@ -436,7 +436,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
     className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
     id="react-autowhatever-my-search"
     style={
-      Object {
+      {
         "left": "0",
         "position": "fixed",
         "top": "0",
@@ -447,7 +447,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
     <div
       className="theme-items-body"
       style={
-        Object {
+        {
           "maxHeight": undefined,
           "minHeight": undefined,
         }
@@ -503,7 +503,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
-      Object {
+      {
         "left": "0",
         "position": "fixed",
         "top": "0",
@@ -514,7 +514,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
     <div
       className="theme-items-body"
       style={
-        Object {
+        {
           "maxHeight": undefined,
           "minHeight": undefined,
         }
@@ -524,7 +524,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
         className="theme-section-container tc-typeahead-section-container"
       >
         <div
-          style={Object {}}
+          style={{}}
         >
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
@@ -581,7 +581,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             id="react-autowhatever-my-search-section-0-item-1"
             onMouseDown={[Function]}
             role="option"
-            style={Object {}}
+            style={{}}
           >
             <div
               className="theme-item theme-multiline"
@@ -613,7 +613,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
         className="theme-section-container tc-typeahead-section-container"
       >
         <div
-          style={Object {}}
+          style={{}}
         >
           <div
             className="section-header theme-section-header tc-typeahead-section-header theme-tc-typeahead-section-header"
@@ -639,7 +639,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             id="react-autowhatever-my-search-section-1-item-0"
             onMouseDown={[Function]}
             role="option"
-            style={Object {}}
+            style={{}}
           >
             <div
               className="theme-item theme-multiline"
@@ -710,7 +710,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     className="theme-items-container tc-typeahead-items-container theme-items-container"
     id="react-autowhatever-my-search"
     style={
-      Object {
+      {
         "left": "0",
         "position": "fixed",
         "top": "0",
@@ -721,7 +721,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     <div
       className="theme-items-body"
       style={
-        Object {
+        {
           "maxHeight": undefined,
           "minHeight": undefined,
         }
@@ -736,7 +736,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
           id="react-autowhatever-my-search--item-0"
           onMouseDown={[Function]}
           role="option"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="theme-item"
@@ -761,7 +761,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
           id="react-autowhatever-my-search--item-1"
           onMouseDown={[Function]}
           role="option"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="theme-item"
@@ -825,7 +825,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
     id="react-autowhatever-my-search"
     style={
-      Object {
+      {
         "left": "0",
         "position": "fixed",
         "top": "0",
@@ -836,7 +836,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
     <div
       className="theme-items-body"
       style={
-        Object {
+        {
           "maxHeight": undefined,
           "minHeight": undefined,
         }
@@ -848,10 +848,10 @@ exports[`Typeahead items should render typeahead without items 1`] = `
         <span
           className="CoralIcon"
           name="talend-fieldglass"
-          title="No result."
+          title="No results found"
         />
         <span>
-          No result.
+          No results found
         </span>
       </div>
     </div>

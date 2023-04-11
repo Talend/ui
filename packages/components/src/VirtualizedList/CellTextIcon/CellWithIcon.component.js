@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import classnames from 'classnames';
 
 import Action from '../../Actions/Action';
-import styles from './CellWithIcon.scss';
+import styles from './CellWithIcon.module.scss';
 
 /**
  * Cell renderer that displays text + icon
  */
-class CellWithIcon extends React.Component {
+class CellWithIcon extends Component {
 	shouldComponentUpdate(nextProps) {
 		return (
 			this.props.cellData !== nextProps.cellData ||

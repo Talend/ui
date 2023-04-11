@@ -1,7 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { isElement } from 'react-is';
+import { StackHorizontal } from '../../Stack';
 
-import * as S from './Buttons.style';
+import styles from './Buttons.module.scss';
 
 type ButtonsProps = React.HTMLAttributes<HTMLDivElement> & {
 	disabled?: boolean;
@@ -15,13 +16,23 @@ const Buttons = React.forwardRef(
 		if (readOnly) childrenProps.readOnly = true;
 
 		return (
-			<S.Buttons className="c-form__buttons" {...rest} ref={ref}>
-				{React.Children.toArray(children).map(child =>
-					isElement(child) ? React.cloneElement(child, childrenProps) : child,
-				)}
-			</S.Buttons>
+			<div className={styles.buttons}>
+				<StackHorizontal
+					gap="M"
+					justify="spaceBetween"
+					padding={{ x: 0, y: 'M' }}
+					{...rest}
+					ref={ref}
+				>
+					{React.Children.toArray(children).map(child =>
+						isElement(child) ? React.cloneElement(child, childrenProps) : child,
+					)}
+				</StackHorizontal>
+			</div>
 		);
 	},
 );
+
+Buttons.displayName = 'Buttons';
 
 export default Buttons;

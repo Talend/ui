@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import Icon from '@talend/react-components/lib/Icon';
 import FieldTemplate from '../../FieldTemplate/displayMode/TextMode.component';
 
-import theme from './TextMode.scss';
+import theme from './TextMode.module.scss';
 
 export default function TextModeCheckBox({ id, schema, value }) {
 	return (

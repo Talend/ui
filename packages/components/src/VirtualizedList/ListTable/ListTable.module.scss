@@ -1,0 +1,93 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+@use '~@talend/design-tokens/lib/_tokens.scss' as tokens;
+@import '../colors';
+
+$tc-list-table-cell-padding: $padding-small !default;
+$tc-list-table-header-color: $dove-gray !default;
+$tc-list-table-border: 1px solid darken($concrete, 5%);
+
+.tc-list-table-right-action {
+	position: absolute;
+	right: 0;
+	margin-top: tokens.$coral-spacing-xxs;
+	margin-right: tokens.$coral-spacing-s;
+}
+
+.tc-list-table {
+	background-color: $wild-sand;
+
+	.row {
+		border-bottom: $tc-list-table-border;
+		background: $white;
+		display: flex;
+		align-items: center;
+
+		&:hover,
+		&:focus,
+		&:global(.ally-focus-within) {
+			background-color: $wild-sand;
+
+			.cell {
+				border-right: 1px solid $white;
+			}
+		}
+	}
+
+	&.right-action .tc-list-headerRow > *:last-child {
+		padding-right: tokens.$coral-spacing-l;
+	}
+
+	.tc-list-headerRow {
+		box-shadow: $shadow-default;
+
+		.header {
+			color: $tc-list-table-header-color;
+			display: inline-flex;
+			font-size: 1.2rem;
+			font-weight: 600;
+			padding: $tc-list-table-cell-padding;
+			overflow: hidden;
+
+			:global(.ReactVirtualized__Table__headerTruncatedText) {
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+
+			:global(.ReactVirtualized__Table__sortableHeaderIcon) {
+				flex-shrink: 0;
+			}
+		}
+	}
+
+	:global(.ReactVirtualized__Table__sortableHeaderColumn) {
+		cursor: pointer;
+	}
+
+	.grid {
+		box-shadow: $shadow-default;
+
+		.cell {
+
+			border-right: $tc-list-table-border;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			padding: 0 $tc-list-table-cell-padding;
+
+			height: 100%;
+			display: flex;
+			align-items: center;
+			// selection's checkbox has no "name" attribute, so "tc-list-cell-" refer to this cell
+			&:global(.tc-list-cell-),
+			&:last-child {
+				border-right: none;
+			}
+		}
+	}
+
+	[class*='tc-list-cell-'] {
+		flex: 1 1 100%;
+	}
+}

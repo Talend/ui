@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import ActionButton from '../ActionButton';
 import ActionFile from '../ActionFile';

@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import SingleButton from './SingleButton.component';
 
-import theme from './Buttons.scss';
+import theme from './Buttons.module.scss';
 
 function getButtonsList(id, buttons, onTrigger, onClick, getComponent) {
 	if (!buttons) {

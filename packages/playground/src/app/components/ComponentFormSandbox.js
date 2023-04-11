@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import Layout from '@talend/react-components/lib/Layout';
@@ -8,8 +8,8 @@ import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import SidePanel from '@talend/react-containers/lib/SidePanel';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
 import { Alert } from '@talend/react-bootstrap';
-// eslint-disable-next-line @talend/import-depth
-import theme from '../example.scss';
+// test new behavior on non css module files
+import './ComponentFormSandbox.scss';
 
 const example = require('../../../mockBackend/mock/kit/example.json');
 const { isComponentFormDirty } = ComponentForm.selectors;
@@ -50,7 +50,7 @@ const uiSchema = [
 
 function ComponentFormSandBox({ dirty, dispatch }) {
 	const hasAPI = process.env.NODE_ENV === 'development';
-	const [displayConfig, setConfig] = React.useState(false);
+	const [displayConfig, setConfig] = useState(false);
 	const defaultFormProps = {
 		definitionURL: '/api/v1/forms/example',
 		uiSpecPath: 'ui',
@@ -63,7 +63,7 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 		uiSchema,
 		properties: defaultFormProps,
 	};
-	const [formProps, setFormProps] = React.useState(defaultFormProps);
+	const [formProps, setFormProps] = useState(defaultFormProps);
 	const right = [
 		{
 			label: `Reset (dirty=${dirty.toString()})`,
@@ -84,7 +84,7 @@ function ComponentFormSandBox({ dirty, dispatch }) {
 					window.location = '/';
 				}}
 			/>
-			<div id={theme.example}>
+			<div id="example">
 				{!hasAPI && (
 					<Alert>
 						You don t have backend API so we will use an ComponentForm as proxy to UIForm component

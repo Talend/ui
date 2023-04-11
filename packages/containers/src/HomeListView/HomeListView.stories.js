@@ -1,9 +1,6 @@
-import React from 'react';
 import { Drawer } from '@talend/react-components';
-import Layout from '@talend/react-components/lib/Layout';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable';
-import appStyle from '../../stories/config/themes.scss';
 
 import HomeListView from '.';
 
@@ -192,23 +189,3 @@ export const WithDrawer = () => (
 		</Drawer>
 	</HomeListView>
 );
-
-function AppSpecificLayoutStory({ app }) {
-	return (
-		<div className={appStyle[app]}>
-			<div className={Layout.TALEND_T7_THEME_CLASSNAME}>
-				<HomeListView
-					// hasTheme - option must be set if you import one and only one theme
-					sidepanel={sidepanel}
-					list={listProps}
-				/>
-			</div>
-		</div>
-	);
-}
-
-export const DataInventory = () => <AppSpecificLayoutStory app="tdc" />;
-export const DataPreparation = () => <AppSpecificLayoutStory app="tdp" />;
-export const DataStewardship = () => <AppSpecificLayoutStory app="tds" />;
-export const ManagementConsole = () => <AppSpecificLayoutStory app="tmc" />;
-export const PipelineDesigner = () => <AppSpecificLayoutStory app="tfd" />;

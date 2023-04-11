@@ -1,9 +1,9 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getRowData } from '../VirtualizedList/utils/gridrow';
 import Badge from '../Badge';
 
-class ItemViewRow extends React.Component {
+class ItemViewRow extends Component {
 	static getDerivedStateFromProps(props) {
 		return { item: getRowData(props.parent, props.index) };
 	}

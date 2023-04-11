@@ -3,24 +3,24 @@
 exports[`TimezoneList component should render the timezone dropdown widget 1`] = `
 <DataList
   schema={
-    Object {
-      "cldrTimezones": Object {
-        "fr": Object {
-          "main": Object {
-            "fr": Object {
-              "dates": Object {
-                "timeZoneNames": Object {
-                  "zone": Object {
-                    "Africa": Object {
-                      "Abidjan": Object {
+    {
+      "cldrTimezones": {
+        "fr": {
+          "main": {
+            "fr": {
+              "dates": {
+                "timeZoneNames": {
+                  "zone": {
+                    "Africa": {
+                      "Abidjan": {
                         "exemplarCity": "Abidjan",
                       },
-                      "Freetown": Object {
+                      "Freetown": {
                         "exemplarCity": "Freetown",
                       },
                     },
-                    "Europe": Object {
-                      "Istanbul": Object {
+                    "Europe": {
+                      "Istanbul": {
                         "exemplarCity": "Istanbul",
                       },
                     },
@@ -32,21 +32,21 @@ exports[`TimezoneList component should render the timezone dropdown widget 1`] =
         },
       },
       "lang": "fr",
-      "options": Object {
-        "titleMap": Array [
-          Object {
+      "options": {
+        "titleMap": [
+          {
             "name": "(UTC +00:00) Abidjan",
             "offset": 0,
             "timezoneName": "Abidjan",
             "value": "Africa/Abidjan",
           },
-          Object {
+          {
             "name": "(UTC +00:00) Freetown",
             "offset": 0,
             "timezoneName": "Freetown",
             "value": "Africa/Freetown",
           },
-          Object {
+          {
             "name": "(UTC +03:00) Istanbul",
             "offset": 180,
             "timezoneName": "Istanbul",
@@ -55,20 +55,20 @@ exports[`TimezoneList component should render the timezone dropdown widget 1`] =
         ],
       },
       "restricted": true,
-      "titleMap": Array [
-        Object {
+      "titleMap": [
+        {
           "name": "(UTC +00:00) Abidjan",
           "offset": 0,
           "timezoneName": "Abidjan",
           "value": "Africa/Abidjan",
         },
-        Object {
+        {
           "name": "(UTC +00:00) Freetown",
           "offset": 0,
           "timezoneName": "Freetown",
           "value": "Africa/Freetown",
         },
-        Object {
+        {
           "name": "(UTC +03:00) Istanbul",
           "offset": 180,
           "timezoneName": "Istanbul",

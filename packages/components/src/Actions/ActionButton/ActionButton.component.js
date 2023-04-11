@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
@@ -9,7 +8,7 @@ import CircularProgress from '../../CircularProgress';
 import Skeleton from '../../Skeleton';
 import Icon from '../../Icon';
 import getPropsFrom from '../../utils/getPropsFrom';
-import theme from './ActionButton.scss';
+import theme from './ActionButton.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import OverlayTrigger, { overlayPropTypes } from '../../OverlayTrigger';
@@ -166,7 +165,7 @@ function ActionButton(props) {
 		});
 	}
 	if (loading) {
-		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} (loading)', type: ariaLabel });
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} Loading...', type: ariaLabel });
 	}
 
 	const hasPopup = !inProgress && overlayComponent;

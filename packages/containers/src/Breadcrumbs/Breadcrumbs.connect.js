@@ -1,4 +1,3 @@
-import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
 import Breadcrumbs from '@talend/react-components/lib/Breadcrumbs';

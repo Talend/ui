@@ -1,0 +1,7 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
+.loading {
+	@include heartbeat(object-blink);
+}

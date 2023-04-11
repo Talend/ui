@@ -1,5 +1,304 @@
 # @talend/design-system
 
+## 7.7.1
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 285efb74a: fix: add data-test to buttons in modal
+- Updated dependencies [616601fda]
+  - @talend/design-tokens@2.7.3
+
+## 7.7.0
+
+### Minor Changes
+
+- a01e81852: feat(design-system): Modal have no close button if preventEscaping is on
+
+## 7.6.0
+
+### Minor Changes
+
+- 00869855d: Popover - Add `focusOnDisclosure` option to allow focus on disclosure when popover is opened
+
+## 7.5.1
+
+### Patch Changes
+
+- 4c3495e12: chore: apply code style
+
+## 7.5.0
+
+### Minor Changes
+
+- 4cfbf226b: feat(Tabs&Dropdown): add new data-feature & data-testid capabilities
+
+## 7.4.1
+
+### Patch Changes
+
+- 6c6133860: TDOPS-3536 - Fix passing props to popover disclosure on Design System
+
+## 7.4.0
+
+### Minor Changes
+
+- 79c2d5165: feat(TFD-14857): BadgeDropdown is now controlled
+
+## 7.3.0
+
+### Minor Changes
+
+- 4c5598a5a: Add new Badge component in DS
+
+### Patch Changes
+
+- ed4014653: fix: Collapsible state is init by expaneded props
+
+## 7.2.0
+
+### Minor Changes
+
+- 1ce5a1f8c: feat(TUX-1221) add openInNewTab option for LinkAsButton
+
+### Patch Changes
+
+- f855fcae0: fix(design-system/Modal): sync header x padding with spec
+
+## 7.1.6
+
+### Patch Changes
+
+- 890eee0b5: fix(design-system): add data-testid to InlineEditing
+
+## 7.1.5
+
+### Patch Changes
+
+- 1aa89365a: TDOPS-3299 - design system modal z-index to use tokens convention
+
+## 7.1.4
+
+### Patch Changes
+
+- f36e7f7c3: InlineEditing : handle keyboard shortcut only when element has the focus
+
+  remove usekey which bind by default on document.
+
+## 7.1.3
+
+### Patch Changes
+
+- c8ea668ee: InlineEditing : don't handle enter key when not in edition
+
+## 7.1.2
+
+### Patch Changes
+
+- 5aeff7b47: TDOPS-3267 - Fixed support for `onBlur` property passed to primitive input
+
+## 7.1.1
+
+### Patch Changes
+
+- fe430c316: fix: add missing export on the root
+
+  - Input on Form component (so Form.Input)
+  - Breadcrumbs
+  - theme tokens
+  - TabsAsLinkList
+
+  ```
+  import { dark, light, Breadcrumbs } from '@talend/design-system';
+  ```
+
+## 7.1.0
+
+### Minor Changes
+
+- 3815dabd3: feat(design-system): add Message component
+
+## 7.0.2
+
+### Patch Changes
+
+- 105990b24: feat(InlineEditing): add new `onToggle` optional props to get notify from edition mode changes
+
+## 7.0.1
+
+### Patch Changes
+
+- e76a4db6b: fix: ThemeProvider optional theme property
+- 60a00f152: fix: apply transform style from props
+
+## 7.0.0
+
+### Major Changes
+
+- ee9b1daf6: \* chore: remove dependency over styled-components
+  - remove deprecated components
+
+### Patch Changes
+
+- a23396460: fix: missing fonts in exported bundle
+
+## 6.0.1
+
+### Patch Changes
+
+- 3bb657dea: fix: pin react-router to 6.3.0
+
+## 6.0.0
+
+### Major Changes
+
+- 69f09a921: ThemeProvider: Removed styled components global styles
+
+  BREAKING CHANGE:
+
+  - Now global style is applied by default
+  - createGlobalStyle is not exposed anymore and should not be needed
+  - ThemeProvider.GlobalStyle do not exists, it is now in the by default in the CSS
+
+### Minor Changes
+
+- e802df9c3: Stepper no longer uses StyledComponents
+- ac7bfe557: Combobox: Removing Styled Components
+
+## 5.4.1
+
+### Patch Changes
+
+- 3962569cc: DS Tabs button type should never be anything but "button"
+- aa0c76ae3: Updated documentation for from elements, adjusted code and style when necessary.
+
+## 5.4.0
+
+### Minor Changes
+
+- 6d6520336: feat: add react-18 as possible peerDependency
+
+## 5.3.0
+
+### Minor Changes
+
+- 4ea6a7712: feat(TUX-1038): add new accordion component to design-system
+
+### Patch Changes
+
+- 8376814d2: fix: circular dependencies
+
+## 5.2.0
+
+### Minor Changes
+
+- 38619790a: feat(design-system): add isFullWidth to StackHorizontal
+- fceb4c2f9: chore(design-system): ErrorState no longer WIP
+
+### Patch Changes
+
+- 9e653a037: fix(design-system): Link from ReactElement in ErrorState
+
+## 5.1.0
+
+### Minor Changes
+
+- 59509e0ba: feat(design-system): ErrorState (WIP)
+- dc361182d: Enabling `action` prop on EmptyState component size M.
+
+## 5.0.1
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- 6fd16be45: fix: use flex-start instead of start
+
+## 5.0.0
+
+### Major Changes
+
+- eb1708093: Removing Styled Components from Form elements
+
+  ## Breaking changes
+
+  ### `Form` modules
+
+  - As always with these change, we lose StyledComponent's `as` props.
+  - No more `className` or `style` on Form elements.
+  - No more `Form.FieldGroup`. All the inputs (`Form.Text`, `Form.Select`, `Form.Number` etc...) have `prefix` and `suffix`props to handle this.
+  - `name` is required on all form elements.
+  - No more `Form.Range`. Though it was undocumented, it was exported. It was far from doing what we want `input type="range"` to do in our apps.
+  - Simpler `description` and `hasError` APIs. Fields can either have a (neutral) description or an error message.
+
+  ### `InlineEditing` modules
+
+  - As always with these change, we lose StyledComponent's `as` props.
+  - No more `className` or `style`.
+  - `placeholder` prop is now mandatory.
+
+  ## Other changes
+
+  ### `Form` modules
+
+  - Updated styles with design tokens.
+  - Height of input elements based in height of buttons.
+  - Focusing a field no longer changes the field's height.
+  - Affixes can now be either buttons, text or `select` fields through a props-based API.
+
+  ### `InlineEditing` modules
+
+  - `InlineEditing.Text` and `InlineEditing.Textarea` both have a `renderValueAs` props that can take React component.
+
+  ***
+
+  ## Reasons for changes
+
+  ### Removing StyledComponents
+
+  CSS-in-JS brings no value to the DS or Talend. No other project uses it but the DS forces it as a dependency.
+
+  We're removing it from all our components.
+
+  ### No `className` or `style` props on components
+
+  Design System components are _systemic_. They are not part of a customizable component library.
+
+  Removing those props from the component typing helps enforce that rule.
+
+  > What about positioning those components? How do I handle that?
+
+  We expect consumers to wrap library components into project-side positioning element.
+
+  That way your project-side CSS is never broken or misaligned with the library's and the concerns are clearly separated.
+
+  ### Removing `Form.FieldGroup`
+
+  Having a wrapper component around all the other inputs seems unnecessary.
+
+  Folding these types and props into the native primitive made more sense.
+
+  ### Enforcing `placeholder` in `InlineEditing`
+
+  Nothing prevents users from deleting the contents of an `InlineEditing` field.
+
+  Since the labels are hidden, placeholders are the only way to indicate what's the field for in these instances.
+
+### Patch Changes
+
+- Updated dependencies [ee45da0c5]
+  - @talend/design-tokens@2.7.1
+
+## 4.3.0
+
+### Minor Changes
+
+- 65e75d6b3: Use DS namespace for DS translations
+
 ## 4.2.0
 
 ### Minor Changes

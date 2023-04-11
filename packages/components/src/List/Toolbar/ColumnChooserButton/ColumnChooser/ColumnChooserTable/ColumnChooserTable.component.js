@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import ColumnChooserRow from '../ColumnChooserRow';
 import { columnsPropTypes } from '../../columnChooser.propTypes';

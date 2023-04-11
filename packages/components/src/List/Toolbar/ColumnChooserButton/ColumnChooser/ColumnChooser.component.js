@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect } from 'react';
+import { Fragment, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../../../constants';
 import FilterBar from '../../../../FilterBar';
 import { getTheme } from '../../../../theme';
 import { useColumnChooserManager } from '../hooks';
 import { ColumnChooserProvider } from './columnChooser.context';
-import cssModule from './ColumnChooser.scss';
+import cssModule from './ColumnChooser.module.scss';
 import ColumnChooserBody from './ColumnChooserBody';
 import ColumnChooserFooter from './ColumnChooserFooter';
 import ColumnChooserHeader from './ColumnChooserHeader';
@@ -58,7 +58,7 @@ export default function ColumnChooser({
 	const resetFilter = useCallback(() => setTextFilter(''), [setTextFilter]);
 
 	const Default = (
-		<React.Fragment>
+		<Fragment>
 			<ColumnChooserHeader />
 			<FilterBar
 				autoFocus={false}
@@ -78,7 +78,7 @@ export default function ColumnChooser({
 				<ColumnChooserBody />
 				<ColumnChooserFooter />
 			</form>
-		</React.Fragment>
+		</Fragment>
 	);
 	return (
 		<ColumnChooserProvider

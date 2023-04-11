@@ -1,7 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import theme from './TileHeader.scss';
+import theme from './TileHeader.module.scss';
 
 function Header(props) {
 	return (

@@ -10,13 +10,13 @@ exports[`Component should render the leaf 1`] = `
     isLongValueToggled={false}
     isValueOverflown={false}
     schema={
-      Object {
+      {
         "type": "int",
       }
     }
     typesRenderer={[Function]}
     value={
-      Object {
+      {
         "value": "myValue",
       }
     }
@@ -34,13 +34,13 @@ exports[`Component should render the leaf highlighted 1`] = `
     isLongValueToggled={false}
     isValueOverflown={false}
     schema={
-      Object {
+      {
         "type": "int",
       }
     }
     typesRenderer={[Function]}
     value={
-      Object {
+      {
         "value": "myValue",
       }
     }
@@ -62,13 +62,13 @@ exports[`Component should render the leaf with additional value 1`] = `
     isLongValueToggled={false}
     isValueOverflown={false}
     schema={
-      Object {
+      {
         "type": "int",
       }
     }
     typesRenderer={[Function]}
     value={
-      Object {
+      {
         "value": "myValue",
       }
     }
@@ -86,13 +86,13 @@ exports[`Component should render the leaf with padding offset 1`] = `
     isLongValueToggled={false}
     isValueOverflown={false}
     schema={
-      Object {
+      {
         "type": "int",
       }
     }
     typesRenderer={[Function]}
     value={
-      Object {
+      {
         "value": "myValue",
       }
     }

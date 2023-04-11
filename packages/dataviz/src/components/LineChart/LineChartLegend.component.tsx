@@ -1,12 +1,13 @@
-import React from 'react';
 import classNames from 'classnames';
-import styles from './LineChart.scss';
+import styles from './LineChart.module.scss';
 
 import { LineOptions } from './LineChart.types';
 import { LineIcon } from './LineChartLineIcon.component';
 
 export interface LineChartLegendProps {
 	payload?: any[];
+	hasLineSelection?: boolean;
+	selection: string[];
 	external: {
 		linesConfig: LineOptions[];
 		align: 'left' | 'center' | 'right';
@@ -20,6 +21,8 @@ export interface LineChartLegendProps {
 export const CustomLegend = ({
 	payload,
 	external,
+	hasLineSelection,
+	selection,
 	onLegendClicked = () => {},
 	onLegendHovered = () => {},
 }: LineChartLegendProps) => {
@@ -35,7 +38,9 @@ export const CustomLegend = ({
 				className={classNames(
 					styles['line-chart-custom-legend'],
 					styles[`line-chart-custom-legend--align-${align || 'right'}`],
-					{ [styles['line-chart-custom-legend--shift-left']]: isRightAxisDisplayed },
+					{
+						[styles['line-chart-custom-legend--shift-left']]: isRightAxisDisplayed,
+					},
 				)}
 			>
 				{linesToShow.map(config => (
@@ -43,6 +48,10 @@ export const CustomLegend = ({
 						<div
 							data-testid={`legend_item_${config.key}`}
 							className={classNames(styles['line-chart-custom-legend-item'], {
+								[styles['line-chart-custom-legend__button--selection-enabled']]: hasLineSelection,
+								[styles['line-chart-custom-legend__button--selected']]: selection.includes(
+									config.key,
+								),
 								[styles['line-chart-custom-legend__button--inactive']]:
 									config?.status === 'inactive',
 							})}

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 import { tv4 } from '@talend/json-schema-form-core';
 import { withTranslation } from 'react-i18next';
@@ -16,11 +16,11 @@ import getLanguage from './lang';
 import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
-import theme from './UIForm.scss';
+import theme from './UIForm.module.scss';
 import { WidgetContext } from './context';
 import widgets from './utils/widgets';
 
-export class UIFormComponent extends React.Component {
+export class UIFormComponent extends Component {
 	static displayName = 'TalendUIForm';
 
 	constructor(props) {
@@ -128,13 +128,19 @@ export class UIFormComponent extends React.Component {
 			this.props.properties,
 			this.props.customValidation,
 			deepValidation,
+			event,
 		);
 		const hasErrors = Object.values(widgetErrors).find(Boolean);
 
+		const { t } = this.props;
 		// update errors map
 		let errors = Object.entries(widgetErrors).reduce((accu, [errorKey, errorValue]) => {
 			const errorSchema = { key: errorKey };
-			return errorValue ? addError(accu, errorSchema, errorValue) : removeError(accu, errorSchema);
+			let errorMsg = errorValue;
+			if (errorValue && errorValue.startsWith('CUSTOM_ERROR')) {
+				errorMsg = t(errorValue, { defaultValue: getLanguage(t)[errorValue] });
+			}
+			return errorMsg ? addError(accu, errorSchema, errorMsg) : removeError(accu, errorSchema);
 		}, this.props.errors);
 
 		// widget error modifier
@@ -160,7 +166,7 @@ export class UIFormComponent extends React.Component {
 				propertyName = schema.key[schema.key.length - 1];
 				this.onTrigger(event, { formData, formId: this.props.id, propertyName, value });
 			} else {
-				const trigger = schema.triggers.find(t => t.onEvent === undefined);
+				const trigger = schema.triggers.find(triggerItem => triggerItem.onEvent === undefined);
 				if (trigger) {
 					this.onTrigger(event, {
 						trigger,

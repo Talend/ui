@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { createRef, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -6,7 +6,7 @@ import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 import { SimpleTextKeyValue } from '../../Text';
 import { ActionButton } from '../../../Actions';
-import theme from '../RecordsViewer.scss';
+import theme from '../RecordsViewer.module.scss';
 
 export function RecordsViewerLeaf({
 	dataKey,
@@ -19,7 +19,7 @@ export function RecordsViewerLeaf({
 	measure,
 	t,
 }) {
-	const ref = React.createRef();
+	const ref = createRef();
 	const [isValueOverflown, setIsValueOverflown] = useState(false);
 	const [isLongValueExpanded, setIsLongValueExpanded] = useState(false);
 

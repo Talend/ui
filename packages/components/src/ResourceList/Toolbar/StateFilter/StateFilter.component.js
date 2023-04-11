@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -6,7 +5,7 @@ import ActionIconToggle from '../../../Actions/ActionIconToggle';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 
-import theme from './StateFilter.scss';
+import theme from './StateFilter.module.scss';
 
 export const TYPES = {
 	SELECTION: 'selection',

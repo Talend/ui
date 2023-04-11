@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
@@ -10,7 +10,7 @@ import VirtualizedList from '../../../VirtualizedList';
 import { DISPLAY_MODE, SORT } from '../constants';
 import ColumnChooser from '../ColumnChooser';
 
-import theme from '../List.scss';
+import theme from '../List.module.scss';
 
 const columnsFromChildrens = children => {
 	return Array.isArray(children)
@@ -35,7 +35,7 @@ function VList({ children, columnChooser, ...rest }) {
 		setVisibleColumns(map(foundColumns, 'dataKey'));
 	}
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const nextColumns = columnsFromChildrens(children);
 		if (nextColumns && !isEqual(map(nextColumns, 'dataKey'), map(columns, 'dataKey'))) {
 			setColumns(nextColumns);

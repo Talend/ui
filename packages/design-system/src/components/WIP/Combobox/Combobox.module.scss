@@ -1,0 +1,33 @@
+@use '~@talend/design-tokens/lib/tokens';
+@use '../../Form/Primitives/mixins' as Form;
+
+.combobox {
+	&__input {
+		@include Form.base-input();
+		@include Form.border-styles();
+		height: Form.$standard-input-height;
+	}
+
+	[role='listbox'] {
+		background: tokens.$coral-color-neutral-background;
+		border-radius: tokens.$coral-radius-s;
+		box-shadow: tokens.$coral-elevation-shadow-neutral-m;
+		width: tokens.$coral-sizing-xxxl;
+		z-index: tokens.$coral-elevation-layer-interactive-front;
+	}
+
+	[role='option'] {
+		padding: tokens.$coral-spacing-xxs tokens.$coral-spacing-s;
+		cursor: pointer;
+	}
+
+	[role='option']:hover {
+		background: tokens.$coral-color-accent-background-weak-hover;
+		color: tokens.$coral-color-accent-text-strong-hover;
+	}
+
+	[role='combobox']:focus + [role='listbox'] [aria-selected='true'] {
+		background: tokens.$coral-color-accent-background-weak-active;
+		color: tokens.$coral-color-accent-text-strong-active;
+	}
+}

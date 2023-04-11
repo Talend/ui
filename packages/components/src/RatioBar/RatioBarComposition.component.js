@@ -1,14 +1,21 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import { Tooltip } from '@talend/design-system';
 import { getTheme } from '../theme';
-import ratioBarTheme from './RatioBar.scss';
+import ratioBarTheme from './RatioBar.module.scss';
 
 const theme = getTheme(ratioBarTheme);
 const minPercentage = 5;
 
-export function RatioBarLine({ percentage, tooltipLabel, className, value, dataFeature, onClick }) {
+export function RatioBarLine({
+	percentage,
+	tooltipLabel,
+	className,
+	value,
+	dataFeature,
+	onClick,
+	dataTestId,
+}) {
 	const canGrow = percentage >= minPercentage;
 
 	if (!value || value < 0) return null;
@@ -43,6 +50,8 @@ export function RatioBarLine({ percentage, tooltipLabel, className, value, dataF
 			style={{
 				flexBasis: `${Math.max(percentage, minPercentage)}%`,
 			}}
+			data-testid={dataTestId}
+			data-test={dataTestId}
 			role={onClick && 'button'}
 			data-feature={dataFeature}
 			onClick={onClick}
@@ -67,6 +76,7 @@ RatioBarLine.propTypes = {
 	value: PropTypes.number.isRequired,
 	tooltipLabel: PropTypes.string,
 	className: PropTypes.string.isRequired,
+	dataTestId: PropTypes.string,
 	dataFeature: PropTypes.string,
 	onClick: PropTypes.func,
 };

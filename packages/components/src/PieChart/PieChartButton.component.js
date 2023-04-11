@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Popover } from '@talend/react-bootstrap';
 import PieChartIcon, { pieChartIconPropTypes } from './PieChartIcon.component';
-import pieChartCssModule from './PieChart.scss';
+import pieChartCssModule from './PieChart.module.scss';
 import OverlayTrigger from '../OverlayTrigger';
 import { getTheme } from '../theme';
 

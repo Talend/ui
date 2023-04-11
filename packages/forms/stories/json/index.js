@@ -1,4 +1,3 @@
-import React from 'react';
 import FormStoryWithDisplayMode from './FormStoryWithDisplayMode';
 
 export function getAllStories(category, conceptsFilenames) {

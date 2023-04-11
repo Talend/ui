@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import VerticalBarChart, {
 	VerticalBarChartEntry,
 } from '../../BarChart/VerticalBarChart/VerticalBarChart.component';
-import styles from './VerticalChartFilter.component.scss';
+import styles from './VerticalChartFilter.component.module.scss';
 import RangeFilter from '../../RangeFilter/RangeFilter.component';
 import KeyValueTooltip from '../../KeyValueTooltip/KeyValueTooltip.component';
 import { getVerticalBarChartTooltip } from '../../BarChart/barChart.tooltip';

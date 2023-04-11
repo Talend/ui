@@ -1,9 +1,9 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import Stepper from '../Stepper';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-import theme from './DemoContentStep.scss';
+import theme from './DemoContentStep.module.scss';
 
 export default function DemoContentStep({ demoContentSteps }) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
@@ -12,7 +12,7 @@ export default function DemoContentStep({ demoContentSteps }) {
 	}
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<p className={theme.info}>
 				{t('DEMO_CONTENT_LOADING_MESSAGE', {
 					defaultValue:
@@ -20,7 +20,7 @@ export default function DemoContentStep({ demoContentSteps }) {
 				})}
 			</p>
 			<Stepper steps={demoContentSteps} />
-		</React.Fragment>
+		</Fragment>
 	);
 }
 

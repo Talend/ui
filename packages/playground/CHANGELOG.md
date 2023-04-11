@@ -1,5 +1,143 @@
 # @talend/ui-playground
 
+## 1.1.13
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [b0193afbd]
+- Updated dependencies [616601fda]
+- Updated dependencies [f47e34dd0]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [7a097213f]
+  - @talend/icons@6.55.0
+  - @talend/react-components@10.2.2
+  - @talend/react-faceted-search@9.1.1
+  - @talend/react-cmf-router@5.2.6
+  - @talend/react-containers@9.0.2
+  - @talend/react-dataviz@2.8.7
+  - @talend/react-forms@9.0.4
+  - @talend/react-cmf@7.2.0
+
+## 1.1.12
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+  - @talend/react-containers@9.0.0
+  - @talend/react-dataviz@2.8.6
+  - @talend/react-faceted-search@9.0.0
+  - @talend/react-forms@9.0.2
+
+## 1.1.11
+
+### Patch Changes
+
+- Updated dependencies [99398080f]
+- Updated dependencies [5e4aad637]
+  - @talend/react-containers@8.0.2
+  - @talend/react-dataviz@2.8.5
+  - @talend/react-forms@9.0.0
+
+## 1.1.10
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [e83d88f83]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+- Updated dependencies [70677664b]
+  - @talend/react-components@9.0.0
+  - @talend/react-containers@8.0.0
+  - @talend/bootstrap-theme@7.0.0
+  - @talend/react-datagrid@14.0.0
+  - @talend/react-dataviz@2.8.4
+  - @talend/react-forms@8.1.7
+
+## 1.1.9
+
+### Patch Changes
+
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+  - @talend/react-dataviz@2.8.3
+  - @talend/react-containers@7.3.2
+  - @talend/react-datagrid@13.0.3
+  - @talend/react-forms@8.1.6
+
+## 1.1.8
+
+### Patch Changes
+
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [25f96d364]
+- Updated dependencies [94435b8cd]
+  - @talend/icons@6.51.0
+  - @talend/react-datagrid@13.0.0
+
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies [d134a19e8]
+  - @talend/react-faceted-search@8.0.0
+
+## 1.1.6
+
+### Patch Changes
+
+- 6f333498f: fix datagrid page
+- a3c65c4fe: fix(playground): display playground icons
+- Updated dependencies [47dec5cb4]
+- Updated dependencies [e6efa126f]
+  - @talend/react-faceted-search@7.0.2
+  - @talend/react-components@7.10.1
+
 ## 1.1.5
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { PureComponent } from 'react';
 import classNames from 'classnames';
 import { AutoSizer, List } from 'react-virtualized';
 import get from 'lodash/get';
@@ -7,13 +7,13 @@ import Action from '../../Actions/Action/Action.component';
 import Item from './Item/Item.component';
 import ItemEdit from './Item/ItemEdit.component';
 import ItemEditPropTypes from './Item/ItemEdit.propTypes';
-import theme from './Items.scss';
+import theme from './Items.module.scss';
 
 const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
 
 const virtualizedListClassName = 'ReactVirtualized__List';
 
-class Items extends React.PureComponent {
+class Items extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.lazyLoadingTimer = null;

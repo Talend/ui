@@ -1,0 +1,15 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.buttons {
+	button:first-child,
+	span:first-child {
+		margin-left: 0;
+		margin-right: auto;
+	}
+
+	button:only-child,
+	span:only-child {
+		margin-left: auto;
+		margin-right: 0;
+	}
+}

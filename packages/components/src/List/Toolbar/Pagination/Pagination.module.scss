@@ -1,0 +1,13 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.tc-pagination {
+	:global(.tc-svg-icon) {
+		height: $svg-sm-size;
+		width: $svg-sm-size;
+	}
+
+	.page-index {
+		display: flex;
+		align-items: center;
+	}
+}

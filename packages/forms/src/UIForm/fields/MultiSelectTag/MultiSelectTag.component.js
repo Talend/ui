@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '@talend/react-components/lib/Typeahead';
@@ -8,7 +8,7 @@ import FocusManager from '@talend/react-components/lib/FocusManager';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-import theme from './MultiSelectTag.scss';
+import theme from './MultiSelectTag.module.scss';
 import callTrigger from '../../trigger';
 
 function escapeRegexCharacters(str) {
@@ -27,7 +27,7 @@ function getLabel(titleMap, value, defaultName) {
 	return defaultName || value;
 }
 
-export default class MultiSelectTag extends React.Component {
+export default class MultiSelectTag extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { value: '' };
@@ -244,13 +244,12 @@ export default class MultiSelectTag extends React.Component {
 						const label = getLabel(this.getTitleMap(), val, names[index]);
 						const badgeProps = {
 							label,
-							key: index,
 							dataTest: schema.dataTest && `${schema.dataTest}.${index}`,
 						};
 						if (!schema.readOnly && !schema.disabled) {
 							badgeProps.onDelete = event => this.onRemoveTag(event, index);
 						}
-						return <Badge {...badgeProps} />;
+						return <Badge key={index} {...badgeProps} />;
 					})}
 					<FocusManager onFocusOut={this.resetSuggestions} className={theme['focus-manager']}>
 						<Typeahead

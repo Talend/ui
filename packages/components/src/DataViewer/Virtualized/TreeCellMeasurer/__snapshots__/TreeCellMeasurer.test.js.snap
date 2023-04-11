@@ -4,10 +4,10 @@ exports[`TreeCellMeasurer it should render my cell renderer 1`] = `
 <CellMeasurer
   cache={
     CellMeasurerCache {
-      "_cellHeightCache": Object {},
-      "_cellWidthCache": Object {},
+      "_cellHeightCache": {},
+      "_cellWidthCache": {},
       "_columnCount": 0,
-      "_columnWidthCache": Object {},
+      "_columnWidthCache": {},
       "_defaultHeight": 30,
       "_defaultWidth": 100,
       "_hasFixedHeight": false,
@@ -16,20 +16,20 @@ exports[`TreeCellMeasurer it should render my cell renderer 1`] = `
       "_minHeight": 0,
       "_minWidth": 0,
       "_rowCount": 0,
-      "_rowHeightCache": Object {},
+      "_rowHeightCache": {},
       "columnWidth": [Function],
       "rowHeight": [Function],
     }
   }
   columnIndex={0}
   parent={
-    Object {
-      "props": Object {
+    {
+      "props": {
         "cache": CellMeasurerCache {
-          "_cellHeightCache": Object {},
-          "_cellWidthCache": Object {},
+          "_cellHeightCache": {},
+          "_cellWidthCache": {},
           "_columnCount": 0,
-          "_columnWidthCache": Object {},
+          "_columnWidthCache": {},
           "_defaultHeight": 30,
           "_defaultWidth": 100,
           "_hasFixedHeight": false,
@@ -38,7 +38,7 @@ exports[`TreeCellMeasurer it should render my cell renderer 1`] = `
           "_minHeight": 0,
           "_minWidth": 0,
           "_rowCount": 0,
-          "_rowHeightCache": Object {},
+          "_rowHeightCache": {},
           "columnWidth": [Function],
           "rowHeight": [Function],
         },

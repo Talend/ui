@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Rich } from '@talend/react-components';
 import { Action } from '@talend/react-components/lib/Actions';
@@ -6,7 +5,7 @@ import { getTheme } from '@talend/react-components/lib/theme';
 
 import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 
-import cssModule from './BadgeOperator.scss';
+import cssModule from './BadgeOperator.module.scss';
 
 const theme = getTheme(cssModule);
 

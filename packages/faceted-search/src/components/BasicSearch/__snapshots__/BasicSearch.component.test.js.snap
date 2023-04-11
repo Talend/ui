@@ -20,8 +20,9 @@ exports[`BasicSearch should render the default html output with initial badges 1
         <svg name="talend-search"
              focusable="false"
              aria-hidden="true"
-             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-search"
+             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
              pointer-events="none"
+             shape-rendering="geometricPrecision"
         >
         </svg>
       </div>
@@ -60,8 +61,9 @@ exports[`BasicSearch should render the default html output with initial badges 1
               <svg name="talend-contains"
                    focusable="false"
                    aria-hidden="true"
-                   class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-contains"
+                   class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-contains"
                    pointer-events="none"
+                   shape-rendering="geometricPrecision"
               >
               </svg>
             </button>
@@ -89,8 +91,9 @@ exports[`BasicSearch should render the default html output with initial badges 1
           <svg name="talend-cross"
                focusable="false"
                aria-hidden="true"
-               class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
                pointer-events="none"
+               shape-rendering="geometricPrecision"
           >
           </svg>
         </button>
@@ -99,7 +102,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
     <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
       <button data-feature="filter.basic.add"
               aria-expanded="false"
-              aria-controls="a-42"
+              aria-controls="id-42"
               aria-haspopup="dialog"
               aria-busy="false"
               class="theme-clickable theme-button theme-secondary theme-size-S"
@@ -119,7 +122,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
           </span>
         </span>
       </button>
-      <div id="a-42"
+      <div id="id-42"
            hidden
            style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
@@ -161,8 +164,9 @@ exports[`BasicSearch should render the default html output with initial badges 1
                         <svg name="talend-search"
                              focusable="false"
                              aria-hidden="true"
-                             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                             class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
                              pointer-events="none"
+                             shape-rendering="geometricPrecision"
                         >
                         </svg>
                         <input name="search"
@@ -209,7 +213,7 @@ exports[`BasicSearch should render the default html output with initial badges 1
   <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
     <button tabindex="0"
             data-feature="filter.basic.clear"
-            aria-describedby="a-42"
+            aria-describedby="id-42"
             class="theme-clickable theme-buttonIcon theme-size_S"
             type="button"
     >
@@ -250,8 +254,9 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
         <svg name="talend-search"
              focusable="false"
              aria-hidden="true"
-             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-search"
+             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
              pointer-events="none"
+             shape-rendering="geometricPrecision"
         >
         </svg>
       </div>
@@ -272,7 +277,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
     <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
       <button data-feature="filter.basic.add"
               aria-expanded="false"
-              aria-controls="a-42"
+              aria-controls="id-42"
               aria-haspopup="dialog"
               aria-busy="false"
               class="theme-clickable theme-button theme-secondary theme-size-S"
@@ -292,7 +297,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
           </span>
         </span>
       </button>
-      <div id="a-42"
+      <div id="id-42"
            hidden
            style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
@@ -334,8 +339,9 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
                         <svg name="talend-search"
                              focusable="false"
                              aria-hidden="true"
-                             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                             class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
                              pointer-events="none"
+                             shape-rendering="geometricPrecision"
                         >
                         </svg>
                         <input name="search"
@@ -402,8 +408,9 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
         <svg name="talend-search"
              focusable="false"
              aria-hidden="true"
-             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-search"
+             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
              pointer-events="none"
+             shape-rendering="geometricPrecision"
         >
         </svg>
       </div>
@@ -442,8 +449,9 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
               <svg name="talend-equal"
                    focusable="false"
                    aria-hidden="true"
-                   class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+                   class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
                    pointer-events="none"
+                   shape-rendering="geometricPrecision"
               >
               </svg>
             </button>
@@ -471,8 +479,9 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
           <svg name="talend-cross"
                focusable="false"
                aria-hidden="true"
-               class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
                pointer-events="none"
+               shape-rendering="geometricPrecision"
           >
           </svg>
         </button>
@@ -481,7 +490,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
     <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
       <button data-feature="filter.basic.add"
               aria-expanded="false"
-              aria-controls="a-42"
+              aria-controls="id-42"
               aria-haspopup="dialog"
               aria-busy="false"
               class="theme-clickable theme-button theme-secondary theme-size-S"
@@ -501,7 +510,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
           </span>
         </span>
       </button>
-      <div id="a-42"
+      <div id="id-42"
            hidden
            style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
@@ -543,8 +552,9 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
                         <svg name="talend-search"
                              focusable="false"
                              aria-hidden="true"
-                             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                             class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
                              pointer-events="none"
+                             shape-rendering="geometricPrecision"
                         >
                         </svg>
                         <input name="search"
@@ -591,7 +601,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
   <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
     <button tabindex="0"
             data-feature="filter.basic.clear"
-            aria-describedby="a-42"
+            aria-describedby="id-42"
             class="theme-clickable theme-buttonIcon theme-size_S"
             type="button"
     >
@@ -632,8 +642,9 @@ exports[`BasicSearch should render the default html output with some badges and 
         <svg name="talend-search"
              focusable="false"
              aria-hidden="true"
-             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-search"
+             class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-search"
              pointer-events="none"
+             shape-rendering="geometricPrecision"
         >
         </svg>
       </div>
@@ -672,8 +683,9 @@ exports[`BasicSearch should render the default html output with some badges and 
               <svg name="talend-equal"
                    focusable="false"
                    aria-hidden="true"
-                   class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
+                   class="tc-svg-icon tc-icon theme-svg tc-badge-link-plus-icon theme-tc-badge-link-plus-icon tc-icon-name-talend-equal"
                    pointer-events="none"
+                   shape-rendering="geometricPrecision"
               >
               </svg>
             </button>
@@ -701,8 +713,9 @@ exports[`BasicSearch should render the default html output with some badges and 
           <svg name="talend-cross"
                focusable="false"
                aria-hidden="true"
-               class="sc-jSMfEi klaSdu tc-svg-icon tc-icon tc-icon-name-talend-cross"
+               class="tc-svg-icon tc-icon theme-svg tc-icon-name-talend-cross"
                pointer-events="none"
+               shape-rendering="geometricPrecision"
           >
           </svg>
         </button>
@@ -711,7 +724,7 @@ exports[`BasicSearch should render the default html output with some badges and 
     <div class="tc-basic-search-content-popover theme-tc-basic-search-content-popover">
       <button data-feature="filter.basic.add"
               aria-expanded="false"
-              aria-controls="a-42"
+              aria-controls="id-42"
               aria-haspopup="dialog"
               aria-busy="false"
               class="theme-clickable theme-button theme-secondary theme-size-S"
@@ -731,7 +744,7 @@ exports[`BasicSearch should render the default html output with some badges and 
           </span>
         </span>
       </button>
-      <div id="a-42"
+      <div id="id-42"
            hidden
            style="display: none; position: fixed; left: 100%; top: 100%; z-index: var(--coral-elevation-layer-standard-front, 4);"
            role="dialog"
@@ -773,8 +786,9 @@ exports[`BasicSearch should render the default html output with some badges and 
                         <svg name="talend-search"
                              focusable="false"
                              aria-hidden="true"
-                             class="sc-jSMfEi klaSdu tc-svg-icon tc-icon theme-search-icon tc-icon-name-talend-search"
+                             class="tc-svg-icon tc-icon theme-svg theme-search-icon tc-icon-name-talend-search"
                              pointer-events="none"
+                             shape-rendering="geometricPrecision"
                         >
                         </svg>
                         <input name="search"
@@ -821,7 +835,7 @@ exports[`BasicSearch should render the default html output with some badges and 
   <div class="tc-basic-search-clear-content theme-tc-basic-search-clear-content">
     <button tabindex="0"
             data-feature="filter.basic.clear"
-            aria-describedby="a-42"
+            aria-describedby="id-42"
             class="theme-clickable theme-buttonIcon theme-size_S"
             type="button"
     >

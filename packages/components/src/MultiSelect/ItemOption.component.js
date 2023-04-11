@@ -1,12 +1,12 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { getRowData } from '../VirtualizedList/utils/gridrow';
-import theme from './ItemOption.scss';
+import theme from './ItemOption.module.scss';
 import Emphasis from '../Emphasis/Emphasis.component';
 
-class ItemOptionRow extends React.Component {
+class ItemOptionRow extends Component {
 	static getDerivedStateFromProps(props) {
 		return { item: getRowData(props.parent, props.index) };
 	}

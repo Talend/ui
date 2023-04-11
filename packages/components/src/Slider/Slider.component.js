@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 import classnames from 'classnames';
 import RcSlider from 'rc-slider';
 import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
-import theme from './Slider.scss';
+import theme from './Slider.module.scss';
 import Action from '../Actions/Action';
 
 const noFormat = value => value;
@@ -199,7 +199,7 @@ function getHandle(captionsFormat) {
 	return renderHandler;
 }
 
-const Slider = React.forwardRef((props, ref) => {
+const Slider = forwardRef((props, ref) => {
 	const handleRender = getHandle(props.captionsFormat, ref);
 
 	const {

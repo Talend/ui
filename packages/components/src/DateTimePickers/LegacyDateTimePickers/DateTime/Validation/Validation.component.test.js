@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import toJsonWithoutI18n from '../../../../../test/props-without-i18n';
 
@@ -29,6 +28,9 @@ describe('DateTime.Validation', () => {
 				minutesErrorId: 'my-custom-minutes-error',
 				secondsErrorId: 'my-custom-seconds-error',
 			},
+			formManagement: {
+				onSubmit: jest.fn(),
+			},
 		};
 
 		// when
@@ -57,6 +59,9 @@ describe('DateTime.Validation', () => {
 				minutesErrorId: 'my-custom-minutes-error',
 				secondsErrorId: 'my-custom-seconds-error',
 				focusedInput: 'my-custom-hours-error',
+			},
+			formManagement: {
+				onSubmit: jest.fn(),
 			},
 		};
 

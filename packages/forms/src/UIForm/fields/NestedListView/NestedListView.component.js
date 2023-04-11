@@ -2,13 +2,13 @@ import ListView from '@talend/react-components/lib/ListView';
 import keycode from 'keycode';
 import isEqual from 'lodash/isEqual';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
-import theme from './NestedListView.scss';
+import theme from './NestedListView.module.scss';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
@@ -17,7 +17,7 @@ const DEFAULT_ITEM_HEIGHT = 33;
 
 const getItemHeight = () => DEFAULT_ITEM_HEIGHT;
 
-class NestedListViewWidget extends React.Component {
+class NestedListViewWidget extends Component {
 	constructor(props) {
 		super(props);
 
@@ -68,7 +68,9 @@ class NestedListViewWidget extends React.Component {
 		if (!isEqual(prevProps.value, this.props.value) && !isEqual(this.value, this.props.value)) {
 			this.value = this.props.value;
 			// eslint-disable-next-line react/no-did-update-set-state
-			this.setState({ displayedItems: getDisplayedItems(this.items, this.value) });
+			this.setState({
+				displayedItems: getDisplayedItems(this.items, this.value, this.state.searchCriteria),
+			});
 		}
 	}
 

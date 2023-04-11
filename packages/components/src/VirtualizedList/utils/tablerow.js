@@ -1,7 +1,7 @@
 /**
  * This file contains all utility functions that applies to table
  */
-import React from 'react';
+import { Children } from 'react';
 import classNames from 'classnames';
 import { Column } from 'react-virtualized';
 import CellCheckboxRenderer from '../CellCheckbox';
@@ -12,8 +12,17 @@ import { internalIds } from './constants';
  * Insert a checkbox column configuration to select a row.
  */
 export function insertSelectionConfiguration(props) {
-	const { collection, children, isSelected, onToggleAll, selectionToggle, selectionMode } = props;
-	let contentsConfiguration = React.Children.toArray(children);
+	const {
+		collection,
+		children,
+		getRowState,
+		isSelected,
+		isToggleAllDisabled,
+		onToggleAll,
+		selectionMode,
+		selectionToggle,
+	} = props;
+	let contentsConfiguration = Children.toArray(children);
 	if (selectionToggle && isSelected) {
 		const toggleColumn = (
 			<Column
@@ -26,12 +35,14 @@ export function insertSelectionConfiguration(props) {
 				flexGrow={0}
 				cellDataGetter={({ rowData }) => isSelected(rowData)}
 				columnData={{
+					collection,
+					getRowState,
+					isSelected,
+					isToggleAllDisabled,
 					label: 'Select this element',
 					onChange: selectionToggle,
-					selectionMode,
 					onToggleAll,
-					collection,
-					isSelected,
+					selectionMode,
 				}}
 				{...CellCheckboxRenderer}
 				{...HeaderCheckboxRenderer}
@@ -52,7 +63,7 @@ export function insertSelectionConfiguration(props) {
  * - parent id (via columnData)
  */
 export function toColumns({ id, theme, children, columnsWidths, getRowState }) {
-	return React.Children.toArray(children).map((field, index) => {
+	return Children.toArray(children).map((field, index) => {
 		const columnWidth = getColumnWidth(field.props.dataKey, columnsWidths);
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
 		const colProps = {

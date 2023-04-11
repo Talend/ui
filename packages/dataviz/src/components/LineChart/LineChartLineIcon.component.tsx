@@ -1,6 +1,5 @@
-import React from 'react';
 import classNames from 'classnames';
-import styles from './LineChart.scss';
+import styles from './LineChart.module.scss';
 
 const getLineIconBackground = (color: string, dashed: boolean) => {
 	if (dashed) {

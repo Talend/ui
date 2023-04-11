@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-empty-function */
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import mergeModules from '../src/cmfModule.merge';

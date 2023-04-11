@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
@@ -11,7 +10,7 @@ import Header from './Header/Header.component';
 import HeaderInput from './Header/HeaderInput.component';
 import HeaderSelected from './Header/HeaderSelected.component';
 import Items from './Items/Items.component';
-import theme from './Enumeration.scss';
+import theme from './Enumeration.module.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';

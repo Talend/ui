@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import uuid from 'uuid';
 import classnames from 'classnames';
 import { usePopper } from 'react-popper';
+import { randomUUID } from '@talend/utils';
 
 import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
@@ -12,7 +12,7 @@ import DatePicker from '../Date';
 import TimeZone from '../TimeZone';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
-import theme from './InputDatePicker.scss';
+import theme from './InputDatePicker.module.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	't',
@@ -34,7 +34,7 @@ function onMouseDown(event) {
 }
 
 export default function InputDatePicker(props) {
-	const popoverId = `date-picker-${props.id || uuid.v4()}`;
+	const popoverId = `date-picker-${props.id || randomUUID()}`;
 
 	const [referenceElement, setReferenceElement] = useState(null);
 	const [popperElement, setPopperElement] = useState(null);

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
@@ -9,7 +9,7 @@ import getDefaultT from '../../translate';
 import getLocale from '../../i18n/DateFnsLocale/locale';
 import Icon from '../../Icon';
 
-import theme from './Resource.scss';
+import theme from './Resource.module.scss';
 
 const FLAGS = {
 	CERTIFIED: 'talend-badge',
@@ -68,7 +68,7 @@ function Resource({ parent, index, style, className, as, t, ...rest }) {
 			{hasPropRender() ? (
 				as(rowData)
 			) : (
-				<React.Fragment>
+				<Fragment>
 					{icon && <Icon className={theme.icon} name={icon} />}
 					<div className={classNames('data-container', theme['data-container'])}>
 						<span className={classNames('title', theme.title)}>{name}</span>
@@ -95,7 +95,7 @@ function Resource({ parent, index, style, className, as, t, ...rest }) {
 							/>
 						))}
 					</div>
-				</React.Fragment>
+				</Fragment>
 			)}
 		</div>
 	);

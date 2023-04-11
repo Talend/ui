@@ -1,5 +1,4 @@
-import React from 'react';
-import theme from '../UIForm.scss';
+import theme from '../UIForm.module.scss';
 
 export default function TextModeFormTemplate({ widgetsRenderer, children }) {
 	return [

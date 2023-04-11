@@ -1,10 +1,10 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isNull from 'lodash/isNull';
 import get from 'lodash/get';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
-import theme from './SimpleTextKeyValue.scss';
+import theme from './SimpleTextKeyValue.module.scss';
 
 const DATE_TYPE_FORMATER = 'date';
 const LONG_TYPE = 'long';
@@ -116,7 +116,7 @@ AvroRenderer.propTypes = {
 };
 
 // eslint-disable-next-line prefer-arrow-callback
-const SimpleTextKeyValue = React.forwardRef(function SimpleTextKeyValue(
+const SimpleTextKeyValue = forwardRef(function SimpleTextKeyValue(
 	{
 		formattedKey,
 		className,

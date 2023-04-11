@@ -1,11 +1,11 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Action } from '../../../Actions';
+import { ButtonIcon } from '@talend/design-system';
+
 import DatePicker from '../../pickers/DatePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
-import theme from './DateView.scss';
+import theme from './DateView.module.scss';
 import getDefaultT from '../../../translate';
 
 /**
@@ -19,7 +19,7 @@ function euclideanModulo(dividend, divisor) {
 	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
 
-class DateView extends React.PureComponent {
+class DateView extends PureComponent {
 	static propTypes = {
 		allowFocus: PropTypes.bool,
 		calendar: PropTypes.shape({
@@ -66,14 +66,13 @@ class DateView extends React.PureComponent {
 		const { t } = this.props;
 		const header = {
 			leftElement: (
-				<Action
-					aria-label={t('DATEPICKER_MONTH_PREVIOUS', { defaultValue: 'Go to previous month' })}
-					icon="talend-arrow-left"
-					label=""
+				<ButtonIcon
+					size="S"
+					aria-label={t('DATEPICKER_MONTH_PREVIOUS', 'Go to previous month')}
+					icon="arrow-left"
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
-					className={classNames('btn-tertiary', 'btn-info')}
-				/>
+				></ButtonIcon>
 			),
 			middleElement: (
 				<HeaderTitle
@@ -81,7 +80,7 @@ class DateView extends React.PureComponent {
 					year={this.props.calendar.year}
 					button={{
 						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', {
-							defaultValue: 'Switch to month and year pickers view',
+							defaultValue: 'Switch to month-and-year view',
 						}),
 						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,
@@ -89,15 +88,13 @@ class DateView extends React.PureComponent {
 				/>
 			),
 			rightElement: (
-				<Action
-					aria-label={t('DATEPICKER_MONTH_NEXT', { defaultValue: 'Go to next month' })}
-					icon="talend-arrow-left"
-					iconTransform="rotate-180"
-					label=""
+				<ButtonIcon
+					size="S"
+					aria-label={t('DATEPICKER_MONTH_NEXT', 'Go to next month')}
+					icon="arrow-right"
 					onClick={() => this.goToNextMonth()}
 					tabIndex="-1"
-					className="btn-tertiary btn-info"
-				/>
+				></ButtonIcon>
 			),
 		};
 

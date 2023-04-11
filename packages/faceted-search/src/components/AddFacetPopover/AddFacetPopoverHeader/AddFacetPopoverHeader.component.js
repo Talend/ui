@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { createRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { createRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import isNull from 'lodash/isNull';
 
@@ -7,7 +7,7 @@ import { ButtonIcon } from '@talend/design-system';
 import { FilterBar, getTheme, Rich } from '@talend/react-components';
 
 import { getTabIndex } from '../addFacetPopover.utils';
-import cssModule from './AddFacetPopoverHeader.scss';
+import cssModule from './AddFacetPopoverHeader.module.scss';
 
 const theme = getTheme(cssModule);
 

@@ -1,4 +1,8 @@
-import React from 'react';
+/**
+ * @jest-environment jsdom
+ */
+
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { fromJS, Map } from 'immutable';
 import { fireEvent, render, screen } from '@testing-library/react';
@@ -15,8 +19,6 @@ import cmfConnect, {
 	getMergeProps,
 } from '../src/cmfConnect';
 import component from '../src/component';
-
-jest.mock('uuid', () => ({ v4: () => '42' }));
 
 describe('cmfConnect', () => {
 	describe('#getComponentName', () => {
@@ -631,7 +633,7 @@ describe('cmfConnect', () => {
 			FunctionComponent.displayName = 'FunctionComponent';
 
 			// eslint-disable-next-line react/prefer-stateless-function
-			class ClassComponent extends React.Component {
+			class ClassComponent extends Component {
 				static displayName = 'ClassComponent';
 			}
 

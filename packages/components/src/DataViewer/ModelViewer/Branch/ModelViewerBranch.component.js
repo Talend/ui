@@ -1,9 +1,9 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SimpleTextKeyValue } from '../../Text';
 import { TreeBranchIcon } from '../../Icons';
-import theme from '../ModelViewer.scss';
+import theme from '../ModelViewer.module.scss';
 
 function getBranchDisplayKey(union, hasSemanticAwareness, getDisplayKey, value) {
 	if (union) {
@@ -20,7 +20,7 @@ function getBranchDisplayKey(union, hasSemanticAwareness, getDisplayKey, value) 
  * will be improve later on.
  * This is the workaround to make it work for now.
  */
-export default class ModelViewerBranch extends React.Component {
+export default class ModelViewerBranch extends Component {
 	static propTypes = {
 		dataKey: PropTypes.string,
 		getChilds: PropTypes.func,

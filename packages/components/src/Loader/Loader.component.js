@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import CircularProgress from '../CircularProgress';
 
-import theme from './Loader.scss';
+import theme from './Loader.module.scss';
 
 function Loader({ id, className, size = CircularProgress.SIZE.default }) {
 	const loaderClassNames = classNames('tc-loader', theme['tc-loader'], className);

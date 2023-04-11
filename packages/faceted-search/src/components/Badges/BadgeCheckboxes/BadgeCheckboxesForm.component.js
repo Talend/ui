@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useState, useCallback, useMemo } from 'react';
+import { Fragment, useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { Action } from '@talend/react-components/lib/Actions';
@@ -7,8 +7,8 @@ import FilterBar from '@talend/react-components/lib/FilterBar';
 import { Rich } from '@talend/react-components';
 import { Checkbox } from '@talend/react-components/lib/Toggle';
 import { getTheme } from '@talend/react-components/lib/theme';
-import cssModule from './BadgeCheckboxes.scss';
-import { getApplyDataFeature } from '../../../helpers/usage.helpers';
+import cssModule from './BadgeCheckboxes.module.scss';
+import { getApplyDataFeature, getDataAttributesFrom } from '../../../helpers/usage.helpers';
 
 const theme = getTheme(cssModule);
 
@@ -18,18 +18,20 @@ const BadgeCheckbox = ({ checked, id, label, onChange }) => {
 		onChange(event, id);
 	};
 	return (
-		<React.Fragment>
+		<Fragment>
 			<Checkbox
 				onChange={onChangeCheckbox}
 				aria-describedby={describedby}
 				id={`${id}-checkbox`}
 				label={label}
 				checked={checked}
+				data-testid={`badge-checkbox-form-checkbox-${id}`}
+				data-test={`badge-checkbox-form-checkbox-${id}`}
 			/>
 			<div id={describedby} className="sr-only">
 				{label}
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 
@@ -65,7 +67,9 @@ const BadgeCheckboxesForm = ({
 	value,
 	feature,
 	filterBarPlaceholder,
+	allSelector,
 	t,
+	...rest
 }) => {
 	const [filter, setFilter] = useState('');
 
@@ -86,24 +90,49 @@ const BadgeCheckboxesForm = ({
 			checkboxes.filter(c => c.checked),
 		);
 	};
+	const onToggleAll = event => {
+		const checked = event.target.checked;
+		if (checked) {
+			const checkedCheckboxes = checkboxes.map(entity => ({ ...entity, checked: true }));
+			onChange(event, checkedCheckboxes);
+		} else {
+			onChange(event, []);
+		}
+	};
 	return (
-		<React.Fragment>
-			<FilterBar
-				autoFocus={false}
-				dockable={false}
-				docked={false}
-				iconAlwaysVisible
-				id={`${badgeCheckBoxesFormId}-filter`}
-				placeholder={
-					filterBarPlaceholder ||
-					t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-						defaultValue: 'Find an entity',
-					})
-				}
-				onToggle={() => setFilter('')}
-				onFilter={(_, filterValue) => setFilter(filterValue)}
-				value={filter}
-			/>
+		<Fragment>
+			{allSelector ? (
+				<div className={theme('fs-badge-checkbox-all')}>
+					<BadgeCheckbox
+						key="selectAll"
+						id="selectAll"
+						onChange={onToggleAll}
+						label={t('FACETED_SEARCH_VALUE_ALL', {
+							defaultValue: 'All',
+						})}
+						checked={checkboxes.filter(c => c.checked).length === checkboxValues.length}
+					/>
+				</div>
+			) : (
+				<FilterBar
+					autoFocus={false}
+					dockable={false}
+					docked={false}
+					iconAlwaysVisible
+					id={`${badgeCheckBoxesFormId}-filter`}
+					placeholder={
+						filterBarPlaceholder ||
+						t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+							defaultValue: 'Find a column',
+						})
+					}
+					onToggle={() => setFilter('')}
+					onFilter={(_, filterValue) => setFilter(filterValue)}
+					value={filter}
+					data-test="badge-checkbox-form-filter"
+					data-testid="badge-checkbox-form-filter"
+				/>
+			)}
 			<form
 				className={theme('fs-badge-checkbox-form')}
 				id={`${badgeCheckBoxesFormId}-form`}
@@ -129,10 +158,11 @@ const BadgeCheckboxesForm = ({
 						type="submit"
 						label={t('APPLY', { defaultValue: 'Apply' })}
 						bsStyle="info"
+						{...getDataAttributesFrom(rest)}
 					/>
 				</Rich.Layout.Footer>
 			</form>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 
@@ -150,6 +180,7 @@ BadgeCheckboxesForm.propTypes = {
 	value: PropTypes.array,
 	feature: PropTypes.string.isRequired,
 	filterBarPlaceholder: PropTypes.string,
+	allSelector: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };
 

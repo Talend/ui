@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { drag, select } from 'd3';
 import { PositionRecord } from '../../customTypings/index.d';
 

@@ -1,15 +1,15 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
-import uuid from 'uuid';
 import { usePopper } from 'react-popper';
+import { randomUUID } from '@talend/utils';
 
 import FocusManager from '../../FocusManager';
 import Time from '../Time';
 import TimeZone from '../TimeZone';
 
-import theme from './InputTimePicker.scss';
+import theme from './InputTimePicker.module.scss';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import focusOnTime from '../gesture/timePickerGesture';
 
@@ -24,7 +24,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 ];
 
 export default function InputTimePicker(props) {
-	const popoverId = `time-picker-${props.id || uuid.v4()}`;
+	const popoverId = `time-picker-${props.id || randomUUID()}`;
 
 	const containerRef = useRef(null);
 

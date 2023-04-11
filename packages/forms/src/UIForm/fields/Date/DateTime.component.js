@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { InputDateTimePicker } from '@talend/react-components/lib/DateTimePickers';
 
@@ -7,17 +7,8 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export default function DateTimeWidget(props) {
-	const {
-		errorMessage,
-		id,
-		isValid,
-		onChange,
-		onFinish,
-		options,
-		schema,
-		value,
-		valueIsUpdating,
-	} = props;
+	const { errorMessage, id, isValid, onChange, onFinish, options, schema, value, valueIsUpdating } =
+		props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const convertedValue = schema.schema.format === 'iso-datetime' ? isoStrToDate(value) : value;

@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE as SIZE } from '../constants';
-import theme from './CircularProgress.scss';
+import theme from './CircularProgress.module.scss';
 import getDefaultT from '../translate';
 
 const RADIUS = 20;
@@ -51,9 +50,10 @@ function CircularProgress({ size, light, percent, className, t }) {
 			focusable="false"
 			className={classes}
 			viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
+			data-test="circular-progress"
 			aria-busy="true"
 			aria-label={t('CIRCULAR_PROGRESS_LOADING', {
-				defaultValue: 'Loading {{percent}}',
+				defaultValue: 'Loading... {{percent}}',
 				percent: percentLabel,
 			})}
 		>

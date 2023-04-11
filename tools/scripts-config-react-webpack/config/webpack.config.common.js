@@ -1,11 +1,13 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getBabelConfig } = require('@talend/scripts-config-babel/babel-resolver');
-const { getBabelLoaderOptions } = require('@talend/scripts-utils/babel');
+const utils = require('@talend/scripts-utils');
+
+const { getBabelLoaderOptions } = utils.babel;
 
 const babelConfig = getBabelConfig();
 
 function getSassData(userSassData) {
-	let sassData = "@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;\n";
+	let sassData = '';
 
 	if (userSassData && userSassData.data) {
 		console.warn(
@@ -22,7 +24,7 @@ function getSassData(userSassData) {
 	return sassData;
 }
 
-function getCommonStyleLoaders(enableModules, mode) {
+function getCommonStyleLoaders(enableModules, isEnvDevelopmentServe) {
 	const sourceMap = true;
 	let cssOptions = {
 		sourceMap,
@@ -36,8 +38,9 @@ function getCommonStyleLoaders(enableModules, mode) {
 			importLoaders: 1,
 		};
 	}
+	const styleLoader = isEnvDevelopmentServe ? 'style-loader' : MiniCssExtractPlugin.loader;
 	return [
-		{ loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
+		{ loader: styleLoader, options: { esModule: false } },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
@@ -61,9 +64,9 @@ function getJSAndTSLoader(env, useTypescript) {
 	].filter(Boolean);
 }
 
-function getSassLoaders(enableModules, sassData, mode) {
+function getSassLoaders(enableModules, sassData, isEnvDevelopmentServe) {
 	const sourceMap = true;
-	return getCommonStyleLoaders(enableModules, mode).concat(
+	return getCommonStyleLoaders(enableModules, isEnvDevelopmentServe).concat(
 		{ loader: 'resolve-url-loader', options: { sourceMap } },
 		{
 			loader: 'sass-loader',

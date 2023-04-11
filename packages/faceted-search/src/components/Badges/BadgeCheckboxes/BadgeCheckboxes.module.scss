@@ -1,0 +1,28 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+@use '~@talend/design-tokens/lib/tokens';
+
+.fs-badge-checkbox-form {
+	:global(.tc-tooltip-body) {
+		margin: 0;
+		padding: tokens.$coral-spacing-m;
+		overflow-y: auto;
+	}
+
+	&-body {
+		width: inherit;
+	}
+
+	&-footer {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	:global(.tc-tooltip-content) {
+		flex-direction: column;
+	}
+}
+
+.fs-badge-checkbox-all {
+	padding: tokens.$coral-spacing-m tokens.$coral-spacing-m 0 tokens.$coral-spacing-m;
+	border-bottom: 1px solid tokens.$coral-color-neutral-border-weak;
+}

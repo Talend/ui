@@ -1,4 +1,3 @@
-import React from 'react';
 import { defaultColumnConfiguration } from '../Content.component';
 import CellDatetime, { computeValue } from './CellDatetime.component';
 

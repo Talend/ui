@@ -1,4 +1,3 @@
-import React from 'react';
 import keycode from 'keycode';
 import { shallow, mount } from 'enzyme';
 import TabBar from './TabBar.component';

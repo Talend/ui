@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { cloneElement } from 'react';
 import { TransitionGroup } from 'react-transition-group';
 import get from 'lodash/get';
 
 import Drawer from '../Drawer';
 
-import theme from './withDrawer.scss';
+import theme from './withDrawer.module.scss';
 
 /**
  * The Layout component is a container
@@ -39,7 +39,7 @@ function WithDrawer({ drawers, children, ...rest }) {
 						>
 							{({ style, ...props }) => (
 								<div className="tc-with-drawer-wrapper" style={style}>
-									{React.cloneElement(drawer, props)}
+									{cloneElement(drawer, props)}
 								</div>
 							)}
 						</Drawer.Animation>

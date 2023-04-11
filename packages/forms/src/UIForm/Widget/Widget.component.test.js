@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 import defaultWidgets from '../utils/widgets';

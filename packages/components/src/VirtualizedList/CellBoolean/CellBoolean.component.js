@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import Icon from '../../Icon';
 
@@ -7,7 +7,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import { getTheme } from '../../theme';
 
-import theme from './CellBoolean.scss';
+import theme from './CellBoolean.module.scss';
 
 const css = getTheme(theme);
 export const DISPLAY_MODE = {
@@ -18,7 +18,7 @@ export const DISPLAY_MODE = {
 /**
  * Cell renderer that displays a boolean
  */
-class CellBoolean extends React.Component {
+class CellBoolean extends Component {
 	shouldComponentUpdate(nextProps) {
 		return this.props.cellData !== nextProps.cellData;
 	}

@@ -1,5 +1,94 @@
 # Changelog
 
+## 2.8.7
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- Updated dependencies [e7d785a6a]
+- Updated dependencies [7a097213f]
+- Updated dependencies [616601fda]
+- Updated dependencies [7a097213f]
+  - @talend/react-components@10.2.2
+  - @talend/design-tokens@2.7.3
+
+## 2.8.6
+
+### Patch Changes
+
+- Updated dependencies [4dfe7b010]
+  - @talend/react-components@10.0.0
+
+## 2.8.5
+
+### Patch Changes
+
+- 99398080f: chore: apply code style
+- Updated dependencies [99398080f]
+  - @talend/design-tokens@2.7.2
+
+## 2.8.4
+
+### Patch Changes
+
+- Updated dependencies [9c44d724f]
+- Updated dependencies [14b462534]
+- Updated dependencies [1200c70f8]
+  - @talend/react-components@9.0.0
+
+## 2.8.3
+
+### Patch Changes
+
+- 2be2c3f47: fix: do not pass t props to FormatValue
+- Updated dependencies [ef3977697]
+- Updated dependencies [2be2c3f47]
+- Updated dependencies [105990b24]
+- Updated dependencies [c0ed60ee5]
+  - @talend/react-components@8.0.0
+
+## 2.8.2
+
+### Patch Changes
+
+- 5e3712511: fix(dataviz): Yaxis legend on some edge cases
+
+## 2.8.1
+
+### Patch Changes
+
+- cae4e6f34: fix(dataviz): render dot in LineChart when there is only one value
+
+## 2.8.0
+
+### Minor Changes
+
+- b6f109501: feat(dataviz): handle line selection use case
+- b6f109501: feat(dataviz): highlight line legend on hover
+
+## 2.7.3
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+- Updated dependencies [e2e3ec77b]
+- Updated dependencies [c1bb5178f]
+  - @talend/react-components@7.11.0
+
+## 2.7.2
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- Updated dependencies [e2174b30b]
+- Updated dependencies [6fd16be45]
+  - @talend/react-components@7.10.3
+
 ## 2.7.1
 
 ### Patch Changes

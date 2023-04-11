@@ -1,5 +1,25 @@
 # @talend/upgrade-deps
 
+## 2.0.0
+
+### Major Changes
+
+- 4c2c727cb: feat: rewrite package as pure ESM
+
+  For more information please read https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+  breaking change: If you require this package you have to move to pure ESM too.
+
+  - chore: Update strip-ansi to latest version (which is pure ESM)
+  - chore: Update yarn-deduplicate to latest version
+
+## 1.6.0
+
+### Minor Changes
+
+- e9c4a4801: feat: add support for peerDependencies
+- e9c4a4801: feat: add --ignore-scripts on all commands
+
 ## 1.5.0
 
 ### Minor Changes

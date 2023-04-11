@@ -1,5 +1,27 @@
 # @talend/react-cmf
 
+## 7.2.0
+
+### Minor Changes
+
+- f47e34dd0: feat: provide API for react testing library
+
+### Patch Changes
+
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+## 7.1.4
+
+### Patch Changes
+
+- f0a97113e: chore: remove uuid dependencies. use randomUUID from @talend/utils
+- Updated dependencies [f0a97113e]
+  - @talend/utils@2.5.0
+
 ## 7.1.3
 
 ### Patch Changes

@@ -1,33 +1,34 @@
-import React, { useContext, useState } from 'react';
-import {
-	DefaultTheme,
-	ThemeProvider as StyledThemeProvider,
-	ThemeProviderProps,
-} from 'styled-components';
+import ThemeContext from './ThemeContext';
+import './ThemeProvider.module.scss';
 // eslint-disable-next-line @talend/import-depth
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
+import { useEffect, PropsWithChildren, useContext, useState } from 'react';
 
-import ThemeContext from './ThemeContext';
+import 'typeface-source-sans-pro/index.css';
+import 'typeface-inconsolata/index.css';
+import 'modern-css-reset/dist/reset.min.css';
 
-import { light } from '../../themes';
+export type ThemeProviderProps = PropsWithChildren<{
+	theme?: string;
+}>;
 
-const ThemeProvider = ({ theme = light, children }: ThemeProviderProps<any>) => {
+const ThemeProvider = ({ theme = 'light', children }: ThemeProviderProps) => {
 	const [selectedTheme, setSelectedTheme] = useState(theme);
 	// Handle nested Providers: parent Provider doesn't have context, child does
 	const context = useContext(ThemeContext);
 
-	React.useEffect(() => {
-		document.body.dataset.theme = selectedTheme === light ? 'light' : 'dark';
+	useEffect(() => {
+		document.body.dataset.theme = selectedTheme === 'light' ? 'light' : 'dark';
 	}, [selectedTheme]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setSelectedTheme(theme);
 	}, [theme]);
 
-	const switchTheme = (newTheme: DefaultTheme) => setSelectedTheme(newTheme);
+	const switchTheme = (newTheme: string) => setSelectedTheme(newTheme);
 	return (
 		<ThemeContext.Provider value={context.theme ? context : { switchTheme, theme: selectedTheme }}>
-			<StyledThemeProvider theme={context.theme || selectedTheme}>{children}</StyledThemeProvider>
+			{children}
 		</ThemeContext.Provider>
 	);
 };

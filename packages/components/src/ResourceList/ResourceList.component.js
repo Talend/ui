@@ -1,4 +1,4 @@
-import React from 'react';
+import { useCallback } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +11,7 @@ import Toolbar from './Toolbar';
 import VirtualizedList from '../VirtualizedList';
 import getRowSelectionRenderer from '../VirtualizedList/RowSelection';
 
-import cssModule from './ResourceList.scss';
+import cssModule from './ResourceList.module.scss';
 import Icon from '../Icon';
 
 const theme = getTheme(cssModule);
@@ -36,7 +36,7 @@ function ResourceList({
 		getRowData: ({ index }) => collection[index],
 		rowProps,
 	});
-	const noRowsRenderer = React.useCallback(
+	const noRowsRenderer = useCallback(
 		() => (
 			<div className={theme('tc-resource-list--no-results')}>
 				<span

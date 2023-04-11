@@ -4,6 +4,11 @@ on:
   repository_dispatch:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  deployments: read
+  pull-requests: write
+
 jobs:
   download:
     runs-on: ubuntu-latest
@@ -14,13 +19,13 @@ jobs:
         working-directory: ./packages/icons
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 #v3.5.0
         with:
           # Required when using a PAT for opening the PR
           persist-credentials: false
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: 16
           check-latest: true
@@ -51,7 +56,7 @@ jobs:
 
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@5b4a9f6a9e2af26e5f02351490b90d01eb8ec1e5 #v5.0.0
         with:
           commit-message: "chore(icons): from Figma"
           title: "chore(icons): from Figma"

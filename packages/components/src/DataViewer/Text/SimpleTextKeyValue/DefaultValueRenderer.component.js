@@ -1,11 +1,11 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import has from 'lodash/has';
 import TooltipTrigger from '../../../TooltipTrigger';
 import FormatValue from '../../../FormatValue/FormatValue.component';
 
-import theme from './DefaultValueRenderer.scss';
+import theme from './DefaultValueRenderer.module.scss';
 
 export const DEFAULT_VALUE_PROP_TYPES = PropTypes.oneOfType([
 	PropTypes.string,
@@ -16,7 +16,7 @@ export const DEFAULT_VALUE_PROP_TYPES = PropTypes.oneOfType([
 	}),
 ]);
 
-export default class DefaultValueRenderer extends React.Component {
+export default class DefaultValueRenderer extends Component {
 	static propTypes = {
 		className: PropTypes.string,
 		value: DEFAULT_VALUE_PROP_TYPES,

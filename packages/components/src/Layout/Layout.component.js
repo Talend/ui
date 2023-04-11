@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classnames from 'classnames';
 import { ThemeProvider } from '@talend/design-system';
 import Inject from '../Inject';
@@ -8,7 +7,7 @@ import OneColumn from './OneColumn';
 import TwoColumns from './TwoColumns';
 import SkipLinks from './SkipLinks';
 
-import theme from './Layout.scss';
+import theme from './Layout.module.scss';
 
 const DISPLAY_MODES = {
 	ONE_COLUMN: 'OneColumn',

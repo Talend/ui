@@ -1,10 +1,45 @@
-import React from 'react';
-import Field, { FieldProps } from '../Field';
+import { forwardRef, Ref } from 'react';
+import {
+	FieldPrimitive,
+	FieldPropsPrimitive,
+	InputPrimitive,
+	InputPrimitiveProps,
+} from '../../Primitives/index';
 
-export type InputProps = FieldProps & React.InputHTMLAttributes<HTMLInputElement>;
+export type InputFieldProps = FieldPropsPrimitive &
+	Omit<InputPrimitiveProps, 'className' | 'styles'>;
 
-const Input = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
-	return <Field {...props} as="input" ref={ref} />;
+export type TypedInputFieldProps = Omit<InputFieldProps, 'type'>;
+
+const Field = forwardRef((props: InputFieldProps, ref: Ref<HTMLInputElement>) => {
+	const {
+		label,
+		hasError = false,
+		link,
+		description,
+		id,
+		name,
+		hideLabel,
+		type,
+		required,
+		...rest
+	} = props;
+	return (
+		<FieldPrimitive
+			label={label}
+			hasError={hasError || false}
+			link={link}
+			description={description}
+			id={id}
+			name={name}
+			hideLabel={hideLabel}
+			required={required}
+		>
+			<InputPrimitive {...rest} type={type} ref={ref} />
+		</FieldPrimitive>
+	);
 });
 
-export default Input;
+Field.displayName = 'Field';
+
+export default Field;

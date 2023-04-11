@@ -1,5 +1,314 @@
 # @talend/react-components
 
+## 10.2.2
+
+### Patch Changes
+
+- e7d785a6a: fix: rewrite wrap fn using typescript
+- 7a097213f: chore: add some data-test to rewrite test using RTL
+- 616601fda: chore: clean unnecessary react imports after React v17
+
+  removed by running script `npx react-codemod update-react-imports`
+
+  see doc https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports
+
+- 7a097213f: test: add data-test to circular-progress
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [b0193afbd]
+- Updated dependencies [616601fda]
+- Updated dependencies [9db7ef2fe]
+- Updated dependencies [9db7ef2fe]
+  - @talend/icons@6.55.0
+
+## 10.2.1
+
+### Patch Changes
+
+- 6d2d52b79: fix(stepper): bring back a css selector and setup a width
+
+## 10.2.0
+
+### Minor Changes
+
+- 3604ba4f6: feat(components): add disabled mode for the quality bar
+- 691e07a11: feat(components): use ErrorState in the Stepper
+- 3604ba4f6: feat(components): change the color for the non applicables elements in the quality bar
+
+## 10.1.1
+
+### Patch Changes
+
+- 20f8526e9: test: rewrite using RTL
+
+## 10.1.0
+
+### Minor Changes
+
+- 44b408dc4: feat(components): List - disable item selection & disable "select all"
+
+## 10.0.0
+
+### Major Changes
+
+- 4dfe7b010: feat(TDOPS-3849): add Generic action in HeaderBar component
+
+## 9.6.0
+
+### Minor Changes
+
+- d2f5bd835: feat(TDP-11751): adding the possibility to set a specific height to the table and disable autosizer
+
+### Patch Changes
+
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+- Updated dependencies [9d8506a82]
+  - @talend/icons@6.54.0
+
+## 9.5.0
+
+### Minor Changes
+
+- 120d02173: Supports hiding tooltip for ObjectViewer(JSONLike)
+
+## 9.4.2
+
+### Patch Changes
+
+- e79dfc100: update default values of locales
+
+## 9.4.1
+
+### Patch Changes
+
+- 21d87a111: fix: apply code style
+- Updated dependencies [ab0bd21cf]
+  - @talend/bootstrap-theme@7.0.1
+
+## 9.4.0
+
+### Minor Changes
+
+- 703133e82: feat(Datalist): add new value available directly in the datalist while been in the add new value mode
+
+### Patch Changes
+
+- ce84cd6ad: fix(TDP-11750): WithDrawer content hidden on safari due to hidden overflow
+- Updated dependencies [76c15bf5e]
+- Updated dependencies [76c15bf5e]
+  - @talend/icons@6.52.0
+
+## 9.3.0
+
+### Minor Changes
+
+- 012d6fe31: Add data-test attribute
+
+### Patch Changes
+
+- bb92ff4bd: fix not translated "select all" in list component
+
+## 9.2.1
+
+### Patch Changes
+
+- 8a3537827: TDOPS-3399 - Fix HeaderBar button style on hover
+
+## 9.2.0
+
+### Minor Changes
+
+- a3ac5792b: fix not translated "select all" in list component
+
+## 9.1.0
+
+### Minor Changes
+
+- 898ffafc2: fix(TDP-11600): allow the datalist to create new value with a better ux
+
+  On the datalist, new props called
+
+  - `allowAddNewElements` can be passed to let the user create new value with a hint to tell him that the value was not existing in the current titlemap.
+  - `allowAddNewElementsSuffix` allow to override the "(new)" suffix by another one.
+
+### Patch Changes
+
+- 0110ae76f: TDOPS-2650 - Datalist icon size should be restricted to inline buttons
+
+## 9.0.1
+
+### Patch Changes
+
+- f0a97113e: fix: use randomUUID from talend/utils
+- Updated dependencies [f0a97113e]
+- Updated dependencies [784fe3919]
+  - @talend/utils@2.5.0
+  - @talend/icons@6.51.1
+
+## 9.0.0
+
+### Major Changes
+
+- 9c44d724f: ## Breaking changes :
+  Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
+
+  - SidePanel icon is no more handled by the application theme
+  - HeaderBar icon is no more handled by the application theme
+
+  ### HeaderBar
+
+  Use either `icon` or `iconUrl` in the header `brand` property
+
+  ```diff
+  <HeaderBar
+      ...
+  	brand={{
+  		...props.brand,
+  +       icon: 'talend-tmc-positive',
+  	}}
+      ...
+  };
+  ```
+
+  ### SidePanel
+
+  Use `backgroundIcon` in the sidepanel properties
+
+  ```diff
+  +import assetsApi from '@talend/assets-api';
+
+  <SidePanel
+      ...
+  +    backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+      ...
+  />
+  ```
+
+### Minor Changes
+
+- 1200c70f8: feat: remove uuid dependencies
+
+### Patch Changes
+
+- 14b462534: fix(SubHeader): editable text size
+- Updated dependencies [9c44d724f]
+- Updated dependencies [e83d88f83]
+  - @talend/bootstrap-theme@7.0.0
+
+## 8.0.1
+
+### Patch Changes
+
+- 8b4502c98: fix: put types in a /types folder
+
+  If you want to give a try on generated types you can use the following configuration in a `types.d.ts` file:
+
+  ```
+  declare module '@talend/react-components' {
+  	export * from '@talend/react-components/types';
+  }
+  ```
+
+## 8.0.0
+
+### Major Changes
+
+- 105990b24: feat(SubHeaderBar): replace `EditableText` legacy component by `InlineEditing` Coral component.
+
+  Breaking:
+
+  - `onEdit` and `onCancel` props has been removed. They are now directly handled by the `InlineEditing` component.
+  - `onSubmit` callback signature changed from `onSubmit(event: JSEvent, { value: string })` to `onSubmit(event: JSEvent, value: string)` the returned value from the `InlineEditing` component is not wrapped within an object containing only one `value` property. You now have the `value` directly.
+
+### Minor Changes
+
+- 2be2c3f47: feat: add typings
+
+### Patch Changes
+
+- ef3977697: fix(List): separator alignment for persistent actions
+- c0ed60ee5: chore(TDS-6840): use DS ButtonIcon in collapsible and legacy datepicker
+
+## 7.11.3
+
+### Patch Changes
+
+- 5d36d7e6c: fix(TDS-6837): not using submit type button in legacy date picker
+
+## 7.11.2
+
+### Patch Changes
+
+- efc5c2d8e: fix(components): QualityBar in split mode
+
+## 7.11.1
+
+### Patch Changes
+
+- be965094a: fix(components): sidepanel reversed color in gray
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [0260a77b8]
+- Updated dependencies [5cb57bbee]
+  - @talend/icons@6.50.0
+  - @talend/bootstrap-theme@6.39.1
+
+## 7.11.0
+
+### Minor Changes
+
+- c1bb5178f: feat: add SidePanel backgroundIcon props
+
+### Patch Changes
+
+- e2e3ec77b: fix: explicit import of sass-data
+
+## 7.10.3
+
+### Patch Changes
+
+- e2174b30b: fix: scss filename now follow css module filename pattern
+- 6fd16be45: fix: use flex-start instead of start
+
+## 7.10.2
+
+### Patch Changes
+
+- 561018c26: fix(TFD-14580): Fix DataViewer click on icons
+
+## 7.10.1
+
+### Patch Changes
+
+- e6efa126f: fix(TDP-11342): do not reset Datalist filter on titleMap change
+
+## 7.10.0
+
+### Minor Changes
+
+- 0f4721375: feat(TDC-6381): QualityBar design adjustments
+
 ## 7.9.0
 
 ### Minor Changes

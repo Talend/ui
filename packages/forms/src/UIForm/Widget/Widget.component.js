@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import { sfPath } from '@talend/json-schema-form-core';
 import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
@@ -7,7 +6,7 @@ import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 import shouldRender from '../utils/condition';
 
-import theme from './Widget.component.scss';
+import theme from './Widget.component.module.scss';
 import { useWidget } from '../context';
 
 function isUpdating(updatingKeys = [], key) {

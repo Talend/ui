@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import isNaN from 'lodash/isNaN';
 
@@ -68,9 +68,9 @@ AddFacetPopoverRowItem.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-export const AddFacetPopoverRowItemCategory = ({ label, onClick, isFocusable }) => (
+export const AddFacetPopoverRowItemCategory = ({ id, label, onClick, isFocusable }) => (
 	<AddFacetPopoverRowButton
-		id={`$row-button-${label}`}
+		id={`${id}-row-button-${label}`}
 		label={label}
 		onClick={() => onClick(label)}
 		tabIndex={getTabIndex(isFocusable)}
@@ -79,6 +79,7 @@ export const AddFacetPopoverRowItemCategory = ({ label, onClick, isFocusable }) 
 );
 
 AddFacetPopoverRowItemCategory.propTypes = {
+	id: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
 	isFocusable: PropTypes.bool.isRequired,

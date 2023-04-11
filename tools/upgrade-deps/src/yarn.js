@@ -1,7 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const yarnpkg = require('@yarnpkg/lockfile');
+/* eslint-disable no-console */
+import fs from 'fs';
+import path from 'path';
+import yarnpkg from '@yarnpkg/lockfile';
+import { createRequire } from 'module';
 
+const require = createRequire(import.meta.url);
 const CWD = process.cwd();
 
 function parseKey(key) {
@@ -98,11 +101,13 @@ function removeFromLockFile(opts) {
 function getYarnDedupBin() {
 	const mod = require.resolve('yarn-deduplicate');
 	const nodeModules = mod.split('yarn-deduplicate')[0];
-	const pkgJson = require(path.join(nodeModules, 'yarn-deduplicate', 'package.json'));
+	const pkgJson = JSON.parse(
+		fs.readFileSync(path.join(nodeModules, 'yarn-deduplicate', 'package.json')),
+	);
 	return path.join(nodeModules, 'yarn-deduplicate', pkgJson.bin);
 }
 
-module.exports = {
+export default {
 	removeFromLockFile,
 	getYarnDedupBin,
 	parseKey,

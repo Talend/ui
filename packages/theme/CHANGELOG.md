@@ -1,5 +1,76 @@
 # @talend/bootstrap-theme
 
+## 7.0.1
+
+### Patch Changes
+
+- ab0bd21cf: chore: apply code style
+
+## 7.0.0
+
+### Major Changes
+
+- 9c44d724f: ## Breaking changes :
+  Specific application themes are beeing removed. They were no longer imported by the webpack config, and now we won't be able to import them manually.
+
+  - SidePanel icon is no more handled by the application theme
+  - HeaderBar icon is no more handled by the application theme
+
+  ### HeaderBar
+
+  Use either `icon` or `iconUrl` in the header `brand` property
+
+  ```diff
+  <HeaderBar
+      ...
+  	brand={{
+  		...props.brand,
+  +       icon: 'talend-tmc-positive',
+  	}}
+      ...
+  };
+  ```
+
+  ### SidePanel
+
+  Use `backgroundIcon` in the sidepanel properties
+
+  ```diff
+  +import assetsApi from '@talend/assets-api';
+
+  <SidePanel
+      ...
+  +    backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+      ...
+  />
+  ```
+
+### Patch Changes
+
+- e83d88f83: chore: upgrade postcss-preset-env devDependency with major version
+
+## 6.39.1
+
+### Patch Changes
+
+- 0260a77b8: fix: add sassdata to variations
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+- Updated dependencies [5cb57bbee]
+  - @talend/icons@6.50.0
+
 ## 6.39.0
 
 ### Minor Changes

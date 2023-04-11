@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { useState } from 'react';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import noop from 'lodash/noop';
@@ -13,7 +13,7 @@ import Inject from '../Inject';
 import EditableText from '../EditableText';
 import { getTheme } from '../theme';
 
-import theme from './Drawer.scss';
+import theme from './Drawer.module.scss';
 
 const css = getTheme(theme);
 const DEFAULT_TRANSITION_DURATION = 350;
@@ -161,7 +161,7 @@ function DrawerTitle({
 	renderTitleActions = noop,
 	...props
 }) {
-	const [isEditMode, setIsEditMode] = React.useState(false);
+	const [isEditMode, setIsEditMode] = useState(false);
 	function handleEdit(...args) {
 		setIsEditMode(true);
 		if (onEdit) {

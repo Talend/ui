@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
@@ -10,7 +10,7 @@ import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import OverlayTrigger from '../../OverlayTrigger';
-import theme from './ActionDropdown.scss';
+import theme from './ActionDropdown.module.scss';
 import Tag from '../../Tag';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
@@ -142,7 +142,7 @@ function getDropdownContainer(dropdownElement) {
 };
  <ActionDropdown {...props} />
  */
-class ActionDropdown extends React.Component {
+class ActionDropdown extends Component {
 	constructor(props) {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);

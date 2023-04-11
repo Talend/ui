@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -15,7 +15,7 @@ import {
 	getJSONPath,
 	getObjectBranchDatakey,
 } from './RecordsViewer.parser';
-import theme from './RecordsViewer.scss';
+import theme from './RecordsViewer.module.scss';
 
 /**
  * Used in the branch to get the icon.

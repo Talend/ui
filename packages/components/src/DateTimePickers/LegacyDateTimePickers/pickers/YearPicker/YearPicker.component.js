@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Action } from '../../../../Actions';
@@ -6,12 +6,12 @@ import { buildYears } from '../../generator';
 import WithDynamicListGesture from '../../../../Gesture/withDynamicListGesture';
 import getDefaultT from '../../../../translate';
 
-import theme from './YearPicker.scss';
+import theme from './YearPicker.module.scss';
 
 const YEAR_WINDOW_SIZE = 7;
 const YEAR_WINDOW_OVERFLOW_SIZE = 3;
 
-class YearPicker extends React.Component {
+class YearPicker extends Component {
 	static propTypes = {
 		selectedYear: PropTypes.number,
 		onSelect: PropTypes.func.isRequired,

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { cloneElement, useState, useRef } from 'react';
+import { Children, Fragment, cloneElement, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import uuid from 'uuid';
 import classNames from 'classnames';
-import theme from './TooltipTrigger.scss';
+import { randomUUID } from '@talend/utils';
+import theme from './TooltipTrigger.module.scss';
 import useTooltipVisibility from './TooltipTrigger.hook';
 
 const DEFAULT_OFFSET_X = 300;
@@ -101,6 +101,7 @@ const props = {
  */
 function TooltipTrigger({
 	children,
+	'data-test': dataTest,
 	label,
 	className,
 	tooltipDelay,
@@ -112,7 +113,7 @@ function TooltipTrigger({
 
 	const [visible, show, hide] = useTooltipVisibility(tooltipDelay);
 
-	const [id] = useState(uuid.v4());
+	const [id] = useState(randomUUID());
 
 	const { props: childrenProps } = children;
 
@@ -197,8 +198,8 @@ function TooltipTrigger({
 	const { placement, style } = getTooltipPosition();
 
 	return (
-		<React.Fragment>
-			{React.Children.map(children, child =>
+		<Fragment>
+			{Children.map(children, child =>
 				cloneElement(child, {
 					'aria-describedby': id,
 					onFocus,
@@ -225,6 +226,7 @@ function TooltipTrigger({
 					<div
 						className={classNames(theme['tc-tooltip-container'], 'tc-tooltip-container', className)}
 						style={style}
+						role="tooltip"
 					>
 						<div
 							id={id}
@@ -234,19 +236,21 @@ function TooltipTrigger({
 								'tc-tooltip-body',
 								`tc-tooltip-${placement}`,
 							)}
+							data-test={dataTest}
 						>
 							{label}
 						</div>
 					</div>,
 					document.body,
 				)}
-		</React.Fragment>
+		</Fragment>
 	);
 }
 
 TooltipTrigger.displayName = 'TooltipTrigger';
 
 TooltipTrigger.propTypes = {
+	'data-test': PropTypes.string,
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 	tooltipHeight: PropTypes.number,

@@ -1,4 +1,3 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import keycode from 'keycode';
 import cases from 'jest-in-case';

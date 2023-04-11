@@ -1,6 +1,7 @@
 import styles from './StackPrimitive.module.scss';
 import classnames from 'classnames';
-import React, { forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
+import * as React from 'react';
 
 export const justifyOptions = {
 	start: 'justify-start',
@@ -92,7 +93,7 @@ export const possibleAsTypes = ['div', 'ul', 'ol', 'article', 'span', 'dl'] as c
 type DirectionType = 'row' | 'column';
 
 export type StackPrimitiveProps = {
-	as?: typeof possibleAsTypes[number];
+	as?: (typeof possibleAsTypes)[number];
 	justify?: keyof typeof justifyOptions;
 	align?: keyof typeof alignOptions;
 	gap: GapType;
@@ -106,6 +107,9 @@ export type StackPrimitiveProps = {
 	role?: string;
 	relative?: boolean;
 	height?: keyof typeof heightOptions;
+	isFullWidth?: boolean;
+	noShrink?: boolean;
+	noGrow?: boolean;
 };
 
 const StackPrimitive = forwardRef(function StackPrimitive(
@@ -123,6 +127,9 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 		margin,
 		role,
 		height,
+		noShrink = false,
+		noGrow = false,
+		isFullWidth,
 		...props
 	}: StackPrimitiveProps,
 	ref: React.Ref<any>,
@@ -217,7 +224,10 @@ const StackPrimitive = forwardRef(function StackPrimitive(
 				styles[direction],
 				styles[display],
 				height && styles[`height-${heightOptions[height]}`],
+				isFullWidth && styles.fullWidth,
 				{ [styles.relative]: relative },
+				{ [styles.noShrink]: noShrink },
+				{ [styles.noGrow]: noGrow },
 				getAlignContent(),
 				...getGap(),
 				...getPadding(),

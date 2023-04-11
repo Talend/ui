@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/Slider';
 import omit from 'lodash/omit';

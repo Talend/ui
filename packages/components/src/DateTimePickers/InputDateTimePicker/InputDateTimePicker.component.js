@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import InputDatePicker from '../InputDatePicker';
@@ -8,7 +7,7 @@ import LegacyInputDateTimePicker from '../LegacyDateTimePickers';
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
 
-import theme from './InputDateTimePicker.scss';
+import theme from './InputDateTimePicker.module.scss';
 
 function InputDateTimePicker(props) {
 	if (props.selectedDateTime) {
@@ -105,6 +104,7 @@ function InputDateTimePickerSwitch(props) {
 }
 InputDateTimePickerSwitch.propTypes = {
 	formMode: PropTypes.bool,
+	...InputDatePicker.propTypes,
 };
 
 export default InputDateTimePickerSwitch;

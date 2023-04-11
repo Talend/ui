@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-find-dom-node */
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
@@ -17,7 +17,7 @@ import OverlayTrigger from '../OverlayTrigger';
 import { ActionDropdown } from '../Actions';
 import getTabBarBadgeLabel from '../utils/getTabBarBadgeLabel';
 
-import theme from './TabBar.scss';
+import theme from './TabBar.module.scss';
 
 function TabBar(props) {
 	const tabBarContainerRef = useRef();

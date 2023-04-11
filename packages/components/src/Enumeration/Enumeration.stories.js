@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import Enumeration from './Enumeration.component';
 
-import theme from './Enumeration.stories.scss';
+import theme from './Enumeration.stories.module.scss';
 
 const addItemAction = {
 	label: 'Add item',

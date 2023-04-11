@@ -1,10 +1,10 @@
-import React from 'react';
+import { Component, Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
 import ActionButton from './ActionButton.component';
 
-import theme from './Button.stories.scss';
+import theme from './Button.stories.module.scss';
 
 const myAction = {
 	label: 'Click me',
@@ -25,7 +25,7 @@ const mouseDownAction = {
 const ACTION1 = 'Action 1';
 const ACTION2 = 'Action 2';
 
-class DisableActionButton extends React.Component {
+class DisableActionButton extends Component {
 	constructor(props) {
 		super(props);
 
@@ -41,7 +41,7 @@ class DisableActionButton extends React.Component {
 			tooltip: true,
 		};
 		return (
-			<React.Fragment>
+			<Fragment>
 				<p>Switch Button</p>
 				<ActionButton
 					{...props}
@@ -57,7 +57,7 @@ class DisableActionButton extends React.Component {
 					disabled={this.state.active === ACTION2}
 					onClick={() => this.setState({ active: ACTION2 })}
 				/>
-			</React.Fragment>
+			</Fragment>
 		);
 	}
 }

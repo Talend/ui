@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import keycode from 'keycode';
-import uuid from 'uuid';
 import { usePopper } from 'react-popper';
+import { randomUUID } from '@talend/utils';
 
 import FocusManager from '../../../FocusManager';
 import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 
-import theme from './InputDateTimePicker.scss';
+import theme from './InputDateTimePicker.module.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',
@@ -49,7 +49,7 @@ function InputDateTimePicker(props) {
 		placement: getPopperPlacement(),
 	});
 
-	const popoverId = `date-time-picker-${props.id || uuid.v4()}`;
+	const popoverId = `date-time-picker-${props.id || randomUUID()}`;
 	// eslint-disable-next-line @typescript-eslint/no-use-before-define
 	const openPicker = isPicked => setPickerVisibility(true, isPicked);
 	// eslint-disable-next-line @typescript-eslint/no-use-before-define

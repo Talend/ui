@@ -1,29 +1,25 @@
-import React from 'react';
-import styled from 'styled-components';
+import { memo, forwardRef, Ref } from 'react';
 import Skeleton from '../../../Skeleton';
-import tokens from '../../../../deprecatedTokens';
-import { StepProps } from '../Step';
+import classnames from 'classnames';
 
-const StepSkeletonWrapper = styled.span.attrs({ className: 'step--skeleton' })`
-	position: relative;
-	width: 11.5rem;
+import stepStyles from '../Primitive/Step.module.scss';
+import styles from './Step.Skeleton.module.scss';
 
-	&:before {
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: ${({ theme }) => theme.colors?.backgroundColor};
-		border-radius: ${tokens.radii.rectRadius};
-	}
-`;
+type SkeletonProps = { orientation?: 'vertical' | 'horizontal' };
 
-const StepSkeleton = (props: StepProps) => (
-	<StepSkeletonWrapper {...props}>
-		<Skeleton variant="heading" size="M" />
-	</StepSkeletonWrapper>
-);
+const StepSkeleton = forwardRef((props: SkeletonProps, ref: Ref<HTMLLIElement>) => {
+	const { orientation = 'horizontal' } = props;
+	return (
+		<li aria-current={false} className={stepStyles.stepWrapper} ref={ref}>
+			<div
+				className={classnames(styles.skeleton, {
+					[styles.skeleton_vertical]: orientation === 'vertical',
+				})}
+			>
+				<Skeleton variant="heading" size="M" />
+			</div>
+		</li>
+	);
+});
 
-export default React.memo(StepSkeleton);
+export default memo(StepSkeleton);

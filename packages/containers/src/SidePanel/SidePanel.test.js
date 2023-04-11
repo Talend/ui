@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import cases from 'jest-in-case';
 import { mock } from '@talend/react-cmf';
@@ -173,15 +172,13 @@ describe('SidePanel.mapStateToProps', () => {
 					isMatching: true,
 				},
 				{
-					name:
-						'Subset path starting at the beginning but without the exact last segment (currentRoute longer)',
+					name: 'Subset path starting at the beginning but without the exact last segment (currentRoute longer)',
 					currentRoute: '/a/usual/path',
 					itemRoute: '/a/usual/pat',
 					isMatching: false,
 				},
 				{
-					name:
-						'Subset path starting at the beginning but without the exact last segment (currentRoute shorter)',
+					name: 'Subset path starting at the beginning but without the exact last segment (currentRoute shorter)',
 					currentRoute: '/a/usual/pat',
 					itemRoute: '/a/usual/path',
 					isMatching: false,

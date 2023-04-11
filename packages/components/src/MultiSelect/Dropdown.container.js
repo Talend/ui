@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import CircularProgress from '../CircularProgress';
 import VirtualizedList from '../VirtualizedList';
-import theme from './Dropdown.scss';
+import theme from './Dropdown.module.scss';
 
 export default function Dropdown(props) {
 	return (

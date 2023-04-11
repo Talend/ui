@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 
 import Action from '../../Actions/Action';
-import theme from './Header.scss';
+import theme from './Header.module.scss';
 
 function headerClasses(headerError) {
 	return classNames(theme['tc-enumeration-header'], 'tc-enumeration-header', {

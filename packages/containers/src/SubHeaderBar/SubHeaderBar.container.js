@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Component from '@talend/react-components/lib/SubHeaderBar';
 import Immutable from 'immutable';

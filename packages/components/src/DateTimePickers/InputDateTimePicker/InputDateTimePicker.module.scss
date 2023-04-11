@@ -1,0 +1,11 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
+.date-time-picker {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	:global(.date-picker) {
+		margin-right: $padding-small;
+	}
+}

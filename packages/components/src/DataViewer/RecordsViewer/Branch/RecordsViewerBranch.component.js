@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -6,7 +6,8 @@ import keycode from 'keycode';
 import Skeleton from '../../../Skeleton';
 import { LengthBadge } from '../../Badges';
 import { TreeBranchIcon } from '../../Icons';
-import theme from '../RecordsViewer.scss';
+import theme from '../RecordsViewer.module.scss';
+import { Icon } from '@talend/design-system';
 
 /**
  * Used with the lazy loading to allow the render of the skeleton.
@@ -16,7 +17,7 @@ export function isLoaded(value) {
 	return get(value, 'loaded') !== false;
 }
 
-export class RecordsViewerBranch extends React.Component {
+export class RecordsViewerBranch extends Component {
 	static propTypes = {
 		className: PropTypes.string,
 		dataKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

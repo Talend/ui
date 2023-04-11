@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 
 import TooltipTrigger from '../../TooltipTrigger';
@@ -7,7 +7,7 @@ import { Action } from '../../Actions';
 import Icon from '../../Icon';
 import Badge from '../../Badge';
 
-import css from './TreeViewItem.scss';
+import css from './TreeViewItem.module.scss';
 
 const BASE_PADDING = 30;
 const CARET_WIDTH = 12;
@@ -66,7 +66,7 @@ TreeViewIcon.propTypes = {
  * @returns XML, jsx to display
  */
 
-class TreeViewItem extends React.Component {
+class TreeViewItem extends Component {
 	static propTypes = {
 		id: PropTypes.string.isRequired,
 		index: PropTypes.number.isRequired,

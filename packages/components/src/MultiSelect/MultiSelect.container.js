@@ -1,12 +1,12 @@
 /* eslint-disable react/sort-comp */
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
 import keycode from 'keycode';
 import memoizeOne from 'memoize-one';
 
-import theme from './MultiSelect.scss';
+import theme from './MultiSelect.module.scss';
 import VirtualizedList from '../VirtualizedList';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import { ItemOption } from './ItemOption.component';
@@ -33,7 +33,7 @@ function isIn(element, container) {
 	return true;
 }
 
-class MultiSelect extends React.Component {
+class MultiSelect extends Component {
 	static displayName = 'MultiSelect';
 
 	static theme = theme;
@@ -164,7 +164,7 @@ class MultiSelect extends React.Component {
 			filteredOptions.push({
 				value: CREATE_NEW_VALUE,
 				name: t('MULTI_SELECT_LABEL_CREATE_NEW', {
-					defaultValue: '{{name}} (Create new)',
+					defaultValue: '{{name}} (Create entry)',
 					name: searchTerm,
 				}),
 			});

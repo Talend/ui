@@ -1,5 +1,6 @@
-import React, { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
+import VisuallyHidden from '../VisuallyHidden';
 import assetsAPI from '@talend/assets-api';
+import { ReactElement, RefObject, useState, useEffect, useRef } from 'react';
 
 const DEFAULT_BUNDLES = [
 	assetsAPI.getURL('/dist/svg-bundle/all.svg', '@talend/icons'),
@@ -158,18 +159,20 @@ export function IconsProvider({
 
 	return (
 		(shouldRender && (
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				focusable="false"
-				className="tc-iconsprovider sr-only"
-				ref={ref}
-			>
-				{Object.keys(iconset).map((id, index) => (
-					<symbol key={index} id={id}>
-						{iconset[id]}
-					</symbol>
-				))}
-			</svg>
+			<VisuallyHidden>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					focusable="false"
+					className="tc-iconsprovider"
+					ref={ref}
+				>
+					{Object.keys(iconset).map((id, index) => (
+						<symbol key={index} id={id}>
+							{iconset[id]}
+						</symbol>
+					))}
+				</svg>
+			</VisuallyHidden>
 		)) ||
 		null
 	);

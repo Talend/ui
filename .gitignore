@@ -15,7 +15,6 @@ bin/
 *.iml
 *.iws
 out/
-.vscode/
 
 # JavaScript/NodeJS files #
 .npm/
@@ -50,3 +49,4 @@ dist/
 eslint-report.json
 stylelint-report.json
 i18n-extract
+.test-cache

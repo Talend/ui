@@ -1,5 +1,126 @@
 # @talend/scripts-config-react-webpack
 
+## 15.3.1
+
+### Patch Changes
+
+- 285efb74a: chore: minor upgrade of webpack-dev-server
+- b0193afbd: chore: upgrade webpack
+
+## 15.3.0
+
+### Minor Changes
+
+- 0bc6a9ee1: feat: add options to fix sourcemaps in mono repository.
+  chore: upgrade fork-ts-checker-webpack-plugin@^7.3.0
+
+## 15.2.6
+
+### Patch Changes
+
+- 464f7207d: Webpack react config - Fix sass HMR on file change for dev mode
+
+## 15.2.5
+
+### Patch Changes
+
+- 093ce8530: fix: add meta in head if inject is false
+- Updated dependencies [c7152471f]
+  - @talend/scripts-utils@2.0.2
+
+## 15.2.4
+
+### Patch Changes
+
+- 65c8ad05c: fix: apply breaking changes on talend/scripts-utils
+- Updated dependencies [65c8ad05c]
+  - @talend/scripts-utils@2.0.0
+
+## 15.2.3
+
+### Patch Changes
+
+- Updated dependencies [c18aabb97]
+  - @talend/scripts-config-babel@12.0.0
+
+## 15.2.2
+
+### Patch Changes
+
+- ed4014653: fix: remove duplicates of meta and simplify head script
+
+  - meta was their twice because they are passed to the html-webpack-plugin.
+
+  - the INITIATOR part of the script was still here even if we already have set `dynamic-cdn-webpack-plugin` to false.
+
+  fix: The copy of assets in a cdn folder should happens if and only if:
+
+  - INTIATOR_URL has not been given at compile time and
+  - dynamic-cdn-webpack-plugin is present
+
+  fix: DuplicatePlugins and BundleAnalyzer take times and slowdown the rebuild a lot. Use them only if option `--env analyze` is passed to the script.
+
+## 15.2.1
+
+### Patch Changes
+
+- 1b1e74e6c: chore: remove not needed static option of devServer webpack configuration
+
+  doc: https://webpack.js.org/configuration/dev-server/#devserverstatic
+
+## 15.2.0
+
+### Minor Changes
+
+- 925cec02b: feat: add toggle to activate or not dynamic-cdn-plugin
+
+### Patch Changes
+
+- Updated dependencies [925cec02b]
+  - @talend/scripts-config-cdn@10.6.0
+
+## 15.1.2
+
+### Patch Changes
+
+- e83d88f83: fix: force postcss8 to avoid issue at build
+
+  we use autoprefixer 10 in this preset which require postcss8.
+  To avoid error where we could have postcss 7 let's force it to 8.
+
+## 15.1.1
+
+### Patch Changes
+
+- 635da2241: fix(TDOPS-2998): Replace globalObject value to self
+
+## 15.1.0
+
+### Minor Changes
+
+- 8376814d2: feat: add circular deps plugin
+
+## 15.0.0
+
+### Major Changes
+
+- 0260a77b8: fix: No more implicit sass data injected in scss files
+
+  This is BREAKING CHANGE:
+
+  ```diff
+  +++@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+  ```
+
+  You have to
+
+  - use `addSassData.js` from https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
+  - rewrite your sass using @talend/design-tokens on the long and remove this bootstrap-theme guidelines from all your scss
+
+- f4db1eeb1: feat: apply css module on module with filename .module.[scss,css]
+
+  BREAKING CHANGE: In the context of talend package you now have to rename your file using the pattern `.module.scss`. A script has been built at this occasion for you on gist: https://gist.github.com/jmfrancois/402c32c22fba98f1e35599f1e0dab2c2
+
 ## 14.0.0
 
 ### Major Changes

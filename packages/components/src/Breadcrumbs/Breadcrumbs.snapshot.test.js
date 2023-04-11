@@ -1,13 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import { screen, render } from '@testing-library/react';
 import { BreadcrumbsComponent } from './Breadcrumbs.component';
-
-jest.mock('react-dom');
 
 describe('Breadcrumbs', () => {
 	it('should do nothing if items property is empty', () => {
-		const breadcrumbs = shallow(<BreadcrumbsComponent items={undefined} />);
-		expect(breadcrumbs.getElement()).toMatchSnapshot();
+		render(<BreadcrumbsComponent items={undefined} />);
+		expect(screen.getByLabelText('breadcrumb')).toBeInTheDocument();
+		expect(screen.queryByRole('button')).not.toBeInTheDocument();
 	});
 
 	it('should render all items without a dropdown menu if default max items is not reached', () => {
@@ -17,8 +15,12 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text C', title: 'Go to Page Text C' },
 			{ text: 'Text D', title: 'Go to Page Text D' },
 		];
-		const breadcrumbs = shallow(<BreadcrumbsComponent items={items} />);
-		expect(breadcrumbs.getElement()).toMatchSnapshot();
+		render(<BreadcrumbsComponent items={items} />);
+		expect(screen.getByLabelText('breadcrumb')).toBeInTheDocument();
+		expect(screen.getByText('Text A')).toBeInTheDocument();
+		expect(screen.getByText('Text B')).toBeInTheDocument();
+		expect(screen.getByText('Text C')).toBeInTheDocument();
+		expect(screen.getByText('Text D')).toBeInTheDocument();
 	});
 
 	it('should render items with a dropdown menu if default max items is reached', () => {
@@ -30,7 +32,8 @@ describe('Breadcrumbs', () => {
 			{ text: 'Text E', title: 'Go to Page Text E' },
 		];
 
-		const breadcrumbs = shallow(<BreadcrumbsComponent items={items} />);
-		expect(breadcrumbs.getElement()).toMatchSnapshot();
+		render(<BreadcrumbsComponent items={items} />);
+		expect(screen.getByLabelText('breadcrumb')).toBeInTheDocument();
+		expect(screen.getByText('Text A')).toBeInTheDocument();
 	});
 });

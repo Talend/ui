@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { createElement } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import Inject from '../Inject';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import css from './ActionBar.scss';
+import css from './ActionBar.module.scss';
 
 const DISPLAY_MODES = {
 	DROPDOWN: 'dropdown',
@@ -78,7 +78,7 @@ function Content({ tag = TAG_TYPES.DIV, left, right, center, className, children
 		className: getContentClassName(tag, left, center, right, className),
 		...rest,
 	};
-	return React.createElement(tag, props, children);
+	return createElement(tag, props, children);
 }
 Content.propTypes = {
 	children: PropTypes.node,
@@ -155,7 +155,10 @@ function Count({ selected }) {
 		return null;
 	}
 	return (
-		<span className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}>
+		<span
+			data-test="selected-count"
+			className={classNames(css['tc-actionbar-selected-count'], 'tc-actionbar-selected-count')}
+		>
 			{t('ACTION_BAR_COUNT_SELECTED', { defaultValue: '{{selected}} selected', selected })}
 		</span>
 	);

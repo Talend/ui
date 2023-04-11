@@ -4,6 +4,7 @@
 	display: flex;
 	flex-flow: row;
 	flex-grow: 1;
+	flex-shrink: 1;
 
 	&.column {
 		flex-flow: column;
@@ -16,6 +17,14 @@
 
 	&.relative {
 		position: relative;
+	}
+
+	&.noShrink {
+		flex-shrink: 0;
+	}
+
+	&.noGrow {
+		flex-grow: 0;
 	}
 
 	&.justify {
@@ -143,18 +152,23 @@
 			&-XXS {
 				row-gap: tokens.$coral-spacing-xxs;
 			}
+
 			&-XS {
 				row-gap: tokens.$coral-spacing-xs;
 			}
+
 			&-S {
 				row-gap: tokens.$coral-spacing-s;
 			}
+
 			&-M {
 				row-gap: tokens.$coral-spacing-m;
 			}
+
 			&-L {
 				row-gap: tokens.$coral-spacing-l;
 			}
+
 			&-XL {
 				row-gap: tokens.$coral-spacing-xl;
 			}
@@ -200,18 +214,23 @@
 			&-XXS {
 				padding-right: tokens.$coral-spacing-xxs;
 			}
+
 			&-XS {
 				padding-right: tokens.$coral-spacing-xs;
 			}
+
 			&-S {
 				padding-right: tokens.$coral-spacing-s;
 			}
+
 			&-M {
 				padding-right: tokens.$coral-spacing-m;
 			}
+
 			&-L {
 				padding-right: tokens.$coral-spacing-l;
 			}
+
 			&-XL {
 				padding-right: tokens.$coral-spacing-xl;
 			}
@@ -225,18 +244,23 @@
 			&-XXS {
 				padding-bottom: tokens.$coral-spacing-xxs;
 			}
+
 			&-XS {
 				padding-bottom: tokens.$coral-spacing-xs;
 			}
+
 			&-S {
 				padding-bottom: tokens.$coral-spacing-s;
 			}
+
 			&-M {
 				padding-bottom: tokens.$coral-spacing-m;
 			}
+
 			&-L {
 				padding-bottom: tokens.$coral-spacing-l;
 			}
+
 			&-XL {
 				padding-bottom: tokens.$coral-spacing-xl;
 			}
@@ -250,18 +274,23 @@
 			&-XXS {
 				padding-left: tokens.$coral-spacing-xxs;
 			}
+
 			&-XS {
 				padding-left: tokens.$coral-spacing-xs;
 			}
+
 			&-S {
 				padding-left: tokens.$coral-spacing-s;
 			}
+
 			&-M {
 				padding-left: tokens.$coral-spacing-m;
 			}
+
 			&-L {
 				padding-left: tokens.$coral-spacing-l;
 			}
+
 			&-XL {
 				padding-left: tokens.$coral-spacing-xl;
 			}
@@ -315,18 +344,23 @@
 			&-XXS {
 				margin-right: tokens.$coral-spacing-xxs;
 			}
+
 			&-XS {
 				margin-right: tokens.$coral-spacing-xs;
 			}
+
 			&-S {
 				margin-right: tokens.$coral-spacing-s;
 			}
+
 			&-M {
 				margin-right: tokens.$coral-spacing-m;
 			}
+
 			&-L {
 				margin-right: tokens.$coral-spacing-l;
 			}
+
 			&-XL {
 				margin-right: tokens.$coral-spacing-xl;
 			}
@@ -344,18 +378,23 @@
 			&-XXS {
 				margin-bottom: tokens.$coral-spacing-xxs;
 			}
+
 			&-XS {
 				margin-bottom: tokens.$coral-spacing-xs;
 			}
+
 			&-S {
 				margin-bottom: tokens.$coral-spacing-s;
 			}
+
 			&-M {
 				margin-bottom: tokens.$coral-spacing-m;
 			}
+
 			&-L {
 				margin-bottom: tokens.$coral-spacing-l;
 			}
+
 			&-XL {
 				margin-bottom: tokens.$coral-spacing-xl;
 			}
@@ -373,46 +412,62 @@
 			&-XXS {
 				margin-left: tokens.$coral-spacing-xxs;
 			}
+
 			&-XS {
 				margin-left: tokens.$coral-spacing-xs;
 			}
+
 			&-S {
 				margin-left: tokens.$coral-spacing-s;
 			}
+
 			&-M {
 				margin-left: tokens.$coral-spacing-m;
 			}
+
 			&-L {
 				margin-left: tokens.$coral-spacing-l;
 			}
+
 			&-XL {
 				margin-left: tokens.$coral-spacing-xl;
 			}
 		}
 	}
 
+	&.fullWidth {
+		width: 100%;
+	}
+
 	&.height {
 		&-100 {
 			height: 100%;
 		}
+
 		&-XXXS {
 			height: tokens.$coral-sizing-xxxs;
 		}
+
 		&-XXS {
 			height: tokens.$coral-sizing-xxs;
 		}
+
 		&-XS {
 			height: tokens.$coral-sizing-xs;
 		}
+
 		&-S {
 			height: tokens.$coral-sizing-s;
 		}
+
 		&-M {
 			height: tokens.$coral-sizing-m;
 		}
+
 		&-L {
 			height: tokens.$coral-sizing-l;
 		}
+
 		&-XXXL {
 			height: tokens.$coral-sizing-xxxl;
 		}

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import isValid from 'date-fns/isValid';
 import startOfSecond from 'date-fns/startOfSecond';
 import endOfSecond from 'date-fns/endOfSecond';
@@ -6,7 +6,7 @@ import parseISO from 'date-fns/parseISO';
 import { InputDateTimePicker } from '@talend/react-components';
 import { formatDate, formatDateTime } from '../../../../formatters/formatters';
 import useRangeInputField, { InputFieldProps } from '../useRangeInputField.hook';
-import styles from './DateTimeInputField.component.scss';
+import styles from './DateTimeInputField.component.module.scss';
 import { RangeHandler } from '../range-handler.types';
 import { formatTimeTicks } from '../slider-ticks.utils';
 

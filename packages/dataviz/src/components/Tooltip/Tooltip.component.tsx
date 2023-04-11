@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import styles from './Tooltip.component.scss';
+import styles from './Tooltip.component.module.scss';
 
 export interface TooltipProps {
 	title?: string;

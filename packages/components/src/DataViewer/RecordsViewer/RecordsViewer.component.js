@@ -1,15 +1,15 @@
-import React from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import theme from './RecordsViewer.scss';
+import theme from './RecordsViewer.module.scss';
 import { Tree } from '../Core';
 import { VirtualizedTree } from '../Virtualized';
 import { TreeHeader } from '../Headers';
 import RecordsCellRenderer from './CellRenderer';
 import getDefaultT from '../../translate';
 
-export class RecordsViewer extends React.Component {
+export class RecordsViewer extends Component {
 	static propTypes = {
 		onCollapseAll: PropTypes.func.isRequired,
 		onVerticalScroll: PropTypes.func,

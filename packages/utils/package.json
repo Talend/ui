@@ -1,6 +1,6 @@
 {
   "name": "@talend/utils",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Various utilities",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -11,8 +11,8 @@
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib": "talend-scripts build:ts:lib",
-    "lint:es": "talend-scripts lint:es",
+    "build:lib": "talend-scripts build",
+    "lint": "talend-scripts lint",
     "test": "cross-env TZ=Europe/Paris talend-scripts test",
     "test:cov": "cross-env TZ=Europe/Paris talend-scripts test --coverage --silent",
     "test:noisy": "cross-env TZ=Europe/Paris talend-scripts test",
@@ -20,8 +20,7 @@
     "extends": "talend-scripts extends"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^12.0.0",
-    "@talend/scripts-preset-react-lib": "^13.0.0",
+    "@talend/scripts-core": "^13.1.2",
     "cross-env": "^7.0.3"
   },
   "dependencies": {

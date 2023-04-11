@@ -1,3 +1,5 @@
+@use '~@talend/bootstrap-theme/src/theme/guidelines' as *;
+
 $border-default: 0.1rem solid $gallery !default;
 
 $tc-datepicker-width: 31rem !default;

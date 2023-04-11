@@ -1,0 +1,15 @@
+@use '~@talend/design-tokens/lib/tokens';
+
+.form {
+	display: flex;
+	flex-flow: column;
+	margin: 0 auto;
+	width: 100%;
+	font: tokens.$coral-paragraph-m;
+	gap: tokens.$coral-spacing-s;
+
+	fieldset {
+		padding: 0;
+		border: none;
+	}
+}

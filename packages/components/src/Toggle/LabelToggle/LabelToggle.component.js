@@ -1,10 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid';
 import get from 'lodash/get';
+import { randomUUID } from '@talend/utils';
 import { getTheme } from '../../theme';
 
-import css from './LabelToggle.scss';
+import css from './LabelToggle.module.scss';
 
 const theme = getTheme(css);
 
@@ -26,7 +25,7 @@ const getAutoFocusValue = (autoFocus, values, value) => {
  * @param {function} onChange - callback that handle the state change
  */
 function LabelToggle({ id, values, name, value, onChange, disabled, autoFocus = false }) {
-	const localId = id || uuid.v4();
+	const localId = id || randomUUID();
 	const handleChange = e => {
 		onChange(e.target.value);
 	};
@@ -53,6 +52,7 @@ function LabelToggle({ id, values, name, value, onChange, disabled, autoFocus = 
 						name={name}
 						disabled={disabled}
 						onChange={e => handleChange(e)}
+						// eslint-disable-next-line jsx-a11y/no-autofocus
 						autoFocus={autoFocusValue === button.value}
 					/>
 					<span>{button.label}</span>

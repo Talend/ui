@@ -1,18 +1,10 @@
-import React from 'react';
+import { forwardRef, Ref } from 'react';
+import Input, { TypedInputFieldProps } from './Input';
 
-import Input, { InputProps } from './Input';
-import { Icon } from '../../../Icon';
-
-const Search = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => {
-	return (
-		<Input
-			{...props}
-			type="search"
-			// @ts-ignore
-			before={<Icon name="talend-search" />}
-			ref={ref}
-		/>
-	);
+const Search = forwardRef((props: TypedInputFieldProps, ref: Ref<HTMLInputElement>) => {
+	return <Input {...props} type="search" ref={ref} />;
 });
+
+Search.displayName = 'Search';
 
 export default Search;

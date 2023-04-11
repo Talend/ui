@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import union from 'lodash/union';
 
 import toFlat from '../toflat';
 import JSONLike from '../JSONLike';
-import theme from './Table.scss';
+import theme from './Table.module.scss';
 
 /**
  * @param {Object} data

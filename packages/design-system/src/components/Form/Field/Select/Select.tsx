@@ -1,30 +1,41 @@
-import React from 'react';
+import { forwardRef, Ref } from 'react';
+import * as React from 'react';
 import { isElement } from 'react-is';
-
-import { Icon } from '../../../Icon/Icon';
-
-import Field, { FieldProps } from '../Field';
 import Input from '../Input';
+import {
+	FieldPrimitive,
+	FieldPropsPrimitive,
+	SelectPrimitive,
+	SelectPrimitiveProps,
+} from '../../Primitives/index';
 
-import * as S from './Select.style';
+export type SelectProps = FieldPropsPrimitive &
+	Omit<SelectPrimitiveProps, 'className' | 'style' | 'isAffix'> & { readOnly?: boolean };
 
-export type SelectProps = FieldProps &
-	React.SelectHTMLAttributes<HTMLSelectElement> & {
-		readOnly?: boolean;
-	};
+const Select = forwardRef(
+	(props: SelectProps, ref: React.Ref<HTMLSelectElement | HTMLInputElement>) => {
+		const {
+			label,
+			hasError = false,
+			link,
+			description,
+			id,
+			name,
+			hideLabel,
+			readOnly,
+			required,
+			children,
+			defaultValue,
+			...rest
+		} = props;
 
-const Select = React.forwardRef(
-	(
-		{ children, multiple, readOnly, required, placeholder, ...rest }: SelectProps,
-		ref: React.Ref<HTMLSelectElement>,
-	) => {
 		if (readOnly) {
 			const values = React.Children.toArray(children).reduce((acc: string[], current) => {
 				if (!isElement(current)) {
 					return acc.concat(current.toString());
 				}
-				const { children: optChildren, originalType, selected } = current.props;
-				if (originalType === 'optgroup') {
+				const { children: optChildren, selected } = current.props;
+				if (current.type === 'optgroup') {
 					return acc.concat(
 						React.Children.toArray(optChildren)
 							.filter(option => isElement(option) && option.props.selected)
@@ -36,34 +47,57 @@ const Select = React.forwardRef(
 				}
 				return acc;
 			}, []);
-			// @ts-ignore
-			return <Input readOnly value={values.join('; ')} {...rest} ref={ref} />;
+			const displayedValues = values.length > 0 ? values.join('; ') : undefined;
+			return (
+				<Input
+					{...rest}
+					readOnly
+					value={displayedValues}
+					defaultValue={defaultValue}
+					label={label}
+					hasError={hasError || false}
+					link={link}
+					description={description}
+					id={id}
+					name={name}
+					hideLabel={hideLabel}
+					required={required}
+					ref={ref as Ref<HTMLInputElement>}
+				/>
+			);
+		}
+
+		function SelectField(
+			fieldProps: Omit<SelectProps, 'hasError' | 'name' | 'children' | 'label'>,
+		) {
+			return (
+				<SelectPrimitive
+					hasError={hasError || false}
+					{...fieldProps}
+					ref={ref as Ref<HTMLSelectElement>}
+				>
+					{children}
+				</SelectPrimitive>
+			);
 		}
 
 		return (
-			<S.FieldWrapper>
-				{/*
-				// @ts-ignore */}
-				<Field
-					{...rest}
-					as="select"
-					multiple={multiple}
-					// @ts-ignore
-					before={!multiple && <Icon name="talend-caret-down" className="talend-caret-down" />}
-					ref={ref}
-				>
-					{placeholder && (
-						<option value="" disabled selected>
-							{placeholder}
-						</option>
-					)}
-					{/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-					{!required && <option value="" />}
-					{children}
-				</Field>
-			</S.FieldWrapper>
+			<FieldPrimitive
+				label={label}
+				hasError={hasError || false}
+				link={link}
+				description={description}
+				id={id}
+				name={name}
+				hideLabel={hideLabel}
+				required={required}
+			>
+				<SelectField defaultValue={defaultValue} {...rest} />
+			</FieldPrimitive>
 		);
 	},
 );
+
+Select.displayName = 'Select';
 
 export default Select;

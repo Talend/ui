@@ -22,11 +22,11 @@ export default cmfConnect({
 });
  */
 import PropTypes from 'prop-types';
-import React from 'react';
+import { useState, useContext, useEffect, forwardRef } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect, useStore } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from '@talend/utils';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
@@ -235,8 +235,8 @@ export default function cmfConnect({
 		}
 
 		function CMFContainer(props, ref) {
-			const [instanceId] = React.useState(uuidv4());
-			const registry = React.useContext(RegistryContext);
+			const [instanceId] = useState(randomUUID());
+			const registry = useContext(RegistryContext);
 			const store = useStore();
 
 			function dispatchActionCreator(actionCreatorId, event, data, extraContext) {
@@ -244,7 +244,7 @@ export default function cmfConnect({
 				props.dispatchActionCreator(actionCreatorId, event, data, extendedContext);
 			}
 
-			React.useEffect(() => {
+			useEffect(() => {
 				initState(props);
 				if (props.saga) {
 					dispatchActionCreator(
@@ -334,7 +334,7 @@ export default function cmfConnect({
 		};
 		CMFContainer.WrappedComponent = WrappedComponent;
 		CMFContainer.getState = getState;
-
+		// eslint-disable-next-line @typescript-eslint/default-param-last
 		CMFContainer.setStateAction = function setStateAction(state, id = 'default', type) {
 			if (typeof state !== 'function') {
 				return getSetStateAction(state, id, type);
@@ -343,7 +343,7 @@ export default function cmfConnect({
 				getSetStateAction(state(getState(getReduxState(), id)), id, type);
 		};
 		if (rest.forwardRef) {
-			CMFWithRef = React.forwardRef(CMFWithRef);
+			CMFWithRef = forwardRef(CMFWithRef);
 			CMFWithRef.displayName = `ForwardRef(${CMFContainer.displayName})`;
 			CMFWithRef.WrappedComponent = CMFContainer.WrappedComponent;
 			CMFWithRef.getState = CMFContainer.getState;

@@ -1,13 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@talend/react-bootstrap';
-import OverlayTrigger from '@talend/react-components/lib/OverlayTrigger';
-import Icon from '@talend/react-components/lib/Icon';
 import Message from '../../Message';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
-import theme from './FieldTemplate.scss';
+import theme from './FieldTemplate.module.scss';
+import { ButtonIcon, Popover } from '@talend/design-system';
 
 function Label({ id, label, ...rest }) {
 	return (
@@ -21,11 +16,11 @@ if (process.env.NODE_ENV !== 'production') {
 	Label.propTypes = {
 		id: PropTypes.string,
 		label: PropTypes.string,
+		hint: PropTypes.any,
 	};
 }
 
 function FieldTemplate(props) {
-	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 	const groupsClassNames = classNames('form-group', theme.template, props.className, {
 		'has-error': !props.isValid,
 		required: props.required,
@@ -38,24 +33,20 @@ function FieldTemplate(props) {
 		title = (
 			<div className={theme['field-template-title']}>
 				{title}
-				<OverlayTrigger
-					overlayId={`${props.id}-hint-overlay`}
-					overlayPlacement={props.hint.overlayPlacement || 'right'}
-					overlayComponent={props.hint.overlayComponent}
+				<Popover
+					position={props.hint.overlayPlacement || 'auto'}
+					data-test={props.hint['data-test']}
+					isFixed={props.hint.overlayIsFixed}
+					disclosure={
+						<ButtonIcon
+							data-test={props.hint['icon-data-test']}
+							size="S"
+							icon={props.hint.icon || 'talend-info-circle'}
+						></ButtonIcon>
+					}
 				>
-					<Button
-						id={`${props.id}-hint`}
-						bsStyle="link"
-						className={props.hint.className}
-						aria-label={t('FIELD_TEMPLATE_HINT_LABEL', {
-							defaultValue: 'Display the input {{inputLabel}} hint',
-							inputLabel: props.label,
-						})}
-						aria-haspopup
-					>
-						<Icon name={props.hint.icon || 'talend-info-circle'} />
-					</Button>
-				</OverlayTrigger>
+					{props.hint.overlayComponent}
+				</Popover>
 			</div>
 		);
 	}
@@ -82,9 +73,11 @@ if (process.env.NODE_ENV !== 'production') {
 		children: PropTypes.node,
 		hint: PropTypes.shape({
 			icon: PropTypes.string,
-			className: PropTypes.string,
 			overlayComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 			overlayPlacement: PropTypes.string,
+			overlayIsFixed: PropTypes.bool,
+			'data-test': PropTypes.string,
+			'icon-data-test': PropTypes.string,
 		}),
 		className: PropTypes.string,
 		description: PropTypes.string,

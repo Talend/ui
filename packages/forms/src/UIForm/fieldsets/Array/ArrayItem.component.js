@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { Fragment } from 'react';
 import { Action } from '@talend/react-components/lib/Actions';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-import theme from './ArrayItem.scss';
-import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.scss';
+import theme from './ArrayItem.module.scss';
+import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.module.scss';
 
 export function ReorderButton(props) {
 	const { disabled, index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder } = props;
@@ -102,10 +102,10 @@ function ArrayItem(props) {
 		>
 			<div className={theme.control}>
 				{!isClosed && onReorder && !readOnly && (
-					<React.Fragment>
+					<Fragment>
 						<ReorderButton {...props} index={index} disabled={widgetIsDisabled} />
 						<ReorderButton {...props} index={index} isMoveDown disabled={widgetIsDisabled} />
-					</React.Fragment>
+					</Fragment>
 				)}
 			</div>
 			{renderItem(index, { actions })}

@@ -1,7 +1,8 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import * as React from 'react';
 import { Radio, RadioGroup, useRadioState } from 'reakit';
-
-import * as S from './Switch.style';
+import classnames from 'classnames';
+import theme from './Switch.module.scss';
 
 export type SwitchProps = React.PropsWithChildren<any> & {
 	label: string;
@@ -57,7 +58,12 @@ const Switch = ({
 	}, [radio, defaultValue, radio.items]);
 
 	return (
-		<S.Switch readOnly={readOnly} disabled={disabled}>
+		<div
+			className={classnames(theme.switch, {
+				[theme.readOnly]: readOnly,
+				[theme.disabled]: disabled,
+			})}
+		>
 			<RadioGroup {...rest} {...radio} ref={containerRef} aria-label={label} disabled={disabled}>
 				{values.map((v: string, i: number) => {
 					const isChecked = radio.state === v;
@@ -76,11 +82,16 @@ const Switch = ({
 						</Radio>
 					);
 				})}
-				<S.SwitchIndicator ref={switchIndicator} data-animated={false} aria-hidden="true">
+				<span
+					className={theme.switchIndicator}
+					ref={switchIndicator}
+					data-animated={false}
+					aria-hidden="true"
+				>
 					<em />
-				</S.SwitchIndicator>
+				</span>
 			</RadioGroup>
-		</S.Switch>
+		</div>
 	);
 };
 

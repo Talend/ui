@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
 
 import Toolbar from './Toolbar';
 import ListToVirtualizedList from './ListToVirtualizedList';
-import theme from './List.scss';
+import theme from './List.module.scss';
 import Inject from '../Inject';
 
 const SelectAll = Toolbar.SelectAll;

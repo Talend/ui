@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -6,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
-import theme from './NoRows.scss';
+import theme from './NoRows.module.scss';
 
 export function NoRowsComponent(props) {
 	return (
@@ -15,7 +14,7 @@ export function NoRowsComponent(props) {
 			role="status"
 			aria-live="polite"
 		>
-			{props.t('NO_RESULT_FOUND', { defaultValue: 'No result found' })}
+			{props.t('NO_RESULT_FOUND', { defaultValue: 'No results found' })}
 		</span>
 	);
 }

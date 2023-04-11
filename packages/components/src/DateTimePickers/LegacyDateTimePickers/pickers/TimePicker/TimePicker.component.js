@@ -1,15 +1,15 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import uuid from 'uuid';
 import DebounceInput from 'react-debounce-input';
+import { randomUUID } from '@talend/utils';
 import getDefaultT from '../../../../translate';
 import { DateTimeContext } from '../../DateTime/Context';
 import { FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from '../../DateTime/constants';
 
-import theme from './TimePicker.scss';
+import theme from './TimePicker.module.scss';
 
-class TimePicker extends React.PureComponent {
+class TimePicker extends PureComponent {
 	static defaultProps = {
 		value: {},
 		t: getDefaultT(),
@@ -30,7 +30,7 @@ class TimePicker extends React.PureComponent {
 
 	constructor(props) {
 		super(props);
-		const id = uuid.v4();
+		const id = randomUUID();
 		this.hourId = `${id}-hour`;
 		this.minuteId = `${id}-minute`;
 		this.secondId = `${id}-second`;
@@ -57,14 +57,8 @@ class TimePicker extends React.PureComponent {
 		return (
 			<DateTimeContext.Consumer>
 				{({ errorManagement }) => {
-					const {
-						onInputFocus,
-						hasError,
-						formMode,
-						hoursErrorId,
-						minutesErrorId,
-						secondsErrorId,
-					} = errorManagement;
+					const { onInputFocus, hasError, formMode, hoursErrorId, minutesErrorId, secondsErrorId } =
+						errorManagement;
 
 					return (
 						<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
@@ -78,7 +72,7 @@ class TimePicker extends React.PureComponent {
 							</legend>
 
 							<label key="hour-label" htmlFor={this.hourId} className="sr-only">
-								{t('DATEPICKER_TIME_HOURS', { defaultValue: 'Hours' })}
+								{t('DATEPICKER_TIME_HOURS', { defaultValue: 'hours' })}
 							</label>
 							<DebounceInput
 								key="hour-input"
@@ -98,7 +92,7 @@ class TimePicker extends React.PureComponent {
 							/>
 							<hr key="hr-minutes" />
 							<label key="minutes-label" htmlFor={this.minuteId} className="sr-only">
-								{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'Minutes' })}
+								{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'minutes' })}
 							</label>
 							<DebounceInput
 								key="minutes-input"

@@ -2,10 +2,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { DuplicatesPlugin } = require('inspectpack/plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 const cdn = require('@talend/scripts-config-cdn');
 
-const exists = require('@talend/scripts-utils/fs');
+const utils = require('@talend/scripts-utils');
 
 const {
 	getCommonStyleLoaders,
@@ -21,10 +23,11 @@ module.exports = options => {
 	const dcwpConfig = options.getUserConfig('dynamic-cdn-webpack-plugin');
 	const cssModulesEnabled = options.getUserConfig(['css', 'modules'], true);
 	const userCopyConfig = options.getUserConfig('copy', []);
-	const useTypescript = exists.tsConfig();
+	const useTypescript = utils.fs.tsConfig();
 	const userSassData = options.getUserConfig('sass', {});
 	const sassData = getSassData(userSassData);
 	const isEnvProd = options.mode === 'production';
+
 	return (env = {}) => {
 		const name = (env && env.umd) || 'Talend';
 		return {
@@ -56,17 +59,23 @@ module.exports = options => {
 					},
 					{
 						test: /\.scss$/,
-						use: getSassLoaders(cssModulesEnabled, sassData, options.mode),
+						use: getSassLoaders(cssModulesEnabled, sassData, false),
 					},
 					{
 						test: /\.css$/,
-						use: getCommonStyleLoaders(false, options.mode),
+						use: getCommonStyleLoaders(false, false),
 					},
 					...getAssetsRules(false),
 				],
 			},
 			stats: { children: false }, // remove warnings of all plugins ...
 			plugins: [
+				new DuplicatesPlugin(),
+				new CircularDependencyPlugin({
+					exclude: /node_modules/,
+					cwd: process.cwd(),
+					failOnError: true,
+				}),
 				new BundleAnalyzerPlugin({
 					analyzerMode: 'static',
 					openAnalyzer: false,

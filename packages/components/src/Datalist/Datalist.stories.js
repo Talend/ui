@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { action } from '@storybook/addon-actions';
 
@@ -102,6 +102,14 @@ export const DefaultSingleSection = () => {
 		<form className="form">
 			<h3>By default</h3>
 			<Datalist {...singleSectionProps} />
+
+			<h3>Allow adding new elements</h3>
+			<Datalist
+				{...singleSectionProps}
+				allowAddNewElements
+				allowAddNewElementsSuffix="(Not in the dictionary)"
+			/>
+
 			<h3>default value</h3>
 			<Datalist {...defaultValue} />
 			<h3>Restricted values</h3>
@@ -115,11 +123,15 @@ export const DefaultSingleSection = () => {
 			<h3>With icons</h3>
 			<Datalist {...withIcons} />
 			<h3>With suggestions API</h3>
-			<Datalist {...defaultValue} titleMap={titleMap} onLiveChange={() => {
-				setTimeout(() => {
-					setTitleMap(prev => [...prev])
-				}, 200);
-			}}/>
+			<Datalist
+				{...defaultValue}
+				titleMap={titleMap}
+				onLiveChange={() => {
+					setTimeout(() => {
+						setTitleMap(prev => [...prev]);
+					}, 200);
+				}}
+			/>
 			<h3>Insert custom elements via render props</h3>
 			<Datalist {...singleSectionProps}>
 				{(content, { isShown }, _, inputRef) => (
