@@ -1,4 +1,5 @@
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Component from './ModelViewerLeaf.component';
 import { defaultGetDisplayValue, defaultGetDisplayKey } from '../ModelViewer.container';
 
@@ -10,7 +11,7 @@ describe('ModelViewerLeaf', () => {
 			name: 'toto',
 			type,
 		};
-		const wrapper = shallow(
+		const { container } = render(
 			<Component
 				dataKey="myDataKey"
 				getDisplayValue={defaultGetDisplayValue}
@@ -18,14 +19,17 @@ describe('ModelViewerLeaf', () => {
 				value={value}
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByText('toto')).toBeVisible();
+		expect(container.firstChild).toMatchSnapshot();
+		expect(screen.getByRole('button')).not.toHaveClass('tc-model-leaf-button-highlighted');
+		expect(screen.getByRole('button')).toHaveClass('tc-model-leaf-button');
 	});
 
 	it('should render ModelViewerLeaf highlighted', () => {
 		const value = {
 			type,
 		};
-		const wrapper = shallow(
+		render(
 			<Component
 				datasetId="42"
 				dataKey="myDataKey"
@@ -37,38 +41,40 @@ describe('ModelViewerLeaf', () => {
 				value={value}
 			/>,
 		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(screen.getByRole('button')).toHaveClass('tc-model-leaf-button-highlighted');
+		expect(screen.getByRole('button')).toHaveClass('tc-model-leaf-button');
 	});
 
 	it('should render ModelViewerLeaf with additional data', () => {
 		const value = {
 			type,
 		};
-		const wrapper = shallow(
-			<Component
-				datasetId="42"
-				dataKey="myDataKey"
-				getDisplayKey={defaultGetDisplayKey}
-				getDisplayValue={defaultGetDisplayValue}
-				hasSemanticAwareness
-				jsonpath="$"
-				jsonPathSelection="$"
-				value={value}
-				renderLeafOptions={v => <div>Render some data, can use value {v.type}</div>}
-			/>,
-		);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		function renderLeafOptions(v) {
+			return <div data-testid="leaf">Render some data, can use value {v.type.dqType}</div>;
+		}
+		const props = {
+			datasetId: '42',
+			dataKey: 'myDataKey',
+			getDisplayKey: defaultGetDisplayKey,
+			getDisplayValue: defaultGetDisplayValue,
+			hasSemanticAwareness: true,
+			jsonpath: '$',
+			jsonPathSelection: '$',
+			value: value,
+			renderLeafOptions,
+		};
+		render(<Component {...props} />);
+		expect(screen.getByTestId('leaf')).toBeVisible();
 	});
 
-	it('should call onSelect when click on the leaf', () => {
+	it('should call onSelect when click on the leaf', async () => {
 		const value = {
 			name: 'toto',
 			type: [{ dqType: 'firstType' }, { dqType: 'secondType' }],
 		};
-		const event = {};
 		const jsonpath = '$';
 		const onSelect = jest.fn();
-		const wrapper = shallow(
+		render(
 			<Component
 				datasetId="42"
 				dataKey="myDataKey"
@@ -79,7 +85,7 @@ describe('ModelViewerLeaf', () => {
 				value={value}
 			/>,
 		);
-		wrapper.find('button').simulate('click', event);
-		expect(onSelect).toHaveBeenCalledWith(event, jsonpath, value);
+		await userEvent.click(screen.getByRole('button'));
+		expect(onSelect).toHaveBeenCalledWith(expect.anything({ type: 'click' }), jsonpath, value);
 	});
 });

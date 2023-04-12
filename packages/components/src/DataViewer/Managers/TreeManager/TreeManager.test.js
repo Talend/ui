@@ -1,7 +1,6 @@
 import Immutable from 'immutable';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { shallow } from 'enzyme';
 import TreeManager, {
 	addPathsToCollection,
 	removePathsFromCollection,
@@ -26,7 +25,6 @@ describe('removePathsFromCollection', () => {
 });
 
 describe('TreeManager#onToggle', () => {
-	const event = {};
 	const props = {
 		setState: jest.fn(),
 	};
@@ -71,6 +69,5 @@ describe('TreeManager#onToggle', () => {
 		await userEvent.click(screen.getByTestId('btn'));
 		// then
 		expect(setStateSpy).toHaveBeenCalled();
-		// expect(wrapper.state('expandedNodes'));
 	});
 });
