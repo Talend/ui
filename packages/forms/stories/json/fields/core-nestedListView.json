@@ -50,8 +50,7 @@
             "carot": "Carot",
             "lettuce": "Lettuce",
             "turnip": "Turnip"
-          },
-          "checked": true
+          }
         }
       ],
       "options": {

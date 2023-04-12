@@ -334,12 +334,6 @@ describe('NestedListView component', () => {
 			const value = { bar: ['bar_2'] };
 			// when
 			render(<NestedListViewWidget {...props} value={value} />);
-			// when expanding the main checkbox
-			userEvent.click(
-				screen.getByRole('button', {
-					name: new RegExp(`\\b${props.schema.items[0].title}\\b`, 'i'),
-				}),
-			);
 			// selecting the children
 			userEvent.click(
 				screen.getByRole('checkbox', {
@@ -468,7 +462,6 @@ describe('NestedListView utils', () => {
 							{ label: 'Baz', value: 'baz' },
 							{ label: 'Boo', value: 'boo' },
 						],
-						checked: true,
 					},
 				],
 				required: true,
@@ -483,14 +476,13 @@ describe('NestedListView utils', () => {
 			};
 
 			// when
-			const items = prepareItemsFromSchema(schema, callbacks);
+			const items = prepareItemsFromSchema(schema, callbacks, {});
 
 			// then
 			expect(items[0].onExpandToggle).toBe(callbacks.onExpandToggle);
 			expect(items[0].onChange).toBe(callbacks.onParentChange);
 			expect(items[0].children[0].onChange).toBe(callbacks.onCheck);
 			expect(items[0].children[1].onChange).toBe(callbacks.onCheck);
-			expect(items[0].expanded).toBeTruthy();
 		});
 	});
 

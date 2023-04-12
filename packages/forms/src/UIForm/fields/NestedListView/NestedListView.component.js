@@ -50,7 +50,7 @@ class NestedListViewWidget extends Component {
 			onCheck: this.onCheck.bind(this),
 		};
 
-		this.items = prepareItemsFromSchema(schema, callbacks);
+		this.items = prepareItemsFromSchema(schema, callbacks, value);
 		this.value = value;
 
 		this.state = {
@@ -68,9 +68,10 @@ class NestedListViewWidget extends Component {
 		if (!isEqual(prevProps.value, this.props.value) && !isEqual(this.value, this.props.value)) {
 			if (this.props.schema.options?.expandChecked) {
 				this.items = this.items.map(item => {
+					const values = this.props.value[item.key] || [];
 					return {
 						...item,
-						expanded: this.props.value[item.key]?.length > 0,
+						expanded: values.length > 0 && values.length !== item.children.length,
 					};
 				});
 			}
