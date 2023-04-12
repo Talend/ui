@@ -70,10 +70,10 @@ export class TreeBranchIcon extends PureComponent {
 			<span
 				className={classNames(theme['tc-tree-branch-icon'], 'tc-tree-branch-icon', className)}
 				style={style}
+				data-testid="tree-branch-icon"
 			>
 				<Icon
 					className={iconClassNames}
-					key="Icon"
 					name={icon.name}
 					title={`${title} ${dataKey} (${jsonpath})`}
 				/>

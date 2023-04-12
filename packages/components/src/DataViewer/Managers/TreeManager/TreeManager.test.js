@@ -1,4 +1,6 @@
 import Immutable from 'immutable';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { shallow } from 'enzyme';
 import TreeManager, {
 	addPathsToCollection,
@@ -26,30 +28,47 @@ describe('removePathsFromCollection', () => {
 describe('TreeManager#onToggle', () => {
 	const event = {};
 	const props = {
-		wrappedComponent: jest.fn(),
 		setState: jest.fn(),
 	};
-	it('when the handler emitter is an union, and has been click for the first time', () => {
+	it('when the handler emitter is an union, and has been click for the first time', async () => {
 		// given
 		const options = {
 			firstClickUnion: true,
 		};
 		// when
 		const setStateSpy = jest.spyOn(TreeManager.prototype, 'setState');
-		const wrapper = shallow(<TreeManager {...props} />);
-		wrapper.instance().onToggle(event, options, 0);
+		render(
+			<TreeManager
+				{...props}
+				wrappedComponent={prop => (
+					<div data-testid="wrapped">
+						<button data-testid="btn" onClick={e => prop.onToggle(e, options, 0)}></button>
+					</div>
+				)}
+			/>,
+		);
+		await userEvent.click(screen.getByTestId('btn'));
 		// then nothing
 		expect(setStateSpy).not.toHaveBeenCalled();
 	});
-	it('default', () => {
+	it('default', async () => {
 		// when
 		const options = {
 			firstClickUnion: false,
 		};
 		// given
 		const setStateSpy = jest.spyOn(TreeManager.prototype, 'setState');
-		const wrapper = shallow(<TreeManager {...props} />);
-		wrapper.instance().onToggle(event, options, 0);
+		render(
+			<TreeManager
+				{...props}
+				wrappedComponent={prop => (
+					<div data-testid="wrapped">
+						<button data-testid="btn" onClick={e => prop.onToggle(e, options, 0)}></button>
+					</div>
+				)}
+			/>,
+		);
+		await userEvent.click(screen.getByTestId('btn'));
 		// then
 		expect(setStateSpy).toHaveBeenCalled();
 		// expect(wrapper.state('expandedNodes'));
