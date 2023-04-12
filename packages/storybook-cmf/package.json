@@ -37,8 +37,8 @@
   },
   "peerDependencies": {
     "@talend/react-cmf": "^7.1.4",
-    "react": ">= 16.14.0 < 18.0.0",
-    "react-dom": ">= 16.14.0 < 18.0.0",
+    "react": ">= 16.14.0",
+    "react-dom": ">= 16.14.0",
     "react-redux": "^7.2.9",
     "redux-saga": "^1.2.2"
   }

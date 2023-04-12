@@ -37,8 +37,8 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
-    "react": ">= 16.14.0 < 18.0.0",
-    "react-dom": ">= 16.14.0 < 18.0.0"
+    "react": ">= 16.14.0",
+    "react-dom": ">= 16.14.0"
   },
   "devDependencies": {
     "@talend/scripts-core": "^13.1.2",
