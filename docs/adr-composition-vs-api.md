@@ -1,4 +1,4 @@
-#  CSS Modules
+# CSS Modules
 
 ## Composition vs closed component APIs
 
@@ -9,14 +9,15 @@
 ```tsx
 <ul>
 	<li>This list</li>
-	<li>Exemplifies <a href="https://talend.com">composition</a></li>
+	<li>
+		Exemplifies <a href="https://talend.com">composition</a>
+	</li>
 </ul>
-
 ```
 
 The combination of `ul`, `li` and `a` gives us an unordered list with one of its items containing a hyperlink anchor. This is familiar, flexible and commonplace.
 
-A **closed component API model** does not rely on consumers performing the composition, but on them using  input / output parameters to achieve the same result. For instance:
+A **closed component API model** does not rely on consumers performing the composition, but on them using input / output parameters to achieve the same result. For instance:
 
 ```tsx
 <ExampleList
@@ -58,7 +59,9 @@ It's flexible and agnostic. You can do whatever you want with it.
 This won't break your app.
 
 ```tsx
-<a href="#" onClick={() => performSomePageAction()}>I'm a button, LOL</a>
+<a href="#" onClick={() => performSomePageAction()}>
+	I'm a button, LOL
+</a>
 ```
 
 This would also work, despite being semantically wrong and an accessibility faux-pas.
@@ -162,12 +165,11 @@ Closed component APIs can lead to poor developer experience.
 
 It boils down to one question: "what is the design system trying to achieve?". It's trying to achieve a _cohesive, homogenous experience across all our products_.
 
-
 ## Solutions
 
 In order to meet those needs, we need to ship components without opening them up for customization. They must work out of the box and preserve Talend's identity!
 
-Our best option to deliver this is to **rely on *exporting* components with closed APIs** for most things (more on that later)**.** Internally, those components will of course rely on composition. Think of it this way: the design system uses the bricks to build the house, you only have to "import" the house and provide the furniture.
+Our best option to deliver this is to **rely on _exporting_ components with closed APIs** for most things (more on that later)**.** Internally, those components will of course rely on composition. Think of it this way: the design system uses the bricks to build the house, you only have to "import" the house and provide the furniture.
 
 What do we mean when we say "most things" will be shipped with closed APIs? Let's dive in.
 
@@ -179,7 +181,7 @@ These will offer props that are based on their HTML counterparts minus `classNam
 
 Additional props will be added only when it's necessary to ensure homogeneity. For instance, `Button` components may receive an `icon` prop: this enables the design system to enforce which icons can be used, how they are inserted in the button's layout and how they are displayed. Atoms must remain otherwise simple.
 
-Composition *inside* atoms is highly unlikely. Expect them to only accept `string` children (thanks, TS!).
+Composition _inside_ atoms is highly unlikely. Expect them to only accept `string` children (thanks, TS!).
 
 ### Molecules and organisms
 
