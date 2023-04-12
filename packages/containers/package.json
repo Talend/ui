@@ -15,7 +15,8 @@
     "test:cov": "talend-scripts test --coverage",
     "test:demo": "talend-scripts build-storybook --quiet",
     "lint": "talend-scripts lint",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js'"
+    "extract-i18n": "babel --config-file ./.babelrc.i18next.js  'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
+    "extract-i18n-prev": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js' '!src/**/*.stories.js' && node ../../order-json.js i18n/prev-tui-containers.json"
   },
   "keywords": [
     "react",

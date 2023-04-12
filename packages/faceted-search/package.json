@@ -16,7 +16,8 @@
     "test:demo": "talend-scripts build-storybook --quiet --docs",
     "lint": "talend-scripts lint ./src/**/*.js ./stories/**/*.js ./.storybook/**/*.js",
     "start": "talend-scripts start-storybook -p 6006",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js"
+    "extract-i18n": "babel --config-file ./.babelrc.i18next.js  'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
+    "extract-i18n-prev": "i18next-scanner --config i18next-scanner.config.js  && node ../../order-json.js i18n-extract/prev-tui-faceted-search.json"
   },
   "keywords": [
     "react",

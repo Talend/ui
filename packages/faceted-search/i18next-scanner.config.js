@@ -10,7 +10,7 @@ module.exports = {
 		defaultNs: 'tui-faceted-search',
 		defaultValue: '__STRING_NOT_TRANSLATED__',
 		resource: {
-			savePath: 'i18n-extract/{{ns}}.json',
+			savePath: 'i18n-extract/prev-{{ns}}.json',
 		},
 	},
 };

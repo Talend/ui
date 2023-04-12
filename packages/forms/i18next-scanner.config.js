@@ -14,7 +14,7 @@ module.exports = {
 		defaultNs: 'tui-forms',
 		defaultValue: '__STRING_NOT_TRANSLATED__',
 		resource: {
-			savePath: 'i18n/{{ns}}.json',
+			savePath: 'i18n/prev-{{ns}}.json',
 		},
 	},
 	// Be careful when providing custom arguments: <Trans> detection will break if you don't provide tsConfig: target: es2018

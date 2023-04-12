@@ -9,7 +9,7 @@ module.exports = {
 		defaultNs: 'tui-containers',
 		defaultValue: '__STRING_NOT_TRANSLATED__',
 		resource: {
-			savePath: 'i18n/{{ns}}.json',
+			savePath: 'i18n/prev-{{ns}}.json',
 		},
 	},
 };
