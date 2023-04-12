@@ -1,10 +1,9 @@
-import addDays from 'date-fns/add_days';
+import { date } from '@talend/utils';
 import chunk from 'lodash/chunk';
 import addMonths from 'date-fns/add_months';
 import format from 'date-fns/format';
 import getYear from 'date-fns/get_year';
 import setDay from 'date-fns/set_day';
-import startOfWeek from 'date-fns/start_of_week';
 import memoize from 'lodash/memoize';
 import getLocale from '../i18n/DateFnsLocale/locale';
 import getDefaultT from '../translate';
@@ -30,20 +29,7 @@ export function buildDayNames(firstDayOfweek = 1, t) {
 		}));
 }
 
-/**
- * Generate the set of weeks for a specific month
- */
-export function buildWeeks(year, monthIndex, firstDayOfWeek = 1) {
-	const firstDateOfMonth = new Date(year, monthIndex);
-	const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
-		weekStartsOn: firstDayOfWeek,
-	});
-
-	const dates = new Array(7 * 6).fill(0).map((_, i) => addDays(firstDateOfCalendar, i));
-
-	return chunk(dates, 7);
-}
-
+export const buildWeeks = date.buildWeeks;
 /**
  * Generate th sets of months, each set has the size of provided "chunkSize"
  */

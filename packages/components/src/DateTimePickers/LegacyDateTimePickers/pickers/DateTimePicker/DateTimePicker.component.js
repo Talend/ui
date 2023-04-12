@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import theme from './DateTimePicker.module.scss';
 import DateTimeView from '../../views/DateTimeView';
 import MonthYearView from '../../views/MonthYearView';
-import { focusOnCalendar } from '../../../../Gesture/withCalendarGesture';
+import { focus } from '@talend/react-a11y';
 import Action from '../../../../Actions/Action/Action.component';
 import getDefaultT from '../../../../translate';
 
@@ -135,7 +135,7 @@ class DateTimePicker extends Component {
 
 	setView(isDateTimeView) {
 		this.setState({ isDateTimeView }, () => {
-			focusOnCalendar(this.pickerRef);
+			focus.focusOnCalendar(this.pickerRef);
 		});
 	}
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { MouseEvent } from 'react';
 
 import { EnrichedQualityType, QualityBarPercentages, QualityCommonProps } from './QualityBar.types';
 import { QualityBarRatioBars } from './QualityBarRatioBars.component';
@@ -9,7 +9,7 @@ export type QualityBarProps = QualityCommonProps & {
 	placeholder?: number;
 	digits?: number;
 	split?: boolean;
-	onClick?: (e: React.MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
+	onClick?: (e: MouseEvent<HTMLElement>, data: { type: EnrichedQualityType }) => void;
 	getDataFeature?: (type: string) => string;
 };
 
