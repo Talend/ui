@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import theme from './CalendarPicker.module.scss';
 import DateView from '../../views/DateView';
 import MonthYearView from '../../views/MonthYearView';
-import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
+import { focus } from '@talend/react-a11y';
 import Action from '../../../Actions/Action/Action.component';
 import getDefaultT from '../../../translate';
 
@@ -122,7 +122,7 @@ class CalendarPicker extends Component {
 
 	setView(isDateView) {
 		this.setState({ isDateView }, () => {
-			focusOnCalendar(this.pickerRef);
+			focus.focusOnCalendar(this.pickerRef);
 		});
 	}
 

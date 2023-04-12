@@ -1,8 +1,8 @@
-import * as React from 'react';
+import type { ReactNode } from 'react';
 import invariant from 'invariant';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function NodeType({ type, component }: { type: string; component: React.ReactNode }) {
+function NodeType({ type, component }: { type: string; component: ReactNode }) {
 	invariant(
 		false,
 		'<NodeType> elements are for DataFlow configuration only and should not be rendered',

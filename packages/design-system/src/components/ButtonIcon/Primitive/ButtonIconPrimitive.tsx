@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes, forwardRef, ReactElement, Ref } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
+import type { MouseEvent, ReactElement, ButtonHTMLAttributes, Ref } from 'react';
+
 import classnames from 'classnames';
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
@@ -21,7 +22,7 @@ type CommonTypes<S extends Partial<AvailableSizes>> = Omit<
 > & {
 	children: string;
 	isLoading?: boolean;
-	onClick: (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
+	onClick: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent) => void;
 	tooltipPlacement?: TooltipPlacement;
 	size?: S;
 	icon: ReactElement | IconNameWithSize<S extends 'XS' ? 'S' : 'M'> | DeprecatedIconNames;

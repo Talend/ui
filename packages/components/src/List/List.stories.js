@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import * as React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import cloneDeep from 'lodash/cloneDeep';
@@ -579,9 +578,9 @@ const itemsForListWithIcons = [
 ];
 
 const ListTemplate = args => {
-	const [propsMemo, setState] = React.useState(args.listProps);
+	const [propsMemo, setState] = useState(args.listProps);
 	const { patch, listProps } = args;
-	React.useEffect(() => {
+	useEffect(() => {
 		if (patch && listProps) {
 			setState(patch(listProps));
 		}
