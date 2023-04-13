@@ -53,9 +53,10 @@ export function getDisplayedItems(items, value, searchCriteria) {
  * @param {Function} callbacks.onExpandToggle
  * @param {Function} callbacks.onParentChange
  * @param {Function} callbacks.onCheck
+ * @param {Object} value
  * @returns {Array}
  */
-export function prepareItemsFromSchema(schema, callbacks) {
+export function prepareItemsFromSchema(schema, callbacks, value) {
 	const { onExpandToggle, onParentChange, onCheck } = callbacks;
 
 	return schema.items.map(item => {
@@ -63,7 +64,7 @@ export function prepareItemsFromSchema(schema, callbacks) {
 
 		return {
 			label: item.title,
-			expanded: false,
+			expanded: (value[key]?.length > 0 && value[key]?.length !== item.titleMap.length) || false,
 			key,
 			onExpandToggle,
 			onChange: onParentChange,

@@ -1,5 +1,13 @@
 # @talend/scripts-core
 
+## 13.1.3
+
+### Patch Changes
+
+- Updated dependencies [cf697de02]
+  - @talend/scripts-config-babel@13.0.0
+  - @talend/scripts-config-jest@12.1.2
+
 ## 13.1.2
 
 ### Patch Changes

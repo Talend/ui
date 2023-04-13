@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.8.8
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- Updated dependencies [cf697de02]
+- Updated dependencies [708589ad4]
+  - @talend/react-components@10.2.3
+
 ## 2.8.7
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import * as React from 'react';
+import { Component as RComponent } from 'react';
 import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
@@ -71,7 +71,7 @@ export function editWrapper(prevState, data) {
 	return prevState;
 }
 
-class ObjectViewer extends React.Component {
+class ObjectViewer extends RComponent {
 	static displayName = 'CMFContainer(ObjectViewer)';
 
 	static propTypes = {
