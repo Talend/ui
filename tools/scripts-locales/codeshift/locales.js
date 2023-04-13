@@ -124,19 +124,17 @@ function getLocales(ref) {
 	return en;
 }
 
-export default function transformer(fileInfo, api, options) {
+export default function transformer(fileInfo, api, { ref, comp = 'all' }) {
 	try {
-		const en = getLocales(options.ref);
+		const en = getLocales(ref);
 		const j = api.jscodeshift;
-		options.comp = options.comp === 'all' ? ['i18n', 'trans'] : options.comp;
+		comp = comp === 'all' ? ['i18n', 'trans'] : comp;
 
-		let result = j(fileInfo.source);
-		if (result && options.comp.includes('i18n')) {
-			// eslint-disable-next-line no-console
+		let result = j(fileInfo.source) || [];
+		if (comp.includes('i18n')) {
 			result = searchAndUpdateI18nValues(j, result, en);
 		}
-		if (result && options.comp.includes('trans')) {
-			// eslint-disable-next-line no-console
+		if (comp.includes('trans')) {
 			result = searchAllTransComponents(j, result, en);
 		}
 		// options: https://github.com/benjamn/recast/blob/master/lib/options.ts
