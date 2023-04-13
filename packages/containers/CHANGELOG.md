@@ -1,5 +1,16 @@
 # @talend/react-containers
 
+## 9.0.3
+
+### Patch Changes
+
+- cf697de02: chore: clean React imports to only used properties
+- Updated dependencies [cf697de02]
+- Updated dependencies [321bd07d7]
+- Updated dependencies [708589ad4]
+  - @talend/react-components@10.2.3
+  - @talend/react-forms@9.1.0
+
 ## 9.0.2
 
 ### Patch Changes
