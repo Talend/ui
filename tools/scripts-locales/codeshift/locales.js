@@ -124,13 +124,17 @@ function getLocales(ref) {
 	return en;
 }
 
-export default function transformer(fileInfo, api, options) {
+export default function transformer(fileInfo, api, { ref, comp = 'all' }) {
 	try {
-		const en = getLocales(options.ref);
+		const en = getLocales(ref);
 		const j = api.jscodeshift;
-		const root = j(fileInfo.source);
-		let result = searchAndUpdateI18nValues(j, root, en);
-		if (result) {
+		comp = comp === 'all' ? ['i18n', 'trans'] : comp;
+
+		let result = j(fileInfo.source) || [];
+		if (comp.includes('i18n')) {
+			result = searchAndUpdateI18nValues(j, result, en);
+		}
+		if (comp.includes('trans')) {
 			result = searchAllTransComponents(j, result, en);
 		}
 		// options: https://github.com/benjamn/recast/blob/master/lib/options.ts
@@ -139,7 +143,3 @@ export default function transformer(fileInfo, api, options) {
 		console.error(e.message);
 	}
 }
-
-// Use --ref to indicate the translation source.
-// jscodeshift --ref ./locales -t ./localesCodeshift.js ./assets
-// jscodeshift --ref ../../../platform-services-portal/node_modules/@talend/locales-tpsvc-portal/locales/en -t ./localesCodeshift.js ../../../platform-services-portal/src
