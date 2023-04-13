@@ -102,51 +102,53 @@ export const Tertiary = TertiaryTemplate.bind({});
 Tertiary.argTypes = commonArgTypes;
 
 export const PrimaryVariations = () => (
-	<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
-		<StackVertical gap="S" justify="start" align="center">
-			<h3>Default</h3>
-			<ButtonPrimary onClick={action('Clicked')}>Primary M</ButtonPrimary>
-			<ButtonPrimary onClick={action('Clicked')} size="S">
-				Primary S
-			</ButtonPrimary>
-		</StackVertical>
-		<StackVertical gap="S" justify="start" align="center">
-			<h3>With icon</h3>
-			<ButtonPrimary icon="upload" onClick={action('Clicked')}>
-				Primary M
-			</ButtonPrimary>
-			<ButtonPrimary onClick={action('Clicked')} size="S" icon="upload">
-				Primary S
-			</ButtonPrimary>
-		</StackVertical>
-		<StackVertical gap="S" justify="start" align="center">
-			<h3>With dropdown indicator</h3>
-			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')}>
-				Primary M
-			</ButtonPrimary>
-			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S">
-				Primary S
-			</ButtonPrimary>
-		</StackVertical>
-		<StackVertical gap="S" justify="start" align="center">
-			<h3>Disabled</h3>
-			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} disabled>
-				Primary M
-			</ButtonPrimary>
-			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S" disabled>
-				Primary S
-			</ButtonPrimary>
-		</StackVertical>
-		<StackVertical gap="S" justify="start" align="center">
-			<h3>Loading</h3>
-			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} isLoading>
-				Primary M
-			</ButtonPrimary>
-			<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S" isLoading>
-				Primary S
-			</ButtonPrimary>
-		</StackVertical>
-	</StackHorizontal>
+	<div style={{ width: '100px' }}>
+		<StackHorizontal gap="S" justify="spaceBetween" align="stretch">
+			<StackVertical gap="S" justify="start" align="center">
+				<h3>Default</h3>
+				<ButtonPrimary onClick={action('Clicked')}>Primary M</ButtonPrimary>
+				<ButtonPrimary onClick={action('Clicked')} size="S">
+					Primary Small
+				</ButtonPrimary>
+			</StackVertical>
+			<StackVertical gap="S" justify="start" align="center">
+				<h3>With icon</h3>
+				<ButtonPrimary icon="upload" onClick={action('Clicked')}>
+					Primary M
+				</ButtonPrimary>
+				<ButtonPrimary onClick={action('Clicked')} size="S" icon="upload">
+					Primary Small
+				</ButtonPrimary>
+			</StackVertical>
+			<StackVertical gap="S" justify="start" align="center">
+				<h3>With dropdown indicator</h3>
+				<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')}>
+					Primary M
+				</ButtonPrimary>
+				<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S">
+					Primary Small
+				</ButtonPrimary>
+			</StackVertical>
+			<StackVertical gap="S" justify="start" align="center">
+				<h3>Disabled</h3>
+				<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} disabled>
+					Primary M
+				</ButtonPrimary>
+				<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S" disabled>
+					Primary Small
+				</ButtonPrimary>
+			</StackVertical>
+			<StackVertical gap="S" justify="start" align="center">
+				<h3>Loading</h3>
+				<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} isLoading>
+					Primary M
+				</ButtonPrimary>
+				<ButtonPrimary icon="upload" isDropdown onClick={action('Clicked')} size="S" isLoading>
+					Primary Small
+				</ButtonPrimary>
+			</StackVertical>
+		</StackHorizontal>
+	</div>
 );
 
 export const DestructiveVariations = () => (
