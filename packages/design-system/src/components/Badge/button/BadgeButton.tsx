@@ -1,9 +1,11 @@
 import { forwardRef, Ref } from 'react';
 
 import classnames from 'classnames';
-import styles from './BadgeButton.module.scss';
-import Clickable from '../../Clickable';
 import { DataAttributes } from 'src/types';
+
+import Clickable from '../../Clickable';
+
+import styles from './BadgeButton.module.scss';
 
 type BadgeButtonProps = {
 	/**

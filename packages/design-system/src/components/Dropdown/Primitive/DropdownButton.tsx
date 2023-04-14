@@ -1,5 +1,6 @@
 import { forwardRef, Ref } from 'react';
 import { MenuItem, MenuItemProps } from 'reakit';
+
 // eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 

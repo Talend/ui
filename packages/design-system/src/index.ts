@@ -1,4 +1,4 @@
-import { Badge, BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
+import { BadgeValue, BadgeTag, BadgeDropdown, BadgePopover } from './components/Badge';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 import {
 	Button,
@@ -15,10 +15,7 @@ import {
 	ButtonTertiaryAsLink,
 } from './components/ButtonAsLink';
 import { ButtonIcon, ButtonIconFloating, ButtonIconToggle } from './components/ButtonIcon';
-import Card from './components/WIP/Card';
-import Combobox from './components/WIP/Combobox';
 import Divider from './components/Divider';
-import { FloatingDrawer } from './components/WIP/Drawer';
 import Dropdown from './components/Dropdown';
 import EmptyState, {
 	EmptyStateLarge,
@@ -53,7 +50,6 @@ import {
 	MessageCollectionWarning,
 } from './components/Message';
 import Modal from './components/Modal';
-import Popover from './components/WIP/Popover';
 import Skeleton, {
 	SkeletonButton,
 	SkeletonButtonIcon,
@@ -71,8 +67,6 @@ import {
 } from './components/Status';
 import Stepper from './components/Stepper';
 import Switch from './components/Switch';
-import { Tabs, TabsAsLinkList, TabsKit } from './components/WIP/Tabs';
-import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
 import {
 	Tag,
 	TagBeta,
@@ -86,6 +80,12 @@ import {
 import ThemeProvider from './components/ThemeProvider';
 import Tooltip, { TooltipPlacement } from './components/Tooltip';
 import VisuallyHidden from './components/VisuallyHidden';
+import { Accordion, CollapsiblePanel } from './components/WIP/Accordion';
+import Card from './components/WIP/Card';
+import Combobox from './components/WIP/Combobox';
+import { FloatingDrawer } from './components/WIP/Drawer';
+import Popover from './components/WIP/Popover';
+import { Tabs, TabsAsLinkList, TabsKit } from './components/WIP/Tabs';
 
 export * from './components/Stack';
 export * from './themes';
@@ -94,7 +94,6 @@ export {
 	AffixButton,
 	AffixReadOnly,
 	AffixSelect,
-	Badge,
 	BadgeValue,
 	BadgeTag,
 	BadgeDropdown,

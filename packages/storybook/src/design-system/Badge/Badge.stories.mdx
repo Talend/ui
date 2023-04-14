@@ -1,5 +1,6 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs';
 import { FigmaImage, FigmaLink, Use } from '~docs';
+
 import * as Stories from './Badge.stories';
 
 <Meta
@@ -8,6 +9,7 @@ import * as Stories from './Badge.stories';
 		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'wip' },
 		figmaLink: 'https://www.figma.com/file/3YWRmMgPIjAABxJl9X9B3W/Badge',
 	}}
+	anchor
 />
 
 # Badge
@@ -35,6 +37,12 @@ A wonderful Badge
 <Canvas isColumn>
 	<Story story={Stories.StoryBadgeValue} />
 </Canvas>
+
+<Canvas isColumn>
+	<Story story={Stories.StoryBadgeValueTemplateStory} name="BadgeStory" />
+</Canvas>
+
+<ArgsTable story="BadgeStory" />
 
 #### BadgeTag
 

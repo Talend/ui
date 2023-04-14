@@ -26,7 +26,8 @@ context('<Badge />', () => {
 	});
 
 	it('should render BadgeDropdown', () => {
-		cy.mount(<BadgeDropdown label={label} selectedId="2" value={items} />);
+		const onChange = () => {};
+		cy.mount(<BadgeDropdown onChange={onChange} label={label} selectedId="2" value={items} />);
 
 		cy.findByTestId('badge-label').should('have.text', label);
 		cy.findByTestId('badge-divider');
