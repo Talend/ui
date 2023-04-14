@@ -1,4 +1,4 @@
-#  CSS Modules
+# CSS Modules
 
 [^1]: tl;dr.
 
@@ -18,21 +18,21 @@ You must precise the `displayName` for each component and their variations
 
 ### What do we need
 
-* A styling solution that does not pollute the components' typing  
-* A styling solution that handles theming (white-labeling as much as a possible dark theme)  
-* A styling solution that easily exploits tokens and variables  
-* We must be able consume variables that represent tokens
+- A styling solution that does not pollute the components' typing
+- A styling solution that handles theming (white-labeling as much as a possible dark theme)
+- A styling solution that easily exploits tokens and variables
+- We must be able consume variables that represent tokens
 
 ### What would we like
 
-* Exportable themes-as-variables: our customers (the front-end engineers) mostly use CSS modules with Sass variables in their projects. When the design system doesn't provide everything they need, we should still give them variables accessing the theme.
-* Global stylesheets
-* Something simple and familiar to use
-* No need for displayName
+- Exportable themes-as-variables: our customers (the front-end engineers) mostly use CSS modules with Sass variables in their projects. When the design system doesn't provide everything they need, we should still give them variables accessing the theme.
+- Global stylesheets
+- Something simple and familiar to use
+- No need for displayName
 
 ## Solutions
 
 By introducing [expertly crafted web design tokens](#3528), represented by CSS custom properties, we are now able to align the Design System with the rest of the Talend/UI packages.  
 By alignment, we are talking about [CSS Modules](https://github.com/css-modules/css-modules).  
 We will replace all current Styled Components usages, tracked by JIRA.  
-But, starting now[^1], any style update in the Design System package will use CSS modules.  
+But, starting now[^1], any style update in the Design System package will use CSS modules.
